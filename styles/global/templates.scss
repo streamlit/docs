@@ -1,0 +1,18 @@
+.template-expanded-wide {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 5em;
+    
+    @media (max-width:1024px) {
+        grid-template-columns: 100%;
+    }
+}
+.template-standard {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 5em;
+    
+    @media (max-width:1024px) {
+        grid-template-columns: 100%;
+    }
+}

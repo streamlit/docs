@@ -1,0 +1,27 @@
+.block-quick-link {
+    display:inline-flex;
+    align-items: center;
+    cursor:pointer;
+    transition:$fast;
+    margin-bottom:.5em;
+    &::before {
+        display: block; 
+        content: " "; 
+        margin-top: -$header-height; 
+        height: $header-height; 
+        visibility: hidden; 
+        pointer-events: none;
+    }
+    svg {
+        margin-left:.5em;
+        width: 2em;
+        opacity: 0;
+        transition: $normal;
+    }
+    &:hover {
+        opacity: .9;
+        svg {
+            opacity: 1;
+        }
+    }
+}

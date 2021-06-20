@@ -1,0 +1,9 @@
+.block-news-entry-container {
+    margin-bottom:3em;
+    
+    >.block-news-entry:nth-last-of-type(1) {
+        border:0;
+        padding-bottom: 0;
+        margin-bottom: 2em;
+    }
+}

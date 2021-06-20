@@ -1,0 +1,15 @@
+.breadcrumbs {
+    list-style: none;
+    display: inline-flex;
+    width: 100%;
+    margin-bottom: 1em;
+    li {
+        a {
+            text-transform: capitalize;
+            span {
+                margin-right: .5em;
+                margin-left: .25em;
+            }
+        }
+    }
+}

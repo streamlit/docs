@@ -1,0 +1,46 @@
+.table-parent {
+    width:100%;
+    overflow: scroll;
+
+    table {
+        border:1px solid $gray-40;
+        border-radius: $rounded-small;
+        text-align: left;
+        border-spacing: 0;
+        margin-bottom:2em;
+    
+        thead {
+            .title {
+                border-top-left-radius: calc(#{$rounded-small} - 1px);
+                border-top-right-radius: calc(#{$rounded-small} - 1px);
+            }
+        }
+    
+        tbody {
+            tr:last-child {
+                
+                td:first-child {
+                    border-bottom-left-radius: calc(#{$rounded-small} - 1px);
+                }
+    
+                td:last-child {
+                    border-bottom-right-radius: calc(#{$rounded-small} - 1px);
+                }
+            }
+        }
+        
+        th,td {
+            padding:1em;
+            border:1px solid $gray-40;
+        }
+    
+        .title {
+            font-family: $inter;
+            font-style: normal;
+            font-size: 1em;
+            line-height: 1.5;
+            letter-spacing: -0.02em;
+        }
+        
+    }
+}
