@@ -1,0 +1,45 @@
+.block-arrow-link-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top:5em;
+    .not-link {
+        svg {
+            position: absolute;
+            top:50%;
+            transform: translateY(-50%);
+            transition: $normal;
+        }
+    }
+    .back {
+        margin-right: auto;
+        padding-left:1.25em;
+        
+        svg {
+            left: 0;
+        }
+
+        &:hover {
+            svg {
+                left: -.25em;
+                transform: translateY(-50%) scale(1.1);
+
+            }
+        }
+    }
+    .next {
+        margin-left: auto;
+        padding-right:1.25em;
+        
+        svg {
+            right: 0;
+        }
+
+        &:hover {
+            svg {
+                right: -.25em;
+                transform: translateY(-50%) scale(1.1);
+
+            }
+        }
+    }
+}

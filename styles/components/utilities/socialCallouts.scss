@@ -1,0 +1,64 @@
+.block-social-callouts {
+        
+    h2 {
+        margin-bottom: .5em;
+    }
+    
+    .social-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 2em;
+        column-gap: 3em;
+        
+        @media (max-width:1024px) {
+            grid-template-columns: 1fr;
+        }
+
+        .social {
+            display: flex;
+            align-items: center;
+
+            a {
+                display: flex;
+                align-items: center;
+                padding: 1em;
+                margin-right: 1em;
+                margin-bottom: 0;
+                border-radius: $rounded-small;
+                
+                svg {
+                    width: 2em;
+                    height: 2em;
+                    path {
+                        fill:$white;
+                    }
+                }
+            }
+        }
+        .you-tube {
+            a {
+                background: $you-tube;
+            }
+        }
+
+        .twitter {
+            a {
+                background: $twitter;
+            }
+        }
+
+        .git-hub {
+            a {
+                background: $git-hub;
+            }
+        }
+
+        .instagram {
+            a {
+                background: $instagram-gradient;
+                // background: #f09433;
+                // background: linear-gradient(130deg, rgb(240, 148, 51) 0%, rgb(230, 104, 60) 25%, rgb(220, 39, 67) 50%, rgb(204, 35, 102) 75%, rgb(188, 24, 136) 100%)
+            }
+        }
+    }
+}

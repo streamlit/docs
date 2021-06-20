@@ -1,0 +1,99 @@
+header {
+    position:sticky;
+    width:100vw;
+    top:0;
+    height:$header-height;
+    z-index: 10;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        height:$header-height;
+        transition:$normal;
+        
+        &:before {
+            content:'';
+            position: absolute;
+            height:calc(100% + 2px);
+            width:100vw;
+            opacity: 0;
+            top:-2px;
+            left: 50%;
+            transform: translate(-50%);
+            transition:$normal;
+        }
+
+        .toggleTheme {
+            position: relative;
+            height:2rem;
+            width:2rem;
+            margin-bottom: 0;
+            z-index: 3;
+            
+            i {
+                transition: $fast;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 1.5em;
+            }
+        }
+        .toggle-mobile {
+            position: relative;
+            height:2rem;
+            width:2rem;
+            margin-bottom: 0;
+            border-radius: $rounded-small;
+            
+            i {
+                transition: $fast;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 1.5em;
+            }
+        }
+        
+        &.sticky {
+            height: calc(#{$header-height} / 2);
+            &:before {
+                opacity: 1;
+            }
+        }
+
+        .brand {
+            display:flex;
+            align-items: center;
+            margin:0;
+            z-index: 3;
+
+            h4 {
+                font-weight: 500;
+            }
+
+            img {
+                margin-right:1em;
+            }
+        }
+
+        .options {
+            z-index: 2;
+            display:flex;
+            align-items: center;
+            gap: 1.5em;
+        }
+    }
+    @media(max-width:1024px) {
+        .container {
+            .brand {
+                h4 {
+                    display: none;
+                }
+            }
+        }
+    }
+}

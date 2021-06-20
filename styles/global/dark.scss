@@ -1,0 +1,198 @@
+body[data-theme="dark-mode"] {
+    background: $off-black;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    a,
+    li,
+    i {
+        color: $white;
+    }
+    .inline_code {
+        color: $yellow-60;
+        border-color: $gray-70;
+    }
+    header {
+        .container {
+            &:before {
+                background: $off-black;
+                border-bottom: 1px solid $gray-80;
+            }
+            .toggleTheme {
+                background: $gray-90;
+                
+                .light {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(0);
+                }
+                .dark  {
+                    color: $white;
+                }
+            }
+            .toggle-mobile {
+                background: $gray-90;
+                i {
+                    color: $white;
+                }
+            }
+            .mobile {
+                background: $off-black;
+            }
+        }
+    }
+    .block-search {
+        .hot-key {
+            color: $white;
+            background: $gray-90;
+        }
+        .algolia {
+            button {
+                color: $white;
+            }
+            .content {
+                background: $gray-90;
+                .ais-SearchBox {
+                    background: $gray-90;
+                    &:before {
+                        background: $gray-90;
+                    }
+                }
+                .ais-SearchBox-form {
+                    input {
+                        border-color: $gray-80;
+                        color: $white;
+                        &::placeholder {
+                            color: $gray-70;
+                        }
+                    }
+                    button {
+                        svg {
+                            path {
+                                fill: $white;
+                            }
+                        }
+                    }
+                }
+                .ais-Hits {
+                    .ais-Hits-list {
+                        li {
+                            .item {
+                                a {
+                                    border-bottom: 1px solid $gray-80;
+                                    .copy {
+                                        p {
+                                            color: $gray-70;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .block-theme-toggle {
+        select {
+            color: $white;
+            background: $gray-90;
+        }
+        &:after {
+            color: $gray-70;
+        }
+    }
+    footer {
+        border-top: 1px solid $gray-80;
+    }
+    ol.tutorial {
+        li {
+            &::before {
+                color: $black;
+                background: $gray-10;
+            }
+        }
+    }
+    .block-image {
+        .block-note {
+            background: $gray-90;
+            color: white;
+        }
+        .light-box {
+            &:before {
+                background: $gray-90;
+            }
+            button {
+                color: $white;
+            }
+        }
+    }
+    table {
+        .head {
+            background: #002243;
+            color: $white;
+        }
+    }
+    .block-helpful {
+        .helpful {
+            button {
+                background: $gray-80;
+                i {
+                    color: $gray-90;
+                }
+            }
+        }
+        .improve {
+            label {
+                color: $white;
+            }
+        }
+    }
+    .block-news-entry {
+        border-color: $gray-90;
+    }
+    .block-forum-psa {
+        border-color: $gray-90;
+    }
+    .block-inline-callout {
+        border-color: $gray-90;
+    }
+    .block-side-nav {
+        .side-nav {
+            &.expanded {
+                .nav-item {
+                    .head {
+                        p {
+                            color: $gray-40 !important;
+                        }
+                    }
+                    .sub-nav {
+                        a {
+                            color: $gray-40;
+                        }
+                    }
+                }
+            }
+        }
+        #off-screen-nav {
+            background: $off-black;
+            .brand {
+                background: $off-black;
+                &:before {
+                    background: $off-black;
+                }
+            }
+            border-right: 1px solid $gray-80;
+        }
+    }
+    .breadcrumbs {
+        li {
+            a {
+                color:$gray-40;
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+.block-tiles {
+    display: grid;
+    grid-template-columns: repeat(6,  1fr);
+    gap: 1em;
+    margin-bottom: 3em;
+}

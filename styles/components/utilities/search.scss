@@ -1,0 +1,199 @@
+.block-search {
+    z-index: 4;
+    .hot-key {
+        display: flex;
+        align-items: center;
+        padding:0 1em;
+        border-radius: $rounded-small;
+        height:2rem;
+        cursor: pointer;
+
+        p, i {
+            margin:0;
+        }
+
+        i {
+            font-size: 1.25em;
+            transform: rotateY(180deg);
+            margin-right: .5em;
+            margin-top:-.1em;
+        }
+        .search-text {
+            margin-right:1em;
+        }
+        .command {
+            margin-left:2em;
+        }
+
+        &:hover {
+            p,i {
+                opacity:.7;
+            }
+        }
+    }
+    .algolia {
+        position: fixed;
+        height:100vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .background {
+            content:'';
+            position: absolute;
+            height:100vh;
+            width: 100vw;
+            z-index: -1;
+            background: $gray-60;
+            opacity: .6;
+        }
+
+        >button {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 3em;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+            content:'close';
+            position: absolute;
+            top:1rem;
+            right:1rem;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+
+            @media (max-width:1024px) {
+                top:-1em;
+                right:-1em;
+                font-size: 2em;
+            }
+
+            &:hover {
+                opacity: .5;
+                box-shadow: none;
+                transform: scale(.95);
+            }
+        }
+
+        .content {
+            width: 45vh;
+            padding: 2em;
+            border-radius: $rounded-small;
+            max-width: calc(80vw - 4em);
+            overflow: scroll;
+            max-height: calc(90vh - 4em);
+
+            .ais-SearchBox {
+                position: sticky;
+                top: 0;
+                z-index: 1;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    width:100%;
+                    height:calc(100% + 3em);
+                    top:-2em;
+                }
+            }
+
+            .ais-SearchBox-form {
+                position: relative;
+                margin-bottom:2em;
+
+                input {
+                    height:3em;
+                    width:100%;
+                    background:transparent;
+                    border: 1px solid;
+                    border-radius: $rounded-small;
+                    padding: 0 1em;
+                    padding-left: 2.5em;
+                }
+                #search-clear,input[type="search" i]::-webkit-search-cancel-button {
+                    opacity: 0;
+                }
+                
+                button {
+                    box-shadow: none;
+                    position: absolute;
+                    top:50%;
+                    left:0em;
+                    transform: translateY(-50%);
+                    background:transparent;
+                }
+                .ais-SearchBox-reset {
+                    right:0em;
+                    left:unset;
+                }
+            }
+            .ais-Hits {
+
+                .ais-Hits-list {
+                    list-style: none;
+                    padding: 0;
+
+                    li {
+                        .item {
+                            a {
+                                display:flex;
+                                gap:2em;
+                                margin-bottom: 1em;
+                                padding-bottom: 1em;
+                                border-bottom:1px solid;
+
+                                .image_container {
+                                    width:3em;
+                                    height:3em;
+                                    position: relative;
+                                    overflow: hidden;
+                                    background: $white;
+                                    padding: 1em;
+                                    border-radius: $rounded-small;
+
+                                    img {
+                                        object-fit: contain;
+                                        width:100%;
+                                        height:100%;
+                                    }
+                                }
+                                .copy {
+                                    width:calc(100% - 7em);
+
+                                    span {
+
+                                    }
+                                    h2 {
+        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .fade-enter-active, .fade-leave-active {
+        transition: $normal;
+    }
+    
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
+        .content, button {
+            transform: scale(.85);
+        }
+    }
+}

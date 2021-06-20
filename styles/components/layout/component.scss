@@ -1,0 +1,32 @@
+.container {
+    .block-component-container:first-child{
+        margin-top:0;
+        .label {
+            align-items: center;
+        }
+    }
+    .block-component-container {
+        display:flex;
+        margin:3em 0;
+
+        .label {
+            width:20%;
+            text-align:right;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            margin-right: 2em;
+
+            h1 {
+                font-family: "Inter", sans-serif;
+                font-style: normal;
+                font-size: 1em;
+                line-height: 1.5;
+                letter-spacing: -0.02em;
+            }
+        }
+        .comp {
+           width:calc(80% - 2em); 
+        }
+    }
+}

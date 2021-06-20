@@ -1,0 +1,106 @@
+footer {
+    margin-top: $header-height;
+    height: $header-height;
+    display: flex;
+    align-items: center;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        nav {
+            display: flex;
+            gap: 2em;
+        }
+        .social-media-icons {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+
+            .social-media-icon {
+                font-size:1em;
+                display: unset;
+            }
+            
+            a {
+                position: relative;
+                border-radius: 100%;
+                overflow: hidden;
+                transition:$normal;
+
+                svg {
+                    padding: .5em;
+                    height:1.5em;
+                    width:1.5em;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                &:before {
+                    border-radius: 100%;
+                    content:'';
+                    height:100%;
+                    width:100%;
+                    background:$gray-20;
+                    position: absolute;
+                    z-index: -1;
+                    opacity: 0;
+                    transform: scale(.5);
+                    transition:$normal;
+                }
+                &:hover {
+                    transform:scale(1.05);
+                    opacity: 1;
+                    
+                    &:before {
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+                }
+                &.you-tube:hover {
+                    svg {
+                        path {
+                            fill:$you-tube;
+                        }
+                    }
+                }
+                &.twitter:hover {
+                    svg {
+                        path {
+                            fill:$twitter;
+                        }
+                    }
+                }
+                &.git-hub:hover {
+                    svg {
+                        path {
+                            fill:$git-hub;
+                        }
+                    }
+                }
+                &.instagram:hover {
+                    svg {
+                        
+                        path {
+                            fill:url(#instagram-gradient);
+                        }
+                    }
+                }
+            }
+        }
+        .copyright {
+            color: $gray-60;
+        }
+    }
+
+    @media(max-width:1024px) {
+        
+        .container {
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+            padding: 2em 0;
+        }
+    }
+}
