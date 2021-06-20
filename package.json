@@ -18,5 +18,8 @@
     "react-responsive": "^8.2.0",
     "react-transition-group": "^4.4.2",
     "sass": "^1.34.1"
+  },
+  "devDependencies": {
+    "frontmatter-markdown-loader": "^3.6.2"
   }
 }
