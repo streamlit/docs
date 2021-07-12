@@ -3,6 +3,7 @@ import React, { Children, useEffect } from "react"
 import Prism from 'prismjs'
 import "prismjs/components/prism-jsx";
 import 'prismjs/components/prism-python'
+import 'prismjs/components/prism-toml'
 import 'prismjs/components/prism-bash'
 import 'prismjs/plugins/line-numbers/prism-line-numbers'
 import 'prismjs/plugins/line-highlight/prism-line-highlight'

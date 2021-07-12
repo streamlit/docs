@@ -1,0 +1,11 @@
+# Docker Compose version
+version: '3.3'
+services:
+  python:
+    build:
+      context: ../
+      dockerfile: python/Dockerfile
+    image: streamlit-docstring-generator:latest
+    command: tail -f /dev/null
+    volumes:
+      - ../python:/docs

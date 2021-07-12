@@ -1,3 +1,4 @@
+
 import fs from 'fs'
 import { join } from 'path'
 
@@ -6,7 +7,7 @@ import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import matter from 'gray-matter'
 
-import { getArticleSlugs, getArticleSlugFromString, articleDirectory } from '../lib/api';
+import { getArticleSlugs, getArticleSlugFromString, articleDirectory, pythonDirectory } from '../lib/api';
 import Layout from '../components/layouts/globalTemplate'
 import BreadCrumbs from '../components/utilities/breadCrumbs'
 import SideBar from '../components/navigation/sideNav'
@@ -19,6 +20,7 @@ import Note from '../components/blocks/noted'
 import Tip from '../components/blocks/tip'
 import Important from '../components/blocks/important'
 import YouTube from '../components/blocks/youTube'
+import Autofunction from '../components/blocks/autofunction'
 
 export default class Article extends React.Component {
     constructor(props) {
@@ -30,7 +32,8 @@ export default class Article extends React.Component {
             title: props.data.title,
             next_article: props.data.next,
             previous_article: props.data.previous,
-            source: props.source
+            source: props.source,
+            streamlit: props.streamlit
         };
     }
 
@@ -41,7 +44,7 @@ export default class Article extends React.Component {
     }
 
     render() {
-        const components = { Component, Note, Tip, Important, Code, YouTube, pre: (props) => <Code {...props} /> }
+        const components = { Component, Note, Tip, Important, Code, YouTube, Autofunction: (props) => <Autofunction {...props} streamlit={this.state.streamlit} />, pre: (props) => <Code {...props} /> }
         
         let breadCrumbsOnLoad;
         
@@ -66,6 +69,9 @@ export default class Article extends React.Component {
 export async function getStaticProps(context) {
     
     const props = {}
+    
+    const jsonContents = fs.readFileSync( join( pythonDirectory, 'streamlit.json' ) , 'utf8')
+    props['streamlit'] = jsonContents ? JSON.parse(jsonContents) : {}
     
     if ( 'slug' in context.params ) {
         // Get the last element of the array to find the MD file

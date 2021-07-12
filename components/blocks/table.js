@@ -1,4 +1,4 @@
-export default function Table({ children, head, body, rows }) {
+export default function Table({ children, head, body, rows, addtionalClass }) {
     function createMarkup(html) {
         return { __html: html };
     }
@@ -11,7 +11,7 @@ export default function Table({ children, head, body, rows }) {
     trees = createTress(rows);
     return (
         <section className="table-parent">
-            <table>
+            <table className={addtionalClass}>
                 <thead>
                     <tr className="head">
                         <th className="title bold" colSpan="2">{head.title}</th>
