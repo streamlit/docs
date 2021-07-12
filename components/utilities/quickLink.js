@@ -3,9 +3,11 @@ import React from "react";
 export default class QuickLink extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            cleanID: this.props.children.props.children.toLowerCase().replaceAll(' ', '-').replace(/[^a-zA-Z0-9-_]/g, '')
-        };
+        if ( this.props.children.props !== undefined && this.props.children.props.children !== undefined ) {
+            this.state = {
+                cleanID: ''
+            };
+        }
 
         this.copyLink = this.copyLink.bind(this);
         this.autoScroll = this.autoScroll.bind(this);
