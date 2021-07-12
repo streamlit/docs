@@ -1,10 +1,17 @@
 .block-code {
     position: relative !important;
-    
+    margin-bottom: 1.75em;
+
     .code-toolbar {
         position: relative;
 
     }
+
+    code[class*="language-"], pre[class*="language-"] {
+
+        word-break: break-word !important;
+    }
+
     pre.line-numbers {
         background: $gray-90;
         padding: 1em;
@@ -14,7 +21,7 @@
         border-radius: $rounded-small;
         white-space: pre-line; 
         position: relative;
-        padding-left: 3.8em;
+        padding: 1.5em 2em;
         counter-reset: linenumber;
         word-wrap: break-word;
     
@@ -59,6 +66,7 @@
 
         .line-numbers-rows {
             position: absolute;
+            display: none;
             pointer-events: none;
             top: 0;
             font-size: 100%;
@@ -103,8 +111,8 @@
 
     button {
         position: absolute;
-        top:0;
-        right:0;
+        top:8px;
+        right:8px;
         background: transparent;
         border: none;
         color: transparent;

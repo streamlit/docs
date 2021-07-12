@@ -3,9 +3,8 @@ import React from "react";
 export default class YouTube extends React.Component {
     render() {
         const props = this.props
-        let YouTubeBlock = (
-            <h1>Test</h1>
-        )
+        let YouTubeBlock;
+        
         if (props.caption) {
             YouTubeBlock = (
                 <section className="block-youtube">

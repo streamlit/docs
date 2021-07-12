@@ -26,6 +26,7 @@ h1 {
     font-size: 3em;
     line-height: 1.2;
     letter-spacing: -0.02em;
+    margin-bottom: .45em;    
 }
 
 h2 {
@@ -35,6 +36,8 @@ h2 {
     font-size: 2.25em;
     line-height: 1.4;
     letter-spacing: -0.02em;
+    margin-bottom: 1em;
+    margin-top: 1.5em;
 }
 
 h3 {
@@ -88,9 +91,47 @@ a {
     font-style: normal;
     font-weight: normal;
     font-size: 1em;
-    line-height: 1.5;
+    line-height: 1.75;
     letter-spacing: -0.02em;
-    margin-bottom: .5em;
+    margin-bottom: 1.5em;
+}
+
+ol, ul {
+    margin: 0 1.5em;
+    padding: 0;
+}
+
+p > code {
+    display: inline-block;
+    border: 1px solid;
+    color: $pink;
+    border-color: $gray-40;
+    border-radius: 5px;
+    padding: 0.1em 0.3em;
+    margin: 0 0.2em;
+}
+
+p a code {
+    border: none;
+    padding: 0;
+}
+
+li p:only-child {
+    margin-bottom: 0;
+}
+
+ol + p, ul + p {
+    margin-top: 2em;
+}
+
+ol + ul, ul + ol, ol + ol, ul + ul {
+    margin-top: 1em;
+}
+
+
+.no-b-m {
+    margin-top: 0.883em;
+    margin-bottom: 0.23em;
 }
 
 .small {

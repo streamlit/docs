@@ -2,7 +2,6 @@ import React, { Children, useEffect } from "react"
 
 import Prism from 'prismjs'
 import "prismjs/components/prism-jsx";
-// import 'prismjs/themes/prism.css'
 import 'prismjs/components/prism-python'
 import 'prismjs/components/prism-bash'
 import 'prismjs/plugins/line-numbers/prism-line-numbers'
@@ -15,9 +14,9 @@ import Image from "./image";
 
 export default class Code extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
-            sticky: false
+            sticky: false,
         };
     }
     componentDidMount() {
@@ -26,25 +25,40 @@ export default class Code extends React.Component {
 
 
     render() {
-        const props = this.props;
-        let ConditionalRendering;
-        if (props.img) {
+        
+        const props = this.props
+        
+        let ConditionalRendering
+        let code = props.code !== undefined ? props.code : props.children
+        let languageClass = `language-${props.language}`
+
+        if ( props.children !== undefined && props.children.props !== undefined ) {
+            code = props.children.props.children
+            languageClass = props.children.props.className
+        }
+        
+        if (props.img) 
+        {
             ConditionalRendering = (
                 <section className="block-code">
                     <Image src={props.img} clean={true} />
-                    <pre><code className={`language-${props.language} line-numbers`}>{props.code}</code></pre>
+                    <pre><code className={`${languageClass} line-numbers`}>{code}</code></pre>
                 </section>
             )
-        } else if (props.lines) {
+        } 
+        else if (props.lines) 
+        {
             ConditionalRendering = (
                 <section className="block-code line-highlight">
-                    <pre data-line={props.lines}><code className={`language-${props.language} line-numbers`}>{props.code}</code></pre>
+                    <pre data-line={props.lines}><code className={`${languageClass} line-numbers`}>{code}</code></pre>
                 </section>
             )
-        } else {
+        } 
+        else 
+        {
             ConditionalRendering = (
                 <section className="block-code">
-                    <pre><code className={`language-${props.language} line-numbers`}>{props.code}</code></pre>
+                    <pre><code className={`${languageClass} line-numbers`}>{code}</code></pre>
                 </section>
             )
         }
