@@ -117,7 +117,7 @@ ls -l myscript.sh`} />
                         <Code language="bash" code={`$ streamlit run
 https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py`} />
                     </Note>
-                </Component>
+                </Component> 
                 <Component label="Note Block (Important)">
                     <Note background="orange-10" color="gray-90" dark={{ background: 'dark-orange', color: 'white' }}>
                         <IconHeader icon="priority_high" rotate="0" title="Important" background="orange-70" color="white" />

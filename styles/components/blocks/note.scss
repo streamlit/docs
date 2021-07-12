@@ -1,11 +1,22 @@
 .block-note {
-    width: calc(100% + 4em);
+    width: calc(100%);
     padding: 2em;
-    margin-left: -2em;
     border-radius: $rounded-small;
+    margin: 2em 0 3em -2em;
 
     a,p,li,h1,h2,h3,h4,h5,h6 {
         color: unset !important;
+    }
+
+    p:only-child, p:last-child {
+        margin-bottom: 0;
+    }
+
+    .block-code:last-child {
+        margin-bottom: 0;
+        pre {
+            margin-bottom: 0;
+        }
     }
 
     @media(max-width:1024px) {

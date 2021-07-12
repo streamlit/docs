@@ -91,12 +91,6 @@ export default class BreadCrumbs extends React.Component {
 
 
     render() {
-        let test;
-        // console.log(this.state.breadcrumbs)
-        if (!this.state.loading) {
-            console.log(this.state.breadcrumbs)
-            test = <h6>Testing</h6>
-        }
         return (
             <nav className="breadcrumbs">
                 {this.state.breadcrumbs.map((crumb, index) => (

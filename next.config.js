@@ -1,12 +1,17 @@
+const fs = require('fs');
+
 module.exports = {
-    webpack: (cfg) => {
-        cfg.module.rules.push(
-            {
-                test: /\.md$/,
-                loader: 'frontmatter-markdown-loader',
-                options: { mode: ['react-component'] }
-            }
-        )
-        return cfg;
-    }
-}
+  webpack: configuration => {
+    configuration.module.rules.push({
+      test: /\.md$/,
+      use: 'frontmatter-markdown-loader',
+    });
+    configuration.node.fs = 'empty';
+    return configuration;
+  },
+  async exportPathMap(defaultPathMap) {
+    return {
+      ...defaultPathMap
+    };
+  },
+};

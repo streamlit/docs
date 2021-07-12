@@ -32,11 +32,11 @@ export default class Tile extends React.Component {
             )
         } else if (props.dark) {
             img = (
-                <i className={`material-icons-sharp bg-${props.dark.background || 'l-blue-70'} color-${props.dark.color || "white"}`} style={{ transform: `rotate(${props.rotate || 0}deg);` }}>{props.icon || "downloading"}</i>
+                <i className={`material-icons-sharp bg-${props.dark.background || 'l-blue-70'} color-${props.dark.color || "white"}`} style={{ transform: `rotate(${props.rotate || 0}deg)` }}>{props.icon || "downloading"}</i>
             )
         } else {
             img = (
-                <i className={`material-icons-sharp bg-${props.background || 'l-blue-70'} color-${props.color || "white"}`} style={{ transform: `rotate(${props.rotate || 0}deg);` }}>{props.icon || "downloading"}</i>
+                <i className={`material-icons-sharp bg-${props.background || 'l-blue-70'} color-${props.color || "white"}`} style={{ transform: `rotate(${props.rotate || 0}deg)` }}>{props.icon || "downloading"}</i>
             )
         }
         let block;

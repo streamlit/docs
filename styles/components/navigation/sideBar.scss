@@ -1,14 +1,18 @@
 .block-side-nav {
+    
     .side-nav {
         list-style: none;
         position:sticky;
+        width: 320px;
         top:5em;
         overflow-y: scroll;
+        overflow-x: hidden;
         max-height: calc(100vh - 5em);
         padding-right: 1em;
 
         &.condensed {
             margin-left: -1em;
+            width: auto;
             .nav-item {
 
                 .head {
@@ -33,6 +37,15 @@
                     display:none;
                 }
             }
+        }
+
+        a:active {
+            font-weight: bold;
+        }
+
+        ul, ol {
+            margin: 0;
+            white-space: nowrap;
         }
 
         .nav-item {
@@ -71,6 +84,7 @@
             .sub-nav {
                 padding-left:4em;
                 list-style: none;
+                margin-top: 1em;
 
                 .child {
                     .child-item {
@@ -110,6 +124,8 @@
                     }
                     .child-sub-nav {
                         list-style-type: none;
+                        margin-top: 1em;
+                        padding-left: 2em;
                     }
                 }
             }
@@ -123,7 +139,6 @@
         left: 0;
         width: 20em;
         height: calc(100vh - 4em);
-        // overflow: scroll;
         padding: 2em 0;
         padding-left: 10%;
         border-right: 1px solid #f0f2f6;
@@ -133,9 +148,8 @@
         .brand {
             display:flex;
             align-items: center;
-            // position: sticky;
-            top:0;
-            width:20em;
+            top: 0;
+            width: 20em;
             z-index: 1;
             margin:0;
             padding-bottom: .5em;
