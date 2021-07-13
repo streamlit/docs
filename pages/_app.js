@@ -36,9 +36,9 @@ function useWindowSize() {
 }
 
 
-function MyApp({ Component, pageProps }) {
+function StreamlitDocs({ Component, pageProps }) {
   const size = useWindowSize();
   return <Component window={{ width: size.width, height: size.height }} {...pageProps} />
 }
 
-export default MyApp
+export default StreamlitDocs
