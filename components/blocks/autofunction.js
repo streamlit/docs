@@ -1,5 +1,4 @@
 import React from "react"
-import MarkdownIt from "markdown-it"
 import Table from "./table"
 
 export default class Autofunction extends React.Component {
@@ -11,14 +10,13 @@ export default class Autofunction extends React.Component {
         const props = this.props
         let func_obj
         let func_description
-        let Markdown = new MarkdownIt()
         
         const rows = []
 
         if (props.function in props.streamlit) {
             func_obj = props.streamlit[props.function]
             if ( func_obj.description !== undefined && func_obj.description ) {
-                func_description = Markdown.render( func_obj.description )   
+                func_description = func_obj.description
             }
         } else {
             return ``;
@@ -27,7 +25,7 @@ export default class Autofunction extends React.Component {
         for (const index in func_obj.args) {
             const row = {}
             const param = func_obj.args[ index ]
-            const description = Markdown.render( param.description )
+            const description = param.description
 
             if ( param.is_optional ) {
                 row['title'] = `<p>${param.name} <span class='italic code'>(${param.type_name})</span></p>`
@@ -41,7 +39,7 @@ export default class Autofunction extends React.Component {
         }
 
         return (
-            <div class='code-function'>
+            <div className='code-function'>
                 <p>streamlit.{func_obj.name}</p>
                 {func_description}
                 <Table

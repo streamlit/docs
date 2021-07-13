@@ -5,12 +5,12 @@ RUN apk update && \
     apk add --upgrade build-base openssl-dev libffi-dev libxml2-dev libxslt-dev python3-dev git zeromq-dev jpeg-dev && \
     rm -rf /var/cache/apk/*
 
-RUN pip install streamlit
 RUN pip install docstring_parser
+RUN pip install docutils
+RUN pip install lxml
+RUN pip install streamlit
 
 RUN mkdir -p /docs
 COPY funcs.py /docs
 
 WORKDIR /docs
-
-RUN funcs.py
