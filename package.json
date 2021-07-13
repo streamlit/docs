@@ -11,7 +11,7 @@
   "dependencies": {
     "16": "0.0.2",
     "@mapbox/rehype-prism": "^0.7.0",
-    "algoliasearch": "3.35.1",
+    "algoliasearch": "^3.35.1",
     "framer-motion": "^4.1.17",
     "frontmatter-markdown-loader": "^3.6.2",
     "fs": "0.0.1-security",

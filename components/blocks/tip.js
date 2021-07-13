@@ -22,6 +22,7 @@ export default class Tip extends React.Component {
     handleTheme() {
         this.setState({ theme: document.body.dataset.theme })
     }
+    
     render() {
         const props = this.props
         const state = this.state

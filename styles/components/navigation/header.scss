@@ -5,7 +5,9 @@ header {
     height:$header-height;
     z-index: 10;
     margin-bottom: 3em;
-
+    h4 {
+        margin: 0;
+    }
     .container {
         display: flex;
         align-items: center;
