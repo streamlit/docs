@@ -20,8 +20,7 @@ code.
 
 Streamlit is more than just a way to make data apps, it’s also a community of creators that share their apps and ideas and help each other make their work better. Please come join us on the community forum. We love to hear your questions, ideas, and help you work through your bugs — stop by today!
 
-1. Create a new Python file named `first_app.py`, then open it with your IDE
-   or text editor.
+1. Create a new Python file named `first_app.py`, then open it with your IDE or text editor.
 2. Next, import Streamlit.
 
    ```python

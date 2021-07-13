@@ -22,48 +22,21 @@ import Important from '../components/blocks/important'
 import YouTube from '../components/blocks/youTube'
 import Autofunction from '../components/blocks/autofunction'
 
-export default class Article extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            location: null,
-            loading: true,
-            attributes: {},
-            title: props.data.title,
-            next_article: props.data.next,
-            previous_article: props.data.previous,
-            source: props.source,
-            streamlit: props.streamlit
-        };
-    }
+export default function Article({ source, streamlit, data }) {
 
-    componentDidMount() {
-        this.setState({ location: window.location.pathname })
-        this.setState({ loading: false })
-        this.setState({ attributes: {} })
-    }
-
-    render() {
-        const components = { Component, Note, Tip, Important, Code, YouTube, Autofunction: (props) => <Autofunction {...props} streamlit={this.state.streamlit} />, pre: (props) => <Code {...props} /> }
+    const components = { Component, Note, Tip, Important, Code, YouTube, Autofunction: (props) => <Autofunction {...props} streamlit={streamlit} />, pre: (props) => <Code {...props} /> }
         
-        let breadCrumbsOnLoad;
-        
-        if (!this.state.loading) {
-            breadCrumbsOnLoad = <BreadCrumbs location={this.state.location} />
-        }
-        
-        return (
-            <Layout>
-                <section className="page container template-standard">
-                    <SideBar />
-                    <section className="content wide">
-                        {breadCrumbsOnLoad}
-                        <MDXRemote {...this.state.source} components={components} />
-                    </section>
+    return (
+        <Layout>
+            <section className="page container template-standard">
+                <SideBar />
+                <section className="content wide">
+                    <BreadCrumbs />
+                    <MDXRemote {...source} components={components} />
                 </section>
-            </Layout >
-        )
-    }
+            </section>
+        </Layout >
+    )
 }
 
 export async function getStaticProps(context) {
@@ -96,7 +69,8 @@ export async function getStaticProps(context) {
     }
     
     return {
-        props: props
+        props: props,
+        revalidate: 60
     }
 }
 
@@ -125,8 +99,7 @@ export async function getStaticPaths() {
         }
         
         paths.push(path)
-    } 
-
+    }
     return {
         paths: paths,
         fallback: false

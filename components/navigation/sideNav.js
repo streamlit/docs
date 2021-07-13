@@ -72,7 +72,6 @@ export default class SideBar extends React.Component {
             return a.meta.navigation.order - b.meta.navigation.order;
         })
         this.setState({ topLevelPages: sorted })
-
         this.setState({ loading: false })
     }
 
