@@ -18,7 +18,7 @@ export default function Table({ children, head, body, rows, addtionalClass }) {
                     </tr>
                     <tr>
                         <th colSpan="2" dangerouslySetInnerHTML={createMarkup(head.content)} />
-                    </tr>
+                    </tr> 
                 </thead>
                 <tbody>
                     <tr className="head">

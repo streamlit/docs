@@ -3,25 +3,35 @@ import json
 import typing
 import inspect
 import docstring_parser
+from docutils.core import publish_parts
 
 import streamlit
 
-def describe(func: typing.Callable):
+
+def parse_rst(rst_string):
+    docutil_settings = { 'embed_stylesheet': 0 }
+    document = publish_parts(rst_string, writer_name='html', settings_overrides=docutil_settings)
+    return str(document['body'])
+
+
+def describe(func):
     description = {}
     docstring_obj = docstring_parser.parse(getattr(func, '__doc__', ''), docstring_parser.common.DocstringStyle.numpydoc)
     description['name'] = func.__name__
     description['signature'] = 'streamlit.{}{}'.format( func.__name__, str( inspect.signature( func ) ) )
-    description['description'] = docstring_obj.long_description
+    if docstring_obj.long_description:
+        description['description'] = parse_rst(docstring_obj.long_description)
     description['args'] = []
     for param in docstring_obj.params:
         arg_obj = {}
         arg_obj['name'] = param.arg_name
         arg_obj['type_name'] = param.type_name
         arg_obj['is_optional'] = param.is_optional
-        arg_obj['description'] = param.description
+        arg_obj['description'] = parse_rst(param.description) if param.description else ''
         arg_obj['default'] = param.default
         description['args'].append(arg_obj)
     return description
+
 
 functions_json = {}
 
