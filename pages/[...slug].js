@@ -7,6 +7,7 @@ import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import matter from 'gray-matter'
 
+// Site Components
 import { getArticleSlugs, getArticleSlugFromString, articleDirectory, pythonDirectory } from '../lib/api';
 import Layout from '../components/layouts/globalTemplate'
 import BreadCrumbs from '../components/utilities/breadCrumbs'
@@ -14,7 +15,6 @@ import SideBar from '../components/navigation/sideNav'
 // import FloatingNav from '../../components/utilities/floatingNav'
 
 // MDX Components 
-import Component from '../components/layouts/component'
 import Code from '../components/blocks/code'
 import Note from '../components/blocks/noted'
 import Tip from '../components/blocks/tip'
@@ -22,16 +22,24 @@ import Important from '../components/blocks/important'
 import YouTube from '../components/blocks/youTube'
 import Autofunction from '../components/blocks/autofunction'
 
-export default function Article({ source, streamlit, data }) {
+export default function Article({ source, streamlit, slug }) {
 
-    const components = { Component, Note, Tip, Important, Code, YouTube, Autofunction: (props) => <Autofunction {...props} streamlit={streamlit} />, pre: (props) => <Code {...props} /> }
+    const components = { 
+        Note, 
+        Tip, 
+        Important, 
+        Code, 
+        YouTube, 
+        Autofunction: (props) => <Autofunction {...props} streamlit={streamlit} />, 
+        pre: (props) => <Code {...props} /> 
+    }
         
     return (
         <Layout>
             <section className="page container template-standard">
-                <SideBar />
+                <SideBar slug={slug} />
                 <section className="content wide">
-                    <BreadCrumbs />
+                    <BreadCrumbs slug={slug} />
                     <MDXRemote {...source} components={components} />
                 </section>
             </section>
@@ -65,6 +73,8 @@ export async function getStaticProps(context) {
         )
         
         props[ 'data' ] = data
+        props[ 'filename' ] = fileName
+        props[ 'slug' ] = context.params.slug
         props[ 'source' ] = source
     }
     
@@ -94,7 +104,9 @@ export async function getStaticPaths() {
 
         let path = {
             params: { 
-                slug: realSlug
+                slug: realSlug,
+                fileName: articles[index],
+                title: data.title
             }
         }
         
