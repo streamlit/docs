@@ -4,7 +4,9 @@ import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion';
 
 import NavItem from '../navigation/navItem'
+
 export default class SideBar extends React.Component {
+
     constructor(props) {
         super(props);
 

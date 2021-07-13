@@ -15,7 +15,7 @@ collections:
         - { label: "Body", name: "body", widget: "markdown"}
   - name: "docs"
     label: "Documentation"
-    folder: "docs"
+    folder: "content"
     create: true
     slug: "{{slug}}"
     fields: # The fields for each document, usually in front matter
