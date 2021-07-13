@@ -7,7 +7,9 @@ import NProgress from 'nprogress'
 
 import { useState, useEffect } from 'react';
 
-Router.events.on('routeChangeStart', () => NProgress.start()); Router.events.on('routeChangeComplete', () => NProgress.done()); Router.events.on('routeChangeError', () => NProgress.done());  
+Router.events.on( 'routeChangeStart', () => NProgress.start() ) 
+Router.events.on( 'routeChangeComplete', () => NProgress.done() )
+Router.events.on( 'routeChangeError', () => NProgress.done() )
 
 function useWindowSize() {
   // Initialize state with undefined width/height so server and client renders match
