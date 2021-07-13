@@ -19,8 +19,10 @@ def describe(func):
     docstring_obj = docstring_parser.parse(getattr(func, '__doc__', ''), docstring_parser.common.DocstringStyle.numpydoc)
     description['name'] = func.__name__
     description['signature'] = 'streamlit.{}{}'.format( func.__name__, str( inspect.signature( func ) ) )
+    
     if docstring_obj.long_description:
         description['description'] = parse_rst(docstring_obj.long_description)
+    
     description['args'] = []
     for param in docstring_obj.params:
         arg_obj = {}
@@ -30,6 +32,7 @@ def describe(func):
         arg_obj['description'] = parse_rst(param.description) if param.description else ''
         arg_obj['default'] = param.default
         description['args'].append(arg_obj)
+    
     return description
 
 

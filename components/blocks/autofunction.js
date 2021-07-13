@@ -6,17 +6,22 @@ export default class Autofunction extends React.Component {
         super(props)
     }
     
+    Heading(props) {
+
+    }
+    
     render() {
         const props = this.props
         let func_obj
         let func_description
+        let header
         
         const rows = []
 
         if (props.function in props.streamlit) {
             func_obj = props.streamlit[props.function]
             if ( func_obj.description !== undefined && func_obj.description ) {
-                func_description = func_obj.description
+                func_description = { __html: func_obj.description }
             }
         } else {
             return ``;
@@ -38,10 +43,20 @@ export default class Autofunction extends React.Component {
             rows.push(row)
         }
 
+        if ( props.hide_header !== undefined && props.hide_header ) {
+            header = ''
+        } else {
+            header = (
+                <div className='code-header'>
+                    <h3>streamlit.{func_obj.name}</h3>
+                    <div className="code-desc" dangerouslySetInnerHTML={func_description} />
+                </div>
+            )
+        }
+
         return (
-            <div className='code-function'>
-                <p>streamlit.{func_obj.name}</p>
-                {func_description}
+            <div className='autofunction'>
+                {header}
                 <Table
                     head={{
                         title: 'Function signature',
