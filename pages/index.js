@@ -21,7 +21,7 @@ import InlineCallout from '../components/blocks/inlineCallout'
 import NoteSplit from '../components/blocks/noteSplit'
 
 export default function Home(window) {
-  // console.log(window)
+
   return (
     <Layout window={window}>
       <section className="page container template-expanded-wide">

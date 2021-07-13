@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next-remote-watch content",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "export": "npm run build && next export"

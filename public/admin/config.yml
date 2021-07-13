@@ -9,11 +9,10 @@ collections:
     files:
     - label: "Home"
       name: "home"
-      file: "content/home.md"
+      file: "content/index.md"
       fields:
         - { label: "Title", name: "title", widget: "string"}
-        - { label: "Body", name: "body", widget: "markdown"}
-  - name: "docs"
+  - name: "contents"
     label: "Documentation"
     folder: "content"
     create: true

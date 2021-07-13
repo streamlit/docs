@@ -10,20 +10,22 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight'
 import 'prismjs/plugins/line-highlight/prism-line-highlight.css'
 import 'prismjs/plugins/toolbar/prism-toolbar'
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard'
+import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace'
 
 import Image from "./image";
 
 export default class Code extends React.Component {
+    
     constructor(props) {
         super(props)
         this.state = {
             sticky: false,
         };
     }
+    
     componentDidMount() {
         Prism.highlightAll();
     }
-
 
     render() {
         
