@@ -1,7 +1,7 @@
 .block-side-nav {
     position: sticky;
     top: 5em;
-    z-index: 11;
+    z-index: 10;
 
     &.over {
         .side-nav { 
@@ -17,6 +17,7 @@
     }
 
     .side-nav {
+        height: calc(100vh - 5em);
         list-style: none;
         overflow-y: scroll;
         overflow-x: hidden;
