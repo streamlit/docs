@@ -1,10 +1,12 @@
 .block-side-nav {
-    
-    min-width: 86px;
-    
-    &.over {
-        max-width: 86px;
+    position: sticky;
+    top: 5em;
+    z-index: 11;
 
+    &.over {
+        .side-nav { 
+            position: absolute;
+        }
         .side-nav:before {
             transform: translateX(0);
             transition: transform .25s ease-out;
@@ -16,12 +18,8 @@
 
     .side-nav {
         list-style: none;
-        position:sticky;
-        width: 320px;
-        top:5em;
         overflow-y: scroll;
         overflow-x: hidden;
-        max-height: calc(100vh - 5em);
         padding-right: 1em;
         z-index: 11;
 
@@ -43,15 +41,6 @@
         &.condensed {
 
             margin-left: -1em;
-            width: auto;
-
-            &:hover {
-                &:before {
-                    transform: translateX(0);
-                    transition: transform .25s ease-out;
-                    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.08);
-                }
-            }
 
             .nav-item {
 
@@ -231,21 +220,18 @@
         }
     }
 
-    @media(max-width:1024px) {
-        display:none;
-        &.mobile {
-            display: block;
-            position: fixed;
-            width: calc(100vw - 20%);
-            padding:0 10%;
-            right: 0;
-            top:0;
-            height: 100vh;
-            z-index: -1;
+    &.mobile {
+        display: block;
+        position: fixed;
+        width: calc(100vw - 20%);
+        padding:0 10%;
+        right: 0;
+        top:0;
+        height: 100vh;
+        z-index: -1;
 
-            .side-nav {
-                position: relative;
-            }
+        .side-nav {
+            position: relative;
         }
     }
 }
