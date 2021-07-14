@@ -17,12 +17,36 @@ export default class SideBar extends React.Component {
             loading: true,
             depth: 1,
             offScreenNav: false,
+            sticky: false,
+            over: false
         };
 
-        this.checkExpanded = this.checkExpanded.bind(this);
-        this.openOffScreenNav = this.openOffScreenNav.bind(this);
-        this.closeOffScreenNav = this.closeOffScreenNav.bind(this);
-        this.scrollToElement = this.scrollToElement.bind(this);
+        this.checkExpanded = this.checkExpanded.bind(this)
+        this.openOffScreenNav = this.openOffScreenNav.bind(this)
+        this.closeOffScreenNav = this.closeOffScreenNav.bind(this)
+        this.scrollToElement = this.scrollToElement.bind(this)
+        this.handleScroll = this.handleScroll.bind(this)
+        this.handleMouseEnter = this.handleMouseEnter.bind(this)
+        this.handleMouseLeave = this.handleMouseLeave.bind(this)
+    }
+
+    handleScroll() {
+        let top = window.scrollY;
+        (top > 20 ? this.setState({ sticky: true }) : this.setState({ sticky: false }))
+    }
+
+    handleMouseEnter() {
+        if (window.innerWidth < 1250 && window.innerWidth > 1024) {
+            this.setState({ condensed: false })
+            this.setState({ over: true })
+        }
+    }
+
+    handleMouseLeave() {
+        if (window.innerWidth < 1250 && window.innerWidth > 1024) {
+            this.setState({ condensed: true })
+            this.setState({ over: false })
+        }
     }
 
     checkExpanded() {
@@ -40,18 +64,18 @@ export default class SideBar extends React.Component {
     }
 
     scrollToElement(id) {
-        if (this.state.condensed) {
-            setTimeout(() => {
-                const trigger = document.getElementById(`${id}`);
-                const navItem = document.getElementById(`off-screen-${id}`);
-                const header = document.getElementById('main-header');
-                const topPos = navItem.offsetTop - trigger.offsetTop - header.offsetHeight;
-
-                document.getElementById('off-screen-nav-container').scroll({
-                    top: topPos,
-                    behavior: 'smooth'
-                })
-            }, 500);
+        if (this.state.condensed && !this.state.over) {
+            //setTimeout(() => {
+            //    const trigger = document.getElementById(`${id}`);
+            //    const navItem = document.getElementById(`off-screen-${id}`);
+            //    const header = document.getElementById('main-header');
+            //    const topPos = navItem.offsetTop - trigger.offsetTop - header.offsetHeight;
+            //
+            //    document.getElementById('off-screen-nav-container').scroll({
+            //        top: topPos,
+            //        behavior: 'smooth'
+            //    })
+            //}, 500);
         }
     }
 
@@ -107,63 +131,31 @@ export default class SideBar extends React.Component {
         }
 
         let offScreenNav = (
-            <AnimatePresence>
-                {state.offScreenNav &&
-                    <motion.section
-                        initial={{
-                            opacity: 0,
-                            left: '-40em'
-                        }}
-                        animate={{
-                            opacity: 1,
-                            left: 0,
-                            transition: {
-                                ease: "easeInOut",
-                                duration: .01
-                            }
-                        }}
-                        exit={{
-                            opacity: 0,
-                            left: '-40em'
-                        }}
-                        id="off-screen-nav"
-                        onMouseLeave={this.closeOffScreenNav}
-                    >
-                        <Link href="/" >
-                            <a className="brand not-link">
-                                <img src="/logo.svg" alt="" />
-                                <h4>Documentation</h4>
-                            </a>
-                        </Link>
-                        <nav className="side-nav" id="off-screen-nav-container">
-                            {offScreenNavItems}
-                        </nav>
-                    </motion.section >
-                }
-            </AnimatePresence>
+            <div className={`off-screen-nav ${this.state.sticky ? "sticky" : ""}`}>
+                <nav className="side-nav" id="off-screen-nav-container">
+                    {offScreenNavItems}
+                </nav>
+            </div>
         )
 
         let sideNav = (
-            <section className="block-side-nav">
-                <nav className={`side-nav ${state.condensed ? 'condensed' : 'expanded'}`} onMouseEnter={this.openOffScreenNav}>
+            <section className={`block-side-nav ${state.over ? 'over' : ''}`}>
+                <nav className={`side-nav ${state.condensed ? 'condensed' : 'expanded'}`} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
                     {navItems}
                 </nav>
-                {offScreenNav}
-
             </section>
         )
 
         if (this.props.mobile) {
             sideNav = (
-                <section className="block-side-nav mobile">
-                    <nav className={`side-nav ${state.condensed ? 'condensed' : 'expanded'}`} onMouseEnter={this.openOffScreenNav}>
+                <section  className={`block-side-nav mobile ${state.over ? 'over' : ''}`}>
+                    <nav className={`side-nav ${state.condensed ? 'condensed' : 'expanded'}`}>
                         {navItems}
                     </nav>
-                    {offScreenNav}
-
                 </section>
             )
         }
+        
         return sideNav
     }
 }

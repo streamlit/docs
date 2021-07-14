@@ -2,6 +2,7 @@ html {
     transition: $slow;
     // margin-top: $header-height;
     scroll-behavior: smooth;
+    overflow-x: hidden;
     * {
         transition: $slow;
     }
