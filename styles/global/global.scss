@@ -6,6 +6,9 @@ html {
     * {
         transition: $slow;
     }
+    &.nav-open {
+        overflow: hidden;
+    }
 }
 
 body {

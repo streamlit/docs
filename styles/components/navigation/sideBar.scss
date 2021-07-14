@@ -1,47 +1,82 @@
 .block-side-nav {
     display: none;
-    position: sticky;
+    position: fixed;
     top: 5em;
     z-index: 10;
 
-    @media(min-width: 1024px) {
+    @media(max-width: 1024px) {
+        position: fixed;
+        background: white;
+        width: 100vw;
+        height: 100vh;
+        top: calc(#{$header-height} / 2);
+        left: 0;
+        padding: calc(#{$header-height} / 2) 10% 0 10%;
+        transform: translateY(105%);
+        transition: transform $normal ease-in;
         display: block;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        pointer-events: none;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.08);
+
+        &.open {
+            pointer-events: all;
+            transform: translateY(0);
+            transition: transform $normal ease-in;
+        }
+    }
+
+    @media(min-width: 1024px) {
+        position: sticky;
+        display: block;
+        overflow: scroll;
     }
 
     &.over {
-        .side-nav { 
-            position: absolute;
+        
+        @media(max-width: 1024px) {
+            display: block;
         }
-        .side-nav:before {
-            transform: translateX(0);
-            transition: transform .25s ease-out;
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.08);
-            perspective: 1000; 
-            backface-visibility:none; 
+
+        @media(min-width: 1024px) {
+            
+            .side-nav { 
+                position: absolute;
+            }
+        
+            .side-nav:before {
+                transform: translateX(0);
+                transition: transform .25s ease-out;
+                box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.08);
+                perspective: 1000; 
+                backface-visibility:none; 
+            }
         }
     }
 
     .side-nav {
-        height: calc(100vh - 5em);
         list-style: none;
-        overflow-y: scroll;
-        overflow-x: hidden;
         padding-right: 1em;
         z-index: 11;
+        margin-bottom: calc(#{$header-height} * 1.5);
 
-        &:before {
-            content: '';
-            position: fixed;
-            left: 0;
-            top: 0;
-            height: 100%;
-            background: white;
-            width: 50vw;
-            z-index: 0;
-            min-width: 400px;
-            will-change: transform;
-            transform: translateX(-100%);
-            transition: transform .25s ease-in;
+        @media(min-width: 1024px) {
+            &:before {
+                content: '';
+                position: fixed;
+                left: 0;
+                top: 0;
+                height: 100%;
+                background: white;
+                width: 50vw;
+                z-index: 0;
+                min-width: 400px;
+                will-change: transform;
+                transform: translateX(-100%);
+                transition: transform $normal ease-in;
+            }
         }
 
         &.condensed {
@@ -167,77 +202,6 @@
                 }
             }
         
-        }
-    }
-
-    #off-screen-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 20em;
-        height: calc(100vh - 4em);
-        padding: 2em 0;
-        padding-left: 10%;
-        border-right: 1px solid #f0f2f6;
-        background: $white;
-        z-index: 10;
-        
-        .brand {
-            display:flex;
-            align-items: center;
-            top: 0;
-            width: 20em;
-            z-index: 1;
-            margin:0;
-            padding-bottom: .5em;
-
-            &:before {
-                content:'';
-                position: absolute;
-                top:-3em;
-                left:0;
-                width:100%;
-                height: 4em;
-                z-index: -1;
-            }
-
-            h4 {
-                font-weight: 500;
-            }
-            img {
-                margin-right:1em;
-            }
-        }
-
-        .side-nav {
-            height: calc(100vh - 10em);
-            overflow: scroll;
-            padding: 2em 0;
-        }
-        
-        &.slide-nav-enter-active, 
-        &.slide-nav-leave-active {
-            transition: $slow;
-        }
-        &.slide-nav-enter, 
-        &.slide-nav-leave-to /* .slide-nav-leave-active below version 2.1.8 */ {
-            opacity: 0;
-            left: -40em;
-        }
-    }
-
-    &.mobile {
-        display: block;
-        position: fixed;
-        width: calc(100vw - 20%);
-        padding:0 10%;
-        right: 0;
-        top:0;
-        height: 100vh;
-        z-index: -1;
-
-        .side-nav {
-            position: relative;
         }
     }
 }

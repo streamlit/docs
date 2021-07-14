@@ -7,9 +7,8 @@ import dynamic from "next/dynamic";
 import MobileNav from './mobileNav';
 
 
-const ThemeToggle = dynamic(() => import("../utilities/themeToggle"), {
-    ssr: false,
-});
+const ThemeToggle = dynamic(() => import("../utilities/themeToggle"), { ssr: false, });
+
 import Search from '../utilities/search';
 
 export default class Header extends React.Component {
@@ -52,9 +51,8 @@ export default class Header extends React.Component {
         }
 
         return (
-            <header>
-                <nav className={`container ${this.state.sticky ? "sticky" : ""}`} id="main-header">
-                    {/* :class="{sticky: top > 20}"  */}
+            <header className={`${this.state.sticky ? "sticky" : ""}`}>
+                <nav className="container" id="main-header">
                     <Link href="/">
                         <a className="brand not-link">
                             <img src="/logo.svg" alt="" />

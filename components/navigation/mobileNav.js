@@ -1,8 +1,6 @@
-import React from "react";
+import React from "react"
+import bus from '../../lib/bus'
 
-import SideBar from "./sideNav";
-
-import { AnimatePresence, motion } from 'framer-motion';
 
 export default class MobileNav extends React.Component {
     constructor(props) {
@@ -14,28 +12,24 @@ export default class MobileNav extends React.Component {
     }
 
     toggleMobileNav() {
-        this.setState({ nav: !this.state.nav });
-        if (document.body.style.overflow == 'hidden') {
-            document.body.style.overflow = 'unset'
+        bus.emit( this.state.nav ? 'streamlit_nav_closed'  : 'streamlit_nav_open')
+        if ( this.state.nav ) {
+            document.documentElement.classList.remove( 'nav-open' )
         } else {
-            document.body.style.overflow = 'hidden'
+            document.documentElement.classList.add( 'nav-open' )
         }
+        this.setState({ nav: !this.state.nav })
     }
 
     render() {
         let mobileNav;
-        if (this.state.nav) {
-            mobileNav = (
-                <SideBar mobile={true} />
-            )
-        } else {
-            mobileNav = (
-                <button className="toggle-mobile" onClick={this.toggleMobileNav}>
-                    <i>menu</i>
-                </button>
-            )
-        }
-
+        
+        mobileNav = (
+            <button className="toggle-mobile" onClick={this.toggleMobileNav}>
+                <i>menu</i>
+            </button>
+        )
+        
         return mobileNav;
     }
 }

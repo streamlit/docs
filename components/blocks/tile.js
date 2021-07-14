@@ -7,7 +7,7 @@ export default class Tile extends React.Component {
         super(props);
         this.handleTheme = this.handleTheme.bind(this);
         this.state = {
-            theme: 'dark-mode'
+            theme: 'light-mode'
         };
     }
 

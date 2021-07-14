@@ -17,10 +17,12 @@ body[data-theme="dark-mode"] {
         border-color: $gray-70;
     }
     header {
+        &.sticky .container::before {
+            border-bottom: 1px solid $gray-80;
+        }
         .container {
             &:before {
                 background: $off-black;
-                border-bottom: 1px solid $gray-80;
             }
             .toggleTheme {
                 background: $gray-90;
@@ -40,6 +42,16 @@ body[data-theme="dark-mode"] {
                 }
             }
             .mobile {
+                background: $off-black;
+            }
+        }
+    }
+    .block-side-nav {
+        @media(max-width: 1024px) {
+            background: $off-black;
+        }
+        @media(min-width: 1024px) {
+            .side-nav:before {
                 background: $off-black;
             }
         }

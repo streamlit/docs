@@ -69,7 +69,7 @@ export default class NavItem extends React.Component {
             )
         } else {
             navItem = (
-                <li className="nav-item small" id={props.page.name} onMouseEnter={() => this.props.scrollToElement(props.page.name)}>
+                <li className="nav-item small" id={props.page.name}>
                     <Link href={props.page.path}>
                         <a className="not-link">
                             <section className="head" >

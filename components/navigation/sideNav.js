@@ -1,7 +1,5 @@
 import React from "react";
-import Link from 'next/link'
-
-import { AnimatePresence, motion } from 'framer-motion';
+import bus from '../../lib/bus'
 
 import NavItem from '../navigation/navItem'
 
@@ -16,18 +14,21 @@ export default class SideBar extends React.Component {
             topLevelPages: null,
             loading: true,
             depth: 1,
-            offScreenNav: false,
             sticky: false,
-            over: false
+            over: false,
+            open: false,
+            theme: 'light-mode'
         };
 
         this.checkExpanded = this.checkExpanded.bind(this)
-        this.openOffScreenNav = this.openOffScreenNav.bind(this)
-        this.closeOffScreenNav = this.closeOffScreenNav.bind(this)
-        this.scrollToElement = this.scrollToElement.bind(this)
-        this.handleScroll = this.handleScroll.bind(this)
         this.handleMouseEnter = this.handleMouseEnter.bind(this)
         this.handleMouseLeave = this.handleMouseLeave.bind(this)
+        this.handleTheme = this.handleTheme.bind(this)
+    }
+
+    handleTheme() {
+        console.log( 'Theme' )
+        this.setState({ theme: document.body.dataset.theme })
     }
 
     handleScroll() {
@@ -57,50 +58,36 @@ export default class SideBar extends React.Component {
         }
     }
 
-    openOffScreenNav() {
-        if (this.state.condensed) {
-            this.setState({ offScreenNav: true });
-        }
-    }
-
-    scrollToElement(id) {
-        if (this.state.condensed && !this.state.over) {
-            //setTimeout(() => {
-            //    const trigger = document.getElementById(`${id}`);
-            //    const navItem = document.getElementById(`off-screen-${id}`);
-            //    const header = document.getElementById('main-header');
-            //    const topPos = navItem.offsetTop - trigger.offsetTop - header.offsetHeight;
-            //
-            //    document.getElementById('off-screen-nav-container').scroll({
-            //        top: topPos,
-            //        behavior: 'smooth'
-            //    })
-            //}, 500);
-        }
-    }
-
-    closeOffScreenNav() {
-        this.setState({ offScreenNav: false });
-    }
-
     UNSAFE_componentWillMount() {
         this.setState({ routes: this.state.routes.filter(route => (route.name != 'index' && route.name != 'style-guide')) })
         this.setState({ topLevelPages: this.state.routes.filter(route => route.meta.navigation.depth == 1) })
     }
 
     componentDidMount() {
-        window.addEventListener('resize', this.checkExpanded);
-        this.checkExpanded();
+        
+        window.addEventListener('resize', this.checkExpanded)
+        window.addEventListener('ChangeTheme', this.handleTheme)
+        
+        bus.on('streamlit_nav_open', () => this.setState({ open: true }) )
+        bus.on('streamlit_nav_closed', () => this.setState({ open: false }) )
+        
+        this.checkExpanded()
 
         let sorted = this.state.topLevelPages.sort(function (a, b) {
-            return a.meta.navigation.order - b.meta.navigation.order;
+            return a.meta.navigation.order - b.meta.navigation.order
         })
+
         this.setState({ topLevelPages: sorted })
         this.setState({ loading: false })
     }
 
+    componentWillUnmount() {
+        window.removeEventListener('ChangeTheme', this.handleTheme);
+    }
+
     render() {
-        const state = this.state;
+        const state = this.state
+        console.info(state)
 
         let navItems;
 
@@ -111,50 +98,17 @@ export default class SideBar extends React.Component {
                     page={page}
                     routes={state.routes}
                     depth={state.depth + 1}
-                    scrollToElement={this.scrollToElement}
                 />
             ))
         }
-
-        let offScreenNavItems;
-
-        if (!state.loading) {
-            offScreenNavItems = state.topLevelPages.map((page, index) => (
-                <NavItem
-                    key={page.name}
-                    page={page}
-                    routes={state.routes}
-                    depth={state.depth + 1}
-                    offScreenNav={true}
-                />
-            ))
-        }
-
-        let offScreenNav = (
-            <div className={`off-screen-nav ${this.state.sticky ? "sticky" : ""}`}>
-                <nav className="side-nav" id="off-screen-nav-container">
-                    {offScreenNavItems}
-                </nav>
-            </div>
-        )
 
         let sideNav = (
-            <section className={`block-side-nav ${state.over ? 'over' : ''}`}>
+            <section className={`block-side-nav ${state.open ? 'open' : ''} ${state.over ? 'over' : ''} ${state.theme}`}>
                 <nav className={`side-nav ${state.condensed ? 'condensed' : 'expanded'}`} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
                     {navItems}
                 </nav>
             </section>
         )
-
-        if (this.props.mobile) {
-            sideNav = (
-                <section  className={`block-side-nav mobile ${state.over ? 'over' : ''}`}>
-                    <nav className={`side-nav ${state.condensed ? 'condensed' : 'expanded'}`}>
-                        {navItems}
-                    </nav>
-                </section>
-            )
-        }
         
         return sideNav
     }

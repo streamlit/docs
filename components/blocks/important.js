@@ -7,7 +7,7 @@ export default class Important extends React.Component {
         super(props);
         this.handleTheme = this.handleTheme.bind(this);
         this.state = {
-            theme: 'dark-mode'
+            theme: 'light-mode'
         };
     }
 
@@ -22,6 +22,7 @@ export default class Important extends React.Component {
     handleTheme() {
         this.setState({ theme: document.body.dataset.theme })
     }
+    
     render() {
         const props = this.props
         const state = this.state
