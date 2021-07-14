@@ -87,9 +87,7 @@ export default class SideBar extends React.Component {
 
     render() {
         const state = this.state
-        console.info(state)
-
-        let navItems;
+        let navItems
 
         if (!state.loading) {
             navItems = state.topLevelPages.map((page, index) => (
