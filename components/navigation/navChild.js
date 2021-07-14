@@ -38,48 +38,25 @@ export default class NavChild extends React.Component {
         const props = this.props;
 
         let subNav;
+
         if (state.children && state.children.length > 0 && state.accordion) {
             subNav = (
-                <AnimatePresence>
-                    {state.accordion &&
-                        <motion.ul
-                            initial={{
-                                maxHeight: 0,
-                                opacity: 0,
-                                left: '-40em'
-                            }}
-                            animate={{
-                                maxHeight: '300vh',
-                                opacity: 1,
-                                left: 0,
-                                transition: {
-                                    ease: "easeInOut",
-                                    duration: .01
-                                }
-                            }}
-                            exit={{
-                                maxHeight: 0,
-                                opacity: 0,
-                                left: '-40em'
-                            }}
-                            className="child-sub-nav">
-
-                            {state.children.map((child, index) => (
-                                <NavChild
-                                    key={child.name}
-                                    child={child}
-                                    routes={props.routes}
-                                    depth={props.depth + 1}
-                                // openSideBar={openSideBar}
-                                />
-                            ))}
-                        </motion.ul>
-                    }
-                </AnimatePresence>
+                <ul className="child-sub-nav">
+                    {state.children.map((child, index) => (
+                        <NavChild
+                            key={child.name}
+                            child={child}
+                            routes={props.routes}
+                            depth={props.depth + 1}
+                        // openSideBar={openSideBar}
+                        />
+                    ))}
+                </ul>
             )
         }
 
         let accordion;
+
         if (state.children && state.children.length > 0 && !state.accordion) {
             accordion = <i className="accordion open" onClick={this.toggleAccordion}>add</i>
         } else if (state.children && state.children.length > 0 && state.accordion) {

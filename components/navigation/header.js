@@ -36,13 +36,7 @@ export default class Header extends React.Component {
     handleScroll() {
         let top = window.scrollY;
         (top > 20 ? this.setState({ sticky: true }) : this.setState({ sticky: false }))
-        if (top > 20) {
-
-        } else {
-
-        }
     }
-
 
     render() {
 
