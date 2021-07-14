@@ -26,35 +26,7 @@ export default class MobileNav extends React.Component {
         let mobileNav;
         if (this.state.nav) {
             mobileNav = (
-                <AnimatePresence>
-                    {this.state.nav &&
-                        <motion.section
-                            initial={{
-                                opacity: 0,
-                                left: '-40em'
-                            }}
-                            animate={{
-                                opacity: 1,
-                                left: 0,
-                                transition: {
-                                    ease: "easeInOut",
-                                    duration: .01
-                                }
-                            }}
-                            exit={{
-                                opacity: 0,
-                                left: '-40em'
-                            }}
-                            id="off-screen-nav"
-                            onMouseLeave={this.closeOffScreenNav}
-                        >
-                            <button className="toggle-mobile" onClick={this.toggleMobileNav}>
-                                <i>close</i>
-                            </button>
-                            <SideBar mobile={true} />
-                        </motion.section >
-                    }
-                </AnimatePresence>
+                <SideBar mobile={true} />
             )
         } else {
             mobileNav = (
