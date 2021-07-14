@@ -16,21 +16,26 @@ export default class Header extends React.Component {
     constructor(props) {
         super(props);
         this.handleScroll = this.handleScroll.bind(this);
+        this.handleResize = this.handleResize.bind(this);
         this.state = {
             sticky: false,
-            // window: 
         };
     }
 
 
     componentDidMount() {
-        window.addEventListener('scroll', this.handleScroll);
+        window.addEventListener('scroll', this.handleScroll)
+        window.addEventListener('resize', this.handleResize)
+        this.handleResize()
+    }
+
+    handleResize() {
         this.setState({ windowWidth: window.innerWidth })
-        // this.setState({ window: useWindowSize() })
     }
 
     componentWillUnmount() {
-        window.removeEventListener('scroll', this.handleScroll);
+        window.removeEventListener('scroll', this.handleScroll)
+        window.removeEventListener('resize', this.handleResize)
     }
 
     handleScroll() {
@@ -41,6 +46,7 @@ export default class Header extends React.Component {
     render() {
 
         let mobileNav;
+
         if (this.state.windowWidth < 1024) {
             mobileNav = <MobileNav />
         }
@@ -59,8 +65,6 @@ export default class Header extends React.Component {
                         <Search />
                         <ThemeToggle />
                         {mobileNav}
-                        {/* <block-search />
-                        <block-theme-toggle /> */}
                     </section>
                 </nav>
                 <h1>{this.state.sticky}</h1>
