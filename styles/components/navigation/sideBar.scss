@@ -1,7 +1,7 @@
 .block-side-nav {
     display: none;
     position: fixed;
-    top: 5em;
+    top: 0;
     z-index: 10;
 
     @media(max-width: 1024px) {
@@ -20,6 +20,7 @@
         -webkit-overflow-scrolling: touch;
         pointer-events: none;
         box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.08);
+        overflow: scroll;
 
         &.open {
             pointer-events: all;
@@ -31,7 +32,6 @@
     @media(min-width: 1024px) {
         position: sticky;
         display: block;
-        overflow: scroll;
     }
 
     &.over {

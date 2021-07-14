@@ -32,11 +32,15 @@ header {
             position: absolute;
             height:calc(100% + 2px);
             width:100vw;
-            opacity: 1;
             top:-2px;
             left: 50%;
             transform: translate(-50%);
             transition:$normal;
+            opacity: 0;
+            
+            @media(max-width: 1024px) {
+                opacity: 1;
+            }
         }
 
         .toggleTheme {
