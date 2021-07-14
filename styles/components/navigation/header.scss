@@ -1,3 +1,4 @@
+
 header {
     position:sticky;
     width:100vw;
@@ -5,9 +6,19 @@ header {
     height:$header-height;
     z-index: 99;
     margin-bottom: 3em;
+
     h4 {
         margin: 0;
     }
+
+    &.sticky .container {
+        height: calc(#{$header-height} / 2);
+        &:before {
+            opacity: 1;
+            height: calc(100% + 2px);
+        }
+    }
+
     .container {
         display: flex;
         align-items: center;
@@ -21,7 +32,7 @@ header {
             position: absolute;
             height:calc(100% + 2px);
             width:100vw;
-            opacity: 0;
+            opacity: 1;
             top:-2px;
             left: 50%;
             transform: translate(-50%);
@@ -58,13 +69,6 @@ header {
                 left: 50%;
                 transform: translate(-50%, -50%);
                 font-size: 1.5em;
-            }
-        }
-        
-        &.sticky {
-            height: calc(#{$header-height} / 2);
-            &:before {
-                opacity: 1;
             }
         }
 

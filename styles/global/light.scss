@@ -21,10 +21,12 @@ body[data-theme="light-mode"] {
         border-color: $gray-40;
     }
     header {
+        &.sticky .container::before {
+            border-bottom: 1px solid $gray-20;
+        }
         .container {
             &:before {
                 background: $white;
-                border-bottom: 1px solid $gray-20;
             }
             .toggleTheme {
                 background: $gray-20;
