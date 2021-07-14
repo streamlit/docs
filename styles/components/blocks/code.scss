@@ -1,15 +1,18 @@
 .block-code {
+    
+    width: calc(100%);
     position: relative !important;
     margin: 1.75em auto;
 
     .code-toolbar {
         position: relative;
-
     }
 
     code[class*="language-"], pre[class*="language-"] {
-
-        word-break: break-word !important;
+        white-space: pre;
+        max-width: 100%;
+        overflow: hidden;
+        overflow-x: scroll;
     }
 
     pre.line-numbers {
@@ -22,7 +25,6 @@
         position: relative;
         padding: 1.5em 2em;
         counter-reset: linenumber;
-        word-wrap: break-word;
     
         >code {
             z-index: 1;
