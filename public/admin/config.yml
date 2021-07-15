@@ -33,7 +33,7 @@ collections:
     - label: Catgeory
       name: category
       widget: string
-       hint: >-
+      hint: >-
           Categories should be seperated by slashes (Parent / Child / Child)
     - label: Next Page
       name: next
