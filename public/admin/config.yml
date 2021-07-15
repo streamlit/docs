@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: main
 media_folder: public/img
-public_folder: img
+public_folder: /img
 collections:
   - name: "pages"
     label: "Pages"
@@ -11,13 +11,25 @@ collections:
       name: "home"
       file: "content/index.md"
       fields:
-        - { label: "Title", name: "title", widget: "string"}
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: markdown
   - name: "contents"
     label: "Documentation"
+    label_singular: 'Document'
     folder: "content"
     create: true
     slug: "{{slug}}"
-    fields: # The fields for each document, usually in front matter
-    - {label: "Title", name: "title", widget: "string"}
-    - {label: "Icon", name: "icon", widget: "image"}
-    - {label: "Body", name: "body", widget: "markdown"}
+    nested:
+      depth: 100 # max depth to show in the collection tree
+      summary: '{{title}}'
+    fields:
+    - label: Title
+      name: title
+      widget: string
+    - label: Body
+      name: body
+      widget: markdown
