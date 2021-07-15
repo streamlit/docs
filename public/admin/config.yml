@@ -25,6 +25,13 @@ collections:
       name: body
       widget: markdown
       minimal: true
+    - label: Next Page
+      name: next
+      widget: relation
+      collection: "contents"
+      value_field: "{{slug}}"
+      search_fields: ["title","category"]
+      display_fields: ["{{category}} / {{title}}"]
 - name: "contents"
   label: "Documentation"
   folder: "content"
@@ -38,6 +45,10 @@ collections:
     name: category
     widget: string
     hint: "Categories should be seperated by back slashes (Parent / Child / Child)"
+  - label: Body
+    name: body
+    widget: markdown
+    modes: ['raw']
   - label: Next Page
     name: next
     widget: relation
@@ -45,6 +56,3 @@ collections:
     value_field: "{{slug}}"
     search_fields: ["title","category"]
     display_fields: ["{{category}} / {{title}}"]
-  - label: Body
-    name: body
-    widget: markdown
