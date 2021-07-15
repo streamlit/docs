@@ -16,12 +16,13 @@ collections:
       widget: string
     - label: News
       name: news
-      widget: object
+      widget: list
+      summary: '{{fields.publish_date}} - {{fields.author.title}}'
       fields:
       - { label: 'Date', name: publish_date, widget: datetime, date_format: "MMMM D, YYYY" }
       - { label: Title, name: title, widget: string }
       - { label: Body, name: body, widget: text }
-      - { label: URL, name: url, widget: text, hint: "Should be a full url (https://www.example/)" }
+      - { label: URL, name: url, widget: string, hint: "Should be a full url (https://www.example/)" }
     - label: Body
       name: body
       widget: markdown
