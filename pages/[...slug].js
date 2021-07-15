@@ -12,6 +12,8 @@ import { getArticleSlugs, getArticleSlugFromString, articleDirectory, pythonDire
 import Layout from '../components/layouts/globalTemplate'
 import BreadCrumbs from '../components/utilities/breadCrumbs'
 import SideBar from '../components/navigation/sideNav'
+import Row from '../components/layouts/row'
+import Masonry from '../components/layouts/masonry'
 // import FloatingNav from '../../components/utilities/floatingNav'
 
 // MDX Components
@@ -20,6 +22,7 @@ import Note from '../components/blocks/noted'
 import Tip from '../components/blocks/tip'
 import Important from '../components/blocks/important'
 import YouTube from '../components/blocks/youTube'
+import CodeTile from '../components/blocks/codeTile'
 import Autofunction from '../components/blocks/autofunction'
 
 export default function Article({ source, streamlit, slug }) {
@@ -30,6 +33,9 @@ export default function Article({ source, streamlit, slug }) {
         Important,
         Code,
         YouTube,
+        Row,
+        Masonry,
+        CodeTile,
         Autofunction: (props) => <Autofunction {...props} streamlit={streamlit} />,
         pre: (props) => <Code {...props} />
     }
@@ -51,14 +57,14 @@ export async function getStaticProps(context) {
 
     const props = {}
 
-    const jsonContents = fs.readFileSync( join( pythonDirectory, 'streamlit.json' ) , 'utf8')
+    const jsonContents = fs.readFileSync(join(pythonDirectory, 'streamlit.json'), 'utf8')
     props['streamlit'] = jsonContents ? JSON.parse(jsonContents) : {}
 
-    if ( 'slug' in context.params ) {
+    if ('slug' in context.params) {
         // Get the last element of the array to find the MD file
-        const fileName = `${context.params.slug.slice( -1 )[ 0 ]}.md`
-        const fileContents = fs.readFileSync( join( articleDirectory, fileName ) , 'utf8')
-        const { data, content } = matter( fileContents )
+        const fileName = `${context.params.slug.slice(-1)[0]}.md`
+        const fileContents = fs.readFileSync(join(articleDirectory, fileName), 'utf8')
+        const { data, content } = matter(fileContents)
 
         const source = await serialize(content,
             {
@@ -72,10 +78,10 @@ export async function getStaticProps(context) {
             }
         )
 
-        props[ 'data' ] = data
-        props[ 'filename' ] = fileName
-        props[ 'slug' ] = context.params.slug
-        props[ 'source' ] = source
+        props['data'] = data
+        props['filename'] = fileName
+        props['slug'] = context.params.slug
+        props['source'] = source
     }
 
     return {
@@ -91,14 +97,14 @@ export async function getStaticPaths() {
     const paths = []
     // Load each file and map a path
 
-    for ( const index in articles ) {
-        let realSlug = [ articles[index].replace(/\.md$/, '') ]
-        const fileContents = fs.readFileSync( join(articleDirectory, articles[index]) , 'utf8')
-        const { data, content } = matter( fileContents )
+    for (const index in articles) {
+        let realSlug = [articles[index].replace(/\.md$/, '')]
+        const fileContents = fs.readFileSync(join(articleDirectory, articles[index]), 'utf8')
+        const { data, content } = matter(fileContents)
 
-        if ( 'category' in data ) {
+        if ('category' in data) {
             // Categories can be nested with Name / Subname / Subname in front matter.
-            const categories = data.category.split('/').map( getArticleSlugFromString ).concat( realSlug )
+            const categories = data.category.split('/').map(getArticleSlugFromString).concat(realSlug)
             realSlug = categories
         }
 
