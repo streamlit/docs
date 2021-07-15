@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 export default function SocialCallout() {
     return (
         <section className="block-social-callouts">
