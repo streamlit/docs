@@ -14,6 +14,29 @@ collections:
     - label: Title
       name: title
       widget: string
+    - label: Body
+      name: body
+      widget: markdown
+      minimal: true
+    - label: Features
+      name: features
+      widget: list
+      summary: '{{fields.title}}'
+      fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Body, name: body, widget: string }
+      - { label: Color, name: color, widget: select, options: ['violet-70', 'orange-70', 'blue-70', 'red-70', 'yellow-70', 'green-70', 'b-g-70', 'l-blue-70', 'gray-70'] }
+      - { label: Icon, name: icon, widget: string, hint:"Must be the name (like_this) of a Material Icon: https://fonts.google.com/icons" }
+      - { label: URL, name: url, widget: string, hint: "Should be a full url (https://www.example/)" }
+    - label: "What's New"
+      name: whats_new
+      widget: list
+      summary: '{{fields.title}}'
+      fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Body, name: body, widget: string }
+      - { label: Icon, name: icon, widget: string, hint:"Must be the name (like_this) of a Material Icon: https://fonts.google.com/icons" }
+      - { label: URL, name: url, widget: string, hint: "Should be a full url (https://www.example/)" }      
     - label: News
       name: news
       widget: list
@@ -23,10 +46,6 @@ collections:
       - { label: Title, name: title, widget: string }
       - { label: Body, name: body, widget: text }
       - { label: URL, name: url, widget: string, hint: "Should be a full url (https://www.example/)" }
-    - label: Body
-      name: body
-      widget: markdown
-      minimal: true
     - label: Next Page
       name: next
       widget: relation
