@@ -4,38 +4,38 @@ backend:
 media_folder: public/img
 public_folder: /img
 collections:
-  - name: "pages"
-    label: "Pages"
-    files:
-    - label: "Home"
-      name: "home"
-      file: "content/index.md"
-      fields:
-      - label: Title
-        name: title
-        widget: string
-      - label: Body
-        name: body
-        widget: markdown
-  - name: "contents"
-    label: "Documentation"
-    folder: "content"
-    create: true
-    slug: "{{slug}}"
+- name: "pages"
+  label: "Pages"
+  files:
+  - label: "Home"
+    name: "home"
+    file: "content/index.md"
     fields:
     - label: Title
       name: title
       widget: string
-    - label: Page Catgeory
-      name: category
-      widget: string
-    - label: Next Page
-      name: next
-      widget: relation
-      collection: "contents"
-      valueField: slug
-      searchFields: ["title", "category"],
-      options_length: 10
     - label: Body
       name: body
       widget: markdown
+- name: "contents"
+  label: "Documentation"
+  folder: "content"
+  create: true
+  slug: "{{slug}}"
+  fields:
+  - label: Title
+    name: title
+    widget: string
+  - label: Page Catgeory
+    name: category
+    widget: string
+  - label: Next Page
+    name: next
+    widget: relation
+    collection: "contents"
+    valueField: slug
+    searchFields: ["title", "category"],
+    options_length: 10
+  - label: Body
+    name: body
+    widget: markdown
