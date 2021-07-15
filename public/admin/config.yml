@@ -32,6 +32,7 @@ collections:
     collection: "contents"
     valueField: slug
     searchFields: ["title","category"]
+    hint: "Categories should be seperated by back slashes (Parent / Child / Child)"
   - label: Page Catgeory
     name: category
     widget: string
