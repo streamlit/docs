@@ -1,0 +1,21 @@
+.masonry {
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 2rem;
+    &::before,
+    &::after {
+      content: "";
+      flex-basis: 100%;
+      width: 0;
+      order: 2;
+    }
+
+    > * {
+        width: calc(33.333% - 2em);
+        &:nth-child(3n+1) { order: 1; }
+        &:nth-child(3n+2) { order: 2; }
+        &:nth-child(3n)   { order: 3; }
+    }
+      
+      /* Re-order items into 3 rows */
+}

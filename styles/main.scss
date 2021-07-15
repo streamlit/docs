@@ -24,9 +24,11 @@
 @import './components/navigation/offScreenNav.scss';
 
 @import './components/layout/component.scss';
-@import './components/layout/tileContainer.scss';
-@import './components/layout/newsContainer.scss';
 @import './components/layout/inlineCalloutContainer.scss';
+@import './components/layout/masonry.scss';
+@import './components/layout/newsContainer.scss';
+@import './components/layout/row.scss';
+@import './components/layout/tileContainer.scss';
 
 @import './components/utilities/quickLink.scss';
 @import './components/utilities/helpful.scss';
@@ -36,14 +38,15 @@
 @import './components/utilities/breadcrumbs.scss';
 @import './components/utilities/loading.scss';
 
+@import './components/blocks/autofunction.scss';
+@import './components/blocks/code.scss';
+@import './components/blocks/codeTile.scss';
+@import './components/blocks/iconHeader.scss';
+@import './components/blocks/image.scss';
+@import './components/blocks/inlineCallout.scss';  
+@import './components/blocks/newsEntry.scss';
 @import './components/blocks/note.scss';
 @import './components/blocks/noteSplit.scss';
-@import './components/blocks/code.scss';
-@import './components/blocks/iconHeader.scss';
-@import './components/blocks/youTube.scss';
-@import './components/blocks/image.scss';
-@import './components/blocks/tile.scss';
 @import './components/blocks/table.scss';
-@import './components/blocks/newsEntry.scss';
-@import './components/blocks/inlineCallout.scss';  
-@import './components/blocks/autofunction.scss';
+@import './components/blocks/tile.scss';
+@import './components/blocks/youTube.scss';
