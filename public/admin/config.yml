@@ -14,9 +14,17 @@ collections:
     - label: Title
       name: title
       widget: string
+    - label: News
+      name: news
+      widget: object
+      fields:
+      - { label: 'Date', name: publish_date, widget: datetime, date_format: "MMMM D, YYYY" }
+      - { label: Title, name: title, widget: string, default: 'Spotlight' }
+      - { label: Body, name: body, widget: markdown, minimal: true, buttons: ['bold', 'italic', 'link'], editor_components: [], modes: ['raw'] }
     - label: Body
       name: body
       widget: markdown
+      minimal: true
 - name: "contents"
   label: "Documentation"
   folder: "content"
