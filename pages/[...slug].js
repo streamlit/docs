@@ -58,11 +58,7 @@ export async function getStaticProps(context) {
         // Get the last element of the array to find the MD file
         const fileName = `${context.params.slug.slice( -1 )[ 0 ]}.md`
         const fileContents = fs.readFileSync( join( articleDirectory, fileName ) , 'utf8')
-        const { content, data } = matter(fileContents, {
-            engines: {
-                 yaml: (s) => yaml.safeLoad(s, { schema: yaml.JSON_SCHEMA }),
-             },
-        })
+        const { data, content } = matter( fileContents )
         
         const source = await serialize(content, 
             { 
@@ -98,11 +94,8 @@ export async function getStaticPaths() {
     for ( const index in articles ) {
         let realSlug = [ articles[index].replace(/\.md$/, '') ]
         const fileContents = fs.readFileSync( join(articleDirectory, articles[index]) , 'utf8')
-        const { content, data } = matter(fileContents, {
-            engines: {
-                 yaml: (s) => yaml.safeLoad(s, { schema: yaml.JSON_SCHEMA }),
-             },
-        });
+        const { data, content } = matter( fileContents )
+        
         if ( 'category' in data ) {
             // Categories can be nested with Name / Subname / Subname in front matter.
             const categories = data.category.split('/').map( getArticleSlugFromString ).concat( realSlug )

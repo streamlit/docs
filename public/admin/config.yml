@@ -42,7 +42,7 @@ collections:
       widget: list
       summary: '{{fields.publish_date}} - {{fields.title}}'
       fields:
-      - { label: 'Date', name: publish_date, widget: datetime, date_format: "MMMM D, YYYY" }
+      - { label: 'Date', name: publish_date, widget: string }
       - { label: Title, name: title, widget: string }
       - { label: Body, name: body, widget: text }
       - { label: URL, name: url, widget: string, hint: "Should be a full url (https://www.example/)" }
