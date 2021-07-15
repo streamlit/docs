@@ -3,7 +3,7 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class StreamlitDocument extends Document {
-    
+
     static async getInitialProps(ctx) {
         const initialProps = await Document.getInitialProps(ctx);
         return { ...initialProps };
@@ -15,8 +15,8 @@ class StreamlitDocument extends Document {
                 if(window.localStorage.getItem('theme')) {
                 return window.localStorage.getItem('theme')
                 }
-                return window.matchMedia('(prefers-color-scheme: dark)').matches 
-                ? 'dark-mode' 
+                return window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark-mode'
                 : 'light-mode'
             }
             document.body.dataset.theme = getUserPreference();

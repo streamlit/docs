@@ -5,17 +5,17 @@ export default class Autofunction extends React.Component {
     constructor(props) {
         super(props)
     }
-    
+
     Heading(props) {
 
     }
-    
+
     render() {
         const props = this.props
         let func_obj
         let func_description
         let header
-        
+
         const rows = []
 
         if (props.function in props.streamlit) {
@@ -39,7 +39,7 @@ export default class Autofunction extends React.Component {
                 row['title'] = `<p><span class='bold'>${param.name}</span> <span class='italic code'>(${param.type_name})</span></p>`
                 row['body']  = `${description}`
             }
-            
+
             rows.push(row)
         }
 
