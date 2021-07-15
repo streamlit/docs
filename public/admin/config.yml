@@ -37,9 +37,9 @@ collections:
       name: next
       widget: relation
       collection: "contents"
-      file: "contents"
-      value_field: file
-      search_fields: [title]
+      valueField: slug
+      searchFields: ["title"]
+      displayFields: ["title"]
     - label: Body
       name: body
       widget: markdown
