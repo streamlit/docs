@@ -1,7 +1,7 @@
 .block-side-nav {
     display: none;
     position: fixed;
-    top: 0;
+    top: $header-height;
     z-index: 10;
 
     @media(max-width: 1024px) {
