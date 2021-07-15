@@ -36,7 +36,7 @@ collections:
     collection: "contents"
     value_field: "{{slug}}"
     search_fields: ["title","category"]
-    display_fields: ["{{slug}} - {{title}}"]
+    display_fields: ["{{category}} / {{title}}"]
   - label: Body
     name: body
     widget: markdown
