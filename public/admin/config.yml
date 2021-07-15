@@ -30,6 +30,14 @@ collections:
     - label: Title
       name: title
       widget: string
+    - label: Catgeory
+      name: category
+      widget: string
+    - label: Next Page
+      name: next
+      widget: relation
+      collection: "contents"
+      file: "contents"
     - label: Body
       name: body
       widget: markdown
