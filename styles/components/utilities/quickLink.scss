@@ -5,11 +5,11 @@
     transition:$fast;
     margin-bottom:.5em;
     &::before {
-        display: block; 
-        content: " "; 
-        margin-top: -$header-height; 
-        height: $header-height; 
-        visibility: hidden; 
+        display: block;
+        content: " ";
+        margin-top: -$header-height;
+        height: $header-height;
+        visibility: hidden;
         pointer-events: none;
     }
     svg {

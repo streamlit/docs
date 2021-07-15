@@ -39,7 +39,7 @@ export default function Home(window) {
             <Tile icon="dvr" title="API reference" text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia." background="orange-70" link="/reference-guides/api-reference" />
             <Tile icon="description" title="Topic guides" text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia." background="l-blue-70" link="/topic-guides" />
           </TileContainer>
- 
+
           <QuickLink>
             <h2 className='no-b-m'>What's new</h2>
           </QuickLink>

@@ -64,13 +64,13 @@ export default class SideBar extends React.Component {
     }
 
     componentDidMount() {
-        
+
         window.addEventListener('resize', this.checkExpanded)
         window.addEventListener('ChangeTheme', this.handleTheme)
-        
+
         bus.on('streamlit_nav_open', () => this.setState({ open: true }) )
         bus.on('streamlit_nav_closed', () => this.setState({ open: false }) )
-        
+
         this.checkExpanded()
 
         let sorted = this.state.topLevelPages.sort(function (a, b) {
@@ -107,7 +107,7 @@ export default class SideBar extends React.Component {
                 </nav>
             </section>
         )
-        
+
         return sideNav
     }
 }
