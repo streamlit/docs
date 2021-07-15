@@ -19,8 +19,9 @@ collections:
       widget: object
       fields:
       - { label: 'Date', name: publish_date, widget: datetime, date_format: "MMMM D, YYYY" }
-      - { label: Title, name: title, widget: string, default: 'Spotlight' }
-      - { label: Body, name: body, widget: markdown, minimal: true, buttons: ['bold', 'italic', 'link'], editor_components: [], modes: ['raw'] }
+      - { label: Title, name: title, widget: string }
+      - { label: Body, name: body, widget: text }
+      - { label: URL, name: url, widget: text, hint: "Should be a full url (https://www.example/)" }
     - label: Body
       name: body
       widget: markdown
