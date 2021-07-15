@@ -55,14 +55,13 @@ export default function Home(window) {
             <NewsEntry date="2021-05-12T16:30:00.000Z" title="Title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/" />
             <NewsEntry date="2021-04-07T16:08:45.000Z" title="Title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/" />
             <NewsEntry date="2021-01-12T16:30:00.000Z" title="Title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/" />
-            <Button link="/updates">Vieiw all updates</Button>
+            <Button link="/updates">View all updates</Button>
           </NewsContainer>
 
           <QuickLink>
             <h2>How to use our docs</h2>
           </QuickLink>
           <InlineCalloutContainer>
-            { /* TODO: Remove Nuxt-link */ }
             <InlineCallout color="violet-70" icon="school" bold="Tutorials">include our <next-link to="/tutorials/get-started">Get Started</next-link> guide and a few step-by-step examples to building different types of apps in Streamlit.</InlineCallout>
             <InlineCallout color="l-blue-70" icon="description" bold="Topic guides">
               give you background on how different parts of Streamlit work. Make sure to check out the sections on <next-link to="/">Creating an app</next-link> and <next-link to="/">Deploying an app</next-link>, and for you advanced users who want to level up your apps, be sure to read up on <next-link to="/">Caching</next-link> and <next-link to="/components">Components</next-link>.
@@ -76,7 +75,7 @@ export default function Home(window) {
             background="gray-20"
             title="Join the community"
             copy="Streamlit is more than just a way to make data apps, it’s also a community of creators that share their apps and ideas and help each other make their work better. Please come join us on the community forum. We love to hear your questions, ideas, and help you work through your bugs — stop by today!"
-            button={{ text: 'View fourm', link: '/' }}
+            button={{ text: 'View forum', link: 'https://discuss.streamlit.io' }}
             image="/join.png"
           />
 
