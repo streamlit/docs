@@ -1,7 +1,7 @@
 ---
 title: API Reference
 category: Reference Guides
-next: caching.md
+next: caching
 previous: index.md
 ---
 
