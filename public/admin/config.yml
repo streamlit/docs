@@ -38,6 +38,8 @@ collections:
       widget: relation
       collection: "contents"
       file: "contents"
+      value_field: file
+      search_fields: title
     - label: Body
       name: body
       widget: markdown
