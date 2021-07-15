@@ -19,13 +19,9 @@ collections:
         widget: markdown
   - name: "contents"
     label: "Documentation"
-    label_singular: 'Document'
     folder: "content"
     create: true
     slug: "{{slug}}"
-    nested:
-      depth: 100 # max depth to show in the collection tree
-      summary: '{{title}}'
     fields:
     - label: Title
       name: title
