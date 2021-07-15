@@ -17,7 +17,7 @@ collections:
     - label: News
       name: news
       widget: list
-      summary: '{{fields.publish_date}} - {{fields.author.title}}'
+      summary: '{{fields.publish_date}} - {{fields.title}}'
       fields:
       - { label: 'Date', name: publish_date, widget: datetime, date_format: "MMMM D, YYYY" }
       - { label: Title, name: title, widget: string }
