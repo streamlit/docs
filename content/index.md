@@ -6,14 +6,14 @@ features:
     color: violet-70
     icon: arrow_forward
     url: /tutorials/get-started
-    image: /img/logo.svg
+    image: ""
   - title: API reference
     body: Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
       fugit, sed quia.
     color: orange-70
     icon: dvr
     url: /reference-guides/api-reference
-    image: /img/logo.svg
+    image: ""
   - title: Topic guides
     body: Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
       fugit, sed quia.
@@ -21,7 +21,7 @@ features:
     icon: description
     url: Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
       sed quia.
-    image: /img/logo.svg
+    image: ""
 whats_new:
   - title: Feature title
     body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a
@@ -36,7 +36,7 @@ whats_new:
       cursus purus tempus porta sodales.
     url: /tutorials/get-started
     icon: visibility
-    image: /img/logo.svg
+    image: ""
   - body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a
       facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non
       cursus purus tempus porta sodales.
@@ -50,7 +50,7 @@ whats_new:
       cursus purus tempus porta sodales.
     url: /tutorials/get-started
     icon: edit
-    image: /img/logo.svg
+    image: ""
 news:
   - publish_date: April 7, 2021
     title: New Story 1
