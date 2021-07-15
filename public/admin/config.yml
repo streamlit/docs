@@ -26,6 +26,12 @@ collections:
   - label: Title
     name: title
     widget: string
+  - label: Next Page
+    name: next
+    widget: relation
+    collection: "contents"
+    valueField: slug
+    searchFields: ["title","category"]
   - label: Page Catgeory
     name: category
     widget: string
