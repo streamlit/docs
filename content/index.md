@@ -1,5 +1,31 @@
 ---
 title: Welcome to Streamlit
+features:
+  - title: Get started
+    body: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    color: violet-70
+    icon: arrow_forward
+    url: /tutorials/get-started
+  - title: API reference
+    body: Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+      fugit, sed quia.
+    color: orange-70
+    icon: dvr
+    url: /reference-guides/api-reference
+  - title: Topic guides
+    body: Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+      fugit, sed quia.
+    color: l-blue-70
+    icon: description
+    url: Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+      sed quia.
+whats_new:
+  - title: Feature title
+    body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a
+      facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non
+      cursus purus tempus porta sodales.
+    icon: visibility
+    url: /tutorials/get-started
 news:
   - publish_date: April 7, 2021
     title: New Story 1
