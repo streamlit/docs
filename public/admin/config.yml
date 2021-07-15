@@ -38,8 +38,8 @@ collections:
       widget: relation
       collection: "contents"
       valueField: slug
-      searchFields: ["title"]
-      displayFields: ["title"]
+      searchFields: ["title", "category"],
+      options_length: 10
     - label: Body
       name: body
       widget: markdown
