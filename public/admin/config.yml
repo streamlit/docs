@@ -34,9 +34,9 @@ collections:
     name: next
     widget: relation
     collection: "contents"
-    valueField: slug
-    displayFields: ["title", "slug"]
-    searchFields: ["title","category"]
+    value_field: "{{slug}}"
+    search_fields: ["title","category"]
+    display_fields: ["{{slug}} - {{title}}"]
   - label: Body
     name: body
     widget: markdown
