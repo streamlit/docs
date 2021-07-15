@@ -17,6 +17,42 @@ collections:
     - label: Body
       name: body
       widget: markdown
+      minimal: true
+    - label: Features
+      name: features
+      widget: list
+      summary: '{{fields.title}}'
+      fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Body, name: body, widget: string }
+      - { label: Color, name: color, widget: select, options: ['violet-70', 'orange-70', 'blue-70', 'red-70', 'yellow-70', 'green-70', 'b-g-70', 'l-blue-70', 'gray-70'] }
+      - { label: Icon, name: icon, widget: string, hint:"Must be the name (like_this) of a Material Icon: https://fonts.google.com/icons" }
+      - { label: URL, name: url, widget: string, hint: "Should be a full url (https://www.example/)" }
+    - label: "What's New"
+      name: whats_new
+      widget: list
+      summary: '{{fields.title}}'
+      fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Body, name: body, widget: string }
+      - { label: Icon, name: icon, widget: string, hint:"Must be the name (like_this) of a Material Icon: https://fonts.google.com/icons" }
+      - { label: URL, name: url, widget: string, hint: "Should be a full url (https://www.example/)" }      
+    - label: News
+      name: news
+      widget: list
+      summary: '{{fields.publish_date}} - {{fields.title}}'
+      fields:
+      - { label: 'Date', name: publish_date, widget: string }
+      - { label: Title, name: title, widget: string }
+      - { label: Body, name: body, widget: text }
+      - { label: URL, name: url, widget: string, hint: "Should be a full url (https://www.example/)" }
+    - label: Next Page
+      name: next
+      widget: relation
+      collection: "contents"
+      value_field: "{{slug}}"
+      search_fields: ["title","category"]
+      display_fields: ["{{category}} / {{title}}"]
 - name: "contents"
   label: "Documentation"
   folder: "content"
@@ -30,6 +66,10 @@ collections:
     name: category
     widget: string
     hint: "Categories should be seperated by back slashes (Parent / Child / Child)"
+  - label: Body
+    name: body
+    widget: markdown
+    modes: ['raw']
   - label: Next Page
     name: next
     widget: relation
@@ -37,6 +77,3 @@ collections:
     value_field: "{{slug}}"
     search_fields: ["title","category"]
     display_fields: ["{{category}} / {{title}}"]
-  - label: Body
-    name: body
-    widget: markdown
