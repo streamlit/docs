@@ -17,6 +17,7 @@
     "fs": "0.0.1-security",
     "gray-matter": "^4.0.3",
     "markdown-it": "^12.1.0",
+    "netlify-plugin-cache-nextjs": "^1.6.1",
     "next": "10.2.3",
     "next-mdx-remote": "^3.0.2",
     "next-remote-watch": "^1.0.0",
