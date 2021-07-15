@@ -1,12 +1,12 @@
 ---
 title: Welcome to Streamlit
 news:
-  - publish_date: 2021-07-14T05:20:00.000Z
+  - publish_date: April 7, 2021
     title: New Story 1
     body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis leo
       felis, quis egestas est dignissim vel.
     url: https://www.streamlit.io
-  - publish_date: 2021-07-15T05:21:16.106Z
+  - publish_date: April 7, 2021
     title: New Story 2
     body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis leo
       felis, quis egestas est dignissim vel. Pellentesque interdum massa metus,
