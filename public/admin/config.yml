@@ -26,6 +26,10 @@ collections:
   - label: Title
     name: title
     widget: string
+  - label: Page Catgeory
+    name: category
+    widget: string
+    hint: "Categories should be seperated by back slashes (Parent / Child / Child)"
   - label: Next Page
     name: next
     widget: relation
@@ -33,10 +37,6 @@ collections:
     valueField: slug
     displayFields: ["title", "slug"]
     searchFields: ["title","category"]
-    hint: "Categories should be seperated by back slashes (Parent / Child / Child)"
-  - label: Page Catgeory
-    name: category
-    widget: string
   - label: Body
     name: body
     widget: markdown
