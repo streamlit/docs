@@ -31,6 +31,7 @@ collections:
     widget: relation
     collection: "contents"
     valueField: slug
+    displayFields: ["title", "slug"]
     searchFields: ["title","category"]
     hint: "Categories should be seperated by back slashes (Parent / Child / Child)"
   - label: Page Catgeory
