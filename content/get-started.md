@@ -16,6 +16,21 @@ goal is to use Streamlit to create an interactive app for your data or model
 and along the way to use Streamlit to review, debug, perfect, and share your
 code.
 
+## Quick install
+
+1. Make sure that you have [Python 3.6 - Python 3.8](https://www.python.org/downloads/release/python-386/) installed.
+2. Install Streamlit using [PIP](https://pip.pypa.io/en/stable/installing/) and run the 'hello world' app:
+
+   ```shell
+   pip install streamlit
+   streamlit hello
+   ```
+
+3. That's it! In the next few seconds the sample app will open in a new tab in your default browser.
+
+Now that you're set up, let's dive into more of how Streamlit works and how to build great apps.
+
+
 ## Create your first Streamlit app
 
 Streamlit is more than just a way to make data apps, it’s also a community of creators that share their apps and ideas and help each other make their work better. Please come join us on the community forum. We love to hear your questions, ideas, and help you work through your bugs — stop by today!
@@ -88,10 +103,12 @@ data. Check our advanced guides on displaying data to understand when to use
 these features and how to add colors and styling to your data frames.
 
 <Note>
-   <p>For this guide we're using small amounts of data so that we can move
-   quickly. You can check out our `Tutorial on creating a data explorer
-   to see an example of how to load data from an API and use `@st.cache` to
-   cache it.</p>
+
+For this guide we're using small amounts of data so that we can move
+quickly. You can check out our [Tutorial on creating a data explorer](/tutorial-data-explorer)
+to see an example of how to load data from an API and use `@st.cache` to
+cache it.
+
 </Note>
 
 ## Use magic
@@ -162,7 +179,9 @@ apps with checkboxes, buttons, sliders, and more. Check out our [API
 reference](api.md) for a full list of interactive widgets.
 
 <Important>
-   <p>If the email you originally signed-up with isn’t the primary email associated with your GitHub account, just reply to your invite email telling us your primary Github email so we can grant access to the correct account.</p>
+
+ If the email you originally signed-up with isn’t the primary email associated with your GitHub account, just reply to your invite email telling us your primary Github email so we can grant access to the correct account.
+
 </Important>
 
 ### Use checkboxes to show/hide data
