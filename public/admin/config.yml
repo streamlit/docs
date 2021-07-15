@@ -29,13 +29,6 @@ collections:
   - label: Page Catgeory
     name: category
     widget: string
-  - label: Next Page
-    name: next
-    widget: relation
-    collection: "contents"
-    valueField: slug
-    searchFields: ["title", "category"],
-    options_length: 10
   - label: Body
     name: body
     widget: markdown
