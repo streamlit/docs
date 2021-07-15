@@ -25,9 +25,10 @@ collections:
       fields:
       - { label: Title, name: title, widget: string }
       - { label: Body, name: body, widget: string }
-      - { label: Color, name: color, widget: select, options: ['violet-70', 'orange-70', 'blue-70', 'red-70', 'yellow-70', 'green-70', 'b-g-70', 'l-blue-70', 'gray-70'] }
-      - { label: Icon, name: icon, widget: string, hint:"Must be the name (like_this) of a Material Icon." }
       - { label: URL, name: url, widget: string, hint: "Should be a full url (https://www.example/)" }
+      - { label: Color, name: color, widget: select, options: ['violet-70', 'orange-70', 'blue-70', 'red-70', 'yellow-70', 'green-70', 'b-g-70', 'l-blue-70', 'gray-70'] }
+      - { label: Image, name: image, widget: image, hint:"Takes precedent over an icon, if set." }
+      - { label: Icon, name: icon, widget: string, hint:"Must be the name (like_this) of a Material Icon. Should be an SVG." }
     - label: "What's New"
       name: whats_new
       widget: list
@@ -35,9 +36,9 @@ collections:
       fields:
       - { label: Title, name: title, widget: string }
       - { label: Body, name: body, widget: string }
+      - { label: URL, name: url, widget: string, hint: "Should be a full url (https://www.example/)" }
       - { label: Icon, name: icon, widget: string, hint:"Must be the name (like_this) of a Material Icon." }
-      - { label: Image, name: image, widget: image, hint:"Takes precedent over an icon, if set." }
-      - { label: URL, name: url, widget: string, hint: "Should be a full url (https://www.example/)" }      
+      - { label: Image, name: image, widget: image, hint:"Takes precedent over an icon, if set. Should be an SVG." }  
     - label: News
       name: news
       widget: list
