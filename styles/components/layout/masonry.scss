@@ -1,21 +1,44 @@
 .masonry {
-    display: flex;
-    flex-flow: column wrap;
-    margin-top: 2rem;
-    &::before,
-    &::after {
-      content: "";
-      flex-basis: 100%;
-      width: 0;
-      order: 2;
-    }
+  display: flex;
+  flex-flow: column wrap;
+  margin-top: 2rem;
+  height:var(--max-height);
+  &::before,
+  &::after {
+    content: "";
+    flex-basis: 100%;
+    width: 0;
+    order: 2;
+  }
 
-    > * {
-        width: calc(33.333% - 2em);
-        &:nth-child(3n+1) { order: 1; }
-        &:nth-child(3n+2) { order: 2; }
-        &:nth-child(3n)   { order: 3; }
+  > * {
+    width: calc(33.333% - 2em);
+    &:nth-child(3n+1) { 
+      order: 1; 
     }
-      
-      /* Re-order items into 3 rows */
+    &:nth-child(3n+2) { 
+      order: 2; }
+    &:nth-child(3n) { 
+      order: 3; 
+    }
+    &:nth-child(1) {
+      border-radius: $rounded-small 0 0 0; 
+    }
+    &:nth-child(3) {
+      border-radius: 0 $rounded-small 0 0; 
+    }
+    &:nth-last-of-type(1),
+    &:nth-last-of-type(2),
+    &:nth-last-of-type(3)  {
+      border-radius: 0 0 $rounded-small $rounded-small; 
+    }
+  }
+
+    @media(max-width:1024px) {
+      height:unset;
+
+      > * {
+          width: calc(100% - 2em);
+      }
+  }
 }
