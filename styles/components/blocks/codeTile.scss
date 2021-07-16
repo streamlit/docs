@@ -1,5 +1,4 @@
 .code-tile {
-    width:calc(33.333% - 2em);
     padding: 1em;
     background:$white;
     color: $gray-90;
@@ -16,22 +15,23 @@
         margin-bottom:.25em;
     }
     
-    code {
-        border-radius: $rounded-small;
-        background: $gray-20;
-        padding: 1em;
-        width:calc(100% - 2em);
-        display: block;
-        color: $gray-90;
-        line-break: anywhere;
-        white-space: pre-line;
-    }
+    // code {
+    //     border-radius: $rounded-small;
+    //     background: $gray-20;
+    //     padding: 1em;
+    //     width:calc(100% - 2em);
+    //     display: block;
+    //     color: $gray-90;
+    //     line-break: anywhere;
+    //     white-space: pre-line;
+    // }
 
     &.featured {
         background:$gray-70;
         color:white;
         border-radius: $rounded-small;
         border:0;
+        margin-bottom: 1em;
     }
 
     &.fourth {
@@ -52,16 +52,9 @@
     &.full {
         width:100%;
     }
-    @media (max-width:1500px) {
-        &.fourth {
-            width: calc(50% - 2.5em);
-            margin-bottom: 1em;
-        }
-    }
     @media (max-width:768px) {
         &.fourth,&.third,&.half,&.two-third {
             width:100%;
-            margin-bottom: 1em;
         }
     }
 }
