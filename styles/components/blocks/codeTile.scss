@@ -14,17 +14,6 @@
         color:inherit !important;
         margin-bottom:.25em;
     }
-    
-    // code {
-    //     border-radius: $rounded-small;
-    //     background: $gray-20;
-    //     padding: 1em;
-    //     width:calc(100% - 2em);
-    //     display: block;
-    //     color: $gray-90;
-    //     line-break: anywhere;
-    //     white-space: pre-line;
-    // }
 
     &.featured {
         background:$gray-70;
@@ -34,27 +23,4 @@
         margin-bottom: 1em;
     }
 
-    &.fourth {
-        width:calc(25% - 2.75em);
-    }
-    &.third {
-        width:calc(33.333% - 2.666em);
-    }
-    &.half {
-        width:calc(50% - 2.5em);
-    }
-    &.two-third {
-        width:calc(66.666% - 2.333em);
-    }
-    &.three-fourth {
-        width:calc(75% - 2.25em);
-    }
-    &.full {
-        width:100%;
-    }
-    @media (max-width:768px) {
-        &.fourth,&.third,&.half,&.two-third {
-            width:100%;
-        }
-    }
 }
