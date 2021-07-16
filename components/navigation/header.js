@@ -21,7 +21,6 @@ export default class Header extends React.Component {
         };
     }
 
-
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll)
         window.addEventListener('resize', this.handleResize)
