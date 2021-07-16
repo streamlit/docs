@@ -14,6 +14,7 @@ import BreadCrumbs from '../components/utilities/breadCrumbs'
 import SideBar from '../components/navigation/sideNav'
 import Row from '../components/layouts/row'
 import Masonry from '../components/layouts/masonry'
+import TileContainer from '../components/layouts/tileContainer'
 // import FloatingNav from '../../components/utilities/floatingNav'
 
 // MDX Components
@@ -23,6 +24,7 @@ import Tip from '../components/blocks/tip'
 import Important from '../components/blocks/important'
 import YouTube from '../components/blocks/youTube'
 import CodeTile from '../components/blocks/codeTile'
+import RefCard from '../components/blocks/refCard'
 import Autofunction from '../components/blocks/autofunction'
 
 export default function Article({ source, streamlit, slug }) {
@@ -36,6 +38,8 @@ export default function Article({ source, streamlit, slug }) {
         Row,
         Masonry,
         CodeTile,
+        TileContainer,
+        RefCard,
         Autofunction: (props) => <Autofunction {...props} streamlit={streamlit} />,
         pre: (props) => <Code {...props} />
     }
