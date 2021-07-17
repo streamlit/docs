@@ -1,11 +1,14 @@
 .block-search {
     z-index: 4;
+    max-width: 15rem;
+    flex: auto;
+
     .hot-key {
         display: flex;
         align-items: center;
-        padding:0 1em;
+        padding: 0 1em;
         border-radius: $rounded-small;
-        height:2rem;
+        height: 2rem;
         cursor: pointer;
 
         p, i {
@@ -20,6 +23,7 @@
         }
         .search-text {
             margin-right:1em;
+            flex: auto;
         }
         .command {
             margin-left:2em;
@@ -120,11 +124,19 @@
                     border-radius: $rounded-small;
                     padding: 0 1em;
                     padding-left: 2.5em;
+                    font-size: 1em;  // Get from parent rather than browser.
                 }
+
+                input:focus,
+                input:focus-visible {
+                  outline: none;
+                  box-shadow: 0 0 0 2px $gray-50;
+                }
+
                 #search-clear,input[type="search" i]::-webkit-search-cancel-button {
                     opacity: 0;
                 }
-                
+
                 button {
                     box-shadow: none;
                     position: absolute;
@@ -175,7 +187,7 @@
 
                                     }
                                     h2 {
-        
+
                                     }
                                 }
                             }
@@ -185,11 +197,11 @@
             }
         }
     }
-    
+
     .fade-enter-active, .fade-leave-active {
         transition: $normal;
     }
-    
+
     .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
         opacity: 0;
         .content, button {
