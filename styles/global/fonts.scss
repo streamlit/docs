@@ -26,7 +26,7 @@ h1 {
     font-size: 3em;
     line-height: 1.2;
     letter-spacing: -0.02em;
-    margin-bottom: .45em;    
+    margin-bottom: .45em;
 }
 
 h2 {
@@ -84,6 +84,15 @@ h6 {
     margin-top: 1.25em;
 }
 
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  margin-top: 0;
+}
+
 .large {
     font-family: $inter;
     font-style: normal;
@@ -105,6 +114,10 @@ a {
 
 p {
     margin-bottom: 1em;
+}
+
+p:last-child {
+    margin-bottom: 0;
 }
 
 ol, ul {
@@ -494,7 +507,7 @@ i {
 //    | || '_ \| __/ _ | '__|
 //    | || | | | ||  __| |
 //   |___|_| |_|\__\___|_|
-//   
+//
 
 /* cyrillic-ext */
 
