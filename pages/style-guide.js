@@ -251,8 +251,8 @@ st.altair_chart(chart_data)`} />
                 </Component>
                 <Component label="Inline callout">
                     <InlineCalloutContainer>
-                        <InlineCallout color="violet-70" icon="school" bold="Tutorials">include our <Link href="/tutorials/get-started"><a>Get Started</a></Link> guide and a few step-by-step examples to building different types of apps in Streamlit.</InlineCallout>
-                        <InlineCallout color="violet-70" icon="school" bold="Tutorials">include our <Link href="/tutorials/get-started"><a>Get Started</a></Link> guide and a few step-by-step examples to building different types of apps in Streamlit.</InlineCallout>
+                        <InlineCallout color="violet-70" icon="school" bold="Tutorials" href="/">include our <Link href="/tutorials/get-started"><a>Get Started</a></Link> guide and a few step-by-step examples to building different types of apps in Streamlit.</InlineCallout>
+                        <InlineCallout color="violet-70" icon="school" bold="Tutorials" href="/">include our <Link href="/tutorials/get-started"><a>Get Started</a></Link> guide and a few step-by-step examples to building different types of apps in Streamlit.</InlineCallout>
                     </InlineCalloutContainer>
                 </Component>
                 <Component label="Social callouts">
