@@ -64,7 +64,6 @@ export default class Header extends React.Component {
                         {mobileNav}
                     </section>
                 </nav>
-                <h1>{this.state.sticky}</h1>
             </header>
         )
     }
