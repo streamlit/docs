@@ -1,8 +1,9 @@
 .block-code {
-    
+
     width: calc(100%);
     position: relative !important;
     margin: 1.75em auto;
+    line-height: 1.5;
 
     .code-toolbar {
         position: relative;
@@ -25,7 +26,7 @@
         position: relative;
         padding: 1.5em 2em;
         counter-reset: linenumber;
-    
+
         >code {
             z-index: 1;
             position: relative;
@@ -33,10 +34,10 @@
             font-family: $source;
 
             .keyword {
-                color: $green-70;
+                color: $blue-50;
             }
             .function {
-                color: $l-blue-70;
+                color: $red-50;
             }
             .builtin {
                 color:$blue-30;
@@ -45,23 +46,24 @@
                 color: $gray-60;
             }
             .operator {
-                color:$yellow-70;
+                color: $orange-50;
             }
-            .annotation {
-                color: $orange-70;
+            .decorator {
+                color: $yellow-80;
             }
             .comment {
+                color: $gray-50;
                 font-style: italic;
                 font-weight:400;
             }
             .number {
-                color: $red-80;   
+                color: $b-g-40;
             }
             .string {
-                color: $pink;
+                color: $l-blue-40;
             }
             .boolean {
-                color:$violet-70
+                color: $green-40
             }
         }
 
@@ -75,16 +77,16 @@
             width: 3em; /* works for line-numbers below 1000 lines */
             letter-spacing: -1px;
             border-right: 1px solid #999;
-    
+
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-    
+
             >span {
                 display: block;
                 counter-increment: linenumber;
-                
+
                 &:before {
                     content: counter(linenumber);
                     color: #999;
