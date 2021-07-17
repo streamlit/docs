@@ -59,6 +59,7 @@ collections:
     label: "Menu"
     create: true
     file: "content/menu.md"
+    fields:    
     - label: Site Menu
       name: site_menu
       widget: list
