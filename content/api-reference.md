@@ -143,58 +143,50 @@ Lite](https://vega.github.io/vega-lite/) (2D charts) and
 finally we also provide a few chart types that are "native" to Streamlit,
 like `st.line_chart` and `st.area_chart`.
 
-```eval_rst
-.. autofunction:: streamlit.line_chart
-.. autofunction:: streamlit.area_chart
-.. autofunction:: streamlit.bar_chart
-.. autofunction:: streamlit.pyplot
-.. autofunction:: streamlit.altair_chart
-.. autofunction:: streamlit.vega_lite_chart
-.. autofunction:: streamlit.plotly_chart
-.. autofunction:: streamlit.bokeh_chart
-.. autofunction:: streamlit.pydeck_chart
-.. autofunction:: streamlit.graphviz_chart
-.. autofunction:: streamlit.map
-```
+<Autofunction function="streamlit.line_chart" />
+<Autofunction function="streamlit.area_chart" />
+<Autofunction function="streamlit.bar_chart" />
+<Autofunction function="streamlit.pyplot" />
+<Autofunction function="streamlit.altair_chart" />
+<Autofunction function="streamlit.vega_lite_chart" />
+<Autofunction function="streamlit.plotly_chart" />
+<Autofunction function="streamlit.bokeh_chart" />
+<Autofunction function="streamlit.pydeck_chart" />
+<Autofunction function="streamlit.graphviz_chart" />
+<Autofunction function="streamlit.map" />
 
 ## Display media
 
 It's easy to embed images, videos, and audio files directly into your Streamlit apps.
 
-```eval_rst
-.. autofunction:: streamlit.image
-.. autofunction:: streamlit.audio
-.. autofunction:: streamlit.video
-```
+<Autofunction function="streamlit.image" />
+<Autofunction function="streamlit.audio" />
+<Autofunction function="streamlit.video" />
 
 ## Display interactive widgets
 
 With widgets, Streamlit allows you to bake interactivity directly into your apps with buttons, sliders, text inputs, and more.
 
-```eval_rst
-.. autofunction:: streamlit.button
-.. autofunction:: streamlit.checkbox
-.. autofunction:: streamlit.radio
-.. autofunction:: streamlit.selectbox
-.. autofunction:: streamlit.multiselect
-.. autofunction:: streamlit.slider
-.. autofunction:: streamlit.select_slider
-.. autofunction:: streamlit.text_input
-.. autofunction:: streamlit.number_input
-.. autofunction:: streamlit.text_area
-.. autofunction:: streamlit.date_input
-.. autofunction:: streamlit.time_input
-.. autofunction:: streamlit.file_uploader
-.. autofunction:: streamlit.color_picker
-```
+<Autofunction function="streamlit.button" />
+<Autofunction function="streamlit.checkbox" />
+<Autofunction function="streamlit.radio" />
+<Autofunction function="streamlit.selectbox" />
+<Autofunction function="streamlit.multiselect" />
+<Autofunction function="streamlit.slider" />
+<Autofunction function="streamlit.select_slider" />
+<Autofunction function="streamlit.text_input" />
+<Autofunction function="streamlit.number_input" />
+<Autofunction function="streamlit.text_area" />
+<Autofunction function="streamlit.date_input" />
+<Autofunction function="streamlit.time_input" />
+<Autofunction function="streamlit.file_uploader" />
+<Autofunction function="streamlit.color_picker" />
 
 ## Control flow
 
 By default, Streamlit apps execute the script entirely, but we allow some functionality to handle control flow in your applications.
 
-```eval_rst
-.. autofunction:: streamlit.stop
-```
+<Autofunction function="streamlit.stop" />
 
 ## Add widgets to sidebar
 
@@ -215,21 +207,17 @@ add_selectbox = st.sidebar.selectbox(
 
 In addition to the sidebar, you have a few other options for controlling how your app is laid out.
 
-```eval_rst
-.. autofunction:: streamlit.form
-.. autofunction:: streamlit.form_submit_button
-```
+<Autofunction function="streamlit.form" />
+<Autofunction function="streamlit.form_submit_button" />
 
 ```eval_rst
 .. note:: These are beta features. See
   https://docs.streamlit.io/en/latest/api.html#pre-release-features for more information.
 ```
 
-```eval_rst
-.. autofunction:: streamlit.beta_container
-.. autofunction:: streamlit.beta_columns
-.. autofunction:: streamlit.beta_expander
-```
+<Autofunction function="streamlit.beta_container" />
+<Autofunction function="streamlit.beta_columns" />
+<Autofunction function="streamlit.beta_expander" />
 
 ## Display code
 
@@ -237,9 +225,7 @@ Sometimes you want your Streamlit app to contain _both_ your usual
 Streamlit graphic elements _and_ the code that generated those elements.
 That's where `st.echo()` comes in.
 
-```eval_rst
-.. autofunction:: streamlit.echo
-```
+<Autofunction function="streamlit.echo" />
 
 Ok so let's say you have the following file, and you want to make its
 app a little bit more self-explanatory by making that middle section
@@ -313,38 +299,33 @@ Streamlit provides a few methods that allow you to add animation to your
 apps. These animations include progress bars, status messages (like
 warnings), and celebratory balloons.
 
-```eval_rst
-.. autofunction:: streamlit.progress
-.. autofunction:: streamlit.spinner
-.. autofunction:: streamlit.balloons
-.. autofunction:: streamlit.error
-.. autofunction:: streamlit.warning
-.. autofunction:: streamlit.info
-.. autofunction:: streamlit.success
-.. autofunction:: streamlit.exception
-```
+<Autofunction function="streamlit.progress" />
+<Autofunction function="streamlit.spinner" />
+<Autofunction function="streamlit.balloons" />
+<Autofunction function="streamlit.error" />
+<Autofunction function="streamlit.warning" />
+<Autofunction function="streamlit.info" />
+<Autofunction function="streamlit.success" />
+<Autofunction function="streamlit.exception" />
 
 ## Placeholders, help, and options
 
 There are a handful of methods that allow you to create placeholders in your
 app, provide help using doc strings, and get and modify configuration options.
 
-```eval_rst
-.. autofunction:: streamlit.empty
-.. autofunction:: streamlit.help
-.. autofunction:: streamlit.get_option
-.. autofunction:: streamlit.set_option
-.. autofunction:: streamlit.set_page_config
-```
+<Autofunction function="streamlit.empty" />
+<Autofunction function="streamlit.help" />
+<Autofunction function="streamlit.get_option" />
+<Autofunction function="streamlit.set_option" />
+<Autofunction function="streamlit.set_page_config" />
 
 ## Mutate data
 
 With Streamlit you can modify the data within an existing element (chart,
 table, dataframe).
 
-```eval_rst
-.. automethod:: streamlit.delta_generator.DeltaGenerator.add_rows
-```
+XXX DOCS BUG HERE
+<Autofunction function="streamlit.delta_generator.DeltaGenerator.add_rows" />
 
 ## Optimize performance
 
@@ -369,9 +350,7 @@ changes that take place outside the body of the annotated function.
 For more information about the Streamlit cache, its configuration parameters,
 and its limitations, see [Caching](caching.md).
 
-```eval_rst
-.. autofunction:: streamlit.cache
-```
+<Autofunction function="streamlit.cache" />
 
 ## Pre-release features
 
