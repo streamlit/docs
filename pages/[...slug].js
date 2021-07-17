@@ -4,6 +4,7 @@ import { join } from 'path'
 
 import React from 'react'
 import { serialize } from 'next-mdx-remote/serialize'
+import { MDXProvider } from '@mdx-js/react'
 import { MDXRemote } from 'next-mdx-remote'
 import matter from 'gray-matter'
 
@@ -26,6 +27,9 @@ import YouTube from '../components/blocks/youTube'
 import CodeTile from '../components/blocks/codeTile'
 import RefCard from '../components/blocks/refCard'
 import Autofunction from '../components/blocks/autofunction'
+import Image from '../components/blocks/image'
+import Download from '../components/utilities/download'
+import Flex from '../components/layouts/flex'
 
 export default function Article({ source, streamlit, slug }) {
 
@@ -40,11 +44,20 @@ export default function Article({ source, streamlit, slug }) {
         CodeTile,
         TileContainer,
         RefCard,
+        Image,
+        Download,
+        Flex,
         Autofunction: (props) => <Autofunction {...props} streamlit={streamlit} />,
         pre: (props) => <Code {...props} />
     }
 
     return (
+        <MDXProvider
+          components={{
+            // Override some default Markdown components.
+            img: Image
+          }}
+        >
         <Layout>
             <section className="page container template-standard">
                 <SideBar slug={slug} />
@@ -53,7 +66,8 @@ export default function Article({ source, streamlit, slug }) {
                     <MDXRemote {...source} components={components} />
                 </section>
             </section>
-        </Layout >
+        </Layout>
+        </MDXProvider>
     )
 }
 

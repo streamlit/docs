@@ -22,13 +22,13 @@ export default class Tip extends React.Component {
     handleTheme() {
         this.setState({ theme: document.body.dataset.theme })
     }
-    
+
     render() {
         const props = this.props
         const state = this.state
-        
+
         let block;
-        
+
         if (state.theme == 'dark-mode') {
             block = (
                 <section className={`block-note bg-dark-violet color-white`}>
