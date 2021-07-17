@@ -146,7 +146,7 @@ export default class Search extends React.Component {
                                             <Configure hitsPerPage={4} />
                                         </div>
                                         <div className="right-panel">
-                                            <SearchBox id="search-box" />
+                                            <SearchBox id="search-box small" />
                                             <Hits hitComponent={Hit} />
                                         </div>
                                     </InstantSearch>
@@ -164,7 +164,7 @@ export default class Search extends React.Component {
         }
         let searchBar = (
             <section className="block-search">
-                <section className="hot-key tiny" onClick={this.searchClicked}>
+                <section className="hot-key small" onClick={this.searchClicked}>
                     <i>search</i>
                     <p className="search-text">Search</p>
                     {hotKey}

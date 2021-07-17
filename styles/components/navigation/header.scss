@@ -26,7 +26,7 @@ header {
         position: relative;
         height:$header-height;
         transition:$normal;
-        
+
         &:before {
             content:'';
             position: absolute;
@@ -37,7 +37,7 @@ header {
             transform: translate(-50%);
             transition:$normal;
             opacity: 0;
-            
+
             @media(max-width: 1024px) {
                 opacity: 1;
             }
@@ -49,7 +49,7 @@ header {
             width:2rem;
             margin-bottom: 0;
             z-index: 3;
-            
+
             i {
                 transition: $fast;
                 position: absolute;
@@ -65,7 +65,7 @@ header {
             width:2rem;
             margin-bottom: 0;
             border-radius: $rounded-small;
-            
+
             i {
                 transition: $fast;
                 position: absolute;
@@ -96,8 +96,11 @@ header {
             display:flex;
             align-items: center;
             gap: 1.5em;
+            flex: auto;
+            justify-content: flex-end;
         }
     }
+
     @media(max-width:1024px) {
         .container {
             .brand {
