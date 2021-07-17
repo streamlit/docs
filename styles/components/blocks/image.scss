@@ -36,7 +36,7 @@
     }
     .light-box {
         position:fixed;
-        z-index: 11;
+        z-index: 100;  // Higher than the header
         top:0;
         left:0;
         width:100vw;
@@ -91,6 +91,7 @@
             cursor: pointer;
             background: transparent;
             border: none;
+            z-index: 10;  // Higher than the image.
 
             &:hover {
                 opacity: .5;
