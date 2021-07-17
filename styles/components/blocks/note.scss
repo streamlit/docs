@@ -1,8 +1,7 @@
 .block-note {
-    width: calc(100%);
     padding: 2em;
     border-radius: $rounded-small;
-    margin: 2em 0 3em -2em;
+    margin: 2em 0 3em 0;
 
     a,p,li,h1,h2,h3,h4,h5,h6 {
         color: unset !important;
