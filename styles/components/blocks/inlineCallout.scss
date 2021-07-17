@@ -5,6 +5,15 @@
     padding-bottom: 2em;
     border-bottom:1px solid $gray-30;
 
+    a {
+      border: none;
+      font-weight: bold;
+
+      &:after {
+        display: none;
+      }
+    }
+
     .icon-box {
         display: flex;
         align-items: center;
@@ -12,7 +21,7 @@
         margin-right: 1em;
         margin-bottom: 0;
         border-radius: $rounded-small;
-        
+
         i {
             font-size:2em;
             color:white;
