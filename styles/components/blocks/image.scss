@@ -6,7 +6,7 @@
         .image {
 
             img {
-                
+
                 &:hover {
                     cursor: default;
                     transform: scale(1);
@@ -15,7 +15,7 @@
             }
         }
     }
-    
+
     .block-note {
         max-width:100%;
         width:auto;
@@ -52,18 +52,17 @@
             max-height: 90vh;
 
             img {
-                // min-width:100%;
-                // max-width:100%;
                 margin-bottom: 1em;
                 transition:$normal;
                 z-index: 1;
+                object-fit: contain;
             }
             p {
                 text-align: center;
             }
 
         }
-        
+
         &:before {
             position: absolute;
             width: 100%;
@@ -105,7 +104,7 @@
         }
 
     }
-    
+
     .fade-enter-active, .fade-leave-active {
         transition: $normal;
     }
