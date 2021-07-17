@@ -3,14 +3,18 @@
     display: inline-flex;
     width: 100%;
     margin-bottom: 1em;
+
     li {
         margin: 0;
+        margin-left: .5em;
+
+        &:first-child {
+            margin: 0;
+        }
+
         a {
             text-transform: capitalize;
-            span {
-                margin-right: .5em;
-                margin-left: .25em;
-            }
+            margin-right: .5em;
         }
     }
 }
