@@ -203,8 +203,9 @@ body[data-theme="light-mode"] {
     }
     .breadcrumbs {
         li {
+            color: $gray-60;
             a {
-                color:$gray-60;
+                color: $gray-60;
             }
         }
     }
