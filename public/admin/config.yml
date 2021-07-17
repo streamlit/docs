@@ -63,7 +63,7 @@ collections:
     - label: Site Menu
       name: site_menu
       widget: list
-      summary: 'Site Menu'
+      summary: '{{fields.category}}'
       fields:
       - { label: Node, name: category, widget: string, hint: "Use Parent / Child / Child format, with the last element acting as the item title." }
       - { label: URL, name: url, widget: string, hint: "Should be either a full url (https://www.example/) or an absolute URL (/like/this)" }
