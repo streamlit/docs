@@ -24,7 +24,11 @@ export default class Image extends React.Component {
         const props = this.props
         const state = this.state
         let block;
-        if (state.opened) {
+        if (props.pure) {
+            block = (
+                <img src={props.src} alt={props.alt} />
+            )
+        } else if (state.opened) {
             block = (
                 <section className="block-image">
                     <Note color="unset" background="unset">
