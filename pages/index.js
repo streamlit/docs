@@ -62,19 +62,19 @@ export default function Home(window) {
             <h2>How to use our docs</h2>
           </QuickLink>
           <InlineCalloutContainer>
-            <InlineCallout color="violet-70" icon="school" bold="Tutorials" href="/tutorials/get-started">
+            <InlineCallout color="violet-70" icon="school" bold="Tutorials" href="/tutorials">
               include our <next-link to="/tutorials/get-started">Get Started</next-link> guide and a few step-by-step examples to building different types of apps in Streamlit.
             </InlineCallout>
-            <InlineCallout color="l-blue-70" icon="description" bold="Topic guides" href="/tutorials/get-started">
+            <InlineCallout color="l-blue-70" icon="description" bold="Topic guides" href="/topic-guides">
               give you background on how different parts of Streamlit work. Make sure to check out the sections on <next-link to="/">Creating an app</next-link> and <next-link to="/">Deploying an app</next-link>, and for you advanced users who want to level up your apps, be sure to read up on <next-link to="/">Caching</next-link> and <next-link to="/components">Components</next-link>.
             </InlineCallout>
-            <InlineCallout color="green-70" icon="code" bold="Cookbook" href="/tutorials/get-started">
+            <InlineCallout color="green-70" icon="code" bold="Cookbook" href="/cookbook">
               provides short code snippets that you can copy in for specific use cases.
             </InlineCallout>
-            <InlineCallout color="orange-70" icon="menu_book" bold="Reference guides" href="/tutorials/get-started">
+            <InlineCallout color="orange-70" icon="menu_book" bold="Reference guides" href="/reference-guides">
               are the bread and butter of how our APIs and configuration files work and will give you short, actionable explanations of specific functions and features.
             </InlineCallout>
-            <InlineCallout color="red-70" icon="question_answer" bold="Support" href="/tutorials/get-started">
+            <InlineCallout color="red-70" icon="question_answer" bold="Support" href="/support">
               are the bread and butter of how our APIs and configuration files work and will give you short, actionable explanations of specific functions and features.
             </InlineCallout>
           </InlineCalloutContainer>
