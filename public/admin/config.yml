@@ -5,7 +5,7 @@ media_folder: public/img
 public_folder: /img
 collections:
 - name: "pages"
-  label: "Pages"
+  label: "Site"
   files:
   - label: "Home"
     name: "home"
@@ -55,6 +55,20 @@ collections:
       value_field: "{{slug}}"
       search_fields: ["title","category"]
       display_fields: ["{{category}} / {{title}}"]
+  - name: "menu"
+    label: "Menu"
+    create: true
+    file: "content/menu.md"
+    fields:    
+    - label: Site Menu
+      name: site_menu
+      widget: list
+      summary: '{{fields.category}}'
+      fields:
+      - { label: Node, name: category, widget: string, hint: "Use Parent / Child / Child format, with the last element acting as the item title." }
+      - { label: URL, name: url, widget: string, hint: "Should be either a full url (https://www.example/) or an absolute URL (/like/this)" }
+      - { label: Color, name: color, widget: select, options: ['violet-70', 'orange-70', 'blue-70', 'red-70', 'yellow-70', 'green-70', 'b-g-70', 'l-blue-70', 'gray-70'], required: false }
+      - { label: Icon, name: icon, widget: string, hint: "Must be the name (like_this) of a Material Icon.", required: false }
 - name: "contents"
   label: "Documentation"
   folder: "content"

@@ -20,6 +20,7 @@ class StreamlitDocument extends Document {
                 : 'light-mode'
             }
             document.body.dataset.theme = getUserPreference();
+            window.initial = { prism: false };
         `;
         return (
             <Html>

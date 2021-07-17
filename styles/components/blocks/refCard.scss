@@ -1,0 +1,36 @@
+.reference-card {
+    padding: 1em;
+    background:$white;
+    color: $gray-90;
+    border-radius: $rounded-small;
+    border:0;
+    overflow: hidden;
+    font-size: 16px;
+
+    h1,h2,h3,h4,h5,h6 {
+        margin:0;
+        color:inherit !important;
+        margin-bottom:.25em;
+    }
+    img {
+        max-width:calc(100% + 2em);
+        margin-left:-1em;
+        margin-top:-2em;
+    }
+    p,a {
+        color:inherit !important;
+        margin-bottom:.25em;
+        font-weight: 300;
+        font-size: .8em;
+    }
+    .block-code {
+        width: calc(100% + 2em);
+        position: relative !important;
+        margin:1em 0 -1em -1em;
+        pre {
+            margin:0;
+            border-radius: 0;
+        }
+    }
+
+}

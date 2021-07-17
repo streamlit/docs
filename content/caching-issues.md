@@ -1,6 +1,6 @@
 ---
-title: Caching Issues
-category: Troubleshooting
+title: Caching issues
+category: Support
 ---
 
 # Caching issues
@@ -11,7 +11,7 @@ While developing an app, if you see an error or warning that stems from a cached
 
 If you believe your cached function isn't executing even though its inputs are a "Cache miss", you can debug using [`st.write`](../api.html#streamlit.write) statements inside and outside of your function like this:
 
-```Python
+```python
 @st.cache
 def my_cached_func(a, b):
     st.write("Cache miss: my_cached_func(", a, ", ", b, ") ran")
@@ -25,7 +25,7 @@ my_cached_func(2, 21)
 
 Streamlit raises this error whenever it encounters a type it doesn't know how to hash. This could be either when hashing the inputs to generate the cache key or when hashing the output to verify whether it changed. To address it, you'll need to help Streamlit understand how to hash that type by using the `hash_funcs` argument:
 
-```Python
+```python
 @st.cache(hash_funcs={FooType: hash_foo_type})
 def my_cached_func(a, b):
     ...
@@ -35,7 +35,7 @@ Here, `FooType` is the type Streamlit was unable to hash, and `hash_foo_type` is
 
 For example, if you'd like to make Streamlit ignore a specific type of object when hashing, you can pass a constant function to `hash_funcs`, like this:
 
-```Python
+```python
 @st.cache(hash_funcs={FooType: lambda _: None})
 def my_cached_func(a, b):
     ...
@@ -52,14 +52,14 @@ By default Streamlit expects its cached values to be treated as immutable -- tha
 - **Preferred:** rewrite your code to remove that mutation
 - Clone the output of the cached function before mutating it. For example:
 
-  ```Python
+  ```python
   import copy
   cloned_output = copy.deepcopy(my_cached_function(...))
   ```
 
 2. If you wanted to allow the cached object to mutate, you can disable this check by setting `allow_output_mutation=True` like this:
 
-   ```Python
+   ```python
    @st.cache(allow_output_mutation=True)
    def my_cached_func(...):
       ...
@@ -67,14 +67,15 @@ By default Streamlit expects its cached values to be treated as immutable -- tha
 
    For examples, see [Advanced caching](../caching.md).
 
-   ```eval_rst
-   .. note::
-      If your function returns multiple objects and you only want to allow a subset of them to mutate between runs, you can do that with the `hash_funcs` option.
-   ```
+   <Note>
+
+   If your function returns multiple objects and you only want to allow a subset of them to mutate between runs, you can do that with the `hash_funcs` option.
+
+   </Note>
 
 3. If Streamlit is incorrectly hashing the cached object, you can override this by using `hash_funcs`. For example, if your function returns an object of type `FooType` then you could write:
 
-   ```Python
+   ```python
    @st.cache(hash_funcs={FooType: hash_func_for_foo_type})
    def my_cached_func(...):
       ...
@@ -87,3 +88,4 @@ By default Streamlit expects its cached values to be treated as immutable -- tha
 ## If all else fails
 
 If the proposed fixes above don't work for you, or if you have an idea on how to further improve [`@st.cache`](../api.html#streamlit.cache) -- let us know by asking questions in the [community forum](https://discuss.streamlit.io/), [filing a bug](https://github.com/streamlit/streamlit/issues/new/choose), or [submitting a feature request](https://github.com/streamlit/streamlit/issues/new/choose). We love hearing back from the community!
+
