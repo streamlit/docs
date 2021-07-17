@@ -79,3 +79,24 @@ collections:
     value_field: "{{slug}}"
     search_fields: ["title","category"]
     display_fields: ["{{category}} / {{title}}"]
+- name: "menu"
+  label: "Menu"
+  file: "menu.md"
+  create: true
+  fields:
+  - label: Catgeory
+    name: category
+    widget: string
+    hint: "Categories should be seperated by back slashes (Parent / Child / Child). The last element will be used as the menu label."
+  - label: URL
+    name: url
+    widget: string
+    hint: "The URL for the menu item. Use absolute URLs (/like/this) for internal links, and https://www.example.com for external."
+  - label: Icon
+    name: icon
+    widget: string
+    hint: "Must be the name of a Material Icon (like_this). Only applied to root level objects."
+  - label: Color
+    name: color
+    widget: select
+    options: ['violet-70', 'orange-70', 'blue-70', 'red-70', 'yellow-70', 'green-70', 'b-g-70', 'l-blue-70', 'gray-70']
