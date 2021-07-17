@@ -13,7 +13,6 @@ export default class Image extends React.Component {
         };
     }
 
-
     openModal() {
         this.setState({ opened: true })
     }
