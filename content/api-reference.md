@@ -11,10 +11,11 @@ Streamlit makes it easy for you to visualize, mutate, and share data. The API
 reference is organized by activity type, like displaying data or optimizing
 performance. Each section includes methods associated with the activity type,
 including examples.
+
 <TileContainer>
 <RefCard>
 
-![Tux, the Linux mascot](/img/data-table.png)
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Text
 
@@ -27,7 +28,7 @@ st.text()
 </RefCard>
 <RefCard>
 
-![Tux, the Linux mascot](/img/data-table.png)
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Text
 
@@ -40,7 +41,7 @@ st.text()
 </RefCard>
 <RefCard>
 
-![Tux, the Linux mascot](/img/data-table.png)
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Text
 
