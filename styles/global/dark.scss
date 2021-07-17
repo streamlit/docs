@@ -21,12 +21,13 @@ body[data-theme="dark-mode"] {
             border-bottom: 1px solid $gray-80;
         }
         .container {
-            &:before {
+            &::before {
+                border-bottom: 1px solid rgba(255, 255, 255, 0);
                 background: $off-black;
             }
             .toggleTheme {
                 background: $gray-90;
-                
+
                 .light {
                     opacity: 0;
                     transform: translate(-50%, -50%) scale(0);
@@ -206,5 +207,11 @@ body[data-theme="dark-mode"] {
                 color:$gray-40;
             }
         }
+    }
+
+    :focus,
+    :focus-visible {
+      outline: 2px solid $gray-50;
+      transition: none;
     }
 }

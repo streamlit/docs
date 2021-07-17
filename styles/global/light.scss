@@ -208,4 +208,10 @@ body[data-theme="light-mode"] {
             }
         }
     }
+
+    :focus,
+    :focus-visible {
+      outline: 2px solid $gray-50;
+      transition: none;
+    }
 }
