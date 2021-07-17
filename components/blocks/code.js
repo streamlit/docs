@@ -24,11 +24,13 @@ export default class Code extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.highlight != false) {
+        if (!window.initial.prism) {
+            window.initial.prism = true;
             Prism.highlightAll();
-        } else {
-            console.log('did not call');
         }
+    }
+    componentWillUnmount() {
+        window.initial.prism = false;
     }
 
     render() {
