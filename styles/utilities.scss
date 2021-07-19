@@ -3,7 +3,8 @@ $slow: 250ms ease-out;
 $normal: 100ms ease-in-out;
 $fast: 50ms ease-in-out;
 // Helpful naming
-$header-height:6em;
+$header-height: 6em;
+$mini-header-height: calc(#{$header-height} / 2);
 $rounded-small: .3rem;
 $rounded-circle: 100%;
 $siderbar-full-width: 346px;

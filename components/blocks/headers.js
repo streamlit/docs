@@ -1,21 +1,21 @@
-import QuickLink from '../utilities/quickLink'
+import HeaderLink from '../utilities/headerLink'
 
 export const H1 = (props) => (
-  <QuickLink name={getName(props)}>
-    <h1 {...props} />
-  </QuickLink>
+  <HeaderLink level={1} name={getName(props)} className={props.className}>
+    { props.children }
+  </HeaderLink>
 )
 
 export const H2 = (props) => (
-  <QuickLink name={getName(props)}>
-    <h2 {...props} />
-  </QuickLink>
+  <HeaderLink level={2} name={getName(props)} className={props.className}>
+    { props.children }
+  </HeaderLink>
 )
 
 export const H3 = (props) => (
-  <QuickLink name={getName(props)}>
-    <h3 {...props} />
-  </QuickLink>
+  <HeaderLink level={3} name={getName(props)} className={props.className}>
+    { props.children }
+  </HeaderLink>
 )
 
 function getName(props) {

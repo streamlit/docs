@@ -3,7 +3,7 @@ header {
     position:sticky;
     width:100vw;
     top:0;
-    height:$header-height;
+    height: $header-height;
     z-index: 99;
     margin-bottom: 3em;
 
@@ -12,7 +12,7 @@ header {
     }
 
     &.sticky .container {
-        height: calc(#{$header-height} / 2);
+        height: $mini-header-height;
         &:before {
             opacity: 1;
             height: calc(100% + 2px);

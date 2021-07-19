@@ -1,12 +1,12 @@
-import QuickLink from '../utilities/quickLink'
+import HeaderLink from '../utilities/headerLink'
 
 export default function Component({ children, label }) {
     return (
         <article className="block-component-container">
             <section className="label">
-                <QuickLink>
+                <HeaderLink>
                     <h1 className="bold">{label}</h1>
-                </QuickLink>
+                </HeaderLink>
             </section>
             <section className="comp">{children}</section>
         </article>
