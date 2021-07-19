@@ -18,7 +18,7 @@ So browse our API below and click to learn move about any of our available comma
 ## Display almost anything
 
 <TileContainer>
-<RefCard href="/reference-guides/api-reference/write-magic">
+<RefCard href="/reference-guides/api-reference/write-magic#write">
 
 #### st.write
 
@@ -31,7 +31,7 @@ st.write(my_mpl_figure)
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/write-magic">
+<RefCard href="/reference-guides/api-reference/write-magic#magic">
 
 #### Magic
 
@@ -50,7 +50,7 @@ my_mpl_figure
 ## Display text
 
 <TileContainer>
-<RefCard href="/reference-guides/api-reference/text">
+<RefCard href="/reference-guides/api-reference/text#markdown">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -63,7 +63,7 @@ st.markdown("Hello **world**!")
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/text">
+<RefCard href="/reference-guides/api-reference/text#title">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -76,7 +76,7 @@ st.title("The app title")
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/text">
+<RefCard href="/reference-guides/api-reference/text#header">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -89,7 +89,7 @@ st.header("This is a header")
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/text">
+<RefCard href="/reference-guides/api-reference/text#subheader">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -102,7 +102,7 @@ st.subheader("This is a subheader")
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/text">
+<RefCard href="/reference-guides/api-reference/text#code">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -115,7 +115,7 @@ st.code("a = 1234")
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/text">
+<RefCard href="/reference-guides/api-reference/text#text">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -128,7 +128,7 @@ st.text("Hello world")
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/text">
+<RefCard href="/reference-guides/api-reference/text#latex">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -147,7 +147,7 @@ st.latex("$\int a x^2 \,dx$")
 ## Display data
 
 <TileContainer>
-<RefCard href="/reference-guides/api-reference/data">
+<RefCard href="/reference-guides/api-reference/data#dataframe">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Dataframes
@@ -159,7 +159,7 @@ st.dataframe(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/data">
+<RefCard href="/reference-guides/api-reference/data#table">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Static tables
@@ -171,7 +171,7 @@ st.table(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/data">
+<RefCard href="/reference-guides/api-reference/data#json">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Dicts and JSON
@@ -189,7 +189,7 @@ st.json(my_data_frame)
 ## Display charts
 
 <TileContainer>
-<RefCard href="/reference-guides/api-reference/charts">
+<RefCard href="/reference-guides/api-reference/charts#line_chart">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Simple line charts
@@ -201,7 +201,7 @@ st.line_chart(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/charts">
+<RefCard href="/reference-guides/api-reference/charts#area_chart">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Simple area charts
@@ -213,7 +213,7 @@ st.area_chart(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/charts">
+<RefCard href="/reference-guides/api-reference/charts#bar_chart">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Simple bar charts
@@ -225,7 +225,7 @@ st.bar_chart(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/charts">
+<RefCard href="/reference-guides/api-reference/charts#map">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Scatterplots on maps
@@ -237,7 +237,7 @@ st.map(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/charts">
+<RefCard href="/reference-guides/api-reference/charts#pyplot">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Matplotlib
@@ -249,7 +249,7 @@ st.pyplot(my_mpl_figure)
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/charts">
+<RefCard href="/reference-guides/api-reference/charts#altair_chart">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Altair
@@ -261,7 +261,7 @@ st.altair_chart(my_altair_chart)
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/charts">
+<RefCard href="/reference-guides/api-reference/charts#vega_lite_chart">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Vega-Lite
@@ -273,7 +273,7 @@ st.vega_lite_chart(my_vega_lite_chart)
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/charts">
+<RefCard href="/reference-guides/api-reference/charts#plotly_chart">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Plotly
@@ -285,7 +285,7 @@ st.plotly_chart(my_plotly_chart)
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/charts">
+<RefCard href="/reference-guides/api-reference/charts#bokeh_chart">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Bokeh
@@ -297,7 +297,7 @@ st.bokeh_chart(my_bokeh_chart)
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/charts">
+<RefCard href="/reference-guides/api-reference/charts#pydeck_chart">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### PyDeck
@@ -309,7 +309,7 @@ st.pydeck_chart(my_pydeck_chart)
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/charts">
+<RefCard href="/reference-guides/api-reference/charts#graphviz_chart">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### GraphViz
@@ -327,7 +327,7 @@ st.graphviz_chart(my_graphviz_spec)
 ## Input widgets
 
 <TileContainer>
-<RefCard href="/reference-guides/api-reference/widgets">
+<RefCard href="/reference-guides/api-reference/widgets#button">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -340,7 +340,7 @@ clicked = st.button("Click me")
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/widgets">
+<RefCard href="/reference-guides/api-reference/widgets#checkbox">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -353,7 +353,7 @@ selected = st.checkbox("I agree")
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/widgets">
+<RefCard href="/reference-guides/api-reference/widgets#radio">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -366,7 +366,7 @@ choice = st.radio("Pick one", ["cats", "dogs"])
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/widgets">
+<RefCard href="/reference-guides/api-reference/widgets#selectbox">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -379,7 +379,7 @@ choice = st.selectbox("Pick one", ["cats", "dogs"])
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/widgets">
+<RefCard href="/reference-guides/api-reference/widgets#multiselect">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -392,7 +392,7 @@ choices = st.multiselect("Buy", ["milk", "apples", "potatoes"])
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/widgets">
+<RefCard href="/reference-guides/api-reference/widgets#slider">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -405,7 +405,7 @@ number = st.slider("Pick a number", 0, 100)
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/widgets">
+<RefCard href="/reference-guides/api-reference/widgets#select_slider">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -418,7 +418,7 @@ size = st.select_slider("Pick a size", ["S", "M", "L"])
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/widgets">
+<RefCard href="/reference-guides/api-reference/widgets#text_input">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -431,7 +431,7 @@ name = st.text_input("First name")
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/widgets">
+<RefCard href="/reference-guides/api-reference/widgets#number_input">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -444,7 +444,7 @@ choice = st.number_input("Pick a number", 0, 10)
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/widgets">
+<RefCard href="/reference-guides/api-reference/widgets#text_area">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -457,7 +457,7 @@ text = st.text_area("Text to translate")
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/widgets">
+<RefCard href="/reference-guides/api-reference/widgets#date_input">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -470,7 +470,7 @@ date = st.date_input("Your birthday")
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/widgets">
+<RefCard href="/reference-guides/api-reference/widgets#time_input">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -483,7 +483,7 @@ time = st.time_input("Meeting time")
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/widgets">
+<RefCard href="/reference-guides/api-reference/widgets#file_uploader">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -496,7 +496,7 @@ photo = st.file_uploader("Upload a photo")
 ```
 
 </RefCard>
-<RefCard href="/reference-guides/api-reference/widgets">
+<RefCard href="/reference-guides/api-reference/widgets#color_picker">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
