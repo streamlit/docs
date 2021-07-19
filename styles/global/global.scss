@@ -3,6 +3,7 @@ html {
     // margin-top: $header-height;
     scroll-behavior: smooth;
     overflow-x: hidden;
+    scroll-padding-top: $header-height;
     * {
         transition: $slow;
     }

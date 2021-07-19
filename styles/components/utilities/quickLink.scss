@@ -1,27 +1,37 @@
 .block-quick-link {
-    display:inline-flex;
+    display: inline-flex;
     align-items: center;
-    cursor:pointer;
-    transition:$fast;
-    margin-bottom:.5em;
-    &::before {
+    cursor: pointer;
+    transition: $fast;
+
+    .anchor {
         display: block;
-        content: " ";
-        margin-top: -$header-height;
-        height: $header-height;
+        height: 0;
+        width: 0;
+        overflow: hidden;
         visibility: hidden;
         pointer-events: none;
     }
+
     svg {
-        margin-left:.5em;
+        margin-left: 0.5em;
+        padding-bottom: 0.5em;
         width: 2em;
         opacity: 0;
         transition: $normal;
     }
+
     &:hover {
         opacity: .9;
         svg {
             opacity: 1;
         }
+    }
+
+    .status-label {
+        margin-left: 1.25em;
+        padding-bottom: 0.5em;
+        font-size: .75em;
+        opacity: 0.75;
     }
 }

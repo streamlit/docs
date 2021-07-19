@@ -16,6 +16,7 @@ import SideBar from '../components/navigation/sideNav'
 import Row from '../components/layouts/row'
 import Masonry from '../components/layouts/masonry'
 import TileContainer from '../components/layouts/tileContainer'
+import { H1, H2, H3 } from '../components/blocks/headers'
 // import FloatingNav from '../../components/utilities/floatingNav'
 
 // MDX Components
@@ -48,7 +49,10 @@ export default function Article({ source, streamlit, slug }) {
         Download,
         Flex,
         Autofunction: (props) => <Autofunction {...props} streamlit={streamlit} />,
-        pre: (props) => <Code {...props} />
+        pre: (props) => <Code {...props} />,
+        h1: H1,
+        h2: H2,
+        h3: H3,
     }
 
     return (
