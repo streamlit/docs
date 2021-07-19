@@ -9,7 +9,7 @@ import { MDXRemote } from 'next-mdx-remote'
 import matter from 'gray-matter'
 
 // Site Components
-import { getArticleSlugs, getArticleSlugFromString, articleDirectory, pythonDirectory } from '../lib/api';
+import { getArticleSlugs, getArticleSlugFromString, articleDirectory, pythonDirectory, getMenu } from '../lib/api';
 import Layout from '../components/layouts/globalTemplate'
 import BreadCrumbs from '../components/utilities/breadCrumbs'
 import SideBar from '../components/navigation/sideNav'
@@ -32,7 +32,7 @@ import Image from '../components/blocks/image'
 import Download from '../components/utilities/download'
 import Flex from '../components/layouts/flex'
 
-export default function Article({ source, streamlit, slug }) {
+export default function Article({ source, streamlit, slug, menu }) {
 
     const components = {
         Note,
@@ -64,7 +64,7 @@ export default function Article({ source, streamlit, slug }) {
         >
         <Layout>
             <section className="page container template-standard">
-                <SideBar slug={slug} />
+                <SideBar slug={slug} menu={menu} />
                 <section className="content wide">
                     <BreadCrumbs slug={slug} />
                     <MDXRemote {...source} components={components} />
@@ -78,7 +78,8 @@ export default function Article({ source, streamlit, slug }) {
 export async function getStaticProps(context) {
 
     const props = {}
-
+    props['menu'] = getMenu()
+    
     const jsonContents = fs.readFileSync(join(pythonDirectory, 'streamlit.json'), 'utf8')
     props['streamlit'] = jsonContents ? JSON.parse(jsonContents) : {}
 
