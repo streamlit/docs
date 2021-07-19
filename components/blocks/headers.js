@@ -39,7 +39,7 @@ function getName(props) {
     }
 
     if (node?.props?.children) {
-      nodesToTraverse.append(node.props.children)
+      nodesToTraverse.push(node.props.children)
       continue
     }
 
