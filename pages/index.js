@@ -6,7 +6,6 @@ import SideNav from '../components/navigation/sideNav'
 import ArrowLinkContainer from '../components/navigation/arrowLinkContainer'
 import ArrowLink from '../components/navigation/arrowLink'
 
-import QuickLink from '../components/utilities/quickLink'
 import SocialCallouts from '../components/utilities/socialCallout'
 import Spacer from '../components/utilities/spacer'
 
@@ -14,6 +13,7 @@ import TileContainer from '../components/layouts/tileContainer'
 import NewsContainer from '../components/layouts/newsContainer'
 import InlineCalloutContainer from '../components/layouts/inlineCalloutContainer'
 
+import { H1, H2 } from '../components/blocks/headers'
 import Tile from '../components/blocks/tile'
 import NewsEntry from '../components/blocks/newsEntry'
 import Button from '../components/blocks/button'
@@ -27,9 +27,7 @@ export default function Home(window) {
       <section className="page container template-expanded-wide">
         <SideNav />
         <section className="content wide">
-          <QuickLink>
-            <h1>Welcome to Streamlit docs</h1>
-          </QuickLink>
+          <H1>Welcome to Streamlit docs</H1>
           <p><a>Streamlit</a> is an open-source Python library that makes it easy to create and share beautiful, custom web apps for machine learning and data science. In just a few minutes you can build and deploy powerful data apps - so let’s get started!</p>
 
           <Spacer size="2rem" />
@@ -40,9 +38,7 @@ export default function Home(window) {
             <Tile icon="description" title="Topic guides" text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia." background="l-blue-70" link="/topic-guides" />
           </TileContainer>
 
-          <QuickLink>
-            <h2 className='no-b-m'>What's new</h2>
-          </QuickLink>
+          <H2 className='no-b-m'>What's new</H2>
 
           <TileContainer>
             <Tile size="half" background="unset" color="unset" dark={{ background: "unset", color: 'white', border_color: 'gray-40' }} border_color="gray-40" img="/logo.svg" title="Feature title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/tutorials/get-started" />
@@ -58,9 +54,7 @@ export default function Home(window) {
             <Button link="/updates">View all updates</Button>
           </NewsContainer>
 
-          <QuickLink>
-            <h2>How to use our docs</h2>
-          </QuickLink>
+          <H2>How to use our docs</H2>
           <InlineCalloutContainer>
             <InlineCallout color="violet-70" icon="school" bold="Tutorials" href="/tutorials">
               include our <next-link to="/tutorials/get-started">Get Started</next-link> guide and a few step-by-step examples to building different types of apps in Streamlit.

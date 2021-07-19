@@ -1,5 +1,6 @@
 import React from "react"
 import Table from "./table"
+import { H2 } from './headers'
 
 export default class Autofunction extends React.Component {
     constructor(props) {
@@ -48,8 +49,8 @@ export default class Autofunction extends React.Component {
         } else {
             header = (
                 <div className='code-header'>
-                    <h3>streamlit.{func_obj.name}</h3>
-                    <div className="code-desc" dangerouslySetInnerHTML={func_description} />
+                    <H2>st.{func_obj.name}</H2>
+                    <div className='code-desc' dangerouslySetInnerHTML={func_description} />
                 </div>
             )
         }
