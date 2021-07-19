@@ -7,7 +7,7 @@ import TilesContainer from '../components/layouts/tileContainer'
 import NewsContainer from '../components/layouts/newsContainer'
 import InlineCalloutContainer from '../components/layouts/inlineCalloutContainer'
 
-import QuickLink from '../components/utilities/quickLink'
+import HeaderLink from '../components/utilities/headerLink'
 import Helpful from '../components/utilities/helpful'
 import Psa from '../components/utilities/psa'
 import SocialCallout from '../components/utilities/socialCallout'
@@ -96,7 +96,7 @@ ls -l myscript.sh`} />
                     <h3 className="code_header">streamlit.text</h3>
                 </Component>
                 <Component label="Quick Link">
-                    <QuickLink><h2>Article H2</h2></QuickLink>
+                    <HeaderLink><h2>Article H2</h2></HeaderLink>
                 </Component>
                 <Component label="Arrow Links">
                     <ArrowLinkContainer>
