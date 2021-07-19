@@ -3,6 +3,12 @@
     position: fixed;
     top: $header-height;
     z-index: 10;
+    transition: $slow;
+
+    * {
+      transition: $slow;
+    }
+
 
     @media(max-width: 1024px) {
         position: fixed;
