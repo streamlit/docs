@@ -44,7 +44,6 @@ export default class Search extends React.Component {
         setTimeout(function () {
             let input = document.getElementsByClassName("ais-SearchBox-input")[0];
             input.focus();
-            // console.log(input)
         }, 100);
     }
 
@@ -93,7 +92,6 @@ export default class Search extends React.Component {
         )
 
         function Hit(props) {
-            console.log(props)
             return (
                 <article className="item">
                     <a className="not-link" href={props.hit.image}>

@@ -27,7 +27,6 @@ export default class SideBar extends React.Component {
     }
 
     handleTheme() {
-        console.log( 'Theme' )
         this.setState({ theme: document.body.dataset.theme })
     }
 
