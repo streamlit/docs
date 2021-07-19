@@ -1,12 +1,7 @@
 html {
-    transition: $slow;
-    // margin-top: $header-height;
     scroll-behavior: smooth;
     overflow-x: hidden;
-    scroll-padding-top: $header-height;
-    * {
-        transition: $slow;
-    }
+    scroll-padding-top: $mini-header-height;
     &.nav-open {
         overflow: hidden;
     }
