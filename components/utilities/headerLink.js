@@ -6,7 +6,9 @@ import classNames from 'classnames'
 export default class HeaderLink extends React.Component {
     constructor(props) {
         super(props)
-        this.hash = props.name ? slugify(props.name, { strict: true }).toLowerCase() : ""
+        this.hash = props.name ?
+            slugify(props.name, { remove: /[^A-Za-z0-9_\s]/g, lower: true }) :
+            ""
 
         this.state = {
             copied: false
