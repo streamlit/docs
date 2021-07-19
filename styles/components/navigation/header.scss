@@ -48,7 +48,6 @@ header {
             height:2rem;
             width:2rem;
             margin-bottom: 0;
-            z-index: 3;
 
             i {
                 transition: $fast;
@@ -80,7 +79,6 @@ header {
             display:flex;
             align-items: center;
             margin:0;
-            z-index: 3;
 
             h4 {
                 font-weight: 500;
@@ -95,9 +93,13 @@ header {
             z-index: 2;
             display:flex;
             align-items: center;
-            gap: 1.5em;
+            gap: 1.5rem;
             flex: auto;
             justify-content: flex-end;
+
+            @media(max-width: 768px) {
+              gap: 1rem;
+            }
         }
     }
 
