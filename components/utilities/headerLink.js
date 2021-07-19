@@ -23,7 +23,6 @@ export default class HeaderLink extends React.Component {
         window.location.hash = this.hash
 
         this.setState({ copied: true })
-
         window.setTimeout(() => this.setState({ copied: false }), 2000)
     }
 
