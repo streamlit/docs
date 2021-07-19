@@ -47,19 +47,6 @@ function useWindowSize() {
 
 function StreamlitDocs({ Component, pageProps }) {
   const size = useWindowSize();
-
-  useEffect(() => {
-    if (window.location.hash.length) {
-      window.setTimeout(() => {
-        const hash = window.location.hash.substring(1)
-        const el = document.querySelector(`[name=${hash}]`)
-        if (el) {
-          el.scrollIntoView(true)
-        }
-      }, 300)
-    }
-  })
-
   return <Component window={{ width: size.width, height: size.height }} {...pageProps} />
 }
 
