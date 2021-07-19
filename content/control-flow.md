@@ -5,21 +5,18 @@ category: Reference Guides / API Reference
 
 # Control flow
 
+## Stop execution
+
 By default, Streamlit apps execute the script entirely, but we allow some functionality to handle control flow in your applications.
 
 <Autofunction function="streamlit.stop" />
 
-# Add widgets to sidebar
 
-Not only can you add interactivity to your report with widgets, you can organize them into a sidebar with `st.sidebar.[element_name]`. Each element that's passed to `st.sidebar` is pinned to the left, allowing users to focus on the content in your app. The only elements that aren't supported are `st.echo` and `st.spinner`.
+## Group multiple widgets
 
-Here's an example of how you'd add a selectbox to your sidebar.
+By default, Streamlit reruns your script everytime a user interacts with your app.
+However, sometimes it's a better user experience to wait until a group of related
+widgets is filled before actually rerunning the script. That's what `st.form` is for!
 
-```python
-import streamlit as st
-
-add_selectbox = st.sidebar.selectbox(
-    "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone")
-)
-```
+<Autofunction function="streamlit.form" />
+<Autofunction function="streamlit.form_submit_button" />
