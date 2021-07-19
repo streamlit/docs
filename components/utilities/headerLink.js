@@ -17,6 +17,17 @@ export default class HeaderLink extends React.Component {
         this.copyLink = this.copyLinkUnbound.bind(this)
     }
 
+    componentDidMount() {
+      if (window.location.hash !== `#${this.hash}`) {
+        return
+      }
+
+      const el = document.querySelector(`[name=${this.hash}]`)
+      if (el) {
+        el.scrollIntoView(true)
+      }
+    }
+
     async copyLinkUnbound() {
         const link = `${window.location.host}${window.location.pathname}#${this.hash}`
         await navigator.clipboard.writeText(link)
