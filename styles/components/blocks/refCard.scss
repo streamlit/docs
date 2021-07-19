@@ -1,11 +1,17 @@
 .reference-card {
-    padding: 1em;
+    padding: 1rem;
     background:$white;
     color: $gray-90;
     border-radius: $rounded-small;
-    border:0;
+    border: 1px solid $gray-40;
     overflow: hidden;
     font-size: 16px;
+    cursor: pointer;
+    transition: transform $fast;
+
+    &:hover {
+      transform: scale(1.01)
+    }
 
     h1,h2,h3,h4,h5,h6 {
         margin:0;
@@ -14,22 +20,24 @@
     }
     img {
         max-width:calc(100% + 2em);
-        margin-left:-1em;
-        margin-top:-2em;
+        margin-left:-1rem;
+        margin-top:-2rem;
     }
     p,a {
         color:inherit !important;
         margin-bottom:.25em;
         font-weight: 300;
-        font-size: .8em;
+        font-size: .875em;
     }
     .block-code {
-        width: calc(100% + 2em);
+        width: calc(100% + 2rem);
         position: relative !important;
-        margin:1em 0 -1em -1em;
+        margin:1rem 0 -1rem -1rem;
+        font-size: 0.875em;
         pre {
             margin:0;
             border-radius: 0;
+            padding: 1rem;
         }
     }
 
