@@ -16,11 +16,10 @@ We also offer a "swiss-army knife" command called `st.write`, which accepts
 multiple arguments, and multiple data types. And as described above, you can
 also use [magic commands](api.html#magic-commands) in place of `st.write`.
 
-<Autofunction function="streamlit.text" />
 <Autofunction function="streamlit.markdown" />
-<Autofunction function="streamlit.latex" />
-<Autofunction function="streamlit.write" />
 <Autofunction function="streamlit.title" />
 <Autofunction function="streamlit.header" />
 <Autofunction function="streamlit.subheader" />
 <Autofunction function="streamlit.code" />
+<Autofunction function="streamlit.text" />
+<Autofunction function="streamlit.latex" />
