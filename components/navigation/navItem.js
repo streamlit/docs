@@ -8,14 +8,6 @@ import NavChild from './navChild'
 export default class NavItem extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            children: null
-        };
-    }
-
-    componentDidMount() {
-        let childrenRoutes = this.props.routes.filter(route => (route.meta.navigation.depth == this.props.depth && route.meta.navigation.parent == this.trueName()))
-        this.setState({ children: childrenRoutes })
     }
 
     trueName() {
@@ -29,62 +21,57 @@ export default class NavItem extends React.Component {
     }
 
     render() {
-        const state = this.state;
         const props = this.props;
 
         let subNav;
-        if (state.children && state.children.length > 0) {
+
+        if (props.page.children && props.page.children.length > 0) {
             subNav = (
                 <ul className="sub-nav">
-                    {state.children.map((child, index) => (
+                    {props.page.children.map((child, index) => (
                         <NavChild
-                            key={child.name}
-                            child={child}
-                            routes={props.routes}
-                            depth={props.depth + 1}
-                        // openSideBar={openSideBar}
+                            key={child.menu_key}
+                            page={child}
+                            depth={child.depth + 1}
                         />
                     ))}
-
                 </ul>
             )
         }
 
         let navItem;
-        if (props.offScreenNav) {
+
+        let navBox;
+        
+        navBox = (
+            <section className="head" >
+                <div className={`icon-box bg-${props.page.color}`}>
+                    <i>{props.page.icon}</i>
+                </div>
+                <p className={`bold large color-${props.page.color}`}>{props.page.name}</p>
+            </section >
+        )
+
+        if ( props.page.url.startsWith('/') ) {
             navItem = (
-                <li className="nav-item small" id={`off-screen-${props.page.name}`}>
-                    <Link href={props.page.path}>
+                <li className="nav-item small" id={props.page.menu_key}>
+                    <Link href={props.page.url}>
                         <a className="not-link">
-                            <section className="head" >
-                                <div className={`icon-box bg-${props.page.meta.style.color}`}>
-                                    <i>{props.page.meta.style.icon}</i>
-                                </div>
-                                <p className={`bold large color-${props.page.meta.style.color}`}>{this.cleanName()}</p>
-                            </section >
+                            {navBox}
                         </a>
-                    </Link >
+                    </Link>
                     {subNav}
-                </li >
+                </li>
             )
         } else {
             navItem = (
-                <li className="nav-item small" id={props.page.name}>
-                    <Link href={props.page.path}>
-                        <a className="not-link">
-                            <section className="head" >
-                                {/* @mouseenter="openSideBar($event, page.name)" */}
-                                <div className={`icon-box bg-${props.page.meta.style.color}`}>
-                                    <i>{props.page.meta.style.icon}</i>
-                                </div>
-                                <p className={`bold large color-${props.page.meta.style.color}`}>{this.cleanName()}</p>
-                            </section >
-                        </a>
-                    </Link >
+                <li className="nav-item small" id={props.page.menu_key}>                
+                    <a className="not-link" href={props.page.url} target="_blank">
+                        {navBox}
+                    </a>
                     {subNav}
-                </li >
+                </li>
             )
-
         }
 
         return navItem

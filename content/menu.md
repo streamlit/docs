@@ -6,6 +6,10 @@ site_menu:
     icon: school
   - category: Tutorials / Get Started
     url: /tutorials/get-started
+  - category: Tutorials / Get Started / Example
+    url: /tutorials/get-started/example
+  - category: Tutorials / Get Started / Example/ Test Depth
+    url: https://www.example.com/tutorials/get-started/example
   - category: Topic Guides
     url: /topic-guides
     color: l-blue-70

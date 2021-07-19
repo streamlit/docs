@@ -1,5 +1,7 @@
 import MediaQuery from 'react-responsive'
 
+import { getMenu } from '../lib/api'
+
 import Layout from '../components/layouts/globalTemplate'
 
 import SideNav from '../components/navigation/sideNav'
@@ -20,12 +22,12 @@ import Button from '../components/blocks/button'
 import InlineCallout from '../components/blocks/inlineCallout'
 import NoteSplit from '../components/blocks/noteSplit'
 
-export default function Home(window) {
+export default function Home({ window, menu }) {
 
   return (
     <Layout window={window}>
       <section className="page container template-expanded-wide">
-        <SideNav />
+        <SideNav menu={menu} />
         <section className="content wide">
           <H1>Welcome to Streamlit docs</H1>
           <p><a>Streamlit</a> is an open-source Python library that makes it easy to create and share beautiful, custom web apps for machine learning and data science. In just a few minutes you can build and deploy powerful data apps - so let’s get started!</p>
@@ -90,4 +92,15 @@ export default function Home(window) {
       </section>
     </Layout>
   )
+}
+
+export async function getStaticProps(context) {
+
+  const props = {}
+  props['menu'] = getMenu()
+  
+  return {
+      props: props,
+      revalidate: 60
+  }
 }
