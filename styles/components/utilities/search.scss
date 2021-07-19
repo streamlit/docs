@@ -1,15 +1,30 @@
 .block-search {
     z-index: 4;
-    max-width: 15rem;
     flex: auto;
+    display: flex;
+    justify-content: flex-end;
 
     .hot-key {
         display: flex;
         align-items: center;
+        justify-content: center;
         padding: 0 1em;
         border-radius: $rounded-small;
         height: 2rem;
         cursor: pointer;
+        flex: auto;
+        max-width: 15rem;
+
+        @media (max-width:1024px) {
+          width: 2rem;
+          flex: 0 0 auto;
+          padding: 0;
+
+          .search-text,
+          .command {
+            display: none;
+          }
+        }
 
         p, i {
             margin:0;
@@ -18,15 +33,11 @@
         i {
             font-size: 1.25em;
             transform: rotateY(180deg);
-            margin-right: .5em;
-            margin-top:-.1em;
         }
         .search-text {
-            margin-right:1em;
+            margin-right: 2em;
+            margin-left: .5em;
             flex: auto;
-        }
-        .command {
-            margin-left:2em;
         }
 
         &:hover {

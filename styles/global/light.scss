@@ -28,6 +28,9 @@ body[data-theme="light-mode"] {
             &:before {
                 background: $white;
             }
+            .hot-key > * {
+                color: $gray-70;
+            }
             .toggleTheme {
                 background: $gray-20;
                 .dark {
@@ -35,7 +38,7 @@ body[data-theme="light-mode"] {
                     transform: translate(-50%, -50%) scale(0);
                 }
                 .light {
-                    color:$gray-70;
+                    color: $gray-70;
                 }
             }
             .toggle-mobile {
