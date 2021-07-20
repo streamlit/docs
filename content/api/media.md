@@ -1,9 +1,9 @@
 ---
-title: Display media
-category: Reference Guides / API Reference
+title: Media elements
+slug: /reference-guides/api-reference/media
 ---
 
-# Display media
+# Media elements
 
 It's easy to embed images, videos, and audio files directly into your Streamlit apps.
 

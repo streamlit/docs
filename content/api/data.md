@@ -1,9 +1,9 @@
 ---
-title: Display data
-category: Reference Guides / API Reference
+title: Data display elements
+slug: /reference-guides/api-reference/data
 ---
 
-# Display data
+# Data display elements
 
 When you're working with data, it is extremely valuable to visualize that
 data quickly, interactively, and from multiple different angles. That's what

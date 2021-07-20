@@ -1,6 +1,6 @@
 ---
 title: st.write and magic commands
-category: Reference Guides / API Reference
+slug: /reference-guides/api-reference/write-magic
 ---
 
 # st.write and magic commands

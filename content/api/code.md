@@ -1,6 +1,6 @@
 ---
 title: Display code
-category: Reference Guides / API Reference
+slug: /reference-guides/api-reference/code
 ---
 
 # Display code

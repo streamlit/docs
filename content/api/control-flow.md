@@ -1,6 +1,6 @@
 ---
 title: Control flow
-category: Reference Guides / API Reference
+slug: /reference-guides/api-reference/control-flow
 ---
 
 # Control flow

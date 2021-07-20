@@ -1,6 +1,6 @@
 ---
 title: Optimize performance
-category: Reference Guides / API Reference
+slug: /reference-guides/api-reference/performance
 ---
 
 # Optimize performance

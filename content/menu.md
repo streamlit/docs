@@ -6,12 +6,6 @@ site_menu:
     icon: school
   - category: Tutorials / Get Started
     url: /tutorials/get-started
-  - category: Tutorials / Testing
-    url: https://www.example.com/tutorials/get-started/example
-  - category: Tutorials / Get Started / Example
-    url: /tutorials/get-started/example
-  - category: Tutorials / Get Started / Example/ Test Depth
-    url: https://www.example.com/tutorials/get-started/example
   - category: Topic Guides
     url: /topic-guides
     color: l-blue-70
@@ -26,14 +20,38 @@ site_menu:
     icon: school
   - category: Reference guides / API Reference
     url: /reference-guides/api-reference
+  - category: Reference guides / API Reference / Write and magic
+    url: /reference-guides/api-reference/write-magic
+  - category: Reference guides / API Reference / Text elements
+    url: /reference-guides/api-reference/text
+  - category: Reference guides / API Reference / Data display elements
+    url: /reference-guides/api-reference/data
+  - category: Reference guides / API Reference / Chart elements
+    url: /reference-guides/api-reference/charts
+  - category: Reference guides / API Reference / Input widgets
+    url: /reference-guides/api-reference/widgets
+  - category: Reference guides / API Reference / Media elements
+    url: /reference-guides/api-reference/media
+  - category: Reference guides / API Reference / Layouts and Containers
+    url: /reference-guides/api-reference/layout
+  - category: Reference guides / API Reference / Status elements
+    url: /reference-guides/api-reference/status
+  - category: Reference guides / API Reference / Control flow
+    url: /reference-guides/api-reference/control-flow
+  - category: Reference guides / API Reference / Page options and configuration
+    url: /reference-guides/api-reference/page-options
+  - category: Reference guides / API Reference / Utilities
+    url: /reference-guides/api-reference/utilities
+  - category: Reference guides / API Reference / Mutate charts
+    url: /reference-guides/api-reference/mutate
+  - category: Reference guides / API Reference / Performance
+    url: /reference-guides/api-reference/performance
   - category: Components
-    url: Components
+    url: https://streamlit.io/components
     color: b-g-70
     icon: subtitles
-  - category: Components / Example
-    url: /components/example
   - category: App gallery
-    url: /app-gallery
+    url: https://streamlit.io/gallery
     color: blue-70
     icon: grid_view
   - category: Support
@@ -41,7 +59,7 @@ site_menu:
     color: red-70
     icon: question_answer
   - category: Updates
-    url: /updates
+    url: /changelog
     color: green-70
     icon: campaign
 ---

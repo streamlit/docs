@@ -1,9 +1,9 @@
 ---
-title: Display charts
-category: Reference Guides / API Reference
+title: Chart elements
+slug: /reference-guides/api-reference/charts
 ---
 
-# Display charts
+# Chart elements
 
 Streamlit supports several different charting libraries, and our goal is to
 continually add support for more. Right now, the most basic library in our
