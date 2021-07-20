@@ -1,6 +1,6 @@
 ---
-title: configuration
-category: Reference Guides
+title: Configuration
+slug: /reference-guides/api-reference/configuration
 ---
 
 # Streamlit configuration

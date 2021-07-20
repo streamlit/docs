@@ -47,7 +47,7 @@ my_mpl_figure
 </TileContainer>
 
 
-## Display text
+## Text elements
 
 <TileContainer>
 <RefCard href="/reference-guides/api-reference/text#markdown">
@@ -144,7 +144,7 @@ st.latex("$\int a x^2 \,dx$")
 </TileContainer>
 
 
-## Display data
+## Data display elements
 
 <TileContainer>
 <RefCard href="/reference-guides/api-reference/data#dataframe">
@@ -186,7 +186,7 @@ st.json(my_data_frame)
 </TileContainer>
 
 
-## Display charts
+## Chart elements
 
 <TileContainer>
 <RefCard href="/reference-guides/api-reference/charts#line_chart">
@@ -512,6 +512,7 @@ color = st.color_picker("Pick a color")
 </TileContainer>
 
 
+## Media elements
 ## Layouts and Containers
 ## Display progress and status
 ## Control flow

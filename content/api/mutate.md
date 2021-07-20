@@ -1,9 +1,9 @@
 ---
-title: Mutate data
-category: Reference Guides / API Reference
+title: Mutate charts
+slug: /reference-guides/api-reference/mutate
 ---
 
-# Mutate data
+# Mutate charts
 
 With Streamlit you can modify the data within an existing element (chart,
 table, dataframe).

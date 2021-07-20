@@ -1,9 +1,9 @@
 ---
-title: Display interactive widgets
-category: Reference Guides / API Reference
+title: Input widgets
+slug: /reference-guides/api-reference/widgets
 ---
 
-# Display interactive widgets
+# Input widgets
 
 With widgets, Streamlit allows you to bake interactivity directly into your apps with buttons, sliders, text inputs, and more.
 

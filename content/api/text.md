@@ -1,9 +1,9 @@
 ---
-title: Display text
-category: Reference Guides / API Reference
+title: Text elements
+slug: /reference-guides/api-reference/text
 ---
 
-# Display text
+# Text elements
 
 Streamlit apps usually start with a call to `st.title` to set the
 app's title. After that, there are 2 heading levels you can use:
