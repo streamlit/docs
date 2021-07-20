@@ -89,6 +89,7 @@ export async function getStaticProps(context) {
     if ('slug' in context.params) {
         let filename
         paths.paths.forEach(obj => {
+
             if (obj.params.location == location) {
                 filename = obj.params.fileName
             }
@@ -129,17 +130,11 @@ export async function getStaticPaths() {
     // Load each file and map a path
 
     for (const index in articles) {
-        let slug
-        let realSlug = [basename(articles[index]).replace(/\.md$/, '')]
+        let slug = basename(articles[index]).replace(/\.md$/, '')
+        let realSlug = [slug]
+        slug = `/${slug}`
         const fileContents = fs.readFileSync(articles[index], 'utf8')
         const { data, content } = matter(fileContents)
-
-        if ('category' in data) {
-            // Categories can be nested with Name / Subname / Subname in front matter.
-            const categories = data.category.split('/').map(getArticleSlugFromString).concat(realSlug)
-            slug = `/${categories.join('/')}`
-            realSlug = categories
-        }
 
         // Use slug instead of Category if it's present
         if ('slug' in data) {
