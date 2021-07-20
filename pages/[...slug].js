@@ -66,7 +66,7 @@ export default function Article({ source, streamlit, slug, menu }) {
             <section className="page container template-standard">
                 <SideBar slug={slug} menu={menu} />
                 <section className="content wide">
-                    <BreadCrumbs slug={slug} />
+                    <BreadCrumbs slug={slug} menu={menu} />
                     <MDXRemote {...source} components={components} />
                 </section>
             </section>
@@ -77,16 +77,24 @@ export default function Article({ source, streamlit, slug, menu }) {
 
 export async function getStaticProps(context) {
 
+    const paths = await getStaticPaths()
     const props = {}
+    const location = `/${context.params.slug.join('/')}`
+
     props['menu'] = getMenu()
     
     const jsonContents = fs.readFileSync(join(pythonDirectory, 'streamlit.json'), 'utf8')
     props['streamlit'] = jsonContents ? JSON.parse(jsonContents) : {}
 
     if ('slug' in context.params) {
+        let filename
+        paths.paths.forEach(obj => {
+            if (obj.params.location == location) {
+                filename = obj.params.fileName
+            }
+        })
         // Get the last element of the array to find the MD file
-        const fileName = `${context.params.slug.slice(-1)[0]}.md`
-        const fileContents = fs.readFileSync(join(articleDirectory, fileName), 'utf8')
+        const fileContents = fs.readFileSync(filename, 'utf8')
         const { data, content } = matter(fileContents)
 
         const source = await serialize(content,
@@ -102,7 +110,7 @@ export async function getStaticProps(context) {
         )
 
         props['data'] = data
-        props['filename'] = fileName
+        props['filename'] = filename
         props['slug'] = context.params.slug
         props['source'] = source
     }
@@ -121,6 +129,7 @@ export async function getStaticPaths() {
     // Load each file and map a path
 
     for (const index in articles) {
+        let slug
         let realSlug = [basename(articles[index]).replace(/\.md$/, '')]
         const fileContents = fs.readFileSync(articles[index], 'utf8')
         const { data, content } = matter(fileContents)
@@ -128,17 +137,21 @@ export async function getStaticPaths() {
         if ('category' in data) {
             // Categories can be nested with Name / Subname / Subname in front matter.
             const categories = data.category.split('/').map(getArticleSlugFromString).concat(realSlug)
+            slug = `/${categories.join('/')}`
             realSlug = categories
         }
-        
-        // Use slug if it's present
+
+        // Use slug instead of Category if it's present
         if ('slug' in data) {
-            realSlug = data.slug
+            slug = data.slug
+            realSlug = data.slug.split('/').map(getArticleSlugFromString)
+            realSlug.shift()
         }
 
         let path = {
             params: {
                 slug: realSlug,
+                location: slug,
                 fileName: articles[index],
                 title: data.title
             }
@@ -146,6 +159,7 @@ export async function getStaticPaths() {
 
         paths.push(path)
     }
+    
     return {
         paths: paths,
         fallback: false
