@@ -1,7 +1,7 @@
 ---
 title: Get started
 category: Tutorials
-next: caching.md
+slug: /tutorials/get-started
 ---
 
 # Get started
