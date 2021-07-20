@@ -1,5 +1,5 @@
 import React from "react"
-
+import { breadcrumbsForSlug } from '../../lib/api'
 import Link from "next/link"
 
 export default class BreadCrumbs extends React.Component {
@@ -11,11 +11,6 @@ export default class BreadCrumbs extends React.Component {
         return `${title}`
             .replace(/\-/g, ' ')
             .replace(/\bapi\b/, 'API')
-    }
-
-    createLink(index, split) {
-        const pathName = split.slice(0, index + 1).join('/')
-        return `/${pathName}`
     }
 
     createCrumb(crumb, index, slug) {
@@ -46,38 +41,29 @@ export default class BreadCrumbs extends React.Component {
 
         if ( props.slug === undefined ) { return '' }
 
+        // Find the menu with the current slug
         const paths = props.slug.join('/')
         const location = `/${paths}`
-        const slugSoFar = []
+        const path = breadcrumbsForSlug(props.menu, location, [])
 
-        for ( const i in props.slug )
-        {
-            const item = String( props.slug[i] )
-            slugSoFar.push(item)
+        breadcrumbs.push({
+            link: '/',
+            title: 'Home'
+        })
 
-            if ( i == 0)
-            {
-                breadcrumbs.push({
-                    link: '/',
-                    title: 'Home'
-                })
-            }
-
-            if ( i < props.slug.length )
-            {
-                breadcrumbs.push({
-                    link: this.createLink(i, slugSoFar),
-                    title: this.formatedTitle(item)
-                })
-            }
-            else
-            {
+        path.forEach(obj => {
+            if (obj.url === location) {
                 breadcrumbs.push({
                     link: location,
-                    title: this.formatedTitle(item)
+                    title: this.formatedTitle(obj.name)
+                })
+            } else {
+                breadcrumbs.push({
+                    link: obj.url,
+                    title: this.formatedTitle(obj.name)
                 })
             }
-        }
+        });
 
         return (
             <nav className="breadcrumbs">

@@ -1,5 +1,6 @@
 ---
 title: Examples
+slug: /tutorials/get-started/example
 next: get-started.md
 previous: index.md
 ---

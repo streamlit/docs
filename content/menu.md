@@ -6,6 +6,8 @@ site_menu:
     icon: school
   - category: Tutorials / Get Started
     url: /tutorials/get-started
+  - category: Tutorials / Testing
+    url: https://www.example.com/tutorials/get-started/example
   - category: Tutorials / Get Started / Example
     url: /tutorials/get-started/example
   - category: Tutorials / Get Started / Example/ Test Depth
