@@ -1,6 +1,6 @@
 ---
 title: API Reference
-category: Reference Guides
+slug: /reference-guides/api-reference
 next: caching
 previous: index.md
 ---
