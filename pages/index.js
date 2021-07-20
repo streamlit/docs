@@ -1,4 +1,5 @@
 import MediaQuery from 'react-responsive'
+import Head from 'next/head'
 
 import { getMenu } from '../lib/api'
 
@@ -26,6 +27,12 @@ export default function Home({ window, menu }) {
 
   return (
     <Layout window={window}>
+      <Head>
+          <title>Streamlit Docs</title>
+          <link rel="icon" href="/favicon.svg"/>
+          <link rel="alternate icon" href="/favicon32.ico"/>
+          <meta name="theme-color" content="#ffffff"/>
+      </Head>
       <section className="page container template-expanded-wide">
         <SideNav menu={menu} slug={[]} />
         <section className="content wide">
