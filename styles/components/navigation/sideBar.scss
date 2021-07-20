@@ -167,7 +167,6 @@
                         display:flex;
                         align-items: center;
 
-
                         i.accordion {
                             cursor: pointer;
                             font-size: 1em;
@@ -198,6 +197,10 @@
                                 margin-left:.5em;
                                 font-size: 1em;
                             }
+                        }
+                    
+                        &.active > a> span {
+                            font-weight: bold;
                         }
                     }
                     .child-sub-nav {
