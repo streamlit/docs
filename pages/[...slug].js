@@ -3,6 +3,7 @@ import fs from 'fs'
 import { join, basename } from 'path'
 
 import React from 'react'
+import Head from 'next/head'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRemote } from 'next-mdx-remote'
@@ -32,7 +33,7 @@ import Image from '../components/blocks/image'
 import Download from '../components/utilities/download'
 import Flex from '../components/layouts/flex'
 
-export default function Article({ source, streamlit, slug, menu }) {
+export default function Article({ data, source, streamlit, slug, menu }) {
 
     const components = {
         Note,
@@ -65,6 +66,12 @@ export default function Article({ source, streamlit, slug, menu }) {
         <Layout>
             <section className="page container template-standard">
                 <SideBar slug={slug} menu={menu} />
+                <Head>
+                    <title>{data.title} - Streamlit Docs</title>
+                    <link rel="icon" href="/favicon.svg"/>
+                    <link rel="alternate icon" href="/favicon32.ico"/>
+                    <meta name="theme-color" content="#ffffff"/>
+                </Head>
                 <section className="content wide">
                     <BreadCrumbs slug={slug} menu={menu} />
                     <MDXRemote {...source} components={components} />

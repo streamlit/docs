@@ -65,6 +65,13 @@ export default class BreadCrumbs extends React.Component {
             }
         });
 
+        if ( breadcrumbs.length === 1 ) {
+            breadcrumbs.push({
+                link: location,
+                title: paths
+            })
+        }
+
         return (
             <nav className="breadcrumbs">
                 {breadcrumbs.map((crumb, index) => (
