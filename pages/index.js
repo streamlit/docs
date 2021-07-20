@@ -27,7 +27,7 @@ export default function Home({ window, menu }) {
   return (
     <Layout window={window}>
       <section className="page container template-expanded-wide">
-        <SideNav menu={menu} />
+        <SideNav menu={menu} slug={[]} />
         <section className="content wide">
           <H1>Welcome to Streamlit docs</H1>
           <p><a>Streamlit</a> is an open-source Python library that makes it easy to create and share beautiful, custom web apps for machine learning and data science. In just a few minutes you can build and deploy powerful data apps - so let’s get started!</p>

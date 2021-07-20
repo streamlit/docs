@@ -28,7 +28,8 @@ export default class NavChild extends React.Component {
                 <ul className="child-sub-nav">
                     {props.page.children.map((child, index) => (
                         <NavChild
-                            key={child.name}
+                            slug={props.slug}
+                            key={child.menu_key}
                             page={child}
                             depth={child.depth + 1}
                         />
@@ -38,6 +39,8 @@ export default class NavChild extends React.Component {
         }
 
         let accordion;
+
+        let active = props.slug.includes(props.page.menu_key) ? true : false
 
         if (props.page.children && props.page.children.length > 0) {
             accordion = <i className={`accordion ${state.accordion ? 'close' : 'open' }`} onClick={this.toggleAccordion}>{state.accordion ? 'remove' : 'add'}</i>
@@ -55,7 +58,7 @@ export default class NavChild extends React.Component {
         }
 
         link = (
-            <span className="child-item">
+            <span className={`child-item ${active ? 'active' : ''}`}>
                 <Link href={props.page.url}>
                     <a className="not-link" target={target}>
                         <span>{props.page.name}</span> {icon}
