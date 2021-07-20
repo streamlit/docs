@@ -1,6 +1,7 @@
 import React from "react";
 
 import Link from 'next/link'
+import { urlInChildren } from '../../lib/api'
 
 import NavChild from './navChild'
 
@@ -24,14 +25,16 @@ export default class NavItem extends React.Component {
         const props = this.props;
 
         let subNav;
+        let url_in_child = false
 
         if (props.page.children && props.page.children.length > 0) {
             subNav = (
                 <ul className="sub-nav">
                     {props.page.children.map((child, index) => (
                         <NavChild
-                            key={child.menu_key}
+                            slug={props.slug}
                             page={child}
+                            key={child.menu_key}
                             depth={child.depth + 1}
                         />
                     ))}
@@ -42,13 +45,18 @@ export default class NavItem extends React.Component {
         let navItem;
 
         let navBox;
-        
+        let active = urlInChildren(props.page, `/${props.slug.join('/')}`)
+        let condensed = props.condensed ? props.condensed : false
+        // We only want the color to show when we're either active, or the menu is condensed.
+        let color = props.page.color ? `color-${props.page.color}` : ''
+        color = condensed || active ? color : ''
+
         navBox = (
-            <section className="head" >
+            <section className={`head ${active ? 'active' : ''}`}>
                 <div className={`icon-box bg-${props.page.color}`}>
                     <i>{props.page.icon}</i>
                 </div>
-                <p className={`bold large color-${props.page.color}`}>{props.page.name}</p>
+                <p className={`bold large ${color}`}>{props.page.name}</p>
             </section >
         )
 

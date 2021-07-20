@@ -1,6 +1,6 @@
 
 import fs from 'fs'
-import { join } from 'path'
+import { join, basename } from 'path'
 
 import React from 'react'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -121,14 +121,19 @@ export async function getStaticPaths() {
     // Load each file and map a path
 
     for (const index in articles) {
-        let realSlug = [articles[index].replace(/\.md$/, '')]
-        const fileContents = fs.readFileSync(join(articleDirectory, articles[index]), 'utf8')
+        let realSlug = [basename(articles[index]).replace(/\.md$/, '')]
+        const fileContents = fs.readFileSync(articles[index], 'utf8')
         const { data, content } = matter(fileContents)
 
         if ('category' in data) {
             // Categories can be nested with Name / Subname / Subname in front matter.
             const categories = data.category.split('/').map(getArticleSlugFromString).concat(realSlug)
             realSlug = categories
+        }
+        
+        // Use slug if it's present
+        if ('slug' in data) {
+            realSlug = data.slug
         }
 
         let path = {
