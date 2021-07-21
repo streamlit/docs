@@ -60,6 +60,13 @@ body[data-theme="dark-mode"] {
             }
         }
     }
+    .block-arrow-link-container {
+        .not-link {
+            svg path {
+                fill: $white;
+            }
+        }
+    }
     .block-search {
         .hot-key {
             color: $white;
