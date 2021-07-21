@@ -10,7 +10,8 @@ import { MDXRemote } from 'next-mdx-remote'
 import matter from 'gray-matter'
 
 // Site Components
-import { getArticleSlugs, getArticleSlugFromString, pythonDirectory, getMenu, getPreviousNextFromMenu } from '../lib/api';
+import { getArticleSlugs, getArticleSlugFromString, pythonDirectory, getMenu } from '../lib/api';
+import { getPreviousNextFromMenu } from '../lib/utils.cjs'
 import Layout from '../components/layouts/globalTemplate'
 import BreadCrumbs from '../components/utilities/breadCrumbs'
 import SideBar from '../components/navigation/sideNav'
@@ -99,9 +100,11 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                     <link rel="alternate icon" href="/favicon32.ico"/>
                     <meta name="theme-color" content="#ffffff"/>
                 </Head>
-                <section className="content wide">
+                <section className="content wide" id="documentation">
                     <BreadCrumbs slug={slug} menu={menu} />
-                    <MDXRemote {...source} components={components} />
+                    <article>
+                        <MDXRemote {...source} components={components} />
+                    </article>
                     {arrowContainer}
                 </section>
             </section>
