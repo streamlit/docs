@@ -5,7 +5,6 @@ const utils = require('../lib/utils.cjs')
 const contentDirectory = path.join( process.cwd(), '.next/server/pages' )
 const parser = require( 'node-html-parser' )
 const algoliasearch = require( 'algoliasearch' )
-const { util } = require("prismjs")
 
 const SKIP_THESE = ['/menu', '/404', '/500']
 
