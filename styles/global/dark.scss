@@ -97,6 +97,9 @@ body[data-theme="dark-mode"] {
                     .ais-Hits-list {
                         li {
                             .item {
+                                em {
+                                    border-color: $white;
+                                }
                                 a {
                                     border-bottom: 1px solid $gray-80;
                                     .copy {
