@@ -172,6 +172,11 @@
                             p, h5 {
                                 margin: 0;
                             }
+                            em {
+                                font-style: normal;
+                                display: inline-block;
+                                border-bottom: 2px solid $black;
+                            }
                             a {
                                 display:flex;
                                 gap:2em;

@@ -94,6 +94,7 @@ export default class Search extends React.Component {
         function Hit(props) {
             const icon = props.hit.icon ? props.hit.icon : 'text_snippet'
             const category = props.hit.category ? props.hit.category : 'Page'
+
             return (
                 <article className="item">
                     <a className="not-link" href={props.hit.url}>
@@ -102,7 +103,7 @@ export default class Search extends React.Component {
                         </section> 
                         <section className="copy">
                             <p className="tiny">{category}</p>
-                            <h5>{props.hit.title}</h5>
+                            <h5><Highlight hit={props.hit} attribute="title"></Highlight></h5>
                         </section>
                     </a>
                 </article >
