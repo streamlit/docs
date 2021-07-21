@@ -10,13 +10,15 @@ import { MDXRemote } from 'next-mdx-remote'
 import matter from 'gray-matter'
 
 // Site Components
-import { getArticleSlugs, getArticleSlugFromString, articleDirectory, pythonDirectory, getMenu } from '../lib/api';
+import { getArticleSlugs, getArticleSlugFromString, pythonDirectory, getMenu } from '../lib/api';
 import Layout from '../components/layouts/globalTemplate'
 import BreadCrumbs from '../components/utilities/breadCrumbs'
 import SideBar from '../components/navigation/sideNav'
 import Row from '../components/layouts/row'
 import Masonry from '../components/layouts/masonry'
 import TileContainer from '../components/layouts/tileContainer'
+import ArrowLinkContainer from '../components/navigation/arrowLinkContainer'
+import ArrowLink from '../components/navigation/arrowLink'
 import { H1, H2, H3 } from '../components/blocks/headers'
 // import FloatingNav from '../../components/utilities/floatingNav'
 
@@ -75,6 +77,10 @@ export default function Article({ data, source, streamlit, slug, menu }) {
                 <section className="content wide">
                     <BreadCrumbs slug={slug} menu={menu} />
                     <MDXRemote {...source} components={components} />
+                    <ArrowLinkContainer>
+                        <ArrowLink link="/" type="back" content="Welcome to Streamlit" />
+                        <ArrowLink link="/getting-started" type="next" content="Get Started" />
+                    </ArrowLinkContainer>
                 </section>
             </section>
         </Layout>
