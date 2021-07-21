@@ -92,24 +92,22 @@ export default class Search extends React.Component {
         )
 
         function Hit(props) {
+            const icon = props.hit.icon ? props.hit.icon : 'text_snippet'
+            const category = props.hit.category ? props.hit.category : 'Page'
             return (
                 <article className="item">
-                    <a className="not-link" href={props.hit.image}>
-                        <section className="image_container">
-                            <img src={props.hit.image} alt="" />
-                        </section>
+                    <a className="not-link" href={props.hit.url}>
+                        <section className="image_container bg-gray-50">
+                            <div class={`icon-${icon}`}><i>{icon}</i></div>
+                        </section> 
                         <section className="copy">
-                            <p className="tiny">{props.hit.price}</p>
-                            <h5>{props.hit.name}</h5>
+                            <p className="tiny">{category}</p>
+                            <h5>{props.hit.title}</h5>
                         </section>
                     </a>
                 </article >
             );
         }
-
-        // Hit.propTypes = {
-        //     hit: PropTypes.object.isRequired,
-        // };
 
         let modal;
 
@@ -138,7 +136,7 @@ export default class Search extends React.Component {
                             <button onClick={this.toggleModal}>close</button>
                             <section className="content">
                                 <div className="ais-InstantSearch">
-                                    <InstantSearch indexName="dev_eCom" searchClient={searchClient}>
+                                    <InstantSearch indexName="documentation" searchClient={searchClient}>
                                         <div className="left-panel">
                                             <RefinementList attribute="brand" />
                                             <Configure hitsPerPage={4} />

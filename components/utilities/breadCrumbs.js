@@ -1,5 +1,5 @@
 import React from "react"
-import { breadcrumbsForSlug } from '../../lib/api'
+import { breadcrumbsForSlug } from '../../lib/utils.cjs'
 import Link from "next/link"
 
 export default class BreadCrumbs extends React.Component {
