@@ -10,13 +10,16 @@ import { MDXRemote } from 'next-mdx-remote'
 import matter from 'gray-matter'
 
 // Site Components
-import { getArticleSlugs, getArticleSlugFromString, articleDirectory, pythonDirectory, getMenu } from '../lib/api';
+import { getArticleSlugs, getArticleSlugFromString, pythonDirectory, getMenu } from '../lib/api';
+import { getPreviousNextFromMenu } from '../lib/utils.cjs'
 import Layout from '../components/layouts/globalTemplate'
 import BreadCrumbs from '../components/utilities/breadCrumbs'
 import SideBar from '../components/navigation/sideNav'
 import Row from '../components/layouts/row'
 import Masonry from '../components/layouts/masonry'
 import TileContainer from '../components/layouts/tileContainer'
+import ArrowLinkContainer from '../components/navigation/arrowLinkContainer'
+import ArrowLink from '../components/navigation/arrowLink'
 import { H1, H2, H3 } from '../components/blocks/headers'
 // import FloatingNav from '../../components/utilities/floatingNav'
 
@@ -33,7 +36,7 @@ import Image from '../components/blocks/image'
 import Download from '../components/utilities/download'
 import Flex from '../components/layouts/flex'
 
-export default function Article({ data, source, streamlit, slug, menu }) {
+export default function Article({ data, source, streamlit, slug, menu, previous, next }) {
 
     const components = {
         Note,
@@ -56,6 +59,31 @@ export default function Article({ data, source, streamlit, slug, menu }) {
         h3: H3,
     }
 
+    let previousArrow
+    let nextArrow
+    let arrowContainer
+
+    if (previous) {
+        previousArrow = (
+            <ArrowLink link={previous.url} type='back' content={previous.name} />
+        )
+    }
+
+    if (next) {
+        nextArrow = (
+            <ArrowLink link={next.url} type="next" content={next.name} />
+        )
+    }
+
+    if (next || previous) {
+        arrowContainer = (
+            <ArrowLinkContainer>
+                {previousArrow}
+                {nextArrow}
+            </ArrowLinkContainer>
+        )
+    }
+
     return (
         <MDXProvider
           components={{
@@ -72,9 +100,12 @@ export default function Article({ data, source, streamlit, slug, menu }) {
                     <link rel="alternate icon" href="/favicon32.ico"/>
                     <meta name="theme-color" content="#ffffff"/>
                 </Head>
-                <section className="content wide">
+                <section className="content wide" id="documentation">
                     <BreadCrumbs slug={slug} menu={menu} />
-                    <MDXRemote {...source} components={components} />
+                    <article>
+                        <MDXRemote {...source} components={components} />
+                    </article>
+                    {arrowContainer}
                 </section>
             </section>
         </Layout>
@@ -87,11 +118,13 @@ export async function getStaticProps(context) {
     const paths = await getStaticPaths()
     const props = {}
     const location = `/${context.params.slug.join('/')}`
+    const menu  = getMenu()
+    const { current, prev, next } = getPreviousNextFromMenu(menu, location)
 
-    props['menu'] = getMenu()
-    
     const jsonContents = fs.readFileSync(join(pythonDirectory, 'streamlit.json'), 'utf8')
     props['streamlit'] = jsonContents ? JSON.parse(jsonContents) : {}
+
+    props['menu'] = menu
 
     if ('slug' in context.params) {
         let filename
@@ -121,6 +154,8 @@ export async function getStaticProps(context) {
         props['filename'] = filename
         props['slug'] = context.params.slug
         props['source'] = source
+        props['next'] = next ? { name: next.name, url: next.url } : false
+        props['previous'] = prev ? { name: prev.name, url: prev.url } : false
     }
 
     return {

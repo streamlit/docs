@@ -169,6 +169,14 @@
 
                     li {
                         .item {
+                            p, h5 {
+                                margin: 0;
+                            }
+                            em {
+                                font-style: normal;
+                                display: inline-block;
+                                border-bottom: 2px solid $black;
+                            }
                             a {
                                 display:flex;
                                 gap:2em;
@@ -177,18 +185,19 @@
                                 border-bottom:1px solid;
 
                                 .image_container {
-                                    width:3em;
-                                    height:3em;
                                     position: relative;
                                     overflow: hidden;
-                                    background: $white;
-                                    padding: 1em;
+                                    
+                                    display: flex;
+                                    align-content: center;
+                                    justify-content: center;
+
+                                    width: 40px;
+                                    height: 40px;
                                     border-radius: $rounded-small;
 
-                                    img {
-                                        object-fit: contain;
-                                        width:100%;
-                                        height:100%;
+                                    > div {
+                                        > i { line-height: 40px; color: $white; }
                                     }
                                 }
                                 .copy {
