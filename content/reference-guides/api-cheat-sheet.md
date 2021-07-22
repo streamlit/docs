@@ -1,11 +1,9 @@
 ---
-title: API Cheat Sheet
-category: Reference Guides
-next: caching
-previous: index.md
+title: Cheat Sheet
+slug: /reference-guides/cheatsheet
 ---
 
-# API Cheat Sheet
+# Cheat Sheet
 
 Summary of the docs, as of [Streamlit v0.71.0](/).
 

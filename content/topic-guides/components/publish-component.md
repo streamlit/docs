@@ -1,9 +1,9 @@
 ---
-title: Publish your Component
-category: Topic Guides
+title: Publish a Component
+slug: /topic-guides/components/publish
 ---
 
-# Publish your Component
+# Publish a Component
 
 ## Publish to PyPI
 

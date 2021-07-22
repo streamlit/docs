@@ -1,9 +1,9 @@
 ---
-title: Theming reference
-category: Reference Guides
+title: Theming
+slug: /reference-guides/theming
 ---
 
-# Theming reference
+# Theming
 
 In this guide, we provide examples of how Streamlit page elements are affected
 by the various theme config options. For a more high-level overview of

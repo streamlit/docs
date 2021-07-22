@@ -1,6 +1,6 @@
 ---
 title: How to clean install Streamlit
-category: Support
+slug: /support/troubleshooting/clean-install
 ---
 
 # How to clean install Streamlit

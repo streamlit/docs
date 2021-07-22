@@ -1,9 +1,9 @@
 ---
 title: Components API Reference
-category: Topic Guides
+slug: /reference-guides/components-api
 ---
 
-# Components API reference
+# Components API Reference
 
 The first step in developing a Streamlit Component is deciding whether to create a static component (i.e. rendered once, controlled by Python) or to create a bi-directional component that can communicate from Python to JavaScript and back.
 

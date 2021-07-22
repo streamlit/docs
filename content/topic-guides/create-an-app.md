@@ -1,6 +1,6 @@
 ---
 title: Create an app
-category: Topic Guides
+slug: /topic-guides/create-an-app
 ---
 
 # Create an app

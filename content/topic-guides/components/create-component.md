@@ -1,6 +1,6 @@
 ---
 title: Create a Component
-category: Topic Guides
+slug: /topic-guides/components/create
 ---
 
 # Create a Component
@@ -28,8 +28,8 @@ Check out these Streamlit Components Tutorial videos by Streamlit engineer Tim C
 
 ## Part 1: Setup and Architecture
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/BuD3gILJW-Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/BuD3gILJW-Q" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Part 2: Make a Slider Widget
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QjccJl_7Jco" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QjccJl_7Jco" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -1,6 +1,6 @@
 ---
 title: Deploy an app
-category: Topic Guides
+slug: /topic-guides/deploy-an-app
 ---
 
 # Deploy an app

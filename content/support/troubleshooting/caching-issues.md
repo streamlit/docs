@@ -1,6 +1,6 @@
 ---
 title: Caching issues
-category: Support
+slug: /support/troubleshooting/caching-issues
 ---
 
 # Caching issues
