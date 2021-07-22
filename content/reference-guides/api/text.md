@@ -20,6 +20,7 @@ also use [magic commands](api.html#magic-commands) in place of `st.write`.
 <Autofunction function="streamlit.title" />
 <Autofunction function="streamlit.header" />
 <Autofunction function="streamlit.subheader" />
+<Autofunction function="streamlit.caption" />
 <Autofunction function="streamlit.code" />
 <Autofunction function="streamlit.text" />
 <Autofunction function="streamlit.latex" />
