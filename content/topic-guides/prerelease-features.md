@@ -1,6 +1,6 @@
 ---
 title: Pre-release features
-slug: topic-guides/pre-release
+slug: /topic-guides/prerelease
 ---
 
 # Pre-release features
