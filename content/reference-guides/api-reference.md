@@ -102,6 +102,19 @@ st.subheader("This is a subheader")
 ```
 
 </RefCard>
+<RefCard href="/reference-guides/api-reference/text#caption">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Caption
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+st.caption("This is written small caption text")
+```
+
+</RefCard>
 <RefCard href="/reference-guides/api-reference/text#code">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
@@ -513,10 +526,348 @@ color = st.color_picker("Pick a color")
 
 
 ## Media elements
+
+<TileContainer>
+<RefCard href="/reference-guides/api-reference/media#image">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Image
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+st.image(numpy_array)
+st.image(image_bytes)
+st.image(file)
+st.image("https://example.com/myimage.png")
+```
+
+</RefCard>
+<RefCard href="/reference-guides/api-reference/media#audio">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Audio
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+st.audio(numpy_array)
+st.audio(audio_bytes)
+st.audio(file)
+st.audio("https://example.com/myaudio.mp3", format="audio/mp3")
+```
+
+</RefCard>
+<RefCard href="/reference-guides/api-reference/media#video">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Video
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+st.video(numpy_array)
+st.video(video_bytes)
+st.video(file)
+st.video("https://example.com/myvideo.mp4", format="video/mp4")
+```
+
+</RefCard>
+</TileContainer>
+
+
 ## Layouts and Containers
+
+<TileContainer>
+<RefCard href="/reference-guides/api-reference/layout#beta_columns">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Columns
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+col1, col2 = st.beta_columns(2)
+col1.write("this is column 1")
+col2.write("this is column 2")
+```
+
+</RefCard>
+<RefCard href="/reference-guides/api-reference/layout#beta_expander">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Expander
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+with st.beta_expander("Open to see more"):
+  st.write("This is more content")
+```
+
+</RefCard>
+<RefCard href="/reference-guides/api-reference/layout#beta_container">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Container
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+c = st.container()
+st.write("This will show last")
+c.write("This will show first")
+c.write("This will show second")
+```
+
+</RefCard>
+<RefCard href="/reference-guides/api-reference/layout#empty">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Empty
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+c = st.empty()
+st.write("This will show last")
+c.write("This will be replaced")
+c.write("This will show first")
+```
+
+</RefCard>
+</TileContainer>
+
+
 ## Display progress and status
+
+<TileContainer>
+<RefCard href="/reference-guides/api-reference/status#progress">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Progress bar
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+for i in range(101):
+  do_something()
+  st.progress(i)
+```
+
+</RefCard>
+<RefCard href="/reference-guides/api-reference/status#spinner">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Spinner
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+st.spinner("Please wait...")
+```
+
+</RefCard>
+<RefCard href="/reference-guides/api-reference/status#balloons">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Balloons
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+do_something()
+
+# Celebrate when all done!
+st.balloons()
+```
+
+</RefCard>
+<RefCard href="/reference-guides/api-reference/status#error">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Error box
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+st.error("We encountered an error")
+```
+
+</RefCard>
+<RefCard href="/reference-guides/api-reference/status#warning">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Warning box
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+st.warning("Unable to fetch image. Skipping...")
+```
+
+</RefCard>
+<RefCard href="/reference-guides/api-reference/status#info">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Info box
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+st.info("Dataset is updated every day at midnight.")
+```
+
+</RefCard>
+<RefCard href="/reference-guides/api-reference/status#success">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Success box
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+st.success("Match found!")
+```
+
+</RefCard>
+<RefCard href="/reference-guides/api-reference/status#exception">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Exception output
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+e = RuntimeError("This is an exception of type RuntimeError")
+st.exception(e)
+```
+
+</RefCard>
+</TileContainer>
+
+
 ## Control flow
-## Page options and settings
-## Others
-## Mutate data
+
+<TileContainer>
+<RefCard href="/reference-guides/api-reference/control-flow#stop">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Stop execution
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+st.stop()
+```
+
+</RefCard>
+<RefCard href="/reference-guides/api-reference/control-flow#form">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Forms
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+with st.form():
+  username = st.text_input("Username")
+  password = st.text_input("Password")
+  st.form_submit_button("Login")
+```
+
+</RefCard>
+</TileContainer>
+
+
+## Utilities
+
+<TileContainer>
+<RefCard href="/reference-guides/api-reference/utilities#set_page_config">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Set page title, favicon, and more
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+st.set_page_config(
+  title="My app",
+  favicon=":shark:",
+)
+```
+
+</RefCard>
+<RefCard href="/reference-guides/api-reference/utilities#help">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Get help
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+st.help(st.write)
+st.help(pd.DataFrame)
+```
+
+</RefCard>
+</TileContainer>
+
+
+## Mutate charts
+
+<TileContainer>
+<RefCard href="/reference-guides/api-reference/mutate#add_rows">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Add rows
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+element = st.line_chart(df)
+element.add_rows(df_with_extra_rows)
+```
+
+</RefCard>
+</TileContainer>
+
+
 ## Optimize performance
+
+<TileContainer>
+<RefCard href="/reference-guides/api-reference/performance#cache">
+
+#### Caching
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+@st.cache(ttl=3600)
+def run_long_computation(arg1, arg2):
+  # Do stuff here
+  return computation_output
+```
+
+</RefCard>
+</TileContainer>
