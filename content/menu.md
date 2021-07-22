@@ -30,7 +30,7 @@ site_menu:
   - category: Topic guides / Custom components / Publish a component
     url: /topic-guides/components/publish
   - category: Topic guides / Pre-release features
-    url: topic-guides/pre-release
+    url: /topic-guides/prerelease
 
   - category: Reference guides
     url: /reference-guides
