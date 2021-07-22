@@ -8,6 +8,8 @@
     font-size: 16px;
     cursor: pointer;
     transition: transform $fast;
+    display: flex;
+    flex-direction: column;
 
     &:hover {
       transform: scale(1.01)
@@ -29,15 +31,27 @@
         font-weight: 300;
         font-size: .875em;
     }
+
     .block-code {
         width: calc(100% + 2rem);
         position: relative !important;
         margin:1rem 0 -1rem -1rem;
         font-size: 0.875em;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        .code-toolbar {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+        }
+
         pre {
             margin:0;
             border-radius: 0;
             padding: 1rem;
+            flex: 1;
         }
     }
 
