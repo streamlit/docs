@@ -6,14 +6,32 @@ site_menu:
     icon: school
   - category: Tutorials / Get Started
     url: /tutorials/get-started
+
   - category: Topic Guides
     url: /topic-guides
     color: l-blue-70
     icon: description
-  - category: Topic guides / Example
-    url: /topic-guides/example
-    color: null
-    icon: ""
+  - category: Topic guides / Install Streamlit
+    url: /topic-guides/installation
+  - category: Topic guides / Create an app
+    url: /topic-guides/create-an-app
+  - category: Topic guides / Deploy an app
+    url: /topic-guides/deploy-an-app
+  - category: Topic guides / Add state to your app
+    url: /topic-guides/session-state
+  - category: Topic guides / Optimize performance
+    url: /topic-guides/caching
+  - category: Topic guides / Cookbook
+    url: /topic-guides/cookbook
+  - category: Topic guides / Custom components
+    url: /topic-guides/components
+  - category: Topic guides / Custom components / Create a component
+    url: /topic-guides/components/create
+  - category: Topic guides / Custom components / Publish a component
+    url: /topic-guides/components/publish
+  - category: Topic guides / Pre-release features
+    url: topic-guides/pre-release
+
   - category: Reference guides
     url: /reference-guides
     color: orange-70
@@ -46,18 +64,44 @@ site_menu:
     url: /reference-guides/api-reference/mutate
   - category: Reference guides / API Reference / Performance
     url: /reference-guides/api-reference/performance
-  - category: Components
+  - category: Reference guides / Configuration
+    url: /reference-guides/configuration
+  - category: Reference guides / Theming
+    url: /reference-guides/theming
+  - category: Reference guides / Components API
+    url: /reference-guides/components-api
+  - category: Reference guides / Cheat-sheet
+    url: /reference-guides/cheatsheet
+
+  - category: Component gallery
     url: https://streamlit.io/components
     color: b-g-70
     icon: subtitles
+
   - category: App gallery
     url: https://streamlit.io/gallery
     color: blue-70
     icon: grid_view
+
   - category: Support
     url: /support
     color: red-70
     icon: question_answer
+  - category: Support / Discussion forum
+    url: https://discuss.streamlit.io
+  - category: Support / Frequently Asked Questions
+    url: /support/faq
+  - category: Support / Troubleshooting
+    url: /support/troubleshooting
+  - category: Support / Troubleshooting / Sanity checks
+    url: /support/troubleshooting/sanity-checks
+  - category: Support / Troubleshooting / Trouble starting app remotely
+    url: /support/troubleshooting/remote-start
+  - category: Support / Troubleshooting / Clean install
+    url: /support/troubleshooting/clean-install
+  - category: Support / Troubleshooting / Caching issues
+    url: /support/troubleshooting/caching-issues
+
   - category: Updates
     url: /changelog
     color: green-70

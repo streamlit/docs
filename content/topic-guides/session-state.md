@@ -1,9 +1,9 @@
 ---
-title: Session State
-category: Topic Guides
+title: Add State to your app
+slug: /topic-guides/session-state
 ---
 
-# Session State
+# Add State to your app
 
 ## What is State?
 

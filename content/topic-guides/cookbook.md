@@ -1,6 +1,6 @@
 ---
 title: Cookbook
-category: Topic Guides
+slug: /topic-guides/cookbook
 ---
 
 # Cookbook

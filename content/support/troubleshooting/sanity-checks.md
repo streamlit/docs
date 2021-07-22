@@ -1,6 +1,6 @@
 ---
 title: Sanity checks
-category: Support
+slug: /support/troubleshooting/sanity-checks
 ---
 
 # Sanity checks

@@ -1,6 +1,6 @@
 ---
 title: Remote app not loading
-category: Support
+slug: /support/troubleshooting/remote-start
 ---
 
 # App is not loading when running remotely

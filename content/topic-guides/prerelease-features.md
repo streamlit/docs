@@ -1,6 +1,6 @@
 ---
 title: Pre-release features
-category: Reference Guides / API Reference
+slug: topic-guides/pre-release
 ---
 
 # Pre-release features
