@@ -1,6 +1,6 @@
 ---
 title: Connect Streamlit to Google BigQuery
-category: tutorials
+slug: /tutorials/databases/bigquery
 ---
 
 # Connect Streamlit to Google BigQuery

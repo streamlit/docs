@@ -6,6 +6,30 @@ site_menu:
     icon: school
   - category: Tutorials / Get Started
     url: /tutorials/get-started
+  - category: Tutorials / Create a data explorer app
+    url: /tutorials/data-explorer
+  - category: Tutorials / Visualize rent prices
+    url: /tutorials/rent-prices
+  - category: Tutorials / Connect to a database
+    url: /tutorials/databases
+  - category: Tutorials / Connect to a database / AWS S3
+    url: /tutorials/databases/aws-s3
+  - category: Tutorials / Connect to a database / BigQuery
+    url: /tutorials/databases/bigquery
+  - category: Tutorials / Connect to a database / Firestore
+    url: https://blog.streamlit.io/streamlit-firestore/
+  - category: Tutorials / Connect to a database / MongoDB
+    url: /tutorials/databases/mongodb
+  - category: Tutorials / Connect to a database / MySQL
+    url: /tutorials/databases/mysql
+  - category: Tutorials / Connect to a database / PostgreSQL
+    url: /tutorials/databases/postgresql
+  - category: Tutorials / Connect to a database / Tableau
+    url: /tutorials/databases/tableau
+  - category: Tutorials / Connect to a database / Private Google Sheet
+    url: /tutorials/databases/private-gsheet
+  - category: Tutorials / Connect to a database / Public Google Sheet
+    url: /tutorials/databases/public-gsheet
 
   - category: Topic Guides
     url: /topic-guides

@@ -1,6 +1,5 @@
 ---
 title: Get started
-category: Tutorials
 slug: /tutorials/get-started
 ---
 

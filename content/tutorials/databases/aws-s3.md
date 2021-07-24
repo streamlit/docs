@@ -1,6 +1,6 @@
 ---
 title: Connect Streamlit to AWS S3
-category: Tutorials
+slug: /tutorials/databases/aws-s3
 ---
 
 # Connect Streamlit to AWS S3
@@ -57,7 +57,7 @@ access keys. More information [here](https://docs.aws.amazon.com/general/latest/
 
 Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Create this file if it doesn't exist yet and add the access key to it as shown below:
 
-```python
+```toml
 # .streamlit/secrets.toml
 AWS_ACCESS_KEY_ID = "xxx"
 AWS_SECRET_ACCESS_KEY = "xxx"
@@ -119,4 +119,3 @@ See `st.cache` above? Without it, Streamlit would run the query every time the a
 If everything worked out (and you used the example file given above), your app should look like this:
 
 ![Finished app screenshot](/images/databases/streamlit-app.png)
-
