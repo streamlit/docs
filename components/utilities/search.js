@@ -14,15 +14,11 @@ import {
 
 import { AnimatePresence, motion } from 'framer-motion';
 
-
-
 export default class Search extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             modal: false,
-            macosPlatforms: ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
-            windowsPlatforms: ['Win32', 'Win64', 'Windows', 'WinCE'],
             hotKey: '',
             windowWidth: null
         };
@@ -56,11 +52,12 @@ export default class Search extends React.Component {
     componentDidMount() {
         this.setState({ windowWidth: window.innerWidth })
         if (window.innerWidth > 1024) {
-            if (this.state.macosPlatforms.indexOf(window.navigator.platform) !== -1) {
+            if (window.navigator.platform.indexOf("Mac") != -1) {
                 this.setState({ hotKey: '⌘K' })
-            } if (this.state.windowsPlatforms.indexOf(window.navigator.platform) !== -1) {
-                this.setState({ hotKey: 'Ctrl K' })
-                // document.getElementsByClassName("ais-SearchBox-input")[0].focus();
+            } else if (window.navigator.platform.indexOf("Win") != -1) {
+                this.setState({ hotKey: 'Ctrl-K' })
+            } else if (window.navigator.platform.indexOf("Linux") != -1) {
+                this.setState({ hotKey: 'Ctrl-K' })
             }
         }
 
