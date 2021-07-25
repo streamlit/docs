@@ -18,8 +18,8 @@ widgets, like a slider, to filter results.
 
 <Tip>
 
-If you'd like to skip ahead and see everything at once, the `complete script
-is available below <#let-s-put-it-all-together>`_.
+If you'd like to skip ahead and see everything at once, the [complete script
+is available below](#let-s-put-it-all-together).
 
 </Tip>
 
