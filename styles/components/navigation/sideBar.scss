@@ -151,10 +151,6 @@
                 }
                 p {
                     margin: 0;
-
-                    &:first-letter {
-                        text-transform: uppercase;
-                    }
                 }
             }
             .sub-nav {
@@ -188,11 +184,6 @@
                             align-items: center;
                             margin:0;
 
-                            span {
-                                &:first-letter {
-                                    text-transform: uppercase;
-                                }
-                            }
                             i {
                                 margin-left:.5em;
                                 font-size: 1em;
