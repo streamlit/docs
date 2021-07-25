@@ -137,7 +137,7 @@ export default class Search extends React.Component {
                                     <InstantSearch indexName="documentation" searchClient={searchClient}>
                                         <div className="left-panel">
                                             <RefinementList attribute="brand" />
-                                            <Configure hitsPerPage={4} />
+                                            <Configure hitsPerPage={20} />
                                         </div>
                                         <div className="right-panel">
                                             <SearchBox id="search-box small" />
