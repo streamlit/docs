@@ -43,7 +43,7 @@ site_menu:
     url: /topic-guides/deploy-an-app
   - category: Topic guides / Add state to your app
     url: /topic-guides/session-state
-  - category: Topic guides / Optimize performance
+  - category: Topic guides / Optimize performance with st.cache
     url: /topic-guides/caching
   - category: Topic guides / Cookbook
     url: /topic-guides/cookbook
