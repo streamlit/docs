@@ -1,4 +1,4 @@
-export default function Table({ children, head, body, rows, addtionalClass, footers }) {
+export default function Table({ children, head, body, rows, addtionalClass, footers=[] }) {
     function createMarkup(html) {
         return { __html: html };
     }
