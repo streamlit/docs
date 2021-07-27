@@ -27,6 +27,7 @@ import { H1, H2, H3 } from '../components/blocks/headers'
 import Code from '../components/blocks/code'
 import Note from '../components/blocks/noted'
 import Tip from '../components/blocks/tip'
+import Warning from '../components/blocks/warning'
 import Important from '../components/blocks/important'
 import YouTube from '../components/blocks/youTube'
 import CodeTile from '../components/blocks/codeTile'
@@ -43,6 +44,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
         Tip,
         Important,
         Code,
+        Warning,
         YouTube,
         Row,
         Masonry,

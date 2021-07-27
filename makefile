@@ -14,10 +14,10 @@ start:
 build:
 	npm run build
 
-.PHONY: docstrings
-docstrings:
+.PHONY: docstrings_image
+docstrings_image:
 	cd python && docker build -t streamlit-docstring-generator .
 
-.PHONY: run_docstrings
-run_docstrings:
+.PHONY: docstrings
+docstrings: docstrings_image
 	docker-compose -f python/compose.yml -p streamlit-docs up
