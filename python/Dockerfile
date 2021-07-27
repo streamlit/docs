@@ -1,16 +1,17 @@
-FROM python:alpine
+FROM python:slim
 
-RUN apk update && \ 
-    apk upgrade && \
-    apk add --upgrade build-base openssl-dev libffi-dev libxml2-dev libxslt-dev python3-dev git zeromq-dev jpeg-dev && \
-    rm -rf /var/cache/apk/*
+COPY sources.list /etc/apt/sources.list
+
+RUN apt-get update && apt-get install build-essential -y
 
 RUN pip install docstring_parser
 RUN pip install docutils
 RUN pip install lxml
-RUN pip install streamlit
+RUN pip install requests
+RUN pip install numpydoc
 
 RUN mkdir -p /docs
-COPY funcs.py /docs
+COPY build.py /docs
+COPY generate.py /docs
 
 WORKDIR /docs

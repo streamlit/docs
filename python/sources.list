@@ -1,0 +1,2 @@
+deb https://cdn-fastly.deb.debian.org/debian stable main
+deb https://cdn-fastly.deb.debian.org/debian-security stable/updates main
