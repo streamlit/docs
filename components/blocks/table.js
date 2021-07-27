@@ -1,4 +1,4 @@
-export default function Table({ children, head, body, rows, addtionalClass }) {
+export default function Table({ children, head, body, rows, addtionalClass, footers }) {
     function createMarkup(html) {
         return { __html: html };
     }
@@ -8,7 +8,9 @@ export default function Table({ children, head, body, rows, addtionalClass }) {
     }
 
     let trees;
+
     trees = createTress(rows);
+
     return (
         <section className="table-parent">
             <table className={addtionalClass}>
@@ -31,6 +33,16 @@ export default function Table({ children, head, body, rows, addtionalClass }) {
                         </tr>
                     ))}
                 </tbody>
+                {footers.map((footer, index) => (
+                    <tbody>
+                        <tr className="head">
+                            <td className="title bold" colSpan="2">{footer.title}</td>
+                        </tr>
+                        <tr>
+                            <td colSpan="2"><div dangerouslySetInnerHTML={createMarkup(footer.body)} /></td>
+                        </tr>
+                    </tbody>
+                ))}
             </table>
         </section>
     )

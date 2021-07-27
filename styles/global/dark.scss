@@ -228,4 +228,8 @@ body[data-theme="dark-mode"] {
       outline: 2px solid $gray-50;
       transition: none;
     }
+
+    .autofunction .code-desc {
+        color: $white;
+    }
 }
