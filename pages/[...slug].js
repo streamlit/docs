@@ -209,8 +209,13 @@ export async function getStaticPaths() {
                 title: data.title
             }
         }
-
+        
         paths.push(path)
+
+        // If the file uses Autofunction, we need to version it.
+        const should_version = /<Autofunction(.*?)\/>/gi.test(fileContents)
+
+        if (!should_version) { continue; }
 
         for (const v_index in versions)  {
             const version = versions[v_index]
