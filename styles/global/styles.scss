@@ -2,10 +2,6 @@
 .container {
     width: 80%;
     margin: auto;
-
-    @media (min-width:1440px) {
-        width: 1440px * 0.8;
-    }
 }
 
 // global page transitions
