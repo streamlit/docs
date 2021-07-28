@@ -21,6 +21,7 @@ import TileContainer from '../components/layouts/tileContainer'
 import ArrowLinkContainer from '../components/navigation/arrowLinkContainer'
 import ArrowLink from '../components/navigation/arrowLink'
 import { H1, H2, H3 } from '../components/blocks/headers'
+import Psa from '../components/utilities/psa'
 // import FloatingNav from '../../components/utilities/floatingNav'
 
 // MDX Components
@@ -106,7 +107,8 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                     <BreadCrumbs slug={slug} menu={menu} version={version} />
                     <article>
                         <MDXRemote {...source} components={components} />
-                    </article>
+                    </article>                    
+                    <Psa />                    
                     {arrowContainer}
                 </section>
             </section>
