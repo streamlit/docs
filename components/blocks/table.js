@@ -9,9 +9,26 @@ export default function Table({ children, head, body, rows, addtionalClass, foot
         return <p>{rows}</p>
     }
 
-    let trees;
+    let trees
+    let tbody
 
     trees = createTress(rows);
+
+    if (body && body.title) {
+        tbody = (
+            <React.Fragment>
+                <tr className="head">
+                    <td className="title bold" colSpan="2">{body.title}</td>
+                </tr>
+                {rows.map((row, index) => (
+                    <tr key={`${row.title}-${index}`}>
+                        <td width="20%"><div dangerouslySetInnerHTML={createMarkup(row.title)} /> </td>
+                        <td width="80%"><div dangerouslySetInnerHTML={createMarkup(row.body)} /></td>
+                    </tr>
+                ))}
+            </React.Fragment>
+        )
+    }
 
     return (
         <section className="table-parent">
@@ -25,25 +42,18 @@ export default function Table({ children, head, body, rows, addtionalClass, foot
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className="head">
-                        <td className="title bold" colSpan="2">{body.title}</td>
-                    </tr>
-                    {rows.map((row, index) => (
-                        <tr key={`${row.title}-${index}`}>
-                            <td width="20%"><div dangerouslySetInnerHTML={createMarkup(row.title)} /> </td>
-                            <td width="80%"><div dangerouslySetInnerHTML={createMarkup(row.body)} /></td>
-                        </tr>
-                    ))}
-                    {footers.map((footer, index) => (
-                        <React.Fragment key={`footer-${index}`}>
+                    {tbody}
+                    {footers.map((footer, index) => {
+                        const body = footer.jsx ? footer.body : (<div dangerouslySetInnerHTML={createMarkup(footer.body)} />)
+                        return (<React.Fragment key={`footer-${index}`}>
                             <tr className="head">
                                 <td className="title bold" colSpan="2">{footer.title}</td>
                             </tr>
                             <tr>
-                                <td colSpan="2"><div dangerouslySetInnerHTML={createMarkup(footer.body)} /></td>
+                                <td colSpan="2" class='has-example'>{body}</td>
                             </tr>
-                        </React.Fragment>
-                    ))}
+                        </React.Fragment>)
+                    })}
                 </tbody>
             </table>
         </section>

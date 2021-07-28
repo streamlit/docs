@@ -7,7 +7,41 @@
         margin-bottom: 1.5em;
     }
 
-    table td p {
-        margin-bottom: 1em;
+    table td { 
+        &.has-example {
+            width: 100%;
+            overflow: auto;
+        }
+        blockquote {
+            margin: 0; padding: 0;
+        }
+        pre.line-numbers {
+            margin: 0;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        .block-code {
+            margin-top: 0;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .version-list {
+        list-style: none;
+        font-family: $source;
+        line-height: 1;
+        margin: 0;
+        padding: 0;
+        li {
+            display: inline;
+            font-family: $source;
+            line-height: 1.5;
+            &:not(:last-child):after {
+                content: ', '
+            }
+        }
     }
 }
