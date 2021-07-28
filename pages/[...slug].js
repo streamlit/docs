@@ -1,6 +1,6 @@
-
 import fs from 'fs'
 import { join, basename } from 'path'
+import sortBy from "lodash/sortBy"
 
 import React from 'react'
 import Head from 'next/head'
@@ -37,7 +37,7 @@ import Image from '../components/blocks/image'
 import Download from '../components/utilities/download'
 import Flex from '../components/layouts/flex'
 
-export default function Article({ data, source, streamlit, slug, menu, previous, next }) {
+export default function Article({ data, source, streamlit, slug, menu, previous, next, version }) {
 
     const components = {
         Note,
@@ -54,7 +54,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
         Image,
         Download,
         Flex,
-        Autofunction: (props) => <Autofunction {...props} streamlit={streamlit} />,
+        Autofunction: (props) => <Autofunction {...props} streamlit={streamlit} version={version} />,
         pre: (props) => <Code {...props} />,
         h1: H1,
         h2: H2,
@@ -95,7 +95,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
         >
         <Layout>
             <section className="page container template-standard">
-                <SideBar slug={slug} menu={menu} />
+                <SideBar slug={slug} menu={menu} version={version} />
                 <Head>
                     <title>{data.title} - Streamlit Docs</title>
                     <link rel="icon" href="/favicon.svg"/>
@@ -103,7 +103,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                     <meta name="theme-color" content="#ffffff"/>
                 </Head>
                 <section className="content wide" id="documentation">
-                    <BreadCrumbs slug={slug} menu={menu} />
+                    <BreadCrumbs slug={slug} menu={menu} version={version} />
                     <article>
                         <MDXRemote {...source} components={components} />
                     </article>
@@ -127,15 +127,19 @@ export async function getStaticProps(context) {
     props['streamlit'] = jsonContents ? JSON.parse(jsonContents) : {}
 
     props['menu'] = menu
+    props['version'] = false
 
     if ('slug' in context.params) {
         let filename
         paths.paths.forEach(obj => {
-
             if (obj.params.location == location) {
                 filename = obj.params.fileName
             }
         })
+
+        let isnum = /^[\d\.]+$/.test(context.params.slug[0]);
+        if (isnum) { props['version'] = context.params.slug[0] }
+
         // Get the last element of the array to find the MD file
         const fileContents = fs.readFileSync(filename, 'utf8')
         const { data, content } = matter(fileContents)
@@ -171,6 +175,14 @@ export async function getStaticPaths() {
     // Build up paths based on slugified categories for all docs
     const articles = getArticleSlugs()
     const paths = []
+    
+    // Sort of documentation versions
+    const jsonContents = fs.readFileSync(join(pythonDirectory, 'streamlit.json'), 'utf8')
+    const streamlitFuncs = jsonContents ? JSON.parse(jsonContents) : {}
+    const all_versions = Object.keys(streamlitFuncs)
+    const versions = sortBy(all_versions, [ (o) => { return parseFloat(o) }])
+    const current_version = versions[versions.length-1]
+    
     // Load each file and map a path
 
     for (const index in articles) {
@@ -197,6 +209,28 @@ export async function getStaticPaths() {
         }
 
         paths.push(path)
+
+        for (const v_index in versions)  {
+            const version = versions[v_index]
+            
+            if (version == current_version) { continue }
+            
+            const versioned_location = `/${version}${slug}`
+            const newSlug = [...realSlug]
+            
+            newSlug.unshift(version)
+            
+            path = {
+                params: {
+                    slug: newSlug,
+                    location: versioned_location,
+                    fileName: articles[index],
+                    title: data.title
+                }
+            }
+            paths.push(path)
+        }
+
     }
     
     return {
