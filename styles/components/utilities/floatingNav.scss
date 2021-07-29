@@ -22,7 +22,7 @@
             font-size: 12px;
             line-height: 24px;
             position: relative;
-            padding: 6px 36px;
+            padding: 6px 36px 4px 36px;
             background-color: transparent;
             transition: background-color $slow ease;
             
@@ -35,7 +35,7 @@
                     display: block;
                     content: '';
                     position: absolute;
-                    top: 14px;
+                    top: 11px;
                     left: 16px;
                     width: 6px;
                     height: 10px;
@@ -45,8 +45,14 @@
             }
             
             a {
+                display: inline-block;
                 text-decoration: none;
                 border: none;
+                white-space: nowrap;
+                overflow: hidden;
+                width: 164px;
+                line-height: 1;
+                text-overflow: ellipsis;
                 &:hover {
                     border-bottom: none;
                     text-decoration: none;
@@ -54,14 +60,14 @@
             }
         }
     }
-    .level-1 {
+    .level-H1 {
         display: none;
     }
-    .level-2 {
-        a { font-weight: bold; }
-        margin-top: 8px;
-    }
-    .level-3 {
+    .level-H2 {
         margin-top: 6px;
+        a { font-weight: bold; }
+    }
+    .level-H2 + .level-H2 {
+        margin-top: 0;
     }
 }
