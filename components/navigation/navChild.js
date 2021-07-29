@@ -36,6 +36,7 @@ export default class NavChild extends React.Component {
                             slug={props.slug}
                             key={child.menu_key}
                             page={child}
+                            color={props.color}
                             depth={child.depth + 1}
                         />
                     ))}
