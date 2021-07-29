@@ -61,13 +61,16 @@
         }
     }
     .level-H1 {
-        display: none;
+        a { font-weight: bold; }
     }
     .level-H2 {
         margin-top: 6px;
         a { font-weight: bold; }
     }
     .level-H2 + .level-H2 {
+        margin-top: 0;
+    }
+    .level-H1 + .level-H2 {
         margin-top: 0;
     }
 }

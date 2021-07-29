@@ -21,6 +21,7 @@ import Masonry from '../components/layouts/masonry'
 import TileContainer from '../components/layouts/tileContainer'
 import ArrowLinkContainer from '../components/navigation/arrowLinkContainer'
 import ArrowLink from '../components/navigation/arrowLink'
+import Helpful from '../components/utilities/helpful'
 import { H1, H2, H3 } from '../components/blocks/headers'
 import Psa from '../components/utilities/psa'
 import FloatingNav from '../components/utilities/floatingNav'
@@ -126,6 +127,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                             <MDXRemote {...source} components={components} />
                         </div>
                     </article>
+                    <Helpful slug={slug} />
                     <Psa />
                     {arrowContainer}
                 </section>
