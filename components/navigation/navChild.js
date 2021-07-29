@@ -17,6 +17,12 @@ export default class NavChild extends React.Component {
     toggleAccordion() {
         this.setState({ accordion: !this.state.accordion })
     }
+    componentDidMount() {
+        if ('/' + this.props.slug.slice(0, 2).join('/') === this.props.page.url) {
+            this.setState({ accordion: true })
+            console.log('I');
+        }
+    }
     render() {
         const state = this.state;
         const props = this.props;
@@ -40,10 +46,10 @@ export default class NavChild extends React.Component {
 
         let accordion;
 
-        let active = props.slug.includes(props.page.menu_key) ? true : false
+        let active = ('/' + props.slug.join('/') === props.page.url) ? true : false
 
         if (props.page.children && props.page.children.length > 0) {
-            accordion = <i className={`accordion ${state.accordion ? 'close' : 'open' }`} onClick={this.toggleAccordion}>{state.accordion ? 'remove' : 'add'}</i>
+            accordion = <i className={`accordion ${state.accordion ? 'close' : 'open'}`} onClick={this.toggleAccordion}>{state.accordion ? 'remove' : 'add'}</i>
         }
 
         let link;
@@ -52,15 +58,19 @@ export default class NavChild extends React.Component {
 
         if (!props.page.url.startsWith('/')) {
             icon = (
-                <i className="external">open_in_new</i>                
+                <i className="external">open_in_new</i>
             )
             target = '_blank'
         }
-
+        let coloredBall;
+        if (active) {
+            coloredBall = <span className={`colored-ball bg-${props.color}`}></span>
+        }
         link = (
             <span className={`child-item ${active ? 'active' : ''}`}>
                 <Link href={props.page.url}>
                     <a className="not-link" target={target}>
+                        {coloredBall}
                         <span>{props.page.name}</span> {icon}
                     </a>
                 </Link>
