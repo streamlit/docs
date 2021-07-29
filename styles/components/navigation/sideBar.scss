@@ -11,9 +11,9 @@
 
 
     @media(max-width: 1024px) {
-        position: absolute;
+        position: fixed;
         background: white;
-        width: 100vw;
+        width: calc(100vw - 20%);
         height: 100vh;
         top: calc(#{$header-height} / 2);
         left: 0;
@@ -27,10 +27,12 @@
         pointer-events: none;
         box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.08);
         overflow: scroll;
-
+        opacity: 0;
+        
         &.open {
             pointer-events: all;
             transform: translateY(0);
+            opacity: 1;
             transition: transform $normal ease-in;
         }
     }
@@ -61,6 +63,7 @@
             }
         }
     }
+
 
     .side-nav {
         list-style: none;
