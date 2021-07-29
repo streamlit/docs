@@ -38,6 +38,14 @@ site_menu:
     url: /core/topic-guides
   - category: Streamlit Core / Topic Guides / Make your apps stateful
     url: /core/topic-guides/stateful-apps
+  - category: Streamlit Core / Topic Guides / How to make a great Streamlit app
+    url: /core/topic-guides/designing-streamlit-apps
+  - category: Streamlit Core / Topic Guides / How to make a great Streamlit app / Building an app for the User
+    url: /core/topic-guides/designing-streamlit-apps/part-1
+  - category: Streamlit Core / Topic Guides / How to make a great Streamlit app / Using layout and design options
+    url: /core/topic-guides/designing-streamlit-apps/part-2
+  - category: Streamlit Core / Topic Guides / How to make a great Streamlit app / Improving app performance
+    url: /core/topic-guides/designing-streamlit-apps/part-3
   - category: Streamlit Core / Topic Guides / Custom Components
     url: /core/custom-components
   - category: Streamlit Core / Topic Guides / Custom Components / Create a component
