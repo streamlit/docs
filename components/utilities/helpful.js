@@ -36,9 +36,12 @@ export default class Helpful extends React.Component {
     }
 
     render() {
+        let slug = '/'
         const state = this.state
         const props = this.props
-        const slug = `/${props.slug.join('/')}`
+        if (props.slug) {
+            slug = `/${props.slug.join('/')}`
+        }
 
         let otherText;
         if (state.other) {
