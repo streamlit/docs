@@ -6,6 +6,8 @@ import json
 import requests
 import logging
 
+from packaging import version
+
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 PYPI_URL = 'https://pypi.org/pypi/streamlit/json'
@@ -23,6 +25,11 @@ except:
 
 if 'info' in d:
     for release in d['releases']:
+        release_dec = version.parse(release)
+        if release_dec < version.parse('0.47'):
+            continue
+        if not release.endswith('0'):
+            continue
         if release not in current_data:
             logging.info(f"[{release}] Installing streamlit...")
             try:
