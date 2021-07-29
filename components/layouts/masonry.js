@@ -25,9 +25,7 @@ export default class Masonry extends React.Component {
     }
 
     updateMaxheight() {
-        console.log('Update Max Height Ran');
         this.setState({ height: this.maxColumnHeight() });
-        console.log(this.maxColumnHeight())
 
     }
 

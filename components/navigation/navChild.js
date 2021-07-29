@@ -20,7 +20,6 @@ export default class NavChild extends React.Component {
     componentDidMount() {
         if ('/' + this.props.slug.slice(0, 2).join('/') === this.props.page.url) {
             this.setState({ accordion: true })
-            console.log('I');
         }
     }
     render() {
