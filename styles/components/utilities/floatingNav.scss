@@ -23,27 +23,68 @@
             line-height: 24px;
             position: relative;
             padding: 6px 36px 4px 36px;
-            background-color: transparent;
             transition: background-color $slow ease;
             
+            &:not(.active) {
+                background-color: transparent;
+            }
             &.active {
-                background-color: $violet-10;
                 border-radius: 5px;
-                transition: background-color $slow ease;
-            
-                &:before {
-                    display: block;
-                    content: '';
-                    position: absolute;
-                    top: 11px;
-                    left: 16px;
-                    width: 6px;
-                    height: 10px;
-                    background-image: url("data:image/svg+xml,%3Csvg width='6' height='10' viewBox='0 0 6 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.952437 7.90752L1.14007 8.07272L0.952436 7.90752C0.682521 8.21409 0.682521 8.69954 0.952436 9.00611C1.23875 9.3313 1.71774 9.3313 2.00405 9.00611L5.04756 5.54929C5.31748 5.24273 5.31748 4.75727 5.04756 4.45071L2.00405 0.993892C1.71774 0.668703 1.23875 0.668703 0.952437 0.993892C0.682521 1.30046 0.682521 1.78591 0.952437 2.09248L3.51233 5L0.952437 7.90752Z' fill='%23803df5' stroke='%23803df5' stroke-width='0.5'/%3E%3C/svg%3E%0A");
-                }                
+                
+                &.tutorials {
+                    background: $violet-10;
+                    svg {
+                        path {
+                            fill: $violet-70;
+                        }
+                    }
+                }   
+                
+                &.topic-guides {
+                    background: $l-blue-10;
+                    svg {
+                        path {
+                            fill: $l-blue-70;
+                        }
+                    }
+                }   
+
+                &.reference-guides {
+                    background: $orange-10;
+                    svg {
+                        path {
+                            fill: $orange-70;
+                        }
+                    }
+                }    
+
+                &.support {
+                    background: $red-10;
+                    svg {
+                        path {
+                            fill: $red-70;
+                        }
+                    }
+                }             
+                &.updates,&.changelog {
+                    background: $green-10;
+                    svg {
+                        path {
+                            fill: $green-70;
+                        }
+                    }
+                }             
             
             }
-            
+            svg {
+                display: block;
+                content: '';
+                position: absolute;
+                top: 11px;
+                left: 16px;
+                width: 6px;
+                height: 10px;
+            }   
             a {
                 display: inline-block;
                 text-decoration: none;
