@@ -153,9 +153,8 @@ export async function getStaticProps(context) {
     const current_version = versions[versions.length-1]
     const funcs = jsonContents ? JSON.parse(jsonContents) : {}
     
-    props['streamlit'] = funcs[current_version]
+    props['streamlit'] = {}
     props['versions'] = all_versions
-
     props['menu'] = menu
     props['version'] = false
 
@@ -176,6 +175,11 @@ export async function getStaticProps(context) {
         // Get the last element of the array to find the MD file
         const fileContents = fs.readFileSync(filename, 'utf8')
         const { data, content } = matter(fileContents)
+        const should_version = /<Autofunction(.*?)\/>/gi.test(fileContents)
+
+        if (should_version) {
+            props['streamlit'] = funcs[current_version]
+        }
 
         const source = await serialize(content,
             {
