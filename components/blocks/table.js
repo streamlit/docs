@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Table({ children, head, body, rows, addtionalClass, footers=[] }) {
+export default function Table({ children, head, body, rows, addtionalClass, footers = [] }) {
     function createMarkup(html) {
         return { __html: html };
     }
@@ -43,19 +43,17 @@ export default function Table({ children, head, body, rows, addtionalClass, foot
                 </thead>
                 <tbody>
                     {tbody}
-                    {footers.map((footer, index) => {
-                        const body = footer.jsx ? footer.body : (<div dangerouslySetInnerHTML={createMarkup(footer.body)} />)
-                        return (<React.Fragment key={`footer-${index}`}>
-                            <tr className="head">
-                                <td className="title bold" colSpan="2">{footer.title}</td>
-                            </tr>
-                            <tr>
-                                <td colSpan="2" className='has-example'>{body}</td>
-                            </tr>
-                        </React.Fragment>)
-                    })}
                 </tbody>
             </table>
+            {footers.map((footer, index) => {
+                const body = footer.jsx ? footer.body : (<section dangerouslySetInnerHTML={createMarkup(footer.body)} />)
+                return (<React.Fragment key={`footer-${index}`}>
+                    <section className='footer'>
+                        <h4 className="title bold" colSpan="2">{footer.title}</h4>
+                        {body}
+                    </section>
+                </React.Fragment>)
+            })}
         </section>
     )
 }

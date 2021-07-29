@@ -1,7 +1,7 @@
 import React from "react";
 
 export default class FloatingNav extends React.Component {
-    
+
     constructor(props) {
         super(props)
         this.handleTheme = this.handleTheme.bind(this)
@@ -19,7 +19,7 @@ export default class FloatingNav extends React.Component {
 
     handleIntersection(entries, observer) {
         entries.forEach(entry => {
-            if (entry.isIntersecting) { 
+            if (entry.isIntersecting) {
                 const target = entry.target
                 const hrefs = target.getElementsByTagName('a')
                 if (hrefs.length > 0) {
@@ -31,17 +31,17 @@ export default class FloatingNav extends React.Component {
     }
 
     generateMenu() {
-        if ( this.state.headers.length > 0 ) { this.closeMenu() }
+        if (this.state.headers.length > 0) { this.closeMenu() }
         const tocMenu = []
         const options = { threshold: 1.0 }
         const headers = document.querySelectorAll('article.leaf-page h1, article.leaf-page h2, article.leaf-page h3')
         const observe = new IntersectionObserver(this.handleIntersection, options)
-        headers.forEach((ele) => { 
+        headers.forEach((ele) => {
             const hrefs = ele.getElementsByTagName('a')
             if (hrefs.length > 0) {
                 const target = hrefs[0].getAttribute('href')
                 tocMenu.push({
-                    label: ele.innerText, 
+                    label: ele.innerText,
                     target: target,
                     level: ele.tagName
                 })
@@ -54,13 +54,13 @@ export default class FloatingNav extends React.Component {
     closeMenu() {
         this.state.headers.forEach((ele) => { this.state.observer.unobserve(ele) })
     }
-    
+
     componentDidMount() {
-       this.generateMenu()
+        this.generateMenu()
     }
 
     componentDidUpdate() {
-        if ( this.state.slug !== this.props.slug.join('/') ) {
+        if (this.state.slug !== this.props.slug.join('/')) {
             this.setState({ slug: this.props.slug.join('/') })
             this.generateMenu()
         }
@@ -70,7 +70,7 @@ export default class FloatingNav extends React.Component {
         this.closeMenu()
         this.setState({ observer: null, menu: [], headers: [] })
     }
-    
+
     handleTheme() {
         this.setState({ theme: document.body.dataset.theme })
     }
@@ -79,13 +79,13 @@ export default class FloatingNav extends React.Component {
         const props = this.props
         const menu = this.state.menu
         const target = this.state.target
-        
+
         return (
             <div className='toc'>
                 <ol className='toc-level'>
                     {menu.map((item, index) => {
                         const active = item.target == target ? 'active' : ''
-                        return ( <li className={`level-${item.level} ${active}`} key={`toc-${index}`}><a href={item.target}>{item.label}</a></li> )
+                        return (<li className={`level-${item.level} ${active}`} key={`toc-${index}`}><a href={item.target}>{item.label}</a></li>)
                     })}
                 </ol>
             </div>
