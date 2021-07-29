@@ -3,12 +3,12 @@ import React from "react";
 export default class Masonry extends React.Component {
     constructor(props) {
         super(props);
+        this.updateMaxheight = this.updateMaxheight.bind(this)
         this.state = {
             height: 2000
         };
     }
-
-    componentDidMount() {
+    maxColumnHeight() {
         const childrenDOMElements = document.querySelectorAll(".masonry > *");
         let columnHeights = [0, 0, 0];
 
@@ -19,11 +19,24 @@ export default class Masonry extends React.Component {
                 childrenDOMElements[index].classList.add('top-left');
             } else if (index == 2) {
                 childrenDOMElements[index].classList.add('top-right');
-
             }
         }
-        let maxHeight = Math.max(...columnHeights);
-        this.setState({ height: maxHeight });
+        return Math.max(...columnHeights) + 5;
+    }
+
+    updateMaxheight() {
+        console.log('Update Max Height Ran');
+        this.setState({ height: this.maxColumnHeight() });
+        console.log(this.maxColumnHeight())
+
+    }
+
+    componentDidMount() {
+        this.updateMaxheight();
+        window.addEventListener('resize', this.updateMaxheight);
+    }
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateMaxheight());
     }
 
     render() {
