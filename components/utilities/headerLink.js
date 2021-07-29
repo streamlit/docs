@@ -40,8 +40,6 @@ export default class HeaderLink extends React.Component {
   render() {
     const { children, level } = this.props
     const Header = `h${level}`
-    // console.log('headerLink: 43')
-    // console.log(this.props);
     return (
       <>
         <a name={this.hash} className="not-link anchor" />
