@@ -2,7 +2,7 @@ import fs from 'fs'
 import { join, basename } from 'path'
 import sortBy from "lodash/sortBy"
 
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Link from "next/link"
 import Head from 'next/head'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -38,36 +38,12 @@ import Autofunction from '../components/blocks/autofunction'
 import Image from '../components/blocks/image'
 import Download from '../components/utilities/download'
 import Flex from '../components/layouts/flex'
-import head from 'next/head'
 
 export default function Article({ data, source, streamlit, slug, menu, previous, next, version, versions }) {
 
-    let tocMenu = []
-    let tocHighlight
     let versionWarning
     let currentLink
     const maxVersion = versions[versions.length-1]
-
-    const intersectionUpdate = (entries) => {
-        const [ entry ] = entries
-        tocHighlight = entry.target
-    }
-
-    useEffect(() => {
-        const headers = document.querySelectorAll('article.leaf-page h1, article.leaf-page h2, article.leaf-page h3')
-        const observe = new IntersectionObserver(intersectionUpdate)
-        headers.forEach((ele) => { 
-            tocMenu.push({
-                label: ele.innerText,
-                target: ele.href,
-                level: ele.tagName
-            })
-            observe.observe(ele) 
-        })
-        return () => {
-            headers.forEach((ele) => { observe.unobserve(ele) })  
-        }
-    });
 
     const components = {
         Note,
@@ -145,7 +121,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                     {versionWarning}
                     <BreadCrumbs slug={slug} menu={menu} version={version} />
                     <article className='leaf-page'>
-                        <FloatingNav menu={tocMenu} target={tocHighlight} />
+                        <FloatingNav slug={slug} />
                         <div className='content'>
                             <MDXRemote {...source} components={components} />
                         </div>

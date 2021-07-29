@@ -96,7 +96,7 @@ export default class Search extends React.Component {
                 <article className="item">
                     <a className="not-link" href={props.hit.url}>
                         <section className="image_container bg-gray-50">
-                            <div class={`icon-${icon}`}><i>{icon}</i></div>
+                            <div className={`icon-${icon}`}><i>{icon}</i></div>
                         </section> 
                         <section className="copy">
                             <p className="tiny">{category}</p>
