@@ -234,9 +234,48 @@ body[data-theme="dark-mode"] {
     }
     .toc {
         ol li.active {
-            background-color: $violet-90;
-            &:before {
-                background-image: url("data:image/svg+xml,%3Csvg width='6' height='10' viewBox='0 0 6 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.952437 7.90752L1.14007 8.07272L0.952436 7.90752C0.682521 8.21409 0.682521 8.69954 0.952436 9.00611C1.23875 9.3313 1.71774 9.3313 2.00405 9.00611L5.04756 5.54929C5.31748 5.24273 5.31748 4.75727 5.04756 4.45071L2.00405 0.993892C1.71774 0.668703 1.23875 0.668703 0.952437 0.993892C0.682521 1.30046 0.682521 1.78591 0.952437 2.09248L3.51233 5L0.952437 7.90752Z' fill='%23FFFFFF' stroke='%23FFFFFF' stroke-width='0.5'/%3E%3C/svg%3E%0A");
+            &.tutorials {
+                background: $violet-90;
+                svg {
+                    path {
+                        fill: $white;
+                    }
+                }
+            }   
+            
+            &.topic-guides {
+                background: $l-blue-90;
+                svg {
+                    path {
+                        fill: $white;
+                    }
+                }
+            }   
+
+            &.reference-guides {
+                background: $orange-90;
+                svg {
+                    path {
+                        fill: $white;
+                    }
+                }
+            }    
+
+            &.support {
+                background: $red-90;
+                svg {
+                    path {
+                        fill: $white;
+                    }
+                }
+            }             
+            &.updates,&.changelog {
+                background: $green-90;
+                svg {
+                    path {
+                        fill: $white;
+                    }
+                }
             }
         }
     }
