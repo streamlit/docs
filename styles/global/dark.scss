@@ -240,4 +240,14 @@ body[data-theme="dark-mode"] {
             }
         }
     }
+
+    .reference-card {
+        border:1px solid $gray-90;
+        color:$white;
+    }
+
+    .code-tile {
+        border:1px solid $gray-90;
+        color:$white;
+    }
 }
