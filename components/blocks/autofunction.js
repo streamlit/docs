@@ -3,6 +3,7 @@ import orderBy from "lodash/orderBy"
 import React from "react"
 import Table from "./table"
 import { H2 } from './headers'
+import Warning from "./warning"
 
 import Prism from 'prismjs'
 import 'prismjs/components/prism-python'
@@ -62,29 +63,43 @@ export default class Autofunction extends React.Component {
                 
         const footers = []
         const rows = []
-        const all_versions = Object.keys(props.streamlit)
-        const versions = sortBy(all_versions, [ (o) => { return parseFloat(o) }])
+        const versions = props.versions
         const current_version = props.version ? props.version : versions[versions.length-1]
-        const version_list = []
+        const version_list = props.versions
 
         let func_obj
         let func_description
         let header
         let body
 
-        all_versions.forEach((version) => {
-            if (props.function in props.streamlit[version]) {
-                version_list.push(version)
-            }
-        })
-
-        if (props.function in props.streamlit[current_version]) {
-            func_obj = props.streamlit[current_version][props.function]
+        if (props.function in props.streamlit) {
+            func_obj = props.streamlit[props.function]
             if ( func_obj.description !== undefined && func_obj.description ) {
                 func_description = { __html: func_obj.description }
             }
         } else {
-            return ``;
+            return (
+                <div className='autofunction' ref={this.blockRef}>
+                    <div className='code-header'>
+                        <H2>{props.function}</H2>
+                    </div>
+                    <Warning>
+                        <p>This method did not exist in version <code>{current_version}</code> of Streamlit.</p>
+                    </Warning>
+                </div>
+            )
+        }
+
+
+        if ( props.hide_header !== undefined && props.hide_header ) {
+            header = ''
+        } else {
+            header = (
+                <div className='code-header'>
+                    <H2>st.{func_obj.name}</H2>
+                    <div className='code-desc' dangerouslySetInnerHTML={func_description} />
+                </div>
+            )
         }
 
         if ('example' in func_obj) {
@@ -103,20 +118,6 @@ export default class Autofunction extends React.Component {
             footers.push({ 'title': 'Warning', 'body': func_obj.warning })
         }
 
-        if (version_list.length > 0) {
-            let versions_list = (
-                <ul class='version-list'>
-                    {version_list.map((row, index) => (
-                        <li key={`version-${row}`}>
-                            {row}
-                        </li>
-                    ))}
-                </ul>
-            )
-            //footers.push({ 'title': 'Versions', 'body': versions_list, 'jsx': true })
-            footers.push({ 'title': 'Version', 'body': `<p>${current_version}</p>`, 'jsx': false })
-        }
-
         for (const index in func_obj.args) {
             const row = {}
             const param = func_obj.args[ index ]
@@ -131,17 +132,6 @@ export default class Autofunction extends React.Component {
             }
 
             rows.push(row)
-        }
-
-        if ( props.hide_header !== undefined && props.hide_header ) {
-            header = ''
-        } else {
-            header = (
-                <div className='code-header'>
-                    <H2>st.{func_obj.name}</H2>
-                    <div className='code-desc' dangerouslySetInnerHTML={func_description} />
-                </div>
-            )
         }
 
         if (rows.length) {
