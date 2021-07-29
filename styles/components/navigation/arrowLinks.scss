@@ -45,4 +45,14 @@
             }
         }
     }
+    @media(max-width:768px) {
+        flex-wrap: wrap;
+        .back {
+            margin-left:auto;
+        }
+        .next {
+            margin-top:2rem;
+            margin-right:auto;
+        }
+    }
 }
