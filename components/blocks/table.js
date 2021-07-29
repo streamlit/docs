@@ -50,7 +50,7 @@ export default function Table({ children, head, body, rows, addtionalClass, foot
                                 <td className="title bold" colSpan="2">{footer.title}</td>
                             </tr>
                             <tr>
-                                <td colSpan="2" class='has-example'>{body}</td>
+                                <td colSpan="2" className='has-example'>{body}</td>
                             </tr>
                         </React.Fragment>)
                     })}
