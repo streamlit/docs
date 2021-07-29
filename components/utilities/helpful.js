@@ -2,17 +2,33 @@ import React from "react";
 
 export default class Helpful extends React.Component {
     constructor(props) {
-        super(props);
-        this.handleStep = this.handleStep.bind(this);
-        this.handleOther = this.handleOther.bind(this);
+        super(props)
+        this.formRef = React.createRef()
+        this.handleStep = this.handleStep.bind(this)
+        this.handleOther = this.handleOther.bind(this)
+        this.submitForm = this.submitForm.bind(this)
         this.state = {
             step: 0,
             other: false
-        };
+        }
     }
 
     handleStep(newStep) {
         this.setState({ step: newStep })
+        if (newStep == 2) {
+            this.submitForm()
+        }
+    }
+
+    submitForm() {
+        if (this.formRef && this.formRef.current) {
+            const data = new FormData(this.formRef.current)
+            fetch('/', {
+                method: 'POST',
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(data).toString()
+            })
+        }
     }
 
     handleOther() {
@@ -21,10 +37,12 @@ export default class Helpful extends React.Component {
 
     render() {
         const state = this.state
+        const props = this.props
+        const slug = `/${props.slug.join('/')}`
 
         let otherText;
         if (state.other) {
-            otherText = <textarea placeholder="Please let us know how we can improve this page (optional)" rows="4" />
+            otherText = <textarea name="other-text" placeholder="Please let us know how we can improve this page (optional)" rows="4" />
         }
 
         let block;
@@ -76,7 +94,11 @@ export default class Helpful extends React.Component {
 
         return (
             <section className="block-helpful">
-                {block}
+                <form name="helpful" method="POST" ref={this.formRef}>
+                    <input type="hidden" name="form-name" value="wasThisPageHelpful" />
+                    <input type="hidden" name="url" value={slug} />
+                    {block}
+                </form>
             </section>
         )
     }
