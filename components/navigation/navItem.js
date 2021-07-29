@@ -34,6 +34,7 @@ export default class NavItem extends React.Component {
                         <NavChild
                             slug={props.slug}
                             page={child}
+                            color={props.page.color}
                             key={child.menu_key}
                             depth={child.depth + 1}
                         />
@@ -60,7 +61,7 @@ export default class NavItem extends React.Component {
             </section >
         )
 
-        if ( props.page.url.startsWith('/') ) {
+        if (props.page.url.startsWith('/')) {
             navItem = (
                 <li className="nav-item small" id={props.page.menu_key}>
                     <Link href={props.page.url}>
@@ -73,7 +74,7 @@ export default class NavItem extends React.Component {
             )
         } else {
             navItem = (
-                <li className="nav-item small" id={props.page.menu_key}>                
+                <li className="nav-item small" id={props.page.menu_key}>
                     <a className="not-link" href={props.page.url} target="_blank">
                         {navBox}
                     </a>

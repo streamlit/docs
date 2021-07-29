@@ -194,10 +194,24 @@ body[data-theme="dark-mode"] {
                         p {
                             color: $gray-40 !important;
                         }
+                        &.active {
+                            p {
+                                color: $white !important;
+                            }
+
+                        }
                     }
                     .sub-nav {
                         a {
                             color: $gray-40;
+                        }
+
+                        .child-item {
+                            &.active {
+                                >a > span {
+                                    color:$white;
+                                }
+                            }
                         }
                     }
                 }

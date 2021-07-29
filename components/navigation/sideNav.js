@@ -1,4 +1,5 @@
 import React from "react";
+import { connectScrollTo } from "react-instantsearch-dom";
 import bus from '../../lib/bus'
 
 import NavItem from '../navigation/navItem'
@@ -16,7 +17,7 @@ export default class SideBar extends React.Component {
             over: false,
             open: false,
             theme: 'light-mode',
-            menu: props.menu
+            menu: props.menu,
         };
 
         this.checkExpanded = this.checkExpanded.bind(this)
@@ -61,10 +62,11 @@ export default class SideBar extends React.Component {
         window.addEventListener('resize', this.checkExpanded)
         window.addEventListener('ChangeTheme', this.handleTheme)
 
-        bus.on('streamlit_nav_open', () => this.setState({ open: true }) )
-        bus.on('streamlit_nav_closed', () => this.setState({ open: false }) )
+        bus.on('streamlit_nav_open', () => this.setState({ open: true }))
+        bus.on('streamlit_nav_closed', () => this.setState({ open: false }))
 
         this.checkExpanded()
+        this.setState({ slug: window.location.href })
     }
 
     componentWillUnmount() {
@@ -74,7 +76,7 @@ export default class SideBar extends React.Component {
     render() {
         const props = this.props
         const state = this.state
-        
+
         let navItems
         navItems = props.menu.map((page, index) => (
             <NavItem

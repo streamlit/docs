@@ -190,8 +190,21 @@
                             }
                         }
                     
-                        &.active > a> span {
-                            font-weight: bold;
+                        &.active {
+                            position: relative;
+
+                            > a> span {
+                                color:$black;
+                                font-weight: bold;
+                            }
+
+                            .colored-ball {
+                                position:absolute;
+                                height:.5em;
+                                width:.5em;
+                                right: calc(100% + .5em);
+                                border-radius: $rounded-circle;
+                            }
                         }
                     }
                     .child-sub-nav {
