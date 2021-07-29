@@ -97,7 +97,7 @@ export default class Helpful extends React.Component {
 
         return (
             <section className="block-helpful">
-                <form name="helpful" method="POST" ref={this.formRef}>
+                <form name="helpful" method="POST" data-netlify="true" ref={this.formRef}>
                     <input type="hidden" name="form-name" value="wasThisPageHelpful" />
                     <input type="hidden" name="url" value={slug} />
                     {block}
