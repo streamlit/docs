@@ -16,7 +16,7 @@ import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace'
 import { version } from "nprogress"
 
 export default class Autofunction extends React.Component {
-    
+
     constructor(props) {
         super(props)
         this.highlighted = false
@@ -34,7 +34,7 @@ export default class Autofunction extends React.Component {
     highlightWithPrism() {
         if (this.highlighted) { return }
         if (!this.blockRef.current) { return }
-            
+
         const pres = Array.prototype.slice.call(this.blockRef.current.getElementsByTagName('pre'))
 
         pres.forEach((ele) => {
@@ -58,13 +58,13 @@ export default class Autofunction extends React.Component {
     }
 
     render() {
-        
+
         const props = this.props
-                
+
         const footers = []
         const rows = []
         const versions = props.versions
-        const current_version = props.version ? props.version : versions[versions.length-1]
+        const current_version = props.version ? props.version : versions[versions.length - 1]
         const version_list = props.versions
 
         let func_obj
@@ -74,7 +74,7 @@ export default class Autofunction extends React.Component {
 
         if (props.function in props.streamlit) {
             func_obj = props.streamlit[props.function]
-            if ( func_obj.description !== undefined && func_obj.description ) {
+            if (func_obj.description !== undefined && func_obj.description) {
                 func_description = { __html: func_obj.description }
             }
         } else {
@@ -91,12 +91,13 @@ export default class Autofunction extends React.Component {
         }
 
 
-        if ( props.hide_header !== undefined && props.hide_header ) {
+        if (props.hide_header !== undefined && props.hide_header) {
             header = ''
         } else {
+            let name = `st.${func_obj.name}`
             header = (
                 <div className='code-header'>
-                    <H2>st.{func_obj.name}</H2>
+                    <H2>{name}</H2>
                     <div className='code-desc' dangerouslySetInnerHTML={func_description} />
                 </div>
             )
@@ -120,15 +121,15 @@ export default class Autofunction extends React.Component {
 
         for (const index in func_obj.args) {
             const row = {}
-            const param = func_obj.args[ index ]
+            const param = func_obj.args[index]
             const description = param.description ? param.description : `<p>No description</p>`
 
-            if ( param.is_optional ) {
+            if (param.is_optional) {
                 row['title'] = `<p>${param.name} <span class='italic code'>(${param.type_name})</span></p>`
-                row['body']  = `${description}`
+                row['body'] = `${description}`
             } else {
                 row['title'] = `<p><span class='bold'>${param.name}</span> <span class='italic code'>(${param.type_name})</span></p>`
-                row['body']  = `${description}`
+                row['body'] = `${description}`
             }
 
             rows.push(row)
@@ -162,11 +163,11 @@ export default class Autofunction extends React.Component {
             )
         }
 
-        return (            
-            <div className='autofunction' ref={this.blockRef}>
+        return (
+            <section className='autofunction' ref={this.blockRef}>
                 {header}
                 {body}
-            </div>
+            </section>
         )
     }
 }
