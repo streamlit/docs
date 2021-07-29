@@ -40,16 +40,26 @@ export default class BreadCrumbs extends React.Component {
         const breadcrumbs = []
 
         if ( props.slug === undefined ) { return '' }
-
-        // Find the menu with the current slug
-        const paths = props.slug.join('/')
-        const location = `/${paths}`
-        const path = breadcrumbsForSlug(props.menu, location, [])
+        
+        let paths = props.slug.join('/')
 
         breadcrumbs.push({
             link: '/',
             title: 'Home'
         })
+
+        const isnum = /^[\d\.]+$/.test(props.slug[0])
+        if (isnum) {
+            paths = props.slug.slice(1).join('/')
+            breadcrumbs.push({
+                link: '#',
+                title: props.slug[0]
+            })
+        }
+
+        // Find the menu with the current slug
+        const location = `/${paths}`
+        const path = breadcrumbsForSlug(props.menu, location, [])
 
         path.forEach(obj => {
             if (obj.url === location) {

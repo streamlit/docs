@@ -2,7 +2,8 @@ import fs from 'fs'
 import { join, basename } from 'path'
 import sortBy from "lodash/sortBy"
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import Link from "next/link"
 import Head from 'next/head'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXProvider } from '@mdx-js/react'
@@ -22,7 +23,7 @@ import ArrowLinkContainer from '../components/navigation/arrowLinkContainer'
 import ArrowLink from '../components/navigation/arrowLink'
 import { H1, H2, H3 } from '../components/blocks/headers'
 import Psa from '../components/utilities/psa'
-// import FloatingNav from '../../components/utilities/floatingNav'
+import FloatingNav from '../components/utilities/floatingNav'
 
 // MDX Components
 import Code from '../components/blocks/code'
@@ -37,8 +38,36 @@ import Autofunction from '../components/blocks/autofunction'
 import Image from '../components/blocks/image'
 import Download from '../components/utilities/download'
 import Flex from '../components/layouts/flex'
+import head from 'next/head'
 
-export default function Article({ data, source, streamlit, slug, menu, previous, next, version }) {
+export default function Article({ data, source, streamlit, slug, menu, previous, next, version, versions }) {
+
+    let tocMenu = []
+    let tocHighlight
+    let versionWarning
+    let currentLink
+    const maxVersion = versions[versions.length-1]
+
+    const intersectionUpdate = (entries) => {
+        const [ entry ] = entries
+        tocHighlight = entry.target
+    }
+
+    useEffect(() => {
+        const headers = document.querySelectorAll('article.leaf-page h1, article.leaf-page h2, article.leaf-page h3')
+        const observe = new IntersectionObserver(intersectionUpdate)
+        headers.forEach((ele) => { 
+            tocMenu.push({
+                label: ele.innerText,
+                target: ele.href,
+                level: ele.tagName
+            })
+            observe.observe(ele) 
+        })
+        return () => {
+            headers.forEach((ele) => { observe.unobserve(ele) })  
+        }
+    });
 
     const components = {
         Note,
@@ -55,7 +84,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
         Image,
         Download,
         Flex,
-        Autofunction: (props) => <Autofunction {...props} streamlit={streamlit} version={version} />,
+        Autofunction: (props) => <Autofunction {...props} streamlit={streamlit} version={version} versions={versions} slug={slug} />,
         pre: (props) => <Code {...props} />,
         h1: H1,
         h2: H2,
@@ -65,6 +94,15 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
     let previousArrow
     let nextArrow
     let arrowContainer
+
+    if (version && version != maxVersion) {
+        currentLink = `/${slug.slice(1).join('/')}`
+        versionWarning = (
+            <Warning>
+                <p>You are reading the documentation for Streamlit version {version}, but <Link href={currentLink}>{maxVersion}</Link> is the latest version available.</p>
+            </Warning>            
+        )
+    }
 
     if (previous) {
         previousArrow = (
@@ -96,7 +134,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
         >
         <Layout>
             <section className="page container template-standard">
-                <SideBar slug={slug} menu={menu} version={version} />
+                <SideBar slug={slug} menu={menu} version={version} versions={versions} />
                 <Head>
                     <title>{data.title} - Streamlit Docs</title>
                     <link rel="icon" href="/favicon.svg"/>
@@ -104,11 +142,15 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                     <meta name="theme-color" content="#ffffff"/>
                 </Head>
                 <section className="content wide" id="documentation">
+                    {versionWarning}
                     <BreadCrumbs slug={slug} menu={menu} version={version} />
-                    <article>
-                        <MDXRemote {...source} components={components} />
-                    </article>                    
-                    <Psa />                    
+                    <article className='leaf-page'>
+                        <FloatingNav menu={tocMenu} target={tocHighlight} />
+                        <div className='content'>
+                            <MDXRemote {...source} components={components} />
+                        </div>
+                    </article>
+                    <Psa />
                     {arrowContainer}
                 </section>
             </section>
@@ -125,8 +167,16 @@ export async function getStaticProps(context) {
     const menu  = getMenu()
     const { current, prev, next } = getPreviousNextFromMenu(menu, location)
 
+    // Sort of documentation versions
     const jsonContents = fs.readFileSync(join(pythonDirectory, 'streamlit.json'), 'utf8')
-    props['streamlit'] = jsonContents ? JSON.parse(jsonContents) : {}
+    const streamlitFuncs = jsonContents ? JSON.parse(jsonContents) : {}
+    const all_versions = Object.keys(streamlitFuncs)
+    const versions = sortBy(all_versions, [ (o) => { return parseFloat(o) }])
+    const current_version = versions[versions.length-1]
+    const funcs = jsonContents ? JSON.parse(jsonContents) : {}
+    
+    props['streamlit'] = funcs[current_version]
+    props['versions'] = all_versions
 
     props['menu'] = menu
     props['version'] = false
@@ -140,7 +190,10 @@ export async function getStaticProps(context) {
         })
 
         let isnum = /^[\d\.]+$/.test(context.params.slug[0]);
-        if (isnum) { props['version'] = context.params.slug[0] }
+        if (isnum) { 
+            props['version'] = context.params.slug[0] 
+            props['streamlit'] = funcs[props['version']]
+        }
 
         // Get the last element of the array to find the MD file
         const fileContents = fs.readFileSync(filename, 'utf8')
@@ -213,8 +266,8 @@ export async function getStaticPaths() {
         paths.push(path)
 
         // If the file uses Autofunction, we need to version it.
+        // Major versions only --TO DO--
         const should_version = /<Autofunction(.*?)\/>/gi.test(fileContents)
-
         if (!should_version) { continue; }
 
         for (const v_index in versions)  {

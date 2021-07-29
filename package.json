@@ -7,7 +7,7 @@
     "build": "next build",
     "postbuild": "node ./scripts/build-search-index.js",
     "start": "next start",
-    "export": "npm run build && next export"
+    "export": "next build && next export"
   },
   "dependencies": {
     "16": "0.0.2",

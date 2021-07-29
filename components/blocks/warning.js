@@ -30,14 +30,14 @@ export default class Warning extends React.Component {
         if (state.theme == 'dark-mode') {
             block = (
                 <section className={`block-note bg-dark-orange color-white`}>
-                    <IconHeader icon="priority_high" rotate="0" title="Important" background="orange-70" color="white" />
+                    <IconHeader icon="priority_high" rotate="0" title="Warning" background="orange-70" color="white" />
                     {props.children}
                 </section>
             )
         } else {
             block = (
                 <section className={`block-note bg-orange-10 color-gray-90`}>
-                    <IconHeader icon="priority_high" rotate="0" title="Important" background="orange-70" color="white" />
+                    <IconHeader icon="priority_high" rotate="0" title="Warning" background="orange-70" color="white" />
                     {props.children}
                 </section>
             )

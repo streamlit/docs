@@ -6,6 +6,6 @@ services:
       context: ../
       dockerfile: python/Dockerfile
     image: streamlit-docstring-generator:latest
-    command: tail -f /dev/null
+    command: python build.py
     volumes:
       - ../python:/docs
