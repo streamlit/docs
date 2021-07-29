@@ -27,24 +27,25 @@ import Psa from '../components/utilities/psa'
 import FloatingNav from '../components/utilities/floatingNav'
 
 // MDX Components
-import Code from '../components/blocks/code'
-import Note from '../components/blocks/noted'
-import Tip from '../components/blocks/tip'
-import Warning from '../components/blocks/warning'
-import Important from '../components/blocks/important'
-import YouTube from '../components/blocks/youTube'
-import CodeTile from '../components/blocks/codeTile'
-import RefCard from '../components/blocks/refCard'
 import Autofunction from '../components/blocks/autofunction'
-import Image from '../components/blocks/image'
+import Code from '../components/blocks/code'
+import CodeTile from '../components/blocks/codeTile'
 import Download from '../components/utilities/download'
 import Flex from '../components/layouts/flex'
+import Image from '../components/blocks/image'
+import Important from '../components/blocks/important'
+import Note from '../components/blocks/noted'
+import RefCard from '../components/blocks/refCard'
+import Tile from '../components/blocks/tile'
+import Tip from '../components/blocks/tip'
+import Warning from '../components/blocks/warning'
+import YouTube from '../components/blocks/youTube'
 
 export default function Article({ data, source, streamlit, slug, menu, previous, next, version, versions }) {
 
     let versionWarning
     let currentLink
-    const maxVersion = versions[versions.length-1]
+    const maxVersion = versions[versions.length - 1]
 
     const components = {
         Note,
@@ -57,6 +58,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
         Masonry,
         CodeTile,
         TileContainer,
+        Tile,
         RefCard,
         Image,
         Download,
@@ -77,7 +79,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
         versionWarning = (
             <Warning>
                 <p>You are reading the documentation for Streamlit version {version}, but <Link href={currentLink}>{maxVersion}</Link> is the latest version available.</p>
-            </Warning>            
+            </Warning>
         )
     }
 
@@ -104,35 +106,35 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
 
     return (
         <MDXProvider
-          components={{
-            // Override some default Markdown components.
-            img: Image
-          }}
+            components={{
+                // Override some default Markdown components.
+                img: Image
+            }}
         >
-        <Layout>
-            <section className="page container template-standard">
-                <SideBar slug={slug} menu={menu} version={version} versions={versions} />
-                <Head>
-                    <title>{data.title} - Streamlit Docs</title>
-                    <link rel="icon" href="/favicon.svg"/>
-                    <link rel="alternate icon" href="/favicon32.ico"/>
-                    <meta name="theme-color" content="#ffffff"/>
-                </Head>
-                <section className="content wide" id="documentation">
-                    {versionWarning}
-                    <BreadCrumbs slug={slug} menu={menu} version={version} />
-                    <article className='leaf-page'>
-                        <FloatingNav slug={slug} />
-                        <div className='content'>
-                            <MDXRemote {...source} components={components} />
-                        </div>
-                    </article>
-                    <Helpful slug={slug} />
-                    <Psa />
-                    {arrowContainer}
+            <Layout>
+                <section className="page container template-standard">
+                    <SideBar slug={slug} menu={menu} version={version} versions={versions} />
+                    <Head>
+                        <title>{data.title} - Streamlit Docs</title>
+                        <link rel="icon" href="/favicon.svg" />
+                        <link rel="alternate icon" href="/favicon32.ico" />
+                        <meta name="theme-color" content="#ffffff" />
+                    </Head>
+                    <section className="content wide" id="documentation">
+                        {versionWarning}
+                        <BreadCrumbs slug={slug} menu={menu} version={version} />
+                        <article className='leaf-page'>
+                            <FloatingNav slug={slug} />
+                            <div className='content'>
+                                <MDXRemote {...source} components={components} />
+                            </div>
+                        </article>
+                        <Helpful slug={slug} />
+                        <Psa />
+                        {arrowContainer}
+                    </section>
                 </section>
-            </section>
-        </Layout>
+            </Layout>
         </MDXProvider>
     )
 }
@@ -142,17 +144,17 @@ export async function getStaticProps(context) {
     const paths = await getStaticPaths()
     const props = {}
     const location = `/${context.params.slug.join('/')}`
-    const menu  = getMenu()
+    const menu = getMenu()
     const { current, prev, next } = getPreviousNextFromMenu(menu, location)
 
     // Sort of documentation versions
     const jsonContents = fs.readFileSync(join(pythonDirectory, 'streamlit.json'), 'utf8')
     const streamlitFuncs = jsonContents ? JSON.parse(jsonContents) : {}
     const all_versions = Object.keys(streamlitFuncs)
-    const versions = sortBy(all_versions, [ (o) => { return parseFloat(o) }])
-    const current_version = versions[versions.length-1]
+    const versions = sortBy(all_versions, [(o) => { return parseFloat(o) }])
+    const current_version = versions[versions.length - 1]
     const funcs = jsonContents ? JSON.parse(jsonContents) : {}
-    
+
     props['streamlit'] = {}
     props['versions'] = all_versions
     props['menu'] = menu
@@ -167,8 +169,8 @@ export async function getStaticProps(context) {
         })
 
         let isnum = /^[\d\.]+$/.test(context.params.slug[0]);
-        if (isnum) { 
-            props['version'] = context.params.slug[0] 
+        if (isnum) {
+            props['version'] = context.params.slug[0]
             props['streamlit'] = funcs[props['version']]
         }
 
@@ -212,14 +214,14 @@ export async function getStaticPaths() {
     // Build up paths based on slugified categories for all docs
     const articles = getArticleSlugs()
     const paths = []
-    
+
     // Sort of documentation versions
     const jsonContents = fs.readFileSync(join(pythonDirectory, 'streamlit.json'), 'utf8')
     const streamlitFuncs = jsonContents ? JSON.parse(jsonContents) : {}
     const all_versions = Object.keys(streamlitFuncs)
-    const versions = sortBy(all_versions, [ (o) => { return parseFloat(o) }])
-    const current_version = versions[versions.length-1]
-    
+    const versions = sortBy(all_versions, [(o) => { return parseFloat(o) }])
+    const current_version = versions[versions.length - 1]
+
     // Load each file and map a path
 
     for (const index in articles) {
@@ -244,7 +246,7 @@ export async function getStaticPaths() {
                 title: data.title
             }
         }
-        
+
         paths.push(path)
 
         // If the file uses Autofunction, we need to version it.
@@ -252,16 +254,16 @@ export async function getStaticPaths() {
         const should_version = /<Autofunction(.*?)\/>/gi.test(fileContents)
         if (!should_version) { continue; }
 
-        for (const v_index in versions)  {
+        for (const v_index in versions) {
             const version = versions[v_index]
-            
+
             if (version == current_version) { continue }
-            
+
             const versioned_location = `/${version}${slug}`
             const newSlug = [...realSlug]
-            
+
             newSlug.unshift(version)
-            
+
             path = {
                 params: {
                     slug: newSlug,
@@ -274,7 +276,7 @@ export async function getStaticPaths() {
         }
 
     }
-    
+
     return {
         paths: paths,
         fallback: false
