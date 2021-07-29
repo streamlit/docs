@@ -1,6 +1,5 @@
 .reference-card {
     padding: 1rem;
-    background:$white;
     color: $gray-90;
     border-radius: $rounded-small;
     border: 1px solid $gray-40;
@@ -21,9 +20,10 @@
         margin-bottom:.25em;
     }
     img {
-        max-width:calc(100% + 2em);
+        width:calc(100% + 2em);
         margin-left:-1rem;
         margin-top:-2rem;
+        margin-bottom:1rem;
     }
     p,a {
         color:inherit !important;

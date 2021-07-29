@@ -1,14 +1,15 @@
 .breadcrumbs {
     list-style: none;
     display: inline-flex;
+    flex-wrap: wrap;
     width: 100%;
     margin-bottom: 1em;
 
     li {
         margin: 0;
-        margin-left: .5em;
+        margin-right: .5em;
 
-        &:first-child {
+        &:last-child {
             margin: 0;
         }
 
