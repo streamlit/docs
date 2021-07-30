@@ -21,7 +21,7 @@ to [skip to the next step](aws_s3.html#create-access-keys).
 First, [sign up for AWS](https://aws.amazon.com/) or log in. Go to the [S3 console](https://s3.console.aws.amazon.com/s3/home) and create a new bucket:
 
 <Flex>
-<Image alt="AWS screenshot 1" src="/images/databases/aws-1.png" />
+<Image alt="AWS screenshot 1" caption="Testing" src="/images/databases/aws-1.png" />
 <Image alt="AWS screenshot 2" src="/images/databases/aws-2.png" />
 </Flex>
 

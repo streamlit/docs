@@ -47,6 +47,7 @@
     }
     @media(max-width:768px) {
         flex-wrap: wrap;
+        flex-direction: column;
         .back {
             margin-left:auto;
         }
