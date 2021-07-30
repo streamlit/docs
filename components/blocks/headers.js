@@ -36,7 +36,7 @@ function getBody(props) {
 }
 
 function cleanHref(name) {
-  const clean = name.replaceAll('.', '').replaceAll(' ', '-');
+  const clean = String(name).replace('.', '').replace(' ', '-');
   return clean;
 }
 
