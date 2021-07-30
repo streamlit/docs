@@ -1,9 +1,9 @@
 // Simple horizontal flex container used for MDX.
 const Flex = ({ children }) => {
   return (
-    <div style={{ display: "flex" }}>
+    <section className="flex-box">
       {children}
-    </div>
+    </section>
   )
 }
 
