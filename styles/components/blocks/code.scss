@@ -9,11 +9,14 @@
         position: relative;
     }
 
-    code[class*="language-"], pre[class*="language-"] {
+    code.undefined, code[class*="language-"], pre[class*="language-"] {
         white-space: pre;
         max-width: 100%;
         overflow: hidden;
         overflow-x: scroll;
+    }
+    code.undefined {
+        white-space:pre-line;
     }
 
     pre.line-numbers {

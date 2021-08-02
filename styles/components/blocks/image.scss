@@ -23,7 +23,6 @@
     }
     .image {
         img {
-            margin-bottom: 1em;
             max-width:100%;
             transition:$normal;
 
@@ -32,6 +31,9 @@
                 opacity:.75;
                 transform:scale(1.005);
             }
+        }
+        p {
+            padding:1em;
         }
     }
     .light-box {
@@ -52,15 +54,18 @@
             max-height: 90vh;
 
             img {
-                margin-bottom: 1em;
+                &.has-caption {
+                    margin-bottom: 1em;
+                }
                 transition:$normal;
                 z-index: 1;
                 object-fit: contain;
             }
             p {
                 text-align: center;
+                padding: 1em;
             }
-
+                
         }
 
         &:before {
@@ -105,14 +110,16 @@
         }
 
     }
+    @media (max-width:1024px) {
+        .block-note {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            width: 100%!important;
 
-    .fade-enter-active, .fade-leave-active {
-        transition: $normal;
-    }
-    .fade-enter, .fade-leave /* .fade-leave-active below version 2.1.8 */ {
-        opacity: 0;
-        .content, button {
-            transform: scale(.85);
+            .image {
+                
+            }
         }
-    }
+    }    
 }

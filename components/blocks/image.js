@@ -24,6 +24,13 @@ export default class Image extends React.Component {
         const props = this.props
         const state = this.state
         let block;
+        let caption;
+        let captionClass;
+
+        if (props.caption) {
+            captionClass = 'has-caption';
+            caption = <p className="italic small" >{props.caption}</p>;
+        }
         if (props.pure) {
             block = (
                 <img src={props.src} alt={props.alt} />
@@ -33,16 +40,16 @@ export default class Image extends React.Component {
                 <section className="block-image">
                     <Note color="unset" background="unset">
                         <section className="image">
-                            <img onClick={this.openModal} src={props.src} alt={props.alt} />
-                            <p className="italic small" >{props.caption}</p>
+                            <img onClick={this.openModal} src={props.src} alt={props.alt} class={captionClass} />
+                            {caption}
                         </section>
                     </Note>
 
                     <section className="light-box" onClick={this.closeModal}>
                         <button onClick={this.openModal}>close</button>
                         <section className="content">
-                            <img src={props.src} alt={props.alt} />
-                            <p className="italic small" >{props.caption}</p>
+                            <img src={props.src} alt={props.alt} class={captionClass} />
+                            {caption}
                         </section>
                     </section>
                 </section >
@@ -51,8 +58,8 @@ export default class Image extends React.Component {
             block = (
                 <section className="block-image clean" style={{ marginBottom: 0 }}>
                     <section className="image">
-                        <img src={props.src} alt={props.alt} />
-                        <p className="italic small" >{props.caption}</p>
+                        <img src={props.src} alt={props.alt} class={captionClass} />
+                        {caption}
                     </section>
                 </section >
             )
@@ -61,8 +68,8 @@ export default class Image extends React.Component {
                 <section className="block-image">
                     <Note color="unset" background="unset">
                         <section className="image">
-                            <img onClick={this.openModal} src={props.src} alt={props.alt} />
-                            <p className="italic small" >{props.caption}</p>
+                            <img onClick={this.openModal} class={captionClass} src={props.src} alt={props.alt} />
+                            {caption}
                         </section>
                     </Note>
                 </section>

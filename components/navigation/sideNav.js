@@ -1,10 +1,14 @@
 import React from "react";
+import router, { withRouter } from 'next/router'
+import { useRouter } from 'next/router'
+import { connectScrollTo } from "react-instantsearch-dom";
 import bus from '../../lib/bus'
+
 
 import NavItem from '../navigation/navItem'
 
-export default class SideBar extends React.Component {
 
+export default class SideBar extends React.Component {
     constructor(props) {
         super(props);
 
@@ -16,10 +20,11 @@ export default class SideBar extends React.Component {
             over: false,
             open: false,
             theme: 'light-mode',
-            menu: props.menu
+            menu: props.menu,
         };
 
         this.checkExpanded = this.checkExpanded.bind(this)
+        this.handleRouteChange = this.handleRouteChange.bind(this)
         this.handleMouseEnter = this.handleMouseEnter.bind(this)
         this.handleMouseLeave = this.handleMouseLeave.bind(this)
         this.handleTheme = this.handleTheme.bind(this)
@@ -56,15 +61,26 @@ export default class SideBar extends React.Component {
         }
     }
 
+    handleRouteChange() {
+        const html = document.getElementsByTagName('html')[0];
+        console.log(html)
+        html.classList.remove("nav-open");
+        this.setState({ open: false })
+    }
+
     componentDidMount() {
 
         window.addEventListener('resize', this.checkExpanded)
         window.addEventListener('ChangeTheme', this.handleTheme)
 
-        bus.on('streamlit_nav_open', () => this.setState({ open: true }) )
-        bus.on('streamlit_nav_closed', () => this.setState({ open: false }) )
+        bus.on('streamlit_nav_open', () => this.setState({ open: true }))
+        bus.on('streamlit_nav_closed', () => this.setState({ open: false }))
 
+        // withRouter().events.on('routeChangeStart', thos.handleRouteChange)
+        console.log(router.pathname)
+        router.events.on('routeChangeComplete', this.handleRouteChange)
         this.checkExpanded()
+        this.setState({ slug: window.location.href })
     }
 
     componentWillUnmount() {
@@ -74,7 +90,8 @@ export default class SideBar extends React.Component {
     render() {
         const props = this.props
         const state = this.state
-        
+
+
         let navItems
         navItems = props.menu.map((page, index) => (
             <NavItem
