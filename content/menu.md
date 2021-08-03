@@ -1,93 +1,104 @@
 ---
 site_menu:
-  - category: Streamlit Core
-    url: /core
+  - category: Streamlit Library
+    url: /library
     color: violet-70
     icon: description
-  - category: Streamlit Core / Get Started
-    url: /core/get-started
-  - category: Streamlit Core / API Reference
-    url: /core/api-reference
-  - category: Streamlit Core / API Reference / Write and magic
-    url: /core/api-reference/write-magic
-  - category: Streamlit Core / API Reference / Text elements
-    url: /core/api-reference/text
-  - category: Streamlit Core / API Reference / Data display elements
-    url: /core/api-reference/data
-  - category: Streamlit Core / API Reference / Chart elements
-    url: /core/api-reference/charts
-  - category: Streamlit Core / API Reference / Input widgets
-    url: /core/api-reference/widgets
-  - category: Streamlit Core / API Reference / Media elements
-    url: /core/api-reference/media
-  - category: Streamlit Core / API Reference / Layouts and Containers
-    url: /core/api-reference/layout
-  - category: Streamlit Core / API Reference / Status elements
-    url: /core/api-reference/status
-  - category: Streamlit Core / API Reference / Control flow
-    url: /core/api-reference/control-flow
-  - category: Streamlit Core / API Reference / Page options and configuration
-    url: /core/api-reference/page-options
-  - category: Streamlit Core / API Reference / Utilities
-    url: /core/api-reference/utilities
-  - category: Streamlit Core / API Reference / Mutate charts
-    url: /core/api-reference/mutate
-  - category: Streamlit Core / API Reference / Performance
-    url: /core/api-reference/performance
-  - category: Streamlit Core / Topic Guides
-    url: /core/topic-guides
-  - category: Streamlit Core / Topic Guides / Make your apps stateful
-    url: /core/topic-guides/stateful-apps
-  - category: Streamlit Core / Topic Guides / How to make a great Streamlit app
-    url: /core/topic-guides/designing-streamlit-apps
-  - category: Streamlit Core / Topic Guides / How to make a great Streamlit app / Building an app for the User
-    url: /core/topic-guides/designing-streamlit-apps/part-1
-  - category: Streamlit Core / Topic Guides / How to make a great Streamlit app / Using layout and design options
-    url: /core/topic-guides/designing-streamlit-apps/part-2
-  - category: Streamlit Core / Topic Guides / How to make a great Streamlit app / Improving app performance
-    url: /core/topic-guides/designing-streamlit-apps/part-3
-  - category: Streamlit Core / Topic Guides / Custom Components
-    url: /core/custom-components
-  - category: Streamlit Core / Topic Guides / Custom Components / Create a component
-    url: /core/custom-components/create
-  - category: Streamlit Core / Topic Guides / Custom Components / Publish a component
-    url: /core/custom-components/publish
-  - category: Streamlit Core / Theming
-    url: /core/theming
-  - category: Streamlit Core / Configuration
-    url: /core/configuration
-  - category: Streamlit Core / Components API
-    url: /core/components-api
-  - category: Streamlit Core / Pre-release features
-    url: /core/prerelease
-  - category: Streamlit Core / Cheat-sheet
-    url: /core/cheatsheet
+  - category: Streamlit Library / Get Started
+    url: /library/get-started
+  - category: Streamlit Library / Get Started / Installation
+    url: /library/get-started/installation
+  - category: Streamlit Library / Get Started / Create your first app 
+    url: /library/get-started/first-ap
+  - category: Streamlit Library / Get Started / Cheat-sheet
+    url: /library/get-started/cheatsheet
+  - category: Streamlit Library / API Reference
+    url: /library/api-reference
+  - category: Streamlit Library / API Reference / Write and magic
+    url: /library/api-reference/write-magic
+  - category: Streamlit Library / API Reference / Text elements
+    url: /library/api-reference/text
+  - category: Streamlit Library / API Reference / Data display elements
+    url: /library/api-reference/data
+  - category: Streamlit Library / API Reference / Chart elements
+    url: /library/api-reference/charts
+  - category: Streamlit Library / API Reference / Input widgets
+    url: /library/api-reference/widgets
+  - category: Streamlit Library / API Reference / Media elements
+    url: /library/api-reference/media
+  - category: Streamlit Library / API Reference / Layouts and Containers
+    url: /library/api-reference/layout
+  - category: Streamlit Library / API Reference / Status elements
+    url: /library/api-reference/status
+  - category: Streamlit Library / API Reference / Control flow
+    url: /library/api-reference/control-flow
+  - category: Streamlit Library / API Reference / Page options and configuration
+    url: /library/api-reference/page-options
+  - category: Streamlit Library / API Reference / Utilities
+    url: /library/api-reference/utilities
+  - category: Streamlit Library / API Reference / Mutate charts
+    url: /library/api-reference/mutate
+  - category: Streamlit Library / API Reference / Performance
+    url: /library/api-reference/performance
+  - category: Streamlit Library / Advanced Features
+    url: /library/advanced-features
+  - category: Streamlit Library / Advanced Features / Theming
+    url: /library/advanced-features/theming
+  - category: Streamlit Library / Advanced Features/ Configuration
+    url: /library/advanced-features/configuration
+  - category: Streamlit Library / Advanced Features/ Optimize performance with st.cache
+    url: /library/advanced-features/caching
+  - category: Streamlit Library / Components
+    url: /library/components
+  - category: Streamlit Library / Components / Components API
+    url: /library/components/api
+  - category: Streamlit Library / Components / Create a component
+    url: /library/components/create
+  - category: Streamlit Library / Components / Publish a component
+    url: /library/components/publish
     
 
-  - category: Streamlit Cloud
+  - category: Streamlit Cloud Platform
     url: /cloud
     color: l-blue-70
     icon: cloud
-  - category: Streamlit Cloud / Streamlit Sharing
-    url: /cloud/sharing
-  - category: Streamlit Cloud / Streamlit Sharing / Sign up
-    url: /cloud/sharing/sign-up
-  - category: Streamlit Cloud / Streamlit Sharing / Deploy Apps
-    url: /cloud/sharing/deploy
-  - category: Streamlit Cloud / Streamlit Sharing / Manage Apps
-    url: /cloud/sharing/manage
-  - category: Streamlit Cloud / Streamlit for Teams
+  - category: Streamlit Cloud Platform / Community
+    url: /cloud/community
+  - category: Streamlit Cloud Platform / Community / Sign up
+    url: /cloud/community/sign-up
+  - category: Streamlit Cloud Platform / Community / Deploy Apps
+    url: /cloud/community/deploy
+  - category: Streamlit Cloud Platform / Community / Manage Apps
+    url: /cloud/community/manage
+  - category: Streamlit Cloud Platform / Teams
     url: /cloud/teams
-  - category: Streamlit Cloud / Streamlit for Teams / Get Started — launch your first app!
+  - category: Streamlit Cloud Platform / Teams / Get Started — launch your first app!
     url: /cloud/teams/get-started
-  - category: Streamlit Cloud / Streamlit for Teams / Securely Connect to Cloud Services
+  - category: Streamlit Cloud Platform / Teams / Securely Connect to Cloud Services
     url: /knowledge-base/databases
-  - category: Streamlit Cloud / Streamlit for Teams / Features
-    url: /cloud/teams/features
-  - category: Streamlit Cloud / Streamlit for Teams / Troubleshooting
-    url: /cloud/teams/troubleshooting
-  - category: Streamlit Cloud / Streamlit for Teams / Frequently Asked Questions
-    url: /cloud/teams/faq
+  - category: Streamlit Cloud Platform / Teams / Features
+  - category: Streamlit Cloud Platform / Enterprise
+    url: /cloud/enterprise
+  # - category: Streamlit Cloud / Streamlit Sharing
+  #   url: /cloud/sharing
+  # - category: Streamlit Cloud / Streamlit Sharing / Sign up
+  #   url: /cloud/sharing/sign-up
+  # - category: Streamlit Cloud / Streamlit Sharing / Deploy Apps
+  #   url: /cloud/sharing/deploy
+  # - category: Streamlit Cloud / Streamlit Sharing / Manage Apps
+  #   url: /cloud/sharing/manage
+  # - category: Streamlit Cloud / Streamlit for Teams
+  #   url: /cloud/teams
+  # - category: Streamlit Cloud / Streamlit for Teams / Get Started — launch your first app!
+  #   url: /cloud/teams/get-started
+  # - category: Streamlit Cloud / Streamlit for Teams / Securely Connect to Cloud Services
+  #   url: /knowledge-base/databases
+  # - category: Streamlit Cloud / Streamlit for Teams / Features
+  #   url: /cloud/teams/features
+  # - category: Streamlit Cloud / Streamlit for Teams / Troubleshooting
+  #   url: /cloud/teams/troubleshooting
+  # - category: Streamlit Cloud / Streamlit for Teams / Frequently Asked Questions
+  #   url: /cloud/teams/faq
 
   - category: Knowledge Base
     url: /knowledge-base
@@ -95,6 +106,16 @@ site_menu:
     icon: school
   - category: Knowledge Base / Tutorials
     url: /knowledge-base/tutorials
+  - category: Knowledge Base / Tutorials / Make your apps stateful
+    url: /knowledge-base/tutorials/stateful-apps
+  - category: Knowledge Base / Tutorials / How to make a great Streamlit app
+    url: /knowledge-base/tutorials/designing-streamlit-apps
+  - category: Knowledge Base / Tutorials / How to make a great Streamlit app / Building an app for the User
+    url: /knowledge-base/tutorials/designing-streamlit-apps/part-1
+  - category: Knowledge Base / Tutorials / How to make a great Streamlit app / Using layout and design options
+    url: /knowledge-base/tutorials/designing-streamlit-apps/part-2
+  - category: Knowledge Base / Tutorials / How to make a great Streamlit app / Improving app performance
+    url: /knowledge-base/tutorials/designing-streamlit-apps/part-3
   - category: Knowledge Base / Tutorials / Connect to Data Sources
     url: /knowledge-base/tutorials/databases
   - category: Knowledge Base / Tutorials / Connect to Data Sources / AWS S3
@@ -133,8 +154,6 @@ site_menu:
     url: /knowledge-base/tutorials/visualization/graphviz
   - category: Knowledge Base / Tutorials / Create a data explorer app
     url: /knowledge-base/tutorials/data-explorer
-  - category: Knowledge Base / Tutorials / Visualize rent prices
-    url: /knowledge-base/tutorials/rent-prices
   - category: Knowledge Base / Installing Dependencies
     url: /knowledge-base/dependencies
   - category: Knowledge Base / Error Messages
