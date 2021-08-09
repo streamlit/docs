@@ -2,6 +2,7 @@ html {
     overflow-x: hidden;
     scroll-behavior: smooth;
     scroll-padding-top: $mini-header-height;
+
     &.nav-open {
         overflow: hidden;
     }
@@ -29,6 +30,7 @@ a {
     position: relative;
     display: inline;
     cursor: pointer;
+
     &:after {
         content: '';
         position: absolute;
@@ -39,9 +41,11 @@ a {
         left: 0;
         transition: $fast;
     }
+
     &:hover {
         opacity: .7;
         border-bottom: 1px solid $red-70;
+
         &:after {
             width: 100%;
         }
@@ -52,23 +56,30 @@ ol,
 ul {
     margin: 0;
     padding-left: 1em;
+
     li {
         margin-bottom: 1em;
+
         &:last-child {
             margin-bottom: 0;
         }
     }
+
     ul,
     ol {
         margin-top: 1em;
     }
 }
+
 ul {
     list-style: disc;
+
     ul {
         list-style: circle;
+
         ul {
             list-style: disc;
+
             ul {
                 list-style: circle;
             }
@@ -88,11 +99,18 @@ button {
     transition: $fast;
     display: block;
     margin-bottom: 1em;
+
     &:hover {
         opacity: .9;
         transform: scale(1.025);
         box-shadow: 0px 6px 12px -11px $gray-60;
     }
+}
+
+iframe {
+    border: none;
+    max-width: 100%;
+    display: inline-block;
 }
 
 /* Improve scrollbars on Chrome + Windows/Linux. */
@@ -125,6 +143,6 @@ button {
     display: flex;
 
     @media (max-width:1024px) {
-        flex-direction: column;        
+        flex-direction: column;
     }
 }
