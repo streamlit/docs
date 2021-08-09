@@ -17,7 +17,10 @@
             .version-select {
                 margin-left: auto;
                 position: relative;
-                color: $black;
+
+                &.old-version select {
+                    color: $red-70;
+                }
 
                 select {
                     appearance: none;
