@@ -13,10 +13,18 @@
             font-size: 2.25em;
             align-items: center;
             margin-bottom: 0.5em;
+
+            @media (max-width:1024px) {
+                flex-direction: column;
+            }
             
             .version-select {
                 margin-left: auto;
                 position: relative;
+                
+                @media (max-width:1024px) {
+                    margin-left: 0;
+                }
 
                 &.old-version select {
                     color: $red-70;
