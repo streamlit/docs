@@ -1,5 +1,7 @@
 import React from "react";
 
+import router, { withRouter } from 'next/router'
+
 export default class Helpful extends React.Component {
     constructor(props) {
         super(props)
@@ -7,6 +9,7 @@ export default class Helpful extends React.Component {
         this.handleStep = this.handleStep.bind(this)
         this.handleOther = this.handleOther.bind(this)
         this.submitForm = this.submitForm.bind(this)
+        this.handleRouteChange = this.handleRouteChange.bind(this)
         this.state = {
             step: 0,
             other: false
@@ -33,6 +36,14 @@ export default class Helpful extends React.Component {
 
     handleOther() {
         this.setState({ other: !this.state.other })
+    }
+    
+    handleRouteChange() {
+        this.setState({ step: 0 })
+    }
+    
+    componentDidMount() {
+        router.events.on('routeChangeComplete', this.handleRouteChange)
     }
 
     render() {
