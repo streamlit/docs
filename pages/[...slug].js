@@ -68,6 +68,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
         h1: H1,
         h2: H2,
         h3: H3,
+        // iframe : WrappedIFrame
     }
 
     let previousArrow
