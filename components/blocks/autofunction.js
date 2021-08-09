@@ -1,9 +1,10 @@
-import sortBy from "lodash/sortBy"
-import orderBy from "lodash/orderBy"
+import reverse from 'lodash/reverse'
 import React from "react"
 import Table from "./table"
 import { H2 } from './headers'
 import Warning from "./warning"
+
+import { withRouter } from 'next/router'
 
 import Prism from 'prismjs'
 import 'prismjs/components/prism-python'
@@ -13,14 +14,17 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight.css'
 import 'prismjs/plugins/toolbar/prism-toolbar'
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard'
 import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace'
-import { version } from "nprogress"
 
-export default class Autofunction extends React.Component {
+class Autofunction extends React.Component {
 
     constructor(props) {
         super(props)
         this.highlighted = false
         this.blockRef = React.createRef()
+        this.handleSelectVersion = this.handleSelectVersion.bind(this)
+        const versions = props.versions
+        const current_version = props.version ? props.version : versions[versions.length - 1]
+        this.state = { current_version: current_version };
     }
 
     Heading(props) {
@@ -57,6 +61,21 @@ export default class Autofunction extends React.Component {
         this.highlighted = true
     }
 
+    handleSelectVersion(event) {
+        const props = this.props
+        if ( event.target.value  !== this.state.current_version) {
+            const slug = props.slug.slice()
+            let isnum = /^[\d\.]+$/.test(slug[0])
+            if (isnum) {
+                slug[0] = event.target.value
+            } else {
+                slug.unshift( event.target.value )
+            }
+            this.setState( { current_version: event.target.value } );
+            props.router.push(`/${slug.join('/')}`)
+        }
+    }
+
     render() {
 
         const props = this.props
@@ -65,7 +84,7 @@ export default class Autofunction extends React.Component {
         const rows = []
         const versions = props.versions
         const current_version = props.version ? props.version : versions[versions.length - 1]
-        const version_list = props.versions
+        const version_list = reverse(props.versions.slice())
 
         let func_obj
         let func_description
@@ -97,7 +116,19 @@ export default class Autofunction extends React.Component {
             let name = `st.${func_obj.name}`
             header = (
                 <div className='code-header'>
-                    <H2>{name}</H2>
+                    <div className='title-with-select'>
+                        <H2>{name}</H2>
+                        <form className='version-select'>
+                            <label>
+                                <span className='sr-only'>Streamlit Version</span>
+                                <select value={this.state.current_version} onChange={this.handleSelectVersion}>
+                                    {version_list.map((version, index) => {
+                                        return ( <option value={version} key={version}>v{version}</option> )
+                                    })}
+                                </select>
+                            </label>
+                        </form>
+                    </div>
                     <div className='code-desc' dangerouslySetInnerHTML={func_description} />
                 </div>
             )
@@ -171,3 +202,5 @@ export default class Autofunction extends React.Component {
         )
     }
 }
+
+export default withRouter(Autofunction)
