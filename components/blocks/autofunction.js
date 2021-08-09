@@ -24,7 +24,7 @@ class Autofunction extends React.Component {
         this.handleSelectVersion = this.handleSelectVersion.bind(this)
         const versions = props.versions
         const current_version = props.version ? props.version : versions[versions.length - 1]
-        this.state = { current_version: current_version };
+        this.state = { current_version: current_version, max_version: versions[versions.length - 1] };
     }
 
     Heading(props) {
@@ -65,13 +65,17 @@ class Autofunction extends React.Component {
         const props = this.props
         if ( event.target.value  !== this.state.current_version) {
             const slug = props.slug.slice()
-            let isnum = /^[\d\.]+$/.test(slug[0])
-            if (isnum) {
-                slug[0] = event.target.value
-            } else {
-                slug.unshift( event.target.value )
-            }
             this.setState( { current_version: event.target.value } );
+            if (event.target.value !== this.state.max_version) {
+                let isnum = /^[\d\.]+$/.test(slug[0])
+                if (isnum) {
+                    slug[0] = event.target.value
+                } else {
+                    slug.unshift( event.target.value )
+                }
+            } else {
+                slug.shift()
+            }
             props.router.push(`/${slug.join('/')}`)
         }
     }
@@ -114,11 +118,12 @@ class Autofunction extends React.Component {
             header = ''
         } else {
             let name = `st.${func_obj.name}`
+            let selectClass = current_version !== version_list[0] ? 'version-select old-version' : 'version-select'
             header = (
                 <div className='code-header'>
                     <div className='title-with-select'>
                         <H2>{name}</H2>
-                        <form className='version-select'>
+                        <form className={selectClass}>
                             <label>
                                 <span className='sr-only'>Streamlit Version</span>
                                 <select value={this.state.current_version} onChange={this.handleSelectVersion}>
