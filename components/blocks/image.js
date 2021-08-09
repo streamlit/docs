@@ -40,7 +40,7 @@ export default class Image extends React.Component {
                 <section className="block-image">
                     <Note color="unset" background="unset">
                         <section className="image">
-                            <img onClick={this.openModal} src={props.src} alt={props.alt} class={captionClass} />
+                            <img onClick={this.openModal} src={props.src} alt={props.alt} className={captionClass} />
                             {caption}
                         </section>
                     </Note>
@@ -48,7 +48,7 @@ export default class Image extends React.Component {
                     <section className="light-box" onClick={this.closeModal}>
                         <button onClick={this.openModal}>close</button>
                         <section className="content">
-                            <img src={props.src} alt={props.alt} class={captionClass} />
+                            <img src={props.src} alt={props.alt} className={captionClass} />
                             {caption}
                         </section>
                     </section>
@@ -58,7 +58,7 @@ export default class Image extends React.Component {
             block = (
                 <section className="block-image clean" style={{ marginBottom: 0 }}>
                     <section className="image">
-                        <img src={props.src} alt={props.alt} class={captionClass} />
+                        <img src={props.src} alt={props.alt} className={captionClass} />
                         {caption}
                     </section>
                 </section >
@@ -68,7 +68,7 @@ export default class Image extends React.Component {
                 <section className="block-image">
                     <Note color="unset" background="unset">
                         <section className="image">
-                            <img onClick={this.openModal} class={captionClass} src={props.src} alt={props.alt} />
+                            <img onClick={this.openModal} className={captionClass} src={props.src} alt={props.alt} />
                             {caption}
                         </section>
                     </Note>
