@@ -80,7 +80,6 @@ export default class SideBar extends React.Component {
         const props = this.props
         const state = this.state
 
-
         let navItems
         navItems = props.menu.map((page, index) => (
             <NavItem
@@ -89,6 +88,9 @@ export default class SideBar extends React.Component {
                 page={page}
                 depth={page.depth + 1}
                 condensed={state.condensed}
+                paths={props.paths}
+                version={props.version}
+                maxVersion={props.maxVersion}
             />
         ))
 

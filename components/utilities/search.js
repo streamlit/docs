@@ -5,9 +5,8 @@ import {
     InstantSearch,
     Hits,
     SearchBox,
-    Pagination,
     Highlight,
-    ClearRefinements,
+    Snippet,
     RefinementList,
     Configure,
 } from 'react-instantsearch-dom';
@@ -91,7 +90,12 @@ export default class Search extends React.Component {
         function Hit(props) {
             const icon = props.hit.icon ? props.hit.icon : 'text_snippet'
             const category = props.hit.category ? props.hit.category : 'Page'
-
+            let snippet;
+            if (props.hit._snippetResult && props.hit._snippetResult.content.matchLevel !== 'none') {
+                snippet = (
+                    <Snippet attribute="content" hit={props.hit} />
+                )
+            }
             return (
                 <article className="item">
                     <a className="not-link" href={props.hit.url}>
@@ -101,6 +105,7 @@ export default class Search extends React.Component {
                         <section className="copy">
                             <p className="tiny">{category}</p>
                             <h5><Highlight hit={props.hit} attribute="title"></Highlight></h5>
+                            {snippet}
                         </section>
                     </a>
                 </article >
@@ -135,11 +140,8 @@ export default class Search extends React.Component {
                             <section className="content">
                                 <div className="ais-InstantSearch">
                                     <InstantSearch indexName="documentation" searchClient={searchClient}>
-                                        <div className="left-panel">
-                                            <RefinementList attribute="brand" />
-                                            <Configure hitsPerPage={20} />
-                                        </div>
                                         <div className="right-panel">
+                                            <Configure hitsPerPage={10} filters="version:latest" />
                                             <SearchBox id="search-box small" />
                                             <Hits hitComponent={Hit} />
                                         </div>

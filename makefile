@@ -14,6 +14,10 @@ start:
 build:
 	npm run build
 
+.PHONY: search
+search:
+	node ./scripts/build-search-index.js
+
 .PHONY: docstrings_image
 docstrings_image:
 	cd python && docker build -t streamlit-docstring-generator .

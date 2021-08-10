@@ -1,7 +1,7 @@
+import findIndex from "lodash/findIndex"
 import React from "react";
 
 import Link from 'next/link'
-
 // import NavChild from './navChild'
 
 import { AnimatePresence, motion } from 'framer-motion';
@@ -38,6 +38,9 @@ export default class NavChild extends React.Component {
                             page={child}
                             color={props.color}
                             depth={child.depth + 1}
+                            paths={props.paths}
+                            version={props.version}
+                            maxVersion={props.maxVersion}
                         />
                     ))}
                 </ul>
@@ -62,13 +65,29 @@ export default class NavChild extends React.Component {
             )
             target = '_blank'
         }
+        
         let coloredBall;
+        
         if (active) {
             coloredBall = <span className={`colored-ball bg-${props.color}`}></span>
         }
+
+        let url = props.page.url;
+
+        if (props.version && props.version !== props.maxVersion && props.page.url.startsWith('/')) {
+            // We need to version this URL, Check if the URL has a version for this version
+            const newSlug = props.page.url.split('/')
+            newSlug[0] = props.version
+            const newUrl = `/${newSlug.join('/')}`
+            const index = findIndex(props.paths.paths, (path) => path.params.location === newUrl)
+            if (index >= 0) {
+                url = props.paths.paths[index].params.location
+            }
+        }
+
         link = (
             <span className={`child-item ${active ? 'active' : ''}`}>
-                <Link href={props.page.url}>
+                <Link href={url}>
                     <a className="not-link" target={target}>
                         {coloredBall}
                         <span>{props.page.name}</span> {icon}
