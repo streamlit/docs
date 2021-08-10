@@ -3,6 +3,7 @@ import React from "react";
 import router, { withRouter } from 'next/router'
 
 export default class Helpful extends React.Component {
+    
     constructor(props) {
         super(props)
         this.formRef = React.createRef()
