@@ -5,6 +5,7 @@ const utils = require('../lib/utils.cjs')
 const contentDirectory = path.join( process.cwd(), '.next/server/pages' )
 const parser = require( 'node-html-parser' )
 const algoliasearch = require( 'algoliasearch' )
+const { convert } = require('html-to-text');
 
 const SKIP_THESE = ['/menu', '/404', '/500']
 
@@ -75,7 +76,10 @@ function getAllFilesInDirectory(articleDirectory, files) {
         const root = parser.parse(contents)
         const doc_title = root.querySelector('title')
         const title = root.querySelector('h1')
-        const content = root.querySelector('article')
+        const content = convert(root.querySelector('article').innerHTML)
+        const slug = url.split('/')
+        const isnum = /^[\d\.]+$/.test(slug[1])
+        const version = isnum ? slug[1] : 'latest'
         
         if (!title || !doc_title) {
             console.warn(`!!! Skipping ${url} because the document has no title or H1 tag.`)
@@ -87,7 +91,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
             continue
         }
 
-        to_index.push({ title: title.text, content: content.text, url: url, category: category, icon: icon })
+        to_index.push({ title: title.text, content: content, url: url, category: category, icon: icon, version: version })
 
         console.log(`... prepared ${title.text} at ${url}.`)
     }

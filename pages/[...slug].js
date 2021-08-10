@@ -41,7 +41,7 @@ import Tip from '../components/blocks/tip'
 import Warning from '../components/blocks/warning'
 import YouTube from '../components/blocks/youTube'
 
-export default function Article({ data, source, streamlit, slug, menu, previous, next, version, versions }) {
+export default function Article({ data, source, streamlit, slug, menu, previous, next, version, versions, paths }) {
 
     let versionWarning
     let currentLink
@@ -114,7 +114,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
         >
             <Layout>
                 <section className="page container template-standard">
-                    <SideBar slug={slug} menu={menu} version={version} versions={versions} />
+                    <SideBar slug={slug} menu={menu} version={version} maxVersion={maxVersion} versions={versions} paths={paths} />
                     <Head>
                         <title>{data.title} - Streamlit Docs</title>
                         <link rel="icon" href="/favicon.svg" />
@@ -160,6 +160,7 @@ export async function getStaticProps(context) {
     props['versions'] = all_versions
     props['menu'] = menu
     props['version'] = false
+    props['paths'] = false
 
     if ('slug' in context.params) {
         let filename
@@ -182,6 +183,7 @@ export async function getStaticProps(context) {
 
         if (should_version) {
             props['streamlit'] = funcs[current_version]
+            props['paths'] = paths
         }
 
         const source = await serialize(content,
@@ -195,7 +197,7 @@ export async function getStaticProps(context) {
                 }
             }
         )
-
+        
         props['data'] = data
         props['filename'] = filename
         props['slug'] = context.params.slug
@@ -244,7 +246,7 @@ export async function getStaticPaths() {
                 slug: realSlug,
                 location: slug,
                 fileName: articles[index],
-                title: data.title
+                title: data.title ? data.title : 'Untitled'
             }
         }
 
@@ -270,7 +272,7 @@ export async function getStaticPaths() {
                     slug: newSlug,
                     location: versioned_location,
                     fileName: articles[index],
-                    title: data.title
+                    title: data.title ? data.title : 'Untitled'
                 }
             }
             paths.push(path)
