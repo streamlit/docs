@@ -1,3 +1,5 @@
+import findIndex from 'lodash/findIndex';
+import pullAt from 'lodash/pullAt'
 import React from "react";
 import { breadcrumbsForSlug } from '../../lib/utils.cjs'
 
@@ -5,36 +7,67 @@ export default class FloatingNav extends React.Component {
 
     constructor(props) {
         super(props)
+        
         this.handleTheme = this.handleTheme.bind(this)
         this.handleIntersection = this.handleIntersection.bind(this)
+        this.calculateTarget = this.calculateTarget.bind(this)
         this.generateMenu = this.generateMenu.bind(this)
+        
         this.state = {
             target: false,
             observer: false,
             headers: [],
             menu: [],
             slug: props.slug.join('/'),
-            theme: 'light-mode'
+            theme: 'light-mode',
+            highest: {},
+            intersected: []
         }
     }
 
     handleIntersection(entries, observer) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = entry.target
-                const hrefs = target.getElementsByTagName('a')
+        let intersected = this.state.intersected.slice()
+        
+        for (const index in entries) {
+            const entry = entries[index]
+            const existing = findIndex(intersected, (obj) => obj.target === entry.target )
+            if (entry.isIntersecting && existing < 0) {
+                intersected.push(entry)
+            }
+            else if (entry.isIntersecting && existing > -1) {
+                intersected[existing] = entry
+            }
+            else if (!entry.isIntersecting && existing > -1) {
+                pullAt(intersected, existing)
+            }
+        }
+
+        this.setState({ intersected: intersected })
+        this.calculateTarget();
+       
+    }
+
+    calculateTarget() {
+        let highest = 0
+        const intersected = this.state.intersected
+        for (const index in intersected) {
+            const entry = intersected[index]
+            const hrefs = entry.target.getElementsByTagName('a')            
+            const top = hrefs[0].offsetTop
+            if (top < highest || highest === 0) {
+                highest = top
                 if (hrefs.length > 0) {
                     const link = hrefs[0].getAttribute('href')
                     this.setState({ target: link })
                 }
             }
-        })
+        }
     }
 
     generateMenu() {
         if (this.state.headers.length > 0) { this.closeMenu() }
         const tocMenu = []
-        const options = { threshold: 1.0 }
+        const options = { threshold: 1.0, rootMargin: "0px 0px -200px 0px" }
         const headers = document.querySelectorAll('article.leaf-page h1, article.leaf-page h2, article.leaf-page h3')
         const observe = new IntersectionObserver(this.handleIntersection, options)
         headers.forEach((ele) => {
