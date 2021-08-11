@@ -13,12 +13,16 @@ export default class Helpful extends React.Component {
         this.handleRouteChange = this.handleRouteChange.bind(this)
         this.state = {
             step: 0,
-            other: false
+            other: false,
+            helpful: true
         }
     }
 
     handleStep(newStep) {
         this.setState({ step: newStep })
+        if (newStep == 1) {
+            this.setState({ helpful: false })
+        }
         if (newStep == 2) {
             this.submitForm()
         }
@@ -112,6 +116,7 @@ export default class Helpful extends React.Component {
                 <form name="helpful" method="POST" data-netlify="true" ref={this.formRef}  data-netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="helpful" />
                     <input type="hidden" name="url" value={slug} />
+                    <input type="hidden" name="was_helpful" value={this.state.helpful} />
                     {block}
                 </form>
             </section>
