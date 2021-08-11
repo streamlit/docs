@@ -70,9 +70,9 @@ class Autofunction extends React.Component {
         
         const func_obj = props.streamlit[props.function]
         const name = cleanHref(`st.${func_obj.name}`)
-
+        const slug = props.slug.slice()
+        
         if ( event.target.value  !== this.state.current_version) {
-            const slug = props.slug.slice()
             this.setState( { current_version: event.target.value } );
             if (event.target.value !== this.state.max_version) {
                 let isnum = /^[\d\.]+$/.test(slug[0])
@@ -81,11 +81,10 @@ class Autofunction extends React.Component {
                 } else {
                     slug.unshift( event.target.value )
                 }
-            } else {
-                slug.shift()
             }
-            props.router.push(`/${slug.join('/')}#${name}`)
         }
+
+        props.router.push(`/${slug.join('/')}#${name}`)
     }
 
     render() {
