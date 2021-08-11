@@ -117,10 +117,12 @@ export default class FloatingNav extends React.Component {
         const props = this.props
         const menu = this.state.menu
         const target = this.state.target
+        const isnum = /^[\d\.]+$/.test(props.slug[0]);
+        const slug = isnum ? props.slug.slice(1).join('/') : this.state.slug
         const location = this.state.slug.split('/')[0];
     
         // Get the Root Object and find the appropriate color
-        const breadCrumbs = breadcrumbsForSlug(props.menu, `/${this.state.slug}`)
+        const breadCrumbs = breadcrumbsForSlug(props.menu, `/${slug}`)
         
         if (breadCrumbs.length) {
             const rootElement = breadCrumbs[0]
