@@ -15,6 +15,10 @@ import 'prismjs/plugins/toolbar/prism-toolbar'
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard'
 import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace'
 
+function cleanHref(name) {
+    return String(name).replace('.', '').replace(' ', '-')
+}
+
 class Autofunction extends React.Component {
 
     constructor(props) {
@@ -24,7 +28,7 @@ class Autofunction extends React.Component {
         this.handleSelectVersion = this.handleSelectVersion.bind(this)
         const versions = props.versions
         const current_version = props.version ? props.version : versions[versions.length - 1]
-        this.state = { current_version: current_version, max_version: versions[versions.length - 1] };
+        this.state = { current_version: current_version, max_version: versions[versions.length - 1], function: props.function };
     }
 
     Heading(props) {
@@ -63,6 +67,10 @@ class Autofunction extends React.Component {
 
     handleSelectVersion(event) {
         const props = this.props
+        
+        const func_obj = props.streamlit[props.function]
+        const name = cleanHref(`st.${func_obj.name}`)
+
         if ( event.target.value  !== this.state.current_version) {
             const slug = props.slug.slice()
             this.setState( { current_version: event.target.value } );
@@ -76,7 +84,7 @@ class Autofunction extends React.Component {
             } else {
                 slug.shift()
             }
-            props.router.push(`/${slug.join('/')}`)
+            props.router.push(`/${slug.join('/')}#${name}`)
         }
     }
 

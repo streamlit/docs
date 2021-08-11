@@ -165,19 +165,14 @@ export async function getStaticProps(context) {
     props['paths'] = false
 
     if ('slug' in context.params) {
+        
         let filename
+        
         paths.paths.forEach(obj => {
             if (obj.params.location == location) {
                 filename = obj.params.fileName
             }
         })
-
-        let isnum = /^[\d\.]+$/.test(context.params.slug[0]);
-        if (isnum) {
-            props['version'] = context.params.slug[0]
-            props['streamlit'] = funcs[props['version']]
-            menu = getMenu()
-        }
 
         // Get the last element of the array to find the MD file
         const fileContents = fs.readFileSync(filename, 'utf8')
@@ -187,6 +182,12 @@ export async function getStaticProps(context) {
         if (should_version) {
             props['streamlit'] = funcs[current_version]
             props['paths'] = paths
+        }
+
+        let isnum = /^[\d\.]+$/.test(context.params.slug[0]);
+        if (isnum) {
+            props['version'] = context.params.slug[0]
+            props['streamlit'] = funcs[props['version']]
         }
 
         const source = await serialize(content,
