@@ -23,10 +23,12 @@ export default class NavChild extends React.Component {
         }
     }
     render() {
+        let subNav        
+        
         const state = this.state;
         const props = this.props;
-
-        let subNav;
+        const slug = props.slug
+        const isnum = /^[\d\.]+$/.test(slug[0])
 
         if (props.page.children && props.page.children.length > 0 && state.accordion) {
             subNav = (
@@ -49,7 +51,11 @@ export default class NavChild extends React.Component {
 
         let accordion;
 
-        let active = ('/' + props.slug.join('/') === props.page.url) ? true : false
+        if (isnum) {
+            slug.shift()
+        }
+
+        let active = ('/' + slug.join('/') === props.page.url) ? true : false
 
         if (props.page.children && props.page.children.length > 0) {
             accordion = <i className={`accordion ${state.accordion ? 'close' : 'open'}`} onClick={this.toggleAccordion}>{state.accordion ? 'remove' : 'add'}</i>
