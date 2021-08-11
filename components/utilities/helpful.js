@@ -27,7 +27,7 @@ export default class Helpful extends React.Component {
     submitForm() {
         if (this.formRef && this.formRef.current) {
             const data = new FormData(this.formRef.current)
-            fetch(window.location.pathname, {
+            fetch('/', {
                 method: 'POST',
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: new URLSearchParams(data).toString()
@@ -109,8 +109,8 @@ export default class Helpful extends React.Component {
 
         return (
             <section className="block-helpful">
-                <form name="helpful" method="POST" data-netlify="true" ref={this.formRef}>
-                    <input type="hidden" name="form-name" value="wasThisPageHelpful" />
+                <form name="helpful" method="POST" data-netlify="true" ref={this.formRef}  data-netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="helpful" />
                     <input type="hidden" name="url" value={slug} />
                     {block}
                 </form>
