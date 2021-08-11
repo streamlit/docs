@@ -20,6 +20,20 @@
             }
         }
 
+        @media (max-width:767px) {
+            &.full-width {
+                width: auto !important;
+                
+                tr {
+                    display: flex;
+                    flex-direction: column;
+                    td, th {
+                        width: auto !important;
+                    }
+                }
+            }
+        }
+
         tbody {
             tr:last-child {
 
