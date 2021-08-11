@@ -29,6 +29,7 @@
                     flex-direction: column;
                     td, th {
                         width: auto !important;
+                        word-break: break-all;
                     }
                 }
             }
