@@ -79,7 +79,7 @@ export default class Helpful extends React.Component {
     }
     
     handleRouteChange() {
-        this.setState({ step: 0, helpful: true, improvements: '' })
+        this.setState({ step: 0, helpful: true, improvements: [], improvementsString: '' })
     }
     
     componentDidMount() {
