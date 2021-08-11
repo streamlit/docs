@@ -25,8 +25,8 @@ export default class NavChild extends React.Component {
     render() {
         let subNav        
         
-        const state = this.state;
-        const props = this.props;
+        const state = this.state
+        const props = this.props
         const slug = props.slug
         const isnum = /^[\d\.]+$/.test(slug[0])
 
@@ -49,7 +49,7 @@ export default class NavChild extends React.Component {
             )
         }
 
-        let accordion;
+        let accordion
 
         if (isnum) {
             slug.shift()
@@ -61,9 +61,9 @@ export default class NavChild extends React.Component {
             accordion = <i className={`accordion ${state.accordion ? 'close' : 'open'}`} onClick={this.toggleAccordion}>{state.accordion ? 'remove' : 'add'}</i>
         }
 
-        let link;
-        let icon;
-        let target;
+        let link
+        let icon
+        let target
 
         if (!props.page.url.startsWith('/')) {
             icon = (
