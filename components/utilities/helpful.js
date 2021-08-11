@@ -27,7 +27,7 @@ export default class Helpful extends React.Component {
     submitForm() {
         if (this.formRef && this.formRef.current) {
             const data = new FormData(this.formRef.current)
-            fetch('/', {
+            fetch(window.location, {
                 method: 'POST',
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: new URLSearchParams(data).toString()
