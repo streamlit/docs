@@ -149,8 +149,6 @@ export async function getStaticProps(context) {
     const location = `/${context.params.slug.join('/')}`
     const gdpr_data = await getGDPRBanner()
 
-    console.info(gdpr_data)
-
     // Sort of documentation versions
     const jsonContents = fs.readFileSync(join(pythonDirectory, 'streamlit.json'), 'utf8')
     const streamlitFuncs = jsonContents ? JSON.parse(jsonContents) : {}
@@ -178,7 +176,7 @@ export async function getStaticProps(context) {
         if (isnum) {
             props['version'] = context.params.slug[0]
             props['streamlit'] = funcs[props['version']]
-            let menu = getMenu(props['version'], paths)
+            menu = getMenu()
         }
 
         // Get the last element of the array to find the MD file
@@ -204,7 +202,7 @@ export async function getStaticProps(context) {
         )
         
         const { current, prev, next } = getPreviousNextFromMenu(menu, location)
-
+        
         props['menu'] = menu
         props['gdpr_data'] = gdpr_data
         props['data'] = data
