@@ -180,10 +180,14 @@ site_menu:
   - category: Support / Troubleshooting / Caching issues
     url: /support/troubleshooting/caching-issues
 
-  - category: Changelog
-    url: /changelog
+  - category: Updates
+    url: /updates
     color: green-70
     icon: campaign
+  - category: Updates / Changelog
+    url: /updates/changelog
+  - category: Updates / Roadmap
+    url: https://share.streamlit.io/streamlit/roadmap
   # - category: Tutorials
   #   url: /tutorials
   #   color: violet-70
