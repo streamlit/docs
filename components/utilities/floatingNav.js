@@ -3,7 +3,9 @@ import pullAt from 'lodash/pullAt'
 import React from "react";
 import { breadcrumbsForSlug } from '../../lib/utils.cjs'
 
-export default class FloatingNav extends React.Component {
+import { withRouter } from 'next/router'
+
+class FloatingNav extends React.Component {
 
     constructor(props) {
         super(props)
@@ -12,7 +14,10 @@ export default class FloatingNav extends React.Component {
         this.handleIntersection = this.handleIntersection.bind(this)
         this.calculateTarget = this.calculateTarget.bind(this)
         this.generateMenu = this.generateMenu.bind(this)
-        
+        this.handleRouteChange = this.handleRouteChange.bind(this)
+
+        const options = { threshold: 1.0, rootMargin: "0px 0px -200px 0px" }
+
         this.state = {
             target: false,
             observer: false,
@@ -21,13 +26,13 @@ export default class FloatingNav extends React.Component {
             slug: props.slug.join('/'),
             theme: 'light-mode',
             highest: {},
-            intersected: []
+            intersected: [],
+            options: options
         }
     }
 
     handleIntersection(entries, observer) {
         let intersected = this.state.intersected.slice()
-        
         for (const index in entries) {
             const entry = entries[index]
             const existing = findIndex(intersected, (obj) => obj.target === entry.target )
@@ -41,7 +46,6 @@ export default class FloatingNav extends React.Component {
                 pullAt(intersected, existing)
             }
         }
-
         this.setState({ intersected: intersected })
         this.calculateTarget();
        
@@ -52,7 +56,7 @@ export default class FloatingNav extends React.Component {
         const intersected = this.state.intersected
         for (const index in intersected) {
             const entry = intersected[index]
-            const hrefs = entry.target.getElementsByTagName('a')            
+            const hrefs = entry.target.getElementsByTagName('a')
             const top = hrefs[0].offsetTop
             if (top < highest || highest === 0) {
                 highest = top
@@ -64,13 +68,14 @@ export default class FloatingNav extends React.Component {
         }
     }
 
-    generateMenu() {
+    async generateMenu() {
         if (this.state.headers.length > 0) { this.closeMenu() }
-        const tocMenu = []
-        const options = { threshold: 1.0, rootMargin: "0px 0px -200px 0px" }
-        const headers = document.querySelectorAll('article.leaf-page h1, article.leaf-page h2, article.leaf-page h3')
-        const observe = new IntersectionObserver(this.handleIntersection, options)
-        headers.forEach((ele) => {
+        const tocMenu = [] 
+        const headers = Array.prototype.slice.apply(document.querySelectorAll('article.leaf-page h1, article.leaf-page h2, article.leaf-page h3'))
+        const observer = this.state.observer
+        for (const index in headers) {
+            const ele = headers[index]
+            if (ele.getElementsByTagName === undefined) { continue; }
             const hrefs = ele.getElementsByTagName('a')
             if (hrefs.length > 0) {
                 const target = hrefs[0].getAttribute('href')
@@ -79,32 +84,38 @@ export default class FloatingNav extends React.Component {
                     target: target,
                     level: ele.tagName
                 })
-                observe.observe(ele)
+                observer.observe(ele)
             }
-        })
-        this.setState({ observer: observe, menu: tocMenu, headers: headers })
+        }
+        this.setState({ menu: tocMenu, headers: headers })
     }
 
     closeMenu() {
-        this.state.headers.forEach((ele) => { this.state.observer.unobserve(ele) })
-    }
-
-    componentDidMount() {
-        this.generateMenu()
-        window.addEventListener('ChangeTheme', this.handleTheme)
-    }
-
-    componentDidUpdate() {
-        if (this.state.slug !== this.props.slug.join('/')) {
-            this.setState({ slug: this.props.slug.join('/') })
-            this.generateMenu()
+        for (const index in this.state.headers) {
+            const ele = this.state.headers[index]
+            this.state.observer.unobserve(ele)
         }
+        this.setState({ menu: [], headers: [] })
+    }
+
+    async componentDidMount() {
+        const observer = new IntersectionObserver(this.handleIntersection, this.state.options)
+        await this.setState({ observer: observer, menu: [], headers: [] })
+        this.props.router.events.on('routeChangeComplete', this.handleRouteChange)
+        window.addEventListener('ChangeTheme', this.handleTheme)        
+        
+        this.generateMenu()
+    }
+
+    handleRouteChange() {
+        this.closeMenu()
+        this.generateMenu()
     }
 
     componentWillUnmount() {
         this.closeMenu()
         window.removeEventListener('ChangeTheme', this.handleTheme)
-        this.setState({ observer: null, menu: [], headers: [] })
+        this.props.router.events.off('routeChangeComplete', this.handleRouteChange)
     }
 
     handleTheme() {
@@ -153,3 +164,5 @@ export default class FloatingNav extends React.Component {
         )
     }
 }
+
+export default withRouter(FloatingNav)
