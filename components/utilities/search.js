@@ -1,33 +1,40 @@
 import React from "react";
+import FocusTrap from "focus-trap-react";
+import { withRouter } from 'next/router'
 
 import algoliasearch from 'algoliasearch/lite';
 import {
     InstantSearch,
     Hits,
     SearchBox,
-    Pagination,
     Highlight,
-    ClearRefinements,
+    Snippet,
     RefinementList,
     Configure,
 } from 'react-instantsearch-dom';
 
 import { AnimatePresence, motion } from 'framer-motion';
 
-export default class Search extends React.Component {
+class Search extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             modal: false,
             hotKey: '',
-            windowWidth: null
+            windowWidth: null,
+            indexFocus: 0,
+            results: []
         };
 
-        this.toggleModal = this.toggleModal.bind(this);
-        this.searchClicked = this.searchClicked.bind(this);
+        this.toggleModal = this.toggleModal.bind(this)
+        this.searchClicked = this.searchClicked.bind(this)
+        this.handleKey = this.handleKey.bind(this)
+        this.highlightResult = this.highlightResult.bind(this)
+        this.goToResult = this.goToResult.bind(this)
     }
 
     toggleModal() {
+        this.setState({ indexFocus: 0 })
         this.setState({ modal: !this.state.modal })
         if (document.body.style.overflow == 'hidden') {
             document.body.style.overflow = 'unset'
@@ -49,6 +56,69 @@ export default class Search extends React.Component {
         this.focus();
     }
 
+    handleKey(e) {
+        if (e.key === "k" && (e.ctrlKey || e.metaKey)) {
+            e.preventDefault(); // present "Save Page" from getting triggered.
+            this.setState({ modal: true });
+            document.body.style.overflow = 'hidden'
+            this.focus();
+        }
+        if (e.key === "Escape") {
+            this.setState({ modal: false })
+            document.body.style.overflow = 'unset'
+        }
+        if ( this.state.modal === true ) {
+            const resultCount = document.querySelectorAll('.ais-Hits-item').length
+            let currentFocus = this.state.indexFocus
+            if (e.key === 'Enter') {
+                this.goToResult()
+            }
+            if (e.key === 'ArrowUp') {
+                currentFocus = (currentFocus > 1) ? currentFocus - 1 : 1
+                this.setState({ indexFocus: currentFocus })
+                this.highlightResult()
+            } else if (e.key === 'ArrowDown') {
+                currentFocus = (currentFocus < resultCount) ? currentFocus + 1 : resultCount
+                this.setState({ indexFocus: currentFocus })
+                this.highlightResult()
+            } else {
+                currentFocus = 0
+                this.setState({ indexFocus: currentFocus })
+            }
+        }
+    }
+
+    highlightResult() {
+        const index = this.state.indexFocus
+        const results = document.querySelectorAll('.ais-Hits-item article')
+        if (results.length > 0) {
+            for (let i; i < results.length - 1; i++ ) { 
+                results[i].classList.remove('focused') 
+            }
+            if ( results.length >= index ) {
+                const result = results[index-1]
+                result.classList.add('focused')
+            }
+        }
+    }
+
+    goToResult() {
+        const index = this.state.indexFocus
+        const results = document.querySelectorAll('.ais-Hits-item article')
+        if (results.length > 0) {
+            if ( results.length >= index ) {
+                const result = results[index-1]
+                const a = result.querySelector('a').getAttribute('href')
+                this.toggleModal()
+                this.props.router.push(a)
+            }
+        }
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('keydown', this.handleKey);
+    }
+
     componentDidMount() {
         this.setState({ windowWidth: window.innerWidth })
         if (window.innerWidth > 1024) {
@@ -60,24 +130,7 @@ export default class Search extends React.Component {
                 this.setState({ hotKey: 'Ctrl-K' })
             }
         }
-
-        this._keyListener = function (e) {
-            if (e.key === "k" && (e.ctrlKey || e.metaKey)) {
-                e.preventDefault(); // present "Save Page" from getting triggered.
-                this.setState({ modal: true });
-                document.body.style.overflow = 'hidden'
-                this.focus();
-                // this.focus();
-
-                // document.getElementsByClassName("ais-SearchBox-input")[0].focus();
-
-            }
-            if (e.key === "Escape") {
-                this.setState({ modal: false })
-                document.body.style.overflow = 'unset'
-            }
-        };
-        document.addEventListener('keydown', this._keyListener.bind(this));
+        document.addEventListener('keydown', this.handleKey);
     }
 
     render() {
@@ -91,9 +144,14 @@ export default class Search extends React.Component {
         function Hit(props) {
             const icon = props.hit.icon ? props.hit.icon : 'text_snippet'
             const category = props.hit.category ? props.hit.category : 'Page'
-
+            let snippet;
+            if (props.hit._snippetResult && props.hit._snippetResult.content.matchLevel !== 'none') {
+                snippet = (
+                    <Snippet attribute="content" hit={props.hit} />
+                )
+            }
             return (
-                <article className="item">
+                <article className="item" tabindex='-1'>
                     <a className="not-link" href={props.hit.url}>
                         <section className="image_container bg-gray-50">
                             <div className={`icon-${icon}`}><i>{icon}</i></div>
@@ -101,6 +159,7 @@ export default class Search extends React.Component {
                         <section className="copy">
                             <p className="tiny">{category}</p>
                             <h5><Highlight hit={props.hit} attribute="title"></Highlight></h5>
+                            {snippet}
                         </section>
                     </a>
                 </article >
@@ -132,20 +191,19 @@ export default class Search extends React.Component {
                             }} className="algolia">
                             <span className="background" onClick={this.toggleModal} />
                             <button onClick={this.toggleModal}>close</button>
-                            <section className="content">
-                                <div className="ais-InstantSearch">
-                                    <InstantSearch indexName="documentation" searchClient={searchClient}>
-                                        <div className="left-panel">
-                                            <RefinementList attribute="brand" />
-                                            <Configure hitsPerPage={20} />
-                                        </div>
-                                        <div className="right-panel">
-                                            <SearchBox id="search-box small" />
-                                            <Hits hitComponent={Hit} />
-                                        </div>
-                                    </InstantSearch>
-                                </div>
-                            </section>
+                            <FocusTrap>
+                                <section className="content"  tabindex='-1'>
+                                    <div className="ais-InstantSearch">
+                                        <InstantSearch indexName="documentation" searchClient={searchClient}>
+                                            <div className="right-panel">
+                                                <Configure hitsPerPage={10} filters="version:latest" />
+                                                <SearchBox id="search-box small" />
+                                                <Hits hitComponent={Hit} />
+                                            </div>
+                                        </InstantSearch>
+                                    </div>
+                                </section>
+                            </FocusTrap>
                         </motion.section>
                     }
                 </AnimatePresence>
@@ -170,3 +228,5 @@ export default class Search extends React.Component {
         return searchBar
     }
 }
+
+export default withRouter(Search)

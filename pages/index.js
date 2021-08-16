@@ -1,7 +1,7 @@
 import MediaQuery from 'react-responsive'
 import Head from 'next/head'
 
-import { getMenu } from '../lib/api'
+import { getMenu, getGDPRBanner } from '../lib/api'
 
 import Layout from '../components/layouts/globalTemplate'
 
@@ -9,6 +9,7 @@ import SideNav from '../components/navigation/sideNav'
 import ArrowLinkContainer from '../components/navigation/arrowLinkContainer'
 import ArrowLink from '../components/navigation/arrowLink'
 
+import GDPRBanner from '../components/utilities/gdpr';
 import SocialCallouts from '../components/utilities/socialCallout'
 import Spacer from '../components/utilities/spacer'
 
@@ -23,7 +24,7 @@ import Button from '../components/blocks/button'
 import InlineCallout from '../components/blocks/inlineCallout'
 import NoteSplit from '../components/blocks/noteSplit'
 
-export default function Home({ window, menu }) {
+export default function Home({ window, menu, gdpr_data }) {
 
   return (
     <Layout window={window}>
@@ -34,6 +35,7 @@ export default function Home({ window, menu }) {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <section className="page container template-expanded-wide">
+        <GDPRBanner {...gdpr_data} />
         <SideNav menu={menu} slug={[]} />
         <section className="content wide">
           <article>
@@ -108,6 +110,7 @@ export async function getStaticProps(context) {
 
   const props = {}
   props['menu'] = getMenu()
+  props['gdpr_data'] = await getGDPRBanner()
 
   return {
     props: props,

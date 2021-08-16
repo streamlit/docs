@@ -11,7 +11,8 @@ import { MDXRemote } from 'next-mdx-remote'
 import matter from 'gray-matter'
 
 // Site Components
-import { getArticleSlugs, getArticleSlugFromString, pythonDirectory, getMenu } from '../lib/api';
+import GDPRBanner from '../components/utilities/gdpr';
+import { getArticleSlugs, getArticleSlugFromString, pythonDirectory, getMenu, getGDPRBanner } from '../lib/api';
 import { getPreviousNextFromMenu } from '../lib/utils.cjs'
 import Layout from '../components/layouts/globalTemplate'
 import BreadCrumbs from '../components/utilities/breadCrumbs'
@@ -41,7 +42,7 @@ import Tip from '../components/blocks/tip'
 import Warning from '../components/blocks/warning'
 import YouTube from '../components/blocks/youTube'
 
-export default function Article({ data, source, streamlit, slug, menu, previous, next, version, versions }) {
+export default function Article({ data, source, streamlit, slug, menu, previous, next, version, versions, paths, gdpr_data }) {
 
     let versionWarning
     let currentLink
@@ -68,6 +69,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
         h1: H1,
         h2: H2,
         h3: H3,
+        // iframe : WrappedIFrame
     }
 
     let previousArrow
@@ -112,8 +114,9 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
             }}
         >
             <Layout>
+                <GDPRBanner {...gdpr_data} />
                 <section className="page container template-standard">
-                    <SideBar slug={slug} menu={menu} version={version} versions={versions} />
+                    <SideBar slug={slug} menu={menu} version={version} maxVersion={maxVersion} versions={versions} paths={paths} />
                     <Head>
                         <title>{data.title} - Streamlit Docs</title>
                         <link rel="icon" href="/favicon.svg" />
@@ -144,8 +147,7 @@ export async function getStaticProps(context) {
     const paths = await getStaticPaths()
     const props = {}
     const location = `/${context.params.slug.join('/')}`
-    const menu = getMenu()
-    const { current, prev, next } = getPreviousNextFromMenu(menu, location)
+    const gdpr_data = await getGDPRBanner()
 
     // Sort of documentation versions
     const jsonContents = fs.readFileSync(join(pythonDirectory, 'streamlit.json'), 'utf8')
@@ -155,24 +157,22 @@ export async function getStaticProps(context) {
     const current_version = versions[versions.length - 1]
     const funcs = jsonContents ? JSON.parse(jsonContents) : {}
 
+    let menu = getMenu()
+
     props['streamlit'] = {}
     props['versions'] = all_versions
-    props['menu'] = menu
     props['version'] = false
+    props['paths'] = false
 
     if ('slug' in context.params) {
+        
         let filename
+        
         paths.paths.forEach(obj => {
             if (obj.params.location == location) {
                 filename = obj.params.fileName
             }
         })
-
-        let isnum = /^[\d\.]+$/.test(context.params.slug[0]);
-        if (isnum) {
-            props['version'] = context.params.slug[0]
-            props['streamlit'] = funcs[props['version']]
-        }
 
         // Get the last element of the array to find the MD file
         const fileContents = fs.readFileSync(filename, 'utf8')
@@ -181,6 +181,13 @@ export async function getStaticProps(context) {
 
         if (should_version) {
             props['streamlit'] = funcs[current_version]
+            props['paths'] = paths
+        }
+
+        let isnum = /^[\d\.]+$/.test(context.params.slug[0]);
+        if (isnum) {
+            props['version'] = context.params.slug[0]
+            props['streamlit'] = funcs[props['version']]
         }
 
         const source = await serialize(content,
@@ -194,7 +201,11 @@ export async function getStaticProps(context) {
                 }
             }
         )
-
+        
+        const { current, prev, next } = getPreviousNextFromMenu(menu, location)
+        
+        props['menu'] = menu
+        props['gdpr_data'] = gdpr_data
         props['data'] = data
         props['filename'] = filename
         props['slug'] = context.params.slug
@@ -243,7 +254,7 @@ export async function getStaticPaths() {
                 slug: realSlug,
                 location: slug,
                 fileName: articles[index],
-                title: data.title
+                title: data.title ? data.title : 'Untitled'
             }
         }
 
@@ -269,7 +280,7 @@ export async function getStaticPaths() {
                     slug: newSlug,
                     location: versioned_location,
                     fileName: articles[index],
-                    title: data.title
+                    title: data.title ? data.title : 'Untitled'
                 }
             }
             paths.push(path)

@@ -24,7 +24,6 @@ export default class SideBar extends React.Component {
         };
 
         this.checkExpanded = this.checkExpanded.bind(this)
-        this.handleRouteChange = this.handleRouteChange.bind(this)
         this.handleMouseEnter = this.handleMouseEnter.bind(this)
         this.handleMouseLeave = this.handleMouseLeave.bind(this)
         this.handleTheme = this.handleTheme.bind(this)
@@ -61,13 +60,6 @@ export default class SideBar extends React.Component {
         }
     }
 
-    handleRouteChange() {
-        const html = document.getElementsByTagName('html')[0];
-        console.log(html)
-        html.classList.remove("nav-open");
-        this.setState({ open: false })
-    }
-
     componentDidMount() {
 
         window.addEventListener('resize', this.checkExpanded)
@@ -76,9 +68,6 @@ export default class SideBar extends React.Component {
         bus.on('streamlit_nav_open', () => this.setState({ open: true }))
         bus.on('streamlit_nav_closed', () => this.setState({ open: false }))
 
-        // withRouter().events.on('routeChangeStart', thos.handleRouteChange)
-        console.log(router.pathname)
-        router.events.on('routeChangeComplete', this.handleRouteChange)
         this.checkExpanded()
         this.setState({ slug: window.location.href })
     }
@@ -91,7 +80,6 @@ export default class SideBar extends React.Component {
         const props = this.props
         const state = this.state
 
-
         let navItems
         navItems = props.menu.map((page, index) => (
             <NavItem
@@ -100,6 +88,9 @@ export default class SideBar extends React.Component {
                 page={page}
                 depth={page.depth + 1}
                 condensed={state.condensed}
+                paths={props.paths}
+                version={props.version}
+                maxVersion={props.maxVersion}
             />
         ))
 

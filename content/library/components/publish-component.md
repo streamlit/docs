@@ -36,8 +36,8 @@ The [component-template](https://github.com/streamlit/component-template) GitHub
 4. Create a release build of your frontend code. This will add a new directory, `frontend/build/`, with your compiled frontend in it:
 
    ```shell
-   $ cd frontend
-   $ npm run build
+$ cd frontend
+$ npm run build
    ```
 
 5. Pass the build folder's path as the `path` parameter to `declare_component`. (If you're using the template Python file, you can set `_RELEASE = True` at the top of the file):

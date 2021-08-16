@@ -161,6 +161,10 @@
                     left:unset;
                 }
             }
+            .ais-Snippet {
+                font-style: normal;
+                opacity: 0.8;
+            }
             .ais-Hits {
 
                 .ais-Hits-list {
@@ -169,6 +173,9 @@
 
                     li {
                         .item {
+                            &.focused {
+                                opacity: 0.7;
+                            }                            
                             p, h5 {
                                 margin: 0;
                             }
