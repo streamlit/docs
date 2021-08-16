@@ -9,7 +9,7 @@ site_menu:
   - category: Streamlit Library / Get Started / Installation
     url: /library/get-started/installation
   - category: Streamlit Library / Get Started / Create your first app 
-    url: /library/get-started/first-ap
+    url: /library/get-started/first-app
   - category: Streamlit Library / Get Started / Cheat-sheet
     url: /library/get-started/cheatsheet
   - category: Streamlit Library / API Reference
@@ -32,8 +32,6 @@ site_menu:
     url: /library/api-reference/status
   - category: Streamlit Library / API Reference / Control flow
     url: /library/api-reference/control-flow
-  - category: Streamlit Library / API Reference / Page options and configuration
-    url: /library/api-reference/page-options
   - category: Streamlit Library / API Reference / Utilities
     url: /library/api-reference/utilities
   - category: Streamlit Library / API Reference / Mutate charts
@@ -51,7 +49,7 @@ site_menu:
   - category: Streamlit Library / Components
     url: /library/components
   - category: Streamlit Library / Components / Components API
-    url: /library/components/api
+    url: /library/components/components-api
   - category: Streamlit Library / Components / Create a component
     url: /library/components/create
   - category: Streamlit Library / Components / Publish a component
@@ -72,11 +70,13 @@ site_menu:
     url: /cloud/community/manage
   - category: Streamlit Cloud Platform / Teams
     url: /cloud/teams
-  - category: Streamlit Cloud Platform / Teams / Get Started — launch your first app!
+  - category: Streamlit Cloud Platform / Teams / Get Started
     url: /cloud/teams/get-started
-  - category: Streamlit Cloud Platform / Teams / Securely Connect to Cloud Services
-    url: /knowledge-base/databases
-  - category: Streamlit Cloud Platform / Teams / Features
+  - category: Streamlit Cloud Platform / Teams / Reference
+    url: /cloud/teams/reference
+  - category: Streamlit Cloud Platform / Teams / Frequently Asked Questions
+    url: /cloud/teams/faq
+
   - category: Streamlit Cloud Platform / Enterprise
     url: /cloud/enterprise
   # - category: Streamlit Cloud / Streamlit Sharing

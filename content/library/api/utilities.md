@@ -1,6 +1,6 @@
 ---
 title: Placeholders, help, and options
-slug: /reference-guides/api-reference/utilities
+slug: /library/api-reference/utilities
 ---
 
 # Placeholders, help, and options

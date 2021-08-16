@@ -1,6 +1,6 @@
 ---
-title: Components API Reference
-slug: /reference-guides/components-api
+title: Components API
+slug: /library/components/components-api
 ---
 
 # Components API Reference

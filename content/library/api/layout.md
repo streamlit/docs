@@ -1,6 +1,6 @@
 ---
 title: Layouts and Containers
-slug: /reference-guides/api-reference/layout
+slug: /library/api-reference/layout
 ---
 
 # Layouts and Containers

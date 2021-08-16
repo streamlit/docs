@@ -1,6 +1,6 @@
 ---
 title: Publish a Component
-slug: /topic-guides/components/publish
+slug: /library/components/publish
 ---
 
 # Publish a Component

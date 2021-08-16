@@ -1,6 +1,6 @@
 ---
 title: Text elements
-slug: /reference-guides/api-reference/text
+slug: /library/api-reference/text
 ---
 
 # Text elements

@@ -1,0 +1,4 @@
+---
+title: Updates
+slug: /updates
+---

@@ -1,6 +1,6 @@
 ---
 title: Create a Component
-slug: /topic-guides/components/create
+slug: /library/components/create
 ---
 
 # Create a Component

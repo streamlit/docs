@@ -1,6 +1,6 @@
 ---
-title: Custom Components
-slug: /topic-guides/components
+title: Components
+slug: /library/components
 ---
 
 # Custom Components
@@ -42,9 +42,9 @@ Components are super easy to use:
 
 If you're interested in making your own component, check out the following resources:
 
-* [Create a Component](create)
-* [Publish a Component](publish)
-* [Components API](/reference-guides/components-api)
+* [Create a Component](/library/components/create)
+* [Publish a Component](/library/components/publish)
+* [Components API](/library/components/components-api)
 * [blog post for when we launched Components!](https://blog.streamlit.io/introducing-streamlit-components/)
 
 Alternatively, if you prefer to learn using videos, our engineer Tim Conkling has put together some

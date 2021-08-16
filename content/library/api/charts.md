@@ -1,6 +1,6 @@
 ---
 title: Chart elements
-slug: /reference-guides/api-reference/charts
+slug: /library/api-reference/charts
 ---
 
 # Chart elements

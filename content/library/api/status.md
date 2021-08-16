@@ -1,6 +1,6 @@
 ---
 title: Display progress and status
-slug: /reference-guides/api-reference/status
+slug: /library/api-reference/status
 ---
 
 # Display progress and status

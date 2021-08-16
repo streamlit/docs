@@ -1,6 +1,6 @@
 ---
 title: Input widgets
-slug: /reference-guides/api-reference/widgets
+slug: /library/api-reference/widgets
 ---
 
 # Input widgets

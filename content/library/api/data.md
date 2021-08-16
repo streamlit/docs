@@ -1,6 +1,6 @@
 ---
 title: Data display elements
-slug: /reference-guides/api-reference/data
+slug: /library/api-reference/data
 ---
 
 # Data display elements

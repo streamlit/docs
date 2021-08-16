@@ -1,6 +1,6 @@
 ---
 title: Configuration
-slug: /reference-guides/configuration
+slug: /library/advanced-features/configuration
 ---
 
 # Streamlit configuration

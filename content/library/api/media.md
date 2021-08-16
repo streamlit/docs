@@ -1,6 +1,6 @@
 ---
 title: Media elements
-slug: /reference-guides/api-reference/media
+slug: /library/api-reference/media
 ---
 
 # Media elements

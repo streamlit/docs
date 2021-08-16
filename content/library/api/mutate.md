@@ -1,6 +1,6 @@
 ---
 title: Mutate charts
-slug: /reference-guides/api-reference/mutate
+slug: /library/api-reference/mutate
 ---
 
 # Mutate charts
