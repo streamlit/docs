@@ -92,7 +92,7 @@ site_menu:
   # - category: Streamlit Cloud / Streamlit for Teams / Get Started — launch your first app!
   #   url: /cloud/teams/get-started
   # - category: Streamlit Cloud / Streamlit for Teams / Securely Connect to Cloud Services
-  #   url: /knowledge-base/databases
+  #   url: /kb/databases
   # - category: Streamlit Cloud / Streamlit for Teams / Features
   #   url: /cloud/teams/features
   # - category: Streamlit Cloud / Streamlit for Teams / Troubleshooting
@@ -101,65 +101,65 @@ site_menu:
   #   url: /cloud/teams/faq
 
   - category: Knowledge Base
-    url: /knowledge-base
+    url: /kb
     color: orange-70
     icon: school
   - category: Knowledge Base / Tutorials
-    url: /knowledge-base/tutorials
+    url: /kb/tutorials
   - category: Knowledge Base / Tutorials / Make your apps stateful
-    url: /knowledge-base/tutorials/stateful-apps
+    url: /kb/tutorials/stateful-apps
   - category: Knowledge Base / Tutorials / How to make a great Streamlit app
-    url: /knowledge-base/tutorials/designing-streamlit-apps
+    url: /kb/tutorials/designing-streamlit-apps
   - category: Knowledge Base / Tutorials / How to make a great Streamlit app / Building an app for the User
-    url: /knowledge-base/tutorials/designing-streamlit-apps/part-1
+    url: /kb/tutorials/designing-streamlit-apps/part-1
   - category: Knowledge Base / Tutorials / How to make a great Streamlit app / Using layout and design options
-    url: /knowledge-base/tutorials/designing-streamlit-apps/part-2
+    url: /kb/tutorials/designing-streamlit-apps/part-2
   - category: Knowledge Base / Tutorials / How to make a great Streamlit app / Improving app performance
-    url: /knowledge-base/tutorials/designing-streamlit-apps/part-3
+    url: /kb/tutorials/designing-streamlit-apps/part-3
   - category: Knowledge Base / Tutorials / Connect to Data Sources
-    url: /knowledge-base/tutorials/databases
+    url: /kb/tutorials/database
   - category: Knowledge Base / Tutorials / Connect to Data Sources / AWS S3
-    url: /knowledge-base/tutorials/databases/aws-s3
+    url: /kb/tutorials/database/aws-s3
   - category: Knowledge Base / Tutorials / Connect to Data Sources / BigQuery
-    url: /knowledge-base/tutorials/databases/bigquery
+    url: /kb/tutorials/database/bigquery
   - category: Knowledge Base / Tutorials / Connect to Data Sources / Firestore
     url: https://blog.streamlit.io/streamlit-firestore/
   - category: Knowledge Base / Tutorials / Connect to Data Sources / MongoDB
-    url: /knowledge-base/tutorials/databases/mongodb
+    url: /kb/tutorials/database/mongodb
   - category: Knowledge Base / Tutorials / Connect to Data Sources / MySQL
-    url: /knowledge-base/tutorials/databases/mysql
+    url: /kb/tutorials/database/mysql
   - category: Knowledge Base / Tutorials / Connect to Data Sources / PostgreSQL
-    url: /knowledge-base/tutorials/databases/postgresql
+    url: /kb/tutorials/database/postgresql
   - category: Knowledge Base / Tutorials / Connect to Data Sources / Tableau
-    url: /knowledge-base/tutorials/databases/tableau
+    url: /kb/tutorials/database/tableau
   - category: Knowledge Base / Tutorials / Connect to Data Sources / Private Google Sheet
-    url: /knowledge-base/tutorials/databases/private-gsheet
+    url: /kb/tutorials/database/private-gsheet
   - category: Knowledge Base / Tutorials / Connect to Data Sources / Public Google Sheet
-    url: /knowledge-base/tutorials/databases/public-gsheet
+    url: /kb/tutorials/database/public-gsheet
   - category: Knowledge Base / Tutorials / Use Visualization Libraries
-    url: /knowledge-base/tutorials/visualization
+    url: /kb/tutorials/visualization
   - category: Knowledge Base / Tutorials / Use Visualization Libraries / Matplotlib
-    url: /knowledge-base/tutorials/visualization/matplotlib
+    url: /kb/tutorials/visualization/matplotlib
   - category: Knowledge Base / Tutorials / Use Visualization Libraries / Altair
-    url: /knowledge-base/tutorials/visualization/altair
+    url: /kb/tutorials/visualization/altair
   - category: Knowledge Base / Tutorials / Use Visualization Libraries / Plotly
-    url: /knowledge-base/tutorials/visualization/plotly
+    url: /kb/tutorials/visualization/plotly
   - category: Knowledge Base / Tutorials / Use Visualization Libraries / Bokeh
-    url: /knowledge-base/tutorials/visualization/bokeh
+    url: /kb/tutorials/visualization/bokeh
   - category: Knowledge Base / Tutorials / Use Visualization Libraries / Vega-Lite
-    url: /knowledge-base/tutorials/visualization/vega-lite
+    url: /kb/tutorials/visualization/vega-lite
   - category: Knowledge Base / Tutorials / Use Visualization Libraries / PyDeck
-    url: /knowledge-base/tutorials/visualization/pydeck
+    url: /kb/tutorials/visualization/pydeck
   - category: Knowledge Base / Tutorials / Use Visualization Libraries / Graphviz
-    url: /knowledge-base/tutorials/visualization/graphviz
+    url: /kb/tutorials/visualization/graphviz
   - category: Knowledge Base / Tutorials / Create a data explorer app
-    url: /knowledge-base/tutorials/data-explorer
+    url: /kb/tutorials/data-explorer
   - category: Knowledge Base / Installing Dependencies
-    url: /knowledge-base/dependencies
+    url: /kb/dependencies
   - category: Knowledge Base / Error Messages
-    url: /knowledge-base/error-messages
+    url: /kb/error-messages
   - category: Knowledge Base / Deployments
-    url: /knowledge-base/deployments
+    url: /kb/deploy
 
   # - category: Support
   #   url: /support
