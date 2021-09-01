@@ -122,7 +122,11 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                         <link rel="icon" href="/favicon.svg" />
                         <link rel="alternate icon" href="/favicon32.ico" />
                         <meta name="theme-color" content="#ffffff" />
-                        <link rel="canonical" href={`https://docs.streamlit.io/${slug.slice().join('/')}`} />
+                        {version === false ?
+                            <link rel="canonical" href={`https://docs.streamlit.io/${slug.slice().join('/')}`} />
+                            :
+                            <link rel="canonical" href={`https://docs.streamlit.io/${slug.slice(1).join('/')}`} />
+                        }
                     </Head>
                     <section className="content wide" id="documentation">
                         {versionWarning}
