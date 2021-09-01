@@ -8,10 +8,14 @@ site_menu:
     url: /library/get-started
   - category: Streamlit Library / Get Started / Installation
     url: /library/get-started/installation
-  - category: Streamlit Library / Get Started / Create your first app 
-    url: /library/get-started/first-app
-  - category: Streamlit Library / Get Started / Cheat-sheet
+  - category: Streamlit Library / Get Started / Create an app 
+    url: /library/get-started/create-an-app
+  - category: Streamlit Library / Get Started / Deploy an app 
+    url: /library/get-started/deploy-an-app
+  - category: Streamlit Library / Get Started / Cheat sheet
     url: /library/get-started/cheatsheet
+  - category: Streamlit Library / Get Started / App gallery
+    url: https://streamlit.io/gallery
   - category: Streamlit Library / API Reference
     url: /library/api-reference
   - category: Streamlit Library / API Reference / Write and magic
@@ -32,6 +36,8 @@ site_menu:
     url: /library/api-reference/status
   - category: Streamlit Library / API Reference / Control flow
     url: /library/api-reference/control-flow
+  - category: Streamlit Library / API Reference / State
+    url: /library/api-reference/state
   - category: Streamlit Library / API Reference / Utilities
     url: /library/api-reference/utilities
   - category: Streamlit Library / API Reference / Mutate charts
@@ -46,6 +52,12 @@ site_menu:
     url: /library/advanced-features/configuration
   - category: Streamlit Library / Advanced Features/ Optimize performance with st.cache
     url: /library/advanced-features/caching
+  - category: Streamlit Library / Advanced Features/ Add statefulness to apps
+    url: /library/advanced-features/session-state
+  - category: Streamlit Library / Advanced Features/ Cookbook
+    url: /library/advanced-features/cookbook
+  - category: Streamlit Library / Advanced Features/ Pre-release features
+    url: /library/advanced-features/prerelease
   - category: Streamlit Library / Components
     url: /library/components
   - category: Streamlit Library / Components / Components API
@@ -54,6 +66,10 @@ site_menu:
     url: /library/components/create
   - category: Streamlit Library / Components / Publish a component
     url: /library/components/publish
+  - category: Streamlit Library / Components / Component gallery
+    url: https://streamlit.io/components
+  - category: Streamlit Library / Changelog
+    url: /library/changelog
     
 
   - category: Streamlit Cloud Platform
@@ -106,36 +122,26 @@ site_menu:
     icon: school
   - category: Knowledge Base / Tutorials
     url: /kb/tutorials
-  - category: Knowledge Base / Tutorials / Make your apps stateful
-    url: /kb/tutorials/stateful-apps
-  - category: Knowledge Base / Tutorials / How to make a great Streamlit app
-    url: /kb/tutorials/designing-streamlit-apps
-  - category: Knowledge Base / Tutorials / How to make a great Streamlit app / Building an app for the User
-    url: /kb/tutorials/designing-streamlit-apps/part-1
-  - category: Knowledge Base / Tutorials / How to make a great Streamlit app / Using layout and design options
-    url: /kb/tutorials/designing-streamlit-apps/part-2
-  - category: Knowledge Base / Tutorials / How to make a great Streamlit app / Improving app performance
-    url: /kb/tutorials/designing-streamlit-apps/part-3
-  - category: Knowledge Base / Tutorials / Connect to Data Sources
-    url: /kb/tutorials/database
-  - category: Knowledge Base / Tutorials / Connect to Data Sources / AWS S3
-    url: /kb/tutorials/database/aws-s3
-  - category: Knowledge Base / Tutorials / Connect to Data Sources / BigQuery
-    url: /kb/tutorials/database/bigquery
-  - category: Knowledge Base / Tutorials / Connect to Data Sources / Firestore
+  - category: Knowledge Base / Tutorials / Connect to data sources
+    url: /kb/tutorials/databases
+  - category: Knowledge Base / Tutorials / Connect to data sources / AWS S3
+    url: /kb/tutorials/databases/aws-s3
+  - category: Knowledge Base / Tutorials / Connect to data sources / BigQuery
+    url: /kb/tutorials/databases/bigquery
+  - category: Knowledge Base / Tutorials / Connect to data sources / Firestore
     url: https://blog.streamlit.io/streamlit-firestore/
-  - category: Knowledge Base / Tutorials / Connect to Data Sources / MongoDB
-    url: /kb/tutorials/database/mongodb
-  - category: Knowledge Base / Tutorials / Connect to Data Sources / MySQL
-    url: /kb/tutorials/database/mysql
-  - category: Knowledge Base / Tutorials / Connect to Data Sources / PostgreSQL
-    url: /kb/tutorials/database/postgresql
-  - category: Knowledge Base / Tutorials / Connect to Data Sources / Tableau
-    url: /kb/tutorials/database/tableau
-  - category: Knowledge Base / Tutorials / Connect to Data Sources / Private Google Sheet
-    url: /kb/tutorials/database/private-gsheet
-  - category: Knowledge Base / Tutorials / Connect to Data Sources / Public Google Sheet
-    url: /kb/tutorials/database/public-gsheet
+  - category: Knowledge Base / Tutorials / Connect to data sources / MongoDB
+    url: /kb/tutorials/databases/mongodb
+  - category: Knowledge Base / Tutorials / Connect to data sources / MySQL
+    url: /kb/tutorials/databases/mysql
+  - category: Knowledge Base / Tutorials / Connect to data sources / PostgreSQL
+    url: /kb/tutorials/databases/postgresql
+  - category: Knowledge Base / Tutorials / Connect to data sources / Tableau
+    url: /kb/tutorials/databases/tableau
+  - category: Knowledge Base / Tutorials / Connect to data sources / Private Google Sheet
+    url: /kb/tutorials/databases/private-gsheet
+  - category: Knowledge Base / Tutorials / Connect to data sources / Public Google Sheet
+    url: /kb/tutorials/databases/public-gsheet
   - category: Knowledge Base / Tutorials / Use Visualization Libraries
     url: /kb/tutorials/visualization
   - category: Knowledge Base / Tutorials / Use Visualization Libraries / Matplotlib
@@ -154,6 +160,18 @@ site_menu:
     url: /kb/tutorials/visualization/graphviz
   - category: Knowledge Base / Tutorials / Create a data explorer app
     url: /kb/tutorials/data-explorer
+  - category: Knowledge Base / Frequently Asked Questions
+    url: /kb/faq
+  - category: Knowledge Base / Troubleshooting
+    url: /kb/troubleshooting
+  - category: Knowledge Base / Troubleshooting / Sanity checks
+    url: /kb/troubleshooting/sanity-checks
+  - category: Knowledge Base / Troubleshooting / Trouble starting an app remotely
+    url: /kb/troubleshooting/remote-start
+  - category: Knowledge Base / Troubleshooting / Clean install
+    url: /kb/troubleshooting/clean-install
+  - category: Knowledge Base / Troubleshooting / Caching issues
+    url: /kb/troubleshooting/caching-issues
   - category: Knowledge Base / Installing Dependencies
     url: /kb/dependencies
   - category: Knowledge Base / Error Messages

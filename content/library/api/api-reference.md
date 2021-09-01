@@ -809,6 +809,25 @@ with st.form():
 </TileContainer>
 
 
+## State
+
+<TileContainer>
+<RefCard href="/library/api-reference/state#session-state">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Session State
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+st.session_state['key'] = value
+```
+
+</RefCard>
+</TileContainer>
+
+
 ## Utilities
 
 <TileContainer>

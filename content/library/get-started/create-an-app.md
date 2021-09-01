@@ -1,6 +1,6 @@
 ---
-title: Create your first app
-slug: /library/get-started/first-app
+title: Create an app
+slug: /library/get-started/create-an-app
 ---
 
 # Create an app
