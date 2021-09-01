@@ -14,4 +14,5 @@ raw form. These are the Streamlit commands you can use to display raw data.
 
 <Autofunction function="streamlit.dataframe" />
 <Autofunction function="streamlit.table" />
+<Autofunction function="streamlit.metric" />
 <Autofunction function="streamlit.json" />

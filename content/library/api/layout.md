@@ -24,7 +24,7 @@ add_selectbox = st.sidebar.selectbox(
 
 In addition to the sidebar, you have a few other options for controlling how your app is laid out.
 
-<Autofunction function="streamlit.beta_columns" />
-<Autofunction function="streamlit.beta_expander" />
-<Autofunction function="streamlit.beta_container" />
+<Autofunction function="streamlit.columns" />
+<Autofunction function="streamlit.expander" />
+<Autofunction function="streamlit.container" />
 <Autofunction function="streamlit.empty" />

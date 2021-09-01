@@ -18,7 +18,7 @@ So browse our API below and click to learn move about any of our available comma
 ## Display almost anything
 
 <TileContainer>
-<RefCard href="/library/api-reference/write-magic#write">
+<RefCard href="/library/api-reference/write-magic#stwrite">
 
 #### st.write
 
@@ -50,7 +50,7 @@ my_mpl_figure
 ## Text elements
 
 <TileContainer>
-<RefCard href="/library/api-reference/text#markdown">
+<RefCard href="/library/api-reference/text#stmarkdown">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -63,7 +63,7 @@ st.markdown("Hello **world**!")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text#title">
+<RefCard href="/library/api-reference/text#sttitle">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -76,7 +76,7 @@ st.title("The app title")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text#header">
+<RefCard href="/library/api-reference/text#stheader">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -89,7 +89,7 @@ st.header("This is a header")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text#subheader">
+<RefCard href="/library/api-reference/text#stsubheader">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -102,7 +102,7 @@ st.subheader("This is a subheader")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text#caption">
+<RefCard href="/library/api-reference/text#stcaption">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -115,7 +115,7 @@ st.caption("This is written small caption text")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text#code">
+<RefCard href="/library/api-reference/text#stcode">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -128,7 +128,7 @@ st.code("a = 1234")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text#text">
+<RefCard href="/library/api-reference/text#sttext">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -141,7 +141,7 @@ st.text("Hello world")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text#latex">
+<RefCard href="/library/api-reference/text#stlatex">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -160,7 +160,7 @@ st.latex("$\int a x^2 \,dx$")
 ## Data display elements
 
 <TileContainer>
-<RefCard href="/library/api-reference/data#dataframe">
+<RefCard href="/library/api-reference/data#stdataframe">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Dataframes
@@ -172,7 +172,7 @@ st.dataframe(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/data#table">
+<RefCard href="/library/api-reference/data#sttable">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Static tables
@@ -184,7 +184,19 @@ st.table(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/data#json">
+<RefCard href="/library/api-reference/data#stmetric">
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Metrics
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+
+```python
+st.metric("My metric", 42, 2)
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/data#stjson">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Dicts and JSON
@@ -202,7 +214,7 @@ st.json(my_data_frame)
 ## Chart elements
 
 <TileContainer>
-<RefCard href="/library/api-reference/charts#line_chart">
+<RefCard href="/library/api-reference/charts#stline_chart">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Simple line charts
@@ -214,7 +226,7 @@ st.line_chart(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts#area_chart">
+<RefCard href="/library/api-reference/charts#starea_chart">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Simple area charts
@@ -226,7 +238,7 @@ st.area_chart(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts#bar_chart">
+<RefCard href="/library/api-reference/charts#stbar_chart">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Simple bar charts
@@ -238,7 +250,7 @@ st.bar_chart(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts#map">
+<RefCard href="/library/api-reference/charts#stmap">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Scatterplots on maps
@@ -250,7 +262,7 @@ st.map(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts#pyplot">
+<RefCard href="/library/api-reference/charts#stpyplot">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Matplotlib
@@ -262,7 +274,7 @@ st.pyplot(my_mpl_figure)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts#altair_chart">
+<RefCard href="/library/api-reference/charts#staltair_chart">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Altair
@@ -274,7 +286,7 @@ st.altair_chart(my_altair_chart)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts#vega_lite_chart">
+<RefCard href="/library/api-reference/charts#stega_lite_chart">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Vega-Lite
@@ -286,7 +298,7 @@ st.vega_lite_chart(my_vega_lite_chart)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts#plotly_chart">
+<RefCard href="/library/api-reference/charts#stplotly_chart">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Plotly
@@ -298,7 +310,7 @@ st.plotly_chart(my_plotly_chart)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts#bokeh_chart">
+<RefCard href="/library/api-reference/charts#stbokeh_chart">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Bokeh
@@ -310,7 +322,7 @@ st.bokeh_chart(my_bokeh_chart)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts#pydeck_chart">
+<RefCard href="/library/api-reference/charts#stpydeck_chart">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### PyDeck
@@ -322,7 +334,7 @@ st.pydeck_chart(my_pydeck_chart)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts#graphviz_chart">
+<RefCard href="/library/api-reference/charts#stgraphviz_chart">
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### GraphViz
@@ -340,7 +352,7 @@ st.graphviz_chart(my_graphviz_spec)
 ## Input widgets
 
 <TileContainer>
-<RefCard href="/library/api-reference/widgets#button">
+<RefCard href="/library/api-reference/widgets#stbutton">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -353,7 +365,7 @@ clicked = st.button("Click me")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets#checkbox">
+<RefCard href="/library/api-reference/widgets#stcheckbox">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -366,7 +378,7 @@ selected = st.checkbox("I agree")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets#radio">
+<RefCard href="/library/api-reference/widgets#stradio">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -379,7 +391,7 @@ choice = st.radio("Pick one", ["cats", "dogs"])
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets#selectbox">
+<RefCard href="/library/api-reference/widgets#stselectbox">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -392,7 +404,7 @@ choice = st.selectbox("Pick one", ["cats", "dogs"])
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets#multiselect">
+<RefCard href="/library/api-reference/widgets#stmultiselect">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -405,7 +417,7 @@ choices = st.multiselect("Buy", ["milk", "apples", "potatoes"])
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets#slider">
+<RefCard href="/library/api-reference/widgets#stslider">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -418,7 +430,7 @@ number = st.slider("Pick a number", 0, 100)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets#select_slider">
+<RefCard href="/library/api-reference/widgets#stselect_slider">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -431,7 +443,7 @@ size = st.select_slider("Pick a size", ["S", "M", "L"])
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets#text_input">
+<RefCard href="/library/api-reference/widgets#sttext_input">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -444,7 +456,7 @@ name = st.text_input("First name")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets#number_input">
+<RefCard href="/library/api-reference/widgets#stnumber_input">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -457,7 +469,7 @@ choice = st.number_input("Pick a number", 0, 10)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets#text_area">
+<RefCard href="/library/api-reference/widgets#sttext_area">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -470,7 +482,7 @@ text = st.text_area("Text to translate")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets#date_input">
+<RefCard href="/library/api-reference/widgets#stdate_input">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -483,7 +495,7 @@ date = st.date_input("Your birthday")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets#time_input">
+<RefCard href="/library/api-reference/widgets#sttime_input">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -496,7 +508,7 @@ time = st.time_input("Meeting time")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets#file_uploader">
+<RefCard href="/library/api-reference/widgets#stfile_uploader">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -509,7 +521,7 @@ photo = st.file_uploader("Upload a photo")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets#color_picker">
+<RefCard href="/library/api-reference/widgets#stcolor_picker">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -528,7 +540,7 @@ color = st.color_picker("Pick a color")
 ## Media elements
 
 <TileContainer>
-<RefCard href="/library/api-reference/media#image">
+<RefCard href="/library/api-reference/media#stimage">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -544,7 +556,7 @@ st.image("https://example.com/myimage.png")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/media#audio">
+<RefCard href="/library/api-reference/media#staudio">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -560,7 +572,7 @@ st.audio("https://example.com/myaudio.mp3", format="audio/mp3")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/media#video">
+<RefCard href="/library/api-reference/media#stvideo">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -582,7 +594,7 @@ st.video("https://example.com/myvideo.mp4", format="video/mp4")
 ## Layouts and Containers
 
 <TileContainer>
-<RefCard href="/library/api-reference/layout#beta_columns">
+<RefCard href="/library/api-reference/layout#stcolumns">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -591,13 +603,13 @@ st.video("https://example.com/myvideo.mp4", format="video/mp4")
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
 
 ```python
-col1, col2 = st.beta_columns(2)
+col1, col2 = st.columns(2)
 col1.write("this is column 1")
 col2.write("this is column 2")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/layout#beta_expander">
+<RefCard href="/library/api-reference/layout#stexpander">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -606,12 +618,12 @@ col2.write("this is column 2")
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
 
 ```python
-with st.beta_expander("Open to see more"):
+with st.expander("Open to see more"):
   st.write("This is more content")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/layout#beta_container">
+<RefCard href="/library/api-reference/layout#stcontainer">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -627,7 +639,7 @@ c.write("This will show second")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/layout#empty">
+<RefCard href="/library/api-reference/layout#stempty">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -649,7 +661,7 @@ c.write("This will show first")
 ## Display progress and status
 
 <TileContainer>
-<RefCard href="/library/api-reference/status#progress">
+<RefCard href="/library/api-reference/status#stprogress">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -664,7 +676,7 @@ for i in range(101):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status#spinner">
+<RefCard href="/library/api-reference/status#stspinner">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -677,7 +689,7 @@ st.spinner("Please wait...")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status#balloons">
+<RefCard href="/library/api-reference/status#stballoons">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -693,7 +705,7 @@ st.balloons()
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status#error">
+<RefCard href="/library/api-reference/status#sterror">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -706,7 +718,7 @@ st.error("We encountered an error")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status#warning">
+<RefCard href="/library/api-reference/status#stwarning">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -719,7 +731,7 @@ st.warning("Unable to fetch image. Skipping...")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status#info">
+<RefCard href="/library/api-reference/status#stinfo">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -732,7 +744,7 @@ st.info("Dataset is updated every day at midnight.")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status#success">
+<RefCard href="/library/api-reference/status#stsuccess">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -745,7 +757,7 @@ st.success("Match found!")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status#exception">
+<RefCard href="/library/api-reference/status#stexception">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -765,7 +777,7 @@ st.exception(e)
 ## Control flow
 
 <TileContainer>
-<RefCard href="/library/api-reference/control-flow#stop">
+<RefCard href="/library/api-reference/control-flow#ststop">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -778,7 +790,7 @@ st.stop()
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/control-flow#form">
+<RefCard href="/library/api-reference/control-flow#stform">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -800,7 +812,7 @@ with st.form():
 ## Utilities
 
 <TileContainer>
-<RefCard href="/library/api-reference/utilities#set_page_config">
+<RefCard href="/library/api-reference/utilities#stset_page_config">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -816,7 +828,7 @@ st.set_page_config(
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/utilities#help">
+<RefCard href="/library/api-reference/utilities#sthelp">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -836,7 +848,7 @@ st.help(pd.DataFrame)
 ## Mutate charts
 
 <TileContainer>
-<RefCard href="/library/api-reference/mutate#add_rows">
+<RefCard href="/library/api-reference/mutate#stadd_rows">
 
 <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
@@ -856,7 +868,7 @@ element.add_rows(df_with_extra_rows)
 ## Optimize performance
 
 <TileContainer>
-<RefCard href="/library/api-reference/performance#cache">
+<RefCard href="/library/api-reference/performance#stcache">
 
 #### Caching
 
