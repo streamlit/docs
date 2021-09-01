@@ -47,7 +47,6 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
     let versionWarning
     let currentLink
     const maxVersion = versions[versions.length - 1]
-    let isVersionedURL = false
 
     const components = {
         Note,
@@ -78,7 +77,6 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
     let arrowContainer
 
     if (version && version != maxVersion) {
-        isVersionedURL = true
         currentLink = `/${slug.slice(1).join('/')}`
         versionWarning = (
             <Warning>
@@ -124,10 +122,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                         <link rel="icon" href="/favicon.svg" />
                         <link rel="alternate icon" href="/favicon32.ico" />
                         <meta name="theme-color" content="#ffffff" />
-                        {/* If the user IS NOT on the latest version of the API reference, we add the canonical tag  */}
-                        {isVersionedURL &&
-                            <link rel="canonical" href={`https://docs.streamlit.io/${slug.slice().join('/')}`} />
-                        }
+                        <link rel="canonical" href={`https://docs.streamlit.io/${slug.slice().join('/')}`} />
                     </Head>
                     <section className="content wide" id="documentation">
                         {versionWarning}
