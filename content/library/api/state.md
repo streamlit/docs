@@ -56,7 +56,7 @@ st.write(st.session_state['value'])
 # Throws an exception!
 ```
 
-![state-uninitialized-exception](_static/img/state_uninitialized_exception.png)
+![state-uninitialized-exception](/images/state_uninitialized_exception.png)
 
 ### Delete items
 
@@ -73,7 +73,7 @@ for key in st.session_state.keys():
 
 Session State can also be cleared by going to Settings → Clear Cache, followed by Rerunning the app.
 
-<img src="_static/img/clear_cache.png" alt="Clear Cache" style='display: block; margin-left: auto; margin-right: auto; padding-top: 15px;'/>
+<img src="/images/clear_cache.png" alt="Clear Cache" style='display: block; margin-left: auto; margin-right: auto; padding-top: 15px;'/>
 
 ### Session State and Widget State association
 
@@ -155,7 +155,7 @@ with st.form(key='my_form'):
   # Throws an exception!
   ```
 
-  ![state-modified-instantiated-exception](_static/img/state_modified_instantiated_exception.png)
+  ![state-modified-instantiated-exception](/images/state_modified_instantiated_exception.png)
 
 - Setting the widget state via the Session State API and using the `value` parameter in the widget declaration is not recommended, and will throw a warning on the first run. For example:
 
@@ -167,7 +167,7 @@ with st.form(key='my_form'):
       max_value=10, value=5, key='my_slider')
   ```
 
-  ![state-value-api-exception](_static/img/state_value_api_exception.png)
+  ![state-value-api-exception](/images/state_value_api_exception.png)
 
 - Setting the state of button-like widgets: `st.button`, `st.download_button`, and `st.file_uploader` via the Session State API is not allowed. Such type of widgets are by default _False_ and have ephemeral _True_ states which are only valid for a single run. For example:
 
@@ -180,4 +180,4 @@ with st.form(key='my_form'):
   # Throws an exception!
   ```
 
-  ![state-button-exception](_static/img/state_button_exception.png)
+  ![state-button-exception](/images/state_button_exception.png)

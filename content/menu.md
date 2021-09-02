@@ -72,28 +72,28 @@ site_menu:
     url: /library/changelog
     
 
-  - category: Streamlit Cloud Platform
+  - category: Streamlit Cloud
     url: /cloud
     color: l-blue-70
     icon: cloud
-  - category: Streamlit Cloud Platform / Community
+  - category: Streamlit Cloud / Community
     url: /cloud/community
-  - category: Streamlit Cloud Platform / Community / Sign up
+  - category: Streamlit Cloud / Community / Sign up
     url: /cloud/community/sign-up
-  - category: Streamlit Cloud Platform / Community / Deploy Apps
+  - category: Streamlit Cloud / Community / Deploy Apps
     url: /cloud/community/deploy
-  - category: Streamlit Cloud Platform / Community / Manage Apps
+  - category: Streamlit Cloud / Community / Manage Apps
     url: /cloud/community/manage
-  - category: Streamlit Cloud Platform / Teams
+  - category: Streamlit Cloud / Teams
     url: /cloud/teams
-  - category: Streamlit Cloud Platform / Teams / Get Started
+  - category: Streamlit Cloud / Teams / Get Started
     url: /cloud/teams/get-started
-  - category: Streamlit Cloud Platform / Teams / Reference
+  - category: Streamlit Cloud / Teams / Reference
     url: /cloud/teams/reference
-  - category: Streamlit Cloud Platform / Teams / Frequently Asked Questions
+  - category: Streamlit Cloud / Teams / Frequently Asked Questions
     url: /cloud/teams/faq
 
-  - category: Streamlit Cloud Platform / Enterprise
+  - category: Streamlit Cloud / Enterprise
     url: /cloud/enterprise
   # - category: Streamlit Cloud / Streamlit Sharing
   #   url: /cloud/sharing
