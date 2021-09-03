@@ -14,7 +14,7 @@ Before you get started, you're going to need a few things:
 - [PIP](https://pip.pypa.io/en/stable/installing/)
 
 If you haven't already, take a few minutes to read through [Main
-concepts](main_concepts.md) to understand Streamlit's data flow model.
+concepts](/library/get-started/create-an-app) to understand Streamlit's data flow model.
 
 ## Set up your virtual environment
 
@@ -74,7 +74,10 @@ Streamlit.
 
       Did you know you can also pass a URL to `streamlit run`? This is great when combined with Github Gists. For example:
 
-      `$ streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py`
+      ```bash
+      $ streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
+      ```
+
    </Tip>
 
 4. You can kill the app at any time by typing **Ctrl+c** in the terminal.

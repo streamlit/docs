@@ -17,9 +17,9 @@ spin up and your app will open in a new tab your default web browser. The app
 is your canvas, where you'll draw charts, text, widgets, tables, and more.
 
 What gets drawn in the app is up to you. For example
-[`st.text`](api.html#streamlit.text) writes raw text to your app, and
-[`st.line_chart`](api.html#streamlit.line_chart) draws — you guessed it — a
-line chart. Refer to our [API documentation](api.md) to see all commands that
+[`st.text`](/library/api-reference/text#sttext) writes raw text to your app, and
+[`st.line_chart`](/library/api-reference/charts#stline_chart) draws — you guessed it — a
+line chart. Refer to our [API documentation](/library/api-reference) to see all commands that
 are available to you.
 
 <Note>
@@ -74,7 +74,7 @@ This can happen in two situations:
 - Whenever a user interacts with widgets in the app. For example, when dragging
   a slider, entering text in an input box, or clicking a button.
 
-Whenever a callback is passed to a widget via the `on_change` (or `on_click`) parameter, the callback will always run before the rest of your script. For details on the Callbacks API, please refer to our [Session State API Reference Guide](session_state_api.html#use-callbacks-to-update-session-state).
+Whenever a callback is passed to a widget via the `on_change` (or `on_click`) parameter, the callback will always run before the rest of your script. For details on the Callbacks API, please refer to our [Session State API Reference Guide](/library/api-reference/state#use-callbacks-to-update-session-state).
 
 And to make all of this fast and seamless, Streamlit does some heavy lifting
 for you behind the scenes. A big player in this story is the
@@ -85,15 +85,15 @@ page.
 ## Display and style data
 
 There are a few ways to display data (tables, arrays, data frames) in Streamlit
-apps. In [getting started](getting_started.md), you were introduced to _magic_
-and [`st.write()`](api.html#streamlit.write), which can be used to write
+apps. In [getting started](/library/get-started), you were introduced to _magic_
+and [`st.write()`](/library/api-reference/write-magic#stwrite), which can be used to write
 anything from text to tables. Now let's take a look at methods designed
 specifically for visualizing data.
 
 You might be asking yourself, "why wouldn't I always use st.write()?" There are
 a few reasons:
 
-1. _Magic_ and [`st.write()`](api.html#streamlit.write) inspect the type of
+1. _Magic_ and [`st.write()`](/library/api-reference/write-magic#stwrite) inspect the type of
    data that you've passed in, and then decide how to best render it in the
    app. Sometimes you want to draw it another way. For example, instead of
    drawing a dataframe as an interactive table, you may want to draw it as a
@@ -105,7 +105,7 @@ a few reasons:
 
 For example, let's create a data frame and change its formatting with a Pandas
 `Styler` object. In this example, you'll use Numpy to generate a random sample,
-and the [`st.dataframe()`](api.html#streamlit.dataframe) method to draw an
+and the [`st.dataframe()`](/library/api-reference/data#stdataframe) method to draw an
 interactive table.
 
 <Note>
@@ -132,7 +132,7 @@ st.dataframe(dataframe.style.highlight_max(axis=0))
 ```
 
 Streamlit also has a method for static table generation:
-[`st.table()`](api.html#streamlit.table).
+[`st.table()`](/library/api-reference/data#sttable).
 
 ```python
 dataframe = pd.DataFrame(
@@ -144,9 +144,9 @@ st.table(dataframe)
 ## Widgets
 
 When you've got the data or model into the state that you want to explore, you
-can add in widgets like [`st.slider()`](api.html#streamlit.slider),
-[`st.button()`](api.html#streamlit.button) or
-[`st.selectbox()`](api.html#streamlit.selectbox). It's really straightforward
+can add in widgets like [`st.slider()`](/library/api-reference/widgets#stslider),
+[`st.button()`](/library/api-reference/widgets#stbutton) or
+[`st.selectbox()`](/library/api-reference/widgets#stselectbox). It's really straightforward
 — treat widgets as variables:
 
 ```python
@@ -174,7 +174,7 @@ st.text_input("Your name", key="name")
 st.session_state.name
 ```
 
-Every widget with a key is automatically added to Session State. For more information about Session State, its association with widget state, and its limitations, see [Session State API Reference Guide](session_state_api.md).
+Every widget with a key is automatically added to Session State. For more information about Session State, its association with widget state, and its limitations, see [Session State API Reference Guide](/library/api-reference/state).
 
 ## Layout
 
@@ -205,13 +205,13 @@ add_slider = st.sidebar.slider(
 ```
 
 Beyond the sidebar, Streamlit offers several other ways to control the layout
-of your app. [`st.beta_columns`](https://docs.streamlit.io/en/latest/api.html#streamlit.beta_columns) lets you place widgets side-by-side, and
-[`st.beta_expander`](https://docs.streamlit.io/en/latest/api.html#streamlit.beta_expander) lets you conserve space by hiding away large content.
+of your app. [`st.columns`](/library/api-reference/layout#stcolumns) lets you place widgets side-by-side, and
+[`st.expander`](/library/api-reference/layout#stexpander) lets you conserve space by hiding away large content.
 
 ```python
 import streamlit as st
 
-left_column, right_column = st.beta_columns(2)
+left_column, right_column = st.columns(2)
 # You can use a column just like st.sidebar:
 left_column.button('Press me!')
 
@@ -239,22 +239,22 @@ Otherwise, the Light theme is applied by default.
 
 You can also change the active theme from "☰" → "Settings".
 
-![Changing Themes](media/change_theme.gif)
+![Changing Themes](/images/change_theme.gif)
 
 Want to add your own theme to an app? The "Settings" menu has a theme editor
 accessible by clicking on "Edit active theme". You can use this editor to try
 out different colors and see your app update live.
 
-![Editing Themes](media/edit_theme.gif)
+![Editing Themes](/images/edit_theme.gif)
 
 When you're happy with your work, themes can be saved by
-[setting config options](streamlit_configuration.html#set-configuration-options)
+[setting config options](/library/advanced-features/configuration#set-configuration-options)
 in the `[theme]` config section. After you've defined a theme for your app, it
 will appear as "Custom Theme" in the theme selector and will be applied by
 default instead of the included Light and Dark themes.
 
 More information about the options available when defining a theme can be found
-in the [theme option documentation](theme_options.md).
+in the [theme option documentation](/library/advanced-features/theming).
 
 <Note>
 
@@ -278,7 +278,7 @@ from the web, manipulating large datasets, or performing expensive
 computations.
 
 To use the cache, wrap functions with the
-[`@st.cache`](api.html#streamlit.cache) decorator:
+[`@st.cache`](/library/api-reference/performance#stcache) decorator:
 
 ```python
 @st.cache  # 👈 This function will be cached
@@ -287,7 +287,7 @@ def my_slow_function(arg1, arg2):
     return the_output
 ```
 
-When you mark a function with the [`@st.cache`](api.html#streamlit.cache)
+When you mark a function with the [`@st.cache`](/library/api-reference/performance#stcache)
 decorator, it tells Streamlit that whenever the function is called it needs to
 check a few things:
 
@@ -304,7 +304,7 @@ the function altogether and, instead, return the output previously stored in
 the cache.
 
 For more information about the Streamlit cache, its configuration parameters,
-and its limitations, see [Caching](/topic-guides/caching).
+and its limitations, see [Caching](/library/advanced-features/caching).
 
 ## App model
 
