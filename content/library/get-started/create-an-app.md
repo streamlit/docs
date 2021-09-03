@@ -179,8 +179,8 @@ Every widget with a key is automatically added to Session State. For more inform
 ## Layout
 
 Streamlit makes it easy to organize your widgets in a left panel sidebar with
-[`st.sidebar`](api.html#add-widgets-to-sidebar). Each element that's passed to
-[`st.sidebar`](api.html#add-widgets-to-sidebar) is pinned to the left, allowing
+[`st.sidebar`](/library/api-reference/layout#add-widgets-to-sidebar). Each element that's passed to
+[`st.sidebar`](/library/api-reference/layout#add-widgets-to-sidebar) is pinned to the left, allowing
 users to focus on the content in your app while still having access to UI
 controls.
 
@@ -259,7 +259,7 @@ in the [theme option documentation](/library/advanced-features/theming).
 <Note>
 
 The theme editor menu is available only in local development. If you've deployed your app using
-Streamlit Sharing, the "Edit active theme" button will no longer be displayed in the "Settings"
+Streamlit Cloud, the "Edit active theme" button will no longer be displayed in the "Settings"
 menu.
 
 </Note>

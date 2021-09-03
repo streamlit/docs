@@ -8,13 +8,13 @@ slug: /library/advanced-features/theming
 In this guide, we provide examples of how Streamlit page elements are affected
 by the various theme config options. For a more high-level overview of
 Streamlit themes, see the Themes section of the
-[main concepts documentation](main_concepts.html#themes).
+[main concepts documentation](/library/get-started/create-an-app#themes).
 
 Streamlit themes are defined using regular config options: a theme can be set
 via command line flag when starting your app using `streamlit run` or by
 defining it in the `[theme]` section of a `.streamlit/config.toml` file. For
 more information on setting config options, please refer to the
-[Streamlit configuration documentation](streamlit_configuration.html#set-configuration-options).
+[Streamlit configuration documentation](/library/advanced-features/configuration#set-configuration-options).
 
 The following config options show the default Streamlit Light theme recreated
 in the `[theme]` section of a `.streamlit/config.toml` file.

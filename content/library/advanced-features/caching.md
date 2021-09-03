@@ -5,9 +5,9 @@ slug: /library/advanced-features/caching
 
 # Optimize performance with st.cache
 
-Streamlit provides a caching mechanism that allows your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations. This is done with the [`@st.cache`](api.html#streamlit.cache) decorator.
+Streamlit provides a caching mechanism that allows your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations. This is done with the [`@st.cache`](/library/api-reference/performance#stcache) decorator.
 
-When you mark a function with the [`@st.cache`](api.html#streamlit.cache) decorator, it tells Streamlit that whenever the function is called it needs to check a few things:
+When you mark a function with the [`@st.cache`](/library/api-reference/performance#stcache) decorator, it tells Streamlit that whenever the function is called it needs to check a few things:
 
 1. The input parameters that you called the function with
 2. The value of any external variable used in the function
@@ -18,7 +18,7 @@ If this is the first time Streamlit has seen these four components with these ex
 
 The way Streamlit keeps track of changes in these components is through hashing. Think of the cache as an in-memory key-value store, where the key is a hash of all of the above and the value is the actual output object passed by reference.
 
-Finally, [`@st.cache`](api.html#streamlit.cache) supports arguments to configure the cache's behavior. You can find more information on those in our [API reference](api.md).
+Finally, [`@st.cache`](/library/api-reference/performance#stcache) supports arguments to configure the cache's behavior. You can find more information on those in our [API reference](/library/api-reference).
 
 Let's take a look at a few examples that illustrate how caching works in a Streamlit app.
 
@@ -43,7 +43,7 @@ st.write("Result:", res)
 
 Try pressing **R** to rerun the app, and notice how long it takes for the result to show up. This is because `expensive_computation(a, b)` is being re-executed every time the app runs. This isn't a great experience.
 
-Let's add the [`@st.cache`](api.html#streamlit.cache) decorator:
+Let's add the [`@st.cache`](/library/api-reference/performance#stcache) decorator:
 
 ```python
 import streamlit as st
@@ -196,7 +196,7 @@ res = expensive_computation(a, b)
 st.write("Result:", res)
 ```
 
-Even though `inner_func()` is not annotated with [`@st.cache`](api.html#streamlit.cache), when we edit its body we cause a "Cache miss" in the outer `expensive_computation()`.
+Even though `inner_func()` is not annotated with [`@st.cache`](/library/api-reference/performance#stcache), when we edit its body we cause a "Cache miss" in the outer `expensive_computation()`.
 
 That's because Streamlit always traverses your code and its dependencies to verify that the cached values are still valid. This means that while developing your app you can edit your code freely without worrying about the cache. Any change you make to your app, Streamlit should do the right thing!
 
@@ -228,7 +228,7 @@ What you'll see:
 - If you move the slider to a number Streamlit hasn't seen before, you'll have a cache miss again. And every subsequent rerun with the same number will be a cache hit, of course.
 - If you move the slider back to a number Streamlit has seen before, the cache is hit and the app is fast as expected.
 
-In computer science terms, what is happening here is that [`@st.cache`](api.html#streamlit.cache) is [memoizing](https://en.wikipedia.org/wiki/Memoization) `expensive_computation(a, b)`.
+In computer science terms, what is happening here is that [`@st.cache`](/library/api-reference/performance#stcache) is [memoizing](https://en.wikipedia.org/wiki/Memoization) `expensive_computation(a, b)`.
 
 But now let's go one step further! Try the following:
 
@@ -242,7 +242,7 @@ This happens because the Streamlit cache is global to all users. So everyone con
 
 ## Example 6: Mutating cached values
 
-As mentioned in the [overview](#caching) section, the Streamlit cache stores items by reference. This allows the Streamlit cache to support structures that aren't memory-managed by Python, such as TensorFlow objects. However, it can also lead to unexpected behavior — which is why Streamlit has a few checks to guide developers in the right direction. Let's look into those checks now.
+As mentioned in the [overview](#optimize-performance-with-stcache) section, the Streamlit cache stores items by reference. This allows the Streamlit cache to support structures that aren't memory-managed by Python, such as TensorFlow objects. However, it can also lead to unexpected behavior — which is why Streamlit has a few checks to guide developers in the right direction. Let's look into those checks now.
 
 Let's write an app that has a cached function which returns a mutable object, and then let's follow up by mutating that object:
 
@@ -277,7 +277,7 @@ No surprises here. But now notice what happens when you rerun you app (i.e. pres
 
 - Result: {output: "result was manually mutated"}
 - Mutated result: {output: "result was manually mutated"}
-- &lt;Warning&gt; Cached object mutated. (...)
+- Cached object mutated. (...)
 
 So what's up?
 
@@ -285,11 +285,11 @@ What's going on here is that Streamlit caches the output `res` by reference. Whe
 
 Since this behavior is usually not what you'd expect, Streamlit tries to be helpful and show you a warning, along with some ideas about how to fix your code.
 
-In this specific case, the fix is just to not mutate `res["output"]` outside the cached function. There was no good reason for us to do that anyway! Another solution would be to clone the result value with `res = deepcopy(expensive_computation(2, 21))`. Check out the section entitled [Fixing caching issues](troubleshooting/caching_issues.md) for more information on these approaches and more.
+In this specific case, the fix is just to not mutate `res["output"]` outside the cached function. There was no good reason for us to do that anyway! Another solution would be to clone the result value with `res = deepcopy(expensive_computation(2, 21))`. Check out the section entitled [Fixing caching issues](/kb/troubleshooting/caching-issues) for more information on these approaches and more.
 
 ## Advanced caching
 
-In [caching](caching.md), you learned about the Streamlit cache, which is accessed with the [`@st.cache`](api.html#streamlit.cache) decorator. In this article you'll see how Streamlit's caching functionality is implemented, so that you can use it to improve the performance of your Streamlit apps.
+In [caching](/library/advanced-features/caching), you learned about the Streamlit cache, which is accessed with the [`@st.cache`](/library/api-reference/performance#stcache) decorator. In this article you'll see how Streamlit's caching functionality is implemented, so that you can use it to improve the performance of your Streamlit apps.
 
 The cache is a key-value store, where the key is a hash of:
 
@@ -303,9 +303,9 @@ And the value is a tuple of:
 - The cached output
 - A hash of the cached output (you'll see why soon)
 
-For both the key and the output hash, Streamlit uses a specialized hash function that knows how to traverse code, hash special objects, and can have its [behavior customized by the user](#the-hash-funcs-parameter).
+For both the key and the output hash, Streamlit uses a specialized hash function that knows how to traverse code, hash special objects, and can have its [behavior customized by the user](#the-hash_funcs-parameter).
 
-For example, when the function `expensive_computation(a, b)`, decorated with [`@st.cache`](api.html#streamlit.cache), is executed with `a=2` and `b=21`, Streamlit does the following:
+For example, when the function `expensive_computation(a, b)`, decorated with [`@st.cache`](/library/api-reference/performance#stcache), is executed with `a=2` and `b=21`, Streamlit does the following:
 
 1. Computes the cache key
 1. If the key is found in the cache, then:
@@ -318,9 +318,9 @@ For example, when the function `expensive_computation(a, b)`, decorated with [`@
    - Stores `key → (output, output_hash)` in the cache.
 1. Returns the output.
 
-If an error is encountered an exception is raised. If the error occurs while hashing either the key or the output an `UnhashableTypeError` error is thrown. If you run into any issues, see [fixing caching issues](troubleshooting/caching_issues.md).
+If an error is encountered an exception is raised. If the error occurs while hashing either the key or the output an `UnhashableTypeError` error is thrown. If you run into any issues, see [fixing caching issues](/kb/troubleshooting/caching-issues).
 
-### The `hash_funcs` parameter
+### The hash_funcs parameter
 
 As described above, Streamlit's caching functionality relies on hashing to calculate the key for cached objects, and to detect unexpected mutations in the cached result.
 
@@ -339,7 +339,7 @@ def func(file_reference):
 
 By default, Streamlit hashes custom classes like `FileReference` by recursively navigating their structure. In this case, its hash is the hash of the filename property. As long as the file name doesn't change, the hash will remain constant.
 
-However, what if you wanted to have the hasher check for changes to the file's modification time, not just its name? This is possible with [`@st.cache`](api.html#streamlit.cache)'s `hash_funcs` parameter:
+However, what if you wanted to have the hasher check for changes to the file's modification time, not just its name? This is possible with [`@st.cache`](/library/api-reference/performance#stcache)'s `hash_funcs` parameter:
 
 ```python
 class FileReference:
@@ -391,12 +391,12 @@ Python's [`id`](https://docs.python.org/3/library/functions.html#id) function | 
 - Speed: Fast
 - Use case: If you want to turn off hashing of this type. This is useful if you know the object is not going to change.
 
-Python's [`hash()`](https://docs.python.org/3/library/functions.html#hash) function | [Example](#example-3-use-python-s-hash-function)
+Python's [`hash()`](https://docs.python.org/3/library/functions.html#hash) function | [Example](#example-3-use-pythons-hash-function)
 
 - Speed: Can be slow based the size of the object being cached
 - Use case: If Python already knows how to hash this type correctly.
 
-Custom hash function | [Example](#the-hash-funcs-parameter)
+Custom hash function | [Example](#the-hash_funcs-parameter)
 
 - Speed: N/a
 - Use case: If you'd like to override how Streamlit hashes a particular type.
@@ -444,7 +444,7 @@ def func(huge_constant_dataframe):
 
 When Streamlit encounters an object of this type, it always converts the object into `None`, no matter which instance of `FooType` its looking at. This means all instances are hash to the same value, which effectively cancels out the hashing mechanism.
 
-### Example 3: Use Python's `hash()` function
+### Example 3: Use Python's hash() function
 
 Sometimes, you might want to use Python’s default hashing instead of Streamlit's. For example, maybe you've encountered a type that Streamlit is unable to hash, but it's hashable with Python's built-in `hash()` function:
 

@@ -50,7 +50,7 @@ streamlit cache clear
 ```
 
 Clears persisted files from the on-disk [Streamlit
-cache](api.html#optimize-performance), if present.
+cache](/library/api-reference/performance), if present.
 
 ## Set configuration options
 
@@ -90,7 +90,7 @@ Shows all config options available for Streamlit, including their current
 values:
 
 ```toml
-# last updated 2021-05-13
+# last updated 2021-07-22
 
 [global]
 
@@ -103,6 +103,12 @@ disableWatchdogWarning = false
 # Default: true
 showWarningOnDirectExecution = true
 
+# DataFrame serialization.
+# Acceptable values:
+# - 'legacy': Serialize DataFrames using Streamlit's custom format. Slow but battle-tested.
+# - 'arrow': Serialize DataFrames using Apache Arrow. Much faster and versatile.
+# Default: 'arrow'
+dataFrameSerialization = "arrow"
 
 [logger]
 
@@ -113,7 +119,6 @@ level = "debug"
 # String format for logging messages. If logger.datetimeFormat is set, logger messages will default to `%(asctime)s.%(msecs)03d %(message)s`. See [Python's documentation](https://docs.python.org/2.6/library/logging.html#formatter-objects) for available attributes.
 # Default: None
 messageFormat = "%(asctime)s %(levelname) -7s %(name)s: %(message)s"
-
 
 [client]
 
@@ -129,7 +134,6 @@ displayEnabled = true
 # If set to False, an exception will result in a generic message being shown in the browser, and exceptions and tracebacks will be printed to the console only.
 # Default: true
 showErrorDetails = true
-
 
 [runner]
 
@@ -148,7 +152,6 @@ fixMatplotlib = true
 # Run the Python Garbage Collector after each script execution. This can help avoid excess memory use in Streamlit apps, but could introduce delay in rerunning the app script for high-memory-use applications.
 # Default: true
 postScriptGC = true
-
 
 [server]
 
@@ -205,7 +208,6 @@ maxUploadSize = 200
 # Default: true
 enableWebsocketCompression = true
 
-
 [browser]
 
 # Internet address where users should point their browsers in order to connect to the app. Can be IP address or DNS name and path.
@@ -222,13 +224,11 @@ gatherUsageStats = true
 # Default: whatever value is set in server.port.
 serverPort = 8501
 
-
 [mapbox]
 
 # Configure Streamlit to use a custom Mapbox token for elements like st.pydeck_chart and st.map. To get a token for yourself, create an account at https://mapbox.com. It's free (for moderate usage levels)!
 # Default: ""
 token = ""
-
 
 [deprecation]
 
@@ -248,7 +248,6 @@ showImageFormat = "True"
 # Set to false to disable the deprecation warning for using the global pyplot instance.
 # Default: "True"
 showPyplotGlobalUse = "True"
-
 
 [s3]
 
@@ -283,7 +282,6 @@ keyPrefix = ""
 # Leave unset to use your default profile.
 # Default: (unset)
 #profile =
-
 
 [theme]
 

@@ -73,7 +73,7 @@ for key in st.session_state.keys():
 
 Session State can also be cleared by going to Settings → Clear Cache, followed by Rerunning the app.
 
-<img src="/images/clear_cache.png" alt="Clear Cache" style='display: block; margin-left: auto; margin-right: auto; padding-top: 15px;'/>
+![state-clear-cache](/images/clear_cache.png)
 
 ### Session State and Widget State association
 
@@ -123,6 +123,7 @@ Widgets which support the `on_click` event:
 - `st.form_submit_button`
 
 To add a callback, define a callback function **above** the widget declaration and pass it to the widget via the `on_change` (or `on_click` ) parameter.
+
 
 ### Forms and Callbacks
 
