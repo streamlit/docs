@@ -33,6 +33,7 @@ export default function Home({ window, menu, gdpr_data }) {
         <link rel="icon" href="/favicon.svg" />
         <link rel="alternate icon" href="/favicon32.ico" />
         <meta name="theme-color" content="#ffffff" />
+        <link rel="canonical" href="https://docs.streamlit.io/" />
       </Head>
       <section className="page container template-expanded-wide">
         <GDPRBanner {...gdpr_data} />
