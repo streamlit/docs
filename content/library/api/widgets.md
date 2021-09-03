@@ -8,6 +8,7 @@ slug: /library/api-reference/widgets
 With widgets, Streamlit allows you to bake interactivity directly into your apps with buttons, sliders, text inputs, and more.
 
 <Autofunction function="streamlit.button" />
+<Autofunction function="streamlit.download_button" />
 <Autofunction function="streamlit.checkbox" />
 <Autofunction function="streamlit.radio" />
 <Autofunction function="streamlit.selectbox" />

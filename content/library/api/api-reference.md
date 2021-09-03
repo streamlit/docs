@@ -22,7 +22,7 @@ So browse our API below and click to learn move about any of our available comma
 
 #### st.write
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Write arguments to the app.
 
 ```python
 st.write("Hello **world**!")
@@ -35,7 +35,7 @@ st.write(my_mpl_figure)
 
 #### Magic
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Any time Streamlit sees either a variable or literal value on its own line, it automatically writes that to your app using `st.write`
 
 ```python
 "Hello **world**!"
@@ -56,7 +56,7 @@ my_mpl_figure
 
 #### Markdown
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display string formatted as Markdown.
 
 ```python
 st.markdown("Hello **world**!")
@@ -69,7 +69,7 @@ st.markdown("Hello **world**!")
 
 #### Title
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display text in title formatting.
 
 ```python
 st.title("The app title")
@@ -82,7 +82,7 @@ st.title("The app title")
 
 #### Header
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display text in header formatting.
 
 ```python
 st.header("This is a header")
@@ -95,7 +95,7 @@ st.header("This is a header")
 
 #### Subheader
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display text in subheader formatting.
 
 ```python
 st.subheader("This is a subheader")
@@ -108,7 +108,7 @@ st.subheader("This is a subheader")
 
 #### Caption
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display text in small font.
 
 ```python
 st.caption("This is written small caption text")
@@ -121,7 +121,7 @@ st.caption("This is written small caption text")
 
 #### Code block
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a code block with optional syntax highlighting.
 
 ```python
 st.code("a = 1234")
@@ -134,7 +134,7 @@ st.code("a = 1234")
 
 #### Preformatted text
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Write fixed-width and preformatted text.
 
 ```python
 st.text("Hello world")
@@ -147,7 +147,7 @@ st.text("Hello world")
 
 #### LaTeX
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display mathematical expressions formatted as LaTeX.
 
 ```python
 st.latex("$\int a x^2 \,dx$")
@@ -165,7 +165,7 @@ st.latex("$\int a x^2 \,dx$")
 
 #### Dataframes
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a dataframe as an interactive table.
 
 ```python
 st.dataframe(my_data_frame)
@@ -177,7 +177,7 @@ st.dataframe(my_data_frame)
 
 #### Static tables
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a static table.
 
 ```python
 st.table(my_data_frame)
@@ -189,7 +189,7 @@ st.table(my_data_frame)
 
 #### Metrics
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a metric in big bold font, with an optional indicator of how the metric changed.
 
 ```python
 st.metric("My metric", 42, 2)
@@ -201,7 +201,7 @@ st.metric("My metric", 42, 2)
 
 #### Dicts and JSON
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display object or string as a pretty-printed JSON string.
 
 ```python
 st.json(my_data_frame)
@@ -219,7 +219,7 @@ st.json(my_data_frame)
 
 #### Simple line charts
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a line chart.
 
 ```python
 st.line_chart(my_data_frame)
@@ -231,7 +231,7 @@ st.line_chart(my_data_frame)
 
 #### Simple area charts
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display an area chart.
 
 ```python
 st.area_chart(my_data_frame)
@@ -243,7 +243,7 @@ st.area_chart(my_data_frame)
 
 #### Simple bar charts
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a bar chart.
 
 ```python
 st.bar_chart(my_data_frame)
@@ -255,7 +255,7 @@ st.bar_chart(my_data_frame)
 
 #### Scatterplots on maps
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a map with points on it.
 
 ```python
 st.map(my_data_frame)
@@ -267,7 +267,7 @@ st.map(my_data_frame)
 
 #### Matplotlib
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a matplotlib.pyplot figure.
 
 ```python
 st.pyplot(my_mpl_figure)
@@ -279,7 +279,7 @@ st.pyplot(my_mpl_figure)
 
 #### Altair
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a chart using the Altair library.
 
 ```python
 st.altair_chart(my_altair_chart)
@@ -291,7 +291,7 @@ st.altair_chart(my_altair_chart)
 
 #### Vega-Lite
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a chart using the Vega-Lite library.
 
 ```python
 st.vega_lite_chart(my_vega_lite_chart)
@@ -303,7 +303,7 @@ st.vega_lite_chart(my_vega_lite_chart)
 
 #### Plotly
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display an interactive Plotly chart.
 
 ```python
 st.plotly_chart(my_plotly_chart)
@@ -315,7 +315,7 @@ st.plotly_chart(my_plotly_chart)
 
 #### Bokeh
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display an interactive Bokeh chart.
 
 ```python
 st.bokeh_chart(my_bokeh_chart)
@@ -327,7 +327,7 @@ st.bokeh_chart(my_bokeh_chart)
 
 #### PyDeck
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Draw a chart using the PyDeck library.
 
 ```python
 st.pydeck_chart(my_pydeck_chart)
@@ -339,7 +339,7 @@ st.pydeck_chart(my_pydeck_chart)
 
 #### GraphViz
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a graph using the dagre-d3 library.
 
 ```python
 st.graphviz_chart(my_graphviz_spec)
@@ -358,10 +358,23 @@ st.graphviz_chart(my_graphviz_spec)
 
 #### Button
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a button widget.
 
 ```python
 clicked = st.button("Click me")
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/widgets#stdownload_button">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Download button
+
+Display a download button widget.
+
+```python
+st.download_button("Download file", file)
 ```
 
 </RefCard>
@@ -371,7 +384,7 @@ clicked = st.button("Click me")
 
 #### Checkbox
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a checkbox widget.
 
 ```python
 selected = st.checkbox("I agree")
@@ -384,7 +397,7 @@ selected = st.checkbox("I agree")
 
 #### Radio
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a radio button widget.
 
 ```python
 choice = st.radio("Pick one", ["cats", "dogs"])
@@ -397,7 +410,7 @@ choice = st.radio("Pick one", ["cats", "dogs"])
 
 #### Selectbox
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a select widget.
 
 ```python
 choice = st.selectbox("Pick one", ["cats", "dogs"])
@@ -410,7 +423,7 @@ choice = st.selectbox("Pick one", ["cats", "dogs"])
 
 #### Multiselect
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a multiselect widget. The multiselect widget starts as empty.
 
 ```python
 choices = st.multiselect("Buy", ["milk", "apples", "potatoes"])
@@ -423,7 +436,7 @@ choices = st.multiselect("Buy", ["milk", "apples", "potatoes"])
 
 #### Slider
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a slider widget.
 
 ```python
 number = st.slider("Pick a number", 0, 100)
@@ -436,7 +449,7 @@ number = st.slider("Pick a number", 0, 100)
 
 #### Select-slider
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a slider widget to select items from a list.
 
 ```python
 size = st.select_slider("Pick a size", ["S", "M", "L"])
@@ -449,7 +462,7 @@ size = st.select_slider("Pick a size", ["S", "M", "L"])
 
 #### Text input
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a single-line text input widget.
 
 ```python
 name = st.text_input("First name")
@@ -462,7 +475,7 @@ name = st.text_input("First name")
 
 #### Number input
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a numeric input widget.
 
 ```python
 choice = st.number_input("Pick a number", 0, 10)
@@ -475,7 +488,7 @@ choice = st.number_input("Pick a number", 0, 10)
 
 #### Text-area
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a multi-line text input widget.
 
 ```python
 text = st.text_area("Text to translate")
@@ -488,7 +501,7 @@ text = st.text_area("Text to translate")
 
 #### Date input
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a date input widget.
 
 ```python
 date = st.date_input("Your birthday")
@@ -501,7 +514,7 @@ date = st.date_input("Your birthday")
 
 #### Time input
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a time input widget.
 
 ```python
 time = st.time_input("Meeting time")
@@ -514,7 +527,7 @@ time = st.time_input("Meeting time")
 
 #### File Uploader
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a file uploader widget.
 
 ```python
 photo = st.file_uploader("Upload a photo")
@@ -527,7 +540,7 @@ photo = st.file_uploader("Upload a photo")
 
 #### Color picker
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a color picker widget.
 
 ```python
 color = st.color_picker("Pick a color")
@@ -546,7 +559,7 @@ color = st.color_picker("Pick a color")
 
 #### Image
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display an image or list of images.
 
 ```python
 st.image(numpy_array)
@@ -562,7 +575,7 @@ st.image("https://example.com/myimage.png")
 
 #### Audio
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display an audio player.
 
 ```python
 st.audio(numpy_array)
@@ -578,7 +591,7 @@ st.audio("https://example.com/myaudio.mp3", format="audio/mp3")
 
 #### Video
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a video player.
 
 ```python
 st.video(numpy_array)
@@ -600,7 +613,7 @@ st.video("https://example.com/myvideo.mp4", format="video/mp4")
 
 #### Columns
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Insert containers laid out as side-by-side columns.
 
 ```python
 col1, col2 = st.columns(2)
@@ -615,7 +628,7 @@ col2.write("this is column 2")
 
 #### Expander
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Insert a multi-element container that can be expanded/collapsed.
 
 ```python
 with st.expander("Open to see more"):
@@ -629,7 +642,7 @@ with st.expander("Open to see more"):
 
 #### Container
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Insert a multi-element container.
 
 ```python
 c = st.container()
@@ -645,7 +658,7 @@ c.write("This will show second")
 
 #### Empty
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Insert a single-element container.
 
 ```python
 c = st.empty()
@@ -667,7 +680,7 @@ c.write("This will show first")
 
 #### Progress bar
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a progress bar.
 
 ```python
 for i in range(101):
@@ -682,7 +695,7 @@ for i in range(101):
 
 #### Spinner
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Temporarily displays a message while executing a block of code.
 
 ```python
 st.spinner("Please wait...")
@@ -695,7 +708,7 @@ st.spinner("Please wait...")
 
 #### Balloons
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Draw celebratory balloons.
 
 ```python
 do_something()
@@ -711,7 +724,7 @@ st.balloons()
 
 #### Error box
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display error message.
 
 ```python
 st.error("We encountered an error")
@@ -724,7 +737,7 @@ st.error("We encountered an error")
 
 #### Warning box
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display warning message.
 
 ```python
 st.warning("Unable to fetch image. Skipping...")
@@ -737,7 +750,7 @@ st.warning("Unable to fetch image. Skipping...")
 
 #### Info box
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display an informational message.
 
 ```python
 st.info("Dataset is updated every day at midnight.")
@@ -750,7 +763,7 @@ st.info("Dataset is updated every day at midnight.")
 
 #### Success box
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display a success message.
 
 ```python
 st.success("Match found!")
@@ -763,7 +776,7 @@ st.success("Match found!")
 
 #### Exception output
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display an exception.
 
 ```python
 e = RuntimeError("This is an exception of type RuntimeError")
@@ -783,7 +796,7 @@ st.exception(e)
 
 #### Stop execution
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Stops execution immediately.
 
 ```python
 st.stop()
@@ -796,7 +809,7 @@ st.stop()
 
 #### Forms
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Create a form that batches elements together with a “Submit” button.
 
 ```python
 with st.form():
@@ -818,7 +831,7 @@ with st.form():
 
 #### Session State
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Session State is a way to share variables between reruns, for each user session.
 
 ```python
 st.session_state['key'] = value
@@ -837,7 +850,7 @@ st.session_state['key'] = value
 
 #### Set page title, favicon, and more
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Configures the default settings of the page.
 
 ```python
 st.set_page_config(
@@ -853,7 +866,7 @@ st.set_page_config(
 
 #### Get help
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Display object’s doc string, nicely formatted.
 
 ```python
 st.help(st.write)
@@ -873,7 +886,7 @@ st.help(pd.DataFrame)
 
 #### Add rows
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Concatenate a dataframe to the bottom of the current one.
 
 ```python
 element = st.line_chart(df)
@@ -891,7 +904,7 @@ element.add_rows(df_with_extra_rows)
 
 #### Caching
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum amet at est quis id nisl sed vitae.
+Function decorator to memoize function executions.
 
 ```python
 @st.cache(ttl=3600)
