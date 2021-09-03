@@ -24,3 +24,4 @@ also use [magic commands](api.html#magic-commands) in place of `st.write`.
 <Autofunction function="streamlit.code" />
 <Autofunction function="streamlit.text" />
 <Autofunction function="streamlit.latex" />
+<Autofunction function="streamlit.echo" />

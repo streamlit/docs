@@ -154,6 +154,20 @@ st.latex("$\int a x^2 \,dx$")
 ```
 
 </RefCard>
+<RefCard href="/library/api-reference/text#stecho">
+
+<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+
+#### Echo
+
+Use in a `with` block to draw some code on the app, then execute it.
+
+```python
+with st.echo():
+  st.write('This code will be printed')
+```
+
+</RefCard>
 </TileContainer>
 
 
