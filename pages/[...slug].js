@@ -106,6 +106,12 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
         )
     }
 
+    // To get the hostname for canonical URLs
+    let host
+    if (typeof window !== 'undefined') {
+        host = window.location.host
+    }
+
     return (
         <MDXProvider
             components={{
@@ -123,9 +129,9 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                         <link rel="alternate icon" href="/favicon32.ico" />
                         <meta name="theme-color" content="#ffffff" />
                         {version === true ?
-                            <link rel="canonical" href={`https://docs.streamlit.io/${slug.slice(1).join('/')}`} />
+                            <link rel="canonical" href={`${host}/${slug.slice(1).join('/')}`} />
                             :
-                            <link rel="canonical" href={`https://docs.streamlit.io/${slug.join('/')}`} />
+                            <link rel="canonical" href={`${host}/${slug.join('/')}`} />
                         }
                     </Head>
                     <section className="content wide" id="documentation">
@@ -226,7 +232,7 @@ export async function getStaticProps(context) {
 }
 
 
-export async function getStaticPaths() {
+export async function getStaticPaths(context) {
     // Build up paths based on slugified categories for all docs
     const articles = getArticleSlugs()
     const paths = []
