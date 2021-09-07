@@ -11,13 +11,13 @@ Publishing your Streamlit Component to [PyPI](https://pypi.org/) makes it easily
 
 <Note>
 
-For [static Streamlit Components](/develop_streamlit_components.html#create-a-static-component>), publishing a Python package to PyPI follows the same steps as the
+For [static Streamlit Components](/library/components/components-api#create-a-static-component), publishing a Python package to PyPI follows the same steps as the
 [core PyPI packaging instructions](https://packaging.python.org/tutorials/packaging-projects/). A static Component likely contains only Python code, so once you have your
 [setup.py](https://packaging.python.org/tutorials/packaging-projects/#creating-setup-py) file correct and 
 [generate your distribution files](https://packaging.python.org/tutorials/packaging-projects/#generating-distribution-archives), you're ready to
 [upload to PyPI](https://packaging.python.org/tutorials/packaging-projects/#uploading-the-distribution-archives).
 
-[Bi-directional Streamlit Components](/develop_streamlit_components.html#create-a-bi-directional-component) at minimum include both Python and JavaScript code, and as such, need a bit more preparation before they can be published on PyPI. The remainder of this page focuses on the bi-directional Component preparation process.
+[Bi-directional Streamlit Components](/library/components/components-api#create-a-bi-directional-component) at minimum include both Python and JavaScript code, and as such, need a bit more preparation before they can be published on PyPI. The remainder of this page focuses on the bi-directional Component preparation process.
 
 </Note>
 

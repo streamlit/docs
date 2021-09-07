@@ -15,7 +15,7 @@ If you are unsure whether you need bi-directional communication, **start here fi
 
 ### Render an HTML string
 
-While [`st.text`](api.html#streamlit.text), [`st.markdown`](api.html#streamlit.text) and [`st.write`](api.html#streamlit.text) make it easy to write text to a Streamlit app, sometimes you'd rather implement a custom piece of HTML. Similarly, while Streamlit natively supports [many charting libraries](api.html#display-charts), you may want to implement a specific HTML/JavaScript template for a new charting library. `components.html` works by giving you the ability to embed an iframe inside of a Streamlit app that contains your desired output.
+While [`st.text`](/library/api-reference/text#sttext), [`st.markdown`](/library/api-reference/text#stmarkdown) and [`st.write`](library/api-reference/write-magic#stwrite) make it easy to write text to a Streamlit app, sometimes you'd rather implement a custom piece of HTML. Similarly, while Streamlit natively supports [many charting libraries](/library/api-reference/charts#chart-elements), you may want to implement a specific HTML/JavaScript template for a new charting library. `components.html` works by giving you the ability to embed an iframe inside of a Streamlit app that contains your desired output.
 
 <Autofunction function="streamlit.components.v1.html" />
 
