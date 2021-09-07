@@ -26,12 +26,6 @@ import NoteSplit from '../components/blocks/noteSplit'
 
 export default function Home({ window, menu, gdpr_data }) {
 
-  // To get the hostname for canonical URLs
-    let host
-    if (typeof window !== 'undefined') {
-        host = window.location.host
-    }
-
   return (
     <Layout window={window}>
       <Head>
@@ -39,7 +33,7 @@ export default function Home({ window, menu, gdpr_data }) {
         <link rel="icon" href="/favicon.svg" />
         <link rel="alternate icon" href="/favicon32.ico" />
         <meta name="theme-color" content="#ffffff" />
-        <link rel="canonical" href={`https://${host}`} />
+        <link rel="canonical" href={`https://${process.env.NEXT_PUBLIC_HOSTNAME}`} />
       </Head>
       <section className="page container template-expanded-wide">
         <GDPRBanner {...gdpr_data} />
