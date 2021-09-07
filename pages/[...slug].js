@@ -129,9 +129,9 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                         <link rel="alternate icon" href="/favicon32.ico" />
                         <meta name="theme-color" content="#ffffff" />
                         {version === true ?
-                            <link rel="canonical" href={`${host}/${slug.slice(1).join('/')}`} />
+                            <link rel="canonical" href={`https://${host}/${slug.slice(1).join('/')}`} />
                             :
-                            <link rel="canonical" href={`${host}/${slug.join('/')}`} />
+                            <link rel="canonical" href={`https://${host}/${slug.join('/')}`} />
                         }
                     </Head>
                     <section className="content wide" id="documentation">
