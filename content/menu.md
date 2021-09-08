@@ -20,30 +20,154 @@ site_menu:
     url: /library/api-reference
   - category: Streamlit Library / API Reference / Write and magic
     url: /library/api-reference/write-magic
+  - category: Streamlit Library / API Reference / Write and magic / st.write
+    url: /library/api-reference/write-magic/st.write
+  - category: Streamlit Library / API Reference / Write and magic / magic
+    url: /library/api-reference/write-magic/magic
   - category: Streamlit Library / API Reference / Text elements
     url: /library/api-reference/text
+  - category: Streamlit Library / API Reference / Text elements / st.markdown
+    url: /library/api-reference/text/st.markdown
+  - category: Streamlit Library / API Reference / Text elements / st.title
+    url: /library/api-reference/text/st.title
+  - category: Streamlit Library / API Reference / Text elements / st.header
+    url: /library/api-reference/text/st.header
+  - category: Streamlit Library / API Reference / Text elements / st.subheader
+    url: /library/api-reference/text/st.subheader
+  - category: Streamlit Library / API Reference / Text elements / st.caption
+    url: /library/api-reference/text/st.caption
+  - category: Streamlit Library / API Reference / Text elements / st.code
+    url: /library/api-reference/text/st.code
+  - category: Streamlit Library / API Reference / Text elements / st.text
+    url: /library/api-reference/text/st.text
+  - category: Streamlit Library / API Reference / Text elements / st.latex
+    url: /library/api-reference/text/st.latex
+  - category: Streamlit Library / API Reference / Text elements / st.echo
+    url: /library/api-reference/text/st.echo
   - category: Streamlit Library / API Reference / Data display elements
     url: /library/api-reference/data
+  - category: Streamlit Library / API Reference / Data display elements / st.dataframe
+    url: /library/api-reference/data/st.dataframe
+  - category: Streamlit Library / API Reference / Data display elements / st.table
+    url: /library/api-reference/data/st.table
+  - category: Streamlit Library / API Reference / Data display elements / st.metric
+    url: /library/api-reference/data/st.metric
+  - category: Streamlit Library / API Reference / Data display elements / st.json
+    url: /library/api-reference/data/st.json
   - category: Streamlit Library / API Reference / Chart elements
     url: /library/api-reference/charts
+  - category: Streamlit Library / API Reference / Chart elements / st.line_chart
+    url: /library/api-reference/charts/st.line_chart
+  - category: Streamlit Library / API Reference / Chart elements / st.area_chart
+    url: /library/api-reference/charts/st.area_chart
+  - category: Streamlit Library / API Reference / Chart elements / st.bar_chart
+    url: /library/api-reference/charts/st.bar_chart
+  - category: Streamlit Library / API Reference / Chart elements / st.pyplot
+    url: /library/api-reference/charts/st.pyplot
+  - category: Streamlit Library / API Reference / Chart elements / st.altair_chart
+    url: /library/api-reference/charts/st.altair_chart
+  - category: Streamlit Library / API Reference / Chart elements / st.vega_lite_chart
+    url: /library/api-reference/charts/st.vega_lite_chart
+  - category: Streamlit Library / API Reference / Chart elements / st.plotly_chart
+    url: /library/api-reference/charts/st.plotly_chart
+  - category: Streamlit Library / API Reference / Chart elements / st.bokeh_chart
+    url: /library/api-reference/charts/st.bokeh_chart
+  - category: Streamlit Library / API Reference / Chart elements / st.pydeck_chart
+    url: /library/api-reference/charts/st.pydeck_chart
+  - category: Streamlit Library / API Reference / Chart elements / st.graphviz_chart
+    url: /library/api-reference/charts/st.graphviz_chart
+  - category: Streamlit Library / API Reference / Chart elements / st.map
+    url: /library/api-reference/charts/st.map
   - category: Streamlit Library / API Reference / Input widgets
     url: /library/api-reference/widgets
+  - category: Streamlit Library / API Reference / Input widgets / st.button
+    url: /library/api-reference/widgets/st.button
+  - category: Streamlit Library / API Reference / Input widgets / st.download_button
+    url: /library/api-reference/widgets/st.download_button
+  - category: Streamlit Library / API Reference / Input widgets / st.checkbox
+    url: /library/api-reference/widgets/st.checkbox
+  - category: Streamlit Library / API Reference / Input widgets / st.radio
+    url: /library/api-reference/widgets/st.radio
+  - category: Streamlit Library / API Reference / Input widgets / st.selectbox
+    url: /library/api-reference/widgets/st.selectbox
+  - category: Streamlit Library / API Reference / Input widgets / st.multiselect
+    url: /library/api-reference/widgets/st.multiselect
+  - category: Streamlit Library / API Reference / Input widgets / st.slider
+    url: /library/api-reference/widgets/st.slider
+  - category: Streamlit Library / API Reference / Input widgets / st.select_slider
+    url: /library/api-reference/widgets/st.select_slider
+  - category: Streamlit Library / API Reference / Input widgets / st.text_input
+    url: /library/api-reference/widgets/st.text_input
+  - category: Streamlit Library / API Reference / Input widgets / st.number_input
+    url: /library/api-reference/widgets/st.number_input
+  - category: Streamlit Library / API Reference / Input widgets / st.text_area
+    url: /library/api-reference/widgets/st.text_area
+  - category: Streamlit Library / API Reference / Input widgets / st.date_input
+    url: /library/api-reference/widgets/st.date_input
+  - category: Streamlit Library / API Reference / Input widgets / st.time_input
+    url: /library/api-reference/widgets/st.time_input
+  - category: Streamlit Library / API Reference / Input widgets / st.file_uploader
+    url: /library/api-reference/widgets/st.file_uploader
+  - category: Streamlit Library / API Reference / Input widgets / st.color_picker
+    url: /library/api-reference/widgets/st.color_picker
   - category: Streamlit Library / API Reference / Media elements
     url: /library/api-reference/media
+  - category: Streamlit Library / API Reference / Media elements / st.image
+    url: /library/api-reference/media/st.image
+  - category: Streamlit Library / API Reference / Media elements / st.audio
+    url: /library/api-reference/media/st.audio
+  - category: Streamlit Library / API Reference / Media elements / st.video
+    url: /library/api-reference/media/st.video
   - category: Streamlit Library / API Reference / Layouts and Containers
     url: /library/api-reference/layout
+  - category: Streamlit Library / API Reference / Layouts and Containers / st.columns
+    url: /library/api-reference/layout/st.columns
+  - category: Streamlit Library / API Reference / Layouts and Containers / st.expander
+    url: /library/api-reference/layout/st.expander
+  - category: Streamlit Library / API Reference / Layouts and Containers / st.container
+    url: /library/api-reference/layout/st.container
+  - category: Streamlit Library / API Reference / Layouts and Containers / st.empty
+    url: /library/api-reference/layout/st.empty
   - category: Streamlit Library / API Reference / Status elements
     url: /library/api-reference/status
+  - category: Streamlit Library / API Reference / Status elements / st.progress
+    url: /library/api-reference/status/st.progress
+  - category: Streamlit Library / API Reference / Status elements / st.spinner
+    url: /library/api-reference/status/st.spinner
+  - category: Streamlit Library / API Reference / Status elements / st.balloons
+    url: /library/api-reference/status/st.balloons
+  - category: Streamlit Library / API Reference / Status elements / st.error
+    url: /library/api-reference/status/st.error
+  - category: Streamlit Library / API Reference / Status elements / st.warning
+    url: /library/api-reference/status/st.warning
+  - category: Streamlit Library / API Reference / Status elements / st.info
+    url: /library/api-reference/status/st.info
+  - category: Streamlit Library / API Reference / Status elements / st.success
+    url: /library/api-reference/status/st.success
+  - category: Streamlit Library / API Reference / Status elements / st.exception
+    url: /library/api-reference/status/st.exception
   - category: Streamlit Library / API Reference / Control flow
     url: /library/api-reference/control-flow
-  - category: Streamlit Library / API Reference / State
-    url: /library/api-reference/state
+  - category: Streamlit Library / API Reference / Control flow / st.stop
+    url: /library/api-reference/control-flow/st.stop
+  - category: Streamlit Library / API Reference / Control flow / st.form
+    url: /library/api-reference/control-flow/st.form
+  - category: Streamlit Library / API Reference / Control flow / st.form_submit_button
+    url: /library/api-reference/control-flow/st.form_submit_button
+  - category: Streamlit Library / API Reference / Session State
+    url: /library/api-reference/session-state
   - category: Streamlit Library / API Reference / Utilities
     url: /library/api-reference/utilities
+  - category: Streamlit Library / API Reference / Utilities / st.set_page_config
+    url: /library/api-reference/utilities/st.set_page_config
+  - category: Streamlit Library / API Reference / Utilities / st.help
+    url: /library/api-reference/utilities/st.help
   - category: Streamlit Library / API Reference / Mutate charts
     url: /library/api-reference/mutate
   - category: Streamlit Library / API Reference / Performance
     url: /library/api-reference/performance
+  - category: Streamlit Library / API Reference / Performance / st.cache
+    url: /library/api-reference/performance/st.cache
   - category: Streamlit Library / Advanced Features
     url: /library/advanced-features
   - category: Streamlit Library / Advanced Features / Theming
