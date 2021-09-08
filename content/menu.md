@@ -200,8 +200,8 @@ site_menu:
     url: /cloud
     color: l-blue-70
     icon: cloud
-  # - category: Streamlit Cloud / Community
-  #   url: /cloud/community
+  - category: Streamlit Cloud / Community
+    url: /cloud/community
   # - category: Streamlit Cloud / Community / Sign up
   #   url: /cloud/community/sign-up
   # - category: Streamlit Cloud / Community / Deploy Apps
@@ -223,6 +223,8 @@ site_menu:
     url: /cloud/enterprise/sso-single-sign-on
   - category: Streamlit Cloud / Enterprise /Fair Billing Policy
     url: /cloud/enterprise/billing
+  - category: Streamlit Cloud / Enterprise /Security Model
+    url: /cloud/enterprise/security-model
   
   # - category: Streamlit Cloud / Streamlit Sharing
   #   url: /cloud/sharing
