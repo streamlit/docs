@@ -201,7 +201,7 @@ site_menu:
     color: l-blue-70
     icon: cloud
   - category: Streamlit Cloud / Community
-    url: /cloud/community
+    url: /streamlit-cloud/community
   # - category: Streamlit Cloud / Community / Sign up
   #   url: /cloud/community/sign-up
   # - category: Streamlit Cloud / Community / Deploy Apps
@@ -218,22 +218,15 @@ site_menu:
   #   url: /cloud/teams/faq
 
   - category: Streamlit Cloud / Enterprise
-    url: /cloud/enterprise
-  - category: Streamlit Cloud / Enterprise /Single Sign-On (SSO)
-    url: /cloud/enterprise/sso-single-sign-on
+    url: /streamlit-cloud/enterprise
+  # - category: Streamlit Cloud / Enterprise /Single Sign-On (SSO)
+  #   url: /streamlit-cloud/enterprise/sso-single-sign-on
   - category: Streamlit Cloud / Enterprise /Fair Billing Policy
-    url: /cloud/enterprise/billing
+    url: /streamlit-cloud/enterprise/billing
   - category: Streamlit Cloud / Enterprise /Security Model
-    url: /cloud/enterprise/security-model
+    url: /streamlit-cloud/enterprise/security-model
   
-  # - category: Streamlit Cloud / Streamlit Sharing
-  #   url: /cloud/sharing
-  # - category: Streamlit Cloud / Streamlit Sharing / Sign up
-  #   url: /cloud/sharing/sign-up
-  # - category: Streamlit Cloud / Streamlit Sharing / Deploy Apps
-  #   url: /cloud/sharing/deploy
-  # - category: Streamlit Cloud / Streamlit Sharing / Manage Apps
-  #   url: /cloud/sharing/manage
+
 
 
   - category: Knowledge Base

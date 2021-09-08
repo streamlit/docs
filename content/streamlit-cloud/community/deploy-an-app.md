@@ -1,6 +1,6 @@
 ---
 title: Deploy an app
-slug: /library/get-started/deploy-an-app
+slug: /streamlit-cloud/community
 ---
 
 # Deploy an app
@@ -10,9 +10,11 @@ Now that you've created your app, you're ready to share it! You can use [Streaml
 - The **free** [Community tier](https://streamlit.io/sharing-sign-up) (formerly Streamlit sharing) is the perfect solution if your app is hosted in a public GitHub repo and you’d like anyone in the world to be able to access it.
 - The [Team and Enterprise tiers](https://streamlit.io/cloud-sign-up) offer access controls, the ability to securely deploy apps from private repos, customize resources, and much more.
 
+Of course, if you want to host your app using another hosting provider, go for it! Streamlit apps work anywhere a Python app works. You can find guides for other hosting providers on our [community-supported deployment wiki](https://discuss.streamlit.io/t/streamlit-deployment-guide-wiki/5099).
+
 Alright, let’s get started. Below, we highlight how to deploy apps with the free **Community tier**.
 
-<!-- ## Sign up for Streamlit Cloud
+## Sign up for Streamlit Cloud
 
 To get started, first request an invite on the [Community tier page](https://streamlit.io/sharing-sign-up). Once you receive your invite email, you're ready to deploy! It's really straightforward, just follow the next few steps.
 
@@ -294,4 +296,4 @@ Here are some limitations and known issues that we're actively working to resolv
     st.pyplot(fig)
   ```
 
-- All apps are hosted in the United States. This is currently not configurable. -->
+- All apps are hosted in the United States. This is currently not configurable.

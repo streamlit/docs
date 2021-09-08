@@ -1,6 +1,6 @@
 ---
 title: Security Model
-slug: /cloud/enterprise/security-model
+slug: /streamlit-cloud/enterprise/security-model
 ---
 
 # Security
