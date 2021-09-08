@@ -14,7 +14,7 @@ Of course, if you want to host your app using another hosting provider, go for i
 
 Alright, let’s get started. Below, we highlight how to deploy apps with the free **Community tier**.
 
-## Sign up for Streamlit Cloud
+<!-- ## Sign up for Streamlit Cloud
 
 To get started, first request an invite on the [Community tier page](https://streamlit.io/sharing-sign-up). Once you receive your invite email, you're ready to deploy! It's really straightforward, just follow the next few steps.
 
@@ -296,4 +296,4 @@ Here are some limitations and known issues that we're actively working to resolv
     st.pyplot(fig)
   ```
 
-- All apps are hosted in the United States. This is currently not configurable.
+- All apps are hosted in the United States. This is currently not configurable. -->
