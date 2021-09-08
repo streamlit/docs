@@ -200,25 +200,30 @@ site_menu:
     url: /cloud
     color: l-blue-70
     icon: cloud
-  - category: Streamlit Cloud / Community
-    url: /cloud/community
-  - category: Streamlit Cloud / Community / Sign up
-    url: /cloud/community/sign-up
-  - category: Streamlit Cloud / Community / Deploy Apps
-    url: /cloud/community/deploy
-  - category: Streamlit Cloud / Community / Manage Apps
-    url: /cloud/community/manage
-  - category: Streamlit Cloud / Teams
-    url: /cloud/teams
-  - category: Streamlit Cloud / Teams / Get Started
-    url: /cloud/teams/get-started
-  - category: Streamlit Cloud / Teams / Reference
-    url: /cloud/teams/reference
-  - category: Streamlit Cloud / Teams / Frequently Asked Questions
-    url: /cloud/teams/faq
+  # - category: Streamlit Cloud / Community
+  #   url: /cloud/community
+  # - category: Streamlit Cloud / Community / Sign up
+  #   url: /cloud/community/sign-up
+  # - category: Streamlit Cloud / Community / Deploy Apps
+  #   url: /cloud/community/deploy
+  # - category: Streamlit Cloud / Community / Manage Apps
+  #   url: /cloud/community/manage
+  # - category: Streamlit Cloud / Teams
+  #   url: /cloud/teams
+  # - category: Streamlit Cloud / Teams / Get Started
+  #   url: /cloud/teams/get-started
+  # - category: Streamlit Cloud / Teams / Reference
+  #   url: /cloud/teams/reference
+  # - category: Streamlit Cloud / Teams / Frequently Asked Questions
+  #   url: /cloud/teams/faq
 
   - category: Streamlit Cloud / Enterprise
     url: /cloud/enterprise
+  - category: Streamlit Cloud / Enterprise /Single Sign-On (SSO)
+    url: /cloud/enterprise/sso-single-sign-on
+  - category: Streamlit Cloud / Enterprise /Fair Billing Policy
+    url: /cloud/enterprise/billing
+  
   # - category: Streamlit Cloud / Streamlit Sharing
   #   url: /cloud/sharing
   # - category: Streamlit Cloud / Streamlit Sharing / Sign up
@@ -227,18 +232,7 @@ site_menu:
   #   url: /cloud/sharing/deploy
   # - category: Streamlit Cloud / Streamlit Sharing / Manage Apps
   #   url: /cloud/sharing/manage
-  # - category: Streamlit Cloud / Streamlit for Teams
-  #   url: /cloud/teams
-  # - category: Streamlit Cloud / Streamlit for Teams / Get Started — launch your first app!
-  #   url: /cloud/teams/get-started
-  # - category: Streamlit Cloud / Streamlit for Teams / Securely Connect to Cloud Services
-  #   url: /kb/databases
-  # - category: Streamlit Cloud / Streamlit for Teams / Features
-  #   url: /cloud/teams/features
-  # - category: Streamlit Cloud / Streamlit for Teams / Troubleshooting
-  #   url: /cloud/teams/troubleshooting
-  # - category: Streamlit Cloud / Streamlit for Teams / Frequently Asked Questions
-  #   url: /cloud/teams/faq
+
 
   - category: Knowledge Base
     url: /kb
