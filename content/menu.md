@@ -197,48 +197,42 @@ site_menu:
     
 
   - category: Streamlit Cloud
-    url: /cloud
+    url: /streamlit-cloud
     color: l-blue-70
     icon: cloud
-  - category: Streamlit Cloud / Community
-    url: /cloud/community
-  - category: Streamlit Cloud / Community / Sign up
-    url: /cloud/community/sign-up
-  - category: Streamlit Cloud / Community / Deploy Apps
-    url: /cloud/community/deploy
-  - category: Streamlit Cloud / Community / Manage Apps
-    url: /cloud/community/manage
-  - category: Streamlit Cloud / Teams
-    url: /cloud/teams
-  - category: Streamlit Cloud / Teams / Get Started
-    url: /cloud/teams/get-started
-  - category: Streamlit Cloud / Teams / Reference
-    url: /cloud/teams/reference
-  - category: Streamlit Cloud / Teams / Frequently Asked Questions
-    url: /cloud/teams/faq
+  - category: Streamlit Cloud / Community Tier
+    url: /streamlit-cloud/community
+  - category: Streamlit Cloud / Community Tier / Sign up
+    url: /streamlit-cloud/community#sign-up-for-streamlit-cloud
+  - category: Streamlit Cloud / Community Tier / Put your Streamlit app on GitHub
+    url: /streamlit-cloud/community#put-your-streamlit-app-on-github
+  - category: Streamlit Cloud / Community Tier / Log in to share.streamlit.io
+    url: /streamlit-cloud/community#log-in-to-sharestreamlitio
+  - category: Streamlit Cloud / Community Tier / Deploy your app
+    url: /streamlit-cloud/community#deploy-your-app
+  - category: Streamlit Cloud / Community Tier / Secrets management
+    url: /streamlit-cloud/community#secrets-management
+  - category: Streamlit Cloud / Community Tier / Share, update, and collaborate
+    url: /streamlit-cloud/community#share-update-and-collaborate
+  - category: Streamlit Cloud / Community Tier / App access and usage
+    url: /streamlit-cloud/community#app-access-and-usage
+  - category: Streamlit Cloud / Community Tier / Managing apps
+    url: /streamlit-cloud/community#managing-apps
+  - category: Streamlit Cloud / Community Tier / Limitations and known issues
+    url: /streamlit-cloud/community#limitations-and-known-issues
+
 
   - category: Streamlit Cloud / Enterprise
-    url: /cloud/enterprise
-  # - category: Streamlit Cloud / Streamlit Sharing
-  #   url: /cloud/sharing
-  # - category: Streamlit Cloud / Streamlit Sharing / Sign up
-  #   url: /cloud/sharing/sign-up
-  # - category: Streamlit Cloud / Streamlit Sharing / Deploy Apps
-  #   url: /cloud/sharing/deploy
-  # - category: Streamlit Cloud / Streamlit Sharing / Manage Apps
-  #   url: /cloud/sharing/manage
-  # - category: Streamlit Cloud / Streamlit for Teams
-  #   url: /cloud/teams
-  # - category: Streamlit Cloud / Streamlit for Teams / Get Started — launch your first app!
-  #   url: /cloud/teams/get-started
-  # - category: Streamlit Cloud / Streamlit for Teams / Securely Connect to Cloud Services
-  #   url: /kb/databases
-  # - category: Streamlit Cloud / Streamlit for Teams / Features
-  #   url: /cloud/teams/features
-  # - category: Streamlit Cloud / Streamlit for Teams / Troubleshooting
-  #   url: /cloud/teams/troubleshooting
-  # - category: Streamlit Cloud / Streamlit for Teams / Frequently Asked Questions
-  #   url: /cloud/teams/faq
+    url: /streamlit-cloud/enterprise
+  # - category: Streamlit Cloud / Enterprise /Single Sign-On (SSO)
+  #   url: /streamlit-cloud/enterprise/sso-single-sign-on
+  # - category: Streamlit Cloud / Enterprise /Fair Billing Policy
+  #   url: /streamlit-cloud/enterprise/billing
+  - category: Streamlit Cloud / Enterprise /Security Model
+    url: /streamlit-cloud/enterprise/security-model
+  
+
+
 
   - category: Knowledge Base
     url: /kb
