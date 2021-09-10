@@ -212,6 +212,15 @@ site_menu:
     url: /streamlit-cloud/community#deploy-your-app
   - category: Streamlit Cloud / Community Tier / Secrets management
     url: /streamlit-cloud/community#secrets-management
+  - category: Streamlit Cloud / Community Tier / Share, update, and collaborate
+    url: /streamlit-cloud/community#share-update-and-collaborate
+  - category: Streamlit Cloud / Community Tier / App access and usage
+    url: /streamlit-cloud/community#app-access-and-usage
+  - category: Streamlit Cloud / Community Tier / Managing apps
+    url: /streamlit-cloud/community#managing-apps
+  - category: Streamlit Cloud / Community Tier / Limitations and known issues
+    url: /streamlit-cloud/community#limitations-and-known-issues
+
 
   - category: Streamlit Cloud / Enterprise
     url: /streamlit-cloud/enterprise
