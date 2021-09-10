@@ -1,27 +1,20 @@
 ---
-title: Deploy an app
-slug: /library/get-started/deploy-an-app
+title: Deploy on Streamlit Cloud Community
+slug: /streamlit-cloud/community
 ---
 
-# Deploy an app
+# Deploy on Streamlit Cloud
 
-Now that you've created your app, you're ready to share it! You can use [Streamlit Cloud](https://streamlit.io/cloud) to deploy and share your app. Streamlit Cloud has multiple tiers:
+## Sign up for Streamlit Cloud
 
-- The **free** [Community tier](https://streamlit.io/sharing-sign-up) (formerly Streamlit sharing) is the perfect solution if your app is hosted in a public GitHub repo and you’d like anyone in the world to be able to access it.
-- The [Team and Enterprise tiers](https://streamlit.io/cloud-sign-up) offer access controls, the ability to securely deploy apps from private repos, customize resources, and much more.
+To get started, first request an invite on the [Streamlit Cloud Community sign-up](https://forms.streamlit.io/community-sign-up) form. Once you receive your invite email, you're ready to deploy!
 
-Alright, let’s get started. Below, we highlight how to deploy apps with the free **Community tier**.
-
-<!-- ## Sign up for Streamlit Cloud
-
-To get started, first request an invite on the [Community tier page](https://streamlit.io/sharing-sign-up). Once you receive your invite email, you're ready to deploy! It's really straightforward, just follow the next few steps.
 
 ## Put your Streamlit app on GitHub
 
-1. Add your Streamlit app to a public GitHub repo
-2. Add a requirements file to manage any external dependencies
-   1. [Python dependencies](#python-dependencies)
-   2. [apt-get dependencies](#apt-get-dependencies) (for Linux applications outside python environment)
+1. Add your Streamlit app to a **public** GitHub repo
+2. Add a [requirements file](/streamlit-cloud/community#python-dependencies) for Python dependencies.
+3. (optional) Add a `packages.txt` file to manage any external dependencies (i.e Linux dependencies outside Python environment)
 
 <Note>
 
@@ -31,7 +24,7 @@ directory as your Streamlit app.
 </Note>
 
 
-### Python dependencies
+### Add Python dependencies
 
 Streamlit looks at your requirements file's filename to determine which Python dependency manager to use in the order below. Streamlit will stop and install the first requirements file found.
 
@@ -45,7 +38,7 @@ Streamlit looks at your requirements file's filename to determine which Python d
 <Note>
 
 Only include packages in your requirements file that are not distributed with a standard Python
-installation. If [any of the modules from base Python](https://docs.python.org/3/py-modindex.html) 
+installation. If [any of the modules from base Python](https://docs.python.org/3/py-modindex.html)
 are included in the requirements file, you will get an error when you try to deploy. Additionally,
 use versions **0.69.2+** of Streamlit to ensure full Streamlit Cloud functionality.
 
@@ -65,9 +58,9 @@ If `packages.txt` exists in the repository we automatically detect it, parse it,
 
 Add **apt-get** dependencies to `packages.txt`, one package name per line. For example:
 
-```
-freeglut3-dev
-libgtk2.0-dev
+```shell
+    freeglut3-dev
+    libgtk2.0-dev
 ```
 
 ## Log in to share.streamlit.io
@@ -210,7 +203,7 @@ Every deployed app has its Github source code linked in the "☰" menu on the to
 
 ## App access and usage
 
-Streamlit Cloud's Community tier is completely free and is meant to get you started with sharing your Streamlit apps. If you need a solution with access controls, ability to deploy from private repos, ability to customize resources, and much more, please check out the [Team and Enterprise tiers](https://streamlit.io/cloud-sign-up).
+Streamlit Cloud's Community tier is completely free and is meant to get you started with sharing your Streamlit apps. If you need a solution with access controls, ability to deploy from private repos, ability to customize resources, and much more, please check out the [Enterprise tier](/streamlit-cloud/enterprise).
 
 ### Access
 
@@ -294,4 +287,4 @@ Here are some limitations and known issues that we're actively working to resolv
     st.pyplot(fig)
   ```
 
-- All apps are hosted in the United States. This is currently not configurable. -->
+- All apps are hosted in the United States. This is currently not configurable.
