@@ -202,27 +202,23 @@ site_menu:
     icon: cloud
   - category: Streamlit Cloud / Community Tier
     url: /streamlit-cloud/community
-  # - category: Streamlit Cloud / Community / Sign up
-  #   url: /cloud/community/sign-up
-  # - category: Streamlit Cloud / Community / Deploy Apps
-  #   url: /cloud/community/deploy
-  # - category: Streamlit Cloud / Community / Manage Apps
-  #   url: /cloud/community/manage
-  # - category: Streamlit Cloud / Teams
-  #   url: /cloud/teams
-  # - category: Streamlit Cloud / Teams / Get Started
-  #   url: /cloud/teams/get-started
-  # - category: Streamlit Cloud / Teams / Reference
-  #   url: /cloud/teams/reference
-  # - category: Streamlit Cloud / Teams / Frequently Asked Questions
-  #   url: /cloud/teams/faq
+  - category: Streamlit Cloud / Community Tier / Sign up
+    url: /streamlit-cloud/community#sign-up-for-streamlit-cloud
+  - category: Streamlit Cloud / Community Tier / Put your Streamlit app on GitHub
+    url: /streamlit-cloud/community#put-your-streamlit-app-on-github
+  - category: Streamlit Cloud / Community Tier / Log in to share.streamlit.io
+    url: /streamlit-cloud/community#log-in-to-sharestreamlitio
+  - category: Streamlit Cloud / Community Tier / Deploy your app
+    url: /streamlit-cloud/community#deploy-your-app
+  - category: Streamlit Cloud / Community Tier / Secrets management
+    url: /streamlit-cloud/community#secrets-management
 
   - category: Streamlit Cloud / Enterprise
     url: /streamlit-cloud/enterprise
   # - category: Streamlit Cloud / Enterprise /Single Sign-On (SSO)
   #   url: /streamlit-cloud/enterprise/sso-single-sign-on
-  - category: Streamlit Cloud / Enterprise /Fair Billing Policy
-    url: /streamlit-cloud/enterprise/billing
+  # - category: Streamlit Cloud / Enterprise /Fair Billing Policy
+  #   url: /streamlit-cloud/enterprise/billing
   - category: Streamlit Cloud / Enterprise /Security Model
     url: /streamlit-cloud/enterprise/security-model
   

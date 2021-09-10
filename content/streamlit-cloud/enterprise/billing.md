@@ -1,7 +1,7 @@
----
+<!-- ---
 title: Fair Billing Policy
 slug: /streamlit-cloud/enterprise/billing
----
+--- -->
 
 # Streamlit's Fair Billing Policy
 
