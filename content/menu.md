@@ -197,10 +197,10 @@ site_menu:
     
 
   - category: Streamlit Cloud
-    url: /cloud
+    url: /streamlit-cloud
     color: l-blue-70
     icon: cloud
-  - category: Streamlit Cloud / Community
+  - category: Streamlit Cloud / Community Tier
     url: /streamlit-cloud/community
   # - category: Streamlit Cloud / Community / Sign up
   #   url: /cloud/community/sign-up
