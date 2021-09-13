@@ -7,7 +7,7 @@ slug: /kb/tutorials/databases/tableau
 
 ## Introduction
 
-This guide explains how to securely access data on Tableau from Streamlit sharing or Streamlit for Teams. It uses the [tableauserverclient](https://tableau.github.io/server-client-python/#) library and Streamlit's [secrets management](../deploy_streamlit_app.html#secrets-management).
+This guide explains how to securely access data on Tableau from Streamlit Cloud. It uses the [tableauserverclient](https://tableau.github.io/server-client-python/#) library and Streamlit's [secrets management](/streamlit-cloud/community#secrets-management).
 
 ## Create a Tableau site
 
@@ -18,7 +18,7 @@ to [skip to the next step](#create-personal-access-tokens).
 
 </Note>
 
-For simplicity, we are using the cloud version of Tableau here but this guide works equally well for self-hosted deployments. First, sign up for [Tableau Online](https://www.tableau.com/products/cloud-bi) or log in. Create a workbook or simply run one of the example workbooks under "Dashboard Starters".
+For simplicity, we are using the cloud version of Tableau here but this guide works equally well for self-hosted deployments. First, sign up for [Tableau Online](https://www.tableau.com/products/cloud-bi) or log in. Create a workbook or run one of the example workbooks under "Dashboard Starters".
 
 ![Tableau screenshot 1](/images/databases/tableau-1.png)
 
@@ -61,15 +61,15 @@ Add this file to `.gitignore` and don't commit it to your Github repo!
 
 ## Copy your app secrets to the cloud
 
-As the `secrets.toml` file above is not committed to Github, you need to pass its content to your deployed app (on Streamlit sharing or Streamlit for Teams) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](../deploy_streamlit_app.html#secrets-management).
+As the `secrets.toml` file above is not committed to Github, you need to pass its content to your deployed app (on Streamlit Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](/streamlit-cloud/community#secrets-management).
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 
 ## Add tableauserverclient to your requirements file
 
-Add the [tableauserverclient](https://tableau.github.io/server-client-python/#) package to your `requirements.txt` file, preferably pinning its version (just replace `x.x.x` with the version you want installed):
+Add the [tableauserverclient](https://tableau.github.io/server-client-python/#) package to your `requirements.txt` file, preferably pinning its version (replace `x.x.x` with the version you want installed):
 
-```
+```bash
 # requirements.txt
 tableauserverclient==x.x.x
 ```
@@ -142,7 +142,7 @@ st.write(f"And here's the data for view *{view_name}*:")
 st.write(pd.read_csv(StringIO(view_csv)))
 ```
 
-See `st.cache` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Read more about caching [here](../caching.md).
+See `st.cache` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Read more about caching [here](/library/advanced-features/caching).
 
 If everything worked out, your app should look like this (can differ based on your workbooks):
 

@@ -246,6 +246,8 @@ site_menu:
     url: /kb/tutorials/databases/aws-s3
   - category: Knowledge Base / Tutorials / Connect to data sources / BigQuery
     url: /kb/tutorials/databases/bigquery
+  - category: Knowledge Base / Tutorials / Connect to data sources / Snowflake
+    url: /kb/tutorials/databases/snowflake
   - category: Knowledge Base / Tutorials / Connect to data sources / Firestore
     url: https://blog.streamlit.io/streamlit-firestore/
   - category: Knowledge Base / Tutorials / Connect to data sources / MongoDB
