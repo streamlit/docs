@@ -24,7 +24,7 @@ The main limitation is that Streamlit’s cache feature doesn’t know about
 changes that take place outside the body of the annotated function.
 
 For more information about the Streamlit cache, its configuration parameters,
-and its limitations, see [Caching](caching.md).
+and its limitations, see [Caching](/library/api-reference/performance/st.cache).
 
 <TileContainer>
 <RefCard href="/library/api-reference/performance/st.cache">

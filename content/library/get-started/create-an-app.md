@@ -17,8 +17,8 @@ spin up and your app will open in a new tab your default web browser. The app
 is your canvas, where you'll draw charts, text, widgets, tables, and more.
 
 What gets drawn in the app is up to you. For example
-[`st.text`](/library/api-reference/text#sttext) writes raw text to your app, and
-[`st.line_chart`](/library/api-reference/charts#stline_chart) draws — you guessed it — a
+[`st.text`](/library/api-reference/text/st.text) writes raw text to your app, and
+[`st.line_chart`](/library/api-reference/charts/st.line_chart) draws — you guessed it — a
 line chart. Refer to our [API documentation](/library/api-reference) to see all commands that
 are available to you.
 
@@ -74,7 +74,7 @@ This can happen in two situations:
 - Whenever a user interacts with widgets in the app. For example, when dragging
   a slider, entering text in an input box, or clicking a button.
 
-Whenever a callback is passed to a widget via the `on_change` (or `on_click`) parameter, the callback will always run before the rest of your script. For details on the Callbacks API, please refer to our [Session State API Reference Guide](/library/api-reference/state#use-callbacks-to-update-session-state).
+Whenever a callback is passed to a widget via the `on_change` (or `on_click`) parameter, the callback will always run before the rest of your script. For details on the Callbacks API, please refer to our [Session State API Reference Guide](/library/api-reference/session-state#use-callbacks-to-update-session-state).
 
 And to make all of this fast and seamless, Streamlit does some heavy lifting
 for you behind the scenes. A big player in this story is the
@@ -86,18 +86,18 @@ page.
 
 There are a few ways to display data (tables, arrays, data frames) in Streamlit
 apps. In [getting started](/library/get-started), you were introduced to _magic_
-and [`st.write()`](/library/api-reference/write-magic#stwrite), which can be used to write
+and [`st.write()`](/library/api-reference/write-magic/st.write), which can be used to write
 anything from text to tables. Now let's take a look at methods designed
 specifically for visualizing data.
 
-You might be asking yourself, "why wouldn't I always use st.write()?" There are
+You might be asking yourself, "why wouldn't I always use `st.write()`?" There are
 a few reasons:
 
-1. _Magic_ and [`st.write()`](/library/api-reference/write-magic#stwrite) inspect the type of
+1. _Magic_ and [`st.write()`](/library/api-reference/write-magic/st.write) inspect the type of
    data that you've passed in, and then decide how to best render it in the
    app. Sometimes you want to draw it another way. For example, instead of
    drawing a dataframe as an interactive table, you may want to draw it as a
-   static table by using st.table(df).
+   static table by using `st.table(df)`.
 2. The second reason is that other methods return an object that can be used
    and modified, either by adding data to it or replacing it.
 3. Finally, if you use a more specific Streamlit method you can pass additional
@@ -105,7 +105,7 @@ a few reasons:
 
 For example, let's create a data frame and change its formatting with a Pandas
 `Styler` object. In this example, you'll use Numpy to generate a random sample,
-and the [`st.dataframe()`](/library/api-reference/data#stdataframe) method to draw an
+and the [`st.dataframe()`](/library/api-reference/data/st.dataframe) method to draw an
 interactive table.
 
 <Note>
@@ -132,7 +132,7 @@ st.dataframe(dataframe.style.highlight_max(axis=0))
 ```
 
 Streamlit also has a method for static table generation:
-[`st.table()`](/library/api-reference/data#sttable).
+[`st.table()`](/library/api-reference/data/st.table).
 
 ```python
 dataframe = pd.DataFrame(
@@ -144,9 +144,9 @@ st.table(dataframe)
 ## Widgets
 
 When you've got the data or model into the state that you want to explore, you
-can add in widgets like [`st.slider()`](/library/api-reference/widgets#stslider),
-[`st.button()`](/library/api-reference/widgets#stbutton) or
-[`st.selectbox()`](/library/api-reference/widgets#stselectbox). It's really straightforward
+can add in widgets like [`st.slider()`](/library/api-reference/widgets/st.slider),
+[`st.button()`](/library/api-reference/widgets/st.button) or
+[`st.selectbox()`](/library/api-reference/widgets/st.selectbox). It's really straightforward
 — treat widgets as variables:
 
 ```python
@@ -174,7 +174,7 @@ st.text_input("Your name", key="name")
 st.session_state.name
 ```
 
-Every widget with a key is automatically added to Session State. For more information about Session State, its association with widget state, and its limitations, see [Session State API Reference Guide](/library/api-reference/state).
+Every widget with a key is automatically added to Session State. For more information about Session State, its association with widget state, and its limitations, see [Session State API Reference Guide](/library/api-reference/session-state).
 
 ## Layout
 
@@ -205,8 +205,8 @@ add_slider = st.sidebar.slider(
 ```
 
 Beyond the sidebar, Streamlit offers several other ways to control the layout
-of your app. [`st.columns`](/library/api-reference/layout#stcolumns) lets you place widgets side-by-side, and
-[`st.expander`](/library/api-reference/layout#stexpander) lets you conserve space by hiding away large content.
+of your app. [`st.columns`](/library/api-reference/layout/st.columns) lets you place widgets side-by-side, and
+[`st.expander`](/library/api-reference/layout/st.expander) lets you conserve space by hiding away large content.
 
 ```python
 import streamlit as st
@@ -278,7 +278,7 @@ from the web, manipulating large datasets, or performing expensive
 computations.
 
 To use the cache, wrap functions with the
-[`@st.cache`](/library/api-reference/performance#stcache) decorator:
+[`@st.cache`](/library/api-reference/performance/st.cache) decorator:
 
 ```python
 @st.cache  # 👈 This function will be cached
@@ -287,7 +287,7 @@ def my_slow_function(arg1, arg2):
     return the_output
 ```
 
-When you mark a function with the [`@st.cache`](/library/api-reference/performance#stcache)
+When you mark a function with the [`@st.cache`](/library/api-reference/performance/st.cache)
 decorator, it tells Streamlit that whenever the function is called it needs to
 check a few things:
 

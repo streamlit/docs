@@ -60,7 +60,7 @@ some **constraints**:
 
 ## Insert elements out of order
 
-You can use the [`st.empty`](/library/api-reference/layout#stempty) method as a placeholder,
+You can use the [`st.empty`](/library/api-reference/layout/st.empty) method as a placeholder,
 to "save" a slot in your app that you can use later.
 
 ```python
