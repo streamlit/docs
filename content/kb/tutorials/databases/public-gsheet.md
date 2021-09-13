@@ -7,9 +7,9 @@ slug: /kb/tutorials/databases/public-gsheet
 
 ## Introduction
 
-This guide explains how to securely access a public Google Sheet from Streamlit sharing or Streamlit for Teams. It uses the [gsheetsdb](https://github.com/betodealmeida/gsheets-db-api) library and Streamlit's [secrets management](../deploy_streamlit_app.html#secrets-management).
+This guide explains how to securely access a public Google Sheet from Streamlit Cloud. It uses the [gsheetsdb](https://github.com/betodealmeida/gsheets-db-api) library and Streamlit's [secrets management](/streamlit-cloud/community#secrets-management).
 
-This method requires you to enable link sharing for your Google Sheet. While the sharing link will not appear in your code (and actually acts as sort of a password!), someone with the link can get all the data in the Sheet. If you don't want this, follow the (more complicated) guide [Connect Streamlit to a private Google Sheet](private_gsheet.md).
+This method requires you to enable link sharing for your Google Sheet. While the sharing link will not appear in your code (and actually acts as sort of a password!), someone with the link can get all the data in the Sheet. If you don't want this, follow the (more complicated) guide [Connect Streamlit to a private Google Sheet](private-gsheet).
 
 ## Create a Google Sheet and turn on link sharing
 
@@ -43,15 +43,15 @@ Add this file to `.gitignore` and don't commit it to your Github repo!
 
 ## Copy your app secrets to the cloud
 
-As the `secrets.toml` file above is not committed to Github, you need to pass its content to your deployed app (on Streamlit sharing or Streamlit for Teams) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](../deploy_streamlit_app.html#secrets-management).
+As the `secrets.toml` file above is not committed to Github, you need to pass its content to your deployed app (on Streamlit Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](/streamlit-cloud/community#secrets-management).
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 
 ## Add gsheetsdb to your requirements file
 
-Add the [gsheetsdb](https://github.com/betodealmeida/gsheets-db-api) package to your `requirements.txt` file, preferably pinning its version (just replace `x.x.x` with the version you want installed):
+Add the [gsheetsdb](https://github.com/betodealmeida/gsheets-db-api) package to your `requirements.txt` file, preferably pinning its version (replace `x.x.x` with the version you want installed):
 
-```
+```bash
 # requirements.txt
 gsheetsdb==x.x.x
 ```
@@ -84,7 +84,7 @@ for row in rows:
     st.write(f"{row.name} has a :{row.pet}:")
 ```
 
-See `st.cache` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Read more about caching [here](../caching.md).
+See `st.cache` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Read more about caching [here](/library/advanced-features/caching).
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 

@@ -7,21 +7,20 @@ slug: /kb/tutorials/databases/bigquery
 
 ## Introduction
 
-This guide explains how to securely access a BigQuery database from Streamlit sharing or Streamlit
-for Teams. It uses the
+This guide explains how to securely access a BigQuery database from Streamlit Cloud. It uses the
 [google-cloud-bigquery](https://googleapis.dev/python/bigquery/latest/index.html) library and
-Streamlit's [secrets management](../deploy_streamlit_app.html#secrets-management).
+Streamlit's [secrets management](/streamlit-cloud/community#secrets-management).
 
 ## Create a BigQuery database
 
 <Note>
 
 If you already have a database that you want to use, feel free
-to [skip to the next step](bigquery.html#enable-the-bigquery-api>).
+to [skip to the next step](#enable-the-bigquery-api).
 
 </Note>
 
-For this example, we will simply use one of the [sample datasets](https://cloud.google.com/bigquery/public-data#sample_tables) from BigQuery (namely the `shakespeare` table). If you want to create a new dataset instead, follow [Google's quickstart guide](https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui).
+For this example, we will use one of the [sample datasets](https://cloud.google.com/bigquery/public-data#sample_tables) from BigQuery (namely the `shakespeare` table). If you want to create a new dataset instead, follow [Google's quickstart guide](https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui).
 
 ## Enable the BigQuery API
 
@@ -35,7 +34,7 @@ Programmatic access to BigQuery is controlled through [Google Cloud Platform](ht
 
 ## Create a service account & key file
 
-To use the BigQuery API from the Streamlit Cloud, you need a Google Cloud Platform service account (a special account type for programmatic data access). Go to the [Service Accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) page and create an account with the **Viewer** permission (this will let the account access data but not change it):
+To use the BigQuery API from Streamlit Cloud, you need a Google Cloud Platform service account (a special account type for programmatic data access). Go to the [Service Accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) page and create an account with the **Viewer** permission (this will let the account access data but not change it):
 
 <Flex>
 <Image alt="Bigquery screenshot 4" src="/images/databases/big-query-4.png" />
@@ -82,13 +81,13 @@ client_x509_cert_url = "xxx"
 
 <Important>
 
-Add this file to .gitignore and don't commit it to your Github repo!
+Add this file to `.gitignore` and don't commit it to your Github repo!
 
 </Important>
 
 ## Copy your app secrets to the cloud
 
-As the `secrets.toml` file above is not committed to Github, you need to pass its content to your deployed app (on Streamlit sharing or Streamlit for Teams) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](../deploy_streamlit_app.html#secrets-management).
+As the `secrets.toml` file above is not committed to Github, you need to pass its content to your deployed app (on Streamlit Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](/streamlit-cloud/community#secrets-management).
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 
@@ -96,7 +95,7 @@ As the `secrets.toml` file above is not committed to Github, you need to pass it
 
 Add the [google-cloud-bigquery](https://googleapis.dev/python/bigquery/latest/index.html) package to your `requirements.txt` file, preferably pinning its version (replace `x.x.x` with the version want installed):
 
-```
+```bash
 # requirements.txt
 google-cloud-bigquery==x.x.x
 ```
@@ -136,7 +135,7 @@ for row in rows:
     st.write("✍️ " + row['word'])
 ```
 
-See `st.cache` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Read more about caching [here](../caching.md).
+See `st.cache` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Read more about caching [here](/library/advanced-features/caching).
 
 Alternatively, you can use pandas to read from BigQuery right into a dataframe! Follow all the above steps, install the [pandas-gbq](https://pandas-gbq.readthedocs.io/en/latest/index.html) library (don't forget to add it to `requirements.txt`!), and call `pandas.read_gbq(query, credentials=credentials)`. More info [in the pandas docs](https://pandas.pydata.org/docs/reference/api/pandas.read_gbq.html).
 
