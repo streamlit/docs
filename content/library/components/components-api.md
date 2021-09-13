@@ -15,7 +15,7 @@ If you are unsure whether you need bi-directional communication, **start here fi
 
 ### Render an HTML string
 
-While [`st.text`](/library/api-reference/text#sttext), [`st.markdown`](/library/api-reference/text#stmarkdown) and [`st.write`](library/api-reference/write-magic#stwrite) make it easy to write text to a Streamlit app, sometimes you'd rather implement a custom piece of HTML. Similarly, while Streamlit natively supports [many charting libraries](/library/api-reference/charts#chart-elements), you may want to implement a specific HTML/JavaScript template for a new charting library. `components.html` works by giving you the ability to embed an iframe inside of a Streamlit app that contains your desired output.
+While [`st.text`](/library/api-reference/text/st.text), [`st.markdown`](/library/api-reference/text/st.markdown) and [`st.write`](/library/api-reference/write-magic/st.write) make it easy to write text to a Streamlit app, sometimes you'd rather implement a custom piece of HTML. Similarly, while Streamlit natively supports [many charting libraries](/library/api-reference/charts#chart-elements), you may want to implement a specific HTML/JavaScript template for a new charting library. `components.html` works by giving you the ability to embed an iframe inside of a Streamlit app that contains your desired output.
 
 <Autofunction function="streamlit.components.v1.html" />
 
@@ -205,11 +205,11 @@ This template has much more code than its React sibling, in that all the mechani
 
 #### Working with Themes
 
-```eval_rst
-.. note::
-   Custom component theme support requires streamlit-component-lib version
-   1.2.0 or higher.
-```
+<Note>
+
+Custom component theme support requires streamlit-component-lib version 1.2.0 or higher.
+
+</Note>
 
 Along with sending an `args` object to your component, Streamlit also sends
 a `theme` object defining the active theme so that your component can adjust
@@ -267,7 +267,7 @@ of personal preference.
 npm add baseui
 ```
 
-- To build a static version of your component, run `npm run build`. See [Prepare your Component](publish_streamlit_components.md) for more information
+- To build a static version of your component, run `npm run build`. See [Prepare your Component](publish#prepare-your-component) for more information
 
 ### Python API
 
