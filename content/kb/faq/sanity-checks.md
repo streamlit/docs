@@ -1,6 +1,6 @@
 ---
 title: Sanity checks
-slug: /kb/troubleshooting/sanity-checks
+slug: /kb/faq/sanity-checks
 ---
 
 # Sanity checks
@@ -115,12 +115,12 @@ At line:1 char:1
 
 To resolve this issue, add [Python to the Windows system PATH](https://datatofish.com/add-python-to-windows-path/).
 
-After adding Python to your Windows PATH, you should then be able to follow the instructions in our [Get Started](../getting_started.html#install-streamlit) section.
+After adding Python to your Windows PATH, you should then be able to follow the instructions in our [Get Started](/library/get-started) section.
 
 ## Check #7 [Windows]: Do you need Build Tools for Visual Studio installed?
 
-Starting with version [0.63](http://localhost:8000/changelog.html#version-0-63-0) (July 2020), Streamlit added [pyarrow](https://arrow.apache.org/docs/python/) as an install dependency
-as part of the [Streamlit Components](http://localhost:8000/streamlit_components.html) feature release. Occasionally, when trying to install Streamlit from
+Starting with version [0.63](/library/changelog#version-0630) (July 2020), Streamlit added [pyarrow](https://arrow.apache.org/docs/python/) as an install dependency
+as part of the [Streamlit Components](/library/components) feature release. Occasionally, when trying to install Streamlit from
 PyPI, you may see errors such as the following:
 
 ```shell
