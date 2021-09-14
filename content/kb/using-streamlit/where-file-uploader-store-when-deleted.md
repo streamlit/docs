@@ -1,6 +1,6 @@
 ---
 title: Where does st.file_uploader store uploaded files and when do they get deleted?
-slug: /kb/faq/where-file-uploader-store-when-deleted
+slug: /kb/using-streamlit/where-file-uploader-store-when-deleted
 ---
 
 # Where does st.file_uploader store uploaded files and when do they get deleted?

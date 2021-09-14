@@ -1,6 +1,6 @@
 ---
 title: My Component seems to be blinking/stuttering...how do I fix that?
-slug: /kb/faq/component-blinking-stuttering-fix
+slug: /kb/components/component-blinking-stuttering-fix
 ---
 
 # My Component seems to be blinking/stuttering...how do I fix that?

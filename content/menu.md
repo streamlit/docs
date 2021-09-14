@@ -270,12 +270,10 @@ site_menu:
     url: /kb/tutorials/databases/public-gsheet
   - category: Knowledge Base / Tutorials / Create a data explorer app
     url: /kb/tutorials/data-explorer
-  - category: Knowledge Base / Frequently Asked Questions
-    url: /kb/faq
-  - category: Knowledge Base / Frequently Asked Questions / Using Streamlit
-    url: /kb/faq#using-streamlit
-  - category: Knowledge Base / Frequently Asked Questions / Streamlit Components
-    url: /kb/faq#streamlit-components
+  - category: Knowledge Base / Using Streamlit
+    url: /kb/using-streamlit
+  - category: Knowledge Base / Streamlit Components
+    url: /kb/components
   # - category: Knowledge Base / Troubleshooting
   #   url: /kb/troubleshooting
   # - category: Knowledge Base / Troubleshooting / Sanity checks

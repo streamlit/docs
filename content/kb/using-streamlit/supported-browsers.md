@@ -1,6 +1,6 @@
 ---
 title: What browsers does Streamlit support?
-slug: /kb/faq/supported-browsers
+slug: /kb/using-streamlit/supported-browsers
 ---
 
 # What browsers does Streamlit support?

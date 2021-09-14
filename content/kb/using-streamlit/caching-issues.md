@@ -1,6 +1,6 @@
 ---
 title: Caching issues
-slug: /kb/faq/caching-issues
+slug: /kb/using-streamlit/caching-issues
 ---
 
 # Caching issues

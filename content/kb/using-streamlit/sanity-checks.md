@@ -1,6 +1,6 @@
 ---
 title: Sanity checks
-slug: /kb/faq/sanity-checks
+slug: /kb/using-streamlit/sanity-checks
 ---
 
 # Sanity checks

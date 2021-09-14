@@ -1,6 +1,6 @@
 ---
 title: How do Streamlit Components differ from functionality provided in the base Streamlit package?
-slug: /kb/faq/how-streamlit-components-differ-base-package
+slug: /kb/components/how-streamlit-components-differ-base-package
 ---
 
 # How do Streamlit Components differ from functionality provided in the base Streamlit package?
