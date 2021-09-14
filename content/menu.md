@@ -8,6 +8,12 @@ site_menu:
     url: /library/get-started
   - category: Streamlit Library / Get Started / Installation
     url: /library/get-started/installation
+  - category: Streamlit Library / Get Started / Installation / Prerequisites
+    url: /library/get-started/installation#prerequisites
+  - category: Streamlit Library / Get Started / Installation / Windows
+    url: /library/get-started/installation#install-streamlit-on-windows
+  - category: Streamlit Library / Get Started / Installation / Linux and macOS
+    url: /library/get-started/installation#install-streamlit-on-macoslinux
   - category: Streamlit Library / Get Started / Create an app 
     url: /library/get-started/create-an-app
   - category: Streamlit Library / Get Started / Deploy an app 
@@ -262,41 +268,23 @@ site_menu:
     url: /kb/tutorials/databases/private-gsheet
   - category: Knowledge Base / Tutorials / Connect to data sources / Public Google Sheet
     url: /kb/tutorials/databases/public-gsheet
-  - category: Knowledge Base / Tutorials / Use Visualization Libraries
-    url: /kb/tutorials/visualization
-  - category: Knowledge Base / Tutorials / Use Visualization Libraries / Matplotlib
-    url: /kb/tutorials/visualization/matplotlib
-  - category: Knowledge Base / Tutorials / Use Visualization Libraries / Altair
-    url: /kb/tutorials/visualization/altair
-  - category: Knowledge Base / Tutorials / Use Visualization Libraries / Plotly
-    url: /kb/tutorials/visualization/plotly
-  - category: Knowledge Base / Tutorials / Use Visualization Libraries / Bokeh
-    url: /kb/tutorials/visualization/bokeh
-  - category: Knowledge Base / Tutorials / Use Visualization Libraries / Vega-Lite
-    url: /kb/tutorials/visualization/vega-lite
-  - category: Knowledge Base / Tutorials / Use Visualization Libraries / PyDeck
-    url: /kb/tutorials/visualization/pydeck
-  - category: Knowledge Base / Tutorials / Use Visualization Libraries / Graphviz
-    url: /kb/tutorials/visualization/graphviz
   - category: Knowledge Base / Tutorials / Create a data explorer app
     url: /kb/tutorials/data-explorer
-  - category: Knowledge Base / Frequently Asked Questions
-    url: /kb/faq
-  - category: Knowledge Base / Troubleshooting
-    url: /kb/troubleshooting
-  - category: Knowledge Base / Troubleshooting / Sanity checks
-    url: /kb/troubleshooting/sanity-checks
-  - category: Knowledge Base / Troubleshooting / Trouble starting an app remotely
-    url: /kb/troubleshooting/remote-start
-  - category: Knowledge Base / Troubleshooting / Clean install
-    url: /kb/troubleshooting/clean-install
-  - category: Knowledge Base / Troubleshooting / Caching issues
-    url: /kb/troubleshooting/caching-issues
+  - category: Knowledge Base / Using Streamlit
+    url: /kb/using-streamlit
+  - category: Knowledge Base / Streamlit Components
+    url: /kb/components
+  # - category: Knowledge Base / Troubleshooting
+  #   url: /kb/troubleshooting
+  # - category: Knowledge Base / Troubleshooting / Sanity checks
+  #   url: /kb/troubleshooting/sanity-checks
+  # - category: Knowledge Base / Troubleshooting / Caching issues
+  #   url: /kb/troubleshooting/caching-issues
   - category: Knowledge Base / Installing Dependencies
     url: /kb/dependencies
-  - category: Knowledge Base / Error Messages
-    url: /kb/error-messages
-  - category: Knowledge Base / Deployments
+  # - category: Knowledge Base / Error Messages
+  #   url: /kb/error-messages
+  - category: Knowledge Base / Deployment Issues
     url: /kb/deploy
 
   # - category: Support

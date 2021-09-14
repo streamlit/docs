@@ -1,15 +1,15 @@
 ---
 title: Caching issues
-slug: /kb/troubleshooting/caching-issues
+slug: /kb/using-streamlit/caching-issues
 ---
 
 # Caching issues
 
-While developing an app, if you see an error or warning that stems from a cached function, it's probably related to the hashing procedure described in the [Improve app performance](../caching.md). In this article, we'll provide solutions to common issues encountered when using caching. If you have an issue that's not covered in this article, please let us know in the [community forum](https://discuss.streamlit.io/).
+While developing an app, if you see an error or warning that stems from a cached function, it's probably related to the hashing procedure described in the [Optimize performance with `st.cache`](/library/advanced-features/caching). In this article, we'll provide solutions to common issues encountered when using caching. If you have an issue that's not covered in this article, please let us know in the [community forum](https://discuss.streamlit.io/).
 
 ## How to debug a cached function that isn't executing
 
-If you believe your cached function isn't executing even though its inputs are a "Cache miss", you can debug using [`st.write`](../api.html#streamlit.write) statements inside and outside of your function like this:
+If you believe your cached function isn't executing even though its inputs are a "Cache miss", you can debug using [`st.write`](/library/api-reference/write-magic/st.write) statements inside and outside of your function like this:
 
 ```python
 @st.cache
@@ -41,11 +41,11 @@ def my_cached_func(a, b):
     ...
 ```
 
-For more information, see [Improve app performance](../caching.html#the-hash-funcs-parameter).
+For more information, see [Improve app performance](/library/advanced-features/caching#the-hash_funcs-parameter).
 
 ## How to fix the Cached Object Mutated warning
 
-By default Streamlit expects its cached values to be treated as immutable -- that cached objects remain constant. You received this warning if your code modified a cached object (see [Example 5 in Caching](../caching.html#example-5-use-the-global-cache-to-speed-up-your-app-for-all-users)). When this happens, you have a few options:
+By default Streamlit expects its cached values to be treated as immutable -- that cached objects remain constant. You received this warning if your code modified a cached object (see [Example 5 in Caching](/library/advanced-features/caching#example-5-use-caching-to-speed-up-your-app-across-users)). When this happens, you have a few options:
 
 1. If you don't understand why you're seeing this error, it's very likely that you didn't mean to mutate the cached value in the first place. So you should either:
 
@@ -65,7 +65,7 @@ By default Streamlit expects its cached values to be treated as immutable -- tha
       ...
    ```
 
-   For examples, see [Advanced caching](../caching.md).
+   For examples, see [Advanced caching](/library/advanced-features/caching#advanced-caching).
 
    <Note>
 
@@ -81,11 +81,11 @@ By default Streamlit expects its cached values to be treated as immutable -- tha
       ...
    ```
 
-   For more information, see [Improve app performance](../caching.html#the-hash-funcs-parameter).
+   For more information, see [Optimize performance with `st.cache`](/library/advanced-features/caching#the-hash_funcs-parameter).
 
    By the way, the scenario above is fairly unlikely — unless `FooType` does something particularly tricky internally. This is the case with some `SpaCY` objects, which can automatically mutate behind the scenes for better performance, while keeping their semantics constant. That means Streamlit will correctly detect a mutation in the object's internal structure, even though semantically that mutation makes no difference.
 
 ## If all else fails
 
-If the proposed fixes above don't work for you, or if you have an idea on how to further improve [`@st.cache`](../api.html#streamlit.cache) -- let us know by asking questions in the [community forum](https://discuss.streamlit.io/), [filing a bug](https://github.com/streamlit/streamlit/issues/new/choose), or [submitting a feature request](https://github.com/streamlit/streamlit/issues/new/choose). We love hearing back from the community!
+If the proposed fixes above don't work for you, or if you have an idea on how to further improve [`@st.cache`](/library/api-reference/performance/st.cache) -- let us know by asking questions in the [community forum](https://discuss.streamlit.io/), [filing a bug](https://github.com/streamlit/streamlit/issues/new/choose), or [submitting a feature request](https://github.com/streamlit/streamlit/issues/new/choose). We love hearing back from the community!
 

@@ -31,53 +31,123 @@ Below are a few tools you can use for environment management:
 - [virtualenv](https://virtualenv.pypa.io/en/latest/)
 - [conda](https://www.anaconda.com/distribution/)
 
-## Install Streamlit
+## Install Streamlit on Windows
 
-```bash
-pip install streamlit
-```
+Streamlit's officially-supported environment manager on Windows is [Anaconda Navigator](https://docs.anaconda.com/anaconda/navigator/).
 
-Now run the hello world app to make sure everything is working:
+### Install Anaconda
 
-```bash
-streamlit hello
-```
+If you don't have Anaconda install yet, follow the steps provided on the [Anaconda installation page](https://docs.anaconda.com/anaconda/install/windows/).
 
-## Import Streamlit
+### Create a new environment with Streamlit
 
-Now that everything's installed, let's create a new Python script and import
-Streamlit.
+Next you'll need to set up your environment.
 
-1. Create a new Python file named `first_app.py`, then open it with your IDE
-   or text editor.
-2. Next, import Streamlit.
+1. Follow the steps provided by Anaconda to [set up and manage your environment](https://docs.anaconda.com/anaconda/navigator/getting-started/#managing-environments) using the Anaconda Navigator.
 
-   ```python
-   import streamlit as st
-   # To make things easier later, we're also importing numpy and pandas for
-   # working with sample data.
-   import numpy as np
-   import pandas as pd
+2. Select the "▶" icon next to your new environment. Then select "Open terminal":
+
+   !["Open terminal" in Anaconda Navigator](https://i.stack.imgur.com/EiiFc.png)
+
+3. In the terminal that appears, type:
+
+   ```sh
+   pip install streamlit
    ```
 
-3. Run your app. A new tab will open in your default browser. It'll be blank
-   for now. That's OK.
+4. Test that the installation worked:
 
-   ```bash
-   streamlit run first_app.py
+   ```sh
+   streamlit hello
    ```
 
-   Running a Streamlit app is no different than any other Python script.
-   Whenever you need to view the app, you can use this command.
+   Streamlit's Hello app should appear in a new tab in your web browser!
 
-   <Tip>
+### Use your new environment
 
-      Did you know you can also pass a URL to `streamlit run`? This is great when combined with Github Gists. For example:
+1. In Anaconda Navigator, open a terminal in your environment (see step 2 above).
+2. In the terminal that appears, use Streamlit as usual:
 
-      ```bash
-      $ streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
-      ```
+   ```sh
+   streamlit run myfile.py
+   ```
 
-   </Tip>
+## Install Streamlit on macOS/Linux
 
-4. You can kill the app at any time by typing **Ctrl+c** in the terminal.
+Streamlit's officially-supported environment manager for macOS and Linux is [Pipenv](https://pypi.org/project/pipenv/). See instructions on how to install and use it below.
+
+### Install Pipenv
+
+1. Install `pip`.
+
+   On a macOS:
+
+   ```sh
+   sudo easy_install pip
+   ```
+
+   On Ubuntu with Python 3:
+
+   ```sh
+   sudo apt-get install python3-pip
+   ```
+
+   For other Linux distributions, see [How to install PIP for Python](https://www.makeuseof.com/tag/install-pip-for-python/).
+
+2. Install `pipenv`.
+
+   ```sh
+   pip3 install pipenv
+   ```
+
+### Create a new environment with Streamlit
+
+1. Navigate to your project folder:
+
+   ```sh
+   cd myproject
+   ```
+
+2. Create a new Pipenv environment in that folder and activate that environment:
+
+   ```sh
+   pipenv shell
+   ```
+
+   When you run the command above, a file called `Pipfile` will appear in `myprojects/`. This file is where your Pipenv environment and its dependencies are declared.
+
+3. Install Streamlit in your environment:
+
+   ```sh
+   pip install streamlit
+   ```
+
+   Or if you want to create an easily-reproducible environment, replace `pip` with `pipenv` every time you install something:
+
+   ```sh
+   pipenv install streamlit
+   ```
+
+4. Test that the installation worked:
+
+   ```sh
+   streamlit hello
+   ```
+
+   Streamlit's Hello app should appear in a new tab in your web browser!
+
+### Use your new environment
+
+1. Any time you want to use the new environment, you first need to go to your project folder (where the `Pipenv` file lives) and run:
+
+   ```sh
+   pipenv shell
+   ```
+
+2. Now you can use Python and Streamlit as usual:
+
+   ```sh
+   streamlit run myfile.py
+   ```
+
+3. When you're done using this environment, just type `exit` or press `ctrl-D` to return to your normall shell.
