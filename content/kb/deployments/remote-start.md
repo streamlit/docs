@@ -1,6 +1,6 @@
 ---
-title: Remote app not loading
-slug: /kb/troubleshooting/remote-start
+title: App is not loading when running remotely
+slug: /kb/deploy/remote-start
 ---
 
 # App is not loading when running remotely
@@ -9,8 +9,7 @@ Below are a few common errors that occur when users spin up their own solution
 to host a Streamlit app remotely.
 
 To learn about a deceptively simple way to host Streamlit apps that avoids all
-the issues below, check out [Streamlit for
-Teams](https://www.streamlit.io/for-teams).
+the issues below, check out [Streamlit Cloud](https://streamlit.io/cloud).
 
 ### Symptom #1: The app never loads
 
@@ -108,4 +107,3 @@ streamlit run my_app.py --server.enableXsrfProtection=false
 If this fixes your issue, **you should re-enable XSRF protection** and then
 configure your app to use the same secret across every replica by setting the
 `server.cookieSecret` config option to the same hard-to-guess string everywhere.
-
