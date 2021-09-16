@@ -190,19 +190,21 @@ class Search extends React.Component {
                                 // left: '-40em'
                             }} className="algolia">
                             <span className="background" onClick={this.toggleModal} />
-                            <button onClick={this.toggleModal}>close</button>
                             <FocusTrap>
-                                <section className="content"  tabindex='-1'>
-                                    <div className="ais-InstantSearch">
-                                        <InstantSearch indexName="documentation" searchClient={searchClient}>
-                                            <div className="right-panel">
-                                                <Configure hitsPerPage={10} filters="version:latest" />
-                                                <SearchBox id="search-box small" />
-                                                <Hits hitComponent={Hit} />
-                                            </div>
-                                        </InstantSearch>
-                                    </div>
-                                </section>
+                                <div>
+                                    <button className="closeModal" onClick={this.toggleModal}>close modal</button>
+                                    <section className="content"  tabindex='-1'>
+                                        <div className="ais-InstantSearch">
+                                            <InstantSearch indexName="documentation" searchClient={searchClient}>
+                                                <div className="right-panel">
+                                                    <Configure hitsPerPage={10} filters="version:latest" />
+                                                    <SearchBox id="search-box small" />
+                                                    <Hits hitComponent={Hit} />
+                                                </div>
+                                            </InstantSearch>
+                                        </div>
+                                    </section>
+                                </div>
                             </FocusTrap>
                         </motion.section>
                     }
