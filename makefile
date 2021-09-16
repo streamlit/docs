@@ -14,6 +14,10 @@ start:
 build:
 	npm run build
 
+.PHONY: lint
+lint:
+	npm run lint
+
 .PHONY: search
 search:
 	node ./scripts/build-search-index.js
