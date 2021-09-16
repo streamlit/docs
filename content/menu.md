@@ -228,13 +228,13 @@ site_menu:
     url: /streamlit-cloud/community#limitations-and-known-issues
 
 
-  - category: Streamlit Cloud / Teams (Enterprise)
+  - category: Streamlit Cloud / Teams and Enterprise
     url: /streamlit-cloud/enterprise
   # - category: Streamlit Cloud / Enterprise /Single Sign-On (SSO)
   #   url: /streamlit-cloud/enterprise/sso-single-sign-on
   # - category: Streamlit Cloud / Enterprise /Fair Billing Policy
   #   url: /streamlit-cloud/enterprise/billing
-  - category: Streamlit Cloud / Teams (Enterprise) / Security Model
+  - category: Streamlit Cloud / Teams and Enterprise / Security Model
     url: /streamlit-cloud/enterprise/security-model
   
 
