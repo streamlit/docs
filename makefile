@@ -14,6 +14,10 @@ start:
 build:
 	npm run build
 
+.PHONY: export
+export:
+	npm run export
+
 .PHONY: lint
 lint:
 	npm run lint
