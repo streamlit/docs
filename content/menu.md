@@ -230,8 +230,8 @@ site_menu:
 
   - category: Streamlit Cloud / Teams and Enterprise
     url: /streamlit-cloud/enterprise
-  # - category: Streamlit Cloud / Enterprise /Single Sign-On (SSO)
-  #   url: /streamlit-cloud/enterprise/sso-single-sign-on
+  - category: Streamlit Cloud / Teams and Enterprise /Single Sign-on (SSO)
+    url: /streamlit-cloud/enterprise/single-sign-on-sso
   # - category: Streamlit Cloud / Enterprise /Fair Billing Policy
   #   url: /streamlit-cloud/enterprise/billing
   - category: Streamlit Cloud / Teams and Enterprise / Security Model

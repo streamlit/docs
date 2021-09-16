@@ -27,7 +27,7 @@ Keep your code in your GitHub private repos and connect them to your Streamlit f
 
 Restrict access to your app to a selected set of users. Single sign-on with Google OAuth is currently supported with other SSO providers coming soon.
 
-[Viewer auth documentation](https://www.notion.so/Configuring-Viewer-Auth-with-Single-Sign-On-761add6d20af4e9c9726a5b93542ef61)
+[Single Sign-on documentation](/streamlit-cloud/enterprise/single-sign-on-sso)
 
 ![Streamlit Cloud single sign-on](/images/sso.png)
 
