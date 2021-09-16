@@ -1,12 +1,21 @@
 .block-side-nav {
     display: none;
     position: fixed;
-    top: $header-height;
+    top: 0;
+    height: calc(100vh - #{$header-height});
     z-index: 10;
     transition: $slow;
-
+    width: 314px;
     * {
       transition: $slow;
+    }
+
+    .inner-nav {
+        list-style: none;
+    }
+
+    @media(min-width: 1250px) {
+        background-color: white;
     }
 
 
@@ -38,8 +47,26 @@
     }
 
     @media(min-width: 1024px) {
-        position: sticky;
         display: block;
+
+        &:before {
+            content: '';
+            display: block;
+            position: fixed;
+            pointer-events: none;
+            height: $header-height;
+            z-index: 33;
+            top: 0;
+            opacity: 0;
+            transition: opacity $slow ease-in;
+            transition-delay: $slow;
+            background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 75%,rgba(255,255,255,0) 100%);
+            @media(min-width: 1250) {
+                width: 314px;
+                opacity: 1;
+            }
+        }
+
     }
 
     &.over {
@@ -48,8 +75,20 @@
             display: block;
         }
 
-        @media(min-width: 1024px) {
+        &:before {
+            transition: opacity $slow ease-in;
+            transition-delay: $slow;
+            opacity: 1;
+            width: calc(50vw - (50vw * 0.2));
+        }
 
+        @media(max-width: 1249px) {
+            .inner-nav {
+                width: calc(50vw - (50vw * 0.2));
+            }
+        }
+
+        @media(min-width: 1024px) {
             .side-nav {
                 position: absolute;
             }
@@ -64,7 +103,6 @@
         }
     }
 
-
     .side-nav {
         list-style: none;
         padding-right: 1em;
@@ -72,6 +110,7 @@
         margin-bottom: calc(#{$header-height} * 1.5);
 
         @media(min-width: 1024px) {
+            
             &:before {
                 content: '';
                 position: fixed;
@@ -86,14 +125,27 @@
                 transform: translateX(-100%);
                 transition: transform $normal ease-in;
             }
+            
+            .inner-nav {
+                overflow-x: hidden;
+                overflow-y: auto;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                padding-top: $header-height;
+                height: calc(100vh - (#{$header-height} * 2));
+                padding-bottom: $header-height;
+                @media(min-width: 1249px) {
+                    width: 314px;
+                }
+            }
         }
 
         &.condensed {
 
             margin-left: -1em;
-
+            
             .nav-item {
-
                 .head {
                     flex-wrap: wrap;
                     justify-content: center;
@@ -124,7 +176,6 @@
 
         ul, ol {
             margin: 0;
-            white-space: nowrap;
         }
 
         .nav-item {
