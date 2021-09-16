@@ -18,7 +18,6 @@
         background-color: white;
     }
 
-
     @media(max-width: 1024px) {
         position: fixed;
         background: white;
@@ -48,9 +47,11 @@
 
     @media(min-width: 1024px) {
         display: block;
+    }
 
-        &:before {
-            content: '';
+    &:before {
+        @media(min-width: 1024px) {
+            content: ''; 
             display: block;
             position: fixed;
             pointer-events: none;
@@ -61,12 +62,13 @@
             transition: opacity $slow ease-in;
             transition-delay: $slow;
             background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 75%,rgba(255,255,255,0) 100%);
-            @media(min-width: 1250) {
-                width: 314px;
-                opacity: 1;
-            }
+            width: 0;
         }
 
+        @media(min-width: 1250px) {
+            width: 314px;
+            opacity: 1;
+        }
     }
 
     &.over {
@@ -132,7 +134,7 @@
                 height: 100%;
                 position: absolute;
                 top: 0;
-                padding-top: $header-height;
+                padding-top: $header-height ;
                 height: calc(100vh - (#{$header-height} * 2));
                 padding-bottom: $header-height;
                 @media(min-width: 1249px) {

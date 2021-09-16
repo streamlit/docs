@@ -13,7 +13,7 @@ export default class Layout extends React.Component {
             <main id="root" className="layout">
                 <Header />
                 {props.children}
-                <Footer revision="84fad262" />
+                <Footer />
             </main>
         )
     }
