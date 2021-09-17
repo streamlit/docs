@@ -96,7 +96,7 @@ This is a **note** that links to our [website](https://docs.streamlit.io/).
 
 **Embed code:**
 
-Enclose code within ` ` to embed it inline. E.g. 
+Enclose code within \` \` to embed it inline. E.g. 
 
 ```markdown
 Create a header with `st.header`.
