@@ -236,8 +236,8 @@ site_menu:
     # url: /streamlit-cloud/enterprise/single-sign-on-sso#google-oauth
   - category: Streamlit Cloud / Teams and Enterprise /Single Sign-on (SSO) / Microsoft Active Directory (ADFS)
     url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-active-directory-adfs
-  - category: Streamlit Cloud / Teams and Enterprise /Single Sign-on (SSO) / Microsoft Azure authentication
-    url: /streamlit-cloud/enterprise/single-sign-on-sso#microsoft-azure-authentication
+  - category: Streamlit Cloud / Teams and Enterprise /Single Sign-on (SSO) / Microsoft Azure AD
+    url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-azure-active-directory
   - category: Streamlit Cloud / Teams and Enterprise /Single Sign-on (SSO) / Okta
     url: /streamlit-cloud/enterprise/single-sign-on-sso#okta
   - category: Streamlit Cloud / Teams and Enterprise /Single Sign-on (SSO) / Generic SAML

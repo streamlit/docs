@@ -9,9 +9,9 @@ By default all apps deployed with Streamlit Cloud Teams and Enterprise are priva
 
 If your organization uses **Google OAuth**, you're all set — just click "Continue with Google" to sign into Streamlit Cloud. If your organization uses another SSO provider, check out our guides below.
 
-- [Microsoft Active Directory (ADFS)]()
+- [Microsoft Active Directory (ADFS)](/streamlit-cloud/enterprise/single-sign-on-sso/streamlit-active-directory-adfs)
 
-- [Microsoft Azure authentication]()
+- [Microsoft Azure authentication](/streamlit-cloud/enterprise/single-sign-on-sso/streamlit-azure-active-directory)
 
 - [Okta]()
 

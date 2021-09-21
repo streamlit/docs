@@ -23,7 +23,7 @@ Enabling Single Sign-On via Microsoft ADFS allows members of your organization t
 
 ## Configuring Microsoft ADFS SSO
 
-The configuration of ADFS SSO for your organization requires a few quick steps that should be completed by your organization's IT team or technical administrator.
+The configuration of Microsoft ADFS SSO for your organization requires a few quick steps that should be completed by your organization's IT team or technical administrator.
 
 1. Please complete [this form](https://docs.google.com/forms/d/e/1FAIpQLSenELJzAZaBV8852b-HJMeecO_LAwYJ6zuYbXLK0lMVexCF4Q/viewform)
 
