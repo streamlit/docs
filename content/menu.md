@@ -241,7 +241,7 @@ site_menu:
   - category: Streamlit Cloud / Teams and Enterprise /Single Sign-on (SSO) / Okta
     url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-okta-sso
   - category: Streamlit Cloud / Teams and Enterprise /Single Sign-on (SSO) / Generic SAML
-    url: /streamlit-cloud/enterprise/single-sign-on-sso#generic-saml
+    url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-general-saml-authentication
   # - category: Streamlit Cloud / Enterprise /Fair Billing Policy
   #   url: /streamlit-cloud/enterprise/billing
   - category: Streamlit Cloud / Teams and Enterprise / Security Model

@@ -15,4 +15,4 @@ If your organization uses **Google OAuth**, you're all set — just click "Conti
 
 - [Okta](/streamlit-cloud/enterprise/single-sign-on-sso/streamlit-okta-sso)
 
-- [Generic SAML]()
+- [Generic SAML](/streamlit-cloud/enterprise/single-sign-on-sso/streamlit-general-saml-authentication)
