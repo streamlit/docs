@@ -239,7 +239,7 @@ site_menu:
   - category: Streamlit Cloud / Teams and Enterprise /Single Sign-on (SSO) / Microsoft Azure AD
     url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-azure-active-directory
   - category: Streamlit Cloud / Teams and Enterprise /Single Sign-on (SSO) / Okta
-    url: /streamlit-cloud/enterprise/single-sign-on-sso#okta
+    url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-okta-sso
   - category: Streamlit Cloud / Teams and Enterprise /Single Sign-on (SSO) / Generic SAML
     url: /streamlit-cloud/enterprise/single-sign-on-sso#generic-saml
   # - category: Streamlit Cloud / Enterprise /Fair Billing Policy

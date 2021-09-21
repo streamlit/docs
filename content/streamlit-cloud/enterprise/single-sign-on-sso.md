@@ -13,6 +13,6 @@ If your organization uses **Google OAuth**, you're all set — just click "Conti
 
 - [Microsoft Azure authentication](/streamlit-cloud/enterprise/single-sign-on-sso/streamlit-azure-active-directory)
 
-- [Okta]()
+- [Okta](/streamlit-cloud/enterprise/single-sign-on-sso/streamlit-okta-sso)
 
 - [Generic SAML]()
