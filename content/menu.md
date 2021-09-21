@@ -206,35 +206,45 @@ site_menu:
     url: /streamlit-cloud
     color: l-blue-70
     icon: cloud
-  - category: Streamlit Cloud / Community Tier
+  - category: Streamlit Cloud / Community
     url: /streamlit-cloud/community
-  - category: Streamlit Cloud / Community Tier / Sign up
+  - category: Streamlit Cloud / Community / Sign up
     url: /streamlit-cloud/community#sign-up-for-streamlit-cloud
-  - category: Streamlit Cloud / Community Tier / Put your Streamlit app on GitHub
+  - category: Streamlit Cloud / Community / Put your Streamlit app on GitHub
     url: /streamlit-cloud/community#put-your-streamlit-app-on-github
-  - category: Streamlit Cloud / Community Tier / Log in to share.streamlit.io
+  - category: Streamlit Cloud / Community / Log in to share.streamlit.io
     url: /streamlit-cloud/community#log-in-to-sharestreamlitio
-  - category: Streamlit Cloud / Community Tier / Deploy your app
+  - category: Streamlit Cloud / Community / Deploy your app
     url: /streamlit-cloud/community#deploy-your-app
-  - category: Streamlit Cloud / Community Tier / Secrets management
+  - category: Streamlit Cloud / Community / Secrets management
     url: /streamlit-cloud/community#secrets-management
-  - category: Streamlit Cloud / Community Tier / Share, update, and collaborate
+  - category: Streamlit Cloud / Community / Share, update, and collaborate
     url: /streamlit-cloud/community#share-update-and-collaborate
-  - category: Streamlit Cloud / Community Tier / App access and usage
+  - category: Streamlit Cloud / Community / App access and usage
     url: /streamlit-cloud/community#app-access-and-usage
-  - category: Streamlit Cloud / Community Tier / Managing apps
+  - category: Streamlit Cloud / Community / Managing apps
     url: /streamlit-cloud/community#managing-apps
-  - category: Streamlit Cloud / Community Tier / Limitations and known issues
+  - category: Streamlit Cloud / Community / Limitations and known issues
     url: /streamlit-cloud/community#limitations-and-known-issues
 
 
-  - category: Streamlit Cloud / Enterprise
+  - category: Streamlit Cloud / Teams and Enterprise
     url: /streamlit-cloud/enterprise
-  # - category: Streamlit Cloud / Enterprise /Single Sign-On (SSO)
-  #   url: /streamlit-cloud/enterprise/sso-single-sign-on
+  - category: Streamlit Cloud / Teams and Enterprise /Single Sign-on (SSO)
+    url: /streamlit-cloud/enterprise/single-sign-on-sso
+  # - category: Streamlit Cloud / Teams and Enterprise /Single Sign-on (SSO) / Google OAuth
+    # url: /streamlit-cloud/enterprise/single-sign-on-sso#google-oauth
+  - category: Streamlit Cloud / Teams and Enterprise /Single Sign-on (SSO) / Microsoft Active Directory (ADFS)
+    url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-active-directory-adfs
+  - category: Streamlit Cloud / Teams and Enterprise /Single Sign-on (SSO) / Microsoft Azure AD
+    url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-azure-active-directory
+  - category: Streamlit Cloud / Teams and Enterprise /Single Sign-on (SSO) / Okta
+    url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-okta-sso
+  - category: Streamlit Cloud / Teams and Enterprise /Single Sign-on (SSO) / Generic SAML
+    url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-general-saml-authentication
   # - category: Streamlit Cloud / Enterprise /Fair Billing Policy
   #   url: /streamlit-cloud/enterprise/billing
-  - category: Streamlit Cloud / Enterprise /Security Model
+  - category: Streamlit Cloud / Teams and Enterprise / Security Model
     url: /streamlit-cloud/enterprise/security-model
   
 
