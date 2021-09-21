@@ -224,6 +224,37 @@ Suppose a new Streamlit release includes a `st.my_chart` function that you want 
 
 6. Save your changes and refresh the browser tab. If all went well, you should see a new entry in the Menu, a new card in the API Reference, and a new page for `st.my_chart`.
 
+### Add to the Knowledge Base
+
+The Knowledge Base (KB) is divided into five sections:
+
+1. **Tutorials:** Step-by-step examples of building different types of apps in Streamlit
+2. **Using Streamlit:** Frequently asked questions about using Streamlit Library
+3. **Deployment Issues:** Articles about deploying Streamlit apps
+4. **Streamlit Components:** Articles about Streamlit components
+5. **Installing Dependencies:** System and Python dependency issues while using or deploying Streamlit apps
+
+If you know the answer to a Streamlit user's pain point and want to add it to the KB:
+
+1. Decide which of the above sections your article belongs to
+2. Navigate to the relevant section's folder in `kb/` and
+3. Create a `.md` file in the above specified format containing your article
+    - Make sure the title in the front matter and the file header in Markdown are identical. E.g.
+
+        ```markdown
+        ---
+        title: How do I add a Component to the sidebar?
+        slug: /kb/components/add-component-sidebar
+        ---
+
+        # How do I add a Component to the sidebar?
+        ```
+4. Add a line to the existing `index.md` file in the same folder as your article. It should contain the title and URL slug specified in your article's front matter. This step ensures that users are able to discover your article in the index page of the relevant KB section. E.g.
+
+    ```markdown
+    - [How do I add a Component to the sidebar?](/kb/components/add-component-sidebar)
+    ```
+
 ## Publishing
 
 To publish your changes to the docs site:
