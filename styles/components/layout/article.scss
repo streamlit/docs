@@ -1,8 +1,9 @@
 article.leaf-page {
     position: relative;
    
-    @media (min-width: 1930px) {
+    @media (min-width: 1280px) {
         padding-right: 308px; 
+        
         .toc {
             display: block;
         }
