@@ -20,8 +20,8 @@ site_menu:
     url: /library/get-started/deploy-an-app
   - category: Streamlit Library / Get Started / Cheat sheet
     url: /library/get-started/cheatsheet
-  - category: Streamlit Library / Get Started / App gallery
-    url: https://streamlit.io/gallery
+  # - category: Streamlit Library / Get Started / App gallery
+  #   url: https://streamlit.io/gallery
   - category: Streamlit Library / API Reference
     url: /library/api-reference
   - category: Streamlit Library / API Reference / Write and magic
