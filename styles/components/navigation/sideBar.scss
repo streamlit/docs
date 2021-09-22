@@ -134,7 +134,7 @@
                 height: 100%;
                 position: absolute;
                 top: 0;
-                padding-top: $header-height ;
+                padding-top: 9rem;
                 height: calc(100vh - (#{$header-height} * 2));
                 padding-bottom: $header-height;
                 @media(min-width: 1249px) {
