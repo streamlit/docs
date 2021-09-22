@@ -1,6 +1,6 @@
 # Streamlit Docs
 
-We use Next.js and Netlify to build our documentation site.
+We use Next.js and Netlify to build our [documentation site](https://streamlit-docs.netlify.app).
 
 ## Building
 
@@ -69,7 +69,7 @@ Now that you've decided where the file should live and have named the file, it's
 
 Every `.md` file has front matter at the very top that defines the page title which appears in the browser tab bar, and the URL slug which appears after the slash in `streamlit-docs.netlify.app/` and `localhost:3000/`. 
 
-E.g. For a page titled "Create a component" that should exist at `streamlit-docs.netlify.app/library/components/create`, the front matter at the top of `[create-component.md](http://create-component.md)` is:
+E.g. For a page titled "Create a component" that should exist at `streamlit-docs.netlify.app/library/components/create`, the front matter at the top of `create-component.md` is:
 
 ```markdown
 ---
