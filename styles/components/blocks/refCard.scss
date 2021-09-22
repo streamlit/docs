@@ -17,7 +17,6 @@
     h1,h2,h3,h4,h5,h6 {
         margin:0;
         color:inherit !important;
-        margin-bottom:.25em;
     }
     img {
         width:calc(100% + 2em);
@@ -27,9 +26,10 @@
     }
     p,a {
         color:inherit !important;
-        margin-bottom:.25em;
+        line-height: 1.5;
         font-weight: 300;
         font-size: .875em;
+        margin-bottom: 0;
     }
 
     .block-code {
@@ -43,8 +43,12 @@
 
         .code-toolbar {
           display: flex;
-          flex-direction: column;
           flex: 1;
+          background: $gray-90;
+
+          .toolbar {
+              overflow-x: scroll;
+          }
         }
 
         pre {

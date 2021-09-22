@@ -116,21 +116,14 @@
     }
 
     button {
-        position: absolute;
-        top:8px;
-        right:8px;
-        background: transparent;
         border: none;
         color: transparent;
+        background: transparent;
         cursor: pointer;
-        height: 2em;
-        width: 2em;
+        max-width: 50px;
 
         &:before {
             content:url('/clipboard.svg');
-            position: absolute;
-            top: .5em;
-            right: .5em;
             z-index: 1;
             transition: $fast;
         }
@@ -150,6 +143,9 @@
         }
 
         &:hover {
+            transform: none;
+            box-shadow: none;
+            
             &:before {
                 opacity:.5;
             }
