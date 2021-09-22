@@ -153,14 +153,16 @@ class FloatingNav extends React.Component {
         )
         
         return (
-            <div className='toc'>
-                <ol className='toc-level'>
-                    {menu.map((item, index) => {
-                        const active = item.target == target ? 'active' : ''
-                        return (<li className={`level-${item.level} ${active} bg-${color}`} key={`toc-${index}`}>{svg}<a href={item.target}>{item.label}</a></li>)
-                    })}
-                </ol>
-            </div>
+            menu.length > 1 ?
+                <div className='toc'>
+                    <ol className='toc-level'>
+                        {menu.map((item, index) => {
+                            const active = item.target == target ? 'active' : ''
+                            return (<li className={`level-${item.level} ${active} bg-${color}`} key={`toc-${index}`}>{svg}<a href={item.target}>{item.label}</a></li>)
+                        })}
+                    </ol>
+                </div>
+            : ''
         )
     }
 }

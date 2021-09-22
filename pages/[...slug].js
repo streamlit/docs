@@ -105,6 +105,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
             </ArrowLinkContainer>
         )
     }
+    console.log(slug)
 
     return (
         <MDXProvider
