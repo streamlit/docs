@@ -189,9 +189,9 @@ class Search extends React.Component {
                                 opacity: 0,
                                 // left: '-40em'
                             }} className="algolia">
-                            <span className="background" onClick={this.toggleModal} />
                             <FocusTrap>
                                 <div>
+                                    <span className="background" onClick={this.toggleModal} />
                                     <button className="closeModal" onClick={this.toggleModal}>close modal</button>
                                     <section className="content"  tabindex='-1'>
                                         <div className="ais-InstantSearch">

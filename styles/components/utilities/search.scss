@@ -64,6 +64,8 @@
             z-index: -1;
             background: $gray-60;
             opacity: .6;
+            left: 0;
+            top: 0;
         }
 
         > button, .closeModal {
@@ -92,7 +94,12 @@
                 top:-1em;
                 right:-1em;
                 font-size: 2em;
+                
+                &.closeModal {
+                    display: none;
+                }
             }
+
 
             &:hover {
                 opacity: .5;
@@ -103,11 +110,18 @@
 
         .content {
             width: 45vh;
-            padding: 2em;
-            border-radius: $rounded-small;
+            padding: 1em;
             max-width: calc(80vw - 4em);
-            overflow: scroll;
+            overflow-y: scroll;
             max-height: calc(90vh - 4em);
+            
+            @media (max-width:1024px) {
+                max-width: calc(100vw - 4em);
+            }
+
+            .ais-Hits-list {
+                margin: 0;
+            }
 
             .ais-SearchBox {
                 position: sticky;
@@ -191,15 +205,17 @@
                                 padding-bottom: 1em;
                                 border-bottom:1px solid;
 
+                                @media (max-width: 1024px) {
+                                    gap: 1rem;
+                                }
+
                                 .image_container {
                                     position: relative;
-                                    overflow: hidden;
-                                    
                                     display: flex;
                                     align-content: center;
                                     justify-content: center;
 
-                                    width: 40px;
+                                    min-width: 40px;
                                     height: 40px;
                                     border-radius: $rounded-small;
 
@@ -210,11 +226,8 @@
                                 .copy {
                                     width:calc(100% - 7em);
 
-                                    span {
-
-                                    }
-                                    h2 {
-
+                                    @media (max-width: 1024px) {
+                                        width: 100%;
                                     }
                                 }
                             }
