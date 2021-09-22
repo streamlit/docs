@@ -1,12 +1,19 @@
-import Link from 'next/link'
+import Router from 'next/router'
 
 export default function RefCard({ children, size, href }) {
-    // TODO(Thiago): Make code block clickable without taking you to the href.
+    const followLink = (e) => {
+        const isCopyButton = e.target.type === 'button';
+        
+        if(isCopyButton) {
+            return;
+        } else {
+            Router.push(href);
+        };
+    }
+
     return (
-        <Link href={href}>
-            <div className={`not-link reference-card ${size || 'third'}`}>
-                {children}
-            </div>
-        </Link>
+        <div className={`not-link reference-card ${size || 'third'}`} onClick={(e) => followLink(e)}>
+            {children}
+        </div>
     )
 }

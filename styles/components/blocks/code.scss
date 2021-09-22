@@ -121,12 +121,19 @@
         background: transparent;
         cursor: pointer;
         max-width: 50px;
+        padding: 1rem;
+        // Set to 0 to remove layout shift for copy/copied text
+        font-size: 0;
 
         &:before {
             content:url('/clipboard.svg');
             z-index: 1;
             transition: $fast;
         }
+        &:focus, &:focus-visible, &:focus-within {
+            outline: none;
+        }
+
         &:after {
             content: '';
             position: absolute;
@@ -145,32 +152,32 @@
         &:hover {
             transform: none;
             box-shadow: none;
-            
+
             &:before {
                 opacity:.5;
             }
         }
-        &:active {
-            &:after {
-                animation-duration: 250ms;
-                animation-name: grow_in;
-            }
-        }
-        @keyframes grow_in {
-            from {
-                transform: scale(0);
-                opacity: 0;
-            }
+        // &:active {
+        //     &:after {
+        //         animation-duration: 250ms;
+        //         animation-name: grow_in;
+        //     }
+        // }
+        // @keyframes grow_in {
+        //     from {
+        //         transform: scale(0);
+        //         opacity: 0;
+        //     }
 
-            50% {
-                opacity: .5;
-                transform: scale(1.25);
-            }
+        //     50% {
+        //         opacity: .5;
+        //         transform: scale(1.25);
+        //     }
 
-            to {
-                transform: scale(0);
-                opacity: 0;
-            }
-        }
+        //     to {
+        //         transform: scale(0);
+        //         opacity: 0;
+        //     }
+        // }
     }
 }
