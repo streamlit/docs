@@ -5,7 +5,7 @@ slug: /kb
 
 # Knowledge Base
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim consectetur a eros facilisi dictum rhoncus rhoncus quam. Tellus ut mattis mi lectus ultricies nunc aliquam, enim. Viverra integer et.
+The knowledge base is a self-serve library of tips, step-by-step tutorials, and articles that answer your questions about creating and deploying Streamlit apps.
 
 <TileContainer>
     <Tile 
