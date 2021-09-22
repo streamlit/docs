@@ -27,7 +27,7 @@ export default function SocialCallout() {
                     </a>
                     <article>
                         <h5 className="large bold">GitHub</h5>
-                        <p className="tiny">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque nullam ridiculus et.</p>
+                        <p className="tiny">View the Streamlit source code and issue tracker.</p>
                     </article>
                 </section>
                 <section className="social instagram">

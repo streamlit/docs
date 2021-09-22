@@ -46,12 +46,12 @@ export default function Home({ window, menu, gdpr_data }) {
             <Spacer size="2rem" />
 
             <TileContainer>
-              <Tile icon="arrow_forward" title="Get Started" text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia." background="violet-70" link="/tutorials/get-started" />
-              <Tile icon="dvr" title="API reference" text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia." background="orange-70" link="/reference-guides/api-reference" />
-              <Tile icon="description" title="Topic guides" text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia." background="l-blue-70" link="/topic-guides" />
+              <Tile icon="arrow_forward" title="Get Started" text="If you're new to Streamlit and don't know where to start, this is a good place." background="violet-70" link="/library/get-started" />
+              <Tile icon="dvr" title="API Reference" text="Learn how our APIs, with actionable explanations of specific functions and features." background="violet-70" link="/library/api-reference" />
+              <Tile icon="grid_view" title="App Gallery" text="Try out awesome apps created by our users, and curated from our forums or Twitter." background="green-70" link="https://streamlit.io/gallery" />
             </TileContainer>
 
-            <H2 className='no-b-m'>What's new</H2>
+            {/* <H2 className='no-b-m'>What's new</H2>
 
             <TileContainer>
               <Tile size="half" background="unset" color="unset" dark={{ background: "unset", color: 'white', border_color: 'gray-90' }} border_color="gray-40" img="/logo.svg" title="Feature title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/tutorials/get-started" />
@@ -65,25 +65,25 @@ export default function Home({ window, menu, gdpr_data }) {
               <NewsEntry date="2021-04-07T16:08:45.000Z" title="Title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/" />
               <NewsEntry date="2021-01-12T16:30:00.000Z" title="Title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/" />
               <Button link="/updates">View all updates</Button>
-            </NewsContainer>
+            </NewsContainer> */}
 
             <H2>How to use our docs</H2>
             <InlineCalloutContainer>
-              <InlineCallout color="violet-70" icon="school" bold="Tutorials" href="/tutorials">
-                include our <next-link to="/tutorials/get-started">Get Started</next-link> guide and a few step-by-step examples to building different types of apps in Streamlit.
+              <InlineCallout color="violet-70" icon="description" bold="Streamlit Library" href="/library">
+                includes our Get Started guide, API Reference, and more advanced features of the core library including caching, theming, and Streamlit components.
               </InlineCallout>
-              <InlineCallout color="l-blue-70" icon="description" bold="Topic guides" href="/topic-guides">
-                give you background on how different parts of Streamlit work. Make sure to check out the sections on <next-link to="/">Creating an app</next-link> and <next-link to="/">Deploying an app</next-link>, and for you advanced users who want to level up your apps, be sure to read up on <next-link to="/">Caching</next-link> and <next-link to="/components">Components</next-link>.
+              <InlineCallout color="l-blue-70" icon="cloud" bold="Streamlit Cloud" href="/streamlit-cloud">
+                empowers your data team to directly serve the needs of the rest of the company. Quickly go from data to app, from prototype to production. Share apps in one click and collaborate instantly with live code updates.
               </InlineCallout>
-              <InlineCallout color="green-70" icon="code" bold="Cookbook" href="/cookbook">
+              <InlineCallout color="orange-70" icon="school" bold="Knowledge Base" href="/kb">
+                is a self-serve library of tips, step-by-step tutorials, and articles that answer your questions about creating and deploying Streamlit apps.
+              </InlineCallout>
+              {/* <InlineCallout color="green-70" icon="code" bold="Cookbook" href="/cookbook">
                 provides short code snippets that you can copy in for specific use cases.
-              </InlineCallout>
-              <InlineCallout color="orange-70" icon="menu_book" bold="Reference guides" href="/reference-guides">
-                are the bread and butter of how our APIs and configuration files work and will give you short, actionable explanations of specific functions and features.
               </InlineCallout>
               <InlineCallout color="red-70" icon="question_answer" bold="Support" href="/support">
                 are the bread and butter of how our APIs and configuration files work and will give you short, actionable explanations of specific functions and features.
-              </InlineCallout>
+              </InlineCallout> */}
             </InlineCalloutContainer>
 
             <NoteSplit
