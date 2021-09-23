@@ -14,7 +14,7 @@ Pure text is entered with `st.text`, and Markdown with
 
 We also offer a "swiss-army knife" command called `st.write`, which accepts
 multiple arguments, and multiple data types. And as described above, you can
-also use [magic commands](api.html#magic-commands) in place of `st.write`.
+also use [magic commands](/library/api-reference/write-magic/magic) in place of `st.write`.
 
 <TileContainer>
 <RefCard href="/library/api-reference/text/st.markdown">
