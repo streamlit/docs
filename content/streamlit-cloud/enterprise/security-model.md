@@ -51,16 +51,16 @@ Many customers wish to build Streamlit apps using data that lives in their corpo
 
 Use HTTPS when connecting to endpoints that live in your cloud, in conjunction with login and password secrets. The following guides provides examples of using this method to connect to various cloud services:
 
-- [AWS S3](/kb/tutorials/databases/aws-s3)
-- [BigQuery](/kb/tutorials/databases/bigquery)
-- [Snowflake](/kb/tutorials/databases/snowflake)
+- [AWS S3](/knowledge-base/tutorials/databases/aws-s3)
+- [BigQuery](/knowledge-base/tutorials/databases/bigquery)
+- [Snowflake](/knowledge-base/tutorials/databases/snowflake)
 - [Firestore (blog)](https://blog.streamlit.io/streamlit-firestore/)
-- [MongoDB](/kb/tutorials/databases/mongodb)
-- [MySQL](/kb/tutorials/databases/mysql)
-- [PostgreSQL](/kb/tutorials/databases/postgresql)
-- [Tableau](/kb/tutorials/databases/tableau)
-- [Private Google Sheet](/kb/tutorials/databases/private-gsheet)
-- [Public Google Sheet](/kb/tutorials/databases/public-gsheet)
+- [MongoDB](/knowledge-base/tutorials/databases/mongodb)
+- [MySQL](/knowledge-base/tutorials/databases/mysql)
+- [PostgreSQL](/knowledge-base/tutorials/databases/postgresql)
+- [Tableau](/knowledge-base/tutorials/databases/tableau)
+- [Private Google Sheet](/knowledge-base/tutorials/databases/private-gsheet)
+- [Public Google Sheet](/knowledge-base/tutorials/databases/public-gsheet)
 
 ### Method 2 (most secure): Mutual TLS Auth
 

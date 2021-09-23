@@ -1,6 +1,6 @@
 ---
 title: ERROR No matching distribution found for
-slug: /kb/dependencies/no-matching-distribution
+slug: /knowledge-base/dependencies/no-matching-distribution
 ---
 
 # ERROR: No matching distribution found for

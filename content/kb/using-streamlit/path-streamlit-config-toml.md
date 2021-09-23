@@ -1,6 +1,6 @@
 ---
 title: What is the path of Streamlit’s config.toml file?
-slug: /kb/using-streamlit/path-streamlit-config-toml
+slug: /knowledge-base/using-streamlit/path-streamlit-config-toml
 ---
 
 # What is the path of Streamlit’s config.toml file?

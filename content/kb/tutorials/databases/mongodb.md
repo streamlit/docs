@@ -1,6 +1,6 @@
 ---
 title: Connect Streamlit to Google BigQuery
-slug: /kb/tutorials/databases/mongodb
+slug: /knowledge-base/tutorials/databases/mongodb
 ---
 
 # Connect Streamlit to MongoDB

@@ -251,51 +251,51 @@ site_menu:
 
 
   - category: Knowledge Base
-    url: /kb
+    url: /knowledge-base
     color: orange-70
     icon: school
   - category: Knowledge Base / Tutorials
-    url: /kb/tutorials
+    url: /knowledge-base/tutorials
   - category: Knowledge Base / Tutorials / Connect to data sources
-    url: /kb/tutorials/databases
+    url: /knowledge-base/tutorials/databases
   - category: Knowledge Base / Tutorials / Connect to data sources / AWS S3
-    url: /kb/tutorials/databases/aws-s3
+    url: /knowledge-base/tutorials/databases/aws-s3
   - category: Knowledge Base / Tutorials / Connect to data sources / BigQuery
-    url: /kb/tutorials/databases/bigquery
+    url: /knowledge-base/tutorials/databases/bigquery
   - category: Knowledge Base / Tutorials / Connect to data sources / Snowflake
-    url: /kb/tutorials/databases/snowflake
+    url: /knowledge-base/tutorials/databases/snowflake
   - category: Knowledge Base / Tutorials / Connect to data sources / Firestore
     url: https://blog.streamlit.io/streamlit-firestore/
   - category: Knowledge Base / Tutorials / Connect to data sources / MongoDB
-    url: /kb/tutorials/databases/mongodb
+    url: /knowledge-base/tutorials/databases/mongodb
   - category: Knowledge Base / Tutorials / Connect to data sources / MySQL
-    url: /kb/tutorials/databases/mysql
+    url: /knowledge-base/tutorials/databases/mysql
   - category: Knowledge Base / Tutorials / Connect to data sources / PostgreSQL
-    url: /kb/tutorials/databases/postgresql
+    url: /knowledge-base/tutorials/databases/postgresql
   - category: Knowledge Base / Tutorials / Connect to data sources / Tableau
-    url: /kb/tutorials/databases/tableau
+    url: /knowledge-base/tutorials/databases/tableau
   - category: Knowledge Base / Tutorials / Connect to data sources / Private Google Sheet
-    url: /kb/tutorials/databases/private-gsheet
+    url: /knowledge-base/tutorials/databases/private-gsheet
   - category: Knowledge Base / Tutorials / Connect to data sources / Public Google Sheet
-    url: /kb/tutorials/databases/public-gsheet
+    url: /knowledge-base/tutorials/databases/public-gsheet
   - category: Knowledge Base / Tutorials / Create a data explorer app
-    url: /kb/tutorials/data-explorer
+    url: /knowledge-base/tutorials/data-explorer
   - category: Knowledge Base / Using Streamlit
-    url: /kb/using-streamlit
+    url: /knowledge-base/using-streamlit
   - category: Knowledge Base / Streamlit Components
-    url: /kb/components
+    url: /knowledge-base/components
   # - category: Knowledge Base / Troubleshooting
-  #   url: /kb/troubleshooting
+  #   url: /knowledge-base/troubleshooting
   # - category: Knowledge Base / Troubleshooting / Sanity checks
-  #   url: /kb/troubleshooting/sanity-checks
+  #   url: /knowledge-base/troubleshooting/sanity-checks
   # - category: Knowledge Base / Troubleshooting / Caching issues
-  #   url: /kb/troubleshooting/caching-issues
+  #   url: /knowledge-base/troubleshooting/caching-issues
   - category: Knowledge Base / Installing Dependencies
-    url: /kb/dependencies
+    url: /knowledge-base/dependencies
   # - category: Knowledge Base / Error Messages
-  #   url: /kb/error-messages
+  #   url: /knowledge-base/error-messages
   - category: Knowledge Base / Deployment Issues
-    url: /kb/deploy
+    url: /knowledge-base/deploy
 
   # - category: Support
   #   url: /support

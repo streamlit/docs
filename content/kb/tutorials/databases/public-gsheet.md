@@ -1,6 +1,6 @@
 ---
 title: Connect Streamlit to a public Google Sheet
-slug: /kb/tutorials/databases/public-gsheet
+slug: /knowledge-base/tutorials/databases/public-gsheet
 ---
 
 # Connect Streamlit to a public Google Sheet

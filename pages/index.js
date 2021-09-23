@@ -75,7 +75,7 @@ export default function Home({ window, menu, gdpr_data }) {
               <InlineCallout color="l-blue-70" icon="cloud" bold="Streamlit Cloud" href="/streamlit-cloud">
                 empowers your data team to directly serve the needs of the rest of the company. Quickly go from data to app, from prototype to production. Share apps in one click and collaborate instantly with live code updates.
               </InlineCallout>
-              <InlineCallout color="orange-70" icon="school" bold="Knowledge Base" href="/kb">
+              <InlineCallout color="orange-70" icon="school" bold="Knowledge Base" href="/knowledge-base">
                 is a self-serve library of tips, step-by-step tutorials, and articles that answer your questions about creating and deploying Streamlit apps.
               </InlineCallout>
               {/* <InlineCallout color="green-70" icon="code" bold="Cookbook" href="/cookbook">

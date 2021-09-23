@@ -1,6 +1,6 @@
 ---
 title: Does Streamlit support the WSGI Protocol? (aka Can I deploy Streamlit with gunicorn?)
-slug: /kb/deploy/does-streamlit-support-wsgi-protocol
+slug: /knowledge-base/deploy/does-streamlit-support-wsgi-protocol
 ---
 
 # Does Streamlit support the WSGI Protocol? (aka Can I deploy Streamlit with gunicorn?)
