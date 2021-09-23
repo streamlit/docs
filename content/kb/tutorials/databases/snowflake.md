@@ -1,6 +1,6 @@
 ---
 title: Connect Streamlit to AWS S3
-slug: /kb/tutorials/databases/snowflake
+slug: /knowledge-base/tutorials/databases/snowflake
 ---
 
 # Connect Streamlit to Snowflake

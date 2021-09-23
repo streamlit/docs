@@ -285,7 +285,7 @@ What's going on here is that Streamlit caches the output `res` by reference. Whe
 
 Since this behavior is usually not what you'd expect, Streamlit tries to be helpful and show you a warning, along with some ideas about how to fix your code.
 
-In this specific case, the fix is just to not mutate `res["output"]` outside the cached function. There was no good reason for us to do that anyway! Another solution would be to clone the result value with `res = deepcopy(expensive_computation(2, 21))`. Check out the section entitled [Fixing caching issues](/kb/using-streamlit/caching-issues) for more information on these approaches and more.
+In this specific case, the fix is just to not mutate `res["output"]` outside the cached function. There was no good reason for us to do that anyway! Another solution would be to clone the result value with `res = deepcopy(expensive_computation(2, 21))`. Check out the section entitled [Fixing caching issues](/knowledge-base/using-streamlit/caching-issues) for more information on these approaches and more.
 
 ## Advanced caching
 
@@ -318,7 +318,7 @@ For example, when the function `expensive_computation(a, b)`, decorated with [`@
    - Stores `key → (output, output_hash)` in the cache.
 1. Returns the output.
 
-If an error is encountered an exception is raised. If the error occurs while hashing either the key or the output an `UnhashableTypeError` error is thrown. If you run into any issues, see [fixing caching issues](/kb/using-streamlit/caching-issues).
+If an error is encountered an exception is raised. If the error occurs while hashing either the key or the output an `UnhashableTypeError` error is thrown. If you run into any issues, see [fixing caching issues](/knowledge-base/using-streamlit/caching-issues).
 
 ### The hash_funcs parameter
 

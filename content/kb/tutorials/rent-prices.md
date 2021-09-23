@@ -1,6 +1,6 @@
 ---
 title: Visualising rent prices with Streamlit
-slug: /kb/tutorials/rent-prices
+slug: /knowledge-base/tutorials/rent-prices
 ---
 
 # Visualising rent prices with Streamlit

@@ -1,6 +1,6 @@
 ---
 title: How to remove "· Streamlit" from the app title?
-slug: /kb/using-streamlit/remove-streamlit-app-title
+slug: /knowledge-base/using-streamlit/remove-streamlit-app-title
 ---
 
 # How to remove "· Streamlit" from the app title?

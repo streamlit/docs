@@ -1,6 +1,6 @@
 ---
 title: Connect Streamlit to PostgreSQL
-slug: /kb/tutorials/databases/postgresql
+slug: /knowledge-base/tutorials/databases/postgresql
 ---
 
 # Connect Streamlit to PostgreSQL

@@ -1,6 +1,6 @@
 ---
 title: ImportError libGL.so.1 cannot open shared object file No such file or directory
-slug: /kb/dependencies/libgl
+slug: /knowledge-base/dependencies/libgl
 ---
 
 # ImportError libGL.so.1 cannot open shared object file No such file or directory

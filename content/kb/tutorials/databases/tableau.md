@@ -1,6 +1,6 @@
 ---
 title: Connect Streamlit to Tableau
-slug: /kb/tutorials/databases/tableau
+slug: /knowledge-base/tutorials/databases/tableau
 ---
 
 # Connect Streamlit to Tableau

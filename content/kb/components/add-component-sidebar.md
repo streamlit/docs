@@ -1,6 +1,6 @@
 ---
 title: How do I add a Component to the sidebar?
-slug: /kb/components/add-component-sidebar
+slug: /knowledge-base/components/add-component-sidebar
 ---
 
 # How do I add a Component to the sidebar?
