@@ -10,7 +10,7 @@ Summary of the docs, as of [Streamlit v0.71.0](/).
 <Row>
 
 
-<CodeTile featured size="half">
+<CodeTile featured size="full">
 
 #### Install & Import
 
@@ -26,7 +26,7 @@ Import convention
 </CodeTile>
 
 
-<CodeTile featured size="half">
+<CodeTile featured size="full">
 
 #### Command line
 
@@ -43,7 +43,7 @@ $ streamlit --version
 </CodeTile>
 
 
-<CodeTile featured size="half">
+<CodeTile featured size="full">
 
 #### Add widgets to sidebar
 
@@ -55,7 +55,7 @@ st.sidebar.<widget>
 </CodeTile>
 
 
-<CodeTile featured size="half">
+<CodeTile featured size="full">
 
 #### Pre-release features
 
@@ -73,7 +73,7 @@ pip install streamlit-nightly --upgrade
 
 <Masonry>
 
-<CodeTile>
+<CodeTile size="full">
 
 #### Magic commands
 
@@ -87,7 +87,7 @@ a=3
 </CodeTile>
 
 
-<CodeTile>
+<CodeTile size="full">
 
 #### Display text
 
@@ -106,7 +106,7 @@ st.code('for i in range(8): foo()')
 </CodeTile>
 
 
-<CodeTile>
+<CodeTile size="full">
 
 #### Display data
 
@@ -119,7 +119,7 @@ st.json({'foo':'bar','fu':'ba'})
 </CodeTile>
 
 
-<CodeTile>
+<CodeTile size="full">
 
 #### Display media
 
@@ -131,7 +131,7 @@ st.video(data)
 </CodeTile>
 
 
-<CodeTile>
+<CodeTile size="full">
 
 #### Control flow
 
@@ -141,7 +141,7 @@ st.stop()
 </CodeTile>
 
 
-<CodeTile>
+<CodeTile size="full">
 
 #### Display interactive widgets
 
@@ -168,7 +168,7 @@ st.code('for i in range(8): foo()')
 </CodeTile>
 
 
-<CodeTile>
+<CodeTile size="full">
 
 #### Mutate data
 
@@ -182,7 +182,7 @@ DeltaGenerator.add_rows(data)
 </CodeTile>
 
 
-<CodeTile>
+<CodeTile size="full">
 
 #### Display code
 
@@ -194,7 +194,7 @@ st.echo()
 </CodeTile>
 
 
-<CodeTile>
+<CodeTile size="full">
 
 #### Placeholders, help, and options
 
@@ -210,7 +210,7 @@ st.set_page_config(layout='wide')
 </CodeTile>
 
 
-<CodeTile>
+<CodeTile size="full">
 
 #### Optimize performance
 
@@ -230,7 +230,7 @@ st.set_page_config(layout='wide')
 </CodeTile>
 
 
-<CodeTile>
+<CodeTile size="full">
 
 #### Display progress and status
 

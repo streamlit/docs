@@ -48,6 +48,10 @@
 
           .toolbar {
               overflow-x: scroll;
+
+              button {
+                  position: relative;
+              }
           }
         }
 

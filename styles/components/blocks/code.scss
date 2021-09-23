@@ -1,9 +1,16 @@
 .block-code {
-
     width: calc(100%);
     position: relative !important;
-    margin: 1.75em auto;
+    margin: 1em auto;
     line-height: 1.5;
+
+    &:last-child {
+        margin-bottom: 0;
+
+        pre.line-numbers {
+            margin-bottom: 0;
+        }
+    }
 
     .code-toolbar {
         position: relative;
@@ -25,7 +32,7 @@
         color: $white;
         font-weight: 500;
         font-family: $source;
-        border-radius: $rounded-small;
+        border-radius: 0;
         position: relative;
         padding: 1.5em 2em;
         counter-reset: linenumber;
@@ -116,6 +123,9 @@
     }
 
     button {
+        position: absolute;
+        right: 0;
+        top: 0;
         border: none;
         color: transparent;
         background: transparent;

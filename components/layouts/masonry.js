@@ -40,7 +40,7 @@ export default class Masonry extends React.Component {
     render() {
         let props = this.props;
         return (
-            <section className="masonry" style={{ "--max-height": this.state.height + 'px' }}>
+            <section className="row" style={{ "--max-height": this.state.height + 'px' }}>
                 {props.children}
             </section >
         )

@@ -2,24 +2,34 @@
     padding: 1em;
     color: $gray-90;
     border:1px solid $gray-40;
+    margin-bottom: 1rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 
     h1,h2,h3,h4,h5,h6 {
         margin:0;
-        color:inherit !important;
-        margin-bottom:1em;
+        margin-bottom: 0;
     }
     p,a {
         margin-top:1em;
-        color:inherit !important;
         margin-bottom:.25em;
     }
 
     &.featured {
-        background:$gray-70;
+        background:$gray-20;
         color:white;
         border-radius: $rounded-small;
         border:0;
         margin-bottom: 1em;
     }
 
+    .code-toolbar {
+        .toolbar {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
 }
