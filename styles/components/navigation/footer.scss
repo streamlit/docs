@@ -3,15 +3,35 @@ footer {
     height: $header-height;
     display: flex;
     align-items: center;
+    
+    @media(min-width: 1250px) {
+        margin-left: calc(314px + (100vw * 0.1));
+    }
 
     .container {
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        @media(min-width: 1250px) {
+            padding-top: 1em;
+            padding-bottom: 1em;
+            flex-direction: column;       
+            nav, .social-media-icons { 
+                margin-bottom: 0.5em;
+            }
+        }
+        
+        @media(max-width: 1249px) {
+            width: 90%;
+        }
+
         nav {
             display: flex;
             gap: 2em;
+            margin-right: 2em;
         }
+
         .social-media-icons {
             display: flex;
             align-items: center;
@@ -59,6 +79,13 @@ footer {
                         opacity: 1;
                     }
                 }
+                &.git-hub:hover {
+                    svg {
+                        path {
+                            fill:$git-hub;
+                        }
+                    }
+                }
                 &.you-tube:hover {
                     svg {
                         path {
@@ -73,10 +100,10 @@ footer {
                         }
                     }
                 }
-                &.git-hub:hover {
+                &.discord:hover {
                     svg {
                         path {
-                            fill:$git-hub;
+                            fill:$discord;
                         }
                     }
                 }
