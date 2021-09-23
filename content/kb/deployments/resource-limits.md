@@ -1,6 +1,6 @@
 ---
 title: Argh. This app has gone over its resource limits
-slug: /kb/deploy/resource-limits
+slug: /knowledge-base/deploy/resource-limits
 ---
 
 Sorry! It means you've hit the resource limits of your [Streamlit Cloud](https://streamlit.io/cloud) account. One way to avoid this is to [upgrade your plan](https://streamlit.io/cloud) to one with higher resource limits. But there are also a few things you can change in your app to make it less resource-hungry:

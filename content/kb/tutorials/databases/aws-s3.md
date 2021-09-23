@@ -1,6 +1,6 @@
 ---
 title: Connect Streamlit to AWS S3
-slug: /kb/tutorials/databases/aws-s3
+slug: /knowledge-base/tutorials/databases/aws-s3
 ---
 
 # Connect Streamlit to AWS S3

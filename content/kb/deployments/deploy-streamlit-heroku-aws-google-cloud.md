@@ -1,6 +1,6 @@
 ---
 title: How do I deploy Streamlit on Heroku, AWS, Google Cloud, etc...?
-slug: /kb/deploy/deploy-streamlit-heroku-aws-google-cloud
+slug: /knowledge-base/deploy/deploy-streamlit-heroku-aws-google-cloud
 ---
 
 # How do I deploy Streamlit on Heroku, AWS, Google Cloud, etc...?

@@ -1,6 +1,6 @@
 ---
 title: Create a data explorer app
-slug: /kb/tutorials/data-explorer
+slug: /knowledge-base/tutorials/data-explorer
 ---
 
 # Create a data explorer app

@@ -1,10 +1,10 @@
 ---
 title: Installing Dependencies
-slug: /kb/dependencies
+slug: /knowledge-base/dependencies
 ---
 
 ## Errors installing dependencies
 
-- [ModuleNotFoundError: No module named](/kb/dependencies/module-not-found-error)
-- [ImportError: libGL.so.1: cannot open shared object file: No such file or directory](/kb/dependencies/libgl)
-- [ERROR: No matching distribution found for](/kb/dependencies/no-matching-distribution)
+- [ModuleNotFoundError: No module named](/knowledge-base/dependencies/module-not-found-error)
+- [ImportError: libGL.so.1: cannot open shared object file: No such file or directory](/knowledge-base/dependencies/libgl)
+- [ERROR: No matching distribution found for](/knowledge-base/dependencies/no-matching-distribution)

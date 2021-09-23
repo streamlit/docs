@@ -1,6 +1,6 @@
 ---
 title: ModuleNotFoundError No module named
-slug: /kb/dependencies/module-not-found-error
+slug: /knowledge-base/dependencies/module-not-found-error
 ---
 
 # ModuleNotFoundError: No module named

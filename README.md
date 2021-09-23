@@ -244,7 +244,7 @@ If you know the answer to a Streamlit user's pain point and want to add it to th
         ```markdown
         ---
         title: How do I add a Component to the sidebar?
-        slug: /kb/components/add-component-sidebar
+        slug: /knowledge-base/components/add-component-sidebar
         ---
 
         # How do I add a Component to the sidebar?
@@ -252,7 +252,7 @@ If you know the answer to a Streamlit user's pain point and want to add it to th
 4. Add a line to the existing `index.md` file in the same folder as your article. It should contain the title and URL slug specified in your article's front matter. This step ensures that users are able to discover your article in the index page of the relevant KB section. E.g.
 
     ```markdown
-    - [How do I add a Component to the sidebar?](/kb/components/add-component-sidebar)
+    - [How do I add a Component to the sidebar?](/knowledge-base/components/add-component-sidebar)
     ```
 
 ## Publishing

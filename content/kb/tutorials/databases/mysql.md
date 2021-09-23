@@ -1,6 +1,6 @@
 ---
 title: Connect Streamlit to MySQL
-slug: /kb/tutorials/databases/mysql
+slug: /knowledge-base/tutorials/databases/mysql
 ---
 
 # Connect Streamlit to MySQL
