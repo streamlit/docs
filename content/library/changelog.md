@@ -5,7 +5,7 @@ slug: /library/changelog
 
 # Changelog
 
-This page lists highlights, bug fixes, and known issues for official Streamlit releases. If you're looking for information about nightly releases, beta features, or experimental features, see [Try pre-release features](api.html#pre-release-features).
+This page lists highlights, bug fixes, and known issues for official Streamlit releases. If you're looking for information about nightly releases, beta features, or experimental features, see [Try pre-release features](/library/advanced-features/prerelease).
 
 <Tip>
 
@@ -571,10 +571,10 @@ _Release date: November 10, 2019_
 **Highlights:**
 
 - 👩‍🎓 SymPy support and ability to draw mathematical expressions using LaTeX! See
-  [`st.latex`](api.html#streamlit.latex),
-  [`st.markdown`](api.html#streamlit.markdown),
+  [`st.latex`](/library/api-reference/text/st.latex),
+  [`st.markdown`](/library/api-reference/text/st.markdown),
   and
-  [`st.write`](api.html#streamlit.write).
+  [`st.write`](/library/api-reference/write-magic/st.write).
 - 🌄 You can now set config options using environment variables. For example,
   `export STREAMLIT_SERVER_PORT=9876`.
 - 🐱 Ability to call `streamlit run` directly with Github and Gist URLs. No
