@@ -1,0 +1,131 @@
+[[redirects]]
+  from = "/en/0.89.0/advanced_widget_behavior.html"
+  to = "/library/advanced-features/widget-semantics"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/0.76.0/api.html#streamlit.color_picker"
+  to = "/library/api-reference/widgets/st.color_picker"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/stable/develop_streamlit_components.html"
+  to = "/library/components/create"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/stable/streamlit_components.html"
+  to = "/library/components"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/latest/api.html#streamlit.columns"
+  to = "/library/api-reference/layout/st.columns"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/latest/api.html#streamlit.echo"
+  to = "/library/api-reference/text/st.echo"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/latest/api.html#streamlit.spinner"
+  to = "/library/api-reference/status/st.spinner"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/latest/?badge=latest"
+  to = "/library/get-started"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cli.html#view-all-config-option"
+  to = "/library/advanced-features/configuration#view-all-configuration-options"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/latest/api.html#streamlit.pydeck_chart"
+  to = "/library/api-reference/charts/st.pydeck_chart"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/path/to/deprecation/docs.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api.html#streamlit.form"
+  to = "/library/api-reference/control-flow/st.form"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/latest/streamlit_configuration.html#view-all-configuration-options"
+  to = "/library/advanced-features/configuration#view-all-configuration-options"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/latest/api.html#streamlit.expander"
+  to = "/library/api-reference/layout/st.expander"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/latest/api.html#pre-release-features"
+  to = "/library/advanced-features/prerelease"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/stable/api.html#streamlit.set_page_config"
+  to = "/library/api-reference/utilities/st.set_page_config"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/stable/tutorial/create_a_data_explorer_app.html"
+  to = "/kb/tutorials/data-explorer"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/latest/api/text.html#streamlit.write"
+  to = "/library/api-reference/write-magic/st.write"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/stable/caching.html#the-hash-funcs-parameter"
+  to = "/library/advanced-features/caching#the-hash_funcs-parameter"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/stable/caching.html"
+  to = "/library/advanced-features/caching"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/latest/#install-streamlit"
+  to = "/library/get-started/installation"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/latest/"
+  to = "/"
+  status = 301
+  force = true
