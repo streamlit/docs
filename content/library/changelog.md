@@ -17,6 +17,79 @@ $ pip install --upgrade streamlit
 
 </Tip>
 
+## Version 0.89.0
+
+_Release date: Sep 22, 2021_
+
+**Highlights**
+
+- 💰 Introducing `st.experimental_memo` and `experimental_singleton`, a new primitive for caching! See [our blog post](https://blog.streamlit.io/new-experimental-primitives-for-caching/)
+- 🍔 Streamlit allows developers to configure their hamburger menu to be more user-centric
+
+**Notable Changes**
+
+- 💅 We updated our UI to a more polished look with a new font.
+- 🎨 We now support `theme.base` in the theme object when it's sent to custom components.
+- 🧠 We've modified session state to reset widgets if any of their arguments changed even if they provide a key.
+  - Some widget behavior may have changed, but we believe this change makes the most sense. We have added a section to [our documentation](/library/advanced-features/widget-semantics) describing how they behave.
+
+**Other Changes**
+
+- 🐞 Bug fixes: Support svgs from a URL ([#3809](https://github.com/streamlit/streamlit/pull/3809)) and that do not start with `<svg>` tag ([#3789](https://github.com/streamlit/streamlit/pull/3789))
+
+## Version 0.88.0
+
+_Release date: Sep 2, 2021_
+
+**Highlights**
+
+- ⬇️ Introducing `st.download_button`, a new button widget for easily downloading files
+
+**Notable Changes**
+
+- 🛑 We made changes to improve the redacted exception experience on Streamlit Cloud. When `client.showErrorDetails=true` exceptions display the Error Type and the Traceback, but redact the actual error text to prevent data leaks.
+
+## Version 0.87.0
+
+_Release date: Aug 19, 2021_
+
+**Highlights**
+
+- 🔢 Introducing `st.metric`, an API for displaying KPIs. Check out the [demo app](https://share.streamlit.io/streamlit/release-demos/0.87/0.87) showcasing the functionality
+
+**Other Changes**
+
+- 🐞 **Bug Fixes**: File uploader retains state upon expander closing ([#3557](https://github.com/streamlit/streamlit/issues/3557)), setIn Error with `st.empty` ([#3659](https://github.com/streamlit/streamlit/issues/3659)), Missing IFrame embeds in docs ([#3706](https://github.com/streamlit/streamlit/issues/3706)), Fix error writing certain PNG files ([#3597](https://github.com/streamlit/streamlit/issues/3597))
+
+## Version 0.86.0
+
+_Release date: Aug 5, 2021_
+
+**Highlights**
+
+- 🎓 Our layout primitives are graduating from beta! You can now use `st.columns`, `st.container` and `st.expander` without the `beta_` prefix.
+
+**Notable Changes**
+
+- 📱 When using `st.columns`, columns will stack vertically when viewport size <640px so that column layout on smaller viewports is consistent and cleaner. ([#3594](https://github.com/streamlit/streamlit/issues/3594))
+
+**Other Changes**
+
+- 🐞 **Bug fixes**: Fixed `st.date_input` crashes if its empty ([#3194](https://github.com/streamlit/streamlit/issues/3194)), Opening files with utf-8([#3022](https://github.com/streamlit/streamlit/issues/3022)), `st.select_slider` resets its state upon interaction ([#3600](https://github.com/streamlit/streamlit/issues/3600))
+
+## Version 0.85.0
+
+_Release date: Jul 22, 2021_
+
+**Highlights**
+
+- 🏹 Streamlit now uses [Apache Arrow](https://arrow.apache.org) for serializing data frames when they are sent from Streamlit server to the front end. See our [blog post](https://blog.streamlit.io/)
+  - (Users who wish to continue using the legacy data frame serialization can do so by setting the `dataFrameSerialization` config option to `"legacy"` in their `config.toml`)
+
+**Other Changes**
+
+- 🐞 Bug fixes: Unresponsive pydeck example ([#3395](https://github.com/streamlit/streamlit/issues/3395)), JSON parse error message ([#2324](https://github.com/streamlit/streamlit/issues/2324)), Tooltips rendering ([#3300](https://github.com/streamlit/streamlit/issues/3300)), Colorpicker not working on Streamlit Sharing ([#2689](https://github.com/streamlit/streamlit/issues/2689))
+
 ## Version 0.84.0
 
 _Release date: Jul 1, 2021_
