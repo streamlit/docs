@@ -1,5 +1,5 @@
 ---
 title: Error Messages
-slug: /kb/errors
+slug: /knowledge-base/errors
 ---
 

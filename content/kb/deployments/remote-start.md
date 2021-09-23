@@ -1,6 +1,6 @@
 ---
 title: App is not loading when running remotely
-slug: /kb/deploy/remote-start
+slug: /knowledge-base/deploy/remote-start
 ---
 
 # App is not loading when running remotely

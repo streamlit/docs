@@ -1,6 +1,6 @@
 ---
 title: How do you retrieve the filename of a file uploaded with st.file_uploader?
-slug: /kb/using-streamlit/retrieve-filename-uploaded
+slug: /knowledge-base/using-streamlit/retrieve-filename-uploaded
 ---
 
 # How do you retrieve the filename of a file uploaded with st.file_uploader?

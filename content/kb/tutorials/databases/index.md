@@ -1,6 +1,6 @@
 ---
 title: Connect to data sources
-slug: /kb/tutorials/databases
+slug: /knowledge-base/tutorials/databases
 ---
 
 # Connect Streamlit to data sources

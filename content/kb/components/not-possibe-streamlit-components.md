@@ -1,6 +1,6 @@
 ---
 title: What types of things aren't possible with Streamlit Components?
-slug: /kb/components/not-possibe-streamlit-components
+slug: /knowledge-base/components/not-possibe-streamlit-components
 ---
 
 # What types of things aren't possible with Streamlit Components?

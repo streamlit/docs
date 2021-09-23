@@ -109,7 +109,7 @@ these features and how to add colors and styling to your data frames.
 <Note>
 
 For this guide we're using small amounts of data so that we can move
-quickly. You can check out our [Tutorial on creating a data explorer](/kb/tutorials/data-explorer)
+quickly. You can check out our [Tutorial on creating a data explorer](/knowledge-base/tutorials/data-explorer)
 to see an example of how to load data from an API and use `@st.cache` to
 cache it.
 
