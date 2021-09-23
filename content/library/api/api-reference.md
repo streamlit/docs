@@ -928,4 +928,34 @@ def run_long_computation(arg1, arg2):
 ```
 
 </RefCard>
+
+<RefCard href="/library/api-reference/performance/st.experimental_memo">
+
+#### Memo
+
+Function decorator to memoize function executions.
+
+```python
+@st.experimental_memo
+def fetch_and_clean_data(url):
+  # Fetch data from URL here, and then clean it up.
+  return data
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/performance/st.experimental_singleton">
+
+#### Singleton
+
+Function decorator to store singleton objects.
+
+```python
+@st.experimental_singleton
+def get_database_session(url):
+  # Create a database session object that points to the URL.
+  return session
+```
+
+</RefCard>
 </TileContainer>

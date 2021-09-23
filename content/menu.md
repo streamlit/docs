@@ -174,6 +174,10 @@ site_menu:
     url: /library/api-reference/performance
   - category: Streamlit Library / API Reference / Performance / st.cache
     url: /library/api-reference/performance/st.cache
+  - category: Streamlit Library / API Reference / Performance / st.experimental_memo
+    url: /library/api-reference/performance/st.experimental_memo
+  - category: Streamlit Library / API Reference / Performance / st.experimental_singleton
+    url: /library/api-reference/performance/st.experimental_singleton
   - category: Streamlit Library / Advanced Features
     url: /library/advanced-features
   - category: Streamlit Library / Advanced Features / Theming
@@ -184,6 +188,8 @@ site_menu:
     url: /library/advanced-features/caching
   - category: Streamlit Library / Advanced Features/ Add statefulness to apps
     url: /library/advanced-features/session-state
+  - category: Streamlit Library / Advanced Features/ Widget semantics
+    url: /library/advanced-features/widget-semantics
   - category: Streamlit Library / Advanced Features/ Cookbook
     url: /library/advanced-features/cookbook
   - category: Streamlit Library / Advanced Features/ Pre-release features
