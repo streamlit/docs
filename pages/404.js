@@ -24,9 +24,9 @@ export default function Home({ window, menu }) {
                         <Spacer size="2rem" />
 
                         <TileContainer>
-                            <Tile icon="arrow_forward" title="Get Started" text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia." background="violet-70" link="/tutorials/get-started" />
-                            <Tile icon="dvr" title="API reference" text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia." background="orange-70" link="/reference-guides/api-reference" />
-                            <Tile icon="description" title="Topic guides" text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia." background="l-blue-70" link="/topic-guides" />
+                            <Tile icon="arrow_forward" title="Get Started" text="If you're new to Streamlit and don't know where to start, this is a good place." background="violet-70" link="/library/get-started" />
+                            <Tile icon="dvr" title="API Reference" text="Learn how our APIs, with actionable explanations of specific functions and features." background="violet-70" link="/library/api-reference" />
+                            <Tile icon="grid_view" title="App Gallery" text="Try out awesome apps created by our users, and curated from our forums or Twitter." background="green-70" link="https://streamlit.io/gallery" />
                         </TileContainer>
                     </article>
                 </section>

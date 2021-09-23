@@ -56,7 +56,7 @@ st.write(st.__version__)
 
 ...then call `streamlit run` on your script and make sure it says the same
 version as above. If not the same version, check out [these
-instructions](clean-install.md) for some sure-fire ways to set up your
+instructions](/library/get-started/installation) for some sure-fire ways to set up your
 environment.
 
 ## Check #4: Is your browser caching your app too aggressively?
@@ -84,7 +84,7 @@ pip install --upgrade streamlit==0.50
 ```
 
 ...where `0.50` is the version you'd like to downgrade to. See
-[Changelog](../changelog.md) for a complete list of Streamlit versions.
+[Changelog](/library/changelog) for a complete list of Streamlit versions.
 
 ## Check #6 [Windows]: Is Python added to your PATH?
 

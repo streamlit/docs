@@ -99,7 +99,7 @@ export default function Home({ window, menu, gdpr_data }) {
           <SocialCallouts />
 
           <ArrowLinkContainer>
-            <ArrowLink link="/tutorials/get-started" type="next" content="Get Started" />
+            <ArrowLink link="/library/get-started" type="next" content="Get Started" />
           </ArrowLinkContainer>
         </section>
       </section>
