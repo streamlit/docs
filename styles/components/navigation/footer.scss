@@ -79,6 +79,13 @@ footer {
                         opacity: 1;
                     }
                 }
+                &.git-hub:hover {
+                    svg {
+                        path {
+                            fill:$git-hub;
+                        }
+                    }
+                }
                 &.you-tube:hover {
                     svg {
                         path {
@@ -93,10 +100,10 @@ footer {
                         }
                     }
                 }
-                &.git-hub:hover {
+                &.discord:hover {
                     svg {
                         path {
-                            fill:$git-hub;
+                            fill:$discord;
                         }
                     }
                 }
