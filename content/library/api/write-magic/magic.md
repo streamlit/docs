@@ -39,7 +39,7 @@ fig  # 👈 Draw a Matplotlib chart
 
 Any time Streamlit sees either a variable or literal
 value on its own line, it automatically writes that to your app using
-[`st.write`](api.html#streamlit.write) (which you'll learn about later).
+[`st.write`](/library/api-reference/write-magic/st.write) (which you'll learn about later).
 
 Also, magic is smart enough to ignore docstrings. That is, it ignores the
 strings at the top of files and functions.
