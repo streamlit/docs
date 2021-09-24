@@ -178,6 +178,7 @@
             .ais-Snippet {
                 font-style: normal;
                 opacity: 0.8;
+                line-height: 1.3;
             }
             .ais-Hits {
 
@@ -200,14 +201,10 @@
                             }
                             a {
                                 display:flex;
-                                gap:2em;
+                                gap:1rem;
                                 margin-bottom: 1em;
                                 padding-bottom: 1em;
                                 border-bottom:1px solid;
-
-                                @media (max-width: 1024px) {
-                                    gap: 1rem;
-                                }
 
                                 .image_container {
                                     position: relative;
