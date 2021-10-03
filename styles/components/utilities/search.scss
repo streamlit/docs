@@ -46,6 +46,7 @@
             }
         }
     }
+
     .algolia {
         position: fixed;
         height:100vh;
@@ -102,12 +103,15 @@
         }
 
         .content {
-            width: 45vh;
-            padding: 2em;
+            padding: 0;
             border-radius: $rounded-small;
-            max-width: calc(80vw - 4em);
-            overflow: scroll;
-            max-height: calc(90vh - 4em);
+            width: 36em;
+            height: 40em;
+            max-width: calc(100vw - 2em);
+            overflow-x: hidden;
+          overflow-y: auto;
+          overflow-y: overlay;
+            max-height: calc(100vh - 2em);
 
             .ais-SearchBox {
                 position: sticky;
@@ -128,11 +132,12 @@
                 margin-bottom:2em;
 
                 input {
-                    height:3em;
-                    width:100%;
+                    height: 4em;
+                    width: 100%;
                     background:transparent;
-                    border: 1px solid;
-                    border-radius: $rounded-small;
+                    border: none;
+                    border-bottom: 1px solid;
+                    border-radius: 0;
                     padding: 0 1em;
                     padding-left: 2.5em;
                     font-size: 1em;  // Get from parent rather than browser.
@@ -141,7 +146,7 @@
                 input:focus,
                 input:focus-visible {
                   outline: none;
-                  box-shadow: 0 0 0 2px $gray-50;
+                  border-bottom: 2px solid $yellow-90 !important;
                 }
 
                 #search-clear,input[type="search" i]::-webkit-search-cancel-button {
@@ -182,7 +187,7 @@
                             em {
                                 font-style: normal;
                                 display: inline-block;
-                                border-bottom: 2px solid $black;
+                                border-bottom: 2px solid $yellow-90;
                             }
                             a {
                                 display:flex;

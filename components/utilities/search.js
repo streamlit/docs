@@ -153,7 +153,7 @@ class Search extends React.Component {
             return (
                 <article className="item" tabindex='-1'>
                     <a className="not-link" href={props.hit.url}>
-                        <section className="image_container bg-gray-50">
+                        <section className="image_container bg-yellow-90">
                             <div className={`icon-${icon}`}><i>{icon}</i></div>
                         </section> 
                         <section className="copy">
