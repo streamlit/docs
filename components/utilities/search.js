@@ -33,9 +33,14 @@ class Search extends React.Component {
         this.goToResult = this.goToResult.bind(this)
     }
 
-    toggleModal() {
+    toggleModal(e) {
+        if (e && e.currentTarget !== e.target) {
+            return;
+        }
+
         this.setState({ indexFocus: 0 })
         this.setState({ modal: !this.state.modal })
+
         if (document.body.style.overflow == 'hidden') {
             document.body.style.overflow = 'unset'
         } else {
@@ -98,16 +103,23 @@ class Search extends React.Component {
             if ( results.length >= index ) {
                 const result = results[index-1]
                 result.classList.add('focused')
+                result.scrollIntoView(false)
             }
         }
     }
 
     goToResult() {
-        const index = this.state.indexFocus
+        let index = this.state.indexFocus
+
+        if (index <= 0) {
+          index = 1
+        }
+
         const results = document.querySelectorAll('.ais-Hits-item article')
+
         if (results.length > 0) {
-            if ( results.length >= index ) {
-                const result = results[index-1]
+            if (results.length >= index) {
+                const result = results[index - 1]
                 const a = result.querySelector('a').getAttribute('href')
                 this.toggleModal()
                 this.props.router.push(a)
@@ -155,7 +167,7 @@ class Search extends React.Component {
                     <a className="not-link" href={props.hit.url}>
                         <section className="image_container bg-yellow-90">
                             <div className={`icon-${icon}`}><i>{icon}</i></div>
-                        </section> 
+                        </section>
                         <section className="copy">
                             <p className="tiny">{category}</p>
                             <h5><Highlight hit={props.hit} attribute="title"></Highlight></h5>
@@ -189,10 +201,8 @@ class Search extends React.Component {
                                 opacity: 0,
                                 // left: '-40em'
                             }} className="algolia">
-                            <span className="background" onClick={this.toggleModal} />
                             <FocusTrap>
-                                <div>
-                                    <button className="closeModal" onClick={this.toggleModal}>close modal</button>
+                                <div className="modalContainer" onClick={this.toggleModal}>
                                     <section className="content"  tabindex='-1'>
                                         <div className="ais-InstantSearch">
                                             <InstantSearch indexName="documentation" searchClient={searchClient}>
