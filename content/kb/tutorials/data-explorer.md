@@ -1,13 +1,13 @@
 ---
 title: Create a data explorer app
-slug: /kb/tutorials/data-explorer
+slug: /knowledge-base/tutorials/data-explorer
 ---
 
 # Create a data explorer app
 
 If you've made it this far, chances are you've
-[installed Streamlit](https://docs.streamlit.io/en/latest/#install-streamlit) and
-run through the basics in our [get started guide](../getting_started.md). If
+[installed Streamlit](/library/get-started/installation) and
+run through the basics in our [Get Started](/library/get-started) guide. If
 not, now is a good time to take a look.
 
 In this tutorial, you're going to use Streamlit's core features to
@@ -19,7 +19,7 @@ widgets, like a slider, to filter results.
 <Tip>
 
 If you'd like to skip ahead and see everything at once, the [complete script
-is available below](#let-s-put-it-all-together).
+is available below](#lets-put-it-all-together).
 
 </Tip>
 
@@ -186,15 +186,15 @@ st.subheader('Raw data')
 st.write(data)
 ```
 
-In the [get started guide](../getting_started.md) you learned that
-[`st.write`](../api.html#streamlit.write) will render almost anything you pass
+In the [Get Started](/library/get-started/) guide you learned that
+[`st.write`](/library/api-reference/write-magic/st.write) will render almost anything you pass
 to it. In this case, you're passing in a dataframe and it's rendering as an
 interactive table.
 
-[`st.write`](../api.html#streamlit.text) tries to do the right thing based on
+[`st.write`](/library/api-reference/write-magic/st.write) tries to do the right thing based on
 the data type of the input. If it isn't doing what you expect you can use a
-specialized command like [`st.dataframe`](../api.html#streamlit.dataframe)
-instead. For a full list, see [API reference](../api.md).
+specialized command like [`st.dataframe`](/library/api-reference/data/st.dataframe)
+instead. For a full list, see [API reference](/library/api-reference).
 
 ## Draw a histogram
 
@@ -217,7 +217,7 @@ Uber's busiest hours are in New York City.
    ```
 
 3. Now, let's use Streamlit's
-   [`st.bar_chart()`](../api.html#streamlit.bar_chart) method to draw this
+   [`st.bar_chart()`](/library/api-reference/charts/st.bar_chart) method to draw this
    histogram.
 
    ```python
@@ -230,7 +230,7 @@ Uber's busiest hours are in New York City.
 To draw this diagram we used Streamlit's native `bar_chart()` method, but it's
 important to know that Streamlit supports more complex charting libraries like
 Altair, Bokeh, Plotly, Matplotlib and more. For a full list, see
-[supported charting libraries](../api.html#display-charts).
+[supported charting libraries](/library/api-reference/charts).
 
 ## Plot data on a map
 
@@ -239,7 +239,7 @@ times are for pickups, but what if we wanted to figure out where pickups were
 concentrated throughout the city. While you could use a bar chart to show this
 data, it wouldn't be easy to interpret unless you were intimately familiar with
 latitudinal and longitudinal coordinates in the city. To show pickup
-concentration, let's use Streamlit [`st.map()`](../api.html#streamlit.map)
+concentration, let's use Streamlit [`st.map()`](/library/api-reference/charts/st.map)
 function to overlay the data on a map of New York City.
 
 1. Add a subheader for the section:
@@ -279,9 +279,9 @@ at 17:00.
 
 3. You should see the data update instantly.
 
-To draw this map we used the [`st.map`](../api.html#streamlit.map) function that's built into Streamlit, but
+To draw this map we used the [`st.map`](/library/api-reference/charts/st.map) function that's built into Streamlit, but
 if you'd like to visualize complex map data, we encourage you to take a look at
-the [`st.pydeck_chart`](../api.html#streamlit.pydeck_chart).
+the [`st.pydeck_chart`](/library/api-reference/charts/st.pydeck_chart).
 
 ## Filter results with a slider
 
@@ -301,7 +301,7 @@ slider to the app with the `st.slider()` method.
 ## Use a button to toggle data
 
 Sliders are just one way to dynamically change the composition of your app.
-Let's use the [`st.checkbox`](../api.html#streamlit.checkbox) function to add a
+Let's use the [`st.checkbox`](/library/api-reference/widgets/st.checkbox) function to add a
 checkbox to your app. We'll use this checkbox to show/hide the raw data
 table at the top of your app.
 
@@ -320,14 +320,11 @@ table at the top of your app.
        st.write(data)
    ```
 
-We're sure you've got your own ideas. When you're done with this tutorial,
-check out all the widgets that Streamlit exposes in our [API
-reference](../api.md).
+We're sure you've got your own ideas. When you're done with this tutorial, check out all the widgets that Streamlit exposes in our [API Reference](/library/api-reference).
 
 ## Let's put it all together
 
-That's it, you've made it to the end. Here's the complete script for our interactive
-app.
+That's it, you've made it to the end. Here's the complete script for our interactive app.
 
 <Tip>
 

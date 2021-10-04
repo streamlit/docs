@@ -47,8 +47,8 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <TileContainer>
               <Tile icon="arrow_forward" title="Get Started" text="If you're new to Streamlit and don't know where to start, this is a good place." background="violet-70" link="/library/get-started" />
-              <Tile icon="dvr" title="API Reference" text="Learn how our APIs, with actionable explanations of specific functions and features." background="violet-70" link="/library/api-reference" />
-              <Tile icon="grid_view" title="App Gallery" text="Try out awesome apps created by our users, and curated from our forums or Twitter." background="green-70" link="https://streamlit.io/gallery" />
+              <Tile icon="dvr" title="API Reference" text="Learn about our APIs, with actionable explanations of specific functions and features." background="violet-70" link="/library/api-reference" />
+              <Tile icon="grid_view" title="App Gallery" text="Try out awesome apps created by our users, and curated from our forums or Twitter." background="orange-70" link="https://streamlit.io/gallery" />
             </TileContainer>
 
             {/* <H2 className='no-b-m'>What's new</H2>
@@ -75,7 +75,7 @@ export default function Home({ window, menu, gdpr_data }) {
               <InlineCallout color="l-blue-70" icon="cloud" bold="Streamlit Cloud" href="/streamlit-cloud">
                 empowers your data team to directly serve the needs of the rest of the company. Quickly go from data to app, from prototype to production. Share apps in one click and collaborate instantly with live code updates.
               </InlineCallout>
-              <InlineCallout color="orange-70" icon="school" bold="Knowledge Base" href="/kb">
+              <InlineCallout color="orange-70" icon="school" bold="Knowledge Base" href="/knowledge-base">
                 is a self-serve library of tips, step-by-step tutorials, and articles that answer your questions about creating and deploying Streamlit apps.
               </InlineCallout>
               {/* <InlineCallout color="green-70" icon="code" bold="Cookbook" href="/cookbook">
@@ -99,7 +99,7 @@ export default function Home({ window, menu, gdpr_data }) {
           <SocialCallouts />
 
           <ArrowLinkContainer>
-            <ArrowLink link="/tutorials/get-started" type="next" content="Get Started" />
+            <ArrowLink link="/library/get-started" type="next" content="Get Started" />
           </ArrowLinkContainer>
         </section>
       </section>

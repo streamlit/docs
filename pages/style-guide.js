@@ -101,7 +101,7 @@ ls -l myscript.sh`} />
                 <Component label="Arrow Links">
                     <ArrowLinkContainer>
                         <ArrowLink link="/" type="back" content="Welcome to Streamlit" />
-                        <ArrowLink link="/getting-started" type="next" content="Get Started" />
+                        <ArrowLink link="/library/get-started" type="next" content="Get Started" />
                     </ArrowLinkContainer>
                 </Component>
                 <Component label="Note Block">
@@ -226,10 +226,10 @@ st.altair_chart(chart_data)`} />
                 </Component>
                 <Component label="Featured update">
                     <TilesContainer>
-                        <Tile size={"half"} background={"unset"} color={"unset"} dark={{ background: 'unset', color: 'white', border_color: 'gray-90' }} border_color={"gray-40"} img={"/logo.svg"} link={"/getting-started"} />
-                        <Tile size={"half"} background={"unset"} color={"unset"} dark={{ background: 'unset', color: 'white', border_color: 'gray-90' }} border_color={"gray-40"} img={"/logo.svg"} link={"/getting-started"} />
-                        <Tile size={"half"} background={"unset"} color={"unset"} dark={{ background: 'unset', color: 'white', border_color: 'gray-90' }} border_color={"gray-40"} img={"/logo.svg"} link={"/getting-started"} />
-                        <Tile size={"half"} background={"unset"} color={"unset"} dark={{ background: 'unset', color: 'white', border_color: 'gray-90' }} border_color={"gray-40"} img={"/logo.svg"} link={"/getting-started"} />
+                        <Tile size={"half"} background={"unset"} color={"unset"} dark={{ background: 'unset', color: 'white', border_color: 'gray-90' }} border_color={"gray-40"} img={"/logo.svg"} link={"/library/get-started"} />
+                        <Tile size={"half"} background={"unset"} color={"unset"} dark={{ background: 'unset', color: 'white', border_color: 'gray-90' }} border_color={"gray-40"} img={"/logo.svg"} link={"/library/get-started"} />
+                        <Tile size={"half"} background={"unset"} color={"unset"} dark={{ background: 'unset', color: 'white', border_color: 'gray-90' }} border_color={"gray-40"} img={"/logo.svg"} link={"/library/get-started"} />
+                        <Tile size={"half"} background={"unset"} color={"unset"} dark={{ background: 'unset', color: 'white', border_color: 'gray-90' }} border_color={"gray-40"} img={"/logo.svg"} link={"/library/get-started"} />
                     </TilesContainer>
                 </Component>
                 <Component label="News entry">
@@ -251,8 +251,8 @@ st.altair_chart(chart_data)`} />
                 </Component>
                 <Component label="Inline callout">
                     <InlineCalloutContainer>
-                        <InlineCallout color="violet-70" icon="school" bold="Tutorials" href="/">include our <Link href="/tutorials/get-started"><a>Get Started</a></Link> guide and a few step-by-step examples to building different types of apps in Streamlit.</InlineCallout>
-                        <InlineCallout color="violet-70" icon="school" bold="Tutorials" href="/">include our <Link href="/tutorials/get-started"><a>Get Started</a></Link> guide and a few step-by-step examples to building different types of apps in Streamlit.</InlineCallout>
+                        <InlineCallout color="violet-70" icon="school" bold="Tutorials" href="/">include our <Link href="/library/get-started"><a>Get Started</a></Link> guide and a few step-by-step examples to building different types of apps in Streamlit.</InlineCallout>
+                        <InlineCallout color="violet-70" icon="school" bold="Tutorials" href="/">include our <Link href="/library/get-started"><a>Get Started</a></Link> guide and a few step-by-step examples to building different types of apps in Streamlit.</InlineCallout>
                     </InlineCalloutContainer>
                 </Component>
                 <Component label="Social callouts">

@@ -1,6 +1,6 @@
 ---
 title: How do I deploy Streamlit on a domain so it appears to run on a regular port (i.e. port 80)?
-slug: /kb/deploy/deploy-streamlit-domain-port-80
+slug: /knowledge-base/deploy/deploy-streamlit-domain-port-80
 ---
 
 # How do I deploy Streamlit on a domain so it appears to run on a regular port (i.e. port 80)?

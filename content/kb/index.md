@@ -1,6 +1,6 @@
 ---
 title: Knowledge Base
-slug: /kb
+slug: /knowledge-base
 ---
 
 # Knowledge Base
@@ -12,37 +12,37 @@ The knowledge base is a self-serve library of tips, step-by-step tutorials, and 
         icon="local_library"
         background="orange-70"
         title="Tutorials" 
-        text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia." 
-        link="/kb/tutorials"
+        text="Our tutorials include step-by-step examples of building different types of apps in Streamlit." 
+        link="/knowledge-base/tutorials"
     />
     <Tile 
         icon="auto_awesome"
         background="orange-70"
         title="Using Streamlit" 
         text="Here are some frequently asked questions about using Streamlit." 
-        link="/kb/using-streamlit"
+        link="/knowledge-base/using-streamlit"
     />
         <Tile 
         icon="build"
         background="orange-70"
         title="Streamlit Components" 
         text="Here are some questions we've received about Streamlit Components." 
-        link="/kb/components"
+        link="/knowledge-base/components"
     />
     <Tile 
         size="half"
         icon="downloading"
         background="orange-70"
         title="Installing Dependencies" 
-        text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia." 
-        link="/kb/dependencies"
+        text="If you run into problems installing depedencies for your Streamlit apps, we've got you covered." 
+        link="/knowledge-base/dependencies"
     />
     <Tile 
         size="half" 
         icon="report"
         background="orange-70"
         title="Deployment Issues" 
-        text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia." 
-        link="/kb/deploy"
+        text="Have questions about deploying Streamlit apps to the cloud? This section covers deployment-related issues." 
+        link="/knowledge-base/deploy"
     />
 </TileContainer>

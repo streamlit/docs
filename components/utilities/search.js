@@ -33,9 +33,14 @@ class Search extends React.Component {
         this.goToResult = this.goToResult.bind(this)
     }
 
-    toggleModal() {
+    toggleModal(e) {
+        if (e && e.currentTarget !== e.target) {
+            return;
+        }
+
         this.setState({ indexFocus: 0 })
         this.setState({ modal: !this.state.modal })
+
         if (document.body.style.overflow == 'hidden') {
             document.body.style.overflow = 'unset'
         } else {
@@ -67,7 +72,7 @@ class Search extends React.Component {
             this.setState({ modal: false })
             document.body.style.overflow = 'unset'
         }
-        if ( this.state.modal === true ) {
+        if (this.state.modal === true) {
             const resultCount = document.querySelectorAll('.ais-Hits-item').length
             let currentFocus = this.state.indexFocus
             if (e.key === 'Enter') {
@@ -92,22 +97,29 @@ class Search extends React.Component {
         const index = this.state.indexFocus
         const results = document.querySelectorAll('.ais-Hits-item article')
         if (results.length > 0) {
-            for (let i; i < results.length - 1; i++ ) { 
-                results[i].classList.remove('focused') 
+            for (let i; i < results.length - 1; i++) {
+                results[i].classList.remove('focused')
             }
-            if ( results.length >= index ) {
-                const result = results[index-1]
+            if (results.length >= index) {
+                const result = results[index - 1]
                 result.classList.add('focused')
+                result.scrollIntoView(false)
             }
         }
     }
 
     goToResult() {
-        const index = this.state.indexFocus
+        let index = this.state.indexFocus
+
+        if (index <= 0) {
+            index = 1
+        }
+
         const results = document.querySelectorAll('.ais-Hits-item article')
+
         if (results.length > 0) {
-            if ( results.length >= index ) {
-                const result = results[index-1]
+            if (results.length >= index) {
+                const result = results[index - 1]
                 const a = result.querySelector('a').getAttribute('href')
                 this.toggleModal()
                 this.props.router.push(a)
@@ -153,9 +165,9 @@ class Search extends React.Component {
             return (
                 <article className="item" tabindex='-1'>
                     <a className="not-link" href={props.hit.url}>
-                        <section className="image_container bg-gray-50">
+                        <section className="image_container bg-yellow-90">
                             <div className={`icon-${icon}`}><i>{icon}</i></div>
-                        </section> 
+                        </section>
                         <section className="copy">
                             <p className="tiny">{category}</p>
                             <h5><Highlight hit={props.hit} attribute="title"></Highlight></h5>
@@ -193,7 +205,7 @@ class Search extends React.Component {
                                 <div>
                                     <span className="background" onClick={this.toggleModal} />
                                     <button className="closeModal" onClick={this.toggleModal}>close modal</button>
-                                    <section className="content"  tabindex='-1'>
+                                    <section className="content" tabindex='-1'>
                                         <div className="ais-InstantSearch">
                                             <InstantSearch indexName="documentation" searchClient={searchClient}>
                                                 <div className="right-panel">

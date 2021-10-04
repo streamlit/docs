@@ -88,9 +88,9 @@ body[data-theme="light-mode"] {
                 .ais-Hits {
                     .ais-Hits-list {
                         li {
+                            border-bottom: 1px solid $gray-40;
                             .item {
                                 a {
-                                    border-bottom: 1px solid $gray-40;
                                     .copy {
                                         p {
                                             color: $gray-70;

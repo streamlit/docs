@@ -109,17 +109,20 @@ body[data-theme="dark-mode"] {
                 .ais-Hits {
                     .ais-Hits-list {
                         li {
+                            border-bottom: 1px solid $gray-80;
                             .item {
                                 em {
                                     border-color: $white;
                                 }
                                 a {
-                                    border-bottom: 1px solid $gray-80;
                                     .copy {
                                         p {
                                             color: $gray-70;
                                         }
                                     }
+                                }
+                                &.focused {
+                                    background: $gray-80;
                                 }
                             }
                         }
