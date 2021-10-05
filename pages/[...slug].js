@@ -16,7 +16,7 @@ import { getArticleSlugs, getArticleSlugFromString, pythonDirectory, getMenu, ge
 import { getPreviousNextFromMenu } from '../lib/utils.cjs'
 import Layout from '../components/layouts/globalTemplate'
 import BreadCrumbs from '../components/utilities/breadCrumbs'
-import SideBar from '../components/navigation/sideNav'
+import SideBar from '../components/navigation/sideBar'
 import Row from '../components/layouts/row'
 import Masonry from '../components/layouts/masonry'
 import TileContainer from '../components/layouts/tileContainer'

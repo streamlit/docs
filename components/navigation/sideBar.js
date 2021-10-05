@@ -94,7 +94,7 @@ export default class SideBar extends React.Component {
             />
         ))
 
-        let sideNav = (
+        return (
             <section className={`block-side-nav ${state.open ? 'open' : ''} ${state.over ? 'over' : ''} ${state.theme}`}>
                 <nav className={`side-nav ${state.condensed ? 'condensed' : 'expanded'}`} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
                     <ul className='inner-nav'>
@@ -103,7 +103,5 @@ export default class SideBar extends React.Component {
                 </nav>
             </section>
         )
-
-        return sideNav
     }
 }
