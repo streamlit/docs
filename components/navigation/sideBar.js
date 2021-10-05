@@ -1,6 +1,4 @@
 import React from "react";
-import router, { withRouter } from 'next/router'
-import { useRouter } from 'next/router'
 import { connectScrollTo } from "react-instantsearch-dom";
 import bus from '../../lib/bus'
 
@@ -61,7 +59,6 @@ export default class SideBar extends React.Component {
     }
 
     componentDidMount() {
-
         window.addEventListener('resize', this.checkExpanded)
         window.addEventListener('ChangeTheme', this.handleTheme)
 
