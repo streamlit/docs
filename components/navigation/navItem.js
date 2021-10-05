@@ -27,6 +27,25 @@ export default class NavItem extends React.Component {
         let subNav;
         let url_in_child = false
 
+        let navItem;
+
+        let navBox;
+        let active = urlInChildren(props.page, `/${props.slug.join('/')}`)
+        let condensed = props.condensed ? props.condensed : false
+
+        // We only want the color to show when we're either active, or the menu is condensed.
+        let color = props.page.color ? `color-${props.page.color}` : ''
+        color = condensed || active ? color : ''
+
+        navBox = (
+            <section className={`head ${active ? 'active' : ''}`}>
+                <div className={`icon-box bg-${props.page.color}`}>
+                    <i>{props.page.icon}</i>
+                </div>
+                <p className={`bold large ${color}`}>{props.page.name}</p>
+            </section >
+        )
+
         if (props.page.children && props.page.children.length > 0) {
             subNav = (
                 <ul className="sub-nav">
@@ -45,24 +64,6 @@ export default class NavItem extends React.Component {
                 </ul>
             )
         }
-
-        let navItem;
-
-        let navBox;
-        let active = urlInChildren(props.page, `/${props.slug.join('/')}`)
-        let condensed = props.condensed ? props.condensed : false
-        // We only want the color to show when we're either active, or the menu is condensed.
-        let color = props.page.color ? `color-${props.page.color}` : ''
-        color = condensed || active ? color : ''
-
-        navBox = (
-            <section className={`head ${active ? 'active' : ''}`}>
-                <div className={`icon-box bg-${props.page.color}`}>
-                    <i>{props.page.icon}</i>
-                </div>
-                <p className={`bold large ${color}`}>{props.page.name}</p>
-            </section >
-        )
 
         if (props.page.url.startsWith('/')) {
             navItem = (
