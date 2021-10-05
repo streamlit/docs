@@ -173,8 +173,8 @@
             }
         }
 
-        a:active {
-            font-weight: bold;
+        a:focus:not(:focus-visible) {
+          outline: none;
         }
 
         ul, ol {
