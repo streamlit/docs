@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { getMenu } from '../lib/api'
 import Layout from '../components/layouts/globalTemplate'
-import SideNav from '../components/navigation/sideNav'
+import SideBar from '../components/navigation/sideBar'
 import Spacer from '../components/utilities/spacer'
 import TileContainer from '../components/layouts/tileContainer'
 import Tile from '../components/blocks/tile'
@@ -17,7 +17,7 @@ export default function Home({ window, menu }) {
                 <meta name="theme-color" content="#ffffff" />
             </Head>
             <section className="page container template-expanded-wide">
-                <SideNav menu={menu} slug={['404']} />
+                <SideBar menu={menu} slug={['404']} />
                 <section className="content wide">
                     <article>
                         <h1>Page not found</h1>
