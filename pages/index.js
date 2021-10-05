@@ -5,7 +5,7 @@ import { getMenu, getGDPRBanner } from '../lib/api'
 
 import Layout from '../components/layouts/globalTemplate'
 
-import SideNav from '../components/navigation/sideNav'
+import SideBar from '../components/navigation/sideBar'
 import ArrowLinkContainer from '../components/navigation/arrowLinkContainer'
 import ArrowLink from '../components/navigation/arrowLink'
 
@@ -37,7 +37,7 @@ export default function Home({ window, menu, gdpr_data }) {
       </Head>
       <section className="page container template-expanded-wide">
         <GDPRBanner {...gdpr_data} />
-        <SideNav menu={menu} slug={[]} />
+        <SideBar menu={menu} slug={[]} />
         <section className="content wide">
           <article>
             <H1>Welcome to Streamlit docs</H1>
