@@ -1,6 +1,7 @@
 .masonry {
   display: flex;
   flex-flow: column wrap;
+  align-items: center;
   margin-top: 2rem;
   height:var(--max-height);
   &::before,
