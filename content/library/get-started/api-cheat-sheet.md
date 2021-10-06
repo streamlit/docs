@@ -18,6 +18,7 @@ Summary of the docs, as of [Streamlit v0.71.0](/).
 streamlit run 
 first_app.py
 ```
+
 Import convention
 
 ```python
@@ -158,7 +159,8 @@ st.code('for i in range(8): foo()')
 * optional kwarg unsafe_allow_html = True
 ```
 
-**Use widgets' returned values in variables:**
+Use widgets' returned values in variables:
+
 ```python
 >>> for i in range(int(st.number_input('Num:'))): foo()
 >>> if st.sidebar.selectbox('I:',['f']) == 'f': b()
