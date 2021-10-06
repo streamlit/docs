@@ -218,4 +218,45 @@ body[data-theme="light-mode"] {
       outline: 2px solid $gray-50;
       transition: none;
     }
+
+    .block-code {
+        pre.line-numbers {
+            background-color: $gray-20;
+            color: $gray-90;
+
+            & > code {
+                .operator {
+                    color: $yellow-90;
+                }
+
+                .decorator {
+                    color: $yellow-100;
+                }
+
+                .keyword {
+                    color: $blue-70;
+                }
+
+                .builtin {
+                    color: $l-blue-80;
+                }
+
+                .string {
+                    color: $green-80;
+                }
+
+                .number {
+                    color: $red-90;
+                }
+
+                .function {
+                    color: $red-60;
+                }
+
+                .comment, .punctuation {
+                    color: $gray-60;
+                }
+            }
+        }
+    }
 }
