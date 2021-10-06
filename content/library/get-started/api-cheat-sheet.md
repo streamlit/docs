@@ -71,7 +71,6 @@ pip install streamlit-nightly --upgrade
 
 </Row>
 
-
 <Masonry>
 
 <CodeTile>
