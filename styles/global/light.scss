@@ -219,43 +219,53 @@ body[data-theme="light-mode"] {
       transition: none;
     }
 
-    .block-code {
-        pre.line-numbers {
-            background-color: $gray-20;
-            color: $gray-90;
+    .code-tile {
+        .block-code {
+            pre.line-numbers {
+                background-color: $gray-20;
+                color: $gray-90;
 
-            & > code {
-                .operator {
-                    color: $yellow-90;
-                }
+                & > code {
+                    .operator {
+                        color: $yellow-90;
+                    }
 
-                .decorator {
-                    color: $yellow-100;
-                }
+                    .decorator {
+                        color: $yellow-100;
+                    }
 
-                .keyword {
-                    color: $blue-70;
-                }
+                    .keyword {
+                        color: $blue-70;
+                    }
 
-                .builtin {
-                    color: $l-blue-80;
-                }
+                    .builtin {
+                        color: $l-blue-80;
+                    }
 
-                .string {
-                    color: $green-80;
-                }
+                    .string {
+                        color: $green-80;
+                    }
 
-                .number {
-                    color: $red-90;
-                }
+                    .number {
+                        color: $red-90;
+                    }
 
-                .function {
-                    color: $red-60;
-                }
+                    .function {
+                        color: $red-60;
+                    }
 
-                .comment, .punctuation {
-                    color: $gray-60;
+                    .comment, .punctuation {
+                        color: $gray-60;
+                    }
                 }
+            }
+        }
+
+        &.featured {
+            pre.line-numbers {
+                background-color: transparent;
+                border: 1px solid $gray-30;
+                color: $gray-80;
             }
         }
     }
