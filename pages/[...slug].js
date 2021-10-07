@@ -132,7 +132,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                         {versionWarning}
                         <BreadCrumbs slug={slug} menu={menu} version={version} />
                         <article className='leaf-page'>
-                            {/* Remove for now. Too many bugs. <FloatingNav slug={slug} menu={menu} version={version} /> */}
+                            <FloatingNav slug={slug} menu={menu} version={version} />
                             <div className='content'>
                                 <MDXRemote {...source} components={components} />
                             </div>
