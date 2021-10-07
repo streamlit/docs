@@ -1,15 +1,21 @@
 .code-tile {
     color: $gray-90;
-    border-radius: $rounded-small;
+    border-bottom: 1px solid $gray-30;
+    margin-bottom: 1rem;
+
+    button {
+        display: none;
+    }
 
     .block-code {
         margin: 0;
-        margin-bottom: 1.75rem;
 
         pre.line-numbers {
             margin: 0;
-            padding: .75rem 1rem;
+            padding: 0;
+            padding-bottom: 1.75rem;
             font-size: .8rem;
+            overflow-x: auto;
         }
 
         // If there's a p tag between code blocks, add a bit more separation between elements

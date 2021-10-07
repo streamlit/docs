@@ -323,11 +323,10 @@ body[data-theme="dark-mode"] {
 
     .code-tile {
         color:$white;
+        border-bottom-color: $gray-80;
 
-        &.featured {
             pre.line-numbers { 
-                background-color: $gray-80;
+                background-color: transparent;
             }
-        }
     }
 }

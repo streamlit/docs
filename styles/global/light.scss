@@ -222,8 +222,8 @@ body[data-theme="light-mode"] {
     .code-tile {
         .block-code {
             pre.line-numbers {
-                background-color: $gray-20;
-                color: $gray-90;
+                background-color: transparent;
+                color: $gray-80;
 
                 & > code {
                     .operator {
@@ -264,8 +264,6 @@ body[data-theme="light-mode"] {
         &.featured {
             pre.line-numbers {
                 background-color: transparent;
-                border: 1px solid $gray-30;
-                color: $gray-80;
             }
         }
     }
