@@ -6,12 +6,6 @@
     box-sizing: border-box;
 }
 
-// global page transitions
-.page-enter-active,
-.page-leave-active {
-    transition: $fast;
-}
-
 .page-enter,
 .page-leave-to {
     opacity: 0;

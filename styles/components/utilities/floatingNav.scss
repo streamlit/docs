@@ -23,7 +23,6 @@
             line-height: 24px;
             position: relative;
             padding: 6px 36px 4px 36px;
-            transition: background-color $slow ease;
             
             &:not(.active) {
                 background-color: transparent;
