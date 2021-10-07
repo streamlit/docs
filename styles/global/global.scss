@@ -27,7 +27,6 @@ a {
     color: unset;
     text-decoration: none;
     border-bottom: 1px solid;
-    transition: $normal;
     position: relative;
     display: inline;
     cursor: pointer;
@@ -40,7 +39,6 @@ a {
         height: 1px;
         bottom: -1px;
         left: 0;
-        transition: $fast;
     }
 
     &:hover {
@@ -97,7 +95,6 @@ button {
     color: $white;
     font-weight: 900;
     cursor: pointer;
-    transition: $fast;
     display: block;
     margin-bottom: 1em;
 
