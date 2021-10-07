@@ -1,24 +1,8 @@
 .row {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-gap: 1.75rem 1rem;
+    grid-gap: 0 1rem;
     justify-content: center;
-
-    // When using code blocks inside a row, remove the extra margin, since we're using grid-gap to add separation between elements
-    .code-tile {
-        .block-code {
-            margin-bottom: 0;
-        }
-
-        // Add a bit of margin left and right on row code blocks, to make them align with the masonry ones, which use the calc(33.333% - 1rem) hack
-        &:nth-child(odd) {
-            margin-left: .25rem;
-        }
-        
-        &:nth-child(even) {
-            margin-right: .25rem;
-        }
-    }
     
     .fourth {
         grid-column: span 3;
@@ -47,13 +31,6 @@
     @media (max-width:1024px) {
         .fourth,.third,.half,.two-third {
             grid-column: 1/-1;
-        }
-
-        .code-tile {
-            &:nth-child(odd), &:nth-child(even) {
-                margin-left: 0;
-                margin-right: 0;
-            }
         }
     }
 }
