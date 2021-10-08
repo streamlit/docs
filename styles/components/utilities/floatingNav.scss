@@ -51,10 +51,9 @@
                 border: none;
                 white-space: nowrap;
                 width: 164px;
-                line-height: 1;
                 text-overflow: ellipsis;
                 color: $gray-70;
-                overflow: hidden;
+                overflow-x: hidden;
 
                 &:hover {
                     border-bottom: none;
