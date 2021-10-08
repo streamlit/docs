@@ -1,7 +1,6 @@
 .code-tile {
     color: $gray-90;
-    border-bottom: 1px solid $gray-30;
-    margin-bottom: 1rem;
+    border-top: 1px solid $gray-30;
 
     &:focus, &:focus-visible {
         outline: none !important;
@@ -30,6 +29,7 @@
 
     h1, h2, h3, h4, h5, h6, p {
         margin:0;
+        margin-top: 1rem;
         margin-bottom: .25rem;
         line-height: 1.2;
 
