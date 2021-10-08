@@ -54,6 +54,7 @@
                 line-height: 1;
                 text-overflow: ellipsis;
                 color: $gray-70;
+                overflow: hidden;
 
                 &:hover {
                     border-bottom: none;
