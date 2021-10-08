@@ -3,6 +3,10 @@
     border-bottom: 1px solid $gray-30;
     margin-bottom: 1rem;
 
+    &:focus, &:focus-visible {
+        outline: none !important;
+    }
+
     button {
         display: none;
     }
