@@ -18,8 +18,6 @@ site_menu:
     url: /library/get-started/create-an-app
   - category: Streamlit Library / Get Started / Deploy an app 
     url: /library/get-started/deploy-an-app
-  - category: Streamlit Library / Get Started / Cheat sheet
-    url: /library/get-started/cheatsheet
   # - category: Streamlit Library / Get Started / App gallery
   #   url: https://streamlit.io/gallery
   - category: Streamlit Library / API Reference
@@ -206,6 +204,8 @@ site_menu:
     url: https://streamlit.io/components
   - category: Streamlit Library / Changelog
     url: /library/changelog
+  - category: Streamlit Library / Cheat sheet
+    url: /library/cheatsheet
     
 
   - category: Streamlit Cloud
