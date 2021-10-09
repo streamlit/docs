@@ -15,9 +15,7 @@ This is a summary of the docs, as of [Streamlit v0.71.0](/).
 
 ```python
 streamlit run first_app.py
-```
 
-```python
 # Import convention
 >>> import streamlit as st
 ```

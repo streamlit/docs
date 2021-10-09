@@ -33,11 +33,6 @@
           background-image: linear-gradient(to right, var(--theme-bg-transparent), var(--theme-bg));
           z-index: 10;
         }
-
-        // If there's a p tag between code blocks, add a bit more separation between elements
-        & ~ p {
-            margin-top: 1rem;
-        }
     }
 
     h1, h2, h3, h4, h5, h6, p {
