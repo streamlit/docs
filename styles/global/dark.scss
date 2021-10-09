@@ -317,16 +317,22 @@ body[data-theme="dark-mode"] {
     }
 
     .reference-card {
-        border:1px solid $gray-90;
-        color:$white;
+        border-bottom-color: 1px solid $gray-80;
     }
 
-    .code-tile {
+    .code-tile, .reference-card {
         color:$white;
-        border-bottom-color: $gray-80;
+        border-top-color: $gray-80;
 
             pre.line-numbers { 
                 background-color: transparent;
+            }
+
+            p {
+                code {
+                    border: none;
+                    background-color: $gray-90;
+                }
             }
     }
 }

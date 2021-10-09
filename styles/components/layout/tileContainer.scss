@@ -1,7 +1,7 @@
 .block-tiles {
     display: grid;
     grid-template-columns: repeat(6,  1fr);
-    gap: 1em;
+    gap: 1.75rem 1rem;
     margin-bottom: 3em;
 
     .third {

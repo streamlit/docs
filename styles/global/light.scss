@@ -219,7 +219,7 @@ body[data-theme="light-mode"] {
       transition: none;
     }
 
-    .code-tile {
+    .code-tile, .block-tiles {
         .block-code {
             pre.line-numbers {
                 background-color: transparent;

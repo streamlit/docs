@@ -1,8 +1,7 @@
 .reference-card {
-    padding: 1rem;
+    padding: 0;
     color: $gray-90;
-    border-radius: $rounded-small;
-    border: 1px solid $gray-40;
+    border-bottom: 1px solid $gray-30;
     overflow: hidden;
     font-size: 16px;
     cursor: pointer;
@@ -18,16 +17,14 @@
         margin:0;
         color:inherit !important;
         margin-bottom:.25em;
+        margin-top: 1rem;
+        line-height: 1.2;
     }
     img {
-        width:calc(100% + 2em);
-        margin-left:-1rem;
-        margin-top:-2rem;
-        margin-bottom:1rem;
+        border-radius: .5rem;
     }
     p,a {
-        color:inherit !important;
-        margin-bottom:.25em;
+        margin-bottom: 0;
         font-weight: 300;
         font-size: .875em;
     }
@@ -41,6 +38,10 @@
         flex-direction: column;
         flex: 1;
 
+        button {
+            display: none;
+        }
+
         .code-toolbar {
           display: flex;
           flex-direction: column;
@@ -51,7 +52,9 @@
             margin:0;
             border-radius: 0;
             padding: 1rem;
+            padding-top: 0;
             flex: 1;
+            background-color: transparent;
         }
     }
 
