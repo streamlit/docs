@@ -1,4 +1,7 @@
 body[data-theme="light-mode"] {
+    --theme-bg: #{$white};
+    --theme-bg-transparent: #{transparentize($white, 1)};
+
     h1,
     h2,
     h3,
