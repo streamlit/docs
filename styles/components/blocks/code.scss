@@ -134,7 +134,6 @@
             top: .5em;
             right: .5em;
             z-index: 1;
-            transition: $fast;
         }
         &:after {
             content: '';
@@ -148,7 +147,6 @@
             opacity: 0;
             transform: scale(0);
             z-index: 0;
-            transition: $fast;
         }
 
         &:hover {
