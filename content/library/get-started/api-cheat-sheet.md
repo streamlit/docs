@@ -1,6 +1,6 @@
 ---
 title: Cheat Sheet
-slug: /library/get-started/cheatsheet
+slug: /library/cheatsheet
 ---
 
 # Cheat Sheet
