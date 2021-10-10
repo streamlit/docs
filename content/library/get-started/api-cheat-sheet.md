@@ -5,28 +5,24 @@ slug: /library/get-started/cheatsheet
 
 # Cheat Sheet
 
-Summary of the docs, as of [Streamlit v0.71.0](/).
+This is a summary of the docs, as of [Streamlit v0.71.0](/).
 
-<Row>
+<Masonry>
 
-
-<CodeTile featured size="half">
+<CodeTile featured>
 
 #### Install & Import
 
 ```python
-streamlit run 
-first_app.py
-```
-Import convention
+streamlit run first_app.py
 
-```python
+# Import convention
 >>> import streamlit as st
 ```
 </CodeTile>
 
 
-<CodeTile featured size="half">
+<CodeTile featured>
 
 #### Command line
 
@@ -43,33 +39,20 @@ $ streamlit --version
 </CodeTile>
 
 
-<CodeTile featured size="half">
-
-#### Add widgets to sidebar
-
-```python
-st.sidebar.<widget>
->>> a = st.sidebar.radio('R:',[1,2])
-```
-
-</CodeTile>
-
-
-<CodeTile featured size="half">
+<CodeTile featured>
 
 #### Pre-release features
-
-[Beta and experimental features](/)
 
 ```python
 pip uninstall streamlit
 pip install streamlit-nightly --upgrade
 ```
+Learn more about [beta and experimental features](/)
+
 
 </CodeTile>
 
-</Row>
-
+</Masonry>
 
 <Masonry>
 
@@ -78,10 +61,11 @@ pip install streamlit-nightly --upgrade
 #### Magic commands
 
 ```python
-# Magic commands implicitly `st.write()`
-''' _This_ is some __Markdown__ '''
-a=3
-'dataframe:', data
+# Magic commands implicitly
+# call st.write().
+'_This_ is some **Markdown***'
+my_variable
+'dataframe:', my_data_frame
 
 ```
 </CodeTile>
@@ -133,17 +117,60 @@ st.video(data)
 
 <CodeTile>
 
+#### Add widgets to sidebar
+
+```python
+# Just add it after st.sidebar:
+>>> a = st.sidebar.radio('Select one:', [1, 2])
+
+# Or use "with" notation:
+>>> with st.sidebar:
+>>>   st.radio('Select one:', [1, 2])
+```
+
+</CodeTile>
+
+
+<CodeTile>
+
+#### Columns
+
+```python
+# Two equal columns:
+>>> col1, col2 = st.columns(2)
+>>> col1.write("This is column 1")
+>>> col2.write("This is column 2")
+
+# Three different columns:
+>>> col1, col2, col3 = st.columns([3, 1, 1])
+# col1 is larger.
+
+# You can also use "with" notation:
+>>> with col1:
+>>>   st.radio('Select one:', [1, 2])
+```
+
+</CodeTile>
+
+
+<CodeTile>
+
 #### Control flow
 
 ```python
 st.stop()
+
+>>> with st.form():
+>>>   username = st.text_input('Username')
+>>>   password = st.text_input('Password')
+>>>   st.form_submit_button('Login')
 ```
 </CodeTile>
 
 
 <CodeTile>
 
-#### Display interactive widgets
+#### Display text
 
 ```python
 st.text('Fixed width text')
@@ -158,10 +185,34 @@ st.code('for i in range(8): foo()')
 * optional kwarg unsafe_allow_html = True
 ```
 
-**Use widgets' returned values in variables:**
+</CodeTile>
+
+<CodeTile>
+
+#### Display interactive widgets
+
 ```python
->>> for i in range(int(st.number_input('Num:'))): foo()
->>> if st.sidebar.selectbox('I:',['f']) == 'f': b()
+st.button('Click me')
+st.checkbox('I agree')
+st.radio('Pick one', ['cats', 'dogs'])
+st.selectbox('Pick one', ['cats', 'dogs'])
+st.multiselect('Buy', ['milk', 'apples', 'potatoes'])
+st.slider('Pick a number', 0, 100)
+st.select_slider('Pick a size', ['S', 'M', 'L'])
+st.text_input('First name')
+st.number_input('Pick a number', 0, 10)
+st.text_area('Text to translate')
+st.date_input('Your birthday')
+st.time_input('Meeting time')
+st.file_uploader('Upload a photo')
+st.download_button('Download file', data)
+st.color_picker('Pick a color')
+
+# Use widgets' returned values in variables:
+>>> for i in range(int(st.number_input('Num:'))):
+>>>   foo()
+>>> if st.sidebar.selectbox('I:',['f']) == 'f':
+>>>   b()
 >>> my_slider_val = st.slider('Quinn Mallory', 1, 88)
 >>> st.write(slider_val)
 ```
@@ -173,11 +224,15 @@ st.code('for i in range(8): foo()')
 #### Mutate data
 
 ```python
-DeltaGenerator.add_rows(data)
->>> my_table = st.table(df1)
->>> my_table.add_rows(df2)
->>> my_chart = st.line_chart(df1)
->>> my_chart.add_rows(df2)
+# Add rows to a dataframe after
+# showing it.
+>>> element = st.dataframe(df1)
+>>> element.add_rows(df2)
+
+# Add rows to a chart after
+# showing it.
+>>> element = st.line_chart(df1)
+>>> element.add_rows(df2)
 ```
 </CodeTile>
 
@@ -187,9 +242,8 @@ DeltaGenerator.add_rows(data)
 #### Display code
 
 ```python
-st.echo()
 >>> with st.echo():
->>>     st.write('Code will be executed and printed')
+>>>   st.write('Code will be executed and printed')
 ```
 </CodeTile>
 
@@ -199,9 +253,17 @@ st.echo()
 #### Placeholders, help, and options
 
 ```python
-st.empty()
->>> my_placeholder = st.empty()
->>> my_placeholder.text('Replaced!')
+# Replace any single element.
+>>> element = st.empty()
+>>> element.line_chart(...)
+>>> element.text_input(...)  # Replaces previous.
+
+# Insert out of order.
+>>> elements = st.container()
+>>> elements.line_chart(...)
+>>> st.write("Hello")
+>>> elements.text_input(...)  # Appears above "Hello".
+
 st.help(pandas.DataFrame)
 st.get_option(key)
 st.set_option(key, value)
@@ -215,16 +277,15 @@ st.set_page_config(layout='wide')
 #### Optimize performance
 
 ```python
-@st.cache
 >>> @st.cache
 ... def foo(bar):
-...     # Mutate bar
-...     return data
->>> # Executes d1 as first time
+...   # Do something expensive in here...
+...   return data
+>>> # Executes foo
 >>> d1 = foo(ref1)
->>> # Does not execute d1; returns cached value, d1==d2
+>>> # Does not execute foo; returns cached value, d1 == d2
 >>> d2 = foo(ref1)
->>> # Different arg, so function d1 executes
+>>> # Different arg, so function foo executes
 >>> d3 = foo(ref2)
 ```
 </CodeTile>
@@ -235,11 +296,11 @@ st.set_page_config(layout='wide')
 #### Display progress and status
 
 ```python
-st.progress(progress_variable_1_to_100)
-st.spinner()
 >>> with st.spinner(text='In progress'):
->>>     time.sleep(5)
->>>     st.success('Done')
+>>>   time.sleep(5)
+>>>   st.success('Done')
+
+st.progress(progress_variable_1_to_100)
 st.balloons()
 st.error('Error message')
 st.warning('Warning message')
