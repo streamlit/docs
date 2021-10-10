@@ -3,7 +3,6 @@
     width: calc(100%);
     position: relative !important;
     margin: 1.75em auto;
-    line-height: 1.5;
 
     .code-toolbar {
         position: relative;
@@ -30,6 +29,7 @@
         position: relative;
         padding: 1.5em 2em;
         counter-reset: linenumber;
+        line-height: 1.75;
 
         >code {
             z-index: 1;
@@ -126,6 +126,7 @@
         cursor: pointer;
         height: 2rem;
         width: 2rem;
+        margin-bottom: 0;
 
         // Hide "copy" string that causes x-overflow.
         font-size: 0;
