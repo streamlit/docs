@@ -1,4 +1,7 @@
 body[data-theme="dark-mode"] {
+    --theme-bg: #{$off-black};
+    --theme-bg-transparent: #{transparentize($white, 1)};
+
     background: $off-black;
     h1,
     h2,
@@ -322,7 +325,11 @@ body[data-theme="dark-mode"] {
     }
 
     .code-tile {
-        border:1px solid $gray-90;
         color:$white;
+        border-bottom-color: $gray-80;
+
+            pre.line-numbers { 
+                background-color: transparent;
+            }
     }
 }
