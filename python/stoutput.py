@@ -1,3 +1,5 @@
+"""RST directive to insert an iframe into a doc.
+"""
 from docutils import nodes
 from docutils.parsers.rst import Directive
 
