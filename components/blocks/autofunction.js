@@ -20,7 +20,6 @@ function cleanHref(name) {
 }
 
 class Autofunction extends React.Component {
-
     constructor(props) {
         super(props)
         this.highlighted = false
@@ -67,11 +66,11 @@ class Autofunction extends React.Component {
 
     handleSelectVersion(event) {
         const props = this.props
-        
+
         const func_obj = props.streamlit[props.function]
         const name = cleanHref(`st.${func_obj.name}`)
         const slug = props.slug.slice()
-        
+
         if ( event.target.value  !== this.state.current_version) {
             this.setState( { current_version: event.target.value } );
             if (event.target.value !== this.state.max_version) {
@@ -88,11 +87,10 @@ class Autofunction extends React.Component {
     }
 
     render() {
-
         const props = this.props
 
         const footers = []
-        const rows = []
+        const args = []
         const versions = props.versions
         const current_version = props.version ? props.version : versions[versions.length - 1]
         const version_list = reverse(props.versions.slice())
@@ -124,8 +122,8 @@ class Autofunction extends React.Component {
         if (props.hide_header !== undefined && props.hide_header) {
             header = ''
         } else {
-            let name = `st.${func_obj.name}`
-            let selectClass = current_version !== version_list[0] ? 'version-select old-version' : 'version-select'
+            const name = `st.${func_obj.name}`
+            const selectClass = current_version !== version_list[0] ? 'version-select old-version' : 'version-select'
             header = (
                 <div className='code-header'>
                     <div className='title-with-select'>
@@ -175,36 +173,23 @@ class Autofunction extends React.Component {
                 row['body'] = `${description}`
             }
 
-            rows.push(row)
+            args.push(row)
         }
 
-        if (rows.length) {
-            body = (
-                <Table
-                    head={{
-                        title: 'Function signature',
-                        content: `<p class='code'>${func_obj.signature}</p>`
-                    }}
-                    body={{
-                        title: 'Parameters'
-                    }}
-                    rows={rows}
-                    addtionalClass='full-width'
-                    footers={footers}
-                />
-            )
-        } else {
-            body = (
-                <Table
-                    head={{
-                        title: 'Function signature',
-                        content: `<p class='code'>${func_obj.signature}</p>`
-                    }}
-                    addtionalClass='full-width'
-                    footers={footers}
-                />
-            )
-        }
+        body = (
+            <Table
+                head={{
+                    title: 'Function signature',
+                    content: `<p class='code'>${func_obj.signature}</p>`
+                }}
+                body={args.length? {
+                    title: 'Parameters'
+                } : null}
+                rows={args.length ? args : null}
+                addtionalClass='full-width'
+                footers={footers}
+            />
+        )
 
         return (
             <section className='autofunction' ref={this.blockRef}>

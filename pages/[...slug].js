@@ -77,7 +77,8 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
     let arrowContainer
 
     if (version && version != maxVersion) {
-        currentLink = `/${slug.slice(1).join('/')}`
+        // Slugs don't have the version number, so we just have to join them.
+        currentLink = `/${slug.join('/')}`
         versionWarning = (
             <Warning>
                 <p>You are reading the documentation for Streamlit version {version}, but <Link href={currentLink}>{maxVersion}</Link> is the latest version available.</p>
