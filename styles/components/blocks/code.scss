@@ -118,27 +118,31 @@
 
     button {
         position: absolute;
-        top:8px;
-        right:8px;
+        top: 0.5rem;
+        right: 0.5rem;
         background: transparent;
         border: none;
         color: transparent;
         cursor: pointer;
-        height: 2em;
-        width: 2em;
+        height: 2rem;
+        width: 2rem;
+
+        // Hide "copy" string that causes x-overflow.
+        font-size: 0;
 
         &:before {
             content:url('/clipboard.svg');
             position: absolute;
-            top: .5em;
-            right: .5em;
+            top: .5rem;
+            right: .5rem;
             z-index: 1;
         }
+
         &:after {
             content: '';
             position: absolute;
-            top: .15em;
-            right: .15em;
+            top: .15rem;
+            right: .15rem;
             background: $gray-80;
             width: 100%;
             height: 100%;
@@ -153,12 +157,14 @@
                 opacity:.5;
             }
         }
+
         &:active {
             &:after {
                 animation-duration: 250ms;
                 animation-name: grow_in;
             }
         }
+
         @keyframes grow_in {
             from {
                 transform: scale(0);
