@@ -45,7 +45,7 @@ export default class Header extends React.Component {
 
         let mobileNav;
 
-        if (this.state.windowWidth < 1025) {
+        if (this.state.windowWidth <= 1024) {
             mobileNav = <MobileNav />
         }
 
