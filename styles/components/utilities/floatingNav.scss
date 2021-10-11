@@ -25,8 +25,13 @@
             background-color: transparent;
             border-left: 1px solid $gray-20;
             padding: .25rem 0;
+
+            // Hide the first h1 on the TOC
+            &.level-H1:first-child {
+                display: none;
+            }
             
-            &.level-H2 {
+            &.level-H1, &.level-H2 {
                 padding-left: 1.5rem;
             }
             
