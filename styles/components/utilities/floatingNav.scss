@@ -36,7 +36,7 @@
             }
 
             // Hide the first h1 on the TOC
-            &.level-H1:first-child {
+            &:nth-child(2) {
                 display: none;
             }
             
