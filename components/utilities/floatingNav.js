@@ -71,7 +71,7 @@ class FloatingNav extends React.Component {
     async generateMenu() {
         if (this.state.headers.length > 0) { this.closeMenu() }
         const tocMenu = [] 
-        const headers = Array.prototype.slice.apply(document.querySelectorAll('article.leaf-page h1, article.leaf-page h2, article.leaf-page h3'))
+        const headers = Array.prototype.slice.apply(document.querySelectorAll('article.leaf-page h1, article.leaf-page h2, article.leaf-page h3, article.leaf-page h4, article.leaf-page h5, article.leaf-page h6'))
         const observer = this.state.observer
         for (const index in headers) {
             const ele = headers[index]
