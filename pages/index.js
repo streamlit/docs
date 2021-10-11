@@ -69,7 +69,7 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <H2>How to use our docs</H2>
             <InlineCalloutContainer>
-              <InlineCallout color="violet-70" icon="description" bold="Streamlit Library" href="/library/get-started">
+              <InlineCallout color="violet-70" icon="description" bold="Streamlit Library" href="/library">
                 includes our Get Started guide, API Reference, and more advanced features of the core library including caching, theming, and Streamlit components.
               </InlineCallout>
               <InlineCallout color="l-blue-70" icon="cloud" bold="Streamlit Cloud" href="/streamlit-cloud">
