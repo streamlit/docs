@@ -5,21 +5,39 @@
     margin-bottom: 3em;
 
     .third {
-        grid-column: span 2;
+        grid-column: span 6;
     }
     .half {
-        grid-column: span 3;
+        grid-column: span 6;
     }
     .two-third {
-        grid-column: span 4;
+        grid-column: span 6;
     }
     .full {
         grid-column: span 6;
     }
 
-    @media (max-width:1024px) {
-        > * {
-            grid-column: span 6 !important;
+    @media(min-width:768px) {
+        .third {
+            grid-column: span 3;
+        }
+        .half {
+            grid-column: span 3;
+        }
+        .two-third {
+            grid-column: span 3;
+        }
+    }
+
+    @media(min-width:1024px) {
+        .third {
+            grid-column: span 2;
+        }
+        .half {
+            grid-column: span 3;
+        }
+        .two-third {
+            grid-column: span 4;
         }
     }
 }

@@ -23,6 +23,9 @@
         margin-left:-1rem;
         margin-top:-2rem;
         margin-bottom:1rem;
+        height: 12rem;
+        object-fit: cover;
+        border-bottom: 1px solid $gray-40;
     }
     p,a {
         color:inherit !important;

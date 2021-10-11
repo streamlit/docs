@@ -1,25 +1,49 @@
 .code-tile {
-    padding: 1em;
     color: $gray-90;
-    border:1px solid $gray-40;
 
-    h1,h2,h3,h4,h5,h6 {
-        margin:0;
-        color:inherit !important;
-        margin-bottom:1em;
-    }
-    p,a {
-        margin-top:1em;
-        color:inherit !important;
-        margin-bottom:.25em;
+    // Needed so columns align at the top.
+    border-top: 1px solid transparent;
+
+    &:focus, &:focus-visible {
+        outline: none !important;
     }
 
-    &.featured {
-        background:$gray-70;
-        color:white;
-        border-radius: $rounded-small;
-        border:0;
-        margin-bottom: 1em;
+    button {
+        display: none;
     }
 
+    .block-code {
+        margin: 0;
+
+        pre.line-numbers {
+            margin: 0;
+            padding: 0 2rem 1.75rem 0;
+            font-size: 0.8rem;
+            overflow-x: auto;
+            overflow-x: overlay;
+        }
+
+        &::after {
+          content: ' ';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          width: 2rem;
+          background-image: linear-gradient(to right, var(--theme-bg-transparent), var(--theme-bg));
+          z-index: 10;
+        }
+    }
+
+    h1, h2, h3, h4, h5, h6, p {
+        margin: 0;
+        margin-top: 1rem;
+        margin-bottom: .25rem;
+        line-height: 1.2;
+    }
+
+  p {
+    font-size: 0.8rem;
+    margin-top: 0;
+  }
 }

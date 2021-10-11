@@ -6,6 +6,8 @@ site_menu:
     icon: description
   - category: Streamlit Library / Get Started
     url: /library/get-started
+  - category: Streamlit Library / Get Started / Main concepts 
+    url: /library/get-started/main-concepts
   - category: Streamlit Library / Get Started / Installation
     url: /library/get-started/installation
   - category: Streamlit Library / Get Started / Installation / Prerequisites
@@ -16,10 +18,8 @@ site_menu:
     url: /library/get-started/installation#install-streamlit-on-macoslinux
   - category: Streamlit Library / Get Started / Create an app 
     url: /library/get-started/create-an-app
-  - category: Streamlit Library / Get Started / Deploy an app 
-    url: /library/get-started/deploy-an-app
-  - category: Streamlit Library / Get Started / Cheat sheet
-    url: /library/get-started/cheatsheet
+  # - category: Streamlit Library / Get Started / Deploy an app 
+  #   url: /library/get-started/deploy-an-app
   # - category: Streamlit Library / Get Started / App gallery
   #   url: https://streamlit.io/gallery
   - category: Streamlit Library / API Reference
@@ -206,6 +206,8 @@ site_menu:
     url: https://streamlit.io/components
   - category: Streamlit Library / Changelog
     url: /library/changelog
+  - category: Streamlit Library / Cheat sheet
+    url: /library/cheatsheet
     
 
   - category: Streamlit Cloud
@@ -284,8 +286,6 @@ site_menu:
     url: /knowledge-base/tutorials/databases/private-gsheet
   - category: Knowledge Base / Tutorials / Connect to data sources / Public Google Sheet
     url: /knowledge-base/tutorials/databases/public-gsheet
-  - category: Knowledge Base / Tutorials / Create a data explorer app
-    url: /knowledge-base/tutorials/data-explorer
   - category: Knowledge Base / Using Streamlit
     url: /knowledge-base/using-streamlit
   - category: Knowledge Base / Streamlit Components
