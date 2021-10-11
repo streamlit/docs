@@ -21,7 +21,6 @@
             margin: 0;
             padding: 0;
             font-size: 12px;
-            line-height: 24px;
             position: relative;
             background-color: transparent;
             border-left: 1px solid $gray-20;
@@ -52,9 +51,9 @@
                 white-space: nowrap;
                 line-height: 1;
                 width: 164px;
-                text-overflow: ellipsis;
                 color: $gray-70;
-                overflow-x: hidden;
+                overflow: hidden;
+                text-overflow: ellipsis;
 
                 &:hover {
                     border-bottom: none;
