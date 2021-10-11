@@ -117,7 +117,7 @@ st.text("Hello world")
 Display mathematical expressions formatted as LaTeX.
 
 ```python
-st.latex("$\int a x^2 \,dx$")
+st.latex("\int a x^2 \,dx")
 ```
 
 </RefCard>
