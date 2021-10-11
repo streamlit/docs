@@ -6,6 +6,7 @@
     justify-content: space-between;
     flex-direction: column;
     cursor: pointer;
+    transition: $normal;
 
     &.color-unset {
         i {
