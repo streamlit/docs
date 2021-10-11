@@ -10,7 +10,7 @@
 /en/latest/getting_started.html    /library/get-started
 /en/latest/index.html    /
 /en/latest/installation.html    /library/get-started/installation
-/en/latest/main_concepts.html    /library/get-started/create-an-app
+/en/latest/main_concepts.html    /library/get-started/main-concepts
 /en/latest/publish_streamlit_components.html    /library/components
 /en/latest/session_state_api.html    /library/api-reference/session-state
 /en/latest/streamlit_components.html    /library/components
@@ -26,7 +26,7 @@
 /en/latest/tutorial/    /knowledge-base/tutorials
 /en/latest/tutorial/aws_s3.html    /knowledge-base/tutorials/databases/aws-s3
 /en/latest/tutorial/bigquery.html    /knowledge-base/tutorials/databases/bigquery
-/en/latest/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/latest/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/latest/tutorial/databases.html    /knowledge-base/tutorials/databases
 /en/latest/tutorial/mongodb.html    /knowledge-base/tutorials/databases/mongodb
 /en/latest/tutorial/mysql.html    /knowledge-base/tutorials/databases/mysql
@@ -46,7 +46,7 @@
 /en/stable/getting_started.html    /library/get-started
 /en/stable/index.html    /
 /en/stable/installation.html    /library/get-started/installation
-/en/stable/main_concepts.html    /library/get-started/create-an-app
+/en/stable/main_concepts.html    /library/get-started/main-concepts
 /en/stable/publish_streamlit_components.html    /library/components/publish
 /en/stable/session_state_api.html    /library/api-reference/session-state
 /en/stable/streamlit_components.html    /library/components/create
@@ -63,7 +63,7 @@
 /en/stable/tutorial/    /knowledge-base/tutorials
 /en/stable/tutorial/aws_s3.html    /knowledge-base/tutorials/databases/aws-s3
 /en/stable/tutorial/bigquery.html    /knowledge-base/tutorials/databases/bigquery
-/en/stable/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/stable/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/stable/tutorial/databases.html    /knowledge-base/tutorials/databases
 /en/stable/tutorial/mongodb.html    /knowledge-base/tutorials/databases/mongodb
 /en/stable/tutorial/mysql.html    /knowledge-base/tutorials/databases/mysql
@@ -81,14 +81,14 @@
 /en/0.62.0/cli.html    /library/get-started
 /en/0.62.0/getting_started.html    /library/get-started
 /en/0.62.0/index.html    /
-/en/0.62.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.62.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.62.0/pre_release_features.html    /library/get-started
 /en/0.62.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
 /en/0.62.0/troubleshooting/clean-install.html    /library/get-started/installation
 /en/0.62.0/troubleshooting/index.html    /knowledge-base
 /en/0.62.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.62.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.62.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.62.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.62.0/tutorial/index.html    /library/get-started
 /en/0.62.0/tutorial/run_streamlit_remotely.html    /library/get-started
 /en/0.63.0/    /
@@ -101,7 +101,7 @@
 /en/0.63.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.63.0/getting_started.html    /library/get-started
 /en/0.63.0/index.html    /
-/en/0.63.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.63.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.63.0/pre_release_features.html    /library/get-started
 /en/0.63.0/publish_streamlit_components.html    /library/components/publish
 /en/0.63.0/streamlit_components.html    /library/components/create
@@ -111,7 +111,7 @@
 /en/0.63.0/troubleshooting/index.html    /knowledge-base
 /en/0.63.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.63.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.63.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.63.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.63.0/tutorial/index.html    /library/get-started
 /en/0.63.0/tutorial/run_streamlit_remotely.html    /library/get-started
 /en/0.64.0/    /
@@ -124,7 +124,7 @@
 /en/0.64.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.64.0/getting_started.html    /library/get-started
 /en/0.64.0/index.html    /
-/en/0.64.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.64.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.64.0/pre_release_features.html    /library/get-started
 /en/0.64.0/publish_streamlit_components.html    /library/components/publish
 /en/0.64.0/streamlit_components.html    /library/components/create
@@ -134,7 +134,7 @@
 /en/0.64.0/troubleshooting/index.html    /knowledge-base
 /en/0.64.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.64.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.64.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.64.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.64.0/tutorial/index.html    /library/get-started
 /en/0.64.0/tutorial/run_streamlit_remotely.html    /library/get-started
 /en/0.65.0/    /
@@ -147,7 +147,7 @@
 /en/0.65.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.65.0/getting_started.html    /library/get-started
 /en/0.65.0/index.html    /
-/en/0.65.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.65.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.65.0/pre_release_features.html    /library/get-started
 /en/0.65.0/publish_streamlit_components.html    /library/components/publish
 /en/0.65.0/streamlit_components.html    /library/components/create
@@ -157,7 +157,7 @@
 /en/0.65.0/troubleshooting/index.html    /knowledge-base
 /en/0.65.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.65.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.65.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.65.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.65.0/tutorial/index.html    /library/get-started
 /en/0.65.0/tutorial/run_streamlit_remotely.html    /library/get-started
 /en/0.66.0/    /
@@ -170,7 +170,7 @@
 /en/0.66.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.66.0/getting_started.html    /library/get-started
 /en/0.66.0/index.html    /
-/en/0.66.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.66.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.66.0/pre_release_features.html    /library/get-started
 /en/0.66.0/publish_streamlit_components.html    /library/components/publish
 /en/0.66.0/streamlit_components.html    /library/components/create
@@ -180,7 +180,7 @@
 /en/0.66.0/troubleshooting/index.html    /knowledge-base
 /en/0.66.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.66.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.66.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.66.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.66.0/tutorial/index.html    /library/get-started
 /en/0.66.0/tutorial/run_streamlit_remotely.html    /library/get-started
 /en/0.67.0/    /
@@ -193,7 +193,7 @@
 /en/0.67.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.67.0/getting_started.html    /library/get-started
 /en/0.67.0/index.html    /
-/en/0.67.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.67.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.67.0/pre_release_features.html    /library/get-started
 /en/0.67.0/publish_streamlit_components.html    /library/components/publish
 /en/0.67.0/streamlit_components.html    /library/components/create
@@ -203,7 +203,7 @@
 /en/0.67.0/troubleshooting/index.html    /knowledge-base
 /en/0.67.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.67.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.67.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.67.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.67.0/tutorial/index.html    /library/get-started
 /en/0.67.0/tutorial/run_streamlit_remotely.html    /library/get-started
 /en/0.68.0/    /
@@ -218,7 +218,7 @@
 /en/0.68.0/getting_started.md    /library/get-started
 /en/0.68.0/index.html    /
 /en/0.68.0/installation.html    /library/get-started/installation
-/en/0.68.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.68.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.68.0/publish_streamlit_components.html    /library/components/publish
 /en/0.68.0/streamlit_components.html    /library/components/create
 /en/0.68.0/streamlit_configuration.html    /library/advanced-features/configuration
@@ -228,7 +228,7 @@
 /en/0.68.0/troubleshooting/index.html    /knowledge-base
 /en/0.68.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.68.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.68.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.68.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.69.0/    /
 /en/0.69.0/advanced_concepts.html    /library/advanced-features/cookbook
 /en/0.69.0/api.html    /library/api-reference
@@ -241,7 +241,7 @@
 /en/0.69.0/getting_started.md    /library/get-started
 /en/0.69.0/index.html    /
 /en/0.69.0/installation.html    /library/get-started/installation
-/en/0.69.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.69.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.69.0/publish_streamlit_components.html    /library/components/publish
 /en/0.69.0/streamlit_components.html    /library/components/create
 /en/0.69.0/streamlit_configuration.html    /library/advanced-features/configuration
@@ -251,7 +251,7 @@
 /en/0.69.0/troubleshooting/index.html    /knowledge-base
 /en/0.69.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.69.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.69.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.69.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.70.0/    /
 /en/0.70.0/advanced_concepts.html    /library/advanced-features/cookbook
 /en/0.70.0/api.html    /library/api-reference
@@ -264,7 +264,7 @@
 /en/0.70.0/getting_started.md    /library/get-started
 /en/0.70.0/index.html    /
 /en/0.70.0/installation.html    /library/get-started/installation
-/en/0.70.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.70.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.70.0/publish_streamlit_components.html    /library/components/publish
 /en/0.70.0/streamlit_components.html    /library/components/create
 /en/0.70.0/streamlit_configuration.html    /library/advanced-features/configuration
@@ -274,7 +274,7 @@
 /en/0.70.0/troubleshooting/index.html    /knowledge-base
 /en/0.70.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.70.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.70.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.70.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.71.0/    /
 /en/0.71.0/advanced_concepts.html    /library/advanced-features/cookbook
 /en/0.71.0/api.html    /library/api-reference
@@ -287,7 +287,7 @@
 /en/0.71.0/getting_started.md    /library/get-started
 /en/0.71.0/index.html    /
 /en/0.71.0/installation.html    /library/get-started/installation
-/en/0.71.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.71.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.71.0/publish_streamlit_components.html    /library/components/publish
 /en/0.71.0/streamlit_components.html    /library/components/create
 /en/0.71.0/streamlit_configuration.html    /library/advanced-features/configuration
@@ -297,7 +297,7 @@
 /en/0.71.0/troubleshooting/index.html    /knowledge-base
 /en/0.71.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.71.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.71.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.71.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.72.0/    /
 /en/0.72.0/advanced_concepts.html    /library/advanced-features/cookbook
 /en/0.72.0/api.html    /library/api-reference
@@ -310,7 +310,7 @@
 /en/0.72.0/getting_started.md    /library/get-started
 /en/0.72.0/index.html    /
 /en/0.72.0/installation.html    /library/get-started/installation
-/en/0.72.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.72.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.72.0/publish_streamlit_components.html    /library/components/publish
 /en/0.72.0/streamlit_components.html    /library/components/create
 /en/0.72.0/streamlit_configuration.html    /library/advanced-features/configuration
@@ -320,7 +320,7 @@
 /en/0.72.0/troubleshooting/index.html    /knowledge-base
 /en/0.72.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.72.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.72.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.72.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.73.0/    /
 /en/0.73.0/advanced_concepts.html    /library/advanced-features/cookbook
 /en/0.73.0/api.html    /library/api-reference
@@ -333,7 +333,7 @@
 /en/0.73.0/getting_started.md    /library/get-started
 /en/0.73.0/index.html    /
 /en/0.73.0/installation.html    /library/get-started/installation
-/en/0.73.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.73.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.73.0/publish_streamlit_components.html    /library/components/publish
 /en/0.73.0/streamlit_components.html    /library/components/create
 /en/0.73.0/streamlit_configuration.html    /library/advanced-features/configuration
@@ -343,7 +343,7 @@
 /en/0.73.0/troubleshooting/index.html    /knowledge-base
 /en/0.73.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.73.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.73.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.73.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.74.0/    /
 /en/0.74.0/advanced_concepts.html    /library/advanced-features/cookbook
 /en/0.74.0/api.html    /library/api-reference
@@ -356,7 +356,7 @@
 /en/0.74.0/getting_started.md    /library/get-started
 /en/0.74.0/index.html    /
 /en/0.74.0/installation.html    /library/get-started/installation
-/en/0.74.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.74.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.74.0/publish_streamlit_components.html    /library/components/publish
 /en/0.74.0/streamlit_components.html    /library/components/create
 /en/0.74.0/streamlit_configuration.html    /library/advanced-features/configuration
@@ -366,7 +366,7 @@
 /en/0.74.0/troubleshooting/index.html    /knowledge-base
 /en/0.74.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.74.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.74.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.74.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.75.0/    /
 /en/0.75.0/advanced_concepts.html    /library/advanced-features/cookbook
 /en/0.75.0/api.html    /library/api-reference
@@ -379,7 +379,7 @@
 /en/0.75.0/getting_started.md    /library/get-started
 /en/0.75.0/index.html    /
 /en/0.75.0/installation.html    /library/get-started/installation
-/en/0.75.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.75.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.75.0/publish_streamlit_components.html    /library/components/publish
 /en/0.75.0/streamlit_components.html    /library/components/create
 /en/0.75.0/streamlit_configuration.html    /library/advanced-features/configuration
@@ -389,7 +389,7 @@
 /en/0.75.0/troubleshooting/index.html    /knowledge-base
 /en/0.75.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.75.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.75.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.75.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.76.0/    /
 /en/0.76.0/advanced_concepts.html    /library/advanced-features/cookbook
 /en/0.76.0/api.html    /library/api-reference
@@ -402,7 +402,7 @@
 /en/0.76.0/getting_started.md    /library/get-started
 /en/0.76.0/index.html    /
 /en/0.76.0/installation.html    /library/get-started/installation
-/en/0.76.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.76.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.76.0/publish_streamlit_components.html    /library/components/publish
 /en/0.76.0/streamlit_components.html    /library/components/create
 /en/0.76.0/streamlit_configuration.html    /library/advanced-features/configuration
@@ -412,7 +412,7 @@
 /en/0.76.0/troubleshooting/index.html    /knowledge-base
 /en/0.76.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.76.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.76.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.76.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.77.0/    /
 /en/0.77.0/advanced_concepts.html    /library/advanced-features/cookbook
 /en/0.77.0/api.html    /library/api-reference
@@ -425,7 +425,7 @@
 /en/0.77.0/getting_started.md    /library/get-started
 /en/0.77.0/index.html    /
 /en/0.77.0/installation.html    /library/get-started/installation
-/en/0.77.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.77.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.77.0/publish_streamlit_components.html    /library/components/publish
 /en/0.77.0/streamlit_components.html    /library/components/create
 /en/0.77.0/streamlit_configuration.html    /library/advanced-features/configuration
@@ -435,7 +435,7 @@
 /en/0.77.0/troubleshooting/index.html    /knowledge-base
 /en/0.77.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.77.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.77.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.77.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.78.0/    /
 /en/0.78.0/advanced_concepts.html    /library/advanced-features/cookbook
 /en/0.78.0/api.html    /library/api-reference
@@ -448,7 +448,7 @@
 /en/0.78.0/getting_started.md    /library/get-started
 /en/0.78.0/index.html    /
 /en/0.78.0/installation.html    /library/get-started/installation
-/en/0.78.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.78.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.78.0/publish_streamlit_components.html    /library/components/publish
 /en/0.78.0/streamlit_components.html    /library/components/create
 /en/0.78.0/streamlit_configuration.html    /library/advanced-features/configuration
@@ -458,7 +458,7 @@
 /en/0.78.0/troubleshooting/index.html    /knowledge-base
 /en/0.78.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.78.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.78.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.78.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.79.0/    /
 /en/0.79.0/advanced_concepts.html    /library/advanced-features/cookbook
 /en/0.79.0/api.html    /library/api-reference
@@ -469,7 +469,7 @@
 /en/0.79.0/getting_started.html    /library/get-started
 /en/0.79.0/index.html    /
 /en/0.79.0/installation.html    /library/get-started/installation
-/en/0.79.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.79.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.79.0/publish_streamlit_components.html    /library/components/publish
 /en/0.79.0/streamlit_components.html    /library/components/create
 /en/0.79.0/streamlit_configuration.html    /library/advanced-features/configuration
@@ -480,7 +480,7 @@
 /en/0.79.0/troubleshooting/index.html    /knowledge-base
 /en/0.79.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.79.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.79.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.79.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.80.0/    /
 /en/0.80.0/advanced_concepts.html    /library/advanced-features/cookbook
 /en/0.80.0/api.html    /library/api-reference
@@ -491,7 +491,7 @@
 /en/0.80.0/getting_started.html    /library/get-started
 /en/0.80.0/index.html    /
 /en/0.80.0/installation.html    /library/get-started/installation
-/en/0.80.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.80.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.80.0/publish_streamlit_components.html    /library/components/publish
 /en/0.80.0/streamlit_components.html    /library/components/create
 /en/0.80.0/streamlit_configuration.html    /library/advanced-features/configuration
@@ -502,7 +502,7 @@
 /en/0.80.0/troubleshooting/index.html    /knowledge-base
 /en/0.80.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.80.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.80.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.80.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.81.0/    /
 /en/0.81.0/advanced_concepts.html    /library/advanced-features/cookbook
 /en/0.81.0/api.html    /library/api-reference
@@ -513,7 +513,7 @@
 /en/0.81.0/getting_started.html    /library/get-started
 /en/0.81.0/index.html    /
 /en/0.81.0/installation.html    /library/get-started/installation
-/en/0.81.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.81.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.81.0/publish_streamlit_components.html    /library/components/publish
 /en/0.81.0/streamlit_components.html    /library/components/create
 /en/0.81.0/streamlit_configuration.html    /library/advanced-features/configuration
@@ -524,7 +524,7 @@
 /en/0.81.0/troubleshooting/index.html    /knowledge-base
 /en/0.81.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.81.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.81.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.81.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.81.1/    /
 /en/0.81.1/advanced_concepts.html    /library/advanced-features/cookbook
 /en/0.81.1/api.html    /library/api-reference
@@ -535,7 +535,7 @@
 /en/0.81.1/getting_started.html    /library/get-started
 /en/0.81.1/index.html    /
 /en/0.81.1/installation.html    /library/get-started/installation
-/en/0.81.1/main_concepts.html    /library/get-started/create-an-app
+/en/0.81.1/main_concepts.html    /library/get-started/main-concepts
 /en/0.81.1/publish_streamlit_components.html    /library/components/publish
 /en/0.81.1/streamlit_components.html    /library/components/create
 /en/0.81.1/streamlit_configuration.html    /library/advanced-features/configuration
@@ -546,7 +546,7 @@
 /en/0.81.1/troubleshooting/index.html    /knowledge-base
 /en/0.81.1/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.81.1/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.81.1/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.81.1/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.82.0/    /
 /en/0.82.0/advanced_concepts.html    /library/advanced-features/cookbook
 /en/0.82.0/api.html    /library/api-reference
@@ -557,7 +557,7 @@
 /en/0.82.0/getting_started.html    /library/get-started
 /en/0.82.0/index.html    /
 /en/0.82.0/installation.html    /library/get-started/installation
-/en/0.82.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.82.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.82.0/publish_streamlit_components.html    /library/components/publish
 /en/0.82.0/streamlit_components.html    /library/components/create
 /en/0.82.0/streamlit_configuration.html    /library/advanced-features/configuration
@@ -568,7 +568,7 @@
 /en/0.82.0/troubleshooting/index.html    /knowledge-base
 /en/0.82.0/troubleshooting/not-loading.html    /knowledge-base/deploy/remote-start
 /en/0.82.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
-/en/0.82.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.82.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.83.0/    /
 /en/0.83.0/advanced_concepts.html    /library/advanced-features/cookbook
 /en/0.83.0/api.html    /library/api-reference
@@ -579,7 +579,7 @@
 /en/0.83.0/getting_started.html    /library/get-started
 /en/0.83.0/index.html    /
 /en/0.83.0/installation.html    /library/get-started/installation
-/en/0.83.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.83.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.83.0/publish_streamlit_components.html    /library/components/publish
 /en/0.83.0/streamlit_components.html    /library/components/create
 /en/0.83.0/streamlit_configuration.html    /library/advanced-features/configuration
@@ -592,7 +592,7 @@
 /en/0.83.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
 /en/0.83.0/tutorial/aws_s3.html    /knowledge-base/tutorials/databases/aws-s3
 /en/0.83.0/tutorial/bigquery.html    /knowledge-base/tutorials/databases/bigquery
-/en/0.83.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.83.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.83.0/tutorial/databases.html    /knowledge-base/tutorials/databases
 /en/0.83.0/tutorial/mongodb.html    /knowledge-base/tutorials/databases/mongodb
 /en/0.83.0/tutorial/postgresql.html    /knowledge-base/tutorials/databases/postgresql
@@ -610,7 +610,7 @@
 /en/0.84.0/getting_started.html    /library/get-started
 /en/0.84.0/index.html    /
 /en/0.84.0/installation.html    /library/get-started/installation
-/en/0.84.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.84.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.84.0/publish_streamlit_components.html    /library/components/publish
 /en/0.84.0/session_state_api.html    /library/api-reference/session-state
 /en/0.84.0/streamlit_components.html    /library/components/create
@@ -624,7 +624,7 @@
 /en/0.84.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
 /en/0.84.0/tutorial/aws_s3.html    /knowledge-base/tutorials/databases/aws-s3
 /en/0.84.0/tutorial/bigquery.html    /knowledge-base/tutorials/databases/bigquery
-/en/0.84.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.84.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.84.0/tutorial/databases.html    /knowledge-base/tutorials/databases
 /en/0.84.0/tutorial/mongodb.html    /knowledge-base/tutorials/databases/mongodb
 /en/0.84.0/tutorial/postgresql.html    /knowledge-base/tutorials/databases/postgresql
@@ -642,7 +642,7 @@
 /en/0.85.0/getting_started.html    /library/get-started
 /en/0.85.0/index.html    /
 /en/0.85.0/installation.html    /library/get-started/installation
-/en/0.85.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.85.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.85.0/publish_streamlit_components.html    /library/components/publish
 /en/0.85.0/session_state_api.html    /library/api-reference/session-state
 /en/0.85.0/streamlit_components.html    /library/components/create
@@ -656,7 +656,7 @@
 /en/0.85.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
 /en/0.85.0/tutorial/aws_s3.html    /knowledge-base/tutorials/databases/aws-s3
 /en/0.85.0/tutorial/bigquery.html    /knowledge-base/tutorials/databases/bigquery
-/en/0.85.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.85.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.85.0/tutorial/databases.html    /knowledge-base/tutorials/databases
 /en/0.85.0/tutorial/mongodb.html    /knowledge-base/tutorials/databases/mongodb
 /en/0.85.0/tutorial/mysql.html    /knowledge-base/tutorials/databases/mysql
@@ -675,7 +675,7 @@
 /en/0.86.0/getting_started.html    /library/get-started
 /en/0.86.0/index.html    /
 /en/0.86.0/installation.html    /library/get-started/installation
-/en/0.86.0/main_concepts.html    /library/get-started/create-an-app
+/en/0.86.0/main_concepts.html    /library/get-started/main-concepts
 /en/0.86.0/publish_streamlit_components.html    /library/components/publish
 /en/0.86.0/session_state_api.html    /library/api-reference/session-state
 /en/0.86.0/streamlit_components.html    /library/components/create
@@ -689,7 +689,7 @@
 /en/0.86.0/troubleshooting/sanity-checks.html    /knowledge-base/using-streamlit/sanity-checks
 /en/0.86.0/tutorial/aws_s3.html    /knowledge-base/tutorials/databases/aws-s3
 /en/0.86.0/tutorial/bigquery.html    /knowledge-base/tutorials/databases/bigquery
-/en/0.86.0/tutorial/create_a_data_explorer_app.html    /knowledge-base/tutorials/data-explorer
+/en/0.86.0/tutorial/create_a_data_explorer_app.html    /library/get-started/create-an-app
 /en/0.86.0/tutorial/databases.html    /knowledge-base/tutorials/databases
 /en/0.86.0/tutorial/mongodb.html    /knowledge-base/tutorials/databases/mongodb
 /en/0.86.0/tutorial/mysql.html    /knowledge-base/tutorials/databases/mysql
