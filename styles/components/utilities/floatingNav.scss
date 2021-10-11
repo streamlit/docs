@@ -24,10 +24,26 @@
             position: relative;
             background-color: transparent;
             border-left: 1px solid $gray-20;
-            padding: .25rem 1rem;
+            padding: .25rem 0;
             
-            &.level-H2, &.level-H3, &.level-H4, &.level-H5, &.level-H6 {
-                padding: .25rem 1.75rem;
+            &.level-H2 {
+                padding-left: 1.5rem;
+            }
+            
+            &.level-H3 {
+                padding-left: 2rem;
+            }
+            
+            &.level-H4 {
+                padding-left: 2.5rem;
+            }
+            
+            &.level-H5 {
+                padding-left: 3rem;
+            }
+            
+            &.level-H6 {
+                padding-left: 3.5rem;
             }
             
             &.active {
