@@ -322,6 +322,10 @@ body[data-theme="dark-mode"] {
     .reference-card {
         border:1px solid $gray-90;
         color:$white;
+
+        img {
+            border-bottom: 1px solid $gray-90;
+        }
     }
 
     .code-tile {
@@ -331,5 +335,14 @@ body[data-theme="dark-mode"] {
             pre.line-numbers { 
                 background-color: transparent;
             }
+    }
+
+    .reference-card, .code-tile {
+        p {
+            code {
+                border: none;
+                background-color: $gray-90;
+            }
+        }
     }
 }

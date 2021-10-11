@@ -221,7 +221,7 @@ body[data-theme="light-mode"] {
       outline: 2px solid $gray-50;
     }
 
-    .code-tile {
+    .code-tile, .reference-card {
         .block-code {
             pre.line-numbers {
                 background-color: transparent;
@@ -266,6 +266,14 @@ body[data-theme="light-mode"] {
         &.featured {
             pre.line-numbers {
                 background-color: transparent;
+            }
+        }
+    }
+
+    .reference-card {
+        .block-code {
+            pre.line-numbers {
+                background-color: $gray-10;
             }
         }
     }
