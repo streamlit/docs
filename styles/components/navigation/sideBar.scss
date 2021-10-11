@@ -4,7 +4,6 @@
     top: 0;
     height: calc(100vh - #{$header-height});
     z-index: 10;
-    transition: $slow;
     width: 314px;
 
     * {
