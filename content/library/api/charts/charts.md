@@ -16,7 +16,7 @@ like `st.line_chart` and `st.area_chart`.
 
 <TileContainer>
 <RefCard href="/library/api-reference/charts/st.line_chart">
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/line_chart.jpg" />
 
 #### Simple line charts
 
@@ -28,7 +28,7 @@ st.line_chart(my_data_frame)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.area_chart">
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/area_chart.jpg" />
 
 #### Simple area charts
 
@@ -40,7 +40,7 @@ st.area_chart(my_data_frame)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.bar_chart">
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/bar_chart.jpg" />
 
 #### Simple bar charts
 
@@ -52,7 +52,7 @@ st.bar_chart(my_data_frame)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.map">
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/map.jpg" />
 
 #### Scatterplots on maps
 
@@ -64,7 +64,7 @@ st.map(my_data_frame)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.pyplot">
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/pyplot.jpg" />
 
 #### Matplotlib
 
@@ -76,7 +76,7 @@ st.pyplot(my_mpl_figure)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.altair_chart">
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/vega_lite_chart.jpg" />
 
 #### Altair
 
@@ -88,7 +88,7 @@ st.altair_chart(my_altair_chart)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.vega_lite_chart">
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/vega_lite_chart.jpg" />
 
 #### Vega-Lite
 
@@ -100,7 +100,7 @@ st.vega_lite_chart(my_vega_lite_chart)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.plotly_chart">
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/plotly_chart.jpg" />
 
 #### Plotly
 
@@ -112,7 +112,7 @@ st.plotly_chart(my_plotly_chart)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.bokeh_chart">
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/bokeh_chart.jpg" />
 
 #### Bokeh
 
@@ -124,11 +124,11 @@ st.bokeh_chart(my_bokeh_chart)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.pydeck_chart">
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/pydeck_chart.jpg" />
 
 #### PyDeck
 
-Draw a chart using the PyDeck library.
+Display a chart using the PyDeck library.
 
 ```python
 st.pydeck_chart(my_pydeck_chart)
@@ -136,7 +136,7 @@ st.pydeck_chart(my_pydeck_chart)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.graphviz_chart">
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/graphviz_chart.jpg" />
 
 #### GraphViz
 
