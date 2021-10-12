@@ -155,6 +155,7 @@ class FloatingNav extends React.Component {
         return (
             menu.length > 1 ?
                 <div className={`toc ${props.slug[props.slug.length -1]}`}>
+                    <div className="top-gradient" />
                     <ol className='toc-level'>
                         <li className="toc-title">Contents</li>
                         {menu.map((item, index) => {
