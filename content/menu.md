@@ -190,8 +190,6 @@ site_menu:
     url: /library/advanced-features/session-state
   - category: Streamlit Library / Advanced Features/ Widget semantics
     url: /library/advanced-features/widget-semantics
-  - category: Streamlit Library / Advanced Features/ Cookbook
-    url: /library/advanced-features/cookbook
   - category: Streamlit Library / Advanced Features/ Pre-release features
     url: /library/advanced-features/prerelease
   - category: Streamlit Library / Components
