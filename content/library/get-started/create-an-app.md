@@ -410,5 +410,5 @@ run into difficulties here are a few things you can do.
 - Quick help from command line with `$ streamlit help`
 - Go through our [Knowledge Base](/knowledge-base) for tips, step-by-step tutorials, and articles that answer your questions about creating and deploying Streamlit apps.
 - Read more documentation! Check out:
-    - [Streamlit Cookbook](/library/advanced-features/cookbook) for things like caching and inserting elements out of order.
+    - [Advanced features](/library/advanced-features) for things like caching, theming, and adding statefulness to apps.
     - [API reference](/library/api-reference/) for examples of every Streamlit command.
