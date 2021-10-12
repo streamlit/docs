@@ -130,7 +130,7 @@ class FloatingNav extends React.Component {
         const target = this.state.target
         const isnum = /^[\d\.]+$/.test(props.slug[0]);
         const slug = isnum ? props.slug.slice(1).join('/') : this.state.slug
-        const location = this.state.slug.split('/')[0];
+        const location = this.state.slug.split('/')[0]
     
         // Get the Root Object and find the appropriate color
         const breadCrumbs = breadcrumbsForSlug(props.menu, `/${slug}`)
@@ -154,7 +154,7 @@ class FloatingNav extends React.Component {
         
         return (
             menu.length > 1 ?
-                <div className='toc'>
+                <div className={`toc ${props.slug[props.slug.length -1]}`}>
                     <ol className='toc-level'>
                         <li className="toc-title">Contents</li>
                         {menu.map((item, index) => {

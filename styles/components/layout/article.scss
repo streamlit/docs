@@ -2,7 +2,7 @@ article.leaf-page {
     position: relative;
    
     @media (min-width: 1448px) {
-        .toc {
+        .toc:not(.advanced-features) {
             display: block;
 
             & ~ .content {
