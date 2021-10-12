@@ -1,7 +1,7 @@
 ---
 site_menu:
   - category: Streamlit Library
-    url: /library
+    url: /library/get-started
     color: violet-70
     icon: description
   - category: Streamlit Library / Get Started
