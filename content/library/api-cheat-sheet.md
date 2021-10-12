@@ -1,6 +1,6 @@
 ---
 title: Cheat Sheet
-slug: /library/get-started/cheatsheet
+slug: /library/cheatsheet
 ---
 
 # Cheat Sheet
@@ -98,6 +98,7 @@ st.code('for i in range(8): foo()')
 st.dataframe(my_dataframe)
 st.table(data.iloc[0:10])
 st.json({'foo':'bar','fu':'ba'})
+st.metric('My metric', 42, 2)
 
 ```
 </CodeTile>
@@ -165,26 +166,6 @@ st.stop()
 >>>   password = st.text_input('Password')
 >>>   st.form_submit_button('Login')
 ```
-</CodeTile>
-
-
-<CodeTile>
-
-#### Display text
-
-```python
-st.text('Fixed width text')
-st.markdown('_Markdown_') # see *
-st.latex(r''' e^{i\pi} + 1 = 0 ''')
-st.write('Most objects') # df, err, func, keras!
-st.write(['st', 'is <', 3]) # see *
-st.title('My title')
-st.header('My header')
-st.subheader('My sub')
-st.code('for i in range(8): foo()')
-* optional kwarg unsafe_allow_html = True
-```
-
 </CodeTile>
 
 <CodeTile>
