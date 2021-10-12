@@ -139,9 +139,9 @@ function insertAnalytics() {
           n.parentNode.insertBefore(t, n);
           analytics._loadOptions = e;
         };
-        analytics._writeKey = "5oR9PCgKBs3VqmQCMiiajboWKKBUa4dA";
+        analytics._writeKey = "pUoB6ihRTAFLDtLp2NWEuJvBNtiooQwE";
         analytics.SNIPPET_VERSION = "4.13.2";
-        analytics.load("5oR9PCgKBs3VqmQCMiiajboWKKBUa4dA");
+        analytics.load("pUoB6ihRTAFLDtLp2NWEuJvBNtiooQwE");
         analytics.page();
       }
   })();
