@@ -5,320 +5,410 @@ slug: /library/get-started/create-an-app
 
 # Create an app
 
-Working with Streamlit is simple. First you sprinkle a few Streamlit commands
-into a normal Python script, then you run it with `streamlit run`:
+If you've made it this far, chances are you've
+[installed Streamlit](/library/get-started/installation) and
+run through the basics in our [Main concepts](/library/get-started/main-concepts) guide. If
+not, now is a good time to take a look.
 
-```bash
-streamlit run your_script.py [-- script args]
-```
+The easiest way to learn how to use Streamlit is to try things out yourself. As you read through this guide, test each method. As long as your app is running, every time you add a new element to your script and save, Streamlit's UI will ask if you'd like to rerun the app and view the changes. This allows you to work in a fast interactive loop: you write some code, save it, review the output, write some more, and so on, until you're happy with the results. The goal is to use Streamlit to create an interactive app for your data or model and along the way to use Streamlit to review, debug, perfect, and share your code.
 
-As soon as you run the script as shown above, a local Streamlit server will
-spin up and your app will open in a new tab your default web browser. The app
-is your canvas, where you'll draw charts, text, widgets, tables, and more.
-
-What gets drawn in the app is up to you. For example
-[`st.text`](/library/api-reference/text/st.text) writes raw text to your app, and
-[`st.line_chart`](/library/api-reference/charts/st.line_chart) draws — you guessed it — a
-line chart. Refer to our [API documentation](/library/api-reference) to see all commands that
-are available to you.
-
-<Note>
-
-When passing your script some custom arguments, they must be passed after two dashes. Otherwise the
-arguments get interpreted as arguments to Streamlit itself.
-
-</Note>
+In this guide, you're going to use Streamlit's core features to
+create an interactive app; exploring a public Uber dataset for pickups and
+drop-offs in New York City. When you're finished, you'll know how to fetch
+and cache data, draw charts, plot information on a map, and use interactive
+widgets, like a slider, to filter results.
 
 <Tip>
 
-You can also pass a URL to `streamlit run`! This is great when combined with
-Github Gists. For example:
-
-```bash
-$ streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
-```
+If you'd like to skip ahead and see everything at once, the [complete script
+is available below](#lets-put-it-all-together).
 
 </Tip>
 
-## Development flow
+## Create your first app
 
-Every time you want to update your app, save the source file. When you do
-that, Streamlit detects if there is a change and asks you whether you want to
-rerun your app. Choose "Always rerun" at the top-right of your screen to
-automatically update your app every time you change its source code.
+Streamlit is more than just a way to make data apps, it’s also a community of creators that share their apps and ideas and help each other make their work better. Please come join us on the community forum. We love to hear your questions, ideas, and help you work through your bugs — stop by today!
 
-This allows you to work in a fast interactive loop: you type some code, save
-it, try it out live, then type some more code, save it, try it out, and so on
-until you're happy with the results. This tight loop between coding and viewing
-results live is one of the ways Streamlit makes your life easier.
+1. The first step is to create a new Python script. Let's call it
+   `uber_pickups.py`.
+
+2. Open `uber_pickups.py` in your favorite IDE or text editor, then add these
+   lines:
+
+   ```python
+   import streamlit as st
+   import pandas as pd
+   import numpy as np
+   ```
+
+3. Every good app has a title, so let's add one:
+
+   ```python
+   st.title('Uber pickups in NYC')
+   ```
+
+4. Now it's time to run Streamlit from the command line:
+
+   ```bash
+   streamlit run uber_pickups.py
+   ```
+
+   Running a Streamlit app is no different than any other Python script. Whenever you need to view the app, you can use this command.
+
+    <Tip>
+
+    Did you know you can also pass a URL to `streamlit run`? This is great when combined with Github Gists. For example:
+    
+    ```bash
+    $ streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
+    ```
+  
+   </Tip>
+
+5. As usual, the app should automatically open in a new tab in your
+   browser.
+
+## Fetch some data
+
+Now that you have an app, the next thing you'll need to do is fetch the Uber
+dataset for pickups and drop-offs in New York City.
+
+1. Let's start by writing a function to load the data. Add this code to your
+   script:
+
+   ```python
+   DATE_COLUMN = 'date/time'
+   DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
+            'streamlit-demo-data/uber-raw-data-sep14.csv.gz')
+
+   def load_data(nrows):
+       data = pd.read_csv(DATA_URL, nrows=nrows)
+       lowercase = lambda x: str(x).lower()
+       data.rename(lowercase, axis='columns', inplace=True)
+       data[DATE_COLUMN] = pd.to_datetime(data[DATE_COLUMN])
+       return data
+   ```
+
+   You'll notice that `load_data` is a plain old function that downloads some
+   data, puts it in a Pandas dataframe, and converts the date column from text
+   to datetime. The function accepts a single parameter (`nrows`), which
+   specifies the number of rows that you want to load into the dataframe.
+
+2. Now let's test the function and review the output. Below your function, add
+   these lines:
+
+   ```python
+   # Create a text element and let the reader know the data is loading.
+   data_load_state = st.text('Loading data...')
+   # Load 10,000 rows of data into the dataframe.
+   data = load_data(10000)
+   # Notify the reader that the data was successfully loaded.
+   data_load_state.text('Loading data...done!')
+   ```
+
+   You'll see a few buttons in the upper-right corner of your app asking if
+   you'd like to rerun the app. Choose **Always rerun**, and you'll see your
+   changes automatically each time you save.
+
+Ok, that's underwhelming...
+
+It turns out that it takes a long time to download data, and load 10,000 lines
+into a dataframe. Converting the date column into datetime isn’t a quick job
+either. You don’t want to reload the data each time the app is updated –
+luckily Streamlit allows you to cache the data.
+
+## Effortless caching
+
+1. Try adding `@st.cache` before the `load_data` declaration:
+
+   ```python
+   @st.cache
+   def load_data(nrows):
+   ```
+
+2. Then save the script, and Streamlit will automatically rerun your app. Since
+   this is the first time you’re running the script with `@st.cache`, you won't
+   see anything change. Let’s tweak your file a little bit more so that you can
+   see the power of caching.
+
+3. Replace the line `data_load_state.text('Loading data...done!')` with this:
+
+   ```python
+   data_load_state.text("Done! (using st.cache)")
+   ```
+
+4. Now save. See how the line you added appeared immediately? If you take a
+   step back for a second, this is actually quite amazing. Something magical is
+   happening behind the scenes, and it only takes one line of code to activate
+   it.
+
+### How's it work?
+
+Let's take a few minutes to discuss how `@st.cache` actually works.
+
+When you mark a function with Streamlit’s cache annotation, it tells Streamlit
+that whenever the function is called that it should check three things:
+
+1. The actual bytecode that makes up the body of the function
+2. Code, variables, and files that the function depends on
+3. The input parameters that you called the function with
+
+If this is the first time Streamlit has seen these items, with these exact
+values, and in this exact combination, it runs the function and stores the
+result in a local cache. The next time the function is called, if the three
+values haven't changed, then Streamlit knows it can skip executing the function
+altogether. Instead, it reads the output from the local cache and passes it on
+to the caller -- like magic.
+
+"But, wait a second," you’re saying to yourself, "this sounds too good to be
+true. What are the limitations of all this awesomesauce?"
+
+Well, there are a few:
+
+1. Streamlit will only check for changes within the current working directory.
+   If you upgrade a Python library, Streamlit's cache will only notice this if
+   that library is installed inside your working directory.
+2. If your function is not deterministic (that is, its output depends on random
+   numbers), or if it pulls data from an external time-varying source (for
+   example, a live stock market ticker service) the cached value will be
+   none-the-wiser.
+3. Lastly, you should not mutate the output of a cached function since cached
+   values are stored by reference (for performance reasons and to be able to
+   support libraries such as TensorFlow). Note that, here, Streamlit is smart
+   enough to detect these mutations and show a loud warning explaining how to
+   fix the problem.
+
+While these limitations are important to keep in mind, they tend not to be an
+issue a surprising amount of the time. Those times, this cache is really
+transformational.
 
 <Tip>
 
-While developing a Streamlit app, it's recommended to lay out your editor and
-browser windows side by side, so the code and the app can be seen at the same
-time. Give it a try!
+Whenever you have a long-running computation in your code, consider
+refactoring it so you can use `@st.cache`, if possible.
 
 </Tip>
 
-## Data flow
+Now that you know how caching with Streamlit works, let’s get back to the Uber
+pickup data.
 
-Streamlit's architecture allows you to write apps the same way you write plain
-Python scripts. To unlock this, Streamlit apps have a unique data flow: any
-time something must be updated on the screen, Streamlit reruns your entire
-Python script from top to bottom.
+## Inspect the raw data
 
-This can happen in two situations:
+It's always a good idea to take a look at the raw data you're working with
+before you start working with it. Let's add a subheader and a printout of the
+raw data to the app:
 
-- Whenever you modify your app's source code.
+```python
+st.subheader('Raw data')
+st.write(data)
+```
 
-- Whenever a user interacts with widgets in the app. For example, when dragging
-  a slider, entering text in an input box, or clicking a button.
-
-Whenever a callback is passed to a widget via the `on_change` (or `on_click`) parameter, the callback will always run before the rest of your script. For details on the Callbacks API, please refer to our [Session State API Reference Guide](/library/api-reference/session-state#use-callbacks-to-update-session-state).
-
-And to make all of this fast and seamless, Streamlit does some heavy lifting
-for you behind the scenes. A big player in this story is the
-[`@st.cache`](#caching) decorator, which allows developers to skip certain
-costly computations when their apps rerun. We'll cover caching later in this
-page.
-
-## Display and style data
-
-There are a few ways to display data (tables, arrays, data frames) in Streamlit
-apps. In [getting started](/library/get-started), you were introduced to _magic_
-and [`st.write()`](/library/api-reference/write-magic/st.write), which can be used to write
-anything from text to tables. Now let's take a look at methods designed
-specifically for visualizing data.
-
-You might be asking yourself, "why wouldn't I always use `st.write()`?" There are
-a few reasons:
-
-1. _Magic_ and [`st.write()`](/library/api-reference/write-magic/st.write) inspect the type of
-   data that you've passed in, and then decide how to best render it in the
-   app. Sometimes you want to draw it another way. For example, instead of
-   drawing a dataframe as an interactive table, you may want to draw it as a
-   static table by using `st.table(df)`.
-2. The second reason is that other methods return an object that can be used
-   and modified, either by adding data to it or replacing it.
-3. Finally, if you use a more specific Streamlit method you can pass additional
-   arguments to customize its behavior.
-
-For example, let's create a data frame and change its formatting with a Pandas
-`Styler` object. In this example, you'll use Numpy to generate a random sample,
-and the [`st.dataframe()`](/library/api-reference/data/st.dataframe) method to draw an
+In the [Main concepts](/library/get-started/main-concepts) guide you learned that
+[`st.write`](/library/api-reference/write-magic/st.write) will render almost anything you pass
+to it. In this case, you're passing in a dataframe and it's rendering as an
 interactive table.
 
-<Note>
+[`st.write`](/library/api-reference/write-magic/st.write) tries to do the right thing based on
+the data type of the input. If it isn't doing what you expect you can use a
+specialized command like [`st.dataframe`](/library/api-reference/data/st.dataframe)
+instead. For a full list, see [API reference](/library/api-reference).
 
-This example uses Numpy to generate a random sample, but you can use Pandas
-DataFrames, Numpy arrays, or plain Python arrays.
+## Draw a histogram
 
-</Note>
+Now that you've had a chance to take a look at the dataset and observe what's
+available, let's take things a step further and draw a histogram to see what
+Uber's busiest hours are in New York City.
 
-```python
-dataframe = np.random.randn(10, 20)
-st.dataframe(dataframe)
-```
+1. To start, let's add a subheader just below the raw data section:
 
-Let's expand on the first example using the Pandas `Styler` object to highlight
-some elements in the interactive table.
+   ```python
+   st.subheader('Number of pickups by hour')
+   ```
 
-```python
-dataframe = pd.DataFrame(
-    np.random.randn(10, 20),
-    columns=('col %d' % i for i in range(20)))
+2. Use NumPy to generate a histogram that breaks down pickup times binned by
+   hour:
 
-st.dataframe(dataframe.style.highlight_max(axis=0))
-```
+   ```python
+   hist_values = np.histogram(
+       data[DATE_COLUMN].dt.hour, bins=24, range=(0,24))[0]
+   ```
 
-Streamlit also has a method for static table generation:
-[`st.table()`](/library/api-reference/data/st.table).
+3. Now, let's use Streamlit's
+   [`st.bar_chart()`](/library/api-reference/charts/st.bar_chart) method to draw this
+   histogram.
 
-```python
-dataframe = pd.DataFrame(
-    np.random.randn(10, 20),
-    columns=('col %d' % i for i in range(20)))
-st.table(dataframe)
-```
+   ```python
+   st.bar_chart(hist_values)
+   ```
 
-## Widgets
+4. Save your script. This histogram should show up in your app right away.
+   After a quick review, it looks like the busiest time is 17:00 (5 P.M.).
 
-When you've got the data or model into the state that you want to explore, you
-can add in widgets like [`st.slider()`](/library/api-reference/widgets/st.slider),
-[`st.button()`](/library/api-reference/widgets/st.button) or
-[`st.selectbox()`](/library/api-reference/widgets/st.selectbox). It's really straightforward
-— treat widgets as variables:
+To draw this diagram we used Streamlit's native `bar_chart()` method, but it's
+important to know that Streamlit supports more complex charting libraries like
+Altair, Bokeh, Plotly, Matplotlib and more. For a full list, see
+[supported charting libraries](/library/api-reference/charts).
 
-```python
-import streamlit as st
-x = st.slider('x')  # 👈 this is a widget
-st.write(x, 'squared is', x * x)
-```
+## Plot data on a map
 
-On first run, the app above should output the text "0 squared is 0". Then
-every time a user interacts with a widget, Streamlit simply reruns your script
-from top to bottom, assigning the current state of the widget to your variable
-in the process.
+Using a histogram with Uber's dataset helped us determine what the busiest
+times are for pickups, but what if we wanted to figure out where pickups were
+concentrated throughout the city. While you could use a bar chart to show this
+data, it wouldn't be easy to interpret unless you were intimately familiar with
+latitudinal and longitudinal coordinates in the city. To show pickup
+concentration, let's use Streamlit [`st.map()`](/library/api-reference/charts/st.map)
+function to overlay the data on a map of New York City.
 
-For example, if the user moves the slider to position `10`, Streamlit will
-rerun the code above and set `x` to `10` accordingly. So now you should see the
-text "10 squared is 100".
+1. Add a subheader for the section:
 
-Widgets can also be accessed by key, if you choose to specify a string to use as the unique key for the widget:
+   ```python
+   st.subheader('Map of all pickups')
+   ```
 
-```python
-import streamlit as st
-st.text_input("Your name", key="name")
+2. Use the `st.map()` function to plot the data:
 
-# You can access the value at any point with:
-st.session_state.name
-```
+   ```python
+   st.map(data)
+   ```
 
-Every widget with a key is automatically added to Session State. For more information about Session State, its association with widget state, and its limitations, see [Session State API Reference Guide](/library/api-reference/session-state).
+3. Save your script. The map is fully interactive. Give it a try by panning or
+   zooming in a bit.
 
-## Layout
+After drawing your histogram, you determined that the busiest hour for Uber
+pickups was 17:00. Let's redraw the map to show the concentration of pickups
+at 17:00.
 
-Streamlit makes it easy to organize your widgets in a left panel sidebar with
-[`st.sidebar`](/library/api-reference/layout#add-widgets-to-sidebar). Each element that's passed to
-[`st.sidebar`](/library/api-reference/layout#add-widgets-to-sidebar) is pinned to the left, allowing
-users to focus on the content in your app while still having access to UI
-controls.
+1. Locate the following code snippet:
 
-For example, if you want to add a selectbox and a slider to a sidebar,
-use `st.sidebar.slider` and `st.siderbar.selectbox` instead of `st.slider` and
-`st.selectbox`:
+   ```python
+   st.subheader('Map of all pickups')
+   st.map(data)
+   ```
 
-```python
-import streamlit as st
+2. Replace it with:
 
-# Add a selectbox to the sidebar:
-add_selectbox = st.sidebar.selectbox(
-    'How would you like to be contacted?',
-    ('Email', 'Home phone', 'Mobile phone')
-)
+   ```python
+   hour_to_filter = 17
+   filtered_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
+   st.subheader(f'Map of all pickups at {hour_to_filter}:00')
+   st.map(filtered_data)
+   ```
 
-# Add a slider to the sidebar:
-add_slider = st.sidebar.slider(
-    'Select a range of values',
-    0.0, 100.0, (25.0, 75.0)
-)
-```
+3. You should see the data update instantly.
 
-Beyond the sidebar, Streamlit offers several other ways to control the layout
-of your app. [`st.columns`](/library/api-reference/layout/st.columns) lets you place widgets side-by-side, and
-[`st.expander`](/library/api-reference/layout/st.expander) lets you conserve space by hiding away large content.
+To draw this map we used the [`st.map`](/library/api-reference/charts/st.map) function that's built into Streamlit, but
+if you'd like to visualize complex map data, we encourage you to take a look at
+the [`st.pydeck_chart`](/library/api-reference/charts/st.pydeck_chart).
 
-```python
-import streamlit as st
+## Filter results with a slider
 
-left_column, right_column = st.columns(2)
-# You can use a column just like st.sidebar:
-left_column.button('Press me!')
+In the last section, when you drew the map, the time used to filter results was
+hardcoded into the script, but what if we wanted to let a reader dynamically
+filter the data in real time? Using Streamlit's widgets you can. Let's add a
+slider to the app with the `st.slider()` method.
 
-# Or even better, call Streamlit functions inside a "with" block:
-with right_column:
-    chosen = st.radio(
-        'Sorting hat',
-        ("Gryffindor", "Ravenclaw", "Hufflepuff", "Slytherin"))
-    st.write(f"You are in {chosen} house!")
-```
+1. Locate `hour_to_filter` and replace it with this code snippet:
 
-<Note>
+   ```python
+   hour_to_filter = st.slider('hour', 0, 23, 17)  # min: 0h, max: 23h, default: 17h
+   ```
 
-`st.echo` and `st.spinner` are not currently supported inside the sidebar
-or layout options.
+2. Use the slider and watch the map update in real time.
 
-</Note>
+## Use a button to toggle data
 
-## Themes
+Sliders are just one way to dynamically change the composition of your app.
+Let's use the [`st.checkbox`](/library/api-reference/widgets/st.checkbox) function to add a
+checkbox to your app. We'll use this checkbox to show/hide the raw data
+table at the top of your app.
 
-Streamlit supports Light and Dark themes out of the box. Streamlit will first
-check if the user viewing an app has a Light or Dark mode preference set by
-their operating system and browser. If so, then that preference will be used.
-Otherwise, the Light theme is applied by default.
+1. Locate these lines:
 
-You can also change the active theme from "☰" → "Settings".
+   ```python
+   st.subheader('Raw data')
+   st.write(data)
+   ```
 
-![Changing Themes](/images/change_theme.gif)
+2. Replace these lines with the following code:
 
-Want to add your own theme to an app? The "Settings" menu has a theme editor
-accessible by clicking on "Edit active theme". You can use this editor to try
-out different colors and see your app update live.
+   ```python
+   if st.checkbox('Show raw data'):
+       st.subheader('Raw data')
+       st.write(data)
+   ```
 
-![Editing Themes](/images/edit_theme.gif)
+We're sure you've got your own ideas. When you're done with this tutorial, check out all the widgets that Streamlit exposes in our [API Reference](/library/api-reference).
 
-When you're happy with your work, themes can be saved by
-[setting config options](/library/advanced-features/configuration#set-configuration-options)
-in the `[theme]` config section. After you've defined a theme for your app, it
-will appear as "Custom Theme" in the theme selector and will be applied by
-default instead of the included Light and Dark themes.
+## Let's put it all together
 
-More information about the options available when defining a theme can be found
-in the [theme option documentation](/library/advanced-features/theming).
-
-<Note>
-
-The theme editor menu is available only in local development. If you've deployed your app using
-Streamlit Cloud, the "Edit active theme" button will no longer be displayed in the "Settings"
-menu.
-
-</Note>
+That's it, you've made it to the end. Here's the complete script for our interactive app.
 
 <Tip>
 
-Another way to experiment with different theme colors is to turn on the "Run on save" option, edit
-your config.toml file, and watch as your app reruns with the new theme colors applied.
+If you've skipped ahead, after you've created your script, the command to run
+Streamlit is `streamlit run [app name]`.
 
 </Tip>
 
-## Caching
-
-The Streamlit cache allows your app to execute quickly even when loading data
-from the web, manipulating large datasets, or performing expensive
-computations.
-
-To use the cache, wrap functions with the
-[`@st.cache`](/library/api-reference/performance/st.cache) decorator:
-
 ```python
-@st.cache  # 👈 This function will be cached
-def my_slow_function(arg1, arg2):
-    # Do something really slow in here!
-    return the_output
+import streamlit as st
+import pandas as pd
+import numpy as np
+
+st.title('Uber pickups in NYC')
+
+DATE_COLUMN = 'date/time'
+DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
+            'streamlit-demo-data/uber-raw-data-sep14.csv.gz')
+
+@st.cache
+def load_data(nrows):
+    data = pd.read_csv(DATA_URL, nrows=nrows)
+    lowercase = lambda x: str(x).lower()
+    data.rename(lowercase, axis='columns', inplace=True)
+    data[DATE_COLUMN] = pd.to_datetime(data[DATE_COLUMN])
+    return data
+
+data_load_state = st.text('Loading data...')
+data = load_data(10000)
+data_load_state.text("Done! (using st.cache)")
+
+if st.checkbox('Show raw data'):
+    st.subheader('Raw data')
+    st.write(data)
+
+st.subheader('Number of pickups by hour')
+hist_values = np.histogram(data[DATE_COLUMN].dt.hour, bins=24, range=(0,24))[0]
+st.bar_chart(hist_values)
+
+# Some number in the range 0-23
+hour_to_filter = st.slider('hour', 0, 23, 17)
+filtered_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
+
+st.subheader('Map of all pickups at %s:00' % hour_to_filter)
+st.map(filtered_data)
 ```
 
-When you mark a function with the [`@st.cache`](/library/api-reference/performance/st.cache)
-decorator, it tells Streamlit that whenever the function is called it needs to
-check a few things:
+## Share your app
 
-1. The input parameters that you called the function with
-1. The value of any external variable used in the function
-1. The body of the function
-1. The body of any function used inside the cached function
+After you’ve built a Streamlit app, it's time to share it! To show it off to the world you can use **Streamlit Cloud** to deploy, manage, and share your app for free. Streamlit Cloud is currently invitation only, so please [request an invite](https://streamlit.io/community-sign-up) and we'll get you one soon!
 
-If this is the first time Streamlit has seen these four components with these
-exact values and in this exact combination and order, it runs the function and
-stores the result in a local cache. Then, next time the cached function is
-called, if none of these components changed, Streamlit will skip executing
-the function altogether and, instead, return the output previously stored in
-the cache.
+It works in 3 simple steps:
 
-For more information about the Streamlit cache, its configuration parameters,
-and its limitations, see [Caching](/library/advanced-features/caching).
+1. Put your app in a public Github repo (and make sure it has a requirements.txt!)
+2. Sign into [share.streamlit.io](https://share.streamlit.io)
+3. Click 'Deploy an app' and then paste in your GitHub URL
 
-## App model
+That's it! **🎈**You now have a publicly deployed app that you can share with the world. Click to learn more about [how to use Streamlit Cloud](/streamlit-cloud/community). If you're looking for private sharing for your team, check out the [Team and Enterprise tiers](https://streamlit.io/cloud-sign-up).
 
-Now that you know a little more about all the individual pieces, let's close
-the loop and review how it works together:
+## Get help
 
-1. Streamlit apps are Python scripts that run from top to bottom
-1. Every time a user opens a browser tab pointing to your app, the script is
-   re-executed
-1. As the script executes, Streamlit draws its output live in a browser
-1. Scripts use the Streamlit cache to avoid recomputing expensive functions, so
-   updates happen very fast
-1. Every time a user interacts with a widget, your script is re-executed and
-   the output value of that widget is set to the new value during that run.
+That's it for getting started, now you can go and build your own apps! If you
+run into difficulties here are a few things you can do.
 
-![The Streamlit app model](/images/app_model.png)
-
+- Check out our [community forum](https://discuss.streamlit.io/) and post a question
+- Quick help from command line with `$ streamlit help`
+- Go through our [Knowledge Base](/knowledge-base) for tips, step-by-step tutorials, and articles that answer your questions about creating and deploying Streamlit apps.
+- Read more documentation! Check out:
+    - [Advanced features](/library/advanced-features) for things like caching, theming, and adding statefulness to apps.
+    - [API reference](/library/api-reference/) for examples of every Streamlit command.

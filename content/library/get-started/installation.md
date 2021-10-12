@@ -10,11 +10,11 @@ slug: /library/get-started/installation
 Before you get started, you're going to need a few things:
 
 - Your favorite IDE or text editor
-- [Python 3.6+](https://www.python.org/downloads/)
+- [Python 3.7 - Python 3.9](https://www.python.org/downloads/)
 - [PIP](https://pip.pypa.io/en/stable/installing/)
 
 If you haven't already, take a few minutes to read through [Main
-concepts](/library/get-started/create-an-app) to understand Streamlit's data flow model.
+concepts](/library/get-started/main-concepts) to understand Streamlit's data flow model.
 
 ## Set up your virtual environment
 

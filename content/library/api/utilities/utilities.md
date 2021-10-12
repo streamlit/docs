@@ -11,7 +11,6 @@ app, provide help using doc strings, and get and modify configuration options.
 <TileContainer>
 <RefCard href="/library/api-reference/utilities/st.set_page_config">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Set page title, favicon, and more
 
@@ -26,8 +25,6 @@ st.set_page_config(
 
 </RefCard>
 <RefCard href="/library/api-reference/utilities/st.help">
-
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Get help
 

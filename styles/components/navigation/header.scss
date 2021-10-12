@@ -4,8 +4,13 @@ header {
     width:100vw;
     top:0;
     height: $header-height;
+    transition:$normal;
     z-index: 99;
     margin-bottom: 3em;
+    
+    .container {
+        transition:$normal;
+    }
 
     h4 {
         margin: 0;
@@ -25,7 +30,6 @@ header {
         justify-content: space-between;
         position: relative;
         height:$header-height;
-        transition:$normal;
 
         &:before {
             content:'';

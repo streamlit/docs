@@ -10,9 +10,9 @@ The knowledge base is a self-serve library of tips, step-by-step tutorials, and 
 <TileContainer>
     <Tile 
         icon="local_library"
-        background="orange-70"
+        background="orange-60"
         title="Tutorials" 
-        text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia." 
+        text="Our tutorials include step-by-step examples of building different types of apps in Streamlit." 
         link="/knowledge-base/tutorials"
     />
     <Tile 
@@ -24,7 +24,7 @@ The knowledge base is a self-serve library of tips, step-by-step tutorials, and 
     />
         <Tile 
         icon="build"
-        background="orange-70"
+        background="orange-80"
         title="Streamlit Components" 
         text="Here are some questions we've received about Streamlit Components." 
         link="/knowledge-base/components"
@@ -32,17 +32,17 @@ The knowledge base is a self-serve library of tips, step-by-step tutorials, and 
     <Tile 
         size="half"
         icon="downloading"
-        background="orange-70"
+        background="orange-90"
         title="Installing Dependencies" 
-        text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia." 
+        text="If you run into problems installing depedencies for your Streamlit apps, we've got you covered." 
         link="/knowledge-base/dependencies"
     />
     <Tile 
         size="half" 
         icon="report"
-        background="orange-70"
+        background="orange-100"
         title="Deployment Issues" 
-        text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia." 
+        text="Have questions about deploying Streamlit apps to the cloud? This section covers deployment-related issues." 
         link="/knowledge-base/deploy"
     />
 </TileContainer>

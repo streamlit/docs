@@ -1,4 +1,7 @@
 body[data-theme="light-mode"] {
+    --theme-bg: #{$white};
+    --theme-bg-transparent: #{transparentize($white, 1)};
+
     h1,
     h2,
     h3,
@@ -88,9 +91,9 @@ body[data-theme="light-mode"] {
                 .ais-Hits {
                     .ais-Hits-list {
                         li {
+                            border-bottom: 1px solid $gray-40;
                             .item {
                                 a {
-                                    border-bottom: 1px solid $gray-40;
                                     .copy {
                                         p {
                                             color: $gray-70;
@@ -206,9 +209,9 @@ body[data-theme="light-mode"] {
     }
     .breadcrumbs {
         li {
-            color: $gray-60;
+            color: $gray-40;
             a {
-                color: $gray-60;
+                color: $gray-70;
             }
         }
     }
@@ -216,6 +219,62 @@ body[data-theme="light-mode"] {
     :focus,
     :focus-visible {
       outline: 2px solid $gray-50;
-      transition: none;
+    }
+
+    .code-tile, .reference-card {
+        .block-code {
+            pre.line-numbers {
+                background-color: transparent;
+                color: $gray-80;
+
+                & > code {
+                    .operator {
+                        color: $yellow-90;
+                    }
+
+                    .decorator {
+                        color: $yellow-100;
+                    }
+
+                    .keyword {
+                        color: $blue-70;
+                    }
+
+                    .builtin {
+                        color: $l-blue-80;
+                    }
+
+                    .string {
+                        color: $green-80;
+                    }
+
+                    .number {
+                        color: $red-90;
+                    }
+
+                    .function {
+                        color: $red-60;
+                    }
+
+                    .comment, .punctuation {
+                        color: $gray-60;
+                    }
+                }
+            }
+        }
+
+        &.featured {
+            pre.line-numbers {
+                background-color: transparent;
+            }
+        }
+    }
+
+    .reference-card {
+        .block-code {
+            pre.line-numbers {
+                background-color: $gray-10;
+            }
+        }
     }
 }
