@@ -939,7 +939,7 @@ def run_long_computation(arg1, arg2):
 
 #### Memo
 
-Function decorator to memoize function executions.
+Experimental function decorator to memoize function executions.
 
 ```python
 @st.experimental_memo
@@ -954,7 +954,7 @@ def fetch_and_clean_data(url):
 
 #### Singleton
 
-Function decorator to store singleton objects.
+Experimental function decorator to store singleton objects.
 
 ```python
 @st.experimental_singleton

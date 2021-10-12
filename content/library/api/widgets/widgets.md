@@ -10,7 +10,7 @@ With widgets, Streamlit allows you to bake interactivity directly into your apps
 <TileContainer>
 <RefCard href="/library/api-reference/widgets/st.button">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/button.jpg" />
 
 #### Button
 
@@ -23,7 +23,7 @@ clicked = st.button("Click me")
 </RefCard>
 <RefCard href="/library/api-reference/widgets/st.download_button">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/download_button.jpg" />
 
 #### Download button
 
@@ -36,7 +36,7 @@ st.download_button("Download file", file)
 </RefCard>
 <RefCard href="/library/api-reference/widgets/st.checkbox">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/checkbox.jpg" />
 
 #### Checkbox
 
@@ -49,7 +49,7 @@ selected = st.checkbox("I agree")
 </RefCard>
 <RefCard href="/library/api-reference/widgets/st.radio">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/radio.jpg" />
 
 #### Radio
 
@@ -62,7 +62,7 @@ choice = st.radio("Pick one", ["cats", "dogs"])
 </RefCard>
 <RefCard href="/library/api-reference/widgets/st.selectbox">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/selectbox.jpg" />
 
 #### Selectbox
 
@@ -75,7 +75,7 @@ choice = st.selectbox("Pick one", ["cats", "dogs"])
 </RefCard>
 <RefCard href="/library/api-reference/widgets/st.multiselect">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/multiselect.jpg" />
 
 #### Multiselect
 
@@ -88,7 +88,7 @@ choices = st.multiselect("Buy", ["milk", "apples", "potatoes"])
 </RefCard>
 <RefCard href="/library/api-reference/widgets/st.slider">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/slider.jpg" />
 
 #### Slider
 
@@ -101,7 +101,7 @@ number = st.slider("Pick a number", 0, 100)
 </RefCard>
 <RefCard href="/library/api-reference/widgets/st.select_slider">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/select_slider.jpg" />
 
 #### Select-slider
 
@@ -114,7 +114,7 @@ size = st.select_slider("Pick a size", ["S", "M", "L"])
 </RefCard>
 <RefCard href="/library/api-reference/widgets/st.text_input">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/text_input.jpg" />
 
 #### Text input
 
@@ -127,7 +127,7 @@ name = st.text_input("First name")
 </RefCard>
 <RefCard href="/library/api-reference/widgets/st.number_input">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/number_input.jpg" />
 
 #### Number input
 
@@ -140,7 +140,7 @@ choice = st.number_input("Pick a number", 0, 10)
 </RefCard>
 <RefCard href="/library/api-reference/widgets/st.text_area">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/text_area.jpg" />
 
 #### Text-area
 
@@ -153,7 +153,7 @@ text = st.text_area("Text to translate")
 </RefCard>
 <RefCard href="/library/api-reference/widgets/st.date_input">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/date_input.jpg" />
 
 #### Date input
 
@@ -166,7 +166,7 @@ date = st.date_input("Your birthday")
 </RefCard>
 <RefCard href="/library/api-reference/widgets/st.time_input">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/time_input.jpg" />
 
 #### Time input
 
@@ -179,7 +179,7 @@ time = st.time_input("Meeting time")
 </RefCard>
 <RefCard href="/library/api-reference/widgets/st.file_uploader">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/file_uploader.jpg" />
 
 #### File Uploader
 
@@ -192,7 +192,7 @@ photo = st.file_uploader("Upload a photo")
 </RefCard>
 <RefCard href="/library/api-reference/widgets/st.color_picker">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/color_picker.jpg" />
 
 #### Color picker
 
@@ -204,3 +204,5 @@ color = st.color_picker("Pick a color")
 
 </RefCard>
 </TileContainer>
+
+

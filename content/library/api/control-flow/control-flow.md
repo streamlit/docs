@@ -12,8 +12,6 @@ By default, Streamlit apps execute the script entirely, but we allow some functi
 <TileContainer>
 <RefCard href="/library/api-reference/control-flow/st.stop">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
-
 #### Stop execution
 
 Stops execution immediately.
@@ -35,8 +33,6 @@ widgets is filled before actually rerunning the script. That's what `st.form` is
 <TileContainer>
 <RefCard href="/library/api-reference/control-flow/st.form">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
-
 #### Forms
 
 Create a form that batches elements together with a “Submit” button.
@@ -51,8 +47,6 @@ with st.form(key="my_form):
 </RefCard>
 
 <RefCard href="/library/api-reference/control-flow/st.form_submit_button">
-
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Form submit button
 
