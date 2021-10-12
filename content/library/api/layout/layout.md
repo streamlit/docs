@@ -50,7 +50,7 @@ Insert a multi-element container that can be expanded/collapsed.
 
 ```python
 with st.expander("Open to see more"):
-  st.write("This is more content")
+    st.write("This is more content")
 ```
 
 </RefCard>

@@ -20,6 +20,8 @@ import SideBar from '../components/navigation/sideBar'
 import Row from '../components/layouts/row'
 import Masonry from '../components/layouts/masonry'
 import TileContainer from '../components/layouts/tileContainer'
+import InlineCalloutContainer from '../components/layouts/inlineCalloutContainer'
+
 import ArrowLinkContainer from '../components/navigation/arrowLinkContainer'
 import ArrowLink from '../components/navigation/arrowLink'
 import Helpful from '../components/utilities/helpful'
@@ -38,6 +40,7 @@ import Important from '../components/blocks/important'
 import Note from '../components/blocks/noted'
 import RefCard from '../components/blocks/refCard'
 import Tile from '../components/blocks/tile'
+import InlineCallout from '../components/blocks/inlineCallout'
 import Tip from '../components/blocks/tip'
 import Warning from '../components/blocks/warning'
 import YouTube from '../components/blocks/youTube'
@@ -58,6 +61,8 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
         Row,
         Masonry,
         CodeTile,
+        InlineCalloutContainer,
+        InlineCallout,
         TileContainer,
         Tile,
         RefCard,
@@ -171,9 +176,9 @@ export async function getStaticProps(context) {
     props['paths'] = false
 
     if ('slug' in context.params) {
-        
+
         let filename
-        
+
         paths.paths.forEach(obj => {
             if (obj.params.location == location) {
                 filename = obj.params.fileName
@@ -207,9 +212,9 @@ export async function getStaticProps(context) {
                 }
             }
         )
-        
+
         const { current, prev, next } = getPreviousNextFromMenu(menu, location)
-        
+
         props['menu'] = menu
         props['gdpr_data'] = gdpr_data
         props['data'] = data
