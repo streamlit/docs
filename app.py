@@ -5,9 +5,9 @@ from generate_app import make_streamlit_app_from_md_docs
 st.sidebar.write('# ✍️ __Docs to Streamlit__ app!')
 st.sidebar.write('''This app was generated using script `generate_app.py`.  
 
-It takes Markdown files for docs in `content/library/api` and generate a Streamlit app out of them.
+It takes Markdown doc files in `content/library/api` and generates a Streamlit app out of them.
 
-To avoid execution errors, we disregarded docs cards where code blocks contained following patterns:
+To avoid execution errors, we disregarded doc cards where code blocks contained following patterns:
 - `download_button`
 - `line_chart`
 - `my_`
