@@ -10,7 +10,7 @@ It's easy to embed images, videos, and audio files directly into your Streamlit 
 <TileContainer>
 <RefCard href="/library/api-reference/media/st.image">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/image.jpg" />
 
 #### Image
 
@@ -20,13 +20,13 @@ Display an image or list of images.
 st.image(numpy_array)
 st.image(image_bytes)
 st.image(file)
-st.image("https://example.com/myimage.png")
+st.image("https://example.com/myimage.jpg")
 ```
 
 </RefCard>
 <RefCard href="/library/api-reference/media/st.audio">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/audio.jpg" />
 
 #### Audio
 
@@ -42,7 +42,7 @@ st.audio("https://example.com/myaudio.mp3", format="audio/mp3")
 </RefCard>
 <RefCard href="/library/api-reference/media/st.video">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/video.jpg" />
 
 #### Video
 
