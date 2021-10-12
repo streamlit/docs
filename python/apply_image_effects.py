@@ -29,6 +29,8 @@ def apply_blur(inputpath, maskpath, blur, desired_size, outputpath):
             '-composite',
         ')',
         '-crop', f'{final_size}+{desired_size * 0.1}+{desired_size * 0.1}',
+        '-quality', '75%',
+        '-strip',
         outputpath,
     ])
 
@@ -37,18 +39,19 @@ if __name__ == '__main__':
     if len(sys.argv) == 1:
         raise ValueError('Input file or folder is required')
 
-    input = sys.argv[1]
+    input_files = sys.argv[1:]
 
     size = 600
     output_folder = os.path.join('..', 'public', 'images', 'api')
     blur_mask_image_name = 'blurmask.png'
 
-    if os.path.isfile(input):
-        input_files = [input]
-    elif os.path.isdir(input):
-        input_files = pathlib.Path(input).iterdir()
-    else:
-        raise ValueError('Invalid input format')
+    if len(input_files) == 1:
+        if os.path.isdir(input_files[0]):
+            input_files = pathlib.Path(input_files[0]).iterdir()
+        elif os.path.isfile(input_files[0]):
+            pass
+        else:
+            raise ValueError('Invalid input format')
 
     for input_image_path in input_files:
         print(input_image_path)
