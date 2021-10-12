@@ -22,12 +22,26 @@ add_selectbox = st.sidebar.selectbox(
 
 ## Complex layouts
 
-In addition to the sidebar, you have a few other options for controlling how your app is laid out.
+Streamlit provides several options for controlling different elements are laid out on the screen.
 
 <TileContainer>
+<RefCard href="/library/api-reference/layout/st.sidebar">
+
+<Image pure alt="screenshot" src="/images/api/sidebar.jpg" />
+
+#### Sidebar
+
+Display items in a sidebar.
+
+```python
+st.sidebar.write("This lives in the sidebar")
+st.sidebar.button("Click me!")
+```
+
+</RefCard>
 <RefCard href="/library/api-reference/layout/st.columns">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/columns.jpg" />
 
 #### Columns
 
@@ -42,7 +56,7 @@ col2.write("this is column 2")
 </RefCard>
 <RefCard href="/library/api-reference/layout/st.expander">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/expander.jpg" />
 
 #### Expander
 
@@ -56,7 +70,7 @@ with st.expander("Open to see more"):
 </RefCard>
 <RefCard href="/library/api-reference/layout/st.container">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/container.jpg" />
 
 #### Container
 
@@ -72,7 +86,7 @@ c.write("This will show second")
 </RefCard>
 <RefCard href="/library/api-reference/layout/st.empty">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/empty.jpg" />
 
 #### Empty
 
@@ -87,3 +101,5 @@ c.write("This will show first")
 
 </RefCard>
 </TileContainer>
+
+

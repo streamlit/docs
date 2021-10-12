@@ -4,8 +4,8 @@
     top: 0;
     height: calc(100vh - #{$header-height});
     z-index: 10;
-    transition: $slow;
     width: 314px;
+
     * {
       transition: $slow;
     }
@@ -30,11 +30,11 @@
         transition: transform $normal ease-in;
         display: block;
         overflow-x: hidden;
-        overflow-y: scroll;
+        overflow-y: auto;
+        overflow-y: overlay;
         -webkit-overflow-scrolling: touch;
         pointer-events: none;
         box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.08);
-        overflow: scroll;
         opacity: 0;
         
         &.open {
@@ -131,6 +131,7 @@
             .inner-nav {
                 overflow-x: hidden;
                 overflow-y: auto;
+                overflow-y: overlay;
                 height: 100%;
                 position: absolute;
                 top: 0;
@@ -172,8 +173,8 @@
             }
         }
 
-        a:active {
-            font-weight: bold;
+        a:focus:not(:focus-visible) {
+          outline: none;
         }
 
         ul, ol {

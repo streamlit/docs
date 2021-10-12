@@ -1,4 +1,7 @@
 body[data-theme="dark-mode"] {
+    --theme-bg: #{$off-black};
+    --theme-bg-transparent: #{transparentize($white, 1)};
+
     background: $off-black;
     h1,
     h2,
@@ -109,17 +112,20 @@ body[data-theme="dark-mode"] {
                 .ais-Hits {
                     .ais-Hits-list {
                         li {
+                            border-bottom: 1px solid $gray-80;
                             .item {
                                 em {
                                     border-color: $white;
                                 }
                                 a {
-                                    border-bottom: 1px solid $gray-80;
                                     .copy {
                                         p {
                                             color: $gray-70;
                                         }
                                     }
+                                }
+                                &.focused {
+                                    background: $gray-80;
                                 }
                             }
                         }
@@ -236,7 +242,7 @@ body[data-theme="dark-mode"] {
     }
     .breadcrumbs {
         li {
-            color: $gray-40;
+            color: $gray-70;
             a {
                 color: $gray-40;
             }
@@ -316,10 +322,27 @@ body[data-theme="dark-mode"] {
     .reference-card {
         border:1px solid $gray-90;
         color:$white;
+
+        img {
+            border-bottom: 1px solid $gray-90;
+        }
     }
 
     .code-tile {
-        border:1px solid $gray-90;
         color:$white;
+        border-bottom-color: $gray-80;
+
+            pre.line-numbers { 
+                background-color: transparent;
+            }
+    }
+
+    .reference-card, .code-tile {
+        p {
+            code {
+                border: none;
+                background-color: $gray-90;
+            }
+        }
     }
 }

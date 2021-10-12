@@ -6,12 +6,6 @@
     box-sizing: border-box;
 }
 
-// global page transitions
-.page-enter-active,
-.page-leave-active {
-    transition: $fast;
-}
-
 .page-enter,
 .page-leave-to {
     opacity: 0;
@@ -93,5 +87,11 @@ ol.tutorial {
 @media screen and (min-width: 1280px) {
     .container {
         max-width: 1280px;
+    }
+}
+
+@media screen and (min-width: 1448px) {
+    .container {
+        max-width: 1448px;
     }
 }

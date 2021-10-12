@@ -3,7 +3,6 @@
     width: calc(100%);
     position: relative !important;
     margin: 1.75em auto;
-    line-height: 1.5;
 
     .code-toolbar {
         position: relative;
@@ -14,6 +13,7 @@
         max-width: 100%;
         overflow: hidden;
         overflow-x: scroll;
+        overflow-x: overlay;
     }
     code.undefined {
         white-space:pre-line;
@@ -29,6 +29,7 @@
         position: relative;
         padding: 1.5em 2em;
         counter-reset: linenumber;
+        line-height: 1.75;
 
         >code {
             z-index: 1;
@@ -117,28 +118,33 @@
 
     button {
         position: absolute;
-        top:8px;
-        right:8px;
+        top: 0.5rem;
+        right: 0.5rem;
         background: transparent;
         border: none;
         color: transparent;
         cursor: pointer;
-        height: 2em;
-        width: 2em;
+        height: 2rem;
+        width: 2rem;
+        margin-bottom: 0;
+
+        // Hide "copy" string that causes x-overflow.
+        font-size: 0;
 
         &:before {
             content:url('/clipboard.svg');
             position: absolute;
-            top: .5em;
-            right: .5em;
+            top: .5rem;
+            right: .5rem;
             z-index: 1;
             transition: $fast;
         }
+
         &:after {
             content: '';
             position: absolute;
-            top: .15em;
-            right: .15em;
+            top: .15rem;
+            right: .15rem;
             background: $gray-80;
             width: 100%;
             height: 100%;
@@ -154,12 +160,14 @@
                 opacity:.5;
             }
         }
+
         &:active {
             &:after {
                 animation-duration: 250ms;
                 animation-name: grow_in;
             }
         }
+
         @keyframes grow_in {
             from {
                 transform: scale(0);

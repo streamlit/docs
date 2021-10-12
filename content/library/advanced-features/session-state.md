@@ -130,7 +130,7 @@ st.write('Count = ', st.session_state.count)
 
 Now, pressing the **_Increment_** button updates the count each time by calling the `increment_counter()` function.
 
-### Example 3: Use `args` and `kwargs` in Callbacks
+### Example 3: Use args and kwargs in Callbacks
 
 Callbacks also support passing arguments using the `args` parameter in a widget:
 

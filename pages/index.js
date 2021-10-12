@@ -5,7 +5,7 @@ import { getMenu, getGDPRBanner } from '../lib/api'
 
 import Layout from '../components/layouts/globalTemplate'
 
-import SideNav from '../components/navigation/sideNav'
+import SideBar from '../components/navigation/sideBar'
 import ArrowLinkContainer from '../components/navigation/arrowLinkContainer'
 import ArrowLink from '../components/navigation/arrowLink'
 
@@ -33,11 +33,11 @@ export default function Home({ window, menu, gdpr_data }) {
         <link rel="icon" href="/favicon.svg" />
         <link rel="alternate icon" href="/favicon32.ico" />
         <meta name="theme-color" content="#ffffff" />
-        <link rel="canonical" href="https://docs.streamlit.io/" />
+        <link rel="canonical" href={`https://${process.env.NEXT_PUBLIC_HOSTNAME}`} />
       </Head>
       <section className="page container template-expanded-wide">
         <GDPRBanner {...gdpr_data} />
-        <SideNav menu={menu} slug={[]} />
+        <SideBar menu={menu} slug={[]} />
         <section className="content wide">
           <article>
             <H1>Welcome to Streamlit docs</H1>
@@ -47,8 +47,8 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <TileContainer>
               <Tile icon="arrow_forward" title="Get Started" text="If you're new to Streamlit and don't know where to start, this is a good place." background="violet-70" link="/library/get-started" />
-              <Tile icon="dvr" title="API Reference" text="Learn how our APIs, with actionable explanations of specific functions and features." background="violet-70" link="/library/api-reference" />
-              <Tile icon="grid_view" title="App Gallery" text="Try out awesome apps created by our users, and curated from our forums or Twitter." background="green-70" link="https://streamlit.io/gallery" />
+              <Tile icon="dvr" title="API Reference" text="Learn about our APIs, with actionable explanations of specific functions and features." background="violet-90" link="/library/api-reference" />
+              <Tile icon="grid_view" title="App Gallery" text="Try out awesome apps created by our users, and curated from our forums or Twitter." background="orange-70" link="https://streamlit.io/gallery" />
             </TileContainer>
 
             {/* <H2 className='no-b-m'>What's new</H2>
