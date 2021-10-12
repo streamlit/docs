@@ -160,7 +160,7 @@ st.latex("\int a x^2 \,dx")
 
 #### Echo
 
-Use in a `with` block to draw some code on the app, then execute it.
+Display some code on the app, then execute it. Useful for tutorials.
 
 ```python
 with st.echo():
@@ -229,7 +229,7 @@ st.json(my_data_frame)
 
 <TileContainer>
 <RefCard href="/library/api-reference/charts/st.line_chart">
-<Image pure alt="screenshot" src="/images/api/linechart.jpg" />
+<Image pure alt="screenshot" src="/images/api/line_chart.jpg" />
 
 #### Simple line charts
 
@@ -241,7 +241,7 @@ st.line_chart(my_data_frame)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.area_chart">
-<Image pure alt="screenshot" src="/images/api/areachart.jpg" />
+<Image pure alt="screenshot" src="/images/api/area_chart.jpg" />
 
 #### Simple area charts
 
@@ -253,7 +253,7 @@ st.area_chart(my_data_frame)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.bar_chart">
-<Image pure alt="screenshot" src="/images/api/barchart.jpg" />
+<Image pure alt="screenshot" src="/images/api/bar_chart.jpg" />
 
 #### Simple bar charts
 
@@ -277,7 +277,7 @@ st.map(my_data_frame)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.pyplot">
-<Image pure alt="screenshot" src="/images/api/matplotlib.jpg" />
+<Image pure alt="screenshot" src="/images/api/pyplot.jpg" />
 
 #### Matplotlib
 
@@ -289,7 +289,7 @@ st.pyplot(my_mpl_figure)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.altair_chart">
-<Image pure alt="screenshot" src="/images/api/vegalite.jpg" />
+<Image pure alt="screenshot" src="/images/api/vega_lite_chart.jpg" />
 
 #### Altair
 
@@ -301,7 +301,7 @@ st.altair_chart(my_altair_chart)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.vega_lite_chart">
-<Image pure alt="screenshot" src="/images/api/vegalite.jpg" />
+<Image pure alt="screenshot" src="/images/api/vega_lite_chart.jpg" />
 
 #### Vega-Lite
 
@@ -313,7 +313,7 @@ st.vega_lite_chart(my_vega_lite_chart)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.plotly_chart">
-<Image pure alt="screenshot" src="/images/api/plotly.jpg" />
+<Image pure alt="screenshot" src="/images/api/plotly_chart.jpg" />
 
 #### Plotly
 
@@ -325,7 +325,7 @@ st.plotly_chart(my_plotly_chart)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.bokeh_chart">
-<Image pure alt="screenshot" src="/images/api/bokeh.jpg" />
+<Image pure alt="screenshot" src="/images/api/bokeh_chart.jpg" />
 
 #### Bokeh
 
@@ -337,11 +337,11 @@ st.bokeh_chart(my_bokeh_chart)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.pydeck_chart">
-<Image pure alt="screenshot" src="/images/api/pydeck.jpg" />
+<Image pure alt="screenshot" src="/images/api/pydeck_chart.jpg" />
 
 #### PyDeck
 
-Draw a chart using the PyDeck library.
+Display a chart using the PyDeck library.
 
 ```python
 st.pydeck_chart(my_pydeck_chart)
@@ -349,7 +349,7 @@ st.pydeck_chart(my_pydeck_chart)
 
 </RefCard>
 <RefCard href="/library/api-reference/charts/st.graphviz_chart">
-<Image pure alt="screenshot" src="/images/api/graphviz.jpg" />
+<Image pure alt="screenshot" src="/images/api/graphviz_chart.jpg" />
 
 #### GraphViz
 
@@ -712,8 +712,8 @@ Display a progress bar.
 
 ```python
 for i in range(101):
-  do_something()
   st.progress(i)
+  do_something_slow()
 ```
 
 </RefCard>
@@ -726,7 +726,8 @@ for i in range(101):
 Temporarily displays a message while executing a block of code.
 
 ```python
-st.spinner("Please wait...")
+with st.spinner("Please wait..."):
+  do_something_slow()
 ```
 
 </RefCard>
@@ -736,7 +737,7 @@ st.spinner("Please wait...")
 
 #### Balloons
 
-Draw celebratory balloons.
+Display celebratory balloons!
 
 ```python
 do_something()
@@ -885,8 +886,6 @@ st.set_page_config(
 </RefCard>
 <RefCard href="/library/api-reference/utilities/st.help">
 
-<Image pure alt="screenshot" src="/images/api/help.jpg" />
-
 #### Get help
 
 Display object’s doc string, nicely formatted.
@@ -918,7 +917,7 @@ element.add_rows(df_with_extra_rows)
 </TileContainer>
 
 
-## Optimize performance
+## Performance and state management
 
 <TileContainer>
 <RefCard href="/library/api-reference/performance/st.cache">
@@ -940,7 +939,7 @@ def run_long_computation(arg1, arg2):
 
 #### Memo
 
-Function decorator to memoize function executions.
+Experimental function decorator to memoize function executions.
 
 ```python
 @st.experimental_memo
@@ -955,7 +954,7 @@ def fetch_and_clean_data(url):
 
 #### Singleton
 
-Function decorator to store singleton objects.
+Experimental function decorator to store singleton objects.
 
 ```python
 @st.experimental_singleton
