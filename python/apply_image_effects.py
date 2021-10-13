@@ -4,7 +4,7 @@ import pathlib
 import sys
 
 
-def apply_blur(inputpath, maskpath, blur, desired_size, outputpath):
+def apply_blur_and_rotation(inputpath, maskpath, blur, rotation, desired_size, outputpath):
     temp_size = f'{desired_size * 1.2}x{desired_size * 1.2}'
     final_size = f'{desired_size}x{desired_size}'
 
@@ -14,7 +14,7 @@ def apply_blur(inputpath, maskpath, blur, desired_size, outputpath):
             '(',
                 '(',
                     inputpath,
-                    '-rotate', '-4',
+                    '-rotate', str(rotation),
                 ')',
                 '-thumbnail', temp_size,
                 '-crop', f'{temp_size}+0+0',
@@ -59,10 +59,11 @@ if __name__ == '__main__':
         input_image_name = os.path.basename(input_image_path)
         input_basename, _ = os.path.splitext(input_image_name)
 
-        apply_blur(
-            input_image_path,
-            blur_mask_image_name,
-            5,
-            size,
-            os.path.join(output_folder, f'{input_basename}.jpg'),
+        apply_blur_and_rotation(
+            inputpath=input_image_path,
+            maskpath=blur_mask_image_name,
+            outputpath=os.path.join(output_folder, f'{input_basename}.jpg'),
+            blur=5,
+            rotation=-4,
+            desired_size=size,
         )
