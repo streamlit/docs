@@ -323,6 +323,10 @@ body[data-theme="dark-mode"] {
         border:1px solid $gray-90;
         color:$white;
 
+        .block-code {
+            border-top-color: $gray-90;
+        }
+
         img {
             border-bottom: 1px solid $gray-90;
         }
