@@ -154,20 +154,6 @@ st.latex("\int a x^2 \,dx")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.echo">
-
-<Image pure alt="screenshot" src="/images/api/echo.jpg" />
-
-#### Echo
-
-Display some code on the app, then execute it. Useful for tutorials.
-
-```python
-with st.echo():
-  st.write('This code will be printed')
-```
-
-</RefCard>
 </TileContainer>
 
 
@@ -864,6 +850,20 @@ st.set_page_config(
   title="My app",
   favicon=":shark:",
 )
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/text/st.echo">
+
+<!--<Image pure alt="screenshot" src="/images/api/echo.jpg" />-->
+
+#### Echo
+
+Display some code on the app, then execute it. Useful for tutorials.
+
+```python
+with st.echo():
+  st.write('This code will be printed')
 ```
 
 </RefCard>
