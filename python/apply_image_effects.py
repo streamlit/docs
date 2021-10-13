@@ -8,13 +8,21 @@ def apply_blur_and_rotation(inputpath, maskpath, blur, rotation, desired_size, o
     temp_size = f'{desired_size * 1.2}x{desired_size * 1.2}'
     final_size = f'{desired_size}x{desired_size}'
 
+    if rotation == 0:
+        rotation_commands = []
+        final_crop_commands = []
+        temp_size = final_size
+    else:
+        rotation_commands = ['-rotate', str(rotation)]
+        final_crop_commands = ['-crop', f'{final_size}+{desired_size * 0.1}+{desired_size * 0.1}']
+
     run([
         'magick',
         '(',
             '(',
                 '(',
                     inputpath,
-                    '-rotate', str(rotation),
+                    *rotation_commands,
                 ')',
                 '-thumbnail', temp_size,
                 '-crop', f'{temp_size}+0+0',
@@ -28,8 +36,8 @@ def apply_blur_and_rotation(inputpath, maskpath, blur, rotation, desired_size, o
             '-set', 'option:compose:args', str(blur),
             '-composite',
         ')',
-        '-crop', f'{final_size}+{desired_size * 0.1}+{desired_size * 0.1}',
-        '-quality', '75%',
+        *final_crop_commands,
+        '-quality', '70%',
         '-strip',
         outputpath,
     ])

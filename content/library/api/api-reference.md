@@ -154,20 +154,6 @@ st.latex("\int a x^2 \,dx")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.echo">
-
-<Image pure alt="screenshot" src="/images/api/echo.jpg" />
-
-#### Echo
-
-Display some code on the app, then execute it. Useful for tutorials.
-
-```python
-with st.echo():
-  st.write('This code will be printed')
-```
-
-</RefCard>
 </TileContainer>
 
 
@@ -618,7 +604,7 @@ st.video("https://example.com/myvideo.mp4", format="video/mp4")
 </TileContainer>
 
 
-## Layouts and Containers
+## Layouts and containers
 
 <TileContainer>
 <RefCard href="/library/api-reference/layout/st.sidebar">
@@ -849,23 +835,6 @@ with st.form(key='my_form'):
 </TileContainer>
 
 
-## Session State
-
-<TileContainer>
-<RefCard href="/library/api-reference/session-state">
-
-#### Session State
-
-Session State is a way to share variables between reruns, for each user session.
-
-```python
-st.session_state['key'] = value
-```
-
-</RefCard>
-</TileContainer>
-
-
 ## Utilities
 
 <TileContainer>
@@ -881,6 +850,20 @@ st.set_page_config(
   title="My app",
   favicon=":shark:",
 )
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/text/st.echo">
+
+<!--<Image pure alt="screenshot" src="/images/api/echo.jpg" />-->
+
+#### Echo
+
+Display some code on the app, then execute it. Useful for tutorials.
+
+```python
+with st.echo():
+  st.write('This code will be printed')
 ```
 
 </RefCard>
@@ -906,7 +889,7 @@ st.help(pd.DataFrame)
 
 #### Add rows
 
-Concatenate a dataframe to the bottom of the current one.
+Append a dataframe to the bottom of the current one in certain elements, for optimized data updates.
 
 ```python
 element = st.line_chart(df)
@@ -917,7 +900,24 @@ element.add_rows(df_with_extra_rows)
 </TileContainer>
 
 
-## Performance and state management
+## State management
+
+<TileContainer>
+<RefCard href="/library/api-reference/session-state">
+
+#### Session state
+
+Session state is a way to share variables between reruns, for each user session.
+
+```python
+st.session_state['key'] = value
+```
+
+</RefCard>
+</TileContainer>
+
+
+## Performance
 
 <TileContainer>
 <RefCard href="/library/api-reference/performance/st.cache">

@@ -32,6 +32,11 @@
             margin-right: .5em;
         }
     }
+
+    @media(max-width:1024px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 .improve {
