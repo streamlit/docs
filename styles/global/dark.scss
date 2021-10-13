@@ -273,8 +273,6 @@ body[data-theme="dark-mode"] {
     }
     .toc {
         ol li {
-            border-left-color: $gray-90;
-
             &.active {
                 a {
                     color: $white;
