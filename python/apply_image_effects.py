@@ -71,7 +71,7 @@ if __name__ == '__main__':
             inputpath=input_image_path,
             maskpath=blur_mask_image_name,
             outputpath=os.path.join(output_folder, f'{input_basename}.jpg'),
-            blur=5,
-            rotation=-4,
+            blur=0,
+            rotation=0,
             desired_size=size,
         )
