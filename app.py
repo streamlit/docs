@@ -91,7 +91,3 @@ if __name__ == "__main__":
     st.sidebar.write(INTRO_MESSAGE)
 
     make_streamlit_app_from_md_docs()
-
-    refresh = st.sidebar.button("Reload .md files")
-    if refresh:
-        make_streamlit_app_from_md_docs()
