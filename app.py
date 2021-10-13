@@ -1,376 +1,97 @@
+import glob
 import streamlit as st
 import pandas as pd
-from generate_app import make_streamlit_app_from_md_docs
+import numpy as np
+import ast
 
-st.sidebar.write('# ✍️ __Docs to Streamlit__ app!')
-st.sidebar.write('''This app was generated using script `generate_app.py`.  
+ALL_MD_FILES = glob.glob("./content/library/api/**/*.md")
 
-It takes Markdown doc files in `content/library/api` and generates a Streamlit app out of them.
+FORBIDDEN_PATTERNS = [
+    "columns",
+    "set_page_config",
+    "stop",
+    "echo",
+    "sidebar",
+]
 
-To avoid execution errors, we disregarded doc cards where code blocks contained following patterns:
-- `download_button`
-- `line_chart`
-- `my_`
-- `do_something`
-- `set_page_config`
-- `stop`
-- `numpy_array`
-- `run_long_computation`
-- `echo`
-'''
-)
+FORBIDDEN_PATTERNS_MD = "\n".join(f"- `{pattern}`" for pattern in FORBIDDEN_PATTERNS)
 
-refresh = st.sidebar.button("Refresh docs")
-if refresh:
+INTRO_MESSAGE = f"""This app collects Markdown docs files in `content/library/api`, parses code blocks and generates a Streamlit app out of them.
+
+**This is useful to test the docs and catch code blocks that could fail!**
+
+To avoid messing up the app, we didn't run code blocks which contained the following patterns:
+{FORBIDDEN_PATTERNS_MD} 
+"""
+
+
+def remove_prefix(text: str, prefix: str) -> str:
+    return text[text.startswith(prefix) and len(prefix) :]
+
+
+TTL = 24 * 60 * 60
+
+
+# @st.experimental_memo(ttl=TTL)
+def load_md(path: str):
+    with open(path, "r") as f:
+        md = f.read()
+    return md
+
+
+# @st.experimental_memo(ttl=TTL)
+def page_to_cards(page_md: str):
+    """ Parse a Markdown page into a list of cards with text and associated code"""
+    cards_output = list()
+    cards = page_md.split("####")[1:]
+
+    for card in cards:
+        forbidden = False
+        text, code, _ = card.split("```")
+
+        # avoid code blocks that are not "intended" to run as such
+        if any(pattern in code for pattern in FORBIDDEN_PATTERNS):
+            forbidden = True
+
+        text = "####" + text
+        code = remove_prefix(code, "python\n")
+        cards_output.append(dict(text=text, code=code, forbidden=forbidden))
+
+    return cards_output
+
+
+def make_streamlit_app_from_md_docs():
+    st.title("Doc cards:")
+
+    for md_path in ALL_MD_FILES:
+        md = load_md(md_path)
+        cards = page_to_cards(md)
+
+        for card in cards:
+            st.write("---")
+
+            cols = st.columns((1, 3))
+            if not card["forbidden"]:
+                cols[0].write(card["text"])
+                cols[1].code(card["code"])
+                try:
+                    with cols[1]:
+                        exec(card["code"])
+                except Exception as e:
+                    cols[1].exception(e)
+            else:
+                cols[0].write(card["text"])
+                cols[1].code(card["code"])
+                cols[1].error("(We chose not to run this code block)")
+
+
+if __name__ == "__main__":
+    st.set_page_config(layout="wide")
+    st.sidebar.write("# ✍️ __Docs to Streamlit__ app!")
+    st.sidebar.write(INTRO_MESSAGE)
+
     make_streamlit_app_from_md_docs()
 
-st.write('''### Columns
-
-Insert containers laid out as side-by-side columns.
-
-''')
-
-
-with st.echo():
-    col1, col2 = st.columns(2)
-    col1.write("this is column 1")
-    col2.write("this is column 2")
-
-st.write('''### Expander
-
-Insert a multi-element container that can be expanded/collapsed.
-
-''')
-
-
-with st.echo():
-    with st.expander("Open to see more"):
-        st.write("This is more content")
-
-st.write('''### Container
-
-Insert a multi-element container.
-
-''')
-
-
-with st.echo():
-    c = st.container()
-    st.write("This will show last")
-    c.write("This will show first")
-    c.write("This will show second")
-
-st.write('''### Empty
-
-Insert a single-element container.
-
-''')
-
-
-with st.echo():
-    c = st.empty()
-    st.write("This will show last")
-    c.write("This will be replaced")
-    c.write("This will show first")
-
-st.write('''### Spinner
-
-Temporarily displays a message while executing a block of code.
-
-''')
-
-
-with st.echo():
-    st.spinner("Please wait...")
-
-st.write('''### Error box
-
-Display error message.
-
-''')
-
-
-with st.echo():
-    st.error("We encountered an error")
-
-st.write('''### Warning box
-
-Display warning message.
-
-''')
-
-
-with st.echo():
-    st.warning("Unable to fetch image. Skipping...")
-
-st.write('''### Info box
-
-Display an informational message.
-
-''')
-
-
-with st.echo():
-    st.info("Dataset is updated every day at midnight.")
-
-st.write('''### Success box
-
-Display a success message.
-
-''')
-
-
-with st.echo():
-    st.success("Match found!")
-
-st.write('''### Exception output
-
-Display an exception.
-
-''')
-
-
-with st.echo():
-    e = RuntimeError("This is an exception of type RuntimeError")
-    st.exception(e)
-
-st.write('''### Get help
-
-Display object’s doc string, nicely formatted.
-
-''')
-
-
-with st.echo():
-    st.help(st.write)
-    st.help(pd.DataFrame)
-
-st.write('''### Markdown
-
-Display string formatted as Markdown.
-
-''')
-
-
-with st.echo():
-    st.markdown("Hello **world**!")
-
-st.write('''### Title
-
-Display text in title formatting.
-
-''')
-
-
-with st.echo():
-    st.title("The app title")
-
-st.write('''### Header
-
-Display text in header formatting.
-
-''')
-
-
-with st.echo():
-    st.header("This is a header")
-
-st.write('''### Subheader
-
-Display text in subheader formatting.
-
-''')
-
-
-with st.echo():
-    st.subheader("This is a subheader")
-
-st.write('''### Caption
-
-Display text in small font.
-
-''')
-
-
-with st.echo():
-    st.caption("This is written small caption text")
-
-st.write('''### Code block
-
-Display a code block with optional syntax highlighting.
-
-''')
-
-
-with st.echo():
-    st.code("a = 1234")
-
-st.write('''### Preformatted text
-
-Write fixed-width and preformatted text.
-
-''')
-
-
-with st.echo():
-    st.text("Hello world")
-
-st.write('''### LaTeX
-
-Display mathematical expressions formatted as LaTeX.
-
-''')
-
-
-with st.echo():
-    st.latex("$\int a x^2 \,dx$")
-
-st.write('''### Metrics
-
-Display a metric in big bold font, with an optional indicator of how the metric changed.
-
-''')
-
-
-with st.echo():
-    st.metric("My metric", 42, 2)
-
-st.write('''### Button
-
-Display a button widget.
-
-''')
-
-
-with st.echo():
-    clicked = st.button("Click me")
-
-st.write('''### Checkbox
-
-Display a checkbox widget.
-
-''')
-
-
-with st.echo():
-    selected = st.checkbox("I agree")
-
-st.write('''### Radio
-
-Display a radio button widget.
-
-''')
-
-
-with st.echo():
-    choice = st.radio("Pick one", ["cats", "dogs"])
-
-st.write('''### Selectbox
-
-Display a select widget.
-
-''')
-
-
-with st.echo():
-    choice = st.selectbox("Pick one", ["cats", "dogs"])
-
-st.write('''### Multiselect
-
-Display a multiselect widget. The multiselect widget starts as empty.
-
-''')
-
-
-with st.echo():
-    choices = st.multiselect("Buy", ["milk", "apples", "potatoes"])
-
-st.write('''### Slider
-
-Display a slider widget.
-
-''')
-
-
-with st.echo():
-    number = st.slider("Pick a number", 0, 100)
-
-st.write('''### Select-slider
-
-Display a slider widget to select items from a list.
-
-''')
-
-
-with st.echo():
-    size = st.select_slider("Pick a size", ["S", "M", "L"])
-
-st.write('''### Text input
-
-Display a single-line text input widget.
-
-''')
-
-
-with st.echo():
-    name = st.text_input("First name")
-
-st.write('''### Number input
-
-Display a numeric input widget.
-
-''')
-
-
-with st.echo():
-    choice = st.number_input("Pick a number", 0, 10)
-
-st.write('''### Text-area
-
-Display a multi-line text input widget.
-
-''')
-
-
-with st.echo():
-    text = st.text_area("Text to translate")
-
-st.write('''### Date input
-
-Display a date input widget.
-
-''')
-
-
-with st.echo():
-    date = st.date_input("Your birthday")
-
-st.write('''### Time input
-
-Display a time input widget.
-
-''')
-
-
-with st.echo():
-    time = st.time_input("Meeting time")
-
-st.write('''### File Uploader
-
-Display a file uploader widget.
-
-''')
-
-
-with st.echo():
-    photo = st.file_uploader("Upload a photo")
-
-st.write('''### Color picker
-
-Display a color picker widget.
-
-''')
-
-
-with st.echo():
-    color = st.color_picker("Pick a color")
+    refresh = st.sidebar.button("Reload .md files")
+    if refresh:
+        make_streamlit_app_from_md_docs()
