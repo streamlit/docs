@@ -196,9 +196,9 @@ site_menu:
     url: /library/components
   - category: Streamlit library / Components / Components API
     url: /library/components/components-api
-  - category: Streamlit library / Components / Create a component
+  - category: Streamlit library / Components / Create a Component
     url: /library/components/create
-  - category: Streamlit library / Components / Publish a component
+  - category: Streamlit library / Components / Publish a Component
     url: /library/components/publish
   - category: Streamlit library / Components / Component gallery
     url: https://streamlit.io/components
