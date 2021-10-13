@@ -10,6 +10,10 @@
     display: flex;
     flex-direction: column;
 
+    &.not-link {
+        border: 1px solid $gray-40;
+    }
+
     &:hover {
       transform: scale(1.01)
     }
