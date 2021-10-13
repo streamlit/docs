@@ -849,23 +849,6 @@ with st.form(key='my_form'):
 </TileContainer>
 
 
-## Session State
-
-<TileContainer>
-<RefCard href="/library/api-reference/session-state">
-
-#### Session State
-
-Session State is a way to share variables between reruns, for each user session.
-
-```python
-st.session_state['key'] = value
-```
-
-</RefCard>
-</TileContainer>
-
-
 ## Utilities
 
 <TileContainer>
@@ -917,7 +900,24 @@ element.add_rows(df_with_extra_rows)
 </TileContainer>
 
 
-## Performance and state management
+## State management
+
+<TileContainer>
+<RefCard href="/library/api-reference/session-state">
+
+#### Session state
+
+Session state is a way to share variables between reruns, for each user session.
+
+```python
+st.session_state['key'] = value
+```
+
+</RefCard>
+</TileContainer>
+
+
+## Performance
 
 <TileContainer>
 <RefCard href="/library/api-reference/performance/st.cache">
