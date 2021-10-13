@@ -160,8 +160,6 @@ site_menu:
     url: /library/api-reference/control-flow/st.form
   - category: Streamlit Library / API Reference / Control flow / st.form_submit_button
     url: /library/api-reference/control-flow/st.form_submit_button
-  - category: Streamlit Library / API Reference / Session State
-    url: /library/api-reference/session-state
   - category: Streamlit Library / API Reference / Utilities
     url: /library/api-reference/utilities
   - category: Streamlit Library / API Reference / Utilities / st.set_page_config
@@ -170,6 +168,8 @@ site_menu:
     url: /library/api-reference/utilities/st.help
   - category: Streamlit Library / API Reference / Mutate charts
     url: /library/api-reference/mutate
+  - category: Streamlit Library / API Reference / State management
+    url: /library/api-reference/session-state
   - category: Streamlit Library / API Reference / Performance
     url: /library/api-reference/performance
   - category: Streamlit Library / API Reference / Performance / st.cache
