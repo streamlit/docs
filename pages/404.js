@@ -3,8 +3,7 @@ import { getMenu } from '../lib/api'
 import Layout from '../components/layouts/globalTemplate'
 import SideBar from '../components/navigation/sideBar'
 import Spacer from '../components/utilities/spacer'
-import TileContainer from '../components/layouts/tileContainer'
-import Tile from '../components/blocks/tile'
+import SummaryTiles from '../components/summaryTiles'
 
 export default function Home({ window, menu }) {
 
@@ -23,11 +22,8 @@ export default function Home({ window, menu }) {
                         <h1>Page not found</h1>
 
                         <p>Try using the search bar, above, or check out one of the pages below:</p>
-                        <TileContainer>
-                          <Tile icon="arrow_forward" title="Get Started" text="If you're new to Streamlit and don't know where to start, this is a good place." background="violet-70" link="/library/get-started" />
-                          <Tile icon="dvr" title="API Reference" text="Learn about our APIs, with actionable explanations of specific functions and features." background="violet-90" link="/library/api-reference" />
-                          <Tile icon="grid_view" title="App Gallery" text="Try out awesome apps created by our users, and curated from our forums or Twitter." background="orange-70" link="https://streamlit.io/gallery" />
-                        </TileContainer>
+
+                        <SummaryTiles />
                     </article>
                 </section>
             </section>
