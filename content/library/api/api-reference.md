@@ -618,7 +618,7 @@ st.video("https://example.com/myvideo.mp4", format="video/mp4")
 </TileContainer>
 
 
-## Layouts and Containers
+## Layouts and containers
 
 <TileContainer>
 <RefCard href="/library/api-reference/layout/st.sidebar">
