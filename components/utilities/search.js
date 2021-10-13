@@ -9,7 +9,6 @@ import {
     SearchBox,
     Highlight,
     Snippet,
-    RefinementList,
     Configure,
 } from 'react-instantsearch-dom';
 
@@ -163,7 +162,7 @@ class Search extends React.Component {
                 )
             }
             return (
-                <article className="item" tabindex='-1'>
+                <article className="item" tabIndex='-1'> 
                     <a className="not-link" href={props.hit.url}>
                         <section className="image_container bg-yellow-90">
                             <div className={`icon-${icon}`}><i>{icon}</i></div>
@@ -203,11 +202,11 @@ class Search extends React.Component {
                             }} className="algolia">
                             <FocusTrap>
                                 <div className="modalContainer" onClick={this.toggleModal}>
-                                    <section className="content"  tabindex='-1'>
+                                    <section className="content"  tabIndex='-1'>
                                         <div className="ais-InstantSearch">
                                             <InstantSearch indexName="documentation" searchClient={searchClient}>
                                                 <div className="right-panel">
-                                                    <Configure hitsPerPage={10} filters="version:latest" />
+                                                    <Configure facets={['*','version']} facetFilters={['version:latest']} hitsPerPage={10} />
                                                     <SearchBox id="search-box small" />
                                                     <Hits hitComponent={Hit} />
                                                 </div>
