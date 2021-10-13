@@ -6,7 +6,6 @@ module.exports = {
       test: /\.md$/,
       use: 'frontmatter-markdown-loader',
     });
-    configuration.node.fs = 'empty';
     return configuration;
   },
   async exportPathMap(defaultPathMap) {
