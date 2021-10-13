@@ -618,7 +618,7 @@ st.video("https://example.com/myvideo.mp4", format="video/mp4")
 </TileContainer>
 
 
-## Layouts and Containers
+## Layouts and containers
 
 <TileContainer>
 <RefCard href="/library/api-reference/layout/st.sidebar">
@@ -849,14 +849,14 @@ with st.form(key='my_form'):
 </TileContainer>
 
 
-## Session State
+## Session state
 
 <TileContainer>
 <RefCard href="/library/api-reference/session-state">
 
-#### Session State
+#### Session state
 
-Session State is a way to share variables between reruns, for each user session.
+Session state is a way to share variables between reruns, for each user session.
 
 ```python
 st.session_state['key'] = value
