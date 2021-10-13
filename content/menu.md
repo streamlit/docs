@@ -48,8 +48,6 @@ site_menu:
     url: /library/api-reference/text/st.text
   - category: Streamlit Library / API Reference / Text elements / st.latex
     url: /library/api-reference/text/st.latex
-  - category: Streamlit Library / API Reference / Text elements / st.echo
-    url: /library/api-reference/text/st.echo
   - category: Streamlit Library / API Reference / Data display elements
     url: /library/api-reference/data
   - category: Streamlit Library / API Reference / Data display elements / st.dataframe
@@ -166,6 +164,8 @@ site_menu:
     url: /library/api-reference/utilities
   - category: Streamlit Library / API Reference / Utilities / st.set_page_config
     url: /library/api-reference/utilities/st.set_page_config
+  - category: Streamlit Library / API Reference / Utilities / st.echo
+    url: /library/api-reference/utilities/st.echo
   - category: Streamlit Library / API Reference / Utilities / st.help
     url: /library/api-reference/utilities/st.help
   - category: Streamlit Library / API Reference / Mutate charts
