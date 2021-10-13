@@ -272,6 +272,10 @@ body[data-theme="dark-mode"] {
         }
     }
     .toc {
+        .top-gradient {
+            background: linear-gradient(to bottom, $gray-100 0%, $gray-100 75%, rgba(255, 255, 255, 0) 100%);
+        }
+
         ol li {
             &.active {
                 a {
