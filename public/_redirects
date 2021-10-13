@@ -829,3 +829,16 @@
 /en/1.0.0/tutorial/private_gsheet.html		/knowledge-base/tutorials/databases/private-gsheet
 /en/1.0.0/tutorial/public_gsheet.html		/knowledge-base/tutorials/databases/public-gsheet
 /en/1.0.0/tutorial/tableau.html		/knowledge-base/tutorials/databases/tableau
+/deploy_streamlit_app.html	/streamlit-cloud/community
+/tutorial/create_a_data_explorer_app.html	/library/get-started/create-an-app
+/getting_started.html	/library/get-started
+/develop_streamlit_components.html	/library/components/create
+/en/component_docs/	/library/components
+/api.html	/library/api-reference
+/en/stable/pre_release_features.html	/library/advanced-features/prerelease
+/en/latest/pre_release_features.html	/library/advanced-features/prerelease
+/en/latest/cli.html	/library/advanced-features/configuration
+/en/stable/cli.html	/library/advanced-features/configuration
+/en/latest/advanced_caching.html	/library/advanced-features/caching
+/en/stable/advanced_caching.html	/library/advanced-features/caching
+/troubleshooting/caching_issues.html	/knowledge-base/using-streamlit/caching-issues
