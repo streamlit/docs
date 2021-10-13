@@ -889,7 +889,7 @@ st.help(pd.DataFrame)
 
 #### Add rows
 
-Concatenate a dataframe to the bottom of the current one.
+Append a dataframe to the bottom of the current one in certain elements, for optimized data updates.
 
 ```python
 element = st.line_chart(df)
