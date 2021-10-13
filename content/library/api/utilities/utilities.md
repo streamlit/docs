@@ -24,6 +24,20 @@ st.set_page_config(
 ```
 
 </RefCard>
+<RefCard href="/library/api-reference/text/st.echo">
+
+<!--<Image pure alt="screenshot" src="/images/api/echo.jpg" />-->
+
+#### Echo
+
+Display some code on the app, then execute it. Useful for tutorials.
+
+```python
+with st.echo():
+  st.write('This code will be printed')
+```
+
+</RefCard>
 <RefCard href="/library/api-reference/utilities/st.help">
 
 #### Get help
