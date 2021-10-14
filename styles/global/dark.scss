@@ -349,4 +349,19 @@ body[data-theme="dark-mode"] {
             }
         }
     }
+
+    .leaf-page {
+        .content {
+            table:not(.full-width) {
+                thead, tbody {
+                    tr {
+                        th, td {
+                            color: $gray-10;
+                            border-top-color: $gray-80;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
