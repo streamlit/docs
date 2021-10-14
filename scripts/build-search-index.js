@@ -76,7 +76,9 @@ function getAllFilesInDirectory(articleDirectory, files) {
         const root = parser.parse(contents)
         const doc_title = root.querySelector('title')
 
-        // Clean up some tags we don't want
+        // Clean up some tags we don't want, like:
+        // * <select> tag, due to autofunc pages
+        // * <label> tag, due to "select streamlit version" text
         const remove_tags = ['select', 'label']
         for (const i in remove_tags) {
             const tags = root.querySelectorAll(remove_tags[i]);
