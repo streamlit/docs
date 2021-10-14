@@ -124,6 +124,10 @@
                 .ais-SearchBox-reset {
                     right: 1em;
                     left:unset;
+
+                    &[hidden] {
+                        display: none;
+                    }
                 }
             }
 
