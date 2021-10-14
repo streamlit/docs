@@ -86,7 +86,8 @@ function getAllFilesInDirectory(articleDirectory, files) {
                 }
             }
         }
-
+        
+        let keywords = ''
         let title = root.querySelector('h1')
         const sub_title = root.querySelector('h2')
         const meta_keywords = root.querySelector('meta[name=keywords]')

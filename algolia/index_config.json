@@ -5,8 +5,9 @@
     "hitsPerPage": 20,
     "maxValuesPerFacet": 100,
     "searchableAttributes": [
+      "keywords",
       "title",
-      "unordered(content)"
+      "content"
     ],
     "numericAttributesToIndex": null,
     "attributesToRetrieve": null,
@@ -28,15 +29,13 @@
     "attributeForDistinct": null,
     "exactOnSingleWordQuery": "attribute",
     "ranking": [
-      "desc(title)",
-      "desc(url)",
       "exact",
       "typo",
-      "attribute",
-      "words",
       "geo",
+      "words",
       "filters",
       "proximity",
+      "attribute",
       "custom"
     ],
     "customRanking": null,
