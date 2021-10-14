@@ -115,7 +115,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
 
     if (data.keywords) {
         keywordsTag = (
-            <meta name='keywords' value={data.keywords} />
+            <meta name='keywords' content={data.keywords} />
         )
     }
 
