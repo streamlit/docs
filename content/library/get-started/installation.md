@@ -25,7 +25,7 @@ you're working on.
 
 Below are a few tools you can use for environment management:
 
-- [pipenv](https://pipenv.pypa.io/en/latest/)
+- [pipenv](https://pipenv-fork.readthedocs.io/en/latest/)
 - [poetry](https://python-poetry.org/)
 - [venv](https://docs.python.org/3/library/venv.html)
 - [virtualenv](https://virtualenv.pypa.io/en/latest/)
