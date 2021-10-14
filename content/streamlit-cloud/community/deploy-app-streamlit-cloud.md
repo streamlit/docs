@@ -29,7 +29,7 @@ directory as your Streamlit app.
 Streamlit looks at your requirements file's filename to determine which Python dependency manager to use in the order below. Streamlit will stop and install the first requirements file found.
 
 | **Filename**       | **Dependency Manager** | **Documentation**                                                                                                                     |
-| ------------------ | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| :------------------ | :---------------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
 | `Pipfile`          | pipenv                 | **[docs](https://pipenv-fork.readthedocs.io/en/latest/basics.html)**                                                                                  |
 | `environment.yml`  | conda                  | **[docs](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually)** |
 | `requirements.txt` | pip                    | **[docs](https://pip.pypa.io/en/stable/user_guide/#)**                                                                                |
