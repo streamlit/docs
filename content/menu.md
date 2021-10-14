@@ -124,6 +124,8 @@ site_menu:
     url: /library/api-reference/media/st.video
   - category: Streamlit library / API reference / Layouts and containers
     url: /library/api-reference/layout
+  - category: Streamlit library / API reference / Layouts and containers / st.sidebar
+    url: /library/api-reference/layout/st.sidebar
   - category: Streamlit library / API reference / Layouts and containers / st.columns
     url: /library/api-reference/layout/st.columns
   - category: Streamlit library / API reference / Layouts and containers / st.expander
