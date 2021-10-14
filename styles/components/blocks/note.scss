@@ -23,8 +23,12 @@
     }
 
     @media(max-width:1024px) {
-        width: calc(100% - 4em) !important;
         margin-left: 0;
-        // width: 100%!important;
+        width: 100%;
+        padding: 1rem;
+
+        h2 {
+            margin-bottom: 0;
+        }
     }
 }
