@@ -6,9 +6,7 @@
     "maxValuesPerFacet": 100,
     "searchableAttributes": [
       "title",
-      "unordered(category)",
-      "unordered(content)",
-      "unordered(url)"
+      "unordered(content)"
     ],
     "numericAttributesToIndex": null,
     "attributesToRetrieve": null,
@@ -30,13 +28,15 @@
     "attributeForDistinct": null,
     "exactOnSingleWordQuery": "attribute",
     "ranking": [
+      "desc(title)",
+      "desc(url)",
+      "exact",
       "typo",
-      "geo",
+      "attribute",
       "words",
+      "geo",
       "filters",
       "proximity",
-      "attribute",
-      "exact",
       "custom"
     ],
     "customRanking": null,
