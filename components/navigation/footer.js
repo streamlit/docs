@@ -2,8 +2,9 @@ import Link from "next/link"
 
 export default function Footer({ revision }) {
     return (
-        <footer>
-            <section className="container">
+        <footer className="page container template-expanded-wide">
+            <section className="content wide container">
+                <hr />
                 <nav>
                     <Link href="/"><a className="bold not-link">Home</a></Link>
                     <Link href="mailto:hello@streamlit.io?subject=Contact%20from%20documentation%20"><a className="bold not-link">Contact Us</a></Link>
