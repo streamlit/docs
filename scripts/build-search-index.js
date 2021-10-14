@@ -77,7 +77,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
         const doc_title = root.querySelector('title')
 
         // Clean up some tags we don't want
-        const remove_tags = ['select', 'pre', 'label']
+        const remove_tags = ['select', 'label']
         for (const i in remove_tags) {
             const tags = root.querySelectorAll(remove_tags[i]);
             for (const ii in tags) {
