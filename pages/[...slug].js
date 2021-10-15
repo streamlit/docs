@@ -84,7 +84,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
     let arrowContainer
     let keywordsTag
 
-    if (versionNumber && versionNumber != maxVersion) {
+    if (versionNumber && versionNumber != maxVersion && paths !== false) {
         // Slugs don't have the version number, so we just have to join them.
         currentLink = `/${slug.join('/')}`
         versionWarning = (
