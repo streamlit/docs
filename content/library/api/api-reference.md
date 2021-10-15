@@ -853,7 +853,7 @@ st.set_page_config(
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.echo">
+<RefCard href="/library/api-reference/utilities/st.echo">
 
 <!--<Image pure alt="screenshot" src="/images/api/echo.jpg" />-->
 
