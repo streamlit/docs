@@ -2,7 +2,7 @@ import fs from 'fs'
 import { join, basename } from 'path'
 import sortBy from "lodash/sortBy"
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from "next/link"
 import Head from 'next/head'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -46,10 +46,12 @@ import Warning from '../components/blocks/warning'
 import YouTube from '../components/blocks/youTube'
 
 export default function Article({ data, source, streamlit, slug, menu, previous, next, version, versions, paths, gdpr_data }) {
-
+    
     let versionWarning
     let currentLink
     const maxVersion = versions[versions.length - 1]
+
+    const [versionNumber, setVersionNumber] = useState(maxVersion);
 
     const components = {
         Note,
@@ -69,7 +71,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
         Image,
         Download,
         Flex,
-        Autofunction: (props) => <Autofunction {...props} streamlit={streamlit} version={version} versions={versions} slug={slug} />,
+        Autofunction: (props) => <Autofunction {...props} streamlit={streamlit} version={versionNumber} versions={versions} slug={slug} />,
         pre: (props) => <Code {...props} />,
         h1: H1,
         h2: H2,
@@ -81,12 +83,12 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
     let nextArrow
     let arrowContainer
 
-    if (version && version != maxVersion) {
+    if (versionNumber && versionNumber != maxVersion) {
         // Slugs don't have the version number, so we just have to join them.
         currentLink = `/${slug.join('/')}`
         versionWarning = (
             <Warning>
-                <p>You are reading the documentation for Streamlit version {version}, but <Link href={currentLink}>{maxVersion}</Link> is the latest version available.</p>
+                <p>You are reading the documentation for Streamlit version {versionNumber}, but <Link href={currentLink}>{maxVersion}</Link> is the latest version available.</p>
             </Warning>
         )
     }
@@ -112,6 +114,12 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
         )
     }
 
+    useEffect(() => {
+        if(version && version !== maxVersion) {
+            setVersionNumber(version);
+        }
+    }, [version, maxVersion])
+
     return (
         <MDXProvider
             components={{
@@ -122,7 +130,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
             <Layout>
                 <GDPRBanner {...gdpr_data} />
                 <section className="page container template-standard">
-                    <SideBar slug={slug} menu={menu} version={version} maxVersion={maxVersion} versions={versions} paths={paths} />
+                    <SideBar slug={slug} menu={menu} version={versionNumber} maxVersion={maxVersion} versions={versions} paths={paths} />
                     <Head>
                         <title>{data.title} - Streamlit Docs</title>
                         <link rel="icon" href="/favicon.svg" />
@@ -136,9 +144,9 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                     </Head>
                     <section className="content wide" id="documentation">
                         {versionWarning}
-                        <BreadCrumbs slug={slug} menu={menu} version={version} />
+                        <BreadCrumbs slug={slug} menu={menu} version={versionNumber} />
                         <article className='leaf-page'>
-                            {/* Remove for now. Too many bugs. <FloatingNav slug={slug} menu={menu} version={version} /> */}
+                            {/* Remove for now. Too many bugs. <FloatingNav slug={slug} menu={menu} version={versionNumber} /> */}
                             <div className='content'>
                                 <MDXRemote {...source} components={components} />
                             </div>
