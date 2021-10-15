@@ -5,7 +5,7 @@ slug: /knowledge-base/components/add-component-sidebar
 
 # How do I add a Component to the sidebar?
 
-You can add a component to st.sidebar using the `with` syntax. For example:
+You can add a component to [st.sidebar](/library/api-reference/layout/st.sidebar) using the `with` syntax. For example:
 
 ```python
 with st.sidebar:

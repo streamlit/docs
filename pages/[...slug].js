@@ -82,6 +82,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
     let previousArrow
     let nextArrow
     let arrowContainer
+    let keywordsTag
 
     if (versionNumber && versionNumber != maxVersion) {
         // Slugs don't have the version number, so we just have to join them.
@@ -114,11 +115,17 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
         )
     }
 
+    if (data.keywords) {
+        keywordsTag = (
+            <meta name='keywords' content={data.keywords} />
+        )
+    }
+    
     useEffect(() => {
         if(version && version !== maxVersion) {
             setVersionNumber(version);
         }
-    }, [version, maxVersion])
+    }, [version, maxVersion]);
 
     return (
         <MDXProvider
@@ -136,6 +143,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                         <link rel="icon" href="/favicon.svg" />
                         <link rel="alternate icon" href="/favicon32.ico" />
                         <meta name="theme-color" content="#ffffff" />
+                        {keywordsTag}
                         {version === true ?
                             <link rel="canonical" href={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/${slug.slice(1).join('/')}`} />
                             :

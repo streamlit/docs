@@ -117,7 +117,9 @@ body[data-theme="light-mode"] {
         }
     }
     footer {
-        border-top: 1px solid $gray-40;
+        hr {
+            border-top: 1px solid $gray-40;
+        }
     }
     ol.tutorial {
         li {

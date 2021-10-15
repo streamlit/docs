@@ -144,7 +144,9 @@ body[data-theme="dark-mode"] {
         }
     }
     footer {
-        border-top: 1px solid $gray-80;
+        hr {
+            border-top: 1px solid $gray-80;
+        }
     }
     ol.tutorial {
         li {
@@ -346,6 +348,21 @@ body[data-theme="dark-mode"] {
             code {
                 border: none;
                 background-color: $gray-90;
+            }
+        }
+    }
+
+    .leaf-page {
+        .content {
+            table:not(.full-width) {
+                thead, tbody {
+                    tr {
+                        th, td {
+                            color: $gray-10;
+                            border-top-color: $gray-80;
+                        }
+                    }
+                }
             }
         }
     }

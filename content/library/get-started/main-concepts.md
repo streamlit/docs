@@ -293,8 +293,8 @@ option = st.selectbox(
 ## Layout
 
 Streamlit makes it easy to organize your widgets in a left panel sidebar with
-[`st.sidebar`](/library/api-reference/layout#add-widgets-to-sidebar). Each element that's passed to
-[`st.sidebar`](/library/api-reference/layout#add-widgets-to-sidebar) is pinned to the left, allowing
+[`st.sidebar`](/library/api-reference/layout/st.sidebar). Each element that's passed to
+[`st.sidebar`](/library/api-reference/layout/st.sidebar) is pinned to the left, allowing
 users to focus on the content in your app while still having access to UI
 controls.
 
