@@ -23,7 +23,7 @@ You should already have access to your workspace, so log in and start deploying 
 
 2. **Log in to your dashboard** 👩🏻‍💻
 
-    Go to share.streamlit.io and click to authenticate with GitHub. If that fails it means that we don't have that GitHub account allowlisted, so just send the username to your Streamlit contact and we'll get it listed for you.
+    Go to [share.streamlit.io](https://share.streamlit.io/) and click to authenticate with GitHub. If that fails it means that we don't have that GitHub account allowlisted, so just send the username to your Streamlit contact and we'll get it listed for you.
 
 3. **Grant repo access** 👑
 
@@ -31,19 +31,19 @@ You should already have access to your workspace, so log in and start deploying 
 
 4. **Launch a test app! 🎈**
 
-    We suggest doing a sample deployment to get used to the interface. Follow along in the deployment instruction guide to deploy your first app. For your full apps you'll want to make sure your secrets and viewer auth are set up before launching the app.
+    We suggest doing a sample deployment to get used to the interface. Follow along in the [deployment instruction guide](/streamlit-cloud/community) to deploy your first app. For your full apps you'll want to make sure your secrets and viewer auth are set up before launching the app.
 
 5. **Set up secrets** 🗝
 
-    Secure access to the data for your app with secrets management. Read the documentation on using secrets. We also have a number of guides on how to connect to different cloud services.
+    Secure access to the data for your app with secrets management. Read the [documentation on using secrets](/streamlit-cloud/community#secrets-management). We also have a number of [guides on how to connect to different cloud services](/knowledge-base/tutorials/databases).
 
 6. **Set up viewer auth** 🔒
 
-    Lock down your app to a certain set of viewers using Google OAuth or by setting up your own password system. Read the documentation on viewer auth.
+    Lock down your app to a certain set of viewers using Google OAuth or by setting up your own password system. Read the [documentation on viewer auth](/streamlit-cloud/enterprise/single-sign-on-sso).
 
 7. **Let us help!** 🙌
 
-    No question is too small, no request too big. Let us know how we can help - whether it's more resources for an app, a step that is frustrating you, or the need for ideas on how to improve your app. Just ping your Streamlit contact or email support@streamlit.io.
+    No question is too small, no request too big. Let us know how we can help - whether it's more resources for an app, a step that is frustrating you, or the need for ideas on how to improve your app. Just ping your Streamlit contact or email `support@streamlit.io`.
 
 
 
