@@ -264,6 +264,7 @@ body[data-theme="dark-mode"] {
         .code-header .title-with-select .version-select { 
             select {
                 color: $white;
+                background-color: $off-black;
             }
             &.old-version select {
                 color: $red-70;
