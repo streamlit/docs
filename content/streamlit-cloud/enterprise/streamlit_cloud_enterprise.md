@@ -57,11 +57,17 @@ Here are a few guides on how to connect to different cloud services (see also th
 - 🐘 [Connect Streamlit to PostgreSQL](/knowledge-base/tutorials/databases/postgresql)
 - 🍃 [Connect Streamlit to MongoDB](/knowledge-base/tutorials/databases/mongodb)
 - 🏗️ [Connect Streamlit to Tableau](/knowledge-base/tutorials/databases/tableau)
-- 🔥  [Connect Streamlit to Firestore (blog)](https://blog.streamlit.io/streamlit-firestore/)
+- 🔥 [Connect Streamlit to Firestore (blog)](https://blog.streamlit.io/streamlit-firestore/)
 
+Looking to connect directly to your VPN? Send us a note and we'd love to talk to you more about it.
 
+<Note>
 
-## Streamlit for Teams features
+Guide not working for you? Got another data source you need help connecting with? Just ping your Streamlit contact and we'll help you get set up!
+
+</Note>
+
+## A guide to Streamlit Cloud - Teams and Enterprise features
 
 ### Private repos
 
@@ -71,6 +77,23 @@ Keep your code in your GitHub private repos and connect them to your Streamlit f
 
 ---
 
+### One-click deploy
+Deploy apps directly from your GitHub repos. Just connect Streamlit for Teams to the repo, select the app file, and we'll do the rest!
+
+[One-click deploy documentation](/streamlit-cloud/community#deploy-your-app)
+
+![Streamlit Cloud one-click deploy](/images/one_click_deploy.png)
+
+---
+
+### Secrets management
+Securely access any data store or API from your Streamlit app by storing access credentials in encrypted secrets on our secure platform. Use them with `st.secrets`.
+
+[Secrets management documentation](/streamlit-cloud/community#secrets-management)
+
+![Streamlit Cloud secrets management](/images/secrets_management.png)
+
+---
 ### Single sign-on viewer authentication
 
 Restrict access to your app to a selected set of users. Single sign-on with Google OAuth is currently supported with other SSO providers coming soon.
@@ -78,6 +101,15 @@ Restrict access to your app to a selected set of users. Single sign-on with Goog
 [Single Sign-on documentation](/streamlit-cloud/enterprise/single-sign-on-sso)
 
 ![Streamlit Cloud single sign-on](/images/sso.png)
+
+---
+### App management
+
+View apps, reboot, delete and inspect logs. If you need extra app resources, ping your Streamlit contact and we'll help configure it.
+
+[App management documentation](/streamlit-cloud/community#deploy-your-app)
+
+![Streamlit Cloud app management](/images/app_management.png)
 
 ---
 ### **Admin interface **
