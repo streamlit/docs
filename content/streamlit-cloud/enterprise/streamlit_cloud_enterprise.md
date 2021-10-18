@@ -154,3 +154,49 @@ If that's not the issue, then please send your Streamlit contact the logs and wa
 ### My app is hitting resource limits / my app is running very slowly
 
 If your app is running slowly or you're hitting the 'Argh' page then just let us know and we'll adjust the limits for you. If you know in advance you are going to need more resources, also just let us know so we can set them up for you before you run into issues.
+
+
+## Frequently Asked Questions
+
+### How can I get help with my app?
+
+If you have any questions, feedback, run into any issues, or need to reach us, you can
+
+- Ask on the [forum](https://discuss.streamlit.io) ⬅️ this is best for any question related to the open source library
+- Email us at [support@streamlit.io](mailto:support@streamlit.io) ⬅️ this is best for anything related to the app platform - deployment, SSO, etc.
+
+If you want, we are also happy to help lend an eye on your app development. Just shoot us a note if you want to share some code or have our team take a look at your app and give you some tips.
+
+### How will Streamlit secure my data?
+
+Streamlit takes a number of measures to ensure your code, data, and apps are all secure. Read more in the [Streamlit for Teams Security Memo](/streamlit-cloud/enterprise/security-model).
+
+### How do I add developers to my Streamlit for Teams account?
+
+During the beta you just need to send us an email with the GitHub user name and email that is connected to the person's GitHub account. We will allow-list them and then you're good to go! You can add as many developers as you like.
+
+### How do I add viewers to my Streamlit apps?
+
+Before viewer authentication is added via single sign-on, [apps are secured via password protection](https://www.notion.so/Authentication-without-SSO-4319c6135b4b4ed58355fc06b33cac74). To give someone access, you just need to set up a password for them.
+
+### Do viewers need access to the GitHub repo?
+
+Nope! You only need access to the GitHub repo if you want to push changes to the app.
+
+### Are there limits to resources or to viewers that I can have?
+
+We want you to use as freely as possible, so just use as you naturally would! If you encounter any resource limitations, just send us a note and we'll get it adjusted for you.
+
+### When will I be charged?
+
+The beta period is free because we want your feedback! At the end of the beta (as per the beta terms you signed) we will then have a call to see how you're using Streamlit Cloud and what package makes the most sense for you.
+
+### When will feature XYZ be added to the beta?
+
+We will do our best to keep the timeline above updated and to proactively update you with anything coming soon, but you can always ask! Just reach out to your Streamlit contact.
+
+### Can I get a custom URL for my app?
+
+Not yet available in the beta. But this is planned for after the Streamlit Cloud launch. You can obviously do your own DNS redirects. If you want some more thoughts on this just ping your Streamlit contact.
+
+Thanks for using Streamlit for Teams. We look forward to hearing your feedback 🎈
