@@ -46,7 +46,18 @@ You should already have access to your workspace, so log in and start deploying 
     No question is too small, no request too big. Let us know how we can help - whether it's more resources for an app, a step that is frustrating you, or the need for ideas on how to improve your app. Just ping your Streamlit contact or email `support@streamlit.io`.
 
 
+### Securely connect to your cloud services
 
+Here are a few guides on how to connect to different cloud services (see also the [overview](/knowledge-base/tutorials/databases)):
+
+- 🔍 [Connect Streamlit to Google BigQuery](/knowledge-base/tutorials/databases/bigquery)
+- 🖊️ [Connect Streamlit to a public Google Sheet](/knowledge-base/tutorials/databases/public-gsheet)
+- 🔏 [Connect Streamlit to a private Google Sheet](/knowledge-base/tutorials/databases/private-gsheet)
+- 3️⃣ [Connect Streamlit to AWS S3](/knowledge-base/tutorials/databases/aws-s3)
+- 🐘 [Connect Streamlit to PostgreSQL](/knowledge-base/tutorials/databases/postgresql)
+- 🍃 [Connect Streamlit to MongoDB](/knowledge-base/tutorials/databases/mongodb)
+- 🏗️ [Connect Streamlit to Tableau](/knowledge-base/tutorials/databases/tableau)
+- 🔥  [Connect Streamlit to Firestore (blog)](https://blog.streamlit.io/streamlit-firestore/)
 
 
 
