@@ -5,6 +5,18 @@ slug: /streamlit-cloud/community
 
 # Deploy on Streamlit Cloud
 
+## Table of contents
+
+1. [Sign up](#sign-up-for-streamlit-cloud)
+2. [Put your Streamlit app on GitHub](#put-your-streamlit-app-on-github)
+3. [Log in to share.streamlit.io](#log-in-to-sharestreamlitio)
+4. [Deploy your app](#deploy-your-app)
+5. [Secrets management](#secrets-management)
+6. [Share, update, and collaborate](#share-update-and-collaborate)
+7. [App access and usage](#app-access-and-usage)
+8. [Managing apps](#managing-apps)
+9. [Limitations and known issues](#limitations-and-known-issues)
+
 ## Sign up for Streamlit Cloud
 
 To get started, first request an invite on the [Streamlit Cloud Community sign-up](https://forms.streamlit.io/community-sign-up) form. Once you receive your invite email, you're ready to deploy!

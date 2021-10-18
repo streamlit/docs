@@ -5,6 +5,12 @@ slug: /library/get-started/installation
 
 # Install Streamlit
 
+## Table of contents
+
+1. [Prerequisites](#prerequisites)
+2. [Install Streamlit on Windows](#install-streamlit-on-windows)
+3. [Install Streamlit on macOS/Linux](#install-streamlit-on-macoslinux)
+
 ## Prerequisites
 
 Before you get started, you're going to need a few things:
