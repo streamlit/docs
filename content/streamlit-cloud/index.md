@@ -15,7 +15,7 @@ Cloud](https://streamlit.io/cloud) to deploy and share your app. Streamlit Cloud
     bold="Community Tier."
     href="/streamlit-cloud/community"
   >
-    Formerly called Streamlit sharing, this is the perfect solution if your app is hosted in a public GitHub repo and you’d like anyone in the world to be able to access it **for free**!
+    Formerly called Streamlit sharing, this is the perfect solution if your app is hosted in a public GitHub repo and you’d like anyone in the world to be able to access it <b>for free</b>!
   </InlineCallout>
   <InlineCallout
     color="l-blue-70"
