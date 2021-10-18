@@ -117,3 +117,40 @@ View apps, reboot, delete and inspect logs. If you need extra app resources, pin
 Manage billing, view usage, and configure other team-wide settings.
 
 ![Streamlit Cloud admin interface](/images/admin_interface.png)
+
+---
+## Troubleshooting
+
+### I'm not able to log in to the dashboard
+
+We probably have the wrong username or email for you. Just ping your Streamlit contact and we'll quickly get you access.
+
+### My repo isn't showing on the Deploy page
+
+It's possible it just isn't showing up even though it is already there. Try typing it in. If we don't recognize it, you'll see the message below with a link to click and give access.
+
+![Streamlit Cloud repo access](/images/repo_access.png)
+
+If for some reason that doesn't work, please try logging out and back in again to make sure the change took effect. And if that doesn't work - please let us know and we'll get you sorted!
+
+### I need to set a specific Python version for my app
+
+When deploying an app, under advanced settings, you can choose which version of Python you wish your app to use.
+
+![Streamlit Cloud Python version](/images/python_version.png)
+
+### How do I store files locally?
+
+If you want to store your data locally as opposed to in a database, you can store the file in your GitHub repository. Streamlit is just python, so you can read the file using `pandas.read_csv("data.csv")` or `open("data.csv")`
+
+Note: if you have really big or binary data that you change frequently, and git is feeling slow, you might want to check out  [Git Large File Store (LFS)](https://git-lfs.github.com/) as a better way to store large files in GitHub. You don't need to make any changes to your app to start using it. If your GitHub repo uses LFS, it will now "just work" with Streamlit.
+
+### My app is running into issues while deploying
+
+Check the terminal on the right side of the screen to see the logs. Often the trouble is due to a dependency not being declared. See here for [more information on dependency management](/streamlit-cloud/community#add-python-dependencies).
+
+If that's not the issue, then please send your Streamlit contact the logs and warning you are seeing and we'll help get you sorted!
+
+### My app is hitting resource limits / my app is running very slowly
+
+If your app is running slowly or you're hitting the 'Argh' page then just let us know and we'll adjust the limits for you. If you know in advance you are going to need more resources, also just let us know so we can set them up for you before you run into issues.
