@@ -73,6 +73,7 @@ class Autofunction extends React.Component {
 
         if ( event.target.value  !== this.state.current_version) {
             this.setState( { current_version: event.target.value } );
+            localStorage.setItem('version', event.target.value)
             if (event.target.value !== this.state.max_version) {
                 let isnum = /^[\d\.]+$/.test(slug[0])
                 if (isnum) {

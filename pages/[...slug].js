@@ -51,7 +51,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
     let currentLink
     const maxVersion = versions[versions.length - 1]
 
-    const [versionNumber, setVersionNumber] = useState(maxVersion);
+    const [versionNumber, setVersionNumber] = useState();
 
     const components = {
         Note,
@@ -84,7 +84,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
     let arrowContainer
     let keywordsTag
 
-    if (versionNumber && versionNumber != maxVersion && paths !== false) {
+    if (version && versionNumber != maxVersion && paths !== false) {
         // Slugs don't have the version number, so we just have to join them.
         currentLink = `/${slug.join('/')}`
         versionWarning = (
@@ -122,10 +122,17 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
     }
     
     useEffect(() => {
-        if(version && version !== maxVersion) {
-            setVersionNumber(version);
+        const storedVersion = localStorage.getItem('version');
+
+        // If there isn't a stored version in localStorage, then go ahead and add it
+        if(!storedVersion) {
+            localStorage.setItem('version', version);
         }
-    }, [version, maxVersion]);
+
+        // Every time localStorage changes, store its new value in state
+        setVersionNumber(storedVersion);
+
+    }, [version]);
 
     return (
         <MDXProvider
@@ -154,7 +161,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                         {versionWarning}
                         <BreadCrumbs slug={slug} menu={menu} version={versionNumber} />
                         <article className='leaf-page'>
-                            {/* Remove for now. Too many bugs. <FloatingNav slug={slug} menu={menu} version={versionNumber} /> */}
+                            {/* Remove for now. Too many bugs. <FloatingNav slug={slug} menu={menu} version={version} /> */}
                             <div className='content'>
                                 <MDXRemote {...source} components={components} />
                             </div>
@@ -188,7 +195,7 @@ export async function getStaticProps(context) {
 
     props['streamlit'] = {}
     props['versions'] = all_versions
-    props['version'] = false
+    props['version'] = current_version
     props['paths'] = false
 
     if ('slug' in context.params) {
