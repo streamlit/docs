@@ -81,6 +81,8 @@ class Autofunction extends React.Component {
                 } else {
                     slug.unshift( event.target.value )
                 }
+            } else if(event.target.value === this.state.max_version) {
+                props.clearLocalStorage();
             }
         }
 

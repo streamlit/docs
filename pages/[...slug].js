@@ -71,7 +71,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
         Image,
         Download,
         Flex,
-        Autofunction: (props) => <Autofunction {...props} streamlit={streamlit} version={versionNumber} versions={versions} slug={slug} />,
+        Autofunction: (props) => <Autofunction clearLocalStorage={clearLocalStorage} {...props} streamlit={streamlit} version={versionNumber} versions={versions} slug={slug} />,
         pre: (props) => <Code {...props} />,
         h1: H1,
         h2: H2,
@@ -86,7 +86,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
 
     const clearLocalStorage = () => {
         localStorage.removeItem('version');
-        setVersionNumber(maxVersion)
+        setVersionNumber(maxVersion);
     }
 
     if (version && versionNumber != maxVersion && paths !== false && versionNumber) {
