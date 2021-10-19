@@ -84,12 +84,17 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
     let arrowContainer
     let keywordsTag
 
+    const clearLocalStorage = () => {
+        localStorage.removeItem('version');
+        setVersionNumber(maxVersion)
+    }
+
     if (version && versionNumber != maxVersion && paths !== false && versionNumber) {
         // Slugs don't have the version number, so we just have to join them.
         currentLink = `/${slug.join('/')}`
         versionWarning = (
             <Warning>
-                <p>You are reading the documentation for Streamlit version {versionNumber}, but <Link href={currentLink}>{maxVersion}</Link> is the latest version available.</p>
+                <p>You are reading the documentation for Streamlit version {versionNumber}, but <a onClick={clearLocalStorage}>{maxVersion}</a> is the latest version available.</p>
             </Warning>
         )
     }
