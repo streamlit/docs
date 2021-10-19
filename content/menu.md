@@ -214,10 +214,12 @@ site_menu:
 
   - category: Streamlit Cloud / Teams and enterprise
     url: /streamlit-cloud/enterprise
+  - category: Streamlit Cloud / Teams and enterprise / Private Repos
+    url: /streamlit-cloud/enterprise/private-repos
+  - category: Streamlit Cloud / Teams and enterprise / Authentication without SSO
+    url: /streamlit-cloud/enterprise/non-sso-authentication
   - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO)
     url: /streamlit-cloud/enterprise/single-sign-on-sso
-  # - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Google OAuth
-    # url: /streamlit-cloud/enterprise/single-sign-on-sso#google-oauth
   - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Microsoft Active Directory (ADFS)
     url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-active-directory-adfs
   - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Microsoft Azure AD
@@ -226,8 +228,6 @@ site_menu:
     url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-okta-sso
   - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Generic SAML
     url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-general-saml-authentication
-  # - category: Streamlit Cloud / Enterprise /Fair Billing Policy
-  #   url: /streamlit-cloud/enterprise/billing
   - category: Streamlit Cloud / Teams and enterprise / Security Model
     url: /streamlit-cloud/enterprise/security-model
 
