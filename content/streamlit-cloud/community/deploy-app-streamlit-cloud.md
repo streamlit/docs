@@ -5,6 +5,18 @@ slug: /streamlit-cloud/community
 
 # Deploy on Streamlit Cloud
 
+## Table of contents
+
+1. [Sign up](#sign-up-for-streamlit-cloud)
+2. [Put your Streamlit app on GitHub](#put-your-streamlit-app-on-github)
+3. [Log in to share.streamlit.io](#log-in-to-sharestreamlitio)
+4. [Deploy your app](#deploy-your-app)
+5. [Secrets management](#secrets-management)
+6. [Share, update, and collaborate](#share-update-and-collaborate)
+7. [App access and usage](#app-access-and-usage)
+8. [Managing apps](#managing-apps)
+9. [Limitations and known issues](#limitations-and-known-issues)
+
 ## Sign up for Streamlit Cloud
 
 To get started, first request an invite on the [Streamlit Cloud Community sign-up](https://forms.streamlit.io/community-sign-up) form. Once you receive your invite email, you're ready to deploy!
@@ -29,8 +41,8 @@ directory as your Streamlit app.
 Streamlit looks at your requirements file's filename to determine which Python dependency manager to use in the order below. Streamlit will stop and install the first requirements file found.
 
 | **Filename**       | **Dependency Manager** | **Documentation**                                                                                                                     |
-| ------------------ | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `Pipfile`          | pipenv                 | **[docs](https://pipenv.pypa.io/en/latest/basics/)**                                                                                  |
+| :------------------ | :---------------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
+| `Pipfile`          | pipenv                 | **[docs](https://pipenv-fork.readthedocs.io/en/latest/basics.html)**                                                                                  |
 | `environment.yml`  | conda                  | **[docs](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually)** |
 | `requirements.txt` | pip                    | **[docs](https://pip.pypa.io/en/stable/user_guide/#)**                                                                                |
 | `pyproject.toml`   | poetry                 | **[docs](https://python-poetry.org/docs/basic-usage/)**                                                                               |

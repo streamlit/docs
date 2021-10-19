@@ -1,6 +1,6 @@
 # Streamlit Docs
 
-We use Next.js and Netlify to build our [documentation site](https://streamlit-docs.netlify.app).
+We use Next.js and Netlify to build our [documentation site](https://docs.streamlit.io/).
 
 ## Building
 
@@ -67,9 +67,9 @@ Now that you've decided where the file should live and have named the file, it's
 
 **File format**:
 
-Every `.md` file has front matter at the very top that defines the page title which appears in the browser tab bar, and the URL slug which appears after the slash in `streamlit-docs.netlify.app/` and `localhost:3000/`. 
+Every `.md` file has front matter at the very top that defines the page title which appears in the browser tab bar, and the URL slug which appears after the slash in `docs.streamlit.io/` and `localhost:3000/`. 
 
-E.g. For a page titled "Create a component" that should exist at `streamlit-docs.netlify.app/library/components/create`, the front matter at the top of `create-component.md` is:
+E.g. For a page titled "Create a component" that should exist at `docs.streamlit.io/library/components/create`, the front matter at the top of `create-component.md` is:
 
 ```markdown
 ---
@@ -154,7 +154,7 @@ However, a user has to know the URL to visit the page. The page is therefore *re
 
 How do you make the page you created appear in the Menu? Edit the special markdown file `content/menu.md`. All it has is front matter in YAML.
 
-Suppose you have created an "Installation" page that is available at `streamlit-docs.netlify.app/library/get-started/installation`. You want to it to appear in the Menu within the "Streamlit Library" section, nested under the "Get Started" page. 
+Suppose you have created an "Installation" page that is available at `docs.streamlit.io/library/get-started/installation`. You want to it to appear in the Menu within the "Streamlit Library" section, nested under the "Get Started" page. 
 
 To do so, find the lines that define the `category` and `url` for "Get Started" in `menu.md` and add two new lines below it, containing:
 
@@ -263,4 +263,4 @@ To publish your changes to the docs site:
 2. Create a Pull Request and mark Snehan and Randy as reviewers.
 3. Once the checks have completed, checkout the Preview build.
 4. Snehan and Randy will review your changes and merge your changes into the `main` branch.
-5. Once merged, your changes will be live at [https://streamlit-docs.netlify.app](https://streamlit-docs.netlify.app).
+5. Once merged, your changes will be live at [https://docs.streamlit.io/](https://docs.streamlit.io/).

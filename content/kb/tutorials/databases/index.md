@@ -19,3 +19,4 @@ They use Streamlit's [secrets management](/streamlit-cloud/community#secrets-man
 - [Tableau](databases/tableau)
 - [Private Google Sheet](databases/private-gsheet)
 - [Public Google Sheet](databases/public-gsheet)
+- [TigerGraph](databases/tigergraph)
