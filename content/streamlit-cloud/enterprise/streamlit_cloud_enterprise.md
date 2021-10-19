@@ -1,5 +1,5 @@
 ---
-title: Streamlit Teams (Enterprise)
+title: Streamlit Cloud (Teams and Enterprise)
 slug: /streamlit-cloud/enterprise
 ---
 
@@ -17,13 +17,13 @@ If you're completely new to Streamlit, check out our [Get started with Streamlit
 
 You should already have access to your workspace, so log in and start deploying apps 😁. Here is a quick get started guide with links to more documentation. We'd also love to hop on a call with you to go over any of your apps and any feedback or questions you have.
 
-1. **Allowlist your developers** 👷‍♀️
+1. **Allow-list your developers** 👷‍♀️
 
     Please send the list of GitHub accounts you want in your Streamlit for Teams workspace. If you need to add or remove people during the beta (before the full admin interface lands), just ping your Streamlit contact.
 
 2. **Log in to your dashboard** 👩🏻‍💻
 
-    Go to [share.streamlit.io](https://share.streamlit.io/) and click to authenticate with GitHub. If that fails it means that we don't have that GitHub account allowlisted, so just send the username to your Streamlit contact and we'll get it listed for you.
+    Go to [share.streamlit.io](https://share.streamlit.io/) and click to authenticate with GitHub. If that fails it means that we don't have that GitHub account allow-listed, so just send the username to your Streamlit contact and we'll get it listed for you.
 
 3. **Grant repo access** 👑
 
