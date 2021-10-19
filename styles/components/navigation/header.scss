@@ -4,8 +4,13 @@ header {
     width:100vw;
     top:0;
     height: $header-height;
+    transition:$normal;
     z-index: 99;
     margin-bottom: 3em;
+    
+    .container {
+        transition:$normal;
+    }
 
     h4 {
         margin: 0;
@@ -34,6 +39,7 @@ header {
             top:-2px;
             left: 50%;
             transform: translate(-50%);
+            transition:$normal;
             opacity: 0;
 
             @media(max-width: 1024px) {
@@ -48,6 +54,7 @@ header {
             margin-bottom: 0;
 
             i {
+                transition: $fast;
                 position: absolute;
                 top: 50%;
                 left: 50%;
@@ -63,6 +70,7 @@ header {
             border-radius: $rounded-small;
 
             i {
+                transition: $fast;
                 position: absolute;
                 top: 50%;
                 left: 50%;

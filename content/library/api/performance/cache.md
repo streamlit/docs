@@ -3,6 +3,8 @@ title: st.cache
 slug: /library/api-reference/performance/st.cache
 ---
 
+# st.cache
+
 When you mark a function with Streamlit’s cache annotation, it tells Streamlit
 that whenever the function is called it should check three things:
 

@@ -14,7 +14,7 @@ raw form. These are the Streamlit commands you can use to display raw data.
 
 <TileContainer>
 <RefCard href="/library/api-reference/data/st.dataframe">
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/dataframe.jpg" />
 
 #### Dataframes
 
@@ -26,7 +26,7 @@ st.dataframe(my_data_frame)
 
 </RefCard>
 <RefCard href="/library/api-reference/data/st.table">
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/table.jpg" />
 
 #### Static tables
 
@@ -38,7 +38,7 @@ st.table(my_data_frame)
 
 </RefCard>
 <RefCard href="/library/api-reference/data/st.metric">
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/metric.jpg" />
 
 #### Metrics
 
@@ -50,7 +50,7 @@ st.metric("My metric", 42, 2)
 
 </RefCard>
 <RefCard href="/library/api-reference/data/st.json">
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/json.jpg" />
 
 #### Dicts and JSON
 
@@ -62,3 +62,5 @@ st.json(my_data_frame)
 
 </RefCard>
 </TileContainer>
+
+

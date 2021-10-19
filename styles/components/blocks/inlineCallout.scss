@@ -22,4 +22,8 @@
             color:white;
         }
     }
+
+    @media screen and (max-width: 560px) {
+        align-items: flex-start;
+    }
 }

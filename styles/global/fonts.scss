@@ -136,6 +136,16 @@ p > code {
     word-break: break-word;
 }
 
+li > code {
+    border: 1px solid;
+    color: $red-70;
+    border-color: $gray-40;
+    border-radius: 5px;
+    padding: 0.1em 0.3em;
+    margin: 0 0.2em;
+    word-break: break-word;
+}
+
 p a code {
     border: none;
     padding: 0;

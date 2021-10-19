@@ -13,12 +13,12 @@ import GDPRBanner from '../components/utilities/gdpr';
 import SocialCallouts from '../components/utilities/socialCallout'
 import Spacer from '../components/utilities/spacer'
 
-import TileContainer from '../components/layouts/tileContainer'
+import SummaryTiles from '../components/summaryTiles'
+
 import NewsContainer from '../components/layouts/newsContainer'
 import InlineCalloutContainer from '../components/layouts/inlineCalloutContainer'
 
 import { H1, H2 } from '../components/blocks/headers'
-import Tile from '../components/blocks/tile'
 import NewsEntry from '../components/blocks/newsEntry'
 import Button from '../components/blocks/button'
 import InlineCallout from '../components/blocks/inlineCallout'
@@ -41,15 +41,11 @@ export default function Home({ window, menu, gdpr_data }) {
         <section className="content wide">
           <article>
             <H1>Welcome to Streamlit docs</H1>
-            <p><a>Streamlit</a> is an open-source Python library that makes it easy to create and share beautiful, custom web apps for machine learning and data science. In just a few minutes you can build and deploy powerful data apps - so let’s get started!</p>
+            <p><a href="https://www.streamlit.io">Streamlit</a> is an open-source Python library that makes it easy to create and share beautiful, custom web apps for machine learning and data science. In just a few minutes you can build and deploy powerful data apps - so let’s get started!</p>
 
             <Spacer size="2rem" />
 
-            <TileContainer>
-              <Tile icon="arrow_forward" title="Get Started" text="If you're new to Streamlit and don't know where to start, this is a good place." background="violet-70" link="/library/get-started" />
-              <Tile icon="dvr" title="API Reference" text="Learn about our APIs, with actionable explanations of specific functions and features." background="violet-90" link="/library/api-reference" />
-              <Tile icon="grid_view" title="App Gallery" text="Try out awesome apps created by our users, and curated from our forums or Twitter." background="orange-70" link="https://streamlit.io/gallery" />
-            </TileContainer>
+            <SummaryTiles />
 
             {/* <H2 className='no-b-m'>What's new</H2>
 
@@ -69,7 +65,7 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <H2>How to use our docs</H2>
             <InlineCalloutContainer>
-              <InlineCallout color="violet-70" icon="description" bold="Streamlit Library" href="/library">
+              <InlineCallout color="violet-70" icon="description" bold="Streamlit Library" href="/library/get-started">
                 includes our Get Started guide, API Reference, and more advanced features of the core library including caching, theming, and Streamlit components.
               </InlineCallout>
               <InlineCallout color="l-blue-70" icon="cloud" bold="Streamlit Cloud" href="/streamlit-cloud">

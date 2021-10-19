@@ -7,29 +7,32 @@ footer {
     @media(min-width: 1250px) {
         margin-left: calc(314px + (100vw * 0.1));
     }
-
+    
     .container {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-direction: column;
+        padding-right: 0;
+
+        hr {
+            border: none;
+            margin: 1rem 0;
+            width: 100%;
+        }
 
         @media(min-width: 1250px) {
             padding-top: 1em;
             padding-bottom: 1em;
-            flex-direction: column;       
+
             nav, .social-media-icons { 
                 margin-bottom: 0.5em;
             }
-        }
-        
-        @media(max-width: 1249px) {
-            width: 90%;
         }
 
         nav {
             display: flex;
             gap: 2em;
-            margin-right: 2em;
         }
 
         .social-media-icons {
