@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node ./scripts/build-search-index.js",
+    "postbuild": "node ./scripts/build-search-index.js && next-sitemap",
     "start": "next start",
     "export": "next build && next export && node ./scripts/build-search-index.js"
   },
@@ -33,6 +33,7 @@
     "next": "^11.1.2",
     "next-mdx-remote": "^3.0.6",
     "next-remote-watch": "^1.0.0",
+    "next-sitemap": "^1.6.189",
     "node-html-parser": "^4.1.5",
     "nprogress": "^0.2.0",
     "prettier": "^2.4.1",
