@@ -117,7 +117,9 @@ body[data-theme="light-mode"] {
         }
     }
     footer {
-        border-top: 1px solid $gray-40;
+        hr {
+            border-top: 1px solid $gray-40;
+        }
     }
     ol.tutorial {
         li {
@@ -221,7 +223,7 @@ body[data-theme="light-mode"] {
       outline: 2px solid $gray-50;
     }
 
-    .code-tile {
+    .code-tile, .reference-card {
         .block-code {
             pre.line-numbers {
                 background-color: transparent;
@@ -266,6 +268,14 @@ body[data-theme="light-mode"] {
         &.featured {
             pre.line-numbers {
                 background-color: transparent;
+            }
+        }
+    }
+
+    .reference-card {
+        .block-code {
+            pre.line-numbers {
+                background-color: $gray-10;
             }
         }
     }

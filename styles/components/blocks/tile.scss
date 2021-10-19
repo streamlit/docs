@@ -1,11 +1,15 @@
 .block-tile {
     border-radius: $rounded-small;
     overflow: hidden;
-    padding: 1em;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     cursor: pointer;
+    transition: $normal;
+
+    a {
+        padding: 1rem;
+    }
 
     &.color-unset {
         i {

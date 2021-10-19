@@ -69,19 +69,6 @@ Session State is a way to share variables between reruns, for each user session.
 
 </RefCard>
 
-<RefCard href="/library/advanced-features/cookbook" size="half">
-
-##### Cookbook
-This section take a look at some advanced functionality like styling data, adjusting the order of elements in a report, and adding animations.
-
-- [Learn how to batch elements and input widgets](/library/advanced-features/cookbook#batch-elements-and-input-widgets)
-- [How to insert elements out of order?](/library/advanced-features/cookbook#insert-elements-out-of-order)
-- [How to animate elements?](/library/advanced-features/cookbook#animate-elements)
-- [Append data to a table or chart](library/advanced-features/cookbook#append-data-to-a-table-or-chart)
-- [Record a screencast](/library/advanced-features/cookbook#record-a-screencast)
-
-</RefCard>
-
 <RefCard href="/library/advanced-features/prerelease" size="half">
 
 ##### Pre-release features
@@ -92,7 +79,7 @@ At Streamlit, we like to move quick while keeping things stable. In our latest e
 
 </RefCard>
 
-<RefCard href="/library/advanced-features/widget-semantics" size="full">
+<RefCard href="/library/advanced-features/widget-semantics" size="half">
 
 ##### Advanced notes on widget behavior
 Widgets are magical and often work how you want. But they can have surprising behavior in some situations. This section provides is a high-level, abstract description of widget behavior, including some common edge-cases.
