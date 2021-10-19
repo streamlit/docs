@@ -262,6 +262,8 @@ site_menu:
     url: /knowledge-base/tutorials/databases/private-gsheet
   - category: Knowledge base / Tutorials / Connect to data sources / Public Google Sheet
     url: /knowledge-base/tutorials/databases/public-gsheet
+  - category: Knowledge base / Tutorials / Connect to data sources / TigerGraph
+    url: /knowledge-base/tutorials/databases/tigergraph
   - category: Knowledge base / Using Streamlit
     url: /knowledge-base/using-streamlit
   - category: Knowledge base / Streamlit Components
