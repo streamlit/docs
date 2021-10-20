@@ -73,8 +73,6 @@ Guide not working for you? Got another data source you need help connecting with
 
 Keep your code in your GitHub private repos and connect them to your Streamlit for Teams account to deploy apps and run CI/CD.
 
-[Private repos documentation](/streamlit-cloud/enterprise/private-repos)
-
 ![Streamlit Cloud private repos](/images/private_repos.png)
 
 ---
@@ -101,8 +99,6 @@ Securely access any data store or API from your Streamlit app by storing access 
 Restrict access to your app to a selected set of users. Single sign-on with Google OAuth is currently supported with other SSO providers coming soon.
 
 [Single Sign-on documentation](/streamlit-cloud/enterprise/single-sign-on-sso)
-
-[Authentication without SSO](/streamlit-cloud/enterprise/non-sso-authentication)
 
 ![Streamlit Cloud single sign-on](/images/sso.png)
 
