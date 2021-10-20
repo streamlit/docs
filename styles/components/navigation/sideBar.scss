@@ -173,6 +173,10 @@
             }
         }
 
+        a:focus:not(:focus-visible) {
+            outline: none;
+        }
+
         ul, ol {
             margin: 0;
         }
