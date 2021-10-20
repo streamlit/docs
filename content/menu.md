@@ -214,10 +214,6 @@ site_menu:
 
   - category: Streamlit Cloud / Teams and enterprise
     url: /streamlit-cloud/enterprise
-  - category: Streamlit Cloud / Teams and enterprise / Private Repos
-    url: /streamlit-cloud/enterprise/private-repos
-  - category: Streamlit Cloud / Teams and enterprise / Authentication without SSO
-    url: /streamlit-cloud/enterprise/non-sso-authentication
   - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO)
     url: /streamlit-cloud/enterprise/single-sign-on-sso
   - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Microsoft Active Directory (ADFS)
