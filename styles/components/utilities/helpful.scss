@@ -1,5 +1,16 @@
 .block-helpful {
     margin-top: 4em;
+    display: flex;
+    align-items: center;
+
+    form {
+        flex: 1;
+    }
+
+    @media screen and (max-width: 767px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 .helpful {
     display: inline-flex;

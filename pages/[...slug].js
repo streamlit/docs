@@ -154,8 +154,10 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                                 <MDXRemote {...source} components={components} />
                             </div>
                         </article>
-                        <Helpful slug={slug} />
-                        <SuggestEdits sourcefile={sourceFile} />
+                        <Helpful
+                            slug={slug}
+                            sourcefile={sourceFile}
+                        />
                         <Psa />
                         {arrowContainer}
                     </section>
