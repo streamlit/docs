@@ -157,7 +157,7 @@ export default class Helpful extends React.Component {
                     <input type="hidden" name="notes" value={this.state.notes} />
                     {block}
                 </form>
-                <SuggestEdits sourcefile={this.props.sourcefile} />
+                <SuggestEdits sourcefile={this.props.sourcefile ? this.props.sourcefile : ''} />
             </section>
         )
     }
