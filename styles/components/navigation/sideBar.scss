@@ -173,16 +173,16 @@
             }
         }
 
-        a:focus:not(:focus-visible) {
-          outline: none;
-        }
-
         ul, ol {
             margin: 0;
         }
 
         .nav-item {
             margin-bottom: 2em;
+
+            a {
+                display: inline-block;
+            }
 
             .head {
                 display: flex;
