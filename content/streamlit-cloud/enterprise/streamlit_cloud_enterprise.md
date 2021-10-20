@@ -17,109 +17,65 @@ If you're completely new to Streamlit, check out our [Get started with Streamlit
 
 You should already have access to your workspace, so log in and start deploying apps 😁. Here is a quick get started guide with links to more documentation. We'd also love to hop on a call with you to go over any of your apps and any feedback or questions you have.
 
-1. **Allow-list your developers** 👷‍♀️
-
-    Please send the list of GitHub accounts you want in your Streamlit for Teams workspace. If you need to add or remove people during the beta (before the full admin interface lands), just ping your Streamlit contact.
-
-2. **Log in to your dashboard** 👩🏻‍💻
+1. **Log in to your dashboard** 👩🏻‍💻
 
     Go to [share.streamlit.io](https://share.streamlit.io/) and click to authenticate with GitHub. If that fails it means that we don't have that GitHub account allow-listed, so just send the username to your Streamlit contact and we'll get it listed for you.
 
-3. **Grant repo access** 👑
+2. **Grant repo access** 👑
 
-    When you log in for the first time you will need to grant access to the GitHub private repo you wish to use for your apps. An admin of the repo must grant the access, so if you are not an admin, please get them a Streamlit for Teams account so they can grant access.
+    When you log in for the first time you will need to grant access to the GitHub private repo you wish to use for your apps. An admin of the repo must grant the access, so if you are not an admin, please get them a Streamlit Cloud account so they can grant access.
 
-4. **Launch a test app! 🎈**
+3. **Launch a test app! 🎈**
 
     We suggest doing a sample deployment to get used to the interface. Follow along in the [deployment instruction guide](/streamlit-cloud/community) to deploy your first app. For your full apps you'll want to make sure your secrets and viewer auth are set up before launching the app.
 
-5. **Set up secrets** 🗝
+4. **Set up secrets** 🗝
 
     Secure access to the data for your app with secrets management. Read the [documentation on using secrets](/streamlit-cloud/community#secrets-management). We also have a number of [guides on how to connect to different cloud services](/knowledge-base/tutorials/databases).
 
-6. **Set up viewer auth** 🔒
+5. **Set up viewer auth** 🔒
 
-    Lock down your app to a certain set of viewers using Google OAuth or by setting up your own password system. Read the [documentation on viewer auth](/streamlit-cloud/enterprise/single-sign-on-sso).
+    Lock down your app to a certain set of viewers using Google OAuth or one of several other single sign-on platforms. Read the [documentation on viewer auth](/streamlit-cloud/enterprise/single-sign-on-sso).
 
-7. **Let us help!** 🙌
+6. **Let us help!** 🙌
 
     No question is too small, no request too big. Let us know how we can help - whether it's more resources for an app, a step that is frustrating you, or the need for ideas on how to improve your app. Just ping your Streamlit contact or email `support@streamlit.io`.
 
-
-### Securely connect to your cloud services
-
-Here are a few guides on how to connect to different cloud services (see also the [overview](/knowledge-base/tutorials/databases)):
-
-- 🔍 [Connect Streamlit to Google BigQuery](/knowledge-base/tutorials/databases/bigquery)
-- 🖊️ [Connect Streamlit to a public Google Sheet](/knowledge-base/tutorials/databases/public-gsheet)
-- 🔏 [Connect Streamlit to a private Google Sheet](/knowledge-base/tutorials/databases/private-gsheet)
-- 3️⃣ [Connect Streamlit to AWS S3](/knowledge-base/tutorials/databases/aws-s3)
-- 🐘 [Connect Streamlit to PostgreSQL](/knowledge-base/tutorials/databases/postgresql)
-- 🍃 [Connect Streamlit to MongoDB](/knowledge-base/tutorials/databases/mongodb)
-- 🏗️ [Connect Streamlit to Tableau](/knowledge-base/tutorials/databases/tableau)
-- 🔥 [Connect Streamlit to Firestore (blog)](https://blog.streamlit.io/streamlit-firestore/)
-
-Looking to connect directly to your VPN? Send us a note and we'd love to talk to you more about it.
-
-<Note>
-
-Guide not working for you? Got another data source you need help connecting with? Just ping your Streamlit contact and we'll help you get set up!
-
-</Note>
-
 ## A guide to Streamlit Cloud - Teams and Enterprise features
 
-### Private repos
+- **Private repos**
 
-Keep your code in your GitHub private repos and connect them to your Streamlit for Teams account to deploy apps and run CI/CD.
+    Keep your code in your GitHub private repos and connect them to your Streamlit for Teams account to deploy apps and run CI/CD.
 
-![Streamlit Cloud private repos](/images/private_repos.png)
+- **One-click deploy**
 
----
+    Deploy apps directly from your GitHub repos. Just connect Streamlit for Teams to the repo, select the app file, and we'll do the rest!
 
-### One-click deploy
-Deploy apps directly from your GitHub repos. Just connect Streamlit for Teams to the repo, select the app file, and we'll do the rest!
+    [One-click deploy documentation](/streamlit-cloud/community#deploy-your-app)
 
-[One-click deploy documentation](/streamlit-cloud/community#deploy-your-app)
+- **Secrets management**
 
-![Streamlit Cloud one-click deploy](/images/one_click_deploy.png)
+    Securely access any data store or API from your Streamlit app by storing access credentials in encrypted secrets on our secure platform. Use them with `st.secrets`.
 
----
+    [Secrets management documentation](/streamlit-cloud/community#secrets-management)
 
-### Secrets management
-Securely access any data store or API from your Streamlit app by storing access credentials in encrypted secrets on our secure platform. Use them with `st.secrets`.
+- **Single sign-on viewer authentication**
 
-[Secrets management documentation](/streamlit-cloud/community#secrets-management)
+    Restrict access to your app to a selected set of users. Single sign-on with Google OAuth is currently supported, along with several other common platforms.
 
-![Streamlit Cloud secrets management](/images/secrets_management.png)
+    [Single Sign-on documentation](/streamlit-cloud/enterprise/single-sign-on-sso)
 
----
-### Single sign-on viewer authentication
+- **App management**
 
-Restrict access to your app to a selected set of users. Single sign-on with Google OAuth is currently supported with other SSO providers coming soon.
+    View apps, reboot, delete and inspect logs. If you need extra app resources, ping your Streamlit contact and we'll help configure it.
 
-[Single Sign-on documentation](/streamlit-cloud/enterprise/single-sign-on-sso)
+    [App management documentation](/streamlit-cloud/community#deploy-your-app)
 
-![Streamlit Cloud single sign-on](/images/sso.png)
+- **Admin interface**
 
----
-### App management
+    Manage billing, view usage, and configure other team-wide settings.
 
-View apps, reboot, delete and inspect logs. If you need extra app resources, ping your Streamlit contact and we'll help configure it.
-
-[App management documentation](/streamlit-cloud/community#deploy-your-app)
-
-![Streamlit Cloud app management](/images/app_management.png)
-
----
-### **Admin interface **
-
-Manage billing, view usage, and configure other team-wide settings.
-
-![Streamlit Cloud admin interface](/images/admin_interface.png)
-
----
-## Troubleshooting
+<!-- ## Troubleshooting
 
 ### I'm not able to log in to the dashboard
 
@@ -171,10 +127,6 @@ If you want, we are also happy to help lend an eye on your app development. Just
 
 Streamlit takes a number of measures to ensure your code, data, and apps are all secure. Read more in the [Streamlit for Teams Security Memo](/streamlit-cloud/enterprise/security-model).
 
-### How do I add developers to my Streamlit for Teams account?
-
-During the beta you just need to send us an email with the GitHub user name and email that is connected to the person's GitHub account. We will allow-list them and then you're good to go! You can add as many developers as you like.
-
 ### How do I add viewers to my Streamlit apps?
 
 Before viewer authentication is added via single sign-on, [apps are secured via password protection](https://www.notion.so/Authentication-without-SSO-4319c6135b4b4ed58355fc06b33cac74). To give someone access, you just need to set up a password for them.
@@ -199,4 +151,4 @@ We will do our best to keep the timeline above updated and to proactively update
 
 Not yet available in the beta. But this is planned for after the Streamlit Cloud launch. You can obviously do your own DNS redirects. If you want some more thoughts on this just ping your Streamlit contact.
 
-Thanks for using Streamlit for Teams. We look forward to hearing your feedback 🎈
+Thanks for using Streamlit for Teams. We look forward to hearing your feedback 🎈 -->
