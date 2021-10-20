@@ -27,6 +27,7 @@ import ArrowLink from '../components/navigation/arrowLink'
 import Helpful from '../components/utilities/helpful'
 import { H1, H2, H3 } from '../components/blocks/headers'
 import Psa from '../components/utilities/psa'
+import SuggestEdits from '../components/utilities/suggestEdits'
 import FloatingNav from '../components/utilities/floatingNav'
 
 // MDX Components
@@ -45,10 +46,12 @@ import Tip from '../components/blocks/tip'
 import Warning from '../components/blocks/warning'
 import YouTube from '../components/blocks/youTube'
 
-export default function Article({ data, source, streamlit, slug, menu, previous, next, version, versions, paths, gdpr_data }) {
+export default function Article({ data, source, streamlit, slug, menu, previous, next, version, versions, paths, gdpr_data, filename }) {
 
     let versionWarning
     let currentLink
+    let sourceFile
+    sourceFile = 'https://github.com/streamlit/docs/tree/main' + filename.substring(filename.indexOf('/content/'))
     const maxVersion = versions[versions.length - 1]
 
     const components = {
@@ -152,6 +155,7 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                             </div>
                         </article>
                         <Helpful slug={slug} />
+                        <SuggestEdits sourcefile={sourceFile} />
                         <Psa />
                         {arrowContainer}
                     </section>
