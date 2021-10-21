@@ -141,6 +141,28 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                             :
                             <link rel="canonical" href={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/${slug.join('/')}`} />
                         }
+                        <meta content="Streamlit is an open-source app framework for Machine Learning and Data Science teams. Create beautiful data apps in hours, not weeks. All in pure Python. All for free." name="description" />
+                        <meta
+                        content="Streamlit Docs"
+                        property="og:title"
+                        />
+                        <meta content="Streamlit is an open-source app framework for Machine Learning and Data Science teams. Create beautiful data apps in hours, not weeks. All in pure Python. All for free." property="og:description" />
+                        <meta
+                        content="Streamlit Docs"
+                        name="twitter:title"
+                        />
+                        <meta content="Streamlit is an open-source app framework for Machine Learning and Data Science teams. Create beautiful data apps in hours, not weeks. All in pure Python. All for free." name="twitter:description" />
+                        <meta property="og:type" content="website" />
+                        <meta property="og:url" content="https://docs.streamlit.io/" />
+                        <meta content="summary_large_image" name="twitter:card" />
+                        <meta
+                        property="og:image"
+                        content={`${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-facebook.jpg`}
+                        />
+                        <meta
+                        name="twitter:image"
+                        content={`${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-twitter.jpg`}
+                        />
                     </Head>
                     <section className="content wide" id="documentation">
                         {versionWarning}
