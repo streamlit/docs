@@ -65,13 +65,13 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <H2>How to use our docs</H2>
             <InlineCalloutContainer>
-              <InlineCallout color="violet-70" icon="description" bold="Streamlit Library" href="/library/get-started">
-                includes our Get Started guide, API Reference, and more advanced features of the core library including caching, theming, and Streamlit components.
+              <InlineCallout color="violet-70" icon="description" bold="Streamlit library" href="/library/get-started">
+                includes our Get started guide, API reference, and more advanced features of the core library including caching, theming, and Streamlit Components.
               </InlineCallout>
               <InlineCallout color="l-blue-70" icon="cloud" bold="Streamlit Cloud" href="/streamlit-cloud">
                 empowers your data team to directly serve the needs of the rest of the company. Quickly go from data to app, from prototype to production. Share apps in one click and collaborate instantly with live code updates.
               </InlineCallout>
-              <InlineCallout color="orange-70" icon="school" bold="Knowledge Base" href="/knowledge-base">
+              <InlineCallout color="orange-70" icon="school" bold="Knowledge base" href="/knowledge-base">
                 is a self-serve library of tips, step-by-step tutorials, and articles that answer your questions about creating and deploying Streamlit apps.
               </InlineCallout>
               {/* <InlineCallout color="green-70" icon="code" bold="Cookbook" href="/cookbook">
@@ -95,7 +95,7 @@ export default function Home({ window, menu, gdpr_data }) {
           <SocialCallouts />
 
           <ArrowLinkContainer>
-            <ArrowLink link="/library/get-started" type="next" content="Get Started" />
+            <ArrowLink link="/library/get-started" type="next" content="Get started" />
           </ArrowLinkContainer>
         </section>
       </section>
