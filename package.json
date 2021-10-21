@@ -37,6 +37,7 @@
     "node-html-parser": "^4.1.5",
     "nprogress": "^0.2.0",
     "prettier": "^2.4.1",
+    "pretty-quick": "^3.1.1",
     "prismjs": "^1.25.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -64,5 +65,13 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "husky": "^7.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
 }
