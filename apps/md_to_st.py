@@ -3,8 +3,11 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import ast
+import os
 
-ALL_MD_FILES = glob.glob("./../content/library/api/**/*.md")
+os.chdir("./../")
+
+ALL_MD_FILES = glob.glob("./content/library/api/**/*.md")
 
 FORBIDDEN_PATTERNS = [
     "columns",
