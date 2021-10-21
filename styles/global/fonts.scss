@@ -39,6 +39,10 @@ h2 {
     letter-spacing: -0.02em;
     margin-bottom: 0.5em;
     margin-top: 1.25em;
+
+    @media screen and (max-width: 767px) {
+        font-size: 1.5rem;
+    }
 }
 
 h3 {
