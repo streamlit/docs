@@ -6,7 +6,7 @@ export default function SummaryTiles() {
     <TileContainer>
       <Tile
         icon="arrow_forward"
-        title="Get Started"
+        title="Get started"
         text="If you're new to Streamlit and don't know where to start, this is a good place."
         background="violet-70"
         link="/library/get-started"
@@ -14,7 +14,7 @@ export default function SummaryTiles() {
 
       <Tile
         icon="dvr"
-        title="API Reference"
+        title="API reference"
         text="Learn about our APIs, with actionable explanations of specific functions and features."
         background="violet-70"
         link="/library/api-reference"
@@ -22,7 +22,7 @@ export default function SummaryTiles() {
 
       <Tile
         icon="grid_view"
-        title="App Gallery"
+        title="App gallery"
         text="Try out awesome apps created by our users, and curated from our forums or Twitter."
         background="orange-70"
         link="https://streamlit.io/gallery"

@@ -12,7 +12,7 @@ Cloud](https://streamlit.io/cloud) to deploy and share your app. Streamlit Cloud
   <InlineCallout
     color="l-blue-70"
     icon="description"
-    bold="Community Tier."
+    bold="Community tier."
     href="/streamlit-cloud/community"
   >
     Formerly called Streamlit sharing, this is the perfect solution if your app is hosted in a public GitHub repo and you’d like anyone in the world to be able to access it <b>for free</b>!
@@ -20,7 +20,7 @@ Cloud](https://streamlit.io/cloud) to deploy and share your app. Streamlit Cloud
   <InlineCallout
     color="l-blue-70"
     icon="description"
-    bold="Teams and Enterprise."
+    bold="Teams and enterprise."
     href="/streamlit-cloud/enterprise"
   >
     Offers access controls, the ability to securely deploy apps from private repos, customize resources, and much more.

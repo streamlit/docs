@@ -1,9 +1,9 @@
 ---
-title: Installing Dependencies
+title: Installing dependencies
 slug: /knowledge-base/dependencies
 ---
 
-# Installing Dependencies
+# Installing dependencies
 
 - [ModuleNotFoundError: No module named](/knowledge-base/dependencies/module-not-found-error)
 - [ImportError: libGL.so.1: cannot open shared object file: No such file or directory](/knowledge-base/dependencies/libgl)

@@ -1,5 +1,5 @@
 ---
-title: Cheat Sheet
+title: Cheat sheet
 slug: /library/cheatsheet
 ---
 

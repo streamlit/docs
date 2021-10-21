@@ -1,9 +1,9 @@
 ---
-title: Advanced Features
+title: Advanced features
 slug: /library/advanced-features
 ---
 
-## Advanced Features
+## Advanced features
 
 This section gives you background on how different parts of Streamlit work.
 
