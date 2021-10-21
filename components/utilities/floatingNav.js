@@ -71,7 +71,7 @@ class FloatingNav extends React.Component {
     async generateMenu() {
         if (this.state.headers.length > 0) { this.closeMenu() }
         const tocMenu = [] 
-        const headers = Array.prototype.slice.apply(document.querySelectorAll('article.leaf-page h1, article.leaf-page h2, article.leaf-page h3'))
+        const headers = Array.prototype.slice.apply(document.querySelectorAll('article.leaf-page h1, article.leaf-page h2, article.leaf-page h3, article.leaf-page h4, article.leaf-page h5, article.leaf-page h6'))
         const observer = this.state.observer
         for (const index in headers) {
             const ele = headers[index]
@@ -130,7 +130,7 @@ class FloatingNav extends React.Component {
         const target = this.state.target
         const isnum = /^[\d\.]+$/.test(props.slug[0]);
         const slug = isnum ? props.slug.slice(1).join('/') : this.state.slug
-        const location = this.state.slug.split('/')[0];
+        const location = this.state.slug.split('/')[0]
     
         // Get the Root Object and find the appropriate color
         const breadCrumbs = breadcrumbsForSlug(props.menu, `/${slug}`)
@@ -153,14 +153,18 @@ class FloatingNav extends React.Component {
         )
         
         return (
-            <div className='toc'>
-                <ol className='toc-level'>
-                    {menu.map((item, index) => {
-                        const active = item.target == target ? 'active' : ''
-                        return (<li className={`level-${item.level} ${active} bg-${color}`} key={`toc-${index}`}>{svg}<a href={item.target}>{item.label}</a></li>)
-                    })}
-                </ol>
-            </div>
+            menu.length > 1 ?
+                <div className={`toc ${props.slug[props.slug.length -1]}`}>
+                    <div className="top-gradient" />
+                    <ol className='toc-level'>
+                        <li className="toc-title">Contents</li>
+                        {menu.map((item, index) => {
+                            const active = item.target == target ? 'active' : ''
+                            return (<li className={`level-${item.level} ${active} bg-${color}`} key={`toc-${index}`}>{svg}<a href={item.target}>{item.label}</a></li>)
+                        })}
+                    </ol>
+                </div>
+            : ''
         )
     }
 }
