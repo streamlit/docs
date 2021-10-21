@@ -275,48 +275,14 @@ body[data-theme="dark-mode"] {
         }
     }
     .toc {
-        ol li.active {
-            &.tutorials {
-                background: $violet-90;
-                svg {
-                    path {
-                        fill: $white;
-                    }
-                }
-            }   
-            
-            &.topic-guides {
-                background: $l-blue-90;
-                svg {
-                    path {
-                        fill: $white;
-                    }
-                }
-            }   
+        .top-gradient {
+            background: linear-gradient(to bottom, $gray-100 0%, $gray-100 75%, rgba(255, 255, 255, 0) 100%);
+        }
 
-            &.reference-guides {
-                background: $orange-90;
-                svg {
-                    path {
-                        fill: $white;
-                    }
-                }
-            }    
-
-            &.support {
-                background: $red-90;
-                svg {
-                    path {
-                        fill: $white;
-                    }
-                }
-            }             
-            &.updates,&.changelog {
-                background: $green-90;
-                svg {
-                    path {
-                        fill: $white;
-                    }
+        ol li {
+            &.active {
+                a {
+                    color: $white;
                 }
             }
         }
