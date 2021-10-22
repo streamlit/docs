@@ -1,6 +1,6 @@
 ---
 title: Streamlit Trust and Security
-slug: /streamlit-cloud/enterprise/security-model
+slug: /streamlit-cloud/trust-and-security
 ---
 
 # Streamlit Trust and Security
