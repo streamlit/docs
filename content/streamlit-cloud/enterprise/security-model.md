@@ -31,7 +31,7 @@ All access and sign-ins to Streamlit are conducted via an SSO provider: GitHub, 
 
 ### Credential Storage
 
-We encrypt sensitive customer data (e.g. secrets, authentication tokens) at-rest with `AES256` as described in Google's documentation.
+We encrypt sensitive customer data (e.g. secrets, authentication tokens) at-rest with AES256 as described in Google's documentation.
 
 ### Permissions and Role-Based Access Control
 
@@ -43,19 +43,19 @@ Only users with _admin access_ to a repository are able to **deploy and delete a
 
 ### Data Hosting
 
-Our physical infrastructure is hosted and managed within Google Cloud Platform (GCP) using their secure data centers. Streamlit leverages many of the platform's built-in security, privacy, and redundancy features. GCP continually monitors its data centers for risk and undergoes assessments to ensure compliance with industry standards. GCP's data centers have numerous accreditations, including `ISO-27001`, `SOC 1` and `SOC 2`.
+Our physical infrastructure is hosted and managed within Google Cloud Platform (GCP) using their secure data centers. Streamlit leverages many of the platform's built-in security, privacy, and redundancy features. GCP continually monitors its data centers for risk and undergoes assessments to ensure compliance with industry standards. GCP's data centers have numerous accreditations, including ISO-27001, SOC 1 and SOC 2.
 
 ### Virtual Private Cloud
 
-All of our servers are within a `virtual private cloud (VPC)` with firewalls and `network access control lists (ACLs)` to allow external access to a select few API endpoints; all other internal services are only accessible within the VPC.
+All of our servers are within a virtual private cloud (VPC) with firewalls and network access control lists (ACLs) to allow external access to a select few API endpoints; all other internal services are only accessible within the VPC.
 
 ### Encryption
 
-All Streamlit apps are served entirely over HTTPS. All data sent to or from Streamlit over the public internet is encrypted in transit using `256-bit encryption`. Our API and application endpoints are `TLS only (v1.2)`. We use only strong cipher suites and `HTTP Secure Transport Security (HSTS)` to ensure browsers interact with Streamlit apps over HTTPS. We also encrypt data at rest using `AES-256`.
+All Streamlit apps are served entirely over HTTPS. All data sent to or from Streamlit over the public internet is encrypted in transit using 256-bit encryption. Our API and application endpoints are TLS only (v1.2). We use only strong cipher suites and HTTP Secure Transport Security (HSTS) to ensure browsers interact with Streamlit apps over HTTPS. We also encrypt data at rest using AES-256.
 
 ### Permissions and Authentication
 
-Access to customer data is limited to authorized employees who require it for their job. We run a zero-trust corporate network so there are no corporate resources or additional privileges gained from being on Streamlit's internal network. We utilize `single sign-on`, `2-factor authentication (2FA)`, and enforce strong password policies to ensure access to all cloud-related services are protected.
+Access to customer data is limited to authorized employees who require it for their job. We run a zero-trust corporate network so there are no corporate resources or additional privileges gained from being on Streamlit's internal network. We utilize single sign-on, 2-factor authentication (2FA), and enforce strong password policies to ensure access to all cloud-related services are protected.
 
 ### Incident Response
 
