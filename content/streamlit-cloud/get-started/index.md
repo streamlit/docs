@@ -22,10 +22,10 @@ Under the hood Streamlit Cloud handles all of the containerization, authenticati
 Getting your workspace set up with Streamlit Cloud only takes a few minutes. 
 
 1. [Sign up for Streamlit Cloud](#sign-up-for-streamlit-cloud)
-2. [Log in to your account]()
-3. [Connect your Streamlit Cloud account to GitHub]()
-4. [Explore your Streamlit Cloud workspace]()
-5. [Invite other developers on your team]()
+2. [Log in to your account](#log-in-to-sharestreamlitio)
+3. [Connect your Streamlit Cloud account to GitHub](#connect-your-github-account)
+4. [Explore your Streamlit Cloud workspace](#explore-your-streamlit-cloud-workspace)
+5. [Invite other developers on your team](#invite-other-developers-to-your-workspace)
 
 ## Sign up for Streamlit Cloud
 
