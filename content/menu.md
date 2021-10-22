@@ -208,24 +208,58 @@ site_menu:
     url: /streamlit-cloud
     color: l-blue-70
     icon: cloud
-  - category: Streamlit Cloud / Community tier
-    url: /streamlit-cloud/community
+
+  - category: Streamlit Cloud / Get started
+    url: /streamlit-cloud/get-started
+  - category: Streamlit Cloud / Get started / Deploy an app
+    url: /streamlit-cloud/get-started/deploy-an-app
+  - category: Streamlit Cloud / Get started / Deploy an app / App dependencies
+    url: /streamlit-cloud/get-started/deploy-an-app/app-dependencies
+  - category: Streamlit Cloud / Get started / Deploy an app / Connect to data sources
+    url: /streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources
+  - category: Streamlit Cloud / Get started / Deploy an app / Connect to data sources / Secrets management
+    url: /streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management
+  - category: Streamlit Cloud / Get started / Deploy an app / Connect to data sources / Stable outbound IP addresses
+    url: /streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/stable-outbound-ip-addresses
+  - category: Streamlit Cloud / Get started / Share your app
+    url: /streamlit-cloud/get-started/share-your-app
+  - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO)
+    url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso
+  - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Microsoft Active Directory (ADFS)
+    url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-active-directory-adfs
+  - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Microsoft Azure AD
+    url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-azure-active-directory
+  - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Okta
+    url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-okta-sso
+  - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Generic SAML
+    url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-general-saml-authentication
+  - category: Streamlit Cloud / Get started / Manage your app
+    url: /streamlit-cloud/get-started/manage-your-app
+
+  # - category: Streamlit Cloud / Additional features
+  #   url: /streamlit-cloud/additional-features
+  - category: Streamlit Cloud / Trust and Security
+    url: /streamlit-cloud/trust-and-security
+  # - category: Streamlit Cloud / Troubleshooting
+  #   url: /streamlit-cloud/troubleshooting
+  # - category: Streamlit Cloud / Community tier
+  #   url: /streamlit-cloud/community
 
 
-  - category: Streamlit Cloud / Teams and enterprise
-    url: /streamlit-cloud/enterprise
-  - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO)
-    url: /streamlit-cloud/enterprise/single-sign-on-sso
-  - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Microsoft Active Directory (ADFS)
-    url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-active-directory-adfs
-  - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Microsoft Azure AD
-    url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-azure-active-directory
-  - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Okta
-    url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-okta-sso
-  - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Generic SAML
-    url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-general-saml-authentication
-  - category: Streamlit Cloud / Teams and enterprise / Trust and Security
-    url: /streamlit-cloud/enterprise/security-model
+  # - category: Streamlit Cloud / Teams and enterprise
+  #   url: /streamlit-cloud/enterprise
+  # - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO)
+  #   url: /streamlit-cloud/enterprise/single-sign-on-sso
+  # - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Microsoft Active Directory (ADFS)
+  #   url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-active-directory-adfs
+  # - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Microsoft Azure AD
+  #   url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-azure-active-directory
+  # - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Okta
+  #   url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-okta-sso
+  # - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Generic SAML
+  #   url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-general-saml-authentication
+  # - category: Streamlit Cloud / Teams and enterprise / Trust and Security
+  #   url: /streamlit-cloud/enterprise/security-model
 
 
 
