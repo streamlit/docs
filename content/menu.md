@@ -224,7 +224,7 @@ site_menu:
     url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-okta-sso
   - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Generic SAML
     url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-general-saml-authentication
-  - category: Streamlit Cloud / Teams and enterprise / Security Model
+  - category: Streamlit Cloud / Teams and enterprise / Trust and Security
     url: /streamlit-cloud/enterprise/security-model
 
 

@@ -1,71 +1,100 @@
 ---
-title: Security Model
+title: Streamlit Trust and Security
 slug: /streamlit-cloud/enterprise/security-model
 ---
 
-# Security
+# Streamlit Trust and Security
 
-Streamlit was developed by a team of ex-Google and Heroku engineers who have woven security through every layer of the service. We analyze each feature from a security perspective and perform post-facto security analysis and penetration testing on every piece of infrastructure we deploy. This section describes the major components of Streamlit's security model.
+Streamlit is a framework that turns Python scripts into interactive apps, giving data scientists the ability to quickly create data and model-based apps for the entire company.
 
-## Code security
+A simple Streamlit app is:
 
-Your code is hosted entirely on GitHub within your private repos. Your code exists within our infrastructure inside of an isolated container. All data on disk, including your code, is encrypted at rest.
+```python
+import streamlit as st
+number = st.slider("Pick a number: ", min_value=1, max_value=10)
+st.text("Your number is " + str(number))
+```
 
-If you remove an app, the container and anything within it are removed from our platform.
+When you `streamlit run my_app.py`, you start a web server that runs the interactive application on your local computer at `http://localhost:8501`. This is great for local development. When you want to share with your colleagues, Streamlit Cloud enables you to deploy and run these applications in the cloud. Streamlit Cloud handles all the details of scaling, reliability, and security as well as providing you an interface for easily managing your deployed apps.
 
-## Data security
+This document is an overview of how we provide best-in-industry security for you. We'll cover all the important areas in the lifecycle of your data:
 
-Streamlit does not host any of your data. Instead, data is hosted on your existing services and databases, and the developer of each Streamlit app must explicitly access that data using the usual Python libraries. [Secrets Management](/streamlit-cloud/community#secrets-management) allows you to securely store authentication credentials and access them in your Streamlit app as environment variables.
+- **Product Security**: how we ensure only you can create and view apps that access your data
+- **Network and Application Security**: how we ensure your data is protected when it is in our cloud
+- **Ongoing Operations**: how we stay good stewards of security best practices
 
-### Encryption at rest
+## Product Security
 
-All source code and data on the platform is encrypted at rest while stored on disk.
+### SSO
 
-This also applies to anything your app may choose to write to disk.
+All access and sign-ins to Streamlit are conducted via an SSO provider: GitHub, GSuite, and many other platforms are supported. We can work with your IT team to integrate to your provider of choice. We do not store customer passwords.
 
-### Encryption in transit
+### Credential Storage
 
-- All traffic within our network is encrypted on the wire and authenticated.
-- All visitor web traffic to your app takes place via TLS.
-- If you connect from your app to a data source, you *can* use TLS or generally any technology you want to communicate or transfer data securely with that data source. See more [below](#accessing-data-on-different-networks).
+We encrypt sensitive customer data (e.g. secrets, authentication tokens) at-rest with AES256 as described in Google's documentation.
 
-## Data privacy
+### Permissions and Role-Based Access Control
 
-- We do not capture data from your application in any way.
-- We do capture metadata, but apps can turn this off by setting this in their config file:
+Our permission levels inherit from the permissions you have assigned in GitHub. Users with write access to a GitHub repository for a given app will be able to make changes in the Streamlit administrative console.
 
-    ```toml
-    [browser]
-    gatherUsageStats = false
-    ```
+Only users with _admin access_ to a repository are able to **deploy and delete apps**.
 
-- Any content entered by a user into your app, including uploaded files, is only ever stored on RAM.
+## Network and Application Security
 
-    Note that in the future we may store some uploaded files temporarily on disk (encrypted, as described above).
+### Data Hosting
 
-## Accessing data on different networks
+Our physical infrastructure is hosted and managed within Google Cloud Platform (GCP) using their secure data centers. Streamlit leverages many of the platform's built-in security, privacy, and redundancy features. GCP continually monitors its data centers for risk and undergoes assessments to ensure compliance with industry standards. GCP's data centers have numerous accreditations, including ISO-27001, SOC 1 and SOC 2.
 
-Many customers wish to build Streamlit apps using data that lives in their corporate network or on another service. Below are our recommended solutions for this, all of which are available today:
+### Virtual Private Cloud
 
-### Method 1: HTTP over Simple TLS Auth
+All of our servers are within a virtual private cloud (VPC) with firewalls and network access control lists (ACLs) to allow external access to a select few API endpoints; all other internal services are only accessible within the VPC.
 
-Use HTTPS when connecting to endpoints that live in your cloud, in conjunction with login and password secrets. The following guides provides examples of using this method to connect to various cloud services:
+### Encryption
 
-- [AWS S3](/knowledge-base/tutorials/databases/aws-s3)
-- [BigQuery](/knowledge-base/tutorials/databases/bigquery)
-- [Snowflake](/knowledge-base/tutorials/databases/snowflake)
-- [Firestore (blog)](https://blog.streamlit.io/streamlit-firestore/)
-- [MongoDB](/knowledge-base/tutorials/databases/mongodb)
-- [MySQL](/knowledge-base/tutorials/databases/mysql)
-- [PostgreSQL](/knowledge-base/tutorials/databases/postgresql)
-- [Tableau](/knowledge-base/tutorials/databases/tableau)
-- [Private Google Sheet](/knowledge-base/tutorials/databases/private-gsheet)
-- [Public Google Sheet](/knowledge-base/tutorials/databases/public-gsheet)
+All Streamlit apps are served entirely over HTTPS. All data sent to or from Streamlit over the public internet is encrypted in transit using 256-bit encryption. Our API and application endpoints are TLS only (v1.2). We use only strong cipher suites and HTTP Secure Transport Security (HSTS) to ensure browsers interact with Streamlit apps over HTTPS. We also encrypt data at rest using AES-256.
 
-### Method 2 (most secure): Mutual TLS Auth
+### Permissions and Authentication
 
-Use [Mutual TLS Auth](https://stackoverflow.com/a/9248748) when connecting to endpoints that live in your cloud. Mutual TLS authentication allows your app to validate your data store's identity, and your data store is able to validate your app's identity. Guides that provide examples of using this method are coming soon.
+Access to customer data is limited to authorized employees who require it for their job. We run a zero-trust corporate network so there are no corporate resources or additional privileges gained from being on Streamlit's internal network. We utilize single sign-on, 2-factor authentication (2FA), and enforce strong password policies to ensure access to all cloud-related services are protected.
 
-### References
+### Incident Response
 
-- [https://research.google/pubs/pub43231/](https://research.google/pubs/pub43231/)
+We have an internal protocol for handling security events which includes escalation procedures, rapid mitigation, and documented post-mortems. We notify customers promptly and publicize security advisories at [https://streamlit.io/advisories](https://streamlit.io/advisories).
+
+### Penetration Testing
+
+Streamlit uses third-party security tools to scan for vulnerabilities on a regular basis. Our security partners conduct periodic, intensive penetration tests on the Streamlit platform. Our product development team immediately responds to any identified issues or potential vulnerabilities to ensure the quality and security of Streamlit applications.
+
+## Security and Compliance Programs
+
+### Certifications
+
+#### SOC 2 Type 1
+
+We're committed to meeting industry security standards and are currently pursuing SOC 2 readiness. We are in audit for SOC 2 Type 1 and it will be completed in Q4 2021.
+
+### People
+
+#### Background Checks
+
+All Streamlit employees go through a thorough background check before hiring.
+
+### Training
+
+We take a least-privilege approach to the access and handling of data. While we retain a minimal amount of customer data and limit internal access on a need-to-know basis, all employees are required to review related security policies and are trained on proper data handling to ensure they uphold our strict commitment to the privacy and security of your data.
+
+### Confidentiality
+
+All employees sign a confidentiality agreement before they start at Streamlit.
+
+## Vulnerability Control
+
+### Vulnerability Management
+
+We keep our systems up-to-date with the latest security patches and continuously monitor for new vulnerabilities through compliance and security mailing lists. This includes automatic scanning of our code repositories for vulnerable dependencies.
+
+<Note>
+
+If you have further questions about Streamlit for Teams and our security approach, please email us at success@streamlit.io
+
+</Note>
