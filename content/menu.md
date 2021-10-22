@@ -236,12 +236,12 @@ site_menu:
   - category: Streamlit Cloud / Get started / Manage your app
     url: /streamlit-cloud/get-started/manage-your-app
 
-  - category: Streamlit Cloud / Additional features
-    url: /streamlit-cloud/additional-features
+  # - category: Streamlit Cloud / Additional features
+  #   url: /streamlit-cloud/additional-features
   - category: Streamlit Cloud / Trust and Security
     url: /streamlit-cloud/trust-and-security
-  - category: Streamlit Cloud / Troubleshooting
-    url: /streamlit-cloud/troubleshooting
+  # - category: Streamlit Cloud / Troubleshooting
+  #   url: /streamlit-cloud/troubleshooting
   # - category: Streamlit Cloud / Community tier
   #   url: /streamlit-cloud/community
 
