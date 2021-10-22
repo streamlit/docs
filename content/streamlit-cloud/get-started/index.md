@@ -35,7 +35,7 @@ Once you've selected a package, login to [share.streamlit.io](http://share.strea
 
 ## Log in to share.streamlit.io
 
-You have the choice to login with GitHub or Google. We recommend starting with GitHub the first time you log in, and then [connecting your Google account]() or [SSO provider afterwards]().
+You have the choice to login with GitHub or Google. We recommend starting with GitHub the first time you log in, and then [connecting your Google account]() or [SSO provider afterwards](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso).
 
 <div style={{ maxWidth: '45%', marginBottom: '-3em' }}>
     <Image alt="Cloud sign in" src="/images/streamlit-cloud/cloud-sign-in.png" />
@@ -72,11 +72,11 @@ If you're having trouble finding where to connect your accounts, [see this guide
 
 ## Explore your Streamlit Cloud workspace
 
-Congrats! You are now logged in and ready to go. If you are joining someone else's workspace you may already see apps populated in your workspace. If not, then you need to deploy an app! Check out our next section on how to [deploy an app](). And if you need an app to deploy check out our [example apps](https://share.streamlit.io/streamlit/cloud-example-apps/main) that include apps for machine learning, data science, and business use cases.
+Congrats! You are now logged in and ready to go. If you are joining someone else's workspace you may already see apps populated in your workspace. If not, then you need to deploy an app! Check out our next section on how to [deploy an app](/streamlit-cloud/get-started/deploy-an-app). And if you need an app to deploy check out our [example apps](https://share.streamlit.io/streamlit/cloud-example-apps/main) that include apps for machine learning, data science, and business use cases.
 
 <Image alt="Workspace 1" src="/images/streamlit-cloud/workspace-1.png" />
 
-You may also find that you already have multiple Streamlit Cloud workspaces. Streamlit Cloud  automatically groups your apps according to the corresponding GitHub repository's owner. In the upper right corner you can see the workspaces you have access to. If your team has already launched apps, then you will see those apps in your workspace. Read more about workspaces [here]().
+You may also find that you already have multiple Streamlit Cloud workspaces. Streamlit Cloud  automatically groups your apps according to the corresponding GitHub repository's owner. In the upper right corner you can see the workspaces you have access to. If your team has already launched apps, then you will see those apps in your workspace. Read more about workspaces [here](/streamlit-cloud/get-started/manage-your-app#app-workspaces).
 
 <Image alt="Workspace 2" src="/images/streamlit-cloud/workspace-2.png" />
 
