@@ -92,11 +92,9 @@ specifically for visualizing data.
 
 ### Use magic
 
-You can also write to your app without calling any
-Streamlit methods. Streamlit supports "[magic
-commands](/library/api-reference/write-magic/magic)," which means you don't have to use
-[`st.write()`](/library/api-reference/write-magic/st.write) at all! Try replacing the code above
-with this snippet:
+You can also write to your app without calling any Streamlit methods. 
+Streamlit supports "[magic commands](/library/api-reference/write-magic/magic)," which means you don't have to use
+[`st.write()`](/library/api-reference/write-magic/st.write) at all! To see this in action try this snippet:
 
 ```python
 """
