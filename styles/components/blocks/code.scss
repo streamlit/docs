@@ -127,9 +127,18 @@
         height: 2rem;
         width: 2rem;
         margin-bottom: 0;
+        display: flex;
+        align-items: center;
 
-        // Hide "copy" string that causes x-overflow.
-        font-size: 0;
+        span {
+            position: absolute;
+            right: calc(100% + .25rem);
+            color: #ffffff;
+            font-family: monospace;
+            font-size: .8rem;
+            font-weight: 400;
+            opacity: 0;
+        }
 
         &:before {
             content:url('/clipboard.svg');
@@ -158,6 +167,10 @@
         &:hover {
             &:before {
                 opacity:.5;
+            }
+
+            span {
+                opacity: 1;
             }
         }
 
