@@ -68,11 +68,18 @@ export default class NavItem extends React.Component {
         if (props.page.url.startsWith('/')) {
             navItem = (
                 <li className="nav-item small" id={props.page.menu_key}>
-                    <Link href={props.page.url}>
-                        <a className="not-link">
+                    {/* TBD: Removed the <Link> component for now on the `/library` URL, to trigger a page refresh and redirect to `/library/get-started` until we have the `/library` page populated */}
+                    {props.page.url === '/library' ?
+                        <a className="not-link" href={props.page.url}>
                             {navBox}
                         </a>
-                    </Link>
+                        :
+                        <Link href={props.page.url}>
+                            <a className="not-link">
+                                {navBox}
+                            </a>
+                        </Link>
+                    }
                     {subNav}
                 </li>
             )
