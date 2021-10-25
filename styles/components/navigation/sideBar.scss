@@ -12,6 +12,7 @@
 
     .inner-nav {
         list-style: none;
+        overscroll-behavior: contain;
     }
 
     @media(min-width: 1250px) {
