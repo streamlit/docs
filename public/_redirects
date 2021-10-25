@@ -5,7 +5,7 @@
 /en/latest/api.html    /library/api-reference
 /en/latest/caching.html    /library/api-reference/performance/st.cache
 /en/latest/changelog.html    /library/changelog
-/en/latest/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/latest/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/latest/develop_streamlit_components.html    /library/components
 /en/latest/getting_started.html    /library/get-started
 /en/latest/index.html    /
@@ -41,7 +41,7 @@
 /en/stable/api.html    /library/api-reference
 /en/stable/caching.html    /library/advanced-features/caching
 /en/stable/changelog.html    /library/changelog
-/en/stable/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/stable/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/stable/develop_streamlit_components.html    /library/components/components-api
 /en/stable/getting_started.html    /library/get-started
 /en/stable/index.html    /
@@ -212,7 +212,7 @@
 /en/0.68.0/api.md    /library/get-started
 /en/0.68.0/caching.html    /library/advanced-features/caching
 /en/0.68.0/changelog.html    /library/changelog
-/en/0.68.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.68.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.68.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.68.0/getting_started.html    /library/get-started
 /en/0.68.0/getting_started.md    /library/get-started
@@ -235,7 +235,7 @@
 /en/0.69.0/api.md    /library/get-started
 /en/0.69.0/caching.html    /library/advanced-features/caching
 /en/0.69.0/changelog.html    /library/changelog
-/en/0.69.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.69.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.69.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.69.0/getting_started.html    /library/get-started
 /en/0.69.0/getting_started.md    /library/get-started
@@ -258,7 +258,7 @@
 /en/0.70.0/api.md    /library/get-started
 /en/0.70.0/caching.html    /library/advanced-features/caching
 /en/0.70.0/changelog.html    /library/changelog
-/en/0.70.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.70.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.70.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.70.0/getting_started.html    /library/get-started
 /en/0.70.0/getting_started.md    /library/get-started
@@ -281,7 +281,7 @@
 /en/0.71.0/api.md    /library/get-started
 /en/0.71.0/caching.html    /library/advanced-features/caching
 /en/0.71.0/changelog.html    /library/changelog
-/en/0.71.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.71.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.71.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.71.0/getting_started.html    /library/get-started
 /en/0.71.0/getting_started.md    /library/get-started
@@ -304,7 +304,7 @@
 /en/0.72.0/api.md    /library/get-started
 /en/0.72.0/caching.html    /library/advanced-features/caching
 /en/0.72.0/changelog.html    /library/changelog
-/en/0.72.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.72.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.72.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.72.0/getting_started.html    /library/get-started
 /en/0.72.0/getting_started.md    /library/get-started
@@ -327,7 +327,7 @@
 /en/0.73.0/api.md    /library/get-started
 /en/0.73.0/caching.html    /library/advanced-features/caching
 /en/0.73.0/changelog.html    /library/changelog
-/en/0.73.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.73.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.73.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.73.0/getting_started.html    /library/get-started
 /en/0.73.0/getting_started.md    /library/get-started
@@ -350,7 +350,7 @@
 /en/0.74.0/api.md    /library/get-started
 /en/0.74.0/caching.html    /library/advanced-features/caching
 /en/0.74.0/changelog.html    /library/changelog
-/en/0.74.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.74.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.74.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.74.0/getting_started.html    /library/get-started
 /en/0.74.0/getting_started.md    /library/get-started
@@ -373,7 +373,7 @@
 /en/0.75.0/api.md    /library/get-started
 /en/0.75.0/caching.html    /library/advanced-features/caching
 /en/0.75.0/changelog.html    /library/changelog
-/en/0.75.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.75.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.75.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.75.0/getting_started.html    /library/get-started
 /en/0.75.0/getting_started.md    /library/get-started
@@ -396,7 +396,7 @@
 /en/0.76.0/api.md    /library/get-started
 /en/0.76.0/caching.html    /library/advanced-features/caching
 /en/0.76.0/changelog.html    /library/changelog
-/en/0.76.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.76.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.76.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.76.0/getting_started.html    /library/get-started
 /en/0.76.0/getting_started.md    /library/get-started
@@ -419,7 +419,7 @@
 /en/0.77.0/api.md    /library/get-started
 /en/0.77.0/caching.html    /library/advanced-features/caching
 /en/0.77.0/changelog.html    /library/changelog
-/en/0.77.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.77.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.77.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.77.0/getting_started.html    /library/get-started
 /en/0.77.0/getting_started.md    /library/get-started
@@ -442,7 +442,7 @@
 /en/0.78.0/api.md    /library/get-started
 /en/0.78.0/caching.html    /library/advanced-features/caching
 /en/0.78.0/changelog.html    /library/changelog
-/en/0.78.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.78.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.78.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.78.0/getting_started.html    /library/get-started
 /en/0.78.0/getting_started.md    /library/get-started
@@ -464,7 +464,7 @@
 /en/0.79.0/api.html    /library/api-reference
 /en/0.79.0/caching.html    /library/advanced-features/caching
 /en/0.79.0/changelog.html    /library/changelog
-/en/0.79.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.79.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.79.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.79.0/getting_started.html    /library/get-started
 /en/0.79.0/index.html    /
@@ -486,7 +486,7 @@
 /en/0.80.0/api.html    /library/api-reference
 /en/0.80.0/caching.html    /library/advanced-features/caching
 /en/0.80.0/changelog.html    /library/changelog
-/en/0.80.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.80.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.80.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.80.0/getting_started.html    /library/get-started
 /en/0.80.0/index.html    /
@@ -508,7 +508,7 @@
 /en/0.81.0/api.html    /library/api-reference
 /en/0.81.0/caching.html    /library/advanced-features/caching
 /en/0.81.0/changelog.html    /library/changelog
-/en/0.81.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.81.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.81.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.81.0/getting_started.html    /library/get-started
 /en/0.81.0/index.html    /
@@ -530,7 +530,7 @@
 /en/0.81.1/api.html    /library/api-reference
 /en/0.81.1/caching.html    /library/advanced-features/caching
 /en/0.81.1/changelog.html    /library/changelog
-/en/0.81.1/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.81.1/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.81.1/develop_streamlit_components.html    /library/components/components-api
 /en/0.81.1/getting_started.html    /library/get-started
 /en/0.81.1/index.html    /
@@ -552,7 +552,7 @@
 /en/0.82.0/api.html    /library/api-reference
 /en/0.82.0/caching.html    /library/advanced-features/caching
 /en/0.82.0/changelog.html    /library/changelog
-/en/0.82.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.82.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.82.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.82.0/getting_started.html    /library/get-started
 /en/0.82.0/index.html    /
@@ -574,7 +574,7 @@
 /en/0.83.0/api.html    /library/api-reference
 /en/0.83.0/caching.html    /library/advanced-features/caching
 /en/0.83.0/changelog.html    /library/changelog
-/en/0.83.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.83.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.83.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.83.0/getting_started.html    /library/get-started
 /en/0.83.0/index.html    /
@@ -605,7 +605,7 @@
 /en/0.84.0/api.html    /library/api-reference
 /en/0.84.0/caching.html    /library/advanced-features/caching
 /en/0.84.0/changelog.html    /library/changelog
-/en/0.84.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.84.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.84.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.84.0/getting_started.html    /library/get-started
 /en/0.84.0/index.html    /
@@ -637,7 +637,7 @@
 /en/0.85.0/api.html    /library/api-reference
 /en/0.85.0/caching.html    /library/advanced-features/caching
 /en/0.85.0/changelog.html    /library/changelog
-/en/0.85.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.85.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.85.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.85.0/getting_started.html    /library/get-started
 /en/0.85.0/index.html    /
@@ -670,7 +670,7 @@
 /en/0.86.0/api.html    /library/api-reference
 /en/0.86.0/caching.html    /library/advanced-features/caching
 /en/0.86.0/changelog.html    /library/changelog
-/en/0.86.0/deploy_streamlit_app.html    /streamlit-cloud/community
+/en/0.86.0/deploy_streamlit_app.html    /streamlit-cloud/get-started/deploy-an-app
 /en/0.86.0/develop_streamlit_components.html    /library/components/components-api
 /en/0.86.0/getting_started.html    /library/get-started
 /en/0.86.0/index.html    /
@@ -703,7 +703,7 @@
 /en/0.87.0/api.html		/library/api-reference
 /en/0.87.0/caching.html		/library/advanced-features/caching
 /en/0.87.0/changelog.html		/library/changelog
-/en/0.87.0/deploy_streamlit_app.html		/streamlit-cloud/community
+/en/0.87.0/deploy_streamlit_app.html		/streamlit-cloud/get-started/deploy-an-app
 /en/0.87.0/develop_streamlit_components.html		/library/components/components-api
 /en/0.87.0/getting_started.html		/library/get-started
 /en/0.87.0/index.html		/
@@ -736,7 +736,7 @@
 /en/0.88.0/api.html		/library/api-reference
 /en/0.88.0/caching.html		/library/advanced-features/caching
 /en/0.88.0/changelog.html		/library/changelog
-/en/0.88.0/deploy_streamlit_app.html		/streamlit-cloud/community
+/en/0.88.0/deploy_streamlit_app.html		/streamlit-cloud/get-started/deploy-an-app
 /en/0.88.0/develop_streamlit_components.html		/library/components/components-api
 /en/0.88.0/getting_started.html		/library/get-started
 /en/0.88.0/index.html		/
@@ -769,7 +769,7 @@
 /en/0.89.0/api.html		/library/api-reference
 /en/0.89.0/caching.html		/library/advanced-features/caching
 /en/0.89.0/changelog.html		/library/changelog
-/en/0.89.0/deploy_streamlit_app.html		/streamlit-cloud/community
+/en/0.89.0/deploy_streamlit_app.html		/streamlit-cloud/get-started/deploy-an-app
 /en/0.89.0/develop_streamlit_components.html		/library/components/components-api
 /en/0.89.0/getting_started.html		/library/get-started
 /en/0.89.0/index.html		/
@@ -802,7 +802,7 @@
 /en/1.0.0/api.html		/library/api-reference
 /en/1.0.0/caching.html		/library/advanced-features/caching
 /en/1.0.0/changelog.html		/library/changelog
-/en/1.0.0/deploy_streamlit_app.html		/streamlit-cloud/community
+/en/1.0.0/deploy_streamlit_app.html		/streamlit-cloud/get-started/deploy-an-app
 /en/1.0.0/develop_streamlit_components.html		/library/components/components-api
 /en/1.0.0/getting_started.html		/library/get-started
 /en/1.0.0/index.html		/
@@ -829,7 +829,7 @@
 /en/1.0.0/tutorial/private_gsheet.html		/knowledge-base/tutorials/databases/private-gsheet
 /en/1.0.0/tutorial/public_gsheet.html		/knowledge-base/tutorials/databases/public-gsheet
 /en/1.0.0/tutorial/tableau.html		/knowledge-base/tutorials/databases/tableau
-/deploy_streamlit_app.html	/streamlit-cloud/community
+/deploy_streamlit_app.html	/streamlit-cloud/get-started/deploy-an-app
 /tutorial/create_a_data_explorer_app.html	/library/get-started/create-an-app
 /getting_started.html	/library/get-started
 /develop_streamlit_components.html	/library/components/create
