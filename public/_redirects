@@ -1,4 +1,5 @@
 
+/library	/library/get-started
 /en/latest/    /
 /en/latest/add_state_app.html    /library/advanced-features/session-state
 /en/latest/advanced_concepts.html    /knowledge-base/using-streamlit
