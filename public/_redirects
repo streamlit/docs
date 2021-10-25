@@ -1,4 +1,5 @@
 
+/library	/library/get-started
 /en/latest/    /
 /en/latest/add_state_app.html    /library/advanced-features/session-state
 /en/latest/advanced_concepts.html    /knowledge-base/using-streamlit
@@ -842,4 +843,3 @@
 /en/latest/advanced_caching.html	/library/advanced-features/caching
 /en/stable/advanced_caching.html	/library/advanced-features/caching
 /troubleshooting/caching_issues.html	/knowledge-base/using-streamlit/caching-issues
-/library  /library/get-started
