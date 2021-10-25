@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/library"
+  to = "/library/get-started"
+  status = 301
+  force = true
