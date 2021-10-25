@@ -7,7 +7,8 @@
     "build": "next build",
     "postbuild": "node ./scripts/build-search-index.js && next-sitemap",
     "start": "next start",
-    "export": "next build && next export && node ./scripts/build-search-index.js && next-sitemap"
+    "export": "next build && next export && node ./scripts/build-search-index.js && next-sitemap",
+    "prepare": "husky install"
   },
   "dependencies": {
     "16": "0.0.2",
@@ -64,5 +65,14 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "husky": "^7.0.0",
+    "pretty-quick": "^3.1.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
 }
