@@ -5,6 +5,8 @@ slug: /streamlit-cloud/get-started
 
 # Get started
 
+Welcome to Streamlit Cloud! First things first, before you get started with Streamlit Cloud, you need to have a Streamlit app to deploy. If you haven't built one yet, read our [Get started](/library/get-started) docs or start with an [Example app](https://share.streamlit.io/streamlit/cloud-example-apps/main). Either way, it only takes a few minutes to create your first app. 
+
 ## How Streamlit Cloud works
 
 Streamlit Cloud is a workspace for your team to deploy, manage, and collaborate on your Streamlit apps. You connect your Streamlit Cloud account directly to your GitHub repository (public or private) and then Streamlit Cloud launches the apps directly from the code you've stored on GitHub. Most apps will launch in only a few minutes, and any time you update the code on GitHub, your app will automatically update for you. This creates a fast iteration cycle for your deployed apps, so that developers and viewers of apps can rapidly prototype, explore, and update apps.
