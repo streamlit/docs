@@ -1,3 +1,4 @@
+import React from 'react'
 import MediaQuery from 'react-responsive'
 import Head from 'next/head'
 
@@ -24,7 +25,10 @@ import Button from '../components/blocks/button'
 import InlineCallout from '../components/blocks/inlineCallout'
 import NoteSplit from '../components/blocks/noteSplit'
 
+import { attributes } from "../content/index.md";
+
 export default function Home({ window, menu, gdpr_data }) {
+  let { description } = attributes;
 
   return (
     <Layout window={window}>
@@ -34,6 +38,32 @@ export default function Home({ window, menu, gdpr_data }) {
         <link rel="alternate icon" href="/favicon32.ico" />
         <meta name="theme-color" content="#ffffff" />
         <link rel="canonical" href={`https://${process.env.NEXT_PUBLIC_HOSTNAME}`} />
+        <meta
+          content="Streamlit Docs"
+          property="og:title"
+        />
+        <meta
+          content="Streamlit Docs"
+          name="twitter:title"
+        />
+        {description &&
+          <React.Fragment>
+            <meta content={description} name="description" />
+            <meta content={description} property="og:description" />
+            <meta content={description} name="twitter:description" />
+          </React.Fragment>
+        }
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://docs.streamlit.io/" />
+        <meta content="summary_large_image" name="twitter:card" />
+        <meta
+          property="og:image"
+          content={`${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-facebook.jpg`}
+        />
+        <meta
+          name="twitter:image"
+          content={`${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-twitter.jpg`}
+        />
       </Head>
       <section className="page container template-expanded-wide">
         <GDPRBanner {...gdpr_data} />
