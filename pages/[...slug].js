@@ -141,6 +141,32 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                             :
                             <link rel="canonical" href={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/${slug.join('/')}`} />
                         }
+                        <meta
+                        content={`${data.title} - Streamlit Docs`}
+                        property="og:title"
+                        />
+                        <meta
+                        content={`${data.title} - Streamlit Docs`}
+                        name="twitter:title"
+                        />
+                        {data.description &&
+                            <React.Fragment>
+                                <meta content={data.description} name="description" />
+                                <meta content={data.description} property="og:description" />
+                                <meta content={data.description} name="twitter:description" />
+                            </React.Fragment>
+                        }
+                        <meta property="og:type" content="website" />
+                        <meta property="og:url" content="https://docs.streamlit.io/" />
+                        <meta content="summary_large_image" name="twitter:card" />
+                        <meta
+                        property="og:image"
+                        content={`${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-facebook.jpg`}
+                        />
+                        <meta
+                        name="twitter:image"
+                        content={`${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-twitter.jpg`}
+                        />
                     </Head>
                     <section className="content wide" id="documentation">
                         {versionWarning}
@@ -273,7 +299,8 @@ export async function getStaticPaths() {
                 slug: realSlug,
                 location: slug,
                 fileName: articles[index],
-                title: data.title ? data.title : 'Untitled'
+                title: data.title ? data.title : 'Untitled',
+                description: data.description ? data.description : '',
             }
         }
 
@@ -299,7 +326,8 @@ export async function getStaticPaths() {
                     slug: newSlug,
                     location: versioned_location,
                     fileName: articles[index],
-                    title: data.title ? data.title : 'Untitled'
+                    title: data.title ? data.title : 'Untitled',
+                    description: data.description ? data.description : '',
                 }
             }
             paths.push(path)

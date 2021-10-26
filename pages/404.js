@@ -14,6 +14,28 @@ export default function Home({ window, menu }) {
                 <link rel="icon" href="/favicon.svg" />
                 <link rel="alternate icon" href="/favicon32.ico" />
                 <meta name="theme-color" content="#ffffff" />
+                <meta content="Streamlit is an open-source app framework for Machine Learning and Data Science teams. Create beautiful data apps in hours, not weeks. All in pure Python. All for free." name="description" />
+                <meta
+                content="Streamlit Docs"
+                property="og:title"
+                />
+                <meta content="Streamlit is an open-source app framework for Machine Learning and Data Science teams. Create beautiful data apps in hours, not weeks. All in pure Python. All for free." property="og:description" />
+                <meta
+                content="Streamlit Docs"
+                name="twitter:title"
+                />
+                <meta content="Streamlit is an open-source app framework for Machine Learning and Data Science teams. Create beautiful data apps in hours, not weeks. All in pure Python. All for free." name="twitter:description" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://docs.streamlit.io/" />
+                <meta content="summary_large_image" name="twitter:card" />
+                <meta
+                property="og:image"
+                content={`${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-facebook.jpg`}
+                />
+                <meta
+                name="twitter:image"
+                content={`${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-twitter.jpg`}
+                />
             </Head>
             <section className="page container template-expanded-wide">
                 <SideBar menu={menu} slug={['404']} />
