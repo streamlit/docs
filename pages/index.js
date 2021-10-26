@@ -29,7 +29,7 @@ export default function Home({ window, menu, gdpr_data }) {
   return (
     <Layout window={window}>
       <Head>
-        <title>Streamlit Docs</title>
+        <title>Streamlit documentation</title>
         <link rel="icon" href="/favicon.svg" />
         <link rel="alternate icon" href="/favicon32.ico" />
         <meta name="theme-color" content="#ffffff" />
@@ -40,7 +40,7 @@ export default function Home({ window, menu, gdpr_data }) {
         <SideBar menu={menu} slug={[]} />
         <section className="content wide">
           <article>
-            <H1>Welcome to Streamlit docs</H1>
+            <H1>Streamlit documentation</H1>
             <p><a href="https://www.streamlit.io">Streamlit</a> is an open-source Python library that makes it easy to create and share beautiful, custom web apps for machine learning and data science. In just a few minutes you can build and deploy powerful data apps - so let’s get started!</p>
 
             <Spacer size="2rem" />
