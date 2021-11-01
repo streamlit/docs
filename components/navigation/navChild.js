@@ -89,7 +89,7 @@ function NavChild(props) {
     <span className={`child-item ${active ? "active" : ""}`}>
       <Link href={url}>
         <a className="not-link" target={target}>
-          {active && <span className={`colored-ball bg-${props.color}`} />}
+          <span className={`colored-ball bg-${props.color}`} />
           <span>{props.page.name}</span> {icon}
         </a>
       </Link>
