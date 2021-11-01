@@ -53,7 +53,7 @@ Streamlit provides a caching mechanism that allows your app to stay performant e
 
 </RefCard>
 
-<RefCard href="/library/advanced-features/caching" size="half">
+<RefCard href="/library/advanced-features/session-state" size="half">
 
 ##### Add statefulness to apps
 Session State is a way to share variables between reruns, for each user session. In addition to the ability to store and persist state, Streamlit also exposes the ability to manipulate state using Callbacks.
