@@ -242,8 +242,8 @@ site_menu:
     url: /streamlit-cloud/trust-and-security
   - category: Streamlit Cloud / Release notes
     url: https://share.streamlit.io/streamlit/cloud_release_notes_app/main/main.py
-  # - category: Streamlit Cloud / Troubleshooting
-  #   url: /streamlit-cloud/troubleshooting
+  - category: Streamlit Cloud / Troubleshooting
+    url: /streamlit-cloud/troubleshooting
   # - category: Streamlit Cloud / Community tier
   #   url: /streamlit-cloud/community
 
