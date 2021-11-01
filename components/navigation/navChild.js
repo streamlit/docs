@@ -65,12 +65,6 @@ function NavChild(props) {
     target = "_blank";
   }
 
-  let coloredBall;
-
-  if (active) {
-    coloredBall = <span className={`colored-ball bg-${props.color}`} />;
-  }
-
   let url = props.page.url;
 
   if (
@@ -95,7 +89,7 @@ function NavChild(props) {
     <span className={`child-item ${active ? "active" : ""}`}>
       <Link href={url}>
         <a className="not-link" target={target}>
-          {coloredBall}
+          {active && <span className={`colored-ball bg-${props.color}`} />}
           <span>{props.page.name}</span> {icon}
         </a>
       </Link>
