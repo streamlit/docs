@@ -5,7 +5,7 @@ slug: /streamlit-cloud
 
 # Welcome to Streamlit Cloud
 
-Streamlit Cloud is a workspace for you and your team to easily deploy, manage, and collaborate on your Streamlit apps. If you're just getting started and have not yet built your first Streamlit app, check out the main [Get started](/library/get-started) page first. When you're ready to share it, create a Streamlit Cloud account and you can launch your app in just a few minutes! There are [multiple plans](http://streamlit.io/cloud) — including a free plan! — so that you can choose the right type of workspace for your needs.
+Streamlit Cloud is a workspace for you and your team to easily deploy, manage, and collaborate on your Streamlit apps. If you're just getting started and have not yet built your first Streamlit app, check out the main [Get started](/library/get-started) page first. When you're ready to share it, create a Streamlit Cloud account and you can launch your app in just a few minutes! There are [multiple plans](http://streamlit.io/cloud)—including a free plan!—so that you can choose the right type of workspace for your needs.
 
 <!-- <InlineCalloutContainer>
   <InlineCallout
