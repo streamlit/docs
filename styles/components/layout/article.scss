@@ -1,13 +1,13 @@
 article.leaf-page {
-    position: relative;
-   
-    @media (min-width: 1448px) {
-        .toc:not(.advanced-features) {
-            display: block;
+  position: relative;
 
-            & ~ .content {
-                padding-right: calc(226px + 2rem);
-            }
-        }
+  @media (min-width: 1448px) {
+    .toc:not(.advanced-features) {
+      display: block;
+
+      & ~ .content {
+        padding-right: calc(226px + 2rem);
+      }
     }
+  }
 }

@@ -7,15 +7,15 @@
     break-inside: avoid;
   }
 
-  @media(min-width:1024px) {
+  @media (min-width: 1024px) {
     columns: 2;
   }
 
-  @media(min-width:1440px) {
+  @media (min-width: 1440px) {
     columns: 3;
   }
 
-  @media(min-width:1920px) {
+  @media (min-width: 1920px) {
     columns: 3;
   }
 }

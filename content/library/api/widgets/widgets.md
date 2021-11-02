@@ -204,5 +204,3 @@ color = st.color_picker("Pick a color")
 
 </RefCard>
 </TileContainer>
-
-

@@ -5,7 +5,7 @@ slug: /streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources
 
 # Connect data sources
 
-Your app probably connects to some data source, and it's important to make sure that connection is secure. That data might just be a csv that you have in your GitHub repo, but in many cases it'll be a private data source you connect with via API, on a cloud service, or maybe in your company's VPN. 
+Your app probably connects to some data source, and it's important to make sure that connection is secure. That data might just be a csv that you have in your GitHub repo, but in many cases it'll be a private data source you connect with via API, on a cloud service, or maybe in your company's VPN.
 
 Streamlit has two primary ways of securely connecting to private data:
 

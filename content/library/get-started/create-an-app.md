@@ -57,12 +57,12 @@ Streamlit is more than just a way to make data apps, it’s also a community of 
 
     <Tip>
 
-    Did you know you can also pass a URL to `streamlit run`? This is great when combined with Github Gists. For example:
-    
-    ```bash
-    $ streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
-    ```
-  
+   Did you know you can also pass a URL to `streamlit run`? This is great when combined with Github Gists. For example:
+
+   ```bash
+   $ streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
+   ```
+
    </Tip>
 
 5. As usual, the app should automatically open in a new tab in your
@@ -410,5 +410,5 @@ run into difficulties here are a few things you can do.
 - Quick help from command line with `$ streamlit help`
 - Go through our [Knowledge Base](/knowledge-base) for tips, step-by-step tutorials, and articles that answer your questions about creating and deploying Streamlit apps.
 - Read more documentation! Check out:
-    - [Advanced features](/library/advanced-features) for things like caching, theming, and adding statefulness to apps.
-    - [API reference](/library/api-reference/) for examples of every Streamlit command.
+  - [Advanced features](/library/advanced-features) for things like caching, theming, and adding statefulness to apps.
+  - [API reference](/library/api-reference/) for examples of every Streamlit command.

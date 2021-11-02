@@ -18,22 +18,23 @@ Secrets Management allows you to store secrets securely and access them in your 
 1. Go to [http://share.streamlit.io/](http://share.streamlit.io/) and click "New app" to deploy a new app with secrets.
 2. Click "Advanced settings..."
 3. You will see a modal appear with an input box for your secrets.
-    
-    ![Secrets management](/images/streamlit-cloud/secrets-management.png)
+
+   ![Secrets management](/images/streamlit-cloud/secrets-management.png)
+
 4. Provide your secrets in the "Secrets" field using [TOML](https://toml.io/en/latest) format. For example:
-    
-    ```toml
-    # Everything in this section will be available as an environment variable 
-    db_username = "Jane"
-    db_password = "12345qwerty"
-    
-    # You can also add other sections if you like.
-    # The contents of sections as shown below will not become environment variables,
-    # but they'll be easily accessible from within Streamlit anyway as we show
-    # later in this doc.   
-    [my_cool_secrets]
-    things_i_like = ["Streamlit", "Python"]
-    ```
+
+   ```toml
+   # Everything in this section will be available as an environment variable
+   db_username = "Jane"
+   db_password = "12345qwerty"
+
+   # You can also add other sections if you like.
+   # The contents of sections as shown below will not become environment variables,
+   # but they'll be easily accessible from within Streamlit anyway as we show
+   # later in this doc.
+   [my_cool_secrets]
+   things_i_like = ["Streamlit", "Python"]
+   ```
 
 ### Use secrets in your app
 
@@ -58,7 +59,7 @@ st.write(
 )
 ```
 
-Pro-tip! You can use TOML sections to compactly pass multiple secrets as a single attribute. 
+Pro-tip! You can use TOML sections to compactly pass multiple secrets as a single attribute.
 
 Consider the following secrets:
 
@@ -82,9 +83,9 @@ my_db.connect(**st.secrets.db_credentials)
 
 1. Go to [https://share.streamlit.io/](https://share.streamlit.io/)
 2. Open the menu for your app, and click "Edit Secrets"
-    ![Edit secrets](/images/streamlit-cloud/edit-secrets.png)
+   ![Edit secrets](/images/streamlit-cloud/edit-secrets.png)
 3. You will see a modal appear in which you can enter your secrets
-    ![Edit secrets modal](/images/streamlit-cloud/edit-secrets-1.png)
+   ![Edit secrets modal](/images/streamlit-cloud/edit-secrets-1.png)
 4. After you edit your secrets, click "Save". It might take a minute for the update to be propagated to your app, but the new values will be reflected when the app re-runs.
 
 ### Develop locally with secrets

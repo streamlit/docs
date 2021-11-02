@@ -257,4 +257,3 @@ Here are some limitations to keep in mind when using Session State:
 - Session State exists for as long as the tab is open and connected to the Streamlit server. As soon as you close the tab, everything stored in Session State is lost.
 - Session State is not persisted. If the Streamlit server crashes, then everything stored in Session State gets wiped
 - For caveats and limitations with the Session State API, please see the [API limitations](/library/api-reference/session-state#caveats-and-limitations).
-
