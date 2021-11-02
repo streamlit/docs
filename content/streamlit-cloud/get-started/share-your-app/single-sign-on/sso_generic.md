@@ -16,14 +16,14 @@ Enabling Single Sign-On via generic SAML allows members of your organization to 
 - Your developers can use SSO via generic SAML to log into Streamlit and access their app dashboard.
 - Your developers can also give access to app viewers through their generic SAML logins.
 
-### Single Sign-On via Okta for viewers of your organization's private apps
+### Single Sign-On via generic SAML for viewers of your organization's private apps
 
 - Viewers added to a private app can use SSO via generic SAML to authenticate their identity.
 - These viewers must be added to the app's viewer list by their generic SAML-associated email address.
 
-## Configuration Okta SSO
+## Configuring SSO via Generic SAML
 
-There are three steps your team will need to complete to create an Okta SSO connection:
+There are three steps your team will need to complete to configure SSO via generic SAML:
 
 1. Please complete [this form](https://docs.google.com/forms/d/e/1FAIpQLSenELJzAZaBV8852b-HJMeecO_LAwYJ6zuYbXLK0lMVexCF4Q/viewform)
 
@@ -31,12 +31,12 @@ There are three steps your team will need to complete to create an Okta SSO conn
 
 2. Provide Streamlit with a Token Signature (X.509 Certificate).
 
-    - Follow [WorkOS' instructions to generate the token signature](https://workos.com/docs/integrations/azure-ad-saml/overview) (see ["Obtain Identity Provider Details"](https://workos.com/docs/integrations/azure-ad-saml/obtain-identity-provider-details)).
+    - Your Token Signature comes from your Identity Provider and is often located in an admin dashboard. The exact steps to download the Token Signature will vary based on your Identity Provider.
     - Please share the Token Signature with Streamlit by uploading it [here](https://docs.google.com/forms/d/e/1FAIpQLSdtV7hdpMEgfbK4E7BqeYNTcDrT6IqjOfSvIA48SoNAeIhcgw/viewform?usp=sf_link).
 
 3. Provide Streamlit with an Identity Provider SSO URL.
 
-    - Follow [WorkOS' instructions to generate the IdP SSO URL](https://workos.com/docs/integrations/azure-ad-saml/overview) (see ["Obtain Identity Provider Details"](https://workos.com/docs/integrations/azure-ad-saml/obtain-identity-provider-details)).
+    - Your Identity Provider SSO URL comes from your Identity Provider and is often located in an admin dashboard. The exact steps to generate the Identity Provider SSO URL will vary based on your Identity Provider.
     - Please share the IdP SSO URL with Streamlit by pasting it [here](https://docs.google.com/forms/d/e/1FAIpQLSdtV7hdpMEgfbK4E7BqeYNTcDrT6IqjOfSvIA48SoNAeIhcgw/viewform?usp=sf_link).
 
 4. Provide Streamlit with an IdP URI (Entity ID)

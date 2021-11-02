@@ -21,11 +21,11 @@ Enabling Single Sign-On via Okta allows members of your organization to securely
 - Viewers added to a private app can use Okta to authenticate their identity.
 - These viewers must be added to the app's viewer list by their Okta-associated email address.
 
-## Configuration Okta SSO
+## Configuring Okta SSO
 
 There are three steps your team will need to complete to create an Okta SSO connection:
 
-1. Please complete [this form](https://docs.google.com/forms/d/e/1FAIpQLSenELJzAZaBV8852b-HJMeecO_LAwYJ6zuYbXLK0lMVexCF4Q/viewform)
+1. Please complete [this form](https://docs.google.com/forms/d/e/1FAIpQLSenELJzAZaBV8852b-HJMeecO_LAwYJ6zuYbXLK0lMVexCF4Q/viewform).
 
     To complete steps 2 and 3, you will need an **ACS URL** and **Identity Provider URI (Entity ID)**, which Streamlit will provide by emailing you a private Google Drive link. Please complete [this form](https://forms.gle/5E3pUrB8vwp66ZPc9) to provide us with your email address and some basic information about your organization.
 
@@ -37,6 +37,7 @@ There are three steps your team will need to complete to create an Okta SSO conn
 <Note>
 
 The Token Signature is a certificate used to securely sign tokens issued by Okta.
+
 </Note>
 
 3. Provide Streamlit with an Identity Provider SSO URL.

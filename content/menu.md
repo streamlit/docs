@@ -231,6 +231,8 @@ site_menu:
     url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-azure-active-directory
   - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Okta
     url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-okta-sso
+  - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Auth0
+    url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-auth0-sso
   - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Generic SAML
     url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-general-saml-authentication
   - category: Streamlit Cloud / Get started / Manage your app
