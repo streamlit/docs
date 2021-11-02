@@ -21,7 +21,7 @@ Enabling Single Sign-On via Azure AD allows members of your organization to secu
 - Viewers added to a private app can use Azure AD SSO to authenticate their identity.
 - These viewers must be added to the app's viewer list by their Azure AD/org email address.
 
-## Configuration Microsoft Azure AD SSO
+## Configuring Microsoft Azure AD SSO
 
 There are three steps your team will need to complete to create an Azure AD connection:
 
