@@ -11,7 +11,7 @@ Has your IT team requested IP addresses to allowlist within your organization's 
 
 ![Deploy an app](/images/streamlit-cloud/deploy-an-app.gif)
 
-Streamlit provides a Secrets feature that enables you to connect to your private data sources over a secure protocol within your app, such as TLS. It's super simple - create a user account or access token on your data store, and then copy it into our Secrets UI. We'll store it securely and make it available to your Streamlit application code in an environment variable. From there, you can use any standard Python library for connecting to your database.
+Streamlit provides a Secrets feature that enables you to connect to your private data sources over a secure protocol within your app, such as TLS. It's super simple. Create a user account or access token on your data store, and then copy it into our Secrets UI. We'll store it securely and make it available to your Streamlit application code in an environment variable. From there, you can use any standard Python library for connecting to your database.
 
 ## Allowlisting Streamlit's outbound IP addresses
 
