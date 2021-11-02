@@ -131,8 +131,6 @@ Your workspace is sized to a certain number of users, apps, and resources for th
 
 The free tier is free forever, but if you have opted for a Teams or Enterprise account then you will have a 30 day free trial for your workspace. When your trial is near completion, we will reach out to check if you want to continue on and if so, we'll get your billing information. You will then be billed the 1st of every month going forward.
 
-### How do I know what plan I'm on?
-
 
 ## GitHub integration
 
