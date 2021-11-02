@@ -15,6 +15,8 @@ If your organization uses **Google OAuth**, you're all set — just click "Conti
 
 - [Okta](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-okta-sso)
 
+- [Auth0](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-auth0-sso)
+
 - [Generic SAML](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-general-saml-authentication)
 
 
