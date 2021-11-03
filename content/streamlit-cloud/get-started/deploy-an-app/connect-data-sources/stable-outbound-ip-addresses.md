@@ -23,6 +23,8 @@ Streamlit currently uses **four stable outbound IP addresses**.
 - **35.230.127.150**
 - **34.127.0.121**
 - **35.230.58.211**
+- **34.127.88.74**
+- **35.230.56.30**
 
 For more information about the specifics of allowlisting IP addresses with your organization's hosting service, we recommend reaching out to your IT team. The exact steps will vary based on your hosting service.
 
