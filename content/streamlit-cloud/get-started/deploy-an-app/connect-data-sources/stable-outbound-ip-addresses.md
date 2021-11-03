@@ -17,7 +17,7 @@ Streamlit provides a Secrets feature that enables you to connect to your private
 
 In addition to protecting your service with TLS and using strong authentication, IP allowlisting is a security best practice. You can allowlist our outbound IP addresses in your firewall to ensure that only traffic from the Streamlit network can connect to your data stores. This is often required or expected by various security standards, and further reduces any risk to your data.
 
-Streamlit currently uses **four stable outbound IP addresses**.
+Streamlit currently uses **six stable outbound IP addresses**.
 
 - **34.127.33.101**
 - **35.230.127.150**
