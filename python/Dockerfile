@@ -1,4 +1,4 @@
-FROM python:slim
+FROM python:3.9-slim
 
 COPY sources.list /etc/apt/sources.list
 
