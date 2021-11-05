@@ -7,11 +7,11 @@ slug: /knowledge-base/deploy/authentication-without-sso
 
 ## Introduction
 
-Want to secure your Streamlit app with passwords but Streamlit Cloud Teams and Enterprise doesn't support your SSO provider yet? We got you covered! This guide shows you two simple techniques for adding basic authentication to your Streamlit app, using [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+Want to secure your Streamlit app with passwords, but cannot implement single sign-on? We got you covered! This guide shows you two simple techniques for adding basic authentication to your Streamlit app, using [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 <Warning>
 
-While these techniques were tested and secured on the Streamlit side, they are obviously not comparable to proper authentication with a SSO provider. Please view them as a temporary workaround! For enterprise use-cases, please read [Configuring Single Sign-on (SSO)](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso).
+While this technique adds some level of security, it is **NOT** comparable to proper authentication with an SSO provider. For enterprise use-cases, please read [Configuring Single Sign-on (SSO)](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso).
 
 </Warning>
 
