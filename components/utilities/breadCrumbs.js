@@ -2,7 +2,7 @@ import React from "react";
 import { breadcrumbsForSlug } from "../../lib/utils.cjs";
 import Link from "next/link";
 
-export default function BreadCrumbs({ slug, menu }) {
+const BreadCrumbs = ({ slug, menu }) => {
   const formatedTitle = (title) => {
     return `${title}`.replace(/\-/g, " ").replace(/\bapi\b/, "API");
   };
@@ -81,4 +81,6 @@ export default function BreadCrumbs({ slug, menu }) {
       ))}
     </nav>
   );
-}
+};
+
+export default BreadCrumbs;
