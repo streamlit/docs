@@ -29,7 +29,8 @@ def get_function_docstring_dict(func, signature_prefix):
     description = {}
     docstring = getattr(func, '__doc__', '')
     description['name'] = func.__name__
-    description['signature'] = f'{signature_prefix}.{func.__name__}{inspect.signature(func)}'
+    arguments = get_sig_string_without_annots(func)
+    description['signature'] = f'{signature_prefix}.{func.__name__}({arguments})'
 
     if docstring:
         try:
@@ -70,6 +71,47 @@ def get_function_docstring_dict(func, signature_prefix):
             description['args'].append(arg_obj)
 
     return description
+
+
+def get_sig_string_without_annots(func):
+    sig = inspect.signature(func)
+    args = []
+    prev = None
+
+    for name, param in sig.parameters.items():
+
+        if prev:
+            # Insert "/" if going from positional_only to anything else
+            if prev.kind is prev.POSITIONAL_ONLY and param.kind is not param.POSITIONAL_ONLY:
+                args.append('/')
+                prev_was_positional_only = False
+
+            # Insert "*" if going from something that's not *foo to keyword-only
+            if prev.kind not in (prev.VAR_POSITIONAL, prev.KEYWORD_ONLY) and param.kind is param.KEYWORD_ONLY:
+                args.append('*')
+
+        if param.default != inspect._empty:
+            if type(param.default) is str:
+                def_value = f'"{param.default}"'
+            elif type(param.default) is type or callable(param.default):
+                def_value = f'special_internal_function'
+            else:
+                def_value = param.default
+
+            args.append(f'{name}={def_value}')
+
+        elif param.kind is param.VAR_POSITIONAL:
+            args.append(f'*{name}')
+
+        elif param.kind is param.VAR_KEYWORD:
+            args.append(f'**{name}')
+
+        else:
+            args.append(name)
+
+        prev = param
+
+    return ', '.join(args)
 
 
 def get_obj_docstring_dict(obj, key_prefix, signature_prefix):

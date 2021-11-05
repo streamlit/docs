@@ -80,9 +80,11 @@ We are working on this in Q4 of 2021. Check back soon for more information!
 
 If you are on the same GitHub repo then you will automatically be added to the same workspace. Just invite them to log in to [share.streamlit.io](http://share.streamlit.io) and we will automatically route them to your workspace once they hook in their GitHub account.
 
-<!-- ### How do I add viewers to my Streamlit apps?
+### How do I add viewers to my Streamlit apps?
 
-Before viewer authentication is added via single sign-on, [apps are secured via password protection](https://www.notion.so/Authentication-without-SSO-4319c6135b4b4ed58355fc06b33cac74). To give someone access, you just need to set up a password for them. -->
+By default, all apps deployed with Streamlit Cloud Teams and Enterprise are private—which means that others in your company won't be able to view them unless you give them explicit permission. To add viewers, [configure single sign-on](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso) with your organization's SSO provider.
+
+If you cannot implement single sign-on, but want to secure your Streamlit app with passwords, read our guide on [authentication without SSO](/knowledge-base/deploy/authentication-without-sso). Note: while this technique adds some level of security, it is **NOT** comparable to proper authentication with an SSO provider.
 
 ### Do viewers need access to the GitHub repo?
 
