@@ -1,6 +1,6 @@
 // Global Imports
 import { useState, useEffect } from "react";
-import { MDXRemote } from 'next-mdx-remote'
+import { MDXRemote } from "next-mdx-remote";
 
 // The first timezone in Europe is UTC+0.
 const EUROPE_TZ_OFFSET_WEST = 0;
@@ -12,11 +12,10 @@ const EUROPE_TZ_OFFSET_EAST = -3 * 60;
 
 const KEY = "InsertAnalyticsCode";
 
-export default function GDPRBanner(gdrp_data) {
-
-  const title = gdrp_data.title
-  const content = ( gdrp_data.content )
-  const data = gdrp_data.data
+const GDPRBanner = (gdrp_data) => {
+  const title = gdrp_data.title;
+  const content = gdrp_data.content;
+  const data = gdrp_data.data;
 
   const currentTzOffset = new Date().getTimezoneOffset();
 
@@ -36,7 +35,7 @@ export default function GDPRBanner(gdrp_data) {
 
   // Only show banner if not in europe and banner wasn't already shown.
   const showBanner = mayBeInEurope && !localStorageIsSetUp;
-  
+
   const [isVisible, setIsVisible] = useState(showBanner);
   const [insertAnalyticsCode, setInsertAnalyticsCode] = useState(
     localStorage.getItem(KEY) == "true"
@@ -62,26 +61,27 @@ export default function GDPRBanner(gdrp_data) {
     if (insertAnalyticsCode) {
       insertAnalytics();
     }
-  }, [ insertAnalyticsCode ]);
+  }, [insertAnalyticsCode]);
 
-  if (!isVisible) { return ''; }
-  
+  if (!isVisible) {
+    return "";
+  }
+
   return (
     <div className="gdpr-banner">
-        <div className='container'>
-          <div className='header'>
-              <h3>{title}</h3>
-              <MDXRemote {...content} />
-          </div>
-          <div className='footer'>
-              <button onClick={DeclineAndCloseBanner}>Decline</button>
-              <button onClick={AllowAndCloseBanner}>Allow</button>
-          </div>
+      <div className="container">
+        <div className="header">
+          <h3>{title}</h3>
+          <MDXRemote {...content} />
         </div>
+        <div className="footer">
+          <button onClick={DeclineAndCloseBanner}>Decline</button>
+          <button onClick={AllowAndCloseBanner}>Allow</button>
+        </div>
+      </div>
     </div>
   );
-
-}
+};
 
 function insertAnalytics() {
   (function () {
@@ -146,3 +146,5 @@ function insertAnalytics() {
       }
   })();
 }
+
+export default GDPRBanner;

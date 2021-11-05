@@ -1,3 +1,5 @@
-export default function IconHeader({ size }) {
-    return <div style={{ marginTop: `${size}` }} />
-}
+const IconHeader = ({ size }) => {
+  return <div style={{ marginTop: `${size}` }} />;
+};
+
+export default IconHeader;
