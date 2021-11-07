@@ -6,7 +6,15 @@
     z-index: 9;
     width: 226px;
     height: 100%;
-    
+
+    .top-gradient {
+        background: linear-gradient(to bottom, white 0%, white 75%, rgba(255, 255, 255, 0) 100%);
+        height: 1.5rem;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+    }
+
     .toc-level {
         position: sticky;
         top: $header-height;
@@ -16,64 +24,55 @@
         margin: 0;
         padding: 0;
         list-style: none;
+        max-height: calc(100vh - (6em * 2));
+        overflow: auto;
+
         li {
             margin: 0;
             padding: 0;
             font-size: 12px;
-            line-height: 24px;
             position: relative;
-            padding: 6px 36px 4px 36px;
-            
-            &:not(.active) {
-                background-color: transparent;
+            background-color: transparent;
+            padding: .25rem 0;
+
+            &.toc-title {
+                padding-top: 1.5rem;
+                padding-left: 1.5rem;
+                text-transform: uppercase;
+                font-weight: 600;
+                color: $gray-60;
+                letter-spacing: 1px;
             }
-            &.active {
-                border-radius: 5px;
-                
-                &.tutorials {
-                    background: $violet-10;
-                    svg {
-                        path {
-                            fill: $violet-70;
-                        }
-                    }
-                }   
-                
-                &.topic-guides {
-                    background: $l-blue-10;
-                    svg {
-                        path {
-                            fill: $l-blue-70;
-                        }
-                    }
-                }   
 
-                &.reference-guides {
-                    background: $orange-10;
-                    svg {
-                        path {
-                            fill: $orange-70;
-                        }
-                    }
-                }    
-
-                &.support {
-                    background: $red-10;
-                    svg {
-                        path {
-                            fill: $red-70;
-                        }
-                    }
-                }             
-                &.updates,&.changelog {
-                    background: $green-10;
-                    svg {
-                        path {
-                            fill: $green-70;
-                        }
-                    }
-                }             
+            // Hide the first h1 on the TOC
+            &:nth-child(2) {
+                display: none;
+            }
             
+            &.level-H1, &.level-H2 {
+                padding-left: 1.5rem;
+            }
+            
+            &.level-H3 {
+                padding-left: 2rem;
+            }
+            
+            &.level-H4 {
+                padding-left: 2.5rem;
+            }
+            
+            &.level-H5 {
+                padding-left: 3rem;
+            }
+            
+            &.level-H6 {
+                padding-left: 3.5rem;
+            }
+            
+            &.active {
+                a {
+                    color: $gray-90;
+                }
             }
             svg {
                 display: block;
@@ -89,28 +88,21 @@
                 text-decoration: none;
                 border: none;
                 white-space: nowrap;
-                overflow: hidden;
-                width: 164px;
                 line-height: 1;
+                width: 164px;
+                color: $gray-70;
+                overflow: hidden;
                 text-overflow: ellipsis;
+
                 &:hover {
                     border-bottom: none;
                     text-decoration: none;
+
+                    &::after {
+                        background-color: transparent;
+                    }
                 }
             }
         }
-    }
-    .level-H1 {
-        a { font-weight: bold; }
-    }
-    .level-H2 {
-        margin-top: 6px;
-        a { font-weight: bold; }
-    }
-    .level-H2 + .level-H2 {
-        margin-top: 0;
-    }
-    .level-H1 + .level-H2 {
-        margin-top: 0;
     }
 }

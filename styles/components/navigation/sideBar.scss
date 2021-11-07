@@ -12,6 +12,7 @@
 
     .inner-nav {
         list-style: none;
+        overscroll-behavior: contain;
     }
 
     @media(min-width: 1250px) {
@@ -174,7 +175,7 @@
         }
 
         a:focus:not(:focus-visible) {
-          outline: none;
+            outline: none;
         }
 
         ul, ol {
@@ -183,6 +184,11 @@
 
         .nav-item {
             margin-bottom: 2em;
+
+            & > a {
+                display: inline-block;
+                margin: 0 .125rem;
+            }
 
             .head {
                 display: flex;

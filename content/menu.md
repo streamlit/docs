@@ -1,7 +1,7 @@
 ---
 site_menu:
   - category: Streamlit library
-    url: /library/get-started
+    url: /library
     color: violet-70
     icon: description
   - category: Streamlit library / Get started
@@ -10,12 +10,6 @@ site_menu:
     url: /library/get-started/main-concepts
   - category: Streamlit library / Get started / Installation
     url: /library/get-started/installation
-  - category: Streamlit library / Get started / Installation / Prerequisites
-    url: /library/get-started/installation#prerequisites
-  - category: Streamlit library / Get started / Installation / Windows
-    url: /library/get-started/installation#install-streamlit-on-windows
-  - category: Streamlit library / Get started / Installation / Linux and macOS
-    url: /library/get-started/installation#install-streamlit-on-macoslinux
   - category: Streamlit library / Get started / Create an app
     url: /library/get-started/create-an-app
   # - category: Streamlit library / Get started / Deploy an app
@@ -214,46 +208,62 @@ site_menu:
     url: /streamlit-cloud
     color: l-blue-70
     icon: cloud
-  - category: Streamlit Cloud / Community tier
-    url: /streamlit-cloud/community
-  - category: Streamlit Cloud / Community tier / Sign up
-    url: /streamlit-cloud/community#sign-up-for-streamlit-cloud
-  - category: Streamlit Cloud / Community tier / Put your Streamlit app on GitHub
-    url: /streamlit-cloud/community#put-your-streamlit-app-on-github
-  - category: Streamlit Cloud / Community tier / Log in to share.streamlit.io
-    url: /streamlit-cloud/community#log-in-to-sharestreamlitio
-  - category: Streamlit Cloud / Community tier / Deploy your app
-    url: /streamlit-cloud/community#deploy-your-app
-  - category: Streamlit Cloud / Community tier / Secrets management
-    url: /streamlit-cloud/community#secrets-management
-  - category: Streamlit Cloud / Community tier / Share, update, and collaborate
-    url: /streamlit-cloud/community#share-update-and-collaborate
-  - category: Streamlit Cloud / Community tier / App access and usage
-    url: /streamlit-cloud/community#app-access-and-usage
-  - category: Streamlit Cloud / Community tier / Managing apps
-    url: /streamlit-cloud/community#managing-apps
-  - category: Streamlit Cloud / Community tier / Limitations and known issues
-    url: /streamlit-cloud/community#limitations-and-known-issues
+
+  - category: Streamlit Cloud / Get started
+    url: /streamlit-cloud/get-started
+  - category: Streamlit Cloud / Get started / Deploy an app
+    url: /streamlit-cloud/get-started/deploy-an-app
+  - category: Streamlit Cloud / Get started / Deploy an app / App dependencies
+    url: /streamlit-cloud/get-started/deploy-an-app/app-dependencies
+  - category: Streamlit Cloud / Get started / Deploy an app / Connect to data sources
+    url: /streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources
+  - category: Streamlit Cloud / Get started / Deploy an app / Connect to data sources / Secrets management
+    url: /streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management
+  - category: Streamlit Cloud / Get started / Deploy an app / Connect to data sources / Stable outbound IP addresses
+    url: /streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/stable-outbound-ip-addresses
+  - category: Streamlit Cloud / Get started / Share your app
+    url: /streamlit-cloud/get-started/share-your-app
+  - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO)
+    url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso
+  - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Microsoft Active Directory (ADFS)
+    url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-active-directory-adfs
+  - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Microsoft Azure AD
+    url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-azure-active-directory
+  - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Okta
+    url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-okta-sso
+  - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Auth0
+    url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-auth0-sso
+  - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Generic SAML
+    url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-general-saml-authentication
+  - category: Streamlit Cloud / Get started / Manage your app
+    url: /streamlit-cloud/get-started/manage-your-app
+
+  # - category: Streamlit Cloud / Additional features
+  #   url: /streamlit-cloud/additional-features
+  - category: Streamlit Cloud / Trust and Security
+    url: /streamlit-cloud/trust-and-security
+  - category: Streamlit Cloud / Release notes
+    url: https://share.streamlit.io/streamlit/cloud_release_notes_app/main/main.py
+  - category: Streamlit Cloud / Troubleshooting
+    url: /streamlit-cloud/troubleshooting
+  # - category: Streamlit Cloud / Community tier
+  #   url: /streamlit-cloud/community
 
 
-  - category: Streamlit Cloud / Teams and enterprise
-    url: /streamlit-cloud/enterprise
-  - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO)
-    url: /streamlit-cloud/enterprise/single-sign-on-sso
-  # - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Google OAuth
-    # url: /streamlit-cloud/enterprise/single-sign-on-sso#google-oauth
-  - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Microsoft Active Directory (ADFS)
-    url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-active-directory-adfs
-  - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Microsoft Azure AD
-    url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-azure-active-directory
-  - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Okta
-    url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-okta-sso
-  - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Generic SAML
-    url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-general-saml-authentication
-  # - category: Streamlit Cloud / Enterprise /Fair Billing Policy
-  #   url: /streamlit-cloud/enterprise/billing
-  - category: Streamlit Cloud / Teams and enterprise / Security Model
-    url: /streamlit-cloud/enterprise/security-model
+  # - category: Streamlit Cloud / Teams and enterprise
+  #   url: /streamlit-cloud/enterprise
+  # - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO)
+  #   url: /streamlit-cloud/enterprise/single-sign-on-sso
+  # - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Microsoft Active Directory (ADFS)
+  #   url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-active-directory-adfs
+  # - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Microsoft Azure AD
+  #   url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-azure-active-directory
+  # - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Okta
+  #   url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-okta-sso
+  # - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Generic SAML
+  #   url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-general-saml-authentication
+  # - category: Streamlit Cloud / Teams and enterprise / Trust and Security
+  #   url: /streamlit-cloud/enterprise/security-model
 
 
 
@@ -286,20 +296,14 @@ site_menu:
     url: /knowledge-base/tutorials/databases/private-gsheet
   - category: Knowledge base / Tutorials / Connect to data sources / Public Google Sheet
     url: /knowledge-base/tutorials/databases/public-gsheet
+  - category: Knowledge base / Tutorials / Connect to data sources / TigerGraph
+    url: /knowledge-base/tutorials/databases/tigergraph
   - category: Knowledge base / Using Streamlit
     url: /knowledge-base/using-streamlit
   - category: Knowledge base / Streamlit Components
     url: /knowledge-base/components
-  # - category: Knowledge base / Troubleshooting
-  #   url: /knowledge-base/troubleshooting
-  # - category: Knowledge base / Troubleshooting / Sanity checks
-  #   url: /knowledge-base/troubleshooting/sanity-checks
-  # - category: Knowledge base / Troubleshooting / Caching issues
-  #   url: /knowledge-base/troubleshooting/caching-issues
   - category: Knowledge base / Installing dependencies
     url: /knowledge-base/dependencies
-  # - category: Knowledge base / Error messages
-  #   url: /knowledge-base/error-messages
   - category: Knowledge base / Deployment issues
     url: /knowledge-base/deploy
 

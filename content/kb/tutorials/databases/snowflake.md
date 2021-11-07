@@ -1,5 +1,5 @@
 ---
-title: Connect Streamlit to AWS S3
+title: Connect Streamlit to Snowflake
 slug: /knowledge-base/tutorials/databases/snowflake
 ---
 
@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/snowflake
 
 ## Introduction
 
-This guide explains how to securely access a Snowflake database from Streamlit Cloud. It uses the [snowflake-connector-python](https://docs.snowflake.com/en/user-guide/python-connector.html) library and Streamlit's [secrets management](/streamlit-cloud/community#secrets-management).
+This guide explains how to securely access a Snowflake database from Streamlit Cloud. It uses the [snowflake-connector-python](https://docs.snowflake.com/en/user-guide/python-connector.html) library and Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ## Create a Snowflake database
 
@@ -69,7 +69,7 @@ Add this file to `.gitignore` and don't commit it to your Github repo!
 
 ## Copy your app secrets to the cloud
 
-As the `secrets.toml` file above is not committed to Github, you need to pass its content to your deployed app (on Streamlit Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](/streamlit-cloud/community#secrets-management).
+As the `secrets.toml` file above is not committed to Github, you need to pass its content to your deployed app (on Streamlit Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 

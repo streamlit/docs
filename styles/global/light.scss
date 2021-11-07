@@ -172,6 +172,15 @@ body[data-theme="light-mode"] {
             }
         }
     }
+    .suggestEdits {
+        button {
+            color: $white;
+            background: $red-70;
+            i {
+                color: $white;
+            }
+        }
+    }
     .block-news-entry {
         border-color: $gray-30;
     }

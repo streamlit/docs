@@ -1,7 +1,9 @@
 import React from "react";
 import pull from "lodash/pull";
 
-import router, { withRouter } from 'next/router'
+import SuggestEdits from "./suggestEdits";
+
+import router, { withRouter } from 'next/router';
 
 export default class Helpful extends React.Component {
     
@@ -155,6 +157,7 @@ export default class Helpful extends React.Component {
                     <input type="hidden" name="notes" value={this.state.notes} />
                     {block}
                 </form>
+                <SuggestEdits sourcefile={this.props.sourcefile ? this.props.sourcefile : ''} />
             </section>
         )
     }

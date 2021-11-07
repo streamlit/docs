@@ -27,6 +27,7 @@ import ArrowLink from '../components/navigation/arrowLink'
 import Helpful from '../components/utilities/helpful'
 import { H1, H2, H3 } from '../components/blocks/headers'
 import Psa from '../components/utilities/psa'
+import SuggestEdits from '../components/utilities/suggestEdits'
 import FloatingNav from '../components/utilities/floatingNav'
 
 // MDX Components
@@ -45,10 +46,11 @@ import Tip from '../components/blocks/tip'
 import Warning from '../components/blocks/warning'
 import YouTube from '../components/blocks/youTube'
 
-export default function Article({ data, source, streamlit, slug, menu, previous, next, version, versions, paths, gdpr_data }) {
-    
+export default function Article({ data, source, streamlit, slug, menu, previous, next, version, versions, paths, gdpr_data, filename }) {
     let versionWarning
     let currentLink
+    let sourceFile
+    sourceFile = 'https://github.com/streamlit/docs/tree/main' + filename.substring(filename.indexOf('/content/'))
     const maxVersion = versions[versions.length - 1]
 
     const [versionNumber, setVersionNumber] = useState();
@@ -161,17 +163,46 @@ export default function Article({ data, source, streamlit, slug, menu, previous,
                             :
                             <link rel="canonical" href={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/${slug.join('/')}`} />
                         }
+                        <meta
+                        content={`${data.title} - Streamlit Docs`}
+                        property="og:title"
+                        />
+                        <meta
+                        content={`${data.title} - Streamlit Docs`}
+                        name="twitter:title"
+                        />
+                        {data.description &&
+                            <React.Fragment>
+                                <meta content={data.description} name="description" />
+                                <meta content={data.description} property="og:description" />
+                                <meta content={data.description} name="twitter:description" />
+                            </React.Fragment>
+                        }
+                        <meta property="og:type" content="website" />
+                        <meta property="og:url" content="https://docs.streamlit.io/" />
+                        <meta content="summary_large_image" name="twitter:card" />
+                        <meta
+                        property="og:image"
+                        content={`${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-facebook.jpg`}
+                        />
+                        <meta
+                        name="twitter:image"
+                        content={`${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-twitter.jpg`}
+                        />
                     </Head>
                     <section className="content wide" id="documentation">
                         {versionWarning}
                         <BreadCrumbs slug={slug} menu={menu} version={versionNumber} />
                         <article className='leaf-page'>
-                            {/* Remove for now. Too many bugs. <FloatingNav slug={slug} menu={menu} version={version} /> */}
+                            <FloatingNav slug={slug} menu={menu} version={version} />
                             <div className='content'>
                                 <MDXRemote {...source} components={components} />
                             </div>
                         </article>
-                        <Helpful slug={slug} />
+                        <Helpful
+                            slug={slug}
+                            sourcefile={sourceFile}
+                        />
                         <Psa />
                         {arrowContainer}
                     </section>
@@ -293,7 +324,8 @@ export async function getStaticPaths() {
                 slug: realSlug,
                 location: slug,
                 fileName: articles[index],
-                title: data.title ? data.title : 'Untitled'
+                title: data.title ? data.title : 'Untitled',
+                description: data.description ? data.description : '',
             }
         }
 
@@ -319,7 +351,8 @@ export async function getStaticPaths() {
                     slug: newSlug,
                     location: versioned_location,
                     fileName: articles[index],
-                    title: data.title ? data.title : 'Untitled'
+                    title: data.title ? data.title : 'Untitled',
+                    description: data.description ? data.description : '',
                 }
             }
             paths.push(path)

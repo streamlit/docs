@@ -92,11 +92,9 @@ specifically for visualizing data.
 
 ### Use magic
 
-You can also write to your app without calling any
-Streamlit methods. Streamlit supports "[magic
-commands](/library/api-reference/write-magic/magic)," which means you don't have to use
-[`st.write()`](/library/api-reference/write-magic/st.write) at all! Try replacing the code above
-with this snippet:
+You can also write to your app without calling any Streamlit methods. 
+Streamlit supports "[magic commands](/library/api-reference/write-magic/magic)," which means you don't have to use
+[`st.write()`](/library/api-reference/write-magic/st.write) at all! To see this in action try this snippet:
 
 ```python
 """
@@ -104,6 +102,7 @@ with this snippet:
 Here's our first attempt at using data to create a table:
 """
 
+import pandas as pd
 df = pd.DataFrame({
   'first column': [1, 2, 3, 4],
   'second column': [10, 20, 30, 40]
@@ -126,6 +125,8 @@ text, data, Matplotlib figures, Altair charts, and more. Don't worry, Streamlit
 will figure it out and render things the right way.
 
 ```python
+import streamlit as st
+
 st.write("Here's our first attempt at using data to create a table:")
 st.write(pd.DataFrame({
     'first column': [1, 2, 3, 4],
@@ -164,6 +165,8 @@ DataFrames, Numpy arrays, or plain Python arrays.
 </Note>
 
 ```python
+import numpy as np
+
 dataframe = np.random.randn(10, 20)
 st.dataframe(dataframe)
 ```
@@ -299,7 +302,7 @@ users to focus on the content in your app while still having access to UI
 controls.
 
 For example, if you want to add a selectbox and a slider to a sidebar,
-use `st.sidebar.slider` and `st.siderbar.selectbox` instead of `st.slider` and
+use `st.sidebar.slider` and `st.sidebar.selectbox` instead of `st.slider` and
 `st.selectbox`:
 
 ```python
