@@ -1,8 +1,8 @@
 import fs from "fs";
 import { join, basename } from "path";
 import sortBy from "lodash/sortBy";
-
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Head from "next/head";
 import { serialize } from "next-mdx-remote/serialize";
@@ -73,6 +73,21 @@ export default function Article({
     "https://github.com/streamlit/docs/tree/main" +
     filename.substring(filename.indexOf("/content/"));
   const maxVersion = versions[versions.length - 1];
+  const router = useRouter();
+  const [versionFromUrl, setVersionFromUrl] = useState();
+
+  const useVersion = () => {
+    const version = router.query.slug[0];
+    const isVersionNumber = /^[\d\.]+$/.test(version);
+
+    if (isVersionNumber && versionFromUrl !== version) {
+      setVersionFromUrl(version);
+    }
+  };
+
+  useEffect(() => {
+    useVersion();
+  }, [router.query.slug[0]]);
 
   const components = {
     Note,
@@ -96,7 +111,7 @@ export default function Article({
       <Autofunction
         {...props}
         streamlit={streamlit}
-        version={version}
+        version={versionFromUrl}
         versions={versions}
         slug={slug}
       />
@@ -113,15 +128,16 @@ export default function Article({
   let arrowContainer;
   let keywordsTag;
 
-  if (version && version != maxVersion) {
+  if (versionFromUrl && versionFromUrl != maxVersion && paths !== false) {
     // Slugs don't have the version number, so we just have to join them.
     currentLink = `/${slug.join("/")}`;
     versionWarning = (
       <Warning>
         <p>
-          You are reading the documentation for Streamlit version {version}, but{" "}
-          <Link href={currentLink}>{maxVersion}</Link> is the latest version
-          available.
+          You are reading the documentation for Streamlit version{" "}
+          {versionFromUrl}, but{" "}
+          <a onClick={() => setVersionFromUrl(maxVersion)}>{maxVersion}</a> is
+          the latest version available.
         </p>
       </Warning>
     );
@@ -163,7 +179,7 @@ export default function Article({
           <SideBar
             slug={slug}
             menu={menu}
-            version={version}
+            version={versionFromUrl}
             maxVersion={maxVersion}
             versions={versions}
             paths={paths}
@@ -174,7 +190,7 @@ export default function Article({
             <link rel="alternate icon" href="/favicon32.ico" />
             <meta name="theme-color" content="#ffffff" />
             {keywordsTag}
-            {version === true ? (
+            {versionFromUrl !== undefined ? (
               <link
                 rel="canonical"
                 href={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/${slug
@@ -218,9 +234,9 @@ export default function Article({
           </Head>
           <section className="content wide" id="documentation">
             {versionWarning}
-            <BreadCrumbs slug={slug} menu={menu} version={version} />
+            <BreadCrumbs slug={slug} menu={menu} version={versionFromUrl} />
             <article className="leaf-page">
-              <FloatingNav slug={slug} menu={menu} version={version} />
+              <FloatingNav slug={slug} menu={menu} version={versionFromUrl} />
               <div className="content">
                 <MDXRemote {...source} components={components} />
               </div>

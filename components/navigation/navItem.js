@@ -67,9 +67,9 @@ export default class NavItem extends React.Component {
     if (props.page.url.startsWith("/")) {
       navItem = (
         <li className="nav-item small" id={props.page.menu_key}>
-          <a className="not-link" href={props.page.url}>
-            {navBox}
-          </a>
+          <Link href={props.page.url}>
+            <a className="not-link">{navBox}</a>
+          </Link>
           {subNav}
         </li>
       );
