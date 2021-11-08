@@ -13,14 +13,13 @@ Publishing your Streamlit Component to [PyPI](https://pypi.org/) makes it easily
 
 For [static Streamlit Components](/library/components/components-api#create-a-static-component), publishing a Python package to PyPI follows the same steps as the
 [core PyPI packaging instructions](https://packaging.python.org/tutorials/packaging-projects/). A static Component likely contains only Python code, so once you have your
-[setup.py](https://packaging.python.org/tutorials/packaging-projects/#creating-setup-py) file correct and 
+[setup.py](https://packaging.python.org/tutorials/packaging-projects/#creating-setup-py) file correct and
 [generate your distribution files](https://packaging.python.org/tutorials/packaging-projects/#generating-distribution-archives), you're ready to
 [upload to PyPI](https://packaging.python.org/tutorials/packaging-projects/#uploading-the-distribution-archives).
 
 [Bi-directional Streamlit Components](/library/components/components-api#create-a-bi-directional-component) at minimum include both Python and JavaScript code, and as such, need a bit more preparation before they can be published on PyPI. The remainder of this page focuses on the bi-directional Component preparation process.
 
 </Note>
-
 
 ### Prepare your Component
 
@@ -36,8 +35,8 @@ The [component-template](https://github.com/streamlit/component-template) GitHub
 4. Create a release build of your frontend code. This will add a new directory, `frontend/build/`, with your compiled frontend in it:
 
    ```shell
-$ cd frontend
-$ npm run build
+   $ cd frontend
+   $ npm run build
    ```
 
 5. Pass the build folder's path as the `path` parameter to `declare_component`. (If you're using the template Python file, you can set `_RELEASE = True` at the top of the file):

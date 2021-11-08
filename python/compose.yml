@@ -1,5 +1,5 @@
 # Docker Compose version
-version: '3.3'
+version: "3.3"
 services:
   python:
     build:

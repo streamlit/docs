@@ -847,23 +847,23 @@ If you run `$ python your_script.py` the script will execute from top to bottom,
 - The strings we print to the command line when **liveSave** is on have been cleaned up. You may need to adjust any RegEx that depends on those.
 - A number of config options have been renamed:
 
-  | Old config | New config |
-  | ---------- | ---------- |
-  | proxy.isRemote | server.headless |
-  | proxy.liveSave | server.liveSave |
-  | proxy.runOnSave | server.runOnSave |
-  | proxy.watchFileSystem | server.runOnSave |
-  | proxy.enableCORS | server.enableCORS |
-  | proxy.port | server.port |
-  | browser.proxyAddress | browser.serverAddress |
-  | browser.proxyPort | browser.serverPort |
-  | client.waitForProxySecs | _n/a_ |
-  | client.throttleSecs | _n/a_ |
-  | client.tryToOutliveProxy | _n/a_ |
-  | client.proxyAddress | _n/a_ |
-  | client.proxyPort | _n/a_ |
-  | proxy.autoCloseDelaySecs | _n/a_ |
-  | proxy.reportExpirationSecs | _n/a_ |
+  | Old config                 | New config            |
+  | -------------------------- | --------------------- |
+  | proxy.isRemote             | server.headless       |
+  | proxy.liveSave             | server.liveSave       |
+  | proxy.runOnSave            | server.runOnSave      |
+  | proxy.watchFileSystem      | server.runOnSave      |
+  | proxy.enableCORS           | server.enableCORS     |
+  | proxy.port                 | server.port           |
+  | browser.proxyAddress       | browser.serverAddress |
+  | browser.proxyPort          | browser.serverPort    |
+  | client.waitForProxySecs    | _n/a_                 |
+  | client.throttleSecs        | _n/a_                 |
+  | client.tryToOutliveProxy   | _n/a_                 |
+  | client.proxyAddress        | _n/a_                 |
+  | client.proxyPort           | _n/a_                 |
+  | proxy.autoCloseDelaySecs   | _n/a_                 |
+  | proxy.reportExpirationSecs | _n/a_                 |
 
 **What if something breaks?**
 
@@ -900,4 +900,3 @@ _Release date: April 26, 2019_
 - 📷 Bokeh support! Check out docs for `st.bokeh_chart`
 - ⚡️ Improved the size and load time of saved apps
 - ⚾️ Implemented better error-catching throughout the codebase
-

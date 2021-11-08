@@ -4,27 +4,15 @@
     "minWordSizefor2Typos": 8,
     "hitsPerPage": 20,
     "maxValuesPerFacet": 100,
-    "searchableAttributes": [
-      "keywords",
-      "title",
-      "content"
-    ],
+    "searchableAttributes": ["keywords", "title", "content"],
     "numericAttributesToIndex": null,
     "attributesToRetrieve": null,
     "replaceSynonymsInHighlight": true,
     "unretrievableAttributes": null,
     "optionalWords": null,
-    "attributesForFaceting": [
-      "filterOnly(version)"
-    ],
-    "attributesToSnippet": [
-      "content:15"
-    ],
-    "attributesToHighlight": [
-      "category",
-      "content",
-      "title"
-    ],
+    "attributesForFaceting": ["filterOnly(version)"],
+    "attributesToSnippet": ["content:15"],
+    "attributesToHighlight": ["category", "content", "title"],
     "paginationLimitedTo": 1000,
     "attributeForDistinct": null,
     "exactOnSingleWordQuery": "attribute",
@@ -45,10 +33,7 @@
     "highlightPreTag": "<em>",
     "highlightPostTag": "</em>",
     "snippetEllipsisText": "",
-    "alternativesAsExact": [
-      "ignorePlurals",
-      "singleWordSynonym"
-    ]
+    "alternativesAsExact": ["ignorePlurals", "singleWordSynonym"]
   },
   "rules": [],
   "synonyms": []

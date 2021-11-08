@@ -1,35 +1,44 @@
 .block-note {
-    padding: 2em;
-    border-radius: $rounded-small;
-    margin: 2em 0 3em 0;
-    box-sizing: border-box;
+  padding: 2em;
+  border-radius: $rounded-small;
+  margin: 2em 0 3em 0;
+  box-sizing: border-box;
 
-    a,p,li,h1,h2,h3,h4,h5,h6 {
-        color: unset !important;
+  a,
+  p,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: unset !important;
+  }
+
+  p:only-child,
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  h4 {
+    margin: 0;
+  }
+
+  .block-code:last-child {
+    margin-bottom: 0;
+    pre {
+      margin-bottom: 0;
     }
+  }
 
-    p:only-child, p:last-child {
-        margin-bottom: 0;
+  @media (max-width: 1024px) {
+    margin-left: 0;
+    width: 100%;
+    padding: 1rem;
+
+    h2 {
+      margin-bottom: 0;
     }
-
-    h4 {
-        margin: 0;
-    }
-
-    .block-code:last-child {
-        margin-bottom: 0;
-        pre {
-            margin-bottom: 0;
-        }
-    }
-
-    @media(max-width:1024px) {
-        margin-left: 0;
-        width: 100%;
-        padding: 1rem;
-
-        h2 {
-            margin-bottom: 0;
-        }
-    }
+  }
 }

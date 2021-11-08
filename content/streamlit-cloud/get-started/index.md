@@ -5,7 +5,7 @@ slug: /streamlit-cloud/get-started
 
 # Get started
 
-Welcome to Streamlit Cloud! First things first, before you get started with Streamlit Cloud, you need to have a Streamlit app to deploy. If you haven't built one yet, read our [Get started](/library/get-started) docs or start with an [Example app](https://share.streamlit.io/streamlit/cloud-example-apps/main). Either way, it only takes a few minutes to create your first app. 
+Welcome to Streamlit Cloud! First things first, before you get started with Streamlit Cloud, you need to have a Streamlit app to deploy. If you haven't built one yet, read our [Get started](/library/get-started) docs or start with an [Example app](https://share.streamlit.io/streamlit/cloud-example-apps/main). Either way, it only takes a few minutes to create your first app.
 
 ## How Streamlit Cloud works
 
@@ -21,7 +21,7 @@ Under the hood Streamlit Cloud handles all of the containerization, authenticati
 
 ## Getting started
 
-Getting your workspace set up with Streamlit Cloud only takes a few minutes. 
+Getting your workspace set up with Streamlit Cloud only takes a few minutes.
 
 1. [Sign up for Streamlit Cloud](#sign-up-for-streamlit-cloud)
 2. [Log in to your account](#log-in-to-sharestreamlitio)
@@ -78,7 +78,7 @@ Congrats! You are now logged in and ready to go. If you are joining someone else
 
 <Image alt="Workspace 1" src="/images/streamlit-cloud/workspace-1.png" />
 
-You may also find that you already have multiple Streamlit Cloud workspaces. Streamlit Cloud  automatically groups your apps according to the corresponding GitHub repository's owner. In the upper right corner you can see the workspaces you have access to. If your team has already launched apps, then you will see those apps in your workspace. Read more about workspaces [here](/streamlit-cloud/get-started/manage-your-app#app-workspaces).
+You may also find that you already have multiple Streamlit Cloud workspaces. Streamlit Cloud automatically groups your apps according to the corresponding GitHub repository's owner. In the upper right corner you can see the workspaces you have access to. If your team has already launched apps, then you will see those apps in your workspace. Read more about workspaces [here](/streamlit-cloud/get-started/manage-your-app#app-workspaces).
 
 <Image alt="Workspace 2" src="/images/streamlit-cloud/workspace-2.png" />
 
@@ -86,6 +86,6 @@ You may also find that you already have multiple Streamlit Cloud workspaces. Str
 
 Inviting other developers is simple, just invite them to your GitHub repository so that you can code on apps together, and then have them log in to [share.streamlit.io](https://share.streamlit.io). If you are working as a team, you likely are already in the same repos, so skip step 1 and go straight to having them log into [share.streamlit.io](https://share.streamlit.io)
 
-Streamlit Cloud inherits developer permissions from GitHub, so when your teammates log in, they will automatically view the workspaces you share. From there you can all deploy, manage, and share apps together. 
+Streamlit Cloud inherits developer permissions from GitHub, so when your teammates log in, they will automatically view the workspaces you share. From there you can all deploy, manage, and share apps together.
 
 And remember, whenever anyone on the team updates the code on GitHub, the app will also automatically update for you!

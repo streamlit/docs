@@ -5,19 +5,19 @@ $fast: 50ms ease-in-out;
 // Helpful naming
 $header-height: 6em;
 $mini-header-height: calc(#{$header-height} / 2);
-$rounded-small: .3rem;
+$rounded-small: 0.3rem;
 $rounded-circle: 50%;
 $siderbar-full-width: 346px;
 $siderbar-min-width: 144px;
 
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
-    border-width: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

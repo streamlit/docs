@@ -5,7 +5,7 @@ slug: /streamlit-cloud/enterprise/billing
 
 # Streamlit's Fair Billing Policy
 
-Streamlit makes it easy to build and share apps with your team, and if you're not using the platform we don't want you paying!  Feel free to add as many developers as you want and if they stop using, you won't pay. **You only get billed for developers who are active.** We rectify this on a monthly basis, to make sure that you're getting what you pay for.
+Streamlit makes it easy to build and share apps with your team, and if you're not using the platform we don't want you paying! Feel free to add as many developers as you want and if they stop using, you won't pay. **You only get billed for developers who are active.** We rectify this on a monthly basis, to make sure that you're getting what you pay for.
 
 - When you purchase a paid plan, the upgrade applies to your entire workspace and you’ll be billed for all active members.
 - Any changes to the number of active, paid developers in your workspace will be reflected in your monthly billing statement.
