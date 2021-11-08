@@ -10,6 +10,7 @@ import logging
 import pathlib
 import utils
 import streamlit
+import streamlit.components.v1 as components
 
 from docutils.core import publish_parts
 from docutils.parsers.rst import directives
@@ -31,6 +32,11 @@ def get_function_docstring_dict(func, signature_prefix):
     description['name'] = func.__name__
     arguments = get_sig_string_without_annots(func)
     description['signature'] = f'{signature_prefix}.{func.__name__}({arguments})'
+
+    # Remove _ from the start of static component function names
+    if func.__name__.startswith('_'):
+        description['name'] = func.__name__.replace('_', '', 1)
+        description['signature'] = f'{signature_prefix}.{description["name"]}({arguments})'
 
     if docstring:
         try:
@@ -139,9 +145,11 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
 
 def get_streamlit_docstring_dict():
     module_docstring_dict = get_obj_docstring_dict(streamlit, 'streamlit', 'st')
+    components_docstring_dict = get_obj_docstring_dict(components, 'streamlit.components.v1', 'st.components.v1')
     delta_docstring_dict = get_obj_docstring_dict(streamlit._DeltaGenerator, 'DeltaGenerator', 'element')
 
     module_docstring_dict.update(delta_docstring_dict)
+    module_docstring_dict.update(components_docstring_dict)
 
     return module_docstring_dict
 

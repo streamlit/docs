@@ -71,14 +71,14 @@ class Autofunction extends React.Component {
         const name = cleanHref(`st.${func_obj.name}`)
         const slug = props.slug.slice()
 
-        if ( event.target.value  !== this.state.current_version) {
-            this.setState( { current_version: event.target.value } );
+        if (event.target.value !== this.state.current_version) {
+            this.setState({ current_version: event.target.value });
             if (event.target.value !== this.state.max_version) {
                 let isnum = /^[\d\.]+$/.test(slug[0])
                 if (isnum) {
                     slug[0] = event.target.value
                 } else {
-                    slug.unshift( event.target.value )
+                    slug.unshift(event.target.value)
                 }
             }
         }
@@ -122,7 +122,7 @@ class Autofunction extends React.Component {
         if (props.hide_header !== undefined && props.hide_header) {
             header = ''
         } else {
-            const name = `st.${func_obj.name}`
+            const name = String(func_obj.name).startsWith('html') || String(func_obj.name).startsWith('iframe') ? `st.components.v1.${func_obj.name}` : `st.${func_obj.name}`
             const selectClass = current_version !== version_list[0] ? 'version-select old-version' : 'version-select'
             header = (
                 <div className='code-header'>
@@ -133,7 +133,7 @@ class Autofunction extends React.Component {
                                 <span className='sr-only'>Streamlit Version</span>
                                 <select value={this.state.current_version} onChange={this.handleSelectVersion}>
                                     {version_list.map((version, index) => {
-                                        return ( <option value={version} key={version}>v{version}</option> )
+                                        return (<option value={version} key={version}>v{version}</option>)
                                     })}
                                 </select>
                             </label>
@@ -182,7 +182,7 @@ class Autofunction extends React.Component {
                     title: 'Function signature',
                     content: `<p class='code'>${func_obj.signature}</p>`
                 }}
-                body={args.length? {
+                body={args.length ? {
                     title: 'Parameters'
                 } : null}
                 rows={args.length ? args : null}
