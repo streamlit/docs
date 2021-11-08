@@ -19,7 +19,6 @@ If your organization uses **Google OAuth**, you're all set — just click "Conti
 
 - [Generic SAML](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-general-saml-authentication)
 
-
 <Note>
 
 Questions about SSO? Email us at [success@streamlit.io](mailto:success@streamlit.io)

@@ -22,4 +22,3 @@ operating system, and how to create your first Streamlit app!
     to Streamlit Cloud. With Streamlit Cloud your data team can directly serve the needs of the rest of the company. Quickly go from data to app, from prototype to production. Share apps in one click and collaborate instantly with live code updates.
   </InlineCallout> */}
 </InlineCalloutContainer>
-

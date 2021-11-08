@@ -1,339 +1,351 @@
 body[data-theme="dark-mode"] {
-    --theme-bg: #{$off-black};
-    --theme-bg-transparent: #{transparentize($white, 1)};
+  --theme-bg: #{$off-black};
+  --theme-bg-transparent: #{transparentize($white, 1)};
 
-    background: $off-black;
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    a,
-    li,
-    i {
+  background: $off-black;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  a,
+  li,
+  i {
+    color: $white;
+  }
+  .inline_code {
+    color: $yellow-60;
+    border-color: $gray-70;
+  }
+  header {
+    &.sticky .container::before {
+      border-bottom: 1px solid $gray-80;
+    }
+    .container {
+      &::before {
+        border-bottom: 1px solid rgba(255, 255, 255, 0);
+        background: $off-black;
+      }
+      .hot-key > * {
         color: $white;
-    }
-    .inline_code {
-        color: $yellow-60;
-        border-color: $gray-70;
-    }
-    header {
-        &.sticky .container::before {
-            border-bottom: 1px solid $gray-80;
-        }
-        .container {
-            &::before {
-                border-bottom: 1px solid rgba(255, 255, 255, 0);
-                background: $off-black;
-            }
-            .hot-key > * {
-                color: $white;
-            }
-            .toggleTheme {
-                background: $gray-90;
+      }
+      .toggleTheme {
+        background: $gray-90;
 
-                .light {
-                    opacity: 0;
-                    transform: translate(-50%, -50%) scale(0);
-                }
-                .dark  {
-                    color: $white;
-                }
-            }
-            .toggle-mobile {
-                background: $gray-90;
-                i {
-                    color: $white;
-                }
-            }
-            .mobile {
-                background: $off-black;
-            }
+        .light {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0);
         }
+        .dark {
+          color: $white;
+        }
+      }
+      .toggle-mobile {
+        background: $gray-90;
+        i {
+          color: $white;
+        }
+      }
+      .mobile {
+        background: $off-black;
+      }
     }
-    .block-side-nav {
-        &:before {
-            background-image: linear-gradient(to bottom, rgba(15,18,24,1) 0%,rgba(15,18,24,1) 75%,rgba(15,18,24,0) 100%);
-        }
-        @media(max-width: 1024px) {
-            background: $off-black;
-        }
-        @media(min-width: 1024px) {
-            .side-nav:before {
-                background: $off-black;
-            }
-        }
-        @media(min-width: 1250px) {
-            background: $off-black;            
-        }
+  }
+  .block-side-nav {
+    &:before {
+      background-image: linear-gradient(
+        to bottom,
+        rgba(15, 18, 24, 1) 0%,
+        rgba(15, 18, 24, 1) 75%,
+        rgba(15, 18, 24, 0) 100%
+      );
     }
-    .block-arrow-link-container {
-        .not-link {
-            svg path {
+    @media (max-width: 1024px) {
+      background: $off-black;
+    }
+    @media (min-width: 1024px) {
+      .side-nav:before {
+        background: $off-black;
+      }
+    }
+    @media (min-width: 1250px) {
+      background: $off-black;
+    }
+  }
+  .block-arrow-link-container {
+    .not-link {
+      svg path {
+        fill: $white;
+      }
+    }
+  }
+  .block-search {
+    .hot-key {
+      color: $white;
+      background: $gray-90;
+    }
+    .algolia {
+      button {
+        color: $white;
+      }
+      .content {
+        background: $gray-90;
+        .ais-SearchBox {
+          background: $gray-90;
+          &:before {
+            background: $gray-90;
+          }
+        }
+        .ais-SearchBox-form {
+          input {
+            border-color: $gray-80;
+            color: $white;
+            &::placeholder {
+              color: $gray-70;
+            }
+          }
+          button {
+            svg {
+              path {
                 fill: $white;
+              }
             }
+          }
         }
-    }
-    .block-search {
-        .hot-key {
-            color: $white;
-            background: $gray-90;
-        }
-        .algolia {
-            button {
-                color: $white;
-            }
-            .content {
-                background: $gray-90;
-                .ais-SearchBox {
-                    background: $gray-90;
-                    &:before {
-                        background: $gray-90;
-                    }
+        .ais-Hits {
+          .ais-Hits-list {
+            li {
+              border-bottom: 1px solid $gray-80;
+              .item {
+                em {
+                  border-color: $white;
                 }
-                .ais-SearchBox-form {
-                    input {
-                        border-color: $gray-80;
-                        color: $white;
-                        &::placeholder {
-                            color: $gray-70;
-                        }
-                    }
-                    button {
-                        svg {
-                            path {
-                                fill: $white;
-                            }
-                        }
-                    }
-                }
-                .ais-Hits {
-                    .ais-Hits-list {
-                        li {
-                            border-bottom: 1px solid $gray-80;
-                            .item {
-                                em {
-                                    border-color: $white;
-                                }
-                                a {
-                                    .copy {
-                                        p {
-                                            color: $gray-70;
-                                        }
-                                    }
-                                }
-                                &.focused {
-                                    background: $gray-80;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .block-theme-toggle {
-        select {
-            color: $white;
-            background: $gray-90;
-        }
-        &:after {
-            color: $gray-70;
-        }
-    }
-    footer {
-        hr {
-            border-top: 1px solid $gray-80;
-        }
-    }
-    ol.tutorial {
-        li {
-            &::before {
-                color: $black;
-                background: $gray-10;
-            }
-        }
-    }
-    .block-image {
-        .block-note {
-            background: $gray-90;
-            color: white;
-        }
-        .light-box {
-            &:before {
-                background: $gray-90;
-            }
-            button {
-                color: $white;
-            }
-        }
-    }
-    table {
-        .head {
-            background: #002243;
-            color: $white;
-        }
-    }
-    .block-helpful {
-        .helpful {
-            button {
-                background: $gray-80;
-                i {
-                    color: $gray-90;
-                }
-            }
-        }
-        .improve {
-            label {
-                color: $white;
-            }
-        }
-    }
-    .block-news-entry {
-        border-color: $gray-90;
-    }
-    .block-forum-psa {
-        border-color: $gray-90;
-    }
-    .block-inline-callout {
-        border-color: $gray-90;
-    }
-    .block-side-nav {
-        .side-nav {
-            &.expanded {
-                .nav-item {
-                    .head {
-                        p {
-                            color: $gray-40 !important;
-                        }
-                        &.active {
-                            p {
-                                color: $white !important;
-                            }
-
-                        }
-                    }
-                    .sub-nav {
-                        a {
-                            color: $gray-40;
-                        }
-
-                        .child-item {
-                            &.active {
-                                >a > span {
-                                    color:$white;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        #off-screen-nav {
-            background: $off-black;
-            .brand {
-                background: $off-black;
-                &:before {
-                    background: $off-black;
-                }
-            }
-            border-right: 1px solid $gray-80;
-        }
-    }
-    .breadcrumbs {
-        li {
-            color: $gray-70;
-            a {
-                color: $gray-40;
-            }
-        }
-    }
-
-    :focus,
-    :focus-visible {
-      outline: 2px solid $gray-50;
-      transition: none;
-    }
-
-    .autofunction {
-        .code-desc {
-            color: $white;
-        }
-        .docutils {
-            color: $white;
-        }
-        .code-header .title-with-select .version-select { 
-            select {
-                color: $white;
-                background-color: $off-black;
-            }
-            &.old-version select {
-                color: $red-70;
-            }
-            &:after { 
-                background-image: url("data:image/svg+xml,%0A%3Csvg width='11px' height='8px' viewBox='0 0 11 8' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='select_arrow_down_disabled' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cpath d='M10.8703474,1.87655087 L5.80707196,6.93300248 C5.72063689,7.01943755 5.61827957,7.06265509 5.5,7.06265509 C5.38172043,7.06265509 5.27936311,7.01943755 5.19292804,6.93300248 L0.129652605,1.87655087 C0.0432175352,1.7901158 0,1.68662117 0,1.566067 C0,1.44551282 0.0432175352,1.3420182 0.129652605,1.25558313 L1.26240695,0.129652605 C1.34884202,0.0432175352 1.45119934,0 1.56947891,0 C1.68775848,0 1.7901158,0.0432175352 1.87655087,0.129652605 L5.5,3.75310174 L9.12344913,0.129652605 C9.2098842,0.0432175352 9.31224152,0 9.43052109,0 C9.54880066,0 9.65115798,0.0432175352 9.73759305,0.129652605 L10.8703474,1.25558313 C10.9567825,1.3420182 11,1.44551282 11,1.566067 C11,1.68662117 10.9567825,1.7901158 10.8703474,1.87655087 Z' id='Path'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            }
-        }
-    }
-    .toc {
-        .top-gradient {
-            background: linear-gradient(to bottom, $gray-100 0%, $gray-100 75%, rgba(255, 255, 255, 0) 100%);
-        }
-
-        ol li {
-            &.active {
                 a {
-                    color: $white;
-                }
-            }
-        }
-    }
-
-    .reference-card {
-        border:1px solid $gray-90;
-        color:$white;
-
-        .block-code {
-            border-top-color: $gray-90;
-        }
-
-        img {
-            border-bottom: 1px solid $gray-90;
-        }
-    }
-
-    .code-tile {
-        color:$white;
-        border-bottom-color: $gray-80;
-
-            pre.line-numbers { 
-                background-color: transparent;
-            }
-    }
-
-    .reference-card, .code-tile {
-        p {
-            code {
-                border: none;
-                background-color: $gray-90;
-            }
-        }
-    }
-
-    .leaf-page {
-        .content {
-            table:not(.full-width) {
-                thead, tbody {
-                    tr {
-                        th, td {
-                            color: $gray-10;
-                            border-top-color: $gray-80;
-                        }
+                  .copy {
+                    p {
+                      color: $gray-70;
                     }
+                  }
                 }
+                &.focused {
+                  background: $gray-80;
+                }
+              }
             }
+          }
         }
+      }
     }
+  }
+  .block-theme-toggle {
+    select {
+      color: $white;
+      background: $gray-90;
+    }
+    &:after {
+      color: $gray-70;
+    }
+  }
+  footer {
+    hr {
+      border-top: 1px solid $gray-80;
+    }
+  }
+  ol.tutorial {
+    li {
+      &::before {
+        color: $black;
+        background: $gray-10;
+      }
+    }
+  }
+  .block-image {
+    .block-note {
+      background: $gray-90;
+      color: white;
+    }
+    .light-box {
+      &:before {
+        background: $gray-90;
+      }
+      button {
+        color: $white;
+      }
+    }
+  }
+  table {
+    .head {
+      background: #002243;
+      color: $white;
+    }
+  }
+  .block-helpful {
+    .helpful {
+      button {
+        background: $gray-80;
+        i {
+          color: $gray-90;
+        }
+      }
+    }
+    .improve {
+      label {
+        color: $white;
+      }
+    }
+  }
+  .block-news-entry {
+    border-color: $gray-90;
+  }
+  .block-forum-psa {
+    border-color: $gray-90;
+  }
+  .block-inline-callout {
+    border-color: $gray-90;
+  }
+  .block-side-nav {
+    .side-nav {
+      &.expanded {
+        .nav-item {
+          .head {
+            p {
+              color: $gray-40 !important;
+            }
+            &.active {
+              p {
+                color: $white !important;
+              }
+            }
+          }
+          .sub-nav {
+            a {
+              color: $gray-40;
+            }
+
+            .child-item {
+              &.active {
+                > a > span {
+                  color: $white;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    #off-screen-nav {
+      background: $off-black;
+      .brand {
+        background: $off-black;
+        &:before {
+          background: $off-black;
+        }
+      }
+      border-right: 1px solid $gray-80;
+    }
+  }
+  .breadcrumbs {
+    li {
+      color: $gray-70;
+      a {
+        color: $gray-40;
+      }
+    }
+  }
+
+  :focus,
+  :focus-visible {
+    outline: 2px solid $gray-50;
+    transition: none;
+  }
+
+  .autofunction {
+    .code-desc {
+      color: $white;
+    }
+    .docutils {
+      color: $white;
+    }
+    .code-header .title-with-select .version-select {
+      select {
+        color: $white;
+        background-color: $off-black;
+      }
+      &.old-version select {
+        color: $red-70;
+      }
+      &:after {
+        background-image: url("data:image/svg+xml,%0A%3Csvg width='11px' height='8px' viewBox='0 0 11 8' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='select_arrow_down_disabled' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cpath d='M10.8703474,1.87655087 L5.80707196,6.93300248 C5.72063689,7.01943755 5.61827957,7.06265509 5.5,7.06265509 C5.38172043,7.06265509 5.27936311,7.01943755 5.19292804,6.93300248 L0.129652605,1.87655087 C0.0432175352,1.7901158 0,1.68662117 0,1.566067 C0,1.44551282 0.0432175352,1.3420182 0.129652605,1.25558313 L1.26240695,0.129652605 C1.34884202,0.0432175352 1.45119934,0 1.56947891,0 C1.68775848,0 1.7901158,0.0432175352 1.87655087,0.129652605 L5.5,3.75310174 L9.12344913,0.129652605 C9.2098842,0.0432175352 9.31224152,0 9.43052109,0 C9.54880066,0 9.65115798,0.0432175352 9.73759305,0.129652605 L10.8703474,1.25558313 C10.9567825,1.3420182 11,1.44551282 11,1.566067 C11,1.68662117 10.9567825,1.7901158 10.8703474,1.87655087 Z' id='Path'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+    }
+  }
+  .toc {
+    .top-gradient {
+      background: linear-gradient(
+        to bottom,
+        $gray-100 0%,
+        $gray-100 75%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    }
+
+    ol li {
+      &.active {
+        a {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .reference-card {
+    border: 1px solid $gray-90;
+    color: $white;
+
+    .block-code {
+      border-top-color: $gray-90;
+    }
+
+    img {
+      border-bottom: 1px solid $gray-90;
+    }
+  }
+
+  .code-tile {
+    color: $white;
+    border-bottom-color: $gray-80;
+
+    pre.line-numbers {
+      background-color: transparent;
+    }
+  }
+
+  .reference-card,
+  .code-tile {
+    p {
+      code {
+        border: none;
+        background-color: $gray-90;
+      }
+    }
+  }
+
+  .leaf-page {
+    .content {
+      table:not(.full-width) {
+        thead,
+        tbody {
+          tr {
+            th,
+            td {
+              color: $gray-10;
+              border-top-color: $gray-80;
+            }
+          }
+        }
+      }
+    }
+  }
 }

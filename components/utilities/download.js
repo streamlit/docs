@@ -4,7 +4,7 @@ const Download = ({ href, children }) => {
     <a href={href} rel="nofollow noopener" download>
       {children}
     </a>
-  )
-}
+  );
+};
 
-export default Download
+export default Download;
