@@ -15,6 +15,9 @@ function NavChild(props) {
   let subNav;
 
   const isnum = /^[\d\.]+$/.test(props.slug[0]);
+  // if (isnum) {
+  //   props.slug.shift();
+  // }
 
   const toggleAccordion = () => {
     setManualState(!opened);
@@ -41,10 +44,6 @@ function NavChild(props) {
 
   let accordion;
 
-  if (isnum) {
-    props.slug.shift();
-  }
-
   if (props.page.children?.length > 0) {
     accordion = (
       <i
@@ -68,6 +67,7 @@ function NavChild(props) {
   let url = props.page.url;
 
   if (
+    props.paths &&
     props.version &&
     props.version !== props.maxVersion &&
     props.page.url.startsWith("/")
@@ -87,10 +87,12 @@ function NavChild(props) {
 
   link = (
     <span className={`child-item ${active ? "active" : ""}`}>
-      <a className="not-link" target={target} href={url}>
-        <span className={`colored-ball bg-${props.color}`} />
-        <span>{props.page.name}</span> {icon}
-      </a>
+      <Link href={url}>
+        <a className="not-link" target={target}>
+          <span className={`colored-ball bg-${props.color}`} />
+          <span>{props.page.name}</span> {icon}
+        </a>
+      </Link>
       {accordion}
     </span>
   );
