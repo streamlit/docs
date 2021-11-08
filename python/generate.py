@@ -42,7 +42,7 @@ def get_function_docstring_dict(func, signature_prefix):
                 collapsed = '\n'.join(numpydoc_obj['Notes'])
                 description['notes'] = parse_rst(collapsed)
 
-            if 'Warning' in (numpydoc_obj) and len(numpydoc_obj['Warning']) > 0:
+            if 'Warning' in numpydoc_obj and len(numpydoc_obj['Warning']) > 0:
                 collapsed = '\n'.join(numpydoc_obj['Warning'])
                 description['warnings'] = parse_rst(collapsed)
 
