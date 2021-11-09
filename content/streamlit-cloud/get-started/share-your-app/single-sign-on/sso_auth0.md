@@ -27,12 +27,12 @@ There are three steps your team will need to complete to create an Auth0 SSO con
 
 1. Please complete [this form](https://docs.google.com/forms/d/e/1FAIpQLSenELJzAZaBV8852b-HJMeecO_LAwYJ6zuYbXLK0lMVexCF4Q/viewform).
 
-    To complete steps 2 and 3, you will need an **ACS URL**, which Streamlit will provide by emailing you a private Google Drive link. Please complete [this form](https://forms.gle/5E3pUrB8vwp66ZPc9) to provide us with your email address and some basic information about your organization.
+   To complete steps 2 and 3, you will need an **ACS URL**, which Streamlit will provide by emailing you a private Google Drive link. Please complete [this form](https://forms.gle/5E3pUrB8vwp66ZPc9) to provide us with your email address and some basic information about your organization.
 
 2. Provide Streamlit with an Identity Provider Certificate.
 
-    - Follow [WorkOS' instructions](https://workos.com/docs/integrations/auth0-saml/obtain-identity-provider-details) to obtain the Identity Provider Certificate.
-    - Please share the Token Signature with Streamlit by uploading it [here](https://forms.gle/f6Bi1gnoHYD9ULBe7).
+   - Follow [WorkOS' instructions](https://workos.com/docs/integrations/auth0-saml/obtain-identity-provider-details) to obtain the Identity Provider Certificate.
+   - Please share the Token Signature with Streamlit by uploading it [here](https://forms.gle/f6Bi1gnoHYD9ULBe7).
 
 <Note>
 
@@ -42,8 +42,8 @@ The Token Signature is a certificate used to securely sign tokens issued by Auth
 
 3. Provide Streamlit with an Identity Provider Login URL and Auth0 Issuer.
 
-    - Follow [WorkOS' instructions](https://workos.com/docs/integrations/auth0-saml/obtain-identity-provider-details) to obtain the "Issuer" and Identity Provider Login URL.
-    - Please share the the "Issuer" and Identity Provider Login URL with Streamlit by pasting it [here](https://forms.gle/f6Bi1gnoHYD9ULBe7).
+   - Follow [WorkOS' instructions](https://workos.com/docs/integrations/auth0-saml/obtain-identity-provider-details) to obtain the "Issuer" and Identity Provider Login URL.
+   - Please share the the "Issuer" and Identity Provider Login URL with Streamlit by pasting it [here](https://forms.gle/f6Bi1gnoHYD9ULBe7).
 
 <Note>
 

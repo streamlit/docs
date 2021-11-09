@@ -11,7 +11,6 @@ app, provide help using doc strings, and get and modify configuration options.
 <TileContainer>
 <RefCard href="/library/api-reference/utilities/st.set_page_config">
 
-
 #### Set page title, favicon, and more
 
 Configures the default settings of the page.

@@ -1,7 +1,3 @@
 export default function TilesContainer({ children }) {
-    return (
-        <section className="block-tiles">
-            {children}
-        </section>
-    )
+  return <section className="block-tiles">{children}</section>;
 }

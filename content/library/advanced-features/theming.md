@@ -108,4 +108,3 @@ the following config
 [theme]
 font="serif"
 ```
-

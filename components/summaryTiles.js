@@ -1,5 +1,5 @@
-import TileContainer from '../components/layouts/tileContainer'
-import Tile from '../components/blocks/tile'
+import TileContainer from "../components/layouts/tileContainer";
+import Tile from "../components/blocks/tile";
 
 export default function SummaryTiles() {
   return (
@@ -28,5 +28,5 @@ export default function SummaryTiles() {
         link="https://streamlit.io/gallery"
       />
     </TileContainer>
-  )
+  );
 }

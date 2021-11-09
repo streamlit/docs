@@ -5,7 +5,7 @@ slug: /streamlit-cloud/get-started/manage-your-app
 
 # Manage your app
 
-You can manage your app directly from the deployed app in your developer view or you can log in to your app dashboard at [share.streamlit.io](https://share.streamlit.io/) to view your apps, deploy a new app, delete an app, or reboot an app. 
+You can manage your app directly from the deployed app in your developer view or you can log in to your app dashboard at [share.streamlit.io](https://share.streamlit.io/) to view your apps, deploy a new app, delete an app, or reboot an app.
 
 - [Manage apps from your developer view](#manage-apps-from-your-developer-view)
 - [Manage apps from your app dashboard](/streamlit-cloud/get-started/manage-your-app#manage-apps-from-your-app-dashboard)
@@ -14,7 +14,7 @@ You can manage your app directly from the deployed app in your developer view or
 
 ## Manage apps from your developer view
 
-Once you have deployed an app you will have a developer view for that app. 
+Once you have deployed an app you will have a developer view for that app.
 
 ### Developer view
 
@@ -98,16 +98,14 @@ Private apps on Teams or Enterprise plans will not hibernate, but for public and
 
 - As the app developer, you will receive an email after 5 days of no traffic on your app.
 - If you would like to keep your app awake, you have one of two choices:
-    - Visit the app (create traffic).
-    - Push a commit to the app (this can be empty!).
+  - Visit the app (create traffic).
+  - Push a commit to the app (this can be empty!).
 - If left alone the app will go to sleep at the 7 day mark (2 days after you receive the email). When someone visits the app after this, they will see the sleeping page:
-    
     <div style={{ maxWidth: '55%' }}>
         <Image src="/images/spin_down.png" />
     </div>
 - To wake the app up, press the "Yes, get this app back up!" button. This can be done by *anyone* who wants to view the app, not just the app developer!
 - You can also wake apps through your Streamlit Cloud dashboard. You will know which apps are sleeping because a moon icon will appear next to the app settings. To wake an app from the dashboard, click the moon.
-    
     <div style={{ maxWidth: '85%' }}>
         <Image src="/images/sleeping_app_moon.png" />
     </div>

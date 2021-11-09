@@ -1,19 +1,19 @@
 .iFrame-parent {
-    width:100%;
-    padding-top:56.25%;
-    position: relative;
-    border:1px solid $gray-40;
-    border-radius: $rounded-small;
-    overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%;
+  position: relative;
+  border: 1px solid $gray-40;
+  border-radius: $rounded-small;
+  overflow: hidden;
 
-    iframe {
-        position:absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 .caption {
-    margin-top:1em;
+  margin-top: 1em;
 }

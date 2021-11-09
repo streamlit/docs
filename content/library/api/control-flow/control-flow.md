@@ -23,7 +23,6 @@ st.stop()
 </RefCard>
 </TileContainer>
 
-
 ## Group multiple widgets
 
 By default, Streamlit reruns your script everytime a user interacts with your app.

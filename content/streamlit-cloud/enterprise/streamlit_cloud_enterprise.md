@@ -19,61 +19,61 @@ You should already have access to your workspace, so log in and start deploying 
 
 1. **Log in to your dashboard** 👩🏻‍💻
 
-    Go to [share.streamlit.io](https://share.streamlit.io/) and click to authenticate with GitHub. If that fails it means that we don't have that GitHub account allow-listed, so just send the username to your Streamlit contact and we'll get it listed for you.
+   Go to [share.streamlit.io](https://share.streamlit.io/) and click to authenticate with GitHub. If that fails it means that we don't have that GitHub account allow-listed, so just send the username to your Streamlit contact and we'll get it listed for you.
 
 2. **Grant repo access** 👑
 
-    When you log in for the first time you will need to grant access to the GitHub private repo you wish to use for your apps. An admin of the repo must grant the access, so if you are not an admin, please get them a Streamlit Cloud account so they can grant access.
+   When you log in for the first time you will need to grant access to the GitHub private repo you wish to use for your apps. An admin of the repo must grant the access, so if you are not an admin, please get them a Streamlit Cloud account so they can grant access.
 
 3. **Launch a test app! 🎈**
 
-    We suggest doing a sample deployment to get used to the interface. Follow along in the [deployment instruction guide](/streamlit-cloud/community) to deploy your first app. For your full apps you'll want to make sure your secrets and viewer auth are set up before launching the app.
+   We suggest doing a sample deployment to get used to the interface. Follow along in the [deployment instruction guide](/streamlit-cloud/community) to deploy your first app. For your full apps you'll want to make sure your secrets and viewer auth are set up before launching the app.
 
 4. **Set up secrets** 🗝
 
-    Secure access to the data for your app with secrets management. Read the [documentation on using secrets](/streamlit-cloud/community#secrets-management). We also have a number of [guides on how to connect to different cloud services](/knowledge-base/tutorials/databases).
+   Secure access to the data for your app with secrets management. Read the [documentation on using secrets](/streamlit-cloud/community#secrets-management). We also have a number of [guides on how to connect to different cloud services](/knowledge-base/tutorials/databases).
 
 5. **Set up viewer auth** 🔒
 
-    Lock down your app to a certain set of viewers using Google OAuth or one of several other single sign-on platforms. Read the [documentation on viewer auth](/streamlit-cloud/enterprise/single-sign-on-sso).
+   Lock down your app to a certain set of viewers using Google OAuth or one of several other single sign-on platforms. Read the [documentation on viewer auth](/streamlit-cloud/enterprise/single-sign-on-sso).
 
 6. **Let us help!** 🙌
 
-    No question is too small, no request too big. Let us know how we can help - whether it's more resources for an app, a step that is frustrating you, or the need for ideas on how to improve your app. Just ping your Streamlit contact or email `support@streamlit.io`.
+   No question is too small, no request too big. Let us know how we can help - whether it's more resources for an app, a step that is frustrating you, or the need for ideas on how to improve your app. Just ping your Streamlit contact or email `support@streamlit.io`.
 
 ## A guide to Streamlit Cloud - Teams and Enterprise features
 
 - **Private repos**
 
-    Keep your code in your GitHub private repos and connect them to your Streamlit for Teams account to deploy apps and run CI/CD.
+  Keep your code in your GitHub private repos and connect them to your Streamlit for Teams account to deploy apps and run CI/CD.
 
 - **One-click deploy**
 
-    Deploy apps directly from your GitHub repos. Just connect Streamlit for Teams to the repo, select the app file, and we'll do the rest!
+  Deploy apps directly from your GitHub repos. Just connect Streamlit for Teams to the repo, select the app file, and we'll do the rest!
 
-    [One-click deploy documentation](/streamlit-cloud/community#deploy-your-app)
+  [One-click deploy documentation](/streamlit-cloud/community#deploy-your-app)
 
 - **Secrets management**
 
-    Securely access any data store or API from your Streamlit app by storing access credentials in encrypted secrets on our secure platform. Use them with `st.secrets`.
+  Securely access any data store or API from your Streamlit app by storing access credentials in encrypted secrets on our secure platform. Use them with `st.secrets`.
 
-    [Secrets management documentation](/streamlit-cloud/community#secrets-management)
+  [Secrets management documentation](/streamlit-cloud/community#secrets-management)
 
 - **Single sign-on viewer authentication**
 
-    Restrict access to your app to a selected set of users. Single sign-on with Google OAuth is currently supported, along with several other common platforms.
+  Restrict access to your app to a selected set of users. Single sign-on with Google OAuth is currently supported, along with several other common platforms.
 
-    [Single Sign-on documentation](/streamlit-cloud/enterprise/single-sign-on-sso)
+  [Single Sign-on documentation](/streamlit-cloud/enterprise/single-sign-on-sso)
 
 - **App management**
 
-    View apps, reboot, delete and inspect logs. If you need extra app resources, ping your Streamlit contact and we'll help configure it.
+  View apps, reboot, delete and inspect logs. If you need extra app resources, ping your Streamlit contact and we'll help configure it.
 
-    [App management documentation](/streamlit-cloud/community#deploy-your-app)
+  [App management documentation](/streamlit-cloud/community#deploy-your-app)
 
 - **Admin interface**
 
-    Manage billing, view usage, and configure other team-wide settings.
+  Manage billing, view usage, and configure other team-wide settings.
 
 <!-- ## Troubleshooting
 

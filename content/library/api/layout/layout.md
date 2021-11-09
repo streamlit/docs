@@ -86,5 +86,3 @@ c.write("This will show first")
 
 </RefCard>
 </TileContainer>
-
-

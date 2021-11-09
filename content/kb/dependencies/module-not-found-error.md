@@ -11,10 +11,11 @@ You receive the error `ModuleNotFoundError: No module named` when you deploy an 
 
 ## Solution
 
-This error occurs when you import a module on Streamlit Cloud that isn’t included in your requirements file. Any external [Python dependencies](/streamlit-cloud/get-started/deploy-an-app/app-dependencies#add-python-dependencies) that are not distributed with a [standard Python installation](https://docs.python.org/3/py-modindex.html) should be included in your requirements file. 
+This error occurs when you import a module on Streamlit Cloud that isn’t included in your requirements file. Any external [Python dependencies](/streamlit-cloud/get-started/deploy-an-app/app-dependencies#add-python-dependencies) that are not distributed with a [standard Python installation](https://docs.python.org/3/py-modindex.html) should be included in your requirements file.
 
 E.g. You will see `ModuleNotFoundError: No module named 'sklearn'` if you don’t include `scikit-learn` in your requirements file and `import sklearn` in your app.
 
 Related forum posts:
-- https://discuss.streamlit.io/t/getting-error-modulenotfounderror-no-module-named-beautifulsoup/9126 
-- https://discuss.streamlit.io/t/modulenotfounderror-no-module-named-vega-datasets/16354 
+
+- https://discuss.streamlit.io/t/getting-error-modulenotfounderror-no-module-named-beautifulsoup/9126
+- https://discuss.streamlit.io/t/modulenotfounderror-no-module-named-vega-datasets/16354
