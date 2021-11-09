@@ -14,7 +14,6 @@ including examples.
 
 So browse our API below and click to learn move about any of our available commands!
 
-
 ## Display almost anything
 
 <TileContainer>
@@ -45,7 +44,6 @@ my_mpl_figure
 
 </RefCard>
 </TileContainer>
-
 
 ## Text elements
 
@@ -156,7 +154,6 @@ st.latex("\int a x^2 \,dx")
 </RefCard>
 </TileContainer>
 
-
 ## Data display elements
 
 <TileContainer>
@@ -209,7 +206,6 @@ st.json(my_data_frame)
 
 </RefCard>
 </TileContainer>
-
 
 ## Chart elements
 
@@ -347,7 +343,6 @@ st.graphviz_chart(my_graphviz_spec)
 
 </RefCard>
 </TileContainer>
-
 
 ## Input widgets
 
@@ -549,7 +544,6 @@ color = st.color_picker("Pick a color")
 </RefCard>
 </TileContainer>
 
-
 ## Media elements
 
 <TileContainer>
@@ -602,7 +596,6 @@ st.video("https://example.com/myvideo.mp4", format="video/mp4")
 
 </RefCard>
 </TileContainer>
-
 
 ## Layouts and containers
 
@@ -683,7 +676,6 @@ c.write("This will show first")
 
 </RefCard>
 </TileContainer>
-
 
 ## Display progress and status
 
@@ -801,7 +793,6 @@ st.exception(e)
 </RefCard>
 </TileContainer>
 
-
 ## Control flow
 
 <TileContainer>
@@ -834,12 +825,10 @@ with st.form(key='my_form'):
 </RefCard>
 </TileContainer>
 
-
 ## Utilities
 
 <TileContainer>
 <RefCard href="/library/api-reference/utilities/st.set_page_config">
-
 
 #### Set page title, favicon, and more
 
@@ -881,7 +870,6 @@ st.help(pd.DataFrame)
 </RefCard>
 </TileContainer>
 
-
 ## Mutate charts
 
 <TileContainer>
@@ -899,7 +887,6 @@ element.add_rows(df_with_extra_rows)
 </RefCard>
 </TileContainer>
 
-
 ## State management
 
 <TileContainer>
@@ -915,7 +902,6 @@ st.session_state['key'] = value
 
 </RefCard>
 </TileContainer>
-
 
 ## Performance
 

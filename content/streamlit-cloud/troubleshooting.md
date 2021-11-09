@@ -56,13 +56,13 @@ If you want to store your data locally as opposed to in a database, you can stor
 
 <Tip>
 
-If you have really big or binary data that you change frequently, and git is feeling slow, you might want to check out  [Git Large File Store (LFS)](https://git-lfs.github.com/) as a better way to store large files in GitHub. You don't need to make any changes to your app to start using it. If your GitHub repo uses LFS, it will now *just work* with Streamlit.
+If you have really big or binary data that you change frequently, and git is feeling slow, you might want to check out [Git Large File Store (LFS)](https://git-lfs.github.com/) as a better way to store large files in GitHub. You don't need to make any changes to your app to start using it. If your GitHub repo uses LFS, it will now _just work_ with Streamlit.
 
 </Tip>
 
 ### My app is running into issues while deploying
 
-Check the terminal on the right side of the screen to see the logs. Often the trouble is due to a dependency not being declared. See here for [more information on dependency management](/streamlit-cloud/get-started/deploy-an-app/app-dependencies). 
+Check the terminal on the right side of the screen to see the logs. Often the trouble is due to a dependency not being declared. See here for [more information on dependency management](/streamlit-cloud/get-started/deploy-an-app/app-dependencies).
 
 If that's not the issue, then please send your Streamlit contact the logs and warning you are seeing and we'll help get you sorted!
 
@@ -74,7 +74,6 @@ If your app is running slowly or you're hitting the 'Argh' page then just let us
 
 We are working on this in Q4 of 2021. Check back soon for more information!
 
-
 ## Sharing and accessing apps
 
 ### How do I add developers to my Streamlit for Teams account?
@@ -83,7 +82,7 @@ If you are on the same GitHub repo then you will automatically be added to the s
 
 ### How do I add viewers to my Streamlit apps?
 
-By default, all apps deployed with Streamlit Cloud Teams and Enterprise are private—which means that others in your company won't be able to view them unless you give them explicit permission. To add viewers, [configure single sign-on](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso) with your organization's SSO provider. 
+By default, all apps deployed with Streamlit Cloud Teams and Enterprise are private—which means that others in your company won't be able to view them unless you give them explicit permission. To add viewers, [configure single sign-on](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso) with your organization's SSO provider.
 
 If you cannot implement single sign-on, but want to secure your Streamlit app with passwords, read our guide on [authentication without SSO](/knowledge-base/deploy/authentication-without-sso). Note: while this technique adds some level of security, it is **NOT** comparable to proper authentication with an SSO provider.
 
@@ -106,11 +105,10 @@ A 404 error is displayed to unauthorized viewers to avoid providing any unnecess
 
 If a user is still seeing a 404 error after their email address has been added to the viewer list, we recommend that you:
 
-- Check that the user did not log into a different Google account via Single Sign-On (if you have added their work email address to the viewer list, ask the user to check that they are not  logged into their personal Google account, and vice versa).
+- Check that the user did not log into a different Google account via Single Sign-On (if you have added their work email address to the viewer list, ask the user to check that they are not logged into their personal Google account, and vice versa).
 - Check that the user has navigated to the correct URL.
 - Check that the user's email address has been entered correctly in the viewer list.
 - Contact [support@streamlit.io](mailto:support@streamlit.io) and we will be happy to help.
-
 
 ## Data and app security
 
@@ -122,7 +120,6 @@ Streamlit takes a number of industry best-practice measures to ensure your code,
 
 If you use Google for authentication, you're all set. Otherwise please refer to our [SSO configuration guides](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso) on how to set up with your SSO provider of choice.
 
-
 ## Billing and administration
 
 ### Are there limits to resources or to users that I can have?
@@ -132,7 +129,6 @@ Your workspace is sized to a certain number of users, apps, and resources for th
 ### When will I be charged?
 
 The free tier is free forever, but if you have opted for a Teams or Enterprise account then you will have a 30 day free trial for your workspace. When your trial is near completion, we will reach out to check if you want to continue on and if so, we'll get your billing information. You will then be billed the 1st of every month going forward.
-
 
 ## GitHub integration
 
@@ -148,8 +144,7 @@ That scope (called the "repo" scope) also provides Streamlit Sharing with extra 
 
 Underneath the hood, Streamlit Cloud creates an SSH public-private key pair for every app being deployed. The public key is attached to the Github repository using Github's APIs. The private key is used by Streamlit Cloud's orchestration environment to download the source code.
 
-We knows these emails can be annoying, but the alternative would be to request an overly-broad OAuth scope from Github, which also provides *write* access to your repo. To be respectful of your security, we'd like to avoid that. So please bear with these emails, and let us know if you have any thoughts or comments on how we can do better here.
-
+We knows these emails can be annoying, but the alternative would be to request an overly-broad OAuth scope from Github, which also provides _write_ access to your repo. To be respectful of your security, we'd like to avoid that. So please bear with these emails, and let us know if you have any thoughts or comments on how we can do better here.
 
 ## Limitations and known issues
 
@@ -158,15 +153,15 @@ Here are some limitations and known issues that we're actively working to resolv
 - When you print something to the terminal, you may need to do a `sys.stdout.flush()` before it shows up.
 - Apps execute in a Linux environment running Debian Buster (slim) with Python 3.7. There is no way to change these, and we may upgrade the environment at any point. If we do upgrade it, we will *usually* not touch existing apps, so they'll continue to work as expected. But if there's a critical fix in the update, we *may* force-upgrade all apps.
 - Matplotlib [doesn't work well with threads](https://matplotlib.org/3.3.2/faq/howto_faq.html#working-with-threads). So if you're using Matplotlib you should wrap your code with locks as shown in the snippet below. This Matplotlib bug is more prominent when you share your app apps since you're more likely to get more concurrent users then.
-    
-    ```python
-    from matplotlib.backends.backend_agg import RendererAgg
-    _lock = RendererAgg.lock
-    
-    with _lock:
-      fig.title('This is a figure)')
-      fig.plot([1,20,3,40])
-      st.pyplot(fig)
-    ```
-    
+
+  ```python
+  from matplotlib.backends.backend_agg import RendererAgg
+  _lock = RendererAgg.lock
+
+  with _lock:
+    fig.title('This is a figure)')
+    fig.plot([1,20,3,40])
+    st.pyplot(fig)
+  ```
+
 - All apps are hosted in the United States. This is currently not configurable.

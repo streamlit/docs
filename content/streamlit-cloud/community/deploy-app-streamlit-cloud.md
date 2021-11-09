@@ -21,7 +21,6 @@ slug: /streamlit-cloud/community
 
 To get started, first request an invite on the [Streamlit Cloud Community sign-up](https://forms.streamlit.io/community-sign-up) form. Once you receive your invite email, you're ready to deploy!
 
-
 ## Put your Streamlit app on GitHub
 
 1. Add your Streamlit app to a **public** GitHub repo
@@ -35,14 +34,13 @@ directory as your Streamlit app.
 
 </Note>
 
-
 ### Add Python dependencies
 
 Streamlit looks at your requirements file's filename to determine which Python dependency manager to use in the order below. Streamlit will stop and install the first requirements file found.
 
 | **Filename**       | **Dependency Manager** | **Documentation**                                                                                                                     |
-| :------------------ | :---------------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
-| `Pipfile`          | pipenv                 | **[docs](https://pipenv-fork.readthedocs.io/en/latest/basics.html)**                                                                                  |
+| :----------------- | :--------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
+| `Pipfile`          | pipenv                 | **[docs](https://pipenv-fork.readthedocs.io/en/latest/basics.html)**                                                                  |
 | `environment.yml`  | conda                  | **[docs](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually)** |
 | `requirements.txt` | pip                    | **[docs](https://pip.pypa.io/en/stable/user_guide/#)**                                                                                |
 | `pyproject.toml`   | poetry                 | **[docs](https://python-poetry.org/docs/basic-usage/)**                                                                               |
@@ -197,7 +195,7 @@ Once you deploy your app, you can embed this badge right into your GitHub README
 
 <Note>
 
-Be sure to replace ``https://share.streamlit.io/[user name]/[repo name]/[branch name]/[app path]`` with the URL of your deployed app!
+Be sure to replace `https://share.streamlit.io/[user name]/[repo name]/[branch name]/[app path]` with the URL of your deployed app!
 
 </Note>
 

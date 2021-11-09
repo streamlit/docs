@@ -18,5 +18,6 @@ This error occurs when you deploy an app on Streamlit Cloud and have one or more
 3. The package does not support the operating system on which your Streamlit app is running. E.g. You see **`ERROR: No matching distribution found for pywin32`** while deploying to Streamlit Cloud. The `pywin32` module provides access to many of the Windows APIs from Python. Apps deployed to Streamlit Cloud are executed in a Linux environment. As such, `pywin32` fails to install on non-Windows systems, including on Streamlit Cloud. The solution is to either exclude `pywin32` from your requirements file, or deploy your app on a cloud service offering Windows machines.
 
 Related forum posts:
-- https://discuss.streamlit.io/t/error-no-matching-distribution-found-for-base64/15758 
-- https://discuss.streamlit.io/t/error-could-not-find-a-version-that-satisfies-the-requirement-pywin32-301-from-versions-none/15343/2 
+
+- https://discuss.streamlit.io/t/error-no-matching-distribution-found-for-base64/15758
+- https://discuss.streamlit.io/t/error-could-not-find-a-version-that-satisfies-the-requirement-pywin32-301-from-versions-none/15343/2

@@ -15,7 +15,6 @@ While this technique adds some level of security, it is **NOT** comparable to pr
 
 </Warning>
 
-
 ## Option 1: One global password for all users
 
 This is the easiest option! Your app will ask for a password that's shared between all users. It will be stored in the app secrets using [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). If you want to change this password or revoke a user's access, you will need to change it for everyone. If you want to have one password per user instead, jump to [Option 2 below](/knowledge-base/deploy/authentication-without-sso#option-2-individual-password-for-each-user).
@@ -113,13 +112,11 @@ Be sure to add this file to your `.gitignore` so you don't commit your secrets!
 
 Alternatively, you could set up and manage usernames & passwords via a spreadsheet or database. To use secrets to securely connect to Google Sheets, AWS, and other data providers, read our tutorials on how to [Connect Streamlit to data sources](/knowledge-base/tutorials/databases).
 
-
 ### Step 2: Copy your app secrets to the cloud
 
 As the `secrets.toml` file above is not committed to Github, you need to pass its content to your deployed app (on Streamlit Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
-
 
 ### Step 3: Ask for username & password in your Streamlit app
 

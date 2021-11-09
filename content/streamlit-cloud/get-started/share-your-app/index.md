@@ -21,7 +21,7 @@ By default all apps deployed from a Teams or Enterprise workspace are private to
 
 ### What is view auth?
 
-Viewer auth allows you to restrict the viewers of your app using single sign-on (SSO), which means listing out the specified Gmail, G-Suite, and SSO-enabled email addresses and specified domains that your company uses. 
+Viewer auth allows you to restrict the viewers of your app using single sign-on (SSO), which means listing out the specified Gmail, G-Suite, and SSO-enabled email addresses and specified domains that your company uses.
 
 For example, your company email may be susan@company.com but it's administered by Google (which means you go to mail.google.com or you use things like Drive and Google Sheets).
 
@@ -46,18 +46,18 @@ If you add an entire email domain, anyone with an email address which uses that 
 From your deployed app you can easily add viewers from your developer console.
 
 1. **Select "Manage app" in the lower right corner.**
-    <div style={{ maxWidth: '45%' }}>
-        <Image src="/images/streamlit-cloud/manage-app.png" />
-    </div>
+<div style={{ maxWidth: '45%' }}>
+    <Image src="/images/streamlit-cloud/manage-app.png" />
+</div>
 2. **Choose "Settings" from the menu.**
-    <div style={{ maxWidth: '45%' }}>
-        <Image src="/images/streamlit-cloud/settings-menu.png" />
-    </div>
+<div style={{ maxWidth: '45%' }}>
+    <Image src="/images/streamlit-cloud/settings-menu.png" />
+</div>
 3. **Add Viewers in Settings.**
 
-    You can choose to allow anyone from a domain, for example allowing "foo.corp" would allow anyone with an email from foo.corp. Or you can choose to allow only selected viewers based on their individual emails. Make sure to enter them as a line-separated list.
+   You can choose to allow anyone from a domain, for example allowing "foo.corp" would allow anyone with an email from foo.corp. Or you can choose to allow only selected viewers based on their individual emails. Make sure to enter them as a line-separated list.
 
-    ![Add viewers](/images/streamlit-cloud/add-viewers.png)
+   ![Add viewers](/images/streamlit-cloud/add-viewers.png)
 
 ### Adding viewers from your dashboard
 
@@ -65,19 +65,19 @@ You can also add viewers directly from your dashboard.
 
 1. **Open settings for your app**
 
-    Navigate to the app you want to add viewer to and click the hamburger icon to select "Settings."
+   Navigate to the app you want to add viewer to and click the hamburger icon to select "Settings."
 
-    <div style={{ maxWidth: '75%' }}>
-        <Image src="/images/streamlit-cloud/open-settings.png" />
-    </div>
+   <div style={{ maxWidth: '75%' }}>
+       <Image src="/images/streamlit-cloud/open-settings.png" />
+   </div>
 
 2. **Add Viewers in Settings**
 
-    Click on the "Viewers" section in the App Settings and in the text input area, provide a line-separated list of email addresses for the users you wish to grant viewer access to your app, or provide a line-separated list of allowed email address domains. Click "Save." 
+   Click on the "Viewers" section in the App Settings and in the text input area, provide a line-separated list of email addresses for the users you wish to grant viewer access to your app, or provide a line-separated list of allowed email address domains. Click "Save."
 
-    <div style={{ maxWidth: '75%' }}>
-        <Image src="/images/streamlit-cloud/add-viewers.png" />
-    </div>
+   <div style={{ maxWidth: '75%' }}>
+       <Image src="/images/streamlit-cloud/add-viewers.png" />
+   </div>
 
 ## Sharing public apps
 
@@ -97,7 +97,7 @@ Once you deploy your app, you can embed this badge right into your GitHub README
 
 <Note>
 
-Be sure to replace ``https://share.streamlit.io/[user name]/[repo name]/[branch name]/[app path]`` with the URL of your deployed app!
+Be sure to replace `https://share.streamlit.io/[user name]/[repo name]/[branch name]/[app path]` with the URL of your deployed app!
 
 </Note>
 
@@ -107,7 +107,7 @@ Inviting other developers is simple, just invite them to your GitHub repository 
 
 Streamlit Cloud inherits developer permissions from GitHub, so when your teammates log in, they will automatically view the workspaces you share. From there you can all deploy, manage, and share apps together.
 
-### Pushing new code 
+### Pushing new code
 
 You can also collaborate with other developers by having multiple contributors pushing to the same GitHub repo. Whenever anyone on the team updates the code on GitHub, the app will also automatically update for you!
 

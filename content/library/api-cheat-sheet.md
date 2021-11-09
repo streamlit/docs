@@ -19,8 +19,8 @@ streamlit run first_app.py
 # Import convention
 >>> import streamlit as st
 ```
-</CodeTile>
 
+</CodeTile>
 
 <CodeTile featured>
 
@@ -38,7 +38,6 @@ $ streamlit --version
 
 </CodeTile>
 
-
 <CodeTile featured>
 
 #### Pre-release features
@@ -47,8 +46,8 @@ $ streamlit --version
 pip uninstall streamlit
 pip install streamlit-nightly --upgrade
 ```
-Learn more about [beta and experimental features](/)
 
+Learn more about [beta and experimental features](/)
 
 </CodeTile>
 
@@ -68,8 +67,8 @@ my_variable
 'dataframe:', my_data_frame
 
 ```
-</CodeTile>
 
+</CodeTile>
 
 <CodeTile>
 
@@ -87,8 +86,8 @@ st.subheader('My sub')
 st.code('for i in range(8): foo()')
 * optional kwarg unsafe_allow_html = True
 ```
-</CodeTile>
 
+</CodeTile>
 
 <CodeTile>
 
@@ -101,8 +100,8 @@ st.json({'foo':'bar','fu':'ba'})
 st.metric('My metric', 42, 2)
 
 ```
-</CodeTile>
 
+</CodeTile>
 
 <CodeTile>
 
@@ -113,8 +112,8 @@ st.image('./header.png')
 st.audio(data)
 st.video(data)
 ```
-</CodeTile>
 
+</CodeTile>
 
 <CodeTile>
 
@@ -130,7 +129,6 @@ st.video(data)
 ```
 
 </CodeTile>
-
 
 <CodeTile>
 
@@ -153,7 +151,6 @@ st.video(data)
 
 </CodeTile>
 
-
 <CodeTile>
 
 #### Control flow
@@ -166,6 +163,7 @@ st.stop()
 >>>   password = st.text_input('Password')
 >>>   st.form_submit_button('Login')
 ```
+
 </CodeTile>
 
 <CodeTile>
@@ -197,8 +195,8 @@ st.color_picker('Pick a color')
 >>> my_slider_val = st.slider('Quinn Mallory', 1, 88)
 >>> st.write(slider_val)
 ```
-</CodeTile>
 
+</CodeTile>
 
 <CodeTile>
 
@@ -215,8 +213,8 @@ st.color_picker('Pick a color')
 >>> element = st.line_chart(df1)
 >>> element.add_rows(df2)
 ```
-</CodeTile>
 
+</CodeTile>
 
 <CodeTile>
 
@@ -226,8 +224,8 @@ st.color_picker('Pick a color')
 >>> with st.echo():
 >>>   st.write('Code will be executed and printed')
 ```
-</CodeTile>
 
+</CodeTile>
 
 <CodeTile>
 
@@ -250,8 +248,8 @@ st.get_option(key)
 st.set_option(key, value)
 st.set_page_config(layout='wide')
 ```
-</CodeTile>
 
+</CodeTile>
 
 <CodeTile>
 
@@ -269,8 +267,8 @@ st.set_page_config(layout='wide')
 >>> # Different arg, so function foo executes
 >>> d3 = foo(ref2)
 ```
-</CodeTile>
 
+</CodeTile>
 
 <CodeTile>
 
@@ -289,6 +287,7 @@ st.info('Info message')
 st.success('Success message')
 st.exception(e)
 ```
+
 </CodeTile>
 
 </Masonry>

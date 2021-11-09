@@ -27,19 +27,19 @@ There are three steps your team will need to complete to configure SSO via gener
 
 1. Please complete [this form](https://docs.google.com/forms/d/e/1FAIpQLSenELJzAZaBV8852b-HJMeecO_LAwYJ6zuYbXLK0lMVexCF4Q/viewform)
 
-    To complete steps 2 and 3, you will need an **ACS URL** and **Identity Provider URI (Entity ID)**, which Streamlit will provide by emailing you a private Google Drive link. Please complete [this form](https://forms.gle/5E3pUrB8vwp66ZPc9) to provide us with your email address and some basic information about your organization.
+   To complete steps 2 and 3, you will need an **ACS URL** and **Identity Provider URI (Entity ID)**, which Streamlit will provide by emailing you a private Google Drive link. Please complete [this form](https://forms.gle/5E3pUrB8vwp66ZPc9) to provide us with your email address and some basic information about your organization.
 
 2. Provide Streamlit with a Token Signature (X.509 Certificate).
 
-    - Your Token Signature comes from your Identity Provider and is often located in an admin dashboard. The exact steps to download the Token Signature will vary based on your Identity Provider.
-    - Please share the Token Signature with Streamlit by uploading it [here](https://docs.google.com/forms/d/e/1FAIpQLSdtV7hdpMEgfbK4E7BqeYNTcDrT6IqjOfSvIA48SoNAeIhcgw/viewform?usp=sf_link).
+   - Your Token Signature comes from your Identity Provider and is often located in an admin dashboard. The exact steps to download the Token Signature will vary based on your Identity Provider.
+   - Please share the Token Signature with Streamlit by uploading it [here](https://docs.google.com/forms/d/e/1FAIpQLSdtV7hdpMEgfbK4E7BqeYNTcDrT6IqjOfSvIA48SoNAeIhcgw/viewform?usp=sf_link).
 
 3. Provide Streamlit with an Identity Provider SSO URL.
 
-    - Your Identity Provider SSO URL comes from your Identity Provider and is often located in an admin dashboard. The exact steps to generate the Identity Provider SSO URL will vary based on your Identity Provider.
-    - Please share the IdP SSO URL with Streamlit by pasting it [here](https://docs.google.com/forms/d/e/1FAIpQLSdtV7hdpMEgfbK4E7BqeYNTcDrT6IqjOfSvIA48SoNAeIhcgw/viewform?usp=sf_link).
+   - Your Identity Provider SSO URL comes from your Identity Provider and is often located in an admin dashboard. The exact steps to generate the Identity Provider SSO URL will vary based on your Identity Provider.
+   - Please share the IdP SSO URL with Streamlit by pasting it [here](https://docs.google.com/forms/d/e/1FAIpQLSdtV7hdpMEgfbK4E7BqeYNTcDrT6IqjOfSvIA48SoNAeIhcgw/viewform?usp=sf_link).
 
 4. Provide Streamlit with an IdP URI (Entity ID)
 
-    - Your Identity Provider URI (Entity ID) comes from your Identity Provider and is often located in an admin dashboard. The exact steps to generate the IdP URI (Entity ID) will vary based on your Identity Provider.
-    - Please share the IdP URI with Streamlit by pasting it [here](https://forms.gle/f6Bi1gnoHYD9ULBe7).
+   - Your Identity Provider URI (Entity ID) comes from your Identity Provider and is often located in an admin dashboard. The exact steps to generate the IdP URI (Entity ID) will vary based on your Identity Provider.
+   - Please share the IdP URI with Streamlit by pasting it [here](https://forms.gle/f6Bi1gnoHYD9ULBe7).
