@@ -19,7 +19,8 @@ features:
       fugit, sed quia.
     color: l-blue-70
     icon: description
-    url: Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+    url:
+      Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
       sed quia.
     image: ""
 whats_new:
@@ -54,12 +55,14 @@ whats_new:
 news:
   - publish_date: April 7, 2021
     title: New Story 1
-    body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis leo
+    body:
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis leo
       felis, quis egestas est dignissim vel.
     url: https://www.streamlit.io
   - publish_date: April 7, 2021
     title: New Story 2
-    body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis leo
+    body:
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis leo
       felis, quis egestas est dignissim vel. Pellentesque interdum massa metus,
       vitae tincidunt nibh molestie consequat. Sed congue commodo bibendum.
       Donec iaculis velit ante, a venenatis elit dictum ut. Etiam pellentesque
@@ -74,4 +77,5 @@ news:
     url: https://www.streamlit.io
 next: get-started
 ---
+
 [Streamlit](https://www.streamlit.io) is an open-source Python library that makes it easy to create and share beautiful, custom web apps for machine learning and data science. In just a few minutes you can build and deploy powerful data apps - so let’s get started!

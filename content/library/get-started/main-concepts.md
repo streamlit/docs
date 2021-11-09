@@ -92,7 +92,7 @@ specifically for visualizing data.
 
 ### Use magic
 
-You can also write to your app without calling any Streamlit methods. 
+You can also write to your app without calling any Streamlit methods.
 Streamlit supports "[magic commands](/library/api-reference/write-magic/magic)," which means you don't have to use
 [`st.write()`](/library/api-reference/write-magic/st.write) at all! To see this in action try this snippet:
 
@@ -468,4 +468,3 @@ the loop and review how it works together:
    the output value of that widget is set to the new value during that run.
 
 ![The Streamlit app model](/images/app_model.png)
-

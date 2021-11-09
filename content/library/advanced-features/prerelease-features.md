@@ -29,7 +29,7 @@ pip install streamlit-nightly --upgrade
 
 <Warning>
 
-   You should never have both `streamlit` and `streamlit-nightly` installed in the same environment!
+You should never have both `streamlit` and `streamlit-nightly` installed in the same environment!
 
 </Warning>
 

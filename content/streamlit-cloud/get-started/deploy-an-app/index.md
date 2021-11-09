@@ -5,7 +5,7 @@ slug: /streamlit-cloud/get-started/deploy-an-app
 
 # Deploy an app
 
-Streamlit Cloud lets you deploy your apps in just one click, and most apps will deploy in only a few minutes. If you don't have an app ready to deploy, [fork or clone one of our example apps](https://share.streamlit.io/streamlit/cloud-example-apps/main?hsCtaTracking=28f10086-a3a5-4ea8-9403-f3d52bf26184%7C22470002-acb1-4d93-8286-00ee4f8a46fb) — you can find apps for machine learning, data visualization, data exploration, A/B testing and more. 
+Streamlit Cloud lets you deploy your apps in just one click, and most apps will deploy in only a few minutes. If you don't have an app ready to deploy, [fork or clone one of our example apps](https://share.streamlit.io/streamlit/cloud-example-apps/main?hsCtaTracking=28f10086-a3a5-4ea8-9403-f3d52bf26184%7C22470002-acb1-4d93-8286-00ee4f8a46fb) — you can find apps for machine learning, data visualization, data exploration, A/B testing and more.
 
 ## Add your app to GitHub
 
@@ -31,13 +31,11 @@ Your app is now deploying and you can watch while it launches. Most apps take on
 
 ![Watch app launch](/images/streamlit-cloud/watch-app-launch.png)
 
-
 <Note>
 
 The terminal on the right hand side is only viewable to the developer and is how you can grab logs and debug any issues with the app. [Learn more about the app terminal](/streamlit-cloud/get-started/manage-your-app#app-terminal).
 
 </Note>
-
 
 ## Your app URL
 

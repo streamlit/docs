@@ -1,201 +1,202 @@
 .block-code {
+  width: calc(100%);
+  position: relative !important;
+  margin: 1.75em auto;
 
-    width: calc(100%);
-    position: relative !important;
-    margin: 1.75em auto;
+  .code-toolbar {
+    position: relative;
+  }
 
-    .code-toolbar {
-        position: relative;
+  code.undefined,
+  code[class*="language-"],
+  pre[class*="language-"] {
+    white-space: pre;
+    max-width: 100%;
+    overflow: hidden;
+    overflow-x: scroll;
+    overflow-x: overlay;
+  }
+  code.undefined {
+    white-space: pre-line;
+  }
+
+  pre.line-numbers {
+    background: $gray-90;
+    padding: 1em;
+    color: $white;
+    font-weight: 500;
+    font-family: $source;
+    border-radius: $rounded-small;
+    position: relative;
+    padding: 1.5em 2em;
+    counter-reset: linenumber;
+    line-height: 1.75;
+
+    > code {
+      z-index: 1;
+      position: relative;
+      white-space: inherit;
+      font-family: $source;
+
+      .keyword {
+        color: $blue-50;
+      }
+      .function {
+        color: $red-50;
+      }
+      .builtin {
+        color: $l-blue-40;
+      }
+      .punctuation {
+        color: $gray-60;
+      }
+      .operator {
+        color: $orange-50;
+      }
+      .decorator {
+        color: $yellow-80;
+      }
+      .comment {
+        color: $gray-50;
+        font-style: italic;
+        font-weight: 400;
+      }
+      .number {
+        color: $b-g-40;
+      }
+      .string {
+        color: $blue-30;
+      }
+      .boolean {
+        color: $green-40;
+      }
     }
 
-    code.undefined, code[class*="language-"], pre[class*="language-"] {
-        white-space: pre;
-        max-width: 100%;
-        overflow: hidden;
-        overflow-x: scroll;
-        overflow-x: overlay;
-    }
-    code.undefined {
-        white-space:pre-line;
-    }
+    .line-numbers-rows {
+      position: absolute;
+      display: none;
+      pointer-events: none;
+      top: 0;
+      font-size: 100%;
+      left: -3.8em;
+      width: 3em; /* works for line-numbers below 1000 lines */
+      letter-spacing: -1px;
+      border-right: 1px solid #999;
 
-    pre.line-numbers {
-        background: $gray-90;
-        padding: 1em;
-        color: $white;
-        font-weight: 500;
-        font-family: $source;
-        border-radius: $rounded-small;
-        position: relative;
-        padding: 1.5em 2em;
-        counter-reset: linenumber;
-        line-height: 1.75;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
 
-        >code {
-            z-index: 1;
-            position: relative;
-            white-space: inherit;
-            font-family: $source;
-
-            .keyword {
-                color: $blue-50;
-            }
-            .function {
-                color: $red-50;
-            }
-            .builtin {
-                color: $l-blue-40;
-            }
-            .punctuation {
-                color: $gray-60;
-            }
-            .operator {
-                color: $orange-50;
-            }
-            .decorator {
-                color: $yellow-80;
-            }
-            .comment {
-                color: $gray-50;
-                font-style: italic;
-                font-weight:400;
-            }
-            .number {
-                color: $b-g-40;
-            }
-            .string {
-                color: $blue-30;
-            }
-            .boolean {
-                color: $green-40
-            }
-        }
-
-        .line-numbers-rows {
-            position: absolute;
-            display: none;
-            pointer-events: none;
-            top: 0;
-            font-size: 100%;
-            left: -3.8em;
-            width: 3em; /* works for line-numbers below 1000 lines */
-            letter-spacing: -1px;
-            border-right: 1px solid #999;
-
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-
-            >span {
-                display: block;
-                counter-increment: linenumber;
-
-                &:before {
-                    content: counter(linenumber);
-                    color: #999;
-                    display: block;
-                    padding-right: 0.8em;
-                    text-align: right;
-                }
-            }
-        }
-    }
-
-    .line-highlight {
-        background: $gray-80;
-        opacity: .25;
-        z-index: 0;
-    }
-
-    .block-image {
-        margin-bottom:-3em;
-        width:100%;
-        img {
-            width:100%;
-        }
-    }
-
-    button {
-        position: absolute;
-        top: 0.5rem;
-        right: 0.5rem;
-        background: transparent;
-        border: none;
-        color: transparent;
-        cursor: pointer;
-        height: 2rem;
-        width: 2rem;
-        margin-bottom: 0;
-        display: flex;
-        align-items: center;
-
-        span {
-            position: absolute;
-            right: calc(100% + .25rem);
-            color: #ffffff;
-            font-family: monospace;
-            font-size: .8rem;
-            font-weight: 400;
-            opacity: 0;
-        }
+      > span {
+        display: block;
+        counter-increment: linenumber;
 
         &:before {
-            content:url('/clipboard.svg');
-            position: absolute;
-            top: .5rem;
-            right: .5rem;
-            z-index: 1;
-            transition: $fast;
+          content: counter(linenumber);
+          color: #999;
+          display: block;
+          padding-right: 0.8em;
+          text-align: right;
         }
-
-        &:after {
-            content: '';
-            position: absolute;
-            top: .15rem;
-            right: .15rem;
-            background: $gray-80;
-            width: 100%;
-            height: 100%;
-            border-radius: $rounded-circle;
-            opacity: 0;
-            transform: scale(0);
-            z-index: 0;
-            transition: $fast;
-        }
-
-        &:hover {
-            &:before {
-                opacity:.5;
-            }
-
-            span {
-                opacity: 1;
-            }
-        }
-
-        &:active {
-            &:after {
-                animation-duration: 250ms;
-                animation-name: grow_in;
-            }
-        }
-
-        @keyframes grow_in {
-            from {
-                transform: scale(0);
-                opacity: 0;
-            }
-
-            50% {
-                opacity: .5;
-                transform: scale(1.25);
-            }
-
-            to {
-                transform: scale(0);
-                opacity: 0;
-            }
-        }
+      }
     }
+  }
+
+  .line-highlight {
+    background: $gray-80;
+    opacity: 0.25;
+    z-index: 0;
+  }
+
+  .block-image {
+    margin-bottom: -3em;
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+
+  button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: transparent;
+    border: none;
+    color: transparent;
+    cursor: pointer;
+    height: 2rem;
+    width: 2rem;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+
+    span {
+      position: absolute;
+      right: calc(100% + 0.25rem);
+      color: #ffffff;
+      font-family: monospace;
+      font-size: 0.8rem;
+      font-weight: 400;
+      opacity: 0;
+    }
+
+    &:before {
+      content: url("/clipboard.svg");
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      z-index: 1;
+      transition: $fast;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0.15rem;
+      right: 0.15rem;
+      background: $gray-80;
+      width: 100%;
+      height: 100%;
+      border-radius: $rounded-circle;
+      opacity: 0;
+      transform: scale(0);
+      z-index: 0;
+      transition: $fast;
+    }
+
+    &:hover {
+      &:before {
+        opacity: 0.5;
+      }
+
+      span {
+        opacity: 1;
+      }
+    }
+
+    &:active {
+      &:after {
+        animation-duration: 250ms;
+        animation-name: grow_in;
+      }
+    }
+
+    @keyframes grow_in {
+      from {
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(1.25);
+      }
+
+      to {
+        transform: scale(0);
+        opacity: 0;
+      }
+    }
+  }
 }

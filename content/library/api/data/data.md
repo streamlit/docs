@@ -62,5 +62,3 @@ st.json(my_data_frame)
 
 </RefCard>
 </TileContainer>
-
-
