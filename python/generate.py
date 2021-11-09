@@ -57,8 +57,14 @@ def get_function_docstring_dict(func, funcname, signature_prefix):
             pass
 
         docstring_obj = docstring_parser.parse(docstring)
+        short_description = docstring_obj.short_description
+        long_description = str('' if docstring_obj.long_description is None else docstring_obj.long_description)
 
-        description['description'] = docstring_obj.short_description
+        # Insert a blank line between the short and long description, if the latter exists.
+        if long_description:
+            description['description'] = parse_rst('\n\n'.join([short_description, long_description]))
+        else:
+            description['description'] = short_description
 
         description['args'] = []
         for param in docstring_obj.params:
