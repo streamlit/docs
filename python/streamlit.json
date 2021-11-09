@@ -965,7 +965,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.widgets.NoValue object at 0x7faee83d2b20>, step=None, format=None, key=None, help=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.widgets.NoValue object at 0x7f2402ac3b80>, step=None, format=None, key=None, help=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -2642,7 +2642,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.widgets.NoValue object at 0x7faee83d2b20>, step=None, format=None, key=None, help=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.widgets.NoValue object at 0x7f2402ac3b80>, step=None, format=None, key=None, help=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -4323,7 +4323,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.widgets.NoValue object at 0x7f52be3287f0>, step=None, format=None, key=None, help=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.widgets.NoValue object at 0x7f56f3101850>, step=None, format=None, key=None, help=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -6001,7 +6001,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.widgets.NoValue object at 0x7f52be3287f0>, step=None, format=None, key=None, help=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.widgets.NoValue object at 0x7f56f3101850>, step=None, format=None, key=None, help=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -7696,7 +7696,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.widgets.NoValue object at 0x7f8d2c782e20>, step=None, format=None, key=None, help=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.widgets.NoValue object at 0x7f6ced82ff70>, step=None, format=None, key=None, help=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -9388,7 +9388,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.widgets.NoValue object at 0x7f8d2c782e20>, step=None, format=None, key=None, help=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.widgets.NoValue object at 0x7f6ced82ff70>, step=None, format=None, key=None, help=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -11230,7 +11230,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f187e24dcd0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f1e1d6e9d60>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -13244,7 +13244,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f187e24dcd0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f1e1d6e9d60>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -15261,7 +15261,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7ff3c25b1d30>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f857b112c70>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -17268,7 +17268,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7ff3c25b1d30>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f857b112c70>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -19329,7 +19329,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f95433b2760>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f1b77f48790>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -21352,7 +21352,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f95433b2760>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f1b77f48790>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -23449,7 +23449,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f4abd042ee0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fb8e78eaf40>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -25516,7 +25516,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f4abd042ee0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fb8e78eaf40>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -27696,7 +27696,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f04fa0c65e0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fc3b954f610>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -29834,7 +29834,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f04fa0c65e0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fc3b954f610>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -31486,8 +31486,8 @@
       "args": []
     },
     "streamlit.experimental_memo": {
-      "name": "memo",
-      "signature": "st.memo(func=None, persist=None, show_spinner=True, suppress_st_warning=False, max_entries=None, ttl=None)",
+      "name": "experimental_memo",
+      "signature": "st.experimental_memo(func=None, persist=None, show_spinner=True, suppress_st_warning=False, max_entries=None, ttl=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; &#64;st.experimental_memo\n... def fetch_and_clean_data(url):\n...     # Fetch data from URL here, and then clean it up.\n...     return data\n...\n&gt;&gt;&gt; d1 = fetch_and_clean_data(DATA_URL_1)\n&gt;&gt;&gt; # Actually executes the function, since this is the first time it was\n&gt;&gt;&gt; # encountered.\n&gt;&gt;&gt;\n&gt;&gt;&gt; d2 = fetch_and_clean_data(DATA_URL_1)\n&gt;&gt;&gt; # Does not execute the function. Instead, returns its previously computed\n&gt;&gt;&gt; # value. This means that now the data in d1 is the same as in d2.\n&gt;&gt;&gt;\n&gt;&gt;&gt; d3 = fetch_and_clean_data(DATA_URL_2)\n&gt;&gt;&gt; # This is a different URL, so the function executes.\n</pre>\n<p>To set the <tt class=\"docutils literal\">persist</tt> parameter, use this command as follows:</p>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; &#64;st.experimental_memo(persist=&quot;disk&quot;)\n... def fetch_and_clean_data(url):\n...     # Fetch data from URL here, and then clean it up.\n...     return data\n</pre>\n<p>By default, all parameters to a memoized function must be hashable.\nAny parameter whose name begins with <tt class=\"docutils literal\">_</tt> will not be hashed. You can use\nthis as an &quot;escape hatch&quot; for parameters that are not hashable:</p>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; &#64;st.experimental_memo\n... def fetch_and_clean_data(_db_connection, num_rows):\n...     # Fetch data from _db_connection here, and then clean it up.\n...     return data\n...\n&gt;&gt;&gt; connection = make_database_connection()\n&gt;&gt;&gt; d1 = fetch_and_clean_data(connection, num_rows=10)\n&gt;&gt;&gt; # Actually executes the function, since this is the first time it was\n&gt;&gt;&gt; # encountered.\n&gt;&gt;&gt;\n&gt;&gt;&gt; another_connection = make_database_connection()\n&gt;&gt;&gt; d2 = fetch_and_clean_data(another_connection, num_rows=10)\n&gt;&gt;&gt; # Does not execute the function. Instead, returns its previously computed\n&gt;&gt;&gt; # value - even though the _database_connection parameter was different\n&gt;&gt;&gt; # in both calls.\n</pre>\n</blockquote>\n",
       "description": "Function decorator to memoize function executions.",
       "args": [
@@ -31573,8 +31573,8 @@
       ]
     },
     "streamlit.experimental_singleton": {
-      "name": "singleton",
-      "signature": "st.singleton(func=None, show_spinner=True, suppress_st_warning=False)",
+      "name": "experimental_singleton",
+      "signature": "st.experimental_singleton(func=None, show_spinner=True, suppress_st_warning=False)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; &#64;st.experimental_singleton\n... def get_database_session(url):\n...     # Create a database session object that points to the URL.\n...     return session\n...\n&gt;&gt;&gt; s1 = get_database_session(DATA_URL_1)\n&gt;&gt;&gt; # Actually executes the function, since this is the first time it was\n&gt;&gt;&gt; # encountered.\n&gt;&gt;&gt;\n&gt;&gt;&gt; s2 = get_database_session(DATA_URL_1)\n&gt;&gt;&gt; # Does not execute the function. Instead, returns its previously computed\n&gt;&gt;&gt; # value. This means that now the connection object in d1 is the same as in d2.\n&gt;&gt;&gt;\n&gt;&gt;&gt; s3 = get_database_session(DATA_URL_2)\n&gt;&gt;&gt; # This is a different URL, so the function executes.\n</pre>\n<p>By default, all parameters to a singleton function must be hashable.\nAny parameter whose name begins with <tt class=\"docutils literal\">_</tt> will not be hashed. You can use\nthis as an &quot;escape hatch&quot; for parameters that are not hashable:</p>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; &#64;st.experimental_singleton\n... def get_database_session(_sessionmaker, url):\n...     # Create a database connection object that points to the URL.\n...     return connection\n...\n&gt;&gt;&gt; s1 = get_database_session(create_sessionmaker(), DATA_URL_1)\n&gt;&gt;&gt; # Actually executes the function, since this is the first time it was\n&gt;&gt;&gt; # encountered.\n&gt;&gt;&gt;\n&gt;&gt;&gt; s2 = get_database_session(create_sessionmaker(), DATA_URL_1)\n&gt;&gt;&gt; # Does not execute the function. Instead, returns its previously computed\n&gt;&gt;&gt; # value - even though the _sessionmaker parameter was different\n&gt;&gt;&gt; # in both calls.\n</pre>\n</blockquote>\n",
       "description": "Function decorator to store singleton objects.",
       "args": [
@@ -32093,7 +32093,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f3706488160>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fe3b0dfe1f0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -34238,7 +34238,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f3706488160>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fe3b0dfe1f0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -35890,8 +35890,8 @@
       "args": []
     },
     "streamlit.experimental_memo": {
-      "name": "memo",
-      "signature": "st.memo(func=None, persist=None, show_spinner=True, suppress_st_warning=False, max_entries=None, ttl=None)",
+      "name": "experimental_memo",
+      "signature": "st.experimental_memo(func=None, persist=None, show_spinner=True, suppress_st_warning=False, max_entries=None, ttl=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; &#64;st.experimental_memo\n... def fetch_and_clean_data(url):\n...     # Fetch data from URL here, and then clean it up.\n...     return data\n...\n&gt;&gt;&gt; d1 = fetch_and_clean_data(DATA_URL_1)\n&gt;&gt;&gt; # Actually executes the function, since this is the first time it was\n&gt;&gt;&gt; # encountered.\n&gt;&gt;&gt;\n&gt;&gt;&gt; d2 = fetch_and_clean_data(DATA_URL_1)\n&gt;&gt;&gt; # Does not execute the function. Instead, returns its previously computed\n&gt;&gt;&gt; # value. This means that now the data in d1 is the same as in d2.\n&gt;&gt;&gt;\n&gt;&gt;&gt; d3 = fetch_and_clean_data(DATA_URL_2)\n&gt;&gt;&gt; # This is a different URL, so the function executes.\n</pre>\n<p>To set the <tt class=\"docutils literal\">persist</tt> parameter, use this command as follows:</p>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; &#64;st.experimental_memo(persist=&quot;disk&quot;)\n... def fetch_and_clean_data(url):\n...     # Fetch data from URL here, and then clean it up.\n...     return data\n</pre>\n<p>By default, all parameters to a memoized function must be hashable.\nAny parameter whose name begins with <tt class=\"docutils literal\">_</tt> will not be hashed. You can use\nthis as an &quot;escape hatch&quot; for parameters that are not hashable:</p>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; &#64;st.experimental_memo\n... def fetch_and_clean_data(_db_connection, num_rows):\n...     # Fetch data from _db_connection here, and then clean it up.\n...     return data\n...\n&gt;&gt;&gt; connection = make_database_connection()\n&gt;&gt;&gt; d1 = fetch_and_clean_data(connection, num_rows=10)\n&gt;&gt;&gt; # Actually executes the function, since this is the first time it was\n&gt;&gt;&gt; # encountered.\n&gt;&gt;&gt;\n&gt;&gt;&gt; another_connection = make_database_connection()\n&gt;&gt;&gt; d2 = fetch_and_clean_data(another_connection, num_rows=10)\n&gt;&gt;&gt; # Does not execute the function. Instead, returns its previously computed\n&gt;&gt;&gt; # value - even though the _database_connection parameter was different\n&gt;&gt;&gt; # in both calls.\n</pre>\n</blockquote>\n",
       "description": "Function decorator to memoize function executions.",
       "args": [
@@ -35977,8 +35977,8 @@
       ]
     },
     "streamlit.experimental_singleton": {
-      "name": "singleton",
-      "signature": "st.singleton(func=None, show_spinner=True, suppress_st_warning=False)",
+      "name": "experimental_singleton",
+      "signature": "st.experimental_singleton(func=None, show_spinner=True, suppress_st_warning=False)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; &#64;st.experimental_singleton\n... def get_database_session(url):\n...     # Create a database session object that points to the URL.\n...     return session\n...\n&gt;&gt;&gt; s1 = get_database_session(DATA_URL_1)\n&gt;&gt;&gt; # Actually executes the function, since this is the first time it was\n&gt;&gt;&gt; # encountered.\n&gt;&gt;&gt;\n&gt;&gt;&gt; s2 = get_database_session(DATA_URL_1)\n&gt;&gt;&gt; # Does not execute the function. Instead, returns its previously computed\n&gt;&gt;&gt; # value. This means that now the connection object in d1 is the same as in d2.\n&gt;&gt;&gt;\n&gt;&gt;&gt; s3 = get_database_session(DATA_URL_2)\n&gt;&gt;&gt; # This is a different URL, so the function executes.\n</pre>\n<p>By default, all parameters to a singleton function must be hashable.\nAny parameter whose name begins with <tt class=\"docutils literal\">_</tt> will not be hashed. You can use\nthis as an &quot;escape hatch&quot; for parameters that are not hashable:</p>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; &#64;st.experimental_singleton\n... def get_database_session(_sessionmaker, url):\n...     # Create a database connection object that points to the URL.\n...     return connection\n...\n&gt;&gt;&gt; s1 = get_database_session(create_sessionmaker(), DATA_URL_1)\n&gt;&gt;&gt; # Actually executes the function, since this is the first time it was\n&gt;&gt;&gt; # encountered.\n&gt;&gt;&gt;\n&gt;&gt;&gt; s2 = get_database_session(create_sessionmaker(), DATA_URL_1)\n&gt;&gt;&gt; # Does not execute the function. Instead, returns its previously computed\n&gt;&gt;&gt; # value - even though the _sessionmaker parameter was different\n&gt;&gt;&gt; # in both calls.\n</pre>\n</blockquote>\n",
       "description": "Function decorator to store singleton objects.",
       "args": [
@@ -36497,7 +36497,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fe3def4c040>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f6073692fd0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -38642,7 +38642,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fe3def4c040>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f6073692fd0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -40294,8 +40294,8 @@
       "args": []
     },
     "streamlit.experimental_memo": {
-      "name": "memo",
-      "signature": "st.memo(func=None, persist=None, show_spinner=True, suppress_st_warning=False, max_entries=None, ttl=None)",
+      "name": "experimental_memo",
+      "signature": "st.experimental_memo(func=None, persist=None, show_spinner=True, suppress_st_warning=False, max_entries=None, ttl=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; &#64;st.experimental_memo\n... def fetch_and_clean_data(url):\n...     # Fetch data from URL here, and then clean it up.\n...     return data\n...\n&gt;&gt;&gt; d1 = fetch_and_clean_data(DATA_URL_1)\n&gt;&gt;&gt; # Actually executes the function, since this is the first time it was\n&gt;&gt;&gt; # encountered.\n&gt;&gt;&gt;\n&gt;&gt;&gt; d2 = fetch_and_clean_data(DATA_URL_1)\n&gt;&gt;&gt; # Does not execute the function. Instead, returns its previously computed\n&gt;&gt;&gt; # value. This means that now the data in d1 is the same as in d2.\n&gt;&gt;&gt;\n&gt;&gt;&gt; d3 = fetch_and_clean_data(DATA_URL_2)\n&gt;&gt;&gt; # This is a different URL, so the function executes.\n</pre>\n<p>To set the <tt class=\"docutils literal\">persist</tt> parameter, use this command as follows:</p>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; &#64;st.experimental_memo(persist=&quot;disk&quot;)\n... def fetch_and_clean_data(url):\n...     # Fetch data from URL here, and then clean it up.\n...     return data\n</pre>\n<p>By default, all parameters to a memoized function must be hashable.\nAny parameter whose name begins with <tt class=\"docutils literal\">_</tt> will not be hashed. You can use\nthis as an &quot;escape hatch&quot; for parameters that are not hashable:</p>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; &#64;st.experimental_memo\n... def fetch_and_clean_data(_db_connection, num_rows):\n...     # Fetch data from _db_connection here, and then clean it up.\n...     return data\n...\n&gt;&gt;&gt; connection = make_database_connection()\n&gt;&gt;&gt; d1 = fetch_and_clean_data(connection, num_rows=10)\n&gt;&gt;&gt; # Actually executes the function, since this is the first time it was\n&gt;&gt;&gt; # encountered.\n&gt;&gt;&gt;\n&gt;&gt;&gt; another_connection = make_database_connection()\n&gt;&gt;&gt; d2 = fetch_and_clean_data(another_connection, num_rows=10)\n&gt;&gt;&gt; # Does not execute the function. Instead, returns its previously computed\n&gt;&gt;&gt; # value - even though the _database_connection parameter was different\n&gt;&gt;&gt; # in both calls.\n</pre>\n</blockquote>\n",
       "description": "Function decorator to memoize function executions.",
       "args": [
@@ -40381,8 +40381,8 @@
       ]
     },
     "streamlit.experimental_singleton": {
-      "name": "singleton",
-      "signature": "st.singleton(func=None, show_spinner=True, suppress_st_warning=False)",
+      "name": "experimental_singleton",
+      "signature": "st.experimental_singleton(func=None, show_spinner=True, suppress_st_warning=False)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; &#64;st.experimental_singleton\n... def get_database_session(url):\n...     # Create a database session object that points to the URL.\n...     return session\n...\n&gt;&gt;&gt; s1 = get_database_session(SESSION_URL_1)\n&gt;&gt;&gt; # Actually executes the function, since this is the first time it was\n&gt;&gt;&gt; # encountered.\n&gt;&gt;&gt;\n&gt;&gt;&gt; s2 = get_database_session(SESSION_URL_1)\n&gt;&gt;&gt; # Does not execute the function. Instead, returns its previously computed\n&gt;&gt;&gt; # value. This means that now the connection object in s1 is the same as in s2.\n&gt;&gt;&gt;\n&gt;&gt;&gt; s3 = get_database_session(SESSION_URL_2)\n&gt;&gt;&gt; # This is a different URL, so the function executes.\n</pre>\n<p>By default, all parameters to a singleton function must be hashable.\nAny parameter whose name begins with <tt class=\"docutils literal\">_</tt> will not be hashed. You can use\nthis as an &quot;escape hatch&quot; for parameters that are not hashable:</p>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; &#64;st.experimental_singleton\n... def get_database_session(_sessionmaker, url):\n...     # Create a database connection object that points to the URL.\n...     return connection\n...\n&gt;&gt;&gt; s1 = get_database_session(create_sessionmaker(), DATA_URL_1)\n&gt;&gt;&gt; # Actually executes the function, since this is the first time it was\n&gt;&gt;&gt; # encountered.\n&gt;&gt;&gt;\n&gt;&gt;&gt; s2 = get_database_session(create_sessionmaker(), DATA_URL_1)\n&gt;&gt;&gt; # Does not execute the function. Instead, returns its previously computed\n&gt;&gt;&gt; # value - even though the _sessionmaker parameter was different\n&gt;&gt;&gt; # in both calls.\n</pre>\n</blockquote>\n",
       "description": "Function decorator to store singleton objects.",
       "args": [
@@ -40901,7 +40901,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fd96c6744f0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f1b184284f0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -43046,7 +43046,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fd96c6744f0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f1b184284f0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\n&gt;&gt;&gt; number = st.number_input('Insert a number')\n&gt;&gt;&gt; st.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [

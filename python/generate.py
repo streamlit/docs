@@ -25,12 +25,12 @@ def parse_rst(rst_string):
     return str(document['body'])
 
 
-def get_function_docstring_dict(func, signature_prefix):
+def get_function_docstring_dict(func, funcname, signature_prefix):
     description = {}
     docstring = getattr(func, '__doc__', '')
-    description['name'] = func.__name__
+    description['name'] = funcname
     arguments = get_sig_string_without_annots(func)
-    description['signature'] = f'{signature_prefix}.{func.__name__}({arguments})'
+    description['signature'] = f'{signature_prefix}.{funcname}({arguments})'
 
     if docstring:
         try:
@@ -130,7 +130,7 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
             continue
 
         fullname = '{}.{}'.format(key_prefix, membername)
-        member_docstring_dict = get_function_docstring_dict(member, signature_prefix)
+        member_docstring_dict = get_function_docstring_dict(member, membername, signature_prefix)
 
         obj_docstring_dict[fullname] = member_docstring_dict
 
