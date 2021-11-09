@@ -59,7 +59,13 @@ st.write(
 )
 ```
 
-Pro-tip! You can use TOML sections to compactly pass multiple secrets as a single attribute.
+<Tip>
+
+You can access `st.secrets` via attribute notation (e.g. `st.secrets.key`), in addition to key notation (e.g. `st.secrets["key"]`)—like [`st.session_state`](/library/api-reference/session-state).
+
+</Tip>
+
+You can even use TOML sections to compactly pass multiple secrets as a single attribute.
 
 Consider the following secrets:
 
@@ -82,9 +88,9 @@ my_db.connect(**st.secrets.db_credentials)
 ### Edit your app's secrets
 
 1. Go to [https://share.streamlit.io/](https://share.streamlit.io/)
-2. Open the menu for your app, and click "Edit Secrets"
+2. Open the menu for your app, and click "Settings".
    ![Edit secrets](/images/streamlit-cloud/edit-secrets.png)
-3. You will see a modal appear in which you can enter your secrets
+3. You will see a modal appear. Click on the "Secrets" section and edit your secrets.
    ![Edit secrets modal](/images/streamlit-cloud/edit-secrets-1.png)
 4. After you edit your secrets, click "Save". It might take a minute for the update to be propagated to your app, but the new values will be reflected when the app re-runs.
 

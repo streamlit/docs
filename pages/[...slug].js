@@ -9,6 +9,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRemote } from "next-mdx-remote";
 import matter from "gray-matter";
+import remarkUnwrapImages from "remark-unwrap-images";
 
 // Site Components
 import GDPRBanner from "../components/utilities/gdpr";
@@ -292,6 +293,7 @@ export async function getStaticProps(context) {
           require("rehype-slug"),
           require("rehype-autolink-headings"),
         ],
+        remarkPlugins: [remarkUnwrapImages],
       },
     });
 

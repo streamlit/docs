@@ -92,7 +92,7 @@ class Autofunction extends React.Component {
       }
     }
 
-    props.router.push(`/${slug.join("/")}#${name}`);
+    props.router.push(`/${slug.join("/")}#${name} `);
   }
 
   render() {
@@ -135,7 +135,11 @@ class Autofunction extends React.Component {
     if (props.hide_header !== undefined && props.hide_header) {
       header = "";
     } else {
-      const name = `st.${func_obj.name}`;
+      const name =
+        String(func_obj.name).startsWith("html") ||
+        String(func_obj.name).startsWith("iframe")
+          ? `st.components.v1.${func_obj.name}`
+          : `st.${func_obj.name}`;
       const selectClass =
         current_version !== version_list[0]
           ? "version-select old-version"
@@ -191,18 +195,18 @@ class Autofunction extends React.Component {
       const param = func_obj.args[index];
       const description = param.description
         ? param.description
-        : `<p>No description</p>`;
+        : `<p>No description</p> `;
 
       if (param.is_optional) {
         row[
           "title"
-        ] = `<p>${param.name} <span class='italic code'>(${param.type_name})</span></p>`;
-        row["body"] = `${description}`;
+        ] = `<p> ${param.name} <span class='italic code'>(${param.type_name})</span></p> `;
+        row["body"] = `${description} `;
       } else {
         row[
           "title"
-        ] = `<p><span class='bold'>${param.name}</span> <span class='italic code'>(${param.type_name})</span></p>`;
-        row["body"] = `${description}`;
+        ] = `<p><span class='bold'>${param.name}</span> <span class='italic code'>(${param.type_name})</span></p> `;
+        row["body"] = `${description} `;
       }
 
       args.push(row);
@@ -212,7 +216,7 @@ class Autofunction extends React.Component {
       <Table
         head={{
           title: "Function signature",
-          content: `<p class='code'>${func_obj.signature}</p>`,
+          content: `<p class='code'> ${func_obj.signature}</p> `,
         }}
         body={
           args.length
