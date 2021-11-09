@@ -48,6 +48,8 @@ export function cleanHref(name) {
 function getName(props) {
   if (props.name) {
     return props.name;
+  } else if (props.id) {
+    return props.id;
   }
 
   let nodesToTraverse = Array.isArray(props.children)
