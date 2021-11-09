@@ -203,7 +203,6 @@ site_menu:
   - category: Streamlit library / Cheat sheet
     url: /library/cheatsheet
 
-
   - category: Streamlit Cloud
     url: /streamlit-cloud
     color: l-blue-70
@@ -249,7 +248,6 @@ site_menu:
   # - category: Streamlit Cloud / Community tier
   #   url: /streamlit-cloud/community
 
-
   # - category: Streamlit Cloud / Teams and enterprise
   #   url: /streamlit-cloud/enterprise
   # - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO)
@@ -264,9 +262,6 @@ site_menu:
   #   url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-general-saml-authentication
   # - category: Streamlit Cloud / Teams and enterprise / Trust and Security
   #   url: /streamlit-cloud/enterprise/security-model
-
-
-
 
   - category: Knowledge base
     url: /knowledge-base
@@ -334,5 +329,4 @@ site_menu:
   #   url: /updates/changelog
   # - category: Updates / Roadmap
   #   url: https://share.streamlit.io/streamlit/roadmap
-
 ---

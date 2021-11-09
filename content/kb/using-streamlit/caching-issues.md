@@ -88,4 +88,3 @@ By default Streamlit expects its cached values to be treated as immutable -- tha
 ## If all else fails
 
 If the proposed fixes above don't work for you, or if you have an idea on how to further improve [`@st.cache`](/library/api-reference/performance/st.cache) -- let us know by asking questions in the [community forum](https://discuss.streamlit.io/), [filing a bug](https://github.com/streamlit/streamlit/issues/new/choose), or [submitting a feature request](https://github.com/streamlit/streamlit/issues/new/choose). We love hearing back from the community!
-

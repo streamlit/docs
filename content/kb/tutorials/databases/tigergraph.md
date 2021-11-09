@@ -11,13 +11,13 @@ This guide explains how to securely access a TigerGraph database from Streamlit 
 
 ## Create a TigerGraph Cloud Database
 
-First, follow the official tutorials to create a TigerGraph instance in TigerGraph Cloud, either as a [blog](https://www.tigergraph.com/blog/getting-started-with-tigergraph-3-0/) or a [video](https://www.youtube.com/watch?v=NtNW2e8MfCQ). Note your username, password, and subdomain. 
+First, follow the official tutorials to create a TigerGraph instance in TigerGraph Cloud, either as a [blog](https://www.tigergraph.com/blog/getting-started-with-tigergraph-3-0/) or a [video](https://www.youtube.com/watch?v=NtNW2e8MfCQ). Note your username, password, and subdomain.
 
-For this tutorial, we will be using the COVID-19 starter kit. When setting up your solution, select the “COVID-19 Analysis” option. 
+For this tutorial, we will be using the COVID-19 starter kit. When setting up your solution, select the “COVID-19 Analysis” option.
 
 ![TG_Cloud_COVID19](/images/databases/tigergraph-1.png)
 
-Once it is started, ensure your data is downloaded and queries are installed. 
+Once it is started, ensure your data is downloaded and queries are installed.
 
 ![TG_Cloud_Schema](/images/databases/tigergraph-2.png)
 

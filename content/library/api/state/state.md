@@ -124,7 +124,6 @@ Widgets which support the `on_click` event:
 
 To add a callback, define a callback function **above** the widget declaration and pass it to the widget via the `on_change` (or `on_click` ) parameter.
 
-
 ### Forms and Callbacks
 
 Widgets inside a form can have their values be accessed and set via the Session State API. `st.form_submit_button` can have a callback associated with it. The callback gets executed upon clicking on the submit button. For example:

@@ -1,69 +1,74 @@
 .reference-card {
-    padding: 1rem;
-    color: $gray-90;
-    border-radius: $rounded-small;
+  padding: 1rem;
+  color: $gray-90;
+  border-radius: $rounded-small;
+  border: 1px solid $gray-40;
+  overflow: hidden;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform $fast;
+  display: flex;
+  flex-direction: column;
+
+  &.not-link {
     border: 1px solid $gray-40;
-    overflow: hidden;
-    font-size: 16px;
-    cursor: pointer;
-    transition: transform $fast;
+  }
+
+  &:hover {
+    transform: scale(1.01);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    color: inherit !important;
+  }
+  img {
+    width: calc(100% + 2em);
+    margin-left: -1rem;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    height: 12rem;
+    object-fit: cover;
+    border-bottom: 1px solid $gray-40;
+  }
+  p,
+  a {
+    color: inherit !important;
+    margin-bottom: 0;
+    font-weight: 300;
+    font-size: 0.875em;
+  }
+
+  .block-code {
+    width: calc(100% + 2rem);
+    position: relative !important;
+    margin: 1rem 0 -1rem -1rem;
+    font-size: 0.875em;
     display: flex;
     flex-direction: column;
+    flex: 1;
+    border-top: 1px solid $gray-40;
 
-    &.not-link {
-        border: 1px solid $gray-40;
+    button {
+      display: none;
     }
 
-    &:hover {
-      transform: scale(1.01)
+    .code-toolbar {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
 
-    h1,h2,h3,h4,h5,h6 {
-        margin:0;
-        color:inherit !important;
+    pre {
+      margin: 0;
+      border-radius: 0;
+      padding: 1rem;
+      flex: 1;
     }
-    img {
-        width:calc(100% + 2em);
-        margin-left:-1rem;
-        margin-top:-1rem;
-        margin-bottom:1rem;
-        height: 12rem;
-        object-fit: cover;
-        border-bottom: 1px solid $gray-40;
-    }
-    p,a {
-        color:inherit !important;
-        margin-bottom:0;
-        font-weight: 300;
-        font-size: .875em;
-    }
-
-    .block-code {
-        width: calc(100% + 2rem);
-        position: relative !important;
-        margin:1rem 0 -1rem -1rem;
-        font-size: 0.875em;
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        border-top: 1px solid $gray-40;
-
-        button {
-            display: none;
-        }
-
-        .code-toolbar {
-          display: flex;
-          flex-direction: column;
-          flex: 1;
-        }
-
-        pre {
-            margin:0;
-            border-radius: 0;
-            padding: 1rem;
-            flex: 1;
-        }
-    }
-
+  }
 }

@@ -3,7 +3,7 @@ title: Streamlit Components
 slug: /knowledge-base/components
 ---
 
-# Streamlit Components 
+# Streamlit Components
 
 Below are some selected questions we've received about Streamlit Components. If you don't find your question here, take a look on the Streamlit community forum via the [Components tag](https://discuss.streamlit.io/tag/custom-components).
 

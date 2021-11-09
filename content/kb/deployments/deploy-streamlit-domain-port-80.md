@@ -15,7 +15,7 @@ You want to deploy a Streamlit app on a domain so it appears to run on port 80.
 
 - Another approach is to configure your webserver to forward requests to designated subfolders (e.g. _http://awesomestuff.net/streamlitapp_) to different Streamlit apps on the same domain, as in this [example config for Nginx](https://discuss.streamlit.io/t/how-to-use-streamlit-with-nginx/378/7) submitted by a Streamlit community member.
 
-
 Related forum posts:
+
 - https://discuss.streamlit.io/t/permission-denied-in-ec2-port-80/798/3
 - https://discuss.streamlit.io/t/how-to-use-streamlit-with-nginx/378/7
