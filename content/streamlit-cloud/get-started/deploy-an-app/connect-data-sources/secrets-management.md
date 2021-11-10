@@ -59,7 +59,13 @@ st.write(
 )
 ```
 
-Pro-tip! You can use TOML sections to compactly pass multiple secrets as a single attribute.
+<Tip>
+
+You can access `st.secrets` via attribute notation (e.g. `st.secrets.key`), in addition to key notation (e.g. `st.secrets["key"]`)—like [`st.session_state`](/library/api-reference/session-state).
+
+</Tip>
+
+You can even use TOML sections to compactly pass multiple secrets as a single attribute.
 
 Consider the following secrets:
 
