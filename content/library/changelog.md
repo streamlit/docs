@@ -32,7 +32,7 @@ _Release date: Nov 11, 2021_
 **Other Changes**
 
 - 👀 Visual fixes ([#3863](https://github.com/streamlit/streamlit/pull/3863), [#3995](https://github.com/streamlit/streamlit/pull/3995), [#3926](https://github.com/streamlit/streamlit/pull/3926), [#3975](https://github.com/streamlit/streamlit/pull/3975)).
-- 🍔 Fixes to the Hamburger Menu ([#3968](https://github.com/streamlit/streamlit/pull/3968)).
+- 🍔 Fixes to the hamburger menu ([#3968](https://github.com/streamlit/streamlit/pull/3968)).
 - 🖨️ Ability to print session state ([#3970](https://github.com/streamlit/streamlit/pull/3970)).
 
 ## Version 1.1.0
