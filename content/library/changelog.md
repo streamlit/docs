@@ -17,6 +17,24 @@ $ pip install --upgrade streamlit
 
 </Tip>
 
+## Version 1.2.0
+
+_Release date: Nov 11, 2021_
+
+**Notable Changes**
+
+- ✏️ `st.text_input` and `st.text_area` now have a `placeholder` parameter to display text when the field is empty.
+- 📏 Viewers can now resize the input box in `st.text_area`.
+- 📁 Streamlit can auto-reload when files in sub-directories change.
+- 🌈 We've upgraded Bokeh support to 2.4.1! We recommend updating your Bokeh library to 2.4.1 to maintain functionality. Going forward, we'll let you know if there's a mismatch in your Bokeh version via an error prompt.
+- 🔒 Developers can access secrets via attribute notation (e.g. `st.secrets.key` vs `st.secrets["key"]`) just like session state.
+
+**Other Changes**
+
+- 👀 Visual fixes ([#3863](https://github.com/streamlit/streamlit/pull/3863), [#3995](https://github.com/streamlit/streamlit/pull/3995), [#3926](https://github.com/streamlit/streamlit/pull/3926), [#3975](https://github.com/streamlit/streamlit/pull/3975)).
+- 🍔 Fixes to the Hamburger Menu ([#3968](https://github.com/streamlit/streamlit/pull/3968)).
+- 🖨️ Ability to print session state ([#3970](https://github.com/streamlit/streamlit/pull/3970)).
+
 ## Version 1.1.0
 
 _Release date: Oct 21, 2021_
