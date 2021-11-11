@@ -43,7 +43,7 @@ When you install Streamlit, a command-line (CLI) tool gets installed as well. Th
 
 ##### Optimize performance with `st.cache`
 
-Streamlit provides a caching mechanism that allows your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations. This is done with the [`@st.cache`](/library/api-reference/performance/st.cache) decorator.
+Streamlit provides a caching mechanism that allows your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations. This is done with the [**`@st.cache`**](/library/api-reference/performance/st.cache) decorator.
 
 - [What is `st.cache`?](/library/advanced-features/caching#optimize-performance-with-stcache)
 - [Basic usage](/library/advanced-features/caching#example-1-basic-usage)
@@ -53,6 +53,25 @@ Streamlit provides a caching mechanism that allows your app to stay performant e
 - [Use caching to speed up your app across users](/library/advanced-features/caching#example-5-use-caching-to-speed-up-your-app-across-users)
 - [How to mutate cached values?](/library/advanced-features/caching#example-6-mutating-cached-values)
 - [Advanced caching](/library/advanced-features/caching#advanced-caching)
+
+</RefCard>
+
+<RefCard href="/library/advanced-features/experimental-cache-primitives" size="half">
+
+##### Experimental cache primitives
+
+Streamlit provides two experimental primitives to memoize function executions and store singleton objects.
+
+[**`@st.experimental_memo`**](/library/api-reference/performance/st.experimental_memo) is used to store expensive computation which can be "cached" or "memoized" in the traditional sense.
+
+[**`@st.experimental_singleton`**](/library/api-reference/performance/st.experimental_singleton) is a key-value store that's shared across all sessions of a Streamlit app. It's great for storing heavyweight singleton objects across sessions (like TensorFlow/Torch/Keras sessions and/or database connections).
+
+- [Problems with `st.cache`](/library/advanced-features/experimental-cache-primitives#problem)
+- [`@st.experimental_memo`](/library/advanced-features/experimental-cache-primitives#stexperimental_memo)
+- [Properties of `@st.experimental_memo`](/library/advanced-features/experimental-cache-primitives#properties)
+- [`@st.experimental_singleton`](/library/advanced-features/experimental-cache-primitives#stexperimental_singleton)
+- [How `@st.experimental_singleton` compares to `@st.cache`](/library/advanced-features/experimental-cache-primitives#how-this-compares-to-stcache)
+- [Which to use: memo or singleton?](/library/advanced-features/experimental-cache-primitives#which-to-use-memo-or-singleton)
 
 </RefCard>
 
@@ -84,7 +103,7 @@ At Streamlit, we like to move quick while keeping things stable. In our latest e
 
 </RefCard>
 
-<RefCard href="/library/advanced-features/widget-semantics" size="half">
+<RefCard href="/library/advanced-features/widget-semantics" size="full">
 
 ##### Advanced notes on widget behavior
 
