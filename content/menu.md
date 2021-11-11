@@ -182,6 +182,8 @@ site_menu:
     url: /library/advanced-features/configuration
   - category: Streamlit library / Advanced features/ Optimize performance with st.cache
     url: /library/advanced-features/caching
+  - category: Streamlit library / Advanced features/ Experimental cache primitives
+    url: /library/advanced-features/experimental-cache-primitives
   - category: Streamlit library / Advanced features/ Add statefulness to apps
     url: /library/advanced-features/session-state
   - category: Streamlit library / Advanced features/ Widget semantics
