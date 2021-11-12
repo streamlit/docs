@@ -7,7 +7,7 @@ slug: /library/advanced-features/caching
 
 <Important>
 
-We're developing new cache primitives that are easier to use and much faster than `st.cache`. To learn more, read [Experimental cache primitives](/library/advanced-features/experimental-cache-primitives).
+We're developing new cache primitives that are easier to use and much faster than `@st.cache`. 🚀 To learn more, read [Experimental cache primitives](/library/advanced-features/experimental-cache-primitives).
 
 </Important>
 

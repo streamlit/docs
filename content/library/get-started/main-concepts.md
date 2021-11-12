@@ -420,6 +420,12 @@ your config.toml file, and watch as your app reruns with the new theme colors ap
 
 ## Caching
 
+<Important>
+
+We're developing new cache primitives that are easier to use and much faster than `@st.cache`. 🚀 To learn more, read [Experimental cache primitives](/library/advanced-features/experimental-cache-primitives).
+
+</Important>
+
 The Streamlit cache allows your app to execute quickly even when loading data
 from the web, manipulating large datasets, or performing expensive
 computations.
