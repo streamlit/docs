@@ -55,6 +55,7 @@
     "remark-html": "^13.0.2",
     "remark-parse": "^9.0.0",
     "remark-rehype": "^8.1.0",
+    "remark-unwrap-images": "^3.0.1",
     "sass": "^1.42.1",
     "slugify": "^1.6.1",
     "unified": "^9.2.2",
