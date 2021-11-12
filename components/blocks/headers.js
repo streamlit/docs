@@ -1,19 +1,19 @@
 import HeaderLink from "../utilities/headerLink";
 
 export const H1 = (props) => (
-  <HeaderLink level={1} name={getName(props)} className={props.className}>
+  <HeaderLink level={1} name={props.id} className={props.className}>
     {getBody(props)}
   </HeaderLink>
 );
 
 export const H2 = (props) => (
-  <HeaderLink level={2} name={getName(props)} className={props.className}>
+  <HeaderLink level={2} name={props.id} className={props.className}>
     {getBody(props)}
   </HeaderLink>
 );
 
 export const H3 = (props) => (
-  <HeaderLink level={3} name={getName(props)} className={props.className}>
+  <HeaderLink level={3} name={props.id} className={props.className}>
     {getBody(props)}
   </HeaderLink>
 );
