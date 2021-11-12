@@ -145,6 +145,7 @@ The example app from the template shows how bi-directional communication is impl
 Because each Streamlit Component is its own webpage that gets rendered into an `iframe`, you can use just about any web tech you'd like to create that web page. We provide two templates to get started with in the Streamlit [Components-template GitHub repo](https://github.com/streamlit/component-template/); one of those templates uses [React](https://reactjs.org/) and the other does not.
 
 <Note>
+
 Even if you're not already familiar with React, you may still want to check out the React-based
 template. It handles most of the boilerplate required to send and receive data from Streamlit, and
 you can learn the bits of React you need as you go.
