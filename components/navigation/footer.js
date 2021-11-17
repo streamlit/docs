@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function Footer({ revision }) {
+const Footer = () => {
   return (
     <footer className="page container template-expanded-wide">
       <section className="content wide container">
@@ -138,4 +138,6 @@ export default function Footer({ revision }) {
       </section>
     </footer>
   );
-}
+};
+
+export default Footer;
