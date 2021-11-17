@@ -15,7 +15,7 @@ const Header = () => {
   const [windowWidth, setWindowWidth] = useState();
 
   const handleResize = () => {
-    setWindowWidth({ windowWidth: window.innerWidth });
+    setWindowWidth(window.innerWidth);
   };
 
   const handleScroll = () => {
