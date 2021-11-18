@@ -92,7 +92,7 @@ Example usage:
 ```python
 from sqlalchemy.orm import sessionmaker
 
-@st.singleton
+@st.experimental_singleton
 def get_db_sessionmaker():
 	# This is for illustration purposes only
 	DB_URL = "your-db-url"
