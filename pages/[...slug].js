@@ -19,7 +19,7 @@ import {
   getMenu,
   getGDPRBanner,
 } from "../lib/api";
-import { getPreviousNextFromMenu } from "../lib/utils.cjs";
+import { getPreviousNextFromMenu } from "../lib/utils.js";
 import Layout from "../components/layouts/globalTemplate";
 import BreadCrumbs from "../components/utilities/breadCrumbs";
 import SideBar from "../components/navigation/sideBar";

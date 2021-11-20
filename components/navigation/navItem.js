@@ -1,7 +1,7 @@
 import React from "react";
 
 import Link from "next/link";
-import { urlInChildren } from "../../lib/utils.cjs";
+import { urlInChildren } from "../../lib/utils.js";
 
 import NavChild from "./navChild";
 
