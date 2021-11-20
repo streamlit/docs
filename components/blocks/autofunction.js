@@ -86,10 +86,9 @@ class Autofunction extends React.Component {
       if (event.target.value !== this.state.max_version) {
         let isnum = /^[\d\.]+$/.test(slug[0]);
         if (isnum) {
-          slug[0] = event.target.value;
-        } else {
-          slug.unshift(event.target.value);
+          slug.shift();
         }
+        slug.unshift(event.target.value);
       }
     }
 
