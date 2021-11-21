@@ -55,9 +55,6 @@ export default class NavItem extends React.Component {
               color={props.page.color}
               key={child.menu_key}
               depth={child.depth + 1}
-              paths={props.paths}
-              version={props.version}
-              maxVersion={props.maxVersion}
             />
           ))}
         </ul>

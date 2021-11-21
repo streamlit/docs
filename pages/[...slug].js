@@ -1,7 +1,7 @@
 import fs from "fs";
 import { join, basename } from "path";
 import sortBy from "lodash/sortBy";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Head from "next/head";
@@ -20,6 +20,7 @@ import {
   getGDPRBanner,
 } from "../lib/api";
 import { getPreviousNextFromMenu } from "../lib/utils.js";
+import useVersion from "../lib/useVersion.js";
 import Layout from "../components/layouts/globalTemplate";
 import BreadCrumbs from "../components/utilities/breadCrumbs";
 import SideBar from "../components/navigation/sideBar";
@@ -58,9 +59,10 @@ export default function Article({
   streamlit,
   slug,
   menu,
-  previous,
-  next,
-  version,
+  currMenuItem,
+  prevMenuItem,
+  nextMenuItem,
+  versionFromStaticLoad,
   versions,
   paths,
   gdpr_data,
@@ -74,20 +76,7 @@ export default function Article({
     filename.substring(filename.indexOf("/content/"));
   const maxVersion = versions[versions.length - 1];
   const router = useRouter();
-  const [versionFromUrl, setVersionFromUrl] = useState();
-
-  const useVersion = () => {
-    const version = router.query.slug[0];
-    const isVersionNumber = /^[\d\.]+$/.test(version);
-
-    if (isVersionNumber && versionFromUrl !== version) {
-      setVersionFromUrl(version);
-    }
-  };
-
-  useEffect(() => {
-    useVersion();
-  }, [router.query.slug[0]]);
+  const version = useVersion(versionFromStaticLoad, versions, currMenuItem);
 
   const components = {
     Note,
@@ -111,7 +100,7 @@ export default function Article({
       <Autofunction
         {...props}
         streamlit={streamlit}
-        version={versionFromUrl}
+        version={version}
         versions={versions}
         slug={slug}
       />
@@ -128,32 +117,31 @@ export default function Article({
   let arrowContainer;
   let keywordsTag;
 
-  if (versionFromUrl && versionFromUrl != maxVersion && paths !== false) {
+  if (version && version != maxVersion && currMenuItem.isVersioned) {
     // Slugs don't have the version number, so we just have to join them.
     currentLink = `/${slug.join("/")}`;
     versionWarning = (
       <Warning>
         <p>
-          You are reading the documentation for Streamlit version{" "}
-          {versionFromUrl}, but{" "}
-          <a onClick={() => setVersionFromUrl(maxVersion)}>{maxVersion}</a> is
-          the latest version available.
+          You are reading the documentation for Streamlit version {version}, but{" "}
+          <Link href={currentLink}>{maxVersion}</Link> is the latest version
+          available.
         </p>
       </Warning>
     );
   }
 
-  if (previous) {
+  if (prevMenuItem) {
     previousArrow = (
-      <ArrowLink link={previous.url} type="back" content={previous.name} />
+      <ArrowLink link={prevMenuItem.url} type="back" content={prevMenuItem.name} />
     );
   }
 
-  if (next) {
-    nextArrow = <ArrowLink link={next.url} type="next" content={next.name} />;
+  if (nextMenuItem) {
+    nextArrow = <ArrowLink link={nextMenuItem.url} type="next" content={nextMenuItem.name} />;
   }
 
-  if (next || previous) {
+  if (nextMenuItem || prevMenuItem) {
     arrowContainer = (
       <ArrowLinkContainer>
         {previousArrow}
@@ -176,21 +164,14 @@ export default function Article({
       <Layout>
         <GDPRBanner {...gdpr_data} />
         <section className="page container template-standard">
-          <SideBar
-            slug={slug}
-            menu={menu}
-            version={versionFromUrl}
-            maxVersion={maxVersion}
-            versions={versions}
-            paths={paths}
-          />
+          <SideBar slug={slug} menu={menu} />
           <Head>
             <title>{data.title} - Streamlit Docs</title>
             <link rel="icon" href="/favicon.svg" />
             <link rel="alternate icon" href="/favicon32.ico" />
             <meta name="theme-color" content="#ffffff" />
             {keywordsTag}
-            {versionFromUrl !== undefined ? (
+            {version ? (
               <link
                 rel="canonical"
                 href={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/${slug
@@ -234,9 +215,9 @@ export default function Article({
           </Head>
           <section className="content wide" id="documentation">
             {versionWarning}
-            <BreadCrumbs slug={slug} menu={menu} version={versionFromUrl} />
+            <BreadCrumbs slug={slug} menu={menu} version={version} />
             <article className="leaf-page">
-              <FloatingNav slug={slug} menu={menu} version={versionFromUrl} />
+              <FloatingNav slug={slug} menu={menu} version={version} />
               <div className="content">
                 <MDXRemote {...source} components={components} />
               </div>
@@ -254,7 +235,7 @@ export default function Article({
 export async function getStaticProps(context) {
   const paths = await getStaticPaths();
   const props = {};
-  const location = `/${context.params.slug.join("/")}`;
+  let location = `/${context.params.slug.join("/")}`;
   const gdpr_data = await getGDPRBanner();
 
   // Sort of documentation versions
@@ -272,12 +253,11 @@ export async function getStaticProps(context) {
   const current_version = versions[versions.length - 1];
   const funcs = jsonContents ? JSON.parse(jsonContents) : {};
 
-  let menu = getMenu();
+  const menu = getMenu();
 
   props["streamlit"] = {};
   props["versions"] = all_versions;
-  props["version"] = false;
-  props["paths"] = false;
+  props["versionFromStaticLoad"] = null;
 
   if ("slug" in context.params) {
     let filename;
@@ -295,13 +275,14 @@ export async function getStaticProps(context) {
 
     if (should_version) {
       props["streamlit"] = funcs[current_version];
-      props["paths"] = paths;
     }
 
-    let isnum = /^[\d\.]+$/.test(context.params.slug[0]);
+    const isnum = /^[\d\.]+$/.test(context.params.slug[0]);
     if (isnum) {
-      props["version"] = context.params.slug[0];
-      props["streamlit"] = funcs[props["version"]];
+      props["versionFromStaticLoad"] = context.params.slug[0];
+      props["streamlit"] = funcs[props["versionFromStaticLoad"]];
+
+      location = `/${context.params.slug.slice(1).join("/")}`;
     }
 
     const source = await serialize(content, {
@@ -322,8 +303,11 @@ export async function getStaticProps(context) {
     props["filename"] = filename;
     props["slug"] = context.params.slug;
     props["source"] = source;
-    props["next"] = next ? { name: next.name, url: next.url } : false;
-    props["previous"] = prev ? { name: prev.name, url: prev.url } : false;
+    props["currMenuItem"] = current
+      ?  { name: current.name, url: current.url, isVersioned: !!current.isVersioned }
+      : null;
+    props["nextMenuItem"] = next ? { name: next.name, url: next.url } : null;
+    props["prevMenuItem"] = prev ? { name: prev.name, url: prev.url } : null;
   }
 
   return {

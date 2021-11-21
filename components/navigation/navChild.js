@@ -1,23 +1,25 @@
 import findIndex from "lodash/findIndex";
 import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+
+import useVersion from "../../lib/useVersion.js";
 
 function NavChild(props) {
-  const router = useRouter();
-  const slugStr = router.asPath;
-  const shouldAutoOpen = slugStr.startsWith(props.page.url);
   const [manualState, setManualState] = useState(null);
+  const version = useVersion();
+
+  const isNum = /^[\d\.]+$/.test(props.slug[0]);
+
+  if (isNum) {
+    props.slug.shift();
+  }
+
+  const slugStr = `/${props.slug.join("/")}`;
+  const active = slugStr === props.page.url ? true : false;
+  const shouldAutoOpen = slugStr.startsWith(props.page.url);
   const opened = manualState ?? shouldAutoOpen;
 
-  const active = slugStr === props.page.url ? true : false;
-
   let subNav;
-
-  const isnum = /^[\d\.]+$/.test(props.slug[0]);
-  // if (isnum) {
-  //   props.slug.shift();
-  // }
 
   const toggleAccordion = () => {
     setManualState(!opened);
@@ -33,9 +35,6 @@ function NavChild(props) {
             page={child}
             color={props.color}
             depth={child.depth + 1}
-            paths={props.paths}
-            version={props.version}
-            maxVersion={props.maxVersion}
           />
         ))}
       </ul>
@@ -58,31 +57,24 @@ function NavChild(props) {
   let link;
   let icon;
   let target;
+  let url = props.page.url;
 
-  if (!props.page.url.startsWith("/")) {
+  const isLocalPage = props.page.url.startsWith("/");
+
+  if (!isLocalPage) {
     icon = <i className="external">open_in_new</i>;
     target = "_blank";
   }
 
-  let url = props.page.url;
-
   if (
-    props.paths &&
-    props.version &&
-    props.version !== props.maxVersion &&
-    props.page.url.startsWith("/")
+    props.page.isVersioned &&
+    version &&
+    isLocalPage
   ) {
-    // We need to version this URL, Check if the URL has a version for this version
+    // We need to version this URL, check if the URL has a version for this version
     const newSlug = props.page.url.split("/");
-    newSlug[0] = props.version;
-    const newUrl = `/${newSlug.join("/")}`;
-    const index = findIndex(
-      props.paths.paths,
-      (path) => path.params.location === newUrl
-    );
-    if (index >= 0) {
-      url = props.paths.paths[index].params.location;
-    }
+    newSlug[0] = version;
+    url = `/${newSlug.join("/")}`;
   }
 
   link = (
