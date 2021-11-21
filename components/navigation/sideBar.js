@@ -85,9 +85,6 @@ export default class SideBar extends React.Component {
         page={page}
         depth={page.depth + 1}
         condensed={state.condensed}
-        paths={props.paths}
-        version={props.version}
-        maxVersion={props.maxVersion}
       />
     ));
 
