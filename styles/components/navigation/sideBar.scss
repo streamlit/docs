@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   height: calc(100vh - #{$header-height});
-  z-index: 10;
+  z-index: 0;
   width: 314px;
 
   * {
@@ -78,6 +78,8 @@
   }
 
   &.over {
+    z-index: 10;
+
     @media (max-width: 1024px) {
       display: block;
     }
