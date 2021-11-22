@@ -12,10 +12,10 @@ const EUROPE_TZ_OFFSET_EAST = -3 * 60;
 
 const KEY = "InsertAnalyticsCode";
 
-const GDPRBanner = (gdrp_data) => {
-  const title = gdrp_data.title;
-  const content = gdrp_data.content;
-  const data = gdrp_data.data;
+const GDPRBanner = (gdprData) => {
+  const title = gdprData.title;
+  const content = gdprData.content;
+  const data = gdprData.data;
 
   const currentTzOffset = new Date().getTimezoneOffset();
 
