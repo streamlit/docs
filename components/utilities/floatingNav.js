@@ -40,10 +40,14 @@ const getNestedHeadings = (headingElements) => {
   return nestedHeadings;
 };
 
+// This is the function that initializes the intersection observer, and attaches it to the elements we want to track, our page headings
 const useIntersectionObserver = (setActiveId) => {
+  // Since we want to keep track of the visibility of all the heading elements, we'll store these values in a useRef hook
   const headingElementsRef = useRef({});
 
   useEffect(() => {
+    // This is our callback function. The observer will call this function each time elements scroll in or out of view.
+    // When we first render the page, it calls the callback with a list of all the elements we want to keep track on the page. As elements scroll in and out of view, it will call the callback with these elements to update the visibility.
     const callback = (headings) => {
       headingElementsRef.current = headings.reduce((map, headingElement) => {
         const link = headingElement.target.getElementsByTagName("a");
@@ -54,14 +58,19 @@ const useIntersectionObserver = (setActiveId) => {
         return map;
       }, headingElementsRef.current);
 
+      // Each heading element in our headings list has a isIntersecting (or “is visible”) value. It’s possible to have more than one visible heading on the page, so we’ll need to create a list of all visible headings.
       const visibleHeadings = [];
       Object.keys(headingElementsRef.current).forEach((key) => {
         const headingElement = headingElementsRef.current[key];
         if (headingElement.isIntersecting) visibleHeadings.push(headingElement);
       });
 
+      // This function allow us determine the position of a heading given its ID, and set it as active or not
       const getIndexFromId = (id) =>
         headingElements.findIndex((heading) => heading.id === id);
+
+      // This function finds the visible/s heading/s that is/are closer to the top of the page
+      // When we find it/them, we set it/them on state
       if (visibleHeadings.length === 1) {
         const link = visibleHeadings[0].target.getElementsByTagName("a");
         setActiveId(link[0].getAttribute("href"));
@@ -80,17 +89,21 @@ const useIntersectionObserver = (setActiveId) => {
       }
     };
 
+    // Create the intersection observer
     const observer = new IntersectionObserver(callback, {
       threshold: 1.0,
       rootMargin: "0px 0px -200px 0px",
     });
 
+    // After creating the observer, we need to call observe() on each of the elements we want to observe. In our case, all the headings on the article page
     const headingElements = Array.from(
       document.querySelectorAll(
         "article.leaf-page h1, article.leaf-page h2, article.leaf-page h3, article.leaf-page h4, article.leaf-page h5, article.leaf-page h6"
       )
     );
     headingElements.forEach((element) => observer.observe(element));
+
+    // Disconnecting the Intersection Observer when unmounting
     return () => observer.disconnect();
   }, []);
 };
