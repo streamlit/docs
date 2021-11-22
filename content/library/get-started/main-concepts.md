@@ -102,6 +102,7 @@ Streamlit supports "[magic commands](/library/api-reference/write-magic/magic),"
 Here's our first attempt at using data to create a table:
 """
 
+import streamlit as st
 import pandas as pd
 df = pd.DataFrame({
   'first column': [1, 2, 3, 4],
@@ -126,6 +127,7 @@ will figure it out and render things the right way.
 
 ```python
 import streamlit as st
+import pandas as pd
 
 st.write("Here's our first attempt at using data to create a table:")
 st.write(pd.DataFrame({
@@ -165,6 +167,7 @@ DataFrames, Numpy arrays, or plain Python arrays.
 </Note>
 
 ```python
+import streamlit as st
 import numpy as np
 
 dataframe = np.random.randn(10, 20)
@@ -175,6 +178,10 @@ Let's expand on the first example using the Pandas `Styler` object to highlight
 some elements in the interactive table.
 
 ```python
+import streamlit as st
+import numpy as np
+import pandas as pd
+
 dataframe = pd.DataFrame(
     np.random.randn(10, 20),
     columns=('col %d' % i for i in range(20)))
@@ -186,6 +193,10 @@ Streamlit also has a method for static table generation:
 [`st.table()`](/library/api-reference/data/st.table).
 
 ```python
+import streamlit as st
+import numpy as np
+import pandas as pd
+
 dataframe = pd.DataFrame(
     np.random.randn(10, 20),
     columns=('col %d' % i for i in range(20)))
@@ -205,6 +216,10 @@ You can easily add a line chart to your app with
 sample using Numpy and then chart it.
 
 ```python
+import streamlit as st
+import numpy as np
+import pandas as pd
+
 chart_data = pd.DataFrame(
      np.random.randn(20, 3),
      columns=['a', 'b', 'c'])
@@ -219,6 +234,10 @@ Let's use Numpy to generate some sample data and plot it on a map of
 San Francisco.
 
 ```python
+import streamlit as st
+import numpy as np
+import pandas as pd
+
 map_data = pd.DataFrame(
     np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
     columns=['lat', 'lon'])
@@ -269,6 +288,10 @@ which is the widget label. In this sample, the checkbox is used to toggle a
 conditional statement.
 
 ```python
+import streamlit as st
+import numpy as np
+import pandas as pd
+
 if st.checkbox('Show dataframe'):
     chart_data = pd.DataFrame(
        np.random.randn(20, 3),
@@ -286,6 +309,14 @@ column.
 Let's use the `df` data frame we created earlier.
 
 ```python
+import streamlit as st
+import pandas as pd
+
+df = pd.DataFrame({
+    'first column': [1, 2, 3, 4],
+    'second column': [10, 20, 30, 40]
+    })
+
 option = st.selectbox(
     'Which number do you like best?',
      df['first column'])
@@ -362,6 +393,9 @@ import time
 Now, let's create a progress bar:
 
 ```python
+import streamlit as st
+import time
+
 'Starting a long computation...'
 
 # Add a placeholder
@@ -434,6 +468,8 @@ To use the cache, wrap functions with the
 [`@st.cache`](/library/api-reference/performance/st.cache) decorator:
 
 ```python
+import streamlit as st
+
 @st.cache  # 👈 This function will be cached
 def my_slow_function(arg1, arg2):
     # Do something really slow in here!
