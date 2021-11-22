@@ -6,10 +6,10 @@ import SuggestEdits from "./suggestEdits";
 
 const Helpful = ({ slug, sourcefile }) => {
   const formRef = useRef();
-  const [state, setState] = useState({
-    step: 0,
+  const [step, setStep] = useState(0);
+  const [isHelpful, setIsHelpful] = useState(true);
+  const [feedback, setFeedback] = useState({
     other: false,
-    helpful: true,
     improvements: [],
     notes: "",
     improvementsString: "",
@@ -20,9 +20,10 @@ const Helpful = ({ slug, sourcefile }) => {
   });
 
   const handleStep = (newStep) => {
-    setState({ ...state, step: newStep });
+    setStep(newStep);
     if (newStep == 1) {
-      setState({ ...state, step: 1, helpful: false });
+      setStep(1);
+      setIsHelpful(false);
     }
     if (newStep == 2) {
       submitForm();
@@ -41,11 +42,11 @@ const Helpful = ({ slug, sourcefile }) => {
   };
 
   const handleOther = () => {
-    setState({ ...state, other: !state.other });
+    setFeedback({ ...feedback, other: !feedback.other });
   };
 
   const handleImprovement = (e) => {
-    const improvements = state.improvements.slice();
+    const improvements = feedback.improvements.slice();
     const target = e.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
@@ -58,8 +59,8 @@ const Helpful = ({ slug, sourcefile }) => {
       pull(improvements, name);
     }
 
-    setState({
-      ...state,
+    setFeedback({
+      ...feedback,
       [name]: value,
       improvements,
       improvementsString: improvements.join(","),
@@ -67,17 +68,17 @@ const Helpful = ({ slug, sourcefile }) => {
   };
 
   const handleNoteChange = (event) => {
-    setState({ ...state, notes: event.target.value });
+    setFeedback({ ...feedback, notes: event.target.value });
   };
 
   const handleRouteChange = () => {
-    setState({
-      ...state,
-      step: 0,
-      helpful: true,
+    setFeedback({
+      ...feedback,
       improvements: [],
       improvementsString: "",
     });
+    setStep(0);
+    setIsHelpful(true);
   };
 
   useEffect(() => {
@@ -90,12 +91,12 @@ const Helpful = ({ slug, sourcefile }) => {
   }
 
   let otherText;
-  if (state.other) {
+  if (feedback.other) {
     otherText = (
       <textarea
         name="other-text"
         onChange={handleNoteChange}
-        value={state.notes}
+        value={feedback.notes}
         placeholder="Please let us know how we can improve this page (optional)"
         rows="4"
       />
@@ -103,7 +104,7 @@ const Helpful = ({ slug, sourcefile }) => {
   }
 
   let block;
-  if (state.step == 0) {
+  if (step == 0) {
     block = (
       <section className="helpful">
         <p className="bold large">Was this page helpful?</p>
@@ -119,7 +120,7 @@ const Helpful = ({ slug, sourcefile }) => {
       </section>
     );
   }
-  if (state.step == 1) {
+  if (step == 1) {
     block = (
       <section className="improve">
         <h4>How can we improve this page?</h4>
@@ -130,7 +131,7 @@ const Helpful = ({ slug, sourcefile }) => {
             type="checkbox"
             id="moreExamples"
             name="moreExamples"
-            checked={state.moreExamples}
+            checked={feedback.moreExamples}
           />
           <label htmlFor="more-examples">More examples</label>
           <br />
@@ -141,7 +142,7 @@ const Helpful = ({ slug, sourcefile }) => {
             type="checkbox"
             id="clearerSteps"
             name="clearerSteps"
-            checked={state.clearerSteps}
+            checked={feedback.clearerSteps}
           />
           <label htmlFor="clearerSteps">Clearer steps</label>
           <br />
@@ -152,7 +153,7 @@ const Helpful = ({ slug, sourcefile }) => {
             type="checkbox"
             id="moreInformation"
             name="moreInformation"
-            checked={state.moreInformation}
+            checked={feedback.moreInformation}
           />
           <label htmlFor="moreInformation">More information</label>
           <br />
@@ -163,7 +164,7 @@ const Helpful = ({ slug, sourcefile }) => {
             type="checkbox"
             id="other"
             name="other"
-            checked={state.other}
+            checked={feedback.other}
           />
           <label htmlFor="other">Other</label>
           <br />
@@ -173,7 +174,7 @@ const Helpful = ({ slug, sourcefile }) => {
       </section>
     );
   }
-  if (state.step == 2) {
+  if (step == 2) {
     block = (
       <section>
         <p className="bold large">Thank you for your feedback!</p>
@@ -192,13 +193,13 @@ const Helpful = ({ slug, sourcefile }) => {
       >
         <input type="hidden" name="form-name" value="helpful" />
         <input type="hidden" name="url" value={joinedSlug} />
-        <input type="hidden" name="was_helpful" value={state.helpful} />
+        <input type="hidden" name="was_helpful" value={isHelpful} />
         <input
           type="hidden"
           name="improvements"
-          value={state.improvementsString}
+          value={feedback.improvementsString}
         />
-        <input type="hidden" name="notes" value={state.notes} />
+        <input type="hidden" name="notes" value={feedback.notes} />
         {block}
       </form>
       <SuggestEdits sourcefile={sourcefile ? sourcefile : ""} />
