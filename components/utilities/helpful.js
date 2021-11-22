@@ -58,8 +58,6 @@ const Helpful = ({ slug, sourcefile }) => {
       pull(improvements, name);
     }
 
-    console.log(improvements);
-
     setState({
       ...state,
       [name]: value,
