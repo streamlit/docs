@@ -11,18 +11,6 @@ const NavItem = ({
   version,
   maxVersion,
 }) => {
-  const trueName = () => {
-    return page.path.split("/").pop();
-  };
-
-  const cleanName = () => {
-    return trueName().replaceAll("-", " ");
-  };
-
-  const shouldHaveID = () => {
-    return offScreen ? page.name : false;
-  };
-
   let subNav;
   let navItem;
   let navBox;
