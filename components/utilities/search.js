@@ -13,21 +13,18 @@ import {
 } from "react-instantsearch-dom";
 
 const Search = () => {
-  const [state, setState] = useState({
-    modal: false,
-    hotKey: "",
-    windowWidth: null,
-    indexFocus: 0,
-    results: [],
-  });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [hotkey, setHotkey] = useState("");
+  const [windowWidth, setWindowWidth] = useState(null);
+  const [indexFocus, setIndexFocus] = useState(0);
 
   const toggleModal = (e) => {
     if (e && e.currentTarget !== e.target) {
       return;
     }
 
-    setState({ ...state, indexFocus: 0 });
-    setState({ ...state, modal: !state.modal });
+    setIndexFocus(0);
+    setIsModalOpen(!isModalOpen);
 
     if (document.body.style.overflow == "hidden") {
       document.body.style.overflow = "unset";
@@ -44,7 +41,7 @@ const Search = () => {
   };
 
   const searchClicked = () => {
-    setState({ ...state, modal: true });
+    setIsModalOpen(true);
     document.body.style.overflow = "hidden";
     focus();
   };
@@ -52,38 +49,38 @@ const Search = () => {
   const handleKey = (e) => {
     if (e.key === "k" && (e.ctrlKey || e.metaKey)) {
       e.preventDefault(); // present "Save Page" from getting triggered.
-      setState({ ...state, modal: true });
+      setIsModalOpen(true);
       document.body.style.overflow = "hidden";
       focus();
     }
     if (e.key === "Escape") {
-      setState({ ...state, modal: false });
+      setIsModalOpen(false);
       document.body.style.overflow = "unset";
     }
-    if (state.modal === true) {
+    if (isModalOpen === true) {
       const resultCount = document.querySelectorAll(".ais-Hits-item").length;
-      let currentFocus = state.indexFocus;
+      let currentFocus = indexFocus;
       if (e.key === "Enter") {
         goToResult();
       }
       if (e.key === "ArrowUp") {
         currentFocus = currentFocus > 1 ? currentFocus - 1 : 1;
-        setState({ ...state, indexFocus: currentFocus });
+        setIndexFocus(currentFocus);
         highlightResult();
       } else if (e.key === "ArrowDown") {
         currentFocus =
           currentFocus < resultCount ? currentFocus + 1 : resultCount;
-        setState({ ...state, indexFocus: currentFocus });
+        setIndexFocus(currentFocus);
         highlightResult();
       } else {
         currentFocus = 0;
-        setState({ ...state, indexFocus: currentFocus });
+        setIndexFocus(currentFocus);
       }
     }
   };
 
   const highlightResult = () => {
-    const index = state.indexFocus;
+    const index = indexFocus;
     const results = document.querySelectorAll(".ais-Hits-item article");
     if (results.length > 0) {
       for (let i; i < results.length - 1; i++) {
@@ -98,7 +95,7 @@ const Search = () => {
   };
 
   const goToResult = () => {
-    let index = state.indexFocus;
+    let index = indexFocus;
 
     if (index <= 0) {
       index = 1;
@@ -117,15 +114,15 @@ const Search = () => {
   };
 
   useEffect(() => {
-    setState({ ...state, windowWidth: window.innerWidth });
+    setWindowWidth(window.innerWidth);
 
     if (window.innerWidth > 1024) {
       if (window.navigator.platform.indexOf("Mac") != -1) {
-        setState({ ...state, hotKey: "⌘K" });
+        setHotkey("⌘K");
       } else if (window.navigator.platform.indexOf("Win") != -1) {
-        setState({ ...state, hotKey: "Ctrl-K" });
+        setHotkey("Ctrl-K");
       } else if (window.navigator.platform.indexOf("Linux") != -1) {
-        setState({ ...state, hotKey: "Ctrl-K" });
+        setHotkey("Ctrl-K");
       }
     }
     document.addEventListener("keydown", handleKey);
@@ -168,10 +165,10 @@ const Search = () => {
 
   let modal;
 
-  if (state.modal) {
+  if (isModalOpen) {
     modal = (
       <AnimatePresence>
-        {state.modal && (
+        {isModalOpen && (
           <motion.section
             initial={{
               opacity: 0,
@@ -219,16 +216,12 @@ const Search = () => {
     );
   }
 
-  let hotKey;
-  if (state.windowWidth > 1024) {
-    hotKey = <p className="command">{state.hotKey}</p>;
-  }
   let searchBar = (
     <section className="block-search">
       <section className="hot-key small" onClick={searchClicked}>
         <i>search</i>
         <p className="search-text">Search</p>
-        {hotKey}
+        {windowWidth > 1024 && <p className="command">{hotkey}</p>}
       </section>
       {modal}
       {/* <SearchBox /> */}
