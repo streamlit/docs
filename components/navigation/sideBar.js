@@ -3,47 +3,35 @@ import bus from "../../lib/bus";
 import NavItem from "../navigation/navItem";
 
 const SideBar = ({ menu, slug, paths, version, maxVersion }) => {
-  const [state, setState] = useState({
-    condensed: false,
-    loading: true,
-    depth: 1,
-    sticky: false,
-    over: false,
-    open: false,
-    theme: "light-mode",
-    menu,
-  });
+  const [isCondensed, setIsCondensed] = useState(false);
+  const [isOver, setIsOver] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [theme, setTheme] = useState("light-mode");
+  const [hasSlug, setHasSlug] = useState("");
 
   const handleTheme = () => {
-    setState({ ...state, theme: document.body.dataset.theme });
-  };
-
-  const handleScroll = () => {
-    let top = window.scrollY;
-    top > 20
-      ? setState({ ...state, sticky: true })
-      : setState({ ...state, sticky: false });
+    setTheme(document.body.dataset.theme);
   };
 
   const handleMouseEnter = () => {
     if (window.innerWidth < 1250 && window.innerWidth > 1024) {
-      setState({ ...state, condensed: false });
-      setState({ ...state, over: true });
+      setIsCondensed(false);
+      setIsOver(true);
     }
   };
 
   const handleMouseLeave = () => {
     if (window.innerWidth < 1250 && window.innerWidth > 1024) {
-      setState({ ...state, condensed: true });
-      setState({ ...state, over: false });
+      setIsCondensed(true);
+      setIsOver(false);
     }
   };
 
   const checkExpanded = () => {
     if (window.innerWidth < 1250 && window.innerWidth > 1024) {
-      setState({ ...state, condensed: true });
+      setIsCondensed(true);
     } else {
-      setState({ ...state, condensed: false });
+      setIsCondensed(false);
     }
   };
 
@@ -51,11 +39,11 @@ const SideBar = ({ menu, slug, paths, version, maxVersion }) => {
     window.addEventListener("resize", checkExpanded);
     window.addEventListener("ChangeTheme", handleTheme);
 
-    bus.on("streamlit_nav_open", () => setState({ ...state, open: true }));
-    bus.on("streamlit_nav_closed", () => setState({ ...state, open: false }));
+    bus.on("streamlit_nav_open", () => setIsOpen(true));
+    bus.on("streamlit_nav_closed", () => setIsOpen(false));
 
     checkExpanded();
-    setState({ ...state, slug: window.location.href });
+    setHasSlug(window.location.href);
 
     return () => {
       window.removeEventListener("ChangeTheme", handleTheme);
@@ -69,7 +57,7 @@ const SideBar = ({ menu, slug, paths, version, maxVersion }) => {
       key={page.menu_key}
       page={page}
       depth={page.depth + 1}
-      condensed={state.condensed}
+      condensed={isCondensed}
       paths={paths}
       version={version}
       maxVersion={maxVersion}
@@ -78,12 +66,12 @@ const SideBar = ({ menu, slug, paths, version, maxVersion }) => {
 
   return (
     <section
-      className={`block-side-nav ${state.open ? "open" : ""} ${
-        state.over ? "over" : ""
-      } ${state.theme}`}
+      className={`block-side-nav ${isOpen ? "open" : ""} ${
+        isOver ? "over" : ""
+      } ${theme}`}
     >
       <nav
-        className={`side-nav ${state.condensed ? "condensed" : "expanded"}`}
+        className={`side-nav ${isCondensed ? "condensed" : "expanded"}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
