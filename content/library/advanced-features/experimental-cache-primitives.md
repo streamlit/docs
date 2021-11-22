@@ -36,6 +36,8 @@ While `@st.cache` tries to solve two very different problems simultaneously (cac
 Use [`@st.experimental_memo`](/library/api-reference/performance/st.experimental_memo) to store expensive computation which can be "cached" or "memoized" in the traditional sense. It has almost the exact same API as the existing `@st.cache`, so you can often blindly replace one for the other:
 
 ```python
+import streamlit as st
+
 @st.experimental_memo
 def factorial(n):
 	if n < 1:
@@ -54,6 +56,10 @@ f9 = factorial(9)  # Returns instantly!
 For example:
 
 ```python
+import streamlit as st
+import pandas as pd
+from sqlalchemy.orm import sessionmaker
+
 @st.experimental_memo
 def get_page(_sessionmaker, page_size, page):
 	"""Retrieve rows from the RNA database, and cache them.
@@ -90,6 +96,7 @@ def get_page(_sessionmaker, page_size, page):
 Example usage:
 
 ```python
+import streamlit as st
 from sqlalchemy.orm import sessionmaker
 
 @st.experimental_singleton
