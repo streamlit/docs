@@ -1,107 +1,84 @@
-import React from "react";
-import { connectScrollTo } from "react-instantsearch-dom";
+import React, { useState, useEffect } from "react";
 import bus from "../../lib/bus";
-
 import NavItem from "../navigation/navItem";
 
-export default class SideBar extends React.Component {
-  constructor(props) {
-    super(props);
+const SideBar = ({ menu, slug, paths, version, maxVersion }) => {
+  const [isCondensed, setIsCondensed] = useState(false);
+  const [isOver, setIsOver] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [theme, setTheme] = useState("light-mode");
+  const [hasSlug, setHasSlug] = useState("");
 
-    this.state = {
-      condensed: false,
-      loading: true,
-      depth: 1,
-      sticky: false,
-      over: false,
-      open: false,
-      theme: "light-mode",
-      menu: props.menu,
-    };
+  const handleTheme = () => {
+    setTheme(document.body.dataset.theme);
+  };
 
-    this.checkExpanded = this.checkExpanded.bind(this);
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
-    this.handleMouseLeave = this.handleMouseLeave.bind(this);
-    this.handleTheme = this.handleTheme.bind(this);
-  }
-
-  handleTheme() {
-    this.setState({ theme: document.body.dataset.theme });
-  }
-
-  handleScroll() {
-    let top = window.scrollY;
-    top > 20
-      ? this.setState({ sticky: true })
-      : this.setState({ sticky: false });
-  }
-
-  handleMouseEnter() {
+  const handleMouseEnter = () => {
     if (window.innerWidth < 1250 && window.innerWidth > 1024) {
-      this.setState({ condensed: false });
-      this.setState({ over: true });
+      setIsCondensed(false);
+      setIsOver(true);
     }
-  }
+  };
 
-  handleMouseLeave() {
+  const handleMouseLeave = () => {
     if (window.innerWidth < 1250 && window.innerWidth > 1024) {
-      this.setState({ condensed: true });
-      this.setState({ over: false });
+      setIsCondensed(true);
+      setIsOver(false);
     }
-  }
+  };
 
-  checkExpanded() {
+  const checkExpanded = () => {
     if (window.innerWidth < 1250 && window.innerWidth > 1024) {
-      this.setState({ condensed: true });
+      setIsCondensed(true);
     } else {
-      this.setState({ condensed: false });
+      setIsCondensed(false);
     }
-  }
+  };
 
-  componentDidMount() {
-    window.addEventListener("resize", this.checkExpanded);
-    window.addEventListener("ChangeTheme", this.handleTheme);
+  useEffect(() => {
+    window.addEventListener("resize", checkExpanded);
+    window.addEventListener("ChangeTheme", handleTheme);
 
-    bus.on("streamlit_nav_open", () => this.setState({ open: true }));
-    bus.on("streamlit_nav_closed", () => this.setState({ open: false }));
+    bus.on("streamlit_nav_open", () => setIsOpen(true));
+    bus.on("streamlit_nav_closed", () => setIsOpen(false));
 
-    this.checkExpanded();
-    this.setState({ slug: window.location.href });
-  }
+    checkExpanded();
+    setHasSlug(window.location.href);
 
-  componentWillUnmount() {
-    window.removeEventListener("ChangeTheme", this.handleTheme);
-  }
+    return () => {
+      window.removeEventListener("ChangeTheme", handleTheme);
+    };
+  }, []);
 
-  render() {
-    const props = this.props;
-    const state = this.state;
+  let navItems;
+  navItems = menu.map((page) => (
+    <NavItem
+      slug={slug}
+      key={page.menu_key}
+      page={page}
+      depth={page.depth + 1}
+      condensed={isCondensed}
+      paths={paths}
+      version={version}
+      maxVersion={maxVersion}
+    />
+  ));
 
-    let navItems;
-    navItems = props.menu.map((page, index) => (
-      <NavItem
-        slug={props.slug}
-        key={page.menu_key}
-        page={page}
-        depth={page.depth + 1}
-        condensed={state.condensed}
-      />
-    ));
-
-    return (
-      <section
-        className={`block-side-nav ${state.open ? "open" : ""} ${
-          state.over ? "over" : ""
-        } ${state.theme}`}
+  return (
+    <section
+      className={`block-side-nav ${isOpen ? "open" : ""} ${
+        isOver ? "over" : ""
+      } ${theme}`}
+    >
+      <nav
+        className={`side-nav ${isCondensed ? "condensed" : "expanded"}`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
-        <nav
-          className={`side-nav ${state.condensed ? "condensed" : "expanded"}`}
-          onMouseEnter={this.handleMouseEnter}
-          onMouseLeave={this.handleMouseLeave}
-        >
-          <ul className="inner-nav">{navItems}</ul>
-        </nav>
-      </section>
-    );
-  }
-}
+        <ul className="inner-nav">{navItems}</ul>
+      </nav>
+    </section>
+  );
+};
+
+export default SideBar;
