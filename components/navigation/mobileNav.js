@@ -1,52 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import bus from "../../lib/bus";
-import router, { withRouter } from "next/router";
+import router from "next/router";
 
-export default class MobileNav extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      nav: false,
-    };
-    this.toggleMobileNav = this.toggleMobileNav.bind(this);
-    this.handleRouteChange = this.handleRouteChange.bind(this);
-  }
+const MobileNav = () => {
+  const [nav, setNav] = useState(false);
 
-  toggleMobileNav() {
-    bus.emit(this.state.nav ? "streamlit_nav_closed" : "streamlit_nav_open");
-    if (this.state.nav) {
+  const toggleMobileNav = () => {
+    bus.emit(nav ? "streamlit_nav_closed" : "streamlit_nav_open");
+    if (nav) {
       document.documentElement.classList.remove("nav-open");
     } else {
       document.documentElement.classList.add("nav-open");
     }
-    this.setState({ nav: !this.state.nav });
-  }
+    setNav(!nav);
+  };
 
-  handleRouteChange() {
-    if (this.state.nav) {
-      bus.emit(this.state.nav ? "streamlit_nav_closed" : "streamlit_nav_open");
-      if (this.state.nav) {
+  const handleRouteChange = () => {
+    if (nav) {
+      bus.emit(nav ? "streamlit_nav_closed" : "streamlit_nav_open");
+      if (nav) {
         document.documentElement.classList.remove("nav-open");
       } else {
         document.documentElement.classList.add("nav-open");
       }
-      this.setState({ nav: false });
+      setNav(false);
     }
-  }
+  };
 
-  componentDidMount() {
-    router.events.on("routeChangeComplete", this.handleRouteChange);
-  }
+  useEffect(() => {
+    router.events.on("routeChangeComplete", handleRouteChange);
+  }, []);
 
-  render() {
-    let mobileNav;
+  let mobileNav;
 
-    mobileNav = (
-      <button className="toggle-mobile" onClick={this.toggleMobileNav}>
-        <i>menu</i>
-      </button>
-    );
+  mobileNav = (
+    <button className="toggle-mobile" onClick={toggleMobileNav}>
+      <i>menu</i>
+    </button>
+  );
 
-    return mobileNav;
-  }
-}
+  return mobileNav;
+};
+
+export default MobileNav;

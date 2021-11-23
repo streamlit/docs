@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function ArrowLink({ children, link, type, content, clean }) {
+const ArrowLink = ({ children, link, type, content, clean }) => {
   function ArrowType() {
     if (type == "back" && !clean) {
       return (
@@ -92,4 +92,6 @@ export default function ArrowLink({ children, link, type, content, clean }) {
     }
   }
   return <ArrowType />;
-}
+};
+
+export default ArrowLink;

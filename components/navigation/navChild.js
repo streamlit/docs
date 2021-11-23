@@ -25,15 +25,15 @@ function NavChild(props) {
     setManualState(!opened);
   };
 
-  if (props.page.children?.length > 0 && opened) {
+  if (page.children?.length > 0 && opened) {
     subNav = (
       <ul className="child-sub-nav">
-        {props.page.children.map((child, index) => (
+        {page.children.map((child) => (
           <NavChild
-            slug={props.slug}
+            slug={slug}
             key={child.menu_key}
             page={child}
-            color={props.color}
+            color={color}
             depth={child.depth + 1}
           />
         ))}
@@ -95,6 +95,6 @@ function NavChild(props) {
       {subNav}
     </li>
   );
-}
+};
 
 export default NavChild;
