@@ -1,11 +1,4 @@
-export default function IconHeader({
-  children,
-  icon,
-  rotate,
-  title,
-  background,
-  color,
-}) {
+const IconHeader = ({ icon, rotate, title, background, color }) => {
   return (
     <section className={`block-icon-header color-${background}`}>
       <i
@@ -19,4 +12,6 @@ export default function IconHeader({
       <h4>{title}</h4>
     </section>
   );
-}
+};
+
+export default IconHeader;
