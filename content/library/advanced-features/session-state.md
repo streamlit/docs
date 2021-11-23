@@ -46,6 +46,8 @@ Let's learn more about the API to use Session State.
 The Session State API follows a field-based API, which is very similar to Python dictionaries:
 
 ```python
+import streamlit as st
+
 # Check if 'key' already exists in session_state
 # If not, then initialize it
 if 'key' not in st.session_state:
@@ -61,6 +63,11 @@ if 'key' not in st.session_state:
 Read the value of an item in Session State by passing the item to `st.write` :
 
 ```python
+import streamlit as st
+
+if 'key' not in st.session_state:
+    st.session_state['key'] = 'value'
+
 # Reads
 st.write(st.session_state.key)
 
@@ -70,6 +77,11 @@ st.write(st.session_state.key)
 Update an item in Session State by assigning it a value:
 
 ```python
+import streamlit as st
+
+if 'key' not in st.session_state:
+    st.session_state['key'] = 'value'
+
 # Updates
 st.session_state.key = 'value2'     # Attribute API
 st.session_state['key'] = 'value2'  # Dictionary like API
@@ -78,6 +90,8 @@ st.session_state['key'] = 'value2'  # Dictionary like API
 Streamlit throws an exception if an uninitialized variable is accessed:
 
 ```python
+import streamlit as st
+
 st.write(st.session_state['value'])
 
 # Throws an exception!
@@ -241,6 +255,8 @@ Streamlit **does not allow** setting widget values via the Session State API for
 The following example will raise a `StreamlitAPIException` on trying to set the state of `st.button` via the Session State API:
 
 ```python
+import streamlit as st
+
 if 'my_button' not in st.session_state:
     st.session_state.my_button = True
     # Streamlit will raise an Exception on trying to set the state of button
