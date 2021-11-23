@@ -3,15 +3,7 @@ import Link from "next/link";
 import { urlInChildren } from "../../lib/utils.js";
 import NavChild from "./navChild";
 
-const NavItem = ({
-  page,
-  offScreen,
-  slug,
-  condensed,
-  paths,
-  version,
-  maxVersion,
-}) => {
+const NavItem = ({ page, slug, condensed }) => {
   let subNav;
   let navItem;
   let navBox;
@@ -50,18 +42,18 @@ const NavItem = ({
   if (page.url.startsWith("/")) {
     navItem = (
       <li className="nav-item small" id={page.menu_key}>
-        <a className="not-link" href={page.url}>
+        <Link className="not-link" href={page.url}>
           {navBox}
-        </a>
+        </Link>
         {subNav}
       </li>
     );
   } else {
     navItem = (
       <li className="nav-item small" id={page.menu_key}>
-        <a className="not-link" href={page.url} target="_blank">
+        <Link className="not-link" href={page.url} target="_blank">
           {navBox}
-        </a>
+        </Link>
         {subNav}
       </li>
     );
