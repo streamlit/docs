@@ -23,7 +23,7 @@ const Autofunction = ({
   streamlitFunction,
   streamlit,
   slug,
-  hide_header,
+  hideHeader,
 }) => {
   const blockRef = useRef();
   const router = useRouter();
@@ -121,7 +121,7 @@ const Autofunction = ({
     );
   }
 
-  if (hide_header !== undefined && hide_header) {
+  if (hideHeader !== undefined && hideHeader) {
     header = "";
   } else {
     const name =
