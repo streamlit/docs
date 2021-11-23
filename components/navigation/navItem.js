@@ -1,89 +1,75 @@
 import React from "react";
-
-import Link from "next/link";
 import { urlInChildren } from "../../lib/utils.cjs";
-
 import NavChild from "./navChild";
 
-export default class NavItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const NavItem = ({
+  page,
+  offScreen,
+  slug,
+  condensed,
+  paths,
+  version,
+  maxVersion,
+}) => {
+  let subNav;
+  let navItem;
+  let navBox;
+  let active = urlInChildren(page, `/${slug.join("/")}`);
+  let isCondensed = condensed ? condensed : false;
 
-  trueName() {
-    return this.props.page.path.split("/").pop();
-  }
-  cleanName() {
-    return this.trueName().replaceAll("-", " ");
-  }
-  shouldHaveID() {
-    return this.offScreen ? this.page.name : false;
-  }
+  // We only want the color to show when we're either active, or the menu is condensed.
+  let color = page.color ? `color-${page.color}` : "";
+  color = isCondensed || active ? color : "";
 
-  render() {
-    const props = this.props;
+  navBox = (
+    <section className={`head ${active ? "active" : ""}`}>
+      <div className={`icon-box bg-${page.color}`}>
+        <i>{page.icon}</i>
+      </div>
+      <p className={`bold large ${color}`}>{page.name}</p>
+    </section>
+  );
 
-    let subNav;
-    let url_in_child = false;
-
-    let navItem;
-
-    let navBox;
-    let active = urlInChildren(props.page, `/${props.slug.join("/")}`);
-    let condensed = props.condensed ? props.condensed : false;
-
-    // We only want the color to show when we're either active, or the menu is condensed.
-    let color = props.page.color ? `color-${props.page.color}` : "";
-    color = condensed || active ? color : "";
-
-    navBox = (
-      <section className={`head ${active ? "active" : ""}`}>
-        <div className={`icon-box bg-${props.page.color}`}>
-          <i>{props.page.icon}</i>
-        </div>
-        <p className={`bold large ${color}`}>{props.page.name}</p>
-      </section>
+  if (page.children && page.children.length > 0) {
+    subNav = (
+      <ul className="sub-nav">
+        {page.children.map((child) => (
+          <NavChild
+            slug={slug}
+            page={child}
+            color={page.color}
+            key={child.menu_key}
+            depth={child.depth + 1}
+            paths={paths}
+            version={version}
+            maxVersion={maxVersion}
+          />
+        ))}
+      </ul>
     );
-
-    if (props.page.children && props.page.children.length > 0) {
-      subNav = (
-        <ul className="sub-nav">
-          {props.page.children.map((child, index) => (
-            <NavChild
-              slug={props.slug}
-              page={child}
-              color={props.page.color}
-              key={child.menu_key}
-              depth={child.depth + 1}
-              paths={props.paths}
-              version={props.version}
-              maxVersion={props.maxVersion}
-            />
-          ))}
-        </ul>
-      );
-    }
-
-    if (props.page.url.startsWith("/")) {
-      navItem = (
-        <li className="nav-item small" id={props.page.menu_key}>
-          <a className="not-link" href={props.page.url}>
-            {navBox}
-          </a>
-          {subNav}
-        </li>
-      );
-    } else {
-      navItem = (
-        <li className="nav-item small" id={props.page.menu_key}>
-          <a className="not-link" href={props.page.url} target="_blank">
-            {navBox}
-          </a>
-          {subNav}
-        </li>
-      );
-    }
-
-    return navItem;
   }
-}
+
+  if (page.url.startsWith("/")) {
+    navItem = (
+      <li className="nav-item small" id={page.menu_key}>
+        <a className="not-link" href={page.url}>
+          {navBox}
+        </a>
+        {subNav}
+      </li>
+    );
+  } else {
+    navItem = (
+      <li className="nav-item small" id={page.menu_key}>
+        <a className="not-link" href={page.url} target="_blank">
+          {navBox}
+        </a>
+        {subNav}
+      </li>
+    );
+  }
+
+  return navItem;
+};
+
+export default NavItem;
