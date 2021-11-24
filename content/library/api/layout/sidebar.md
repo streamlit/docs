@@ -1,6 +1,7 @@
 ---
 title: st.sidebar
 slug: /library/api-reference/layout/st.sidebar
+description: st.sidebar displays items in a sidebar.
 ---
 
 ## st.sidebar
