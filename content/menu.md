@@ -22,146 +22,207 @@ site_menu:
     url: /library/api-reference/write-magic
   - category: Streamlit library / API reference / Write and magic / st.write
     url: /library/api-reference/write-magic/st.write
+    isVersioned: true
   - category: Streamlit library / API reference / Write and magic / magic
     url: /library/api-reference/write-magic/magic
   - category: Streamlit library / API reference / Text elements
     url: /library/api-reference/text
   - category: Streamlit library / API reference / Text elements / st.markdown
     url: /library/api-reference/text/st.markdown
+    isVersioned: true
   - category: Streamlit library / API reference / Text elements / st.title
     url: /library/api-reference/text/st.title
+    isVersioned: true
   - category: Streamlit library / API reference / Text elements / st.header
     url: /library/api-reference/text/st.header
+    isVersioned: true
   - category: Streamlit library / API reference / Text elements / st.subheader
     url: /library/api-reference/text/st.subheader
+    isVersioned: true
   - category: Streamlit library / API reference / Text elements / st.caption
     url: /library/api-reference/text/st.caption
+    isVersioned: true
   - category: Streamlit library / API reference / Text elements / st.code
     url: /library/api-reference/text/st.code
+    isVersioned: true
   - category: Streamlit library / API reference / Text elements / st.text
     url: /library/api-reference/text/st.text
+    isVersioned: true
   - category: Streamlit library / API reference / Text elements / st.latex
     url: /library/api-reference/text/st.latex
+    isVersioned: true
   - category: Streamlit library / API reference / Data display elements
     url: /library/api-reference/data
   - category: Streamlit library / API reference / Data display elements / st.dataframe
     url: /library/api-reference/data/st.dataframe
+    isVersioned: true
   - category: Streamlit library / API reference / Data display elements / st.table
     url: /library/api-reference/data/st.table
+    isVersioned: true
   - category: Streamlit library / API reference / Data display elements / st.metric
     url: /library/api-reference/data/st.metric
+    isVersioned: true
   - category: Streamlit library / API reference / Data display elements / st.json
     url: /library/api-reference/data/st.json
+    isVersioned: true
   - category: Streamlit library / API reference / Chart elements
     url: /library/api-reference/charts
   - category: Streamlit library / API reference / Chart elements / st.line_chart
     url: /library/api-reference/charts/st.line_chart
+    isVersioned: true
   - category: Streamlit library / API reference / Chart elements / st.area_chart
     url: /library/api-reference/charts/st.area_chart
+    isVersioned: true
   - category: Streamlit library / API reference / Chart elements / st.bar_chart
     url: /library/api-reference/charts/st.bar_chart
+    isVersioned: true
   - category: Streamlit library / API reference / Chart elements / st.pyplot
     url: /library/api-reference/charts/st.pyplot
+    isVersioned: true
   - category: Streamlit library / API reference / Chart elements / st.altair_chart
     url: /library/api-reference/charts/st.altair_chart
+    isVersioned: true
   - category: Streamlit library / API reference / Chart elements / st.vega_lite_chart
     url: /library/api-reference/charts/st.vega_lite_chart
+    isVersioned: true
   - category: Streamlit library / API reference / Chart elements / st.plotly_chart
     url: /library/api-reference/charts/st.plotly_chart
+    isVersioned: true
   - category: Streamlit library / API reference / Chart elements / st.bokeh_chart
     url: /library/api-reference/charts/st.bokeh_chart
+    isVersioned: true
   - category: Streamlit library / API reference / Chart elements / st.pydeck_chart
     url: /library/api-reference/charts/st.pydeck_chart
+    isVersioned: true
   - category: Streamlit library / API reference / Chart elements / st.graphviz_chart
     url: /library/api-reference/charts/st.graphviz_chart
+    isVersioned: true
   - category: Streamlit library / API reference / Chart elements / st.map
     url: /library/api-reference/charts/st.map
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets
     url: /library/api-reference/widgets
   - category: Streamlit library / API reference / Input widgets / st.button
     url: /library/api-reference/widgets/st.button
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.download_button
     url: /library/api-reference/widgets/st.download_button
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.checkbox
     url: /library/api-reference/widgets/st.checkbox
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.radio
     url: /library/api-reference/widgets/st.radio
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.selectbox
     url: /library/api-reference/widgets/st.selectbox
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.multiselect
     url: /library/api-reference/widgets/st.multiselect
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.slider
     url: /library/api-reference/widgets/st.slider
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.select_slider
     url: /library/api-reference/widgets/st.select_slider
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.text_input
     url: /library/api-reference/widgets/st.text_input
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.number_input
     url: /library/api-reference/widgets/st.number_input
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.text_area
     url: /library/api-reference/widgets/st.text_area
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.date_input
     url: /library/api-reference/widgets/st.date_input
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.time_input
     url: /library/api-reference/widgets/st.time_input
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.file_uploader
     url: /library/api-reference/widgets/st.file_uploader
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.color_picker
     url: /library/api-reference/widgets/st.color_picker
+    isVersioned: true
   - category: Streamlit library / API reference / Media elements
     url: /library/api-reference/media
   - category: Streamlit library / API reference / Media elements / st.image
     url: /library/api-reference/media/st.image
+    isVersioned: true
   - category: Streamlit library / API reference / Media elements / st.audio
     url: /library/api-reference/media/st.audio
+    isVersioned: true
   - category: Streamlit library / API reference / Media elements / st.video
     url: /library/api-reference/media/st.video
+    isVersioned: true
   - category: Streamlit library / API reference / Layouts and containers
     url: /library/api-reference/layout
   - category: Streamlit library / API reference / Layouts and containers / st.sidebar
     url: /library/api-reference/layout/st.sidebar
+    isVersioned: true
   - category: Streamlit library / API reference / Layouts and containers / st.columns
     url: /library/api-reference/layout/st.columns
+    isVersioned: true
   - category: Streamlit library / API reference / Layouts and containers / st.expander
     url: /library/api-reference/layout/st.expander
+    isVersioned: true
   - category: Streamlit library / API reference / Layouts and containers / st.container
     url: /library/api-reference/layout/st.container
+    isVersioned: true
   - category: Streamlit library / API reference / Layouts and containers / st.empty
     url: /library/api-reference/layout/st.empty
+    isVersioned: true
   - category: Streamlit library / API reference / Status elements
     url: /library/api-reference/status
   - category: Streamlit library / API reference / Status elements / st.progress
     url: /library/api-reference/status/st.progress
+    isVersioned: true
   - category: Streamlit library / API reference / Status elements / st.spinner
     url: /library/api-reference/status/st.spinner
+    isVersioned: true
   - category: Streamlit library / API reference / Status elements / st.balloons
     url: /library/api-reference/status/st.balloons
+    isVersioned: true
   - category: Streamlit library / API reference / Status elements / st.error
     url: /library/api-reference/status/st.error
+    isVersioned: true
   - category: Streamlit library / API reference / Status elements / st.warning
     url: /library/api-reference/status/st.warning
+    isVersioned: true
   - category: Streamlit library / API reference / Status elements / st.info
     url: /library/api-reference/status/st.info
+    isVersioned: true
   - category: Streamlit library / API reference / Status elements / st.success
     url: /library/api-reference/status/st.success
+    isVersioned: true
   - category: Streamlit library / API reference / Status elements / st.exception
     url: /library/api-reference/status/st.exception
+    isVersioned: true
   - category: Streamlit library / API reference / Control flow
     url: /library/api-reference/control-flow
   - category: Streamlit library / API reference / Control flow / st.stop
     url: /library/api-reference/control-flow/st.stop
+    isVersioned: true
   - category: Streamlit library / API reference / Control flow / st.form
     url: /library/api-reference/control-flow/st.form
+    isVersioned: true
   - category: Streamlit library / API reference / Control flow / st.form_submit_button
     url: /library/api-reference/control-flow/st.form_submit_button
+    isVersioned: true
   - category: Streamlit library / API reference / Utilities
     url: /library/api-reference/utilities
   - category: Streamlit library / API reference / Utilities / st.set_page_config
     url: /library/api-reference/utilities/st.set_page_config
+    isVersioned: true
   - category: Streamlit library / API reference / Utilities / st.echo
     url: /library/api-reference/utilities/st.echo
+    isVersioned: true
   - category: Streamlit library / API reference / Utilities / st.help
     url: /library/api-reference/utilities/st.help
+    isVersioned: true
   - category: Streamlit library / API reference / Mutate charts
     url: /library/api-reference/mutate
   - category: Streamlit library / API reference / State management
@@ -170,10 +231,13 @@ site_menu:
     url: /library/api-reference/performance
   - category: Streamlit library / API reference / Performance / st.cache
     url: /library/api-reference/performance/st.cache
+    isVersioned: true
   - category: Streamlit library / API reference / Performance / st.experimental_memo
     url: /library/api-reference/performance/st.experimental_memo
+    isVersioned: true
   - category: Streamlit library / API reference / Performance / st.experimental_singleton
     url: /library/api-reference/performance/st.experimental_singleton
+    isVersioned: true
   - category: Streamlit library / Advanced features
     url: /library/advanced-features
   - category: Streamlit library / Advanced features / Theming
