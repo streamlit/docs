@@ -32,7 +32,7 @@ const Tile = ({
   if (img) {
     image = <img src={img} />;
   } else if (dark) {
-    img = (
+    image = (
       <i
         className={`material-icons-sharp bg-${
           dark.background || "l-blue-70"
@@ -43,7 +43,7 @@ const Tile = ({
       </i>
     );
   } else {
-    img = (
+    image = (
       <i
         className={`material-icons-sharp bg-${
           background || "l-blue-70"
