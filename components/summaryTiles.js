@@ -1,7 +1,7 @@
 import TileContainer from "../components/layouts/tileContainer";
 import Tile from "../components/blocks/tile";
 
-export default function SummaryTiles() {
+const SummaryTiles = () => {
   return (
     <TileContainer>
       <Tile
@@ -29,4 +29,6 @@ export default function SummaryTiles() {
       />
     </TileContainer>
   );
-}
+};
+
+export default SummaryTiles;

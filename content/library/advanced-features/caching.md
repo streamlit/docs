@@ -5,6 +5,12 @@ slug: /library/advanced-features/caching
 
 # Optimize performance with st.cache
 
+<Important>
+
+We're developing new cache primitives that are easier to use and much faster than `@st.cache`. 🚀 To learn more, read [Experimental cache primitives](/library/advanced-features/experimental-cache-primitives).
+
+</Important>
+
 Streamlit provides a caching mechanism that allows your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations. This is done with the [`@st.cache`](/library/api-reference/performance/st.cache) decorator.
 
 When you mark a function with the [`@st.cache`](/library/api-reference/performance/st.cache) decorator, it tells Streamlit that whenever the function is called it needs to check a few things:

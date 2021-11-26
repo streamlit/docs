@@ -1,6 +1,6 @@
 import HeaderLink from "../utilities/headerLink";
 
-export default function Component({ children, label }) {
+const Component = ({ children, label }) => {
   return (
     <article className="block-component-container">
       <section className="label">
@@ -11,6 +11,6 @@ export default function Component({ children, label }) {
       <section className="comp">{children}</section>
     </article>
   );
-}
+};
 
-// export default Component
+export default Component;

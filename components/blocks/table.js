@@ -1,24 +1,17 @@
 import React from "react";
 
-export default function Table({
-  children,
-  head,
-  body,
-  rows,
-  addtionalClass,
-  footers = [],
-}) {
-  function createMarkup(html) {
+const Table = ({ head, body, rows, addtionalClass, footers = [] }) => {
+  const createMarkup = (html) => {
     return { __html: html };
-  }
-  function createTress(rows) {
+  };
+  const createTrees = (rows) => {
     return <p>{rows}</p>;
-  }
+  };
 
   let trees;
   let tbody;
 
-  trees = createTress(rows);
+  trees = createTrees(rows);
 
   if (body && body.title) {
     tbody = (
@@ -79,4 +72,6 @@ export default function Table({
       })}
     </section>
   );
-}
+};
+
+export default Table;

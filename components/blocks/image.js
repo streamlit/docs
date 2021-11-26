@@ -1,98 +1,79 @@
-import React from "react";
-import TransitionGroup from "react-transition-group";
+import React, { useState } from "react";
 
 import Note from "./note";
 
-export default class Image extends React.Component {
-  constructor(props) {
-    super(props);
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.state = {
-      opened: false,
-    };
+const Image = ({ caption, pure, src, alt, clean }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  let block;
+  let customCaption;
+  let captionClass;
+
+  if (caption) {
+    captionClass = "has-caption";
+    customCaption = <p className="italic small">{caption}</p>;
   }
-
-  openModal() {
-    this.setState({ opened: true });
-  }
-  closeModal() {
-    this.setState({ opened: false });
-  }
-
-  render() {
-    const props = this.props;
-    const state = this.state;
-    let block;
-    let caption;
-    let captionClass;
-
-    if (props.caption) {
-      captionClass = "has-caption";
-      caption = <p className="italic small">{props.caption}</p>;
-    }
-    if (props.pure) {
-      block = <img src={props.src} alt={props.alt} />;
-    } else if (state.opened) {
-      block = (
-        <section className="block-image">
-          <Note color="unset" background="unset">
-            <section className="image">
-              <img
-                onClick={this.openModal}
-                src={props.src}
-                alt={props.alt}
-                className={captionClass}
-              />
-              {caption}
-            </section>
-          </Note>
-
-          <section className="light-box" onClick={this.closeModal}>
-            <button onClick={this.openModal}>close</button>
-            <section className="content">
-              <img src={props.src} alt={props.alt} className={captionClass} />
-              {caption}
-            </section>
-          </section>
-        </section>
-      );
-    } else if (props.clean) {
-      block = (
-        <section className="block-image clean" style={{ marginBottom: 0 }}>
+  if (pure) {
+    block = <img src={src} alt={alt} />;
+  } else if (isOpen) {
+    block = (
+      <section className="block-image">
+        <Note color="unset" background="unset">
           <section className="image">
-            <img src={props.src} alt={props.alt} className={captionClass} />
-            {caption}
+            <img
+              onClick={openModal}
+              src={src}
+              alt={alt}
+              className={captionClass}
+            />
+            {customCaption}
+          </section>
+        </Note>
+        <section className="light-box" onClick={closeModal}>
+          <button onClick={openModal}>close</button>
+          <section className="content">
+            <img src={src} alt={alt} className={captionClass} />
+            {customCaption}
           </section>
         </section>
-      );
-    } else {
-      block = (
-        <section className="block-image">
-          <Note color="unset" background="unset">
-            <section className="image">
-              <img
-                onClick={this.openModal}
-                className={captionClass}
-                src={props.src}
-                alt={props.alt}
-              />
-              {caption}
-            </section>
-          </Note>
+      </section>
+    );
+  } else if (clean) {
+    block = (
+      <section className="block-image clean" style={{ marginBottom: 0 }}>
+        <section className="image">
+          <img src={src} alt={alt} className={captionClass} />
+          {customCaption}
         </section>
-        //     <Note v-if="!clean" className="block-image" color="unset" bg="unset">
-        //         <section v-if="opened" className="light-box" @click="lightBox">
-        //         <button>close</button>
-        //         <section v-if="opened" className="content">
-        //             <img :src="src" :alt="alt">
-        //             <p className="italic small" v-if="caption">{{ caption }}</p>
-        //         </section>
-        //         </section>
-        // </Note >
-      );
-    }
-
-    return block;
+      </section>
+    );
+  } else {
+    block = (
+      <section className="block-image">
+        <Note color="unset" background="unset">
+          <section className="image">
+            <img
+              onClick={openModal}
+              className={captionClass}
+              src={src}
+              alt={alt}
+            />
+            {customCaption}
+          </section>
+        </Note>
+      </section>
+    );
   }
-}
+
+  return block;
+};
+
+export default Image;

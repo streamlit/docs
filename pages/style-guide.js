@@ -237,7 +237,7 @@ https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streaml
         </Component>
         <Component label="YouTube Embed">
           <YouTube
-            video_id="BuD3gILJW-Q"
+            videoId="BuD3gILJW-Q"
             caption="Caption can go here if necessary"
           />
         </Component>
