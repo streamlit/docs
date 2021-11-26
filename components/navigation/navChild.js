@@ -1,16 +1,24 @@
-import findIndex from "lodash/findIndex";
 import React, { useState } from "react";
-import { useRouter } from "next/router";
+import Link from "next/link";
 
-const NavChild = ({ page, slug, color, paths, version, maxVersion }) => {
-  const router = useRouter();
-  const slugStr = router.asPath;
-  const shouldAutoOpen = slugStr.startsWith(page.url);
+import useVersion from "../../lib/useVersion.js";
+
+const NavChild = ({ slug, page, color }) => {
   const [manualState, setManualState] = useState(null);
-  const opened = manualState ?? shouldAutoOpen;
+  const version = useVersion();
+
+  const isNum = /^[\d\.]+$/.test(slug[0]);
+
+  if (isNum) {
+    slug.shift();
+  }
+
+  const slugStr = `/${slug.join("/")}`;
   const active = slugStr === page.url ? true : false;
+  const shouldAutoOpen = slugStr.startsWith(page.url);
+  const opened = manualState ?? shouldAutoOpen;
+
   let subNav;
-  const isnum = /^[\d\.]+$/.test(slug[0]);
 
   const toggleAccordion = () => {
     setManualState(!opened);
@@ -26,9 +34,6 @@ const NavChild = ({ page, slug, color, paths, version, maxVersion }) => {
             page={child}
             color={color}
             depth={child.depth + 1}
-            paths={paths}
-            version={version}
-            maxVersion={maxVersion}
           />
         ))}
       </ul>
@@ -36,9 +41,6 @@ const NavChild = ({ page, slug, color, paths, version, maxVersion }) => {
   }
 
   let accordion;
-  if (isnum) {
-    slug.shift();
-  }
 
   if (page.children?.length > 0) {
     accordion = (
@@ -54,34 +56,30 @@ const NavChild = ({ page, slug, color, paths, version, maxVersion }) => {
   let link;
   let icon;
   let target;
+  let url = page.url;
 
-  if (!page.url.startsWith("/")) {
+  const isLocalPage = page.url.startsWith("/");
+
+  if (!isLocalPage) {
     icon = <i className="external">open_in_new</i>;
     target = "_blank";
   }
 
-  let url = page.url;
-
-  if (version && version !== maxVersion && page.url.startsWith("/")) {
-    // We need to version this URL, Check if the URL has a version for this version
+  if (page.isVersioned && version && isLocalPage) {
+    // We need to version this URL, check if the URL has a version for this version
     const newSlug = page.url.split("/");
     newSlug[0] = version;
-    const newUrl = `/${newSlug.join("/")}`;
-    const index = findIndex(
-      paths.paths,
-      (path) => path.params.location === newUrl
-    );
-    if (index >= 0) {
-      url = paths.paths[index].params.location;
-    }
+    url = `/${newSlug.join("/")}`;
   }
 
   link = (
     <span className={`child-item ${active ? "active" : ""}`}>
-      <a className="not-link" target={target} href={url}>
-        <span className={`colored-ball bg-${color}`} />
-        <span>{page.name}</span> {icon}
-      </a>
+      <Link href={url}>
+        <a className="not-link" target={target}>
+          <span className={`colored-ball bg-${color}`} />
+          <span>{page.name}</span> {icon}
+        </a>
+      </Link>
       {accordion}
     </span>
   );

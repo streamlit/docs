@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import bus from "../../lib/bus";
 import NavItem from "../navigation/navItem";
 
-const SideBar = ({ menu, slug, paths, version, maxVersion }) => {
+const SideBar = ({ menu, slug }) => {
   const [isCondensed, setIsCondensed] = useState(false);
   const [isOver, setIsOver] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -58,9 +58,6 @@ const SideBar = ({ menu, slug, paths, version, maxVersion }) => {
       page={page}
       depth={page.depth + 1}
       condensed={isCondensed}
-      paths={paths}
-      version={version}
-      maxVersion={maxVersion}
     />
   ));
 

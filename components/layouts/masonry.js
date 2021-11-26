@@ -1,14 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-export default class Masonry extends React.Component {
-  constructor(props) {
-    super(props);
-    this.updateMaxheight = this.updateMaxheight.bind(this);
-    this.state = {
-      height: 2000,
-    };
-  }
-  maxColumnHeight() {
+const Masonry = ({ children }) => {
+  const [height, setHeight] = useState(2000);
+
+  const maxColumnHeight = () => {
     const childrenDOMElements = document.querySelectorAll(".masonry > *");
     let columnHeights = [0, 0, 0];
 
@@ -23,29 +18,26 @@ export default class Masonry extends React.Component {
       }
     }
     return Math.max(...columnHeights) + 5;
-  }
+  };
 
-  updateMaxheight() {
-    this.setState({ height: this.maxColumnHeight() });
-  }
+  const updateMaxheight = () => {
+    setHeight(maxColumnHeight());
+  };
 
-  componentDidMount() {
-    this.updateMaxheight();
-    window.addEventListener("resize", this.updateMaxheight);
-  }
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateMaxheight());
-  }
+  useEffect(() => {
+    updateMaxheight();
+    window.addEventListener("resize", updateMaxheight);
 
-  render() {
-    let props = this.props;
-    return (
-      <section
-        className="masonry"
-        style={{ "--max-height": this.state.height + "px" }}
-      >
-        {props.children}
-      </section>
-    );
-  }
-}
+    return () => {
+      window.removeEventListener("resize", updateMaxheight);
+    };
+  }, []);
+
+  return (
+    <section className="masonry" style={{ "--max-height": height + "px" }}>
+      {children}
+    </section>
+  );
+};
+
+export default Masonry;

@@ -83,6 +83,7 @@ const Autofunction = ({
         } else {
           slicedSlug.unshift(event.target.value);
         }
+        slug.unshift(event.target.value);
       }
     }
 

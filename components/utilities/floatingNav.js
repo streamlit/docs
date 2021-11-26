@@ -1,7 +1,7 @@
 import findIndex from "lodash/findIndex";
 import pullAt from "lodash/pullAt";
 import React from "react";
-import { breadcrumbsForSlug } from "../../lib/utils.cjs";
+import { breadcrumbsForSlug } from "../../lib/utils.js";
 
 import { withRouter } from "next/router";
 
