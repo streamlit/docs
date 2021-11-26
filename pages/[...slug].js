@@ -100,6 +100,7 @@ export default function Article({
     Autofunction: (props) => (
       <Autofunction
         {...props}
+        streamlitFunction={props.function}
         streamlit={streamlit}
         version={version}
         versions={versions}

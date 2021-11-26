@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function InlineCallout({ children, icon, color, bold, href }) {
+const InlineCallout = ({ children, icon, color, bold, href }) => {
   return (
     <section className="block-inline-callout">
       <Link href={href}>
@@ -18,4 +18,6 @@ export default function InlineCallout({ children, icon, color, bold, href }) {
       </article>
     </section>
   );
-}
+};
+
+export default InlineCallout;
