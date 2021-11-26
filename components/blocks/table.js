@@ -4,14 +4,14 @@ const Table = ({ head, body, rows, addtionalClass, footers = [] }) => {
   const createMarkup = (html) => {
     return { __html: html };
   };
-  const createTress = (rows) => {
+  const createTrees = (rows) => {
     return <p>{rows}</p>;
   };
 
   let trees;
   let tbody;
 
-  trees = createTress(rows);
+  trees = createTrees(rows);
 
   if (body && body.title) {
     tbody = (
