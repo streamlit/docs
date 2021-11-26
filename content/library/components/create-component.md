@@ -28,8 +28,8 @@ Check out these Streamlit Components Tutorial videos by Streamlit engineer Tim C
 
 ## Part 1: Setup and Architecture
 
-<YouTube video_id="BuD3gILJW-Q" />
+<YouTube videoId="BuD3gILJW-Q" />
 
 ## Part 2: Make a Slider Widget
 
-<YouTube video_id="QjccJl_7Jco" />
+<YouTube videoId="QjccJl_7Jco" />

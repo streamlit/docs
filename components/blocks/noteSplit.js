@@ -1,45 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import Note from "./note";
 import Button from "./button";
 import Image from "./image";
 
-export default class NoteSplit extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleTheme = this.handleTheme.bind(this);
-    this.state = {
-      theme: "light-mode",
+const NoteSplit = ({ background, title, copy, button }) => {
+  const [theme, setTheme] = useState("light-mode");
+
+  useEffect(() => {
+    window.addEventListener("ChangeTheme", handleTheme);
+
+    return () => {
+      window.removeEventListener("ChangeTheme", handleTheme);
     };
-  }
+  }, []);
 
-  async componentDidMount() {
-    window.addEventListener("ChangeTheme", this.handleTheme);
-  }
+  const handleTheme = () => {
+    setTheme(document.body.dataset.theme);
+  };
 
-  componentWillUnmount() {
-    window.removeEventListener("ChangeTheme", this.handleTheme);
-  }
+  let block = (
+    <section className="block-note-split">
+      <Note background={background}>
+        <section className="content">
+          <h2>{title}</h2>
+          <p>{copy}</p>
+          <Button link={button.link}>{button.text}</Button>
+        </section>
+        <Image src="/join.png" clean={true} />
+      </Note>
+    </section>
+  );
 
-  handleTheme() {
-    this.setState({ theme: document.body.dataset.theme });
-  }
-  render() {
-    const props = this.props;
-    const state = this.state;
-    let block = (
-      <section className="block-note-split">
-        <Note background={props.background}>
-          <section className="content">
-            <h2>{props.title}</h2>
-            <p>{props.copy}</p>
-            <Button link={props.button.link}>{props.button.text}</Button>
-          </section>
-          <Image src="/join.png" clean={true} />
-        </Note>
-      </section>
-    );
+  return block;
+};
 
-    return block;
-  }
-}
+export default NoteSplit;

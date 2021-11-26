@@ -1,5 +1,4 @@
-import React, { Children, useEffect } from "react";
-
+import React, { useEffect } from "react";
 import Prism from "prismjs";
 import "prismjs/components/prism-jsx";
 import "prismjs/components/prism-python";
@@ -15,63 +14,55 @@ import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 
 import Image from "./image";
 
-export default class Code extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sticky: false,
-    };
-  }
-
-  componentDidMount() {
+const Code = ({ code, children, language, img, lines }) => {
+  useEffect(() => {
     if (!window.initial.prism) {
       window.initial.prism = true;
       Prism.highlightAll();
     }
+
+    return () => {
+      window.initial.prism = false;
+    };
+  }, []);
+
+  let ConditionalRendering;
+  let customCode = code !== undefined ? code : children;
+  let languageClass = `language-${language}`;
+
+  if (children !== undefined && children.props !== undefined) {
+    customCode = children.props.children;
+    languageClass = children.props.className;
   }
-  componentWillUnmount() {
-    window.initial.prism = false;
+
+  if (img) {
+    ConditionalRendering = (
+      <section className="block-code">
+        <Image src={img} clean={true} />
+        <pre>
+          <code className={`${languageClass} line-numbers`}>{customCode}</code>
+        </pre>
+      </section>
+    );
+  } else if (lines) {
+    ConditionalRendering = (
+      <section className="block-code line-highlight">
+        <pre data-line={lines}>
+          <code className={`${languageClass} line-numbers`}>{customCode}</code>
+        </pre>
+      </section>
+    );
+  } else {
+    ConditionalRendering = (
+      <section className="block-code">
+        <pre>
+          <code className={`${languageClass} line-numbers`}>{customCode}</code>
+        </pre>
+      </section>
+    );
   }
 
-  render() {
-    const props = this.props;
+  return ConditionalRendering;
+};
 
-    let ConditionalRendering;
-    let code = props.code !== undefined ? props.code : props.children;
-    let languageClass = `language-${props.language}`;
-
-    if (props.children !== undefined && props.children.props !== undefined) {
-      code = props.children.props.children;
-      languageClass = props.children.props.className;
-    }
-
-    if (props.img) {
-      ConditionalRendering = (
-        <section className="block-code">
-          <Image src={props.img} clean={true} />
-          <pre>
-            <code className={`${languageClass} line-numbers`}>{code}</code>
-          </pre>
-        </section>
-      );
-    } else if (props.lines) {
-      ConditionalRendering = (
-        <section className="block-code line-highlight">
-          <pre data-line={props.lines}>
-            <code className={`${languageClass} line-numbers`}>{code}</code>
-          </pre>
-        </section>
-      );
-    } else {
-      ConditionalRendering = (
-        <section className="block-code">
-          <pre>
-            <code className={`${languageClass} line-numbers`}>{code}</code>
-          </pre>
-        </section>
-      );
-    }
-
-    return ConditionalRendering;
-  }
-}
+export default Code;
