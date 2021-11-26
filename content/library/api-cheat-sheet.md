@@ -5,7 +5,7 @@ slug: /library/cheatsheet
 
 # Cheat Sheet
 
-This is a summary of the docs, as of [Streamlit v0.71.0](/).
+This is a summary of the docs, as of [Streamlit v1.2.0](https://pypi.org/project/streamlit/1.2.0/).
 
 <Masonry>
 
@@ -255,6 +255,8 @@ st.set_page_config(layout='wide')
 
 #### Optimize performance
 
+###### Legacy caching
+
 ```python
 >>> @st.cache
 ... def foo(bar):
@@ -262,10 +264,45 @@ st.set_page_config(layout='wide')
 ...   return data
 >>> # Executes foo
 >>> d1 = foo(ref1)
->>> # Does not execute foo; returns cached value, d1 == d2
+>>> # Does not execute foo
+>>> # Returns cached item by reference, d1 == d2
 >>> d2 = foo(ref1)
 >>> # Different arg, so function foo executes
 >>> d3 = foo(ref2)
+```
+
+###### Cache data objects
+
+```python
+# E.g. Dataframe computation, storing downloaded data, etc.
+>>> @st.experimental_memo
+... def foo(bar):
+...   # Do something expensive and return data
+...   return data
+# Executes foo
+>>> d1 = foo(ref1)
+# Does not execute foo
+# Returns cached item by value, d1 == d2
+>>> d2 = foo(ref1)
+# Different arg, so function foo executes
+>>> d3 = foo(ref2)
+```
+
+###### Cache non-data objects
+
+```python
+# E.g. TensorFlow session, database connection, etc.
+>>> @st.experimental_singleton
+... def foo(bar):
+...   # Create and return a non-data object
+...   return session
+# Executes foo
+>>> s1 = foo(ref1)
+# Does not execute foo
+# Returns cached item by reference, d1 == d2
+>>> s2 = foo(ref1)
+# Different arg, so function foo executes
+>>> s3 = foo(ref2)
 ```
 
 </CodeTile>

@@ -7,6 +7,8 @@ import NProgress from "nprogress";
 
 import { useState, useEffect } from "react";
 
+import { AppContextProvider } from '../context/AppContext';
+
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
@@ -51,10 +53,12 @@ function useWindowSize() {
 function StreamlitDocs({ Component, pageProps }) {
   const size = useWindowSize();
   return (
-    <Component
-      window={{ width: size.width, height: size.height }}
-      {...pageProps}
-    />
+    <AppContextProvider>
+      <Component
+        window={{ width: size.width, height: size.height }}
+        {...pageProps}
+      />
+    </AppContextProvider>
   );
 }
 

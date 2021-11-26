@@ -1,5 +1,5 @@
 // Used in cheatsheet.
-export default function CodeTile({ children, size, featured }) {
+const CodeTile = ({ children, size, featured }) => {
   return (
     <section
       className={`code-tile ${size || ""} ${featured ? "featured" : ""}`}
@@ -7,4 +7,6 @@ export default function CodeTile({ children, size, featured }) {
       {children}
     </section>
   );
-}
+};
+
+export default CodeTile;

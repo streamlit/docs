@@ -68,7 +68,7 @@ You can also add viewers directly from your dashboard.
    Navigate to the app you want to add viewer to and click the hamburger icon to select "Settings."
 
    <div style={{ maxWidth: '75%' }}>
-       <Image src="/images/streamlit-cloud/open-settings.png" />
+       <Image src="/images/streamlit-cloud/edit-secrets.png" />
    </div>
 
 2. **Add Viewers in Settings**

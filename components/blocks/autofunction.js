@@ -1,11 +1,9 @@
 import reverse from "lodash/reverse";
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Table from "./table";
 import { H2 } from "./headers";
 import Warning from "./warning";
-
-import { withRouter } from "next/router";
-
+import { withRouter, useRouter } from "next/router";
 import Prism from "prismjs";
 import "prismjs/components/prism-python";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
@@ -15,43 +13,40 @@ import "prismjs/plugins/toolbar/prism-toolbar";
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 
-function cleanHref(name) {
+const cleanHref = (name) => {
   return String(name).replace(".", "").replace(" ", "-");
-}
+};
 
-class Autofunction extends React.Component {
-  constructor(props) {
-    super(props);
-    this.highlighted = false;
-    this.blockRef = React.createRef();
-    this.handleSelectVersion = this.handleSelectVersion.bind(this);
-    const versions = props.versions;
-    const current_version = props.version
-      ? props.version
-      : versions[versions.length - 1];
-    this.state = {
-      current_version: current_version,
-      max_version: versions[versions.length - 1],
-      function: props.function,
-    };
-  }
+const Autofunction = ({
+  version,
+  versions,
+  streamlitFunction,
+  streamlit,
+  slug,
+  hideHeader,
+}) => {
+  const blockRef = useRef();
+  const router = useRouter();
+  const maxVersion = versions[versions.length - 1];
+  const [isHighlighted, setIsHighlighted] = useState(false);
+  const [currentVersion, setCurrentVersion] = useState(
+    version ? version : versions[versions.length - 1]
+  );
 
-  Heading(props) {}
+  useEffect(() => {
+    highlightWithPrism();
+  }, []);
 
-  componentDidMount() {
-    this.highlightWithPrism();
-  }
-
-  highlightWithPrism() {
-    if (this.highlighted) {
+  const highlightWithPrism = () => {
+    if (isHighlighted) {
       return;
     }
-    if (!this.blockRef.current) {
+    if (!blockRef.current) {
       return;
     }
 
     const pres = Array.prototype.slice.call(
-      this.blockRef.current.getElementsByTagName("pre")
+      blockRef.current.getElementsByTagName("pre")
     );
 
     pres.forEach((ele) => {
@@ -69,172 +64,166 @@ class Autofunction extends React.Component {
       ele.replaceWith(codeWrap);
     });
 
-    Prism.highlightAllUnder(this.blockRef.current);
+    Prism.highlightAllUnder(blockRef.current);
 
-    this.highlighted = true;
-  }
+    setIsHighlighted(true);
+  };
 
-  handleSelectVersion(event) {
-    const props = this.props;
+  const handleSelectVersion = (event) => {
+    const functionObject = streamlit[streamlitFunction];
+    const name = cleanHref(`st.${functionObject.name}`);
+    const slicedSlug = slug.slice();
 
-    const func_obj = props.streamlit[props.function];
-    const name = cleanHref(`st.${func_obj.name}`);
-    const slug = props.slug.slice();
-
-    if (event.target.value !== this.state.current_version) {
-      this.setState({ current_version: event.target.value });
-      if (event.target.value !== this.state.max_version) {
-        let isnum = /^[\d\.]+$/.test(slug[0]);
+    if (event.target.value !== currentVersion) {
+      setCurrentVersion(event.target.value);
+      if (event.target.value !== maxVersion) {
+        let isnum = /^[\d\.]+$/.test(slicedSlug[0]);
         if (isnum) {
-          slug[0] = event.target.value;
+          slicedSlug[0] = event.target.value;
         } else {
-          slug.unshift(event.target.value);
+          slicedSlug.unshift(event.target.value);
         }
+        slug.unshift(event.target.value);
       }
     }
 
-    props.router.push(`/${slug.join("/")}#${name}`);
-  }
+    router.push(`/${slicedSlug.join("/")}#${name} `);
+  };
 
-  render() {
-    const props = this.props;
+  const footers = [];
+  const args = [];
+  const versionList = reverse(versions.slice());
+  let functionObject;
+  let functionDescription;
+  let header;
+  let body;
 
-    const footers = [];
-    const args = [];
-    const versions = props.versions;
-    const current_version = props.version
-      ? props.version
-      : versions[versions.length - 1];
-    const version_list = reverse(props.versions.slice());
-
-    let func_obj;
-    let func_description;
-    let header;
-    let body;
-
-    if (props.function in props.streamlit) {
-      func_obj = props.streamlit[props.function];
-      if (func_obj.description !== undefined && func_obj.description) {
-        func_description = { __html: func_obj.description };
-      }
-    } else {
-      return (
-        <div className="autofunction" ref={this.blockRef}>
-          <div className="code-header">
-            <H2>{props.function}</H2>
-          </div>
-          <Warning>
-            <p>
-              This method did not exist in version{" "}
-              <code>{current_version}</code> of Streamlit.
-            </p>
-          </Warning>
-        </div>
-      );
+  if (streamlitFunction in streamlit) {
+    functionObject = streamlit[streamlitFunction];
+    if (
+      functionObject.description !== undefined &&
+      functionObject.description
+    ) {
+      functionDescription = { __html: functionObject.description };
     }
-
-    if (props.hide_header !== undefined && props.hide_header) {
-      header = "";
-    } else {
-      const name = `st.${func_obj.name}`;
-      const selectClass =
-        current_version !== version_list[0]
-          ? "version-select old-version"
-          : "version-select";
-      header = (
-        <div className="code-header">
-          <div className="title-with-select">
-            <H2>{name}</H2>
-            <form className={selectClass}>
-              <label>
-                <span className="sr-only">Streamlit Version</span>
-                <select
-                  value={this.state.current_version}
-                  onChange={this.handleSelectVersion}
-                >
-                  {version_list.map((version, index) => {
-                    return (
-                      <option value={version} key={version}>
-                        v{version}
-                      </option>
-                    );
-                  })}
-                </select>
-              </label>
-            </form>
-          </div>
-          <div
-            className="code-desc"
-            dangerouslySetInnerHTML={func_description}
-          />
-        </div>
-      );
-    }
-
-    if ("example" in func_obj) {
-      footers.push({ title: "Example", body: func_obj.example });
-    }
-
-    if ("examples" in func_obj) {
-      footers.push({ title: "Examples", body: func_obj.examples });
-    }
-
-    if ("notes" in func_obj) {
-      footers.push({ title: "Notes", body: func_obj.notes });
-    }
-
-    if ("warning" in func_obj) {
-      footers.push({ title: "Warning", body: func_obj.warning });
-    }
-
-    for (const index in func_obj.args) {
-      const row = {};
-      const param = func_obj.args[index];
-      const description = param.description
-        ? param.description
-        : `<p>No description</p>`;
-
-      if (param.is_optional) {
-        row[
-          "title"
-        ] = `<p>${param.name} <span class='italic code'>(${param.type_name})</span></p>`;
-        row["body"] = `${description}`;
-      } else {
-        row[
-          "title"
-        ] = `<p><span class='bold'>${param.name}</span> <span class='italic code'>(${param.type_name})</span></p>`;
-        row["body"] = `${description}`;
-      }
-
-      args.push(row);
-    }
-
-    body = (
-      <Table
-        head={{
-          title: "Function signature",
-          content: `<p class='code'>${func_obj.signature}</p>`,
-        }}
-        body={
-          args.length
-            ? {
-                title: "Parameters",
-              }
-            : null
-        }
-        rows={args.length ? args : null}
-        addtionalClass="full-width"
-        footers={footers}
-      />
-    );
-
+  } else {
     return (
-      <section className="autofunction" ref={this.blockRef}>
-        {header}
-        {body}
-      </section>
+      <div className="autofunction" ref={blockRef}>
+        <div className="code-header">
+          <H2>{streamlitFunction}</H2>
+        </div>
+        <Warning>
+          <p>
+            This method did not exist in version <code>{currentVersion}</code>{" "}
+            of Streamlit.
+          </p>
+        </Warning>
+      </div>
     );
   }
-}
+
+  if (hideHeader !== undefined && hideHeader) {
+    header = "";
+  } else {
+    const name =
+      String(functionObject.name).startsWith("html") ||
+      String(functionObject.name).startsWith("iframe")
+        ? `st.components.v1.${functionObject.name}`
+        : `st.${functionObject.name}`;
+    const selectClass =
+      currentVersion !== versionList[0]
+        ? "version-select old-version"
+        : "version-select";
+    header = (
+      <div className="code-header">
+        <div className="title-with-select">
+          <H2>{name}</H2>
+          <form className={selectClass}>
+            <label>
+              <span className="sr-only">Streamlit Version</span>
+              <select value={currentVersion} onChange={handleSelectVersion}>
+                {versionList.map((version, index) => {
+                  return (
+                    <option value={version} key={version}>
+                      v{version}
+                    </option>
+                  );
+                })}
+              </select>
+            </label>
+          </form>
+        </div>
+        <div
+          className="code-desc"
+          dangerouslySetInnerHTML={functionDescription}
+        />
+      </div>
+    );
+  }
+
+  if ("example" in functionObject) {
+    footers.push({ title: "Example", body: functionObject.example });
+  }
+
+  if ("examples" in functionObject) {
+    footers.push({ title: "Examples", body: functionObject.examples });
+  }
+
+  if ("notes" in functionObject) {
+    footers.push({ title: "Notes", body: functionObject.notes });
+  }
+
+  if ("warning" in functionObject) {
+    footers.push({ title: "Warning", body: functionObject.warning });
+  }
+
+  for (const index in functionObject.args) {
+    const row = {};
+    const param = functionObject.args[index];
+    const description = param.description
+      ? param.description
+      : `<p>No description</p> `;
+
+    if (param.is_optional) {
+      row[
+        "title"
+      ] = `<p> ${param.name} <span class='italic code'>(${param.type_name})</span></p> `;
+      row["body"] = `${description} `;
+    } else {
+      row[
+        "title"
+      ] = `<p><span class='bold'>${param.name}</span> <span class='italic code'>(${param.type_name})</span></p> `;
+      row["body"] = `${description} `;
+    }
+
+    args.push(row);
+  }
+
+  body = (
+    <Table
+      head={{
+        title: "Function signature",
+        content: `<p class='code'> ${functionObject.signature}</p> `,
+      }}
+      body={
+        args.length
+          ? {
+              title: "Parameters",
+            }
+          : null
+      }
+      rows={args.length ? args : null}
+      addtionalClass="full-width"
+      footers={footers}
+    />
+  );
+
+  return (
+    <section className="autofunction" ref={blockRef}>
+      {header}
+      {body}
+    </section>
+  );
+};
 
 export default withRouter(Autofunction);

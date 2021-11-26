@@ -18,7 +18,7 @@ export const H3 = (props) => (
   </HeaderLink>
 );
 
-function getBody(props) {
+const getBody = (props) => {
   const length = Object.keys(props).length;
 
   if (length > 1) {
@@ -38,16 +38,18 @@ function getBody(props) {
     );
     return body;
   }
-}
+};
 
-export function cleanHref(name) {
+export const cleanHref = (name) => {
   const clean = String(name).replace(".", "").replace(" ", "-");
   return clean;
-}
+};
 
-function getName(props) {
+const getName = (props) => {
   if (props.name) {
     return props.name;
+  } else if (props.id) {
+    return props.id;
   }
 
   let nodesToTraverse = Array.isArray(props.children)
@@ -75,4 +77,4 @@ function getName(props) {
   }
 
   return undefined;
-}
+};

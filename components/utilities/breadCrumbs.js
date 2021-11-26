@@ -1,5 +1,5 @@
 import React from "react";
-import { breadcrumbsForSlug } from "../../lib/utils.cjs";
+import { breadcrumbsForSlug } from "../../lib/utils.js";
 import Link from "next/link";
 
 const BreadCrumbs = ({ slug, menu }) => {
