@@ -1,7 +1,7 @@
 const dotenv = require("dotenv");
 const fs = require("fs");
 const path = require("path");
-const utils = require("../lib/utils.cjs");
+const utils = require("../lib/utils.js");
 const contentDirectory = path.join(process.cwd(), ".next/server/pages");
 const parser = require("node-html-parser");
 const algoliasearch = require("algoliasearch");
