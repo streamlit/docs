@@ -1,5 +1,7 @@
-export default function InlineCalloutContainer({ children }) {
+const InlineCalloutContainer = ({ children }) => {
   return (
     <section className="block-inline-callout-container">{children}</section>
   );
-}
+};
+
+export default InlineCalloutContainer;
