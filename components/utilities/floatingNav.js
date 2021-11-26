@@ -49,14 +49,13 @@ const useIntersectionObserver = (setActiveId) => {
     // This is our callback function. The observer will call this function each time elements scroll in or out of view.
     // When we first render the page, it calls the callback with a list of all the elements we want to keep track on the page. As elements scroll in and out of view, it will call the callback with these elements to update the visibility.
     const callback = (headings) => {
-      headingElementsRef.current = headings.reduce((map, headingElement) => {
+      headings.forEach((headingElement) => {
         const link = headingElement.target.getElementsByTagName("a");
         if (link.length > 0) {
           const target = link[0].getAttribute("href");
-          map[target] = headingElement;
+          headingElementsRef.current[target] = headingElement;
         }
-        return map;
-      }, headingElementsRef.current);
+      });
 
       // Each heading element in our headings list has a isIntersecting (or “is visible”) value. It’s possible to have more than one visible heading on the page, so we’ll need to create a list of all visible headings.
       const visibleHeadings = [];
