@@ -54,8 +54,8 @@ amazing tutorials:
 
 ##### Video tutorial, part 1
 
-<YouTube video_id="BuD3gILJW-Q" />
+<YouTube videoId="BuD3gILJW-Q" />
 
 ##### Video tutorial, part 2
 
-<YouTube video_id="QjccJl_7Jco" />
+<YouTube videoId="QjccJl_7Jco" />
