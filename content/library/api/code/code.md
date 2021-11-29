@@ -1,6 +1,7 @@
 ---
 title: Display code
 slug: /library/api-reference/code
+description: st.code displays a code block with optional syntax highlighting.
 ---
 
 # Display code
