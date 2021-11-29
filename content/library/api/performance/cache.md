@@ -1,6 +1,7 @@
 ---
 title: st.cache
 slug: /library/api-reference/performance/st.cache
+description: st.cache is used to memoize function executions.
 ---
 
 # st.cache

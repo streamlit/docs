@@ -1,6 +1,7 @@
 ---
 title: Session State
 slug: /library/api-reference/session-state
+description: st.session_state is a way to share variables between reruns, for each user session.
 ---
 
 # Session State

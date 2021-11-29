@@ -1,6 +1,7 @@
 ---
 title: Mutate charts
 slug: /library/api-reference/mutate
+description: st.add_rows appends a dataframe to the bottom of the current one in certain elements, for optimized data updates.
 ---
 
 # Mutate charts
