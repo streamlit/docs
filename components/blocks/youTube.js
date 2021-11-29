@@ -1,6 +1,6 @@
 import React from "react";
 
-const YouTube = ({ caption, videoId }) => {
+const YouTube = ({ caption, videoId, start, end }) => {
   let YouTubeBlock;
 
   if (caption) {
@@ -8,7 +8,7 @@ const YouTube = ({ caption, videoId }) => {
       <section className="block-youtube">
         <section className="iFrame-parent">
           <iframe
-            src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0`}
+            src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&start=${start}&end=${end}`}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -25,7 +25,7 @@ const YouTube = ({ caption, videoId }) => {
       <section className="block-youtube">
         <section className="iFrame-parent">
           <iframe
-            src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0`}
+            src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&start=${start}&end=${end}`}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
