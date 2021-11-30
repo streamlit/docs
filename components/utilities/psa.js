@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function Psa() {
+const Psa = () => {
   return (
     <section className="block-forum-psa">
       <i>forum</i>
@@ -16,4 +16,6 @@ export default function Psa() {
       </article>
     </section>
   );
-}
+};
+
+export default Psa;
