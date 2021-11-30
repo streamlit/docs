@@ -1,4 +1,4 @@
-export default function SocialCallout() {
+const SocialCallout = () => {
   return (
     <section className="block-social-callouts">
       <h2>Other Media</h2>
@@ -149,4 +149,6 @@ export default function SocialCallout() {
       </ul>
     </section>
   );
-}
+};
+
+export default SocialCallout;

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function SuggestEdits({ sourcefile }) {
+const SuggestEdits = ({ sourcefile }) => {
   return (
     <section className="suggestEdits">
       <section className="buttons">
@@ -11,4 +11,6 @@ export default function SuggestEdits({ sourcefile }) {
       </section>
     </section>
   );
-}
+};
+
+export default SuggestEdits;

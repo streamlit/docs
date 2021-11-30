@@ -2,16 +2,12 @@ import React from "react";
 import { breadcrumbsForSlug } from "../../lib/utils.js";
 import Link from "next/link";
 
-export default class BreadCrumbs extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  formatedTitle(title) {
+const BreadCrumbs = ({ slug, menu }) => {
+  const formatedTitle = (title) => {
     return `${title}`.replace(/\-/g, " ").replace(/\bapi\b/, "API");
-  }
+  };
 
-  createCrumb(crumb, index, slug) {
+  const createCrumb = (crumb, index, slug) => {
     let formatedCrumb;
     if (index == slug.length) {
       formatedCrumb = (
@@ -30,65 +26,61 @@ export default class BreadCrumbs extends React.Component {
       );
     }
     return formatedCrumb;
+  };
+
+  const breadcrumbs = [];
+  if (slug === undefined) {
+    return "";
+  }
+  let paths = slug.join("/");
+  breadcrumbs.push({
+    link: "/",
+    title: "Home",
+  });
+
+  const isnum = /^[\d\.]+$/.test(slug[0]);
+  if (isnum) {
+    paths = slug.slice(1).join("/");
+    breadcrumbs.push({
+      link: "#",
+      title: slug[0],
+    });
   }
 
-  render() {
-    const props = this.props;
-    const breadcrumbs = [];
+  // Find the menu with the current slug
+  const location = `/${paths}`;
+  const path = breadcrumbsForSlug(menu, location, []);
 
-    if (props.slug === undefined) {
-      return "";
-    }
-
-    let paths = props.slug.join("/");
-
-    breadcrumbs.push({
-      link: "/",
-      title: "Home",
-    });
-
-    const isnum = /^[\d\.]+$/.test(props.slug[0]);
-    if (isnum) {
-      paths = props.slug.slice(1).join("/");
-      breadcrumbs.push({
-        link: "#",
-        title: props.slug[0],
-      });
-    }
-
-    // Find the menu with the current slug
-    const location = `/${paths}`;
-    const path = breadcrumbsForSlug(props.menu, location, []);
-
-    path.forEach((obj) => {
-      if (obj.url === location) {
-        breadcrumbs.push({
-          link: location,
-          title: this.formatedTitle(obj.name),
-        });
-      } else {
-        breadcrumbs.push({
-          link: obj.url,
-          title: this.formatedTitle(obj.name),
-        });
-      }
-    });
-
-    if (breadcrumbs.length === 1) {
+  path.forEach((obj) => {
+    if (obj.url === location) {
       breadcrumbs.push({
         link: location,
-        title: paths,
+        title: formatedTitle(obj.name),
+      });
+    } else {
+      breadcrumbs.push({
+        link: obj.url,
+        title: formatedTitle(obj.name),
       });
     }
+  });
 
-    return (
-      <nav className="breadcrumbs">
-        {breadcrumbs.map((crumb, index) => (
-          <li key={`${crumb}-${index}`} className="small">
-            {this.createCrumb(crumb, index, props.slug)}
-          </li>
-        ))}
-      </nav>
-    );
+  if (breadcrumbs.length === 1) {
+    breadcrumbs.push({
+      link: location,
+      title: paths,
+    });
   }
-}
+
+  return (
+    <nav className="breadcrumbs">
+      {breadcrumbs.map((crumb, index) => (
+        <li key={`${crumb}-${index}`} className="small">
+          {createCrumb(crumb, index, slug)}
+        </li>
+      ))}
+    </nav>
+  );
+};
+
+export default BreadCrumbs;
