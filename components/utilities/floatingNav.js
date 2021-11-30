@@ -63,7 +63,7 @@ const useIntersectionObserver = (slug) => {
     const callback = (headings) => {
       // Traverse backwards through all elements to find the bottom-most visible element.
       // Set that as the active one.
-      for (let i = headings.length - 1; i >= 0; i--) {
+      for (let i = 0; i < headings.length; i++) {
         if (headings[i].isIntersecting) {
           setActiveId(headings[i].target.getAttribute("href"));
           break;
