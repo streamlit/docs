@@ -12,3 +12,4 @@ slug: /knowledge-base/deploy
 - [Argh. This app has gone over its resource limits.](/knowledge-base/deploy/resource-limits)
 - [App is not loading when running remotely](/knowledge-base/deploy/remote-start)
 - [Authentication without SSO](/knowledge-base/deploy/authentication-without-sso)
+- [Upgrade the Streamlit version of your app on Streamlit Cloud](/knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud)
