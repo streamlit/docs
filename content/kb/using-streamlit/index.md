@@ -22,4 +22,5 @@ Here are some frequently asked questions about using Streamlit. If you feel some
 - [How to insert elements out of order?](/knowledge-base/using-streamlit/insert-elements-out-of-order)
 - [How to animate elements?](/knowledge-base/using-streamlit/animate-elements)
 - [Append data to a table or chart](/knowledge-base/using-streamlit/append-data-table-chart)
+- [Hide row indices when displaying a dataframe](/knowledge-base/using-streamlit/hide-row-indices-displaying-dataframe)
 - [How to record a screencast?](/knowledge-base/using-streamlit/record-screencast)
