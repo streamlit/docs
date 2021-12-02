@@ -13,3 +13,4 @@ slug: /knowledge-base/deploy
 - [App is not loading when running remotely](/knowledge-base/deploy/remote-start)
 - [Authentication without SSO](/knowledge-base/deploy/authentication-without-sso)
 - [Upgrade the Streamlit version of your app on Streamlit Cloud](/knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud)
+- [Organizing your apps with workspaces on Streamlit Cloud](/knowledge-base/deploy/organizing-apps-workspaces-streamlit-cloud)
