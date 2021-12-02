@@ -391,15 +391,15 @@ st.map(filtered_data)
 
 ## Share your app
 
-After you’ve built a Streamlit app, it's time to share it! To show it off to the world you can use **Streamlit Cloud** to deploy, manage, and share your app for free. Streamlit Cloud is currently invitation only, so please [request an invite](https://streamlit.io/community-sign-up) and we'll get you one soon!
+After you’ve built a Streamlit app, it's time to share it! To show it off to the world you can use **Streamlit Cloud** to deploy, manage, and share your app for free.
 
 It works in 3 simple steps:
 
-1. Put your app in a public Github repo (and make sure it has a requirements.txt!)
+1. Put your app in a public GitHub repo (and make sure it has a requirements.txt!)
 2. Sign into [share.streamlit.io](https://share.streamlit.io)
 3. Click 'Deploy an app' and then paste in your GitHub URL
 
-That's it! **🎈**You now have a publicly deployed app that you can share with the world. Click to learn more about [how to use Streamlit Cloud](/streamlit-cloud). If you're looking for private sharing for your team, check out the [Team and Enterprise tiers](https://streamlit.io/cloud-sign-up).
+That's it! 🎈 You now have a publicly deployed app that you can share with the world. Click to learn more about [how to use Streamlit Cloud](/streamlit-cloud).
 
 ## Get help
 
