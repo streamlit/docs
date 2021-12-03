@@ -27,7 +27,7 @@ pip install --upgrade streamlit
 streamlit version
 ```
 
-Or if you want to use an easily-reproduciable environment, replace `pip` with `pipenv`every time you install or update a package:
+Or if you want to use an easily-reproducible environment, replace `pip` with `pipenv`every time you install or update a package:
 
 ```bash
 pipenv update streamlit
