@@ -1,4 +1,4 @@
-// import '../styles/globals.css'
+import "../styles/globals.css";
 import "../styles/main.scss";
 
 // Loading indicator
@@ -7,7 +7,7 @@ import NProgress from "nprogress";
 
 import { useState, useEffect } from "react";
 
-import { AppContextProvider } from '../context/AppContext';
+import { AppContextProvider } from "../context/AppContext";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
