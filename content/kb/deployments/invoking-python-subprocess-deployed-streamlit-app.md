@@ -7,7 +7,7 @@ slug: /knowledge-base/deploy/invoking-python-subprocess-deployed-streamlit-app
 
 ## Problem
 
-Let's suppose you want to invoke a subprocess to run a Python script `script.py` in your deployed Streamlit app `streamlit_app.py`.
+Let's suppose you want to invoke a subprocess to run a Python script `script.py` in your deployed Streamlit app `streamlit_app.py`. For example, the machine learning library [Ludwig](https://ludwig-ai.github.io/ludwig-docs/) is run using a command-line interface, or maybe you want to run a bash script or similar type of process from Python.
 
 You have tried the following, but run into dependency issues for `script.py`, even though you have specified your Python dependencies in a requirements file:
 
