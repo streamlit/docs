@@ -2,13 +2,18 @@ import streamlit as st
 import plotly.figure_factory as ff
 import numpy as np
 
-# Add histogram data
-x1 = np.random.randn(200) - 2
-x2 = np.random.randn(200)
-x3 = np.random.randn(200) + 2
+@st.experimental_memo
+def load_data():
+    # Add histogram data
+    x1 = np.random.randn(200) - 2
+    x2 = np.random.randn(200)
+    x3 = np.random.randn(200) + 2
 
-# Group data together
-hist_data = [x1, x2, x3]
+    # Group data together
+    hist_data = [x1, x2, x3]
+    return hist_data
+
+hist_data = load_data()
 
 group_labels = ["Group 1", "Group 2", "Group 3"]
 

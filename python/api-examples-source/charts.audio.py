@@ -2,13 +2,13 @@ import requests
 import streamlit as st
 
 
-@st.cache
+@st.experimental_singleton
 def read_file_from_url(url):
     return requests.get(url).content
 
 
 file_bytes = read_file_from_url(
-    "https://streamlit.io/media/Muriel-Nguyen-Xuan-Chopin-valse-opus64-1.ogg"
+    "https://upload.wikimedia.org/wikipedia/commons/c/c4/Muriel-Nguyen-Xuan-Chopin-valse-opus64-1.ogg"
 )
 
 st.audio(file_bytes, format="audio/ogg")
