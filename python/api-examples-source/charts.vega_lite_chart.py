@@ -2,7 +2,12 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-df = pd.DataFrame(np.random.randn(200, 3), columns=["a", "b", "c"])
+@st.experimental_memo
+def load_data():
+    df = pd.DataFrame(np.random.randn(200, 3), columns=["a", "b", "c"])
+    return df
+
+df = load_data()
 
 st.vega_lite_chart(
     df,
