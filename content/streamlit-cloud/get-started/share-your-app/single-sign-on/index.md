@@ -5,7 +5,7 @@ slug: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso
 
 # Configuring Single Sign-on (SSO)
 
-By default all apps deployed from private source code are private to the developers in the workspace, which means that others in your company won't be able to view them unless you give them explicit permission.
+By default all apps deployed from private source code are private to the developers in the workspace. Your apps will not be visible to anyone else unless you grant them explicit permission.
 
 If your organization uses **Google OAuth**, you're all set — just click "Continue with Google" to sign into Streamlit Cloud. If your organization uses another SSO provider, check out our guides below.
 

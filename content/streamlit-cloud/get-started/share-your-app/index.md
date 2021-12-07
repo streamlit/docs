@@ -15,7 +15,7 @@ Your app is now live at that fixed URL, so go wild and share it with whomever yo
 
 ## Sharing private apps
 
-By default all apps deployed from private source code are private to the developers in the workspace, which means that others in your company won't be able to view them unless you give them explicit permission. You can grant permission either in your workspace or from the app itself.
+By default all apps deployed from private source code are private to the developers in the workspace. Your apps will not be visible to anyone else unless you grant them explicit permission. You can grant permission either in your workspace or from the app itself.
 
 ![Sharing private apps](/images/streamlit-cloud/sharing-private-apps.png)
 
