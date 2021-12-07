@@ -25,6 +25,10 @@ def parse_rst(rst_string):
     document = publish_parts(rst_string, writer_name='html', settings_overrides=docutil_settings)
     return str(document['body'])
 
+def strip_code_prompts(rst_string):
+    """Removes >>> and ... prompts from code blocks in examples."""
+    return rst_string.replace('&gt;&gt;&gt; ', '').replace('&gt;&gt;&gt;\n', '\n').replace('\n...', '\n')
+
 
 def get_function_docstring_dict(func, funcname, signature_prefix):
     description = {}
@@ -54,11 +58,11 @@ def get_function_docstring_dict(func, funcname, signature_prefix):
 
             if 'Example' in numpydoc_obj and len(numpydoc_obj['Example']) > 0:
                 collapsed = '\n'.join(numpydoc_obj['Example'])
-                description['example'] = parse_rst(collapsed)
+                description['example'] = strip_code_prompts(parse_rst(collapsed))
 
             if 'Examples' in numpydoc_obj and len(numpydoc_obj['Examples']) > 0:
                 collapsed = '\n'.join(numpydoc_obj['Examples'])
-                description['examples'] = parse_rst(collapsed)
+                description['examples'] = strip_code_prompts(parse_rst(collapsed))
         except:
             pass
 
