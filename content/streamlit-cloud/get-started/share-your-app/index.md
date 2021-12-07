@@ -15,11 +15,11 @@ Your app is now live at that fixed URL, so go wild and share it with whomever yo
 
 ## Sharing private apps
 
-By default all apps deployed from a Teams or Enterprise workspace are private to the developers in the workspace, which means that others in your company won't be able to view them unless you give them explicit permission. You can grant permission either in your workspace or from the app itself.
+By default all apps deployed from private source code are private to the developers in the workspace, which means that others in your company won't be able to view them unless you give them explicit permission. You can grant permission either in your workspace or from the app itself.
 
 ![Sharing private apps](/images/streamlit-cloud/sharing-private-apps.png)
 
-### What is view auth?
+### What is viewer auth?
 
 Viewer auth allows you to restrict the viewers of your app using single sign-on (SSO), which means listing out the specified Gmail, G-Suite, and SSO-enabled email addresses and specified domains that your company uses.
 
