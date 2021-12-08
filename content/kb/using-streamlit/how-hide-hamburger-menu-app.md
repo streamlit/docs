@@ -12,7 +12,6 @@ Streamlit allows developers to configure their hamburger menu to be more user-ce
 <div style={{ marginBottom: '-3em' }}>
 <Flex>
 <Image caption="1: A hamburger menu appears on the top-right side of your app." src="/images/knowledge-base/hamburger-menu-app.png" />
-<Image caption="2: Hamburger menu hidden with an unofficial CSS hack." src="/images/knowledge-base/hamburger-menu-removed.png" />
 </Flex>
 </div>
 
@@ -31,7 +30,13 @@ hide_menu_style = """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 ```
 
-The hamburger menu will no longer appear on the top-right side of your app (as shown in image 2)! 🎈
+The hamburger menu will no longer appear on the top-right side of your app, as shown in the image below! 🎈
+
+<div style={{ marginBottom: '-3em' }}>
+<Flex>
+<Image caption="2: Hamburger menu hidden with an unofficial CSS hack." src="/images/knowledge-base/hamburger-menu-removed.png" />
+</Flex>
+</div>
 
 ## Relevant resources:
 
