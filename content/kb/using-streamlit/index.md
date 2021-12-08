@@ -25,3 +25,4 @@ Here are some frequently asked questions about using Streamlit. If you feel some
 - [Hide row indices when displaying a dataframe](/knowledge-base/using-streamlit/hide-row-indices-displaying-dataframe)
 - [How to record a screencast?](/knowledge-base/using-streamlit/record-screencast)
 - [How do I upgrade to the latest version of Streamlit?](/knowledge-base/using-streamlit/how-upgrade-latest-version-streamlit)
+- [How do I hide the hamburger menu from my app?](/knowledge-base/using-streamlit/how-hide-hamburger-menu-app)
