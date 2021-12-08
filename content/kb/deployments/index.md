@@ -15,3 +15,4 @@ slug: /knowledge-base/deploy
 - [Authentication without SSO](/knowledge-base/deploy/authentication-without-sso)
 - [Upgrade the Streamlit version of your app on Streamlit Cloud](/knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud)
 - [Organizing your apps with workspaces on Streamlit Cloud](/knowledge-base/deploy/organizing-apps-workspaces-streamlit-cloud)
+- [How do I increase the upload limit of `st.file_uploader` on Streamlit Cloud?](/knowledge-base/deploy/increase-file-uploader-limit-streamlit-cloud)
