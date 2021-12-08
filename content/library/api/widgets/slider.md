@@ -11,5 +11,5 @@ description: st.slider displays a slider widget.
 Check out our video on how to use one of Streamlit's core functions, the slider!
 <YouTube videoId="tzAdd-MuWPw" />
 
-In the next video, we'll take it a step further and make a double-ended slider.
+In the video below, we'll take it a step further and make a double-ended slider.
 <YouTube videoId="sCvdt79asrE" />
