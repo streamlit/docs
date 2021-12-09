@@ -134,17 +134,11 @@ The free tier is free forever, but if you have opted for a Teams or Enterprise a
 
 ### Why does Streamlit require additional OAuth scope?
 
-In order to deploy your private-repo app we need access to your app's source code, and the requested scope is the only one in [Github's OAuth scopes model](https://docs.github.com/en/free-pro-team@latest/developers/apps/scopes-for-oauth-apps) that gives us that kind of access.
-
-That scope (called the "repo" scope) also provides Streamlit Sharing with extra permissions that we do not really need, and which, as people who prize security, we'd rather not even be granted. Alas, we need to work with the APIs we are provided by Github.
+In order to deploy your app, Streamlit requires access to your app's source code in GitHub and also the ability to manage the public keys associated with the repositories. The default GitHub OAuth scopes are sufficient to work with apps in public Github repositories. However, in order to work with apps in private Github repositories, Streamlit requires the additional `repo` OAuth scope from Github. We recognize that this scope provides Streamlit with extra permissions that we do not really need, and which, as people who prize security, we'd rather not even be granted. Alas, we need to work with the APIs we are provided by Github.
 
 ### After deploying my private-repo app, I received an email from GitHub saying a new public key was added to my repo. Is this expected?
 
-**This is the expected behavior**. When you try to deploy an app that lives in a private repo, Streamlit Cloud needs to get access to that repo somehow. For this, we create a read-only [Github Deploy Key](https://docs.github.com/en/free-pro-team@latest/developers/overview/managing-deploy-keys#deploy-keys) then access your repo using a public SSH key. When we set this up, Github notifies admins of the repo that the key was created.
-
-Underneath the hood, Streamlit Cloud creates an SSH public-private key pair for every app being deployed. The public key is attached to the Github repository using Github's APIs. The private key is used by Streamlit Cloud's orchestration environment to download the source code.
-
-We knows these emails can be annoying, but the alternative would be to request an overly-broad OAuth scope from Github, which also provides _write_ access to your repo. To be respectful of your security, we'd like to avoid that. So please bear with these emails, and let us know if you have any thoughts or comments on how we can do better here.
+**This is the expected behavior**. When you try to deploy an app that lives in a private repo, Streamlit Cloud needs to get access to that repo somehow. For this, we create a read-only [GitHub Deploy Key](https://docs.github.com/en/free-pro-team@latest/developers/overview/managing-deploy-keys#deploy-keys) then access your repo using a public SSH key. When we set this up, GitHub notifies admins of the repo that the key was created as a security measure.
 
 ## Limitations and known issues
 
