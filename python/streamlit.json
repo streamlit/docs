@@ -43124,7 +43124,7 @@
     "streamlit.radio": {
       "name": "radio",
       "signature": "st.radio(label, options, index=0, format_func=special_internal_function, key=None, help=None, on_change=None, args=None, kwargs=None)",
-      "example": "<blockquote>\n<pre class=\"doctest-block\">\ngenre = st.radio(\n     &quot;What's your favorite movie genre&quot;,\n     ('Comedy', 'Drama', 'Documentary'))\n\nif genre == 'Comedy':\n     st.write('You selected comedy.')\n else:\n     st.write(&quot;You didn't select comedy.&quot;)\n</pre>\n</blockquote>\n",
+      "example": "<blockquote>\n<pre class=\"doctest-block\">\ngenre = st.radio(\n     &quot;What's your favorite movie genre&quot;,\n     ('Comedy', 'Drama', 'Documentary'))\n\nif genre == 'Comedy':\n     st.write('You selected comedy.')\n else:\n     st.write(&quot;You didn't select comedy.&quot;)\n</pre>\n\n                <iframe\n                    loading=\"lazy\"\n                    src=\"https://share.streamlit.io/streamlit/docs/main/python/api-examples-source/widget.radio.py\"\n                    style=\"\n                        width: 100%;\n                        border: none;\n                        height: 260px\n                    \"\n                ></iframe>\n                <sup><a href=\"https://share.streamlit.io/streamlit/docs/main/python/api-examples-source/widget.radio.py\" target=\"_blank\">\n                    (view standalone Streamlit app)\n</blockquote>\n",
       "description": "Display a radio button widget.",
       "args": [
         {
