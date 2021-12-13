@@ -5,7 +5,7 @@ slug: /streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/stable-
 
 # Stable outbound IP address
 
-Has your IT team requested IP addresses to allowlist within your organization's internal network? Good news — we have four stable outbound IP addresses that you can share with your team! 🎉
+Has your IT team requested IP addresses to allowlist within your organization's internal network? Good news — we have six stable outbound IP addresses that you can share with your team! 🎉
 
 ## Connecting to private data sources
 

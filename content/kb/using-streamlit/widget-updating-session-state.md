@@ -7,7 +7,7 @@ slug: /knowledge-base/using-streamlit/widget-updating-session-state
 
 ## Overview
 
-You are using [session state](/library/api-reference/session-state) to store page interactions in your app. When users interact with a widget in your app (e.g., click a button), you expect your app to update its widget states and reflect the new values. However, you notice that it doesn't. Instead, users have to interact with the widget twice (e.g., click a button twice) for the app to show the correct values. What do you now? 🤔 Let's walk through the solution in the section below.
+You are using [session state](/library/api-reference/session-state) to store page interactions in your app. When users interact with a widget in your app (e.g., click a button), you expect your app to update its widget states and reflect the new values. However, you notice that it doesn't. Instead, users have to interact with the widget twice (e.g., click a button twice) for the app to show the correct values. What do you do now? 🤔 Let's walk through the solution in the section below.
 
 ## Solution
 
