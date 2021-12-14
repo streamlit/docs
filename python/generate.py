@@ -90,7 +90,6 @@ def get_function_docstring_dict(func, funcname, signature_prefix):
         if type(docstring_obj.returns) is not None:
             for returns in docstring_obj.many_returns:
                 return_obj = {}
-                # arg_obj['name'] = returns.arg_name
                 return_obj['type_name'] = returns.type_name
                 return_obj['is_generator'] = returns.is_generator
                 return_obj['description'] = parse_rst(returns.description) if returns.description else ''
