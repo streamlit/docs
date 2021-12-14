@@ -10,6 +10,7 @@ const Table = ({ head, body, rows, addtionalClass, footers = [] }) => {
 
   let trees;
   let tbody;
+  let thead;
 
   trees = createTrees(rows);
 
@@ -35,22 +36,28 @@ const Table = ({ head, body, rows, addtionalClass, footers = [] }) => {
     );
   }
 
+  if (head && head.title) {
+    thead = (
+      <React.Fragment key="thead">
+        <tr className="head">
+          <th className="title bold" colSpan="2">
+            {head.title}
+          </th>
+        </tr>
+        <tr>
+          <th
+            colSpan="2"
+            dangerouslySetInnerHTML={createMarkup(head.content)}
+          />
+        </tr>
+      </React.Fragment>
+    );
+  }
+
   return (
     <section className="table-parent">
       <table className={addtionalClass}>
-        <thead>
-          <tr className="head">
-            <th className="title bold" colSpan="2">
-              {head.title}
-            </th>
-          </tr>
-          <tr>
-            <th
-              colSpan="2"
-              dangerouslySetInnerHTML={createMarkup(head.content)}
-            />
-          </tr>
-        </thead>
+        <thead>{thead}</thead>
         <tbody>{tbody}</tbody>
       </table>
       {footers.map((footer, index) => {

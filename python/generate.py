@@ -2,6 +2,7 @@
 
 import sys
 import types
+from collections.abc import Iterable
 import json
 import inspect
 import docstring_parser
@@ -85,6 +86,17 @@ def get_function_docstring_dict(func, funcname, signature_prefix):
             arg_obj['description'] = parse_rst(param.description) if param.description else ''
             arg_obj['default'] = param.default
             description['args'].append(arg_obj)
+
+        description['returns'] = []    
+        if type(docstring_obj.returns) is not None:
+            for returns in docstring_obj.many_returns:
+                return_obj = {}
+                # arg_obj['name'] = returns.arg_name
+                return_obj['type_name'] = returns.type_name
+                return_obj['is_generator'] = returns.is_generator
+                return_obj['description'] = parse_rst(returns.description) if returns.description else ''
+                return_obj['return_name'] = returns.return_name
+                description['returns'].append(return_obj)
 
     return description
 

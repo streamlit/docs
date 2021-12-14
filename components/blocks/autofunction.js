@@ -92,11 +92,13 @@ const Autofunction = ({
 
   const footers = [];
   const args = [];
+  const returns = [];
   const versionList = reverse(versions.slice());
   let functionObject;
   let functionDescription;
   let header;
   let body;
+  let returnBody;
 
   if (streamlitFunction in streamlit) {
     functionObject = streamlit[streamlitFunction];
@@ -199,6 +201,21 @@ const Autofunction = ({
     args.push(row);
   }
 
+  for (const index in functionObject.returns) {
+    const row = {};
+    const param = functionObject.returns[index];
+    const description = param.description
+      ? param.description
+      : `<p>No description</p> `;
+
+    row[
+      "title"
+    ] = `<p><span class='italic code'>(${param.type_name})</span></p> `;
+    row["body"] = `${description} `;
+
+    returns.push(row);
+  }
+
   body = (
     <Table
       head={{
@@ -214,6 +231,21 @@ const Autofunction = ({
       }
       rows={args.length ? args : null}
       addtionalClass="full-width"
+    />
+  );
+
+  returnBody = (
+    <Table
+      head={null}
+      body={
+        returns.length
+          ? {
+              title: "Returns",
+            }
+          : null
+      }
+      rows={returns.length ? returns : null}
+      addtionalClass="full-width"
       footers={footers}
     />
   );
@@ -222,6 +254,7 @@ const Autofunction = ({
     <section className="autofunction" ref={blockRef}>
       {header}
       {body}
+      {returnBody}
     </section>
   );
 };
