@@ -2,7 +2,6 @@
 
 import sys
 import types
-from collections.abc import Iterable
 import json
 import inspect
 import docstring_parser
