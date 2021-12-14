@@ -842,3 +842,6 @@
 /en/latest/advanced_caching.html	/library/advanced-features/caching
 /en/stable/advanced_caching.html	/library/advanced-features/caching
 /troubleshooting/caching_issues.html	/knowledge-base/using-streamlit/caching-issues
+/streamlit-cloud/enterprise/single-sign-on-sso     /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso
+/streamlit-cloud/enterprise/single-sign-on-sso/streamlit-okta-sso   /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-okta-sso
+/streamlit-cloud/enterprise     /streamlit-cloud
