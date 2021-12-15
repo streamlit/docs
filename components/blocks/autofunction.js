@@ -98,7 +98,6 @@ const Autofunction = ({
   let functionDescription;
   let header;
   let body;
-  let returnBody;
 
   if (streamlitFunction in streamlit) {
     functionObject = streamlit[streamlitFunction];
@@ -229,24 +228,16 @@ const Autofunction = ({
             }
           : null
       }
-      rows={args.length ? args : null}
-      additionalClass="full-width"
-    />
-  );
-
-  returnBody = (
-    <Table
-      head={null}
-      body={
+      bodyRows={args.length ? args : null}
+      foot={
         returns.length
           ? {
               title: "Returns",
             }
           : null
       }
-      rows={returns.length ? returns : null}
+      footRows={returns.length ? returns : null}
       additionalClass="full-width"
-      footers={footers}
     />
   );
 
@@ -254,7 +245,6 @@ const Autofunction = ({
     <section className="autofunction" ref={blockRef}>
       {header}
       {body}
-      {returnBody}
     </section>
   );
 };
