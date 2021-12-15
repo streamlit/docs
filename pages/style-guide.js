@@ -288,7 +288,7 @@ https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streaml
               content: `<p class='code'>streamlit.text(body)</p>`,
             }}
             body={{ title: "Parameters" }}
-            rows={[
+            bodyRows={[
               {
                 title: `<p><span class='bold'>body</span> <span class='italic code'>(str)</span></p>`,
                 body: `<p>The string to display</p>`,
@@ -307,7 +307,7 @@ https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streaml
             body={{
               title: "Parameters",
             }}
-            rows={[
+            bodyRows={[
               {
                 title: `<p><span class='bold'>body</span> <span class='italic code'>(str)</span></p>`,
                 body: `<p>The string to display</p>`,
