@@ -1,6 +1,6 @@
 import React from "react";
 
-const Table = ({ head, body, rows, addtionalClass, footers = [] }) => {
+const Table = ({ head, body, rows, additionalClass, footers = [] }) => {
   const createMarkup = (html) => {
     return { __html: html };
   };
@@ -56,7 +56,7 @@ const Table = ({ head, body, rows, addtionalClass, footers = [] }) => {
 
   return (
     <section className="table-parent">
-      <table className={addtionalClass}>
+      <table className={additionalClass}>
         <thead>{thead}</thead>
         <tbody>{tbody}</tbody>
       </table>
