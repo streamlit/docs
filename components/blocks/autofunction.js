@@ -230,7 +230,7 @@ const Autofunction = ({
           : null
       }
       rows={args.length ? args : null}
-      addtionalClass="full-width"
+      additionalClass="full-width"
     />
   );
 
@@ -245,7 +245,7 @@ const Autofunction = ({
           : null
       }
       rows={returns.length ? returns : null}
-      addtionalClass="full-width"
+      additionalClass="full-width"
       footers={footers}
     />
   );
