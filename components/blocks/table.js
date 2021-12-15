@@ -1,6 +1,14 @@
 import React from "react";
 
-const Table = ({ head, body, rows, additionalClass, footers = [] }) => {
+const Table = ({
+  head,
+  body,
+  bodyRows,
+  foot,
+  footRows,
+  additionalClass,
+  footers = [],
+}) => {
   const createMarkup = (html) => {
     return { __html: html };
   };
@@ -9,10 +17,11 @@ const Table = ({ head, body, rows, additionalClass, footers = [] }) => {
   };
 
   let trees;
-  let tbody;
   let thead;
+  let tbody;
+  let tfoot;
 
-  trees = createTrees(rows);
+  trees = createTrees(bodyRows);
 
   if (body && body.title) {
     tbody = (
@@ -22,7 +31,7 @@ const Table = ({ head, body, rows, additionalClass, footers = [] }) => {
             {body.title}
           </td>
         </tr>
-        {rows.map((row, index) => (
+        {bodyRows.map((row, index) => (
           <tr key={`${row.title}-${index}`}>
             <td width="20%">
               <div dangerouslySetInnerHTML={createMarkup(row.title)} />{" "}
@@ -54,11 +63,34 @@ const Table = ({ head, body, rows, additionalClass, footers = [] }) => {
     );
   }
 
+  if (foot && foot.title) {
+    tfoot = (
+      <React.Fragment key="tbody">
+        <tr className="head">
+          <td className="title bold" colSpan="2">
+            {foot.title}
+          </td>
+        </tr>
+        {footRows.map((row, index) => (
+          <tr key={`${row.title}-${index}`}>
+            <td width="20%">
+              <div dangerouslySetInnerHTML={createMarkup(row.title)} />{" "}
+            </td>
+            <td width="80%">
+              <div dangerouslySetInnerHTML={createMarkup(row.body)} />
+            </td>
+          </tr>
+        ))}
+      </React.Fragment>
+    );
+  }
+
   return (
     <section className="table-parent">
       <table className={additionalClass}>
         <thead>{thead}</thead>
         <tbody>{tbody}</tbody>
+        <tfoot>{tfoot}</tfoot>
       </table>
       {footers.map((footer, index) => {
         const body = footer.jsx ? (
