@@ -172,6 +172,10 @@
                 display: flex;
                 gap: 1.5em;
 
+                &:hover {
+                  opacity: 1;
+                }
+
                 .image_container {
                   position: relative;
                   overflow: hidden;
