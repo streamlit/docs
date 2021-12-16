@@ -17,6 +17,27 @@ $ pip install --upgrade streamlit
 
 </Tip>
 
+## Version 1.3.0
+
+_Release date: Dec 16, 2021_
+
+**Notable Changes**
+
+- 💯 Support for NumPy values in `st.metric`.
+- 🌐 Support for Mesh Layers in PyDeck.
+- 📊 Updated Plotly chart version to support the latest features.
+- 🏀 `st.spinner` element has visual animated spinner.
+- 🍰 `st.caption` supports HTML in text with `unsafe_allow_html` parameter.
+
+**Other Changes**
+
+- 🪲 Bug fix: Allow `st.session_state` to be used to set number_input values with no warning ([#4047](https://github.com/streamlit/streamlit/pull/4047)).
+- 🪲 Bug fix: Fix footer alignment in wide mode ([#4035](https://github.com/streamlit/streamlit/pull/4035)).
+- 🐞 Bug fix: Better support for Graphviz and Bokeh charts in containers (columns, expanders, etc.) ([#4039](https://github.com/streamlit/streamlit/pull/4039)).
+- 🐞 Bug fix: Support inline data values in Vega-Lite ([#4070](https://github.com/streamlit/streamlit/pull/4070)).
+- ✍️ Types: Updated type annotations for experimental memo and singleton decorators.
+- ✍️ Types: Improved type annotations for `st.selectbox`, `st.select_slider`, `st.radio`, `st.number_input`, and `st.multiselect`.
+
 ## Version 1.2.0
 
 _Release date: Nov 11, 2021_
