@@ -148,6 +148,10 @@
             margin: 0;
             border-bottom: 1px solid;
 
+            &:hover {
+              background: $gray-20;
+            }
+
             .item {
               margin: 0;
               padding: 1em;
