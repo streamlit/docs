@@ -238,6 +238,7 @@ const Autofunction = ({
       }
       footRows={returns.length ? returns : null}
       additionalClass="full-width"
+      footers={footers}
     />
   );
 
