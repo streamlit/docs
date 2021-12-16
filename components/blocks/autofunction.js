@@ -92,6 +92,7 @@ const Autofunction = ({
 
   const footers = [];
   const args = [];
+  const returns = [];
   const versionList = reverse(versions.slice());
   let functionObject;
   let functionDescription;
@@ -199,6 +200,21 @@ const Autofunction = ({
     args.push(row);
   }
 
+  for (const index in functionObject.returns) {
+    const row = {};
+    const param = functionObject.returns[index];
+    const description = param.description
+      ? param.description
+      : `<p>No description</p> `;
+
+    row[
+      "title"
+    ] = `<p><span class='italic code'>(${param.type_name})</span></p> `;
+    row["body"] = `${description} `;
+
+    returns.push(row);
+  }
+
   body = (
     <Table
       head={{
@@ -212,8 +228,16 @@ const Autofunction = ({
             }
           : null
       }
-      rows={args.length ? args : null}
-      addtionalClass="full-width"
+      bodyRows={args.length ? args : null}
+      foot={
+        returns.length
+          ? {
+              title: "Returns",
+            }
+          : null
+      }
+      footRows={returns.length ? returns : null}
+      additionalClass="full-width"
       footers={footers}
     />
   );
