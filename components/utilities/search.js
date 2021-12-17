@@ -16,7 +16,7 @@ const Search = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hotkey, setHotkey] = useState("");
   const [windowWidth, setWindowWidth] = useState(null);
-  const [indexFocus, setIndexFocus] = useState(1);
+  const [indexFocus, setIndexFocus] = useState(0);
 
   const router = useRouter();
 
@@ -80,6 +80,11 @@ const Search = () => {
   const highlightResult = () => {
     let index = indexFocus;
 
+    if (index === 0) {
+      index = 1;
+      setIndexFocus(1);
+    }
+
     const results = document.querySelectorAll(".ais-Hits-item article");
     if (results.length > 0) {
       if (results.length >= index) {
@@ -91,6 +96,11 @@ const Search = () => {
 
   const goToResult = () => {
     let index = indexFocus;
+
+    if (index === 0) {
+      index = 1;
+      setIndexFocus(1);
+    }
 
     const results = document.querySelectorAll(".ais-Hits-item article");
 
@@ -134,6 +144,9 @@ const Search = () => {
     ) {
       snippet = <Snippet attribute="content" hit={props.hit} />;
     }
+
+    console.log(props.hit.__position);
+    console.log(indexFocus);
 
     return (
       <article
