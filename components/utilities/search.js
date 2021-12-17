@@ -73,6 +73,9 @@ const Search = () => {
           currentFocus < resultCount ? currentFocus + 1 : resultCount;
         setIndexFocus(currentFocus);
         highlightResult();
+      } else {
+        currentFocus = 0;
+        setIndexFocus(currentFocus);
       }
     }
   };
@@ -80,7 +83,7 @@ const Search = () => {
   const highlightResult = () => {
     let index = indexFocus;
 
-    if (index === 0) {
+    if (index <= 0) {
       index = 1;
       setIndexFocus(1);
     }
@@ -96,11 +99,6 @@ const Search = () => {
 
   const goToResult = () => {
     let index = indexFocus;
-
-    if (index === 0) {
-      index = 1;
-      setIndexFocus(1);
-    }
 
     const results = document.querySelectorAll(".ais-Hits-item article");
 
@@ -144,9 +142,6 @@ const Search = () => {
     ) {
       snippet = <Snippet attribute="content" hit={props.hit} />;
     }
-
-    console.log(props.hit.__position);
-    console.log(indexFocus);
 
     return (
       <article
