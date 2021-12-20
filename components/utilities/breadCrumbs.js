@@ -12,16 +12,16 @@ const BreadCrumbs = ({ slug, menu }) => {
     if (index == slug.length) {
       formatedCrumb = (
         <Link href={crumb.link}>
-          <a className="not-link bold">{crumb.title}</a>
+          <a className="not-link font-bold hover:opacity-70">{crumb.title}</a>
         </Link>
       );
     } else {
       formatedCrumb = (
         <>
           <Link href={crumb.link}>
-            <a className="not-link">{crumb.title}</a>
+            <a className="not-link hover:opacity-70">{crumb.title}</a>
           </Link>
-          /
+          <span className="ml-2 text-gray-50 dark:text-gray-70">/</span>
         </>
       );
     }
@@ -73,12 +73,17 @@ const BreadCrumbs = ({ slug, menu }) => {
   }
 
   return (
-    <nav className="breadcrumbs">
-      {breadcrumbs.map((crumb, index) => (
-        <li key={`${crumb}-${index}`} className="small">
-          {createCrumb(crumb, index, slug)}
-        </li>
-      ))}
+    <nav>
+      <ul className="flex list-none ml-0">
+        {breadcrumbs.map((crumb, index) => (
+          <li
+            key={`${crumb}-${index}`}
+            className="text-sm mr-2 text-gray-70 dark:text-gray-50"
+          >
+            {createCrumb(crumb, index, slug)}
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 };
