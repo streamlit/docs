@@ -1,0 +1,15 @@
+.Container ul {
+  @apply flex list-none ml-0;
+}
+
+.Container ul li {
+  @apply text-sm mr-2 text-gray-70 dark:text-gray-50;
+}
+
+.Container ul li a {
+  @apply hover:opacity-70;
+}
+
+.Container ul li span {
+  @apply ml-2 text-gray-50 dark:text-gray-70;
+}
