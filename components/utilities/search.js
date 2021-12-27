@@ -100,6 +100,11 @@ const Search = () => {
   const goToResult = () => {
     let index = indexFocus;
 
+    if (index <= 0) {
+      index = 1;
+      setIndexFocus(1);
+    }
+
     const results = document.querySelectorAll(".ais-Hits-item article");
 
     if (results.length > 0) {
