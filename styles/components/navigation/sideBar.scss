@@ -5,6 +5,7 @@
   height: calc(100vh - #{$header-height});
   z-index: 0;
   width: 314px;
+  z-index: 2;
 
   * {
     transition: $slow;
@@ -142,7 +143,7 @@
         position: absolute;
         top: 0;
         padding-top: $header-height;
-        height: calc(100vh - (#{$header-height} * 2));
+        height: 100vh;
         padding-bottom: $header-height;
         @media (min-width: 1249px) {
           width: 314px;
