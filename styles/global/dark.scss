@@ -118,6 +118,10 @@ body[data-theme="dark-mode"] {
           .ais-Hits-list {
             li {
               border-bottom: 1px solid $gray-80;
+
+              &:hover {
+                background: $gray-80;
+              }
               .item {
                 em {
                   border-color: $white;
