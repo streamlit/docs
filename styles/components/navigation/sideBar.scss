@@ -3,9 +3,8 @@
   position: fixed;
   top: 0;
   height: calc(100vh - #{$header-height});
-  z-index: 0;
   width: 314px;
-  z-index: 2;
+  z-index: 11;
 
   * {
     transition: $slow;
@@ -116,7 +115,6 @@
   .side-nav {
     list-style: none;
     padding-right: 1em;
-    z-index: 11;
     margin-bottom: calc(#{$header-height} * 1.5);
 
     @media (min-width: 1024px) {
