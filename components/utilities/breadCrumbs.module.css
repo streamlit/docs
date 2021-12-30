@@ -3,11 +3,11 @@
 }
 
 .Container ul li {
-  @apply text-sm mr-2 text-gray-70 dark:text-gray-50;
+  @apply text-sm mr-2;
 }
 
 .Container ul li a {
-  @apply hover:opacity-70;
+  @apply hover:opacity-70 text-gray-70 dark:text-gray-50;
 }
 
 .Container ul li span {
