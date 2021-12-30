@@ -1,0 +1,34 @@
+.Container {
+  list-style: none;
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.Container li {
+  margin: 0;
+  margin-right: 0.5em;
+}
+
+.Container li span {
+  @apply text-gray-40;
+}
+
+.Container li:last-child {
+  margin: 0;
+}
+
+.Container li a {
+  text-transform: none;
+  margin-right: 0.5em;
+  @apply text-gray-70;
+}
+
+body[data-theme="dark-mode"] .Container li span {
+  @apply text-gray-70;
+}
+
+body[data-theme="dark-mode"] .Container li a {
+  @apply text-gray-40;
+}

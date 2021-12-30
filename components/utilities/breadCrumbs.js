@@ -2,6 +2,8 @@ import React from "react";
 import { breadcrumbsForSlug } from "../../lib/utils.js";
 import Link from "next/link";
 
+import breadCrumbStyling from "./breadCrumbs.module.css";
+
 const BreadCrumbs = ({ slug, menu }) => {
   const formatedTitle = (title) => {
     return `${title}`.replace(/\-/g, " ").replace(/\bapi\b/, "API");
@@ -21,7 +23,7 @@ const BreadCrumbs = ({ slug, menu }) => {
           <Link href={crumb.link}>
             <a className="not-link">{crumb.title}</a>
           </Link>
-          /
+          <span>/</span>
         </>
       );
     }
@@ -73,7 +75,7 @@ const BreadCrumbs = ({ slug, menu }) => {
   }
 
   return (
-    <nav className="breadcrumbs">
+    <nav className={breadCrumbStyling.Container}>
       {breadcrumbs.map((crumb, index) => (
         <li key={`${crumb}-${index}`} className="small">
           {createCrumb(crumb, index, slug)}
