@@ -24,9 +24,10 @@ body[data-theme="dark-mode"] {
       border-bottom: 1px solid $gray-80;
     }
     .container {
+      background: $off-black;
+
       &::before {
         border-bottom: 1px solid rgba(255, 255, 255, 0);
-        background: $off-black;
       }
       .hot-key > * {
         color: $white;
