@@ -95,6 +95,19 @@ def get_function_docstring_dict(func, funcname, signature_prefix):
                 return_obj['description'] = parse_rst(returns.description) if returns.description else ''
                 return_obj['return_name'] = returns.return_name
                 description['returns'].append(return_obj)
+        
+        description['source'] = []
+        repo_prefix = "https://github.com/streamlit/streamlit/blob/develop/lib"
+
+        try: # For Streamlit commands wrapped by decorator
+            path_parts = func.__wrapped__.__code__.co_filename.partition("/streamlit")
+            line_number = func.__wrapped__.__code__.co_firstlineno
+        except:
+            path_parts = func.__code__.co_filename.partition("/streamlit")
+            line_number = func.__code__.co_firstlineno
+        
+        description['source'] = repo_prefix + path_parts[1] + path_parts[2]+ f'#L{line_number}'
+
 
     return description
 
