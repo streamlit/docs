@@ -16,7 +16,7 @@ import Image from "./image";
 
 const Code = ({ code, children, language, img, lines }) => {
   useEffect(() => {
-    setTimeout(() => Prism.highlightAll(), 0);
+    Prism.highlightAll();
   }, []);
 
   let ConditionalRendering;
