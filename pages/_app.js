@@ -33,7 +33,7 @@ function useWindowSize() {
       });
     }
 
-    const debouncedUpdateSize = debounce(handleResize, 20);
+    const debouncedUpdateSize = debounce(handleResize, 200);
 
     // Add event listener
     window.addEventListener("resize", debouncedUpdateSize);
