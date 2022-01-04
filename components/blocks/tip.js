@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 
 import IconHeader from "../blocks/iconHeader";
 
 const Tip = ({ children }) => {
   const [theme, setTheme] = useState("light-mode");
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.addEventListener("ChangeTheme", handleTheme);
 
     return () => {
