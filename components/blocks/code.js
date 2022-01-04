@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import { debounce } from "lodash";
+import React, { useState, useEffect } from "react";
 import Prism from "prismjs";
 import "prismjs/components/prism-jsx";
 import "prismjs/components/prism-python";
@@ -15,16 +16,30 @@ import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 import Image from "./image";
 
 const Code = ({ code, children, language, img, lines }) => {
-  useEffect(() => {
-    if (!window.initial.prism) {
-      window.initial.prism = true;
+  const [windowWidth, setWindowWidth] = useState();
+
+  const handleHighlight = () => {
+    if (
+      windowWidth === undefined ||
+      (windowWidth !== undefined && windowWidth !== window.innerWidth)
+    ) {
       Prism.highlightAll();
+      setWindowWidth(window.innerWidth);
+    } else {
+      return;
     }
+  };
+
+  const debouncedHandleHighlight = debounce(handleHighlight, 200);
+
+  useEffect(() => {
+    handleHighlight();
+    window.addEventListener("resize", debouncedHandleHighlight);
 
     return () => {
-      window.initial.prism = false;
+      window.removeEventListener("resize", debouncedHandleHighlight);
     };
-  }, []);
+  }, [windowWidth]);
 
   let ConditionalRendering;
   let customCode = code !== undefined ? code : children;
