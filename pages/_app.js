@@ -1,3 +1,5 @@
+import { debounce } from "lodash";
+
 import "../styles/globals.css";
 import "../styles/main.scss";
 
@@ -5,7 +7,7 @@ import "../styles/main.scss";
 import Router from "next/router";
 import NProgress from "nprogress";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 
 import { AppContextProvider } from "../context/AppContext";
 
@@ -21,7 +23,7 @@ function useWindowSize() {
     height: undefined,
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     // Handler to call on window resize
     function handleResize() {
       // Set window width/height to state
@@ -31,14 +33,16 @@ function useWindowSize() {
       });
     }
 
+    const debouncedUpdateSize = debounce(handleResize, 20);
+
     // Add event listener
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", debouncedUpdateSize);
 
     // Call handler right away so state gets updated with initial window size
     handleResize();
 
     // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", debouncedUpdateSize);
   }, []); // Empty array ensures that effect is only run on mount
 
   useEffect(() => {
