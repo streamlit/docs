@@ -71,7 +71,7 @@ Streamlit uses third-party security tools to scan for vulnerabilities on a regul
 
 #### SOC 2 Type 1
 
-We're committed to meeting industry security standards and are currently pursuing SOC 2 readiness. We are in audit for SOC 2 Type 1 and it will be completed in Q4 2021.
+Streamlit is committed to meeting industry security standards so that you can feel confident in our security practices. Streamlit is SOC 2 compliant and if you would like to learn more, please reach out to [support@streamlit.io](mailto:support@streamlit.io) to get the details of our compliance report.
 
 ### People
 
