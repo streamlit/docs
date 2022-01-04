@@ -135,12 +135,22 @@ export default function Article({
 
   if (prevMenuItem) {
     previousArrow = (
-      <ArrowLink link={prevMenuItem.url} type="back" content={prevMenuItem.name} />
+      <ArrowLink
+        link={prevMenuItem.url}
+        type="back"
+        content={prevMenuItem.name}
+      />
     );
   }
 
   if (nextMenuItem) {
-    nextArrow = <ArrowLink link={nextMenuItem.url} type="next" content={nextMenuItem.name} />;
+    nextArrow = (
+      <ArrowLink
+        link={nextMenuItem.url}
+        type="next"
+        content={nextMenuItem.name}
+      />
+    );
   }
 
   if (nextMenuItem || prevMenuItem) {
@@ -222,9 +232,9 @@ export default function Article({
               <FloatingNav slug={slug} menu={menu} version={version} />
               <div className="content">
                 <MDXRemote {...source} components={components} />
+                <Helpful slug={slug} sourcefile={sourceFile} />
               </div>
             </article>
-            <Helpful slug={slug} sourcefile={sourceFile} />
             <Psa />
             {arrowContainer}
           </section>
@@ -307,7 +317,11 @@ export async function getStaticProps(context) {
     props["slug"] = context.params.slug;
     props["source"] = source;
     props["currMenuItem"] = current
-      ?  { name: current.name, url: current.url, isVersioned: !!current.isVersioned }
+      ? {
+          name: current.name,
+          url: current.url,
+          isVersioned: !!current.isVersioned,
+        }
       : null;
     props["nextMenuItem"] = next ? { name: next.name, url: next.url } : null;
     props["prevMenuItem"] = prev ? { name: prev.name, url: prev.url } : null;

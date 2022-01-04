@@ -1,7 +1,7 @@
 import reverse from "lodash/reverse";
 import React, { useEffect, useState, useRef } from "react";
 import Table from "./table";
-import SuggestEdits from "../utilities/suggestEdits";
+import Helpful from "../utilities/helpful";
 import { H2 } from "./headers";
 import Warning from "./warning";
 import { withRouter, useRouter } from "next/router";
@@ -247,7 +247,7 @@ const Autofunction = ({
     <section className="autofunction" ref={blockRef}>
       {header}
       {body}
-      <SuggestEdits sourcefile={functionObject.source} />
+      <Helpful slug={slug} sourcefile={functionObject.source} />
     </section>
   );
 };
