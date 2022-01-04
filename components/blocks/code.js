@@ -16,14 +16,7 @@ import Image from "./image";
 
 const Code = ({ code, children, language, img, lines }) => {
   useEffect(() => {
-    if (!window.initial.prism) {
-      window.initial.prism = true;
-      Prism.highlightAll();
-    }
-
-    return () => {
-      window.initial.prism = false;
-    };
+    Prism.highlightAll();
   }, []);
 
   let ConditionalRendering;
