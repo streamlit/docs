@@ -73,6 +73,12 @@ Streamlit uses third-party security tools to scan for vulnerabilities on a regul
 
 Streamlit is committed to meeting industry security standards so that you can feel confident in our security practices. Streamlit is SOC 2 compliant and if you would like to learn more, please reach out to [support@streamlit.io](mailto:support@streamlit.io) to get the details of our compliance report.
 
+<a href="https://www.aicpa.org/soc4so" target="\_blank" style={{ borderBottom: 0 }}>
+<div style={{ maxWidth: '45%', marginBottom: '-2em' }}>
+<Image alt="SOC 2 logo" src="/images/streamlit-cloud/soc-logo.png" />
+</div>
+</a>
+
 ### People
 
 #### Background Checks
