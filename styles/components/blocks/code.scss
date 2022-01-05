@@ -8,20 +8,20 @@
     position: relative;
   }
 
-  code.undefined,
-  code[class*="language-"],
-  pre[class*="language-"] {
+  code,
+  pre {
     white-space: pre;
     max-width: 100%;
     overflow: hidden;
     overflow-x: scroll;
     overflow-x: overlay;
   }
+
   code.undefined {
     white-space: pre-line;
   }
 
-  pre.line-numbers {
+  pre {
     background: $gray-90;
     padding: 1em;
     color: $white;
