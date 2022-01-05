@@ -1,3 +1,4 @@
+import { debounce } from "lodash";
 import React, { useState, useEffect } from "react";
 import bus from "../../lib/bus";
 import NavItem from "../navigation/navItem";
@@ -35,8 +36,10 @@ const SideBar = ({ menu, slug }) => {
     }
   };
 
+  const debouncedCheckExpanded = debounce(checkExpanded, 200);
+
   useEffect(() => {
-    window.addEventListener("resize", checkExpanded);
+    window.addEventListener("resize", debouncedCheckExpanded);
     window.addEventListener("ChangeTheme", handleTheme);
 
     bus.on("streamlit_nav_open", () => setIsOpen(true));
@@ -46,6 +49,7 @@ const SideBar = ({ menu, slug }) => {
     setHasSlug(window.location.href);
 
     return () => {
+      window.removeEventListener("resize", debouncedCheckExpanded);
       window.removeEventListener("ChangeTheme", handleTheme);
     };
   }, []);

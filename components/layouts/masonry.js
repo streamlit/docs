@@ -1,3 +1,4 @@
+import { debounce } from "lodash";
 import React, { useState, useEffect } from "react";
 
 const Masonry = ({ children }) => {
@@ -24,12 +25,14 @@ const Masonry = ({ children }) => {
     setHeight(maxColumnHeight());
   };
 
+  const debouncedUpdateMaxheight = debounce(updateMaxheight, 200);
+
   useEffect(() => {
     updateMaxheight();
-    window.addEventListener("resize", updateMaxheight);
+    window.addEventListener("resize", debouncedUpdateMaxheight);
 
     return () => {
-      window.removeEventListener("resize", updateMaxheight);
+      window.removeEventListener("resize", debouncedUpdateMaxheight);
     };
   }, []);
 
