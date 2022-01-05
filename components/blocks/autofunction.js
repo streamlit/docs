@@ -1,7 +1,6 @@
 import reverse from "lodash/reverse";
 import React, { useEffect, useState, useRef } from "react";
 import Table from "./table";
-import Helpful from "../utilities/helpful";
 import { H2 } from "./headers";
 import Warning from "./warning";
 import { withRouter, useRouter } from "next/router";
@@ -13,6 +12,8 @@ import "prismjs/plugins/line-highlight/prism-line-highlight.css";
 import "prismjs/plugins/toolbar/prism-toolbar";
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
+
+import useSourceFile from "../../lib/useSourceFile";
 
 const cleanHref = (name) => {
   return String(name).replace(".", "").replace(" ", "-");
@@ -102,6 +103,8 @@ const Autofunction = ({
 
   if (streamlitFunction in streamlit) {
     functionObject = streamlit[streamlitFunction];
+    const sourceFile = useSourceFile(functionObject.source);
+
     if (
       functionObject.description !== undefined &&
       functionObject.description
@@ -247,7 +250,6 @@ const Autofunction = ({
     <section className="autofunction" ref={blockRef}>
       {header}
       {body}
-      <Helpful slug={slug} sourcefile={functionObject.source} />
     </section>
   );
 };

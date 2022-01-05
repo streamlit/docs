@@ -125,9 +125,4 @@
       }
     }
   }
-
-  // Hide duplicated helpful component when rendering an autofunction page
-  & ~ .block-helpful {
-    display: none;
-  }
 }
