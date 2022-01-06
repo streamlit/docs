@@ -12,9 +12,7 @@
   pre {
     white-space: pre;
     max-width: 100%;
-    overflow: hidden;
-    overflow-x: scroll;
-    overflow-x: overlay;
+    overflow: auto;
   }
 
   code.undefined {
