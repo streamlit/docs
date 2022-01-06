@@ -75,8 +75,8 @@ Streamlit is committed to meeting industry security standards so that you can fe
 
 <a href="https://www.aicpa.org/soc4so" target="\_blank" style={{ borderBottom: 0 }}>
 
-<div style={{ maxWidth: '45%', marginBottom: '-2em', marginLeft: '10em' }}>
-<Image alt="SOC 2 logo" src="/images/streamlit-cloud/soc-logo.png" />
+<div style={{ maxWidth: '15%', marginLeft: '35%' }}>
+<Image alt="SOC 2 logo" src="/images/streamlit-cloud/soc-logo.png" pure />
 </div>
 </a>
 
