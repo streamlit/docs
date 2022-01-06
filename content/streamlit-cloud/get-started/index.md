@@ -47,8 +47,8 @@ If you're a developer, we recommend starting with GitHub the first time you logi
 
 If you're sharing your app, your app's users can use any of the above methods to login.
 
-<div style={{ maxWidth: '50%', marginBottom: '-3em', marginLeft: '10em' }}>
-    <Image alt="Cloud sign in" src="/images/streamlit-cloud/cloud-sign-in.png" />
+<div style={{ maxWidth: '50%', marginBottom: '-2em', marginLeft: '10em' }}>
+    <Image alt="Cloud sign in" src="/images/streamlit-cloud/cloud-sign-in.png" clean />
 </div>
 
 <Note>
