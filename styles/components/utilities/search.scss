@@ -118,7 +118,7 @@
           box-shadow: none;
           position: absolute;
           top: 50%;
-          left: 1.5em;
+          left: 1em;
           transform: translateY(-50%);
           background: transparent;
         }
@@ -148,6 +148,10 @@
             margin: 0;
             border-bottom: 1px solid;
 
+            &:hover {
+              background: $gray-20;
+            }
+
             .item {
               margin: 0;
               padding: 1em;
@@ -167,6 +171,10 @@
               a {
                 display: flex;
                 gap: 1.5em;
+
+                &:hover {
+                  opacity: 1;
+                }
 
                 .image_container {
                   position: relative;
