@@ -5,7 +5,7 @@ module.exports = {
     "./pages/*.js",
     "./pages/**/*.js",
   ],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: "class", // or 'media' or 'class'
 
   theme: {
     screens: {
