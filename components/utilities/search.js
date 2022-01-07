@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FocusTrap from "focus-trap-react";
-import { withRouter } from "next/router";
+import { useRouter, withRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
 import algoliasearch from "algoliasearch/lite";
 import {
@@ -18,12 +18,13 @@ const Search = () => {
   const [windowWidth, setWindowWidth] = useState(null);
   const [indexFocus, setIndexFocus] = useState(0);
 
+  const router = useRouter();
+
   const toggleModal = (e) => {
     if (e && e.currentTarget !== e.target) {
       return;
     }
 
-    setIndexFocus(0);
     setIsModalOpen(!isModalOpen);
 
     if (document.body.style.overflow == "hidden") {
@@ -48,7 +49,7 @@ const Search = () => {
 
   const handleKey = (e) => {
     if (e.key === "k" && (e.ctrlKey || e.metaKey)) {
-      e.preventDefault(); // present "Save Page" from getting triggered.
+      e.preventDefault(); // prevent "Save Page" from getting triggered.
       setIsModalOpen(true);
       document.body.style.overflow = "hidden";
       focus();
@@ -80,15 +81,17 @@ const Search = () => {
   };
 
   const highlightResult = () => {
-    const index = indexFocus;
+    let index = indexFocus;
+
+    if (index <= 0) {
+      index = 1;
+      setIndexFocus(1);
+    }
+
     const results = document.querySelectorAll(".ais-Hits-item article");
     if (results.length > 0) {
-      for (let i; i < results.length - 1; i++) {
-        results[i].classList.remove("focused");
-      }
       if (results.length >= index) {
         const result = results[index - 1];
-        result.classList.add("focused");
         result.scrollIntoView(false);
       }
     }
@@ -99,6 +102,7 @@ const Search = () => {
 
     if (index <= 0) {
       index = 1;
+      setIndexFocus(1);
     }
 
     const results = document.querySelectorAll(".ais-Hits-item article");
@@ -143,8 +147,14 @@ const Search = () => {
     ) {
       snippet = <Snippet attribute="content" hit={props.hit} />;
     }
+
     return (
-      <article className="item" tabIndex="-1">
+      <article
+        className={`item ${
+          props.hit.__position === indexFocus ? "focused" : ""
+        }`}
+        tabIndex="-1"
+      >
         <a className="not-link" href={props.hit.url}>
           <section className="image_container bg-yellow-90">
             <div className={`icon-${icon}`}>
@@ -189,7 +199,11 @@ const Search = () => {
             className="algolia"
           >
             <FocusTrap>
-              <div className="modalContainer" onClick={toggleModal}>
+              <div
+                className="modalContainer"
+                onClick={toggleModal}
+                onKeyDown={handleKey}
+              >
                 <section className="content" tabIndex="-1">
                   <div className="ais-InstantSearch">
                     <InstantSearch

@@ -24,9 +24,10 @@ body[data-theme="dark-mode"] {
       border-bottom: 1px solid $gray-80;
     }
     .container {
+      background: $off-black;
+
       &::before {
         border-bottom: 1px solid rgba(255, 255, 255, 0);
-        background: $off-black;
       }
       .hot-key > * {
         color: $white;
@@ -118,6 +119,10 @@ body[data-theme="dark-mode"] {
           .ais-Hits-list {
             li {
               border-bottom: 1px solid $gray-80;
+
+              &:hover {
+                background: $gray-80;
+              }
               .item {
                 em {
                   border-color: $white;
@@ -309,7 +314,7 @@ body[data-theme="dark-mode"] {
     color: $white;
     border-bottom-color: $gray-80;
 
-    pre.line-numbers {
+    pre {
       background-color: transparent;
     }
   }

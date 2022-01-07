@@ -1,3 +1,4 @@
+import { debounce } from "lodash";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -23,14 +24,16 @@ const Header = () => {
     top > 20 ? setIsSticky(true) : setIsSticky(false);
   };
 
+  const debouncedHandleResize = debounce(handleResize, 200);
+
   useEffect(() => {
     handleResize();
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", debouncedHandleResize);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", debouncedHandleResize);
     };
   }, []);
 

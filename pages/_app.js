@@ -1,3 +1,5 @@
+import { debounce } from "lodash";
+
 import "../styles/globals.css";
 import "../styles/main.scss";
 
@@ -31,14 +33,16 @@ function useWindowSize() {
       });
     }
 
+    const debouncedUpdateSize = debounce(handleResize, 200);
+
     // Add event listener
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", debouncedUpdateSize);
 
     // Call handler right away so state gets updated with initial window size
     handleResize();
 
     // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", debouncedUpdateSize);
   }, []); // Empty array ensures that effect is only run on mount
 
   useEffect(() => {
