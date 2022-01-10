@@ -151,8 +151,8 @@ const Headings = ({ headings, activeId }) => {
 const Heading = ({ heading, index, activeId }) => {
   const active =
     heading.target === activeId
-      ? `text-gray-90 dark:text-white`
-      : "text-gray-70";
+      ? `${floatingNavStyles.activeItem} dark:text-white`
+      : "";
 
   return (
     <li
