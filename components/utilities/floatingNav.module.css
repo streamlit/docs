@@ -11,3 +11,11 @@
 .List li:nth-child(2) {
   @apply hidden;
 }
+
+.List li a:not(.activeItem) {
+  @apply text-gray-70;
+}
+
+.List li a.activeItem {
+  @apply text-gray-90;
+}
