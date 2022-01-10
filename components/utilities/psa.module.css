@@ -1,0 +1,6 @@
+.Container article h3,
+.Container article p,
+.Container article a,
+.Container i {
+  @apply text-gray-90;
+}
