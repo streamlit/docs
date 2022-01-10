@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { withRouter } from "next/router";
 
+import floatingNavStyles from "./floatingNav.module.css";
+
 const useHeadingsData = (slug) => {
   const [nestedHeadings, setNestedHeadings] = useState([]);
 
@@ -89,10 +91,45 @@ const FloatingNav = ({ menu, slug }) => {
   const activeId = useIntersectionObserver(slug);
 
   return nestedHeadings.length > 1 ? (
-    <div className={`toc`}>
-      <div className="top-gradient" />
-      <ol className="toc-level">
-        <li className="toc-title">Contents</li>
+    <div
+      className={`
+        absolute right-0 top-0
+        h-full w-56
+        z-10
+        hidden
+        ${
+          // The way the current CSS works, we need to have a .toc class, not only to style the floating nav component, but also to ensure the .content area gets narrowed by ~225px so the floating nav fits the screen.
+          // TODO: When all components are refactored, we might want to use a different layout method (flexbox or grid) to avoid this
+          `toc`
+        }
+      `}
+    >
+      <div
+        className="
+          absolute
+          h-6 w-full
+          bg-gradient-to-b from-white
+          z-10
+        "
+      />
+      <ol
+        className={`
+          sticky top-24
+          m-0
+          list-none
+          overflow-y-auto overflow-x-hidden
+          ${floatingNavStyles.List}
+        `}
+      >
+        <li
+          className="
+            m-0
+            pt-6 pl-6
+            text-xs uppercase font-semibold tracking-loose
+          "
+        >
+          Contents
+        </li>
         <Headings headings={nestedHeadings} activeId={activeId} />
       </ol>
     </div>
@@ -112,11 +149,43 @@ const Headings = ({ headings, activeId }) => {
 };
 
 const Heading = ({ heading, index, activeId }) => {
-  const active = heading.target === activeId ? "active" : "";
+  const active =
+    heading.target === activeId
+      ? `text-gray-90 dark:text-white`
+      : "text-gray-70";
 
   return (
-    <li className={`level-${heading.level} ${active}`} key={`toc-${index}`}>
-      <a href={heading.target}>{heading.label}</a>
+    <li
+      className={`
+        m-0
+        text-xs
+        pt-2
+        ${
+          heading.level === "H1" || heading.level === "H2"
+            ? "pl-6"
+            : heading.level === "H3"
+            ? "pl-8"
+            : heading.level === "H4"
+            ? "pl-10"
+            : heading.level === "H5"
+            ? "pl-12"
+            : "pl-14"
+        }
+      `}
+      key={`toc-${index}`}
+    >
+      <a
+        href={heading.target}
+        className={`
+          border-b-0
+          inline-block truncate w-40
+          leading-4
+          hover:opacity-70 hover:border-b-0 hover:no-underline
+          ${active}
+        `}
+      >
+        {heading.label}
+      </a>
     </li>
   );
 };
