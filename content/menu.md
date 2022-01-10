@@ -144,6 +144,9 @@ site_menu:
   - category: Streamlit library / API reference / Input widgets / st.file_uploader
     url: /library/api-reference/widgets/st.file_uploader
     isVersioned: true
+  - category: Streamlit library / API reference / Input widgets / st.camera_input
+    url: /library/api-reference/widgets/st.camera_input
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.color_picker
     url: /library/api-reference/widgets/st.color_picker
     isVersioned: true
