@@ -1,0 +1,9 @@
+.Container div h3,
+.Container div p,
+.Container div a {
+  @apply text-white;
+}
+
+.Container div p {
+  @apply m-0;
+}
