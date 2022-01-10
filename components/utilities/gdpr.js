@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { MDXRemote } from "next-mdx-remote";
 
+import GDPRStyles from "./gdpr.module.css";
+
 // The first timezone in Europe is UTC+0.
 const EUROPE_TZ_OFFSET_WEST = 0;
 
@@ -68,15 +70,65 @@ const GDPRBanner = (gdprData) => {
   }
 
   return (
-    <div className="gdpr-banner">
-      <div className="container">
-        <div className="header">
-          <h3>{title}</h3>
-          <MDXRemote {...content} />
-        </div>
-        <div className="footer">
-          <button onClick={DeclineAndCloseBanner}>Decline</button>
-          <button onClick={AllowAndCloseBanner}>Allow</button>
+    <div
+      className={`
+        fixed bottom-6
+        w-full
+        z-10
+        ${GDPRStyles.Container}
+      `}
+    >
+      <div
+        className="
+          bg-red-70
+          mx-4
+          py-6 px-8
+          rounded-md
+        "
+      >
+        <h3
+          className="
+            mt-0 mb-2
+            font-sans font-bold
+            text-2xl tracking-tight leading-tight
+          "
+        >
+          {title}
+        </h3>
+        <MDXRemote {...content} />
+        <div className="flex mt-6">
+          <button
+            onClick={DeclineAndCloseBanner}
+            className="
+              bg-white
+              border-0
+              rounded-md
+              px-4 py-3
+              text-red-70 text-sm font-bold tracking-normal
+              block
+              cursor-pointer
+              mr-8 mb-0
+              hover:opacity-90 hover:scale-105
+            "
+          >
+            Decline
+          </button>
+          <button
+            onClick={AllowAndCloseBanner}
+            className="
+              bg-white
+              border-0
+              rounded-md
+              px-4 py-3
+              text-red-70 text-sm font-bold tracking-normal
+              block
+              cursor-pointer
+              mb-0
+              hover:opacity-90 hover:scale-105
+            "
+          >
+            Allow
+          </button>
         </div>
       </div>
     </div>
