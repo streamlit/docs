@@ -1,16 +1,4 @@
 .quick-link {
-  display: flex;
-  align-items: center;
-
-  .anchor {
-    display: block;
-    height: 0;
-    width: 0;
-    overflow: hidden;
-    visibility: hidden;
-    pointer-events: none;
-  }
-
   svg {
     cursor: pointer;
     margin-left: 1rem;
@@ -28,14 +16,5 @@
         opacity: 1;
       }
     }
-  }
-
-  .status-text {
-    margin-left: 1rem;
-    font-size: 0.75rem;
-    opacity: 0.75;
-    font-weight: normal;
-    display: flex;
-    align-items: center;
   }
 }
