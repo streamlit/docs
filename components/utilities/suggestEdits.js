@@ -1,13 +1,26 @@
-import Link from "next/link";
+import suggestEditsStyle from "./suggestEdits.module.css";
 
 const SuggestEdits = ({ sourcefile }) => {
   return (
-    <section className="suggestEdits">
-      <section className="buttons">
-        <i>edit</i>
-        <Link href={sourcefile} target={sourcefile}>
-          <a>Suggest edits</a>
-        </Link>
+    <section
+      className={`
+        ${suggestEditsStyle.Container}
+      `}
+    >
+      <section
+        className="
+          flex items-center cursor-pointer
+        "
+      >
+        <i className="mr-2">edit</i>
+        <a
+          className="group-hover:opacity-70 group-hover:border-b-red-70"
+          href={sourcefile}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Suggest edits
+        </a>
       </section>
     </section>
   );
