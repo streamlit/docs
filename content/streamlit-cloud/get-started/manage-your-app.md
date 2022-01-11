@@ -70,6 +70,19 @@ If your app needs a hard reboot, click on the "︙" overflow menu to the right o
 
 ![Reboot an app](/images/streamlit-cloud/reboot-an-app.png)
 
+### Favorite an app
+
+Streamlit Cloud supports a "favorite" feature that lets you quickly access your apps from the app dashboard. Favorited apps appear at the top of the app dashboard with a yellow star (⭐) besides them. You can favorite and unfavorite apps in any workspace to which you have access.
+
+There are two ways to favorite an app:
+
+1. Hover over an app and click the star (☆) that appears.
+   ![Favorite an app hover](/images/streamlit-cloud/favorite-app-dashboard-hover.png)
+2. Click on the "︙" overflow menu to the right of the app and click to Favorite.
+   ![Favorite an app menu](/images/streamlit-cloud/favorite-app-dashboard-menu.png)
+
+To unfavorite an app, either hover over the app and click the star (☆) again, or click on the "︙" overflow menu to the right of the app and click to Unfavorite.
+
 ### App settings
 
 The app settings let you [manage viewers of your apps](/streamlit-cloud/get-started/share-your-app#adding-viewers-from-your-dashboard) and [secrets of your apps](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). Click on the links to lean more about these features.
