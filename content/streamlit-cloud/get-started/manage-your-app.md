@@ -30,7 +30,7 @@ Once you've clicked on "Manage app" you will see the app terminal which lets you
 
 You can also click on the "︙" overflow menu at the bottom of the terminal to view other options for your app including the ability to download logs, reboot the app, delete the app, navigate to settings (which includes managing viewer access and app secrets), go to your app dashboard, go to documentation, contact support, or sign out.
 
-<div style={{ maxWidth: '45%' }}>
+<div style={{ maxWidth: '45%', marginBottom: '-3em', marginLeft: '10em' }}>
     <Image src="/images/streamlit-cloud/app-terminal-overflow.png" />
 </div>
 
@@ -38,7 +38,7 @@ You can also click on the "︙" overflow menu at the bottom of the terminal to v
 
 When you first log into share.streamlit.io you will land on your app dashboard, which gives you a list of all your deployed apps. This list does include apps deployed by other developers in your workspace, since you're all managers of those apps. Such apps are indicated with an icon like this one:
 
-<div style={{ maxWidth: '45%' }}>
+<div style={{ maxWidth: '45%', marginBottom: '-3em', marginLeft: '10em' }}>
     <Image src="/images/streamlit-cloud/app-dashboard.png" />
 </div>
 
@@ -101,7 +101,7 @@ Private apps on Teams or Enterprise plans will not hibernate, but for public and
   - Visit the app (create traffic).
   - Push a commit to the app (this can be empty!).
 - If left alone the app will go to sleep at the 7 day mark (2 days after you receive the email). When someone visits the app after this, they will see the sleeping page:
-    <div style={{ maxWidth: '55%' }}>
+    <div style={{ maxWidth: '55%', marginBottom: '-3em', marginLeft: '5em' }}>
         <Image src="/images/spin_down.png" />
     </div>
 - To wake the app up, press the "Yes, get this app back up!" button. This can be done by *anyone* who wants to view the app, not just the app developer!

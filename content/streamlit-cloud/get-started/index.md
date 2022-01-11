@@ -37,10 +37,18 @@ Once you've selected a package, login to [share.streamlit.io](http://share.strea
 
 ## Log in to share.streamlit.io
 
-You have the choice to login with GitHub or Google. We recommend starting with GitHub the first time you log in, and then [connecting your Google account]() or [SSO provider afterwards](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso).
+You can login to Streamlit Cloud with:
 
-<div style={{ maxWidth: '45%', marginBottom: '-3em' }}>
-    <Image alt="Cloud sign in" src="/images/streamlit-cloud/cloud-sign-in.png" />
+1. Google
+2. GitHub
+3. Email based sign-in link: These are single-use links that are valid for up to 15 minutes.
+
+If you're a developer, we recommend starting with GitHub the first time you login. You can later setup your account to login using Google or an [SSO provider](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso).
+
+If you're sharing your app, your app's users can use any of the above methods to login.
+
+<div style={{ maxWidth: '50%', marginBottom: '-2em', marginLeft: '10em' }}>
+    <Image alt="Cloud sign in" src="/images/streamlit-cloud/cloud-sign-in.png" clean />
 </div>
 
 <Note>
