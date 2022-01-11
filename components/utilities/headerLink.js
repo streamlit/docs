@@ -31,17 +31,44 @@ const HeaderLink = ({ name, level, className, children }) => {
   const Header = `h${level}`;
   return (
     <>
-      <a name={hash} className="not-link anchor" />
+      <a
+        name={hash}
+        className="
+          no-underline
+          block
+          h-0 w-0
+          overflow-hidden
+          visibility-hidden
+          pointer-events-none
+        "
+      />
 
-      <Header className={classNames("quick-link", className)}>
+      <Header className={classNames("flex items-center", "group", className)}>
         {children}
 
         {copied ? (
-          <div className="status-text">
+          <div
+            className="
+              ml-4
+              text-xs font-normal
+              opacity-70
+              flex items-center
+            "
+          >
             <i>done</i> Copied
           </div>
         ) : (
-          <div className="quick-link-icon" onClick={copyLinkUnbound}>
+          <div
+            className="
+              quick-link-icon
+              cursor-pointer
+              ml-4 pt-1
+              opacity-0
+              flex items-center
+              hover:opacity-90 group-hover:opacity-90
+            "
+            onClick={copyLinkUnbound}
+          >
             <svg
               width="14"
               height="17"
