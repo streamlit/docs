@@ -17,6 +17,27 @@ $ pip install --upgrade streamlit
 
 </Tip>
 
+## **Version 1.4.0**
+
+_Release date: Jan 13, 2022_
+
+**Highlights**
+
+- 📸 Introducing `st.camera_input` for uploading images straight from your camera.
+
+**Notable Changes**
+
+- 🚦 Widgets now have the `disabled` parameter that removes interactivity.
+- 📨 Developers can now configure the maximum size of a message to accommodate larger messages within the Streamlit application. See `server.maxMessageSize`.
+- 🐍 We formally added support for Python 3.10.
+- 🚮 Clear `st.experimental_memo` and `st.experimental_singleton` programmatically by using the `clear()` method on a cached function.
+
+**Other Changes**
+
+- 😵‍💫 Calling `str` or `repr` on `threading.current_thread()` does not cause a RecursionError ([#4172](https://github.com/streamlit/streamlit/issues/4172)).
+- 📹 Gracefully stop screencast recording when user removes permission to record ([#4180](https://github.com/streamlit/streamlit/pull/4180)).
+- 🌇 Better scale images by using a higher-quality image bilinear resampling algorithm ([#4159](https://github.com/streamlit/streamlit/pull/4159)).
+
 ## Version 1.3.0
 
 _Release date: Dec 16, 2021_
