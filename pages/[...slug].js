@@ -70,12 +70,12 @@ export default function Article({
 }) {
   let versionWarning;
   let currentLink;
-  let sourceFile;
-  const autoFunctionSourceFile = useAppContext();
+  let suggestEditURL;
+  const { sourceFile } = useAppContext();
 
-  sourceFile =
-    Object.keys(streamlit).length > 0 && autoFunctionSourceFile
-      ? autoFunctionSourceFile.sourceFile
+  suggestEditURL =
+    Object.keys(streamlit).length > 0 && sourceFile
+      ? sourceFile
       : "https://github.com/streamlit/docs/tree/main" +
         filename.substring(filename.indexOf("/content/"));
   const maxVersion = versions[versions.length - 1];
@@ -234,7 +234,7 @@ export default function Article({
               <FloatingNav slug={slug} menu={menu} version={version} />
               <div className="content">
                 <MDXRemote {...source} components={components} />
-                <Helpful slug={slug} sourcefile={sourceFile} />
+                <Helpful slug={slug} sourcefile={suggestEditURL} />
               </div>
             </article>
             <Psa />
