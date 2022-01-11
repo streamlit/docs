@@ -1,0 +1,4 @@
+.Container section i,
+.Container section a {
+  @apply text-gray-70;
+}
