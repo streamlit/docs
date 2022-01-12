@@ -27,7 +27,7 @@ Viewer auth allows you to restrict the viewers of your app. To access your app, 
 
 Google OAuth is enabled by default, so if your company uses Google, you're good to go. If you've configured SSO for your organization via ADFS, Azure, Okta, or generic SAML, you will also be able to add email addresses and domains which are administered by those services. Read [here](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso) for how to enable SSO for your org.
 
-Once you have added someone's email address to your app's viewer list, that person will be able to sign in via Google Single Sign-On or your organization-specific Single Sign-On and view your app. If they are already logged in with that account in their browser (the usual case for most people) then they will automatically be able to view the app. If they are not logged in, or they have not been giving access, then they will see a page asking them to first log in.
+Once you have added someone's email address to your app's viewer list, that person will be able to sign in via Google Single Sign-On or your organization-specific Single Sign-On and view your app. They will also receive an email inviting them to view your app. If they are already logged in with that account in their browser (the usual case for most people) then they will automatically be able to view the app. If they are not logged in, or they have not been giving access, then they will see a page asking them to first log in.
 
 <Tip>
 
