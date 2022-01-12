@@ -12,6 +12,8 @@ import {
   Configure,
 } from "react-instantsearch-dom";
 
+import searchStyles from "./search.module.css";
+
 const Search = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hotkey, setHotkey] = useState("");
@@ -150,20 +152,57 @@ const Search = () => {
 
     return (
       <article
-        className={`item ${
-          props.hit.__position === indexFocus ? "focused" : ""
-        }`}
+        className={`
+          m-0 p-4
+          ${
+            props.hit.__position === indexFocus
+              ? "bg-gray-20 dark:bg-gray-60"
+              : ""
+          }
+        `}
         tabIndex="-1"
       >
-        <a className="not-link" href={props.hit.url}>
-          <section className="image_container bg-yellow-90">
-            <div className={`icon-${icon}`}>
-              <i>{icon}</i>
+        <a
+          className="flex gap-4 md:gap-6 hover:opacity-100 not-link"
+          href={props.hit.url}
+        >
+          <section
+            className={`
+              relative
+              overflow-hidden
+              rounded-md
+              bg-yellow-90
+              w-10 h-10
+            `}
+          >
+            <div
+              className={`
+              ${searchStyles.imageContainer}
+              flex items-center justify-center
+              icon-${icon}
+            `}
+            >
+              <i className="leading-10">{icon}</i>
             </div>
           </section>
-          <section className="copy">
-            <p className="tiny">{category}</p>
-            <h5>
+          <section className="pr-8 flex-1">
+            <p
+              className="
+                mb-0 
+                text-xs tracking-tight
+                leading-4
+                text-gray-70
+              "
+            >
+              {category}
+            </p>
+            <h5
+              className="
+                my-0
+                text-lg
+                text-gray-90 dark:text-white
+              "
+            >
               <Highlight hit={props.hit} attribute="title"></Highlight>
             </h5>
             {snippet}
@@ -196,15 +235,26 @@ const Search = () => {
               opacity: 0,
               // left: '-40em'
             }}
-            className="algolia"
+            className="fixed w-screen h-screen top-0 left-0 flex items-center justify-center z-10"
           >
             <FocusTrap>
               <div
-                className="modalContainer"
+                className="flex items-center justify-center absolute inset-0 px-4"
+                style={{ background: "rgb(163, 168, 184, .6)" }}
                 onClick={toggleModal}
                 onKeyDown={handleKey}
               >
-                <section className="content" tabIndex="-1">
+                <section
+                  className={`
+                    p-0 rounded-md w-96 overflow-x-hidden overflow-y-auto w-full h-full
+                    ${searchStyles.contentContainer}
+                  `}
+                  style={{
+                    maxWidth: "36rem",
+                    maxHeight: "40rem",
+                  }}
+                  tabIndex="-1"
+                >
                   <div className="ais-InstantSearch">
                     <InstantSearch
                       indexName="documentation"
@@ -231,11 +281,58 @@ const Search = () => {
   }
 
   let searchBar = (
-    <section className="block-search">
-      <section className="hot-key small" onClick={searchClicked}>
-        <i>search</i>
-        <p className="search-text">Search</p>
-        {windowWidth > 1024 && <p className="command">{hotkey}</p>}
+    <section
+      className={`
+        flex flex-auto justify-end
+        ${searchStyles.searchBarContainer}
+      `}
+    >
+      <section
+        className="
+          flex items-center justify-center
+          p-0 md:px-4
+          rounded-md
+          h-8 w-8 md:w-60
+          cursor-pointer
+          dark:text-white
+          bg-gray-10 dark:bg-gray-90
+          group
+        "
+        onClick={searchClicked}
+      >
+        <i
+          className="
+            text-lg
+            m-0
+            group-hover:opacity-70
+          "
+          style={{ transform: "rotateY(180deg)" }}
+        >
+          search
+        </i>
+        <p
+          className="
+            hidden md:block
+            flex-auto
+            m-0 ml-2 mr-8
+            group-hover:opacity-70
+            text-sm tracking-tight
+          "
+        >
+          Search
+        </p>
+        {windowWidth > 1024 && (
+          <p
+            className="
+              hidden md:block
+              m-0
+              group-hover:opacity-70
+              text-sm tracking-tight
+            "
+          >
+            {hotkey}
+          </p>
+        )}
       </section>
       {modal}
       {/* <SearchBox /> */}

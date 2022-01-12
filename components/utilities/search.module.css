@@ -1,0 +1,14 @@
+/* Search Bar */
+.searchBarContainer section i,
+.searchBarContainer section p {
+  @apply text-gray-70;
+}
+
+/* Hits */
+.itemContainer em {
+  @apply inline-block border-b-2 border-b-yellow-90;
+}
+
+.searchBarContainer section .imageContainer i {
+  @apply text-white;
+}
