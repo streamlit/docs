@@ -1123,7 +1123,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.widgets.NoValue object at 0x7f467366c850>, step=None, format=None, key=None, help=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.widgets.NoValue object at 0x7ffa4a321b20>, step=None, format=None, key=None, help=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -3047,7 +3047,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.widgets.NoValue object at 0x7f467366c850>, step=None, format=None, key=None, help=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.widgets.NoValue object at 0x7ffa4a321b20>, step=None, format=None, key=None, help=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -5241,7 +5241,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f1025165400>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f213acaf400>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -7487,7 +7487,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f1025165400>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f213acaf400>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -9856,7 +9856,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f2909577760>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fc9fff326a0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -12095,7 +12095,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f2909577760>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fc9fff326a0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -14521,7 +14521,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f5cb67462b0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f38fb790190>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -16787,7 +16787,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f5cb67462b0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f38fb790190>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -19251,7 +19251,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f2908bfc970>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fe322468850>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -21563,7 +21563,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f2908bfc970>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fe322468850>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -24119,7 +24119,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f4351e17070>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fd7fa3d3f10>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -26511,7 +26511,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f4351e17070>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fd7fa3d3f10>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -29150,7 +29150,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fe9fb3e3c10>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7efcdee0ca60>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -31549,7 +31549,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fe9fb3e3c10>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7efcdee0ca60>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -34188,7 +34188,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fdd3367da60>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fd17eabe760>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -36587,7 +36587,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fdd3367da60>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7fd17eabe760>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -39226,7 +39226,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f6f3a960fd0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f595e607dc0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -41625,7 +41625,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f6f3a960fd0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f595e607dc0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -44264,7 +44264,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f3d192a18e0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f22e96158b0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -46677,7 +46677,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f3d192a18e0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f22e96158b0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -49337,7 +49337,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f73b53e96a0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f844d8215b0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -51757,7 +51757,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f73b53e96a0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f844d8215b0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
