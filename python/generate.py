@@ -29,6 +29,18 @@ def strip_code_prompts(rst_string):
     """Removes >>> and ... prompts from code blocks in examples."""
     return rst_string.replace('&gt;&gt;&gt; ', '').replace('&gt;&gt;&gt;\n', '\n').replace('\n...', '\n')
 
+def get_github_source(func):
+    repo_prefix = "https://github.com/streamlit/streamlit/blob/develop/lib"
+
+    # For Streamlit commands (e.g. st.spinner) wrapped by decorator
+    while '__wrapped__' in func.__dict__:
+        func = func.__wrapped__
+
+    path_parts = func.__code__.co_filename.partition("/streamlit")
+    line = func.__code__.co_firstlineno
+
+    return ''.join([repo_prefix, path_parts[1], path_parts[2], f'#L{line}'])
+
 
 def get_function_docstring_dict(func, funcname, signature_prefix):
     description = {}
@@ -96,18 +108,7 @@ def get_function_docstring_dict(func, funcname, signature_prefix):
                 return_obj['return_name'] = returns.return_name
                 description['returns'].append(return_obj)
         
-        description['source'] = []
-        repo_prefix = "https://github.com/streamlit/streamlit/blob/develop/lib"
-
-        try: # For Streamlit commands wrapped by decorator
-            path_parts = func.__wrapped__.__code__.co_filename.partition("/streamlit")
-            line_number = func.__wrapped__.__code__.co_firstlineno
-        except:
-            path_parts = func.__code__.co_filename.partition("/streamlit")
-            line_number = func.__code__.co_firstlineno
-        
-        description['source'] = repo_prefix + path_parts[1] + path_parts[2]+ f'#L{line_number}'
-
+        description['source'] = get_github_source(func)
 
     return description
 
