@@ -135,6 +135,31 @@ For example:
 - Tensorflow session: this is a *non-data object—*use `singleton`
 - Database connection: `singleton`
 
+### Clear memo + singleton caches procedurally
+
+You can clear caches of functions decorated with `st.experimental_memo` and `st.experimental_singleton` *in code*. For example, you can do the following:
+
+```python
+@st.experimental_memo
+def foo(x):
+    return x**2
+
+if st.button("Clear Foo"):
+    # Clear foo's memoized values:
+    foo.clear()
+
+if st.button("Clear All"):
+    # Clear values from *all* memoized functions:
+    st.experimental_memo.clear()
+```
+
+Pressing the “Clear Foo” button will clear `foo()`'s memoized values. Pressing the “Clear All” button will clear memoized values from all functions decorated with `@st.experimental_memo`. 
+
+In summary:
+
+- Any function annotated with `@st.experimental_memo` or `@st.experimental_singleton` gets its own `clear()` function automatically.
+- Additionally, you can use `st.experimental_memo.clear()` and `st.experimental_singleton.clear()` to clear *all* memo and singleton caches, respectively.
+
 <Note>
 
 The commands are **experimental**, so they're governed by our [experimental API process](/library/advanced-features/prerelease#experimental).
