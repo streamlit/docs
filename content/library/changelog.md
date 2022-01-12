@@ -28,9 +28,9 @@ _Release date: Jan 13, 2022_
 **Notable Changes**
 
 - 🚦 Widgets now have the `disabled` parameter that removes interactivity.
+- 🚮 Clear `st.experimental_memo` and `st.experimental_singleton` programmatically by using the `clear()` method on a cached function.
 - 📨 Developers can now configure the maximum size of a message to accommodate larger messages within the Streamlit application. See `server.maxMessageSize`.
 - 🐍 We formally added support for Python 3.10.
-- 🚮 Clear `st.experimental_memo` and `st.experimental_singleton` programmatically by using the `clear()` method on a cached function.
 
 **Other Changes**
 
