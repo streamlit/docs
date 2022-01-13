@@ -53252,6 +53252,7 @@
     "streamlit.camera_input": {
       "name": "camera_input",
       "signature": "st.camera_input(label, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False)",
+      "examples": "<blockquote>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\npicture = st.camera_input(\"Take a picture\")\n\nif picture:\n     st.image(picture)\n</pre>\n</blockquote>\n",
       "description": "Display a widget that returns pictures from the user's webcam.",
       "args": [
         {
@@ -53309,54 +53310,6 @@
           "type_name": "None or UploadedFile",
           "is_generator": false,
           "description": "<p>The UploadedFile class is a subclass of BytesIO, and therefore\nit is &quot;file-like&quot;. This means you can pass them anywhere where\na file is expected.</p>\n",
-          "return_name": null
-        },
-        {
-          "type_name": "Examples",
-          "is_generator": false,
-          "description": "",
-          "return_name": null
-        },
-        {
-          "type_name": "-------",
-          "is_generator": false,
-          "description": "",
-          "return_name": null
-        },
-        {
-          "type_name": ">>> import streamlit as st",
-          "is_generator": false,
-          "description": "",
-          "return_name": null
-        },
-        {
-          "type_name": ">>>",
-          "is_generator": false,
-          "description": "",
-          "return_name": null
-        },
-        {
-          "type_name": ">>> picture = st.camera_input(\"Take a picture\")",
-          "is_generator": false,
-          "description": "",
-          "return_name": null
-        },
-        {
-          "type_name": ">>>",
-          "is_generator": false,
-          "description": "",
-          "return_name": null
-        },
-        {
-          "type_name": "",
-          "is_generator": false,
-          "description": "",
-          "return_name": ">>> if picture"
-        },
-        {
-          "type_name": "...     st.image(picture)",
-          "is_generator": false,
-          "description": "",
           "return_name": null
         }
       ],
