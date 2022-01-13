@@ -525,7 +525,20 @@ time = st.time_input("Meeting time")
 Display a file uploader widget.
 
 ```python
-photo = st.file_uploader("Upload a photo")
+data = st.file_uploader("Upload a CSV")
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/widgets/st.camera_input">
+
+<Image pure alt="screenshot" src="/images/api/camera_input.jpg" />
+
+#### Camera input
+
+Display a widget that allows users to upload images directly a camera.
+
+```python
+image = st.camera_input("Take a picture")
 ```
 
 </RefCard>
