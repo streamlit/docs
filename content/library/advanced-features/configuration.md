@@ -152,7 +152,7 @@ installTracer = false
 # Default: true
 fixMatplotlib = true
 
-# Run the Python Garbage Collector after each script execution. This can help avoid excess memory usein Streamlit apps, but could introduce delay in rerunning the app script for high-memory-use applications.
+# Run the Python Garbage Collector after each script execution. This can help avoid excess memory use in Streamlit apps, but could introduce delay in rerunning the app script for high-memory-use applications.
 # Default: true
 postScriptGC = true
 
@@ -170,7 +170,7 @@ folderWatchBlacklist = []
 # Default: "auto"
 fileWatcherType = "auto"
 
-# Symmetric key used to produce signed cookies. If deploying on multiple replicas, this should be setto the same value across all replicas to ensure they all share the same secret.
+# Symmetric key used to produce signed cookies. If deploying on multiple replicas, this should be set to the same value across all replicas to ensure they all share the same secret.
 # Default: randomly generated secret key.
 cookieSecret = 
 
@@ -220,7 +220,7 @@ enableWebsocketCompression = true
 [browser]
 
 # Internet address where users should point their browsers in order to connect to the app. Can be IP address or DNS name and path.
-# This is used to: - Set the correct URL for CORS and XSRF protection purposes. - Show the URL on theterminal - Open the browser
+# This is used to: - Set the correct URL for CORS and XSRF protection purposes. - Show the URL on the terminal - Open the browser
 # Default: 'localhost'
 serverAddress = "localhost"
 
@@ -229,7 +229,7 @@ serverAddress = "localhost"
 gatherUsageStats = true
 
 # Port where users should point their browsers in order to connect to the app.
-# This is used to: - Set the correct URL for CORS and XSRF protection purposes. - Show the URL on theterminal - Open the browser
+# This is used to: - Set the correct URL for CORS and XSRF protection purposes. - Show the URL on the terminal - Open the browser
 # Default: whatever value is set in server.port.
 serverPort = 8501
 
