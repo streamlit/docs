@@ -1,17 +1,5 @@
 .block-arrow-link-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 5em;
   .not-link {
-    svg {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      transition: $normal;
-      path {
-        fill: $black;
-      }
-    }
   }
   .back {
     margin-right: auto;
@@ -44,8 +32,6 @@
     }
   }
   @media (max-width: 768px) {
-    flex-wrap: wrap;
-    flex-direction: column;
     .back {
       margin-left: auto;
     }
