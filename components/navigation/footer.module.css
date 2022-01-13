@@ -1,0 +1,15 @@
+.Container section p {
+  @apply text-gray-60;
+}
+
+@media screen and (min-width: 1024px) {
+  .Container {
+    padding-left: 160px;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  .Container {
+    padding-left: 362px;
+  }
+}
