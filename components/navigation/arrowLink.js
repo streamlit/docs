@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-const ArrowLink = ({ children, link, type, content, clean }) => {
+const ArrowLink = ({ children, link, type, content }) => {
   function ArrowType() {
-    if (type == "back" && !clean) {
+    if (type == "back") {
       return (
         <Link href={link}>
           <a
@@ -37,7 +37,7 @@ const ArrowLink = ({ children, link, type, content, clean }) => {
           </a>
         </Link>
       );
-    } else if (type == "next" && !clean) {
+    } else if (type == "next") {
       return (
         <Link href={link}>
           <a
