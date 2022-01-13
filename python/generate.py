@@ -50,8 +50,8 @@ def get_function_docstring_dict(func, funcname, signature_prefix):
     description['signature'] = f'{signature_prefix}.{funcname}({arguments})'
 
     # Remove _ from the start of static component function names
-    if func.__name__.startswith('_'):
-        description['name'] = func.__name__.replace('_', '', 1)
+    if funcname.startswith('_'):
+        description['name'] = funcname.lstrip('_')
         description['signature'] = f'{signature_prefix}.{description["name"]}({arguments})'
 
     if docstring:
@@ -157,17 +157,29 @@ def get_sig_string_without_annots(func):
 def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
     obj_docstring_dict = {}
 
+    allowed_types = (
+        types.FunctionType, 
+        types.MethodType,
+        streamlit.caching.memo_decorator.MemoAPI,
+        streamlit.caching.singleton_decorator.SingletonAPI
+    )
+
     for membername in dir(obj):
         if membername.startswith('_'):
             continue
 
         member = getattr(obj, membername)
 
-        if not isinstance(member, types.FunctionType) and not isinstance(member, types.MethodType):
+        if not isinstance(member, allowed_types):
             continue
 
         if not callable(member):
             continue
+        
+        # memo and singleton are callable objects rather than functions
+        # See: https://github.com/streamlit/streamlit/pull/4263
+        while member in streamlit.caching.__dict__.values():
+            member = member.__call__
 
         fullname = '{}.{}'.format(key_prefix, membername)
         member_docstring_dict = get_function_docstring_dict(member, membername, signature_prefix)
