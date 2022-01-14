@@ -1,3 +1,7 @@
 .Container span a {
   @apply text-gray-80;
 }
+
+.Container div i {
+  @apply text-gray-80;
+}
