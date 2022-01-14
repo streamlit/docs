@@ -76,7 +76,7 @@ const SideBar = ({ menu, slug }) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <ul className="inner-nav">{navItems}</ul>
+        <ul className="inner-nav m-0">{navItems}</ul>
       </nav>
     </section>
   );
