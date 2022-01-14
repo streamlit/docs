@@ -34,8 +34,24 @@ const MobileNav = () => {
   let mobileNav;
 
   mobileNav = (
-    <button className="toggle-mobile" onClick={toggleMobileNav}>
-      <i>menu</i>
+    <button
+      className={`
+        relative
+        flex items-center justify-center
+        w-8 h-8
+        mb-0
+        rounded-md
+        bg-gray-10 dark:bg-gray-90
+      `}
+      onClick={toggleMobileNav}
+    >
+      <i
+        className="
+          transition-all
+        "
+      >
+        menu
+      </i>
     </button>
   );
 
