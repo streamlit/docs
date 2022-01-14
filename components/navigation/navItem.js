@@ -5,7 +5,7 @@ import NavChild from "./navChild";
 
 import navItemStyles from "./navItem.module.css";
 
-const NavItem = ({ page, slug, condensed }) => {
+const NavItem = ({ page, slug, condensed, className }) => {
   let subNav;
   let navItem;
   let navBox;
@@ -20,8 +20,9 @@ const NavItem = ({ page, slug, condensed }) => {
     <section
       className={`
         flex items-center
+        lg:flex-wrap lg:justify-center lg:text-center lg:w-20
+        xl:justify-start xl:flex-nowrap xl:text-left xl:w-auto
         transition-all
-        ${active ? "active" : ""}
         ${navItemStyles.Headingcontainer}
       `}
     >
@@ -29,7 +30,10 @@ const NavItem = ({ page, slug, condensed }) => {
         className={`
           flex items-center
           p-2
-          mr-4 mb-0
+          mr-4
+          lg:mr-0
+          xl:mr-4
+          mb-0
           rounded-md
           ${
             page.color === "violet-70"
@@ -45,9 +49,12 @@ const NavItem = ({ page, slug, condensed }) => {
       <p
         className={`
           m-0
+          lg:my-1 xl:my-0
           font-bold
           font-sans
-          text-md leading-6 tracking-tight
+          lg:text-xs xl:text-base
+          lg:leading-tight xl:leading-6
+          lg:tracking-tight
           dark:text-white
           ${
             page.color === "violet-70"
@@ -67,6 +74,7 @@ const NavItem = ({ page, slug, condensed }) => {
     subNav = (
       <ul
         className={`
+          block
           pl-14
           m-0 mt-4
           list-none
@@ -79,6 +87,7 @@ const NavItem = ({ page, slug, condensed }) => {
             color={page.color}
             key={child.menu_key}
             depth={child.depth + 1}
+            className={className}
           />
         ))}
       </ul>
