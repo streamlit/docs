@@ -67,6 +67,7 @@ const NavChild = ({ slug, page, color }) => {
             z-10
             cursor-pointer
             text-sm
+            dark:text-white
             ${opened ? "close" : "open"}
           `}
           onClick={toggleAccordion}
@@ -86,7 +87,9 @@ const NavChild = ({ slug, page, color }) => {
 
   if (!isLocalPage) {
     icon = (
-      <i className="relative z-10 cursor-pointer text-sm ml-1">open_in_new</i>
+      <i className="relative z-10 cursor-pointer text-sm ml-1 dark:text-white">
+        open_in_new
+      </i>
     );
     target = "_blank";
   }
@@ -129,7 +132,13 @@ const NavChild = ({ slug, page, color }) => {
               }
             `}
           />
-          <span className={active ? "font-bold text-gray-90" : ""}>
+          <span
+            className={
+              active
+                ? "font-bold text-gray-90 dark:text-white"
+                : "dark:text-gray-40"
+            }
+          >
             {page.name}
           </span>
           {icon}

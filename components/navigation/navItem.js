@@ -48,6 +48,7 @@ const NavItem = ({ page, slug, condensed }) => {
           font-bold
           font-sans
           text-md leading-6 tracking-tight
+          dark:text-white
           ${
             page.color === "violet-70"
               ? "text-indigo-70"

@@ -67,12 +67,18 @@ const SideBar = ({ menu, slug }) => {
 
   return (
     <section
-      className={`block-side-nav ${isOpen ? "open" : ""} ${
-        isOver ? "over" : ""
-      } ${theme}`}
+      className={`
+        block-side-nav
+        ${isOpen ? "open" : ""}
+        ${isOver ? "over" : ""}
+        ${theme}
+      `}
     >
       <nav
-        className={`side-nav ${isCondensed ? "condensed" : "expanded"}`}
+        className={`
+          side-nav
+          ${isCondensed ? "condensed" : "expanded"}
+        `}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
