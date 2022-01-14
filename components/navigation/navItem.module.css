@@ -1,0 +1,7 @@
+.Headingcontainer div i {
+  @apply text-white;
+}
+
+section.Headingcontainer p {
+  @apply text-gray-80;
+}

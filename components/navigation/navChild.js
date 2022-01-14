@@ -3,6 +3,8 @@ import Link from "next/link";
 
 import useVersion from "../../lib/useVersion.js";
 
+import navChildStyles from "./navChild.module.css";
+
 const NavChild = ({ slug, page, color }) => {
   const [manualState, setManualState] = useState(null);
   const version = useVersion();
@@ -26,7 +28,11 @@ const NavChild = ({ slug, page, color }) => {
 
   if (page.children?.length > 0 && opened) {
     subNav = (
-      <ul className="child-sub-nav">
+      <ul
+        className={`
+          list-none
+        `}
+      >
         {page.children.map((child) => (
           <NavChild
             slug={slug}
@@ -44,12 +50,30 @@ const NavChild = ({ slug, page, color }) => {
 
   if (page.children?.length > 0) {
     accordion = (
-      <i
-        className={`accordion ${opened ? "close" : "open"}`}
-        onClick={toggleAccordion}
+      <div
+        className="
+          border
+          rounded-md
+          transition-all
+          ml-2
+          flex items-center justify-center
+          hover:opacity-50
+          h-4 w-4
+        "
       >
-        {opened ? "remove" : "add"}
-      </i>
+        <i
+          className={`
+            relative
+            z-10
+            cursor-pointer
+            text-sm
+            ${opened ? "close" : "open"}
+          `}
+          onClick={toggleAccordion}
+        >
+          {opened ? "remove" : "add"}
+        </i>
+      </div>
     );
   }
 
@@ -61,7 +85,9 @@ const NavChild = ({ slug, page, color }) => {
   const isLocalPage = page.url.startsWith("/");
 
   if (!isLocalPage) {
-    icon = <i className="external">open_in_new</i>;
+    icon = (
+      <i className="relative z-10 cursor-pointer text-sm ml-1">open_in_new</i>
+    );
     target = "_blank";
   }
 
@@ -73,11 +99,40 @@ const NavChild = ({ slug, page, color }) => {
   }
 
   link = (
-    <span className={`child-item ${active ? "active" : ""}`}>
+    <span
+      className={`
+        flex items-center
+        hover:opacity-70
+      `}
+    >
       <Link href={url}>
-        <a className="not-link" target={target}>
-          <span className={`colored-ball bg-${color}`} />
-          <span>{page.name}</span> {icon}
+        <a
+          className="
+            flex items-center
+            not-link
+          "
+          target={target}
+        >
+          <span
+            className={`
+              ${active ? "block" : "hidden"}
+              absolute
+              w-2 h-2
+              -left-4
+              rounded-full
+              ${
+                color === "violet-70"
+                  ? "bg-indigo-70"
+                  : color === "l-blue-70"
+                  ? "bg-lightBlue-70"
+                  : "bg-orange-70"
+              }
+            `}
+          />
+          <span className={active ? "font-bold text-gray-90" : ""}>
+            {page.name}
+          </span>
+          {icon}
         </a>
       </Link>
       {accordion}
@@ -85,7 +140,14 @@ const NavChild = ({ slug, page, color }) => {
   );
 
   return (
-    <li className="child">
+    <li
+      className={`
+        text-sm tracking-tight
+        dark:text-white
+        mb-4
+        ${navChildStyles.Container}
+      `}
+    >
       {link}
       {subNav}
     </li>

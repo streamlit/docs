@@ -1,0 +1,3 @@
+.Container span a {
+  @apply text-gray-80;
+}
