@@ -5,7 +5,7 @@ import useVersion from "../../lib/useVersion.js";
 
 import navChildStyles from "./navChild.module.css";
 
-const NavChild = ({ slug, page, color }) => {
+const NavChild = ({ slug, page, color, className }) => {
   const [manualState, setManualState] = useState(null);
   const version = useVersion();
 
@@ -155,6 +155,7 @@ const NavChild = ({ slug, page, color }) => {
         dark:text-white
         mb-4
         ${navChildStyles.Container}
+        ${className}
       `}
     >
       {link}

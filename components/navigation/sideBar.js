@@ -62,27 +62,31 @@ const SideBar = ({ menu, slug }) => {
       page={page}
       depth={page.depth + 1}
       condensed={isCondensed}
+      className={isOver ? "" : "lg:hidden xl:block"}
     />
   ));
 
   return (
     <section
       className={`
-        block-side-nav
-        ${isOpen ? "open" : ""}
-        ${isOver ? "over" : ""}
-        ${theme}
+        fixed
+        top-0
+        left-0
+        py-24 px-4 sm:px-24 lg:px-5 lg:py-24
+        h-screen
+        z-10
+        bg-white dark:bg-gray-100
+        w-10/12 md:w-9/12 xl:w-screen
+        lg:max-w-none xl:max-w-xs
+        overflow-y-auto
+        shadow-lg lg:shadow-none
+        transition-all
+        ${isOpen ? "block" : "hidden lg:block"}
+        ${isOver ? "lg:shadow-lg" : "lg:w-36"}
       `}
     >
-      <nav
-        className={`
-          side-nav
-          ${isCondensed ? "condensed" : "expanded"}
-        `}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <ul className="inner-nav m-0">{navItems}</ul>
+      <nav onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <ul className="list-none overscroll-contain m-0">{navItems}</ul>
       </nav>
     </section>
   );
