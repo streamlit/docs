@@ -238,8 +238,14 @@ site_menu:
   - category: Streamlit library / API reference / Performance / st.experimental_memo
     url: /library/api-reference/performance/st.experimental_memo
     isVersioned: true
+  - category: Streamlit library / API reference / Performance / Clear memo
+    url: /library/api-reference/performance/st.experimental_memo.clear
+    isVersioned: true
   - category: Streamlit library / API reference / Performance / st.experimental_singleton
     url: /library/api-reference/performance/st.experimental_singleton
+    isVersioned: true
+  - category: Streamlit library / API reference / Performance / Clear singleton
+    url: /library/api-reference/performance/st.experimental_singleton.clear
     isVersioned: true
   - category: Streamlit library / Advanced features
     url: /library/advanced-features

@@ -158,7 +158,7 @@ Pressing the "Clear Square" button will clear `square()`'s memoized values. Pres
 In summary:
 
 - Any function annotated with `@st.experimental_memo` or `@st.experimental_singleton` gets its own `clear()` function automatically.
-- Additionally, you can use `st.experimental_memo.clear()` and `st.experimental_singleton.clear()` to clear _all_ memo and singleton caches, respectively.
+- Additionally, you can use [`st.experimental_memo.clear()`](/library/api-reference/performance/st.experimental_memo.clear) and [`st.experimental_singleton.clear()`](/library/api-reference/performance/st.experimental_singleton.clear) to clear _all_ memo and singleton caches, respectively.
 
 <Note>
 
