@@ -14,7 +14,7 @@ const BreadCrumbs = ({ slug, menu }) => {
     if (index == slug.length) {
       formatedCrumb = (
         <Link href={crumb.link}>
-          <a className="not-link font-bold dark:text-gray-50 hover:opacity-70 text-gray-70">
+          <a className="not-link font-bold hover:opacity-70 text-gray-70">
             {crumb.title}
           </a>
         </Link>
