@@ -53252,7 +53252,6 @@
     "streamlit.camera_input": {
       "name": "camera_input",
       "signature": "st.camera_input(label, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False)",
-      "examples": "<blockquote>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\npicture = st.camera_input(\"Take a picture\")\n\nif picture:\n     st.image(picture)\n</pre>\n</blockquote>\n",
       "description": "Display a widget that returns pictures from the user's webcam.",
       "args": [
         {
@@ -53310,6 +53309,54 @@
           "type_name": "None or UploadedFile",
           "is_generator": false,
           "description": "<p>The UploadedFile class is a subclass of BytesIO, and therefore\nit is &quot;file-like&quot;. This means you can pass them anywhere where\na file is expected.</p>\n",
+          "return_name": null
+        },
+        {
+          "type_name": "Examples",
+          "is_generator": false,
+          "description": "",
+          "return_name": null
+        },
+        {
+          "type_name": "-------",
+          "is_generator": false,
+          "description": "",
+          "return_name": null
+        },
+        {
+          "type_name": ">>> import streamlit as st",
+          "is_generator": false,
+          "description": "",
+          "return_name": null
+        },
+        {
+          "type_name": ">>>",
+          "is_generator": false,
+          "description": "",
+          "return_name": null
+        },
+        {
+          "type_name": ">>> picture = st.camera_input(\"Take a picture\")",
+          "is_generator": false,
+          "description": "",
+          "return_name": null
+        },
+        {
+          "type_name": ">>>",
+          "is_generator": false,
+          "description": "",
+          "return_name": null
+        },
+        {
+          "type_name": "",
+          "is_generator": false,
+          "description": "",
+          "return_name": ">>> if picture"
+        },
+        {
+          "type_name": "...     st.image(picture)",
+          "is_generator": false,
+          "description": "",
           "return_name": null
         }
       ],
@@ -54532,7 +54579,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7ff526958790>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f6dd7336a90>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -55660,6 +55707,133 @@
       ],
       "returns": [],
       "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/elements/write.py#L39"
+    },
+    "streamlit.experimental_memo.clear": {
+      "name": "experimental_memo.clear",
+      "signature": "st.experimental_memo.clear()",
+      "description": "Clear all in-memory and on-disk memo caches.",
+      "args": [],
+      "returns": [],
+      "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/caching/memo_decorator.py#L352"
+    },
+    "streamlit.experimental_singleton.clear": {
+      "name": "experimental_singleton.clear",
+      "signature": "st.experimental_singleton.clear()",
+      "description": "Clear all singleton caches.",
+      "args": [],
+      "returns": [],
+      "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/caching/singleton_decorator.py#L238"
+    },
+    "streamlit.components.v1.declare_component": {
+      "name": "declare_component",
+      "signature": "st.components.v1.declare_component(name, path=None, url=None)",
+      "description": "Create and register a custom component.",
+      "args": [
+        {
+          "name": "name",
+          "type_name": "str",
+          "is_optional": false,
+          "description": "<p>A short, descriptive name for the component. Like, &quot;slider&quot;.</p>\n",
+          "default": null
+        },
+        {
+          "name": "path",
+          "type_name": "str or None",
+          "is_optional": false,
+          "description": "<p>The path to serve the component's frontend files from. Either\n<cite>path</cite> or <cite>url</cite> must be specified, but not both.</p>\n",
+          "default": null
+        },
+        {
+          "name": "url",
+          "type_name": "str or None",
+          "is_optional": false,
+          "description": "<p>The URL that the component is served from. Either <cite>path</cite> or <cite>url</cite>\nmust be specified, but not both.</p>\n",
+          "default": null
+        }
+      ],
+      "returns": [
+        {
+          "type_name": "CustomComponent",
+          "is_generator": false,
+          "description": "<p>A CustomComponent that can be called like a function.\nCalling the component will create a new instance of the component\nin the Streamlit app.</p>\n",
+          "return_name": null
+        }
+      ],
+      "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/components/v1/components.py#L242"
+    },
+    "streamlit.components.v1.html": {
+      "name": "html",
+      "signature": "st.components.v1.html(html, width=None, height=None, scrolling=False)",
+      "description": "Display an HTML string in an iframe.",
+      "args": [
+        {
+          "name": "html",
+          "type_name": "str",
+          "is_optional": false,
+          "description": "<p>The HTML string to embed in the iframe.</p>\n",
+          "default": null
+        },
+        {
+          "name": "width",
+          "type_name": "int",
+          "is_optional": false,
+          "description": "<p>The width of the frame in CSS pixels. Defaults to the report's\ndefault element width.</p>\n",
+          "default": "the"
+        },
+        {
+          "name": "height",
+          "type_name": "int",
+          "is_optional": false,
+          "description": "<p>The height of the frame in CSS pixels. Defaults to 150.</p>\n",
+          "default": "150."
+        },
+        {
+          "name": "scrolling",
+          "type_name": "bool",
+          "is_optional": false,
+          "description": "<p>If True, show a scrollbar when the content is larger than the iframe.\nOtherwise, do not show a scrollbar. Defaults to False.</p>\n",
+          "default": "False."
+        }
+      ],
+      "returns": [],
+      "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/elements/iframe.py#L56"
+    },
+    "streamlit.components.v1.iframe": {
+      "name": "iframe",
+      "signature": "st.components.v1.iframe(src, width=None, height=None, scrolling=False)",
+      "description": "Load a remote URL in an iframe.",
+      "args": [
+        {
+          "name": "src",
+          "type_name": "str",
+          "is_optional": false,
+          "description": "<p>The URL of the page to embed.</p>\n",
+          "default": null
+        },
+        {
+          "name": "width",
+          "type_name": "int",
+          "is_optional": false,
+          "description": "<p>The width of the frame in CSS pixels. Defaults to the report's\ndefault element width.</p>\n",
+          "default": "the"
+        },
+        {
+          "name": "height",
+          "type_name": "int",
+          "is_optional": false,
+          "description": "<p>The height of the frame in CSS pixels. Defaults to 150.</p>\n",
+          "default": "150."
+        },
+        {
+          "name": "scrolling",
+          "type_name": "bool",
+          "is_optional": false,
+          "description": "<p>If True, show a scrollbar when the content is larger than the iframe.\nOtherwise, do not show a scrollbar. Defaults to False.</p>\n",
+          "default": "False."
+        }
+      ],
+      "returns": [],
+      "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/elements/iframe.py#L23"
     },
     "DeltaGenerator.add_rows": {
       "name": "add_rows",
@@ -57149,7 +57323,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7ff526958790>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f6dd7336a90>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -58195,117 +58369,6 @@
       ],
       "returns": [],
       "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/elements/write.py#L39"
-    },
-    "streamlit.components.v1.declare_component": {
-      "name": "declare_component",
-      "signature": "st.components.v1.declare_component(name, path=None, url=None)",
-      "description": "Create and register a custom component.",
-      "args": [
-        {
-          "name": "name",
-          "type_name": "str",
-          "is_optional": false,
-          "description": "<p>A short, descriptive name for the component. Like, &quot;slider&quot;.</p>\n",
-          "default": null
-        },
-        {
-          "name": "path",
-          "type_name": "str or None",
-          "is_optional": false,
-          "description": "<p>The path to serve the component's frontend files from. Either\n<cite>path</cite> or <cite>url</cite> must be specified, but not both.</p>\n",
-          "default": null
-        },
-        {
-          "name": "url",
-          "type_name": "str or None",
-          "is_optional": false,
-          "description": "<p>The URL that the component is served from. Either <cite>path</cite> or <cite>url</cite>\nmust be specified, but not both.</p>\n",
-          "default": null
-        }
-      ],
-      "returns": [
-        {
-          "type_name": "CustomComponent",
-          "is_generator": false,
-          "description": "<p>A CustomComponent that can be called like a function.\nCalling the component will create a new instance of the component\nin the Streamlit app.</p>\n",
-          "return_name": null
-        }
-      ],
-      "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/components/v1/components.py#L242"
-    },
-    "streamlit.components.v1.html": {
-      "name": "html",
-      "signature": "st.components.v1.html(html, width=None, height=None, scrolling=False)",
-      "description": "Display an HTML string in an iframe.",
-      "args": [
-        {
-          "name": "html",
-          "type_name": "str",
-          "is_optional": false,
-          "description": "<p>The HTML string to embed in the iframe.</p>\n",
-          "default": null
-        },
-        {
-          "name": "width",
-          "type_name": "int",
-          "is_optional": false,
-          "description": "<p>The width of the frame in CSS pixels. Defaults to the report's\ndefault element width.</p>\n",
-          "default": "the"
-        },
-        {
-          "name": "height",
-          "type_name": "int",
-          "is_optional": false,
-          "description": "<p>The height of the frame in CSS pixels. Defaults to 150.</p>\n",
-          "default": "150."
-        },
-        {
-          "name": "scrolling",
-          "type_name": "bool",
-          "is_optional": false,
-          "description": "<p>If True, show a scrollbar when the content is larger than the iframe.\nOtherwise, do not show a scrollbar. Defaults to False.</p>\n",
-          "default": "False."
-        }
-      ],
-      "returns": [],
-      "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/elements/iframe.py#L56"
-    },
-    "streamlit.components.v1.iframe": {
-      "name": "iframe",
-      "signature": "st.components.v1.iframe(src, width=None, height=None, scrolling=False)",
-      "description": "Load a remote URL in an iframe.",
-      "args": [
-        {
-          "name": "src",
-          "type_name": "str",
-          "is_optional": false,
-          "description": "<p>The URL of the page to embed.</p>\n",
-          "default": null
-        },
-        {
-          "name": "width",
-          "type_name": "int",
-          "is_optional": false,
-          "description": "<p>The width of the frame in CSS pixels. Defaults to the report's\ndefault element width.</p>\n",
-          "default": "the"
-        },
-        {
-          "name": "height",
-          "type_name": "int",
-          "is_optional": false,
-          "description": "<p>The height of the frame in CSS pixels. Defaults to 150.</p>\n",
-          "default": "150."
-        },
-        {
-          "name": "scrolling",
-          "type_name": "bool",
-          "is_optional": false,
-          "description": "<p>If True, show a scrollbar when the content is larger than the iframe.\nOtherwise, do not show a scrollbar. Defaults to False.</p>\n",
-          "default": "False."
-        }
-      ],
-      "returns": [],
-      "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/elements/iframe.py#L23"
     }
   }
 }
