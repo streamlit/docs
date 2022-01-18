@@ -12,7 +12,7 @@ reference is organized by activity type, like displaying data or optimizing
 performance. Each section includes methods associated with the activity type,
 including examples.
 
-So browse our API below and click to learn move about any of our available commands!
+Browse our API below and click to learn more about any of our available commands! 🎈
 
 ## Display almost anything
 
