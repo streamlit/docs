@@ -2,6 +2,10 @@
   @apply text-gray-70;
 }
 
+:global(.dark) .Container ul li a {
+  @apply text-gray-50 !important; /* TODO: Remove !important when done moving to Tailwind */
+}
+
 .Container ul li span {
   @apply text-gray-50;
 }
