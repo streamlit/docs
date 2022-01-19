@@ -1,4 +1,13 @@
-.Container section i,
-.Container section a {
-  @apply text-gray-70;
+.Container {
+  @apply flex items-center cursor-pointer;
+}
+
+.Icon {
+  @apply mr-2;
+  @apply text-gray-70 !important;
+}
+
+.Link {
+  @apply group-hover:opacity-70 group-hover:border-b-red-70;
+  @apply text-gray-70 !important;
 }

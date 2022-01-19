@@ -1,20 +1,12 @@
-import suggestEditsStyle from "./suggestEdits.module.css";
+import styles from "./suggestEdits.module.css";
 
 const SuggestEdits = ({ sourcefile }) => {
   return (
-    <section
-      className={`
-        ${suggestEditsStyle.Container}
-      `}
-    >
-      <section
-        className="
-          flex items-center cursor-pointer
-        "
-      >
-        <i className="mr-2">edit</i>
+    <section>
+      <section className={styles.Container}>
+        <i className={styles.Icon}>edit</i>
         <a
-          className="group-hover:opacity-70 group-hover:border-b-red-70"
+          className={styles.Link}
           href={sourcefile}
           target="_blank"
           rel="noopener noreferrer"
