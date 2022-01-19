@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { withRouter } from "next/router";
 
-import floatingNavStyles from "./floatingNav.module.css";
+import styles from "./floatingNav.module.css";
 
 const useHeadingsData = (slug) => {
   const [nestedHeadings, setNestedHeadings] = useState([]);
@@ -104,29 +104,17 @@ const FloatingNav = ({ menu, slug }) => {
         }
       `}
     >
-      <div
-        className="
-          absolute
-          h-6 w-full
-          bg-gradient-to-b from-white
-          z-10
-        "
-      />
+      <div className={styles.TopGradient} />
       <ol
         className={`
-          sticky top-24
-          m-0
-          list-none
-          overflow-y-auto overflow-x-hidden
-          ${floatingNavStyles.List}
+          ${styles.ListContainer}
         `}
       >
         <li
-          className="
-            m-0
-            pt-6 pl-6
-            text-xs uppercase font-semibold tracking-loose
-          "
+          className={`
+            ${styles.ListItem}
+            ${styles.ListTitle}
+          `}
         >
           Contents
         </li>
@@ -149,27 +137,20 @@ const Headings = ({ headings, activeId }) => {
 };
 
 const Heading = ({ heading, index, activeId }) => {
-  const active =
-    heading.target === activeId
-      ? `${floatingNavStyles.activeItem} dark:text-white`
-      : "";
-
   return (
     <li
       className={`
-        m-0
-        text-xs
-        pt-2
+        ${styles.ListItem}
         ${
           heading.level === "H1" || heading.level === "H2"
-            ? "pl-6"
+            ? styles.headingH1
             : heading.level === "H3"
-            ? "pl-8"
+            ? styles.headingH3
             : heading.level === "H4"
-            ? "pl-10"
+            ? styles.headingH4
             : heading.level === "H5"
-            ? "pl-12"
-            : "pl-14"
+            ? styles.headingH5
+            : styles.headingH6
         }
       `}
       key={`toc-${index}`}
@@ -177,11 +158,8 @@ const Heading = ({ heading, index, activeId }) => {
       <a
         href={heading.target}
         className={`
-          border-b-0
-          inline-block truncate w-40
-          leading-4
-          hover:opacity-70 hover:border-b-0 hover:no-underline
-          ${active}
+          ${styles.Link}
+          ${heading.target === activeId ? styles.activeLink : ""}
         `}
       >
         {heading.label}
