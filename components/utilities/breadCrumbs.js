@@ -2,7 +2,7 @@ import React from "react";
 import { breadcrumbsForSlug } from "../../lib/utils.js";
 import Link from "next/link";
 
-import breadCrumbStyling from "./breadCrumbs.module.css";
+import styles from "./breadCrumbs.module.css";
 
 const BreadCrumbs = ({ slug, menu }) => {
   const formatedTitle = (title) => {
@@ -14,7 +14,7 @@ const BreadCrumbs = ({ slug, menu }) => {
     if (index == slug.length) {
       formatedCrumb = (
         <Link href={crumb.link}>
-          <a className="not-link font-bold hover:opacity-70 text-gray-70">
+          <a className={`not-link ${styles.ActiveLink} ${styles.Link}`}>
             {crumb.title}
           </a>
         </Link>
@@ -23,11 +23,9 @@ const BreadCrumbs = ({ slug, menu }) => {
       formatedCrumb = (
         <>
           <Link href={crumb.link}>
-            <a className="not-link dark:text-gray-50 hover:opacity-70">
-              {crumb.title}
-            </a>
+            <a className={`not-link ${styles.Link}`}>{crumb.title}</a>
           </Link>
-          <span className="dark:text-gray-70 ml-2">/</span>
+          <span className={styles.Separator}>/</span>
         </>
       );
     }
@@ -79,7 +77,7 @@ const BreadCrumbs = ({ slug, menu }) => {
   }
 
   return (
-    <nav className={breadCrumbStyling.Container}>
+    <nav>
       <ul className="flex list-none ml-0">
         {breadcrumbs.map((crumb, index) => (
           <li key={`${crumb}-${index}`} className="text-sm mr-2">

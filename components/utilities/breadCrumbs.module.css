@@ -1,11 +1,19 @@
-.Container ul li a {
-  @apply text-gray-70;
+/* TODO: Remove !important when done moving to Tailwind */
+
+.Link {
+  @apply hover:opacity-70;
+  @apply text-gray-70 !important;
 }
 
-:global(.dark) .Container ul li a {
-  @apply text-gray-50 !important; /* TODO: Remove !important when done moving to Tailwind */
+.ActiveLink {
+  @apply font-bold;
 }
 
-.Container ul li span {
-  @apply text-gray-50;
+:global(.dark) .Link {
+  @apply text-gray-50 !important;
+}
+
+.Separator {
+  @apply dark:text-gray-70 ml-2;
+  @apply text-gray-50 !important;
 }
