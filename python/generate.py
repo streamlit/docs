@@ -29,6 +29,18 @@ def strip_code_prompts(rst_string):
     """Removes >>> and ... prompts from code blocks in examples."""
     return rst_string.replace('&gt;&gt;&gt; ', '').replace('&gt;&gt;&gt;\n', '\n').replace('\n...', '\n')
 
+def get_github_source(func):
+    repo_prefix = "https://github.com/streamlit/streamlit/blob/develop/lib"
+
+    # For Streamlit commands (e.g. st.spinner) wrapped by decorator
+    while '__wrapped__' in func.__dict__:
+        func = func.__wrapped__
+
+    path_parts = func.__code__.co_filename.partition("/streamlit")
+    line = func.__code__.co_firstlineno
+
+    return ''.join([repo_prefix, path_parts[1], path_parts[2], f'#L{line}'])
+
 
 def get_function_docstring_dict(func, funcname, signature_prefix):
     description = {}
@@ -38,9 +50,14 @@ def get_function_docstring_dict(func, funcname, signature_prefix):
     description['signature'] = f'{signature_prefix}.{funcname}({arguments})'
 
     # Remove _ from the start of static component function names
-    if func.__name__.startswith('_'):
-        description['name'] = func.__name__.replace('_', '', 1)
+    if funcname.startswith('_'):
+        description['name'] = funcname.lstrip('_')
         description['signature'] = f'{signature_prefix}.{description["name"]}({arguments})'
+
+    # Edge case for .clear() method on st.experimental_memo and st.experimental_singleton
+    # Prepend "experimental_[memo | singleton]." to the name "clear"
+    if 'experimental' in signature_prefix:
+        description['name'] = f'{signature_prefix}.{funcname}'.lstrip('st.')
 
     if docstring:
         try:
@@ -95,6 +112,8 @@ def get_function_docstring_dict(func, funcname, signature_prefix):
                 return_obj['description'] = parse_rst(returns.description) if returns.description else ''
                 return_obj['return_name'] = returns.return_name
                 description['returns'].append(return_obj)
+        
+        description['source'] = get_github_source(func)
 
     return description
 
@@ -143,17 +162,29 @@ def get_sig_string_without_annots(func):
 def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
     obj_docstring_dict = {}
 
+    allowed_types = (
+        types.FunctionType, 
+        types.MethodType,
+        streamlit.caching.memo_decorator.MemoAPI,
+        streamlit.caching.singleton_decorator.SingletonAPI
+    )
+
     for membername in dir(obj):
         if membername.startswith('_'):
             continue
 
         member = getattr(obj, membername)
 
-        if not isinstance(member, types.FunctionType) and not isinstance(member, types.MethodType):
+        if not isinstance(member, allowed_types):
             continue
 
         if not callable(member):
             continue
+        
+        # memo and singleton are callable objects rather than functions
+        # See: https://github.com/streamlit/streamlit/pull/4263
+        while member in streamlit.caching.__dict__.values():
+            member = member.__call__
 
         fullname = '{}.{}'.format(key_prefix, membername)
         member_docstring_dict = get_function_docstring_dict(member, membername, signature_prefix)
@@ -165,11 +196,15 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
 
 def get_streamlit_docstring_dict():
     module_docstring_dict = get_obj_docstring_dict(streamlit, 'streamlit', 'st')
+    memo_clear_docstring_dict = get_obj_docstring_dict(streamlit.caching.memo, 'streamlit.experimental_memo', 'st.experimental_memo')
+    singleton_clear_docstring_dict = get_obj_docstring_dict(streamlit.caching.singleton, 'streamlit.experimental_singleton', 'st.experimental_singleton')
     components_docstring_dict = get_obj_docstring_dict(components, 'streamlit.components.v1', 'st.components.v1')
     delta_docstring_dict = get_obj_docstring_dict(streamlit._DeltaGenerator, 'DeltaGenerator', 'element')
 
-    module_docstring_dict.update(delta_docstring_dict)
+    module_docstring_dict.update(memo_clear_docstring_dict)
+    module_docstring_dict.update(singleton_clear_docstring_dict)
     module_docstring_dict.update(components_docstring_dict)
+    module_docstring_dict.update(delta_docstring_dict)
 
     return module_docstring_dict
 
