@@ -1,4 +1,8 @@
 .ListContainer {
+  @apply absolute right-0 top-0 h-full w-56 z-10 hidden;
+}
+
+.List {
   @apply sticky top-24 m-0 list-none overflow-y-auto overflow-x-hidden;
   max-height: calc(100vh - (6em * 2));
 }

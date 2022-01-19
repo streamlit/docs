@@ -93,10 +93,7 @@ const FloatingNav = ({ menu, slug }) => {
   return nestedHeadings.length > 1 ? (
     <div
       className={`
-        absolute right-0 top-0
-        h-full w-56
-        z-10
-        hidden
+        ${styles.ListContainer}
         ${
           // The way the current CSS works, we need to have a .toc class, not only to style the floating nav component, but also to ensure the .content area gets narrowed by ~225px so the floating nav fits the screen.
           // TODO: When all components are refactored, we might want to use a different layout method (flexbox or grid) to avoid this
@@ -107,7 +104,7 @@ const FloatingNav = ({ menu, slug }) => {
       <div className={styles.TopGradient} />
       <ol
         className={`
-          ${styles.ListContainer}
+          ${styles.List}
         `}
       >
         <li
