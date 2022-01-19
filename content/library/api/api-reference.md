@@ -12,7 +12,7 @@ reference is organized by activity type, like displaying data or optimizing
 performance. Each section includes methods associated with the activity type,
 including examples.
 
-So browse our API below and click to learn move about any of our available commands!
+Browse our API below and click to learn more about any of our available commands! 🎈
 
 ## Display almost anything
 
@@ -525,7 +525,20 @@ time = st.time_input("Meeting time")
 Display a file uploader widget.
 
 ```python
-photo = st.file_uploader("Upload a photo")
+data = st.file_uploader("Upload a CSV")
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/widgets/st.camera_input">
+
+<Image pure alt="screenshot" src="/images/api/camera_input.jpg" />
+
+#### Camera input
+
+Display a widget that allows users to upload images directly a camera.
+
+```python
+image = st.camera_input("Take a picture")
 ```
 
 </RefCard>
@@ -950,4 +963,43 @@ def get_database_session(url):
 ```
 
 </RefCard>
+
+<RefCard href="/library/api-reference/performance/st.experimental_memo.clear">
+
+#### Clear memo
+
+Clear all in-memory and on-disk memo caches.
+
+```python
+@st.experimental_memo
+def fetch_and_clean_data(url):
+  # Fetch data from URL here, and then clean it up.
+  return data
+
+if st.checkbox("Clear All"):
+  # Clear values from *all* memoized functions
+  st.experimental_memo.clear()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/performance/st.experimental_singleton.clear">
+
+#### Clear singleton
+
+Clear all singleton caches.
+
+```python
+@st.experimental_singleton
+def get_database_session(url):
+  # Create a database session object that points to the URL.
+  return session
+
+if st.button("Clear All"):
+  # Clears all singleton caches:
+  st.experimental_singleton.clear()
+```
+
+</RefCard>
+
 </TileContainer>

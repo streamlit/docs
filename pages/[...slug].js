@@ -2,7 +2,6 @@ import fs from "fs";
 import { join, basename } from "path";
 import sortBy from "lodash/sortBy";
 import React from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import Head from "next/head";
 import { serialize } from "next-mdx-remote/serialize";
@@ -22,6 +21,7 @@ import {
 } from "../lib/api";
 import { getPreviousNextFromMenu } from "../lib/utils.js";
 import useVersion from "../lib/useVersion.js";
+import { useAppContext } from "../context/AppContext";
 import Layout from "../components/layouts/globalTemplate";
 import BreadCrumbs from "../components/utilities/breadCrumbs";
 import SideBar from "../components/navigation/sideBar";
@@ -35,7 +35,6 @@ import ArrowLink from "../components/navigation/arrowLink";
 import Helpful from "../components/utilities/helpful";
 import { H1, H2, H3 } from "../components/blocks/headers";
 import Psa from "../components/utilities/psa";
-import SuggestEdits from "../components/utilities/suggestEdits";
 import FloatingNav from "../components/utilities/floatingNav";
 
 // MDX Components
@@ -71,12 +70,15 @@ export default function Article({
 }) {
   let versionWarning;
   let currentLink;
-  let sourceFile;
-  sourceFile =
-    "https://github.com/streamlit/docs/tree/main" +
-    filename.substring(filename.indexOf("/content/"));
+  let suggestEditURL;
+  const { sourceFile } = useAppContext();
+
+  suggestEditURL =
+    Object.keys(streamlit).length > 0 && sourceFile
+      ? sourceFile
+      : "https://github.com/streamlit/docs/tree/main" +
+        filename.substring(filename.indexOf("/content/"));
   const maxVersion = versions[versions.length - 1];
-  const router = useRouter();
   const version = useVersion(versionFromStaticLoad, versions, currMenuItem);
 
   const components = {
@@ -135,12 +137,22 @@ export default function Article({
 
   if (prevMenuItem) {
     previousArrow = (
-      <ArrowLink link={prevMenuItem.url} type="back" content={prevMenuItem.name} />
+      <ArrowLink
+        link={prevMenuItem.url}
+        type="back"
+        content={prevMenuItem.name}
+      />
     );
   }
 
   if (nextMenuItem) {
-    nextArrow = <ArrowLink link={nextMenuItem.url} type="next" content={nextMenuItem.name} />;
+    nextArrow = (
+      <ArrowLink
+        link={nextMenuItem.url}
+        type="next"
+        content={nextMenuItem.name}
+      />
+    );
   }
 
   if (nextMenuItem || prevMenuItem) {
@@ -222,9 +234,9 @@ export default function Article({
               <FloatingNav slug={slug} menu={menu} version={version} />
               <div className="content">
                 <MDXRemote {...source} components={components} />
+                <Helpful slug={slug} sourcefile={suggestEditURL} />
               </div>
             </article>
-            <Helpful slug={slug} sourcefile={sourceFile} />
             <Psa />
             {arrowContainer}
           </section>
@@ -307,7 +319,11 @@ export async function getStaticProps(context) {
     props["slug"] = context.params.slug;
     props["source"] = source;
     props["currMenuItem"] = current
-      ?  { name: current.name, url: current.url, isVersioned: !!current.isVersioned }
+      ? {
+          name: current.name,
+          url: current.url,
+          isVersioned: !!current.isVersioned,
+        }
       : null;
     props["nextMenuItem"] = next ? { name: next.name, url: next.url } : null;
     props["prevMenuItem"] = prev ? { name: prev.name, url: prev.url } : null;
