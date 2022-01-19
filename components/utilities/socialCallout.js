@@ -11,7 +11,7 @@ const SocialCallout = () => {
             href="https://github.com/streamlit"
             target="_blank"
           >
-            <div className={`${styles.IconContainer} bg-gray-90`}>
+            <div className={`${styles.IconContainer} ${styles.GitHub}`}>
               <svg
                 width="22"
                 height="20"
@@ -40,7 +40,7 @@ const SocialCallout = () => {
             href="https://twitter.com/streamlit"
             target="_blank"
           >
-            <div className={`${styles.IconContainer} bg-darkBlue-60`}>
+            <div className={`${styles.IconContainer} ${styles.Twitter}`}>
               <svg
                 width="24"
                 height="18"
@@ -69,7 +69,7 @@ const SocialCallout = () => {
             href="https://www.youtube.com/channel/UC3LD42rjj-Owtxsa6PwGU5Q"
             target="_blank"
           >
-            <div className={`${styles.IconContainer} bg-red-80`}>
+            <div className={`${styles.IconContainer} ${styles.YouTube}`}>
               <svg
                 width="26"
                 height="18"
@@ -98,7 +98,7 @@ const SocialCallout = () => {
             href="https://discord.gg/bTz5EDYh9Z"
             target="_blank"
           >
-            <div className={`${styles.IconContainer} bg-violet-70`}>
+            <div className={`${styles.IconContainer} ${styles.Discord}`}>
               <svg
                 width="71"
                 height="55"
@@ -128,13 +128,7 @@ const SocialCallout = () => {
             href="https://www.instagram.com/streamlit.io"
             target="_blank"
           >
-            <div
-              className={styles.IconContainer}
-              style={{
-                backgroundImage:
-                  "linear-gradient(40.67deg, #f7cc3e 6.51%, #ef4a6e 49.3%, #972aaa 100%)",
-              }}
-            >
+            <div className={`${styles.IconContainer} ${styles.Instagram}`}>
               <svg
                 width="19"
                 height="20"
