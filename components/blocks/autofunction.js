@@ -13,6 +13,8 @@ import "prismjs/plugins/toolbar/prism-toolbar";
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 
+import useSourceFile from "../../lib/useSourceFile";
+
 const cleanHref = (name) => {
   return String(name).replace(".", "").replace(" ", "-");
 };
@@ -101,6 +103,8 @@ const Autofunction = ({
 
   if (streamlitFunction in streamlit) {
     functionObject = streamlit[streamlitFunction];
+    const sourceFile = useSourceFile(functionObject.source);
+
     if (
       functionObject.description !== undefined &&
       functionObject.description
