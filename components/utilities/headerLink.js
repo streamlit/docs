@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import slugify from "slugify";
 import classNames from "classnames";
 
+import styles from "./headerLink.module.css";
+
 const HeaderLink = ({ name, level, className, children }) => {
   const hash = name
     ? slugify(name, { remove: /[^A-Za-z0-9_\s]/g, lower: true })
@@ -31,44 +33,20 @@ const HeaderLink = ({ name, level, className, children }) => {
   const Header = `h${level}`;
   return (
     <>
-      <a
-        name={hash}
-        className="
-          no-underline
-          block
-          h-0 w-0
-          overflow-hidden
-          visibility-hidden
-          pointer-events-none
-        "
-      />
+      <a name={hash} className={styles.HashLink} />
 
-      <Header className={classNames("flex items-center", "group", className)}>
+      <Header
+        className={classNames(styles.HeaderContainer, "group", className)}
+      >
         {children}
 
         {copied ? (
-          <div
-            className="
-              ml-4
-              text-xs font-normal
-              opacity-70
-              flex items-center
-            "
-          >
-            <i>done</i> Copied
+          <div className={styles.CopiedMessage}>
+            <i className={styles.CopiedIcon}>done</i>
+            Copied
           </div>
         ) : (
-          <div
-            className="
-              quick-link-icon
-              cursor-pointer
-              ml-4 pt-1
-              opacity-0
-              flex items-center
-              hover:opacity-90 group-hover:opacity-90
-            "
-            onClick={copyLinkUnbound}
-          >
+          <div className={styles.CopyLink} onClick={copyLinkUnbound}>
             <svg
               width="14"
               height="17"
