@@ -1,5 +1,4 @@
 .reference-card {
-  padding: 1rem;
   color: $gray-90;
   border-radius: $rounded-small;
   border: 1px solid $gray-40;
@@ -28,10 +27,7 @@
     color: inherit !important;
   }
   img {
-    width: calc(100% + 2em);
-    margin-left: -1rem;
-    margin-top: -1rem;
-    margin-bottom: 1rem;
+    width: 100%;
     height: 12rem;
     object-fit: cover;
     border-bottom: 1px solid $gray-40;
@@ -39,15 +35,27 @@
   p,
   a {
     color: inherit !important;
-    margin-bottom: 0;
     font-weight: 300;
     font-size: 0.875em;
+  }
+
+  > p,
+  > h1,
+  > h2,
+  > h3,
+  > h4 {
+    margin: 0 1rem;
+    padding: 0;
+  }
+
+  h4 {
+    margin-top: 1rem;
   }
 
   .block-code {
     width: calc(100% + 2rem);
     position: relative !important;
-    margin: 1rem 0 -1rem -1rem;
+    margin: 1rem 0 0 0;
     font-size: 0.875em;
     display: flex;
     flex-direction: column;

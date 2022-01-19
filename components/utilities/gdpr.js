@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { MDXRemote } from "next-mdx-remote";
 
+import styles from "./gdpr.module.css";
+
 // The first timezone in Europe is UTC+0.
 const EUROPE_TZ_OFFSET_WEST = 0;
 
@@ -68,15 +70,17 @@ const GDPRBanner = (gdprData) => {
   }
 
   return (
-    <div className="gdpr-banner">
-      <div className="container">
-        <div className="header">
-          <h3>{title}</h3>
-          <MDXRemote {...content} />
-        </div>
-        <div className="footer">
-          <button onClick={DeclineAndCloseBanner}>Decline</button>
-          <button onClick={AllowAndCloseBanner}>Allow</button>
+    <div className={styles.Container}>
+      <div className={styles.BannerBackground}>
+        <h3 className={styles.Title}>{title}</h3>
+        <MDXRemote {...content} />
+        <div className={styles.CtasContainer}>
+          <button onClick={DeclineAndCloseBanner} className={styles.Button}>
+            Decline
+          </button>
+          <button onClick={AllowAndCloseBanner} className={styles.Button}>
+            Allow
+          </button>
         </div>
       </div>
     </div>
