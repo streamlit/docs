@@ -38,7 +38,7 @@ const Psa = () => {
             target="_blank"
             className="
               border-b border-b-gray-90 dark:border-b-white
-              hover:opacity-70 border-b-red-70
+              hover:opacity-70 hover:border-b-red-70
               dark:text-white
             "
           >
