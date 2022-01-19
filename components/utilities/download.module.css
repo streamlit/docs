@@ -1,0 +1,8 @@
+.Link {
+  @apply font-sans text-base tracking-tight border-b border-b-gray-90 dark:border-b-white dark:hover:border-b-red-70 hover:border-b-red-70 hover:opacity-70;
+  @apply text-gray-90 !important;
+}
+
+:global(.dark) .Link {
+  @apply text-white border-b-white !important;
+}
