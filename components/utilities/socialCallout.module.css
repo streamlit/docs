@@ -38,3 +38,29 @@
   @apply font-sans font-normal text-xs tracking-normal mb-0 leading-4;
   @apply text-gray-90 !important;
 }
+
+/* Specific colors for each social network */
+.GitHub {
+  @apply bg-gray-90;
+}
+
+.Twitter {
+  @apply bg-darkBlue-60;
+}
+
+.YouTube {
+  @apply bg-red-80;
+}
+
+.Discord {
+  @apply bg-indigo-70;
+}
+
+.Instagram {
+  background-image: linear-gradient(
+    40.67deg,
+    #f7cc3e 6.51%,
+    #ef4a6e 49.3%,
+    #972aaa 100%
+  );
+}
