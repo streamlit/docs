@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 // import Navigation from
 import MobileNav from "./mobileNav";
 
-import headerStyles from "./header.module.css";
+import styles from "./header.module.css";
 
 const ThemeToggle = dynamic(() => import("../utilities/themeToggle"), {
   ssr: false,
@@ -47,57 +47,22 @@ const Header = () => {
   return (
     <header
       className={`
-        sticky
-        top-0
-        w-screen
-        z-30
-        ${headerStyles.Container}
-      `}
+      ${styles.Container}
+      ${isSticky ? styles.stickyContainer : styles.standardContainer}
+    `}
     >
-      <nav
-        className={`
-          container
-          flex items-center justify-between
-          relative
-          bg-white
-          transition-all
-          border-b
-          ${
-            isSticky
-              ? "h-12 border-b-gray-40 dark:border-b-gray-80"
-              : "border-b-white dark:border-b-gray-100 h-24"
-          }
-        `}
-        id="main-header"
-      >
+      <nav className={styles.Navigation} id="main-header">
         <Link href="/">
           <a
-            className="
-              flex items-center
-              m-0
-              text-base tracking-tight
-              not-link
-            "
+            className={`
+              ${styles.LogoContainer} not-link
+            `}
           >
-            <img src="/logo.svg" alt="" className="mr-4" />
-            <h4
-              className="
-              hidden xl:block
-                m-0
-                font-normal
-                text-dark-gray-90 dark:text-white
-              "
-            >
-              Documentation
-            </h4>
+            <img src="/logo.svg" alt="" />
+            <h4 className={styles.LogoText}>Documentation</h4>
           </a>
         </Link>
-        <section
-          className="
-            flex items-center flex-auto justify-self-end
-            gap-4 lg:gap-6
-          "
-        >
+        <section className={styles.NavigationContainer}>
           <Search />
           <ThemeToggle />
           {mobileNav}
