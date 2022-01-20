@@ -215,6 +215,9 @@ site_menu:
   - category: Streamlit library / API reference / Control flow / st.form_submit_button
     url: /library/api-reference/control-flow/st.form_submit_button
     isVersioned: true
+  - category: Streamlit library / API reference / Control flow / st.experimental_rerun
+    url: /library/api-reference/control-flow/st.experimental_rerun
+    isVersioned: true
   - category: Streamlit library / API reference / Utilities
     url: /library/api-reference/utilities
   - category: Streamlit library / API reference / Utilities / st.set_page_config
@@ -225,6 +228,15 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / API reference / Utilities / st.help
     url: /library/api-reference/utilities/st.help
+    isVersioned: true
+  - category: Streamlit library / API reference / Utilities / st.experimental_show
+    url: /library/api-reference/utilities/st.experimental_show
+    isVersioned: true
+  - category: Streamlit library / API reference / Utilities / st.experimental_get_query_params
+    url: /library/api-reference/utilities/st.experimental_get_query_params
+    isVersioned: true
+  - category: Streamlit library / API reference / Utilities / st.experimental_set_query_params
+    url: /library/api-reference/utilities/st.experimental_set_query_params
     isVersioned: true
   - category: Streamlit library / API reference / Mutate charts
     url: /library/api-reference/mutate
