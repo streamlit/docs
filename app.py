@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import ast
 
-ALL_MD_FILES = glob.glob("./../content/library/api/**/*.md")
+ALL_MD_FILES = glob.glob("./content/library/api/**/*.md")
 
 FORBIDDEN_PATTERNS = [
     "columns",
@@ -41,7 +41,7 @@ def load_md(path: str):
 
 # @st.experimental_memo(ttl=TTL)
 def page_to_cards(page_md: str):
-    """Parse a Markdown page into a list of cards with text and associated code"""
+    """ Parse a Markdown page into a list of cards with text and associated code"""
     cards_output = list()
     cards = page_md.split("####")[1:]
 
