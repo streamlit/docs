@@ -5,7 +5,7 @@ import numpy as np
 import ast
 import os
 
-os.chdir("..")
+os.chdir("./../")
 
 ALL_MD_FILES = glob.glob("./content/library/api/**/*.md")
 
