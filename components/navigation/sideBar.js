@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import bus from "../../lib/bus";
 import NavItem from "../navigation/navItem";
 
+import styles from "./sideBar.module.css";
+
 const SideBar = ({ menu, slug }) => {
   const [isCondensed, setIsCondensed] = useState(false);
   const [isOver, setIsOver] = useState(false);
@@ -62,31 +64,20 @@ const SideBar = ({ menu, slug }) => {
       page={page}
       depth={page.depth + 1}
       condensed={isCondensed}
-      className={isOver ? "" : "lg:hidden xl:block"}
+      className={isOver && styles.OverNavItem}
     />
   ));
 
   return (
     <section
       className={`
-        fixed
-        top-0
-        left-0
-        py-24 px-4 sm:px-24 lg:px-5 lg:py-24
-        h-screen
-        z-10
-        bg-white dark:bg-gray-100
-        w-10/12 md:w-9/12 xl:w-screen
-        lg:max-w-none xl:max-w-xs
-        overflow-y-auto
-        shadow-lg lg:shadow-none
-        transition-all
-        ${isOpen ? "block" : "hidden lg:block"}
-        ${isOver ? "lg:shadow-lg" : "lg:w-36"}
+        ${styles.Container}
+        ${isOpen ? styles.OpenNav : styles.ClosedNav}
+        ${isOver ? styles.OverNav : styles.CollapsedNav}
       `}
     >
       <nav onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <ul className="list-none overscroll-contain m-0">{navItems}</ul>
+        <ul className={styles.NavList}>{navItems}</ul>
       </nav>
     </section>
   );

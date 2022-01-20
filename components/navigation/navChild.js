@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import useVersion from "../../lib/useVersion.js";
 
-import navChildStyles from "./navChild.module.css";
+import styles from "./navChild.module.css";
 
 const NavChild = ({ slug, page, color, className }) => {
   const [manualState, setManualState] = useState(null);
@@ -28,11 +28,7 @@ const NavChild = ({ slug, page, color, className }) => {
 
   if (page.children?.length > 0 && opened) {
     subNav = (
-      <ul
-        className={`
-          list-none
-        `}
-      >
+      <ul className={styles.List}>
         {page.children.map((child) => (
           <NavChild
             slug={slug}
@@ -50,24 +46,10 @@ const NavChild = ({ slug, page, color, className }) => {
 
   if (page.children?.length > 0) {
     accordion = (
-      <div
-        className="
-          border
-          rounded-md
-          transition-all
-          ml-2
-          flex items-center justify-center
-          hover:opacity-50
-          h-4 w-4
-        "
-      >
+      <div className={styles.Accordion}>
         <i
           className={`
-            relative
-            z-10
-            cursor-pointer
-            text-sm
-            dark:text-white
+            ${styles.AccordionIcon}
             ${opened ? "close" : "open"}
           `}
           onClick={toggleAccordion}
@@ -86,11 +68,7 @@ const NavChild = ({ slug, page, color, className }) => {
   const isLocalPage = page.url.startsWith("/");
 
   if (!isLocalPage) {
-    icon = (
-      <i className="relative z-10 cursor-pointer text-sm ml-1 dark:text-white">
-        open_in_new
-      </i>
-    );
+    icon = <i className={styles.ExternalIcon}>open_in_new</i>;
     target = "_blank";
   }
 
@@ -102,42 +80,33 @@ const NavChild = ({ slug, page, color, className }) => {
   }
 
   link = (
-    <span
-      className={`
-        flex items-center
-        hover:opacity-70
-      `}
-    >
+    <span className={styles.LinkContainer}>
       <Link href={url}>
         <a
-          className="
-            flex items-center
+          className={`
             not-link
-          "
+            ${styles.Link}
+          `}
           target={target}
         >
           <span
             className={`
-              ${active ? "block" : "hidden"}
-              absolute
-              w-2 h-2
-              -left-4
-              rounded-full
+              ${styles.Circle}
+              ${active ? styles.ActiveCircle : ""}
               ${
                 color === "violet-70"
-                  ? "bg-indigo-70"
+                  ? styles.LibraryCircle
                   : color === "l-blue-70"
-                  ? "bg-lightBlue-70"
-                  : "bg-orange-70"
+                  ? styles.CloudCircle
+                  : styles.KBCircle
               }
             `}
           />
           <span
-            className={
-              active
-                ? "font-bold text-gray-90 dark:text-white"
-                : "dark:text-gray-40"
-            }
+            className={`
+              ${styles.PageName}
+              ${active && styles.ActivePage}
+            `}
           >
             {page.name}
           </span>
@@ -151,10 +120,7 @@ const NavChild = ({ slug, page, color, className }) => {
   return (
     <li
       className={`
-        text-sm tracking-tight
-        dark:text-white
-        mb-4
-        ${navChildStyles.Container}
+        ${styles.Container}
         ${className}
       `}
     >
