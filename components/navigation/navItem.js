@@ -22,10 +22,16 @@ const NavItem = ({ page, slug, condensed, className }) => {
   color = isCondensed || active ? color : "";
 
   navBox = (
-    <section className={styles.HeadingContainer}>
+    <section
+      className={`
+        ${styles.HeadingContainer}
+        ${isCondensed ? styles.CondensedHeadingContainer : ""}
+      `}
+    >
       <div
         className={`
           ${styles.HeadingIconContainer}
+          ${isCondensed ? styles.CondensedHeadingIconContainer : ""}
           ${
             page.color === "violet-70"
               ? styles.LibraryIcon
@@ -40,6 +46,7 @@ const NavItem = ({ page, slug, condensed, className }) => {
       <p
         className={`
           ${styles.CategoryName}
+          ${isCondensed ? styles.CondensedCategoryName : ""}
           ${color}
         `}
       >
@@ -50,7 +57,12 @@ const NavItem = ({ page, slug, condensed, className }) => {
 
   if (page.children && page.children.length > 0) {
     subNav = (
-      <ul className={styles.SubNav}>
+      <ul
+        className={`
+          ${styles.SubNav}
+          ${isCondensed ? styles.CondensedSubNav : styles.ExpandedSubNav}
+      `}
+      >
         {page.children.map((child) => (
           <NavChild
             slug={slug}

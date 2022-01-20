@@ -17,21 +17,21 @@ const SideBar = ({ menu, slug }) => {
   };
 
   const handleMouseEnter = () => {
-    if (window.innerWidth < 1250 && window.innerWidth > 1024) {
+    if (window.innerWidth < 1250 && window.innerWidth >= 1024) {
       setIsCondensed(false);
       setIsOver(true);
     }
   };
 
   const handleMouseLeave = () => {
-    if (window.innerWidth < 1250 && window.innerWidth > 1024) {
+    if (window.innerWidth < 1250 && window.innerWidth >= 1024) {
       setIsCondensed(true);
       setIsOver(false);
     }
   };
 
   const checkExpanded = () => {
-    if (window.innerWidth < 1250 && window.innerWidth > 1024) {
+    if (window.innerWidth < 1250 && window.innerWidth >= 1024) {
       setIsCondensed(true);
     } else {
       setIsCondensed(false);
@@ -64,7 +64,7 @@ const SideBar = ({ menu, slug }) => {
       page={page}
       depth={page.depth + 1}
       condensed={isCondensed}
-      className={isOver && styles.OverNavItem}
+      // className={isOver && styles.OverNavItem}
     />
   ));
 
