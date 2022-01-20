@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import themeToggleStyle from "./themeToggle.module.css";
+import styles from "./themeToggle.module.css";
 
 const ThemeToggle = () => {
   const [activeTheme, setActiveTheme] = useState(document.body.dataset.theme);
@@ -34,34 +34,22 @@ const ThemeToggle = () => {
       type="button"
       onClick={() => setActiveTheme(inactiveTheme)}
       className={`
-        relative
-        w-8 h-8
-        mb-0
-        rounded-md
-        p-0
-        block
-        cursor-pointer
-        bg-gray-10 dark:bg-gray-90
-        flex items-center justify-center
-        ${themeToggleStyle.Container}
-        toggleTheme
+        ${styles.Container}
       `}
     >
       <i
-        className="
-          dark
-          dark:text-white
-          absolute
-        "
+        className={`
+          ${styles.DarkIcon}
+          ${styles.Icon}
+        `}
       >
         dark_mode
       </i>
       <i
-        className="
-          light
-          dark:text-white
-          absolute
-        "
+        className={`
+          ${styles.LightIcon}
+          ${styles.Icon}
+        `}
       >
         light_mode
       </i>
