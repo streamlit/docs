@@ -1,17 +1,17 @@
 .HeadingContainer {
-  @apply flex items-center lg:flex-wrap lg:justify-center lg:text-center lg:w-20 xl:justify-start xl:flex-nowrap xl:text-left xl:w-auto transition-all;
+  @apply flex items-center xl:justify-start xl:flex-nowrap xl:text-left xl:w-auto transition-all;
 }
 
 .HeadingIconContainer {
-  @apply flex items-center p-2 mr-4 lg:mr-0 xl:mr-4 mb-0 rounded-md;
+  @apply flex items-center p-2 mr-4 xl:mr-4 mb-0 rounded-md;
 }
 
-.Headingcontainer div i {
-  @apply text-white;
+.CondensedHeadingContainer {
+  @apply lg:flex-wrap lg:justify-center lg:text-center lg:w-10;
 }
 
-section.Headingcontainer p {
-  @apply text-gray-80;
+.CondensedHeadingIconContainer {
+  @apply lg:mr-0;
 }
 
 .Icon {
@@ -32,12 +32,16 @@ section.Headingcontainer p {
 }
 
 .CategoryName {
-  @apply m-0 lg:my-1 xl:my-0 font-bold font-sans lg:text-xs xl:text-base lg:leading-tight xl:leading-6 lg:tracking-tight;
+  @apply m-0 xl:my-0 font-bold font-sans xl:text-base xl:leading-6;
   @apply text-gray-80 !important;
 }
 
 :global(.dark) .CategoryName {
   @apply text-white !important;
+}
+
+.CondensedCategoryName {
+  @apply lg:my-1 lg:text-xs lg:leading-tight lg:tracking-tight;
 }
 
 /* Colors for active categories */
@@ -56,6 +60,14 @@ section.Headingcontainer p {
 /* Subnav styles */
 .SubNav {
   @apply block pl-14 m-0 mt-4 list-none;
+}
+
+.CondensedSubNav {
+  @apply lg:hidden;
+}
+
+.ExpandedSubNav {
+  @apply lg:block;
 }
 
 .NavItem {
