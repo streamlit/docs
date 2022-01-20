@@ -1,220 +1,164 @@
 import Link from "next/link";
 
-import footerStyles from "./footer.module.css";
+import styles from "./footer.module.css";
 
 const Footer = () => {
   return (
-    <footer
-      className={`
-        container
-        mx-auto
-        px-4
-        ${footerStyles.Container}
-      `}
-    >
-      <section
-        className="
-          flex flex-col items-center justify-between
-          py-8
-        "
-      >
-        <hr className="w-full border-t-gray-30 dark:border-t-gray-90" />
-        <nav
-          className="
-            flex gap-8
-            mt-4 mb-2
-          "
-        >
+    <footer className={styles.Container}>
+      <section className={styles.InnerContainer}>
+        <hr className={styles.Separator} />
+        <nav className={styles.Navigation}>
           <Link href="/">
             <a
-              className="
-                text-gray-90 dark:text-white
-                text-base tracking-tight leading-7
-                font-bold
-                not-link hover:opacity-70
-              "
+              className={`
+                not-link
+                ${styles.Link}
+              `}
             >
               Home
             </a>
           </Link>
           <Link href="mailto:hello@streamlit.io?subject=Contact%20from%20documentation%20">
             <a
-              className="
-                text-gray-90 dark:text-white
-                text-base tracking-tight leading-7
-                font-bold
-                not-link hover:opacity-70
-              "
+              className={`
+                not-link
+                ${styles.Link}
+              `}
             >
               Contact Us
             </a>
           </Link>
-          <Link href="https://discuss.streamlit.io/">
-            <a
-              className="
-                text-gray-90 dark:text-white
-                text-base tracking-tight leading-7
-                font-bold
-                not-link hover:opacity-70
-              "
-            >
-              Community
-            </a>
-          </Link>
-        </nav>
-        <section
-          className="
-            flex items-center gap-4
-          "
-        >
           <a
-            className="
-              relative
-              rounded-full
-              overflow-hidden
-              flex justify-center items-center
-              p-2
-              group
-              hover:opacity-100 hover:scale-105 hover:bg-gray-10
+            className={`
               not-link
-            "
+              ${styles.Link}
+            `}
+            href="https://discuss.streamlit.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Community
+          </a>
+        </nav>
+        <section className={styles.SocialNetworks}>
+          <a
+            className={`
+              group
+              not-link
+              ${styles.IconLink}
+            `}
             href="https://github.com/streamlit"
             target="_blank"
           >
-            <i
-              className="
-                text-base
-              "
-            >
+            <i className={styles.IconContainer}>
               <svg
                 width="22"
                 height="20"
                 viewBox="0 0 22 20"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 flex fill-gray-60 group-hover:fill-gray-90"
+                className={`
+                  ${styles.Icon}
+                  ${styles.GitHubIcon}
+                `}
               >
                 <path d="M12.8513 14.5613C13.2388 14.4967 13.56 14.4506 13.8718 14.3768C16.168 13.8508 17.3491 12.4668 17.4908 10.1508C17.5664 8.98815 17.368 7.91781 16.5837 6.99511C16.5081 6.90283 16.5081 6.70907 16.5459 6.57989C16.716 5.8694 16.6688 5.17737 16.4609 4.48534C16.3759 4.20853 16.2152 4.07013 15.9601 4.1624C15.242 4.42075 14.5427 4.71602 13.8246 4.97438C13.5978 5.05742 13.3238 5.13124 13.0876 5.0851C11.6135 4.78984 10.1489 4.79906 8.6843 5.09433C8.46697 5.14047 8.21184 5.06665 7.99451 4.98361C7.32363 4.72525 6.67164 4.42075 6.00075 4.18085C5.62279 4.04244 5.33932 4.20853 5.32042 4.62375C5.29207 5.27887 5.30152 5.92477 5.28262 6.57989C5.28262 6.73675 5.28262 6.92129 5.19758 7.04124C3.00539 10.1323 4.70623 13.9246 8.56146 14.5059C8.6654 14.5244 8.77879 14.5336 8.86383 14.5428C8.70319 14.9581 8.55201 15.3733 8.37248 15.77C8.32523 15.8715 8.17405 15.9638 8.05121 16.0007C7.01181 16.3698 6.0858 16.0653 5.44326 15.1887C5.19758 14.8566 4.92356 14.5152 4.58339 14.2937C4.31882 14.1184 3.94085 14.0999 3.61013 14.0446C3.52509 14.0261 3.37391 14.1092 3.34556 14.1738C3.31721 14.2384 3.37391 14.4044 3.44005 14.4506C4.28102 14.9304 4.60229 15.7793 5.07474 16.5451C5.55665 17.3386 6.41651 17.4401 7.27638 17.4401C7.6071 17.4401 7.92837 17.394 8.32523 17.3571C8.32523 18.003 8.34413 18.612 8.31578 19.221C8.29688 19.6177 7.94727 19.8023 7.50316 19.6085C6.69054 19.2579 5.84957 18.9165 5.11254 18.4367C1.58803 16.1484 -0.112807 11.9408 0.803755 7.90858C1.71087 3.88558 5.07474 0.776064 9.23234 0.130169C14.4671 -0.69104 19.5319 2.51075 20.8642 7.49337C22.2059 12.4944 19.4563 17.717 14.5522 19.5162C13.7018 19.83 13.4655 19.6639 13.4655 18.7781C13.475 18.1783 13.475 17.5785 13.4844 16.9788C13.5033 16.1299 13.5033 15.2902 12.8513 14.5613Z" />
               </svg>
             </i>
           </a>
           <a
-            className="
-              relative
-              rounded-full
-              overflow-hidden
-              flex justify-center items-center
-              p-2
+            className={`
               group
-              hover:opacity-100 hover:scale-105 hover:bg-gray-10
               not-link
-            "
+              ${styles.IconLink}
+            `}
             href="https://www.youtube.com/channel/UC3LD42rjj-Owtxsa6PwGU5Q"
             target="_blank"
           >
-            <i
-              className="
-                text-base
-              "
-            >
+            <i className={styles.IconContainer}>
               <svg
                 width="26"
                 height="18"
                 viewBox="0 0 26 18"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 flex fill-gray-60 group-hover:fill-red-80"
+                className={`
+                  ${styles.Icon}
+                  ${styles.YouTubeIcon}
+                `}
               >
                 <path d="M12.8276 17.8757C11.0323 17.845 9.2319 17.845 7.43665 17.7734C6.06686 17.7172 4.69189 17.6251 3.33767 17.4308C1.63581 17.1853 0.546208 16.0449 0.333476 14.3471C0.17263 13.0227 0.058481 11.6879 0.0221609 10.3532C-0.0193478 8.93159 0.0117837 7.50995 0.0792353 6.0883C0.125933 5.13713 0.271213 4.19107 0.411305 3.25012C0.634414 1.74666 2.0509 0.723891 3.25984 0.57559C4.56736 0.417061 5.89045 0.284101 7.20835 0.253418C10.1555 0.186939 13.1026 0.156256 16.0445 0.181825C17.8398 0.197166 19.635 0.325012 21.4251 0.422175C21.8972 0.447744 22.3694 0.514224 22.8364 0.606273C24.284 0.892648 25.1609 1.77223 25.4722 3.18364C25.7627 4.49279 25.8406 5.8275 25.908 7.16221C26.017 9.37138 25.9495 11.5703 25.6745 13.7642C25.5863 14.4443 25.5085 15.1449 25.1401 15.7483C24.5123 16.7711 23.568 17.3592 22.3746 17.4666C20.8024 17.6098 19.2251 17.7274 17.6478 17.7785C16.0445 17.8297 14.4309 17.7888 12.8276 17.7888C12.8276 17.8245 12.8276 17.8501 12.8276 17.8757ZM10.4875 12.9511C12.6667 11.6266 14.8096 10.3277 16.994 9.00319C14.7993 7.67359 12.6564 6.37468 10.4875 5.05531C10.4875 7.70427 10.4875 10.3021 10.4875 12.9511Z" />
               </svg>
             </i>
           </a>
           <a
-            className="
-              relative
-              rounded-full
-              overflow-hidden
-              flex justify-center items-center
-              p-2
+            className={`
               group
-              hover:opacity-100 hover:scale-105 hover:bg-gray-10
               not-link
-            "
+              ${styles.IconLink}
+            `}
             href="https://twitter.com/streamlit"
             target="_blank"
           >
-            <i
-              className="
-                text-base
-              "
-            >
+            <i className={styles.IconContainer}>
               <svg
                 width="24"
                 height="18"
                 viewBox="0 0 24 18"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 flex fill-gray-60 group-hover:fill-darkBlue-60"
+                className={`
+                  ${styles.Icon}
+                  ${styles.TwitterIcon}
+                `}
               >
                 <path d="M22.9683 0.526535C22.5928 1.56402 21.8955 2.36683 20.9031 2.95968C21.368 2.91851 21.8239 2.83205 22.271 2.71678C22.7225 2.60562 23.1561 2.45741 23.5986 2.28449C23.5986 2.32566 23.5763 2.34625 23.5629 2.36683C22.946 3.19435 22.1994 3.91071 21.3233 4.51179C21.2428 4.56943 21.207 4.61883 21.2115 4.71764C21.2651 6.1133 21.0595 7.47603 20.6214 8.81405C20.1029 10.3867 19.3072 11.8277 18.2119 13.1287C16.9334 14.6478 15.3554 15.8376 13.469 16.6693C12.3156 17.1798 11.1042 17.5174 9.8391 17.7068C9.10597 17.8138 8.37284 17.8673 7.63078 17.8797C5.98571 17.9044 4.38982 17.6656 2.83863 17.1674C1.87305 16.8545 0.952171 16.4428 0.0804651 15.9365C0.0536434 15.92 0.0178811 15.9118 0 15.8788C2.633 16.1217 5.00672 15.5206 7.11669 14.0426C5.87395 13.9809 4.79662 13.5774 3.89362 12.787C3.29907 12.2682 2.87886 11.6465 2.62406 10.9178C3.34824 11.0372 4.05902 11.0208 4.79215 10.8478C3.3393 10.5308 2.24408 9.7939 1.52437 8.61232C1.10863 7.93301 0.920879 7.19607 0.925349 6.40149C1.60483 6.7432 2.32008 6.92847 3.10238 6.9614C2.93698 6.84201 2.78052 6.7432 2.64194 6.62793C1.82835 5.96921 1.29638 5.15404 1.07287 4.18243C0.822532 3.09554 0.992403 2.06218 1.5646 1.08645C1.61824 0.991756 1.62271 0.995873 1.69424 1.0741C2.70452 2.19392 3.88468 3.13259 5.23917 3.88189C6.67413 4.67647 8.22085 5.20756 9.87039 5.4834C10.4113 5.57398 10.9567 5.63161 11.5065 5.66043C11.5914 5.66455 11.6183 5.66043 11.6004 5.56574C11.3053 4.10009 11.6674 2.79088 12.7403 1.67106C13.5271 0.843544 14.5284 0.357738 15.7131 0.221878C17.1167 0.0571976 18.3729 0.398908 19.4726 1.23054C19.6022 1.32935 19.7184 1.43227 19.8347 1.54343C19.8749 1.58049 19.9106 1.58872 19.9732 1.58049C21.0059 1.38699 21.9714 1.04116 22.8834 0.559471C22.9057 0.543003 22.9236 0.522418 22.9683 0.526535Z" />
               </svg>
             </i>
           </a>
           <a
-            className="
-              relative
-              rounded-full
-              overflow-hidden
-              flex justify-center items-center
-              p-2
+            className={`
               group
-              hover:opacity-100 hover:scale-105 hover:bg-gray-10
               not-link
-            "
+              ${styles.IconLink}
+            `}
             href="https://discord.gg/bTz5EDYh9Z"
             target="_blank"
           >
-            <i
-              className="
-                text-base
-              "
-            >
+            <i className={styles.IconContainer}>
               <svg
                 width="71"
                 height="55"
                 viewBox="0 0 71 55"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 flex fill-gray-60 group-hover:fill-indigo-60"
+                className={`
+                  ${styles.Icon}
+                  ${styles.DiscordIcon}
+                `}
               >
                 <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z" />
               </svg>
             </i>
           </a>
           <a
-            className="
-              relative
-              rounded-full
-              overflow-hidden
-              flex justify-center items-center
-              p-2
+            className={`
               group
-              hover:opacity-100 hover:scale-105 hover:bg-gray-10
               not-link
-            "
+              ${styles.IconLink}
+            `}
             href="https://www.instagram.com/streamlit.io"
             target="_blank"
           >
-            <i
-              className="
-                text-base
-              "
-            >
+            <i className={styles.IconContainer}>
               <svg
                 width="19"
                 height="20"
                 viewBox="0 0 19 20"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 flex fill-gray-60 group-hover:fill-gray-90"
+                className={`
+                  ${styles.Icon}
+                  ${styles.InstagramIcon}
+                `}
               >
                 <defs>
                   <linearGradient
@@ -237,11 +181,7 @@ const Footer = () => {
             </i>
           </a>
         </section>
-        <p
-          className="
-            text-base tracking-tight leading-7 mt-2
-          "
-        >
+        <p className={styles.Copyright}>
           Copyright &copy; {new Date().getFullYear()}, Streamlit Inc.
         </p>
       </section>
