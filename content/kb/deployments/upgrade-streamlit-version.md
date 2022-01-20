@@ -9,12 +9,9 @@ Want to use a cool new Streamlit feature but your app on Streamlit Cloud is runn
 
 ## No dependency file
 
-#### Reboot the app
+When there is no dependency file in the repo, the app will always use the same Streamlit version that existed when the app was _first_ deployed on Streamlit Cloud; even if you reboot the app! In other words, Streamlit Cloud automatically pins the version for you so that the app does not break suddenly when rebooted in the future.
 
-1. Visit the app on Streamlit Cloud.
-2. Click on the **Manage app** field in the bottom right (while logged in).
-3. Go into the three-dot dropdown menu, and click on **Reboot app**.
-4. After a few minutes, your app should come back running the newest version of the Streamlit library.
+You may want to avoid getting into this situation if your app depends on a specific version of Streamlit. That is why we encourage you to use a dependency file and pin your desired version of Streamlit. We cover this in more detail in the sections below.
 
 ## `requirements.txt`
 
