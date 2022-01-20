@@ -1,7 +1,63 @@
+.HeadingContainer {
+  @apply flex items-center lg:flex-wrap lg:justify-center lg:text-center lg:w-20 xl:justify-start xl:flex-nowrap xl:text-left xl:w-auto transition-all;
+}
+
+.HeadingIconContainer {
+  @apply flex items-center p-2 mr-4 lg:mr-0 xl:mr-4 mb-0 rounded-md;
+}
+
 .Headingcontainer div i {
   @apply text-white;
 }
 
 section.Headingcontainer p {
   @apply text-gray-80;
+}
+
+.Icon {
+  @apply text-white !important;
+}
+
+/* Colors for heading icons */
+.LibraryIcon {
+  @apply bg-indigo-70;
+}
+
+.CloudIcon {
+  @apply bg-lightBlue-70;
+}
+
+.KBIcon {
+  @apply bg-orange-70;
+}
+
+.CategoryName {
+  @apply m-0 lg:my-1 xl:my-0 font-bold font-sans lg:text-xs xl:text-base lg:leading-tight xl:leading-6 lg:tracking-tight;
+  @apply text-gray-80 !important;
+}
+
+:global(.dark) .CategoryName {
+  @apply text-white !important;
+}
+
+/* Colors for active categories */
+.LibraryCategory {
+  @apply text-indigo-70 !important;
+}
+
+.CloudCategory {
+  @apply text-lightBlue-70 !important;
+}
+
+.KBCategory {
+  @apply text-orange-70 !important;
+}
+
+/* Subnav styles */
+.SubNav {
+  @apply block pl-14 m-0 mt-4 list-none;
+}
+
+.NavItem {
+  @apply mb-8;
 }

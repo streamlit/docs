@@ -3,7 +3,7 @@ import Link from "next/link";
 import { urlInChildren } from "../../lib/utils.js";
 import NavChild from "./navChild";
 
-import navItemStyles from "./navItem.module.css";
+import styles from "./navItem.module.css";
 
 const NavItem = ({ page, slug, condensed, className }) => {
   let subNav;
@@ -13,56 +13,34 @@ const NavItem = ({ page, slug, condensed, className }) => {
   let isCondensed = condensed ? condensed : false;
 
   // We only want the color to show when we're either active, or the menu is condensed.
-  let color = page.color ? `color-${page.color}` : "";
+  let color =
+    page.color === "violet-70"
+      ? styles.LibraryCategory
+      : page.color === "l-blue-70"
+      ? styles.CloudCategory
+      : styles.KBCategory;
   color = isCondensed || active ? color : "";
 
   navBox = (
-    <section
-      className={`
-        flex items-center
-        lg:flex-wrap lg:justify-center lg:text-center lg:w-20
-        xl:justify-start xl:flex-nowrap xl:text-left xl:w-auto
-        transition-all
-        ${navItemStyles.Headingcontainer}
-      `}
-    >
+    <section className={styles.HeadingContainer}>
       <div
         className={`
-          flex items-center
-          p-2
-          mr-4
-          lg:mr-0
-          xl:mr-4
-          mb-0
-          rounded-md
+          ${styles.HeadingIconContainer}
           ${
             page.color === "violet-70"
-              ? "bg-indigo-70"
+              ? styles.LibraryIcon
               : page.color === "l-blue-70"
-              ? "bg-lightBlue-70"
-              : "bg-orange-70"
+              ? styles.CloudIcon
+              : styles.KBIcon
           }
         `}
       >
-        <i>{page.icon}</i>
+        <i className={styles.Icon}>{page.icon}</i>
       </div>
       <p
         className={`
-          m-0
-          lg:my-1 xl:my-0
-          font-bold
-          font-sans
-          lg:text-xs xl:text-base
-          lg:leading-tight xl:leading-6
-          lg:tracking-tight
-          dark:text-white
-          ${
-            page.color === "violet-70"
-              ? "text-indigo-70"
-              : page.color === "l-blue-70"
-              ? "text-lightBlue-70"
-              : "text-orange-70"
-          }
+          ${styles.CategoryName}
+          ${color}
         `}
       >
         {page.name}
@@ -72,14 +50,7 @@ const NavItem = ({ page, slug, condensed, className }) => {
 
   if (page.children && page.children.length > 0) {
     subNav = (
-      <ul
-        className={`
-          block
-          pl-14
-          m-0 mt-4
-          list-none
-        `}
-      >
+      <ul className={styles.SubNav}>
         {page.children.map((child) => (
           <NavChild
             slug={slug}
@@ -96,12 +67,7 @@ const NavItem = ({ page, slug, condensed, className }) => {
 
   if (page.url.startsWith("/")) {
     navItem = (
-      <li
-        className={`
-          mb-8
-        `}
-        id={page.menu_key}
-      >
+      <li className={styles.NavItem} id={page.menu_key}>
         {page.url === "/library" ? (
           <a href={page.url} className="not-link">
             {navBox}
@@ -116,12 +82,7 @@ const NavItem = ({ page, slug, condensed, className }) => {
     );
   } else {
     navItem = (
-      <li
-        className={`
-          mb-8
-        `}
-        id={page.menu_key}
-      >
+      <li className={styles.NavItem} id={page.menu_key}>
         <a className="not-link" href={page.url} target="_blank">
           {navBox}
         </a>
