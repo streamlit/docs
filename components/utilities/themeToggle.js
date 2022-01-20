@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 
 const ThemeToggle = () => {
   const [activeTheme, setActiveTheme] = useState(document.body.dataset.theme);
-  const inactiveTheme =
-    activeTheme === "light-mode" ? "dark-mode" : "light-mode";
+  let inactiveTheme;
+  if (activeTheme !== undefined) {
+    inactiveTheme = activeTheme === "light-mode" ? "dark-mode" : "light-mode";
+  }
   const changeTheme = new Event("ChangeTheme");
 
   useEffect(() => {
