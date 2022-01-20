@@ -10,6 +10,8 @@ const ThemeToggle = () => {
 
   useEffect(() => {
     document.body.dataset.theme = activeTheme;
+    if (!activeTheme) return;
+
     if (activeTheme === "light-mode") {
       document.documentElement.classList.add("light");
       document.documentElement.classList.remove("dark");

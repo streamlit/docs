@@ -4,23 +4,24 @@ export default function StreamlitDocument() {
   const setInitialTheme = `
     const query = window.location.search;
     function getUserPreference() {
-        if(window.localStorage.getItem('theme')) {
-          return window.localStorage.getItem('theme')
-        }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark-mode' : 'light-mode';
+      if(window.localStorage.getItem('theme')) {
+        return window.localStorage.getItem('theme');
       }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark-mode' : 'light-mode';
+    }
 
+    
+    if(query !== '?oldStyles=false') {
+      document.body.dataset.theme = getUserPreference();
+      
       if(getUserPreference() === 'dark-mode') {
         document.documentElement.classList.add('dark');
       } else {
         document.documentElement.classList.add('light');
       }
-
-      if(query !== '?oldStyles=false') {
-        document.body.dataset.theme = getUserPreference();
-      }
-      window.initial = { prism: false };
-    `;
+    }
+    window.initial = { prism: false };
+  `;
 
   return (
     <Html>
