@@ -12,7 +12,11 @@ export default function StreamlitDocument() {
 
     
     if(query !== '?oldStyles=false') {
-      document.body.dataset.theme = getUserPreference();
+      if(getUserPreference() == 'undefined') {
+        document.body.dataset.theme = 'light-mode';
+      } else {
+        document.body.dataset.theme = getUserPreference();
+      }
       
       if(getUserPreference() === 'dark-mode') {
         document.documentElement.classList.add('dark');
