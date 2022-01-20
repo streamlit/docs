@@ -1,9 +1,7 @@
+import styles from "./arrowLink.module.css";
+
 const ArrowLinkContainer = ({ children }) => {
-  return (
-    <section className="flex flex-wrap flex-col md:flex-row md:flex-nowrap items-center justify-between mt-20">
-      {children}
-    </section>
-  );
+  return <section className={styles.Container}>{children}</section>;
 };
 
 export default ArrowLinkContainer;
