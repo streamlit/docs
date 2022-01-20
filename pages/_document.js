@@ -1,23 +1,25 @@
-// pages/_document.js
-
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 export default function StreamlitDocument() {
   const setInitialTheme = `
-        function getUserPreference() {
-          if(window.localStorage.getItem('theme')) {
-            return window.localStorage.getItem('theme')
-          }
-          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark-mode' : 'light-mode';
+    const query = window.location.search;
+    function getUserPreference() {
+        if(window.localStorage.getItem('theme')) {
+          return window.localStorage.getItem('theme')
         }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark-mode' : 'light-mode';
+      }
 
-        if(getUserPreference() === 'dark-mode') {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.add('light');
-        }
+      if(getUserPreference() === 'dark-mode') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.add('light');
+      }
+
+      if(query !== '?oldStyles=false') {
         document.body.dataset.theme = getUserPreference();
-        window.initial = { prism: false };
+      }
+      window.initial = { prism: false };
     `;
 
   return (
