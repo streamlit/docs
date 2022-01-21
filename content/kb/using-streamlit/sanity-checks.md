@@ -39,7 +39,7 @@ pip install --upgrade streamlit
 streamlit version
 ```
 
-...and then verify that the version number printed is `1.2.0`.
+...and then verify that the version number printed corresponds to the version number displayed on [PyPI](https://pypi.org/project/streamlit/).
 
 **Try reproducing the issue now.** If not fixed, keep reading on.
 
@@ -80,10 +80,10 @@ If you've upgraded to the latest version of Streamlit and things aren't
 working, you can downgrade at any time using this command:
 
 ```bash
-pip install --upgrade streamlit==0.50
+pip install --upgrade streamlit==1.0.0
 ```
 
-...where `0.50` is the version you'd like to downgrade to. See
+...where `0.1.0` is the version you'd like to downgrade to. See
 [Changelog](/library/changelog) for a complete list of Streamlit versions.
 
 ## Check #6 [Windows]: Is Python added to your PATH?
@@ -119,9 +119,7 @@ After adding Python to your Windows PATH, you should then be able to follow the 
 
 ## Check #7 [Windows]: Do you need Build Tools for Visual Studio installed?
 
-Starting with version [0.63](/library/changelog#version-0630) (July 2020), Streamlit added [pyarrow](https://arrow.apache.org/docs/python/) as an install dependency
-as part of the [Streamlit Components](/library/components) feature release. Occasionally, when trying to install Streamlit from
-PyPI, you may see errors such as the following:
+Streamlit includes [pyarrow](https://arrow.apache.org/docs/python/) as an install dependency. Occasionally, when trying to install Streamlit from PyPI, you may see errors such as the following:
 
 ```shell
 Using cached pyarrow-1.0.1.tar.gz (1.3 MB)
