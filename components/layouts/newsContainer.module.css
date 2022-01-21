@@ -1,0 +1,7 @@
+.Container {
+  @apply mb-12;
+}
+
+.Container article:last-child {
+  @apply border-none mb-8 pb-0;
+}
