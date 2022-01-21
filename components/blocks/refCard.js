@@ -13,11 +13,11 @@ const RefCard = ({ children, size, href }) => {
       : size === "two-third"
       ? styles.TwoThirds
       : styles.Third;
+
   return (
     <Link href={href}>
       <a
         className={`
-          not-link 
           ${styles.Container}
           ${tileSize}
         `}
