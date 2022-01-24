@@ -53252,7 +53252,7 @@
     "streamlit.camera_input": {
       "name": "camera_input",
       "signature": "st.camera_input(label, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False)",
-      "examples": "<blockquote>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\npicture = st.camera_input(\"Take a picture\")\n\nif picture:\n     st.image(picture)\n</pre>\n</blockquote>\n",
+      "examples": "<blockquote>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\npicture = st.camera_input(&quot;Take a picture&quot;)\n\nif picture:\n     st.image(picture)\n</pre>\n</blockquote>\n",
       "description": "Display a widget that returns pictures from the user's webcam.",
       "args": [
         {
@@ -53845,7 +53845,7 @@
           "return_name": null
         }
       ],
-      "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/__init__.py#L315"
+      "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/__init__.py#L313"
     },
     "streamlit.experimental_memo": {
       "name": "experimental_memo",
@@ -53905,7 +53905,7 @@
       "description": "<p>Rerun the script immediately.</p>\n<p>When <cite>st.experimental_rerun()</cite> is called, the script is halted - no\nmore statements will be run, and the script will be queued to re-run\nfrom the top.</p>\n<p>If this function is called outside of Streamlit, it will raise an\nException.</p>\n",
       "args": [],
       "returns": [],
-      "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/__init__.py#L497"
+      "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/__init__.py#L493"
     },
     "streamlit.experimental_set_query_params": {
       "name": "experimental_set_query_params",
@@ -53922,12 +53922,12 @@
         }
       ],
       "returns": [],
-      "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/__init__.py#L346"
+      "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/__init__.py#L343"
     },
     "streamlit.experimental_show": {
       "name": "experimental_show",
       "signature": "st.experimental_show(*args)",
-      "notes": "<blockquote>\n<p>This is an experimental feature with usage limitations:</p>\n<ul class=\"simple\">\n<li>The method must be called with the name <cite>show</cite>.</li>\n<li>Must be called in one line of code, and only once per line.</li>\n<li>When passing multiple arguments the inclusion of <cite>,</cite> or <cite>)</cite> in a string</li>\n</ul>\n<div class=\"system-message\">\n<p class=\"system-message-title\">System Message: WARNING/2 (<tt class=\"docutils\">&lt;string&gt;</tt>, line 6)</p>\nBullet list ends without a blank line; unexpected unindent.</div>\n<p>argument may cause an error.</p>\n</blockquote>\n",
+      "notes": "<blockquote>\n<p>This is an experimental feature with usage limitations:</p>\n<ul class=\"simple\">\n<li>The method must be called with the name <cite>show</cite>.</li>\n<li>Must be called in one line of code, and only once per line.</li>\n<li><dl class=\"first docutils\">\n<dt>When passing multiple arguments the inclusion of <cite>,</cite> or <cite>)</cite> in a string</dt>\n<dd>argument may cause an error.</dd>\n</dl>\n</li>\n</ul>\n</blockquote>\n",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\ndataframe = pd.DataFrame({\n     'first column': [1, 2, 3, 4],\n     'second column': [10, 20, 30, 40],\n }))\nst.experimental_show(dataframe)\n</pre>\n</blockquote>\n",
       "description": "<p>Write arguments and <em>argument names</em> to your app for debugging purposes.</p>\n<p>Show() has similar properties to write():</p>\n<blockquote>\n<ol class=\"arabic simple\">\n<li>You can pass in multiple arguments, all of which will be debugged.</li>\n<li>It returns None, so it's &quot;slot&quot; in the app cannot be reused.</li>\n</ol>\n</blockquote>\n<p>Note: This is an experimental feature. See\n<a class=\"reference external\" href=\"https://docs.streamlit.io/library/advanced-features/prerelease#experimental\">https://docs.streamlit.io/library/advanced-features/prerelease#experimental</a> for more information.</p>\n",
       "args": [
@@ -54532,7 +54532,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f6dd7336a90>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False)",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f05bbeb7af0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -55173,7 +55173,7 @@
         }
       ],
       "returns": [],
-      "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/__init__.py#L376"
+      "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/__init__.py#L372"
     },
     "streamlit.stop": {
       "name": "stop",
@@ -55182,7 +55182,7 @@
       "description": "<p>Stops execution immediately.</p>\n<p>Streamlit will not run any statements after <cite>st.stop()</cite>.\nWe recommend rendering a message to explain why the script has stopped.\nWhen run outside of Streamlit, this will raise an Exception.</p>\n",
       "args": [],
       "returns": [],
-      "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/__init__.py#L477"
+      "source": "https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/__init__.py#L473"
     },
     "streamlit.subheader": {
       "name": "subheader",
@@ -56116,6 +56116,7 @@
     "DeltaGenerator.camera_input": {
       "name": "camera_input",
       "signature": "element.camera_input(self, label, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False)",
+      "examples": "<blockquote>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\npicture = st.camera_input(&quot;Take a picture&quot;)\n\nif picture:\n     st.image(picture)\n</pre>\n</blockquote>\n",
       "description": "Display a widget that returns pictures from the user's webcam.",
       "args": [
         {
@@ -56173,54 +56174,6 @@
           "type_name": "None or UploadedFile",
           "is_generator": false,
           "description": "<p>The UploadedFile class is a subclass of BytesIO, and therefore\nit is &quot;file-like&quot;. This means you can pass them anywhere where\na file is expected.</p>\n",
-          "return_name": null
-        },
-        {
-          "type_name": "Examples",
-          "is_generator": false,
-          "description": "",
-          "return_name": null
-        },
-        {
-          "type_name": "-------",
-          "is_generator": false,
-          "description": "",
-          "return_name": null
-        },
-        {
-          "type_name": ">>> import streamlit as st",
-          "is_generator": false,
-          "description": "",
-          "return_name": null
-        },
-        {
-          "type_name": ">>>",
-          "is_generator": false,
-          "description": "",
-          "return_name": null
-        },
-        {
-          "type_name": ">>> picture = st.camera_input(\"Take a picture\")",
-          "is_generator": false,
-          "description": "",
-          "return_name": null
-        },
-        {
-          "type_name": ">>>",
-          "is_generator": false,
-          "description": "",
-          "return_name": null
-        },
-        {
-          "type_name": "",
-          "is_generator": false,
-          "description": "",
-          "return_name": ">>> if picture"
-        },
-        {
-          "type_name": "...     st.image(picture)",
-          "is_generator": false,
-          "description": "",
           "return_name": null
         }
       ],
@@ -57276,7 +57229,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f6dd7336a90>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False)",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.state.widgets.NoValue object at 0x7f05bbeb7af0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False)",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n</blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [

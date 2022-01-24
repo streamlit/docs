@@ -5,7 +5,7 @@ slug: /library/api-reference/control-flow
 
 # Control flow
 
-## Stop execution
+## Change execution
 
 By default, Streamlit apps execute the script entirely, but we allow some functionality to handle control flow in your applications.
 
@@ -18,6 +18,18 @@ Stops execution immediately.
 
 ```python
 st.stop()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/control-flow/st.experimental_rerun">
+
+#### Rerun script
+
+Rerun the script immediately.
+
+```python
+st.experimental_rerun()
 ```
 
 </RefCard>
