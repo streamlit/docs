@@ -5,4 +5,4 @@ streamlit==1.2.0
 graphviz==0.17
 requests==2.22.0
 matplotlib==3.4.1
-numpy==1.19.5
+numpy==1.21.0
