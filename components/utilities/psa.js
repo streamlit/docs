@@ -1,16 +1,20 @@
-import Link from "next/link";
+import styles from "./psa.module.css";
 
 const Psa = () => {
   return (
-    <section className="block-forum-psa">
-      <i>forum</i>
-      <article className="content">
-        <h3>Still have questions?</h3>
-        <p>
+    <section className={styles.Container}>
+      <i className={styles.Icon}>forum</i>
+      <article>
+        <h3 className={styles.Title}>Still have questions?</h3>
+        <p className={styles.Text}>
           Our{" "}
-          <Link href="https://discuss.streamlit.io" target="_blank">
-            <a>forums</a>
-          </Link>{" "}
+          <a
+            href="https://discuss.streamlit.io"
+            target="_blank"
+            className={styles.Link}
+          >
+            forums
+          </a>{" "}
           are full of helpful information and Streamlit experts.
         </p>
       </article>

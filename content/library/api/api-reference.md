@@ -12,7 +12,7 @@ reference is organized by activity type, like displaying data or optimizing
 performance. Each section includes methods associated with the activity type,
 including examples.
 
-So browse our API below and click to learn move about any of our available commands!
+Browse our API below and click to learn more about any of our available commands! 🎈
 
 ## Display almost anything
 
@@ -525,7 +525,20 @@ time = st.time_input("Meeting time")
 Display a file uploader widget.
 
 ```python
-photo = st.file_uploader("Upload a photo")
+data = st.file_uploader("Upload a CSV")
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/widgets/st.camera_input">
+
+<Image pure alt="screenshot" src="/images/api/camera_input.jpg" />
+
+#### Camera input
+
+Display a widget that allows users to upload images directly a camera.
+
+```python
+image = st.camera_input("Take a picture")
 ```
 
 </RefCard>
@@ -796,17 +809,6 @@ st.exception(e)
 ## Control flow
 
 <TileContainer>
-<RefCard href="/library/api-reference/control-flow/st.stop">
-
-#### Stop execution
-
-Stops execution immediately.
-
-```python
-st.stop()
-```
-
-</RefCard>
 <RefCard href="/library/api-reference/control-flow/st.form">
 
 <!--<Image pure alt="screenshot" src="/images/api/form.jpg" />-->
@@ -820,6 +822,28 @@ with st.form(key='my_form'):
     username = st.text_input("Username")
     password = st.text_input("Password")
     st.form_submit_button("Login")
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/control-flow/st.stop">
+
+#### Stop execution
+
+Stops execution immediately.
+
+```python
+st.stop()
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/control-flow/st.experimental_rerun">
+
+#### Rerun script
+
+Rerun the script immediately.
+
+```python
+st.experimental_rerun()
 ```
 
 </RefCard>
@@ -865,6 +889,46 @@ Display object’s doc string, nicely formatted.
 ```python
 st.help(st.write)
 st.help(pd.DataFrame)
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/utilities/st.experimental_show">
+
+#### st.experimental_show
+
+Write arguments and argument names to your app for debugging purposes.
+
+```python
+df = pd.DataFrame({
+  'first column': [1, 2, 3, 4],
+  'second column': [10, 20, 30, 40],
+ })
+st.experimental_show(df)
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/utilities/st.experimental_get_query_params">
+
+#### Get query paramters
+
+Return the query parameters that are currently showing in the browser's URL bar.
+
+```python
+st.experimental_get_query_params()
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/utilities/st.experimental_set_query_params">
+
+#### Set query paramters
+
+Set the query parameters that are shown in the browser's URL bar.
+
+```python
+st.experimental_set_query_params(
+  show_map=True,
+  selected=["asia"]
+)
 ```
 
 </RefCard>
@@ -950,4 +1014,43 @@ def get_database_session(url):
 ```
 
 </RefCard>
+
+<RefCard href="/library/api-reference/performance/st.experimental_memo.clear">
+
+#### Clear memo
+
+Clear all in-memory and on-disk memo caches.
+
+```python
+@st.experimental_memo
+def fetch_and_clean_data(url):
+  # Fetch data from URL here, and then clean it up.
+  return data
+
+if st.checkbox("Clear All"):
+  # Clear values from *all* memoized functions
+  st.experimental_memo.clear()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/performance/st.experimental_singleton.clear">
+
+#### Clear singleton
+
+Clear all singleton caches.
+
+```python
+@st.experimental_singleton
+def get_database_session(url):
+  # Create a database session object that points to the URL.
+  return session
+
+if st.button("Clear All"):
+  # Clears all singleton caches:
+  st.experimental_singleton.clear()
+```
+
+</RefCard>
+
 </TileContainer>
