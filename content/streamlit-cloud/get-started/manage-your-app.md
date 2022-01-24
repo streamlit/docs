@@ -5,12 +5,13 @@ slug: /streamlit-cloud/get-started/manage-your-app
 
 # Manage your app
 
-You can manage your app directly from the deployed app in your developer view or you can log in to your app dashboard at [share.streamlit.io](https://share.streamlit.io/) to view your apps, deploy a new app, delete an app, or reboot an app.
+You can manage your app directly from the deployed app in your developer view or you can log in to your app dashboard at [share.streamlit.io](https://share.streamlit.io/) to view, deploy, delete, reboot, or favorite an app.
 
 - [Manage apps from your developer view](#manage-apps-from-your-developer-view)
 - [Manage apps from your app dashboard](/streamlit-cloud/get-started/manage-your-app#manage-apps-from-your-app-dashboard)
 - [Manage apps in GitHub](/streamlit-cloud/get-started/manage-your-app#manage-apps-in-github)
 - [App resources and limits](/streamlit-cloud/get-started/manage-your-app#app-resources-and-limits)
+- [App favoriting](/streamlit-cloud/get-started/manage-your-app#app-favoriting)
 
 ## Manage apps from your developer view
 
@@ -70,19 +71,6 @@ If your app needs a hard reboot, click on the "︙" overflow menu to the right o
 
 ![Reboot an app](/images/streamlit-cloud/reboot-an-app.png)
 
-### Favorite an app
-
-Streamlit Cloud supports a "favorite" feature that lets you quickly access your apps from the app dashboard. Favorited apps appear at the top of the app dashboard with a yellow star (⭐) besides them. You can favorite and unfavorite apps in any workspace to which you have access.
-
-There are two ways to favorite an app:
-
-1. Hover over an app and click the star (☆) that appears.
-   ![Favorite an app hover](/images/streamlit-cloud/favorite-app-dashboard-hover.png)
-2. Click on the "︙" overflow menu to the right of the app and click to Favorite.
-   ![Favorite an app menu](/images/streamlit-cloud/favorite-app-dashboard-menu.png)
-
-To unfavorite an app, either hover over the app and click the star (☆) again, or click on the "︙" overflow menu to the right of the app and click to Unfavorite.
-
 ### App settings
 
 The app settings let you [manage viewers of your apps](/streamlit-cloud/get-started/share-your-app#adding-viewers-from-your-dashboard) and [secrets of your apps](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). Click on the links to lean more about these features.
@@ -122,3 +110,42 @@ Private apps on Teams or Enterprise plans will not hibernate, but for public and
     <div style={{ maxWidth: '85%' }}>
         <Image src="/images/sleeping_app_moon.png" />
     </div>
+
+## App favoriting
+
+Streamlit Cloud supports a "favorite" feature that lets you quickly access your apps from the app dashboard. Favorited apps appear at the top of the app dashboard with a yellow star (⭐) beside them. You can favorite and unfavorite apps in any workspace to which you have access.
+
+<Note>
+
+Favorites are specific to your account. Other members of your workspace cannot see which apps you have favorited.
+
+</Note>
+
+### Favorite an app from your app dashboard
+
+There are two ways to favorite an app from the app dashboard:
+
+1. Hover over an app and click the star (☆) that appears.
+   ![Favorite an app hover](/images/streamlit-cloud/favorite-app-dashboard-hover.png)
+2. Click on the "︙" overflow menu to the app's right and click to Favorite.
+   ![Favorite an app menu](/images/streamlit-cloud/favorite-app-dashboard-menu.png)
+
+To unfavorite an app, either hover over the app and click the star (⭐) again, or click on the "︙" overflow menu to the app's right and click to Unfavorite.
+
+### In-app favoriting
+
+You can also favorite an app from right within the app! Currently, in-app favoriting is available for apps that use Streamlit v1.4.0 or later. Note that in-app favoriting is not available on apps in your workspaces for which you only have view access.
+
+When viewing any app in your workspace, click the star (☆) in the top-right corner of the app, besides the "☰" hamburger menu.
+
+![In-app favoriting](/images/streamlit-cloud/un-favorited.png)
+
+To unfavorite an app, click the star (⭐) again.
+
+![In-app un-favoriting](/images/streamlit-cloud/favorited-view.png)
+
+<Tip>
+
+Click [here](/knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud) to learn more about upgrading the Streamlit version of your app on Streamlit Cloud.
+
+</Tip>
