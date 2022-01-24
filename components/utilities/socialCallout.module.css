@@ -1,0 +1,66 @@
+.Title {
+  @apply font-sans font-bold tracking-tight text-2xl md:text-4xl mt-0 mb-6;
+  @apply text-gray-90 !important;
+}
+
+:global(.dark) .Title,
+:global(.dark) .Subtitle,
+:global(.dark) .Text {
+  @apply text-white !important;
+}
+
+.ListContainer {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-12 m-0;
+}
+
+.ListItem {
+  @apply flex items-center mb-0;
+}
+
+.Link {
+  @apply flex items-center group-hover:opacity-70;
+}
+
+.IconContainer {
+  @apply p-4 mr-4 mb-0 rounded-md leading-4;
+}
+
+.Icon {
+  @apply w-8 h-8;
+}
+
+.Subtitle {
+  @apply font-bold font-sans text-lg my-0;
+  @apply text-gray-90 !important;
+}
+
+.Text {
+  @apply font-sans font-normal text-xs tracking-normal mb-0 leading-4;
+  @apply text-gray-90 !important;
+}
+
+/* Specific colors for each social network */
+.GitHub {
+  @apply bg-gray-90;
+}
+
+.Twitter {
+  @apply bg-darkBlue-60;
+}
+
+.YouTube {
+  @apply bg-red-80;
+}
+
+.Discord {
+  @apply bg-indigo-70;
+}
+
+.Instagram {
+  background-image: linear-gradient(
+    40.67deg,
+    #f7cc3e 6.51%,
+    #ef4a6e 49.3%,
+    #972aaa 100%
+  );
+}
