@@ -1,7 +1,7 @@
 pandas==1.2.5
 plotly==5.1.0
 bokeh==2.3.2
-streamlit==1.2.0
+streamlit==1.4.0
 graphviz==0.17
 requests==2.22.0
 matplotlib==3.4.1
