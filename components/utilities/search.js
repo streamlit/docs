@@ -213,7 +213,6 @@ const Search = () => {
             <FocusTrap>
               <div
                 className={styles.Modal}
-                style={{ background: "rgb(163, 168, 184, .6)" }}
                 onClick={toggleModal}
                 onKeyDown={handleKey}
               >
