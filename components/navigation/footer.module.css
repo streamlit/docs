@@ -1,0 +1,78 @@
+.Container {
+  @apply container mx-auto px-4;
+}
+
+.InnerContainer {
+  @apply flex flex-col items-center justify-between py-8;
+}
+
+.Separator {
+  @apply w-full border-t-gray-30;
+}
+
+:global(.dark) .Separator {
+  @apply border-t-gray-90 !important;
+}
+
+.Navigation {
+  @apply flex gap-8 mt-4 mb-2;
+}
+
+.Link {
+  @apply text-gray-90 text-base tracking-tight leading-7 font-bold hover:opacity-70;
+}
+
+:global(.dark) .Link {
+  @apply text-white !important;
+}
+
+.SocialNetworks {
+  @apply flex items-center gap-4;
+}
+
+.IconLink {
+  @apply relative rounded-full overflow-hidden flex justify-center items-center px-2 sm:p-2 hover:opacity-100 hover:scale-105 hover:bg-gray-10;
+}
+
+.IconContainer {
+  @apply text-base;
+}
+
+.Icon {
+  @apply w-6 h-6 flex fill-gray-60;
+}
+
+/* Colors for hover states */
+.GitHubIcon,
+.InstagramIcon {
+  @apply hover:fill-gray-90;
+}
+
+.YouTubeIcon {
+  @apply hover:fill-red-80;
+}
+
+.TwitterIcon {
+  @apply hover:fill-darkBlue-60;
+}
+
+.DiscordIcon {
+  @apply hover:fill-indigo-70;
+}
+
+.Copyright {
+  @apply text-base tracking-tight leading-7 mt-2;
+  @apply text-gray-60 !important;
+}
+
+@media screen and (min-width: 1024px) {
+  .Container {
+    padding-left: 160px;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  .Container {
+    padding-left: 362px;
+  }
+}

@@ -1,13 +1,18 @@
-import Link from "next/link";
+import styles from "./suggestEdits.module.css";
 
 const SuggestEdits = ({ sourcefile }) => {
   return (
-    <section className="suggestEdits">
-      <section className="buttons">
-        <i>edit</i>
-        <Link href={sourcefile} target={sourcefile}>
-          <a>Suggest edits</a>
-        </Link>
+    <section>
+      <section className={styles.Container}>
+        <i className={styles.Icon}>edit</i>
+        <a
+          className={styles.Link}
+          href={sourcefile}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Suggest edits
+        </a>
       </section>
     </section>
   );
