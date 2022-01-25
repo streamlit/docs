@@ -32,7 +32,7 @@ binary_contents = b'example content'
 # Defaults to 'application/octet-stream'
 st.download_button('Download binary file', binary_contents)
 
-with open("flower.png", "rb") as file:
+with open("python/api-examples-source/flower.png", "rb") as file:
     btn = st.download_button(
         label="Download image",
         data=file,
