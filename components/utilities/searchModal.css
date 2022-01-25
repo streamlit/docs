@@ -48,3 +48,12 @@
 .ais-InstantSearch .ais-Hits .ais-Hits-list li {
   @apply m-0 border-b border-b-gray-40 hover:bg-gray-20 hover:dark:bg-gray-60 dark:border-b-gray-80;
 }
+
+.ais-Snippet-highlighted,
+.ais-Highlight-highlighted {
+  @apply not-italic pb-1 border-b-2 border-b-yellow-90;
+}
+
+.ais-Highlight-highlighted {
+  @apply pb-0;
+}
