@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import classNames from "classnames";
 import FocusTrap from "focus-trap-react";
 import { useRouter, withRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
@@ -152,13 +153,16 @@ const Search = () => {
 
     return (
       <article
-        className={`
-          ${styles.HitContainer}
-          ${props.hit.__position === indexFocus ? styles.ActiveHit : ""}
-        `}
+        className={classNames(
+          styles.HitContainer,
+          props.hit.__position === indexFocus ? styles.ActiveHit : ""
+        )}
         tabIndex="-1"
       >
-        <a className={`not-link ${styles.HitLink}`} href={props.hit.url}>
+        <a
+          className={classNames("not-link", styles.HitLink)}
+          href={props.hit.url}
+        >
           <section className={styles.IconContainer}>
             <div
               className={`
