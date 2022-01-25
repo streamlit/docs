@@ -809,17 +809,6 @@ st.exception(e)
 ## Control flow
 
 <TileContainer>
-<RefCard href="/library/api-reference/control-flow/st.stop">
-
-#### Stop execution
-
-Stops execution immediately.
-
-```python
-st.stop()
-```
-
-</RefCard>
 <RefCard href="/library/api-reference/control-flow/st.form">
 
 <!--<Image pure alt="screenshot" src="/images/api/form.jpg" />-->
@@ -833,6 +822,28 @@ with st.form(key='my_form'):
     username = st.text_input("Username")
     password = st.text_input("Password")
     st.form_submit_button("Login")
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/control-flow/st.stop">
+
+#### Stop execution
+
+Stops execution immediately.
+
+```python
+st.stop()
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/control-flow/st.experimental_rerun">
+
+#### Rerun script
+
+Rerun the script immediately.
+
+```python
+st.experimental_rerun()
 ```
 
 </RefCard>
@@ -878,6 +889,46 @@ Display object’s doc string, nicely formatted.
 ```python
 st.help(st.write)
 st.help(pd.DataFrame)
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/utilities/st.experimental_show">
+
+#### st.experimental_show
+
+Write arguments and argument names to your app for debugging purposes.
+
+```python
+df = pd.DataFrame({
+  'first column': [1, 2, 3, 4],
+  'second column': [10, 20, 30, 40],
+ })
+st.experimental_show(df)
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/utilities/st.experimental_get_query_params">
+
+#### Get query paramters
+
+Return the query parameters that are currently showing in the browser's URL bar.
+
+```python
+st.experimental_get_query_params()
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/utilities/st.experimental_set_query_params">
+
+#### Set query paramters
+
+Set the query parameters that are shown in the browser's URL bar.
+
+```python
+st.experimental_set_query_params(
+  show_map=True,
+  selected=["asia"]
+)
 ```
 
 </RefCard>
