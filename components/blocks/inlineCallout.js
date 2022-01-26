@@ -1,4 +1,5 @@
 import Link from "next/link";
+import classNames from "classnames";
 
 import styles from "./inlineCallout.module.css";
 
@@ -19,11 +20,11 @@ const InlineCallout = ({ children, icon, color, bold, href }) => {
     <section className={styles.Container}>
       <Link href={href}>
         <a
-          className={`
-            ${styles.IconContainer}
-            not-link 
-            ${backgroundColor}
-          `}
+          className={classNames(
+            styles.IconContainer,
+            backgroundColor,
+            "not-link"
+          )}
         >
           <i className={styles.Icon}>{icon}</i>
         </a>
@@ -31,13 +32,7 @@ const InlineCallout = ({ children, icon, color, bold, href }) => {
       <article>
         <p className={styles.Text}>
           <Link href={href}>
-            <a
-              className={`
-                not-link
-                ${styles.Link}
-                ${textColor}
-              `}
-            >
+            <a className={classNames("not-link", styles.Link, textColor)}>
               {bold}
             </a>
           </Link>{" "}
