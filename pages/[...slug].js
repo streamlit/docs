@@ -25,7 +25,6 @@ import { useAppContext } from "../context/AppContext";
 import Layout from "../components/layouts/globalTemplate";
 import BreadCrumbs from "../components/utilities/breadCrumbs";
 import SideBar from "../components/navigation/sideBar";
-import Row from "../components/layouts/row";
 import Masonry from "../components/layouts/masonry";
 import TileContainer from "../components/layouts/tileContainer";
 import InlineCalloutContainer from "../components/layouts/inlineCalloutContainer";
@@ -88,7 +87,6 @@ export default function Article({
     Code,
     Warning,
     YouTube,
-    Row,
     Masonry,
     CodeTile,
     InlineCalloutContainer,
