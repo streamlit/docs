@@ -164,12 +164,7 @@ const Search = () => {
           href={props.hit.url}
         >
           <section className={styles.IconContainer}>
-            <div
-              className={`
-              ${styles.ImageContainer}
-              icon-${icon}
-            `}
-            >
+            <div className={classNames(styles.ImageContainer, `icon-${icon}`)}>
               <i className={styles.Icon}>{icon}</i>
             </div>
           </section>
@@ -250,12 +245,11 @@ const Search = () => {
   }
 
   let searchBar = (
-    <section
-      className={`
-        ${styles.SearchBarContainer}
-      `}
-    >
-      <section className={`group ${styles.SearchBar}`} onClick={searchClicked}>
+    <section className={styles.SearchBarContainer}>
+      <section
+        className={classNames("group", styles.SearchBar)}
+        onClick={searchClicked}
+      >
         <i
           className={styles.SearchIcon}
           style={{ transform: "rotateY(180deg)" }}
