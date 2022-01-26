@@ -17,7 +17,7 @@ You may want to avoid getting into this situation if your app depends on a speci
 
 1. If the Streamlit version is not pinned (i.e., the requirements file contains a line with `streamlit` and nothing else):
    - Reboot the app as described above.
-2. If the Streamlit version is pinned (e.g., `streamlit==1.0.0`):
+2. If the Streamlit version is pinned (e.g., `streamlit==1.4.0`):
    - Adapt the pinned version in the requirements file and push it to GitHub.
    - The app on Streamlit Cloud will reboot automatically as soon as it detects these changes.
 
