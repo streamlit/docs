@@ -1,0 +1,30 @@
+.Container {
+  @apply fixed bottom-6 w-full z-10;
+}
+
+.BannerBackground {
+  @apply bg-red-70 mx-4 py-6 px-8 rounded-md;
+}
+
+.Title {
+  @apply mt-0 mb-2 font-sans font-bold text-2xl tracking-tight leading-tight;
+  @apply text-white !important;
+}
+
+.CtasContainer {
+  @apply flex mt-6;
+}
+
+.Button {
+  @apply bg-white border-0 rounded-md px-4 py-3 text-red-70 text-sm font-bold tracking-normal block cursor-pointer mr-8 mb-0 hover:opacity-90 hover:scale-105;
+}
+
+/* MDX styles */
+.Container div p,
+.Container div a {
+  @apply text-white;
+}
+
+.Container div p {
+  @apply m-0;
+}

@@ -1,0 +1,23 @@
+/* TODO: Remove !important when done moving to Tailwind */
+
+.Link {
+  @apply hover:opacity-70;
+  @apply text-gray-70 !important;
+}
+
+.ActiveLink {
+  @apply font-bold;
+}
+
+:global(.dark) .Link {
+  @apply text-gray-50 !important;
+}
+
+.Separator {
+  @apply ml-2;
+  @apply text-gray-50 !important;
+}
+
+:global(.dark) .Separator {
+  @apply text-gray-70 !important;
+}

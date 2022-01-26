@@ -1,0 +1,41 @@
+.Container {
+  @apply flex items-center flex-wrap py-8 mt-16 border-t border-b border-t-gray-30 border-b-gray-30;
+}
+
+:global(.dark) .Container {
+  @apply border-b-gray-90 border-t-gray-90;
+}
+
+.Icon {
+  @apply text-5xl mr-8;
+  @apply text-gray-90 !important;
+}
+
+:global(.dark) .Icon {
+  @apply text-white !important;
+}
+
+.Title {
+  @apply my-0 font-bold text-2xl;
+  @apply text-gray-90 !important;
+}
+
+:global(.dark) .Title,
+:global(.dark) .Text,
+:global(.dark) .Link {
+  @apply text-white !important;
+}
+
+.Text {
+  @apply text-base tracking-tight;
+  @apply text-gray-90 !important;
+}
+
+.Link {
+  @apply border-b border-b-gray-90 hover:opacity-70 hover:border-b-red-70;
+  @apply text-gray-90 !important;
+}
+
+:global(.dark) .Link {
+  @apply border-b-white;
+}

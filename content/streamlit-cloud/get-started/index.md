@@ -59,7 +59,7 @@ Streamlit Cloud offers support for all other single sign-on (SSO) providers, but
 
 ## Connect your GitHub account
 
-Next you need to authorize Streamlit to connect to your GitHub account. This lets your Streamlit Cloud workspace launch apps directly from the app files you store in your repos, as well as let the system check for updates to those app files so that your apps can automatically update. You will see two different authorization screens to give this access. Click "authorize" on both. Questions about GitHub permissions? [Read more here]()!
+Next you need to authorize Streamlit to connect to your GitHub account. This lets your Streamlit Cloud workspace launch apps directly from the app files you store in your repos, as well as let the system check for updates to those app files so that your apps can automatically update. You will see two different authorization screens to give this access. Click "authorize" on both. Questions about GitHub permissions? [Read more here](/streamlit-cloud/troubleshooting#github-integration)!
 
 <Important>
 
