@@ -1,5 +1,6 @@
 import { debounce } from "lodash";
 import React, { useState, useEffect } from "react";
+import classNames from "classnames";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
@@ -46,18 +47,14 @@ const Header = () => {
 
   return (
     <header
-      className={`
-      ${styles.Container}
-      ${isSticky ? styles.stickyContainer : styles.standardContainer}
-    `}
+      className={classNames(
+        styles.Container,
+        isSticky ? styles.stickyContainer : styles.standardContainer
+      )}
     >
       <nav className={styles.Navigation} id="main-header">
         <Link href="/">
-          <a
-            className={`
-              ${styles.LogoContainer} not-link
-            `}
-          >
+          <a className={classNames(styles.LogoContainer, "not-link")}>
             <img src="/logo.svg" alt="" />
             <h4 className={styles.LogoText}>Documentation</h4>
           </a>
