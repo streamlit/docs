@@ -18,8 +18,6 @@
 //                      |_|
 
 @import "./components/navigation/header.scss";
-@import "./components/navigation/footer.scss";
-@import "./components/navigation/arrowLinks.scss";
 @import "./components/navigation/sideBar.scss";
 @import "./components/navigation/offScreenNav.scss";
 
@@ -30,10 +28,6 @@
 @import "./components/layout/row.scss";
 @import "./components/layout/tileContainer.scss";
 @import "./components/layout/article.scss";
-
-@import "./components/utilities/helpful.scss";
-@import "./components/utilities/suggestEdits.scss";
-@import "./components/utilities/socialCallouts.scss";
 @import "./components/utilities/loading.scss";
 
 @import "./components/blocks/autofunction.scss";
