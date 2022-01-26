@@ -1,3 +1,5 @@
+import classNames from "classnames";
+
 import styles from "./codeTile.module.css";
 
 // Used in cheatsheet.
@@ -15,11 +17,11 @@ const CodeTile = ({ children, size, featured }) => {
 
   return (
     <section
-      className={`
-        ${styles.Container}
-        ${tileSize || ""}
-        ${featured && styles.Featured}
-      `}
+      className={classNames(
+        styles.Container,
+        tileSize || "",
+        featured && styles.Featured
+      )}
     >
       {children}
     </section>

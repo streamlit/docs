@@ -1,4 +1,5 @@
 import Link from "next/link";
+import classNames from "classnames";
 
 import styles from "./refCard.module.css";
 
@@ -16,14 +17,7 @@ const RefCard = ({ children, size, href }) => {
 
   return (
     <Link href={href}>
-      <a
-        className={`
-          ${styles.Container}
-          ${tileSize}
-        `}
-      >
-        {children}
-      </a>
+      <a className={classNames(styles.Container, tileSize)}>{children}</a>
     </Link>
   );
 };

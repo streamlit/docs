@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import classNames from "classnames";
 import Prism from "prismjs";
 import "prismjs/components/prism-jsx";
 import "prismjs/components/prism-python";
@@ -42,20 +43,15 @@ const Code = ({ code, children, language, img, lines }) => {
       <section className={styles.Container}>
         <Image src={img} clean={true} />
         <pre>
-          <code className={`${languageClass}`}>{customCode}</code>
+          <code className={languageClass}>{customCode}</code>
         </pre>
       </section>
     );
   } else if (lines) {
     ConditionalRendering = (
-      <section
-        className={`
-          ${styles.Container}
-          ${styles.LineHighlight}
-        `}
-      >
+      <section className={classNames(styles.Container, styles.LineHighlight)}>
         <pre data-line={lines}>
-          <code className={`${languageClass}`}>{customCode}</code>
+          <code className={languageClass}>{customCode}</code>
         </pre>
       </section>
     );
@@ -63,7 +59,7 @@ const Code = ({ code, children, language, img, lines }) => {
     ConditionalRendering = (
       <section className={styles.Container}>
         <pre>
-          <code className={`${languageClass}`}>{customCode}</code>
+          <code className={languageClass}>{customCode}</code>
         </pre>
       </section>
     );
