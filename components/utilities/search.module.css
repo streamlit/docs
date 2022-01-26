@@ -84,7 +84,8 @@
 }
 
 .HitCategory {
-  @apply mb-0 text-xs tracking-tight leading-4 text-gray-70;
+  @apply mb-0 text-xs tracking-tight leading-4;
+  @apply text-gray-70 !important;
 }
 
 .HitTitle {
