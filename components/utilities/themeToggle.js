@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import classNames from "classnames";
 import styles from "./themeToggle.module.css";
 
 const ThemeToggle = () => {
@@ -33,26 +33,10 @@ const ThemeToggle = () => {
       title={`Change to ${inactiveTheme} mode`}
       type="button"
       onClick={() => setActiveTheme(inactiveTheme)}
-      className={`
-        ${styles.Container}
-      `}
+      className={styles.Container}
     >
-      <i
-        className={`
-          ${styles.DarkIcon}
-          ${styles.Icon}
-        `}
-      >
-        dark_mode
-      </i>
-      <i
-        className={`
-          ${styles.LightIcon}
-          ${styles.Icon}
-        `}
-      >
-        light_mode
-      </i>
+      <i className={classNames(styles.DarkIcon, styles.Icon)}>dark_mode</i>
+      <i className={classNames(styles.LightIcon, styles.Icon)}>light_mode</i>
     </button>
   );
 };
