@@ -5,7 +5,7 @@ slug: /library/cheatsheet
 
 # Cheat Sheet
 
-This is a summary of the docs, as of [Streamlit v1.2.0](https://pypi.org/project/streamlit/1.2.0/).
+This is a summary of the docs, as of [Streamlit v1.4.0](https://pypi.org/project/streamlit/1.4.0/).
 
 <Masonry>
 
@@ -156,8 +156,12 @@ st.video(data)
 #### Control flow
 
 ```python
+# Stop execution immediately:
 st.stop()
+# Rerun script immediately:
+st.experimental_rerun()
 
+# Group multiple widgets:
 >>> with st.form(key='my_form'):
 >>>   username = st.text_input('Username')
 >>>   password = st.text_input('Password')
@@ -183,8 +187,10 @@ st.number_input('Pick a number', 0, 10)
 st.text_area('Text to translate')
 st.date_input('Your birthday')
 st.time_input('Meeting time')
-st.file_uploader('Upload a photo')
+st.file_uploader('Upload a CSV')
+st.camera_input('Take a picture')
 st.download_button('Download file', data)
+st.camera_input("Take a picture")
 st.color_picker('Pick a color')
 
 # Use widgets' returned values in variables:
@@ -194,6 +200,9 @@ st.color_picker('Pick a color')
 >>>   b()
 >>> my_slider_val = st.slider('Quinn Mallory', 1, 88)
 >>> st.write(slider_val)
+
+# Disable widgets to remove interactivity:
+>>> st.slider('Pick a number', 0, 100, disabled=True)
 ```
 
 </CodeTile>
@@ -247,6 +256,9 @@ st.help(pandas.DataFrame)
 st.get_option(key)
 st.set_option(key, value)
 st.set_page_config(layout='wide')
+st.experimental_show(objects)
+st.experimental_get_query_params()
+st.experimental_set_query_params(**params)
 ```
 
 </CodeTile>
@@ -286,6 +298,10 @@ st.set_page_config(layout='wide')
 >>> d2 = foo(ref1)
 # Different arg, so function foo executes
 >>> d3 = foo(ref2)
+# Clear all cached entries for this function
+>>> foo.clear()
+# Clear values from *all* memoized functions
+>>> st.experimental_memo.clear()
 ```
 
 ###### Cache non-data objects
@@ -303,6 +319,10 @@ st.set_page_config(layout='wide')
 >>> s2 = foo(ref1)
 # Different arg, so function foo executes
 >>> s3 = foo(ref2)
+# Clear all cached entries for this function
+>>> foo.clear()
+# Clear all singleton caches
+>>> st.experimental_singleton.clear()
 ```
 
 </CodeTile>
