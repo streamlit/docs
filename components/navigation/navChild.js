@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import classNames from "classnames";
 
 import useVersion from "../../lib/useVersion.js";
 
@@ -48,10 +49,10 @@ const NavChild = ({ slug, page, color, className }) => {
     accordion = (
       <div className={styles.Accordion}>
         <i
-          className={`
-            ${styles.AccordionIcon}
-            ${opened ? "close" : "open"}
-          `}
+          className={classNames(
+            styles.AccordionIcon,
+            opened ? "close" : "open"
+          )}
           onClick={toggleAccordion}
         >
           {opened ? "remove" : "add"}
@@ -82,31 +83,20 @@ const NavChild = ({ slug, page, color, className }) => {
   link = (
     <span className={styles.LinkContainer}>
       <Link href={url}>
-        <a
-          className={`
-            not-link
-            ${styles.Link}
-          `}
-          target={target}
-        >
+        <a className={classNames("not-link", styles.Link)} target={target}>
           <span
-            className={`
-              ${styles.Circle}
-              ${active ? styles.ActiveCircle : ""}
-              ${
-                color === "violet-70"
-                  ? styles.LibraryCircle
-                  : color === "l-blue-70"
-                  ? styles.CloudCircle
-                  : styles.KBCircle
-              }
-            `}
+            className={classNames(
+              styles.Circle,
+              active ? styles.ActiveCircle : "",
+              color === "violet-70"
+                ? styles.LibraryCircle
+                : color === "l-blue-70"
+                ? styles.CloudCircle
+                : styles.KBCircle
+            )}
           />
           <span
-            className={`
-              ${styles.PageName}
-              ${active && styles.ActivePage}
-            `}
+            className={classNames(styles.PageName, active && styles.ActivePage)}
           >
             {page.name}
           </span>
@@ -118,12 +108,7 @@ const NavChild = ({ slug, page, color, className }) => {
   );
 
   return (
-    <li
-      className={`
-        ${styles.Container}
-        ${className}
-      `}
-    >
+    <li className={classNames(styles.Container, className)}>
       {link}
       {subNav}
     </li>

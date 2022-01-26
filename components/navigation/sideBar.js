@@ -1,5 +1,7 @@
 import { debounce } from "lodash";
 import React, { useState, useEffect } from "react";
+import classNames from "classnames";
+
 import bus from "../../lib/bus";
 import NavItem from "../navigation/navItem";
 
@@ -70,11 +72,11 @@ const SideBar = ({ menu, slug }) => {
 
   return (
     <section
-      className={`
-        ${styles.Container}
-        ${isOpen ? styles.OpenNav : styles.ClosedNav}
-        ${isOver ? styles.OverNav : styles.CollapsedNav}
-      `}
+      className={classNames(
+        styles.Container,
+        isOpen ? styles.OpenNav : styles.ClosedNav,
+        isOver ? styles.OverNav : styles.CollapsedNav
+      )}
     >
       <nav onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <ul className={styles.NavList}>{navItems}</ul>
