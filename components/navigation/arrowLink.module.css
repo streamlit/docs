@@ -1,0 +1,35 @@
+.Container {
+  @apply flex flex-wrap flex-col md:flex-row md:flex-nowrap items-center justify-between mt-20;
+}
+
+.Link {
+  @apply border-none text-base tracking-tight font-sans font-normal text-gray-90 leading-7 hover:opacity-70 flex items-center transition-all;
+}
+
+:global(.dark) .Link {
+  @apply text-white !important;
+}
+
+.NextLink {
+  @apply mt-8 sm:mt-0;
+}
+
+.Icon {
+  @apply relative group-hover:scale-105 fill-gray-90;
+}
+
+.BackIcon {
+  @apply mr-2 group-hover:-left-1;
+}
+
+.NextIcon {
+  @apply ml-2 group-hover:-left-1;
+}
+
+:global(.dark) .Icon {
+  @apply fill-white !important;
+}
+
+.Text {
+  @apply mr-1 font-bold;
+}

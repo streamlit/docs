@@ -1,6 +1,7 @@
 import { debounce } from "lodash";
 
 import "../styles/globals.css";
+import "../components/utilities/searchModal.css";
 import "../styles/main.scss";
 
 // Loading indicator

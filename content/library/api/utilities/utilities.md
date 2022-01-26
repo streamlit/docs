@@ -6,7 +6,7 @@ slug: /library/api-reference/utilities
 # Placeholders, help, and options
 
 There are a handful of methods that allow you to create placeholders in your
-app, provide help using doc strings, and get and modify configuration options.
+app, provide help using doc strings, get and modify configuration options and query parameters.
 
 <TileContainer>
 <RefCard href="/library/api-reference/utilities/st.set_page_config">
@@ -46,6 +46,49 @@ Display object’s doc string, nicely formatted.
 ```python
 st.help(st.write)
 st.help(pd.DataFrame)
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/utilities/st.experimental_show">
+
+#### st.experimental_show
+
+Write arguments and argument names to your app for debugging purposes.
+
+```python
+df = pd.DataFrame({
+  'first column': [1, 2, 3, 4],
+  'second column': [10, 20, 30, 40],
+ })
+st.experimental_show(df)
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/utilities/st.experimental_get_query_params">
+
+#### Get query paramters
+
+Return the query parameters that are currently showing in the browser's URL bar.
+
+```python
+st.experimental_get_query_params()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/utilities/st.experimental_set_query_params">
+
+#### Set query paramters
+
+Set the query parameters that are shown in the browser's URL bar.
+
+```python
+st.experimental_set_query_params(
+  show_map=True,
+  selected=["asia"]
+)
 ```
 
 </RefCard>
