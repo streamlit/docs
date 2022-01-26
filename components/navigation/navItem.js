@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import classNames from "classnames";
+
 import { urlInChildren } from "../../lib/utils.js";
 import NavChild from "./navChild";
 
@@ -23,32 +25,30 @@ const NavItem = ({ page, slug, condensed, className }) => {
 
   navBox = (
     <section
-      className={`
-        ${styles.HeadingContainer}
-        ${isCondensed ? styles.CondensedHeadingContainer : ""}
-      `}
+      className={classNames(
+        styles.HeadingContainer,
+        isCondensed ? styles.CondensedHeadingContainer : ""
+      )}
     >
       <div
-        className={`
-          ${styles.HeadingIconContainer}
-          ${isCondensed ? styles.CondensedHeadingIconContainer : ""}
-          ${
-            page.color === "violet-70"
-              ? styles.LibraryIcon
-              : page.color === "l-blue-70"
-              ? styles.CloudIcon
-              : styles.KBIcon
-          }
-        `}
+        className={classNames(
+          styles.HeadingIconContainer,
+          isCondensed ? styles.CondensedHeadingIconContainer : "",
+          page.color === "violet-70"
+            ? styles.LibraryIcon
+            : page.color === "l-blue-70"
+            ? styles.CloudIcon
+            : styles.KBIcon
+        )}
       >
         <i className={styles.Icon}>{page.icon}</i>
       </div>
       <p
-        className={`
-          ${styles.CategoryName}
-          ${isCondensed ? styles.CondensedCategoryName : ""}
-          ${color}
-        `}
+        className={classNames(
+          styles.CategoryName,
+          isCondensed ? styles.CondensedCategoryName : "",
+          color
+        )}
       >
         {page.name}
       </p>
@@ -58,10 +58,10 @@ const NavItem = ({ page, slug, condensed, className }) => {
   if (page.children && page.children.length > 0) {
     subNav = (
       <ul
-        className={`
-          ${styles.SubNav}
-          ${isCondensed ? styles.CondensedSubNav : styles.ExpandedSubNav}
-      `}
+        className={classNames(
+          styles.SubNav,
+          isCondensed ? styles.CondensedSubNav : styles.ExpandedSubNav
+        )}
       >
         {page.children.map((child) => (
           <NavChild
