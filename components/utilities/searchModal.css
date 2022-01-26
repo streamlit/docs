@@ -7,7 +7,7 @@
 }
 
 .ais-InstantSearch .ais-SearchBox-form input {
-  @apply h-16 w-full bg-gray-10 dark:bg-gray-90 border-b border-b-gray-40 text-gray-90 rounded-none pl-16 pr-4 text-base focus:outline-none focus:border-b-2 focus:border-b-yellow-90 dark:border-b-gray-80;
+  @apply h-16 w-full bg-gray-10 dark:bg-gray-90 border-b border-b-gray-40 text-gray-90 rounded-none pl-20 pr-4 text-base focus:outline-none focus:border-b-2 focus:border-b-yellow-90 dark:border-b-gray-80 dark:text-white;
 }
 
 .ais-InstantSearch .ais-SearchBox-form #search-clear,
