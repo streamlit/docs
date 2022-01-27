@@ -90,7 +90,7 @@ Shows all config options available for Streamlit, including their current
 values:
 
 ```toml
-# Streamlit version: 1.4.0
+# Streamlit version: 1.5.0
 
 [global]
 
@@ -104,8 +104,8 @@ disableWatchdogWarning = false
 showWarningOnDirectExecution = true
 
 # DataFrame serialization.
-# Acceptable values: 
-#   - 'legacy': Serialize DataFrames using Streamlit's custom format. Slow but battle-tested. 
+# Acceptable values:
+#   - 'legacy': Serialize DataFrames using Streamlit's custom format. Slow but battle-tested.
 #   - 'arrow': Serialize DataFrames using Apache Arrow. Much faster and versatile.
 # Default: "arrow"
 dataFrameSerialization = "arrow"
@@ -172,7 +172,7 @@ fileWatcherType = "auto"
 
 # Symmetric key used to produce signed cookies. If deploying on multiple replicas, this should be set to the same value across all replicas to ensure they all share the same secret.
 # Default: randomly generated secret key.
-cookieSecret = 
+cookieSecret =
 
 # If false, will attempt to open a browser window on start.
 # Default: false unless (1) we are on a Linux box where DISPLAY is unset, or (2) we are running in the Streamlit Atom plugin.
