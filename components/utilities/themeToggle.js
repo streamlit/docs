@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 
 const ThemeToggle = () => {
-  const [activeTheme, setActiveTheme] = useState(document.body.dataset.theme);
-  const [tailwindTheme, setTailwindTheme] = useState("light-mode");
+  const [activeThemeV1, setActiveThemeV1] = useState(
+    document.body.dataset.theme
+  );
+  const [activeThemeV2, setActiveThemeV2] = useState("light-mode");
   let inactiveTheme;
-  if (activeTheme !== undefined) {
-    inactiveTheme = activeTheme === "light-mode" ? "dark-mode" : "light-mode";
+  if (activeThemeV1 !== undefined) {
+    inactiveTheme = activeThemeV1 === "light-mode" ? "dark-mode" : "light-mode";
   }
   const changeTheme = new Event("ChangeTheme");
 
   const changeTailwindTheme = (theme) => {
-    setTailwindTheme(theme);
+    setActiveThemeV2(theme);
 
     if (theme === "light-mode") {
       document.documentElement.classList.add("light");
@@ -22,10 +24,10 @@ const ThemeToggle = () => {
   };
 
   useEffect(() => {
-    if (!activeTheme) return;
-    document.body.dataset.theme = activeTheme;
+    if (!activeThemeV1) return;
+    document.body.dataset.theme = activeThemeV1;
 
-    if (activeTheme === "light-mode") {
+    if (activeThemeV1 === "light-mode") {
       document.documentElement.classList.add("light");
       document.documentElement.classList.remove("dark");
     } else {
@@ -35,12 +37,12 @@ const ThemeToggle = () => {
     window.addEventListener(
       "ChangeTheme",
       function (e) {
-        window.localStorage.setItem("theme", activeTheme);
+        window.localStorage.setItem("theme", activeThemeV1);
       },
       false
     );
     window.dispatchEvent(changeTheme);
-  }, [activeTheme]);
+  }, [activeThemeV1]);
 
   return (
     <React.Fragment>
@@ -48,17 +50,17 @@ const ThemeToggle = () => {
         aria-label={`Change to ${inactiveTheme} mode`}
         title={`Change to ${inactiveTheme} mode`}
         type="button"
-        onClick={() => setActiveTheme(inactiveTheme)}
+        onClick={() => setActiveThemeV1(inactiveTheme)}
         className="toggleTheme"
       >
         {/* <span activeTheme={activeTheme} /> */}
         <i className="dark">dark_mode</i>
         <i className="light">light_mode</i>
       </button>
-      {activeTheme === undefined && (
+      {activeThemeV1 === undefined && (
         <div
           onClick={
-            tailwindTheme === "light-mode"
+            activeThemeV2 === "light-mode"
               ? () => changeTailwindTheme("dark-mode")
               : () => changeTailwindTheme("light-mode")
           }
