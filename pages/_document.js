@@ -12,20 +12,16 @@ export default function StreamlitDocument() {
     }
 
     
-    if(query !== '?oldStyles=false') {
-      if(getUserPreference() == 'undefined') {
-        document.body.dataset.theme = 'light-mode';
-      } else {
-        document.body.dataset.theme = getUserPreference();
-      }
-      
+     if (query !== '?oldStyles=false') {
       if(getUserPreference() === 'dark-mode') {
-        document.documentElement.classList.add('dark');
+        document.documentElement.classList.add('dark')
       } else {
-        document.documentElement.classList.add('light');
+        document.documentElement.classList.add('light')
       }
+      document.body.dataset.theme = getUserPreference()
     }
-    window.initial = { prism: false };
+
+    window.initial = { prism: false }
   `;
 
   return (
