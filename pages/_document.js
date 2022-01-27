@@ -1,6 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 export default function StreamlitDocument() {
+  // TODO: Refactor this using useEffect()
   const setInitialTheme = `
     const query = window.location.search;
     function getUserPreference() {
