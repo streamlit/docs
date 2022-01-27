@@ -76,6 +76,10 @@ We are working on this in Q4 of 2021. Check back soon for more information!
 
 ## Sharing and accessing apps
 
+### I don't have SSO. How do I sign in to Streamlit?
+
+Don't have SSO? No problem! You can sign in to Streamlit with your email address. [Click here](/streamlit-cloud/get-started#sign-in-with-email) for step-by-step instructions on how to sign in with email.
+
 ### How do I add developers to my Streamlit for Teams account?
 
 If you are on the same GitHub repo then you will automatically be added to the same workspace. Just invite them to log in to [share.streamlit.io](http://share.streamlit.io) and we will automatically route them to your workspace once they hook in their GitHub account.
