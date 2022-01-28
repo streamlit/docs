@@ -1,12 +1,14 @@
 import React from "react";
+import classNames from "classnames";
 
 import IconHeader from "../blocks/iconHeader";
 
-import styles from "./tip.module.css";
+import CalloutStyles from "./callout.module.css";
+import TipStyles from "./tip.module.css";
 
 const Tip = ({ children }) => {
   return (
-    <section className={styles.Container}>
+    <section className={classNames(CalloutStyles.Container, TipStyles.Tip)}>
       <IconHeader
         icon="star"
         rotate="0"

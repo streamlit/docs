@@ -1,0 +1,7 @@
+.Important {
+  @apply bg-orange-10;
+}
+
+:global(.dark) .Important {
+  background-color: #481d00;
+}

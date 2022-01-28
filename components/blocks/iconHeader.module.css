@@ -16,8 +16,16 @@
   @apply bg-indigo-70;
 }
 
+.OrangeBackground {
+  @apply bg-orange-70;
+}
+
 .VioletText {
   @apply text-indigo-70 !important;
+}
+
+.OrangeText {
+  @apply text-orange-70 !important;
 }
 
 :global(.dark) .VioletText {
