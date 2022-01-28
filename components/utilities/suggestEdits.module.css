@@ -1,5 +1,5 @@
 .Container {
-  @apply flex items-center cursor-pointer;
+  @apply mt-6 sm:mt-0 flex items-center cursor-pointer;
 }
 
 .Icon {
