@@ -14,6 +14,18 @@
   @apply text-gray-90 !important;
 }
 
+.Container ul {
+  @apply mx-8 mb-2;
+}
+
+.Container ul li {
+  @apply mb-2;
+}
+
+.Container ul li a {
+  @apply mx-0;
+}
+
 .Container h1,
 .Container h2,
 .Container h3,
@@ -21,6 +33,10 @@
 .Container h5,
 .Container h6 {
   @apply mt-4;
+}
+
+.Container p:last-child {
+  @apply mb-4;
 }
 
 :global(.dark) .Container {
