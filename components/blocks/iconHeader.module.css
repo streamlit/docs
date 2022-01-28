@@ -1,0 +1,21 @@
+.Container {
+  @apply inline-flex items-center mb-4;
+}
+
+.Icon {
+  @apply rounded-full p-2 mr-2 text-sm leading-none transform;
+  @apply text-white !important;
+}
+
+.Title {
+  @apply m-0 font-bold text-lg leading-normal tracking-tight;
+}
+
+/* Color modifiers */
+.VioletBackground {
+  @apply bg-indigo-70;
+}
+
+.VioletText {
+  @apply text-indigo-70 !important;
+}
