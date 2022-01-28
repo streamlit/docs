@@ -14,12 +14,11 @@ import SocialCallout from "../components/utilities/socialCallout";
 import ArrowLinkContainer from "../components/navigation/arrowLinkContainer";
 import ArrowLink from "../components/navigation/arrowLink";
 
-import Note from "../components/blocks/noted";
+import Note from "../components/blocks/note";
 import Tip from "../components/blocks/tip";
 import Important from "../components/blocks/important";
 import NoteSplit from "../components/blocks/noteSplit";
 import Code from "../components/blocks/code";
-import IconHeader from "../components/blocks/iconHeader";
 import YouTube from "../components/blocks/youTube";
 import Image from "../components/blocks/image";
 import Tile from "../components/blocks/tile";

@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import Note from "./note";
-
 const Image = ({ caption, pure, src, alt, clean }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -26,17 +24,15 @@ const Image = ({ caption, pure, src, alt, clean }) => {
   } else if (isOpen) {
     block = (
       <section className="block-image">
-        <Note color="unset" background="unset">
-          <section className="image">
-            <img
-              onClick={openModal}
-              src={src}
-              alt={alt}
-              className={captionClass}
-            />
-            {customCaption}
-          </section>
-        </Note>
+        <section className="image">
+          <img
+            onClick={openModal}
+            src={src}
+            alt={alt}
+            className={captionClass}
+          />
+          {customCaption}
+        </section>
         <section className="light-box" onClick={closeModal}>
           <button onClick={openModal}>close</button>
           <section className="content">
@@ -58,17 +54,15 @@ const Image = ({ caption, pure, src, alt, clean }) => {
   } else {
     block = (
       <section className="block-image">
-        <Note color="unset" background="unset">
-          <section className="image">
-            <img
-              onClick={openModal}
-              className={captionClass}
-              src={src}
-              alt={alt}
-            />
-            {customCaption}
-          </section>
-        </Note>
+        <section className="image">
+          <img
+            onClick={openModal}
+            className={captionClass}
+            src={src}
+            alt={alt}
+          />
+          {customCaption}
+        </section>
       </section>
     );
   }
