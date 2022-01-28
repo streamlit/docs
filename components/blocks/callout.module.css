@@ -1,0 +1,10 @@
+.Container {
+  @apply p-4 md:p-8 rounded-md mt-8 mb-12;
+}
+
+.Container p:only-child,
+.Container p:last-child,
+.Container section:last-child,
+.Container section:last-child pre {
+  @apply mb-0;
+}

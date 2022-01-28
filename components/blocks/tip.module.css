@@ -1,14 +1,7 @@
-.Container {
-  @apply p-4 md:p-8 rounded-md mt-8 mb-12 bg-indigo-10;
+.Tip {
+  @apply bg-indigo-10;
 }
 
-:global(.dark) .Container {
+:global(.dark) .Tip {
   @apply bg-indigo-100;
-}
-
-.Container p:only-child,
-.Container p:last-child,
-.Container section:last-child,
-.Container section:last-child pre {
-  @apply mb-0;
 }
