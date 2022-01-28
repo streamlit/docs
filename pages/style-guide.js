@@ -14,7 +14,9 @@ import SocialCallout from "../components/utilities/socialCallout";
 import ArrowLinkContainer from "../components/navigation/arrowLinkContainer";
 import ArrowLink from "../components/navigation/arrowLink";
 
-import Note from "../components/blocks/note";
+import Note from "../components/blocks/noted";
+import Tip from "../components/blocks/tip";
+import Important from "../components/blocks/important";
 import NoteSplit from "../components/blocks/noteSplit";
 import Code from "../components/blocks/code";
 import IconHeader from "../components/blocks/iconHeader";
@@ -168,13 +170,6 @@ ls -l myscript.sh`}
             color="gray-90"
             dark={{ background: "dark-black", color: "white" }}
           >
-            <IconHeader
-              icon="push_pin"
-              rotate="45"
-              title="Note"
-              background="l-blue-70"
-              color="white"
-            />
             <p>
               For this guide we’re using small amounts of data so that we can
               move quickly. You can check out our{" "}
@@ -191,18 +186,11 @@ ls -l myscript.sh`}
           </Note>
         </Component>
         <Component label="Note Block (with code embed option)">
-          <Note
+          <Tip
             background="violet-10"
             color="gray-90"
             dark={{ background: "dark-violet", color: "white" }}
           >
-            <IconHeader
-              icon="star"
-              rotate="0"
-              title="Tip"
-              background="violet-70"
-              color="white"
-            />
             <p>
               Did you know you can also pass a URL to streamlit run? This is
               great when combined with Github Gists. For example:
@@ -212,28 +200,21 @@ ls -l myscript.sh`}
               code={`$ streamlit run
 https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py`}
             />
-          </Note>
+          </Tip>
         </Component>
         <Component label="Note Block (Important)">
-          <Note
+          <Important
             background="orange-10"
             color="gray-90"
             dark={{ background: "dark-orange", color: "white" }}
           >
-            <IconHeader
-              icon="priority_high"
-              rotate="0"
-              title="Important"
-              background="orange-70"
-              color="white"
-            />
             <p>
               If the email you originally signed-up with isn’t the primary email
               associated with your GitHub account, just reply to your invite
               email telling us your primary Github email so we can grant access
               to the correct account.
             </p>
-          </Note>
+          </Important>
         </Component>
         <Component label="YouTube Embed">
           <YouTube
