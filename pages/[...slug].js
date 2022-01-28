@@ -44,7 +44,7 @@ import Download from "../components/utilities/download";
 import Flex from "../components/layouts/flex";
 import Image from "../components/blocks/image";
 import Important from "../components/blocks/important";
-import Note from "../components/blocks/noted";
+import Note from "../components/blocks/note";
 import RefCard from "../components/blocks/refCard";
 import Tile from "../components/blocks/tile";
 import InlineCallout from "../components/blocks/inlineCallout";
