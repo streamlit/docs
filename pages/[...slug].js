@@ -51,6 +51,7 @@ import InlineCallout from "../components/blocks/inlineCallout";
 import Tip from "../components/blocks/tip";
 import Warning from "../components/blocks/warning";
 import YouTube from "../components/blocks/youTube";
+import Cloud from "../components/blocks/cloud";
 
 export default function Article({
   data,
@@ -87,6 +88,7 @@ export default function Article({
     Code,
     Warning,
     YouTube,
+    Cloud,
     Masonry,
     CodeTile,
     InlineCalloutContainer,
@@ -218,11 +220,11 @@ export default function Article({
             <meta content="summary_large_image" name="twitter:card" />
             <meta
               property="og:image"
-              content={`${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-facebook.jpg`}
+              content={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-facebook.jpg`}
             />
             <meta
               name="twitter:image"
-              content={`${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-twitter.jpg`}
+              content={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-twitter.jpg`}
             />
           </Head>
           <section className="content wide" id="documentation">

@@ -2,9 +2,12 @@ import requests
 import streamlit as st
 
 
-@st.experimental_singleton
+@st.experimental_memo
 def read_file_from_url(url):
-    return requests.get(url).content
+    headers = {
+        "User-Agent": "StreamlitDocs/1.5.0 (https://docs.streamlit.io; hello@streamlit.io)"
+    }
+    return requests.get(url, headers=headers).content
 
 
 file_bytes = read_file_from_url(

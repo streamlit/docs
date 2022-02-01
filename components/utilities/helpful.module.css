@@ -23,6 +23,10 @@
   @apply text-gray-90 !important;
 }
 
+.Button:last-child {
+  @apply ml-6;
+}
+
 :global(.dark) .Button {
   @apply bg-gray-80;
   @apply text-white !important;
