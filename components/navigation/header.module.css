@@ -32,7 +32,7 @@
 }
 
 .LogoText {
-  @apply hidden xl:block m-0 font-normal ml-4;
+  @apply hidden xl:block m-0 font-normal ml-4 relative top-px;
   @apply text-gray-90 !important;
 }
 
