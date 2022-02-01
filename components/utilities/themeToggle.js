@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import styles from "./themeToggle.module.css";
 
@@ -49,15 +49,15 @@ const ThemeToggle = () => {
   return (
     <React.Fragment>
       <button
-      aria-label={`Change to ${inactiveTheme} mode`}
-      title={`Change to ${inactiveTheme} mode`}
-      type="button"
-      onClick={() => setActiveTheme(inactiveTheme)}
-      className={styles.Container}
-    >
-      <i className={classNames(styles.DarkIcon, styles.Icon)}>dark_mode</i>
-      <i className={classNames(styles.LightIcon, styles.Icon)}>light_mode</i>
-    </button>
+        aria-label={`Change to ${inactiveTheme} mode`}
+        title={`Change to ${inactiveTheme} mode`}
+        type="button"
+        onClick={() => setActiveTheme(inactiveTheme)}
+        className={styles.Container}
+      >
+        <i className={classNames(styles.DarkIcon, styles.Icon)}>dark_mode</i>
+        <i className={classNames(styles.LightIcon, styles.Icon)}>light_mode</i>
+      </button>
       {activeThemeV1 === undefined && (
         <div
           onClick={
