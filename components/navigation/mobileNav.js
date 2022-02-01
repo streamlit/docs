@@ -37,7 +37,7 @@ const MobileNav = () => {
 
   mobileNav = (
     <button className={styles.MobileNav} onClick={toggleMobileNav}>
-      <i className="transition-all">menu</i>
+      <i className={styles.Icon}>menu</i>
     </button>
   );
 

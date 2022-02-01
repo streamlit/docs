@@ -6,3 +6,11 @@
 :global(.dark) .MobileNav {
   @apply bg-gray-90 !important;
 }
+
+.Icon {
+  @apply transition-all;
+}
+
+:global(.dark) .Icon {
+  @apply text-white;
+}
