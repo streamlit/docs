@@ -1,4 +1,7 @@
 import React from "react";
+import classNames from "classnames";
+
+import styles from "./table.module.css";
 
 const Table = ({
   head,
@@ -26,17 +29,17 @@ const Table = ({
   if (body && body.title) {
     tbody = (
       <React.Fragment>
-        <tr className="head">
-          <td className="title bold" colSpan="2">
+        <tr className={classNames(styles.Row, styles.HeadingRow)}>
+          <td className={classNames(styles.Cell, styles.TitleCell)} colSpan="2">
             {body.title}
           </td>
         </tr>
         {bodyRows.map((row, index) => (
-          <tr key={`${row.title}-${index}`}>
-            <td width="20%">
+          <tr key={`${row.title}-${index}`} className={styles.Row}>
+            <td className={classNames(styles.Cell, styles.SmallCell)}>
               <div dangerouslySetInnerHTML={createMarkup(row.title)} />{" "}
             </td>
-            <td width="80%">
+            <td className={classNames(styles.Cell, styles.BigCell)}>
               <div dangerouslySetInnerHTML={createMarkup(row.body)} />
             </td>
           </tr>
@@ -48,13 +51,14 @@ const Table = ({
   if (head && head.title) {
     thead = (
       <React.Fragment key="thead">
-        <tr className="head">
-          <th className="title bold" colSpan="2">
+        <tr className={classNames(styles.Row, styles.HeadingRow)}>
+          <th className={classNames(styles.Cell, styles.TitleCell)} colSpan="2">
             {head.title}
           </th>
         </tr>
-        <tr>
+        <tr className={styles.Row}>
           <th
+            className={styles.Cell}
             colSpan="2"
             dangerouslySetInnerHTML={createMarkup(head.content)}
           />
@@ -66,17 +70,17 @@ const Table = ({
   if (foot && foot.title) {
     tfoot = (
       <React.Fragment key="tbody">
-        <tr className="head">
-          <td className="title bold" colSpan="2">
+        <tr className={classNames(styles.Row, styles.HeadingRow)}>
+          <td className={classNames(styles.Cell, styles.TitleCell)} colSpan="2">
             {foot.title}
           </td>
         </tr>
         {footRows.map((row, index) => (
-          <tr key={`${row.title}-${index}`}>
-            <td width="20%">
+          <tr key={`${row.title}-${index}`} className={styles.Row}>
+            <td className={classNames(styles.Cell, styles.SmallCell)}>
               <div dangerouslySetInnerHTML={createMarkup(row.title)} />{" "}
             </td>
-            <td width="80%">
+            <td className={classNames(styles.Cell, styles.BigCell)}>
               <div dangerouslySetInnerHTML={createMarkup(row.body)} />
             </td>
           </tr>
@@ -86,8 +90,8 @@ const Table = ({
   }
 
   return (
-    <section className="table-parent">
-      <table className={additionalClass}>
+    <section className={styles.TableContainer}>
+      <table className={classNames(additionalClass, styles.Table)}>
         <thead>{thead}</thead>
         <tbody>{tbody}</tbody>
         <tfoot>{tfoot}</tfoot>
@@ -100,8 +104,8 @@ const Table = ({
         );
         return (
           <React.Fragment key={`footer-${index}`}>
-            <section className="footer">
-              <h4 className="title bold" colSpan="2">
+            <section className={styles.FooterContainer}>
+              <h4 className={classNames(styles.TitleCell)} colSpan="2">
                 {footer.title}
               </h4>
               {body}
