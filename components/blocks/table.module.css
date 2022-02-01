@@ -1,0 +1,35 @@
+.TableContainer {
+  @apply w-full overflow-auto;
+}
+
+.Table {
+  @apply border-collapse border-b border-x border-b-gray-40 border-x-gray-40 rounded-md text-left mb-8 w-auto md:w-full;
+}
+
+.Row {
+  @apply flex flex-col md:flex-row;
+}
+
+.HeadingRow {
+  @apply bg-darkBlue-10/60 text-darkBlue-100;
+}
+
+:global(.dark) .HeadingRow {
+  @apply bg-darkBlue-100/60 text-white;
+}
+
+.Cell {
+  @apply p-4 border-t border-t-gray-40 w-full border-collapse;
+}
+
+.SmallCell {
+  @apply md:border-r md:border-r-gray-40 w-auto md:w-3/12 !important;
+}
+
+.BigCell {
+  @apply w-auto md:w-9/12 !important;
+}
+
+.TitleCell {
+  @apply font-bold mb-0;
+}
