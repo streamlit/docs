@@ -1,0 +1,38 @@
+.Container {
+  @apply rounded-md overflow-hidden flex justify-between flex-col cursor-pointer transition duration-100 ease-in-out hover:shadow-md bg-lightBlue-70;
+}
+
+.Link {
+  @apply p-4;
+}
+
+.Title {
+  @apply m-0;
+  @apply text-white !important;
+}
+
+.Text {
+  @apply text-sm tracking-tight text-white leading-normal !important;
+}
+
+.Icon {
+  @apply text-3xl mb-4;
+  @apply text-white !important;
+}
+
+/* Size modifiers */
+.Full {
+  @apply col-span-full;
+}
+
+.Half {
+  @apply col-span-full sm:col-span-3;
+}
+
+.TwoThirds {
+  @apply col-span-full md:col-span-3 lg:col-span-4;
+}
+
+.Third {
+  @apply col-span-full md:col-span-3 lg:col-span-2;
+}
