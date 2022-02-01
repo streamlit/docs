@@ -52,7 +52,7 @@ const ThemeToggle = () => {
         aria-label={`Change to ${inactiveTheme} mode`}
         title={`Change to ${inactiveTheme} mode`}
         type="button"
-        onClick={() => setActiveTheme(inactiveTheme)}
+        onClick={() => setActiveThemeV1(inactiveTheme)}
         className={styles.Container}
       >
         <i className={classNames(styles.DarkIcon, styles.Icon)}>dark_mode</i>
