@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import classNames from "classnames";
 
-import Note from "./note";
+import styles from "./image.module.css";
 
 const Image = ({ caption, pure, src, alt, clean }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,27 +20,27 @@ const Image = ({ caption, pure, src, alt, clean }) => {
 
   if (caption) {
     captionClass = "has-caption";
-    customCaption = <p className="italic small">{caption}</p>;
+    customCaption = <p className={styles.Caption}>{caption}</p>;
   }
   if (pure) {
     block = <img src={src} alt={alt} />;
   } else if (isOpen) {
     block = (
-      <section className="block-image">
-        <Note color="unset" background="unset">
-          <section className="image">
-            <img
-              onClick={openModal}
-              src={src}
-              alt={alt}
-              className={captionClass}
-            />
-            {customCaption}
-          </section>
-        </Note>
-        <section className="light-box" onClick={closeModal}>
-          <button onClick={openModal}>close</button>
-          <section className="content">
+      <section className={styles.Container}>
+        <section className={styles.InnerContainer}>
+          <img
+            onClick={openModal}
+            src={src}
+            alt={alt}
+            className={classNames(captionClass, styles.Image)}
+          />
+          {customCaption}
+        </section>
+        <section className={styles.LightBox} onClick={closeModal}>
+          <button className={styles.CloseButton} onClick={openModal}>
+            close
+          </button>
+          <section className={styles.ImageContainer}>
             <img src={src} alt={alt} className={captionClass} />
             {customCaption}
           </section>
@@ -48,27 +49,23 @@ const Image = ({ caption, pure, src, alt, clean }) => {
     );
   } else if (clean) {
     block = (
-      <section className="block-image clean" style={{ marginBottom: 0 }}>
-        <section className="image">
-          <img src={src} alt={alt} className={captionClass} />
-          {customCaption}
-        </section>
+      <section>
+        <img src={src} alt={alt} className={captionClass} />
+        {customCaption}
       </section>
     );
   } else {
     block = (
-      <section className="block-image">
-        <Note color="unset" background="unset">
-          <section className="image">
-            <img
-              onClick={openModal}
-              className={captionClass}
-              src={src}
-              alt={alt}
-            />
-            {customCaption}
-          </section>
-        </Note>
+      <section className={styles.Container}>
+        <section className={styles.InnerContainer}>
+          <img
+            onClick={openModal}
+            className={classNames(captionClass, styles.Image)}
+            src={src}
+            alt={alt}
+          />
+          {customCaption}
+        </section>
       </section>
     );
   }
