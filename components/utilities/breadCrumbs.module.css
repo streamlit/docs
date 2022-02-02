@@ -1,4 +1,11 @@
 /* TODO: Remove !important when done moving to Tailwind */
+.Container {
+  @apply flex flex-wrap list-none ml-0;
+}
+
+.InnerContainer {
+  @apply text-sm mr-2 mb-0;
+}
 
 .Link {
   @apply hover:opacity-70;
