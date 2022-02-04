@@ -130,9 +130,21 @@ If you use Google for authentication, you're all set. Otherwise please refer to 
 
 Your workspace is sized to a certain number of users, apps, and resources for those apps. We'll let you know if you're close to your limit and will reach out to discuss if you'd like to move to a larger workspace.
 
+### Where do I set up billing?
+
+Click on "Settings" in the top right corner of your workspace to open the "Workspace settings" menu. Next, click the "Billing and plans" tab to set up billing in Stripe.
+
+<div style={{ marginBottom: '-2em' }}>
+  <Image src="/images/streamlit-cloud/setup-billing.png" />
+</div>
+
 ### When will I be charged?
 
-The free tier is free forever, but if you have opted for a Teams or Enterprise account then you will have a 30 day free trial for your workspace. When your trial is near completion, we will reach out to check if you want to continue on and if so, we'll get your billing information. You will then be billed the 1st of every month going forward.
+The free tier is free forever, but if you have opted for a Teams or Enterprise account then you will have a 14 day free trial for your workspace.
+
+When your trial is near completion, you will receive automated emails reminding you to set up your billing information (if you haven't already) to continue on your Teams or Enterprise plan. To avoid disruption, we recommend that you set up billing well before your trial ends. Once you have set up your billing information, we will only start charging you once your trial ends. Stripe will automatically bill your account every month and send you a confirmation email.
+
+If you choose not to set up billing, you will be automatically downgraded to the free tier after your trial ends.
 
 ## GitHub integration
 
