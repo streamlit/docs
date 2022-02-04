@@ -130,6 +130,16 @@ st.altair_chart(
 
 <Image src="/images/api/altair-annotation.png" />
 
+To use images instead of emojis, replace the line containing `.mark_text()` with `.mark_image()`, and replace `image_url` below with the URL of the image:
+
+```python
+.mark_image(
+    width=12,
+    height=12,
+    url="image_url",
+)
+```
+
 #### Interactive example
 
 Now that you've learned how to annotate charts, the sky's the limit! We've extended the above example to let you interactively paste your favorite emoji and set its position on the chart with Streamlit widgets. 👇
