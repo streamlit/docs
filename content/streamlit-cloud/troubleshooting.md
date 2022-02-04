@@ -140,11 +140,11 @@ Click on "Settings" in the top right corner of your workspace to open the "Works
 
 ### When will I be charged?
 
-The free tier is free forever, but if you have opted for a Teams or Enterprise account then you will have a 14 day free trial for your workspace.
+The Starter plan is free forever, but if you have opted for a Teams or Enterprise account then you will have a 14 day free trial for your workspace.
 
 When your trial is near completion, you will receive automated emails reminding you to set up your billing information (if you haven't already) to continue on your Teams or Enterprise plan. To avoid disruption, we recommend that you set up billing well before your trial ends. Once you have set up your billing information, we will only start charging you once your trial ends. Stripe will automatically bill your account every month and send you a confirmation email.
 
-If you choose not to set up billing, you will be automatically downgraded to the free tier after your trial ends.
+If you choose not to set up billing, you will be downgraded to the Starter plan after your trial ends.
 
 ## GitHub integration
 
