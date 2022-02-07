@@ -106,7 +106,7 @@ If your app exceeds its resource limits, you will see one of the following messa
 
 #### Non-developer view
 
-If your app exceeds its resource limits, users with view-only access will see one of the following messages when they visit your app. The will see the message on the left if your app uses an older version of Streamlit (`<1.1.0`) without memory fixes, and the message on the right if your app uses a newer version of Streamlit (`>=1.1.0`). Viewers have the option to notify you when the app exceeds its resource limits:
+If your app exceeds its resource limits, users with view-only access will see one of the following messages when they visit your app. They will see the message on the left if your app uses an older version of Streamlit (`<1.1.0`) without memory fixes, and the message on the right if your app uses a newer version of Streamlit (`>=1.1.0`). Viewers have the option to notify you when the app exceeds its resource limits:
 
 <Flex>
 <Image src="/images/streamlit-cloud/resource-limits-viewer-1.png" />
