@@ -24,8 +24,14 @@ import pandas as pd
 import streamlit as st
 from vega_datasets import data
 
-source = data.stocks()
-source = source[source.date.gt("2004-01-01")]
+# We use @st.experimental_memo to keep the dataset in cache
+@st.experimental_memo
+def get_data():
+    source = data.stocks()
+    source = source[source.date.gt("2004-01-01")]
+    return source
+
+source = get_data()
 ```
 
 Next, we define a function `get_chart()` to create the interactive time-series chart of the stock prices with a multi-line tooltip. The x-axis represents the date, and the y-axis represents the stock price.
@@ -77,13 +83,13 @@ chart = get_chart(source)
 
 #### Step 2: Annotate the chart
 
-Now that we have our base chart, we can annotate it with text and an emoji. Let's overlay the 💬 emoji on top of the time-series chart at specifc points of interest. We want users to hover over the 💬 emoji to see the associated annotation text.
+Now that we have our first chart that shows the data, we can annotate it with text and an emoji. Let's overlay the ⬇ emoji on top of the time-series chart at specifc points of interest. We want users to hover over the ⬇ emoji to see the associated annotation text.
 
 For simplicity, let's annotate four specific dates and set the height of the annotations at constant value of `10`.
 
 <Tip>
 
-You can vary the horizontal and vertical postions of the annotations by replacing the hard-coded values with the output of Streamlit widgets! Click [here](/library/api-reference/charts/st.altair_chart#interactive-example) to jump to the live example below.
+You can vary the horizontal and vertical postions of the annotations by replacing the hard-coded values with the output of Streamlit widgets! Click [here](/library/api-reference/charts/st.altair_chart#interactive-example) to jump to a live example below, and develop an intuition for the ideal horizontal and vertical positions of the annotations by playing with Streamlit widgets.
 
 </Tip>
 
@@ -102,14 +108,14 @@ annotations_df.date = pd.to_datetime(annotations_df.date)
 annotations_df["y"] = 10
 ```
 
-Using this dataframe, we create a scatter plot with the x-axis representing the date, and the y-axis representing the height of the annotation. The data point at the specific date and height is represented by the 💬 emoji, using Altair's `mark_text()` [mark](https://altair-viz.github.io/user_guide/marks.html).
+Using this dataframe, we create a scatter plot with the x-axis representing the date, and the y-axis representing the height of the annotation. The data point at the specific date and height is represented by the ⬇ emoji, using Altair's `mark_text()` [mark](https://altair-viz.github.io/user_guide/marks.html).
 
-The annotation text is displayed as a tooltip when users hover over the 💬 emoji. This is achieved using Altair's `encode()` method to map the `event` column containing the annotation text to the visual attribute 💬 of the plot.
+The annotation text is displayed as a tooltip when users hover over the ⬇ emoji. This is achieved using Altair's `encode()` method to map the `event` column containing the annotation text to the visual attribute ⬇ of the plot.
 
 ```python
 annotation_layer = (
     alt.Chart(annotations_df)
-    .mark_text(size=20, text="💬", dx=-8, dy=-10, align="left")
+    .mark_text(size=20, text="⬇", dx=-8, dy=-10, align="left")
     .encode(
         x="date:T",
         y=alt.Y("y:Q"),
