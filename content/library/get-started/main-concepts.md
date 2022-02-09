@@ -40,6 +40,21 @@ $ streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickup
 
 </Tip>
 
+<Tip>
+
+Another way of running Streamlit is to run it as a Python module. This can be
+useful when configuring an IDE like PyCharm to work with Streamlit.
+
+```bash
+# Running
+$ python -m streamlit your_script.py
+
+# is equivalent to:
+$ streamlit run your_script.py
+```
+
+</Tip>
+
 ## Development flow
 
 Every time you want to update your app, save the source file. When you do
