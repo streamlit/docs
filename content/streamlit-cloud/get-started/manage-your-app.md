@@ -19,20 +19,20 @@ Once you have deployed an app you will have a developer view for that app.
 
 ### Developer view
 
-Click on the bottom right where it says "Manage app" to view your terminal and other settings.
+Click on the bottom right where it says "Manage app" to view your Cloud logs and other settings.
 
 ![Developer view](/images/streamlit-cloud/developer-view.png)
 
-### App terminal
+### Cloud logs
 
-Once you've clicked on "Manage app" you will see the app terminal which lets you view the logs for your app. This is your primary place to troubleshoot any issues with your app.
+Once you've clicked on "Manage app", you will be able to view your app's logs. This is your primary place to troubleshoot any issues with your app.
 
-![App terminal](/images/streamlit-cloud/app-terminal.png)
+![Cloud logs](/images/streamlit-cloud/cloud-logs.png)
 
-You can also click on the "︙" overflow menu at the bottom of the terminal to view other options for your app including the ability to download logs, reboot the app, delete the app, navigate to settings (which includes managing viewer access and app secrets), go to your app dashboard, go to documentation, contact support, or sign out.
+You can also click on the "︙" overflow menu at the bottom of the Cloud logs to view other options for your app including the ability to download logs, reboot the app, delete the app, navigate to settings (which includes managing viewer access and app secrets), go to your app dashboard, go to documentation, contact support, or sign out.
 
 <div style={{ maxWidth: '45%', marginBottom: '-3em', marginLeft: '10em' }}>
-    <Image src="/images/streamlit-cloud/app-terminal-overflow.png" />
+    <Image src="/images/streamlit-cloud/cloud-logs-overflow.png" />
 </div>
 
 ## Manage apps from your app dashboard

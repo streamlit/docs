@@ -62,7 +62,7 @@ If you have really big or binary data that you change frequently, and git is fee
 
 ### My app is running into issues while deploying
 
-Check the terminal on the right side of the screen to see the logs. Often the trouble is due to a dependency not being declared. See here for [more information on dependency management](/streamlit-cloud/get-started/deploy-an-app/app-dependencies).
+Check your Cloud logs by clicking on the "Manage app" expander in the bottom right corner of your screen. Often the trouble is due to a dependency not being declared. See here for [more information on dependency management](/streamlit-cloud/get-started/deploy-an-app/app-dependencies).
 
 If that's not the issue, then please send your Streamlit contact the logs and warning you are seeing and we'll help get you sorted!
 
@@ -160,7 +160,7 @@ In order to deploy your app, Streamlit requires access to your app's source code
 
 Here are some limitations and known issues that we're actively working to resolve. If you find an issue [please let us know](mailto:support@streamlit.io)!
 
-- When you print something to the terminal, you may need to do a `sys.stdout.flush()` before it shows up.
+- When you print something to the Cloud logs, you may need to do a `sys.stdout.flush()` before it shows up.
 - Apps execute in a Linux environment running Debian Buster (slim) with Python 3.7. There is no way to change these, and we may upgrade the environment at any point. If we do upgrade it, we will *usually* not touch existing apps, so they'll continue to work as expected. But if there's a critical fix in the update, we *may* force-upgrade all apps.
 - Matplotlib [doesn't work well with threads](https://matplotlib.org/3.3.2/faq/howto_faq.html#working-with-threads). So if you're using Matplotlib you should wrap your code with locks as shown in the snippet below. This Matplotlib bug is more prominent when you share your app apps since you're more likely to get more concurrent users then.
 
