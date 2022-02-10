@@ -68,7 +68,7 @@ If that's not the issue, then please send your Streamlit contact the logs and wa
 
 ### My app is hitting resource limits / my app is running very slowly
 
-If your app is running slowly or you're hitting the 'Argh' page then just let us know and we can work to help you adjust the limits. We may need to upgrade your workspace to give you access to a higher level of resources. If you know in advance you are going to need more resources, also just let us know so we can set them up for you before you run into issues.
+If your app is running slowly or you're hitting the 'Argh' page then just let us know and we can work to help you adjust the limits. We may need to upgrade your workspace to give you access to a higher level of resources. If you know in advance you are going to need more resources, also just let us know so we can set them up for you before you run into issues. Click [here](/streamlit-cloud/get-started/manage-your-app#app-resources-and-limits) to learn more about [resource limits](/streamlit-cloud/get-started/manage-your-app#app-resources-and-limits).
 
 ### Can I get a custom URL for my app?
 
