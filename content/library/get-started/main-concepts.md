@@ -29,21 +29,8 @@ arguments get interpreted as arguments to Streamlit itself.
 
 </Note>
 
-<Tip>
-
-You can also pass a URL to `streamlit run`! This is great when combined with
-Github Gists. For example:
-
-```bash
-$ streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
-```
-
-</Tip>
-
-<Tip>
-
 Another way of running Streamlit is to run it as a Python module. This can be
-useful when configuring an IDE like PyCharm to work with Streamlit.
+useful when configuring an IDE like PyCharm to work with Streamlit:
 
 ```bash
 # Running
@@ -51,6 +38,15 @@ $ python -m streamlit your_script.py
 
 # is equivalent to:
 $ streamlit run your_script.py
+```
+
+<Tip>
+
+You can also pass a URL to `streamlit run`! This is great when combined with
+Github Gists. For example:
+
+```bash
+$ streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
 ```
 
 </Tip>
