@@ -31,17 +31,17 @@ Getting your workspace set up with Streamlit Cloud only takes a few minutes.
 
 ## Sign up for Streamlit Cloud
 
-Streamlit Cloud offers packages to fit whatever team size and workspace needs you have. To view different packages go to the [Streamlit Cloud homepage](http://streamlit.io/cloud).
+Streamlit Cloud offers packages to fit whatever team size and workspace needs you have. To view different packages go to the [Streamlit Cloud homepage](https://streamlit.io/cloud).
 
-Once you've selected a package, login to [share.streamlit.io](http://share.streamlit.io) and follow the steps below.
+Once you've selected a package, login to [share.streamlit.io](https://share.streamlit.io) and follow the steps below.
 
 ## Log in to share.streamlit.io
 
 You can login to Streamlit Cloud with:
 
-1. Google
-2. GitHub
-3. Email based sign-in link: These are single-use links that are valid for up to 15 minutes.
+1. [Google](#sign-in-with-google)
+2. [GitHub](#sign-in-with-github)
+3. [Email](#sign-in-with-email) based sign-in link: These are single-use links that are valid for up to 15 minutes.
 
 If you're a developer, we recommend starting with GitHub the first time you login. You can later setup your account to login using Google or an [SSO provider](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso).
 
@@ -57,9 +57,55 @@ Streamlit Cloud offers support for all other single sign-on (SSO) providers, but
 
 </Note>
 
+### Sign in with Google
+
+Visit [share.streamlit.io](https://share.streamlit.io) and click the "Continue with Google" button.
+
+<Image caption="Step 1: Click the 'Continue with Google' button" src="/images/streamlit-cloud/google-signin-1.png" />
+
+On the next page, choose an account to sign in with and enter your Google account credentials.
+
+<Image caption="Step 2: Enter your Google account credentials" src="/images/streamlit-cloud/google-signin-2.png" />
+
+Once you have signed in to Google, you will be taken to your Streamlit Cloud workspace!🎈
+
+<Image caption="Your Streamlit Cloud workspace" src="/images/streamlit-cloud/app-workspace.png" />
+
+### Sign in with GitHub
+
+Visit [share.streamlit.io](https://share.streamlit.io) and click the "Continue with GitHub" button.
+
+<Image caption="Step 1: Click the 'Continue with GitHub' button" src="/images/streamlit-cloud/github-signin-1.png" />
+
+On the next page, enter your GitHub credentials to sign in.
+
+<Image caption="Step 2: Enter your GitHub account credentials" src="/images/streamlit-cloud/github-signin-2.png" />
+
+Once you have signed in to GitHub, you will be taken to your Streamlit Cloud workspace!🎈
+
+<Image caption="Your Streamlit Cloud workspace" src="/images/streamlit-cloud/app-workspace.png" />
+
+### Sign in with Email
+
+If you don't have SSO, you can sign in with your email address! Visit [share.streamlit.io](https://share.streamlit.io), enter the email address you used to sign up for Streamlit Cloud, and click the "Continue with email" button.
+
+<Image caption="Step 1: Enter your email address and click 'Continue with email'" src="/images/streamlit-cloud/email-signin-1.png" />
+
+Once you do so, you will see a confirmation message (like the one below) asking you to check your email.
+
+<Image caption="Step 2: Check your inbox for an email from Streamlit" src="/images/streamlit-cloud/email-signin-2.png" />
+
+Check your inbox for an email from Streamlit, with the subject "Sign in to Streamlit Cloud". Click the link in the email to sign in to Streamlit. Note that this link will expire in 15 minutes and can only be used once.
+
+<Image caption="Step 3: Click the link in the email to sign in to Streamlit" src="/images/streamlit-cloud/email-signin-3.png" />
+
+Once you click the link in your email, you will be taken to your Streamlit Cloud workspace!🎈
+
+<Image caption="Your Streamlit Cloud workspace" src="/images/streamlit-cloud/app-workspace.png" />
+
 ## Connect your GitHub account
 
-Next you need to authorize Streamlit to connect to your GitHub account. This lets your Streamlit Cloud workspace launch apps directly from the app files you store in your repos, as well as let the system check for updates to those app files so that your apps can automatically update. You will see two different authorization screens to give this access. Click "authorize" on both. Questions about GitHub permissions? [Read more here]()!
+Next you need to authorize Streamlit to connect to your GitHub account. This lets your Streamlit Cloud workspace launch apps directly from the app files you store in your repos, as well as let the system check for updates to those app files so that your apps can automatically update. You will see two different authorization screens to give this access. Click "authorize" on both. Questions about GitHub permissions? [Read more here](/streamlit-cloud/troubleshooting#github-integration)!
 
 <Important>
 

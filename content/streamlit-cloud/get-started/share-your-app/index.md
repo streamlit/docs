@@ -71,7 +71,7 @@ You can also add viewers directly from your dashboard.
 
 2. **Add Viewers in Settings**
 
-   Click on the "Viewers" section in the App Settings and in the text input area, provide a line-separated list of email addresses for the users you wish to grant viewer access to your app, or provide a line-separated list of allowed email address domains. Click "Save."
+   Click on the "Sharing" section in the App Settings and in the text input area, provide a line-separated list of email addresses for the users you wish to grant viewer access to your app, or provide a line-separated list of allowed email address domains. Click "Save."
 
    <div style={{ maxWidth: '75%', marginBottom: '-3em', marginLeft: '5em' }}>
        <Image src="/images/streamlit-cloud/add-viewers.png" />

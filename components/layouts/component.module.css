@@ -1,0 +1,15 @@
+.Container {
+  @apply flex my-12;
+}
+
+.Label {
+  @apply w-1/5 text-right flex justify-end items-start mr-8;
+}
+
+.Title {
+  @apply font-sans font-normal font-bold text-base leading-normal tracking-tight mb-0;
+}
+
+.Component {
+  @apply w-4/5;
+}
