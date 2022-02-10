@@ -1,5 +1,5 @@
-const IconHeader = ({ size }) => {
+const Spacer = ({ size }) => {
   return <div style={{ marginTop: `${size}` }} />;
 };
 
-export default IconHeader;
+export default Spacer;

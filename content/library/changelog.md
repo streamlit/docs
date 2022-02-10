@@ -17,6 +17,21 @@ $ pip install --upgrade streamlit
 
 </Tip>
 
+## **Version 1.5.0**
+
+_Release date: Jan 27, 2022_
+
+**Notable Changes**
+
+- 🌟 Favicon defaults to a PNG to allow for transparency ([#4272](https://github.com/streamlit/streamlit/pull/4272)).
+- 🚦 Select Slider Widget now has the `disabled` parameter that removes interactivity (completing all of our widgets) ([#4314](https://github.com/streamlit/streamlit/pull/4314)).
+
+**Other Changes**
+
+- 🔤 Improvements to our markdown library to provide better support for HTML (specifically nested HTML) ([#4221](https://github.com/streamlit/streamlit/pull/4221)).
+- 📖 Expanders maintain their expanded state better when multiple expanders are present ([#4290](https://github.com/streamlit/streamlit/pull/4290)).
+- 🗳 Improved file uploader and camera input to call its `on_change` handler only when necessary ([#4270](https://github.com/streamlit/streamlit/pull/4270)).
+
 ## **Version 1.4.0**
 
 _Release date: Jan 13, 2022_

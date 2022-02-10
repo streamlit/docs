@@ -1,0 +1,13 @@
+.cloud-app {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  width: 100%;
+  max-width: 100%;
+
+  iframe {
+    width: calc(100% - 2px) !important;
+    border: 1px solid $gray-40 !important;
+    border-radius: 5px;
+  }
+}
