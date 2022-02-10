@@ -16,6 +16,14 @@
   @apply text-gray-90 !important;
 }
 
+:global(.dark) .Text {
+  @apply text-white !important;
+}
+
+:global(.dark) .Container {
+  @apply border-b-gray-90 !important;
+}
+
 .Link {
   @apply font-bold;
 }
