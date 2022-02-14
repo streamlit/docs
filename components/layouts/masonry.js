@@ -1,6 +1,8 @@
 import { debounce } from "lodash";
 import React, { useState, useEffect } from "react";
 
+import styles from "./masonry.module.css";
+
 const Masonry = ({ children }) => {
   const [height, setHeight] = useState(2000);
 
@@ -36,11 +38,7 @@ const Masonry = ({ children }) => {
     };
   }, []);
 
-  return (
-    <section className="masonry" style={{ "--max-height": height + "px" }}>
-      {children}
-    </section>
-  );
+  return <section className={styles.Container}>{children}</section>;
 };
 
 export default Masonry;

@@ -78,9 +78,9 @@ const BreadCrumbs = ({ slug, menu }) => {
 
   return (
     <nav>
-      <ul className="flex list-none ml-0">
+      <ul className={styles.Container}>
         {breadcrumbs.map((crumb, index) => (
-          <li key={`${crumb}-${index}`} className="text-sm mr-2">
+          <li key={`${crumb}-${index}`} className={styles.InnerContainer}>
             {createCrumb(crumb, index, slug)}
           </li>
         ))}

@@ -1,0 +1,7 @@
+.Note {
+  @apply bg-lightBlue-10;
+}
+
+:global(.dark) .Note {
+  background-color: #062633;
+}
