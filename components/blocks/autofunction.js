@@ -15,6 +15,8 @@ import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 
 import useSourceFile from "../../lib/useSourceFile";
 
+import styles from "./autofunction.module.css";
+
 const cleanHref = (name) => {
   return String(name).replace(".", "").replace(" ", "-");
 };
@@ -55,7 +57,7 @@ const Autofunction = ({
       const codeText = ele.innerHTML;
       const preTag = ele.cloneNode(true);
       const codeWrap = document.createElement("div");
-      codeWrap.setAttribute("class", "block-code");
+      codeWrap.setAttribute("class", styles.CodeBlockContainer);
       const codeTag = document.createElement("code");
       codeTag.setAttribute("class", "language-python");
       preTag.classList.add("line-numbers");

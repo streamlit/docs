@@ -33,7 +33,7 @@ Your app is now deploying and you can watch while it launches. Most apps take on
 
 <Note>
 
-The terminal on the right hand side is only viewable to the developer and is how you can grab logs and debug any issues with the app. [Learn more about the app terminal](/streamlit-cloud/get-started/manage-your-app#app-terminal).
+The Cloud logs on the right hand side are only viewable to the developer and is how you can grab logs and debug any issues with the app. [Learn more about Cloud logs](/streamlit-cloud/get-started/manage-your-app#cloud-logs).
 
 </Note>
 
