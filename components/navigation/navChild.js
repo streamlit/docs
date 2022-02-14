@@ -27,7 +27,8 @@ const NavChild = ({ slug, page, color, className }) => {
     setManualState(!opened);
   };
 
-  if (page.children?.length > 0 && opened) {
+  const visibleItems = page.children.filter((child) => child.visible !== false);
+  if (page.children?.length > 0 && visibleItems.length > 0 && opened) {
     subNav = (
       <ul className={styles.List}>
         {page.children.map((child) => (
@@ -45,7 +46,7 @@ const NavChild = ({ slug, page, color, className }) => {
 
   let accordion;
 
-  if (page.children?.length > 0) {
+  if (page.children?.length > 0 && visibleItems.length > 0) {
     accordion = (
       <div className={styles.Accordion}>
         <i
