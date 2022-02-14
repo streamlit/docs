@@ -1,5 +1,6 @@
-import reverse from "lodash/reverse";
 import React, { useEffect, useState, useRef } from "react";
+import reverse from "lodash/reverse";
+import classNames from "classnames";
 import Table from "./table";
 import { H2 } from "./headers";
 import Warning from "./warning";
@@ -115,7 +116,7 @@ const Autofunction = ({
     }
   } else {
     return (
-      <div className="autofunction" ref={blockRef}>
+      <div className={styles.Container} ref={blockRef}>
         <div className="code-header">
           <H2>{streamlitFunction}</H2>
         </div>
@@ -142,13 +143,17 @@ const Autofunction = ({
         ? "version-select old-version"
         : "version-select";
     header = (
-      <div className="code-header">
-        <div className="title-with-select">
-          <H2>{name}</H2>
-          <form className={selectClass}>
+      <div className={styles.HeaderContainer}>
+        <div className={styles.TitleContainer}>
+          <H2 className={styles.Title}>{name}</H2>
+          <form className={classNames(selectClass, styles.Form)}>
             <label>
               <span className="sr-only">Streamlit Version</span>
-              <select value={currentVersion} onChange={handleSelectVersion}>
+              <select
+                value={currentVersion}
+                onChange={handleSelectVersion}
+                className={styles.Select}
+              >
                 {versionList.map((version, index) => {
                   return (
                     <option value={version} key={version}>
@@ -249,7 +254,7 @@ const Autofunction = ({
   );
 
   return (
-    <section className="autofunction" ref={blockRef}>
+    <section className={styles.Container} ref={blockRef}>
       {header}
       {body}
     </section>
