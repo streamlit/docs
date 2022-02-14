@@ -1,0 +1,41 @@
+.Container {
+  @apply inline-flex items-center mb-4;
+}
+
+.Icon {
+  @apply rounded-full p-2 mr-2 text-base leading-none transform flex items-center justify-center w-8 h-8;
+  @apply text-white !important;
+}
+
+.Title {
+  @apply m-0 font-bold text-lg leading-normal tracking-tight;
+}
+
+/* Color modifiers */
+.VioletBackground {
+  @apply bg-indigo-70;
+}
+
+.OrangeBackground {
+  @apply bg-orange-70;
+}
+
+.LightBlueBackground {
+  @apply bg-lightBlue-70;
+}
+
+.VioletText {
+  @apply text-indigo-70 !important;
+}
+
+.OrangeText {
+  @apply text-orange-70 !important;
+}
+
+.LightBlueText {
+  @apply text-lightBlue-70 !important;
+}
+
+:global(.dark) .VioletText {
+  @apply text-white !important;
+}
