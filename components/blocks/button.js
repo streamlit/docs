@@ -1,11 +1,13 @@
 import Link from "next/link";
 
-const IconHeader = ({ children, link }) => {
+import styles from "./button.module.css";
+
+const Button = ({ children, link }) => {
   return (
     <Link href={link}>
-      <button>{children}</button>
+      <button className={styles.Button}>{children}</button>
     </Link>
   );
 };
 
-export default IconHeader;
+export default Button;
