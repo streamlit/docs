@@ -19,20 +19,20 @@ Once you have deployed an app you will have a developer view for that app.
 
 ### Developer view
 
-Click on the bottom right where it says "Manage app" to view your terminal and other settings.
+Click on the bottom right where it says "Manage app" to view your Cloud logs and other settings.
 
 ![Developer view](/images/streamlit-cloud/developer-view.png)
 
-### App terminal
+### Cloud logs
 
-Once you've clicked on "Manage app" you will see the app terminal which lets you view the logs for your app. This is your primary place to troubleshoot any issues with your app.
+Once you've clicked on "Manage app", you will be able to view your app's logs. This is your primary place to troubleshoot any issues with your app.
 
-![App terminal](/images/streamlit-cloud/app-terminal.png)
+![Cloud logs](/images/streamlit-cloud/cloud-logs.png)
 
-You can also click on the "︙" overflow menu at the bottom of the terminal to view other options for your app including the ability to download logs, reboot the app, delete the app, navigate to settings (which includes managing viewer access and app secrets), go to your app dashboard, go to documentation, contact support, or sign out.
+You can also click on the "︙" overflow menu at the bottom of the Cloud logs to view other options for your app including the ability to download logs, reboot the app, delete the app, navigate to settings (which includes managing viewer access and app secrets), go to your app dashboard, go to documentation, contact support, or sign out.
 
 <div style={{ maxWidth: '45%', marginBottom: '-3em', marginLeft: '10em' }}>
-    <Image src="/images/streamlit-cloud/app-terminal-overflow.png" />
+    <Image src="/images/streamlit-cloud/cloud-logs-overflow.png" />
 </div>
 
 ## Manage apps from your app dashboard
@@ -91,7 +91,27 @@ It is best practice to pin your Streamlit version in `requirements.txt`. Otherw
 
 ## App resources and limits
 
-The exact resources and limits will depend on [your workspace plan](http://streamlit.io/cloud). If you need more apps or more resources for your apps you can upgrade your plan or reach out to [support@streamlit.io](mailto:support@streamlit.io).
+### Resource limits
+
+The exact resources and limits will depend on [your workspace plan](https://streamlit.io/cloud). If you need more apps or more resources for your apps you can upgrade your plan or reach out to [support@streamlit.io](mailto:support@streamlit.io).
+
+#### Developer view
+
+If your app exceeds its resource limits, you will see one of the following messages when you visit your app. If your app uses an older version of Streamlit (`<1.1.0`) without memory fixes, you will see the message on the left. If your app uses a newer version of Streamlit (`>=1.1.0`), you will see the message on the right:
+
+<Flex>
+<Image src="/images/streamlit-cloud/resource-limits-dev-1.png" />
+<Image src="/images/streamlit-cloud/resource-limits-dev-2.png" />
+</Flex>
+
+#### Non-developer view
+
+If your app exceeds its resource limits, users with view-only access will see one of the following messages when they visit your app. They will see the message on the left if your app uses an older version of Streamlit (`<1.1.0`) without memory fixes, and the message on the right if your app uses a newer version of Streamlit (`>=1.1.0`). Viewers have the option to notify you when the app exceeds its resource limits:
+
+<Flex>
+<Image src="/images/streamlit-cloud/resource-limits-viewer-1.png" />
+<Image src="/images/streamlit-cloud/resource-limits-viewer-2.png" />
+</Flex>
 
 ### App hibernation
 

@@ -1,5 +1,7 @@
+import styles from "./tileContainer.module.css";
+
 const TilesContainer = ({ children }) => {
-  return <section className="block-tiles">{children}</section>;
+  return <section className={styles.Container}>{children}</section>;
 };
 
 export default TilesContainer;
