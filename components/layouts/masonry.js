@@ -38,14 +38,7 @@ const Masonry = ({ children }) => {
     };
   }, []);
 
-  return (
-    <section
-      className={styles.Container}
-      style={{ "--max-height": height + "px" }}
-    >
-      {children}
-    </section>
-  );
+  return <section className={styles.Container}>{children}</section>;
 };
 
 export default Masonry;
