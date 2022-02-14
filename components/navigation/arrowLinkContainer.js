@@ -1,5 +1,7 @@
+import styles from "./arrowLink.module.css";
+
 const ArrowLinkContainer = ({ children }) => {
-  return <section className="block-arrow-link-container">{children}</section>;
+  return <section className={styles.Container}>{children}</section>;
 };
 
 export default ArrowLinkContainer;

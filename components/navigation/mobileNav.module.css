@@ -1,0 +1,16 @@
+.MobileNav {
+  @apply relative flex items-center justify-center w-8 h-8 mb-0 rounded-md;
+  @apply bg-gray-20 !important;
+}
+
+:global(.dark) .MobileNav {
+  @apply bg-gray-90 !important;
+}
+
+.Icon {
+  @apply transition-all;
+}
+
+:global(.dark) .Icon {
+  @apply text-white;
+}

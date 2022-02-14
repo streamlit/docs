@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import classNames from "classnames";
 import FocusTrap from "focus-trap-react";
 import { useRouter, withRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
@@ -11,6 +12,8 @@ import {
   Snippet,
   Configure,
 } from "react-instantsearch-dom";
+
+import styles from "./search.module.css";
 
 const Search = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -134,7 +137,7 @@ const Search = () => {
 
   const searchClient = algoliasearch(
     "XNXFGO6BQ1",
-    "d3ac8363577a863bcbe50f15846459cd"
+    "b90675aaf5269e66b8b0cd042dacf0d0"
   );
 
   function Hit(props) {
@@ -150,20 +153,24 @@ const Search = () => {
 
     return (
       <article
-        className={`item ${
-          props.hit.__position === indexFocus ? "focused" : ""
-        }`}
+        className={classNames(
+          styles.HitContainer,
+          props.hit.__position === indexFocus ? styles.ActiveHit : ""
+        )}
         tabIndex="-1"
       >
-        <a className="not-link" href={props.hit.url}>
-          <section className="image_container bg-yellow-90">
-            <div className={`icon-${icon}`}>
-              <i>{icon}</i>
+        <a
+          className={classNames("not-link", styles.HitLink)}
+          href={props.hit.url}
+        >
+          <section className={styles.IconContainer}>
+            <div className={classNames(styles.ImageContainer, `icon-${icon}`)}>
+              <i className={styles.Icon}>{icon}</i>
             </div>
           </section>
-          <section className="copy">
-            <p className="tiny">{category}</p>
-            <h5>
+          <section className={styles.TextContainer}>
+            <p className={styles.HitCategory}>{category}</p>
+            <h5 className={styles.HitTitle}>
               <Highlight hit={props.hit} attribute="title"></Highlight>
             </h5>
             {snippet}
@@ -196,15 +203,22 @@ const Search = () => {
               opacity: 0,
               // left: '-40em'
             }}
-            className="algolia"
+            className={styles.ModalContainer}
           >
             <FocusTrap>
               <div
-                className="modalContainer"
+                className={styles.Modal}
                 onClick={toggleModal}
                 onKeyDown={handleKey}
               >
-                <section className="content" tabIndex="-1">
+                <section
+                  className={styles.ContentContainer}
+                  style={{
+                    maxWidth: "36rem",
+                    maxHeight: "40rem",
+                  }}
+                  tabIndex="-1"
+                >
                   <div className="ais-InstantSearch">
                     <InstantSearch
                       indexName="documentation"
@@ -231,11 +245,19 @@ const Search = () => {
   }
 
   let searchBar = (
-    <section className="block-search">
-      <section className="hot-key small" onClick={searchClicked}>
-        <i>search</i>
-        <p className="search-text">Search</p>
-        {windowWidth > 1024 && <p className="command">{hotkey}</p>}
+    <section className={styles.SearchBarContainer}>
+      <section
+        className={classNames("group", styles.SearchBar)}
+        onClick={searchClicked}
+      >
+        <i
+          className={styles.SearchIcon}
+          style={{ transform: "rotateY(180deg)" }}
+        >
+          search
+        </i>
+        <p className={styles.SearchText}>Search</p>
+        {windowWidth > 1024 && <p className={styles.HotKey}>{hotkey}</p>}
       </section>
       {modal}
       {/* <SearchBox /> */}

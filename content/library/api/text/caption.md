@@ -5,3 +5,5 @@ description: st.caption displays text in small font.
 ---
 
 <Autofunction function="streamlit.caption" />
+
+<Image src="/images/api/st.caption.png" clean />
