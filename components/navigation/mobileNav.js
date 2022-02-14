@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import bus from "../../lib/bus";
 import router from "next/router";
 
+import styles from "./mobileNav.module.css";
+
 const MobileNav = () => {
   const [nav, setNav] = useState(false);
 
@@ -34,8 +36,8 @@ const MobileNav = () => {
   let mobileNav;
 
   mobileNav = (
-    <button className="toggle-mobile" onClick={toggleMobileNav}>
-      <i>menu</i>
+    <button className={styles.MobileNav} onClick={toggleMobileNav}>
+      <i className={styles.Icon}>menu</i>
     </button>
   );
 
