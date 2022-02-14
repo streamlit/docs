@@ -51,6 +51,7 @@ import InlineCallout from "../components/blocks/inlineCallout";
 import Tip from "../components/blocks/tip";
 import Warning from "../components/blocks/warning";
 import YouTube from "../components/blocks/youTube";
+import Cloud from "../components/blocks/cloud";
 
 export default function Article({
   data,
@@ -87,6 +88,7 @@ export default function Article({
     Code,
     Warning,
     YouTube,
+    Cloud,
     Masonry,
     CodeTile,
     InlineCalloutContainer,
