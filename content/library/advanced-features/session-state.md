@@ -15,6 +15,10 @@ In this guide, we will illustrate the usage of **Session State** and **Callbacks
 
 For details on the Session State and Callbacks API, please refer to our [Session State API Reference Guide](/library/api-reference/session-state).
 
+Also, check out this Session State basics tutorial video by Streamlit Developer Advocate Dr. Marisa Smith to get started:
+
+<YouTube videoId="92jUAXBmZyU" />
+
 ## Build a Counter
 
 Let's call our script `counter.py`. It initializes a `count` variable and has a button to increment the value stored in the `count` variable:
