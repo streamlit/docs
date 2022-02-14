@@ -1,0 +1,85 @@
+.CodeBlockContainer {
+  @apply mb-7 relative;
+}
+
+.CodeBlockContainer pre,
+.CodeBlockContainer code {
+  @apply overflow-auto max-w-full whitespace-pre;
+}
+
+.CodeBlockContainer pre {
+  @apply p-4 bg-gray-90 text-white font-medium rounded-md relative py-6 px-8 leading-relaxed;
+}
+
+.CodeBlockContainer pre code {
+  @apply z-10 relative;
+}
+
+.LineHighlight {
+  @apply bg-gray-80 opacity-30 z-0;
+}
+
+.CodeBlockContainer button {
+  @apply absolute top-2 right-2 cursor-pointer h-8 w-8 mb-0 flex items-center;
+}
+
+.CodeBlockContainer button::before {
+  @apply absolute top-2 right-2 z-10 transition-all duration-75 hover:opacity-40;
+  content: url("/clipboard.svg");
+}
+
+.CodeBlockContainer button span {
+  @apply absolute right-10 text-white font-mono text-sm tracking-tight font-normal opacity-0;
+}
+
+.CodeBlockContainer button:hover span {
+  @apply opacity-100;
+}
+
+.CodeBlockContainer :global(.toolbar)
+
+/* Code block adjustments */
+.CodeBlockContainer pre code :global(.operator) {
+  @apply text-yellow-50;
+}
+
+.CodeBlockContainer pre code :global(.decorator) {
+  @apply text-yellow-80;
+}
+
+.CodeBlockContainer pre code :global(.keyword) {
+  @apply text-darkBlue-50;
+}
+
+.CodeBlockContainer pre code :global(.builtin) {
+  @apply text-lightBlue-40;
+}
+
+.CodeBlockContainer pre code :global(.string) {
+  @apply text-green-80;
+}
+
+.CodeBlockContainer pre code :global(.number),
+.CodeBlockContainer pre code :global(.boolean) {
+  @apply text-green-40;
+}
+
+.CodeBlockContainer pre code :global(.function) {
+  @apply text-red-50;
+}
+
+.CodeBlockContainer pre code :global(.punctuation) {
+  @apply text-gray-60;
+}
+
+.CodeBlockContainer pre code :global(.comment) {
+  @apply text-gray-60 italic font-normal;
+}
+
+.CodeBlockContainer pre code :global(.string) {
+  @apply text-darkBlue-30;
+}
+
+.CodeBlockContainer pre code :global(.table) {
+  @apply inline;
+}

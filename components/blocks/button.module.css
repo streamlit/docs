@@ -1,0 +1,3 @@
+.Button {
+  @apply bg-red-70 transform text-white border-none p-4 rounded-md font-bold inline-block mb-4 hover:opacity-90 hover:scale-105 hover:shadow-md;
+}

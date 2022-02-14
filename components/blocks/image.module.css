@@ -23,7 +23,7 @@
 }
 
 .LightBox {
-  @apply fixed z-10 top-0 left-0 w-full h-full flex justify-center items-center overscroll-contain bg-gray-20;
+  @apply fixed z-30 top-0 left-0 w-full h-full flex justify-center items-center overscroll-contain bg-gray-20;
 }
 
 :global(.dark) .LightBox {
@@ -31,12 +31,12 @@
 }
 
 .ImageContainer {
-  @apply w-11/12 md:w-9/12 flex flex-col;
+  @apply w-11/12 md:w-11/12 2xl:w-7/12 flex flex-col;
 }
 
 .CloseButton {
   font-family: "Material Icons";
-  @apply font-normal text-4xl absolute right-0 md:right-8 top-8 cursor-pointer bg-gray-20 z-20 text-gray-90 hover:shadow-none hover:opacity-60 mb-0 p-4;
+  @apply font-normal text-5xl absolute right-0 md:right-8 top-12 cursor-pointer bg-gray-20 z-20 text-gray-90 hover:shadow-none hover:opacity-60 mb-0 px-2 lg:p-4;
 }
 
 :global(.dark) .CloseButton {
