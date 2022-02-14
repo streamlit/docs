@@ -1,10 +1,13 @@
 import { debounce } from "lodash";
 import React, { useState, useEffect } from "react";
+import classNames from "classnames";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
 // import Navigation from
 import MobileNav from "./mobileNav";
+
+import styles from "./header.module.css";
 
 const ThemeToggle = dynamic(() => import("../utilities/themeToggle"), {
   ssr: false,
@@ -43,15 +46,20 @@ const Header = () => {
   }
 
   return (
-    <header className={`${isSticky ? "sticky" : ""}`}>
-      <nav className="container" id="main-header">
+    <header
+      className={classNames(
+        styles.Container,
+        isSticky ? styles.stickyContainer : styles.standardContainer
+      )}
+    >
+      <nav className={styles.Navigation} id="main-header">
         <Link href="/">
-          <a className="brand not-link">
+          <a className={classNames(styles.LogoContainer, "not-link")}>
             <img src="/logo.svg" alt="" />
-            <h4>Documentation</h4>
+            <h4 className={styles.LogoText}>Documentation</h4>
           </a>
         </Link>
-        <section className="options">
+        <section className={styles.NavigationContainer}>
           <Search />
           <ThemeToggle />
           {mobileNav}

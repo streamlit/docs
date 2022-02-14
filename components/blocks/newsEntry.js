@@ -1,5 +1,7 @@
 import ArrowLink from "../navigation/arrowLink";
 
+import styles from "./newsEntry.module.css";
+
 const NewsEntry = ({ date, title, text, link }) => {
   const niceDate = (date) => {
     let cleanDate = new Date(date);
@@ -11,12 +13,12 @@ const NewsEntry = ({ date, title, text, link }) => {
   };
 
   return (
-    <article className="block-news-entry">
-      <time className="tiny" dateTime="date">
+    <article className={styles.Container}>
+      <time className={styles.Date} dateTime="date">
         {niceDate(date)}
       </time>
-      <h4>{title}</h4>
-      <p className="small">{text}</p>
+      <h4 className={styles.Title}>{title}</h4>
+      <p className={styles.Text}>{text}</p>
       <ArrowLink
         link={link}
         type="next"

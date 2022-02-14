@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import classNames from "classnames";
+import styles from "./themeToggle.module.css";
 
 const ThemeToggle = () => {
   const [activeThemeV1, setActiveThemeV1] = useState(
@@ -51,11 +53,10 @@ const ThemeToggle = () => {
         title={`Change to ${inactiveTheme} mode`}
         type="button"
         onClick={() => setActiveThemeV1(inactiveTheme)}
-        className="toggleTheme"
+        className={styles.Container}
       >
-        {/* <span activeTheme={activeTheme} /> */}
-        <i className="dark">dark_mode</i>
-        <i className="light">light_mode</i>
+        <i className={classNames(styles.DarkIcon, styles.Icon)}>dark_mode</i>
+        <i className={classNames(styles.LightIcon, styles.Icon)}>light_mode</i>
       </button>
       {activeThemeV1 === undefined && (
         <div
