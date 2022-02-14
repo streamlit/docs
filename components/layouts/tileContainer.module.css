@@ -1,0 +1,3 @@
+.Container {
+  @apply grid grid-cols-6 gap-4 mb-12;
+}
