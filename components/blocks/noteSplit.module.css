@@ -1,0 +1,21 @@
+.Container {
+  @apply mb-24 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center bg-gray-20 p-4 md:p-8 rounded-md;
+}
+
+.ContentContainer {
+  @apply order-1 md:order-none;
+}
+
+.Container h2 {
+  @apply my-0 text-2xl md:text-4xl leading-normal font-bold tracking-tight;
+  @apply text-gray-90 !important;
+}
+
+.Container p {
+  @apply mt-2 md:my-4 font-normal text-base leading-relaxed tracking-tight;
+  @apply text-gray-90 !important;
+}
+
+.Container img {
+  @apply w-full;
+}
