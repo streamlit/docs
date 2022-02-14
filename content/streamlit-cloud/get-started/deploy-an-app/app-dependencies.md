@@ -32,8 +32,8 @@ Streamlit looks at your requirements file's filename to determine which Python d
 
 Only include packages in your requirements file that are not distributed with a standard Python
 installation. If [any of the modules from base Python](https://docs.python.org/3/py-modindex.html)
-are included in the requirements file, you will get an error when you try to deploy. Additionally,
-use versions **0.69.2+** of Streamlit to ensure full Streamlit Cloud functionality.
+are included in the requirements file, you will get an error when you try to deploy. Additionally, we recommend that you
+use the latest version of Streamlit to ensure full Streamlit Cloud functionality.
 
 </Note>
 

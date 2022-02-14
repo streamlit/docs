@@ -5,12 +5,13 @@ slug: /streamlit-cloud/get-started/manage-your-app
 
 # Manage your app
 
-You can manage your app directly from the deployed app in your developer view or you can log in to your app dashboard at [share.streamlit.io](https://share.streamlit.io/) to view your apps, deploy a new app, delete an app, or reboot an app.
+You can manage your app directly from the deployed app in your developer view or you can log in to your app dashboard at [share.streamlit.io](https://share.streamlit.io/) to view, deploy, delete, reboot, or favorite an app.
 
 - [Manage apps from your developer view](#manage-apps-from-your-developer-view)
 - [Manage apps from your app dashboard](/streamlit-cloud/get-started/manage-your-app#manage-apps-from-your-app-dashboard)
 - [Manage apps in GitHub](/streamlit-cloud/get-started/manage-your-app#manage-apps-in-github)
 - [App resources and limits](/streamlit-cloud/get-started/manage-your-app#app-resources-and-limits)
+- [App favoriting](/streamlit-cloud/get-started/manage-your-app#app-favoriting)
 
 ## Manage apps from your developer view
 
@@ -18,20 +19,20 @@ Once you have deployed an app you will have a developer view for that app.
 
 ### Developer view
 
-Click on the bottom right where it says "Manage app" to view your terminal and other settings.
+Click on the bottom right where it says "Manage app" to view your Cloud logs and other settings.
 
 ![Developer view](/images/streamlit-cloud/developer-view.png)
 
-### App terminal
+### Cloud logs
 
-Once you've clicked on "Manage app" you will see the app terminal which lets you view the logs for your app. This is your primary place to troubleshoot any issues with your app.
+Once you've clicked on "Manage app", you will be able to view your app's logs. This is your primary place to troubleshoot any issues with your app.
 
-![App terminal](/images/streamlit-cloud/app-terminal.png)
+![Cloud logs](/images/streamlit-cloud/cloud-logs.png)
 
-You can also click on the "︙" overflow menu at the bottom of the terminal to view other options for your app including the ability to download logs, reboot the app, delete the app, navigate to settings (which includes managing viewer access and app secrets), go to your app dashboard, go to documentation, contact support, or sign out.
+You can also click on the "︙" overflow menu at the bottom of the Cloud logs to view other options for your app including the ability to download logs, reboot the app, delete the app, navigate to settings (which includes managing viewer access and app secrets), go to your app dashboard, go to documentation, contact support, or sign out.
 
 <div style={{ maxWidth: '45%', marginBottom: '-3em', marginLeft: '10em' }}>
-    <Image src="/images/streamlit-cloud/app-terminal-overflow.png" />
+    <Image src="/images/streamlit-cloud/cloud-logs-overflow.png" />
 </div>
 
 ## Manage apps from your app dashboard
@@ -70,19 +71,6 @@ If your app needs a hard reboot, click on the "︙" overflow menu to the right o
 
 ![Reboot an app](/images/streamlit-cloud/reboot-an-app.png)
 
-### Favorite an app
-
-Streamlit Cloud supports a "favorite" feature that lets you quickly access your apps from the app dashboard. Favorited apps appear at the top of the app dashboard with a yellow star (⭐) besides them. You can favorite and unfavorite apps in any workspace to which you have access.
-
-There are two ways to favorite an app:
-
-1. Hover over an app and click the star (☆) that appears.
-   ![Favorite an app hover](/images/streamlit-cloud/favorite-app-dashboard-hover.png)
-2. Click on the "︙" overflow menu to the right of the app and click to Favorite.
-   ![Favorite an app menu](/images/streamlit-cloud/favorite-app-dashboard-menu.png)
-
-To unfavorite an app, either hover over the app and click the star (☆) again, or click on the "︙" overflow menu to the right of the app and click to Unfavorite.
-
 ### App settings
 
 The app settings let you [manage viewers of your apps](/streamlit-cloud/get-started/share-your-app#adding-viewers-from-your-dashboard) and [secrets of your apps](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). Click on the links to lean more about these features.
@@ -103,7 +91,27 @@ It is best practice to pin your Streamlit version in `requirements.txt`. Otherw
 
 ## App resources and limits
 
-The exact resources and limits will depend on [your workspace plan](http://streamlit.io/cloud). If you need more apps or more resources for your apps you can upgrade your plan or reach out to [support@streamlit.io](mailto:support@streamlit.io).
+### Resource limits
+
+The exact resources and limits will depend on [your workspace plan](https://streamlit.io/cloud). If you need more apps or more resources for your apps you can upgrade your plan or reach out to [support@streamlit.io](mailto:support@streamlit.io).
+
+#### Developer view
+
+If your app exceeds its resource limits, you will see one of the following messages when you visit your app. If your app uses an older version of Streamlit (`<1.1.0`) without memory fixes, you will see the message on the left. If your app uses a newer version of Streamlit (`>=1.1.0`), you will see the message on the right:
+
+<Flex>
+<Image src="/images/streamlit-cloud/resource-limits-dev-1.png" />
+<Image src="/images/streamlit-cloud/resource-limits-dev-2.png" />
+</Flex>
+
+#### Non-developer view
+
+If your app exceeds its resource limits, users with view-only access will see one of the following messages when they visit your app. They will see the message on the left if your app uses an older version of Streamlit (`<1.1.0`) without memory fixes, and the message on the right if your app uses a newer version of Streamlit (`>=1.1.0`). Viewers have the option to notify you when the app exceeds its resource limits:
+
+<Flex>
+<Image src="/images/streamlit-cloud/resource-limits-viewer-1.png" />
+<Image src="/images/streamlit-cloud/resource-limits-viewer-2.png" />
+</Flex>
 
 ### App hibernation
 
@@ -122,3 +130,42 @@ Private apps on Teams or Enterprise plans will not hibernate, but for public and
     <div style={{ maxWidth: '85%' }}>
         <Image src="/images/sleeping_app_moon.png" />
     </div>
+
+## App favoriting
+
+Streamlit Cloud supports a "favorite" feature that lets you quickly access your apps from the app dashboard. Favorited apps appear at the top of the app dashboard with a yellow star (⭐) beside them. You can favorite and unfavorite apps in any workspace to which you have access.
+
+<Note>
+
+Favorites are specific to your account. Other members of your workspace cannot see which apps you have favorited.
+
+</Note>
+
+### Favorite an app from your app dashboard
+
+There are two ways to favorite an app from the app dashboard:
+
+1. Hover over an app and click the star (☆) that appears.
+   ![Favorite an app hover](/images/streamlit-cloud/favorite-app-dashboard-hover.png)
+2. Click on the "︙" overflow menu to the app's right and click to Favorite.
+   ![Favorite an app menu](/images/streamlit-cloud/favorite-app-dashboard-menu.png)
+
+To unfavorite an app, either hover over the app and click the star (⭐) again, or click on the "︙" overflow menu to the app's right and click to Unfavorite.
+
+### In-app favoriting
+
+You can also favorite an app from right within the app! Currently, in-app favoriting is available for apps that use Streamlit v1.4.0 or later. Note that in-app favoriting is not available on apps in your workspaces for which you only have view access.
+
+When viewing any app in your workspace, click the star (☆) in the top-right corner of the app, besides the "☰" hamburger menu.
+
+![In-app favoriting](/images/streamlit-cloud/un-favorited.png)
+
+To unfavorite an app, click the star (⭐) again.
+
+![In-app un-favoriting](/images/streamlit-cloud/favorited-view.png)
+
+<Tip>
+
+Click [here](/knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud) to learn more about upgrading the Streamlit version of your app on Streamlit Cloud.
+
+</Tip>
