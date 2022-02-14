@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import classNames from "classnames";
 
 import useVersion from "../../lib/useVersion.js";
 
-const NavChild = ({ slug, page, color }) => {
+import styles from "./navChild.module.css";
+
+const NavChild = ({ slug, page, color, className }) => {
   const [manualState, setManualState] = useState(null);
   const version = useVersion();
 
@@ -26,7 +29,7 @@ const NavChild = ({ slug, page, color }) => {
 
   if (page.children?.length > 0 && opened) {
     subNav = (
-      <ul className="child-sub-nav">
+      <ul className={styles.List}>
         {page.children.map((child) => (
           <NavChild
             slug={slug}
@@ -44,12 +47,17 @@ const NavChild = ({ slug, page, color }) => {
 
   if (page.children?.length > 0) {
     accordion = (
-      <i
-        className={`accordion ${opened ? "close" : "open"}`}
-        onClick={toggleAccordion}
-      >
-        {opened ? "remove" : "add"}
-      </i>
+      <div className={styles.Accordion}>
+        <i
+          className={classNames(
+            styles.AccordionIcon,
+            opened ? "close" : "open"
+          )}
+          onClick={toggleAccordion}
+        >
+          {opened ? "remove" : "add"}
+        </i>
+      </div>
     );
   }
 
@@ -61,7 +69,7 @@ const NavChild = ({ slug, page, color }) => {
   const isLocalPage = page.url.startsWith("/");
 
   if (!isLocalPage) {
-    icon = <i className="external">open_in_new</i>;
+    icon = <i className={styles.ExternalIcon}>open_in_new</i>;
     target = "_blank";
   }
 
@@ -73,11 +81,26 @@ const NavChild = ({ slug, page, color }) => {
   }
 
   link = (
-    <span className={`child-item ${active ? "active" : ""}`}>
+    <span className={styles.LinkContainer}>
       <Link href={url}>
-        <a className="not-link" target={target}>
-          <span className={`colored-ball bg-${color}`} />
-          <span>{page.name}</span> {icon}
+        <a className={classNames("not-link", styles.Link)} target={target}>
+          <span
+            className={classNames(
+              styles.Circle,
+              active ? styles.ActiveCircle : "",
+              color === "violet-70"
+                ? styles.LibraryCircle
+                : color === "l-blue-70"
+                ? styles.CloudCircle
+                : styles.KBCircle
+            )}
+          />
+          <span
+            className={classNames(styles.PageName, active && styles.ActivePage)}
+          >
+            {page.name}
+          </span>
+          {icon}
         </a>
       </Link>
       {accordion}
@@ -85,7 +108,7 @@ const NavChild = ({ slug, page, color }) => {
   );
 
   return (
-    <li className="child">
+    <li className={classNames(styles.Container, className)}>
       {link}
       {subNav}
     </li>

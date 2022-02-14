@@ -8,6 +8,15 @@ module.exports = {
   darkMode: "class", // or 'media' or 'class'
 
   theme: {
+    screens: {
+      // Remove largest breakpoint, while keeping everything else at Tailwind defaults.
+      // https://tailwindcss.com/docs/breakpoints
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1448px",
+    },
     fontFamily: {
       sans: [
         "Inter",

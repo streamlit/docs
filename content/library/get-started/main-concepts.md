@@ -13,7 +13,7 @@ streamlit run your_script.py [-- script args]
 ```
 
 As soon as you run the script as shown above, a local Streamlit server will
-spin up and your app will open in a new tab your default web browser. The app
+spin up and your app will open in a new tab in your default web browser. The app
 is your canvas, where you'll draw charts, text, widgets, tables, and more.
 
 What gets drawn in the app is up to you. For example
@@ -28,6 +28,17 @@ When passing your script some custom arguments, they must be passed after two da
 arguments get interpreted as arguments to Streamlit itself.
 
 </Note>
+
+Another way of running Streamlit is to run it as a Python module. This can be
+useful when configuring an IDE like PyCharm to work with Streamlit:
+
+```bash
+# Running
+$ python -m streamlit your_script.py
+
+# is equivalent to:
+$ streamlit run your_script.py
+```
 
 <Tip>
 
