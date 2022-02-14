@@ -1,5 +1,5 @@
 .Container {
-  @apply fixed top-0 left-0 py-24 px-4 sm:px-24 lg:px-5 lg:py-24 h-screen z-10 w-10/12 md:w-9/12 xl:w-screen lg:max-w-none xl:max-w-xs overflow-y-auto shadow-lg lg:shadow-none transition-all;
+  @apply fixed left-0 top-0 py-24 px-4 sm:px-24 md:px-4 xl:px-2 xl:left-auto h-screen z-10 w-10/12 md:w-9/12 xl:w-screen lg:max-w-none xl:max-w-xs overflow-y-auto shadow-lg lg:shadow-none transition-all;
   @apply bg-white !important;
 }
 
