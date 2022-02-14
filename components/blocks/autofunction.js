@@ -58,7 +58,7 @@ const Autofunction = ({
       const codeText = ele.innerHTML;
       const preTag = ele.cloneNode(true);
       const codeWrap = document.createElement("div");
-      codeWrap.setAttribute("class", "block-code");
+      codeWrap.setAttribute("class", styles.CodeBlockContainer);
       const codeTag = document.createElement("code");
       codeTag.setAttribute("class", "language-python");
       preTag.classList.add("line-numbers");

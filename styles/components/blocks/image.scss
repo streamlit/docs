@@ -20,6 +20,11 @@
     margin-left: unset;
   }
   .image {
+    padding: 2rem;
+    background-color: $gray-20;
+    border-radius: 0.3rem;
+    margin: 2em 0 3em;
+
     img {
       max-width: 100%;
       transition: $normal;
@@ -118,6 +123,12 @@
 
       .image {
       }
+    }
+
+    .image {
+      background-color: transparent;
+      padding: 0;
+      margin: 0;
     }
   }
 }

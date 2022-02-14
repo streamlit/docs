@@ -1,7 +1,11 @@
 import { debounce } from "lodash";
 import React, { useState, useEffect } from "react";
+import classNames from "classnames";
+
 import bus from "../../lib/bus";
 import NavItem from "../navigation/navItem";
+
+import styles from "./sideBar.module.css";
 
 const SideBar = ({ menu, slug }) => {
   const [isCondensed, setIsCondensed] = useState(false);
@@ -15,21 +19,21 @@ const SideBar = ({ menu, slug }) => {
   };
 
   const handleMouseEnter = () => {
-    if (window.innerWidth < 1250 && window.innerWidth > 1024) {
+    if (window.innerWidth < 1250 && window.innerWidth >= 1024) {
       setIsCondensed(false);
       setIsOver(true);
     }
   };
 
   const handleMouseLeave = () => {
-    if (window.innerWidth < 1250 && window.innerWidth > 1024) {
+    if (window.innerWidth < 1250 && window.innerWidth >= 1024) {
       setIsCondensed(true);
       setIsOver(false);
     }
   };
 
   const checkExpanded = () => {
-    if (window.innerWidth < 1250 && window.innerWidth > 1024) {
+    if (window.innerWidth < 1250 && window.innerWidth >= 1024) {
       setIsCondensed(true);
     } else {
       setIsCondensed(false);
@@ -62,21 +66,20 @@ const SideBar = ({ menu, slug }) => {
       page={page}
       depth={page.depth + 1}
       condensed={isCondensed}
+      // className={isOver && styles.OverNavItem}
     />
   ));
 
   return (
     <section
-      className={`block-side-nav ${isOpen ? "open" : ""} ${
-        isOver ? "over" : ""
-      } ${theme}`}
+      className={classNames(
+        styles.Container,
+        isOpen ? styles.OpenNav : styles.ClosedNav,
+        isOver ? styles.OverNav : styles.CollapsedNav
+      )}
     >
-      <nav
-        className={`side-nav ${isCondensed ? "condensed" : "expanded"}`}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <ul className="inner-nav">{navItems}</ul>
+      <nav onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <ul className={styles.NavList}>{navItems}</ul>
       </nav>
     </section>
   );
