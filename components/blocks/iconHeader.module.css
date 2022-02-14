@@ -3,7 +3,7 @@
 }
 
 .Icon {
-  @apply rounded-full p-2 mr-2 text-sm leading-none transform;
+  @apply rounded-full p-2 mr-2 text-base leading-none transform flex items-center justify-center w-8 h-8;
   @apply text-white !important;
 }
 
