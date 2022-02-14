@@ -1,5 +1,5 @@
 .Container {
-  @apply rounded-md overflow-hidden flex justify-between flex-col cursor-pointer transition duration-100 ease-in-out hover:shadow-md bg-lightBlue-70;
+  @apply rounded-md overflow-hidden flex justify-between flex-col cursor-pointer transition duration-100 ease-in-out hover:shadow-md;
 }
 
 .Link {
@@ -35,4 +35,17 @@
 
 .Third {
   @apply col-span-full md:col-span-3 lg:col-span-2;
+}
+
+/* Color modifiers */
+.OrangeBackground {
+  @apply bg-orange-70;
+}
+
+.VioletBackground {
+  @apply bg-indigo-70;
+}
+
+.BlueBackground {
+  @apply bg-lightBlue-70;
 }

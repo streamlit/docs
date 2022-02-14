@@ -53,8 +53,21 @@ const Tile = ({
     );
   }
 
+  const backgroundColor =
+    background === "orange-70"
+      ? styles.OrangeBackground
+      : background === "violet-70"
+      ? styles.VioletBackground
+      : styles.BlueBackground;
+
   return (
-    <div className={classNames(styles.Container, tileSize || "third")}>
+    <div
+      className={classNames(
+        styles.Container,
+        tileSize || "third",
+        backgroundColor
+      )}
+    >
       <Link href={link || "/"}>
         <a className={classNames("not-link", styles.Link)}>
           {image}
