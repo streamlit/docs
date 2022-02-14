@@ -39,9 +39,45 @@ Having trouble granting access? Is a viewer having trouble logging on? See our [
 
 If you add an entire email domain, anyone with an email address which uses that domain will be able to view your app after authenticating themselves. For example, if "foo.com" is added to the list of allowed email domains, anyone with an email address that ends in "@foo.com" will be allowed to view the app.
 
-### Adding viewers from the app
+There are three primary ways to share your app with viewers. You can either directly add viewers from the in-app share menu, or do so from the Cloud logs menu, or from your app dashboard.
 
-From your deployed app you can easily add viewers from your developer console.
+### Adding viewers from the in-app share menu
+
+You can add viewers from the in-app share menu by clicking the "Share" button in the top right corner of your deployed app.
+
+1. **Click "Share" in the top right corner .**
+<div style={{ marginBottom: '-3em', marginLeft: '2em' }}>
+    <Image src="/images/streamlit-cloud/in-app-share-menu-1.png" />
+</div>
+2. **Enter the email addresses of the viewers.**
+<div style={{ maxWidth: '55%', marginBottom: '-3em', marginLeft: '10em' }}>
+    <Image src="/images/streamlit-cloud/in-app-share-menu-2.png" />
+</div>
+3. **Click "Invite".**
+
+   It's that easy! The viewers you have added will receive an email inviting them to visit your app. The most recently added viewers will appear at the top of the list in the in-app share menu.
+
+<div style={{ maxWidth: '75%', marginBottom: '-3em', marginLeft: '4em' }}>
+    <Image src="/images/streamlit-cloud/app-invite-notification.png" />
+</div>
+
+To remove a viewer, simply hover over their email address and click "X" that appears to the right:
+
+<div style={{ maxWidth: '55%', marginBottom: '-3em', marginLeft: '10em' }}>
+    <Image src="/images/streamlit-cloud/in-app-share-menu-3.png" />
+</div>
+
+Developers, invited viewers, and members of your workspace can all see the in-app share menu, read the list of viewers, and add and remove viewers.
+
+<Important>
+
+Only developers are allowed to toggle whether the app is public or private. App viewers don't have permission to change this setting.
+
+</Important>
+
+### Adding viewers from the Cloud logs menu
+
+From your deployed app you can easily add viewers from your Cloud logs menu.
 
 1. **Select "Manage app" in the lower right corner.**
 <div style={{ maxWidth: '45%', marginBottom: '-3em', marginLeft: '10em' }}>
@@ -57,7 +93,7 @@ From your deployed app you can easily add viewers from your developer console.
 
    ![Add viewers](/images/streamlit-cloud/add-viewers.png)
 
-### Adding viewers from your dashboard
+### Adding viewers from the app dashboard
 
 You can also add viewers directly from your dashboard.
 
