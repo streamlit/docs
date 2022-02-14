@@ -2,6 +2,8 @@ import React from "react";
 import { breadcrumbsForSlug } from "../../lib/utils.js";
 import Link from "next/link";
 
+import styles from "./breadCrumbs.module.css";
+
 const BreadCrumbs = ({ slug, menu }) => {
   const formatedTitle = (title) => {
     return `${title}`.replace(/\-/g, " ").replace(/\bapi\b/, "API");
@@ -12,16 +14,18 @@ const BreadCrumbs = ({ slug, menu }) => {
     if (index == slug.length) {
       formatedCrumb = (
         <Link href={crumb.link}>
-          <a className="not-link bold">{crumb.title}</a>
+          <a className={`not-link ${styles.ActiveLink} ${styles.Link}`}>
+            {crumb.title}
+          </a>
         </Link>
       );
     } else {
       formatedCrumb = (
         <>
           <Link href={crumb.link}>
-            <a className="not-link">{crumb.title}</a>
+            <a className={`not-link ${styles.Link}`}>{crumb.title}</a>
           </Link>
-          /
+          <span className={styles.Separator}>/</span>
         </>
       );
     }
@@ -73,12 +77,14 @@ const BreadCrumbs = ({ slug, menu }) => {
   }
 
   return (
-    <nav className="breadcrumbs">
-      {breadcrumbs.map((crumb, index) => (
-        <li key={`${crumb}-${index}`} className="small">
-          {createCrumb(crumb, index, slug)}
-        </li>
-      ))}
+    <nav>
+      <ul className={styles.Container}>
+        {breadcrumbs.map((crumb, index) => (
+          <li key={`${crumb}-${index}`} className={styles.InnerContainer}>
+            {createCrumb(crumb, index, slug)}
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 };

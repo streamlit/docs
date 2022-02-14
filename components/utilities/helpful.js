@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import pull from "lodash/pull";
 import router, { withRouter } from "next/router";
 
+import styles from "./helpful.module.css";
+
 import SuggestEdits from "./suggestEdits";
 
 const Helpful = ({ slug, sourcefile }) => {
@@ -99,6 +101,7 @@ const Helpful = ({ slug, sourcefile }) => {
         value={feedback.notes}
         placeholder="Please let us know how we can improve this page (optional)"
         rows="4"
+        className={styles.Textarea}
       />
     );
   }
@@ -106,15 +109,17 @@ const Helpful = ({ slug, sourcefile }) => {
   let block;
   if (step == 0) {
     block = (
-      <section className="helpful">
-        <p className="bold large">Was this page helpful?</p>
-        <section className="buttons">
-          <button onClick={() => handleStep(2)}>
-            <i>thumb_up</i> Yes
+      <section className={styles.Container}>
+        <p className={styles.Title}>Was this page helpful?</p>
+        <section className={styles.CtaContainer}>
+          <button onClick={() => handleStep(2)} className={styles.Button}>
+            <i className={styles.Icon}>thumb_up</i>
+            Yes
           </button>
-          <button onClick={() => handleStep(1)}>
+          <button onClick={() => handleStep(1)} className={styles.Button}>
             {" "}
-            <i>thumb_down</i> No
+            <i className={styles.Icon}>thumb_down</i>
+            No
           </button>
         </section>
       </section>
@@ -122,74 +127,89 @@ const Helpful = ({ slug, sourcefile }) => {
   }
   if (step == 1) {
     block = (
-      <section className="improve">
-        <h4>How can we improve this page?</h4>
-        <p className="tiny italic">Select all that apply</p>
-        <div className="input-container">
+      <section>
+        <h4 className={styles.ImproveTitle}>How can we improve this page?</h4>
+        <p className={styles.ImproveText}>Select all that apply</p>
+        <div className={styles.InputContainer}>
           <input
+            className={styles.Input}
             onChange={(e) => handleImprovement(e)}
             type="checkbox"
             id="moreExamples"
             name="moreExamples"
             checked={feedback.moreExamples}
           />
-          <label htmlFor="more-examples">More examples</label>
+          <label htmlFor="more-examples" className={styles.Label}>
+            More examples
+          </label>
           <br />
         </div>
-        <div className="input-container">
+        <div className={styles.InputContainer}>
           <input
+            className={styles.Input}
             onChange={(e) => handleImprovement(e)}
             type="checkbox"
             id="clearerSteps"
             name="clearerSteps"
             checked={feedback.clearerSteps}
           />
-          <label htmlFor="clearerSteps">Clearer steps</label>
+          <label htmlFor="clearerSteps" className={styles.Label}>
+            Clearer steps
+          </label>
           <br />
         </div>
-        <div className="input-container">
+        <div className={styles.InputContainer}>
           <input
+            className={styles.Input}
             onChange={(e) => handleImprovement(e)}
             type="checkbox"
             id="moreInformation"
             name="moreInformation"
             checked={feedback.moreInformation}
           />
-          <label htmlFor="moreInformation">More information</label>
+          <label htmlFor="moreInformation" className={styles.Label}>
+            More information
+          </label>
           <br />
         </div>
-        <div className="input-container">
+        <div className={styles.InputContainer}>
           <input
+            className={styles.Input}
             onChange={(e) => handleImprovement(e)}
             type="checkbox"
             id="other"
             name="other"
             checked={feedback.other}
           />
-          <label htmlFor="other">Other</label>
+          <label htmlFor="other" className={styles.Label}>
+            Other
+          </label>
           <br />
         </div>
         {otherText}
-        <button onClick={() => handleStep(2)}>Submit</button>
+        <button onClick={() => handleStep(2)} className={styles.SubmitCTA}>
+          Submit
+        </button>
       </section>
     );
   }
   if (step == 2) {
     block = (
       <section>
-        <p className="bold large">Thank you for your feedback!</p>
+        <p className={styles.Title}>Thank you for your feedback!</p>
       </section>
     );
   }
 
   return (
-    <section className="block-helpful">
+    <section className={styles.FormContainer}>
       <form
         name="helpful"
         method="POST"
         data-netlify="true"
         ref={formRef}
         data-netlify-honeypot="bot-field"
+        className={styles.Form}
       >
         <input type="hidden" name="form-name" value="helpful" />
         <input type="hidden" name="url" value={joinedSlug} />

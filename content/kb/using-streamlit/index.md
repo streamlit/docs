@@ -10,6 +10,7 @@ Here are some frequently asked questions about using Streamlit. If you feel some
 - [Sanity checks](/knowledge-base/using-streamlit/sanity-checks)
 - [Caching issues](/knowledge-base/using-streamlit/caching-issues)
 - [Batch elements and input widgets with `st.form`](/knowledge-base/using-streamlit/batch-elements-input-widgets-form)
+- [How do I run my Streamlit script?](/knowledge-base/using-streamlit/how-do-i-run-my-streamlit-script)
 - [How can I make Streamlit watch for changes in other modules I'm importing in my app?](/knowledge-base/using-streamlit/streamlit-watch-changes-other-modules-importing-app)
 - [What browsers does Streamlit support?](/knowledge-base/using-streamlit/supported-browsers)
 - [What is the path of Streamlit’s `config.toml` file?](/knowledge-base/using-streamlit/path-streamlit-config-toml)

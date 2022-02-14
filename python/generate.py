@@ -54,6 +54,11 @@ def get_function_docstring_dict(func, funcname, signature_prefix):
         description['name'] = funcname.lstrip('_')
         description['signature'] = f'{signature_prefix}.{description["name"]}({arguments})'
 
+    # Edge case for .clear() method on st.experimental_memo and st.experimental_singleton
+    # Prepend "experimental_[memo | singleton]." to the name "clear"
+    if 'experimental' in signature_prefix:
+        description['name'] = f'{signature_prefix}.{funcname}'.lstrip('st.')
+
     if docstring:
         try:
             # Explicitly create the 'Example' section which Streamlit seems to use a lot of.
@@ -191,11 +196,15 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
 
 def get_streamlit_docstring_dict():
     module_docstring_dict = get_obj_docstring_dict(streamlit, 'streamlit', 'st')
+    memo_clear_docstring_dict = get_obj_docstring_dict(streamlit.caching.memo, 'streamlit.experimental_memo', 'st.experimental_memo')
+    singleton_clear_docstring_dict = get_obj_docstring_dict(streamlit.caching.singleton, 'streamlit.experimental_singleton', 'st.experimental_singleton')
     components_docstring_dict = get_obj_docstring_dict(components, 'streamlit.components.v1', 'st.components.v1')
     delta_docstring_dict = get_obj_docstring_dict(streamlit._DeltaGenerator, 'DeltaGenerator', 'element')
 
-    module_docstring_dict.update(delta_docstring_dict)
+    module_docstring_dict.update(memo_clear_docstring_dict)
+    module_docstring_dict.update(singleton_clear_docstring_dict)
     module_docstring_dict.update(components_docstring_dict)
+    module_docstring_dict.update(delta_docstring_dict)
 
     return module_docstring_dict
 

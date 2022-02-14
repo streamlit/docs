@@ -1,0 +1,87 @@
+.Container {
+  @apply flex flex-col md:flex-row items-start md:items-center;
+}
+
+.Title {
+  @apply font-bold text-lg mb-0 tracking-tight;
+  @apply text-gray-90 !important;
+}
+
+:global(.dark) .Title,
+:global(.dark) .ImproveTitle,
+:global(.dark) .ImproveText,
+:global(.dark) .Label {
+  @apply text-white !important;
+}
+
+.CtaContainer {
+  @apply flex flex-row items-center pt-4 md:pt-0;
+}
+
+.Button {
+  @apply ml-0 md:ml-6 mb-0 py-2 px-3 flex items-center bg-gray-20 font-bold rounded-md border-none cursor-pointer hover:opacity-90 hover:scale-105 hover:shadow-lg;
+  @apply text-gray-90 !important;
+}
+
+.Button:last-child {
+  @apply ml-6;
+}
+
+:global(.dark) .Button {
+  @apply bg-gray-80;
+  @apply text-white !important;
+}
+
+.Icon {
+  @apply text-base mr-2;
+  @apply text-gray-50 !important;
+}
+
+:global(.dark) .Icon {
+  @apply text-gray-90;
+}
+
+/* How can we improve this page form step */
+.ImproveTitle {
+  @apply font-bold text-lg tracking-tight my-0;
+  @apply text-gray-90 !important;
+}
+
+.ImproveText {
+  @apply text-xs tracking-tight italic mb-4;
+  @apply text-gray-90 !important;
+}
+
+.InputContainer {
+  @apply flex items-center mb-2;
+}
+
+.Input {
+  @apply w-4 h-4 mr-2 checked:bg-gray-90 appearance-none border border-gray-90 rounded-sm outline-0 cursor-pointer;
+}
+
+:global(.dark) .Input {
+  @apply checked:bg-white border-white;
+}
+
+.Label {
+  @apply font-sans;
+  @apply text-gray-90 !important;
+}
+
+.Textarea {
+  @apply resize-none block p-4 rounded-md font-sans w-full max-w-md border border-gray-30;
+}
+
+.SubmitCTA {
+  @apply inline-block mt-4 p-4 hover:opacity-90 hover:scale-105 hover:shadow-lg bg-red-70 font-bold cursor-pointer border-none rounded-md;
+  @apply text-white !important;
+}
+
+.FormContainer {
+  @apply flex flex-col md:flex-row items-start md:items-center mt-16;
+}
+
+.Form {
+  @apply flex-1;
+}
