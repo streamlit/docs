@@ -57,10 +57,14 @@
   @apply pl-10;
 }
 
-.headingH5 {
+.headingH4 {
   @apply pl-12;
 }
 
-.headingH6 {
+.headingH5 {
   @apply pl-14;
+}
+
+.headingH6 {
+  @apply pl-16;
 }

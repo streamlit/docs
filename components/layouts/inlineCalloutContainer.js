@@ -1,7 +1,7 @@
+import styles from "./inlineCalloutContainer.module.css";
+
 const InlineCalloutContainer = ({ children }) => {
-  return (
-    <section className="block-inline-callout-container">{children}</section>
-  );
+  return <section className={styles.Container}>{children}</section>;
 };
 
 export default InlineCalloutContainer;

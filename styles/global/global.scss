@@ -142,11 +142,3 @@ iframe {
     background-color: rgba(191, 197, 211, 0.75);
   }
 }
-
-.flex-box {
-  display: flex;
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-  }
-}

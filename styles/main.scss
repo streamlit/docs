@@ -8,7 +8,6 @@
 @import "./global/styles.scss";
 @import "./global/color_classes.scss";
 @import "./global/templates.scss";
-@import "./global/layout.scss";
 
 //   ____                                             _
 //  / ___|___  _ __ ___  _ __   ___  _ __   ___ _ __ | |_ ___
@@ -17,30 +16,10 @@
 //  \____\___/|_| |_| |_| .__/ \___/|_| |_|\___|_| |_|\__|___/
 //                      |_|
 
-@import "./components/navigation/header.scss";
-@import "./components/navigation/sideBar.scss";
-@import "./components/navigation/offScreenNav.scss";
-
-@import "./components/layout/component.scss";
-@import "./components/layout/inlineCalloutContainer.scss";
-@import "./components/layout/masonry.scss";
-@import "./components/layout/newsContainer.scss";
 @import "./components/layout/row.scss";
-@import "./components/layout/tileContainer.scss";
 @import "./components/layout/article.scss";
 @import "./components/utilities/loading.scss";
 
 @import "./components/blocks/autofunction.scss";
-@import "./components/blocks/code.scss";
-@import "./components/blocks/codeTile.scss";
-@import "./components/blocks/iconHeader.scss";
 @import "./components/blocks/image.scss";
-@import "./components/blocks/inlineCallout.scss";
 @import "./components/blocks/markdownTable.scss";
-@import "./components/blocks/newsEntry.scss";
-@import "./components/blocks/note.scss";
-@import "./components/blocks/noteSplit.scss";
-@import "./components/blocks/refCard.scss";
-@import "./components/blocks/table.scss";
-@import "./components/blocks/youTube.scss";
-@import "./components/blocks/cloud.scss";
