@@ -1,10 +1,10 @@
 .Container {
-  @apply sticky top-0 w-screen z-30 border-b;
+  @apply relative w-screen z-30 border-b;
   @apply bg-white !important;
 }
 
 .stickyContainer {
-  @apply h-12 border-b-gray-30 top-0;
+  @apply fixed h-12 border-b-gray-30 top-0;
 }
 
 .standardContainer {
