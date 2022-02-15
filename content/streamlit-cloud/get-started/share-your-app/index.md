@@ -45,7 +45,7 @@ There are three primary ways to share your app with viewers. You can either dire
 
 You can add viewers from the in-app share menu by clicking the "Share" button in the top right corner of your deployed app.
 
-1. **Click "Share" in the top right corner .**
+1. **Click "Share" in the top right corner.**
 <div style={{ marginBottom: '-3em', marginLeft: '2em' }}>
     <Image src="/images/streamlit-cloud/in-app-share-menu-1.png" />
 </div>
