@@ -8,6 +8,10 @@ description: st.session_state is a way to share variables between reruns, for ea
 
 Session State is a way to share variables between reruns, for each user session. In addition to the ability to store and persist state, Streamlit also exposes the ability to manipulate state using Callbacks.
 
+Check out this Session State basics tutorial video by Streamlit Developer Advocate Dr. Marisa Smith to get started:
+
+<YouTube videoId="92jUAXBmZyU" />
+
 ### Initialize values in Session State
 
 The Session State API follows a field-based API, which is very similar to Python dictionaries:
