@@ -1,5 +1,5 @@
 .Container {
-  @apply fixed left-0 top-0 py-24 px-4 sm:px-24 md:px-4 xl:px-2 xl:left-auto h-screen z-10 w-10/12 md:w-9/12 xl:w-screen lg:max-w-none xl:max-w-xs overflow-y-auto shadow-lg lg:shadow-none transition-all;
+  @apply fixed lg:sticky top-auto lg:top-16 left-0 xl:left-auto px-0 h-screen z-10 w-10/12 md:w-9/12 xl:w-screen max-w-xs md:max-w-none overflow-y-auto shadow-lg lg:shadow-none transition-all;
   @apply bg-white !important;
 }
 
@@ -8,7 +8,8 @@
 }
 
 .OpenNav {
-  @apply block;
+  @apply block md:max-w-xs;
+  @apply md:w-full !important;
 }
 
 .ClosedNav {
@@ -16,11 +17,11 @@
 }
 
 .CollapsedNav {
-  @apply lg:w-36 xl:w-full;
+  @apply w-full md:w-36 lg:w-full;
 }
 
 .OverNav {
-  @apply lg:shadow-lg;
+  @apply md:w-full;
 }
 
 .OverNavItem {
@@ -28,5 +29,5 @@
 }
 
 .NavList {
-  @apply list-none overscroll-contain m-0;
+  @apply list-none overscroll-contain m-0 px-2 lg:px-0;
 }
