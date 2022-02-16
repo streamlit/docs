@@ -17,6 +17,7 @@ We also have a series of guides on how to connect to:
 - [AWS S3](/knowledge-base/tutorials/databases/aws-s3)
 - [BigQuery](/knowledge-base/tutorials/databases/bigquery)
 - [Snowflake](/knowledge-base/tutorials/databases/snowflake)
+- [Microsoft SQL Server](/knowledge-base/tutorials/databases/mssql)
 - [Firestore (blog)](https://blog.streamlit.io/streamlit-firestore/)
 - [MongoDB](/knowledge-base/tutorials/databases/mongodb)
 - [MySQL](/knowledge-base/tutorials/databases/mysql)
