@@ -1,0 +1,7 @@
+.Container {
+  @apply grid grid-cols-1 lg:grid-cols-4 gap-4 container mx-auto px-2 xl:px-4;
+}
+
+.InnerContainer {
+  @apply col-span-full lg:col-start-2 lg:col-end-5;
+}
