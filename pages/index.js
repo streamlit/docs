@@ -64,8 +64,8 @@ export default function Home({ window, menu, gdpr_data }) {
           content={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-twitter.jpg`}
         />
       </Head>
+      <GDPRBanner {...gdpr_data} />
       <section className={styles.Container}>
-        <GDPRBanner {...gdpr_data} />
         <SideBar menu={menu} slug={[]} />
         <section className={styles.InnerContainer}>
           <article>
