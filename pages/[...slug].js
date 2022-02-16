@@ -53,6 +53,8 @@ import Warning from "../components/blocks/warning";
 import YouTube from "../components/blocks/youTube";
 import Cloud from "../components/blocks/cloud";
 
+import styles from "../components/layouts/container.module.css";
+
 export default function Article({
   data,
   source,
@@ -177,7 +179,7 @@ export default function Article({
     >
       <Layout>
         <GDPRBanner {...gdpr_data} />
-        <section className="page container template-standard">
+        <section className={styles.Container}>
           <SideBar slug={slug} menu={menu} />
           <Head>
             <title>{data.title} - Streamlit Docs</title>
@@ -227,7 +229,7 @@ export default function Article({
               content={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-twitter.jpg`}
             />
           </Head>
-          <section className="content wide" id="documentation">
+          <section className={styles.InnerContainer} id="documentation">
             {versionWarning}
             <BreadCrumbs slug={slug} menu={menu} version={version} />
             <article className="leaf-page">
