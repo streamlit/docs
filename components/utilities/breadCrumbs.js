@@ -55,6 +55,29 @@ const BreadCrumbs = ({ slug, menu }) => {
   const location = `/${paths}`;
   const path = breadcrumbsForSlug(menu, location, []);
 
+  // If there's a missing entry in menu.md, throw a build error.
+  // But first, we should exclude files that aren't pages.
+  const filesToExclude = [];
+
+  // Let's start with files that start with a dot, such as .keep and .DS_Store
+  if (slug.slice()[0].startsWith(".")) {
+    filesToExclude.push(slug.slice().join("/"));
+  }
+
+  // Then, we add a couple pages that don't need breadcrumbs, such as /menu, /index, etc.
+  filesToExclude.push("index", "gdpr-banner", "menu");
+
+  // Now, we throw the error if any page that's not on the filesToExclude array is missing in menu.md
+  if (path.length === 0 && !filesToExclude.includes(slug[0])) {
+    throw new Error(
+      `This slug: ${slug
+        .slice()
+        .join(
+          "/"
+        )} doesn't have a corresponding entry in menu.md. Please add it, and if you don't want this entry to show up in the sidebar, add the "visible: false" property to the entry.`
+    );
+  }
+
   path.forEach((obj) => {
     if (obj.url === location) {
       breadcrumbs.push({
