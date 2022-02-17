@@ -1,8 +1,3 @@
----
-title: Visualising rent prices with Streamlit
-slug: /knowledge-base/tutorials/rent-prices
----
-
 # Visualising rent prices with Streamlit
 
 When you're looking for a new apartment to rent, it's often hard to figure out if a price for a specific place is "good" or "fair".
