@@ -82,18 +82,14 @@ Streamlit Cloud is a workspace for you and your team to easily deploy, manage, a
         title="Share your app" 
         text="Share your app publicly or privately with select viewers and developers." 
         link="/streamlit-cloud/get-started/share-your-app"
+        size="half"
     />
     <Tile 
         icon="manage_accounts"
         title="Manage your app" 
         text="Access logs, get more resources for your app, and other tips and tricks." 
         link="/streamlit-cloud/get-started/manage-your-app"
-    />
-    <Tile 
-        icon="speed"
-        title="Additional features" 
-        text="If you are on an Enterprise plan you have access to even more features." 
-        link="/streamlit-cloud/additional-features"
+        size="half"
     />
 </TileContainer>
 
