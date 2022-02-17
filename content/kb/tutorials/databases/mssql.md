@@ -139,6 +139,12 @@ pyodbc==x.x.x
 
 Replace `x.x.x` ☝️ with the version of pyodbc you want installed on Cloud.
 
+<Note>
+
+While Azure SQL Server supports a number of authentication methods, you are limited to authentication via a username and password on Streamlit Cloud. Microsoft's ODBC driver does not support Azure Active Directory authentication on Linux—the OS Streamlit Cloud deploys your apps to.
+
+</Note>
+
 ## Write your Streamlit app
 
 Copy the code below to your Streamlit app and run it. Make sure to adapt `query` to use the name of your table.
