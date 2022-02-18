@@ -18,6 +18,8 @@ import SummaryTiles from "../components/summaryTiles";
 
 import NewsContainer from "../components/layouts/newsContainer";
 import InlineCalloutContainer from "../components/layouts/inlineCalloutContainer";
+import TileContainer from "../components/layouts/tileContainer";
+import Tile from "../components/blocks/tile";
 
 import { H1, H2 } from "../components/blocks/headers";
 import NewsEntry from "../components/blocks/newsEntry";
@@ -87,13 +89,18 @@ export default function Home({ window, menu, gdpr_data }) {
               <Tile size="half" background="unset" color="unset" dark={{ background: "unset", color: 'white', border_color: 'gray-90' }} border_color="gray-40" icon="visibility" title="Feature title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/tutorials/get-started" />
               <Tile size="half" background="unset" color="unset" dark={{ background: "unset", color: 'white', border_color: 'gray-90' }} border_color="gray-40" icon="edit" title="Feature title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/tutorials/get-started" />
               <Tile size="half" background="unset" color="unset" dark={{ background: "unset", color: 'white', border_color: 'gray-90' }} border_color="gray-40" img="/logo.svg" title="Feature title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/tutorials/get-started" />
-            </TileContainer>
+            </TileContainer> */}
 
-            <NewsContainer>
-              <NewsEntry date="2021-05-12T16:30:00.000Z" title="Title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/" />
-              <NewsEntry date="2021-04-07T16:08:45.000Z" title="Title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/" />
-              <NewsEntry date="2021-01-12T16:30:00.000Z" title="Title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/" />
-              <Button link="/updates">View all updates</Button>
+            {/* <NewsContainer>
+              <NewsEntry
+                date="2022-02-20T16:30:00.000Z"
+                title="Announcement: Streamlit Cloud Maintenance"
+                text="Streamlit Cloud will have a maintenance event on Sunday, February 20th at 7:00 am PST. The maintenance event will last for no more than 5 minutes."
+                link="https://discuss.streamlit.io/c/official-announcements/"
+              />
+              <NewsEntry date="2022-02-17T16:08:45.000Z" title="Calculating distances in cosmology with Streamlit" text="Learn how three friends made the cosmology on-the-go app CosmΩracle." link="https://blog.streamlit.io/calculating-distances-in-cosmology-with-streamlit/" />
+              <NewsEntry date="2021-02-07T16:30:00.000Z" title="Monthly Rewind > January 2022" text="Your January look-back at new features and great community content." link="https://blog.streamlit.io/monthly-rewind-january-2022/" />
+              <Button link="https://blog.streamlit.io/">View all updates</Button>
             </NewsContainer> */}
 
             <H2>How to use our docs</H2>
@@ -137,10 +144,99 @@ export default function Home({ window, menu, gdpr_data }) {
               </InlineCallout> */}
             </InlineCalloutContainer>
 
+            <NewsContainer>
+              <NewsEntry
+                date="2022-02-20T16:30:00.000Z"
+                title="Announcement: Streamlit Cloud maintenance"
+                text="Streamlit Cloud will have a maintenance event on Sunday, February 20th at 7:00 am PST. The maintenance event will last for no more than 5 minutes."
+                link="https://discuss.streamlit.io/c/official-announcements/"
+              />
+              <NewsEntry
+                date="2022-02-17T16:08:45.000Z"
+                title="Calculating distances in cosmology with Streamlit"
+                text="Learn how three friends made the cosmology on-the-go app CosmΩracle."
+                link="https://blog.streamlit.io/calculating-distances-in-cosmology-with-streamlit/"
+              />
+              <NewsEntry
+                date="2021-02-07T16:30:00.000Z"
+                title="Monthly Rewind > January 2022"
+                text="Your January look-back at new features and great community content."
+                link="https://blog.streamlit.io/monthly-rewind-january-2022/"
+              />
+              <Button link="https://blog.streamlit.io/">
+                View all updates
+              </Button>
+            </NewsContainer>
+
+            <H2 className="no-b-m">What's new</H2>
+
+            <TileContainer>
+              <Tile
+                size="half"
+                background="unset"
+                color="unset"
+                dark={{
+                  background: "unset",
+                  color: "white",
+                  border_color: "gray-90",
+                }}
+                border_color="gray-40"
+                icon="photo_camera"
+                title="st.camera_input"
+                text="You can now upload images to your apps straight from your camera with the new st.camera_input feature. It's great for computer vision apps."
+                link="/library/api-reference/widgets/st.camera_input"
+              />
+              <Tile
+                size="half"
+                background="unset"
+                color="unset"
+                dark={{
+                  background: "unset",
+                  color: "white",
+                  border_color: "gray-90",
+                }}
+                border_color="gray-40"
+                icon="login"
+                title="Sign in with email"
+                text="You can now sign in to Streamlit Cloud by using an email! Read more about how to use this feature in our docs."
+                link="/streamlit-cloud/get-started#log-in-to-sharestreamlitio"
+              />
+              <Tile
+                size="half"
+                background="unset"
+                color="unset"
+                dark={{
+                  background: "unset",
+                  color: "white",
+                  border_color: "gray-90",
+                }}
+                border_color="gray-40"
+                icon="star"
+                title="App favoriting"
+                text="Streamlit Cloud supports a 'favorite' feature that lets you quickly access your apps from the app dashboard. Favorited apps appear with a yellow star ⭐ beside them."
+                link="/streamlit-cloud/get-started/manage-your-app#app-favoriting"
+              />
+              <Tile
+                size="half"
+                background="unset"
+                color="unset"
+                dark={{
+                  background: "unset",
+                  color: "white",
+                  border_color: "gray-90",
+                }}
+                border_color="gray-40"
+                img="/logo.svg"
+                title="Clear memo + singleton caches procedurally"
+                text="Do you need more control over cache invalidation? Any function annotated with @st.experimental_memo or @st.experimental_singleton gets its own clear() function automatically."
+                link="/library/advanced-features/experimental-cache-primitives#clear-memo-and-singleton-caches-procedurally"
+              />
+            </TileContainer>
+
             <NoteSplit
               background="gray-20"
               title="Join the community"
-              copy="Streamlit is more than just a way to make data apps, it’s also a community of creators that share their apps and ideas and help each other make their work better. Please come join us on the community forum. We love to hear your questions, ideas, and help you work through your bugs — stop by today!"
+              copy="Streamlit is more than just a way to make data apps, it's also a community of creators that share their apps and ideas and help each other make their work better. Please come join us on the community forum. We love to hear your questions, ideas, and help you work through your bugs — stop by today!"
               button={{
                 text: "View forum",
                 link: "https://discuss.streamlit.io",
