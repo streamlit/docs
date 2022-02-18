@@ -18,6 +18,8 @@ import SummaryTiles from "../components/summaryTiles";
 
 import NewsContainer from "../components/layouts/newsContainer";
 import InlineCalloutContainer from "../components/layouts/inlineCalloutContainer";
+import TileContainer from "../components/layouts/tileContainer";
+import Tile from "../components/blocks/tile";
 
 import { H1, H2 } from "../components/blocks/headers";
 import NewsEntry from "../components/blocks/newsEntry";
@@ -87,14 +89,19 @@ export default function Home({ window, menu, gdpr_data }) {
               <Tile size="half" background="unset" color="unset" dark={{ background: "unset", color: 'white', border_color: 'gray-90' }} border_color="gray-40" icon="visibility" title="Feature title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/tutorials/get-started" />
               <Tile size="half" background="unset" color="unset" dark={{ background: "unset", color: 'white', border_color: 'gray-90' }} border_color="gray-40" icon="edit" title="Feature title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/tutorials/get-started" />
               <Tile size="half" background="unset" color="unset" dark={{ background: "unset", color: 'white', border_color: 'gray-90' }} border_color="gray-40" img="/logo.svg" title="Feature title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/tutorials/get-started" />
-            </TileContainer>
+            </TileContainer> */}
 
             <NewsContainer>
-              <NewsEntry date="2021-05-12T16:30:00.000Z" title="Title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/" />
-              <NewsEntry date="2021-04-07T16:08:45.000Z" title="Title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/" />
+              <NewsEntry
+                date="2022-02-20T16:30:00.000Z"
+                title="Announcement: Streamlit Cloud Maintenance"
+                text="Streamlit Cloud will have a maintenance event on Sunday, February 20th at 7:00 am PST. The maintenance event will last for no more than 5 minutes."
+                link="https://discuss.streamlit.io/c/official-announcements/"
+              />
+              {/* <NewsEntry date="2021-04-07T16:08:45.000Z" title="Title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/" />
               <NewsEntry date="2021-01-12T16:30:00.000Z" title="Title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/" />
-              <Button link="/updates">View all updates</Button>
-            </NewsContainer> */}
+              <Button link="/updates">View all updates</Button> */}
+            </NewsContainer>
 
             <H2>How to use our docs</H2>
             <InlineCalloutContainer>
