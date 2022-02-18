@@ -18,8 +18,6 @@ import SummaryTiles from "../components/summaryTiles";
 
 import NewsContainer from "../components/layouts/newsContainer";
 import InlineCalloutContainer from "../components/layouts/inlineCalloutContainer";
-import TileContainer from "../components/layouts/tileContainer";
-import Tile from "../components/blocks/tile";
 
 import { H1, H2 } from "../components/blocks/headers";
 import NewsEntry from "../components/blocks/newsEntry";
