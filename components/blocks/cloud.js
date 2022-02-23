@@ -1,46 +1,36 @@
 import React from "react";
+import classNames from "classnames";
+
+import styles from "./cloud.module.css";
 
 const Cloud = ({ src, height }) => {
   let CloudBlock;
 
   if (height) {
     CloudBlock = (
-      <section className="block-cloud">
-        <section className="cloud-app">
-          <iframe
-            loading="lazy"
-            src={`${src}&embed=true`}
-            height={height}
-            width={`100%`}
-          ></iframe>
-        </section>
-        <section>
-          <sup>
-            <a href={src} target="_blank">
-              (view standalone Streamlit app)
-            </a>
-          </sup>
-        </section>
+      <section className={styles.Container}>
+        <iframe
+          loading="lazy"
+          src={`${src}&embed=true`}
+          height={height}
+          className={styles.Iframe}
+        />
+        <a href={src} target="_blank" className={styles.Caption}>
+          (view standalone Streamlit app)
+        </a>
       </section>
     );
   } else {
     CloudBlock = (
-      <section className="block-cloud">
-        <section className="cloud-app">
-          <iframe
-            loading="lazy"
-            src={`${src}&embed=true`}
-            height={`200rem`}
-            width={`100%`}
-          ></iframe>
-        </section>
-        <section>
-          <sup>
-            <a href={src} target="_blank">
-              (view standalone Streamlit app)
-            </a>
-          </sup>
-        </section>
+      <section className={styles.Container}>
+        <iframe
+          loading="lazy"
+          src={`${src}&embed=true`}
+          className={classNames(styles.Iframe, styles.VideoAspectRatio)}
+        />
+        <a href={src} target="_blank" className={styles.Caption}>
+          (view standalone Streamlit app)
+        </a>
       </section>
     );
   }
