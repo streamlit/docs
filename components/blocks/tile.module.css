@@ -1,0 +1,55 @@
+.Container {
+  @apply rounded-md overflow-hidden flex justify-between flex-col cursor-pointer transform transition duration-100 ease-in-out hover:shadow-md hover:opacity-90;
+}
+
+.Container:hover {
+  transform: scale(1.01);
+}
+
+.Link {
+  @apply p-4;
+}
+
+.Title {
+  @apply m-0;
+  @apply text-white !important;
+}
+
+.Text {
+  @apply text-sm tracking-tight text-white leading-normal !important;
+}
+
+.Icon {
+  @apply text-3xl mt-3 mb-3;
+  @apply text-white !important;
+}
+
+/* Size modifiers */
+.Full {
+  @apply col-span-full;
+}
+
+.Half {
+  @apply col-span-full sm:col-span-3;
+}
+
+.TwoThirds {
+  @apply col-span-full md:col-span-3 lg:col-span-4;
+}
+
+.Third {
+  @apply col-span-full md:col-span-3 lg:col-span-2;
+}
+
+/* Color modifiers */
+.OrangeBackground {
+  @apply bg-orange-70;
+}
+
+.VioletBackground {
+  @apply bg-indigo-70;
+}
+
+.BlueBackground {
+  @apply bg-lightBlue-70;
+}
