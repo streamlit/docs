@@ -1,5 +1,5 @@
 .HeadingContainer {
-  @apply flex items-center xl:justify-start xl:flex-nowrap xl:text-left xl:w-auto transition-all;
+  @apply relative flex items-center xl:justify-start xl:flex-nowrap xl:text-left xl:w-auto transition-all left-auto lg:left-2 xl:left-auto;
 }
 
 .HeadingIconContainer {

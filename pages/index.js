@@ -1,5 +1,5 @@
 import React from "react";
-import MediaQuery from "react-responsive";
+import classNames from "classnames";
 import Head from "next/head";
 
 import { getMenu, getGDPRBanner } from "../lib/api";
@@ -28,6 +28,8 @@ import InlineCallout from "../components/blocks/inlineCallout";
 import NoteSplit from "../components/blocks/noteSplit";
 
 import { attributes } from "../content/index.md";
+
+import styles from "../components/layouts/container.module.css";
 
 export default function Home({ window, menu, gdpr_data }) {
   let { description } = attributes;
@@ -64,10 +66,10 @@ export default function Home({ window, menu, gdpr_data }) {
           content={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-twitter.jpg`}
         />
       </Head>
-      <section className="page container template-expanded-wide">
-        <GDPRBanner {...gdpr_data} />
+      <GDPRBanner {...gdpr_data} />
+      <section className={styles.Container}>
         <SideBar menu={menu} slug={[]} />
-        <section className="content wide">
+        <section className={styles.InnerContainer}>
           <article>
             <H1>Streamlit documentation</H1>
             <p>
