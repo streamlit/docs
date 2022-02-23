@@ -11,7 +11,7 @@
 }
 
 .Image {
-  @apply max-w-full transition duration-100 ease-in-out hover:opacity-80 cursor-pointer;
+  @apply max-w-full max-h-screen transition duration-100 ease-in-out hover:opacity-80 cursor-pointer;
 }
 
 .Caption {
@@ -32,6 +32,10 @@
 
 .ImageContainer {
   @apply w-11/12 md:w-11/12 2xl:w-7/12 flex flex-col;
+}
+
+.ModalImage {
+  @apply h-full object-contain;
 }
 
 .CloseButton {
