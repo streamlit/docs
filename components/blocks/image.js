@@ -41,7 +41,11 @@ const Image = ({ caption, pure, src, alt, clean }) => {
             close
           </button>
           <section className={styles.ImageContainer}>
-            <img src={src} alt={alt} className={captionClass} />
+            <img
+              src={src}
+              alt={alt}
+              className={classNames(captionClass, styles.ModalImage)}
+            />
             {customCaption}
           </section>
         </section>
