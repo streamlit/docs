@@ -1,5 +1,9 @@
 .Container {
-  @apply rounded-md overflow-hidden flex justify-between flex-col cursor-pointer transition duration-100 ease-in-out hover:shadow-md;
+  @apply rounded-md overflow-hidden flex justify-between flex-col cursor-pointer transform transition duration-100 ease-in-out hover:shadow-md hover:opacity-90;
+}
+
+.Container:hover {
+  transform: scale(1.01);
 }
 
 .Link {
@@ -16,7 +20,7 @@
 }
 
 .Icon {
-  @apply text-3xl mb-4;
+  @apply text-3xl mt-3 mb-3;
   @apply text-white !important;
 }
 
