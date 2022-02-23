@@ -5,6 +5,8 @@ import SideBar from "../components/navigation/sideBar";
 import Spacer from "../components/utilities/spacer";
 import SummaryTiles from "../components/summaryTiles";
 
+import styles from "../components/layouts/container.module.css";
+
 export default function Home({ window, menu }) {
   return (
     <Layout window={window}>
@@ -39,9 +41,9 @@ export default function Home({ window, menu }) {
           content={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-twitter.jpg`}
         />
       </Head>
-      <section className="page container template-expanded-wide">
+      <section className={styles.Container}>
         <SideBar menu={menu} slug={["404"]} />
-        <section className="content wide">
+        <section className={styles.InnerContainer}>
           <article>
             <h1>Page not found</h1>
 
