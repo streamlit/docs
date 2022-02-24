@@ -44,7 +44,7 @@ const Tile = ({
 
   let image;
   if (img) {
-    image = <img src={img} />;
+    image = <img src={img} className={styles.Icon} />;
   } else {
     image = (
       <i className={classNames("material-icons-sharp", styles.Icon)}>
@@ -58,6 +58,8 @@ const Tile = ({
       ? styles.OrangeBackground
       : background === "violet-70"
       ? styles.VioletBackground
+      : background === "unset"
+      ? styles.TransparentBackground
       : styles.BlueBackground;
 
   return (
