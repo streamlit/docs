@@ -1,5 +1,5 @@
 .Container {
-  @apply container mx-auto px-4;
+  @apply col-span-full lg:col-start-2 lg:col-end-5;
 }
 
 .InnerContainer {
@@ -63,16 +63,4 @@
 .Copyright {
   @apply text-base tracking-tight leading-7 mt-2;
   @apply text-gray-60 !important;
-}
-
-@media screen and (min-width: 1024px) {
-  .Container {
-    padding-left: 160px;
-  }
-}
-
-@media screen and (min-width: 1250px) {
-  .Container {
-    padding-left: 362px;
-  }
 }
