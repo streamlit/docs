@@ -11,7 +11,7 @@
 }
 
 .Title {
-  @apply m-0;
+  @apply m-0 font-bold text-lg;
   @apply text-white !important;
 }
 

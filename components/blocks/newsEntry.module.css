@@ -8,7 +8,7 @@
 }
 
 .Title {
-  @apply my-2;
+  @apply my-2 font-bold text-lg;
   @apply text-gray-90 !important;
 }
 
