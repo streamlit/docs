@@ -9,6 +9,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { MDXRemote } from "next-mdx-remote";
 import matter from "gray-matter";
 import remarkUnwrapImages from "remark-unwrap-images";
+import classNames from "classnames";
 
 // Site Components
 import GDPRBanner from "../components/utilities/gdpr";
@@ -233,9 +234,12 @@ export default function Article({
           <section className={styles.InnerContainer} id="documentation">
             {versionWarning}
             <BreadCrumbs slug={slug} menu={menu} version={version} />
-            <article className="leaf-page" id="content-container">
+            <article
+              id="content-container"
+              className={classNames("leaf-page", styles.ArticleContainer)}
+            >
               <FloatingNav slug={slug} menu={menu} version={version} />
-              <div className="content">
+              <div className={classNames("content", styles.ContentContainer)}>
                 <MDXRemote {...source} components={components} />
                 <Helpful slug={slug} sourcefile={suggestEditURL} />
               </div>
