@@ -3,7 +3,7 @@
 }
 
 .Iframe {
-  @apply w-full aspect-video rounded-md;
+  @apply w-full aspect-video rounded-md max-w-full border-none inline-block;
 }
 
 .CaptionContainer {

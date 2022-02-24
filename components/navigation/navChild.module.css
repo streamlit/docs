@@ -3,7 +3,7 @@
 }
 
 .List {
-  @apply list-none;
+  @apply list-none mt-4;
 }
 
 .Accordion {
