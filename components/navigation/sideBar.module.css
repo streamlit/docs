@@ -1,5 +1,5 @@
 .Container {
-  @apply fixed lg:sticky top-auto lg:top-16 left-0 xl:left-auto px-0 h-screen z-10 w-10/12 md:w-9/12 xl:w-screen max-w-xs md:max-w-none overflow-y-auto shadow-lg lg:shadow-none transition-all;
+  @apply fixed lg:sticky top-auto lg:top-16 left-0 xl:left-auto px-0 h-screen z-20 w-10/12 md:w-9/12 xl:w-screen max-w-xs md:max-w-none overflow-y-auto shadow-lg lg:shadow-none transition-all;
   @apply bg-white !important;
 }
 
