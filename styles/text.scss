@@ -1,0 +1,88 @@
+/* Styles for headings inside markdown */
+h1,
+h2 {
+  @apply font-bold leading-tight tracking-tight mb-6;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply mt-5;
+}
+
+/* Size modifiers */
+
+h1 {
+  @apply text-5xl;
+}
+
+h2 {
+  @apply lg:text-4xl text-2xl;
+}
+
+h3 {
+  @apply text-2xl;
+}
+
+h4 {
+  @apply text-xl;
+}
+
+h5 {
+  @apply text-lg;
+}
+
+h6 {
+  @apply text-base;
+}
+
+/* Margin modifiers */
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  @apply mt-0;
+}
+
+/* Styles for text inside markdown */
+p,
+li,
+a {
+  @apply leading-relaxed tracking-tight;
+}
+
+p {
+  @apply mb-4;
+}
+
+p:last-child,
+li p:only-child {
+  @apply mb-0;
+}
+
+.code {
+  @apply font-mono font-normal;
+}
+
+.bold {
+  @apply font-bold;
+}
+
+ol + p,
+ul + p {
+  @apply mt-8;
+}
+
+/* Inline code blocks */
+p > code,
+li > code {
+  @apply border border-gray-40 text-red-70 rounded-md px-1 mx-1 break-words;
+}
+
+p a code {
+  @apply border-none p-0;
+}

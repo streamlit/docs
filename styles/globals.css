@@ -13,7 +13,7 @@ body {
 /* Styles for nested lists inside markdown */
 ol,
 ul {
-  @apply m-0 pl-4 mt-4;
+  @apply my-0 mx-6 p-0 mt-4;
 }
 
 ol li,
@@ -49,18 +49,25 @@ ul ul ul ul ul {
   list-style: circle;
 }
 
+ol + ul,
+ul + ol,
+ol + ol,
+ul + ul {
+  @apply mt-4;
+}
+
 /* Styles for markdown tables */
-#content-container table {
+#content-container table:not(.full-width) {
   @apply w-full border-collapse;
 }
 
-#content-container table tr th,
-#content-container table tr td {
+#content-container table:not(.full-width) tr th,
+#content-container table:not(.full-width) tr td {
   @apply border-t border-t-gray-20 py-3 text-xs leading-loose tracking-normal text-gray-90;
 }
 
-#content-container table tr th a,
-#content-container table tr td a {
+#content-container table:not(.full-width) tr th a,
+#content-container table:not(.full-width) tr td a {
   @apply underline hover:no-underline;
 }
 
