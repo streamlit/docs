@@ -53,3 +53,15 @@
 .BlueBackground {
   @apply bg-lightBlue-70;
 }
+
+.TransparentBackground i,
+.TransparentBackground h4,
+.TransparentBackground p {
+  @apply text-gray-90 !important;
+}
+
+:global(.dark) .TransparentBackground i,
+:global(.dark) .TransparentBackground h4,
+:global(.dark) .TransparentBackground p {
+  @apply text-white !important;
+}
