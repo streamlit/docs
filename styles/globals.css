@@ -1,3 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  @apply overflow-x-hidden scroll-pt-12;
+}
+
+body {
+  @apply scroll-m-12;
+}
+
+/* Styles for nested lists inside markdown */
+ol,
+ul {
+  @apply m-0 pl-4 mt-4;
+}
+
+ol li,
+ul li {
+  @apply mb-4;
+}
+
+ol {
+  @apply list-decimal;
+}
+
+ol ol {
+  list-style-type: lower-roman;
+}
+
+ul {
+  @apply list-disc;
+}
+
+ul ul {
+  @apply list-disc;
+}
+
+ul ul ul {
+  list-style: circle;
+}
+
+ul ul ul ul {
+  @apply list-disc;
+}
+
+ul ul ul ul ul {
+  list-style: circle;
+}

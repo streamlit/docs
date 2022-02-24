@@ -3,7 +3,7 @@
 }
 
 .Iframe {
-  @apply w-full rounded-md border border-gray-40;
+  @apply w-full rounded-md border border-gray-40 max-w-full border-none inline-block;
 }
 
 .VideoAspectRatio {
