@@ -10,21 +10,6 @@ body {
   @apply scroll-m-12;
 }
 
-/* Styles for markdown tables */
-#content-container table:not(.full-width) {
-  @apply w-full border-collapse;
-}
-
-#content-container table:not(.full-width) tr th,
-#content-container table:not(.full-width) tr td {
-  @apply border-t border-t-gray-20 py-3 text-xs leading-loose tracking-normal text-gray-90;
-}
-
-#content-container table:not(.full-width) tr th a,
-#content-container table:not(.full-width) tr td a {
-  @apply underline hover:no-underline;
-}
-
 /* Utility to hide text that only is needed in screen readers */
 .sr-only {
   @apply absolute top-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-none;
