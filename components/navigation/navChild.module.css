@@ -31,7 +31,7 @@
 }
 
 .Link {
-  @apply flex items-center;
+  @apply relative flex items-center;
   @apply text-gray-80 !important;
 }
 
