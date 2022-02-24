@@ -38,6 +38,16 @@ h6 {
   @apply text-base;
 }
 
+/* Dark mode modifiers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply dark:text-white;
+}
+
 /* Margin modifiers */
 h1:first-child,
 h2:first-child,
