@@ -5,6 +5,7 @@ import Head from "next/head";
 import { getMenu, getGDPRBanner } from "../lib/api";
 
 import Layout from "../components/layouts/globalTemplate";
+import Footer from "../components/navigation/footer";
 
 import SideBar from "../components/navigation/sideBar";
 import ArrowLinkContainer from "../components/navigation/arrowLinkContainer";
@@ -257,6 +258,7 @@ export default function Home({ window, menu, gdpr_data }) {
             />
           </ArrowLinkContainer>
         </section>
+        <Footer />
       </section>
     </Layout>
   );

@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import Layout from "../components/layouts/globalTemplate";
+import Footer from "../components/navigation/footer";
 import Component from "../components/layouts/component";
 import TilesContainer from "../components/layouts/tileContainer";
 import NewsContainer from "../components/layouts/newsContainer";
@@ -459,6 +460,7 @@ st.altair_chart(chart_data)`}
           <SocialCallout />
         </Component>
       </article>
+      <Footer />
     </Layout>
   );
 }

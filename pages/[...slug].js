@@ -23,6 +23,7 @@ import { getPreviousNextFromMenu } from "../lib/utils.js";
 import useVersion from "../lib/useVersion.js";
 import { useAppContext } from "../context/AppContext";
 import Layout from "../components/layouts/globalTemplate";
+import Footer from "../components/navigation/footer";
 import BreadCrumbs from "../components/utilities/breadCrumbs";
 import SideBar from "../components/navigation/sideBar";
 import Masonry from "../components/layouts/masonry";
@@ -242,6 +243,7 @@ export default function Article({
             <Psa />
             {arrowContainer}
           </section>
+          <Footer />
         </section>
       </Layout>
     </MDXProvider>
