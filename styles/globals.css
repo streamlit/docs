@@ -63,3 +63,9 @@ ul ul ul ul ul {
 #content-container table tr td a {
   @apply underline hover:no-underline;
 }
+
+/* Utility to hide text that only is needed in screen readers */
+.sr-only {
+  @apply absolute top-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-none;
+  clip: rect(0, 0, 0, 0);
+}
