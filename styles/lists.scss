@@ -1,7 +1,7 @@
 /* Styles for nested lists inside markdown */
 ol,
 ul {
-  @apply my-0 mx-6 p-0 mt-4;
+  @apply my-0 mx-6 p-0 mt-4 text-gray-90 dark:text-white;
 }
 
 ol li,

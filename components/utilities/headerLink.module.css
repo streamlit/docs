@@ -3,7 +3,7 @@
 }
 
 .HeaderContainer {
-  @apply flex items-center font-bold;
+  @apply flex items-center font-bold text-gray-90;
 }
 
 .CopiedMessage {
@@ -15,6 +15,7 @@
   @apply text-gray-90 !important;
 }
 
+:global(.dark) .HeaderContainer,
 :global(.dark) .CopiedMessage,
 :global(.dark) .CopiedIcon {
   @apply text-white !important;
