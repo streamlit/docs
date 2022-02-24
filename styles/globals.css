@@ -10,52 +10,6 @@ body {
   @apply scroll-m-12;
 }
 
-/* Styles for nested lists inside markdown */
-ol,
-ul {
-  @apply my-0 mx-6 p-0 mt-4;
-}
-
-ol li,
-ul li {
-  @apply mb-4;
-}
-
-ol {
-  @apply list-decimal;
-}
-
-ol ol {
-  list-style-type: lower-roman;
-}
-
-ul {
-  @apply list-disc;
-}
-
-ul ul {
-  @apply list-disc;
-}
-
-ul ul ul {
-  list-style: circle;
-}
-
-ul ul ul ul {
-  @apply list-disc;
-}
-
-ul ul ul ul ul {
-  list-style: circle;
-}
-
-ol + ul,
-ul + ol,
-ol + ol,
-ul + ul {
-  @apply mt-4;
-}
-
 /* Styles for markdown tables */
 #content-container table:not(.full-width) {
   @apply w-full border-collapse;
