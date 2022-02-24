@@ -56,7 +56,11 @@ a {
 }
 
 p {
-  @apply mb-4;
+  @apply mb-4 text-gray-90 dark:text-white;
+}
+
+sup a {
+  @apply dark:text-white;
 }
 
 p:last-child,
