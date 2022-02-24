@@ -1,6 +1,6 @@
 /* TODO: Remove !important when done moving to Tailwind */
 .Container {
-  @apply flex flex-wrap list-none ml-0;
+  @apply flex flex-wrap list-none ml-0 pl-0 mt-0 mb-1;
 }
 
 .InnerContainer {
