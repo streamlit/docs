@@ -21,3 +21,7 @@
   @apply text-sm tracking-tight leading-normal;
   @apply text-gray-90 !important;
 }
+
+:global(.dark) .Container {
+  @apply border-b-gray-90;
+}
