@@ -48,3 +48,18 @@ ul ul ul ul {
 ul ul ul ul ul {
   list-style: circle;
 }
+
+/* Styles for markdown tables */
+#content-container table {
+  @apply w-full border-collapse;
+}
+
+#content-container table tr th,
+#content-container table tr td {
+  @apply border-t border-t-gray-20 py-3 text-xs leading-loose tracking-normal text-gray-90;
+}
+
+#content-container table tr th a,
+#content-container table tr td a {
+  @apply underline hover:no-underline;
+}

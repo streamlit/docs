@@ -232,7 +232,7 @@ export default function Article({
           <section className={styles.InnerContainer} id="documentation">
             {versionWarning}
             <BreadCrumbs slug={slug} menu={menu} version={version} />
-            <article className="leaf-page">
+            <article className="leaf-page" id="content-container">
               <FloatingNav slug={slug} menu={menu} version={version} />
               <div className="content">
                 <MDXRemote {...source} components={components} />
