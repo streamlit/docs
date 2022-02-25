@@ -10,6 +10,19 @@
   @apply relative;
 }
 
+/* Links inside markdown */
+.ArticleContainer p a,
+.ArticleContainer ol li a,
+.ArticleContainer ul li a {
+  @apply border-b border-b-gray-90 hover:border-red-60 hover:opacity-80;
+}
+
+:global(.dark) .ArticleContainer p a,
+:global(.dark) .ArticleContainer ol li a,
+:global(.dark) .ArticleContainer ul li a {
+  @apply border-b-white !important;
+}
+
 @media (min-width: 1448px) {
   .ArticleContainer :global(.toc):not(.advanced-features) {
     @apply block;
