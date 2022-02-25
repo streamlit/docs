@@ -70,7 +70,7 @@ p {
 }
 
 sup a {
-  @apply dark:text-white;
+  @apply underline hover:no-underline dark:text-white;
 }
 
 p:last-child,
