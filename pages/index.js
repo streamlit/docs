@@ -148,9 +148,9 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
-                date="2022-02-20T16:30:00.000Z"
+                date="2022-03-06T07:30:00.000Z"
                 title="Announcement: Streamlit Cloud maintenance"
-                text="Streamlit Cloud will have a maintenance event on Sunday, February 20th at 7:00 am PST. The maintenance event will last for no more than 5 minutes."
+                text="Streamlit Cloud will have a maintenance event on Sunday, March 6th at 7:00 am PST. The maintenance event will last for no more than 5 minutes."
                 link="https://discuss.streamlit.io/c/official-announcements/"
               />
               <NewsEntry
