@@ -535,7 +535,7 @@ data = st.file_uploader("Upload a CSV")
 
 #### Camera input
 
-Display a widget that allows users to upload images directly a camera.
+Display a widget that allows users to upload images directly from a camera.
 
 ```python
 image = st.camera_input("Take a picture")
