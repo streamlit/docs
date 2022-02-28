@@ -1,7 +1,7 @@
 /* Styles for headings inside markdown */
 h1,
 h2 {
-  @apply font-bold leading-tight tracking-tight mb-4;
+  @apply font-bold leading-tight tracking-tight mb-5;
 }
 
 h2,
@@ -9,7 +9,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply mt-8;
+  @apply mt-12;
 }
 
 /* Size modifiers */
