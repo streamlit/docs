@@ -49,7 +49,7 @@ To add, edit, or delete content in our documentation, you have to modify Markdow
 - `streamlit-cloud/`Contains `.md` files that populate the Streamlit Cloud section.
 - `gdpr-banner.md` You'll never have to edit this file.
 - `index.md` Contains text that populates the index page.
-- `menu.md` This is a special file containing only front matter that defines the docs Menu. You will need to edit this file whenever you want a page to appear in the docs Menu.
+- `menu.md` This is a special file containing only front matter that defines the docs Menu. You will need to add an entry on this file for each new page you create within the docs' site.
 
 The directory structure of `content/` does not matter as the files will be recursively read and will ignore the directories. However, we recommend following the directory structure to organize the files, mirroring the structure on the documentation website.
 
@@ -154,12 +154,15 @@ How do you make the page you created appear in the Menu? Edit the special markdo
 
 Suppose you have created an "Installation" page that is available at `docs.streamlit.io/library/get-started/installation`. You want to it to appear in the Menu within the "Streamlit Library" section, nested under the "Get Started" page.
 
-To do so, find the lines that define the `category` and `url` for "Get Started" in `menu.md` and add two new lines below it, containing:
+To do so, find the lines that define the `category`, `url` and `visible` properties for "Get Started" in `menu.md` and add three new lines below it, containing:
 
 ```YAML
 - category: Streamlit Library / Get Started / Installation
   url: /library/get-started/installation
+  visible: true
 ```
+
+> Important: You _always_ need to add the entry you created in `menu.md`, or otherwise the build will fail. It is important because we use the structure on this page to create the breadcrumbs for each page. If you don't want the page to show up on the menu, you _still_ need to add it, but you can set its `visible` property to `false`.
 
 ### Edit an existing page
 

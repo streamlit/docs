@@ -332,23 +332,6 @@ site_menu:
     url: https://share.streamlit.io/streamlit/cloud_release_notes_app/main/main.py
   - category: Streamlit Cloud / Troubleshooting
     url: /streamlit-cloud/troubleshooting
-  # - category: Streamlit Cloud / Community tier
-  #   url: /streamlit-cloud/community
-
-  # - category: Streamlit Cloud / Teams and enterprise
-  #   url: /streamlit-cloud/enterprise
-  # - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO)
-  #   url: /streamlit-cloud/enterprise/single-sign-on-sso
-  # - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Microsoft Active Directory (ADFS)
-  #   url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-active-directory-adfs
-  # - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Microsoft Azure AD
-  #   url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-azure-active-directory
-  # - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Okta
-  #   url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-okta-sso
-  # - category: Streamlit Cloud / Teams and enterprise /Single Sign-on (SSO) / Generic SAML
-  #   url: /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-general-saml-authentication
-  # - category: Streamlit Cloud / Teams and enterprise / Trust and Security
-  #   url: /streamlit-cloud/enterprise/security-model
 
   - category: Knowledge base
     url: /knowledge-base
@@ -386,38 +369,142 @@ site_menu:
     url: /knowledge-base/tutorials/session-state
   - category: Knowledge base / Using Streamlit
     url: /knowledge-base/using-streamlit
+  - category: Knowledge base / Using Streamlit / How to animate elements?
+    url: /knowledge-base/using-streamlit/animate-elements
+    visible: false
+  - category: Knowledge base / Using Streamlit / Append data to a table or chart
+    url: /knowledge-base/using-streamlit/append-data-table-chart
+    visible: false
+  - category: Knowledge base / Using Streamlit / Batch elements and input widgets with st.form
+    url: /knowledge-base/using-streamlit/batch-elements-input-widgets-form
+    visible: false
+  - category: Knowledge base / Using Streamlit / Caching issues
+    url: /knowledge-base/using-streamlit/caching-issues
+    visible: false
+  - category: Knowledge base / Using Streamlit / How do I create an anchor link?
+    url: /knowledge-base/using-streamlit/create-anchor-link
+    visible: false
+  - category: Knowledge base / Using Streamlit / Enabling camera access in your browser
+    url: /knowledge-base/using-streamlit/enable-camera
+    visible: false
+  - category: Knowledge base / Using Streamlit / Hide row indices when displaying a dataframe
+    url: /knowledge-base/using-streamlit/hide-row-indices-displaying-dataframe
+    visible: false
+  - category: Knowledge base / Using Streamlit / How do I run my Streamlit script?
+    url: /knowledge-base/using-streamlit/how-do-i-run-my-streamlit-script
+    visible: false
+  - category: Knowledge base / Using Streamlit / How to download a file in Streamlit?
+    url: /knowledge-base/using-streamlit/how-download-file-streamlit
+    visible: false
+  - category: Knowledge base / Using Streamlit / How to download a Pandas DataFrame as a CSV?
+    url: /knowledge-base/using-streamlit/how-download-pandas-dataframe-csv
+    visible: false
+  - category: Knowledge base / Using Streamlit / How do I hide the hamburger menu from my app?
+    url: /knowledge-base/using-streamlit/how-hide-hamburger-menu-app
+    visible: false
+  - category: Knowledge base / Using Streamlit / How do I upgrade to the latest version of Streamlit?
+    url: /knowledge-base/using-streamlit/how-upgrade-latest-version-streamlit
+    visible: false
+  - category: Knowledge base / Using Streamlit / How to insert elements out of order?
+    url: /knowledge-base/using-streamlit/insert-elements-out-of-order
+    visible: false
+  - category: Knowledge base / Using Streamlit / What is the path of Streamlit’s config.toml file?
+    url: /knowledge-base/using-streamlit/path-streamlit-config-toml
+    visible: false
+  - category: Knowledge base / Using Streamlit / How can I make st.pydeck_chart use custom Mapbox styles?
+    url: /knowledge-base/using-streamlit/pydeck-chart-custom-mapbox-styles
+    visible: false
+  - category: Knowledge base / Using Streamlit / How to record a screencast?
+    url: /knowledge-base/using-streamlit/record-screencast
+    visible: false
+  - category: Knowledge base / Using Streamlit / How to remove "· Streamlit" from the app title?
+    url: /knowledge-base/using-streamlit/remove-streamlit-app-title
+    visible: false
+  - category: Knowledge base / Using Streamlit / How do you retrieve the filename of a file uploaded with st.file_uploader?
+    url: /knowledge-base/using-streamlit/retrieve-filename-uploaded
+    visible: false
+  - category: Knowledge base / Using Streamlit / Sanity checks
+    url: /knowledge-base/using-streamlit/sanity-checks
+    visible: false
+  - category: Knowledge base / Using Streamlit / How can I make Streamlit watch for changes in other modules I'm importing in my app?
+    url: /knowledge-base/using-streamlit/streamlit-watch-changes-other-modules-importing-app
+    visible: false
+  - category: Knowledge base / Using Streamlit / What browsers does Streamlit support?
+    url: /knowledge-base/using-streamlit/supported-browsers
+    visible: false
+  - category: Knowledge base / Using Streamlit / Where does st.file_uploader store uploaded files and when do they get deleted?
+    url: /knowledge-base/using-streamlit/where-file-uploader-store-when-deleted
+    visible: false
+  - category: Knowledge base / Using Streamlit / Widget updating for every second input when using session state
+    url: /knowledge-base/using-streamlit/widget-updating-session-state
+    visible: false
   - category: Knowledge base / Streamlit Components
     url: /knowledge-base/components
+  - category: Knowledge base / Streamlit Components / How do I add a Component to the sidebar?
+    url: /knowledge-base/components/add-component-sidebar
+    visible: false
+  - category: Knowledge base / Streamlit Components / My Component seems to be stuttering...how do I fix that?
+    url: /knowledge-base/components/component-blinking-stuttering-fix
+    visible: false
+  - category: Knowledge base / Streamlit Components / How do Streamlit Components differ from functionality provided in the base Streamlit package?
+    url: /knowledge-base/components/how-streamlit-components-differ-base-package
+    visible: false
+  - category: Knowledge base / Streamlit Components / What types of things aren't possible with Streamlit Components?
+    url: /knowledge-base/components/not-possibe-streamlit-components
+    visible: false
   - category: Knowledge base / Installing dependencies
     url: /knowledge-base/dependencies
+  - category: Knowledge base / Installing dependencies / How to install a package not on PyPI or Conda but available on GitHub
+    url: /knowledge-base/dependencies/install-package-not-pypi-conda-available-github
+    visible: false
+  - category: Knowledge base / Installing dependencies / ImportError libGL.so.1 cannot open shared object file No such file or directory
+    url: /knowledge-base/dependencies/libgl
+    visible: false
+  - category: Knowledge base / Installing dependencies / ModuleNotFoundError No module named
+    url: /knowledge-base/dependencies/module-not-found-error
+    visible: false
+  - category: Knowledge base / Installing dependencies / ERROR No matching distribution found for
+    url: /knowledge-base/dependencies/no-matching-distribution
+    visible: false
   - category: Knowledge base / Deployment issues
     url: /knowledge-base/deploy
-
-  # - category: Support
-  #   url: /support
-  #   color: red-70
-  #   icon: question_answer
-  # - category: Support / Discussion forum
-  #   url: https://discuss.streamlit.io
-  # - category: Support / Frequently Asked Questions
-  #   url: /support/faq
-  # - category: Support / Troubleshooting
-  #   url: /support/troubleshooting
-  # - category: Support / Troubleshooting / Sanity checks
-  #   url: /support/troubleshooting/sanity-checks
-  # - category: Support / Troubleshooting / Trouble starting app remotely
-  #   url: /support/troubleshooting/remote-start
-  # - category: Support / Troubleshooting / Clean install
-  #   url: /support/troubleshooting/clean-install
-  # - category: Support / Troubleshooting / Caching issues
-  #   url: /support/troubleshooting/caching-issues
-
-  # - category: Updates
-  #   url: /updates
-  #   color: green-70
-  #   icon: campaign
-  # - category: Updates / Changelog
-  #   url: /updates/changelog
-  # - category: Updates / Roadmap
-  #   url: https://share.streamlit.io/streamlit/roadmap
+  - category: Knowledge base / Deployment issues / Authentication without SSO
+    url: /knowledge-base/deploy/authentication-without-sso
+    visible: false
+  - category: Knowledge base / Deployment issues / How can I deploy multiple Streamlit apps on different subdomains?
+    url: /knowledge-base/deploy/deploy-multiple-streamlit-apps-different-subdomains
+    visible: false
+  - category: Knowledge base / Deployment issues / How do I deploy Streamlit on a domain so it appears to run on a regular port (i.e. port 80)?
+    url: /knowledge-base/deploy/deploy-streamlit-domain-port-80
+    visible: false
+  - category: Knowledge base / Deployment issues / How do I deploy Streamlit on Heroku, AWS, Google Cloud, etc...?
+    url: /knowledge-base/deploy/deploy-streamlit-heroku-aws-google-cloud
+    visible: false
+  - category: Knowledge base / Deployment issues / Does Streamlit support the WSGI Protocol? (aka Can I deploy Streamlit with gunicorn?)
+    url: /knowledge-base/deploy/does-streamlit-support-wsgi-protocol
+    visible: false
+  - category: Knowledge base / Deployment issues / How do I increase the upload limit of st.file_uploader on Streamlit Cloud?
+    url: /knowledge-base/deploy/increase-file-uploader-limit-streamlit-cloud
+    visible: false
+  - category: Knowledge base / Deployment issues / Invoking a Python subprocess in a deployed Streamlit app
+    url: /knowledge-base/deploy/invoking-python-subprocess-deployed-streamlit-app
+    visible: false
+  - category: Knowledge base / Deployment issues / Organizing your apps with workspaces on Streamlit Cloud
+    url: /knowledge-base/deploy/organizing-apps-workspaces-streamlit-cloud
+    visible: false
+  - category: Knowledge base / Deployment issues / App is not loading when running remotely
+    url: /knowledge-base/deploy/remote-start
+    visible: false
+  - category: Knowledge base / Deployment issues / Argh. This app has gone over its resource limits
+    url: /knowledge-base/deploy/resource-limits
+    visible: false
+  - category: Knowledge base / Deployment issues / How do I share apps with viewers outside my organization?
+    url: /knowledge-base/deploy/share-apps-with-viewers-outside-organization
+    visible: false
+  - category: Knowledge base / Deployment issues / I don't have SSO. How do I sign in to Streamlit Cloud?
+    url: /knowledge-base/deploy/sign-in-without-sso
+    visible: false
+  - category: Knowledge base / Deployment issues / Upgrade the Streamlit version of your app on Streamlit Cloud
+    url: /knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud
+    visible: false
 ---
