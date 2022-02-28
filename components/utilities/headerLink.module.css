@@ -3,7 +3,7 @@
 }
 
 .HeaderContainer {
-  @apply flex items-center font-bold text-gray-90;
+  @apply flex items-center font-bold text-gray-90 leading-snug;
 }
 
 .CopiedMessage {
