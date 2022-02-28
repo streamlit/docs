@@ -17,6 +17,15 @@ $ pip install --upgrade streamlit
 
 </Tip>
 
+## **Version 1.6.0**
+
+_Release date: Feb 24, 2022_
+
+**Other Changes**
+
+- 🗜 WebSocket compression is now disabled by default, which will improve CPU and latency performance for large dataframes. You can use the `server.enableWebsocketCompression` configuration option to re-enable it if you find the increased network traffic more impactful.
+- ☑️ 🔘 Radio and checkboxes improve focus on Keyboard navigation ([#4308](https://github.com/streamlit/streamlit/pull/4308)).
+
 ## **Version 1.5.0**
 
 _Release date: Jan 27, 2022_
