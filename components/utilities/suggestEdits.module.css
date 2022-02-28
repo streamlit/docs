@@ -1,5 +1,5 @@
 .Container {
-  @apply mt-6 sm:mt-0 flex items-center cursor-pointer;
+  @apply mt-6 sm:mt-0 flex items-center cursor-pointer hover:opacity-70;
 }
 
 .Icon {
@@ -8,6 +8,6 @@
 }
 
 .Link {
-  @apply group-hover:opacity-70 group-hover:border-b-red-70;
+  @apply border-b border-b-gray-70 hover:border-b-red-50;
   @apply text-gray-70 !important;
 }
