@@ -189,6 +189,9 @@ site_menu:
   - category: Streamlit library / API reference / Status elements / st.balloons
     url: /library/api-reference/status/st.balloons
     isVersioned: true
+  - category: Streamlit library / API reference / Status elements / st.snow
+    url: /library/api-reference/status/st.snow
+    isVersioned: true
   - category: Streamlit library / API reference / Status elements / st.error
     url: /library/api-reference/status/st.error
     isVersioned: true
