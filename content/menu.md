@@ -275,6 +275,8 @@ site_menu:
     url: /library/advanced-features/widget-semantics
   - category: Streamlit library / Advanced features/ Pre-release features
     url: /library/advanced-features/prerelease
+  - category: Streamlit library / Advanced features/ Working with timezones
+    url: /library/advanced-features/timezone-handling
   - category: Streamlit library / Components
     url: /library/components
   - category: Streamlit library / Components / Components API
