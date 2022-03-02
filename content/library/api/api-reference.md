@@ -738,6 +738,22 @@ st.balloons()
 ```
 
 </RefCard>
+<RefCard href="/library/api-reference/status/st.snow">
+
+<Image pure alt="screenshot" src="/images/api/snow.jpg" />
+
+#### Snowflakes
+
+Display celebratory snowflakes!
+
+```python
+do_something()
+
+# Celebrate when all done!
+st.snow()
+```
+
+</RefCard>
 <RefCard href="/library/api-reference/status/st.error">
 
 <Image pure alt="screenshot" src="/images/api/error.jpg" />
