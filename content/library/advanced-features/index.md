@@ -103,11 +103,24 @@ At Streamlit, we like to move quick while keeping things stable. In our latest e
 
 </RefCard>
 
-<RefCard href="/library/advanced-features/widget-semantics" size="full">
+<RefCard href="/library/advanced-features/widget-semantics" size="half">
 
 ##### Advanced notes on widget behavior
 
 Widgets are magical and often work how you want. But they can have surprising behavior in some situations. This section provides is a high-level, abstract description of widget behavior, including some common edge-cases.
+
+</RefCard>
+
+<RefCard href="/library/advanced-features/timezone-handling" size="half">
+
+##### Working with timezones
+
+Working with timezones can be tricky. This section provides a high-level description of how to handle timezones in Streamlit to avoid unexpected behavior.
+
+- [Overview](/library/advanced-features/timezone-handling#working-with-timezones)
+- [How Streamlit handles timezones](/library/advanced-features/timezone-handling#how-streamlit-handles-timezones)
+- [`datetime` instance without a timezone (naive)](/library/advanced-features/timezone-handling#datetime-instance-without-a-timezone-naive)
+- [`datetime` instance with a timezone](/library/advanced-features/timezone-handling#datetime-instance-with-a-timezone)
 
 </RefCard>
 </TileContainer>
