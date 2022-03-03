@@ -1,5 +1,5 @@
 .Container {
-  @apply fixed bottom-6 w-full z-20;
+  @apply fixed bottom-6 w-full z-30;
 }
 
 .BannerBackground {
