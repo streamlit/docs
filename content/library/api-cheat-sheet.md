@@ -5,7 +5,7 @@ slug: /library/cheatsheet
 
 # Cheat Sheet
 
-This is a summary of the docs, as of [Streamlit v1.6.0](https://pypi.org/project/streamlit/1.6.0/).
+This is a summary of the docs, as of [Streamlit v1.7.0](https://pypi.org/project/streamlit/1.7.0/).
 
 <Masonry>
 
@@ -338,6 +338,7 @@ st.experimental_set_query_params(**params)
 
 st.progress(progress_variable_1_to_100)
 st.balloons()
+st.snow()
 st.error('Error message')
 st.warning('Warning message')
 st.info('Info message')
