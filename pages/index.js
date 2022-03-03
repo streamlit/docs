@@ -148,6 +148,12 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
+                date="2022-03-02T16:05:00.000Z"
+                title="Streamlit and Snowflake: Better Together"
+                text="Snowflake has entered into an agreement to acquire Streamlit! For more information, click-through to the forum announcement below."
+                link="https://discuss.streamlit.io/t/streamlit-snowflake-better-together/22687"
+              />
+              <NewsEntry
                 date="2022-02-20T16:30:00.000Z"
                 title="Announcement: Streamlit Cloud maintenance"
                 text="Streamlit Cloud will have a maintenance event on Sunday, February 20th at 7:00 am PST. The maintenance event will last for no more than 5 minutes."
@@ -158,12 +164,6 @@ export default function Home({ window, menu, gdpr_data }) {
                 title="Calculating distances in cosmology with Streamlit"
                 text="Learn how three friends made the cosmology on-the-go app CosmΩracle."
                 link="https://blog.streamlit.io/calculating-distances-in-cosmology-with-streamlit/"
-              />
-              <NewsEntry
-                date="2021-02-07T16:30:00.000Z"
-                title="Monthly Rewind > January 2022"
-                text="Your January look-back at new features and great community content."
-                link="https://blog.streamlit.io/monthly-rewind-january-2022/"
               />
               <Button link="https://blog.streamlit.io/">
                 View all updates
