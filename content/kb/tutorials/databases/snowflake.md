@@ -36,8 +36,6 @@ INSERT INTO MYTABLE VALUES ('Mary', 'dog'), ('John', 'cat'), ('Robert', 'bird');
 SELECT * FROM MYTABLE;
 ```
 
-<!-- Tell users that how they excute queries will depend on what UI they're using  -->
-
 Before you execute the queries, first determine which Snowflake UI / web interface you're using. You can either use the [classic web interface](https://docs.snowflake.com/en/user-guide/ui-using.html) or the [new web interface](https://docs.snowflake.com/en/user-guide/ui-gs.html).
 
 ### Using the Classic Web Interface
