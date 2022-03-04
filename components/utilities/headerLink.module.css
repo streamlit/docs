@@ -6,6 +6,10 @@
   @apply flex items-center font-bold text-gray-90 leading-snug;
 }
 
+.HeaderContainer strong {
+  @apply font-bold;
+}
+
 h1.HeaderContainer {
   @apply leading-tight;
 }
