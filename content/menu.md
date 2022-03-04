@@ -189,6 +189,9 @@ site_menu:
   - category: Streamlit library / API reference / Status elements / st.balloons
     url: /library/api-reference/status/st.balloons
     isVersioned: true
+  - category: Streamlit library / API reference / Status elements / st.snow
+    url: /library/api-reference/status/st.snow
+    isVersioned: true
   - category: Streamlit library / API reference / Status elements / st.error
     url: /library/api-reference/status/st.error
     isVersioned: true
@@ -275,6 +278,8 @@ site_menu:
     url: /library/advanced-features/widget-semantics
   - category: Streamlit library / Advanced features/ Pre-release features
     url: /library/advanced-features/prerelease
+  - category: Streamlit library / Advanced features/ Working with timezones
+    url: /library/advanced-features/timezone-handling
   - category: Streamlit library / Components
     url: /library/components
   - category: Streamlit library / Components / Components API
