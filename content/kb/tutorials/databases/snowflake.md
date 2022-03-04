@@ -36,12 +36,31 @@ INSERT INTO MYTABLE VALUES ('Mary', 'dog'), ('John', 'cat'), ('Robert', 'bird');
 SELECT * FROM MYTABLE;
 ```
 
-Select **All Queries** and click on **Run** to execute the queries. Make sure to note down the name of your warehouse, database, and schema from the dropdown menu on the same page:
+<!-- Tell users that how they excute queries will depend on what UI they're using  -->
 
-<Flex>
+Before you execute the queries, first determine which Snowflake UI / web interface you're using. You can either use the [classic web interface](https://docs.snowflake.com/en/user-guide/ui-using.html) or the [new web interface](https://docs.snowflake.com/en/user-guide/ui-gs.html).
+
+### Using the Classic Web Interface
+
+To execute the queries in the classic web interface, select **All Queries** and click on **Run**.
+
 <Image alt="AWS screenshot 1" src="/images/databases/snowflake-2.png" />
+
+Make sure to note down the name of your warehouse, database, and schema from the **Context** dropdown menu on the same page:
+
 <Image alt="AWS screenshot 2" src="/images/databases/snowflake-3.png" />
-</Flex>
+
+### Using the New Web Interface
+
+To execute the queries in the new web interface, highlight or select all the queries with your mouse, and click the play button in the top right corner.
+
+<Image alt="AWS screenshot 1" src="/images/databases/snowflake-4.png" />
+
+Once you have executed the queries, you should see a preview of the table in the **Results** panel at the bottom of the page. Addionally, you should see your newly created database and schema by expanding the accordion on the left side of the page. Lastly, the warehouse name is displayed on the button to the left of the **Share** button.
+
+<Image alt="AWS screenshot 2" src="/images/databases/snowflake-5.png" />
+
+Make sure to note down the name of your warehouse, database, and schema. ☝️
 
 ## Add username and password to your local app secrets
 
@@ -93,16 +112,16 @@ import streamlit as st
 import snowflake.connector
 
 # Initialize connection.
-# Uses st.cache to only run once.
-@st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None})
+# Uses st.experimental_singleton to only run once.
+@st.experimental_singleton
 def init_connection():
     return snowflake.connector.connect(**st.secrets["snowflake"])
 
 conn = init_connection()
 
 # Perform query.
-# Uses st.cache to only rerun when the query changes or after 10 min.
-@st.cache(ttl=600)
+# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
+@st.experimental_memo(ttl=600)
 def run_query(query):
     with conn.cursor() as cur:
         cur.execute(query)
@@ -115,8 +134,8 @@ for row in rows:
     st.write(f"{row[0]} has a :{row[1]}:")
 ```
 
-See `st.cache` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Read more about caching [here](/library/advanced-features/caching).
+See `st.experimental_memo` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.experimental_memo`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Read more about caching [here](/library/advanced-features/experimental-cache-primitives).
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 
-![Finished app screenshot](/images/databases/snowflake-4.png)
+![Finished app screenshot](/images/databases/snowflake-app.png)
