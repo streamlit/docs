@@ -18,7 +18,7 @@
 }
 
 .ais-InstantSearch .ais-SearchBox-form button {
-  @apply shadow-none absolute inset-y-4 left-4 mb-0;
+  @apply w-10 shadow-none absolute inset-y-4 left-4 mb-0 flex items-center justify-center;
 }
 
 .ais-InstantSearch .ais-SearchBox-form button svg {
