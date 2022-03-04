@@ -26,15 +26,15 @@ h2 {
 }
 
 h3 {
-  @apply text-3xl;
-}
-
-h4 {
   @apply text-2xl;
 }
 
-h5 {
+h4 {
   @apply text-xl;
+}
+
+h5 {
+  @apply text-lg;
 }
 
 h6 {
