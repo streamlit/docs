@@ -32,7 +32,7 @@
 .Container h5,
 .Container h6,
 .Container p {
-  @apply m-0 mt-4 mb-1 leading-relaxed;
+  @apply m-0 mt-4 mb-1 leading-relaxed font-bold;
 }
 
 .Container p {
