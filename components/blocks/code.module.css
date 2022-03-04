@@ -38,20 +38,17 @@
 }
 
 /* Code block adjustments */
-.Container pre code :global(.operator) {
-  @apply text-yellow-50;
-}
-
+.Container pre code :global(.operator),
 .Container pre code :global(.decorator) {
   @apply text-yellow-80;
 }
 
 .Container pre code :global(.keyword) {
-  @apply text-darkBlue-50;
+  @apply text-darkBlue-60;
 }
 
 .Container pre code :global(.builtin) {
-  @apply text-lightBlue-40;
+  @apply text-lightBlue-70;
 }
 
 .Container pre code :global(.string) {
@@ -60,11 +57,11 @@
 
 .Container pre code :global(.number),
 .Container pre code :global(.boolean) {
-  @apply text-green-40;
+  @apply text-green-60;
 }
 
 .Container pre code :global(.function) {
-  @apply text-red-50;
+  @apply text-red-60;
 }
 
 .Container pre code :global(.punctuation) {
@@ -72,13 +69,40 @@
 }
 
 .Container pre code :global(.comment) {
-  @apply text-gray-60 italic font-normal;
-}
-
-.Container pre code :global(.string) {
-  @apply text-darkBlue-30;
+  @apply text-gray-70 italic font-normal;
 }
 
 .Container pre code :global(.table) {
   @apply inline;
+}
+
+/* Dark mode adjustments */
+:global(.dark) .Container pre code :global(.operator),
+:global(.dark) .Container pre code :global(.decorator) {
+  @apply text-yellow-50;
+}
+
+:global(.dark) .Container pre code :global(.keyword) {
+  @apply text-darkBlue-50;
+}
+
+:global(.dark) .Container pre code :global(.builtin) {
+  @apply text-lightBlue-60;
+}
+
+:global(.dark) .Container pre code :global(.number),
+:global(.dark) .Container pre code :global(.boolean) {
+  @apply text-green-40;
+}
+
+:global(.dark) .Container pre code :global(.function) {
+  @apply text-red-50;
+}
+
+:global(.dark) .Container pre code :global(.comment) {
+  @apply text-gray-60;
+}
+
+:global(.dark) .Container pre code :global(.string) {
+  @apply text-darkBlue-30;
 }
