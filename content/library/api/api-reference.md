@@ -535,7 +535,7 @@ data = st.file_uploader("Upload a CSV")
 
 #### Camera input
 
-Display a widget that allows users to upload images directly a camera.
+Display a widget that allows users to upload images directly from a camera.
 
 ```python
 image = st.camera_input("Take a picture")
@@ -735,6 +735,22 @@ do_something()
 
 # Celebrate when all done!
 st.balloons()
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/status/st.snow">
+
+<Image pure alt="screenshot" src="/images/api/snow.jpg" />
+
+#### Snowflakes
+
+Display celebratory snowflakes!
+
+```python
+do_something()
+
+# Celebrate when all done!
+st.snow()
 ```
 
 </RefCard>
