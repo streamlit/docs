@@ -13,6 +13,7 @@
   "dependencies": {
     "16": "0.0.2",
     "@mapbox/rehype-prism": "^0.7.0",
+    "@svgr/webpack": "^6.2.1",
     "algoliasearch": "^3.35.1",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
@@ -22,6 +23,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "file-loader": "^6.2.0",
     "focus-trap-react": "^8.8.1",
     "framer-motion": "^4.1.17",
     "frontmatter-markdown-loader": "^3.6.3",
