@@ -1,28 +1,48 @@
 .Container {
-  @apply fixed bottom-6 w-full z-30;
+  @apply fixed bottom-0 md:bottom-4 md:right-4 w-full z-30 md:max-w-2xl;
 }
 
 .BannerBackground {
-  @apply bg-red-70 mx-4 py-6 px-8 rounded-md;
+  @apply bg-white border border-gray-30 p-2 md:p-6 rounded-md flex flex-col md:flex-row;
 }
 
 .Title {
   @apply mt-0 mb-2 font-sans font-bold text-2xl tracking-tight leading-tight;
-  @apply text-white !important;
+  @apply text-gray-90;
+}
+
+:global(.dark) .Title {
+  @apply text-gray-90 !important;
+}
+
+.ImageContainer {
+  @apply mb-4 md:mb-0 md:mt-2 mr-4;
 }
 
 .CtasContainer {
-  @apply flex mt-6;
+  @apply flex mt-4 md:mt-6;
 }
 
 .Button {
-  @apply bg-white border-0 rounded-md px-4 py-3 text-red-70 text-sm font-bold tracking-normal block cursor-pointer mr-8 mb-0 hover:opacity-90 hover:scale-105;
+  @apply rounded-md px-8 py-1 text-red-70 text-sm font-semibold tracking-normal block cursor-pointer mb-2 hover:opacity-90 hover:scale-105;
+}
+
+.DeclineButton {
+  @apply bg-white border border-solid border-gray-30 text-gray-90 mr-4;
+}
+
+.AllowButton {
+  @apply bg-gray-90 text-white;
 }
 
 /* MDX styles */
 .Container div p,
 .Container div a {
-  @apply text-white;
+  @apply text-gray-90;
+}
+
+.Container div a {
+  @apply text-gray-70;
 }
 
 .Container div p {
