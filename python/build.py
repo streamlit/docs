@@ -41,6 +41,10 @@ if 'info' in pypi_data:
         if version_obj.micro != 0:
             continue
 
+        # We don't care about pre-releases. e.g. 1.6.0rc3
+        if version_obj.is_prerelease:
+            continue
+
         if version_str not in current_data:
             logging.info(f"[{version_str}] Installing streamlit...")
 
