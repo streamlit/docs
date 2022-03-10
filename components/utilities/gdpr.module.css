@@ -11,10 +11,6 @@
   @apply text-gray-90;
 }
 
-:global(.dark) .Title {
-  @apply text-gray-90 !important;
-}
-
 .ImageContainer {
   @apply mb-4 md:mb-0 md:mt-2 mr-4;
 }
@@ -47,4 +43,21 @@
 
 .Container div p {
   @apply m-0;
+}
+
+/* Dark mode modifiers */
+:global(.dark) .BannerBackground {
+  @apply bg-gray-90 border-gray-80;
+}
+
+:global(.dark) .Container div p {
+  @apply text-white;
+}
+
+:global(.dark) .DeclineButton {
+  @apply bg-gray-90 text-white border-gray-80;
+}
+
+:global(.dark) .AllowButton {
+  @apply bg-white text-gray-90;
 }
