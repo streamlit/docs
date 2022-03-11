@@ -94,6 +94,14 @@ ul + p {
   @apply mt-8;
 }
 
+/* Focuss styles */
+a:focus,
+a:focus-visible,
+button:focus,
+button:focus-visible {
+  @apply outline-2 outline-gray-40;
+}
+
 /* Inline code blocks */
 p > code,
 li > code {
