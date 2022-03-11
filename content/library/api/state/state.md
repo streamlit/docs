@@ -28,10 +28,10 @@ if 'key' not in st.session_state:
 
 ### Reads and updates
 
-Read the value of an item in Session State by passing the item to `st.write` :
+Read the value of an item in Session State and display it by passing to `st.write` :
 
 ```python
-# Reads
+# Read
 st.write(st.session_state.key)
 
 # Outputs: value
