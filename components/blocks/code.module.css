@@ -38,30 +38,33 @@
 }
 
 /* Code block adjustments */
-.Container pre code :global(.operator),
+.Container pre code :global(.operator) {
+  @apply text-yellow-50;
+}
+
 .Container pre code :global(.decorator) {
   @apply text-yellow-80;
 }
 
+.Container pre code :global(.string) {
+  @apply text-darkBlue-30;
+}
+
 .Container pre code :global(.keyword) {
-  @apply text-darkBlue-60;
+  @apply text-darkBlue-50;
 }
 
 .Container pre code :global(.builtin) {
-  @apply text-lightBlue-70;
-}
-
-.Container pre code :global(.string) {
-  @apply text-green-80;
+  @apply text-lightBlue-40;
 }
 
 .Container pre code :global(.number),
 .Container pre code :global(.boolean) {
-  @apply text-green-60;
+  @apply text-green-40;
 }
 
 .Container pre code :global(.function) {
-  @apply text-red-60;
+  @apply text-red-50;
 }
 
 .Container pre code :global(.punctuation) {
@@ -69,7 +72,7 @@
 }
 
 .Container pre code :global(.comment) {
-  @apply text-gray-70 italic font-normal;
+  @apply text-gray-60 italic font-normal;
 }
 
 .Container pre code :global(.table) {
