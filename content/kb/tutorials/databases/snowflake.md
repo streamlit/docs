@@ -54,6 +54,12 @@ To execute the queries in the new web interface, highlight or select all the que
 
 <Image alt="AWS screenshot 1" src="/images/databases/snowflake-4.png" />
 
+<Important>
+
+Be sure to highlight or select **all** the queries (lines 1-10) before clicking the play button.
+
+</Important>
+
 Once you have executed the queries, you should see a preview of the table in the **Results** panel at the bottom of the page. Addionally, you should see your newly created database and schema by expanding the accordion on the left side of the page. Lastly, the warehouse name is displayed on the button to the left of the **Share** button.
 
 <Image alt="AWS screenshot 2" src="/images/databases/snowflake-5.png" />
