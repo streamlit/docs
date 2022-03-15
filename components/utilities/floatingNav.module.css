@@ -40,7 +40,7 @@
 }
 
 .Link {
-  @apply border-b-0 inline-block truncate w-40 leading-4 hover:opacity-70 hover:border-b-0 hover:no-underline;
+  @apply border-none inline-block truncate w-40 leading-4 hover:opacity-70 hover:no-underline;
   @apply text-gray-70 !important;
 }
 

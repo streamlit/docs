@@ -1,3 +1,19 @@
-$inter: "Inter", sans-serif;
-$source: "Source Code Pro", monospace;
-$icon: "Material Icons";
+// Source Code Pro import
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+// Material icons
+@font-face {
+  font-family: "Material Icons";
+  src: url(https://fonts.gstatic.com/s/materialicons/v88/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2)
+    format("woff2");
+}
+
+.material-icons,
+i {
+  font-family: "Material Icons";
+  @apply font-normal text-2xl not-italic leading-none tracking-normal no-underline inline-block whitespace-nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}

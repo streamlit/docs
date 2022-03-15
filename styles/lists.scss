@@ -1,0 +1,41 @@
+/* Styles for nested lists inside markdown */
+ol,
+ul {
+  @apply my-0 mx-6 p-0 mt-4 text-gray-90 dark:text-white;
+}
+
+ol li,
+ul li {
+  @apply mb-4;
+}
+
+ol {
+  @apply list-decimal;
+
+  ol {
+    list-style-type: lower-roman;
+  }
+}
+
+ul {
+  @apply list-disc;
+
+  ul {
+    list-style: circle;
+
+    ul {
+      @apply list-disc;
+
+      ul {
+        list-style: circle;
+      }
+    }
+  }
+}
+
+ol + ul,
+ul + ol,
+ol + ol,
+ul + ul {
+  @apply mt-4;
+}

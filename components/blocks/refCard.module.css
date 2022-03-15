@@ -1,5 +1,5 @@
 .Container {
-  @apply rounded-md border border-gray-30 overflow-hidden text-base cursor-pointer transition-all duration-75 flex flex-col hover:scale-105 hover:border-b-gray-30;
+  @apply rounded-md border border-gray-30 overflow-hidden text-base cursor-pointer transition-all duration-75 flex flex-col hover:scale-105 hover:border-b-gray-30 hover:opacity-70;
 }
 
 .Container h1,
@@ -10,7 +10,7 @@
 .Container h6,
 .Container p,
 .Container a {
-  @apply my-0 mx-4 p-0;
+  @apply my-0 mx-4 p-0 font-bold;
   @apply text-gray-90 !important;
 }
 
@@ -72,7 +72,11 @@
 
 .Container p,
 .Container a {
-  @apply text-sm font-light tracking-tight leading-relaxed;
+  @apply text-sm font-normal tracking-tight leading-relaxed;
+}
+
+.Container p a {
+  @apply mx-0;
 }
 
 .Container h1 a,
