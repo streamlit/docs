@@ -1,5 +1,6 @@
 // Global Imports
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import classNames from "classnames";
 import { MDXRemote } from "next-mdx-remote";
 import { ReactComponent as CookieEmoji } from "../../images/icons/cookie.svg";
@@ -21,6 +22,9 @@ const GDPRBanner = (gdprData) => {
   const content = gdprData.content;
   const data = gdprData.data;
 
+  const router = useRouter();
+  const path = router.asPath;
+
   const currentTzOffset = new Date().getTimezoneOffset();
 
   const isWestOfEurope = currentTzOffset > EUROPE_TZ_OFFSET_WEST;
@@ -40,7 +44,9 @@ const GDPRBanner = (gdprData) => {
   // Only show banner if not in europe and banner wasn't already shown.
   const showBanner = mayBeInEurope && !localStorageIsSetUp;
 
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(
+    path.includes("?showGDPRBanner=true") ? true : showBanner
+  );
   const [insertAnalyticsCode, setInsertAnalyticsCode] = useState(
     localStorage.getItem(KEY) == "true"
   );
