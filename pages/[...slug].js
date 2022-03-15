@@ -9,6 +9,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { MDXRemote } from "next-mdx-remote";
 import matter from "gray-matter";
 import remarkUnwrapImages from "remark-unwrap-images";
+import classNames from "classnames";
 
 // Site Components
 import GDPRBanner from "../components/utilities/gdpr";
@@ -23,6 +24,7 @@ import { getPreviousNextFromMenu } from "../lib/utils.js";
 import useVersion from "../lib/useVersion.js";
 import { useAppContext } from "../context/AppContext";
 import Layout from "../components/layouts/globalTemplate";
+import Footer from "../components/navigation/footer";
 import BreadCrumbs from "../components/utilities/breadCrumbs";
 import SideBar from "../components/navigation/sideBar";
 import Masonry from "../components/layouts/masonry";
@@ -232,9 +234,12 @@ export default function Article({
           <section className={styles.InnerContainer} id="documentation">
             {versionWarning}
             <BreadCrumbs slug={slug} menu={menu} version={version} />
-            <article className="leaf-page">
+            <article
+              id="content-container"
+              className={classNames("leaf-page", styles.ArticleContainer)}
+            >
               <FloatingNav slug={slug} menu={menu} version={version} />
-              <div className="content">
+              <div className={classNames("content", styles.ContentContainer)}>
                 <MDXRemote {...source} components={components} />
                 <Helpful slug={slug} sourcefile={suggestEditURL} />
               </div>
@@ -242,6 +247,7 @@ export default function Article({
             <Psa />
             {arrowContainer}
           </section>
+          <Footer />
         </section>
       </Layout>
     </MDXProvider>

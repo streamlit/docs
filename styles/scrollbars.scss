@@ -1,0 +1,25 @@
+/* Improve scrollbars on Chrome + Windows/Linux. */
+:not(.mac) {
+  ::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb:horizontal {
+    margin-top: -6px;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    opacity: 1;
+    background-color: rgba(128, 132, 149, 0.75);
+  }
+
+  ::-webkit-scrollbar-thumb:hover,
+  :hover::-webkit-scrollbar-thumb:horizontal,
+  :hover::-webkit-scrollbar-thumb:vertical {
+    border-radius: 9999px;
+    opacity: 1;
+    background-color: rgba(191, 197, 211, 0.75);
+  }
+}

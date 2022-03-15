@@ -19,8 +19,8 @@ import styles from "./code.module.css";
 
 const Code = ({ code, children, language, img, lines }) => {
   useEffect(() => {
-    if (!window.initial.prism) {
-      window.initial.prism = true;
+    if (window) {
+      window.initial = { prism: true };
       Prism.highlightAll();
     }
 

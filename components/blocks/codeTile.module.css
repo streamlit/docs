@@ -32,7 +32,7 @@
 .Container h5,
 .Container h6,
 .Container p {
-  @apply m-0 mt-4 mb-1 leading-relaxed;
+  @apply m-0 mt-4 mb-1 leading-relaxed font-bold;
 }
 
 .Container p {
@@ -54,4 +54,36 @@
 
 .Third {
   @apply col-span-full md:col-span-3 lg:col-span-2;
+}
+
+/* Code block adjustments */
+/* Code block adjustments */
+.Container pre code :global(.operator),
+.Container pre code :global(.decorator) {
+  @apply text-yellow-80;
+}
+
+.Container pre code :global(.keyword) {
+  @apply text-darkBlue-60;
+}
+
+.Container pre code :global(.builtin) {
+  @apply text-lightBlue-70;
+}
+
+.Container pre code :global(.string) {
+  @apply text-green-80;
+}
+
+.Container pre code :global(.number),
+.Container pre code :global(.boolean) {
+  @apply text-green-60;
+}
+
+.Container pre code :global(.function) {
+  @apply text-red-60;
+}
+
+.Container pre code :global(.punctuation) {
+  @apply text-gray-60;
 }

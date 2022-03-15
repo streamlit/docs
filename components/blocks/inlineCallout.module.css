@@ -3,7 +3,7 @@
 }
 
 .IconContainer {
-  @apply flex items-center p-4 mr-4 mb-0 rounded-md;
+  @apply flex items-center p-4 mr-4 mb-0 rounded-md hover:opacity-70;
 }
 
 .Icon {
@@ -25,7 +25,7 @@
 }
 
 .Link {
-  @apply font-bold;
+  @apply font-bold border-none hover:border-none hover:opacity-70;
 }
 
 /* Colors for each category */
