@@ -3,16 +3,16 @@
 }
 
 .BannerBackground {
-  @apply bg-white border border-gray-30 p-2 md:p-6 rounded-md flex flex-col md:flex-row;
+  @apply border-t border-t-gray-80 bg-gray-20 md:border md:border-gray-30 p-2 md:p-6 md:rounded-md flex flex-col md:flex-row;
 }
 
 .Title {
-  @apply mt-0 mb-2 font-sans font-bold text-2xl tracking-tight leading-tight;
+  @apply mt-0 mb-2 pt-2 md:pt-0 font-sans font-bold text-2xl tracking-tight leading-tight;
   @apply text-gray-90;
 }
 
 .ImageContainer {
-  @apply mb-4 md:mb-0 md:mt-2 mr-4;
+  @apply hidden md:block mb-4 md:mb-0 md:mt-2 mr-4;
 }
 
 .CtasContainer {
@@ -24,7 +24,7 @@
 }
 
 .DeclineButton {
-  @apply bg-white border border-solid border-gray-30 text-gray-90 mr-4;
+  @apply border border-solid bg-gray-20 border-gray-70 text-gray-90 mr-4;
 }
 
 .AllowButton {
@@ -47,7 +47,7 @@
 
 /* Dark mode modifiers */
 :global(.dark) .BannerBackground {
-  @apply bg-gray-90 border-gray-80;
+  @apply bg-gray-90 md:border-gray-80;
 }
 
 :global(.dark) .Container div p {
