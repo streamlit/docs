@@ -156,4 +156,6 @@ Streamlit's officially-supported environment manager for macOS and Linux is [Pip
    streamlit run myfile.py
    ```
 
-3. When you're done using this environment, just type `exit` or press `ctrl-D` or `ctrl-C` to return to your normal shell.
+   To stop the Streamlit server, press `ctrl-C`.
+
+3. When you're done using this environment, just type `exit` or press `ctrl-D` to return to your normal shell.
