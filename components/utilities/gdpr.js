@@ -44,9 +44,7 @@ const GDPRBanner = (gdprData) => {
   // Only show banner if not in europe and banner wasn't already shown.
   const showBanner = mayBeInEurope && !localStorageIsSetUp;
 
-  const [isVisible, setIsVisible] = useState(
-    path.includes("?showGDPRBanner=true") ? true : showBanner
-  );
+  const [isVisible, setIsVisible] = useState(showBanner);
   const [insertAnalyticsCode, setInsertAnalyticsCode] = useState(
     localStorage.getItem(KEY) == "true"
   );
