@@ -1,6 +1,9 @@
 // Global Imports
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import classNames from "classnames";
 import { MDXRemote } from "next-mdx-remote";
+import { ReactComponent as CookieEmoji } from "../../images/icons/cookie.svg";
 
 import styles from "./gdpr.module.css";
 
@@ -18,6 +21,9 @@ const GDPRBanner = (gdprData) => {
   const title = gdprData.title;
   const content = gdprData.content;
   const data = gdprData.data;
+
+  const router = useRouter();
+  const path = router.asPath;
 
   const currentTzOffset = new Date().getTimezoneOffset();
 
@@ -72,15 +78,26 @@ const GDPRBanner = (gdprData) => {
   return (
     <div className={styles.Container}>
       <div className={styles.BannerBackground}>
-        <h3 className={styles.Title}>{title}</h3>
-        <MDXRemote {...content} />
-        <div className={styles.CtasContainer}>
-          <button onClick={DeclineAndCloseBanner} className={styles.Button}>
-            Decline
-          </button>
-          <button onClick={AllowAndCloseBanner} className={styles.Button}>
-            Allow
-          </button>
+        <div className={styles.ImageContainer}>
+          <CookieEmoji className={styles.Image} />
+        </div>
+        <div className={styles.TextContainer}>
+          <h3 className={styles.Title}>{title}</h3>
+          <MDXRemote {...content} />
+          <div className={styles.CtasContainer}>
+            <button
+              onClick={DeclineAndCloseBanner}
+              className={classNames(styles.Button, styles.DeclineButton)}
+            >
+              Decline
+            </button>
+            <button
+              onClick={AllowAndCloseBanner}
+              className={classNames(styles.Button, styles.AllowButton)}
+            >
+              Allow
+            </button>
+          </div>
         </div>
       </div>
     </div>
