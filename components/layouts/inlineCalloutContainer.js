@@ -1,7 +1,7 @@
-export default function InlineCalloutContainer({ children }) {
-    return (
-        <section className="block-inline-callout-container">
-            {children}
-        </section>
-    )
-}
+import styles from "./inlineCalloutContainer.module.css";
+
+const InlineCalloutContainer = ({ children }) => {
+  return <section className={styles.Container}>{children}</section>;
+};
+
+export default InlineCalloutContainer;

@@ -1,0 +1,59 @@
+.ais-InstantSearch .ais-SearchBox {
+  @apply sticky top-0 z-10;
+}
+
+.ais-InstantSearch .ais-SearchBox-form {
+  @apply relative;
+}
+
+.ais-InstantSearch .ais-SearchBox-form input {
+  @apply h-16 w-full bg-gray-10 dark:bg-gray-90 border-b border-b-gray-40 text-gray-90 rounded-none pl-20 pr-4 text-base focus:outline-none focus:border-b-2 focus:border-b-yellow-90 dark:border-b-gray-80 dark:text-white;
+}
+
+.ais-InstantSearch .ais-SearchBox-form #search-clear,
+.ais-InstantSearch
+  .ais-SearchBox-form
+  input[type="search" i]::-webkit-search-cancel-button {
+  @apply opacity-0;
+}
+
+.ais-InstantSearch .ais-SearchBox-form button {
+  @apply w-10 shadow-none absolute inset-y-4 left-4 mb-0 flex items-center justify-center;
+}
+
+.ais-InstantSearch .ais-SearchBox-form button svg {
+  @apply dark:fill-white;
+}
+
+.ais-InstantSearch .ais-SearchBox-form .ais-SearchBox-reset {
+  @apply left-auto right-4;
+}
+
+.ais-InstantSearch .ais-SearchBox-form .ais-SearchBox-reset[hidden] {
+  @apply hidden;
+}
+
+.ais-InstantSearch .ais-Snippet {
+  @apply opacity-80;
+}
+
+.ais-InstantSearch .ais-Hits {
+  @apply bg-gray-10 dark:bg-gray-90;
+}
+
+.ais-InstantSearch .ais-Hits .ais-Hits-list {
+  @apply list-none m-0 p-0;
+}
+
+.ais-InstantSearch .ais-Hits .ais-Hits-list li {
+  @apply m-0 border-b border-b-gray-40 hover:bg-gray-20 dark:hover:bg-gray-80 dark:border-b-gray-80;
+}
+
+.ais-Snippet-highlighted,
+.ais-Highlight-highlighted {
+  @apply not-italic pb-1 border-b-2 border-b-yellow-90;
+}
+
+.ais-Highlight-highlighted {
+  @apply pb-0;
+}

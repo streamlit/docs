@@ -1,0 +1,34 @@
+.HashLink {
+  @apply no-underline block h-0 w-0 overflow-hidden invisible pointer-events-none;
+}
+
+.HeaderContainer {
+  @apply flex items-center font-bold text-gray-90 leading-snug;
+}
+
+.HeaderContainer strong {
+  @apply font-bold;
+}
+
+h1.HeaderContainer {
+  @apply leading-tight;
+}
+
+.CopiedMessage {
+  @apply ml-4 text-xs font-normal opacity-70 flex items-center tracking-tight;
+  @apply text-gray-90 !important;
+}
+
+.CopiedIcon {
+  @apply text-gray-90 !important;
+}
+
+:global(.dark) .HeaderContainer,
+:global(.dark) .CopiedMessage,
+:global(.dark) .CopiedIcon {
+  @apply text-white !important;
+}
+
+.CopyLink {
+  @apply cursor-pointer ml-4 pt-1 opacity-0 flex items-center hover:opacity-90 group-hover:opacity-90;
+}

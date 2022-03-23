@@ -1,9 +1,7 @@
-export default function ArrowLinkContainer({ children }) {
-    return (
-        <section className="block-arrow-link-container">
-            {children}
-        </section>
-    )
-}
+import styles from "./arrowLink.module.css";
 
-// export default Component
+const ArrowLinkContainer = ({ children }) => {
+  return <section className={styles.Container}>{children}</section>;
+};
+
+export default ArrowLinkContainer;

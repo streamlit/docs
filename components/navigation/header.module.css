@@ -1,0 +1,49 @@
+.Container {
+  @apply relative w-screen z-30 border-b;
+  @apply bg-white !important;
+}
+
+.stickyContainer {
+  @apply fixed h-12 border-b-gray-30 top-0;
+}
+
+.standardContainer {
+  @apply border-b-white h-24;
+}
+
+:global(.dark) .Container {
+  @apply bg-gray-100 !important;
+}
+
+:global(.dark) .stickyContainer {
+  @apply border-b-gray-80 !important;
+}
+
+:global(.dark) .standardContainer {
+  @apply border-b-gray-100 !important;
+}
+
+.Navigation {
+  @apply container px-2 xl:px-4 flex items-center justify-between relative transition-all mx-auto h-full left-auto;
+}
+
+.LogoContainer {
+  @apply flex items-center m-0 text-base tracking-tight md:ml-0 lg:ml-2 xl:-ml-1 hover:opacity-70;
+}
+
+.LogoText {
+  @apply hidden xl:block m-0 font-normal ml-4 relative top-px text-lg;
+  @apply text-gray-90 !important;
+}
+
+:global(.dark) .LogoText {
+  @apply text-white !important;
+}
+
+.NavigationContainer {
+  @apply flex items-center flex-auto justify-self-end gap-4 lg:gap-6;
+}
+
+.Container nav section i {
+  @apply text-gray-70;
+}

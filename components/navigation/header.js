@@ -1,70 +1,72 @@
-// import Navigation from 
-import React from 'react';
-
-import Link from 'next/link'
+import { debounce } from "lodash";
+import React, { useState, useEffect } from "react";
+import classNames from "classnames";
+import Link from "next/link";
 import dynamic from "next/dynamic";
 
-import MobileNav from './mobileNav';
+// import Navigation from
+import MobileNav from "./mobileNav";
 
+import styles from "./header.module.css";
 
-const ThemeToggle = dynamic(() => import("../utilities/themeToggle"), { ssr: false, });
+const ThemeToggle = dynamic(() => import("../utilities/themeToggle"), {
+  ssr: false,
+});
+import Search from "../utilities/search";
 
-import Search from '../utilities/search';
+const Header = () => {
+  const [isSticky, setIsSticky] = useState(false);
+  const [windowWidth, setWindowWidth] = useState();
 
-export default class Header extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleScroll = this.handleScroll.bind(this);
-        this.handleResize = this.handleResize.bind(this);
-        this.state = {
-            sticky: false,
-        };
-    }
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
 
-    componentDidMount() {
-        window.addEventListener('scroll', this.handleScroll)
-        window.addEventListener('resize', this.handleResize)
-        this.handleResize()
-    }
+  const handleScroll = () => {
+    let top = window.scrollY;
+    top > 20 ? setIsSticky(true) : setIsSticky(false);
+  };
 
-    handleResize() {
-        this.setState({ windowWidth: window.innerWidth })
-    }
+  const debouncedHandleResize = debounce(handleResize, 200);
 
-    componentWillUnmount() {
-        window.removeEventListener('scroll', this.handleScroll)
-        window.removeEventListener('resize', this.handleResize)
-    }
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", debouncedHandleResize);
 
-    handleScroll() {
-        let top = window.scrollY;
-        (top > 20 ? this.setState({ sticky: true }) : this.setState({ sticky: false }))
-    }
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", debouncedHandleResize);
+    };
+  }, []);
 
-    render() {
+  let mobileNav;
+  if (windowWidth <= 1024) {
+    mobileNav = <MobileNav />;
+  }
 
-        let mobileNav;
+  return (
+    <header
+      className={classNames(
+        styles.Container,
+        isSticky ? styles.stickyContainer : styles.standardContainer
+      )}
+    >
+      <nav className={styles.Navigation} id="main-header">
+        <Link href="/">
+          <a className={classNames(styles.LogoContainer, "not-link")}>
+            <img src="/logo.svg" alt="" />
+            <h4 className={styles.LogoText}>Documentation</h4>
+          </a>
+        </Link>
+        <section className={styles.NavigationContainer}>
+          <Search />
+          <ThemeToggle />
+          {mobileNav}
+        </section>
+      </nav>
+    </header>
+  );
+};
 
-        if (this.state.windowWidth < 1024) {
-            mobileNav = <MobileNav />
-        }
-
-        return (
-            <header className={`${this.state.sticky ? "sticky" : ""}`}>
-                <nav className="container" id="main-header">
-                    <Link href="/">
-                        <a className="brand not-link">
-                            <img src="/logo.svg" alt="" />
-                            <h4>Documentation</h4>
-                        </a>
-                    </Link>
-                    <section className="options">
-                        <Search />
-                        <ThemeToggle />
-                        {mobileNav}
-                    </section>
-                </nav>
-            </header>
-        )
-    }
-}
+export default Header;

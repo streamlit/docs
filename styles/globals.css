@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply overflow-x-hidden scroll-pt-12;
+}
+
+body {
+  @apply scroll-m-12;
+}
+
+/* Utility to hide text that only is needed in screen readers */
+.sr-only {
+  @apply absolute top-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-none;
+  clip: rect(0, 0, 0, 0);
+}

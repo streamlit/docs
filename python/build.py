@@ -5,6 +5,7 @@ import subprocess
 import json
 import requests
 import logging
+import utils
 
 from packaging import version
 
@@ -12,37 +13,58 @@ logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 PYPI_URL = 'https://pypi.org/pypi/streamlit/json'
 
-# Get the PyPi data
-r = requests.get(PYPI_URL)
-d = r.json()
+# Only consider the latest N releases
+LOOKBACK = 15
 
-# First open the function file
-try:
-    current_json = open('streamlit.json', 'r')
-    current_data = json.loads(current_json.read())
-except:
-    current_data = {}
+# Get the PyPI data
+pypi_data = requests.get(PYPI_URL).json()
+current_data = utils.get_existing_dict()
 
-if 'info' in d:
-    for release in d['releases']:
-        release_dec = version.parse(release)
-        if release_dec < version.parse('0.47'):
+
+def get_latest_releases(pypi_data):
+    sorted_release_pairs = sorted(
+        (version.parse(v), v)
+        for v in pypi_data['releases'])
+
+    _, sorted_release_strs = zip(*sorted_release_pairs)
+
+    return sorted_release_strs[-LOOKBACK:]
+
+
+if 'info' in pypi_data:
+    releases = get_latest_releases(pypi_data)
+
+    for version_str in releases:
+        version_obj = version.parse(version_str)
+
+        # We only care about versions of the type major.minor.0
+        if version_obj.micro != 0:
             continue
-        if not release.endswith('0'):
+
+        # We don't care about pre-releases. e.g. 1.6.0rc3
+        if version_obj.is_prerelease:
             continue
-        if release not in current_data:
-            logging.info(f"[{release}] Installing streamlit...")
+
+        if version_str not in current_data:
+            logging.info(f"[{version_str}] Installing streamlit...")
+
+            # Download Streamlit.
             try:
-                output = subprocess.Popen(['pip', 'install', f'streamlit=={release}'], stdout=subprocess.DEVNULL)
+                output = subprocess.Popen(['pip', 'install', f'streamlit=={version_str}'], stdout=subprocess.DEVNULL)
                 output.wait()
             except subprocess.CalledProcessError as exc:
-                logging.error(f"[{release}] failed: ", exc.returncode, exc.output)
+                logging.error(f"[{version_str}] failed: ", exc.returncode, exc.output)
                 continue
-            else:
-                logging.info(f"[{release}] Starting generation...")
-                output = subprocess.Popen(['python', 'generate.py', release], stdout=subprocess.DEVNULL)
-                output.wait()
+
+            # Grab docstring data for all Streamlit commands.
+            logging.info(f"[{version_str}] Starting generation...")
+
+            # Needs to be a subprocess so it imports the latest installed Streamlit correctly.
+            # (modules are cached!)
+            output = subprocess.Popen(['python', 'generate.py', version_str], stdout=subprocess.DEVNULL)
+            output.wait()
+
         else:
-            logging.warning(f"[{release}] was already saved in streamlit.json. Skipping.")
+            logging.warning(f"[{version_str}] was already saved in JSON file. Skipping.")
 else:
     logging.error("PyPi index could not be fetched, or returned invalid data.")

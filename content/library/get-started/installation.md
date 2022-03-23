@@ -5,16 +5,22 @@ slug: /library/get-started/installation
 
 # Install Streamlit
 
+## Table of contents
+
+1. [Prerequisites](#prerequisites)
+2. [Install Streamlit on Windows](#install-streamlit-on-windows)
+3. [Install Streamlit on macOS/Linux](#install-streamlit-on-macoslinux)
+
 ## Prerequisites
 
 Before you get started, you're going to need a few things:
 
 - Your favorite IDE or text editor
-- [Python 3.6+](https://www.python.org/downloads/)
+- [Python 3.7 - Python 3.9](https://www.python.org/downloads/)
 - [PIP](https://pip.pypa.io/en/stable/installing/)
 
 If you haven't already, take a few minutes to read through [Main
-concepts](/library/get-started/create-an-app) to understand Streamlit's data flow model.
+concepts](/library/get-started/main-concepts) to understand Streamlit's data flow model.
 
 ## Set up your virtual environment
 
@@ -25,7 +31,7 @@ you're working on.
 
 Below are a few tools you can use for environment management:
 
-- [pipenv](https://pipenv.pypa.io/en/latest/)
+- [pipenv](https://pipenv-fork.readthedocs.io/en/latest/)
 - [poetry](https://python-poetry.org/)
 - [venv](https://docs.python.org/3/library/venv.html)
 - [virtualenv](https://virtualenv.pypa.io/en/latest/)
@@ -150,4 +156,6 @@ Streamlit's officially-supported environment manager for macOS and Linux is [Pip
    streamlit run myfile.py
    ```
 
-3. When you're done using this environment, just type `exit` or press `ctrl-D` to return to your normall shell.
+   To stop the Streamlit server, press `ctrl-C`.
+
+3. When you're done using this environment, just type `exit` or press `ctrl-D` to return to your normal shell.

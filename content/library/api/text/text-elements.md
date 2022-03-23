@@ -19,7 +19,7 @@ also use [magic commands](/library/api-reference/write-magic/magic) in place of 
 <TileContainer>
 <RefCard href="/library/api-reference/text/st.markdown">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/markdown.jpg" />
 
 #### Markdown
 
@@ -32,7 +32,7 @@ st.markdown("Hello **world**!")
 </RefCard>
 <RefCard href="/library/api-reference/text/st.title">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/title.jpg" />
 
 #### Title
 
@@ -45,7 +45,7 @@ st.title("The app title")
 </RefCard>
 <RefCard href="/library/api-reference/text/st.header">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/header.jpg" />
 
 #### Header
 
@@ -58,7 +58,7 @@ st.header("This is a header")
 </RefCard>
 <RefCard href="/library/api-reference/text/st.subheader">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/subheader.jpg" />
 
 #### Subheader
 
@@ -71,7 +71,7 @@ st.subheader("This is a subheader")
 </RefCard>
 <RefCard href="/library/api-reference/text/st.caption">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/caption.jpg" />
 
 #### Caption
 
@@ -84,7 +84,7 @@ st.caption("This is written small caption text")
 </RefCard>
 <RefCard href="/library/api-reference/text/st.code">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/code.jpg" />
 
 #### Code block
 
@@ -97,7 +97,7 @@ st.code("a = 1234")
 </RefCard>
 <RefCard href="/library/api-reference/text/st.text">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/text.jpg" />
 
 #### Preformatted text
 
@@ -110,28 +110,14 @@ st.text("Hello world")
 </RefCard>
 <RefCard href="/library/api-reference/text/st.latex">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
+<Image pure alt="screenshot" src="/images/api/latex.jpg" />
 
 #### LaTeX
 
 Display mathematical expressions formatted as LaTeX.
 
 ```python
-st.latex("$\int a x^2 \,dx$")
-```
-
-</RefCard>
-<RefCard href="/library/api-reference/text/st.echo">
-
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
-
-#### Echo
-
-Use in a `with` block to draw some code on the app, then execute it.
-
-```python
-with st.echo():
-  st.write('This code will be printed')
+st.latex("\int a x^2 \,dx")
 ```
 
 </RefCard>

@@ -17,14 +17,130 @@ $ pip install --upgrade streamlit
 
 </Tip>
 
+## **Version 1.6.0**
+
+_Release date: Feb 24, 2022_
+
+**Other Changes**
+
+- 🗜 WebSocket compression is now disabled by default, which will improve CPU and latency performance for large dataframes. You can use the `server.enableWebsocketCompression` configuration option to re-enable it if you find the increased network traffic more impactful.
+- ☑️ 🔘 Radio and checkboxes improve focus on Keyboard navigation ([#4308](https://github.com/streamlit/streamlit/pull/4308)).
+
+## **Version 1.5.0**
+
+_Release date: Jan 27, 2022_
+
+**Notable Changes**
+
+- 🌟 Favicon defaults to a PNG to allow for transparency ([#4272](https://github.com/streamlit/streamlit/pull/4272)).
+- 🚦 Select Slider Widget now has the `disabled` parameter that removes interactivity (completing all of our widgets) ([#4314](https://github.com/streamlit/streamlit/pull/4314)).
+
+**Other Changes**
+
+- 🔤 Improvements to our markdown library to provide better support for HTML (specifically nested HTML) ([#4221](https://github.com/streamlit/streamlit/pull/4221)).
+- 📖 Expanders maintain their expanded state better when multiple expanders are present ([#4290](https://github.com/streamlit/streamlit/pull/4290)).
+- 🗳 Improved file uploader and camera input to call its `on_change` handler only when necessary ([#4270](https://github.com/streamlit/streamlit/pull/4270)).
+
+## **Version 1.4.0**
+
+_Release date: Jan 13, 2022_
+
+**Highlights**
+
+- 📸 Introducing `st.camera_input` for uploading images straight from your camera.
+
+**Notable Changes**
+
+- 🚦 Widgets now have the `disabled` parameter that removes interactivity.
+- 🚮 Clear `st.experimental_memo` and `st.experimental_singleton` programmatically by using the `clear()` method on a cached function.
+- 📨 Developers can now configure the maximum size of a message to accommodate larger messages within the Streamlit application. See `server.maxMessageSize`.
+- 🐍 We formally added support for Python 3.10.
+
+**Other Changes**
+
+- 😵‍💫 Calling `str` or `repr` on `threading.current_thread()` does not cause a RecursionError ([#4172](https://github.com/streamlit/streamlit/issues/4172)).
+- 📹 Gracefully stop screencast recording when user removes permission to record ([#4180](https://github.com/streamlit/streamlit/pull/4180)).
+- 🌇 Better scale images by using a higher-quality image bilinear resampling algorithm ([#4159](https://github.com/streamlit/streamlit/pull/4159)).
+
+## Version 1.3.0
+
+_Release date: Dec 16, 2021_
+
+**Notable Changes**
+
+- 💯 Support for NumPy values in `st.metric`.
+- 🌐 Support for Mesh Layers in PyDeck.
+- 📊 Updated Plotly chart version to support the latest features.
+- 🏀 `st.spinner` element has visual animated spinner.
+- 🍰 `st.caption` supports HTML in text with `unsafe_allow_html` parameter.
+
+**Other Changes**
+
+- 🪲 Bug fix: Allow `st.session_state` to be used to set number_input values with no warning ([#4047](https://github.com/streamlit/streamlit/pull/4047)).
+- 🪲 Bug fix: Fix footer alignment in wide mode ([#4035](https://github.com/streamlit/streamlit/pull/4035)).
+- 🐞 Bug fix: Better support for Graphviz and Bokeh charts in containers (columns, expanders, etc.) ([#4039](https://github.com/streamlit/streamlit/pull/4039)).
+- 🐞 Bug fix: Support inline data values in Vega-Lite ([#4070](https://github.com/streamlit/streamlit/pull/4070)).
+- ✍️ Types: Updated type annotations for experimental memo and singleton decorators.
+- ✍️ Types: Improved type annotations for `st.selectbox`, `st.select_slider`, `st.radio`, `st.number_input`, and `st.multiselect`.
+
+## Version 1.2.0
+
+_Release date: Nov 11, 2021_
+
+**Notable Changes**
+
+- ✏️ `st.text_input` and `st.text_area` now have a `placeholder` parameter to display text when the field is empty.
+- 📏 Viewers can now resize the input box in `st.text_area`.
+- 📁 Streamlit can auto-reload when files in sub-directories change.
+- 🌈 We've upgraded Bokeh support to 2.4.1! We recommend updating your Bokeh library to 2.4.1 to maintain functionality. Going forward, we'll let you know if there's a mismatch in your Bokeh version via an error prompt.
+- 🔒 Developers can access secrets via attribute notation (e.g. `st.secrets.key` vs `st.secrets["key"]`) just like session state.
+- ✍️ Publish type annotations according to [PEP 561](https://mypy.readthedocs.io/en/stable/installed_packages.html). Users now get type annotations for Streamlit when running mypy ([#4025](https://github.com/streamlit/streamlit/pull/4025)).
+
+**Other Changes**
+
+- 👀 Visual fixes ([#3863](https://github.com/streamlit/streamlit/pull/3863), [#3995](https://github.com/streamlit/streamlit/pull/3995), [#3926](https://github.com/streamlit/streamlit/pull/3926), [#3975](https://github.com/streamlit/streamlit/pull/3975)).
+- 🍔 Fixes to the hamburger menu ([#3968](https://github.com/streamlit/streamlit/pull/3968)).
+- 🖨️ Ability to print session state ([#3970](https://github.com/streamlit/streamlit/pull/3970)).
+
+## Version 1.1.0
+
+_Release date: Oct 21, 2021_
+
+**Highlights**
+
+- 🧠 Memory improvements: Streamlit apps allocate way less memory over time now.
+
+**Notable Changes**
+
+- ♻️ Apps automatically rerun now when the content of `secrets.toml` changes (before this you had to refresh the page manually).
+
+**Other Changes**
+
+- 🔗 Redirected some links to our [brand-new docs site](https://docs.streamlit.io/), e.g. in exceptions.
+- 🪲 Bug fix: Allow initialization of range slider with session state ([#3586](https://github.com/streamlit/streamlit/issues/3586)).
+- 🐞 Bug fix: Refresh chart when using `add_rows` with `datetime` index ([#3653](https://github.com/streamlit/streamlit/issues/3653)).
+- ✍️ Added some more type annotation in our codebase ([#3908](https://github.com/streamlit/streamlit/issues/3908)).
+
+## Version 1.0.0
+
+_Release date: Oct 5, 2021_
+
+**Highlights**
+
+- 🎈Announcing Streamlit 1.0! To read more about check out our [1.0 blog post](https://blog.streamlit.io/announcing-streamlit-1-0/).
+
+**Other Changes**
+
+- 🐞 Fixed an issue where using `df.dtypes` to show datatypes for a DF fails while using Arrow ([#3709](https://github.com/streamlit/streamlit/issues/3709)), Image captions stay within image width and are readable ([#3530](https://github.com/streamlit/streamlit/issues/3530)).
+
 ## Version 0.89.0
 
 _Release date: Sep 22, 2021_
 
 **Highlights**
 
-- 💰 Introducing `st.experimental_memo` and `experimental_singleton`, a new primitive for caching! See [our blog post](https://blog.streamlit.io/new-experimental-primitives-for-caching/)
-- 🍔 Streamlit allows developers to configure their hamburger menu to be more user-centric
+- 💰 Introducing `st.experimental_memo` and `experimental_singleton`, a new primitive for caching! See [our blog post](https://blog.streamlit.io/new-experimental-primitives-for-caching/).
+- 🍔 Streamlit allows developers to configure their hamburger menu to be more user-centric.
 
 **Notable Changes**
 
@@ -35,7 +151,7 @@ _Release date: Sep 22, 2021_
 
 **Other Changes**
 
-- 🐞 Bug fixes: Support svgs from a URL ([#3809](https://github.com/streamlit/streamlit/pull/3809)) and that do not start with `<svg>` tag ([#3789](https://github.com/streamlit/streamlit/pull/3789))
+- 🐞 Bug fixes: Support svgs from a URL ([#3809](https://github.com/streamlit/streamlit/pull/3809)) and that do not start with `<svg>` tag ([#3789](https://github.com/streamlit/streamlit/pull/3789)).
 
 ## Version 0.88.0
 
@@ -43,7 +159,7 @@ _Release date: Sep 2, 2021_
 
 **Highlights**
 
-- ⬇️ Introducing `st.download_button`, a new button widget for easily downloading files
+- ⬇️ Introducing `st.download_button`, a new button widget for easily downloading files.
 
 **Notable Changes**
 
@@ -55,11 +171,11 @@ _Release date: Aug 19, 2021_
 
 **Highlights**
 
-- 🔢 Introducing `st.metric`, an API for displaying KPIs. Check out the [demo app](https://share.streamlit.io/streamlit/release-demos/0.87/0.87) showcasing the functionality
+- 🔢 Introducing `st.metric`, an API for displaying KPIs. Check out the [demo app](https://share.streamlit.io/streamlit/release-demos/0.87/0.87) showcasing the functionality.
 
 **Other Changes**
 
-- 🐞 **Bug Fixes**: File uploader retains state upon expander closing ([#3557](https://github.com/streamlit/streamlit/issues/3557)), setIn Error with `st.empty` ([#3659](https://github.com/streamlit/streamlit/issues/3659)), Missing IFrame embeds in docs ([#3706](https://github.com/streamlit/streamlit/issues/3706)), Fix error writing certain PNG files ([#3597](https://github.com/streamlit/streamlit/issues/3597))
+- 🐞 **Bug Fixes**: File uploader retains state upon expander closing ([#3557](https://github.com/streamlit/streamlit/issues/3557)), setIn Error with `st.empty` ([#3659](https://github.com/streamlit/streamlit/issues/3659)), Missing IFrame embeds in docs ([#3706](https://github.com/streamlit/streamlit/issues/3706)), Fix error writing certain PNG files ([#3597](https://github.com/streamlit/streamlit/issues/3597)).
 
 ## Version 0.86.0
 
@@ -71,11 +187,11 @@ _Release date: Aug 5, 2021_
 
 **Notable Changes**
 
-- 📱 When using `st.columns`, columns will stack vertically when viewport size <640px so that column layout on smaller viewports is consistent and cleaner. ([#3594](https://github.com/streamlit/streamlit/issues/3594))
+- 📱 When using `st.columns`, columns will stack vertically when viewport size <640px so that column layout on smaller viewports is consistent and cleaner. ([#3594](https://github.com/streamlit/streamlit/issues/3594)).
 
 **Other Changes**
 
-- 🐞 **Bug fixes**: Fixed `st.date_input` crashes if its empty ([#3194](https://github.com/streamlit/streamlit/issues/3194)), Opening files with utf-8([#3022](https://github.com/streamlit/streamlit/issues/3022)), `st.select_slider` resets its state upon interaction ([#3600](https://github.com/streamlit/streamlit/issues/3600))
+- 🐞 **Bug fixes**: Fixed `st.date_input` crashes if its empty ([#3194](https://github.com/streamlit/streamlit/issues/3194)), Opening files with utf-8([#3022](https://github.com/streamlit/streamlit/issues/3022)), `st.select_slider` resets its state upon interaction ([#3600](https://github.com/streamlit/streamlit/issues/3600)).
 
 ## Version 0.85.0
 
@@ -83,12 +199,12 @@ _Release date: Jul 22, 2021_
 
 **Highlights**
 
-- 🏹 Streamlit now uses [Apache Arrow](https://arrow.apache.org) for serializing data frames when they are sent from Streamlit server to the front end. See our [blog post](https://blog.streamlit.io/)
-  - (Users who wish to continue using the legacy data frame serialization can do so by setting the `dataFrameSerialization` config option to `"legacy"` in their `config.toml`)
+- 🏹 Streamlit now uses [Apache Arrow](https://arrow.apache.org) for serializing data frames when they are sent from Streamlit server to the front end. See our [blog post](https://blog.streamlit.io/).
+  - (Users who wish to continue using the legacy data frame serialization can do so by setting the `dataFrameSerialization` config option to `"legacy"` in their `config.toml`).
 
 **Other Changes**
 
-- 🐞 Bug fixes: Unresponsive pydeck example ([#3395](https://github.com/streamlit/streamlit/issues/3395)), JSON parse error message ([#2324](https://github.com/streamlit/streamlit/issues/2324)), Tooltips rendering ([#3300](https://github.com/streamlit/streamlit/issues/3300)), Colorpicker not working on Streamlit Sharing ([#2689](https://github.com/streamlit/streamlit/issues/2689))
+- 🐞 Bug fixes: Unresponsive pydeck example ([#3395](https://github.com/streamlit/streamlit/issues/3395)), JSON parse error message ([#2324](https://github.com/streamlit/streamlit/issues/2324)), Tooltips rendering ([#3300](https://github.com/streamlit/streamlit/issues/3300)), Colorpicker not working on Streamlit Sharing ([#2689](https://github.com/streamlit/streamlit/issues/2689)).
 
 ## Version 0.84.0
 
@@ -290,7 +406,7 @@ _Release date: October 15, 2020_
 
 **Highlights:**
 
-- 🎁 Introducing Streamlit sharing, the best way to deploy, manage, and share your public Streamlit apps - for free. Read more about it on our [blog post](http://blog.streamlit.io/introducing-streamlit-sharing/) or sign up [here](https://streamlit.io/sharing)!
+- 🎁 Introducing Streamlit sharing, the best way to deploy, manage, and share your public Streamlit apps—for free. Read more about it on our [blog post](http://blog.streamlit.io/introducing-streamlit-sharing/) or sign up [here](https://streamlit.io/sharing)!
 - Added `st.experimental_rerun` to programatically re-run your app. Thanks [SimonBiggs](https://github.com/SimonBiggs)!
 
 **Notable Changes**
@@ -816,23 +932,23 @@ If you run `$ python your_script.py` the script will execute from top to bottom,
 - The strings we print to the command line when **liveSave** is on have been cleaned up. You may need to adjust any RegEx that depends on those.
 - A number of config options have been renamed:
 
-  | Old config | New config |
-  | ---------- | ---------- |
-  | proxy.isRemote | server.headless |
-  | proxy.liveSave | server.liveSave |
-  | proxy.runOnSave | server.runOnSave |
-  | proxy.watchFileSystem | server.runOnSave |
-  | proxy.enableCORS | server.enableCORS |
-  | proxy.port | server.port |
-  | browser.proxyAddress | browser.serverAddress |
-  | browser.proxyPort | browser.serverPort |
-  | client.waitForProxySecs | _n/a_ |
-  | client.throttleSecs | _n/a_ |
-  | client.tryToOutliveProxy | _n/a_ |
-  | client.proxyAddress | _n/a_ |
-  | client.proxyPort | _n/a_ |
-  | proxy.autoCloseDelaySecs | _n/a_ |
-  | proxy.reportExpirationSecs | _n/a_ |
+  | Old config                 | New config            |
+  | -------------------------- | --------------------- |
+  | proxy.isRemote             | server.headless       |
+  | proxy.liveSave             | server.liveSave       |
+  | proxy.runOnSave            | server.runOnSave      |
+  | proxy.watchFileSystem      | server.runOnSave      |
+  | proxy.enableCORS           | server.enableCORS     |
+  | proxy.port                 | server.port           |
+  | browser.proxyAddress       | browser.serverAddress |
+  | browser.proxyPort          | browser.serverPort    |
+  | client.waitForProxySecs    | _n/a_                 |
+  | client.throttleSecs        | _n/a_                 |
+  | client.tryToOutliveProxy   | _n/a_                 |
+  | client.proxyAddress        | _n/a_                 |
+  | client.proxyPort           | _n/a_                 |
+  | proxy.autoCloseDelaySecs   | _n/a_                 |
+  | proxy.reportExpirationSecs | _n/a_                 |
 
 **What if something breaks?**
 
@@ -869,4 +985,3 @@ _Release date: April 26, 2019_
 - 📷 Bokeh support! Check out docs for `st.bokeh_chart`
 - ⚡️ Improved the size and load time of saved apps
 - ⚾️ Implemented better error-catching throughout the codebase
-

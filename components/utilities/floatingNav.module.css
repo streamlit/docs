@@ -1,0 +1,70 @@
+.ListContainer {
+  @apply absolute right-0 top-0 h-full w-56 z-10 hidden;
+}
+
+.List {
+  @apply sticky top-24 m-0 list-none overflow-y-auto overflow-x-hidden;
+  max-height: calc(100vh - (6em * 2));
+}
+
+.ListItem {
+  @apply m-0 text-xs pt-1;
+}
+
+.TopGradient {
+  @apply absolute h-6 w-full bg-gradient-to-b from-white z-10;
+}
+
+:global(.dark) .TopGradient {
+  @apply from-gray-100;
+}
+
+/* Contents Title */
+.ListTitle {
+  @apply pt-6 pl-6 uppercase font-semibold tracking-widest;
+  @apply text-gray-60 !important;
+}
+
+/* Hide the first h1 on the page, as it's the page title */
+.List li:nth-child(2) {
+  @apply hidden;
+}
+
+/* Styles for the active item on the floating nav */
+:global(.dark) .activeLink {
+  @apply text-white !important;
+}
+
+.activeLink {
+  @apply text-gray-90 !important;
+}
+
+.Link {
+  @apply border-none inline-block truncate w-40 leading-4 hover:opacity-70 hover:no-underline;
+  @apply text-gray-70 !important;
+}
+
+/* Paddings for different title hierarchies */
+.headingH1 {
+  @apply pl-6;
+}
+
+.headingH2 {
+  @apply pl-8;
+}
+
+.headingH3 {
+  @apply pl-10;
+}
+
+.headingH4 {
+  @apply pl-12;
+}
+
+.headingH5 {
+  @apply pl-14;
+}
+
+.headingH6 {
+  @apply pl-16;
+}

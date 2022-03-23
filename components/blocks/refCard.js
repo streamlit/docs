@@ -1,12 +1,25 @@
-import Link from 'next/link'
+import Link from "next/link";
+import classNames from "classnames";
 
-export default function RefCard({ children, size, href }) {
-    // TODO(Thiago): Make code block clickable without taking you to the href.
-    return (
-        <Link href={href}>
-            <div className={`not-link reference-card ${size || 'third'}`}>
-                {children}
-            </div>
-        </Link>
-    )
-}
+import styles from "./refCard.module.css";
+
+const RefCard = ({ children, size, href }) => {
+  const tileSize =
+    size === "full"
+      ? styles.Full
+      : size === "half"
+      ? styles.Half
+      : size === "third"
+      ? styles.Third
+      : size === "two-third"
+      ? styles.TwoThirds
+      : styles.Third;
+
+  return (
+    <Link href={href}>
+      <a className={classNames(styles.Container, tileSize)}>{children}</a>
+    </Link>
+  );
+};
+
+export default RefCard;

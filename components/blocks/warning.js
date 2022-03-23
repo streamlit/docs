@@ -1,48 +1,26 @@
 import React from "react";
+import classNames from "classnames";
 
-import IconHeader from './iconHeader'
+import IconHeader from "./iconHeader";
 
-export default class Warning extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleTheme = this.handleTheme.bind(this);
-        this.state = {
-            theme: 'light-mode'
-        };
-    }
+import CalloutStyles from "./callout.module.css";
+import WarningStyles from "./important.module.css";
 
-    async componentDidMount() {
-        window.addEventListener('ChangeTheme', this.handleTheme);
-    }
+const Warning = ({ children }) => {
+  return (
+    <section
+      className={classNames(CalloutStyles.Container, WarningStyles.Important)}
+    >
+      <IconHeader
+        icon="priority_high"
+        rotate="0"
+        title="Warning"
+        background="orange-70"
+        color="white"
+      />
+      {children}
+    </section>
+  );
+};
 
-    componentWillUnmount() {
-        window.removeEventListener('ChangeTheme', this.handleTheme);
-    }
-
-    handleTheme() {
-        this.setState({ theme: document.body.dataset.theme })
-    }
-    
-    render() {
-        const props = this.props
-        const state = this.state
-        let block;
-        if (state.theme == 'dark-mode') {
-            block = (
-                <section className={`block-note bg-dark-orange color-white`}>
-                    <IconHeader icon="priority_high" rotate="0" title="Warning" background="orange-70" color="white" />
-                    {props.children}
-                </section>
-            )
-        } else {
-            block = (
-                <section className={`block-note bg-orange-10 color-gray-90`}>
-                    <IconHeader icon="priority_high" rotate="0" title="Warning" background="orange-70" color="white" />
-                    {props.children}
-                </section>
-            )
-        }
-
-        return block
-    }
-}
+export default Warning;

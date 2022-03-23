@@ -95,12 +95,12 @@ To make the process of creating bi-directional Streamlit Components easier, we'v
 
 To build a Streamlit Component, you need the following installed in your development environment:
 
-- Python 3.6+
+- Python 3.7 - Python 3.9
 - Streamlit 0.63+
 - [nodejs](https://nodejs.org/en/)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
-Clone the [component-template GitHub repo](https://github.com/streamlit/component-template), then decide whether you want to use the React.js (["template"](https://github.com/streamlit/component-template/tree/master/template-reactless)) or plain TypeScript (["template-reactless"](https://github.com/streamlit/component-template/tree/master/template-reactless)) template.
+Clone the [component-template GitHub repo](https://github.com/streamlit/component-template), then decide whether you want to use the React.js (["template"](https://github.com/streamlit/component-template/tree/master/template)) or plain TypeScript (["template-reactless"](https://github.com/streamlit/component-template/tree/master/template-reactless)) template.
 
 1. Initialize and build the component template frontend from the terminal:
 
@@ -145,6 +145,7 @@ The example app from the template shows how bi-directional communication is impl
 Because each Streamlit Component is its own webpage that gets rendered into an `iframe`, you can use just about any web tech you'd like to create that web page. We provide two templates to get started with in the Streamlit [Components-template GitHub repo](https://github.com/streamlit/component-template/); one of those templates uses [React](https://reactjs.org/) and the other does not.
 
 <Note>
+
 Even if you're not already familiar with React, you may still want to check out the React-based
 template. It handles most of the boilerplate required to send and receive data from Streamlit, and
 you can learn the bits of React you need as you go.
@@ -200,7 +201,7 @@ This template has much more code than its React sibling, in that all the mechani
 - Towards the bottom of the source file, the template calls `Streamlit.setComponentReady()` to tell Streamlit it's ready to start receiving data. (You'll generally want to do this after creating and loading everything that the Component relies on.)
 - It subscribes to `Streamlit.RENDER_EVENT` to be notified of when to redraw. (This event won't be fired until `setComponentReady` is called)
 - Within its `onRender` event handler, it accesses the arguments passed in the Python script via `event.detail.args`
-- It sends data back to the Python script in the same way that the React template does - clicking on the "Click Me!" button calls `Streamlit.setComponentValue()`
+- It sends data back to the Python script in the same way that the React template does—clicking on the "Click Me!" button calls `Streamlit.setComponentValue()`
 - It informs Streamlit when its height may have changed via `Streamlit.setFrameHeight()`
 
 #### Working with Themes
@@ -318,4 +319,3 @@ Check out the [CustomDataframe](https://github.com/streamlit/component-template/
 You send data from the frontend to Python via the `Streamlit.setComponentValue()` API (which is part of the template code). Unlike arg-passing from Python → frontend, **this API takes a single value**. If you want to return multiple values, you'll need to wrap them in an `Array` or `Object`.
 
 Custom Components can send JSON-serializable data from the frontend to Python, as well as [Apache Arrow](http://arrow.apache.org/) `ArrowTable`s to represent dataframes.
-

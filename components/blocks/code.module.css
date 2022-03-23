@@ -1,0 +1,111 @@
+.Container {
+  @apply w-full my-7 mx-auto overflow-x-auto;
+  @apply relative !important;
+}
+
+.Container pre,
+.Container code {
+  @apply overflow-auto max-w-full whitespace-pre;
+}
+
+.Container pre {
+  @apply p-4 bg-gray-90 text-white font-medium rounded-md relative py-6 px-8 leading-relaxed;
+}
+
+.Container pre code {
+  @apply z-10 relative;
+}
+
+.LineHighlight {
+  @apply bg-gray-80 opacity-30 z-0;
+}
+
+.Container button {
+  @apply absolute top-2 right-2 cursor-pointer h-8 w-8 mb-0 flex items-center;
+}
+
+.Container button::before {
+  @apply absolute top-2 right-2 z-10 transition-all duration-75 hover:opacity-40;
+  content: url("/clipboard.svg");
+}
+
+.Container button span {
+  @apply absolute right-10 text-white font-mono text-sm tracking-tight font-normal opacity-0;
+}
+
+.Container button:hover span {
+  @apply opacity-100;
+}
+
+/* Code block adjustments */
+.Container pre code :global(.operator) {
+  @apply text-yellow-50;
+}
+
+.Container pre code :global(.decorator) {
+  @apply text-yellow-80;
+}
+
+.Container pre code :global(.string) {
+  @apply text-darkBlue-30;
+}
+
+.Container pre code :global(.keyword) {
+  @apply text-darkBlue-50;
+}
+
+.Container pre code :global(.builtin) {
+  @apply text-lightBlue-40;
+}
+
+.Container pre code :global(.number),
+.Container pre code :global(.boolean) {
+  @apply text-green-40;
+}
+
+.Container pre code :global(.function) {
+  @apply text-red-50;
+}
+
+.Container pre code :global(.punctuation) {
+  @apply text-gray-60;
+}
+
+.Container pre code :global(.comment) {
+  @apply text-gray-60 italic font-normal;
+}
+
+.Container pre code :global(.table) {
+  @apply inline;
+}
+
+/* Dark mode adjustments */
+:global(.dark) .Container pre code :global(.operator),
+:global(.dark) .Container pre code :global(.decorator) {
+  @apply text-yellow-50;
+}
+
+:global(.dark) .Container pre code :global(.keyword) {
+  @apply text-darkBlue-50;
+}
+
+:global(.dark) .Container pre code :global(.builtin) {
+  @apply text-lightBlue-60;
+}
+
+:global(.dark) .Container pre code :global(.number),
+:global(.dark) .Container pre code :global(.boolean) {
+  @apply text-green-40;
+}
+
+:global(.dark) .Container pre code :global(.function) {
+  @apply text-red-50;
+}
+
+:global(.dark) .Container pre code :global(.comment) {
+  @apply text-gray-60;
+}
+
+:global(.dark) .Container pre code :global(.string) {
+  @apply text-darkBlue-30;
+}

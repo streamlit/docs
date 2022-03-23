@@ -1,0 +1,33 @@
+.Container {
+  @apply fixed lg:sticky top-auto lg:top-16 left-0 xl:left-auto px-0 h-screen z-20 w-10/12 md:w-9/12 xl:w-screen max-w-xs md:max-w-none overflow-y-auto shadow-lg lg:shadow-none transition-all;
+  @apply bg-white !important;
+}
+
+:global(.dark) .Container {
+  @apply bg-gray-100 !important;
+}
+
+.OpenNav {
+  @apply block md:max-w-xs;
+  @apply md:w-full !important;
+}
+
+.ClosedNav {
+  @apply hidden lg:block;
+}
+
+.CollapsedNav {
+  @apply w-full md:w-36 lg:w-full;
+}
+
+.OverNav {
+  @apply md:w-full;
+}
+
+.OverNavItem {
+  @apply lg:hidden xl:block;
+}
+
+.NavList {
+  @apply list-none overscroll-contain m-0 px-2 lg:px-0;
+}

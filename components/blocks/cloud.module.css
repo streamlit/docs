@@ -1,0 +1,19 @@
+.Container {
+  @apply my-4;
+}
+
+.Iframe {
+  @apply w-full rounded-md border border-gray-40 max-w-full border-none inline-block;
+}
+
+.VideoAspectRatio {
+  @apply aspect-video;
+}
+
+.Caption {
+  @apply text-gray-90 pt-2 md:pt-2 text-sm tracking-tight italic;
+}
+
+:global(.dark) .Caption {
+  @apply text-white;
+}

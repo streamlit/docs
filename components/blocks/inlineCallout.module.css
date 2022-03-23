@@ -1,0 +1,54 @@
+.Container {
+  @apply flex items-start sm:items-center mb-8 pb-8 border-b border-b-gray-30;
+}
+
+.IconContainer {
+  @apply flex items-center p-4 mr-4 mb-0 rounded-md hover:opacity-70;
+}
+
+.Icon {
+  @apply text-2xl leading-none;
+  @apply text-white !important;
+}
+
+.Text {
+  @apply text-base leading-normal tracking-tight;
+  @apply text-gray-90 !important;
+}
+
+:global(.dark) .Text {
+  @apply text-white !important;
+}
+
+:global(.dark) .Container {
+  @apply border-b-gray-90 !important;
+}
+
+.Link {
+  @apply font-bold border-none hover:border-none hover:opacity-70;
+}
+
+/* Colors for each category */
+.LibraryBackground {
+  @apply bg-indigo-70;
+}
+
+.CloudBackground {
+  @apply bg-lightBlue-70;
+}
+
+.KBBackground {
+  @apply bg-orange-70;
+}
+
+.LibraryText {
+  @apply text-indigo-70 !important;
+}
+
+.CloudText {
+  @apply text-lightBlue-70 !important;
+}
+
+.KBText {
+  @apply text-orange-70 !important;
+}

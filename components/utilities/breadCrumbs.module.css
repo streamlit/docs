@@ -1,0 +1,30 @@
+/* TODO: Remove !important when done moving to Tailwind */
+.Container {
+  @apply flex flex-wrap list-none ml-0 pl-0 mt-0 mb-1;
+}
+
+.InnerContainer {
+  @apply text-sm mr-2 mb-0;
+}
+
+.Link {
+  @apply hover:opacity-70;
+  @apply text-gray-70 !important;
+}
+
+.ActiveLink {
+  @apply font-bold;
+}
+
+:global(.dark) .Link {
+  @apply text-gray-50 !important;
+}
+
+.Separator {
+  @apply ml-2;
+  @apply text-gray-50 !important;
+}
+
+:global(.dark) .Separator {
+  @apply text-gray-70 !important;
+}

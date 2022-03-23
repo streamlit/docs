@@ -1,17 +1,22 @@
-const fs = require('fs');
+const fs = require("fs");
 
 module.exports = {
-  webpack: configuration => {
-    configuration.module.rules.push({
-      test: /\.md$/,
-      use: 'frontmatter-markdown-loader',
-    });
-    configuration.node.fs = 'empty';
+  webpack: (configuration) => {
+    configuration.module.rules.push(
+      {
+        test: /\.md$/,
+        use: "frontmatter-markdown-loader",
+      },
+      {
+        test: /\.svg$/,
+        use: ["@svgr/webpack", "file-loader"],
+      }
+    );
     return configuration;
   },
   async exportPathMap(defaultPathMap) {
     return {
-      ...defaultPathMap
+      ...defaultPathMap,
     };
   },
 };

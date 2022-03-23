@@ -15,6 +15,10 @@ In this guide, we will illustrate the usage of **Session State** and **Callbacks
 
 For details on the Session State and Callbacks API, please refer to our [Session State API Reference Guide](/library/api-reference/session-state).
 
+Also, check out this Session State basics tutorial video by Streamlit Developer Advocate Dr. Marisa Smith to get started:
+
+<YouTube videoId="92jUAXBmZyU" />
+
 ## Build a Counter
 
 Let's call our script `counter.py`. It initializes a `count` variable and has a button to increment the value stored in the `count` variable:
@@ -46,6 +50,8 @@ Let's learn more about the API to use Session State.
 The Session State API follows a field-based API, which is very similar to Python dictionaries:
 
 ```python
+import streamlit as st
+
 # Check if 'key' already exists in session_state
 # If not, then initialize it
 if 'key' not in st.session_state:
@@ -61,6 +67,11 @@ if 'key' not in st.session_state:
 Read the value of an item in Session State by passing the item to `st.write` :
 
 ```python
+import streamlit as st
+
+if 'key' not in st.session_state:
+    st.session_state['key'] = 'value'
+
 # Reads
 st.write(st.session_state.key)
 
@@ -70,6 +81,11 @@ st.write(st.session_state.key)
 Update an item in Session State by assigning it a value:
 
 ```python
+import streamlit as st
+
+if 'key' not in st.session_state:
+    st.session_state['key'] = 'value'
+
 # Updates
 st.session_state.key = 'value2'     # Attribute API
 st.session_state['key'] = 'value2'  # Dictionary like API
@@ -78,6 +94,8 @@ st.session_state['key'] = 'value2'  # Dictionary like API
 Streamlit throws an exception if an uninitialized variable is accessed:
 
 ```python
+import streamlit as st
+
 st.write(st.session_state['value'])
 
 # Throws an exception!
@@ -130,7 +148,7 @@ st.write('Count = ', st.session_state.count)
 
 Now, pressing the **_Increment_** button updates the count each time by calling the `increment_counter()` function.
 
-### Example 3: Use `args` and `kwargs` in Callbacks
+### Example 3: Use args and kwargs in Callbacks
 
 Callbacks also support passing arguments using the `args` parameter in a widget:
 
@@ -241,6 +259,8 @@ Streamlit **does not allow** setting widget values via the Session State API for
 The following example will raise a `StreamlitAPIException` on trying to set the state of `st.button` via the Session State API:
 
 ```python
+import streamlit as st
+
 if 'my_button' not in st.session_state:
     st.session_state.my_button = True
     # Streamlit will raise an Exception on trying to set the state of button
@@ -257,4 +277,3 @@ Here are some limitations to keep in mind when using Session State:
 - Session State exists for as long as the tab is open and connected to the Streamlit server. As soon as you close the tab, everything stored in Session State is lost.
 - Session State is not persisted. If the Streamlit server crashes, then everything stored in Session State gets wiped
 - For caveats and limitations with the Session State API, please see the [API limitations](/library/api-reference/session-state#caveats-and-limitations).
-

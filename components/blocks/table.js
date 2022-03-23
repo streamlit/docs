@@ -1,59 +1,120 @@
-import React from "react"
+import React from "react";
+import classNames from "classnames";
 
-export default function Table({ children, head, body, rows, addtionalClass, footers = [] }) {
-    function createMarkup(html) {
-        return { __html: html };
-    }
-    function createTress(rows) {
+import styles from "./table.module.css";
 
-        return <p>{rows}</p>
-    }
+const Table = ({
+  head,
+  body,
+  bodyRows,
+  foot,
+  footRows,
+  additionalClass,
+  footers = [],
+}) => {
+  const createMarkup = (html) => {
+    return { __html: html };
+  };
+  const createTrees = (rows) => {
+    return <p>{rows}</p>;
+  };
 
-    let trees
-    let tbody
+  let trees;
+  let thead;
+  let tbody;
+  let tfoot;
 
-    trees = createTress(rows);
+  trees = createTrees(bodyRows);
 
-    if (body && body.title) {
-        tbody = (
-            <React.Fragment>
-                <tr className="head">
-                    <td className="title bold" colSpan="2">{body.title}</td>
-                </tr>
-                {rows.map((row, index) => (
-                    <tr key={`${row.title}-${index}`}>
-                        <td width="20%"><div dangerouslySetInnerHTML={createMarkup(row.title)} /> </td>
-                        <td width="80%"><div dangerouslySetInnerHTML={createMarkup(row.body)} /></td>
-                    </tr>
-                ))}
-            </React.Fragment>
-        )
-    }
+  if (body && body.title) {
+    tbody = (
+      <React.Fragment>
+        <tr className={classNames(styles.Row, styles.HeadingRow)}>
+          <td className={classNames(styles.Cell, styles.TitleCell)} colSpan="2">
+            {body.title}
+          </td>
+        </tr>
+        {bodyRows.map((row, index) => (
+          <tr key={`${row.title}-${index}`} className={styles.Row}>
+            <td className={classNames(styles.Cell, styles.SmallCell)}>
+              <div dangerouslySetInnerHTML={createMarkup(row.title)} />{" "}
+            </td>
+            <td className={classNames(styles.Cell, styles.BigCell)}>
+              <div dangerouslySetInnerHTML={createMarkup(row.body)} />
+            </td>
+          </tr>
+        ))}
+      </React.Fragment>
+    );
+  }
 
-    return (
-        <section className="table-parent">
-            <table className={addtionalClass}>
-                <thead>
-                    <tr className="head">
-                        <th className="title bold" colSpan="2">{head.title}</th>
-                    </tr>
-                    <tr>
-                        <th colSpan="2" dangerouslySetInnerHTML={createMarkup(head.content)} />
-                    </tr>
-                </thead>
-                <tbody>
-                    {tbody}
-                </tbody>
-            </table>
-            {footers.map((footer, index) => {
-                const body = footer.jsx ? footer.body : (<section dangerouslySetInnerHTML={createMarkup(footer.body)} />)
-                return (<React.Fragment key={`footer-${index}`}>
-                    <section className='footer'>
-                        <h4 className="title bold" colSpan="2">{footer.title}</h4>
-                        {body}
-                    </section>
-                </React.Fragment>)
-            })}
-        </section>
-    )
-}
+  if (head && head.title) {
+    thead = (
+      <React.Fragment key="thead">
+        <tr className={classNames(styles.Row, styles.HeadingRow)}>
+          <th className={classNames(styles.Cell, styles.TitleCell)} colSpan="2">
+            {head.title}
+          </th>
+        </tr>
+        <tr className={styles.Row}>
+          <th
+            className={styles.Cell}
+            colSpan="2"
+            dangerouslySetInnerHTML={createMarkup(head.content)}
+          />
+        </tr>
+      </React.Fragment>
+    );
+  }
+
+  if (foot && foot.title) {
+    tfoot = (
+      <React.Fragment key="tbody">
+        <tr className={classNames(styles.Row, styles.HeadingRow)}>
+          <td className={classNames(styles.Cell, styles.TitleCell)} colSpan="2">
+            {foot.title}
+          </td>
+        </tr>
+        {footRows.map((row, index) => (
+          <tr key={`${row.title}-${index}`} className={styles.Row}>
+            <td className={classNames(styles.Cell, styles.SmallCell)}>
+              <div dangerouslySetInnerHTML={createMarkup(row.title)} />{" "}
+            </td>
+            <td className={classNames(styles.Cell, styles.BigCell)}>
+              <div dangerouslySetInnerHTML={createMarkup(row.body)} />
+            </td>
+          </tr>
+        ))}
+      </React.Fragment>
+    );
+  }
+
+  return (
+    <section className={styles.TableContainer}>
+      <table className={classNames(additionalClass, styles.Table)}>
+        <thead>{thead}</thead>
+        <tbody>{tbody}</tbody>
+        <tfoot>{tfoot}</tfoot>
+      </table>
+      {footers.map((footer, index) => {
+        const body = footer.jsx ? (
+          footer.body
+        ) : (
+          <section dangerouslySetInnerHTML={createMarkup(footer.body)} />
+        );
+        return (
+          <React.Fragment key={`footer-${index}`}>
+            <section className={styles.FooterContainer}>
+              <h4 className={classNames(styles.TitleCell)} colSpan="2">
+                {footer.title}
+              </h4>
+              {body}
+            </section>
+          </React.Fragment>
+        );
+      })}
+    </section>
+  );
+};
+
+export default Table;

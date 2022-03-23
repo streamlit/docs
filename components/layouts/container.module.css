@@ -1,0 +1,34 @@
+.Container {
+  @apply grid grid-cols-1 lg:grid-cols-4 gap-4 container mx-auto px-2 xl:px-4;
+}
+
+.InnerContainer {
+  @apply col-span-full lg:col-start-2 lg:col-end-5;
+}
+
+.ArticleContainer {
+  @apply relative;
+}
+
+/* Links inside markdown */
+.ArticleContainer p a,
+.ArticleContainer ol li a,
+.ArticleContainer ul li a {
+  @apply border-b border-b-gray-90 hover:border-red-60 hover:opacity-80;
+}
+
+:global(.dark) .ArticleContainer p a,
+:global(.dark) .ArticleContainer ol li a,
+:global(.dark) .ArticleContainer ul li a {
+  @apply border-b-white !important;
+}
+
+@media (min-width: 1448px) {
+  .ArticleContainer :global(.toc):not(.advanced-features) {
+    @apply block;
+  }
+
+  .ArticleContainer :global(.toc):not(.advanced-features) ~ .ContentContainer {
+    padding-right: calc(226px + 2rem);
+  }
+}

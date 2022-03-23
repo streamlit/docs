@@ -1,47 +1,73 @@
-import Head from 'next/head'
-import { getMenu } from '../lib/api'
-import Layout from '../components/layouts/globalTemplate'
-import SideNav from '../components/navigation/sideNav'
-import Spacer from '../components/utilities/spacer'
-import TileContainer from '../components/layouts/tileContainer'
-import Tile from '../components/blocks/tile'
+import Head from "next/head";
+import { getMenu } from "../lib/api";
+import Layout from "../components/layouts/globalTemplate";
+import SideBar from "../components/navigation/sideBar";
+import Footer from "../components/navigation/footer";
+import Spacer from "../components/utilities/spacer";
+import SummaryTiles from "../components/summaryTiles";
+
+import styles from "../components/layouts/container.module.css";
 
 export default function Home({ window, menu }) {
+  return (
+    <Layout window={window}>
+      <Head>
+        <title>404 | Streamlit Docs</title>
+        <link rel="icon" href="/favicon.svg" />
+        <link rel="alternate icon" href="/favicon32.ico" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta
+          content="Streamlit is an open-source app framework for Machine Learning and Data Science teams. Create beautiful data apps in hours, not weeks. All in pure Python. All for free."
+          name="description"
+        />
+        <meta content="Streamlit Docs" property="og:title" />
+        <meta
+          content="Streamlit is an open-source app framework for Machine Learning and Data Science teams. Create beautiful data apps in hours, not weeks. All in pure Python. All for free."
+          property="og:description"
+        />
+        <meta content="Streamlit Docs" name="twitter:title" />
+        <meta
+          content="Streamlit is an open-source app framework for Machine Learning and Data Science teams. Create beautiful data apps in hours, not weeks. All in pure Python. All for free."
+          name="twitter:description"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://docs.streamlit.io/" />
+        <meta content="summary_large_image" name="twitter:card" />
+        <meta
+          property="og:image"
+          content={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-facebook.jpg`}
+        />
+        <meta
+          name="twitter:image"
+          content={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-twitter.jpg`}
+        />
+      </Head>
+      <section className={styles.Container}>
+        <SideBar menu={menu} slug={["404"]} />
+        <section className={styles.InnerContainer}>
+          <article>
+            <h1>Page not found</h1>
 
-    return (
-        <Layout window={window}>
-            <Head>
-                <title>404 | Streamlit Docs</title>
-                <link rel="icon" href="/favicon.svg" />
-                <link rel="alternate icon" href="/favicon32.ico" />
-                <meta name="theme-color" content="#ffffff" />
-            </Head>
-            <section className="page container template-expanded-wide">
-                <SideNav menu={menu} slug={['404']} />
-                <section className="content wide">
-                    <article>
-                        <h1>Page not found</h1>
-                        <Spacer size="2rem" />
+            <p>
+              Try using the search bar, above, or check out one of the pages
+              below:
+            </p>
 
-                        <TileContainer>
-                            <Tile icon="arrow_forward" title="Get Started" text="If you're new to Streamlit and don't know where to start, this is a good place." background="violet-70" link="/library/get-started" />
-                            <Tile icon="dvr" title="API Reference" text="Learn how our APIs, with actionable explanations of specific functions and features." background="violet-70" link="/library/api-reference" />
-                            <Tile icon="grid_view" title="App Gallery" text="Try out awesome apps created by our users, and curated from our forums or Twitter." background="green-70" link="https://streamlit.io/gallery" />
-                        </TileContainer>
-                    </article>
-                </section>
-            </section>
-        </Layout>
-    )
+            <SummaryTiles />
+          </article>
+        </section>
+        <Footer />
+      </section>
+    </Layout>
+  );
 }
 
 export async function getStaticProps(context) {
+  const props = {};
+  props["menu"] = getMenu();
 
-    const props = {}
-    props['menu'] = getMenu()
-
-    return {
-        props: props,
-        revalidate: 60
-    }
+  return {
+    props: props,
+    revalidate: 60,
+  };
 }

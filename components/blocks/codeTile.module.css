@@ -1,0 +1,89 @@
+.Container {
+  @apply border-t border-t-white focus:outline-none focus-visible:outline-none;
+  @apply text-gray-90 !important;
+}
+
+.Container button {
+  @apply hidden;
+}
+
+.Container section {
+  @apply m-0;
+}
+
+.Container section pre {
+  @apply m-0 p-0 pb-7 text-sm tracking-tight overflow-x-auto bg-white;
+  @apply text-gray-80;
+}
+
+:global(.dark) .Container {
+  @apply border-t-gray-100;
+}
+
+:global(.dark) .Container section pre {
+  @apply bg-gray-100;
+  @apply text-white;
+}
+
+.Container h1,
+.Container h2,
+.Container h3,
+.Container h4,
+.Container h5,
+.Container h6,
+.Container p {
+  @apply m-0 mt-4 mb-1 leading-relaxed font-bold;
+}
+
+.Container p {
+  @apply text-xs mt-0 tracking-tight;
+}
+
+/* Size modifiers */
+.Full {
+  @apply col-span-full;
+}
+
+.Half {
+  @apply col-span-full sm:col-span-3;
+}
+
+.TwoThirds {
+  @apply col-span-full md:col-span-3 lg:col-span-4;
+}
+
+.Third {
+  @apply col-span-full md:col-span-3 lg:col-span-2;
+}
+
+/* Code block adjustments */
+/* Code block adjustments */
+.Container pre code :global(.operator),
+.Container pre code :global(.decorator) {
+  @apply text-yellow-80;
+}
+
+.Container pre code :global(.keyword) {
+  @apply text-darkBlue-60;
+}
+
+.Container pre code :global(.builtin) {
+  @apply text-lightBlue-70;
+}
+
+.Container pre code :global(.string) {
+  @apply text-green-80;
+}
+
+.Container pre code :global(.number),
+.Container pre code :global(.boolean) {
+  @apply text-green-60;
+}
+
+.Container pre code :global(.function) {
+  @apply text-red-60;
+}
+
+.Container pre code :global(.punctuation) {
+  @apply text-gray-60;
+}

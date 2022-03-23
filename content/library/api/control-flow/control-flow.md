@@ -5,14 +5,12 @@ slug: /library/api-reference/control-flow
 
 # Control flow
 
-## Stop execution
+## Change execution
 
 By default, Streamlit apps execute the script entirely, but we allow some functionality to handle control flow in your applications.
 
 <TileContainer>
 <RefCard href="/library/api-reference/control-flow/st.stop">
-
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
 #### Stop execution
 
@@ -23,8 +21,19 @@ st.stop()
 ```
 
 </RefCard>
-</TileContainer>
 
+<RefCard href="/library/api-reference/control-flow/st.experimental_rerun">
+
+#### Rerun script
+
+Rerun the script immediately.
+
+```python
+st.experimental_rerun()
+```
+
+</RefCard>
+</TileContainer>
 
 ## Group multiple widgets
 
@@ -35,34 +44,30 @@ widgets is filled before actually rerunning the script. That's what `st.form` is
 <TileContainer>
 <RefCard href="/library/api-reference/control-flow/st.form">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
-
 #### Forms
 
 Create a form that batches elements together with a “Submit” button.
 
 ```python
-with st.form():
-  username = st.text_input("Username")
-  password = st.text_input("Password")
-  st.form_submit_button("Login")
+with st.form(key="my_form"):
+    username = st.text_input("Username")
+    password = st.text_input("Password")
+    st.form_submit_button("Login")
 ```
 
 </RefCard>
 
 <RefCard href="/library/api-reference/control-flow/st.form_submit_button">
 
-<Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
-
 #### Form submit button
 
 Display a form submit button.
 
 ```python
-with st.form():
-  username = st.text_input("Username")
-  password = st.text_input("Password")
-  st.form_submit_button("Login")
+with st.form(key="my_form"):
+    username = st.text_input("Username")
+    password = st.text_input("Password")
+    st.form_submit_button("Login")
 ```
 
 </RefCard>

@@ -90,7 +90,7 @@ Shows all config options available for Streamlit, including their current
 values:
 
 ```toml
-# last updated 2021-09-21
+# Streamlit version: 1.7.0
 
 [global]
 
@@ -105,20 +105,22 @@ showWarningOnDirectExecution = true
 
 # DataFrame serialization.
 # Acceptable values:
-# - 'legacy': Serialize DataFrames using Streamlit's custom format. Slow but battle-tested.
-# - 'arrow': Serialize DataFrames using Apache Arrow. Much faster and versatile.
-# Default: 'arrow'
+#   - 'legacy': Serialize DataFrames using Streamlit's custom format. Slow but battle-tested.
+#   - 'arrow': Serialize DataFrames using Apache Arrow. Much faster and versatile.
+# Default: "arrow"
 dataFrameSerialization = "arrow"
+
 
 [logger]
 
 # Level of logging: 'error', 'warning', 'info', or 'debug'.
 # Default: 'info'
-level = "debug"
+level = "info"
 
 # String format for logging messages. If logger.datetimeFormat is set, logger messages will default to `%(asctime)s.%(msecs)03d %(message)s`. See [Python's documentation](https://docs.python.org/2.6/library/logging.html#formatter-objects) for available attributes.
 # Default: None
-messageFormat = "%(asctime)s %(levelname) -7s %(name)s: %(message)s"
+messageFormat = "%(asctime)s %(message)s"
+
 
 [client]
 
@@ -134,6 +136,7 @@ displayEnabled = true
 # If set to False, an exception will result in a generic message being shown in the browser, and exceptions and tracebacks will be printed to the console only.
 # Default: true
 showErrorDetails = true
+
 
 [runner]
 
@@ -153,6 +156,7 @@ fixMatplotlib = true
 # Default: true
 postScriptGC = true
 
+
 [server]
 
 # List of folders that should not be watched for changes. This impacts both "Run on Save" and @st.cache.
@@ -162,23 +166,23 @@ postScriptGC = true
 folderWatchBlacklist = []
 
 # Change the type of file watcher used by Streamlit, or turn it off completely.
-# Allowed values: * "auto" : Streamlit will attempt to use the watchdog module, and falls back to polling if watchdog is not available. * "watchdog" : Force Streamlit to use the watchdog module. * "poll" : Force Streamlit to always use polling. * "none" : Streamlit will not watch files.
+# Allowed values: * "auto" : Streamlit will attempt to use the watchdog module, and falls back to polling if watchdog is not available. * "watchdog" : Force Streamlit to use the watchdog module. * "poll": Force Streamlit to always use polling. * "none" : Streamlit will not watch files.
 # Default: "auto"
 fileWatcherType = "auto"
 
 # Symmetric key used to produce signed cookies. If deploying on multiple replicas, this should be set to the same value across all replicas to ensure they all share the same secret.
 # Default: randomly generated secret key.
-cookieSecret = "f8b7582082c5a4903916139e55a911170246459cdd73190983f806b7fc81623e"
+cookieSecret =
 
 # If false, will attempt to open a browser window on start.
-# Default: false unless (1) we are on a Linux box where DISPLAY is unset, or (2) server.liveSave is set.
+# Default: false unless (1) we are on a Linux box where DISPLAY is unset, or (2) we are running in the Streamlit Atom plugin.
 headless = false
 
 # Automatically rerun script when the file is modified on disk.
 # Default: false
 runOnSave = false
 
-# The address where the server will listen for client and browser connections. Use this if you want to bind the server to a specific address. If set, the server will only be accessible from this address, and not from any aliases (like localhost).
+# The address where the server will listen for client and browser connections. Use this if you want to bind the server to a specific address. If set, the server will only be accessible from this address,and not from any aliases (like localhost).
 # Default: (unset)
 #address =
 
@@ -204,14 +208,19 @@ enableXsrfProtection = true
 # Default: 200
 maxUploadSize = 200
 
+# Max size, in megabytes, of messages that can be sent via the WebSocket connection.
+# Default: 200
+maxMessageSize = 200
+
 # Enables support for websocket compression.
 # Default: true
 enableWebsocketCompression = true
 
+
 [browser]
 
 # Internet address where users should point their browsers in order to connect to the app. Can be IP address or DNS name and path.
-# This is used to: - Set the correct URL for CORS and XSRF protection purposes. - Show the URL on the terminal - Open the browser - Tell the browser where to connect to the server when in liveSave mode.
+# This is used to: - Set the correct URL for CORS and XSRF protection purposes. - Show the URL on the terminal - Open the browser
 # Default: 'localhost'
 serverAddress = "localhost"
 
@@ -220,9 +229,18 @@ serverAddress = "localhost"
 gatherUsageStats = true
 
 # Port where users should point their browsers in order to connect to the app.
-# This is used to: - Set the correct URL for CORS and XSRF protection purposes. - Show the URL on the terminal - Open the browser - Tell the browser where to connect to the server when in liveSave mode.
+# This is used to: - Set the correct URL for CORS and XSRF protection purposes. - Show the URL on the terminal - Open the browser
 # Default: whatever value is set in server.port.
 serverPort = 8501
+
+
+[ui]
+
+# Flag to hide most of the UI elements found at the top of a Streamlit app.
+# NOTE: This does *not* hide the hamburger menu in the top-right of an app.
+# Default: false
+hideTopBar = false
+
 
 [mapbox]
 
@@ -230,58 +248,17 @@ serverPort = 8501
 # Default: ""
 token = ""
 
+
 [deprecation]
 
 # Set to false to disable the deprecation warning for the file uploader encoding.
-# Default: "True"
-showfileUploaderEncoding = "True"
-
-# Set to false to disable the deprecation warning for the image format parameter.
-# Default: "True"
-#
-# DEPRECATED.
-# The format parameter for st.image has been removed.
-# This option will be removed on or after 2021-03-24.
-#
-showImageFormat = "True"
+# Default: true
+showfileUploaderEncoding = true
 
 # Set to false to disable the deprecation warning for using the global pyplot instance.
-# Default: "True"
-showPyplotGlobalUse = "True"
+# Default: true
+showPyplotGlobalUse = true
 
-[s3]
-
-# Name of the AWS S3 bucket to save apps.
-# Default: (unset)
-#bucket =
-
-# URL root for external view of Streamlit apps.
-# Default: (unset)
-#url =
-
-# Access key to write to the S3 bucket.
-# Leave unset if you want to use an AWS profile.
-# Default: (unset)
-#accessKeyId =
-
-# Secret access key to write to the S3 bucket.
-# Leave unset if you want to use an AWS profile.
-# Default: (unset)
-#secretAccessKey =
-
-# The "subdirectory" within the S3 bucket where to save apps.
-# S3 calls paths "keys" which is why the keyPrefix is like a subdirectory. Use "" to mean the root directory.
-# Default: ""
-keyPrefix = ""
-
-# AWS region where the bucket is located, e.g. "us-west-2".
-# Default: (unset)
-#region =
-
-# AWS credentials profile to use.
-# Leave unset to use your default profile.
-# Default: (unset)
-#profile =
 
 [theme]
 
@@ -301,6 +278,5 @@ keyPrefix = ""
 #textColor =
 
 # Font family for all text in the app, except code blocks. One of "sans serif", "serif", or "monospace".
-# Default: "sans serif"
-font = "sans serif"
+#font =
 ```

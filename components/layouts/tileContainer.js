@@ -1,7 +1,7 @@
-export default function TilesContainer({ children }) {
-    return (
-        <section className="block-tiles">
-            {children}
-        </section>
-    )
-}
+import styles from "./tileContainer.module.css";
+
+const TilesContainer = ({ children }) => {
+  return <section className={styles.Container}>{children}</section>;
+};
+
+export default TilesContainer;

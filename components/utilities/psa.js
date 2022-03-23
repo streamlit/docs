@@ -1,13 +1,25 @@
-import Link from 'next/link'
+import styles from "./psa.module.css";
 
-export default function Psa() {
-    return (
-        <section className="block-forum-psa">
-            <i>forum</i>
-            <article className="content">
-                <h3>Still have questions?</h3>
-                <p>Our <Link href="https://discuss.streamlit.io" target="_blank"><a>forums</a></Link> are full of helpful information and Streamlit experts.</p>
-            </article>
-        </section>
-    )
-}
+const Psa = () => {
+  return (
+    <section className={styles.Container}>
+      <i className={styles.Icon}>forum</i>
+      <article>
+        <h3 className={styles.Title}>Still have questions?</h3>
+        <p className={styles.Text}>
+          Our{" "}
+          <a
+            href="https://discuss.streamlit.io"
+            target="_blank"
+            className={styles.Link}
+          >
+            forums
+          </a>{" "}
+          are full of helpful information and Streamlit experts.
+        </p>
+      </article>
+    </section>
+  );
+};
+
+export default Psa;

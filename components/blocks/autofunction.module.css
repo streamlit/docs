@@ -1,0 +1,127 @@
+.Container {
+  @apply mt-6;
+}
+
+.HeaderContainer {
+  @apply mb-6;
+}
+
+.TitleContainer {
+  @apply flex flex-col items-start md:flex-row md:items-baseline mt-4 mb-2;
+}
+
+.Title {
+  @apply mt-6 mb-2 text-4xl;
+}
+
+.Form {
+  @apply relative my-4 md:my-0 ml-0 md:ml-auto;
+}
+
+.Form::after {
+  @apply block absolute bottom-1/4 right-0 opacity-70 pointer-events-none w-3 h-2;
+  content: "";
+  background-image: url("data:image/svg+xml,%0A%3Csvg width='11px' height='8px' viewBox='0 0 11 8' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='select_arrow_down_disabled' fill='%23000000' fill-rule='nonzero'%3E%3Cpath d='M10.8703474,1.8762017 L5.80707196,6.93171246 C5.72063689,7.01813145 5.61827957,7.06134094 5.5,7.06134094 C5.38172043,7.06134094 5.27936311,7.01813145 5.19292804,6.93171246 L0.129652605,1.8762017 C0.0432175352,1.78978271 0,1.68630735 0,1.5657756 C0,1.44524385 0.0432175352,1.34176849 0.129652605,1.2553495 L1.26240695,0.129628481 C1.34884202,0.0432094937 1.45119934,0 1.56947891,0 C1.68775848,0 1.7901158,0.0432094937 1.87655087,0.129628481 L5.5,3.7524034 L9.12344913,0.129628481 C9.2098842,0.0432094937 9.31224152,0 9.43052109,0 C9.54880066,0 9.65115798,0.0432094937 9.73759305,0.129628481 L10.8703474,1.2553495 C10.9567825,1.34176849 11,1.44524385 11,1.5657756 C11,1.68630735 10.9567825,1.78978271 10.8703474,1.8762017 Z' id='Path'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.Select {
+  @apply appearance-none bg-white border-none p-0 m-0 w-full font-mono text-lg font-bold leading-none text-left md:text-right pr-2 md:pr-5;
+}
+
+:global(.old-version) .Select {
+  @apply text-red-70;
+}
+
+:global(.dark) .Select {
+  @apply bg-gray-100 text-white;
+}
+
+:global(.dark) .Form::after {
+  background-image: url("data:image/svg+xml,%0A%3Csvg width='11px' height='8px' viewBox='0 0 11 8' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='select_arrow_down_disabled' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cpath d='M10.8703474,1.87655087 L5.80707196,6.93300248 C5.72063689,7.01943755 5.61827957,7.06265509 5.5,7.06265509 C5.38172043,7.06265509 5.27936311,7.01943755 5.19292804,6.93300248 L0.129652605,1.87655087 C0.0432175352,1.7901158 0,1.68662117 0,1.566067 C0,1.44551282 0.0432175352,1.3420182 0.129652605,1.25558313 L1.26240695,0.129652605 C1.34884202,0.0432175352 1.45119934,0 1.56947891,0 C1.68775848,0 1.7901158,0.0432175352 1.87655087,0.129652605 L5.5,3.75310174 L9.12344913,0.129652605 C9.2098842,0.0432175352 9.31224152,0 9.43052109,0 C9.54880066,0 9.65115798,0.0432175352 9.73759305,0.129652605 L10.8703474,1.25558313 C10.9567825,1.3420182 11,1.44551282 11,1.566067 C11,1.68662117 10.9567825,1.7901158 10.8703474,1.87655087 Z' id='Path'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.CodeBlockContainer {
+  @apply mb-7 relative;
+}
+
+.CodeBlockContainer pre,
+.CodeBlockContainer code {
+  @apply overflow-auto max-w-full whitespace-pre;
+}
+
+.CodeBlockContainer pre {
+  @apply p-4 bg-gray-90 text-white font-medium rounded-md relative py-6 px-8 leading-relaxed;
+}
+
+.CodeBlockContainer pre code {
+  @apply z-10 relative;
+}
+
+.LineHighlight {
+  @apply bg-gray-80 opacity-30 z-0;
+}
+
+.CodeBlockContainer button {
+  @apply absolute top-2 right-2 cursor-pointer h-8 w-8 mb-0 flex items-center;
+}
+
+.CodeBlockContainer button::before {
+  @apply absolute top-2 right-2 z-10 transition-all duration-75 hover:opacity-40;
+  content: url("/clipboard.svg");
+}
+
+.CodeBlockContainer button span {
+  @apply absolute right-10 text-white font-mono text-sm tracking-tight font-normal opacity-0;
+}
+
+.CodeBlockContainer button:hover span {
+  @apply opacity-100;
+}
+
+.CodeBlockContainer :global(.toolbar)
+
+/* Code block adjustments */
+.CodeBlockContainer pre code :global(.operator) {
+  @apply text-yellow-50;
+}
+
+.CodeBlockContainer pre code :global(.decorator) {
+  @apply text-yellow-80;
+}
+
+.CodeBlockContainer pre code :global(.keyword) {
+  @apply text-darkBlue-50;
+}
+
+.CodeBlockContainer pre code :global(.builtin) {
+  @apply text-lightBlue-40;
+}
+
+.CodeBlockContainer pre code :global(.string) {
+  @apply text-green-80;
+}
+
+.CodeBlockContainer pre code :global(.number),
+.CodeBlockContainer pre code :global(.boolean) {
+  @apply text-green-40;
+}
+
+.CodeBlockContainer pre code :global(.function) {
+  @apply text-red-50;
+}
+
+.CodeBlockContainer pre code :global(.punctuation) {
+  @apply text-gray-60;
+}
+
+.CodeBlockContainer pre code :global(.comment) {
+  @apply text-gray-60 italic font-normal;
+}
+
+.CodeBlockContainer pre code :global(.string) {
+  @apply text-darkBlue-30;
+}
+
+.CodeBlockContainer pre code :global(.table) {
+  @apply inline;
+}

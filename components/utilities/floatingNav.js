@@ -1,168 +1,168 @@
-import findIndex from 'lodash/findIndex';
-import pullAt from 'lodash/pullAt'
-import React from "react";
-import { breadcrumbsForSlug } from '../../lib/utils.cjs'
+import React, { useState, useEffect, useRef } from "react";
+import { withRouter } from "next/router";
 
-import { withRouter } from 'next/router'
+import styles from "./floatingNav.module.css";
 
-class FloatingNav extends React.Component {
+const useHeadingsData = (slug) => {
+  const [nestedHeadings, setNestedHeadings] = useState([]);
 
-    constructor(props) {
-        super(props)
-        
-        this.handleTheme = this.handleTheme.bind(this)
-        this.handleIntersection = this.handleIntersection.bind(this)
-        this.calculateTarget = this.calculateTarget.bind(this)
-        this.generateMenu = this.generateMenu.bind(this)
-        this.handleRouteChange = this.handleRouteChange.bind(this)
+  useEffect(() => {
+    const headingElements = Array.from(
+      document.querySelectorAll(
+        "article.leaf-page h1, article.leaf-page h2, article.leaf-page h3, article.leaf-page h4, article.leaf-page h5, article.leaf-page h6"
+      )
+    );
 
-        const options = { threshold: 1.0, rootMargin: "0px 0px -200px 0px" }
+    const newNestedHeadings = getNestedHeadings(headingElements);
+    setNestedHeadings(newNestedHeadings);
+  }, [slug]);
 
-        this.state = {
-            target: false,
-            observer: false,
-            headers: [],
-            menu: [],
-            slug: props.slug.join('/'),
-            theme: 'light-mode',
-            highest: {},
-            intersected: [],
-            options: options
+  return { nestedHeadings };
+};
+
+const getNestedHeadings = (headingElements) => {
+  const nestedHeadings = [];
+
+  for (const index in headingElements) {
+    const ele = headingElements[index];
+    if (ele.getElementsByTagName === undefined) {
+      continue;
+    }
+    const hrefs = ele.getElementsByTagName("a");
+    if (hrefs.length > 0) {
+      const target = hrefs[0].getAttribute("href");
+      nestedHeadings.push({
+        label: ele.innerText,
+        target: target,
+        level: ele.tagName,
+      });
+    }
+  }
+
+  return nestedHeadings;
+};
+
+// This is the function that initializes the intersection observer, and attaches it to the elements we want to track, our page headings
+const useIntersectionObserver = (slug) => {
+  const [activeId, setActiveId] = useState();
+
+  useEffect(() => {
+    // Get all links inside the headers we care about.
+    const headingLinks = Array.from(
+      document.querySelectorAll(
+        [
+          "article.leaf-page h1 a:first-of-type",
+          "article.leaf-page h2 a:first-of-type",
+          "article.leaf-page h3 a:first-of-type",
+          "article.leaf-page h4 a:first-of-type",
+          "article.leaf-page h5 a:first-of-type",
+          "article.leaf-page h6 a:first-of-type",
+        ].join(",")
+      )
+    );
+
+    // Function that will be called when the links enter/leave the screen.
+    const callback = (headings) => {
+      // Traverse backwards through all elements to find the bottom-most visible element.
+      // Set that as the active one.
+      for (let i = 0; i < headings.length; i++) {
+        if (headings[i].isIntersecting) {
+          setActiveId(headings[i].target.getAttribute("href"));
+          break;
         }
-    }
+      }
+    };
 
-    handleIntersection(entries, observer) {
-        let intersected = this.state.intersected.slice()
-        for (const index in entries) {
-            const entry = entries[index]
-            const existing = findIndex(intersected, (obj) => obj.target === entry.target )
-            if (entry.isIntersecting && existing < 0) {
-                intersected.push(entry)
-            }
-            else if (entry.isIntersecting && existing > -1) {
-                intersected[existing] = entry
-            }
-            else if (!entry.isIntersecting && existing > -1) {
-                pullAt(intersected, existing)
-            }
+    // Create an intersection observer, to track when the links enter/leave.
+    const observer = new IntersectionObserver(callback, {
+      threshold: 1.0,
+      rootMargin: "0px 0px -200px 0px",
+    });
+
+    headingLinks.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, [slug]);
+
+  return activeId;
+};
+
+const FloatingNav = ({ menu, slug }) => {
+  const { nestedHeadings } = useHeadingsData(slug);
+  const activeId = useIntersectionObserver(slug);
+
+  return nestedHeadings.length > 1 ? (
+    <div
+      className={`
+        ${styles.ListContainer}
+        ${
+          // The way the current CSS works, we need to have a .toc class, not only to style the floating nav component, but also to ensure the .content area gets narrowed by ~225px so the floating nav fits the screen.
+          // TODO: When all components are refactored, we might want to use a different layout method (flexbox or grid) to avoid this
+          `toc`
         }
-        this.setState({ intersected: intersected })
-        this.calculateTarget();
-       
-    }
+      `}
+    >
+      <div className={styles.TopGradient} />
+      <ol
+        className={`
+          ${styles.List}
+        `}
+      >
+        <li
+          className={`
+            ${styles.ListItem}
+            ${styles.ListTitle}
+          `}
+        >
+          Contents
+        </li>
+        <Headings headings={nestedHeadings} activeId={activeId} />
+      </ol>
+    </div>
+  ) : (
+    ""
+  );
+};
 
-    calculateTarget() {
-        let highest = 0
-        const intersected = this.state.intersected
-        for (const index in intersected) {
-            const entry = intersected[index]
-            const hrefs = entry.target.getElementsByTagName('a')
-            const top = hrefs[0].offsetTop
-            if (top < highest || highest === 0) {
-                highest = top
-                if (hrefs.length > 0) {
-                    const link = hrefs[0].getAttribute('href')
-                    this.setState({ target: link })
-                }
-            }
+const Headings = ({ headings, activeId }) => {
+  return (
+    <>
+      {headings.map((heading, index) => (
+        <Heading heading={heading} index={index} activeId={activeId} />
+      ))}
+    </>
+  );
+};
+
+const Heading = ({ heading, index, activeId }) => {
+  return (
+    <li
+      className={`
+        ${styles.ListItem}
+        ${
+          heading.level === "H1" || heading.level === "H2"
+            ? styles.headingH1
+            : heading.level === "H3"
+            ? styles.headingH3
+            : heading.level === "H4"
+            ? styles.headingH4
+            : heading.level === "H5"
+            ? styles.headingH5
+            : styles.headingH6
         }
-    }
+      `}
+      key={`toc-${index}`}
+    >
+      <a
+        href={heading.target}
+        className={`
+          ${styles.Link}
+          ${heading.target === activeId ? styles.activeLink : ""}
+        `}
+      >
+        {heading.label}
+      </a>
+    </li>
+  );
+};
 
-    async generateMenu() {
-        if (this.state.headers.length > 0) { this.closeMenu() }
-        const tocMenu = [] 
-        const headers = Array.prototype.slice.apply(document.querySelectorAll('article.leaf-page h1, article.leaf-page h2, article.leaf-page h3'))
-        const observer = this.state.observer
-        for (const index in headers) {
-            const ele = headers[index]
-            if (ele.getElementsByTagName === undefined) { continue; }
-            const hrefs = ele.getElementsByTagName('a')
-            if (hrefs.length > 0) {
-                const target = hrefs[0].getAttribute('href')
-                tocMenu.push({
-                    label: ele.innerText,
-                    target: target,
-                    level: ele.tagName
-                })
-                observer.observe(ele)
-            }
-        }
-        this.setState({ menu: tocMenu, headers: headers })
-    }
-
-    closeMenu() {
-        for (const index in this.state.headers) {
-            const ele = this.state.headers[index]
-            this.state.observer.unobserve(ele)
-        }
-        this.setState({ menu: [], headers: [] })
-    }
-
-    async componentDidMount() {
-        const observer = new IntersectionObserver(this.handleIntersection, this.state.options)
-        await this.setState({ observer: observer, menu: [], headers: [] })
-        this.props.router.events.on('routeChangeComplete', this.handleRouteChange)
-        window.addEventListener('ChangeTheme', this.handleTheme)        
-        
-        this.generateMenu()
-    }
-
-    handleRouteChange() {
-        this.closeMenu()
-        this.generateMenu()
-    }
-
-    componentWillUnmount() {
-        this.closeMenu()
-        window.removeEventListener('ChangeTheme', this.handleTheme)
-        this.props.router.events.off('routeChangeComplete', this.handleRouteChange)
-    }
-
-    handleTheme() {
-        this.setState({ theme: document.body.dataset.theme })
-    }
-
-    render() {
-        let color
-        let svgColor = (this.state.theme === 'light-mode') ? 'black' : 'white'
-        const props = this.props
-        const menu = this.state.menu
-        const target = this.state.target
-        const isnum = /^[\d\.]+$/.test(props.slug[0]);
-        const slug = isnum ? props.slug.slice(1).join('/') : this.state.slug
-        const location = this.state.slug.split('/')[0];
-    
-        // Get the Root Object and find the appropriate color
-        const breadCrumbs = breadcrumbsForSlug(props.menu, `/${slug}`)
-        
-        if (breadCrumbs.length) {
-            const rootElement = breadCrumbs[0]
-            const darkColor = rootElement.color
-            color = darkColor
-            if (this.state.theme === 'light-mode') {
-                const colorParts = darkColor.split('-')
-                let lightMode = colorParts.length > 1 ? Number(colorParts[1]) - 50 : 10
-                if (lightMode < 10 || isNaN(lightMode)) lightMode = 10
-                color = `${colorParts.slice(0, -1).join('-')}-${lightMode}`
-                svgColor = darkColor
-            }
-        }
-        
-        let svg = (
-            <svg xmlns="http://www.w3.org/2000/svg" className={svgColor} width="6" height="10" viewBox="0 0 6 10" fill="none"><path d="M0.952437 7.90752L1.14007 8.07272L0.952436 7.90752C0.682521 8.21409 0.682521 8.69954 0.952436 9.00611C1.23875 9.3313 1.71774 9.3313 2.00405 9.00611L5.04756 5.54929C5.31748 5.24273 5.31748 4.75727 5.04756 4.45071L2.00405 0.993892C1.71774 0.668703 1.23875 0.668703 0.952437 0.993892C0.682521 1.30046 0.682521 1.78591 0.952437 2.09248L3.51233 5L0.952437 7.90752Z" fill="none" stroke="none" strokeWidth="0.5"></path></svg>
-        )
-        
-        return (
-            <div className='toc'>
-                <ol className='toc-level'>
-                    {menu.map((item, index) => {
-                        const active = item.target == target ? 'active' : ''
-                        return (<li className={`level-${item.level} ${active} bg-${color}`} key={`toc-${index}`}>{svg}<a href={item.target}>{item.label}</a></li>)
-                    })}
-                </ol>
-            </div>
-        )
-    }
-}
-
-export default withRouter(FloatingNav)
+export default withRouter(FloatingNav);

@@ -1,0 +1,75 @@
+.HeadingContainer {
+  @apply relative flex items-center xl:justify-start xl:flex-nowrap xl:text-left xl:w-auto transition-all left-auto lg:left-2 xl:left-auto;
+}
+
+.HeadingIconContainer {
+  @apply flex items-center p-2 mr-4 xl:mr-4 mb-0 rounded-md;
+}
+
+.CondensedHeadingContainer {
+  @apply lg:flex-wrap lg:justify-center lg:text-center lg:w-10;
+}
+
+.CondensedHeadingIconContainer {
+  @apply lg:mr-0;
+}
+
+.Icon {
+  @apply text-white !important;
+}
+
+/* Colors for heading icons */
+.LibraryIcon {
+  @apply bg-indigo-70;
+}
+
+.CloudIcon {
+  @apply bg-lightBlue-70;
+}
+
+.KBIcon {
+  @apply bg-orange-70;
+}
+
+.CategoryName {
+  @apply m-0 xl:my-0 font-bold font-sans xl:text-base xl:leading-6;
+  @apply text-gray-80 !important;
+}
+
+:global(.dark) .CategoryName {
+  @apply text-white !important;
+}
+
+.CondensedCategoryName {
+  @apply lg:my-1 lg:text-xs lg:leading-tight lg:tracking-tight;
+}
+
+/* Colors for active categories */
+.LibraryCategory {
+  @apply text-indigo-70 !important;
+}
+
+.CloudCategory {
+  @apply text-lightBlue-70 !important;
+}
+
+.KBCategory {
+  @apply text-orange-70 !important;
+}
+
+/* Subnav styles */
+.SubNav {
+  @apply block pl-14 m-0 mt-4 list-none;
+}
+
+.CondensedSubNav {
+  @apply lg:hidden;
+}
+
+.ExpandedSubNav {
+  @apply lg:block;
+}
+
+.NavItem {
+  @apply mb-8;
+}

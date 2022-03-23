@@ -1,34 +1,57 @@
-import { useState, useEffect } from "react"
-import bus from '../../lib/bus'
+import React, { useState, useEffect } from "react";
+import classNames from "classnames";
+import styles from "./themeToggle.module.css";
 
 const ThemeToggle = () => {
+  const [activeTheme, setActiveTheme] = useState("light");
+  let inactiveTheme;
 
-  const [activeTheme, setActiveTheme] = useState(document.body.dataset.theme);
-  const inactiveTheme = activeTheme === "light-mode" ? "dark-mode" : "light-mode";
+  const getUserPreference = () => {
+    if (window.localStorage.getItem("theme")) {
+      return window.localStorage.getItem("theme");
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
 
-  const changeTheme = new Event('ChangeTheme');
+  const changeTailwindTheme = (theme) => {
+    if (theme === "dark") {
+      inactiveTheme = "light";
+    } else {
+      inactiveTheme = "dark";
+    }
+    document.documentElement.classList.add(theme);
+    document.documentElement.classList.remove(inactiveTheme);
+    setActiveTheme(theme);
+    localStorage.setItem("theme", theme);
+  };
 
   useEffect(() => {
-    document.body.dataset.theme = activeTheme;
-    window.addEventListener('ChangeTheme', function (e) {
-      /* ... */
-      window.localStorage.setItem("theme", activeTheme);
-    }, false);
-    window.dispatchEvent(changeTheme);
+    if (getUserPreference() === "dark") {
+      changeTailwindTheme("dark");
+    } else {
+      changeTailwindTheme("light");
+    }
   }, [activeTheme]);
 
   return (
-    <button
-      aria-label={`Change to ${inactiveTheme} mode`}
-      title={`Change to ${inactiveTheme} mode`}
-      type="button"
-      onClick={() => setActiveTheme(inactiveTheme)}
-      className="toggleTheme"
-    >
-      {/* <span activeTheme={activeTheme} /> */}
-      <i className="dark">dark_mode</i>
-      <i className="light">light_mode</i>
-    </button>
+    <React.Fragment>
+      <button
+        aria-label={`Change to ${inactiveTheme} mode`}
+        title={`Change to ${inactiveTheme} mode`}
+        type="button"
+        onClick={
+          activeTheme === "light"
+            ? () => changeTailwindTheme("dark")
+            : () => changeTailwindTheme("light")
+        }
+        className={styles.Container}
+      >
+        <i className={classNames(styles.DarkIcon, styles.Icon)}>dark_mode</i>
+        <i className={classNames(styles.LightIcon, styles.Icon)}>light_mode</i>
+      </button>
+    </React.Fragment>
   );
 };
 

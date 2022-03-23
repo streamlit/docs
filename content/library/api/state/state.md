@@ -1,11 +1,16 @@
 ---
 title: Session State
 slug: /library/api-reference/session-state
+description: st.session_state is a way to share variables between reruns, for each user session.
 ---
 
 # Session State
 
 Session State is a way to share variables between reruns, for each user session. In addition to the ability to store and persist state, Streamlit also exposes the ability to manipulate state using Callbacks.
+
+Check out this Session State basics tutorial video by Streamlit Developer Advocate Dr. Marisa Smith to get started:
+
+<YouTube videoId="92jUAXBmZyU" />
 
 ### Initialize values in Session State
 
@@ -23,10 +28,10 @@ if 'key' not in st.session_state:
 
 ### Reads and updates
 
-Read the value of an item in Session State by passing the item to `st.write` :
+Read the value of an item in Session State and display it by passing to `st.write` :
 
 ```python
-# Reads
+# Read
 st.write(st.session_state.key)
 
 # Outputs: value
@@ -123,7 +128,6 @@ Widgets which support the `on_click` event:
 - `st.form_submit_button`
 
 To add a callback, define a callback function **above** the widget declaration and pass it to the widget via the `on_change` (or `on_click` ) parameter.
-
 
 ### Forms and Callbacks
 

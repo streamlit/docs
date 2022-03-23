@@ -1,0 +1,33 @@
+.Container {
+  @apply relative w-8 h-8 mb-0 rounded-md p-0 block cursor-pointer flex items-center justify-center hover:opacity-90 hover:shadow-sm;
+  @apply bg-gray-20 !important;
+}
+
+.Container:hover {
+  transform: scale(1.025);
+}
+
+:global(.dark) .Container {
+  @apply bg-gray-90 !important;
+}
+
+.Icon {
+  @apply absolute;
+  @apply text-gray-70 !important;
+}
+
+:global(.dark) .Icon {
+  @apply text-white !important;
+}
+
+.DarkIcon {
+  @apply opacity-0;
+}
+
+:global(.dark) .DarkIcon {
+  @apply opacity-100;
+}
+
+:global(.dark) .LightIcon {
+  @apply opacity-0;
+}

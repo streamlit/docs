@@ -1,44 +1,24 @@
 import React from "react";
+import classNames from "classnames";
 
-export default class Note extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleTheme = this.handleTheme.bind(this);
-        this.state = {
-            theme: 'light-mode'
-        };
-    }
+import CalloutStyles from "./callout.module.css";
+import NoteStyles from "./note.module.css";
 
-    async componentDidMount() {
-        window.addEventListener('ChangeTheme', this.handleTheme);
-    }
+import IconHeader from "./iconHeader";
 
-    componentWillUnmount() {
-        window.removeEventListener('ChangeTheme', this.handleTheme);
-    }
+const Note = ({ children }) => {
+  return (
+    <section className={classNames(CalloutStyles.Container, NoteStyles.Note)}>
+      <IconHeader
+        icon="push_pin"
+        rotate="45"
+        title="Note"
+        background="l-blue-70"
+        color="white"
+      />
+      {children}
+    </section>
+  );
+};
 
-    handleTheme() {
-        this.setState({ theme: document.body.dataset.theme })
-    }
-    render() {
-        const props = this.props
-        const state = this.state
-        let block;
-        if (props.dark && state.theme == 'dark-mode') {
-            block = (
-                <section className={`block-note bg-${props.dark.background} color-${props.dark.color}`}>
-                    {props.children}
-                </section>
-            )
-        } else {
-            block = (
-                <section className={`block-note bg-${props.background} color-${props.color}`}>
-                    {props.children}
-                </section>
-            )
-
-        }
-
-        return block
-    }
-}
+export default Note;

@@ -1,0 +1,13 @@
+.Container {
+  @apply mt-6 sm:mt-0 flex items-center cursor-pointer hover:opacity-70;
+}
+
+.Icon {
+  @apply mr-2;
+  @apply text-gray-70 !important;
+}
+
+.Link {
+  @apply border-b border-b-gray-70 hover:border-b-red-50;
+  @apply text-gray-70 !important;
+}

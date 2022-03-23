@@ -1,0 +1,3 @@
+.Container {
+  @apply flex flex-col lg:flex-row;
+}

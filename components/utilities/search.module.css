@@ -1,0 +1,98 @@
+/* Modal */
+.ModalContainer {
+  @apply fixed w-screen h-screen top-0 left-0 flex items-center justify-center z-10;
+}
+
+.Modal {
+  @apply flex items-center justify-center absolute inset-0 px-4 bg-gray-60/60;
+}
+
+.ContentContainer {
+  @apply p-0 rounded-md w-96 overflow-x-hidden overflow-y-auto w-full h-full;
+}
+
+/* Search Bar */
+.SearchBarContainer {
+  @apply flex flex-auto justify-end;
+}
+
+.SearchBar {
+  @apply flex items-center justify-center p-0 md:px-4 rounded-md h-8 w-8 md:w-60 cursor-pointer bg-gray-20;
+}
+
+:global(.dark) .SearchBar {
+  @apply text-white bg-gray-90 !important;
+}
+
+.SearchIcon {
+  @apply text-lg m-0 group-hover:opacity-70;
+  @apply text-gray-70 !important;
+}
+
+.SearchText {
+  @apply hidden md:block flex-auto m-0 ml-2 mr-8 group-hover:opacity-70 text-sm tracking-tight;
+  @apply text-gray-70 !important;
+}
+
+.HotKey {
+  @apply hidden md:block m-0 group-hover:opacity-70 text-sm tracking-tight;
+  @apply text-gray-70 !important;
+}
+
+:global(.dark) .HotKey,
+:global(.dark) .SearchText,
+:global(.dark) .SearchIcon {
+  @apply text-white !important;
+}
+
+/* Hits */
+.HitContainer {
+  @apply m-0 p-4;
+}
+
+.ActiveHit {
+  @apply bg-gray-20;
+}
+
+:global(.dark) .ActiveHit {
+  @apply bg-gray-80;
+}
+
+.HitLink {
+  @apply flex gap-4 md:gap-6 hover:opacity-100;
+}
+
+.itemContainer em {
+  @apply inline-block border-b-2 border-b-yellow-90;
+}
+
+.IconContainer {
+  @apply relative overflow-hidden rounded-md bg-yellow-90 w-10 h-10;
+}
+
+.ImageContainer {
+  @apply flex items-center justify-center;
+}
+
+.Icon {
+  @apply leading-10;
+  @apply text-white !important;
+}
+
+.TextContainer {
+  @apply pr-8 flex-1;
+}
+
+.HitCategory {
+  @apply mb-0 text-xs tracking-tight leading-4 font-normal;
+  @apply text-gray-70 !important;
+}
+
+.HitTitle {
+  @apply my-0 text-lg font-bold;
+  @apply text-gray-90 !important;
+}
+
+:global(.dark) .HitTitle {
+  @apply text-white !important;
+}

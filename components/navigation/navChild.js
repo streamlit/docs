@@ -1,115 +1,119 @@
-import findIndex from "lodash/findIndex"
-import React from "react";
+import React, { useState } from "react";
+import Link from "next/link";
+import classNames from "classnames";
 
-import Link from 'next/link'
-// import NavChild from './navChild'
+import useVersion from "../../lib/useVersion.js";
 
-import { AnimatePresence, motion } from 'framer-motion';
+import styles from "./navChild.module.css";
 
-export default class NavChild extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            accordion: false
-        };
-        this.toggleAccordion = this.toggleAccordion.bind(this);
-    }
-    toggleAccordion() {
-        this.setState({ accordion: !this.state.accordion })
-    }
-    componentDidMount() {
-        if ('/' + this.props.slug.slice(0, 2).join('/') === this.props.page.url) {
-            this.setState({ accordion: true })
-        }
-    }
-    render() {
-        let subNav        
-        
-        const state = this.state
-        const props = this.props
-        const slug = props.slug
-        const isnum = /^[\d\.]+$/.test(slug[0])
+const NavChild = ({ slug, page, color, className }) => {
+  const [manualState, setManualState] = useState(null);
+  const version = useVersion();
 
-        if (props.page.children && props.page.children.length > 0 && state.accordion) {
-            subNav = (
-                <ul className="child-sub-nav">
-                    {props.page.children.map((child, index) => (
-                        <NavChild
-                            slug={props.slug}
-                            key={child.menu_key}
-                            page={child}
-                            color={props.color}
-                            depth={child.depth + 1}
-                            paths={props.paths}
-                            version={props.version}
-                            maxVersion={props.maxVersion}
-                        />
-                    ))}
-                </ul>
-            )
-        }
+  const isNum = /^[\d\.]+$/.test(slug[0]);
 
-        let accordion
+  if (isNum) {
+    slug.shift();
+  }
 
-        if (isnum) {
-            slug.shift()
-        }
+  const slugStr = `/${slug.join("/")}`;
+  const active = slugStr === page.url ? true : false;
+  const shouldAutoOpen = slugStr.startsWith(page.url);
+  const opened = manualState ?? shouldAutoOpen;
 
-        let active = ('/' + slug.join('/') === props.page.url) ? true : false
+  let subNav;
 
-        if (props.page.children && props.page.children.length > 0) {
-            accordion = <i className={`accordion ${state.accordion ? 'close' : 'open'}`} onClick={this.toggleAccordion}>{state.accordion ? 'remove' : 'add'}</i>
-        }
+  const toggleAccordion = () => {
+    setManualState(!opened);
+  };
 
-        let link
-        let icon
-        let target
+  const visibleItems = page.children.filter((child) => child.visible !== false);
+  if (page.children?.length > 0 && visibleItems.length > 0 && opened) {
+    subNav = (
+      <ul className={styles.List}>
+        {page.children.map((child) => (
+          <NavChild
+            slug={slug}
+            key={child.menu_key}
+            page={child}
+            color={color}
+            depth={child.depth + 1}
+          />
+        ))}
+      </ul>
+    );
+  }
 
-        if (!props.page.url.startsWith('/')) {
-            icon = (
-                <i className="external">open_in_new</i>
-            )
-            target = '_blank'
-        }
-        
-        let coloredBall;
-        
-        if (active) {
-            coloredBall = <span className={`colored-ball bg-${props.color}`}></span>
-        }
+  let accordion;
 
-        let url = props.page.url;
+  if (page.children?.length > 0 && visibleItems.length > 0) {
+    accordion = (
+      <div className={styles.Accordion}>
+        <i
+          className={classNames(
+            styles.AccordionIcon,
+            opened ? "close" : "open"
+          )}
+          onClick={toggleAccordion}
+        >
+          {opened ? "remove" : "add"}
+        </i>
+      </div>
+    );
+  }
 
-        if (props.version && props.version !== props.maxVersion && props.page.url.startsWith('/')) {
-            // We need to version this URL, Check if the URL has a version for this version
-            const newSlug = props.page.url.split('/')
-            newSlug[0] = props.version
-            const newUrl = `/${newSlug.join('/')}`
-            const index = findIndex(props.paths.paths, (path) => path.params.location === newUrl)
-            if (index >= 0) {
-                url = props.paths.paths[index].params.location
-            }
-        }
+  let link;
+  let icon;
+  let target;
+  let url = page.url;
 
-        link = (
-            <span className={`child-item ${active ? 'active' : ''}`}>
-                <Link href={url}>
-                    <a className="not-link" target={target}>
-                        {coloredBall}
-                        <span>{props.page.name}</span> {icon}
-                    </a>
-                </Link>
-                {accordion}
-            </span>
-        )
+  const isLocalPage = page.url.startsWith("/");
 
-        let navItem = (
-            <li className="child">
-                {link}
-                {subNav}
-            </li >
-        )
+  if (!isLocalPage) {
+    icon = <i className={styles.ExternalIcon}>open_in_new</i>;
+    target = "_blank";
+  }
 
-        return navItem
-    }
-}
+  if (page.isVersioned && version && isLocalPage) {
+    // We need to version this URL, check if the URL has a version for this version
+    const newSlug = page.url.split("/");
+    newSlug[0] = version;
+    url = `/${newSlug.join("/")}`;
+  }
+
+  link = (
+    <span className={styles.LinkContainer}>
+      <Link href={url}>
+        <a className={classNames("not-link", styles.Link)} target={target}>
+          <span
+            className={classNames(
+              styles.Circle,
+              active ? styles.ActiveCircle : "",
+              color === "violet-70"
+                ? styles.LibraryCircle
+                : color === "l-blue-70"
+                ? styles.CloudCircle
+                : styles.KBCircle
+            )}
+          />
+          <span
+            className={classNames(styles.PageName, active && styles.ActivePage)}
+          >
+            {page.name}
+          </span>
+          {icon}
+        </a>
+      </Link>
+      {accordion}
+    </span>
+  );
+
+  return (
+    <li className={classNames(styles.Container, className)}>
+      {link}
+      {subNav}
+    </li>
+  );
+};
+
+export default NavChild;
