@@ -47,7 +47,7 @@ pip uninstall streamlit
 pip install streamlit-nightly --upgrade
 ```
 
-Learn more about [beta and experimental features](/)
+Learn more about [beta and experimental features](advanced-features/prerelease#beta-and-experimental-features)
 
 </CodeTile>
 
