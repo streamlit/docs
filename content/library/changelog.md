@@ -17,6 +17,27 @@ $ pip install --upgrade streamlit
 
 </Tip>
 
+## **Version 1.8.0**
+
+_Release date: March 24, 2022_
+
+**Notable Changes**
+
+- 🏃‍♀️ Dataframes should see performance improvements ([#4463](https://github.com/streamlit/streamlit/pull/4463)).
+
+**Other Changes**
+
+- 🕰 `st.slider` handles timezones better by removing timezone conversions on the backend ([#4348](https://github.com/streamlit/streamlit/pull/4358)).
+- 👩‍🎨 Design improvements to our header ([#4496](https://github.com/streamlit/streamlit/pull/4496)).
+
+## **Version 1.7.0**
+
+_Release date: March 3, 2022_
+
+**Highlights**
+
+- Introducing `st.snow`, celebrating our acquisition by Snowflake! See more information in [our blog post](https://blog.streamlit.io/snowflake-to-acquire-streamlit/).
+
 ## **Version 1.6.0**
 
 _Release date: Feb 24, 2022_
