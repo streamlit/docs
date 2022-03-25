@@ -34,7 +34,7 @@ useful when configuring an IDE like PyCharm to work with Streamlit:
 
 ```bash
 # Running
-$ python -m streamlit your_script.py
+$ python -m streamlit run your_script.py
 
 # is equivalent to:
 $ streamlit run your_script.py
