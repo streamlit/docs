@@ -90,7 +90,7 @@ Shows all config options available for Streamlit, including their current
 values:
 
 ```toml
-# Streamlit version: 1.7.0
+# Streamlit version: 1.8.0
 
 [global]
 

@@ -149,10 +149,10 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
-                date="2022-03-02T16:05:00.000Z"
-                title="Streamlit and Snowflake: Better Together"
-                text="Snowflake has entered into an agreement to acquire Streamlit! For more information, click-through to the forum announcement below."
-                link="https://discuss.streamlit.io/t/streamlit-snowflake-better-together/22687"
+                date="2022-03-08T16:08:45.000Z"
+                title="Sogeti creates an educational Streamlit app for data preprocessing"
+                text="Learn how to use Sogeti's Data Quality Wrapper."
+                link="https://blog.streamlit.io/sogeti-creates-an-educational-streamlit-app-for-data-preprocessing/"
               />
               <NewsEntry
                 date="2022-03-06T07:30:00.000Z"
@@ -161,10 +161,10 @@ export default function Home({ window, menu, gdpr_data }) {
                 link="https://discuss.streamlit.io/c/official-announcements/"
               />
               <NewsEntry
-                date="2022-02-17T16:08:45.000Z"
-                title="Calculating distances in cosmology with Streamlit"
-                text="Learn how three friends made the cosmology on-the-go app CosmΩracle."
-                link="https://blog.streamlit.io/calculating-distances-in-cosmology-with-streamlit/"
+                date="2022-03-02T16:05:00.000Z"
+                title="Streamlit and Snowflake: Better Together"
+                text="Snowflake has entered into an agreement to acquire Streamlit! For more information, click-through to the forum announcement below."
+                link="https://discuss.streamlit.io/t/streamlit-snowflake-better-together/22687"
               />
               <Button link="https://blog.streamlit.io/">
                 View all updates
