@@ -7,7 +7,7 @@ slug: /library/api-reference/layout
 
 ## Complex layouts
 
-Streamlit provides several options for controlling different elements are laid out on the screen.
+Streamlit provides several options for controlling how different elements are laid out on the screen.
 
 <TileContainer>
 <RefCard href="/library/api-reference/layout/st.sidebar">
