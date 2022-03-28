@@ -354,6 +354,8 @@ site_menu:
     url: /knowledge-base/tutorials/databases/snowflake
   - category: Knowledge base / Tutorials / Connect to data sources / Microsoft SQL Server
     url: /knowledge-base/tutorials/databases/mssql
+  - category: Knowledge base / Tutorials / Connect to data sources / Supabase
+    url: /knowledge-base/tutorials/databases/supabase
   - category: Knowledge base / Tutorials / Connect to data sources / Firestore
     url: https://blog.streamlit.io/streamlit-firestore/
   - category: Knowledge base / Tutorials / Connect to data sources / MongoDB
