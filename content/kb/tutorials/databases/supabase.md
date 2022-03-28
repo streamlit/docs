@@ -12,7 +12,7 @@ This guide explains how to securely access a Supabase instance from Streamlit Cl
 
 ## Create a Supabase Instance
 
-First, head over to Supabase to [create an instance](https://app.supabase.io/) and create a database.
+First, head over to Supabase to [create an instance](https://supabase.com/) and create a database.
 
 
 ## Using Streamlit with Supabase
@@ -32,7 +32,7 @@ Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml`
 ```toml
 # .streamlit/secrets.toml
 
-[postgres]
+[supabase]
 supabase_url ="<your_connection_string>"
 supabase_key ="<your_supabase_key>"
 
@@ -65,8 +65,8 @@ from supabase import create_client, Client
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
 def init_connection():
-    url    = st.secrets["postgres"]["supabase_url"]
-    key    = st.secrets["postgres"]["supabase_key"]
+    url    = st.secrets["supabase"]["supabase_url"]
+    key    = st.secrets["supabase"]["supabase_key"]
     return create_client(url, key)
 
 supabase = init_connection()
@@ -77,11 +77,12 @@ supabase = init_connection()
 def run_query():
     return supabase.table("countries").select("*").execute()
 
-rows = run_query()
+# Results are returned as [...results]
+rows = run_query()[0]
 
 # Print results.
 for row in rows:
-    st.write(f"{row[0]} has a :{row[1]}:")
+    st.write(f"Name of country is {row.name} and it is on:{row.continent}:")
 ```
 
 
