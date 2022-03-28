@@ -8,10 +8,6 @@ description: st.sidebar displays items in a sidebar.
 
 ## Add widgets to sidebar
 
-<!-- Below, describe with st.sidebar using object notation and "with" notation -->
-
-<!-- Not only can you add interactivity to your report with widgets, you can organize them into a sidebar with `st.sidebar.[element_name]`. Each element that's passed to `st.sidebar` is pinned to the left, allowing users to focus on the content in your app. The only elements that aren't supported are `st.echo` and `st.spinner`. -->
-
 Not only can you add interactivity to your app with widgets, you can organize them into a sidebar. Elements can be passed to `st.sidebar` using object notation and `with` notation.
 
 The following two snippets are equivalent:
