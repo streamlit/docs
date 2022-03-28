@@ -28,7 +28,6 @@ supabase==x.x.x
 
 Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Create this file if it doesn't exist yet and add the `supabase_url` and `supabase_key` here:
 
-
 ```toml
 # .streamlit/secrets.toml
 
@@ -37,6 +36,8 @@ supabase_url ="<your_connection_string>"
 supabase_key ="<your_supabase_key>"
 
 ```
+
+You can find your url and key under Settings > API on the Supabase Dashboard
 
 <Important>
 
@@ -77,11 +78,10 @@ supabase = init_connection()
 def run_query():
     return supabase.table("countries").select("*").execute()
 
-# Results are returned as [...results]
-rows = run_query()[0]
+rows = run_query()
 
 # Print results.
-for row in rows:
+for row in rows.data:
     st.write(f"Name of country is {row.name} and it is on:{row.continent}:")
 ```
 
