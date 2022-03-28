@@ -7,22 +7,15 @@ slug: /knowledge-base/tutorials/databases/supabase
 
 ## Introduction
 
-This guide explains how to securely access a Supabase instance from Streamlit Cloud. We demonstrate two methods, the first using [psycopg2](https://www.psycopg.org/) library and the second using [supabase-py](https://github.com/supabase-community/supabase-py). Both examples make use of Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+This guide explains how to securely access a Supabase instance from Streamlit Cloud using the [Supabase Python Client Library](https://github.com/supabase-community/supabase-py). The example makes use of Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 
 ## Create a Supabase Instance
 
-<Note>
-
-If you already have a database that you want to use, feel free
-to [skip to the next step](#add-username-and-password-to-your-local-app-secrets).
-
-</Note>
-
-First, head over to Supabase to [create an instance](https://app.supabase.io/) and create a database(take note of your password).
+First, head over to Supabase to [create an instance](https://app.supabase.io/) and create a database.
 
 
-## Using Streamlit with Postgres(via Supabase-py)
+## Using Streamlit with Supabase
 
 ### Add Supabase to your requirements file
 
@@ -31,18 +24,10 @@ First, head over to Supabase to [create an instance](https://app.supabase.io/) a
 supabase==x.x.x
 ```
 
-## Using Streamlit with Postgres(via supabase-py)
+### Add Supabase URL and Key to your local app secrets
 
-From here, there are two steps of connecting to Postgres. We will go over how to connect via supabase-py(through postgrest) and then how to connecti via psycopg2.
+Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Create this file if it doesn't exist yet and add the `supabase_url` and `supabase_key` here:
 
-### Finding your connection string
-
-You will need your connection string, head over to the [settings page on Supabase]()
-
-
-### Add connection string to your local app secrets
-
-Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Create this file if it doesn't exist yet and add the connection string above:
 
 ```toml
 # .streamlit/secrets.toml
@@ -65,15 +50,6 @@ As the `secrets.toml` file above is not committed to Github, you need to pass it
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 
-### Add psycopg2 and supabase to your requirements file
-
-Add the [psycopg2](https://www.psycopg.org/) package to your `requirements.txt` file, preferably pinning its version (replace `x.x.x` with the version you want installed):
-
-```bash
-# requirements.txt
-psycopg2-binary==x.x.x
-supabase==x.x.x
-```
 
 ### Write your Streamlit app
 
@@ -83,38 +59,25 @@ Copy the code below to your Streamlit app and run it. Make sure to adapt `query`
 # streamlit_app.py
 
 import streamlit as st
-import psycopg2
-from urllib.parse import urlparse
+from supabase import create_client, Client
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
 def init_connection():
-    result = urlparse(st.secrets["postgres"]["connstr"])
-    username = result.username
-    password = result.password
-    database = result.path[1:]
-    hostname = result.hostname
-    return psycopg2.connect(
-        database = database,
-        user = username,
-        password = password,
-        host = hostname,
-        port = port
-    )
+    url    = st.secrets["postgres"]["supabase_url"]
+    key    = st.secrets["postgres"]["supabase_key"]
+    return create_client(url, key)
 
-
-conn = init_connection()
+supabase = init_connection()
 
 # Perform query.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 @st.experimental_memo(ttl=600)
-def run_query(query):
-    with conn.cursor() as cur:
-        cur.execute(query)
-        return cur.fetchall()
+def run_query():
+    return supabase.table("countries").select("*").execute()
 
-rows = run_query("SELECT * from mytable;")
+rows = run_query()
 
 # Print results.
 for row in rows:
@@ -125,5 +88,11 @@ for row in rows:
 See `st.experimental_memo` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.experimental_memo`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Read more about caching [here](/library/advanced-features/experimental-cache-primitives).
 
 If everything worked out (and you used the example table we created above), your app should look like this:
-
 ![Finished app screenshot](/images/databases/streamlit-app.png)
+
+
+## Additional Notes
+
+<Note>
+As Supabase uses Postgres under the hood, you can also connect to Supabase by using the connection string we provide under Settings > Databases. From there, you can refer to the Postgres tutorial to connect to your database.
+</Note>
