@@ -54,7 +54,7 @@ cache](/library/api-reference/performance), if present.
 
 ## Set configuration options
 
-Streamlit provides four different ways to set configuration options:
+Streamlit provides four different ways to set configuration options. This list is in reverse order of precedence, i.e. command line flags take precedence over environment variables when the same configuration option is provided multiple times.
 
 1. In a **global config file** at `~/.streamlit/config.toml` for macOS/Linux or `%userprofile%/.streamlit/config.toml` for Windows:
 
@@ -70,6 +70,7 @@ Streamlit provides four different ways to set configuration options:
 
    ```bash
    export STREAMLIT_SERVER_PORT=80
+   export STREAMLIT_SERVER_COOKIE_SECRET=dontforgottochangeme
    ```
 
 4. As **flags on the command line** when running `streamlit run`. These allow you
