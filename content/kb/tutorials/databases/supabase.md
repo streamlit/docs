@@ -88,9 +88,6 @@ for row in rows.data:
 
 See `st.experimental_memo` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.experimental_memo`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Read more about caching [here](/library/advanced-features/experimental-cache-primitives).
 
-If everything worked out (and you used the example table we created above), your app should look like this:
-![Finished app screenshot](/images/databases/streamlit-app.png)
-
 
 ## Additional Notes
 
