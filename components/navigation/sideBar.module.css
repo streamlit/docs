@@ -31,3 +31,20 @@
 .NavList {
   @apply list-none overscroll-contain m-0 px-2 lg:px-0;
 }
+
+.TopGradient {
+  @apply hidden lg:block fixed top-0 w-full bg-gradient-to-b from-white z-10;
+  max-width: 280px;
+}
+
+.WindowStickyGradient {
+  @apply top-12 h-6;
+}
+
+.ScrollBarStickyGradient {
+  @apply top-24 h-6;
+}
+
+:global(.dark) .TopGradient {
+  @apply from-gray-100;
+}
