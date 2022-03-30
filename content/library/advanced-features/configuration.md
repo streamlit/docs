@@ -72,9 +72,7 @@ Streamlit provides four different ways to set configuration options:
    export STREAMLIT_SERVER_PORT=80
    ```
 
-4. As **flags on the command line** when running `streamlit run`. These allow you
-   to do things like change the port the app is served from, disable run-on-save, and
-   more:
+4. As **flags on the command line** when running `streamlit run`:
 
    ```bash
    streamlit run your_script.py --server.port 80
