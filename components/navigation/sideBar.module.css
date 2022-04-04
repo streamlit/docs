@@ -1,5 +1,5 @@
 .Container {
-  @apply fixed lg:sticky top-auto lg:top-16 left-0 xl:left-auto px-0 h-screen z-20 w-10/12 md:w-9/12 xl:w-screen max-w-xs md:max-w-none overflow-y-auto shadow-lg lg:shadow-none transition-all;
+  @apply fixed lg:sticky top-auto lg:top-12 left-0 xl:left-auto px-0 h-screen z-20 w-10/12 md:w-9/12 xl:w-screen max-w-xs md:max-w-none overflow-y-auto shadow-lg lg:shadow-none transition-all;
   @apply bg-white !important;
 }
 
@@ -30,4 +30,21 @@
 
 .NavList {
   @apply list-none overscroll-contain m-0 px-2 lg:px-0;
+}
+
+.TopGradient {
+  @apply hidden lg:block fixed top-0 w-full bg-gradient-to-b from-white z-10;
+  max-width: 280px;
+}
+
+.WindowStickyGradient {
+  @apply top-12 h-6;
+}
+
+.ScrollBarStickyGradient {
+  @apply top-24 h-6;
+}
+
+:global(.dark) .TopGradient {
+  @apply from-gray-100;
 }
