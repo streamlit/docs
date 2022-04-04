@@ -18,6 +18,10 @@
   @apply bg-darkBlue-100/60 text-white;
 }
 
+:global(.dark) .Row td {
+  @apply text-white;
+}
+
 .Cell {
   @apply p-4 border-t border-t-gray-40 w-full border-collapse;
 }
