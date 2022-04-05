@@ -5,7 +5,7 @@
 
 #content-container table:not(.full-width) tr th,
 #content-container table:not(.full-width) tr td {
-  @apply border-t border-t-gray-20 py-3 text-xs leading-loose tracking-normal text-gray-90;
+  @apply border-t border-t-gray-20 py-3 text-xs leading-loose tracking-normal text-gray-90 dark:text-white;
 }
 
 #content-container table:not(.full-width) tr th a,
