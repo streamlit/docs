@@ -72,6 +72,21 @@ p {
   @apply mb-4 text-gray-90 dark:text-white;
 }
 
+// Add custom color to div.admonition.note in dark mode below
+div.admonition.note {
+  @apply bg-lightBlue-10 p-4 md:p-8 rounded-md mt-8 mb-12 dark:bg-lightBlue-100/30;
+  p.first.admonition-title {
+    @apply text-lg text-lightBlue-80 font-bold dark:text-lightBlue-60;
+  }
+}
+
+div.admonition.warning {
+  @apply bg-orange-10 p-4 md:p-8 rounded-md mt-8 mb-12 dark:bg-orange-100/30;
+  p.first.admonition-title {
+    @apply text-lg text-orange-70 font-bold dark:text-orange-70;
+  }
+}
+
 sup a {
   @apply underline hover:no-underline dark:text-white;
 }
