@@ -21,3 +21,4 @@ They use Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an
 - [Private Google Sheet](databases/private-gsheet)
 - [Public Google Sheet](databases/public-gsheet)
 - [TigerGraph](databases/tigergraph)
+- [Supabase](databases/supabase)

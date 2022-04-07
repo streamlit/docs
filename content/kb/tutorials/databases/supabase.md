@@ -7,37 +7,77 @@ slug: /knowledge-base/tutorials/databases/supabase
 
 ## Introduction
 
-This guide explains how to securely access a Supabase instance from Streamlit Cloud using the [Supabase Python Client Library](https://github.com/supabase-community/supabase-py). The example makes use of Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+This guide explains how to securely access a Supabase instance from Streamlit Cloud. It uses the [Supabase Python Client Library](https://github.com/supabase-community/supabase-py) and Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). Supabase is the open source Firebase alternative and is based on PostgreSQL.
 
+## Sign in to Supabase and create a project
 
-## Create a Supabase Instance
+First, head over to [Supabase](https://app.supabase.io/) and sign up for a free account using your GitHub.
 
-First, head over to Supabase to [create an instance](https://supabase.com/) and create a database.
+<Flex>
+<Image caption="Sign in with GitHub" src="/images/databases/supabase-1.png" />
+<Image caption="Authorize supabase" src="/images/databases/supabase-2.png" />
+</Flex>
 
+Once you're signed in, you can create a project.
 
-## Using Streamlit with Supabase
+<Flex>
+<Image caption="Your Supabase account" src="/images/databases/supabase-3.png" />
+<Image caption="Create a new project" src="/images/databases/supabase-4.png" />
+</Flex>
 
-### Add Supabase to your requirements file
+Your screen should look like this once your project has been created:
 
-```bash
-# requirements.txt
-supabase==x.x.x
+<Image src="/images/databases/supabase-5.png" />
+
+<Important>
+
+Make sure to note down your Project API Key and Project URL highlighted in the above screenshot. ☝️
+
+You will need these to connect to your Supabase instance from Streamlit.
+
+</Important>
+
+## Create a Supabase database
+
+Now that you have a project, you can create a database and populate it with some sample data. To do so, click on the **SQL editor** button on the same project page, followed by the **New query** button in the SQL editor.
+
+<Flex>
+<Image caption="Open the SQL editor" src="/images/databases/supabase-6.png" />
+<Image caption="Create a new query" src="/images/databases/supabase-7.png" />
+</Flex>
+
+In the SQL editor, enter the following queries to create a database and a table with some example values:
+
+```sql
+CREATE TABLE mytable (
+    name            varchar(80),
+    pet             varchar(80)
+);
+
+INSERT INTO mytable VALUES ('Mary', 'dog'), ('John', 'cat'), ('Robert', 'bird');
 ```
 
-### Add Supabase URL and Key to your local app secrets
+Click **Run** to execute the queries. To verify that the queries were executed successfully, click on the **Table Editor** button on the left menu, followed by your newly created table `mytable`.
+
+<Flex>
+<Image caption="Write and run your queries" src="/images/databases/supabase-8.png" />
+<Image caption="View your table in the Table Editor" src="/images/databases/supabase-9.png" />
+</Flex>
+
+With your Supabase database created, you can now connect to it from Streamlit!
+
+### Add Supabase Project URL and API key to your local app secrets
 
 Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Create this file if it doesn't exist yet and add the `supabase_url` and `supabase_key` here:
 
 ```toml
 # .streamlit/secrets.toml
 
-[supabase]
-supabase_url ="<your_connection_string>"
-supabase_key ="<your_supabase_key>"
-
+supabase_url = "xxxx"
+supabase_key = "xxxx"
 ```
 
-You can find your url and key under Settings > API on the Supabase Dashboard
+Replace `xxxx` above with your Project URL and API key from [Step 1](/knowledge-base/tutorials/databases/supabase#sign-in-to-supabase-and-create-a-project).
 
 <Important>
 
@@ -51,10 +91,18 @@ As the `secrets.toml` file above is not committed to Github, you need to pass it
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 
+## Add supabase to your requirements file
 
-### Write your Streamlit app
+Add the [`supabase`](https://github.com/supabase-community/supabase-py) Python Client Library to your `requirements.txt` file, preferably pinning its version (replace `x.x.x` with the version you want installed):
 
-Copy the code below to your Streamlit app and run it. Make sure to adapt `query` to use the name of your table.
+```bash
+# requirements.txt
+supabase==x.x.x
+```
+
+## Write your Streamlit app
+
+Copy the code below to your Streamlit app and run it.
 
 ```python
 # streamlit_app.py
@@ -66,8 +114,8 @@ from supabase import create_client, Client
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
 def init_connection():
-    url    = st.secrets["supabase"]["supabase_url"]
-    key    = st.secrets["supabase"]["supabase_key"]
+    url = st.secrets["supabase_url"]
+    key = st.secrets["supabase_key"]
     return create_client(url, key)
 
 supabase = init_connection()
@@ -76,21 +124,20 @@ supabase = init_connection()
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 @st.experimental_memo(ttl=600)
 def run_query():
-    return supabase.table("countries").select("*").execute()
+    return supabase.table("mytable").select("*").execute()
 
 rows = run_query()
 
 # Print results.
 for row in rows.data:
-    st.write(f"Name of country is {row.name} and it is on:{row.continent}:")
-```
+    st.write(f"{row['name']} has a :{row['pet']}:")
 
+```
 
 See `st.experimental_memo` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.experimental_memo`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Read more about caching [here](/library/advanced-features/experimental-cache-primitives).
 
+If everything worked out (and you used the example table we created above), your app should look like this:
 
-## Additional Notes
+![Finished app screenshot](/images/databases/supabase-10.png)
 
-<Note>
-As Supabase uses Postgres under the hood, you can also connect to Supabase by using the connection string we provide under Settings > Databases. From there, you can refer to the Postgres tutorial to connect to your database.
-</Note>
+As Supabase uses PostgresSQL under the hood, you can also connect to Supabase by using the connection string Supabase provides under Settings > Databases. From there, you can refer to the [PostgresSQL tutorial](/knowledge-base/tutorials/databases/postgresql) to connect to your database.
