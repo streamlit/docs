@@ -27,6 +27,8 @@ We also have a series of guides on how to connect to:
 - [Public Google Sheet](/knowledge-base/tutorials/databases/public-gsheet)
 - [TigerGraph](/knowledge-base/tutorials/databases/tigergraph)
 - [Deta Base](/knowledge-base/tutorials/databases/deta-base)
+- [Supabase](/knowledge-base/tutorials/databases/supabase)
+
 
 <Note>
 
