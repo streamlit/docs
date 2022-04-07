@@ -15,7 +15,7 @@ First, head over to [Supabase](https://app.supabase.io/) and sign up for a free 
 
 <Flex>
 <Image caption="Sign in with GitHub" src="/images/databases/supabase-1.png" />
-<Image caption="Authorize supabase" src="/images/databases/supabase-2.png" />
+<Image caption="Authorize Supabase" src="/images/databases/supabase-2.png" />
 </Flex>
 
 Once you're signed in, you can create a project.
