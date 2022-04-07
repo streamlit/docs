@@ -5,7 +5,7 @@ slug: /library/cheatsheet
 
 # Cheat Sheet
 
-This is a summary of the docs, as of [Streamlit v1.7.0](https://pypi.org/project/streamlit/1.7.0/).
+This is a summary of the docs, as of [Streamlit v1.8.0](https://pypi.org/project/streamlit/1.7.0/).
 
 <Masonry>
 
@@ -188,7 +188,6 @@ st.text_area('Text to translate')
 st.date_input('Your birthday')
 st.time_input('Meeting time')
 st.file_uploader('Upload a CSV')
-st.camera_input('Take a picture')
 st.download_button('Download file', data)
 st.camera_input("Take a picture")
 st.color_picker('Pick a color')
