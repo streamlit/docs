@@ -1,0 +1,32 @@
+// Styles for notes, warnings, etc., inside API reference page
+div.admonition {
+  @apply p-4 rounded-md mt-8 mb-12;
+
+  // Title
+  p.first.admonition-title {
+    @apply text-lg font-bold;
+  }
+
+  // Text
+  p {
+    @apply mb-0;
+  }
+
+  // Note
+  &.note {
+    @apply bg-lightBlue-10 dark:bg-lightBlue-100/30;
+
+    p.first.admonition-title {
+      @apply text-lightBlue-80 dark:text-lightBlue-60;
+    }
+  }
+
+  // Warning
+  &.warning {
+    @apply bg-orange-10 dark:bg-orange-100/30;
+
+    p.first.admonition-title {
+      @apply text-orange-70 dark:text-orange-70;
+    }
+  }
+}
