@@ -149,6 +149,12 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
+                date="2022-04-07T16:05:00.000Z"
+                title="Monthly Rewind > March 2022"
+                text="Your March look-back at new features and great community content."
+                link="https://blog.streamlit.io/monthly-rewind-march-2022/"
+              />
+              <NewsEntry
                 date="2022-03-08T16:08:45.000Z"
                 title="Sogeti creates an educational Streamlit app for data preprocessing"
                 text="Learn how to use Sogeti's Data Quality Wrapper."
@@ -159,12 +165,6 @@ export default function Home({ window, menu, gdpr_data }) {
                 title="Announcement: Streamlit Cloud maintenance"
                 text="Streamlit Cloud will have a maintenance event on Sunday, March 6th at 7:00 am PST. The maintenance event will last for no more than 5 minutes."
                 link="https://discuss.streamlit.io/c/official-announcements/"
-              />
-              <NewsEntry
-                date="2022-03-02T16:05:00.000Z"
-                title="Streamlit and Snowflake: Better Together"
-                text="Snowflake has entered into an agreement to acquire Streamlit! For more information, click-through to the forum announcement below."
-                link="https://discuss.streamlit.io/t/streamlit-snowflake-better-together/22687"
               />
               <Button link="https://blog.streamlit.io/">
                 View all updates
