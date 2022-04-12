@@ -182,14 +182,14 @@ Click [here](/knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud
 
 Once you have deployed apps in your workspace, you have access to the following analytics:
 
-1. [App viewers data](/streamlit-cloud/get-started/manage-your-app#app-viewers-data): See who has viewed your app and when.
+1. [App viewers data](/streamlit-cloud/get-started/manage-your-app#app-viewers-data): See who has viewed your individual app and when.
 2. [Workspace analytics](/streamlit-cloud/get-started/manage-your-app#workspace-analytics): A central place on Streamlit Cloud to see how many views the apps in your workspace have received.
 
 ### App viewers data
 
-Streamlit Cloud enables you to get a more visceral understanding of the viewership of your apps.
+Streamlit Cloud enables you to gain a better understanding of your apps' viewership.
 
-As an app developer or a viewer with access, you can see who has viewed your app and when. Specifically, you can see the total number unique viewers, as well as a list of the most recent viewers and a relative timestamp of their last view.
+As an app developer or a viewer with access to a given workspace, you can see who has viewed a given app and when. Specifically, you can see the total number of unique viewers, as well as a list of the most recent viewers and a relative timestamp of their last view.
 
 There are three ways to access the app viewers data:
 
@@ -207,7 +207,9 @@ There are three ways to access the app viewers data:
 
    <Note>
 
-   Anonymous viewers are displayed as random pseudonyms. Anonymous viewers are those who have signed out or those who have signed in but don't have access to the app's workspace.
+   For public apps, we anonymize all viewers outside of your workspace for their privacy. Anonymous viewers are displayed as random pseudonyms.
+
+   Meanwhile, for private apps that are only accessible to your own workspace’s viewers, you will be able to see the specific users of your apps’ recent viewers.
 
    </Note>
 
