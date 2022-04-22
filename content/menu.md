@@ -374,6 +374,8 @@ site_menu:
     url: /knowledge-base/tutorials/databases/deta-base
   - category: Knowledge base / Tutorials / Connect to data sources / Supabase
     url: /knowledge-base/tutorials/databases/supabase
+  - category: Knowledge base / Tutorials / Connect to data sources / Google Cloud Storage
+    url: /knowledge-base/tutorials/databases/gcs
   - category: Knowledge base / Tutorials / Session State basics
     url: /knowledge-base/tutorials/session-state
   - category: Knowledge base / Using Streamlit

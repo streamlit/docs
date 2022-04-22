@@ -23,3 +23,4 @@ They use Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an
 - [TigerGraph](databases/tigergraph)
 - [Deta Base](databases/deta-base)
 - [Supabase](databases/supabase)
+- [Google Cloud Storage](databases/gcs)
