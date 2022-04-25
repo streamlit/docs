@@ -149,22 +149,22 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
+                date="2022-04-21T16:05:00.000Z"
+                title="How to build a real-time live dashboard with Streamlit"
+                text="5 easy steps to make your own data dashboard."
+                link="https://blog.streamlit.io/how-to-build-a-real-time-live-dashboard-with-streamlit/"
+              />
+              <NewsEntry
+                date="2022-04-14T16:05:00.000Z"
+                title="3 steps to fix app memory leaks"
+                text="How to detect if your Streamlit app leaks memory and identify faulty code."
+                link="https://blog.streamlit.io/3-steps-to-fix-app-memory-leaks/"
+              />
+              <NewsEntry
                 date="2022-04-07T16:05:00.000Z"
                 title="Monthly Rewind > March 2022"
                 text="Your March look-back at new features and great community content."
                 link="https://blog.streamlit.io/monthly-rewind-march-2022/"
-              />
-              <NewsEntry
-                date="2022-03-08T16:08:45.000Z"
-                title="Sogeti creates an educational Streamlit app for data preprocessing"
-                text="Learn how to use Sogeti's Data Quality Wrapper."
-                link="https://blog.streamlit.io/sogeti-creates-an-educational-streamlit-app-for-data-preprocessing/"
-              />
-              <NewsEntry
-                date="2022-03-06T07:30:00.000Z"
-                title="Announcement: Streamlit Cloud maintenance"
-                text="Streamlit Cloud will have a maintenance event on Sunday, March 6th at 7:00 am PST. The maintenance event will last for no more than 5 minutes."
-                link="https://discuss.streamlit.io/c/official-announcements/"
               />
               <Button link="https://blog.streamlit.io/">
                 View all updates
