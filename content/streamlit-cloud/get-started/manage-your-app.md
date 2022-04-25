@@ -182,8 +182,10 @@ Click [here](/knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud
 
 Once you have deployed apps in your workspace, you have access to the following analytics:
 
-1. [App viewers data](/streamlit-cloud/get-started/manage-your-app#app-viewers-data): See who has viewed your individual app and when.
-2. [Workspace analytics](/streamlit-cloud/get-started/manage-your-app#workspace-analytics): A central place on Streamlit Cloud to see how many views the apps in your workspace have received.
+1. [Workspace analytics](/streamlit-cloud/get-started/manage-your-app#workspace-analytics): A central place on Streamlit Cloud to see how many views the apps in your workspace have received.
+   <Image alt="Workspace analytics" src="/images/streamlit-cloud/workspace-analytics-cropped.gif" />
+2. [App viewers data](/streamlit-cloud/get-started/manage-your-app#app-viewers-data): See who has viewed your individual app and when.
+   <Image alt="Workspace analytics" src="/images/streamlit-cloud/app-viewers-data.gif" />
 
 ### App viewers data
 
@@ -233,4 +235,4 @@ There are three ways to access the app viewers data:
 
 ### Workspace analytics
 
-In addition to the app viewers data, you can also see analytics data for all apps in your workspace in one central dashboard.
+In addition to the app viewers data, you can also see analytics data for all apps in your workspace in one central dashboard. This Workpsace analytics dashboard is accessible from the "**Analytics**" option on the dashboard header.
