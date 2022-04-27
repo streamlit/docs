@@ -180,18 +180,39 @@ Click [here](/knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud
 
 ## Analytics
 
-Once you have deployed apps in your workspace, you have access to the following analytics:
+Once you deploy apps in your workspace, you have access to the following analytics:
 
-1. [Workspace analytics](/streamlit-cloud/get-started/manage-your-app#workspace-analytics): A central place on Streamlit Cloud to see how many views the apps in your workspace have received.
-   <Image alt="Workspace analytics" src="/images/streamlit-cloud/workspace-analytics-cropped.gif" />
-2. [App viewers data](/streamlit-cloud/get-started/manage-your-app#app-viewers-data): See who has viewed your individual app and when.
+1. [Workspace analytics](/streamlit-cloud/get-started/manage-your-app#workspace-analytics): is a central place on Streamlit Cloud to see how many views the apps in your workspace have received.
+   <Image alt="Workspace analytics" src="/images/streamlit-cloud/workspace-analytics.gif" />
+2. [App viewers data](/streamlit-cloud/get-started/manage-your-app#app-viewers-data): enables you to see who has viewed each of your apps and when.
    <Image alt="Workspace analytics" src="/images/streamlit-cloud/app-viewers-data.gif" />
+
+### Workspace analytics
+
+Streamlit Cloud enables you to view analytics data for all apps in your workspace in one central dashboard. At a glance, you get an overview of how active your workspace is and how popular your apps are.
+
+Say you're the head of data and want to see if the Streamlit usage in your company has increased over time. Or say you're an open-source developer and want to see how popular your apps have become. The Workspace analytics dashboard is your one-stop-shop for these insights.
+
+To view your Workspace analytics:
+
+1. Select the "**Analytics**" option on the dashboard header and
+   ![Workspace analytics header dashboard](/images/streamlit-cloud/workspace-analytics-header.png)
+2. View the "**Workspace**" tab in the Analytics modal
+   ![Workspace analytics modal](/images/streamlit-cloud/workspace-analytics-modal.png)
+
+You'll see a graph that you can hover over to see the number of users who have viewed at least one app in your workspace that month.
+
+<Note>
+
+The Workspace analytics dashboard is visible to everyone with access to the workspace. i.e., admins, developers, or anyone with viewer access to an app.
+
+</Note>
 
 ### App viewers data
 
-Streamlit Cloud enables you to gain a better understanding of your apps' viewership.
+In addition to a general overview of the activity of your workspace and the popularity of your apps, Streamlit Cloud allows you to drill down to the level of individual apps and understand their viewership better.
 
-As an app developer or a viewer with access to a given workspace, you can see who has viewed a given app and when. Specifically, you can see the total number of unique viewers, as well as a list of the most recent viewers and a relative timestamp of their last view.
+As an app developer or a viewer with access to a given workspace, you can see who has viewed a given app and when. Specifically, you can see the total number of unique viewers and a list of the most recent viewers, and a relative timestamp of their last view.
 
 There are three ways to access the app viewers data:
 
@@ -199,21 +220,20 @@ There are three ways to access the app viewers data:
    ![Analytics option dashboard](/images/streamlit-cloud/app-viewers-dashboard.png)
 
    Doing so opens the "**App viewers**" tab of the "**Analytics**" modal.
-
    ![App viewers analytics modal](/images/streamlit-cloud/app-viewers-analytics-modal.png)
 
-   Your app is selected by default in the dropdown and displays:
+   The dropdown selects your app by default and displays:
 
    - The total (all time) number of unique viewers for the app.
-   - A list of all unique viewers, along with a relative timestamp of their last view, sorted by the time since last view (newest first).
+   - A list of all unique viewers and a relative timestamp of their last view, sorted by the time since the last view (newest first).
 
-   <Note>
+<Note>
 
-   For public apps, we anonymize all viewers outside of your workspace for their privacy. Anonymous viewers are displayed as random pseudonyms.
+For public apps, we anonymize all viewers outside your workspace for their privacy and display anonymous viewers as random pseudonyms.
 
-   Meanwhile, for private apps that are only accessible to your own workspace’s viewers, you will be able to see the specific users of your apps’ recent viewers.
+Meanwhile, for private apps that are only accessible to your own workspace’s viewers, you will be able to see the specific users of your apps’ recent viewers.
 
-   </Note>
+</Note>
 
 2. Click the "**Analytics**" option on the dashboard header and select the "**App viewers**" tab:
    ![Analytics option header](/images/streamlit-cloud/app-viewers-header.png)
@@ -222,17 +242,13 @@ There are three ways to access the app viewers data:
 
    ![App viewers analytics dropdown options](/images/streamlit-cloud/app-viewers-dropdown-options.png)
 
-   By default, the first app in your workspace is pre-selected in the dropdown. You can select the app you want to see the analytics for by clicking the corresponding app in the dropdown.
+   The first app in your workspace is pre-selected in the dropdown by default. You can select the app you want to see the analytics for by clicking the corresponding app in the dropdown.
 
    ![App viewers analytics dropdown](/images/streamlit-cloud/app-viewers-dropdown.png)
 
-3. You can also access app viewer analytics from right within the app! When viewing any app in your workspace as a developer, click on the "**︙**" overflow menu at the bottom of the Cloud logs and select "**Analytics**":
+3. You can also access app viewer analytics from right within the app! Just view any app in your workspace as a developer, click the "**︙**" overflow menu at the bottom of the Cloud logs and select "**Analytics**":
 
 <Flex>
 <Image src="/images/streamlit-cloud/app-viewers-in-app.png" />
 <Image src="/images/streamlit-cloud/app-viewers-analytics-modal.png" />
 </Flex>
-
-### Workspace analytics
-
-In addition to the app viewers data, you can also see analytics data for all apps in your workspace in one central dashboard. This Workpsace analytics dashboard is accessible from the "**Analytics**" option on the dashboard header.
