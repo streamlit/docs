@@ -12,10 +12,24 @@ This page lists highlights, bug fixes, and known issues for official Streamlit r
 To upgrade to the latest version of Streamlit, run:
 
 ```bash
-$ pip install --upgrade streamlit
+pip install --upgrade streamlit
 ```
 
 </Tip>
+
+## **Version 1.9.0**
+
+_Release date: April 29, 2022_
+
+**Notable Changes**
+
+- 🪗 `st.json` now supports a keyword-only argument, `expanded` on whether the JSON should be expanded by default (defaults to `True`).
+- 🏃‍♀️ More performance improvements from reducing redundant work each script run.
+
+**Other Changes**
+
+- 🏇 Widgets when `disabled` is set/unset will maintain its value ([#4527](https://github.com/streamlit/streamlit/pull/4527)).
+- 🧪 Experimental feature to increase the speed of reruns using configuration `runner.fastReruns`. See [#4628](https://github.com/streamlit/streamlit/pull/4628) for the known issues in enabling this feature.
 
 ## **Version 1.8.0**
 
@@ -858,7 +872,7 @@ _Release date: September 19, 2019_
 **Highlights:**
 
 - ✨ Magic commands! Use `st.write` without typing `st.write`. See
-  https://docs.streamlit.io/en/latest/api.html#magic-commands
+  <https://docs.streamlit.io/en/latest/api.html#magic-commands>
 - 🎛️ New `st.multiselect` widget.
 - 🐍 Fixed numerous install issues so now you can use `pip install streamlit`
   even in Conda! We've therefore deactivated our Conda repo.
@@ -868,7 +882,7 @@ _Release date: September 19, 2019_
 
 - 🛡️ HTML tags are now blacklisted in `st.write`/`st.markdown` by default. More
   information and a temporary work-around at:
-  https://github.com/streamlit/streamlit/issues/152
+  <https://github.com/streamlit/streamlit/issues/152>
 
 ## Version 0.45.0
 
@@ -976,11 +990,11 @@ If you run `$ python your_script.py` the script will execute from top to bottom,
 If the new Streamlit isn't working, please let us know by Slack or email. You can downgrade at any time with these commands:
 
 ```bash
-$ pip install --upgrade streamlit==0.37
+pip install --upgrade streamlit==0.37
 ```
 
 ```bash
-$ conda install streamlit=0.37
+conda install streamlit=0.37
 ```
 
 **What's next?**
