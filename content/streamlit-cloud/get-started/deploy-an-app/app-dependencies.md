@@ -47,7 +47,7 @@ however, if no requirements file is found, Streamlit will then look at the root 
 
 ### apt-get dependencies
 
-If `packages.txt` exists in the repository we automatically detect it, parse it, and install the listed packages as described below. You can read more about apt-get in their [docs](https://linux.die.net/man/8/apt-get).
+If `packages.txt` exists in the root directory of your repository we automatically detect it, parse it, and install the listed packages as described below. You can read more about apt-get in their [docs](https://linux.die.net/man/8/apt-get).
 
 Add **apt-get** dependencies to `packages.txt`, one package name per line. For example:
 
