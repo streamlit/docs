@@ -200,7 +200,7 @@ To view your Workspace analytics:
 2. View the "**Workspace**" tab in the Analytics modal
    ![Workspace analytics modal](/images/streamlit-cloud/workspace-analytics-modal.png)
 
-You'll see a graph that you can hover over to see the number of users who have viewed at least one app in your workspace that month.
+You're presented a graph that you can hover over to see the number of users who have viewed at least one app in your workspace that month.
 
 <Note>
 
