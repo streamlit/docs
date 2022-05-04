@@ -19,7 +19,7 @@ pip install --upgrade streamlit
 
 ## **Version 1.9.0**
 
-_Release date: April 29, 2022_
+_Release date: May 4, 2022_
 
 **Notable Changes**
 
