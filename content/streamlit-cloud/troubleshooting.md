@@ -111,7 +111,7 @@ A 404 error is displayed to unauthorized viewers to avoid providing any unnecess
 
 - User is not logged in with Google SSO.
 - User is not included in the [list of viewers](/streamlit-cloud/get-started/share-your-app#adding-viewers-from-the-app-dashboard) provided in the app settings.
-- User is lacks read access to your app's GitHub repo.
+- User lacks read access to your app's GitHub repo.
 <!-- - User has read access to your app's GitHub repo but is not enrolled in Streamlit for Teams beta. -->
 - User has read access to your app's GitHub repo but is not enrolled in Community Cloud.
 
