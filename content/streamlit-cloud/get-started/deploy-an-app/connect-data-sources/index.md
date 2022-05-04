@@ -30,9 +30,8 @@ We also have a series of guides on how to connect to:
 - [Supabase](/knowledge-base/tutorials/databases/supabase)
 - [Google Cloud Storage](/knowledge-base/tutorials/databases/gcs)
 
-
 <Note>
 
-Trouble connecting to data? Need a different way to securely connect? Email [support@streamlit.io](mailto:support@streamlit.io) to chat through options!
+Trouble connecting to data? Need a different way to securely connect? Reach out on our [Community forum](https://discuss.streamlit.io) to chat through options!
 
 </Note>
