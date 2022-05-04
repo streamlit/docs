@@ -95,7 +95,7 @@ It is best practice to pin your Streamlit version in `requirements.txt`. Otherw
 
 <!-- The exact resources and limits will depend on [your workspace plan](https://streamlit.io/cloud). If you need more apps or more resources for your apps you can upgrade your plan or reach out to [support@streamlit.io](mailto:support@streamlit.io). -->
 
-All Community Cloud users have access to the same resources are subjected to the same limits. If you need more apps or more resources for your apps you can reach out to us on our [Community forum](https://discuss.streamlit.io/).
+All Community Cloud users have access to the same resources and are subject to the same limits. If you need more apps or more resources for your apps, you can reach out to us on our [Community forum](https://discuss.streamlit.io/).
 
 #### Developer view
 
