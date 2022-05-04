@@ -30,6 +30,6 @@ For more information about the specifics of allowlisting IP addresses with your 
 
 <Note>
 
-Does your IT team have questions about Streamlit's outbound IP addresses? Contact [**success@streamlit.io**](mailto:success@streamlit.io)
+Does your IT team have questions about Streamlit's outbound IP addresses? Reach out to us on the [Community forum](https://discuss.streamlit.io).
 
 </Note>
