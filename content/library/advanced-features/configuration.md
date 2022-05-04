@@ -89,7 +89,7 @@ Shows all config options available for Streamlit, including their current
 values:
 
 ```toml
-# Streamlit version: 1.8.0
+# Streamlit version: 1.9.0
 
 [global]
 
@@ -103,9 +103,7 @@ disableWatchdogWarning = false
 showWarningOnDirectExecution = true
 
 # DataFrame serialization.
-# Acceptable values:
-#   - 'legacy': Serialize DataFrames using Streamlit's custom format. Slow but battle-tested.
-#   - 'arrow': Serialize DataFrames using Apache Arrow. Much faster and versatile.
+# Acceptable values: - 'legacy': Serialize DataFrames using Streamlit's custom format. Slow but battle-tested. - 'arrow': Serialize DataFrames using Apache Arrow. Much faster and versatile.
 # Default: "arrow"
 dataFrameSerialization = "arrow"
 
@@ -117,7 +115,7 @@ dataFrameSerialization = "arrow"
 level = "info"
 
 # String format for logging messages. If logger.datetimeFormat is set, logger messages will default to `%(asctime)s.%(msecs)03d %(message)s`. See [Python's documentation](https://docs.python.org/2.6/library/logging.html#formatter-objects) for available attributes.
-# Default: None
+# Default: "%(asctime)s %(message)s"
 messageFormat = "%(asctime)s %(message)s"
 
 
@@ -155,6 +153,10 @@ fixMatplotlib = true
 # Default: true
 postScriptGC = true
 
+# Handle script rerun requests immediately, rather than waiting for script execution to reach a yield point. Enabling this will make Streamlit much more responsive to user interaction, but it can lead to race conditions in apps that mutate session_state data outside of explicit session_state assignment statements.
+# Default: false
+fastReruns = false
+
 
 [server]
 
@@ -165,7 +167,7 @@ postScriptGC = true
 folderWatchBlacklist = []
 
 # Change the type of file watcher used by Streamlit, or turn it off completely.
-# Allowed values: * "auto" : Streamlit will attempt to use the watchdog module, and falls back to polling if watchdog is not available. * "watchdog" : Force Streamlit to use the watchdog module. * "poll": Force Streamlit to always use polling. * "none" : Streamlit will not watch files.
+# Allowed values: * "auto" : Streamlit will attempt to use the watchdog module, and falls back to polling if watchdog is not available. * "watchdog" : Force Streamlit to use the watchdog module. * "poll" : Force Streamlit to always use polling. * "none" : Streamlit will not watch files.
 # Default: "auto"
 fileWatcherType = "auto"
 
@@ -181,9 +183,9 @@ headless = false
 # Default: false
 runOnSave = false
 
-# The address where the server will listen for client and browser connections. Use this if you want to bind the server to a specific address. If set, the server will only be accessible from this address,and not from any aliases (like localhost).
+# The address where the server will listen for client and browser connections. Use this if you want to bind the server to a specific address. If set, the server will only be accessible from this address, and not from any aliases (like localhost).
 # Default: (unset)
-#address =
+# address =
 
 # The port where the server will listen for browser connections.
 # Default: 8501
@@ -212,8 +214,8 @@ maxUploadSize = 200
 maxMessageSize = 200
 
 # Enables support for websocket compression.
-# Default: true
-enableWebsocketCompression = true
+# Default: false
+enableWebsocketCompression = false
 
 
 [browser]
@@ -231,14 +233,6 @@ gatherUsageStats = true
 # This is used to: - Set the correct URL for CORS and XSRF protection purposes. - Show the URL on the terminal - Open the browser
 # Default: whatever value is set in server.port.
 serverPort = 8501
-
-
-[ui]
-
-# Flag to hide most of the UI elements found at the top of a Streamlit app.
-# NOTE: This does *not* hide the hamburger menu in the top-right of an app.
-# Default: false
-hideTopBar = false
 
 
 [mapbox]
@@ -262,20 +256,20 @@ showPyplotGlobalUse = true
 [theme]
 
 # The preset Streamlit theme that your custom theme inherits from. One of "light" or "dark".
-#base =
+# base =
 
 # Primary accent color for interactive elements.
-#primaryColor =
+# primaryColor =
 
 # Background color for the main content area.
-#backgroundColor =
+# backgroundColor =
 
 # Background color used for the sidebar and most interactive widgets.
-#secondaryBackgroundColor =
+# secondaryBackgroundColor =
 
 # Color used for almost all text.
-#textColor =
+# textColor =
 
 # Font family for all text in the app, except code blocks. One of "sans serif", "serif", or "monospace".
-#font =
+# font =
 ```
