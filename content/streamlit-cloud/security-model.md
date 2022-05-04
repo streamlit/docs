@@ -27,7 +27,7 @@ This document is an overview of how we provide best-in-industry security for you
 
 ### SSO
 
-All access and sign-ins to Streamlit are conducted via an SSO provider: GitHub, GSuite, and many other platforms are supported. We can work with your IT team to integrate to your provider of choice. We do not store customer passwords.
+All access and sign-ins to Streamlit are conducted via an SSO provider: GitHub and GSuite. We do not store customer passwords.
 
 ### Credential Storage
 
@@ -71,7 +71,7 @@ Streamlit uses third-party security tools to scan for vulnerabilities on a regul
 
 #### SOC 2 Type 1
 
-Streamlit is committed to meeting industry security standards so that you can feel confident in our security practices. Streamlit is SOC 2 compliant and if you would like to learn more, please reach out to [support@streamlit.io](mailto:support@streamlit.io) to get the details of our compliance report.
+Streamlit is committed to meeting industry security standards so that you can feel confident in our security practices. Streamlit is SOC 2 compliant and if you would like to learn more, please reach out on our [Community forum](https://discuss.streamlit.io/) to get the details of our compliance report.
 
 <a href="https://www.aicpa.org/soc4so" target="\_blank" style={{ borderBottom: 0 }}>
 
@@ -102,6 +102,6 @@ We keep our systems up-to-date with the latest security patches and continuously
 
 <Note>
 
-If you have further questions about Streamlit for Teams and our security approach, please email us at success@streamlit.io
+If you have further questions about Community Cloud and our security approach, please reach out to us on the [Community forum](https://discuss.streamlit.io/).
 
 </Note>

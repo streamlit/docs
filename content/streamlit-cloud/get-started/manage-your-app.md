@@ -93,7 +93,9 @@ It is best practice to pin your Streamlit version in `requirements.txt`. Otherw
 
 ### Resource limits
 
-The exact resources and limits will depend on [your workspace plan](https://streamlit.io/cloud). If you need more apps or more resources for your apps you can upgrade your plan or reach out to [support@streamlit.io](mailto:support@streamlit.io).
+<!-- The exact resources and limits will depend on [your workspace plan](https://streamlit.io/cloud). If you need more apps or more resources for your apps you can upgrade your plan or reach out to [support@streamlit.io](mailto:support@streamlit.io). -->
+
+All Community Cloud users have access to the same resources are subjected to the same limits. If you need more apps or more resources for your apps you can reach out to us on our [Community forum](https://discuss.streamlit.io/).
 
 #### Developer view
 
@@ -122,7 +124,9 @@ If your app exceeds its resource limits, users with view-only access will see on
 
 ### App hibernation
 
-Private apps on Teams or Enterprise plans will not hibernate, but for public and Free tier apps without traffic for 7 consecutive days, will automatically go to sleep. This is done to alleviate resources and allow the best communal use of the platform! Here are some need to know's about how this works:
+<!-- Private apps on Teams or Enterprise plans will not hibernate, but for public and Free tier apps without traffic for 7 consecutive days, will automatically go to sleep. This is done to alleviate resources and allow the best communal use of the platform! Here are some need to know's about how this works: -->
+
+Private apps will not hibernate, but public Community Cloud apps without traffic for 7 consecutive days will automatically go to sleep. This is done to alleviate resources and allow the best communal use of the platform! Here are some need to know's about how this works:
 
 - As the app developer, you will receive an email after 5 days of no traffic on your app.
 - If you would like to keep your app awake, you have one of two choices:

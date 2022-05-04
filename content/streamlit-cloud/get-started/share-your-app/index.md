@@ -21,13 +21,19 @@ By default all apps deployed from private source code are private to the develop
 
 ### What is viewer auth?
 
-Viewer auth allows you to restrict the viewers of your app. To access your app, users have to authenticate using an email-based passwordless login or [single sign-on (SSO)](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso).
+<!-- Viewer auth allows you to restrict the viewers of your app. To access your app, users have to authenticate using an email-based passwordless login or [single sign-on (SSO)](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso). -->
+
+Viewer auth allows you to restrict the viewers of your app. To access your app, users have to authenticate using an email-based passwordless login or Google OAuth.
 
 ### Configuring single sign-on
 
-Google OAuth is enabled by default, so if your company uses Google, you're good to go. If you've configured SSO for your organization via ADFS, Azure, Okta, or generic SAML, you will also be able to add email addresses and domains which are administered by those services. Read [here](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso) for how to enable SSO for your org.
+<!-- Google OAuth is enabled by default, so if your company uses Google, you're good to go. If you've configured SSO for your organization via ADFS, Azure, Okta, or generic SAML, you will also be able to add email addresses and domains which are administered by those services. Read [here](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso) for how to enable SSO for your org. -->
 
-Once you have added someone's email address to your app's viewer list, that person will be able to sign in via Google Single Sign-On or your organization-specific Single Sign-On and view your app. They will also receive an email inviting them to view your app. If they are already logged in with that account in their browser (the usual case for most people) then they will automatically be able to view the app. If they are not logged in, or they have not been giving access, then they will see a page asking them to first log in.
+Google OAuth is enabled by default, so if your company uses Google, you're good to go.
+
+<!-- Once you have added someone's email address to your app's viewer list, that person will be able to sign in via Google Single Sign-On or your organization-specific Single Sign-On and view your app. They will also receive an email inviting them to view your app. If they are already logged in with that account in their browser (the usual case for most people) then they will automatically be able to view the app. If they are not logged in, or they have not been giving access, then they will see a page asking them to first log in. -->
+
+Once you have added someone's email address to your app's viewer list, that person will be able to sign in via Google Single Sign-On and view your app. They will also receive an email inviting them to view your app. If they are already logged in with that account in their browser (the usual case for most people) then they will automatically be able to view the app. If they are not logged in, or they have not been giving access, then they will see a page asking them to first log in.
 
 <Tip>
 
@@ -46,24 +52,28 @@ There are three primary ways to share your app with viewers. You can either dire
 You can add viewers from the in-app share menu by clicking the "Share" button in the top right corner of your deployed app.
 
 1. **Click "Share" in the top right corner.**
+
 <div style={{ marginBottom: '-3em', marginLeft: '2em' }}>
     <Image src="/images/streamlit-cloud/in-app-share-menu-1.png" />
 </div>
+
 2. **Enter the email addresses of the viewers.**
+
 <div style={{ maxWidth: '55%', marginBottom: '-3em', marginLeft: '10em' }}>
     <Image src="/images/streamlit-cloud/in-app-share-menu-2.png" />
 </div>
+
 3. **Click "Invite".**
 
    It's that easy! The viewers you have added will receive an email inviting them to visit your app. The most recently added viewers will appear at the top of the list in the in-app share menu.
 
-<div style={{ maxWidth: '75%', marginBottom: '-3em', marginLeft: '4em' }}>
+<div style={{ maxWidth: '75%', marginBottom: '-1em', marginLeft: '4em' }}>
     <Image src="/images/streamlit-cloud/app-invite-notification.png" />
 </div>
 
 To remove a viewer, simply hover over their email address and click "X" that appears to the right:
 
-<div style={{ maxWidth: '55%', marginBottom: '-3em', marginLeft: '10em' }}>
+<div style={{ maxWidth: '55%', marginBottom: '-1em', marginLeft: '10em' }}>
     <Image src="/images/streamlit-cloud/in-app-share-menu-3.png" />
 </div>
 
@@ -80,13 +90,17 @@ Only developers are allowed to toggle whether the app is public or private. App 
 From your deployed app you can easily add viewers from your Cloud logs menu.
 
 1. **Select "Manage app" in the lower right corner.**
+
 <div style={{ maxWidth: '45%', marginBottom: '-3em', marginLeft: '10em' }}>
     <Image src="/images/streamlit-cloud/manage-app.png" />
 </div>
+
 2. **Choose "Settings" from the menu.**
+
 <div style={{ maxWidth: '45%', marginBottom: '-3em', marginLeft: '10em' }}>
     <Image src="/images/streamlit-cloud/settings-menu.png" />
 </div>
+
 3. **Add Viewers in Settings.**
 
    You can choose to allow anyone from a domain, for example allowing "foo.corp" would allow anyone with an email from foo.corp. Or you can choose to allow only selected viewers based on their individual emails. Make sure to enter them as a line-separated list.
@@ -115,7 +129,7 @@ You can also add viewers directly from your dashboard.
 
 ## Sharing public apps
 
-From your deployed app you can click on the "☰" menu on the top right and select 'Share this app' to post it directly into social media or to share with the community on the [Forum](https://discuss.streamlit.io/c/streamlit-examples/9). We'd love to see what you make and perhaps feature your app as our app of the month ❤️.
+From your deployed app you can click on the "☰" menu on the top right and select 'Share this app' to post it directly into social media or to share with the community on our [Community forum](https://discuss.streamlit.io/c/streamlit-examples/9). We'd love to see what you make and perhaps feature your app as our app of the month ❤️.
 
 ### Add a GitHub badge
 

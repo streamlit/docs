@@ -5,7 +5,7 @@ slug: /streamlit-cloud/troubleshooting
 
 # Troubleshooting
 
-Sorry to hear you're having issues! Please take a look at some frequently asked questions and issues below. If you cannot find an answer to your issue, please post on the [Streamlit forum](http://discuss.streamlit.io) or contact your support representative.
+Sorry to hear you're having issues! Please take a look at some frequently asked questions and issues below. If you cannot find an answer to your issue, please post on our [Community forum](http://discuss.streamlit.io) so that our engineers or community members can help you.
 
 ## Table of contents
 
@@ -13,20 +13,20 @@ Sorry to hear you're having issues! Please take a look at some frequently asked 
 2. [Deploying apps](#deploying-apps)
 3. [Sharing and accessing apps](/streamlit-cloud/troubleshooting#sharing-and-accessing-apps)
 4. [Data and app security](/streamlit-cloud/troubleshooting#data-and-app-security)
-5. [Billing and administration](/streamlit-cloud/troubleshooting#billing-and-administration)
-6. [GitHub integration](/streamlit-cloud/troubleshooting#github-integration)
-7. [Limitations and known issues](/streamlit-cloud/troubleshooting#limitations-and-known-issues)
+<!-- 5. [Billing and administration](/streamlit-cloud/troubleshooting#billing-and-administration) -->
+5. [GitHub integration](/streamlit-cloud/troubleshooting#github-integration)
+6. [Limitations and known issues](/streamlit-cloud/troubleshooting#limitations-and-known-issues)
 
 ## General help
 
 ### How can I get help with my app?
 
-If you have any questions, feedback, run into any issues, or need to reach us, you can
+If you have any questions, feedback, run into any issues, or need to reach us, you can ask on our [Community forum](https://discuss.streamlit.io/). This is best suited for any questions related to the open source library and Community Cloud - debugging code, deployment, resource limits, etc.
 
-- Ask on the [forum](https://discuss.streamlit.io) ⬅️ this is best for any question related to the open source library
+<!-- - Ask on the [forum](https://discuss.streamlit.io) ⬅️ this is best for any question related to the open source library
 - Email us at [support@streamlit.io](mailto:support@streamlit.io) ⬅️ this is best for anything related to the app platform - deployment, SSO, etc.
 
-If you want, we are also happy to help lend an eye on your app development. Just shoot us a note if you want to share some code or have our team take a look at your app and give you some tips.
+If you want, we are also happy to help lend an eye on your app development. Just shoot us a note if you want to share some code or have our team take a look at your app and give you some tips. -->
 
 ## Deploying apps
 
@@ -64,15 +64,24 @@ If you have really big or binary data that you change frequently, and git is fee
 
 Check your Cloud logs by clicking on the "Manage app" expander in the bottom right corner of your screen. Often the trouble is due to a dependency not being declared. See here for [more information on dependency management](/streamlit-cloud/get-started/deploy-an-app/app-dependencies).
 
-If that's not the issue, then please send your Streamlit contact the logs and warning you are seeing and we'll help get you sorted!
+<!-- If that's not the issue, then please send your Streamlit contact the logs and warning you are seeing and we'll help get you sorted! -->
+
+If that's not the issue, then please send the logs and warning you are seeing to our [Community forum](https://discuss.streamlit.io/) and we'll help get you sorted!
 
 ### My app is hitting resource limits / my app is running very slowly
 
-If your app is running slowly or you're hitting the 'Argh' page then just let us know and we can work to help you adjust the limits. We may need to upgrade your workspace to give you access to a higher level of resources. If you know in advance you are going to need more resources, also just let us know so we can set them up for you before you run into issues. Click [here](/streamlit-cloud/get-started/manage-your-app#app-resources-and-limits) to learn more about [resource limits](/streamlit-cloud/get-started/manage-your-app#app-resources-and-limits).
+<!-- If your app is running slowly or you're hitting the 'Argh' page then just let us know and we can work to help you adjust the limits. We may need to upgrade your workspace to give you access to a higher level of resources. If you know in advance you are going to need more resources, also just let us know so we can set them up for you before you run into issues. Click [here](/streamlit-cloud/get-started/manage-your-app#app-resources-and-limits) to learn more about [resource limits](/streamlit-cloud/get-started/manage-your-app#app-resources-and-limits). -->
+
+If your app is running slowly or you're hitting the 'Argh' page, we first highly recommend going through and implementing the suggestions in the following blog posts to prevent your app from hitting the resource limits and to detect if your Streamlit app leaks memory:
+
+- [Common app problems: Resource limits](https://blog.streamlit.io/common-app-problems-resource-limits/)
+- [3 steps to fix app memory leaks](https://blog.streamlit.io/3-steps-to-fix-app-memory-leaks/)
+
+If you're still having issues, we can work to help you adjust the limits. We may need to upgrade your workspace to give you access to a higher level of resources. If you know in advance you are going to need more resources, also just let us know so we can set them up for you before you run into issues. Click [here](/streamlit-cloud/get-started/manage-your-app#app-resources-and-limits) to learn more about resource limits.
 
 ### Can I get a custom URL for my app?
 
-We are working on this in Q4 of 2021. Check back soon for more information!
+We are working on this in Q2 of 2022. Check our [public roadmap](https://share.streamlit.io/streamlit/roadmap/#unique-and-custom-subdomain-per-app-in-development) for more information!
 
 ## Sharing and accessing apps
 
@@ -80,15 +89,17 @@ We are working on this in Q4 of 2021. Check back soon for more information!
 
 Don't have SSO? No problem! You can sign in to Streamlit with your email address. [Click here](/streamlit-cloud/get-started#sign-in-with-email) for step-by-step instructions on how to sign in with email.
 
-### How do I add developers to my Streamlit for Teams account?
+<!-- ### How do I add developers to my Streamlit for Teams account?
 
-If you are on the same GitHub repo then you will automatically be added to the same workspace. Just invite them to log in to [share.streamlit.io](http://share.streamlit.io) and we will automatically route them to your workspace once they hook in their GitHub account.
+If you are on the same GitHub repo then you will automatically be added to the same workspace. Just invite them to log in to [share.streamlit.io](http://share.streamlit.io) and we will automatically route them to your workspace once they hook in their GitHub account. -->
 
 ### How do I add viewers to my Streamlit apps?
 
-By default, all apps deployed with Streamlit Cloud Teams and Enterprise are private—which means that others in your company won't be able to view them unless you give them explicit permission. To add viewers, [configure single sign-on](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso) with your organization's SSO provider.
+<!-- By default, all apps deployed with Streamlit Cloud Teams and Enterprise are private—which means that others in your company won't be able to view them unless you give them explicit permission. To add viewers, [configure single sign-on](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso) with your organization's SSO provider.
 
-If you cannot implement single sign-on, but want to secure your Streamlit app with passwords, read our guide on [authentication without SSO](/knowledge-base/deploy/authentication-without-sso). Note: while this technique adds some level of security, it is **NOT** comparable to proper authentication with an SSO provider.
+If you cannot implement single sign-on, but want to secure your Streamlit app with passwords, read our guide on [authentication without SSO](/knowledge-base/deploy/authentication-without-sso). Note: while this technique adds some level of security, it is **NOT** comparable to proper authentication with an SSO provider. -->
+
+Viewer auth allows you to restrict the viewers of your private app. To access your app, users have to authenticate using an email-based passwordless login or Google OAuth. To learn more about how to share your public and private apps with viewers, click [here](/streamlit-cloud/get-started/share-your-app).
 
 ### Do viewers need access to the GitHub repo?
 
@@ -99,20 +110,22 @@ Nope! You only need access to the GitHub repo if you want to push changes to the
 A 404 error is displayed to unauthorized viewers to avoid providing any unnecessary information about your app to unintended viewers. Users who satisfy any of the following conditions will see a 404 error when attempting to view your app after you have configured viewer auth:
 
 - User is not logged in with Google SSO.
-- User is not included in the list of viewers provided in [Step 3]().
-- User is enrolled in Streamlit for Teams beta but lacks read access to your app's GitHub repo.
-- User has read access to your app's GitHub repo but is not enrolled in Streamlit for Teams beta.
+- User is not included in the [list of viewers](/streamlit-cloud/get-started/share-your-app#adding-viewers-from-the-app-dashboard) provided in the app settings.
+- User is lacks read access to your app's GitHub repo.
+<!-- - User has read access to your app's GitHub repo but is not enrolled in Streamlit for Teams beta. -->
+- User has read access to your app's GitHub repo but is not enrolled in Community Cloud.
 
 ![Four Oh Four](/images/streamlit-cloud/404.png)
 
-### I've added someone to the viewer list but they still see a 404 error when attempting to view the app.
+### I've added someone to the viewer list but they still see a 404 error when attempting to view the app
 
 If a user is still seeing a 404 error after their email address has been added to the viewer list, we recommend that you:
 
 - Check that the user did not log into a different Google account via Single Sign-On (if you have added their work email address to the viewer list, ask the user to check that they are not logged into their personal Google account, and vice versa).
 - Check that the user has navigated to the correct URL.
 - Check that the user's email address has been entered correctly in the viewer list.
-- Contact [support@streamlit.io](mailto:support@streamlit.io) and we will be happy to help.
+<!-- - Contact [support@streamlit.io](mailto:support@streamlit.io) and we will be happy to help. -->
+- Reach out on our [Community forum](https://discuss.streamlit.io/) and we will be happy to help.
 
 ## Data and app security
 
@@ -122,11 +135,15 @@ Streamlit takes a number of industry best-practice measures to ensure your code,
 
 ### How do I set up SSO for my organization?
 
-If you use Google for authentication, you're all set. Otherwise please refer to our [SSO configuration guides](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso) on how to set up with your SSO provider of choice.
+<!-- If you use Google for authentication, you're all set. Otherwise please refer to our [SSO configuration guides](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso) on how to set up with your SSO provider of choice. -->
+
+Community Cloud uses Google OAuth, by default. If you use Google for authentication you're all set.
 
 ## Billing and administration
 
-### Are there limits to resources or to users that I can have?
+The Community Cloud is a free service. You don't have to worry about setting up billing or being charged.
+
+<!-- ### Are there limits to resources or to users that I can have?
 
 Your workspace is sized to a certain number of users, apps, and resources for those apps. We'll let you know if you're close to your limit and will reach out to discuss if you'd like to move to a larger workspace.
 
@@ -144,7 +161,7 @@ The Starter plan is free forever, but if you have opted for a Teams account then
 
 When your trial is near completion, you will receive automated emails reminding you to set up your billing information (if you haven't already) to continue on your Teams plan. To avoid disruption, we recommend that you set up billing well before your trial ends. Once you have set up your billing information, we will only start charging you once your trial ends. Stripe will automatically bill your account every month and send you a confirmation email.
 
-If you choose not to set up billing, you will be downgraded to the Starter plan after your trial ends.
+If you choose not to set up billing, you will be downgraded to the Starter plan after your trial ends. -->
 
 ## GitHub integration
 

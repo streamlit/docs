@@ -39,7 +39,7 @@ The Cloud logs on the right hand side are only viewable to the developer and is 
 
 ## Your app URL
 
-That's it — you're done! Your app now has a permanent URL that you can share with others. Click [here]() to read about how to share your app with viewers.
+That's it — you're done! Your app now has a permanent URL that you can share with others. Click [here](/streamlit-cloud/get-started/share-your-app) to read about how to share your app with viewers.
 
 App URLs follow a standard structure based on your GitHub repo:
 
