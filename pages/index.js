@@ -149,22 +149,22 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
+                date="2022-05-03T16:05:00.000Z"
+                title="Wissam Siblini uses Streamlit for pathology detection in chest radiographs"
+                text="Learn how Wissam detected thoracic pathologies in medical images."
+                link="https://blog.streamlit.io/wissam-siblini-uses-streamlit-for-pathology-detection-in-chest-radiographs/"
+              />
+              <NewsEntry
+                date="2022-04-28T16:05:00.000Z"
+                title="The Stable solves its data scalability problem with Streamlit"
+                text="How Mark von Oven of The Stable helped his Analytics team go from idea to app in just a few days."
+                link="https://blog.streamlit.io/the-stable-solves-its-data-scalability-problem-with-streamlit/"
+              />
+              <NewsEntry
                 date="2022-04-21T16:05:00.000Z"
                 title="How to build a real-time live dashboard with Streamlit"
                 text="5 easy steps to make your own data dashboard."
                 link="https://blog.streamlit.io/how-to-build-a-real-time-live-dashboard-with-streamlit/"
-              />
-              <NewsEntry
-                date="2022-04-14T16:05:00.000Z"
-                title="3 steps to fix app memory leaks"
-                text="How to detect if your Streamlit app leaks memory and identify faulty code."
-                link="https://blog.streamlit.io/3-steps-to-fix-app-memory-leaks/"
-              />
-              <NewsEntry
-                date="2022-04-07T16:05:00.000Z"
-                title="Monthly Rewind > March 2022"
-                text="Your March look-back at new features and great community content."
-                link="https://blog.streamlit.io/monthly-rewind-march-2022/"
               />
               <Button link="https://blog.streamlit.io/">
                 View all updates
@@ -229,11 +229,26 @@ export default function Home({ window, menu, gdpr_data }) {
                   border_color: "gray-90",
                 }}
                 border_color="gray-40"
+                icon="expand_more"
+                title="Expand and collapse JSON elements with kwarg"
+                text="st.json now supports a keyword-only argument, expanded, on whether the JSON should be expanded by default (defaults to True)."
+                link="/library/api-reference/data/st.json"
+              />
+              {/* <Tile
+                size="half"
+                background="unset"
+                color="unset"
+                dark={{
+                  background: "unset",
+                  color: "white",
+                  border_color: "gray-90",
+                }}
+                border_color="gray-40"
                 img="/logo.svg"
                 title="Clear memo + singleton caches procedurally"
                 text="Do you need more control over cache invalidation? Any function annotated with @st.experimental_memo or @st.experimental_singleton gets its own clear() function automatically."
                 link="/library/advanced-features/experimental-cache-primitives#clear-memo-and-singleton-caches-procedurally"
-              />
+              /> */}
             </TileContainer>
 
             <NoteSplit
