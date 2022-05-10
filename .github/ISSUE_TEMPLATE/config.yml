@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Streamlit community support
+    url: https://discuss.streamlit.io/
+    about: Please ask and answer questions here.
+  - name: Streamlit documentation
+    url: https://docs.streamlit.io/
+    about: To learn more about how Streamlit works.
+  - name: Streamlit docs README
+    url: https://github.com/streamlit/docs/blob/main/README.md
+    about: To learn how Streamlit's documentation works.
