@@ -189,7 +189,7 @@ Once you start or are invited to a Streamlit workspace, you have access to 2 typ
 
 <Note>
 
-The Analytics Modal is visible to everyone with access to your workspace. This includes admins, developers, or anyone with viewer access to a workspace.
+The Analytics Modal is visible to everyone with access to your workspace, including admins, developers, or anyone with viewer access to a workspace.
 
 </Note>
 
@@ -206,13 +206,13 @@ To view your Workspace analytics:
 2. View the "**Workspace**" tab in the Analytics modal
    ![Workspace analytics modal](/images/streamlit-cloud/workspace-analytics-modal.png)
 
-You’re presented a graph that you can hover over to see the number of users who have viewed at least one app in your workspace that month.
+You’re presented with a graph that you can hover over to see the number of users who have viewed at least one app in your workspace that month.
 
-This viewers count includes apps that were created by anyone in your workspace. Viewers data on your dashboard starts from April 2022 and onward.
+This viewers count includes apps that anyone in your workspace created. Viewers data on your dashboard starts from April 2022 and onward.
 
-On the dashboard, solid lines indicate fully-complete months, while dotted lines indicate the current in-progress month.
+Solid lines indicate fully-complete months on the dashboard, while dotted lines indicate the current in-progress month.
 
-Note: April 2022 data was our first month comprehensively tracking user analytics in Streamlit workspaces, and our tracking is even more refined starting in May 2022 and onward.
+**Note:** April 2022 data was our first month comprehensively tracking user analytics in Streamlit workspaces, and our tracking is even more refined starting in May 2022 and onward.
 
 ### App viewers
 
@@ -235,7 +235,7 @@ There are three ways to access the app viewers data:
 
 <Note>
 
-For public apps, we anonymize all viewers outside your workspace for their privacy and display anonymous viewers as random pseudonyms.
+For public apps, we anonymize all viewers outside your workspace for their privacy and display anonymous viewers as random pseudonyms. You’ll still be able to see the identities of fellow members in your workspace, though.
 
 Meanwhile, for private apps that are only accessible to your own workspace’s viewers, you will be able to see the specific users of your apps’ recent viewers.
 
