@@ -184,7 +184,7 @@ Once you start or are invited to a Streamlit workspace, you have access to 2 typ
 
 1. [Workspace analytics](/streamlit-cloud/get-started/manage-your-app#workspace-analytics): shows you how many viewers in total have visited _all_ the apps in your workspace.
    <Image alt="Workspace analytics" src="/images/streamlit-cloud/workspace-analytics.gif" />
-2. [App viewers](/streamlit-cloud/get-started/manage-your-app#app-viewers-data): shows you who has recently viewed your workspace’s individual apps and when.
+2. [App viewers](/streamlit-cloud/get-started/manage-your-app#app-viewers): shows you who has recently viewed your workspace’s individual apps and when.
    <Image alt="Workspace analytics" src="/images/streamlit-cloud/app-viewers-data.gif" />
 
 <Note>
