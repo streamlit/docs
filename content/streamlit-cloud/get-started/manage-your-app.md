@@ -206,13 +206,11 @@ To view your Workspace analytics:
 2. View the "**Workspace**" tab in the Analytics modal
    ![Workspace analytics modal](/images/streamlit-cloud/workspace-analytics-modal.png)
 
-You’re presented with a graph that you can hover over to see the number of users who have viewed at least one app in your workspace that month.
-
-This viewers count includes apps that anyone in your workspace created. Viewers data on your dashboard starts from April 2022 and onward.
+You're presented with a graph that you can hover over to see the number of users who have viewed at least one app in your workspace that month. This viewers count includes apps that anyone in your workspace created.
 
 Solid lines indicate fully-complete months on the dashboard, while dotted lines indicate the current in-progress month.
 
-**Note:** April 2022 data was our first month comprehensively tracking user analytics in Streamlit workspaces, and our tracking is even more refined starting in May 2022 and onward.
+**Note:** Viewers data on your dashboard starts from April 2022 and onward. April 2022 data was our first month comprehensively tracking user analytics in Streamlit workspaces, and our tracking is even more refined starting in May 2022 and onward.
 
 ### App viewers
 
