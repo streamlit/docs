@@ -197,8 +197,6 @@ The Analytics Modal is visible to everyone with access to your workspace, includ
 
 Streamlit Cloud enables you to view analytics data for all apps in your workspace in one central dashboard. At a glance, you get an overview of how active your workspace is and how popular your apps are.
 
-Say you're the Head of Data and want to see if the Streamlit usage in your company has increased over time. Or say you're an open-source developer and want to see how popular your apps have become. The Workspace analytics dashboard is your one-stop-shop for these insights.
-
 To view your Workspace analytics:
 
 1. Select the "**Analytics**" option on the dashboard header
