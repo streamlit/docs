@@ -12,6 +12,7 @@ You can manage your app directly from the deployed app in your developer view or
 - [Manage apps in GitHub](/streamlit-cloud/get-started/manage-your-app#manage-apps-in-github)
 - [App resources and limits](/streamlit-cloud/get-started/manage-your-app#app-resources-and-limits)
 - [App favoriting](/streamlit-cloud/get-started/manage-your-app#app-favoriting)
+- [Analytics Modal](/streamlit-cloud/get-started/manage-your-app#analytics-modal)
 
 ## Manage apps from your developer view
 
@@ -180,3 +181,80 @@ To unfavorite an app, click the star (⭐) again.
 Click [here](/knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud) to learn more about upgrading the Streamlit version of your app on Streamlit Cloud.
 
 </Tip>
+
+## Analytics Modal
+
+Once you have access to a Streamlit workspace, you have access to 2 types of analytics:
+
+1. [Workspace analytics](/streamlit-cloud/get-started/manage-your-app#workspace-analytics): shows you how many viewers in total have visited _all_ the apps in your workspace.
+   <Image alt="Workspace analytics" src="/images/streamlit-cloud/workspace-analytics.gif" />
+2. [App viewers](/streamlit-cloud/get-started/manage-your-app#app-viewers): shows you who has recently viewed your workspace’s individual apps and when.
+   <Image alt="Workspace analytics" src="/images/streamlit-cloud/app-viewers-data.gif" />
+
+<Note>
+
+The Analytics Modal is visible to everyone with access to your workspace, including admins, developers, or anyone with viewer access to a workspace.
+
+</Note>
+
+### Workspace analytics
+
+Streamlit Cloud enables you to view analytics data for all apps in your workspace in one central dashboard. At a glance, you get an overview of how active your workspace is and how popular your apps are.
+
+To view your Workspace analytics:
+
+1. Select the "**Analytics**" option on the dashboard header
+   ![Workspace analytics header dashboard](/images/streamlit-cloud/workspace-analytics-header.png)
+2. View the "**Workspace**" tab in the Analytics modal
+   ![Workspace analytics modal](/images/streamlit-cloud/workspace-analytics-modal.png)
+
+You're presented with a graph that you can hover over to see the number of users who have viewed at least one app in your workspace that month. This viewers count includes apps that anyone in your workspace created.
+
+Solid lines indicate fully-complete months on the dashboard, while dotted lines indicate the current in-progress month.
+
+**Note:** Viewers data on your dashboard starts from April 2022 and onward. April 2022 data was our first month comprehensively tracking user analytics in Streamlit workspaces, and our tracking is even more refined starting in May 2022 and onward.
+
+### App viewers
+
+In addition to a general overview of the activity of your workspace and the popularity of your apps, Streamlit Cloud allows you to drill down to the level of individual apps and understand their viewership better.
+
+As an app developer or a viewer with access to a given workspace, you can see who has viewed a given app and when. Specifically, you can see the total viewers count of your app (since April 2022 and onward), the most recent unique viewers (capped up to your last 20 viewers), and a relative timestamp of their last view.
+
+There are three ways to access the app viewers data:
+
+1. From the app dashboard, click the "**︙**" overflow menu to the app's right and select **Analytics**:
+   ![Analytics option dashboard](/images/streamlit-cloud/app-viewers-dashboard.png)
+
+   Doing so opens the "**App viewers**" tab of the "**Analytics**" modal.
+   ![App viewers analytics modal](/images/streamlit-cloud/app-viewers-analytics-modal.png)
+
+   The dropdown selects your app by default and displays:
+
+   - The total (all time) number of unique viewers for the app.
+   - A list of the most recent viewers' names and a relative timestamp of their last view, sorted by the time since the last view (newest first).
+
+<Note>
+
+For public apps, we anonymize all viewers outside your workspace for their privacy and display anonymous viewers as random pseudonyms. You’ll still be able to see the identities of fellow members in your workspace, though.
+
+Meanwhile, for private apps that are only accessible to your own workspace’s viewers, you will be able to see the specific users of your apps’ recent viewers.
+
+</Note>
+
+2. Click the "**Analytics**" option on the dashboard header and select the "**App viewers**" tab:
+   ![Analytics option header](/images/streamlit-cloud/app-viewers-header.png)
+
+   Doing so opens the "**App viewers**" tab of the "**Analytics**" modal.
+
+   ![App viewers analytics dropdown options](/images/streamlit-cloud/app-viewers-dropdown-options.png)
+
+   The first app in your workspace is pre-selected in the dropdown by default. You can select the app you want to see the analytics for by clicking the corresponding app in the dropdown.
+
+   ![App viewers analytics dropdown](/images/streamlit-cloud/app-viewers-dropdown.png)
+
+3. You can also access app viewer analytics from right within individual apps! This is a capability if you have GitHub push access for a given app. Just view any app in your workspace as a developer, click the "**︙**" overflow menu at the bottom of the Cloud logs and select "**Analytics**":
+
+<Flex>
+<Image src="/images/streamlit-cloud/app-viewers-in-app.png" />
+<Image src="/images/streamlit-cloud/app-viewers-analytics-modal.png" />
+</Flex>
