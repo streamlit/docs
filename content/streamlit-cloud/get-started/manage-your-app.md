@@ -180,7 +180,7 @@ Click [here](/knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud
 
 ## Analytics Modal
 
-Once you start or are invited to a Streamlit workspace, you have access to 2 types of analytics:
+Once you have access to a Streamlit workspace, you have access to 2 types of analytics:
 
 1. [Workspace analytics](/streamlit-cloud/get-started/manage-your-app#workspace-analytics): shows you how many viewers in total have visited _all_ the apps in your workspace.
    <Image alt="Workspace analytics" src="/images/streamlit-cloud/workspace-analytics.gif" />
