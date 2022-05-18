@@ -149,22 +149,22 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
-                date="2022-05-03T16:05:00.000Z"
-                title="Wissam Siblini uses Streamlit for pathology detection in chest radiographs"
-                text="Learn how Wissam detected thoracic pathologies in medical images."
-                link="https://blog.streamlit.io/wissam-siblini-uses-streamlit-for-pathology-detection-in-chest-radiographs/"
+                date="2022-05-17T16:05:00.000Z"
+                title="Leverage your user analytics on Streamlit's Community Cloud"
+                text="See who viewed your apps, when, and how popular they are."
+                link="https://blog.streamlit.io/leverage-your-user-analytics-on-streamlits-community-cloud/"
               />
               <NewsEntry
-                date="2022-04-28T16:05:00.000Z"
-                title="The Stable solves its data scalability problem with Streamlit"
-                text="How Mark von Oven of The Stable helped his Analytics team go from idea to app in just a few days."
-                link="https://blog.streamlit.io/the-stable-solves-its-data-scalability-problem-with-streamlit/"
+                date="2022-05-12T16:05:00.000Z"
+                title="How to share scientific analysis through a Streamlit app"
+                text="3 easy steps to share your study results with fellow scientists."
+                link="https://blog.streamlit.io/how-to-share-scientific-analysis-through-a-streamlit-app/"
               />
               <NewsEntry
-                date="2022-04-21T16:05:00.000Z"
-                title="How to build a real-time live dashboard with Streamlit"
-                text="5 easy steps to make your own data dashboard."
-                link="https://blog.streamlit.io/how-to-build-a-real-time-live-dashboard-with-streamlit/"
+                date="2022-05-05T16:05:00.000Z"
+                title="Monthly Rewind > April 2022"
+                text="Your April look-back at new features and great community content."
+                link="https://blog.streamlit.io/monthly-rewind-april-2022/"
               />
               <Button link="https://blog.streamlit.io/">
                 View all updates
@@ -199,10 +199,10 @@ export default function Home({ window, menu, gdpr_data }) {
                   border_color: "gray-90",
                 }}
                 border_color="gray-40"
-                icon="login"
-                title="Sign in with email"
-                text="You can now sign in to Streamlit Cloud by using an email! Read more about how to use this feature in our docs."
-                link="/streamlit-cloud/get-started#log-in-to-sharestreamlitio"
+                icon="analytics"
+                title="Workspace analytics"
+                text="See how many total viewers have visited all apps in your Community Cloud workspace. Read more about how to access this feature in our docs."
+                link="/streamlit-cloud/get-started/manage-your-app#analytics-modal"
               />
               <Tile
                 size="half"
@@ -214,10 +214,10 @@ export default function Home({ window, menu, gdpr_data }) {
                   border_color: "gray-90",
                 }}
                 border_color="gray-40"
-                icon="star"
-                title="App favoriting"
-                text="Streamlit Cloud supports a 'favorite' feature that lets you quickly access your apps from the app dashboard. Favorited apps appear with a yellow star ⭐ beside them."
-                link="/streamlit-cloud/get-started/manage-your-app#app-favoriting"
+                icon="group"
+                title="App viewers data"
+                text="Community Cloud allows you to drill down to the level of individual apps and understand their viewership better. Use app viewers data to see who has recently viewed your apps and when."
+                link="/streamlit-cloud/get-started/manage-your-app#app-viewers"
               />
               <Tile
                 size="half"
