@@ -250,7 +250,7 @@ Meanwhile, for private apps that are only accessible to your own workspace’s v
 
    The first app in your workspace is pre-selected in the dropdown by default. You can select the app you want to see the analytics for by clicking the corresponding app in the dropdown.
 
-   ![App viewers analytics dropdown](/images/streamlit-cloud/app-viewers-dropdown.png)
+   ![App viewers analytics dropdown](/images/streamlit-cloud/app-viewers-analytics-modal.png)
 
 3. You can also access app viewer analytics from right within individual apps! This is a capability if you have GitHub push access for a given app. Just view any app in your workspace as a developer, click the "**︙**" overflow menu at the bottom of the Cloud logs and select "**Analytics**":
 
