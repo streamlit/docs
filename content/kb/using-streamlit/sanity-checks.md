@@ -17,12 +17,6 @@ as possible, though frequently we are at the mercy of other Python packages to s
 
 Streamlit currently supports versions 3.7, 3.8, 3.9, and 3.10 of Python.
 
-<Note>
-
-Streamlit Cloud does not currently support Python 3.10
-
-</Note>
-
 ## Check #1: Is Streamlit running?
 
 On a Mac or Linux machine, type this on the terminal:
