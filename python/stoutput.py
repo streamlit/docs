@@ -47,7 +47,7 @@ class StOutput(Directive):
             text="""
                 <iframe
                     loading="lazy"
-                    src="%(src)s&embed=true"
+                    src="%(src)s"
                     style="
                         width: 100%%;
                         border: none;
