@@ -38,7 +38,7 @@ const getPDFs = async (url) => {
   });
   await page.emulateMediaType("screen");
   await page.pdf({
-    path: `../content/pdf/${url.slug}.pdf`,
+    path: `../public/pdf/${url.slug}.pdf`,
     format: "a4",
     preferCSSPageSize: true,
   });

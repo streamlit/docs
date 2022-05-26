@@ -3,7 +3,7 @@ const fs = require("fs");
 const PDFMerger = require("pdf-merger-js");
 
 const merger = new PDFMerger();
-const directoryPath = path.join(__dirname, "../content/pdf/");
+const directoryPath = path.join(__dirname, "../public/pdf/");
 
 const getPDFs = () => {
   fs.readdir(directoryPath, async function (err, files) {
