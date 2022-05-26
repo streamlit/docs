@@ -212,7 +212,11 @@ You're presented with a graph that you can hover over to see the number of users
 
 Solid lines indicate fully-complete months on the dashboard, while dotted lines indicate the current in-progress month.
 
-**Note:** Viewers data on your dashboard starts from April 2022 and onward. April 2022 data was our first month comprehensively tracking user analytics in Streamlit workspaces, and our tracking is even more refined starting in May 2022 and onward.
+<Note>
+
+Viewers data on your dashboard starts from April 2022 and onward. April 2022 data was our first month comprehensively tracking user analytics in Streamlit workspaces, and our tracking is even more refined starting in May 2022 and onward.
+
+</Note>
 
 ### App viewers
 
@@ -233,14 +237,6 @@ There are three ways to access the app viewers data:
    - The total (all time) number of unique viewers for the app.
    - A list of the most recent viewers' names and a relative timestamp of their last view, sorted by the time since the last view (newest first).
 
-<Note>
-
-For public apps, we anonymize all viewers outside your workspace for their privacy and display anonymous viewers as random pseudonyms. You’ll still be able to see the identities of fellow members in your workspace, though.
-
-Meanwhile, for private apps that are only accessible to your own workspace’s viewers, you will be able to see the specific users of your apps’ recent viewers.
-
-</Note>
-
 2. Click the "**Analytics**" option on the dashboard header and select the "**App viewers**" tab:
    ![Analytics option header](/images/streamlit-cloud/app-viewers-header.png)
 
@@ -258,3 +254,19 @@ Meanwhile, for private apps that are only accessible to your own workspace’s v
 <Image src="/images/streamlit-cloud/app-viewers-in-app.png" />
 <Image src="/images/streamlit-cloud/app-viewers-analytics-modal.png" />
 </Flex>
+
+#### **App viewers for public vs private apps**
+
+For public apps, we anonymize all viewers outside your workspace to protect their privacy and display anonymous viewers as random pseudonyms. You'll still be able to see the identities of fellow members in your workspace, though.
+
+Meanwhile, for private apps that are only accessible to your own workspace's viewers, you will be able to see the specific users who recently viewed your apps.
+
+Additionally, you may occasionally see anonymous users in private apps. Rest assured, these anonymous users _do_ have authorized view access granted by you or your workspace members.
+
+Common reasons why users show up anonymously are:
+
+1. The app was previously public
+2. Given viewer viewed app in April 2022, when the Streamlit team was honing user identification for this feature
+3. Given viewer disconnected their SSO and Github accounts previously
+
+See Streamlit's general Privacy Policy [here](https://streamlit.io/privacy-policy).
