@@ -66,9 +66,7 @@ const getLinks = async () => {
 
   const promises = filteredPages.map((page) => getPDFs(page));
   Promise.all(promises).then((results) => {
-    console.log(
-      "Done creating all PDFs. Exiting the process! Now run node merge-pdfs.js to combine them."
-    );
+    console.log("Done creating all PDFs. Exiting the process!");
     process.exit();
   });
 };
@@ -87,7 +85,7 @@ const getPDFs = async (url) => {
 
   // Creating the PDF
   await page.pdf({
-    path: `../public/pdf/pages/${url.slug}.pdf`,
+    path: `scripts/pages/${url.slug}.pdf`,
     format: "a4",
     preferCSSPageSize: true,
   });
