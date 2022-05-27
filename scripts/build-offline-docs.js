@@ -87,7 +87,7 @@ const getPDFs = async (url) => {
 
   // Creating the PDF
   await page.pdf({
-    path: `../public/pdf/${url.slug}.pdf`,
+    path: `../public/pdf/pages/${url.slug}.pdf`,
     format: "a4",
     preferCSSPageSize: true,
   });

@@ -18,9 +18,10 @@ const getPDFs = () => {
       console.log(`Adding ${file}...`);
 
       const isFileValid = isPDFValid(fs.readFileSync(`${pagesPath}/${file}`));
-      isFileValid === true ? merger.add(`${pagesPath}/${file}`) : "";
-
-      console.log(`Done! ${file} added`);
+      if (isFileValid === true) {
+        merger.add(`${pagesPath}/${file}`);
+        console.log(`Done! ${file} added`);
+      }
     });
 
     console.log("Merging the PDF...");
