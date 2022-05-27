@@ -5,7 +5,7 @@ const isPDFValid = require("is-pdf-valid");
 
 // Initialize the merger
 const merger = new PDFMerger();
-const pagesPath = path.join(__dirname, "../public/pdf/pages");
+const pagesPath = path.join(__dirname, "pages");
 const pdfPath = path.join(__dirname, "../public/pdf");
 
 const getPDFs = () => {
@@ -19,8 +19,15 @@ const getPDFs = () => {
 
       const isFileValid = isPDFValid(fs.readFileSync(`${pagesPath}/${file}`));
       if (isFileValid === true) {
-        merger.add(`${pagesPath}/${file}`);
-        console.log(`Done! ${file} added`);
+        try {
+          merger.add(`${pagesPath}/${file}`);
+          console.log(`Done! ${file} added`);
+        } catch (e) {
+          console.log(
+            `Skipping ${file} because the PDF wasn't generated properly. See error below:`
+          );
+          console.log(e);
+        }
       }
     });
 
