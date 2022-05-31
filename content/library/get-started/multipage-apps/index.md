@@ -1,5 +1,5 @@
 ---
-title: Multi-page apps
+title: Multipage apps
 slug: /library/get-started/multipage-apps
 ---
 
