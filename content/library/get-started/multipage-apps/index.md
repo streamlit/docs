@@ -96,6 +96,21 @@ If a user tries to access a URL for a page that does not exist, they are shown a
 ## Notes
 
 - Pages support [magic commands](https://docs.streamlit.io/library/api-reference/write-magic/magic).
+- Pages support run-on-save. Additionally, when you save a page, this causes a rerun for users currently viewing that exact page.
+- Adding or deleting a page causes the UI to update immediately (if run-on-save is on).
+- `st.set_page_config` works at the page level. When you set a title or emoji using [st.set_page_config](/library/api-reference/utilities/st.set_page_config), this applies to the current page only.
+- Pages share the same Python modules globally:
+
+  ```python
+  # page1.py
+  import foo
+  foo.hello = 123
+
+  # page2.py
+  import foo
+  st.write(foo.hello)  # If page1 already executed, this should write 123
+  ```
+
 - Pages share the same [st.session_state](https://docs.streamlit.io/library/advanced-features/session-state):
 
   ```python
@@ -109,21 +124,5 @@ If a user tries to access a URL for a page that does not exist, they are shown a
   st.write(st.session_state["shared"])
   # If page1 already executed, this should write True
   ```
-
-- Pages support run-on-save. Additionally, when you save a page, this causes a rerun for users currently viewing that exact page.
-- Adding or deleting a page causes the UI to update immediately (if run-on-save is on).
-- Pages share the same Python modules globally:
-
-  ```python
-  # page1.py
-  import foo
-  foo.hello = 123
-
-  # page2.py
-  import foo
-  st.write(foo.hello)  # If page1 already executed, this should write 123
-  ```
-
-- `st.set_page_config` works at the page level. When you set a title or emoji using [st.set_page_config](/library/api-reference/utilities/st.set_page_config), this applies to the current page only.
 
 Now that you have a solid understanding of multipage apps, including how to structure them, define pages, and how to navigate between pages in the user interface, you're ready to [create your first multipage app](/library/get-started/multipage-apps/create-a-multipage-app)! 🥳
