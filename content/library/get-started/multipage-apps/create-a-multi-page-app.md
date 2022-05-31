@@ -554,7 +554,7 @@ That’s it! The `Hello.py` script now corresponds to the index page of your app
 
 ## Next steps
 
-Congratulations! 🎉 If you've read this far, chances are you've learned to create single-page and multipage app. Where you go from here is entirely up to your creativity! We’re excited to see what you’ll build now that adding additional pages to your apps is easier than ever. As an exercise, try adding more pages to the app we’ve just built. Also be sure to stop by on the forum to show off your multipage apps with the Streamlit community! 🎈
+Congratulations! 🎉 If you've read this far, chances are you've learned to create both single-page and multipage apps. Where you go from here is entirely up to your creativity! We’re excited to see what you’ll build now that adding additional pages to your apps is easier than ever. As an exercise, try adding more pages to the app we’ve just built. Also be sure to stop by on the forum to show off your multipage apps with the Streamlit community! 🎈
 
 Here are a few resources to help you get started:
 
