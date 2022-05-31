@@ -46,7 +46,7 @@ You can also pass a URL to `streamlit run`! This is great when combined with
 Github Gists. For example:
 
 ```bash
-$ streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
+streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
 ```
 
 </Tip>
@@ -506,6 +506,61 @@ the cache.
 For more information about the Streamlit cache, its configuration parameters,
 and its limitations, see [Caching](/library/advanced-features/caching).
 
+## Pages
+
+As apps grow large, it becomes useful to organize them into multiple pages. This makes the app easier to manage as a developer, and easier to navigate as a user. Streamlit provides a friction-less way to create multipage apps.
+
+We designed this feature so that building a multipage app is as easy as building a single-page app! Just add more pages to an existing app as follows:
+
+1. In the folder containing your main script, create a new `pages` folder. Let’s say, your main script is named `main_page.py`.
+2. Add new `.py` files in the `pages` folder to add more pages to your app.
+3. Run `streamlit run main_page.py` as usual.
+
+That’s it! The `main_page.py` script will now correspond to the main page of your app. And you’ll see the other scripts from the `pages` folder in the sidebar page selector. For example:
+
+<details>
+<summary><code>main_page.py</code></summary>
+
+```python
+import streamlit as st
+
+st.markdown("# Main page 🎈")
+st.sidebar.markdown("# Main page 🎈")
+```
+
+</details>
+
+<details>
+<summary><code>pages/page_2.py</code></summary>
+
+```python
+import streamlit as st
+
+st.markdown("# Page 2 ❄️")
+st.sidebar.markdown("# Page 2 ❄️")
+```
+
+</details>
+
+<details>
+<summary><code>pages/page_3.py</code></summary>
+
+```python
+import streamlit as st
+
+st.markdown("# Page 3 🎉")
+st.sidebar.markdown("# Page 3 🎉")
+```
+
+</details>
+<br />
+
+Now run `streamlit run main_page.py` and view your shiny new multipage app!
+
+<Image src="/images/mpa-main-concepts.gif" />
+
+Our documentation on [Multipage apps](/library/get-started/multipage-apps) teaches you how to add pages to your app, including how to define pages, how to structure and run multipage apps, and how to navigate between pages. Once you understand the basics, [create your first multipage app](/library/get-started/multipage-apps/create-a-multipage-app)!
+
 ## App model
 
 Now that you know a little more about all the individual pieces, let's close
@@ -519,5 +574,7 @@ the loop and review how it works together:
    updates happen very fast
 1. Every time a user interacts with a widget, your script is re-executed and
    the output value of that widget is set to the new value during that run.
+1. Streamlit apps can contain multiple pages, which are defined in separate
+   `.py` files in a `pages` folder.
 
 ![The Streamlit app model](/images/app_model.png)

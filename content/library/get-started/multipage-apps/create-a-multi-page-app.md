@@ -263,7 +263,7 @@ Notice how large the file is! Each app “page” is written as a function, and 
 Now that we've identified the limitations of a single-page app, we what can we do about it? Well, armed with our knowledge from the previous section, we can convert the existing app to be a multipage app, of course! At a high-level, we need to perform the following steps:
 
 1. Create a new `pages` folder in the same folder where the “entrypoint file” (`hello.py`) lives
-2. Rename our entrypoint file to `Hello.py)` , so that the title in the sidebar is capitalized
+2. Rename our entrypoint file to `Hello.py` , so that the title in the sidebar is capitalized
 3. Create three new files inside of `pages`:
    - `pages/1_📈_Plotting_Demo.py`
    - `pages/2_🌍_Mapping_Demo.py`
