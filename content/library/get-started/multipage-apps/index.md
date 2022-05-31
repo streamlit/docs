@@ -5,13 +5,13 @@ slug: /library/get-started/multipage-apps
 
 # Multipage apps
 
-As apps grow large, it becomes useful to organize them into multiple pages. This makes the app easier to manage as a developer, and easier to navigate as a user. Streamlit provides a friction-less way to create multipage apps. Pages are automatically shown in a nice navigation widget inside the app sidebar, and clicking on a page will navigate to it without reloading the frontend — making app browsing incredibly fast!
+As apps grow large, it becomes useful to organize them into multiple pages. This makes the app easier to manage as a developer and easier to navigate as a user. Streamlit provides a frictionless way to create multipage apps. Pages are automatically shown in a nice navigation widget inside the app sidebar, and clicking on a page will navigate to it without reloading the frontend — making app browsing incredibly fast!
 
-On the [previous page](/library/get-started/create-an-app), we created a "single-page app" to explore a public Uber dataset for pickups and drop-offs in New York City. In this guide, let’s learn how to create multipage apps. Once we have a solid foundation on what it takes to create multipage apps, let’s actually build one for ourselves in the [next section](/library/get-started/multipage-apps/create-a-multipage-app)!
+We created a "single-page app" to explore a public Uber dataset for pickups and drop-offs in New York City on the [previous page](/library/get-started/create-an-app). In this guide, let’s learn how to create multipage apps. Once we have a solid foundation on what it takes to create multipage apps, let’s build one for ourselves in the [next section](/library/get-started/multipage-apps/create-a-multipage-app)!
 
 ## Structuring multipage apps
 
-In this guide, let's understand what it takes to create multipage apps, including how to define pages, how to structure and run multipage apps as well as how to navigate between pages in the user interface. Once you've understood the basics, you can jump right into the [next section](/library/get-started/multipage-apps/create-a-multipage-app) to convert the familiar `streamlit hello` command into a multipage app!
+In this guide, let's understand what it takes to create multipage apps, including how to define pages, structure and run multipage apps, and navigate between pages in the user interface. Once you've understood the basics, you can jump right into the [next section](/library/get-started/multipage-apps/create-a-multipage-app) to convert the familiar `streamlit hello` command into a multipage app!
 
 ## Run a multipage app
 
@@ -21,11 +21,11 @@ Running a multipage app is identical to running a single-page app. The command t
 streamlit run [entrypoint file]
 ```
 
-The "entrypoint file" is the first page that the app will show to the user. Once you have added pages to your app, the entrypoint file appears as the top-most page in the sidebar. You can think of the entrypoint file as the "index page" of your app. For example, say your entrypoint file is `Home.py`. Then, to run your app, you can run `streamlit run Home.py`. This will start your app and execute the code in `Home.py`.
+The "entrypoint file" is the first page the app will show to the user. Once you have added pages to your app, the entrypoint file appears as the top-most page in the sidebar. You can think of the entrypoint file as your app's "index page". For example, say your entrypoint file is `Home.py`. Then, to run your app, you can run `streamlit run Home.py`. This will start your app and execute the code in `Home.py`.
 
 ## Adding pages
 
-Once you've created your entrypoint file, you can add pages by creating `.py` files in a `pages/` directory, relative to your entrypoint file. For example, if your entrypoint file is `Home.py`, then you can create a `pages/About.py` file to define the "About" page. Here's a valid directory structure for a multipage app:
+Once you've created your entrypoint file, you can add pages by creating `.py` files in a `pages/` directory relative to your entrypoint file. For example, if your entrypoint file is `Home.py`, then you can create a `pages/About.py` file to define the "About" page. Here's a valid directory structure for a multipage app:
 
 ```
 Home.py # This is the file you run with "streamlit run"
@@ -35,11 +35,11 @@ Home.py # This is the file you run with "streamlit run"
   └─── 😎_three.py # So is this
 ```
 
-Pages are defined as `.py` files in a `pages/` directory. The name of the file is the name of the page as it will appear in the sidebar. For example, the `About.py` file will appear as "About" in the sidebar, `2_Page_two.py` appears as "Page two", and `😎_three.py` appears as “😎 three”:
+Pages are defined as `.py` files in a `pages/` directory. The file's name is the page's name, as it will appear in the sidebar. For example, the `About.py` file will appear as "About" in the sidebar, `2_Page_two.py` appears as "Page two", and `😎_three.py` appears as “😎 three”:
 
 ![Directory structure](/images/mpa-add-pages.png)
 
-Only `.py` files in the `pages/` directory will be loaded as pages. All other files in the `pages/` directory and subdirectories will be ignored.
+Only `.py` files in the `pages/` directory will be loaded as pages. Streamlit ignores all other files in the `pages/` directory and subdirectories.
 
 ## How pages are labeled and sorted in the UI
 
@@ -110,7 +110,7 @@ If a user tries to access a URL for a page that does not exist, they are shown a
   # If page1 already executed, this should write True
   ```
 
-- Pages support run-on-save. Additionally, when you save a page, this causes a rerun for users who are currently viewing that exact page.
+- Pages support run-on-save. Additionally, when you save a page, this causes a rerun for users currently viewing that exact page.
 - Adding or deleting a page causes the UI to update immediately (if run-on-save is on).
 - Pages share the same Python modules globally:
 
@@ -126,4 +126,4 @@ If a user tries to access a URL for a page that does not exist, they are shown a
 
 - `st.set_page_config` works at the page level. When you set a title or emoji using [st.set_page_config](/library/api-reference/utilities/st.set_page_config), this applies to the current page only.
 
-Now that we've covered the basics, let's actually [Create a multipage app](/library/get-started/multipage-apps/create-a-multipage-app)!
+Now that you have a solid understanding of multipage apps, including how to structure them, define pages, and how to navigate between pages in the user interface, you're ready to [create your first multipage app](/library/get-started/multipage-apps/create-a-multipage-app)! 🥳
