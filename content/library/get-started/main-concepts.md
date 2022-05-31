@@ -518,7 +518,7 @@ We designed this feature so that building a multipage app is as easy as building
 
 That’s it! The `main_page.py` script will now correspond to the main page of your app. And you’ll see the other scripts from the `pages` folder in the sidebar page selector. For example:
 
-<details>
+<details open>
 <summary><code>main_page.py</code></summary>
 
 ```python
@@ -530,7 +530,7 @@ st.sidebar.markdown("# Main page 🎈")
 
 </details>
 
-<details>
+<details open>
 <summary><code>pages/page_2.py</code></summary>
 
 ```python
@@ -542,7 +542,7 @@ st.sidebar.markdown("# Page 2 ❄️")
 
 </details>
 
-<details>
+<details open>
 <summary><code>pages/page_3.py</code></summary>
 
 ```python

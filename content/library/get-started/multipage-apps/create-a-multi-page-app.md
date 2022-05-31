@@ -275,7 +275,7 @@ Now, let’s walk through each step of the process and view the corresponding ch
 
 ## Create the entrypoint file
 
-<details>
+<details open>
 <summary><code>Hello.py</code></summary>
 
 ```python
