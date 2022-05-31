@@ -77,7 +77,7 @@ Sorting considers numbers in the filename to be actual numbers (_integers_):
 
 - Files that have a `number` appear before files without a `number`.
 - Files are sorted based on the `number` (if any), followed by the `title` (if any).
-- When files are sorted, Streamlit treats `number` as actual numbers rather than strings. So `03` is the same as `3`.
+- When files are sorted, Streamlit treats the `number` as an actual number rather than a string. So `03` is the same as `3`.
 
 <Tip>
 

@@ -11,7 +11,7 @@ In this guide, let’s put our understanding of multipage apps to use by convert
 
 ## Motivation
 
-Before Streamlit 1.10.0, the streamlit hello command was a large single-page app. As there was no support for multiple pages, we resorted to splitting the app's content using `st.selectbox` in the sidebar to choose what content to run. The content comprised of three demos for plotting, mapping, and dataframes.
+Before Streamlit 1.10.0, the streamlit hello command was a large single-page app. As there was no support for multiple pages, we resorted to splitting the app's content using `st.selectbox` in the sidebar to choose what content to run. The content is comprised of three demos for plotting, mapping, and dataframes.
 
 Here's what the code and single-page app looked like:
 
