@@ -508,11 +508,11 @@ and its limitations, see [Caching](/library/advanced-features/caching).
 
 ## Pages
 
-As apps grow large, it becomes useful to organize them into multiple pages. This makes the app easier to manage as a developer, and easier to navigate as a user. Streamlit provides a friction-less way to create multipage apps.
+As apps grow large, it becomes useful to organize them into multiple pages. This makes the app easier to manage as a developer and easier to navigate as a user. Streamlit provides a frictionless way to create multipage apps.
 
 We designed this feature so that building a multipage app is as easy as building a single-page app! Just add more pages to an existing app as follows:
 
-1. In the folder containing your main script, create a new `pages` folder. Let’s say, your main script is named `main_page.py`.
+1. In the folder containing your main script, create a new `pages` folder. Let’s say your main script is named `main_page.py`.
 2. Add new `.py` files in the `pages` folder to add more pages to your app.
 3. Run `streamlit run main_page.py` as usual.
 
@@ -559,7 +559,7 @@ Now run `streamlit run main_page.py` and view your shiny new multipage app!
 
 <Image src="/images/mpa-main-concepts.gif" />
 
-Our documentation on [Multipage apps](/library/get-started/multipage-apps) teaches you how to add pages to your app, including how to define pages, how to structure and run multipage apps, and how to navigate between pages. Once you understand the basics, [create your first multipage app](/library/get-started/multipage-apps/create-a-multipage-app)!
+Our documentation on [Multipage apps](/library/get-started/multipage-apps) teaches you how to add pages to your app, including how to define pages, structure and run multipage apps, and navigate between pages. Once you understand the basics, [create your first multipage app](/library/get-started/multipage-apps/create-a-multipage-app)!
 
 ## App model
 

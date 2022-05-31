@@ -5,13 +5,13 @@ slug: /library/get-started/multipage-apps/create-a-multipage-app
 
 # Create a multipage app
 
-In the [last section](/library/get-started/multipage-apps), we learned what it takes to create multipage apps, including how to define pages, how to structure and run multipage apps as well as how to navigate between pages in the user interface. If you need a refresher, now is good time to take a look.
+In the [last section](/library/get-started/multipage-apps), we learned what it takes to create multipage apps, including how to define pages, structure and run multipage apps, and navigate between pages in the user interface.. If you need a refresher, now is a good time to take a look.
 
 In this guide, let’s put our understanding of multipage apps to use by converting the familiar `streamlit hello` command to a multipage app!
 
 ## Motivation
 
-Prior to Streamlit 1.10.0, the streamlit hello command was a large single-page app. As there was no support for multiple pages, we resorted to splitting the content of the app using st.selectbox in the sidebar to choose what content to run. The content comprised of three demos for plotting, mapping, and dataframes.
+Before Streamlit 1.10.0, the streamlit hello command was a large single-page app. As there was no support for multiple pages, we resorted to splitting the app's content using `st.selectbox` in the sidebar to choose what content to run. The content comprised of three demos for plotting, mapping, and dataframes.
 
 Here's what the code and single-page app looked like:
 
@@ -256,11 +256,11 @@ page_names_to_funcs[demo_name]()
 
 <Cloud src="https://share.streamlit.io/snehankekre/bvcf78ygv8/old/hello.py" height="700" />
 
-Notice how large the file is! Each app “page” is written as a function, and the selectbox is used to pick which page to display. As our app continues to grow, maintaining the code requires a lot of additional overhead. Moreover, we’re limited by the `st.selectbox` UI to choose which “page” to run, we cannot customize individual page titles with `st.set_page_config`, and we’re unable to navigate between pages using URLs.
+Notice how large the file is! Each app “page” is written as a function, and the selectbox is used to pick which page to display. As our app grows, maintaining the code requires a lot of additional overhead. Moreover, we’re limited by the `st.selectbox` UI to choose which “page” to run, we cannot customize individual page titles with `st.set_page_config`, and we’re unable to navigate between pages using URLs.
 
 ## Convert an existing app into a multipage app
 
-Now that we've identified the limitations of a single-page app, we what can we do about it? Well, armed with our knowledge from the previous section, we can convert the existing app to be a multipage app, of course! At a high-level, we need to perform the following steps:
+Now that we've identified the limitations of a single-page app, we what can we do about it? Armed with our knowledge from the previous section, we can convert the existing app to be a multipage app, of course! At a high level, we need to perform the following steps:
 
 1. Create a new `pages` folder in the same folder where the “entrypoint file” (`hello.py`) lives
 2. Rename our entrypoint file to `Hello.py` , so that the title in the sidebar is capitalized
@@ -315,7 +315,7 @@ We rename our entrypoint file to `Hello.py` , so that the title in the sidebar i
 
 <Image src="/images/mpa-hello.png" />
 
-Notice how the sidebar does not contain any page labels as we haven’t created any pages yet.
+Notice how the sidebar does not contain page labels as we haven’t created any pages yet.
 
 ## Create multiple pages
 
@@ -362,7 +362,7 @@ st.button("Re-run")
 
 <br />
 
-Recall that we can enforce ordering of pages by prefixing numbers in the page label. When included, pages are sorted by number. We include an emoji in the label to make it appear in the sidebar. Also, note that pages have their own URL, defined by the file’s label.
+Recall that we can enforce the ordering of pages by prefixing numbers in the page label. When included, pages are sorted by number. We include an emoji in the label to make it appear in the sidebar. Also, note that pages have their own URL, defined by the file’s label.
 
 <Image src="/images/mpa-plotting-demo.png" />
 
@@ -554,7 +554,7 @@ That’s it! The `Hello.py` script now corresponds to the index page of your app
 
 ## Next steps
 
-Congratulations! 🎉 If you've read this far, chances are you've learned to create both single-page and multipage apps. Where you go from here is entirely up to your creativity! We’re excited to see what you’ll build now that adding additional pages to your apps is easier than ever. As an exercise, try adding more pages to the app we’ve just built. Also be sure to stop by on the forum to show off your multipage apps with the Streamlit community! 🎈
+Congratulations! 🎉 If you've read this far, chances are you've learned to create both single-page and multipage apps. Where you go from here is entirely up to your creativity! We’re excited to see what you’ll build now that adding additional pages to your apps is easier than ever. Try adding more pages to the app we've just built as an exercise. Also, stop by sthe forum to show off your multipage apps with the Streamlit community! 🎈
 
 Here are a few resources to help you get started:
 
