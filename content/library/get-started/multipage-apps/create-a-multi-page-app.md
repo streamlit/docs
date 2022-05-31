@@ -5,7 +5,7 @@ slug: /library/get-started/multipage-apps/create-a-multipage-app
 
 # Create a multipage app
 
-In the [last section](/library/get-started/multipage-apps), we learned what it takes to create multipage apps, including how to define pages, structure and run multipage apps, and navigate between pages in the user interface.. If you need a refresher, now is a good time to take a look.
+In the [last section](/library/get-started/multipage-apps), we learned what it takes to create multipage apps, including how to define pages, structure and run multipage apps, and navigate between pages in the user interface. If you need a refresher, now is a good time to take a look.
 
 In this guide, let’s put our understanding of multipage apps to use by converting the familiar `streamlit hello` command to a multipage app!
 
@@ -260,7 +260,7 @@ Notice how large the file is! Each app “page” is written as a function, and 
 
 ## Convert an existing app into a multipage app
 
-Now that we've identified the limitations of a single-page app, we what can we do about it? Armed with our knowledge from the previous section, we can convert the existing app to be a multipage app, of course! At a high level, we need to perform the following steps:
+Now that we've identified the limitations of a single-page app, what can we do about it? Armed with our knowledge from the previous section, we can convert the existing app to be a multipage app, of course! At a high level, we need to perform the following steps:
 
 1. Create a new `pages` folder in the same folder where the “entrypoint file” (`hello.py`) lives
 2. Rename our entrypoint file to `Hello.py` , so that the title in the sidebar is capitalized
