@@ -310,6 +310,7 @@ st.markdown(
 ```
 
 </details>
+<br />
 
 We rename our entrypoint file to `Hello.py` , so that the title in the sidebar is capitalized. And only the code for the intro page is included. Additionally, we’re able to customize the page title and favicon — as it appears in the browser tab with `st.set_page_config`. We can do so for each of our pages too!
 
