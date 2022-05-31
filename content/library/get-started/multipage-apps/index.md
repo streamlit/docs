@@ -27,12 +27,12 @@ The "entrypoint file" is the first page that the app will show to the user. Once
 
 Once you've created your entrypoint file, you can add pages by creating `.py` files in a `pages/` directory, relative to your entrypoint file. For example, if your entrypoint file is `Home.py`, then you can create a `pages/About.py` file to define the "About" page. Here's a valid directory structure for a multipage app:
 
-```markdown
+```
 Home.py # This is the file you run with "streamlit run"
 └─── pages/
-└─── About.py # This is a page
-└─── 2_Page_two.py # This is another page
-└─── 😎_three.py # So is this
+  └─── About.py # This is a page
+  └─── 2_Page_two.py # This is another page
+  └─── 😎_three.py # So is this
 ```
 
 Pages are defined as `.py` files in a `pages/` directory. The name of the file is the name of the page as it will appear in the sidebar. For example, the `About.py` file will appear as "About" in the sidebar, `2_Page_two.py` appears as "Page two", and `😎_three.py` appears as “😎 three”:
