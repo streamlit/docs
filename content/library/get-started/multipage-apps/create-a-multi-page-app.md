@@ -549,7 +549,7 @@ To run your newly converted multipage app, run:
 streamlit run Hello.py
 ```
 
-That’s it! The `Hello.py` script now corresponds to the index page of your app, and other scripts that Streamlit finds in the pages folder will also be present in the new page selector that appears in the sidebar.
+That’s it! The `Hello.py` script now corresponds to the main page of your app, and other scripts that Streamlit finds in the pages folder will also be present in the new page selector that appears in the sidebar.
 
 <Cloud src="https://share.streamlit.io/snehankekre/bvcf78ygv8/main/Hello.py" height="700" />
 

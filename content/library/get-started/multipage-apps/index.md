@@ -21,7 +21,7 @@ Running a multipage app is identical to running a single-page app. The command t
 streamlit run [entrypoint file]
 ```
 
-The "entrypoint file" is the first page the app will show to the user. Once you have added pages to your app, the entrypoint file appears as the top-most page in the sidebar. You can think of the entrypoint file as your app's "index page". For example, say your entrypoint file is `Home.py`. Then, to run your app, you can run `streamlit run Home.py`. This will start your app and execute the code in `Home.py`.
+The "entrypoint file" is the first page the app will show to the user. Once you have added pages to your app, the entrypoint file appears as the top-most page in the sidebar. You can think of the entrypoint file as your app's "main page". For example, say your entrypoint file is `Home.py`. Then, to run your app, you can run `streamlit run Home.py`. This will start your app and execute the code in `Home.py`.
 
 ## Adding pages
 
@@ -32,10 +32,16 @@ Home.py # This is the file you run with "streamlit run"
 └─── pages/
   └─── About.py # This is a page
   └─── 2_Page_two.py # This is another page
-  └─── 😎_three.py # So is this
+  └─── 3_😎_three.py # So is this
 ```
 
-Pages are defined as `.py` files in a `pages/` directory. The file's name is the page's name, as it will appear in the sidebar. For example, the `About.py` file will appear as "About" in the sidebar, `2_Page_two.py` appears as "Page two", and `😎_three.py` appears as “😎 three”:
+<Tip>
+
+When adding emojis to filenames, it’s best practice to include a numbered-prefix to make autocompletion in your terminal easier. Terminal-autocomplete can get confused by unicode (which is how emojis are represented).
+
+</Tip>
+
+Pages are defined as `.py` files in a `pages/` directory. The filenames of pages are transformed to page names in the sidebar based on the the rules in the [section below](#how-pages-are-labeled-and-sorted-in-the-ui). For example, the `About.py` file will appear as "About" in the sidebar, `2_Page_two.py` appears as "Page two", and `3_😎_three.py` appears as “😎 three”:
 
 ![Directory structure](/images/mpa-add-pages.png)
 
@@ -91,13 +97,16 @@ Pages are automatically shown in a nice navigation UI inside the app's sidebar. 
 
 You can also navigate between pages using URLs. Pages have their own URLs, defined by the file's `label`. When multiple files have the same `label`, Streamlit picks the first one (based on the ordering [described above](/library/get-started/multipage-apps#how-pages-are-sorted-in-the-sidebar)). Users can view a specific page by visiting the page's URL.
 
-If a user tries to access a URL for a page that does not exist, they are shown a **404: Not Found** page.
+If a user tries to access a URL for a page that does not exist, they see a modal like the one below saying the user has requested a page that was not found in the app’s pages/ directory.
+
+<Image src="/images/mpa-page-not-found.png" />
 
 ## Notes
 
 - Pages support [magic commands](https://docs.streamlit.io/library/api-reference/write-magic/magic).
 - Pages support run-on-save. Additionally, when you save a page, this causes a rerun for users currently viewing that exact page.
-- Adding or deleting a page causes the UI to update immediately (if run-on-save is on).
+- Adding or deleting a page causes the UI to update immediately.
+- Updating pages in the sidebar does not rerun the script.
 - `st.set_page_config` works at the page level. When you set a title or emoji using [st.set_page_config](/library/api-reference/utilities/st.set_page_config), this applies to the current page only.
 - Pages share the same Python modules globally:
 
