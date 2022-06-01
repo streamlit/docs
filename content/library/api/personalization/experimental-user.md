@@ -18,7 +18,7 @@ The API closely resembles that of [`st.session_state`](/library/api-reference/se
 
 ### Allowed fields
 
-The `st.experimental_user` command returns a dictionary with the following with only one field: `email`.
+The `st.experimental_user` command returns a dictionary with only one field: `email`.
 
 Display the allowed field by passing the command to `st.write`:
 
