@@ -144,7 +144,7 @@ ADMIN_USERS = {
     'person2@email.com',
     'person3@email.com'
 }
-if st.user.email in ADMIN_USERS:
+if st.experimental_user.email in ADMIN_USERS:
     display_the_extra_admin_buttons()
 display_the_interface_everyone_sees()
 ```
@@ -153,9 +153,9 @@ Show different content to users based on their email address:
 
 ```python
 # Show different content based on the user's email address.
-if st.user.email == 'jane@email.com':
+if st.experimental_user.email == 'jane@email.com':
     display_jane_content()
-elif st.user.email == 'adam@foocorp.io':
+elif st.experimental_user.email == 'adam@foocorp.io':
     display_adam_content()
 else:
     st.write("Please contact us to get access!")
@@ -165,8 +165,9 @@ Greet users with their name that's stored in a database:
 
 ```python
 # Greet the user by their name.
-if st.user.email:
-    name = get_name_from_db(st.user.email) # Get the user's name from the DB.
+if st.experimental_user.email:
+    # Get the user's name from the database.
+    name = get_name_from_db(st.experimental_user.email)
     st.write('Hello, %s!' % name)
 ```
 
