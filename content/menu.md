@@ -262,6 +262,12 @@ site_menu:
   - category: Streamlit library / API reference / Performance / Clear singleton
     url: /library/api-reference/performance/st.experimental_singleton.clear
     isVersioned: true
+  - category: Streamlit library / API reference / Personalization
+    url: /library/api-reference/personalization
+    isVersioned: false
+  - category: Streamlit library / API reference / Personalization / st.experimental_user
+    url: /library/api-reference/personalization/st.experimental_user
+    isVersioned: false
   - category: Streamlit library / Advanced features
     url: /library/advanced-features
   - category: Streamlit library / Advanced features / Theming
