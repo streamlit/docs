@@ -551,7 +551,7 @@ streamlit run Hello.py
 
 That’s it! The `Hello.py` script now corresponds to the main page of your app, and other scripts that Streamlit finds in the pages folder will also be present in the new page selector that appears in the sidebar.
 
-<Cloud src="https://share.streamlit.io/streamlit/docs/main/python/api-examples-source/Hello.py" height="700" />
+<Cloud src="https://share.streamlit.io/streamlit/docs/main/python/api-examples-source/mpa-hello/Hello.py" height="700" />
 
 ## Next steps
 
