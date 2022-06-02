@@ -27,7 +27,7 @@ Display the allowed field by passing the command to `st.write`:
 st.write(st.experimental_user)
 ```
 
-The above returns a dict with one field and value. The field is always `email`. The value can be test@localhost.com or the logged-in user's email (e.g. example@foocorp.com) or `None`.
+The above displays a dict with one field and value. The field is always `email`:
 
 ```json
 {
@@ -57,25 +57,17 @@ st.write(st.experimental_user['email'])
 st.write(st.experimental_user.email)
 ```
 
-The above outputs either `None` or the logged-in user's email or test@localhost.com depending on where the app is running. Click here jump to the section on `st.experimental_user`'s context-dependent behavior.
+The above outputs either `None` or the logged-in user's email or test@localhost.com, depending on where the app is running. Read further to learn about `st.experimental_user`'s context-dependent behavior.
 
 ### Updates and modifications
 
-Keys and values for `st.experimental_user` **cannot** be updated or modified. Streamlit throws a handy `StreamlitAPIException` exception if you try to update the key:
+Keys and values for `st.experimental_user` **cannot** be updated or modified. Streamlit throws a handy `StreamlitAPIException` exception if you try to update them:
 
 ```python
 st.experimental_user.name = None
-
 # Throws an exception!
-```
 
-<Image src="/images/st-user-key-exception.png" />
-
-An identical exception is thrown if you try to modify the value:
-
-```python
 st.experimental_user.email = "hello"
-
 # Throws an exception!
 ```
 
@@ -131,9 +123,9 @@ st.experimental_user.email # On a 3rd party cloud provider
 
 ### Examples
 
-The ability to personalize apps for the user viewing the app is a great way to make your app more engaging. It unlocks a plethora of use-cases for developers.
+The ability to personalize apps for the user viewing the app is a great way to make your app more engaging.
 
-Some of which could include: showing additional controls for admins, visualizing a user’s Streamlit history, a personalized stock ticker, a chatbot app, and much more. We're excited to see what you build with this feature!
+It unlocks a plethora of use-cases for developers, some of which could include: showing additional controls for admins, visualizing a user's Streamlit history, a personalized stock ticker, a chatbot app, and much more. We're excited to see what you build with this feature!
 
 Here's a code snippet that shows extra buttons for admins:
 
@@ -174,6 +166,5 @@ if st.experimental_user.email:
 ### Caveats and limitations
 
 - `st.experimental_user` is **read-only**. You cannot update or modify its value. Doing so will throw a `StreamlitAPIException`.
-- The return value of `st.experimental_user.email` is **context-dependent**. The value returned depends on where the app is running.
 - A valid email is returned only if the user is logged in to Streamlit Cloud and the app is private. Else, `None` or test@localhost.com is returned.
 - This is an experimental feature. Experimental features and their APIs may change or be removed at any time. To learn more, click [here](/library/advanced-features/prerelease#beta-and-experimental-features).
