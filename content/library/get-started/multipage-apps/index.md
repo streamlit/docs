@@ -5,13 +5,13 @@ slug: /library/get-started/multipage-apps
 
 # Multipage apps
 
-As apps grow large, it becomes useful to organize them into multiple pages. This makes the app easier to manage as a developer and easier to navigate as a user. Streamlit provides a frictionless way to create multipage apps. Pages are automatically shown in a nice navigation widget inside the app sidebar, and clicking on a page will navigate to it without reloading the frontend — making app browsing incredibly fast!
+As apps grow large, it becomes useful to organize them into multiple pages. This makes the app easier to manage as a developer and easier to navigate as a user. Streamlit provides a frictionless way to create multipage apps. Pages are automatically shown in a nice navigation widget inside the app sidebar, and clicking on a page will navigate to the page without reloading the frontend — making app browsing incredibly fast!
 
 We created a "single-page app" to explore a public Uber dataset for pickups and drop-offs in New York City on the [previous page](/library/get-started/create-an-app). In this guide, let’s learn how to create multipage apps. Once we have a solid foundation on what it takes to create multipage apps, let’s build one for ourselves in the [next section](/library/get-started/multipage-apps/create-a-multipage-app)!
 
 ## Structuring multipage apps
 
-In this guide, let's understand what it takes to create multipage apps, including how to define pages, structure and run multipage apps, and navigate between pages in the user interface. Once you've understood the basics, you can jump right into the [next section](/library/get-started/multipage-apps/create-a-multipage-app) to convert the familiar `streamlit hello` command into a multipage app!
+Let's understand what it takes to create multipage apps — including how to define pages, structure and run multipage apps, and navigate between pages in the user interface. Once you've understood the basics, you can jump right into the [next section](/library/get-started/multipage-apps/create-a-multipage-app) to convert the familiar `streamlit hello` command into a multipage app!
 
 ## Run a multipage app
 
@@ -67,16 +67,6 @@ What is displayed in the sidebar is the `label` part of the filename:
 - If there's no `label`, Streamlit uses the `number` as the label.
 - In the UI, Streamlit beautifies the `label` by replacing `_` with space.
 
-**Examples**:
-
-| **Filename**              | **Rendered label** |
-| :------------------------ | :----------------- |
-| `1 - first page.py`       | first page         |
-| `123_hello_dear_world.py` | hello dear world   |
-| `12 monkeys.py`           | monkeys            |
-| `_12 monkeys.py`          | 12 monkeys         |
-| `123.py`                  | 123                |
-
 ### How pages are sorted in the sidebar
 
 Sorting considers numbers in the filename to be actual numbers (_integers_):
@@ -84,6 +74,18 @@ Sorting considers numbers in the filename to be actual numbers (_integers_):
 - Files that have a `number` appear before files without a `number`.
 - Files are sorted based on the `number` (if any), followed by the `title` (if any).
 - When files are sorted, Streamlit treats the `number` as an actual number rather than a string. So `03` is the same as `3`.
+
+This table shows examples of filenames and their corresponding labels, sorted by the order in which they appear in the sidebar.
+
+**Examples**:
+
+| **Filename**              | **Rendered label** |
+| :------------------------ | :----------------- |
+| `1 - first page.py`       | first page         |
+| `12 monkeys.py`           | monkeys            |
+| `123.py`                  | 123                |
+| `123_hello_dear_world.py` | hello dear world   |
+| `_12 monkeys.py`          | 12 monkeys         |
 
 <Tip>
 
@@ -97,7 +99,7 @@ Pages are automatically shown in a nice navigation UI inside the app's sidebar. 
 
 You can also navigate between pages using URLs. Pages have their own URLs, defined by the file's `label`. When multiple files have the same `label`, Streamlit picks the first one (based on the ordering [described above](/library/get-started/multipage-apps#how-pages-are-sorted-in-the-sidebar)). Users can view a specific page by visiting the page's URL.
 
-If a user tries to access a URL for a page that does not exist, they see a modal like the one below saying the user has requested a page that was not found in the app’s pages/ directory.
+If a user tries to access a URL for a page that does not exist, they will see a modal like the one below, saying the user has requested a page that was not found in the app’s pages/ directory.
 
 <Image src="/images/mpa-page-not-found.png" />
 
@@ -107,7 +109,7 @@ If a user tries to access a URL for a page that does not exist, they see a modal
 - Pages support run-on-save. Additionally, when you save a page, this causes a rerun for users currently viewing that exact page.
 - Adding or deleting a page causes the UI to update immediately.
 - Updating pages in the sidebar does not rerun the script.
-- `st.set_page_config` works at the page level. When you set a title or emoji using [st.set_page_config](/library/api-reference/utilities/st.set_page_config), this applies to the current page only.
+- `st.set_page_config` works at the page level. When you set a title or favicon using [st.set_page_config](/library/api-reference/utilities/st.set_page_config), this applies to the current page only.
 - Pages share the same Python modules globally:
 
   ```python
@@ -134,4 +136,4 @@ If a user tries to access a URL for a page that does not exist, they see a modal
   # If page1 already executed, this should write True
   ```
 
-Now that you have a solid understanding of multipage apps, including how to structure them, define pages, and how to navigate between pages in the user interface, you're ready to [create your first multipage app](/library/get-started/multipage-apps/create-a-multipage-app)! 🥳
+You now have a solid understanding of multipage apps. You've learned how to structure apps, define pages, and navigate between pages in the user interface. It's time to [create your first multipage app](/library/get-started/multipage-apps/create-a-multipage-app)! 🥳
