@@ -14,7 +14,7 @@ This is an experimental feature. Experimental features and their APIs may change
 
 `st.experimental_user` is a Streamlit command that returns information about the logged-in user on Streamlit Cloud. It allows developers to personalize apps for the user viewing the app. In a private Streamlit Cloud app, it returns a dictionary with the viewer's email. This value of this field is empty in a public Streamlit Cloud app to prevent leaking user emails to developers.
 
-The API closely resembles that of [`st.session_state`](/library/api-reference/session-state) and `st.secrets`. It follows a field-based API, which is very similar to Python dictionaries.
+The API closely resembles that of [`st.session_state`](/library/api-reference/session-state) and [`st.secrets`](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). It follows a field-based API, which is very similar to Python dictionaries.
 
 ### Allowed fields
 
