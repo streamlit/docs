@@ -8,4 +8,4 @@ numpy
 scipy
 altair
 pydeck
-streamlit==1.10.0rc1
+streamlit==1.10.0rc2
