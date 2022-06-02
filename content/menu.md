@@ -12,6 +12,10 @@ site_menu:
     url: /library/get-started/installation
   - category: Streamlit library / Get started / Create an app
     url: /library/get-started/create-an-app
+  - category: Streamlit library / Get started / Multipage apps
+    url: /library/get-started/multipage-apps
+  - category: Streamlit library / Get started / Multipage apps / Create a multipage app
+    url: /library/get-started/multipage-apps/create-a-multipage-app
   # - category: Streamlit library / Get started / Deploy an app
   #   url: /library/get-started/deploy-an-app
   # - category: Streamlit library / Get started / App gallery
