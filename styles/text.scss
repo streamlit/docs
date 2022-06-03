@@ -72,6 +72,10 @@ p {
   @apply mb-4 text-gray-90 dark:text-white;
 }
 
+summary {
+  @apply mb-4 text-gray-90 dark:text-white;
+}
+
 sup a {
   @apply underline hover:no-underline dark:text-white;
 }
