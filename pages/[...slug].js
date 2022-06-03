@@ -357,7 +357,7 @@ export async function getStaticPaths() {
   const all_versions = Object.keys(streamlitFuncs);
   const versions = sortBy(all_versions, [
     (o) => {
-      return parseInt(o);
+      return parseInt(o, 10);
     },
   ]);
   const current_version = versions[versions.length - 1];
