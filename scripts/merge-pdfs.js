@@ -5,7 +5,7 @@ const isPDFValid = require("is-pdf-valid");
 
 // Initialize the merger
 const merger = new PDFMerger();
-const pagesPath = path.join(__dirname, "pages");
+const pagesPath = path.join(__dirname, "../public/pdf/pages");
 const pdfPath = path.join(__dirname, "../public/pdf");
 
 const getPDFs = () => {

@@ -108,4 +108,4 @@ node_modules/
 /npm-debug.log
 .DS_Store
 out/
-scripts/pages/
+public/pdf/
