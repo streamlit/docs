@@ -106,7 +106,6 @@ const Autofunction = ({
 
   if (streamlitFunction in streamlit) {
     functionObject = streamlit[streamlitFunction];
-    const sourceFile = useSourceFile(functionObject.source);
 
     if (
       functionObject.description !== undefined &&
