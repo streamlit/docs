@@ -5,7 +5,7 @@ slug: /library/cheatsheet
 
 # Cheat Sheet
 
-This is a summary of the docs, as of [Streamlit v1.8.0](https://pypi.org/project/streamlit/1.7.0/).
+This is a summary of the docs, as of [Streamlit v1.10.0](https://pypi.org/project/streamlit/1.7.0/).
 
 <Masonry>
 
@@ -27,13 +27,13 @@ streamlit run first_app.py
 #### Command line
 
 ```python
-$ streamlit --help
-$ streamlit run your_script.py
-$ streamlit hello
-$ streamlit config show
-$ streamlit cache clear
-$ streamlit docs
-$ streamlit --version
+streamlit --help
+streamlit run your_script.py
+streamlit hello
+streamlit config show
+streamlit cache clear
+streamlit docs
+streamlit --version
 ```
 
 </CodeTile>
@@ -346,5 +346,22 @@ st.exception(e)
 ```
 
 </CodeTile>
+</Masonry>
 
+<Masonry>
+<CodeTile>
+
+#### Personalize apps for users
+
+```python
+# Show different content based on the user's email address.
+>>> if st.user.email == 'jane@email.com':
+>>>    display_jane_content()
+>>> elif st.user.email == 'adam@foocorp.io':
+>>>    display_adam_content()
+>>> else:
+>>>    st.write("Please contact us to get access!")
+```
+
+</CodeTile>
 </Masonry>

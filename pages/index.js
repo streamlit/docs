@@ -149,22 +149,22 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
+                date="2022-06-02T16:05:00.000Z"
+                title="Introducing multipage apps! 📄"
+                text="Quickly and easily add more pages to your Streamlit apps."
+                link="https://blog.streamlt.io/introducing-multipage-apps"
+              />
+              <NewsEntry
+                date="2022-05-26T16:05:00.000Z"
+                title="How Streamlit uses Streamlit: Sharing contextual apps"
+                text="Learn about session state and query parameters!"
+                link="https://blog.streamlit.io/how-streamlit-uses-streamlit-sharing-contextual-apps/"
+              />
+              <NewsEntry
                 date="2022-05-17T16:05:00.000Z"
                 title="Leverage your user analytics on Streamlit's Community Cloud"
                 text="See who viewed your apps, when, and how popular they are."
                 link="https://blog.streamlit.io/leverage-your-user-analytics-on-streamlits-community-cloud/"
-              />
-              <NewsEntry
-                date="2022-05-12T16:05:00.000Z"
-                title="How to share scientific analysis through a Streamlit app"
-                text="3 easy steps to share your study results with fellow scientists."
-                link="https://blog.streamlit.io/how-to-share-scientific-analysis-through-a-streamlit-app/"
-              />
-              <NewsEntry
-                date="2022-05-05T16:05:00.000Z"
-                title="Monthly Rewind > April 2022"
-                text="Your April look-back at new features and great community content."
-                link="https://blog.streamlit.io/monthly-rewind-april-2022/"
               />
               <Button link="https://blog.streamlit.io/">
                 View all updates
@@ -184,10 +184,10 @@ export default function Home({ window, menu, gdpr_data }) {
                   border_color: "gray-90",
                 }}
                 border_color="gray-40"
-                icon="photo_camera"
-                title="st.camera_input"
-                text="You can now upload images to your apps straight from your camera with the new st.camera_input feature. It's great for computer vision apps."
-                link="/library/api-reference/widgets/st.camera_input"
+                icon="auto_stories"
+                title="Multipage apps"
+                text="Quickly and easily add more pages to your Streamlit apps with native multipage apps support! Click to learn more."
+                link="/library/get-started/multipage-apps"
               />
               <Tile
                 size="half"
@@ -215,9 +215,9 @@ export default function Home({ window, menu, gdpr_data }) {
                 }}
                 border_color="gray-40"
                 icon="group"
-                title="App viewers data"
-                text="Community Cloud allows you to drill down to the level of individual apps and understand their viewership better. Use app viewers data to see who has recently viewed your apps and when."
-                link="/streamlit-cloud/get-started/manage-your-app#app-viewers"
+                title="st.experimental_user"
+                text="st.experimental_user is a Streamlit command that returns information about the logged-in user on Community Cloud. It allows developers to personalize apps for the user viewing the app."
+                link="/library/api-reference/personalization/st.experimental_user"
               />
               <Tile
                 size="half"
@@ -229,10 +229,10 @@ export default function Home({ window, menu, gdpr_data }) {
                   border_color: "gray-90",
                 }}
                 border_color="gray-40"
-                icon="expand_more"
-                title="Expand and collapse JSON elements with kwarg"
-                text="st.json now supports a keyword-only argument, expanded, on whether the JSON should be expanded by default (defaults to True)."
-                link="/library/api-reference/data/st.json"
+                icon="table_chart"
+                title="Redesigned st.dataframe"
+                text="st.dataframe now supports column and table resizing, data search, and copy-to-clipboard functionality. Read more in our docs."
+                link="/library/api-reference/data/st.dataframe"
               />
               {/* <Tile
                 size="half"

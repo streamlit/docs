@@ -11,7 +11,7 @@ const Cloud = ({ src, height }) => {
       <section className={styles.Container}>
         <iframe
           loading="lazy"
-          src={`${src}&embed=true`}
+          src={`${src}`}
           height={height}
           className={styles.Iframe}
         />
@@ -25,7 +25,7 @@ const Cloud = ({ src, height }) => {
       <section className={styles.Container}>
         <iframe
           loading="lazy"
-          src={`${src}&embed=true`}
+          src={`${src}`}
           className={classNames(styles.Iframe, styles.VideoAspectRatio)}
         />
         <a href={src} target="_blank" className={styles.Caption}>
