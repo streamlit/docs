@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node ./scripts/build-search-index.js && next-sitemap && node ./scripts/build-offline-docs.js && node ./scripts/merge-pdfs.js",
+    "postbuild": "node ./scripts/build-search-index.js && next-sitemap",
     "start": "next start",
-    "export": "next build && next export && node ./scripts/build-search-index.js && next-sitemap && node ./scripts/build-offline-docs.js && node ./scripts/merge-pdfs.js",
+    "export": "next build && next export && node ./scripts/build-search-index.js && next-sitemap",
     "offline-docs": "node ./scripts/build-offline-docs.js && node ./scripts/merge-pdfs.js",
     "prepare": "husky install"
   },
