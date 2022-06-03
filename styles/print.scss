@@ -1,0 +1,16 @@
+@media print {
+  // Hide the elements we don't want to show on the PDF
+  // #content-container + section, #content-container + section ~ section, #content-container div section:last-child
+  header,
+  footer,
+  iframe,
+  #documentation .psa_Container___KGYF,
+  #documentation .arrowLink_Container__GdJWF,
+  #content-container .helpful_FormContainer__aXrIB {
+    display: none;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+  }
+}
