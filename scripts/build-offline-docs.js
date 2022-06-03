@@ -6,10 +6,7 @@ let browser;
 
 const getLinks = async () => {
   // Launch puppeteer
-  browser = await puppeteer.launch({
-    headless: true,
-    handleSIGINT: false,
-  });
+  browser = await puppeteer.launch();
 
   console.log("Getting the URLs from the sitemap...");
 
@@ -38,6 +35,9 @@ const getLinks = async () => {
     "streamlit-azure-active-directory",
     "streamlit-general-saml-authentication",
     "style-guide",
+    "enterprise",
+    "single-sign-on-sso",
+    "streamlit-okta-sso",
   ];
 
   console.log(
@@ -47,7 +47,7 @@ const getLinks = async () => {
   // Store urls in array with a bit more metadata
   urlsArray.map((url) => {
     urls.push({
-      url,
+      url: url.replace("https://docs.streamlit.io/", "http://localhost:3000/"),
       slug: url.split("/").pop(),
       isVersioned: /^[\d\.]+$/.test(url.split("/")[3]),
       shouldBeDeleted:
@@ -65,6 +65,7 @@ const getLinks = async () => {
   console.log("Done! Moving on to creating PDFs for these pages...");
 
   const promises = filteredPages.map((page) => getPDFs(page));
+
   Promise.all(promises).then((results) => {
     console.log("Done creating all PDFs. Exiting the process!");
     process.exit();
@@ -81,13 +82,12 @@ const getPDFs = async (url) => {
   await page.goto(`${url.url}`, {
     waitUntil: ["networkidle2"],
   });
-  await page.emulateMediaType("screen");
+  await page.emulateMediaType("print");
 
   // Creating the PDF
   await page.pdf({
     path: `scripts/pages/${url.slug}.pdf`,
     format: "a4",
-    preferCSSPageSize: true,
   });
 
   console.log(`Done! Created PDF for ${url.slug}`);
