@@ -18,7 +18,7 @@ operating system, and how to create your first Streamlit app!
   <InlineCallout color="violet-70" icon="auto_awesome" bold="Create an app" href="/library/get-started/create-an-app">
     using Streamlit's core features to fetch and cache data, draw charts, plot information on a map, and use interactive widgets, like a slider, to filter results.
   </InlineCallout>
-  <InlineCallout color="violet-70" icon="auto_stories" bold="Multipage apps" href="/library/get-started/create-an-app">
+  <InlineCallout color="violet-70" icon="auto_stories" bold="Multipage apps" href="/library/get-started/multipage-apps">
     teaches you how to add pages to your app, including how to define pages, structure and run multipage apps, and navigate between pages. Once you understand the basics, create your first multipage app based on the familiar <code>streamlit hello</code> command!
   </InlineCallout>
   {/*<InlineCallout color="violet-70" icon="share" bold="Deploy an app" href="/library/get-started/deploy-an-app">
