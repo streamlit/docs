@@ -9,6 +9,7 @@ RUN pip install docutils
 RUN pip install lxml
 RUN pip install requests
 RUN pip install numpydoc
+RUN pip install protobuf==3.20.1
 
 RUN mkdir -p /docs
 COPY build.py /docs
