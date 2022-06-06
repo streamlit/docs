@@ -86,7 +86,7 @@ li p:only-child {
 }
 
 .code {
-  @apply font-mono font-normal;
+  @apply font-mono font-normal break-words;
 }
 
 .bold {
