@@ -8,7 +8,7 @@ slug: /library/advanced-features/prerelease
 At Streamlit, we like to move quick while keeping things stable. In our latest effort to move even faster without sacrificing stability, we're offering our bold and fearless users two ways to try out Streamlit's bleeding-edge features:
 
 1. [Nightly releases](#nightly-releases)
-2. [Beta and experimental features](#beta-and-experimental-features)
+2. [Experimental features](#experimental-features)
 
 ## Nightly releases
 
@@ -49,43 +49,20 @@ If you'd like to use a specific version, you can find the version number in our 
 
 If you'd like to review the changes for a nightly release, you can use the [comparison tool on GitHub](https://github.com/streamlit/streamlit/compare/0.57.3...0.57.4.dev20200412).
 
-## Beta and Experimental Features
+## Experimental Features
 
-In addition to nightly releases, we also have two naming conventions for less stable Streamlit features: `st.beta_` and `st.experimental_`. These distinctions are prefixes we attach to our function names to make sure their status is clear to everyone.
+In addition to nightly releases, we also have one naming convention for less stable Streamlit features: `st.experimental_`. This distinction is a prefix we attach to our command names to make sure their status is clear to everyone.
 
 Here's a quick rundown of what you get from each naming convention:
 
 - **st**: this is where our core features like `st.write` and `st.dataframe` live. If we ever make backward-incompatible changes to these, they will take place gradually and with months of announcements and warnings.
-- **beta**: this is where all new features land before they becoming part of Streamlit core. This gives you a chance to try the next big thing we're cooking up weeks or months before we're ready to stabilize its API.
-- **experimental**: this is where we'll put features that may or may not ever make it into Streamlit core. We don't know whether these features have a future, but we want you to have access to everything we're trying, and work with us to figure them out.
-
-The main difference between `beta_` and `experimental_` is that beta features are expected to make it into Streamlit core at some point soon, while experimental features may never make it.
-
-### Beta
-
-Features with the `beta_` naming convention are all scheduled to become part of Streamlit core.
-While in beta, a feature's API and behaviors may not be stable, and it's possible they could change
-in ways that aren't backward-compatible.
-
-**The lifecycle of a beta feature**
-
-1. A feature is added with the `beta_` prefix.
-
-2. The feature's API stabilizes and the feature is _cloned_ without the `beta_` prefix, so it exists
-   as both `st` and `beta_`. At this point, users will see a warning when using the version of the
-   feature with the `beta_` prefix -- but the feature will still work.
-
-3. At some point, the code of the `beta_`-prefixed feature is _removed_, but there will still be a
-   stub of the function prefixed with `beta_` that shows an error with appropriate instructions.
-
-4. Finally, at a later date the `beta_` version is removed.
+- **experimental**: this is where we'll put all new features that may or may not ever make it into Streamlit core. This gives you a chance to try the next big thing we're cooking up weeks or months before we're ready to stabilize its API. We don't know whether these features have a future, but we want you to have access to everything we're trying, and work with us to figure them out.
 
 ### Experimental
 
 Features with the `experimental_` naming convention are things that we're still working on or trying
 to understand. If these features are successful, at some point they'll become part of Streamlit
-core, by moving to the `beta_` naming convention and then to Streamlit core. If unsuccessful, these
-features are removed without much notice.
+core. If unsuccessful, these features are removed without much notice. While in experimental, a feature's API and behaviors may not be stable, and it's possible they could change in ways that aren't backward-compatible.
 
 <Warning>
 
@@ -97,4 +74,8 @@ Experimental features and their APIs may change or be removed at any time.
 
 1. A feature is added with the `experimental_` prefix.
 2. The feature is potentially tweaked over time, with possible API/behavior breakages.
-3. At some point, we either promote the feature to `beta_` or remove it from `experimental_`. Either way, we leave a stub in `experimental_` that shows an error with instructions.
+3. If successful, we promote the feature to Streamlit core and remove it from `experimental_`:
+   - a\. The feature's API stabilizes and the feature is _cloned_ without the `experimental_` prefix, so it exists as both `st` and `experimental_`. At this point, users will see a warning when using the version of the feature with the `experimental_` prefix -- but the feature will still work.
+   - b\. At some point, the code of the `experimental_`-prefixed feature is _removed_, but there will still be a stub of the function prefixed with `experimental_` that shows an error with appropriate instructions.
+   - c\. Finally, at a later date the `experimental_` version is removed.
+4. If unsuccessful, the feature is removed without much notice and we leave a stub in `experimental_` that shows an error with instructions.
