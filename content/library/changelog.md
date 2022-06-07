@@ -23,7 +23,7 @@ _Release date: June 2, 2022_
 
 **Highlights**
 
-- 📖 Introducing native support for multipage apps! Check out our [blog post](https://blog.streamlt.io/introducing-multipage-apps) and try out our new `streamlit hello`.
+- 📖 Introducing native support for multipage apps! Check out our [blog post](https://blog.streamlit.io/introducing-multipage-apps) and try out our new `streamlit hello`.
 
 **Notable Changes**
 
