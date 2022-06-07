@@ -152,7 +152,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 date="2022-06-02T16:05:00.000Z"
                 title="Introducing multipage apps! 📄"
                 text="Quickly and easily add more pages to your Streamlit apps."
-                link="https://blog.streamlt.io/introducing-multipage-apps"
+                link="https://blog.streamlit.io/introducing-multipage-apps"
               />
               <NewsEntry
                 date="2022-05-26T16:05:00.000Z"
