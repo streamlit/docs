@@ -46,9 +46,22 @@ const getLinks = async () => {
 
   // Store urls in array with a bit more metadata
   urlsArray.map((url) => {
+    // Format slugs like this:
+    // 00-index
+    // 01-library-api-reference-text-st.header
+    // 02-knowledge-base-using-streamlit-remove-streamlit-app-title
+    // 03-streamlit-cloud
+    // So they are a bit more organized when the PDF gets exported
+    let formattedSlug = url
+      .replace("https://docs.streamlit.io/", "")
+      .replaceAll("/", "-")
+      .replaceAll("index", "00-index")
+      .replaceAll("library", "01-library")
+      .replaceAll("knowledge-base", "02-knowledge-base")
+      .replaceAll("streamlit-cloud", "03-streamlit-cloud");
     urls.push({
       url: url.replace("https://docs.streamlit.io/", "http://localhost:3000/"),
-      slug: url.split("/").pop(),
+      slug: formattedSlug,
       isVersioned: /^[\d\.]+$/.test(url.split("/")[3]),
       shouldBeDeleted:
         urlsToRemove.filter((item) => url.split("/").pop() === item).length > 0
@@ -88,6 +101,7 @@ const getPDFs = async (url) => {
   await page.pdf({
     path: `public/pdf/pages/${url.slug}.pdf`,
     format: "a4",
+    timeout: 0,
   });
 
   console.log(`Done! Created PDF for ${url.slug}`);
