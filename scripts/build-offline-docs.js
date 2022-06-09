@@ -101,7 +101,6 @@ const getPDFs = async (url) => {
   await page.pdf({
     path: `public/pdf/pages/${url.slug}.pdf`,
     format: "a4",
-    timeout: 0,
   });
 
   console.log(`Done! Created PDF for ${url.slug}`);
