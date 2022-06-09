@@ -106,6 +106,14 @@ Streamlit's officially-supported environment manager for macOS and Linux is [Pip
    pip3 install pipenv
    ```
 
+### Install Xcode command line tools on macOS
+
+On macOS, you'll need to install Xcode command line tools. They are required to compile some of Streamlit's Python dependencies during installation. To install Xcode command line tools, run:
+
+```sh
+xcode-select --install
+```
+
 ### Create a new environment with Streamlit
 
 1. Navigate to your project folder:
