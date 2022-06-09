@@ -19,9 +19,6 @@ Before you get started, you're going to need a few things:
 - [Python 3.7 - Python 3.10](https://www.python.org/downloads/)
 - [PIP](https://pip.pypa.io/en/stable/installing/)
 
-If you haven't already, take a few minutes to read through [Main
-concepts](/library/get-started/main-concepts) to understand Streamlit's data flow model.
-
 ## Set up your virtual environment
 
 Regardless of which package management tool you're using, we recommend running
@@ -159,3 +156,5 @@ Streamlit's officially-supported environment manager for macOS and Linux is [Pip
    To stop the Streamlit server, press `ctrl-C`.
 
 3. When you're done using this environment, just type `exit` or press `ctrl-D` to return to your normal shell.
+
+Now that you've installed Streamlit, take a few minutes to read through [Main concepts](/library/get-started/main-concepts) to understand Streamlit's data flow model.
