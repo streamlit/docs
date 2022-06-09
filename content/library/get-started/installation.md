@@ -84,12 +84,12 @@ Streamlit's officially-supported environment manager for macOS and Linux is [Pip
 
 ### Install Pipenv
 
-1. Install `pip`.
+1. Install `pip`. More details about installing `pip` can be found in [pip's documentation](https://pip.pypa.io/en/stable/installation/#supported-methods).
 
    On a macOS:
 
    ```sh
-   sudo easy_install pip
+   python -m ensurepip --upgrade
    ```
 
    On Ubuntu with Python 3:
