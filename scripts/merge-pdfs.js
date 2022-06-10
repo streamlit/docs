@@ -13,6 +13,14 @@ const getPDFs = () => {
 
   // Get all pdfs inside the directory path
   fs.readdir(pagesPath, async function (err, files) {
+    // Sort pages on their correct order
+    files.sort((a, b) => {
+      const aNumber = a.replace(/[^0-9]/g, "");
+      const bNumber = b.replace(/[^0-9]/g, "");
+
+      return aNumber - bNumber;
+    });
+
     // Loop through all files and check its validity
     files.forEach(function (file) {
       console.log(`Adding ${file}...`);
