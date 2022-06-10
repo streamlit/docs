@@ -1,4 +1,3 @@
-const GetSitemapLinks = require("get-sitemap-links").default;
 const matter = require("gray-matter");
 const puppeteer = require("puppeteer");
 const path = require("path");
