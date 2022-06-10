@@ -29,7 +29,6 @@
     "framer-motion": "^4.1.17",
     "frontmatter-markdown-loader": "^3.6.3",
     "fs": "0.0.1-security",
-    "get-sitemap-links": "^1.0.6",
     "gray-matter": "^4.0.3",
     "html-to-text": "^8.0.0",
     "is-pdf-valid": "^0.0.1",
