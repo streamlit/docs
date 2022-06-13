@@ -86,7 +86,7 @@ li p:only-child {
 }
 
 .code {
-  @apply font-mono font-normal;
+  @apply font-mono font-normal break-words;
 }
 
 .bold {
@@ -114,4 +114,9 @@ li > code {
 
 p a code {
   @apply border-none p-0;
+}
+
+/* One-line code descriptions in docstrings */
+div.code-desc {
+  @apply mb-4 text-gray-90 dark:text-white;
 }

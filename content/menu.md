@@ -6,10 +6,10 @@ site_menu:
     icon: description
   - category: Streamlit library / Get started
     url: /library/get-started
-  - category: Streamlit library / Get started / Main concepts
-    url: /library/get-started/main-concepts
   - category: Streamlit library / Get started / Installation
     url: /library/get-started/installation
+  - category: Streamlit library / Get started / Main concepts
+    url: /library/get-started/main-concepts
   - category: Streamlit library / Get started / Create an app
     url: /library/get-started/create-an-app
   - category: Streamlit library / Get started / Multipage apps
