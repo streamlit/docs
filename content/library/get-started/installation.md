@@ -17,10 +17,7 @@ Before you get started, you're going to need a few things:
 
 - Your favorite IDE or text editor
 - [Python 3.7 - Python 3.10](https://www.python.org/downloads/)
-- [PIP](https://pip.pypa.io/en/stable/installing/)
-
-If you haven't already, take a few minutes to read through [Main
-concepts](/library/get-started/main-concepts) to understand Streamlit's data flow model.
+- [PIP](https://pip.pypa.io/en/stable/installation/)
 
 ## Set up your virtual environment
 
@@ -84,12 +81,12 @@ Streamlit's officially-supported environment manager for macOS and Linux is [Pip
 
 ### Install Pipenv
 
-1. Install `pip`.
+1. Install `pip`. More details about installing `pip` can be found in [pip's documentation](https://pip.pypa.io/en/stable/installation/#supported-methods).
 
    On a macOS:
 
    ```sh
-   sudo easy_install pip
+   python -m ensurepip --upgrade
    ```
 
    On Ubuntu with Python 3:
@@ -105,6 +102,14 @@ Streamlit's officially-supported environment manager for macOS and Linux is [Pip
    ```sh
    pip3 install pipenv
    ```
+
+### Install Xcode command line tools on macOS
+
+On macOS, you'll need to install Xcode command line tools. They are required to compile some of Streamlit's Python dependencies during installation. To install Xcode command line tools, run:
+
+```sh
+xcode-select --install
+```
 
 ### Create a new environment with Streamlit
 
@@ -159,3 +164,5 @@ Streamlit's officially-supported environment manager for macOS and Linux is [Pip
    To stop the Streamlit server, press `ctrl-C`.
 
 3. When you're done using this environment, just type `exit` or press `ctrl-D` to return to your normal shell.
+
+Now that you've installed Streamlit, take a few minutes to read through [Main concepts](/library/get-started/main-concepts) to understand Streamlit's data flow model.

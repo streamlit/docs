@@ -8,7 +8,7 @@ description: st.experimental_user returns information about the logged-in user o
 
 <Important>
 
-This is an experimental feature. Experimental features and their APIs may change or be removed at any time. To learn more, click [here](/library/advanced-features/prerelease#beta-and-experimental-features).
+This is an experimental feature. Experimental features and their APIs may change or be removed at any time. To learn more, click [here](/library/advanced-features/prerelease#experimental-features).
 
 </Important>
 
@@ -167,4 +167,4 @@ if st.experimental_user.email:
 
 - `st.experimental_user` is **read-only**. You cannot update or modify its value. Doing so will throw a `StreamlitAPIException`.
 - A valid email is returned only if the user is logged in to Streamlit Cloud and the app is private. Else, `None` or test@localhost.com is returned.
-- This is an experimental feature. Experimental features and their APIs may change or be removed at any time. To learn more, click [here](/library/advanced-features/prerelease#beta-and-experimental-features).
+- This is an experimental feature. Experimental features and their APIs may change or be removed at any time. To learn more, click [here](/library/advanced-features/prerelease#experimental-features).
