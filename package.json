@@ -8,6 +8,7 @@
     "postbuild": "node ./scripts/build-search-index.js && next-sitemap",
     "start": "next start",
     "export": "next build && next export && node ./scripts/build-search-index.js && next-sitemap",
+    "offline-docs": "node ./scripts/build-offline-docs.js && node ./scripts/merge-pdfs.js",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -30,6 +31,7 @@
     "fs": "0.0.1-security",
     "gray-matter": "^4.0.3",
     "html-to-text": "^8.0.0",
+    "is-pdf-valid": "^0.0.1",
     "lodash": "^4.17.21",
     "markdown-it": "^12.3.2",
     "netlify-plugin-cache-nextjs": "^1.6.1",
@@ -39,8 +41,10 @@
     "next-sitemap": "^1.6.189",
     "node-html-parser": "^4.1.5",
     "nprogress": "^0.2.0",
+    "pdf-merger-js": "^3.4.0",
     "prettier": "^2.4.1",
     "prismjs": "^1.27.0",
+    "puppeteer": "^14.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-instantsearch-dom": "^6.12.1",
