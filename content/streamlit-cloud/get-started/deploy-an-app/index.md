@@ -25,6 +25,12 @@ If you are connecting to a data source or want to select a Python version for yo
 
 You can connect to private data sources either by using [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management) or with [IP allowlisting](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/stable-outbound-ip-addresses). Read more on how to [connect to data sources](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources).
 
+<Tip>
+
+Streamlit Cloud supports Python 3.7 - Python 3.10, and defaults to version 3.9. You can select a version of your choice from the "Python version" dropdown in the "Advanced settings" modal.
+
+</Tip>
+
 ## Watch your app launch
 
 Your app is now deploying and you can watch while it launches. Most apps take only a couple of minutes to deploy, but if your app has a lot of dependencies it may take some time to deploy the first time. After the initial deployment, any change that does not touch your dependencies should show up immediately.

@@ -199,25 +199,10 @@ export default function Home({ window, menu, gdpr_data }) {
                   border_color: "gray-90",
                 }}
                 border_color="gray-40"
-                icon="analytics"
-                title="Workspace analytics"
-                text="See how many total viewers have visited all apps in your Community Cloud workspace. Read more about how to access this feature in our docs."
-                link="/streamlit-cloud/get-started/manage-your-app#analytics-modal"
-              />
-              <Tile
-                size="half"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                icon="group"
-                title="st.experimental_user"
-                text="st.experimental_user is a Streamlit command that returns information about the logged-in user on Community Cloud. It allows developers to personalize apps for the user viewing the app."
-                link="/library/api-reference/personalization/st.experimental_user"
+                icon="settings_suggest"
+                title="Added support for Python 3.10"
+                text='Streamlit Cloud supports Python 3.7 - Python 3.10, and defaults to version 3.9. Select a Python version for your app by clicking "Advanced settings" before you deploy the app.'
+                link="/streamlit-cloud/get-started/deploy-an-app#advanced-settings-for-deployment"
               />
               <Tile
                 size="half"
@@ -233,6 +218,21 @@ export default function Home({ window, menu, gdpr_data }) {
                 title="Redesigned st.dataframe"
                 text="st.dataframe now supports column and table resizing, data search, and copy-to-clipboard functionality. Read more in our docs."
                 link="/library/api-reference/data/st.dataframe"
+              />
+              <Tile
+                size="half"
+                background="unset"
+                color="unset"
+                dark={{
+                  background: "unset",
+                  color: "white",
+                  border_color: "gray-90",
+                }}
+                border_color="gray-40"
+                icon="group"
+                title="st.experimental_user"
+                text="st.experimental_user is a Streamlit command that returns information about the logged-in user on Community Cloud. It allows developers to personalize apps for the user viewing the app."
+                link="/library/api-reference/personalization/st.experimental_user"
               />
               {/* <Tile
                 size="half"
