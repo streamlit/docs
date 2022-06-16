@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_HOSTNAME,
+  siteUrl: "https://docs.streamlit.io",
   generateRobotsTxt: false,
 };
