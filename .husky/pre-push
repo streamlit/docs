@@ -1,4 +1,8 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run sitemap && git add . && git commit -m "Update sitemap" --no-verify && git push && exit
+npm run sitemap
+git add .
+git commit -m "Update sitemap" --no-verify
+git push 
+exit 1
