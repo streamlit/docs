@@ -109,8 +109,8 @@ Session State is a way to share variables between reruns, for each user session.
 
 At Streamlit, we like to move quick while keeping things stable. In our latest effort to move even faster without sacrificing stability, we're offering our bold and fearless users two ways to try out Streamlit's bleeding-edge features.
 
-- [Nightly releases](/library/advanced-features/prerelease#nightly-releases)
 - [Experimental features](/library/advanced-features/prerelease#experimental-features)
+- [Nightly releases](/library/advanced-features/prerelease#nightly-releases)
 
 </RefCard>
 
