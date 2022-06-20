@@ -9,6 +9,32 @@ This section gives you background on how different parts of Streamlit work.
 
 <TileContainer>
 
+<RefCard href="/library/advanced-features/cli" size="half">
+
+##### Command-line options
+
+When you install Streamlit, a command-line (CLI) tool gets installed as well. The purpose of this tool is to run Streamlit apps, change Streamlit configuration options, and help you diagnose and fix issues.
+
+- [What is the command-line interface (CLI)?](/library/advanced-features/cli#command-line-interface)
+- [How to run Streamlit apps from the CLI?](/library/advanced-features/cli#run-streamlit-apps)
+- [View Streamlit version from the CLI?](/library/advanced-features/cli#view-streamlit-version)
+- [View documentation from the CLI](/library/advanced-features/cli#view-documentation)
+- [Clear cache from the CLI](/library/advanced-features/cli#clear-cache)
+
+</RefCard>
+
+<RefCard href="/library/advanced-features/configuration" size="half">
+
+##### Streamlit configuration
+
+Streamlit provides four different ways to set configuration options. Learn how to use each of them to change the behavior of Streamlit.
+
+- [How to set configuration options?](/library/advanced-features/configuration)
+- [Opt out of telemetry collection](/library/advanced-features/configuration#telemetry)
+- [View all configuration options](/library/advanced-features/configuration#view-all-configuration-options)
+
+</RefCard>
+
 <RefCard href="/library/advanced-features/theming" size="half">
 
 ##### Theming
@@ -21,21 +47,6 @@ This section provides examples of how Streamlit page elements are affected by th
 - [textcolor](/library/advanced-features/theming#textcolor)
 - [font](/library/advanced-features/theming#font)
 - [base](/library/advanced-features/theming#base)
-
-</RefCard>
-
-<RefCard href="/library/advanced-features/configuration" size="half">
-
-##### Streamlit configuration
-
-When you install Streamlit, a command-line (CLI) tool gets installed as well. The purpose of this tool is to run Streamlit apps, change Streamlit configuration options, and help you diagnose and fix issues.
-
-- [What is the command-line interface (CLI)?](/library/advanced-features/configuration#command-line-interface)
-- [How to run Streamlit apps from the CLI?](/library/advanced-features/configuration#run-streamlit-apps)
-- [View documentation from the CLI](/library/advanced-features/configuration#view-documentation)
-- [Clear cache from the CLI](/library/advanced-features/configuration#clear-cache)
-- [How to set configuration options?](/library/advanced-features/configuration#set-configuration-options)
-- [View all configuration options](/library/advanced-features/configuration#view-all-configuration-options)
 
 </RefCard>
 
@@ -111,7 +122,7 @@ Widgets are magical and often work how you want. But they can have surprising be
 
 </RefCard>
 
-<RefCard href="/library/advanced-features/timezone-handling" size="half">
+<RefCard href="/library/advanced-features/timezone-handling" size="full">
 
 ##### Working with timezones
 
