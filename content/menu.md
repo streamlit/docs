@@ -274,12 +274,12 @@ site_menu:
     isVersioned: false
   - category: Streamlit library / Advanced features
     url: /library/advanced-features
-  - category: Streamlit library / Advanced features / Theming
-    url: /library/advanced-features/theming
   - category: Streamlit library / Advanced features/ Command-line options
     url: /library/advanced-features/cli
   - category: Streamlit library / Advanced features/ Configuration
     url: /library/advanced-features/configuration
+  - category: Streamlit library / Advanced features / Theming
+    url: /library/advanced-features/theming
   - category: Streamlit library / Advanced features/ Optimize performance with st.cache
     url: /library/advanced-features/caching
   - category: Streamlit library / Advanced features/ Experimental cache primitives
