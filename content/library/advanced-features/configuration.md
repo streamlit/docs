@@ -3,56 +3,7 @@ title: Configuration
 slug: /library/advanced-features/configuration
 ---
 
-# Streamlit configuration
-
-## Command-line interface
-
-When you install Streamlit, a command-line (CLI) tool gets installed
-as well. The purpose of this tool is to run Streamlit apps, change Streamlit configuration options,
-and help you diagnose and fix issues.
-
-To see all of the supported commands:
-
-```bash
-streamlit --help
-```
-
-### Run Streamlit apps
-
-```bash
-streamlit run your_script.py [-- script args]
-```
-
-Runs your app. At any time you can stop the server with **Ctrl+c**.
-
-<Note>
-
-When passing your script some custom arguments, **they must be passed after
-two dashes**. Otherwise the arguments get interpreted as arguments to Streamlit
-itself.
-
-</Note>
-
-To see the Streamlit 'Hello, World!' example app, run `streamlit hello`.
-
-### View documentation
-
-```bash
-streamlit docs
-```
-
-Opens the Streamlit documentation (i.e. this website) in a web browser.
-
-### Clear cache
-
-```bash
-streamlit cache clear
-```
-
-Clears persisted files from the on-disk [Streamlit
-cache](/library/api-reference/performance), if present.
-
-## Set configuration options
+# Configuration
 
 Streamlit provides four different ways to set configuration options. This list is in reverse order of precedence, i.e. command line flags take precedence over environment variables when the same configuration option is provided multiple times.
 
@@ -79,14 +30,35 @@ Streamlit provides four different ways to set configuration options. This list i
    streamlit run your_script.py --server.port 80
    ```
 
+## Telemetry
+
+As mentioned during the installation process, Streamlit collects usage statistics. You can find out
+more by reading our [privacy policy](https://streamlit.io/privacy-policy), but the high-level
+summary is that although we collect telemetry data we cannot see and do not store information
+contained in Streamlit apps.
+
+If you'd like to opt out of usage statistics, add the following to your config file:
+
+```toml
+[browser]
+gatherUsageStats = false
+```
+
+## Theming
+
+You can change the base colors of your app using the `[theme]` section of the configuration system.
+To learn more, see [Theming.](/library/advanced-features/theming)
+
 ## View all configuration options
+
+As described in [Command-line options](/library/advanced-features/cli), you can
+view all available configuration option using:
 
 ```bash
 streamlit config show
 ```
 
-Shows all config options available for Streamlit, including their current
-values:
+The command above will print something like this:
 
 ```toml
 # Streamlit version: 1.9.0
