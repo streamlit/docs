@@ -30,3 +30,6 @@ yarn-error.log*
 .env.production.local
 
 .env
+
+# Sitemap and other public files
+/public
