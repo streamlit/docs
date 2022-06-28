@@ -38,6 +38,20 @@ col1.write("this is column 1")
 col2.write("this is column 2")
 ```
 
+<RefCard href="/library/api-reference/layout/st.empty">
+
+<Image pure alt="screenshot" src="/images/api/TBD.jpg" />
+
+#### Tabs
+
+Insert containers seperated into tabs.
+
+```python
+tab1, tab2 = st.tabs(["Tab 1", "Tab2"])
+tab1.write("this is tab 1")
+tab2.write("this is tab 2")
+```
+
 </RefCard>
 <RefCard href="/library/api-reference/layout/st.expander">
 
