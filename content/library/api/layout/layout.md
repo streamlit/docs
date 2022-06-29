@@ -38,7 +38,8 @@ col1.write("this is column 1")
 col2.write("this is column 2")
 ```
 
-<RefCard href="/library/api-reference/layout/st.empty">
+</RefCard>
+<RefCard href="/library/api-reference/layout/st.tabs">
 
 <Image pure alt="screenshot" src="/images/api/TBD.jpg" />
 
