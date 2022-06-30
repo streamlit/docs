@@ -70,14 +70,12 @@ If that's not the issue, then please send the logs and warning you are seeing to
 
 ### My app is hitting resource limits / my app is running very slowly
 
-<!-- If your app is running slowly or you're hitting the 'Argh' page then just let us know and we can work to help you adjust the limits. We may need to upgrade your workspace to give you access to a higher level of resources. If you know in advance you are going to need more resources, also just let us know so we can set them up for you before you run into issues. Click [here](/streamlit-cloud/get-started/manage-your-app#app-resources-and-limits) to learn more about [resource limits](/streamlit-cloud/get-started/manage-your-app#app-resources-and-limits). -->
-
 If your app is running slowly or you're hitting the 'Argh' page, we first highly recommend going through and implementing the suggestions in the following blog posts to prevent your app from hitting the resource limits and to detect if your Streamlit app leaks memory:
 
 - [Common app problems: Resource limits](https://blog.streamlit.io/common-app-problems-resource-limits/)
 - [3 steps to fix app memory leaks](https://blog.streamlit.io/3-steps-to-fix-app-memory-leaks/)
 
-If you're still having issues, we can work to help you adjust the limits. We may need to upgrade your workspace to give you access to a higher level of resources. If you know in advance you are going to need more resources, also just let us know so we can set them up for you before you run into issues. Click [here](/streamlit-cloud/get-started/manage-your-app#app-resources-and-limits) to learn more about resource limits.
+If you're still having issues, click [here](/streamlit-cloud/get-started/manage-your-app#app-resources-and-limits) to learn more about resource limits.
 
 ### Can I get a custom URL for my app?
 
