@@ -1,4 +1,4 @@
----
+<!-- ---
 title: Auth0 Single Sign-On
 slug: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-auth0-sso
 ---
@@ -49,4 +49,4 @@ The Token Signature is a certificate used to securely sign tokens issued by Auth
 
 The IdP SSO URL provides Streamlit with a login endpoint to redirect your organization's users from our login page to your Auth0 login page.
 
-</Note>
+</Note> -->
