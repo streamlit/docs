@@ -1,4 +1,4 @@
----
+<!-- ---
 title: Microsoft Active Directory (ADFS)
 slug: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-active-directory-adfs
 ---
@@ -49,4 +49,4 @@ What is a Token Signature? The Token Signature is a certificate used to securely
 
 The IdP SSO URL provides Streamlit with a login endpoint to redirect your organization's users from our login page to your Azure AD login page.
 
-</Note>
+</Note> -->

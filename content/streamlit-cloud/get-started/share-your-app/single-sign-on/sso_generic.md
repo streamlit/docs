@@ -1,4 +1,4 @@
----
+<!-- ---
 title: Generic SAML authentication
 slug: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-general-saml-authentication
 ---
@@ -42,4 +42,4 @@ There are three steps your team will need to complete to configure SSO via gener
 4. Provide Streamlit with an IdP URI (Entity ID)
 
    - Your Identity Provider URI (Entity ID) comes from your Identity Provider and is often located in an admin dashboard. The exact steps to generate the IdP URI (Entity ID) will vary based on your Identity Provider.
-   - Please share the IdP URI with Streamlit by pasting it [here](https://forms.gle/f6Bi1gnoHYD9ULBe7).
+   - Please share the IdP URI with Streamlit by pasting it [here](https://forms.gle/f6Bi1gnoHYD9ULBe7). -->

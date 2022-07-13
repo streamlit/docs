@@ -1,4 +1,4 @@
----
+<!-- ---
 title: Configuring Single Sign-on (SSO)
 slug: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso
 ---
@@ -23,4 +23,4 @@ If your organization uses **Google OAuth**, you're all set — just click "Conti
 
 Questions about SSO? Email us at [success@streamlit.io](mailto:success@streamlit.io)
 
-</Note>
+</Note> -->
