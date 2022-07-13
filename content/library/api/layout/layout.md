@@ -41,7 +41,7 @@ col2.write("this is column 2")
 </RefCard>
 <RefCard href="/library/api-reference/layout/st.tabs">
 
-<Image pure alt="screenshot" src="/images/api/TBD.jpg" />
+<Image pure alt="screenshot" src="/images/api/tabs.gif" />
 
 #### Tabs
 
