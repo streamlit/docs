@@ -96,7 +96,12 @@ It is best practice to pin your Streamlit version in `requirements.txt`. Otherw
 
 <!-- The exact resources and limits will depend on [your workspace plan](https://streamlit.io/cloud). If you need more apps or more resources for your apps you can upgrade your plan or reach out to [support@streamlit.io](mailto:support@streamlit.io). -->
 
-All Community Cloud users have access to the same resources and are subject to the same limits. If you need more apps or more resources for your apps, you can reach out to us on our [Community forum](https://discuss.streamlit.io/).
+All Community Cloud users have access to the same resources and are subject to the same limits (1 GB of RAM).
+If your app is running slowly or you're hitting the 'Argh' page, we first highly recommend going through and implementing the suggestions in the following blog posts to prevent your app from hitting the resource limits and to detect if your Streamlit app leaks memory:
+
+- [Common app problems: Resource limits](https://blog.streamlit.io/common-app-problems-resource-limits/)
+- [3 steps to fix app memory leaks](https://blog.streamlit.io/3-steps-to-fix-app-memory-leaks/)
+<!-- If you need more apps or more resources for your apps, you can reach out to us on our [Community forum](https://discuss.streamlit.io/). -->
 
 #### Developer view
 
