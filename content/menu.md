@@ -326,24 +326,24 @@ site_menu:
     url: /streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/stable-outbound-ip-addresses
   - category: Streamlit Cloud / Get started / Share your app
     url: /streamlit-cloud/get-started/share-your-app
-  - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO)
-    url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso
-    visible: false
-  - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Microsoft Active Directory (ADFS)
-    url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-active-directory-adfs
-    visible: false
-  - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Microsoft Azure AD
-    url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-azure-active-directory
-    visible: false
-  - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Okta
-    url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-okta-sso
-    visible: false
-  - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Auth0
-    url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-auth0-sso
-    visible: false
-  - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Generic SAML
-    url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-general-saml-authentication
-    visible: false
+  # - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO)
+  #   url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso
+  #   visible: false
+  # - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Microsoft Active Directory (ADFS)
+  #   url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-active-directory-adfs
+  #   visible: false
+  # - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Microsoft Azure AD
+  #   url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-azure-active-directory
+  #   visible: false
+  # - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Okta
+  #   url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-okta-sso
+  #   visible: false
+  # - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Auth0
+  #   url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-auth0-sso
+  #   visible: false
+  # - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Generic SAML
+  #   url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-general-saml-authentication
+  #   visible: false
   - category: Streamlit Cloud / Get started / Manage your app
     url: /streamlit-cloud/get-started/manage-your-app
 
