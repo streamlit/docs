@@ -87,7 +87,7 @@ Streamlit's Community Cloud is a workspace for you and your team to easily deplo
     <Tile
         icon="manage_accounts"
         title="Manage your app"
-        text="Access logs, get more resources for your app, and other tips and tricks."
+        text="Access logs, reboot, or favorite an app, and other tips and tricks."
         link="/streamlit-cloud/get-started/manage-your-app"
         size="half"
     />
