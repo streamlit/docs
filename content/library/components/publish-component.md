@@ -77,7 +77,7 @@ With your wheel created, the final step is to upload to PyPI. The instructions h
 
    - Visit [https://test.pypi.org/manage/account/#api-tokens](https://test.pypi.org/manage/account/#api-tokens) and create a new API token. Don’t limit the token scope to a particular project, since you are creating a new project. Copy your token before closing the page, as you won’t be able to retrieve it again.
 
-2. Upload your wheel to Test PyPI. `twine` will prompt you for a username and password. For the username, use **token**. For the password, use your token value from the previous step, including the `pypi-` prefix:
+2. Upload your wheel to Test PyPI. `twine` will prompt you for a username and password. For the username, use **\_\_token\_\_**. For the password, use your token value from the previous step, including the `pypi-` prefix:
 
    ```shell
    python3 -m twine upload --repository testpypi dist/*
