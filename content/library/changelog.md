@@ -17,6 +17,28 @@ pip install --upgrade streamlit
 
 </Tip>
 
+## **Version 1.11.0**
+
+_Release date: July 14, 2022_
+
+**Highlights**
+
+- 🗂 Introducing `st.tabs` to have tab containers in your app. See our [documentation](/library/api-reference/layout/st.tabs) on how to use this feature.
+
+**Notable Changes**
+
+- ℹ️ `st.metric` supports tooltips with the `help` keyword parameter.
+- 🚇 `st.columns` supports setting the gap size between columnse with the `gap` keyword parameter.
+
+**Other Changes**
+
+- 💅 Design tweaks to `st.selectbox`, `st.expander`, `st.spinner` ([#4801](https://github.com/streamlit/streamlit/pull/4801)).
+- 📱 The sidebar will close when users select a page from the navigation menu on mobile devices ([#4851](https://github.com/streamlit/streamlit/pull/4841)).
+- 🧠 `st.memo` supports dataclasses! ([#4850](https://github.com/streamlit/streamlit/pull/4850))
+- 🏎 Bug fix for a race condition that destroyed widget state with rapid interaction ([#4882](https://github.com/streamlit/streamlit/pull/4882)).
+- 🏓 `st.table` presents overflowing content to be scrollable when placed inside columns and expanders ([#4934](https://github.com/streamlit/streamlit/pull/4934)).
+- 🐍 Types: More updated type annotations across Streamlit! ([#4808](https://github.com/streamlit/streamlit/pull/4808), [#4809](https://github.com/streamlit/streamlit/pull/4809), [#4856](https://github.com/streamlit/streamlit/pull/4856))
+
 ## **Version 1.10.0**
 
 _Release date: June 2, 2022_
