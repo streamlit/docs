@@ -642,6 +642,21 @@ col2.write("this is column 2")
 ```
 
 </RefCard>
+<RefCard href="/library/api-reference/layout/st.tabs">
+
+<Image pure alt="screenshot" src="/images/api/tabs.gif" />
+
+#### Tabs
+
+Insert containers seperated into tabs.
+
+```python
+tab1, tab2 = st.tabs(["Tab 1", "Tab2"])
+tab1.write("this is tab 1")
+tab2.write("this is tab 2")
+```
+
+</RefCard>
 <RefCard href="/library/api-reference/layout/st.expander">
 
 <Image pure alt="screenshot" src="/images/api/expander.jpg" />
