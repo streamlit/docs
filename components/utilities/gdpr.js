@@ -7,14 +7,6 @@ import { ReactComponent as CookieEmoji } from "../../images/icons/cookie.svg";
 
 import styles from "./gdpr.module.css";
 
-// The first timezone in Europe is UTC+0.
-const EUROPE_TZ_OFFSET_WEST = 0;
-
-// The last timezone in Europe is UTC+3.
-// The minus sign is because that's how the API works:
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset#description
-const EUROPE_TZ_OFFSET_EAST = -3 * 60;
-
 const KEY = "InsertAnalyticsCode";
 
 const GDPRBanner = (gdprData) => {
@@ -25,24 +17,21 @@ const GDPRBanner = (gdprData) => {
   const router = useRouter();
   const path = router.asPath;
 
-  const currentTzOffset = new Date().getTimezoneOffset();
-
-  const isWestOfEurope = currentTzOffset > EUROPE_TZ_OFFSET_WEST;
-  const isEastOfEurope = currentTzOffset < EUROPE_TZ_OFFSET_EAST;
-  const isOutsideEurope = isWestOfEurope || isEastOfEurope;
-  const mayBeInEurope = !isOutsideEurope; // May also be Africa or Middle East...
+  const userIsInEurope = Intl.DateTimeFormat()
+    .resolvedOptions()
+    .timeZone.startsWith("Europe");
 
   if (typeof window === "undefined") return null;
 
   const localStorageIsSetUp = localStorage.getItem(KEY) != null;
 
   // Default to use cookies when outside Europe.
-  if (!localStorageIsSetUp && isOutsideEurope) {
+  if (!localStorageIsSetUp && !userIsInEurope) {
     localStorage.setItem(KEY, true);
   }
 
   // Only show banner if not in europe and banner wasn't already shown.
-  const showBanner = mayBeInEurope && !localStorageIsSetUp;
+  const showBanner = userIsInEurope && !localStorageIsSetUp;
 
   const [isVisible, setIsVisible] = useState(showBanner);
   const [insertAnalyticsCode, setInsertAnalyticsCode] = useState(
