@@ -845,3 +845,9 @@
 /streamlit-cloud/enterprise/single-sign-on-sso     /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso
 /streamlit-cloud/enterprise/single-sign-on-sso/streamlit-okta-sso   /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-okta-sso
 /streamlit-cloud/enterprise     /streamlit-cloud
+/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso /streamlit-cloud/get-started
+/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-active-directory-adfs /streamlit-cloud/get-started
+/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-azure-active-directory /streamlit-cloud/get-started
+/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-okta-sso /streamlit-cloud/get-started
+/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-auth0-sso /streamlit-cloud/get-started
+/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-general-saml-authentication /streamlit-cloud/get-started
