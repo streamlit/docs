@@ -5,7 +5,7 @@ slug: /library/cheatsheet
 
 # Cheat Sheet
 
-This is a summary of the docs, as of [Streamlit v1.10.0](https://pypi.org/project/streamlit/1.7.0/).
+This is a summary of the docs, as of [Streamlit v1.11.0](https://pypi.org/project/streamlit/1.11.0/).
 
 <Masonry>
 
@@ -146,6 +146,23 @@ st.video(data)
 
 # You can also use "with" notation:
 >>> with col1:
+>>>   st.radio('Select one:', [1, 2])
+```
+
+</CodeTile>
+
+<CodeTile>
+
+#### Tabs
+
+```python
+# Insert containers seperated into tabs:
+>>> tab1, tab2 = st.tabs(["Tab 1", "Tab2"])
+>>> tab1.write("this is tab 1")
+>>> tab2.write("this is tab 2")
+
+# You can also use "with" notation:
+>>> with tab1:
 >>>   st.radio('Select one:', [1, 2])
 ```
 

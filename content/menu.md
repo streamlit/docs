@@ -173,6 +173,9 @@ site_menu:
   - category: Streamlit library / API reference / Layouts and containers / st.columns
     url: /library/api-reference/layout/st.columns
     isVersioned: true
+  - category: Streamlit library / API reference / Layouts and containers / st.tabs
+    url: /library/api-reference/layout/st.tabs
+    isVersioned: true
   - category: Streamlit library / API reference / Layouts and containers / st.expander
     url: /library/api-reference/layout/st.expander
     isVersioned: true
