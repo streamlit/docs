@@ -59,6 +59,9 @@ typings/
 .rts2_cache_es/
 .rts2_cache_umd/
 
+# Python cache
+python/__pycache__/
+
 # Optional REPL history
 .node_repl_history
 
