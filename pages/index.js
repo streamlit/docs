@@ -149,22 +149,22 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
-                date="2022-06-02T16:05:00.000Z"
-                title="Introducing multipage apps! 📄"
-                text="Quickly and easily add more pages to your Streamlit apps."
-                link="https://blog.streamlit.io/introducing-multipage-apps"
+                date="2022-06-30T16:05:00.000Z"
+                title="JULO improves financial inclusion in Indonesia with Streamlit"
+                text="Learn how JULO went from manual underwriting to automated credit scoring and a 22-member data team."
+                link="https://blog.streamlit.io/how-streamlit-is-helping-julo-improve-financial-inclusion-in-indonesia/"
               />
               <NewsEntry
-                date="2022-05-26T16:05:00.000Z"
-                title="How Streamlit uses Streamlit: Sharing contextual apps"
-                text="Learn about session state and query parameters!"
-                link="https://blog.streamlit.io/how-streamlit-uses-streamlit-sharing-contextual-apps/"
+                date="2022-06-23T16:05:00.000Z"
+                title="Make your st.pyplot interactive!"
+                text="Learn how to make your pyplot charts interactive in a few simple steps."
+                link="https://blog.streamlit.io/make-your-st-pyplot-interactive/"
               />
               <NewsEntry
-                date="2022-05-17T16:05:00.000Z"
-                title="Leverage your user analytics on Streamlit's Community Cloud"
-                text="See who viewed your apps, when, and how popular they are."
-                link="https://blog.streamlit.io/leverage-your-user-analytics-on-streamlits-community-cloud/"
+                date="2022-06-16T16:05:00.000Z"
+                title="Observing Earth from space with Streamlit"
+                text="Learn how Samuel Bancroft made the SatSchool app to teach students Earth observation."
+                link="https://blog.streamlit.io/observing-earth-from-space-with-streamlit/"
               />
               <Button link="https://blog.streamlit.io/">
                 View all updates
@@ -175,7 +175,52 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <TileContainer>
               <Tile
-                size="half"
+                size="third"
+                background="unset"
+                color="unset"
+                dark={{
+                  background: "unset",
+                  color: "white",
+                  border_color: "gray-90",
+                }}
+                border_color="gray-40"
+                icon="view_quilt"
+                title="st.tabs"
+                text="🗂 Introducing st.tabs to have tab containers in your app. Tabs are a navigational element that allows users to easily move between groups of related content."
+                link="/library/api-reference/layout/st.tabs"
+              />
+              <Tile
+                size="third"
+                background="unset"
+                color="unset"
+                dark={{
+                  background: "unset",
+                  color: "white",
+                  border_color: "gray-90",
+                }}
+                border_color="gray-40"
+                icon="help"
+                title="st.metric tooltip"
+                text="st.metric supports tooltips with the help keyword parameter."
+                link="/library/api-reference/data/st.metric"
+              />
+              <Tile
+                size="third"
+                background="unset"
+                color="unset"
+                dark={{
+                  background: "unset",
+                  color: "white",
+                  border_color: "gray-90",
+                }}
+                border_color="gray-40"
+                icon="radio_button_checked"
+                title="Horizontal radio buttons"
+                text="st.radio has a horizontal keyword-only parameter to display options horizontally."
+                link="/library/get-started/multipage-apps"
+              />
+              <Tile
+                size="third"
                 background="unset"
                 color="unset"
                 dark={{
@@ -190,22 +235,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 link="/library/get-started/multipage-apps"
               />
               <Tile
-                size="half"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                icon="settings_suggest"
-                title="Added support for Python 3.10"
-                text='Streamlit Cloud supports Python 3.7 - Python 3.10, and defaults to version 3.9. Select a Python version for your app by clicking "Advanced settings" before you deploy the app.'
-                link="/streamlit-cloud/get-started/deploy-an-app#advanced-settings-for-deployment"
-              />
-              <Tile
-                size="half"
+                size="third"
                 background="unset"
                 color="unset"
                 dark={{
@@ -220,7 +250,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 link="/library/api-reference/data/st.dataframe"
               />
               <Tile
-                size="half"
+                size="third"
                 background="unset"
                 color="unset"
                 dark={{
@@ -229,10 +259,10 @@ export default function Home({ window, menu, gdpr_data }) {
                   border_color: "gray-90",
                 }}
                 border_color="gray-40"
-                icon="group"
-                title="st.experimental_user"
-                text="st.experimental_user is a Streamlit command that returns information about the logged-in user on Community Cloud. It allows developers to personalize apps for the user viewing the app."
-                link="/library/api-reference/personalization/st.experimental_user"
+                icon="settings_suggest"
+                title="Added support for Python 3.10"
+                text='Streamlit Cloud supports Python 3.7 - Python 3.10, and defaults to version 3.9. Select a Python version for your app by clicking "Advanced settings" before you deploy the app.'
+                link="/streamlit-cloud/get-started/deploy-an-app#advanced-settings-for-deployment"
               />
               {/* <Tile
                 size="half"

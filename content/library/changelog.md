@@ -28,7 +28,7 @@ _Release date: July 14, 2022_
 **Notable Changes**
 
 - ℹ️ `st.metric` supports tooltips with the `help` keyword parameter.
-- 🚇 `st.columns` supports setting the gap size between columnse with the `gap` keyword parameter.
+- 🚇 `st.columns` supports setting the gap size between columns with the `gap` keyword parameter.
 
 **Other Changes**
 
