@@ -45,18 +45,46 @@ The Cloud logs on the right hand side are only viewable to the developer and is 
 
 ## Your app URL
 
-That's it — you're done! Your app now has a permanent URL that you can share with others. Click [here](/streamlit-cloud/get-started/share-your-app) to read about how to share your app with viewers.
+That's it — you're done! Your app now has a unique subdomain URL that you can share with others. Click [here](/streamlit-cloud/get-started/share-your-app) to read about how to share your app with viewers.
 
-App URLs follow a standard structure based on your GitHub repo:
+### Unique subdomains
 
-```python
-https://share.streamlit.io/[user name]/[repo name]/[branch name]/[app path]
+App subdomain URLs follow a structure based on your GitHub repo:
+
+```text
+https://[user name]-[repo name]-[branch name]-[app path]-[short hash].streamlitapp.com
 ```
 
 For example:
 
-```python
-http://share.streamlit.io/streamlit/demo-self-driving/master/streamlit_app.py
+```text
+https://streamlit-demo-self-driving-streamlit-app-8jya0g.streamlitapp.com
 ```
 
-If your app has name `streamlit_app.py` and your branch is `master`, your app is also given a shortened URL of the form `https://share.streamlit.io/[user name]/[repo name]`. The only time you need the full URL is when you deployed multiple apps from the same repo. So you can also reach the example URL above at the short URL [https://share.streamlit.io/streamlit/demo-self-driving](https://share.streamlit.io/streamlit/demo-self-driving).
+Streamlit Community Cloud supports embedding **public** apps using the subdomain scheme. To embed a public app, add the query parameter `/?embedded=true` to the end of the subdomain URL. For example [https://streamlit-demo-self-driving-streamlit-app-8jya0g.streamlitapp.com/?embedded=true](https://streamlit-demo-self-driving-streamlit-app-8jya0g.streamlitapp.com/?embedded=true). There will be no official support for embedding private apps.
+
+### Custom subdomains
+
+Subdomains will also soon be customizable! With this step you'll be able modify your app URLs to reflect your app content, personal branding, or whatever you’d like. The URL will appear as:
+
+```text
+<your-custom-subdomain>.streamlitapp.com
+```
+
+Sign up for early access to try out customizable URLs in the beta [here](https://forms.streamlit.io/customizable-url-beta). To customize your app subdomain from the dashboard:
+
+1. Click the "︙" overflow menu to the right of the app and select "**Settings**"
+
+   ![Custom subdomain settings](/images/streamlit-cloud/custom-subdomain-settings.png)
+
+2. View the "**General**" tab in the App settings modal. Your app's unique subdomain will appear here
+   ![Custom subdomain pick](/images/streamlit-cloud/custom-subdomain-pick.png)
+
+3. Pick a custom subdomain between 6 and 63 characters in length for your app's URL and hit "**Save**"
+   ![Custom subdomain save](/images/streamlit-cloud/custom-subdomain-save.png)
+
+It's that simple! You can access your app by visiting your custom subdomain URL 🎉. For example, [https://deep-dream.streamlitapp.com/](https://deep-dream.streamlitapp.com/).
+
+If a custom subdomain is not available (e.g. because it's already taken), you'll see an error message like this:
+
+![Custom subdomain error](/images/streamlit-cloud/custom-subdomain-error.png)
