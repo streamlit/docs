@@ -74,7 +74,7 @@ If your app needs a hard reboot, click on the "︙" overflow menu to the right o
 
 ### App settings
 
-The app settings let you [manage viewers of your apps](/streamlit-cloud/get-started/share-your-app#adding-viewers-from-your-dashboard) and [secrets of your apps](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). Click on the links to lean more about these features.
+The app settings let you [pick a custom subdomain for your app](/streamlit-cloud/get-started/deploy-an-app#your-app-url), [manage viewers of your apps](/streamlit-cloud/get-started/share-your-app#adding-viewers-from-your-dashboard) and [secrets of your apps](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). Click on the links to lean more about these features.
 
 ## Manage apps in GitHub
 
