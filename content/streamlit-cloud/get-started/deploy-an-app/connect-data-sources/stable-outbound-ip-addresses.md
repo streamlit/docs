@@ -30,6 +30,6 @@ For more information about the specifics of allowlisting IP addresses with your 
 
 <Note>
 
-Does your IT team have questions about Streamlit's outbound IP addresses? Reach out to us on the [Community forum](https://discuss.streamlit.io).
+While responses to requests sent to [share.streamlit.io](share.streamlit.io) will show the source address as  `35.201.127.49` (the IP address of Streamlit's load balancer), apps will only try to initiate outbound connections through the six stable outbound IP addresses listed above.
 
 </Note>
