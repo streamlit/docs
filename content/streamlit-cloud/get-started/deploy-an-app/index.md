@@ -83,7 +83,7 @@ Sign up for early access to try out customizable URLs in the beta [here](https:/
 3. Pick a custom subdomain between 6 and 63 characters in length for your app's URL and hit "**Save**"
    ![Custom subdomain save](/images/streamlit-cloud/custom-subdomain-save.png)
 
-It's that simple! You can access your app by visiting your custom subdomain URL 🎉. For example, [https://deep-dream.streamlitapp.com/](https://deep-dream.streamlitapp.com/).
+It's that simple! You can then access your app by visiting your custom subdomain URL 🎉. For example, [https://deep-dream.streamlitapp.com/](https://deep-dream.streamlitapp.com/).
 
 If a custom subdomain is not available (e.g. because it's already taken), you'll see an error message like this:
 
