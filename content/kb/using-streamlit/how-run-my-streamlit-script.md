@@ -15,7 +15,7 @@ Once you've created your script, say `your_script.py`, the easiest way to run it
 streamlit run your_script.py
 ```
 
-As soon as you run the script as shown above, a local Streamlit server will spin up and your app will open in a new tab your default web browser.
+As soon as you run the script as shown above, a local Streamlit server will spin up and your app will open in a new tab in your default web browser.
 
 ### Pass arguments to your script
 
@@ -39,7 +39,7 @@ Another way of running Streamlit is to run it as a Python module. This is useful
 
 ```bash
 # Running
-python -m streamlit your_script.py
+python -m streamlit run your_script.py
 ```
 
 ```bash
