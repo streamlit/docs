@@ -49,8 +49,8 @@ df = pd.DataFrame(
 # CSS to inject contained in a string
 hide_table_row_index = """
             <style>
+            thead tr th:first-child {display:none}
             tbody th {display:none}
-            .blank {display:none}
             </style>
             """
 
@@ -64,6 +64,12 @@ st.table(df)
 ![Hide dataframe index](/images/knowledge-base/hide-dataframe-index.png)
 
 ## Hide row indices with st.dataframe
+
+<Warning>
+
+The below workaround for [`st.dataframe`](/library/api-reference/data/st.dataframe) does not work for `streamlit>=1.10.0`.
+
+</Warning>
 
 ```python
 import streamlit as st
