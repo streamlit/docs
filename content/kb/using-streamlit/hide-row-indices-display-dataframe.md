@@ -65,6 +65,12 @@ st.table(df)
 
 ## Hide row indices with st.dataframe
 
+<Warning>
+
+The below workaround for [`st.dataframe`](/library/api-reference/data/st.dataframe) does not work for `streamlit>=1.10.0`.
+
+</Warning>
+
 ```python
 import streamlit as st
 import pandas as pd
