@@ -144,12 +144,12 @@ To help others find and play with your Streamlit app, you can add Streamlit's Gi
 Once you deploy your app, you can embed this badge right into your GitHub README.md by adding the following Markdown:
 
 ```markdown
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/[user name]/[repo name]/[branch name]/[app path])
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://<your-custom-subdomain>.streamlitapp.com)
 ```
 
 <Note>
 
-Be sure to replace `https://share.streamlit.io/[user name]/[repo name]/[branch name]/[app path]` with the URL of your deployed app!
+Be sure to replace `https://<your-custom-subdomain>.streamlitapp.com` with the URL of your deployed app!
 
 </Note>
 
