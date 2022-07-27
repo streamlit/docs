@@ -498,6 +498,9 @@ site_menu:
   - category: Knowledge base / Installing dependencies / ERROR No matching distribution found for
     url: /knowledge-base/dependencies/no-matching-distribution
     visible: false
+  - category: Knowledge base / Installing dependencies / Install the Snowflake Connector for Python on Streamlit Cloud
+    url: /knowledge-base/dependencies/snowflake-connector-python-streamlit-cloud
+    visible: false
   - category: Knowledge base / Deployment issues
     url: /knowledge-base/deploy
   - category: Knowledge base / Deployment issues / Authentication without SSO
