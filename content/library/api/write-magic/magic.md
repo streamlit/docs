@@ -55,3 +55,9 @@ magicEnabled = false
 <Important>
     <p>Right now, Magic only works in the main Python app file, not in imported files. See GitHub issue #288 for a discussion of the issues.</p>
 </Important>
+
+## Featured video
+
+Learn what the [`st.write`](/library/api-reference/write-magic/st.write) and [magic](/library/api-reference/write-magic/magic) commands are and how to use them.
+
+<YouTube videoId="wpDuY9I2fDg" />
