@@ -45,7 +45,7 @@ col2.write("this is column 2")
 
 #### Tabs
 
-Insert containers seperated into tabs.
+Insert containers separated into tabs.
 
 ```python
 tab1, tab2 = st.tabs(["Tab 1", "Tab2"])
