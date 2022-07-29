@@ -171,6 +171,10 @@ In order to deploy your app, Streamlit requires access to your app's source code
 
 **This is the expected behavior**. When you try to deploy an app that lives in a private repo, Streamlit Cloud needs to get access to that repo somehow. For this, we create a read-only [GitHub Deploy Key](https://docs.github.com/en/free-pro-team@latest/developers/overview/managing-deploy-keys#deploy-keys) then access your repo using a public SSH key. When we set this up, GitHub notifies admins of the repo that the key was created as a security measure.
 
+### What happens when a user's permissions change on GitHub?
+
+Once a user is added to a repository on GitHub, it will take at most 15 minutes before they can deploy the app on Cloud. If a user is removed from a repository on GitHub, it will take at most 15 minutes before their permissions to manage the app from that repository are revoked.
+
 ## Limitations and known issues
 
 Here are some limitations and known issues that we're actively working to resolve. If you find an issue [please let us know](mailto:support@streamlit.io)!
