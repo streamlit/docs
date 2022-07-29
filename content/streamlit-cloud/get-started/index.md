@@ -122,11 +122,11 @@ You must have **admin** permissions to your repo in order to deploy apps. If you
     </Flex>
 </div>
 
-<!-- <Tip>
+<Note>
 
-If you're having trouble finding where to connect your accounts, [see this guide]().
+Once a user is added to a repository on GitHub, it will take at most 15 minutes before they can deploy the app on Cloud. If a user is removed from a repository on GitHub, it will take at most 15 minutes before their permissions to manage the app from that repository are revoked.
 
-</Tip> -->
+</Note>
 
 ## Explore your Streamlit Cloud workspace
 
