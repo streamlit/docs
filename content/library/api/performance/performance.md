@@ -5,6 +5,10 @@ slug: /library/api-reference/performance
 
 # Optimize performance
 
+Streamlit provides powerful [cache primitives](/library/advanced-features/experimental-cache-primitives) for memoization and storing heavyweight singleton objects across sessions. They allow your app to stay performant even when loading data from the web, caching the results of expensive computations, and storing singleton objects (like TensorFlow/Torch/Keras sessions and/or database connections).
+
+The two new primitives: `st.experimental_memo` and `st.experimental_singleton` are conceptually simpler and much, much faster than [@st.cache](/library/advanced-features/caching), with the potentional to replace `@st.cache` at some point in 2022.
+
 <TileContainer>
 <RefCard href="/library/api-reference/performance/st.cache">
 
