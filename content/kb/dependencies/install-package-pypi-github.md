@@ -46,3 +46,5 @@ Install `SomePackage` by specifying a tag in `requirements.txt`:
 ```bash
 git+https://github.com/SomePackage.git@v1.1.0#egg=SomePackage
 ```
+## Known limitations
+* It is currently ot possible to install a private package from github that requires the use of a token in the url in `requirements.txt` that is stored as an environment variable using the [app settings for secrets](https://docs.readthedocs.io/en/stable/guides/private-python-packages.html), as [documented here](https://docs.readthedocs.io/en/stable/guides/private-python-packages.html).
