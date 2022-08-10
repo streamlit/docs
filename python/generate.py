@@ -1,20 +1,21 @@
 #!/usr/bin/python
 
-import sys
-import types
-import json
 import inspect
-import docstring_parser
-import stoutput
+import json
 import logging
 import pathlib
-import utils
+import sys
+import types
+
+import docstring_parser
 import streamlit
 import streamlit.components.v1 as components
-
 from docutils.core import publish_parts
 from docutils.parsers.rst import directives
 from numpydoc.docscrape import NumpyDocString
+
+import stoutput
+import utils
 
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
@@ -165,8 +166,8 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
     allowed_types = (
         types.FunctionType, 
         types.MethodType,
-        streamlit.caching.memo_decorator.MemoAPI,
-        streamlit.caching.singleton_decorator.SingletonAPI
+        streamlit.runtime.caching.memo_decorator.MemoAPI,
+        streamlit.runtime.caching.singleton_decorator.SingletonAPI
     )
 
     for membername in dir(obj):
@@ -183,7 +184,7 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
         
         # memo and singleton are callable objects rather than functions
         # See: https://github.com/streamlit/streamlit/pull/4263
-        while member in streamlit.caching.__dict__.values():
+        while member in streamlit.runtime.caching.__dict__.values():
             member = member.__call__
 
         fullname = '{}.{}'.format(key_prefix, membername)
@@ -196,8 +197,8 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
 
 def get_streamlit_docstring_dict():
     module_docstring_dict = get_obj_docstring_dict(streamlit, 'streamlit', 'st')
-    memo_clear_docstring_dict = get_obj_docstring_dict(streamlit.caching.memo, 'streamlit.experimental_memo', 'st.experimental_memo')
-    singleton_clear_docstring_dict = get_obj_docstring_dict(streamlit.caching.singleton, 'streamlit.experimental_singleton', 'st.experimental_singleton')
+    memo_clear_docstring_dict = get_obj_docstring_dict(streamlit.runtime.caching.memo, 'streamlit.experimental_memo', 'st.experimental_memo')
+    singleton_clear_docstring_dict = get_obj_docstring_dict(streamlit.runtime.caching.singleton, 'streamlit.experimental_singleton', 'st.experimental_singleton')
     components_docstring_dict = get_obj_docstring_dict(components, 'streamlit.components.v1', 'st.components.v1')
     delta_docstring_dict = get_obj_docstring_dict(streamlit._DeltaGenerator, 'DeltaGenerator', 'element')
 
