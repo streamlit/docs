@@ -23,7 +23,7 @@ _Release date: August 11, 2022_
 
 **Highlights**
 
-- 📊 Built-in charts (e.g. `st.line_chart`) get a brand-new look and parameters `x` and `y`! Check out our [blog post]() for more information.
+- 📊 Built-in charts (e.g. `st.line_chart`) get a brand-new look and parameters `x` and `y`! Check out our [blog post](https://blog.streamlit.io/1-12-0-release-notes/) for more information.
 - ⏯ `st.experimental_memo` can now replay cached `st` commands. This allows caching text, charts, dataframes, and more!
 
 **Notable Changes**
