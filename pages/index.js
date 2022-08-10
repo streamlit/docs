@@ -147,33 +147,39 @@ export default function Home({ window, menu, gdpr_data }) {
               </InlineCallout> */}
             </InlineCalloutContainer>
 
-            <NewsContainer>
-              <NewsEntry
-                date="2022-06-30T16:05:00.000Z"
-                title="JULO improves financial inclusion in Indonesia with Streamlit"
-                text="Learn how JULO went from manual underwriting to automated credit scoring and a 22-member data team."
-                link="https://blog.streamlit.io/how-streamlit-is-helping-julo-improve-financial-inclusion-in-indonesia/"
-              />
-              <NewsEntry
-                date="2022-06-23T16:05:00.000Z"
-                title="Make your st.pyplot interactive!"
-                text="Learn how to make your pyplot charts interactive in a few simple steps."
-                link="https://blog.streamlit.io/make-your-st-pyplot-interactive/"
-              />
-              <NewsEntry
-                date="2022-06-16T16:05:00.000Z"
-                title="Observing Earth from space with Streamlit"
-                text="Learn how Samuel Bancroft made the SatSchool app to teach students Earth observation."
-                link="https://blog.streamlit.io/observing-earth-from-space-with-streamlit/"
-              />
-              <Button link="https://blog.streamlit.io/">
-                View all updates
-              </Button>
-            </NewsContainer>
-
             <H2 className="no-b-m">What's new</H2>
 
             <TileContainer>
+              <Tile
+                size="third"
+                background="unset"
+                color="unset"
+                dark={{
+                  background: "unset",
+                  color: "white",
+                  border_color: "gray-90",
+                }}
+                border_color="gray-40"
+                icon="insights"
+                title="Built-in charts improvements"
+                text="Built-in charts (e.g. st.line_chart) get a brand-new look and parameters x and y! Check out our blog post for more information."
+                link="https://blog.streamlit.io/"
+              />
+              <Tile
+                size="third"
+                background="unset"
+                color="unset"
+                dark={{
+                  background: "unset",
+                  color: "white",
+                  border_color: "gray-90",
+                }}
+                border_color="gray-40"
+                icon="replay"
+                title="Replay cached st commands"
+                text="Replay cached st commands with st.experimental_memo and st.experimental_singleton. This allows caching text, charts, dataframes, and more!"
+                link="/library/advanced-features/experimental-cache-primitives"
+              />
               <Tile
                 size="third"
                 background="unset"
@@ -199,10 +205,10 @@ export default function Home({ window, menu, gdpr_data }) {
                   border_color: "gray-90",
                 }}
                 border_color="gray-40"
-                icon="help"
-                title="st.metric tooltip"
-                text="st.metric supports tooltips with the help keyword parameter."
-                link="/library/api-reference/data/st.metric"
+                icon="tips_and_updates"
+                title="Redesigned status elements"
+                text="st.info, st.success, st.error, and st.warning got a redesign and have a new keyword-only parameter: icon"
+                link="/library/api-reference/status"
               />
               <Tile
                 size="third"
@@ -214,10 +220,10 @@ export default function Home({ window, menu, gdpr_data }) {
                   border_color: "gray-90",
                 }}
                 border_color="gray-40"
-                icon="radio_button_checked"
-                title="Horizontal radio buttons"
-                text="st.radio has a horizontal keyword-only parameter to display options horizontally."
-                link="/library/get-started/multipage-apps"
+                icon="map"
+                title="Map enhancements"
+                text="🗺️ st.map and st.pydeck_chart now use light or dark style based on the app's theme"
+                link="/library/api-reference/charts/st.map"
               />
               <Tile
                 size="third"
@@ -229,40 +235,10 @@ export default function Home({ window, menu, gdpr_data }) {
                   border_color: "gray-90",
                 }}
                 border_color="gray-40"
-                icon="auto_stories"
-                title="Multipage apps"
-                text="Quickly and easily add more pages to your Streamlit apps with native multipage apps support! Click to learn more."
-                link="/library/get-started/multipage-apps"
-              />
-              <Tile
-                size="third"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                icon="table_chart"
-                title="Redesigned st.dataframe"
-                text="st.dataframe now supports column and table resizing, data search, and copy-to-clipboard functionality. Read more in our docs."
-                link="/library/api-reference/data/st.dataframe"
-              />
-              <Tile
-                size="third"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                icon="settings_suggest"
-                title="Added support for Python 3.10"
-                text='Streamlit Cloud supports Python 3.7 - Python 3.10, and defaults to version 3.9. Select a Python version for your app by clicking "Advanced settings" before you deploy the app.'
-                link="/streamlit-cloud/get-started/deploy-an-app#advanced-settings-for-deployment"
+                icon="open_in_full"
+                title="Resizable sidebar"
+                text="↔️ The sidebar is now resizable via drag and drop."
+                link="/library/api-reference/layout/st.sidebar"
               />
               {/* <Tile
                 size="half"
@@ -280,6 +256,30 @@ export default function Home({ window, menu, gdpr_data }) {
                 link="/library/advanced-features/experimental-cache-primitives#clear-memo-and-singleton-caches-procedurally"
               /> */}
             </TileContainer>
+
+            <NewsContainer>
+              <NewsEntry
+                date="2022-08-04T16:05:00.000Z"
+                title="The magic of working in open source"
+                text="How we build our open-source library and release new features."
+                link="https://blog.streamlit.io/the-magic-of-working-in-open-source/"
+              />
+              <NewsEntry
+                date="2022-07-28T16:05:00.000Z"
+                title="How to enhance Google Search Console data exports with Streamlit"
+                text="Connect to the GSC API in one click and go beyond the 1,000-row UI limit!"
+                link="https://blog.streamlit.io/how-to-enhance-google-search-console-data-exports-with-streamlit/"
+              />
+              <NewsEntry
+                date="2022-07-21T16:05:00.000Z"
+                title="Qiusheng Wu uses Streamlit to build a popular geospatial application"
+                text="Learn how Qiusheng created Earth Engine web apps with geemap."
+                link="https://blog.streamlit.io/qiusheng-wu-uses-streamlit-to-build-a-popular-geospatial-application/"
+              />
+              <Button link="https://blog.streamlit.io/">
+                View all updates
+              </Button>
+            </NewsContainer>
 
             <NoteSplit
               background="gray-20"
