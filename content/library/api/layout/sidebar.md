@@ -25,6 +25,12 @@ with st.sidebar:
 
 Each element that's passed to `st.sidebar` is pinned to the left, allowing users to focus on the content in your app.
 
+<Tip>
+
+The sidebar is resizable! Drag and drop the right border of the sidebar to resize it! ↔️
+
+</Tip>
+
 Here's an example of how you'd add a selectbox and a radio button to your sidebar:
 
 ```python
