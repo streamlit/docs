@@ -77,7 +77,7 @@ export default function Home({ window, menu, gdpr_data }) {
               <a href="https://www.streamlit.io">Streamlit</a> is an open-source
               Python library that makes it easy to create and share beautiful,
               custom web apps for machine learning and data science. In just a
-              few minutes you can build and deploy powerful data apps. So let’s
+              few minutes you can build and deploy powerful data apps. So let's
               get started!
             </p>
 
@@ -121,13 +121,13 @@ export default function Home({ window, menu, gdpr_data }) {
               <InlineCallout
                 color="l-blue-70"
                 icon="cloud"
-                bold="Streamlit Cloud"
+                bold="Streamlit Community Cloud"
                 href="/streamlit-cloud"
               >
-                empowers your data team to directly serve the needs of the rest
-                of the company. Quickly go from data to app, from prototype to
-                production. Share apps in one click and collaborate instantly
-                with live code updates.
+                is an open and free platform for the community to deploy,
+                discover, and share Streamlit apps and code with each other.
+                Create a new app, share it with the community, get feedback,
+                iterate quickly with live code updates, and have an impact!
               </InlineCallout>
               <InlineCallout
                 color="orange-70"
@@ -163,7 +163,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 icon="insights"
                 title="Built-in charts improvements"
                 text="Built-in charts (e.g. st.line_chart) get a brand-new look and parameters x and y! Check out our blog post for more information."
-                link="https://blog.streamlit.io/"
+                link="https://blog.streamlit.io/built-in-charts-get-a-new-look-and-parameters/"
               />
               <Tile
                 size="third"
@@ -190,10 +190,10 @@ export default function Home({ window, menu, gdpr_data }) {
                   border_color: "gray-90",
                 }}
                 border_color="gray-40"
-                icon="view_quilt"
-                title="st.tabs"
-                text="🗂 Introducing st.tabs to have tab containers in your app. Tabs are a navigational element that allows users to easily move between groups of related content."
-                link="/library/api-reference/layout/st.tabs"
+                icon="tips_and_updates"
+                title="Redesigned status elements"
+                text="st.info, st.success, st.error, and st.warning got a redesign and have a new keyword-only parameter: icon"
+                link="/library/api-reference/status"
               />
               <Tile
                 size="third"
@@ -205,10 +205,10 @@ export default function Home({ window, menu, gdpr_data }) {
                   border_color: "gray-90",
                 }}
                 border_color="gray-40"
-                icon="tips_and_updates"
-                title="Redesigned status elements"
-                text="st.info, st.success, st.error, and st.warning got a redesign and have a new keyword-only parameter: icon"
-                link="/library/api-reference/status"
+                icon="open_in_full"
+                title="Resizable sidebar"
+                text="↔️ The sidebar is now resizable via drag and drop."
+                link="/library/api-reference/layout/st.sidebar"
               />
               <Tile
                 size="third"
@@ -235,10 +235,10 @@ export default function Home({ window, menu, gdpr_data }) {
                   border_color: "gray-90",
                 }}
                 border_color="gray-40"
-                icon="open_in_full"
-                title="Resizable sidebar"
-                text="↔️ The sidebar is now resizable via drag and drop."
-                link="/library/api-reference/layout/st.sidebar"
+                icon="view_quilt"
+                title="st.tabs"
+                text="🗂 Introducing st.tabs to have tab containers in your app. Tabs are a navigational element that allows users to easily move between groups of related content."
+                link="/library/api-reference/layout/st.tabs"
               />
               {/* <Tile
                 size="half"
@@ -259,6 +259,12 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
+                date="2022-08-11T16:05:00.000Z"
+                title="Built-in charts get a new look and parameters! 📊"
+                text="Say hello to built-in chart improvements!"
+                link="https://blog.streamlit.io/built-in-charts-get-a-new-look-and-parameters/"
+              />
+              <NewsEntry
                 date="2022-08-04T16:05:00.000Z"
                 title="The magic of working in open source"
                 text="How we build our open-source library and release new features."
@@ -269,12 +275,6 @@ export default function Home({ window, menu, gdpr_data }) {
                 title="How to enhance Google Search Console data exports with Streamlit"
                 text="Connect to the GSC API in one click and go beyond the 1,000-row UI limit!"
                 link="https://blog.streamlit.io/how-to-enhance-google-search-console-data-exports-with-streamlit/"
-              />
-              <NewsEntry
-                date="2022-07-21T16:05:00.000Z"
-                title="Qiusheng Wu uses Streamlit to build a popular geospatial application"
-                text="Learn how Qiusheng created Earth Engine web apps with geemap."
-                link="https://blog.streamlit.io/qiusheng-wu-uses-streamlit-to-build-a-popular-geospatial-application/"
               />
               <Button link="https://blog.streamlit.io/">
                 View all updates

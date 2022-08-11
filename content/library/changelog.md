@@ -23,11 +23,11 @@ _Release date: August 11, 2022_
 
 **Highlights**
 
-- 📊 Built-in charts (e.g. `st.line_chart`) get a brand-new look and parameters `x` and `y`! Check out our [blog post](https://blog.streamlit.io/1-12-0-release-notes/) for more information.
-- ⏯ `st.experimental_memo` can now replay cached `st` commands. This allows caching text, charts, dataframes, and more!
+- 📊 Built-in charts (e.g. `st.line_chart`) get a brand-new look and parameters `x` and `y`! Check out our [blog post](https://blog.streamlit.io/built-in-charts-get-a-new-look-and-parameters/) for more information.
 
 **Notable Changes**
 
+- ⏯ `st.experimental_memo` and `st.experimental_singleton` can now replay cached `st` commands. This allows caching text, charts, dataframes, and more!
 - ↔️ The sidebar is now resizable via drag and drop.
 - ☎️ `st.info`, `st.success`, `st.error`, and `st.warning` got a redesign and have a new keyword-only parameter: `icon`.
 

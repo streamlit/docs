@@ -5,7 +5,7 @@ slug: /streamlit-cloud
 
 # Welcome to Streamlit Cloud
 
-Streamlit's Community Cloud is a workspace for you and your team to easily deploy, manage, and collaborate on your Streamlit apps. If you're just getting started and have not yet built your first Streamlit app, check out the main [Get started](/library/get-started) page first. When you're ready to share it, create a Community Cloud account and you can launch your app in just a few minutes! Deploy, manage, and share your apps with the world, directly from Streamlit — all for free.
+Streamlit's Community Cloud is an open and free platform for the community to deploy, discover, and share Streamlit apps and code with each other. If you're just getting started and have not yet built your first Streamlit app, check out the main [Get started](/library/get-started) page first. When you're ready to share it, create a Community Cloud account and you can launch your app in just a few minutes! Deploy, manage, and share your apps with the world, directly from Streamlit — all for free.
 
 <!-- <InlineCalloutContainer>
   <InlineCallout
