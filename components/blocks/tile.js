@@ -23,12 +23,12 @@ const Tile = ({
     size === "full"
       ? styles.Full
       : size === "half"
-      ? styles.Half
-      : size === "third"
-      ? styles.Third
-      : size === "two-third"
-      ? styles.TwoThirds
-      : styles.Third;
+        ? styles.Half
+        : size === "third"
+          ? styles.Third
+          : size === "two-third"
+            ? styles.TwoThirds
+            : styles.Third;
 
   useEffect(() => {
     window.addEventListener("ChangeTheme", handleTheme);
@@ -57,10 +57,10 @@ const Tile = ({
     background === "orange-70"
       ? styles.OrangeBackground
       : background === "violet-70"
-      ? styles.VioletBackground
-      : background === "unset"
-      ? styles.TransparentBackground
-      : styles.BlueBackground;
+        ? styles.VioletBackground
+        : background === "unset"
+          ? styles.TransparentBackground
+          : styles.BlueBackground;
 
   return (
     <div
