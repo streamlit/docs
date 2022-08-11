@@ -254,7 +254,7 @@ page_names_to_funcs[demo_name]()
 
 </details>
 
-<Cloud src="https://share.streamlit.io/streamlit/docs/main/python/api-examples-source/hello/hello.py" height="700" />
+<Cloud src="https://doc-hello.streamlitapp.com/?embedded=true" height="700" />
 
 Notice how large the file is! Each app “page” is written as a function, and the selectbox is used to pick which page to display. As our app grows, maintaining the code requires a lot of additional overhead. Moreover, we’re limited by the `st.selectbox` UI to choose which “page” to run, we cannot customize individual page titles with `st.set_page_config`, and we’re unable to navigate between pages using URLs.
 
@@ -551,7 +551,7 @@ streamlit run Hello.py
 
 That’s it! The `Hello.py` script now corresponds to the main page of your app, and other scripts that Streamlit finds in the pages folder will also be present in the new page selector that appears in the sidebar.
 
-<Cloud src="https://share.streamlit.io/streamlit/docs/main/python/api-examples-source/mpa-hello/Hello.py" height="700" />
+<Cloud src="https://doc-mpa-hello.streamlitapp.com/?embedded=true" height="700" />
 
 ## Next steps
 

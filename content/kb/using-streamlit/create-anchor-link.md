@@ -27,5 +27,5 @@ st.markdown("[Section 1](#section-1)", unsafe_allow_html=True)
 
 ## Examples
 
-- Demo app: [https://share.streamlit.io/dataprofessor/streamlit/main/anchor_app.py](https://share.streamlit.io/dataprofessor/streamlit/main/anchor_app.py)
+- Demo app: [https://dataprofessor-streamlit-anchor-app-80kk8w.streamlitapp.com/](https://dataprofessor-streamlit-anchor-app-80kk8w.streamlitapp.com/)
 - GitHub repo: [https://github.com/dataprofessor/streamlit/blob/main/anchor_app.py](https://github.com/dataprofessor/streamlit/blob/main/anchor_app.py)

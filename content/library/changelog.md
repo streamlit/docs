@@ -252,7 +252,7 @@ _Release date: Aug 19, 2021_
 
 **Highlights**
 
-- 🔢 Introducing `st.metric`, an API for displaying KPIs. Check out the [demo app](https://share.streamlit.io/streamlit/release-demos/0.87/0.87) showcasing the functionality.
+- 🔢 Introducing `st.metric`, an API for displaying KPIs. Check out the [demo app](https://streamlit-release-demos-0-87streamlit-app-0-87-rfzphf.streamlitapp.com/) showcasing the functionality.
 
 **Other Changes**
 
