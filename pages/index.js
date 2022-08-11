@@ -162,23 +162,8 @@ export default function Home({ window, menu, gdpr_data }) {
                 border_color="gray-40"
                 icon="insights"
                 title="Built-in charts improvements"
-                text="Built-in charts (e.g. st.line_chart) get a brand-new look and parameters x and y! Check out our blog post for more information."
+                text="📊 Built-in charts (e.g. st.line_chart) get a brand-new look and parameters x and y! Check out our blog post for more information."
                 link="https://blog.streamlit.io/built-in-charts-get-a-new-look-and-parameters/"
-              />
-              <Tile
-                size="third"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                icon="replay"
-                title="Replay cached st commands"
-                text="Replay cached st commands with st.experimental_memo and st.experimental_singleton. This allows caching text, charts, dataframes, and more!"
-                link="/library/advanced-features/experimental-cache-primitives"
               />
               <Tile
                 size="third"
@@ -192,8 +177,23 @@ export default function Home({ window, menu, gdpr_data }) {
                 border_color="gray-40"
                 icon="tips_and_updates"
                 title="Redesigned status elements"
-                text="st.info, st.success, st.error, and st.warning got a redesign and have a new keyword-only parameter: icon"
+                text="☎️ st.info, st.success, st.error, and st.warning got a redesign and have a new keyword-only parameter: icon"
                 link="/library/api-reference/status"
+              />
+              <Tile
+                size="third"
+                background="unset"
+                color="unset"
+                dark={{
+                  background: "unset",
+                  color: "white",
+                  border_color: "gray-90",
+                }}
+                border_color="gray-40"
+                icon="replay"
+                title="Replay cached st commands"
+                text="⏯ Functions cached with st.experimental_memo or st.experimental_singleton can now contain static st commands. This allows caching text, charts, dataframes, and more!"
+                link="/library/advanced-features/experimental-cache-primitives"
               />
               <Tile
                 size="third"
