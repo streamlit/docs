@@ -355,7 +355,7 @@ site_menu:
   - category: Streamlit Cloud / Trust and Security
     url: /streamlit-cloud/trust-and-security
   - category: Streamlit Cloud / Release notes
-    url: https://share.streamlit.io/streamlit/cloud_release_notes_app/main/main.py
+    url: https://streamlit-cloud-release-notes-app-main-jfmm83.streamlitapp.com/
   - category: Streamlit Cloud / Troubleshooting
     url: /streamlit-cloud/troubleshooting
 

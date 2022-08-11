@@ -5,7 +5,7 @@ slug: /streamlit-cloud/get-started/deploy-an-app
 
 # Deploy an app
 
-Streamlit Cloud lets you deploy your apps in just one click, and most apps will deploy in only a few minutes. If you don't have an app ready to deploy, [fork or clone one of our example apps](https://share.streamlit.io/streamlit/cloud-example-apps/main?hsCtaTracking=28f10086-a3a5-4ea8-9403-f3d52bf26184%7C22470002-acb1-4d93-8286-00ee4f8a46fb) — you can find apps for machine learning, data visualization, data exploration, A/B testing and more.
+Streamlit Cloud lets you deploy your apps in just one click, and most apps will deploy in only a few minutes. If you don't have an app ready to deploy, [fork or clone one of our example apps](https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlitapp.com/?hsCtaTracking=28f10086-a3a5-4ea8-9403-f3d52bf26184|22470002-acb1-4d93-8286-00ee4f8a46fb) — you can find apps for machine learning, data visualization, data exploration, A/B testing and more.
 
 ## Add your app to GitHub
 
