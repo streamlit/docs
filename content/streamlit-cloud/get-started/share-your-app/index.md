@@ -136,7 +136,7 @@ From your deployed app you can click on the "☰" menu on the top right and sele
 To help others find and play with your Streamlit app, you can add Streamlit's GitHub badge to your repo. Below is an example of what the badge looks like. Clicking on the badge takes you to, in this case, Streamlit's Face-GAN Demo.
 
 <div style={{ marginBottom: '-2em', marginLeft: '30%' }}>
-    <a href="https://streamlit-demo-face-gan-streamlit-app-u7dzij.streamlitapp.com/" target="_blank" style={{ borderBottom: 0 }}>
+    <a href="https://streamlit-demo-face-gan-streamlit-app-v2nxgz.streamlitapp.com/" target="_blank" style={{ borderBottom: 0 }}>
     <Image src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg" />
     </a>
 </div>
