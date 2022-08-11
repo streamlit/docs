@@ -27,15 +27,15 @@ _Release date: August 11, 2022_
 
 **Notable Changes**
 
-- ⏯ `st.experimental_memo` and `st.experimental_singleton` can now replay cached `st` commands. This allows caching text, charts, dataframes, and more!
+- ⏯ Functions cached with `st.experimental_memo` or `st.experimental_singleton` can now contain static `st` commands. This allows caching text, charts, dataframes, and more!
 - ↔️ The sidebar is now resizable via drag and drop.
 - ☎️ `st.info`, `st.success`, `st.error`, and `st.warning` got a redesign and have a new keyword-only parameter: `icon`.
 
 **Other Changes**
 
-- 🎚️ `st.select_slider` correctly handles floats now ([#4973](https://github.com/streamlit/streamlit/pull/4973), [#4978](https://github.com/streamlit/streamlit/pull/4978)).
+- 🎚️ `st.select_slider` correctly handles all floats now ([#4973](https://github.com/streamlit/streamlit/pull/4973), [#4978](https://github.com/streamlit/streamlit/pull/4978)).
 - 🔢 `st.multi_select` can take values from enums ([#4987](https://github.com/streamlit/streamlit/pull/4987)).
-- 🎚️ `st.slider` can now be properly set through `st.session_state` ([#5007](https://github.com/streamlit/streamlit/pull/5007)).
+- 🍊 `st.slider` range values can now be set through `st.session_state` ([#5007](https://github.com/streamlit/streamlit/pull/5007)).
 - 🎨 `st.progress` got a redesign ([#5011](https://github.com/streamlit/streamlit/pull/5011), [#5086](https://github.com/streamlit/streamlit/pull/5086)).
 - 🔘 `st.radio` better deals with list-like dataframes ([#5021](https://github.com/streamlit/streamlit/pull/5021)).
 - 🧞‍♂️ `st.cache` properly handles JSON files now ([#5023](https://github.com/streamlit/streamlit/pull/5023)).
