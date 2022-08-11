@@ -1,7 +1,7 @@
-import streamlit as st
-import pydeck as pdk
-import pandas as pd
 import numpy as np
+import pandas as pd
+import pydeck as pdk
+import streamlit as st
 
 
 @st.experimental_memo
@@ -15,7 +15,7 @@ df = load_data()
 
 st.pydeck_chart(
     pdk.Deck(
-        map_style="mapbox://styles/mapbox/light-v9",
+        map_style=None,
         initial_view_state=pdk.ViewState(
             latitude=37.76,
             longitude=-122.4,
