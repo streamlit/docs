@@ -13,6 +13,8 @@ Your app is now live at that fixed URL, so go wild and share it with whomever yo
 - [Sharing public apps](#sharing-public-apps)
 - [Adding developers](/streamlit-cloud/get-started/share-your-app#adding-developers)
 
+There are three primary ways to share your app with viewers. You can either directly add viewers from the in-app share menu, or do so from the Cloud logs menu, or from your app dashboard.
+
 ## Sharing private apps
 
 By default all apps deployed from private source code are private to the developers in the workspace. Your apps will not be visible to anyone else unless you grant them explicit permission. You can grant permission either in your workspace or from the app itself.
@@ -29,7 +31,7 @@ Viewer auth allows you to restrict the viewers of your app. To access your app, 
 
 <!-- Google OAuth is enabled by default, so if your company uses Google, you're good to go. If you've configured SSO for your organization via ADFS, Azure, Okta, or generic SAML, you will also be able to add email addresses and domains which are administered by those services. Read [here](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso) for how to enable SSO for your org. -->
 
-Google OAuth is enabled by default, so if your company uses Google, you're good to go.
+Google OAuth is enabled by default, so if you use Google, you're good to go.
 
 <!-- Once you have added someone's email address to your app's viewer list, that person will be able to sign in via Google Single Sign-On or your organization-specific Single Sign-On and view your app. They will also receive an email inviting them to view your app. If they are already logged in with that account in their browser (the usual case for most people) then they will automatically be able to view the app. If they are not logged in, or they have not been giving access, then they will see a page asking them to first log in. -->
 
@@ -41,11 +43,11 @@ Having trouble granting access? Is a viewer having trouble logging on? See our [
 
 </Tip>
 
-### Granting access to your entire organization
+<!-- ### Granting access to your entire organization
 
 If you add an entire email domain, anyone with an email address which uses that domain will be able to view your app after authenticating themselves. For example, if "foo.com" is added to the list of allowed email domains, anyone with an email address that ends in "@foo.com" will be allowed to view the app.
 
-There are three primary ways to share your app with viewers. You can either directly add viewers from the in-app share menu, or do so from the Cloud logs menu, or from your app dashboard.
+There are three primary ways to share your app with viewers. You can either directly add viewers from the in-app share menu, or do so from the Cloud logs menu, or from your app dashboard. -->
 
 ### Adding viewers from the in-app share menu
 
