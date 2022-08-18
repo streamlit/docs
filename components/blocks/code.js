@@ -6,6 +6,7 @@ import "prismjs/components/prism-python";
 import "prismjs/components/prism-toml";
 import "prismjs/components/prism-bash";
 import "prismjs/components/prism-sql";
+import "prismjs/components/prism-docker";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
 import "prismjs/plugins/line-highlight/prism-line-highlight";
 import "prismjs/plugins/line-highlight/prism-line-highlight.css";
