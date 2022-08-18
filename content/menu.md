@@ -397,6 +397,12 @@ site_menu:
     url: /knowledge-base/tutorials/databases/supabase
   - category: Knowledge base / Tutorials / Connect to data sources / Google Cloud Storage
     url: /knowledge-base/tutorials/databases/gcs
+  - category: Knowledge base / Tutorials / Deploy Streamlit apps
+    url: /knowledge-base/tutorials/deploy
+  - category: Knowledge base / Tutorials / Deploy Streamlit apps / Docker
+    url: /knowledge-base/tutorials/deploy/docker
+  - category: Knowledge base / Tutorials / Deploy Streamlit apps / Kubernetes
+    url: /knowledge-base/tutorials/deploy/kubernetes
   - category: Knowledge base / Tutorials / Session State basics
     url: /knowledge-base/tutorials/session-state
   - category: Knowledge base / Using Streamlit
