@@ -139,7 +139,7 @@ We can now build the Docker image from the previous step and push it to our proj
 
 ```bash
 gcloud auth configure-docker
-docker push gcr.io/s4t-head/k8s-streamlit:test
+docker push gcr.io/$GCP_PROJECT_ID/k8s-streamlit:test
 ```
 
 ## Create a Kubernetes deployment
