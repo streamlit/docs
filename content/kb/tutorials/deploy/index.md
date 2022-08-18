@@ -10,7 +10,7 @@ This sections contains step-by-step guides on how to deploy Streamlit apps to va
 <TileContainer>
 <RefCard href="/streamlit-cloud/get-started">
 
-<!-- <Image pure alt="screenshot" src="/images/databases/s3.png" /> -->
+<Image pure alt="screenshot" src="/images/deploy/streamlit-cloud.png" />
 
 <h4 align="center">Streamlit Cloud</h4>
 
@@ -18,7 +18,7 @@ This sections contains step-by-step guides on how to deploy Streamlit apps to va
 
 <RefCard href="/knowledge-base/tutorials/deploy/docker">
 
-<!-- <Image pure alt="screenshot" src="/images/databases/bigquery.png" /> -->
+<Image pure alt="screenshot" src="/images/deploy/docker.png" />
 
 <h4 align="center">Docker</h4>
 
@@ -26,9 +26,18 @@ This sections contains step-by-step guides on how to deploy Streamlit apps to va
 
 <RefCard href="/knowledge-base/tutorials/deploy/kubernetes">
 
-<!-- <Image pure alt="screenshot" src="/images/databases/bigquery.png" /> -->
+<Image pure alt="screenshot" src="/images/deploy/kubernetes.png" />
 
 <h4 align="center">Kubernetes</h4>
 
 </RefCard>
 </TileContainer>
+
+While we work on official Streamlit deployment guides for other hosting providers, here are some user-submitted tutorials for different cloud services:
+
+- [How to deploy Streamlit apps to Google App Engine](https://dev.to/whitphx/how-to-deploy-streamlit-apps-to-google-app-engine-407o), by [Yuichiro Tachibana (Tsuchiya)](https://discuss.streamlit.io/u/whitphx/summary)
+- [How to Deploy Streamlit to a Free Amazon EC2 instance](https://towardsdatascience.com/how-to-deploy-a-streamlit-app-using-an-amazon-free-ec2-instance-416a41f69dc3), by Rahul Agarwal
+- [Host Streamlit on Heroku](https://towardsdatascience.com/quickly-build-and-deploy-an-application-with-streamlit-988ca08c7e83), by Maarten Grootendorst
+- [Host Streamlit on Azure](https://towardsdatascience.com/deploying-a-streamlit-web-app-with-azure-app-service-1f09a2159743), by Richard Peterson
+- [Host Streamlit on 21YunBox](https://www.21yunbox.com/docs/#/deploy-streamlit), by Toby Lei
+- [Community-supported deployment wiki](https://discuss.streamlit.io/t/streamlit-deployment-guide-wiki/5099).
