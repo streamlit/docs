@@ -80,7 +80,7 @@ Let’s walk through each line of the Dockerfile :
    FROM python:3.9-slim
    ```
 
-   Docker has a number of official Docker base images based on various Linux distributions. They also have base images that come with language-specific modules such as [Python](https://hub.docker.com/_/python). The `python` images come in many flavors, each designed for a specific use case. Here, we we use the `python:3.9-slim` image which is a lightweight image that comes with the latest version of Python 3.9.
+   Docker has a number of official Docker base images based on various Linux distributions. They also have base images that come with language-specific modules such as [Python](https://hub.docker.com/_/python). The `python` images come in many flavors, each designed for a specific use case. Here, we use the `python:3.9-slim` image which is a lightweight image that comes with the latest version of Python 3.9.
 
    <Tip>
 
