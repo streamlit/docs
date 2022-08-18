@@ -16,8 +16,8 @@ Wherever you decide to deploy your app, you will first need to containerize it. 
 
 ## Prerequisites
 
-1. Install Docker Engine
-2. Check network port accessibility
+1. [Install Docker Engine](#install-docker-engine)
+2. [Check network port accessibility](#check-network-port-accessibility)
 
 ### Install Docker Engine
 
@@ -34,7 +34,7 @@ sudo docker run hello-world
 
 <Tip>
 
-Follow Docker's official [post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/) to run Docker as a non-root user, so that you don't have to preface the `docker` command with sudo`.
+Follow Docker's official [post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/) to run Docker as a non-root user, so that you don't have to preface the `docker` command with `sudo`.
 
 </Tip>
 
