@@ -10,7 +10,7 @@ slug: /knowledge-base/tutorials/deploy/kubernetes
 So you have an amazing app and you want to start sharing it with other people, what do you do? You have a few options. First, where do you want to run your Streamlit app, and how do you want to access it?
 
 - **On your corporate network** - Most corporate networks are closed to the outside world. You typically use a VPN to log onto your corporate network and access resources there. You could run your Streamlit app on a server in your corporate network for security reasons, to ensure that only folks internal to your company can access it.
-- **On the cloud** - If you'd like to access your Streamlit app from outside of a corporate network, or share your app with folks outside of your home network or laptop, you might choose this option. In this case, it'll depend on your hosting provider. We have community-submitted guides from Heroku, AWS, and other providers [here](/knowledge-base/deploy/deploy-streamlit-heroku-aws-google-cloud).
+- **On the cloud** - If you'd like to access your Streamlit app from outside of a corporate network, or share your app with folks outside of your home network or laptop, you might choose this option. In this case, it'll depend on your hosting provider. We have [community-submitted guides](/knowledge-base/deploy/deploy-streamlit-heroku-aws-google-cloud) from Heroku, AWS, and other providers.
 
 Wherever you decide to deploy your app, you will first need to containerize it. This guide walks you through using Kubernetes to deploy your app. If you prefer Docker see [Deploy Streamlit using Docker](/knowledge-base/tutorials/deploy/docker).
 
@@ -158,9 +158,9 @@ Make sure your Kubernetes client is installed and running on your machine ([guid
 
 ### Configure a Google OAuth Client and oauth2-proxy
 
-For configuring Google OAuth Client, please see [this](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oauth_provider#google-auth-provider) document. Configure oauth2-proxy to use the desired oauth provider: [guide](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oauth_provider) and update the oath2-proxy config in the config map.
+For configuring the Google OAuth Client, please see [Google Auth Provider](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oauth_provider#google-auth-provider). Configure oauth2-proxy to use the desired [OAuth Provider Configuration](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oauth_provider) and update the oath2-proxy config in the config map.
 
-The below configuration contains a ouath2-proxy sidecar container which handles the authentication with Google. You can read more about the oauth2-proxy [here](https://github.com/oauth2-proxy/oauth2-proxy).
+The below configuration contains a ouath2-proxy sidecar container which handles the authentication with Google. You can learn more from the [oauth2-proxy repository](https://github.com/oauth2-proxy/oauth2-proxy).
 
 ### Create a Kubernetes configuration file
 
