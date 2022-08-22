@@ -112,6 +112,8 @@ Let’s walk through each line of the Dockerfile :
 
 5. Clone your code that lives in a remote repo to `WORKDIR`:
 
+   a. If your code is in a public repo:
+
    ```dockerfile
    RUN git clone https://github.com/streamlit/streamlit-example.git .
    ```
@@ -120,8 +122,8 @@ Let’s walk through each line of the Dockerfile :
 
    ```bash
    app/
-    - requirements.txt
-    - streamlit_app.py
+   - requirements.txt
+   - streamlit_app.py
    ```
 
    where `requirements.txt` file contains all your [Python dependencies](https://docs.streamlit.io/streamlit-cloud/get-started/deploy-an-app/app-dependencies#add-python-dependencies). E.g
@@ -153,26 +155,36 @@ Let’s walk through each line of the Dockerfile :
    """
 
    with st.echo(code_location='below'):
-       total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
-       num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
+      total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
+      num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
 
-       Point = namedtuple('Point', 'x y')
-       data = []
+      Point = namedtuple('Point', 'x y')
+      data = []
 
-       points_per_turn = total_points / num_turns
+      points_per_turn = total_points / num_turns
 
-       for curr_point_num in range(total_points):
-           curr_turn, i = divmod(curr_point_num, points_per_turn)
-           angle = (curr_turn + 1) * 2 * math.pi * i / points_per_turn
-           radius = curr_point_num / total_points
-           x = radius * math.cos(angle)
-           y = radius * math.sin(angle)
-           data.append(Point(x, y))
+      for curr_point_num in range(total_points):
+         curr_turn, i = divmod(curr_point_num, points_per_turn)
+         angle = (curr_turn + 1) * 2 * math.pi * i / points_per_turn
+         radius = curr_point_num / total_points
+         x = radius * math.cos(angle)
+         y = radius * math.sin(angle)
+         data.append(Point(x, y))
 
-       st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
-           .mark_circle(color='#0068c9', opacity=0.5)
-           .encode(x='x:Q', y='y:Q'))
+      st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
+         .mark_circle(color='#0068c9', opacity=0.5)
+         .encode(x='x:Q', y='y:Q'))
    ```
+
+   b. If your code is in a private repo, please read [Using SSH to access private data in builds](https://docs.docker.com/develop/develop-images/build_enhancements/#using-ssh-to-access-private-data-in-builds) and modify the Dockerfile accordingly -- to install an SSH client, download the public key for [github.com](https://github.com), and clone your private repo. If you use an alternative VCS such as GitLab or Bitbucket, please consult the documentation for that VCS on how to copy your code to the `WORKDIR` of the Dockerfile.
+
+   c. If your code lives in the same directory as the Dockerfile, copy all your app files from your server into the container, including `streamlit_app.py`, `requirements.txt`, etc, by replacing the `git clone` line with:
+
+   ```dockerfile
+   COPY . .
+   ```
+
+   More generally, the idea is copy your app code from wherever it may live on your server into the container. If the code is not in the same directory as the Dockerfile, modify the above command to include the path to the code.
 
 6. Install your app’s [Python dependencies](/streamlit-cloud/get-started/deploy-an-app/app-dependencies#add-python-dependencies) from the cloned `requirements.txt` in the container:
 
