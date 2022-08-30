@@ -7,31 +7,31 @@ slug: /knowledge-base/tutorials/deploy
 
 This sections contains step-by-step guides on how to deploy Streamlit apps to various cloud platforms and services. We have deployment guides for:
 
-<TileContainer>
-<RefCard href="/streamlit-cloud/get-started">
+<DataSourcesContainer>
+<DataSourcesCard href="/streamlit-cloud/get-started">
 
 <Image pure alt="screenshot" src="/images/deploy/streamlit-cloud.png" />
 
 <h4 align="center">Streamlit Cloud</h4>
 
-</RefCard>
+</DataSourcesCard>
 
-<RefCard href="/knowledge-base/tutorials/deploy/docker">
+<DataSourcesCard href="/knowledge-base/tutorials/deploy/docker">
 
 <Image pure alt="screenshot" src="/images/deploy/docker.png" />
 
 <h4 align="center">Docker</h4>
 
-</RefCard>
+</DataSourcesCard>
 
-<RefCard href="/knowledge-base/tutorials/deploy/kubernetes">
+<DataSourcesCard href="/knowledge-base/tutorials/deploy/kubernetes">
 
 <Image pure alt="screenshot" src="/images/deploy/kubernetes.png" />
 
 <h4 align="center">Kubernetes</h4>
 
-</RefCard>
-</TileContainer>
+</DataSourcesCard>
+</DataSourcesContainer>
 
 While we work on official Streamlit deployment guides for other hosting providers, here are some user-submitted tutorials for different cloud services:
 
