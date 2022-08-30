@@ -27,11 +27,11 @@
 }
 
 .LinkContainer {
-  @apply flex items-center hover:opacity-70;
+  @apply flex items-center;
 }
 
 .Link {
-  @apply relative flex items-center;
+  @apply relative flex items-center hover:opacity-70;
   @apply text-gray-80 !important;
 }
 
