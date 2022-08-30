@@ -13,7 +13,7 @@ Have you wanted to create anchors so that users of your app can directly navigat
 
 Anchors are automatically added to header text.
 
-For example, if you define a header text via the [st.header()](/library/api-reference/text/st.header) function as follows:
+For example, if you define a header text via the [st.header()](/library/api-reference/text/st.header) command as follows:
 
 ```python
 st.header("Section 1")
@@ -22,7 +22,7 @@ st.header("Section 1")
 Then you can create a link to this header using:
 
 ```python
-st.markdown("[Section 1](#section-1)", unsafe_allow_html=True)
+st.markdown("[Section 1](#section-1)")
 ```
 
 ## Examples
