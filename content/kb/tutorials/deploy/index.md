@@ -12,7 +12,7 @@ This sections contains step-by-step guides on how to deploy Streamlit apps to va
 
 <Image pure alt="screenshot" src="/images/deploy/streamlit-cloud.png" />
 
-<h4 align="center">Streamlit Cloud</h4>
+<h5 align="center">Streamlit Cloud</h5>
 
 </DataSourcesCard>
 
@@ -20,7 +20,7 @@ This sections contains step-by-step guides on how to deploy Streamlit apps to va
 
 <Image pure alt="screenshot" src="/images/deploy/docker.png" />
 
-<h4 align="center">Docker</h4>
+<h5 align="center">Docker</h5>
 
 </DataSourcesCard>
 
@@ -28,7 +28,7 @@ This sections contains step-by-step guides on how to deploy Streamlit apps to va
 
 <Image pure alt="screenshot" src="/images/deploy/kubernetes.png" />
 
-<h4 align="center">Kubernetes</h4>
+<h5 align="center">Kubernetes</h5>
 
 </DataSourcesCard>
 </DataSourcesContainer>
