@@ -192,9 +192,9 @@ From a _code flow_ perspective, it appears that you're transmitting data synchro
 - Use `Streamlit.setFrameHeight()` to control the height of your component. By default, the React template calls this automatically (see `StreamlitComponentBase.componentDidUpdate()`). You can override this behavior if you need more control.
 - There's a tiny bit of magic in the last line of the file: `export default withStreamlitConnection(MyComponent)` - this does some handshaking with Streamlit, and sets up the mechanisms for bi-directional data communication.
 
-#### Typescript-only
+#### TypeScript-only
 
-The Typescript-only template is in `template-reactless/my_component/frontend/src/MyComponent.tsx`.
+The TypeScript-only template is in `template-reactless/my_component/frontend/src/MyComponent.tsx`.
 
 This template has much more code than its React sibling, in that all the mechanics of handshaking, setting up event listeners, and updating the component's frame height are done manually. The React version of the template handles most of these details automatically.
 
