@@ -1,0 +1,66 @@
+.Container {
+  @apply rounded-md border border-gray-30 overflow-hidden text-base cursor-pointer transition-all duration-75 flex flex-col hover:scale-105 hover:border-b-gray-30 hover:opacity-70;
+}
+
+.Container h1,
+.Container h2,
+.Container h3,
+.Container h4,
+.Container h5,
+.Container h6 {
+  @apply p-4 mt-0 font-bold text-center leading-tight text-base lg:text-lg;
+  @apply text-gray-90 !important;
+}
+
+.Container img {
+  @apply w-full h-48 md:h-32 object-cover border-b border-b-gray-30;
+}
+
+/* Dark styles */
+:global(.dark) .Container {
+  @apply border-gray-90;
+}
+
+:global(.dark) .Container h1,
+:global(.dark) .Container h2,
+:global(.dark) .Container h3,
+:global(.dark) .Container h4,
+:global(.dark) .Container h5,
+:global(.dark) .Container h6,
+:global(.dark) .Container p,
+:global(.dark) .Container a {
+  @apply text-white !important;
+}
+
+:global(.dark) .Container section div pre {
+  @apply bg-gray-90 text-white;
+}
+
+:global(.dark) .Container img {
+  @apply border-b-gray-90;
+}
+
+:global(.dark) .Container section {
+  @apply border-t-gray-90;
+}
+
+/* Size modifiers */
+.Full {
+  @apply col-span-full;
+}
+
+.Half {
+  @apply col-span-full sm:col-span-3;
+}
+
+.TwoThirds {
+  @apply col-span-full md:col-span-3 lg:col-span-4;
+}
+
+.Third {
+  @apply col-span-full md:col-span-3 lg:col-span-2;
+}
+
+.Fourth {
+  @apply col-span-full md:col-span-2;
+}
