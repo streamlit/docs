@@ -29,6 +29,7 @@ import BreadCrumbs from "../components/utilities/breadCrumbs";
 import SideBar from "../components/navigation/sideBar";
 import Masonry from "../components/layouts/masonry";
 import TileContainer from "../components/layouts/tileContainer";
+import DataSourcesContainer from "../components/layouts/dataSourcesContainer";
 import InlineCalloutContainer from "../components/layouts/inlineCalloutContainer";
 
 import ArrowLinkContainer from "../components/navigation/arrowLinkContainer";
@@ -48,6 +49,7 @@ import Image from "../components/blocks/image";
 import Important from "../components/blocks/important";
 import Note from "../components/blocks/note";
 import RefCard from "../components/blocks/refCard";
+import DataSourcesCard from "../components/blocks/dataSourcesCard";
 import Tile from "../components/blocks/tile";
 import InlineCallout from "../components/blocks/inlineCallout";
 import Tip from "../components/blocks/tip";
@@ -100,6 +102,8 @@ export default function Article({
     TileContainer,
     Tile,
     RefCard,
+    DataSourcesContainer,
+    DataSourcesCard,
     Image,
     Download,
     Flex,
