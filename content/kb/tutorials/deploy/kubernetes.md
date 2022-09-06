@@ -83,7 +83,7 @@ wait ${APP_ID}
 
 ### Create a Dockerfile
 
-Docker builds images by reading the instructions from a `Dockerfile`. A `Dockerfile` is a text document that contains all the commands a user could call on the command line to assemble an image. Click [here](https://docs.docker.com/engine/reference/builder/) to learn more. The [docker build](https://docs.docker.com/engine/reference/commandline/build/) command builds an image from a `Dockerfile`. The [docker run](https://docs.docker.com/engine/reference/commandline/run/) command first creates a container over the specified image, and then starts it using the specified command.
+Docker builds images by reading the instructions from a `Dockerfile`. A `Dockerfile` is a text document that contains all the commands a user could call on the command line to assemble an image. Learn more in the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/). The [docker build](https://docs.docker.com/engine/reference/commandline/build/) command builds an image from a `Dockerfile`. The [docker run](https://docs.docker.com/engine/reference/commandline/run/) command first creates a container over the specified image, and then starts it using the specified command.
 
 Here's an example `Dockerfile` that you can add to the root of your directory.
 
@@ -154,7 +154,7 @@ As the image was uploaded to the container registry in the previous step, we can
 
 ### Install and run Kubernetes
 
-Make sure your Kubernetes client is installed and running on your machine ([guide](https://kubernetes.io/docs/tasks/tools/#kubectl)).
+Make sure your [Kubernetes client](https://kubernetes.io/docs/tasks/tools/#kubectl), `kubectl`, is installed and running on your machine.
 
 ### Configure a Google OAuth Client and oauth2-proxy
 
@@ -179,6 +179,7 @@ data:
     client_id = "<GOOGLE_CLIENT_ID>"
     client_secret = "<GOOGLE_CLIENT_SECRET>"
     cookie_secret = "<16, 24, or 32 bytes>"
+    redirect_url = <REDIRECT_URL>
 
 ---
 apiVersion: apps/v1
@@ -263,7 +264,7 @@ spec:
 
 <Important>
 
-While the above configurations can be copied verbatim, you will have to configure the `oauth2-proxy` yourself and use the correct `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_ID`, and `GCP_PROJECT_ID`.
+While the above configurations can be copied verbatim, you will have to configure the `oauth2-proxy` yourself and use the correct `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_ID`, `GCP_PROJECT_ID`, and `REDIRECT_URL`.
 
 </Important>
 
@@ -275,7 +276,7 @@ kubctl create -f k8s-streamlit.yaml
 
 ### Set up TLS support
 
-Since you are using the Google authentication, you will need to set up TLS support by following this [guide](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/tls).
+Since you are using the Google authentication, you will need to set up TLS support. Find out how in [TLS Configuration](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/tls).
 
 ### Verify the deployment
 
