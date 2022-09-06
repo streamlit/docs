@@ -12,6 +12,10 @@
   @apply text-gray-90 !important;
 }
 
+.Container img {
+  @apply mr-[16px] h-[136px];
+}
+
 :global(.dark) .Title,
 :global(.dark) .Text {
   @apply text-white !important;

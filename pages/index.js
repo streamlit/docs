@@ -263,18 +263,21 @@ export default function Home({ window, menu, gdpr_data }) {
                 title="Built-in charts get a new look and parameters! 📊"
                 text="Say hello to built-in chart improvements!"
                 link="https://blog.streamlit.io/built-in-charts-get-a-new-look-and-parameters/"
+                image="/blog-1.svg"
               />
               <NewsEntry
                 date="2022-08-04T16:05:00.000Z"
                 title="The magic of working in open source"
                 text="How we build our open-source library and release new features."
                 link="https://blog.streamlit.io/the-magic-of-working-in-open-source/"
+                image="/blog-2.svg"
               />
               <NewsEntry
                 date="2022-07-28T16:05:00.000Z"
                 title="How to enhance Google Search Console data exports with Streamlit"
                 text="Connect to the GSC API in one click and go beyond the 1,000-row UI limit!"
                 link="https://blog.streamlit.io/how-to-enhance-google-search-console-data-exports-with-streamlit/"
+                image="/blog-3.gif"
               />
               <Button link="https://blog.streamlit.io/">
                 View all updates
