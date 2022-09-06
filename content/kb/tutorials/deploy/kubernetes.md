@@ -179,6 +179,7 @@ data:
     client_id = "<GOOGLE_CLIENT_ID>"
     client_secret = "<GOOGLE_CLIENT_SECRET>"
     cookie_secret = "<16, 24, or 32 bytes>"
+    redirect_url = <REDIRECT_URL>
 
 ---
 apiVersion: apps/v1
