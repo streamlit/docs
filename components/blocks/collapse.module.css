@@ -1,0 +1,7 @@
+.Container {
+  @apply rounded-md overflow-hidden flex justify-between flex-col pr-10 pl-6;
+}
+
+.collapse_Container p {
+  @apply mb-[7px] !important;
+}
