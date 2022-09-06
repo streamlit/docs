@@ -2,7 +2,7 @@ import ArrowLink from "../navigation/arrowLink";
 
 import styles from "./newsEntry.module.css";
 
-const NewsEntry = ({ date, title, text, link }) => {
+const NewsEntry = ({ date, title, text, link, target }) => {
   const niceDate = (date) => {
     let cleanDate = new Date(date);
     return cleanDate.toLocaleDateString("en-US", {
@@ -25,6 +25,7 @@ const NewsEntry = ({ date, title, text, link }) => {
         clean={true}
         className="tiny bold"
         content="Read More"
+        target={target ? target : ArrowLink.target}
       ></ArrowLink>
     </article>
   );
