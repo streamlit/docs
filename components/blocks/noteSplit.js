@@ -11,7 +11,9 @@ const NoteSplit = ({ background, title, copy, button }) => {
       <div className={styles.ContentContainer}>
         <h2>{title}</h2>
         <p>{copy}</p>
-        <Button link={button.link}>{button.text}</Button>
+        <Button link={button.link} target={button.target}>
+          {button.text}
+        </Button>
       </div>
       <Image src="/join.png" clean={true} />
     </section>
