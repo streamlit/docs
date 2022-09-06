@@ -12,8 +12,18 @@
   @apply text-gray-90 !important;
 }
 
-.Container img {
-  @apply mr-[16px] h-[136px];
+/* Styles for news entries with images */
+.flexContainer {
+  @apply flex flex-col md:flex-row md:items-center gap-4;
+}
+
+.flexContainer section,
+.TextContainer {
+  @apply flex-1;
+}
+
+.Container section img {
+  @apply w-full h-48 md:h-40 xl:h-52 2xl:h-60 object-cover;
 }
 
 :global(.dark) .Title,

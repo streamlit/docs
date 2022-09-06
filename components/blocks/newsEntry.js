@@ -1,4 +1,5 @@
 import ArrowLink from "../navigation/arrowLink";
+import classNames from "classnames";
 
 import styles from "./newsEntry.module.css";
 import Image from "./image";
@@ -13,10 +14,12 @@ const NewsEntry = ({ date, title, text, link, image }) => {
     });
   };
 
-  if (image) {
-    return (
-      <article className={styles.Container}>
-        <Image src={image} clean={true} />
+  return (
+    <article
+      className={classNames(styles.Container, image && styles.flexContainer)}
+    >
+      {image && <Image src={image} clean={true} />}
+      <div className={styles.TextContainer}>
         <time className={styles.Date} dateTime="date">
           {niceDate(date)}
         </time>
@@ -28,27 +31,10 @@ const NewsEntry = ({ date, title, text, link, image }) => {
           clean={true}
           className="tiny bold"
           content="Read More"
-        ></ArrowLink>
-      </article>
-    );
-  } else {
-    return (
-      <article className={styles.Container}>
-        <time className={styles.Date} dateTime="date">
-          {niceDate(date)}
-        </time>
-        <h4 className={styles.Title}>{title}</h4>
-        <p className={styles.Text}>{text}</p>
-        <ArrowLink
-          link={link}
-          type="next"
-          clean={true}
-          className="tiny bold"
-          content="Read More"
-        ></ArrowLink>
-      </article>
-    );
-  }
+        />
+      </div>
+    </article>
+  );
 };
 
 export default NewsEntry;
