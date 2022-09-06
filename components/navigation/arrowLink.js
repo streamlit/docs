@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import styles from "./arrowLink.module.css";
 
-const ArrowLink = ({ children, link, type, content }) => {
+const ArrowLink = ({ children, link, type, content, target }) => {
   function ArrowType() {
     if (type == "back") {
       return (
@@ -14,6 +14,7 @@ const ArrowLink = ({ children, link, type, content }) => {
               ${styles.Link}
               ${styles.BackLink}
             `}
+            target={target ? target : "_self"}
           >
             <svg
               width="14"
@@ -42,6 +43,7 @@ const ArrowLink = ({ children, link, type, content }) => {
               ${styles.Link}
               ${styles.NextLink}
             `}
+            target={target ? target : "_self"}
           >
             <span className={styles.Text}>Next: </span>
             {content}
