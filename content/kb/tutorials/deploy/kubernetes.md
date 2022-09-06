@@ -154,7 +154,7 @@ As the image was uploaded to the container registry in the previous step, we can
 
 ### Install and run Kubernetes
 
-Make sure your Kubernetes client is installed and running on your machine ([guide](https://kubernetes.io/docs/tasks/tools/#kubectl)).
+Make sure your [Kubernetes client](https://kubernetes.io/docs/tasks/tools/#kubectl), `kubectl`, is installed and running on your machine.
 
 ### Configure a Google OAuth Client and oauth2-proxy
 
@@ -276,7 +276,7 @@ kubctl create -f k8s-streamlit.yaml
 
 ### Set up TLS support
 
-Since you are using the Google authentication, you will need to set up TLS support by following this [guide](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/tls).
+Since you are using the Google authentication, you will need to set up TLS support. Find out how in [TLS Configuration](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/tls).
 
 ### Verify the deployment
 
