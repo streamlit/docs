@@ -84,7 +84,7 @@ Subdomains will also soon be customizable! With this step you'll be able modify 
 <your-custom-subdomain>.streamlitapp.com
 ```
 
-Sign up for early access to try out customizable URLs in the beta [here](https://forms.streamlit.io/customizable-url-beta). To customize your app subdomain from the dashboard:
+Early access signup for custom subdomains is now closed. The feature will soon be publicly available. Once you have access, to customize your app subdomain from the dashboard:
 
 1. Click the "︙" overflow menu to the right of the app and select "**Settings**"
 
