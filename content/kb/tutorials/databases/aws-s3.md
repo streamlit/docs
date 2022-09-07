@@ -32,7 +32,9 @@ Navigate to the upload section of your new bucket:
 <Image alt="AWS screenshot 4" src="/images/databases/aws-4.png" />
 </Flex>
 
-And upload the following CSV file, which contains some example data:
+And note down the "AWS Region" for later. In this example, it's `us-east-1`, but it may differ for you.
+
+Next, upload the following CSV file, which contains some example data:
 
 <Download href="/images/databases/myfile.csv">myfile.csv</Download>
 
@@ -55,17 +57,18 @@ access keys. More information [here](https://docs.aws.amazon.com/general/latest/
 
 ## Add the key to your local app secrets
 
-Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Create this file if it doesn't exist yet and add the access key to it as shown below:
+Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Create this file if it doesn't exist yet and add to it the access key ID, access key secret, and the AWS default region you noted down earlier, as shown below:
 
 ```toml
 # .streamlit/secrets.toml
 AWS_ACCESS_KEY_ID = "xxx"
 AWS_SECRET_ACCESS_KEY = "xxx"
+AWS_DEFAULT_REGION = "xxx"
 ```
 
 <Important>
 
-Add this file to `.gitignore` and don't commit it to your Github repo!
+Be sure to replace `xxx` above with the values you noted down earlier, and add this file to `.gitignore` so you don't commit it to your Github repo!
 
 </Important>
 
