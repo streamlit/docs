@@ -5,7 +5,7 @@ import styles from "./button.module.css";
 const Button = ({ children, link, target }) => {
   if (target == "_blank") {
     return (
-      <a href={link} target={target}>
+      <a href={link} target={target} rel="noopener noreferrer">
         <button className={styles.Button}>{children}</button>
       </a>
     );
