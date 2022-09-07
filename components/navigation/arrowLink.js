@@ -14,7 +14,7 @@ const ArrowLink = ({ children, link, type, content, target }) => {
               ${styles.Link}
               ${styles.BackLink}
             `}
-            target={target ? target : "_self"}
+            target={target == "_blank" ? target : "_self"}
           >
             <svg
               width="14"
@@ -43,7 +43,7 @@ const ArrowLink = ({ children, link, type, content, target }) => {
               ${styles.Link}
               ${styles.NextLink}
             `}
-            target={target ? target : "_self"}
+            target={target == "_blank" ? target : "_self"}
           >
             <span className={styles.Text}>Next: </span>
             {content}
