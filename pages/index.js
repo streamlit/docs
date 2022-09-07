@@ -264,6 +264,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 text="Quickly and easily add dynamic filters to your Streamlit app"
                 link="https://blog.streamlit.io/make-dynamic-filters-in-streamlit-and-show-their-effects-on-the-original-dataset/"
                 image="/blog-1.svg"
+                target="_blank"
               />
               <NewsEntry
                 date="2022-08-18T16:05:00.000Z"
@@ -271,6 +272,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 text="Learn how to add a UI to any dataframe"
                 link="https://blog.streamlit.io/auto-generate-a-dataframe-filtering-ui-in-streamlit-with-filter_dataframe/"
                 image="/blog-2.svg"
+                target="_blank"
               />
               <NewsEntry
                 date="2022-08-11T16:05:00.000Z"
@@ -278,8 +280,9 @@ export default function Home({ window, menu, gdpr_data }) {
                 text="Say hello to built-in chart improvements!"
                 link="https://blog.streamlit.io/built-in-charts-get-a-new-look-and-parameters/"
                 image="/blog-3.svg"
+                target="_blank"
               />
-              <Button link="https://blog.streamlit.io/">
+              <Button link="https://blog.streamlit.io/" target="_blank">
                 View all updates
               </Button>
             </NewsContainer>
@@ -291,6 +294,7 @@ export default function Home({ window, menu, gdpr_data }) {
               button={{
                 text: "View forum",
                 link: "https://discuss.streamlit.io",
+                target: "_blank",
               }}
               image="/join.png"
             />
