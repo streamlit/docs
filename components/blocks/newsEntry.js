@@ -1,8 +1,10 @@
 import ArrowLink from "../navigation/arrowLink";
+import classNames from "classnames";
 
 import styles from "./newsEntry.module.css";
+import Image from "./image";
 
-const NewsEntry = ({ date, title, text, link, target }) => {
+const NewsEntry = ({ date, title, text, link, image, target }) => {
   const niceDate = (date) => {
     let cleanDate = new Date(date);
     return cleanDate.toLocaleDateString("en-US", {
@@ -13,20 +15,25 @@ const NewsEntry = ({ date, title, text, link, target }) => {
   };
 
   return (
-    <article className={styles.Container}>
-      <time className={styles.Date} dateTime="date">
-        {niceDate(date)}
-      </time>
-      <h4 className={styles.Title}>{title}</h4>
-      <p className={styles.Text}>{text}</p>
-      <ArrowLink
-        link={link}
-        type="next"
-        clean={true}
-        className="tiny bold"
-        content="Read More"
-        target={target ? target : ArrowLink.target}
-      ></ArrowLink>
+    <article
+      className={classNames(styles.Container, image && styles.flexContainer)}
+    >
+      {image && <Image src={image} clean={true} />}
+      <div className={styles.TextContainer}>
+        <time className={styles.Date} dateTime="date">
+          {niceDate(date)}
+        </time>
+        <h4 className={styles.Title}>{title}</h4>
+        <p className={styles.Text}>{text}</p>
+        <ArrowLink
+          link={link}
+          type="next"
+          clean={true}
+          className="tiny bold"
+          content="Read More"
+          target={target ? target : ArrowLink.target}
+        />
+      </div>
     </article>
   );
 };
