@@ -4,7 +4,7 @@ import classNames from "classnames";
 import styles from "./newsEntry.module.css";
 import Image from "./image";
 
-const NewsEntry = ({ date, title, text, link, image }) => {
+const NewsEntry = ({ date, title, text, link, image, target }) => {
   const niceDate = (date) => {
     let cleanDate = new Date(date);
     return cleanDate.toLocaleDateString("en-US", {
@@ -31,6 +31,7 @@ const NewsEntry = ({ date, title, text, link, image }) => {
           clean={true}
           className="tiny bold"
           content="Read More"
+          target={target ? target : ArrowLink.target}
         />
       </div>
     </article>
