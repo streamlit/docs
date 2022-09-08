@@ -22,11 +22,19 @@
   transform: rotate(180deg);
 }
 
+.PanelContent {
+  @apply pt-4;
+}
+
+.PanelHidden {
+  @apply hidden;
+}
+
+.PanelVisible {
+  @apply block;
+}
+
 /* Dark mode */
 :global(.dark) .PanelHeading {
   @apply border-gray-90;
-}
-
-.PanelContent {
-  @apply pt-4;
 }

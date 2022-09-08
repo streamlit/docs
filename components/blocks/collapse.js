@@ -20,7 +20,14 @@ const Collapse = ({ title, children }) => {
             expand_more
           </i>
         </summary>
-        {show && <div className={styles.PanelContent}>{children}</div>}
+        <div
+          className={classNames(
+            styles.PanelContent,
+            show ? styles.PanelVisible : styles.PanelHidden
+          )}
+        >
+          {children}
+        </div>
       </div>
     </section>
   );
