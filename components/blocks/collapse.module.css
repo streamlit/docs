@@ -1,7 +1,32 @@
 .Container {
-  @apply rounded-md overflow-hidden flex justify-between flex-col pr-10 pl-6;
+  @apply py-4;
 }
 
-.collapse_Container p {
-  @apply mb-[7px] !important;
+.PanelHeading {
+  @apply border border-gray-20 rounded-md p-3 cursor-pointer;
+}
+
+.PanelTitle {
+  @apply list-none flex items-center mb-0 transition ease-in-out duration-75 hover:opacity-80;
+}
+
+.Title {
+  @apply flex-1;
+}
+
+.PanelIcon {
+  @apply transition duration-75 text-gray-70;
+}
+
+.RotatedIcon {
+  transform: rotate(180deg);
+}
+
+/* Dark mode */
+:global(.dark) .PanelHeading {
+  @apply border-gray-90;
+}
+
+.PanelContent {
+  @apply pt-4;
 }
