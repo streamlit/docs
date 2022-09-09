@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/mysql
 
 ## Introduction
 
-This guide explains how to securely access a MySQL database from Streamlit Cloud. It uses the [mysql-connector-python](https://github.com/mysql/mysql-connector-python) library and Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+This guide explains how to securely access a **_remote_** MySQL database from Streamlit Cloud. It uses the [mysql-connector-python](https://github.com/mysql/mysql-connector-python) library and Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ## Create a MySQL database
 
@@ -49,6 +49,8 @@ password = "xxx"
 ```
 
 <Important>
+
+When copying your app secrets to Streamlit Cloud, be sure to replace the values of **host**, **port**, **database**, **user**, and **password** with those of your _remote_ MySQL database!
 
 Add this file to `.gitignore` and don't commit it to your Github repo!
 
