@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/postgresql
 
 ## Introduction
 
-This guide explains how to securely access a PostgreSQL database from Streamlit Cloud. It uses the [psycopg2](https://www.psycopg.org/) library and Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+This guide explains how to securely access a **_remote_** PostgreSQL database from Streamlit Cloud. It uses the [psycopg2](https://www.psycopg.org/) library and Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ## Create a PostgreSQL database
 
@@ -45,6 +45,8 @@ password = "xxx"
 ```
 
 <Important>
+
+When copying your app secrets to Streamlit Cloud, be sure to replace the values of **host**, **port**, **dbname**, **user**, and **password** with those of your _remote_ PostgreSQL database!
 
 Add this file to `.gitignore` and don't commit it to your Github repo!
 
