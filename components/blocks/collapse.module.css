@@ -3,7 +3,7 @@
 }
 
 .PanelHeading {
-  @apply border border-gray-20 rounded-md p-3;
+  @apply border border-gray-30 rounded-md p-3;
 }
 
 .PanelTitle {
