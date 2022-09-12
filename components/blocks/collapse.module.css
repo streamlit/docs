@@ -11,7 +11,7 @@
 }
 
 .Title {
-  @apply flex-1;
+  @apply flex-1 text-lg;
 }
 
 .PanelIcon {
