@@ -3,11 +3,11 @@
 }
 
 .PanelHeading {
-  @apply border border-gray-20 rounded-md p-3 cursor-pointer;
+  @apply border border-gray-20 rounded-md p-3;
 }
 
 .PanelTitle {
-  @apply list-none flex items-center mb-0 transition ease-in-out duration-75 hover:opacity-80;
+  @apply list-none flex items-center mb-0 transition ease-in-out duration-75 hover:opacity-80 cursor-pointer;
 }
 
 .Title {
