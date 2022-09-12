@@ -107,7 +107,11 @@ const SideBar = ({ menu, slug }) => {
             : styles.StandardGradient
         )}
       />
-      <nav onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <nav
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className={isSticky === "window" && styles.WindowStickyNav}
+      >
         <ul className={styles.NavList}>{navItems}</ul>
       </nav>
     </section>
