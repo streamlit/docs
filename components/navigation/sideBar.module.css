@@ -43,15 +43,18 @@
 }
 
 /* Sticky styles */
-
 .WindowStickyNav {
-  @apply pt-16 lg:pt-8;
+  @apply top-0 lg:top-12;
+}
+
+.WindowStickyNav nav {
+  @apply pt-16 lg:pt-4;
 }
 
 .WindowStickyGradient {
-  @apply top-12 h-6;
+  @apply top-12 h-4;
 }
 
 .ScrollBarStickyGradient {
-  @apply top-24 h-6;
+  @apply top-24 h-4;
 }

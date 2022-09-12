@@ -93,7 +93,8 @@ const SideBar = ({ menu, slug }) => {
       className={classNames(
         styles.Container,
         isOpen ? styles.OpenNav : styles.ClosedNav,
-        isOver ? styles.OverNav : styles.CollapsedNav
+        isOver ? styles.OverNav : styles.CollapsedNav,
+        isSticky === "window" && styles.WindowStickyNav
       )}
       onScroll={(e) => handleScroll(e)}
     >
@@ -107,11 +108,7 @@ const SideBar = ({ menu, slug }) => {
             : styles.StandardGradient
         )}
       />
-      <nav
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        className={isSticky === "window" && styles.WindowStickyNav}
-      >
+      <nav onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <ul className={styles.NavList}>{navItems}</ul>
       </nav>
     </section>
