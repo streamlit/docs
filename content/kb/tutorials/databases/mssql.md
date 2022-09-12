@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/mssql
 
 ## Introduction
 
-This guide explains how to securely access a remote Microsoft SQL Server database from Streamlit Cloud. It uses the [pyodbc](https://github.com/mkleehammer/pyodbc/wiki) library and Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+This guide explains how to securely access a **_remote_** Microsoft SQL Server database from Streamlit Cloud. It uses the [pyodbc](https://github.com/mkleehammer/pyodbc/wiki) library and Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ## Create an SQL Server database
 
@@ -112,7 +112,7 @@ password = "xxx"
 
 <Important>
 
-When copying your app secrets to Streamlit Cloud, be sure to replace the values of **server**, **database**, **username**, and **password** with those of your remote SQL Server!
+When copying your app secrets to Streamlit Cloud, be sure to replace the values of **server**, **database**, **username**, and **password** with those of your _remote_ SQL Server!
 
 And add this file to `.gitignore` and don't commit it to your Github repo.
 

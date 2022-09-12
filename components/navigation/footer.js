@@ -49,6 +49,7 @@ const Footer = () => {
             `}
             href="https://github.com/streamlit"
             target="_blank"
+            title="GitHub"
           >
             <i className={styles.IconContainer}>
               <svg
@@ -74,6 +75,7 @@ const Footer = () => {
             `}
             href="https://www.youtube.com/channel/UC3LD42rjj-Owtxsa6PwGU5Q"
             target="_blank"
+            title="YouTube"
           >
             <i className={styles.IconContainer}>
               <svg
@@ -99,6 +101,7 @@ const Footer = () => {
             `}
             href="https://twitter.com/streamlit"
             target="_blank"
+            title="Twitter"
           >
             <i className={styles.IconContainer}>
               <svg
@@ -123,6 +126,7 @@ const Footer = () => {
             `}
             href="https://discord.gg/bTz5EDYh9Z"
             target="_blank"
+            title="Discord"
           >
             <i className={styles.IconContainer}>
               <svg
@@ -147,6 +151,7 @@ const Footer = () => {
             `}
             href="https://www.instagram.com/streamlit.io"
             target="_blank"
+            title="Instagram"
           >
             <i className={styles.IconContainer}>
               <svg
