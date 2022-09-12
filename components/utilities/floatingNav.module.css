@@ -45,26 +45,26 @@
 }
 
 /* Paddings for different title hierarchies */
-.headingH1 {
+.List li[data-hierarchy="1"] {
   @apply pl-6;
 }
 
-.headingH2 {
-  @apply pl-8;
-}
-
-.headingH3 {
+.List li[data-hierarchy="2"] {
   @apply pl-10;
 }
 
-.headingH4 {
+.List li[data-hierarchy="3"] {
   @apply pl-12;
 }
 
-.headingH5 {
+.List li[data-hierarchy="4"] {
   @apply pl-14;
 }
 
-.headingH6 {
+.List li[data-hierarchy="5"] {
   @apply pl-16;
+}
+
+.List li[data-hierarchy="6"] {
+  @apply pl-20;
 }

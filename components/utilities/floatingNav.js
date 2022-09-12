@@ -124,9 +124,22 @@ const FloatingNav = ({ menu, slug }) => {
 };
 
 const Headings = ({ headings, activeId }) => {
+  // Function to get the unique hierarchies for the headings.
+  // For example, we could have [H1, H2, H3] but also [H1, H4],
+  // and we want the indentation to acommodate for these situations.
+  const uniqueHierarchies = [...new Set(headings.map((item) => item.level))];
+  const sortedHeadings = uniqueHierarchies.map((hierarchy, index) =>
+    headings.filter((heading) => {
+      if (heading.level === hierarchy) {
+        heading.hierarchy = index;
+      }
+      return heading;
+    })
+  );
+
   return (
     <>
-      {headings.map((heading, index) => (
+      {sortedHeadings[0].map((heading, index) => (
         <Heading heading={heading} index={index} activeId={activeId} />
       ))}
     </>
@@ -136,20 +149,8 @@ const Headings = ({ headings, activeId }) => {
 const Heading = ({ heading, index, activeId }) => {
   return (
     <li
-      className={`
-        ${styles.ListItem}
-        ${
-          heading.level === "H1" || heading.level === "H2"
-            ? styles.headingH1
-            : heading.level === "H3"
-            ? styles.headingH3
-            : heading.level === "H4"
-            ? styles.headingH4
-            : heading.level === "H5"
-            ? styles.headingH5
-            : styles.headingH6
-        }
-      `}
+      className={styles.ListItem}
+      data-hierarchy={heading.hierarchy}
       key={`toc-${index}`}
     >
       <a
