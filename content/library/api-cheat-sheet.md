@@ -331,7 +331,7 @@ st.experimental_set_query_params(**params)
 # Executes foo
 >>> s1 = foo(ref1)
 # Does not execute foo
-# Returns cached item by reference, d1 == d2
+# Returns cached item by reference, s1 == s2
 >>> s2 = foo(ref1)
 # Different arg, so function foo executes
 >>> s3 = foo(ref2)
