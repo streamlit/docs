@@ -14,28 +14,20 @@ const ThemeToggle = dynamic(() => import("../utilities/themeToggle"), {
 });
 import Search from "../utilities/search";
 
-const Header = () => {
-  const [isSticky, setIsSticky] = useState(false);
+const Header = ({ isSticky }) => {
   const [windowWidth, setWindowWidth] = useState();
 
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
   };
 
-  const handleScroll = () => {
-    let top = window.scrollY;
-    top > 20 ? setIsSticky(true) : setIsSticky(false);
-  };
-
   const debouncedHandleResize = debounce(handleResize, 200);
 
   useEffect(() => {
     handleResize();
-    window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", debouncedHandleResize);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", debouncedHandleResize);
     };
   }, []);
