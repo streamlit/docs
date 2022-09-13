@@ -13,28 +13,11 @@ slug: /library/get-started/installation
 
 ## Prerequisites
 
-<Collapse title="Windows">
-
 Before you get started, you're going to need a few things:
 
 - Your favorite IDE or text editor
 - [Python 3.7 - Python 3.10](https://www.python.org/downloads/)
 - [PIP](https://pip.pypa.io/en/stable/installation/)
-- Install [Anaconda Navigator](https://docs.anaconda.com/anaconda/install/windows/)
-
-</Collapse>
-
-<Collapse title="macOS and Linux">
-
-Before you get started, you're going to need a few things:
-
-- Your favorite IDE or text editor
-- [Python 3.7 - Python 3.10](https://www.python.org/downloads/)
-- [PIP](https://pip.pypa.io/en/stable/installation/)
-- [Pipenv](https://pypi.org/project/pipenv/)
-- Install Xcode command line tools on macOS: `xcode-select --install`
-
-</Collapse>
 
 ## Set up your virtual environment
 
