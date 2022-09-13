@@ -1,5 +1,7 @@
 # Streamlit Docs
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1ddc1b5a-ec21-4b66-987d-feeb68854c28/deploy-status?branch=main)](https://app.netlify.com/sites/streamlit-docs/deploys)
+
 We use Next.js and Netlify to build our [documentation site](https://docs.streamlit.io/).
 
 ## Building
