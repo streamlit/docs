@@ -1,0 +1,40 @@
+.Container {
+  @apply py-4;
+}
+
+.PanelHeading {
+  @apply border border-gray-30 rounded-md p-3;
+}
+
+.PanelTitle {
+  @apply list-none flex items-center mb-0 transition ease-in-out duration-75 hover:opacity-80 cursor-pointer;
+}
+
+.Title {
+  @apply flex-1 text-lg;
+}
+
+.PanelIcon {
+  @apply transition duration-75 text-gray-70;
+}
+
+.RotatedIcon {
+  transform: rotate(180deg);
+}
+
+.PanelContent {
+  @apply pt-4;
+}
+
+.PanelHidden {
+  @apply hidden;
+}
+
+.PanelVisible {
+  @apply block;
+}
+
+/* Dark mode */
+:global(.dark) .PanelHeading {
+  @apply border-gray-90;
+}

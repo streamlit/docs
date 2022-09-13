@@ -43,6 +43,7 @@ import FloatingNav from "../components/utilities/floatingNav";
 import Autofunction from "../components/blocks/autofunction";
 import Code from "../components/blocks/code";
 import CodeTile from "../components/blocks/codeTile";
+import Collapse from "../components/blocks/collapse";
 import Download from "../components/utilities/download";
 import Flex from "../components/layouts/flex";
 import Image from "../components/blocks/image";
@@ -92,6 +93,7 @@ export default function Article({
     Tip,
     Important,
     Code,
+    Collapse,
     Warning,
     YouTube,
     Cloud,
