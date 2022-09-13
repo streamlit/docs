@@ -32,19 +32,29 @@
   @apply list-none overscroll-contain m-0 px-2 lg:px-0;
 }
 
+/* Top gradient styles when scrolling */
 .TopGradient {
   @apply hidden lg:block fixed top-0 w-full bg-gradient-to-b from-white z-10;
   max-width: 280px;
 }
 
+:global(.dark) .TopGradient {
+  @apply from-gray-100;
+}
+
+/* Sticky styles */
+.WindowStickyNav {
+  @apply top-0 lg:top-12;
+}
+
+.WindowStickyNav nav {
+  @apply pt-16 lg:pt-4;
+}
+
 .WindowStickyGradient {
-  @apply top-12 h-6;
+  @apply top-12 h-4;
 }
 
 .ScrollBarStickyGradient {
-  @apply top-24 h-6;
-}
-
-:global(.dark) .TopGradient {
-  @apply from-gray-100;
+  @apply top-24 h-4;
 }

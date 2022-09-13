@@ -93,7 +93,8 @@ const SideBar = ({ menu, slug }) => {
       className={classNames(
         styles.Container,
         isOpen ? styles.OpenNav : styles.ClosedNav,
-        isOver ? styles.OverNav : styles.CollapsedNav
+        isOver ? styles.OverNav : styles.CollapsedNav,
+        isSticky === "window" && styles.WindowStickyNav
       )}
       onScroll={(e) => handleScroll(e)}
     >
