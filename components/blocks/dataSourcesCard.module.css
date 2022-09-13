@@ -1,5 +1,9 @@
 .Container {
-  @apply rounded-md border border-gray-30 overflow-hidden text-base cursor-pointer transition-all duration-75 flex flex-col hover:scale-105 hover:border-b-gray-30 hover:opacity-70;
+  @apply rounded-md border border-gray-30 overflow-hidden text-base cursor-pointer transition-all duration-75 flex flex-col;
+}
+
+.Container:hover {
+  transform: scale(1.05);
 }
 
 .Container h1,
