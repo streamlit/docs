@@ -6,7 +6,7 @@ description: st.slider displays a slider widget.
 
 <Autofunction function="streamlit.slider" />
 
-## Featured videos
+### Featured videos
 
 Check out our video on how to use one of Streamlit's core functions, the slider!
 <YouTube videoId="tzAdd-MuWPw" />
