@@ -10,10 +10,6 @@
   @apply font-bold;
 }
 
-.HeaderContainer code {
-  @apply rounded-md px-1 mx-1;
-}
-
 h1.HeaderContainer {
   @apply leading-tight;
 }
