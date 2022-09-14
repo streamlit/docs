@@ -6,7 +6,7 @@ description: st.checkbox displays a checkbox widget.
 
 <Autofunction function="streamlit.checkbox" />
 
-## Featured videos
+### Featured videos
 
 Check out our video on how to use one of Streamlit's core functions, the checkbox! ☑
 

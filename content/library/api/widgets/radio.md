@@ -6,7 +6,7 @@ description: st.radio displays a radio button widget.
 
 <Autofunction function="streamlit.radio" />
 
-## Featured videos
+### Featured videos
 
 Check out our video on how to use one of Streamlit's core functions, the radio button! 🔘
 

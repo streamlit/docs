@@ -7,7 +7,7 @@ keywords: button
 
 <Autofunction function="streamlit.button" />
 
-## Featured videos
+### Featured videos
 
 Check out our video on how to use one of Streamlit's core functions, the button!
 
