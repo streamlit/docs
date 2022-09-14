@@ -11,7 +11,7 @@
 }
 
 .HeaderContainer code {
-  @apply text-red-70 rounded-md px-1 mx-1;
+  @apply rounded-md px-1 mx-1;
 }
 
 h1.HeaderContainer {
