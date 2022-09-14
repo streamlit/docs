@@ -32,7 +32,7 @@ const HeaderLink = ({ name, level, className, children }) => {
 
   // Check if there's a <code> tag in the heading, so we can style it properly.
   // If we're getting something back, that means there is one, so we add the special class
-  const withInlineCode = children.find(
+  const withInlineCode = Array.from(children).find(
     (child) => child && child.props && child.props.mdxType === "inlineCode"
   );
 
