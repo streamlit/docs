@@ -6,7 +6,7 @@ description: st.write writes arguments to the app.
 
 <Autofunction function="streamlit.write" />
 
-## Featured video
+### Featured video
 
 Learn what the [`st.write`](/library/api-reference/write-magic/st.write) and [magic](/library/api-reference/write-magic/magic) commands are and how to use them.
 
