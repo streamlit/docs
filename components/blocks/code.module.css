@@ -90,7 +90,7 @@
 }
 
 :global(.dark) .Container pre code :global(.decorator.annotation.punctuation) {
-  @apply text-yellow-50;
+  @apply text-yellow-80;
 }
 
 :global(.dark) .Container pre code :global(.keyword) {
