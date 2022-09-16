@@ -46,6 +46,10 @@
   @apply text-yellow-80;
 }
 
+.Container pre code :global(.decorator.annotation.punctuation) {
+  @apply text-yellow-80;
+}
+
 .Container pre code :global(.string) {
   @apply text-darkBlue-30;
 }
@@ -83,6 +87,10 @@
 :global(.dark) .Container pre code :global(.operator),
 :global(.dark) .Container pre code :global(.decorator) {
   @apply text-yellow-50;
+}
+
+:global(.dark) .Container pre code :global(.decorator.annotation.punctuation) {
+  @apply text-yellow-80;
 }
 
 :global(.dark) .Container pre code :global(.keyword) {
