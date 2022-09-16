@@ -22,7 +22,9 @@ const Layout = ({ children }) => {
   return (
     <main id="root" className="dark:bg-gray-100">
       <Header isSticky={isSticky} />
-      <div className={isSticky && styles.stickyPageWrapper}>{children}</div>
+      <div className={isSticky ? styles.stickyPageWrapper : undefined}>
+        {children}
+      </div>
     </main>
   );
 };
