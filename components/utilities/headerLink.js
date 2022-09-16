@@ -30,6 +30,12 @@ const HeaderLink = ({ name, level, className, children }) => {
     window.setTimeout(() => setCopied(false), 2000);
   };
 
+  // Check if there's a <code> tag in the heading, so we can style it properly.
+  // If we're getting something back, that means there is one, so we add the special class
+  const withInlineCode = Array.from(children).find(
+    (child) => child && child.props && child.props.mdxType === "inlineCode"
+  );
+
   const Header = `h${level}`;
   return (
     <>
@@ -38,7 +44,7 @@ const HeaderLink = ({ name, level, className, children }) => {
       <Header
         className={classNames(styles.HeaderContainer, "group", className)}
       >
-        {children}
+        {withInlineCode ? <span>{children}</span> : children}
 
         {copied ? (
           <div className={styles.CopiedMessage}>
