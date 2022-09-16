@@ -19,7 +19,7 @@ Before you get started, you're going to need a few things:
 - [Python 3.7 - Python 3.10](https://www.python.org/downloads/)
 - [PIP](https://pip.pypa.io/en/stable/installation/)
 
-## Set up your `virtual` environment
+## Set up your virtual environment
 
 Regardless of which package management tool you're using, we recommend running
 the commands on this page in a virtual environment. This ensures that the dependencies
