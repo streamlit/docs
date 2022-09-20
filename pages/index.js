@@ -160,6 +160,51 @@ export default function Home({ window, menu, gdpr_data }) {
                   border_color: "gray-90",
                 }}
                 border_color="gray-40"
+                icon="pinch"
+                title="Resize dataframes"
+                text="🗂 st.dataframe supports the use_container_width parameter to stretch across the full container width. Learn more in the docs."
+                link="/library/api-reference/data/st.dataframe"
+              />
+              <Tile
+                size="third"
+                background="unset"
+                color="unset"
+                dark={{
+                  background: "unset",
+                  color: "white",
+                  border_color: "gray-90",
+                }}
+                border_color="gray-40"
+                icon="map"
+                title="Zoomable maps"
+                text="🗺️ st.map adds zoom buttons to the map by default."
+                link="/library/api-reference/charts/st.map"
+              />
+              <Tile
+                size="third"
+                background="unset"
+                color="unset"
+                dark={{
+                  background: "unset",
+                  color: "white",
+                  border_color: "gray-90",
+                }}
+                border_color="gray-40"
+                icon="visibility_off"
+                title="Widget label visibility"
+                text="🏷 Widgets can customize how to hide their labels with the label_visibility parameter. Click to see an example!"
+                link="/library/api-reference/widgets/st.selectbox"
+              />
+              <Tile
+                size="third"
+                background="unset"
+                color="unset"
+                dark={{
+                  background: "unset",
+                  color: "white",
+                  border_color: "gray-90",
+                }}
+                border_color="gray-40"
                 icon="insights"
                 title="Built-in charts improvements"
                 text="📊 Built-in charts (e.g. st.line_chart) get a brand-new look and parameters x and y! Check out our blog post for more information."
@@ -193,52 +238,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 icon="replay"
                 title="Replay cached st commands"
                 text="⏯ Functions cached with st.experimental_memo or st.experimental_singleton can now contain static st commands. This allows caching text, charts, dataframes, and more!"
-                link="/library/advanced-features/experimental-cache-primitives"
-              />
-              <Tile
-                size="third"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                icon="open_in_full"
-                title="Resizable sidebar"
-                text="↔️ The sidebar is now resizable via drag and drop."
-                link="/library/api-reference/layout/st.sidebar"
-              />
-              <Tile
-                size="third"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                icon="map"
-                title="Map enhancements"
-                text="🗺️ st.map and st.pydeck_chart now use light or dark style based on the app's theme"
-                link="/library/api-reference/charts/st.map"
-              />
-              <Tile
-                size="third"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                icon="view_quilt"
-                title="st.tabs"
-                text="🗂 Introducing st.tabs to have tab containers in your app. Tabs are a navigational element that allows users to easily move between groups of related content."
-                link="/library/api-reference/layout/st.tabs"
+                link="/library/api-reference/performance/st.experimental_memo#replay-static-st-elements-in-cache-decorated-functions"
               />
               {/* <Tile
                 size="half"
