@@ -12,6 +12,30 @@ This is an experimental feature. Experimental features and their APIs may change
 
 <Autofunction function="streamlit.experimental_memo" />
 
+Persistent memo caches currently don't support TTL. `ttl` will be ignored if `persist` is specified:
+
+```python
+import streamlit as st
+
+@st.experimental_memo(ttl=60, persist="disk")
+def load_data():
+    return 42
+
+st.write(load_data())
+```
+
+And a warning will be logged to your terminal:
+
+```bash
+$ streamlit run app.py
+
+  You can now view your Streamlit app in your browser.
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.1.1:8501
+
+2022-09-22 13:35:41.587 The memoized function 'load_data' has a TTL that will be ignored. Persistent memo caches currently don't support TTL.
+```
+
 ### Replay static `st` elements in cache-decorated functions
 
 Functions decorated with `@st.experimental_memo` can contain static `st` elements. When a cache-decorated function is executed, we record the element and block messages produced, so the elements will appear in the app even when execution of the function is skipped because the result was cached.
