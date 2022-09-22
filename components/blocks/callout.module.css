@@ -8,7 +8,7 @@
 }
 
 .Container p > code {
-  @apply border border-gray-30 text-red-70 rounded-md px-2 py-1 mx-1 break-words;
+  @apply border border-gray-40 text-red-70 rounded-md px-1 mx-1 break-words;
 }
 
 .Container p:only-child,
