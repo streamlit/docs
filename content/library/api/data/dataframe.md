@@ -6,6 +6,36 @@ description: st.dataframe displays a dataframe as an interactive table.
 
 <Autofunction function="streamlit.dataframe" />
 
+<br />
+
+`st.dataframe` supports the `use_container_width` parameter to stretch across the full container width:
+
+```python
+import pandas as pd
+import streamlit as st
+
+# Cache the dataframe so it's only loaded once
+@st.experimental_memo
+def load_data():
+    return pd.DataFrame(
+        {
+            "first column": [1, 2, 3, 4],
+            "second column": [10, 20, 30, 40],
+        }
+    )
+
+# Boolean to resize the dataframe, stored as a session state variable
+st.checkbox("Use container width", value=False, key="use_container_width")
+
+df = load_data()
+
+# Display the dataframe and allow the user to stretch the dataframe
+# across the full width of the container, based on the checkbox value
+st.dataframe(df, use_container_width=st.session_state.use_container_width)
+```
+
+<Cloud src="https://doc-dataframe2.streamlitapp.com/?embedded=true" height="350" />
+
 ### Interactivity
 
 Dataframes displayed as interactive tables with `st.dataframe` have the following interactive features:

@@ -17,6 +17,26 @@ pip install --upgrade streamlit
 
 </Tip>
 
+## **Version 1.13.0**
+
+_Release date: September 22, 2022_
+
+**Notable Changes**
+
+- 🏷 Widgets can customize how to hide their labels with the `label_visibility` parameter.
+- 🔍 `st.map` adds zoom buttons to the map by default.
+- ↔️ `st.dataframe` supports the `use_container_width` parameter to stretch across the full container width.
+- 🪄 Improvements to `st.dataframe` sizing: Column width calculation respects column headers, supports double click between column headers to autosize, better fullscreen support, and fixes the issue with the `width` parameter.
+
+**Other Changes**
+
+- ⌨️ `st.time_input` allows for keyboard-only input ([#5194](https://github.com/streamlit/streamlit/pull/5194)).
+- 💿 `st.memo` will warn the user when using `ttl` and `persist` keyword argument together ([#5032](https://github.com/streamlit/streamlit/pull/5032)).
+- 🔢 `st.number_input` returns consistent type after rerun ([#5359](https://github.com/streamlit/streamlit/pull/5359)).
+- 🚒 `st.sidebar` UI fixes including a fix for scrollbars in Firefox browsers ([#5157](https://github.com/streamlit/streamlit/pull/5157), [#5324](https://github.com/streamlit/streamlit/pull/5324)).
+- 👩‍💻 Improvements to usage metrics to guide API development.
+- ✍️ More type hints! ([#5191](https://github.com/streamlit/streamlit/pull/5191), [#5192](https://github.com/streamlit/streamlit/pull/5192), [#5242](https://github.com/streamlit/streamlit/pull/5242), [#5243](https://github.com/streamlit/streamlit/pull/5243), [#5244](https://github.com/streamlit/streamlit/pull/5244), [#5245](https://github.com/streamlit/streamlit/pull/5245), [#5246](https://github.com/streamlit/streamlit/pull/5246)) Thanks [harahu](https://github.com/harahu)!
+
 ## **Version 1.12.0**
 
 _Release date: August 11, 2022_
