@@ -49,6 +49,7 @@ import Flex from "../components/layouts/flex";
 import Image from "../components/blocks/image";
 import Important from "../components/blocks/important";
 import Note from "../components/blocks/note";
+import NoteSplit from "../components/blocks/noteSplit";
 import RefCard from "../components/blocks/refCard";
 import DataSourcesCard from "../components/blocks/dataSourcesCard";
 import Tile from "../components/blocks/tile";
@@ -90,6 +91,7 @@ export default function Article({
 
   const components = {
     Note,
+    NoteSplit,
     Tip,
     Important,
     Code,
