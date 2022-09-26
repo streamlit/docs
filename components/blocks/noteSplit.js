@@ -5,7 +5,7 @@ import Image from "./image";
 
 import styles from "./noteSplit.module.css";
 
-const NoteSplit = ({ background, title, copy, button }) => {
+const NoteSplit = ({ background, title, copy, button, image }) => {
   return (
     <section className={styles.Container}>
       <div className={styles.ContentContainer}>
@@ -15,7 +15,7 @@ const NoteSplit = ({ background, title, copy, button }) => {
           {button.text}
         </Button>
       </div>
-      <Image src="/join.png" clean={true} />
+      <Image src={image} clean={true} />
     </section>
   );
 };
