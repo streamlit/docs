@@ -14,6 +14,7 @@ const Cloud = ({ src, height }) => {
           src={`${src}`}
           height={height}
           className={styles.Iframe}
+          allow="camera;"
         />
         <a href={src} target="_blank" className={styles.Caption}>
           (view standalone Streamlit app)
@@ -27,6 +28,7 @@ const Cloud = ({ src, height }) => {
           loading="lazy"
           src={`${src}`}
           className={classNames(styles.Iframe, styles.VideoAspectRatio)}
+          allow="camera;"
         />
         <a href={src} target="_blank" className={styles.Caption}>
           (view standalone Streamlit app)
