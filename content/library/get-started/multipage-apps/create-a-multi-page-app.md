@@ -312,7 +312,7 @@ st.markdown(
 </details>
 <br />
 
-We rename our entrypoint file to `Hello.py` , so that the title in the sidebar is capitalized. And only the code for the intro page is included. Additionally, we’re able to customize the page title and favicon — as it appears in the browser tab with `st.set_page_config`. We can do so for each of our pages too!
+We rename our entrypoint file to `Hello.py` , so that the title in the sidebar is capitalized and only the code for the intro page is included. Additionally, we’re able to customize the page title and favicon — as it appears in the browser tab with `st.set_page_config`. We can do so for each of our pages too!
 
 <Image src="/images/mpa-hello.png" />
 
@@ -320,7 +320,19 @@ Notice how the sidebar does not contain page labels as we haven’t created any 
 
 ## Create multiple pages
 
+A few things to remember here:
+
+1. We can change the ordering of pages in our MPA by adding numbers to the beginning of each Python file. If we add a 1 to the front of our file name, Streamlit will put that file first in the list.
+2. The name of each Streamlit app is determined by the file name, so to change the app name you need to change the file name!
+3. We can add some fun to our app by adding emojis to our file names that will render in our Streamlit app.
+4. Each page will have its own URL, defined by the name of the file.
+
+Check out how we do all this below! For each new page, we create a new file inside the pages folder, and add the appropriate demo code into it.
+
+<br />
+
 <details>
+
 <summary><code>pages/1_📈_Plotting_Demo.py</code></summary>
 
 ```python
@@ -360,10 +372,6 @@ st.button("Re-run")
 ```
 
 </details>
-
-<br />
-
-Recall that we can enforce the ordering of pages by prefixing numbers in the page label. When included, pages are sorted by number. We include an emoji in the label to make it appear in the sidebar. Also, note that pages have their own URL, defined by the file’s label.
 
 <Image src="/images/mpa-plotting-demo.png" />
 
