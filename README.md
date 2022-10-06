@@ -265,7 +265,7 @@ If you know the answer to a Streamlit user's pain point and want to add it to th
 To publish your changes to the docs site:
 
 1. Create a new branch containing your changes.
-2. Create a Pull Request and mark Snehan and Randy as reviewers.
+2. Create a Pull Request and mark Snehan as reviewers.
 3. Once the checks have completed, checkout the Preview build.
-4. Snehan and Randy will review your changes and merge your changes into the `main` branch.
+4. Snehan will review your changes and merge your changes into the `main` branch.
 5. Once merged, your changes will be live at [https://docs.streamlit.io/](https://docs.streamlit.io/).
