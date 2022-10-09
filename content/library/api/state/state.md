@@ -6,7 +6,7 @@ description: st.session_state is a way to share variables between reruns, for ea
 
 # Session State
 
-Session State is a way to share variables between reruns, for each user session. In addition to the ability to store and persist state, Streamlit also exposes the ability to manipulate state using Callbacks. Session state also persists across apps inside a [multi-page app](/library/get-started/multipage-apps).
+Session State is a way to share variables between reruns, for each user session. In addition to the ability to store and persist state, Streamlit also exposes the ability to manipulate state using Callbacks. Session state also persists across apps inside a [multipage app](/library/get-started/multipage-apps).
 
 Check out this Session State basics tutorial video by Streamlit Developer Advocate Dr. Marisa Smith to get started:
 
