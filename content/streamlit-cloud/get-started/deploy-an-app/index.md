@@ -69,7 +69,7 @@ For example, say you want to embed the Streamlit Docs' PyDeck app: [https://doc-
 
 If you want to hide the chrome, scrollbars, and hamburger menu in your embedded apps, you can add the `/?embed=true` query parameter instead to the end of the `*streamlitapp.com` subdomain URL.
 
-<!-- For example: [https://doc-pydeck-chart.streamlitapp.com/?embed=true](https://doc-pydeck-chart.streamlitapp.com/?embed=true). -->
+For example: [https://doc-pydeck-chart.streamlitapp.com/?embed=true](https://doc-pydeck-chart.streamlitapp.com/?embed=true).
 
 <Important>
 
@@ -97,7 +97,7 @@ To customize your app subdomain from the dashboard:
 3. Pick a custom subdomain between 6 and 63 characters in length for your app's URL and hit "**Save**"
    ![Custom subdomain save](/images/streamlit-cloud/custom-subdomain-save.png)
 
-It's that simple! You can then access your app by visiting your custom subdomain URL 🎉. For example, [https://deep-dream.streamlitapp.com/](https://deep-dream.streamlitapp.com/).
+It's that simple! You can then access your app by visiting your custom subdomain URL 🎉.
 
 If a custom subdomain is not available (e.g. because it's already taken), you'll see an error message like this:
 
