@@ -68,7 +68,8 @@ Streamlit Community Cloud supports embedding **public** apps using the subdomain
 For example, say you want to embed the Streamlit Docs' PyDeck app: [https://doc-pydeck-chart.streamlitapp.com/](https://doc-pydeck-chart.streamlitapp.com/). The URL to include in your iframe is: [https://doc-pydeck-chart.streamlitapp.com/?embedded=true](https://doc-pydeck-chart.streamlitapp.com/?embedded=true).
 
 If you want to hide the chrome, scrollbars, and hamburger menu in your embedded apps, you can add the `/?embed=true` query parameter instead to the end of the `*streamlitapp.com` subdomain URL.
-For example: [https://doc-pydeck-chart.streamlitapp.com/?embed=true](https://doc-pydeck-chart.streamlitapp.com/?embed=true).
+
+<!-- For example: [https://doc-pydeck-chart.streamlitapp.com/?embed=true](https://doc-pydeck-chart.streamlitapp.com/?embed=true). -->
 
 <Important>
 
@@ -78,7 +79,7 @@ There will be no official support for embedding private apps.
 
 ### Custom subdomains
 
-Subdomains will also soon be customizable! With this step you'll be able modify your app URLs to reflect your app content, personal branding, or whatever you’d like. The URL will appear as:
+Subdomains are customizable! With this step you'll be able modify your app URLs to reflect your app content, personal branding, or whatever you’d like. The URL will appear as:
 
 ```text
 <your-custom-subdomain>.streamlitapp.com
