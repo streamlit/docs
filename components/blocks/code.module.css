@@ -42,12 +42,8 @@
   @apply text-yellow-50;
 }
 
-.Container pre code :global(.decorator) {
-  @apply text-yellow-80;
-}
-
 .Container pre code :global(.decorator.annotation.punctuation) {
-  @apply text-yellow-80;
+  @apply text-red-60;
 }
 
 .Container pre code :global(.string) {
@@ -67,10 +63,6 @@
   @apply text-green-40;
 }
 
-.Container pre code :global(.function) {
-  @apply text-red-50;
-}
-
 .Container pre code :global(.punctuation) {
   @apply text-gray-60;
 }
@@ -86,10 +78,6 @@
 /* Dark mode adjustments */
 :global(.dark) .Container pre code :global(.operator),
 :global(.dark) .Container pre code :global(.decorator) {
-  @apply text-yellow-50;
-}
-
-:global(.dark) .Container pre code :global(.decorator.annotation.punctuation) {
   @apply text-yellow-80;
 }
 
@@ -107,7 +95,7 @@
 }
 
 :global(.dark) .Container pre code :global(.function) {
-  @apply text-red-50;
+  @apply text-red-60 font-semibold;
 }
 
 :global(.dark) .Container pre code :global(.comment) {
