@@ -43,6 +43,10 @@
   @apply mb-4;
 }
 
+.Container i {
+  @apply p-4 pb-0;
+}
+
 :global(.dark) .Container {
   @apply border-gray-90;
 }

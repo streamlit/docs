@@ -20,7 +20,7 @@ import SummaryTiles from "../components/summaryTiles";
 import NewsContainer from "../components/layouts/newsContainer";
 import InlineCalloutContainer from "../components/layouts/inlineCalloutContainer";
 import TileContainer from "../components/layouts/tileContainer";
-import Tile from "../components/blocks/tile";
+import RefCard from "../components/blocks/refCard";
 
 import { H1, H2 } from "../components/blocks/headers";
 import NewsEntry from "../components/blocks/newsEntry";
@@ -150,96 +150,66 @@ export default function Home({ window, menu, gdpr_data }) {
             <H2 className="no-b-m">What's new</H2>
 
             <TileContainer>
-              <Tile
+              <RefCard
                 size="third"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                icon="pinch"
-                title="Resize dataframes"
-                text="🗂 st.dataframe supports the use_container_width parameter to stretch across the full container width. Learn more in the docs."
-                link="/library/api-reference/data/st.dataframe"
-              />
-              <Tile
+                href="/library/api-reference/data/st.dataframe"
+              >
+                <i>🗂</i>
+                <h4>Resize dataframes</h4>
+                <p>
+                  st.dataframe supports the use_container_width parameter to
+                  stretch across the full container width. Learn more in the
+                  docs.
+                </p>
+              </RefCard>
+              <RefCard size="third" href="/library/api-reference/charts/st.map">
+                <i>🗺️</i>
+                <h4>Zoomable maps</h4>
+                <p>st.map adds zoom buttons to the map by default.</p>
+              </RefCard>
+              <RefCard
                 size="third"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                icon="map"
-                title="Zoomable maps"
-                text="🗺️ st.map adds zoom buttons to the map by default."
-                link="/library/api-reference/charts/st.map"
-              />
-              <Tile
+                href="/library/api-reference/widgets/st.selectbox"
+              >
+                <i>🏷</i>
+                <h4>Widget label visibility</h4>
+                <p>
+                  Widgets can customize how to hide their labels with the
+                  label_visibility parameter. Click to see an example!
+                </p>
+              </RefCard>
+              <RefCard
                 size="third"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                icon="visibility_off"
-                title="Widget label visibility"
-                text="🏷 Widgets can customize how to hide their labels with the label_visibility parameter. Click to see an example!"
-                link="/library/api-reference/widgets/st.selectbox"
-              />
-              <Tile
+                href="https://blog.streamlit.io/built-in-charts-get-a-new-look-and-parameters/"
+              >
+                <i>📊</i>
+                <h4>Built-in charts improvements</h4>
+                <p>
+                  Built-in charts (e.g. st.line_chart) get a brand-new look and
+                  parameters x and y! Check out our blog post for more
+                  information.
+                </p>
+              </RefCard>
+              <RefCard size="third" href="/library/api-reference/status">
+                <i>☎️</i>
+                <h4>Built-in charts improvements</h4>
+                <p>
+                  st.info, st.success, st.error, and st.warning got a redesign
+                  and have a new keyword-only parameter: icon
+                </p>
+              </RefCard>
+              <RefCard
                 size="third"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                icon="insights"
-                title="Built-in charts improvements"
-                text="📊 Built-in charts (e.g. st.line_chart) get a brand-new look and parameters x and y! Check out our blog post for more information."
-                link="https://blog.streamlit.io/built-in-charts-get-a-new-look-and-parameters/"
-              />
-              <Tile
-                size="third"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                icon="tips_and_updates"
-                title="Redesigned status elements"
-                text="☎️ st.info, st.success, st.error, and st.warning got a redesign and have a new keyword-only parameter: icon"
-                link="/library/api-reference/status"
-              />
-              <Tile
-                size="third"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                icon="replay"
-                title="Replay cached st commands"
-                text="⏯ Functions cached with st.experimental_memo or st.experimental_singleton can now contain static st commands. This allows caching text, charts, dataframes, and more!"
-                link="/library/api-reference/performance/st.experimental_memo#replay-static-st-elements-in-cache-decorated-functions"
-              />
+                href="/library/api-reference/performance/st.experimental_memo#replay-static-st-elements-in-cache-decorated-functions"
+              >
+                <i>⏯</i>
+                <h4>Replay cached st commands</h4>
+                <p>
+                  Functions cached with st.experimental_memo or
+                  st.experimental_singleton can now contain static st commands.
+                  This allows caching text, charts, dataframes, and more!
+                </p>
+              </RefCard>
               {/* <Tile
                 size="half"
                 background="unset"
