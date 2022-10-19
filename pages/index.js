@@ -1,5 +1,4 @@
 import React from "react";
-import classNames from "classnames";
 import Head from "next/head";
 
 import { getMenu, getGDPRBanner } from "../lib/api";
@@ -154,7 +153,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 size="third"
                 href="/library/api-reference/data/st.dataframe"
               >
-                <i>🗂</i>
+                <i className="material-icons-sharp">pinch</i>
                 <h4>Resize dataframes</h4>
                 <p>
                   st.dataframe supports the use_container_width parameter to
@@ -163,7 +162,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 </p>
               </RefCard>
               <RefCard size="third" href="/library/api-reference/charts/st.map">
-                <i>🗺️</i>
+                <i className="material-icons-sharp">map</i>
                 <h4>Zoomable maps</h4>
                 <p>st.map adds zoom buttons to the map by default.</p>
               </RefCard>
@@ -171,7 +170,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 size="third"
                 href="/library/api-reference/widgets/st.selectbox"
               >
-                <i>🏷</i>
+                <i className="material-icons-sharp">visibility_off</i>
                 <h4>Widget label visibility</h4>
                 <p>
                   Widgets can customize how to hide their labels with the
@@ -182,7 +181,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 size="third"
                 href="https://blog.streamlit.io/built-in-charts-get-a-new-look-and-parameters/"
               >
-                <i>📊</i>
+                <i className="material-icons-sharp">insights</i>
                 <h4>Built-in charts improvements</h4>
                 <p>
                   Built-in charts (e.g. st.line_chart) get a brand-new look and
@@ -191,7 +190,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 </p>
               </RefCard>
               <RefCard size="third" href="/library/api-reference/status">
-                <i>☎️</i>
+                <i className="material-icons-sharp">tips_and_updates</i>
                 <h4>Built-in charts improvements</h4>
                 <p>
                   st.info, st.success, st.error, and st.warning got a redesign
@@ -202,7 +201,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 size="third"
                 href="/library/api-reference/performance/st.experimental_memo#replay-static-st-elements-in-cache-decorated-functions"
               >
-                <i>⏯</i>
+                <i className="material-icons-sharp">replay</i>
                 <h4>Replay cached st commands</h4>
                 <p>
                   Functions cached with st.experimental_memo or
