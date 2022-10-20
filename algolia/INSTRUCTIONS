@@ -1,0 +1,15 @@
+If Algolia suddenly breaks, reimport this configuration file in its UI!
+
+How:
+1. Go here https://www.algolia.com/apps/XNXFGO6BQ1/explorer/configuration/documentation/searchable-attributes
+
+  Or, if that doesn't work:
+  - Open algolia.com
+  - Navigate to Search (sidebar)
+  - Navigate to App: Streamlit docs > index: documentation
+
+2. Open "Manage index" dropdown, choose "Import Configuration"
+
+3. Pick the index_config.json file that's in this folder.
+
+DONE!
