@@ -78,9 +78,11 @@
   @apply opacity-100;
 }
 
-.CodeBlockContainer :global(.toolbar)
-
 /* Code block adjustments */
+.CodeBlockContainer pre code :global(.decorator.annotation.punctuation) {
+  @apply text-red-50;
+}
+
 .CodeBlockContainer pre code :global(.operator) {
   @apply text-yellow-50;
 }
