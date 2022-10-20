@@ -68,6 +68,7 @@ Streamlit Community Cloud supports embedding **public** apps using the subdomain
 For example, say you want to embed the Streamlit Docs' PyDeck app: [https://doc-pydeck-chart.streamlitapp.com/](https://doc-pydeck-chart.streamlitapp.com/). The URL to include in your iframe is: [https://doc-pydeck-chart.streamlitapp.com/?embedded=true](https://doc-pydeck-chart.streamlitapp.com/?embedded=true).
 
 If you want to hide the chrome, scrollbars, and hamburger menu in your embedded apps, you can add the `/?embed=true` query parameter instead to the end of the `*streamlitapp.com` subdomain URL.
+
 For example: [https://doc-pydeck-chart.streamlitapp.com/?embed=true](https://doc-pydeck-chart.streamlitapp.com/?embed=true).
 
 <Important>
@@ -78,13 +79,13 @@ There will be no official support for embedding private apps.
 
 ### Custom subdomains
 
-Subdomains will also soon be customizable! With this step you'll be able modify your app URLs to reflect your app content, personal branding, or whatever you’d like. The URL will appear as:
+Subdomains are customizable! With this step you'll be able modify your app URLs to reflect your app content, personal branding, or whatever you’d like. The URL will appear as:
 
 ```text
 <your-custom-subdomain>.streamlitapp.com
 ```
 
-Early access signup for custom subdomains is now closed. The feature will soon be publicly available. Once you have access, to customize your app subdomain from the dashboard:
+To customize your app subdomain from the dashboard:
 
 1. Click the "︙" overflow menu to the right of the app and select "**Settings**"
 
@@ -96,7 +97,7 @@ Early access signup for custom subdomains is now closed. The feature will soon b
 3. Pick a custom subdomain between 6 and 63 characters in length for your app's URL and hit "**Save**"
    ![Custom subdomain save](/images/streamlit-cloud/custom-subdomain-save.png)
 
-It's that simple! You can then access your app by visiting your custom subdomain URL 🎉. For example, [https://deep-dream.streamlitapp.com/](https://deep-dream.streamlitapp.com/).
+It's that simple! You can then access your app by visiting your custom subdomain URL 🎉.
 
 If a custom subdomain is not available (e.g. because it's already taken), you'll see an error message like this:
 
