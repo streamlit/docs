@@ -54,6 +54,14 @@
   @apply bg-lightBlue-70;
 }
 
+.TransparentBackground a {
+  @apply px-0;
+}
+
+.TransparentBackground a p {
+  @apply pr-4;
+}
+
 .TransparentBackground i,
 .TransparentBackground h4,
 .TransparentBackground p {
