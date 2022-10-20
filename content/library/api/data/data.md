@@ -57,7 +57,7 @@ st.metric("My metric", 42, 2)
 Display object or string as a pretty-printed JSON string.
 
 ```python
-st.json(my_data_frame)
+st.json(my_dict)
 ```
 
 </RefCard>
