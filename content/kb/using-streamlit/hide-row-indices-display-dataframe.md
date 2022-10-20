@@ -31,7 +31,7 @@ Notice how row indices are displayed to the left of the `col0` column: 👇
 
 ![Diplay dataframe](/images/knowledge-base/display-dataframe.png)
 
-To hide the column containing row indices, you can use CSS selectors to modify the visibility of the column. Before you display your dataframe, you must inject the appropriate CSS with `st.markdown()`, and set `allow_unsafe_html=True`.
+To hide the column containing row indices, you can use CSS selectors to modify the visibility of the column. Before you display your dataframe, you must inject the appropriate CSS with `st.markdown()`, and set `unsafe_allow_html=True`.
 
 Now that you have a conceptual understanding of how to hide row indices, let's implement it in code!
 
