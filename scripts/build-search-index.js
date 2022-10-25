@@ -25,7 +25,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
 (async function () {
   dotenv.config();
 
-  console.log("Updating search index through Alogolia...");
+  console.log("Updating search index through Algolia...");
 
   // Let's check that we have a .next folder and then parse through the HTML files.
   const pages = [];
