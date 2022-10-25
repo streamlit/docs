@@ -23,5 +23,4 @@ jobs:
       - run: npm run build
       - run: node ./scripts/build-search-index.js
       - run: npm run sitemap
-      - run: git add public/sitemap.xml
-      - run: git commit -m "Update sitemap" --no-verify
+      - run: git status
