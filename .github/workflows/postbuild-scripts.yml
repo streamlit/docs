@@ -1,5 +1,5 @@
-name: build-search-index
-run-name: Regenerate Algolia's search index
+name: postbuild-scripts
+run-name: Build the site, update Algolia's search index, and regenerate the sitemap
 on: [push]
 # on:
 #   push:
@@ -22,3 +22,4 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: node ./scripts/build-search-index.js
+      - run: npm run sitemap
