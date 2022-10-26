@@ -1,0 +1,24 @@
+name: postbuild-scripts
+run-name: Build the site, update Algolia's search index, and regenerate the sitemap
+on:
+  push:
+    branches:
+      - "main"
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  build-search-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+      - run: npm install
+      - run: npm run build
+      - run: node ./scripts/build-search-index.js
+      - run: npm run sitemap
