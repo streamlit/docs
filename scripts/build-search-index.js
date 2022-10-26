@@ -11,15 +11,19 @@ const SKIP_THESE = ["/menu", "/404", "/500"];
 
 function getAllFilesInDirectory(articleDirectory, files) {
   files = files ? files : [];
-  fs.readdirSync(articleDirectory).forEach(function (file) {
-    const subpath = path.join(articleDirectory, file);
-    if (fs.lstatSync(subpath).isDirectory()) {
-      getAllFilesInDirectory(subpath, files);
-    } else {
-      files.push(subpath);
-    }
-  });
-  return files;
+  try {
+    fs.readdirSync(articleDirectory).forEach(function (file) {
+      const subpath = path.join(articleDirectory, file);
+      if (fs.lstatSync(subpath).isDirectory()) {
+        getAllFilesInDirectory(subpath, files);
+      } else {
+        files.push(subpath);
+      }
+    });
+    return files;
+  } catch (err) {
+    throw new Error(err.message);
+  }
 }
 
 (async function () {
