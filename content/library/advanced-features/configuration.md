@@ -61,7 +61,7 @@ streamlit config show
 The command above will print something like this:
 
 ```toml
-# Streamlit version: 1.13.0
+# Streamlit version: 1.14.0
 
 [global]
 

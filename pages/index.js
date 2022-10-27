@@ -151,6 +151,44 @@ export default function Home({ window, menu, gdpr_data }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/library/api-reference/widgets/st.button"
+              >
+                <i className="material-icons-sharp">palette</i>
+                <h4>Primary and secondary buttons</h4>
+                <p>
+                  <code>st.button</code> and <code>st.form_submit_button</code>{" "}
+                  support designating buttons as "primary" (for additional
+                  emphasis) or "secondary" (for normal buttons) with the{" "}
+                  <code>type</code> keyword-only parameter.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/widgets/st.multiselect"
+              >
+                <i className="material-icons-sharp">
+                  production_quantity_limits
+                </i>
+                <h4>Limit st.muliselect options</h4>
+                <p>
+                  🤏 <code>st.multiselect</code> has a keyword-only{" "}
+                  <code>max_selections</code> parameter to limit the number of
+                  options that can be selected at a time.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/control-flow/st.form_submit_button"
+              >
+                <i className="material-icons-sharp">do_not_touch</i>
+                <h4>Disable st.form_submit_button</h4>
+                <p>
+                  📄 <code>st.form_submit_button</code> now has the disabled
+                  parameter that removes interactivity.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="/library/api-reference/data/st.dataframe"
               >
                 <i className="material-icons-sharp">pinch</i>
@@ -164,7 +202,10 @@ export default function Home({ window, menu, gdpr_data }) {
               <RefCard size="third" href="/library/api-reference/charts/st.map">
                 <i className="material-icons-sharp">map</i>
                 <h4>Zoomable maps</h4>
-                <p>st.map adds zoom buttons to the map by default.</p>
+                <p>
+                  <code>st.map</code> adds zoom buttons to the map by default
+                  that use light or dark style based on the app's theme
+                </p>
               </RefCard>
               <RefCard
                 size="third"
@@ -175,38 +216,6 @@ export default function Home({ window, menu, gdpr_data }) {
                 <p>
                   Widgets can customize how to hide their labels with the
                   label_visibility parameter. Click to see an example!
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="https://blog.streamlit.io/built-in-charts-get-a-new-look-and-parameters/"
-              >
-                <i className="material-icons-sharp">insights</i>
-                <h4>Built-in charts improvements</h4>
-                <p>
-                  Built-in charts (e.g. st.line_chart) get a brand-new look and
-                  parameters x and y! Check out our blog post for more
-                  information.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/library/api-reference/status">
-                <i className="material-icons-sharp">tips_and_updates</i>
-                <h4>Built-in charts improvements</h4>
-                <p>
-                  st.info, st.success, st.error, and st.warning got a redesign
-                  and have a new keyword-only parameter: icon
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/performance/st.experimental_memo#replay-static-st-elements-in-cache-decorated-functions"
-              >
-                <i className="material-icons-sharp">replay</i>
-                <h4>Replay cached st commands</h4>
-                <p>
-                  Functions cached with st.experimental_memo or
-                  st.experimental_singleton can now contain static st commands.
-                  This allows caching text, charts, dataframes, and more!
                 </p>
               </RefCard>
               {/* <Tile
@@ -228,26 +237,26 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
-                date="2022-09-15T16:05:00.000Z"
-                title="How to build your own Streamlit component"
-                text="Learn how to make a component from scratch!"
-                link="https://blog.streamlit.io/how-to-build-your-own-streamlit-component/"
+                date="2022-10-25T16:05:00.000Z"
+                title="Discover and share useful bits of code with the 🪢 streamlit-extras library"
+                text="How to extend the native capabilities of Streamlit apps"
+                link="https://blog.streamlit.io/discover-and-share-useful-bits-of-code-with-the-streamlit-extras-library/"
                 image="/blog-1.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2022-08-25T16:05:00.000Z"
-                title="Make dynamic filters in Streamlit and show their effects on the original dataset"
-                text="Quickly and easily add dynamic filters to your Streamlit app"
-                link="https://blog.streamlit.io/make-dynamic-filters-in-streamlit-and-show-their-effects-on-the-original-dataset/"
+                date="2022-10-24T16:05:00.000Z"
+                title="Build a Streamlit Form Generator app to avoid writing code by hand"
+                text="Learn how to make extendable starter Forms"
+                link="https://blog.streamlit.io/build-a-streamlit-form-generator-app-to-avoid-writing-code-by-hand/"
                 image="/blog-2.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2022-08-18T16:05:00.000Z"
-                title="Auto-generate a dataframe filtering UI in Streamlit with filter_dataframe!"
-                text="Learn how to add a UI to any dataframe"
-                link="https://blog.streamlit.io/auto-generate-a-dataframe-filtering-ui-in-streamlit-with-filter_dataframe/"
+                date="2022-10-18T16:05:00.000Z"
+                title="The next frontier for Streamlit"
+                text="Our feature roadmap for 2023 and beyond"
+                link="https://blog.streamlit.io/the-next-frontier-for-streamlit/"
                 image="/blog-3.svg"
                 target="_blank"
               />
