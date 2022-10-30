@@ -397,6 +397,8 @@ site_menu:
     url: /knowledge-base/tutorials/databases/supabase
   - category: Knowledge base / Tutorials / Connect to data sources / Google Cloud Storage
     url: /knowledge-base/tutorials/databases/gcs
+  - category: Knowledge base / Tutorials / Connect to data sources / TiDB
+    url: /knowledge-base/tutorials/databases/tidb
   - category: Knowledge base / Tutorials / Deploy Streamlit apps
     url: /knowledge-base/tutorials/deploy
   - category: Knowledge base / Tutorials / Deploy Streamlit apps / Docker
