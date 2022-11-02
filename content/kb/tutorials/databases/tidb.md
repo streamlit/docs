@@ -7,15 +7,15 @@ slug: /knowledge-base/tutorials/databases/tidb
 
 ## Introduction
 
-This guide explains how to securely access a TiDB database from Streamlit Cloud. It uses the [mysqlclient](https://github.com/PyMySQL/mysqlclient) library and Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). TiDB is an open source MySQL compatible database that supports Hybrid Transactional and Analytical Processing (HTAP) workloads.
+This guide explains how to securely access a remote [TiDB database](https://www.pingcap.com/tidb/) from Streamlit Cloud. It uses the [mysqlclient](https://github.com/PyMySQL/mysqlclient) library and Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). TiDB is an open-source, MySQL-compatible database that supports Hybrid Transactional and Analytical Processing (HTAP) workloads.
 
 ## Sign in to TiDB Cloud and create a cluster
 
-First, head over to [TiDB Cloud](https://tidbcloud.com/free-trial) and sign up for a free account, using whether Google, GitHub or email.
+First, head over to [TiDB Cloud](https://tidbcloud.com/free-trial) and sign up for a free account, using either Google, GitHub or E-mail:
 
 ![Sign in TiDB Cloud](/images/databases/tidb-1.png)
 
-Once you've signed in, you can create a cluster.
+Once you've signed in, you can create a cluster:
 
 <Flex>
 <Image caption="Choose a cluster tier" src="/images/databases/tidb-2.png" />
@@ -31,11 +31,11 @@ Your screen should list the cluster you created. Click **Security Settings** to 
 
 <Important>
 
-Make sure to note down the password. It won't be available any more from TiDB Cloud.
+Make sure to note down the password. It won't be available on TiDB Cloud after this step.
 
 </Important>
 
-Then click **Connect**, you can easily get the connnection arguments to access the cluster.
+Then click **Connect** to easily get the connnection arguments to access the cluster.
 
 ![Get connection arguments](/images/databases/tidb-6.png)
 
