@@ -122,19 +122,19 @@ They use Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an
 
 </DataSourcesCard>
 
-<DataSourcesCard href="/knowledge-base/tutorials/databases/tigergraph">
-
-<Image pure alt="screenshot" src="/images/databases/tigergraph.png" />
-
-<h5>TigerGraph</h5>
-
-</DataSourcesCard>
-
 <DataSourcesCard href="/knowledge-base/tutorials/databases/tidb">
 
 <Image pure alt="screenshot" src="/images/databases/tidb.png" />
 
 <h5>TiDB</h5>
+
+</DataSourcesCard>
+
+<DataSourcesCard href="/knowledge-base/tutorials/databases/tigergraph">
+
+<Image pure alt="screenshot" src="/images/databases/tigergraph.png" />
+
+<h5>TigerGraph</h5>
 
 </DataSourcesCard>
 </DataSourcesContainer>
