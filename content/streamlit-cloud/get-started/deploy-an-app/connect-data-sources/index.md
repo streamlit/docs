@@ -127,6 +127,14 @@ We also have a series of guides on how to connect to:
 
 </DataSourcesCard>
 
+<DataSourcesCard href="/knowledge-base/tutorials/databases/tidb">
+
+<Image pure alt="screenshot" src="/images/databases/tidb.png" />
+
+<h5>TiDB</h5>
+
+</DataSourcesCard>
+
 <DataSourcesCard href="/knowledge-base/tutorials/databases/tigergraph">
 
 <Image pure alt="screenshot" src="/images/databases/tigergraph.png" />
