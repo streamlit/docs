@@ -371,32 +371,34 @@ site_menu:
     url: /knowledge-base/tutorials/databases/aws-s3
   - category: Knowledge base / Tutorials / Connect to data sources / BigQuery
     url: /knowledge-base/tutorials/databases/bigquery
-  - category: Knowledge base / Tutorials / Connect to data sources / Snowflake
-    url: /knowledge-base/tutorials/databases/snowflake
-  - category: Knowledge base / Tutorials / Connect to data sources / Microsoft SQL Server
-    url: /knowledge-base/tutorials/databases/mssql
+  - category: Knowledge base / Tutorials / Connect to data sources / Deta Base
+    url: /knowledge-base/tutorials/databases/deta-base
   - category: Knowledge base / Tutorials / Connect to data sources / Firestore
     url: https://blog.streamlit.io/streamlit-firestore/
+  - category: Knowledge base / Tutorials / Connect to data sources / Google Cloud Storage
+    url: /knowledge-base/tutorials/databases/gcs
+  - category: Knowledge base / Tutorials / Connect to data sources / Microsoft SQL Server
+    url: /knowledge-base/tutorials/databases/mssql
   - category: Knowledge base / Tutorials / Connect to data sources / MongoDB
     url: /knowledge-base/tutorials/databases/mongodb
   - category: Knowledge base / Tutorials / Connect to data sources / MySQL
     url: /knowledge-base/tutorials/databases/mysql
   - category: Knowledge base / Tutorials / Connect to data sources / PostgreSQL
     url: /knowledge-base/tutorials/databases/postgresql
-  - category: Knowledge base / Tutorials / Connect to data sources / Tableau
-    url: /knowledge-base/tutorials/databases/tableau
   - category: Knowledge base / Tutorials / Connect to data sources / Private Google Sheet
     url: /knowledge-base/tutorials/databases/private-gsheet
   - category: Knowledge base / Tutorials / Connect to data sources / Public Google Sheet
     url: /knowledge-base/tutorials/databases/public-gsheet
-  - category: Knowledge base / Tutorials / Connect to data sources / TigerGraph
-    url: /knowledge-base/tutorials/databases/tigergraph
-  - category: Knowledge base / Tutorials / Connect to data sources / Deta Base
-    url: /knowledge-base/tutorials/databases/deta-base
+  - category: Knowledge base / Tutorials / Connect to data sources / Snowflake
+    url: /knowledge-base/tutorials/databases/snowflake
   - category: Knowledge base / Tutorials / Connect to data sources / Supabase
     url: /knowledge-base/tutorials/databases/supabase
-  - category: Knowledge base / Tutorials / Connect to data sources / Google Cloud Storage
-    url: /knowledge-base/tutorials/databases/gcs
+  - category: Knowledge base / Tutorials / Connect to data sources / Tableau
+    url: /knowledge-base/tutorials/databases/tableau
+  - category: Knowledge base / Tutorials / Connect to data sources / TiDB
+    url: /knowledge-base/tutorials/databases/tidb
+  - category: Knowledge base / Tutorials / Connect to data sources / TigerGraph
+    url: /knowledge-base/tutorials/databases/tigergraph
   - category: Knowledge base / Tutorials / Deploy Streamlit apps
     url: /knowledge-base/tutorials/deploy
   - category: Knowledge base / Tutorials / Deploy Streamlit apps / Docker
