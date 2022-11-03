@@ -27,5 +27,5 @@ st.markdown("[Section 1](#section-1)")
 
 ## Examples
 
-- Demo app: [https://dataprofessor-streamlit-anchor-app-80kk8w.streamlitapp.com/](https://dataprofessor-streamlit-anchor-app-80kk8w.streamlitapp.com/)
+- Demo app: [https://dataprofessor-streamlit-anchor-app-80kk8w.streamlit.app/](https://dataprofessor-streamlit-anchor-app-80kk8w.streamlit.app/)
 - GitHub repo: [https://github.com/dataprofessor/streamlit/blob/main/anchor_app.py](https://github.com/dataprofessor/streamlit/blob/main/anchor_app.py)
