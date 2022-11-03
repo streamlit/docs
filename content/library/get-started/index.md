@@ -32,7 +32,7 @@ title="30 Days of Streamlit 🎈"
 copy="30 Days of Streamlit 🎈 is a free, self-paced 30 day challenge that teaches you how to build and deploy data apps with Streamlit. Complete the daily challenges, share your solutions with us on Twitter and LinkedIn, and stop by the forum with any questions!"
 button={{
     text: "Start the challenge",
-    link: "https://30days.streamlitapp.com/",
+    link: "https://30days.streamlit.app/",
     target: "_blank",
   }}
 image="/30days.png"
