@@ -79,7 +79,7 @@ If you're still having issues, click [here](/streamlit-cloud/get-started/manage-
 
 ### Can I get a custom URL for my app?
 
-We are working on this in Q2 of 2022. Check our [public roadmap](https://roadmap.streamlitapp.com/#unique-and-custom-subdomain-per-app-done-launched) for more information!
+We are working on this in Q2 of 2022. Check our [public roadmap](https://roadmap.streamlit.app/#unique-and-custom-subdomain-per-app-done-launched) for more information!
 
 ## Sharing and accessing apps
 

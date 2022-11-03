@@ -5,7 +5,7 @@ slug: /streamlit-cloud/get-started/deploy-an-app
 
 # Deploy an app
 
-Streamlit Cloud lets you deploy your apps in just one click, and most apps will deploy in only a few minutes. If you don't have an app ready to deploy, [fork or clone one of our example apps](https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlitapp.com/?hsCtaTracking=28f10086-a3a5-4ea8-9403-f3d52bf26184|22470002-acb1-4d93-8286-00ee4f8a46fb) — you can find apps for machine learning, data visualization, data exploration, A/B testing and more.
+Streamlit Cloud lets you deploy your apps in just one click, and most apps will deploy in only a few minutes. If you don't have an app ready to deploy, [fork or clone one of our example apps](https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlit.app/?hsCtaTracking=28f10086-a3a5-4ea8-9403-f3d52bf26184|22470002-acb1-4d93-8286-00ee4f8a46fb) — you can find apps for machine learning, data visualization, data exploration, A/B testing and more.
 
 ## Add your app to GitHub
 
@@ -52,24 +52,24 @@ That's it — you're done! Your app now has a unique subdomain URL that you can 
 App subdomain URLs follow a structure based on your GitHub repo:
 
 ```text
-https://[user name]-[repo name]-[branch name]-[app path]-[short hash].streamlitapp.com
+https://[user name]-[repo name]-[branch name]-[app path]-[short hash].streamlit.app
 ```
 
 For example:
 
 ```text
-https://streamlit-demo-self-driving-streamlit-app-8jya0g.streamlitapp.com
+https://streamlit-demo-self-driving-streamlit-app-8jya0g.streamlit.app
 ```
 
 ### Embed apps
 
-Streamlit Community Cloud supports embedding **public** apps using the subdomain scheme. To embed a public app, add the query parameter `/?embedded=true` to the end of the `*streamlitapp.com` subdomain URL.
+Streamlit Community Cloud supports embedding **public** apps using the subdomain scheme. To embed a public app, add the query parameter `/?embedded=true` to the end of the `*streamlit.app` subdomain URL.
 
-For example, say you want to embed the Streamlit Docs' PyDeck app: [https://doc-pydeck-chart.streamlitapp.com/](https://doc-pydeck-chart.streamlitapp.com/). The URL to include in your iframe is: [https://doc-pydeck-chart.streamlitapp.com/?embedded=true](https://doc-pydeck-chart.streamlitapp.com/?embedded=true).
+For example, say you want to embed the Streamlit Docs' PyDeck app: [https://doc-pydeck-chart.streamlit.app/](https://doc-pydeck-chart.streamlit.app/). The URL to include in your iframe is: [https://doc-pydeck-chart.streamlit.app/?embedded=true](https://doc-pydeck-chart.streamlit.app/?embedded=true).
 
-If you want to hide the chrome, scrollbars, and hamburger menu in your embedded apps, you can add the `/?embed=true` query parameter instead to the end of the `*streamlitapp.com` subdomain URL.
+If you want to hide the chrome, scrollbars, and hamburger menu in your embedded apps, you can add the `/?embed=true` query parameter instead to the end of the `*streamlit.app` subdomain URL.
 
-For example: [https://doc-pydeck-chart.streamlitapp.com/?embed=true](https://doc-pydeck-chart.streamlitapp.com/?embed=true).
+For example: [https://doc-pydeck-chart.streamlit.app/?embed=true](https://doc-pydeck-chart.streamlit.app/?embed=true).
 
 <Important>
 
@@ -82,7 +82,7 @@ There will be no official support for embedding private apps.
 Subdomains are customizable! With this step you'll be able modify your app URLs to reflect your app content, personal branding, or whatever you’d like. The URL will appear as:
 
 ```text
-<your-custom-subdomain>.streamlitapp.com
+<your-custom-subdomain>.streamlit.app
 ```
 
 To customize your app subdomain from the dashboard:
