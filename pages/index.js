@@ -237,26 +237,26 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
-                date="2022-10-25T16:05:00.000Z"
-                title="Discover and share useful bits of code with the 🪢 streamlit-extras library"
-                text="How to extend the native capabilities of Streamlit apps"
-                link="https://blog.streamlit.io/discover-and-share-useful-bits-of-code-with-the-streamlit-extras-library/"
+                date="2022-11-01T16:05:00.000Z"
+                title="Announcing the Figma-to-Streamlit plugin 🎨"
+                text="Go from prototype to code as easy as 1-2-3 with our new community resource!"
+                link="https://blog.streamlit.io/announcing-the-figma-to-streamlit-plugin/"
                 image="/blog-1.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2022-10-24T16:05:00.000Z"
-                title="Build a Streamlit Form Generator app to avoid writing code by hand"
-                text="Learn how to make extendable starter Forms"
-                link="https://blog.streamlit.io/build-a-streamlit-form-generator-app-to-avoid-writing-code-by-hand/"
+                date="2022-10-27T16:05:00.000Z"
+                title="Prototype your app in Figma! 🖌️"
+                text="Quickly and easily design your app with the Streamlit Design system"
+                link="https://blog.streamlit.io/prototype-your-app-in-figma/"
                 image="/blog-2.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2022-10-18T16:05:00.000Z"
-                title="The next frontier for Streamlit"
-                text="Our feature roadmap for 2023 and beyond"
-                link="https://blog.streamlit.io/the-next-frontier-for-streamlit/"
+                date="2022-10-25T16:05:00.000Z"
+                title="Discover and share useful bits of code with the 🪢 streamlit-extras library"
+                text="How to extend the native capabilities of Streamlit apps"
+                link="https://blog.streamlit.io/discover-and-share-useful-bits-of-code-with-the-streamlit-extras-library/"
                 image="/blog-3.svg"
                 target="_blank"
               />
