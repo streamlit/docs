@@ -5,7 +5,7 @@ slug: /streamlit-cloud/get-started
 
 # Get started
 
-Welcome to Streamlit Cloud! First things first, before you get started with Streamlit Cloud, you need to have a Streamlit app to deploy. If you haven't built one yet, read our [Get started](/library/get-started) docs or start with an [Example app](https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlitapp.com/). Either way, it only takes a few minutes to create your first app.
+Welcome to Streamlit Cloud! First things first, before you get started with Streamlit Cloud, you need to have a Streamlit app to deploy. If you haven't built one yet, read our [Get started](/library/get-started) docs or start with an [Example app](https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlit.app/). Either way, it only takes a few minutes to create your first app.
 
 ## How Streamlit Cloud works
 
@@ -130,7 +130,7 @@ Once a user is added to a repository on GitHub, it will take at most 15 minutes 
 
 ## Explore your Streamlit Cloud workspace
 
-Congrats! You are now logged in and ready to go. If you are joining someone else's workspace you may already see apps populated in your workspace. If not, then you need to deploy an app! Check out our next section on how to [deploy an app](/streamlit-cloud/get-started/deploy-an-app). And if you need an app to deploy check out our [example apps](https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlitapp.com/) that include apps for machine learning, data science, and business use cases.
+Congrats! You are now logged in and ready to go. If you are joining someone else's workspace you may already see apps populated in your workspace. If not, then you need to deploy an app! Check out our next section on how to [deploy an app](/streamlit-cloud/get-started/deploy-an-app). And if you need an app to deploy check out our [example apps](https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlit.app/) that include apps for machine learning, data science, and business use cases.
 
 <Image alt="Workspace 1" src="/images/streamlit-cloud/workspace-1.png" />
 
