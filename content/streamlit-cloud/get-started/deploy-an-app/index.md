@@ -7,6 +7,12 @@ slug: /streamlit-cloud/get-started/deploy-an-app
 
 Streamlit Cloud lets you deploy your apps in just one click, and most apps will deploy in only a few minutes. If you don't have an app ready to deploy, [fork or clone one of our example apps](https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlit.app/?hsCtaTracking=28f10086-a3a5-4ea8-9403-f3d52bf26184|22470002-acb1-4d93-8286-00ee4f8a46fb) — you can find apps for machine learning, data visualization, data exploration, A/B testing and more.
 
+<Note>
+
+If you want to deploy your app on a different cloud service, check out the [Deploy Streamlit apps](/knowledge-base/tutorials/deploy) article in our Knowledge Base.
+
+</Note>
+
 ## Add your app to GitHub
 
 Streamlit Cloud launches apps directly from your GitHub repo, so your app code and dependencies need to be on GitHub before you try to deploy the app. See [App dependencies](/streamlit-cloud/get-started/deploy-an-app/app-dependencies) for more information.
