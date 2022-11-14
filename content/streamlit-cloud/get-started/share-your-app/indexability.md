@@ -26,7 +26,7 @@ Community Cloud automatically generates a random subdomain for your app based on
 
 By choosing a custom subdomain, you can use it to help people find your app. For example, if you're deploying an app that generates training data, you might choose a subdomain like `traingenerator.streamlit.app`. This makes it easy for people to find your app by searching for "training generator" or "train generator streamlit app"
 
-We recommend choosing a custom subdomain early, right after you deploy your app. This ensures that your app is indexed by search engines using your custom subdomain, rather than the automatically generated one. If you choose a custom subdomain later, your app will be indexed by search engines using the default subdomain. This means that your app will be indexed twice, once using your custom subdomain and once using the default subdomain. This can confuse users who are searching for your app.
+We recommend choosing a custom subdomain early, right after you deploy your app. This ensures that your app is indexed by search engines using your custom subdomain, rather than the automatically generated one. If you choose a custom subdomain later, your app will be indexed by search engines using the default subdomain. This means that your app will be indexed multiple times, once using your custom subdomain and once using the default subdomain. This can confuse users who are searching for your app.
 
 ### Choose a descriptive app title
 
