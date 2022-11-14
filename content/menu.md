@@ -305,6 +305,8 @@ site_menu:
     url: /library/components/publish
   - category: Streamlit library / Components / Component gallery
     url: https://streamlit.io/components
+  - category: Streamlit library / Roadmap
+    url: https://roadmap.streamlit.app
   - category: Streamlit library / Changelog
     url: /library/changelog
   - category: Streamlit library / Cheat sheet
