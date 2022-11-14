@@ -5,7 +5,7 @@ slug: /streamlit-cloud/get-started/share-your-app/indexability
 
 # App indexability
 
-When you deploy a public app to Community Cloud, it is automatically indexed by search engines like Google and Bing. 🎈 This means that anyone can find your app by searching for its custom subdomain (e.g. `https://traingenerator.streamlit.app`) or by searching for the app's title.
+When you deploy a public app to Community Cloud, it is automatically indexed by search engines like Google and Bing on a weekly basis. 🎈 This means that anyone can find your app by searching for its custom subdomain (e.g. <https://traingenerator.streamlit.app>) or by searching for the app's title.
 
 ## Get the most out of app indexability
 
@@ -36,15 +36,15 @@ The meta title of your app is the text that appears in search engine results. It
 st.set_page_config(page_title="Traingenerator")
 ```
 
-This will change the meta title of your app to "Traingenerator." This makes it easier for people to find your app by searching for "Traingenerator" or "training generator Streamlit app":
+This will change the meta title of your app to "Traingenerator." This makes it easier for people to find your app by searching for "Traingenerator" or "train generator streamlit app":
 
-<Image src="/images/streamlit-cloud/indexability-app-title.png" caption='Google search results for "train generator Streamlit app"' />
+<Image src="/images/streamlit-cloud/indexability-app-title.png" caption='Google search results for "train generator streamlit app"' />
 
 ### Customize your app's meta description
 
 Meta descriptions are the short descriptions that appear in search engine results. Search engines use the meta description to help users understand what your app is about.
 
-From our observations, search engines seem to favor both `st.header` and `st.text` over `st.title`. If you put a description at the top of your app under `st.header` or `st.text`, there’s a good chance search engines will use this for the meta description.
+From our observations, search engines seem to favor the content in both `st.header` and `st.text` over `st.title`. If you put a description at the top of your app under `st.header` or `st.text`, there’s a good chance search engines will use this for the meta description.
 
 ## What does my indexed app look like?
 
