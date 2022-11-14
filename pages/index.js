@@ -237,11 +237,19 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
+                date="2022-11-10T16:05:00.000Z"
+                title="Building robust Streamlit apps with type-checking"
+                text="How to make type-checking part of your app-building flow"
+                link="https://blog.streamlit.io/building-robust-streamlit-apps-with-type-checking/"
+                image="/blog-1.svg"
+                target="_blank"
+              />
+              <NewsEntry
                 date="2022-11-03T16:05:00.000Z"
                 title="Make a video content analyzer app with Streamlit and AssemblyAI"
                 text="How to build an AI-powered app that analyzes video channels automatically"
                 link="https://blog.streamlit.io/make-a-video-content-analyzer-app-with-streamlit-and-assemblyai/"
-                image="/blog-1.svg"
+                image="/blog-2.svg"
                 target="_blank"
               />
               <NewsEntry
@@ -249,14 +257,6 @@ export default function Home({ window, menu, gdpr_data }) {
                 title="Announcing the Figma-to-Streamlit plugin 🎨"
                 text="Go from prototype to code as easy as 1-2-3 with our new community resource!"
                 link="https://blog.streamlit.io/announcing-the-figma-to-streamlit-plugin/"
-                image="/blog-2.svg"
-                target="_blank"
-              />
-              <NewsEntry
-                date="2022-10-27T16:05:00.000Z"
-                title="Prototype your app in Figma! 🖌️"
-                text="Quickly and easily design your app with the Streamlit Design system"
-                link="https://blog.streamlit.io/prototype-your-app-in-figma/"
                 image="/blog-3.svg"
                 target="_blank"
               />
