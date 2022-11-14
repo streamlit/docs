@@ -44,7 +44,7 @@ This will change the meta title of your app to "Traingenerator." This makes it e
 
 Meta descriptions are the short descriptions that appear in search engine results. Search engines use the meta description to help users understand what your app is about.
 
-Google uses the content of the first [`st.header`](/library/api-reference/text/st.header) or [`st.text`](/library/api-reference/text/st.text) in your app as the meta description. From our observations, search engines seem to favor both `st.header` and `st.text` over `st.title`. If you put a description at the top of your app under `st.header` or `st.text`, there’s a good chance search engines will use this for the meta description.
+From our observations, search engines seem to favor both `st.header` and `st.text` over `st.title`. If you put a description at the top of your app under `st.header` or `st.text`, there’s a good chance search engines will use this for the meta description.
 
 ## What does my indexed app look like?
 
