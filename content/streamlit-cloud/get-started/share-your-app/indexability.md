@@ -24,7 +24,7 @@ All public apps hosted on Community Cloud are indexed by search engines. If your
 
 Community Cloud automatically generates a random subdomain for your app based on the structure of the app's GitHub repo. To learn more about app URLs, see [Your app URL](/streamlit-cloud/get-started/deploy-an-app#your-app-url). However, subdomains are customizable! Custom subdomains modify your app URLs to reflect your app content, personal branding, or whatever you’d like. Read more about custom subdomains in [Custom subdomains](streamlit-cloud/get-started/deploy-an-app#custom-subdomains).
 
-By choosing a custom subdomain, you can use it to help people find your app. For example, if you're deploying an app that generates training data, you might choose a subdomain like `traingenerator.streamlit.app`. This makes it easy for people to find your app by searching for "training generator" or "training data generator."
+By choosing a custom subdomain, you can use it to help people find your app. For example, if you're deploying an app that generates training data, you might choose a subdomain like `traingenerator.streamlit.app`. This makes it easy for people to find your app by searching for "training generator" or "train generator streamlit app"
 
 We recommend choosing a custom subdomain early, right after you deploy your app. This ensures that your app is indexed by search engines using your custom subdomain, rather than the automatically generated one. If you choose a custom subdomain later, your app will be indexed by search engines using the default subdomain. This means that your app will be indexed twice, once using your custom subdomain and once using the default subdomain. This can confuse users who are searching for your app.
 
