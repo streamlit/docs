@@ -25,7 +25,7 @@ _Release date: November 17, 2022_
 
 - 💅 Widget labels can contain inline Markdown. See our [docs](https://docs.streamlit.io/library/api-reference/widgets) and demo [app](https://markdown-labels.streamlit.app/) for more info.
 - 🎵 [`st.audio`](/library/api-reference/media/st.audio) now supports playing audio data passed in as NumPy arrays with the keyword-only `sample_rate` parameter.
-- 🔁 Functions cached with `st.experimental_memo` or `st.experimental_singleton` can contain Streamlit widgets using the `experimental_allow_widgets` parameter. This allows caching checkbox, sliders, radio buttons, and more!
+- 🔁 Functions cached with `st.experimental_memo` or `st.experimental_singleton` can contain Streamlit widgets using the `experimental_allow_widgets` parameter. This allows caching checkboxes, sliders, radio buttons, and more!
 
 **Other Changes**
 
