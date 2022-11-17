@@ -331,6 +331,8 @@ site_menu:
     url: /streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/stable-outbound-ip-addresses
   - category: Streamlit Cloud / Get started / Share your app
     url: /streamlit-cloud/get-started/share-your-app
+  - category: Streamlit Cloud / Get started / Share your app / App indexability
+    url: /streamlit-cloud/get-started/share-your-app/indexability
   # - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO)
   #   url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso
   #   visible: false
