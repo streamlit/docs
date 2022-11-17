@@ -26,7 +26,7 @@ Community Cloud automatically generates a random subdomain for your app based on
 
 By choosing a custom subdomain, you can use it to help people find your app. For example, if you're deploying an app that generates training data, you might choose a subdomain like `traingenerator.streamlit.app`. This makes it easy for people to find your app by searching for "training generator" or "train generator streamlit app"
 
-We recommend choosing a custom subdomain early, right after you deploy your app. This ensures that your app is indexed by search engines using your custom subdomain, rather than the automatically generated one. If you choose a custom subdomain later, your app will be indexed by search engines using the default subdomain. This means that your app will be indexed multiple times, once using your custom subdomain and once using the default subdomain. This can confuse users who are searching for your app.
+We recommend choosing a custom subdomain early, right after you deploy your app. This ensures that your app is indexed by search engines using your custom subdomain, rather than the automatically generated one. If you choose a custom subdomain later, your app may first be indexed by search engines using the default subdomain. This means that your app will be indexed multiple times, once using the default subdomain (which will lead to a 404) and once using your custom subdomain. This can confuse users who are searching for your app.
 
 ### Choose a descriptive app title
 
@@ -62,4 +62,8 @@ Example: `site:traingenerator.streamlit.app`
 
 If you don't want your app to be indexed by search engines, you can make it private. Read [Share your app](/streamlit-cloud/get-started/share-your-app) to learn more about making your app private. Note: each workspace can only have one private app. If you want to make your app private, you must first delete any other private apps in your workspace.
 
-That said, Community Cloud is an open and free platform for the community to deploy, discover, and share Streamlit apps and code with each other. As such, we encourage you to make your app public so that it can be indexed by search engines and discovered by other Streamlit users and community members. 🤗
+That said, Community Cloud is an open and free platform for the community to deploy, discover, and share Streamlit apps and code with each other. As such, we encourage you to make your app public so that it can be indexed by search engines and discovered by other Streamlit users and community members.
+
+## Have questions or feedback?
+
+If you run into issues with app indexability or have any questions or feedback about it, we’d love to hear from you! Please post on our [Community forum](https://discuss.streamlit.io) so that our team and community members can help you. 🤗
