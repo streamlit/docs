@@ -103,7 +103,7 @@ Supported static `st` elements in cache-decorated functions include:
 - `st.vega_lite_chart`
 - `st.warning`
 
-All other `st` commands, including widgets, forms, and media elements are not supported in cache-decorated functions. If you use them, the code will only be called when we detect a cache "miss", which can lead to unexpected results. Which is why Streamlit will throw a `CachedStFunctionWarning`, like the one below:
+Forms and media elements are not supported in cache-decorated functions. If you use them, the code will only be called when we detect a cache "miss", which can lead to unexpected results. Which is why Streamlit will throw a `CachedStFunctionWarning`, like the one below:
 
 ```python
 import numpy as np
@@ -117,7 +117,8 @@ def load_data(rows):
         columns=["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"],
     )
     # Contains an unsupported st command
-    st.slider("Select a value", 0, 10, 5) # Streamlit will throw a CachedStFunctionWarning
+    st.video("https://www.youtube.com/watch?v=wpDuY9I2fDg")
+    # Streamlit will throw a CachedStFunctionWarning
 
     return chart_data
 
@@ -126,3 +127,97 @@ st.dataframe(df)
 ```
 
 <Image src="/images/cached-st-function-warning.png" clean />
+
+### Replay input widgets in cache-decorated functions
+
+In addition to static elements, functions decorated with `@st.experimental_memo` can also contain [input widgets](/library/api-reference/widgets)! Replaying input widgets is disabled by default. To enable it, you can set the `experimental_allow_widgets` parameter for `@st.experimental_memo` to `True`. The example below enables widget replaying, and shows the use of a checkbox widget within a cache-decorated function.
+
+```python
+import streamlit as st
+
+# Enable widget replay
+@st.experimental_memo(experimental_allow_widgets=True)
+def func():
+    # Contains an input widget
+    st.checkbox("Works!")
+
+func()
+```
+
+If the cache decorated function contains input widgets, but `experimental_allow_widgets` is set to `False` or unset, Streamlit will throw a `CachedStFunctionWarning`, like the one below:
+
+```python
+import streamlit as st
+
+# Widget replay is disabled by default
+@st.experimental_memo
+def func():
+    # Streamlit will throw a CachedStFunctionWarning
+    st.checkbox("Doesn't work")
+
+func()
+```
+
+<Image src="/images/cached-st-function-warning-widgets.png" clean />
+
+### How widget replay works
+
+Let's demystify how widget replay in cache-decorated functions works and gain a conceptual understanding. Widget values are treated as additional inputs to the function, and are used to determine whether the function should be executed or not. Consider the following example:
+
+```python
+import streamlit as st
+
+@st.experimental_memo(experimental_allow_widgets=True)
+def plus_one(x):
+    y = x + 1
+    if st.checkbox("Nuke the value 💥"):
+        st.write("Value was nuked, returning 0")
+        y = 0
+    return y
+
+st.write(plus_one(2))
+```
+
+The `plus_one` function takes an integer `x` as input, and returns `x + 1`. The function also contains a checkbox widget, which is used to "nuke" the value of `x`. i.e. the return value of `plus_one` depends on the state of the checkbox: if it is checked, the function returns `0`, otherwise it returns `3`.
+
+In order to know which value the cache should return (in case of a cache hit), Streamlit treats the checkbox state (checked / unchecked) as an additional input to the function `plus_one` (just like `x`). If the user checks the checkbox (thereby changing its state), we look up the cache for the same value of `x` (2) and the same checkbox state (checked). If the cache contains a value for this combination of inputs, we return it. Otherwise, we execute the function and store the result in the cache.
+
+Let's now understand how enabling and disabling widget replay changes the behavior of the function.
+
+#### Widget replay disabled
+
+- Widgets in cached functions throw a `CachedStFunctionWarning` and are ignored.
+- Other static elements in cached functions replay as expected.
+
+#### Widget replay enabled
+
+- Widgets in cached functions don't lead to a warning, and are replayed as expected.
+- Interacting with a widget in a cached function will cause the function to be executed again, and the cache to be updated.
+- Widgets in cached functions retain their state across reruns.
+- Each unique combination of widget values is treated as a separate input to the function, and is used to determine whether the function should be executed or not. i.e. Each unique combination of widget values has its own cache entry; the cached function runs the first time and the saved value is used afterwards.
+- Calling a cached function multiple times in one script run with the same arguments triggers a `DuplicateWidgetID` error.
+- If the arguments to a cached function change, widgets from that function that render again retain their state.
+- Changing the source code of a cached function invalidates the cache.
+- Both [`st.experimental_memo`](/library/api-reference/performance/st.experimental_memo) and [`st.experimental_singleton`](/library/api-reference/performance/st.experimental_singleton) support widget replay.
+- Fundamentally, the behavior of a function with (supported) widgets in it doesn't change when it is decorated with `@st.experimental_memo` or `@st.experimental_singleton`. The only difference is that the function is only executed when we detect a cache "miss".
+
+### Supported widgets
+
+All input widgets are supported in cache-decorated functions. The following is an exhaustive list of supported widgets:
+
+- `st.button`
+- `st.camera_input`
+- `st.checkbox`
+- `st.color_picker`
+- `st.date_input`
+- `st.download_button`
+- `st.file_uploader`
+- `st.multiselect`
+- `st.number_input`
+- `st.radio`
+- `st.selectbox`
+- `st.select_slider`
+- `st.slider`
+- `st.text_area`
+- `st.text_input`
+- `st.time_input`
