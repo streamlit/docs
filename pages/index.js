@@ -151,15 +151,40 @@ export default function Home({ window, menu, gdpr_data }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/library/api-reference/widgets/st.button"
+                href="/library/api-reference/media/st.audio"
               >
-                <i className="material-icons-sharp">palette</i>
-                <h4>Primary and secondary buttons</h4>
+                <i className="material-icons-sharp">music_note</i>
+                <h4>NumPy support for st.audio</h4>
                 <p>
-                  <code>st.button</code> and <code>st.form_submit_button</code>{" "}
-                  support designating buttons as "primary" (for additional
-                  emphasis) or "secondary" (for normal buttons) with the{" "}
-                  <code>type</code> keyword-only parameter.
+                  <code>st.audio</code> can now properly play audio data from
+                  NumPy arrays with the <code>sample_rate</code> parameter.
+                  Click to see a demo. 🎶
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="https://markdown-labels.streamlit.app/"
+              >
+                <i className="material-icons-sharp">label</i>
+                <h4>Markdown in widget labels</h4>
+                <p>
+                  Widget labels can contain inline Markdown. Click to check out
+                  the demo app and see how it works.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/performance/st.experimental_memo#replay-input-widgets-in-cache-decorated-functions"
+              >
+                <i className="material-icons-sharp">replay</i>
+                <h4>Replay cached widgets</h4>
+                <p>
+                  Functions cached with the memo and singleton cache primitives
+                  can contain input widgets. To enable widget replay, set the
+                  keyword-only
+                  <code>experimental_allow_widgets</code> parameter to{" "}
+                  <code>True</code>. This allows caching checkboxes, sliders,
+                  radio buttons, and more!
                 </p>
               </RefCard>
               <RefCard
@@ -178,33 +203,15 @@ export default function Home({ window, menu, gdpr_data }) {
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/control-flow/st.form_submit_button"
+                href="/library/api-reference/widgets/st.button"
               >
-                <i className="material-icons-sharp">do_not_touch</i>
-                <h4>Disable st.form_submit_button</h4>
+                <i className="material-icons-sharp">palette</i>
+                <h4>Primary and secondary buttons</h4>
                 <p>
-                  📄 <code>st.form_submit_button</code> now has the disabled
-                  parameter that removes interactivity.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/data/st.dataframe"
-              >
-                <i className="material-icons-sharp">pinch</i>
-                <h4>Resize dataframes</h4>
-                <p>
-                  st.dataframe supports the use_container_width parameter to
-                  stretch across the full container width. Learn more in the
-                  docs.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/library/api-reference/charts/st.map">
-                <i className="material-icons-sharp">map</i>
-                <h4>Zoomable maps</h4>
-                <p>
-                  <code>st.map</code> adds zoom buttons to the map by default
-                  that use light or dark style based on the app's theme
+                  <code>st.button</code> and <code>st.form_submit_button</code>{" "}
+                  support designating buttons as "primary" (for additional
+                  emphasis) or "secondary" (for normal buttons) with the{" "}
+                  <code>type</code> keyword-only parameter.
                 </p>
               </RefCard>
               <RefCard
@@ -235,28 +242,30 @@ export default function Home({ window, menu, gdpr_data }) {
               /> */}
             </TileContainer>
 
+            <H2 className="no-b-m">Latest blog posts</H2>
+
             <NewsContainer>
+              <NewsEntry
+                date="2022-11-18T16:05:00.000Z"
+                title="Streamlit Quests: Getting started with Streamlit"
+                text="The guided path for learning Streamlit"
+                link="https://blog.streamlit.io/streamlit-quests-getting-started-with-streamlit/"
+                image="/blog-1.svg"
+                target="_blank"
+              />
               <NewsEntry
                 date="2022-11-10T16:05:00.000Z"
                 title="Building robust Streamlit apps with type-checking"
                 text="How to make type-checking part of your app-building flow"
                 link="https://blog.streamlit.io/building-robust-streamlit-apps-with-type-checking/"
-                image="/blog-1.svg"
-                target="_blank"
-              />
-              <NewsEntry
-                date="2022-11-03T16:05:00.000Z"
-                title="Make a video content analyzer app with Streamlit and AssemblyAI"
-                text="How to build an AI-powered app that analyzes video channels automatically"
-                link="https://blog.streamlit.io/make-a-video-content-analyzer-app-with-streamlit-and-assemblyai/"
                 image="/blog-2.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2022-11-01T16:05:00.000Z"
-                title="Announcing the Figma-to-Streamlit plugin 🎨"
-                text="Go from prototype to code as easy as 1-2-3 with our new community resource!"
-                link="https://blog.streamlit.io/announcing-the-figma-to-streamlit-plugin/"
+                date="2022-11-08T16:05:00.000Z"
+                title="Monthly rewind > October 2022"
+                text="Your October look-back at new features and great community content"
+                link="https://blog.streamlit.io/monthly-rewind-october-2022/"
                 image="/blog-3.svg"
                 target="_blank"
               />
