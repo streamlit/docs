@@ -194,7 +194,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 <i className="material-icons-sharp">
                   production_quantity_limits
                 </i>
-                <h4>Limit st.muliselect options</h4>
+                <h4>Limit st.multiselect options</h4>
                 <p>
                   🤏 <code>st.multiselect</code> has a keyword-only{" "}
                   <code>max_selections</code> parameter to limit the number of
