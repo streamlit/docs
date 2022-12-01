@@ -169,4 +169,4 @@ If you want to try out something new while still keeping your original app runni
 
 ### Finding app code
 
-Every deployed app has its Github source code linked in the "☰" menu on the top right. So if you are looking to understand the code of another Streamlit app, you can navigate to the GitHub page from there and read or fork the app.
+Every deployed app has its GitHub source code linked in the "☰" menu on the top right. So if you are looking to understand the code of another Streamlit app, you can navigate to the GitHub page from there and read or fork the app.

@@ -193,7 +193,7 @@ ls -l myscript.sh`}
           >
             <p>
               Did you know you can also pass a URL to streamlit run? This is
-              great when combined with Github Gists. For example:
+              great when combined with GitHub Gists. For example:
             </p>
             <Code
               language="bash"
@@ -211,7 +211,7 @@ https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streaml
             <p>
               If the email you originally signed-up with isn’t the primary email
               associated with your GitHub account, just reply to your invite
-              email telling us your primary Github email so we can grant access
+              email telling us your primary GitHub email so we can grant access
               to the correct account.
             </p>
           </Important>
@@ -295,7 +295,7 @@ https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streaml
               },
               {
                 title: `<p><span class='bold'>body</span> <span class='italic code'>(str)</span></p>`,
-                body: `<p>The string to display as Github-flavored Markdown. Syntax information can be found at: <a href='https://github.github.com/gfm'>https://github.github.com/gfm</a>.</p><p>This also supports:</p><ul><li>Emoji shortcodes, such as :+1: and :sunglasses:. For a list of all supported codes, see <a href='https://raw.githubusercontent.com/omnidan/node-emoji/master/lib/emoji.json'>https://raw.githubusercontent.com/omnidan/node-emoji/master/lib/emoji.json</a>.<ul><li>Second level of bullets example</li><ul><li>Third level of bullets example</li></ul></ul></li><li>LaTeX expressions, by wrapping them in “$” or “$$” (the “$$” must be on their own lines). Supported LaTeX functions are listed at <a href='https://katex.org/docs/supported.html'>https://katex.org/docs/supported.html</a>.</li></ul>`,
+                body: `<p>The string to display as GitHub-flavored Markdown. Syntax information can be found at: <a href='https://github.github.com/gfm'>https://github.github.com/gfm</a>.</p><p>This also supports:</p><ul><li>Emoji shortcodes, such as :+1: and :sunglasses:. For a list of all supported codes, see <a href='https://raw.githubusercontent.com/omnidan/node-emoji/master/lib/emoji.json'>https://raw.githubusercontent.com/omnidan/node-emoji/master/lib/emoji.json</a>.<ul><li>Second level of bullets example</li><ul><li>Third level of bullets example</li></ul></ul></li><li>LaTeX expressions, by wrapping them in “$” or “$$” (the “$$” must be on their own lines). Supported LaTeX functions are listed at <a href='https://katex.org/docs/supported.html'>https://katex.org/docs/supported.html</a>.</li></ul>`,
               },
             ]}
           />

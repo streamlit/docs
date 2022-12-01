@@ -940,7 +940,7 @@ _Release date: November 10, 2019_
   [`st.write`](/library/api-reference/write-magic/st.write).
 - 🌄 You can now set config options using environment variables. For example,
   `export STREAMLIT_SERVER_PORT=9876`.
-- 🐱 Ability to call `streamlit run` directly with Github and Gist URLs. No
+- 🐱 Ability to call `streamlit run` directly with GitHub and Gist URLs. No
   need to grab the "raw" URL first!
 - 📃 Cleaner exception stack traces. We now remove all Streamlit-specific code
   from stack traces originating from the user's app.
