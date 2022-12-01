@@ -165,7 +165,7 @@ If you choose not to set up billing, you will be downgraded to the Starter plan 
 
 ### Why does Streamlit require additional OAuth scope?
 
-In order to deploy your app, Streamlit requires access to your app's source code in GitHub and also the ability to manage the public keys associated with the repositories. The default GitHub OAuth scopes are sufficient to work with apps in public Github repositories. However, in order to work with apps in private Github repositories, Streamlit requires the additional `repo` OAuth scope from Github. We recognize that this scope provides Streamlit with extra permissions that we do not really need, and which, as people who prize security, we'd rather not even be granted. Alas, we need to work with the APIs we are provided by Github.
+In order to deploy your app, Streamlit requires access to your app's source code in GitHub and also the ability to manage the public keys associated with the repositories. The default GitHub OAuth scopes are sufficient to work with apps in public GitHub repositories. However, in order to work with apps in private GitHub repositories, Streamlit requires the additional `repo` OAuth scope from GitHub. We recognize that this scope provides Streamlit with extra permissions that we do not really need, and which, as people who prize security, we'd rather not even be granted. Alas, we need to work with the APIs we are provided by GitHub.
 
 ### After deploying my private-repo app, I received an email from GitHub saying a new public key was added to my repo. Is this expected?
 

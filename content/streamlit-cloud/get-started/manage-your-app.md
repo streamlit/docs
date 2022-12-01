@@ -272,6 +272,6 @@ Common reasons why users show up anonymously are:
 
 1. The app was previously public
 2. Given viewer viewed app in April 2022, when the Streamlit team was honing user identification for this feature
-3. Given viewer disconnected their SSO and Github accounts previously
+3. Given viewer disconnected their SSO and GitHub accounts previously
 
 See Streamlit's general Privacy Policy [here](https://streamlit.io/privacy-policy).

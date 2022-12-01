@@ -27,7 +27,7 @@ streamlit run your_script.py [-- script args]
 
 ### Pass a URL to streamlit run
 
-You can also pass a URL to `streamlit run`! This is great when your script is hosted remotely, such as a Github Gist. For example:
+You can also pass a URL to `streamlit run`! This is great when your script is hosted remotely, such as a GitHub Gist. For example:
 
 ```bash
 streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py

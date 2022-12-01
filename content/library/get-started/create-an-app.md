@@ -57,7 +57,7 @@ Streamlit is more than just a way to make data apps, it’s also a community of 
 
     <Tip>
 
-   Did you know you can also pass a URL to `streamlit run`? This is great when combined with Github Gists. For example:
+   Did you know you can also pass a URL to `streamlit run`? This is great when combined with GitHub Gists. For example:
 
    ```bash
    $ streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
