@@ -43,7 +43,7 @@ $ streamlit run your_script.py
 <Tip>
 
 You can also pass a URL to `streamlit run`! This is great when combined with
-Github Gists. For example:
+GitHub Gists. For example:
 
 ```bash
 streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
