@@ -1,11 +1,11 @@
 ---
-title: I don't have SSO. How do I sign in to Streamlit Cloud?
+title: I don't have GitHub or GSuite. How do I sign in to Streamlit Cloud?
 slug: /knowledge-base/deploy/sign-in-without-sso
 ---
 
-# I don't have SSO. How do I sign in to Streamlit Cloud?
+# I don't have GitHub or GSuite. How do I sign in to Streamlit Cloud?
 
-If you don't have SSO, you can sign in with your email address! Visit [share.streamlit.io](https://share.streamlit.io), enter the email address you used to sign up for Streamlit Cloud, and click the "Continue with email" button.
+If you don't have GitHub or GSuite accounts, you can sign in with your email address! Visit [share.streamlit.io](https://share.streamlit.io), enter the email address you used to sign up for Streamlit Cloud, and click the "Continue with email" button.
 
 <Image caption="Step 1: Enter your email address and click 'Continue with email'" src="/images/streamlit-cloud/email-signin-1.png" />
 

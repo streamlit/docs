@@ -13,7 +13,7 @@ slug: /knowledge-base/deploy
 - [Argh. This app has gone over its resource limits.](/knowledge-base/deploy/resource-limits)
 - [App is not loading when running remotely](/knowledge-base/deploy/remote-start)
 - [Authentication without SSO](/knowledge-base/deploy/authentication-without-sso)
-- [I don't have SSO. How do I sign in to Streamlit Cloud?](/knowledge-base/deploy/sign-in-without-sso)
+- [I don't have GitHub or GSuite. How do I sign in to Streamlit Cloud?](/knowledge-base/deploy/sign-in-without-sso)
 - [How do I share apps with viewers outside my organization?](/knowledge-base/deploy/share-apps-with-viewers-outside-organization)
 - [Upgrade the Streamlit version of your app on Streamlit Cloud](/knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud)
 - [Organizing your apps with workspaces on Streamlit Cloud](/knowledge-base/deploy/organizing-apps-workspaces-streamlit-cloud)
