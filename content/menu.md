@@ -554,4 +554,7 @@ site_menu:
   - category: Knowledge base / Deployment issues / Upgrade the Streamlit version of your app on Streamlit Cloud
     url: /knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud
     visible: false
+  - category: Knowledge base / Deployment issues / Custom subdomains
+    url: /knowledge-base/deploy/custom-subdomains
+    visible: false
 ---

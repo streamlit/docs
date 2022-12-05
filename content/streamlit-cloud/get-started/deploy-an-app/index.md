@@ -67,6 +67,8 @@ For example:
 https://streamlit-demo-self-driving-streamlit-app-8jya0g.streamlit.app
 ```
 
+This subdomain is unique to your app and can be used to share your app with others. However, the default subdomain is not always the most memorable or easy to share. That's why you can also set a custom domain for your app.
+
 ### Embed apps
 
 Streamlit Community Cloud supports embedding **public** apps using the subdomain scheme. To embed a public app, add the query parameter `/?embedded=true` to the end of the `*streamlit.app` subdomain URL.
@@ -93,14 +95,14 @@ Subdomains are customizable! With this step you'll be able modify your app URLs 
 
 To customize your app subdomain from the dashboard:
 
-1. Click the "︙" overflow menu to the right of the app and select "**Settings**"
+1. Click the "︙" overflow menu to the app's right and select "**Settings**".
 
    ![Custom subdomain settings](/images/streamlit-cloud/custom-subdomain-settings.png)
 
-2. View the "**General**" tab in the App settings modal. Your app's unique subdomain will appear here
+2. View the "**General**" tab in the App settings modal. Your app's unique subdomain will appear here.
    ![Custom subdomain pick](/images/streamlit-cloud/custom-subdomain-pick.png)
 
-3. Pick a custom subdomain between 6 and 63 characters in length for your app's URL and hit "**Save**"
+3. Pick a custom subdomain between 6 and 63 characters in length for your app's URL and hit "**Save**".
    ![Custom subdomain save](/images/streamlit-cloud/custom-subdomain-save.png)
 
 It's that simple! You can then access your app by visiting your custom subdomain URL 🎉.
