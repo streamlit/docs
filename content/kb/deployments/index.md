@@ -18,3 +18,4 @@ slug: /knowledge-base/deploy
 - [Upgrade the Streamlit version of your app on Streamlit Cloud](/knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud)
 - [Organizing your apps with workspaces on Streamlit Cloud](/knowledge-base/deploy/organizing-apps-workspaces-streamlit-cloud)
 - [How do I increase the upload limit of `st.file_uploader` on Streamlit Cloud?](/knowledge-base/deploy/increase-file-uploader-limit-streamlit-cloud)
+- [How do I customize my app's subdomain?](/knowledge-base/deploy/custom-subdomains)
