@@ -15,7 +15,7 @@ def get_chart_1111(use_conatiner_width: bool):
         color_continuous_scale="reds",
     )
 
-    tab1, tab2 = st.tabs(["Streamlit theme", "Default theme"])
+    tab1, tab2 = st.tabs(["Streamlit theme (default)", "Plotly native theme"])
     with tab1:
         st.plotly_chart(fig, use_conatiner_width=use_conatiner_width, theme="streamlit")
     with tab2:

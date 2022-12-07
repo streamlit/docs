@@ -21,7 +21,7 @@ def get_chart(use_container_width: bool):
         .interactive()
     )
 
-    tab1, tab2 = st.tabs(["Streamlit theme", "Altair native theme"])
+    tab1, tab2 = st.tabs(["Streamlit theme (default)", "Altair native theme"])
 
     with tab1:
         st.altair_chart(

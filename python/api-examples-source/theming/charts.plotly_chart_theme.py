@@ -17,7 +17,7 @@ def get_chart(use_container_width: bool):
         size_max=60,
     )
 
-    tab1, tab2 = st.tabs(["Streamlit theme", "Default theme"])
+    tab1, tab2 = st.tabs(["Streamlit theme (default)", "Plotly native theme"])
     with tab1:
         st.plotly_chart(fig, use_container_width=use_container_width, theme="streamlit")
     with tab2:
