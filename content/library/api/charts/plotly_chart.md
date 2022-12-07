@@ -45,7 +45,7 @@ Click the tabs in the interactive app below to see the charts with the Streamlit
 
 <Cloud src="https://doc-plotly-chart-theme.streamlit.app/?embed=true" height="525" />
 
-If you're wondering if your own customizations will still be taken into account, don't worry! If you're an experienced Plotly user and like to have your own special customizations, your changes in the chart configurations will still be taken into account. Here's an example of an Plotly chart where a custom color scale is defined and reflected:
+If you're wondering if your own customizations will still be taken into account, don't worry! Any changes you make to chart configurations will be accounted for and reflected in the app. Here's an example of an Plotly chart where a custom color scale is defined and reflected:
 
 ```python
 import plotly.express as px
@@ -63,9 +63,9 @@ fig = px.scatter(
 
 tab1, tab2 = st.tabs(["Streamlit theme (default)", "Plotly native theme"])
 with tab1:
-    st.plotly_chart(fig, use_conatiner_width=use_conatiner_width, theme="streamlit")
+    st.plotly_chart(fig, use_conatiner_width=True, theme="streamlit")
 with tab2:
-    st.plotly_chart(fig, use_conatiner_width=use_conatiner_width, theme=None)
+    st.plotly_chart(fig, use_conatiner_width=True, theme=None)
 ```
 
 Notice how the custom color scale is still reflected in the chart, even when the Streamlit theme is enabled 👇
