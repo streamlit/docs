@@ -42,11 +42,11 @@ with tab1:
     # Use the Streamlit theme.
     # This is the default. So you can also omit the theme argument.
     st.vega_lite_chart(
-        source, chart, use_container_width=use_container_width, theme="streamlit"
+        source, chart, use_container_width=True, theme="streamlit"
     )
 with tab2:
     st.vega_lite_chart(
-        source, chart, use_container_width=use_container_width, theme=None
+        source, chart, use_container_width=True, theme=None
     )
 ```
 
@@ -54,4 +54,4 @@ Click the tabs in the interactive app below to see the charts with the Streamlit
 
 <Cloud src="https://doc-vega-lite-theme.streamlit.app/?embed=true" height="500" />
 
-If you're wondering if your own customizations will still be taken into account, don't worry! If you're an experienced Vega-Lite user and like to have your own special customizations, your changes in the chart configurations will still be taken into account.
+If you're wondering if your own customizations will still be taken into account, don't worry! Any changes you make to chart configurations will be accounted for and reflected in the app.
