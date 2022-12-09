@@ -35,10 +35,10 @@ tab1, tab2 = st.tabs(["Streamlit theme (default)", "Plotly native theme"])
 with tab1:
     # Use the Streamlit theme.
     # This is the default. So you can also omit the theme argument.
-    st.plotly_chart(fig, use_container_width=True, theme="streamlit")
+    st.plotly_chart(fig, theme="streamlit", use_container_width=True)
 with tab2:
     # Use the native Plotly theme.
-    st.plotly_chart(fig, use_container_width=True, theme=None)
+    st.plotly_chart(fig, theme=None, use_container_width=True)
 ```
 
 Click the tabs in the interactive app below to see the charts with the Streamlit theme enabled and disabled.
@@ -63,9 +63,9 @@ fig = px.scatter(
 
 tab1, tab2 = st.tabs(["Streamlit theme (default)", "Plotly native theme"])
 with tab1:
-    st.plotly_chart(fig, use_conatiner_width=True, theme="streamlit")
+    st.plotly_chart(fig, theme="streamlit", use_conatiner_width=True)
 with tab2:
-    st.plotly_chart(fig, use_conatiner_width=True, theme=None)
+    st.plotly_chart(fig, theme=None, use_conatiner_width=True)
 ```
 
 Notice how the custom color scale is still reflected in the chart, even when the Streamlit theme is enabled 👇

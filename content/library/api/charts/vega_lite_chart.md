@@ -42,11 +42,11 @@ with tab1:
     # Use the Streamlit theme.
     # This is the default. So you can also omit the theme argument.
     st.vega_lite_chart(
-        source, chart, use_container_width=True, theme="streamlit"
+        source, chart, theme="streamlit", use_container_width=True
     )
 with tab2:
     st.vega_lite_chart(
-        source, chart, use_container_width=True, theme=None
+        source, chart, theme=None, use_container_width=True
     )
 ```
 
