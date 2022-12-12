@@ -69,7 +69,7 @@ a {
 }
 
 p {
-  @apply mb-4 text-gray-90 dark:text-white;
+  @apply mb-4 text-gray-90 break-words dark:text-white;
 }
 
 summary {
