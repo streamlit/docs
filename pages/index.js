@@ -246,26 +246,26 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
-                date="2022-11-18T16:05:00.000Z"
-                title="Streamlit Quests: Getting started with Streamlit"
-                text="The guided path for learning Streamlit"
-                link="https://blog.streamlit.io/streamlit-quests-getting-started-with-streamlit/"
+                date="2022-12-08T16:05:00.000Z"
+                title="Find the top songs from your high school years with a Streamlit app"
+                text="Use the Spotify API to generate 1,000+ playlists!"
+                link="https://blog.streamlit.io/find-the-top-songs-from-your-high-school-years-with-a-streamlit-app/"
                 image="/blog-1.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2022-11-10T16:05:00.000Z"
-                title="Building robust Streamlit apps with type-checking"
-                text="How to make type-checking part of your app-building flow"
-                link="https://blog.streamlit.io/building-robust-streamlit-apps-with-type-checking/"
+                date="2022-12-06T16:05:00.000Z"
+                title="Streamlit-Authenticator, Part 1: Adding an authentication component to your app"
+                text="How to securely authenticate users into your Streamlit app"
+                link="https://blog.streamlit.io/streamlit-authenticator-part-1-adding-an-authentication-component-to-your-app/"
                 image="/blog-2.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2022-11-08T16:05:00.000Z"
-                title="Monthly rewind > October 2022"
-                text="Your October look-back at new features and great community content"
-                link="https://blog.streamlit.io/monthly-rewind-october-2022/"
+                date="2022-11-18T16:05:00.000Z"
+                title="Streamlit Quests: Getting started with Streamlit"
+                text="The guided path for learning Streamlit"
+                link="https://blog.streamlit.io/streamlit-quests-getting-started-with-streamlit/"
                 image="/blog-3.svg"
                 target="_blank"
               />
