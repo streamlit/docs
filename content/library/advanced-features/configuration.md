@@ -7,6 +7,12 @@ slug: /library/advanced-features/configuration
 
 Streamlit provides four different ways to set configuration options. This list is in reverse order of precedence, i.e. command line flags take precedence over environment variables when the same configuration option is provided multiple times.
 
+<Note>
+
+If changes to `.streamlit/config.toml` are made _while_ the app is running, the server needs to be restarted for changes to be reflected in the app.
+
+</Note>
+
 1. In a **global config file** at `~/.streamlit/config.toml` for macOS/Linux or `%userprofile%/.streamlit/config.toml` for Windows:
 
    ```toml
