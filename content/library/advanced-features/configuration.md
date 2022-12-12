@@ -5,8 +5,7 @@ slug: /library/advanced-features/configuration
 
 # Configuration
 
-Streamlit provides four different ways to set configuration options. This list is in reverse order of precedence, i.e. comman
-d line flags take precedence over environment variables when the same configuration option is provided multiple times.
+Streamlit provides four different ways to set configuration options. This list is in reverse order of precedence, i.e. command line flags take precedence over environment variables when the same configuration option is provided multiple times.
 
 <Note>
 
