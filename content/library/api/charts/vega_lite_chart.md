@@ -54,4 +54,4 @@ Click the tabs in the interactive app below to see the charts with the Streamlit
 
 <Cloud src="https://doc-vega-lite-theme.streamlit.app/?embed=true" height="500" />
 
-If you're wondering if your own customizations will still be taken into account, don't worry! Any changes you make to chart configurations will be accounted for and reflected in the app.
+If you're wondering if your own customizations will still be taken into account, don't worry! You can still make changes to your chart configurations. In other words, although we now enable the Streamlit theme by default, you can overwrite it with custom colors or fonts. For example, if you want a chart line to be green instead of the default red, you can do it!
