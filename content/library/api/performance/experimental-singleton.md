@@ -45,6 +45,7 @@ Supported static `st` elements in cache-decorated functions include:
 - `st.alert`
 - `st.altair_chart`
 - `st.area_chart`
+- `st.audio`
 - `st.bar_chart`
 - `st.ballons`
 - `st.bokeh_chart`
@@ -61,8 +62,12 @@ Supported static `st` elements in cache-decorated functions include:
 - `st.expander`
 - `st.experimental_get_query_params`
 - `st.experimental_set_query_params`
+- `st.experimental_show`
+- `st.form`
+- `st.form_submit_button`
 - `st.graphviz_chart`
 - `st.help`
+- `st.image`
 - `st.info`
 - `st.json`
 - `st.latex`
@@ -78,30 +83,8 @@ Supported static `st` elements in cache-decorated functions include:
 - `st.table`
 - `st.text`
 - `st.vega_lite_chart`
+- `st.video`
 - `st.warning`
-
-Forms and media elements are not supported in cache-decorated functions. If you use them, the code will only be called when we detect a cache "miss", which can lead to unexpected results. Which is why Streamlit will throw a `CachedStFunctionWarning`, like the one below:
-
-```python
-import numpy as np
-import pandas as pd
-import streamlit as st
-from transformers import AutoModel
-
-@st.experimental_singleton
-def get_model(model_type):
-    # Contains an unsupported st command
-    st.video("https://www.youtube.com/watch?v=wpDuY9I2fDg")
-    # Streamlit will throw a CachedStFunctionWarning
-
-    # Create a model of the specified type
-    return AutoModel.from_pretrained(model_type)
-
-bert_model = get_model("distilbert-base-uncased")
-st.help(bert_model) # Display the model's docstring
-```
-
-<Image src="/images/cached-st-function-warning-singleton.png" clean />
 
 ### Replay input widgets in cache-decorated functions
 
