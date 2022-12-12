@@ -67,19 +67,6 @@ Streamlit uses third-party security tools to scan for vulnerabilities on a regul
 
 ## Security and Compliance Programs
 
-### Certifications
-
-#### SOC 2 Type 1
-
-Streamlit is committed to meeting industry security standards so that you can feel confident in our security practices. Streamlit is SOC 2 compliant and if you would like to learn more, please reach out on our [Community forum](https://discuss.streamlit.io/) to get the details of our compliance report.
-
-<a href="https://www.aicpa.org/soc4so" target="\_blank" style={{ borderBottom: 0 }}>
-
-<div style={{ maxWidth: '15%', marginLeft: '35%' }}>
-<Image alt="SOC 2 logo" src="/images/streamlit-cloud/soc-logo.png" pure />
-</div>
-</a>
-
 ### People
 
 #### Background Checks
