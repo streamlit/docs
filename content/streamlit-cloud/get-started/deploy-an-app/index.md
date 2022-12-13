@@ -109,4 +109,4 @@ It's that simple! You can then access your app by visiting your custom subdomain
 
 If a custom subdomain is not available (e.g. because it's already taken), you'll see an error message like this:
 
-![Custom subdomain error](/images/streamlit-cloud/custom-subdomain-error.png)
+<Image src="/images/streamlit-cloud/custom-subdomain-error.png" clean />
