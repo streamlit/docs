@@ -45,11 +45,13 @@ Streamlit pulls the description from the README in the app's GitHub repository. 
 
 _This app was built in Streamlit! Check it out and visit https://streamlit.io for more awesome community apps. 🎈_
 
-<div style={{ marginLeft: '10em' }}>
+<div style={{ marginLeft: '6em' }}>
     <Flex>
     <Image caption="Default share preview when a description is missing" src="/images/streamlit-cloud/share-preview-private-app.png" />
     </Flex>
 </div>
+
+<!-- ![Default share preview when a description is missing](/images/streamlit-cloud/share-preview-private-app.png) -->
 
 If you want your share previews to look great and want users to share your app and click on your links, you should write a good description in the README of your app’s GitHub repository.
 
