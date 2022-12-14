@@ -333,6 +333,8 @@ site_menu:
     url: /streamlit-cloud/get-started/share-your-app
   - category: Streamlit Cloud / Get started / Share your app / App indexability
     url: /streamlit-cloud/get-started/share-your-app/indexability
+  - category: Streamlit Cloud / Get started / Share your app / Share previews
+    url: /streamlit-cloud/get-started/share-your-app/share-previews
   # - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO)
   #   url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso
   #   visible: false
