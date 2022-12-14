@@ -5,9 +5,19 @@ slug: /streamlit-cloud/get-started/share-your-app/share-previews
 
 # Share previews
 
-Social media sites generate a card with a title, preview image, and description when you share a link. This feature is called a "share preview." In the same way, when you share a link to a Streamlit app on social media, a share preview is also generated. Here's an example of a share preview for a public Streamlit app posted on Twitter:
+Social media sites generate a card with a title, preview image, and description when you share a link. This feature is called a "share preview." In the same way, when you share a link to a public Streamlit app on social media, a share preview is also generated. Here's an example of a share preview for a public Streamlit app posted on Twitter:
 
-![Share preview for a public Streamlit app](/images/streamlit-cloud/share-preview-twitter-annotated.png)
+<div style={{ marginLeft: '3em' }}>
+    <Flex>
+    <Image caption="Share preview for a public Streamlit app" src="/images/streamlit-cloud/share-preview-twitter-annotated.png" />
+    </Flex>
+</div>
+
+<Note>
+
+Share previews are generated only for public apps deployed on Community Cloud.
+
+</Note>
 
 ## Titles
 
@@ -29,26 +39,24 @@ There are two ways to set the title of a share preview:
 
 ## Descriptions
 
-The description is the text that appears below the title in the share preview. The description should summarize what the app does and ideally should be under 160 characters.
+The description is the text that appears below the title in the share preview. The description should summarize what the app does and ideally should be under 100 characters.
 
 Streamlit pulls the description from the README in the app's GitHub repository. If there is no README, the description will default to:
 
 _This app was built in Streamlit! Check it out and visit https://streamlit.io for more awesome community apps. 🎈_
 
-If you want your share previews to look great and want users to share your app and click on your links, you should write a good description in the README of your app’s GitHub repository
+<div style={{ marginLeft: '10em' }}>
+    <Flex>
+    <Image caption="Default share preview when a description is missing" src="/images/streamlit-cloud/share-preview-private-app.png" />
+    </Flex>
+</div>
+
+If you want your share previews to look great and want users to share your app and click on your links, you should write a good description in the README of your app’s GitHub repository.
 
 ## Preview images
 
 Community Cloud takes a screenshot of your app once a day and uses it as the preview image, unlike titles and descriptions, which are pulled directly from your app's code or GitHub repository. This screenshot may take up to 24 hours to update.
 
-## Public vs. private apps
+## Switching your app from public to private
 
-All of the above information applies to public apps. If you share a private app, the share preview will contain no information about your app. Instead, it will include a default title ("Streamlit app"), a default description ("This app was built in Streamlit! Check it out and visit https://streamlit.io for more awesome community apps. 🎈"), and a default preview image that contains the Streamlit logo:
-
-<div style={{ marginLeft: '10em' }}>
-    <Flex>
-    <Image caption="Default share preview for a private app" src="/images/streamlit-cloud/share-preview-private-app.png" />
-    </Flex>
-</div>
-
-If your app was initially public and you later made it private, the share preview will no longer contain any information about your app. It will look like the image above, containing a generic title, description, and image. However, the last publicly available data will be discoverable for up to 24 hours after the app is made private.
+If you initially made your app public and later decided to make it private, we will stop generating share previews for the app. However, it may take up to 24 hours for the share previews to stop appearing.
