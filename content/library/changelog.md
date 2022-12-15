@@ -17,6 +17,28 @@ pip install --upgrade streamlit
 
 </Tip>
 
+## **Version 1.16.0**
+
+_Release date: December 14, 2022_
+
+**Highlights**
+
+- 👩‍🎨 Introducing a new Streamlit theme for Altair, Plotly, and Vega-Lite charts! Check out our [blog post](https://blog.streamlit.io/p/f33f5232-ace6-40cf-bf4f-bad405b9d8bc/) for more information.
+- 🎨 Streamlit now supports colored text in all commands that accept Markdown, including `st.markdown`, `st.header`, and more. Learn more in our [documentation](/library/api-reference/text/st.markdown) and [demo app](https://streamlit-feature-demos-markdowncoloredtextstreamlit-app-3z9ekn.streamlit.app/).
+
+**Notable Changes**
+
+- 🔁 Functions cached with `st.experimental_memo` or `st.experimental_singleton` can contain Streamlit media elements and forms ([#5695](https://github.com/streamlit/streamlit/pull/5695)).
+- ⛄ All Streamlit commands that accept pandas DataFrames as input also support Snowpark and PySpark DataFrames ([#5570](https://github.com/streamlit/streamlit/pull/5570), [#5590](https://github.com/streamlit/streamlit/pull/5590), [#5624](https://github.com/streamlit/streamlit/pull/5624)).
+- 🏷 [st.checkbox](/library/api-reference/widgets/st.checkbox) and [st.metric](/library/api-reference/data/st.metric) can customize how to hide their labels with the `label_visibility` parameter (completing all Streamlit commands with the `label` parameter) ([#5705](https://github.com/streamlit/streamlit/pull/5705), [#5789](https://github.com/streamlit/streamlit/pull/5789)).
+
+**Other Changes**
+
+- 🗺️ `st.map` improvements: support for upper case columns and better exception messages ([#5679](https://github.com/streamlit/streamlit/pull/5679)).
+- 🐞 Bug fix: `st.plotly_chart` respects the figure’s height attribute and the `use_container_width` parameter ([#5779](https://github.com/streamlit/streamlit/pull/5779)).
+- 🪲 Bug fix: All commands with the `icon` parameter such as [st.error](/library/api-reference/status/st.error), [st.warning](/library/api-reference/status/st.warning), etc, can contain emojis with variant selectors ([#5583](https://github.com/streamlit/streamlit/pull/5583)).
+- 🐝 Bug fix: prevent `st.camera_input` from jittering when resizing the browser window ([#5661](https://github.com/streamlit/streamlit/pull/5711)).
+
 ## **Version 1.15.0**
 
 _Release date: November 17, 2022_
