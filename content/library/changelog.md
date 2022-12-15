@@ -34,10 +34,11 @@ _Release date: December 14, 2022_
 
 **Other Changes**
 
-- 🗺️ `st.map` improvements: support for upper case columns and better exception messages ([#5679](https://github.com/streamlit/streamlit/pull/5679)).
+- 🗺️ `st.map` improvements: support for upper case columns and better exception messages ([#5679](https://github.com/streamlit/streamlit/pull/5679), [#5792](https://github.com/streamlit/streamlit/pull/5792)).
 - 🐞 Bug fix: `st.plotly_chart` respects the figure’s height attribute and the `use_container_width` parameter ([#5779](https://github.com/streamlit/streamlit/pull/5779)).
-- 🪲 Bug fix: All commands with the `icon` parameter such as [st.error](/library/api-reference/status/st.error), [st.warning](/library/api-reference/status/st.warning), etc, can contain emojis with variant selectors ([#5583](https://github.com/streamlit/streamlit/pull/5583)).
+- 🪲 Bug fix: all commands with the `icon` parameter such as [st.error](/library/api-reference/status/st.error), [st.warning](/library/api-reference/status/st.warning), etc, can contain emojis with variant selectors ([#5583](https://github.com/streamlit/streamlit/pull/5583)).
 - 🐝 Bug fix: prevent `st.camera_input` from jittering when resizing the browser window ([#5661](https://github.com/streamlit/streamlit/pull/5711)).
+- 🐜 Bug fix: update exception layout to avoid overflow of stack traces ([#5700](https://github.com/streamlit/streamlit/pull/5700)).
 
 ## **Version 1.15.0**
 
