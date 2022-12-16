@@ -149,6 +149,41 @@ export default function Home({ window, menu, gdpr_data }) {
             <H2 className="no-b-m">What's new</H2>
 
             <TileContainer>
+              <RefCard size="third" href="/library/api-reference/charts">
+                <i className="material-icons-sharp">palette</i>
+                <h4>Streamlit theme for Plotly & Altair</h4>
+                <p>
+                  1.16.0 includes a new default theme for Altair and Plotly
+                  charts in Streamlit apps through the{" "}
+                  <code>theme="streamlit"</code>
+                  keyword argument in st.altair_chart, st.vega_lite_chart, and
+                  st.plotly_chart.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/text/st.markdown"
+              >
+                <i className="material-icons-sharp">brush</i>
+                <h4>Colored text support in Markdown</h4>
+                <p>
+                  Streamlit now supports colored text in all commands that
+                  accept Markdown, including <code>st.markdown</code>,{" "}
+                  <code>st.header</code>, and more! Click to read the
+                  documentation.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/data/st.dataframe"
+              >
+                <i className="material-icons-sharp">ac_unit</i>
+                <h4>Snowpark and PySpark support</h4>
+                <p>
+                  All Streamlit commands that accept pandas DataFrames as input
+                  also support Snowpark and PySpark DataFrames.
+                </p>
+              </RefCard>
               <RefCard
                 size="third"
                 href="/library/api-reference/media/st.audio"
@@ -174,55 +209,15 @@ export default function Home({ window, menu, gdpr_data }) {
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/performance/st.experimental_memo#replay-input-widgets-in-cache-decorated-functions"
-              >
-                <i className="material-icons-sharp">replay</i>
-                <h4>Replay cached widgets</h4>
-                <p>
-                  Functions cached with the memo and singleton cache primitives
-                  can contain input widgets. To enable widget replay, set the
-                  keyword-only
-                  <code>experimental_allow_widgets</code> parameter to{" "}
-                  <code>True</code>. This allows caching checkboxes, sliders,
-                  radio buttons, and more!
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/widgets/st.multiselect"
-              >
-                <i className="material-icons-sharp">
-                  production_quantity_limits
-                </i>
-                <h4>Limit st.multiselect options</h4>
-                <p>
-                  🤏 <code>st.multiselect</code> has a keyword-only{" "}
-                  <code>max_selections</code> parameter to limit the number of
-                  options that can be selected at a time.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/widgets/st.button"
-              >
-                <i className="material-icons-sharp">palette</i>
-                <h4>Primary and secondary buttons</h4>
-                <p>
-                  <code>st.button</code> and <code>st.form_submit_button</code>{" "}
-                  support designating buttons as "primary" (for additional
-                  emphasis) or "secondary" (for normal buttons) with the{" "}
-                  <code>type</code> keyword-only parameter.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
                 href="/library/api-reference/widgets/st.selectbox"
               >
                 <i className="material-icons-sharp">visibility_off</i>
                 <h4>Widget label visibility</h4>
                 <p>
-                  Widgets can customize how to hide their labels with the
-                  label_visibility parameter. Click to see an example!
+                  All widgets and commands that support the <code>label</code>
+                  parameter can customize how to hide their labels with the
+                  <code>label_visibility</code> parameter. Click to see an
+                  example!
                 </p>
               </RefCard>
               {/* <Tile
@@ -246,11 +241,19 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
+                date="2022-12-15T16:05:00.000Z"
+                title="How to quickly deploy and share your machine learning model for drug discovery"
+                text="Share your ML model in 3 simple steps"
+                link="https://blog.streamlit.io/how-to-quickly-deploy-and-share-your-machine-learning-model-for-drug-discovery/"
+                image="/blog-1.svg"
+                target="_blank"
+              />
+              <NewsEntry
                 date="2022-12-08T16:05:00.000Z"
                 title="Find the top songs from your high school years with a Streamlit app"
                 text="Use the Spotify API to generate 1,000+ playlists!"
                 link="https://blog.streamlit.io/find-the-top-songs-from-your-high-school-years-with-a-streamlit-app/"
-                image="/blog-1.svg"
+                image="/blog-2.svg"
                 target="_blank"
               />
               <NewsEntry
@@ -258,14 +261,6 @@ export default function Home({ window, menu, gdpr_data }) {
                 title="Streamlit-Authenticator, Part 1: Adding an authentication component to your app"
                 text="How to securely authenticate users into your Streamlit app"
                 link="https://blog.streamlit.io/streamlit-authenticator-part-1-adding-an-authentication-component-to-your-app/"
-                image="/blog-2.svg"
-                target="_blank"
-              />
-              <NewsEntry
-                date="2022-11-18T16:05:00.000Z"
-                title="Streamlit Quests: Getting started with Streamlit"
-                text="The guided path for learning Streamlit"
-                link="https://blog.streamlit.io/streamlit-quests-getting-started-with-streamlit/"
                 image="/blog-3.svg"
                 target="_blank"
               />

@@ -1,4 +1,4 @@
-./python/api-examples-source/theming/streamlit-1.13.0-py2.py3-none-any.whl
+streamlit==1.16.0
 vega_datasets
 altair==4.2.0
 plotly==5.1.0
