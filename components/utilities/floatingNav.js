@@ -13,6 +13,9 @@ const useHeadingsData = (slug) => {
       )
     );
 
+    // Remove the first heading here, since we don't want to show the main title on the TOC
+    headingElements.shift();
+
     const newNestedHeadings = getNestedHeadings(headingElements);
     setNestedHeadings(newNestedHeadings);
   }, [slug]);
@@ -25,6 +28,7 @@ const getNestedHeadings = (headingElements) => {
 
   for (const index in headingElements) {
     const ele = headingElements[index];
+
     if (ele.getElementsByTagName === undefined) {
       continue;
     }
@@ -128,6 +132,7 @@ const Headings = ({ headings, activeId }) => {
   // For example, we could have [H1, H2, H3] but also [H1, H4],
   // and we want the indentation to acommodate for these situations.
   const uniqueHierarchies = [...new Set(headings.map((item) => item.level))];
+
   const sortedHeadings = uniqueHierarchies.map((hierarchy, index) =>
     headings.filter((heading) => {
       if (heading.level === hierarchy) {
