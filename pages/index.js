@@ -241,11 +241,19 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
+                date="2022-12-19T16:05:00.000Z"
+                title="A new Streamlit theme for Altair and Plotly charts"
+                text="Our charts just got a new look!"
+                link="https://blog.streamlit.io/a-new-streamlit-theme-for-altair-and-plotly/"
+                image="/blog-1.svg"
+                target="_blank"
+              />
+              <NewsEntry
                 date="2022-12-15T16:05:00.000Z"
                 title="How to quickly deploy and share your machine learning model for drug discovery"
                 text="Share your ML model in 3 simple steps"
                 link="https://blog.streamlit.io/how-to-quickly-deploy-and-share-your-machine-learning-model-for-drug-discovery/"
-                image="/blog-1.svg"
+                image="/blog-2.svg"
                 target="_blank"
               />
               <NewsEntry
@@ -253,14 +261,6 @@ export default function Home({ window, menu, gdpr_data }) {
                 title="Find the top songs from your high school years with a Streamlit app"
                 text="Use the Spotify API to generate 1,000+ playlists!"
                 link="https://blog.streamlit.io/find-the-top-songs-from-your-high-school-years-with-a-streamlit-app/"
-                image="/blog-2.svg"
-                target="_blank"
-              />
-              <NewsEntry
-                date="2022-12-06T16:05:00.000Z"
-                title="Streamlit-Authenticator, Part 1: Adding an authentication component to your app"
-                text="How to securely authenticate users into your Streamlit app"
-                link="https://blog.streamlit.io/streamlit-authenticator-part-1-adding-an-authentication-component-to-your-app/"
                 image="/blog-3.svg"
                 target="_blank"
               />

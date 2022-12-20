@@ -23,7 +23,7 @@ _Release date: December 14, 2022_
 
 **Highlights**
 
-- 👩‍🎨 Introducing a new Streamlit theme for Altair, Plotly, and Vega-Lite charts! Check out our [blog post](https://blog.streamlit.io/p/f33f5232-ace6-40cf-bf4f-bad405b9d8bc/) for more information.
+- 👩‍🎨 Introducing a new Streamlit theme for Altair, Plotly, and Vega-Lite charts! Check out our [blog post](https://blog.streamlit.io/a-new-streamlit-theme-for-altair-and-plotly/) for more information.
 - 🎨 Streamlit now supports colored text in all commands that accept Markdown, including `st.markdown`, `st.header`, and more. Learn more in our [documentation](/library/api-reference/text/st.markdown).
 
 **Notable Changes**
