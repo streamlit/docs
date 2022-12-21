@@ -3,7 +3,7 @@
 }
 
 .List {
-  @apply sticky top-24 m-0 list-none overflow-y-auto overflow-x-hidden;
+  @apply sticky top-24 m-0 pl-6 list-none overflow-y-auto overflow-x-hidden;
   max-height: calc(100vh - (6em * 2));
 }
 
@@ -21,13 +21,8 @@
 
 /* Contents Title */
 .ListTitle {
-  @apply pt-6 pl-6 uppercase font-semibold tracking-widest;
+  @apply pt-6 uppercase font-semibold tracking-widest;
   @apply text-gray-60 !important;
-}
-
-/* Hide the first h1 on the page, as it's the page title */
-.List li:nth-child(2) {
-  @apply hidden;
 }
 
 /* Styles for the active item on the floating nav */
@@ -45,6 +40,10 @@
 }
 
 /* Paddings for different title hierarchies */
+.List li[data-hierarchy="0"] {
+  @apply pl-0;
+}
+
 .List li[data-hierarchy="1"] {
   @apply pl-6;
 }
