@@ -168,8 +168,8 @@ result = my_component(greeting="Hello", name="Streamlit")
 
 ```javascript
 // Receive arguments in frontend:
-let greeting = this.props.args["greeting"]; // name = "Hello"
-let name = this.props.args["name"]; // greeting = "Streamlit"
+let greeting = this.props.args["greeting"]; // greeting = "Hello"
+let name = this.props.args["name"]; // name = "Streamlit"
 ```
 
 - Use `Streamlit.setComponentValue()` to return data from the component to the Python script:
