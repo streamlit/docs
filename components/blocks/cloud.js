@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import classNames from "classnames";
 
 import styles from "./cloud.module.css";
 
 const Cloud = ({ src, height }) => {
+  const iframeRef = useRef();
   let CloudBlock;
 
   if (height) {
@@ -15,6 +16,7 @@ const Cloud = ({ src, height }) => {
           height={height}
           className={styles.Iframe}
           allow="camera;"
+          key={src}
         />
         <a href={src} target="_blank" className={styles.Caption}>
           (view standalone Streamlit app)
@@ -29,6 +31,7 @@ const Cloud = ({ src, height }) => {
           src={`${src}`}
           className={classNames(styles.Iframe, styles.VideoAspectRatio)}
           allow="camera;"
+          key={src}
         />
         <a href={src} target="_blank" className={styles.Caption}>
           (view standalone Streamlit app)
