@@ -41,10 +41,11 @@ const Autofunction = ({
   useEffect(() => {
     highlightWithPrism();
     regenerateIframes();
-  }, []);
+  }, [streamlitFunction]);
 
   // Code to destroy and regenerate iframes on each new autofunction render.
   const regenerateIframes = () => {
+    console.log("run");
     const iframes = Array.prototype.slice.call(
       blockRef.current.getElementsByTagName("iframe")
     );
