@@ -40,7 +40,27 @@ const Autofunction = ({
 
   useEffect(() => {
     highlightWithPrism();
+    regenerateIframes();
   }, []);
+
+  // Code to destroy and regenerate iframes on each new autofunction render.
+  const regenerateIframes = () => {
+    const iframes = Array.prototype.slice.call(
+      blockRef.current.getElementsByTagName("iframe")
+    );
+    if (!iframes) return;
+
+    iframes.forEach((iframe) => {
+      const parent = iframe.parentElement;
+      const newFrame = iframe.cloneNode();
+
+      newFrame.src = "";
+      newFrame.classList.add("new");
+      newFrame.src = iframe.src;
+
+      parent.replaceChild(newFrame, iframe);
+    });
+  };
 
   const highlightWithPrism = () => {
     if (isHighlighted) {
