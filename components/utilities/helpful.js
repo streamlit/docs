@@ -83,9 +83,7 @@ const Helpful = ({ slug, sourcefile }) => {
     setIsHelpful(true);
   };
 
-  useEffect(() => {
-    router.events.on("routeChangeComplete", handleRouteChange);
-  });
+  router.events.on("routeChangeComplete", handleRouteChange);
 
   let joinedSlug = "/";
   if (slug) {
