@@ -55,9 +55,8 @@ Defines the background color used in the main content area of your app.
 ## secondaryBackgroundColor
 
 This color is used where a second background color is needed for added
-contrast. Most notably, it is the sidebar's background color. It is also used
-as the plot background color for `st.plotly_chart` and as the background color for most other interactive
-widgets.
+contrast. Most notably, it is the sidebar's background color. It is also used 
+as the background color for most interactive widgets.
 
 ![Secondary Background Color](/images/theme_config_options/secondaryBackgroundColor.png)
 
