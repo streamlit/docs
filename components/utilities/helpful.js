@@ -83,7 +83,14 @@ const Helpful = ({ slug, sourcefile }) => {
     setIsHelpful(true);
   };
 
-  router.events.on("routeChangeComplete", handleRouteChange);
+  // Perform the route change cleanup function for the Helpful component inside a useEffect call,
+  // instead of using router.events.on("routeChangeComplete", handleRouteChange), because that
+  // adds new events progressively as you keep browsing the website, thus eventually leading to a memory leak.
+  useEffect(() => {
+    return () => {
+      handleRouteChange();
+    };
+  }, [sourcefile]);
 
   let joinedSlug = "/";
   if (slug) {
