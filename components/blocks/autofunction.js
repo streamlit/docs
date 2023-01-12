@@ -14,8 +14,6 @@ import "prismjs/plugins/toolbar/prism-toolbar";
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 
-import useSourceFile from "../../lib/useSourceFile";
-
 import styles from "./autofunction.module.css";
 
 const cleanHref = (name) => {
@@ -126,7 +124,6 @@ const Autofunction = ({
 
   if (streamlitFunction in streamlit) {
     functionObject = streamlit[streamlitFunction];
-    const sourceFile = useSourceFile(functionObject.source);
     if (
       functionObject.description !== undefined &&
       functionObject.description
@@ -135,7 +132,7 @@ const Autofunction = ({
     }
   } else {
     return (
-      <div className={styles.Container} ref={blockRef}>
+      <div className={styles.Container} ref={blockRef} key={slug}>
         <div className="code-header">
           <H2>{streamlitFunction}</H2>
         </div>
@@ -273,7 +270,7 @@ const Autofunction = ({
   );
 
   return (
-    <section className={styles.Container} ref={blockRef}>
+    <section className={styles.Container} ref={blockRef} key={slug}>
       {header}
       {body}
     </section>
