@@ -145,7 +145,12 @@ const Headings = ({ headings, activeId }) => {
   return (
     <>
       {sortedHeadings[0].map((heading, index) => (
-        <Heading heading={heading} index={index} activeId={activeId} />
+        <Heading
+          key={index}
+          heading={heading}
+          index={index}
+          activeId={activeId}
+        />
       ))}
     </>
   );
