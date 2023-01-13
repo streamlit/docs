@@ -22,60 +22,76 @@ Let's learn how to use the `validate` parameter to ensure that cached output rem
 
 #### Example 1: Validating a database connection
 
-In the example below, we connect to a [public PostgreSQL database](https://rnacentral.org/help/public-database) using the `psycopg` library. We use `@st.experimental_singleton` to cache the connection, and we use the `validate` parameter to validate the connection before returning it. If the connection is invalid, we reconnect and return the new connection. To simulate a connection timeout, we use a checkbox to close the connection. When the connection is closed, the cached value is discarded and the connection is reestablished:
+In the example below, we connect to a [public PostgreSQL database](https://rnacentral.org/help/public-database) using the `psycopg2` library. We use `@st.experimental_singleton` to cache the connection, and we use the `validate` parameter to validate the connection before returning it. If the connection is invalid, we reconnect and return the new connection. To simulate a connection timeout, we use a checkbox to close the connection. When the connection is closed, the cached value is discarded and the connection is reestablished:
 
 ```python
-import psycopg
-from psycopg.rows import dict_row
-
+import psycopg2
 import streamlit as st
 
 if "logs" not in st.session_state:
     st.session_state.logs = []
 
-# Function to validate psycopg connection
+# Function to validate psycopg2 connection
 def validate_connection(conn):
     try:
+        # Check if connection is valid
+        # by executing a simple query
         with conn.cursor() as curs:
             curs.execute("SELECT 1")
             curs.fetchone()
-    except psycopg.OperationalError:
+    except:
         st.session_state.logs.append("Connection lost. Reconnecting...")
+        # Connection is invalid, invalidate cache
         return False
-    return True
+    return True # Connection is valid, don't invalidate cache
 
+# Get connection parameters
+host = "hh-pgsql-public.ebi.ac.uk"
+dbname = "pfmegrnargs"
+port = 5432
+user = "reader"
+password = "NWDMCE5xdipIjRrp"
 
-# Initialize connection.
+# Initialize connection
+# Connection will be reinitialized if validation function returns False.
 @st.experimental_singleton(validate=validate_connection)
 def init_connection():
-    host = "hh-pgsql-public.ebi.ac.uk"
-    dbname = "pfmegrnargs"
-    port = 5432
-    user = "reader"
-    password = "NWDMCE5xdipIjRrp"
-
-    return psycopg.connect(
+    # Connect to the database
+    conn = psycopg2.connect(
         host=host,
         dbname=dbname,
         port=port,
         user=user,
         password=password,
     )
-
+    return conn
 
 conn = init_connection()
 
-with conn.cursor(row_factory=dict_row) as curs:
-    curs.execute("SELECT * FROM rnc_database ORDER BY id LIMIT 10")
-    data = curs.fetchall()
-    st.session_state.logs.append("Data fetched successfully.")
+# Create a cursor object
+cursor = conn.cursor()
 
+# Execute query
+cursor.execute("SELECT * FROM rnc_database ORDER BY id LIMIT 10")
+
+# Fetch data
+data = cursor.fetchall()
+
+# Append to logs
+st.session_state.logs.append("Data fetched successfully.")
+
+# Create a Dataframe
 st.dataframe(data)
+
+# Display logs
 st.write(st.session_state.logs)
 
 # Checkbox to close connection
 if st.checkbox("Close connection"):
+    cursor.close()
     conn.close()
+    st.session_state.logs.append("Connection closed.")
+
 st.button("Rerun")
 ```
 
@@ -83,7 +99,60 @@ First, try running the app without closing the connection. You should see a tabl
 
 Now, check the checkbox to close the connection and click "Rerun." You should see a message saying "Connection lost. Reconnecting..." and a new table with 10 rows. This is because the cached connection was discarded and a new connection was established.
 
-Next, remove the `validate=validate_connection` parameter from the decorator and rerun the app. You should see an error message saying `OperationalError: the connection is closed`. This is because the cached connection was not validated and was returned even though it was closed.
+Next, remove the `validate=validate_connection` parameter from the decorator and rerun the app. You should see an error message saying `InterfaceError: connection already closed`. This is because the cached connection was not validated and was returned even though it was closed.
+
+Here we've simulated a connection timeout by closing the connection. In practice, the above example can be simplified by removing the timeout simulation and using the `validate` parameter to validate the connection like this:
+
+```python
+import psycopg2
+import streamlit as st
+
+# Function to validate psycopg2 connection
+def check_connection(conn):
+    try:
+        # Check if connection is valid
+        conn.poll()
+        return True # Connection is valid, don't invalidate cache
+    except psycopg.OperationalError:
+        return False # Connection is invalid, invalidate cache
+
+# Get connection parameters
+host = "hh-pgsql-public.ebi.ac.uk"
+dbname = "pfmegrnargs"
+port = 5432
+user = "reader"
+password = "NWDMCE5xdipIjRrp"
+
+# Initialize and cache connection.
+# Connection will be reinitialized if validation function returns False.
+@st.experimental_singleton(validate=check_connection)
+def init_connection():
+    # Connect to the database
+    conn = psycopg2.connect(
+        host=host,
+        dbname=dbname,
+        port=port,
+        user=user,
+        password=password,
+    )
+    return conn
+
+conn = init_connection()
+
+# Create a cursor object
+cursor = conn.cursor()
+
+# Execute query
+cursor.execute("SELECT * FROM rnc_database ORDER BY id LIMIT %s", (10,))
+
+# Fetch data
+data = cursor.fetchall()
+
+# Create a Dataframe
+st.dataframe(data)
+```
+
+In this example, we used the `validate` parameter to validate a database connection. However, you can use this parameter to validate any type of cached output, such as a network request or a file.
 
 #### Example 2: Validating a API response
 
@@ -110,26 +179,25 @@ def validate_response(response):
         st.session_state.logs.append("Invalid response. Reconnecting...")
         return False
 
-
 @st.experimental_singleton(validate=validate_response)
 def get_api_data():
     url = "https://jsonplaceholder.typicode.com/posts/1"
     response = requests.get(url)
     return response
 
+data = get_api_data().json()
+st.session_state.logs.append("Data fetched successfully.")
+st.write(data)
 
-if __name__ == "__main__":
-    data = get_api_data().json()
-    st.session_state.logs.append("Data fetched successfully.")
-    st.write(data)
-    # simulate an invalid API response
-    if st.checkbox("Simulate invalid API response"):
-        st.session_state.status_code = "500"
-    else:
-        st.session_state.status_code = "200"
-    st.button("Rerun")
-    st.subheader("Logs")
-    st.write(st.session_state.logs)
+# simulate an invalid API response
+if st.checkbox("Simulate invalid API response"):
+    st.session_state.status_code = "500"
+else:
+    st.session_state.status_code = "200"
+
+st.button("Rerun")
+st.subheader("Logs")
+st.write(st.session_state.logs)
 ```
 
 The example is using a public API endpoint that returns a JSON object with a post information, and simulates an invalid API response by changing the validation function to return `False` when the `status_code` is not `200` and this is done after the checkbox is checked.
@@ -141,6 +209,29 @@ Now, check the checkbox to simulate an invalid API response and click "Rerun." Y
 Next, remove the `validate=validate_response` parameter from the `@st.experimental_singleton` decorator and rerun the app. You should see an error message saying "Attribute 'status_code' of 'NoneType' objects" This is because the cached response was not validated and was returned even though it was invalid.
 
 By using the `validate` parameter in the `@st.experimental_singleton` decorator, you can ensure that your cached data remains valid and prevent errors caused by stale or invalid data.
+
+If we do away with the simulation in the above example and use the `validate` parameter to validate the API response, the code can be simplified to:
+
+```python
+import requests
+import streamlit as st
+
+@st.experimental_singleton(
+    validate=lambda response: True if response.status_code == 200 else False
+)
+def get_api_data():
+    url = "https://jsonplaceholder.typicode.com/posts/1"
+    response = requests.get(url)
+    return response
+
+try:
+    response = get_api_data()
+    response.raise_for_status()
+    data = response.json()
+    st.write(data)
+except requests.exceptions.HTTPError as err:
+    st.error(err)
+```
 
 #### Best Practices
 
