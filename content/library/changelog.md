@@ -17,6 +17,22 @@ pip install --upgrade streamlit
 
 </Tip>
 
+## **Version 1.17.0**
+
+_Release date: January 12, 2023_
+
+**Notable Changes**
+
+- 🪄 [`@st.experimental_singleton`](/library/api-reference/performance/st.experimental_singleton#validating-the-cache) supports an optional `validate` parameter that accepts a validation function for cached data and is called each time the cached value is accessed.
+- 💾  [`@st.experimental_memo`](https://docs.streamlit.io/library/api-reference/performance/st.experimental_memo)’s `persist` parameter can also accept booleans.
+
+**Other Changes**
+
+- 📟 Multipage apps exclude `__init__.py` from the page selector ([#5890](https://github.com/streamlit/streamlit/pull/5890)).
+- 📐 The iframes of embedded apps have the ability to dynamically resize their height ([#5894](https://github.com/streamlit/streamlit/pull/5894)).
+- 🐞 Bug fix: thumb values of range sliders respect the container width ([#5913](https://github.com/streamlit/streamlit/pull/5913)).
+- 🪲 Bug fix: all examples in docstrings of Streamlit commands contain relevant imports to make them reproducible ([#5877](https://github.com/streamlit/streamlit/pull/5877)).
+
 ## **Version 1.16.0**
 
 _Release date: December 14, 2022_
