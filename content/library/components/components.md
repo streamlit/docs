@@ -14,7 +14,7 @@ Components are super easy to use:
 1. Start by finding the Component you'd like to use. Two great resources for this are:
 
    - The [Component gallery](https://streamlit.io/components)
-   - [This thead](https://discuss.streamlit.io/t/streamlit-components-community-tracker/4634),
+   - [This thread](https://discuss.streamlit.io/t/streamlit-components-community-tracker/4634),
      by Fanilo A. from our forums.
 
 2. Install the Component using your favorite Python package manager. This step and all following
