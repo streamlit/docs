@@ -2,8 +2,7 @@ FROM python:3.9-slim
 
 COPY sources.list /etc/apt/sources.list
 
-RUN apt-get update && apt-get install build-essential -y
-
+RUN apt-get update
 RUN pip install docstring_parser
 RUN pip install docutils
 RUN pip install lxml

@@ -149,15 +149,17 @@ export default function Home({ window, menu, gdpr_data }) {
             <H2 className="no-b-m">What's new</H2>
 
             <TileContainer>
-              <RefCard size="third" href="/library/api-reference/charts">
-                <i className="material-icons-sharp">palette</i>
-                <h4>Streamlit theme for Plotly & Altair</h4>
+              <RefCard
+                size="third"
+                href="/library/api-reference/performance/st.experimental_singleton#validating-the-cache"
+              >
+                <i className="material-icons-sharp">verified</i>
+                <h4>Singleton cache validation</h4>
                 <p>
-                  1.16.0 includes a new default theme for Altair and Plotly
-                  charts in Streamlit apps through the{" "}
-                  <code>theme="streamlit"</code>
-                  keyword argument in st.altair_chart, st.vega_lite_chart, and
-                  st.plotly_chart.
+                  <code>@st.experimental_singleton</code> supports an optional
+                  <code>validate</code> parameter that accepts a validation
+                  function for cached data and is called each time the cached
+                  value is accessed.
                 </p>
               </RefCard>
               <RefCard
@@ -184,16 +186,15 @@ export default function Home({ window, menu, gdpr_data }) {
                   also support Snowpark and PySpark DataFrames.
                 </p>
               </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/media/st.audio"
-              >
-                <i className="material-icons-sharp">music_note</i>
-                <h4>NumPy support for st.audio</h4>
+              <RefCard size="third" href="/library/api-reference/charts">
+                <i className="material-icons-sharp">palette</i>
+                <h4>Streamlit theme for Plotly & Altair</h4>
                 <p>
-                  <code>st.audio</code> can now properly play audio data from
-                  NumPy arrays with the <code>sample_rate</code> parameter.
-                  Click to see a demo. 🎶
+                  1.16.0 includes a new default theme for Altair and Plotly
+                  charts in Streamlit apps through the{" "}
+                  <code>theme="streamlit"</code>
+                  keyword argument in st.altair_chart, st.vega_lite_chart, and
+                  st.plotly_chart.
                 </p>
               </RefCard>
               <RefCard
