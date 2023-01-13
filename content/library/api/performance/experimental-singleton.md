@@ -12,6 +12,144 @@ This is an experimental feature. Experimental features and their APIs may change
 
 <Autofunction function="streamlit.experimental_singleton" />
 
+### Validating the cache
+
+The `@st.experimental_singleton` decorator is used to cache the output of a function, so that it only needs to be executed once. This can improve performance in certain situations, such as when a function takes a long time to execute or makes a network request.
+
+However, in some cases, the cached output may become invalid over time, such as when a database connection times out. To handle this, the `@st.experimental_singleton` decorator supports an optional `validate` parameter, which accepts a validation function that is called each time the cached output is accessed. If the validation function returns False, the cached output is discarded and the decorated function is executed again.
+
+Let's learn how to use the `validate` parameter to ensure that cached output remains valid. Let's also look at specific examples and best practices to help you understand how to use this feature effectively.
+
+#### Example 1: Validating a database connection
+
+In the example below, we connect to a [public PostgreSQL database](https://rnacentral.org/help/public-database) using the `psycopg` library. We use `@st.experimental_singleton` to cache the connection, and we use the `validate` parameter to validate the connection before returning it. If the connection is invalid, we reconnect and return the new connection. To simulate a connection timeout, we use a checkbox to close the connection. When the connection is closed, the cached value is discarded and the connection is reestablished:
+
+```python
+import psycopg
+from psycopg.rows import dict_row
+
+import streamlit as st
+
+if "logs" not in st.session_state:
+    st.session_state.logs = []
+
+# Function to validate psycopg connection
+def validate_connection(conn):
+    try:
+        with conn.cursor() as curs:
+            curs.execute("SELECT 1")
+            curs.fetchone()
+    except psycopg.OperationalError:
+        st.session_state.logs.append("Connection lost. Reconnecting...")
+        return False
+    return True
+
+
+# Initialize connection.
+@st.experimental_singleton(validate=validate_connection)
+def init_connection():
+    host = "hh-pgsql-public.ebi.ac.uk"
+    dbname = "pfmegrnargs"
+    port = 5432
+    user = "reader"
+    password = "NWDMCE5xdipIjRrp"
+
+    return psycopg.connect(
+        host=host,
+        dbname=dbname,
+        port=port,
+        user=user,
+        password=password,
+    )
+
+
+conn = init_connection()
+
+with conn.cursor(row_factory=dict_row) as curs:
+    curs.execute("SELECT * FROM rnc_database ORDER BY id LIMIT 10")
+    data = curs.fetchall()
+    st.session_state.logs.append("Data fetched successfully.")
+
+st.dataframe(data)
+st.write(st.session_state.logs)
+
+# Checkbox to close connection
+if st.checkbox("Close connection"):
+    conn.close()
+st.button("Rerun")
+```
+
+First, try running the app without closing the connection. You should see a table with 10 rows and a message saying "Data fetched successfully."
+
+Now, check the checkbox to close the connection and click "Rerun." You should see a message saying "Connection lost. Reconnecting..." and a new table with 10 rows. This is because the cached connection was discarded and a new connection was established.
+
+Next, remove the `validate=validate_connection` parameter from the decorator and rerun the app. You should see an error message saying `OperationalError: the connection is closed`. This is because the cached connection was not validated and was returned even though it was closed.
+
+#### Example 2: Validating a API response
+
+Let's say you have a function `get_api_data()` that returns some data from an API. The API is returning a 500 error if the response is not valid. We use the `validate` parameter to check the `status_code` attribute of the response object, which is set to 200 when the API returns a successful response. If the status code is not 200, the validation function returns `False` and the `get_api_data()` function is executed again, re-fetching the data from the API.
+
+Here is a working example of how to use the validate parameter to validate an API response:
+
+```python
+import requests
+
+import streamlit as st
+
+if "status_code" not in st.session_state:
+    st.session_state.status_code = "200"
+
+if "logs" not in st.session_state:
+    st.session_state.logs = []
+
+# A function to validate the response
+def validate_response(response):
+    if response.status_code == int(st.session_state.status_code):
+        return True
+    else:
+        st.session_state.logs.append("Invalid response. Reconnecting...")
+        return False
+
+
+@st.experimental_singleton(validate=validate_response)
+def get_api_data():
+    url = "https://jsonplaceholder.typicode.com/posts/1"
+    response = requests.get(url)
+    return response
+
+
+if __name__ == "__main__":
+    data = get_api_data().json()
+    st.session_state.logs.append("Data fetched successfully.")
+    st.write(data)
+    # simulate an invalid API response
+    if st.checkbox("Simulate invalid API response"):
+        st.session_state.status_code = "500"
+    else:
+        st.session_state.status_code = "200"
+    st.button("Rerun")
+    st.subheader("Logs")
+    st.write(st.session_state.logs)
+```
+
+The example is using a public API endpoint that returns a JSON object with a post information, and simulates an invalid API response by changing the validation function to return `False` when the `status_code` is not `200` and this is done after the checkbox is checked.
+
+In this example, first run the app without simulating an invalid API response. You should see the data returned from the API and a message saying "Data fetched successfully."
+
+Now, check the checkbox to simulate an invalid API response and click "Rerun." You should see a message saying "Invalid response. Reconnecting..." and the new data returned from the API. This is because the cached response was discarded and the `get_api_data()` function was executed again.
+
+Next, remove the `validate=validate_response` parameter from the `@st.experimental_singleton` decorator and rerun the app. You should see an error message saying "Attribute 'status_code' of 'NoneType' objects" This is because the cached response was not validated and was returned even though it was invalid.
+
+By using the `validate` parameter in the `@st.experimental_singleton` decorator, you can ensure that your cached data remains valid and prevent errors caused by stale or invalid data.
+
+#### Best Practices
+
+- Use the `validate` parameter when the cached output may become invalid over time, such as when a database connection or an API key expires.
+- Use the `validate` parameter judiciously, as it will add an additional overhead of calling the validation function each time the cached output is accessed.
+- Make sure that the validation function is as fast as possible, as it will be called each time the cached output is accessed.
+- Consider to validate cached data periodically, instead of each time it is accessed, to mitigate the performance impact.
+- Handle errors that may occur during validation and provide a fallback mechanism if the validation fails.
+
 ### Replay static `st` elements in cache-decorated functions
 
 Functions decorated with `@st.experimental_singleton` can contain static `st` elements. When a cache-decorated function is executed, we record the element and block messages produced, so the elements will appear in the app even when execution of the function is skipped because the result was cached.
