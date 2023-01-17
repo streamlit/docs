@@ -4,6 +4,7 @@ import classNames from "classnames";
 import Table from "./table";
 import { H2 } from "./headers";
 import Warning from "./warning";
+import Deprecation from "./deprecation";
 import { withRouter, useRouter } from "next/router";
 import Prism from "prismjs";
 import "prismjs/components/prism-python";
@@ -27,6 +28,8 @@ const Autofunction = ({
   streamlit,
   slug,
   hideHeader,
+  deprecated,
+  deprecatedText,
 }) => {
   const blockRef = useRef();
   const router = useRouter();
@@ -181,6 +184,13 @@ const Autofunction = ({
             </label>
           </form>
         </div>
+        {deprecated === true ? (
+          <Deprecation>
+            <p dangerouslySetInnerHTML={{ __html: deprecatedText }} />
+          </Deprecation>
+        ) : (
+          ""
+        )}
         <div
           className="code-desc"
           dangerouslySetInnerHTML={functionDescription}

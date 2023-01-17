@@ -47,6 +47,7 @@ import Collapse from "../components/blocks/collapse";
 import Download from "../components/utilities/download";
 import Flex from "../components/layouts/flex";
 import Image from "../components/blocks/image";
+import Deprecation from "../components/blocks/deprecation";
 import Important from "../components/blocks/important";
 import Note from "../components/blocks/note";
 import NoteSplit from "../components/blocks/noteSplit";
@@ -93,6 +94,7 @@ export default function Article({
     Note,
     NoteSplit,
     Tip,
+    Deprecation,
     Important,
     Code,
     Collapse,

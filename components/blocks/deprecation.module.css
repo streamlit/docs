@@ -1,0 +1,7 @@
+.Deprecated {
+  @apply bg-orange-10;
+}
+
+:global(.dark) .Deprecated {
+  background-color: #481d00;
+}
