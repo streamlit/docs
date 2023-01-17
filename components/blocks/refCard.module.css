@@ -1,5 +1,5 @@
 .Container {
-  @apply rounded-md border border-gray-30 overflow-hidden text-base cursor-pointer transition-all duration-75 flex flex-col;
+  @apply relative rounded-md border border-gray-30 text-base cursor-pointer transition-all duration-75 flex flex-col;
 }
 
 .Container:hover {
@@ -98,6 +98,29 @@
 .Container h5 a,
 .Container h6 a {
   @apply hidden;
+}
+
+/* Deprecation notice */
+.Container i.DeprecatedIcon {
+  @apply text-orange-80 absolute -right-2 -top-2 cursor-pointer;
+}
+
+.Container .DeprecationNotice:hover ~ blockquote {
+  @apply opacity-100;
+}
+
+.Container blockquote {
+  @apply p-3 pt-1 bg-orange-20 absolute -top-24 rounded-md transition ease-in-out opacity-0;
+}
+
+.Container blockquote::before {
+  @apply uppercase text-xs tracking-wider text-orange-80 font-semibold;
+  content: "Deprecation notice";
+}
+
+.Container blockquote p {
+  @apply m-0;
+  margin-bottom: 0 !important;
 }
 
 /* Code block */
