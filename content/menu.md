@@ -227,6 +227,7 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / API reference / Control flow / st.experimental_rerun
     url: /library/api-reference/control-flow/st.experimental_rerun
+    isDeprecated: true
     isVersioned: true
   - category: Streamlit library / API reference / Utilities
     url: /library/api-reference/utilities

@@ -35,6 +35,10 @@
   @apply text-gray-80 !important;
 }
 
+.Icon {
+  @apply absolute -left-6 text-base text-orange-80;
+}
+
 .Circle {
   @apply absolute w-2 h-2 -left-4 rounded-full hidden;
 }
