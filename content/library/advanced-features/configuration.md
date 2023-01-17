@@ -23,14 +23,16 @@ If changes to `.streamlit/config.toml` are made _while_ the app is running, the 
 2. In a **per-project config file** at `$CWD/.streamlit/config.toml`, where
    `$CWD` is the folder you're running Streamlit from.
 
-3. Through `STREAMLIT_*` **environment variables**, such as:
+3. On Stremlit Cloud, in a **repository config file** at `.streamlit/config.toml`. There can be only one configuration file regardless of the number of applications in the repository.
+
+4. Through `STREAMLIT_*` **environment variables**, such as:
 
    ```bash
    export STREAMLIT_SERVER_PORT=80
    export STREAMLIT_SERVER_COOKIE_SECRET=dontforgottochangeme
    ```
 
-4. As **flags on the command line** when running `streamlit run`:
+5. As **flags on the command line** when running `streamlit run`:
 
    ```bash
    streamlit run your_script.py --server.port 80
