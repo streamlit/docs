@@ -127,7 +127,7 @@ def get_function_docstring_dict(func, funcname, signature_prefix):
             ):
                 arg_obj["deprecated"] = {
                     "deprecated": True,
-                    "description": parse_rst(docstring_obj.deprecation.description),
+                    "deprecatedText": parse_rst(docstring_obj.deprecation.description),
                 }
             description["args"].append(arg_obj)
 

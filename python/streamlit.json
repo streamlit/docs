@@ -867,7 +867,6 @@
       "signature": "st.download_button(label, data, file_name=None, mime=None, key=None, help=None, on_click=None, args=None, kwargs=None, *, disabled=False)",
       "examples": "<blockquote>\n<p>Download a large DataFrame as a CSV:</p>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\n&#64;st.cache\ndef convert_df(df):\n    # IMPORTANT: Cache the conversion to prevent computation on every rerun\n    return df.to_csv().encode('utf-8')\n\ncsv = convert_df(my_large_df)\n\nst.download_button(\n    label=&quot;Download data as CSV&quot;,\n    data=csv,\n    file_name='large_df.csv',\n    mime='text/csv',\n)\n</pre>\n<p>Download a string as a file:</p>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\ntext_contents = '''This is some text'''\nst.download_button('Download some text', text_contents)\n</pre>\n<p>Download a binary file:</p>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\nbinary_contents = b'example content'\n# Defaults to 'application/octet-stream'\nst.download_button('Download binary file', binary_contents)\n</pre>\n<p>Download an image:</p>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\nwith open(&quot;flower.png&quot;, &quot;rb&quot;) as file:\n    btn = st.download_button(\n            label=&quot;Download image&quot;,\n            data=file,\n            file_name=&quot;flower.png&quot;,\n            mime=&quot;image/png&quot;\n          )\n</pre>\n\n                <iframe\n                    loading=\"lazy\"\n                    src=\"https://doc-download-buton.streamlitapp.com/?embedded=true\"\n                    style=\"\n                        width: 100%;\n                        border: none;\n                        height: 335px\n                    \"\n                ></iframe>\n                <sup><a href=\"https://doc-download-buton.streamlitapp.com/\" target=\"_blank\">\n                    (view standalone Streamlit app)\n                </a></sup>\n            </blockquote>\n",
       "description": "<p>Display a download button widget.</p>\n<p>This is useful when you would like to provide a way for your users\nto download a file directly from your app.</p>\n<p>Note that the data to be downloaded is stored in-memory while the\nuser is connected, so it's a good idea to keep file sizes under a\ncouple hundred megabytes to conserve memory.</p>\n",
-      "deprecated": "<p><tt class=\"docutils literal\">mime</tt> was deprecated in version 0.17.0 and will be renamed to\n<tt class=\"docutils literal\">mime_type</tt> in version 2.0.0.</p>\n",
       "args": [
         {
           "name": "label",
@@ -898,7 +897,7 @@
           "default": "s",
           "deprecated": {
             "deprecated": true,
-            "description": "<p><tt class=\"docutils literal\">mime</tt> was deprecated in version 0.17.0 and will be renamed to\n<tt class=\"docutils literal\">mime_type</tt> in version 2.0.0.</p>\n"
+            "deprecatedText": "<p><tt class=\"docutils literal\">mime</tt> was deprecated in version 0.17.0 and will be renamed to\n<tt class=\"docutils literal\">mime_type</tt> in version 2.0.0.</p>\n"
           }
         },
         {
@@ -1715,7 +1714,6 @@
       "signature": "st.metric(label, value, delta=None, delta_color=\"normal\", help=None, label_visibility=\"visible\")",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\nst.metric(label=&quot;Temperature&quot;, value=&quot;70 \u00b0F&quot;, delta=&quot;1.2 \u00b0F&quot;)\n</pre>\n\n                <iframe\n                    loading=\"lazy\"\n                    src=\"https://doc-metric-example1.streamlitapp.com/?embedded=true\"\n                    style=\"\n                        width: 100%;\n                        border: none;\n                        height: 210px\n                    \"\n                ></iframe>\n                <sup><a href=\"https://doc-metric-example1.streamlitapp.com/\" target=\"_blank\">\n                    (view standalone Streamlit app)\n                </a></sup>\n            <p><tt class=\"docutils literal\">st.metric</tt> looks especially nice in combination with <tt class=\"docutils literal\">st.columns</tt>:</p>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\ncol1, col2, col3 = st.columns(3)\ncol1.metric(&quot;Temperature&quot;, &quot;70 \u00b0F&quot;, &quot;1.2 \u00b0F&quot;)\ncol2.metric(&quot;Wind&quot;, &quot;9 mph&quot;, &quot;-8%&quot;)\ncol3.metric(&quot;Humidity&quot;, &quot;86%&quot;, &quot;4%&quot;)\n</pre>\n\n                <iframe\n                    loading=\"lazy\"\n                    src=\"https://doc-metric-example2.streamlitapp.com/?embedded=true\"\n                    style=\"\n                        width: 100%;\n                        border: none;\n                        height: 210px\n                    \"\n                ></iframe>\n                <sup><a href=\"https://doc-metric-example2.streamlitapp.com/\" target=\"_blank\">\n                    (view standalone Streamlit app)\n                </a></sup>\n            <p>The delta indicator color can also be inverted or turned off:</p>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\nst.metric(label=&quot;Gas price&quot;, value=4, delta=-0.5,\n    delta_color=&quot;inverse&quot;)\n\nst.metric(label=&quot;Active developers&quot;, value=123, delta=123,\n    delta_color=&quot;off&quot;)\n</pre>\n\n                <iframe\n                    loading=\"lazy\"\n                    src=\"https://doc-metric-example3.streamlitapp.com/?embedded=true\"\n                    style=\"\n                        width: 100%;\n                        border: none;\n                        height: 320px\n                    \"\n                ></iframe>\n                <sup><a href=\"https://doc-metric-example3.streamlitapp.com/\" target=\"_blank\">\n                    (view standalone Streamlit app)\n                </a></sup>\n            </blockquote>\n",
       "description": "<p>Display a metric in big bold font, with an optional indicator of how the metric changed.</p>\n<div class=\"admonition note\">\n<p class=\"first admonition-title\">Note</p>\n<p class=\"last\">If you want to display a large number, it may be a good idea to\nshorten it using packages like <a class=\"reference external\" href=\"https://github.com/azaitsev/millify\">millify</a>\nor <a class=\"reference external\" href=\"https://github.com/davidsa03/numerize\">numerize</a>. E.g. <tt class=\"docutils literal\">1234</tt> can be\ndisplayed as <tt class=\"docutils literal\">1.2k</tt> using <tt class=\"docutils literal\"><span class=\"pre\">st.metric(&quot;Short</span> number&quot;, millify(1234))</tt>.</p>\n</div>\n",
-      "deprecated": "<p><tt class=\"docutils literal\">delta_color</tt> was deprecated in version 0.17.0 and will be removed in\nversion 2.0.0.</p>\n",
       "args": [
         {
           "name": "label",
@@ -1739,7 +1737,7 @@
           "default": null,
           "deprecated": {
             "deprecated": true,
-            "description": "<p><tt class=\"docutils literal\">delta_color</tt> was deprecated in version 0.17.0 and will be removed in\nversion 2.0.0.</p>\n"
+            "deprecatedText": "<p><tt class=\"docutils literal\">delta_color</tt> was deprecated in version 0.17.0 and will be removed in\nversion 2.0.0.</p>\n"
           }
         },
         {
@@ -1750,7 +1748,7 @@
           "default": null,
           "deprecated": {
             "deprecated": true,
-            "description": "<p><tt class=\"docutils literal\">delta_color</tt> was deprecated in version 0.17.0 and will be removed in\nversion 2.0.0.</p>\n"
+            "deprecatedText": "<p><tt class=\"docutils literal\">delta_color</tt> was deprecated in version 0.17.0 and will be removed in\nversion 2.0.0.</p>\n"
           }
         },
         {
@@ -1874,7 +1872,7 @@
     },
     "streamlit.number_input": {
       "name": "number_input",
-      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.runtime.state.widgets.NoValue object at 0x7f7ab239fc40>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False, label_visibility=\"visible\")",
+      "signature": "st.number_input(label, min_value=None, max_value=None, value=<streamlit.runtime.state.widgets.NoValue object at 0x7fb8fc4c0df0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False, label_visibility=\"visible\")",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n\n                <iframe\n                    loading=\"lazy\"\n                    src=\"https://doc-number-input.streamlitapp.com/?embedded=true\"\n                    style=\"\n                        width: 100%;\n                        border: none;\n                        height: 260px\n                    \"\n                ></iframe>\n                <sup><a href=\"https://doc-number-input.streamlitapp.com/\" target=\"_blank\">\n                    (view standalone Streamlit app)\n                </a></sup>\n            </blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
@@ -4093,7 +4091,6 @@
       "signature": "element.download_button(self, label, data, file_name=None, mime=None, key=None, help=None, on_click=None, args=None, kwargs=None, *, disabled=False)",
       "examples": "<blockquote>\n<p>Download a large DataFrame as a CSV:</p>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\n&#64;st.cache\ndef convert_df(df):\n    # IMPORTANT: Cache the conversion to prevent computation on every rerun\n    return df.to_csv().encode('utf-8')\n\ncsv = convert_df(my_large_df)\n\nst.download_button(\n    label=&quot;Download data as CSV&quot;,\n    data=csv,\n    file_name='large_df.csv',\n    mime='text/csv',\n)\n</pre>\n<p>Download a string as a file:</p>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\ntext_contents = '''This is some text'''\nst.download_button('Download some text', text_contents)\n</pre>\n<p>Download a binary file:</p>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\nbinary_contents = b'example content'\n# Defaults to 'application/octet-stream'\nst.download_button('Download binary file', binary_contents)\n</pre>\n<p>Download an image:</p>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\nwith open(&quot;flower.png&quot;, &quot;rb&quot;) as file:\n    btn = st.download_button(\n            label=&quot;Download image&quot;,\n            data=file,\n            file_name=&quot;flower.png&quot;,\n            mime=&quot;image/png&quot;\n          )\n</pre>\n\n                <iframe\n                    loading=\"lazy\"\n                    src=\"https://doc-download-buton.streamlitapp.com/?embedded=true\"\n                    style=\"\n                        width: 100%;\n                        border: none;\n                        height: 335px\n                    \"\n                ></iframe>\n                <sup><a href=\"https://doc-download-buton.streamlitapp.com/\" target=\"_blank\">\n                    (view standalone Streamlit app)\n                </a></sup>\n            </blockquote>\n",
       "description": "<p>Display a download button widget.</p>\n<p>This is useful when you would like to provide a way for your users\nto download a file directly from your app.</p>\n<p>Note that the data to be downloaded is stored in-memory while the\nuser is connected, so it's a good idea to keep file sizes under a\ncouple hundred megabytes to conserve memory.</p>\n",
-      "deprecated": "<p><tt class=\"docutils literal\">mime</tt> was deprecated in version 0.17.0 and will be renamed to\n<tt class=\"docutils literal\">mime_type</tt> in version 2.0.0.</p>\n",
       "args": [
         {
           "name": "label",
@@ -4124,7 +4121,7 @@
           "default": "s",
           "deprecated": {
             "deprecated": true,
-            "description": "<p><tt class=\"docutils literal\">mime</tt> was deprecated in version 0.17.0 and will be renamed to\n<tt class=\"docutils literal\">mime_type</tt> in version 2.0.0.</p>\n"
+            "deprecatedText": "<p><tt class=\"docutils literal\">mime</tt> was deprecated in version 0.17.0 and will be renamed to\n<tt class=\"docutils literal\">mime_type</tt> in version 2.0.0.</p>\n"
           }
         },
         {
@@ -4731,7 +4728,6 @@
       "signature": "element.metric(self, label, value, delta=None, delta_color=\"normal\", help=None, label_visibility=\"visible\")",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\nst.metric(label=&quot;Temperature&quot;, value=&quot;70 \u00b0F&quot;, delta=&quot;1.2 \u00b0F&quot;)\n</pre>\n\n                <iframe\n                    loading=\"lazy\"\n                    src=\"https://doc-metric-example1.streamlitapp.com/?embedded=true\"\n                    style=\"\n                        width: 100%;\n                        border: none;\n                        height: 210px\n                    \"\n                ></iframe>\n                <sup><a href=\"https://doc-metric-example1.streamlitapp.com/\" target=\"_blank\">\n                    (view standalone Streamlit app)\n                </a></sup>\n            <p><tt class=\"docutils literal\">st.metric</tt> looks especially nice in combination with <tt class=\"docutils literal\">st.columns</tt>:</p>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\ncol1, col2, col3 = st.columns(3)\ncol1.metric(&quot;Temperature&quot;, &quot;70 \u00b0F&quot;, &quot;1.2 \u00b0F&quot;)\ncol2.metric(&quot;Wind&quot;, &quot;9 mph&quot;, &quot;-8%&quot;)\ncol3.metric(&quot;Humidity&quot;, &quot;86%&quot;, &quot;4%&quot;)\n</pre>\n\n                <iframe\n                    loading=\"lazy\"\n                    src=\"https://doc-metric-example2.streamlitapp.com/?embedded=true\"\n                    style=\"\n                        width: 100%;\n                        border: none;\n                        height: 210px\n                    \"\n                ></iframe>\n                <sup><a href=\"https://doc-metric-example2.streamlitapp.com/\" target=\"_blank\">\n                    (view standalone Streamlit app)\n                </a></sup>\n            <p>The delta indicator color can also be inverted or turned off:</p>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\nst.metric(label=&quot;Gas price&quot;, value=4, delta=-0.5,\n    delta_color=&quot;inverse&quot;)\n\nst.metric(label=&quot;Active developers&quot;, value=123, delta=123,\n    delta_color=&quot;off&quot;)\n</pre>\n\n                <iframe\n                    loading=\"lazy\"\n                    src=\"https://doc-metric-example3.streamlitapp.com/?embedded=true\"\n                    style=\"\n                        width: 100%;\n                        border: none;\n                        height: 320px\n                    \"\n                ></iframe>\n                <sup><a href=\"https://doc-metric-example3.streamlitapp.com/\" target=\"_blank\">\n                    (view standalone Streamlit app)\n                </a></sup>\n            </blockquote>\n",
       "description": "<p>Display a metric in big bold font, with an optional indicator of how the metric changed.</p>\n<div class=\"admonition note\">\n<p class=\"first admonition-title\">Note</p>\n<p class=\"last\">If you want to display a large number, it may be a good idea to\nshorten it using packages like <a class=\"reference external\" href=\"https://github.com/azaitsev/millify\">millify</a>\nor <a class=\"reference external\" href=\"https://github.com/davidsa03/numerize\">numerize</a>. E.g. <tt class=\"docutils literal\">1234</tt> can be\ndisplayed as <tt class=\"docutils literal\">1.2k</tt> using <tt class=\"docutils literal\"><span class=\"pre\">st.metric(&quot;Short</span> number&quot;, millify(1234))</tt>.</p>\n</div>\n",
-      "deprecated": "<p><tt class=\"docutils literal\">delta_color</tt> was deprecated in version 0.17.0 and will be removed in\nversion 2.0.0.</p>\n",
       "args": [
         {
           "name": "label",
@@ -4755,7 +4751,7 @@
           "default": null,
           "deprecated": {
             "deprecated": true,
-            "description": "<p><tt class=\"docutils literal\">delta_color</tt> was deprecated in version 0.17.0 and will be removed in\nversion 2.0.0.</p>\n"
+            "deprecatedText": "<p><tt class=\"docutils literal\">delta_color</tt> was deprecated in version 0.17.0 and will be removed in\nversion 2.0.0.</p>\n"
           }
         },
         {
@@ -4766,7 +4762,7 @@
           "default": null,
           "deprecated": {
             "deprecated": true,
-            "description": "<p><tt class=\"docutils literal\">delta_color</tt> was deprecated in version 0.17.0 and will be removed in\nversion 2.0.0.</p>\n"
+            "deprecatedText": "<p><tt class=\"docutils literal\">delta_color</tt> was deprecated in version 0.17.0 and will be removed in\nversion 2.0.0.</p>\n"
           }
         },
         {
@@ -4890,7 +4886,7 @@
     },
     "DeltaGenerator.number_input": {
       "name": "number_input",
-      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.runtime.state.widgets.NoValue object at 0x7f7ab239fc40>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False, label_visibility=\"visible\")",
+      "signature": "element.number_input(self, label, min_value=None, max_value=None, value=<streamlit.runtime.state.widgets.NoValue object at 0x7fb8fc4c0df0>, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False, label_visibility=\"visible\")",
       "example": "<blockquote>\n<pre class=\"doctest-block\">\nimport streamlit as st\n\nnumber = st.number_input('Insert a number')\nst.write('The current number is ', number)\n</pre>\n\n                <iframe\n                    loading=\"lazy\"\n                    src=\"https://doc-number-input.streamlitapp.com/?embedded=true\"\n                    style=\"\n                        width: 100%;\n                        border: none;\n                        height: 260px\n                    \"\n                ></iframe>\n                <sup><a href=\"https://doc-number-input.streamlitapp.com/\" target=\"_blank\">\n                    (view standalone Streamlit app)\n                </a></sup>\n            </blockquote>\n",
       "description": "Display a numeric input widget.",
       "args": [
