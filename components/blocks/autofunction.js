@@ -218,20 +218,30 @@ const Autofunction = ({
   for (const index in functionObject.args) {
     const row = {};
     const param = functionObject.args[index];
+    const isDeprecated =
+      param.deprecated && param.deprecated.deprecated === true;
     const description = param.description
       ? param.description
       : `<p>No description</p> `;
 
     if (param.is_optional) {
-      row[
-        "title"
-      ] = `<p> ${param.name} <span class='italic code'>(${param.type_name})</span></p> `;
-      row["body"] = `${description} `;
+      row["title"] = `<p class="${isDeprecated ? "deprecated" : ""}">
+            ${param.name}
+            <span class='italic code'>(${param.type_name})</span>
+          </p> `;
+      row["body"] = `
+        ${isDeprecated ? param.deprecated.deprecatedText : ""}
+        ${description}
+      `;
     } else {
-      row[
-        "title"
-      ] = `<p><span class='bold'>${param.name}</span> <span class='italic code'>(${param.type_name})</span></p> `;
-      row["body"] = `${description} `;
+      row["title"] = `<p class="${isDeprecated ? "deprecated" : ""}">
+            <span class='bold'>${param.name}</span>
+            <span class='italic code'>(${param.type_name})</span>
+          </p>`;
+      row["body"] = `
+        ${isDeprecated ? param.deprecated.deprecatedText : ""}
+        ${description}
+      `;
     }
 
     args.push(row);
