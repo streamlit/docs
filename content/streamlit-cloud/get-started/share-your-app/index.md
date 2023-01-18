@@ -105,7 +105,7 @@ From your deployed app you can easily add viewers from your Cloud logs menu.
 
 3. **Add Viewers in Settings.**
 
-   You can choose to allow anyone from a domain, for example allowing "foo.corp" would allow anyone with an email from foo.corp. Or you can choose to allow only selected viewers based on their individual emails. Make sure to enter them as a line-separated list.
+   You can choose to allow only selected viewers based on their individual emails. Make sure to enter them as a line-separated list.
 
    ![Add viewers](/images/streamlit-cloud/add-viewers.png)
 
@@ -123,7 +123,7 @@ You can also add viewers directly from your dashboard.
 
 2. **Add Viewers in Settings**
 
-   Click on the "Sharing" section in the App Settings and in the text input area, provide a line-separated list of email addresses for the users you wish to grant viewer access to your app, or provide a line-separated list of allowed email address domains. Click "Save."
+   Click on the "Sharing" section in the App Settings and in the text input area, provide a line-separated list of email addresses for the users you wish to grant viewer access to your app. Click "Save."
 
    <div style={{ maxWidth: '75%', marginBottom: '-3em', marginLeft: '5em' }}>
        <Image src="/images/streamlit-cloud/add-viewers.png" />
