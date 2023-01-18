@@ -220,6 +220,15 @@ const Autofunction = ({
     const param = functionObject.args[index];
     const isDeprecated =
       param.deprecated && param.deprecated.deprecated === true;
+    const deprecatedMarkup = isDeprecated
+      ? `
+      <div class="${styles.DeprecatedContent}">
+        <i class="material-icons-sharp">
+          info
+        </i>
+        ${param.deprecated.deprecatedText}
+      </div>`
+      : "";
     const description = param.description
       ? param.description
       : `<p>No description</p> `;
@@ -230,7 +239,7 @@ const Autofunction = ({
             <span class='italic code'>(${param.type_name})</span>
           </p> `;
       row["body"] = `
-        ${isDeprecated ? param.deprecated.deprecatedText : ""}
+        ${deprecatedMarkup}
         ${description}
       `;
     } else {
@@ -239,7 +248,7 @@ const Autofunction = ({
             <span class='italic code'>(${param.type_name})</span>
           </p>`;
       row["body"] = `
-        ${isDeprecated ? param.deprecated.deprecatedText : ""}
+        ${deprecatedMarkup}
         ${description}
       `;
     }

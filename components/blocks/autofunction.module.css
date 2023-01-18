@@ -127,3 +127,16 @@
 .CodeBlockContainer pre code :global(.table) {
   @apply inline;
 }
+
+/* Styles for deprecation notice in param */
+.DeprecatedContent {
+  @apply bg-orange-30 px-2 py-1 rounded-md text-sm mb-2 flex items-center;
+}
+
+.DeprecatedContent i {
+  @apply text-base text-orange-80 mr-2;
+}
+
+.DeprecatedContent p tt {
+  @apply text-sm;
+}
