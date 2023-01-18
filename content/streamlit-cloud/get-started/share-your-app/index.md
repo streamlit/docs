@@ -35,7 +35,7 @@ Google OAuth is enabled by default, so if you use Google, you're good to go.
 
 <!-- Once you have added someone's email address to your app's viewer list, that person will be able to sign in via Google Single Sign-On or your organization-specific Single Sign-On and view your app. They will also receive an email inviting them to view your app. If they are already logged in with that account in their browser (the usual case for most people) then they will automatically be able to view the app. If they are not logged in, or they have not been giving access, then they will see a page asking them to first log in. -->
 
-Once you have added someone's email address to your app's viewer list, that person will be able to sign in via Google Single Sign-On and view your app. They will also receive an email inviting them to view your app. If they are already logged in with that account in their browser (the usual case for most people) then they will automatically be able to view the app. If they are not logged in, or they have not been giving access, then they will see a page asking them to first log in.
+Once you have added someone's email address to your app's viewer list, that person will be able to sign in via Google Single Sign-On and view your app. They will also receive an email inviting them to view your app. If they are already logged in with that account in their browser (the usual case for most people) then they will automatically be able to view the app. If they are not logged in, or they have not been given access, then they will see a page asking them to first log in.
 
 <Tip>
 
