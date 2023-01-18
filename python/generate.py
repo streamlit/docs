@@ -8,14 +8,13 @@ import sys
 import types
 
 import docstring_parser
+import stoutput
 import streamlit
 import streamlit.components.v1 as components
+import utils
 from docutils.core import publish_parts
 from docutils.parsers.rst import directives
 from numpydoc.docscrape import NumpyDocString
-
-import stoutput
-import utils
 
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
@@ -96,6 +95,7 @@ def get_function_docstring_dict(func, funcname, signature_prefix):
             pass
 
         docstring_obj = docstring_parser.parse(docstring)
+
         short_description = docstring_obj.short_description
         long_description = str(
             ""
@@ -121,6 +121,14 @@ def get_function_docstring_dict(func, funcname, signature_prefix):
                 parse_rst(param.description) if param.description else ""
             )
             arg_obj["default"] = param.default
+
+            if docstring_obj.deprecation and param.arg_name in parse_rst(
+                docstring_obj.deprecation.description
+            ):
+                arg_obj["deprecated"] = {
+                    "deprecated": True,
+                    "description": parse_rst(docstring_obj.deprecation.description),
+                }
             description["args"].append(arg_obj)
 
         description["returns"] = []
