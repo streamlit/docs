@@ -130,13 +130,17 @@
 
 /* Styles for deprecation notice in param */
 .DeprecatedContent {
-  @apply bg-orange-30 px-2 py-1 rounded-md text-sm mb-2 flex items-center;
+  @apply bg-orange-20 text-gray-90 px-2 py-1 rounded-md text-sm mb-2 flex items-center;
 }
 
 .DeprecatedContent i {
-  @apply text-base text-orange-80 mr-2;
+  @apply text-base text-orange-70 mr-2;
 }
 
 .DeprecatedContent p tt {
   @apply text-sm;
+}
+
+:global(.dark) .DeprecatedContent {
+  @apply bg-orange-100/30;
 }

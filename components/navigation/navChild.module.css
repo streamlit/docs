@@ -36,7 +36,7 @@
 }
 
 .Icon {
-  @apply absolute -left-6 text-base text-orange-80;
+  @apply absolute -left-6 text-base text-orange-70;
 }
 
 .Circle {

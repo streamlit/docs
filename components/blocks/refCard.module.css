@@ -102,7 +102,7 @@
 
 /* Deprecation notice */
 .Container i.DeprecatedIcon {
-  @apply text-orange-80 absolute -right-2 -top-2 cursor-pointer;
+  @apply text-orange-70 absolute -right-2 -top-2 cursor-pointer;
 }
 
 .Container .DeprecationNotice:hover ~ blockquote {
@@ -110,12 +110,16 @@
 }
 
 .Container blockquote {
-  @apply p-3 pt-1 bg-orange-20 absolute rounded-md transition ease-in-out opacity-0 w-full;
+  @apply p-3 pt-1 bg-orange-10 absolute rounded-md transition ease-in-out opacity-0 w-full;
   bottom: 100%;
 }
 
+:global(.dark) .Container blockquote {
+  @apply bg-orange-100/30;
+}
+
 .Container blockquote::before {
-  @apply uppercase text-xs tracking-wider text-orange-80 font-semibold;
+  @apply uppercase text-xs tracking-wider text-orange-70 font-semibold;
   content: "Deprecation notice";
 }
 

@@ -3,5 +3,5 @@
 }
 
 :global(.dark) .Deprecated {
-  background-color: #481d00;
+  @apply bg-orange-100/30;
 }
