@@ -224,7 +224,7 @@ const Autofunction = ({
       ? `
       <div class="${styles.DeprecatedContent}">
         <i class="material-icons-sharp">
-          info
+          delete
         </i>
         ${param.deprecated.deprecatedText}
       </div>`
@@ -234,7 +234,8 @@ const Autofunction = ({
       : `<p>No description</p> `;
 
     if (param.is_optional) {
-      row["title"] = `<p class="${isDeprecated ? "deprecated" : ""}">
+      row["title"] = `
+          <p class="${isDeprecated ? "deprecated" : ""}">
             ${param.name}
             <span class='italic code'>(${param.type_name})</span>
           </p> `;
@@ -243,7 +244,8 @@ const Autofunction = ({
         ${description}
       `;
     } else {
-      row["title"] = `<p class="${isDeprecated ? "deprecated" : ""}">
+      row["title"] = `
+          <p class="${isDeprecated ? "deprecated" : ""}">
             <span class='bold'>${param.name}</span>
             <span class='italic code'>(${param.type_name})</span>
           </p>`;

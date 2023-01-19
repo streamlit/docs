@@ -15,7 +15,7 @@ const Deprecation = ({ children }) => {
       )}
     >
       <IconHeader
-        icon="priority_high"
+        icon="delete"
         rotate="0"
         title="Deprecation notice"
         background="orange-70"
