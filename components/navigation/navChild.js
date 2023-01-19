@@ -85,29 +85,29 @@ const NavChild = ({ slug, page, color, className }) => {
     <span className={styles.LinkContainer}>
       <Link href={url}>
         <a className={classNames("not-link", styles.Link)} target={target}>
-          {page.isDeprecated === true ? (
-            <i className={classNames("material-icons-sharp", styles.Icon)}>
-              {"info"}
-            </i>
-          ) : (
-            <span
-              className={classNames(
-                styles.Circle,
-                active ? styles.ActiveCircle : "",
-                color === "violet-70"
-                  ? styles.LibraryCircle
-                  : color === "l-blue-70"
-                  ? styles.CloudCircle
-                  : styles.KBCircle
-              )}
-            />
-          )}
+          <span
+            className={classNames(
+              styles.Circle,
+              active ? styles.ActiveCircle : "",
+              color === "violet-70"
+                ? styles.LibraryCircle
+                : color === "l-blue-70"
+                ? styles.CloudCircle
+                : styles.KBCircle
+            )}
+          />
           <span
             className={classNames(styles.PageName, active && styles.ActivePage)}
           >
             {page.name}
           </span>
-          {icon}
+          {page.isDeprecated === true ? (
+            <i className={classNames("material-icons-sharp", styles.Icon)}>
+              {"delete"}
+            </i>
+          ) : (
+            icon
+          )}
         </a>
       </Link>
       {accordion}

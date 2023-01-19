@@ -20,14 +20,19 @@ const RefCard = ({ children, size, href, deprecated }) => {
       <a className={classNames(styles.Container, tileSize)}>
         {deprecated === true ? (
           <div className={classNames("group", styles.DeprecationNotice)}>
-            <span className="h-3 w-3 p-0 transform rotate-45 absolute absolute right-[13px] -top-2 bg-orange-10 dark:hidden transition ease-in-out duration-100 opacity-0 group-hover:opacity-100"></span>
+            <span
+              className={classNames(
+                "h-3 w-3 p-0 transform rotate-45 absolute right-[13px] -top-2 bg-orange-10 transition ease-in-out duration-100 opacity-0 group-hover:opacity-100",
+                styles.DeprecatedArrow
+              )}
+            />
             <i
               className={classNames(
                 "material-icons-sharp",
                 styles.DeprecatedIcon
               )}
             >
-              {"info"}
+              {"delete"}
             </i>
           </div>
         ) : (
