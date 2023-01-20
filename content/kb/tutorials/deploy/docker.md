@@ -53,12 +53,11 @@ Here's an example `Dockerfile` that you can add to the root of your directory. i
 
 FROM python:3.9-slim
 
-EXPOSE 8501
-
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
     build-essential \
+    curl \
     software-properties-common \
     git \
     && rm -rf /var/lib/apt/lists/*
@@ -66,6 +65,10 @@ RUN apt-get update && apt-get install -y \
 RUN git clone https://github.com/streamlit/streamlit-example.git .
 
 RUN pip3 install -r requirements.txt
+
+EXPOSE 8501
+
+HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
 
 ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
 ```
@@ -88,13 +91,7 @@ Let’s walk through each line of the Dockerfile :
 
    </Tip>
 
-2. The [`EXPOSE`](https://docs.docker.com/engine/reference/builder/#expose) instruction informs Docker that the container listens on the specified network ports at runtime. Your container needs to listen to Streamlit’s (default) port 8501:
-
-   ```dockerfile
-   EXPOSE 8501
-   ```
-
-3. The `WORKDIR` instruction sets the working directory for any `RUN`, `CMD`, `ENTRYPOINT`, `COPY` and `ADD` instructions that follow it in the `Dockerfile` . Let’s set it to `app/` :
+2. The `WORKDIR` instruction sets the working directory for any `RUN`, `CMD`, `ENTRYPOINT`, `COPY` and `ADD` instructions that follow it in the `Dockerfile` . Let’s set it to `app/` :
 
    ```dockerfile
    WORKDIR /app
@@ -107,17 +104,18 @@ Let’s walk through each line of the Dockerfile :
    If you are using Streamlit version 1.10.0 or higher, you must set the `WORKDIR` to a directory other than the root directory. For example, you can set the `WORKDIR` to `/app` as shown in the example `Dockerfile` above.
    </Important>
 
-4. Install `git` so that we can clone the app code from a remote repo:
+3. Install `git` so that we can clone the app code from a remote repo:
 
    ```dockerfile
    RUN apt-get update && apt-get install -y \
        build-essential \
+       curl \
        software-properties-common \
        git \
        && rm -rf /var/lib/apt/lists/*
    ```
 
-5. Clone your code that lives in a remote repo to `WORKDIR`:
+4. Clone your code that lives in a remote repo to `WORKDIR`:
 
    a. If your code is in a public repo:
 
@@ -193,13 +191,25 @@ Let’s walk through each line of the Dockerfile :
 
    More generally, the idea is copy your app code from wherever it may live on your server into the container. If the code is not in the same directory as the Dockerfile, modify the above command to include the path to the code.
 
-6. Install your app’s [Python dependencies](/streamlit-cloud/get-started/deploy-an-app/app-dependencies#add-python-dependencies) from the cloned `requirements.txt` in the container:
+5. Install your app’s [Python dependencies](/streamlit-cloud/get-started/deploy-an-app/app-dependencies#add-python-dependencies) from the cloned `requirements.txt` in the container:
 
    ```dockerfile
    RUN pip3 install -r requirements.txt
    ```
 
-7. An [`ENTRYPOINT`](https://docs.docker.com/engine/reference/builder/#entrypoint) allows you to configure a container that will run as an executable. Here, it also contains the entire `streamlit run` command for your app, so you don’t have to from the command line:
+6. The [`EXPOSE`](https://docs.docker.com/engine/reference/builder/#expose) instruction informs Docker that the container listens on the specified network ports at runtime. Your container needs to listen to Streamlit’s (default) port 8501:
+
+   ```dockerfile
+   EXPOSE 8501
+   ```
+
+7. The [`HEALTHCHECK`](https://docs.docker.com/engine/reference/builder/#expose) instruction tells Docker how to test a container to check that it is still working. Your container needs to listen to Streamlit’s (default) port 8501:
+
+   ```dockerfile
+   HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
+   ```
+
+8. An [`ENTRYPOINT`](https://docs.docker.com/engine/reference/builder/#entrypoint) allows you to configure a container that will run as an executable. Here, it also contains the entire `streamlit run` command for your app, so you don’t have to from the command line:
 
    ```dockerfile
    ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
