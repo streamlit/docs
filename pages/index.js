@@ -242,26 +242,26 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
-                date="2023-01-10T16:05:00.000Z"
-                title="Build an image background remover in Streamlit"
-                text="Skip the fees and do it for free! 🎈"
-                link="https://blog.streamlit.io/build-an-image-background-remover-in-streamlit/"
+                date="2023-01-19T16:05:00.000Z"
+                title="Create a color palette from any image"
+                text="Learn how to come up with the perfect colors for your data visualization"
+                link="https://blog.streamlit.io/create-a-color-palette-from-any-image/"
                 image="/blog-1.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2023-01-05T16:05:00.000Z"
-                title="ScienceIO manages billions of rows of training data with Streamlit"
-                text="Learn how Gaurav Kaushik of ScienceIO created a dataset with over 2.3 billion labels"
-                link="https://blog.streamlit.io/scienceio-manages-billions-of-rows-of-training-data-with-streamlit/"
+                date="2023-01-12T16:05:00.000Z"
+                title="How to make a culture map"
+                text="Analyze multidimensional data with Steamlit!"
+                link="https://blog.streamlit.io/how-to-make-a-culture-map/"
                 image="/blog-2.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2022-12-19T16:05:00.000Z"
-                title="A new Streamlit theme for Altair and Plotly charts"
-                text="Our charts just got a new look!"
-                link="https://blog.streamlit.io/a-new-streamlit-theme-for-altair-and-plotly/"
+                date="2023-01-10T16:05:00.000Z"
+                title="Build an image background remover in Streamlit"
+                text="Skip the fees and do it for free! 🎈"
+                link="https://blog.streamlit.io/build-an-image-background-remover-in-streamlit/"
                 image="/blog-3.svg"
                 target="_blank"
               />
