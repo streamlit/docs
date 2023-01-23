@@ -1,7 +1,7 @@
 ---
 title: st.experimental_user
 slug: /library/api-reference/personalization/st.experimental_user
-description: st.experimental_user returns information about the logged-in user of private apps on Streamlit Cloud.
+description: st.experimental_user returns information about the logged-in user of private apps on Streamlit Community Cloud.
 ---
 
 # st.experimental_user
@@ -12,9 +12,9 @@ This is an experimental feature. Experimental features and their APIs may change
 
 </Important>
 
-`st.experimental_user` is a Streamlit command that returns information about the logged-in user on Streamlit Cloud. It allows developers to personalize apps for the user viewing the app. In a private Streamlit Cloud app, it returns a dictionary with the viewer's email. This value of this field is empty in a public Streamlit Cloud app to prevent leaking user emails to developers.
+`st.experimental_user` is a Streamlit command that returns information about the logged-in user on Streamlit Community Cloud. It allows developers to personalize apps for the user viewing the app. In a private Streamlit Community Cloud app, it returns a dictionary with the viewer's email. This value of this field is empty in a public Streamlit Community Cloud app to prevent leaking user emails to developers.
 
-The API closely resembles that of [`st.session_state`](/library/api-reference/session-state) and [`st.secrets`](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). It follows a field-based API, which is very similar to Python dictionaries.
+The API closely resembles that of [`st.session_state`](/library/api-reference/session-state) and [`st.secrets`](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). It follows a field-based API, which is very similar to Python dictionaries.
 
 ### Allowed fields
 
@@ -75,33 +75,33 @@ st.experimental_user.email = "hello"
 
 ### Context-dependent behavior
 
-The value of `st.experimental_user.email` is context-dependent. It returns a value depending on where the app is running. The [private](#private-app-on-streamlit-cloud) or [public](#public-app-on-streamlit-cloud) app can be running on Streamlit Cloud, [locally](#local-development), or on a [3rd party cloud provider](#app-deployed-on-a-3rd-party-cloud-provider). Let's look at the different scenarios.
+The value of `st.experimental_user.email` is context-dependent. It returns a value depending on where the app is running. The [private](#private-app-on-streamlit-cloud) or [public](#public-app-on-streamlit-cloud) app can be running on Streamlit Community Cloud, [locally](#local-development), or on a [3rd party cloud provider](#app-deployed-on-a-3rd-party-cloud-provider). Let's look at the different scenarios.
 
-#### **Private app on Streamlit Cloud**
+#### **Private app on Streamlit Community Cloud**
 
-Users need to be logged in to Streamlit Cloud to view private apps. If a user is not logged, they see:
+Users need to be logged in to Streamlit Community Cloud to view private apps. If a user is not logged, they see:
 
 <div style={{ maxWidth: '65%', marginBottom: '-1em', marginLeft: '8em' }}>
     <Image src="/images/private-app-access.png" />
 </div>
 
-If a user is logged in, `st.experimental_user.email` returns the user's email. Suppose a user logged in to Streamlit Cloud using jane@email.com:
+If a user is logged in, `st.experimental_user.email` returns the user's email. Suppose a user logged in to Streamlit Community Cloud using jane@email.com:
 
 ```python
 st.experimental_user.email
 # Returns: jane@email.com
 ```
 
-#### **Public app on Streamlit Cloud**
+#### **Public app on Streamlit Community Cloud**
 
-Currently, `st.experimental_user.email` returns information about the logged-in user of _private apps_ on Streamlit Cloud. If used in a public app, it returns `None`. For example:
+Currently, `st.experimental_user.email` returns information about the logged-in user of _private apps_ on Streamlit Community Cloud. If used in a public app, it returns `None`. For example:
 
 ```python
 st.experimental_user.email
 # Returns: None
 ```
 
-This value of this field is empty in a public Streamlit Cloud app to prevent leaking user emails to developers.
+This value of this field is empty in a public Streamlit Community Cloud app to prevent leaking user emails to developers.
 
 #### **Local development**
 
@@ -166,5 +166,5 @@ if st.experimental_user.email:
 ### Caveats and limitations
 
 - `st.experimental_user` is **read-only**. You cannot update or modify its value. Doing so will throw a `StreamlitAPIException`.
-- A valid email is returned only if the user is logged in to Streamlit Cloud and the app is private. Else, `None` or test@localhost.com is returned.
+- A valid email is returned only if the user is logged in to Streamlit Community Cloud and the app is private. Else, `None` or test@localhost.com is returned.
 - This is an experimental feature. Experimental features and their APIs may change or be removed at any time. To learn more, click [here](/library/advanced-features/prerelease#experimental-features).

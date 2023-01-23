@@ -1,6 +1,6 @@
 ---
 title: Stable outbound IP address
-slug: /streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/stable-outbound-ip-addresses
+slug: /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/stable-outbound-ip-addresses
 ---
 
 # Stable outbound IP address
@@ -9,7 +9,7 @@ Has your IT team requested IP addresses to allowlist within your organization's 
 
 ## Connecting to private data sources
 
-![Deploy an app](/images/streamlit-cloud/deploy-an-app.gif)
+![Deploy an app](/images/streamlit-community-cloud/deploy-an-app.gif)
 
 Streamlit provides a Secrets feature that enables you to connect to your private data sources over a secure protocol within your app, such as TLS. It's super simple. Create a user account or access token on your data store, and then copy it into our Secrets UI. We'll store it securely and make it available to your Streamlit application code in an environment variable. From there, you can use any standard Python library for connecting to your database.
 
@@ -30,6 +30,6 @@ For more information about the specifics of allowlisting IP addresses with your 
 
 <Note>
 
-While responses to requests sent to [share.streamlit.io](share.streamlit.io) will show the source address as  `35.201.127.49` (the IP address of Streamlit's load balancer), apps will only try to initiate outbound connections through the six stable outbound IP addresses listed above.
+While responses to requests sent to [share.streamlit.io](share.streamlit.io) will show the source address as `35.201.127.49` (the IP address of Streamlit's load balancer), apps will only try to initiate outbound connections through the six stable outbound IP addresses listed above.
 
 </Note>

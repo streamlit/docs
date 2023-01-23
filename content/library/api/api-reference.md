@@ -1093,7 +1093,7 @@ if st.button("Clear All"):
 
 #### User info
 
-`st.experimental_user` returns information about the logged-in user of private apps on Streamlit Cloud.
+`st.experimental_user` returns information about the logged-in user of private apps on Streamlit Community Cloud.
 
 ```python
 if st.experimental_user.email == "foo@corp.com":

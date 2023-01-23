@@ -1,11 +1,11 @@
 ---
 title: App dependencies
-slug: /streamlit-cloud/get-started/deploy-an-app/app-dependencies
+slug: /streamlit-community-cloud/get-started/deploy-an-app/app-dependencies
 ---
 
 # App dependencies
 
-The main reason that apps fail to build properly is because Streamlit Cloud can't find your dependencies! So make sure you:
+The main reason that apps fail to build properly is because Streamlit Community Cloud can't find your dependencies! So make sure you:
 
 1. Add a [requirements file](#add-python-dependencies) for Python dependencies.
 2. (optional) Add a `packages.txt` file to manage any external dependencies (i.e Linux dependencies outside Python environment).
@@ -25,7 +25,7 @@ Streamlit looks at your requirements file's filename to determine which Python d
 | :----------------- | :--------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
 | `Pipfile`          | pipenv                 | **[docs](https://pipenv-fork.readthedocs.io/en/latest/basics.html)**                                                                  |
 | `environment.yml`  | conda                  | **[docs](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually)** |
-| `requirements.txt` | pip                    | **[docs](https://pip.pypa.io/en/stable/user_guide/#requirements-files)**                                                                                |
+| `requirements.txt` | pip                    | **[docs](https://pip.pypa.io/en/stable/user_guide/#requirements-files)**                                                              |
 | `pyproject.toml`   | poetry                 | **[docs](https://python-poetry.org/docs/basic-usage/)**                                                                               |
 
 <Note>
@@ -33,7 +33,7 @@ Streamlit looks at your requirements file's filename to determine which Python d
 Only include packages in your requirements file that are not distributed with a standard Python
 installation. If [any of the modules from base Python](https://docs.python.org/3/py-modindex.html)
 are included in the requirements file, you will get an error when you try to deploy. Additionally, we recommend that you
-use the latest version of Streamlit to ensure full Streamlit Cloud functionality.
+use the latest version of Streamlit to ensure full Streamlit Community Cloud functionality.
 
 </Note>
 

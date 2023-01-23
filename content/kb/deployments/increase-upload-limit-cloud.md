@@ -1,9 +1,9 @@
 ---
-title: How do I increase the upload limit of st.file_uploader on Streamlit Cloud?
+title: How do I increase the upload limit of st.file_uploader on Streamlit Community Cloud?
 slug: /knowledge-base/deploy/increase-file-uploader-limit-streamlit-cloud
 ---
 
-# How do I increase the upload limit of st.file_uploader on Streamlit Cloud?
+# How do I increase the upload limit of st.file_uploader on Streamlit Community Cloud?
 
 ## Overview
 
@@ -26,11 +26,11 @@ Streamlit provides [four different ways to set configuration options](/library/a
    streamlit run your_script.py --server.maxUploadSize 200
    ```
 
-Which of the four options should you choose for an app deployed to [Streamlit Cloud](/streamlit-cloud)? 🤔
+Which of the four options should you choose for an app deployed to [Streamlit Community Cloud](/streamlit-community-cloud)? 🤔
 
 ## Solution
 
-When deploying your app to Streamlit Cloud, you should **use option 1**. Namely, set the `maxUploadSize` config option in a global config file (`.streamlit/config.toml`) uploaded to your app's GitHub repo. 🎈
+When deploying your app to Streamlit Community Cloud, you should **use option 1**. Namely, set the `maxUploadSize` config option in a global config file (`.streamlit/config.toml`) uploaded to your app's GitHub repo. 🎈
 
 For example, to increase the upload limit to 400MB, upload a `.streamlit/config.toml` file containing the following lines to your app's GitHub repo:
 
