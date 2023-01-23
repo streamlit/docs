@@ -9,7 +9,7 @@ Below are a few common errors that occur when users spin up their own solution
 to host a Streamlit app remotely.
 
 To learn about a deceptively simple way to host Streamlit apps that avoids all
-the issues below, check out [Streamlit Cloud](https://streamlit.io/cloud).
+the issues below, check out [Streamlit Community Cloud](https://streamlit.io/cloud).
 
 ### Symptom #1: The app never loads
 

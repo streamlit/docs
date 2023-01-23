@@ -1,6 +1,6 @@
 ---
 title: Share your app
-slug: /streamlit-cloud/get-started/share-your-app
+slug: /streamlit-community-cloud/get-started/share-your-app
 ---
 
 # Share your app
@@ -11,7 +11,7 @@ Your app is now live at that fixed URL, so go wild and share it with whomever yo
 
 - [Sharing private apps](#sharing-private-apps)
 - [Sharing public apps](#sharing-public-apps)
-- [Adding developers](/streamlit-cloud/get-started/share-your-app#adding-developers)
+- [Adding developers](/streamlit-community-cloud/get-started/share-your-app#adding-developers)
 
 There are three primary ways to share your app with viewers. You can either directly add viewers from the in-app share menu, or do so from the Cloud logs menu, or from your app dashboard.
 
@@ -19,17 +19,17 @@ There are three primary ways to share your app with viewers. You can either dire
 
 By default all apps deployed from private source code are private to the developers in the workspace. Your apps will not be visible to anyone else unless you grant them explicit permission. You can grant permission either in your workspace or from the app itself.
 
-![Sharing private apps](/images/streamlit-cloud/sharing-private-apps.png)
+![Sharing private apps](/images/streamlit-community-cloud/sharing-private-apps.png)
 
 ### What is viewer auth?
 
-<!-- Viewer auth allows you to restrict the viewers of your app. To access your app, users have to authenticate using an email-based passwordless login or [single sign-on (SSO)](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso). -->
+<!-- Viewer auth allows you to restrict the viewers of your app. To access your app, users have to authenticate using an email-based passwordless login or [single sign-on (SSO)](/streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso). -->
 
 Viewer auth allows you to restrict the viewers of your app. To access your app, users have to authenticate using an email-based passwordless login or Google OAuth.
 
 ### Configuring single sign-on
 
-<!-- Google OAuth is enabled by default, so if your company uses Google, you're good to go. If you've configured SSO for your organization via ADFS, Azure, Okta, or generic SAML, you will also be able to add email addresses and domains which are administered by those services. Read [here](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso) for how to enable SSO for your org. -->
+<!-- Google OAuth is enabled by default, so if your company uses Google, you're good to go. If you've configured SSO for your organization via ADFS, Azure, Okta, or generic SAML, you will also be able to add email addresses and domains which are administered by those services. Read [here](/streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso) for how to enable SSO for your org. -->
 
 Google OAuth is enabled by default, so if you use Google, you're good to go.
 
@@ -39,7 +39,7 @@ Once you have added someone's email address to your app's viewer list, that pers
 
 <Tip>
 
-Having trouble granting access? Is a viewer having trouble logging on? See our [troubleshooting section](/streamlit-cloud/troubleshooting) for help.
+Having trouble granting access? Is a viewer having trouble logging on? See our [troubleshooting section](/streamlit-community-cloud/troubleshooting) for help.
 
 </Tip>
 
@@ -56,13 +56,13 @@ You can add viewers from the in-app share menu by clicking the "Share" button in
 1. **Click "Share" in the top right corner.**
 
 <div style={{ marginBottom: '-3em', marginLeft: '2em' }}>
-    <Image src="/images/streamlit-cloud/in-app-share-menu-1.png" />
+    <Image src="/images/streamlit-community-cloud/in-app-share-menu-1.png" />
 </div>
 
 2. **Enter the email addresses of the viewers.**
 
 <div style={{ maxWidth: '55%', marginBottom: '-3em', marginLeft: '10em' }}>
-    <Image src="/images/streamlit-cloud/in-app-share-menu-2.png" />
+    <Image src="/images/streamlit-community-cloud/in-app-share-menu-2.png" />
 </div>
 
 3. **Click "Invite".**
@@ -70,13 +70,13 @@ You can add viewers from the in-app share menu by clicking the "Share" button in
    It's that easy! The viewers you have added will receive an email inviting them to visit your app. The most recently added viewers will appear at the top of the list in the in-app share menu.
 
 <div style={{ maxWidth: '75%', marginBottom: '-1em', marginLeft: '4em' }}>
-    <Image src="/images/streamlit-cloud/app-invite-notification.png" />
+    <Image src="/images/streamlit-community-cloud/app-invite-notification.png" />
 </div>
 
 To remove a viewer, simply hover over their email address and click "X" that appears to the right:
 
 <div style={{ maxWidth: '55%', marginBottom: '-1em', marginLeft: '10em' }}>
-    <Image src="/images/streamlit-cloud/in-app-share-menu-3.png" />
+    <Image src="/images/streamlit-community-cloud/in-app-share-menu-3.png" />
 </div>
 
 Developers, invited viewers, and members of your workspace can all see the in-app share menu, read the list of viewers, and add and remove viewers.
@@ -94,20 +94,20 @@ From your deployed app you can easily add viewers from your Cloud logs menu.
 1. **Select "Manage app" in the lower right corner.**
 
 <div style={{ maxWidth: '45%', marginBottom: '-3em', marginLeft: '10em' }}>
-    <Image src="/images/streamlit-cloud/manage-app.png" />
+    <Image src="/images/streamlit-community-cloud/manage-app.png" />
 </div>
 
 2. **Choose "Settings" from the menu.**
 
 <div style={{ maxWidth: '45%', marginBottom: '-3em', marginLeft: '10em' }}>
-    <Image src="/images/streamlit-cloud/settings-menu.png" />
+    <Image src="/images/streamlit-community-cloud/settings-menu.png" />
 </div>
 
 3. **Add Viewers in Settings.**
 
    You can choose to allow only selected viewers based on their individual emails. Make sure to enter them as a line-separated list.
 
-   ![Add viewers](/images/streamlit-cloud/add-viewers.png)
+   ![Add viewers](/images/streamlit-community-cloud/add-viewers.png)
 
 ### Adding viewers from the app dashboard
 
@@ -118,7 +118,7 @@ You can also add viewers directly from your dashboard.
    Navigate to the app you want to add viewer to and click the hamburger icon to select "Settings."
 
    <div style={{ maxWidth: '75%', marginBottom: '-3em', marginLeft: '5em' }}>
-       <Image src="/images/streamlit-cloud/edit-secrets.png" />
+       <Image src="/images/streamlit-community-cloud/edit-secrets.png" />
    </div>
 
 2. **Add Viewers in Settings**
@@ -126,7 +126,7 @@ You can also add viewers directly from your dashboard.
    Click on the "Sharing" section in the App Settings and in the text input area, provide a line-separated list of email addresses for the users you wish to grant viewer access to your app. Click "Save."
 
    <div style={{ maxWidth: '75%', marginBottom: '-3em', marginLeft: '5em' }}>
-       <Image src="/images/streamlit-cloud/add-viewers.png" />
+       <Image src="/images/streamlit-community-cloud/add-viewers.png" />
    </div>
 
 ## Sharing public apps
@@ -159,7 +159,7 @@ Be sure to replace `https://<your-custom-subdomain>.streamlit.app` with the URL 
 
 Inviting other developers is simple, just invite them to your GitHub repository so that you can code on apps together, and then have them log in to [share.streamlit.io](https://share.streamlit.io). If you are working as a team, you likely are already in the same repos, so skip step 1 and go straight to having them log into [share.streamlit.io](https://share.streamlit.io)
 
-Streamlit Cloud inherits developer permissions from GitHub, so when your teammates log in, they will automatically view the workspaces you share. From there you can all deploy, manage, and share apps together.
+Streamlit Community Cloud inherits developer permissions from GitHub, so when your teammates log in, they will automatically view the workspaces you share. From there you can all deploy, manage, and share apps together.
 
 ### Pushing new code
 

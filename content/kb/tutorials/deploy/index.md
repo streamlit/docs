@@ -8,11 +8,11 @@ slug: /knowledge-base/tutorials/deploy
 This sections contains step-by-step guides on how to deploy Streamlit apps to various cloud platforms and services. We have deployment guides for:
 
 <DataSourcesContainer>
-<DataSourcesCard href="/streamlit-cloud/get-started">
+<DataSourcesCard href="/streamlit-community-cloud/get-started">
 
 <Image pure alt="screenshot" src="/images/deploy/streamlit-cloud.png" />
 
-<h5 align="center">Streamlit Cloud</h5>
+<h5 align="center">Streamlit Community Cloud</h5>
 
 </DataSourcesCard>
 

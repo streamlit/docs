@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-slug: /streamlit-cloud/troubleshooting
+slug: /streamlit-community-cloud/troubleshooting
 ---
 
 # Troubleshooting
@@ -11,11 +11,11 @@ Sorry to hear you're having issues! Please take a look at some frequently asked 
 
 1. [General help](#general-help)
 2. [Deploying apps](#deploying-apps)
-3. [Sharing and accessing apps](/streamlit-cloud/troubleshooting#sharing-and-accessing-apps)
-4. [Data and app security](/streamlit-cloud/troubleshooting#data-and-app-security)
-<!-- 5. [Billing and administration](/streamlit-cloud/troubleshooting#billing-and-administration) -->
-5. [GitHub integration](/streamlit-cloud/troubleshooting#github-integration)
-6. [Limitations and known issues](/streamlit-cloud/troubleshooting#limitations-and-known-issues)
+3. [Sharing and accessing apps](/streamlit-community-cloud/troubleshooting#sharing-and-accessing-apps)
+4. [Data and app security](/streamlit-community-cloud/troubleshooting#data-and-app-security)
+<!-- 5. [Billing and administration](/streamlit-community-cloud/troubleshooting#billing-and-administration) -->
+5. [GitHub integration](/streamlit-community-cloud/troubleshooting#github-integration)
+6. [Limitations and known issues](/streamlit-community-cloud/troubleshooting#limitations-and-known-issues)
 
 ## General help
 
@@ -34,7 +34,7 @@ If you want, we are also happy to help lend an eye on your app development. Just
 
 It's possible it just isn't showing up even though it is already there. Try typing it in. If we don't recognize it, you'll see the message below with a link to click and give access.
 
-![Troubleshooting deploy page](/images/streamlit-cloud/troubleshooting-deploy-page.png)
+![Troubleshooting deploy page](/images/streamlit-community-cloud/troubleshooting-deploy-page.png)
 
 If for some reason that doesn't work, please try logging out and back in again to make sure the change took effect. And if that doesn't work - please let us know and we'll get you sorted!
 
@@ -46,7 +46,7 @@ To deploy an app for the first time you must have admin-level access to the repo
 
 When deploying an app, under advanced settings, you can choose which version of Python you wish your app to use.
 
-![Streamlit Cloud Advanced settings](/images/streamlit-cloud/advanced-settings.png)
+![Streamlit Community Cloud Advanced settings](/images/streamlit-community-cloud/advanced-settings.png)
 
 ### How do I store files locally?
 
@@ -62,7 +62,7 @@ If you have really big or binary data that you change frequently, and git is fee
 
 ### My app is running into issues while deploying
 
-Check your Cloud logs by clicking on the "Manage app" expander in the bottom right corner of your screen. Often the trouble is due to a dependency not being declared. See here for [more information on dependency management](/streamlit-cloud/get-started/deploy-an-app/app-dependencies).
+Check your Cloud logs by clicking on the "Manage app" expander in the bottom right corner of your screen. Often the trouble is due to a dependency not being declared. See here for [more information on dependency management](/streamlit-community-cloud/get-started/deploy-an-app/app-dependencies).
 
 <!-- If that's not the issue, then please send your Streamlit contact the logs and warning you are seeing and we'll help get you sorted! -->
 
@@ -75,7 +75,7 @@ If your app is running slowly or you're hitting the 'Argh' page, we first highly
 - [Common app problems: Resource limits](https://blog.streamlit.io/common-app-problems-resource-limits/)
 - [3 steps to fix app memory leaks](https://blog.streamlit.io/3-steps-to-fix-app-memory-leaks/)
 
-If you're still having issues, click [here](/streamlit-cloud/get-started/manage-your-app#app-resources-and-limits) to learn more about resource limits.
+If you're still having issues, click [here](/streamlit-community-cloud/get-started/manage-your-app#app-resources-and-limits) to learn more about resource limits.
 
 ### Can I get a custom URL for my app?
 
@@ -85,7 +85,7 @@ Yes! You can find [instructions for setting a custom subdomain here](/knowledge-
 
 ### I don't have SSO. How do I sign in to Streamlit?
 
-Don't have SSO? No problem! You can sign in to Streamlit with your email address. [Click here](/streamlit-cloud/get-started#sign-in-with-email) for step-by-step instructions on how to sign in with email.
+Don't have SSO? No problem! You can sign in to Streamlit with your email address. [Click here](/streamlit-community-cloud/get-started#sign-in-with-email) for step-by-step instructions on how to sign in with email.
 
 <!-- ### How do I add developers to my Streamlit for Teams account?
 
@@ -93,11 +93,11 @@ If you are on the same GitHub repo then you will automatically be added to the s
 
 ### How do I add viewers to my Streamlit apps?
 
-<!-- By default, all apps deployed with Streamlit Cloud Teams and Enterprise are private—which means that others in your company won't be able to view them unless you give them explicit permission. To add viewers, [configure single sign-on](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso) with your organization's SSO provider.
+<!-- By default, all apps deployed with Streamlit Community Cloud Teams and Enterprise are private—which means that others in your company won't be able to view them unless you give them explicit permission. To add viewers, [configure single sign-on](/streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso) with your organization's SSO provider.
 
 If you cannot implement single sign-on, but want to secure your Streamlit app with passwords, read our guide on [authentication without SSO](/knowledge-base/deploy/authentication-without-sso). Note: while this technique adds some level of security, it is **NOT** comparable to proper authentication with an SSO provider. -->
 
-Viewer auth allows you to restrict the viewers of your private app. To access your app, users have to authenticate using an email-based passwordless login or Google OAuth. To learn more about how to share your public and private apps with viewers, click [here](/streamlit-cloud/get-started/share-your-app).
+Viewer auth allows you to restrict the viewers of your private app. To access your app, users have to authenticate using an email-based passwordless login or Google OAuth. To learn more about how to share your public and private apps with viewers, click [here](/streamlit-community-cloud/get-started/share-your-app).
 
 ### Do viewers need access to the GitHub repo?
 
@@ -108,12 +108,12 @@ Nope! You only need access to the GitHub repo if you want to push changes to the
 A 404 error is displayed to unauthorized viewers to avoid providing any unnecessary information about your app to unintended viewers. Users who satisfy any of the following conditions will see a 404 error when attempting to view your app after you have configured viewer auth:
 
 - User is not logged in with Google SSO.
-- User is not included in the [list of viewers](/streamlit-cloud/get-started/share-your-app#adding-viewers-from-the-app-dashboard) provided in the app settings.
+- User is not included in the [list of viewers](/streamlit-community-cloud/get-started/share-your-app#adding-viewers-from-the-app-dashboard) provided in the app settings.
 - User lacks read access to your app's GitHub repo.
 <!-- - User has read access to your app's GitHub repo but is not enrolled in Streamlit for Teams beta. -->
 - User has read access to your app's GitHub repo but is not enrolled in Community Cloud.
 
-![Four Oh Four](/images/streamlit-cloud/404.png)
+![Four Oh Four](/images/streamlit-community-cloud/404.png)
 
 ### I've added someone to the viewer list but they still see a 404 error when attempting to view the app
 
@@ -129,11 +129,11 @@ If a user is still seeing a 404 error after their email address has been added t
 
 ### How will Streamlit secure my data?
 
-Streamlit takes a number of industry best-practice measures to ensure your code, data, and apps are all secure. Read more in our [Trust and Security memo](/streamlit-cloud/trust-and-security).
+Streamlit takes a number of industry best-practice measures to ensure your code, data, and apps are all secure. Read more in our [Trust and Security memo](/streamlit-community-cloud/trust-and-security).
 
 ### How do I set up SSO for my organization?
 
-<!-- If you use Google for authentication, you're all set. Otherwise please refer to our [SSO configuration guides](/streamlit-cloud/get-started/share-your-app/configuring-single-on-sso) on how to set up with your SSO provider of choice. -->
+<!-- If you use Google for authentication, you're all set. Otherwise please refer to our [SSO configuration guides](/streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso) on how to set up with your SSO provider of choice. -->
 
 Community Cloud uses Google OAuth, by default. If you use Google for authentication you're all set.
 
@@ -150,7 +150,7 @@ Your workspace is sized to a certain number of users, apps, and resources for th
 Click on "Settings" in the top right corner of your workspace to open the "Workspace settings" menu. Next, click the "Billing and plans" tab to set up billing in Stripe.
 
 <div style={{ marginBottom: '-2em' }}>
-  <Image src="/images/streamlit-cloud/setup-billing.png" />
+  <Image src="/images/streamlit-community-cloud/setup-billing.png" />
 </div>
 
 ### When will I be charged?
@@ -169,7 +169,7 @@ In order to deploy your app, Streamlit requires access to your app's source code
 
 ### After deploying my private-repo app, I received an email from GitHub saying a new public key was added to my repo. Is this expected?
 
-**This is the expected behavior**. When you try to deploy an app that lives in a private repo, Streamlit Cloud needs to get access to that repo somehow. For this, we create a read-only [GitHub Deploy Key](https://docs.github.com/en/free-pro-team@latest/developers/overview/managing-deploy-keys#deploy-keys) then access your repo using a public SSH key. When we set this up, GitHub notifies admins of the repo that the key was created as a security measure.
+**This is the expected behavior**. When you try to deploy an app that lives in a private repo, Streamlit Community Cloud needs to get access to that repo somehow. For this, we create a read-only [GitHub Deploy Key](https://docs.github.com/en/free-pro-team@latest/developers/overview/managing-deploy-keys#deploy-keys) then access your repo using a public SSH key. When we set this up, GitHub notifies admins of the repo that the key was created as a security measure.
 
 ### What happens when a user's permissions change on GitHub?
 

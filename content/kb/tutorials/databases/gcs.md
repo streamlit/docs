@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/gcs
 
 ## Introduction
 
-This guide explains how to securely access files on Google Cloud Storage from Streamlit Cloud. It uses the [google-cloud-storage](https://googleapis.dev/python/storage/latest/index.html) library and Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+This guide explains how to securely access files on Google Cloud Storage from Streamlit Community Cloud. It uses the [google-cloud-storage](https://googleapis.dev/python/storage/latest/index.html) library and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ## Create a Google Cloud Storage bucket and add a file
 
@@ -50,7 +50,7 @@ If you do need to enable the API for programmatic access in your project, head o
 
 ## Create a service account and key file
 
-To use the Google Cloud Storage API from Streamlit Cloud, you need a Google Cloud Platform service account (a special type for programmatic data access). Go to the Service Accounts page and create an account with <b>Viewer</b> permission.
+To use the Google Cloud Storage API from Streamlit Community Cloud, you need a Google Cloud Platform service account (a special type for programmatic data access). Go to the Service Accounts page and create an account with <b>Viewer</b> permission.
 
 <Flex>
 <Image alt="GCS screenshot 8" src="/images/databases/gcs-8.png" />
@@ -101,7 +101,7 @@ Add this file to `.gitignore` and don't commit it to your GitHub repo!
 
 ## Copy your app secrets to the cloud
 
-As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Community Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 

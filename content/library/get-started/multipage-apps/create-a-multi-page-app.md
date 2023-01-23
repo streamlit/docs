@@ -567,7 +567,7 @@ Congratulations! 🎉 If you've read this far, chances are you've learned to cre
 
 Here are a few resources to help you get started:
 
-- Deploy your app for free on Streamlit's [Community Cloud](/streamlit-cloud).
+- Deploy your app for free on Streamlit's [Community Cloud](/streamlit-community-cloud).
 - Post a question or share your multipage app on our [community forum](https://discuss.streamlit.io/c/streamlit-examples/9).
 - Check out our documentation on [multipage apps](/library/get-started/multipage-apps).
 - Read through [Advanced features](/library/advanced-features) for things like caching, theming, and adding statefulness to apps.

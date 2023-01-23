@@ -48,7 +48,7 @@ To add, edit, or delete content in our documentation, you have to modify Markdow
 
 - `kb/` Contains `.md` files that populate the Knowledge Base.
 - `library/` Contains `.md` files that populate the Streamlit Library section.
-- `streamlit-cloud/`Contains `.md` files that populate the Streamlit Cloud section.
+- `streamlit-cloud/`Contains `.md` files that populate the Streamlit Community Cloud section.
 - `gdpr-banner.md` You'll never have to edit this file.
 - `index.md` Contains text that populates the index page.
 - `menu.md` This is a special file containing only front matter that defines the docs Menu. You will need to add an entry on this file for each new page you create within the docs' site.
@@ -59,7 +59,7 @@ The directory structure of `content/` does not matter as the files will be recur
 
 Do you want to add a new page to the docs?
 
-1. First, decide which section the page should live in (Streamlit Library, Streamlit Cloud, or Knowledge Base).
+1. First, decide which section the page should live in (Streamlit Library, Streamlit Community Cloud, or Knowledge Base).
 
 2. Next, navigate to the relevant folder and subfolder within `content/` and create a `.md` file whose filename mirrors the title of the page. E.g. For a page titled "Create a component", navigate to `content/library/components/` and create a file named `create-component.md`.
 

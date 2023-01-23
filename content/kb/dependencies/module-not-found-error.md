@@ -7,11 +7,11 @@ slug: /knowledge-base/dependencies/module-not-found-error
 
 ## Problem
 
-You receive the error `ModuleNotFoundError: No module named` when you deploy an app on [Streamlit Cloud](https://streamlit.io/cloud).
+You receive the error `ModuleNotFoundError: No module named` when you deploy an app on [Streamlit Community Cloud](https://streamlit.io/cloud).
 
 ## Solution
 
-This error occurs when you import a module on Streamlit Cloud that isn’t included in your requirements file. Any external [Python dependencies](/streamlit-cloud/get-started/deploy-an-app/app-dependencies#add-python-dependencies) that are not distributed with a [standard Python installation](https://docs.python.org/3/py-modindex.html) should be included in your requirements file.
+This error occurs when you import a module on Streamlit Community Cloud that isn’t included in your requirements file. Any external [Python dependencies](/streamlit-community-cloud/get-started/deploy-an-app/app-dependencies#add-python-dependencies) that are not distributed with a [standard Python installation](https://docs.python.org/3/py-modindex.html) should be included in your requirements file.
 
 E.g. You will see `ModuleNotFoundError: No module named 'sklearn'` if you don’t include `scikit-learn` in your requirements file and `import sklearn` in your app.
 

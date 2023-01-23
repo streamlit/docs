@@ -1,6 +1,6 @@
 ---
 title: Streamlit Trust and Security
-slug: /streamlit-cloud/trust-and-security
+slug: /streamlit-community-cloud/trust-and-security
 ---
 
 # Streamlit Trust and Security
@@ -15,7 +15,7 @@ number = st.slider("Pick a number: ", min_value=1, max_value=10)
 st.text("Your number is " + str(number))
 ```
 
-When you `streamlit run my_app.py`, you start a web server that runs the interactive application on your local computer at `http://localhost:8501`. This is great for local development. When you want to share with your colleagues, Streamlit Cloud enables you to deploy and run these applications in the cloud. Streamlit Cloud handles all the details of scaling, reliability, and security as well as providing you an interface for easily managing your deployed apps.
+When you `streamlit run my_app.py`, you start a web server that runs the interactive application on your local computer at `http://localhost:8501`. This is great for local development. When you want to share with your colleagues, Streamlit Community Cloud enables you to deploy and run these applications in the cloud. Streamlit Community Cloud handles all the details of scaling, reliability, and security as well as providing you an interface for easily managing your deployed apps.
 
 This document is an overview of how we provide best-in-industry security for you. We'll cover all the important areas in the lifecycle of your data:
 
