@@ -50,6 +50,6 @@ Dataframes displayed as interactive tables with `st.dataframe` have the followin
 
 <Note>
 
-Copy to clipboard does not currently work on Streamlit Cloud.
+Copy to clipboard does not currently work on Streamlit Community Cloud.
 
 </Note>

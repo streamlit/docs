@@ -7,7 +7,7 @@ slug: /knowledge-base/dependencies/install-package-not-pypi-conda-available-gith
 
 ## Overview
 
-Are you trying to deploy your app to [Streamlit Cloud](/streamlit-cloud), but don't know how to specify a [Python dependency](/streamlit-cloud/get-started/deploy-an-app/app-dependencies#add-python-dependencies) in your requirements file that is available on a public GitHub repo but not any package index like PyPI or Conda? If so, continue reading to find out how!
+Are you trying to deploy your app to [Streamlit Community Cloud](/streamlit-community-cloud), but don't know how to specify a [Python dependency](/streamlit-community-cloud/get-started/deploy-an-app/app-dependencies#add-python-dependencies) in your requirements file that is available on a public GitHub repo but not any package index like PyPI or Conda? If so, continue reading to find out how!
 
 Let's suppose you want to install `SomePackage` and its Python dependencies from GitHub, a hosting service for the popular version control system (VCS) Git. And suppose `SomePackage` is found at the the following URL: `https://github.com/SomePackage.git`.
 
@@ -55,4 +55,4 @@ It is currently **not possible** to install private packages from private GitHub
 git+https://{token}@github.com/user/project.git@{version}
 ```
 
-where `version` is a tag, a branch, or a commit. And `token` is a personal access token with read only permissions. Streamlit Cloud only supports installing public packages from public GitHub repos.
+where `version` is a tag, a branch, or a commit. And `token` is a personal access token with read only permissions. Streamlit Community Cloud only supports installing public packages from public GitHub repos.

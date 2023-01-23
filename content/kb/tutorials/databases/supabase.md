@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/supabase
 
 ## Introduction
 
-This guide explains how to securely access a Supabase instance from Streamlit Cloud. It uses the [Supabase Python Client Library](https://github.com/supabase-community/supabase-py) and Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). Supabase is the open source Firebase alternative and is based on PostgreSQL.
+This guide explains how to securely access a Supabase instance from Streamlit Community Cloud. It uses the [Supabase Python Client Library](https://github.com/supabase-community/supabase-py) and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). Supabase is the open source Firebase alternative and is based on PostgreSQL.
 
 ## Sign in to Supabase and create a project
 
@@ -87,7 +87,7 @@ Add this file to `.gitignore` and don't commit it to your GitHub repo!
 
 ## Copy your app secrets to the cloud
 
-As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Community Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Connect to data sources
-slug: /streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources
+slug: /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources
 ---
 
 # Connect data sources
@@ -9,8 +9,8 @@ Your app probably connects to some data source, and it's important to make sure 
 
 Streamlit has two primary ways of securely connecting to private data:
 
-- [Secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management): securely store secrets like API keys and TOML files that you can then access as environment variables in your app.
-- [Stable outbound IP addresses](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/stable-outbound-ip-addresses): allowlist our outbound IP addresses in your firewall to ensure that only traffic from the Streamlit network can connect to your data stores.
+- [Secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management): securely store secrets like API keys and TOML files that you can then access as environment variables in your app.
+- [Stable outbound IP addresses](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/stable-outbound-ip-addresses): allowlist our outbound IP addresses in your firewall to ensure that only traffic from the Streamlit network can connect to your data stores.
 
 We also have a series of guides on how to connect to:
 

@@ -96,8 +96,8 @@ export default function Home({ window, menu, gdpr_data }) {
             {/* <NewsContainer>
               <NewsEntry
                 date="2022-02-20T16:30:00.000Z"
-                title="Announcement: Streamlit Cloud Maintenance"
-                text="Streamlit Cloud will have a maintenance event on Sunday, February 20th at 7:00 am PST. The maintenance event will last for no more than 5 minutes."
+                title="Announcement: Streamlit Community Cloud Maintenance"
+                text="Streamlit Community Cloud will have a maintenance event on Sunday, February 20th at 7:00 am PST. The maintenance event will last for no more than 5 minutes."
                 link="https://discuss.streamlit.io/c/official-announcements/"
               />
               <NewsEntry date="2022-02-17T16:08:45.000Z" title="Calculating distances in cosmology with Streamlit" text="Learn how three friends made the cosmology on-the-go app CosmΩracle." link="https://blog.streamlit.io/calculating-distances-in-cosmology-with-streamlit/" />
@@ -121,7 +121,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 color="l-blue-70"
                 icon="cloud"
                 bold="Streamlit Community Cloud"
-                href="/streamlit-cloud"
+                href="/streamlit-community-cloud"
               >
                 is an open and free platform for the community to deploy,
                 discover, and share Streamlit apps and code with each other.
