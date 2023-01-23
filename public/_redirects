@@ -852,3 +852,15 @@
 /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-okta-sso /streamlit-community-cloud/get-started
 /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-auth0-sso /streamlit-community-cloud/get-started
 /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-general-saml-authentication /streamlit-community-cloud/get-started
+/streamlit-cloud/get-started /streamlit-community-cloud/get-started
+/streamlit-cloud/get-started/deploy-an-app /streamlit-community-cloud/get-started/deploy-an-app
+/streamlit-cloud/get-started/deploy-an-app/app-dependencies /streamlit-community-cloud/get-started/deploy-an-app/app-dependencies
+/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources
+/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management
+/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/stable-outbound-ip-addresses /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/stable-outbound-ip-addresses
+/streamlit-cloud/get-started/share-your-app /streamlit-community-cloud/get-started/share-your-app
+/streamlit-cloud/get-started/share-your-app/indexability /streamlit-community-cloud/get-started/share-your-app/indexability
+/streamlit-cloud/get-started/share-your-app/share-previews /streamlit-community-cloud/get-started/share-your-app/share-previews
+/streamlit-cloud/get-started/manage-your-app /streamlit-community-cloud/get-started/manage-your-app
+/streamlit-cloud/trust-and-security /streamlit-community-cloud/trust-and-security
+/streamlit-cloud/troubleshooting /streamlit-community-cloud/troubleshooting
