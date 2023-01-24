@@ -157,6 +157,14 @@ collections:
                   hint: "Must be the name (like_this) of a Material Icon.",
                   required: false,
                 }
+              - {
+                  label: Deprecated?,
+                  name: isDeprecated,
+                  widget: boolean,
+                  hint: "Marks the parameter as deprecated in the menu",
+                  required: false,
+                  default: false,
+                }
   - name: "contents"
     label: "Documentation"
     folder: "content"

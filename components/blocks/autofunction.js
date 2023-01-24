@@ -4,6 +4,7 @@ import classNames from "classnames";
 import Table from "./table";
 import { H2 } from "./headers";
 import Warning from "./warning";
+import Deprecation from "./deprecation";
 import { withRouter, useRouter } from "next/router";
 import Prism from "prismjs";
 import "prismjs/components/prism-python";
@@ -27,6 +28,8 @@ const Autofunction = ({
   streamlit,
   slug,
   hideHeader,
+  deprecated,
+  deprecatedText,
 }) => {
   const blockRef = useRef();
   const router = useRouter();
@@ -181,6 +184,13 @@ const Autofunction = ({
             </label>
           </form>
         </div>
+        {deprecated === true ? (
+          <Deprecation>
+            <p dangerouslySetInnerHTML={{ __html: deprecatedText }} />
+          </Deprecation>
+        ) : (
+          ""
+        )}
         <div
           className="code-desc"
           dangerouslySetInnerHTML={functionDescription}
@@ -208,20 +218,41 @@ const Autofunction = ({
   for (const index in functionObject.args) {
     const row = {};
     const param = functionObject.args[index];
+    const isDeprecated =
+      param.deprecated && param.deprecated.deprecated === true;
+    const deprecatedMarkup = isDeprecated
+      ? `
+      <div class="${styles.DeprecatedContent}">
+        <i class="material-icons-sharp">
+          delete
+        </i>
+        ${param.deprecated.deprecatedText}
+      </div>`
+      : "";
     const description = param.description
       ? param.description
       : `<p>No description</p> `;
 
     if (param.is_optional) {
-      row[
-        "title"
-      ] = `<p> ${param.name} <span class='italic code'>(${param.type_name})</span></p> `;
-      row["body"] = `${description} `;
+      row["title"] = `
+          <p class="${isDeprecated ? "deprecated" : ""}">
+            ${param.name}
+            <span class='italic code'>(${param.type_name})</span>
+          </p> `;
+      row["body"] = `
+        ${deprecatedMarkup}
+        ${description}
+      `;
     } else {
-      row[
-        "title"
-      ] = `<p><span class='bold'>${param.name}</span> <span class='italic code'>(${param.type_name})</span></p> `;
-      row["body"] = `${description} `;
+      row["title"] = `
+          <p class="${isDeprecated ? "deprecated" : ""}">
+            <span class='bold'>${param.name}</span>
+            <span class='italic code'>(${param.type_name})</span>
+          </p>`;
+      row["body"] = `
+        ${deprecatedMarkup}
+        ${description}
+      `;
     }
 
     args.push(row);
