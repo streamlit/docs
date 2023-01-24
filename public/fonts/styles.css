@@ -1,0 +1,149 @@
+/* Sans */
+@font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("sans/Inter-Regular.woff2?v=3.19") format("woff2"),
+       url("sans/Inter-Regular.woff?v=3.19") format("woff");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("sans/Inter-Italic.woff2?v=3.19") format("woff2"),
+       url("sans/Inter-Italic.woff?v=3.19") format("woff");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("sans/Inter-SemiBold.woff2?v=3.19") format("woff2"),
+       url("sans/Inter-SemiBold.woff?v=3.19") format("woff");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("sans/Inter-SemiBoldItalic.woff2?v=3.19") format("woff2"),
+       url("sans/Inter-SemiBoldItalic.woff?v=3.19") format("woff");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("sans/Inter-Bold.woff2?v=3.19") format("woff2"),
+       url("sans/Inter-Bold.woff?v=3.19") format("woff");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("sans/Inter-BoldItalic.woff2?v=3.19") format("woff2"),
+       url("sans/Inter-BoldItalic.woff?v=3.19") format("woff");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("sans/Inter-ExtraBold.woff2?v=3.19") format("woff2"),
+       url("sans/Inter-ExtraBold.woff?v=3.19") format("woff");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url("sans/Inter-ExtraBoldItalic.woff2?v=3.19") format("woff2"),
+       url("sans/Inter-ExtraBoldItalic.woff?v=3.19") format("woff");
+}
+
+/* Monospaced font */
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('code/sourcecodepro-bold-webfont.woff2') format('woff2'),
+         url('code/sourcecodepro-bold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('code/sourcecodepro-boldit-webfont.woff2') format('woff2'),
+         url('code/sourcecodepro-boldit-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('code/sourcecodepro-it-webfont.woff2') format('woff2'),
+         url('code/sourcecodepro-it-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('code/sourcecodepro-light-webfont.woff2') format('woff2'),
+         url('code/sourcecodepro-light-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('code/sourcecodepro-lightit-webfont.woff2') format('woff2'),
+         url('code/sourcecodepro-lightit-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('code/sourcecodepro-medium-webfont.woff2') format('woff2'),
+         url('code/sourcecodepro-medium-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('code/sourcecodepro-mediumit-webfont.woff2') format('woff2'),
+         url('code/sourcecodepro-mediumit-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('code/sourcecodepro-regular-webfont.woff2') format('woff2'),
+         url('code/sourcecodepro-regular-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Material icons */
+@font-face {
+  font-family: "Material Icons";
+  src: url('icons/material-icons.woff2')
+    format("woff2");
+}
+
+.material-icons,
+i {
+  font-family: "Material Icons";
+}
