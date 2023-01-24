@@ -1,0 +1,7 @@
+.Deprecated {
+  @apply bg-orange-10;
+}
+
+:global(.dark) .Deprecated {
+  @apply bg-orange-100/30;
+}

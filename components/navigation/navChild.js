@@ -101,7 +101,13 @@ const NavChild = ({ slug, page, color, className }) => {
           >
             {page.name}
           </span>
-          {icon}
+          {page.isDeprecated === true ? (
+            <i className={classNames("material-icons-sharp", styles.Icon)}>
+              {"delete"}
+            </i>
+          ) : (
+            icon
+          )}
         </a>
       </Link>
       {accordion}

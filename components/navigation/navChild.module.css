@@ -22,7 +22,8 @@
 
 :global(.dark) .AccordionIcon,
 :global(.dark) .ExternalIcon,
-:global(.dark) .ActivePage {
+:global(.dark) .ActivePage,
+:global(.dark) .ActivePage ~ .Icon {
   @apply text-white !important;
 }
 
@@ -33,6 +34,10 @@
 .Link {
   @apply relative flex items-center hover:opacity-70;
   @apply text-gray-80 !important;
+}
+
+.Icon {
+  @apply text-base relative left-1 -top-[1px];
 }
 
 .Circle {
@@ -50,6 +55,10 @@
 .ActivePage {
   @apply font-bold;
   @apply text-gray-90 !important;
+}
+
+.ActivePage ~ .Icon {
+  @apply text-gray-90;
 }
 
 /* Colors for circles */
