@@ -96,8 +96,8 @@ server = TSC.Server(st.secrets["tableau"]["server_url"], use_server_version=True
 
 # Get various data.
 # Explore the tableauserverclient library for more options.
-# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-@st.experimental_memo(ttl=600)
+# Uses st.cache_data to only rerun when the query changes or after 10 min.
+@st.cache_data(ttl=600)
 def run_query():
     with server.auth.sign_in(tableau_auth):
 
@@ -142,7 +142,7 @@ st.write(f"And here's the data for view *{view_name}*:")
 st.write(pd.read_csv(StringIO(view_csv)))
 ```
 
-See `st.experimental_memo` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.experimental_memo`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Read more about caching [here](/library/advanced-features/experimental-cache-primitives).
+See `st.cache_data` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache_data`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Read more about caching [here](/library/advanced-features/caching).
 
 If everything worked out, your app should look like this (can differ based on your workbooks):
 
