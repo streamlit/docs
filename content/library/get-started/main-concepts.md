@@ -93,7 +93,7 @@ Whenever a callback is passed to a widget via the `on_change` (or `on_click`) pa
 
 And to make all of this fast and seamless, Streamlit does some heavy lifting
 for you behind the scenes. A big player in this story is the
-[`@st.cache`](#caching) decorator, which allows developers to skip certain
+[`@st.cache_data`](#caching) decorator, which allows developers to skip certain
 costly computations when their apps rerun. We'll cover caching later in this
 page.
 
@@ -469,46 +469,31 @@ your config.toml file, and watch as your app reruns with the new theme colors ap
 
 ## Caching
 
-<Important>
+The Streamlit cache allows your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations.
 
-We're developing new cache primitives that are easier to use and much faster than `@st.cache`. 🚀 To learn more, read [Experimental cache primitives](/library/advanced-features/experimental-cache-primitives).
+The basic idea behind caching is to store the results of expensive function calls and return the cached result when the same inputs occur again rather than calling the function on subsequent runs.
 
-</Important>
-
-The Streamlit cache allows your app to execute quickly even when loading data
-from the web, manipulating large datasets, or performing expensive
-computations.
-
-To use the cache, wrap functions with the
-[`@st.cache`](/library/api-reference/performance/st.cache) decorator:
+To cache a function in Streamlit, you need to decorate it with one of two decorators (`st.cache_data` and `st.cache_resource`):
 
 ```python
-import streamlit as st
-
-@st.cache  # 👈 This function will be cached
-def my_slow_function(arg1, arg2):
-    # Do something really slow in here!
-    return the_output
+@st.cache_data
+def long_running_function(param1, param2):
+    return …
 ```
 
-When you mark a function with the [`@st.cache`](/library/api-reference/performance/st.cache)
-decorator, it tells Streamlit that whenever the function is called it needs to
-check a few things:
+In this example, decorating `long_running_function` with `@st.cache_data` tells Streamlit that whenever you call the function, it checks two things:
 
-1. The input parameters that you called the function with
-1. The value of any external variable used in the function
-1. The body of the function
-1. The body of any function used inside the cached function
+1. The input parameters you used for the function call.
+2. The code of the function.
 
-If this is the first time Streamlit has seen these four components with these
-exact values and in this exact combination and order, it runs the function and
-stores the result in a local cache. Then, next time the cached function is
-called, if none of these components changed, Streamlit will skip executing
-the function altogether and, instead, return the output previously stored in
-the cache.
+If this is the first time Streamlit sees both components with these exact values, it runs the function and stores the return value in a cache. The next time you call the function with the same parameters and code (e.g., when a user interacts with the app), Streamlit will skip executing the function altogether and return the cached value instead.
 
-For more information about the Streamlit cache, its configuration parameters,
-and its limitations, see [Caching](/library/advanced-features/caching).
+As mentioned, Streamlit has two caching decorators:
+
+- `st.cache_data` is the recommended way to cache data computations: loading a DataFrame from CSV, transforming a NumPy array, running a database query, returning simple types like string/int/float, or any lists or dicts that contain data objects. It creates a new copy of the data at each function call, making it safe against [mutations and race conditions](/library/advanced-features/caching#mutation-and-concurrency-issues). The behavior of `st.cache_data` is what you want in most cases – so if you're unsure, start with `st.cache_data` and see if it works!
+- `st.cache_resource` is the recommended way to cache global resources like ML models or database/API connections. By using it, you can share these resources across all your app reruns and sessions without copying or duplication. Note that any mutations made after the cached function runs directly mutate the object in the cache.
+
+For more information about the Streamlit caching decorators, their configuration parameters, and their limitations, see [Caching in Streamlit apps](/library/advanced-features/caching).
 
 ## Pages
 
