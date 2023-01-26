@@ -484,9 +484,9 @@ def long_running_function(param1, param2):
 In this example, decorating `long_running_function` with `@st.cache_data` tells Streamlit that whenever you call the function, it checks two things:
 
 1. The input parameters you used for the function call.
-2. The code of the function.
+2. The code inside the function.
 
-If this is the first time Streamlit sees both components with these exact values, it runs the function and stores the return value in a cache. The next time you call the function with the same parameters and code (e.g., when a user interacts with the app), Streamlit will skip executing the function altogether and return the cached value instead.
+If this is the first time Streamlit has seen both these items, with these exact values, it runs the function and stores the return value in a cache. The next time you call the function with the same parameters and code (e.g., when a user interacts with the app), Streamlit will skip executing the function altogether and return the cached value instead.
 
 As mentioned, Streamlit has two caching decorators:
 

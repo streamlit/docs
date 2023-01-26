@@ -55,10 +55,10 @@ def long_running_function(param1, param2):
 
 In this example, decorating `long_running_function` with `@st.cache_data` tells Streamlit that whenever you call the function, it checks two things:
 
-1. The input parameters you used for the function call.
-2. The code of the function.
+1. The input parameters you used for the function call (in this case, param1 and param2).
+2. The code inside the function.
 
-If this is the first time Streamlit sees both components with these exact values, it runs the function and stores the return value in a cache. The next time you call the function with the same parameters and code (e.g., when a user interacts with the app), Streamlit will skip executing the function altogether and return the cached value instead.
+If this is the first time Streamlit has seen both these items, with these exact values, it runs the function and stores the return value in a cache. The next time you call the function with the same parameters and code (e.g., when a user interacts with the app), Streamlit will skip executing the function altogether and return the cached value instead.
 
 As mentioned, Streamlit has two caching decorators:
 
@@ -278,7 +278,7 @@ model = load_model()
 
 The sections above showed a bunch of common examples for each caching decorator. But there are edge cases for which it’s less trivial to decide which caching decorator to use. Eventually, it all comes down to the difference between "**data**" and "**resource**":
 
-- **Data** are serializable objects that you could easily save to disk. Imagine all the types you would usually store in a database or on a file system – basic types like str, int, and float, but also arrays, DataFrames, images, or combinations of these types (lists, tuples, dicts, and so on).
+- **Data** are serializable objects (objects that can be converted to bytes via pickle) that you could easily save to disk. Imagine all the types you would usually store in a database or on a file system – basic types like str, int, and float, but also arrays, DataFrames, images, or combinations of these types (lists, tuples, dicts, and so on).
 - **Resources** are unserializable objects that you usually would not save to disk or a database. They are often more complex, non-permanent objects like database connections, ML models, file handles, threads, etc.
 
 From the types listed above, it should be obvious that most objects in Python are "data." That’s also why `st.cache_data` is the correct command for almost all use cases. `st.cache_resource` is a more exotic command that you should only use in specific situations.

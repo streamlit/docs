@@ -150,9 +150,9 @@ When you mark a function with Streamlit’s cache annotation, it tells Streamlit
 that whenever the function is called that it should check two things:
 
 1. The input parameters you used for the function call.
-2. The code of the function.
+2. The code inside the function.
 
-If this is the first time Streamlit has both these items, with these exact
+If this is the first time Streamlit has seen both these items, with these exact
 values, and in this exact combination, it runs the function and stores the
 result in a local cache. The next time the function is called, if the two
 values haven't changed, then Streamlit knows it can skip executing the function
