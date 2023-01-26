@@ -1,4 +1,4 @@
-streamlit==1.16.0
+streamlit==1.18.0
 vega_datasets
 altair==4.2.0
 plotly==5.1.0

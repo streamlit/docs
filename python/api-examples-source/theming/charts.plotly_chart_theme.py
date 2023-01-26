@@ -2,7 +2,7 @@ import plotly.express as px
 import streamlit as st
 
 
-@st.experimental_memo
+@st.cache_data
 def get_chart(use_container_width: bool):
     df = px.data.gapminder()
 

@@ -12,18 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import streamlit as st
 import inspect
 import textwrap
-import pandas as pd
-import altair as alt
-from utils import show_code
-
 from urllib.error import URLError
+
+import altair as alt
+import pandas as pd
+import streamlit as st
+from utils import show_code
 
 
 def data_frame_demo():
-    @st.experimental_memo
+    @st.cache_data
     def get_UN_data():
         AWS_BUCKET_URL = "http://streamlit-demo-data.s3-us-west-2.amazonaws.com"
         df = pd.read_csv(AWS_BUCKET_URL + "/agri.csv.gz")

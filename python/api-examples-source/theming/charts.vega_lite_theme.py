@@ -2,7 +2,7 @@ import streamlit as st
 from vega_datasets import data
 
 
-@st.experimental_memo
+@st.cache_data
 def get_chart(use_container_width: bool):
     source = data.cars()
 
