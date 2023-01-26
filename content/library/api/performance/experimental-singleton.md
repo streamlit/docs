@@ -10,7 +10,7 @@ This is an experimental feature. Experimental features and their APIs may change
 
 </Important>
 
-<Autofunction function="streamlit.experimental_singleton" />
+<Autofunction function="streamlit.experimental_singleton" deprecated={true} deprecatedText="<code>st.experimental_singleton</code> was deprecated in version 1.18.0. Use <a href='/library/api-reference/performance/st.cache_resource'><code>st.cache_resource</code></a> instead. Learn more in <a href='/library/advanced-features/caching'>Caching in Streamlit apps</a>."/>
 
 ### Validating the cache
 

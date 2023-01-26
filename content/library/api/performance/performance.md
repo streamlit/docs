@@ -5,12 +5,100 @@ slug: /library/api-reference/performance
 
 # Optimize performance
 
-Streamlit provides powerful [cache primitives](/library/advanced-features/experimental-cache-primitives) for memoization and storing heavyweight singleton objects across sessions. They allow your app to stay performant even when loading data from the web, caching the results of expensive computations, and storing singleton objects (like TensorFlow/Torch/Keras sessions and/or database connections).
-
-The two new primitives: `st.experimental_memo` and `st.experimental_singleton` are conceptually simpler and much, much faster than [@st.cache](/library/advanced-features/caching), with the potentional to replace `@st.cache` at some point in 2022.
+Streamlit provides powerful [cache primitives](/library/advanced-features/caching) for data and global resources. They allow your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations.
 
 <TileContainer>
-<RefCard href="/library/api-reference/performance/st.cache">
+
+<RefCard href="/library/api-reference/performance/st.cache_data" size="half">
+
+#### Cache data
+
+Function decorator to cache functions that return data (e.g. dataframe transforms, database queries, ML inference).
+
+```python
+@st.cache_data
+def long_function(param1, param2):
+  # Perform expensive computation here or
+  # fetch data from the web here
+  return data
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/performance/st.cache_resource" size="half">
+
+#### Cache resource
+
+Function decorator to cache functions that return global resources (e.g. database connections, ML models).
+
+```python
+@st.cache_resource
+def init_model():
+  # Return a global resource here
+  return pipeline(
+    "sentiment-analysis",
+    model="distilbert-base-uncased-finetuned-sst-2-english"
+  )
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/performance/st.cache_data.clear" size="half">
+
+#### Clear cached data
+
+Clear all in-memory and on-disk data caches.
+
+```python
+@st.cache_data
+def long_function(param1, param2):
+  # Perform expensive computation here or
+  # fetch data from the web here
+  return data
+
+if st.checkbox("Clear All"):
+  # Clear values from *all* cache_data functions
+  st.cache_data.clear()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/performance/st.cache_resource.clear" size="half">
+
+#### Clear cached resources
+
+Clear all `st.cache_resource` caches.
+
+```python
+@st.cache_resource
+def init_model():
+  # Return a global resource here
+  return pipeline(
+    "sentiment-analysis",
+    model="distilbert-base-uncased-finetuned-sst-2-english"
+  )
+
+if st.checkbox("Clear All"):
+  # Clear values from *all* cache_resource functions
+  st.cache_data.clear()
+```
+
+</RefCard>
+
+</TileContainer>
+
+<Important>
+
+All the below commands were deprecated in version 1.18.0. Use the new commands above instead. Learn more in [Caching in Streamlit apps](/library/advanced-features/caching).
+</Important>
+
+## Deprecated commands
+
+<TileContainer>
+
+<RefCard href="/library/api-reference/performance/st.cache" deprecated={true}>
+
+> This command was deprecated in version 1.18.0. Use `st.cache_data` or `st.cache_resource` instead.
 
 #### Caching
 
@@ -25,7 +113,9 @@ def run_long_computation(arg1, arg2):
 
 </RefCard>
 
-<RefCard href="/library/api-reference/performance/st.experimental_memo">
+<RefCard href="/library/api-reference/performance/st.experimental_memo" deprecated={true}>
+
+> This command was deprecated in version 1.18.0. Use `st.cache_data` instead.
 
 #### Memo
 
@@ -40,7 +130,9 @@ def fetch_and_clean_data(url):
 
 </RefCard>
 
-<RefCard href="/library/api-reference/performance/st.experimental_singleton">
+<RefCard href="/library/api-reference/performance/st.experimental_singleton" deprecated={true}>
+
+> This command was deprecated in version 1.18.0. Use `st.cache_resource` instead.
 
 #### Singleton
 
@@ -55,7 +147,9 @@ def get_database_session(url):
 
 </RefCard>
 
-<RefCard href="/library/api-reference/performance/st.experimental_memo.clear">
+<RefCard href="/library/api-reference/performance/st.experimental_memo.clear" deprecated={true}>
+
+> This command was deprecated in version 1.18.0. Use `st.cache_data.clear` instead.
 
 #### Clear memo
 
@@ -74,7 +168,9 @@ if st.checkbox("Clear All"):
 
 </RefCard>
 
-<RefCard href="/library/api-reference/performance/st.experimental_singleton.clear">
+<RefCard href="/library/api-reference/performance/st.experimental_singleton.clear"  deprecated={true}>
+
+> This command was deprecated in version 1.18.0. Use `st.cache_resource.clear`instead.
 
 #### Clear singleton
 

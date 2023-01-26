@@ -5,7 +5,7 @@ slug: /library/cheatsheet
 
 # Cheat Sheet
 
-This is a summary of the docs, as of [Streamlit v1.17.0](https://pypi.org/project/streamlit/1.15.0/).
+This is a summary of the docs, as of [Streamlit v1.18.0](https://pypi.org/project/streamlit/1.15.0/).
 
 <Masonry>
 
@@ -283,7 +283,49 @@ st.experimental_set_query_params(**params)
 
 #### Optimize performance
 
-###### Legacy caching
+###### Cache data objects
+
+```python
+# E.g. Dataframe computation, storing downloaded data, etc.
+>>> @st.cache_data
+... def foo(bar):
+...   # Do something expensive and return data
+...   return data
+# Executes foo
+>>> d1 = foo(ref1)
+# Does not execute foo
+# Returns cached item by value, d1 == d2
+>>> d2 = foo(ref1)
+# Different arg, so function foo executes
+>>> d3 = foo(ref2)
+# Clear all cached entries for this function
+>>> foo.clear()
+# Clear values from *all* in-memory or on-disk cached functions
+>>> st.cache_data.clear()
+```
+
+###### Cache global resources
+
+```python
+# E.g. TensorFlow session, database connection, etc.
+>>> @st.cache_resource
+... def foo(bar):
+...   # Create and return a non-data object
+...   return session
+# Executes foo
+>>> s1 = foo(ref1)
+# Does not execute foo
+# Returns cached item by reference, s1 == s2
+>>> s2 = foo(ref1)
+# Different arg, so function foo executes
+>>> s3 = foo(ref2)
+# Clear all cached entries for this function
+>>> foo.clear()
+# Clear all global resources from cache
+>>> st.cache_resource.clear()
+```
+
+###### Deprecated caching
 
 ```python
 >>> @st.cache
@@ -297,48 +339,6 @@ st.experimental_set_query_params(**params)
 >>> d2 = foo(ref1)
 >>> # Different arg, so function foo executes
 >>> d3 = foo(ref2)
-```
-
-###### Cache data objects
-
-```python
-# E.g. Dataframe computation, storing downloaded data, etc.
->>> @st.experimental_memo
-... def foo(bar):
-...   # Do something expensive and return data
-...   return data
-# Executes foo
->>> d1 = foo(ref1)
-# Does not execute foo
-# Returns cached item by value, d1 == d2
->>> d2 = foo(ref1)
-# Different arg, so function foo executes
->>> d3 = foo(ref2)
-# Clear all cached entries for this function
->>> foo.clear()
-# Clear values from *all* memoized functions
->>> st.experimental_memo.clear()
-```
-
-###### Cache non-data objects
-
-```python
-# E.g. TensorFlow session, database connection, etc.
->>> @st.experimental_singleton
-... def foo(bar):
-...   # Create and return a non-data object
-...   return session
-# Executes foo
->>> s1 = foo(ref1)
-# Does not execute foo
-# Returns cached item by reference, s1 == s2
->>> s2 = foo(ref1)
-# Different arg, so function foo executes
->>> s3 = foo(ref2)
-# Clear all cached entries for this function
->>> foo.clear()
-# Clear all singleton caches
->>> st.experimental_singleton.clear()
 ```
 
 </CodeTile>

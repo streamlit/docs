@@ -3,6 +3,12 @@ title: Experimental cache primitives
 slug: /library/advanced-features/experimental-cache-primitives
 ---
 
+<Deprecation>
+
+The experimental cache primitives described on this page were deprecated in version 1.18.0. Use [`st.cache_data`](/library/api-reference/performance/st.cache_data) or [`st.cache_resource`](/library/api-reference/performance/st.cache_resource) instead. Learn more in [Caching in Streamlit apps](/library/advanced-features/caching).
+
+</Deprecation>
+
 # Experimental cache primitives
 
 ## Overview

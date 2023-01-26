@@ -1001,85 +1001,78 @@ st.session_state['key'] = value
 ## Performance
 
 <TileContainer>
-<RefCard href="/library/api-reference/performance/st.cache">
+<RefCard href="/library/api-reference/performance/st.cache_data" size="half">
 
-#### Caching
+#### Cache data
 
-Function decorator to memoize function executions.
-
-```python
-@st.cache(ttl=3600)
-def run_long_computation(arg1, arg2):
-  # Do stuff here
-  return computation_output
-```
-
-</RefCard>
-
-<RefCard href="/library/api-reference/performance/st.experimental_memo">
-
-#### Memo
-
-Experimental function decorator to memoize function executions.
+Function decorator to cache functions that return data (e.g. dataframe transforms, database queries, ML inference).
 
 ```python
-@st.experimental_memo
-def fetch_and_clean_data(url):
-  # Fetch data from URL here, and then clean it up.
+@st.cache_data
+def long_function(param1, param2):
+  # Perform expensive computation here or
+  # fetch data from the web here
   return data
 ```
 
 </RefCard>
 
-<RefCard href="/library/api-reference/performance/st.experimental_singleton">
+<RefCard href="/library/api-reference/performance/st.cache_resource" size="half">
 
-#### Singleton
+#### Cache resource
 
-Experimental function decorator to store singleton objects.
+Function decorator to cache functions that return global resources (e.g. database connections, ML models).
 
 ```python
-@st.experimental_singleton
-def get_database_session(url):
-  # Create a database session object that points to the URL.
-  return session
+@st.cache_resource
+def init_model():
+  # Return a global resource here
+  return pipeline(
+    "sentiment-analysis",
+    model="distilbert-base-uncased-finetuned-sst-2-english"
+  )
 ```
 
 </RefCard>
 
-<RefCard href="/library/api-reference/performance/st.experimental_memo.clear">
+<RefCard href="/library/api-reference/performance/st.cache_data.clear" size="half">
 
-#### Clear memo
+#### Clear cached data
 
-Clear all in-memory and on-disk memo caches.
+Clear all in-memory and on-disk data caches.
 
 ```python
-@st.experimental_memo
-def fetch_and_clean_data(url):
-  # Fetch data from URL here, and then clean it up.
+@st.cache_data
+def long_function(param1, param2):
+  # Perform expensive computation here or
+  # fetch data from the web here
   return data
 
 if st.checkbox("Clear All"):
-  # Clear values from *all* memoized functions
-  st.experimental_memo.clear()
+  # Clear values from *all* cache_data functions
+  st.cache_data.clear()
 ```
 
 </RefCard>
 
-<RefCard href="/library/api-reference/performance/st.experimental_singleton.clear">
+<RefCard href="/library/api-reference/performance/st.cache_resource.clear" size="half">
 
-#### Clear singleton
+#### Clear cached resources
 
-Clear all singleton caches.
+Clear all `st.cache_resource` caches.
 
 ```python
-@st.experimental_singleton
-def get_database_session(url):
-  # Create a database session object that points to the URL.
-  return session
+@st.cache_resource
+def init_model():
+  # Return a global resource here
+  return pipeline(
+    "sentiment-analysis",
+    model="distilbert-base-uncased-finetuned-sst-2-english"
+  )
 
-if st.button("Clear All"):
-  # Clears all singleton caches:
-  st.experimental_singleton.clear()
+if st.checkbox("Clear All"):
+  # Clear values from *all* cache_resource functions
+  st.cache_data.clear()
 ```
 
 </RefCard>
