@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styles from "./collapse.module.css";
 import classNames from "classnames";
 
-const Collapse = ({ title, children }) => {
-  const [show, setShow] = useState(false);
+const Collapse = ({ title, children, expanded }) => {
+  const [show, setShow] = useState(expanded);
 
   return (
     <section className={styles.Container}>
