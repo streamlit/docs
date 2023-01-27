@@ -231,13 +231,13 @@ spec:
             - containerPort: 8501
           livenessProbe:
             httpGet:
-              path: /healthz
+              path: /_stcore/health
               port: 8501
               scheme: HTTP
             timeoutSeconds: 1
           readinessProbe:
             httpGet:
-              path: /healthz
+              path: /_stcore/health
               port: 8501
               scheme: HTTP
             timeoutSeconds: 1

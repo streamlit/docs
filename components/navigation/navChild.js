@@ -31,15 +31,17 @@ const NavChild = ({ slug, page, color, className }) => {
   if (page.children?.length > 0 && visibleItems.length > 0 && opened) {
     subNav = (
       <ul className={styles.List}>
-        {page.children.map((child) => (
-          <NavChild
-            slug={slug}
-            key={child.menu_key}
-            page={child}
-            color={color}
-            depth={child.depth + 1}
-          />
-        ))}
+        {page.children
+          .filter((child) => child.visible !== false)
+          .map((child) => (
+            <NavChild
+              slug={slug}
+              key={child.menu_key}
+              page={child}
+              color={color}
+              depth={child.depth + 1}
+            />
+          ))}
       </ul>
     );
   }
@@ -101,7 +103,13 @@ const NavChild = ({ slug, page, color, className }) => {
           >
             {page.name}
           </span>
-          {icon}
+          {page.isDeprecated === true ? (
+            <i className={classNames("material-icons-sharp", styles.Icon)}>
+              {"delete"}
+            </i>
+          ) : (
+            icon
+          )}
         </a>
       </Link>
       {accordion}

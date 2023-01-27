@@ -8,14 +8,13 @@ import sys
 import types
 
 import docstring_parser
+import stoutput
 import streamlit
 import streamlit.components.v1 as components
+import utils
 from docutils.core import publish_parts
 from docutils.parsers.rst import directives
 from numpydoc.docscrape import NumpyDocString
-
-import stoutput
-import utils
 
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
@@ -66,9 +65,11 @@ def get_function_docstring_dict(func, funcname, signature_prefix):
             "signature"
         ] = f'{signature_prefix}.{description["name"]}({arguments})'
 
-    # Edge case for .clear() method on st.experimental_memo and st.experimental_singleton
-    # Prepend "experimental_[memo | singleton]." to the name "clear"
-    if "experimental" in signature_prefix:
+    # Edge case for .clear() method on st.experimental_memo, st.experimental_singleton, st.cache_data, and st.cache_resource
+    # Prepend either "experimental_[memo | singleton]." or "cache_[data | resource]." to the name "clear"
+    if any(
+        x in signature_prefix for x in ["experimental", "cache_data", "cache_resource"]
+    ):
         description["name"] = f"{signature_prefix}.{funcname}".lstrip("st.")
 
     if docstring:
@@ -96,6 +97,7 @@ def get_function_docstring_dict(func, funcname, signature_prefix):
             pass
 
         docstring_obj = docstring_parser.parse(docstring)
+
         short_description = docstring_obj.short_description
         long_description = str(
             ""
@@ -121,6 +123,14 @@ def get_function_docstring_dict(func, funcname, signature_prefix):
                 parse_rst(param.description) if param.description else ""
             )
             arg_obj["default"] = param.default
+
+            if docstring_obj.deprecation and param.arg_name in parse_rst(
+                docstring_obj.deprecation.description
+            ):
+                arg_obj["deprecated"] = {
+                    "deprecated": True,
+                    "deprecatedText": parse_rst(docstring_obj.deprecation.description),
+                }
             description["args"].append(arg_obj)
 
         description["returns"] = []
@@ -193,8 +203,8 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
     allowed_types = (
         types.FunctionType,
         types.MethodType,
-        streamlit.runtime.caching.memo_decorator.MemoAPI,
-        streamlit.runtime.caching.singleton_decorator.SingletonAPI,
+        streamlit.runtime.caching.cache_data_api.CacheDataAPI,
+        streamlit.runtime.caching.cache_resource_api.CacheResourceAPI,
     )
 
     for membername in dir(obj):
@@ -212,7 +222,7 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
         # memo and singleton are callable objects rather than functions
         # See: https://github.com/streamlit/streamlit/pull/4263
         while member in streamlit.runtime.caching.__dict__.values():
-            member = member.__call__
+            member = member._decorator
 
         fullname = "{}.{}".format(key_prefix, membername)
         member_docstring_dict = get_function_docstring_dict(
@@ -227,14 +237,24 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
 def get_streamlit_docstring_dict():
     module_docstring_dict = get_obj_docstring_dict(streamlit, "streamlit", "st")
     memo_clear_docstring_dict = get_obj_docstring_dict(
-        streamlit.runtime.caching.memo,
+        streamlit.runtime.caching.experimental_memo,
         "streamlit.experimental_memo",
         "st.experimental_memo",
     )
+    cache_data_clear_docstring_dict = get_obj_docstring_dict(
+        streamlit.runtime.caching.cache_data_api.CacheDataAPI,
+        "streamlit.cache_data",
+        "st.cache_data",
+    )
     singleton_clear_docstring_dict = get_obj_docstring_dict(
-        streamlit.runtime.caching.singleton,
+        streamlit.runtime.caching.experimental_singleton,
         "streamlit.experimental_singleton",
         "st.experimental_singleton",
+    )
+    cache_resource_clear_docstring_dict = get_obj_docstring_dict(
+        streamlit.runtime.caching.cache_resource_api.CacheResourceAPI,
+        "streamlit.cache_resource",
+        "st.cache_resource",
     )
     components_docstring_dict = get_obj_docstring_dict(
         components, "streamlit.components.v1", "st.components.v1"
@@ -244,7 +264,9 @@ def get_streamlit_docstring_dict():
     )
 
     module_docstring_dict.update(memo_clear_docstring_dict)
+    module_docstring_dict.update(cache_data_clear_docstring_dict)
     module_docstring_dict.update(singleton_clear_docstring_dict)
+    module_docstring_dict.update(cache_resource_clear_docstring_dict)
     module_docstring_dict.update(components_docstring_dict)
     module_docstring_dict.update(delta_docstring_dict)
 

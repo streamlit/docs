@@ -7,7 +7,7 @@ slug: /knowledge-base/deploy/deploy-streamlit-heroku-aws-google-cloud
 
 ## Problem
 
-You want to deploy your Streamlit app on a cloud service other than [Streamlit Cloud](https://streamlit.io/cloud).
+You want to deploy your Streamlit app on a cloud service other than [Streamlit Community Cloud](https://streamlit.io/cloud).
 
 ## Solution
 

@@ -96,8 +96,8 @@ export default function Home({ window, menu, gdpr_data }) {
             {/* <NewsContainer>
               <NewsEntry
                 date="2022-02-20T16:30:00.000Z"
-                title="Announcement: Streamlit Cloud Maintenance"
-                text="Streamlit Cloud will have a maintenance event on Sunday, February 20th at 7:00 am PST. The maintenance event will last for no more than 5 minutes."
+                title="Announcement: Streamlit Community Cloud Maintenance"
+                text="Streamlit Community Cloud will have a maintenance event on Sunday, February 20th at 7:00 am PST. The maintenance event will last for no more than 5 minutes."
                 link="https://discuss.streamlit.io/c/official-announcements/"
               />
               <NewsEntry date="2022-02-17T16:08:45.000Z" title="Calculating distances in cosmology with Streamlit" text="Learn how three friends made the cosmology on-the-go app CosmΩracle." link="https://blog.streamlit.io/calculating-distances-in-cosmology-with-streamlit/" />
@@ -121,7 +121,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 color="l-blue-70"
                 icon="cloud"
                 bold="Streamlit Community Cloud"
-                href="/streamlit-cloud"
+                href="/streamlit-community-cloud"
               >
                 is an open and free platform for the community to deploy,
                 discover, and share Streamlit apps and code with each other.
@@ -242,26 +242,26 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
-                date="2023-01-10T16:05:00.000Z"
-                title="Build an image background remover in Streamlit"
-                text="Skip the fees and do it for free! 🎈"
-                link="https://blog.streamlit.io/build-an-image-background-remover-in-streamlit/"
+                date="2023-01-19T16:05:00.000Z"
+                title="Create a color palette from any image"
+                text="Learn how to come up with the perfect colors for your data visualization"
+                link="https://blog.streamlit.io/create-a-color-palette-from-any-image/"
                 image="/blog-1.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2023-01-05T16:05:00.000Z"
-                title="ScienceIO manages billions of rows of training data with Streamlit"
-                text="Learn how Gaurav Kaushik of ScienceIO created a dataset with over 2.3 billion labels"
-                link="https://blog.streamlit.io/scienceio-manages-billions-of-rows-of-training-data-with-streamlit/"
+                date="2023-01-12T16:05:00.000Z"
+                title="How to make a culture map"
+                text="Analyze multidimensional data with Steamlit!"
+                link="https://blog.streamlit.io/how-to-make-a-culture-map/"
                 image="/blog-2.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2022-12-19T16:05:00.000Z"
-                title="A new Streamlit theme for Altair and Plotly charts"
-                text="Our charts just got a new look!"
-                link="https://blog.streamlit.io/a-new-streamlit-theme-for-altair-and-plotly/"
+                date="2023-01-10T16:05:00.000Z"
+                title="Build an image background remover in Streamlit"
+                text="Skip the fees and do it for free! 🎈"
+                link="https://blog.streamlit.io/build-an-image-background-remover-in-streamlit/"
                 image="/blog-3.svg"
                 target="_blank"
               />

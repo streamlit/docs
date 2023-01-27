@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/private-gsheet
 
 ## Introduction
 
-This guide explains how to securely access a private Google Sheet from Streamlit Cloud. It uses the [gsheetsdb](https://github.com/betodealmeida/gsheets-db-api) library and Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+This guide explains how to securely access a private Google Sheet from Streamlit Community Cloud. It uses the [gsheetsdb](https://github.com/betodealmeida/gsheets-db-api) library and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 If you are fine with enabling link sharing for your Google Sheet (i.e. everyone with the link can view it), the guide [Connect Streamlit to a public Google Sheet](/knowledge-base/tutorials/databases/public-gsheet) shows a simpler method of doing this. If your Sheet contains sensitive information and you cannot enable link sharing, keep on reading.
 
@@ -34,7 +34,7 @@ Programmatic access to Google Sheets is controlled through [Google Cloud Platfor
 
 ## Create a service account & key file
 
-To use the Sheets API from Streamlit Cloud, you need a Google Cloud Platform service account (a special account type for programmatic data access). Go to the [**Service Accounts** page](https://console.cloud.google.com/iam-admin/serviceaccounts) and create an account with the **Viewer** permission (this will let the account access data but not change it):
+To use the Sheets API from Streamlit Community Cloud, you need a Google Cloud Platform service account (a special account type for programmatic data access). Go to the [**Service Accounts** page](https://console.cloud.google.com/iam-admin/serviceaccounts) and create an account with the **Viewer** permission (this will let the account access data but not change it):
 
 <Flex>
 <Image alt="GCP screenshot 5" src="/images/databases/private-gsheet-5.png" />
@@ -95,7 +95,7 @@ Add this file to `.gitignore` and don't commit it to your GitHub repo!
 
 ## Copy your app secrets to the cloud
 
-As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Community Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 

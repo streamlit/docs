@@ -183,7 +183,7 @@ _Release date: June 2, 2022_
 
 - ✨ `st.dataframe` has been redesigned.
 - 🔘 `st.radio` has a `horizontal` keyword-only parameter to display options horizontally.
-- ⚠️ Streamlit Cloud will support richer exception formatting.
+- ⚠️ Streamlit Community Cloud will support richer exception formatting.
 - 🏂 Get user information on private apps using `st.experimental_user`.
 
 **Other Changes**
@@ -376,7 +376,7 @@ _Release date: Sep 2, 2021_
 
 **Notable Changes**
 
-- 🛑 We made changes to improve the redacted exception experience on Streamlit Cloud. When `client.showErrorDetails=true` exceptions display the Error Type and the Traceback, but redact the actual error text to prevent data leaks.
+- 🛑 We made changes to improve the redacted exception experience on Streamlit Community Cloud. When `client.showErrorDetails=true` exceptions display the Error Type and the Traceback, but redact the actual error text to prevent data leaks.
 
 ## Version 0.87.0
 

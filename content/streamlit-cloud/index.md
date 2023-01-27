@@ -1,9 +1,9 @@
 ---
-title: Streamlit Cloud
-slug: /streamlit-cloud
+title: Streamlit Community Cloud
+slug: /streamlit-community-cloud
 ---
 
-# Welcome to Streamlit Cloud
+# Welcome to Streamlit Community Cloud
 
 Streamlit's Community Cloud is an open and free platform for the community to deploy, discover, and share Streamlit apps and code with each other. If you're just getting started and have not yet built your first Streamlit app, check out the main [Get started](/library/get-started) page first. When you're ready to share it, create a Community Cloud account and you can launch your app in just a few minutes! Deploy, manage, and share your apps with the world, directly from Streamlit — all for free.
 
@@ -12,7 +12,7 @@ Streamlit's Community Cloud is an open and free platform for the community to de
     color="l-blue-70"
     icon="arrow_forward"
     bold="Get started."
-    href="/streamlit-cloud/get-started"
+    href="/streamlit-community-cloud/get-started"
   >
     Learn how to set up your account to start deploying apps.
   </InlineCallout>
@@ -20,7 +20,7 @@ Streamlit's Community Cloud is an open and free platform for the community to de
     color="l-blue-70"
     icon="flight_takeoff"
     bold="Deploy an app."
-    href="/streamlit-cloud/enterprise"
+    href="/streamlit-community-cloud/enterprise"
   >
     A step by step guide on how to get your app deployed.
   </InlineCallout>
@@ -28,7 +28,7 @@ Streamlit's Community Cloud is an open and free platform for the community to de
     color="l-blue-70"
     icon="electrical_services"
     bold="Connect data sources."
-    href="/streamlit-cloud/enterprise"
+    href="/streamlit-community-cloud/enterprise"
   >
     Learn how to securely connect your app to data sources.
   </InlineCallout>
@@ -36,7 +36,7 @@ Streamlit's Community Cloud is an open and free platform for the community to de
     color="l-blue-70"
     icon="share"
     bold="Share your app."
-    href="/streamlit-cloud/enterprise"
+    href="/streamlit-community-cloud/enterprise"
   >
     Share your app publicly or privately with select viewers and developers.
   </InlineCallout>
@@ -44,7 +44,7 @@ Streamlit's Community Cloud is an open and free platform for the community to de
     color="l-blue-70"
     icon="manage_accounts"
     bold="Manage your app."
-    href="/streamlit-cloud/enterprise"
+    href="/streamlit-community-cloud/enterprise"
   >
     Access logs, get more resources for your app, and other tips and tricks.
   </InlineCallout>
@@ -52,7 +52,7 @@ Streamlit's Community Cloud is an open and free platform for the community to de
     color="l-blue-70"
     icon="speed"
     bold="Additional features."
-    href="/streamlit-cloud/enterprise"
+    href="/streamlit-community-cloud/enterprise"
   >
     If you are on an Enterprise plan you have access to even more features.
   </InlineCallout>
@@ -63,39 +63,39 @@ Streamlit's Community Cloud is an open and free platform for the community to de
         icon="arrow_forward"
         title="Get started"
         text="Learn how to set up your account to start deploying apps."
-        link="/streamlit-cloud/get-started"
+        link="/streamlit-community-cloud/get-started"
     />
     <Tile
         icon="flight_takeoff"
         title="Deploy an app"
         text="A step by step guide on how to get your app deployed."
-        link="/streamlit-cloud/get-started/deploy-an-app"
+        link="/streamlit-community-cloud/get-started/deploy-an-app"
     />
     <Tile
         icon="electrical_services"
         title="Connect data sources"
         text="Learn how to securely connect your app to data sources."
-        link="/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources"
+        link="/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources"
     />
     <Tile
         icon="share"
         title="Share your app"
         text="Share your app publicly or privately with select viewers and developers."
-        link="/streamlit-cloud/get-started/share-your-app"
+        link="/streamlit-community-cloud/get-started/share-your-app"
         size="half"
     />
     <Tile
         icon="manage_accounts"
         title="Manage your app"
         text="Access logs, reboot, or favorite an app, and other tips and tricks."
-        link="/streamlit-cloud/get-started/manage-your-app"
+        link="/streamlit-community-cloud/get-started/manage-your-app"
         size="half"
     />
 </TileContainer>
 
 <Note>
 
-Interested in our security model? Check out our [Trust and Security page](/streamlit-cloud/trust-and-security).
+Interested in our security model? Check out our [Trust and Security page](/streamlit-community-cloud/trust-and-security).
 
 </Note>
 

@@ -455,7 +455,7 @@ in the [theme option documentation](/library/advanced-features/theming).
 <Note>
 
 The theme editor menu is available only in local development. If you've deployed your app using
-Streamlit Cloud, the "Edit active theme" button will no longer be displayed in the "Settings"
+Streamlit Community Cloud, the "Edit active theme" button will no longer be displayed in the "Settings"
 menu.
 
 </Note>

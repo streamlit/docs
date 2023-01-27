@@ -1,5 +1,5 @@
 .Container {
-  @apply rounded-md border border-gray-30 overflow-hidden text-base cursor-pointer transition-all duration-75 flex flex-col;
+  @apply relative rounded-md border border-gray-30 text-base cursor-pointer transition-all duration-75 flex flex-col z-10;
 }
 
 .Container:hover {
@@ -78,6 +78,18 @@
   @apply border-t-gray-90;
 }
 
+/*
+  Hardcoding this value here, instead of using bg-orange-100/30,
+  because the Tailwind class uses opacity to generate the shade,
+  and when the blockquote background and the arrow overflow to create
+  the tooltip, you can see both shapes on top of each other, creating
+  a different effect than the expected result.
+ */
+:global(.dark) .DeprecatedArrow,
+:global(.dark) .Container blockquote {
+  background-color: #4c2710;
+}
+
 .Container img {
   @apply w-full h-48 object-cover border-b border-b-gray-30;
 }
@@ -98,6 +110,30 @@
 .Container h5 a,
 .Container h6 a {
   @apply hidden;
+}
+
+/* Deprecation notice */
+.Container i.DeprecatedIcon {
+  @apply absolute -right-2 top-0 cursor-pointer;
+}
+
+.Container .DeprecationNotice:hover ~ blockquote {
+  @apply opacity-100;
+}
+
+.Container blockquote {
+  @apply p-3 pt-1 bg-orange-10 absolute rounded-md transition ease-in-out opacity-0 w-full;
+  bottom: 100%;
+}
+
+.Container blockquote::before {
+  @apply uppercase text-xs tracking-wider text-orange-70 font-semibold;
+  content: "Deprecation notice";
+}
+
+.Container blockquote p {
+  @apply m-0;
+  margin-bottom: 0 !important;
 }
 
 /* Code block */

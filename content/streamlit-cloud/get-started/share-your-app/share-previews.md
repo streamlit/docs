@@ -1,6 +1,6 @@
 ---
 title: Share previews
-slug: /streamlit-cloud/get-started/share-your-app/share-previews
+slug: /streamlit-community-cloud/get-started/share-your-app/share-previews
 ---
 
 # Share previews
@@ -9,7 +9,7 @@ Social media sites generate a card with a title, preview image, and description 
 
 <div style={{ marginLeft: '3em' }}>
     <Flex>
-    <Image caption="Share preview for a public Streamlit app" src="/images/streamlit-cloud/share-preview-twitter-annotated.png" />
+    <Image caption="Share preview for a public Streamlit app" src="/images/streamlit-community-cloud/share-preview-twitter-annotated.png" />
     </Flex>
 </div>
 
@@ -47,11 +47,11 @@ _This app was built in Streamlit! Check it out and visit https://streamlit.io fo
 
 <div style={{ marginLeft: '6em' }}>
     <Flex>
-    <Image caption="Default share preview when a description is missing" src="/images/streamlit-cloud/share-preview-private-app.png" />
+    <Image caption="Default share preview when a description is missing" src="/images/streamlit-community-cloud/share-preview-private-app.png" />
     </Flex>
 </div>
 
-<!-- ![Default share preview when a description is missing](/images/streamlit-cloud/share-preview-private-app.png) -->
+<!-- ![Default share preview when a description is missing](/images/streamlit-community-cloud/share-preview-private-app.png) -->
 
 If you want your share previews to look great and want users to share your app and click on your links, you should write a good description in the README of your app’s GitHub repository.
 

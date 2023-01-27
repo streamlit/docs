@@ -10,6 +10,10 @@
   @apply flex flex-col md:flex-row;
 }
 
+.Row td :global(.deprecated) {
+  @apply line-through;
+}
+
 .HeadingRow {
   @apply bg-darkBlue-10/60 text-darkBlue-100;
 }

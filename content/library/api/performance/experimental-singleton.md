@@ -18,7 +18,7 @@ The `@st.experimental_singleton` decorator is used to cache the output of a func
 
 However, in some cases, the cached output may become invalid over time, such as when a database connection times out. To handle this, the `@st.experimental_singleton` decorator supports an optional `validate` parameter, which accepts a validation function that is called each time the cached output is accessed. If the validation function returns False, the cached output is discarded and the decorated function is executed again.
 
-Let's learn how to use the `validate` parameter to ensure that cached output remains valid. Let's also look at specific examples and best practices to help you understand how to use this feature effectively.
+<!-- Let's learn how to use the `validate` parameter to ensure that cached output remains valid. Let's also look at specific examples and best practices to help you understand how to use this feature effectively.
 
 #### Example 1: Validating a database connection
 
@@ -231,7 +231,7 @@ try:
     st.write(data)
 except requests.exceptions.HTTPError as err:
     st.error(err)
-```
+``` -->
 
 #### Best Practices
 

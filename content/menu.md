@@ -312,58 +312,58 @@ site_menu:
   - category: Streamlit library / Cheat sheet
     url: /library/cheatsheet
 
-  - category: Streamlit Cloud
-    url: /streamlit-cloud
+  - category: Streamlit Community Cloud
+    url: /streamlit-community-cloud
     color: l-blue-70
     icon: cloud
 
-  - category: Streamlit Cloud / Get started
-    url: /streamlit-cloud/get-started
-  - category: Streamlit Cloud / Get started / Deploy an app
-    url: /streamlit-cloud/get-started/deploy-an-app
-  - category: Streamlit Cloud / Get started / Deploy an app / App dependencies
-    url: /streamlit-cloud/get-started/deploy-an-app/app-dependencies
-  - category: Streamlit Cloud / Get started / Deploy an app / Connect to data sources
-    url: /streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources
-  - category: Streamlit Cloud / Get started / Deploy an app / Connect to data sources / Secrets management
-    url: /streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management
-  - category: Streamlit Cloud / Get started / Deploy an app / Connect to data sources / Stable outbound IP addresses
-    url: /streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/stable-outbound-ip-addresses
-  - category: Streamlit Cloud / Get started / Share your app
-    url: /streamlit-cloud/get-started/share-your-app
-  - category: Streamlit Cloud / Get started / Share your app / App indexability
-    url: /streamlit-cloud/get-started/share-your-app/indexability
-  - category: Streamlit Cloud / Get started / Share your app / Share previews
-    url: /streamlit-cloud/get-started/share-your-app/share-previews
-  # - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO)
-  #   url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso
+  - category: Streamlit Community Cloud / Get started
+    url: /streamlit-community-cloud/get-started
+  - category: Streamlit Community Cloud / Get started / Deploy an app
+    url: /streamlit-community-cloud/get-started/deploy-an-app
+  - category: Streamlit Community Cloud / Get started / Deploy an app / App dependencies
+    url: /streamlit-community-cloud/get-started/deploy-an-app/app-dependencies
+  - category: Streamlit Community Cloud / Get started / Deploy an app / Connect to data sources
+    url: /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources
+  - category: Streamlit Community Cloud / Get started / Deploy an app / Connect to data sources / Secrets management
+    url: /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management
+  - category: Streamlit Community Cloud / Get started / Deploy an app / Connect to data sources / Stable outbound IP addresses
+    url: /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/stable-outbound-ip-addresses
+  - category: Streamlit Community Cloud / Get started / Share your app
+    url: /streamlit-community-cloud/get-started/share-your-app
+  - category: Streamlit Community Cloud / Get started / Share your app / App indexability
+    url: /streamlit-community-cloud/get-started/share-your-app/indexability
+  - category: Streamlit Community Cloud / Get started / Share your app / Share previews
+    url: /streamlit-community-cloud/get-started/share-your-app/share-previews
+  # - category: Streamlit Community Cloud / Get started / Share your app / Configuring Single Sign-on (SSO)
+  #   url: /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso
   #   visible: false
-  # - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Microsoft Active Directory (ADFS)
-  #   url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-active-directory-adfs
+  # - category: Streamlit Community Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Microsoft Active Directory (ADFS)
+  #   url: /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-active-directory-adfs
   #   visible: false
-  # - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Microsoft Azure AD
-  #   url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-azure-active-directory
+  # - category: Streamlit Community Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Microsoft Azure AD
+  #   url: /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-azure-active-directory
   #   visible: false
-  # - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Okta
-  #   url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-okta-sso
+  # - category: Streamlit Community Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Okta
+  #   url: /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-okta-sso
   #   visible: false
-  # - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Auth0
-  #   url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-auth0-sso
+  # - category: Streamlit Community Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Auth0
+  #   url: /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-auth0-sso
   #   visible: false
-  # - category: Streamlit Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Generic SAML
-  #   url: /streamlit-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-general-saml-authentication
+  # - category: Streamlit Community Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Generic SAML
+  #   url: /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-general-saml-authentication
   #   visible: false
-  - category: Streamlit Cloud / Get started / Manage your app
-    url: /streamlit-cloud/get-started/manage-your-app
+  - category: Streamlit Community Cloud / Get started / Manage your app
+    url: /streamlit-community-cloud/get-started/manage-your-app
 
-  # - category: Streamlit Cloud / Additional features
-  #   url: /streamlit-cloud/additional-features
-  - category: Streamlit Cloud / Trust and Security
-    url: /streamlit-cloud/trust-and-security
-  - category: Streamlit Cloud / Release notes
+  # - category: Streamlit Community Cloud / Additional features
+  #   url: /streamlit-community-cloud/additional-features
+  - category: Streamlit Community Cloud / Trust and Security
+    url: /streamlit-community-cloud/trust-and-security
+  - category: Streamlit Community Cloud / Release notes
     url: https://streamlit-cloud-release-notes-app-main-jfmm83.streamlit.app/
-  - category: Streamlit Cloud / Troubleshooting
-    url: /streamlit-cloud/troubleshooting
+  - category: Streamlit Community Cloud / Troubleshooting
+    url: /streamlit-community-cloud/troubleshooting
 
   - category: Knowledge base
     url: /knowledge-base
@@ -512,7 +512,7 @@ site_menu:
   - category: Knowledge base / Installing dependencies / ERROR No matching distribution found for
     url: /knowledge-base/dependencies/no-matching-distribution
     visible: false
-  - category: Knowledge base / Installing dependencies / Install the Snowflake Connector for Python on Streamlit Cloud
+  - category: Knowledge base / Installing dependencies / Install the Snowflake Connector for Python on Streamlit Community Cloud
     url: /knowledge-base/dependencies/snowflake-connector-python-streamlit-cloud
     visible: false
   - category: Knowledge base / Deployment issues
@@ -532,13 +532,13 @@ site_menu:
   - category: Knowledge base / Deployment issues / Does Streamlit support the WSGI Protocol? (aka Can I deploy Streamlit with gunicorn?)
     url: /knowledge-base/deploy/does-streamlit-support-wsgi-protocol
     visible: false
-  - category: Knowledge base / Deployment issues / How do I increase the upload limit of st.file_uploader on Streamlit Cloud?
+  - category: Knowledge base / Deployment issues / How do I increase the upload limit of st.file_uploader on Streamlit Community Cloud?
     url: /knowledge-base/deploy/increase-file-uploader-limit-streamlit-cloud
     visible: false
   - category: Knowledge base / Deployment issues / Invoking a Python subprocess in a deployed Streamlit app
     url: /knowledge-base/deploy/invoking-python-subprocess-deployed-streamlit-app
     visible: false
-  - category: Knowledge base / Deployment issues / Organizing your apps with workspaces on Streamlit Cloud
+  - category: Knowledge base / Deployment issues / Organizing your apps with workspaces on Streamlit Community Cloud
     url: /knowledge-base/deploy/organizing-apps-workspaces-streamlit-cloud
     visible: false
   - category: Knowledge base / Deployment issues / App is not loading when running remotely
@@ -550,10 +550,10 @@ site_menu:
   - category: Knowledge base / Deployment issues / How do I share apps with viewers outside my organization?
     url: /knowledge-base/deploy/share-apps-with-viewers-outside-organization
     visible: false
-  - category: Knowledge base / Deployment issues / I don't have SSO. How do I sign in to Streamlit Cloud?
+  - category: Knowledge base / Deployment issues / I don't have SSO. How do I sign in to Streamlit Community Cloud?
     url: /knowledge-base/deploy/sign-in-without-sso
     visible: false
-  - category: Knowledge base / Deployment issues / Upgrade the Streamlit version of your app on Streamlit Cloud
+  - category: Knowledge base / Deployment issues / Upgrade the Streamlit version of your app on Streamlit Community Cloud
     url: /knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud
     visible: false
   - category: Knowledge base / Deployment issues / Custom subdomains

@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/mysql
 
 ## Introduction
 
-This guide explains how to securely access a **_remote_** MySQL database from Streamlit Cloud. It uses the [mysql-connector-python](https://github.com/mysql/mysql-connector-python) library and Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+This guide explains how to securely access a **_remote_** MySQL database from Streamlit Community Cloud. It uses the [mysql-connector-python](https://github.com/mysql/mysql-connector-python) library and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ## Create a MySQL database
 
@@ -50,7 +50,7 @@ password = "xxx"
 
 <Important>
 
-When copying your app secrets to Streamlit Cloud, be sure to replace the values of **host**, **port**, **database**, **user**, and **password** with those of your _remote_ MySQL database!
+When copying your app secrets to Streamlit Community Cloud, be sure to replace the values of **host**, **port**, **database**, **user**, and **password** with those of your _remote_ MySQL database!
 
 Add this file to `.gitignore` and don't commit it to your GitHub repo!
 
@@ -58,7 +58,7 @@ Add this file to `.gitignore` and don't commit it to your GitHub repo!
 
 ## Copy your app secrets to the cloud
 
-As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Community Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 

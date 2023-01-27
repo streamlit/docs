@@ -7,7 +7,7 @@ slug: /knowledge-base/deploy/authentication-without-sso
 
 ## Introduction
 
-Want to secure your Streamlit app with passwords, but cannot implement single sign-on? We got you covered! This guide shows you two simple techniques for adding basic authentication to your Streamlit app, using [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+Want to secure your Streamlit app with passwords, but cannot implement single sign-on? We got you covered! This guide shows you two simple techniques for adding basic authentication to your Streamlit app, using [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 <Warning>
 
@@ -17,7 +17,7 @@ While this technique adds some level of security, it is **NOT** comparable to pr
 
 ## Option 1: One global password for all users
 
-This is the easiest option! Your app will ask for a password that's shared between all users. It will be stored in the app secrets using [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). If you want to change this password or revoke a user's access, you will need to change it for everyone. If you want to have one password per user instead, jump to [Option 2 below](/knowledge-base/deploy/authentication-without-sso#option-2-individual-password-for-each-user).
+This is the easiest option! Your app will ask for a password that's shared between all users. It will be stored in the app secrets using [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). If you want to change this password or revoke a user's access, you will need to change it for everyone. If you want to have one password per user instead, jump to [Option 2 below](/knowledge-base/deploy/authentication-without-sso#option-2-individual-password-for-each-user).
 
 ### Step 1: Add the password to your local app secrets
 
@@ -37,7 +37,7 @@ Be sure to add this file to your `.gitignore` so you don't commit your secrets!
 
 ### Step 2: Copy your app secrets to the cloud
 
-As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Community Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 
@@ -85,11 +85,11 @@ if check_password():
 
 If everything worked out, your app should look like this:
 
-![Global passwords](/images/streamlit-cloud/auth-without-sso-global.png)
+![Global passwords](/images/streamlit-community-cloud/auth-without-sso-global.png)
 
 ## Option 2: Individual password for each user
 
-This option allows you to set a username and password for each user of your app. Like in [Option 1](#option-1-one-global-password-for-all-users), both values will be stored in the app secrets using [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+This option allows you to set a username and password for each user of your app. Like in [Option 1](#option-1-one-global-password-for-all-users), both values will be stored in the app secrets using [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ### Step 1: Add usernames & passwords to your local app secrets
 
@@ -114,7 +114,7 @@ Alternatively, you could set up and manage usernames & passwords via a spreadshe
 
 ### Step 2: Copy your app secrets to the cloud
 
-As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Community Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 
@@ -169,4 +169,4 @@ if check_password():
 
 If everything worked out, your app should look like this:
 
-![Individual passwords](/images/streamlit-cloud/auth-without-sso-individual.png)
+![Individual passwords](/images/streamlit-community-cloud/auth-without-sso-individual.png)

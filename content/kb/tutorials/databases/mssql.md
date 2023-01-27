@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/mssql
 
 ## Introduction
 
-This guide explains how to securely access a **_remote_** Microsoft SQL Server database from Streamlit Cloud. It uses the [pyodbc](https://github.com/mkleehammer/pyodbc/wiki) library and Streamlit's [secrets management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+This guide explains how to securely access a **_remote_** Microsoft SQL Server database from Streamlit Community Cloud. It uses the [pyodbc](https://github.com/mkleehammer/pyodbc/wiki) library and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ## Create an SQL Server database
 
@@ -112,15 +112,15 @@ password = "xxx"
 
 <Important>
 
-When copying your app secrets to Streamlit Cloud, be sure to replace the values of **server**, **database**, **username**, and **password** with those of your _remote_ SQL Server!
+When copying your app secrets to Streamlit Community Cloud, be sure to replace the values of **server**, **database**, **username**, and **password** with those of your _remote_ SQL Server!
 
 And add this file to `.gitignore` and don't commit it to your GitHub repo.
 
 </Important>
 
-## Copy your app secrets to Streamlit Cloud
+## Copy your app secrets to Streamlit Community Cloud
 
-As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](/streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Community Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 
@@ -141,7 +141,7 @@ Replace `x.x.x` ☝️ with the version of pyodbc you want installed on Cloud.
 
 <Note>
 
-At this time, Streamlit Cloud does not support Azure Active Directory authentication. We will update this tutorial when we add support for Azure Active Directory.
+At this time, Streamlit Community Cloud does not support Azure Active Directory authentication. We will update this tutorial when we add support for Azure Active Directory.
 
 </Note>
 

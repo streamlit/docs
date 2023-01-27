@@ -1,6 +1,6 @@
 ---
 title: Secrets management
-slug: /streamlit-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management
+slug: /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management
 ---
 
 # Secrets management
@@ -19,7 +19,7 @@ Secrets Management allows you to store secrets securely and access them in your 
 2. Click "Advanced settings..."
 3. You will see a modal appear with an input box for your secrets.
 
-   ![Secrets management](/images/streamlit-cloud/secrets-management.png)
+   ![Secrets management](/images/streamlit-community-cloud/secrets-management.png)
 
 4. Provide your secrets in the "Secrets" field using [TOML](https://toml.io/en/latest) format. For example:
 
@@ -89,9 +89,9 @@ my_db.connect(**st.secrets.db_credentials)
 
 1. Go to [https://share.streamlit.io/](https://share.streamlit.io/)
 2. Open the menu for your app, and click "Settings".
-   ![Edit secrets](/images/streamlit-cloud/edit-secrets.png)
+   ![Edit secrets](/images/streamlit-community-cloud/edit-secrets.png)
 3. You will see a modal appear. Click on the "Secrets" section and edit your secrets.
-   ![Edit secrets modal](/images/streamlit-cloud/edit-secrets-1.png)
+   ![Edit secrets modal](/images/streamlit-community-cloud/edit-secrets-1.png)
 4. After you edit your secrets, click "Save". It might take a minute for the update to be propagated to your app, but the new values will be reflected when the app re-runs.
 
 ### Develop locally with secrets
