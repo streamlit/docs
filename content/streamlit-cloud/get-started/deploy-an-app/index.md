@@ -17,6 +17,22 @@ If you want to deploy your app on a different cloud service, check out the [Depl
 
 Streamlit Community Cloud launches apps directly from your GitHub repo, so your app code and dependencies need to be on GitHub before you try to deploy the app. See [App dependencies](/streamlit-community-cloud/get-started/deploy-an-app/app-dependencies) for more information.
 
+### Optionally, add a configuration file
+
+Streamlit allows you to optionally set configuration options via four different methods. Among other things, you can use custom configs to customize your app's theme, enable logging, or set the port on which your app runs. For more information, see [Configuration](/library/advanced-features/configuration) and [Theming](/library/advanced-features/theming). On Streamlit Community Cloud, however, you can only set configuration options via a configuration file in your GitHub repo.
+
+Specifically, you can add a configuration file to the root (top-level) directory of your repo: create a `.streamlit` folder, and then add a `config.toml` file to that folder. E.g., if your app is in a repo called `my-app`, you would add a file called `my-app/.streamlit/config.toml`. Say you want to set the theme of your app to "dark". You would add the following to your `.streamlit/config.toml` file:
+
+```toml
+[theme]
+base="dark"
+```
+
+<Important>
+
+There can be only one configuration file, regardless of the number of apps in the repo.
+</Important>
+
 ## Deploy your app
 
 To deploy an app, click "New app" from the upper right corner of your workspace, then fill in your repo, branch, and file path, and click "Deploy". As a shortcut, you can also click "Paste GitHub URL".
