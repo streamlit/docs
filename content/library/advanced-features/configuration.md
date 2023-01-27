@@ -36,6 +36,11 @@ If changes to `.streamlit/config.toml` are made _while_ the app is running, the 
    streamlit run your_script.py --server.port 80
    ```
 
+<Tip>
+
+To set configuration options on Streamlit Community Cloud, read [Optionally, add a configuration file](/streamlit-community-cloud/get-started/deploy-an-app#optionally-add-a-configuration-file) in the Streamlit Community Cloud docs.
+</Tip>
+
 ## Telemetry
 
 As mentioned during the installation process, Streamlit collects usage statistics. You can find out
