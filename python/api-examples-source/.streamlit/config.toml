@@ -1,2 +1,5 @@
 [runner]
 fastReruns = true
+
+[logger]
+level = "error"
