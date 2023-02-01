@@ -44,7 +44,7 @@ To set configuration options on Streamlit Community Cloud, read [Optionally, add
 ## Telemetry
 
 As mentioned during the installation process, Streamlit collects usage statistics. You can find out
-more by reading our [privacy policy](https://streamlit.io/privacy-policy), but the high-level
+more by reading our [Privacy Notice](https://streamlit.io/privacy-policy), but the high-level
 summary is that although we collect telemetry data we cannot see and do not store information
 contained in Streamlit apps.
 
