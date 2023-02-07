@@ -33,7 +33,7 @@ You can connect to private data sources either by using [secrets management](/st
 
 <Tip>
 
-Streamlit Cloud supports Python 3.7 - Python 3.11, and defaults to version 3.9. You can select a version of your choice from the "Python version" dropdown in the "Advanced settings" modal.
+Streamlit Cloud supports Python 3.7 - Python 3.10, and defaults to version 3.9. You can select a version of your choice from the "Python version" dropdown in the "Advanced settings" modal.
 
 </Tip>
 
