@@ -29,3 +29,4 @@ Here are some frequently asked questions about using Streamlit. If you feel some
 - [Widget updating for every second input when using session state](/knowledge-base/using-streamlit/widget-updating-session-state)
 - [How do I create an anchor link?](/knowledge-base/using-streamlit/create-anchor-link)
 - [How do I enable camera access?](/knowledge-base/using-streamlit/enable-camera)
+- [Why does Streamlit restrict nested `st.columns`?](/knowledge-base/using-streamlit/why-streamlit-restrict-nested-columns)

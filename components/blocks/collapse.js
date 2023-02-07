@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./collapse.module.css";
 import classNames from "classnames";
 
-const Collapse = ({ title, children, expanded }) => {
+const Collapse = ({ title, children, expanded = false }) => {
   const [show, setShow] = useState(expanded);
 
   return (

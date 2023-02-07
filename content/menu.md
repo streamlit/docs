@@ -502,6 +502,9 @@ site_menu:
   - category: Knowledge base / Using Streamlit / Widget updating for every second input when using session state
     url: /knowledge-base/using-streamlit/widget-updating-session-state
     visible: false
+  - category: Knowledge base / Using Streamlit / Why does Streamlit restrict nested st.columns?
+    url: /knowledge-base/using-streamlit/why-streamlit-restrict-nested-columns
+    visible: false
   - category: Knowledge base / Streamlit Components
     url: /knowledge-base/components
   - category: Knowledge base / Streamlit Components / How do I add a Component to the sidebar?
