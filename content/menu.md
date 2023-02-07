@@ -487,6 +487,9 @@ site_menu:
   - category: Knowledge base / Using Streamlit / Why does Streamlit restrict nested st.columns?
     url: /knowledge-base/using-streamlit/why-streamlit-restrict-nested-columns
     visible: false
+  - category: Knowledge base / Using Streamlit / How to host static files in Streamlit?
+    url: /knowledge-base/using-streamlit/how-host-static-files
+    visible: false
   - category: Knowledge base / Streamlit Components
     url: /knowledge-base/components
   - category: Knowledge base / Streamlit Components / How do I add a Component to the sidebar?
