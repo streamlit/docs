@@ -181,7 +181,7 @@ transformational.
 <Tip>
 
 Whenever you have a long-running computation in your code, consider
-refactoring it so you can use `@st.cache_data`, if possible. Please read [Caching in Streamlit apps](/library/advanced-features/caching) for more details.
+refactoring it so you can use `@st.cache_data`, if possible. Please read [Caching](/library/advanced-features/caching) for more details.
 </Tip>
 
 Now that you know how caching with Streamlit works, let’s get back to the Uber

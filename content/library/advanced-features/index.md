@@ -52,7 +52,7 @@ This section provides examples of how Streamlit page elements are affected by th
 
 <RefCard href="/library/advanced-features/caching" size="half">
 
-##### Caching in Streamlit apps
+##### Caching
 
 The Streamlit cache allows your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations. To cache a function in Streamlit, you need to decorate it with one of two decorators: `st.cache_data` and `st.cache_resource`.
 

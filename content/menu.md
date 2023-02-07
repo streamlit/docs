@@ -300,7 +300,7 @@ site_menu:
     url: /library/advanced-features/configuration
   - category: Streamlit library / Advanced features / Theming
     url: /library/advanced-features/theming
-  - category: Streamlit library / Advanced features/ Caching in Streamlit apps
+  - category: Streamlit library / Advanced features/ Caching
     url: /library/advanced-features/caching
   - category: Streamlit library / Advanced features/ Optimize performance with st.cache
     url: /library/advanced-features/st.cache
@@ -444,9 +444,6 @@ site_menu:
     visible: false
   - category: Knowledge base / Using Streamlit / Batch elements and input widgets with st.form
     url: /knowledge-base/using-streamlit/batch-elements-input-widgets-form
-    visible: false
-  - category: Knowledge base / Using Streamlit / Caching issues
-    url: /knowledge-base/using-streamlit/caching-issues
     visible: false
   - category: Knowledge base / Using Streamlit / How do I create an anchor link?
     url: /knowledge-base/using-streamlit/create-anchor-link

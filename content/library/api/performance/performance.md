@@ -89,7 +89,7 @@ if st.checkbox("Clear All"):
 
 <Important>
 
-All the below commands were deprecated in version 1.18.0. Use the new commands above instead. Learn more in [Caching in Streamlit apps](/library/advanced-features/caching).
+All the below commands were deprecated in version 1.18.0. Use the new commands above instead. Learn more in [Caching](/library/advanced-features/caching).
 </Important>
 
 ## Deprecated commands

@@ -6,7 +6,7 @@ description: st.cache_resource is used to cache functions that return shared glo
 
 <Tip>
 
-This page only contains information on the `st.cache_resource` API. For a deeper dive into caching and how to use it, check out [Caching in Streamlit apps](/library/advanced-features/caching).
+This page only contains information on the `st.cache_resource` API. For a deeper dive into caching and how to use it, check out [Caching](/library/advanced-features/caching).
 </Tip>
 
 <Autofunction function="streamlit.cache_resource" />

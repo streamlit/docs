@@ -5,7 +5,7 @@ slug: /library/advanced-features/st.cache
 
 <Deprecation>
 
-`st.cache` was deprecated in version 1.18.0. Use [`st.cache_data`](/library/api-reference/performance/st.cache_data) or [`st.cache_resource`](/library/api-reference/performance/st.cache_resource) instead. Learn more in [Caching in Streamlit apps](/library/advanced-features/caching).
+`st.cache` was deprecated in version 1.18.0. Use [`st.cache_data`](/library/api-reference/performance/st.cache_data) or [`st.cache_resource`](/library/api-reference/performance/st.cache_resource) instead. Learn more in [Caching](/library/advanced-features/caching).
 
 </Deprecation>
 
