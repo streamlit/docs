@@ -200,6 +200,9 @@ maxMessageSize = 200
 # Default: false
 enableWebsocketCompression = false
 
+# Enable serving files from a `static` directory in the running app's directory.
+# Default: false
+enableStaticServing = false
 
 [browser]
 
