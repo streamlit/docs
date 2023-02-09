@@ -19,7 +19,7 @@ pip install --upgrade streamlit
 
 ## **Version 1.18.0**
 
-_Release date: January 26, 2023_
+_Release date: February 09, 2023_
 
 **Highlights**
 
@@ -27,20 +27,26 @@ _Release date: January 26, 2023_
 
 **Notable Changes**
 
-- 🪆 `st.columns` supports up to one level of column nesting (i.e. columns inside columns) in the main area of the app.
+- 🪆 `st.columns` supports up to one level of column nesting (i.e., columns inside columns) in the main area of the app.
 - ⏳ `st.progress` supports adding a message to display above the progress bar with the `text` keyword parameter.
-- ↔️ `st.button` has an optional `use_container_width` parameter to allow you to stretch buttons across the full container width.
+- ↔️ `st.button` has an optional `use_container_width` parameter to allow you to stretch buttons across the full container width.
 - 🐍 We formally added support for Python 3.11.
+- 🖨️ Save your app as a PDF via the “Print” option in your app’s hamburger menu.
+- 🛎️ Apps apps can serve small, static media files via the `enableStaticServing` config option. See our [documentation](/knowledge-base/using-streamlit/how-host-static-files) on how to use this feature and our demo [app](https://static.streamlit.app/) for an example.
 
 **Other Changes**
 
 - 🏁 All Streamlit endpoints (including `/healthz`) have been renamed to have a consistent pattern and avoid any clashes with reserved endpoints of GCP (notably Cloud Run and App Engine) ([#5534](https://github.com/streamlit/streamlit/pull/5534)).
+- ⚡ Improved caching performance when multiple sessions access an uncomputed cached value simultaneously ([#6017](https://github.com/streamlit/streamlit/pull/6017)).
 - 🚧 Streamlit only displays deprecation warnings in the browser when the `client.showErrorDetails` config option is set to `True`. Deprecation warnings always get logged to the console, regardless of whether they're displayed in-browser ([#5945](https://github.com/streamlit/streamlit/pull/5945)).
+- 🏓 Refactored the `st.dataframe` internals to improve dataframe handling and conversion, such as detecting more types, converting key-value dicts to dataframes, and more ([#6026](https://github.com/streamlit/streamlit/pull/6026), [#6023](https://github.com/streamlit/streamlit/pull/6023)).
 - 💽 The behavior of widget labels when they are passed unsupported Markdown elements is documented ([#5978](https://github.com/streamlit/streamlit/pull/5978)).
-- 📊 Bug fix: upgraded multiple frontend dependencies including Plotly to the latest version to properly redraw cached charts and make Plotly mapbox animations work ([#5885](https://github.com/streamlit/streamlit/pull/5885), [#5967](https://github.com/streamlit/streamlit/pull/5967)).
-- 📱Bug fix: the keyboard is hidden on mobile when `st.selectbox` and `st.multiselect` have less than 10 options ([#5979](https://github.com/streamlit/streamlit/pull/5979)).
-- 🐝 Bug fix: design tweaks to `st.metric`, `st.multiselect`, and `st.tabs` to prevent label overflow and scrolling issues, especially with small viewport sizes ([#5933](https://github.com/streamlit/streamlit/pull/5933)).
+- 📊 Bug fix: Plotly improvements — upgraded multiple frontend dependencies, including Plotly, to the latest version to properly redraw cached charts, make Plotly mapbox animations work, and allow users to update the figure layout when using the Streamlit theme ([#5885](https://github.com/streamlit/streamlit/pull/5885), [#5967](https://github.com/streamlit/streamlit/pull/5967), [#6055](https://github.com/streamlit/streamlit/pull/6055)).
+- 📶 Bug fix: allow browser tabs that transiently disconnect (due to a network blip, load balancer timeout, etc.) to avoid losing all of their state ([#5856](https://github.com/streamlit/streamlit/pull/5856)).
+- 📱 Bug fix: the keyboard is hidden on mobile when `st.selectbox` and `st.multiselect` have less than 10 options ([#5979](https://github.com/streamlit/streamlit/pull/5979)).
+- 🐝 Bug fix: design tweaks to `st.metric`, `st.multiselect`, `st.tabs` , and menu items to prevent label overflow and scrolling issues, especially with small viewport sizes ([#5933](https://github.com/streamlit/streamlit/pull/5933), [#6034](https://github.com/streamlit/streamlit/pull/6034)).
 - 🐞 Bug fix: switched to a functioning Twemoji URL from which page favicons are loaded in `st.set_page_config` ([#5943](https://github.com/streamlit/streamlit/pull/5943)).
+- ✍️ More type hints ([#5986](https://github.com/streamlit/streamlit/pull/5986)). Thanks, [harahu](https://github.com/harahu)!
 
 ## **Version 1.17.0**
 
