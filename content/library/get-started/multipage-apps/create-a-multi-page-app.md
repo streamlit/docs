@@ -67,7 +67,7 @@ to display geospatial data.
 """
     )
 
-    @st.cache
+    @st.cache_data
     def from_data_file(filename):
         url = (
             "http://raw.githubusercontent.com/streamlit/"
@@ -199,7 +199,7 @@ def data_frame_demo():
 """
     )
 
-    @st.cache
+    @st.cache_data
     def get_UN_data():
         AWS_BUCKET_URL = "http://streamlit-demo-data.s3-us-west-2.amazonaws.com"
         df = pd.read_csv(AWS_BUCKET_URL + "/agri.csv.gz")
@@ -395,7 +395,7 @@ to display geospatial data."""
 )
 
 
-@st.experimental_memo
+@st.cache_data
 def from_data_file(filename):
     url = (
         "http://raw.githubusercontent.com/streamlit/"
@@ -500,7 +500,7 @@ st.write(
 )
 
 
-@st.cache
+@st.cache_data
 def get_UN_data():
     AWS_BUCKET_URL = "http://streamlit-demo-data.s3-us-west-2.amazonaws.com"
     df = pd.read_csv(AWS_BUCKET_URL + "/agri.csv.gz")

@@ -119,22 +119,22 @@ luckily Streamlit allows you to cache the data.
 
 ## Effortless caching
 
-1. Try adding `@st.cache` before the `load_data` declaration:
+1. Try adding `@st.cache_data` before the `load_data` declaration:
 
    ```python
-   @st.cache
+   @st.cache_data
    def load_data(nrows):
    ```
 
 2. Then save the script, and Streamlit will automatically rerun your app. Since
-   this is the first time you’re running the script with `@st.cache`, you won't
+   this is the first time you’re running the script with `@st.cache_data`, you won't
    see anything change. Let’s tweak your file a little bit more so that you can
    see the power of caching.
 
 3. Replace the line `data_load_state.text('Loading data...done!')` with this:
 
    ```python
-   data_load_state.text("Done! (using st.cache)")
+   data_load_state.text("Done! (using st.cache_data)")
    ```
 
 4. Now save. See how the line you added appeared immediately? If you take a
@@ -144,18 +144,17 @@ luckily Streamlit allows you to cache the data.
 
 ### How's it work?
 
-Let's take a few minutes to discuss how `@st.cache` actually works.
+Let's take a few minutes to discuss how `@st.cache_data` actually works.
 
 When you mark a function with Streamlit’s cache annotation, it tells Streamlit
-that whenever the function is called that it should check three things:
+that whenever the function is called that it should check two things:
 
-1. The actual bytecode that makes up the body of the function
-2. Code, variables, and files that the function depends on
-3. The input parameters that you called the function with
+1. The input parameters you used for the function call.
+2. The code inside the function.
 
-If this is the first time Streamlit has seen these items, with these exact
+If this is the first time Streamlit has seen both these items, with these exact
 values, and in this exact combination, it runs the function and stores the
-result in a local cache. The next time the function is called, if the three
+result in a local cache. The next time the function is called, if the two
 values haven't changed, then Streamlit knows it can skip executing the function
 altogether. Instead, it reads the output from the local cache and passes it on
 to the caller -- like magic.
@@ -172,11 +171,8 @@ Well, there are a few:
    numbers), or if it pulls data from an external time-varying source (for
    example, a live stock market ticker service) the cached value will be
    none-the-wiser.
-3. Lastly, you should not mutate the output of a cached function since cached
-   values are stored by reference (for performance reasons and to be able to
-   support libraries such as TensorFlow). Note that, here, Streamlit is smart
-   enough to detect these mutations and show a loud warning explaining how to
-   fix the problem.
+3. Lastly, you should avoid mutating the output of a function cached with `st.cache_data` since cached
+   values are stored by reference.
 
 While these limitations are important to keep in mind, they tend not to be an
 issue a surprising amount of the time. Those times, this cache is really
@@ -185,8 +181,7 @@ transformational.
 <Tip>
 
 Whenever you have a long-running computation in your code, consider
-refactoring it so you can use `@st.cache`, if possible.
-
+refactoring it so you can use `@st.cache_data`, if possible. Please read [Caching](/library/advanced-features/caching) for more details.
 </Tip>
 
 Now that you know how caching with Streamlit works, let’s get back to the Uber
@@ -361,7 +356,7 @@ DATE_COLUMN = 'date/time'
 DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
             'streamlit-demo-data/uber-raw-data-sep14.csv.gz')
 
-@st.cache
+@st.cache_data
 def load_data(nrows):
     data = pd.read_csv(DATA_URL, nrows=nrows)
     lowercase = lambda x: str(x).lower()
@@ -371,7 +366,7 @@ def load_data(nrows):
 
 data_load_state = st.text('Loading data...')
 data = load_data(10000)
-data_load_state.text("Done! (using st.cache)")
+data_load_state.text("Done! (using st.cache_data)")
 
 if st.checkbox('Show raw data'):
     st.subheader('Raw data')

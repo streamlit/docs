@@ -52,37 +52,22 @@ This section provides examples of how Streamlit page elements are affected by th
 
 <RefCard href="/library/advanced-features/caching" size="half">
 
-##### Optimize performance with `st.cache`
+##### Caching
 
-Streamlit provides a caching mechanism that allows your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations. This is done with the [**`@st.cache`**](/library/api-reference/performance/st.cache) decorator.
+The Streamlit cache allows your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations. To cache a function in Streamlit, you need to decorate it with one of two decorators: `st.cache_data` and `st.cache_resource`.
 
-- [What is `st.cache`?](/library/advanced-features/caching#optimize-performance-with-stcache)
-- [Basic usage](/library/advanced-features/caching#example-1-basic-usage)
-- [Caching when the function arguments change?](/library/advanced-features/caching#example-1-basic-usage)
-- [Caching when the function body changes](/library/advanced-features/caching#example-3-when-the-function-body-changes)
-- [Caching when an inner function changes](/library/advanced-features/caching#example-4-when-an-inner-function-changes)
-- [Use caching to speed up your app across users](/library/advanced-features/caching#example-5-use-caching-to-speed-up-your-app-across-users)
-- [How to mutate cached values?](/library/advanced-features/caching#example-6-mutating-cached-values)
-- [Advanced caching](/library/advanced-features/caching#advanced-caching)
-
-</RefCard>
-
-<RefCard href="/library/advanced-features/experimental-cache-primitives" size="half">
-
-##### Experimental cache primitives
-
-Streamlit provides two experimental primitives to memoize function executions and store singleton objects.
-
-[**`@st.experimental_memo`**](/library/api-reference/performance/st.experimental_memo) is used to store expensive computation which can be "cached" or "memoized" in the traditional sense.
-
-[**`@st.experimental_singleton`**](/library/api-reference/performance/st.experimental_singleton) is a key-value store that's shared across all sessions of a Streamlit app. It's great for storing heavyweight singleton objects across sessions (like TensorFlow/Torch/Keras sessions and/or database connections).
-
-- [Problems with `st.cache`](/library/advanced-features/experimental-cache-primitives#problem)
-- [`@st.experimental_memo`](/library/advanced-features/experimental-cache-primitives#stexperimental_memo)
-- [Properties of `@st.experimental_memo`](/library/advanced-features/experimental-cache-primitives#properties)
-- [`@st.experimental_singleton`](/library/advanced-features/experimental-cache-primitives#stexperimental_singleton)
-- [How `@st.experimental_singleton` compares to `@st.cache`](/library/advanced-features/experimental-cache-primitives#how-this-compares-to-stcache)
-- [Which to use: memo or singleton?](/library/advanced-features/experimental-cache-primitives#which-to-use-memo-or-singleton)
+- [Minimal example](/library/advanced-features/caching#minimal-example)
+- [Basic usage](/library/advanced-features/caching#basic-usage)
+  - [st.cache_data](/library/advanced-features/caching#stcache_data)
+  - [st.cache_resource](/library/advanced-features/caching#stcache_resource)
+  - [Deciding which caching decorator to use](/library/advanced-features/caching#deciding-which-caching-decorator-to-use)
+- [Advanced usage](/library/advanced-features/caching#advanced-usage)
+  - [Excluding input parameters](/library/advanced-features/caching#excluding-input-parameters)
+  - [Controlling cache size and duration](/library/advanced-features/caching#controlling-cache-size-and-duration)
+  - [Customizing the spinner](/library/advanced-features/caching#customizing-the-spinner)
+  - [Using Streamlit commands in cached functions](/library/advanced-features/caching#using-streamlit-commands-in-cached-functions)
+  - [Mutation and concurrency issues](/library/advanced-features/caching#mutation-and-concurrency-issues)
+- [Migrating from st.cache](/library/advanced-features/caching#migrating-from-stcache)
 
 </RefCard>
 
@@ -122,7 +107,7 @@ Widgets are magical and often work how you want. But they can have surprising be
 
 </RefCard>
 
-<RefCard href="/library/advanced-features/timezone-handling" size="full">
+<RefCard href="/library/advanced-features/timezone-handling" size="half">
 
 ##### Working with timezones
 

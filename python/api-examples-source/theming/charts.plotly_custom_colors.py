@@ -3,7 +3,7 @@ import plotly.graph_objects as go
 import streamlit as st
 
 
-@st.experimental_memo
+@st.cache_data
 def get_chart_1111(use_conatiner_width: bool):
     st.subheader("Define a custom colorscale")
     df = px.data.iris()  # replace with your own data source

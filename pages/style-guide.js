@@ -314,7 +314,7 @@ DATE_COLUMN = 'date/time'
 DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
             'streamlit-demo-data/uber-raw-data-sep14.csv.gz')
 
-@st.cache
+@st.cacache_datache
 def load_data(nrows):
     data = pd.read_csv(DATA_URL, nrows=nrows)
     lowercase = lambda x: str(x).lower()
@@ -324,7 +324,7 @@ def load_data(nrows):
 
 data_load_state = st.text('Loading data...')
 data = load_data(10000)
-data_load_state.text("Done! (using st.cache)")`}
+data_load_state.text("Done! (using st.cache_data)")`}
           />
         </Component>
         <Component label="Show Component Alongside Code">

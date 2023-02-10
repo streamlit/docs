@@ -111,8 +111,8 @@ import streamlit as st
 from supabase import create_client, Client
 
 # Initialize connection.
-# Uses st.experimental_singleton to only run once.
-@st.experimental_singleton
+# Uses st.cache_resource to only run once.
+@st.cache_resource
 def init_connection():
     url = st.secrets["supabase_url"]
     key = st.secrets["supabase_key"]
@@ -121,8 +121,8 @@ def init_connection():
 supabase = init_connection()
 
 # Perform query.
-# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-@st.experimental_memo(ttl=600)
+# Uses st.cache_data to only rerun when the query changes or after 10 min.
+@st.cache_data(ttl=600)
 def run_query():
     return supabase.table("mytable").select("*").execute()
 
@@ -134,7 +134,7 @@ for row in rows.data:
 
 ```
 
-See `st.experimental_memo` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.experimental_memo`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Read more about caching [here](/library/advanced-features/experimental-cache-primitives).
+See `st.cache_data` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache_data`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Learn more in [Caching](/library/advanced-features/caching).
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 
