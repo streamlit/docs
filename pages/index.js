@@ -238,26 +238,26 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
-                date="2023-01-24T16:05:00.000Z"
-                title="Host your Streamlit app for free"
-                text="Learn how to transfer your apps from paid platforms to Streamlit Community Cloud"
+                date="2023-02-09T16:05:00.000Z"
+                title="Introducing 2 new caching commands to replace st.cache!"
+                text="st.cache_data and st.cache_resource are here to make caching less complex and more performant"
                 link="https://blog.streamlit.io/host-your-streamlit-app-for-free/"
                 image="/blog-1.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2023-01-19T16:05:00.000Z"
-                title="Create a color palette from any image"
-                text="Learn how to come up with the perfect colors for your data visualization"
-                link="https://blog.streamlit.io/create-a-color-palette-from-any-image/"
+                date="2023-02-09T16:05:00.000Z"
+                title="Using ChatGPT to build a Kedro ML pipeline"
+                text="Talk with ChatGPT to build feature-rich solutions with a Streamlit frontend"
+                link="https://blog.streamlit.io/using-chatgpt-to-build-a-kedro-ml-pipeline/"
                 image="/blog-2.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2023-01-12T16:05:00.000Z"
-                title="How to make a culture map"
-                text="Analyze multidimensional data with Steamlit!"
-                link="https://blog.streamlit.io/how-to-make-a-culture-map/"
+                date="2023-02-07T16:05:00.000Z"
+                title="Streamlit-Authenticator, Part 2: Adding advanced features to your authentication component"
+                text="How to add advanced functionality to your Streamlit app's authentication component"
+                link="https://blog.streamlit.io/streamlit-authenticator-part-2-adding-advanced-features-to-your-authentication-component/"
                 image="/blog-3.svg"
                 target="_blank"
               />
