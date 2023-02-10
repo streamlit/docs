@@ -27,4 +27,4 @@ changes that take place outside the body of the annotated function.
 For more information about the Streamlit cache, its configuration parameters,
 and its limitations, see [Caching](/library/advanced-features/caching).
 
-<Autofunction function="streamlit.cache" />
+<Autofunction function="streamlit.cache" deprecated={true} deprecatedText="<code>st.cache</code> was deprecated in version 1.18.0. Use <a href='/library/api-reference/performance/st.cache_data'><code>st.cache_data</code></a> or <a href='/library/api-reference/performance/st.cache_resource'><code>st.cache_resource</code></a> instead. Learn more in <a href='/library/advanced-features/caching'>Caching</a>."/>

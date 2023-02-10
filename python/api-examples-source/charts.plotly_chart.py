@@ -1,8 +1,9 @@
-import streamlit as st
-import plotly.figure_factory as ff
 import numpy as np
+import plotly.figure_factory as ff
+import streamlit as st
 
-@st.experimental_memo
+
+@st.cache_data
 def load_data():
     # Add histogram data
     x1 = np.random.randn(200) - 2
@@ -12,6 +13,7 @@ def load_data():
     # Group data together
     hist_data = [x1, x2, x3]
     return hist_data
+
 
 hist_data = load_data()
 

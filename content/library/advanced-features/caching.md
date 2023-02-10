@@ -1,461 +1,557 @@
 ---
-title: Optimize performance with st.cache
+title: Caching
 slug: /library/advanced-features/caching
 ---
 
-# Optimize performance with st.cache
-
-<Important>
-
-We're developing new cache primitives that are easier to use and much faster than `@st.cache`. 🚀 To learn more, read [Experimental cache primitives](/library/advanced-features/experimental-cache-primitives).
-
-</Important>
-
-Streamlit provides a caching mechanism that allows your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations. This is done with the [`@st.cache`](/library/api-reference/performance/st.cache) decorator.
-
-When you mark a function with the [`@st.cache`](/library/api-reference/performance/st.cache) decorator, it tells Streamlit that whenever the function is called it needs to check a few things:
-
-1. The input parameters that you called the function with
-2. The value of any external variable used in the function
-3. The body of the function
-4. The body of any function used inside the cached function
-
-If this is the first time Streamlit has seen these four components with these exact values and in this exact combination and order, it runs the function and stores the result in a local cache. Then, next time the cached function is called, if none of these components changed, Streamlit will just skip executing the function altogether and, instead, return the output previously stored in the cache.
-
-The way Streamlit keeps track of changes in these components is through hashing. Think of the cache as an in-memory key-value store, where the key is a hash of all of the above and the value is the actual output object passed by reference.
-
-Finally, [`@st.cache`](/library/api-reference/performance/st.cache) supports arguments to configure the cache's behavior. You can find more information on those in our [API reference](/library/api-reference).
-
-Let's take a look at a few examples that illustrate how caching works in a Streamlit app.
-
-## Example 1: Basic usage
-
-For starters, let's take a look at a sample app that has a function that performs an expensive, long-running computation. Without caching, this function is rerun each time the app is refreshed, leading to a poor user experience. Copy this code into a new app and try it out yourself:
-
-```python
-import streamlit as st
-import time
-
-def expensive_computation(a, b):
-    time.sleep(2)  # 👈 This makes the function take 2s to run
-    return a * b
-
-a = 2
-b = 21
-res = expensive_computation(a, b)
-
-st.write("Result:", res)
-```
-
-Try pressing **R** to rerun the app, and notice how long it takes for the result to show up. This is because `expensive_computation(a, b)` is being re-executed every time the app runs. This isn't a great experience.
-
-Let's add the [`@st.cache`](/library/api-reference/performance/st.cache) decorator:
-
-```python
-import streamlit as st
-import time
-
-@st.cache  # 👈 Added this
-def expensive_computation(a, b):
-    time.sleep(2)  # This makes the function take 2s to run
-    return a * b
-
-a = 2
-b = 21
-res = expensive_computation(a, b)
-
-st.write("Result:", res)
-```
-
-Now run the app again and you'll notice that it is much faster every time you press R to rerun. To understand what is happening, let's add an st.write inside the function:
-
-```python
-import streamlit as st
-import time
-
-@st.cache(suppress_st_warning=True)  # 👈 Changed this
-def expensive_computation(a, b):
-    # 👇 Added this
-    st.write("Cache miss: expensive_computation(", a, ",", b, ") ran")
-    time.sleep(2)  # This makes the function take 2s to run
-    return a * b
-
-a = 2
-b = 21
-res = expensive_computation(a, b)
-
-st.write("Result:", res)
-```
-
-Now when you rerun the app the text "Cache miss" appears on the first run, but not on any subsequent runs. That's because the cached function is only being executed once, and every time after that you're actually hitting the cache.
-
 <Note>
 
-You may have noticed that we've added the `suppress_st_warning` keyword to the `@st.cache` decorators. That's because the cached function above uses a Streamlit command itself (`st.write` in this case), and when Streamlit sees that, it shows a warning that your command will only execute when you get a cache miss. More often than not, when you see that warning it's because there's a bug in your code. However, in our case we're using the `st.write` command to demonstrate when the cache is being missed, so the behavior Streamlit is warning us about is exactly what we want. As a result, we are passing in `suppress_st_warning=True` to turn that warning off.
+Documentation for the deprecated `@st.cache` decorator can be found in [Optimize performance with st.cache](/library/advanced-features/st.cache).
 
 </Note>
 
-## Example 2: When the function arguments change
+# Caching
 
-Without stopping the previous app server, let's change one of the arguments to our cached function:
+Streamlit runs your script from top to bottom at every user interaction or code change. This execution model makes development super easy. But it comes with two major challenges:
 
-```python
-import streamlit as st
-import time
+1. Long-running functions run again and again, which slows down your app.
+2. Objects get recreated again and again, which makes it hard to persist them across reruns or sessions.
 
-@st.cache(suppress_st_warning=True)
-def expensive_computation(a, b):
-    st.write("Cache miss: expensive_computation(", a, ",", b, ") ran")
-    time.sleep(2)  # This makes the function take 2s to run
-    return a * b
+But don’t worry! Streamlit lets you tackle both issues with its built-in caching mechanism. Caching stores the results of slow function calls, so they only need to run once. This makes your app much faster and helps with persisting objects across reruns.
 
-a = 2
-b = 210  # 👈 Changed this
-res = expensive_computation(a, b)
+<Collapse title="Table of contents" expanded={true}>
 
-st.write("Result:", res)
-```
+1. [Minimal example](#minimal-example)
+2. [Basic usage](#basic-usage)
+3. [Advanced usage](#advanced-usage)
+4. [Migrating from st.cache](#migrating-from-stcache)
 
-Now the first time you rerun the app it's a cache miss. This is evidenced by the "Cache miss" text showing up and the app taking 2s to finish running. After that, if you press **R** to rerun, it's always a cache hit. That is, no such text shows up and the app is fast again.
+</Collapse>
 
-This is because Streamlit notices whenever the arguments **a** and **b** change and determines whether the function should be re-executed and re-cached.
+## Minimal example
 
-## Example 3: When the function body changes
-
-Without stopping and restarting your Streamlit server, let's remove the widget from our app and modify the function's code by adding a `+ 1` to the return value.
+To cache a function in Streamlit, you must decorate it with one of two decorators (`st.cache_data` or `st.cache_resource`):
 
 ```python
-import streamlit as st
-import time
-
-@st.cache(suppress_st_warning=True)
-def expensive_computation(a, b):
-    st.write("Cache miss: expensive_computation(", a, ",", b, ") ran")
-    time.sleep(2)  # This makes the function take 2s to run
-    return a * b + 1  # 👈 Added a +1 at the end here
-
-a = 2
-b = 210
-res = expensive_computation(a, b)
-
-st.write("Result:", res)
+@st.cache_data
+def long_running_function(param1, param2):
+    return …
 ```
 
-The first run is a "Cache miss", but when you press **R** each subsequent run is a cache hit. This is because on first run, Streamlit detected that the function body changed, reran the function, and put the result in the cache.
+In this example, decorating `long_running_function` with `@st.cache_data` tells Streamlit that whenever the function is called, it checks two things:
+
+1. The values of the input parameters (in this case, `param1` and `param2`).
+2. The code inside the function.
+
+If this is the first time Streamlit sees these parameter values and function code, it runs the function and stores the return value in a cache. The next time the function is called with the same parameters and code (e.g., when a user interacts with the app), Streamlit will skip executing the function altogether and return the cached value instead. During development, the cache updates automatically as the function code changes, ensuring that the latest changes are reflected in the cache.
+
+As mentioned, there are two caching decorators:
+
+- `st.cache_data` is the recommended way to cache computations that return data: loading a DataFrame from CSV, transforming a NumPy array, querying an API, or any other function that returns a serializable data object (str, int, float, DataFrame, array, list, …). It creates a new copy of the data at each function call, making it safe against [mutations and race conditions](#mutation-and-concurrency-issues). The behavior of `st.cache_data` is what you want in most cases – so if you're unsure, start with `st.cache_data` and see if it works!
+- `st.cache_resource` is the recommended way to cache global resources like ML models or database connections – unserializable objects that you don’t want to load multiple times. Using it, you can share these resources across all reruns and sessions of an app without copying or duplication. Note that any mutations to the cached return value directly mutate the object in the cache (more details below).
+
+<Image src="/images/caching-high-level-diagram.png" caption="Streamlit's two caching decorators and their use cases." alt="Streamlit's two caching decorators and their use cases. Use st.cache_data for anything you'd store in a database. Use st.cache_resource for anything you can't store in a database, like a connection to a database or a machine learning model." />
+
+## Basic usage
+
+### st.cache_data
+
+`st.cache_data` is your go-to command for all functions that return data – whether DataFrames, NumPy arrays, str, int, float, or other serializable types. It’s the right command for almost all use cases!
+
+#### Usage
+
+<br />
+
+Let's look at an example of using `st.cache_data`. Suppose your app loads the [Uber ride-sharing dataset](https://github.com/plotly/datasets/blob/master/uber-rides-data1.csv) – a CSV file of 50 MB – from the internet into a DataFrame:
+
+```python
+def load_data(url):
+    df = pd.read_csv(url)  # 👈 Download the data
+    return df
+
+df = load_data("https://github.com/plotly/datasets/raw/master/uber-rides-data1.csv")
+st.dataframe(df)
+
+st.button("Rerun")
+```
+
+Running the `load_data` function takes 2 to 30 seconds, depending on your internet connection. (Tip: if you are on a slow connection, use [this 5 MB dataset instead](https://github.com/plotly/datasets/blob/master/26k-consumer-complaints.csv)). Without caching, the download is rerun each time the app is loaded or with user interaction. Try it yourself by clicking the button we added! Not a great experience… 😕
+
+Now let’s add the `@st.cache_data` decorator on `load_data`:
+
+```python
+@st.cache_data  # 👈 Add the caching decorator
+def load_data(url):
+    df = pd.read_csv(url)
+    return df
+
+df = load_data("https://github.com/plotly/datasets/raw/master/uber-rides-data1.csv")
+st.dataframe(df)
+
+st.button("Rerun")
+```
+
+Run the app again. You'll notice that the slow download only happens on the first run. Every subsequent rerun should be almost instant! 💨
+
+#### Behavior
+
+<br />
+
+How does this work? Let’s go through the behavior of `st.cache_data` step by step:
+
+- On the first run, Streamlit recognizes that it has never called the `load_data` function with the specified parameter value (the URL of the CSV file) So it runs the function and downloads the data.
+- Now our caching mechanism becomes active: the returned DataFrame is serialized (converted to bytes) via [pickle](https://docs.python.org/3/library/pickle.html) and stored in the cache (together with the value of the `url` parameter).
+- On the next run, Streamlit checks the cache for an entry of `load_data` with the specific `url`. There is one! So it retrieves the cached object, deserializes it to a DataFrame, and returns it instead of re-running the function and downloading the data again.
+
+This process of serializing and deserializing the cached object creates a copy of our original DataFrame. While this copying behavior may seem unnecessary, it’s what we want when caching data objects since it effectively prevents mutation and concurrency issues. Read the section “[Mutation and concurrency issues](#mutation-and-concurrency-issues)” below to understand this in more detail.
+
+#### Examples
+
+<br/>
+
+**DataFrame transformations**
+
+In the example above, we already showed how to cache loading a DataFrame. It can also be useful to cache DataFrame transformations such as `df.filter`, `df.apply`, or `df.sort_values`. Especially with large DataFrames, these operations can be slow.
+
+```python
+@st.cache_data
+def transform(df):
+    df = df.filter(items=['one', 'three'])
+    df = df.apply(np.sum, axis=0)
+	return df
+```
+
+**Array computations**
+
+Similarly, it can make sense to cache computations on NumPy arrays:
+
+```python
+@st.cache_data
+def add(arr1, arr2):
+	return arr1 + arr2
+```
+
+**Database queries**
+
+You usually make SQL queries to load data into your app when working with databases. Repeatedly running these queries can be slow, cost money, and degrade the performance of your database. We strongly recommend caching any database queries in your app. See also [our guides on connecting Streamlit to different databases](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources) for in-depth examples.
+
+```python
+connection = database.connect()
+
+@st.cache_data
+def query():
+    return pd.read_sql_query("SELECT * from table", connection)
+```
 
 <Tip>
 
-If you change the function back the result will already be in the Streamlit cache from a previous run. Try it out!
-
+You should set a `ttl` (time to live) to get new results from your database. If you set `st.cache_data(ttl=3600)`, Streamlit invalidates any cached values after 1 hour (3600 seconds) and runs the cached function again. See details in [Controlling cache size and duration](#controlling-cache-size-and-duration).
 </Tip>
 
-## Example 4: When an inner function changes
+**API calls**
 
-Let's make our cached function depend on another function internally:
+Similarly, it makes sense to cache API calls. Doing so also avoids rate limits.
 
 ```python
-import streamlit as st
-import time
-
-def inner_func(a, b):
-    st.write("inner_func(", a, ",", b, ") ran")
-    return a * b
-
-@st.cache(suppress_st_warning=True)
-def expensive_computation(a, b):
-    st.write("Cache miss: expensive_computation(", a, ",", b, ") ran")
-    time.sleep(2)  # This makes the function take 2s to run
-    return inner_func(a, b) + 1
-
-a = 2
-b = 210
-res = expensive_computation(a, b)
-
-st.write("Result:", res)
+@st.cache_data
+def api_call():
+    response = requests.get('https://jsonplaceholder.typicode.com/posts/1')
+    return response.json()
 ```
 
-What you see is the usual:
+**Running ML models (inference)**
 
-1. The first run results in a cache miss.
-1. Every subsequent rerun results in a cache hit.
-
-But now let's try modifying the `inner_func()`:
+Running complex machine learning models can use significant time and memory. To avoid rerunning the same computations over and over, use caching.
 
 ```python
-import streamlit as st
-import time
-
-def inner_func(a, b):
-    st.write("inner_func(", a, ",", b, ") ran")
-    return a ** b  # 👈 Changed the * to ** here
-
-@st.cache(suppress_st_warning=True)
-def expensive_computation(a, b):
-    st.write("Cache miss: expensive_computation(", a, ",", b, ") ran")
-    time.sleep(2)  # This makes the function take 2s to run
-    return inner_func(a, b) + 1
-
-a = 2
-b = 21
-res = expensive_computation(a, b)
-
-st.write("Result:", res)
+@st.cache_data
+def run_model(inputs):
+    return model(inputs)
 ```
 
-Even though `inner_func()` is not annotated with [`@st.cache`](/library/api-reference/performance/st.cache), when we edit its body we cause a "Cache miss" in the outer `expensive_computation()`.
+### st.cache_resource
 
-That's because Streamlit always traverses your code and its dependencies to verify that the cached values are still valid. This means that while developing your app you can edit your code freely without worrying about the cache. Any change you make to your app, Streamlit should do the right thing!
+`st.cache_resource` is the right command to cache “resources” that should be available globally across all users, sessions, and reruns. It has more limited use cases than `st.cache_data`, especially for caching database connections and ML models.
 
-Streamlit is also smart enough to only traverse dependencies that belong to your app, and skip over any dependency that comes from an installed Python library.
+#### Usage
 
-## Example 5: Use caching to speed up your app across users
-
-Going back to our original function, let's add a widget to control the value of `b`:
+As an example for `st.cache_resource`, let’s look at a typical machine learning app. As a first step, we need to load an ML model. We do this with [Hugging Face’s transformers library](https://huggingface.co/docs/transformers/index):
 
 ```python
-import streamlit as st
-import time
-
-@st.cache(suppress_st_warning=True)
-def expensive_computation(a, b):
-    st.write("Cache miss: expensive_computation(", a, ",", b, ") ran")
-    time.sleep(2)  # This makes the function take 2s to run
-    return a * b
-
-a = 2
-b = st.slider("Pick a number", 0, 10)  # 👈 Changed this
-res = expensive_computation(a, b)
-
-st.write("Result:", res)
+from transformers import pipeline
+model = pipeline("sentiment-analysis")  # 👈 Load the model
 ```
 
-What you'll see:
+If we put this code into a Streamlit app directly, the app will load the model at each rerun or user interaction. Repeatedly loading the model poses two problems:
 
-- If you move the slider to a number Streamlit hasn't seen before, you'll have a cache miss again. And every subsequent rerun with the same number will be a cache hit, of course.
-- If you move the slider back to a number Streamlit has seen before, the cache is hit and the app is fast as expected.
+- Loading the model takes time and slows down the app.
+- Each session loads the model from scratch, which takes up a huge amount of memory.
 
-In computer science terms, what is happening here is that [`@st.cache`](/library/api-reference/performance/st.cache) is [memoizing](https://en.wikipedia.org/wiki/Memoization) `expensive_computation(a, b)`.
-
-But now let's go one step further! Try the following:
-
-1. Move the slider to a number you haven't tried before, such as 9.
-2. Pretend you're another user by opening another browser tab pointing to your Streamlit app (usually at http://localhost:8501)
-3. In the new tab, move the slider to 9.
-
-Notice how this is actually a cache hit! That is, you don't actually see the "Cache miss" text on the second tab even though that second user never moved the slider to 9 at any point prior to this.
-
-This happens because the Streamlit cache is global to all users. So everyone contributes to everyone else's performance.
-
-## Example 6: Mutating cached values
-
-As mentioned in the [overview](#optimize-performance-with-stcache) section, the Streamlit cache stores items by reference. This allows the Streamlit cache to support structures that aren't memory-managed by Python, such as TensorFlow objects. However, it can also lead to unexpected behavior — which is why Streamlit has a few checks to guide developers in the right direction. Let's look into those checks now.
-
-Let's write an app that has a cached function which returns a mutable object, and then let's follow up by mutating that object:
+Instead, it would make much more sense to load the model once and use that same object across all users and sessions. That’s exactly the use case for `st.cache_resource`! Let’s add it to our app and process some text the user entered:
 
 ```python
-import streamlit as st
-import time
+from transformers import pipeline
 
-@st.cache(suppress_st_warning=True)
-def expensive_computation(a, b):
-    st.write("Cache miss: expensive_computation(", a, ",", b, ") ran")
-    time.sleep(2)  # This makes the function take 2s to run
-    return {"output": a * b}  # 👈 Mutable object
+@st.cache_resource  # 👈 Add the caching decorator
+def load_model():
+    return pipeline("sentiment-analysis")
 
-a = 2
-b = 21
-res = expensive_computation(a, b)
-
-st.write("Result:", res)
-
-res["output"] = "result was manually mutated"  # 👈 Mutated cached value
-
-st.write("Mutated result:", res)
+query = st.text_input("Your query", value="I love Streamlit! 🎈")
+if query:
+    result = model(query)[0]  # 👈 Classify the query text
+    st.write(result)
 ```
 
-When you run this app for the first time, you should see three messages on the screen:
+If you run this app, you’ll see that the app calls `load_model` only once – right when the app starts. Subsequent runs will reuse that same model stored in the cache, saving time and memory!
 
-- Cache miss (...)
-- Result: {output: 42}
-- Mutated result: {output: "result was manually mutated"}
+#### Behavior
 
-No surprises here. But now notice what happens when you rerun you app (i.e. press **R**):
+<br />
 
-- Result: {output: "result was manually mutated"}
-- Mutated result: {output: "result was manually mutated"}
-- Cached object mutated. (...)
+Using `st.cache_resource` is very similar to using `st.cache_data`. But there are a few important differences in behavior:
 
-So what's up?
+- `st.cache_resource` does **not** create a copy of the cached return value but instead stores the object itself in the cache. All mutations on the function’s return value directly affect the object in the cache, so you must ensure that mutations from multiple sessions do not cause problems. In short, the return value must be thread-safe.
 
-What's going on here is that Streamlit caches the output `res` by reference. When you mutated `res["output"]` outside the cached function you ended up inadvertently modifying the cache. This means every subsequent call to `expensive_computation(2, 21)` will return the wrong value!
+    <Warning>
 
-Since this behavior is usually not what you'd expect, Streamlit tries to be helpful and show you a warning, along with some ideas about how to fix your code.
+  Using `st.cache_resource` on objects that are not thread-safe might lead to crashes or corrupted data. Learn more below under [Mutation and concurrency issues](#mutation-and-concurrency-issues).
+  </Warning>
 
-In this specific case, the fix is just to not mutate `res["output"]` outside the cached function. There was no good reason for us to do that anyway! Another solution would be to clone the result value with `res = deepcopy(expensive_computation(2, 21))`. Check out the section entitled [Fixing caching issues](/knowledge-base/using-streamlit/caching-issues) for more information on these approaches and more.
+- Not creating a copy means there’s just one global instance of the cached return object, which saves memory, e.g. when using a large ML model. In computer science terms, we create a [singleton](https://en.wikipedia.org/wiki/Singleton_pattern).
+- Return values of functions do not need to be serializable. This behavior is great for types not serializable by nature, e.g., database connections, file handles, or threads. Caching these objects with `st.cache_data` is not possible.
 
-## Advanced caching
+#### Examples
 
-In [caching](/library/advanced-features/caching), you learned about the Streamlit cache, which is accessed with the [`@st.cache`](/library/api-reference/performance/st.cache) decorator. In this article you'll see how Streamlit's caching functionality is implemented, so that you can use it to improve the performance of your Streamlit apps.
+<br />
 
-The cache is a key-value store, where the key is a hash of:
+**Database connections**
 
-1. The input parameters that you called the function with
-1. The value of any external variable used in the function
-1. The body of the function
-1. The body of any function used inside the cached function
-
-And the value is a tuple of:
-
-- The cached output
-- A hash of the cached output (you'll see why soon)
-
-For both the key and the output hash, Streamlit uses a specialized hash function that knows how to traverse code, hash special objects, and can have its [behavior customized by the user](#the-hash_funcs-parameter).
-
-For example, when the function `expensive_computation(a, b)`, decorated with [`@st.cache`](/library/api-reference/performance/st.cache), is executed with `a=2` and `b=21`, Streamlit does the following:
-
-1. Computes the cache key
-1. If the key is found in the cache, then:
-   - Extracts the previously-cached (output, output_hash) tuple.
-   - Performs an **Output Mutation Check**, where a fresh hash of the output is computed and compared to the stored `output_hash`.
-     - If the two hashes are different, shows a **Cached Object Mutated** warning. (Note: Setting `allow_output_mutation=True` disables this step).
-1. If the input key is not found in the cache, then:
-   - Executes the cached function (i.e. `output = expensive_computation(2, 21)`).
-   - Calculates the `output_hash` from the function's `output`.
-   - Stores `key → (output, output_hash)` in the cache.
-1. Returns the output.
-
-If an error is encountered an exception is raised. If the error occurs while hashing either the key or the output an `UnhashableTypeError` error is thrown. If you run into any issues, see [fixing caching issues](/knowledge-base/using-streamlit/caching-issues).
-
-### The hash_funcs parameter
-
-As described above, Streamlit's caching functionality relies on hashing to calculate the key for cached objects, and to detect unexpected mutations in the cached result.
-
-For added expressive power, Streamlit lets you override this hashing process using the `hash_funcs` argument. Suppose you define a type called `FileReference` which points to a file in the filesystem:
+`st.cache_resource` is useful for connecting to databases. Usually, you’re creating a connection object that you want to reuse globally for every query. Creating a new connection object at each run would be inefficient and might lead to connection errors. That’s exactly what `st.cache_resource` can do, e.g., for a Postgres database:
 
 ```python
-class FileReference:
-    def __init__(self, filename):
-        self.filename = filename
+@st.cache_resource
+def init_connection():
+    host = "hh-pgsql-public.ebi.ac.uk"
+    database = "pfmegrnargs"
+    user = "reader"
+    password = "NWDMCE5xdipIjRrp"
+    return psycopg2.connect(host=host, database=database, user=user, password=password)
 
-
-@st.cache
-def func(file_reference):
-    ...
+conn = init_connection()
 ```
 
-By default, Streamlit hashes custom classes like `FileReference` by recursively navigating their structure. In this case, its hash is the hash of the filename property. As long as the file name doesn't change, the hash will remain constant.
+Of course, you can do the same for any other database. Have a look at [our guides on how to connect Streamlit to databases](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources) for in-depth examples.
 
-However, what if you wanted to have the hasher check for changes to the file's modification time, not just its name? This is possible with [`@st.cache`](/library/api-reference/performance/st.cache)'s `hash_funcs` parameter:
+**Loading ML models**
+
+Your app should always cache ML models, so they are not loaded into memory again for every new session. See the [example](#usage-1) above for how this works with 🤗 Hugging Face models. You can do the same thing for PyTorch, TensorFlow, etc. Here’s an example for PyTorch:
 
 ```python
-class FileReference:
-    def __init__(self, filename):
-        self.filename = filename
+@st.cache_resource
+def load_model():
+    model = torchvision.models.resnet50(weights=ResNet50_Weights.DEFAULT)
+    model.eval()
+    return model
 
-def hash_file_reference(file_reference):
-    filename = file_reference.filename
-    return (filename, os.path.getmtime(filename))
-
-@st.cache(hash_funcs={FileReference: hash_file_reference})
-def func(file_reference):
-    ...
+model = load_model()
 ```
 
-Additionally, you can hash `FileReference` objects by the file's contents:
+### Deciding which caching decorator to use
+
+<br />
+
+The sections above showed many common examples for each caching decorator. But there are edge cases for which it’s less trivial to decide which caching decorator to use. Eventually, it all comes down to the difference between “data” and “resource”:
+
+- Data are serializable objects (objects that can be converted to bytes via [pickle](https://docs.python.org/3/library/pickle.html)) that you could easily save to disk. Imagine all the types you would usually store in a database or on a file system – basic types like str, int, and float, but also arrays, DataFrames, images, or combinations of these types (lists, tuples, dicts, and so on).
+- Resources are unserializable objects that you usually would not save to disk or a database. They are often more complex, non-permanent objects like database connections, ML models, file handles, threads, etc.
+
+From the types listed above, it should be obvious that most objects in Python are “data.” That’s also why `st.cache_data` is the correct command for almost all use cases. `st.cache_resource` is a more exotic command that you should only use in specific situations.
+
+Or if you’re lazy and don’t want to think too much, look up your use case or return type in the table below 😉:
+
+| Use case                             |                                                                                                       Typical return types |                                                                                                                                            Caching decorator |
+| :----------------------------------- | -------------------------------------------------------------------------------------------------------------------------: | -----------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| Reading a CSV file with pd.read_csv  |                                                                                                           pandas.DataFrame |                                                                                                                                                st.cache_data |
+| Reading a text file                  |                                                                                                           str, list of str |                                                                                                                                                st.cache_data |
+| Transforming pandas dataframes       |                                                                                            pandas.DataFrame, pandas.Series |                                                                                                                                                st.cache_data |
+| Computing with numpy arrays          |                                                                                                              numpy.ndarray |                                                                                                                                                st.cache_data |
+| Simple computations with basic types |                                                                                                         str, int, float, … |                                                                                                                                                st.cache_data |
+| Querying a database                  |                                                                                                           pandas.DataFrame |                                                                                                                                                st.cache_data |
+| Querying an API                      |                                                                                                pandas.DataFrame, str, dict |                                                                                                                                                st.cache_data |
+| Running an ML model (inference)      |                                                                                     pandas.DataFrame, str, int, dict, list |                                                                                                                                                st.cache_data |
+| Creating or processing images        |                                                                                             PIL.Image.Image, numpy.ndarray |                                                                                                                                                st.cache_data |
+| Creating charts                      |                                                        matplotlib.figure.Figure, plotly.graph_objects.Figure, altair.Chart | st.cache_data (but some libraries require st.cache_resource, since the chart object is not serializable – make sure not to mutate the chart after creation!) |
+| Loading ML models                    |                                                             transformers.Pipeline, torch.nn.Module, tensorflow.keras.Model |                                                                                                                                            st.cache_resource |
+| Initializing database connections    | pyodbc.Connection, sqlalchemy.engine.base.Engine, psycopg2.connection, mysql.connector.MySQLConnection, sqlite3.Connection |                                                                                                                                            st.cache_resource |
+| Opening persistent file handles      |                                                                                                         \_io.TextIOWrapper |                                                                                                                                            st.cache_resource |
+| Opening persistent threads           |                                                                                                           threading.thread |                                                                                                                                            st.cache_resource |
+
+## Advanced usage
+
+### Controlling cache size and duration
+
+If your app runs for a long time and constantly caches functions, you might run into two problems:
+
+1. The app runs out of memory because the cache is too large.
+2. Objects in the cache become stale, e.g. because you cached old data from a database.
+
+You can combat these problems with the `ttl` and `max_entries` parameters, which are available for both caching decorators.
+
+**The `ttl` (time-to-live) parameter**
+
+`ttl` sets a time to live on a cached function. If that time is up and you call the function again, the app will discard any old, cached values, and the function will be rerun. The newly computed value will then be stored in the cache. This behavior is useful for preventing stale data (problem 2) and the cache from growing too large (problem 1). Especially when pulling data from a database or API, you should always set a `ttl` so you are not using old data. Here’s an example:
 
 ```python
-class FileReference:
-    def __init__(self, filename):
-        self.filename = filename
+@st.cache_data(ttl=3600)  # 👈 Cache data for 1 hour (=3600 seconds)
+def get_api_data():
+    data = api.get(...)
+    return data
+```
 
-def hash_file_reference(file_reference):
-    with open(file_reference.filename) as f:
-      return f.read()
+<Tip>
 
-@st.cache(hash_funcs={FileReference: hash_file_reference})
-def func(file_reference):
-    ...
+You can also set `ttl` values using `timedelta`, e.g., `ttl=datetime.timedelta(hours=1)`.
+</Tip>
+
+**The `max_entries` parameter**
+
+`max_entries` sets the maximum number of entries in the cache. An upper bound on the number of cache entries is useful for limiting memory (problem 1), especially when caching large objects. The oldest entry will be removed when a new entry is added to a full cache. Here’s an example:
+
+```python
+@st.cache_data(max_entries=1000)  # 👈 Maximum 1000 entries in the cache
+def get_large_array(seed):
+    np.random.seed(seed)
+    arr = np.random.rand(100000)
+    return arr
+```
+
+### Customizing the spinner
+
+By default, Streamlit shows a small loading spinner in the app when a cached function is running. You can modify it easily with the `show_spinner` parameter, which is available for both caching decorators:
+
+```python
+@st.cache_data(show_spinner=False)  # 👈 Disable the spinner
+def get_api_data():
+    data = api.get(...)
+    return data
+
+@st.cache_data(show_spinner="Fetching data from API...")  # 👈 Use custom text for spinner
+def get_api_data():
+    data = api.get(...)
+    return data
+```
+
+### Excluding input parameters
+
+In a cached function, all input parameters must be hashable. Let’s quickly explain why and what it means. When the function is called, Streamlit looks at its parameter values to determine if it was cached before. Therefore, it needs a reliable way to compare the parameter values across function calls. Trivial for a string or int – but complex for arbitrary objects! Streamlit uses [hashing](https://en.wikipedia.org/wiki/Hash_function) to solve that. It converts the parameter to a stable key and stores that key. At the next function call, it hashes the parameter again and compares it with the stored hash key.
+
+Unfortunately, not all parameters are hashable! E.g., you might pass an unhashable database connection or ML model to your cached function. In this case, you can exclude input parameters from caching. Simply prepend the parameter name with an underscore (e.g., `_param1`), and it will not be used for caching. Even if it changes, Streamlit will return a cached result if all the other parameters match up.
+
+Here’s an example:
+
+```python
+@st.cache_data
+def fetch_data(_db_connection, num_rows):  # 👈 Don't hash _db_connection
+    data = _db_connection.fetch(num_rows)
+    return data
+
+connection = init_connection()
+fetch_data(connection, 10)
+```
+
+### Using Streamlit commands in cached functions
+
+#### Static elements
+
+Since version 1.16.0, cached functions can contain Streamlit commands! For example, you can do this:
+
+```python
+@st.cache_data
+def get_api_data():
+    data = api.get(...)
+    st.success("Fetched data from API!")  # 👈 Show a success message
+    return data
+```
+
+As we know, Streamlit only runs this function if it hasn’t been cached before. On this first run, the `st.success` message will appear in the app. But what happens on subsequent runs? It still shows up! Streamlit realizes that there is an `st.` command inside the cached function, saves it during the first run, and replays it on subsequent runs. Replaying static elements works for both caching decorators.
+
+You can also use this functionality to cache entire parts of your UI:
+
+```python
+@st.cache_data
+def show_data():
+    st.header("Data analysis")
+    data = api.get(...)
+    st.success("Fetched data from API!")
+    st.write("Here is a plot of the data:")
+    st.line_chart(data)
+    st.write("And here is the raw data:")
+    st.dataframe(data)
+```
+
+#### Input widgets
+
+You can also use [interactive input widgets](/library/api-reference/widgets) like `st.slider` or `st.text_input` in cached functions. Widget replay is an experimental feature at the moment. To enable it, you need to set the `experimental_allow_widgets` parameter:
+
+```python
+@st.cache_data(experimental_allow_widgets=True)  # 👈 Set the parameter
+def get_data():
+    num_rows = st.slider("Number of rows to get")  # 👈 Add a slider
+    data = api.get(..., num_rows)
+    return data
+```
+
+Streamlit treats the slider like an additional input parameter to the cached function. If you change the slider position, Streamlit will see if it has already cached the function for this slider value. If yes, it will return the cached value. If not, it will rerun the function using the new slider value.
+
+Using widgets in cached functions is extremely powerful because it lets you cache entire parts of your app. But it can be dangerous! Since Streamlit treats the widget value as an additional input parameter, it can easily lead to excessive memory usage. Imagine your cached function has five sliders and returns a 100 MB DataFrame. Then we’ll add 100 MB to the cache for _every permutation_ of these five slider values – even if the sliders do not influence the returned data! These additions can make your cache explode very quickly. Please be aware of this limitation if you use widgets in cached functions. We recommend using this feature only for isolated parts of your UI where the widgets directly influence the cached return value.
+
+<Warning>
+
+Support for widgets in cached functions is experimental. We may change or remove it anytime without warning. Please use it with care!
+</Warning>
+
+<Note>
+
+Two widgets are currently not supported in cached functions: `st.file_uploader` and `st.camera_input`. We may support them in the future. Feel free to [open a GitHub issue](https://github.com/streamlit/streamlit/issues) if you need them!
+</Note>
+
+### Dealing with large data
+
+As we explained, you should cache data objects with `st.cache_data`. But this can be slow for extremely large data, e.g., DataFrames or arrays with >100 million rows. That’s because of the [copying behavior](#copying-behavior) of `st.cache_data`: on the first run, it serializes the return value to bytes and deserializes it on subsequent runs. Both operations take time.
+
+If you’re dealing with extremely large data, it can make sense to use `st.cache_resource` instead. It does not create a copy of the return value via serialization/deserialization and is almost instant. But watch out: any mutation to the function’s return value (such as dropping a column from a DataFrame or setting a value in an array) directly manipulates the object in the cache. You must ensure this doesn’t corrupt your data or lead to crashes. See the section on [Mutation and concurrency issues](#mutation-and-concurrency-issues) below.
+
+When benchmarking `st.cache_data` on pandas DataFrames with four columns, we found that it becomes slow when going beyond 100 million rows. The table shows runtimes for both caching decorators at different numbers of rows (all with four columns):
+
+|                   |                 | 10M rows | 50M rows | 100M rows | 200M rows |
+| ----------------- | --------------- | :------: | :------: | :-------: | :-------: |
+| st.cache_data     | First run\*     |  0.4 s   |   3 s    |   14 s    |   28 s    |
+|                   | Subsequent runs |  0.2 s   |   1 s    |    2 s    |    7 s    |
+| st.cache_resource | First run\*     |  0.01 s  |  0.1 s   |   0.2 s   |    1 s    |
+|                   | Subsequent runs |   0 s    |   0 s    |    0 s    |    0 s    |
+
+|                                                                                                                                                              |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _\*For the first run, the table only shows the overhead time of using the caching decorator. It does not include the runtime of the cached function itself._ |
+
+### Mutation and concurrency issues
+
+In the sections above, we talked a lot about issues when mutating return objects of cached functions. This topic is complicated! But it’s central to understanding the behavior differences between `st.cache_data` and `st.cache_resource`. So let’s dive in a bit deeper.
+
+First, we should clearly define what we mean by mutations and concurrency:
+
+- By **mutations**, we mean any changes made to a cached function’s return value _after_ that function has been called. I.e. something like this:
+  ```python
+  @st.cache_data
+  def create_list():
+      l = [1, 2, 3]
+
+  l = create_list()  # 👈 Call the function
+  l[0] = 2  # 👈 Mutate its return value
+  ```
+- By **concurrency**, we mean that multiple sessions can cause these mutations at the same time. Streamlit is a web framework that needs to handle many users and sessions connecting to an app. If two people view an app at the same time, they will both cause the Python script to rerun, which may manipulate cached return objects at the same time – concurrently.
+
+Mutating cached return objects can be dangerous. It can lead to exceptions in your app and even corrupt your data (which can be worse than a crashed app!). Below, we’ll first explain the copying behavior of `st.cache_data` and show how it can avoid mutation issues. Then, we’ll show how concurrent mutations can lead to data corruption and how to prevent it.
+
+#### Copying behavior
+
+`st.cache_data` creates a copy of the cached return value each time the function is called. This avoids most mutations and concurrency issues. To understand it in detail, let’s go back to the [Uber ridesharing example](#usage) from the section on `st.cache_data` above. We are making two modifications to it:
+
+1. We are using `st.cache_resource` instead of `st.cache_data`. `st.cache_resource` does **not** create a copy of the cached object, so we can see what happens without the copying behavior.
+2. After loading the data, we manipulate the returned DataFrame (in place!) by dropping the column `"Lat"`.
+
+Here’s the code:
+
+```python
+@st.cache_resource   # 👈 Turn off copying behavior
+def load_data(url):
+    df = pd.read_csv(url)
+    return df
+
+df = load_data("https://raw.githubusercontent.com/plotly/datasets/master/uber-rides-data1.csv")
+st.dataframe(df)
+
+df.drop(columns=['Lat'], inplace=True)  # 👈 Mutate the dataframe inplace
+
+st.button("Rerun")
+```
+
+Let’s run it and see what happens! The first run should work fine. But in the second run, you see an exception: `KeyError: "['Lat'] not found in axis"`. Why is that happening? Let’s go step by step:
+
+- On the first run, Streamlit runs `load_data` and stores the resulting DataFrame in the cache. Since we’re using `st.cache_resource`, it does **not** create a copy but stores the original DataFrame.
+- Then we drop the column `"Lat"` from the DataFrame. Note that this is dropping the column from the _original_ DataFrame stored in the cache. We are manipulating it!
+- On the second run, Streamlit returns that exact same manipulated DataFrame from the cache. It does not have the column `"Lat"` anymore! So our call to `df.drop` results in an exception. Pandas cannot drop a column that doesn’t exist.
+
+The copying behavior of `st.cache_data` prevents this kind of mutation error. Mutations can only affect a specific copy and not the underlying object in the cache. The next rerun will get its own, unmutated copy of the DataFrame. You can try it yourself, just replace `st.cache_resource` with `st.cache_data` above, and you’ll see that everything works.
+
+Because of this copying behavior, `st.cache_data` is the recommended way to cache data transforms and computations – anything that returns a serializable object.
+
+#### Concurrency issues
+
+Now let’s look at what can happen when multiple users concurrently mutate an object in the cache. Let's say you have a function that returns a list. Again, we are using `st.cache_resource` to cache it so that we are not creating a copy:
+
+```python
+@st.cache_resource
+def create_list():
+    l = [1, 2, 3]
+    return l
+
+l = create_list()
+first_list_value = l[0]
+l[0] = first_list_value + 1
+
+st.write("l[0] is:", l[0])
+```
+
+Let's say user A runs the app. They will see the following output:
+
+```python
+l[0] is: 2
+```
+
+Let's say another user, B, visits the app right after. In contrast to user A, they will see the following output:
+
+```python
+l[0] is: 3
+```
+
+Now, user A reruns the app immediately after user B. They will see the following output:
+
+```python
+l[0] is: 4
+```
+
+What is happening here? Why are all outputs different?
+
+- When user A visits the app, `create_list()` is called, and the list `[1, 2, 3]` is stored in the cache. This list is then returned to user A. The first value of the list, `1`, is assigned to `first_list_value` , and `l[0]` is changed to `2`.
+- When user B visits the app, `create_list()` returns the mutated list from the cache: `[2, 2, 3]`. The first value of the list, `2`, is assigned to `first_list_value` and `l[0]` is changed to `3`.
+- When user A reruns the app, `create_list()` returns the mutated list again: `[3, 2, 3]`. The first value of the list, `3`, is assigned to `first_list_value,` and `l[0]` is changed to 4.
+
+If you think about it, this makes sense. Users A and B use the same list object (the one stored in the cache). And since the list object is mutated, user A's change to the list object is also reflected in user B's app.
+
+This is why you must be careful about mutating objects cached with `st.cache_resource`, especially when multiple users access the app concurrently. If we had used `st.cache_data` instead of `st.cache_resource`, the app would have copied the list object for each user, and the above example would have worked as expected – users A and B would have both seen:
+
+```python
+l[0] is: 2
 ```
 
 <Note>
 
-Because Streamlit's hash function works recursively, you don't have to hash the contents inside `hash_file_reference` Instead, you can return a primitive type, in this case the contents of the file, and Streamlit's internal hasher will compute the actual hash from it.
+This toy example might seem benign. But data corruption can be extremely dangerous! Imagine we had worked with the financial records of a large bank here. You surely don’t want to wake up with less money on your account just because someone used the wrong caching decorator 😉
 
 </Note>
 
-### Typical hash functions
+## Migrating from st.cache
 
-While it's possible to write custom hash functions, let's take a look at some of the tools that Python provides out of the box. Here's a list of some hash functions and when it makes sense to use them.
+We introduced the caching commands described above in Streamlit 1.18.0. Before that, we had one catch-all command `st.cache`. Using it was often confusing, resulted in weird exceptions, and was slow. That’s why we replaced `st.cache` with the new commands in 1.18.0 (read more in this blog post). The new commands provide a more intuitive and efficient way to cache your data and resources and are intended to replace `st.cache` in all new development.
 
-Python's [`id`](https://docs.python.org/3/library/functions.html#id) function | [Example](#example-1-pass-a-database-connection-around)
+If your app is still using `st.cache`, don’t despair! Here are a few notes on migrating:
 
-- Speed: Fast
-- Use case: If you're hashing a singleton object, like an open database connection or a TensorFlow session. These are objects that will only be instantiated once, no matter how many times your script reruns.
+- `st.cache` is deprecated. • New versions of Streamlit will show a deprecation warning if your app uses it.
+- We will not remove `st.cache` soon, so you don’t need to worry about your 2-year-old app breaking. But we encourage you to try the new commands going forward – they will be way less annoying!
+- Switching code to the new commands should be easy in most cases. To decide whether to use `st.cache_data` or `st.cache_resource`, read [Deciding which caching decorator to use](#deciding-which-caching-decorator-to-use). Streamlit will also recognize common use cases and show hints right in the deprecation warnings.
+- Most parameters from `st.cache` are also present in the new commands, with a few exceptions:
+  - `allow_output_mutation` does not exist anymore. You can safely delete it. Just make sure you use the right caching command for your use case.
+  - `suppress_st_warning` does not exist anymore. You can safely delete it. Cached functions can now contain Streamlit commands and will replay them. If you want to use widgets inside cached functions, set `experimental_allow_widgets=True`. See [here](#using-streamlit-commands-in-cached-functions).
+  - `hash_funcs` does not exist anymore. You can exclude parameters from caching (and being hashed) by prepending them with an underscore: `_excluded_param`. See [here](#excluding-input-parameters).
 
-`lambda _: None` | [Example](#example-2-turn-off-hashing-for-a-specific-type)
-
-- Speed: Fast
-- Use case: If you want to turn off hashing of this type. This is useful if you know the object is not going to change.
-
-Python's [`hash()`](https://docs.python.org/3/library/functions.html#hash) function | [Example](#example-3-use-pythons-hash-function)
-
-- Speed: Can be slow based the size of the object being cached
-- Use case: If Python already knows how to hash this type correctly.
-
-Custom hash function | [Example](#the-hash_funcs-parameter)
-
-- Speed: N/a
-- Use case: If you'd like to override how Streamlit hashes a particular type.
-
-### Example 1: Pass a database connection around
-
-Suppose we want to open a database connection that can be reused across multiple runs of a Streamlit app. For this you can make use of the fact that cached objects are stored by reference to automatically initialize and reuse the connection:
-
-```python
-@st.cache(allow_output_mutation=True)
-def get_database_connection():
-    return db.get_connection()
-```
-
-With just 3 lines of code, the database connection is created once and stored in the cache. Then, every subsequent time `get_database_conection` is called, the already-created connection object is reused automatically. In other words, it becomes a singleton.
-
-<Tip>
-
-Use the `allow_output_mutation=True` flag to suppress the immutability check. This prevents Streamlit from trying to hash the output connection, and also turns off Streamlit's mutation warning in the process.
-
-</Tip>
-
-What if you want to write a function that receives a database connection as input? For that, you'll use `hash_funcs`:
-
-```python
-@st.cache(hash_funcs={DBConnection: id})
-def get_users(connection):
-    # Note: We assume that connection is of type DBConnection.
-    return connection.execute_sql('SELECT * from Users')
-```
-
-Here, we use Python's built-in `id` function, because the connection object is coming from the Streamlit cache via the `get_database_conection` function. This means that the same connection instance is passed around every time, and therefore it always has the same id. However, if you happened to have a second connection object around that pointed to an entirely different database, it would still be safe to pass it to `get_users` because its id is guaranteed to be different than the first id.
-
-These design patterns apply any time you have an object that points to an external resource, such as a database connection or Tensorflow session.
-
-### Example 2: Turn off hashing for a specific type
-
-You can turn off hashing entirely for a particular type by giving it a custom hash function that returns a constant. One reason that you might do this is to avoid hashing large, slow-to-hash objects that you know are not going to change. For example:
-
-```python
-@st.cache(hash_funcs={pd.DataFrame: lambda _: None})
-def func(huge_constant_dataframe):
-    ...
-```
-
-When Streamlit encounters an object of this type, it always converts the object into `None`, no matter which instance of `FooType` its looking at. This means all instances are hash to the same value, which effectively cancels out the hashing mechanism.
-
-### Example 3: Use Python's hash() function
-
-Sometimes, you might want to use Python’s default hashing instead of Streamlit's. For example, maybe you've encountered a type that Streamlit is unable to hash, but it's hashable with Python's built-in `hash()` function:
-
-```python
-@st.cache(hash_funcs={FooType: hash})
-def func(...):
-    ...
-```
+If you have any questions or issues during the migration process, please contact us on the [forum](https://discuss.streamlit.io/), and we will be happy to assist you. 🎈

@@ -1,7 +1,8 @@
-import streamlit as st
 import graphviz as graphviz
+import streamlit as st
 
-@st.experimental_memo
+
+@st.cache_data
 def load_graph():
     # Create a graphlib graph object
     graph = graphviz.Digraph()
@@ -19,6 +20,7 @@ def load_graph():
     graph.edge("new", "runmem")
     graph.edge("sleep", "runmem")
     return graph
+
 
 graph = load_graph()
 

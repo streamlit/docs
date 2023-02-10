@@ -15,7 +15,7 @@ import pandas as pd
 import streamlit as st
 
 # Cache the dataframe so it's only loaded once
-@st.experimental_memo
+@st.cache_data
 def load_data():
     return pd.DataFrame(
         {

@@ -32,11 +32,11 @@ def intro():
 
 
 def mapping_demo():
-    import streamlit as st
+    from urllib.error import URLError
+
     import pandas as pd
     import pydeck as pdk
-
-    from urllib.error import URLError
+    import streamlit as st
 
     st.markdown(f"# {list(page_names_to_funcs.keys())[2]}")
     st.write(
@@ -47,7 +47,7 @@ to display geospatial data.
 """
     )
 
-    @st.cache
+    @st.cache_data
     def from_data_file(filename):
         url = (
             "http://raw.githubusercontent.com/streamlit/"
@@ -130,9 +130,10 @@ to display geospatial data.
 
 
 def plotting_demo():
-    import streamlit as st
     import time
+
     import numpy as np
+    import streamlit as st
 
     st.markdown(f"# {list(page_names_to_funcs.keys())[1]}")
     st.write(
@@ -165,11 +166,11 @@ Streamlit. We're generating a bunch of random numbers in a loop for around
 
 
 def data_frame_demo():
-    import streamlit as st
-    import pandas as pd
-    import altair as alt
-
     from urllib.error import URLError
+
+    import altair as alt
+    import pandas as pd
+    import streamlit as st
 
     st.markdown(f"# {list(page_names_to_funcs.keys())[3]}")
     st.write(
@@ -180,7 +181,7 @@ def data_frame_demo():
 """
     )
 
-    @st.cache
+    @st.cache_data
     def get_UN_data():
         AWS_BUCKET_URL = "http://streamlit-demo-data.s3-us-west-2.amazonaws.com"
         df = pd.read_csv(AWS_BUCKET_URL + "/agri.csv.gz")

@@ -12,7 +12,7 @@ Sorry! It means you've hit the [resource limits](/streamlit-community-cloud/get-
 There are a few things you can change in your app to make it less resource-hungry:
 
 - Reboot your app (temporary fix)
-- Use `st.experimental_memo` or `st.experimental_singleton` to load models or data only once
+- Use `st.cache_data` or `st.cache_resource` to load models or data only once
 - Restrict the cache size with `ttl` or `max_entries`
 - Move big datasets to a database
 - Profile your app's memory usage

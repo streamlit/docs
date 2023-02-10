@@ -72,7 +72,7 @@ streamlit config show
 The command above will print something like this:
 
 ```toml
-# Streamlit version: 1.17.0
+# Streamlit version: 1.18.0
 
 [global]
 
@@ -200,6 +200,9 @@ maxMessageSize = 200
 # Default: false
 enableWebsocketCompression = false
 
+# Enable serving files from a `static` directory in the running app's directory.
+# Default: false
+enableStaticServing = false
 
 [browser]
 

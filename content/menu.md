@@ -254,21 +254,38 @@ site_menu:
     url: /library/api-reference/session-state
   - category: Streamlit library / API reference / Performance
     url: /library/api-reference/performance
+  - category: Streamlit library / API reference / Performance / st.cache_data
+    url: /library/api-reference/performance/st.cache_data
+    isVersioned: true
+  - category: Streamlit library / API reference / Performance / Clear cached data
+    url: /library/api-reference/performance/st.cache_data.clear
+    isVersioned: true
+  - category: Streamlit library / API reference / Performance / st.cache_resource
+    url: /library/api-reference/performance/st.cache_resource
+    isVersioned: true
+  - category: Streamlit library / API reference / Performance / Clear cached resources
+    url: /library/api-reference/performance/st.cache_resource.clear
+    isVersioned: true
   - category: Streamlit library / API reference / Performance / st.cache
     url: /library/api-reference/performance/st.cache
     isVersioned: true
+    isDeprecated: true
   - category: Streamlit library / API reference / Performance / st.experimental_memo
     url: /library/api-reference/performance/st.experimental_memo
     isVersioned: true
+    isDeprecated: true
   - category: Streamlit library / API reference / Performance / Clear memo
     url: /library/api-reference/performance/st.experimental_memo.clear
     isVersioned: true
+    isDeprecated: true
   - category: Streamlit library / API reference / Performance / st.experimental_singleton
     url: /library/api-reference/performance/st.experimental_singleton
     isVersioned: true
+    isDeprecated: true
   - category: Streamlit library / API reference / Performance / Clear singleton
     url: /library/api-reference/performance/st.experimental_singleton.clear
     isVersioned: true
+    isDeprecated: true
   - category: Streamlit library / API reference / Personalization
     url: /library/api-reference/personalization
     isVersioned: false
@@ -283,10 +300,14 @@ site_menu:
     url: /library/advanced-features/configuration
   - category: Streamlit library / Advanced features / Theming
     url: /library/advanced-features/theming
-  - category: Streamlit library / Advanced features/ Optimize performance with st.cache
+  - category: Streamlit library / Advanced features/ Caching
     url: /library/advanced-features/caching
+  - category: Streamlit library / Advanced features/ Optimize performance with st.cache
+    url: /library/advanced-features/st.cache
+    visible: false
   - category: Streamlit library / Advanced features/ Experimental cache primitives
     url: /library/advanced-features/experimental-cache-primitives
+    visible: false
   - category: Streamlit library / Advanced features/ Add statefulness to apps
     url: /library/advanced-features/session-state
   - category: Streamlit library / Advanced features/ Widget semantics
@@ -423,9 +444,6 @@ site_menu:
     visible: false
   - category: Knowledge base / Using Streamlit / Batch elements and input widgets with st.form
     url: /knowledge-base/using-streamlit/batch-elements-input-widgets-form
-    visible: false
-  - category: Knowledge base / Using Streamlit / Caching issues
-    url: /knowledge-base/using-streamlit/caching-issues
     visible: false
   - category: Knowledge base / Using Streamlit / How do I create an anchor link?
     url: /knowledge-base/using-streamlit/create-anchor-link

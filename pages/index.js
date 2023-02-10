@@ -149,17 +149,59 @@ export default function Home({ window, menu, gdpr_data }) {
             <H2 className="no-b-m">What's new</H2>
 
             <TileContainer>
+              <RefCard size="third" href="/library/advanced-features/caching">
+                <i className="material-icons-sharp">cached</i>
+                <h4>New caching commands!</h4>
+                <p>
+                  <code>st.cache_data</code> and <code>st.cache_resource</code>{" "}
+                  are here to replace st.cache and make caching less complex and
+                  more performant
+                </p>
+              </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/performance/st.experimental_singleton#validating-the-cache"
+                href="/library/api-reference/layout/st.columns"
               >
-                <i className="material-icons-sharp">verified</i>
-                <h4>Singleton cache validation</h4>
+                <i className="material-icons-sharp">view_column</i>
+                <h4>Columns in columns</h4>
                 <p>
-                  <code>@st.experimental_singleton</code> supports an optional
-                  <code>validate</code> parameter that accepts a validation
-                  function for cached data and is called each time the cached
-                  value is accessed.
+                  <code>st.columns</code> supports up to one level of column
+                  nesting (i.e. columns inside columns) in the main area of the
+                  app.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/status/st.progress"
+              >
+                <i className="material-icons-sharp">hourglass_top</i>
+                <h4>Progress bar message</h4>
+                <p>
+                  <code>st.progress</code> supports adding a message to display
+                  above the progress bar with the <code>text</code> keyword
+                  parameter
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/data/st.dataframe"
+              >
+                <i className="material-icons-sharp">ac_unit</i>
+                <h4>Snowpark and PySpark support</h4>
+                <p>
+                  All Streamlit commands that accept pandas DataFrames as input
+                  also support Snowpark and PySpark DataFrames.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="https://markdown-labels.streamlit.app/"
+              >
+                <i className="material-icons-sharp">terminal</i>
+                <h4>Python 3.11 support</h4>
+                <p>
+                  Starting in Streamlit 1.18.0, Streamlit formally supports
+                  Python 3.11. 🐍
                 </p>
               </RefCard>
               <RefCard
@@ -175,52 +217,6 @@ export default function Home({ window, menu, gdpr_data }) {
                   documentation.
                 </p>
               </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/data/st.dataframe"
-              >
-                <i className="material-icons-sharp">ac_unit</i>
-                <h4>Snowpark and PySpark support</h4>
-                <p>
-                  All Streamlit commands that accept pandas DataFrames as input
-                  also support Snowpark and PySpark DataFrames.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/library/api-reference/charts">
-                <i className="material-icons-sharp">palette</i>
-                <h4>Streamlit theme for Plotly & Altair</h4>
-                <p>
-                  1.16.0 includes a new default theme for Altair and Plotly
-                  charts in Streamlit apps through the{" "}
-                  <code>theme="streamlit"</code>
-                  keyword argument in st.altair_chart, st.vega_lite_chart, and
-                  st.plotly_chart.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="https://markdown-labels.streamlit.app/"
-              >
-                <i className="material-icons-sharp">label</i>
-                <h4>Markdown in widget labels</h4>
-                <p>
-                  Widget labels can contain inline Markdown. Click to check out
-                  the demo app and see how it works.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/widgets/st.selectbox"
-              >
-                <i className="material-icons-sharp">visibility_off</i>
-                <h4>Widget label visibility</h4>
-                <p>
-                  All widgets and commands that support the <code>label</code>
-                  parameter can customize how to hide their labels with the
-                  <code>label_visibility</code> parameter. Click to see an
-                  example!
-                </p>
-              </RefCard>
               {/* <Tile
                 size="half"
                 background="unset"
@@ -233,7 +229,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 border_color="gray-40"
                 img="/logo.svg"
                 title="Clear memo + singleton caches procedurally"
-                text="Do you need more control over cache invalidation? Any function annotated with @st.experimental_memo or @st.experimental_singleton gets its own clear() function automatically."
+                text="Do you need more control over cache invalidation? Any function annotated with @st.cache_data or @st.cache_resource gets its own clear() function automatically."
                 link="/library/advanced-features/experimental-cache-primitives#clear-memo-and-singleton-caches-procedurally"
               /> */}
             </TileContainer>
@@ -242,26 +238,26 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
-                date="2023-01-19T16:05:00.000Z"
-                title="Create a color palette from any image"
-                text="Learn how to come up with the perfect colors for your data visualization"
-                link="https://blog.streamlit.io/create-a-color-palette-from-any-image/"
+                date="2023-02-09T16:05:00.000Z"
+                title="Introducing 2 new caching commands to replace st.cache!"
+                text="st.cache_data and st.cache_resource are here to make caching less complex and more performant"
+                link="https://blog.streamlit.io/host-your-streamlit-app-for-free/"
                 image="/blog-1.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2023-01-12T16:05:00.000Z"
-                title="How to make a culture map"
-                text="Analyze multidimensional data with Steamlit!"
-                link="https://blog.streamlit.io/how-to-make-a-culture-map/"
+                date="2023-02-09T16:05:00.000Z"
+                title="Using ChatGPT to build a Kedro ML pipeline"
+                text="Talk with ChatGPT to build feature-rich solutions with a Streamlit frontend"
+                link="https://blog.streamlit.io/using-chatgpt-to-build-a-kedro-ml-pipeline/"
                 image="/blog-2.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2023-01-10T16:05:00.000Z"
-                title="Build an image background remover in Streamlit"
-                text="Skip the fees and do it for free! 🎈"
-                link="https://blog.streamlit.io/build-an-image-background-remover-in-streamlit/"
+                date="2023-02-07T16:05:00.000Z"
+                title="Streamlit-Authenticator, Part 2: Adding advanced features to your authentication component"
+                text="How to add advanced functionality to your Streamlit app's authentication component"
+                link="https://blog.streamlit.io/streamlit-authenticator-part-2-adding-advanced-features-to-your-authentication-component/"
                 image="/blog-3.svg"
                 target="_blank"
               />

@@ -10,7 +10,7 @@ This is an experimental feature. Experimental features and their APIs may change
 
 </Important>
 
-<Autofunction function="streamlit.experimental_memo" />
+<Autofunction function="streamlit.experimental_memo" deprecated={true} deprecatedText="<code>st.experimental_memo</code> was deprecated in version 1.18.0. Use <a href='/library/api-reference/performance/st.cache_data'><code>st.cache_data</code></a> instead. Learn more in <a href='/library/advanced-features/caching'>Caching</a>."/>
 
 Persistent memo caches currently don't support TTL. `ttl` will be ignored if `persist` is specified:
 
