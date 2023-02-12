@@ -46,7 +46,7 @@ As you and your users are behind your corporate VPN, you need to make sure all o
 
 Docker builds images by reading the instructions from a `Dockerfile`. A `Dockerfile` is a text document that contains all the commands a user could call on the command line to assemble an image. Learn more in the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/). The [docker build](https://docs.docker.com/engine/reference/commandline/build/) command builds an image from a `Dockerfile`. The [docker run](https://docs.docker.com/engine/reference/commandline/run/) command first creates a container over the specified image, and then starts it using the specified command.
 
-Here's an example `Dockerfile` that you can add to the root of your directory. i.e. in `app/`
+Here's an example `Dockerfile` that you can add to the root of your directory. i.e. in `/app/`
 
 ```dockerfile
 # app/Dockerfile
@@ -209,7 +209,7 @@ Let’s walk through each line of the Dockerfile :
    HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
    ```
 
-8. An [`ENTRYPOINT`](https://docs.docker.com/engine/reference/builder/#entrypoint) allows you to configure a container that will run as an executable. Here, it also contains the entire `streamlit run` command for your app, so you don’t have to from the command line:
+8. An [`ENTRYPOINT`](https://docs.docker.com/engine/reference/builder/#entrypoint) allows you to configure a container that will run as an executable. Here, it also contains the entire `streamlit run` command for your app, so you don’t have to call it from the command line:
 
    ```dockerfile
    ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
