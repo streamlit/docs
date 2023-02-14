@@ -29,7 +29,7 @@ const ArrowLink = ({ children, link, type, content, target }) => {
               <path d="M7.22017 13.7159L8.70312 12.2393L4.81037 8.35298H13.9318V6.19247H4.81037L8.70312 2.29972L7.22017 0.829545L0.776989 7.27273L7.22017 13.7159Z" />
             </svg>
             <span className={styles.Text}>Previous: </span>
-            {content}
+            <span className={styles.Truncate}>{content}</span>
           </a>
         </Link>
       );
@@ -46,7 +46,7 @@ const ArrowLink = ({ children, link, type, content, target }) => {
             target={target == "_blank" ? target : "_self"}
           >
             <span className={styles.Text}>Next: </span>
-            {content}
+            <span className={styles.Truncate}>{content}</span>
             <svg
               width="14"
               height="14"
