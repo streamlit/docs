@@ -5,7 +5,7 @@ const utils = require("../lib/utils.js");
 const contentDirectory = path.join(process.cwd(), ".next/server/pages");
 const parser = require("node-html-parser");
 const algoliasearch = require("algoliasearch");
-const { convert } = require("html-to-text");
+const { convert, compile } = require("html-to-text");
 
 const SKIP_THESE = ["/menu", "/404", "/500"];
 
@@ -76,9 +76,10 @@ function getAllFilesInDirectory(articleDirectory, files) {
     const doc_title = root.querySelector("title");
 
     // Clean up some tags we don't want, like:
-    // * <select> tag, due to autofunc pages
-    // * <label> tag, due to "select streamlit version" text
-    const remove_tags = ["select", "label"];
+    // 1. <select> tags, due to autofunc pages
+    // 2. <label> tags, due to "select streamlit version" text
+    // 3. <form> tags, to remove the "helful" form
+    const remove_tags = ["select", "label", "form"];
     for (const i in remove_tags) {
       const tags = root.querySelectorAll(remove_tags[i]);
       for (const ii in tags) {
@@ -88,11 +89,20 @@ function getAllFilesInDirectory(articleDirectory, files) {
       }
     }
 
+    const compileOptions = {
+      hideLinkHrefIfSameAsText: true,
+      ignoreHref: true,
+      ignoreImage: true,
+    };
+
     let keywords = "";
     let title = root.querySelector("h1");
     const sub_title = root.querySelector("h2");
     const meta_keywords = root.querySelector("meta[name=keywords]");
-    const content = convert(root.querySelector("article").innerHTML);
+    const content = convert(
+      root.querySelector("article").innerHTML,
+      compileOptions
+    );
     const slug = url.split("/");
     const isnum = /^[\d\.]+$/.test(slug[1]);
     const version = isnum ? slug[1] : "latest";
