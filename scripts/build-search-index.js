@@ -5,7 +5,7 @@ const utils = require("../lib/utils.js");
 const contentDirectory = path.join(process.cwd(), ".next/server/pages");
 const parser = require("node-html-parser");
 const algoliasearch = require("algoliasearch");
-const { convert, compile } = require("html-to-text");
+const { convert } = require("html-to-text");
 
 const SKIP_THESE = ["/menu", "/404", "/500"];
 
