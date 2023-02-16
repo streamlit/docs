@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/public-gsheet
 
 ## Introduction
 
-This guide explains how to securely access a public Google Sheet from Streamlit Community Cloud. It uses the [gsheetsdb](https://github.com/betodealmeida/gsheets-db-api) library and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+This guide explains how to securely access a public Google Sheet from Streamlit Community Cloud. It uses the [pandas](https://pandas.pydata.org/) library and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 This method requires you to enable link sharing for your Google Sheet. While the sharing link will not appear in your code (and actually acts as sort of a password!), someone with the link can get all the data in the Sheet. If you don't want this, follow the (more complicated) guide [Connect Streamlit to a private Google Sheet](private-gsheet).
 
@@ -47,15 +47,6 @@ As the `secrets.toml` file above is not committed to GitHub, you need to pass it
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 
-## Add gsheetsdb to your requirements file
-
-Add the [gsheetsdb](https://github.com/betodealmeida/gsheets-db-api) package to your `requirements.txt` file, preferably pinning its version (replace `x.x.x` with the version you want installed):
-
-```bash
-# requirements.txt
-gsheetsdb==x.x.x
-```
-
 ## Write your Streamlit app
 
 Copy the code below to your Streamlit app and run it.
@@ -63,25 +54,20 @@ Copy the code below to your Streamlit app and run it.
 ```python
 # streamlit_app.py
 
+import pandas as pd
 import streamlit as st
-from gsheetsdb import connect
 
-# Create a connection object.
-conn = connect()
-
-# Perform SQL query on the Google Sheet.
+# Read in data from the Google Sheet.
 # Uses st.cache_data to only rerun when the query changes or after 10 min.
 @st.cache_data(ttl=600)
-def run_query(query):
-    rows = conn.execute(query, headers=1)
-    rows = rows.fetchall()
-    return rows
+def load_data(sheets_url):
+    csv_url = sheets_url.replace("/edit#gid=", "/export?format=csv&gid=")
+    return pd.read_csv(csv_url, index_col=0)
 
-sheet_url = st.secrets["public_gsheets_url"]
-rows = run_query(f'SELECT * FROM "{sheet_url}"')
+df = load_data(st.secrets["public_gsheets_url"])
 
 # Print results.
-for row in rows:
+for _, row in df.iterrows():
     st.write(f"{row.name} has a :{row.pet}:")
 ```
 
