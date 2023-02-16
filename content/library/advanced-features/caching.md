@@ -440,6 +440,7 @@ In the sections above, we talked a lot about issues when mutating return objects
 First, we should clearly define what we mean by mutations and concurrency:
 
 - By **mutations**, we mean any changes made to a cached function’s return value _after_ that function has been called. I.e. something like this:
+
   ```python
   @st.cache_data
   def create_list():
@@ -448,6 +449,7 @@ First, we should clearly define what we mean by mutations and concurrency:
   l = create_list()  # 👈 Call the function
   l[0] = 2  # 👈 Mutate its return value
   ```
+
 - By **concurrency**, we mean that multiple sessions can cause these mutations at the same time. Streamlit is a web framework that needs to handle many users and sessions connecting to an app. If two people view an app at the same time, they will both cause the Python script to rerun, which may manipulate cached return objects at the same time – concurrently.
 
 Mutating cached return objects can be dangerous. It can lead to exceptions in your app and even corrupt your data (which can be worse than a crashed app!). Below, we’ll first explain the copying behavior of `st.cache_data` and show how it can avoid mutation issues. Then, we’ll show how concurrent mutations can lead to data corruption and how to prevent it.
@@ -542,7 +544,7 @@ This toy example might seem benign. But data corruption can be extremely dangero
 
 ## Migrating from st.cache
 
-We introduced the caching commands described above in Streamlit 1.18.0. Before that, we had one catch-all command `st.cache`. Using it was often confusing, resulted in weird exceptions, and was slow. That’s why we replaced `st.cache` with the new commands in 1.18.0 (read more in this blog post). The new commands provide a more intuitive and efficient way to cache your data and resources and are intended to replace `st.cache` in all new development.
+We introduced the caching commands described above in Streamlit 1.18.0. Before that, we had one catch-all command `st.cache`. Using it was often confusing, resulted in weird exceptions, and was slow. That’s why we replaced `st.cache` with the new commands in 1.18.0 (read more in this [blog post](https://blog.streamlit.io/introducing-two-new-caching-commands-to-replace-st-cache/)). The new commands provide a more intuitive and efficient way to cache your data and resources and are intended to replace `st.cache` in all new development.
 
 If your app is still using `st.cache`, don’t despair! Here are a few notes on migrating:
 
