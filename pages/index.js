@@ -241,7 +241,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 date="2023-02-09T16:05:00.000Z"
                 title="Introducing 2 new caching commands to replace st.cache!"
                 text="st.cache_data and st.cache_resource are here to make caching less complex and more performant"
-                link="https://blog.streamlit.io/host-your-streamlit-app-for-free/"
+                link="https://blog.streamlit.io/introducing-two-new-caching-commands-to-replace-st-cache/"
                 image="/blog-1.svg"
                 target="_blank"
               />
