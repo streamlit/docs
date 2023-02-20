@@ -26,7 +26,7 @@ df = pd.DataFrame(
 st.dataframe(df, use_container_width=True)
 ```
 
-<Cloud src="https://doc-dataframe-basic.streamlit.app/" height="300px"/>
+<Cloud src="https://doc-dataframe-basic.streamlit.app/?embedded=true" height="300px"/>
 
 ## Additional UI features
 
@@ -119,7 +119,7 @@ edited_df = st.experimental_data_editor(df, num_rows=”dynamic”)
 
 <Collapse title="View interactive app">
 
-<Cloud src="https://doc-data-editor-clipboard.streamlit.app/" height="400px"/>
+<Cloud src="https://doc-data-editor-clipboard.streamlit.app/?embedded=true" height="400px"/>
 
 </Collapse>
 
@@ -145,7 +145,7 @@ This can be useful when working with large DataFrames and you only need to know 
 
 <Collapse title="View interactive app">
 
-<Cloud src="https://doc-data-editor-changed.streamlit.app/" height="700px"/>
+<Cloud src="https://doc-data-editor-changed.streamlit.app/?embedded=true" height="700px"/>
 
 </Collapse>
 
