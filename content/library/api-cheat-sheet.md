@@ -5,7 +5,7 @@ slug: /library/cheatsheet
 
 # Cheat Sheet
 
-This is a summary of the docs, as of [Streamlit v1.18.0](https://pypi.org/project/streamlit/1.15.0/).
+This is a summary of the docs, as of [Streamlit v1.19.0](https://pypi.org/project/streamlit/1.15.0/).
 
 <Masonry>
 
@@ -193,6 +193,7 @@ st.experimental_rerun()
 
 ```python
 st.button('Click me')
+st.experimental_data_editor('Edit data', data)
 st.checkbox('I agree')
 st.radio('Pick one', ['cats', 'dogs'])
 st.selectbox('Pick one', ['cats', 'dogs'])
