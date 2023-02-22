@@ -17,6 +17,24 @@ pip install --upgrade streamlit
 
 </Tip>
 
+## **Version 1.19.0**
+
+_Release date: February 23, 2023_
+
+**Highlights**
+
+- ✂️ Introducing `st.experimental_data_editor` to display a data editor widget that allows you to edit DataFrames and many other data structures in a table-like UI. Read more in our [documentation](/library/advanced-features/dataframes).
+
+**Other Changes**
+
+- ✨ Streamlit’s GitHub README got a new look ([#6016](https://github.com/streamlit/streamlit/pull/6016)).
+- 🌚 Improved readability of styled dataframe cells in dark mode ([#6060](https://github.com/streamlit/streamlit/issues/6060), [#6098](https://github.com/streamlit/streamlit/pull/6098)).
+- 🐛 Bug fixes: make apps and iframed apps work again in the latest versions of Safari, and in Chrome with third-party cookies blocked ([#6092](https://github.com/streamlit/streamlit/issues/6092), [#6094](https://github.com/streamlit/streamlit/pull/6094), [#6087](https://github.com/streamlit/streamlit/issues/6087), [#6100](https://github.com/streamlit/streamlit/pull/6100)).
+- 🐞 Bug fix: refer to new cache primitives in the “Clear cache” dialog and error messages ([#6082](https://github.com/streamlit/streamlit/pull/6082), [#6128](https://github.com/streamlit/streamlit/pull/6128)).
+- 🐝 Bug fix: properly cache class member functions and instance methods ([#6109](https://github.com/streamlit/streamlit/issues/6109), [#6114](https://github.com/streamlit/streamlit/pull/6114)).
+- 🐜 Bug fix: regression in `st.metric` tooltip position ([#6093](https://github.com/streamlit/streamlit/issues/6093), [#6129](https://github.com/streamlit/streamlit/pull/6129)).
+- 🪲 Bug fix: allow fullscreen button to show for dataframes, charts, etc, in expander ([#6083](https://github.com/streamlit/streamlit/pull/6083), [#6148](https://github.com/streamlit/streamlit/pull/6148)).
+
 ## **Version 1.18.0**
 
 _Release date: February 09, 2023_
