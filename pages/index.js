@@ -149,9 +149,22 @@ export default function Home({ window, menu, gdpr_data }) {
             <H2 className="no-b-m">What's new</H2>
 
             <TileContainer>
+              <RefCard
+                size="third"
+                href="/library/advanced-features/dataframes"
+              >
+                <i className="material-icons-sharp">edit_note</i>
+                <h4>Editable DataFrames!</h4>
+                <p>
+                  Display a data editor widget with{" "}
+                  <code>st.experimental_data_editor</code>
+                  to edit DataFrames and many other data structures in a
+                  table-like UI.
+                </p>
+              </RefCard>
               <RefCard size="third" href="/library/advanced-features/caching">
                 <i className="material-icons-sharp">cached</i>
-                <h4>New caching commands!</h4>
+                <h4>New caching commands</h4>
                 <p>
                   <code>st.cache_data</code> and <code>st.cache_resource</code>{" "}
                   are here to replace st.cache and make caching less complex and
@@ -180,17 +193,6 @@ export default function Home({ window, menu, gdpr_data }) {
                   <code>st.progress</code> supports adding a message to display
                   above the progress bar with the <code>text</code> keyword
                   parameter
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/data/st.dataframe"
-              >
-                <i className="material-icons-sharp">ac_unit</i>
-                <h4>Snowpark and PySpark support</h4>
-                <p>
-                  All Streamlit commands that accept pandas DataFrames as input
-                  also support Snowpark and PySpark DataFrames.
                 </p>
               </RefCard>
               <RefCard
