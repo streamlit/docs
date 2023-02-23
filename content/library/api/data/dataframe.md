@@ -47,9 +47,3 @@ Dataframes displayed as interactive tables with `st.dataframe` have the followin
 - **Copy to clipboard**: select one or multiple cells, copy them to clipboard, and paste them into your favorite spreadsheet software.
 
 <Image src="/images/dataframe-ui.gif" />
-
-<Note>
-
-Copy to clipboard does not currently work on Streamlit Community Cloud.
-
-</Note>
