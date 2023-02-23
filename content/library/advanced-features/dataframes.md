@@ -85,7 +85,7 @@ Try it out by double-clicking on any cell. You'll notice you can edit all cell v
 
 ### Copy and paste support
 
-The data editor supports pasting in tabular data from Google Sheets, Excel, Notion, and many other similar tools. You can also copy-paste data between `st.data_editor` instances. This can be a huge time saver for users who need to work with data across multiple platforms. To try it out:
+The data editor supports pasting in tabular data from Google Sheets, Excel, Notion, and many other similar tools. You can also copy-paste data between `st.experimental_data_editor` instances. This can be a huge time saver for users who need to work with data across multiple platforms. To try it out:
 
 1. Copy data from [this Google Sheets document](https://docs.google.com/spreadsheets/d/1Z0zd-5dF_HfqUaDDq4BWAOnsdlGCjkbTNwDZMBQ1dOY/edit?usp=sharing) to clipboard
 2. Select any cell in the `name` column of the table below and paste it in (via `ctrl/cmd + v`).
@@ -176,7 +176,7 @@ Editing doesn't just work for Pandas DataFrames! You can also edit lists, tuples
 E.g. you can easily let the user add items to a list:
 
 ```python
-edited_list = st.data_editor(["red", "green", "blue"], num_rows= "dynamic")
+edited_list = st.experimental_data_editor(["red", "green", "blue"], num_rows= "dynamic")
 st.write("Here are all the colors you entered:")
 st.write(edited_list)
 ```
