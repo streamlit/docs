@@ -109,6 +109,9 @@ site_menu:
   - category: Streamlit library / API reference / Input widgets / st.button
     url: /library/api-reference/widgets/st.button
     isVersioned: true
+  - category: Streamlit library / API reference / Input widgets / st.experimental_data_editor
+    url: /library/api-reference/widgets/st.experimental_data_editor
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.download_button
     url: /library/api-reference/widgets/st.download_button
     isVersioned: true
@@ -310,6 +313,8 @@ site_menu:
     visible: false
   - category: Streamlit library / Advanced features/ Add statefulness to apps
     url: /library/advanced-features/session-state
+  - category: Streamlit library / Advanced features/ DataFrames
+    url: /library/advanced-features/dataframes
   - category: Streamlit library / Advanced features/ Widget semantics
     url: /library/advanced-features/widget-semantics
   - category: Streamlit library / Advanced features/ Pre-release features
