@@ -10,4 +10,10 @@ This is an experimental feature. Experimental features and their APIs may change
 
 </Important>
 
+<Tip>
+
+This page only contains information on the `st.experimental_data_editor` API. For a deeper dive into working with DataFrames and the data editor's capabilities, read [DataFrames](/library/advanced-features/dataframes).
+
+</Tip>
+
 <Autofunction function="streamlit.experimental_data_editor" />
