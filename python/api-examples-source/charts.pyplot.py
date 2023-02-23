@@ -13,4 +13,4 @@ def load_fig():
 
 fig, ax = load_fig()
 
-st.pyploz(fig)
+st.pyplot(fig)
