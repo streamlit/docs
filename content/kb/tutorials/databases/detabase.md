@@ -7,34 +7,35 @@ slug: /knowledge-base/tutorials/databases/deta-base
 
 ## Introduction
 
-This guide explains how to securely access and write to a [Deta Base](https://www.deta.sh/) database from Streamlit Community Cloud. [Deta Base](https://docs.deta.sh/docs/base/about) is a fully-managed, fast, scalable and secure NoSQL database with a focus on end-user simplicity. This guide uses the [deta](https://github.com/deta/deta-python) Python SDK for Deta Base and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+This guide explains how to securely access and write to a [Deta Base](https://deta.space/docs/en/reference/base/about) database from Streamlit Community Cloud. Deta Base is a fully-managed and fast NoSQL database with a focus on end-user simplicity. The data is stored in your own "personal cloud" on [Deta Space](https://deta.space/developers). This guide uses the [Deta Python SDK](https://github.com/deta/deta-python) for Deta Base and Streamlit's [Secrets Management](https://www.notion.so/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
-## Sign up for Deta Base and sign in
+## Create an account and sign in to Deta Space
 
-First, you need to [sign up for Deta Base](https://web.deta.sh/). Once you have an account, sign in to [Deta](https://web.deta.sh/). When you sign in, Deta will create a default project and show you the project's Project Key and Project ID. Note down your **Project Key** and **Project ID**.
+First, you need to [create a Deta Space account](https://deta.space/signup?dev_mode=true) for using Deta Base. Make sure the "Developer Mode" option is enabled when signing up. Once you have an account, sign in to Deta Space. After signing in, open the Collections app by clicking on it.
 
-<Flex>
-<Image alt="Deta sign up" src="/images/databases/deta-1.png" caption="Sign up for Deta" />
-<Image alt="Deta sign in" src="/images/databases/deta-2.png" caption="Sign in to Deta" />
-</Flex>
+[Deta Collections](https://deta.space/manual/features/collections#what-are-collections) is a pre-installed app on Space that stores different types of data that can be connected to other apps or services.
+<Image alt="Deta Space Canvas" src="/images/databases/deta-1.png" caption="Deta Space Canvas" />
 
-Be sure to store your **Project Key** securely. It is shown only once, and you will need it to connect to your Deta Base.
+Now click on the **Get Started** button and then click on the **Create Collection** button after giving your Collection a name.
+<Image alt="Create a New Collection" src="/images/databases/deta-2.png" caption="Create a New Collection" />
 
-<Flex>
-<Image alt="Click to see your Project Key" src="/images/databases/deta-3.png" caption="Click to see your Project Key" />
-<Image alt="Securely store your Project Key" src="/images/databases/deta-4.png" caption="Securely store your Project Key" />
-</Flex>
+After that, click on the **Collection Settings** option in the top corner, which will show the modal for creating a **Data Key**. Click on the **Create New Data Key** button, then give your key a name, and click the **Generate** button. Copy the key shown to your clipboard by clicking on the copy button.
 
-## Add Project Key to your local app secrets
+[Data Keys](https://deta.space/docs/en/basics/extending_apps#data-keys) allow you to read and manipulate data within your Collections.
+<Image alt="Generate Data Key" src="/images/databases/deta-3.png" caption="Generate Data Key" />
 
-Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Create this file if it doesn't exist yet and add the **Project Key** (from the previous step) of your Deta Base as shown below:
+Be sure to store your **Data Key** securely. It is shown only once, and you will need it to connect to your Deta Base.
+
+## Add Data Key to your local app secrets
+
+Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Create this file if it doesn't exist yet and add the **Data Key** (from the previous step) of your Deta Base as shown below:
 
 ```toml
 # .streamlit/secrets.toml
-deta_key = "xxx"
+data_key = "xxx"
 ```
 
-Replace `xxx` above ☝️ with your **Project Key** from the previous step.
+Replace `xxx` above ☝️ with your **Data Key** from the previous step.
 
 <Important>
 
@@ -72,8 +73,8 @@ with st.form("form"):
     submitted = st.form_submit_button("Store in database")
 
 
-# Connect to Deta Base with your Project Key
-deta = Deta(st.secrets["deta_key"])
+# Connect to Deta Base with your Data Key
+deta = Deta(st.secrets["data_key"])
 
 # Create a new database "example-db"
 # If you need a new database, just use another name.
