@@ -313,7 +313,7 @@ site_menu:
     visible: false
   - category: Streamlit library / Advanced features/ Add statefulness to apps
     url: /library/advanced-features/session-state
-  - category: Streamlit library / Advanced features/ DataFrames
+  - category: Streamlit library / Advanced features/ Dataframes
     url: /library/advanced-features/dataframes
   - category: Streamlit library / Advanced features/ Widget semantics
     url: /library/advanced-features/widget-semantics

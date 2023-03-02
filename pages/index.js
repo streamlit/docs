@@ -154,11 +154,11 @@ export default function Home({ window, menu, gdpr_data }) {
                 href="/library/advanced-features/dataframes"
               >
                 <i className="material-icons-sharp">edit_note</i>
-                <h4>Editable DataFrames!</h4>
+                <h4>Editable dataframes!</h4>
                 <p>
                   Display a data editor widget with{" "}
                   <code>st.experimental_data_editor</code>
-                  to edit DataFrames and many other data structures in a
+                  to edit dataframes and many other data structures in a
                   table-like UI.
                 </p>
               </RefCard>
@@ -240,11 +240,19 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
+                date="2023-02-28T16:05:00.000Z"
+                title="Editable dataframes are here! ✍️"
+                text="Take interactivity to the next level with st.experimental_data_editor"
+                link="https://blog.streamlit.io/editable-dataframes-are-here/"
+                image="/blog-1.svg"
+                target="_blank"
+              />
+              <NewsEntry
                 date="2023-02-09T16:05:00.000Z"
                 title="Introducing 2 new caching commands to replace st.cache!"
                 text="st.cache_data and st.cache_resource are here to make caching less complex and more performant"
                 link="https://blog.streamlit.io/introducing-two-new-caching-commands-to-replace-st-cache/"
-                image="/blog-1.svg"
+                image="/blog-2.svg"
                 target="_blank"
               />
               <NewsEntry
@@ -252,14 +260,6 @@ export default function Home({ window, menu, gdpr_data }) {
                 title="Using ChatGPT to build a Kedro ML pipeline"
                 text="Talk with ChatGPT to build feature-rich solutions with a Streamlit frontend"
                 link="https://blog.streamlit.io/using-chatgpt-to-build-a-kedro-ml-pipeline/"
-                image="/blog-2.svg"
-                target="_blank"
-              />
-              <NewsEntry
-                date="2023-02-07T16:05:00.000Z"
-                title="Streamlit-Authenticator, Part 2: Adding advanced features to your authentication component"
-                text="How to add advanced functionality to your Streamlit app's authentication component"
-                link="https://blog.streamlit.io/streamlit-authenticator-part-2-adding-advanced-features-to-your-authentication-component/"
                 image="/blog-3.svg"
                 target="_blank"
               />
