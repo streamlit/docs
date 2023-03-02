@@ -154,11 +154,11 @@ export default function Home({ window, menu, gdpr_data }) {
                 href="/library/advanced-features/dataframes"
               >
                 <i className="material-icons-sharp">edit_note</i>
-                <h4>Editable DataFrames!</h4>
+                <h4>Editable dataframes!</h4>
                 <p>
                   Display a data editor widget with{" "}
                   <code>st.experimental_data_editor</code>
-                  to edit DataFrames and many other data structures in a
+                  to edit dataframes and many other data structures in a
                   table-like UI.
                 </p>
               </RefCard>
