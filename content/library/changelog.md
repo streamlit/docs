@@ -23,7 +23,7 @@ _Release date: February 23, 2023_
 
 **Highlights**
 
-- ✂️ Introducing `st.experimental_data_editor`, a widget that allows you to edit DataFrames and many other data structures in a table-like UI. Read more in our [documentation](/library/advanced-features/dataframes).
+- ✂️ Introducing `st.experimental_data_editor`, a widget that allows you to edit DataFrames and many other data structures in a table-like UI. Read more in our [documentation](/library/advanced-features/dataframes) and [blog post](https://blog.streamlit.io/editable-dataframes-are-here/).
 
 **Other Changes**
 

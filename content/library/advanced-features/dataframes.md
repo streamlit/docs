@@ -1,15 +1,15 @@
 ---
-title: DataFrames
+title: Dataframes
 slug: /library/advanced-features/dataframes
 ---
 
-# DataFrames
+# Dataframes
 
-DataFrames are a great way to display and edit data in a tabular format. Working with Pandas DataFrames and other tabular data structures is key to data science workflows. If developers and data scientists want to display this data in Streamlit, they have multiple options: `st.dataframe` and `st.experimental_data_editor`. If you want to solely display data in a table-like UI, [st.dataframe](/library/api-reference/data/st.dataframe) is the way to go. If you want to interactively edit data, use [st.experimental_data_editor](/library/api-reference/widgets/st.experimental_data_editor). We explore the use cases and advantages of each option in the following sections.
+Dataframes are a great way to display and edit data in a tabular format. Working with Pandas DataFrames and other tabular data structures is key to data science workflows. If developers and data scientists want to display this data in Streamlit, they have multiple options: `st.dataframe` and `st.experimental_data_editor`. If you want to solely display data in a table-like UI, [st.dataframe](/library/api-reference/data/st.dataframe) is the way to go. If you want to interactively edit data, use [st.experimental_data_editor](/library/api-reference/widgets/st.experimental_data_editor). We explore the use cases and advantages of each option in the following sections.
 
-## Display DataFrames with st.dataframe
+## Display dataframes with st.dataframe
 
-Streamlit can display DataFrames in a table-like UI via `st.dataframe` :
+Streamlit can display dataframes in a table-like UI via `st.dataframe` :
 
 ```python
 import streamlit as st
@@ -46,7 +46,7 @@ In addition to Pandas DataFrames, `st.dataframe` also supports other common Pyth
 
 ## Edit data with st.experimental_data_editor
 
-Streamlit supports editable DataFrames via the `st.experimental_data_editor` command. Check out its API in [st.experimental_data_editor](/library/api-reference/widgets/st.experimental_data_editor). It shows the DataFrame in a table, similar to `st.dataframe`. But in contrast to `st.dataframe`, this table isn't static! The user can click on cells and edit them. The edited data is then returned on the Python side. Here's an example:
+Streamlit supports editable dataframes via the `st.experimental_data_editor` command. Check out its API in [st.experimental_data_editor](/library/api-reference/widgets/st.experimental_data_editor). It shows the dataframe in a table, similar to `st.dataframe`. But in contrast to `st.dataframe`, this table isn't static! The user can click on cells and edit them. The edited data is then returned on the Python side. Here's an example:
 
 ```python
 df = pd.DataFrame(
@@ -104,7 +104,7 @@ Every cell of the pasted data will be evaluated individually and inserted into t
 
 </Note>
 
-Did you notice that although the initial DataFrame had just five rows, pasting all those rows from the spreadsheet added additional rows to the DataFrame? 👀 Let's find out how that works in the next section.
+Did you notice that although the initial dataframe had just five rows, pasting all those rows from the spreadsheet added additional rows to the dataframe? 👀 Let's find out how that works in the next section.
 
 ### Add and delete rows
 
@@ -127,7 +127,7 @@ edited_df = st.experimental_data_editor(df, num_rows=”dynamic”)
 
 ### Access edited data
 
-Sometimes, it is more convenient to know which cells have been changed rather than getting the entire edited DataFrame back. Streamlit makes this easy through the use of [session state](https://docs.streamlit.io/library/advanced-features/session-state). If a `key` parameter is set, Streamlit will store any changes made to the DataFrame in the session state.
+Sometimes, it is more convenient to know which cells have been changed rather than getting the entire edited dataframe back. Streamlit makes this easy through the use of [session state](https://docs.streamlit.io/library/advanced-features/session-state). If a `key` parameter is set, Streamlit will store any changes made to the dataframe in the session state.
 
 This snippet shows how you can access changed data using session state:
 
@@ -139,9 +139,9 @@ st.write(st.session_state["data_editor"]) # 👈 Access the edited data
 
 In this code snippet, the `key` parameter is set to `"data_editor"`. Any changes made to the data in the `st.experimental_data_editor` instance will be tracked by Streamlit and stored in session state under the key `"data_editor"`.
 
-After the data editor is created, the contents of the `"data_editor"` key in session state are printed to the screen using `st.write(st.session_state["data_editor"])`. This allows you to see the changes made to the original DataFrame without having to return the entire DataFrame from the data editor.
+After the data editor is created, the contents of the `"data_editor"` key in session state are printed to the screen using `st.write(st.session_state["data_editor"])`. This allows you to see the changes made to the original dataframe without having to return the entire dataframe from the data editor.
 
-This can be useful when working with large DataFrames and you only need to know which cells have changed, rather than the entire edited DataFrames.
+This can be useful when working with large dataframes and you only need to know which cells have changed, rather than the entire edited dataframe.
 
 <Collapse title="View interactive app">
 
