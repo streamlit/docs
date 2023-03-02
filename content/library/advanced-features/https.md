@@ -22,3 +22,13 @@ To terminate SSL in your Streamlit app, you must configure `server.sslCertFile` 
 In a production environment, we recommend performing SSL termination by the load balancer or the reverse proxy, not using this option. The use of this option in Streamlit has not gone through extensive security audits or performance tests.
 
 </Warning>
+
+## Example usage
+
+```toml
+# .streamlit/config.toml
+
+[server]
+sslCertFile = '/path/to/certchain.pem'
+sslKeyFile = '/path/to/private.key'
+```
