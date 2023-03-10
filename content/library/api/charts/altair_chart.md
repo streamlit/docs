@@ -263,4 +263,4 @@ To use images instead of emojis, replace the line containing `.mark_text()` with
 
 Now that you've learned how to annotate charts, the sky's the limit! We've extended the above example to let you interactively paste your favorite emoji and set its position on the chart with Streamlit widgets. 👇
 
-<Cloud src="https://example-time-series-annotation.streamlit.app/?embedded=true" height="700" />
+<Cloud src="https://example-time-series-annotation.streamlit.app/?embed=true" height="700" />
