@@ -28,7 +28,6 @@ class StOutput(Directive):
     final_argument_whitespace = True
 
     def run(self):
-
         src = self.arguments[0]
 
         if not src.startswith("https://"):
@@ -47,7 +46,7 @@ class StOutput(Directive):
             text="""
                 <iframe
                     loading="lazy"
-                    src="%(src)s?embedded=true"
+                    src="%(src)s?embed=true"
                     style="
                         width: 100%%;
                         border: none;
