@@ -34,7 +34,7 @@ df = load_data()
 st.dataframe(df, use_container_width=st.session_state.use_container_width)
 ```
 
-<Cloud src="https://doc-dataframe2.streamlit.app/?embedded=true" height="350" />
+<Cloud src="https://doc-dataframe2.streamlit.app/?embed=true" height="350" />
 
 ### Interactivity
 
