@@ -321,6 +321,8 @@ site_menu:
     url: /library/advanced-features/prerelease
   - category: Streamlit library / Advanced features/ Working with timezones
     url: /library/advanced-features/timezone-handling
+  - category: Streamlit library / Advanced features/ Static file serving
+    url: /library/advanced-features/static-file-serving
   - category: Streamlit library / Advanced features/ HTTPS support
     url: /library/advanced-features/https-support
   - category: Streamlit library / Components
