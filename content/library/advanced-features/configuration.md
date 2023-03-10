@@ -72,7 +72,7 @@ streamlit config show
 The command above will print something like this:
 
 ```toml
-# Streamlit version: 1.19.0
+# Streamlit version: 1.20.0
 
 [global]
 
@@ -136,9 +136,9 @@ fixMatplotlib = true
 # Default: true
 postScriptGC = true
 
-# Handle script rerun requests immediately, rather than waiting for script execution to reach a yield point. Enabling this will make Streamlit much more responsive to user interaction, but it can lead to race conditions in apps that mutate session_state data outside of explicit session_state assignment statements.
-# Default: false
-fastReruns = false
+# Handle script rerun requests immediately, rather than waiting for script execution to reach a yield point. This makes Streamlit much more responsive to user interaction, but it can lead to race conditions in apps that mutate session_state data outside of explicit session_state assignment statements.
+# Default: true
+fastReruns = true
 
 
 [server]
@@ -203,6 +203,14 @@ enableWebsocketCompression = false
 # Enable serving files from a `static` directory in the running app's directory.
 # Default: false
 enableStaticServing = false
+
+# Server certificate file for connecting via HTTPS. Must be set at the same time as "server.sslKeyFile".
+# ['DO NOT USE THIS OPTION IN A PRODUCTION ENVIRONMENT. It has not gone through security audits or performance tests. For the production environment, we recommend performing SSL termination by the load balancer or the reverse proxy.']
+# sslCertFile =
+
+# Cryptographic key file for connecting via HTTPS. Must be set at the same time as "server.sslCertFile".
+# ['DO NOT USE THIS OPTION IN A PRODUCTION ENVIRONMENT. It has not gone through security audits or performance tests. For the production environment, we recommend performing SSL termination by the load balancer or the reverse proxy.']
+# sslKeyFile =
 
 [browser]
 

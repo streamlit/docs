@@ -37,4 +37,4 @@ with col2:
     )
 ```
 
-<Cloud src="https://doc-selectbox1.streamlit.app/?embedded=true" height="300" />
+<Cloud src="https://doc-selectbox1.streamlit.app/?embed=true" height="300" />
