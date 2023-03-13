@@ -106,32 +106,32 @@ Clone the [component-template GitHub repo](https://github.com/streamlit/componen
 
    ```shell
    # React template
-   $ template/my_component/frontend
-   $ npm install    # Initialize the project and install npm dependencies
-   $ npm run start  # Start the Webpack dev server
+   template/my_component/frontend
+   npm install    # Initialize the project and install npm dependencies
+   npm run start  # Start the Webpack dev server
 
    # or
 
    # TypeScript-only template
-   $ template-reactless/my_component/frontend
-   $ npm install    # Initialize the project and install npm dependencies
-   $ npm run start  # Start the Webpack dev server
+   template-reactless/my_component/frontend
+   npm install    # Initialize the project and install npm dependencies
+   npm run start  # Start the Webpack dev server
    ```
 
 2. _From a separate terminal_, run the Streamlit app (Python) that declares and uses the component:
 
    ```shell
    # React template
-   $ cd template
-   $ . venv/bin/activate # or similar to activate the venv/conda environment where Streamlit is installed
-   $ streamlit run my_component/__init__.py # run the example
+   cd template
+   . venv/bin/activate # or similar to activate the venv/conda environment where Streamlit is installed
+   streamlit run my_component/__init__.py # run the example
 
    # or
 
    # TypeScript-only template
-   $ cd template-reactless
-   $ . venv/bin/activate # or similar to activate the venv/conda environment where Streamlit is installed
-   $ streamlit run my_component/__init__.py # run the example
+   cd template-reactless
+   . venv/bin/activate # or similar to activate the venv/conda environment where Streamlit is installed
+   streamlit run my_component/__init__.py # run the example
    ```
 
 After running the steps above, you should see a Streamlit app in your browser that looks like this:

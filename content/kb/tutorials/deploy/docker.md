@@ -249,7 +249,7 @@ The `-p` flag publishes the container’s port 8501 to your server’s 8501 port
 If all went well, you should see an output similar to the following:
 
 ```
-$ docker run -p 8501:8501 streamlit
+docker run -p 8501:8501 streamlit
 
   You can now view your Streamlit app in your browser.
 
