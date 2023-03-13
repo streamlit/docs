@@ -27,7 +27,7 @@ st.write(load_data())
 And a warning will be logged to your terminal:
 
 ```bash
-$ streamlit run app.py
+streamlit run app.py
 
   You can now view your Streamlit app in your browser.
   Local URL: http://localhost:8501

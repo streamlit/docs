@@ -60,7 +60,7 @@ Streamlit is more than just a way to make data apps, it’s also a community of 
    Did you know you can also pass a URL to `streamlit run`? This is great when combined with GitHub Gists. For example:
 
    ```bash
-   $ streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
+   streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
    ```
 
    </Tip>
@@ -402,7 +402,7 @@ That's it for getting started, now you can go and build your own apps! If you
 run into difficulties here are a few things you can do.
 
 - Check out our [community forum](https://discuss.streamlit.io/) and post a question
-- Quick help from command line with `$ streamlit help`
+- Quick help from command line with `streamlit help`
 - Go through our [Knowledge Base](/knowledge-base) for tips, step-by-step tutorials, and articles that answer your questions about creating and deploying Streamlit apps.
 - Read more documentation! Check out:
   - [Advanced features](/library/advanced-features) for things like caching, theming, and adding statefulness to apps.
