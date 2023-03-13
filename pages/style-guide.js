@@ -112,7 +112,7 @@ export default function StyleGuide() {
             </li>
             <li>
               Quick help from command line with{" "}
-              <span className="inline_code">$ streamlit --help</span>
+              <span className="inline_code">streamlit --help</span>
             </li>
             <li>
               Read more documentation! Check out:
@@ -197,7 +197,7 @@ ls -l myscript.sh`}
             </p>
             <Code
               language="bash"
-              code={`$ streamlit run
+              code={`streamlit run
 https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py`}
             />
           </Tip>

@@ -35,8 +35,8 @@ The [component-template](https://github.com/streamlit/component-template) GitHub
 4. Create a release build of your frontend code. This will add a new directory, `frontend/build/`, with your compiled frontend in it:
 
    ```shell
-   $ cd frontend
-   $ npm run build
+   cd frontend
+   npm run build
    ```
 
 5. Pass the build folder's path as the `path` parameter to `declare_component`. (If you're using the template Python file, you can set `_RELEASE = True` at the top of the file):
@@ -64,7 +64,7 @@ Once you've changed the default `my_component` references, compiled the HTML and
    ```shell
     # Run this from your component's top-level directory; that is,
     # the directory that contains `setup.py`
-    $ python setup.py sdist bdist_wheel
+    python setup.py sdist bdist_wheel
    ```
 
 ### Upload your wheel to PyPI
