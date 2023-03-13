@@ -210,18 +210,6 @@ st.experimental_data_editor({
 })
 ```
 
-## Handling large datasets
-
-`st.dataframe` and `st.data_editor` have been designed to theoretically handle tables with millions of rows thanks to their highly performant implementation using the glide-data-grid library and HTML canvas. However, the maximum amount of data that an app can realistically handle will depend on several other factors, including:
-
-1. The maximum size of WebSocket messages: Streamlit's WebSocket messages are configurable via the `server.maxMessageSize` [config option](/library/advanced-features/configuration#view-all-configuration-options), which limits the amount of data that can be transferred via the WebSocket connection at once.
-2. The server memory: The amount of data that your app can handle will also depend on the amount of memory available on your server. If the server's memory is exceeded, the app may become slow or unresponsive.
-3. The user's browser memory: Since all the data needs to be transferred to the user's browser for rendering, the amount of memory available on the user's device can also affect the app's performance. If the browser's memory is exceeded, it may crash or become unresponsive.
-
-In addition to these factors, a slow network connection can also significantly slow down apps that handle large datasets.
-
-When handling large datasets with more than 150,000 rows, Streamlit applies additional optimizations and disables column sorting. This can help to reduce the amount of data that needs to be processed at once and improve the app's performance.
-
 ## Limitations
 
 While Streamlit's data editing capabilities offer a lot of functionality, there are some limitations to be aware of:
