@@ -23,7 +23,7 @@ You can create more clusters if you want to. Click the cluster name to enter clu
 
 ![Cluster overview](/images/databases/tidb-3.png)
 
-Then click **Connect** to easily get the connnection arguments to access the cluster. On the popup, click **Create password** to set the password.
+Then click **Connect** to easily get the connection arguments to access the cluster. On the popup, click **Create password** to set the password.
 
 ![Get connection arguments](/images/databases/tidb-4.png)
 
