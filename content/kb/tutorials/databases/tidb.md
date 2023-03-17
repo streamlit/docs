@@ -11,33 +11,27 @@ This guide explains how to securely access a remote [TiDB database](https://www.
 
 ## Sign in to TiDB Cloud and create a cluster
 
-First, head over to [TiDB Cloud](https://tidbcloud.com/free-trial) and sign up for a free account, using either Google, GitHub or E-mail:
+First, head over to [TiDB Cloud](https://tidbcloud.com/free-trial) and sign up for a free account, using either Google, GitHub, Microsoft or E-mail:
 
-![Sign in TiDB Cloud](/images/databases/tidb-1.png)
+![Sign up TiDB Cloud](/images/databases/tidb-1.png)
 
-Once you've signed in, you can create a cluster:
+Once you've signed in, you will already have a TiDB cluster:
 
-<Flex>
-<Image caption="Choose a cluster tier" src="/images/databases/tidb-2.png" />
-<Image caption="Configure cluster specifications" src="/images/databases/tidb-3.png" />
-</Flex>
+![List clusters](/images/databases/tidb-2.png)
 
-Your screen should list the cluster you created. Click **Security Settings** to set the root password to access the cluster.
+You can create more clusters if you want to. Click the cluster name to enter cluster overview page:
 
-<Flex>
-<Image caption="List clusters" src="/images/databases/tidb-4.png" />
-<Image caption="Set password" src="/images/databases/tidb-5.png" />
-</Flex>
+![Cluster overview](/images/databases/tidb-3.png)
+
+Then click **Connect** to easily get the connection arguments to access the cluster. On the popup, click **Create password** to set the password.
+
+![Get connection arguments](/images/databases/tidb-4.png)
 
 <Important>
 
 Make sure to note down the password. It won't be available on TiDB Cloud after this step.
 
 </Important>
-
-Then click **Connect** to easily get the connnection arguments to access the cluster.
-
-![Get connection arguments](/images/databases/tidb-6.png)
 
 ## Create a TiDB database
 
@@ -71,12 +65,12 @@ Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml`
 # .streamlit/secrets.toml
 
 [tidb]
-host = "<TiDB_cluster_endpoint>"
+host = "<TiDB_cluster_host>"
 port = 4000
 database = "pets"
 user = "<TiDB_cluster_user>"
 password = "<TiDB_cluster_password>"
-ssl-ca = "<path_to_CA_store>"
+ssl_ca = "<path_to_CA_store>"
 ```
 
 <Important>
@@ -122,7 +116,7 @@ def init_connection():
         password=config["password"],
         database=config["database"],
         ssl_mode="VERIFY_IDENTITY",
-        ssl={"ca": config["ssl-ca"]}
+        ssl={"ca": config["ssl_ca"]}
     )
 
 conn = init_connection()
