@@ -71,7 +71,7 @@ _Release date: February 09, 2023_
 - ↔️ `st.button` has an optional `use_container_width` parameter to allow you to stretch buttons across the full container width.
 - 🐍 We formally added support for Python 3.11.
 - 🖨️ Save your app as a PDF via the “Print” option in your app’s hamburger menu.
-- 🛎️ Apps can serve small, static media files via the `enableStaticServing` config option. See our [documentation](/knowledge-base/using-streamlit/how-host-static-files) on how to use this feature and our demo [app](https://static.streamlit.app/) for an example.
+- 🛎️ Apps can serve small, static media files via the `enableStaticServing` config option. See our [documentation](/library/advanced-features/static-file-serving) on how to use this feature and our demo [app](https://static-file-serving.streamlit.app/) for an example.
 
 **Other Changes**
 
