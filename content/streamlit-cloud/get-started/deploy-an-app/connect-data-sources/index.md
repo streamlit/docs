@@ -7,10 +7,9 @@ slug: /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sourc
 
 Your app probably connects to some data source, and it's important to make sure that connection is secure. That data might just be a csv that you have in your GitHub repo, but in many cases it'll be a private data source you connect with via API, on a cloud service, or maybe in your company's VPN.
 
-Streamlit has two primary ways of securely connecting to private data:
+Streamlit has one primary way of securely connecting to private data:
 
 - [Secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management): securely store secrets like API keys and TOML files that you can then access as environment variables in your app.
-- [Stable outbound IP addresses](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/stable-outbound-ip-addresses): allowlist our outbound IP addresses in your firewall to ensure that only traffic from the Streamlit network can connect to your data stores.
 
 We also have a series of guides on how to connect to:
 

@@ -357,8 +357,6 @@ site_menu:
     url: /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources
   - category: Streamlit Community Cloud / Get started / Deploy an app / Connect to data sources / Secrets management
     url: /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management
-  - category: Streamlit Community Cloud / Get started / Deploy an app / Connect to data sources / Stable outbound IP addresses
-    url: /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/stable-outbound-ip-addresses
   - category: Streamlit Community Cloud / Get started / Share your app
     url: /streamlit-community-cloud/get-started/share-your-app
   - category: Streamlit Community Cloud / Get started / Share your app / App indexability
