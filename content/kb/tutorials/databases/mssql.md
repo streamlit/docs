@@ -190,4 +190,4 @@ See `st.cache_data` above? Without it, Streamlit would run the query every time 
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 
-![Finished app screenshot](/images/databases/snowflake-4.png)
+![Finished app screenshot](/images/databases/streamlit-app.png)
