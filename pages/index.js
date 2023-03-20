@@ -211,14 +211,16 @@ export default function Home({ window, menu, gdpr_data }) {
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/status/st.progress"
+                href="/library/advanced-features/https-support"
               >
-                <i className="material-icons-sharp">hourglass_top</i>
-                <h4>Progress bar message</h4>
+                <i className="material-icons-sharp">lock</i>
+                <h4>HTTPS support</h4>
                 <p>
-                  <code>st.progress</code> supports adding a message to display
-                  above the progress bar with the <code>text</code> keyword
-                  parameter.
+                  Version 1.20.0 added support for configuring SSL with the
+                  <code>server.sslCertFile</code> and{" "}
+                  <code>server.sslKeyFile</code>
+                  config options to serve apps directly over HTTPS! Click to
+                  learn more.
                 </p>
               </RefCard>
               {/* <Tile
