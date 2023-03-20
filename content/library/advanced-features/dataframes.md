@@ -234,8 +234,6 @@ import pandas as pd
 # create a dataframe with a boolean column
 df = pd.DataFrame({"A": [True, False, True, False]})
 
-st.write("Type of df['A']:", df["A"].dtype)
-
 # show the dataframe with checkboxes
 st.dataframe(df)
 ```
@@ -249,8 +247,6 @@ import pandas as pd
 
 # create a dataframe with a boolean column
 df = pd.DataFrame({"A": [True, False, True, False]})
-
-st.write("Type of df['A']:", df["A"].dtype)
 
 # show the data editor with checkboxes
 st.experimental_data_editor(df)
