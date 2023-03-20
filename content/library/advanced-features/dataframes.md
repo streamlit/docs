@@ -210,6 +210,126 @@ st.experimental_data_editor({
 })
 ```
 
+## Configuring columns
+
+You will be able configure the display and editing behavior of columns via `st.dataframe` and `st.experimental_data_editor` in to-be-announced future releases. We are developing an API to let you add images, charts, and clickable URLs in dataframe columns. Additionally, you will be able to make individual columns editable, set columns as categorical and specify which options they can take, hide the index of the dataframe, and much more.
+
+<Important>
+
+We will release the ability to configure columns in a future version of Streamlit. Keep at an eye out for updates on this page and the [Streamlit roadmap](https://roadmap.streamlit.app/).
+
+</Important >
+
+While the ability to configure columns has yet to be released, there are techniques you can use with Pandas today to render columns as checkboxes, selectboxes, and change the type of columns.
+
+### Boolean columns (checkboxes)
+
+To render columns as checkboxes and clickable checkboxes in `st.dataframe` and `st.experimental_data_editor`, respectively, set the type of the Pandas column as `bool`.
+
+Here’s an example of creating a Pandas DataFrame with column `A` containing boolean values. When we display it using `st.dataframe`, the boolean values are rendered as checkboxes, where `True` and `False` values are checked and unchecked, respectively.
+
+```python
+import pandas as pd
+
+# create a dataframe with a boolean column
+df = pd.DataFrame({"A": [True, False, True, False]})
+
+st.write("Type of df['A']:", df["A"].dtype)
+
+# show the dataframe with checkboxes
+st.dataframe(df)
+```
+
+![data-editor-dataframe-boolean.gif](/images//data-editor-dataframe-boolean.gif)
+
+Notice you cannot change their values from the frontend. To let users check and uncheck values, we display the dataframe with `st.experimental_data_editor` instead:
+
+```python
+import pandas as pd
+
+# create a dataframe with a boolean column
+df = pd.DataFrame({"A": [True, False, True, False]})
+
+st.write("Type of df['A']:", df["A"].dtype)
+
+# show the data editor with checkboxes
+st.experimental_data_editor(df)
+```
+
+![data-editor-boolean.gif](/images/data-editor-boolean.gif)
+
+### Categorical columns (selectboxes)
+
+To render columns as selectboxes with `st.experimental_data_editor`, set the type of the Pandas column as `category`:
+
+```python
+import pandas as pd
+
+df = pd.DataFrame(
+    {"command": ["st.selectbox", "st.slider", "st.balloons", "st.time_input"]}
+)
+df["command"] = df["command"].astype("category")
+
+edited_df = st.experimental_data_editor(df)
+```
+
+In some cases, you may want users to select categories that aren’t in the original Pandas DataFrame. Let’s say we use `df` from above. Currently, the `command` column can take on four unique values. What should we do if we want users to see additional options such as `st.button` and `st.radio`?
+
+To add additional categories to the selection, use [pandas.Series.cat.add_categories](https://pandas.pydata.org/docs/reference/api/pandas.Series.cat.add_categories.html):
+
+```python
+import pandas as pd
+
+df = pd.DataFrame(
+    {"command": ["st.selectbox", "st.slider", "st.balloons", "st.time_input"]}
+)
+df["command"] = (
+    df["command"].astype("category").cat.add_categories(["st.button", "st.radio"])
+)
+
+edited_df = st.experimental_data_editor(df)
+```
+
+![data-editor-categorical.gif](/images/data-editor-categorical.gif)
+
+### Change column type
+
+To change the type of a column, you can change the type of the underlying Pandas DataFrame column. E.g., say you have a column with only integers but want users to be able to add numbers with decimals. To do so, simply change the Pandas DataFrame column type to `float`, like so:
+
+```python
+import pandas as pd
+
+import streamlit as st
+
+# create a dataframe with an integer column
+df = pd.DataFrame({"A": [1, 2, 3, 4]})
+
+# unable to add float values to the column
+edited_df = st.experimental_data_editor(df)
+
+# cast the column to float
+df["A"] = df["A"].astype("float")
+
+# able to add float values to the column
+edited_df = st.experimental_data_editor(df)
+```
+
+In the first data editor instance, you cannot add decimal values to any entries. But after casting column `A` to type `float`, we’re able to edit the values as floating point numbers:
+
+![data-editor-change-type.gif](/images/data-editor-change-type.gif)
+
+## Handling large datasets
+
+`st.dataframe` and `st.experimental_data_editor` have been designed to theoretically handle tables with millions of rows thanks to their highly performant implementation using the glide-data-grid library and HTML canvas. However, the maximum amount of data that an app can realistically handle will depend on several other factors, including:
+
+1. The maximum size of WebSocket messages: Streamlit's WebSocket messages are configurable via the `server.maxMessageSize` [config option](https://docs.streamlit.io/library/advanced-features/configuration#view-all-configuration-options), which limits the amount of data that can be transferred via the WebSocket connection at once.
+2. The server memory: The amount of data that your app can handle will also depend on the amount of memory available on your server. If the server's memory is exceeded, the app may become slow or unresponsive.
+3. The user's browser memory: Since all the data needs to be transferred to the user's browser for rendering, the amount of memory available on the user's device can also affect the app's performance. If the browser's memory is exceeded, it may crash or become unresponsive.
+
+In addition to these factors, a slow network connection can also significantly slow down apps that handle large datasets.
+
+When handling large datasets with more than 150,000 rows, Streamlit applies additional optimizations and disables column sorting. This can help to reduce the amount of data that needs to be processed at once and improve the app's performance.
+
 ## Limitations
 
 While Streamlit's data editing capabilities offer a lot of functionality, there are some limitations to be aware of:
