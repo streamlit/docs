@@ -168,7 +168,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 <p>
                   <code>st.cache_data</code> and <code>st.cache_resource</code>{" "}
                   are here to replace st.cache and make caching less complex and
-                  more performant
+                  more performant.
                 </p>
               </RefCard>
               <RefCard
@@ -185,25 +185,15 @@ export default function Home({ window, menu, gdpr_data }) {
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/status/st.progress"
+                href="/streamlit-community-cloud/get-started/deploy-an-app#embed-apps"
               >
-                <i className="material-icons-sharp">hourglass_top</i>
-                <h4>Progress bar message</h4>
+                <i className="material-icons-sharp">integration_instructions</i>
+                <h4>Control embedding behavior</h4>
                 <p>
-                  <code>st.progress</code> supports adding a message to display
-                  above the progress bar with the <code>text</code> keyword
-                  parameter
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="https://markdown-labels.streamlit.app/"
-              >
-                <i className="material-icons-sharp">terminal</i>
-                <h4>Python 3.11 support</h4>
-                <p>
-                  Starting in Streamlit 1.18.0, Streamlit formally supports
-                  Python 3.11. 🐍
+                  Control app embedding behavior with the <code>/?embed</code>{" "}
+                  and
+                  <code>/?embed_options</code> query parameters. Learn how to
+                  use this feature in our docs.
                 </p>
               </RefCard>
               <RefCard
@@ -217,6 +207,20 @@ export default function Home({ window, menu, gdpr_data }) {
                   accept Markdown, including <code>st.markdown</code>,{" "}
                   <code>st.header</code>, and more! Click to read the
                   documentation.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/advanced-features/https-support"
+              >
+                <i className="material-icons-sharp">lock</i>
+                <h4>HTTPS support</h4>
+                <p>
+                  Version 1.20.0 added support for configuring SSL with the
+                  <code>server.sslCertFile</code> and{" "}
+                  <code>server.sslKeyFile</code>
+                  config options to serve apps directly over HTTPS! Click to
+                  learn more.
                 </p>
               </RefCard>
               {/* <Tile
@@ -240,26 +244,26 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
-                date="2023-02-28T16:05:00.000Z"
-                title="Editable dataframes are here! ✍️"
-                text="Take interactivity to the next level with st.experimental_data_editor"
-                link="https://blog.streamlit.io/editable-dataframes-are-here/"
+                date="2023-03-16T16:05:00.000Z"
+                title="Hackathon 101: 5 simple tips for beginners"
+                text="Prepare to win your first hackathon!"
+                link="https://blog.streamlit.io/hackathon-101-5-simple-tips-for-beginners/"
                 image="/blog-1.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2023-02-09T16:05:00.000Z"
-                title="Introducing 2 new caching commands to replace st.cache!"
-                text="st.cache_data and st.cache_resource are here to make caching less complex and more performant"
-                link="https://blog.streamlit.io/introducing-two-new-caching-commands-to-replace-st-cache/"
+                date="2023-03-14T16:05:00.000Z"
+                title="Create a search engine with Streamlit and Google Sheets"
+                text="You're sitting on a goldmine of knowledge!"
+                link="https://blog.streamlit.io/create-a-search-engine-with-streamlit-and-google-sheets/"
                 image="/blog-2.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2023-02-09T16:05:00.000Z"
-                title="Using ChatGPT to build a Kedro ML pipeline"
-                text="Talk with ChatGPT to build feature-rich solutions with a Streamlit frontend"
-                link="https://blog.streamlit.io/using-chatgpt-to-build-a-kedro-ml-pipeline/"
+                date="2023-03-09T16:05:00.000Z"
+                title="10 most common explanations on the Streamlit forum"
+                text="A guide for Streamlit beginners"
+                link="https://blog.streamlit.io/10-most-common-explanations-on-the-streamlit-forum/"
                 image="/blog-3.svg"
                 target="_blank"
               />
