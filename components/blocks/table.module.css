@@ -41,3 +41,7 @@
 .TitleCell {
   @apply font-bold mb-0;
 }
+
+.TitleCell a {
+  @apply float-right mb-0 text-sm;
+}
