@@ -276,7 +276,19 @@ const Autofunction = ({
   body = (
     <Table
       head={{
-        title: "Function signature",
+        title: (
+          <>
+            Function signature
+            <a
+              className={styles.Title.a}
+              href={functionObject.source}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              [source]
+            </a>
+          </>
+        ),
         content: `<p class='code'> ${functionObject.signature}</p> `,
       }}
       body={
