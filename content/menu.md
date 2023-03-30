@@ -55,6 +55,9 @@ site_menu:
   - category: Streamlit library / API reference / Text elements / st.latex
     url: /library/api-reference/text/st.latex
     isVersioned: true
+  - category: Streamlit library / API reference / Text elements / st.divider
+    url: /library/api-reference/text/st.divider
+    isVersioned: true
   - category: Streamlit library / API reference / Data display elements
     url: /library/api-reference/data
   - category: Streamlit library / API reference / Data display elements / st.dataframe
