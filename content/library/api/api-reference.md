@@ -953,7 +953,7 @@ st.experimental_show(df)
 </RefCard>
 <RefCard href="/library/api-reference/utilities/st.experimental_get_query_params">
 
-#### Get query paramters
+#### Get query parameters
 
 Return the query parameters that are currently showing in the browser's URL bar.
 
@@ -964,7 +964,7 @@ st.experimental_get_query_params()
 </RefCard>
 <RefCard href="/library/api-reference/utilities/st.experimental_set_query_params">
 
-#### Set query paramters
+#### Set query parameters
 
 Set the query parameters that are shown in the browser's URL bar.
 
