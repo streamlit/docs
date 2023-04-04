@@ -325,6 +325,8 @@ site_menu:
     url: /library/advanced-features/static-file-serving
   - category: Streamlit library / Advanced features/ HTTPS support
     url: /library/advanced-features/https-support
+  - category: Streamlit library / Advanced features/ Secrets management
+    url: /library/advanced-features/secrets-management
   - category: Streamlit library / Components
     url: /library/components
   - category: Streamlit library / Components / Components API
