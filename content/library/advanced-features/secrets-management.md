@@ -5,15 +5,15 @@ slug: /library/advanced-features/secrets-management
 
 # Secrets management
 
-It is bad practice to store unencrypted secrets in a git repository. Suppose your application needs access to sensitive credentials. In that case, the recommended solution is to store those credentials in a file not committed to the repository and pass them as environment variables.
+It is a bad practice to store unencrypted secrets in a git repository. Suppose your application needs access to sensitive credentials. In that case, the recommended solution is to store those credentials outside the repository - such as using a credentials file not committed to the repository or passing them as environment variables.
 
-Secrets management allows you to securely store and access secrets in your Streamlit app as environment variables.
+Streamlit provides file-based secrets management to easily store and securely access your secrets in your Streamlit app.
 
-## How to use Secrets management
+## How to use secrets management
 
 ### Develop locally and set up secrets
 
-Streamlit provides two ways to set up secrets locally using [TOML](https://toml.io/en/latest) format:
+Streamlit provides two ways to set up secrets locally using [TOML](https://toml.io/en/latest) format:
 
 1. In a **global secrets file** at `~/.streamlit/secrets.toml` for macOS/Linux or `%userprofile%/.streamlit/secrets.toml` for Windows:
 
@@ -32,17 +32,17 @@ Streamlit provides two ways to set up secrets locally using [TOML](https://toml.
 
    If you use the global secrets file, you don't have to duplicate secrets across several project-level files if multiple Streamlit apps share the same secrets.
 
-2. In a **per-project secrets file** at `$CWD/.streamlit/config.toml`, where `$CWD` is the folder you're running Streamlit from. If both a global secrets file and a per-project secrets file exist, _secrets in the per-project file overwrite those defined in the global file_.
+2. In a **per-project secrets file** at `$CWD/.streamlit/secrets.toml`, where `$CWD` is the folder you're running Streamlit from. If both a global secrets file and a per-project secrets file exist, _secrets in the per-project file overwrite those defined in the global file_.
 
 <Important>
 
-Be sure to add this file to your `.gitignore` so you don't commit your secrets!
+Add this file to your `.gitignore` so you don't commit your secrets!
 
 </Important>
 
 ### Use secrets in your app
 
-Access your secrets as environment variables or by querying the `st.secrets` dict. For example, if you enter the secrets from the section above, the code below shows you how to access them within your Streamlit app.
+Access your secrets by querying the `st.secrets` dict, or as environment variables. For example, if you enter the secrets from the section above, the code below shows you how to access them within your Streamlit app.
 
 ```python
 import streamlit as st
@@ -90,7 +90,7 @@ my_db.connect(**st.secrets.db_credentials)
 
 Here are some common errors you might encounter when using secrets management.
 
-- If a `.streamlit/config.toml` is created _while_ the app is running, the server needs to be restarted for changes to be reflected in the app.
+- If a `.streamlit/secrets.toml` is created _while_ the app is running, the server needs to be restarted for changes to be reflected in the app.
 - If changes to the secrets file are made while the app is running, the app needs to be rerun for changes to be reflected in the app.
 - If you try accessing a secret, but no `secrets.toml` file exists, Streamlit will raise a `FileNotFoundError` exception:
   <Image alt="Secrets management FileNotFoundError" src="/images/secrets-filenotfounderror.png" clean />
