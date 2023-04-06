@@ -151,6 +151,59 @@ export default function Home({ window, menu, gdpr_data }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/library/api-reference/text/st.divider"
+              >
+                <i className="material-icons-sharp">horizontal_rule</i>
+                <h4>st.divider</h4>
+                <p>
+                  Introducing <code>st.divider</code> — a command that displays
+                  a horizontal line in your app. Click to see how it works.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/utilities/st.help"
+              >
+                <i className="material-icons-sharp">help</i>
+                <h4>Supercharged st.help!</h4>
+                <p>
+                  <code>st.help</code> has been revamped to show more
+                  information about object methods, attributes, classes, and
+                  more, which is great for debugging!
+                </p>
+              </RefCard>
+              <RefCard size="third" href="/library/api-reference/text">
+                <i className="material-icons-sharp">tips_and_updates</i>
+                <h4>Tooltips on text elements</h4>
+                <p>
+                  Most text elements can optionally include tooltips with the
+                  <code>help</code> parameter.
+                </p>
+              </RefCard>
+              <RefCard size="third" href="/library/api-reference/text/st.code">
+                <i className="material-icons-sharp">terminal</i>
+                <h4>Line numbers in st.code</h4>
+                <p>
+                  <code>st.code</code> supports optionally displaying line
+                  numbers to the code block's left with the boolean{" "}
+                  <code>line_numbers</code> parameter.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/advanced-features/secrets-management"
+              >
+                <i className="material-icons-sharp">lock</i>
+                <h4>Global secrets.toml file</h4>
+                <p>
+                  Streamlit now supports the use of a global{" "}
+                  <code>secrets.toml</code>
+                  file, in addition to a project-level file, to easily store and
+                  securely access your secrets. Click to read the docs.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="/library/advanced-features/dataframes"
               >
                 <i className="material-icons-sharp">edit_note</i>
@@ -160,67 +213,6 @@ export default function Home({ window, menu, gdpr_data }) {
                   <code>st.experimental_data_editor</code>
                   to edit dataframes and many other data structures in a
                   table-like UI.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/library/advanced-features/caching">
-                <i className="material-icons-sharp">cached</i>
-                <h4>New caching commands</h4>
-                <p>
-                  <code>st.cache_data</code> and <code>st.cache_resource</code>{" "}
-                  are here to replace st.cache and make caching less complex and
-                  more performant.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/layout/st.columns"
-              >
-                <i className="material-icons-sharp">view_column</i>
-                <h4>Columns in columns</h4>
-                <p>
-                  <code>st.columns</code> supports up to one level of column
-                  nesting (i.e. columns inside columns) in the main area of the
-                  app.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/streamlit-community-cloud/get-started/deploy-an-app#embed-apps"
-              >
-                <i className="material-icons-sharp">integration_instructions</i>
-                <h4>Control embedding behavior</h4>
-                <p>
-                  Control app embedding behavior with the <code>/?embed</code>{" "}
-                  and
-                  <code>/?embed_options</code> query parameters. Learn how to
-                  use this feature in our docs.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/text/st.markdown"
-              >
-                <i className="material-icons-sharp">brush</i>
-                <h4>Colored text support in Markdown</h4>
-                <p>
-                  Streamlit now supports colored text in all commands that
-                  accept Markdown, including <code>st.markdown</code>,{" "}
-                  <code>st.header</code>, and more! Click to read the
-                  documentation.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/advanced-features/https-support"
-              >
-                <i className="material-icons-sharp">lock</i>
-                <h4>HTTPS support</h4>
-                <p>
-                  Version 1.20.0 added support for configuring SSL with the
-                  <code>server.sslCertFile</code> and{" "}
-                  <code>server.sslKeyFile</code>
-                  config options to serve apps directly over HTTPS! Click to
-                  learn more.
                 </p>
               </RefCard>
               {/* <Tile
@@ -244,26 +236,26 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
-                date="2023-03-16T16:05:00.000Z"
-                title="Hackathon 101: 5 simple tips for beginners"
-                text="Prepare to win your first hackathon!"
-                link="https://blog.streamlit.io/hackathon-101-5-simple-tips-for-beginners/"
+                date="2023-04-04T16:05:00.000Z"
+                title="Introducing Streamlit to the Polish Python community"
+                text="My Streamlit presentation at PyWaW #103"
+                link="https://blog.streamlit.io/introducing-streamlit-to-the-polish-python-community/"
                 image="/blog-1.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2023-03-14T16:05:00.000Z"
-                title="Create a search engine with Streamlit and Google Sheets"
-                text="You're sitting on a goldmine of knowledge!"
-                link="https://blog.streamlit.io/create-a-search-engine-with-streamlit-and-google-sheets/"
+                date="2023-03-29T16:05:00.000Z"
+                title="Building an Instagram hashtag generation app with Streamlit"
+                text="5 simple steps on how to build it"
+                link="https://blog.streamlit.io/building-an-instagram-hashtag-generation-app-with-streamlit/"
                 image="/blog-2.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2023-03-09T16:05:00.000Z"
-                title="10 most common explanations on the Streamlit forum"
-                text="A guide for Streamlit beginners"
-                link="https://blog.streamlit.io/10-most-common-explanations-on-the-streamlit-forum/"
+                date="2023-03-22T16:05:00.000Z"
+                title="Monthly rewind > February 2023"
+                text="Your February look-back at new features and great community content"
+                link="https://blog.streamlit.io/monthly-rewind-february-2023/"
                 image="/blog-3.svg"
                 target="_blank"
               />

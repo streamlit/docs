@@ -72,7 +72,7 @@ streamlit config show
 The command above will print something like this:
 
 ```toml
-# Streamlit version: 1.20.0
+# Streamlit version: 1.21.0
 
 [global]
 
@@ -140,6 +140,9 @@ postScriptGC = true
 # Default: true
 fastReruns = true
 
+# Raise an exception after adding unserializable data to Session State. Some execution environments may require serializing all data in Session State, so it may be useful to detect incompatibility during development, or when the execution environment will stop supporting it in the future.
+# Default: false
+enforceSerializableSessionState = false
 
 [server]
 
