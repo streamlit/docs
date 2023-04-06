@@ -99,11 +99,16 @@ At Streamlit, we like to move quick while keeping things stable. In our latest e
 
 </RefCard>
 
-<RefCard href="/library/advanced-features/widget-semantics" size="half">
+<RefCard href="/library/advanced-features/secrets-management" size="half">
 
-##### Advanced notes on widget behavior
+##### Secrets management
 
-Widgets are magical and often work how you want. But they can have surprising behavior in some situations. This section provides is a high-level, abstract description of widget behavior, including some common edge-cases.
+This section provides examples of how to use secrets management to store and retrieve sensitive information in your Streamlit app.
+
+- [Develop locally and set up secrets](/library/advanced-features/secrets-management#develop-locally-and-set-up-secrets)
+- [Use secrets in your app](/library/advanced-features/secrets-management#use-secrets-in-your-app)
+- [Error handling](/library/advanced-features/secrets-management#error-handling)
+- [Use secrets on Streamlit Community Cloud](/library/advanced-features/secrets-management#use-secrets-on-streamlit-community-cloud)
 
 </RefCard>
 
@@ -117,6 +122,14 @@ Working with timezones can be tricky. This section provides a high-level descrip
 - [How Streamlit handles timezones](/library/advanced-features/timezone-handling#how-streamlit-handles-timezones)
 - [`datetime` instance without a timezone (naive)](/library/advanced-features/timezone-handling#datetime-instance-without-a-timezone-naive)
 - [`datetime` instance with a timezone](/library/advanced-features/timezone-handling#datetime-instance-with-a-timezone)
+
+</RefCard>
+
+<RefCard href="/library/advanced-features/widget-semantics" size="full">
+
+##### Advanced notes on widget behavior
+
+Widgets are magical and often work how you want. But they can have surprising behavior in some situations. This section provides is a high-level, abstract description of widget behavior, including some common edge-cases.
 
 </RefCard>
 </TileContainer>
