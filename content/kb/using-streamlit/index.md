@@ -31,3 +31,4 @@ Here are some frequently asked questions about using Streamlit. If you feel some
 - [How do I enable camera access?](/knowledge-base/using-streamlit/enable-camera)
 - [Why does Streamlit restrict nested `st.columns`?](/knowledge-base/using-streamlit/why-streamlit-restrict-nested-columns)
 - [How to host static files in Streamlit?](/library/advanced-features/static-file-serving)
+- [What is serializable session state?](/knowledge-base/using-streamlit/serializable-session-state)
