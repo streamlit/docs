@@ -515,6 +515,9 @@ site_menu:
   - category: Knowledge base / Using Streamlit / How to host static files in Streamlit?
     url: /knowledge-base/using-streamlit/how-host-static-files
     visible: false
+  - category: Knowledge base / Using Streamlit / What is serializable session state?
+    url: /knowledge-base/using-streamlit/serializable-session-state
+    visible: false
   - category: Knowledge base / Streamlit Components
     url: /knowledge-base/components
   - category: Knowledge base / Streamlit Components / How do I add a Component to the sidebar?
