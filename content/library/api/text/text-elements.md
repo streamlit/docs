@@ -121,4 +121,17 @@ st.latex("\int a x^2 \,dx")
 ```
 
 </RefCard>
+<RefCard href="/library/api-reference/text/st.divider">
+
+<Image pure alt="screenshot" src="/images/api/divider.jpg" />
+
+#### Divider
+
+Display a horizontal rule.
+
+```python
+st.divider()
+```
+
+</RefCard>
 </TileContainer>
