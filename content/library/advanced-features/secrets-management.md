@@ -5,9 +5,15 @@ slug: /library/advanced-features/secrets-management
 
 # Secrets management
 
-It is a bad practice to store unencrypted secrets in a git repository. Suppose your application needs access to sensitive credentials. In that case, the recommended solution is to store those credentials outside the repository - such as using a credentials file not committed to the repository or passing them as environment variables.
+Storing unencrypted secrets in a git repository is a bad practice. For applications that require access to sensitive credentials, the recommended solution is to store those credentials outside the repository - such as using a credentials file not committed to the repository or passing them as environment variables.
 
-Streamlit provides file-based secrets management to easily store and securely access your secrets in your Streamlit app.
+Streamlit provides native file-based secrets management to easily store and securely access your secrets in your Streamlit app.
+
+<Note>
+
+Existing secrets management tools, such as [dotenv files](https://pypi.org/project/python-dotenv/), [AWS credentials files](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#configuring-credentials), [Google Cloud Secret Manager](https://pypi.org/project/google-cloud-secret-manager/), or [Hashicorp Vault](https://www.vaultproject.io/use-cases/secrets-management), will work fine in Streamlit. We just add native secrets management for times when it's useful.
+
+</Note>
 
 ## How to use secrets management
 
@@ -91,7 +97,6 @@ my_db.connect(**st.secrets.db_credentials)
 Here are some common errors you might encounter when using secrets management.
 
 - If a `.streamlit/secrets.toml` is created _while_ the app is running, the server needs to be restarted for changes to be reflected in the app.
-- If changes to the secrets file are made while the app is running, the app needs to be rerun for changes to be reflected in the app.
 - If you try accessing a secret, but no `secrets.toml` file exists, Streamlit will raise a `FileNotFoundError` exception:
   <Image alt="Secrets management FileNotFoundError" src="/images/secrets-filenotfounderror.png" clean />
 - If you try accessing a secret that doesn't exist, Streamlit will raise a `KeyError` exception:
