@@ -284,6 +284,9 @@ const Autofunction = ({
               href={functionObject.source}
               target="_blank"
               rel="noopener noreferrer"
+              title={
+                "View st." + functionObject.name + " source code on GitHub"
+              }
             >
               [source]
             </a>
