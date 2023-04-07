@@ -79,29 +79,23 @@ Next you'll need to set up your environment.
 
 Streamlit's officially-supported environment manager for macOS and Linux is [Pipenv](https://pypi.org/project/pipenv/). See instructions on how to install and use it below.
 
-### Install Pipenv
+### Install Pip
 
-1. Install `pip`. More details about installing `pip` can be found in [pip's documentation](https://pip.pypa.io/en/stable/installation/#supported-methods).
+Install `pip`. More details about installing `pip` can be found in [pip's documentation](https://pip.pypa.io/en/stable/installation/#supported-methods).
 
-   On a macOS:
+On a macOS:
 
-   ```sh
-   python -m ensurepip --upgrade
-   ```
+```sh
+python -m ensurepip --upgrade
+```
 
-   On Ubuntu with Python 3:
+On Ubuntu with Python 3:
 
-   ```sh
-   sudo apt-get install python3-pip
-   ```
+```sh
+sudo apt-get install python3-pip
+```
 
-   For other Linux distributions, see [How to install PIP for Python](https://www.makeuseof.com/tag/install-pip-for-python/).
-
-2. Install `pipenv`.
-
-   ```sh
-   pip3 install pipenv
-   ```
+For other Linux distributions, see [How to install PIP for Python](https://www.makeuseof.com/tag/install-pip-for-python/).
 
 ### Install Xcode command line tools on macOS
 
@@ -119,24 +113,18 @@ xcode-select --install
    cd myproject
    ```
 
-2. Create a new Pipenv environment in that folder and activate that environment:
+2. Create a new virtual environment in that folder and activate that environment:
 
    ```sh
-   pipenv shell
+   python -m venv venv
    ```
 
-   When you run the command above, a file called `Pipfile` will appear in `myprojects/`. This file is where your Pipenv environment and its dependencies are declared.
+   When you run the command above, a directory called `venv` will appear in `myprojects/`. This file is where your virtual environment and its dependencies are install.
 
 3. Install Streamlit in your environment:
 
    ```sh
    pip install streamlit
-   ```
-
-   Or if you want to create an easily-reproducible environment, replace `pip` with `pipenv` every time you install something:
-
-   ```sh
-   pipenv install streamlit
    ```
 
 4. Test that the installation worked:
@@ -149,10 +137,10 @@ xcode-select --install
 
 ### Use your new environment
 
-1. Any time you want to use the new environment, you first need to go to your project folder (where the `Pipenv` file lives) and run:
+1. Any time you want to use the new environment, you first need to go to your project folder (where the `venv` directory lives) and run:
 
    ```sh
-   pipenv shell
+   source ./venvn/bin/activate
    ```
 
 2. Now you can use Python and Streamlit as usual:
@@ -163,6 +151,6 @@ xcode-select --install
 
    To stop the Streamlit server, press `ctrl-C`.
 
-3. When you're done using this environment, just type `exit` or press `ctrl-D` to return to your normal shell.
+3. When you're done using this environment, just type `deactivate` to return to your normal shell.
 
 Now that you've installed Streamlit, take a few minutes to read through [Main concepts](/library/get-started/main-concepts) to understand Streamlit's data flow model.
