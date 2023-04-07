@@ -119,7 +119,7 @@ xcode-select --install
    python -m venv venv
    ```
 
-   When you run the command above, a directory called `venv` will appear in `myprojects/`. This file is where your virtual environment and its dependencies are install.
+   When you run the command above, a directory called `venv` will appear in `myprojects/`. This directory is where your virtual environment and its dependencies are install.
 
 3. Install Streamlit in your environment:
 
