@@ -140,7 +140,7 @@ xcode-select --install
 1. Any time you want to use the new environment, you first need to go to your project folder (where the `venv` directory lives) and run:
 
    ```sh
-   source ./venvn/bin/activate
+   source ./venv/bin/activate
    ```
 
 2. Now you can use Python and Streamlit as usual:
