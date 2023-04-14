@@ -298,6 +298,41 @@ site_menu:
   - category: Streamlit library / API reference / Personalization / st.experimental_user
     url: /library/api-reference/personalization/st.experimental_user
     isVersioned: false
+  - category: Streamlit library / API reference / Connections and databases
+    url: /library/api-reference/connections
+  - category: Streamlit library / API reference / Connections and databases / st.experimental_connection
+    url: /library/api-reference/connections/st.experimental_connection
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / st.connections.SQL
+    url: /library/api-reference/connections/st.connections.sql
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / st.connections.SQL / st.connections.SQL.query
+    url: /library/api-reference/connections/st.connections.sql/st.connections.sql.query
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / st.connections.SQL / st.connections.SQL.reset
+    url: /library/api-reference/connections/st.connections.sql/st.connections.sql.reset
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / st.connections.SQL / st.connections.SQL.session
+    url: /library/api-reference/connections/st.connections.sql/st.connections.sql.session
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / st.connections.Snowpark
+    url: /library/api-reference/connections/st.connections.snowpark
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / st.connections.Snowpark / st.connections.Snowpark.query
+    url: /library/api-reference/connections/st.connections.snowpark/st.connections.snowpark.query
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / st.connections.Snowpark / st.connections.Snowpark.reset
+    url: /library/api-reference/connections/st.connections.snowpark/st.connections.snowpark.reset
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / st.connections.Snowpark / st.connections.Snowpark.session
+    url: /library/api-reference/connections/st.connections.snowpark/st.connections.snowpark.session
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / st.connections.ExperimentalBaseConnection
+    url: /library/api-reference/connections/st.connections.experimentalbaseconnection
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / st.connections.ExperimentalBaseConnection / st.connections.ExperimentalBaseConnection.reset
+    url: /library/api-reference/connections/st.connections.experimentalbaseconnection/st.connections.experimentalbaseconnection.reset
+    isVersioned: true
   - category: Streamlit library / Advanced features
     url: /library/advanced-features
   - category: Streamlit library / Advanced features/ Command-line options

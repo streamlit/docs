@@ -16,6 +16,7 @@ import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 
 import styles from "./autofunction.module.css";
+import { name } from "file-loader";
 
 const cleanHref = (name) => {
   return String(name).replace(".", "").replace(" ", "-");
@@ -119,14 +120,17 @@ const Autofunction = ({
   const footers = [];
   const args = [];
   const returns = [];
+  const methods = [];
   const versionList = reverse(versions.slice());
   let functionObject;
   let functionDescription;
   let header;
   let body;
+  let isClass;
 
   if (streamlitFunction in streamlit) {
     functionObject = streamlit[streamlitFunction];
+    isClass = functionObject.is_class;
     if (
       functionObject.description !== undefined &&
       functionObject.description
@@ -156,7 +160,7 @@ const Autofunction = ({
       String(functionObject.name).startsWith("html") ||
       String(functionObject.name).startsWith("iframe")
         ? `st.components.v1.${functionObject.name}`
-        : `st.${functionObject.name}`;
+        : `${streamlitFunction}`.replace("streamlit", "st");
     const selectClass =
       currentVersion !== versionList[0]
         ? "version-select old-version"
@@ -258,6 +262,45 @@ const Autofunction = ({
     args.push(row);
   }
 
+  for (const index in functionObject.methods) {
+    const row = {};
+    const method = functionObject.methods[index];
+    const slicedSlug = slug.slice().join("/");
+    const hrefName = `${streamlitFunction}`
+      .toLowerCase()
+      .replace("streamlit", "st");
+    const type_name = method.signature.match(/\(([^)]+)\)/)[1];
+    const isDeprecated =
+      method.deprecated && method.deprecated.deprecated === true;
+    const deprecatedMarkup = isDeprecated
+      ? `
+      <div class="${styles.DeprecatedContent}">
+        <i class="material-icons-sharp">
+          delete
+        </i>
+        ${method.deprecated.deprecatedText}
+      </div>`
+      : "";
+    const description = method.description
+      ? method.description
+      : `<p>No description</p> `;
+    // Add a link to the method by appending the method name to the current URL using slug.slice();
+    row["title"] = `
+        <p class="${isDeprecated ? "deprecated" : ""}">
+          <a href="/${slicedSlug}/${hrefName}.${
+      method.name
+    }"><span class='bold'>${
+      method.name
+    }</span></a><span class='italic code'>(${type_name})</span>
+        </p>`;
+    row["body"] = `
+      ${deprecatedMarkup}
+      ${description}
+    `;
+
+    methods.push(row);
+  }
+
   for (const index in functionObject.returns) {
     const row = {};
     const param = functionObject.returns[index];
@@ -278,7 +321,7 @@ const Autofunction = ({
       head={{
         title: (
           <>
-            Function signature
+            {isClass ? "Class description" : "Function signature"}
             <a
               className={styles.Title.a}
               href={functionObject.source}
@@ -302,14 +345,20 @@ const Autofunction = ({
           : null
       }
       bodyRows={args.length ? args : null}
+      // If there are methods, add a new footer for the Methods section
+      // else, add a footer for the Returns section
       foot={
-        returns.length
+        methods.length
+          ? {
+              title: "Methods",
+            }
+          : returns.length
           ? {
               title: "Returns",
             }
           : null
       }
-      footRows={returns.length ? returns : null}
+      footRows={methods.length ? methods : returns.length ? returns : null}
       additionalClass="full-width"
       footers={footers}
     />
