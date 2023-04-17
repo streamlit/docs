@@ -79,7 +79,7 @@ Next you'll need to set up your environment.
 
 Streamlit's officially-supported environment manager for macOS and Linux is [Pipenv](https://pypi.org/project/pipenv/). See instructions on how to install and use it below.
 
-### Install Pip
+### Install `pip`
 
 Install `pip`. More details about installing `pip` can be found in [pip's documentation](https://pip.pypa.io/en/stable/installation/#supported-methods).
 
