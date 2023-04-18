@@ -167,6 +167,74 @@ st.divider()
 </RefCard>
 </TileContainer>
 
+<ComponentSlider>
+  <ComponentCard href="https://github.com/tvst/st-annotated-text" type="component">
+
+  <Image pure alt="screenshot" src="/images/api/divider.jpg" />
+
+#### Annotated text
+
+Display annotated text in Streamlit apps. This is a **3rd party** component by [@tvst](https://github.com/tvst).
+
+```python
+annotated_text("This ", ("is", "verb"), " some ", ("annotated", "adj"), ("text", "noun"), " for those of ", ("you", "pronoun"), " who ", ("like", "verb"), " this sort of ", ("thing", "noun"), ".")
+```
+
+  </ComponentCard>
+  <ComponentCard href="https://github.com/tvst/st-annotated-text" type="component">
+
+  <Image pure alt="screenshot" src="/images/api/divider.jpg" />
+
+#### Annotated text
+
+Display annotated text in Streamlit apps. This is a **3rd party** component by [@tvst](https://github.com/tvst).
+
+```python
+annotated_text("This ", ("is", "verb"), " some ", ("annotated", "adj"), ("text", "noun"), " for those of ", ("you", "pronoun"), " who ", ("like", "verb"), " this sort of ", ("thing", "noun"), ".")
+```
+
+  </ComponentCard>
+  <ComponentCard href="https://github.com/tvst/st-annotated-text" type="component">
+
+  <Image pure alt="screenshot" src="/images/api/divider.jpg" />
+
+#### Annotated text
+
+Display annotated text in Streamlit apps. This is a **3rd party** component by [@tvst](https://github.com/tvst).
+
+```python
+annotated_text("This ", ("is", "verb"), " some ", ("annotated", "adj"), ("text", "noun"), " for those of ", ("you", "pronoun"), " who ", ("like", "verb"), " this sort of ", ("thing", "noun"), ".")
+```
+
+  </ComponentCard>
+  <ComponentCard href="https://github.com/tvst/st-annotated-text" type="component">
+
+  <Image pure alt="screenshot" src="/images/api/divider.jpg" />
+
+#### Annotated text
+
+Display annotated text in Streamlit apps. This is a **3rd party** component by [@tvst](https://github.com/tvst).
+
+```python
+annotated_text("This ", ("is", "verb"), " some ", ("annotated", "adj"), ("text", "noun"), " for those of ", ("you", "pronoun"), " who ", ("like", "verb"), " this sort of ", ("thing", "noun"), ".")
+```
+
+  </ComponentCard>
+  <ComponentCard href="https://github.com/tvst/st-annotated-text" type="component">
+
+  <Image pure alt="screenshot" src="/images/api/divider.jpg" />
+
+#### Annotated text
+
+Display annotated text in Streamlit apps. This is a **3rd party** component by [@tvst](https://github.com/tvst).
+
+```python
+annotated_text("This ", ("is", "verb"), " some ", ("annotated", "adj"), ("text", "noun"), " for those of ", ("you", "pronoun"), " who ", ("like", "verb"), " this sort of ", ("thing", "noun"), ".")
+```
+
+  </ComponentCard>
+</ComponentSlider>
+
 ## Data display elements
 
 <TileContainer>

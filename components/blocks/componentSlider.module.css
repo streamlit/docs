@@ -3,7 +3,11 @@
 }
 
 .Container :global(.slick-slide) {
-  @apply pr-4;
+  @apply px-2;
+}
+
+.Container :global(.slick-list) {
+  @apply -mx-2;
 }
 
 .TitleContainer {
@@ -35,30 +39,24 @@
 }
 
 /* Gradients */
-.Container::before {
+/* .Container::before {
   content: "";
-  background-image: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 1) 25%,
-    rgba(255, 255, 255, 0)
-  );
 
-  @apply absolute left-0 top-0 w-12 h-full z-10;
+  @apply absolute left-0 top-0 w-32 h-full z-10 bg-gradient-to-r from-white;
 }
 
 .Container::after {
   content: "";
-  background-image: linear-gradient(
-    to left,
-    rgba(255, 255, 255, 1) 25%,
-    rgba(255, 255, 255, 0)
-  );
 
-  @apply absolute right-0 top-0 w-12 h-full;
+  @apply absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-white;
 }
 
+:global(.dark) .Container::before, :global(.dark) .Container::after {
+  @apply from-gray-100 w-12;
+} */
+
 /* Arrows */
-.Container button:global(.slick-prev) {
+/* .Container button:global(.slick-prev) {
   @apply left-0 z-10;
 }
 
@@ -72,3 +70,8 @@
 
   @apply text-gray-90 opacity-100;
 }
+
+:global(.dark) .Container button:global(.slick-prev)::before,
+:global(.dark) .Container button:global(.slick-next)::before {
+  @apply text-white;
+} */

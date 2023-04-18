@@ -1,3 +1,8 @@
+/* Override the default refCard hover state, and add it to the actual <div> tag that slicks add  */
+.Container:hover {
+  transform: none;
+}
+
 .Container h4::after {
   @apply ml-2 relative -top-1;
 
