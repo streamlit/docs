@@ -1,0 +1,74 @@
+.SectionContainer {
+  @apply relative;
+}
+
+.Container :global(.slick-slide) {
+  @apply pr-4;
+}
+
+.TitleContainer {
+  @apply mb-2 flex items-center text-lg;
+}
+
+.Title {
+  @apply mb-0;
+}
+
+.TooltipIcon {
+  @apply fill-gray-60 ml-2 relative top-px transition ease-in-out duration-100 hover:opacity-80;
+}
+
+.TooltipIcon svg {
+  fill: inherit;
+}
+
+.ArrowsContainer {
+  @apply flex list-none m-0 ml-auto;
+}
+
+.ArrowsContainer li {
+  @apply m-0 ml-2;
+}
+
+.ArrowsContainer li button {
+  @apply transition ease-in-out duration-100 hover:text-gray-50 text-gray-60;
+}
+
+/* Gradients */
+.Container::before {
+  content: "";
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 25%,
+    rgba(255, 255, 255, 0)
+  );
+
+  @apply absolute left-0 top-0 w-12 h-full z-10;
+}
+
+.Container::after {
+  content: "";
+  background-image: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 1) 25%,
+    rgba(255, 255, 255, 0)
+  );
+
+  @apply absolute right-0 top-0 w-12 h-full;
+}
+
+/* Arrows */
+.Container button:global(.slick-prev) {
+  @apply left-0 z-10;
+}
+
+.Container button:global(.slick-next) {
+  @apply right-0 z-10;
+}
+
+.Container button:global(.slick-prev)::before,
+.Container button:global(.slick-next)::before {
+  font-family: "Inter", "slick", sans-serif;
+
+  @apply text-gray-90 opacity-100;
+}

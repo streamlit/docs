@@ -52,6 +52,8 @@ import Important from "../components/blocks/important";
 import Note from "../components/blocks/note";
 import NoteSplit from "../components/blocks/noteSplit";
 import RefCard from "../components/blocks/refCard";
+import ComponentCard from "../components/blocks/componentCard";
+import ComponentSlider from "../components/blocks/componentSlider";
 import DataSourcesCard from "../components/blocks/dataSourcesCard";
 import Tile from "../components/blocks/tile";
 import InlineCallout from "../components/blocks/inlineCallout";
@@ -108,6 +110,8 @@ export default function Article({
     TileContainer,
     Tile,
     RefCard,
+    ComponentCard,
+    ComponentSlider,
     DataSourcesContainer,
     DataSourcesCard,
     Image,
