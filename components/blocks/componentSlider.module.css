@@ -20,26 +20,66 @@
   transform: scale(1.05);
 }
 
-/* Title and tooltip styles */
+/* Title styles */
 .TitleContainer {
-  @apply flex items-center text-lg;
+  @apply flex items-center justify-between text-lg;
 }
 
 .Title {
+  @apply flex items-center relative;
+}
+
+.Text {
   @apply mb-0;
 }
 
+/* Tooltip styles */
 .TooltipIcon {
-  @apply fill-gray-60 ml-2 relative top-px transition ease-in-out duration-100 hover:opacity-80;
+  @apply fill-gray-60 ml-2 relative top-px;
 }
 
 .TooltipIcon svg {
+  @apply transition ease-in-out duration-100 hover:opacity-80;
+
   fill: inherit;
+}
+
+.Tooltip {
+  @apply p-3 bg-gray-90 absolute rounded-md transition delay-100 ease-in-out opacity-0 w-full w-64 z-10;
+  bottom: 100%;
+}
+
+.TooltipArrow {
+  @apply h-3 w-3 p-0 absolute opacity-0 -top-4 left-[2px] transition ease-in-out delay-100 bg-gray-90 z-10;
+}
+
+.Open {
+  @apply opacity-100;
+}
+
+.TooltipText {
+  @apply text-xs text-white m-0 leading-tight tracking-normal;
+}
+
+.TooltipText a {
+  @apply underline border-none;
+}
+
+:global(.dark) .Tooltip,
+:global(.dark) .TooltipArrow {
+  @apply bg-gray-80;
+}
+
+/* Override default hover styles */
+.TooltipText a:hover {
+  @apply no-underline border-none;
+
+  opacity: 1 !important;
 }
 
 /* Slider arrow styles */
 .ArrowsContainer {
-  @apply flex list-none m-0 ml-auto;
+  @apply flex list-none m-0;
 }
 
 .ArrowsContainer li {
@@ -48,6 +88,11 @@
 
 .ArrowsContainer li button {
   @apply transition ease-in-out duration-100 hover:text-gray-50 text-gray-60;
+}
+
+/* Hide the default arrows */
+.Container :global(.slick-arrow) {
+  display: none !important;
 }
 
 /* Gradients */
@@ -65,5 +110,5 @@
 
 :global(.dark) .Container::before,
 :global(.dark) .Container::after {
-  @apply from-gray-100 w-12;
+  @apply from-gray-100;
 }
