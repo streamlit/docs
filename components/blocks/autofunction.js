@@ -266,9 +266,10 @@ const Autofunction = ({
     const row = {};
     const method = functionObject.methods[index];
     const slicedSlug = slug.slice().join("/");
-    const hrefName = `${streamlitFunction}`
+    const hrefName = `${streamlitFunction}.${method.name}`
       .toLowerCase()
-      .replace("streamlit", "st");
+      .replace("streamlit", "st")
+      .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
     const type_name = method.signature.match(/\(([^)]+)\)/)[1];
     const isDeprecated =
       method.deprecated && method.deprecated.deprecated === true;
@@ -287,9 +288,7 @@ const Autofunction = ({
     // Add a link to the method by appending the method name to the current URL using slug.slice();
     row["title"] = `
         <p class="${isDeprecated ? "deprecated" : ""}">
-          <a href="/${slicedSlug}/${hrefName}.${
-      method.name
-    }"><span class='bold'>${
+          <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
       method.name
     }</span></a><span class='italic code'>(${type_name})</span>
         </p>`;

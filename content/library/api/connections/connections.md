@@ -5,24 +5,31 @@ slug: /library/api-reference/connections
 
 # Connections and databases
 
-## First-party connections
-
 <TileContainer>
 <RefCard href="/library/api-reference/connections/st.experimental_connection" size="half">
 
-#### Connect to a database
+<Image pure alt="screenshot" src="/images/databases/experimental-connection.png" />
+
+#### Create a connection
 
 Connect to a database and return a connection object.
 
 ```python
-conn = st.experimental_connection('pet_db', type='sql')
+st.experimental_connection('pet_db', type='sql')
 ```
 
 </RefCard>
+</TileContainer>
+
+## Built-in connections
+
+<TileContainer>
 
 <RefCard href="/library/api-reference/connections/st.connections.sql" size="half">
 
-#### Connect to a SQLAlchemy Session
+<Image pure alt="screenshot" src="/images/databases/sqlalchemy.png" />
+
+#### SQL connection
 
 Connect to a SQLAlchemy Sessione and return a connection object.
 
@@ -34,7 +41,9 @@ conn = st.connections.SQL('pet_db')
 
 <RefCard href="/library/api-reference/connections/st.connections.snowpark" size="half">
 
-#### Connect to a Snowpark Session
+<Image pure alt="screenshot" src="/images/databases/snowflake.png" />
+
+#### Snowpark connection
 
 Connect to a Snowpark Session and return a connection object.
 
@@ -43,10 +52,14 @@ conn = st.connections.SQL('pet_db', type='snowpark')
 ```
 
 </RefCard>
+</TileContainer>
 
+## Third-party connections
+
+<TileContainer>
 <RefCard href="/library/api-reference/connections/st.connections.experimentalbaseconnection" size="half">
 
-#### Extend ExperimentalBaseConnection
+#### Connection base class
 
 Build a connection class with
 `ExperimentalBaseConnection` and return a connection object.
