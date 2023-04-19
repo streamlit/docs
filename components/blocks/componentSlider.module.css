@@ -2,6 +2,7 @@
   @apply relative;
 }
 
+/* Styles to align the slider with the API reference grid above and below */
 .Container :global(.slick-slide) {
   @apply px-2;
 }
@@ -10,8 +11,18 @@
   @apply -mx-2;
 }
 
+/* Hover styles for cards. Need to be done here to prevent the card overflow */
+.Container :global(.slick-slide) div {
+  @apply transition-all duration-75 z-10;
+}
+
+.Container :global(.slick-slide) div:hover {
+  transform: scale(1.05);
+}
+
+/* Title and tooltip styles */
 .TitleContainer {
-  @apply mb-2 flex items-center text-lg;
+  @apply flex items-center text-lg;
 }
 
 .Title {
@@ -26,6 +37,7 @@
   fill: inherit;
 }
 
+/* Slider arrow styles */
 .ArrowsContainer {
   @apply flex list-none m-0 ml-auto;
 }
@@ -39,39 +51,19 @@
 }
 
 /* Gradients */
-/* .Container::before {
+.Container::before {
   content: "";
 
-  @apply absolute left-0 top-0 w-32 h-full z-10 bg-gradient-to-r from-white;
+  @apply absolute -left-4 top-0 w-8 h-full z-10 bg-gradient-to-r from-white;
 }
 
 .Container::after {
   content: "";
 
-  @apply absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-white;
+  @apply absolute -right-4 top-0 w-8 h-full bg-gradient-to-l from-white z-10;
 }
 
-:global(.dark) .Container::before, :global(.dark) .Container::after {
+:global(.dark) .Container::before,
+:global(.dark) .Container::after {
   @apply from-gray-100 w-12;
-} */
-
-/* Arrows */
-/* .Container button:global(.slick-prev) {
-  @apply left-0 z-10;
 }
-
-.Container button:global(.slick-next) {
-  @apply right-0 z-10;
-}
-
-.Container button:global(.slick-prev)::before,
-.Container button:global(.slick-next)::before {
-  font-family: "Inter", "slick", sans-serif;
-
-  @apply text-gray-90 opacity-100;
-}
-
-:global(.dark) .Container button:global(.slick-prev)::before,
-:global(.dark) .Container button:global(.slick-next)::before {
-  @apply text-white;
-} */
