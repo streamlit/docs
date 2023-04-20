@@ -168,7 +168,7 @@ st.divider()
 </TileContainer>
 
 <ComponentSlider>
-<ComponentCard href="https://github.com/tvst/st-annotated-text" type="component">
+<ComponentCard href="https://github.com/tvst/st-annotated-text">
 
 <Image pure alt="screenshot" src="/images/api/components/annotated-text.jpg" />
 
@@ -182,7 +182,7 @@ annotated_text("This ", ("is", "verb"), " some ", ("annotated", "adj"), ("text",
 
 </ComponentCard>
 
-<ComponentCard href="https://github.com/andfanilo/streamlit-drawable-canvas" type="component">
+<ComponentCard href="https://github.com/andfanilo/streamlit-drawable-canvas">
 
 <Image pure alt="screenshot" src="/images/api/components/drawable-canvas.jpg" />
 
@@ -196,7 +196,7 @@ st_canvas(fill_color="rgba(255, 165, 0, 0.3)", stroke_width=stroke_width, stroke
 
 </ComponentCard>
 
-<ComponentCard href="https://github.com/gagan3012/streamlit-tags" type="component">
+<ComponentCard href="https://github.com/gagan3012/streamlit-tags">
 
 <Image pure alt="screenshot" src="/images/api/components/tags.jpg" />
 
@@ -210,7 +210,7 @@ st_tags(label='# Enter Keywords:', text='Press enter to add more', value=['Zero'
 
 </ComponentCard>
 
-<ComponentCard href="https://github.com/JohnSnowLabs/nlu" type="component">
+<ComponentCard href="https://github.com/JohnSnowLabs/nlu">
 
 <Image pure alt="screenshot" src="/images/api/components/nlu.jpg" />
 
@@ -224,7 +224,7 @@ nlu.load('sentiment').predict('I love NLU! <3')
 
 </ComponentCard>
 
-<ComponentCard href="https://extras.streamlit.app/" type="component">
+<ComponentCard href="https://extras.streamlit.app/">
 
 <Image pure alt="screenshot" src="/images/api/components/extras-mentions.jpg" />
 
@@ -294,7 +294,7 @@ st.json(my_dict)
 
 <ComponentSlider>
 
-<ComponentCard href="https://github.com/PablocFonseca/streamlit-aggrid" type="component">
+<ComponentCard href="https://github.com/PablocFonseca/streamlit-aggrid">
 
 <Image pure alt="screenshot" src="/images/api/components/aggrid.jpg" />
 
@@ -311,7 +311,7 @@ new_df = grid_return['data']
 
 </ComponentCard>
 
-<ComponentCard href="https://github.com/randyzwitch/streamlit-folium" type="component">
+<ComponentCard href="https://github.com/randyzwitch/streamlit-folium">
 
 <Image pure alt="screenshot" src="/images/api/components/folium.jpg" />
 
@@ -328,7 +328,7 @@ st_data = st_folium(m, width=725)
 
 </ComponentCard>
 
-<ComponentCard href="https://github.com/okld/streamlit-pandas-profiling" type="component">
+<ComponentCard href="https://github.com/okld/streamlit-pandas-profiling">
 
 <Image pure alt="screenshot" src="/images/api/components/pandas-profiling.jpg" />
 
@@ -345,7 +345,7 @@ st_profile_report(pr)
 
 </ComponentCard>
 
-<ComponentCard href="https://github.com/blackary/streamlit-image-coordinates" type="component">
+<ComponentCard href="https://github.com/blackary/streamlit-image-coordinates">
 
 <Image pure alt="screenshot" src="/images/api/components/image-coordinates.jpg" />
 
@@ -362,7 +362,7 @@ st.write(value)
 
 </ComponentCard>
 
-<ComponentCard href="https://github.com/null-jones/streamlit-plotly-events" type="component">
+<ComponentCard href="https://github.com/null-jones/streamlit-plotly-events">
 
 <Image pure alt="screenshot" src="/images/api/components/plotly-events.jpg" />
 
@@ -379,7 +379,7 @@ selected_points = plotly_events(fig)
 
 </ComponentCard>
 
-<ComponentCard href="https://extras.streamlit.app/" type="component">
+<ComponentCard href="https://extras.streamlit.app/">
 
 <Image pure alt="screenshot" src="/images/api/components/extras-metric-cards.jpg" />
 
@@ -537,7 +537,7 @@ st.graphviz_chart(my_graphviz_spec)
 
 <ComponentSlider>
 
-<ComponentCard href="https://github.com/tvst/plost" type="component">
+<ComponentCard href="https://github.com/tvst/plost">
 
 <Image pure alt="screenshot" src="/images/api/components/plost.jpg" />
 
@@ -552,7 +552,7 @@ plost.line_chart(my_dataframe, x='time', y='stock_value', color='stock_name',)
 
 </ComponentCard>
 
-<ComponentCard href="https://github.com/facebookresearch/hiplot" type="component">
+<ComponentCard href="https://github.com/facebookresearch/hiplot">
 
 <Image pure alt="screenshot" src="/images/api/components/hiplot.jpg" />
 
@@ -567,7 +567,7 @@ hip.Experiment.from_iterable(data).display()
 
 </ComponentCard>
 
-<ComponentCard href="https://github.com/andfanilo/streamlit-echarts" type="component">
+<ComponentCard href="https://github.com/andfanilo/streamlit-echarts">
 
 <Image pure alt="screenshot" src="/images/api/components/echarts.jpg" />
 
@@ -582,7 +582,7 @@ st_echarts(options=options)
 
 </ComponentCard>
 
-<ComponentCard href="https://github.com/randyzwitch/streamlit-folium" type="component">
+<ComponentCard href="https://github.com/randyzwitch/streamlit-folium">
 
 <Image pure alt="screenshot" src="/images/api/components/folium.jpg" />
 
@@ -597,7 +597,7 @@ st_data = st_folium(m, width=725)
 
 </ComponentCard>
 
-<ComponentCard href="https://github.com/explosion/spacy-streamlit" type="component">
+<ComponentCard href="https://github.com/explosion/spacy-streamlit">
 
 <Image pure alt="screenshot" src="/images/api/components/spacy.jpg" />
 
@@ -612,7 +612,7 @@ spacy_streamlit.visualize(models, "Sundar Pichai is the CEO of Google.")
 
 </ComponentCard>
 
-<ComponentCard href="https://github.com/ChrisDelClea/streamlit-agraph" type="component">
+<ComponentCard href="https://github.com/ChrisDelClea/streamlit-agraph">
 
 <Image pure alt="screenshot" src="/images/api/components/agraph.jpg" />
 
@@ -627,7 +627,7 @@ agraph(nodes=nodes, edges=edges, config=config)
 
 </ComponentCard>
 
-<ComponentCard href="https://github.com/andfanilo/streamlit-lottie" type="component">
+<ComponentCard href="https://github.com/andfanilo/streamlit-lottie">
 
 <Image pure alt="screenshot" src="/images/api/components/lottie.jpg" />
 
@@ -642,7 +642,7 @@ st_lottie(lottie_hello, key="hello")
 
 </ComponentCard>
 
-<ComponentCard href="https://github.com/null-jones/streamlit-plotly-events" type="component">
+<ComponentCard href="https://github.com/null-jones/streamlit-plotly-events">
 
 <Image pure alt="screenshot" src="/images/api/components/plotly-events.jpg" />
 
@@ -657,7 +657,7 @@ selected_points = plotly_events(fig)
 
 </ComponentCard>
 
-<ComponentCard href="https://extras.streamlit.app/" type="component">
+<ComponentCard href="https://extras.streamlit.app/">
 
 <Image pure alt="screenshot" src="/images/api/components/extras-chart-annotations.jpg" />
 
@@ -899,6 +899,163 @@ color = st.color_picker("Pick a color")
 
 </RefCard>
 </TileContainer>
+
+<ComponentSlider>
+
+<ComponentCard href="https://github.com/okld/streamlit-elements">
+
+<Image pure alt="screenshot" src="/images/api/components/elements.jpg" />
+
+#### Streamlit Elements
+
+Create a draggable and resizable dashboard in Streamlit. Created by [@okls](https://github.com/okls).
+
+```python
+from streamlit_elements import elements, mui, html
+
+with elements("new_element"):
+  mui.Typography("Hello world")
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/gagan3012/streamlit-tags">
+
+<Image pure alt="screenshot" src="/images/api/components/tags.jpg" />
+
+#### Tags
+
+Add tags to your Streamlit apps. Created by [@gagan3012](https://github.com/gagan3012).
+
+```python
+from streamlit_tags import st_tags
+
+st_tags(label='# Enter Keywords:', text='Press enter to add more', value=['Zero', 'One', 'Two'],
+suggestions=['five', 'six', 'seven', 'eight', 'nine', 'three', 'eleven', 'ten', 'four'], maxtags = 4, key='1')
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/Wirg/stqdm">
+
+<Image pure alt="screenshot" src="/images/api/components/stqdm.jpg" />
+
+#### Stqdm
+
+The simplest way to handle a progress bar in streamlit app. Created by [@Wirg](https://github.com/Wirg).
+
+```python
+from stqdm import stqdm
+
+for _ in stqdm(range(50)):
+    sleep(0.5)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/innerdoc/streamlit-timeline">
+
+<Image pure alt="screenshot" src="/images/api/components/timeline.jpg" />
+
+#### Timeline
+
+Display a Timeline in Streamlit apps using [TimelineJS](https://timeline.knightlab.com/). Created by [@innerdoc](https://github.com/innerdoc).
+
+```python
+from streamlit_timeline import timeline
+
+with open('example.json', "r") as f:
+  timeline(f.read(), height=800)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/blackary/streamlit-camera-input-live">
+
+<Image pure alt="screenshot" src="/images/api/components/camera-live.jpg" />
+
+#### Camera input live
+
+Alternative for st.camera_input which returns the webcam images live. Created by [@blackary](https://github.com/blackary).
+
+```python
+from camera_input_live import camera_input_live
+
+image = camera_input_live()
+st.image(value)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/okld/streamlit-ace">
+
+<Image pure alt="screenshot" src="/images/api/components/ace.jpg" />
+
+#### Streamlit Ace
+
+Ace editor component for Streamlit. Created by [@okld](https://github.com/okld).
+
+```python
+from streamlit_ace import st_ace
+
+content = st_ace()
+content
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/AI-Yash/st-chat">
+
+<Image pure alt="screenshot" src="/images/api/components/chat.jpg" />
+
+#### Streamlit Chat
+
+Streamlit Component for a Chatbot UI. Created by [@AI-Yash](https://github.com/AI-Yash).
+
+```python
+from streamlit_chat import message
+
+message("My message")
+message("Hello bot!", is_user=True)  # align's the message to the right
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/victoryhb/streamlit-option-menu">
+
+<Image pure alt="screenshot" src="/images/api/components/option-menu.jpg" />
+
+#### Streamlit Option Menu
+
+Select a single item from a list of options in a menu. Created by [@victoryhb](https://github.com/victoryhb).
+
+```python
+from streamlit_option_menu import option_menu
+
+option_menu("Main Menu", ["Home", 'Settings'],
+  icons=['house', 'gear'], menu_icon="cast", default_index=1)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://extras.streamlit.app/">
+
+<Image pure alt="screenshot" src="/images/api/components/extras-toggle.jpg" />
+
+#### Streamlit Extras
+
+A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
+
+```python
+from streamlit_extras.stoggle import stoggle
+
+stoggle(
+    "Click me!", """🥷 Surprise! Here's some additional content""",)
+```
+
+</ComponentCard>
+
+</ComponentSlider>
 
 ## Media elements
 
