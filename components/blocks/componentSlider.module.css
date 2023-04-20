@@ -50,7 +50,7 @@
 }
 
 .TooltipArrow {
-  @apply h-3 w-3 p-0 absolute opacity-0 -top-4 left-[2px] transition ease-in-out delay-100 bg-gray-90 z-10;
+  @apply h-3 w-3 p-0 absolute opacity-0 -bottom-1 right-9 transition ease-in-out delay-100 bg-gray-90 z-10;
 }
 
 .Open {

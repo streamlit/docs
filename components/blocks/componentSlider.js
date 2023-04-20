@@ -52,13 +52,6 @@ const ComponentSlider = ({ children }) => {
             className={styles.TooltipIcon}
             onClick={() => setTooltipOpen(!tooltipOpen)}
           >
-            <span
-              className={classNames(
-                "transform rotate-45",
-                styles.TooltipArrow,
-                tooltipOpen && styles.Open
-              )}
-            />
             <svg
               width="16"
               height="17"
@@ -92,6 +85,13 @@ const ComponentSlider = ({ children }) => {
               </a>{" "}
               for more examples and inspiration!
             </p>
+            <span
+              className={classNames(
+                "transform rotate-45",
+                styles.TooltipArrow,
+                tooltipOpen && styles.Open
+              )}
+            />
           </div>
         </div>
         <ul className={styles.ArrowsContainer}>
