@@ -12,11 +12,11 @@
 }
 
 /* Hover styles for cards. Need to be done here to prevent the card overflow */
-.Container :global(.slick-slide) div {
+.Container :global(.slick-slide) > div {
   @apply transition-all duration-75 z-10;
 }
 
-.Container :global(.slick-slide) div:hover {
+.Container :global(.slick-slide) > div:hover {
   transform: scale(1.05);
 }
 

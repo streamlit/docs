@@ -21,7 +21,7 @@ const ComponentSlider = ({ children }) => {
 
   const sliderSettings = {
     dots: false,
-    adaptiveHeight: true,
+    // adaptiveHeight: true,
     autoplay: true,
     infinite: true,
     speed: 500,
