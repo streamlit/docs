@@ -168,71 +168,75 @@ st.divider()
 </TileContainer>
 
 <ComponentSlider>
-  <ComponentCard href="https://github.com/tvst/st-annotated-text" type="component">
+<ComponentCard href="https://github.com/tvst/st-annotated-text" type="component">
 
-  <Image pure alt="screenshot" src="/images/api/divider.jpg" />
+<Image pure alt="screenshot" src="/images/api/components/annotated-text.jpg" />
 
 #### Annotated text
 
-Display annotated text in Streamlit apps. This is a **3rd party** component by [@tvst](https://github.com/tvst).
+Display annotated text in Streamlit apps. Created by [@tvst](https://github.com/tvst). asdhjsadhfjk hasdjkadsui oiasdjiasdoi asdopjaopsd.
 
 ```python
 annotated_text("This ", ("is", "verb"), " some ", ("annotated", "adj"), ("text", "noun"), " for those of ", ("you", "pronoun"), " who ", ("like", "verb"), " this sort of ", ("thing", "noun"), ".")
 ```
 
-  </ComponentCard>
-  <ComponentCard href="https://github.com/tvst/st-annotated-text" type="component">
+</ComponentCard>
 
-  <Image pure alt="screenshot" src="/images/api/divider.jpg" />
+<ComponentCard href="https://github.com/andfanilo/streamlit-drawable-canvas" type="component">
 
-#### Annotated text
+<Image pure alt="screenshot" src="/images/api/components/drawable-canvas.jpg" />
 
-Display annotated text in Streamlit apps. This is a **3rd party** component by [@tvst](https://github.com/tvst).
+#### Drawable Canvas
 
-```python
-annotated_text("This ", ("is", "verb"), " some ", ("annotated", "adj"), ("text", "noun"), " for those of ", ("you", "pronoun"), " who ", ("like", "verb"), " this sort of ", ("thing", "noun"), ".")
-```
-
-  </ComponentCard>
-  <ComponentCard href="https://github.com/tvst/st-annotated-text" type="component">
-
-  <Image pure alt="screenshot" src="/images/api/divider.jpg" />
-
-#### Annotated text
-
-Display annotated text in Streamlit apps. This is a **3rd party** component by [@tvst](https://github.com/tvst).
+Provides a sketching canvas using [Fabric.js](http://fabricjs.com/). Created by [@andfanilo](https://github.com/andfanilo).
 
 ```python
-annotated_text("This ", ("is", "verb"), " some ", ("annotated", "adj"), ("text", "noun"), " for those of ", ("you", "pronoun"), " who ", ("like", "verb"), " this sort of ", ("thing", "noun"), ".")
+st_canvas(fill_color="rgba(255, 165, 0, 0.3)", stroke_width=stroke_width, stroke_color=stroke_color, background_color=bg_color, background_image=Image.open(bg_image) if bg_image else None, update_streamlit=realtime_update, height=150, drawing_mode=drawing_mode, point_display_radius=point_display_radius if drawing_mode == 'point' else 0, key="canvas",)
 ```
 
-  </ComponentCard>
-  <ComponentCard href="https://github.com/tvst/st-annotated-text" type="component">
+</ComponentCard>
 
-  <Image pure alt="screenshot" src="/images/api/divider.jpg" />
+<ComponentCard href="https://github.com/gagan3012/streamlit-tags" type="component">
 
-#### Annotated text
+<Image pure alt="screenshot" src="/images/api/components/tags.jpg" />
 
-Display annotated text in Streamlit apps. This is a **3rd party** component by [@tvst](https://github.com/tvst).
+#### Tags
+
+Add tags to your Streamlit apps. Created by [@gagan3012](https://github.com/gagan3012).
 
 ```python
-annotated_text("This ", ("is", "verb"), " some ", ("annotated", "adj"), ("text", "noun"), " for those of ", ("you", "pronoun"), " who ", ("like", "verb"), " this sort of ", ("thing", "noun"), ".")
+st_tags(label='# Enter Keywords:', text='Press enter to add more', value=['Zero', 'One', 'Two'], suggestions=['five', 'six', 'seven', 'eight', 'nine', 'three', 'eleven', 'ten', 'four'], maxtags = 4, key='1')
 ```
 
-  </ComponentCard>
-  <ComponentCard href="https://github.com/tvst/st-annotated-text" type="component">
+</ComponentCard>
 
-  <Image pure alt="screenshot" src="/images/api/divider.jpg" />
+<ComponentCard href="https://github.com/JohnSnowLabs/nlu" type="component">
 
-#### Annotated text
+<Image pure alt="screenshot" src="/images/api/components/nlu.jpg" />
 
-Display annotated text in Streamlit apps. This is a **3rd party** component by [@tvst](https://github.com/tvst).
+#### NLU
+
+Apply text mining on a dataframe. Created by [@JohnSnowLabs](https://github.com/JohnSnowLabs/).
 
 ```python
-annotated_text("This ", ("is", "verb"), " some ", ("annotated", "adj"), ("text", "noun"), " for those of ", ("you", "pronoun"), " who ", ("like", "verb"), " this sort of ", ("thing", "noun"), ".")
+nlu.load('sentiment').predict('I love NLU! <3')
 ```
 
-  </ComponentCard>
+</ComponentCard>
+
+<ComponentCard href="https://extras.streamlit.app/" type="component">
+
+<Image pure alt="screenshot" src="/images/api/components/extras-mentions.jpg" />
+
+#### Streamlit Extras
+
+A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
+
+```python
+mention(label="An awesome Streamlit App", icon="streamlit",  url="https://extras.streamlitapp.com",)
+```
+
+</ComponentCard>
 </ComponentSlider>
 
 ## Data display elements
@@ -287,6 +291,112 @@ st.json(my_dict)
 
 </RefCard>
 </TileContainer>
+
+<ComponentSlider>
+
+<ComponentCard href="https://github.com/PablocFonseca/streamlit-aggrid" type="component">
+
+<Image pure alt="screenshot" src="/images/api/components/aggrid.jpg" />
+
+#### Streamlit Aggrid
+
+Implementation of Ag-Grid component for Streamlit. Created by [@PablocFonseca](https://github.com/PablocFonseca).
+
+```python
+df = pd.DataFrame({'col1': [1, 2, 3], 'col2': [4, 5, 6]})
+grid_return = AgGrid(df, editable=True)
+
+new_df = grid_return['data']
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/randyzwitch/streamlit-folium" type="component">
+
+<Image pure alt="screenshot" src="/images/api/components/folium.jpg" />
+
+#### Streamlit Folium
+
+Streamlit Component for rendering Folium maps. Created by [@randyzwitch](https://github.com/randyzwitch).
+
+```python
+folium.Map(location=[39.949610, -75.150282], zoom_start=16)
+folium.Marker([39.949610, -75.150282], popup="Liberty Bell", tooltip="Liberty Bell").add_to(m)
+
+st_data = st_folium(m, width=725)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/okld/streamlit-pandas-profiling" type="component">
+
+<Image pure alt="screenshot" src="/images/api/components/pandas-profiling.jpg" />
+
+#### Pandas Profiling
+
+Pandas profiling component for Streamlit. Created by [@okld](https://github.com/okld/).
+
+```python
+df = pd.read_csv("https://storage.googleapis.com/tf-datasets/titanic/train.csv")
+pr = df.profile_report()
+
+st_profile_report(pr)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/blackary/streamlit-image-coordinates" type="component">
+
+<Image pure alt="screenshot" src="/images/api/components/image-coordinates.jpg" />
+
+#### Image Coordinates
+
+Get the coordinates of clicks on an image. Created by [@blackary](https://github.com/blackary/).
+
+```python
+from streamlit_image_coordinates import streamlit_image_coordinates
+value = streamlit_image_coordinates("https://placekitten.com/200/300")
+
+st.write(value)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/null-jones/streamlit-plotly-events" type="component">
+
+<Image pure alt="screenshot" src="/images/api/components/plotly-events.jpg" />
+
+#### Plotly Events
+
+Make Plotly charts interactive!. Created by [@null-jones](https://github.com/null-jones/).
+
+```python
+from streamlit_plotly_events import plotly_events
+fig = px.line(x=[1], y=[1])
+
+selected_points = plotly_events(fig)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://extras.streamlit.app/" type="component">
+
+<Image pure alt="screenshot" src="/images/api/components/extras-chart-annotations.jpg" />
+
+#### Streamlit Extras
+
+A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
+
+```python
+chart: alt.TopLevelMixin = get_chart(data=data)
+chart += get_annotations_chart(annotations=[("Mar 01, 2008", "Pretty good day for GOOG"), ("Dec 01, 2007", "Something's going wrong for GOOG & AAPL"), ("Nov 01, 2008", "Market starts again thanks to..."), ("Dec 01, 2009", "Small crash for GOOG after..."),],)
+
+st.altair_chart(chart, use_container_width=True)
+```
+
+</ComponentCard>
+
+</ComponentSlider>
 
 ## Chart elements
 
