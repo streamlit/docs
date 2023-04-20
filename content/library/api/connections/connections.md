@@ -5,6 +5,8 @@ slug: /library/api-reference/connections
 
 # Connections and databases
 
+## Setup your connection
+
 <TileContainer>
 <RefCard href="/library/api-reference/connections/st.experimental_connection" size="half">
 
@@ -31,7 +33,7 @@ st.experimental_connection('pet_db', type='sql')
 
 #### SQL connection
 
-Connect to a SQLAlchemy Sessione and return a connection object.
+Connect to a SQLAlchemy Session and return a connection object.
 
 ```python
 conn = st.connections.SQL('pet_db')

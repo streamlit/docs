@@ -237,6 +237,11 @@ def get_sig_string_without_annots(func):
 
     # Iterate through the parameters of the function
     for name, param in sig.parameters.items():
+        # Skip the "self" parameter for class methods
+        if name == "self":
+            prev = param
+            continue
+
         # If there was a previous parameter, check for certain conditions
         if prev:
             # Insert "/" if going from positional_only to anything else
@@ -350,14 +355,14 @@ def get_streamlit_docstring_dict():
             "st.cache_resource",
         ],
         streamlit.connections: ["streamlit.connections", "st.connections"],
-        streamlit.connections.SQL: ["streamlit.connections.SQL", "st.connections.SQL"],
+        streamlit.connections.SQL: ["streamlit.connections.SQL", "SQL"],
         streamlit.connections.Snowpark: [
             "streamlit.connections.Snowpark",
-            "st.connections.Snowpark",
+            "Snowpark",
         ],
         streamlit.connections.ExperimentalBaseConnection: [
             "streamlit.connections.ExperimentalBaseConnection",
-            "st.connections.ExperimentalBaseConnection",
+            "ExperimentalBaseConnection",
         ],
         components: ["streamlit.components.v1", "st.components.v1"],
         streamlit._DeltaGenerator: ["DeltaGenerator", "element"],

@@ -1124,7 +1124,7 @@ conn = st.experimental_connection('pet_db', type='sql')
 
 #### Connect to a SQLAlchemy Session
 
-Connect to a SQLAlchemy Sessione and return a connection object.
+Connect to a SQLAlchemy Session and return a connection object.
 
 ```python
 conn = st.connections.SQL('pet_db')

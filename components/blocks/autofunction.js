@@ -156,11 +156,14 @@ const Autofunction = ({
   if (hideHeader !== undefined && hideHeader) {
     header = "";
   } else {
+    const functionName = `${functionObject.signature}`
+      .split("(")[0]
+      .replace("streamlit", "st");
     const name =
       String(functionObject.name).startsWith("html") ||
       String(functionObject.name).startsWith("iframe")
         ? `st.components.v1.${functionObject.name}`
-        : `${streamlitFunction}`.replace("streamlit", "st");
+        : functionName;
     const selectClass =
       currentVersion !== versionList[0]
         ? "version-select old-version"
@@ -266,11 +269,11 @@ const Autofunction = ({
     const row = {};
     const method = functionObject.methods[index];
     const slicedSlug = slug.slice().join("/");
-    const hrefName = `${streamlitFunction}.${method.name}`
+    const hrefName = `${functionObject.name}.${method.name}`
       .toLowerCase()
       .replace("streamlit", "st")
       .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
-    const type_name = method.signature.match(/\(([^)]+)\)/)[1];
+    const type_name = method.signature.match(/\(([^)]*)\)/)[1];
     const isDeprecated =
       method.deprecated && method.deprecated.deprecated === true;
     const deprecatedMarkup = isDeprecated
