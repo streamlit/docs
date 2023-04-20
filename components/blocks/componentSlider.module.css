@@ -112,3 +112,20 @@
 :global(.dark) .Container::after {
   @apply from-gray-100;
 }
+
+/* More Inspiration CTA */
+.CtaContainer {
+  @apply py-2 px-3 rounded-md bg-darkBlue-10/60;
+}
+
+.CtaTitle {
+  @apply text-xs uppercase font-semibold text-darkBlue-70 leading-tight py-1;
+}
+
+.CtaText {
+  @apply text-sm tracking-tight leading-tight pb-1;
+}
+
+:global(.dark) .CtaContainer {
+  @apply bg-darkBlue-60/40;
+}
