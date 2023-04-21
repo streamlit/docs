@@ -22,7 +22,7 @@
 
 /* Title styles */
 .TitleContainer {
-  @apply flex items-center justify-between text-lg;
+  @apply flex items-center justify-between text-lg mb-2;
 }
 
 .Title {

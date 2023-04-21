@@ -102,9 +102,6 @@ const ComponentSlider = ({ children }) => {
           </li>
         </ul>
       </div>
-      <Slider ref={sliderRef} {...sliderSettings} className={styles.Container}>
-        {children}
-      </Slider>
       <div className={styles.CtaContainer}>
         <h4 className={styles.CtaTitle}>Need more inspiration?</h4>
         <p className={styles.CtaText}>
@@ -127,6 +124,9 @@ const ComponentSlider = ({ children }) => {
           to find more awesome stuff created by the community! ⭐️
         </p>
       </div>
+      <Slider ref={sliderRef} {...sliderSettings} className={styles.Container}>
+        {children}
+      </Slider>
     </section>
   );
 };
