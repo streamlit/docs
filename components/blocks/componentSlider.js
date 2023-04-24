@@ -93,14 +93,22 @@ const ComponentSlider = ({ children }) => {
             />
           </div>
         </div>
-        <ul className={styles.ArrowsContainer}>
-          <li>
-            <Arrow type="prev" onClick={() => sliderRef.current.slickPrev()} />
-          </li>
-          <li>
-            <Arrow type="next" onClick={() => sliderRef.current.slickNext()} />
-          </li>
-        </ul>
+        {sliderRef.current && sliderRef.current.props.children.length > 3 && (
+          <ul className={styles.ArrowsContainer}>
+            <li>
+              <Arrow
+                type="prev"
+                onClick={() => sliderRef.current.slickPrev()}
+              />
+            </li>
+            <li>
+              <Arrow
+                type="next"
+                onClick={() => sliderRef.current.slickNext()}
+              />
+            </li>
+          </ul>
+        )}
       </div>
       <div className={styles.CtaContainer}>
         <h4 className={styles.CtaTitle}>Need more inspiration?</h4>
