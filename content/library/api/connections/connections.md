@@ -27,7 +27,7 @@ st.experimental_connection('pet_db', type='sql')
 
 <TileContainer>
 
-<RefCard href="/library/api-reference/connections/st.connections.sql" size="half">
+<RefCard href="/library/api-reference/connections/st.connections.sqlconnection" size="half">
 
 <Image pure alt="screenshot" src="/images/databases/sqlalchemy.png" />
 
@@ -41,7 +41,7 @@ conn = st.connections.SQL('pet_db')
 
 </RefCard>
 
-<RefCard href="/library/api-reference/connections/st.connections.snowpark" size="half">
+<RefCard href="/library/api-reference/connections/st.connections.snowparkconnection" size="half">
 
 <Image pure alt="screenshot" src="/images/databases/snowflake.png" />
 

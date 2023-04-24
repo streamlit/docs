@@ -272,7 +272,7 @@ const Autofunction = ({
     const hrefName = `${functionObject.name}.${method.name}`
       .toLowerCase()
       .replace("streamlit", "st")
-      .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+      .replace(/[.,\/#!$%\^&\*;:{}=\-`~()]/g, "");
     const type_name = method.signature.match(/\(([^)]*)\)/)[1];
     const isDeprecated =
       method.deprecated && method.deprecated.deprecated === true;

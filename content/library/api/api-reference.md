@@ -1120,7 +1120,7 @@ conn = st.experimental_connection('pet_db', type='sql')
 
 </RefCard>
 
-<RefCard href="/library/api-reference/connections/st.connections.sql" size="half">
+<RefCard href="/library/api-reference/connections/st.connections.sqlconnection" size="half">
 
 #### Connect to a SQLAlchemy Session
 
@@ -1132,7 +1132,7 @@ conn = st.connections.SQL('pet_db')
 
 </RefCard>
 
-<RefCard href="/library/api-reference/connections/st.connections.snowpark" size="half">
+<RefCard href="/library/api-reference/connections/st.connections.snowparkconnection" size="half">
 
 #### Connect to a Snowpark Session
 

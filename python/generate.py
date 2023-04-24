@@ -355,11 +355,11 @@ def get_streamlit_docstring_dict():
             "st.cache_resource",
         ],
         streamlit.connections: ["streamlit.connections", "st.connections"],
-        streamlit.connections.SQL: [
+        streamlit.connections.SQLConnection: [
             "streamlit.connections.SQLConnection",
             "SQLConnection",
         ],
-        streamlit.connections.Snowpark: [
+        streamlit.connections.SnowparkConnection: [
             "streamlit.connections.SnowparkConnection",
             "SnowparkConnection",
         ],

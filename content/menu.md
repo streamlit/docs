@@ -304,10 +304,10 @@ site_menu:
     url: /library/api-reference/connections/st.experimental_connection
     isVersioned: true
   - category: Streamlit library / API reference / Connections and databases / SQL connection
-    url: /library/api-reference/connections/st.connections.sql
+    url: /library/api-reference/connections/st.connections.sqlconnection
     isVersioned: true
   - category: Streamlit library / API reference / Connections and databases / Snowpark connection
-    url: /library/api-reference/connections/st.connections.snowpark
+    url: /library/api-reference/connections/st.connections.snowparkconnection
     isVersioned: true
   - category: Streamlit library / API reference / Connections and databases / Connection base class
     url: /library/api-reference/connections/st.connections.experimentalbaseconnection

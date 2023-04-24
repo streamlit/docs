@@ -1,6 +1,6 @@
 ---
-title: st.connections.Snowpark
-slug: /library/api-reference/connections/st.connections.snowpark
+title: st.connections.SnowparkConnection
+slug: /library/api-reference/connections/st.connections.snowparkconnection
 ---
 
 <Important>
@@ -9,10 +9,10 @@ This is an experimental feature. Experimental features and their APIs may change
 
 </Important>
 
-<Autofunction function="streamlit.connections.Snowpark" />
+<Autofunction function="streamlit.connections.SnowparkConnection" />
 
-<Autofunction function="streamlit.connections.Snowpark.query" />
+<Autofunction function="streamlit.connections.SnowparkConnection.query" />
 
-<Autofunction function="streamlit.connections.Snowpark.reset" />
+<Autofunction function="streamlit.connections.SnowparkConnection.reset" />
 
-<Autofunction function="streamlit.connections.Snowpark.session" />
+<Autofunction function="streamlit.connections.SnowparkConnection.safe_session" />
