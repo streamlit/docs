@@ -174,7 +174,7 @@ st.divider()
 
 #### Annotated text
 
-Display annotated text in Streamlit apps. Created by [@tvst](https://github.com/tvst). asdhjsadhfjk hasdjkadsui oiasdjiasdoi asdopjaopsd.
+Display annotated text in Streamlit apps. Created by [@tvst](https://github.com/tvst).
 
 ```python
 annotated_text("This ", ("is", "verb"), " some ", ("annotated", "adj"), ("text", "noun"), " for those of ", ("you", "pronoun"), " who ", ("like", "verb"), " this sort of ", ("thing", "noun"), ".")
@@ -1490,7 +1490,63 @@ st.exception(e)
 ```
 
 </RefCard>
+
 </TileContainer>
+
+<ComponentSlider>
+
+<ComponentCard href="https://github.com/Wirg/stqdm">
+
+<Image pure alt="screenshot" src="/images/api/components/stqdm.jpg" />
+
+#### Stqdm
+
+The simplest way to handle a progress bar in streamlit app. Created by [@Wirg](https://github.com/Wirg).
+
+```python
+from stqdm import stqdm
+
+for _ in stqdm(range(50)):
+    sleep(0.5)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/Socvest/streamlit-custom-notification-box">
+
+<Image pure alt="screenshot" src="/images/api/components/custom-notification-box.jpg" />
+
+#### Custom notification box
+
+A custom notification box with the ability to close it out. Created by [@Socvest](https://github.com/Socvest).
+
+```python
+from streamlit_custom_notification_box import custom_notification_box
+
+styles = {'material-icons':{'color': 'red'}, 'text-icon-link-close-container': {'box-shadow': '#3896de 0px 4px'}, 'notification-text': {'':''}, 'close-button':{'':''}, 'link':{'':''}}
+custom_notification_box(icon='info', textDisplay='We are almost done with your registration...', externalLink='more info', url='#', styles=styles, key="foo")
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://extras.streamlit.app/">
+
+<Image pure alt="screenshot" src="/images/api/components/extras-emojis.jpg" />
+
+#### Streamlit Extras
+
+A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
+
+```python
+from streamlit_extras.let_it_rain import rain
+
+rain(emoji="🎈", font_size=54,
+  falling_speed=5, animation_length="infinite",)
+```
+
+</ComponentCard>
+
+</ComponentSlider>
 
 ## Control flow
 
@@ -1584,6 +1640,63 @@ from st_pages import Page, show_pages, add_page_title
 
 show_pages([ Page("streamlit_app.py", "Home", "🏠"),
   Page("other_pages/page2.py", "Page 2", ":books:"), ])
+```
+
+</ComponentCard>
+
+</ComponentSlider>
+
+## Developer tools
+
+<ComponentSlider>
+
+<ComponentCard href="https://github.com/okld/streamlit-pandas-profiling">
+
+<Image pure alt="screenshot" src="/images/api/components/pandas-profiling.jpg" />
+
+#### Pandas Profiling
+
+Pandas profiling component for Streamlit. Created by [@okld](https://github.com/okld/).
+
+```python
+df = pd.read_csv("https://storage.googleapis.com/tf-datasets/titanic/train.csv")
+pr = df.profile_report()
+
+st_profile_report(pr)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/okld/streamlit-ace">
+
+<Image pure alt="screenshot" src="/images/api/components/ace.jpg" />
+
+#### Streamlit Ace
+
+Ace editor component for Streamlit. Created by [@okld](https://github.com/okld).
+
+```python
+from streamlit_ace import st_ace
+
+content = st_ace()
+content
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/jrieke/streamlit-analytics">
+
+<Image pure alt="screenshot" src="/images/api/components/analytics.jpg" />
+
+#### Streamlit Anaylitics
+
+Track & visualize user interactions with your streamlit app. Created by [@jrieke](https://github.com/jrieke).
+
+```python
+import streamlit_analytics
+
+with streamlit_analytics.track():
+    st.text_input("Write something")
 ```
 
 </ComponentCard>
@@ -1707,6 +1820,63 @@ st.session_state['key'] = value
 
 </RefCard>
 </TileContainer>
+
+## Connections and databases
+
+<ComponentSlider>
+
+<ComponentCard href="https://github.com/mkhorasani/Streamlit-Authenticator">
+
+<Image pure alt="screenshot" src="/images/api/components/authenticator.jpg" />
+
+#### Authenticator
+
+A secure authentication module to validate user credentials. Created by [@mkhorasani](https://github.com/mkhorasani).
+
+```python
+import streamlit_authenticator as stauth
+
+authenticator = stauth.Authenticate( config['credentials'], config['cookie']['name'],
+config['cookie']['key'], config['cookie']['expiry_days'], config['preauthorized'])
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/gagangoku/streamlit-ws-localstorage">
+
+<Image pure alt="screenshot" src="/images/api/components/localstorage.jpg" />
+
+#### WS localStorage
+
+A simple synchronous way of accessing localStorage from your app. Created by [@gagangoku](https://github.com/gagangoku).
+
+```python
+from streamlit_ws_localstorage import injectWebsocketCode
+
+ret = conn.setLocalStorageVal(key='k1', val='v1')
+st.write('ret: ' + ret)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/conradbez/streamlit-auth0">
+
+<Image pure alt="screenshot" src="/images/api/components/auth0.jpg" />
+
+#### Streamlit Auth0
+
+The fastest way to provide comprehensive login inside Streamlit. Created by [@conradbez](https://github.com/conradbez).
+
+```python
+from auth0_component import login_button
+
+user_info = login_button(clientId, domain = domain)
+st.write(user_info)
+```
+
+</ComponentCard>
+
+</ComponentSlider>
 
 ## Performance
 
