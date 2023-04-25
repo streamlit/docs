@@ -1112,6 +1112,8 @@ if st.checkbox("Clear All"):
 <TileContainer>
 <RefCard href="/library/api-reference/connections/st.experimental_connection" size="half">
 
+<Image pure alt="screenshot" src="/images/api/connection.jpg" />
+
 #### Create a connection
 
 Connect to a data source or API
@@ -1131,7 +1133,7 @@ st.dataframe(pet_owners)
 
 <RefCard href="/library/api-reference/connections/st.connections.sqlconnection" size="half">
 
-<Image pure alt="screenshot" src="/images/databases/sqlalchemy.png" />
+<Image pure alt="screenshot" src="/images/api/connections.SQLConnection.jpg" />
 
 #### SQLConnection
 
@@ -1145,7 +1147,7 @@ conn = st.experimental_connection('sql')
 
 <RefCard href="/library/api-reference/connections/st.connections.snowparkconnection" size="half">
 
-<Image pure alt="screenshot" src="/images/databases/snowflake.png" />
+<Image pure alt="screenshot" src="/images/api/connections.SnowparkConnection.jpg" />
 
 #### SnowparkConnection
 
