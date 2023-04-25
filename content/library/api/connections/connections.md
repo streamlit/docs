@@ -10,14 +10,14 @@ slug: /library/api-reference/connections
 <TileContainer>
 <RefCard href="/library/api-reference/connections/st.experimental_connection" size="half">
 
-<Image pure alt="screenshot" src="/images/databases/experimental-connection.png" />
-
-#### Create a connection
+#### Connect to a data source or API
 
 Connect to a database and return a connection object.
 
 ```python
-st.experimental_connection('pet_db', type='sql')
+conn = st.experimental_connection('pets_db', type='sql')
+pet_owners = conn.query('select * from pet_owners')
+st.dataframe(pet_owners)
 ```
 
 </RefCard>
@@ -31,12 +31,12 @@ st.experimental_connection('pet_db', type='sql')
 
 <Image pure alt="screenshot" src="/images/databases/sqlalchemy.png" />
 
-#### SQL connection
+#### SQLConnection
 
-Connect to a SQLAlchemy Session and return a connection object.
+A connection to a SQL database using SQLAlchemy.
 
 ```python
-conn = st.connections.SQL('pet_db')
+conn = st.experimental_connection('sql')
 ```
 
 </RefCard>
@@ -45,12 +45,12 @@ conn = st.connections.SQL('pet_db')
 
 <Image pure alt="screenshot" src="/images/databases/snowflake.png" />
 
-#### Snowpark connection
+#### SnowparkConnection
 
-Connect to a Snowpark Session and return a connection object.
+A connection to Snowflake Snowpark.
 
 ```python
-conn = st.connections.SQL('pet_db', type='snowpark')
+conn = st.experimental_connection('snowpark')
 ```
 
 </RefCard>
@@ -61,18 +61,17 @@ conn = st.connections.SQL('pet_db', type='snowpark')
 <TileContainer>
 <RefCard href="/library/api-reference/connections/st.connections.experimentalbaseconnection" size="half">
 
-#### Connection base class
+#### Build your own connection with `ExperimentalBaseConnection`
 
 Build a connection class with
 `ExperimentalBaseConnection` and return a connection object.
 
 ```python
-class MyConnection(st.connections.ExperimentalBaseConnection):
-    def __init__(self, name):
-        super().__init__(name, type='my_connection')
-
+class MyConnection(ExperimentalBaseConnection[myconn.MyConnection]):
+    def _connect(self, **kwargs) -> MyConnection:
+        return myconn.connect(**self._secrets, **kwargs)
     def query(self, query):
-        return pd.DataFrame({'a': [1, 2, 3]})
+        return self._instance.query(query)
 ```
 
 </RefCard>
