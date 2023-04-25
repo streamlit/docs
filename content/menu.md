@@ -303,10 +303,10 @@ site_menu:
   - category: Streamlit library / API reference / Connections and databases / st.experimental_connection
     url: /library/api-reference/connections/st.experimental_connection
     isVersioned: true
-  - category: Streamlit library / API reference / Connections and databases / SQLconnection
+  - category: Streamlit library / API reference / Connections and databases / SQLConnection
     url: /library/api-reference/connections/st.connections.sqlconnection
     isVersioned: true
-  - category: Streamlit library / API reference / Connections and databases / Snowparkconnection
+  - category: Streamlit library / API reference / Connections and databases / SnowparkConnection
     url: /library/api-reference/connections/st.connections.snowparkconnection
     isVersioned: true
   - category: Streamlit library / API reference / Connections and databases / Connection base class
