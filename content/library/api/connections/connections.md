@@ -10,9 +10,9 @@ slug: /library/api-reference/connections
 <TileContainer>
 <RefCard href="/library/api-reference/connections/st.experimental_connection" size="half">
 
-#### Connect to a data source or API
+#### Create a connection
 
-Connect to a database and return a connection object.
+Connect to a data source or API
 
 ```python
 conn = st.experimental_connection('pets_db', type='sql')
@@ -61,10 +61,9 @@ conn = st.experimental_connection('snowpark')
 <TileContainer>
 <RefCard href="/library/api-reference/connections/st.connections.experimentalbaseconnection" size="half">
 
-#### Build your own connection with `ExperimentalBaseConnection`
+#### Conection base class
 
-Build a connection class with
-`ExperimentalBaseConnection` and return a connection object.
+Build your own connection with `ExperimentalBaseConnection`.
 
 ```python
 class MyConnection(ExperimentalBaseConnection[myconn.MyConnection]):

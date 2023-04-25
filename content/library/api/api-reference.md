@@ -1107,14 +1107,14 @@ if st.checkbox("Clear All"):
 
 ## Connections and databases
 
-## Setup your connection
+### Setup your connection
 
 <TileContainer>
 <RefCard href="/library/api-reference/connections/st.experimental_connection" size="half">
 
-#### Connect to a data source or API
+#### Create a connection
 
-Connect to a database and return a connection object.
+Connect to a data source or API
 
 ```python
 conn = st.experimental_connection('pets_db', type='sql')
@@ -1125,7 +1125,7 @@ st.dataframe(pet_owners)
 </RefCard>
 </TileContainer>
 
-## Built-in connections
+### Built-in connections
 
 <TileContainer>
 
@@ -1158,15 +1158,14 @@ conn = st.experimental_connection('snowpark')
 </RefCard>
 </TileContainer>
 
-## Third-party connections
+### Third-party connections
 
 <TileContainer>
 <RefCard href="/library/api-reference/connections/st.connections.experimentalbaseconnection" size="half">
 
-#### Build your own connection with `ExperimentalBaseConnection`
+#### Conection base class
 
-Build a connection class with
-`ExperimentalBaseConnection` and return a connection object.
+Build your own connection with `ExperimentalBaseConnection`.
 
 ```python
 class MyConnection(ExperimentalBaseConnection[myconn.MyConnection]):
