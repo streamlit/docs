@@ -81,6 +81,7 @@ Copy the code below to your Streamlit app and run it. Make sure to adapt `query`
 # streamlit_app.py
 
 import streamlit as st
+import pandas
 
 # Initialize connection.
 conn = st.experimental_connection('mysql', type='sql')
@@ -89,8 +90,8 @@ conn = st.experimental_connection('mysql', type='sql')
 df = conn.query('SELECT * from mytable;', ttl=600)
 
 # Print results.
-for person, pet in zip(df['person'], df['pet']):
-    st.write(f"{person} has a :{pet}:")
+for row in df.itertuples():
+    st.write(f"{row.person} has a :{row.pet}:")
 ```
 
 See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. In this case, we set `ttl=600` to ensure the query result is cached for no longer than 10 minutes. Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Learn more in [Connecting to data](/library/advanced-features/connecting-to-data) and [Caching](/library/advanced-features/caching).
