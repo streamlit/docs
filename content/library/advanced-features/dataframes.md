@@ -155,7 +155,7 @@ Use all we've learned so far and apply them to the above embedded app. Try editi
 
 Notice how edits to the table are reflected in session state: when you make any edits, a rerun is triggered which sends the edits to the backend via `st.experimental_data_editor`'s keyed widget state. Its widget state is a JSON object containing three properties: **edited_cells**, **added_rows**, and **deleted rows:**.
 
-- `edited_cells` maps a cell position to the edited value: `column:row` → `value` .
+- `edited_cells` maps a cell position to the edited value: `row:column` → `value` .
 - `added_rows` is a list of newly added rows to the table. Each row is a dictionary where the keys are the column indices and the values are the corresponding cell values.
 - `deleted_rows` is a list of row indices that have been deleted from the table.
 
