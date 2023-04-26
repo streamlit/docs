@@ -1165,7 +1165,7 @@ conn = st.experimental_connection('snowpark')
 <TileContainer>
 <RefCard href="/library/api-reference/connections/st.connections.experimentalbaseconnection" size="half">
 
-#### Conection base class
+#### Connection base class
 
 Build your own connection with `ExperimentalBaseConnection`.
 
