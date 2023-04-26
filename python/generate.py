@@ -355,7 +355,7 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
                 membername,
                 signature_prefix,
                 is_class=False,
-                is_class_method=is_property,
+                is_class_method=False,
             )
             fullname = "{}.{}".format(key_prefix, membername)
             obj_docstring_dict[fullname] = member_docstring_dict
