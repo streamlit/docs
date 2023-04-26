@@ -100,7 +100,6 @@ Copy the code below to your Streamlit app and run it. Make sure to adapt query t
 # streamlit_app.py
 
 import streamlit as st
-import pandas as pd
 
 # Initialize connection.
 conn = st.experimental_connection('snowpark')
@@ -110,7 +109,7 @@ df = conn.query('SELECT * from mytable;', ttl=600)
 
 # Print results.
 for row in df.itertuples():
-    st.write(f"{row.person} has a :{row.pet}:")
+    st.write(f"{row.NAME} has a :{row.PET}:")
 ```
 
 See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. In this case, we set `ttl=600` to ensure the query result is cached for no longer than 10 minutes. Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Learn more in [Connecting to data](/library/advanced-features/connecting-to-data) and [Caching](/library/advanced-features/caching).
@@ -118,6 +117,30 @@ See `st.experimental_connection` above? This handles secrets retrieval, setup, q
 If everything worked out (and you used the example table we created above), your app should look like this:
 
 ![Finished app screenshot](/images/databases/snowflake-app.png)
+
+### Using Snowpark Session
+
+The SnowparkConnection also provides access to the [Snowpark Session](https://docs.snowflake.com/en/developer-guide/snowpark/reference/python/session.html) for DataFrame-style operations that run natively inside Snowflake. Using this approach, you can rewrite the app above as follows:
+
+```python
+# streamlit_app.py
+
+import streamlit as st
+
+# Initialize connection.
+session = st.experimental_connection('snowpark').session
+
+# Load the table as a dataframe
+@st.cache_data
+def load_table():
+    return session.table('mytable').to_pandas()
+
+df = load_table()
+
+# Print results.
+for row in df.itertuples():
+    st.write(f"{row.NAME} has a :{row.PET}:")
+```
 
 ## Connecting to Snowflake from Community Cloud
 
@@ -137,28 +160,36 @@ pip install snowflake-sqlalchemy
 
 Installing `snowflake-sqlalchemy` will also install all necessary dependencies.
 
-Configuring credentials follows the `SQLConnection` format which is slightly different. See the [Snowflake SQLAlchemy Configuration Parameters documentation](https://docs.snowflake.com/en/developer-guide/python-connector/sqlalchemy#connection-parameters) for more details. Beyond specifying the URL, additional common parameters like `authenticator` or key pair authentication can be set using `create_engine_kwargs`, as shown below.
+Configuring credentials follows the `SQLConnection` format which is slightly different. See the [Snowflake SQLAlchemy Configuration Parameters documentation](https://docs.snowflake.com/en/developer-guide/python-connector/sqlalchemy#connection-parameters) for more details.
 
 ```toml
 # .streamlit/secrets.toml
 
 [connections.snowflake]
 url = "snowflake://<user_login_name>:<password>@<account_identifier>/<database_name>/<schema_name>?warehouse=<warehouse_name>&role=<role_name>"
+```
 
-# Alternatively, specify additional connection parameters here
+Alternatively, specify connection parameters like `authenticator` or key pair authentication using `create_engine_kwargs`, as shown below.
+
+```toml
+# .streamlit/secrets.toml
+
+[connections.snowflake]
+url = "snowflake://<user_login_name>@<account_identifier>/"
+
 [connections.snowflake.create_engine_kwargs.connect_args]
 authenticator = "externalbrowser"
 warehouse = "xxx"
 role = "xxx"
+client_session_keep_alive = true
 ```
 
-Initializing and using the connection in your app is similar. Note that [SQLConnection.query()](https://deploy-preview-622--streamlit-docs.netlify.app/library/api-reference/connections/st.connections.sqlconnection#sqlconnectionquery) supports extra arguments like `params` and `chunksize` which may be useful for more advanced apps.
+Initializing and using the connection in your app is similar. Note that [SQLConnection.query()](/library/api-reference/connections/st.connections.sqlconnection#sqlconnectionquery) supports extra arguments like `params` and `chunksize` which may be useful for more advanced apps.
 
 ```python
 # streamlit_app.py
 
 import streamlit as st
-import pandas as pd
 
 # Initialize connection.
 conn = st.experimental_connection('snowflake', type='sql')
@@ -168,5 +199,5 @@ df = conn.query('SELECT * from mytable;', ttl=600)
 
 # Print results.
 for row in df.itertuples():
-    st.write(f"{row.person} has a :{row.pet}:")
+    st.write(f"{row.name} has a :{row.pet}:")
 ```

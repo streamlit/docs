@@ -81,7 +81,6 @@ Copy the code below to your Streamlit app and run it. Make sure to adapt `query`
 # streamlit_app.py
 
 import streamlit as st
-import pandas
 
 # Initialize connection.
 conn = st.experimental_connection('mysql', type='sql')
