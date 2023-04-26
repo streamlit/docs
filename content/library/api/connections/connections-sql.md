@@ -64,3 +64,5 @@ role = "..."
 <Autofunction function="streamlit.connections.SQLConnection.query" />
 
 <Autofunction function="streamlit.connections.SQLConnection.reset" />
+
+<Autofunction function="streamlit.connections.SQLConnection.session" />

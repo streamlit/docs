@@ -49,10 +49,11 @@ def get_github_source(func):
         f"https://github.com/streamlit/streamlit/blob/{streamlit.__version__}/lib"
     )
 
-    # For Streamlit commands (e.g. st.spinner) wrapped by decorator
-    while "__wrapped__" in func.__dict__:
-        # Continue to unwrap until we get to the original function
-        func = func.__wrapped__
+    if hasattr(func, "__dict__"):
+        # For Streamlit commands (e.g. st.spinner) wrapped by decorator
+        while "__wrapped__" in func.__dict__:
+            # Continue to unwrap until we get to the original function
+            func = func.__wrapped__
 
     # Tuple with three elements: part before the first occurrence of "/streamlit",
     # the string "/streamlit", and the part after "/streamlit"
@@ -61,8 +62,15 @@ def get_github_source(func):
     # line = func.__code__.co_firstlineno
 
     # return "".join([repo_prefix, path_parts[1], path_parts[2], f"#L{line}"])
-    source_file = inspect.getsourcefile(func)
-    line = inspect.getsourcelines(func)[1]
+    try:
+        source_file = inspect.getsourcefile(func)
+    except TypeError:
+        source_file = inspect.getsourcefile(func.fget)
+
+    try:
+        line = inspect.getsourcelines(func)[1]
+    except TypeError:
+        line = inspect.getsourcelines(func.fget)[1]
 
     # Get the relative path after the "streamlit" directory
     rel_path = os.path.relpath(
@@ -70,6 +78,17 @@ def get_github_source(func):
     )
 
     return "".join([repo_prefix, rel_path, f"#L{line}"])
+
+
+def get_property_docstring_dict(prop, propname, signature_prefix, is_class_method):
+    """Returns a dictionary containing the docstring information for a given property."""
+    return get_docstring_dict(
+        prop,
+        propname,
+        signature_prefix,
+        is_class=False,
+        is_class_method=is_class_method,
+    )
 
 
 def get_docstring_dict(obj, objname, signature_prefix, is_class, is_class_method):
@@ -84,6 +103,8 @@ def get_docstring_dict(obj, objname, signature_prefix, is_class, is_class_method
     if is_class:
         # Get the class's signature without annotations
         arguments = get_sig_string_without_annots(obj)
+        if arguments is None:
+            arguments = ""
         description["signature"] = f"{signature_prefix}.{objname}({arguments})"
         description["is_class"] = True
         # Get the class's methods
@@ -103,6 +124,26 @@ def get_docstring_dict(obj, objname, signature_prefix, is_class, is_class_method
                 is_class_method=True,
             )
             description["methods"].append(meth_obj)
+
+        # Get the class's properties
+        properties = [
+            (name, prop)
+            for name, prop in inspect.getmembers(obj, lambda x: isinstance(x, property))
+        ]
+        # Iterate through the class's properties
+        for prop_name, prop in properties:
+            # Skip properties that start with an underscore
+            if prop_name.startswith("_"):
+                continue
+            prop_obj = {}
+            prop_obj = get_property_docstring_dict(
+                prop,
+                prop_name,
+                f"{signature_prefix}.{prop_name}",
+                is_class_method=False,
+            )
+            description["methods"].append(prop_obj)
+
         description["source"] = get_github_source(obj)
 
     else:
@@ -228,6 +269,8 @@ def get_function_docstring_dict(
 
 def get_sig_string_without_annots(func):
     """Returns a string representation of the function signature without annotations."""
+    if not callable(func):
+        return ""
     # Get the signature of the function
     sig = inspect.signature(func)
     # Initialize an empty list to store the arguments
@@ -292,7 +335,7 @@ def get_sig_string_without_annots(func):
 def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
     """Recursively get the docstring dict for an object and its members. Returns a dict of dicts containing the docstring info for each member."""
 
-    # Initialize empty dictionary to store function/method metadata
+    # Initialize empty dictionary to store function/method/property metadata
     obj_docstring_dict = {}
 
     # Iterate over the names of the members of the object
@@ -304,28 +347,43 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
         # Get the member object using its name
         member = getattr(obj, membername)
 
-        # Skip members that are not callable
-        if not callable(member):
-            continue
-
-        # memo and singleton are callable objects rather than functions
-        # See: https://github.com/streamlit/streamlit/pull/4263
-        # Replace the member with its decorator object
-        while member in streamlit.runtime.caching.__dict__.values():
-            member = member._decorator
-
-        # Create the full name of the member using key_prefix and membername
-        fullname = "{}.{}".format(key_prefix, membername)
-
-        # Call get_function_docstring_dict to get metadata of the current member
-        is_class = inspect.isclass(member)
-        if is_class:
-            is_class_method = False
+        # Check if the member is a property
+        is_property = isinstance(member, property)
+        if is_property:
+            member_docstring_dict = get_docstring_dict(
+                member,
+                membername,
+                signature_prefix,
+                is_class=False,
+                is_class_method=is_property,
+            )
+            fullname = "{}.{}".format(key_prefix, membername)
+            obj_docstring_dict[fullname] = member_docstring_dict
         else:
-            is_class_method = inspect.ismethod(member) and member.__self__ is not None
-        member_docstring_dict = get_docstring_dict(
-            member, membername, signature_prefix, is_class, is_class_method
-        )
+            # Skip members that are not callable
+            if not callable(member):
+                continue
+
+            # memo and singleton are callable objects rather than functions
+            # See: https://github.com/streamlit/streamlit/pull/4263
+            # Replace the member with its decorator object
+            while member in streamlit.runtime.caching.__dict__.values():
+                member = member._decorator
+
+            # Create the full name of the member using key_prefix and membername
+            fullname = "{}.{}".format(key_prefix, membername)
+
+            # Call get_function_docstring_dict to get metadata of the current member
+            is_class = inspect.isclass(member)
+            if is_class:
+                is_class_method = False
+            else:
+                is_class_method = (
+                    inspect.ismethod(member) and member.__self__ is not None
+                )
+            member_docstring_dict = get_docstring_dict(
+                member, membername, signature_prefix, is_class, is_class_method
+            )
 
         # Add the extracted metadata to obj_docstring_dict
         obj_docstring_dict[fullname] = member_docstring_dict

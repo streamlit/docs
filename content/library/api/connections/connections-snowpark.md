@@ -16,3 +16,5 @@ This is an experimental feature. Experimental features and their APIs may change
 <Autofunction function="streamlit.connections.SnowparkConnection.reset" />
 
 <Autofunction function="streamlit.connections.SnowparkConnection.safe_session" />
+
+<Autofunction function="streamlit.connections.SnowparkConnection.session" />
