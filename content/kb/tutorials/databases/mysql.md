@@ -91,7 +91,7 @@ df = conn.query('SELECT * from mytable;', ttl=600)
 
 # Print results.
 for row in df.itertuples():
-    st.write(f"{row.person} has a :{row.pet}:")
+    st.write(f"{row.name} has a :{row.pet}:")
 ```
 
 See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. In this case, we set `ttl=600` to ensure the query result is cached for no longer than 10 minutes. Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Learn more in [Connecting to data](/library/advanced-features/connecting-to-data) and [Caching](/library/advanced-features/caching).
