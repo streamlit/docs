@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/snowflake
 
 ## Introduction
 
-This guide explains how to securely access a Snowflake database from Streamlit. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection), the [snowpark-python](https://docs.snowflake.com/en/developer-guide/snowpark/python/index) library and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+This guide explains how to securely access a Snowflake database from Streamlit. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection), the [snowpark-python](https://docs.snowflake.com/en/developer-guide/snowpark/python/index) library and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). **The below example code will only work on Streamlit version >= 1.22, when `st.experimental_connection` was added.**
 
 Skip to the bottom for information about [connecting using Snowflake Connector for Python](#using-the-snowflake-connector-for-python).
 
@@ -60,11 +60,16 @@ Make sure to note down the name of your warehouse, database, and schema. ☝️
 
 ## Install snowflake-snowpark-python
 
-You can find the instructions and prerequisites for installing snowflake-snowpark-python in the [Snowpark Developer Guide](https://docs.snowflake.com/en/developer-guide/snowpark/python/setup). Currently, only python 3.8 is supported.
+You can find the instructions and prerequisites for installing snowflake-snowpark-python in the [Snowpark Developer Guide](https://docs.snowflake.com/en/developer-guide/snowpark/python/setup).
 
 ```sh
 pip install snowflake-snowpark-python
 ```
+
+Particular prerequisites to highlight:
+
+- Currently, only python 3.8 is supported.
+- Ensure you have the correct pyarrow version installed for your version of snowflake-snowpark-python. When in doubt, try uninstalling pyarrow before installing snowflake-snowpark-python.
 
 ## Add connection parameters to your local app secrets
 
@@ -84,7 +89,7 @@ schema = "xxx"
 client_session_keep_alive = true
 ```
 
-If you created the database from the previous step, the names of your database and schema are `PETS` and `PUBLIC`, respectively. Streamlit will also use Snowflake config and credentials from a [snowsql config file](https://docs.snowflake.com/en/user-guide/snowsql-config#snowsql-config-file) if available.
+If you created the database from the previous step, the names of your database and schema are `PETS` and `PUBLIC`, respectively. **Streamlit will also use Snowflake config and credentials from a [snowsql config file](https://docs.snowflake.com/en/user-guide/snowsql-config#snowsql-config-file) if available.**
 
 <Important>
 
@@ -118,19 +123,19 @@ If everything worked out (and you used the example table we created above), your
 
 ![Finished app screenshot](/images/databases/snowflake-app.png)
 
-### Using Snowpark Session
+### Using a Snowpark Session
 
-The SnowparkConnection also provides access to the [Snowpark Session](https://docs.snowflake.com/en/developer-guide/snowpark/reference/python/session.html) for DataFrame-style operations that run natively inside Snowflake. Using this approach, you can rewrite the app above as follows:
+The same [SnowparkConnection](/library/api-reference/connections/st.connections.snowparkconnection) used above also provides access to the [Snowpark Session](https://docs.snowflake.com/en/developer-guide/snowpark/reference/python/session.html) for DataFrame-style operations that run natively inside Snowflake. Using this approach, you can rewrite the app above as follows:
 
 ```python
 # streamlit_app.py
 
 import streamlit as st
 
-# Initialize connection.
+# Initialize connection and access underlying Snowpark session.
 session = st.experimental_connection('snowpark').session
 
-# Load the table as a dataframe
+# Load the table as a dataframe using Snowpark API.
 @st.cache_data
 def load_table():
     return session.table('mytable').to_pandas()
@@ -141,14 +146,6 @@ df = load_table()
 for row in df.itertuples():
     st.write(f"{row.NAME} has a :{row.PET}:")
 ```
-
-## Connecting to Snowflake from Community Cloud
-
-This tutorial assumes a local Streamlit app, however you can also connect to Snowflake from apps hosted in Community Cloud. The main additional steps are:
-
-- [Include information about dependencies](/streamlit-community-cloud/get-started/deploy-an-app/app-dependencies) using a `requirements.txt` file with `snowflake-snowpark-python` and any other dependencies.
-- [Add your secrets](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management#deploy-an-app-and-set-up-secrets) to your Community Cloud app.
-- For apps using snowpark-python, you should also ensure the app is [running on python 3.8](/streamlit-community-cloud/get-started/deploy-an-app#advanced-settings-for-deployment).
 
 ## Using the Snowflake Connector for Python
 
@@ -201,3 +198,11 @@ df = conn.query('SELECT * from mytable;', ttl=600)
 for row in df.itertuples():
     st.write(f"{row.name} has a :{row.pet}:")
 ```
+
+## Connecting to Snowflake from Community Cloud
+
+This tutorial assumes a local Streamlit app, however you can also connect to Snowflake from apps hosted in Community Cloud. The main additional steps are:
+
+- [Include information about dependencies](/streamlit-community-cloud/get-started/deploy-an-app/app-dependencies) using a `requirements.txt` file with `snowflake-snowpark-python` and any other dependencies.
+- [Add your secrets](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management#deploy-an-app-and-set-up-secrets) to your Community Cloud app.
+- For apps using snowpark-python, you should also ensure the app is [running on python 3.8](/streamlit-community-cloud/get-started/deploy-an-app#advanced-settings-for-deployment).
