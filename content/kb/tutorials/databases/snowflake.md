@@ -58,6 +58,14 @@ Once you have executed the queries, you should see a preview of the table in the
 
 Make sure to note down the name of your warehouse, database, and schema. ☝️
 
+## Install snowflake-snowpark-python
+
+You can find the instructions and prerequisites for installing snowflake-snowpark-python in the [Snowpark Developer Guide](https://docs.snowflake.com/en/developer-guide/snowpark/python/setup). Currently, only python 3.8 is supported.
+
+```sh
+pip install snowflake-snowpark-python
+```
+
 ## Add connection parameters to your local app secrets
 
 Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app’s root directory. Create this file if it doesn’t exist yet and add your Snowflake username, password, [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html), and the name of your warehouse, database, and schema as shown below:
@@ -84,17 +92,9 @@ Add this file to `.gitignore` and don't commit it to your GitHub repo!
 
 </Important>
 
-## Install snowflake-snowpark-python
-
-You can find the instructions and prerequisites for installing snowflake-snowpark-python in the [Snowpark Developer Guide](https://docs.snowflake.com/en/developer-guide/snowpark/python/setup). Currently, only python 3.8 is supported.
-
-```sh
-pip install snowflake-snowpark-python
-```
-
 ## Write your Streamlit app
 
-Copy the code below to your Streamlit app and run it. Make sure to adapt query to use the name of your table.
+Copy the code below to your Streamlit app and run it. Make sure to adapt the query to use the name of your table.
 
 ```python
 # streamlit_app.py
