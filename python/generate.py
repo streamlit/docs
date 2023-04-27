@@ -91,7 +91,9 @@ def get_property_docstring_dict(prop, propname, signature_prefix, is_class_metho
     )
 
 
-def get_docstring_dict(obj, objname, signature_prefix, is_class, is_class_method):
+def get_docstring_dict(
+    obj, objname, signature_prefix, is_class, is_class_method, is_property=False
+):
     """Returns a dictionary containing the docstring information for a given object (function or class)."""
     # Initialize an empty dictionary to store the object description
     description = {}
@@ -130,6 +132,8 @@ def get_docstring_dict(obj, objname, signature_prefix, is_class, is_class_method
             (name, prop)
             for name, prop in inspect.getmembers(obj, lambda x: isinstance(x, property))
         ]
+        # Initialize an empty dictionary to store the properties and their signatures
+        description["properties"] = []
         # Iterate through the class's properties
         for prop_name, prop in properties:
             # Skip properties that start with an underscore
@@ -142,15 +146,19 @@ def get_docstring_dict(obj, objname, signature_prefix, is_class, is_class_method
                 f"{signature_prefix}.{prop_name}",
                 is_class_method=False,
             )
-            description["methods"].append(prop_obj)
+            description["properties"].append(prop_obj)
 
         description["source"] = get_github_source(obj)
 
     else:
         # Get the function's signature without annotations
         arguments = get_sig_string_without_annots(obj)
-        # Set the function's signature
-        description["signature"] = f"{signature_prefix}.{objname}({arguments})"
+        # Set the function's signature. If obj is a property, no need to add parentheses
+        description["signature"] = (
+            f"{signature_prefix}.{objname}({arguments})"
+            if not is_property
+            else f"{signature_prefix}.{objname}"
+        )
 
         # Remove _ from the start of static component function names
         if objname.startswith("_"):
@@ -356,6 +364,7 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
                 signature_prefix,
                 is_class=False,
                 is_class_method=False,
+                is_property=True,
             )
             fullname = "{}.{}".format(key_prefix, membername)
             obj_docstring_dict[fullname] = member_docstring_dict

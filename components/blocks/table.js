@@ -67,16 +67,16 @@ const Table = ({
     );
   }
 
-  if (foot && foot.title) {
-    tfoot = (
-      <React.Fragment key="tbody">
+  if (foot && foot.length > 0) {
+    tfoot = foot.map((footSection, index) => (
+      <React.Fragment key={`tfoot-${index}`}>
         <tr className={classNames(styles.Row, styles.HeadingRow)}>
           <td className={classNames(styles.Cell, styles.TitleCell)} colSpan="2">
-            {foot.title}
+            {footSection.title}
           </td>
         </tr>
-        {footRows.map((row, index) => (
-          <tr key={`${row.title}-${index}`} className={styles.Row}>
+        {footRows[index].map((row, rowIndex) => (
+          <tr key={`${row.title}-${rowIndex}`} className={styles.Row}>
             <td className={classNames(styles.Cell, styles.SmallCell)}>
               <div dangerouslySetInnerHTML={createMarkup(row.title)} />{" "}
             </td>
@@ -86,7 +86,7 @@ const Table = ({
           </tr>
         ))}
       </React.Fragment>
-    );
+    ));
   }
 
   return (

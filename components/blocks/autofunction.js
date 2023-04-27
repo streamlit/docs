@@ -120,13 +120,14 @@ const Autofunction = ({
   const footers = [];
   const args = [];
   const returns = [];
-  const methods = [];
   const versionList = reverse(versions.slice());
   let functionObject;
   let functionDescription;
   let header;
   let body;
   let isClass;
+  let methods = [];
+  let properties = [];
 
   if (streamlitFunction in streamlit) {
     functionObject = streamlit[streamlitFunction];
@@ -153,12 +154,20 @@ const Autofunction = ({
     );
   }
 
+  if ("methods" in functionObject) {
+    methods = functionObject.methods;
+  }
+
+  if ("properties" in functionObject) {
+    properties = functionObject.properties;
+  }
+
   if (hideHeader !== undefined && hideHeader) {
     header = "";
   } else {
-    const functionName = `${functionObject.signature}`
-      .split("(")[0]
-      .replace("streamlit", "st");
+    const functionName = functionObject.signature
+      ? `${functionObject.signature}`.split("(")[0].replace("streamlit", "st")
+      : "";
     const name =
       String(functionObject.name).startsWith("html") ||
       String(functionObject.name).startsWith("iframe")
@@ -265,42 +274,84 @@ const Autofunction = ({
     args.push(row);
   }
 
-  for (const index in functionObject.methods) {
+  let methodRows = [];
+
+  for (const index in methods) {
     const row = {};
-    const method = functionObject.methods[index];
+    const method = methods[index];
     const slicedSlug = slug.slice().join("/");
     const hrefName = `${functionObject.name}.${method.name}`
       .toLowerCase()
       .replace("streamlit", "st")
       .replace(/[.,\/#!$%\^&\*;:{}=\-`~()]/g, "");
-    const type_name = method.signature.match(/\(([^)]*)\)/)[1];
+    const type_name = method.signature
+      ? method.signature.match(/\(([^)]*)\)/)[1]
+      : "";
     const isDeprecated =
       method.deprecated && method.deprecated.deprecated === true;
     const deprecatedMarkup = isDeprecated
       ? `
-      <div class="${styles.DeprecatedContent}">
-        <i class="material-icons-sharp">
-          delete
-        </i>
-        ${method.deprecated.deprecatedText}
-      </div>`
+    <div class="${styles.DeprecatedContent}">
+      <i class="material-icons-sharp">
+        delete
+      </i>
+      ${method.deprecated.deprecatedText}
+    </div>`
       : "";
     const description = method.description
       ? method.description
       : `<p>No description</p> `;
     // Add a link to the method by appending the method name to the current URL using slug.slice();
     row["title"] = `
-        <p class="${isDeprecated ? "deprecated" : ""}">
-          <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
+    <p class="${isDeprecated ? "deprecated" : ""}">
+      <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
       method.name
     }</span></a><span class='italic code'>(${type_name})</span>
-        </p>`;
+    </p>`;
     row["body"] = `
-      ${deprecatedMarkup}
-      ${description}
-    `;
+    ${deprecatedMarkup}
+    ${description}
+  `;
 
-    methods.push(row);
+    methodRows.push(row);
+  }
+
+  let propertiesRows = [];
+
+  for (const index in properties) {
+    const row = {};
+    const property = properties[index];
+    const slicedSlug = slug.slice().join("/");
+    const hrefName = `${functionObject.name}.${property.name}`
+      .toLowerCase()
+      .replace("streamlit", "st")
+      .replace(/[.,\/#!$%\^&\*;:{}=\-`~()]/g, "");
+    const isDeprecated =
+      property.deprecated && property.deprecated.deprecated === true;
+    const deprecatedMarkup = isDeprecated
+      ? `
+    <div class="${styles.DeprecatedContent}">
+      <i class="material-icons-sharp">
+        delete
+      </i>
+      ${property.deprecated.deprecatedText}
+    </div>`
+      : "";
+    const description = property.description
+      ? property.description
+      : `<p>No description</p> `;
+    // Add a link to the method by appending the method name to the current URL using slug.slice();
+    row["title"] = `
+    <p class="${isDeprecated ? "deprecated" : ""}">
+      <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
+      property.name
+    }</span>
+    </p>`;
+    row["body"] = `
+    ${deprecatedMarkup}
+    ${description}
+  `;
+    propertiesRows.push(row);
   }
 
   for (const index in functionObject.returns) {
@@ -316,6 +367,24 @@ const Autofunction = ({
     row["body"] = `${description} `;
 
     returns.push(row);
+  }
+
+  const footTitles = [];
+  const footRowsContent = [];
+
+  if (methods.length) {
+    footTitles.push({ title: "Methods" });
+    footRowsContent.push(methodRows);
+  }
+
+  if (returns.length) {
+    footTitles.push({ title: "Returns" });
+    footRowsContent.push(returns);
+  }
+
+  if (properties.length) {
+    footTitles.push({ title: "Properties" });
+    footRowsContent.push(propertiesRows);
   }
 
   body = (
@@ -339,28 +408,18 @@ const Autofunction = ({
         ),
         content: `<p class='code'> ${functionObject.signature}</p> `,
       }}
-      body={
-        args.length
-          ? {
-              title: "Parameters",
-            }
-          : null
-      }
+      body={args.length ? { title: "Parameters" } : null}
       bodyRows={args.length ? args : null}
-      // If there are methods, add a new footer for the Methods section
-      // else, add a footer for the Returns section
-      foot={
-        methods.length
-          ? {
-              title: "Methods",
-            }
-          : returns.length
-          ? {
-              title: "Returns",
-            }
-          : null
-      }
-      footRows={methods.length ? methods : returns.length ? returns : null}
+      foot={[
+        methods.length ? { title: "Methods" } : null,
+        returns.length ? { title: "Returns" } : null,
+        properties.length ? { title: "Atributes" } : null,
+      ].filter((section) => section !== null)}
+      footRows={[
+        methods.length ? methodRows : null,
+        returns.length ? returns : null,
+        properties.length ? propertiesRows : null,
+      ].filter((rows) => rows !== null)}
       additionalClass="full-width"
       footers={footers}
     />
