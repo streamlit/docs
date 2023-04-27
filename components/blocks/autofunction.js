@@ -413,7 +413,7 @@ const Autofunction = ({
       foot={[
         methods.length ? { title: "Methods" } : null,
         returns.length ? { title: "Returns" } : null,
-        properties.length ? { title: "Atributes" } : null,
+        properties.length ? { title: "Attributes" } : null,
       ].filter((section) => section !== null)}
       footRows={[
         methods.length ? methodRows : null,
