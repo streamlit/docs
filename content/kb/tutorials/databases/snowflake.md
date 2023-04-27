@@ -73,7 +73,7 @@ Particular prerequisites to highlight:
 
 ## Add connection parameters to your local app secrets
 
-Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app’s root directory. Create this file if it doesn’t exist yet and add your Snowflake username, password, [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html), and the name of your warehouse, database, and schema as shown below:
+Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app’s root directory. Learn more about [Streamlit secrets management here](/library/advanced-features/secrets-management). Create this file if it doesn’t exist yet and add your Snowflake username, password, [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html), and the name of your warehouse, database, and schema as shown below:
 
 ```toml
 # .streamlit/secrets.toml
@@ -148,7 +148,7 @@ for row in df.itertuples():
     st.write(f"{row.NAME} has a :{row.PET}:")
 ```
 
-This example uses `with conn.safe_session()` to provide thread safety. `conn.session` also works directly, but does not guarantee thread safety.
+This example uses `with conn.safe_session()` to provide thread safety. `conn.session` also works directly, but does not guarantee thread safety. If everything worked out (and you used the example table we created above), your app should look the same as the screenshot from the first example above.
 
 ## Using the Snowflake Connector for Python
 
@@ -201,6 +201,8 @@ df = conn.query('SELECT * from mytable;', ttl=600)
 for row in df.itertuples():
     st.write(f"{row.name} has a :{row.pet}:")
 ```
+
+If everything worked out (and you used the example table we created above), your app should look the same as the screenshot from the first example above.
 
 ## Connecting to Snowflake from Community Cloud
 
