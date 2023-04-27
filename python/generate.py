@@ -20,6 +20,8 @@ from numpydoc.docscrape import NumpyDocString
 # Set up logging to print debug messages to stdout
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
+logger = logging.getLogger(__name__)
+
 
 def parse_rst(rst_string):
     """Parses RST string to HTML using docutils."""
@@ -80,19 +82,25 @@ def get_github_source(func):
     return "".join([repo_prefix, rel_path, f"#L{line}"])
 
 
-def get_property_docstring_dict(prop, propname, signature_prefix, is_class_method):
+def get_property_docstring_dict(
+    prop, propname, signature_prefix, is_class_method, is_property
+):
     """Returns a dictionary containing the docstring information for a given property."""
-    return get_docstring_dict(
+    docstring_dict = get_docstring_dict(
         prop,
         propname,
         signature_prefix,
         is_class=False,
         is_class_method=is_class_method,
+        is_property=is_property,
     )
+    docstring_dict["description"] = docstring_dict["description"].split("\n")[0]
+
+    return docstring_dict
 
 
 def get_docstring_dict(
-    obj, objname, signature_prefix, is_class, is_class_method, is_property=False
+    obj, objname, signature_prefix, is_class, is_class_method, is_property
 ):
     """Returns a dictionary containing the docstring information for a given object (function or class)."""
     # Initialize an empty dictionary to store the object description
@@ -145,6 +153,7 @@ def get_docstring_dict(
                 prop_name,
                 f"{signature_prefix}.{prop_name}",
                 is_class_method=False,
+                is_property=True,
             )
             description["properties"].append(prop_obj)
 
@@ -219,8 +228,12 @@ def get_docstring_dict(
         else:
             description["description"] = short_description
 
-        if is_class_method:
+        if is_property and is_class_method:
             description["description"] = parse_rst(short_description)
+        else:
+            description["description"] = parse_rst(
+                "\n\n".join([short_description, long_description])
+            )
 
         # Initialize the list of arguments in the description dictionary
         description["args"] = []
@@ -269,9 +282,17 @@ def get_function_docstring_dict(
 ):
     """Returns a dictionary containing the docstring information for a given function."""
     if is_class_method:
-        return get_docstring_dict(
-            func, funcname, signature_prefix, is_class=False, is_class_method=True
+        docstring_dict = get_docstring_dict(
+            func,
+            funcname,
+            signature_prefix,
+            is_class=False,
+            is_class_method=True,
+            is_property=False,
         )
+        docstring_dict["description"] = docstring_dict["description"].split("\n")[0]
+        return docstring_dict
+
     return get_docstring_dict(func, funcname, signature_prefix, is_class=False)
 
 
@@ -384,14 +405,26 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
 
             # Call get_function_docstring_dict to get metadata of the current member
             is_class = inspect.isclass(member)
+            is_property = isinstance(member, property)
             if is_class:
                 is_class_method = False
             else:
                 is_class_method = (
                     inspect.ismethod(member) and member.__self__ is not None
                 )
+                logger.debug(
+                    "membername: %s, is_class_method: %s, is_property: %s",
+                    membername,
+                    is_class_method,
+                    is_property,
+                )
             member_docstring_dict = get_docstring_dict(
-                member, membername, signature_prefix, is_class, is_class_method
+                member,
+                membername,
+                signature_prefix,
+                is_class,
+                is_class_method,
+                is_property,
             )
 
         # Add the extracted metadata to obj_docstring_dict
