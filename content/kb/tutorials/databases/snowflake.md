@@ -132,13 +132,14 @@ The same [SnowparkConnection](/library/api-reference/connections/st.connections.
 
 import streamlit as st
 
-# Initialize connection and access underlying Snowpark session.
-session = st.experimental_connection('snowpark').session
+# Initialize connection.
+conn = st.experimental_connection('snowpark')
 
-# Load the table as a dataframe using Snowpark API.
+# Load the table as a dataframe using the Snowpark Session.
 @st.cache_data
 def load_table():
-    return session.table('mytable').to_pandas()
+    with conn.safe_session() as session:
+        return session.table('mytable').to_pandas()
 
 df = load_table()
 
@@ -146,6 +147,8 @@ df = load_table()
 for row in df.itertuples():
     st.write(f"{row.NAME} has a :{row.PET}:")
 ```
+
+This example uses `with conn.safe_session()` to provide thread safety. `conn.session` also works directly, but does not guarantee thread safety.
 
 ## Using the Snowflake Connector for Python
 
