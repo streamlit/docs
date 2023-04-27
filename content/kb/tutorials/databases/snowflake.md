@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/snowflake
 
 ## Introduction
 
-This guide explains how to securely access a Snowflake database from Streamlit. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection), the [snowpark-python](https://docs.snowflake.com/en/developer-guide/snowpark/python/index) library and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). **The below example code will only work on Streamlit version >= 1.22, when `st.experimental_connection` was added.**
+This guide explains how to securely access a Snowflake database from Streamlit. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection), the [Snowpark Python](https://docs.snowflake.com/en/developer-guide/snowpark/python/index) library and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). **The below example code will only work on Streamlit version >= 1.22, when `st.experimental_connection` was added.**
 
 Skip to the bottom for information about [connecting using Snowflake Connector for Python](#using-the-snowflake-connector-for-python).
 
@@ -38,7 +38,7 @@ INSERT INTO MYTABLE VALUES ('Mary', 'dog'), ('John', 'cat'), ('Robert', 'bird');
 SELECT * FROM MYTABLE;
 ```
 
-Before you execute the queries, first determine which Snowflake UI / web interface you're using. The examples below use [SnowSight](https://docs.snowflake.com/en/user-guide/ui-snowsight). You can also use [Classic Console Worksheets](https://docs.snowflake.com/en/user-guide/ui-worksheet) or any other means of running Snowflake SQL statements.
+Before you execute the queries, first determine which Snowflake UI / web interface you're using. The examples below use [Snowsight](https://docs.snowflake.com/en/user-guide/ui-snowsight). You can also use [Classic Console Worksheets](https://docs.snowflake.com/en/user-guide/ui-worksheet) or any other means of running Snowflake SQL statements.
 
 ### Execute queries in a Worksheet
 
@@ -60,7 +60,7 @@ Make sure to note down the name of your warehouse, database, and schema. ☝️
 
 ## Install snowflake-snowpark-python
 
-You can find the instructions and prerequisites for installing snowflake-snowpark-python in the [Snowpark Developer Guide](https://docs.snowflake.com/en/developer-guide/snowpark/python/setup).
+You can find the instructions and prerequisites for installing `snowflake-snowpark-python` in the [Snowpark Developer Guide](https://docs.snowflake.com/en/developer-guide/snowpark/python/setup).
 
 ```sh
 pip install "snowflake-snowpark-python[pandas]"
@@ -69,7 +69,7 @@ pip install "snowflake-snowpark-python[pandas]"
 Particular prerequisites to highlight:
 
 - Currently, only python 3.8 is supported.
-- Ensure you have the correct pyarrow version installed for your version of snowflake-snowpark-python. When in doubt, try uninstalling pyarrow before installing snowflake-snowpark-python.
+- Ensure you have the correct pyarrow version installed for your version of `snowflake-snowpark-python`. When in doubt, try uninstalling pyarrow before installing snowflake-snowpark-python.
 
 ## Add connection parameters to your local app secrets
 
@@ -89,7 +89,7 @@ schema = "xxx"
 client_session_keep_alive = true
 ```
 
-If you created the database from the previous step, the names of your database and schema are `PETS` and `PUBLIC`, respectively. **Streamlit will also use Snowflake config and credentials from a [snowsql config file](https://docs.snowflake.com/en/user-guide/snowsql-config#snowsql-config-file) if available.**
+If you created the database from the previous step, the names of your database and schema are `PETS` and `PUBLIC`, respectively. **Streamlit will also use Snowflake config and credentials from a [SnowSQL config file](https://docs.snowflake.com/en/user-guide/snowsql-config#snowsql-config-file) if available.**
 
 <Important>
 
@@ -208,4 +208,4 @@ This tutorial assumes a local Streamlit app, however you can also connect to Sno
 
 - [Include information about dependencies](/streamlit-community-cloud/get-started/deploy-an-app/app-dependencies) using a `requirements.txt` file with `snowflake-snowpark-python` and any other dependencies.
 - [Add your secrets](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management#deploy-an-app-and-set-up-secrets) to your Community Cloud app.
-- For apps using snowpark-python, you should also ensure the app is [running on python 3.8](/streamlit-community-cloud/get-started/deploy-an-app#advanced-settings-for-deployment).
+- For apps using `snowflake-snowpark-python`, you should also ensure the app is [running on python 3.8](/streamlit-community-cloud/get-started/deploy-an-app#advanced-settings-for-deployment).
