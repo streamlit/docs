@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/snowflake
 
 ## Introduction
 
-This guide explains how to securely access a Snowflake database from Streamlit. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection), the [Snowpark Python](https://docs.snowflake.com/en/developer-guide/snowpark/python/index) library and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). **The below example code will only work on Streamlit version >= 1.22, when `st.experimental_connection` was added.**
+This guide explains how to securely access a Snowflake database from Streamlit. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection), the [Snowpark Python](https://docs.snowflake.com/en/developer-guide/snowpark/python/index) library and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). The below example code **will only work on Streamlit version >= 1.22**, when `st.experimental_connection` was added.
 
 Skip to the bottom for information about [connecting using Snowflake Connector for Python](#using-the-snowflake-connector-for-python).
 
@@ -89,7 +89,7 @@ schema = "xxx"
 client_session_keep_alive = true
 ```
 
-If you created the database from the previous step, the names of your database and schema are `PETS` and `PUBLIC`, respectively. **Streamlit will also use Snowflake config and credentials from a [SnowSQL config file](https://docs.snowflake.com/en/user-guide/snowsql-config#snowsql-config-file) if available.**
+If you created the database from the previous step, the names of your database and schema are `PETS` and `PUBLIC`, respectively. Streamlit will also use **Snowflake config and credentials** from a [SnowSQL config file](https://docs.snowflake.com/en/user-guide/snowsql-config#snowsql-config-file) if available.
 
 <Important>
 
@@ -160,7 +160,7 @@ pip install snowflake-sqlalchemy
 
 Installing `snowflake-sqlalchemy` will also install all necessary dependencies.
 
-Configuring credentials follows the `SQLConnection` format which is slightly different. See the [Snowflake SQLAlchemy Configuration Parameters documentation](https://docs.snowflake.com/en/developer-guide/python-connector/sqlalchemy#connection-parameters) for more details.
+Configuring credentials follows the `SQLConnection` format which is slightly different. See the Snowflake SQLAlchemy [Configuration Parameters](https://docs.snowflake.com/en/developer-guide/python-connector/sqlalchemy#connection-parameters) documentation for more details.
 
 ```toml
 # .streamlit/secrets.toml
