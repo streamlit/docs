@@ -236,26 +236,26 @@ export default function Home({ window, menu, gdpr_data }) {
 
             <NewsContainer>
               <NewsEntry
-                date="2023-04-04T16:05:00.000Z"
-                title="Introducing Streamlit to the Polish Python community"
-                text="My Streamlit presentation at PyWaW #103"
-                link="https://blog.streamlit.io/introducing-streamlit-to-the-polish-python-community/"
+                date="2023-04-27T16:05:00.000Z"
+                title="The ultimate athlete management dashboard for biomechanics"
+                text="Learn how to measure jump impulse, max force, and asymmetry with Python and Streamlit"
+                link="https://blog.streamlit.io/the-ultimate-athlete-management-dashboard-for-biomechanics/"
                 image="/blog-1.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2023-03-29T16:05:00.000Z"
-                title="Building an Instagram hashtag generation app with Streamlit"
-                text="5 simple steps on how to build it"
-                link="https://blog.streamlit.io/building-an-instagram-hashtag-generation-app-with-streamlit/"
+                date="2023-04-20T16:05:00.000Z"
+                title="Create an animated data story with ipyvizzu and Streamlit"
+                text="A tutorial on using ipyvizzu and ipyvizzu-story"
+                link="https://blog.streamlit.io/create-an-animated-data-story-with-ipyvizzu-and-streamlit/"
                 image="/blog-2.svg"
                 target="_blank"
               />
               <NewsEntry
-                date="2023-03-22T16:05:00.000Z"
-                title="Monthly rewind > February 2023"
-                text="Your February look-back at new features and great community content"
-                link="https://blog.streamlit.io/monthly-rewind-february-2023/"
+                date="2023-04-13T16:05:00.000Z"
+                title="Introducing a chemical molecule component for your Streamlit apps"
+                text="Integrate a fully featured molecule editor with just a few lines of code!"
+                link="https://blog.streamlit.io/introducing-a-chemical-molecule-component-for-your-streamlit-apps/"
                 image="/blog-3.svg"
                 target="_blank"
               />
