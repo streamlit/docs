@@ -16,6 +16,7 @@ import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 
 import styles from "./autofunction.module.css";
+import { name } from "file-loader";
 
 const cleanHref = (name) => {
   return String(name).replace(".", "").replace(" ", "-");
@@ -124,9 +125,13 @@ const Autofunction = ({
   let functionDescription;
   let header;
   let body;
+  let isClass;
+  let methods = [];
+  let properties = [];
 
   if (streamlitFunction in streamlit) {
     functionObject = streamlit[streamlitFunction];
+    isClass = functionObject.is_class;
     if (
       functionObject.description !== undefined &&
       functionObject.description
@@ -149,14 +154,25 @@ const Autofunction = ({
     );
   }
 
+  if ("methods" in functionObject) {
+    methods = functionObject.methods;
+  }
+
+  if ("properties" in functionObject) {
+    properties = functionObject.properties;
+  }
+
   if (hideHeader !== undefined && hideHeader) {
     header = "";
   } else {
+    const functionName = functionObject.signature
+      ? `${functionObject.signature}`.split("(")[0].replace("streamlit", "st")
+      : "";
     const name =
       String(functionObject.name).startsWith("html") ||
       String(functionObject.name).startsWith("iframe")
         ? `st.components.v1.${functionObject.name}`
-        : `st.${functionObject.name}`;
+        : functionName;
     const selectClass =
       currentVersion !== versionList[0]
         ? "version-select old-version"
@@ -258,6 +274,86 @@ const Autofunction = ({
     args.push(row);
   }
 
+  let methodRows = [];
+
+  for (const index in methods) {
+    const row = {};
+    const method = methods[index];
+    const slicedSlug = slug.slice().join("/");
+    const hrefName = `${functionObject.name}.${method.name}`
+      .toLowerCase()
+      .replace("streamlit", "st")
+      .replace(/[.,\/#!$%\^&\*;:{}=\-`~()]/g, "");
+    const type_name = method.signature
+      ? method.signature.match(/\(([^)]*)\)/)[1]
+      : "";
+    const isDeprecated =
+      method.deprecated && method.deprecated.deprecated === true;
+    const deprecatedMarkup = isDeprecated
+      ? `
+    <div class="${styles.DeprecatedContent}">
+      <i class="material-icons-sharp">
+        delete
+      </i>
+      ${method.deprecated.deprecatedText}
+    </div>`
+      : "";
+    const description = method.description
+      ? method.description
+      : `<p>No description</p> `;
+    // Add a link to the method by appending the method name to the current URL using slug.slice();
+    row["title"] = `
+    <p class="${isDeprecated ? "deprecated" : ""}">
+      <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
+      method.name
+    }</span></a><span class='italic code'>(${type_name})</span>
+    </p>`;
+    row["body"] = `
+    ${deprecatedMarkup}
+    ${description}
+  `;
+
+    methodRows.push(row);
+  }
+
+  let propertiesRows = [];
+
+  for (const index in properties) {
+    const row = {};
+    const property = properties[index];
+    const slicedSlug = slug.slice().join("/");
+    const hrefName = `${functionObject.name}.${property.name}`
+      .toLowerCase()
+      .replace("streamlit", "st")
+      .replace(/[.,\/#!$%\^&\*;:{}=\-`~()]/g, "");
+    const isDeprecated =
+      property.deprecated && property.deprecated.deprecated === true;
+    const deprecatedMarkup = isDeprecated
+      ? `
+    <div class="${styles.DeprecatedContent}">
+      <i class="material-icons-sharp">
+        delete
+      </i>
+      ${property.deprecated.deprecatedText}
+    </div>`
+      : "";
+    const description = property.description
+      ? property.description
+      : `<p>No description</p> `;
+    // Add a link to the method by appending the method name to the current URL using slug.slice();
+    row["title"] = `
+    <p class="${isDeprecated ? "deprecated" : ""}">
+      <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
+      property.name
+    }</span>
+    </p>`;
+    row["body"] = `
+    ${deprecatedMarkup}
+    ${description}
+  `;
+    propertiesRows.push(row);
+  }
+
   for (const index in functionObject.returns) {
     const row = {};
     const param = functionObject.returns[index];
@@ -273,12 +369,30 @@ const Autofunction = ({
     returns.push(row);
   }
 
+  const footTitles = [];
+  const footRowsContent = [];
+
+  if (methods.length) {
+    footTitles.push({ title: "Methods" });
+    footRowsContent.push(methodRows);
+  }
+
+  if (returns.length) {
+    footTitles.push({ title: "Returns" });
+    footRowsContent.push(returns);
+  }
+
+  if (properties.length) {
+    footTitles.push({ title: "Properties" });
+    footRowsContent.push(propertiesRows);
+  }
+
   body = (
     <Table
       head={{
         title: (
           <>
-            Function signature
+            {isClass ? "Class description" : "Function signature"}
             <a
               className={styles.Title.a}
               href={functionObject.source}
@@ -294,22 +408,18 @@ const Autofunction = ({
         ),
         content: `<p class='code'> ${functionObject.signature}</p> `,
       }}
-      body={
-        args.length
-          ? {
-              title: "Parameters",
-            }
-          : null
-      }
+      body={args.length ? { title: "Parameters" } : null}
       bodyRows={args.length ? args : null}
-      foot={
-        returns.length
-          ? {
-              title: "Returns",
-            }
-          : null
-      }
-      footRows={returns.length ? returns : null}
+      foot={[
+        methods.length ? { title: "Methods" } : null,
+        returns.length ? { title: "Returns" } : null,
+        properties.length ? { title: "Attributes" } : null,
+      ].filter((section) => section !== null)}
+      footRows={[
+        methods.length ? methodRows : null,
+        returns.length ? returns : null,
+        properties.length ? propertiesRows : null,
+      ].filter((rows) => rows !== null)}
       additionalClass="full-width"
       footers={footers}
     />
