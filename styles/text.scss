@@ -120,3 +120,8 @@ p a code {
 div.code-desc {
   @apply mb-4 text-gray-90 dark:text-white;
 }
+
+/* Inline code blocks in docstrings */
+tt.docutils.literal {
+  @apply border border-gray-40 text-red-70 rounded-md px-1 mx-1 break-words;
+}

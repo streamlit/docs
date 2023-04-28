@@ -14,7 +14,7 @@ the issues below, check out [Streamlit Community Cloud](https://streamlit.io/clo
 ### Symptom #1: The app never loads
 
 When you enter the app's URL in a browser and all you see is a **blank page, a
-"Page not found" error, a "Conection refused" error**, or anything like that,
+"Page not found" error, a "Connection refused" error**, or anything like that,
 first check that Streamlit is actually running on the remote server. On a Linux
 server you can SSH into it and then run:
 

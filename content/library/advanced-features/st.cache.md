@@ -417,7 +417,7 @@ def get_database_connection():
     return db.get_connection()
 ```
 
-With just 3 lines of code, the database connection is created once and stored in the cache. Then, every subsequent time `get_database_conection` is called, the already-created connection object is reused automatically. In other words, it becomes a singleton.
+With just 3 lines of code, the database connection is created once and stored in the cache. Then, every subsequent time `get_database_connection` is called, the already-created connection object is reused automatically. In other words, it becomes a singleton.
 
 <Tip>
 
@@ -434,7 +434,7 @@ def get_users(connection):
     return connection.execute_sql('SELECT * from Users')
 ```
 
-Here, we use Python's built-in `id` function, because the connection object is coming from the Streamlit cache via the `get_database_conection` function. This means that the same connection instance is passed around every time, and therefore it always has the same id. However, if you happened to have a second connection object around that pointed to an entirely different database, it would still be safe to pass it to `get_users` because its id is guaranteed to be different than the first id.
+Here, we use Python's built-in `id` function, because the connection object is coming from the Streamlit cache via the `get_database_connection` function. This means that the same connection instance is passed around every time, and therefore it always has the same id. However, if you happened to have a second connection object around that pointed to an entirely different database, it would still be safe to pass it to `get_users` because its id is guaranteed to be different than the first id.
 
 These design patterns apply any time you have an object that points to an external resource, such as a database connection or Tensorflow session.
 
