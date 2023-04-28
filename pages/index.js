@@ -149,15 +149,12 @@ export default function Home({ window, menu, gdpr_data }) {
             <H2 className="no-b-m">What's new</H2>
 
             <TileContainer>
-              <RefCard
-                size="third"
-                href="/library/api-reference/text/st.divider"
-              >
-                <i className="material-icons-sharp">horizontal_rule</i>
-                <h4>st.divider</h4>
+              <RefCard size="third" href="/library/api-reference/connections">
+                <i className="material-icons-sharp">electrical_services</i>
+                <h4>st.experimental_connection</h4>
                 <p>
-                  Introducing <code>st.divider</code> — a command that displays
-                  a horizontal line in your app. Click to see how it works.
+                  Introducing <code>st.experimental_connection</code> to let you
+                  easily connect your app to data sources and APIs.
                 </p>
               </RefCard>
               <RefCard
