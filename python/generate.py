@@ -9,18 +9,17 @@ import sys
 import types
 
 import docstring_parser
-import stoutput
 import streamlit
 import streamlit.components.v1 as components
-import utils
 from docutils.core import publish_parts
 from docutils.parsers.rst import directives
 from numpydoc.docscrape import NumpyDocString
 
+import stoutput
+import utils
+
 # Set up logging to print debug messages to stdout
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
-
-logger = logging.getLogger(__name__)
 
 
 def parse_rst(rst_string):
@@ -412,12 +411,7 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
                 is_class_method = (
                     inspect.ismethod(member) and member.__self__ is not None
                 )
-                logger.debug(
-                    "membername: %s, is_class_method: %s, is_property: %s",
-                    membername,
-                    is_class_method,
-                    is_property,
-                )
+
             member_docstring_dict = get_docstring_dict(
                 member,
                 membername,
