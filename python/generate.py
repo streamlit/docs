@@ -9,14 +9,13 @@ import sys
 import types
 
 import docstring_parser
+import stoutput
 import streamlit
 import streamlit.components.v1 as components
+import utils
 from docutils.core import publish_parts
 from docutils.parsers.rst import directives
 from numpydoc.docscrape import NumpyDocString
-
-import stoutput
-import utils
 
 # Set up logging to print debug messages to stdout
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
@@ -47,7 +46,7 @@ def strip_code_prompts(rst_string):
 def get_github_source(func):
     """Returns a link to the source code on GitHub for a given command."""
     repo_prefix = (
-        f"https://github.com/streamlit/streamlit/blob/{streamlit.__version__}/lib"
+        f"https://github.com/streamlit/streamlit/blob/{streamlit.__version__}/lib/"
     )
 
     if hasattr(func, "__dict__"):

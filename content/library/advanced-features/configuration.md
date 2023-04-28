@@ -72,7 +72,7 @@ streamlit config show
 The command above will print something like this:
 
 ```toml
-# Streamlit version: 1.21.0
+# Streamlit version: 1.22.0
 
 [global]
 
@@ -116,6 +116,15 @@ displayEnabled = true
 # If set to False, an exception will result in a generic message being shown in the browser, and exceptions and tracebacks will be printed to the console only.
 # Default: true
 showErrorDetails = true
+
+# Change the visibility of items in the toolbar, options menu, and settings dialog (top right of the app).
+# Allowed values:
+# "auto" : Show the developer options if the app is accessed through localhost and hide them otherwise.
+# "developer" : Show the developer options.
+# "viewer" : Hide the developer options.
+# "minimal" : Show only options set externally (e.g. through Streamlit Community Cloud) or through st.set_page_config. If there are no options left, hide the menu.
+# Default: "auto"
+toolbarMode = "auto"
 
 
 [runner]
