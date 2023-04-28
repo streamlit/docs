@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/mysql
 
 ## Introduction
 
-This guide explains how to securely access a **_remote_** MySQL database from Streamlit Community Cloud. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection) and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). **The below example code will only work on Streamlit version >= 1.22, when `st.experimental_connection` was added.**
+This guide explains how to securely access a **_remote_** MySQL database from Streamlit Community Cloud. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection) and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). The below example code will **only work on Streamlit version >= 1.22**, when `st.experimental_connection` was added.
 
 ## Create a MySQL database
 
