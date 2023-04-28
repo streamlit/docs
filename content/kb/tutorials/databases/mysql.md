@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/mysql
 
 ## Introduction
 
-This guide explains how to securely access a **_remote_** MySQL database from Streamlit Community Cloud. It uses the [mysql-connector-python](https://github.com/mysql/mysql-connector-python) library and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+This guide explains how to securely access a **_remote_** MySQL database from Streamlit Community Cloud. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection) and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). The below example code will **only work on Streamlit version >= 1.22**, when `st.experimental_connection` was added.
 
 ## Create a MySQL database
 
@@ -35,22 +35,23 @@ INSERT INTO mytable VALUES ('Mary', 'dog'), ('John', 'cat'), ('Robert', 'bird');
 
 ## Add username and password to your local app secrets
 
-Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Create this file if it doesn't exist yet and add the database name, user, and password of your MySQL server as shown below:
+Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Learn more about [Streamlit secrets management here](/library/advanced-features/secrets-management). Create this file if it doesn't exist yet and add the database name, user, and password of your MySQL server as shown below:
 
 ```toml
 # .streamlit/secrets.toml
 
-[mysql]
+[connections.mysql]
+dialect = "mysql"
 host = "localhost"
 port = 3306
 database = "xxx"
-user = "xxx"
+username = "xxx"
 password = "xxx"
 ```
 
 <Important>
 
-When copying your app secrets to Streamlit Community Cloud, be sure to replace the values of **host**, **port**, **database**, **user**, and **password** with those of your _remote_ MySQL database!
+When copying your app secrets to Streamlit Community Cloud, be sure to replace the values of **host**, **port**, **database**, **username**, and **password** with those of your _remote_ MySQL database!
 
 Add this file to `.gitignore` and don't commit it to your GitHub repo!
 
@@ -62,13 +63,14 @@ As the `secrets.toml` file above is not committed to GitHub, you need to pass it
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 
-## Add mysql-connector-python to your requirements file
+## Add dependencies to your requirements file
 
-Add the [mysql-connector-python](https://github.com/mysql/mysql-connector-python) package to your `requirements.txt` file, preferably pinning its version (replace `x.x.x` with the version you want installed):
+Add the [mysqlclient](https://github.com/PyMySQL/mysqlclient) and [SQLAlchemy](https://github.com/sqlalchemy/sqlalchemy) packages to your `requirements.txt` file, preferably pinning its version (replace `x.x.x` with the version you want installed):
 
 ```bash
 # requirements.txt
-mysql-connector-python==x.x.x
+mysqlclient==x.x.x
+SQLAlchemy==x.x.x
 ```
 
 ## Write your Streamlit app
@@ -79,32 +81,19 @@ Copy the code below to your Streamlit app and run it. Make sure to adapt `query`
 # streamlit_app.py
 
 import streamlit as st
-import mysql.connector
 
 # Initialize connection.
-# Uses st.cache_resource to only run once.
-@st.cache_resource
-def init_connection():
-    return mysql.connector.connect(**st.secrets["mysql"])
-
-conn = init_connection()
+conn = st.experimental_connection('mysql', type='sql')
 
 # Perform query.
-# Uses st.cache_data to only rerun when the query changes or after 10 min.
-@st.cache_data(ttl=600)
-def run_query(query):
-    with conn.cursor() as cur:
-        cur.execute(query)
-        return cur.fetchall()
-
-rows = run_query("SELECT * from mytable;")
+df = conn.query('SELECT * from mytable;', ttl=600)
 
 # Print results.
-for row in rows:
-    st.write(f"{row[0]} has a :{row[1]}:")
+for row in df.itertuples():
+    st.write(f"{row.name} has a :{row.pet}:")
 ```
 
-See `st.cache_data` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache_data`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Learn more in [Caching](/library/advanced-features/caching).
+See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl=600` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=None` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 
