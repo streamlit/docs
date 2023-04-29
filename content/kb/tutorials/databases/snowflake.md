@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/snowflake
 
 ## Introduction
 
-This guide explains how to securely access a Snowflake database from Streamlit. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection), the [Snowpark Python](https://docs.snowflake.com/en/developer-guide/snowpark/python/index) library and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). The below example code **will only work on Streamlit version >= 1.22**, when `st.experimental_connection` was added.
+This guide explains how to securely access a Snowflake database from Streamlit. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection), the [Snowpark Python](https://docs.snowflake.com/en/developer-guide/snowpark/python/index) library and Streamlit's [secrets management](/library/advanced-features/secrets-management). The below example code **will only work on Streamlit version >= 1.22**, when `st.experimental_connection` was added.
 
 Skip to the bottom for information about [connecting using Snowflake Connector for Python](#using-the-snowflake-connector-for-python).
 
