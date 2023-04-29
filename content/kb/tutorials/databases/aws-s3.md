@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/aws-s3
 
 ## Introduction
 
-This guide explains how to securely access files on AWS S3 from Streamlit Community Cloud. It uses the [s3fs](https://github.com/dask/s3fs) library and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+This guide explains how to securely access files on AWS S3 from Streamlit Community Cloud. It uses [Streamlit FilesConnection](https://github.com/streamlit/files-connection), the [s3fs](https://github.com/dask/s3fs) library and optionally Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ## Create an S3 bucket and add a file
 
@@ -55,9 +55,11 @@ access keys. More information [here](https://docs.aws.amazon.com/general/latest/
 
 </Tip>
 
-## Add the key to your local app secrets
+## Set up your AWS credentials locally
 
-Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Create this file if it doesn't exist yet and add to it the access key ID, access key secret, and the AWS default region you noted down earlier, as shown below:
+Streamlit FilesConnection and s3fs will read and use your existing [AWS credentials and configuration](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html) if available - such as from an `~/.aws/credentials` file or environment variables.
+
+If you don't already have this set up, or plan to host the app on Streamlit Community Cloud, you should specify the credentials from a file `.streamlit/secrets.toml` in your app's root directory or your home directory. Create this file if it doesn't exist yet and add to it the access key ID, access key secret, and the AWS default region you noted down earlier, as shown below:
 
 ```toml
 # .streamlit/secrets.toml
@@ -74,17 +76,19 @@ Be sure to replace `xxx` above with the values you noted down earlier, and add t
 
 ## Copy your app secrets to the cloud
 
-As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Community Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets Management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+To host your app on Streamlit Community Cloud, you will need to pass your credentials to your deployed app via secrets. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` above into the text area. More information is available at [Secrets Management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 
-## Add s3fs to your requirements file
+## Add FilesConnection and s3fs to your requirements file
 
-Add the [s3fs](https://github.com/dask/s3fs) package to your `requirements.txt` file, preferably pinning its version (replace `x.x.x` with the version you want installed):
+Add the [FilesConnection](https://github.com/streamlit/files-connection) and [s3fs](https://github.com/dask/s3fs) packages to your `requirements.txt` file, preferably pinning the versions (replace `x.x.x` with the version you want installed):
 
 ```bash
 # requirements.txt
 s3fs==x.x.x
+# Direct pypi install coming soon
+git+https://github.com/streamlit/files-connection
 ```
 
 ## Write your Streamlit app
@@ -95,29 +99,19 @@ Copy the code below to your Streamlit app and run it. Make sure to adapt the nam
 # streamlit_app.py
 
 import streamlit as st
-import s3fs
-import os
+from st_files_connection import FilesConnection
 
-# Create connection object.
-# `anon=False` means not anonymous, i.e. it uses access keys to pull data.
-fs = s3fs.S3FileSystem(anon=False)
-
-# Retrieve file contents.
-# Uses st.cache_data to only rerun when the query changes or after 10 min.
-@st.cache_data(ttl=600)
-def read_file(filename):
-    with fs.open(filename) as f:
-        return f.read().decode("utf-8")
-
-content = read_file("testbucket-jrieke/myfile.csv")
+# Create connection object and retrieve file contents.
+# Specify input format is a csv and to cache the result for 600 seconds.
+conn = st.experimental_connection('s3', type=FilesConnection)
+df = conn.read("testbucket-jrieke/myfile.csv", input_format="csv", ttl=600)
 
 # Print results.
-for line in content.strip().split("\n"):
-    name, pet = line.split(",")
-    st.write(f"{name} has a :{pet}:")
+for row in df.itertuples():
+    st.write(f"{row.Owner} has a :{row.Pet}:")
 ```
 
-See `st.cache_data` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache_data`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Learn more in [Caching](/library/advanced-features/caching).
+See `st.experimental_connection` above? This handles secrets retrieval, setup, result caching and retries. By default, `read()` results are cached without expiring. In this case, we set `ttl=600` to ensure the file contents is cached for no longer than 10 minutes. You can also set `ttl=None` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
 
 If everything worked out (and you used the example file given above), your app should look like this:
 
