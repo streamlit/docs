@@ -52,8 +52,6 @@ import Important from "../components/blocks/important";
 import Note from "../components/blocks/note";
 import NoteSplit from "../components/blocks/noteSplit";
 import RefCard from "../components/blocks/refCard";
-import ComponentSlider from "../components/blocks/componentSlider";
-import ComponentCard from "../components/blocks/componentCard";
 import DataSourcesCard from "../components/blocks/dataSourcesCard";
 import Tile from "../components/blocks/tile";
 import InlineCallout from "../components/blocks/inlineCallout";
@@ -110,8 +108,6 @@ export default function Article({
     TileContainer,
     Tile,
     RefCard,
-    ComponentCard,
-    ComponentSlider,
     DataSourcesContainer,
     DataSourcesCard,
     Image,
@@ -353,7 +349,7 @@ export async function getStaticProps(context) {
 
   return {
     props: props,
-    // revalidate: 60,
+    revalidate: 60,
   };
 }
 
@@ -438,6 +434,6 @@ export async function getStaticPaths() {
 
   return {
     paths: paths,
-    fallback: false,
+    fallback: true,
   };
 }
