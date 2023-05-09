@@ -298,6 +298,20 @@ site_menu:
   - category: Streamlit library / API reference / Personalization / st.experimental_user
     url: /library/api-reference/personalization/st.experimental_user
     isVersioned: false
+  - category: Streamlit library / API reference / Connections and databases
+    url: /library/api-reference/connections
+  - category: Streamlit library / API reference / Connections and databases / st.experimental_connection
+    url: /library/api-reference/connections/st.experimental_connection
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / SQLConnection
+    url: /library/api-reference/connections/st.connections.sqlconnection
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / SnowparkConnection
+    url: /library/api-reference/connections/st.connections.snowparkconnection
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / Connection base class
+    url: /library/api-reference/connections/st.connections.experimentalbaseconnection
+    isVersioned: true
   - category: Streamlit library / Advanced features
     url: /library/advanced-features
   - category: Streamlit library / Advanced features/ Command-line options

@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/gcs
 
 ## Introduction
 
-This guide explains how to securely access files on Google Cloud Storage from Streamlit Community Cloud. It uses the [google-cloud-storage](https://googleapis.dev/python/storage/latest/index.html) library and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+This guide explains how to securely access files on Google Cloud Storage from Streamlit Community Cloud. It uses [Streamlit FilesConnection](https://github.com/streamlit/files-connection), the [gcsfs](https://github.com/fsspec/gcsfs) library and Streamlit's [secrets management](/library/advanced-features/secrets-management).
 
 ## Create a Google Cloud Storage bucket and add a file
 
@@ -50,7 +50,7 @@ If you do need to enable the API for programmatic access in your project, head o
 
 ## Create a service account and key file
 
-To use the Google Cloud Storage API from Streamlit Community Cloud, you need a Google Cloud Platform service account (a special type for programmatic data access). Go to the Service Accounts page and create an account with <b>Viewer</b> permission.
+To use the Google Cloud Storage API from Streamlit, you need a Google Cloud Platform service account (a special type for programmatic data access). Go to the Service Accounts page and create an account with <b>Viewer</b> permission.
 
 <Flex>
 <Image alt="GCS screenshot 8" src="/images/databases/gcs-8.png" />
@@ -80,7 +80,7 @@ Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml`
 ```toml
 # .streamlit/secrets.toml
 
-[gcp_service_account]
+[connections.gcs]
 type = "service_account"
 project_id = "xxx"
 private_key_id = "xxx"
@@ -105,13 +105,15 @@ As the `secrets.toml` file above is not committed to GitHub, you need to pass it
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 
-## Add google-cloud-storage to your requirements file
+## Add FilesConnection and gcsfs to your requirements file
 
-Add the [google-cloud-storage](https://googleapis.dev/python/storage/latest/index.html) package to your `requirements.txt` file, preferably pinning its version (replace `x.x.x` with the version you want installed):
+Add the [FilesConnection](https://github.com/streamlit/files-connection) and [gcsfs](https://github.com/fsspec/gcsfs) packages to your `requirements.txt` file, preferably pinning the versions (replace `x.x.x` with the version you want installed):
 
 ```bash
 # requirements.txt
-google-cloud-storage==x.x.x
+gcsfs==x.x.x
+# Direct pypi install coming soon
+git+https://github.com/streamlit/files-connection
 ```
 
 ## Write your Streamlit app
@@ -122,35 +124,19 @@ Copy the code below to your Streamlit app and run it. Make sure to adapt the nam
 # streamlit_app.py
 
 import streamlit as st
-from google.oauth2 import service_account
-from google.cloud import storage
+from st_files_connection import FilesConnection
 
-# Create API client.
-credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"]
-)
-client = storage.Client(credentials=credentials)
-
-# Retrieve file contents.
-# Uses st.cache_data to only rerun when the query changes or after 10 min.
-@st.cache_data(ttl=600)
-def read_file(bucket_name, file_path):
-    bucket = client.bucket(bucket_name)
-    content = bucket.blob(file_path).download_as_string().decode("utf-8")
-    return content
-
-bucket_name = "streamlit-bucket"
-file_path = "myfile.csv"
-
-content = read_file(bucket_name, file_path)
+# Create connection object and retrieve file contents.
+# Specify input format is a csv and to cache the result for 600 seconds.
+conn = st.experimental_connection('gcs', type=FilesConnection)
+df = conn.read("streamlit-bucket/myfile.csv", input_format="csv", ttl=600)
 
 # Print results.
-for line in content.strip().split("\n"):
-    name, pet = line.split(",")
-    st.write(f"{name} has a :{pet}:")
+for row in df.itertuples():
+    st.write(f"{row.Owner} has a :{row.Pet}:")
 ```
 
-See `st.cache_data` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache_data`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Learn more in [Caching](/library/advanced-features/caching).
+See `st.experimental_connection` above? This handles secrets retrieval, setup, result caching and retries. By default, `read()` results are cached without expiring. In this case, we set `ttl=600` to ensure the file contents is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
 
 If everything worked out (and you used the example file given above), your app should look like this:
 
