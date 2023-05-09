@@ -34,8 +34,7 @@
 
 /* Top gradient styles when scrolling */
 .TopGradient {
-  @apply hidden lg:block fixed top-0 w-full bg-gradient-to-b from-white z-10;
-  max-width: 280px;
+  @apply hidden lg:block fixed top-0 w-full bg-gradient-to-b from-white z-10 max-w-[280px] lg:max-w-[240px] xl:max-w-[280px];
 }
 
 :global(.dark) .TopGradient {
