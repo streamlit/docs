@@ -291,7 +291,6 @@ Supported static `st` elements in cache-decorated functions include:
 - `st.expander`
 - `st.experimental_get_query_params`
 - `st.experimental_set_query_params`
-- `st.experimental_show`
 - `st.form`
 - `st.form_submit_button`
 - `st.graphviz_chart`
