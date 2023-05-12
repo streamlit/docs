@@ -14,17 +14,29 @@ import styles from "./code.module.css";
 
 const Code = ({ code, children, language, img, lines }) => {
   useEffect(() => {
+    // Get the language from the className, if it exists.
+    // Classname usually is `language-python`, `language-javascript`, `language-bash`, etc.
+    let importLanguage = children.props.className?.substring(9);
+
+    // If no language, default to Phython
+    if (importLanguage === undefined || importLanguage === "undefined") {
+      importLanguage = "python";
+    }
+    // Default `sh` language to `bash` for Prism import, since we use `sh` throughout our codebase but it's not a proper Prism import
+    else if (importLanguage === "sh") {
+      importLanguage = "bash";
+    }
+
+    // After we have the values, let's import just the necessary languages
     async function highlight() {
-      if (typeof window !== "undefined" || !language) {
-        await import(
-          `prismjs/components/prism-${language ? language : "python"}`
-        );
+      if (typeof window !== "undefined") {
+        await import(`prismjs/components/prism-${importLanguage}`);
         Prism.highlightAll();
       }
     }
 
     highlight();
-  }, [language]);
+  }, [children]);
 
   let ConditionalRendering;
   let customCode = code !== undefined ? code : children;
