@@ -1,13 +1,6 @@
 import React, { useEffect } from "react";
 import classNames from "classnames";
 import Prism from "prismjs";
-import "prismjs/components/prism-bash";
-import "prismjs/components/prism-docker";
-import "prismjs/components/prism-jsx";
-import "prismjs/components/prism-python";
-import "prismjs/components/prism-sql";
-import "prismjs/components/prism-toml";
-import "prismjs/components/prism-yaml";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
 import "prismjs/plugins/line-highlight/prism-line-highlight";
 import "prismjs/plugins/line-highlight/prism-line-highlight.css";
@@ -21,17 +14,17 @@ import styles from "./code.module.css";
 
 const Code = ({ code, children, language, img, lines }) => {
   useEffect(() => {
-    Prism.highlightAll();
-  }, []);
-  //   if (window) {
-  //     window.initial = { prism: true };
-  //     Prism.highlightAll();
-  //   }
+    async function highlight() {
+      if (typeof window !== "undefined" || !language) {
+        await import(
+          `prismjs/components/prism-${language ? language : "python"}`
+        );
+        Prism.highlightAll();
+      }
+    }
 
-  //   return () => {
-  //     window.initial.prism = false;
-  //   };
-  // }, []);
+    highlight();
+  }, [language]);
 
   let ConditionalRendering;
   let customCode = code !== undefined ? code : children;
