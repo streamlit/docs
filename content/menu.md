@@ -612,4 +612,25 @@ site_menu:
   - category: Knowledge base / Deployment issues / Custom subdomains
     url: /knowledge-base/deploy/custom-subdomains
     visible: false
+  - category: Knowledge base / Deployment issues / How to update account admin settings on Streamlit Community Cloud?
+    url: /knowledge-base/deploy/knowledge-base/deploy/how-to-update-account-admin-settings-on-streamlit-community-cloud
+    visible: false
+  - category: Knowledge base / Deployment issues / Unable to edit or delete apps in Streamlit Community Cloud after modifying GitHub username
+    url: /knowledge-base/deploy/unable-to-edit-or-delete-apps-in-streamlit-community-cloud-after-modifying-github-username
+    visible: false
+  - category: Knowledge base / Deployment issues / Huh. This is isn't supposed to happen message after trying to log in
+    url: /knowledge-base/deploy/huh-this-isnt-supposed-to-happen-message-after-trying-to-log-in
+    visible: false
+  - category: Knowledge base / Deployment issues / Huh. This isn't supposed to happen. No valid SSO connection for domain
+    url: /knowledge-base/deploy/huh-this-isnt-supposed-to-happen-no-valid-sso-connection-for-domain
+    visible: false
+  - category: Knowledge base / Deployment issues / View-only access to app after changing GitHub username or repository name
+    url: /knowledge-base/deploy/view-only-access-to-app-after-changing-github-username-or-repository-name
+    visible: false
+  - category: Knowledge base / Deployment issues / Login attempt to Streamlit Community Cloud fails with error 403
+    url: /knowledge-base/deploy/login-attempt-to-streamlit-community-cloud-fails-with-error-403
+    visible: false
+  - category: Knowledge base / Deployment issues / How to submit a support case for Streamlit Community Cloud
+    url: /knowledge-base/deploy/how-to-submit-a-support-case-for-streamlit-community-cloud
+    visible: false
 ---
