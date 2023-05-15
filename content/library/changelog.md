@@ -485,7 +485,7 @@ _Release date: Sep 22, 2021_
 - 💅 We updated our UI to a more polished look with a new font.
 - 🎨 We now support `theme.base` in the theme object when it's sent to custom components.
 - 🧠 We've modified session state to reset widgets if any of their arguments changed even if they provide a key.
-  - Some widget behavior may have changed, but we believe this change makes the most sense. We have added a section to [our documentation](/library/advanced-features/widget-semantics) describing how they behave.
+  - Some widget behavior may have changed, but we believe this change makes the most sense. We have added a section to [our documentation](/library/advanced-features/widget-behavior) describing how they behave.
 
 **Other Changes**
 

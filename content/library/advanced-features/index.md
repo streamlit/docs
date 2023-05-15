@@ -125,9 +125,9 @@ Working with timezones can be tricky. This section provides a high-level descrip
 
 </RefCard>
 
-<RefCard href="/library/advanced-features/widget-semantics" size="full">
+<RefCard href="/library/advanced-features/widget-behavior" size="full">
 
-##### Advanced notes on widget behavior
+##### Understanding widget behavior
 
 Widgets are magical and often work how you want. But they can have surprising behavior in some situations. This section provides is a high-level, abstract description of widget behavior, including some common edge-cases.
 
