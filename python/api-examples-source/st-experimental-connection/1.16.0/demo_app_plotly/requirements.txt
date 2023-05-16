@@ -1,8 +1,0 @@
-streamlit==1.16.0
-plotly
-numpy
-pandas
-plotly-express
-statsmodels
-xarray
-streamlit-extras

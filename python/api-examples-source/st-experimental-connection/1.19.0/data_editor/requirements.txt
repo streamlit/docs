@@ -1,6 +1,0 @@
-pandas
-numpy
-streamlit==1.19.0
-imageio
-streamlit-extras
-scipy

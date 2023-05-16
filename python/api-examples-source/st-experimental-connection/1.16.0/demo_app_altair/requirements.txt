@@ -1,3 +1,0 @@
-streamlit==1.16.0
-vega_datasets
-streamlit-extras
