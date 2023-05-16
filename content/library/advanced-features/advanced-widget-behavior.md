@@ -10,7 +10,7 @@ behavior in some situations. Understanding the different parts of a widget and
 the precise order in which events occur is helpful for achieving desired
 results.
 
-## Anatomy of a Widget
+## Anatomy of a widget
 
 There are four parts to every widget:
 
@@ -19,7 +19,7 @@ There are four parts to every widget:
 3. the return value given by the widget's function
 4. the key of the widget used to access its value in session state
 
-### Session Dependence
+### Session dependence
 
 These parts are dependent on a particular session (browser connection). The
 actions of one user do not affect the widgets of any other user. Furthermore, if
@@ -27,13 +27,13 @@ a user opens up multiple tabs to access an app, then each tab will be a unique
 session. Hence, changing a widget in one tab will not affect the same widget in
 another tab.
 
-### Data Types
+### Data types
 
 The backend (session state) and return values of a widget are of simple Python
 types. For example, a widget `st.button` returns a boolean value and will have
 the same boolean value saved in session state.
 
-### Widget Keys
+### Widget keys
 
 Widget keys serve two purposes:
 
@@ -66,7 +66,7 @@ associated value in session state will be deleted. Even temporarily hiding a
 widget will cause it to reset when it reappears; Streamlit will treat it
 like a new widget.
 
-## Order of Operations
+## Order of operations
 
 When a user interacts with a widget, the order of logic is:
 
@@ -96,12 +96,12 @@ using a call to `st.session_state` _within the callback function_.
 
 [//]: # "TODO: simple example and form example"
 
-## Life Cycle
+## Life cycle
 
 When a widget function is called, Streamlit will check if it already has a
 widget with the same parameters.
 
-### If Streamlit does not have that widget
+### Calling a widget function when it doesn't already exist
 
 1. Streamlit will build the frontend and backend parts of the widget.
 2. If the widget has been assigned a key, Streamlit will check if that key
@@ -135,13 +135,34 @@ was not available to attach to a new widget.
 
 [//]: # "TODO: simple example and multipage example"
 
-### If Streamlit does have that widget
+### Calling a widget function when the widget already exists
 
-1. It will connect to the existing frontend and backend parts.
-2. If it has a key and that key was deleted, the it will recreate the key using
-   the current backend value. (e.g. Deleting a key will not revert the widget to
-   a default value since the true "backend" value is deeper in the code than what
-   is accessed through session state.)
+1. Streamlit will connect to the existing frontend and backend parts.
+2. If the widget has a key that was deleted for `st.session_state`, then
+   Streamlit will recreate the key using the current backend value. (e.g.
+   Deleting a key will not revert the widget to a default value since the true
+   "backend" value is deeper in the code than what is accessed through
+   `st.session_state`.)
 3. It will return the current value of the widget.
 
 [//]: # "TODO: Examples with the key copy workaround and pseudo key workflow"
+
+### Cleaning up
+
+When Streamlit gets to the end of a page run, it will delete the data for any
+widgets it has in memory that were not rendered on the screen. Most importantly,
+that means Streamlit will delete its key and value in session state.
+
+<Note>
+
+If you navigate away from a widget with some key 'my_key' and save data to
+`st.session_state.my_key` on the new page, you will interrupt the widget
+cleanup process and prevent the key-value pair from being deleted. The rest of
+the widget will still be deleted and you will be left with an unpaired value in
+session state. You can even do something as trivial as:
+
+```
+st.session_state.my_key = st.session_state.my_key
+```
+
+</Note>
