@@ -322,6 +322,8 @@ site_menu:
     url: /library/advanced-features/theming
   - category: Streamlit library / Advanced features/ Caching
     url: /library/advanced-features/caching
+  - category: Streamlit library / Advanced features/ Connecting to data
+    url: /library/advanced-features/connecting-to-data
   - category: Streamlit library / Advanced features/ Optimize performance with st.cache
     url: /library/advanced-features/st.cache
     visible: false
