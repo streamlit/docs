@@ -16,6 +16,8 @@ const SKIP_THESE = [
   "/library/api-reference/performance/st.experimental_singleton",
   "/library/api-reference/performance/st.experimental_singleton.clear",
   "/library/api-reference/utilities/st.experimental_show",
+  "/library/advanced-features/st.cache",
+  "/library/advanced-features/experimental-cache-primitives",
 ];
 
 function getAllFilesInDirectory(articleDirectory, files) {
