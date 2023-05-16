@@ -5,7 +5,10 @@ slug: /library/advanced-features/widget-behavior
 
 # Understanding widget behavior
 
-Widgets are magical and often work how you want. But they can have surprising behavior in some situations. Here is a high-level, abstract description of widget behavior, including some common edge-cases:
+Widgets are magical and often work how you want. But they can have surprising
+behavior in some situations. Understanding the different parts of a widget and
+the precise order in which events occur is helpful for achieving desired
+results.
 
 ## Anatomy of a Widget
 
@@ -14,7 +17,7 @@ There are four parts to every widget:
 1. the frontend component as seen by the user
 2. the backend value or value as seen through session state
 3. the return value given by the widget's function
-4. the key of the widget through which its session state value can be accessed
+4. the key of the widget used to access its value in session state
 
 ### Session Dependence
 
@@ -26,16 +29,17 @@ another tab.
 
 ### Data Types
 
-The backend (session state) and return value of a widget are of simple Python
-types. For example, a `st.button` returns a boolean value and will have the same
-boolean value saved in session state.
+The backend (session state) and return values of a widget are of simple Python
+types. For example, a widget `st.button` returns a boolean value and will have
+the same boolean value saved in session state.
 
 ### Widget Keys
 
 Widget keys serve two purposes:
 
 1. distinguishing two otherwise identical widgets
-2. creating a means to access and manipulate the widget through session state
+2. creating a means to access and manipulate the widget's value through session
+   state
 
 A widget's identity depends on the arguments passed to the widget function. If
 you have two widgets of the same type with the same arguments, you will get a
@@ -59,7 +63,7 @@ If a widget's function is not called during a script run, then none of
 its parts will be retained, including its value in session state. If you have
 assigned a key to a widget and you navigate away from that widget, its key and
 associated value in session state will be deleted. Even temporarily hiding a
-widget, will cause it to reset when it reappears since Streamlit will treat it
+widget will cause it to reset when it reappears; Streamlit will treat it
 like a new widget.
 
 ## Order of Operations
@@ -67,7 +71,7 @@ like a new widget.
 When a user interacts with a widget, the order of logic is:
 
 1. its value in session state is updated
-2. the callback function (if any) is executed,
+2. the callback function (if any) is executed
 3. the page reruns, with the widget function returning its new value
 
 <Note>
@@ -86,7 +90,7 @@ If the callback function is passed any args or kwargs, those arguments will be
 established when the widget is rendered. In particular, if you want to use a
 widget's new value in its own callback function, you cannot pass that value to
 the callback function via session state; you will have to look up its new value
-from session state _within the callback function_.
+using a call to `st.session_state` _within the callback function_.
 
 </Note>
 
@@ -114,8 +118,8 @@ widget with the same parameters.
 If a widget attaches to a pre-existing key and is also manually assigned a
 default value, you will get a warning if there is a disparity. If you want to
 control a widget's value through session state, you may need to initialize the
-widget's value through session state and avoid optional default value
-argument to prevent conflict.
+widget's value through session state and avoid the default value argument to
+prevent conflict.
 
 </Note>
 
@@ -139,3 +143,5 @@ was not available to attach to a new widget.
    a default value since the true "backend" value is deeper in the code than what
    is accessed through session state.)
 3. It will return the current value of the widget.
+
+[//]: # "TODO: Examples with the key copy workaround and pseudo key workflow"
