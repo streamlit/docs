@@ -27,7 +27,6 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: node ./scripts/build-search-index.js
-      # - run: npm run sitemap
   build-sitemap:
     runs-on: ubuntu-latest
     name: Build sitemap
@@ -36,11 +35,14 @@ jobs:
       - name: Checkout the repo
         uses: actions/checkout@v3
 
-      - name: Generate the sitemap
+      - name: Setup node, build the site, and generate the sitemap
         id: sitemap
-        uses: cicirello/generate-sitemap@v1
+        uses: actions/setup-node@v3
         with:
-          base-url-path: https://docs.streamlit.io/
+          node-version: "14"
+      - run: npm install
+      - run: npm run build
+      - run: npm run sitemap
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
