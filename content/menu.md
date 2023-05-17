@@ -613,7 +613,7 @@ site_menu:
     url: /knowledge-base/deploy/custom-subdomains
     visible: false
   - category: Knowledge base / Deployment issues / How to update account admin settings on Streamlit Community Cloud?
-    url: /knowledge-base/deploy/knowledge-base/deploy/how-to-update-account-admin-settings-on-streamlit-community-cloud
+    url: /knowledge-base/deploy/how-to-update-account-admin-settings-on-streamlit-community-cloud
     visible: false
   - category: Knowledge base / Deployment issues / Unable to edit or delete apps in Streamlit Community Cloud after modifying GitHub username
     url: /knowledge-base/deploy/unable-to-edit-or-delete-apps-in-streamlit-community-cloud-after-modifying-github-username
