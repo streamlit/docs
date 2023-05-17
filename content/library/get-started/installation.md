@@ -36,7 +36,7 @@ Below are a few tools you can use for environment management:
 
 ## Install Streamlit on Windows
 
-Streamlit's officially-supported environment manager on Windows is [Anaconda Navigator](https://docs.anaconda.com/anaconda/navigator/).
+Streamlit's officially-supported environment manager on Windows is [Anaconda Navigator](https://docs.anaconda.com/free/navigator/).
 
 ### Install Anaconda
 
