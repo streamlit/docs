@@ -3,7 +3,7 @@ run-name: Build the site, update Algolia's search index, and regenerate the site
 on:
   push:
     branches:
-      - "main"
+      - "sitemap-merge"
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
