@@ -1,10 +1,9 @@
 name: postbuild-scripts
 run-name: Build the site, update Algolia's search index, and regenerate the sitemap
-on: [push]
-# on:
-#   push:
-#     branches:
-#       - "main"
+on:
+  push:
+    branches:
+      - "main"
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
