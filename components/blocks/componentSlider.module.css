@@ -35,7 +35,7 @@
 
 /* Tooltip styles */
 .TooltipIcon {
-  @apply fill-gray-60 ml-2 relative top-px;
+  @apply fill-gray-60 ml-2;
 }
 
 .TooltipIcon svg {
@@ -50,7 +50,7 @@
 }
 
 .TooltipArrow {
-  @apply h-3 w-3 p-0 absolute opacity-0 -bottom-1 right-9 transition ease-in-out delay-100 bg-gray-90 z-10;
+  @apply h-3 w-3 p-0 absolute opacity-0 -bottom-[2px] right-9 transition ease-in-out delay-100 bg-gray-90 z-10;
 }
 
 .Open {
@@ -58,11 +58,11 @@
 }
 
 .TooltipText {
-  @apply text-xs text-white m-0 leading-tight tracking-normal;
+  @apply text-xs text-white m-0 leading-normal tracking-normal;
 }
 
 .TooltipText a {
-  @apply underline border-none;
+  @apply underline border-none leading-normal;
 }
 
 :global(.dark) .Tooltip,
