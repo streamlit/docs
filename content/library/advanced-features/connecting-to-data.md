@@ -7,12 +7,12 @@ slug: /library/advanced-features/connecting-to-data
 
 Most Streamlit apps need some kind of data or API access to be useful - either retrieving data to view or saving the results of some user action. This data or API is often part of some remote service, database, or other data source.
 
-Anything you can do with Python, including data connections, will generally work in Streamlit. Streamlit's [tutorials](/knowledge-base/tutorials/databases) are a great starting place for many data sources. However:
+**Anything you can do with Python, including data connections, will generally work in Streamlit**. Streamlit's [tutorials](/knowledge-base/tutorials/databases) are a great starting place for many data sources. However:
 
 - Connecting to data in a Python application is often tedious and annoying.
 - There are specific considerations for connecting to data from streamlit apps, such as caching and secrets management.
 
-Streamlit provides [`st.experimental_connection()`](/library/api-reference/connections/st.experimental_connection) to more easily connect your Streamlit apps to data and APIs with just a few lines of code. This page provides a basic example of using the feature and then focuses on advanced usage.
+**Streamlit provides [`st.experimental_connection()`](/library/api-reference/connections/st.experimental_connection) to more easily connect your Streamlit apps to data and APIs with just a few lines of code**. This page provides a basic example of using the feature and then focuses on advanced usage.
 
 ## Basic usage
 
