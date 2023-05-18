@@ -22,7 +22,7 @@
 
 /* Title styles */
 .TitleContainer {
-  @apply flex items-center justify-between text-lg mb-2;
+  @apply flex items-center justify-between text-lg;
 }
 
 .Title {
@@ -93,39 +93,4 @@
 /* Hide the default arrows */
 .Container :global(.slick-arrow) {
   display: none !important;
-}
-
-/* Gradients */
-.Container::before {
-  content: "";
-
-  @apply absolute -left-4 top-0 w-8 h-full z-10 bg-gradient-to-r from-white;
-}
-
-.Container::after {
-  content: "";
-
-  @apply absolute -right-4 top-0 w-8 h-full bg-gradient-to-l from-white z-10;
-}
-
-:global(.dark) .Container::before,
-:global(.dark) .Container::after {
-  @apply from-gray-100;
-}
-
-/* More Inspiration CTA */
-.CtaContainer {
-  @apply py-2 px-3 rounded-md bg-darkBlue-10/60;
-}
-
-.CtaTitle {
-  @apply text-xs uppercase font-semibold text-darkBlue-70 leading-tight py-1;
-}
-
-.CtaText {
-  @apply text-sm tracking-tight leading-tight pb-1;
-}
-
-:global(.dark) .CtaContainer {
-  @apply bg-darkBlue-60/40;
 }

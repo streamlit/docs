@@ -110,28 +110,6 @@ const ComponentSlider = ({ children }) => {
           </ul>
         )}
       </div>
-      <div className={styles.CtaContainer}>
-        <h4 className={styles.CtaTitle}>Need more inspiration?</h4>
-        <p className={styles.CtaText}>
-          Check out our{" "}
-          <a
-            href="https://streamlit.io/components"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Components Website page
-          </a>{" "}
-          and the{" "}
-          <a
-            href="https://components.streamlit.app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Components Hub app
-          </a>{" "}
-          to find more awesome stuff created by the community! ⭐️
-        </p>
-      </div>
       <Slider ref={sliderRef} {...sliderSettings} className={styles.Container}>
         {children}
       </Slider>

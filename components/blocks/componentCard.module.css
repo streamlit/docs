@@ -1,6 +1,6 @@
 /* This margin helps ensure the scale hover effect won't be cut */
 .Container {
-  @apply my-4;
+  @apply mb-4 mt-2;
 }
 
 /* Override the default refCard hover state, and add it to the actual <div> tag that slicks add  */
