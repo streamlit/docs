@@ -6,9 +6,6 @@ import Image from "./image";
 
 function convertToUTC(dateStr) {
   const date = new Date(dateStr);
-  if (isNaN(date.getTime())) {
-    return null;
-  }
   return date.toISOString();
 }
 
@@ -18,12 +15,6 @@ const NewsEntry = ({ date, title, text, link, image, target }) => {
     if (utcDateStr !== null) {
       const date = new Date(utcDateStr);
     }
-
-    if (isNaN(date.getTime())) {
-      // dateStr is not a valid date
-      return "No date";
-    }
-
     return date.toLocaleDateString("en-US", {
       month: "long",
       day: "numeric",
