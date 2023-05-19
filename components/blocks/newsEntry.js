@@ -12,9 +12,8 @@ function convertToUTC(dateStr) {
 const NewsEntry = ({ date, title, text, link, image, target }) => {
   const niceDate = (dateStr) => {
     const utcDateStr = convertToUTC(dateStr);
-    if (utcDateStr !== null) {
-      const date = new Date(utcDateStr);
-    }
+    const date = new Date(utcDateStr);
+
     return date.toLocaleDateString("en-US", {
       month: "long",
       day: "numeric",
