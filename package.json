@@ -65,6 +65,7 @@
     "sass": "^1.42.1",
     "slugify": "^1.6.1",
     "tailwindcss": "^3.0.1",
+    "@tryghost/content-api": "1.11.10",
     "unified": "^9.2.2",
     "uuid": "^8.3.2"
   },
