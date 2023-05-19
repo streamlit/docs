@@ -4,10 +4,27 @@ import classNames from "classnames";
 import styles from "./newsEntry.module.css";
 import Image from "./image";
 
+function convertToUTC(dateStr) {
+  const date = new Date(dateStr);
+  if (isNaN(date.getTime())) {
+    return null;
+  }
+  return date.toISOString();
+}
+
 const NewsEntry = ({ date, title, text, link, image, target }) => {
-  const niceDate = (date) => {
-    let cleanDate = new Date(date);
-    return cleanDate.toLocaleDateString("en-US", {
+  const niceDate = (dateStr) => {
+    const utcDateStr = convertToUTC(dateStr);
+    if (utcDateStr !== null) {
+      const date = new Date(utcDateStr);
+    }
+
+    if (isNaN(date.getTime())) {
+      // dateStr is not a valid date
+      return "No date";
+    }
+
+    return date.toLocaleDateString("en-US", {
       month: "long",
       day: "numeric",
       year: "numeric",
@@ -26,7 +43,7 @@ const NewsEntry = ({ date, title, text, link, image, target }) => {
         <h4 className={styles.Title}>{title}</h4>
         <p className={styles.Text}>{text}</p>
         <ArrowLink
-          link={link}
+          link={link ? link : "#"}
           type="next"
           clean={true}
           className="tiny bold"
