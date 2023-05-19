@@ -148,3 +148,142 @@ st.graphviz_chart(my_graphviz_spec)
 
 </RefCard>
 </TileContainer>
+
+<ComponentSlider>
+
+<ComponentCard href="https://github.com/tvst/plost">
+
+<Image pure alt="screenshot" src="/images/api/components/plost.jpg" />
+
+#### Plost
+
+A deceptively simple plotting library for Streamlit. Created by [@tvst](https://github.com/tvst).
+
+```python
+import plost
+plost.line_chart(my_dataframe, x='time', y='stock_value', color='stock_name',)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/facebookresearch/hiplot">
+
+<Image pure alt="screenshot" src="/images/api/components/hiplot.jpg" />
+
+#### HiPlot
+
+High dimensional Interactive Plotting. Created by [@facebookresearch](https://github.com/facebookresearch).
+
+```python
+data = [{'dropout':0.1, 'lr': 0.001, 'loss': 10.0, 'optimizer': 'SGD'}, {'dropout':0.15, 'lr': 0.01, 'loss': 3.5, 'optimizer': 'Adam'}, {'dropout':0.3, 'lr': 0.1, 'loss': 4.5, 'optimizer': 'Adam'}]
+hip.Experiment.from_iterable(data).display()
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/andfanilo/streamlit-echarts">
+
+<Image pure alt="screenshot" src="/images/api/components/echarts.jpg" />
+
+#### ECharts
+
+High dimensional Interactive Plotting. Created by [@andfanilo](https://github.com/andfanilo).
+
+```python
+from streamlit_echarts import st_echarts
+st_echarts(options=options)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/randyzwitch/streamlit-folium">
+
+<Image pure alt="screenshot" src="/images/api/components/folium.jpg" />
+
+#### Streamlit Folium
+
+Streamlit Component for rendering Folium maps. Created by [@randyzwitch](https://github.com/randyzwitch).
+
+```python
+m = folium.Map(location=[39.949610, -75.150282], zoom_start=16)
+st_data = st_folium(m, width=725)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/explosion/spacy-streamlit">
+
+<Image pure alt="screenshot" src="/images/api/components/spacy.jpg" />
+
+#### Spacy-Streamlit
+
+spaCy building blocks and visualizers for Streamlit apps. Created by [@explosion](https://github.com/explosion).
+
+```python
+models = ["en_core_web_sm", "en_core_web_md"]
+spacy_streamlit.visualize(models, "Sundar Pichai is the CEO of Google.")
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/ChrisDelClea/streamlit-agraph">
+
+<Image pure alt="screenshot" src="/images/api/components/agraph.jpg" />
+
+#### Streamlit Agraph
+
+A Streamlit Graph Vis, based on [react-grah-vis](https://github.com/crubier/react-graph-vis). Created by [@ChrisDelClea](https://github.com/ChrisDelClea).
+
+```python
+from streamlit_agraph import agraph, Node, Edge, Config
+agraph(nodes=nodes, edges=edges, config=config)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/andfanilo/streamlit-lottie">
+
+<Image pure alt="screenshot" src="/images/api/components/lottie.jpg" />
+
+#### Streamlit Lottie
+
+Integrate [Lottie](https://lottiefiles.com/) animations inside your Streamlit app. Created by [@andfanilo](https://github.com/andfanilo).
+
+```python
+lottie_hello = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
+st_lottie(lottie_hello, key="hello")
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/null-jones/streamlit-plotly-events">
+
+<Image pure alt="screenshot" src="/images/api/components/plotly-events.jpg" />
+
+#### Plotly Events
+
+Make Plotly charts interactive!. Created by [@null-jones](https://github.com/null-jones/).
+
+```python
+fig = px.line(x=[1], y=[1])
+selected_points = plotly_events(fig)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://extras.streamlit.app/">
+
+<Image pure alt="screenshot" src="/images/api/components/extras-chart-annotations.jpg" />
+
+#### Streamlit Extras
+
+A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
+
+```python
+chart += get_annotations_chart(annotations=[("Mar 01, 2008", "Pretty good day for GOOG"), ("Dec 01, 2007", "Something's going wrong for GOOG & AAPL"), ("Nov 01, 2008", "Market starts again thanks to..."), ("Dec 01, 2009", "Small crash for GOOG after..."),],)
+st.altair_chart(chart, use_container_width=True)
+```
+
+</ComponentCard>
+
+</ComponentSlider>
