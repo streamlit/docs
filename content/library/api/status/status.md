@@ -138,3 +138,58 @@ st.exception(e)
 
 </RefCard>
 </TileContainer>
+
+<ComponentSlider>
+
+<ComponentCard href="https://github.com/Wirg/stqdm">
+
+<Image pure alt="screenshot" src="/images/api/components/stqdm.jpg" />
+
+#### Stqdm
+
+The simplest way to handle a progress bar in streamlit app. Created by [@Wirg](https://github.com/Wirg).
+
+```python
+from stqdm import stqdm
+
+for _ in stqdm(range(50)):
+    sleep(0.5)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/Socvest/streamlit-custom-notification-box">
+
+<Image pure alt="screenshot" src="/images/api/components/custom-notification-box.jpg" />
+
+#### Custom notification box
+
+A custom notification box with the ability to close it out. Created by [@Socvest](https://github.com/Socvest).
+
+```python
+from streamlit_custom_notification_box import custom_notification_box
+
+styles = {'material-icons':{'color': 'red'}, 'text-icon-link-close-container': {'box-shadow': '#3896de 0px 4px'}, 'notification-text': {'':''}, 'close-button':{'':''}, 'link':{'':''}}
+custom_notification_box(icon='info', textDisplay='We are almost done with your registration...', externalLink='more info', url='#', styles=styles, key="foo")
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://extras.streamlit.app/">
+
+<Image pure alt="screenshot" src="/images/api/components/extras-emojis.jpg" />
+
+#### Streamlit Extras
+
+A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
+
+```python
+from streamlit_extras.let_it_rain import rain
+
+rain(emoji="🎈", font_size=54,
+  falling_speed=5, animation_length="infinite",)
+```
+
+</ComponentCard>
+
+</ComponentSlider>
