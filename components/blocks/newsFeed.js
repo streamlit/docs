@@ -33,6 +33,7 @@ function NewsFeed() {
             text={post.excerpt}
             link={post.url}
             image={post.feature_image}
+            target="_blank"
           />
         ))}
       </div>
