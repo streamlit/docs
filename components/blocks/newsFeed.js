@@ -16,7 +16,6 @@ function NewsFeed() {
     api.posts
       .browse({ limit: 3, include: "tags,authors" })
       .then((fetchedPosts) => {
-        console.log(fetchedPosts);
         setPosts(fetchedPosts);
       })
       .catch((err) => {
