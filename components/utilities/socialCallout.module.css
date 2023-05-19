@@ -64,3 +64,15 @@
     #972aaa 100%
   );
 }
+
+.Medium {
+  @apply bg-gray-90;
+}
+
+.LinkedIn {
+  background-color: #0077b5;
+}
+
+.Newsletter {
+  background-color: #ff4b4b;
+}

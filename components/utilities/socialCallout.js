@@ -6,6 +6,8 @@ const SocialCallout = () => {
       <h2 className={styles.Title}>Other Media</h2>
       <ul className={styles.ListContainer}>
         <li className={`group ${styles.ListItem}`}>
+          {" "}
+          {/* Github */}
           <a
             className={`${styles.Link} not-link`}
             href="https://github.com/streamlit"
@@ -35,64 +37,8 @@ const SocialCallout = () => {
           </a>
         </li>
         <li className={`group ${styles.ListItem}`}>
-          <a
-            className={`${styles.Link} not-link`}
-            href="https://twitter.com/streamlit"
-            target="_blank"
-          >
-            <div className={`${styles.IconContainer} ${styles.Twitter}`}>
-              <svg
-                width="24"
-                height="18"
-                viewBox="0 0 24 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className={styles.Icon}
-              >
-                <path
-                  d="M22.9683 0.526535C22.5928 1.56402 21.8955 2.36683 20.9031 2.95968C21.368 2.91851 21.8239 2.83205 22.271 2.71678C22.7225 2.60562 23.1561 2.45741 23.5986 2.28449C23.5986 2.32566 23.5763 2.34625 23.5629 2.36683C22.946 3.19435 22.1994 3.91071 21.3233 4.51179C21.2428 4.56943 21.207 4.61883 21.2115 4.71764C21.2651 6.1133 21.0595 7.47603 20.6214 8.81405C20.1029 10.3867 19.3072 11.8277 18.2119 13.1287C16.9334 14.6478 15.3554 15.8376 13.469 16.6693C12.3156 17.1798 11.1042 17.5174 9.8391 17.7068C9.10597 17.8138 8.37284 17.8673 7.63078 17.8797C5.98571 17.9044 4.38982 17.6656 2.83863 17.1674C1.87305 16.8545 0.952171 16.4428 0.0804651 15.9365C0.0536434 15.92 0.0178811 15.9118 0 15.8788C2.633 16.1217 5.00672 15.5206 7.11669 14.0426C5.87395 13.9809 4.79662 13.5774 3.89362 12.787C3.29907 12.2682 2.87886 11.6465 2.62406 10.9178C3.34824 11.0372 4.05902 11.0208 4.79215 10.8478C3.3393 10.5308 2.24408 9.7939 1.52437 8.61232C1.10863 7.93301 0.920879 7.19607 0.925349 6.40149C1.60483 6.7432 2.32008 6.92847 3.10238 6.9614C2.93698 6.84201 2.78052 6.7432 2.64194 6.62793C1.82835 5.96921 1.29638 5.15404 1.07287 4.18243C0.822532 3.09554 0.992403 2.06218 1.5646 1.08645C1.61824 0.991756 1.62271 0.995873 1.69424 1.0741C2.70452 2.19392 3.88468 3.13259 5.23917 3.88189C6.67413 4.67647 8.22085 5.20756 9.87039 5.4834C10.4113 5.57398 10.9567 5.63161 11.5065 5.66043C11.5914 5.66455 11.6183 5.66043 11.6004 5.56574C11.3053 4.10009 11.6674 2.79088 12.7403 1.67106C13.5271 0.843544 14.5284 0.357738 15.7131 0.221878C17.1167 0.0571976 18.3729 0.398908 19.4726 1.23054C19.6022 1.32935 19.7184 1.43227 19.8347 1.54343C19.8749 1.58049 19.9106 1.58872 19.9732 1.58049C21.0059 1.38699 21.9714 1.04116 22.8834 0.559471C22.9057 0.543003 22.9236 0.522418 22.9683 0.526535Z"
-                  fill="#FFFFFF"
-                />
-              </svg>
-            </div>
-            <article>
-              <h5 className={styles.Subtitle}>Twitter</h5>
-              <p className={styles.Text}>
-                Follow @streamlit on Twitter to keep up with the latest news.
-              </p>
-            </article>
-          </a>
-        </li>
-        <li className={`group ${styles.ListItem}`}>
-          <a
-            className={`${styles.Link} not-link`}
-            href="https://www.youtube.com/channel/UC3LD42rjj-Owtxsa6PwGU5Q"
-            target="_blank"
-          >
-            <div className={`${styles.IconContainer} ${styles.YouTube}`}>
-              <svg
-                width="26"
-                height="18"
-                viewBox="0 0 26 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className={styles.Icon}
-              >
-                <path
-                  d="M12.8276 17.8757C11.0323 17.845 9.2319 17.845 7.43665 17.7734C6.06686 17.7172 4.69189 17.6251 3.33767 17.4308C1.63581 17.1853 0.546208 16.0449 0.333476 14.3471C0.17263 13.0227 0.058481 11.6879 0.0221609 10.3532C-0.0193478 8.93159 0.0117837 7.50995 0.0792353 6.0883C0.125933 5.13713 0.271213 4.19107 0.411305 3.25012C0.634414 1.74666 2.0509 0.723891 3.25984 0.57559C4.56736 0.417061 5.89045 0.284101 7.20835 0.253418C10.1555 0.186939 13.1026 0.156256 16.0445 0.181825C17.8398 0.197166 19.635 0.325012 21.4251 0.422175C21.8972 0.447744 22.3694 0.514224 22.8364 0.606273C24.284 0.892648 25.1609 1.77223 25.4722 3.18364C25.7627 4.49279 25.8406 5.8275 25.908 7.16221C26.017 9.37138 25.9495 11.5703 25.6745 13.7642C25.5863 14.4443 25.5085 15.1449 25.1401 15.7483C24.5123 16.7711 23.568 17.3592 22.3746 17.4666C20.8024 17.6098 19.2251 17.7274 17.6478 17.7785C16.0445 17.8297 14.4309 17.7888 12.8276 17.7888C12.8276 17.8245 12.8276 17.8501 12.8276 17.8757ZM10.4875 12.9511C12.6667 11.6266 14.8096 10.3277 16.994 9.00319C14.7993 7.67359 12.6564 6.37468 10.4875 5.05531C10.4875 7.70427 10.4875 10.3021 10.4875 12.9511Z"
-                  fill="#FFFFFF"
-                />
-              </svg>
-            </div>
-            <article>
-              <h5 className={styles.Subtitle}>YouTube</h5>
-              <p className={styles.Text}>
-                Watch screencasts made by the Streamlit team and the community.
-              </p>
-            </article>
-          </a>
-        </li>
-        <li className={`group ${styles.ListItem}`}>
+          {" "}
+          {/* Discord */}
           <a
             className={`${styles.Link} not-link`}
             href="https://discord.gg/bTz5EDYh9Z"
@@ -123,6 +69,132 @@ const SocialCallout = () => {
           </a>
         </li>
         <li className={`group ${styles.ListItem}`}>
+          {" "}
+          {/* YouTube */}
+          <a
+            className={`${styles.Link} not-link`}
+            href="https://www.youtube.com/channel/UC3LD42rjj-Owtxsa6PwGU5Q"
+            target="_blank"
+          >
+            <div className={`${styles.IconContainer} ${styles.YouTube}`}>
+              <svg
+                width="26"
+                height="18"
+                viewBox="0 0 26 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className={styles.Icon}
+              >
+                <path
+                  d="M12.8276 17.8757C11.0323 17.845 9.2319 17.845 7.43665 17.7734C6.06686 17.7172 4.69189 17.6251 3.33767 17.4308C1.63581 17.1853 0.546208 16.0449 0.333476 14.3471C0.17263 13.0227 0.058481 11.6879 0.0221609 10.3532C-0.0193478 8.93159 0.0117837 7.50995 0.0792353 6.0883C0.125933 5.13713 0.271213 4.19107 0.411305 3.25012C0.634414 1.74666 2.0509 0.723891 3.25984 0.57559C4.56736 0.417061 5.89045 0.284101 7.20835 0.253418C10.1555 0.186939 13.1026 0.156256 16.0445 0.181825C17.8398 0.197166 19.635 0.325012 21.4251 0.422175C21.8972 0.447744 22.3694 0.514224 22.8364 0.606273C24.284 0.892648 25.1609 1.77223 25.4722 3.18364C25.7627 4.49279 25.8406 5.8275 25.908 7.16221C26.017 9.37138 25.9495 11.5703 25.6745 13.7642C25.5863 14.4443 25.5085 15.1449 25.1401 15.7483C24.5123 16.7711 23.568 17.3592 22.3746 17.4666C20.8024 17.6098 19.2251 17.7274 17.6478 17.7785C16.0445 17.8297 14.4309 17.7888 12.8276 17.7888C12.8276 17.8245 12.8276 17.8501 12.8276 17.8757ZM10.4875 12.9511C12.6667 11.6266 14.8096 10.3277 16.994 9.00319C14.7993 7.67359 12.6564 6.37468 10.4875 5.05531C10.4875 7.70427 10.4875 10.3021 10.4875 12.9511Z"
+                  fill="#FFFFFF"
+                />
+              </svg>
+            </div>
+            <article>
+              <h5 className={styles.Subtitle}>YouTube</h5>
+              <p className={styles.Text}>
+                Watch screencasts made by the Streamlit team and the community.
+              </p>
+            </article>
+          </a>
+        </li>
+        <li className={`group ${styles.ListItem}`}>
+          {" "}
+          {/* Medium */}
+          <a
+            className={`${styles.Link} not-link`}
+            href="https://medium.com/streamlit"
+            target="_blank"
+          >
+            <div className={`${styles.IconContainer} ${styles.Medium}`}>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className={styles.Icon}
+              >
+                <path
+                  d="M13.537 11.828c0 3.77-3.03 6.827-6.768 6.827S0 15.598 0 11.828 3.03 5 6.769 5c3.738 0 6.768 3.057 6.768 6.828ZM20.964 11.828c0 3.55-1.515 6.428-3.384 6.428-1.87 0-3.385-2.879-3.385-6.428 0-3.55 1.515-6.428 3.384-6.428 1.87 0 3.385 2.878 3.385 6.428M24.002 11.829c0 3.179-.533 5.758-1.19 5.758-.658 0-1.19-2.578-1.19-5.758s.532-5.759 1.19-5.759c.656 0 1.19 2.578 1.19 5.759Z"
+                  fill="#FFFFFF"
+                />
+              </svg>
+            </div>
+            <article>
+              <h5 className={styles.Subtitle}>Medium</h5>
+              <p className={styles.Text}>
+                Follow our open Medium publication about all things Streamlit.
+              </p>
+            </article>
+          </a>
+        </li>
+        <li className={`group ${styles.ListItem}`}>
+          {" "}
+          {/* Twitter */}
+          <a
+            className={`${styles.Link} not-link`}
+            href="https://twitter.com/streamlit"
+            target="_blank"
+          >
+            <div className={`${styles.IconContainer} ${styles.Twitter}`}>
+              <svg
+                width="24"
+                height="18"
+                viewBox="0 0 24 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className={styles.Icon}
+              >
+                <path
+                  d="M22.9683 0.526535C22.5928 1.56402 21.8955 2.36683 20.9031 2.95968C21.368 2.91851 21.8239 2.83205 22.271 2.71678C22.7225 2.60562 23.1561 2.45741 23.5986 2.28449C23.5986 2.32566 23.5763 2.34625 23.5629 2.36683C22.946 3.19435 22.1994 3.91071 21.3233 4.51179C21.2428 4.56943 21.207 4.61883 21.2115 4.71764C21.2651 6.1133 21.0595 7.47603 20.6214 8.81405C20.1029 10.3867 19.3072 11.8277 18.2119 13.1287C16.9334 14.6478 15.3554 15.8376 13.469 16.6693C12.3156 17.1798 11.1042 17.5174 9.8391 17.7068C9.10597 17.8138 8.37284 17.8673 7.63078 17.8797C5.98571 17.9044 4.38982 17.6656 2.83863 17.1674C1.87305 16.8545 0.952171 16.4428 0.0804651 15.9365C0.0536434 15.92 0.0178811 15.9118 0 15.8788C2.633 16.1217 5.00672 15.5206 7.11669 14.0426C5.87395 13.9809 4.79662 13.5774 3.89362 12.787C3.29907 12.2682 2.87886 11.6465 2.62406 10.9178C3.34824 11.0372 4.05902 11.0208 4.79215 10.8478C3.3393 10.5308 2.24408 9.7939 1.52437 8.61232C1.10863 7.93301 0.920879 7.19607 0.925349 6.40149C1.60483 6.7432 2.32008 6.92847 3.10238 6.9614C2.93698 6.84201 2.78052 6.7432 2.64194 6.62793C1.82835 5.96921 1.29638 5.15404 1.07287 4.18243C0.822532 3.09554 0.992403 2.06218 1.5646 1.08645C1.61824 0.991756 1.62271 0.995873 1.69424 1.0741C2.70452 2.19392 3.88468 3.13259 5.23917 3.88189C6.67413 4.67647 8.22085 5.20756 9.87039 5.4834C10.4113 5.57398 10.9567 5.63161 11.5065 5.66043C11.5914 5.66455 11.6183 5.66043 11.6004 5.56574C11.3053 4.10009 11.6674 2.79088 12.7403 1.67106C13.5271 0.843544 14.5284 0.357738 15.7131 0.221878C17.1167 0.0571976 18.3729 0.398908 19.4726 1.23054C19.6022 1.32935 19.7184 1.43227 19.8347 1.54343C19.8749 1.58049 19.9106 1.58872 19.9732 1.58049C21.0059 1.38699 21.9714 1.04116 22.8834 0.559471C22.9057 0.543003 22.9236 0.522418 22.9683 0.526535Z"
+                  fill="#FFFFFF"
+                />
+              </svg>
+            </div>
+            <article>
+              <h5 className={styles.Subtitle}>Twitter</h5>
+              <p className={styles.Text}>
+                Follow @streamlit on Twitter to keep up with the latest news.
+              </p>
+            </article>
+          </a>
+        </li>
+        <li className={`group ${styles.ListItem}`}>
+          {" "}
+          {/* LinkedIn */}
+          <a
+            className={`${styles.Link} not-link`}
+            href="https://www.linkedin.com/company/streamlit"
+            target="_blank"
+          >
+            <div className={`${styles.IconContainer} ${styles.LinkedIn}`}>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className={styles.Icon}
+              >
+                <path
+                  d="M22.228 0H1.772A1.772 1.772 0 0 0 0 1.772v20.456A1.772 1.772 0 0 0 1.772 24h20.456A1.772 1.772 0 0 0 24 22.228V1.772A1.772 1.772 0 0 0 22.228 0ZM7.153 20.445H3.545V8.983h3.608v11.462ZM5.347 7.395a2.072 2.072 0 1 1 2.083-2.07 2.042 2.042 0 0 1-2.083 2.07Zm15.106 13.06h-3.606v-6.262c0-1.846-.785-2.416-1.799-2.416-1.07 0-2.12.806-2.12 2.463v6.215H9.32V8.992h3.47v1.588h.047c.348-.705 1.568-1.91 3.43-1.91 2.013 0 4.188 1.195 4.188 4.695l-.002 7.09Z"
+                  fill="#FFFFFF"
+                />
+              </svg>
+            </div>
+            <article>
+              <h5 className={styles.Subtitle}>LinkedIn</h5>
+              <p className={styles.Text}>
+                Follow @streamlit on the world's largest professional network.
+              </p>
+            </article>
+          </a>
+        </li>
+        <li className={`group ${styles.ListItem}`}>
+          {" "}
+          {/* Instagram */}
           <a
             className={`${styles.Link} not-link`}
             href="https://www.instagram.com/streamlit.io"
@@ -149,6 +221,40 @@ const SocialCallout = () => {
               <h5 className={styles.Subtitle}>Instagram</h5>
               <p className={styles.Text}>
                 Follow @streamlit.io on Instagram for more updates and content.
+              </p>
+            </article>
+          </a>
+        </li>
+        <li className={`group ${styles.ListItem}`}>
+          {" "}
+          {/* Newsletter */}
+          <a
+            className={`${styles.Link} not-link`}
+            href="https://share.hsforms.com/1WGycc-S0R8qfyL2iIw_70w3wudj"
+            target="_blank"
+          >
+            <div className={`${styles.IconContainer} ${styles.Newsletter}`}>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className={styles.Icon}
+              >
+                <path
+                  d="M21.75 6.75v10.5a1.5 1.5 0 0 1-1.5 1.5H3.75a1.5 1.5 0 0 1-1.5-1.5V6.75m19.5 0a1.5 1.5 0 0 0-1.5-1.5H3.75a1.5 1.5 0 0 0-1.5 1.5m19.5 0-8.896 6.159a1.5 1.5 0 0 1-1.708 0L2.25 6.75"
+                  stroke="#FFFFFF"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <article>
+              <h5 className={styles.Subtitle}>Newsletter</h5>
+              <p className={styles.Text}>
+                Sign up for communications from Streamlit.
               </p>
             </article>
           </a>

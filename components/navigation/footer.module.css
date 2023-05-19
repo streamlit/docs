@@ -44,7 +44,8 @@
 
 /* Colors for hover states */
 .GitHubIcon,
-.InstagramIcon {
+.InstagramIcon,
+.MediumIcon {
   @apply hover:fill-gray-90;
 }
 
@@ -58,6 +59,14 @@
 
 .DiscordIcon {
   @apply hover:fill-indigo-70;
+}
+
+.LinkedInIcon:hover {
+  fill: #0077b5;
+}
+
+.NewsletterIcon:hover path {
+  stroke: black;
 }
 
 .Copyright {
