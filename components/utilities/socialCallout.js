@@ -6,7 +6,6 @@ const SocialCallout = () => {
       <h2 className={styles.Title}>Other Media</h2>
       <ul className={styles.ListContainer}>
         <li className={`group ${styles.ListItem}`}>
-          {" "}
           {/* Github */}
           <a
             className={`${styles.Link} not-link`}
@@ -37,7 +36,6 @@ const SocialCallout = () => {
           </a>
         </li>
         <li className={`group ${styles.ListItem}`}>
-          {" "}
           {/* Discord */}
           <a
             className={`${styles.Link} not-link`}
@@ -69,7 +67,36 @@ const SocialCallout = () => {
           </a>
         </li>
         <li className={`group ${styles.ListItem}`}>
-          {" "}
+          {/* Reddit */}
+          <a
+            className={`${styles.Link} not-link`}
+            href="https://www.reddit.com/r/StreamlitOfficial/"
+            target="_blank"
+          >
+            <div className={`${styles.IconContainer} ${styles.Reddit}`}>
+              <svg
+                width="113.8"
+                height="101.6"
+                viewBox="0 0 113.8 101.6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className={styles.Icon}
+              >
+                <path
+                  d="m 113.8,51.7 c 0,-6.9 -5.6,-12.5 -12.5,-12.5 -3.4,0 -6.4,1.3 -8.6,3.5 C 84.2,36.6 72.4,32.6 59.4,32.1 L 65.1,5.4 83.6,9.3 c 0.2,4.7 4.1,8.5 8.9,8.5 4.9,0 8.9,-4 8.9,-8.9 C 101.4,4 97.4,0 92.5,0 89,0 86,2 84.6,5 L 63.9,0.6 c -0.6,-0.1 -1.2,0 -1.7,0.3 -0.5,0.3 -0.8,0.8 -1,1.4 L 54.9,32.1 C 41.6,32.5 29.7,36.4 21.1,42.7 18.9,40.6 15.8,39.2 12.5,39.2 5.6,39.2 0,44.8 0,51.7 c 0,5.1 3,9.4 7.4,11.4 -0.2,1.2 -0.3,2.5 -0.3,3.8 0,19.2 22.3,34.7 49.9,34.7 27.6,0 49.9,-15.5 49.9,-34.7 0,-1.3 -0.1,-2.5 -0.3,-3.7 4.1,-2 7.2,-6.4 7.2,-11.5 z m -85.5,8.9 c 0,-4.9 4,-8.9 8.9,-8.9 4.9,0 8.9,4 8.9,8.9 0,4.9 -4,8.9 -8.9,8.9 -4.9,0 -8.9,-4 -8.9,-8.9 z M 78,84.1 c -6.1,6.1 -17.7,6.5 -21.1,6.5 -3.4,0 -15.1,-0.5 -21.1,-6.5 -0.9,-0.9 -0.9,-2.4 0,-3.3 0.9,-0.9 2.4,-0.9 3.3,0 3.8,3.8 12,5.2 17.9,5.2 5.9,0 14,-1.4 17.9,-5.2 0.9,-0.9 2.4,-0.9 3.3,0 0.7,1 0.7,2.4 -0.2,3.3 z M 76.4,69.5 c -4.9,0 -8.9,-4 -8.9,-8.9 0,-4.9 4,-8.9 8.9,-8.9 4.9,0 8.9,4 8.9,8.9 0,4.9 -4,8.9 -8.9,8.9 z"
+                  fill="#FFFFFF"
+                />
+              </svg>
+            </div>
+            <article>
+              <h5 className={styles.Subtitle}>Reddit</h5>
+              <p className={styles.Text}>
+                Join our newest community on Reddit to discuss Streamlit.
+              </p>
+            </article>
+          </a>
+        </li>
+        <li className={`group ${styles.ListItem}`}>
           {/* YouTube */}
           <a
             className={`${styles.Link} not-link`}
@@ -100,7 +127,6 @@ const SocialCallout = () => {
           </a>
         </li>
         <li className={`group ${styles.ListItem}`}>
-          {" "}
           {/* Medium */}
           <a
             className={`${styles.Link} not-link`}
@@ -131,7 +157,6 @@ const SocialCallout = () => {
           </a>
         </li>
         <li className={`group ${styles.ListItem}`}>
-          {" "}
           {/* Twitter */}
           <a
             className={`${styles.Link} not-link`}
@@ -162,7 +187,6 @@ const SocialCallout = () => {
           </a>
         </li>
         <li className={`group ${styles.ListItem}`}>
-          {" "}
           {/* LinkedIn */}
           <a
             className={`${styles.Link} not-link`}
@@ -193,7 +217,6 @@ const SocialCallout = () => {
           </a>
         </li>
         <li className={`group ${styles.ListItem}`}>
-          {" "}
           {/* Instagram */}
           <a
             className={`${styles.Link} not-link`}
@@ -226,7 +249,6 @@ const SocialCallout = () => {
           </a>
         </li>
         <li className={`group ${styles.ListItem}`}>
-          {" "}
           {/* Newsletter */}
           <a
             className={`${styles.Link} not-link`}

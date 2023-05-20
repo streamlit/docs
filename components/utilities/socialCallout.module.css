@@ -70,6 +70,10 @@
   background-color: #0077b5;
 }
 
+.Reddit {
+  background-color: #ff4500;
+}
+
 .Newsletter {
   @apply bg-red-70;
 }

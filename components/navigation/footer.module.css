@@ -61,6 +61,10 @@
   @apply hover:fill-indigo-70;
 }
 
+.RedditIcon:hover {
+  fill: #ff4500;
+}
+
 .LinkedInIcon:hover {
   fill: #0077b5;
 }
