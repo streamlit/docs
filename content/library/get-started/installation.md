@@ -36,17 +36,17 @@ Below are a few tools you can use for environment management:
 
 ## Install Streamlit on Windows
 
-Streamlit's officially-supported environment manager on Windows is [Anaconda Navigator](https://docs.anaconda.com/anaconda/navigator/).
+Streamlit's officially-supported environment manager on Windows is [Anaconda Navigator](https://docs.anaconda.com/free/navigator/).
 
 ### Install Anaconda
 
-If you don't have Anaconda install yet, follow the steps provided on the [Anaconda installation page](https://docs.anaconda.com/anaconda/install/windows/).
+If you don't have Anaconda install yet, follow the steps provided on the [Anaconda installation page](https://docs.anaconda.com/free/anaconda/install/windows/).
 
 ### Create a new environment with Streamlit
 
 Next you'll need to set up your environment.
 
-1. Follow the steps provided by Anaconda to [set up and manage your environment](https://docs.anaconda.com/anaconda/navigator/getting-started/#managing-environments) using the Anaconda Navigator.
+1. Follow the steps provided by Anaconda to [set up and manage your environment](https://docs.anaconda.com/free/navigator/getting-started/#navigator-managing-environments) using the Anaconda Navigator.
 
 2. Select the "▶" icon next to your new environment. Then select "Open terminal":
 
