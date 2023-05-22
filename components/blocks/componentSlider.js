@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import classNames from "classnames";
 
 import Slider from "react-slick";
@@ -17,7 +17,14 @@ const Arrow = ({ onClick, type }) => {
 
 const ComponentSlider = ({ children }) => {
   const [tooltipOpen, setTooltipOpen] = useState(false);
+  const [shouldArrowsBeVisible, setShouldArrowsBeVisible] = useState(false);
   const sliderRef = useRef();
+
+  useEffect(() => {
+    sliderRef.current?.props.children.length > 3
+      ? setShouldArrowsBeVisible(true)
+      : setShouldArrowsBeVisible(false);
+  }, [sliderRef]);
 
   const sliderSettings = {
     dots: false,
@@ -93,7 +100,7 @@ const ComponentSlider = ({ children }) => {
             />
           </div>
         </div>
-        {sliderRef.current && sliderRef.current.props.children.length > 3 && (
+        {shouldArrowsBeVisible && (
           <ul className={styles.ArrowsContainer}>
             <li>
               <Arrow
