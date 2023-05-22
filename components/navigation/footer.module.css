@@ -28,6 +28,8 @@
 
 .SocialNetworks {
   @apply flex items-center gap-4;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .IconLink {
