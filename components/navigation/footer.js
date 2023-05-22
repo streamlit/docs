@@ -293,9 +293,9 @@ const Footer = () => {
                 <path
                   d="M21.75 6.75v10.5a1.5 1.5 0 0 1-1.5 1.5H3.75a1.5 1.5 0 0 1-1.5-1.5V6.75m19.5 0a1.5 1.5 0 0 0-1.5-1.5H3.75a1.5 1.5 0 0 0-1.5 1.5m19.5 0-8.896 6.159a1.5 1.5 0 0 1-1.708 0L2.25 6.75"
                   stroke="#a3a8b8"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   fill="none"
                 />
               </svg>
