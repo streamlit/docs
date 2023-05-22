@@ -4,9 +4,10 @@ import styles from "./arrowLink.module.css";
 
 const ArrowLink = ({ children, link, type, content, target }) => {
   function ArrowType() {
+    const href = link || "#";
     if (type == "back") {
       return (
-        <Link href={link}>
+        <Link href={href}>
           <a
             className={`
               not-link
@@ -35,7 +36,7 @@ const ArrowLink = ({ children, link, type, content, target }) => {
       );
     } else if (type == "next") {
       return (
-        <Link href={link}>
+        <Link href={href}>
           <a
             className={`
               not-link
