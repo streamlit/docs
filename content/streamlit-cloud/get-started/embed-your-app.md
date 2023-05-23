@@ -46,11 +46,13 @@ The new oEmbed support allows for a simpler embedding experience. You can now di
 
 ### Example
 
-When creating content in a Notion page, Medium article, or Ghost blog, you only need to paste the app's URL. The app will then render automatically at that spot in your content. Use the same URL as for iframe embedding, but without the `?embed=true` query parameter.
+When creating content in a Notion page, Medium article, or Ghost blog, you only need to paste the app's URL and hit Enter. The app will then render automatically at that spot in your content. Use the same URL as for iframe embedding, but without the `?embed=true` query parameter.
 
 ```
 https://30days.streamlit.app/
 ```
+
+Here's an example of [@chrieke's](https://github.com/chrieke) Prettymapp [app](https://chrieke-prettymapp-streamlit-prettymappapp-1k0qxh.streamlit.app/) embedded in a Medium article:
 
 <Image src="/images/streamlit-community-cloud/oembed.gif" alt="oEmbed example" clean />
 
