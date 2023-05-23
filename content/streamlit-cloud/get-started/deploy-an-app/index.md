@@ -87,90 +87,11 @@ This subdomain is unique to your app and can be used to share your app with othe
 
 ### Embed apps
 
-Streamlit Community Cloud supports embedding **public** apps using the subdomain scheme. To embed a public app, add the query parameter `/?embed=true` to the end of the `*streamlit.app` subdomain URL.
+<Tip>
 
-For example, say you want to embed the Streamlit Docs' radio button app: [https://doc-radio1.streamlit.app/](https://doc-radio1.streamlit.app/). The URL to include in your iframe is: [https://doc-radio1.streamlit.app/?embed=true](https://doc-radio1.streamlit.app/?embed=true):
+Documentation for embedding apps has moved to [Embed your app](/streamlit-community-cloud/get-started/embed-your-app). Please update your bookmarks.
 
-```js
-<iframe
-  src="https://doc-radio1.streamlit.app/?embed=true"
-  height="250"
-  style="width:100%;border:none;"
-></iframe>
-```
-
-<Cloud src="https://doc-radio1.streamlit.app/?embed=true" height="250" style="width:100%;border:none;"></Cloud>
-
-<Important>
-
-There will be no official support for embedding private apps.
-
-</Important>
-
-In addition to allowing you to embed apps via iframes, the `?embed=true` query parameter also does the following:
-
-- Removes the toolbar with the hamburger menu
-- Removes the padding at the top and bottom of the app
-- Removes the footer
-- Removes the colored line from the top of the app
-
-To allow more granular control over the embedding behavior, Streamlit lets you optionally specify one or more instances of the `?embed_options` query parameter. The supported values for `?embed_options` are listed below:
-
-1. Embed (default)
-
-   ```js
-   /?embed=true
-   ```
-
-2. Show toolbar
-
-   ```js
-   /?embed=true&embed_options=show_toolbar
-   ```
-
-3. Show padding
-
-   ```js
-   /?embed=true&embed_options=show_padding
-   ```
-
-4. Show footer
-
-   ```js
-   /?embed=true&embed_options=show_footer
-   ```
-
-5. Show colored line
-
-   ```js
-   /?embed=true&embed_options=show_colored_line
-   ```
-
-6. Disable scrolling
-
-   ```js
-   /?embed=true&embed_options=disable_scrolling
-   ```
-
-7. Open with light theme
-
-   ```js
-   /?embed=true&embed_options=light_theme
-   ```
-
-8. Open with dark theme
-
-   ```js
-   /?embed=true&embed_options=dark_theme
-   ```
-
-You can also combine the params:
-
-```js
-/?embed=true&embed_options=show_toolbar&embed_options=show_padding&embed_options=show_footer&embed_options=show_colored_line&embed_options=disable_scrolling
-```
-
-Both `?embed` and `?embed_options` are invisible to [st.experimental_get_query_params](/library/api-reference/utilities/st.experimental_get_query_params) and [st.experimental_set_query_params](/library/api-reference/utilities/st.experimental_set_query_params). The former ignores the embed query parameters and does not return them, while the latter disallows setting embed query parameters.
+</Tip>
 
 ### Custom subdomains
 
