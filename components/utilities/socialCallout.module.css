@@ -40,7 +40,8 @@
 }
 
 /* Specific colors for each social network */
-.GitHub {
+.GitHub,
+.Medium {
   @apply bg-gray-90;
 }
 
@@ -53,7 +54,7 @@
 }
 
 .Discord {
-  @apply bg-indigo-70;
+  background-color: #5865f2;
 }
 
 .Instagram {
@@ -63,4 +64,16 @@
     #ef4a6e 49.3%,
     #972aaa 100%
   );
+}
+
+.LinkedIn {
+  background-color: #0077b5;
+}
+
+.Reddit {
+  background-color: #ff4500;
+}
+
+.Newsletter {
+  @apply bg-red-70;
 }
