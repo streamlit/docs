@@ -54,7 +54,7 @@ const Image = ({ caption, pure, src, alt, clean }) => {
   } else if (clean) {
     block = (
       <section>
-        <img src={src} alt={alt} className={captionClass} />
+        <img onClick={openModal} src={src} alt={alt} className={captionClass} />
         {customCaption}
       </section>
     );
