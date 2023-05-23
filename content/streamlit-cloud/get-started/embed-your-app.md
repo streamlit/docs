@@ -15,7 +15,7 @@ Streamlit Community Cloud supports embedding **public** apps using the subdoma
 
 For example, say you want to embed the [30DaysOfStreamlit app](https://30days.streamlit.app/). The URL to include in your iframe is: [https://30days.streamlit.app/?embed=true](https://30days.streamlit.app/?embed=true):
 
-```js
+```javascript
 <iframe
   src="https://30days.streamlit.app/?embed=true"
   height="450"
@@ -88,49 +88,49 @@ When [Embedding with iframes](#embedding-with-iframes), Streamlit allows you to 
 
 1. Show toolbar
 
-   ```js
+   ```javascript
    /?embed=true&embed_options=show_toolbar
    ```
 
 2. Show padding
 
-   ```js
+   ```javascript
    /?embed=true&embed_options=show_padding
    ```
 
 3. Show footer
 
-   ```js
+   ```javascript
    /?embed=true&embed_options=show_footer
    ```
 
 4. Show colored line
 
-   ```js
+   ```javascript
    /?embed=true&embed_options=show_colored_line
    ```
 
 5. Disable scrolling
 
-   ```js
+   ```javascript
    /?embed=true&embed_options=disable_scrolling
    ```
 
 6. Open with light theme
 
-   ```js
+   ```javascript
    /?embed=true&embed_options=light_theme
    ```
 
 7. Open with dark theme
 
-   ```js
+   ```javascript
    /?embed=true&embed_options=dark_theme
    ```
 
 You can also combine the params:
 
-```js
+```javascript
 /?embed=true&embed_options=show_toolbar&embed_options=show_padding&embed_options=show_footer&embed_options=show_colored_line&embed_options=disable_scrolling
 ```
 
