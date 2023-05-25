@@ -553,7 +553,7 @@ With our additional pages created, we can now put it all together in the final s
 
 To run your newly converted multipage app, run:
 
-```shell
+```bash
 streamlit run Hello.py
 ```
 

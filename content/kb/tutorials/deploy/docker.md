@@ -48,7 +48,7 @@ Docker builds images by reading the instructions from a `Dockerfile`. A `Docke
 
 Here's an example `Dockerfile` that you can add to the root of your directory. i.e. in `/app/`
 
-```dockerfile
+```docker
 # app/Dockerfile
 
 FROM python:3.9-slim
@@ -79,7 +79,7 @@ Let’s walk through each line of the Dockerfile :
 
 1. A `Dockerfile` must start with a [`FROM`](https://docs.docker.com/engine/reference/builder/#from) instruction. It sets the [Base Image](https://docs.docker.com/glossary/#base-image) (think OS) for the container:
 
-   ```dockerfile
+   ```docker
    FROM python:3.9-slim
    ```
 
@@ -93,7 +93,7 @@ Let’s walk through each line of the Dockerfile :
 
 2. The `WORKDIR` instruction sets the working directory for any `RUN`, `CMD`, `ENTRYPOINT`, `COPY` and `ADD` instructions that follow it in the `Dockerfile` . Let’s set it to `app/` :
 
-   ```dockerfile
+   ```docker
    WORKDIR /app
    ```
 
@@ -106,7 +106,7 @@ Let’s walk through each line of the Dockerfile :
 
 3. Install `git` so that we can clone the app code from a remote repo:
 
-   ```dockerfile
+   ```docker
    RUN apt-get update && apt-get install -y \
        build-essential \
        curl \
@@ -119,7 +119,7 @@ Let’s walk through each line of the Dockerfile :
 
    a. If your code is in a public repo:
 
-   ```dockerfile
+   ```docker
    RUN git clone https://github.com/streamlit/streamlit-example.git .
    ```
 
@@ -185,7 +185,7 @@ Let’s walk through each line of the Dockerfile :
 
    c. If your code lives in the same directory as the Dockerfile, copy all your app files from your server into the container, including `streamlit_app.py`, `requirements.txt`, etc, by replacing the `git clone` line with:
 
-   ```dockerfile
+   ```docker
    COPY . .
    ```
 
@@ -193,25 +193,25 @@ Let’s walk through each line of the Dockerfile :
 
 5. Install your app’s [Python dependencies](/streamlit-community-cloud/get-started/deploy-an-app/app-dependencies#add-python-dependencies) from the cloned `requirements.txt` in the container:
 
-   ```dockerfile
+   ```docker
    RUN pip3 install -r requirements.txt
    ```
 
 6. The [`EXPOSE`](https://docs.docker.com/engine/reference/builder/#expose) instruction informs Docker that the container listens on the specified network ports at runtime. Your container needs to listen to Streamlit’s (default) port 8501:
 
-   ```dockerfile
+   ```docker
    EXPOSE 8501
    ```
 
 7. The [`HEALTHCHECK`](https://docs.docker.com/engine/reference/builder/#expose) instruction tells Docker how to test a container to check that it is still working. Your container needs to listen to Streamlit’s (default) port 8501:
 
-   ```dockerfile
+   ```docker
    HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
    ```
 
 8. An [`ENTRYPOINT`](https://docs.docker.com/engine/reference/builder/#entrypoint) allows you to configure a container that will run as an executable. Here, it also contains the entire `streamlit run` command for your app, so you don’t have to call it from the command line:
 
-   ```dockerfile
+   ```docker
    ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
    ```
 

@@ -104,7 +104,7 @@ Clone the [component-template GitHub repo](https://github.com/streamlit/componen
 
 1. Initialize and build the component template frontend from the terminal:
 
-   ```shell
+   ```bash
    # React template
    template/my_component/frontend
    npm install    # Initialize the project and install npm dependencies
@@ -120,7 +120,7 @@ Clone the [component-template GitHub repo](https://github.com/streamlit/componen
 
 2. _From a separate terminal_, run the Streamlit app (Python) that declares and uses the component:
 
-   ```shell
+   ```bash
    # React template
    cd template
    . venv/bin/activate # or similar to activate the venv/conda environment where Streamlit is installed
@@ -268,7 +268,7 @@ of personal preference.
 - Because you're hosting your component from a dev server (via `npm run start`), any changes you make should be automatically reflected in the Streamlit app when you save.
 - If you want to add more packages to your component, run `npm add` to add them from within your component's `frontend/` directory.
 
-```shell
+```bash
 npm add baseui
 ```
 
