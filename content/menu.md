@@ -473,6 +473,9 @@ site_menu:
   - category: Knowledge base / Using Streamlit / Batch elements and input widgets with st.form
     url: /knowledge-base/using-streamlit/batch-elements-input-widgets-form
     visible: false
+  - category: Knowledge base / Using Streamlit / Buttons, buttons, buttons!
+    url: /knowledge-base/using-streamlit/buttons
+    visible: false
   - category: Knowledge base / Using Streamlit / How do I create an anchor link?
     url: /knowledge-base/using-streamlit/create-anchor-link
     visible: false
