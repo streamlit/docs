@@ -65,12 +65,18 @@ def get_github_source(func):
     try:
         source_file = inspect.getsourcefile(func)
     except TypeError:
-        source_file = inspect.getsourcefile(func.fget)
+        try:
+            source_file = inspect.getsourcefile(func.fget)
+        except AttributeError:
+            source_file = inspect.getsourcefile(func.__call__)
 
     try:
         line = inspect.getsourcelines(func)[1]
     except TypeError:
-        line = inspect.getsourcelines(func.fget)[1]
+        try:
+            line = inspect.getsourcelines(func.fget)[1]
+        except AttributeError:
+            line = inspect.getsourcelines(func.__call__)[1]
 
     # Get the relative path after the "streamlit" directory
     rel_path = os.path.relpath(
@@ -117,6 +123,10 @@ def get_docstring_dict(
         description["is_class"] = True
         # Get the class's methods
         methods = inspect.getmembers(obj, inspect.isfunction)
+        # Check if methods is empty
+        if not methods:
+            # assign the objects functions to methods
+            methods = inspect.getmembers(obj, inspect.ismethod)
         # Initialize an empty dictionary to store the methods and their signatures
         description["methods"] = []
         # Iterate through the class's methods
@@ -298,8 +308,13 @@ def get_sig_string_without_annots(func):
     """Returns a string representation of the function signature without annotations."""
     if not callable(func):
         return ""
-    # Get the signature of the function
-    sig = inspect.signature(func)
+    # Check if the function is a bound method
+    if isinstance(func, types.MethodType):
+        # Get the signature of the function object being bound
+        sig = inspect.signature(func.__func__)
+    else:
+        # Get the signature of the function
+        sig = inspect.signature(func)
     # Initialize an empty list to store the arguments
     args = []
     # Initialize a variable to store the previous parameter
@@ -371,6 +386,9 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
         if membername.startswith("_"):
             continue
 
+        # if membername == "column_config":
+        #     continue
+
         # Get the member object using its name
         member = getattr(obj, membername)
 
@@ -402,7 +420,9 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
             fullname = "{}.{}".format(key_prefix, membername)
 
             # Call get_function_docstring_dict to get metadata of the current member
-            is_class = inspect.isclass(member)
+            is_class = inspect.isclass(
+                member
+            )  # or isinstance(member, streamlit.elements.lib.column_types.ColumnConfigAPI)
             is_property = isinstance(member, property)
             if is_class:
                 is_class_method = False
@@ -459,6 +479,10 @@ def get_streamlit_docstring_dict():
         streamlit.connections.ExperimentalBaseConnection: [
             "streamlit.connections.ExperimentalBaseConnection",
             "ExperimentalBaseConnection",
+        ],
+        streamlit.column_config: [
+            "streamlit.column_config",
+            "column_config",
         ],
         components: ["streamlit.components.v1", "st.components.v1"],
         streamlit._DeltaGenerator: ["DeltaGenerator", "element"],
