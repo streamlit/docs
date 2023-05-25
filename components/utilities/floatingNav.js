@@ -29,7 +29,13 @@ const getNestedHeadings = (headingElements) => {
   for (const index in headingElements) {
     const ele = headingElements[index];
 
-    if (ele.getElementsByTagName === undefined) {
+    // Check if the heading belongs to a component. If so, let's skip it to avoid cluttering the side nav
+    const parentElem = ele.parentElement;
+    const isParentExternal =
+      (parentElem.href && parentElem.href.includes("github")) ||
+      (parentElem.href && parentElem.href.includes("streamlit.app"));
+
+    if (ele.getElementsByTagName === undefined || isParentExternal === true) {
       continue;
     }
     const hrefs = ele.getElementsByTagName("a");
