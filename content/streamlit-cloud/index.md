@@ -82,14 +82,18 @@ Streamlit's Community Cloud is an open and free platform for the community to de
         title="Share your app"
         text="Share your app publicly or privately with select viewers and developers."
         link="/streamlit-community-cloud/get-started/share-your-app"
-        size="half"
+    />
+    <Tile
+        icon="bookmark"
+        title="Embed your app"
+        text="Embed your app in your blog, website, or other content."
+        link="/streamlit-community-cloud/get-started/embed-your-app"
     />
     <Tile
         icon="manage_accounts"
         title="Manage your app"
         text="Access logs, reboot, or favorite an app, and other tips and tricks."
         link="/streamlit-community-cloud/get-started/manage-your-app"
-        size="half"
     />
 </TileContainer>
 

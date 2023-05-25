@@ -22,7 +22,7 @@ import TileContainer from "../components/layouts/tileContainer";
 import RefCard from "../components/blocks/refCard";
 
 import { H1, H2 } from "../components/blocks/headers";
-import NewsEntry from "../components/blocks/newsEntry";
+import NewsFeed from "../components/blocks/newsFeed";
 import Button from "../components/blocks/button";
 import InlineCallout from "../components/blocks/inlineCallout";
 import NoteSplit from "../components/blocks/noteSplit";
@@ -92,18 +92,6 @@ export default function Home({ window, menu, gdpr_data }) {
               <Tile size="half" background="unset" color="unset" dark={{ background: "unset", color: 'white', border_color: 'gray-90' }} border_color="gray-40" icon="edit" title="Feature title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/tutorials/get-started" />
               <Tile size="half" background="unset" color="unset" dark={{ background: "unset", color: 'white', border_color: 'gray-90' }} border_color="gray-40" img="/logo.svg" title="Feature title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/tutorials/get-started" />
             </TileContainer> */}
-
-            {/* <NewsContainer>
-              <NewsEntry
-                date="2022-02-20T16:30:00.000Z"
-                title="Announcement: Streamlit Community Cloud Maintenance"
-                text="Streamlit Community Cloud will have a maintenance event on Sunday, February 20th at 7:00 am PST. The maintenance event will last for no more than 5 minutes."
-                link="https://discuss.streamlit.io/c/official-announcements/"
-              />
-              <NewsEntry date="2022-02-17T16:08:45.000Z" title="Calculating distances in cosmology with Streamlit" text="Learn how three friends made the cosmology on-the-go app CosmΩracle." link="https://blog.streamlit.io/calculating-distances-in-cosmology-with-streamlit/" />
-              <NewsEntry date="2021-02-07T16:30:00.000Z" title="Monthly Rewind > January 2022" text="Your January look-back at new features and great community content." link="https://blog.streamlit.io/monthly-rewind-january-2022/" />
-              <Button link="https://blog.streamlit.io/">View all updates</Button>
-            </NewsContainer> */}
 
             <H2>How to use our docs</H2>
             <InlineCalloutContainer>
@@ -232,30 +220,8 @@ export default function Home({ window, menu, gdpr_data }) {
             <H2 className="no-b-m">Latest blog posts</H2>
 
             <NewsContainer>
-              <NewsEntry
-                date="2023-04-27T16:05:00.000Z"
-                title="The ultimate athlete management dashboard for biomechanics"
-                text="Learn how to measure jump impulse, max force, and asymmetry with Python and Streamlit"
-                link="https://blog.streamlit.io/the-ultimate-athlete-management-dashboard-for-biomechanics/"
-                image="/blog-1.svg"
-                target="_blank"
-              />
-              <NewsEntry
-                date="2023-04-20T16:05:00.000Z"
-                title="Create an animated data story with ipyvizzu and Streamlit"
-                text="A tutorial on using ipyvizzu and ipyvizzu-story"
-                link="https://blog.streamlit.io/create-an-animated-data-story-with-ipyvizzu-and-streamlit/"
-                image="/blog-2.svg"
-                target="_blank"
-              />
-              <NewsEntry
-                date="2023-04-13T16:05:00.000Z"
-                title="Introducing a chemical molecule component for your Streamlit apps"
-                text="Integrate a fully featured molecule editor with just a few lines of code!"
-                link="https://blog.streamlit.io/introducing-a-chemical-molecule-component-for-your-streamlit-apps/"
-                image="/blog-3.svg"
-                target="_blank"
-              />
+              <NewsFeed />
+
               <Button link="https://blog.streamlit.io/" target="_blank">
                 View all updates
               </Button>

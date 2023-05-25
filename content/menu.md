@@ -376,6 +376,8 @@ site_menu:
     url: /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources
   - category: Streamlit Community Cloud / Get started / Deploy an app / Connect to data sources / Secrets management
     url: /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management
+  - category: Streamlit Community Cloud / Get started / Embed your app
+    url: /streamlit-community-cloud/get-started/embed-your-app
   - category: Streamlit Community Cloud / Get started / Share your app
     url: /streamlit-community-cloud/get-started/share-your-app
   - category: Streamlit Community Cloud / Get started / Share your app / App indexability
