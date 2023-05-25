@@ -53,7 +53,7 @@ If `packages.txt` exists in the root directory of your repository we automatical
 
 Add **apt-get** dependencies to `packages.txt`, one package name per line. For example:
 
-```shell
+```bash
     freeglut3-dev
     libgtk2.0-dev
 ```

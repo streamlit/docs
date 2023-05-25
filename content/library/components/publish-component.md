@@ -34,7 +34,7 @@ The [component-template](https://github.com/streamlit/component-template) GitHub
 3. Edit `setup.py`, adding your component's name and other relevant info
 4. Create a release build of your frontend code. This will add a new directory, `frontend/build/`, with your compiled frontend in it:
 
-   ```shell
+   ```bash
    cd frontend
    npm run build
    ```
@@ -61,7 +61,7 @@ Once you've changed the default `my_component` references, compiled the HTML and
 
 2. Create a wheel from the source code:
 
-   ```shell
+   ```bash
     # Run this from your component's top-level directory; that is,
     # the directory that contains `setup.py`
     python setup.py sdist bdist_wheel
@@ -79,13 +79,13 @@ With your wheel created, the final step is to upload to PyPI. The instructions h
 
 2. Upload your wheel to Test PyPI. `twine` will prompt you for a username and password. For the username, use **\_\_token\_\_**. For the password, use your token value from the previous step, including the `pypi-` prefix:
 
-   ```shell
+   ```bash
    python3 -m twine upload --repository testpypi dist/*
    ```
 
 3. Install your newly-uploaded package in a new Python project to make sure it works:
 
-   ```shell
+   ```bash
     python -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-pkg-YOUR-USERNAME-HERE
    ```
 
