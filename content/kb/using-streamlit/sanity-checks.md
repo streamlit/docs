@@ -94,7 +94,7 @@ like the following:
 
 Command Prompt:
 
-```shell
+```bash
 C:\Users\streamlit> streamlit hello
 'streamlit' is not recognized as an internal or external command,
 operable program or batch file.
@@ -102,7 +102,7 @@ operable program or batch file.
 
 PowerShell:
 
-```shell
+```bash
 PS C:\Users\streamlit> streamlit hello
 streamlit : The term 'streamlit' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that
 the path is correct and try again.
@@ -121,7 +121,7 @@ After adding Python to your Windows PATH, you should then be able to follow the 
 
 Streamlit includes [pyarrow](https://arrow.apache.org/docs/python/) as an install dependency. Occasionally, when trying to install Streamlit from PyPI, you may see errors such as the following:
 
-```shell
+```bash
 Using cached pyarrow-1.0.1.tar.gz (1.3 MB)
   Installing build dependencies ... error
   ERROR: Command errored out with exit status 1:

@@ -31,6 +31,8 @@ const Code = ({ code, children, language, img, lines }) => {
     // Default `sh` language to `bash` for Prism import, since we use `sh` throughout our codebase but it's not a proper Prism import
     else if (importLanguage === "sh") {
       importLanguage = "bash";
+    } else if (importLanguage === "js") {
+      importLanguage = "javascript";
     }
 
     // After we have the values, let's import just the necessary languages
@@ -38,8 +40,14 @@ const Code = ({ code, children, language, img, lines }) => {
       if (typeof window !== "undefined") {
         // Only import the language if it hasn't been imported before.
         if (!languageImports.has(importLanguage)) {
-          await import(`prismjs/components/prism-${importLanguage}`);
-          languageImports.set(importLanguage, true);
+          try {
+            await import(`prismjs/components/prism-${importLanguage}`);
+            languageImports.set(importLanguage, true);
+          } catch (error) {
+            console.error(
+              `Prism doesn't support this language: ${importLanguage}`
+            );
+          }
         }
         // Only highlight the current code block.
         if (codeRef.current) {
