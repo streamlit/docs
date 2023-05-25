@@ -63,6 +63,54 @@ site_menu:
   - category: Streamlit library / API reference / Data display elements / st.dataframe
     url: /library/api-reference/data/st.dataframe
     isVersioned: true
+  - category: Streamlit library / API reference / Data display elements / st.data_editor
+    url: /library/api-reference/data/st.data_editor
+    isVersioned: true
+  - category: Streamlit library / API reference / Data display elements / st.column_config
+    url: /library/api-reference/data/st.column_config
+    isVersioned: true
+  - category: Streamlit library / API reference / Data display elements / st.column_config / BarChartColumn
+    url: /library/api-reference/data/st.column_config/st.column_config.barchartcolumn
+    isVersioned: true
+  - category: Streamlit library / API reference / Data display elements / st.column_config / CheckboxColumn
+    url: /library/api-reference/data/st.column_config/st.column_config.checkboxcolumn
+    isVersioned: true
+  - category: Streamlit library / API reference / Data display elements / st.column_config / Column
+    url: /library/api-reference/data/st.column_config/st.column_config.column
+    isVersioned: true
+  - category: Streamlit library / API reference / Data display elements / st.column_config / DateColumn
+    url: /library/api-reference/data/st.column_config/st.column_config.datecolumn
+    isVersioned: true
+  - category: Streamlit library / API reference / Data display elements / st.column_config / DatetimeColumn
+    url: /library/api-reference/data/st.column_config/st.column_config.datetimecolumn
+    isVersioned: true
+  - category: Streamlit library / API reference / Data display elements / st.column_config / ImageColumn
+    url: /library/api-reference/data/st.column_config/st.column_config.imagecolumn
+    isVersioned: true
+  - category: Streamlit library / API reference / Data display elements / st.column_config / LineChartColumn
+    url: /library/api-reference/data/st.column_config/st.column_config.linechartcolumn
+    isVersioned: true
+  - category: Streamlit library / API reference / Data display elements / st.column_config / LinkColumn
+    url: /library/api-reference/data/st.column_config/st.column_config.linkcolumn
+    isVersioned: true
+  - category: Streamlit library / API reference / Data display elements / st.column_config / ListColumn
+    url: /library/api-reference/data/st.column_config/st.column_config.listcolumn
+    isVersioned: true
+  - category: Streamlit library / API reference / Data display elements / st.column_config / NumberColumn
+    url: /library/api-reference/data/st.column_config/st.column_config.numbercolumn
+    isVersioned: true
+  - category: Streamlit library / API reference / Data display elements / st.column_config / ProgressColumn
+    url: /library/api-reference/data/st.column_config/st.column_config.progresscolumn
+    isVersioned: true
+  - category: Streamlit library / API reference / Data display elements / st.column_config / SelectboxColumn
+    url: /library/api-reference/data/st.column_config/st.column_config.selectboxcolumn
+    isVersioned: true
+  - category: Streamlit library / API reference / Data display elements / st.column_config / TextColumn
+    url: /library/api-reference/data/st.column_config/st.column_config.textcolumn
+    isVersioned: true
+  - category: Streamlit library / API reference / Data display elements / st.column_config / TimeColumn
+    url: /library/api-reference/data/st.column_config/st.column_config.timecolumn
+    isVersioned: true
   - category: Streamlit library / API reference / Data display elements / st.table
     url: /library/api-reference/data/st.table
     isVersioned: true
@@ -111,9 +159,6 @@ site_menu:
     url: /library/api-reference/widgets
   - category: Streamlit library / API reference / Input widgets / st.button
     url: /library/api-reference/widgets/st.button
-    isVersioned: true
-  - category: Streamlit library / API reference / Input widgets / st.experimental_data_editor
-    url: /library/api-reference/widgets/st.experimental_data_editor
     isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.download_button
     url: /library/api-reference/widgets/st.download_button

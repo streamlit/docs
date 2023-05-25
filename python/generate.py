@@ -482,7 +482,7 @@ def get_streamlit_docstring_dict():
         ],
         streamlit.column_config: [
             "streamlit.column_config",
-            "column_config",
+            "st.column_config",
         ],
         components: ["streamlit.components.v1", "st.components.v1"],
         streamlit._DeltaGenerator: ["DeltaGenerator", "element"],
