@@ -13,6 +13,10 @@ slug: /library/api-reference/data/st.column_config
 
 Configure a generic column.
 
+```python
+Column("Streamlit Widgets", width="medium", help="Streamlit **widget** commands 🎈")
+```
+
 </RefCard>
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.barchartcolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.barchartcolumn.jpg" />
@@ -20,6 +24,10 @@ Configure a generic column.
 #### BarChart Column
 
 Configure a bar chart column.
+
+```python
+BarChartColumn("Sales (last 6 months)" y_min=0, y_max=100)
+```
 
 </RefCard>
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.checkboxcolumn">
@@ -37,6 +45,10 @@ Configure a checkbox column.
 
 Configure a date column.
 
+```python
+DateColumn("Birthday", max_value=date(2005, 1, 1), format="DD.MM.YYYY")
+```
+
 </RefCard>
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.datetimecolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.datetimecolumn.jpg" />
@@ -44,6 +56,10 @@ Configure a date column.
 #### Datetime Column
 
 Configure a datetime column.
+
+```python
+DatetimeColumn("Appointment", min_value=datetime(2023, 6, 1), format="D MMM YYYY, h:mm a")
+```
 
 </RefCard>
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.imagecolumn">
@@ -53,6 +69,10 @@ Configure a datetime column.
 
 Configure an image column.
 
+```python
+ImageColumn("Preview Image", help="The preview screenshots")
+```
+
 </RefCard>
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.linechcolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.linechartcolumn.jpg" />
@@ -60,6 +80,10 @@ Configure an image column.
 #### LineChart Column
 
 Configure a line chart column.
+
+```python
+LineChartColumn("Sales (last 6 months)" y_min=0, y_max=100)
+```
 
 </RefCard>
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.linkcolumn">
@@ -69,6 +93,10 @@ Configure a line chart column.
 
 Configure a link column.
 
+```python
+LinkColumn("Trending apps", max_chars=100, validate="^https://.*$")
+```
+
 </RefCard>
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.listcolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.listcolumn.jpg" />
@@ -76,6 +104,10 @@ Configure a link column.
 #### List Column
 
 Configure a list column.
+
+```python
+ListColumn("Sales (last 6 months)", width="medium")
+```
 
 </RefCard>
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.numbercolumn">
@@ -86,7 +118,7 @@ Configure a list column.
 Configure a number column.
 
 ```python
-NumberColumn("Price", min_value=0, format="$%d")
+NumberColumn("Price (in USD)", min_value=0, format="$%d")
 ```
 
 </RefCard>
@@ -97,6 +129,10 @@ NumberColumn("Price", min_value=0, format="$%d")
 
 Configure a progress column.
 
+```python
+ProgressColumn("Sales volume", min_value=0, max_value=1000, format="$%f")
+```
+
 </RefCard>
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.selectboxcolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.selectboxcolumn.jpg" />
@@ -104,6 +140,10 @@ Configure a progress column.
 #### Selectbox Column
 
 Configure a selectbox column.
+
+```python
+SelectboxColumn("App Category", options=["🤖 LLM", "📈 Data Viz"])
+```
 
 </RefCard>
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.textcolumn">
@@ -113,6 +153,10 @@ Configure a selectbox column.
 
 Configure a text column.
 
+```python
+TextColumn("Widgets", max_chars=50, validate="^st\.[a-z_]+$")
+```
+
 </RefCard>
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.timecolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.timecolumn.jpg" />
@@ -120,6 +164,10 @@ Configure a text column.
 #### Time Column
 
 Configure a time column.
+
+```python
+TimeColumn("Appointment", min_value=time(8, 0, 0), format="hh:mm a")
+```
 
 </RefCard>
 </TileContainer>
