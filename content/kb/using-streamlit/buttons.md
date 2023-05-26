@@ -105,6 +105,43 @@ else:
 
 ### Buttons to continue or control stages of a process
 
+Another alternative to nesting content inside a button is to use the button to
+control a value in `st.session_state` to designate the "step" or "stage" of a
+process.
+
+```python
+import streamlit as st
+
+if 'stage' not in st.session_state:
+    st.session_state.stage = 0
+
+def set_state(i):
+    st.session_state.stage = i
+
+if st.session_state.stage == 0:
+    st.button('Begin', on_click=set_state, args=[1])
+
+if st.session_state.stage >= 1:
+    name = st.text_input('Name', on_change=set_state, args=[2])
+
+if st.session_state.stage >= 2:
+    st.write(f'Hello {name}!')
+    color = st.selectbox(
+        'Pick a Color',
+        [None, 'red', 'orange', 'green', 'blue', 'violet'],
+        on_change=set_state, args=[3]
+    )
+    if color is None:
+        set_state(2)
+
+if st.session_state.stage >= 3:
+    st.write(f':{color}[Thank you!]')
+    st.session_state.stage = 4
+
+if st.session_state.stage == 4:
+    st.button('Start Over', on_click=set_state, args=[0])
+```
+
 ### Buttons to modify `st.session_state`
 
 #### Logic nested in a button with a rerun
@@ -177,17 +214,78 @@ if st.button('Clear name'):
 if st.button('Streamlit!'):
     st.session_state.name = ('Streamlit')
 
-# The widget is after in logic, but still displayed first
+# The widget is second in logic, but first in display
 begin.text_input('Name', key='name')
 ```
 
 ### Buttons to add other widgets dynamically
 
+When dynamically adding widgets to the page, make sure to use an index to keep
+the keys unique and avoid a `DuplicateWidgetID` error.
+
+```python
+import streamlit as st
+
+def display_input_row(index):
+    left, middle, right = st.columns(3)
+    left.text_input('First', key=f'first_{index}')
+    middle.text_input('Middle', key=f'middle_{index}')
+    right.text_input('Last', key=f'last_{index}')
+
+if 'rows' not in st.session_state:
+    st.session_state['rows'] = 0
+
+def increase_rows():
+    st.session_state['rows'] += 1
+
+st.button('Add person', on_click=increase_rows)
+
+for i in range(st.session_state['rows']):
+    display_input_row(i)
+
+st.subheader('People')
+for i in range(st.session_state['rows']):
+    st.write(
+        f'Person {i+1}:',
+        st.session_state[f'first_{i}'],
+        st.session_state[f'middle_{i}'],
+        st.session_state[f'last_{i}']
+    )
+```
+
 ### Buttons to handle expensive or file-writing processes
 
-#### Caching
+When you have expensive processes, set them to run upon clicking a button and
+save results into `st.session_state`. This allows you to keep accessing the
+results of the process without re-executing it unnecessarily. This is especially
+helpful for processes that save to disk or write to a database.
 
-#### Session State
+```python
+import streamlit as st
+import pandas as pd
+import time
+
+def expensive_process(option, add):
+    with st.spinner('Processing...'):
+        time.sleep(5)
+    df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6], 'C':[7, 8, 9]})+add
+    return (df, add)
+
+cols = st.columns(2)
+option = cols[0].selectbox('Select a number', options=['1', '2', '3'])
+add = cols[1].number_input('Add a number', min_value=0, max_value=10)
+
+if 'processed' not in st.session_state:
+    st.session_state.processed = {}
+
+if st.button('Process'):
+    result = expensive_process(option, add)
+    st.session_state.processed[option] = result
+
+if option in st.session_state.processed:
+    st.write(f'Option {option} processed with add {add}')
+    st.write(st.session_state.processed[option][0])
+```
 
 ## Anti-patterns
 
