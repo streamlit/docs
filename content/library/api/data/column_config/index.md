@@ -37,6 +37,10 @@ BarChartColumn("Sales (last 6 months)" y_min=0, y_max=100)
 
 Configure a checkbox column.
 
+```python
+CheckboxColumn("Your favorite?", help="Select your **favorite** widgets")
+```
+
 </RefCard>
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.datecolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.datecolumn.jpg" />
