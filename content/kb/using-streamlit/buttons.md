@@ -5,7 +5,7 @@ slug: /knowledge-base/using-streamlit/buttons
 
 # Buttons, buttons, buttons!
 
-### TLDR
+## TLDR
 
 Buttons do not retain state. They return `True` on the page load resulting from
 their click and then immediately go back to `False`. If you nest something
@@ -35,25 +35,203 @@ example, imagine you have a "Validate" button for the purpose of creating an
 alert to say 'Valid' or 'Invalid' and no need to keep that info. That could be
 a process conditioned directly on a button.
 
-## Design patterns with buttons
+## Common logic with buttons
 
-TODO:
+### Show a quick message with a basic button
 
-1. Show a quick message with a basic button
-2. Toggle and stateful buttons with session state
-3. Buttons to control "stages" of a process
+Suppose you want to give the user a quick button to check if an entry is valid,
+but not keep that check displayed as the user continues:
 
-- Commit buttons
+```python
+import streamlit as st
 
-4. Modifying other widgets
+animal_shelter = ['cat', 'dog', 'rabbit', 'bird']
 
-- Nest in a button (with rerun or callback)
-- Limitations if modifying a widget displayed before a button (containers vs callbacks)
+animal = st.text_input('Type an animal')
 
-5. Buttons to add other widgets
+if st.button('Check availability') and animal.lower() in animal_shelter:
+    # This goes away if the user clicks the other button or changes the animal
+    st.write('We have that animal!')
 
-- "Add rows" vs stages of a process
+st.button('OK')
+```
 
-6. Expensive or file-writing processes (with or without displayed results)
+### Stateful button
 
-- Caching vs button logic
+If you want a clicked button to continue to be `True`, create a value in
+`st.session_state` and have the button set it to `True` in a callback:
+
+```python
+import streamlit as st
+
+if 'clicked' not in st.session_state:
+    st.session_state.clicked = False
+
+def click_button():
+    st.session_state.clicked = True
+
+st.button('Click me', on_click=click_button)
+
+if st.session_state.clicked:
+    # The message and nested widget will remain on the page
+    st.write('Button clicked!')
+    st.slider('Select a value')
+```
+
+### Toggle button
+
+Perhaps you want a button to work like a toggle switch instead. Just set your
+callback function to reverse the boolean value you have saved in
+`st.session_state`:
+
+```python
+import streamlit as st
+
+if 'button' not in st.session_state:
+    st.session_state.button = False
+
+def click_button():
+    st.session_state.button = not st.session_state.button
+
+st.button('Click me', on_click=click_button)
+
+if st.session_state.button:
+    # The message and nested widget will remain on the page
+    st.write('Button is on!')
+    st.slider('Select a value')
+else:
+    st.write('Button is off!')
+```
+
+### Buttons to continue or control stages of a process
+
+### Buttons to modify `st.session_state`
+
+#### Logic nested in a button with a rerun
+
+#### Logic used in a callback
+
+### Buttons to modify or reset other widgets
+
+When using a button to modify or reset another widget, it is the same as the
+above examples to modify `st.session_state`. However, there is an extra
+consideration that is very important: you cannot modify a key-value pair in
+`st.session_state` if the widget with that key has already been rendered on the
+page for the current page run.
+
+#### Don't do this
+
+```python
+import streamlit as st
+
+st.text_input('Name', key='name')
+
+# These buttons will error because they change a key after its widget
+if st.button('Clear name'):
+    st.session_state.name = ''
+if st.button('Streamlit!'):
+    set_name('Streamlit')
+```
+
+#### 1. Use a key for the button and put the logic before the widget
+
+```python
+import streamlit as st
+
+# Use the get method since the keys won't be in session_state
+# on the first page load
+if st.session_state.get('clear'):
+    st.session_state['name'] = ''
+if st.session_state.get('streamlit'):
+    st.session_state['name'] = 'Streamlit'
+
+st.text_input('Name', key='name')
+
+st.button('Clear name', key='clear')
+st.button('Streamlit!', key='streamlit')
+```
+
+#### 2. Use a callback
+
+```python
+import streamlit as st
+
+st.text_input('Name', key='name')
+
+def set_name(name):
+    st.session_state.name = name
+
+st.button('Clear name', on_click=set_name, args=[''])
+st.button('Streamlit!', on_click=set_name, args=['Streamlit'])
+```
+
+#### 3. Use containers
+
+```python
+import streamlit as st
+
+begin = st.container()
+
+if st.button('Clear name'):
+    st.session_state.name = ''
+if st.button('Streamlit!'):
+    st.session_state.name = ('Streamlit')
+
+# The widget is after in logic, but still displayed first
+begin.text_input('Name', key='name')
+```
+
+### Buttons to add other widgets dynamically
+
+### Buttons to handle expensive or file-writing processes
+
+#### Caching
+
+#### Session State
+
+## Anti-patterns
+
+Here are some simplified examples of how buttons can go wrong. Be on the lookout for these common mistakes.
+
+### Buttons nested inside buttons
+
+```python
+import streamlit as st
+
+if st.button('Button 1'):
+    st.write('Button 1 was clicked')
+    if st.button('Button 2'):
+        # This will never be reached!
+        st.write('Button 2 was clicked')
+```
+
+### Other widgets nested inside buttons
+
+```python
+import streamlit as st
+
+if st.button('Sign up'):
+    name = st.text_input('Name')
+
+    if name:
+        # This will never be reached
+        st.success(f'Welcome {name}')
+```
+
+### Processing nested inside a button without saving to session state
+
+```python
+import streamlit as st
+import pandas as pd
+
+file = st.file_uploader("Upload a file", type="csv")
+
+if st.button('Get data'):
+    df = pd.read_csv(file)
+    # This display will go away with the user's next action
+    st.write(df)
+
+if st.button('Save'):
+    # This will always error
+    df.to_csv('data.csv')
+```
