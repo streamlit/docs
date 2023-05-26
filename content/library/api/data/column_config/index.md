@@ -26,7 +26,7 @@ Column("Streamlit Widgets", width="medium", help="Streamlit **widget** commands 
 Configure a bar chart column.
 
 ```python
-BarChartColumn("Sales (last 6 months)" y_min=0, y_max=100)
+BarChartColumn("Marketing spend" y_min=0, y_max=100)
 ```
 
 </RefCard>
