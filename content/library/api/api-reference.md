@@ -239,7 +239,7 @@ mention(label="An awesome Streamlit App", icon="streamlit",  url="https://extras
 </ComponentCard>
 </ComponentSlider>
 
-## Data display elements
+## Data elements
 
 <TileContainer>
 <RefCard href="/library/api-reference/data/st.dataframe">

@@ -58,66 +58,66 @@ site_menu:
   - category: Streamlit library / API reference / Text elements / st.divider
     url: /library/api-reference/text/st.divider
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements
+  - category: Streamlit library / API reference / Data elements
     url: /library/api-reference/data
-  - category: Streamlit library / API reference / Data display elements / st.dataframe
+  - category: Streamlit library / API reference / Data elements / st.dataframe
     url: /library/api-reference/data/st.dataframe
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.data_editor
+  - category: Streamlit library / API reference / Data elements / st.data_editor
     url: /library/api-reference/data/st.data_editor
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.column_config
+  - category: Streamlit library / API reference / Data elements / st.column_config
     url: /library/api-reference/data/st.column_config
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.column_config / BarChartColumn
+  - category: Streamlit library / API reference / Data elements / st.column_config / BarChartColumn
     url: /library/api-reference/data/st.column_config/st.column_config.barchartcolumn
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.column_config / CheckboxColumn
+  - category: Streamlit library / API reference / Data elements / st.column_config / CheckboxColumn
     url: /library/api-reference/data/st.column_config/st.column_config.checkboxcolumn
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.column_config / Column
+  - category: Streamlit library / API reference / Data elements / st.column_config / Column
     url: /library/api-reference/data/st.column_config/st.column_config.column
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.column_config / DateColumn
+  - category: Streamlit library / API reference / Data elements / st.column_config / DateColumn
     url: /library/api-reference/data/st.column_config/st.column_config.datecolumn
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.column_config / DatetimeColumn
+  - category: Streamlit library / API reference / Data elements / st.column_config / DatetimeColumn
     url: /library/api-reference/data/st.column_config/st.column_config.datetimecolumn
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.column_config / ImageColumn
+  - category: Streamlit library / API reference / Data elements / st.column_config / ImageColumn
     url: /library/api-reference/data/st.column_config/st.column_config.imagecolumn
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.column_config / LineChartColumn
+  - category: Streamlit library / API reference / Data elements / st.column_config / LineChartColumn
     url: /library/api-reference/data/st.column_config/st.column_config.linechartcolumn
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.column_config / LinkColumn
+  - category: Streamlit library / API reference / Data elements / st.column_config / LinkColumn
     url: /library/api-reference/data/st.column_config/st.column_config.linkcolumn
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.column_config / ListColumn
+  - category: Streamlit library / API reference / Data elements / st.column_config / ListColumn
     url: /library/api-reference/data/st.column_config/st.column_config.listcolumn
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.column_config / NumberColumn
+  - category: Streamlit library / API reference / Data elements / st.column_config / NumberColumn
     url: /library/api-reference/data/st.column_config/st.column_config.numbercolumn
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.column_config / ProgressColumn
+  - category: Streamlit library / API reference / Data elements / st.column_config / ProgressColumn
     url: /library/api-reference/data/st.column_config/st.column_config.progresscolumn
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.column_config / SelectboxColumn
+  - category: Streamlit library / API reference / Data elements / st.column_config / SelectboxColumn
     url: /library/api-reference/data/st.column_config/st.column_config.selectboxcolumn
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.column_config / TextColumn
+  - category: Streamlit library / API reference / Data elements / st.column_config / TextColumn
     url: /library/api-reference/data/st.column_config/st.column_config.textcolumn
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.column_config / TimeColumn
+  - category: Streamlit library / API reference / Data elements / st.column_config / TimeColumn
     url: /library/api-reference/data/st.column_config/st.column_config.timecolumn
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.table
+  - category: Streamlit library / API reference / Data elements / st.table
     url: /library/api-reference/data/st.table
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.metric
+  - category: Streamlit library / API reference / Data elements / st.metric
     url: /library/api-reference/data/st.metric
     isVersioned: true
-  - category: Streamlit library / API reference / Data display elements / st.json
+  - category: Streamlit library / API reference / Data elements / st.json
     url: /library/api-reference/data/st.json
     isVersioned: true
   - category: Streamlit library / API reference / Chart elements
