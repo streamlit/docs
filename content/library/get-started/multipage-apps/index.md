@@ -27,12 +27,13 @@ The "entrypoint file" is the first page the app will show to the user. Once you 
 
 Once you've created your entrypoint file, you can add pages by creating `.py` files in a `pages/` directory relative to your entrypoint file. For example, if your entrypoint file is `Home.py`, then you can create a `pages/About.py` file to define the "About" page. Here's a valid directory structure for a multipage app:
 
-```
-Home.py # This is the file you run with "streamlit run"
+```bash
+project/
+└─── Home.py # This is the file you run with "streamlit run"
 └─── pages/
-  └─── About.py # This is a page
-  └─── 2_Page_two.py # This is another page
-  └─── 3_😎_three.py # So is this
+     └─── 1_Page_two.py # This is page
+     └─── 2_About.py # This is a another page
+     └─── 3_😎_three.py # So is this
 ```
 
 <Tip>
@@ -41,7 +42,7 @@ When adding emojis to filenames, it’s best practice to include a numbered-pref
 
 </Tip>
 
-Pages are defined as `.py` files in a `pages/` directory. The filenames of pages are transformed to page names in the sidebar based on the the rules in the [section below](#how-pages-are-labeled-and-sorted-in-the-ui). For example, the `About.py` file will appear as "About" in the sidebar, `2_Page_two.py` appears as "Page two", and `3_😎_three.py` appears as “😎 three”:
+Pages are defined as `.py` files in a `pages/` directory. The filenames of pages are transformed to page names in the sidebar based on the the rules in the [section below](#how-pages-are-labeled-and-sorted-in-the-ui). For example, the `2_About.py` file will appear as "About" in the sidebar, `1_Page_two.py` appears as "Page two", and `3_😎_three.py` appears as “😎 three”:
 
 ![Directory structure](/images/mpa-add-pages.png)
 
@@ -86,6 +87,7 @@ This table shows examples of filenames and their corresponding labels, sorted by
 | `123.py`                  | 123                |
 | `123_hello_dear_world.py` | hello dear world   |
 | `_12 monkeys.py`          | 12 monkeys         |
+| `about.py`                | about              |
 
 <Tip>
 
@@ -100,6 +102,16 @@ Pages are automatically shown in a nice navigation UI inside the app's sidebar. 
 You can also navigate between pages using URLs. Pages have their own URLs, defined by the file's `label`. When multiple files have the same `label`, Streamlit picks the first one (based on the ordering [described above](/library/get-started/multipage-apps#how-pages-are-sorted-in-the-sidebar)). Users can view a specific page by visiting the page's URL.
 
 If a user tries to access a URL for a page that does not exist, they will see a modal like the one below, saying the user has requested a page that was not found in the app’s pages/ directory.
+
+<Note>
+
+When navigating between pages by URL, a new browser session will be created and `st.session_state` will be cleared. In
+order to retain values in `st.session_state`, a user must use the sidebar navigation links. This means that creating
+links to other pages in markdown will result in `st.session_state` resetting. Programatically switching pages while
+preserving `st.session_state` is not currently available in Streamlit, but a community-supported option is
+[available here](https://extras.streamlit.app/Switch%20page%20function).
+
+</Note>
 
 <Image src="/images/mpa-page-not-found.png" />
 
