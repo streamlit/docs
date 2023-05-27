@@ -101,8 +101,6 @@ Pages are automatically shown in a nice navigation UI inside the app's sidebar. 
 
 You can also navigate between pages using URLs. Pages have their own URLs, defined by the file's `label`. When multiple files have the same `label`, Streamlit picks the first one (based on the ordering [described above](/library/get-started/multipage-apps#how-pages-are-sorted-in-the-sidebar)). Users can view a specific page by visiting the page's URL.
 
-If a user tries to access a URL for a page that does not exist, they will see a modal like the one below, saying the user has requested a page that was not found in the app’s pages/ directory.
-
 <Note>
 
 When navigating between pages by URL, a new browser session will be created and `st.session_state` will be cleared. In
@@ -112,6 +110,8 @@ preserving `st.session_state` is not currently available in Streamlit, but a com
 [available here](https://extras.streamlit.app/Switch%20page%20function).
 
 </Note>
+
+If a user tries to access a URL for a page that does not exist, they will see a modal like the one below, saying the user has requested a page that was not found in the app’s pages/ directory.
 
 <Image src="/images/mpa-page-not-found.png" />
 
