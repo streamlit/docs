@@ -144,9 +144,82 @@ if st.session_state.stage == 4:
 
 ### Buttons to modify `st.session_state`
 
+If you modify `st.session_state` inside of a button, you must consider where on
+the page that button is.
+
+#### A slight problem
+
+In this example, we access `st.session_state.name` both before and after the
+button which modifies it. When a button is clicked, you will see that the info
+written before the button lags behind the info written after the button.
+
+```python
+import streamlit as st
+import pandas as pd
+
+if 'name' not in st.session_state:
+    st.session_state['name'] = 'John Doe'
+
+st.header(st.session_state['name'])
+
+if st.button('Jane'):
+    st.session_state['name'] = 'Jane Doe'
+
+if st.button('John'):
+    st.session_state['name'] = 'John Doe'
+
+st.header(st.session_state['name'])
+```
+
 #### Logic nested in a button with a rerun
 
+If you need to acces data in `st.session_state` before the button that modifies
+it, you can include `st.experimental_rerun` to reload the page again after the
+change has been committed.
+
+```python
+import streamlit as st
+import pandas as pd
+
+if 'name' not in st.session_state:
+    st.session_state['name'] = 'John Doe'
+
+st.header(st.session_state['name'])
+
+if st.button('Jane'):
+    st.session_state['name'] = 'Jane Doe'
+    st.experimental_rerun()
+
+if st.button('John'):
+    st.session_state['name'] = 'John Doe'
+    st.experimental_rerun()
+
+st.header(st.session_state['name'])
+```
+
 #### Logic used in a callback
+
+Another clean option is to use a callback. Callbacks are executed as a prefix to
+the page rerunning, so you need not worry about the position of the button
+relative to any access to modified data.
+
+```python
+import streamlit as st
+import pandas as pd
+
+if 'name' not in st.session_state:
+    st.session_state['name'] = 'John Doe'
+
+def change_name(name):
+    st.session_state['name'] = name
+
+st.header(st.session_state['name'])
+
+st.button('Jane', on_click=change_name, args=['Jane Doe'])
+st.button('John', on_click=change_name, args=['John Doe'])
+
+st.header(st.session_state['name'])
+```
 
 ### Buttons to modify or reset other widgets
 
