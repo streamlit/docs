@@ -6,7 +6,7 @@ description: st.dataframe displays a dataframe as an interactive table.
 
 <Tip>
 
-This page only contains information on the `st.dataframe` API. For a deeper dive into working with DataFrames and the data editor's capabilities and limitations, read [Dataframes](/library/advanced-features/dataframes).
+This page only contains information on the `st.dataframe` API. For a deeper dive into working with DataFrames read [Dataframes](/library/advanced-features/dataframes).
 
 </Tip>
 
