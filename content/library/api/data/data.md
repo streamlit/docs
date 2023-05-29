@@ -25,7 +25,7 @@ st.dataframe(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.experimental_data_editor">
+<RefCard href="/library/api-reference/data/st.data_editor">
 
 <Image pure alt="screenshot" src="/images/api/data_editor.jpg" />
 
@@ -34,7 +34,7 @@ st.dataframe(my_data_frame)
 Display a data editor widget.
 
 ```python
-edited = st.experimental_data_editor(df, num_rows="dynamic")
+edited = st.data_editor(df, num_rows="dynamic")
 ```
 
 </RefCard>
