@@ -117,7 +117,7 @@ number = st.slider("Pick a number", 0, 100)
 
 <Image pure alt="screenshot" src="/images/api/select_slider.jpg" />
 
-#### Select-slider
+#### Select slider
 
 Display a slider widget to select items from a list.
 
@@ -156,7 +156,7 @@ choice = st.number_input("Pick a number", 0, 10)
 
 <Image pure alt="screenshot" src="/images/api/text_area.jpg" />
 
-#### Text-area
+#### Text area
 
 Display a multi-line text input widget.
 
@@ -195,7 +195,7 @@ time = st.time_input("Meeting time")
 
 <Image pure alt="screenshot" src="/images/api/file_uploader.jpg" />
 
-#### File Uploader
+#### File uploader
 
 Display a file uploader widget.
 
