@@ -50,7 +50,7 @@
 }
 
 .CodeBlockContainer pre {
-  @apply p-4 bg-gray-90 text-white font-medium rounded-md relative py-6 px-8 leading-relaxed;
+  @apply p-4 bg-gray-90 text-white font-medium rounded-xl relative py-6 px-8 leading-relaxed;
 }
 
 .CodeBlockContainer pre code {
