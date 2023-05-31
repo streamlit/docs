@@ -12,7 +12,7 @@ This page only contains information on the `st.data_editor` API. For a deeper di
 
 <Autofunction function="streamlit.data_editor" />
 
-## Column configuration
+### Column configuration
 
 When working with data in Streamlit, the [`st.column_config`](/library/api-reference/data/st.column_config) class is a powerful tool for configuring data display and interaction. Specifically designed for the `column_config` parameter in [`st.dataframe`](/library/api-reference/data/st.dataframe) and [`st.data_editor`](/library/api-reference/data/st.data_editor), it provides a suite of methods to tailor your columns to various data types - from simple text and numbers to lists, URLs, images, and more.
 
