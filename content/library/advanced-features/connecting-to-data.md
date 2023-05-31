@@ -14,9 +14,13 @@ Most Streamlit apps need some kind of data or API access to be useful - either r
 
 **Streamlit provides [`st.experimental_connection()`](/library/api-reference/connections/st.experimental_connection) to more easily connect your Streamlit apps to data and APIs with just a few lines of code**. This page provides a basic example of using the feature and then focuses on advanced usage.
 
+For a comprehensive overview of this feature, check out this video tutorial by Joshua Carroll, Streamlit's Product Manager for Developer Experience. You'll learn about the feature's utility in creating and managing data connections within your apps by using real-world examples.
+
+<YouTube videoId="9F45C89CloE" />
+
 ## Basic usage
 
-For basic startup and usage examples, check out the relevant [data source tutorial](/knowledge-base/tutorials/databases) or our [blog post introducing st.experimental_connection](https://blog.streamlit.io/introducing-st-experimental_connection/). Streamlit has built-in connections to SQL dialects and Snowflake Snowpark. We also maintain installable connections for [Cloud File Storage](https://github.com/streamlit/files-connection) and [Google Sheets](https://github.com/streamlit/gsheets-connection).
+For basic startup and usage examples, read up on the relevant [data source tutorial](/knowledge-base/tutorials/databases) or our [blog post introducing st.experimental_connection](https://blog.streamlit.io/introducing-st-experimental_connection/). Streamlit has built-in connections to SQL dialects and Snowflake Snowpark. We also maintain installable connections for [Cloud File Storage](https://github.com/streamlit/files-connection) and [Google Sheets](https://github.com/streamlit/gsheets-connection).
 
 If you are just starting, the best way to learn is to pick a data source you can access and get a minimal example working from one of the pages above 👆. Here, we will provide an ultra-minimal usage example for using a SQLite database. From there, the rest of this page will focus on advanced usage.
 
