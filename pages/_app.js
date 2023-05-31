@@ -17,13 +17,13 @@ Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
-useEffect(() => {
-  if (navigator.platform.match("Mac") === null) {
-    document.body.classList.add("mac");
-  }
-}, []);
-
 function StreamlitDocs({ Component, pageProps }) {
+  useEffect(() => {
+    if (navigator.platform.match("Mac") === null) {
+      document.body.classList.add("mac");
+    }
+  }, []);
+
   return (
     <AppContextProvider>
       <Component {...pageProps} />
