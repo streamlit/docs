@@ -49,7 +49,7 @@ You can connect to private data sources either by using [secrets management](/st
 
 <Tip>
 
-Streamlit Community Cloud supports Python 3.7 - Python 3.10, and defaults to version 3.9. You can select a version of your choice from the "Python version" dropdown in the "Advanced settings" modal.
+Streamlit Community Cloud supports Python 3.7 - Python 3.11, and defaults to version 3.9. You can select a version of your choice from the "Python version" dropdown in the "Advanced settings" modal.
 
 </Tip>
 
@@ -73,13 +73,13 @@ That's it — you're done! Your app now has a unique subdomain URL that you can 
 
 App subdomain URLs follow a structure based on your GitHub repo:
 
-```text
+```bash
 https://[user name]-[repo name]-[branch name]-[app path]-[short hash].streamlit.app
 ```
 
 For example:
 
-```text
+```bash
 https://streamlit-demo-self-driving-streamlit-app-8jya0g.streamlit.app
 ```
 
@@ -97,7 +97,7 @@ Documentation for embedding apps has moved to [Embed your app](/streamlit-commun
 
 Subdomains are customizable! With this step you'll be able modify your app URLs to reflect your app content, personal branding, or whatever you’d like. The URL will appear as:
 
-```text
+```bash
 <your-custom-subdomain>.streamlit.app
 ```
 
