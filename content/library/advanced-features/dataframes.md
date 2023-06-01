@@ -330,10 +330,8 @@ When handling large datasets with more than 150,000 rows, Streamlit applies addi
 
 While Streamlit's data editing capabilities offer a lot of functionality, there are some limitations to be aware of:
 
-- The editing functionalities are not yet optimized for mobile devices.
-- Editing is enabled only for a limited set of types (e.g. string, numbers, boolean). We are actively working on supporting more types soon, such as date, time, and datetime.
+- Editing is enabled for a limited set of types (e.g. string, numbers, boolean, hyperlinks, categorical values, date, time, and datetime.). We are actively working on supporting more types soon, such as images, lists, and charts.
 - Editing of Pandas DataFrames only supports the following index types: `RangeIndex`, (string) `Index`, `Float64Index`, `Int64Index`, and `UInt64Index`.
-- The column type is inferred from the underlying data and cannot be configured yet.
 - Some actions like deleting rows or searching data can only be triggered via keyboard hotkeys.
 
 We are working to fix the above limitations in future releases, so keep an eye out for updates.
