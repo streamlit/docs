@@ -155,6 +155,12 @@ Use all we've learned so far and apply them to the above embedded app. Try editi
 
 Notice how edits to the table are reflected in session state: when you make any edits, a rerun is triggered which sends the edits to the backend via `st.data_editor`'s keyed widget state. Its widget state is a JSON object containing three properties: **edited_rows**, **added_rows**, and **deleted rows:**.
 
+<Warning>
+
+When going from `st.experimental_data_editor` to `st.data_editor` in 1.23.0, the data editor's representation in `st.session_state` was changed. The `edited_cells` dictionary is now called `edited_rows` and uses a different format (`{0: {"column name": "edited value"}}` instead of `{"0:1": "edited value"}`). You may need to adjust the code if your app uses `st.experimental_data_editor` in combination with `st.session_state`."
+
+</Warning>
+
 - `edited_rows` is a dictionary containing all edits. Keys are zero-based row indices and values are dictionaries that map column names to edits (e.g. `{0: {"col1": ..., "col2": ...}}`).
 - `added_rows` is a list of newly added rows. Each value is a dictionary with the same format as above (e.g. `[{"col1": ..., "col2": ...}]`).
 - `deleted_rows` is a list of row numbers that have been deleted from the table (e.g. `[0, 2]`).
@@ -212,15 +218,204 @@ st.data_editor({
 
 ## Configuring columns
 
-You will be able configure the display and editing behavior of columns via `st.dataframe` and `st.data_editor` in to-be-announced future releases. We are developing an API to let you add images, charts, and clickable URLs in dataframe columns. Additionally, you will be able to make individual columns editable, set columns as categorical and specify which options they can take, hide the index of the dataframe, and much more.
+You are able configure the display and editing behavior of columns via `st.dataframe` and `st.data_editor` via the [Column configuration API](/library/api-reference/data/st.column_config). We have developing the API to let you add images, charts, and clickable URLs in dataframe and data editor columns. Additionally, you can make individual columns editable, set columns as categorical and specify which options they can take, hide the index of the dataframe, and much more.
+
+### Column configuration
+
+When working with data in Streamlit, the [`st.column_config`](/library/api-reference/data/st.column_config) class is a powerful tool for configuring data display and interaction. Specifically designed for the `column_config` parameter in [`st.dataframe`](/library/api-reference/data/st.dataframe) and [`st.data_editor`](/library/api-reference/data/st.data_editor), it provides a suite of methods to tailor your columns to various data types - from simple text and numbers to lists, URLs, images, and more.
+
+Whether it's translating temporal data into user-friendly formats or utilizing charts and progress bars for clearer data visualization, column configuration not only provides the user with an enriched data viewing experience but also ensures that you're equipped with the tools to present and interact with your data, just the way you want it.
+
+<TileContainer>
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.column">
+<Image pure alt="screenshot" src="/images/api/column_config.column.jpg" />
+
+#### Column
+
+Configure a generic column.
+
+```python
+Column("Streamlit Widgets", width="medium", help="Streamlit **widget** commands 🎈")
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.textcolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.textcolumn.jpg" />
+
+#### Text column
+
+Configure a text column.
+
+```python
+TextColumn("Widgets", max_chars=50, validate="^st\.[a-z_]+$")
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.numbercolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.numbercolumn.jpg" />
+
+#### Number column
+
+Configure a number column.
+
+```python
+NumberColumn("Price (in USD)", min_value=0, format="$%d")
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.checkboxcolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.checkboxcolumn.jpg" />
+
+#### Checkbox column
+
+Configure a checkbox column.
+
+```python
+CheckboxColumn("Your favorite?", help="Select your **favorite** widgets")
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.selectboxcolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.selectboxcolumn.jpg" />
+
+#### Selectbox column
+
+Configure a selectbox column.
+
+```python
+SelectboxColumn("App Category", options=["🤖 LLM", "📈 Data Viz"])
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.datetimecolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.datetimecolumn.jpg" />
+
+#### Datetime column
+
+Configure a datetime column.
+
+```python
+DatetimeColumn("Appointment", min_value=datetime(2023, 6, 1), format="D MMM YYYY, h:mm a")
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.datecolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.datecolumn.jpg" />
+
+#### Date column
+
+Configure a date column.
+
+```python
+DateColumn("Birthday", max_value=date(2005, 1, 1), format="DD.MM.YYYY")
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.timecolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.timecolumn.jpg" />
+
+#### Time column
+
+Configure a time column.
+
+```python
+TimeColumn("Appointment", min_value=time(8, 0, 0), format="hh:mm a")
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.listcolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.listcolumn.jpg" />
+
+#### List column
+
+Configure a list column.
+
+```python
+ListColumn("Sales (last 6 months)", width="medium")
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.linkcolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.linkcolumn.jpg" />
+
+#### Link column
+
+Configure a link column.
+
+```python
+LinkColumn("Trending apps", max_chars=100, validate="^https://.*$")
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.imagecolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.imagecolumn.jpg" />
+
+#### Image column
+
+Configure an image column.
+
+```python
+ImageColumn("Preview Image", help="The preview screenshots")
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.linechcolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.linechartcolumn.jpg" />
+
+#### Line chart column
+
+Configure a line chart column.
+
+```python
+LineChartColumn("Sales (last 6 months)" y_min=0, y_max=100)
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.barchartcolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.barchartcolumn.jpg" />
+
+#### Bar chart column
+
+Configure a bar chart column.
+
+```python
+BarChartColumn("Marketing spend" y_min=0, y_max=100)
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.progresscolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.progresscolumn.jpg" />
+
+#### Progress column
+
+Configure a progress column.
+
+```python
+ProgressColumn("Sales volume", min_value=0, max_value=1000, format="$%f")
+```
+
+</RefCard>
+
+</TileContainer>
 
 <Important>
 
-We will release the ability to configure columns in a future version of Streamlit. Keep at an eye out for updates on this page and the [Streamlit roadmap](https://roadmap.streamlit.app/).
+We will release in-depth documentation and a blog post on how to configure columns in the next two weeks. Keep at an eye out for updates on this page and the [Streamlit blog](https://blog.streamlit.io/).
 
 </Important >
 
-While the ability to configure columns has yet to be released, there are techniques you can use with Pandas today to render columns as checkboxes, selectboxes, and change the type of columns.
+There are techniques you can use with Pandas today to render columns as checkboxes, selectboxes, and change the type of columns, that don't involve the column configuration API. We explore these techniques in the following sections.
 
 ### Boolean columns (checkboxes)
 
