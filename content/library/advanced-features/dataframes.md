@@ -111,10 +111,10 @@ Did you notice that although the initial dataframe had just five rows, pasting a
 With `st.data_editor`, viewers can add or delete rows via the table UI. This mode can be activated by setting the `num_rows` parameter to `"dynamic"`. E.g.
 
 ```python
-edited_df = st.data_editor(df, num_rows=”dynamic”)
+edited_df = st.data_editor(df, num_rows="dynamic")
 ```
 
-- To add new rows, scroll to the bottom-most row and click on the “+” sign in any cell.
+- To add new rows, scroll to the bottom-most row and click on the “+" sign in any cell.
 - To delete rows, select one or more rows and press the `delete` key on your keyboard.
 
 <Collapse title="View interactive app">

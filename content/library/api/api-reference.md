@@ -1557,7 +1557,7 @@ rain(emoji="🎈", font_size=54,
 
 #### Forms
 
-Create a form that batches elements together with a “Submit” button.
+Create a form that batches elements together with a “Submit" button.
 
 ```python
 with st.form(key='my_form'):
