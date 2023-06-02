@@ -9,4 +9,4 @@ scipy
 altair==4.2.0
 pydeck==0.7.1
 opencv-python-headless==4.6.0.66
-streamlit-nightly==1.22.1.dev20230523
+streamlit==1.23.1

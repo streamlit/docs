@@ -1,4 +1,4 @@
-streamlit-nightly==1.22.1.dev20230523
+streamlit==1.23.1
 vega_datasets
 altair==4.2.0
 plotly==5.1.0
