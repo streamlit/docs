@@ -245,9 +245,6 @@ site_menu:
   - category: Streamlit library / API reference / Utilities / st.help
     url: /library/api-reference/utilities/st.help
     isVersioned: true
-  - category: Streamlit library / API reference / Utilities / st.experimental_show
-    url: /library/api-reference/utilities/st.experimental_show
-    isVersioned: true
   - category: Streamlit library / API reference / Utilities / st.experimental_get_query_params
     url: /library/api-reference/utilities/st.experimental_get_query_params
     isVersioned: true
