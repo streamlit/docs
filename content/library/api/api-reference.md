@@ -1746,21 +1746,6 @@ st.help(pd.DataFrame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/utilities/st.experimental_show">
-
-#### st.experimental_show
-
-Write arguments and argument names to your app for debugging purposes.
-
-```python
-df = pd.DataFrame({
-  'first column': [1, 2, 3, 4],
-  'second column': [10, 20, 30, 40],
- })
-st.experimental_show(df)
-```
-
-</RefCard>
 <RefCard href="/library/api-reference/utilities/st.experimental_get_query_params">
 
 #### Get query parameters

@@ -273,7 +273,6 @@ st.help(pandas.DataFrame)
 st.get_option(key)
 st.set_option(key, value)
 st.set_page_config(layout='wide')
-st.experimental_show(objects)
 st.experimental_get_query_params()
 st.experimental_set_query_params(**params)
 ```

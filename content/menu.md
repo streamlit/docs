@@ -290,9 +290,6 @@ site_menu:
   - category: Streamlit library / API reference / Utilities / st.help
     url: /library/api-reference/utilities/st.help
     isVersioned: true
-  - category: Streamlit library / API reference / Utilities / st.experimental_show
-    url: /library/api-reference/utilities/st.experimental_show
-    isVersioned: true
   - category: Streamlit library / API reference / Utilities / st.experimental_get_query_params
     url: /library/api-reference/utilities/st.experimental_get_query_params
     isVersioned: true
@@ -367,6 +364,8 @@ site_menu:
     url: /library/advanced-features/theming
   - category: Streamlit library / Advanced features/ Caching
     url: /library/advanced-features/caching
+  - category: Streamlit library / Advanced features/ Connecting to data
+    url: /library/advanced-features/connecting-to-data
   - category: Streamlit library / Advanced features/ Optimize performance with st.cache
     url: /library/advanced-features/st.cache
     visible: false
