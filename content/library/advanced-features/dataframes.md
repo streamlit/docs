@@ -78,14 +78,14 @@ Try it out by double-clicking on any cell. You'll notice you can edit all cell v
 
 - [Copy and paste support](#copy-and-paste-support) from and to Excel and Google Sheets.
 - [Add and delete rows](#add-and-delete-rows). You can do this by setting `num_rows= "dynamic"` when calling `st.data_editor`. This will allow users to add and delete rows as needed.
-- [Access edited data](#access-edited-data).
+- [Access edited data](#access-edited-data). Only access the individual edits instead of the entire edited data structure via session state.
 - [Bulk edits](#bulk-edits) (similar to Excel, just drag a handle to edit neighboring cells).
-- [Automatic input validation](#automatic-input-validation), e.g. no way to enter letters into a number cell.
+- [Automatic input validation](#automatic-input-validation), a strong data type support. e.g. There's no way to enter letters into a number cell and many other configurable input validation options. e.g. min-/max-value.
 - [Edit common data structures](#edit-common-data-structures) such as lists, dicts, NumPy ndarray, etc.
 
 ### Copy and paste support
 
-The data editor supports pasting in tabular data from Google Sheets, Excel, Notion, and many other similar tools. You can also copy-paste data between `st.data_editor` instances. This can be a huge time saver for users who need to work with data across multiple platforms. To try it out:
+The data editor supports pasting in tabular data from Google Sheets, Excel, Notion, and many other similar tools. You can also copy-paste data between `st.data_editor` instances. This functionality, powered by the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API), can be a huge time saver for users who need to work with data across multiple platforms. To try it out:
 
 1. Copy data from [this Google Sheets document](https://docs.google.com/spreadsheets/d/1Z0zd-5dF_HfqUaDDq4BWAOnsdlGCjkbTNwDZMBQ1dOY/edit?usp=sharing) to clipboard
 2. Select any cell in the `name` column of the table below and paste it in (via `ctrl/cmd + v`).
@@ -105,6 +105,16 @@ Every cell of the pasted data will be evaluated individually and inserted into t
 </Note>
 
 Did you notice that although the initial dataframe had just five rows, pasting all those rows from the spreadsheet added additional rows to the dataframe? 👀 Let's find out how that works in the next section.
+
+<Tip>
+
+If you embed your apps with iframes, you'll need to allow the iframe to access the clipboard if you want to use the copy-paste functionality. To do so, give the iframe [`clipboard-write`](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/write) and [`clipboard-read`](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/read) permissions. E.g.
+
+```javascript
+<iframe allow="clipboard-write;clipboard-read;" ... src="https://your-app-url"></iframe>
+```
+
+</Tip>
 
 ### Add and delete rows
 
@@ -173,7 +183,7 @@ The data editor includes a feature that allows for bulk editing of cells. Simila
 
 ### Automatic input validation
 
-The data editor includes automatic input validation to help prevent errors when editing cells. For example, if you have a column that contains numerical data, the input field will automatically restrict the user to only entering numerical data. This helps to prevent errors that could occur if the user were to accidentally enter a non-numerical value.
+The data editor includes automatic input validation to help prevent errors when editing cells. For example, if you have a column that contains numerical data, the input field will automatically restrict the user to only entering numerical data. This helps to prevent errors that could occur if the user were to accidentally enter a non-numerical value. Additional input validation can be configured through the [Column configuration API](/library/api-reference/data/st.column_config). Such as `max_chars` and a `validate` pattern for [text columns](/library/api-reference/data/st.column_config/st.column_config.textcolumn), or `min_value`, `max_value`, or `step` for [number columns](/library/api-reference/data/st.column_config/st.column_config.numbercolumn). You can also set `required` to `True` for all editable column types to disallow settings values to `None`.
 
 ### Edit common data structures
 
@@ -483,7 +493,7 @@ edited_df = st.data_editor(df)
 
 ![data-editor-categorical.gif](/images/data-editor-categorical.gif)
 
-### Change column type
+<!-- ### Change column type
 
 To change the type of a column, you can change the type of the underlying Pandas DataFrame column. E.g., say you have a column with only integers but want users to be able to add numbers with decimals. To do so, simply change the Pandas DataFrame column type to `float`, like so:
 
@@ -507,7 +517,7 @@ edited_df = st.data_editor(df)
 
 In the first data editor instance, you cannot add decimal values to any entries. But after casting column `A` to type `float`, we’re able to edit the values as floating point numbers:
 
-![data-editor-change-type.gif](/images/data-editor-change-type.gif)
+![data-editor-change-type.gif](/images/data-editor-change-type.gif) -->
 
 ## Handling large datasets
 
@@ -525,7 +535,7 @@ When handling large datasets with more than 150,000 rows, Streamlit applies addi
 
 While Streamlit's data editing capabilities offer a lot of functionality, there are some limitations to be aware of:
 
-- Editing is enabled for a limited set of types (e.g. string, numbers, boolean, hyperlinks, categorical values, date, time, and datetime.). We are actively working on supporting more types soon, such as images, lists, and charts.
+- Editing is enabled for a limited set of column types ([TextColumn](/library/api-reference/data/st.column_config/st.column_config.textcolumn), [NumberColumn](/library/api-reference/data/st.column_config/st.column_config.numbercolumn), [LinkColumn](/library/api-reference/data/st.column_config/st.column_config.linkcolumn), [CheckboxColumn](/library/api-reference/data/st.column_config/st.column_config.checkboxcolumn), [SelectboxColumn](/library/api-reference/data/st.column_config/st.column_config.selectboxcolumn), [DateColumn](/library/api-reference/data/st.column_config/st.column_config.datecolumn), [TimeColumn](/library/api-reference/data/st.column_config/st.column_config.timecolumn), and [DatetimeColumn](/library/api-reference/data/st.column_config/st.column_config.datetimecolumn)). We are actively working on supporting editing for other column types as well, such as images, lists, and charts.
 - Editing of Pandas DataFrames only supports the following index types: `RangeIndex`, (string) `Index`, `Float64Index`, `Int64Index`, and `UInt64Index`.
 - Some actions like deleting rows or searching data can only be triggered via keyboard hotkeys.
 
