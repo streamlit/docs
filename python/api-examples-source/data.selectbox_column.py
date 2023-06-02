@@ -30,6 +30,7 @@ st.data_editor(
                 "📈 Data Visualization",
                 "🤖 LLM",
             ],
+            required=True,
         )
     },
     hide_index=True,

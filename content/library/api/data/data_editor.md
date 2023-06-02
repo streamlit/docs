@@ -1,46 +1,16 @@
 ---
-title: st.dataframe
-slug: /library/api-reference/data/st.dataframe
-description: st.dataframe displays a dataframe as an interactive table.
+title: st.data_editor
+slug: /library/api-reference/data/st.data_editor
+description: st.data_editor display a data editor widget that allows you to edit dataframes and many other data structures in a table-like UI.
 ---
 
 <Tip>
 
-This page only contains information on the `st.dataframe` API. For a deeper dive into working with DataFrames read [Dataframes](/library/advanced-features/dataframes).
+This page only contains information on the `st.data_editor` API. For a deeper dive into working with DataFrames and the data editor's capabilities and limitations, read [Dataframes](/library/advanced-features/dataframes).
 
 </Tip>
 
-<Autofunction function="streamlit.dataframe" />
-
-<br />
-
-`st.dataframe` supports the `use_container_width` parameter to stretch across the full container width:
-
-```python
-import pandas as pd
-import streamlit as st
-
-# Cache the dataframe so it's only loaded once
-@st.cache_data
-def load_data():
-    return pd.DataFrame(
-        {
-            "first column": [1, 2, 3, 4],
-            "second column": [10, 20, 30, 40],
-        }
-    )
-
-# Boolean to resize the dataframe, stored as a session state variable
-st.checkbox("Use container width", value=False, key="use_container_width")
-
-df = load_data()
-
-# Display the dataframe and allow the user to stretch the dataframe
-# across the full width of the container, based on the checkbox value
-st.dataframe(df, use_container_width=st.session_state.use_container_width)
-```
-
-<Cloud src="https://doc-dataframe2.streamlit.app/?embed=true" height="350" />
+<Autofunction function="streamlit.data_editor" />
 
 ### Column configuration
 
@@ -230,15 +200,3 @@ ProgressColumn("Sales volume", min_value=0, max_value=1000, format="$%f")
 </RefCard>
 
 </TileContainer>
-
-### Interactivity
-
-Dataframes displayed as interactive tables with `st.dataframe` have the following interactive features:
-
-- **Column sorting**: sort columns by clicking on their headers.
-- **Column resizing**: resize columns by dragging and dropping column header borders.
-- **Table (height, width) resizing**: resize tables by dragging and dropping the bottom right corner of tables.
-- **Search**: search through data by clicking a table, using hotkeys (`⌘ Cmd + F` or `Ctrl + F`) to bring up the search bar, and using the search bar to filter data.
-- **Copy to clipboard**: select one or multiple cells, copy them to clipboard, and paste them into your favorite spreadsheet software.
-
-<Image src="/images/dataframe-ui.gif" />

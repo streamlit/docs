@@ -50,6 +50,7 @@ class StOutput(Directive):
                     style="
                         width: 100%%;
                         border: none;
+                        margin-bottom: 1rem;
                         %(additional_styles)s
                     "
                 ></iframe>

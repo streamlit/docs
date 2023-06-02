@@ -46,7 +46,7 @@ widgets is filled before actually rerunning the script. That's what `st.form` is
 
 #### Forms
 
-Create a form that batches elements together with a “Submit” button.
+Create a form that batches elements together with a “Submit" button.
 
 ```python
 with st.form(key="my_form"):
