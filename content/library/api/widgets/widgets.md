@@ -21,19 +21,6 @@ clicked = st.button("Click me")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.experimental_data_editor">
-
-<Image pure alt="screenshot" src="/images/api/data_editor.jpg" />
-
-#### Data editor
-
-Display a data editor widget.
-
-```python
-edited = st.experimental_data_editor(df, num_rows="dynamic")
-```
-
-</RefCard>
 
 <RefCard href="/library/api-reference/widgets/st.download_button">
 

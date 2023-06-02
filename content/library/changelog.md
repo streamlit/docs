@@ -106,7 +106,7 @@ _Release date: February 23, 2023_
 - ✨ Streamlit’s GitHub README got a new look ([#6016](https://github.com/streamlit/streamlit/pull/6016)).
 - 🌚 Improved readability of styled dataframe cells in dark mode ([#6060](https://github.com/streamlit/streamlit/issues/6060), [#6098](https://github.com/streamlit/streamlit/pull/6098)).
 - 🐛 Bug fix: make apps work again in the latest versions of Safari, and in Chrome with third-party cookies blocked ([#6092](https://github.com/streamlit/streamlit/issues/6092), [#6094](https://github.com/streamlit/streamlit/pull/6094), [#6087](https://github.com/streamlit/streamlit/issues/6087), [#6100](https://github.com/streamlit/streamlit/pull/6100)).
-- 🐞 Bug fix: refer to new cache primitives in the “Clear cache” dialog and error messages ([#6082](https://github.com/streamlit/streamlit/pull/6082), [#6128](https://github.com/streamlit/streamlit/pull/6128)).
+- 🐞 Bug fix: refer to new cache primitives in the “Clear cache" dialog and error messages ([#6082](https://github.com/streamlit/streamlit/pull/6082), [#6128](https://github.com/streamlit/streamlit/pull/6128)).
 - 🐝 Bug fix: properly cache class member functions and instance methods ([#6109](https://github.com/streamlit/streamlit/issues/6109), [#6114](https://github.com/streamlit/streamlit/pull/6114)).
 - 🐜 Bug fix: regression in `st.metric` tooltip position ([#6093](https://github.com/streamlit/streamlit/issues/6093), [#6129](https://github.com/streamlit/streamlit/pull/6129)).
 - 🪲 Bug fix: allow fullscreen button to show for dataframes, charts, etc, in expander ([#6083](https://github.com/streamlit/streamlit/pull/6083), [#6148](https://github.com/streamlit/streamlit/pull/6148)).
@@ -125,7 +125,7 @@ _Release date: February 09, 2023_
 - ⏳ `st.progress` supports adding a message to display above the progress bar with the `text` keyword parameter.
 - ↔️ `st.button` has an optional `use_container_width` parameter to allow you to stretch buttons across the full container width.
 - 🐍 We formally added support for Python 3.11.
-- 🖨️ Save your app as a PDF via the “Print” option in your app’s hamburger menu.
+- 🖨️ Save your app as a PDF via the “Print" option in your app’s hamburger menu.
 - 🛎️ Apps can serve small, static media files via the `enableStaticServing` config option. See our [documentation](/library/advanced-features/static-file-serving) on how to use this feature and our demo [app](https://static-file-serving.streamlit.app/) for an example.
 
 **Other Changes**
@@ -558,7 +558,7 @@ _Release date: Jul 1, 2021_
 
 **Other Changes**
 
-- Using st.set_page_config to assign the page title no longer appends “Streamlit” to that title ([#3467](https://github.com/streamlit/streamlit/pull/3467))
+- Using st.set_page_config to assign the page title no longer appends “Streamlit" to that title ([#3467](https://github.com/streamlit/streamlit/pull/3467))
 - NumberInput: disable plus/minus buttons when the widget is already at its max (or min) value ([#3493](https://github.com/streamlit/streamlit/pull/3493))
 
 ## Version 0.83.0

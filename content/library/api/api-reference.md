@@ -239,7 +239,7 @@ mention(label="An awesome Streamlit App", icon="streamlit",  url="https://extras
 </ComponentCard>
 </ComponentSlider>
 
-## Data display elements
+## Data elements
 
 <TileContainer>
 <RefCard href="/library/api-reference/data/st.dataframe">
@@ -1557,7 +1557,7 @@ rain(emoji="🎈", font_size=54,
 
 #### Forms
 
-Create a form that batches elements together with a “Submit” button.
+Create a form that batches elements together with a “Submit" button.
 
 ```python
 with st.form(key='my_form'):

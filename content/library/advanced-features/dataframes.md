@@ -5,7 +5,7 @@ slug: /library/advanced-features/dataframes
 
 # Dataframes
 
-Dataframes are a great way to display and edit data in a tabular format. Working with Pandas DataFrames and other tabular data structures is key to data science workflows. If developers and data scientists want to display this data in Streamlit, they have multiple options: `st.dataframe` and `st.experimental_data_editor`. If you want to solely display data in a table-like UI, [st.dataframe](/library/api-reference/data/st.dataframe) is the way to go. If you want to interactively edit data, use [st.experimental_data_editor](/library/api-reference/widgets/st.experimental_data_editor). We explore the use cases and advantages of each option in the following sections.
+Dataframes are a great way to display and edit data in a tabular format. Working with Pandas DataFrames and other tabular data structures is key to data science workflows. If developers and data scientists want to display this data in Streamlit, they have multiple options: `st.dataframe` and `st.data_editor`. If you want to solely display data in a table-like UI, [st.dataframe](/library/api-reference/data/st.dataframe) is the way to go. If you want to interactively edit data, use [st.data_editor](/library/api-reference/data/st.data_editor). We explore the use cases and advantages of each option in the following sections.
 
 ## Display dataframes with st.dataframe
 
@@ -44,9 +44,9 @@ Try out all the addition UI features using the embedded app from the prior secti
 
 In addition to Pandas DataFrames, `st.dataframe` also supports other common Python types, e.g., list, dict, or numpy array. It also supports [Snowpark](https://docs.snowflake.com/en/developer-guide/snowpark/index) and [PySpark](https://spark.apache.org/docs/latest/api/python/) DataFrames, which allow you to lazily evaluate and pull data from databases. This can be useful for working with large datasets.
 
-## Edit data with st.experimental_data_editor
+## Edit data with st.data_editor
 
-Streamlit supports editable dataframes via the `st.experimental_data_editor` command. Check out its API in [st.experimental_data_editor](/library/api-reference/widgets/st.experimental_data_editor). It shows the dataframe in a table, similar to `st.dataframe`. But in contrast to `st.dataframe`, this table isn't static! The user can click on cells and edit them. The edited data is then returned on the Python side. Here's an example:
+Streamlit supports editable dataframes via the `st.data_editor` command. Check out its API in [st.data_editor](/library/api-reference/data/st.data_editor). It shows the dataframe in a table, similar to `st.dataframe`. But in contrast to `st.dataframe`, this table isn't static! The user can click on cells and edit them. The edited data is then returned on the Python side. Here's an example:
 
 ```python
 df = pd.DataFrame(
@@ -58,7 +58,7 @@ df = pd.DataFrame(
 )
 
 df = load_data()
-edited_df = st.experimental_data_editor(df) # 👈 An editable dataframe
+edited_df = st.data_editor(df) # 👈 An editable dataframe
 
 favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
 st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
@@ -74,18 +74,18 @@ Try it out by double-clicking on any cell. You'll notice you can edit all cell v
 
 ![data-editor-editing.gif](/images/data-editor-editing.gif)
 
-`st.experimental_data_editor` also supports a few additional things:
+`st.data_editor` also supports a few additional things:
 
 - [Copy and paste support](#copy-and-paste-support) from and to Excel and Google Sheets.
-- [Add and delete rows](#add-and-delete-rows). You can do this by setting `num_rows= "dynamic"` when calling `st.experimental_data_editor`. This will allow users to add and delete rows as needed.
-- [Access edited data](#access-edited-data).
+- [Add and delete rows](#add-and-delete-rows). You can do this by setting `num_rows= "dynamic"` when calling `st.data_editor`. This will allow users to add and delete rows as needed.
+- [Access edited data](#access-edited-data). Only access the individual edits instead of the entire edited data structure via session state.
 - [Bulk edits](#bulk-edits) (similar to Excel, just drag a handle to edit neighboring cells).
-- [Automatic input validation](#automatic-input-validation), e.g. no way to enter letters into a number cell.
+- [Automatic input validation](#automatic-input-validation), a strong data type support. e.g. There's no way to enter letters into a number cell and many other configurable input validation options. e.g. min-/max-value.
 - [Edit common data structures](#edit-common-data-structures) such as lists, dicts, NumPy ndarray, etc.
 
 ### Copy and paste support
 
-The data editor supports pasting in tabular data from Google Sheets, Excel, Notion, and many other similar tools. You can also copy-paste data between `st.experimental_data_editor` instances. This can be a huge time saver for users who need to work with data across multiple platforms. To try it out:
+The data editor supports pasting in tabular data from Google Sheets, Excel, Notion, and many other similar tools. You can also copy-paste data between `st.data_editor` instances. This functionality, powered by the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API), can be a huge time saver for users who need to work with data across multiple platforms. To try it out:
 
 1. Copy data from [this Google Sheets document](https://docs.google.com/spreadsheets/d/1Z0zd-5dF_HfqUaDDq4BWAOnsdlGCjkbTNwDZMBQ1dOY/edit?usp=sharing) to clipboard
 2. Select any cell in the `name` column of the table below and paste it in (via `ctrl/cmd + v`).
@@ -106,15 +106,25 @@ Every cell of the pasted data will be evaluated individually and inserted into t
 
 Did you notice that although the initial dataframe had just five rows, pasting all those rows from the spreadsheet added additional rows to the dataframe? 👀 Let's find out how that works in the next section.
 
-### Add and delete rows
+<Tip>
 
-With `st.experimental_data_editor`, viewers can add or delete rows via the table UI. This mode can be activated by setting the `num_rows` parameter to `"dynamic"`. E.g.
+If you embed your apps with iframes, you'll need to allow the iframe to access the clipboard if you want to use the copy-paste functionality. To do so, give the iframe [`clipboard-write`](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/write) and [`clipboard-read`](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/read) permissions. E.g.
 
-```python
-edited_df = st.experimental_data_editor(df, num_rows=”dynamic”)
+```javascript
+<iframe allow="clipboard-write;clipboard-read;" ... src="https://your-app-url"></iframe>
 ```
 
-- To add new rows, scroll to the bottom-most row and click on the “+” sign in any cell.
+</Tip>
+
+### Add and delete rows
+
+With `st.data_editor`, viewers can add or delete rows via the table UI. This mode can be activated by setting the `num_rows` parameter to `"dynamic"`. E.g.
+
+```python
+edited_df = st.data_editor(df, num_rows="dynamic")
+```
+
+- To add new rows, scroll to the bottom-most row and click on the “+" sign in any cell.
 - To delete rows, select one or more rows and press the `delete` key on your keyboard.
 
 <Collapse title="View interactive app">
@@ -132,12 +142,12 @@ Sometimes, it is more convenient to know which cells have been changed rather th
 This snippet shows how you can access changed data using session state:
 
 ```python
-st.experimental_data_editor(df, key="data_editor") # 👈 Set a key
+st.data_editor(df, key="data_editor") # 👈 Set a key
 st.write("Here's the session state:")
 st.write(st.session_state["data_editor"]) # 👈 Access the edited data
 ```
 
-In this code snippet, the `key` parameter is set to `"data_editor"`. Any changes made to the data in the `st.experimental_data_editor` instance will be tracked by Streamlit and stored in session state under the key `"data_editor"`.
+In this code snippet, the `key` parameter is set to `"data_editor"`. Any changes made to the data in the `st.data_editor` instance will be tracked by Streamlit and stored in session state under the key `"data_editor"`.
 
 After the data editor is created, the contents of the `"data_editor"` key in session state are printed to the screen using `st.write(st.session_state["data_editor"])`. This allows you to see the changes made to the original dataframe without having to return the entire dataframe from the data editor.
 
@@ -153,11 +163,17 @@ Use all we've learned so far and apply them to the above embedded app. Try editi
 
 ![data-editor-session-state.gif](/images/data-editor-session-state.gif)
 
-Notice how edits to the table are reflected in session state: when you make any edits, a rerun is triggered which sends the edits to the backend via `st.experimental_data_editor`'s keyed widget state. Its widget state is a JSON object containing three properties: **edited_cells**, **added_rows**, and **deleted rows:**.
+Notice how edits to the table are reflected in session state: when you make any edits, a rerun is triggered which sends the edits to the backend via `st.data_editor`'s keyed widget state. Its widget state is a JSON object containing three properties: **edited_rows**, **added_rows**, and **deleted rows:**.
 
-- `edited_cells` maps a cell position to the edited value: `row:column` → `value` .
-- `added_rows` is a list of newly added rows to the table. Each row is a dictionary where the keys are the column indices and the values are the corresponding cell values.
-- `deleted_rows` is a list of row indices that have been deleted from the table.
+<Warning>
+
+When going from `st.experimental_data_editor` to `st.data_editor` in 1.23.0, the data editor's representation in `st.session_state` was changed. The `edited_cells` dictionary is now called `edited_rows` and uses a different format (`{0: {"column name": "edited value"}}` instead of `{"0:1": "edited value"}`). You may need to adjust the code if your app uses `st.experimental_data_editor` in combination with `st.session_state`."
+
+</Warning>
+
+- `edited_rows` is a dictionary containing all edits. Keys are zero-based row indices and values are dictionaries that map column names to edits (e.g. `{0: {"col1": ..., "col2": ...}}`).
+- `added_rows` is a list of newly added rows. Each value is a dictionary with the same format as above (e.g. `[{"col1": ..., "col2": ...}]`).
+- `deleted_rows` is a list of row numbers that have been deleted from the table (e.g. `[0, 2]`).
 
 ### Bulk edits
 
@@ -167,16 +183,16 @@ The data editor includes a feature that allows for bulk editing of cells. Simila
 
 ### Automatic input validation
 
-The data editor includes automatic input validation to help prevent errors when editing cells. For example, if you have a column that contains numerical data, the input field will automatically restrict the user to only entering numerical data. This helps to prevent errors that could occur if the user were to accidentally enter a non-numerical value.
+The data editor includes automatic input validation to help prevent errors when editing cells. For example, if you have a column that contains numerical data, the input field will automatically restrict the user to only entering numerical data. This helps to prevent errors that could occur if the user were to accidentally enter a non-numerical value. Additional input validation can be configured through the [Column configuration API](/library/api-reference/data/st.column_config). Such as `max_chars` and a `validate` pattern for [text columns](/library/api-reference/data/st.column_config/st.column_config.textcolumn), or `min_value`, `max_value`, or `step` for [number columns](/library/api-reference/data/st.column_config/st.column_config.numbercolumn). You can also set `required` to `True` for all editable column types to disallow settings values to `None`.
 
 ### Edit common data structures
 
-Editing doesn't just work for Pandas DataFrames! You can also edit lists, tuples, sets, dictionaries, NumPy arrays, or Snowpark & PySpark DataFrames. Most data types will be returned in their original format. But some types (e.g. Snowpark and PySpark) are converted to Pandas DataFrames. To learn about all the supported types, read the [st.experimental_data_editor](/library/api-reference/widgets/st.experimental_data_editor) API.
+Editing doesn't just work for Pandas DataFrames! You can also edit lists, tuples, sets, dictionaries, NumPy arrays, or Snowpark & PySpark DataFrames. Most data types will be returned in their original format. But some types (e.g. Snowpark and PySpark) are converted to Pandas DataFrames. To learn about all the supported types, read the [st.data_editor](/library/api-reference/data/st.data_editor) API.
 
 E.g. you can easily let the user add items to a list:
 
 ```python
-edited_list = st.experimental_data_editor(["red", "green", "blue"], num_rows= "dynamic")
+edited_list = st.data_editor(["red", "green", "blue"], num_rows= "dynamic")
 st.write("Here are all the colors you entered:")
 st.write(edited_list)
 ```
@@ -186,7 +202,7 @@ Or numpy arrays:
 ```python
 import numpy as np
 
-st.experimental_data_editor(np.array([
+st.data_editor(np.array([
 	["st.text_area", "widget", 4.92],
 	["st.markdown", "element", 47.22]
 ]))
@@ -195,7 +211,7 @@ st.experimental_data_editor(np.array([
 Or lists of records:
 
 ```python
-st.experimental_data_editor([
+st.data_editor([
     {"name": "st.text_area", "type": "widget"},
     {"name": "st.markdown", "type": "element"},
 ])
@@ -204,7 +220,7 @@ st.experimental_data_editor([
 Or dictionaries and many more types!
 
 ```python
-st.experimental_data_editor({
+st.data_editor({
 	"st.text_area": "widget",
 	"st.markdown": "element"
 })
@@ -212,19 +228,208 @@ st.experimental_data_editor({
 
 ## Configuring columns
 
-You will be able configure the display and editing behavior of columns via `st.dataframe` and `st.experimental_data_editor` in to-be-announced future releases. We are developing an API to let you add images, charts, and clickable URLs in dataframe columns. Additionally, you will be able to make individual columns editable, set columns as categorical and specify which options they can take, hide the index of the dataframe, and much more.
+You are able configure the display and editing behavior of columns via `st.dataframe` and `st.data_editor` via the [Column configuration API](/library/api-reference/data/st.column_config). We have developed the API to let you add images, charts, and clickable URLs in dataframe and data editor columns. Additionally, you can make individual columns editable, set columns as categorical and specify which options they can take, hide the index of the dataframe, and much more.
+
+### Column configuration
+
+When working with data in Streamlit, the [`st.column_config`](/library/api-reference/data/st.column_config) class is a powerful tool for configuring data display and interaction. Specifically designed for the `column_config` parameter in [`st.dataframe`](/library/api-reference/data/st.dataframe) and [`st.data_editor`](/library/api-reference/data/st.data_editor), it provides a suite of methods to tailor your columns to various data types - from simple text and numbers to lists, URLs, images, and more.
+
+Whether it's translating temporal data into user-friendly formats or utilizing charts and progress bars for clearer data visualization, column configuration not only provides the user with an enriched data viewing experience but also ensures that you're equipped with the tools to present and interact with your data, just the way you want it.
+
+<TileContainer>
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.column">
+<Image pure alt="screenshot" src="/images/api/column_config.column.jpg" />
+
+#### Column
+
+Configure a generic column.
+
+```python
+Column("Streamlit Widgets", width="medium", help="Streamlit **widget** commands 🎈")
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.textcolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.textcolumn.jpg" />
+
+#### Text column
+
+Configure a text column.
+
+```python
+TextColumn("Widgets", max_chars=50, validate="^st\.[a-z_]+$")
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.numbercolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.numbercolumn.jpg" />
+
+#### Number column
+
+Configure a number column.
+
+```python
+NumberColumn("Price (in USD)", min_value=0, format="$%d")
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.checkboxcolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.checkboxcolumn.jpg" />
+
+#### Checkbox column
+
+Configure a checkbox column.
+
+```python
+CheckboxColumn("Your favorite?", help="Select your **favorite** widgets")
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.selectboxcolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.selectboxcolumn.jpg" />
+
+#### Selectbox column
+
+Configure a selectbox column.
+
+```python
+SelectboxColumn("App Category", options=["🤖 LLM", "📈 Data Viz"])
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.datetimecolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.datetimecolumn.jpg" />
+
+#### Datetime column
+
+Configure a datetime column.
+
+```python
+DatetimeColumn("Appointment", min_value=datetime(2023, 6, 1), format="D MMM YYYY, h:mm a")
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.datecolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.datecolumn.jpg" />
+
+#### Date column
+
+Configure a date column.
+
+```python
+DateColumn("Birthday", max_value=date(2005, 1, 1), format="DD.MM.YYYY")
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.timecolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.timecolumn.jpg" />
+
+#### Time column
+
+Configure a time column.
+
+```python
+TimeColumn("Appointment", min_value=time(8, 0, 0), format="hh:mm a")
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.listcolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.listcolumn.jpg" />
+
+#### List column
+
+Configure a list column.
+
+```python
+ListColumn("Sales (last 6 months)", width="medium")
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.linkcolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.linkcolumn.jpg" />
+
+#### Link column
+
+Configure a link column.
+
+```python
+LinkColumn("Trending apps", max_chars=100, validate="^https://.*$")
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.imagecolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.imagecolumn.jpg" />
+
+#### Image column
+
+Configure an image column.
+
+```python
+ImageColumn("Preview Image", help="The preview screenshots")
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.linechcolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.linechartcolumn.jpg" />
+
+#### Line chart column
+
+Configure a line chart column.
+
+```python
+LineChartColumn("Sales (last 6 months)" y_min=0, y_max=100)
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.barchartcolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.barchartcolumn.jpg" />
+
+#### Bar chart column
+
+Configure a bar chart column.
+
+```python
+BarChartColumn("Marketing spend" y_min=0, y_max=100)
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.progresscolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.progresscolumn.jpg" />
+
+#### Progress column
+
+Configure a progress column.
+
+```python
+ProgressColumn("Sales volume", min_value=0, max_value=1000, format="$%f")
+```
+
+</RefCard>
+
+</TileContainer>
 
 <Important>
 
-We will release the ability to configure columns in a future version of Streamlit. Keep at an eye out for updates on this page and the [Streamlit roadmap](https://roadmap.streamlit.app/).
+We will release in-depth documentation and a blog post on how to configure columns in the next two weeks. Keep at an eye out for updates on this page and the [Streamlit blog](https://blog.streamlit.io/).
 
 </Important >
 
-While the ability to configure columns has yet to be released, there are techniques you can use with Pandas today to render columns as checkboxes, selectboxes, and change the type of columns.
+There are techniques you can use with Pandas today to render columns as checkboxes, selectboxes, and change the type of columns, that don't involve the column configuration API. We explore these techniques in the following sections.
 
 ### Boolean columns (checkboxes)
 
-To render columns as checkboxes and clickable checkboxes in `st.dataframe` and `st.experimental_data_editor`, respectively, set the type of the Pandas column as `bool`.
+To render columns as checkboxes and clickable checkboxes in `st.dataframe` and `st.data_editor`, respectively, set the type of the Pandas column as `bool`.
 
 Here’s an example of creating a Pandas DataFrame with column `A` containing boolean values. When we display it using `st.dataframe`, the boolean values are rendered as checkboxes, where `True` and `False` values are checked and unchecked, respectively.
 
@@ -240,7 +445,7 @@ st.dataframe(df)
 
 ![data-editor-dataframe-boolean.gif](/images//data-editor-dataframe-boolean.gif)
 
-Notice you cannot change their values from the frontend. To let users check and uncheck values, we display the dataframe with `st.experimental_data_editor` instead:
+Notice you cannot change their values from the frontend. To let users check and uncheck values, we display the dataframe with `st.data_editor` instead:
 
 ```python
 import pandas as pd
@@ -249,14 +454,14 @@ import pandas as pd
 df = pd.DataFrame({"A": [True, False, True, False]})
 
 # show the data editor with checkboxes
-st.experimental_data_editor(df)
+st.data_editor(df)
 ```
 
 ![data-editor-boolean.gif](/images/data-editor-boolean.gif)
 
 ### Categorical columns (selectboxes)
 
-To render columns as selectboxes with `st.experimental_data_editor`, set the type of the Pandas column as `category`:
+To render columns as selectboxes with `st.data_editor`, set the type of the Pandas column as `category`:
 
 ```python
 import pandas as pd
@@ -266,7 +471,7 @@ df = pd.DataFrame(
 )
 df["command"] = df["command"].astype("category")
 
-edited_df = st.experimental_data_editor(df)
+edited_df = st.data_editor(df)
 ```
 
 In some cases, you may want users to select categories that aren’t in the original Pandas DataFrame. Let’s say we use `df` from above. Currently, the `command` column can take on four unique values. What should we do if we want users to see additional options such as `st.button` and `st.radio`?
@@ -283,12 +488,12 @@ df["command"] = (
     df["command"].astype("category").cat.add_categories(["st.button", "st.radio"])
 )
 
-edited_df = st.experimental_data_editor(df)
+edited_df = st.data_editor(df)
 ```
 
 ![data-editor-categorical.gif](/images/data-editor-categorical.gif)
 
-### Change column type
+<!-- ### Change column type
 
 To change the type of a column, you can change the type of the underlying Pandas DataFrame column. E.g., say you have a column with only integers but want users to be able to add numbers with decimals. To do so, simply change the Pandas DataFrame column type to `float`, like so:
 
@@ -301,22 +506,22 @@ import streamlit as st
 df = pd.DataFrame({"A": [1, 2, 3, 4]})
 
 # unable to add float values to the column
-edited_df = st.experimental_data_editor(df)
+edited_df = st.data_editor(df)
 
 # cast the column to float
 df["A"] = df["A"].astype("float")
 
 # able to add float values to the column
-edited_df = st.experimental_data_editor(df)
+edited_df = st.data_editor(df)
 ```
 
 In the first data editor instance, you cannot add decimal values to any entries. But after casting column `A` to type `float`, we’re able to edit the values as floating point numbers:
 
-![data-editor-change-type.gif](/images/data-editor-change-type.gif)
+![data-editor-change-type.gif](/images/data-editor-change-type.gif) -->
 
 ## Handling large datasets
 
-`st.dataframe` and `st.experimental_data_editor` have been designed to theoretically handle tables with millions of rows thanks to their highly performant implementation using the glide-data-grid library and HTML canvas. However, the maximum amount of data that an app can realistically handle will depend on several other factors, including:
+`st.dataframe` and `st.data_editor` have been designed to theoretically handle tables with millions of rows thanks to their highly performant implementation using the glide-data-grid library and HTML canvas. However, the maximum amount of data that an app can realistically handle will depend on several other factors, including:
 
 1. The maximum size of WebSocket messages: Streamlit's WebSocket messages are configurable via the `server.maxMessageSize` [config option](https://docs.streamlit.io/library/advanced-features/configuration#view-all-configuration-options), which limits the amount of data that can be transferred via the WebSocket connection at once.
 2. The server memory: The amount of data that your app can handle will also depend on the amount of memory available on your server. If the server's memory is exceeded, the app may become slow or unresponsive.
@@ -330,10 +535,8 @@ When handling large datasets with more than 150,000 rows, Streamlit applies addi
 
 While Streamlit's data editing capabilities offer a lot of functionality, there are some limitations to be aware of:
 
-- The editing functionalities are not yet optimized for mobile devices.
-- Editing is enabled only for a limited set of types (e.g. string, numbers, boolean). We are actively working on supporting more types soon, such as date, time, and datetime.
+- Editing is enabled for a limited set of column types ([TextColumn](/library/api-reference/data/st.column_config/st.column_config.textcolumn), [NumberColumn](/library/api-reference/data/st.column_config/st.column_config.numbercolumn), [LinkColumn](/library/api-reference/data/st.column_config/st.column_config.linkcolumn), [CheckboxColumn](/library/api-reference/data/st.column_config/st.column_config.checkboxcolumn), [SelectboxColumn](/library/api-reference/data/st.column_config/st.column_config.selectboxcolumn), [DateColumn](/library/api-reference/data/st.column_config/st.column_config.datecolumn), [TimeColumn](/library/api-reference/data/st.column_config/st.column_config.timecolumn), and [DatetimeColumn](/library/api-reference/data/st.column_config/st.column_config.datetimecolumn)). We are actively working on supporting editing for other column types as well, such as images, lists, and charts.
 - Editing of Pandas DataFrames only supports the following index types: `RangeIndex`, (string) `Index`, `Float64Index`, `Int64Index`, and `UInt64Index`.
-- The column type is inferred from the underlying data and cannot be configured yet.
 - Some actions like deleting rows or searching data can only be triggered via keyboard hotkeys.
 
 We are working to fix the above limitations in future releases, so keep an eye out for updates.
