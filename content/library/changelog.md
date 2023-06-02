@@ -23,8 +23,8 @@ _Release date: June 1, 2023_
 
 **Highlights**
 
-- ✂️ Announcing the general availability of [st.data_editor](/library/api-reference/data/st.data_editor), a widget that allows you to edit DataFrames and many other data structures in a table-like UI (e.g. their title, visibility, type, or format). **Breaking change:** the data editor’s representation used in `st.session_state` was altered. Find out more about the new format in [Access edited data](/library/advanced-features/dataframes#access-edited-data).
-- ⚙️ Introducing the [Column configuration API](/library/api-reference/data/st.column_config) with a suite of methods to configure the display and editing behavior of `st.dataframe` and `st.data_editor` columns. Keep an eye out for a detailed [blog post](https://blog.streamlit.io/) and in-depth [documentation](/library/advanced-features/dataframes#configuring-columns) upcoming in the next two weeks.
+- ✂️ Announcing the general availability of [st.data_editor](/library/api-reference/data/st.data_editor), a widget that allows you to edit DataFrames and many other data structures in a table-like UI. **Breaking change:** the data editor’s representation used in `st.session_state` was altered. Find out more about the new format in [Access edited data](/library/advanced-features/dataframes#access-edited-data).
+- ⚙️ Introducing the [Column configuration API](/library/api-reference/data/st.column_config) with a suite of methods to configure the display and editing behavior of `st.dataframe` and `st.data_editor` columns (e.g. their title, visibility, type, or format). Keep an eye out for a detailed [blog post](https://blog.streamlit.io/) and in-depth [documentation](/library/advanced-features/dataframes#configuring-columns) upcoming in the next two weeks.
 - 🔌 Learn to use `st.experimental_connection` to create and manage data connections in your apps with the new [Connecting to data](/library/advanced-features/connecting-to-data) docs and [video tutorial](https://www.youtube.com/watch?v=xQwDfW7UHMo).
 
 **Notable Changes**
