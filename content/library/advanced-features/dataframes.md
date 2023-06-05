@@ -114,6 +114,8 @@ If you embed your apps with iframes, you'll need to allow the iframe to access t
 <iframe allow="clipboard-write;clipboard-read;" ... src="https://your-app-url"></iframe>
 ```
 
+As developers, ensure the app is served with a valid, trusted certificate when using TLS. If users encounter issues with copying and pasting data, direct them to check if their browser has activated clipboard access permissions for the Streamlit application, either when prompted or through the browser's site settings.
+
 </Tip>
 
 ### Add and delete rows
