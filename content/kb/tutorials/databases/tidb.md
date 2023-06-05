@@ -7,7 +7,9 @@ slug: /knowledge-base/tutorials/databases/tidb
 
 ## Introduction
 
-This guide explains how to securely access a remote [TiDB database](https://www.pingcap.com/tidb/) from Streamlit Community Cloud. It uses the [mysqlclient](https://github.com/PyMySQL/mysqlclient) library and Streamlit's [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). TiDB is an open-source, MySQL-compatible database that supports Hybrid Transactional and Analytical Processing (HTAP) workloads.
+This guide explains how to securely access a **_remote_** TiDB database from Streamlit Community Cloud. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection) and Streamlit's [secrets management](/library/advanced-features/secrets-management). The below example code will **only work on Streamlit version >= 1.22**, when `st.experimental_connection` was added.
+
+[TiDB](https://www.pingcap.com/tidb/) is an open-source, MySQL-compatible database that supports Hybrid Transactional and Analytical Processing (HTAP) workloads. [TiDB Cloud](https://www.pingcap.com/tidb-cloud/) is a fully managed cloud database service that simplifies the deployment and management of TiDB databases for developers.
 
 ## Sign in to TiDB Cloud and create a cluster
 
@@ -42,7 +44,7 @@ to [skip to the next step](#add-username-and-password-to-your-local-app-secrets)
 
 </Note>
 
-Once your TiDB cluster is up and running, connect to it with the `mysql` client and enter the following commands to create a database and a table with some example values:
+Once your TiDB cluster is up and running, connect to it with the `mysql` client(or with **Chat2Query** tab on the console) and enter the following commands to create a database and a table with some example values:
 
 ```sql
 CREATE DATABASE pets;
@@ -59,21 +61,23 @@ INSERT INTO mytable VALUES ('Mary', 'dog'), ('John', 'cat'), ('Robert', 'bird');
 
 ## Add username and password to your local app secrets
 
-Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Create this file if it doesn't exist yet and add the database name, user, and password of your TiDB cluster as shown below:
+Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Learn more about [Streamlit secrets management here](/library/advanced-features/secrets-management). Create this file if it doesn't exist yet and add host, username and password of your TiDB cluster as shown below:
 
 ```toml
 # .streamlit/secrets.toml
 
-[tidb]
+[connections.tidb]
+dialect = "mysql"
 host = "<TiDB_cluster_host>"
 port = 4000
 database = "pets"
-user = "<TiDB_cluster_user>"
+username = "<TiDB_cluster_user>"
 password = "<TiDB_cluster_password>"
-ssl_ca = "<path_to_CA_store>"
 ```
 
 <Important>
+
+When copying your app secrets to Streamlit Community Cloud, be sure to replace the values of **host**, **username** and **password** with those of your _remote_ TiDB cluster!
 
 Add this file to `.gitignore` and don't commit it to your GitHub repo!
 
@@ -85,13 +89,14 @@ As the `secrets.toml` file above is not committed to GitHub, you need to pass it
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 
-## Add mysqlclient to your requirements file
+## Add dependencies to your requirements file
 
-Add the [mysqlclient](https://github.com/PyMySQL/mysqlclient) package to your `requirements.txt` file, preferably pinning its version (replace `x.x.x` with the version you want installed):
+Add the [mysqlclient](https://github.com/PyMySQL/mysqlclient) and [SQLAlchemy](https://github.com/sqlalchemy/sqlalchemy) packages to your `requirements.txt` file, preferably pinning its version (replace `x.x.x` with the version you want installed):
 
 ```bash
 # requirements.txt
 mysqlclient==x.x.x
+SQLAlchemy==x.x.x
 ```
 
 ## Write your Streamlit app
@@ -101,43 +106,47 @@ Copy the code below to your Streamlit app and run it. Make sure to adapt `query`
 ```python
 # streamlit_app.py
 
-import MySQLdb
 import streamlit as st
 
 # Initialize connection.
-# Uses st.cache_resource to only run once.
-@st.cache_resource
-def init_connection():
-    config = st.secrets["tidb"]
-    return MySQLdb.connect(
-        host=config["host"],
-        port=config["port"],
-        user=config["user"],
-        password=config["password"],
-        database=config["database"],
-        ssl_mode="VERIFY_IDENTITY",
-        ssl={"ca": config["ssl_ca"]}
-    )
-
-conn = init_connection()
+conn = st.experimental_connection('tidb', type='sql')
 
 # Perform query.
-# Uses st.cache_data to only rerun when the query changes or after 10 min.
-@st.cache_data(ttl=600)
-def run_query(query):
-    with conn.cursor() as cur:
-        cur.execute(query)
-        return cur.fetchall()
-
-rows = run_query("SELECT * from mytable;")
+df = conn.query('SELECT * from mytable;', ttl=600)
 
 # Print results.
-for row in rows:
-    st.write(f"{row[0]} has a :{row[1]}:")
+for row in df.itertuples():
+    st.write(f"{row.name} has a :{row.pet}:")
 ```
 
-See `st.cache_data` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache_data`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Learn more in [Caching](/library/advanced-features/caching).
+See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl=600` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 
 ![Finished app screenshot](/images/databases/streamlit-app.png)
+
+## Connect with PyMySQL
+
+Other than [mysqlclient](https://github.com/PyMySQL/mysqlclient), [PyMySQL](https://github.com/PyMySQL/PyMySQL) is another popular MySQL Python client. To use PyMySQL, first you need to adapt your requirements file:
+
+```bash
+# requirements.txt
+PyMySQL==x.x.x
+SQLAlchemy==x.x.x
+```
+
+Then adapt your secrets file:
+
+```toml
+# .streamlit/secrets.toml
+
+[connections.tidb]
+dialect = "mysql"
+driver = "pymysql"
+host = "<TiDB_cluster_host>"
+port = 4000
+database = "pets"
+username = "<TiDB_cluster_user>"
+password = "<TiDB_cluster_password>"
+create_engine_kwargs = { connect_args = { ssl = { ca = "<path_to_CA_store>" }}}
+```

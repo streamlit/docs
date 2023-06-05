@@ -50,12 +50,10 @@ class StOutput(Directive):
                     style="
                         width: 100%%;
                         border: none;
+                        margin-bottom: 1rem;
                         %(additional_styles)s
                     "
                 ></iframe>
-                <sup><a href="%(src)s" target="_blank">
-                    (view standalone Streamlit app)
-                </a></sup>
             """
             % {"src": src, "additional_styles": additional_styles},
         )

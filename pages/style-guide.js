@@ -24,7 +24,7 @@ import YouTube from "../components/blocks/youTube";
 import Image from "../components/blocks/image";
 import Tile from "../components/blocks/tile";
 import Table from "../components/blocks/table";
-import NewsEntry from "../components/blocks/newsEntry";
+import NewsFeed from "../components/blocks/newsFeed";
 import InlineCallout from "../components/blocks/inlineCallout";
 
 export default function StyleGuide() {
@@ -295,7 +295,7 @@ https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streaml
               },
               {
                 title: `<p><span class='bold'>body</span> <span class='italic code'>(str)</span></p>`,
-                body: `<p>The string to display as GitHub-flavored Markdown. Syntax information can be found at: <a href='https://github.github.com/gfm'>https://github.github.com/gfm</a>.</p><p>This also supports:</p><ul><li>Emoji shortcodes, such as :+1: and :sunglasses:. For a list of all supported codes, see <a href='https://raw.githubusercontent.com/omnidan/node-emoji/master/lib/emoji.json'>https://raw.githubusercontent.com/omnidan/node-emoji/master/lib/emoji.json</a>.<ul><li>Second level of bullets example</li><ul><li>Third level of bullets example</li></ul></ul></li><li>LaTeX expressions, by wrapping them in “$” or “$$” (the “$$” must be on their own lines). Supported LaTeX functions are listed at <a href='https://katex.org/docs/supported.html'>https://katex.org/docs/supported.html</a>.</li></ul>`,
+                body: `<p>The string to display as GitHub-flavored Markdown. Syntax information can be found at: <a href='https://github.github.com/gfm'>https://github.github.com/gfm</a>.</p><p>This also supports:</p><ul><li>Emoji shortcodes, such as :+1: and :sunglasses:. For a list of all supported codes, see <a href='https://raw.githubusercontent.com/omnidan/node-emoji/master/lib/emoji.json'>https://raw.githubusercontent.com/omnidan/node-emoji/master/lib/emoji.json</a>.<ul><li>Second level of bullets example</li><ul><li>Third level of bullets example</li></ul></ul></li><li>LaTeX expressions, by wrapping them in “$" or “$$" (the “$$" must be on their own lines). Supported LaTeX functions are listed at <a href='https://katex.org/docs/supported.html'>https://katex.org/docs/supported.html</a>.</li></ul>`,
               },
             ]}
           />
@@ -400,18 +400,7 @@ st.altair_chart(chart_data)`}
         </Component>
         <Component label="News entry">
           <NewsContainer>
-            <NewsEntry
-              date="2021-05-12T16:30:00.000Z"
-              title="Title"
-              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales."
-              link="/"
-            />
-            <NewsEntry
-              date="2021-04-07T16:08:45.000Z"
-              title="Title"
-              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales."
-              link="/"
-            />
+            <NewsFeed />
           </NewsContainer>
         </Component>
         <Component label="Forum PSA">

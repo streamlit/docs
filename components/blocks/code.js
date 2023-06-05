@@ -1,13 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import classNames from "classnames";
 import Prism from "prismjs";
-import "prismjs/components/prism-bash";
-import "prismjs/components/prism-docker";
-import "prismjs/components/prism-jsx";
-import "prismjs/components/prism-python";
-import "prismjs/components/prism-sql";
-import "prismjs/components/prism-toml";
-import "prismjs/components/prism-yaml";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
 import "prismjs/plugins/line-highlight/prism-line-highlight";
 import "prismjs/plugins/line-highlight/prism-line-highlight.css";
@@ -19,17 +12,52 @@ import Image from "./image";
 
 import styles from "./code.module.css";
 
+// Initialize the cache for imported languages.
+const languageImports = new Map();
+
 const Code = ({ code, children, language, img, lines }) => {
+  // Create a ref for the code element.
+  const codeRef = useRef(null);
+
   useEffect(() => {
-    if (window) {
-      window.initial = { prism: true };
-      Prism.highlightAll();
+    // Get the language from the className, if it exists.
+    // Classname usually is `language-python`, `language-javascript`, `language-bash`, etc.
+    let importLanguage = children.props.className?.substring(9);
+
+    // If no language, default to Phython
+    if (importLanguage === undefined || importLanguage === "undefined") {
+      importLanguage = "python";
+    }
+    // Default `sh` language to `bash` for Prism import, since we use `sh` throughout our codebase but it's not a proper Prism import
+    else if (importLanguage === "sh") {
+      importLanguage = "bash";
+    } else if (importLanguage === "js") {
+      importLanguage = "javascript";
     }
 
-    return () => {
-      window.initial.prism = false;
-    };
-  }, []);
+    // After we have the values, let's import just the necessary languages
+    async function highlight() {
+      if (typeof window !== "undefined") {
+        // Only import the language if it hasn't been imported before.
+        if (!languageImports.has(importLanguage)) {
+          try {
+            await import(`prismjs/components/prism-${importLanguage}`);
+            languageImports.set(importLanguage, true);
+          } catch (error) {
+            console.error(
+              `Prism doesn't support this language: ${importLanguage}`
+            );
+          }
+        }
+        // Only highlight the current code block.
+        if (codeRef.current) {
+          Prism.highlightElement(codeRef.current);
+        }
+      }
+    }
+
+    highlight();
+  }, [children]);
 
   let ConditionalRendering;
   let customCode = code !== undefined ? code : children;
@@ -45,7 +73,9 @@ const Code = ({ code, children, language, img, lines }) => {
       <section className={styles.Container}>
         <Image src={img} clean={true} />
         <pre>
-          <code className={languageClass}>{customCode}</code>
+          <code ref={codeRef} className={languageClass}>
+            {customCode}
+          </code>
         </pre>
       </section>
     );
@@ -53,7 +83,9 @@ const Code = ({ code, children, language, img, lines }) => {
     ConditionalRendering = (
       <section className={classNames(styles.Container, styles.LineHighlight)}>
         <pre data-line={lines}>
-          <code className={languageClass}>{customCode}</code>
+          <code ref={codeRef} className={languageClass}>
+            {customCode}
+          </code>
         </pre>
       </section>
     );
@@ -61,7 +93,9 @@ const Code = ({ code, children, language, img, lines }) => {
     ConditionalRendering = (
       <section className={styles.Container}>
         <pre>
-          <code className={languageClass}>{customCode}</code>
+          <code ref={codeRef} className={languageClass}>
+            {customCode}
+          </code>
         </pre>
       </section>
     );

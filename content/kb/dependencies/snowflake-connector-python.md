@@ -13,7 +13,7 @@ The Snowflake Connector for Python is available on [PyPI](https://pypi.org/proje
 4. Add the raw GitHub URL of the requirements file to your `requirements.txt` file and prepend `-r` to the line.
    For example, if you want to install version `2.7.9` of the connector on Python 3.9, add the following line to your `requirements.txt` file:
 
-   ```text
+   ```bash
    -r https://raw.githubusercontent.com/snowflakedb/snowflake-connector-python/v2.7.9/tested_requirements/requirements_39.reqs
    ```
 

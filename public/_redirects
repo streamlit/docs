@@ -866,3 +866,4 @@
 /streamlit-cloud/trust-and-security /streamlit-community-cloud/trust-and-security
 /streamlit-cloud/troubleshooting /streamlit-community-cloud/troubleshooting
 /knowledge-base/using-streamlit/how-host-static-files /library/advanced-features/static-file-serving
+/library/api-reference/widgets/st.experimental_data_editor /library/api-reference/data/st.data_editor

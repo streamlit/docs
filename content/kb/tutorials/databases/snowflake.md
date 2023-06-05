@@ -62,7 +62,7 @@ Make sure to note down the name of your warehouse, database, and schema. ☝️
 
 You can find the instructions and prerequisites for installing `snowflake-snowpark-python` in the [Snowpark Developer Guide](https://docs.snowflake.com/en/developer-guide/snowpark/python/setup).
 
-```sh
+```bash
 pip install "snowflake-snowpark-python[pandas]"
 ```
 

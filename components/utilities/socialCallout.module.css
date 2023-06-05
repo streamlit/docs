@@ -41,19 +41,31 @@
 
 /* Specific colors for each social network */
 .GitHub {
-  @apply bg-gray-90;
+  @apply bg-brand-GitHub;
 }
 
-.Twitter {
-  @apply bg-darkBlue-60;
-}
-
-.YouTube {
-  @apply bg-red-80;
+.Reddit {
+  @apply bg-brand-Reddit;
 }
 
 .Discord {
-  @apply bg-indigo-70;
+  @apply bg-brand-Discord;
+}
+
+.YouTube {
+  @apply bg-brand-YouTube;
+}
+
+.Medium {
+  @apply bg-brand-mono;
+}
+
+.Twitter {
+  @apply bg-brand-Twitter;
+}
+
+.LinkedIn {
+  @apply bg-brand-LinkedIn;
 }
 
 .Instagram {
@@ -63,4 +75,8 @@
     #ef4a6e 49.3%,
     #972aaa 100%
   );
+}
+
+.Newsletter {
+  @apply bg-red-70;
 }

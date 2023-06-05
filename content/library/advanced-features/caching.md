@@ -102,7 +102,7 @@ How does this work? Let’s go through the behavior of `st.cache_data` step by s
 - Now our caching mechanism becomes active: the returned DataFrame is serialized (converted to bytes) via [pickle](https://docs.python.org/3/library/pickle.html) and stored in the cache (together with the value of the `url` parameter).
 - On the next run, Streamlit checks the cache for an entry of `load_data` with the specific `url`. There is one! So it retrieves the cached object, deserializes it to a DataFrame, and returns it instead of re-running the function and downloading the data again.
 
-This process of serializing and deserializing the cached object creates a copy of our original DataFrame. While this copying behavior may seem unnecessary, it’s what we want when caching data objects since it effectively prevents mutation and concurrency issues. Read the section “[Mutation and concurrency issues](#mutation-and-concurrency-issues)” below to understand this in more detail.
+This process of serializing and deserializing the cached object creates a copy of our original DataFrame. While this copying behavior may seem unnecessary, it’s what we want when caching data objects since it effectively prevents mutation and concurrency issues. Read the section “[Mutation and concurrency issues](#mutation-and-concurrency-issues)" below to understand this in more detail.
 
 #### Examples
 
@@ -170,7 +170,7 @@ def run_model(inputs):
 
 ### st.cache_resource
 
-`st.cache_resource` is the right command to cache “resources” that should be available globally across all users, sessions, and reruns. It has more limited use cases than `st.cache_data`, especially for caching database connections and ML models.
+`st.cache_resource` is the right command to cache “resources" that should be available globally across all users, sessions, and reruns. It has more limited use cases than `st.cache_data`, especially for caching database connections and ML models.
 
 #### Usage
 
@@ -194,6 +194,8 @@ from transformers import pipeline
 @st.cache_resource  # 👈 Add the caching decorator
 def load_model():
     return pipeline("sentiment-analysis")
+
+model = load_model()
 
 query = st.text_input("Your query", value="I love Streamlit! 🎈")
 if query:
@@ -259,12 +261,12 @@ model = load_model()
 
 <br />
 
-The sections above showed many common examples for each caching decorator. But there are edge cases for which it’s less trivial to decide which caching decorator to use. Eventually, it all comes down to the difference between “data” and “resource”:
+The sections above showed many common examples for each caching decorator. But there are edge cases for which it’s less trivial to decide which caching decorator to use. Eventually, it all comes down to the difference between “data" and “resource":
 
 - Data are serializable objects (objects that can be converted to bytes via [pickle](https://docs.python.org/3/library/pickle.html)) that you could easily save to disk. Imagine all the types you would usually store in a database or on a file system – basic types like str, int, and float, but also arrays, DataFrames, images, or combinations of these types (lists, tuples, dicts, and so on).
 - Resources are unserializable objects that you usually would not save to disk or a database. They are often more complex, non-permanent objects like database connections, ML models, file handles, threads, etc.
 
-From the types listed above, it should be obvious that most objects in Python are “data.” That’s also why `st.cache_data` is the correct command for almost all use cases. `st.cache_resource` is a more exotic command that you should only use in specific situations.
+From the types listed above, it should be obvious that most objects in Python are “data." That’s also why `st.cache_data` is the correct command for almost all use cases. `st.cache_resource` is a more exotic command that you should only use in specific situations.
 
 Or if you’re lazy and don’t want to think too much, look up your use case or return type in the table below 😉:
 

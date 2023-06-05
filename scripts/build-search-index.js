@@ -7,7 +7,18 @@ const parser = require("node-html-parser");
 const algoliasearch = require("algoliasearch");
 const { convert } = require("html-to-text");
 
-const SKIP_THESE = ["/menu", "/404", "/500"];
+const SKIP_THESE = [
+  "/menu",
+  "/404",
+  "/500",
+  "/library/api-reference/performance/st.cache",
+  "/library/api-reference/performance/st.experimental_memo",
+  "/library/api-reference/performance/st.experimental_singleton",
+  "/library/api-reference/performance/st.experimental_singleton.clear",
+  "/library/api-reference/utilities/st.experimental_show",
+  "/library/advanced-features/st.cache",
+  "/library/advanced-features/experimental-cache-primitives",
+];
 
 function getAllFilesInDirectory(articleDirectory, files) {
   files = files ? files : [];

@@ -72,7 +72,7 @@ streamlit config show
 The command above will print something like this:
 
 ```toml
-# Streamlit version: 1.22.0
+# Streamlit version: 1.23.0
 
 [global]
 
@@ -80,6 +80,11 @@ The command above will print something like this:
 # If you'd like to turn off this warning, set this to True.
 # Default: false
 disableWatchdogWarning = false
+
+# By default, Streamlit displays a warning when a user sets both a widget default value in the function defining the widget and a widget value via the widget's key in `st.session_state`.
+# If you'd like to turn off this warning, set this to True.
+# Default: false
+# disableWidgetStateDuplicationWarning = false
 
 # If True, will show a warning when you run a Streamlit-enabled script via "python my_script.py".
 # Default: true

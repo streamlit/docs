@@ -256,13 +256,13 @@ page_names_to_funcs[demo_name]()
 
 <Cloud src="https://doc-hello.streamlit.app/?embed=true" height="700" />
 
-Notice how large the file is! Each app “page” is written as a function, and the selectbox is used to pick which page to display. As our app grows, maintaining the code requires a lot of additional overhead. Moreover, we’re limited by the `st.selectbox` UI to choose which “page” to run, we cannot customize individual page titles with `st.set_page_config`, and we’re unable to navigate between pages using URLs.
+Notice how large the file is! Each app “page" is written as a function, and the selectbox is used to pick which page to display. As our app grows, maintaining the code requires a lot of additional overhead. Moreover, we’re limited by the `st.selectbox` UI to choose which “page" to run, we cannot customize individual page titles with `st.set_page_config`, and we’re unable to navigate between pages using URLs.
 
 ## Convert an existing app into a multipage app
 
 Now that we've identified the limitations of a single-page app, what can we do about it? Armed with our knowledge from the previous section, we can convert the existing app to be a multipage app, of course! At a high level, we need to perform the following steps:
 
-1. Create a new `pages` folder in the same folder where the “entrypoint file” (`hello.py`) lives
+1. Create a new `pages` folder in the same folder where the “entrypoint file" (`hello.py`) lives
 2. Rename our entrypoint file to `Hello.py` , so that the title in the sidebar is capitalized
 3. Create three new files inside of `pages`:
    - `pages/1_📈_Plotting_Demo.py`
@@ -553,7 +553,7 @@ With our additional pages created, we can now put it all together in the final s
 
 To run your newly converted multipage app, run:
 
-```shell
+```bash
 streamlit run Hello.py
 ```
 
