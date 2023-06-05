@@ -114,6 +114,8 @@ If you embed your apps with iframes, you'll need to allow the iframe to access t
 <iframe allow="clipboard-write;clipboard-read;" ... src="https://your-app-url"></iframe>
 ```
 
+As developers, ensure the app is served with a valid, trusted certificate when using TLS. If users encounter issues with copying and pasting data, direct them to check if their browser has activated clipboard access permissions for the Streamlit application, either when prompted or through the browser's site settings.
+
 </Tip>
 
 ### Add and delete rows
@@ -183,7 +185,7 @@ The data editor includes a feature that allows for bulk editing of cells. Simila
 
 ### Automatic input validation
 
-The data editor includes automatic input validation to help prevent errors when editing cells. For example, if you have a column that contains numerical data, the input field will automatically restrict the user to only entering numerical data. This helps to prevent errors that could occur if the user were to accidentally enter a non-numerical value. Additional input validation can be configured through the [Column configuration API](/library/api-reference/data/st.column_config). Such as `max_chars` and a `validate` pattern for [text columns](/library/api-reference/data/st.column_config/st.column_config.textcolumn), or `min_value`, `max_value`, or `step` for [number columns](/library/api-reference/data/st.column_config/st.column_config.numbercolumn). You can also set `required` to `True` for all editable column types to disallow settings values to `None`.
+The data editor includes automatic input validation to help prevent errors when editing cells. For example, if you have a column that contains numerical data, the input field will automatically restrict the user to only entering numerical data. This helps to prevent errors that could occur if the user were to accidentally enter a non-numerical value. Additional input validation can be configured through the [Column configuration API](/library/api-reference/data/st.column_config). Such as `max_chars` and a `validate` pattern for [text columns](/library/api-reference/data/st.column_config/st.column_config.textcolumn), or `min_value`, `max_value`, or `step` for [number columns](/library/api-reference/data/st.column_config/st.column_config.numbercolumn). You can also set `required` to `True` for all editable column types to disallow setting values to `None`.
 
 ### Edit common data structures
 
