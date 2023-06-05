@@ -190,7 +190,7 @@ ImageColumn("Preview Image", help="The preview screenshots")
 
 </RefCard>
 
-<RefCard href="/library/api-reference/data/st.column_config/st.column_config.linechcolumn">
+<RefCard href="/library/api-reference/data/st.column_config/st.column_config.linechartcolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.linechartcolumn.jpg" />
 
 #### Line chart column
