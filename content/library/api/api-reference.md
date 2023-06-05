@@ -254,6 +254,33 @@ st.dataframe(my_data_frame)
 ```
 
 </RefCard>
+<RefCard href="/library/api-reference/data/st.data_editor">
+
+<Image pure alt="screenshot" src="/images/api/data_editor.jpg" />
+
+#### Data editor
+
+Display a data editor widget.
+
+```python
+edited = st.data_editor(df, num_rows="dynamic")
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/data/st.column_config">
+
+<Image pure alt="screenshot" src="/images/api/column_config.jpg" />
+
+#### Column configuration
+
+Configure the display and editing behavior of dataframes and data editors.
+
+```python
+st.column_config.NumberColumn("Price (in USD)", min_value=0, format="$%d")
+```
+
+</RefCard>
+
 <RefCard href="/library/api-reference/data/st.table">
 <Image pure alt="screenshot" src="/images/api/table.jpg" />
 
