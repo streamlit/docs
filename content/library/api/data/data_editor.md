@@ -6,7 +6,7 @@ description: st.data_editor display a data editor widget that allows you to edit
 
 <Tip>
 
-This page only contains information on the `st.data_editor` API. For a deeper dive into working with DataFrames and the data editor's capabilities and limitations, read [Dataframes](/library/advanced-features/dataframes).
+This page only contains information on the `st.data_editor` API. For a deeper dive into working with dataframes and the data editor's capabilities and limitations, read [Dataframes](/library/advanced-features/dataframes).
 
 </Tip>
 
