@@ -53,6 +53,7 @@ class StOutput(Directive):
                         margin-bottom: 1rem;
                         %(additional_styles)s
                     "
+                    allow="camera;clipboard-read;clipboard-write;"
                 ></iframe>
             """
             % {"src": src, "additional_styles": additional_styles},
