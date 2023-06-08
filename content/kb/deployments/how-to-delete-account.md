@@ -5,7 +5,7 @@ slug: /knowledge-base/deploy/how-to-delete-your-streamlit-community-cloud-accoun
 
 # How to delete your Streamlit Community Cloud account
 
-Deleting your Streamlit Community Cloud account is just as easy as creating it. You can do so from the Settings dashboard without any intervention from the Streamlit support team. When you delete your account, your information, account, and all your hosted apps are deleted as well.
+Deleting your Streamlit Community Cloud account is just as easy as creating it via the Settings tab. When you delete your account, your information, account, and all your hosted apps are deleted as well.
 
 <Warning>
 
@@ -32,7 +32,7 @@ Follow these steps to delete your account:
 
 4. You will then be logged out and your account, information, and apps will be permanently deleted.
    <Image src="/images/streamlit-community-cloud/deleting-account.png" />
-5. Upon deletion, see a confirmation message that your account has been deleted, after which you will be redirected to the Streamlit Community Cloud homepage.
+5. Upon deletion, you're shown a confirmation message that your account has been deleted, after which you will be redirected to the Streamlit Community Cloud homepage.
    <Image src="/images/streamlit-community-cloud/account-deleted.png" />
 
 It's that simple! If you have any questions or run into issues deleting your account, please reach out to us on the [Forum](https://discuss.streamlit.io/c/community-cloud/13). We're happy to help! 🎈
