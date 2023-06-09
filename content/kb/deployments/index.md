@@ -26,3 +26,4 @@ slug: /knowledge-base/deploy
 - [View-only access to app after changing GitHub username or repository name](/knowledge-base/deploy/view-only-access-to-app-after-changing-github-username-or-repository-name)
 - [Login attempt to Streamlit Community Cloud fails with error 403](/knowledge-base/deploy/login-attempt-to-streamlit-community-cloud-fails-with-error-403)
 - [How to submit a support case for Streamlit Community Cloud](/knowledge-base/deploy/how-to-submit-a-support-case-for-streamlit-community-cloud)
+- [How to delete your Streamlit Community Cloud account](/knowledge-base/deploy/how-to-delete-your-streamlit-community-cloud-account)

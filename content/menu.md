@@ -448,7 +448,8 @@ site_menu:
   #   visible: false
   - category: Streamlit Community Cloud / Get started / Manage your app
     url: /streamlit-community-cloud/get-started/manage-your-app
-
+  - category: Streamlit Community Cloud / Get started / Delete your account
+    url: /streamlit-community-cloud/get-started/delete-your-account
   # - category: Streamlit Community Cloud / Additional features
   #   url: /streamlit-community-cloud/additional-features
   - category: Streamlit Community Cloud / Trust and Security
@@ -678,5 +679,8 @@ site_menu:
     visible: false
   - category: Knowledge base / Deployment issues / How to submit a support case for Streamlit Community Cloud
     url: /knowledge-base/deploy/how-to-submit-a-support-case-for-streamlit-community-cloud
+    visible: false
+  - category: Knowledge base / Deployment issues / How to delete your Streamlit Community Cloud account
+    url: /knowledge-base/deploy/how-to-delete-your-streamlit-community-cloud-account
     visible: false
 ---
