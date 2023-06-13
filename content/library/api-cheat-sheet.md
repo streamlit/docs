@@ -366,11 +366,21 @@ conn = st.experimental_connection('snowpark')
 #### Display progress and status
 
 ```python
+# Show a spinner during a process 
 >>> with st.spinner(text='In progress'):
->>>   time.sleep(5)
+>>>   time.sleep(3)
 >>>   st.success('Done')
 
-st.progress(progress_variable_1_to_100)
+# Show and update progress bar
+>>> bar = st.progress(50)
+>>> time.sleep(3)
+>>> bar.progress(100)
+
+# Show and update toast message
+>>> msg = st.toast('Warming up...')
+>>> time.sleep(3)
+>>> msg.toast('Ready!')
+
 st.balloons()
 st.snow()
 st.error('Error message')
