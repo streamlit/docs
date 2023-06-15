@@ -6,7 +6,7 @@ We use Next.js and Netlify to build our [documentation site](https://docs.stream
 
 ## Building
 
-To build the docs, clone this repo, install the NPM dependencies, and start the development server.
+You should have node installed. It is recommended to install node through [Node Version Manager (nvm)](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 1. Clone this repo:
 
@@ -15,10 +15,11 @@ git clone https://github.com/streamlit/docs.git
 cd docs/
 ```
 
-2. Install the NPM dependencies
+2. Install the NPM dependencies [make](https://www.npmjs.com/package/make) and [next](https://www.npmjs.com/package/next)
 
 ```bash
-make
+npm install make -g
+npm install next
 ```
 
 3. Start the development server:
