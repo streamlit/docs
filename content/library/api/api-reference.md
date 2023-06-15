@@ -233,7 +233,7 @@ nlu.load('sentiment').predict('I love NLU! <3')
 A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
 
 ```python
-mention(label="An awesome Streamlit App", icon="streamlit",  url="https://extras.streamlitapp.com",)
+mention(label="An awesome Streamlit App", icon="streamlit",  url="https://extras.streamlit.app",)
 ```
 
 </ComponentCard>
