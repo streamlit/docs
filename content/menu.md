@@ -454,8 +454,6 @@ site_menu:
   #   url: /streamlit-community-cloud/additional-features
   - category: Streamlit Community Cloud / Trust and Security
     url: /streamlit-community-cloud/trust-and-security
-  - category: Streamlit Community Cloud / Release notes
-    url: https://streamlit-cloud-release-notes-app-main-jfmm83.streamlit.app/
   - category: Streamlit Community Cloud / Troubleshooting
     url: /streamlit-community-cloud/troubleshooting
 
