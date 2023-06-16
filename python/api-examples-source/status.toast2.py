@@ -8,5 +8,5 @@ def cook_breakfast():
     time.sleep(1)
     msg.toast('Ready!', icon = "🥞")
 
-if st.button('Cook Breakfast'):
+if st.button('Cook breakfast'):
     cook_breakfast()
