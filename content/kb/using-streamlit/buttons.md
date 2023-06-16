@@ -1,45 +1,46 @@
 ---
-title: Buttons, buttons, buttons!
+title: Button behavior and examples
 slug: /knowledge-base/using-streamlit/buttons
 ---
 
-# Buttons, buttons, buttons!
+# Button behavior and examples
 
 ## TLDR
 
 Buttons do not retain state. They return `True` on the page load resulting from
-their click and then immediately go back to `False`. If you nest something
-inside a button, then it will go away as soon as the user takes their next
-action (because the page reloads and the button becomes `False`).
+their click and immediately return to `False` on the next load. If a displayed
+element is nested inside `if st.button('Click me'):`, the element will be
+visible when the button is clicked and disappear as soon as the user takes their
+next action. This is because the page reloads and the button becomes `False`.
 
 ## Use cases for buttons
 
-When you have code conditioned on a button's value, it will execute once in
-response to the button being clicked and then not again (until the button is
-clicked again).
+When code is conditioned on a button's value, it will execute once in
+response to the button being clicked and not again (until the button is clicked
+again).
 
-### Things to nest inside of a button
+### Nest inside of a button:
 
-1. Transient messages that immediately go away
-2. Once-per-click processes that saves data to session state, a file, or
-   a database
+- Transient messages that immediately disappear.
+- Once-per-click processes that saves data to session state, a file, or
+  a database.
 
-### Things to not nest inside of a button
+### Do not nest inside of a button:
 
-1. Displayed items that should persist as the user continues
-2. Other widgets
-3. Processes that neither modify session state nor write to a file/database\*
+- Displayed items that should persist as the user continues.
+- Other widgets
+- Processes that neither modify session state nor write to a file/database.\*
 
-\*Exception: This can be appropriate if you want a disposable result. For
-example, imagine you have a "Validate" button for the purpose of creating an
-alert to say 'Valid' or 'Invalid' and no need to keep that info. That could be
-a process conditioned directly on a button.
+\* This can be appropriate when disposable results are desired. If you
+have a "Validate" button, that could be a process conditioned directly on a
+button. It could be used to create an alert to say 'Valid' or 'Invalid' with no
+need to keep that info.
 
 ## Common logic with buttons
 
 ### Show a quick message with a basic button
 
-Suppose you want to give the user a quick button to check if an entry is valid,
+If you want to give the user a quick button to check if an entry is valid,
 but not keep that check displayed as the user continues:
 
 ```python
@@ -59,7 +60,7 @@ st.button('OK')
 ### Stateful button
 
 If you want a clicked button to continue to be `True`, create a value in
-`st.session_state` and have the button set it to `True` in a callback:
+`st.session_state` and use the button set it to `True` in a callback:
 
 ```python
 import streamlit as st
@@ -80,9 +81,8 @@ if st.session_state.clicked:
 
 ### Toggle button
 
-Perhaps you want a button to work like a toggle switch instead. Just set your
-callback function to reverse the boolean value you have saved in
-`st.session_state`:
+If you want a button to work like a toggle switch instead, set the callback
+function to reverse the boolean value saved in `st.session_state`:
 
 ```python
 import streamlit as st
@@ -106,7 +106,7 @@ else:
 ### Buttons to continue or control stages of a process
 
 Another alternative to nesting content inside a button is to use the button to
-control a value in `st.session_state` to designate the "step" or "stage" of a
+control a value in `st.session_state` that designates the "step" or "stage" of a
 process.
 
 ```python
@@ -150,8 +150,12 @@ the page that button is.
 #### A slight problem
 
 In this example, we access `st.session_state.name` both before and after the
-button which modifies it. When a button is clicked, you will see that the info
-written before the button lags behind the info written after the button.
+button which modifies it. When a button is clicked, the info displayed before
+the button lags behind the info written after the button. When the page reloads
+from the button click, the data in `st.session_state` accessed before the button
+has not been updated. When the button function is executed, that is when the
+conditional code is executed to update `st.session_state`, which is reflected
+after the button.
 
 ```python
 import streamlit as st
@@ -200,8 +204,8 @@ st.header(st.session_state['name'])
 #### Logic used in a callback
 
 Another clean option is to use a callback. Callbacks are executed as a prefix to
-the page rerunning, so you need not worry about the position of the button
-relative to any access to modified data.
+the page rerunning, so the position of the button relative to any data access is
+not important.
 
 ```python
 import streamlit as st
@@ -223,11 +227,10 @@ st.header(st.session_state['name'])
 
 ### Buttons to modify or reset other widgets
 
-When using a button to modify or reset another widget, it is the same as the
-above examples to modify `st.session_state`. However, there is an extra
-consideration that is very important: you cannot modify a key-value pair in
-`st.session_state` if the widget with that key has already been rendered on the
-page for the current page run.
+When a button is used to modify or reset another widget, it is the same as the
+above examples to modify `st.session_state`. However, an extra consideration
+exists: you cannot modify a key-value pair in `st.session_state` if the widget
+with that key has already been rendered on the page for the current page load.
 
 #### Don't do this
 
@@ -243,7 +246,7 @@ if st.button('Streamlit!'):
     set_name('Streamlit')
 ```
 
-#### 1. Use a key for the button and put the logic before the widget
+#### Option 1: Use a key for the button and put the logic before the widget
 
 ```python
 import streamlit as st
@@ -261,7 +264,7 @@ st.button('Clear name', key='clear')
 st.button('Streamlit!', key='streamlit')
 ```
 
-#### 2. Use a callback
+#### Option 2: Use a callback
 
 ```python
 import streamlit as st
@@ -275,7 +278,7 @@ st.button('Clear name', on_click=set_name, args=[''])
 st.button('Streamlit!', on_click=set_name, args=['Streamlit'])
 ```
 
-#### 3. Use containers
+#### Option 3: Use containers
 
 ```python
 import streamlit as st
@@ -362,7 +365,8 @@ if option in st.session_state.processed:
 
 ## Anti-patterns
 
-Here are some simplified examples of how buttons can go wrong. Be on the lookout for these common mistakes.
+Here are some simplified examples of how buttons can go wrong. Be on the lookout
+for these common mistakes.
 
 ### Buttons nested inside buttons
 
