@@ -14,10 +14,10 @@ results.
 
 There are four parts to every widget:
 
-1. the frontend component as seen by the user
-2. the backend value or value as seen through `st.session_state`
-3. the return value given by the widget's function
-4. the key of the widget used to access its value via `st.session_state`
+1. The frontend component as seen by the user.
+2. The backend value or value as seen through `st.session_state`.
+3. The return value given by the widget's function.
+4. The key of the widget used to access its value via `st.session_state`.
 
 ### Session dependence
 
@@ -29,31 +29,27 @@ another tab.
 
 ### Data types
 
-The backend value (as seen through `st.session_state`) and return value of a widget
-are of simple Python types. For example, `st.button` returns a boolean value and
-will have the same boolean value saved in `st.session_state`.
+The backend value (as seen through `st.session_state`) and the return value of a
+widget are of simple Python types. For example, `st.button` returns a boolean
+value and will have the same boolean value saved in `st.session_state`.
 
 ### Widget keys
 
 Widget keys serve two purposes:
 
-1. distinguishing two otherwise identical widgets
-2. creating a means to access and manipulate the widget's value through
-   `st.session_state`
+1. Distinguishing two otherwise identical widgets.
+2. Creating a means to access and manipulate the widget's value through
+   `st.session_state`.
 
 A widget's identity depends on the arguments passed to the widget function. If
 you have two widgets of the same type with the same arguments, you will get a
 `DuplicateWidgetID` error. In this case, you will need to assign unique keys to
 the two widgets.
 
-<Note>
-
 A widget's key is just one additional argument that goes into a widget's
 identity; it is not the sole indicator of a widget's identity. Therefore, if any
 of the defining parameters of a widget change, Streamlit will see it as a new
 widget and it will appear to reset.
-
-</Note>
 
 [//]: # "TODO example with slider and changing min/max"
 
@@ -70,19 +66,15 @@ like a new widget.
 
 When a user interacts with a widget, the order of logic is:
 
-1. its value in `st.session_state` is updated
-2. the callback function (if any) is executed
-3. the page reruns, with the widget function returning its new value
-
-<Note>
+1. Its value in `st.session_state` is updated.
+2. The callback function (if any) is executed.
+3. The page reruns, with the widget function returning its new value.
 
 If the callback function writes anything to the screen, that content will appear
 above the rest of the page. A callback function runs as a prefix to the page
 reloading. Consequently, that means anything written via a callback function
 will disappear as soon as the user performs their next action. Other widgets
 should generally not be created within a callback function.
-
-</Note>
 
 <Note>
 
@@ -137,15 +129,11 @@ Streamlit will see that as a new widget because of the label change. The key
 attached as-is to the new widget labeled `'Beta'`. Streamlit will destroy
 `st.session_state.A` and recreate it with the default value.
 
-<Note>
-
 If a widget attaches to a pre-existing key when created and is also manually
 assigned a default value, you will get a warning if there is a disparity. If you
-want to control a widget's value through `st.session_state`, you may need to
-initialize the widget's value through `st.session_state` and avoid the default
-value argument to prevent conflict.
-
-</Note>
+want to control a widget's value through `st.session_state`, initialize the
+widget's value through `st.session_state` and avoid the default value argument
+to prevent conflict.
 
 [//]: # "TODO: simple example and multipage example"
 
@@ -166,16 +154,13 @@ widgets it has in memory that were not rendered on the screen. Most importantly,
 that means Streamlit will delete all key-value pairs in `st.session_state`
 associated to a widget not currently on screen.
 
-<Note>
-
 If you navigate away from a widget with some key `'my_key'` and save data to
 `st.session_state.my_key` on the new page, you will interrupt the widget
 cleanup process and prevent the key-value pair from being deleted. The rest of
 the widget will still be deleted and you will be left with an unassociated
-key-value in `st.session_state`. You can even do something as trivial as:
+key-value in `st.session_state`. To preserve a widget's data, you can do
+something as trivial as resaving the key at the top of every page:
 
 ```python
 st.session_state.my_key = st.session_state.my_key
 ```
-
-</Note>
