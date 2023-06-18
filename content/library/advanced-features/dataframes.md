@@ -521,6 +521,49 @@ In the first data editor instance, you cannot add decimal values to any entries.
 
 ![data-editor-change-type.gif](/images/data-editor-change-type.gif) -->
 
+## Live filtering
+
+Live filtering of a dataset can be achieved by combining `st.dataframe` and input elements like the `select_slider`, `text_input` or `multiselect`.
+In the example below, a sample DataFrame will be filtered using these three different elements.
+Custom filtering logic can be written by using the `apply` method provided by Pandas.
+The custom logic in the `lambda` methods defaults to `True` if a filter is not used.
+This makes sure that it's not required to provide values for each filter.
+
+```python
+import pandas
+import streamlit as st
+
+# Some sample data:
+employees = pandas.DataFrame([
+    {"Name": "Ava Reynolds", "Age": 38, "Skills": ["Python", "Javascript"]},
+    {"Name": "Caleb Roberts", "Age": 29, "Skills": ["juggling", "karate", "Python"]},
+    {"Name": "Harper Anderson", "Age": 51, "Skills": ["sailing", "French", "Javascript"]}
+])
+
+# Create an input element and apply the filter to the DataFrame with employees
+age_input = st.sidebar.select_slider("Minimum age", options=range(0, 100))
+age_filter = employees["Age"] > age_input
+
+# Filter the name field, but default to True if the filter is not used
+name_input = st.sidebar.text_input("Name")
+name_filter = employees["Name"].apply(lambda name: name_input in name if name_input else True)
+
+# Filter the skills, but default to True if no skills are selected
+# Options contains all unique values in the multilabel column Skills
+skills_input = st.sidebar.multiselect("Skills", options=employees["Skills"].explode().unique())
+skills_filter = employees["Skills"].apply(
+    # We check whether any of the selected skills are in the row, defaulting to True if the input is not specified
+    # To check whether all of the selected skills are there, simply replace `any` with `all`
+    lambda skills: any(skill in skills for skill in skills_input) if skills_input else True
+)
+
+# Apply the three different filters and display the data
+# Since the default when the filter is not used is True, we can simply use the & operator
+employees_filtered = employees[age_filter & name_filter & skills_filter]
+st.dataframe(employees_filtered, hide_index=True)
+```
+
+
 ## Handling large datasets
 
 `st.dataframe` and `st.data_editor` have been designed to theoretically handle tables with millions of rows thanks to their highly performant implementation using the glide-data-grid library and HTML canvas. However, the maximum amount of data that an app can realistically handle will depend on several other factors, including:
