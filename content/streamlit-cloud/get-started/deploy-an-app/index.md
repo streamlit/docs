@@ -35,7 +35,11 @@ There can be only one configuration file, regardless of the number of apps in th
 
 ## Deploy your app
 
-To deploy an app, click "New app" from the upper right corner of your workspace, then fill in your repo, branch, and file path, and click "Deploy". As a shortcut, you can also click "Paste GitHub URL".
+To deploy an app, click "New app" from the upper right corner of your workspace.
+
+![New app](/images/streamlit-community-cloud/deploy-empty-new-app.png)
+
+Fill in your repo, branch, and file path. As a shortcut, you can also click "Paste GitHub URL". Optionally, you can declare a custom subdomain. In the example below, the app would be deployed to `red-balloon.streamlit.app`. You can always set or change your subdomain later. See more about [subdomains](#subdomains) at the end of this page.
 
 ![Deploy an app](/images/streamlit-community-cloud/deploy-an-app.png)
 
@@ -69,12 +73,12 @@ The Cloud logs on the right hand side are only viewable to the developer and is 
 
 That's it — you're done! Your app now has a unique subdomain URL that you can share with others. Click [here](/streamlit-community-cloud/get-started/share-your-app) to read about how to share your app with viewers.
 
-### Unique subdomains
+### Subdomains
 
-App subdomain URLs follow a structure based on your GitHub repo:
+If a custom subdomain was not set, an app URL follows a structure based on your GitHub repo:
 
 ```bash
-https://[user name]-[repo name]-[branch name]-[app path]-[short hash].streamlit.app
+https://[user name]-[repo name]-[app path]-[short hash].streamlit.app
 ```
 
 For example:
@@ -83,25 +87,13 @@ For example:
 https://streamlit-demo-self-driving-streamlit-app-8jya0g.streamlit.app
 ```
 
-This subdomain is unique to your app and can be used to share your app with others. However, the default subdomain is not always the most memorable or easy to share. That's why you can also set a custom domain for your app.
-
-### Embed apps
-
-<Tip>
-
-Documentation for embedding apps has moved to [Embed your app](/streamlit-community-cloud/get-started/embed-your-app). Please update your bookmarks.
-
-</Tip>
-
-### Custom subdomains
-
-Subdomains are customizable! With this step you'll be able modify your app URLs to reflect your app content, personal branding, or whatever you’d like. The URL will appear as:
+However, the default subdomain is not always the most memorable or easy to share. That's why you can also set a custom domain for your app. The URL will appear as:
 
 ```bash
 <your-custom-subdomain>.streamlit.app
 ```
 
-To customize your app subdomain from the dashboard:
+To view or customize your app subdomain from the dashboard:
 
 1. Click the "︙" overflow menu to the app's right and select "**Settings**".
 
@@ -118,3 +110,11 @@ It's that simple! You can then access your app by visiting your custom subdomain
 If a custom subdomain is not available (e.g. because it's already taken), you'll see an error message like this:
 
 <Image src="/images/streamlit-community-cloud/custom-subdomain-error.png" clean />
+
+### Embed apps
+
+<Tip>
+
+Documentation for embedding apps has moved to [Embed your app](/streamlit-community-cloud/get-started/embed-your-app). Please update your bookmarks.
+
+</Tip>
