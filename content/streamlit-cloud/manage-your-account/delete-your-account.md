@@ -1,6 +1,6 @@
 ---
 title: Delete your account
-slug: /streamlit-community-cloud/get-started/delete-your-account
+slug: /streamlit-community-cloud/manage-your-account/delete-your-account
 ---
 
 # Delete your account
