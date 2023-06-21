@@ -35,21 +35,21 @@ There can be only one configuration file, regardless of the number of apps in th
 
 ## Deploy your app
 
-To deploy an app, click "New app" from the upper right corner of your workspace.
+To deploy an app, click "**New app**" from the upper right corner of your workspace.
 
 ![New app](/images/streamlit-community-cloud/deploy-empty-new-app.png)
 
-Fill in your repo, branch, and file path. As a shortcut, you can also click "Paste GitHub URL". Optionally, you can declare a custom subdomain. In the example below, the app would be deployed to `red-balloon.streamlit.app`. You can always set or change your subdomain later. See more about [subdomains](#subdomains) at the end of this page.
+Fill in your repo, branch, and file path. As a shortcut, you can also click "**Paste GitHub URL**". Optionally, you can specify a custom subdomain. In the example below, the app would be deployed to `https://red-balloon.streamlit.app/`. You can always set or change your subdomain later. See more about [custom subdomains](#custom-subdomains) at the end of this page.
 
 ![Deploy an app](/images/streamlit-community-cloud/deploy-an-app.png)
 
 ## Advanced settings for deployment
 
-If you are connecting to a data source or want to select a Python version for your app, you can do that by clicking "Advanced settings" before you deploy the app.
+If you are connecting to a data source or want to select a Python version for your app, you can do that by clicking "**Advanced settings**" before you deploy the app.
 
 ![Advanced settings](/images/streamlit-community-cloud/advanced-settings.png)
 
-You can connect to private data sources either by using [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management) or with [IP allowlisting](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/stable-outbound-ip-addresses). Read more on how to [connect to data sources](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources).
+You can connect to private data sources by using [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). Read more on how to [connect to data sources](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources).
 
 <Tip>
 
@@ -73,7 +73,7 @@ The Cloud logs on the right hand side are only viewable to the developer and is 
 
 That's it — you're done! Your app now has a unique subdomain URL that you can share with others. Click [here](/streamlit-community-cloud/get-started/share-your-app) to read about how to share your app with viewers.
 
-### Subdomains
+### Unique subdomains
 
 If a custom subdomain was not set, an app URL follows a structure based on your GitHub repo:
 
@@ -87,15 +87,17 @@ For example:
 https://streamlit-demo-self-driving-streamlit-app-8jya0g.streamlit.app
 ```
 
-However, the default subdomain is not always the most memorable or easy to share. That's why you can also set a custom domain for your app. The URL will appear as:
+### Custom subdomains
+
+The default subdomain is not always the most memorable or easy to share. That's why you can also set a custom domain for your app. The URL will appear as:
 
 ```bash
-<your-custom-subdomain>.streamlit.app
+https://<your-custom-subdomain>.streamlit.app
 ```
 
 To view or customize your app subdomain from the dashboard:
 
-1. Click the "︙" overflow menu to the app's right and select "**Settings**".
+1. Click the "**︙**" overflow menu to the app's right and select "**Settings**".
 
    ![Custom subdomain settings](/images/streamlit-community-cloud/custom-subdomain-settings.png)
 
