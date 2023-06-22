@@ -53,4 +53,4 @@ If your confirmation link expires, don't worry! You can resend it by following t
 
 ## Troubleshooting
 
-If you click the confirmation link in a browser session where you are not signed in, you will be informed that "sign in is required." If you try to sign in with your new email, you will create a second account instead. You cannot resend your confirmation link while you have this second account. If you accidentally created a second account, you can [Delete your account](/streamlit-community-cloud/manage-your-account/delete-your-account), then [Resend your confirmation link](#resend-your-confirmation-link) from your first account.
+If you click the confirmation link in a browser session where you are not signed in, you will be informed that "Sign in is required." If you try to sign in with your new email, you will create a second account instead. You cannot resend your confirmation link while you have this second account. If you accidentally created a second account, you can [Delete your account](/streamlit-community-cloud/manage-your-account/delete-your-account), then [Resend your confirmation link](#resend-your-confirmation-link) from your first account.
