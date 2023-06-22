@@ -1,6 +1,6 @@
 ---
 title: Button behavior and examples
-slug: /knowledge-base/using-streamlit/button-behavior-and-examples
+slug: /library/advanced-features/button-behavior-and-examples
 ---
 
 # Button behavior and examples
