@@ -330,6 +330,8 @@ site_menu:
     visible: false
   - category: Streamlit library / Advanced features/ Add statefulness to apps
     url: /library/advanced-features/session-state
+  - category: Streamlit library / Advanced features/ Button behavior and examples
+    url: /library/advanced-features/button-behavior-and-examples
   - category: Streamlit library / Advanced features/ Dataframes
     url: /library/advanced-features/dataframes
   - category: Streamlit library / Advanced features/ Widget semantics
@@ -472,9 +474,6 @@ site_menu:
     visible: false
   - category: Knowledge base / Using Streamlit / Batch elements and input widgets with st.form
     url: /knowledge-base/using-streamlit/batch-elements-input-widgets-form
-    visible: false
-  - category: Knowledge base / Using Streamlit / Buttons, buttons, buttons!
-    url: /knowledge-base/using-streamlit/buttons
     visible: false
   - category: Knowledge base / Using Streamlit / How do I create an anchor link?
     url: /knowledge-base/using-streamlit/create-anchor-link
