@@ -15,13 +15,13 @@ In this guide, we will illustrate the use of buttons and explain common misconce
 
 When code is conditioned on a button's value, it will execute once in response to the button being clicked and not again (until the button is clicked again).
 
-Good to nest inside a button:
+Good to nest inside buttons:
 
 - Transient messages that immediately disappear.
 - Once-per-click processes that saves data to session state, a file, or
   a database.
 
-Bad to nest inside a button:
+Bad to nest inside buttons:
 
 - Displayed items that should persist as the user continues.
 - Other widgets which cause the script to rerun when used.
