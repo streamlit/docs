@@ -75,13 +75,13 @@ That's it — you're done! Your app now has a unique subdomain URL that you can 
 
 ### Unique subdomains
 
-If a custom subdomain was not set, an app URL follows a structure based on your GitHub repo:
+If a custom subdomain was not set, an app URL follows a structure based on your GitHub repo. The URL begins with your GitHub username or organization owning your repo, followed by your repo name, app path, and a short hash. If you deploy from a branch other than `main` or `master`, the URL also includes the branch name.
 
 ```bash
-https://[user name]-[repo name]-[app path]-[short hash].streamlit.app
+https://[GitHub username or organization]-[repo name]-[app path]-[branch name]-[short hash].streamlit.app
 ```
 
-For example:
+For example, this is an app deployed from the `streamlit` organization. The repo is `demo-self-driving` and the app name is `streamlit_app.py` in the root directory. The branch name is `master` and therefore not included.
 
 ```bash
 https://streamlit-demo-self-driving-streamlit-app-8jya0g.streamlit.app
