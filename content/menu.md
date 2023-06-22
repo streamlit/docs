@@ -432,8 +432,8 @@ site_menu:
     url: /streamlit-community-cloud/get-started/manage-your-app
   - category: Streamlit Community Cloud / Manage your account
     url: /streamlit-community-cloud/manage-your-account
-  - category: Streamlit Community Cloud / Manage your account / Change your email
-    url: /streamlit-community-cloud/manage-your-account/change-your-email
+  - category: Streamlit Community Cloud / Manage your account / Update your email
+    url: /streamlit-community-cloud/manage-your-account/update-your-email
   - category: Streamlit Community Cloud / Manage your account / Delete your account
     url: /streamlit-community-cloud/manage-your-account/delete-your-account
   # - category: Streamlit Community Cloud / Additional features
