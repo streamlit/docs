@@ -428,28 +428,14 @@ site_menu:
     url: /streamlit-community-cloud/get-started/share-your-app/indexability
   - category: Streamlit Community Cloud / Get started / Share your app / Share previews
     url: /streamlit-community-cloud/get-started/share-your-app/share-previews
-  # - category: Streamlit Community Cloud / Get started / Share your app / Configuring Single Sign-on (SSO)
-  #   url: /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso
-  #   visible: false
-  # - category: Streamlit Community Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Microsoft Active Directory (ADFS)
-  #   url: /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-active-directory-adfs
-  #   visible: false
-  # - category: Streamlit Community Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Microsoft Azure AD
-  #   url: /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-azure-active-directory
-  #   visible: false
-  # - category: Streamlit Community Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Okta
-  #   url: /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-okta-sso
-  #   visible: false
-  # - category: Streamlit Community Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Auth0
-  #   url: /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-auth0-sso
-  #   visible: false
-  # - category: Streamlit Community Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Generic SAML
-  #   url: /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-general-saml-authentication
-  #   visible: false
   - category: Streamlit Community Cloud / Get started / Manage your app
     url: /streamlit-community-cloud/get-started/manage-your-app
-  - category: Streamlit Community Cloud / Get started / Delete your account
-    url: /streamlit-community-cloud/get-started/delete-your-account
+  - category: Streamlit Community Cloud / Manage your account
+    url: /streamlit-community-cloud/manage-your-account
+  - category: Streamlit Community Cloud / Manage your account / Update your email
+    url: /streamlit-community-cloud/manage-your-account/update-your-email
+  - category: Streamlit Community Cloud / Manage your account / Delete your account
+    url: /streamlit-community-cloud/manage-your-account/delete-your-account
   # - category: Streamlit Community Cloud / Additional features
   #   url: /streamlit-community-cloud/additional-features
   - category: Streamlit Community Cloud / Trust and Security
