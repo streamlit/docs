@@ -77,7 +77,7 @@ if st.session_state.clicked:
 
 ### Toggle button
 
-If you want a button to work like a toggle switch instead, set the callback function to reverse the boolean value saved in `st.session_state`.
+If you want a button to work like a toggle switch, consider using [`st.checkbox`](/library/api-reference/widgets/st.checkbox). Otherwise, you can use a button with a callback function to reverse a boolean value saved in `st.session_state`.
 
 In this example, we use `st.button` to toggle another widget on and off. By displaying [`st.slider`](/library/api-reference/widgets/st.slider) conditionally on a value in `st.session_state`, the user can interact with the slider without it disappearing.
 
