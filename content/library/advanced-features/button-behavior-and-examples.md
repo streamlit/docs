@@ -7,9 +7,9 @@ slug: /library/advanced-features/button-behavior-and-examples
 
 ## Summary
 
-Buttons created with [`st.button`](/library/api-reference/widgets/st.button) do not retain state. They return `True` on the script rerun resulting from their click and immediately return to `False` on the next script rerun. If a displayed element is nested inside `if st.button('Click me'):`, the element will be visible when the button is clicked and disappear as soon as the user takes their next action. This is because the script reruns and the button becomes `False`.
+Buttons created with [`st.button`](/library/api-reference/widgets/st.button) do not retain state. They return `True` on the script rerun resulting from their click and immediately return to `False` on the next script rerun. If a displayed element is nested inside `if st.button('Click me'):`, the element will be visible when the button is clicked and disappear as soon as the user takes their next action. This is because the script reruns and the button return value becomes `False`.
 
-In this guide, we will illustrate the use of buttons and explain common misconceptions. Read on to see a variety of examples that expand on `st.button` using [`st.session_state`](/library/api-reference/session-state). Go ahead and pull up your favorite code editor so you can `streamlit run` the examples as you read. Check out Streamlit's [Main concepts](/library/get-started/main-concepts) if you haven't run your own Streamlit scripts yet.
+In this guide, we will illustrate the use of buttons and explain common misconceptions. Read on to see a variety of examples that expand on `st.button` using [`st.session_state`](/library/api-reference/session-state). [Anti-patterns](#anti-patterns) are included at the end. Go ahead and pull up your favorite code editor so you can `streamlit run` the examples as you read. Check out Streamlit's [Main concepts](/library/get-started/main-concepts) if you haven't run your own Streamlit scripts yet.
 
 ## When to use `if st.button()`
 
@@ -56,7 +56,7 @@ Note: The above example uses [magic](/library/api-reference/write-magic/magic) t
 
 ### Stateful button
 
-If you want a clicked button to continue to be `True`, create a value in `st.session_state` and use the button set it to `True` in a callback.
+If you want a clicked button to continue to be `True`, create a value in `st.session_state` and use the button to set that value to `True` in a callback.
 
 ```python
 import streamlit as st
@@ -181,30 +181,6 @@ if st.button('John'):
 st.header(st.session_state['name'])
 ```
 
-#### Logic nested in a button with a rerun
-
-If you need to acces data in `st.session_state` before the button that modifies it, you can include `st.experimental_rerun` to rerun the script again after the change has been committed.
-
-```python
-import streamlit as st
-import pandas as pd
-
-if 'name' not in st.session_state:
-    st.session_state['name'] = 'John Doe'
-
-st.header(st.session_state['name'])
-
-if st.button('Jane'):
-    st.session_state['name'] = 'Jane Doe'
-    st.experimental_rerun()
-
-if st.button('John'):
-    st.session_state['name'] = 'John Doe'
-    st.experimental_rerun()
-
-st.header(st.session_state['name'])
-```
-
 #### Logic used in a callback
 
 Callbacks are a clean way to modify `st.session_state`. Callbacks are executed as a prefix to the script rerunning, so the position of the button relative to accessing data is not important.
@@ -227,6 +203,30 @@ st.button('John', on_click=change_name, args=['John Doe'])
 st.header(st.session_state['name'])
 ```
 
+#### Logic nested in a button with a rerun
+
+Although callbacks are often preferred to avoid extra reruns, our first 'John Doe'/'Jane Doe' example can be modified by adding [`st.experimental_rerun`](/library/api-reference/control-flow/st.experimental_rerun) instead. If you need to acces data in `st.session_state` before the button that modifies it, you can include `st.experimental_rerun` to rerun the script after the change has been committed. This means the script will rerun twice when a button is clicked.
+
+```python
+import streamlit as st
+import pandas as pd
+
+if 'name' not in st.session_state:
+    st.session_state['name'] = 'John Doe'
+
+st.header(st.session_state['name'])
+
+if st.button('Jane'):
+    st.session_state['name'] = 'Jane Doe'
+    st.experimental_rerun()
+
+if st.button('John'):
+    st.session_state['name'] = 'John Doe'
+    st.experimental_rerun()
+
+st.header(st.session_state['name'])
+```
+
 ### Buttons to modify or reset other widgets
 
 When a button is used to modify or reset another widget, it is the same as the above examples to modify `st.session_state`. However, an extra consideration exists: you cannot modify a key-value pair in `st.session_state` if the widget with that key has already been rendered on the page for the current script run.
@@ -240,7 +240,8 @@ import streamlit as st
 
 st.text_input('Name', key='name')
 
-# These buttons will error because they change a key after its widget
+# These buttons will error because their nested code changes
+# a widget's state after that widget within the script.
 if st.button('Clear name'):
     st.session_state.name = ''
 if st.button('Streamlit!'):
@@ -251,7 +252,7 @@ if st.button('Streamlit!'):
 
 #### Option 1: Use a key for the button and put the logic before the widget
 
-If you assign a key to a button, you can condition code on a button's state by using its value in `st.session_state`. This means that logic depending on your button can be in your script before that button. In the following example, we use the `.get()` method on `st.session_state` becuase the keys for the buttons will not exist when the script runs for the first time. The `.get()` method will return `False` if it can't find the key. Otherwise, it will return the value of the key.
+If you assign a key to a button, you can condition code on a button's state by using its value in `st.session_state`. This means that logic depending on your button can be in your script before that button. In the following example, we use the `.get()` method on `st.session_state` because the keys for the buttons will not exist when the script runs for the first time. The `.get()` method will return `False` if it can't find the key. Otherwise, it will return the value of the key.
 
 ```python
 import streamlit as st
