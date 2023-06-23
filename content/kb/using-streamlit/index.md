@@ -8,7 +8,6 @@ slug: /knowledge-base/using-streamlit
 Here are some frequently asked questions about using Streamlit. If you feel something important is missing that everyone needs to know, please [open an issue](https://github.com/streamlit/docs/issues) or [submit a pull request](https://github.com/streamlit/docs/pulls) and we'll be happy to review it!
 
 - [Sanity checks](/knowledge-base/using-streamlit/sanity-checks)
-- [Buttons, buttons, buttons!](/knowledge-base/using-streamlit/buttons)
 - [Batch elements and input widgets with `st.form`](/knowledge-base/using-streamlit/batch-elements-input-widgets-form)
 - [How do I run my Streamlit script?](/knowledge-base/using-streamlit/how-do-i-run-my-streamlit-script)
 - [How can I make Streamlit watch for changes in other modules I'm importing in my app?](/knowledge-base/using-streamlit/streamlit-watch-changes-other-modules-importing-app)
