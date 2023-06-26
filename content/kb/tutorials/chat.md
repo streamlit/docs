@@ -60,6 +60,17 @@ with st.chat_message("assistant"):
 
 <Cloud src="https://doc-chat-message-user1.streamlit.app/?embed=true" height="450px" />
 
+While we've used the preferred `with` notation in the above examples, you can also just call methods directly in the returned objects. The below example is equivalent to the one above:
+
+```python
+import streamlit as st
+import numpy as np
+
+message = st.chat_message("assistant")
+message.write("Hello human")
+message.bar_chart(np.random.randn(30, 3))
+```
+
 So far, we've displayed predefined messages. But what if we want to display messages based on user input?
 
 ### st.chat_input
@@ -95,9 +106,11 @@ import time
 
 st.title("Simple chat")
 
+# Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
+# Display chat messages from history on app rerun
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
@@ -108,8 +121,11 @@ In the above snippet, we've added a title to our app and a for loop to iterate t
 Now let's accept user input with `st.chat_input` and append it to the user prompt.
 
 ```python
+# Accept user input
 if prompt := st.chat_input("What is up?"):
+    # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
+    # Display user message in chat message container
     with st.chat_message("user"):
         st.markdown(prompt)
 ```
@@ -119,6 +135,7 @@ We used the `:=` operator to assign the user's input to the `prompt` variable an
 All that's left to do is add the chatbot's responses within the `if` block. We'll use a list of responses and randomly select one to display. We'll also add a delay to simulate the chatbot "thinking" before responding (or stream its response).
 
 ```python
+# Display assistant response in chat message container
 with st.chat_message("assistant"):
     message_placeholder = st.empty()
     full_response = ""
@@ -129,11 +146,14 @@ with st.chat_message("assistant"):
             "Do you need help?",
         ]
     )
+    # Simulate stream of response with milliseconds delay
     for chunk in assistant_response.split():
         full_response += chunk + " "
         time.sleep(0.05)
+        # Add a blinking cursor to simulate typing
         message_placeholder.markdown(full_response + "▌")
     message_placeholder.markdown(full_response)
+# Add assistant response to chat history
 st.session_state.messages.append({"role": "assistant", "content": full_response})
 ```
 
@@ -249,7 +269,7 @@ if prompt := st.chat_input("What is up?"):
     # Display user message in chat message container
     with st.chat_message("user"):
         st.markdown(prompt)
-
+    # Display assistant response in chat message container
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         full_response = ""
@@ -269,7 +289,9 @@ All that's changed is that we've added a default model to `st.session_state` and
 st.session_state.messages.append({"role": "assistant", "content": full_response})
 ```
 
-Above, we've replaced the list of responses with a call to [`openai.ChatCompletion.create`](https://platform.openai.com/docs/guides/gpt/chat-completions-api). We've set `stream=True` to stream the responses to the frontend. In the API call, we pass the model name we hardcoded in session state and pass the chat history as a list of messages. We also pass the `role` and `content` of each message in the chat history. Finally, we iterate through the responses and display them character by character to simulate the model "thinking" before responding.
+Above, we've replaced the list of responses with a call to [`openai.ChatCompletion.create`](https://platform.openai.com/docs/guides/gpt/chat-completions-api). We've set `stream=True` to stream the responses to the frontend. In the API call, we pass the model name we hardcoded in session state and pass the chat history as a list of messages. We also pass the `role` and `content` of each message in the chat history. Finally, OpenAI returns a stream of responses (split into chunks of token), which we iterate through and display each chunk.
+
+Finally, we iterate through the responses and display them character by character to simulate the model "thinking" before responding.
 
 Putting it all together, here's the full code for our ChatGPT-like app and the result:
 
