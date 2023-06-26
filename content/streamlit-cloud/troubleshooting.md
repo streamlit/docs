@@ -180,7 +180,6 @@ Once a user is added to a repository on GitHub, it will take at most 15 minutes 
 Here are some limitations and known issues that we're actively working to resolve. If you find an issue [please let us know](mailto:support@streamlit.io)!
 
 - When you print something to the Cloud logs, you may need to do a `sys.stdout.flush()` before it shows up.
-- Apps execute in a Linux environment running Debian Buster (slim). There is no way to change this and we may upgrade the environment at any point. If we do upgrade it, we will *usually* not touch existing apps, so they'll continue to work as expected. But if there's a critical fix in the update, we *may* force-upgrade all apps.
 - Matplotlib [doesn't work well with threads](https://matplotlib.org/3.3.2/faq/howto_faq.html#working-with-threads). So if you're using Matplotlib you should wrap your code with locks as shown in the snippet below. This Matplotlib bug is more prominent when you share your app apps since you're more likely to get more concurrent users then.
 
   ```python
