@@ -84,7 +84,7 @@ In this section, we'll build a simple chatbot GUI that responds to user input wi
 
 First, let's think about the different components we'll need to build our chatbot GUI:
 
-- A chat message container to display messages from the user and the chatbot.
+- Two chat message containers to display messages from the user and the chatbot, respectively.
 - A chat input widget so the user can type in a message.
 - A way to store the chat history so we can display it in the chat message container. We can use a list to store the messages, and append to it every time the user sends a message. Each entry in the list will be a dictionary with the following keys: `role` (the author of the message), and `content` (the message content).
 
@@ -105,7 +105,7 @@ for message in st.session_state.messages:
 
 In the above snippet, we've added a title to our app and a for loop to iterate through the chat history and display each message in the chat message container (with the author role and message content). We've also added a check to see if the `messages` key is in `st.session_state`. If it's not, we initialize it to an empty list. This is because we'll be adding messages to the list later on, and we don't want to overwrite the list every time the app reruns.
 
-Now let's accept user input with `st.chat_input` and append it to the chat history.
+Now let's accept user input with `st.chat_input` and append it to the user prompt.
 
 ```python
 if prompt := st.chat_input("What is up?"):
