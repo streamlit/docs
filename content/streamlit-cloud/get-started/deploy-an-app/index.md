@@ -53,7 +53,7 @@ You can connect to private data sources by using [secrets management](/streamlit
 
 <Tip>
 
-Streamlit Community Cloud supports Python 3.7 - Python 3.11, and defaults to version 3.9. You can select a version of your choice from the "Python version" dropdown in the "Advanced settings" modal.
+Streamlit Community Cloud supports Python 3.8 - Python 3.11, and defaults to version 3.9. You can select a version of your choice from the "Python version" dropdown in the "Advanced settings" modal.
 
 </Tip>
 
