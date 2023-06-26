@@ -129,9 +129,9 @@ with st.chat_message("assistant"):
             "Do you need help?",
         ]
     )
-    for char in assistant_response:
-        full_response += char
-        time.sleep(0.03)
+    for chunk in assistant_response.split():
+        full_response += chunk + " "
+        time.sleep(0.05)
         message_placeholder.markdown(full_response + "▌")
     message_placeholder.markdown(full_response)
 st.session_state.messages.append({"role": "assistant", "content": full_response})
@@ -179,9 +179,9 @@ if prompt := st.chat_input("What is up?"):
             ]
         )
         # Simulate stream of response with milliseconds delay
-        for char in assistant_response:
-            full_response += char
-            time.sleep(0.03)
+        for chunk in assistant_response.split():
+            full_response += chunk + " "
+            time.sleep(0.05)
             # Add a blinking cursor to simulate typing
             message_placeholder.markdown(full_response + "▌")
         message_placeholder.markdown(full_response)
