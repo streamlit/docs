@@ -216,6 +216,12 @@ site_menu:
   - category: Streamlit library / API reference / Media elements / st.video
     url: /library/api-reference/media/st.video
     isVersioned: true
+  - category: Streamlit library / API reference / Chat elements
+    url: /library/api-reference/chat
+  - category: Streamlit library / API reference / Chat elements / st.chat_message
+    url: /library/api-reference/chat/st.chat_message
+  - category: Streamlit library / API reference / Chat elements / st.chat_input
+    url: /library/api-reference/chat/st.chat_input
   - category: Streamlit library / API reference / Layouts and containers
     url: /library/api-reference/layout
   - category: Streamlit library / API reference / Layouts and containers / st.sidebar
