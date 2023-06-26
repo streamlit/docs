@@ -9,7 +9,7 @@ keywords: button
 
 ### Advanced functionality
 
-Although a button is the simplest of input widgets, it's very common for buttons to be deeply tied to use of [`st.session_state`](/library/api-reference/session-state). Checkout our advanced guide on [Button behavior and examples](/library/advanced-features/button-behavior-and-examples).
+Although a button is the simplest of input widgets, it's very common for buttons to be deeply tied to the use of [`st.session_state`](/library/api-reference/session-state). Check out our advanced guide on [Button behavior and examples](/library/advanced-features/button-behavior-and-examples).
 
 ### Featured videos
 
