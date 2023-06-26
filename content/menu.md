@@ -499,6 +499,8 @@ site_menu:
     url: /knowledge-base/tutorials/deploy/kubernetes
   - category: Knowledge base / Tutorials / Session State basics
     url: /knowledge-base/tutorials/session-state
+  - category: Knowledge base / Tutorials / Build conversational apps
+    url: /knowledge-base/tutorials/build-conversational-apps
   - category: Knowledge base / Using Streamlit
     url: /knowledge-base/using-streamlit
   - category: Knowledge base / Using Streamlit / How to animate elements?
