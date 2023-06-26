@@ -145,6 +145,8 @@ Putting it all together, here's the full code for our simple chatbot GUI and the
 
 ```python
 import streamlit as st
+import random
+import time
 
 st.title("Simple chat")
 
