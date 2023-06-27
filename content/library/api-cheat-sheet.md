@@ -226,6 +226,24 @@ st.color_picker('Pick a color')
 
 <CodeTile>
 
+#### Build chat-based apps
+
+```python
+# Insert a chat message container.
+>>> with st.chat_message("user"):
+>>>    st.write("Hello 👋")
+>>>    st.line_chart(np.random.randn(30, 3))
+
+# Display a chat input widget.
+>>> st.chat_input("Say something")
+```
+
+Learn how to [build chat-based apps](/knowledge-base/tutorials/build-conversational-apps)
+
+</CodeTile>
+
+<CodeTile>
+
 #### Mutate data
 
 ```python
