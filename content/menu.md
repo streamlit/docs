@@ -382,6 +382,8 @@ site_menu:
     visible: false
   - category: Streamlit library / Advanced features/ Add statefulness to apps
     url: /library/advanced-features/session-state
+  - category: Streamlit library / Advanced features/ Button behavior and examples
+    url: /library/advanced-features/button-behavior-and-examples
   - category: Streamlit library / Advanced features/ Dataframes
     url: /library/advanced-features/dataframes
   - category: Streamlit library / Advanced features/ Widget semantics
