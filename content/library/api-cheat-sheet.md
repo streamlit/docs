@@ -5,7 +5,7 @@ slug: /library/cheatsheet
 
 # Cheat Sheet
 
-This is a summary of the docs, as of [Streamlit v1.23.0](https://pypi.org/project/streamlit/1.22.0/).
+This is a summary of the docs, as of [Streamlit v1.24.0](https://pypi.org/project/streamlit/1.22.0/).
 
 <Masonry>
 
@@ -221,6 +221,24 @@ st.color_picker('Pick a color')
 # Disable widgets to remove interactivity:
 >>> st.slider('Pick a number', 0, 100, disabled=True)
 ```
+
+</CodeTile>
+
+<CodeTile>
+
+#### Build chat-based apps
+
+```python
+# Insert a chat message container.
+>>> with st.chat_message("user"):
+>>>    st.write("Hello 👋")
+>>>    st.line_chart(np.random.randn(30, 3))
+
+# Display a chat input widget.
+>>> st.chat_input("Say something")
+```
+
+Learn how to [build chat-based apps](/knowledge-base/tutorials/build-conversational-apps)
 
 </CodeTile>
 
