@@ -137,7 +137,51 @@ export default function Home({ window, menu, gdpr_data }) {
             <H2 className="no-b-m">What's new</H2>
 
             <TileContainer>
-              <RefCard size="third" href="/library/api-reference/connections">
+              <RefCard
+                size="third"
+                href="/knowledge-base/tutorials/build-conversational-apps"
+              >
+                <i className="material-icons-sharp">chat</i>
+                <h4>Chat elements</h4>
+                <p>
+                  Introducing <code>st.chat_message</code> and{" "}
+                  <code>st.chat_input</code> — two new chat elements that let
+                  you build conversational apps. Learn how to use these features
+                  in your LLM-powered chat apps in our tutorial.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/advanced-features/caching#the-hash_funcs-parameter"
+              >
+                <i className="material-icons-sharp">tag</i>
+                <h4>
+                  <code>hash_funcs</code>
+                </h4>
+                <p>
+                  Streamlit's caching decorators now allow you to customize
+                  Streamlit's hashing of input parameters with the keyword-only
+                  argument
+                  <code>hash_funcs</code>. Click to read the docs.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="https://blog.streamlit.io/introducing-column-config/"
+              >
+                <i className="material-icons-sharp">settings_suggest</i>
+                <h4>Configure data editor columns!</h4>
+                <p>
+                  Introducing the Column configuration API with a suite of
+                  methods to configure the display and editing behavior of{" "}
+                  <code>st.dataframe</code>
+                  and <code>st.data_editor</code> columns.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/advanced-features/connecting-to-data"
+              >
                 <i className="material-icons-sharp">electrical_services</i>
                 <h4>st.experimental_connection</h4>
                 <p>
@@ -157,36 +201,6 @@ export default function Home({ window, menu, gdpr_data }) {
                   more, which is great for debugging!
                 </p>
               </RefCard>
-              <RefCard size="third" href="/library/api-reference/text">
-                <i className="material-icons-sharp">tips_and_updates</i>
-                <h4>Tooltips on text elements</h4>
-                <p>
-                  Most text elements can optionally include tooltips with the
-                  <code>help</code> parameter.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/library/api-reference/text/st.code">
-                <i className="material-icons-sharp">terminal</i>
-                <h4>Line numbers in st.code</h4>
-                <p>
-                  <code>st.code</code> supports optionally displaying line
-                  numbers to the code block's left with the boolean{" "}
-                  <code>line_numbers</code> parameter.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/advanced-features/secrets-management"
-              >
-                <i className="material-icons-sharp">lock</i>
-                <h4>Global secrets.toml file</h4>
-                <p>
-                  Streamlit now supports the use of a global{" "}
-                  <code>secrets.toml</code>
-                  file, in addition to a project-level file, to easily store and
-                  securely access your secrets. Click to read the docs.
-                </p>
-              </RefCard>
               <RefCard
                 size="third"
                 href="/library/advanced-features/dataframes"
@@ -194,10 +208,9 @@ export default function Home({ window, menu, gdpr_data }) {
                 <i className="material-icons-sharp">edit_note</i>
                 <h4>Editable dataframes!</h4>
                 <p>
-                  Display a data editor widget with{" "}
-                  <code>st.experimental_data_editor</code>
-                  to edit dataframes and many other data structures in a
-                  table-like UI.
+                  Announcing the general availability of{" "}
+                  <code>st.data_editor</code>, a widget that allows you to edit
+                  dataframes and many other data structures in a table-like UI.
                 </p>
               </RefCard>
               {/* <Tile

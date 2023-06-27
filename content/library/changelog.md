@@ -24,7 +24,7 @@ _Release date: June 27, 2023_
 **Highlights**
 
 - 💬 Introducing `st.chat_message` and `st.chat_input` — two new [chat elements](/library/api-reference/chat) that let you build conversational apps. Learn how to use these features in your LLM-powered chat apps in our [tutorial](/knowledge-base/tutorials/build-conversational-apps).
-- 💾 Streamlit's caching decorators now allow you to override Streamlit's hashing mechanism of input parameters with the keyword-only argument [`hash_funcs`](/library/advanced-features/caching#the-hash_funcs-parameter).
+- 💾 Streamlit's caching decorators now allow you to customize Streamlit's hashing of input parameters with the keyword-only argument [`hash_funcs`](/library/advanced-features/caching#the-hash_funcs-parameter).
 
 **Notable Changes**
 
