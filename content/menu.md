@@ -236,6 +236,14 @@ site_menu:
   - category: Streamlit library / API reference / Layouts and containers / st.empty
     url: /library/api-reference/layout/st.empty
     isVersioned: true
+  - category: Streamlit library / API reference / Chat elements
+    url: /library/api-reference/chat
+  - category: Streamlit library / API reference / Chat elements / st.chat_message
+    url: /library/api-reference/chat/st.chat_message
+    isVersioned: true
+  - category: Streamlit library / API reference / Chat elements / st.chat_input
+    url: /library/api-reference/chat/st.chat_input
+    isVersioned: true
   - category: Streamlit library / API reference / Status elements
     url: /library/api-reference/status
   - category: Streamlit library / API reference / Status elements / st.progress
@@ -493,6 +501,8 @@ site_menu:
     url: /knowledge-base/tutorials/deploy/kubernetes
   - category: Knowledge base / Tutorials / Session State basics
     url: /knowledge-base/tutorials/session-state
+  - category: Knowledge base / Tutorials / Build conversational apps
+    url: /knowledge-base/tutorials/build-conversational-apps
   - category: Knowledge base / Using Streamlit
     url: /knowledge-base/using-streamlit
   - category: Knowledge base / Using Streamlit / How to animate elements?
