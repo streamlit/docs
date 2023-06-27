@@ -9,9 +9,15 @@ slug: /knowledge-base/tutorials/build-conversational-apps
 
 The advent of large language models like GPT has revolutionized the ease of developing chat-based applications. Streamlit offers several [Chat elements](/library/api-reference/chat), enabling you to build Graphical User Interfaces (GUIs) for conversational agents or chatbots. Leveraging [session state](/library/advanced-features/session-state) along with these elements allows you to construct anything from a basic chatbot to a more advanced, ChatGPT-like experience using purely Python code.
 
-In this tutorial, we'll first walk through Streamlit's chat elements, `st.chat_message` and `st.chat_input`, and then show you how to [build a simple chatbot GUI](#build-a-simple-chatbot-gui). We'll also discover how to integrate session state with these elements to develop a [sophisticated chatbot](#build-a-chatgpt-like-app), capable of remembering conversational context, in less than 50 lines of code.
+<!-- In this tutorial, we'll first walk through Streamlit's chat elements, `st.chat_message` and `st.chat_input`, and then show you how to [build a simple chatbot GUI](#build-a-simple-chatbot-gui-with-streaming). We'll also discover how to integrate session state with these elements to develop a [sophisticated chatbot](#build-a-chatgpt-like-app), capable of remembering conversational context, in less than 50 lines of code. -->
 
-Here's a sneak peek of a simple interface you'll build:
+In this tutorial, we'll start by walking through Streamlit's chat elements, `st.chat_message` and `st.chat_input`. Then we'll proceed to construct three distinct applications, each showcasing an increasing level of complexity and functionality:
+
+1. First, we'll [Build a bot that mirrors your input](#build-a-bot-that-mirrors-your-input) to get a feel for the chat elements and how they work. We'll also introduce [session state](/library/advanced-features/session-state) and how it can be used to store the chat history. This section will serve as a foundation for the rest of the tutorial.
+2. Next, you'll learn how to [Build a simple chatbot GUI with streaming](#build-a-simple-chatbot-gui-with-streaming).
+3. Finally, we'll [Build a ChatGPT-like app](#build-a-chatgpt-like-app) that leverages session state to remember conversational context, all within less than 50 lines of code.
+
+Here's a sneak peek of the simple chatbot GUI with streaming we'll build in this tutorial:
 
 <Cloud src="https://doc-chat-simple.streamlit.app/?embed=true" height="700px" />
 
@@ -87,17 +93,105 @@ if prompt:
 
 <Cloud src="https://doc-chat-input.streamlit.app/?embed=true" height="350px" />
 
-Pretty straightforward, right? Now let's combine `st.chat_message` and `st.chat_input` to build a simple chatbot GUI.
+Pretty straightforward, right? Now let's combine `st.chat_message` and `st.chat_input` to build a bot the mirrors or echoes your input.
 
-## Build a simple chatbot GUI
+## Build a bot that mirrors your input
+
+In this section, we'll build a bot that mirrors or echoes your input. More specifically, the bot will respond to your input with the same message. We'll use `st.chat_message` to display the user's input and `st.chat_input` to accept user input. We'll also use [session state](/library/advanced-features/session-state) to store the chat history so we can display it in the chat message container.
+
+First, let's think about the different components we'll need to build our bot:
+
+- Two chat message containers to display messages from the user and the bot, respectively.
+- A chat input widget so the user can type in a message.
+- A way to store the chat history so we can display it in the chat message containers. We can use a list to store the messages, and append to it every time the user or bot sends a message. Each entry in the list will be a dictionary with the following keys: `role` (the author of the message), and `content` (the message content).
+
+```python
+import streamlit as st
+
+st.title("Echo Bot")
+
+# Initialize chat history
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# Display chat messages from history on app rerun
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+```
+
+In the above snippet, we've added a title to our app and a for loop to iterate through the chat history and display each message in the chat message container (with the author role and message content). We've also added a check to see if the `messages` key is in `st.session_state`. If it's not, we initialize it to an empty list. This is because we'll be adding messages to the list later on, and we don't want to overwrite the list every time the app reruns.
+
+Now let's accept user input with `st.chat_input`, display the user's message in the chat message container, and add it to the chat history.
+
+```python
+# React to user input
+if prompt := st.chat_input("What is up?"):
+    # Display user message in chat message container
+    st.chat_message("user").markdown(prompt)
+    # Add user message to chat history
+    st.session_state.messages.append({"role": "user", "content": prompt})
+```
+
+We used the `:=` operator to assign the user's input to the `prompt` variable and checked if it's not `None` in the same line. If the user has sent a message, we display the message in the chat message container and append it to the chat history.
+
+All that's left to do is add the chatbot's responses within the `if` block. We'll use the same logic as before to display the bot's response (which is just the user's prompt) in the chat message container and add it to the history.
+
+```python
+response = f"Echo: {prompt}"
+# Display assistant response in chat message container
+with st.chat_message("assistant"):
+    st.markdown(response)
+# Add assistant response to chat history
+st.session_state.messages.append({"role": "assistant", "content": response})
+```
+
+Putting it all together, here's the full code for our simple chatbot GUI and the result:
+
+<Collapse title="View full code" expanded={false}>
+
+```python
+import streamlit as st
+
+st.title("Echo Bot")
+
+# Initialize chat history
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# Display chat messages from history on app rerun
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+# React to user input
+if prompt := st.chat_input("What is up?"):
+    # Display user message in chat message container
+    st.chat_message("user").markdown(prompt)
+    # Add user message to chat history
+    st.session_state.messages.append({"role": "user", "content": prompt})
+
+    response = f"Echo: {prompt}"
+    # Display assistant response in chat message container
+    with st.chat_message("assistant"):
+        st.markdown(response)
+    # Add assistant response to chat history
+    st.session_state.messages.append({"role": "assistant", "content": response})
+```
+
+</Collapse>
+
+<Cloud src="https://doc-chat-echo.streamlit.app/?embed=true" height="700px" />
+
+While the above example is very simple, it's a good starting point for building more complex conversational apps. Notice how the bot responds instantly to your input. In the next section, we'll add a delay to simulate the bot "thinking" before responding.
+
+## Build a simple chatbot GUI with streaming
 
 In this section, we'll build a simple chatbot GUI that responds to user input with a random message from a list of pre-determind responses. In the [next section](#build-a-chatgpt-like-app), we'll convert this simple toy example into a ChatGPT-like experience using OpenAI.
 
-First, let's think about the different components we'll need to build our chatbot GUI:
+Just like previously, we still require the same components to build our chatbot. Two chat message containers to display messages from the user and the bot, respectively. A chat input widget so the user can type in a message. And a way to store the chat history so we can display it in the chat message containers.
 
-- Two chat message containers to display messages from the user and the chatbot, respectively.
-- A chat input widget so the user can type in a message.
-- A way to store the chat history so we can display it in the chat message container. We can use a list to store the messages, and append to it every time the user sends a message. Each entry in the list will be a dictionary with the following keys: `role` (the author of the message), and `content` (the message content).
+Let's just copy the code from the previous section and add a few tweaks to it.
 
 ```python
 import streamlit as st
@@ -114,23 +208,17 @@ if "messages" not in st.session_state:
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
-```
 
-In the above snippet, we've added a title to our app and a for loop to iterate through the chat history and display each message in the chat message container (with the author role and message content). We've also added a check to see if the `messages` key is in `st.session_state`. If it's not, we initialize it to an empty list. This is because we'll be adding messages to the list later on, and we don't want to overwrite the list every time the app reruns.
-
-Now let's accept user input with `st.chat_input` and append it to the user prompt.
-
-```python
 # Accept user input
 if prompt := st.chat_input("What is up?"):
-    # Add user message to chat history
-    st.session_state.messages.append({"role": "user", "content": prompt})
     # Display user message in chat message container
     with st.chat_message("user"):
         st.markdown(prompt)
+    # Add user message to chat history
+    st.session_state.messages.append({"role": "user", "content": prompt})
 ```
 
-We used the `:=` operator to assign the user's input to the `prompt` variable and checked if it's not `None` in the same line. If the user has sent a message, we append it to the chat history and display it in the chat message container. We also display the user's input in the chat input widget so they can see what they've sent.
+The only difference so far is we've changed the title of our app and added imports for `random` and `time`. We'll use `random` to randomly select a response from a list of responses and `time` to add a delay to simulate the chatbot "thinking" before responding.
 
 All that's left to do is add the chatbot's responses within the `if` block. We'll use a list of responses and randomly select one to display. We'll also add a delay to simulate the chatbot "thinking" before responding (or stream its response).
 
@@ -157,7 +245,7 @@ with st.chat_message("assistant"):
 st.session_state.messages.append({"role": "assistant", "content": full_response})
 ```
 
-Above, we've added a placeholder to display the chatbot's response. We've also added a for loop to iterate through the response and display it character by character. We've added a delay of 0.03 seconds between each character to simulate the chatbot "thinking" before responding. Finally, we append the chatbot's response to the chat history.
+Above, we've added a placeholder to display the chatbot's response. We've also added a for loop to iterate through the response and display it one word at a time. We've added a delay of 0.05 seconds between each word to simulate the chatbot "thinking" before responding. Finally, we append the chatbot's response to the chat history. As you've probably guessed, this is a naive implementation of streaming. We'll see how to implement streaming with OpenAI in the [next section](#build-a-chatgpt-like-app).
 
 Putting it all together, here's the full code for our simple chatbot GUI and the result:
 
@@ -213,7 +301,7 @@ if prompt := st.chat_input("What is up?"):
 
 <Cloud src="https://doc-chat-simple.streamlit.app/?embed=true" height="700px" />
 
-Play around with the above demo to get a feel for what we've built. It's a very simple chatbot GUI, but it's a good starting point for building more complex conversational apps.
+Play around with the above demo to get a feel for what we've built. It's a very simple chatbot GUI, but it has all the components of a more sophisticated chatbot. In the next section, we'll see how to build a ChatGPT-like app using OpenAI.
 
 ## Build a ChatGPT-like app
 
@@ -289,9 +377,7 @@ All that's changed is that we've added a default model to `st.session_state` and
 st.session_state.messages.append({"role": "assistant", "content": full_response})
 ```
 
-Above, we've replaced the list of responses with a call to [`openai.ChatCompletion.create`](https://platform.openai.com/docs/guides/gpt/chat-completions-api). We've set `stream=True` to stream the responses to the frontend. In the API call, we pass the model name we hardcoded in session state and pass the chat history as a list of messages. We also pass the `role` and `content` of each message in the chat history. Finally, OpenAI returns a stream of responses (split into chunks of token), which we iterate through and display each chunk.
-
-Finally, we iterate through the responses and display them character by character to simulate the model "thinking" before responding.
+Above, we've replaced the list of responses with a call to [`openai.ChatCompletion.create`](https://platform.openai.com/docs/guides/gpt/chat-completions-api). We've set `stream=True` to stream the responses to the frontend. In the API call, we pass the model name we hardcoded in session state and pass the chat history as a list of messages. We also pass the `role` and `content` of each message in the chat history. Finally, OpenAI returns a stream of responses (split into chunks of tokens), which we iterate through and display each chunk.
 
 Putting it all together, here's the full code for our ChatGPT-like app and the result:
 
