@@ -5,7 +5,7 @@ slug: /library/cheatsheet
 
 # Cheat Sheet
 
-This is a summary of the docs, as of [Streamlit v1.23.0](https://pypi.org/project/streamlit/1.22.0/).
+This is a summary of the docs, as of [Streamlit v1.24.0](https://pypi.org/project/streamlit/1.22.0/).
 
 <Masonry>
 
