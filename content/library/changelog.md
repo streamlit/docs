@@ -30,7 +30,6 @@ _Release date: June 27, 2023_
 
 - 🐍 We've deprecated support for Python 3.7 in the core library and Streamlit Community Cloud ([#6868](https://github.com/streamlit/streamlit/pull/6868)).
 - 📅 `st.cache_data` and `st.cache_resource` can hash timezone-aware `datetime` objects ([#6812](https://github.com/streamlit/streamlit/pull/6812), [#6690](https://github.com/streamlit/streamlit/issues/6690), [#5110](https://github.com/streamlit/streamlit/issues/5110)).
-- 🏓 Streamlit commands such as `st.dataframe` that accept Pandas dataframes as input now support Ibis table expressions and other objects that have a `to_pandas()` method ([#6668](https://github.com/streamlit/streamlit/pull/6668), [#6467](https://github.com/streamlit/streamlit/issues/6467)). Thanks, [@cpcloud](https://github.com/cpcloud)!
 
 **Other Changes**
 
