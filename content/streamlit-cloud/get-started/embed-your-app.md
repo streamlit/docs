@@ -86,25 +86,25 @@ The only noteworthy differences between the methods is that iframing allows you 
 
 When [Embedding with iframes](#embedding-with-iframes), Streamlit allows you to specify one or more instances of the `?embed_options` query parameter for granular control over the embedding behavior. The supported values for `?embed_options` are listed below:
 
-1. Show toolbar
+1. Show the toolbar at the top right of the app (menu, running man, ...)
 
    ```javascript
    /?embed=true&embed_options=show_toolbar
    ```
 
-2. Show padding
+2. Show padding at the top and bottom of the app
 
    ```javascript
    /?embed=true&embed_options=show_padding
    ```
 
-3. Show footer
+3. Show the footer reading "Made with Streamlit"
 
    ```javascript
    /?embed=true&embed_options=show_footer
    ```
 
-4. Show colored line
+4. Show the colored line at the top of the app
 
    ```javascript
    /?embed=true&embed_options=show_colored_line
