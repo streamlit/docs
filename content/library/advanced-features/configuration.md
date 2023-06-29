@@ -152,9 +152,10 @@ displayEnabled = true
 # Streamlit displays app exceptions and associated tracebacks, and
 # deprecation warnings, in the browser.
 
-# If set to False, exceptions will display in the browser with the exception
-# type and traceback, but the exception message will be anonymized. Deprecation
-# warnings and full exception messages will be printed to the console only.
+# If set to False, exceptions will display in the browser with the
+# exception type and traceback, along with a generic error message.
+# Deprecation warnings and full exception messages will be printed to the
+# console only.
 
 # Default: true
 showErrorDetails = true
