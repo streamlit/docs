@@ -362,12 +362,10 @@ site_menu:
   - category: Streamlit library / API reference / Connections and databases / Connection base class
     url: /library/api-reference/connections/st.connections.experimentalbaseconnection
     isVersioned: true
-  - category: Streamlit library / API reference / Configuration and management
-    url: /library/api-reference/configuration-and-management
-  - category: Streamlit library / API reference / Configuration and management / ☰ App menu
-    url: /library/api-reference/configuration-and-management/app-menu
   - category: Streamlit library / Advanced features
     url: /library/advanced-features
+  - category: Streamlit library / Advanced features / ☰ App menu
+    url: /library/advanced-features/app-menu
   - category: Streamlit library / Advanced features/ Command-line options
     url: /library/advanced-features/cli
   - category: Streamlit library / Advanced features/ Configuration
