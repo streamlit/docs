@@ -98,7 +98,7 @@ _Release date: April 27, 2023_
 **Notable Changes**
 
 - 🐼 Streamlit now supports Pandas 2.0 ([#6413](https://github.com/streamlit/streamlit/issues/6413), [#6378](https://github.com/streamlit/streamlit/pull/6378), [#6507](https://github.com/streamlit/streamlit/pull/6507)). Thanks, [connortann](https://github.com/connortann)!
-- 🍔 Customize the visibility of items in the toolbar, options menu, and the settings dialog using the `client.toolbarMode` [config option](https://docs.streamlit.io/library/advanced-features/configuration#view-all-configuration-options) ([#6174](https://github.com/streamlit/streamlit/pull/6174)).
+- 🍔 Customize the visibility of items in the toolbar, options menu, and the settings dialog using the `client.toolbarMode` [config option](https://docs.streamlit.io/library/api-reference/configuration-and-management/configuration#view-all-configuration-options) ([#6174](https://github.com/streamlit/streamlit/pull/6174)).
 - 🪵 Streamlit logs now reside in the "streamlit" namespace instead of the root logger, enabling app developers to better manage log handling ([#3978](https://github.com/streamlit/streamlit/issues/3978), [#6377](https://github.com/streamlit/streamlit/pull/6377)).
 
 **Other Changes**
@@ -118,7 +118,7 @@ _Release date: April 6, 2023_
 **Highlights**
 
 - 📏 Introducing `st.divider` — a command that displays a horizontal line in your app. Learn how to use this command in its [API reference](/library/api-reference/text/st.divider).
-- 🔏 Streamlit now supports the use of a global `secrets.toml` file, in addition to a project-level file, to easily store and securely access your secrets. Learn more in [Secrets management](/library/advanced-features/secrets-management).
+- 🔏 Streamlit now supports the use of a global `secrets.toml` file, in addition to a project-level file, to easily store and securely access your secrets. Learn more in [Secrets management](/library/api-reference/configuration-and-management/secrets-management).
 - 🚀 [st.help](/library/api-reference/utilities/st.help) has been revamped to show more information about object methods, attributes, classes, and more, which is great for debugging ([#5857](https://github.com/streamlit/streamlit/pull/5857), [#6382](https://github.com/streamlit/streamlit/pull/6382))!
 
 **Notable Changes**
@@ -148,9 +148,9 @@ _Release date: March 09, 2023_
 
 **Notable Changes**
 
-- 🔐 Added support for configuring SSL to [serve apps directly over HTTPS](/library/advanced-features/https-support) ([#5969](https://github.com/streamlit/streamlit/pull/5969)).
+- 🔐 Added support for configuring SSL to [serve apps directly over HTTPS](/library/api-reference/configuration-and-management/https-support) ([#5969](https://github.com/streamlit/streamlit/pull/5969)).
 - 🖼️ Granular control over app embedding behavior with the `/?embed` and `/?embed_options` query parameters. Learn how to use this feature in our [docs](/streamlit-community-cloud/get-started/deploy-an-app#embed-apps) ([#6011](https://github.com/streamlit/streamlit/pull/6011), [#6019](https://github.com/streamlit/streamlit/pull/6019)).
-- ⚡ Enabled the `runner.fastReruns` [configuration option](/library/advanced-features/configuration#view-all-configuration-options) by default to make apps much more responsive to user interaction ([#6200](https://github.com/streamlit/streamlit/pull/6200)).
+- ⚡ Enabled the `runner.fastReruns` [configuration option](/library/api-reference/configuration-and-management/configuration#view-all-configuration-options) by default to make apps much more responsive to user interaction ([#6200](https://github.com/streamlit/streamlit/pull/6200)).
 
 **Other Changes**
 
@@ -196,7 +196,7 @@ _Release date: February 09, 2023_
 - ↔️ `st.button` has an optional `use_container_width` parameter to allow you to stretch buttons across the full container width.
 - 🐍 We formally added support for Python 3.11.
 - 🖨️ Save your app as a PDF via the “Print" option in your app's hamburger menu.
-- 🛎️ Apps can serve small, static media files via the `enableStaticServing` config option. See our [documentation](/library/advanced-features/static-file-serving) on how to use this feature and our demo [app](https://static-file-serving.streamlit.app/) for an example.
+- 🛎️ Apps can serve small, static media files via the `enableStaticServing` config option. See our [documentation](/library/api-reference/configuration-and-management/static-file-serving) on how to use this feature and our demo [app](https://static-file-serving.streamlit.app/) for an example.
 
 **Other Changes**
 

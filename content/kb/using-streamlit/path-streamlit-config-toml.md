@@ -9,4 +9,4 @@ A global config file is found at `~/.streamlit/config.toml` for macOS/Linux or `
 
 A per-project config file can be created at `$CWD/.streamlit/config.toml`, where `$CWD` is the folder you’re running Streamlit from.
 
-Click [here](/library/advanced-features/configuration) to learn more about Streamlit configuration options.
+Click [here](/library/api-reference/configuration-and-management/configuration) to learn more about Streamlit configuration options.

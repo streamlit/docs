@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/aws-s3
 
 ## Introduction
 
-This guide explains how to securely access files on AWS S3 from Streamlit Community Cloud. It uses [Streamlit FilesConnection](https://github.com/streamlit/files-connection), the [s3fs](https://github.com/dask/s3fs) library and optionally Streamlit's [secrets management](/library/advanced-features/secrets-management).
+This guide explains how to securely access files on AWS S3 from Streamlit Community Cloud. It uses [Streamlit FilesConnection](https://github.com/streamlit/files-connection), the [s3fs](https://github.com/dask/s3fs) library and optionally Streamlit's [secrets management](/library/api-reference/configuration-and-management/secrets-management).
 
 ## Create an S3 bucket and add a file
 

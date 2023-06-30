@@ -868,3 +868,9 @@
 /streamlit-community-cloud/get-started/delete-your-account /streamlit-community-cloud/manage-your-account/delete-your-account
 /knowledge-base/using-streamlit/how-host-static-files /library/advanced-features/static-file-serving
 /library/api-reference/widgets/st.experimental_data_editor /library/api-reference/data/st.data_editor
+/library/advanced-features/cli /library/api-reference/configuration-and-management/cli
+/library/advanced-features/configuration /library/api-reference/configuration-and-management/configuration
+/library/advanced-features/https-support /library/api-reference/configuration-and-management/https-support
+/library/advanced-features/secrets-management /library/api-reference/configuration-and-management/secrets-management
+/library/advanced-features/static-file-serving /library/api-reference/configuration-and-management/static-file-serving
+/library/advanced-features/theming /library/api-reference/configuration-and-management/theming

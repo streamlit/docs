@@ -96,7 +96,7 @@ my_db.connect(**st.secrets.db_credentials)
 
 ### Develop locally with secrets
 
-When developing your app locally, add a file called `secrets.toml` in a folder called `.streamlit` at the root of your app repo, and copy/paste your secrets into that file. Further instructions are available in the Streamlit library [Secrets management](/library/advanced-features/secrets-management) documentation.
+When developing your app locally, add a file called `secrets.toml` in a folder called `.streamlit` at the root of your app repo, and copy/paste your secrets into that file. Further instructions are available in the Streamlit library [Secrets management](/library/api-reference/configuration-and-management/secrets-management) documentation.
 
 <Important>
 

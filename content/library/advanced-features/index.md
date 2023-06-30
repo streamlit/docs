@@ -9,47 +9,6 @@ This section gives you background on how different parts of Streamlit work.
 
 <TileContainer>
 
-<RefCard href="/library/advanced-features/cli" size="half">
-
-##### Command-line options
-
-When you install Streamlit, a command-line (CLI) tool gets installed as well. The purpose of this tool is to run Streamlit apps, change Streamlit configuration options, and help you diagnose and fix issues.
-
-- [What is the command-line interface (CLI)?](/library/advanced-features/cli#command-line-interface)
-- [How to run Streamlit apps from the CLI?](/library/advanced-features/cli#run-streamlit-apps)
-- [View Streamlit version from the CLI?](/library/advanced-features/cli#view-streamlit-version)
-- [View documentation from the CLI](/library/advanced-features/cli#view-documentation)
-- [Clear cache from the CLI](/library/advanced-features/cli#clear-cache)
-
-</RefCard>
-
-<RefCard href="/library/advanced-features/configuration" size="half">
-
-##### Streamlit configuration
-
-Streamlit provides four different ways to set configuration options. Learn how to use each of them to change the behavior of Streamlit.
-
-- [How to set configuration options?](/library/advanced-features/configuration)
-- [Opt out of telemetry collection](/library/advanced-features/configuration#telemetry)
-- [View all configuration options](/library/advanced-features/configuration#view-all-configuration-options)
-
-</RefCard>
-
-<RefCard href="/library/advanced-features/theming" size="half">
-
-##### Theming
-
-This section provides examples of how Streamlit page elements are affected by the various theme config options.
-
-- [primaryColor](/library/advanced-features/theming#primarycolor)
-- [backgroundcolor](/library/advanced-features/theming#backgroundcolor)
-- [secondarybackgroundcolor](/library/advanced-features/theming#secondarybackgroundcolor)
-- [textcolor](/library/advanced-features/theming#textcolor)
-- [font](/library/advanced-features/theming#font)
-- [base](/library/advanced-features/theming#base)
-
-</RefCard>
-
 <RefCard href="/library/advanced-features/caching" size="half">
 
 ##### Caching
@@ -96,19 +55,6 @@ At Streamlit, we like to move quick while keeping things stable. In our latest e
 
 - [Experimental features](/library/advanced-features/prerelease#experimental-features)
 - [Nightly releases](/library/advanced-features/prerelease#nightly-releases)
-
-</RefCard>
-
-<RefCard href="/library/advanced-features/secrets-management" size="half">
-
-##### Secrets management
-
-This section provides examples of how to use secrets management to store and retrieve sensitive information in your Streamlit app.
-
-- [Develop locally and set up secrets](/library/advanced-features/secrets-management#develop-locally-and-set-up-secrets)
-- [Use secrets in your app](/library/advanced-features/secrets-management#use-secrets-in-your-app)
-- [Error handling](/library/advanced-features/secrets-management#error-handling)
-- [Use secrets on Streamlit Community Cloud](/library/advanced-features/secrets-management#use-secrets-on-streamlit-community-cloud)
 
 </RefCard>
 
