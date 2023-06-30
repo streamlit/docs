@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/gcs
 
 ## Introduction
 
-This guide explains how to securely access files on Google Cloud Storage from Streamlit Community Cloud. It uses [Streamlit FilesConnection](https://github.com/streamlit/files-connection), the [gcsfs](https://github.com/fsspec/gcsfs) library and Streamlit's [secrets management](/library/api-reference/configuration-and-management/secrets-management).
+This guide explains how to securely access files on Google Cloud Storage from Streamlit Community Cloud. It uses [Streamlit FilesConnection](https://github.com/streamlit/files-connection), the [gcsfs](https://github.com/fsspec/gcsfs) library and Streamlit's [secrets management](/library/advanced-features/secrets-management).
 
 ## Create a Google Cloud Storage bucket and add a file
 

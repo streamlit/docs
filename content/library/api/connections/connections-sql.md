@@ -37,7 +37,7 @@ conn = st.experimental_connection(
 )
 ```
 
-Or specify parameters in [secrets](/library/api-reference/configuration-and-management/secrets-management):
+Or specify parameters in [secrets](/library/advanced-features/secrets-management):
 
 ```toml
 # .streamlit/secrets.toml

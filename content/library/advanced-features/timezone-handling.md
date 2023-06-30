@@ -44,6 +44,6 @@ In both cases, neither the date nor time information automatically adjusts to th
 
 <Note>
 
-The legacy version of the `st.dataframe` has issues with timezones. We do not plan to roll out additional fixes or enhancements for the legacy dataframe. If you need stable timezone support, please consider switching to the arrow serialization by changing the [config setting](/library/api-reference/configuration-and-management/configuration#set-configuration-options), _config.dataFrameSerialization = "arrow"_.
+The legacy version of the `st.dataframe` has issues with timezones. We do not plan to roll out additional fixes or enhancements for the legacy dataframe. If you need stable timezone support, please consider switching to the arrow serialization by changing the [config setting](/library/advanced-features/configuration#set-configuration-options), _config.dataFrameSerialization = "arrow"_.
 
 </Note>

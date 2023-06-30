@@ -317,7 +317,7 @@ pip install openai streamlit
 
 ### Add OpenAI API key to Streamlit secrets
 
-Next, let's add our OpenAI API key to [Streamlit secrets](/library/api-reference/configuration-and-management/secrets-management). We do this by creating `.streamlit/secrets.toml` file in our project directory and adding the following lines to it:
+Next, let's add our OpenAI API key to [Streamlit secrets](/library/advanced-features/secrets-management). We do this by creating `.streamlit/secrets.toml` file in our project directory and adding the following lines to it:
 
 ```toml
 # .streamlit/secrets.toml

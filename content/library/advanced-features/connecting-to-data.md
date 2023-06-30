@@ -94,7 +94,7 @@ Now, on to more advanced topics! 🚀
 
 ### Global secrets, managing multiple apps and multiple data stores
 
-Streamlit [supports a global secrets file](/library/api-reference/configuration-and-management/secrets-management) specified in the user's home directory, such as `~/.streamlit/secrets.toml`. If you build or manage multiple apps, we recommend using a global credential or secret file for local development across apps. With this approach, you only need to set up and manage your credentials in one place, and connecting a new app to your existing data sources is effectively a one-liner. It also reduces the risk of accidentally checking in your credentials to git since they don't need to exist in the project repository.
+Streamlit [supports a global secrets file](/library/advanced-features/secrets-management) specified in the user's home directory, such as `~/.streamlit/secrets.toml`. If you build or manage multiple apps, we recommend using a global credential or secret file for local development across apps. With this approach, you only need to set up and manage your credentials in one place, and connecting a new app to your existing data sources is effectively a one-liner. It also reduces the risk of accidentally checking in your credentials to git since they don't need to exist in the project repository.
 
 For cases where you have multiple similar data sources that you connect to during local development (such as a local vs. staging database), you can define different connection sections in your secrets or credentials file for different environments and then decide which to use at runtime. `st.experimental_connection` supports this with the _`name=env:<MY_NAME_VARIABLE>`_ syntax.
 

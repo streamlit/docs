@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/tidb
 
 ## Introduction
 
-This guide explains how to securely access a **_remote_** TiDB database from Streamlit Community Cloud. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection) and Streamlit's [secrets management](/library/api-reference/configuration-and-management/secrets-management). The below example code will **only work on Streamlit version >= 1.22**, when `st.experimental_connection` was added.
+This guide explains how to securely access a **_remote_** TiDB database from Streamlit Community Cloud. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection) and Streamlit's [secrets management](/library/advanced-features/secrets-management). The below example code will **only work on Streamlit version >= 1.22**, when `st.experimental_connection` was added.
 
 [TiDB](https://www.pingcap.com/tidb/) is an open-source, MySQL-compatible database that supports Hybrid Transactional and Analytical Processing (HTAP) workloads. [TiDB Cloud](https://www.pingcap.com/tidb-cloud/) is a fully managed cloud database service that simplifies the deployment and management of TiDB databases for developers.
 
@@ -61,7 +61,7 @@ INSERT INTO mytable VALUES ('Mary', 'dog'), ('John', 'cat'), ('Robert', 'bird');
 
 ## Add username and password to your local app secrets
 
-Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Learn more about [Streamlit secrets management here](/library/api-reference/configuration-and-management/secrets-management). Create this file if it doesn't exist yet and add host, username and password of your TiDB cluster as shown below:
+Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Learn more about [Streamlit secrets management here](/library/advanced-features/secrets-management). Create this file if it doesn't exist yet and add host, username and password of your TiDB cluster as shown below:
 
 ```toml
 # .streamlit/secrets.toml

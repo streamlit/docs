@@ -366,31 +366,18 @@ site_menu:
     url: /library/api-reference/configuration-and-management
   - category: Streamlit library / API reference / Configuration and management / ☰ App menu
     url: /library/api-reference/configuration-and-management/app-menu
-  - category: Streamlit library / API reference / Configuration and management / Command-line options
-    url: /library/api-reference/configuration-and-management/cli
-  - category: Streamlit library / API reference / Configuration and management / Configuration
-    url: /library/api-reference/configuration-and-management/configuration
-  - category: Streamlit library / API reference / Configuration and management / HTTPS support
-    url: /library/api-reference/configuration-and-management/https-support
-  - category: Streamlit library / API reference / Configuration and management / Secrets management
-    url: /library/api-reference/configuration-and-management/secrets-management
-  - category: Streamlit library / API reference / Configuration and management / Static file serving
-    url: /library/api-reference/configuration-and-management/static-file-serving
-  - category: Streamlit library / API reference / Configuration and management / Theming
-    url: /library/api-reference/configuration-and-management/theming
-
   - category: Streamlit library / Advanced features
     url: /library/advanced-features
-  - category: Streamlit library / Advanced features/ Button behavior and examples
-    url: /library/advanced-features/button-behavior-and-examples
+  - category: Streamlit library / Advanced features/ Command-line options
+    url: /library/advanced-features/cli
+  - category: Streamlit library / Advanced features/ Configuration
+    url: /library/advanced-features/configuration
+  - category: Streamlit library / Advanced features / Theming
+    url: /library/advanced-features/theming
   - category: Streamlit library / Advanced features/ Caching
     url: /library/advanced-features/caching
-  - category: Streamlit library / Advanced features / Configuration
-    url: http://localhost:3000/library/api-reference/configuration-and-management/configuration
   - category: Streamlit library / Advanced features/ Connecting to data
     url: /library/advanced-features/connecting-to-data
-  - category: Streamlit library / Advanced features/ Dataframes
-    url: /library/advanced-features/dataframes
   - category: Streamlit library / Advanced features/ Optimize performance with st.cache
     url: /library/advanced-features/st.cache
     visible: false
@@ -399,13 +386,22 @@ site_menu:
     visible: false
   - category: Streamlit library / Advanced features/ Add statefulness to apps
     url: /library/advanced-features/session-state
+  - category: Streamlit library / Advanced features/ Button behavior and examples
+    url: /library/advanced-features/button-behavior-and-examples
+  - category: Streamlit library / Advanced features/ Dataframes
+    url: /library/advanced-features/dataframes
   - category: Streamlit library / Advanced features/ Widget semantics
     url: /library/advanced-features/widget-semantics
   - category: Streamlit library / Advanced features/ Pre-release features
     url: /library/advanced-features/prerelease
   - category: Streamlit library / Advanced features/ Working with timezones
     url: /library/advanced-features/timezone-handling
-
+  - category: Streamlit library / Advanced features/ Static file serving
+    url: /library/advanced-features/static-file-serving
+  - category: Streamlit library / Advanced features/ HTTPS support
+    url: /library/advanced-features/https-support
+  - category: Streamlit library / Advanced features/ Secrets management
+    url: /library/advanced-features/secrets-management
   - category: Streamlit library / Components
     url: /library/components
   - category: Streamlit library / Components / Components API

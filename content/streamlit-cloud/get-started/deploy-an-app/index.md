@@ -19,7 +19,7 @@ Streamlit Community Cloud launches apps directly from your GitHub repo, so your 
 
 ### Optionally, add a configuration file
 
-Streamlit allows you to optionally set configuration options via four different methods. Among other things, you can use custom configs to customize your app's theme, enable logging, or set the port on which your app runs. For more information, see [Configuration](/library/api-reference/configuration-and-management/configuration) and [Theming](/library/api-reference/configuration-and-management/theming). On Streamlit Community Cloud, however, you can only set configuration options via a configuration file in your GitHub repo.
+Streamlit allows you to optionally set configuration options via four different methods. Among other things, you can use custom configs to customize your app's theme, enable logging, or set the port on which your app runs. For more information, see [Configuration](/library/advanced-features/configuration) and [Theming](/library/advanced-features/theming). On Streamlit Community Cloud, however, you can only set configuration options via a configuration file in your GitHub repo.
 
 Specifically, you can add a configuration file to the root (top-level) directory of your repo: create a `.streamlit` folder, and then add a `config.toml` file to that folder. E.g., if your app is in a repo called `my-app`, you would add a file called `my-app/.streamlit/config.toml`. Say you want to set the theme of your app to "dark". You would add the following to your `.streamlit/config.toml` file:
 

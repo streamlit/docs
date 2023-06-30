@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/snowflake
 
 ## Introduction
 
-This guide explains how to securely access a Snowflake database from Streamlit. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection), the [Snowpark Python](https://docs.snowflake.com/en/developer-guide/snowpark/python/index) library and Streamlit's [secrets management](/library/api-reference/configuration-and-management/secrets-management). The below example code **will only work on Streamlit version >= 1.22**, when `st.experimental_connection` was added.
+This guide explains how to securely access a Snowflake database from Streamlit. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection), the [Snowpark Python](https://docs.snowflake.com/en/developer-guide/snowpark/python/index) library and Streamlit's [secrets management](/library/advanced-features/secrets-management). The below example code **will only work on Streamlit version >= 1.22**, when `st.experimental_connection` was added.
 
 Skip to the bottom for information about [connecting using Snowflake Connector for Python](#using-the-snowflake-connector-for-python).
 
@@ -73,7 +73,7 @@ Particular prerequisites to highlight:
 
 ## Add connection parameters to your local app secrets
 
-Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app’s root directory. Learn more about [Streamlit secrets management here](/library/api-reference/configuration-and-management/secrets-management). Create this file if it doesn’t exist yet and add your Snowflake username, password, [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html), and the name of your warehouse, database, and schema as shown below:
+Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app’s root directory. Learn more about [Streamlit secrets management here](/library/advanced-features/secrets-management). Create this file if it doesn’t exist yet and add your Snowflake username, password, [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html), and the name of your warehouse, database, and schema as shown below:
 
 ```toml
 # .streamlit/secrets.toml

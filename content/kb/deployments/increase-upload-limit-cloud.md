@@ -9,7 +9,7 @@ slug: /knowledge-base/deploy/increase-file-uploader-limit-streamlit-cloud
 
 By default, files uploaded using [`st.file_uploader()`](/library/api-reference/widgets/st.file_uploader) are limited to 200MB. You can configure this using the `server.maxUploadSize` config option.
 
-Streamlit provides [four different ways to set configuration options](/library/api-reference/configuration-and-management/configuration#set-configuration-options):
+Streamlit provides [four different ways to set configuration options](/library/advanced-features/configuration#set-configuration-options):
 
 1. In a **global config file** at `~/.streamlit/config.toml` for macOS/Linux or `%userprofile%/.streamlit/config.toml` for Windows:
    ```toml
@@ -43,4 +43,4 @@ maxUploadSize = 400
 
 - [Streamlit drag and drop capping at 200MB, need workaround](https://discuss.streamlit.io/t/streamlit-drag-and-drop-capping-at-200mb-need-workaround/19803/2)
 - [File uploader widget API](/library/api-reference/widgets/st.file_uploader)
-- [How to set Streamlit configuration options](/library/api-reference/configuration-and-management/configuration#set-configuration-options)
+- [How to set Streamlit configuration options](/library/advanced-features/configuration#set-configuration-options)
