@@ -128,7 +128,8 @@ Now let's accept user input with `st.chat_input`, display the user's message in 
 # React to user input
 if prompt := st.chat_input("What is up?"):
     # Display user message in chat message container
-    st.chat_message("user").markdown(prompt)
+    with st.chat_message("user"):
+        st.markdown(prompt)
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
 ```
@@ -392,7 +393,7 @@ st.title("ChatGPT-like clone")
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 if "openai_model" not in st.session_state:
-    st.session_state["openai_model"] = "gpt-4"
+    st.session_state["openai_model"] = "gpt-3.5-turbo"
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
