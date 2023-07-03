@@ -7,6 +7,8 @@ slug: /streamlit-community-cloud
 
 Streamlit's Community Cloud is an open and free platform for the community to deploy, discover, and share Streamlit apps and code with each other. If you're just getting started and have not yet built your first Streamlit app, check out the main [Get started](/library/get-started) page first. When you're ready to share it, create a Community Cloud account and you can launch your app in just a few minutes! Deploy, manage, and share your apps with the world, directly from Streamlit — all for free.
 
+You can choose to log in via eiather a Github or Google account when creating a Community Cloud account. (explain why it might matter which one you use).
+
 <!-- <InlineCalloutContainer>
   <InlineCallout
     color="l-blue-70"
