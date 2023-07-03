@@ -87,6 +87,8 @@ All employees sign a confidentiality agreement before they start at Streamlit.
 
 We keep our systems up-to-date with the latest security patches and continuously monitor for new vulnerabilities through compliance and security mailing lists. This includes automatic scanning of our code repositories for vulnerable dependencies.
 
+If you find a security vulnerability, report it to (fill in the right place....). Our vulnerability disclosure policy is at (...).  We're considering a bug bounty program (we can hope).
+
 <Note>
 
 If you have further questions about Community Cloud and our security approach, please reach out to us on the [Community forum](https://discuss.streamlit.io/).
