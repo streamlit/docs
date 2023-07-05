@@ -53,7 +53,7 @@ Click "**Print**" to open your browser's print dialog. Print support is currentl
 
 ### Record a screencast
 
-You can easily make screen recordings right from your app! Screen recording is supported in the latest versions of Chrome, Edge, and Firefox. Be sure your browser is up-to-date for compatibility. Depending on your current settings, you may need to grant permission to your browser to record your screen or to use your microphone if recording a voiceover.
+You can easily make screen recordings right from your app! Screen recording is supported in the latest versions of Chrome, Edge, and Firefox. Ensure your browser is up-to-date for compatibility. Depending on your current settings, you may need to grant permission to your browser to record your screen or to use your microphone if recording a voiceover.
 
 1. While viewing your app, open the app menu from the upper-right corner.
 2. Click "**Record a screencast**."
