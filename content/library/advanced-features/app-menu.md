@@ -45,7 +45,7 @@ After clicking "**Settings**" from the app menu, you can choose between "**Light
 
 ### Print
 
-Click "**Print**" to open your browser's print dialog. Print support is currently limited and experimental.
+Click "**Print**" to open a print dialog. This option uses your browser's built-in print-to-pdf function.
 
 <div style={{ maxWidth: '30%', margin: 'auto' }}>
     <Image src="/images/app-menu/app-menu-print-XL.png" alt="Print" clean />
