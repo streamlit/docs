@@ -17,7 +17,7 @@ The menu is split into two sections. The upper section contains options availabl
 
 You can manually trigger a rerun of your app by clicking "**Rerun**" from the app menu. This rerun will not reset your session. Your widget states and values stored in [`st.session_state`](/library/advanced-features/session-state) will be preserved. As a shortcut, without opening the app menu, you can rerun your app by pressing "**R**" on your keyboard (if you aren't currently focused on an input element).
 
-<div style={{ maxWidth: '30%', marginLeft: '16em' }}>
+<div style={{ maxWidth: '30%', margin: 'auto' }}>
     <Image src="/images/app-menu/app-menu-rerun-XL.png" alt="Rerun" clean />
 </div>
 
@@ -25,7 +25,7 @@ You can manually trigger a rerun of your app by clicking "**Rerun**" from the ap
 
 With the "**Settings**" option, you can control the appearance of your app while it is running. If viewing the app locally, you can set how your app responds to changes in your source code. See more about development flow in [Main concepts](/library/get-started/main-concepts#development-flow). You can also force your app to appear in wide mode, even if not set within the script using [`st.set_page_config`](/library/api-reference/utilities/st.set_page_config).
 
-<div style={{ maxWidth: '30%', marginLeft: '16em' }}>
+<div style={{ maxWidth: '30%', margin: 'auto' }}>
     <Image src="/images/app-menu/app-menu-settings-XL.png" alt="Settings" clean />
 </div>
 
@@ -33,13 +33,13 @@ With the "**Settings**" option, you can control the appearance of your app while
 
 After clicking "**Settings**" from the app menu, you can choose between "**Light**", "**Dark**", or "**Use system setting**" for the app's base theme. Click on "**Edit active theme**" to modify the theme, color-by-color.
 
-<div style={{ maxWidth: '90%', marginLeft: '3em' }}>
+<div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
     <Image src="/images/app-menu/app-menu-settings-modal.png" alt="Settings" clean />
 </div>
 
 <br />
 
-<div style={{ maxWidth: '90%', marginLeft: '3em' }}>
+<div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
     <Image src="/images/app-menu/app-menu-settings-theme.png" alt="Theme" clean />
 </div>
 
@@ -47,7 +47,7 @@ After clicking "**Settings**" from the app menu, you can choose between "**Light
 
 Click "**Print**" to open your browser's print dialog. Print support is currently limited and experimental.
 
-<div style={{ maxWidth: '30%', marginLeft: '16em' }}>
+<div style={{ maxWidth: '30%', margin: 'auto' }}>
     <Image src="/images/app-menu/app-menu-print-XL.png" alt="Print" clean />
 </div>
 
@@ -58,38 +58,38 @@ You can easily make screen recordings right from your app! Screen recording is s
 1. While viewing your app, open the app menu from the upper-right corner.
 2. Click "**Record a screencast**."
 
-<div style={{ maxWidth: '30%', marginLeft: '16em' }}>
+<div style={{ maxWidth: '30%', margin: 'auto' }}>
     <Image src="/images/app-menu/app-menu-record-XL.png" alt="Record" clean />
 </div>
 
 3. If you want to record audio through your microphone, check "**Also record audio**."
 4. Click "**Start recording**." (You may be prompted by your OS to permit your browser to record your screen or use your microphone.)
 
-<div style={{ maxWidth: '90%', marginLeft: '3em' }}>
+<div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
     <Image src="/images/app-menu/app-menu-record-2.png" alt="Record" />
 </div>
 
 5. Select which tab, window, or monitor you want to record from the listed options. The interface will vary depending on your browser.
 
-<div style={{ maxWidth: '90%', marginLeft: '3em' }}>
+<div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
     <Image src="/images/app-menu/app-menu-record-3.png" alt="Record" />
 </div>
 
 6. Click "**Share**."
 
-<div style={{ maxWidth: '90%', marginLeft: '3em' }}>
+<div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
     <Image src="/images/app-menu/app-menu-record-4.png" alt="Record" />
 </div>
 
 7. While recording, you will see a red circle on your app's tab and on the app menu icon. If you want to cancel the recording, click "**Stop sharing**" at the bottom of your app.
 
-<div style={{ maxWidth: '90%', marginLeft: '3em' }}>
+<div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
     <Image src="/images/app-menu/app-menu-record-5.png" alt="Record" />
 </div>
 
 8. When you are done recording, press "**Esc**" on your keyboard or click "**Stop recording**" from your app's menu.
 
-<div style={{ maxWidth: '90%', marginLeft: '3em' }}>
+<div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
     <Image src="/images/app-menu/app-menu-record-6.png" alt="Record" />
 </div>
 
@@ -97,7 +97,7 @@ You can easily make screen recordings right from your app! Screen recording is s
 
 The whole process looks like this:
 
-<div style={{ maxWidth: '90%', marginLeft: '3em' }}>
+<div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
     <Image src="/images/app-menu/app-menu-record.gif" alt="Record" />
 </div>
 
@@ -105,7 +105,7 @@ The whole process looks like this:
 
 You can conveniently check what version of Streamlit is running from the "**About**" option. Developers also have the option to customize the message shown here using [`st.set_page_config`](/library/api-reference/utilities/st.set_page_config).
 
-<div style={{ maxWidth: '30%', marginLeft: '16em' }}>
+<div style={{ maxWidth: '30%', margin: 'auto' }}>
     <Image src="/images/app-menu/app-menu-about-XL.png" alt="Rerun" clean />
 </div>
 
@@ -117,7 +117,7 @@ By default, developer options only show when viewing an app locally or when view
 
 Reset your app's cache by clicking "**Clear cache**" from the app's menu or by pressing "**C**" on your keyboard while not focused on an input element. This will remove all cached entries for [`@st.cache_data`](/library/api-reference/performance/st.cache_data) and [`@st.cache_resource`](/library/api-reference/performance/st.cache_resource).
 
-<div style={{ maxWidth: '30%', marginLeft: '16em' }}>
+<div style={{ maxWidth: '30%', margin: 'auto' }}>
     <Image src="/images/app-menu/app-menu-clear-XL.png" alt="Rerun" clean />
 </div>
 
@@ -125,7 +125,7 @@ Reset your app's cache by clicking "**Clear cache**" from the app's menu or by p
 
 If you are running an app locally from within a git repo, you can deploy your app to Streamlit Community Cloud in a few easy clicks! Make sure your work has been pushed to your online GitHub repository before beginning. For the greatest convenience, make sure you have already created your [Community Cloud account](http://localhost:3000/streamlit-community-cloud/get-started#sign-up-for-streamlit-community-cloud) and are signed in. Click "**Deploy this app**" to be taken directly to Community Cloud's "Deploy an app" page. Your app's repository, branch, and file name will be prefilled to match your current app! Learn more about [deploying an app](http://localhost:3000/streamlit-community-cloud/get-started/deploy-an-app) on Streamlit Community Cloud.
 
-<div style={{ maxWidth: '30%', marginLeft: '16em' }}>
+<div style={{ maxWidth: '30%', margin: 'auto' }}>
     <Image src="/images/app-menu/app-menu-deploy-XL.png" alt="Rerun" clean />
 </div>
 
