@@ -104,10 +104,10 @@ showWarningOnDirectExecution = true
 # DataFrame serialization.
 
 # Acceptable values:
-# - 'legacy': Serialize DataFrames using Streamlit's custom format. Slow
-# but battle-tested.
-# - 'arrow': Serialize DataFrames using Apache Arrow. Much faster and
-# versatile.
+# - 'legacy' : Serialize DataFrames using Streamlit's custom format. Slow
+#              but battle-tested.
+# - 'arrow'  : Serialize DataFrames using Apache Arrow. Much faster and
+#              versatile.
 
 # Default: "arrow"
 dataFrameSerialization = "arrow"
@@ -137,7 +137,8 @@ messageFormat = "%(asctime)s %(message)s"
 ```toml
 [client]
 
-# Whether to enable st.cache.
+# Whether to enable st.cache. This does not affect st.cache_data or
+# st.cache_resource.
 
 # Default: true
 caching = true
@@ -153,10 +154,11 @@ displayEnabled = true
 # Streamlit displays app exceptions and associated tracebacks, and
 # deprecation warnings, in the browser.
 
-# If set to False, exceptions will display in the browser with the
-# exception type and traceback, along with a generic error message.
-# Deprecation warnings and full exception messages will be printed to the
-# console only.
+# If set to False, deprecation warnings and full exception messages
+# will print to the console only. Exceptions will still display in the
+# browser with a generic error message. For now, the exception type and
+# traceback show in the browser also, but they will be removed in the
+# future.
 
 # Default: true
 showErrorDetails = true
@@ -165,13 +167,14 @@ showErrorDetails = true
 # and settings dialog (top right of the app).
 
 # Allowed values:
-# * "auto" : Show the developer options if the app is accessed through
-# localhost and hide them otherwise.
+# * "auto"      : Show the developer options if the app is accessed through
+#                 localhost or through Streamlit Community Cloud as a developer.
+#                 Hide them otherwise.
 # * "developer" : Show the developer options.
-# * "viewer" : Hide the developer options.
-# * "minimal" : Show only options set externally (e.g. through
-# Streamlit Community Cloud) or through st.set_page_config.
-# If there are no options left, hide the menu.
+# * "viewer"    : Hide the developer options.
+# * "minimal"   : Show only options set externally (e.g. through
+#                 Streamlit Community Cloud) or through st.set_page_config.
+#                 If there are no options left, hide the menu.
 
 # Default: "auto"
 toolbarMode = "auto"
@@ -246,11 +249,11 @@ folderWatchBlacklist = []
 # completely.
 
 # Allowed values:
-# * "auto" : Streamlit will attempt to use the watchdog module, and
-# falls back to polling if watchdog is not available.
+# * "auto"     : Streamlit will attempt to use the watchdog module, and
+#                falls back to polling if watchdog is not available.
 # * "watchdog" : Force Streamlit to use the watchdog module.
-# * "poll" : Force Streamlit to always use polling.
-# * "none" : Streamlit will not watch files.
+# * "poll"     : Force Streamlit to always use polling.
+# * "none"     : Streamlit will not watch files.
 
 # Default: "auto"
 fileWatcherType = "auto"
@@ -443,6 +446,7 @@ showPyplotGlobalUse = true
 # font =
 ```
 
+
 <Collapse title="View entire file" expanded={false} >
 
 ```toml
@@ -476,10 +480,10 @@ showWarningOnDirectExecution = true
 # DataFrame serialization.
 
 # Acceptable values:
-# - 'legacy': Serialize DataFrames using Streamlit's custom format. Slow
-# but battle-tested.
-# - 'arrow': Serialize DataFrames using Apache Arrow. Much faster and
-# versatile.
+# - 'legacy' : Serialize DataFrames using Streamlit's custom format. Slow
+#              but battle-tested.
+# - 'arrow'  : Serialize DataFrames using Apache Arrow. Much faster and
+#              versatile.
 
 # Default: "arrow"
 dataFrameSerialization = "arrow"
@@ -501,7 +505,8 @@ messageFormat = "%(asctime)s %(message)s"
 
 [client]
 
-# Whether to enable st.cache.
+# Whether to enable st.cache. This does not affect st.cache_data or
+# st.cache_resource.
 
 # Default: true
 caching = true
@@ -517,10 +522,11 @@ displayEnabled = true
 # Streamlit displays app exceptions and associated tracebacks, and
 # deprecation warnings, in the browser.
 
-# If set to False, exceptions will display in the browser with the
-# exception type and traceback, along with a generic error message.
-# Deprecation warnings and full exception messages will be printed to the
-# console only.
+# If set to False, deprecation warnings and full exception messages
+# will print to the console only. Exceptions will still display in the
+# browser with a generic error message. For now, the exception type and
+# traceback show in the browser also, but they will be removed in the
+# future.
 
 # Default: true
 showErrorDetails = true
@@ -529,13 +535,14 @@ showErrorDetails = true
 # and settings dialog (top right of the app).
 
 # Allowed values:
-# * "auto" : Show the developer options if the app is accessed through
-# localhost and hide them otherwise.
+# * "auto"      : Show the developer options if the app is accessed through
+#                 localhost or through Streamlit Community Cloud as a developer.
+#                 Hide them otherwise.
 # * "developer" : Show the developer options.
-# * "viewer" : Hide the developer options.
-# * "minimal" : Show only options set externally (e.g. through
-# Streamlit Community Cloud) or through st.set_page_config.
-# If there are no options left, hide the menu.
+# * "viewer"    : Hide the developer options.
+# * "minimal"   : Show only options set externally (e.g. through
+#                 Streamlit Community Cloud) or through st.set_page_config.
+#                 If there are no options left, hide the menu.
 
 # Default: "auto"
 toolbarMode = "auto"
@@ -602,11 +609,11 @@ folderWatchBlacklist = []
 # completely.
 
 # Allowed values:
-# * "auto" : Streamlit will attempt to use the watchdog module, and
-# falls back to polling if watchdog is not available.
+# * "auto"     : Streamlit will attempt to use the watchdog module, and
+#                falls back to polling if watchdog is not available.
 # * "watchdog" : Force Streamlit to use the watchdog module.
-# * "poll" : Force Streamlit to always use polling.
-# * "none" : Streamlit will not watch files.
+# * "poll"     : Force Streamlit to always use polling.
+# * "none"     : Streamlit will not watch files.
 
 # Default: "auto"
 fileWatcherType = "auto"
