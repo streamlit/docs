@@ -7,9 +7,7 @@ slug: /library/advanced-features/app-menu
 
 Streamlit provides a configurable menu within your app to access convenient tools for developers and viewers. By default, you can access developer options from the app menu when viewing an app locally or on Streamlit Community Cloud while logged into an account with administrative access. While viewing an app, click the icon in the upper-right corner to access the menu.
 
-<div style={{ maxWidth: '90%', marginLeft: '3em' }}>
-    <Image src="/images/app-menu/app-menu-developer.png" alt="App menu" />
-</div>
+![App menu](/images/app-menu/app-menu-developer.png)
 
 ## Menu options
 
@@ -19,16 +17,16 @@ The menu is split into two sections. The upper section contains options availabl
 
 You can manually trigger a rerun of your app by clicking "**Rerun**" from the app menu. This rerun will not reset your session. Your widget states and values stored in [`st.session_state`](/library/api-reference/session-state) will be preserved. As a shortcut, without opening the app menu, you can rerun your app by pressing "**R**" on your keyboard (if you aren't currently focused on an input element).
 
-<div style={{ maxWidth: '30%', marginLeft: '3em' }}>
-    <Image src="/images/app-menu/app-menu-rerun-XL.png" alt="Rerun" />
+<div style={{ maxWidth: '30%', marginLeft: '16em' }}>
+    <Image src="/images/app-menu/app-menu-rerun-XL.png" alt="Rerun" clean />
 </div>
 
 ### Settings
 
 With the "**Settings**" option, you can control the appearance of your app while it is running. If viewing the app locally, you can set how your app responds to changes in your source code. See more about development flow in [Main concepts](/library/get-started/main-concepts#development-flow). You can also force your app to appear in wide mode, even if not set within the script using [`st.set_page_config`](/library/api-reference/utilities/st.set_page_config).
 
-<div style={{ maxWidth: '30%', marginLeft: '3em' }}>
-    <Image src="/images/app-menu/app-menu-settings-XL.png" alt="Settings" />
+<div style={{ maxWidth: '30%', marginLeft: '16em' }}>
+    <Image src="/images/app-menu/app-menu-settings-XL.png" alt="Settings" clean />
 </div>
 
 #### Theme settings
@@ -36,19 +34,21 @@ With the "**Settings**" option, you can control the appearance of your app while
 After clicking "**Settings**" from the app menu, you can choose between "**Light**", "**Dark**", or "**Use system setting**" for the app's base theme. Click on "**Edit active theme**" to modify the theme, color-by-color.
 
 <div style={{ maxWidth: '90%', marginLeft: '3em' }}>
-    <Image src="/images/app-menu/app-menu-settings-modal.png" alt="Settings" />
+    <Image src="/images/app-menu/app-menu-settings-modal.png" alt="Settings" clean />
 </div>
 
+<br />
+
 <div style={{ maxWidth: '90%', marginLeft: '3em' }}>
-    <Image src="/images/app-menu/app-menu-settings-theme.png" alt="Theme" />
+    <Image src="/images/app-menu/app-menu-settings-theme.png" alt="Theme" clean />
 </div>
 
 ### Print
 
 Click "**Print**" to open your browser's print dialog. Print support is currently limited and experimental.
 
-<div style={{ maxWidth: '30%', marginLeft: '3em' }}>
-    <Image src="/images/app-menu/app-menu-print-XL.png" alt="Print" />
+<div style={{ maxWidth: '30%', marginLeft: '16em' }}>
+    <Image src="/images/app-menu/app-menu-print-XL.png" alt="Print" clean />
 </div>
 
 ### Record a screencast
@@ -58,8 +58,8 @@ You can easily make screen recordings right from your app! Screen recording is s
 1. While viewing your app, open the app menu from the upper-right corner.
 2. Click "**Record a screencast**."
 
-<div style={{ maxWidth: '30%', marginLeft: '3em' }}>
-    <Image src="/images/app-menu/app-menu-record-XL.png" alt="Record" />
+<div style={{ maxWidth: '30%', marginLeft: '16em' }}>
+    <Image src="/images/app-menu/app-menu-record-XL.png" alt="Record" clean />
 </div>
 
 3. If you want to record audio through your microphone, check "**Also record audio**."
@@ -105,8 +105,8 @@ The whole process looks like this:
 
 You can conveniently check what version of Streamlit is running from the "**About**" option. Developers also have the option to customize the message shown here using [`st.set_page_config`](/library/api-reference/utilities/st.set_page_config).
 
-<div style={{ maxWidth: '30%', marginLeft: '3em' }}>
-    <Image src="/images/app-menu/app-menu-about-XL.png" alt="Rerun" />
+<div style={{ maxWidth: '30%', marginLeft: '16em' }}>
+    <Image src="/images/app-menu/app-menu-about-XL.png" alt="Rerun" clean />
 </div>
 
 ## Developer options
@@ -117,16 +117,16 @@ By default, developer options only show when viewing an app locally or when view
 
 Reset your app's cache by clicking "**Clear cache**" from the app's menu or by pressing "**C**" on your keyboard while not focused on an input element. This will remove all cached entries for [`@st.cache_data`](/library/api-reference/performance/st.cache_data) and [`@st.cache_resource`](/library/api-reference/performance/st.cache_resource).
 
-<div style={{ maxWidth: '30%', marginLeft: '3em' }}>
-    <Image src="/images/app-menu/app-menu-clear-XL.png" alt="Rerun" />
+<div style={{ maxWidth: '30%', marginLeft: '16em' }}>
+    <Image src="/images/app-menu/app-menu-clear-XL.png" alt="Rerun" clean />
 </div>
 
 ### Deploy this app
 
 If you are running an app locally from within a git repo, you can deploy your app to Streamlit Community Cloud in a few easy clicks! Make sure your work has been pushed to your online GitHub repository before beginning. For the greatest convenience, make sure you have already created your [Community Cloud account](http://localhost:3000/streamlit-community-cloud/get-started#sign-up-for-streamlit-community-cloud) and are signed in. Click "**Deploy this app**" to be taken directly to Community Cloud's "Deploy an app" page. Your app's repository, branch, and file name will be prefilled to match your current app! Learn more about [deploying an app](http://localhost:3000/streamlit-community-cloud/get-started/deploy-an-app) on Streamlit Community Cloud.
 
-<div style={{ maxWidth: '30%', marginLeft: '3em' }}>
-    <Image src="/images/app-menu/app-menu-deploy-XL.png" alt="Rerun" />
+<div style={{ maxWidth: '30%', marginLeft: '16em' }}>
+    <Image src="/images/app-menu/app-menu-deploy-XL.png" alt="Rerun" clean />
 </div>
 
 ## Customize the menu
