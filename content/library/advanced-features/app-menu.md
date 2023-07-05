@@ -15,7 +15,7 @@ The menu is split into two sections. The upper section contains options availabl
 
 ### Rerun
 
-You can manually trigger a rerun of your app by clicking "**Rerun**" from the app menu. This rerun will not reset your session. Your widget states and values stored in [`st.session_state`](/library/api-reference/session-state) will be preserved. As a shortcut, without opening the app menu, you can rerun your app by pressing "**R**" on your keyboard (if you aren't currently focused on an input element).
+You can manually trigger a rerun of your app by clicking "**Rerun**" from the app menu. This rerun will not reset your session. Your widget states and values stored in [`st.session_state`](/library/advanced-features/session-state) will be preserved. As a shortcut, without opening the app menu, you can rerun your app by pressing "**R**" on your keyboard (if you aren't currently focused on an input element).
 
 <div style={{ maxWidth: '30%', marginLeft: '16em' }}>
     <Image src="/images/app-menu/app-menu-rerun-XL.png" alt="Rerun" clean />
