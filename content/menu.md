@@ -364,6 +364,8 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / Advanced features
     url: /library/advanced-features
+  - category: Streamlit library / Advanced features / ☰ App menu
+    url: /library/advanced-features/app-menu
   - category: Streamlit library / Advanced features/ Command-line options
     url: /library/advanced-features/cli
   - category: Streamlit library / Advanced features/ Configuration
@@ -532,9 +534,6 @@ site_menu:
   - category: Knowledge base / Using Streamlit / How to download a Pandas DataFrame as a CSV?
     url: /knowledge-base/using-streamlit/how-download-pandas-dataframe-csv
     visible: false
-  - category: Knowledge base / Using Streamlit / How do I hide the hamburger menu from my app?
-    url: /knowledge-base/using-streamlit/how-hide-hamburger-menu-app
-    visible: false
   - category: Knowledge base / Using Streamlit / How do I upgrade to the latest version of Streamlit?
     url: /knowledge-base/using-streamlit/how-upgrade-latest-version-streamlit
     visible: false
@@ -546,9 +545,6 @@ site_menu:
     visible: false
   - category: Knowledge base / Using Streamlit / How can I make st.pydeck_chart use custom Mapbox styles?
     url: /knowledge-base/using-streamlit/pydeck-chart-custom-mapbox-styles
-    visible: false
-  - category: Knowledge base / Using Streamlit / How to record a screencast?
-    url: /knowledge-base/using-streamlit/record-screencast
     visible: false
   - category: Knowledge base / Using Streamlit / How to remove "· Streamlit" from the app title?
     url: /knowledge-base/using-streamlit/remove-streamlit-app-title
