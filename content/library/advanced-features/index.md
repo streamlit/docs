@@ -9,6 +9,19 @@ This section gives you background on how different parts of Streamlit work.
 
 <TileContainer>
 
+<RefCard href="/library/advanced-features/app-menu" size="half">
+
+##### ☰ App menu
+
+Streamlit provides a configurable menu within your app to access convenient tools for developers and viewers. These options can modify the appearance of your app while running.
+
+- [Modify your app's theme while running](/library/advanced-features/app-menu#settings)
+- [Record a screencast of your app](/library/advanced-features/app-menu#record-a-screencast)
+- [Deploy a local app to Streamlit Community Cloud](/library/advanced-features/app-menu#deploy-this-app)
+- [Customize or hide the app menu](/library/advanced-features/app-menu#customize-the-menu)
+
+</RefCard>
+
 <RefCard href="/library/advanced-features/cli" size="half">
 
 ##### Command-line options
