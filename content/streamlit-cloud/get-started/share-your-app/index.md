@@ -131,7 +131,7 @@ You can also add viewers directly from your dashboard.
 
 ## Sharing public apps
 
-From your deployed app you can click on the "⋮" menu on the top right and select 'Share this app' to post it directly into social media or to share with the community on our [Community forum](https://discuss.streamlit.io/c/streamlit-examples/9). We'd love to see what you make and perhaps feature your app as our app of the month ❤️.
+From your deployed app you can click on the "⋮" icon on the top right and select 'Share this app' to post it directly into social media or to share with the community on our [Community forum](https://discuss.streamlit.io/c/streamlit-examples/9). We'd love to see what you make and perhaps feature your app as our app of the month ❤️.
 
 ### Add a GitHub badge
 
