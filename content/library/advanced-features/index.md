@@ -11,7 +11,7 @@ This section gives you background on how different parts of Streamlit work.
 
 <RefCard href="/library/advanced-features/app-menu" size="half">
 
-##### ☰ App menu
+##### ⋮ App menu
 
 Streamlit provides a configurable menu within your app to access convenient tools for developers and viewers. These options can modify the appearance of your app while running.
 

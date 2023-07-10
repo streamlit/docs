@@ -364,7 +364,7 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / Advanced features
     url: /library/advanced-features
-  - category: Streamlit library / Advanced features / ☰ App menu
+  - category: Streamlit library / Advanced features / ⋮ App menu
     url: /library/advanced-features/app-menu
   - category: Streamlit library / Advanced features/ Command-line options
     url: /library/advanced-features/cli
