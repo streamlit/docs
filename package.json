@@ -36,7 +36,7 @@
     "markdown-it": "^12.3.2",
     "netlify-plugin-cache-nextjs": "^1.6.1",
     "next": "^12.1.0",
-    "next-mdx-remote": "^3.0.6",
+    "next-mdx-remote": "^4.4.1",
     "next-remote-watch": "^1.0.0",
     "next-sitemap": "^1.6.189",
     "node-html-parser": "^4.1.5",
