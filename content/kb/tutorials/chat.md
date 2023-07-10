@@ -17,15 +17,15 @@ In this tutorial, we'll start by walking through Streamlit's chat elements, `st.
 2. Next, you'll learn how to [Build a simple chatbot GUI with streaming](#build-a-simple-chatbot-gui-with-streaming).
 3. Finally, we'll [Build a ChatGPT-like app](#build-a-chatgpt-like-app) that leverages session state to remember conversational context, all within less than 50 lines of code.
 
-Here's a sneak peek of the simple chatbot GUI with streaming we'll build in this tutorial:
+Here's a sneak peek of the LLM-powered chatbot GUI with streaming we'll build in this tutorial:
 
-<Cloud src="https://doc-chat-simple.streamlit.app/?embed=true" height="700px" />
+<Cloud src="https://doc-chat-llm.streamlit.app/?embed=true" height="700px" />
 
 Play around with the above demo to get a feel for what we'll build in this tutorial. A few things to note:
 
 - There's a chat input at the bottom of the screen that's always visible. It contains some placeholder text. You can type in a message and press Enter or click the run button to send it.
 - When you enter a message, it appears as a chat message in the container above. The container is scrollable, so you can scroll up to see previous messages. A default avatar is displayed to your messages' left.
-- The assistant responds to your messages with a random message from a list of responses. The responses are streamed to the frontend and are displayed with a different default avatar.
+- The assistant's responses are streamed to the frontend and are displayed with a different default avatar.
 
 Before we start building, let's take a closer look at the chat elements we'll use.
 
@@ -424,9 +424,11 @@ if prompt := st.chat_input("What is up?"):
     st.session_state.messages.append({"role": "assistant", "content": full_response})
 ```
 
+<Image src="/images/knowledge-base/chatgpt-clone.gif" clean />
+
 </Collapse>
 
-<Image src="/images/knowledge-base/chatgpt-clone.gif" clean />
+<Cloud src="https://doc-chat-llm.streamlit.app/?embed=true" height="700px" />
 
 Congratulations! You've built your own ChatGPT-like app in less than 50 lines of code.
 
