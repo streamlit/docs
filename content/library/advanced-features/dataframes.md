@@ -40,7 +40,7 @@ st.dataframe(df, use_container_width=True)
 
 ![dataframe-ui.gif](/images/dataframe-ui.gif)
 
-Try out all the addition UI features using the embedded app from the prior section.
+Try out all the UI features using the embedded app from the prior section.
 
 In addition to Pandas DataFrames, `st.dataframe` also supports other common Python types, e.g., list, dict, or numpy array. It also supports [Snowpark](https://docs.snowflake.com/en/developer-guide/snowpark/index) and [PySpark](https://spark.apache.org/docs/latest/api/python/) DataFrames, which allow you to lazily evaluate and pull data from databases. This can be useful for working with large datasets.
 
@@ -183,10 +183,6 @@ The data editor includes a feature that allows for bulk editing of cells. Simila
 
 ![data-editor-bulk-editing.gif](/images/data-editor-bulk-editing.gif)
 
-### Automatic input validation
-
-The data editor includes automatic input validation to help prevent errors when editing cells. For example, if you have a column that contains numerical data, the input field will automatically restrict the user to only entering numerical data. This helps to prevent errors that could occur if the user were to accidentally enter a non-numerical value. Additional input validation can be configured through the [Column configuration API](/library/api-reference/data/st.column_config). Such as `max_chars` and a `validate` pattern for [text columns](/library/api-reference/data/st.column_config/st.column_config.textcolumn), or `min_value`, `max_value`, or `step` for [number columns](/library/api-reference/data/st.column_config/st.column_config.numbercolumn). You can also set `required` to `True` for all editable column types to disallow setting values to `None`.
-
 ### Edit common data structures
 
 Editing doesn't just work for Pandas DataFrames! You can also edit lists, tuples, sets, dictionaries, NumPy arrays, or Snowpark & PySpark DataFrames. Most data types will be returned in their original format. But some types (e.g. Snowpark and PySpark) are converted to Pandas DataFrames. To learn about all the supported types, read the [st.data_editor](/library/api-reference/data/st.data_editor) API.
@@ -228,298 +224,88 @@ st.data_editor({
 })
 ```
 
+### Automatic input validation
+
+The data editor includes automatic input validation to help prevent errors when editing cells. For example, if you have a column that contains numerical data, the input field will automatically restrict the user to only entering numerical data. This helps to prevent errors that could occur if the user were to accidentally enter a non-numerical value. Additional input validation can be configured through the [Column configuration API](/library/api-reference/data/st.column_config). Keep reading below for an overview of column configuration, including validation options.
+
 ## Configuring columns
 
-You are able configure the display and editing behavior of columns via `st.dataframe` and `st.data_editor` via the [Column configuration API](/library/api-reference/data/st.column_config). We have developed the API to let you add images, charts, and clickable URLs in dataframe and data editor columns. Additionally, you can make individual columns editable, set columns as categorical and specify which options they can take, hide the index of the dataframe, and much more.
+You can configure the display and editing behavior of columns via `st.dataframe` and `st.data_editor` via the [Column configuration API](/library/api-reference/data/st.column_config). We have developed the API to let you add images, charts, and clickable URLs in dataframe and data editor columns. Additionally, you can make individual columns editable, set columns as categorical and specify which options they can take, hide the index of the dataframe, and much more.
 
-### Column configuration
+<Cloud src="https://docs-column-config-overview.streamlit.app/?embed=true&embed_options=disable_scrolling" height="480"/>
 
-When working with data in Streamlit, the [`st.column_config`](/library/api-reference/data/st.column_config) class is a powerful tool for configuring data display and interaction. Specifically designed for the `column_config` parameter in [`st.dataframe`](/library/api-reference/data/st.dataframe) and [`st.data_editor`](/library/api-reference/data/st.data_editor), it provides a suite of methods to tailor your columns to various data types - from simple text and numbers to lists, URLs, images, and more.
+### Format values
 
-Whether it's translating temporal data into user-friendly formats or utilizing charts and progress bars for clearer data visualization, column configuration not only provides the user with an enriched data viewing experience but also ensures that you're equipped with the tools to present and interact with your data, just the way you want it.
+You can specify the format of your values in two ways: through column configuration and through [`pandas` `Styler`](https://pandas.pydata.org/docs/reference/style.html) object. When using `st.data_editor`, formatting for editable columns must be declared through column configuration and not `Styler`. You can still use `Styler` for disabled columns in a data editor.
 
-<TileContainer>
-<RefCard href="/library/api-reference/data/st.column_config/st.column_config.column">
-<Image pure alt="screenshot" src="/images/api/column_config.column.jpg" />
+A `format` parameter is available for Text, Date, Time, and DateTime columns.
 
-#### Column
+Chart-like columns can also be formatted. Line chart and Bar chart columns have a `y_min` and `y_max` parameters to set the vertical bounds. Progress column has `min_value` and `max_value` to set the horizontal bounds.
 
-Configure a generic column.
+### Validate input
 
-```python
-Column("Streamlit Widgets", width="medium", help="Streamlit **widget** commands 🎈")
-```
+When specifying a column configuration, you can declare not only the data type of the column, but also value restrictions. All column configuration elements allow you to make a column required with the keyword parameter `required=True`.
 
-</RefCard>
-<RefCard href="/library/api-reference/data/st.column_config/st.column_config.textcolumn">
-<Image pure alt="screenshot" src="/images/api/column_config.textcolumn.jpg" />
-
-#### Text column
-
-Configure a text column.
-
-```python
-TextColumn("Widgets", max_chars=50, validate="^st\.[a-z_]+$")
-```
-
-</RefCard>
-
-<RefCard href="/library/api-reference/data/st.column_config/st.column_config.numbercolumn">
-<Image pure alt="screenshot" src="/images/api/column_config.numbercolumn.jpg" />
+#### Text and Link columns
+* `max_chars` : The maximum number of characters that can be entered.
+* `validate` : A regular expression that edited values are validated against.
 
 #### Number column
-
-Configure a number column.
-
-```python
-NumberColumn("Price (in USD)", min_value=0, format="$%d")
-```
-
-</RefCard>
-
-<RefCard href="/library/api-reference/data/st.column_config/st.column_config.checkboxcolumn">
-<Image pure alt="screenshot" src="/images/api/column_config.checkboxcolumn.jpg" />
-
-#### Checkbox column
-
-Configure a checkbox column.
-
-```python
-CheckboxColumn("Your favorite?", help="Select your **favorite** widgets")
-```
-
-</RefCard>
-
-<RefCard href="/library/api-reference/data/st.column_config/st.column_config.selectboxcolumn">
-<Image pure alt="screenshot" src="/images/api/column_config.selectboxcolumn.jpg" />
+* `min_value` : The minimum value that can be entered.
+* `max_value` : The maximum value that can be entered.
+* Data type is `float` by default. Passing a value of type `int` to any of `min_value`, `max_value`, `step`, or `default` will set the type as `int`.
 
 #### Selectbox column
+* `options` : A list of allowable values which will populate a selectbox.
 
-Configure a selectbox column.
+#### Date, Time, and Datetime columns
+* `min_value` : The minimum date, time, or datetime that can be entered.
+* `max_value` : The maximum date, time, or datetime that can be entered.
 
-```python
-SelectboxColumn("App Category", options=["🤖 LLM", "📈 Data Viz"])
-```
+### Configure an empty dataframe
 
-</RefCard>
-
-<RefCard href="/library/api-reference/data/st.column_config/st.column_config.datetimecolumn">
-<Image pure alt="screenshot" src="/images/api/column_config.datetimecolumn.jpg" />
-
-#### Datetime column
-
-Configure a datetime column.
+You can use `st.data_editor` to collect tabular input from a user. When starting from an empty dataframe, default column types are text. Use column configuration to specify the data types you want to collect from users.
 
 ```python
-DatetimeColumn("Appointment", min_value=datetime(2023, 6, 1), format="D MMM YYYY, h:mm a")
+import streamlit as st
+import pandas as pd
+
+df = pd.DataFrame(columns=['name','age','color'])
+colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+config = {
+    'name' : st.column_config.TextColumn('Full Name (required)', width='large', required=True),
+    'age' : st.column_config.NumberColumn('Age (years)', min_value=0, max_value=122),
+    'color' : st.column_config.SelectboxColumn('Favorite Color', options=colors)
+}
+
+result = st.data_editor(df, column_config = config, num_rows='dynamic')
+
+if st.button('Get results'):
+    st.write(result)
 ```
 
-</RefCard>
-
-<RefCard href="/library/api-reference/data/st.column_config/st.column_config.datecolumn">
-<Image pure alt="screenshot" src="/images/api/column_config.datecolumn.jpg" />
-
-#### Date column
-
-Configure a date column.
-
-```python
-DateColumn("Birthday", max_value=date(2005, 1, 1), format="DD.MM.YYYY")
-```
-
-</RefCard>
-
-<RefCard href="/library/api-reference/data/st.column_config/st.column_config.timecolumn">
-<Image pure alt="screenshot" src="/images/api/column_config.timecolumn.jpg" />
-
-#### Time column
-
-Configure a time column.
-
-```python
-TimeColumn("Appointment", min_value=time(8, 0, 0), format="hh:mm a")
-```
-
-</RefCard>
-<RefCard href="/library/api-reference/data/st.column_config/st.column_config.listcolumn">
-<Image pure alt="screenshot" src="/images/api/column_config.listcolumn.jpg" />
-
-#### List column
-
-Configure a list column.
-
-```python
-ListColumn("Sales (last 6 months)", width="medium")
-```
-
-</RefCard>
-
-<RefCard href="/library/api-reference/data/st.column_config/st.column_config.linkcolumn">
-<Image pure alt="screenshot" src="/images/api/column_config.linkcolumn.jpg" />
-
-#### Link column
-
-Configure a link column.
-
-```python
-LinkColumn("Trending apps", max_chars=100, validate="^https://.*$")
-```
-
-</RefCard>
-
-<RefCard href="/library/api-reference/data/st.column_config/st.column_config.imagecolumn">
-<Image pure alt="screenshot" src="/images/api/column_config.imagecolumn.jpg" />
-
-#### Image column
-
-Configure an image column.
-
-```python
-ImageColumn("Preview Image", help="The preview screenshots")
-```
-
-</RefCard>
-
-<RefCard href="/library/api-reference/data/st.column_config/st.column_config.linechartcolumn">
-<Image pure alt="screenshot" src="/images/api/column_config.linechartcolumn.jpg" />
-
-#### Line chart column
-
-Configure a line chart column.
-
-```python
-LineChartColumn("Sales (last 6 months)" y_min=0, y_max=100)
-```
-
-</RefCard>
-
-<RefCard href="/library/api-reference/data/st.column_config/st.column_config.barchartcolumn">
-<Image pure alt="screenshot" src="/images/api/column_config.barchartcolumn.jpg" />
-
-#### Bar chart column
-
-Configure a bar chart column.
-
-```python
-BarChartColumn("Marketing spend" y_min=0, y_max=100)
-```
-
-</RefCard>
-
-<RefCard href="/library/api-reference/data/st.column_config/st.column_config.progresscolumn">
-<Image pure alt="screenshot" src="/images/api/column_config.progresscolumn.jpg" />
-
-#### Progress column
-
-Configure a progress column.
-
-```python
-ProgressColumn("Sales volume", min_value=0, max_value=1000, format="$%f")
-```
-
-</RefCard>
-
-</TileContainer>
+<Cloud src="https://docs-column-config-empty.streamlit.app/?embed=true" height="300"/>
 
 <Important>
 
-We will release in-depth documentation and a blog post on how to configure columns in the next two weeks. Keep at an eye out for updates on this page and the [Streamlit blog](https://blog.streamlit.io/).
-
-</Important >
-
-There are techniques you can use with Pandas today to render columns as checkboxes, selectboxes, and change the type of columns, that don't involve the column configuration API. We explore these techniques in the following sections.
-
-### Boolean columns (checkboxes)
-
-To render columns as checkboxes and clickable checkboxes in `st.dataframe` and `st.data_editor`, respectively, set the type of the Pandas column as `bool`.
-
-Here’s an example of creating a Pandas DataFrame with column `A` containing boolean values. When we display it using `st.dataframe`, the boolean values are rendered as checkboxes, where `True` and `False` values are checked and unchecked, respectively.
+If you use `pandas<2.0` and want to hide the index for an empty dataframe with dynamic rows, you will need to manually declare a `pandas.RangeIndex`. Without doing so, the first column of the of the data editor will become an input column for the index. New rows won't be created if this is hidden. You can manually declare an empty dataframe's index like this:
 
 ```python
-import pandas as pd
-
-# create a dataframe with a boolean column
-df = pd.DataFrame({"A": [True, False, True, False]})
-
-# show the dataframe with checkboxes
-st.dataframe(df)
-```
-
-![data-editor-dataframe-boolean.gif](/images//data-editor-dataframe-boolean.gif)
-
-Notice you cannot change their values from the frontend. To let users check and uncheck values, we display the dataframe with `st.data_editor` instead:
-
-```python
-import pandas as pd
-
-# create a dataframe with a boolean column
-df = pd.DataFrame({"A": [True, False, True, False]})
-
-# show the data editor with checkboxes
-st.data_editor(df)
-```
-
-![data-editor-boolean.gif](/images/data-editor-boolean.gif)
-
-### Categorical columns (selectboxes)
-
-To render columns as selectboxes with `st.data_editor`, set the type of the Pandas column as `category`:
-
-```python
-import pandas as pd
-
 df = pd.DataFrame(
-    {"command": ["st.selectbox", "st.slider", "st.balloons", "st.time_input"]}
+    index=pd.RangeIndex(0),
+    columns = ['A','B','C']
 )
-df["command"] = df["command"].astype("category")
-
-edited_df = st.data_editor(df)
 ```
 
-In some cases, you may want users to select categories that aren’t in the original Pandas DataFrame. Let’s say we use `df` from above. Currently, the `command` column can take on four unique values. What should we do if we want users to see additional options such as `st.button` and `st.radio`?
+</Important>
 
-To add additional categories to the selection, use [pandas.Series.cat.add_categories](https://pandas.pydata.org/docs/reference/api/pandas.Series.cat.add_categories.html):
+## Additional formatting options
 
-```python
-import pandas as pd
+In addition to column configuration, `st.dataframe` and `st.data_editor` have a few more parameters to customize the display of your dataframe.
 
-df = pd.DataFrame(
-    {"command": ["st.selectbox", "st.slider", "st.balloons", "st.time_input"]}
-)
-df["command"] = (
-    df["command"].astype("category").cat.add_categories(["st.button", "st.radio"])
-)
-
-edited_df = st.data_editor(df)
-```
-
-![data-editor-categorical.gif](/images/data-editor-categorical.gif)
-
-<!-- ### Change column type
-
-To change the type of a column, you can change the type of the underlying Pandas DataFrame column. E.g., say you have a column with only integers but want users to be able to add numbers with decimals. To do so, simply change the Pandas DataFrame column type to `float`, like so:
-
-```python
-import pandas as pd
-
-import streamlit as st
-
-# create a dataframe with an integer column
-df = pd.DataFrame({"A": [1, 2, 3, 4]})
-
-# unable to add float values to the column
-edited_df = st.data_editor(df)
-
-# cast the column to float
-df["A"] = df["A"].astype("float")
-
-# able to add float values to the column
-edited_df = st.data_editor(df)
-```
-
-In the first data editor instance, you cannot add decimal values to any entries. But after casting column `A` to type `float`, we’re able to edit the values as floating point numbers:
-
-![data-editor-change-type.gif](/images/data-editor-change-type.gif) -->
+* `hide_index` : Set to `True` to hide the dataframe's index.
+* `column_order` : Pass a list of column labels to specify the order of display.
+* `disabled` ; Pass a list of column labels to disable them from editing. This let's you avoid disabling them individually.
 
 ## Handling large datasets
 
