@@ -232,19 +232,19 @@ The data editor includes automatic input validation to help prevent errors when 
 
 You can configure the display and editing behavior of columns via `st.dataframe` and `st.data_editor` via the [Column configuration API](/library/api-reference/data/st.column_config). We have developed the API to let you add images, charts, and clickable URLs in dataframe and data editor columns. Additionally, you can make individual columns editable, set columns as categorical and specify which options they can take, hide the index of the dataframe, and much more.
 
+Column configuration includes Text, Number, Checkbox, Selectbox, Date, Time, Datetime, List, Link, Image, Line chart, Bar chart, and Progress bar columns. There is also a generic Column option. See the embedded app below to view these different column types. Each column type is individually previewed in the [Column configuration API](/library/api-reference/data/st.column_config) documentation.
+
 <Cloud src="https://doc-column-config-overview.streamlit.app/?embed=true&embed_options=disable_scrolling" height="480"/>
 
 ### Format values
 
-You can specify the format of your values in two ways: through column configuration and through [`pandas` `Styler`](https://pandas.pydata.org/docs/reference/style.html) object. When using `st.data_editor`, formatting for editable columns must be declared through column configuration and not `Styler`. You can still use `Styler` for disabled columns in a data editor.
+You can specify the format of your values in two ways: through column configuration or through [`pandas.DataFrame.style`](https://pandas.pydata.org/docs/reference/style.html). When using `st.data_editor`, formatting for editable columns must be declared through column configuration and not a pandas `Styler` object. Only disabled columns in a data editor can accept formatting from a pandas `Styler` object.
 
-A `format` parameter is available for Text, Date, Time, and DateTime columns.
-
-Chart-like columns can also be formatted. Line chart and Bar chart columns have a `y_min` and `y_max` parameters to set the vertical bounds. Progress column has `min_value` and `max_value` to set the horizontal bounds.
+A `format` parameter is available in column configuration for Text, Date, Time, and Datetime columns. Chart-like columns can also be formatted. Line chart and Bar chart columns have a `y_min` and `y_max` parameters to set the vertical bounds. You can declare the horizontal bounds with `min_value` and `max_value` for a Progress column.
 
 ### Validate input
 
-When specifying a column configuration, you can declare not only the data type of the column, but also value restrictions. All column configuration elements allow you to make a column required with the keyword parameter `required=True`.
+When specifying a column configuration, you can declare not only the data type of the column but also value restrictions. All column configuration elements allow you to make a column required with the keyword parameter `required=True`.
 
 #### Text and Link columns
 * `max_chars` : The maximum number of characters that can be entered.
@@ -305,7 +305,7 @@ In addition to column configuration, `st.dataframe` and `st.data_editor` have a 
 
 * `hide_index` : Set to `True` to hide the dataframe's index.
 * `column_order` : Pass a list of column labels to specify the order of display.
-* `disabled` ; Pass a list of column labels to disable them from editing. This let's you avoid disabling them individually.
+* `disabled` : Pass a list of column labels to disable them from editing. This let's you avoid disabling them individually.
 
 ## Handling large datasets
 
