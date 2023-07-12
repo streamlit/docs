@@ -232,7 +232,7 @@ The data editor includes automatic input validation to help prevent errors when 
 
 You can configure the display and editing behavior of columns via `st.dataframe` and `st.data_editor` via the [Column configuration API](/library/api-reference/data/st.column_config). We have developed the API to let you add images, charts, and clickable URLs in dataframe and data editor columns. Additionally, you can make individual columns editable, set columns as categorical and specify which options they can take, hide the index of the dataframe, and much more.
 
-<Cloud src="https://docs-column-config-overview.streamlit.app/?embed=true&embed_options=disable_scrolling" height="480"/>
+<Cloud src="https://doc-column-config-overview.streamlit.app/?embed=true&embed_options=disable_scrolling" height="480"/>
 
 ### Format values
 
@@ -284,7 +284,7 @@ if st.button('Get results'):
     st.write(result)
 ```
 
-<Cloud src="https://docs-column-config-empty.streamlit.app/?embed=true" height="300"/>
+<Cloud src="https://doc-column-config-empty.streamlit.app/?embed=true" height="300"/>
 
 <Important>
 
