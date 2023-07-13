@@ -48,9 +48,6 @@ with st.spinner("Please wait..."):
 Display celebratory balloons!
 
 ```python
-do_something()
-
-# Celebrate when all done!
 st.balloons()
 ```
 
@@ -64,9 +61,6 @@ st.balloons()
 Display celebratory snowflakes!
 
 ```python
-do_something()
-
-# Celebrate when all done!
 st.snow()
 ```
 
