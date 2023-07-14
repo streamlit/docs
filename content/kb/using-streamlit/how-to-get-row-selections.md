@@ -30,7 +30,7 @@ def dataframe_with_selections(df):
     df_with_selections.insert(0, "Select", False)
 
     # Get dataframe row-selections from user with st.data_editor
-    edited_df:pd.DataFrame = st.data_editor(
+    edited_df = st.data_editor(
         df_with_selections,
         hide_index=True,
         column_config={"Select": st.column_config.CheckboxColumn(required=True)},

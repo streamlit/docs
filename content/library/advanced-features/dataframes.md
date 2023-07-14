@@ -232,35 +232,21 @@ The data editor includes automatic input validation to help prevent errors when 
 
 You can configure the display and editing behavior of columns via `st.dataframe` and `st.data_editor` via the [Column configuration API](/library/api-reference/data/st.column_config). We have developed the API to let you add images, charts, and clickable URLs in dataframe and data editor columns. Additionally, you can make individual columns editable, set columns as categorical and specify which options they can take, hide the index of the dataframe, and much more.
 
-Column configuration includes Text, Number, Checkbox, Selectbox, Date, Time, Datetime, List, Link, Image, Line chart, Bar chart, and Progress bar columns. There is also a generic Column option. See the embedded app below to view these different column types. Each column type is individually previewed in the [Column configuration API](/library/api-reference/data/st.column_config) documentation.
+Column configuration includes the following column types: Text, Number, Checkbox, Selectbox, Date, Time, Datetime, List, Link, Image, Line chart, Bar chart, and Progress. There is also a generic Column option. See the embedded app below to view these different column types. Each column type is individually previewed in the [Column configuration API](/library/api-reference/data/st.column_config) documentation.
 
 <Cloud src="https://doc-column-config-overview.streamlit.app/?embed=true&embed_options=disable_scrolling" height="480"/>
 
 ### Format values
 
-You can specify the format of your values in two ways: through column configuration or through [`pandas.DataFrame.style`](https://pandas.pydata.org/docs/reference/style.html). When using `st.data_editor`, formatting for editable columns must be declared through column configuration and not a pandas `Styler` object. Only disabled columns in a data editor can accept formatting from a pandas `Styler` object.
-
-A `format` parameter is available in column configuration for Text, Date, Time, and Datetime columns. Chart-like columns can also be formatted. Line chart and Bar chart columns have a `y_min` and `y_max` parameters to set the vertical bounds. You can declare the horizontal bounds with `min_value` and `max_value` for a Progress column.
+A `format` parameter is available in column configuration for [Text](/library/api-reference/data/st.column_config/st.column_config.textcolumn), [Date](/library/api-reference/data/st.column_config/st.column_config.datecolumn), [Time](/library/api-reference/data/st.column_config/st.column_config.timecolumn), and [Datetime](/library/api-reference/data/st.column_config/st.column_config.datetimecolumn) columns. Chart-like columns can also be formatted. [Line chart](/library/api-reference/data/st.column_config/st.column_config.linechartcolumn) and [Bar chart](/library/api-reference/data/st.column_config/st.column_config.barchartcolumn) columns have a `y_min` and `y_max` parameters to set the vertical bounds. For a [Progress column](/library/api-reference/data/st.column_config/st.column_config.progresscolumn), you can declare the horizontal bounds with `min_value` and `max_value`.
 
 ### Validate input
 
 When specifying a column configuration, you can declare not only the data type of the column but also value restrictions. All column configuration elements allow you to make a column required with the keyword parameter `required=True`.
 
-#### Text and Link columns
-* `max_chars` : The maximum number of characters that can be entered.
-* `validate` : A regular expression that edited values are validated against.
+For Text and Link columns, you can specify the maximum number of characters with `max_chars` or use regular expressions to validate entries through `validate`. Numerical columns, including Number, Date, Time, and Datetime have `min_value` and `max_value` parameters. Selectbox columns have a configurable list of `options`.
 
-#### Number column
-* `min_value` : The minimum value that can be entered.
-* `max_value` : The maximum value that can be entered.
-* Data type is `float` by default. Passing a value of type `int` to any of `min_value`, `max_value`, `step`, or `default` will set the type as `int`.
-
-#### Selectbox column
-* `options` : A list of allowable values which will populate a selectbox.
-
-#### Date, Time, and Datetime columns
-* `min_value` : The minimum date, time, or datetime that can be entered.
-* `max_value` : The maximum date, time, or datetime that can be entered.
+The data type for Number columns is `float` by default. Passing a value of type `int` to any of `min_value`, `max_value`, `step`, or `default` will set the type for the column as `int`.
 
 ### Configure an empty dataframe
 
@@ -285,19 +271,6 @@ if st.button('Get results'):
 ```
 
 <Cloud src="https://doc-column-config-empty.streamlit.app/?embed=true" height="300"/>
-
-<Important>
-
-If you use `pandas<2.0` and want to hide the index for an empty dataframe with dynamic rows, you will need to manually declare a `pandas.RangeIndex`. Without doing so, the first column of the of the data editor will become an input column for the index. New rows won't be created if this is hidden. You can manually declare an empty dataframe's index like this:
-
-```python
-df = pd.DataFrame(
-    index=pd.RangeIndex(0),
-    columns = ['A','B','C']
-)
-```
-
-</Important>
 
 ## Additional formatting options
 
