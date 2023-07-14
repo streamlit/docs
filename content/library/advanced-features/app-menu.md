@@ -123,7 +123,7 @@ Reset your app's cache by clicking "**Clear cache**" from the app's menu or by p
 
 ### Deploy this app
 
-If you are running an app locally from within a git repo, you can deploy your app to Streamlit Community Cloud in a few easy clicks! Make sure your work has been pushed to your online GitHub repository before beginning. For the greatest convenience, make sure you have already created your [Community Cloud account](http://localhost:3000/streamlit-community-cloud/get-started#sign-up-for-streamlit-community-cloud) and are signed in. Click "**Deploy this app**" to be taken directly to Community Cloud's "Deploy an app" page. Your app's repository, branch, and file name will be prefilled to match your current app! Learn more about [deploying an app](http://localhost:3000/streamlit-community-cloud/get-started/deploy-an-app) on Streamlit Community Cloud.
+If you are running an app locally from within a git repo, you can deploy your app to Streamlit Community Cloud in a few easy clicks! Make sure your work has been pushed to your online GitHub repository before beginning. For the greatest convenience, make sure you have already created your [Community Cloud account](/streamlit-community-cloud/get-started#sign-up-for-streamlit-community-cloud) and are signed in. Click "**Deploy this app**" to be taken directly to Community Cloud's "Deploy an app" page. Your app's repository, branch, and file name will be prefilled to match your current app! Learn more about [deploying an app](/streamlit-community-cloud/get-started/deploy-an-app) on Streamlit Community Cloud.
 
 <div style={{ maxWidth: '30%', margin: 'auto' }}>
     <Image src="/images/app-menu/app-menu-deploy-XL.png" alt="Rerun" clean />
