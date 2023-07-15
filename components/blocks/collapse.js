@@ -7,8 +7,8 @@ const Collapse = ({ title, children, expanded = false }) => {
 
   return (
     <section className={styles.Container}>
-      <div className={styles.PanelHeading}>
-        <summary className={styles.PanelTitle} onClick={() => setShow(!show)}>
+      <div className={styles.PanelHeading} onClick={() => setShow(!show)}>
+        <summary className={styles.PanelTitle}>
           <span className={styles.Title}>{title}</span>
 
           <i

@@ -236,14 +236,6 @@ site_menu:
   - category: Streamlit library / API reference / Layouts and containers / st.empty
     url: /library/api-reference/layout/st.empty
     isVersioned: true
-  - category: Streamlit library / API reference / Chat elements
-    url: /library/api-reference/chat
-  - category: Streamlit library / API reference / Chat elements / st.chat_message
-    url: /library/api-reference/chat/st.chat_message
-    isVersioned: true
-  - category: Streamlit library / API reference / Chat elements / st.chat_input
-    url: /library/api-reference/chat/st.chat_input
-    isVersioned: true
   - category: Streamlit library / API reference / Status elements
     url: /library/api-reference/status
   - category: Streamlit library / API reference / Status elements / st.progress
@@ -367,8 +359,6 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / Advanced features
     url: /library/advanced-features
-  - category: Streamlit library / Advanced features / ☰ App menu
-    url: /library/advanced-features/app-menu
   - category: Streamlit library / Advanced features/ Command-line options
     url: /library/advanced-features/cli
   - category: Streamlit library / Advanced features/ Configuration
@@ -387,8 +377,6 @@ site_menu:
     visible: false
   - category: Streamlit library / Advanced features/ Add statefulness to apps
     url: /library/advanced-features/session-state
-  - category: Streamlit library / Advanced features/ Button behavior and examples
-    url: /library/advanced-features/button-behavior-and-examples
   - category: Streamlit library / Advanced features/ Dataframes
     url: /library/advanced-features/dataframes
   - category: Streamlit library / Advanced features/ Widget semantics
@@ -443,18 +431,34 @@ site_menu:
     url: /streamlit-community-cloud/get-started/share-your-app/indexability
   - category: Streamlit Community Cloud / Get started / Share your app / Share previews
     url: /streamlit-community-cloud/get-started/share-your-app/share-previews
+  # - category: Streamlit Community Cloud / Get started / Share your app / Configuring Single Sign-on (SSO)
+  #   url: /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso
+  #   visible: false
+  # - category: Streamlit Community Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Microsoft Active Directory (ADFS)
+  #   url: /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-active-directory-adfs
+  #   visible: false
+  # - category: Streamlit Community Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Microsoft Azure AD
+  #   url: /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-azure-active-directory
+  #   visible: false
+  # - category: Streamlit Community Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Okta
+  #   url: /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-okta-sso
+  #   visible: false
+  # - category: Streamlit Community Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Auth0
+  #   url: /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-auth0-sso
+  #   visible: false
+  # - category: Streamlit Community Cloud / Get started / Share your app / Configuring Single Sign-on (SSO) / Generic SAML
+  #   url: /streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso/streamlit-general-saml-authentication
+  #   visible: false
   - category: Streamlit Community Cloud / Get started / Manage your app
     url: /streamlit-community-cloud/get-started/manage-your-app
-  - category: Streamlit Community Cloud / Manage your account
-    url: /streamlit-community-cloud/manage-your-account
-  - category: Streamlit Community Cloud / Manage your account / Update your email
-    url: /streamlit-community-cloud/manage-your-account/update-your-email
-  - category: Streamlit Community Cloud / Manage your account / Delete your account
-    url: /streamlit-community-cloud/manage-your-account/delete-your-account
+  - category: Streamlit Community Cloud / Get started / Delete your account
+    url: /streamlit-community-cloud/get-started/delete-your-account
   # - category: Streamlit Community Cloud / Additional features
   #   url: /streamlit-community-cloud/additional-features
   - category: Streamlit Community Cloud / Trust and Security
     url: /streamlit-community-cloud/trust-and-security
+  - category: Streamlit Community Cloud / Release notes
+    url: https://streamlit-cloud-release-notes-app-main-jfmm83.streamlit.app/
   - category: Streamlit Community Cloud / Troubleshooting
     url: /streamlit-community-cloud/troubleshooting
 
@@ -506,8 +510,6 @@ site_menu:
     url: /knowledge-base/tutorials/deploy/kubernetes
   - category: Knowledge base / Tutorials / Session State basics
     url: /knowledge-base/tutorials/session-state
-  - category: Knowledge base / Tutorials / Build conversational apps
-    url: /knowledge-base/tutorials/build-conversational-apps
   - category: Knowledge base / Using Streamlit
     url: /knowledge-base/using-streamlit
   - category: Knowledge base / Using Streamlit / How to animate elements?
@@ -537,6 +539,9 @@ site_menu:
   - category: Knowledge base / Using Streamlit / How to download a Pandas DataFrame as a CSV?
     url: /knowledge-base/using-streamlit/how-download-pandas-dataframe-csv
     visible: false
+  - category: Knowledge base / Using Streamlit / How do I hide the hamburger menu from my app?
+    url: /knowledge-base/using-streamlit/how-hide-hamburger-menu-app
+    visible: false
   - category: Knowledge base / Using Streamlit / How do I upgrade to the latest version of Streamlit?
     url: /knowledge-base/using-streamlit/how-upgrade-latest-version-streamlit
     visible: false
@@ -548,6 +553,9 @@ site_menu:
     visible: false
   - category: Knowledge base / Using Streamlit / How can I make st.pydeck_chart use custom Mapbox styles?
     url: /knowledge-base/using-streamlit/pydeck-chart-custom-mapbox-styles
+    visible: false
+  - category: Knowledge base / Using Streamlit / How to record a screencast?
+    url: /knowledge-base/using-streamlit/record-screencast
     visible: false
   - category: Knowledge base / Using Streamlit / How to remove "· Streamlit" from the app title?
     url: /knowledge-base/using-streamlit/remove-streamlit-app-title

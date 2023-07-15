@@ -18,8 +18,6 @@ from numpydoc.docscrape import NumpyDocString
 import stoutput
 import utils
 
-VERSION = streamlit.__version__
-
 # Set up logging to print debug messages to stdout
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
@@ -49,7 +47,7 @@ def strip_code_prompts(rst_string):
 def get_github_source(func):
     """Returns a link to the source code on GitHub for a given command."""
     repo_prefix = (
-        f"https://github.com/streamlit/streamlit/blob/{VERSION}/lib/"
+        f"https://github.com/streamlit/streamlit/blob/{streamlit.__version__}/lib/"
     )
 
     if hasattr(func, "__dict__"):
@@ -499,7 +497,5 @@ def get_streamlit_docstring_dict():
 
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        VERSION = sys.argv[1]
     data = get_streamlit_docstring_dict()
-    utils.write_to_existing_dict(VERSION, data)
+    utils.write_to_existing_dict(streamlit.__version__, data)

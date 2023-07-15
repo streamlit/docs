@@ -88,7 +88,7 @@ Docker builds images by reading the instructions from a `Dockerfile`. A `Docke
 Here's an example `Dockerfile` that you can add to the root of your directory.
 
 ```docker
-FROM python:3.8-slim
+FROM python:3.7-slim
 
 RUN groupadd --gid 1000 appuser \
     && useradd --uid 1000 --gid 1000 -ms /bin/bash appuser

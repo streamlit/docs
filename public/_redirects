@@ -865,8 +865,5 @@
 /streamlit-cloud/get-started/manage-your-app /streamlit-community-cloud/get-started/manage-your-app
 /streamlit-cloud/trust-and-security /streamlit-community-cloud/trust-and-security
 /streamlit-cloud/troubleshooting /streamlit-community-cloud/troubleshooting
-/streamlit-community-cloud/get-started/delete-your-account /streamlit-community-cloud/manage-your-account/delete-your-account
 /knowledge-base/using-streamlit/how-host-static-files /library/advanced-features/static-file-serving
 /library/api-reference/widgets/st.experimental_data_editor /library/api-reference/data/st.data_editor
-/knowledge-base/using-streamlit/how-hide-hamburger-menu-app /library/advanced-features/app-menu#customize-the-menu
-/knowledge-base/using-streamlit/record-screencast /library/advanced-features/app-menu#record-a-screencast
