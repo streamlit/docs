@@ -35,7 +35,7 @@
 }
 
 .ModalImage {
-  @apply h-full object-contain;
+  @apply h-screen object-contain py-4;
 }
 
 .CloseButton {
