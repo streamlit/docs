@@ -366,16 +366,20 @@ site_menu:
     url: /library/advanced-features
   - category: Streamlit library / Advanced features / ☰ App menu
     url: /library/advanced-features/app-menu
+  - category: Streamlit library / Advanced features/ Button behavior and examples
+    url: /library/advanced-features/button-behavior-and-examples
+  - category: Streamlit library / Advanced features/ Caching
+    url: /library/advanced-features/caching
   - category: Streamlit library / Advanced features/ Command-line options
     url: /library/advanced-features/cli
   - category: Streamlit library / Advanced features/ Configuration
     url: /library/advanced-features/configuration
   - category: Streamlit library / Advanced features / Theming
     url: /library/advanced-features/theming
-  - category: Streamlit library / Advanced features/ Caching
-    url: /library/advanced-features/caching
   - category: Streamlit library / Advanced features/ Connecting to data
     url: /library/advanced-features/connecting-to-data
+  - category: Streamlit library / Advanced features/ Dataframes
+    url: /library/advanced-features/dataframes
   - category: Streamlit library / Advanced features/ Optimize performance with st.cache
     url: /library/advanced-features/st.cache
     visible: false
@@ -384,10 +388,6 @@ site_menu:
     visible: false
   - category: Streamlit library / Advanced features/ Add statefulness to apps
     url: /library/advanced-features/session-state
-  - category: Streamlit library / Advanced features/ Button behavior and examples
-    url: /library/advanced-features/button-behavior-and-examples
-  - category: Streamlit library / Advanced features/ Dataframes
-    url: /library/advanced-features/dataframes
   - category: Streamlit library / Advanced features/ Widget semantics
     url: /library/advanced-features/widget-semantics
   - category: Streamlit library / Advanced features/ Pre-release features
@@ -522,9 +522,6 @@ site_menu:
   - category: Knowledge base / Using Streamlit / Enabling camera access in your browser
     url: /knowledge-base/using-streamlit/enable-camera
     visible: false
-  - category: Knowledge base / Using Streamlit / Hide row indices when displaying a dataframe
-    url: /knowledge-base/using-streamlit/hide-row-indices-displaying-dataframe
-    visible: false
   - category: Knowledge base / Using Streamlit / How do I run my Streamlit script?
     url: /knowledge-base/using-streamlit/how-do-i-run-my-streamlit-script
     visible: false
@@ -533,6 +530,9 @@ site_menu:
     visible: false
   - category: Knowledge base / Using Streamlit / How to download a Pandas DataFrame as a CSV?
     url: /knowledge-base/using-streamlit/how-download-pandas-dataframe-csv
+    visible: false
+  - category: Knowledge base / Using Streamlit / How do I get dataframe row-selections from a user?
+    url: /knowledge-base/using-streamlit/how-to-get-row-selections
     visible: false
   - category: Knowledge base / Using Streamlit / How do I upgrade to the latest version of Streamlit?
     url: /knowledge-base/using-streamlit/how-upgrade-latest-version-streamlit
