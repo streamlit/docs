@@ -38,6 +38,9 @@ def cook_breakfast():
     msg.toast('Cooking...')
     time.sleep(1)
     msg.toast('Ready!', icon = "🥞")
+
+if st.button('Cook breakfast'):
+    cook_breakfast()
 ```
 
 <Cloud src="https://doc-status-toast2.streamlit.app/?embed=true" height="200" />
