@@ -8,20 +8,108 @@ We use Next.js and Netlify to build our [documentation site](https://docs.stream
 
 To build the docs, clone this repo, install the NPM dependencies, and start the development server.
 
-1. Clone this repo:
+### 1. Set up your base environment
+
+#### MacOS
+
+```bash
+# Some Apple dev tools (developer.apple.com/downloads)
+$ xcode-select --install
+
+# Install Homebrew
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install the Protobuf compiler, graphviz, database, and virtual environment
+$ brew install protobuf graphviz gawk mysql mysql-client pkg-config unixodbc postgresql pre-commit
+```
+
+**Installing Node JS and yarn**
+
+We recommend that you [manage your nodejs installation with nvm](https://github.com/nvm-sh/nvm#install--update-script).
+After following the instructions linked above to install `nvm`, use the following command to install the latest supported node version
+
+```bash
+# Install node
+nvm install node
+```
+
+**Note:** Node has added Corepack which is a manager of package managers 😱. It supports yarn! You can enable it by running the following:
+
+```bash
+corepack enable
+```
+
+You may need to `brew install corepack` depending on how you installed node.
+
+**ARM based Macs**
+
+If you are running a MacOS computer running on the new chipsets (e.g. M1), you may hit some trouble installing pyodbc This can be solved by installing `unixodbc` and setting some flags. See [this comment](https://github.com/mkleehammer/pyodbc/issues/846#issuecomment-816166371) for help. We found that it just needs to be set once. Be sure to make sure you have the correct version of unixodbc in the commands.
+
+#### Ubuntu
+
+```bash
+
+# Set up the Yarn repo
+$ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+$ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+$ sudo apt-get update
+
+# Install Pyenv for testing multiple Python versions
+$ sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev \
+libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
+xz-utils tk-dev libffi-dev liblzma-dev python-openssl mysql-client libmysqlclient-dev unixodbc-dev
+$ curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+
+# Install some other deps
+$ sudo apt install graphviz python3-distutils pre-commit
+
+# Install Yarn, pip, Protobuf, npm
+$ sudo apt install yarn npm python-pip protobuf-compiler libgconf-2-4
+# (libgconf is for our e2e tests in Cypress)
+
+```
+
+Probably not needed, but in case you want to update your Node installation:
+
+```bash
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+```
+
+#### Windows
+
+Streamlit's development setup is pretty Mac- and Linux-centric. If you're doing Streamlit development on Windows, we suggest spinning up a Linux VM (you can do this easily with [VirtualBox](https://www.virtualbox.org/), which is free); or working in a Linux Docker image.
+
+Alternately, you can try using Microsoft's WSL ("Windows Subsystem for Linux"), which may work fine, or may result in you slowly dying from thousands of tiny papercuts (these steps were last tested on 2019-11-18):
+
+- [Install WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10), using the Ubuntu image from the Microsoft Store
+- [Make sure your WSL supports chmod/chown](https://devblogs.microsoft.com/commandline/chmod-chown-wsl-improvements/).
+- [Make sure you have pre-commit installed and it is available on your path](https://pre-commit.com/#install).
+- If you have Windows versions of Streamlit build dependencies installed (e.g. Python, nodejs), you may want to consider removing the Windows path from your Linux $PATH, to prevent conflicts.
+  - [See the WSL Release Notes](https://docs.microsoft.com/en-us/windows/wsl/release-notes#build-17713) for instructions on editing your wsl.conf file. You'll want to set `appendWindowsPath=false`.
+- Follow the [Ubuntu setup instructions above](#Ubuntu), with the following modifications:
+
+```bash
+# Install a Python version using pyenv with the `CONFIGURE_OPTS=--enable-shared` flag set:
+$ CONFIGURE_OPTS=--enable-shared pyenv install 3.7.5 && pyenv global 3.7.5
+
+$ python -m venv venv
+```
+
+### 2. Clone this repo:
 
 ```bash
 git clone https://github.com/streamlit/docs.git
 cd docs/
 ```
 
-2. Install the NPM dependencies
+### 3. Install the NPM dependencies
 
 ```bash
 make
 ```
 
-3. Start the development server:
+### 4. Start the development server:
 
 ```bash
 make up
