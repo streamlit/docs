@@ -112,3 +112,4 @@ node_modules/
 .DS_Store
 out/
 public/pdf/pages/
+.idea/
