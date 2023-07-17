@@ -394,13 +394,9 @@ conn = st.experimental_connection('snowpark')
 >>> time.sleep(3)
 >>> bar.progress(100)
 
-# Show and update toast message
->>> msg = st.toast('Warming up...')
->>> time.sleep(3)
->>> msg.toast('Ready!')
-
 st.balloons()
 st.snow()
+st.toast('Warming up...')
 st.error('Error message')
 st.warning('Warning message')
 st.info('Info message')
