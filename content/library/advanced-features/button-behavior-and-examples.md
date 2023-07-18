@@ -118,12 +118,14 @@ st.slider('Select a value', disabled=st.session_state.button)
 
 ### Buttons to continue or control stages of a process
 
-Another alternative to nesting content inside a button is to use a value in `st.session_state` that designates the "step" or "stage" of a process. In this example, we have four stages in our script: 0. Before the user begins.
+Another alternative to nesting content inside a button is to use a value in `st.session_state` that designates the "step" or "stage" of a process. In this example, we have four stages in our script:
 
+0. Before the user begins.
 1. User enters their name.
 2. User chooses a color.
 3. User gets a thank-you message.
-   A button at the beginning advances the stage from 0 to 1. A button at the end resets the stage from 3 to 0. The other widgets used in stage 1 and 2 have callbacks to set the stage. If you have a process with dependant steps and want to keep previous stages visible, such a callback forces a user to retrace subsequent stages if they change an earlier widget.
+
+A button at the beginning advances the stage from 0 to 1. A button at the end resets the stage from 3 to 0. The other widgets used in stage 1 and 2 have callbacks to set the stage. If you have a process with dependant steps and want to keep previous stages visible, such a callback forces a user to retrace subsequent stages if they change an earlier widget.
 
 ```python
 import streamlit as st
