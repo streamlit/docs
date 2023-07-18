@@ -1,10 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import classNames from "classnames";
 
 import styles from "./image.module.css";
 
 const Image = ({ caption, pure, src, alt, clean }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const isMounted = useRef(false);
+
+  useEffect(() => {
+    isMounted.current = true; // Set to true on mount
+
+    const handleEsc = (event) => {
+      if (isMounted.current && event.keyCode === 27) closeModal();
+      // Check if the component is still mounted before calling closeModal
+    };
+
+    if (isOpen) {
+      window.addEventListener("keydown", handleEsc);
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+      isMounted.current = false; // Set to false on unmount
+    };
+  }, [isOpen]);
 
   const openModal = () => {
     setIsOpen(true);
