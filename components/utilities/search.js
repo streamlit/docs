@@ -132,13 +132,16 @@ const Search = () => {
         setHotkey("Ctrl-K");
       }
     }
+
+    document.addEventListener("keydown", handleKey);
+
     if (isModalOpen) {
-      document.addEventListener("keydown", handleKey);
-      return () => {
-        // clean up the listener when the modal is closed
-        document.removeEventListener("keydown", handleKey);
-      };
+      highlightResult();
     }
+
+    return () => {
+      document.removeEventListener("keydown", handleKey);
+    };
   }, [isModalOpen]); // add isModalOpen as a dependency, so the effect runs whenever isModalOpen changes
 
   const searchClient = algoliasearch(
