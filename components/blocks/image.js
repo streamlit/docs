@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 
 import styles from "./image.module.css";
@@ -13,6 +13,20 @@ const Image = ({ caption, pure, src, alt, clean }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.keyCode === 27) closeModal();
+    };
+
+    if (isOpen) {
+      window.addEventListener("keydown", handleEsc);
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [isOpen]);
 
   let block;
   let customCaption;
