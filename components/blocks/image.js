@@ -37,7 +37,7 @@ const Image = ({ caption, pure, src, alt, clean }) => {
           {customCaption}
         </section>
         <section className={styles.LightBox} onClick={closeModal}>
-          <button className={styles.CloseButton} onClick={openModal}>
+          <button className={styles.CloseButton} onClick={closeModal}>
             close
           </button>
           <section className={styles.ImageContainer}>
