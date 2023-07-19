@@ -15,8 +15,7 @@
 }
 
 .Form {
-  @apply relative my-4 md:my-0 ml-0 md:ml-auto;
-  max-width: fit-content;
+  @apply relative my-4 md:my-0 ml-0 md:ml-auto max-w-fit;
 }
 
 .Form::after {
