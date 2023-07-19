@@ -174,9 +174,16 @@ const Autofunction = ({
     }
   } else {
     return (
-      <div className={styles.Container} ref={blockRef} key={slug}>
-        <div className="code-header">
-          <H2>{streamlitFunction.replace("streamlit", "st")}</H2>
+      <div className={styles.HeaderContainer}>
+        <div className={styles.TitleContainer} ref={blockRef} key={slug}>
+          <H2 className={styles.Title}>
+            {streamlitFunction.replace("streamlit", "st")}
+          </H2>
+          <VersionSelector
+            versionList={versionList}
+            currentVersion={currentVersion}
+            handleSelectVersion={handleSelectVersion}
+          />
         </div>
         <Warning>
           <p>
@@ -184,11 +191,6 @@ const Autofunction = ({
             of Streamlit.
           </p>
         </Warning>
-        <VersionSelector
-          versionList={versionList}
-          currentVersion={currentVersion}
-          handleSelectVersion={handleSelectVersion}
-        />
       </div>
     );
   }
