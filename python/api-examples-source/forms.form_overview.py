@@ -37,7 +37,12 @@ with st.form("my_form"):
 alphaA = int(opacityA*255/100)
 alphaB = int(opacityB*255/100)
 
-df['color'] = np.where(df.team=='A',colorA+f'{alphaA:02x}',colorB+f'{alphaB:02x}')
-df['size'] = np.where(df.team=='A',sizeA, sizeB)
+@st.cache_data
+def color_map(df, colorA, alphaA, sizeA, colorB, alphaB, sizeB):
+    df['color'] = np.where(df.team=='A',colorA+f'{alphaA:02x}',colorB+f'{alphaB:02x}')
+    df['size'] = np.where(df.team=='A',sizeA, sizeB)
+    return df
+
+df = color_map(df, colorA, alphaA, sizeA, colorB, alphaB, sizeB)
 
 st.map(df, size='size', color='color')
