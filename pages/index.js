@@ -139,15 +139,24 @@ export default function Home({ window, menu, gdpr_data }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/knowledge-base/tutorials/build-conversational-apps"
+                href="/library/api-reference/status/st.toast"
               >
-                <i className="material-icons-sharp">chat</i>
-                <h4>Chat elements</h4>
+                <i className="material-icons-sharp">breakfast_dining</i>
+                <h4>Toast notifications</h4>
                 <p>
-                  Introducing <code>st.chat_message</code> and{" "}
-                  <code>st.chat_input</code> — two new chat elements that let
-                  you build conversational apps. Learn how to use these features
-                  in your LLM-powered chat apps in our tutorial.
+                  Introducing <code>st.toast</code> — a command to briefly show
+                  toast messages to users in the bottom-right corner of apps.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/charts/st.map"
+              >
+                <i className="material-icons-sharp">place</i>
+                <h4>Maps just got easier!</h4>
+                <p>
+                  <code>st.map</code> now has parameters for <code>latitude</code>, <code>longitude</code>,
+                  <code>color</code>, and <code>size</code> to customize points drawn on a map.
                 </p>
               </RefCard>
               <RefCard
@@ -167,6 +176,19 @@ export default function Home({ window, menu, gdpr_data }) {
               </RefCard>
               <RefCard
                 size="third"
+                href="/knowledge-base/tutorials/build-conversational-apps"
+              >
+                <i className="material-icons-sharp">chat</i>
+                <h4>Chat elements</h4>
+                <p>
+                  Introducing <code>st.chat_message</code> and{" "}
+                  <code>st.chat_input</code> — two new chat elements that let
+                  you build conversational apps. Learn how to use these features
+                  in your LLM-powered chat apps in our tutorial.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="https://blog.streamlit.io/introducing-column-config/"
               >
                 <i className="material-icons-sharp">settings_suggest</i>
@@ -176,29 +198,6 @@ export default function Home({ window, menu, gdpr_data }) {
                   methods to configure the display and editing behavior of{" "}
                   <code>st.dataframe</code>
                   and <code>st.data_editor</code> columns.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/advanced-features/connecting-to-data"
-              >
-                <i className="material-icons-sharp">electrical_services</i>
-                <h4>st.experimental_connection</h4>
-                <p>
-                  Introducing <code>st.experimental_connection</code> to let you
-                  easily connect your app to data sources and APIs.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/utilities/st.help"
-              >
-                <i className="material-icons-sharp">help</i>
-                <h4>Supercharged st.help!</h4>
-                <p>
-                  <code>st.help</code> has been revamped to show more
-                  information about object methods, attributes, classes, and
-                  more, which is great for debugging!
                 </p>
               </RefCard>
               <RefCard
@@ -213,21 +212,6 @@ export default function Home({ window, menu, gdpr_data }) {
                   dataframes and many other data structures in a table-like UI.
                 </p>
               </RefCard>
-              {/* <Tile
-                size="half"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                img="/logo.svg"
-                title="Clear memo + singleton caches procedurally"
-                text="Do you need more control over cache invalidation? Any function annotated with @st.cache_data or @st.cache_resource gets its own clear() function automatically."
-                link="/library/advanced-features/experimental-cache-primitives#clear-memo-and-singleton-caches-procedurally"
-              /> */}
             </TileContainer>
 
             <H2 className="no-b-m">Latest blog posts</H2>
