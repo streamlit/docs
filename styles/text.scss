@@ -109,7 +109,7 @@ button:focus-visible {
 /* Inline code blocks */
 p > code,
 li > code {
-  @apply border border-gray-40 text-red-70 rounded-md px-1 mx-1 whitespace-nowrap;
+  @apply border border-gray-40 text-red-70 rounded-md px-1 mx-1 break-words;
 }
 
 p a code {
