@@ -5,7 +5,7 @@ slug: /library/advanced-features/forms
 
 # Using forms
 
-When you don't want to rerun your script with each input made by a user, `st.form` is here to help! Forms make it easy to batch user input into a single rerun. This guide to using forms provides examples and explains how users interact with forms.
+When you don't want to rerun your script with each input made by a user, [`st.form`](/library/api-reference/control-flow/st.form) is here to help! Forms make it easy to batch user input into a single rerun. This guide to using forms provides examples and explains how users interact with forms.
 
 ## Example
 
@@ -99,7 +99,7 @@ st.write(my_color)
 
 ## Forms are containers
 
-When `st.form` is called, a container is created on the frontend. You can write to that container like you do with other [container elements](http://localhost:3000/library/api-reference/layout). You can use Python's `with` statement as shown in the example above, or you can assign the form container to a variable and call methods on it directly. You can also place `st.form_submit_button` anywhere in the form container: first, last, or someplace in-between.
+When `st.form` is called, a container is created on the frontend. You can write to that container like you do with other [container elements](/library/api-reference/layout). You can use Python's `with` statement as shown in the example above, or you can assign the form container to a variable and call methods on it directly. You can also place `st.form_submit_button` anywhere in the form container: first, last, or someplace in-between.
 
 ```python
 import streamlit as st
@@ -220,8 +220,8 @@ if submit:
 
 ## Limitations
 
-* An `st.form` cannot be embedded inside another `st.form`.
-* Every form must have an associated `st.form_submit_button`.
-* By definition, `st.button` does not make much sense within a form. Forms are all about batching widget state together, but buttons are inherently stateless. So declaring an st.button inside a form will lead to an error.
-* Also by definition, interdependent widgets within a form are unlikely to be particularly useful. If you pass `widget1`'s value into `widget2` when they are both inside a form, then `widget2` will only update when the form is submitted.
+* Every form must contain a `st.form_submit_button`.
+* `st.button` and `st.download_button` cannot be added to a form.
+* `st.form` cannot be embedded inside another `st.form`.
 * Callback functions can only be assigned to `st.form_submit_button` within a form; no other widgets in a form can have a callback.
+* Interdependent widgets within a form are unlikely to be particularly useful. If you pass `widget1`'s value into `widget2` when they are both inside a form, then `widget2` will only update when the form is submitted.
