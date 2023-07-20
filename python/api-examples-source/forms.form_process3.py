@@ -13,9 +13,9 @@ with st.form('addition'):
     b = st.number_input('b')
     submit = st.form_submit_button('add')
 
-# The value of sum is update at the end of the script rerun, so the displayed
-# value is not correct upon a new submission. Trigger a second rerun whenever
-# the form is submitted to make sure the new sum is reflected above.
+# The value of st.session_state.sum is updated at the end of the script rerun,
+# so the displayed value at the top in col2 does not show the new sum. Trigger
+# a second rerun when the form is submitted to update the value above.
 st.session_state.sum = a + b
 if submit:
     st.experimental_rerun()
