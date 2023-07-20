@@ -95,7 +95,7 @@ st.write(my_number)
 st.write(my_color)
 ```
 
-<Cloud src="https://doc-forms-default.streamlit.app/?embed=true" height="425"/>
+<Cloud src="https://doc-forms-default.streamlit.app/?embed=true" height="450"/>
 
 ## Forms are containers
 
@@ -153,7 +153,7 @@ if submit:
     col2.title(f'{a+b:.2f}')
 ```
 
-<Cloud src="https://doc-forms-process1.streamlit.app/?embed=true" height="385"/>
+<Cloud src="https://doc-forms-process1.streamlit.app/?embed=true" height="400"/>
 
 ### Use a callback with session state
 
@@ -186,7 +186,7 @@ with st.form('addition'):
     st.form_submit_button('add', on_click=sum)
 ```
 
-<Cloud src="https://doc-forms-process2.streamlit.app/?embed=true" height="385"/>
+<Cloud src="https://doc-forms-process2.streamlit.app/?embed=true" height="400"/>
 
 ### Use `st.experimental_rerun`
 
@@ -216,7 +216,7 @@ if submit:
     st.experimental_rerun()
 ```
 
-<Cloud src="https://doc-forms-process3.streamlit.app/?embed=true" height="385"/>
+<Cloud src="https://doc-forms-process3.streamlit.app/?embed=true" height="400"/>
 
 ## Limitations
 
