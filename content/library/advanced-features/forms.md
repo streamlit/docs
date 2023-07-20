@@ -63,10 +63,6 @@ st.map(df, size='size', color='color')
 
 </Collapse>
 
-###################
-# Embedded app here
-###################
-
 ## User interaction
 
 If a widget is not in a form, that widget will trigger a script rerun whenever a user changes its value. For widgets with keyed input (`st.number_input`, `st.text_input`, `st.text_area`), a new value triggers a rerun when the user clicks or tabs out of the widget. A user can also submit a change by pressing `Enter` while thier cursor is active in the widget.
@@ -130,11 +126,12 @@ The purpose of a form is to override the default behavior of Streamlit which rer
 
 For widgets inside a form, any changes made by a user (step 1) do not get passed to the Python backend (step 2) until they submit the form. Furthermore, the only widget inside a form that can have a callback is `st.form_submit_button`. If you need to run a process from newly submitted form values, you have three major patterns.
 
-### Execute the logic after the form
+### Execute the process after the form
 
 If you need to run a one-time process as a result of a form submission, you can condition that process on the `st.form_submit_button` and execute it after the form. If you need results to display before the form, you can use containers to control where the form displays relative to your output.
 
 ```python
+import streamlit as st
 
 col1,col2 = st.columns(2)
 col1.write('Sum:')
@@ -148,11 +145,61 @@ if submit:
     col2.write(str(a+b))
 ```
 
-
-
 ### Use a callback with session state
 
+You can use a callback to execute a process as a prefix to the script rerunning.
+
+<Important>
+
+When processing newly updated values within a callback, do not pass those values to the callback directly through the `args` or `kwargs` parameters. You need to assign keys to any widget whose value you use within the callback. If you look up the value of that widget from `st.session_state` within the body of the callback, you will be able to access the newly submitted value. See the example below.
+
+</Important>
+
+```python
+import streamlit as st
+
+if 'sum' not in st.session_state:
+    st.session_state.sum = ''
+
+def sum():
+    return st.session_state.a + st.session_state.b
+
+col1,col2 = st.columns(2)
+col1.write('Sum:')
+col2.write(st.session_state.sum)
+
+with st.form('addition'):
+    st.number_input('a', key = 'a')
+    st.number_input('b', key = 'b')
+    st.form_submit_button('add', on_click=sum)
+```
+
 ### Use `st.experimental_rerun`
+
+If you need to utilize the values from a form before your form in the script, another alternative is using an extra rerun. This can be less resource-efficient though, and may be less desirable that the above options.
+
+```python
+import streamlit as st
+
+if 'sum' not in st.session_state:
+    st.session_state.sum = ''
+
+col1,col2 = st.columns(2)
+col1.write('Sum:')
+col2.write(st.session_state.sum)
+
+with st.form('addition'):
+    a = st.number_input('a')
+    b = st.number_input('b')
+    submit = st.form_submit_button('add', on_click=sum)
+
+# The value of sum is update at the end of the script rerun, so the displayed
+# value is not correct upon a new submission. Trigger a second rerun whenever
+# the form is submitted to make sure the new sum is reflected above.
+st.session_state.sum = a + b
+if submit:
+    st.experimental_rerun
+```
 
 ## Limitations
 
