@@ -63,6 +63,8 @@ st.map(df, size='size', color='color')
 
 </Collapse>
 
+<Cloud src="http://doc-forms-overview.streamlit.app/?embed=true" height="800"/>
+
 ## User interaction
 
 If a widget is not in a form, that widget will trigger a script rerun whenever a user changes its value. For widgets with keyed input (`st.number_input`, `st.text_input`, `st.text_area`), a new value triggers a rerun when the user clicks or tabs out of the widget. A user can also submit a change by pressing `Enter` while thier cursor is active in the widget.
@@ -93,6 +95,8 @@ st.write(my_number)
 st.write(my_color)
 ```
 
+<Cloud src="http://doc-forms-default.streamlit.app/?embed=true" height="410"/>
+
 ## Forms are containers
 
 When `st.form` is called, a container is created on the frontend. You can write to that container like you do with other [container elements](http://localhost:3000/library/api-reference/layout). You can use Python's `with` statement as shown in the example above, or you can assign the form container to a variable and call methods on it directly. You can also place `st.form_submit_button` anywhere in the form container: first, last, or someplace in-between.
@@ -112,9 +116,13 @@ sentence = animal.text_input('Your sentence:', 'Where\'s the tuna?')
 say_it = sentence.rstrip('.,!?') + f', {sound}!'
 if submit:
     animal.subheader(say_it)
+else:
+    animal.subheader('&nbsp;')
 ```
 
-## Advanced
+<Cloud src="http://doc-forms-container.streamlit.app/?embed=true" height="350"/>
+
+## Processing form submissions
 
 The purpose of a form is to override the default behavior of Streamlit which reruns a script as soon as the user makes a change. For widgets outside of a form, the logical is:
 
@@ -133,8 +141,8 @@ If you need to run a one-time process as a result of a form submission, you can 
 ```python
 import streamlit as st
 
-col1,col2 = st.columns(2)
-col1.write('Sum:')
+col1,col2 = st.columns([1,2])
+col1.title('Sum:')
 
 with st.form('addition'):
     a = st.number_input('a')
@@ -142,8 +150,10 @@ with st.form('addition'):
     submit = st.form_submit_button('add')
 
 if submit:
-    col2.write(str(a+b))
+    col2.title(f'{a+b:.2f}')
 ```
+
+<Cloud src="http://doc-forms-process1.streamlit.app/?embed=true" height="360"/>
 
 ### Use a callback with session state
 
@@ -162,17 +172,21 @@ if 'sum' not in st.session_state:
     st.session_state.sum = ''
 
 def sum():
-    return st.session_state.a + st.session_state.b
+    result = st.session_state.a + st.session_state.b
+    st.session_state.sum = result
 
 col1,col2 = st.columns(2)
-col1.write('Sum:')
-col2.write(st.session_state.sum)
+col1.title('Sum:')
+if isinstance(st.session_state.sum, float):
+    col2.title(f'{st.session_state.sum:.2f}')
 
 with st.form('addition'):
     st.number_input('a', key = 'a')
     st.number_input('b', key = 'b')
     st.form_submit_button('add', on_click=sum)
 ```
+
+<Cloud src="http://doc-forms-process2.streamlit.app/?embed=true" height="360"/>
 
 ### Use `st.experimental_rerun`
 
@@ -185,21 +199,24 @@ if 'sum' not in st.session_state:
     st.session_state.sum = ''
 
 col1,col2 = st.columns(2)
-col1.write('Sum:')
-col2.write(st.session_state.sum)
+col1.title('Sum:')
+if isinstance(st.session_state.sum, float):
+    col2.title(f'{st.session_state.sum:.2f}')
 
 with st.form('addition'):
     a = st.number_input('a')
     b = st.number_input('b')
-    submit = st.form_submit_button('add', on_click=sum)
+    submit = st.form_submit_button('add')
 
 # The value of sum is update at the end of the script rerun, so the displayed
 # value is not correct upon a new submission. Trigger a second rerun whenever
 # the form is submitted to make sure the new sum is reflected above.
 st.session_state.sum = a + b
 if submit:
-    st.experimental_rerun
+    st.experimental_rerun()
 ```
+
+<Cloud src="http://doc-forms-process3.streamlit.app/?embed=true" height="360"/>
 
 ## Limitations
 
