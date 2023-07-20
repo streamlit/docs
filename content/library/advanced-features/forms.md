@@ -69,7 +69,7 @@ st.map(df, size='size', color='color')
 
 If a widget is not in a form, that widget will trigger a script rerun whenever a user changes its value. For widgets with keyed input (`st.number_input`, `st.text_input`, `st.text_area`), a new value triggers a rerun when the user clicks or tabs out of the widget. A user can also submit a change by pressing `Enter` while thier cursor is active in the widget.
 
-On the other hand if a widget is inside of a form, the script will not rerun when a user clicks or tabs out of that widget. For widgets inside a form, the script will rerun when the form is submitted. When the form is submitted, all widgets within the form will send their updated values to the Python backend.
+On the other hand if a widget is inside of a form, the script will not rerun when a user clicks or tabs out of that widget. For widgets inside a form, the script will rerun when the form is submitted and all widgets within the form will send their updated values to the Python backend.
 
 ![Forms](/images/forms.gif)
 
@@ -95,11 +95,11 @@ st.write(my_number)
 st.write(my_color)
 ```
 
-<Cloud src="https://doc-forms-default.streamlit.app/?embed=true" height="410"/>
+<Cloud src="https://doc-forms-default.streamlit.app/?embed=true" height="425"/>
 
 ## Forms are containers
 
-When `st.form` is called, a container is created on the frontend. You can write to that container like you do with other [container elements](/library/api-reference/layout). You can use Python's `with` statement as shown in the example above, or you can assign the form container to a variable and call methods on it directly. You can also place `st.form_submit_button` anywhere in the form container: first, last, or someplace in-between.
+When `st.form` is called, a container is created on the frontend. You can write to that container like you do with other [container elements](/library/api-reference/layout). That is, you can use Python's `with` statement as shown in the example above, or you can assign the form container to a variable and call methods on it directly. Additionally, you can place `st.form_submit_button` anywhere in the form container.
 
 ```python
 import streamlit as st
@@ -120,11 +120,11 @@ else:
     animal.subheader('&nbsp;')
 ```
 
-<Cloud src="https://doc-forms-container.streamlit.app/?embed=true" height="350"/>
+<Cloud src="https://doc-forms-container.streamlit.app/?embed=true" height="375"/>
 
 ## Processing form submissions
 
-The purpose of a form is to override the default behavior of Streamlit which reruns a script as soon as the user makes a change. For widgets outside of a form, the logical is:
+The purpose of a form is to override the default behavior of Streamlit which reruns a script as soon as the user makes a change. For widgets outside of a form, the logical flow is:
 
 1. The user changes a widget's value on the frontend.
 2. The widget's value in `st.session_state` and in the Python backend (server) is updated.
@@ -132,11 +132,11 @@ The purpose of a form is to override the default behavior of Streamlit which rer
 4. If the widget has a callback, it is executed as a prefix to the page rerun.
 5. When the updated widget's function is executed during the rerun, it outputs the new value.
 
-For widgets inside a form, any changes made by a user (step 1) do not get passed to the Python backend (step 2) until they submit the form. Furthermore, the only widget inside a form that can have a callback is `st.form_submit_button`. If you need to run a process from newly submitted form values, you have three major patterns.
+For widgets inside a form, any changes made by a user (step 1) do not get passed to the Python backend (step 2) until the form is submitted. Furthermore, the only widget inside a form that can have a callback function is the `st.form_submit_button`. If you need to execute a process using newly submitted values, you have three major patterns for doing so.
 
 ### Execute the process after the form
 
-If you need to run a one-time process as a result of a form submission, you can condition that process on the `st.form_submit_button` and execute it after the form. If you need results to display before the form, you can use containers to control where the form displays relative to your output.
+If you need to execute a one-time process as a result of a form submission, you can condition that process on the `st.form_submit_button` and execute it after the form. If you need results from your process to display above the form, you can use containers to control where the form displays relative to your output.
 
 ```python
 import streamlit as st
@@ -153,7 +153,7 @@ if submit:
     col2.title(f'{a+b:.2f}')
 ```
 
-<Cloud src="https://doc-forms-process1.streamlit.app/?embed=true" height="360"/>
+<Cloud src="https://doc-forms-process1.streamlit.app/?embed=true" height="385"/>
 
 ### Use a callback with session state
 
@@ -161,7 +161,7 @@ You can use a callback to execute a process as a prefix to the script rerunning.
 
 <Important>
 
-When processing newly updated values within a callback, do not pass those values to the callback directly through the `args` or `kwargs` parameters. You need to assign keys to any widget whose value you use within the callback. If you look up the value of that widget from `st.session_state` within the body of the callback, you will be able to access the newly submitted value. See the example below.
+When processing newly updated values within a callback, do not pass those values to the callback directly through the `args` or `kwargs` parameters. You need to assign a key to any widget whose value you use within the callback. If you look up the value of that widget from `st.session_state` within the body of the callback, you will be able to access the newly submitted value. See the example below.
 
 </Important>
 
@@ -186,11 +186,11 @@ with st.form('addition'):
     st.form_submit_button('add', on_click=sum)
 ```
 
-<Cloud src="https://doc-forms-process2.streamlit.app/?embed=true" height="360"/>
+<Cloud src="https://doc-forms-process2.streamlit.app/?embed=true" height="385"/>
 
 ### Use `st.experimental_rerun`
 
-If you need to utilize the values from a form before your form in the script, another alternative is using an extra rerun. This can be less resource-efficient though, and may be less desirable that the above options.
+If your process affects content above your form, another alternative is using an extra rerun. This can be less resource-efficient though, and may be less desirable that the above options.
 
 ```python
 import streamlit as st
@@ -216,7 +216,7 @@ if submit:
     st.experimental_rerun()
 ```
 
-<Cloud src="https://doc-forms-process3.streamlit.app/?embed=true" height="360"/>
+<Cloud src="https://doc-forms-process3.streamlit.app/?embed=true" height="385"/>
 
 ## Limitations
 
