@@ -63,7 +63,7 @@ st.map(df, size='size', color='color')
 
 </Collapse>
 
-<Cloud src="http://doc-forms-overview.streamlit.app/?embed=true" height="800"/>
+<Cloud src="https://doc-forms-overview.streamlit.app/?embed=true" height="800"/>
 
 ## User interaction
 
@@ -95,7 +95,7 @@ st.write(my_number)
 st.write(my_color)
 ```
 
-<Cloud src="http://doc-forms-default.streamlit.app/?embed=true" height="410"/>
+<Cloud src="https://doc-forms-default.streamlit.app/?embed=true" height="410"/>
 
 ## Forms are containers
 
@@ -120,7 +120,7 @@ else:
     animal.subheader('&nbsp;')
 ```
 
-<Cloud src="http://doc-forms-container.streamlit.app/?embed=true" height="350"/>
+<Cloud src="https://doc-forms-container.streamlit.app/?embed=true" height="350"/>
 
 ## Processing form submissions
 
@@ -153,7 +153,7 @@ if submit:
     col2.title(f'{a+b:.2f}')
 ```
 
-<Cloud src="http://doc-forms-process1.streamlit.app/?embed=true" height="360"/>
+<Cloud src="https://doc-forms-process1.streamlit.app/?embed=true" height="360"/>
 
 ### Use a callback with session state
 
@@ -186,7 +186,7 @@ with st.form('addition'):
     st.form_submit_button('add', on_click=sum)
 ```
 
-<Cloud src="http://doc-forms-process2.streamlit.app/?embed=true" height="360"/>
+<Cloud src="https://doc-forms-process2.streamlit.app/?embed=true" height="360"/>
 
 ### Use `st.experimental_rerun`
 
@@ -216,7 +216,7 @@ if submit:
     st.experimental_rerun()
 ```
 
-<Cloud src="http://doc-forms-process3.streamlit.app/?embed=true" height="360"/>
+<Cloud src="https://doc-forms-process3.streamlit.app/?embed=true" height="360"/>
 
 ## Limitations
 
