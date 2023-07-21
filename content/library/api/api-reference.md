@@ -1459,6 +1459,19 @@ with st.spinner("Please wait..."):
 ```
 
 </RefCard>
+<RefCard href="/library/api-reference/status/st.toast">
+
+<Image pure alt="screenshot" src="/images/api/toast.jpg" />
+
+#### Toast
+
+Briefly displays a toast message in the bottom-right corner.
+
+```python
+st.toast('Butter!', icon='🧈')
+```
+
+</RefCard>
 <RefCard href="/library/api-reference/status/st.balloons">
 
 <Image pure alt="screenshot" src="/images/api/balloons.jpg" />
