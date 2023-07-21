@@ -148,15 +148,14 @@ export default function Home({ window, menu, gdpr_data }) {
                   toast messages to users in the bottom-right corner of apps.
                 </p>
               </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/charts/st.map"
-              >
+              <RefCard size="third" href="/library/api-reference/charts/st.map">
                 <i className="material-icons-sharp">place</i>
                 <h4>Maps just got easier!</h4>
                 <p>
-                  <code>st.map</code> now has parameters for <code>latitude</code>, <code>longitude</code>,
-                  <code>color</code>, and <code>size</code> to customize points drawn on a map.
+                  <code>st.map</code> now has parameters for{" "}
+                  <code>latitude</code>, <code>longitude</code>,
+                  <code>color</code>, and <code>size</code> to customize points
+                  drawn on a map.
                 </p>
               </RefCard>
               <RefCard
@@ -212,6 +211,22 @@ export default function Home({ window, menu, gdpr_data }) {
                   dataframes and many other data structures in a table-like UI.
                 </p>
               </RefCard>
+              {/* <Tile
+                size="half"
+                background="unset"
+                color="unset"
+                dark={{
+                  background: "unset",
+                  color: "white",
+                  border_color: "gray-90",
+                }}
+                border_color="gray-40"
+                img="/logo.svg"
+                title="Clear memo + singleton caches procedurally"
+                text="Do you need more control over cache invalidation? Any function annotated with @st.cache_data or @st.cache_resource gets its own clear() function automatically."
+                link="/library/advanced-features/experimental-cache-primitives#clear-memo-and-singleton-caches-procedurally"
+              /> */}
+              {/* Preserve above comment for syntax reference */}
             </TileContainer>
 
             <H2 className="no-b-m">Latest blog posts</H2>
