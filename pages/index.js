@@ -141,7 +141,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 size="third"
                 href="/library/api-reference/status/st.toast"
               >
-                <i className="material-icons-sharp">breakfast_dining</i>
+                <i className="material-icons-sharp">notifications_active</i>
                 <h4>Toast notifications</h4>
                 <p>
                   Introducing <code>st.toast</code> — a command to briefly show
