@@ -433,7 +433,7 @@ check if the user viewing an app has a Light or Dark mode preference set by
 their operating system and browser. If so, then that preference will be used.
 Otherwise, the Light theme is applied by default.
 
-You can also change the active theme from "☰" → "Settings".
+You can also change the active theme from "⋮" → "Settings".
 
 ![Changing Themes](/images/change_theme.gif)
 

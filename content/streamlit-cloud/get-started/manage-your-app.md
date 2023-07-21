@@ -58,7 +58,7 @@ If an app's GitHub repository is owned by **an organization** (such as your comp
 
 ![App workspaces 3](/images/streamlit-community-cloud/app-workspaces-3.jpg)
 
-You will also have access to any workspaces containing app(s) for which you only have **view access**. These apps will have a "view-only" tooltip when you click on their respective hamburger menus.
+You will also have access to any workspaces containing app(s) for which you only have **view access**. These apps will have a "view-only" tooltip when you click on their respective overflow menu icons (⋮).
 
 ![App workspaces 4](/images/streamlit-community-cloud/app-workspaces-4.png)
 
@@ -173,7 +173,7 @@ To unfavorite an app, either hover over the app and click the star (⭐) again, 
 
 You can also favorite an app from right within the app! Currently, in-app favoriting is available for apps that use Streamlit v1.4.0 or later. Note that in-app favoriting is not available on apps in your workspaces for which you only have view access.
 
-When viewing any app in your workspace, click the star (☆) in the top-right corner of the app, besides the "☰" hamburger menu.
+When viewing any app in your workspace, click the star (☆) in the top-right corner of the app, beside the "⋮" app menu icon.
 
 ![In-app favoriting](/images/streamlit-community-cloud/un-favorited.png)
 
