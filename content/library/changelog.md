@@ -23,14 +23,14 @@ _Release date: July 20, 2023_
 
 **Highlights**
 
-- 🍞 Introducing `st.toast` — a command to briefly show toast messages to users in the bottom-right corner of apps. See [our documentation](https://docs.streamlit.io/library/api-reference/status/st.toast) on how to use this feature.
+- 🍞 Introducing `st.toast` — a command to briefly show toast messages to users in the bottom-right corner of apps. See [our documentation](/library/api-reference/status/st.toast) on how to use this feature.
 
 **Notable Changes**
 
-- 🗺️ [`st.map`](https://docs.streamlit.io/library/api-reference/charts/st.map) now has parameters for `latitude`, `longitude`, `color`, and `size` to customize data points ([#6896](https://github.com/streamlit/streamlit/pull/6896)).
-- 🚩 [`st.multiselect`](https://docs.streamlit.io/library/api-reference/widgets/st.multiselect) supports setting placeholders and specifying the maximum number of selections via the `placeholder` and `max_selections` keyword-only arguments, respectively ([#6901](https://github.com/streamlit/streamlit/pull/6901), [#4750](https://github.com/streamlit/streamlit/issues/4750)). Thanks, [@fhiroki](https://github.com/fhiroki)!
+- 🗺️ [`st.map`](/library/api-reference/charts/st.map) now has parameters for `latitude`, `longitude`, `color`, and `size` to customize data points ([#6896](https://github.com/streamlit/streamlit/pull/6896)).
+- 🚩 [`st.multiselect`](/library/api-reference/widgets/st.multiselect) supports setting placeholders and specifying the maximum number of selections via the `placeholder` and `max_selections` keyword-only arguments, respectively ([#6901](https://github.com/streamlit/streamlit/pull/6901), [#4750](https://github.com/streamlit/streamlit/issues/4750)). Thanks, [@fhiroki](https://github.com/fhiroki)!
 - 📅 Customize the date format for `st.date_input` with the `format` parameter ([#6974](https://github.com/streamlit/streamlit/pull/6974), [#5234](https://github.com/streamlit/streamlit/issues/5234)).
-- ↩️ [Forms](https://docs.streamlit.io/library/api-reference/control-flow/st.form) can now be submitted with Enter/Return while inside [`st.text_input`](https://docs.streamlit.io/library/api-reference/widgets/st.text_input), [`st.number_input`](https://docs.streamlit.io/library/api-reference/widgets/st.number_input), or [`st.text_area`](https://docs.streamlit.io/library/api-reference/widgets/st.text_area) ([#6911](https://github.com/streamlit/streamlit/pull/6911), [#3790](https://github.com/streamlit/streamlit/issues/3790)).
+- ↩️ [Forms](/library/api-reference/control-flow/st.form) can now be submitted with Enter/Return while inside [`st.text_input`](/library/api-reference/widgets/st.text_input), [`st.number_input`](/library/api-reference/widgets/st.number_input), or [`st.text_area`](/library/api-reference/widgets/st.text_area) ([#6911](https://github.com/streamlit/streamlit/pull/6911), [#3790](https://github.com/streamlit/streamlit/issues/3790)).
 - 🍢 The app menu icon in the upper-right corner of apps has been changed from “**☰**” to “**⋮**” ([#6947](https://github.com/streamlit/streamlit/pull/6947)).
 
 **Other Changes**
