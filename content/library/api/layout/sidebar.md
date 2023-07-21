@@ -52,7 +52,7 @@ with st.sidebar:
 
 <Important>
 
-The only elements that aren't supported using object notation are `st.echo` and `st.spinner`. To use these elements, you must use `with` notation.
+The only elements that aren't supported using object notation are `st.echo`, `st.spinner`, and `st.toast`. To use these elements, you must use `with` notation.
 
 </Important>
 
