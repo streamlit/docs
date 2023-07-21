@@ -446,8 +446,9 @@ showPyplotGlobalUse = true
 # font =
 ```
 
-
 <Collapse title="View entire file" expanded={false} >
+
+This is the entire `config.toml` file with all the options for version 1.25.0:
 
 ```toml
 [global]

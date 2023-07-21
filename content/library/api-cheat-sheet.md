@@ -5,7 +5,7 @@ slug: /library/cheatsheet
 
 # Cheat Sheet
 
-This is a summary of the docs, as of [Streamlit v1.24.0](https://pypi.org/project/streamlit/1.22.0/).
+This is a summary of the docs, as of [Streamlit v1.25.0](https://pypi.org/project/streamlit/1.25.0/).
 
 <Masonry>
 
@@ -384,7 +384,7 @@ conn = st.experimental_connection('snowpark')
 #### Display progress and status
 
 ```python
-# Show a spinner during a process 
+# Show a spinner during a process
 >>> with st.spinner(text='In progress'):
 >>>   time.sleep(3)
 >>>   st.success('Done')
