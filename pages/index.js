@@ -201,14 +201,13 @@ export default function Home({ window, menu, gdpr_data }) {
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/advanced-features/dataframes"
+                href="/library/api-reference/widgets/st.date_input"
               >
-                <i className="material-icons-sharp">edit_note</i>
-                <h4>Editable dataframes!</h4>
+                <i className="material-icons-sharp">calendar_month</i>
+                <h4>Customize date formats </h4>
                 <p>
-                  Announcing the general availability of{" "}
-                  <code>st.data_editor</code>, a widget that allows you to edit
-                  dataframes and many other data structures in a table-like UI.
+                  <code>st.date_input</code>'s date format can be customized
+                  with the <code>format</code> parameter.
                 </p>
               </RefCard>
               {/* <Tile
