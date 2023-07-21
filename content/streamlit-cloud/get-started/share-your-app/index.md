@@ -115,7 +115,7 @@ You can also add viewers directly from your dashboard.
 
 1. **Open settings for your app**
 
-   Navigate to the app you want to add viewer to and click the hamburger icon to select "Settings."
+   Navigate to the app you want to add viewer to and click the overflow menu icon (⋮) to select "Settings."
 
    <div style={{ maxWidth: '75%', marginBottom: '-3em', marginLeft: '5em' }}>
        <Image src="/images/streamlit-community-cloud/edit-secrets.png" />
@@ -131,7 +131,7 @@ You can also add viewers directly from your dashboard.
 
 ## Sharing public apps
 
-From your deployed app you can click on the "☰" menu on the top right and select 'Share this app' to post it directly into social media or to share with the community on our [Community forum](https://discuss.streamlit.io/c/streamlit-examples/9). We'd love to see what you make and perhaps feature your app as our app of the month ❤️.
+From your deployed app you can click on the "⋮" icon on the top right and select 'Share this app' to post it directly into social media or to share with the community on our [Community forum](https://discuss.streamlit.io/c/streamlit-examples/9). We'd love to see what you make and perhaps feature your app as our app of the month ❤️.
 
 ### Add a GitHub badge
 
@@ -169,4 +169,4 @@ If you want to try out something new while still keeping your original app runni
 
 ### Finding app code
 
-Every deployed app has its GitHub source code linked in the "☰" menu on the top right. So if you are looking to understand the code of another Streamlit app, you can navigate to the GitHub page from there and read or fork the app.
+Every deployed app has its GitHub source code linked in the "⋮" menu on the top right. So if you are looking to understand the code of another Streamlit app, you can navigate to the GitHub page from there and read or fork the app.

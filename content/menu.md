@@ -252,6 +252,9 @@ site_menu:
   - category: Streamlit library / API reference / Status elements / st.spinner
     url: /library/api-reference/status/st.spinner
     isVersioned: true
+  - category: Streamlit library / API reference / Status elements / st.toast
+    url: /library/api-reference/status/st.toast
+    isVersioned: true
   - category: Streamlit library / API reference / Status elements / st.balloons
     url: /library/api-reference/status/st.balloons
     isVersioned: true
@@ -364,7 +367,7 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / Advanced features
     url: /library/advanced-features
-  - category: Streamlit library / Advanced features / ☰ App menu
+  - category: Streamlit library / Advanced features / ⋮ App menu
     url: /library/advanced-features/app-menu
   - category: Streamlit library / Advanced features/ Button behavior and examples
     url: /library/advanced-features/button-behavior-and-examples
@@ -380,6 +383,8 @@ site_menu:
     url: /library/advanced-features/connecting-to-data
   - category: Streamlit library / Advanced features/ Dataframes
     url: /library/advanced-features/dataframes
+  - category: Streamlit library / Advanced features/ Forms
+    url: /library/advanced-features/forms
   - category: Streamlit library / Advanced features/ Optimize performance with st.cache
     url: /library/advanced-features/st.cache
     visible: false

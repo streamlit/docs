@@ -33,7 +33,7 @@ There will be no official support for embedding private apps.
 
 In addition to allowing you to embed apps via iframes, the `?embed=true` query parameter also does the following:
 
-- Removes the toolbar with the hamburger menu
+- Removes the toolbar with the app menu icon (⋮)
 - Removes the padding at the top and bottom of the app
 - Removes the footer
 - Removes the colored line from the top of the app
