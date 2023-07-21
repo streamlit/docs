@@ -367,7 +367,7 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / Advanced features
     url: /library/advanced-features
-  - category: Streamlit library / Advanced features / ☰ App menu
+  - category: Streamlit library / Advanced features / ⋮ App menu
     url: /library/advanced-features/app-menu
   - category: Streamlit library / Advanced features/ Button behavior and examples
     url: /library/advanced-features/button-behavior-and-examples

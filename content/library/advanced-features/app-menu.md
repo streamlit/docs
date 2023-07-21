@@ -1,9 +1,9 @@
 ---
-title: ☰ App menu
+title: ⋮ App menu
 slug: /library/advanced-features/app-menu
 ---
 
-# ☰ App menu
+# ⋮ App menu
 
 Streamlit provides a configurable menu within your app to access convenient tools for developers and viewers. By default, you can access developer options from the app menu when viewing an app locally or on Streamlit Community Cloud while logged into an account with administrative access. While viewing an app, click the icon in the upper-right corner to access the menu.
 
