@@ -27,6 +27,8 @@ Getting your workspace set up with Streamlit Community Cloud only takes a few mi
 
 Streamlit's Community Cloud allows you to deploy, manage, and share your apps with the world, directly from Streamlit — all for free. Sign up on the [Community Cloud homepage](https://streamlit.io/cloud).
 
+![Sign up](/images/streamlit-community-cloud/sign-up.png)
+
 Streamlit Community Cloud accounts have two underlying identities: primary and source control. Your primary identity is used for viewing analytics as well as viewing permissions. Your source-control identity is used for deploying and managing apps.
 
 ### Primary identity
@@ -47,63 +49,63 @@ As a final step to account creation, we ask users about themselves and their exp
 
 ## Log in to share.streamlit.io
 
-Once you've signed up, login to [share.streamlit.io](https://share.streamlit.io) and follow the steps below.
+Once you've created your account, sign in to [share.streamlit.io](https://share.streamlit.io) and follow the steps below.
 
-<div style={{ maxWidth: '50%', marginBottom: '-2em', marginLeft: '10em' }}>
-    <Image alt="Cloud sign in" src="/images/streamlit-community-cloud/cloud-sign-in.png" clean />
-</div>
-
-<!-- <Note>
-
-Streamlit Community Cloud offers support for all other single sign-on (SSO) providers, but you will need to be on an [Enterprise plan](https://forms.streamlit.io/cloud-sign-up) to connect SSO.
-
-</Note> -->
+![Sign in](/images/streamlit-community-cloud/sign-in.png)
 
 ### Sign in with Google
 
-Visit [share.streamlit.io](https://share.streamlit.io) and click the "Continue with Google" button.
+Visit [share.streamlit.io](https://share.streamlit.io) and click "**Continue with Google**".
 
-<Image caption="Step 1: Click the 'Continue with Google' button" src="/images/streamlit-community-cloud/google-signin-1.png" />
+<div style={{ maxWidth: '80%', margin: 'auto' }}>
+    <Image src="/images/streamlit-community-cloud/sign-in-Google-1.png" alt="Google sign-in" />
+</div>
 
 On the next page, choose an account to sign in with and enter your Google account credentials.
 
-<Image caption="Step 2: Enter your Google account credentials" src="/images/streamlit-community-cloud/google-signin-2.png" />
+<div style={{ maxWidth: '80%', margin: 'auto' }}>
+    <Image src="/images/streamlit-community-cloud/sign-in-Google-2.png" alt="Google sign-in" />
+</div>
 
-Once you have signed in to Google, you will be taken to your Streamlit Community Cloud workspace!🎈
-
-<Image caption="Your Streamlit Community Cloud workspace" src="/images/streamlit-community-cloud/app-workspace.png" />
+If your account is already linked to GitHub, you may be immediately prompted to [Sign in with GitHub](#sign-in-with-github). Once you have signed in, you can [Explore your Streamlit Community Cloud workspace!](#explore-your-streamlit-community-cloud-workspace)🎈
 
 ### Sign in with GitHub
 
-Visit [share.streamlit.io](https://share.streamlit.io) and click the "Continue with GitHub" button.
+Visit [share.streamlit.io](https://share.streamlit.io) and click "**Continue with GitHub**".
 
-<Image caption="Step 1: Click the 'Continue with GitHub' button" src="/images/streamlit-community-cloud/github-signin-1.png" />
+<div style={{ maxWidth: '80%', margin: 'auto' }}>
+    <Image src="/images/streamlit-community-cloud/sign-in-GitHub-1.png" alt="GitHub sign-in" />
+</div>
 
 On the next page, enter your GitHub credentials to sign in.
 
-<Image caption="Step 2: Enter your GitHub account credentials" src="/images/streamlit-community-cloud/github-signin-2.png" />
+<div style={{ maxWidth: '80%', margin: 'auto' }}>
+    <Image src="/images/streamlit-community-cloud/sign-in-GitHub-2.png" alt="GitHub sign-in" />
+</div>
 
-Once you have signed in to GitHub, you will be taken to your Streamlit Community Cloud workspace!🎈
-
-<Image caption="Your Streamlit Community Cloud workspace" src="/images/streamlit-community-cloud/app-workspace.png" />
+Once you have signed in to GitHub, you can [Explore your Streamlit Community Cloud workspace!](#explore-your-streamlit-community-cloud-workspace)🎈
 
 ### Sign in with Email
 
-If you don't have SSO, you can sign in with your email address! Visit [share.streamlit.io](https://share.streamlit.io), enter the email address you used to sign up for Streamlit Community Cloud, and click the "Continue with email" button.
+To sign in with email, visit [share.streamlit.io](https://share.streamlit.io) and enter the email you used to create your Streamlit Community Cloud account. Click "**Continue with email**".
 
-<Image caption="Step 1: Enter your email address and click 'Continue with email'" src="/images/streamlit-community-cloud/email-signin-1.png" />
+<div style={{ maxWidth: '80%', margin: 'auto' }}>
+    <Image src="/images/streamlit-community-cloud/sign-in-email-1.png" alt="Email sign-in" />
+</div>
 
 Once you do so, you will see a confirmation message (like the one below) asking you to check your email.
 
-<Image caption="Step 2: Check your inbox for an email from Streamlit" src="/images/streamlit-community-cloud/email-signin-2.png" />
+<div style={{ maxWidth: '80%', margin: 'auto' }}>
+    <Image src="/images/streamlit-community-cloud/sign-in-email-2.png" alt="Email sign-in" />
+</div>
 
-Check your inbox for an email from Streamlit, with the subject "Sign in to Streamlit Community Cloud". Click the link in the email to sign in to Streamlit. Note that this link will expire in 15 minutes and can only be used once.
+Check your inbox for an email from Streamlit, with the subject "**Sign in to Streamlit Cloud**". Click the link in the email to sign in to Streamlit Community Cloud. Note that this link will expire in 15 minutes and can only be used once.
 
-<Image caption="Step 3: Click the link in the email to sign in to Streamlit" src="/images/streamlit-community-cloud/email-signin-3.png" />
+<div style={{ maxWidth: '80%', margin: 'auto' }}>
+    <Image src="/images/streamlit-community-cloud/sign-in-email-3.png" alt="Email sign-in" />
+</div>
 
-Once you click the link in your email, you will be taken to your Streamlit Community Cloud workspace!🎈
-
-<Image caption="Your Streamlit Community Cloud workspace" src="/images/streamlit-community-cloud/app-workspace.png" />
+Once you click the link in your email, you can [Explore your Streamlit Community Cloud workspace!](#explore-your-streamlit-community-cloud-workspace)🎈
 
 ## Connect your GitHub account
 
