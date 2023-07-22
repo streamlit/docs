@@ -9,45 +9,45 @@ Welcome to Streamlit Community Cloud! First things first, before you get started
 
 ## How Streamlit Community Cloud works
 
-Streamlit Community Cloud is a workspace for your team to deploy, manage, and collaborate on your Streamlit apps. You connect your Streamlit Community Cloud account directly to your GitHub repository (public or private) and then Streamlit Community Cloud launches the apps directly from the code you've stored on GitHub. Most apps will launch in only a few minutes, and any time you update the code on GitHub, your app will automatically update for you. This creates a fast iteration cycle for your deployed apps, so that developers and viewers of apps can rapidly prototype, explore, and update apps.
+Streamlit Community Cloud is a workspace for you to deploy, manage, and collaborate on your Streamlit apps. You connect your Streamlit Community Cloud account directly to your GitHub repository (public or private) and then Streamlit Community Cloud launches the apps directly from the code you've stored on GitHub. Most apps will launch in only a few minutes. Any time you update the code on GitHub, your app will automatically update for you. This creates a fast iteration cycle for your deployed apps, so that developers and viewers of apps can rapidly prototype, explore, and update apps.
 
-<!-- <Tip>
-
-Don't use GitHub? We are building support for GitLab, Azure DevOps, Bitbucket and other providers. [Contact our Enterprise team](https://forms.streamlit.io/cloud-sign-up) for more details.
-
-</Tip> -->
-
-Under the hood Streamlit Community Cloud handles all of the containerization, authentication, scaling, security and everything else so that all you need to worry about is creating the app. Maintaining Streamlit apps is easy. Containers get the latest security patches, are actively monitored for container health. We are also building the capability to observe and monitor apps.
+Under the hood Streamlit Community Cloud handles all of the containerization and authentication so that all you need to worry about is creating the app. Maintaining Streamlit apps is easy. Containers get the latest security patches and are actively monitored for container health.
 
 ## Getting started
 
 Getting your workspace set up with Streamlit Community Cloud only takes a few minutes.
 
-1. [Sign up for Streamlit Community Cloud](#sign-up-for-streamlit-cloud)
+1. [Sign up for Streamlit Community Cloud](#sign-up-for-streamlit-community-cloud)
 2. [Log in to your account](#log-in-to-sharestreamlitio)
 3. [Connect your Streamlit Community Cloud account to GitHub](#connect-your-github-account)
-4. [Explore your Streamlit Community Cloud workspace](#explore-your-streamlit-cloud-workspace)
+4. [Explore your Streamlit Community Cloud workspace](#explore-your-streamlit-community-cloud-workspace)
 5. [Invite other developers on your team](#invite-other-developers-to-your-workspace)
 
 ## Sign up for Streamlit Community Cloud
 
 Streamlit's Community Cloud allows you to deploy, manage, and share your apps with the world, directly from Streamlit — all for free. Sign up on the [Community Cloud homepage](https://streamlit.io/cloud).
 
-Once you've signed up, login to [share.streamlit.io](https://share.streamlit.io) and follow the steps below.
+Streamlit Community Cloud accounts have two underlying identities: primary and source control. Your primary identity is used for viewing analytics as well as viewing permissions. Your source-control identity is used for deploying and managing apps.
+
+### Primary identity
+
+Your primary identity is associated to an email. You can log in through [Google](#sign-in-with-google) or through [emailed sign-in links](#sign-in-with-email) which are valid for 15 minutes once requested. If you begin your sign-up process with Google or email, you will be prompted to optionally link a GitHub account as a second step.
+
+If you're sharing a private app, you will assign viewing permission by email. Therefore, your app's users will need to log in with either Google or emailed links.
+
+### Source control
+
+Streamlit Community Cloud is integreated with [GitHub](#sign-in-with-github) for source control. If you begin your sign-up process with GitHub, then your primary identity will automatically be based on the email associated to your GitHub account. If you create an account using GitHub, you can [Update your email](/streamlit-community-cloud/manage-your-account/update-your-email) later.
+
+There are two different authorization requests that will occur when you [Connect your GitHub account](http://localhost:3000/streamlit-community-cloud/get-started#connect-your-github-account). You may encounter them back-to-back or separately.
+
+### New user survey
+
+As a final step to account creation, we ask users about themselves and their experience with Streamlit. The email you provide in this survey is not used as your account email.
 
 ## Log in to share.streamlit.io
 
-You can login to Streamlit Community Cloud with:
-
-1. [Google](#sign-in-with-google)
-2. [GitHub](#sign-in-with-github)
-3. [Email](#sign-in-with-email) based sign-in link: These are single-use links that are valid for up to 15 minutes.
-
-<!-- If you're a developer, we recommend starting with GitHub the first time you login. You can later setup your account to login using Google or an [SSO provider](/streamlit-community-cloud/get-started/share-your-app/configuring-single-on-sso). -->
-
-If you're a developer, we recommend starting with GitHub the first time you login. You can later setup your account to login using Google.
-
-If you're sharing your app, your app's users can use any of the above methods to login.
+Once you've signed up, login to [share.streamlit.io](https://share.streamlit.io) and follow the steps below.
 
 <div style={{ maxWidth: '50%', marginBottom: '-2em', marginLeft: '10em' }}>
     <Image alt="Cloud sign in" src="/images/streamlit-community-cloud/cloud-sign-in.png" clean />
