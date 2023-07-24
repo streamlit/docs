@@ -131,7 +131,7 @@ If you are running an app locally from within a git repo, you can deploy your ap
 
 ## Customize the menu
 
-Using `client.toobarMode` in your app's [configuration](/library/advanced-features/configuration), you can make the app menu appear in the following ways:
+Using `client.toolbarMode` in your app's [configuration](/library/advanced-features/configuration), you can make the app menu appear in the following ways:
 
 - `"developer"` &mdash; Show the developer options to all viewers.
 - `"viewer"` &mdash; Hide the developer options from all viewers.
