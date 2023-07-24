@@ -39,13 +39,13 @@ If you're sharing a private app, you will assign viewing permission by email. Th
 
 ### Source control
 
-Streamlit Community Cloud is integreated with [GitHub](#sign-in-with-github) for source control. If you begin your sign-up process with GitHub, then your primary identity will automatically be based on the email associated to your GitHub account. If you create an account using GitHub, you can [Update your email](/streamlit-community-cloud/manage-your-account/update-your-email) later.
+Streamlit Community Cloud is integreated with [GitHub](#sign-in-with-github) for source control. If you begin your sign-up process with GitHub, you will not be prompted directly prompted to create a primary identity. However, you can attach a Google account later.
 
-There are two different authorization requests that will occur when you [Connect your GitHub account](http://localhost:3000/streamlit-community-cloud/get-started#connect-your-github-account). You may encounter them back-to-back or separately.
+There are two different authorization requests that will occur when you [Connect your GitHub account](http://localhost:3000/streamlit-community-cloud/get-started#connect-your-github-account). You will encounter the first authorization request when you connect your GitHub account. A second authorization is needed the first time you deploy an app.
 
 ### New user survey
 
-As a final step to account creation, we ask users about themselves and their experience with Streamlit. The email you provide in this survey is not used as your account email.
+As a final step to account creation, we ask users about themselves and their experience with Streamlit. This is also when users agree to our terms of use. The email you provide in this survey is not used as your account email.
 
 ## Log in to share.streamlit.io
 
@@ -109,7 +109,7 @@ Once you click the link in your email, you can [Explore your Streamlit Community
 
 ## Connect your GitHub account
 
-Next you need to authorize Streamlit to connect to your GitHub account. This lets your Streamlit Community Cloud workspace launch apps directly from the app files you store in your repos, as well as let the system check for updates to those app files so that your apps can automatically update. You will see two different authorization screens to give this access. Click "authorize" on both. Questions about GitHub permissions? [Read more here](/streamlit-community-cloud/troubleshooting#github-integration)!
+In order to use GitHub with Streamlit, you need to authorize Streamlit to connect to your GitHub account. This lets your Streamlit Community Cloud workspace launch apps directly from the files you store in your repos. It also lets the system check for updates to those files and automatically update your app. You will see two different authorization screens to give this access. The first authorization happens when you connect your GitHub account to Streamlit. The second authorization happens when you deploy your first app. Click "**Authorize streamlit**" on both. Questions about GitHub permissions? [Read more here](/streamlit-community-cloud/troubleshooting#github-integration)!
 
 <Important>
 
