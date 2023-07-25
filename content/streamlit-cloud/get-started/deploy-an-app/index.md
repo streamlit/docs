@@ -59,9 +59,9 @@ To deploy an app, click "**New app**" from the upper right corner of your worksp
 
 ![New app](/images/streamlit-community-cloud/deploy-empty-new-app.png)
 
-Fill in your repo, branch, and file path. As a shortcut, you can also click "**Paste GitHub URL**". Optionally, you can specify a custom subdomain. In the example below, the app would be deployed to `https://red-balloon.streamlit.app/`. You can always set or change your subdomain later. See more about [custom subdomains](#custom-subdomains) at the end of this page.
+Fill in your repo, branch, and file path. As a shortcut, you can also click "**Paste GitHub URL**". Optionally, you can specify a custom subdomain. An app URL with a random hash is prefilled. You can delete this or type in something else. In the example below, the app would be deployed to `https://red-balloon.streamlit.app/`. You can always set or change your subdomain later. See more about [custom subdomains](#custom-subdomains) at the end of this page.
 
-![Deploy an app](/images/streamlit-community-cloud/deploy-an-app.png)
+![Deploy your app](/images/streamlit-community-cloud/deploy-an-app.png)
 
 ## Advanced settings for deployment
 
@@ -79,23 +79,23 @@ Streamlit Community Cloud supports Python 3.8 - Python 3.11, and defaults to ver
 
 ## Watch your app launch
 
-Your app is now deploying and you can watch while it launches. Most apps take only a couple of minutes to deploy, but if your app has a lot of dependencies it may take some time to deploy the first time. After the initial deployment, any change that does not touch your dependencies should show up immediately.
+Your app is now deploying and you can watch while it launches. Most apps take only a couple of minutes to deploy, but if your app has a lot of dependencies it may take longer to deploy the first time. After the initial deployment, any change that does not touch your dependencies should show up immediately.
 
-![Watch app launch](/images/streamlit-community-cloud/watch-app-launch.png)
+![Watch your app launch](/images/streamlit-community-cloud/deploy-an-app-provisioning.png)
 
 <Note>
 
-The Cloud logs on the right hand side are only viewable to the developer and is how you can grab logs and debug any issues with the app. [Learn more about Cloud logs](/streamlit-community-cloud/get-started/manage-your-app#cloud-logs).
+The Streamlit Community Cloud logs on the right hand side of your app are only viewable to users with developer access to your repository. These logs help you debug any issues with the app. Learn more about [Streamlit Community Cloud logs](/streamlit-community-cloud/get-started/manage-your-app#streamlit-community-cloud-logs).
 
 </Note>
 
 ## Your app URL
 
-That's it — you're done! Your app now has a unique subdomain URL that you can share with others. Click [here](/streamlit-community-cloud/get-started/share-your-app) to read about how to share your app with viewers.
+That's it — you're done! Your app now has a unique subdomain URL that you can share with others. Read more about how to [Share your app](/streamlit-community-cloud/get-started/share-your-app) with viewers.
 
 ### Unique subdomains
 
-If a custom subdomain was not set, an app URL follows a structure based on your GitHub repo. The URL begins with your GitHub username or organization owning your repo, followed by your repo name, app path, and a short hash. If you deploy from a branch other than `main` or `master`, the URL also includes the branch name.
+If the "**Custom subdomain (optional)**" field is blank when you deploy your app, a URL is assigned following a structure based on your GitHub repo. The URL begins with your GitHub username or organization owning your repo, followed by your repo name, app path, and a short hash. If you deploy from a branch other than `main` or `master`, the URL also includes the branch name.
 
 ```bash
 https://[GitHub username or organization]-[repo name]-[app path]-[branch name]-[short hash].streamlit.app
@@ -109,7 +109,7 @@ https://streamlit-demo-self-driving-streamlit-app-8jya0g.streamlit.app
 
 ### Custom subdomains
 
-The default subdomain is not always the most memorable or easy to share. That's why you can also set a custom domain for your app. The URL will appear as:
+Setting a custom subdomain makes it much easier to share your app since you can choose something memorable. Whether you set a custom subdomain during deployment or later, your app's URL will appear as:
 
 ```bash
 https://<your-custom-subdomain>.streamlit.app

@@ -24,7 +24,7 @@ Click on the bottom right where it says "Manage app" to view your Cloud logs and
 
 ![Developer view](/images/streamlit-community-cloud/developer-view.png)
 
-### Cloud logs
+### Streamlit Community Cloud logs
 
 Once you've clicked on "Manage app", you will be able to view your app's logs. This is your primary place to troubleshoot any issues with your app.
 
