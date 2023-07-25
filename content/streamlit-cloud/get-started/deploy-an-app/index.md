@@ -17,20 +17,40 @@ If you want to deploy your app on a different cloud service, check out the [Depl
 
 Streamlit Community Cloud launches apps directly from your GitHub repo, so your app code and dependencies need to be on GitHub before you try to deploy the app. See [App dependencies](/streamlit-community-cloud/get-started/deploy-an-app/app-dependencies) for more information.
 
-### Optionally, add a configuration file
+```
+your-repository/
+├── your_app.py
+└── requirements.txt
+```
 
-Streamlit allows you to optionally set configuration options via four different methods. Among other things, you can use custom configs to customize your app's theme, enable logging, or set the port on which your app runs. For more information, see [Configuration](/library/advanced-features/configuration) and [Theming](/library/advanced-features/theming). On Streamlit Community Cloud, however, you can only set configuration options via a configuration file in your GitHub repo.
+If you are including any custom [Configuration](/library/advanced-features/configuration) or [Themeing](/library/advanced-features/theming), make sure your config file is saved relative to the root of your repo. Within your repo, your config file should be `.streamlit/config.toml`.
 
-Specifically, you can add a configuration file to the root (top-level) directory of your repo: create a `.streamlit` folder, and then add a `config.toml` file to that folder. E.g., if your app is in a repo called `my-app`, you would add a file called `my-app/.streamlit/config.toml`. Say you want to set the theme of your app to "dark". You would add the following to your `.streamlit/config.toml` file:
+```
+your-repository/
+├── .streamlit/
+│   └── config.toml
+├── your_app.py
+└── requirements.txt
+```
 
-```toml
-[theme]
-base="dark"
+If your main app file is not located at the root of your repository, your folder structure might look like:
+
+```
+your-repository/
+├── .streamlit/
+│   └── config.toml
+└── your_project/
+    ├── pages/
+    │   ├── page_1.py
+    │   └── page_2.py
+    ├── your_app.py
+    └── requirements.txt
 ```
 
 <Important>
 
-There can be only one configuration file, regardless of the number of apps in the repo.
+   There can be only one configuration file, regardless of the number of apps in the repo.
+
 </Important>
 
 ## Deploy your app
@@ -47,7 +67,7 @@ Fill in your repo, branch, and file path. As a shortcut, you can also click "**P
 
 If you are connecting to a data source or want to select a Python version for your app, you can do that by clicking "**Advanced settings**" before you deploy the app.
 
-![Advanced settings](/images/streamlit-community-cloud/advanced-settings.png)
+![Advanced settings](/images/streamlit-community-cloud/deploy-an-app-advanced.png)
 
 You can connect to private data sources by using [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). Read more on how to [connect to data sources](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources).
 

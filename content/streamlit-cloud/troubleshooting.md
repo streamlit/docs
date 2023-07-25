@@ -46,7 +46,7 @@ To deploy an app for the first time you must have admin-level access to the repo
 
 When deploying an app, under advanced settings, you can choose which version of Python you wish your app to use.
 
-![Streamlit Community Cloud Advanced settings](/images/streamlit-community-cloud/advanced-settings.png)
+![Streamlit Community Cloud Advanced settings](/images/streamlit-community-cloud/deploy-an-app-advanced.png)
 
 ### How do I store files locally?
 

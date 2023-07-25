@@ -451,10 +451,10 @@ site_menu:
     url: /streamlit-community-cloud/manage-your-account
   - category: Streamlit Community Cloud / Manage your account / Update your email
     url: /streamlit-community-cloud/manage-your-account/update-your-email
+  - category: Streamlit Community Cloud / Manage your account / Connect GitHub
+    url: /streamlit-community-cloud/manage-your-account/connect-github
   - category: Streamlit Community Cloud / Manage your account / Delete your account
     url: /streamlit-community-cloud/manage-your-account/delete-your-account
-  # - category: Streamlit Community Cloud / Additional features
-  #   url: /streamlit-community-cloud/additional-features
   - category: Streamlit Community Cloud / Trust and Security
     url: /streamlit-community-cloud/trust-and-security
   - category: Streamlit Community Cloud / Troubleshooting
