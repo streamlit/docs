@@ -189,45 +189,12 @@ Click [here](/knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud
 
 ## Analytics Modal
 
-Once you have access to a Streamlit workspace, you have access to 2 types of analytics:
+Streamlit Community Cloud allows you to see the viewership of each of your apps. Specifically, you can see:
+* The total viewers count of your app (since April 2022 and onward).
+* The most recent unique viewers (capped up to your last 20 viewers).
+* A relative timestamp of those unique viewer's last visit.
 
-1. [Workspace analytics](/streamlit-community-cloud/get-started/manage-your-app#workspace-analytics): shows you how many viewers in total have visited _all_ the apps in your workspace.
-   <Image alt="Workspace analytics" src="/images/streamlit-community-cloud/workspace-analytics.gif" />
-2. [App viewers](/streamlit-community-cloud/get-started/manage-your-app#app-viewers): shows you who has recently viewed your workspace’s individual apps and when.
-   <Image alt="Workspace analytics" src="/images/streamlit-community-cloud/app-viewers-data.gif" />
-
-<Note>
-
-The Analytics Modal is visible to everyone with access to your workspace, including admins, developers, or anyone with viewer access to a workspace.
-
-</Note>
-
-### Workspace analytics
-
-Streamlit Community Cloud enables you to view analytics data for all apps in your workspace in one central dashboard. At a glance, you get an overview of how active your workspace is and how popular your apps are.
-
-To view your Workspace analytics:
-
-1. Select the "**Analytics**" option on the dashboard header
-   ![Workspace analytics header dashboard](/images/streamlit-community-cloud/workspace-analytics-header.png)
-2. View the "**Workspace**" tab in the Analytics modal
-   ![Workspace analytics modal](/images/streamlit-community-cloud/workspace-analytics-modal.png)
-
-You're presented with a graph that you can hover over to see the number of users who have viewed at least one app in your workspace that month. This viewers count includes apps that anyone in your workspace created.
-
-Solid lines indicate fully-complete months on the dashboard, while dotted lines indicate the current in-progress month.
-
-<Note>
-
-Viewers data on your dashboard starts from April 2022 and onward. April 2022 data was our first month comprehensively tracking user analytics in Streamlit workspaces, and our tracking is even more refined starting in May 2022 and onward.
-
-</Note>
-
-### App viewers
-
-In addition to a general overview of the activity of your workspace and the popularity of your apps, Streamlit Community Cloud allows you to drill down to the level of individual apps and understand their viewership better.
-
-As an app developer or a viewer with access to a given workspace, you can see who has viewed a given app and when. Specifically, you can see the total viewers count of your app (since April 2022 and onward), the most recent unique viewers (capped up to your last 20 viewers), and a relative timestamp of their last view.
+<Image alt="Workspace analytics" src="/images/streamlit-community-cloud/app-viewers-data.gif" />
 
 There are three ways to access the app viewers data:
 
@@ -260,11 +227,11 @@ There are three ways to access the app viewers data:
 <Image src="/images/streamlit-community-cloud/app-viewers-analytics-modal.png" />
 </Flex>
 
-#### **App viewers for public vs private apps**
+### **App viewers for public vs private apps**
 
 For public apps, we anonymize all viewers outside your workspace to protect their privacy and display anonymous viewers as random pseudonyms. You'll still be able to see the identities of fellow members in your workspace, though.
 
-Meanwhile, for private apps that are only accessible to your own workspace's viewers, you will be able to see the specific users who recently viewed your apps.
+Meanwhile, for private apps where you control who has access, you will be able to see the specific users who recently viewed your apps.
 
 Additionally, you may occasionally see anonymous users in private apps. Rest assured, these anonymous users _do_ have authorized view access granted by you or your workspace members.
 
