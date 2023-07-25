@@ -119,24 +119,34 @@ To view or customize your app subdomain from the dashboard:
 
 1. Click the "**︙**" overflow menu to the app's right and select "**Settings**".
 
-   ![Custom subdomain settings](/images/streamlit-community-cloud/custom-subdomain-settings.png)
+<div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
+    <Image src="/images/streamlit-community-cloud/workspace-app-settings.png" alt="App settings" />
+</div>
 
 2. View the "**General**" tab in the App settings modal. Your app's unique subdomain will appear here.
-   ![Custom subdomain pick](/images/streamlit-community-cloud/custom-subdomain-pick.png)
+
+<div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
+    <Image src="/images/streamlit-community-cloud/workspace-app-settings-general.png" alt="General app settings" />
+</div>
 
 3. Pick a custom subdomain between 6 and 63 characters in length for your app's URL and hit "**Save**".
-   ![Custom subdomain save](/images/streamlit-community-cloud/custom-subdomain-save.png)
+
+<div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
+    <Image src="/images/streamlit-community-cloud/workspace-app-settings-general-valid-domain.png" alt="New custom subdomain" />
+</div>
 
 It's that simple! You can then access your app by visiting your custom subdomain URL 🎉.
 
 If a custom subdomain is not available (e.g. because it's already taken), you'll see an error message like this:
 
-<Image src="/images/streamlit-community-cloud/custom-subdomain-error.png" clean />
+<div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
+    <Image src="/images/streamlit-community-cloud/workspace-app-settings-general-invalid-domain.png" alt="Invalid custom subdomain" />
+</div>
 
 ### Embed apps
 
 <Tip>
 
-Documentation for embedding apps has moved to [Embed your app](/streamlit-community-cloud/get-started/embed-your-app). Please update your bookmarks.
+Learn how to [Embed your app](/streamlit-community-cloud/get-started/embed-your-app) with an iframe or oEmbed.
 
 </Tip>
