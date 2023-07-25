@@ -65,12 +65,28 @@ We recommend that you use the latest version of Streamlit to ensure full Streaml
 
 There are other Python package managers besides `pip`. If you want to consider alternatives to using a `requirements.txt` file, Streamlit Community Cloud will look for other Python dependency managers to use in the order below. Streamlit will stop and install the first dependency file found.
 
-| **Filename**       | **Dependency Manager** | **Documentation**                                                                                                                     |
-| :----------------- | :--------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
-| `Pipfile`          | pipenv                 | **[docs](https://pipenv-fork.readthedocs.io/en/latest/basics.html)**                                                                  |
-| `environment.yml`  | conda                  | **[docs](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually)** |
-| `requirements.txt` | pip                    | **[docs](https://pip.pypa.io/en/stable/user_guide/#requirements-files)**                                                              |
-| `pyproject.toml`   | poetry                 | **[docs](https://python-poetry.org/docs/basic-usage/)**                                                                               |
+<table style={{ textAlign: 'center' }}>
+    <tr>
+        <th style={{ fontSize: '1.2em' }}> Recognized Filename</th>
+        <th style={{ fontSize: '1.2em' }}>Python Package Manager</th>
+    </tr>
+    <tr>
+        <td style={{ fontSize: '1em' }}><code>Pipfile</code></td>
+        <td style={{ fontSize: '1em' }}><a href="https://pipenv-fork.readthedocs.io/en/latest/basics.html">pipenv</a></td>
+    </tr>
+    <tr>
+        <td style={{ fontSize: '1em' }}><code>environment.yml</code></td>
+        <td style={{ fontSize: '1em' }}><a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually">conda</a></td>
+    </tr>
+    <tr>
+        <td style={{ fontSize: '1em' }}><code>requirements.txt</code></td>
+        <td style={{ fontSize: '1em' }}><a href="https://pip.pypa.io/en/stable/user_guide/#requirements-files">pip</a></td>
+    </tr>
+    <tr>
+        <td style={{ fontSize: '1em' }}><code>pyproject.toml</code></td>
+        <td style={{ fontSize: '1em' }}><a href="https://python-poetry.org/docs/basic-usage/">poetry</a></td>
+    </tr>
+</table>
 
 <Warning>
 
