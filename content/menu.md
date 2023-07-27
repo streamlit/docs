@@ -429,34 +429,32 @@ site_menu:
 
   - category: Streamlit Community Cloud / Get started
     url: /streamlit-community-cloud/get-started
-  - category: Streamlit Community Cloud / Get started / Deploy an app
-    url: /streamlit-community-cloud/get-started/deploy-an-app
-  - category: Streamlit Community Cloud / Get started / Deploy an app / App dependencies
-    url: /streamlit-community-cloud/get-started/deploy-an-app/app-dependencies
-  - category: Streamlit Community Cloud / Get started / Deploy an app / Connect to data sources
-    url: /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources
-  - category: Streamlit Community Cloud / Get started / Deploy an app / Connect to data sources / Secrets management
-    url: /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management
-  - category: Streamlit Community Cloud / Get started / Embed your app
-    url: /streamlit-community-cloud/get-started/embed-your-app
-  - category: Streamlit Community Cloud / Get started / Share your app
-    url: /streamlit-community-cloud/get-started/share-your-app
-  - category: Streamlit Community Cloud / Get started / Share your app / App indexability
-    url: /streamlit-community-cloud/get-started/share-your-app/indexability
-  - category: Streamlit Community Cloud / Get started / Share your app / Share previews
-    url: /streamlit-community-cloud/get-started/share-your-app/share-previews
-  - category: Streamlit Community Cloud / Get started / Manage your app
-    url: /streamlit-community-cloud/get-started/manage-your-app
+  - category: Streamlit Community Cloud / Get started / Connect GitHub
+    url: /streamlit-community-cloud/get-started/connect-github
+  - category: Streamlit Community Cloud / Get started / Trust and Security
+    url: /streamlit-community-cloud/get-started/trust-and-security
+  - category: Streamlit Community Cloud / Deploy your app
+    url: /streamlit-community-cloud/deploy-your-app
+  - category: Streamlit Community Cloud / Deploy your app / App dependencies
+    url: /streamlit-community-cloud/deploy-your-app/app-dependencies
+  - category: Streamlit Community Cloud / Deploy your app / Secrets management
+    url: /streamlit-community-cloud/deploy-your-app/secrets-management
+  - category: Streamlit Community Cloud / Share your app
+    url: /streamlit-community-cloud/share-your-app
+  - category: Streamlit Community Cloud / Share your app / Embed your app
+    url: /streamlit-community-cloud/share-your-app/embed-your-app
+  - category: Streamlit Community Cloud / Share your app / App indexability
+    url: /streamlit-community-cloud/share-your-app/indexability
+  - category: Streamlit Community Cloud / Share your app / Share previews
+    url: /streamlit-community-cloud/share-your-app/share-previews
+  - category: Streamlit Community Cloud / Manage your app
+    url: /streamlit-community-cloud/manage-your-app
   - category: Streamlit Community Cloud / Manage your account
     url: /streamlit-community-cloud/manage-your-account
   - category: Streamlit Community Cloud / Manage your account / Update your email
     url: /streamlit-community-cloud/manage-your-account/update-your-email
-  - category: Streamlit Community Cloud / Manage your account / Connect GitHub
-    url: /streamlit-community-cloud/manage-your-account/connect-github
   - category: Streamlit Community Cloud / Manage your account / Delete your account
     url: /streamlit-community-cloud/manage-your-account/delete-your-account
-  - category: Streamlit Community Cloud / Trust and Security
-    url: /streamlit-community-cloud/trust-and-security
   - category: Streamlit Community Cloud / Troubleshooting
     url: /streamlit-community-cloud/troubleshooting
 

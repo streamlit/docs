@@ -1,6 +1,6 @@
 ---
 title: Share previews
-slug: /streamlit-community-cloud/get-started/share-your-app/share-previews
+slug: /streamlit-community-cloud/share-your-app/share-previews
 ---
 
 # Share previews

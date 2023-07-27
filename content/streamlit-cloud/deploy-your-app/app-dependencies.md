@@ -1,6 +1,6 @@
 ---
 title: App dependencies
-slug: /streamlit-community-cloud/get-started/deploy-an-app/app-dependencies
+slug: /streamlit-community-cloud/deploy-your-app/app-dependencies
 ---
 
 # App dependencies

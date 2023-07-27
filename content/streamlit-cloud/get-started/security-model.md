@@ -1,6 +1,6 @@
 ---
 title: Streamlit Trust and Security
-slug: /streamlit-community-cloud/trust-and-security
+slug: /streamlit-community-cloud/get-started/trust-and-security
 ---
 
 # Streamlit Trust and Security

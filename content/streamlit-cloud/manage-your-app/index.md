@@ -1,6 +1,6 @@
 ---
 title: Manage your app
-slug: /streamlit-community-cloud/get-started/manage-your-app
+slug: /streamlit-community-cloud/manage-your-app
 ---
 
 # Manage your app

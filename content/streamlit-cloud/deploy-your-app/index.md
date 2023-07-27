@@ -1,6 +1,6 @@
 ---
 title: Deploy your app
-slug: /streamlit-community-cloud/get-started/deploy-an-app
+slug: /streamlit-community-cloud/deploy-your-app
 ---
 
 # Deploy your app

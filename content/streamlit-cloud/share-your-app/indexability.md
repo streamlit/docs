@@ -1,6 +1,6 @@
 ---
 title: App indexability
-slug: /streamlit-community-cloud/get-started/share-your-app/indexability
+slug: /streamlit-community-cloud/share-your-app/indexability
 ---
 
 # App indexability

@@ -1,6 +1,6 @@
 ---
 title: Secrets management
-slug: /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management
+slug: /streamlit-community-cloud/deploy-your-app/secrets-management
 ---
 
 # Secrets management

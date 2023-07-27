@@ -1,6 +1,6 @@
 ---
 title: Embed your app
-slug: /streamlit-community-cloud/get-started/embed-your-app
+slug: /streamlit-community-cloud/share-your-app/embed-your-app
 ---
 
 # Embed your app

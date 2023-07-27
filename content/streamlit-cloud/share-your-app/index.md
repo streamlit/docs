@@ -1,6 +1,6 @@
 ---
 title: Share your app
-slug: /streamlit-community-cloud/get-started/share-your-app
+slug: /streamlit-community-cloud/share-your-app
 ---
 
 # Share your app
