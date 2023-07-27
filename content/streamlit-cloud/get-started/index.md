@@ -19,9 +19,8 @@ Getting your workspace set up with Streamlit Community Cloud only takes a few mi
 
 1. [Sign up for Streamlit Community Cloud](#sign-up-for-streamlit-community-cloud)
 2. [Log in to your account](#log-in-to-sharestreamlitio)
-3. [Connect your Streamlit Community Cloud account to GitHub](#connect-your-github-account)
-4. [Explore your Streamlit Community Cloud workspace](#explore-your-streamlit-community-cloud-workspace)
-5. [Invite other developers on your team](#invite-other-developers-to-your-workspace)
+3. [Explore your Streamlit Community Cloud workspace](#explore-your-streamlit-community-cloud-workspace)
+4. [Invite other developers to your workspace](#invite-other-developers-to-your-workspace)
 
 ## Sign up for Streamlit Community Cloud
 
