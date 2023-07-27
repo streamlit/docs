@@ -24,7 +24,7 @@ if st.button('Three cheers'):
 
 <Cloud src="https://doc-status-toast1.streamlit.app/?embed=true" height="300" />
 
-Toasts can also be treated like containers. Assign `st.toast(my_message)` to a variable
+Toast messages can also be updated. Assign `st.toast(my_message)` to a variable
 and use the `.toast()` method to update it. Note: if a toast has already disappeared
 or been dismissed, the update will not be seen.
 
