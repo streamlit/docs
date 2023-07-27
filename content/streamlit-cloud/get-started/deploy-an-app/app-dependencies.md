@@ -94,7 +94,7 @@ You should only use one requirements file for your app. If you include more than
 
 </Warning>
 
-### apt-get dependencies
+## apt-get dependencies
 
 For many apps, a `packages.txt` file is not required. However, if your script requires any software to be installed that is not a Python package, then you will need a `packages.txt` file. Streamlit Community Cloud is built on Debian Linux. Anything you would like to `apt-get install` needs to go in your `packages.txt` file.
 

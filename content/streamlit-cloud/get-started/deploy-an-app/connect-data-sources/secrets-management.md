@@ -7,19 +7,19 @@ slug: /streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sourc
 
 ## Introduction
 
-It's generally considered bad practice to store unencrypted secrets in a git repository. If your application needs access to sensitive credentials the recommended solution is to store those credentials in a file that is not committed to the repository and to pass them as environment variables.
+If you are [connecting to data sources](/knowledge-base/tutorials/databases), you will likely need to handle credentials or secrets. It's generally considered bad practice to store unencrypted secrets in a git repository. If your application needs access to sensitive credentials the recommended solution is to store those credentials in a file that is not committed to the repository and to pass them as environment variables.
 
-Secrets Management allows you to store secrets securely and access them in your Streamlit app as environment variables.
+Secrets management allows you to store secrets securely and access them in your Streamlit app as environment variables.
 
 ## How to use Secrets Management
 
 ### Deploy an app and set up secrets
 
-1. Go to [http://share.streamlit.io/](http://share.streamlit.io/) and click "New app" to deploy a new app with secrets.
-2. Click "Advanced settings..."
+1. Go to [http://share.streamlit.io/](http://share.streamlit.io/) and click "**New app**" to deploy a new app with secrets.
+2. Click "**Advanced settings...**"
 3. You will see a modal appear with an input box for your secrets.
 
-   ![Secrets management](/images/streamlit-community-cloud/secrets-management.png)
+   ![Advanced settings](/images/streamlit-community-cloud/deploy-an-app-advanced.png)
 
 4. Provide your secrets in the "Secrets" field using [TOML](https://toml.io/en/latest) format. For example:
 
