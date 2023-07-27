@@ -35,6 +35,10 @@ Streamlit offers several commands to help you build conversational apps. These c
 
 [`st.chat_message`](/library/api-reference/chat/st.chat_message) lets you insert a chat message container into the app so you can display messages from the user or the app. Chat containers can contain other Streamlit elements, including charts, tables, text, and more. [`st.chat_input`](/library/api-reference/chat/st.chat_input) lets you display a chat input widget so the user can type in a message.
 
+For an overview of the API, check out this video tutorial by Chanin Nantasenamat ([@dataprofessor](https://www.youtube.com/dataprofessor)), a Senior Developer Advocate at Streamlit.
+
+<YouTube videoId="4sPnOqeUDmk" />
+
 ### st.chat_message
 
 `st.chat_message` lets you insert a multi-element chat message container into your app. The returned container can contain any Streamlit element, including charts, tables, text, and more. To add elements to the returned container, you can use `with` notation.
