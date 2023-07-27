@@ -11,3 +11,7 @@ Read the [Build conversational apps](/knowledge-base/tutorials/build-conversatio
 </Tip>
 
 <Autofunction function="streamlit.chat_message" />
+
+For an overview of the `st.chat_message` and `st.chat_input` API, check out this video tutorial by Chanin Nantasenamat ([@dataprofessor](https://www.youtube.com/dataprofessor)), a Senior Developer Advocate at Streamlit.
+
+<YouTube videoId="4sPnOqeUDmk" />
