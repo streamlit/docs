@@ -139,6 +139,6 @@ Your app will now be deployed to Streamlit Community Cloud and can be accessed f
 
 Congratulations on building an LLM-powered Streamlit app in 18 lines of code! 🥳 You can use this app to generate text from any prompt that you provide. The app is limited by the capabilities of the OpenAI LLM, but it can still be used to generate some creative and interesting text.
 
-We hope you found this tutorial helpful! Check out [more examples](https://streamlit.io/generative-ai) to see the power of Streamlit 💖 LLM.
+We hope you found this tutorial helpful! Check out [more examples](https://streamlit.io/generative-ai) to see the power of Streamlit and LLM. 💖
 
 Happy Streamlit-ing! 🎈
