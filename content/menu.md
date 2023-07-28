@@ -429,6 +429,8 @@ site_menu:
 
   - category: Streamlit Community Cloud / Get started
     url: /streamlit-community-cloud/get-started
+  - category: Streamlit Community Cloud / Get started / Quickstart
+    url: /streamlit-community-cloud/get-started/quickstart
   - category: Streamlit Community Cloud / Get started / Connect GitHub
     url: /streamlit-community-cloud/get-started/connect-github
   - category: Streamlit Community Cloud / Get started / Trust and Security

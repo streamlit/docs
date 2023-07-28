@@ -7,6 +7,8 @@ slug: /streamlit-community-cloud/get-started/connect-github
 
 In order to use GitHub with Streamlit, you need to authorize Streamlit to connect to your GitHub account. This lets your Streamlit Community Cloud workspace launch apps directly from the files you store in your repos. It also lets the system check for updates to those files and automatically update your app.
 
+Everyone is prompted to connect GitHub when they create an account, so most users will see the necessary authorization prompts automatically. If you need to connect GitHub to an existing primary identity, see [Manage your GitHub connection](/streamlit-community-cloud/manage-your-account/manage-your-github-connection).
+
 ## Authorize your GitHub account
 
 There are two different authorization screens to grant access between Streamlit and your GitHub account. The first authorization&mdash;"Authorize Streamlit"&mdash;happens when you connect your GitHub account to Streamlit. The second authorization&mdash;"Streamlit is requesting additional permissions"&mdash;happens when you deploy your first app. Click "**Authorize streamlit**" on both. If you are a member of any GitHub organizations, see [Authorize and organization](#authorize-an-organization) for the extra required steps. Questions about GitHub permissions? [Read more here](/streamlit-community-cloud/troubleshooting#github-integration)!
