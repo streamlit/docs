@@ -11,7 +11,7 @@ Everyone is prompted to connect GitHub when they create an account, so most user
 
 ## Authorize your GitHub account
 
-There are two different authorization screens to grant access between Streamlit and your GitHub account. The first authorization&mdash;"Authorize Streamlit"&mdash;happens when you connect your GitHub account to Streamlit. The second authorization&mdash;"Streamlit is requesting additional permissions"&mdash;happens when you deploy your first app. Click "**Authorize streamlit**" on both. If you are a member of any GitHub organizations, see [Authorize and organization](#authorize-an-organization) for the extra required steps. Questions about GitHub permissions? [Read more here](/streamlit-community-cloud/troubleshooting#github-integration)!
+There are two different authorization screens to grant access between Streamlit and your GitHub account. The first authorization&mdash;"Authorize Streamlit"&mdash;happens when you connect your GitHub account to Streamlit. The second authorization&mdash;"Streamlit is requesting additional permissions"&mdash;happens when you deploy your first app. Click "**Authorize streamlit**" on both. If you are a member of any GitHub organizations, see [Authorize an organization](#authorize-an-organization) for the extra required steps. Questions about GitHub permissions? [Read more here](/streamlit-community-cloud/troubleshooting#github-integration)!
 
 <Image alt="Authorize your GitHub account" src="/images/streamlit-community-cloud/GitHub-auth-none.png" />
 
@@ -61,14 +61,8 @@ If a request has been previously sent but not yet approved, a pending status sho
 
 #### Denied access
 
-If a request has been previously sent and denied, no option to grant or request access is shown. In this case, the organization owner will need to authorize Streamlit from GitHub.
+If a request has been previously sent and denied, no option to grant or request access is shown. In this case, the organization owner will need to authorize Streamlit from GitHub. See GitHub's documentation on [OAuth apps and organizations](https://docs.github.com/en/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps#oauth-apps-and-organizations).
 
 <div style={{ maxWidth: '60%', margin: 'auto' }}>
 <Image alt="Authorize your GitHub account" src="/images/streamlit-community-cloud/GitHub-auth-denied-XL.png" clean />
 </div>
-
-<Note>
-
-Once a user is added to a repository on GitHub, it will take at most 15 minutes before they can deploy the app on Cloud. If a user is removed from a repository on GitHub, it will take at most 15 minutes before their permissions to manage the app from that repository are revoked.
-
-</Note>

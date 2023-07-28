@@ -5,7 +5,7 @@ slug: /streamlit-community-cloud/get-started/quickstart
 
 # Quickstart
 
-This is an abridged set of steps to create your account and deploy an app. For other options and more explanations, start with [Create your account]().
+This is a concise set of steps to create your Streamlit Community Cloud account and deploy an app. For other options and more explanations, start with [Sign up for Streamlit Community Cloud](/streamlit-community-cloud/get-started#sign-up-for-streamlit-community-cloud).
 
 ## Sign up
 
@@ -43,7 +43,7 @@ This is an abridged set of steps to create your account and deploy an app. For o
 
 ## Fork an example repository
 
-8. If you already have a Streamlit app saved in one of your repositories, skip to step 13--[Deploy an app](#deploy-an-app). Otherwise, keep going to clone an example to your GitHub account.
+8. If you already have a Streamlit app saved in one of your repositories, skip to step 13&mdash;[Deploy an app](#deploy-an-app). Otherwise, keep going to clone an example to your GitHub account.
 9. Go to [github.com/streamlit/demo-uber-nyc-pickups](https://github.com/streamlit/demo-uber-nyc-pickups).
 10. Click "**Fork**" in the upper-right corner of the repo.
 
@@ -76,7 +76,7 @@ This is an abridged set of steps to create your account and deploy an app. For o
 
   <p style={{ textAlign: 'center' }}><code>&lt;your GitHub username&gt;/demo-uber-nyc-pickups</code></p>
 
-  You can leave "**App URL (Optional)**" with the default random string or you can pick cool name for your app's URL. Click "**Deploy!**"
+  You can leave "**App URL (Optional)**" with the default value or you can enter cool name for your app's URL. Click "**Deploy!**"
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
 <Image src="/images/streamlit-community-cloud/deploy-demo.png" />
