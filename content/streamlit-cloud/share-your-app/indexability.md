@@ -1,9 +1,9 @@
 ---
-title: App indexability
+title: SEO and search indexability
 slug: /streamlit-community-cloud/share-your-app/indexability
 ---
 
-# App indexability
+# SEO and search indexability
 
 When you deploy a public app to Community Cloud, it is automatically indexed by search engines like Google and Bing on a weekly basis. 🎈 This means that anyone can find your app by searching for its custom subdomain (e.g. <https://traingenerator.streamlit.app>) or by searching for the app's title.
 

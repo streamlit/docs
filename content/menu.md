@@ -445,7 +445,7 @@ site_menu:
     url: /streamlit-community-cloud/share-your-app
   - category: Streamlit Community Cloud / Share your app / Embed your app
     url: /streamlit-community-cloud/share-your-app/embed-your-app
-  - category: Streamlit Community Cloud / Share your app / App indexability
+  - category: Streamlit Community Cloud / Share your app / Search indexability
     url: /streamlit-community-cloud/share-your-app/indexability
   - category: Streamlit Community Cloud / Share your app / Share previews
     url: /streamlit-community-cloud/share-your-app/share-previews
@@ -453,6 +453,8 @@ site_menu:
     url: /streamlit-community-cloud/manage-your-app
   - category: Streamlit Community Cloud / Manage your account
     url: /streamlit-community-cloud/manage-your-account
+  - category: Streamlit Community Cloud / Manage your account / Manage your GitHub connection
+    url: /streamlit-community-cloud/manage-your-account/manage-your-github-connection
   - category: Streamlit Community Cloud / Manage your account / Update your email
     url: /streamlit-community-cloud/manage-your-account/update-your-email
   - category: Streamlit Community Cloud / Manage your account / Delete your account
