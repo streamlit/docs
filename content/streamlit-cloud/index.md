@@ -5,53 +5,54 @@ slug: /streamlit-community-cloud
 
 # Welcome to Streamlit Community Cloud
 
-Streamlit's Community Cloud is an open and free platform for the community to deploy, discover, and share Streamlit apps and code with each other. If you're just getting started and have not yet built your first Streamlit app, check out the main [Get started](/library/get-started) page first. When you're ready to share it, create a Community Cloud account and you can launch your app in just a few minutes! Deploy, manage, and share your apps with the world, directly from Streamlit — all for free.
+Deploy, manage, and share your apps with the world, directly from Streamlit — all for free.
+
+Streamlit's Community Cloud is an open and free platform for the community to deploy, discover, and share Streamlit apps and code with each other. If you're just getting started and have not yet built your first Streamlit app, check out the main [Get started](/library/get-started) page first. When you're ready to share it, create a Community Cloud account and you can launch your app in just a few minutes! Alternatively, Streamlit Community Cloud [Quickstart](/streamlit-community-cloud/get-started/deploy-an-app/quickstart) will speed-run you through creating your account and deploying and example app.
 
 <TileContainer>
     <Tile
+        icon="rocket_launch"
+        title="Quickstart"
+        text="Create your account and deploy an example app as fast as possible."
+        link="/streamlit-community-cloud/get-started/quickstart"
+        background="violet-70"
+    />
+    <Tile
         icon="arrow_forward"
         title="Get started"
-        text="Learn how to set up your account to start deploying apps."
+        text="Learn about Streamlit Community Cloud accounts and how to create one."
         link="/streamlit-community-cloud/get-started"
     />
     <Tile
         icon="flight_takeoff"
-        title="Deploy an app"
-        text="A step by step guide on how to get your app deployed."
-        link="/streamlit-community-cloud/get-started/deploy-an-app"
-    />
-    <Tile
-        icon="electrical_services"
-        title="Connect data sources"
-        text="Learn how to securely connect your app to data sources."
-        link="/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources"
-    />
-    <Tile
-        icon="bookmark"
-        title="Embed your app"
-        text="Embed your app in your blog, website, or other content."
-        link="/streamlit-community-cloud/get-started/embed-your-app"
+        title="Deploy your app"
+        text="A step-by-step guide on how to get your app deployed."
+        link="/streamlit-community-cloud/deploy-your-app"
     />
     <Tile
         icon="share"
         title="Share your app"
-        text="Share your app publicly or privately with select viewers and developers."
-        link="/streamlit-community-cloud/get-started/share-your-app"
+        text="Share or embed your app."
+        link="/streamlit-community-cloud/share-your-app"
+    />
+    <Tile
+        icon="settings"
+        title="Manage your app"
+        text="Access logs, reboot, favorite an app, and other tips and tricks."
+        link="/streamlit-community-cloud/manage-your-app"
     />
     <Tile
         icon="manage_accounts"
-        title="Manage your app"
-        text="Access logs, reboot, or favorite an app, and other tips and tricks."
-        link="/streamlit-community-cloud/get-started/manage-your-app"
+        title="Manage your account"
+        text="Update your email, manage connections, or delete your account."
+        link="/streamlit-community-cloud/manage-your-account"
     />
 </TileContainer>
 
 <Note>
 
-Interested in our security model? Check out our [Trust and Security page](/streamlit-community-cloud/trust-and-security).
+Interested in our security model? Check out our [Trust and Security page](/streamlit-community-cloud/get-started/trust-and-security).
 
 </Note>
-
-<!-- Questions? Reach out to [support@streamlit.io](mailto:support@streamlit.io) for answers! -->
 
 Questions? Reach out to us on the [Community forum](https://discuss.streamlit.io)!
