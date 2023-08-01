@@ -431,8 +431,12 @@ site_menu:
     url: /streamlit-community-cloud/get-started
   - category: Streamlit Community Cloud / Get started / Quickstart
     url: /streamlit-community-cloud/get-started/quickstart
+  - category: Streamlit Community Cloud / Get started / Create your account
+    url: /streamlit-community-cloud/get-started/create-your-account
   - category: Streamlit Community Cloud / Get started / Connect GitHub
     url: /streamlit-community-cloud/get-started/connect-github
+  - category: Streamlit Community Cloud / Get started / Explore your workspace
+    url: /streamlit-community-cloud/get-started/workspace
   - category: Streamlit Community Cloud / Get started / Trust and Security
     url: /streamlit-community-cloud/get-started/trust-and-security
   - category: Streamlit Community Cloud / Deploy your app

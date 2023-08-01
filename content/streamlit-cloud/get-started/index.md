@@ -28,30 +28,6 @@ Getting your workspace set up with Streamlit Community Cloud only takes a few mi
 3. [Explore your Streamlit Community Cloud workspace](#explore-your-streamlit-community-cloud-workspace)
 4. [Invite other developers to your workspace](#invite-other-developers-to-your-workspace)
 
-## Sign up for Streamlit Community Cloud
-
-Streamlit's Community Cloud allows you to deploy, manage, and share your apps with the world, directly from Streamlit — all for free. Sign up on the [Community Cloud homepage](https://streamlit.io/cloud).
-
-![Sign up](/images/streamlit-community-cloud/sign-up.png)
-
-Streamlit Community Cloud accounts have two underlying identities: primary and source control. Your primary identity is used for viewing analytics as well as viewing permissions. Your source-control identity is used for deploying and managing apps.
-
-### Primary identity
-
-Your primary identity is associated to an email. You can log in through [Google](#sign-in-with-google) or through [emailed sign-in links](#sign-in-with-email) which are valid for 15 minutes once requested. If you begin your sign-up process with Google or email, you will be prompted to optionally link a GitHub account as a second step.
-
-If you're sharing a private app, you will assign viewing permission by email. Therefore, your app's users will need to log in with either Google or emailed links.
-
-### Source control
-
-Streamlit Community Cloud is integreated with [GitHub](#sign-in-with-github) for source control. If you begin your sign-up process with GitHub, you will not be directly prompted to create a primary identity. However, you can attach a Google account later.
-
-There are two different authorization requests that will occur when you [Connect GitHub](http://localhost:3000/streamlit-community-cloud/get-started/connect-github) to your account. You will encounter the first authorization request when you connect your GitHub account. A second authorization is needed the first time you deploy an app.
-
-### New user survey
-
-As a final step to account creation, we ask users about themselves and their experience with Streamlit. This is also when users acknowledge our [Terms of use](https://www.streamlit.io/sharing/terms-of-use) and [Privacy notice](https://streamlit.io/privacy-policy). The email you provide in this survey is not used as your account email.
-
 ## Log in to share.streamlit.io
 
 Once you've created your account, sign in to [share.streamlit.io](https://share.streamlit.io) and follow the steps below.
@@ -112,26 +88,3 @@ Check your inbox for an email from Streamlit, with the subject "**Sign in to Str
 
 Once you click the link in your email, you can [Explore your Streamlit Community Cloud workspace!](#explore-your-streamlit-community-cloud-workspace)🎈
 
-## Explore your Streamlit Community Cloud workspace
-
-Congrats! You are now logged in and ready to go. If you are joining someone else's workspace you may already see apps populated in your workspace. If not, then you need to deploy an app! Check out our next section on how to [Deploy your app](/streamlit-community-cloud/deploy-your-app). If you need an app to deploy, check out our [example apps](https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlit.app/) that include apps for machine learning, data science, and business use cases. You can read more about connecting to someone else's workspace in [Connect GitHub](http://localhost:3000/streamlit-community-cloud/get-started/connect-github).
-
-![Workspace](/images/streamlit-community-cloud/workspace-empty.png)
-
-You may also find that you already have multiple Streamlit Community Cloud workspaces. Streamlit Community Cloud automatically groups your apps according to the corresponding GitHub repository's owner or organzation. In the upper right corner you can see the workspaces you have access to. If apps have already been deployed from any of your repositories, then you will see those apps in your workspace. Learn more about [App workspaces](/streamlit-community-cloud/manage-your-app#app-workspaces).
-
-![Switch workspaces](/images/streamlit-community-cloud/workspace-empty-switch.png)
-
-## Invite other developers to your workspace
-
-Inviting other developers is simple, just invite them to your GitHub repository so that you can code on apps together, and then have them log in to [share.streamlit.io](https://share.streamlit.io). Read more about connecting to a GitHub organization in [Connect GitHub](http://localhost:3000/streamlit-community-cloud/get-started/connect-github).
-
-Streamlit Community Cloud inherits developer permissions from GitHub, so when your teammates log in, they will automatically view the workspaces you share. From there you can all deploy, manage, and share apps together.
-
-<Note>
-
-Once a user is added to a repository on GitHub, it will take at most 15 minutes before they can deploy the app on Cloud. If a user is removed from a repository on GitHub, it will take at most 15 minutes before their permissions to manage the app from that repository are revoked.
-
-</Note>
-
-And remember, whenever anyone on the team updates the code on GitHub, the app will also automatically update for you!
