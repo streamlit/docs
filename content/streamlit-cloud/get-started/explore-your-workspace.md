@@ -1,11 +1,11 @@
 ---
 title: Explore your workspace
-slug: /streamlit-community-cloud/get-started/workspace
+slug: /streamlit-community-cloud/get-started/explore-your-workspace
 ---
 
 # Explore your Streamlit Community Cloud workspace
 
-Congrats! You are now logged in and ready to go. If you are joining someone else's workspace you may already see apps populated in your workspace. If not, then you need to deploy an app! Check out our next section on how to [Deploy your app](/streamlit-community-cloud/deploy-your-app). If you need an app to deploy, check out our [example apps](https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlit.app/) that include apps for machine learning, data science, and business use cases.
+If you just [created your account](/streamlit-community-cloud/get-started/create-your-account), congrats! You are now logged in and ready to go. If you are joining someone else's workspace you may already see apps populated in your workspace. If not, then you need to deploy an app! Check out our next section on how to [Deploy your app](/streamlit-community-cloud/deploy-your-app). If you need an app to deploy, check out our [example apps](https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlit.app/) that include apps for machine learning, data science, and business use cases.
 
 ![Workspace](/images/streamlit-community-cloud/workspace-empty.png)
 

@@ -436,7 +436,7 @@ site_menu:
   - category: Streamlit Community Cloud / Get started / Connect GitHub
     url: /streamlit-community-cloud/get-started/connect-github
   - category: Streamlit Community Cloud / Get started / Explore your workspace
-    url: /streamlit-community-cloud/get-started/workspace
+    url: /streamlit-community-cloud/get-started/explore-your-workspace
   - category: Streamlit Community Cloud / Get started / Trust and Security
     url: /streamlit-community-cloud/get-started/trust-and-security
   - category: Streamlit Community Cloud / Deploy your app

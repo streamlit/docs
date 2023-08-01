@@ -7,7 +7,7 @@ slug: /streamlit-community-cloud
 
 Deploy, manage, and share your apps with the world, directly from Streamlit — all for free.
 
-Streamlit's Community Cloud is an open and free platform for the community to deploy, discover, and share Streamlit apps and code with each other. If you're just getting started and have not yet built your first Streamlit app, check out the main [Get started](/library/get-started) page first. When you're ready to share it, create a Community Cloud account and you can launch your app in just a few minutes! Alternatively, Streamlit Community Cloud [Quickstart](/streamlit-community-cloud/get-started/deploy-an-app/quickstart) will speed-run you through creating your account and deploying and example app.
+Streamlit's Community Cloud is an open and free platform for the community to deploy, discover, and share Streamlit apps and code with each other. If you're just getting started and have not yet built your first Streamlit app, check out the main [Get started](/library/get-started) page first. When you're ready to share it, create a Community Cloud account and you can launch your app in just a few minutes! Alternatively, Streamlit Community Cloud [Quickstart](/streamlit-community-cloud/get-started/quickstart) will speed-run you through creating your account and deploying and an example app.
 
 <TileContainer>
     <Tile
@@ -38,7 +38,7 @@ Streamlit's Community Cloud is an open and free platform for the community to de
     <Tile
         icon="settings"
         title="Manage your app"
-        text="Access logs, reboot, favorite an app, and other tips and tricks."
+        text="Access logs, reboot apps, set favorites, and more."
         link="/streamlit-community-cloud/manage-your-app"
     />
     <Tile
@@ -54,5 +54,3 @@ Streamlit's Community Cloud is an open and free platform for the community to de
 Interested in our security model? Check out our [Trust and Security page](/streamlit-community-cloud/get-started/trust-and-security).
 
 </Note>
-
-Questions? Reach out to us on the [Community forum](https://discuss.streamlit.io)!

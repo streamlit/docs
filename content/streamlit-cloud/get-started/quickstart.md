@@ -84,8 +84,12 @@ This is a concise set of steps to create your Streamlit Community Cloud account 
 
 ## You're done!
 
-Congratulations! You just deployed an app to Streamlit Community Cloud. 🎉 Your app may take a few minutes to fully build, but once it's done it will load automatically. Start modifying the code in your repository and have fun exploring. Happy Streamlit-ing!🎈
+Congratulations! You just deployed an app to Streamlit Community Cloud. 🎉 Your app may take a few minutes to fully build, but once it's done it will load automatically.
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
 <Image src="/images/streamlit-community-cloud/deploy-example-done.png" />
 </div>
+
+## What's next?
+
+Start modifying the code in your repository and have fun exploring. Alternatively, you can [deploy another Streamlit app](/streamlit-community-cloud/deploy-your-app). Happy Streamlit-ing!🎈
