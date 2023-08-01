@@ -13,7 +13,7 @@ This is a concise set of steps to create your Streamlit Community Cloud account 
 2. Click "**Continue with Google**".
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
-<Image src="/images/streamlit-community-cloud/sign-up-XL.png" />
+<Image src="/images/streamlit-community-cloud/sign-up-Google-XL.png" />
 </div>
 
 3. Enter your Google credentials and follow Google's authentication prompts.
@@ -23,19 +23,20 @@ This is a concise set of steps to create your Streamlit Community Cloud account 
 <Image src="/images/streamlit-community-cloud/sign-up-2.png" />
 </div>
 
-5. Click "**Authorize streamlit**".
+5. Enter your GitHub credentials and follow GitHub's authentication prompts.
+6. Click "**Authorize streamlit**".
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
 <Image src="/images/streamlit-community-cloud/GitHub-auth1-none.png" />
 </div>
 
-6. To finish, fill in your information and click "**Continue**" at the bottom of the screen.
+7. To finish, fill in your information and click "**Continue**" at the bottom of the screen.
 
 <div style={{ maxWidth: '70%', margin: 'auto' }}>
 <Image src="/images/streamlit-community-cloud/sign-up-3.png" />
 </div>
 
-7. You will be taken to your Streamlit workspace. If you see a warning icon next to "**Settings**" in the upper-right corner, this will addressed in the next steps.
+8. You will be taken to your Streamlit workspace. If you see a warning icon next to "**Settings**" in the upper-right corner, this will addressed in the next steps.
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
 <Image src="/images/streamlit-community-cloud/workspace-empty-warning.png" />
@@ -43,25 +44,25 @@ This is a concise set of steps to create your Streamlit Community Cloud account 
 
 ## Fork a sample app
 
-8. Click the down arrow (<i className={{ class: "material-icons-sharp" }}>expand_more</i>) to expand the options under "**New App**".
+9. Click the down arrow (<i className={{ class: "material-icons-sharp" }}>expand_more</i>) to expand the options under "**New App**".
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
 <Image src="/images/streamlit-community-cloud/deploy-example-1.png" />
 </div>
 
-9. Click "**Create from sample app template**".
+10. Click "**Create from sample app template**".
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
 <Image src="/images/streamlit-community-cloud/deploy-example-2.png" />
 </div>
 
-10. You will be prompted that "Streamlit is requesting additional permissions". Click "**Authorize streamlit**".
+11. You will be prompted that "Streamlit is requesting additional permissions". Click "**Authorize streamlit**".
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
 <Image src="/images/streamlit-community-cloud/GitHub-auth2-none.png" />
 </div>
 
-11. Click "**Fork sample app**".
+12. Click "**Fork sample app**".
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
 <Image src="/images/streamlit-community-cloud/deploy-example-fork.png" />
@@ -69,13 +70,13 @@ This is a concise set of steps to create your Streamlit Community Cloud account 
 
 ## Deploy a sample app
 
-12. After the repository is copied to your GitHub account, the forked repository's information is prefilled into a deployment screen. Click "**Deploy!**"
+13. After the repository is copied to your GitHub account, the forked repository's information is prefilled into a deployment screen. Click "**Deploy!**"
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
 <Image src="/images/streamlit-community-cloud/deploy-example-deploy.png" />
 </div>
 
-13. Wait for the app to build. This may take a few minutes.
+14. Wait for the app to build. This may take a few minutes.
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
 <Image src="/images/streamlit-community-cloud/deploy-demo-provisioning.png" />

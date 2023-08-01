@@ -57,7 +57,7 @@ If you are connecting to a data source or want to select a Python version for yo
 
 ![Advanced settings](/images/streamlit-community-cloud/deploy-an-app-advanced.png)
 
-You can connect to private data sources by using [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). Read more on how to [connect to data sources](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources).
+You can connect to private data sources by using [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). Read more on how to [Connect Streamlit to data sources](/knowledge-base/tutorials/databases).
 
 <Tip>
 
