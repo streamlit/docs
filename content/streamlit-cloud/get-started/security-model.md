@@ -15,7 +15,7 @@ number = st.slider("Pick a number: ", min_value=1, max_value=10)
 st.text("Your number is " + str(number))
 ```
 
-When you `streamlit run my_app.py`, you start a web server that runs the interactive application on your local computer at `http://localhost:8501`. This is great for local development. When you want to share with your colleagues, Streamlit Community Cloud enables you to deploy and run these applications in the cloud. Streamlit Community Cloud handles all the details of scaling, reliability, and security as well as providing you an interface for easily managing your deployed apps.
+When you `streamlit run my_app.py`, you start a web server that runs the interactive application on your local computer at `http://localhost:8501`. This is great for local development. When you want to share with your colleagues, Streamlit Community Cloud enables you to deploy and run these applications in the cloud. Streamlit Community Cloud handles all the details of containerization and provides you an interface for easily managing your deployed apps.
 
 This document is an overview of how we provide best-in-industry security for you. We'll cover all the important areas in the lifecycle of your data:
 
@@ -25,15 +25,15 @@ This document is an overview of how we provide best-in-industry security for you
 
 ## Product Security
 
-### SSO
+### Authentication
 
-All access and sign-ins to Streamlit are conducted via an SSO provider: GitHub and GSuite. We do not store customer passwords.
+Authentication through GitHub is required to deploy or administer an app. Authentication through Google or single-use emailed links are required to view a private app for which you are not an admin. These links are valid for 15 minutes once requested. We do not store customer passwords.
 
 ### Credential Storage
 
 We encrypt sensitive customer data (e.g. secrets, authentication tokens) at-rest with AES256 as described in Google's documentation.
 
-### Permissions and Role-Based Access Control
+### Permissions
 
 Our permission levels inherit from the permissions you have assigned in GitHub. Users with write access to a GitHub repository for a given app will be able to make changes in the Streamlit administrative console.
 
@@ -86,9 +86,3 @@ All employees sign a confidentiality agreement before they start at Streamlit.
 ### Vulnerability Management
 
 We keep our systems up-to-date with the latest security patches and continuously monitor for new vulnerabilities through compliance and security mailing lists. This includes automatic scanning of our code repositories for vulnerable dependencies.
-
-<Note>
-
-If you have further questions about Community Cloud and our security approach, please reach out to us on the [Community forum](https://discuss.streamlit.io/).
-
-</Note>
