@@ -5,7 +5,7 @@ slug: /streamlit-community-cloud/deploy-your-app
 
 # Deploy your app
 
-Streamlit Community Cloud lets you deploy your apps in just one click, and most apps will deploy in only a few minutes. If you don't have an app ready to deploy, [fork or clone one of our example apps](https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlit.app/?hsCtaTracking=28f10086-a3a5-4ea8-9403-f3d52bf26184|22470002-acb1-4d93-8286-00ee4f8a46fb) — you can find apps for machine learning, data visualization, data exploration, A/B testing and more.
+Streamlit Community Cloud lets you deploy your apps in just one click, and most apps will deploy in only a few minutes. If you don't have an app ready to deploy, fork or clone one of our [example apps](https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlit.app/?hsCtaTracking=28f10086-a3a5-4ea8-9403-f3d52bf26184|22470002-acb1-4d93-8286-00ee4f8a46fb) — you can find apps for machine learning, data visualization, data exploration, A/B testing and more.
 
 <Note>
 
@@ -15,7 +15,7 @@ If you want to deploy your app on a different cloud service, check out the [Depl
 
 ## Add your app to GitHub
 
-Streamlit Community Cloud launches apps directly from your GitHub repo, so your app code and dependencies need to be on GitHub before you try to deploy the app. For more information on how to specify dependencies, see [App dependencies](/streamlit-community-cloud/get-started/deploy-an-app/app-dependencies).
+Streamlit Community Cloud launches apps directly from your GitHub repo, so your app code and dependencies need to be on GitHub before you try to deploy the app. For more information on how to specify dependencies, see [App dependencies](/streamlit-community-cloud/deploy-your-app/app-dependencies).
 
 Your directory structure should look similar to this:
 
@@ -37,7 +37,7 @@ your-repository/
 
 <Important>
 
-   Although you can deploy multiple apps from the same repository, there can be only one configuration file. Learn more about having multiple apps in a repository to deploying from deeper in your repository than root.
+   Although you can deploy multiple apps from the same repository, there can be only one configuration file.
 
 </Important>
 

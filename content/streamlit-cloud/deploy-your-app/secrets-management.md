@@ -15,9 +15,12 @@ Secrets management allows you to store secrets securely and access them in your 
 
 ### Deploy an app and set up secrets
 
-1. Go to [http://share.streamlit.io/](http://share.streamlit.io/) and click "**New app**" to deploy a new app with secrets.
-2. Click "**Advanced settings...**"
-3. You will see a modal appear with an input box for your secrets.
+1. Go to [http://share.streamlit.io/](http://share.streamlit.io/) and click "**New app**".
+2. Fill out your app's information and click "**Advanced settings...**"
+
+   ![Advanced settings](/images/streamlit-community-cloud/deploy-an-app-advanced-settings.png)
+
+3. A modal will appear with an input box for your secrets.
 
    ![Advanced settings](/images/streamlit-community-cloud/deploy-an-app-advanced.png)
 
@@ -42,17 +45,14 @@ Access your secrets as environment variables or by querying the `st.secrets` dic
 
 ```python
 import streamlit as st
+import os
 
 # Everything is accessible via the st.secrets dict:
-
 st.write("DB username:", st.secrets["db_username"])
 st.write("DB password:", st.secrets["db_password"])
 st.write("My cool secrets:", st.secrets["my_cool_secrets"]["things_i_like"])
 
 # And the root-level secrets are also accessible as environment variables:
-
-import os
-
 st.write(
     "Has environment variables been set:",
     os.environ["db_username"] == st.secrets["db_username"],
@@ -61,7 +61,7 @@ st.write(
 
 <Tip>
 
-You can access `st.secrets` via attribute notation (e.g. `st.secrets.key`), in addition to key notation (e.g. `st.secrets["key"]`)—like [`st.session_state`](/library/api-reference/session-state).
+You can access `st.secrets` via attribute notation (e.g. `st.secrets.key`) or key notation (e.g. `st.secrets["key"]`) &mdash; just like [`st.session_state`](/library/api-reference/session-state).
 
 </Tip>
 
@@ -75,7 +75,7 @@ username = "my_username"
 password = "my_password"
 ```
 
-Rather than passing each secret as attributes in a function, you can more compactly pass the section to achieve the same result. See the notional code below which uses the secrets above:
+Rather than passing each secret as attributes in a function, you can more compactly pass the section to achieve the same result. You can use Python's unpacking notation like the following example which uses the secrets above:
 
 ```python
 # Verbose version
@@ -87,12 +87,15 @@ my_db.connect(**st.secrets.db_credentials)
 
 ### Edit your app's secrets
 
+If you need to add or edit your secrets for an app that is already deployed, you can accesss advanced setting from your admin panel.
+
 1. Go to [https://share.streamlit.io/](https://share.streamlit.io/)
-2. Open the menu for your app, and click "Settings".
-   ![Edit secrets](/images/streamlit-community-cloud/edit-secrets.png)
-3. You will see a modal appear. Click on the "Secrets" section and edit your secrets.
-   ![Edit secrets modal](/images/streamlit-community-cloud/edit-secrets-1.png)
-4. After you edit your secrets, click "Save". It might take a minute for the update to be propagated to your app, but the new values will be reflected when the app re-runs.
+2. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) for your app.
+3. Click "**Settings**".
+   ![Edit secrets](/images/streamlit-community-cloud/workspace-app-settings.png)
+3. A modal will appear. Click on the "**Secrets**"  on the left.
+   ![Edit secrets modal](/images/streamlit-community-cloud/workspace-app-settings-secrets.png)
+4. After you edit your secrets, click "**Save**". It might take a minute for the update to be propagated to your app, but the new values will be reflected when the app re-runs.
 
 ### Develop locally with secrets
 
@@ -103,3 +106,12 @@ When developing your app locally, add a file called `secrets.toml` in a folder c
 Be sure to add this file to your `.gitignore` so you don't commit your secrets!
 
 </Important>
+
+```bash
+your-LOCAL-repository/
+├── .streamlit/
+│   ├── config.toml
+│   └── secrets.toml # Make sure to gitignore this!
+├── your_app.py
+└── requirements.txt
+```

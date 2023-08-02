@@ -44,7 +44,7 @@ This is a concise set of steps to create your Streamlit Community Cloud account 
 
 ## Fork a sample app
 
-9. Click the down arrow (<i className={{ class: "material-icons-sharp" }}>expand_more</i>) to expand the options under "**New App**".
+9. Click the down arrow (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>expand_more</i>) to expand the options under "**New App**".
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
 <Image src="/images/streamlit-community-cloud/deploy-example-1.png" />
