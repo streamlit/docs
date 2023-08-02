@@ -3,7 +3,7 @@
 }
 
 .Title {
-  @apply font-bold text-lg mb-0 tracking-tight;
+  @apply font-bold text-base mb-0 tracking-tight;
   @apply text-gray-90 !important;
 }
 
@@ -79,7 +79,7 @@
 }
 
 .FormContainer {
-  @apply flex flex-col md:flex-row items-start md:items-center mt-16;
+  @apply flex flex-col md:flex-row items-start md:items-center pt-8 mt-8 md:pt-12 md:mt-12 border-t border-t-gray-30;
 }
 
 .Form {

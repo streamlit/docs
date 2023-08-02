@@ -1,5 +1,5 @@
 .Container {
-  @apply flex flex-wrap flex-col md:flex-row md:flex-nowrap items-center justify-between mt-20 gap-4;
+  @apply flex flex-wrap flex-col md:flex-row md:flex-nowrap items-center justify-between mt-16 py-8 border-t border-t-gray-30 gap-4;
 }
 
 .Link {
@@ -15,7 +15,7 @@
 }
 
 .NextLink {
-  @apply mt-8 sm:mt-0;
+  @apply mt-0 sm:mt-0;
 }
 
 .Icon {

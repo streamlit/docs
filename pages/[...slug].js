@@ -255,11 +255,11 @@ export default function Article({
               <FloatingNav slug={slug} menu={menu} version={version} />
               <div className={classNames("content", styles.ContentContainer)}>
                 <MDXRemote {...source} components={components} />
+                {arrowContainer}
+                <Psa />
                 <Helpful slug={slug} sourcefile={suggestEditURL} />
               </div>
             </article>
-            <Psa />
-            {arrowContainer}
           </section>
           <Footer />
         </section>
