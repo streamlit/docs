@@ -12,7 +12,8 @@ Streamlit provides several options for controlling how different elements are la
 <TileContainer>
 <RefCard href="/library/api-reference/layout/st.sidebar">
 
-<Image pure alt="screenshot" src="/images/api/sidebar.jpg" />
+
+<Image pure alt="screenshot" src="https://github.com/streamlit/docs/assets/12702893/ced49c77-209b-4438-9b2b-2eaaab549f7c" />
 
 #### Sidebar
 
