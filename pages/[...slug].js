@@ -334,6 +334,28 @@ export async function getStaticProps(context) {
 
     const { current, prev, next } = getPreviousNextFromMenu(menu, location);
 
+    // Determine which previous/next links we should be using, the override option coming from the markdown file (if it exists),
+    // or the one that gets generated automatically above by calling getPreviousNextFromMenu
+    let prevMenuItem;
+    if (data.previousLink && data.previousTitle) {
+      prevMenuItem = {
+        name: data.previousTitle,
+        url: data.previousLink,
+      };
+    } else {
+      prevMenuItem = prev;
+    }
+
+    let nextMenuItem;
+    if (data.nextLink && data.nextTitle) {
+      nextMenuItem = {
+        name: data.nextTitle,
+        url: data.nextLink,
+      };
+    } else {
+      nextMenuItem = next;
+    }
+
     props["menu"] = menu;
     props["gdpr_data"] = gdpr_data;
     props["data"] = data;
@@ -347,8 +369,8 @@ export async function getStaticProps(context) {
           isVersioned: !!current.isVersioned,
         }
       : null;
-    props["nextMenuItem"] = next ? { name: next.name, url: next.url } : null;
-    props["prevMenuItem"] = prev ? { name: prev.name, url: prev.url } : null;
+    props["prevMenuItem"] = prevMenuItem ? prevMenuItem : null;
+    props["nextMenuItem"] = nextMenuItem ? nextMenuItem : null;
   }
 
   return {
