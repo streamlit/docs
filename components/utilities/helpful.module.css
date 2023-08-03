@@ -7,13 +7,6 @@
   @apply text-gray-90 !important;
 }
 
-:global(.dark) .Title,
-:global(.dark) .ImproveTitle,
-:global(.dark) .ImproveText,
-:global(.dark) .Label {
-  @apply text-white !important;
-}
-
 .CtaContainer {
   @apply flex flex-row items-center pt-4 md:pt-0;
 }
@@ -27,18 +20,9 @@
   @apply ml-6;
 }
 
-:global(.dark) .Button {
-  @apply bg-gray-80;
-  @apply text-white !important;
-}
-
 .Icon {
   @apply text-base mr-2;
   @apply text-gray-50 !important;
-}
-
-:global(.dark) .Icon {
-  @apply text-gray-90;
 }
 
 /* How can we improve this page form step */
@@ -58,10 +42,6 @@
 
 .Input {
   @apply w-4 h-4 mr-2 checked:bg-gray-90 appearance-none border border-gray-90 rounded-sm outline-0 cursor-pointer;
-}
-
-:global(.dark) .Input {
-  @apply checked:bg-white border-white;
 }
 
 .Label {
@@ -84,4 +64,28 @@
 
 .Form {
   @apply flex-1;
+}
+
+:global(.dark) .Title,
+:global(.dark) .ImproveTitle,
+:global(.dark) .ImproveText,
+:global(.dark) .Label {
+  @apply text-white !important;
+}
+
+:global(.dark) .Button {
+  @apply bg-gray-80;
+  @apply text-white !important;
+}
+
+:global(.dark) .Icon {
+  @apply text-gray-90;
+}
+
+:global(.dark) .Input {
+  @apply checked:bg-white border-white;
+}
+
+:global(.dark) .FormContainer {
+  @apply border-gray-90;
 }
