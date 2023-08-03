@@ -447,6 +447,8 @@ site_menu:
     url: /streamlit-community-cloud/deploy-your-app/secrets-management
   - category: Streamlit Community Cloud / Manage your app
     url: /streamlit-community-cloud/manage-your-app
+  - category: Streamlit Community Cloud / Manage your app / App analytics
+    url: /streamlit-community-cloud/manage-your-app/app-analytics
   - category: Streamlit Community Cloud / Manage your app / App settings
     url: /streamlit-community-cloud/manage-your-app/app-settings
   - category: Streamlit Community Cloud / Share your app
