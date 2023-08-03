@@ -11,16 +11,28 @@ Rebooting your app on Streamlit Community Cloud is easy! You can reboot your app
 
 ### From your workspace
 
-From your workspace at [share.streamlit.io](https://share.streamlit.io), click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) next to your app. Click "**Reboot**".
+1. From your workspace at [share.streamlit.io](https://share.streamlit.io), click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) next to your app. Click "**Reboot**".
 
-![App analytics from your workspace](/images/streamlit-community-cloud/workspace-app-reboot.png)
+    ![App analytics from your workspace](/images/streamlit-community-cloud/workspace-app-reboot.png)
+
+2. A confirmation will display. Click "**Reboot**".
+
+    <div style={{ maxWidth: '50%', margin: 'auto' }}>
+    <Image alt="Confirm app reboot" src="/images/streamlit-community-cloud/workspace-app-reboot-confirm.png" clean />
+    </div>
 
 ### From your Cloud logs
 
-From your app at `<your-custom-subdomain>.streamlit.app`, click "**Manage app**" in the lower-right corner.
+1. From your app at `<your-custom-subdomain>.streamlit.app`, click "**Manage app**" in the lower-right corner.
 
-![Open Cloud logs](/images/streamlit-community-cloud/cloud-logs-open.png)
+    ![Open Cloud logs](/images/streamlit-community-cloud/cloud-logs-open.png)
 
-Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) and click "**Reboot**".
+2. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) and click "**Reboot app**".
 
-![App settings from Cloud logs](/images/streamlit-community-cloud/cloud-logs-menu-reboot.png)
+    ![App settings from Cloud logs](/images/streamlit-community-cloud/cloud-logs-menu-reboot.png)
+
+3. A confirmation will display. Click "**Reboot**".
+
+    <div style={{ maxWidth: '50%', margin: 'auto' }}>
+    <Image alt="Confirm app reboot" src="/images/streamlit-community-cloud/workspace-app-reboot-confirm.png" clean />
+    </div>
