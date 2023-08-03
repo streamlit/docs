@@ -5,7 +5,7 @@ slug: /streamlit-community-cloud/manage-your-app/app-settings
 
 # App settings
 
-From your app settings, you can modify your app's URL, update the privacy of your app, or change your saved secrets.
+From your app settings you can [view or modify your app's URL](/streamlit-community-cloud/deploy-your-app#custom-subdomains), [manage public or private access to your apps](/streamlit-community-cloud/share-your-app) and [update your saved secrets for your apps](/streamlit-community-cloud/deploy-your-app/secrets-management).
 
 ## Access your app settings
 
@@ -45,10 +45,10 @@ From your app's settings modal, you can:
 
     ![Custom subdomains](/images/streamlit-community-cloud/workspace-app-settings-general.png)
 
-* [Update your app's share settings](http://localhost:3000/streamlit-community-cloud/share-your-app)
+* [Update your app's share settings](/streamlit-community-cloud/share-your-app)
 
     ![Share settings](/images/streamlit-community-cloud/workspace-app-settings-sharing.png)
 
-* [Update your secrets](http://localhost:3000/streamlit-community-cloud/deploy-your-app/secrets-management)
+* [Update your secrets](/streamlit-community-cloud/deploy-your-app/secrets-management)
 
     ![Secrets settings](/images/streamlit-community-cloud/workspace-app-settings-secrets.png)

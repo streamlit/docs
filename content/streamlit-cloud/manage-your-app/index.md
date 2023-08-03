@@ -11,8 +11,6 @@ You can manage your app directly from the deployed app in your developer view or
 - [Manage apps from your app dashboard](/streamlit-community-cloud/get-started/manage-your-app#manage-apps-from-your-app-dashboard)
 - [Manage apps in GitHub](/streamlit-community-cloud/get-started/manage-your-app#manage-apps-in-github)
 - [App resources and limits](/streamlit-community-cloud/get-started/manage-your-app#app-resources-and-limits)
-- [App favoriting](/streamlit-community-cloud/get-started/manage-your-app#app-favoriting)
-- [Analytics Modal](/streamlit-community-cloud/get-started/manage-your-app#analytics-modal)
 
 ## Manage apps from your developer view
 
@@ -65,16 +63,6 @@ You will also have access to any workspaces containing app(s) for which you only
 To switch between workspaces, click on the workspace listed in the top right corner, then select the desired workspace name.
 
 ![App workspaces 5](/images/streamlit-community-cloud/app-workspaces-5.png)
-
-### Reboot an app
-
-If your app needs a hard reboot, click on the "︙" overflow menu to the right of the app and click to Reboot. This will interrupt any user that may currently be using that app. It may also take a few minutes for your app to re-deploy, and in that time you — and anyone visiting the app — will see the 'Your app is in the oven' screen.
-
-![Reboot an app](/images/streamlit-community-cloud/reboot-an-app.png)
-
-### App settings
-
-The app settings let you [pick a custom subdomain for your app](/streamlit-community-cloud/get-started/deploy-an-app#your-app-url), [manage viewers of your apps](/streamlit-community-cloud/get-started/share-your-app#adding-viewers-from-your-dashboard) and [secrets of your apps](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). Click on the links to lean more about these features.
 
 ## Manage apps in GitHub
 
