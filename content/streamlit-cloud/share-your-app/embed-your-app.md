@@ -11,7 +11,7 @@ Streamlit Community Cloud supports both [iframe](#embedding-with-iframes) and [o
 
 ## Embedding with iframes
 
-Streamlit Community Cloud supports embedding **public** apps using the subdomain scheme. To embed a public app, add the query parameter `/?embed=true` to the end of the `*streamlit.app` URL.
+Streamlit Community Cloud supports embedding **public** apps using the subdomain scheme. To embed a public app, add the query parameter `/?embed=true` to the end of the `*.streamlit.app` URL.
 
 For example, say you want to embed the [30DaysOfStreamlit app](https://30days.streamlit.app/). The URL to include in your iframe is: [https://30days.streamlit.app/?embed=true](https://30days.streamlit.app/?embed=true):
 
@@ -33,7 +33,7 @@ There will be no official support for embedding private apps.
 
 In addition to allowing you to embed apps via iframes, the `?embed=true` query parameter also does the following:
 
-- Removes the toolbar with the app menu icon (⋮)
+- Removes the toolbar with the app menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>)
 - Removes the padding at the top and bottom of the app
 - Removes the footer
 - Removes the colored line from the top of the app
@@ -42,11 +42,11 @@ For granular control over the embedding behavior, Streamlit allows you to specif
 
 ## Embedding with oEmbed
 
-The new oEmbed support allows for a simpler embedding experience. You can now directly drop a Streamlit app's URL into a Medium, Ghost, or Notion page (or any site that supports oEmbed or [embed.ly](https://embed.ly/), which includes over 700 content providers), and the embedded app will automatically appear. This helps Streamlit Community Cloud apps seamlessly integrate into these platforms, improving the visibility and accessibility of your apps.
+Streamlit's oEmbed support allows for a simpler embedding experience. You can directly drop a Streamlit app's URL into a Medium, Ghost, or Notion page (or any of more than 700 content providers that supports oEmbed or [embed.ly](https://embed.ly/)). The embedded app will automatically appear! This helps Streamlit Community Cloud apps seamlessly integrate into these platforms, improving the visibility and accessibility of your apps.
 
 ### Example
 
-When creating content in a Notion page, Medium article, or Ghost blog, you only need to paste the app's URL and hit Enter. The app will then render automatically at that spot in your content. Use the same URL as for iframe embedding, but without the `?embed=true` query parameter.
+When creating content in a Notion page, Medium article, or Ghost blog, you only need to paste the app's URL and hit "**Enter**". The app will then render automatically at that spot in your content. You can use your undecorated app URL without the `?embed=true` query parameter.
 
 ```
 https://30days.streamlit.app/
@@ -84,9 +84,13 @@ The only noteworthy differences between the methods is that iframing allows you 
 
 ## Embed options
 
-When [Embedding with iframes](#embedding-with-iframes), Streamlit allows you to specify one or more instances of the `?embed_options` query parameter for granular control over the embedding behavior. The supported values for `?embed_options` are listed below:
+When [Embedding with iframes](#embedding-with-iframes), Streamlit allows you to specify one or more instances of the `?embed_options` query parameter for granular control over the embedding behavior. 
 
-1. Show the toolbar at the top right of the app (menu, running man, ...).
+Both `?embed` and `?embed_options` are invisible to [`st.experimental_get_query_params`](/library/api-reference/utilities/st.experimental_get_query_params) and [`st.experimental_set_query_params`](/library/api-reference/utilities/st.experimental_set_query_params). The former ignores the embed query parameters and does not return them, while the latter disallows setting embed query parameters.
+
+The supported values for `?embed_options` are listed below:
+
+1. Show the toolbar at the top right of the app which includes the app menu (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>), running man, and link to GitHub.
 
    ```javascript
    /?embed=true&embed_options=show_toolbar
@@ -134,4 +138,15 @@ You can also combine the params:
 /?embed=true&embed_options=show_toolbar&embed_options=show_padding&embed_options=show_footer&embed_options=show_colored_line&embed_options=disable_scrolling
 ```
 
-Both `?embed` and `?embed_options` are invisible to [`st.experimental_get_query_params`](/library/api-reference/utilities/st.experimental_get_query_params) and [`st.experimental_set_query_params`](/library/api-reference/utilities/st.experimental_set_query_params). The former ignores the embed query parameters and does not return them, while the latter disallows setting embed query parameters.
+### Build an embed link
+
+From your app, you can conveniently build an embed link for your app.
+
+1. From your app at `<your-custom-subdomain>.streamlit.app`, click "**Share**" in the upper-right corner.
+2. Click "**Embed**" to access a list of selectable embed options.
+
+   ![Share settings](/images/streamlit-community-cloud/share-menu-embed.png)
+
+3. Select your embed options and click "**Get embed link**" to copy the embed link to your clipboard.
+
+   ![Share settings](/images/streamlit-community-cloud/share-menu-embed-url.png)
