@@ -12,57 +12,77 @@ You can manage your app directly from the deployed app in your developer view or
 - [Manage apps in GitHub](/streamlit-community-cloud/get-started/manage-your-app#manage-apps-in-github)
 - [App resources and limits](/streamlit-community-cloud/get-started/manage-your-app#app-resources-and-limits)
 
-## Manage apps from your developer view
+## App workspaces
 
-Once you have deployed an app you will have a developer view for that app.
+Streamlit Community Cloud is organized into workspaces, which automatically group your apps according to the corresponding GitHub repository's owner. Your workspace is indicated in the upper-right corner. You will have one workspace that matches your GitHub username and additional workspaces for any organization or GitHub user who has granted you access to their repositories.
 
-### Developer view
+Additionally, if you have view-only access to an app, you will be able to see that app's workspace. When you do not have developer access to an app or workspaces, corresponding options will be disabled as shown in the following sections.
 
-Click on the bottom right where it says "Manage app" to view your Cloud logs and other settings.
+To deploy or manage any app, always switch to the workspace matching the repository's owner first.
 
-![Developer view](/images/streamlit-community-cloud/developer-view.png)
+![Switching between app workspaces](/images/streamlit-community-cloud/workspace-switch.png)
 
-### Streamlit Community Cloud logs
+At the top of your workspace "**Analytics**" is a shortcut to [App analytics](/streamlit-community-cloud/manage-your-app/app-analytics) and "**Settings**" links to your [Workspace settings](/streamlit-community-cloud/manage-your-app/workspace-settings) (not to be confused with [App settings](/streamlit-community-cloud/manage-your-app/app-settings) for each of your apps).
 
-Once you've clicked on "Manage app", you will be able to view your app's logs. This is your primary place to troubleshoot any issues with your app.
+### App overflow menus
+
+Each app has an overflow menu with convenient options to manage your app.
+
+* **Copy URL** &mdash; See [Copy your app's URL](/streamlit-community-cloud/share-your-app#copy-your-apps-url)
+* **Favorite** &mdash; See [Favorite your app](/streamlit-community-cloud/manage-your-app/favorite-your-app)
+* **Analytics** &mdash; See [App analytics](/streamlit-community-cloud/manage-your-app/app-analytics)
+* **Reboot** &mdash; See [Reboot your app](/streamlit-community-cloud/manage-your-app/reboot-your-app)
+* **Delete** &mdash; See [Delete your app](/streamlit-community-cloud/manage-your-app/delete-your-app)
+* **Settings** &mdash; See [App settings](/streamlit-community-cloud/manage-your-app/app-settings)
+
+![View-only apps in your workspace](/images/streamlit-community-cloud/workspace-app-overflow.png)
+
+If you have view-only access to an app, options will be restricted in that app's menu.
+
+![View-only apps in your workspace](/images/streamlit-community-cloud/workspace-view-only.png)
+
+
+## Streamlit Community Cloud logs
+
+From your app at `<your-custom-subdomain>.streamlit.app`, click "**Manage app**" in the lower-right corner.
+
+![Open Cloud logs](/images/streamlit-community-cloud/cloud-logs-open.png)
+
+Once you've clicked on "**Manage app**", you will be able to view your app's logs. This is your primary place to troubleshoot any issues with your app.
 
 ![Cloud logs](/images/streamlit-community-cloud/cloud-logs.png)
 
-You can also click on the "︙" overflow menu at the bottom of the Cloud logs to view other options for your app including the ability to download logs, reboot the app, delete the app, navigate to settings (which includes managing viewer access and app secrets), go to your app dashboard, go to documentation, contact support, or sign out.
+You can access more developer options by clicking the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) at the bottom of the Cloud logs. To conveniently download your logs, click "**Download log**".
 
-<div style={{ maxWidth: '45%', marginBottom: '-3em', marginLeft: '10em' }}>
-    <Image src="/images/streamlit-community-cloud/cloud-logs-overflow.png" />
+![Cloud logs](/images/streamlit-community-cloud/cloud-logs-menu-download.png)
+
+<Flex>
+
+<Div>
+
+Other options accessible from Cloud logs are:
+
+* **Analytics** &mdash; See [App analytics](/streamlit-community-cloud/manage-your-app/app-analytics).
+* **Reboot app** &mdash; See [Reboot your app](/streamlit-community-cloud/manage-your-app/reboot-your-app).
+* **Delete app** &mdash; See [Delete your app](/streamlit-community-cloud/manage-your-app/delete-your-app).
+* **Settings** &mdash; See [App settings](/streamlit-community-cloud/manage-your-app/app-settings).
+* **Your apps** &mdash; Takes you to your [app workspace](/streamlit-community-cloud/manage-your-app/app-settings).
+* **Documentation** &mdash; Takes you to our documentation.
+* **Support** &mdash; Takes you to [our forums](https://discuss.streamlit.io/)!
+
+</Div>
+
+<div style={{ maxWidth: '30%', margin: "auto" }}>
+    <Image src="/images/streamlit-community-cloud/cloud-logs-menu-XL.png" clean />
 </div>
 
-## Manage apps from your app dashboard
+</Flex>
 
-When you first log into share.streamlit.io you will land on your app dashboard, which gives you a list of all your deployed apps. This list does include apps deployed by other developers in your workspace, since you're all managers of those apps. Such apps are indicated with an icon like this one:
+## App menus
 
-<div style={{ maxWidth: '45%', marginBottom: '-3em', marginLeft: '10em' }}>
-    <Image src="/images/streamlit-community-cloud/app-dashboard.png" />
-</div>
+From your app at `<your-custom-subdomain>.streamlit.app`, you can always access your [app's menu]() just like you can when developing locally. The option to deploy your app is removed, but you can still clear your cache from here.
 
-### App workspaces
-
-Streamlit Community Cloud is organized into workspaces, which automatically group your apps according to the corresponding GitHub repository's owner. If you are part of multiple repositories, then you will have multiple workspaces.
-
-![App workspaces 1](/images/streamlit-community-cloud/app-workspaces-1.gif)
-
-If an app's GitHub repository is owned by you, the app will appear in your personal workspace, named "<YourGitHubHandle\>".
-
-![App workspaces 2](/images/streamlit-community-cloud/app-workspaces-2.png)
-
-If an app's GitHub repository is owned by **an organization** (such as your company), the app will appear in a separate workspace, named "<GitHubOrganizationHandle\>".
-
-![App workspaces 3](/images/streamlit-community-cloud/app-workspaces-3.jpg)
-
-You will also have access to any workspaces containing app(s) for which you only have **view access**. These apps will have a "view-only" tooltip when you click on their respective overflow menu icons (⋮).
-
-![App workspaces 4](/images/streamlit-community-cloud/app-workspaces-4.png)
-
-To switch between workspaces, click on the workspace listed in the top right corner, then select the desired workspace name.
-
-![App workspaces 5](/images/streamlit-community-cloud/app-workspaces-5.png)
+![Cloud logs](/images/streamlit-community-cloud/app-menu.png)
 
 ## Manage apps in GitHub
 
