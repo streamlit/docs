@@ -35,7 +35,7 @@ There are two ways to set the title of a share preview:
    # ... rest of your app
    ```
 
-2. If you don't set the `page_title` parameter, the title of the share preview will be the name of your app's GitHub repository. E.g., if you don't set the `page_title` parameter in `st.set_page_config()`, the title of the share preview for an app hosted on GitHub at https://github.com/jrieke/traingenerator will be "traingenerator".
+2. If you don't set the `page_title` parameter, the title of the share preview will be the name of your app's GitHub repository. For example, the default title for an app hosted on GitHub at https://github.com/jrieke/traingenerator will be "traingenerator".
 
 ## Descriptions
 
@@ -59,6 +59,6 @@ If you want your share previews to look great and want users to share your app a
 
 Community Cloud takes a screenshot of your app once a day and uses it as the preview image, unlike titles and descriptions, which are pulled directly from your app's code or GitHub repository. This screenshot may take up to 24 hours to update.
 
-## Switching your app from public to private
+### Switching your app from public to private
 
 If you initially made your app public and later decided to make it private, we will stop generating share previews for the app. However, it may take up to 24 hours for the share previews to stop appearing.
