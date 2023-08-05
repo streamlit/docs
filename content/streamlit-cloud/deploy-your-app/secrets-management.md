@@ -15,16 +15,16 @@ Secrets management allows you to store secrets securely and access them in your 
 
 ### Deploy an app and set up secrets
 
-1. Go to [http://share.streamlit.io/](http://share.streamlit.io/) and click "**New app**".
+1. From your worksapce at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click "**New app**".
 2. Fill out your app's information and click "**Advanced settings...**"
 
-   ![Advanced settings](/images/streamlit-community-cloud/deploy-an-app-advanced-settings.png)
+   ![Access advanced settings when deploying your app](/images/streamlit-community-cloud/deploy-an-app-advanced-settings.png)
 
 3. A modal will appear with an input box for your secrets.
 
-   ![Advanced settings](/images/streamlit-community-cloud/deploy-an-app-advanced.png)
+   ![Save your secrets in advanced settings when deploying your app](/images/streamlit-community-cloud/deploy-an-app-advanced.png)
 
-4. Provide your secrets in the "Secrets" field using [TOML](https://toml.io/en/latest) format. For example:
+4. Provide your secrets in the "Secrets" field using <a href="https://toml.io/en/latest" target="_blank">TOML</a> format. For example:
 
    ```toml
    # Everything in this section will be available as an environment variable
@@ -32,9 +32,9 @@ Secrets management allows you to store secrets securely and access them in your 
    db_password = "12345qwerty"
 
    # You can also add other sections if you like.
-   # The contents of sections as shown below will not become environment variables,
-   # but they'll be easily accessible from within Streamlit anyway as we show
-   # later in this doc.
+   # The contents of sections as shown below will not become environment
+   # variables, but they'll be easily accessible from within Streamlit anyway
+   # as we show later in this doc.
    [my_cool_secrets]
    things_i_like = ["Streamlit", "Python"]
    ```
@@ -89,12 +89,12 @@ my_db.connect(**st.secrets.db_credentials)
 
 If you need to add or edit your secrets for an app that is already deployed, you can accesss advanced setting from your admin panel.
 
-1. Go to [https://share.streamlit.io/](https://share.streamlit.io/)
+1. Go to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>.
 2. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) for your app.
 3. Click "**Settings**".
-   ![Edit secrets](/images/streamlit-community-cloud/workspace-app-settings.png)
-3. A modal will appear. Click on the "**Secrets**"  on the left.
-   ![Edit secrets modal](/images/streamlit-community-cloud/workspace-app-settings-secrets.png)
+   ![Access your app settings from your workspace](/images/streamlit-community-cloud/workspace-app-settings.png)
+3. A modal will appear. Click "**Secrets**"  on the left.
+   ![Access your secrets through your app settings](/images/streamlit-community-cloud/workspace-app-settings-secrets.png)
 4. After you edit your secrets, click "**Save**". It might take a minute for the update to be propagated to your app, but the new values will be reflected when the app re-runs.
 
 ### Develop locally with secrets

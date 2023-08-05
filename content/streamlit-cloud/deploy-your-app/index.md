@@ -5,7 +5,7 @@ slug: /streamlit-community-cloud/deploy-your-app
 
 # Deploy your app
 
-Streamlit Community Cloud lets you deploy your apps in just one click, and most apps will deploy in only a few minutes. If you don't have an app ready to deploy, fork or clone one of our [example apps](https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlit.app/?hsCtaTracking=28f10086-a3a5-4ea8-9403-f3d52bf26184|22470002-acb1-4d93-8286-00ee4f8a46fb) — you can find apps for machine learning, data visualization, data exploration, A/B testing and more.
+Streamlit Community Cloud lets you deploy your apps in just one click, and most apps will deploy in only a few minutes. If you don't have an app ready to deploy, fork or clone one of our <a href="https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlit.app/" target="_blank">example apps</a> — you can find apps for machine learning, data visualization, data exploration, A/B testing and more.
 
 <Note>
 
@@ -15,7 +15,7 @@ If you want to deploy your app on a different cloud service, check out the [Depl
 
 ## Add your app to GitHub
 
-Streamlit Community Cloud launches apps directly from your GitHub repo, so your app code and dependencies need to be on GitHub before you try to deploy the app. For more information on how to specify dependencies, see [App dependencies](/streamlit-community-cloud/deploy-your-app/app-dependencies).
+Streamlit Community Cloud launches apps directly from your GitHub repo, so your app code and dependencies need to be on GitHub before you try to deploy your app. For more information on how to specify dependencies, see [App dependencies](/streamlit-community-cloud/deploy-your-app/app-dependencies).
 
 Your directory structure should look similar to this:
 
@@ -25,7 +25,7 @@ your-repository/
 └── requirements.txt
 ```
 
-If you are including any custom [Configuration](/library/advanced-features/configuration) or [Theming](/library/advanced-features/theming), make sure your config file is saved relative to the root of your repo. Within your repo, your config file should be `.streamlit/config.toml`.
+If you are including any custom [Configuration](/library/advanced-features/configuration) or [Theming](/library/advanced-features/theming), make sure your config file is saved relative to the root of your repo. Within your repo, your config file should be named `.streamlit/config.toml`.
 
 ```
 your-repository/
@@ -43,21 +43,21 @@ your-repository/
 
 ## Deploy your app
 
-To deploy an app, click "**New app**" from the upper right corner of your workspace.
+1. From your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click "**New app**" from the upper-right corner of your workspace.
 
-![New app](/images/streamlit-community-cloud/deploy-empty-new-app.png)
+    ![Deploy a new app from your workspace](/images/streamlit-community-cloud/deploy-empty-new-app.png)
 
-Fill in your repo, branch, and file path. As a shortcut, you can also click "**Paste GitHub URL**". Optionally, you can specify a custom subdomain. An app URL with a random hash is prefilled. You can delete this or type in something else. In the example below, the app would be deployed to `https://red-balloon.streamlit.app/`. You can always set or change your subdomain later. See more about [custom subdomains](#custom-subdomains) at the end of this page.
+2. Fill in your repo, branch, and file path. As a shortcut, you can also click "**Paste GitHub URL**" to paste a link directly to `your_app.py` on GitHub.
 
-![Deploy your app](/images/streamlit-community-cloud/deploy-an-app.png)
+    An app URL with a random hash is prefilled but you can change this to a custom subdomain instead. In the example below, the app would be deployed to `https://red-balloon.streamlit.app/`. You can always change your subdomain later. See more about [Custom subdomains](#custom-subdomains) at the end of this page.
+
+    ![Fill in your app's information to deploy your app](/images/streamlit-community-cloud/deploy-an-app.png)
 
 ## Advanced settings for deployment
 
-If you are connecting to a data source or want to select a Python version for your app, you can do that by clicking "**Advanced settings**" before you deploy the app.
+3. (Optional) If you are connecting to a data source or want to specify the Python version for your app, you can do that by clicking "**Advanced settings**" before you deploy the app. Learn more about [secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management).
 
-![Advanced settings](/images/streamlit-community-cloud/deploy-an-app-advanced.png)
-
-You can connect to private data sources by using [secrets management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management). Read more on how to [Connect Streamlit to data sources](/knowledge-base/tutorials/databases).
+    ![Advanced settings for deploying your app](/images/streamlit-community-cloud/deploy-an-app-advanced.png)
 
 <Tip>
 
@@ -73,13 +73,13 @@ Your app is now deploying and you can watch while it launches. Most apps take on
 
 <Note>
 
-The Streamlit Community Cloud logs on the right hand side of your app are only viewable to users with developer access to your repository. These logs help you debug any issues with the app. Learn more about [Streamlit Community Cloud logs](/streamlit-community-cloud/get-started/manage-your-app#streamlit-community-cloud-logs).
+The Streamlit Community Cloud logs on the right hand side of your app are only viewable to users with developer access to your repository. These logs help you debug any issues with the app. Learn more about [Streamlit Community Cloud logs](/streamlit-community-cloud/manage-your-app#streamlit-community-cloud-logs).
 
 </Note>
 
 ## Your app URL
 
-That's it — you're done! Your app now has a unique subdomain URL that you can share with others. Read more about how to [Share your app](/streamlit-community-cloud/get-started/share-your-app) with viewers.
+That's it — you're done! Your app now has a unique subdomain URL that you can share with others. Read more about how to [Share your app](/streamlit-community-cloud/share-your-app) with viewers.
 
 ### Unique subdomains
 
@@ -105,36 +105,28 @@ https://<your-custom-subdomain>.streamlit.app
 
 To view or customize your app subdomain from the dashboard:
 
-1. Click the "**︙**" overflow menu to the app's right and select "**Settings**".
+1. Click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) to the app's right and select "**Settings**".
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/streamlit-community-cloud/workspace-app-settings.png" alt="App settings" />
+    <Image src="/images/streamlit-community-cloud/workspace-app-settings.png" alt="Streamlit Community Cloud app settings" />
 </div>
 
 2. View the "**General**" tab in the App settings modal. Your app's unique subdomain will appear here.
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/streamlit-community-cloud/workspace-app-settings-general.png" alt="General app settings" />
+    <Image src="/images/streamlit-community-cloud/workspace-app-settings-general.png" alt="Streamlit Community Cloud general app settings" />
 </div>
 
 3. Pick a custom subdomain between 6 and 63 characters in length for your app's URL and hit "**Save**".
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/streamlit-community-cloud/workspace-app-settings-general-valid-domain.png" alt="New custom subdomain" />
+    <Image src="/images/streamlit-community-cloud/workspace-app-settings-general-valid-domain.png" alt="New custom subdomain for your app" />
 </div>
 
-It's that simple! You can then access your app by visiting your custom subdomain URL 🎉.
+It's that simple! You can then access your app by visiting your customized URL 🎉.
 
 If a custom subdomain is not available (e.g. because it's already taken), you'll see an error message like this:
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/streamlit-community-cloud/workspace-app-settings-general-invalid-domain.png" alt="Invalid custom subdomain" />
+    <Image src="/images/streamlit-community-cloud/workspace-app-settings-general-invalid-domain.png" alt="Invalid custom subdomain for your app" />
 </div>
-
-### Embed apps
-
-<Tip>
-
-Learn how to [Embed your app](/streamlit-community-cloud/get-started/embed-your-app) with an iframe or oEmbed.
-
-</Tip>

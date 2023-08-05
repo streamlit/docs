@@ -5,28 +5,28 @@ slug: /streamlit-community-cloud/manage-your-app
 
 # Manage your app
 
-You can manage your app directly from the deployed app in your developer view or you can log in to your app dashboard at [share.streamlit.io](https://share.streamlit.io/) to view, deploy, delete, reboot, or favorite an app.
+You can manage your deployed app from your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a> or directly from `<your-custom-subdomain>.streamlit.app`. You can view, deploy, delete, reboot, or favorite an app.
 
-- [Manage apps from your developer view](#manage-apps-from-your-developer-view)
-- [Manage apps from your app dashboard](/streamlit-community-cloud/get-started/manage-your-app#manage-apps-from-your-app-dashboard)
-- [Manage apps in GitHub](/streamlit-community-cloud/get-started/manage-your-app#manage-apps-in-github)
-- [App resources and limits](/streamlit-community-cloud/get-started/manage-your-app#app-resources-and-limits)
+- [Manage your app from your workspace](#manage-your-app-from-your-workspace)
+- [Manage your app directly from your app](#manage-your-app-directly-from-your-app)
+- [Manage your app in GitHub](#manage-your-app-in-github)
+- [App resources and limits](#app-resources-and-limits)
 
-## App workspaces
+## Manage your app from your workspace
 
-Streamlit Community Cloud is organized into workspaces, which automatically group your apps according to the corresponding GitHub repository's owner. Your workspace is indicated in the upper-right corner. You will have one workspace that matches your GitHub username and additional workspaces for any organization or GitHub user who has granted you access to their repositories.
+Streamlit Community Cloud is organized into workspaces, which automatically group your apps according to the corresponding GitHub repository's owner. Your workspace is indicated in the upper-right corner. You will have one workspace that matches your GitHub username and additional workspaces for any GitHub organization or user who has granted you access.
 
-Additionally, if you have view-only access to an app, you will be able to see that app's workspace. When you do not have developer access to an app or workspaces, corresponding options will be disabled as shown in the following sections.
+Additionally, if you have view-only access to an app, you will be able to see that app's workspace. When you do not have developer access to an app, your management options for that app will be restricted as shown in the following sections.
 
 To deploy or manage any app, always switch to the workspace matching the repository's owner first.
 
-![Switching between app workspaces](/images/streamlit-community-cloud/workspace-switch.png)
+![Switching between app workspaces in Streamlit Community Cloud](/images/streamlit-community-cloud/workspace-switch.png)
 
-At the top of your workspace "**Analytics**" is a shortcut to [App analytics](/streamlit-community-cloud/manage-your-app/app-analytics) and "**Settings**" links to your [Workspace settings](/streamlit-community-cloud/manage-your-app/workspace-settings) (not to be confused with [App settings](/streamlit-community-cloud/manage-your-app/app-settings) for each of your apps).
+At the top of your workspace, "**Analytics**" is a shortcut to [App analytics](/streamlit-community-cloud/manage-your-app/app-analytics) and "**Settings**" links to your [Workspace settings](/streamlit-community-cloud/manage-your-app/workspace-settings) (not to be confused with [App settings](/streamlit-community-cloud/manage-your-app/app-settings) for each of your apps).
 
 ### App overflow menus
 
-Each app has an overflow menu with convenient options to manage your app.
+Each app has a menu accessible from the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) to the right.
 
 * **Copy URL** &mdash; See [Copy your app's URL](/streamlit-community-cloud/share-your-app#copy-your-apps-url)
 * **Favorite** &mdash; See [Favorite your app](/streamlit-community-cloud/manage-your-app/favorite-your-app)
@@ -35,26 +35,29 @@ Each app has an overflow menu with convenient options to manage your app.
 * **Delete** &mdash; See [Delete your app](/streamlit-community-cloud/manage-your-app/delete-your-app)
 * **Settings** &mdash; See [App settings](/streamlit-community-cloud/manage-your-app/app-settings)
 
-![View-only apps in your workspace](/images/streamlit-community-cloud/workspace-app-overflow.png)
+![App overflow menu in your workspace](/images/streamlit-community-cloud/workspace-app-overflow.png)
 
 If you have view-only access to an app, options will be restricted in that app's menu.
 
-![View-only apps in your workspace](/images/streamlit-community-cloud/workspace-view-only.png)
+![View-only app overflow menu in your workspace](/images/streamlit-community-cloud/workspace-view-only.png)
 
+## Manage your app directly from your app
 
-## Streamlit Community Cloud logs
+You can manage your deployed app directly from the app itself! Just make sure you are signed in to Streamlit Community Cloud then visit your app.
 
-From your app at `<your-custom-subdomain>.streamlit.app`, click "**Manage app**" in the lower-right corner.
+### Streamlit Community Cloud logs
 
-![Open Cloud logs](/images/streamlit-community-cloud/cloud-logs-open.png)
+1. From your app at `<your-custom-subdomain>.streamlit.app`, click "**Manage app**" in the lower-right corner.
 
-Once you've clicked on "**Manage app**", you will be able to view your app's logs. This is your primary place to troubleshoot any issues with your app.
+    ![Access Cloud logs from Manage app in the lower-right corner of your app](/images/streamlit-community-cloud/cloud-logs-open.png)
 
-![Cloud logs](/images/streamlit-community-cloud/cloud-logs.png)
+2. Once you've clicked on "**Manage app**", you will be able to view your app's logs. This is your primary place to troubleshoot any issues with your app.
 
-You can access more developer options by clicking the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) at the bottom of the Cloud logs. To conveniently download your logs, click "**Download log**".
+    ![Streamlit Community Cloud logs](/images/streamlit-community-cloud/cloud-logs.png)
 
-![Cloud logs](/images/streamlit-community-cloud/cloud-logs-menu-download.png)
+3. You can access more developer options by clicking the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) at the bottom of your Cloud logs. To conveniently download your logs, click "**Download log**".
+
+    ![Download your Streamlit Community Cloud logs](/images/streamlit-community-cloud/cloud-logs-menu-download.png)
 
 <Flex>
 
@@ -66,9 +69,9 @@ Other options accessible from Cloud logs are:
 * **Reboot app** &mdash; See [Reboot your app](/streamlit-community-cloud/manage-your-app/reboot-your-app).
 * **Delete app** &mdash; See [Delete your app](/streamlit-community-cloud/manage-your-app/delete-your-app).
 * **Settings** &mdash; See [App settings](/streamlit-community-cloud/manage-your-app/app-settings).
-* **Your apps** &mdash; Takes you to your [app workspace](/streamlit-community-cloud/manage-your-app/app-settings).
+* **Your apps** &mdash; Takes you to your [app workspace](#manage-your-app-from-your-workspace).
 * **Documentation** &mdash; Takes you to our documentation.
-* **Support** &mdash; Takes you to [our forums](https://discuss.streamlit.io/)!
+* **Support** &mdash; Takes you to <a href="https://discuss.streamlit.io/" target="_blank">our forums</a>!
 
 </Div>
 
@@ -78,13 +81,13 @@ Other options accessible from Cloud logs are:
 
 </Flex>
 
-## App menus
+### App menus
 
-From your app at `<your-custom-subdomain>.streamlit.app`, you can always access your [app's menu]() just like you can when developing locally. The option to deploy your app is removed, but you can still clear your cache from here.
+From your app at `<your-custom-subdomain>.streamlit.app`, you can always access your [app's menu](/library/advanced-features/app-menu) just like you can when developing locally. The option to deploy your app is removed, but you can still clear your cache from here.
 
-![Cloud logs](/images/streamlit-community-cloud/app-menu.png)
+![App menus in Streamlit Community Cloud](/images/streamlit-community-cloud/app-menu.png)
 
-## Manage apps in GitHub
+## Manage your app in GitHub
 
 ### Update your app
 
@@ -94,7 +97,7 @@ Streamlit also smartly detects whether you touched your dependencies, in which c
 
 ### Add or remove dependencies
 
-You can add/remove dependencies at any point by updating `requirements.txt` (Python deps) or `packages.txt` (Debian deps) and doing a `git push` to your remote repo. This will cause Streamlit to detect there was a change in its dependencies, which will automatically trigger its installation.
+You can add/remove dependencies at any point by updating `requirements.txt` (Python dependenciess) or `packages.txt` (Linux dependencies) and committing the changes to your repository on GitHub. This will cause Streamlit Community Cloud to detect there was a change in your dependencies and automatically trigger (re)installation.
 
 It is best practice to pin your Streamlit version in `requirements.txt`. Otherwise, the version may be auto-upgraded at any point without your knowledge, which could lead to undesired results (e.g. when we deprecate a feature in Streamlit).
 
@@ -102,56 +105,37 @@ It is best practice to pin your Streamlit version in `requirements.txt`. Otherw
 
 ### Resource limits
 
-<!-- The exact resources and limits will depend on [your workspace plan](https://streamlit.io/cloud). If you need more apps or more resources for your apps you can upgrade your plan or reach out to [support@streamlit.io](mailto:support@streamlit.io). -->
+All Streamlit Community Cloud users have access to the same resources and are subject to the same limits (1 GB of RAM).
+If your app is running slowly or you're hitting the '😦 Oh no.' page, we first highly recommend going through and implementing the suggestions in the following blog posts to prevent your app from hitting the resource limits and to detect if your Streamlit app leaks memory:
 
-All Community Cloud users have access to the same resources and are subject to the same limits (1 GB of RAM).
-If your app is running slowly or you're hitting the 'Argh' page, we first highly recommend going through and implementing the suggestions in the following blog posts to prevent your app from hitting the resource limits and to detect if your Streamlit app leaks memory:
+- <a href="https://blog.streamlit.io/common-app-problems-resource-limits/" target="_blank">Common app problems: Resource limits</a>
+- <a href="https://blog.streamlit.io/3-steps-to-fix-app-memory-leaks/" target="_blank">3 steps to fix app memory leaks</a>
 
-- [Common app problems: Resource limits](https://blog.streamlit.io/common-app-problems-resource-limits/)
-- [3 steps to fix app memory leaks](https://blog.streamlit.io/3-steps-to-fix-app-memory-leaks/)
-<!-- If you need more apps or more resources for your apps, you can reach out to us on our [Community forum](https://discuss.streamlit.io/). -->
+If your app exceeds its resourse limits, developers and viewers alike will see '😦 Oh no.'
+
+<div style={{ maxWidth: '70%', margin: 'auto' }}>
+<Image alt="App state: Oh no. Error running your app." src="/images/streamlit-community-cloud/app-state-oh-no.png" />
+</div>
+
+If see '😦 Oh no.' when viewing your app, first check your Cloud logs for any specific errors. If there are no errors in your Cloud logs you are likely dealing with a resource issue.
 
 #### Developer view
 
-If your app exceeds its resource limits, you will see one of the following messages when you visit your app. If your app uses an older version of Streamlit (`<1.1.0`) without memory fixes, you will see the message on the left. If your app uses a newer version of Streamlit (`>=1.1.0`), you will see the message on the right:
+If you are logged into a developer account for an app over its limits, you can access "**Manage app**" from the lower-right corner of the app to reboot it and clear its memory. "**Manage app**" will be red and have a warning icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>error</i>).
 
-<Flex>
-<Image src="/images/streamlit-community-cloud/resource-limits-dev-1.png" />
-<Image src="/images/streamlit-community-cloud/resource-limits-dev-2.png" />
-</Flex>
-
-Similarly, you will receive one of the following two emails from [alert@streamlit.io](mailto:alert@streamlit.io) with the subject "Your Streamlit app has gone over its resource limits 🤯":
-
-<Flex>
-<Image src="/images/streamlit-community-cloud/resource-limits-email-1.png" />
-<Image src="/images/streamlit-community-cloud/resource-limits-email-2.png" />
-</Flex>
-
-#### Non-developer view
-
-If your app exceeds its resource limits, users with view-only access will see one of the following messages when they visit your app. They will see the message on the left if your app uses an older version of Streamlit (`<1.1.0`) without memory fixes, and the message on the right if your app uses a newer version of Streamlit (`>=1.1.0`). Viewers have the option to notify you when the app exceeds its resource limits:
-
-<Flex>
-<Image src="/images/streamlit-community-cloud/resource-limits-viewer-1.png" />
-<Image src="/images/streamlit-community-cloud/resource-limits-viewer-2.png" />
-</Flex>
+![Developer view: Oh no. Error running your app.](/images/streamlit-community-cloud/app-state-oh-no-developer.png)
 
 ### App hibernation
 
-<!-- Private apps on Teams or Enterprise plans will not hibernate, but for public and Free tier apps without traffic for 7 consecutive days, will automatically go to sleep. This is done to alleviate resources and allow the best communal use of the platform! Here are some need to know's about how this works: -->
+All apps without traffic for 7 consecutive days will automatically go to sleep. This is done to alleviate resources and allow the best communal use of the platform! If you would like to keep your app awake, simply visit the app to create traffic or commit your app's repository, even if it's an empty commit!
 
-Private apps will not hibernate, but public Community Cloud apps without traffic for 7 consecutive days will automatically go to sleep. This is done to alleviate resources and allow the best communal use of the platform! Here are some need to know's about how this works:
+If left alone your app will go to sleep at the 7 day mark. When someone visits the app after this, they will see the sleeping page:
+<div style={{ maxWidth: '80%', margin: 'auto' }}>
+<Image alt="App state: Zzzz. This app has gone to sleep due to inactivity." src="/images/streamlit-community-cloud/app-state-zzzz.png" />
+</div>
 
-- As the app developer, you will receive an email after 5 days of no traffic on your app.
-- If you would like to keep your app awake, you have one of two choices:
-  - Visit the app (create traffic).
-  - Push a commit to the app (this can be empty!).
-- If left alone the app will go to sleep at the 7 day mark (2 days after you receive the email). When someone visits the app after this, they will see the sleeping page:
-    <div style={{ maxWidth: '55%', marginBottom: '-3em', marginLeft: '5em' }}>
-        <Image src="/images/spin_down.png" />
-    </div>
-- To wake the app up, press the "Yes, get this app back up!" button. This can be done by *anyone* who wants to view the app, not just the app developer!
-- You can also wake apps through your Streamlit Community Cloud dashboard. You will know which apps are sleeping because a moon icon will appear next to the app settings. To wake an app from the dashboard, click the moon.
-    <div style={{ maxWidth: '85%' }}>
-        <Image src="/images/sleeping_app_moon.png" />
-    </div>
+To wake the app up, click "**Yes, get this app back up!**" This can be done by *anyone* who has access to view the app, not just the app developer!
+
+You can see which of your apps are asleep from your workspace. Sleeping apps have a moon icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>bedtime</i>) to the right.
+
+![App state: Zzzz. This app has gone to sleep due to inactivity](/images/streamlit-community-cloud/app-state-zzzz-workspace.png)

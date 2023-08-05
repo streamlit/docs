@@ -3,21 +3,21 @@ title: Explore your workspace
 slug: /streamlit-community-cloud/get-started/explore-your-workspace
 ---
 
-# Explore your Streamlit Community Cloud workspace
+# Explore your workspace
 
-If you just [created your account](/streamlit-community-cloud/get-started/create-your-account), congrats! You are now logged in and ready to go. If you are joining someone else's workspace you may already see apps populated in your workspace. If not, then you need to deploy an app! Check out our next section on how to [Deploy your app](/streamlit-community-cloud/deploy-your-app). If you need an app to deploy, check out our [example apps](https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlit.app/) that include apps for machine learning, data science, and business use cases.
+If you just [created your account](/streamlit-community-cloud/get-started/create-your-account), congrats! You are now logged in and ready to go. If you are joining someone else's workspace you may already see apps populated in your workspace. If not, then you need to deploy an app! Check out our next section on how to [Deploy your app](/streamlit-community-cloud/deploy-your-app). If you need an app to deploy, check out our <a href="https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlit.app/" target="_blank">example apps</a> that include apps for machine learning, data science, and business use cases.
 
-![Workspace](/images/streamlit-community-cloud/workspace-empty.png)
+![Your Streamlit Community Cloud workspace](/images/streamlit-community-cloud/workspace-empty.png)
 
-You may also find that you already have multiple Streamlit Community Cloud workspaces. Streamlit Community Cloud automatically groups your apps according to the corresponding GitHub repository's owner or organzation. In the upper-right corner you can see the workspaces you have access to. If apps have already been deployed from any of your repositories, then you will see those apps when you select the associated workspace in the upper-right corner. Learn more about [App workspaces](/streamlit-community-cloud/manage-your-app#app-workspaces).
+You may also find that you already have multiple Streamlit Community Cloud workspaces. Streamlit Community Cloud automatically groups your apps according to the corresponding GitHub repository's owner or organzation. In the upper-right corner you can see the workspaces you have access to. If apps have already been deployed from any of your repositories, then you will see those apps when you select the associated workspace in the upper-right corner. Learn more about how to [Manage your app from your workspace](/streamlit-community-cloud/manage-your-app#manage-your-app-from-your-workspace).
 
-![Switch workspaces](/images/streamlit-community-cloud/workspace-empty-switch.png)
+![Switch between your Streamlit Community Cloud workspaces](/images/streamlit-community-cloud/workspace-empty-switch.png)
 
 ## Invite other developers to your workspace
 
-Inviting other developers is simple, just invite them to your GitHub repository so that you can code on apps together, and then have them log in to [share.streamlit.io](https://share.streamlit.io). Read more about connecting to a GitHub organization in [Connect GitHub](http://localhost:3000/streamlit-community-cloud/get-started/connect-github).
+Inviting other developers is simple, just invite them to your GitHub repository so that you can code on apps together, and then have them log in to <a href="https://share.streamlit.io/signup" target="_blank">share.streamlit.io/signup</a>. Read more about connecting to a GitHub organization in [Organization access](/streamlit-community-cloud/get-started/connect-your-github-account#organization-access).
 
-Streamlit Community Cloud inherits developer permissions from GitHub, so when your teammates log in, they will automatically view the workspaces you share. From there you can all deploy, manage, and share apps together.
+Streamlit Community Cloud inherits developer permissions from GitHub so when others sign in, they will automatically see the workspaces they share with you. From there you can all deploy, manage, and share apps together.
 
 <Note>
 

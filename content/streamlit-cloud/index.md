@@ -7,7 +7,7 @@ slug: /streamlit-community-cloud
 
 Deploy, manage, and share your apps with the world, directly from Streamlit — all for free.
 
-Streamlit's Community Cloud is an open and free platform for the community to deploy, discover, and share Streamlit apps and code with each other. If you're just getting started and have not yet built your first Streamlit app, check out the main [Get started](/library/get-started) page first. When you're ready to share it, create a Community Cloud account and you can launch your app in just a few minutes! Alternatively, Streamlit Community Cloud [Quickstart](/streamlit-community-cloud/get-started/quickstart) will speed-run you through creating your account and deploying and an example app.
+Streamlit's Community Cloud is an open and free platform for the community to deploy, discover, and share Streamlit apps and code with each other. If you're just getting started and have not yet built your first Streamlit app, check out the main [Get started](/library/get-started) page first. When you're ready to share it, create a Streamlit Community Cloud account and you can launch your app in just a few minutes! Alternatively, Streamlit Community Cloud [Quickstart](/streamlit-community-cloud/get-started/quickstart) will speed-run you through creating your account and deploying an example app.
 
 <TileContainer>
     <Tile

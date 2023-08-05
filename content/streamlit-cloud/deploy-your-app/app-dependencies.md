@@ -5,12 +5,12 @@ slug: /streamlit-community-cloud/deploy-your-app/app-dependencies
 
 # App dependencies
 
-The main reason that apps fail to build properly is because Streamlit Community Cloud can't find your dependencies! There are two kinds of dependencies your app might have: Python dependencies and external dependencies. Python dependencies are other Python packages (just like Streamlit!) that you `import` into you script. External dependencies are less common, but they include any other software your script needs to function properly.
+The main reason that apps fail to build properly is because Streamlit Community Cloud can't find your dependencies! There are two kinds of dependencies your app might have: Python dependencies and external dependencies. Python dependencies are other Python packages (just like Streamlit!) that you `import` into you script. External dependencies are less common, but they include any other software your script needs to function properly. Since Streamlit Community Cloud runs on Linux, these will be Linux dependencies installed with `apt-get` outside the Python environment.
 
 For your dependencies to be installed correctly, make sure you:
 
 1. Add a [requirements file](#add-python-dependencies) for Python dependencies.
-2. (optional) Add a `packages.txt` file to manage any external dependencies (i.e Linux dependencies outside Python environment).
+2. (optional) Add a `packages.txt` file to manage any external dependencies.
 
 <Note>
 
@@ -23,7 +23,7 @@ directory as your Streamlit app.
 
 With each `import` statement in your script, you are bringing in a Python dependency. You need to tell Streamlit Community Cloud how to install those depencies through a Python package manager. We recommend using a `requirements.txt` which is based on `pip`.
 
-You should _not_ include [built-in Python libraries](https://docs.python.org/3/py-modindex.html) like `math` or `random` in a `requirements.txt` file. These are a part of Python and aren't installed separately. Also, Streamlit Community Cloud has `streamlit` installed by default. You don't strictly need to include `streamlit` unless you want to pin or restrict the version. If you deploy an app without a `requirements.txt` file, your app will run in an environment with just `streamlit` (and its dependencies) installed.
+You should _not_ include <a href="https://docs.python.org/3/py-modindex.html" target="_blank">built-in Python libraries</a> like `math` or `random` in your `requirements.txt` file. These are a part of Python and aren't installed separately. Also, Streamlit Community Cloud has `streamlit` installed by default. You don't strictly need to include `streamlit` unless you want to pin or restrict the version. If you deploy an app without a `requirements.txt` file, your app will run in an environment with just `streamlit` (and its dependencies) installed.
 
 If you have a script like the following, no extra dependencies would be needed since `pandas` and `numpy` are installed as direct dependencies of `streamlit`. Similarly, `math` and `random` are built into Python.
 
@@ -61,6 +61,8 @@ We recommend that you use the latest version of Streamlit to ensure full Streaml
 
 </Note>
 
+If you pin `streamlit` below 1.20.0, you may experience unexpected results if you've pinned any dependencies of `altair`. If `streamlit` is installed below version 1.20.0, `altair<5` will be reinstalled on top of your evironment for compatibility reasons. When this happens all of altair's dependecies will be updated.
+
 ### Other Python package managers
 
 There are other Python package managers besides `pip`. If you want to consider alternatives to using a `requirements.txt` file, Streamlit Community Cloud will look for other Python dependency managers to use in the order below. Streamlit will stop and install the first dependency file found.
@@ -72,19 +74,19 @@ There are other Python package managers besides `pip`. If you want to consider a
     </tr>
     <tr>
         <td style={{ fontSize: '1em' }}><code>Pipfile</code></td>
-        <td style={{ fontSize: '1em' }}><a href="https://pipenv-fork.readthedocs.io/en/latest/basics.html">pipenv</a></td>
+        <td style={{ fontSize: '1em' }}><a href="https://pipenv-fork.readthedocs.io/en/latest/basics.html" target="_blank">pipenv</a></td>
     </tr>
     <tr>
         <td style={{ fontSize: '1em' }}><code>environment.yml</code></td>
-        <td style={{ fontSize: '1em' }}><a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually">conda</a></td>
+        <td style={{ fontSize: '1em' }}><a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually" target="_blank">conda</a></td>
     </tr>
     <tr>
         <td style={{ fontSize: '1em' }}><code>requirements.txt</code></td>
-        <td style={{ fontSize: '1em' }}><a href="https://pip.pypa.io/en/stable/user_guide/#requirements-files">pip</a></td>
+        <td style={{ fontSize: '1em' }}><a href="https://pip.pypa.io/en/stable/user_guide/#requirements-files" target="_blank">pip</a></td>
     </tr>
     <tr>
         <td style={{ fontSize: '1em' }}><code>pyproject.toml</code></td>
-        <td style={{ fontSize: '1em' }}><a href="https://python-poetry.org/docs/basic-usage/">poetry</a></td>
+        <td style={{ fontSize: '1em' }}><a href="https://python-poetry.org/docs/basic-usage/" target="_blank">poetry</a></td>
     </tr>
 </table>
 
@@ -98,9 +100,9 @@ You should only use one requirements file for your app. If you include more than
 
 For many apps, a `packages.txt` file is not required. However, if your script requires any software to be installed that is not a Python package, then you will need a `packages.txt` file. Streamlit Community Cloud is built on Debian Linux. Anything you would like to `apt-get install` needs to go in your `packages.txt` file.
 
-If `packages.txt` exists in the root directory of your repository we automatically detect it, parse it, and install the listed packages. You can read more about apt-get in [Linux documentation](https://linux.die.net/man/8/apt-get).
+If `packages.txt` exists in the root directory of your repository we automatically detect it, parse it, and install the listed packages. You can read more about apt-get in <a href="https://linux.die.net/man/8/apt-get" target="_blank">Linux documentation</a>.
 
-Add **apt-get** dependencies to `packages.txt`, one package name per line. For example, [`mysqlclient`](https://github.com/PyMySQL/mysqlclient) is a Python package which requires additional software be installed to function. A valid `pacakges.txt` file to enable `mysqlclient` would be:
+Add **apt-get** dependencies to `packages.txt` &mdash; one package name per line. For example, <a href="https://github.com/PyMySQL/mysqlclient" target="_blank"><code>mysqlclient</code></a> is a Python package which requires additional software be installed to function. A valid `pacakges.txt` file to enable `mysqlclient` would be:
 
 ```bash
     build-essential

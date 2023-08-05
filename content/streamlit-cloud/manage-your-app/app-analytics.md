@@ -10,44 +10,49 @@ Streamlit Community Cloud allows you to see the viewership of each of your apps.
 * The most recent unique viewers (capped up to your last 20 viewers).
 * A relative timestamp of each unique viewer's last visit.
 
-![App analytics](/images/streamlit-community-cloud/workspace-app-analytics-viewers.png)
+![App analytics on Streamlit Community Cloud](/images/streamlit-community-cloud/workspace-app-analytics-viewers.png)
 
 ## Access your app anlytics
 
-You can get to your app's settings in three ways:
+You can get to your app's analytics:
+* [From your workspace](#access-app-analytics-from-your-workspace).
+* [From your Cloud logs](#access-app-analytics-from-your-cloud-logs).
 
-* [From your workspace](#from-your-workspace)
-* [From your Cloud logs](#from-your-cloud-logs)
+### Access app analytics from your workspace
 
-### From your workspace
+From your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) next to your app. Click "**Analytics**".
 
-From your workspace at [share.streamlit.io](https://share.streamlit.io), click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) next to your app. Click "**Analytics**".
-
-![App analytics from your workspace](/images/streamlit-community-cloud/workspace-app-analytics.png)
+![Access app analytics from your workspace through your app overflow menu](/images/streamlit-community-cloud/workspace-app-analytics.png)
 
 Alternatively, from the top of your workspace, click "**Analytics**".
 
-![App analytics from your workspace](/images/streamlit-community-cloud/workspace-analytics.png)
+![Access app analytics from your workspace](/images/streamlit-community-cloud/workspace-analytics.png)
 
-### From your Cloud logs
+### Access app analytics from your Cloud logs
 
 From your app at `<your-custom-subdomain>.streamlit.app`, click "**Manage app**" in the lower-right corner.
 
-![Open Cloud logs](/images/streamlit-community-cloud/cloud-logs-open.png)
+![Access Streamlit Community Cloud logs from your app](/images/streamlit-community-cloud/cloud-logs-open.png)
 
 Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) and click "**Analytics**".
 
-![App settings from Cloud logs](/images/streamlit-community-cloud/cloud-logs-menu-analytics.png)
+![Access app analytics from your Cloud logs](/images/streamlit-community-cloud/cloud-logs-menu-analytics.png)
 
 ## Switch between apps
 
-Once you are in the analytics modal, you can switch between apps in the workspace from the drop-down list.
+Once you are in the analytics modal, you can switch between apps in your workspace from the drop-down list. Remember to switch workspaces if you want to view analytics for an app in another workspace.
 
-![App analytics](/images/streamlit-community-cloud/workspace-app-analytics-switch.png)
+![Switch between apps with app analytics](/images/streamlit-community-cloud/workspace-app-analytics-switch.png)
 
 ## App viewers for public vs private apps
 
-For public apps, we anonymize all viewers outside your workspace to protect their privacy and display anonymous viewers as random pseudonyms. You'll still be able to see the identities of fellow members in your workspace, though.
+For public apps, we anonymize all viewers outside your workspace to protect their privacy and display anonymous viewers as random pseudonyms. You'll still be able to see the identities of fellow members in your workspace, including any viewers you've invited (once they've accepted).
+
+<Important>
+
+When you invite a viewer to an app, they gain access to analytics as well. Additionally, if someone is invited as a viewer to *any* app in your workspace, they can see analytics for all public apps in your workspace and invite additional viewers themselves. A viewer in your workspace may see the emails of developers and other viewers in your workspace through analytics.
+
+</Important>
 
 Meanwhile, for private apps where you control who has access, you will be able to see the specific users who recently viewed your apps.
 
@@ -57,6 +62,6 @@ Common reasons why users show up anonymously are:
 
 1. The app was previously public.
 2. The given viewer viewed the app in April 2022, when the Streamlit team was honing user identification for this feature.
-3. The given viewer disconnected their primary identity (Google or email) and source control identity (GitHub) previously.
+3. The given viewer previously disconnected their primary identity (Google or email) and source control identity (GitHub).
 
-See Streamlit's general [Privacy Notice](https://streamlit.io/privacy-policy).
+See Streamlit's general <a href="https://streamlit.io/privacy-policy" target="_blank">Privacy Notice</a>.

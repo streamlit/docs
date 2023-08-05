@@ -433,8 +433,8 @@ site_menu:
     url: /streamlit-community-cloud/get-started/quickstart
   - category: Streamlit Community Cloud / Get started / Create your account
     url: /streamlit-community-cloud/get-started/create-your-account
-  - category: Streamlit Community Cloud / Get started / Connect GitHub
-    url: /streamlit-community-cloud/get-started/connect-github
+  - category: Streamlit Community Cloud / Get started / Connect your GitHub account
+    url: /streamlit-community-cloud/get-started/connect-your-github-account
   - category: Streamlit Community Cloud / Get started / Explore your workspace
     url: /streamlit-community-cloud/get-started/explore-your-workspace
   - category: Streamlit Community Cloud / Get started / Trust and Security
