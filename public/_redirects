@@ -870,4 +870,4 @@
 /library/api-reference/widgets/st.experimental_data_editor /library/api-reference/data/st.data_editor
 /knowledge-base/using-streamlit/how-hide-hamburger-menu-app /library/advanced-features/app-menu#customize-the-menu
 /knowledge-base/using-streamlit/record-screencast /library/advanced-features/app-menu#record-a-screencast
-/knowledge-base/using-streamlit/hide-row-indices-displaying-dataframe http://localhost:3000/library/advanced-features/dataframes#additional-formatting-options
+/knowledge-base/using-streamlit/hide-row-indices-displaying-dataframe /library/advanced-features/dataframes#additional-formatting-options
