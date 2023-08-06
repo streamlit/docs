@@ -15,7 +15,7 @@ Social media sites generate a card with a title, preview image, and description 
 
 <Note>
 
-Share previews are generated only for public apps deployed on Community Cloud.
+Share previews are generated only for public apps deployed on Streamlit Community Cloud.
 
 </Note>
 
@@ -35,7 +35,7 @@ There are two ways to set the title of a share preview:
    # ... rest of your app
    ```
 
-2. If you don't set the `page_title` parameter, the title of the share preview will be the name of your app's GitHub repository. For example, the default title for an app hosted on GitHub at https://github.com/jrieke/traingenerator will be "traingenerator".
+2. If you don't set the `page_title` parameter, the title of the share preview will be the name of your app's GitHub repository. For example, the default title for an app hosted on GitHub at <a href="https://github.com/jrieke/traingenerator" target="_blank">github.com/jrieke/traingenerator</a> will be "traingenerator".
 
 ## Descriptions
 
@@ -57,7 +57,7 @@ If you want your share previews to look great and want users to share your app a
 
 ## Preview images
 
-Community Cloud takes a screenshot of your app once a day and uses it as the preview image, unlike titles and descriptions, which are pulled directly from your app's code or GitHub repository. This screenshot may take up to 24 hours to update.
+Streamlit Community Cloud takes a screenshot of your app once a day and uses it as the preview image, unlike titles and descriptions which are pulled directly from your app's code or GitHub repository. This screenshot may take up to 24 hours to update.
 
 ### Switching your app from public to private
 

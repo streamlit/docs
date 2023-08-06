@@ -1,6 +1,6 @@
 ---
 title: Workspace settings
-slug: /streamlit-community-cloud/manage-your-app/workspace-settings
+slug: /streamlit-community-cloud/manage-your-account/workspace-settings
 ---
 
 # Workspace settings

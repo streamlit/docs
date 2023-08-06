@@ -5,7 +5,7 @@ slug: /streamlit-community-cloud/share-your-app/embed-your-app
 
 # Embed your app
 
-Embedding [Streamlit Community Cloud](https://streamlit.io/cloud) apps enriches your content by integrating interactive, data-driven applications directly within your pages. Whether you're writing a blog post, a technical document, or sharing resources on platforms like Medium, Notion, or even StackOverflow, embedding Streamlit apps adds a dynamic component to your content. This allows your audience to interact with your ideas, rather than merely reading about them or looking at screenshots.
+Embedding Streamlit Community Cloud apps enriches your content by integrating interactive, data-driven applications directly within your pages. Whether you're writing a blog post, a technical document, or sharing resources on platforms like Medium, Notion, or even StackOverflow, embedding Streamlit apps adds a dynamic component to your content. This allows your audience to interact with your ideas, rather than merely reading about them or looking at screenshots.
 
 Streamlit Community Cloud supports both [iframe](#embedding-with-iframes) and [oEmbed](#embedding-with-oembed) methods for embedding **public** apps. This flexibility enables you to share your apps across a wide array of platforms, broadening your app's visibility and impact. In this guide, we'll cover how to use both methods effectively to share your Streamlit apps with the world.
 
@@ -13,7 +13,7 @@ Streamlit Community Cloud supports both [iframe](#embedding-with-iframes) and [o
 
 Streamlit Community Cloud supports embedding **public** apps using the subdomain scheme. To embed a public app, add the query parameter `/?embed=true` to the end of the `*.streamlit.app` URL.
 
-For example, say you want to embed the [30DaysOfStreamlit app](https://30days.streamlit.app/). The URL to include in your iframe is: [https://30days.streamlit.app/?embed=true](https://30days.streamlit.app/?embed=true):
+For example, say you want to embed the <a href="https://30days.streamlit.app/" target="_blank">30DaysOfStreamlit app</a>. The URL to include in your iframe is: `https://30days.streamlit.app/?embed=true`:
 
 ```javascript
 <iframe
@@ -33,16 +33,16 @@ There will be no official support for embedding private apps.
 
 In addition to allowing you to embed apps via iframes, the `?embed=true` query parameter also does the following:
 
-- Removes the toolbar with the app menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>)
-- Removes the padding at the top and bottom of the app
-- Removes the footer
-- Removes the colored line from the top of the app
+- Removes the toolbar with the app menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>).
+- Removes the padding at the top and bottom of the app.
+- Removes the footer.
+- Removes the colored line from the top of the app.
 
 For granular control over the embedding behavior, Streamlit allows you to specify one or more instances of the `?embed_options` query parameter (e.g. to show the toolbar, open the app in dark theme, etc). [Click here for a full list of Embed options.](#embed-options)
 
 ## Embedding with oEmbed
 
-Streamlit's oEmbed support allows for a simpler embedding experience. You can directly drop a Streamlit app's URL into a Medium, Ghost, or Notion page (or any of more than 700 content providers that supports oEmbed or [embed.ly](https://embed.ly/)). The embedded app will automatically appear! This helps Streamlit Community Cloud apps seamlessly integrate into these platforms, improving the visibility and accessibility of your apps.
+Streamlit's oEmbed support allows for a simpler embedding experience. You can directly drop a Streamlit app's URL into a Medium, Ghost, or Notion page (or any of more than 700 content providers that supports oEmbed or <a href="https://embed.ly/" target="_blank">embed.ly</a>). The embedded app will automatically appear! This helps Streamlit Community Cloud apps seamlessly integrate into these platforms, improving the visibility and accessibility of your apps.
 
 ### Example
 
@@ -52,13 +52,13 @@ When creating content in a Notion page, Medium article, or Ghost blog, you only 
 https://30days.streamlit.app/
 ```
 
-Here's an example of [@chrieke's](https://github.com/chrieke) Prettymapp [app](https://chrieke-prettymapp-streamlit-prettymappapp-1k0qxh.streamlit.app/) embedded in a Medium article:
+Here's an example of <a href="https://github.com/chrieke" target="_blank">@chrieke</a>'s <a href="https://chrieke-prettymapp-streamlit-prettymappapp-1k0qxh.streamlit.app/" target="_blank">Prettymapp app</a> embedded in a Medium article:
 
-<Image src="/images/streamlit-community-cloud/oembed.gif" alt="oEmbed example" clean />
+<Image src="/images/streamlit-community-cloud/oembed.gif" alt="Example: Embed an app in a Medium article with oEmbed" clean />
 
 <Tip>
 
-Ensure the platform hosting the embedded Streamlit app supports oEmbed or [embed.ly](https://embed.ly/).
+Ensure the platform hosting the embedded Streamlit app supports oEmbed or <a href="https://embed.ly/" target="_blank">embed.ly</a>.
 
 </Tip>
 
@@ -66,21 +66,21 @@ Ensure the platform hosting the embedded Streamlit app supports oEmbed or [embed
 
 oEmbed should work out of the box for several platforms including but not limited to:
 
-- [Medium](https://medium.com/)
-- [Notion](https://notion.so/)
-- [Looker](https://www.looker.com/)
-- [Tableau](https://www.tableau.com/)
-- [Ghost](https://ghost.org/)
-- [Discourse](https://www.discourse.org/)
-- [StackOverflow](https://stackoverflow.com/)
-- [W3](https://www.w3schools.com/)
-- [Reddit](https://www.reddit.com/)
+- <a target="_blank" href="https://medium.com/">Medium</a>
+- <a target="_blank" href="https://notion.so/">Notion</a>
+- <a target="_blank" href="https://www.looker.com/">Looker</a>
+- <a target="_blank" href="https://www.tableau.com/">Tableau</a>
+- <a target="_blank" href="https://ghost.org/">Ghost</a>
+- <a target="_blank" href="https://www.discourse.org/">Discourse</a>
+- <a target="_blank" href="https://stackoverflow.com/">StackOverflow</a>
+- <a target="_blank" href="https://www.w3schools.com/">W3</a>
+- <a target="_blank" href="https://www.reddit.com/">Reddit</a>
 
 Please check the specific platform's documentation to verify support for oEmbed.
 
 ### iframe versus oEmbed
 
-The only noteworthy differences between the methods is that iframing allows you customize the app's embedding behavior (e.g. showing the toolbar, opening the app in dark theme, etc) using the various `?embed_options` described in the next section.
+The only noteworthy differences between the methods is that iframing allows you to customize the app's embedding behavior (e.g. showing the toolbar, opening the app in dark theme, etc) using the various `?embed_options` described in the next section.
 
 ## Embed options
 
@@ -140,13 +140,13 @@ You can also combine the params:
 
 ### Build an embed link
 
-From your app, you can conveniently build an embed link for your app.
+You can conveniently build an embed link for your app &mdash; right from your app!
 
 1. From your app at `<your-custom-subdomain>.streamlit.app`, click "**Share**" in the upper-right corner.
 2. Click "**Embed**" to access a list of selectable embed options.
 
-   ![Share settings](/images/streamlit-community-cloud/share-menu-embed.png)
+   ![Access embed options from the share button](/images/streamlit-community-cloud/share-menu-embed.png)
 
 3. Select your embed options and click "**Get embed link**" to copy the embed link to your clipboard.
 
-   ![Share settings](/images/streamlit-community-cloud/share-menu-embed-url.png)
+   ![Build a customized embed link for your app from the share button](/images/streamlit-community-cloud/share-menu-embed-url.png)
