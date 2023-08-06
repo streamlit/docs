@@ -10,8 +10,11 @@ If you did not connect GitHub when you created your account or need to correct y
 If you are not fully logged in and authorized to both a primary identity (Google or email) and source control (GitHub), there will be a warning symbol in the upper-right corner of your workspace. This can mean one of three things:
 
 * You are not signed in to a primary identity (Google or email).
-* You are not signed in to source control (GitHub).
+  * See [Connect Google to your account](/streamlit-community-cloud/manage-your-account/update-your-email#connect-google-to-your-account).
+* You are not signed in to source control (GitHub.)
+  * See [Connecting GitHub to an existing primary identity](#connecting-github-to-an-existing-primary-identity).
 * Your source control has incomplete permissions.
+  * Access your workspace settings see [Authorize Streamlit to access private repositories](#authorize-streamlit-to-access-private-repositories).
 
 <Image alt="Authorize your GitHub account" src="/images/streamlit-community-cloud/workspace-empty-warning-annotated.png" />
 
@@ -26,65 +29,68 @@ If you created your account without connecting GitHub or if you disconnected Git
 3. Click "**Sign in with GitHub**".
 
 <div style={{ maxWidth: '75%', margin: 'auto' }}>
-<Image alt="Authorize your GitHub account" src="/images/streamlit-community-cloud/account-no-source.png" />
+<Image alt="Sign in with GitHub to connect GitHub to your Streamlit Community Cloud account" src="/images/streamlit-community-cloud/account-no-source.png" />
 </div>
 
 4. Click "**Authorize streamlit**".
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
-<Image alt="Authorize your GitHub account" src="/images/streamlit-community-cloud/GitHub-auth1-none.png" />
+<Image alt="Authorize streamlit to connect to your GitHub account" src="/images/streamlit-community-cloud/GitHub-auth1-none.png" />
 </div>
 
-5. After completing the first authorization, your Workspace settings with still have a warning, "**Streamlit does not have access to private repos on this GitHub account**".
+### Authorize Streamlit to access private repositories
+
+5. After completing the first authorization, your workspace settings will still have a warning, "**Streamlit does not have access to private repos on this GitHub account**".
+
 6. Click "**Allow access**".
 
 <div style={{ maxWidth: '75%', margin: 'auto' }}>
-<Image alt="Authorize your GitHub account" src="/images/streamlit-community-cloud/account-unauthorized-source.png" />
+<Image alt="Click 'Allow access' to trigger the second GitHub authorization" src="/images/streamlit-community-cloud/account-unauthorized-source.png" />
 </div>
 
 7. Click "**Authorize streamlit**".
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
-<Image alt="Authorize your GitHub account" src="/images/streamlit-community-cloud/GitHub-auth2-none.png" />
+<Image alt="Authorize streamlit to access private repositories" src="/images/streamlit-community-cloud/GitHub-auth2-none.png" />
 </div>
 
 GitHub is now connected to your account! 🥳
 
 ## Authorizing with an organization
 
-If you are in an organization, you can grant or request access to that organization when you connect your GitHub account. Read more about organization access on GitHub's authorization prompts in [Connect GitHub](/streamlit-community-cloud/get-started/connect-github#authorize-an-organization).
+If you are in an organization, you can grant or request access to that organization when you connect your GitHub account. Read more about [Organization access](/streamlit-community-cloud/get-started/connect-your-github-account#organization-access).
 
 If your GitHub account is already connected, you can remove permissions in your GitHub settings and force Streamlit to reprompt for GitHub authorization the next time you sign into Streamlit Community Cloud.
 
 ### Revoke and reauthorize
 
-1. Sign out of Streamlit Community Cloud.
+1. From your workspace, click on your workspace name in the upper-right corner. Click "**Sign out**" to sign out of Streamlit Community Cloud.
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
-<Image alt="Authorize your GitHub account" src="/images/streamlit-community-cloud/account-sign-out.png" />
+<Image alt="Sign out of Streamlit Community Cloud" src="/images/streamlit-community-cloud/account-sign-out.png" />
 </div>
 
-2. Go to your GitHub application settings at [github.com/settings/applications](https://github.com/settings/applications).
+2. Go to your GitHub application settings at <a href="https://github.com/settings/applications" target="_blank">github.com/settings/applications</a>.
 3. Click on the three dots to open the overflow menu for "**Streamlit**" and click "**Revoke**".
 
 <div style={{ maxWidth: '75%', margin: 'auto' }}>
-<Image alt="Authorize your GitHub account" src="/images/streamlit-community-cloud/GitHub-revoke.png" />
+<Image alt="Revoke access for Streamlit to access your GitHub account" src="/images/streamlit-community-cloud/GitHub-revoke.png" />
 </div>
 
 4. Click "**I understand, revoke access**".
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
-<Image alt="Authorize your GitHub account" src="/images/streamlit-community-cloud/GitHub-revoke-confirm.png" />
+<Image alt="Confirm to revoke access for Streamlit to your GitHub account" src="/images/streamlit-community-cloud/GitHub-revoke-confirm.png" />
 </div>
 
-5. Return to [share.streamlit.io](https://share.streamlit.io/) and sign in. You will be prompted to authorize GitHub as explained in [Connect GitHub](/streamlit-community-cloud/get-started/connect-github#authorize-an-organization).
+5. Return to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a> and sign in. You will be prompted to authorize GitHub as explained in [Connect GitHub](/streamlit-community-cloud/get-started/connect-your-github-account#organization-access).
 
 ### Granting previously denied access
 
 If an organization owner has restricted Streamlit's access or restricted all OAuth applications, they may need to directly modify their permissions in GitHub. If an organization has restricted Streamlit's access, a red "**X**" will appear next to the organization when you are prompted to authorize with your GitHub account.
 
 <div style={{ maxWidth: '60%', margin: 'auto' }}>
-<Image alt="Authorize your GitHub account" src="/images/streamlit-community-cloud/GitHub-auth-denied-XL.png" clean />
+<Image alt="Denied authorization for Streamlit to access your GitHub account" src="/images/streamlit-community-cloud/GitHub-auth-denied-XL.png" clean />
 </div>
 
-See GitHub's documentation on [OAuth apps and organizations](https://docs.github.com/en/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps#oauth-apps-and-organizations).
+See GitHub's documentation on <a href="https://docs.github.com/en/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps#oauth-apps-and-organizations" target="_blank">OAuth apps and organizations</a>.
