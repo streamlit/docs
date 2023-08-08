@@ -210,4 +210,4 @@ This tutorial assumes a local Streamlit app, however you can also connect to Sno
 
 - [Include information about dependencies](/streamlit-community-cloud/deploy-your-app/app-dependencies) using a `requirements.txt` file with `snowflake-snowpark-python` and any other dependencies.
 - [Add your secrets](/streamlit-community-cloud/deploy-your-app/secrets-management#deploy-an-app-and-set-up-secrets) to your Community Cloud app.
-- For apps using `snowflake-snowpark-python`, you should also ensure the app is [running on python 3.8](/streamlit-community-cloud/get-started/deploy-an-app#advanced-settings-for-deployment).
+- For apps using `snowflake-snowpark-python`, you should also ensure the app is [running on python 3.8](/streamlit-community-cloud/deploy-your-app#advanced-settings-for-deployment).

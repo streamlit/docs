@@ -5,7 +5,7 @@ slug: /knowledge-base/deploy/custom-subdomains
 
 # Custom subdomains
 
-Once you've [deployed your app](/streamlit-community-cloud/get-started/deploy-an-app) on Community Cloud, it's given an automatically generated subdomain that follows a structure based on your GitHub repo. This subdomain is unique to your app and can be used to share your app with others. However, the default subdomain is not always the most memorable or easy to share. E.g. the following is a bit of a mouthful!
+Once you've [deployed your app](/streamlit-community-cloud/deploy-your-app) on Community Cloud, it's given an automatically generated subdomain that follows a structure based on your GitHub repo. This subdomain is unique to your app and can be used to share your app with others. However, the default subdomain is not always the most memorable or easy to share. E.g. the following is a bit of a mouthful!
 
 `https://streamlit-demo-self-driving-streamlit-app-8jya0g.streamlit.app`
 
