@@ -467,6 +467,8 @@ site_menu:
     url: /streamlit-community-cloud/share-your-app/share-previews
   - category: Streamlit Community Cloud / Manage your account
     url: /streamlit-community-cloud/manage-your-account
+  - category: Streamlit Community Cloud / Manage your account / Sign in & sign out
+    url: /streamlit-community-cloud/manage-your-account/sign-in-sign-out
   - category: Streamlit Community Cloud / Manage your account / Workspace settings
     url: /streamlit-community-cloud/manage-your-account/workspace-settings
   - category: Streamlit Community Cloud / Manage your account / Manage your GitHub connection
