@@ -44,7 +44,7 @@ Once you are in the analytics modal, you can switch between apps in your workspa
 
 ![Switch between apps with app analytics](/images/streamlit-community-cloud/workspace-app-analytics-switch.png)
 
-## App viewers for public vs private apps
+## App viewers
 
 For public apps, we anonymize all viewers outside your workspace to protect their privacy and display anonymous viewers as random pseudonyms. You'll still be able to see the identities of fellow members in your workspace, including any viewers you've invited (once they've accepted).
 
