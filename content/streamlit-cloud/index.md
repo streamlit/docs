@@ -5,104 +5,51 @@ slug: /streamlit-community-cloud
 
 # Welcome to Streamlit Community Cloud
 
-Streamlit's Community Cloud is an open and free platform for the community to deploy, discover, and share Streamlit apps and code with each other. If you're just getting started and have not yet built your first Streamlit app, check out the main [Get started](/library/get-started) page first. When you're ready to share it, create a Community Cloud account and you can launch your app in just a few minutes! Deploy, manage, and share your apps with the world, directly from Streamlit — all for free.
+Deploy, manage, and share your Streamlit apps with the world in minutes &mdash; all for free. Your Streamlit Community Cloud account connects directly to your GitHub repository (public or private). Most apps will launch in only a few minutes. Streamlit Community Cloud handles all of the containerization so all you need to worry about is creating the app. Rapidly prototype, explore, and update apps by simply changing your code in GitHub. Most changes appear immediately!
 
-<!-- <InlineCalloutContainer>
-  <InlineCallout
-    color="l-blue-70"
-    icon="arrow_forward"
-    bold="Get started."
-    href="/streamlit-community-cloud/get-started"
-  >
-    Learn how to set up your account to start deploying apps.
-  </InlineCallout>
-  <InlineCallout
-    color="l-blue-70"
-    icon="flight_takeoff"
-    bold="Deploy an app."
-    href="/streamlit-community-cloud/enterprise"
-  >
-    A step by step guide on how to get your app deployed.
-  </InlineCallout>
-  <InlineCallout
-    color="l-blue-70"
-    icon="electrical_services"
-    bold="Connect data sources."
-    href="/streamlit-community-cloud/enterprise"
-  >
-    Learn how to securely connect your app to data sources.
-  </InlineCallout>
-  <InlineCallout
-    color="l-blue-70"
-    icon="share"
-    bold="Share your app."
-    href="/streamlit-community-cloud/enterprise"
-  >
-    Share your app publicly or privately with select viewers and developers.
-  </InlineCallout>
-  <InlineCallout
-    color="l-blue-70"
-    icon="manage_accounts"
-    bold="Manage your app."
-    href="/streamlit-community-cloud/enterprise"
-  >
-    Access logs, get more resources for your app, and other tips and tricks.
-  </InlineCallout>
-  <InlineCallout
-    color="l-blue-70"
-    icon="speed"
-    bold="Additional features."
-    href="/streamlit-community-cloud/enterprise"
-  >
-    If you are on an Enterprise plan you have access to even more features.
-  </InlineCallout>
-</InlineCalloutContainer> -->
+If you haven't built your first Streamlit app yet, you can check out [Get started](/library/get-started) in our Streamlit library documentation, fork an app from our <a href="https://streamlit.io/gallery" target="_blank">App gallery</a>, or go with [Quickstart](/streamlit-community-cloud/get-started/quickstart) which will speed-run you through creating your account and deploying an example app.
 
-<TileContainer>
-    <Tile
+<InlineCalloutContainer>
+    <InlineCallout
+        color="l-blue-70"
+        icon="rocket_launch"
+        bold="Quickstart"
+        href="/streamlit-community-cloud/get-started/quickstart"
+    >Create your account and deploy an example app as fast as possible.
+    </InlineCallout>
+    <InlineCallout
+        color="l-blue-70"
         icon="arrow_forward"
-        title="Get started"
-        text="Learn how to set up your account to start deploying apps."
-        link="/streamlit-community-cloud/get-started"
-    />
-    <Tile
+        bold="Get started"
+        href="/streamlit-community-cloud/get-started"
+    >Learn about Streamlit Community Cloud accounts and how to create one.
+    </InlineCallout>
+    <InlineCallout
+        color="l-blue-70"
         icon="flight_takeoff"
-        title="Deploy an app"
-        text="A step by step guide on how to get your app deployed."
-        link="/streamlit-community-cloud/get-started/deploy-an-app"
-    />
-    <Tile
-        icon="electrical_services"
-        title="Connect data sources"
-        text="Learn how to securely connect your app to data sources."
-        link="/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources"
-    />
-    <Tile
+        bold="Deploy your app"
+        href="/streamlit-community-cloud/deploy-your-app"
+    >A step-by-step guide on how to get your app deployed.
+    </InlineCallout>
+    <InlineCallout
+        color="l-blue-70"
         icon="share"
-        title="Share your app"
-        text="Share your app publicly or privately with select viewers and developers."
-        link="/streamlit-community-cloud/get-started/share-your-app"
-    />
-    <Tile
-        icon="bookmark"
-        title="Embed your app"
-        text="Embed your app in your blog, website, or other content."
-        link="/streamlit-community-cloud/get-started/embed-your-app"
-    />
-    <Tile
+        bold="Share your app"
+        href="/streamlit-community-cloud/share-your-app"
+    >Share or embed your app.
+    </InlineCallout>
+    <InlineCallout
+        color="l-blue-70"
+        icon="settings"
+        bold="Manage your app"
+        href="/streamlit-community-cloud/manage-your-app"
+    >Access logs, reboot apps, set favorites, and more.
+    </InlineCallout>
+    <InlineCallout
+        color="l-blue-70"
         icon="manage_accounts"
-        title="Manage your app"
-        text="Access logs, reboot, or favorite an app, and other tips and tricks."
-        link="/streamlit-community-cloud/get-started/manage-your-app"
-    />
-</TileContainer>
-
-<Note>
-
-Interested in our security model? Check out our [Trust and Security page](/streamlit-community-cloud/trust-and-security).
-
-</Note>
-
-<!-- Questions? Reach out to [support@streamlit.io](mailto:support@streamlit.io) for answers! -->
-
-Questions? Reach out to us on the [Community forum](https://discuss.streamlit.io)!
+        bold="Manage your account"
+        href="/streamlit-community-cloud/manage-your-account"
+    >Update your email, manage connections, or delete your account.
+    </InlineCallout>
+</InlineCalloutContainer>

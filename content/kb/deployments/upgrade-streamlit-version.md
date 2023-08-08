@@ -5,7 +5,7 @@ slug: /knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud
 
 # Upgrade the Streamlit version of your app on Streamlit Community Cloud
 
-Want to use a cool new Streamlit feature but your app on Streamlit Community Cloud is running an old version of the Streamlit library? If that's you, don't worry! All you need to do is upgrade your app's Streamlit version. Here are five ways to do this, based on how your [app manages dependencies](/streamlit-community-cloud/get-started/deploy-an-app/app-dependencies):
+Want to use a cool new Streamlit feature but your app on Streamlit Community Cloud is running an old version of the Streamlit library? If that's you, don't worry! All you need to do is upgrade your app's Streamlit version. Here are five ways to do this, based on how your [app manages dependencies](/streamlit-community-cloud/deploy-your-app/app-dependencies):
 
 ## No dependency file
 
