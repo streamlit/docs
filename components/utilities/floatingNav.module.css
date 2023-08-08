@@ -35,7 +35,7 @@
 }
 
 .Link {
-  @apply border-none inline-block w-40 leading-4 hover:opacity-70 hover:no-underline;
+  @apply border-none inline-block pr-2 w-40 leading-4 hover:opacity-70 hover:no-underline;
   @apply text-gray-70 !important;
 }
 
