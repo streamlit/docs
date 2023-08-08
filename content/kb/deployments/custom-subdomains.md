@@ -15,7 +15,7 @@ You can instead set up a custom subdomain to make your app easier to share. You 
 <your-custom-subdomain>.streamlit.app
 ```
 
-To customize your app subdomain from the [dashboard](/streamlit-community-cloud/get-started/manage-your-app#manage-apps-from-your-app-dashboard):
+To customize your app subdomain from your [workspace](/streamlit-community-cloud/manage-your-app#manage-your-app-from-your-workspace):
 
 1. Click the "︙" overflow menu to the app's right and select "**Settings**".
 

@@ -55,7 +55,7 @@ your-repository/
 
 ## Advanced settings for deployment
 
-3. (Optional) If you are connecting to a data source or want to specify the Python version for your app, you can do that by clicking "**Advanced settings**" before you deploy the app. Learn more about [secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management).
+3. (Optional) If you are connecting to a data source or want to specify the Python version for your app, you can do that by clicking "**Advanced settings**" before you deploy the app. Learn more about [Secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management).
 
     ![Advanced settings for deploying your app](/images/streamlit-community-cloud/deploy-an-app-advanced.png)
 
