@@ -176,7 +176,7 @@ _Release date: March 09, 2023_
 **Notable Changes**
 
 - 🔐 Added support for configuring SSL to [serve apps directly over HTTPS](/library/advanced-features/https-support) ([#5969](https://github.com/streamlit/streamlit/pull/5969)).
-- 🖼️ Granular control over app embedding behavior with the `/?embed` and `/?embed_options` query parameters. Learn how to use this feature in our [docs](/streamlit-community-cloud/get-started/deploy-an-app#embed-apps) ([#6011](https://github.com/streamlit/streamlit/pull/6011), [#6019](https://github.com/streamlit/streamlit/pull/6019)).
+- 🖼️ Granular control over app embedding behavior with the `/?embed` and `/?embed_options` query parameters. Learn how to use this feature in our [docs](/streamlit-community-cloud/share-your-app/embed-your-app) ([#6011](https://github.com/streamlit/streamlit/pull/6011), [#6019](https://github.com/streamlit/streamlit/pull/6019)).
 - ⚡ Enabled the `runner.fastReruns` [configuration option](/library/advanced-features/configuration#view-all-configuration-options) by default to make apps much more responsive to user interaction ([#6200](https://github.com/streamlit/streamlit/pull/6200)).
 
 **Other Changes**

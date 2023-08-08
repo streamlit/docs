@@ -19,7 +19,7 @@ The Snowflake Connector for Python is available on [PyPI](https://pypi.org/proje
 
 5. On Streamlit Community Cloud, select the appropriate version of Python for your app by clicking "Advanced settings" before you deploy the app:
 <div style={{ maxWidth: '65%', marginBottom: '-3em', marginLeft: '6em', marginTop: '-2em' }}>
-    <Image src="/images/streamlit-community-cloud/advanced-settings.png" />
+    <Image src="/images/streamlit-community-cloud/deploy-an-app-advanced.png" />
 </div>
 
 That's it! You're ready to use the Snowflake Connector for Python on Streamlit Community Cloud. ❄️🎈

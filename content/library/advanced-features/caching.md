@@ -132,7 +132,7 @@ def add(arr1, arr2):
 
 **Database queries**
 
-You usually make SQL queries to load data into your app when working with databases. Repeatedly running these queries can be slow, cost money, and degrade the performance of your database. We strongly recommend caching any database queries in your app. See also [our guides on connecting Streamlit to different databases](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources) for in-depth examples.
+You usually make SQL queries to load data into your app when working with databases. Repeatedly running these queries can be slow, cost money, and degrade the performance of your database. We strongly recommend caching any database queries in your app. See also [our guides on connecting Streamlit to different databases](/knowledge-base/tutorials/databases) for in-depth examples.
 
 ```python
 connection = database.connect()
@@ -241,7 +241,7 @@ def init_connection():
 conn = init_connection()
 ```
 
-Of course, you can do the same for any other database. Have a look at [our guides on how to connect Streamlit to databases](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources) for in-depth examples.
+Of course, you can do the same for any other database. Have a look at [our guides on how to connect Streamlit to databases](/knowledge-base/tutorials/databases) for in-depth examples.
 
 **Loading ML models**
 

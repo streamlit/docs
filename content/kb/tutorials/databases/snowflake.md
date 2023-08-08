@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/snowflake
 
 ## Introduction
 
-This guide explains how to securely access a Snowflake database from Streamlit. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection), the [Snowpark Python](https://docs.snowflake.com/en/developer-guide/snowpark/python/index) library and Streamlit's [secrets management](/library/advanced-features/secrets-management). The below example code **will only work on Streamlit version >= 1.22**, when `st.experimental_connection` was added.
+This guide explains how to securely access a Snowflake database from Streamlit. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection), the [Snowpark Python](https://docs.snowflake.com/en/developer-guide/snowpark/python/index) library and Streamlit's [Secrets management](/library/advanced-features/secrets-management). The below example code **will only work on Streamlit version >= 1.22**, when `st.experimental_connection` was added.
 
 Skip to the bottom for information about [connecting using Snowflake Connector for Python](#using-the-snowflake-connector-for-python).
 
@@ -208,6 +208,6 @@ If everything worked out (and you used the example table we created above), your
 
 This tutorial assumes a local Streamlit app, however you can also connect to Snowflake from apps hosted in Community Cloud. The main additional steps are:
 
-- [Include information about dependencies](/streamlit-community-cloud/get-started/deploy-an-app/app-dependencies) using a `requirements.txt` file with `snowflake-snowpark-python` and any other dependencies.
-- [Add your secrets](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management#deploy-an-app-and-set-up-secrets) to your Community Cloud app.
-- For apps using `snowflake-snowpark-python`, you should also ensure the app is [running on python 3.8](/streamlit-community-cloud/get-started/deploy-an-app#advanced-settings-for-deployment).
+- [Include information about dependencies](/streamlit-community-cloud/deploy-your-app/app-dependencies) using a `requirements.txt` file with `snowflake-snowpark-python` and any other dependencies.
+- [Add your secrets](/streamlit-community-cloud/deploy-your-app/secrets-management#deploy-an-app-and-set-up-secrets) to your Community Cloud app.
+- For apps using `snowflake-snowpark-python`, you should also ensure the app is [running on python 3.8](/streamlit-community-cloud/deploy-your-app#advanced-settings-for-deployment).
