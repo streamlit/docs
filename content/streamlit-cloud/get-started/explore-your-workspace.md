@@ -5,11 +5,11 @@ slug: /streamlit-community-cloud/get-started/explore-your-workspace
 
 # Explore your workspace
 
-If you just [created your account](/streamlit-community-cloud/get-started/create-your-account), congrats! You are now logged in and ready to go. If you are joining someone else's workspace you may already see apps populated in your workspace. If not, then you need to deploy an app! Check out our next section on how to [Deploy your app](/streamlit-community-cloud/deploy-your-app). If you need an app to deploy, check out our <a href="https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlit.app/" target="_blank">example apps</a> that include apps for machine learning, data science, and business use cases.
+If you just [created your account](/streamlit-community-cloud/get-started/create-your-account), congrats! You are now logged in and ready to go. If you are joining someone else's workspace you may already see apps populated in your workspace. If not, then you need to deploy an app! Check out our next section on how to [Deploy your app](/streamlit-community-cloud/deploy-your-app). If you need an app to deploy, check out our <a href="https://streamlit.io/gallery" target="_blank">App gallery</a> which includes apps for machine learning, data science, and business use cases.
 
 ![Your Streamlit Community Cloud workspace](/images/streamlit-community-cloud/workspace-empty.png)
 
-You may also find that you already have multiple Streamlit Community Cloud workspaces. Streamlit Community Cloud automatically groups your apps according to the corresponding GitHub repository's owner or organzation. In the upper-right corner you can see the workspaces you have access to. If apps have already been deployed from any of your repositories, then you will see those apps when you select the associated workspace in the upper-right corner. Learn more about how to [Manage your app from your workspace](/streamlit-community-cloud/manage-your-app#manage-your-app-from-your-workspace).
+You may also find that you already have access to multiple Streamlit Community Cloud workspaces. Streamlit Community Cloud automatically groups your apps according to the corresponding GitHub repository's owner or organzation. In the upper-right corner you can see the workspaces you have access to. If apps have already been deployed from any of your repositories, then you will see those apps when you select the associated workspace in the upper-right corner. Learn more about how to [Manage your app from your workspace](/streamlit-community-cloud/manage-your-app#manage-your-app-from-your-workspace).
 
 ![Switch between your Streamlit Community Cloud workspaces](/images/streamlit-community-cloud/workspace-empty-switch.png)
 

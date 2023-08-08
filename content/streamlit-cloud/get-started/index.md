@@ -5,7 +5,7 @@ slug: /streamlit-community-cloud/get-started
 
 # Get started
 
-Welcome to Streamlit Community Cloud! First things first, before you get started with Streamlit Community Cloud, you need to have a Streamlit app to deploy. If you haven't built one yet, read our [Get started](/library/get-started) docs or start with an [Example app](https://streamlit-cloud-example-apps-streamlit-app-sw3u0r.streamlit.app/). Either way, it only takes a few minutes to create your first app.
+Welcome to Streamlit Community Cloud! First things first, before you get started with Streamlit Community Cloud, you need to have a Streamlit app to deploy. If you haven't built one yet, read our [Get started](/library/get-started) docs or fork an app from our <a href="https://streamlit.io/gallery" target="_blank">App gallery</a>. Either way, it only takes a few minutes to create your first app.
 
 <Tip>
 

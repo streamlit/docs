@@ -12,7 +12,7 @@ Streamlit Community Cloud allows you to see the viewership of each of your apps.
 
 ![App analytics on Streamlit Community Cloud](/images/streamlit-community-cloud/workspace-app-analytics-viewers.png)
 
-## Access your app anlytics
+## Access your app analytics
 
 You can get to your app's analytics:
 * [From your workspace](#access-app-analytics-from-your-workspace).

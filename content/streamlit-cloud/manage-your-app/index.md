@@ -7,11 +7,6 @@ slug: /streamlit-community-cloud/manage-your-app
 
 You can manage your deployed app from your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a> or directly from `<your-custom-subdomain>.streamlit.app`. You can view, deploy, delete, reboot, or favorite an app.
 
-- [Manage your app from your workspace](#manage-your-app-from-your-workspace)
-- [Manage your app directly from your app](#manage-your-app-directly-from-your-app)
-- [Manage your app in GitHub](#manage-your-app-in-github)
-- [App resources and limits](#app-resources-and-limits)
-
 ## Manage your app from your workspace
 
 Streamlit Community Cloud is organized into workspaces, which automatically group your apps according to the corresponding GitHub repository's owner. Your workspace is indicated in the upper-right corner. You will have one workspace that matches your GitHub username and additional workspaces for any GitHub organization or user who has granted you access.
