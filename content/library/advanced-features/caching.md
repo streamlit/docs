@@ -889,6 +889,5 @@ If your app is still using `st.cache`, don't despair! Here are a few notes on mi
 - Most parameters from `st.cache` are also present in the new commands, with a few exceptions:
   - `allow_output_mutation` does not exist anymore. You can safely delete it. Just make sure you use the right caching command for your use case.
   - `suppress_st_warning` does not exist anymore. You can safely delete it. Cached functions can now contain Streamlit commands and will replay them. If you want to use widgets inside cached functions, set `experimental_allow_widgets=True`. See [here](#using-streamlit-commands-in-cached-functions).
-  - `hash_funcs` does not exist anymore. You can exclude parameters from caching (and being hashed) by prepending them with an underscore: `_excluded_param`. See [here](#excluding-input-parameters).
 
 If you have any questions or issues during the migration process, please contact us on the [forum](https://discuss.streamlit.io/), and we will be happy to assist you. 🎈
