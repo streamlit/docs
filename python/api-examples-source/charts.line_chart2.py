@@ -7,8 +7,7 @@ import streamlit as st
 def load_data():
     df = pd.DataFrame(
         np.random.randn(20, 3),
-        columns = ["col1", "col2", "col3"]
-    )
+        columns = ['col1', 'col2', 'col3'])
     return df
 
 
