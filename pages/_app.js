@@ -19,7 +19,6 @@ Router.events.on("routeChangeError", () => NProgress.done());
 
 function StreamlitDocs({ Component, pageProps }) {
   useEffect(() => {
-    console.log(navigator);
     if (navigator.platform.includes("Mac")) {
       document.body.classList.add("mac");
     }
