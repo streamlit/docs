@@ -11,6 +11,7 @@ import types
 import docstring_parser
 import streamlit
 import streamlit.components.v1 as components
+from streamlit.elements.lib.mutable_status_container import StatusContainer
 from docutils.core import publish_parts
 from docutils.parsers.rst import directives
 from numpydoc.docscrape import NumpyDocString
@@ -489,6 +490,7 @@ def get_streamlit_docstring_dict():
         ],
         components: ["streamlit.components.v1", "st.components.v1"],
         streamlit._DeltaGenerator: ["DeltaGenerator", "element"],
+        StatusContainer: ["StatusContainer", "StatusContainer"]
     }
 
     module_docstring_dict = {}
