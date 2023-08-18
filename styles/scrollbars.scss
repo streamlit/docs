@@ -1,5 +1,5 @@
 /* Improve scrollbars on Chrome + Windows/Linux. */
-:not(.mac) {
+body:not(.mac) {
   ::-webkit-scrollbar {
     height: 6px;
     width: 6px;
