@@ -1459,6 +1459,20 @@ with st.spinner("Please wait..."):
 ```
 
 </RefCard>
+<RefCard href="/library/api-reference/status/st.status">
+
+<Image pure alt="screenshot" src="/images/api/status.jpg" />
+
+#### Status container
+
+Display output of long-running tasks in a container.
+
+```python
+with st.status('Running') as s:
+  do_something_slow()
+```
+
+</RefCard>
 <RefCard href="/library/api-reference/status/st.toast">
 
 <Image pure alt="screenshot" src="/images/api/toast.jpg" />
