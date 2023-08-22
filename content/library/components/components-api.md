@@ -124,14 +124,14 @@ Clone the [component-template GitHub repo](https://github.com/streamlit/componen
    # React template
    cd template
    . venv/bin/activate # or similar to activate the venv/conda environment where Streamlit is installed
-   streamlit run my_component/__init__.py # run the example
+   streamlit run my_component/example.py # run the example
 
    # or
 
    # TypeScript-only template
    cd template-reactless
    . venv/bin/activate # or similar to activate the venv/conda environment where Streamlit is installed
-   streamlit run my_component/__init__.py # run the example
+   streamlit run my_component/example.py # run the example
    ```
 
 After running the steps above, you should see a Streamlit app in your browser that looks like this:
