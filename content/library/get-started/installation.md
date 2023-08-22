@@ -7,7 +7,7 @@ slug: /library/get-started/installation
 
 ## Table of contents
 
-1. [Prerequisites](#prerequisites)
+1. [Prerequisitess](#prerequisites)
 2. [Install Streamlit on Windows](#install-streamlit-on-windows)
 3. [Install Streamlit on macOS/Linux](#install-streamlit-on-macoslinux)
 
