@@ -128,13 +128,13 @@ If you are running an app locally from within a git repo, you can deploy your ap
 1. Click "**Deploy**" next to the app menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>).
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/app-menu/app-menu-deploy.png" alt="Settings" clean />
+    <Image src="/images/app-menu/app-menu-deploy.png" alt="Settings" />
 </div>
 
 2. Click "**Deploy now**".
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/app-menu/app-menu-deploy-1.png" alt="Settings" clean />
+    <Image src="/images/app-menu/app-menu-deploy-1.png" alt="Settings" />
 </div>
 
 3. You will be taken to Community Cloud's "Deploy an app" page. Your app's repository, branch, and file name will be prefilled to match your current app! Learn more about [deploying an app](/streamlit-community-cloud/deploy-your-app) on Streamlit Community Cloud.
@@ -142,7 +142,7 @@ If you are running an app locally from within a git repo, you can deploy your ap
 The whole process looks like this:
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/app-menu/deploy-from-local.gif" alt="Settings" clean />
+    <Image src="/images/app-menu/deploy-from-local.gif" alt="Settings" />
 </div>
 
 ## Customize the menu
