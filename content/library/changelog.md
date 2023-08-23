@@ -23,18 +23,18 @@ _Release date: August 24, 2023_
 
 **Highlights**
 
-- 🤖 Introducing `st.status` to display output from long-running processes and external API calls ([#7140](https://github.com/streamlit/streamlit/pull/7140)). Works great with `st.chat_message`! See our [documentation](https://docs.streamlit.io/library/api-reference/status/st.status) for how to use this feature.
-- 🚥 Introducing [`st.toggle`](https://docs.streamlit.io/library/api-reference/widgets/st.toggle) — an alternative to `st.checkbox` when you need an on/off switch.
+- 🤖 Introducing `st.status` to display output from long-running processes and external API calls ([#7140](https://github.com/streamlit/streamlit/pull/7140)). Works great with `st.chat_message`! See our [documentation](/library/api-reference/status/st.status) for how to use this feature.
+- 🚥 Introducing [`st.toggle`](/library/api-reference/widgets/st.toggle) — an alternative to `st.checkbox` when you need an on/off switch.
 
 **Notable Changes**
 
-- 🎨 Simple [chart elements](https://docs.streamlit.io/library/api-reference/charts) have a `color` parameter to set the color of your data points or series ([#7022](https://github.com/streamlit/streamlit/pull/7022)).
-- 🌈 [Markdown](https://docs.streamlit.io/library/api-reference/text/st.markdown) supports rainbow and gray colors ([#7106](https://github.com/streamlit/streamlit/pull/7106), [#7179](https://github.com/streamlit/streamlit/pull/7179)).
-- 📏 [`st.header`](https://docs.streamlit.io/library/api-reference/text/st.header) and [`st.subheader`](https://docs.streamlit.io/library/api-reference/text/st.subheader) have optional, colored dividers ([#7133](https://github.com/streamlit/streamlit/pull/7133)).
-- 🚀 Deploying to Community Cloud is even easier—locally running apps have a [deploy button](https://docs.streamlit.io/library/advanced-features/app-menu#deploy-this-app) in their toolbars ([#7085](https://github.com/streamlit/streamlit/pull/7085), [#6935](https://github.com/streamlit/streamlit/issues/6935)).
-- 🖌️ `[st.download_button](https://docs.streamlit.io/library/api-reference/widgets/st.download_button)` has a new parameter `type` for theming ([#7056](https://github.com/streamlit/streamlit/pull/7056), [#7038](https://github.com/streamlit/streamlit/issues/7038)).
-- 🤖 [`st.chat_message`](https://docs.streamlit.io/library/api-reference/chat/st.chat_message) has ai and human presets for messages ([#7094](https://github.com/streamlit/streamlit/pull/7094)).
-- 💅 [`st.radio`](https://docs.streamlit.io/library/api-reference/widgets/st.radio) options support markdown and have captions ([#7018](https://github.com/streamlit/streamlit/pull/7018), [#7105](https://github.com/streamlit/streamlit/pull/7105), [#6085](https://github.com/streamlit/streamlit/issues/6085)).
+- 🎨 Simple [chart elements](/library/api-reference/charts) have a `color` parameter to set the color of your data points or series ([#7022](https://github.com/streamlit/streamlit/pull/7022)).
+- 🌈 [Markdown](/library/api-reference/text/st.markdown) supports rainbow and gray colors ([#7106](https://github.com/streamlit/streamlit/pull/7106), [#7179](https://github.com/streamlit/streamlit/pull/7179)).
+- 📏 [`st.header`](/library/api-reference/text/st.header) and [`st.subheader`](/library/api-reference/text/st.subheader) have optional, colored dividers ([#7133](https://github.com/streamlit/streamlit/pull/7133)).
+- 🚀 Deploying to Community Cloud is even easier—locally running apps have a [deploy button](/library/advanced-features/app-menu#deploy-this-app) in their toolbars ([#7085](https://github.com/streamlit/streamlit/pull/7085), [#6935](https://github.com/streamlit/streamlit/issues/6935)).
+- 🖌️ `[st.download_button](/library/api-reference/widgets/st.download_button)` has a new parameter `type` for theming ([#7056](https://github.com/streamlit/streamlit/pull/7056), [#7038](https://github.com/streamlit/streamlit/issues/7038)).
+- 🤖 [`st.chat_message`](/library/api-reference/chat/st.chat_message) has ai and human presets for messages ([#7094](https://github.com/streamlit/streamlit/pull/7094)).
+- 💅 [`st.radio`](/library/api-reference/widgets/st.radio) options support markdown and have captions ([#7018](https://github.com/streamlit/streamlit/pull/7018), [#7105](https://github.com/streamlit/streamlit/pull/7105), [#6085](https://github.com/streamlit/streamlit/issues/6085)).
 - 🧼 Assorted visual tweaks ([#7050](https://github.com/streamlit/streamlit/pull/7050), [#894](https://github.com/streamlit/streamlit/issues/894)).
 - 🛏️ Replaced deprecated `imghdr` dependency with `pillow` ([#7081](https://github.com/streamlit/streamlit/pull/7081), [#7027](https://github.com/streamlit/streamlit/issues/7027)).
 
