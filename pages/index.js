@@ -139,75 +139,67 @@ export default function Home({ window, menu, gdpr_data }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/library/api-reference/status/st.toast"
+                href="/library/api-reference/status/st.status"
               >
-                <i className="material-icons-sharp">notifications_active</i>
-                <h4>Toast notifications</h4>
+                <i className="material-icons-sharp">rotate_right</i>
+                <h4>Status container</h4>
                 <p>
-                  Introducing <code>st.toast</code> — a command to briefly show
-                  toast messages to users in the bottom-right corner of apps.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/library/api-reference/charts/st.map">
-                <i className="material-icons-sharp">place</i>
-                <h4>Maps just got easier!</h4>
-                <p>
-                  <code>st.map</code> now has parameters for{" "}
-                  <code>latitude</code>, <code>longitude</code>,
-                  <code>color</code>, and <code>size</code> to customize points
-                  drawn on a map.
+                  Introducing <code>st.status</code> to display output from
+                  long-running processes and external API calls
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/advanced-features/caching#the-hash_funcs-parameter"
+                href="/library/api-reference/widgets/st.toggle"
               >
-                <i className="material-icons-sharp">tag</i>
-                <h4>
-                  <code>hash_funcs</code>
-                </h4>
+                <i className="material-icons-sharp">toggle_on</i>
+                <h4>Toggle switch</h4>
                 <p>
-                  Streamlit's caching decorators now allow you to customize
-                  Streamlit's hashing of input parameters with the keyword-only
-                  argument
-                  <code>hash_funcs</code>. Click to read the docs.
+                  Introducing <code>st.toggle</code> — an alternative to
+                  <code>st.checkbox</code> when you need an on/off switch.
+                </p>
+              </RefCard>
+              <RefCard size="third" href="/library/api-reference/charts">
+                <i className="material-icons-sharp">palette</i>
+                <h4>Color parameter for simple charts</h4>
+                <p>
+                  Set the series color in <code>st.line_chart</code>,
+                  <code>st.bar_chart</code>, and <code>st.area_chart</code>
+                  with a new color parameter.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/knowledge-base/tutorials/build-conversational-apps"
+                href="/library/advanced-features/app-menu#deploy-this-app"
               >
-                <i className="material-icons-sharp">chat</i>
-                <h4>Chat elements</h4>
+                <i className="material-icons-sharp">rocket</i>
+                <h4>Local to Community Cloud just got easier</h4>
                 <p>
-                  Introducing <code>st.chat_message</code> and{" "}
-                  <code>st.chat_input</code> — two new chat elements that let
-                  you build conversational apps. Learn how to use these features
-                  in your LLM-powered chat apps in our tutorial.
+                  Locally running apps now have a Deploy button in their
+                  toolbars.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="https://blog.streamlit.io/introducing-column-config/"
+                href="/library/api-reference/text/st.markdown"
               >
-                <i className="material-icons-sharp">settings_suggest</i>
-                <h4>Configure data editor columns!</h4>
+                <i className="material-icons-sharp">looks</i>
+                <h4>More colors in markdown</h4>
                 <p>
-                  Introducing the Column configuration API with a suite of
-                  methods to configure the display and editing behavior of{" "}
-                  <code>st.dataframe</code>
-                  and <code>st.data_editor</code> columns.
+                  Enjoy more ways to color your text with gray/grey and rainbow
+                  options wherever color in markdown is supported.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/widgets/st.date_input"
+                href="/library/api-reference/text/st.header"
               >
-                <i className="material-icons-sharp">calendar_month</i>
-                <h4>Customize date formats </h4>
+                <i className="material-icons-sharp">horizontal_rule</i>
+                <h4>Colored header dividers</h4>
                 <p>
-                  <code>st.date_input</code>'s date format can be customized
-                  with the <code>format</code> parameter.
+                  Add colored dividers to <code>st.header</code> and
+                  <code>st.subheader</code>. Dividers can be blue, green,
+                  orange, red, violet, gray/grey, or rainbow!
                 </p>
               </RefCard>
               {/* <Tile
