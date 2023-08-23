@@ -166,6 +166,9 @@ site_menu:
   - category: Streamlit library / API reference / Input widgets / st.checkbox
     url: /library/api-reference/widgets/st.checkbox
     isVersioned: true
+  - category: Streamlit library / API reference / Input widgets / st.toggle
+    url: /library/api-reference/widgets/st.toggle
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.radio
     url: /library/api-reference/widgets/st.radio
     isVersioned: true
