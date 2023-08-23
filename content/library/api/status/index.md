@@ -48,7 +48,7 @@ with st.spinner("Please wait..."):
 Display output of long-running tasks in a container.
 
 ```python
-with st.status('Running') as s:
+with st.status('Running'):
   do_something_slow()
 ```
 
