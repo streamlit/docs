@@ -5,7 +5,7 @@ slug: /library/cheatsheet
 
 # Cheat Sheet
 
-This is a summary of the docs, as of [Streamlit v1.25.0](https://pypi.org/project/streamlit/1.25.0/).
+This is a summary of the docs, as of [Streamlit v1.26.0](https://pypi.org/project/streamlit/1.26.0/).
 
 <Masonry>
 
@@ -195,6 +195,7 @@ st.experimental_rerun()
 st.button('Click me')
 st.data_editor('Edit data', data)
 st.checkbox('I agree')
+st.toggle('Enable')
 st.radio('Pick one', ['cats', 'dogs'])
 st.selectbox('Pick one', ['cats', 'dogs'])
 st.multiselect('Buy', ['milk', 'apples', 'potatoes'])
@@ -393,6 +394,11 @@ conn = st.experimental_connection('snowpark')
 >>> bar = st.progress(50)
 >>> time.sleep(3)
 >>> bar.progress(100)
+
+>>> with st.status('Authenticating...') as s:
+>>>   time.sleep(2)
+>>>   st.write('Some long response.')
+>>>   s.update(label='Response')
 
 st.balloons()
 st.snow()
