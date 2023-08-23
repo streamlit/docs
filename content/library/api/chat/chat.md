@@ -7,7 +7,7 @@ slug: /library/api-reference/chat
 
 Streamlit provides a few commands to help you build conversational apps. These chat elements are designed to be used in conjunction with each other, but you can also use them separately.
 
-`st.chat_message` lets you insert a chat message container into the app so you can display messages from the user or the app. Chat containers can contain other Streamlit elements, including charts, tables, text, and more. `st.chat_input` lets you display a chat input widget so the user can type in a message.
+`st.chat_message` lets you insert a chat message container into the app so you can display messages from the user or the app. Chat containers can contain other Streamlit elements, including charts, tables, text, and more. `st.chat_input` lets you display a chat input widget so the user can type in a message. Remeber to check out `st.status` to display output from long-running processes and external API calls.
 
 <TileContainer>
 <RefCard href="/library/api-reference/chat/st.chat_message">
@@ -38,6 +38,20 @@ Display a chat input widget.
 prompt = st.chat_input("Say something")
 if prompt:
     st.write(f"The user has sent: {prompt}")
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/status/st.status">
+
+<Image pure alt="screenshot" src="/images/api/status.jpg" />
+
+#### Status container
+
+Display output of long-running tasks in a container.
+
+```python
+with st.status('Running'):
+  do_something_slow()
 ```
 
 </RefCard>

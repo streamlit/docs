@@ -1425,6 +1425,20 @@ if prompt:
 ```
 
 </RefCard>
+<RefCard href="/library/api-reference/status/st.status">
+
+<Image pure alt="screenshot" src="/images/api/status.jpg" />
+
+#### Status container
+
+Display output of long-running tasks in a container.
+
+```python
+with st.status('Running'):
+  do_something_slow()
+```
+
+</RefCard>
 </TileContainer>
 
 ## Display progress and status
@@ -1455,6 +1469,20 @@ Temporarily displays a message while executing a block of code.
 
 ```python
 with st.spinner("Please wait..."):
+  do_something_slow()
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/status/st.status">
+
+<Image pure alt="screenshot" src="/images/api/status.jpg" />
+
+#### Status container
+
+Display output of long-running tasks in a container.
+
+```python
+with st.status('Running'):
   do_something_slow()
 ```
 
