@@ -8,3 +8,5 @@ with st.status("Downloading data..."):
     time.sleep(1)
     st.write("Downloading data...")
     time.sleep(1)
+
+st.button('Rerun')
