@@ -255,6 +255,9 @@ site_menu:
   - category: Streamlit library / API reference / Status elements / st.spinner
     url: /library/api-reference/status/st.spinner
     isVersioned: true
+  - category: Streamlit library / API reference / Status elements / st.status
+    url: /library/api-reference/status/st.status
+    isVersioned: true
   - category: Streamlit library / API reference / Status elements / st.toast
     url: /library/api-reference/status/st.toast
     isVersioned: true
