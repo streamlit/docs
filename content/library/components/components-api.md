@@ -124,6 +124,7 @@ Clone the [component-template GitHub repo](https://github.com/streamlit/componen
    # React template
    cd template
    . venv/bin/activate # or similar to activate the venv/conda environment where Streamlit is installed
+   pip install -e . # install template as editable package
    streamlit run my_component/example.py # run the example
 
    # or
@@ -131,6 +132,7 @@ Clone the [component-template GitHub repo](https://github.com/streamlit/componen
    # TypeScript-only template
    cd template-reactless
    . venv/bin/activate # or similar to activate the venv/conda environment where Streamlit is installed
+   pip install -e . # install template as editable package
    streamlit run my_component/example.py # run the example
    ```
 
