@@ -48,6 +48,19 @@ selected = st.checkbox("I agree")
 ```
 
 </RefCard>
+<RefCard href="/library/api-reference/widgets/st.toggle">
+
+<Image pure alt="screenshot" src="/images/api/toggle.jpg" />
+
+#### Toggle
+
+Display a toggle widget.
+
+```python
+activated = st.toggle("Activate")
+```
+
+</RefCard>
 <RefCard href="/library/api-reference/widgets/st.radio">
 
 <Image pure alt="screenshot" src="/images/api/radio.jpg" />
