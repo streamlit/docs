@@ -47,7 +47,7 @@ For an overview of the API, check out this video tutorial by Chanin Nantasenamat
 
 Here's an minimal example of how to use `st.chat_message` to display a welcome message:
 
-```python
+```python lineNumbers
 import streamlit as st
 
 with st.chat_message("user"):
@@ -59,7 +59,7 @@ with st.chat_message("user"):
 
 Notice the message is displayed with a default avatar and styling since we passed in `"user"` as the author name. You can also pass in `"assistant"` as the author name to use a different default avatar and styling, or pass in a custom name and avatar. See the [API reference](/library/api-reference/chat/st.chat_message) for more details.
 
-```python
+```python lineNumbers
 import streamlit as st
 import numpy as np
 
@@ -72,7 +72,7 @@ with st.chat_message("assistant"):
 
 While we've used the preferred `with` notation in the above examples, you can also just call methods directly in the returned objects. The below example is equivalent to the one above:
 
-```python
+```python lineNumbers
 import streamlit as st
 import numpy as np
 
@@ -87,7 +87,7 @@ So far, we've displayed predefined messages. But what if we want to display mess
 
 `st.chat_input` lets you display a chat input widget so the user can type in a message. The returned value is the user's input, which is `None` if the user hasn't sent a message yet. You can also pass in a default prompt to display in the input widget. Here's an example of how to use `st.chat_input` to display a chat input widget and show the user's input:
 
-```python
+```python lineNumbers
 import streamlit as st
 
 prompt = st.chat_input("Say something")
@@ -109,7 +109,7 @@ First, let's think about the different components we'll need to build our bot:
 - A chat input widget so the user can type in a message.
 - A way to store the chat history so we can display it in the chat message containers. We can use a list to store the messages, and append to it every time the user or bot sends a message. Each entry in the list will be a dictionary with the following keys: `role` (the author of the message), and `content` (the message content).
 
-```python
+```python lineNumbers
 import streamlit as st
 
 st.title("Echo Bot")
@@ -128,7 +128,7 @@ In the above snippet, we've added a title to our app and a for loop to iterate t
 
 Now let's accept user input with `st.chat_input`, display the user's message in the chat message container, and add it to the chat history.
 
-```python
+```python lineNumbers
 # React to user input
 if prompt := st.chat_input("What is up?"):
     # Display user message in chat message container
@@ -142,7 +142,7 @@ We used the `:=` operator to assign the user's input to the `prompt` variable an
 
 All that's left to do is add the chatbot's responses within the `if` block. We'll use the same logic as before to display the bot's response (which is just the user's prompt) in the chat message container and add it to the history.
 
-```python
+```python lineNumbers
 response = f"Echo: {prompt}"
 # Display assistant response in chat message container
 with st.chat_message("assistant"):
@@ -155,7 +155,7 @@ Putting it all together, here's the full code for our simple chatbot GUI and the
 
 <Collapse title="View full code" expanded={false}>
 
-```python
+```python lineNumbers
 import streamlit as st
 
 st.title("Echo Bot")
@@ -198,7 +198,7 @@ Just like previously, we still require the same components to build our chatbot.
 
 Let's just copy the code from the previous section and add a few tweaks to it.
 
-```python
+```python lineNumbers
 import streamlit as st
 import random
 import time
@@ -227,7 +227,7 @@ The only difference so far is we've changed the title of our app and added impor
 
 All that's left to do is add the chatbot's responses within the `if` block. We'll use a list of responses and randomly select one to display. We'll also add a delay to simulate the chatbot "thinking" before responding (or stream its response).
 
-```python
+```python lineNumbers
 # Display assistant response in chat message container
 with st.chat_message("assistant"):
     message_placeholder = st.empty()
@@ -256,7 +256,7 @@ Putting it all together, here's the full code for our simple chatbot GUI and the
 
 <Collapse title="View full code" expanded={false}>
 
-```python
+```python lineNumbers
 import streamlit as st
 import random
 import time
@@ -333,7 +333,7 @@ OPENAI_API_KEY = "YOUR_API_KEY"
 
 Now let's write the app. We'll use the same code as before, but we'll replace the list of responses with a call to the OpenAI API. We'll also add a few more tweaks to make the app more ChatGPT-like.
 
-```python
+```python lineNumbers
 import streamlit as st
 import openai
 
@@ -370,7 +370,7 @@ if prompt := st.chat_input("What is up?"):
 
 All that's changed is that we've added a default model to `st.session_state` and set our OpenAI API key from Streamlit secrets. Here's where it gets interesting. We can replace our logic from earlier to emulate streaming predetermind responses with the model's responses from OpenAI:
 
-```python
+```python lineNumbers
     for response in openai.ChatCompletion.create(
         model=st.session_state["openai_model"],
         messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
@@ -388,7 +388,7 @@ Putting it all together, here's the full code for our ChatGPT-like app and the r
 
 <Collapse title="View full code" expanded={false}>
 
-```python
+```python lineNumbers
 import openai
 import streamlit as st
 

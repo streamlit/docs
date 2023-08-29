@@ -14,8 +14,11 @@
   "dependencies": {
     "16": "0.0.2",
     "@mapbox/rehype-prism": "^0.7.0",
+    "@mdx-js/loader": "^2.3.0",
     "@svgr/webpack": "^6.2.1",
+    "@tryghost/content-api": "1.11.10",
     "algoliasearch": "^3.35.1",
+    "babel-loader": "9.1.3",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -23,7 +26,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
-    "eslint-plugin-react-hooks": "^1.7.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "file-loader": "^6.2.0",
     "focus-trap-react": "^8.8.1",
     "framer-motion": "^4.1.17",
@@ -43,7 +46,7 @@
     "nprogress": "^0.2.0",
     "pdf-merger-js": "^3.4.0",
     "prettier": "^2.4.1",
-    "prismjs": "^1.27.0",
+    "prismjs": "1.29.0",
     "puppeteer": "^14.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -67,8 +70,8 @@
     "slick-carousel": "^1.8.1",
     "slugify": "^1.6.1",
     "tailwindcss": "^3.0.1",
-    "@tryghost/content-api": "1.11.10",
     "unified": "^9.2.2",
+    "unist-util-visit": "^5.0.0",
     "uuid": "^8.3.2"
   },
   "browserslist": [
@@ -78,7 +81,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "autoprefixer": "^10.4.0",
+    "autoprefixer": "10.4.5",
     "husky": "^7.0.0",
     "postcss": "^8.4.4",
     "pretty-quick": "^3.1.1"
