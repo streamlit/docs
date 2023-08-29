@@ -29,21 +29,9 @@ GPTs are the superheroes of text generation. They’re LLMs that use the transfo
 
 Deep learning (DL) is a branch of ML where neural networks with multiple layers learn to perform complex tasks by progressively extracting higher-level features from data. It’s very good at image recognition, speech processing, and natural language understanding due to its ability to capture intricate data patterns.
 
-### **Transfer learning**
-
-Transfer learning is a technique where a model pre-trained on one task is fine-tuned for a different but related task. In LLM apps, transfer learning involves using a pre-trained LLM as a starting point and adapting it to specific tasks.
-
-### **Zero-shot learning**
-
-Zero-shot learning is a technique where a model is trained to perform tasks it hasn't seen during training. LLMs can generalize from prompts to generate responses for tasks they were not explicitly trained on.
-
 ### Few-shot learning
 
 Few-shot learning is a technique where a model is trained on related tasks so it can perform new tasks with limited examples. LLMs can generalize from prompts and a few examples to generate responses for tasks they were not explicitly trained on.
-
-### **Reinforcement learning from human feedback (RLHF)**
-
-RLHF is a technique to improve LLM responses. Human feedback on model outputs is used to train a reward model, which guides fine-tuning to align the LLM's output with human preferences.
 
 ### **Fine-tuning**
 
@@ -56,6 +44,18 @@ Hyperparameter tuning optimizes an ML model's performance by adjusting pre-defin
 ### **Overfitting**
 
 Overfitting occurs when a model performs well on its training data but poorly on new, unseen data. It's important to monitor for overfitting when fine-tuning LLMs to ensure they generalize well to different inputs.
+
+### **Reinforcement learning from human feedback (RLHF)**
+
+RLHF is a technique to improve LLM responses. Human feedback on model outputs is used to train a reward model, which guides fine-tuning to align the LLM's output with human preferences.
+
+### **Transfer learning**
+
+Transfer learning is a technique where a model pre-trained on one task is fine-tuned for a different but related task. In LLM apps, transfer learning involves using a pre-trained LLM as a starting point and adapting it to specific tasks.
+
+### **Zero-shot learning**
+
+Zero-shot learning is a technique where a model is trained to perform tasks it hasn't seen during training. LLMs can generalize from prompts to generate responses for tasks they were not explicitly trained on.
 
 ## Interfacing with a model
 
