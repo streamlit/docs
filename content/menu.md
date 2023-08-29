@@ -536,8 +536,12 @@ site_menu:
     url: /knowledge-base/tutorials/session-state
   - category: Knowledge base / Tutorials / Build conversational apps
     url: /knowledge-base/tutorials/build-conversational-apps
-  - category: Knowledge base / Tutorials / LLM quickstart
-    url: /knowledge-base/tutorials/llm-quickstart
+  - category: Knowledge base / Tutorials / LLM apps
+    url: /knowledge-base/tutorials/llm-apps
+  - category: Knowledge base / Tutorials / LLM apps / Quickstart
+    url: /knowledge-base/tutorials/llm-apps/llm-quickstart
+  - category: Knowledge base / Tutorials / LLM apps / Glossary
+    url: /knowledge-base/tutorials/llm-apps/llm-glossary
   - category: Knowledge base / Using Streamlit
     url: /knowledge-base/using-streamlit
   - category: Knowledge base / Using Streamlit / How to animate elements?

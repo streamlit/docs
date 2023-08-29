@@ -3,3 +3,9 @@
   to = "/library/get-started"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/knowledge-base/tutorials/llm-apps"
+  to = "/knowledge-base/tutorials/llm-apps/llm-quickstart"
+  status = 301
+  force = true
