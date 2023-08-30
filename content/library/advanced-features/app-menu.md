@@ -151,5 +151,5 @@ Using `client.toolbarMode` in your app's [configuration](/library/advanced-featu
 
 - `"developer"` &mdash; Show the developer options to all viewers.
 - `"viewer"` &mdash; Hide the developer options from all viewers.
-- `"minimal"` &mdash; Show only those options set externally. These can be options declared through [`st.set_page_config`](/library/api-reference/utilities/st.set_page_config) or options populated through Streamlit Community Cloud.
+- `"minimal"` &mdash; Show only those options set externally. These options can be declared through [`st.set_page_config`](/library/api-reference/utilities/st.set_page_config) or options populated through Streamlit Community Cloud.
 - `"auto"` &mdash; This is the default and will show the developer options when accessed through localhost or through Streamlit Community Cloud when logged into an administrative account for the app. Otherwise, the developer options will not show.
