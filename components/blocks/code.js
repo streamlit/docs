@@ -23,7 +23,7 @@ const Code = ({ code, children, language, img, lines, numbered }) => {
   useEffect(() => {
     // Get the language from the className, if it exists.
     // Classname usually is `language-python`, `language-javascript`, `language-bash`, etc.
-    let importLanguage = children.props.className?.substring(9);
+    let importLanguage = children?.props?.className?.substring(9);
 
     // If no language, default to Phython
     if (importLanguage === undefined || importLanguage === "undefined") {
@@ -64,7 +64,7 @@ const Code = ({ code, children, language, img, lines, numbered }) => {
   let customCode = code !== undefined ? code : children;
   let languageClass = `language-${language}`;
   const lineNumbersClass = classNames({
-    "line-numbers": children.props.numbered || numbered,
+    "line-numbers": children?.props?.numbered || numbered,
   });
 
   if (children !== undefined && children.props !== undefined) {
