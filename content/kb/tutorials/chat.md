@@ -47,7 +47,7 @@ For an overview of the API, check out this video tutorial by Chanin Nantasenamat
 
 Here's an minimal example of how to use `st.chat_message` to display a welcome message:
 
-```python
+```python numbered
 import streamlit as st
 
 with st.chat_message("user"):
@@ -59,7 +59,7 @@ with st.chat_message("user"):
 
 Notice the message is displayed with a default avatar and styling since we passed in `"user"` as the author name. You can also pass in `"assistant"` as the author name to use a different default avatar and styling, or pass in a custom name and avatar. See the [API reference](/library/api-reference/chat/st.chat_message) for more details.
 
-```python
+```python numbered
 import streamlit as st
 import numpy as np
 
