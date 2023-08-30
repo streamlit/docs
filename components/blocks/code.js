@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import classNames from "classnames";
 import Prism from "prismjs";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
+import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 import "prismjs/plugins/line-highlight/prism-line-highlight";
 import "prismjs/plugins/line-highlight/prism-line-highlight.css";
 import "prismjs/plugins/toolbar/prism-toolbar";
@@ -15,7 +16,7 @@ import styles from "./code.module.css";
 // Initialize the cache for imported languages.
 const languageImports = new Map();
 
-const Code = ({ code, children, language, img, lines }) => {
+const Code = ({ code, children, language, img, lines, numbered }) => {
   // Create a ref for the code element.
   const codeRef = useRef(null);
 
@@ -62,6 +63,9 @@ const Code = ({ code, children, language, img, lines }) => {
   let ConditionalRendering;
   let customCode = code !== undefined ? code : children;
   let languageClass = `language-${language}`;
+  const lineNumbersClass = classNames({
+    "line-numbers": children.props.numbered || numbered,
+  });
 
   if (children !== undefined && children.props !== undefined) {
     customCode = children.props.children;
@@ -72,7 +76,7 @@ const Code = ({ code, children, language, img, lines }) => {
     ConditionalRendering = (
       <section className={styles.Container}>
         <Image src={img} clean={true} />
-        <pre>
+        <pre className={lineNumbersClass}>
           <code ref={codeRef} className={languageClass}>
             {customCode}
           </code>
@@ -82,7 +86,7 @@ const Code = ({ code, children, language, img, lines }) => {
   } else if (lines) {
     ConditionalRendering = (
       <section className={classNames(styles.Container, styles.LineHighlight)}>
-        <pre data-line={lines}>
+        <pre className={lineNumbersClass} data-line={lines}>
           <code ref={codeRef} className={languageClass}>
             {customCode}
           </code>
@@ -92,7 +96,7 @@ const Code = ({ code, children, language, img, lines }) => {
   } else {
     ConditionalRendering = (
       <section className={styles.Container}>
-        <pre>
+        <pre className={lineNumbersClass}>
           <code ref={codeRef} className={languageClass}>
             {customCode}
           </code>
