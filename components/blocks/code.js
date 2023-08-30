@@ -16,7 +16,7 @@ import styles from "./code.module.css";
 // Initialize the cache for imported languages.
 const languageImports = new Map();
 
-const Code = ({ code, children, language, img, lines, numbered }) => {
+const Code = ({ code, children, language, img, lines, showLineNumbers }) => {
   // Create a ref for the code element.
   const codeRef = useRef(null);
 
@@ -64,7 +64,7 @@ const Code = ({ code, children, language, img, lines, numbered }) => {
   let customCode = code !== undefined ? code : children;
   let languageClass = `language-${language}`;
   const lineNumbersClass = classNames({
-    "line-numbers": children?.props?.numbered || numbered,
+    "line-numbers": children?.props?.showLineNumbers || showLineNumbers,
   });
 
   if (children !== undefined && children.props !== undefined) {
