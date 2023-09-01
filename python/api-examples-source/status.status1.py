@@ -9,3 +9,5 @@ with st.status("Downloading data...", expanded=True) as status:
     st.write("Downloading data...")
     time.sleep(1)
     status.update(label="Download complete!", state="complete", expanded=False)
+
+st.button('Rerun')
