@@ -11,7 +11,7 @@ const SuggestEdits = ({ sourcefile }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Suggest edits
+          Edit this page on GitHub
         </a>
       </section>
     </section>
