@@ -2058,7 +2058,7 @@ def init_model():
 
 if st.checkbox("Clear All"):
   # Clear values from *all* cache_resource functions
-  st.cache_data.clear()
+  st.cache_resource.clear()
 ```
 
 </RefCard>
