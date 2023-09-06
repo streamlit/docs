@@ -122,14 +122,17 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / API reference / Chart elements
     url: /library/api-reference/charts
-  - category: Streamlit library / API reference / Chart elements / st.line_chart
-    url: /library/api-reference/charts/st.line_chart
-    isVersioned: true
   - category: Streamlit library / API reference / Chart elements / st.area_chart
     url: /library/api-reference/charts/st.area_chart
     isVersioned: true
   - category: Streamlit library / API reference / Chart elements / st.bar_chart
     url: /library/api-reference/charts/st.bar_chart
+    isVersioned: true
+  - category: Streamlit library / API reference / Chart elements / st.line_chart
+    url: /library/api-reference/charts/st.line_chart
+    isVersioned: true
+  - category: Streamlit library / API reference / Chart elements / st.scatter_chart
+    url: /library/api-reference/charts/st.scatter_chart
     isVersioned: true
   - category: Streamlit library / API reference / Chart elements / st.pyplot
     url: /library/api-reference/charts/st.pyplot
