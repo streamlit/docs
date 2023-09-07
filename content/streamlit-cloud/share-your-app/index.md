@@ -23,21 +23,21 @@ If you deployed your app from a public repository, your app will be public by de
 
 1. Access your [App settings](/streamlit-community-cloud/manage-your-app/app-settings) and go to the "**Sharing**" section.
 
-    ![Share settings on Streamlit Community Cloud](/images/streamlit-community-cloud/workspace-app-settings-sharing.png)
+   ![Share settings on Streamlit Community Cloud](/images/streamlit-community-cloud/workspace-app-settings-sharing.png)
 
 2. Set your app's privacy under "Who can view this app." Select "**This app is public and searchable**" to make your app public. Select "**Only specific people can view this app**" to make your app private.
 
-    ![Set your app's privacy in share settings](/images/streamlit-community-cloud/workspace-app-settings-sharing-change.png)
+   ![Set your app's privacy in share settings](/images/streamlit-community-cloud/workspace-app-settings-sharing-change.png)
 
 ### Set privacy from the share button
 
 1. From your app at `<your-custom-subdomain>.streamlit.app`, click "**Share**" in the upper-right corner.
 
-    ![Access the share button from your app](/images/streamlit-community-cloud/share-open.png)
+   ![Access the share button from your app](/images/streamlit-community-cloud/share-open.png)
 
 2. Toggle your app between public and private by clicking "**Make this app public**".
 
-    ![Toggle your app between public and private from the share button](/images/streamlit-community-cloud/share-menu-public-toggle.png)
+   ![Toggle your app between public and private from the share button](/images/streamlit-community-cloud/share-menu-public-toggle.png)
 
 ## Share your public app
 
@@ -48,7 +48,7 @@ Once your app is public, just give anyone your app's URL and they view it! Strea
 1. From your app at `<your-custom-subdomain>.streamlit.app`, click "**Share**" in the upper-right corner.
 2. Click "**Social**" to access convenient social media share buttons.
 
-    ![Social media sharing links from the share button](/images/streamlit-community-cloud/share-menu-social.png)
+   ![Social media sharing links from the share button](/images/streamlit-community-cloud/share-menu-social.png)
 
 <Tip>
 
@@ -63,36 +63,35 @@ Whether your app is public or private, you can send an email invite to your app 
 1. From your app at `<your-custom-subdomain>.streamlit.app`, click "**Share**" in the upper-right corner.
 2. Enter an email address and click "**Invite**".
 
-    ![Invite viewers from the share button](/images/streamlit-community-cloud/share-invite-public.png)
+   ![Invite viewers from the share button](/images/streamlit-community-cloud/share-invite-public.png)
 
 3. Invited users will get a direct link to your app in their inbox.
 
-    ![Invitation email sent to viewers](/images/streamlit-community-cloud/share-invite-email.png)
+   ![Invitation email sent to viewers](/images/streamlit-community-cloud/share-invite-email.png)
 
 ### Copy your app's URL
 
 You can convenitiently copy your app's URL from the share menu or from your workspace.
 
-* From your app click "**Share**" in the upper-right corner then click "**Copy link**".
+- From your app click "**Share**" in the upper-right corner then click "**Copy link**".
 
-    ![Copy your app's URL from the share button](/images/streamlit-community-cloud/share-copy.png)
+  ![Copy your app's URL from the share button](/images/streamlit-community-cloud/share-copy.png)
 
-* From your workspace click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) then click "**Copy URL**".
+- From your workspace click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) then click "**Copy URL**".
 
-    ![Copy your app's URL from your workspace](/images/streamlit-community-cloud/workspace-app-copy.png)
+  ![Copy your app's URL from your workspace](/images/streamlit-community-cloud/workspace-app-copy.png)
 
 ### Add a badge to your GitHub repository
 
-To help others find and play with your Streamlit app, you can add Streamlit's GitHub badge to your repo. Below is an enlarged example of what the badge looks like. Clicking on the badge takes you to&mdash;in this case&mdash;Streamlit's Face-GAN Demo.
+To help others find and play with your Streamlit app, you can add Streamlit's GitHub badge to your repo. Below is an enlarged example of what the badge looks like. Clicking on the badge takes you to&mdash;in this case&mdash;Streamlit's Roadmap.
 
 <div style={{ marginBottom: '2em' }}>
 <div style={{ width: 'fit-content', margin: 'auto' }}>
-    <a href="https://streamlit-demo-face-gan-streamlit-app-v2nxgz.streamlit.app/" target="_blank">
+    <a href="https://roadmap.streamlit.app/" target="_blank">
     <Image alt="Open in Streamlit badge for GitHub" src="/images/streamlit-community-cloud/github-badge.svg" pure />
     </a>
 </div>
 </div>
-
 
 Once you deploy your app, you can embed this badge right into your GitHub README.md by adding the following Markdown:
 
@@ -122,30 +121,30 @@ When you add a viewer to any app in your workspace, they are granted access to a
 
 1. From your app at `<your-custom-subdomain>.streamlit.app`, click "**Share**" in the upper-right corner.
 
-    ![Access the share button from your app](/images/streamlit-community-cloud/share-open.png)
+   ![Access the share button from your app](/images/streamlit-community-cloud/share-open.png)
 
 2. Enter the email to send an invitation to and click "**Invite**".
 
-    ![Invite viewers from the share button](/images/streamlit-community-cloud/share-invite.png)
+   ![Invite viewers from the share button](/images/streamlit-community-cloud/share-invite.png)
 
 3. Invited users appear in the list below.
 
-    ![View invited users from the share button](/images/streamlit-community-cloud/share-invited.png)
+   ![View invited users from the share button](/images/streamlit-community-cloud/share-invited.png)
 
 4. Invited users will get a direct link to your app in their inbox.
 
-    ![Invitation email sent to viewers](/images/streamlit-community-cloud/share-invite-email.png)
+   ![Invitation email sent to viewers](/images/streamlit-community-cloud/share-invite-email.png)
 
-* To remove a viewer, simply access the share menu as above and click the <i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>close</i> next to their name.
+- To remove a viewer, simply access the share menu as above and click the <i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>close</i> next to their name.
 
-    ![Remove viewers from the share button](/images/streamlit-community-cloud/share-remove.png)
+  ![Remove viewers from the share button](/images/streamlit-community-cloud/share-remove.png)
 
 ### Invite viewers from your app settings
 
 1. Access your [App settings](/streamlit-community-cloud/manage-your-app/app-settings) and go to the "**Sharing**" section.
 
-    ![Access sharing settings from your app settings](/images/streamlit-community-cloud/workspace-app-settings-sharing.png)
+   ![Access sharing settings from your app settings](/images/streamlit-community-cloud/workspace-app-settings-sharing.png)
 
 2. Add or remove users from the list of viewers. Click "**Save**".
 
-    ![Invite and remove viewers from your app settings](/images/streamlit-community-cloud/workspace-app-settings-sharing-invite.png)
+   ![Invite and remove viewers from your app settings](/images/streamlit-community-cloud/workspace-app-settings-sharing-invite.png)
