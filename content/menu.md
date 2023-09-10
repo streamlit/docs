@@ -459,6 +459,8 @@ site_menu:
     url: /streamlit-community-cloud/manage-your-app/app-settings
   - category: Streamlit Community Cloud / Manage your app / Delete your app
     url: /streamlit-community-cloud/manage-your-app/delete-your-app
+  - category: Streamlit Community Cloud / Manage your app / Edit your app
+    url: /streamlit-community-cloud/manage-your-app/edit-your-app
   - category: Streamlit Community Cloud / Manage your app / Favorite your app
     url: /streamlit-community-cloud/manage-your-app/favorite-your-app
   - category: Streamlit Community Cloud / Manage your app / Reboot your app
