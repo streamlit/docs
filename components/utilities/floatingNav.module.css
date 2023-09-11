@@ -31,13 +31,33 @@
 }
 
 .activeLink {
-  @apply text-gray-90 !important;
+  @apply relative text-gray-90 font-bold transform scale-105 !important;
+}
+
+.ListItem > .activeLink::before {
+  @apply absolute -left-4 top-1/4 transform scale-95 bg-gray-70 w-2 h-2 rounded-full;
+  content: "";
 }
 
 .Link {
-  @apply border-none inline-block pr-2 w-40 leading-4 hover:opacity-70 hover:no-underline;
+  @apply inline-block pr-2 w-40 leading-4 hover:opacity-70 hover:no-underline;
   @apply text-gray-70 !important;
 }
+
+.ListItem .Link {
+  @apply no-underline;
+  @apply relative border-none inline-block pr-2 w-40 leading-4 hover:opacity-70;
+  @apply text-gray-70 !important;
+}
+
+/* .ListItem:first-child .Link {
+  @apply relative text-gray-90 font-bold transform scale-105 !important;
+}
+
+.ListItem:first-child .Link::before {
+  @apply absolute -left-4 top-1/4 transform scale-95 bg-gray-70 w-2 h-2 rounded-full;
+  content: '';
+} */
 
 /* Paddings for different title hierarchies */
 .List li[data-hierarchy="0"] {
