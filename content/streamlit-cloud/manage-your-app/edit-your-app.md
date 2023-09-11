@@ -15,7 +15,7 @@ Spin up a cloud-based development environment for your deployed app in minutes. 
 
 ### Create a GitHub Codespace for your deployed app
 
-1. From your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) next to your app. Click "**Edit**".
+1. From your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) next to your app. Click "**Edit**."
 
    ![Edit your app with GitHub Codespaces](/images/streamlit-community-cloud/workspace-app-edit.png)
 
@@ -50,11 +50,11 @@ Spin up a cloud-based development environment for your deployed app in minutes. 
 
 After making edits to your app, you can choose to commit your edits to your repository to update your deployed app instantly. If you just want to keep your edits in your codespace to return to later, skip to [Stop or delete your GitHub Codespace](#stop-or-delete-your-github-codespace).
 
-8. In the level navigation bar, click the source control icon ().
+8. In the level navigation bar, click the source control icon.
 
    ![Click on the source control icon](/images/streamlit-community-cloud/deploy-sample-edit-commit-1.png)
 
-9. Fill out your desired commit message and click "**Commit**".
+9. Fill out your desired commit message and click "**Commit**."
 
    ![Commit your changes](/images/streamlit-community-cloud/deploy-sample-edit-commit-2.png)
 
