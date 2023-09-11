@@ -86,7 +86,7 @@ const useIntersectionObserver = (slug) => {
     // Create an intersection observer, to track when the links enter/leave.
     const observer = new IntersectionObserver(callback, {
       threshold: 1.0,
-      rootMargin: "0px 0px -200px 0px",
+      rootMargin: "0px 0px -90% 0px",
     });
 
     headingLinks.forEach((element) => observer.observe(element));
