@@ -9,7 +9,7 @@ Deploy, manage, and share your Streamlit apps with the world in minutes &mdash; 
 
 Want to avoid the work of setting up a local development environment? Community Cloud can help you quickly configure a GitHub Codespace to develop in the cloud. Whether it's your own deployed app or an app deployed from a public repository, it only takes a few clicks to start coding or editing a Streamlit app. See [Edit your app](/streamlit-community-cloud/manage-your-app/edit-your-app).
 
-If you haven't built your first Streamlit app yet, you can check out [Get started](/library/get-started) in our Streamlit library documentation, fork an app from our <a href="https://streamlit.io/gallery" target="_blank">App gallery</a>, or go with [Quickstart](/streamlit-community-cloud/get-started/quickstart) which will speed-run you through creating your account, deploying an example app, and editing it using GitHub Codespaces.
+If you haven't built your first Streamlit app yet, you can check out [Get started](/library/get-started) in our Streamlit library documentation or fork an app from our <a href="https://streamlit.io/gallery" target="_blank">App gallery</a>. Check out [Quickstart](/streamlit-community-cloud/get-started/quickstart) to speed-run you through creating your account, deploying an example app, and editing it using GitHub Codespaces.
 
 <InlineCalloutContainer>
     <InlineCallout

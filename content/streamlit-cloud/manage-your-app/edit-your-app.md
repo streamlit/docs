@@ -1,11 +1,11 @@
 ---
-title: Delete your app
+title: Edit your app
 slug: /streamlit-community-cloud/manage-your-app/edit-your-app
 ---
 
 # Edit your app
 
-You can edit your app from any development environment of your choice. Community Cloud will monitor your repository and automatically copy any file changes you commit. For most changes (such as edits to your app's Python files), you will immediately see the changes reflected in your deployed app.
+You can edit your app from any development environment of your choice. Community Cloud will monitor your repository and automatically copy any file changes you commit. You will immediately see the changes reflected in your deployed app for most changes (such as edits to your app's Python files).
 
 Community Cloud also makes it easy to skip the work of setting up a development environment. With a few simple clicks, you can configure a development environment using GitHub Codespaces.
 
@@ -23,7 +23,7 @@ Spin up a cloud-based development environment for your deployed app in minutes. 
 
    ![Adding a devcontainer file to your repository](/images/streamlit-community-cloud/workspace-app-edit-preparing.png)
 
-3. Click "**Create codespace**" to confirm the creation of a codespace on your account. Read more about [GitHub Codespaces](https://github.com/features/codespaces) the learn about monthly limits for free use and paid plans.
+3. Click "**Create codespace**" to confirm the creation of a codespace on your account. Read more about <a href="https://github.com/features/codespaces" target="_blank">GitHub Codespaces</a> to learn about monthly limits for free use and paid plans.
 
    ![Create your GitHub Codespace](/images/streamlit-community-cloud/deploy-codespaces-2.png)
 
@@ -35,7 +35,7 @@ Spin up a cloud-based development environment for your deployed app in minutes. 
 
    ![Your new GitHub Codespace](/images/streamlit-community-cloud/deploy-sample-codespace.png)
 
-6. When you make changes to your app, the file is automatically saved within the Codespace. Your edits are contained within your codespace and do not afftect your repository unless you choose to commit the changes, which will be described later.
+6. When you make changes to your app, the file is automatically saved within your codespace. Your edits do not affect your repository unless you choose to commit those changes. We will describe commiting your changes in a later step.
 
    In order to see updates automatically reflected on the right, click "**Always rerun**" when prompted after an edit.
 
@@ -58,7 +58,7 @@ After making edits to your app, you can choose to commit your edits to your repo
 
    ![Commit your changes](/images/streamlit-community-cloud/deploy-sample-edit-commit-2.png)
 
-10. Click "**Yes**" to stage and commit all your changes. To learn more about source control in GitHub Codespaces, check out [Source control](https://docs.github.com/en/codespaces/developing-in-codespaces/using-source-control-in-your-codespace) in GitHub Docs.
+10. Click "**Yes**" to stage and commit all your changes. To learn more about source control in GitHub Codespaces, check out <a href="https://docs.github.com/en/codespaces/developing-in-codespaces/using-source-control-in-your-codespace" target="_blank">Source control</a> in GitHub Docs.
 
 <div style={{ maxWidth: '70%', margin: 'auto' }}>
 <Image alt="Confirm to stage all changes and commit" src="/images/streamlit-community-cloud/deploy-sample-edit-commit-3.png" />
