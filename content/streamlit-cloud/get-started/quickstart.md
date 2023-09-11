@@ -5,7 +5,7 @@ slug: /streamlit-community-cloud/get-started/quickstart
 
 # Quickstart
 
-This is a concise set of steps to create your Streamlit Community Cloud account and deploy a sample app. For other options and complete explanations, start with [Create your account](/streamlit-community-cloud/get-started/create-your-account).
+This is a concise set of steps to create your Streamlit Community Cloud account, deploy a sample app, and start editing it with GitHub Codespaces. For other options and complete explanations, start with [Create your account](/streamlit-community-cloud/get-started/create-your-account).
 
 You will be signing in to your Google and GitHub accounts during this process. If you do not already have these accounts, you can create them before you begin. If you do not want to use a Google account, you can [create your account with any email](/streamlit-community-cloud/get-started/create-your-account#primary-identity-option-2-email).
 
