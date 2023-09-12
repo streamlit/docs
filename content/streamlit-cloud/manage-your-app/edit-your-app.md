@@ -5,15 +5,15 @@ slug: /streamlit-community-cloud/manage-your-app/edit-your-app
 
 # Edit your app
 
-You can edit your app from any development environment of your choice. Community Cloud will monitor your repository and automatically copy any file changes you commit. You will immediately see the changes reflected in your deployed app for most changes (such as edits to your app's Python files).
+You can edit your app from any development environment of your choice. Community Cloud will monitor your repository and automatically copy any file changes you commit. You will immediately see commits reflected in your deployed app for most changes (such as edits to your app's Python files).
 
 Community Cloud also makes it easy to skip the work of setting up a development environment. With a few simple clicks, you can configure a development environment using GitHub Codespaces.
 
 ## Edit your app with GitHub Codespaces
 
-Spin up a cloud-based development environment for your deployed app in minutes. You can see your app running live in your codespace to enjoy experimenting in a safe, sandboxed environment. When you are done editing your code you can commit your changes to your repo or just leave them in your codespace to return to later.
+Spin up a cloud-based development environment for your deployed app in minutes. You can run your app your codespace to enjoy experimenting in a safe, sandboxed environment. When you are done editing your code you can commit your changes to your repo or just leave them in your codespace to return to later.
 
-### Create a GitHub Codespace for your deployed app
+### Create a codespace for your deployed app
 
 1. From your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) next to your app. Click "**Edit**."
 
@@ -27,11 +27,11 @@ Spin up a cloud-based development environment for your deployed app in minutes. 
 
    ![Create your GitHub Codespace](/images/streamlit-community-cloud/deploy-codespaces-2.png)
 
-4. Wait for GitHub to set up your Codespace.
+4. Wait for GitHub to set up your codespace.
 
    ![GitHub preparing your codespace](/images/streamlit-community-cloud/deploy-codespaces-3.png)
 
-5. When your Codespace is built, GitHub will open your Codespace and automatically execute the commands to launch your Streamlit app. Your live app will be visible in a "Simple Browser" on the right.
+5. GitHub will automatically execute the commands to launch your Streamlit app within your codespace. Your live app will be visible in a "Simple Browser" on the right. This may take a minute to complete from when your codespace first appears on screen.
 
    ![Your new GitHub Codespace](/images/streamlit-community-cloud/deploy-sample-codespace.png)
 
@@ -48,9 +48,9 @@ Spin up a cloud-based development environment for your deployed app in minutes. 
 
 ### Commit your changes to your repository (optional)
 
-After making edits to your app, you can choose to commit your edits to your repository to update your deployed app instantly. If you just want to keep your edits in your codespace to return to later, skip to [Stop or delete your GitHub Codespace](#stop-or-delete-your-github-codespace).
+After making edits to your app, you can choose to commit your edits to your repository to update your deployed app instantly. If you just want to keep your edits in your codespace to return to later, skip to [Stop or delete your codespace](#stop-or-delete-your-codespace).
 
-8. In the level navigation bar, click the source control icon.
+8. In the left navigation bar, click the source control icon.
 
    ![Click on the source control icon](/images/streamlit-community-cloud/deploy-sample-edit-commit-1.png)
 
@@ -64,10 +64,10 @@ After making edits to your app, you can choose to commit your edits to your repo
 <Image alt="Confirm to stage all changes and commit" src="/images/streamlit-community-cloud/deploy-sample-edit-commit-3.png" />
 </div>
 
-### Stop or delete your GitHub Codespace
+### Stop or delete your codespace
 
-When you are done, remember to stop your GitHub Codespace to avoid any undesired use of your capacity.
+When you are done, remember to stop your codespace to avoid any undesired use of your capacity.
 
-11. Go to <a href="https://github.com/codespaces" target="_blank">github.com/codespaces</a>. At the bottom of the page, all your Codespaces are listed. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_horiz</i>) for your Codespace. Click "**Stop codespace**" if you'd like to return to your work later. Otherwise, click "**Delete**."
+11. Go to <a href="https://github.com/codespaces" target="_blank">github.com/codespaces</a>. At the bottom of the page, all your codespaces are listed. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_horiz</i>) for your codespace. Click "**Stop codespace**" if you'd like to return to your work later. Otherwise, click "**Delete**."
 
     ![Stop or delete your GitHub Codespace](/images/streamlit-community-cloud/deploy-sample-codespaces.png)

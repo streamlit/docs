@@ -90,7 +90,7 @@ You will be signing in to your Google and GitHub accounts during this process. I
 
 ## Edit your Streamlit app in GitHub Codespaces
 
-16. Return to your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a> and click the overflow menu icon ((<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>)) for your new app.
+16. Return to your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a> and click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) for your new app.
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
 <Image alt="App overflow menu in your workspace" src="/images/streamlit-community-cloud/deploy-sample-overflow.png" />
@@ -102,19 +102,19 @@ You will be signing in to your Google and GitHub accounts during this process. I
 <Image alt="Edit your app with GitHub Codespaces" src="/images/streamlit-community-cloud/deploy-sample-edit.png" />
 </div>
 
-18. Click "**Create codespace**" to confirm the creation of a Codespace on your GitHub account. Read more about [GitHub Codespaces](https://github.com/features/codespaces) the learn about monthly limits for free use and paid plans.
+18. Click "**Create codespace**" to confirm the creation of a codespace on your GitHub account. Read more about <a href="https://github.com/features/codespaces" target="_blank">GitHub Codespaces</a> the learn about monthly limits for free use and paid plans.
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
 <Image alt="Create your GitHub Codespace" src="/images/streamlit-community-cloud/deploy-codespaces-2.png" />
 </div>
 
-19. Wait for GitHub to set up your Codespace.
+19. Wait for GitHub to set up your codespace.
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
-<Image alt="GitHub preparing your codespace" src="/images/streamlit-community-cloud/deploy-codespaces-3.png" />
+<Image alt="GitHub preparing your Codespace" src="/images/streamlit-community-cloud/deploy-codespaces-3.png" />
 </div>
 
-20. When your Codespace is built, GitHub will open your Codespace and automatically execute the commands to launch your Streamlit app. Your live app will be visible in a "Simple Browser" on the right.
+20. GitHub will automatically execute the commands to launch your Streamlit app within your codespace. Your live app will be visible in a "Simple Browser" on the right. This may take a minute to complete from when your codespace first appears on screen.
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
 <Image alt="Your new GitHub Codespace" src="/images/streamlit-community-cloud/deploy-sample-codespace.png" />
@@ -126,21 +126,21 @@ You will be signing in to your Google and GitHub accounts during this process. I
 <Image alt="Edit the title of your sample Streamlit app" src="/images/streamlit-community-cloud/deploy-sample-edit-title.png" />
 </div>
 
-22. Files are automatically saved with each edit. Click "**Always rerun**" in the upper-right corner of your app to automatically rerun with each edit.
+22. Files are automatically saved in your codespace with each edit. Click "**Always rerun**" in the upper-right corner of your app to automatically rerun with each edit.
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
 <Image alt='Select "Always rerun" to automatically see edits in your running app' src="/images/streamlit-community-cloud/deploy-sample-edit-rerun.png" />
 </div>
 
-23. See your edits and keep going with more.
+23. See your edits and keep going!
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
 <Image alt="See the results of your edit to your Streamlit app" src="/images/streamlit-community-cloud/deploy-sample-edit-result.png" />
 </div>
 
-24. When you are done, remember to stop your Codespace on GitHub to avoid any undesired use of your capacity.
+24. When you are done, remember to stop your codespace on GitHub to avoid any undesired use of your capacity.
 
-Go to <a href="https://github.com/codespaces" target="_blank">github.com/codespaces</a>. At the bottom of the page, all your Codespaces are listed. Click the overflow menu icon for your Codespace. Click "**Stop codespace**" if you'd like to return to your work later. Otherwise, click "**Delete**."
+    Go to <a href="https://github.com/codespaces" target="_blank">github.com/codespaces</a>. At the bottom of the page, all your codespaces are listed. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_horiz</i>) for your codespace. Click "**Stop codespace**" if you'd like to return to your work later. Otherwise, click "**Delete**."
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
 <Image alt="Stop or delete your GitHub Codespace" src="/images/streamlit-community-cloud/deploy-sample-codespaces.png" />

@@ -5,7 +5,7 @@ slug: /streamlit-community-cloud/deploy-your-app
 
 # Deploy your app
 
-Streamlit Community Cloud lets you deploy your apps in just one click, and most apps will deploy in only a few minutes. If you don't have an app ready to deploy, fork or clone one from our <a href="https://streamlit.io/gallery" target="_blank">App gallery</a> — you can find apps for machine learning, data visualization, data exploration, A/B testing and more. You can also fork and deploy samples straight from the [**New app** button](/streamlit-community-cloud/get-started/explore-your-workspace#new-app-button). Once you've deployed your app, check out how you can [Edit your app with GitHub Codespaces](/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces).
+Streamlit Community Cloud lets you deploy your apps in just one click, and most apps will deploy in only a few minutes. If you don't have an app ready to deploy, fork or clone one from our <a href="https://streamlit.io/gallery" target="_blank">App gallery</a> — you can find apps for machine learning, data visualization, data exploration, A/B testing and more. You can also fork and deploy samples straight from the [New app button](/streamlit-community-cloud/get-started/explore-your-workspace#new-app-button). Once you've deployed your app, check out how you can [Edit your app with GitHub Codespaces](/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces).
 
 <Note>
 
