@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/postgresql
 
 ## Introduction
 
-This guide explains how to securely access a **_remote_** PostgreSQL database from Streamlit Community Cloud. It uses the [psycopg2](https://www.psycopg.org/) library and Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management).
+This guide explains how to securely access a **_remote_** PostgreSQL database from Streamlit Community Cloud. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection) and Streamlit's [Secrets management](/library/advanced-features/secrets-management). The below example code will **only work on Streamlit version >= 1.22**, when `st.experimental_connection` was added.
 
 ## Create a PostgreSQL database
 
@@ -36,17 +36,18 @@ Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml`
 ```toml
 # .streamlit/secrets.toml
 
-[postgres]
+[connections.postgresql]
+dialect = "postgresql"
 host = "localhost"
-port = 5432
-dbname = "xxx"
-user = "xxx"
+port = "5432"
+database = "xxx"
+username = "xxx"
 password = "xxx"
 ```
 
 <Important>
 
-When copying your app secrets to Streamlit Community Cloud, be sure to replace the values of **host**, **port**, **dbname**, **user**, and **password** with those of your _remote_ PostgreSQL database!
+When copying your app secrets to Streamlit Community Cloud, be sure to replace the values of **host**, **port**, **database**, **user**, and **password** with those of your _remote_ PostgreSQL database!
 
 Add this file to `.gitignore` and don't commit it to your GitHub repo!
 
@@ -58,13 +59,14 @@ As the `secrets.toml` file above is not committed to GitHub, you need to pass it
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 
-## Add psycopg2 to your requirements file
+## ## Add dependencies to your requirements file
 
-Add the [psycopg2](https://www.psycopg.org/) package to your `requirements.txt` file, preferably pinning its version (replace `x.x.x` with the version you want installed):
+Add the [psycopg2-binary](https://www.psycopg.org/) and [SQLAlchemy](https://github.com/sqlalchemy/sqlalchemy) packages to your `requirements.txt` file, preferably pinning its version (replace `x.x.x` with the version you want installed):
 
 ```bash
 # requirements.txt
 psycopg2-binary==x.x.x
+sqlalchemy==x.x.x
 ```
 
 ## Write your Streamlit app
@@ -75,32 +77,19 @@ Copy the code below to your Streamlit app and run it. Make sure to adapt `query`
 # streamlit_app.py
 
 import streamlit as st
-import psycopg2
 
 # Initialize connection.
-# Uses st.cache_resource to only run once.
-@st.cache_resource
-def init_connection():
-    return psycopg2.connect(**st.secrets["postgres"])
-
-conn = init_connection()
+conn = st.experimental_connection("postgresql", type="sql")
 
 # Perform query.
-# Uses st.cache_data to only rerun when the query changes or after 10 min.
-@st.cache_data(ttl=600)
-def run_query(query):
-    with conn.cursor() as cur:
-        cur.execute(query)
-        return cur.fetchall()
-
-rows = run_query("SELECT * from mytable;")
+df = conn.query('SELECT * FROM mytable;', ttl=600)
 
 # Print results.
-for row in rows:
-    st.write(f"{row[0]} has a :{row[1]}:")
+for row in df.itertuples():
+    st.write(f"{row.name} has a :{row.pet}:")
 ```
 
-See `st.cache_data` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache_data`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Learn more in [Caching](/library/advanced-features/caching).
+See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl=600` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 
