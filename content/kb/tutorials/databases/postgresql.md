@@ -47,7 +47,7 @@ password = "xxx"
 
 <Important>
 
-When copying your app secrets to Streamlit Community Cloud, be sure to replace the values of **host**, **port**, **database**, **user**, and **password** with those of your _remote_ PostgreSQL database!
+When copying your app secrets to Streamlit Community Cloud, be sure to replace the values of **host**, **port**, **database**, **username**, and **password** with those of your _remote_ PostgreSQL database!
 
 Add this file to `.gitignore` and don't commit it to your GitHub repo!
 
@@ -82,14 +82,14 @@ import streamlit as st
 conn = st.experimental_connection("postgresql", type="sql")
 
 # Perform query.
-df = conn.query('SELECT * FROM mytable;', ttl=600)
+df = conn.query('SELECT * FROM mytable;', ttl="10m")
 
 # Print results.
 for row in df.itertuples():
     st.write(f"{row.name} has a :{row.pet}:")
 ```
 
-See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl=600` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
+See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl="10m"` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 

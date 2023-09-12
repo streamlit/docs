@@ -126,13 +126,10 @@ import streamlit as st
 from st_supabase_connection import SupabaseConnection
 
 # Initialize connection.
-supabase = st.experimental_connection("supabase",type=SupabaseConnection)
+conn = st.experimental_connection("supabase",type=SupabaseConnection)
 
 # Perform query.
-def run_query():
-    return supabase.query("*", table="mytable", ttl=600).execute()
-
-rows = run_query()
+rows = conn.query("*", table="mytable", ttl="10m").execute()
 
 # Print results.
 for row in rows.data:
@@ -140,7 +137,7 @@ for row in rows.data:
 
 ```
 
-See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl=600` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
+See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl="10m"` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 
