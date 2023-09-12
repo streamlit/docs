@@ -7,7 +7,13 @@ slug: /knowledge-base/tutorials/databases/supabase
 
 ## Introduction
 
-This guide explains how to securely access a Supabase instance from Streamlit Community Cloud. It uses the [Supabase Python Client Library](https://github.com/supabase-community/supabase-py) and Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management). Supabase is the open source Firebase alternative and is based on PostgreSQL.
+This guide explains how to securely access a Supabase instance from Streamlit Community Cloud. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection), [Streamlit Supabase Connector](https://github.com/SiddhantSadangi/st_supabase_connection/tree/main) (a community-built connection developed by [@SiddhantSadangi](https://github.com/SiddhantSadangi)) and Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management). Supabase is the open source Firebase alternative and is based on PostgreSQL.
+
+<Note>
+
+Community-built connections, such as the [Streamlit Supabase Connector](https://github.com/SiddhantSadangi/st_supabase_connection/tree/main), extend and build on the `st.experimental_connection` interface and make it easier than ever to build Streamlit apps with a wide variety of data sources. These type of connections work exactly the same as [the ones built into Streamlit](/library/api-reference/connections) and have access to all the same capabilities.
+
+</Note>
 
 ## Sign in to Supabase and create a project
 
@@ -68,13 +74,14 @@ With your Supabase database created, you can now connect to it from Streamlit!
 
 ### Add Supabase Project URL and API key to your local app secrets
 
-Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Create this file if it doesn't exist yet and add the `supabase_url` and `supabase_key` here:
+Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Create this file if it doesn't exist yet and add the `SUPABASE_URL` and `SUPABASE_KEY` here:
 
 ```toml
 # .streamlit/secrets.toml
 
-supabase_url = "xxxx"
-supabase_key = "xxxx"
+[connections.supabase]
+SUPABASE_URL = "xxxx"
+SUPABASE_KEY = "xxxx"
 ```
 
 Replace `xxxx` above with your Project URL and API key from [Step 1](/knowledge-base/tutorials/databases/supabase#sign-in-to-supabase-and-create-a-project).
@@ -91,14 +98,22 @@ As the `secrets.toml` file above is not committed to GitHub, you need to pass it
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 
-## Add supabase to your requirements file
+## Add st-supabase-connection to your requirements file
 
-Add the [`supabase`](https://github.com/supabase-community/supabase-py) Python Client Library to your `requirements.txt` file, preferably pinning its version (replace `x.x.x` with the version you want installed):
+Add the [`st-supabase-connection`](https://pypi.org/project/st-supabase-connection/) community-built connection library to your `requirements.txt` file, preferably pinning its version (replace `x.x.x` with the version you want installed):
 
 ```bash
 # requirements.txt
-supabase==x.x.x
+st-supabase-connection==x.x.x
 ```
+
+<Tip>
+
+We've used the `st-supabase-connection` library here in combination with `st.experimental_connection` to benefit from the ease of setting up the data connection, managing your credentials, and Streamlit's caching capabilities that native and community-built connections provide.
+
+You can however still directly use the [Supabase Python Client Library](https://pypi.org/project/supabase/) library if you prefer, but you'll need to write more code to set up the connection and cache the results. See [Using the Supabase Python Client Library](/knowledge-base/tutorials/databases/supabase#using-the-supabase-python-client-library) below for an example.
+
+</Tip>
 
 ## Write your Streamlit app
 
@@ -108,25 +123,13 @@ Copy the code below to your Streamlit app and run it.
 # streamlit_app.py
 
 import streamlit as st
-from supabase import create_client, Client
+from st_supabase_connection import SupabaseConnection
 
 # Initialize connection.
-# Uses st.cache_resource to only run once.
-@st.cache_resource
-def init_connection():
-    url = st.secrets["supabase_url"]
-    key = st.secrets["supabase_key"]
-    return create_client(url, key)
-
-supabase = init_connection()
+conn = st.experimental_connection("supabase",type=SupabaseConnection)
 
 # Perform query.
-# Uses st.cache_data to only rerun when the query changes or after 10 min.
-@st.cache_data(ttl=600)
-def run_query():
-    return supabase.table("mytable").select("*").execute()
-
-rows = run_query()
+rows = conn.query("*", table="mytable", ttl="10m").execute()
 
 # Print results.
 for row in rows.data:
@@ -134,10 +137,69 @@ for row in rows.data:
 
 ```
 
-See `st.cache_data` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache_data`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Learn more in [Caching](/library/advanced-features/caching).
+See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl="10m"` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 
 ![Finished app screenshot](/images/databases/supabase-10.png)
 
 As Supabase uses PostgresSQL under the hood, you can also connect to Supabase by using the connection string Supabase provides under Settings > Databases. From there, you can refer to the [PostgresSQL tutorial](/knowledge-base/tutorials/databases/postgresql) to connect to your database.
+
+## Using the Supabase Python Client Library
+
+If you prefer to use the [Supabase Python Client Library](https://pypi.org/project/supabase/) directly, you can do so by following the steps below.
+
+1. Add your Supabase Project URL and API key to your local app secrets:
+
+   Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Create this file if it doesn't exist yet and add the SUPABASE_URL and SUPABASE_KEY here:
+
+   ```toml
+   # .streamlit/secrets.toml
+
+   SUPABASE_URL = "xxxx"
+   SUPABASE_KEY = "xxxx"
+   ```
+
+2. Add `supabase` to your requirements file:
+
+   Add the [`supabase`](https://github.com/supabase-community/supabase-py) Python Client Library to your `requirements.txt` file, preferably pinning its version (replace `x.x.x` with the version you want installed):
+
+   ```bash
+   # requirements.txt
+   supabase==x.x.x
+   ```
+
+3. Write your Streamlit app:
+
+   Copy the code below to your Streamlit app and run it.
+
+   ```python
+   # streamlit_app.py
+
+   import streamlit as st
+   from supabase import create_client, Client
+
+   # Initialize connection.
+   # Uses st.cache_resource to only run once.
+   @st.cache_resource
+   def init_connection():
+       url = st.secrets["SUPABASE_URL"]
+       key = st.secrets["SUPABASE_KEY"]
+       return create_client(url, key)
+
+   supabase = init_connection()
+
+   # Perform query.
+   # Uses st.cache_data to only rerun when the query changes or after 10 min.
+   @st.cache_data(ttl=600)
+   def run_query():
+       return supabase.table("mytable").select("*").execute()
+
+   rows = run_query()
+
+   # Print results.
+   for row in rows.data:
+       st.write(f"{row['name']} has a :{row['pet']}:")
+   ```
+
+   See `st.cache_data` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache_data`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Learn more in [Caching](/library/advanced-features/caching).
