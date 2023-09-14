@@ -21,9 +21,10 @@ operating system, and how to create your first Streamlit app!
   <InlineCallout color="violet-70" icon="auto_stories" bold="Multipage apps" href="/library/get-started/multipage-apps">
     teaches you how to add pages to your app, including how to define pages, structure and run multipage apps, and navigate between pages. Once you understand the basics, create your first multipage app based on the familiar <code>streamlit hello</code> command!
   </InlineCallout>
-  {/*<InlineCallout color="violet-70" icon="share" bold="Deploy an app" href="/library/get-started/deploy-an-app">
-    to Streamlit Community Cloud. With Streamlit Community Cloud your data team can directly serve the needs of the rest of the company. Quickly go from data to app, from prototype to production. Share apps in one click and collaborate instantly with live code updates.
-</InlineCallout>*/}
+  <p>If you want to skip past local installation, try out our Community Cloud <a href="/streamlit-community-cloud/get-started/quickstart">Quickstart</a> to quickly fork an app and jump into a codespace to develop in the cloud. Return to Streamlit library <a href="/library/get-started/main-concepts">Main concepts</a> to learn how to code a Streamlit app.</p>
+  <InlineCallout color="l-blue-70" icon="rocket_launch" bold="Quickstart" href="/streamlit-community-cloud/get-started/quickstart">
+  takes you through creating a Streamlit Community Cloud account. Once you have your account, fork and deploy a sample Streamlit app then jump into editing code with GitHub Codespaces. No installation required!
+  </InlineCallout>
 </InlineCalloutContainer>
 
 <NoteSplit
