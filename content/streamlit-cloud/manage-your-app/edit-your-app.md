@@ -11,7 +11,7 @@ Community Cloud also makes it easy to skip the work of setting up a development 
 
 ## Edit your app with GitHub Codespaces
 
-Spin up a cloud-based development environment for your deployed app in minutes. You can run your app your codespace to enjoy experimenting in a safe, sandboxed environment. When you are done editing your code you can commit your changes to your repo or just leave them in your codespace to return to later.
+Spin up a cloud-based development environment for your deployed app in minutes. You can run your app within your codespace to enjoy experimenting in a safe, sandboxed environment. When you are done editing your code, you can commit your changes to your repo or just leave them in your codespace to return to later.
 
 ### Create a codespace for your deployed app
 
@@ -31,7 +31,7 @@ Spin up a cloud-based development environment for your deployed app in minutes. 
 
    ![GitHub preparing your codespace](/images/streamlit-community-cloud/deploy-codespaces-3.png)
 
-5. GitHub will automatically execute the commands to launch your Streamlit app within your codespace. Your live app will be visible in a "Simple Browser" on the right. This may take a minute to complete from when your codespace first appears on screen.
+5. GitHub will automatically execute the commands to launch your Streamlit app within your codespace. Your app will be visible in a "Simple Browser" on the right. This may take a minute to complete from when your codespace first appears on screen.
 
    ![Your new GitHub Codespace](/images/streamlit-community-cloud/deploy-sample-codespace.png)
 
@@ -66,8 +66,21 @@ After making edits to your app, you can choose to commit your edits to your repo
 
 ### Stop or delete your codespace
 
-When you are done, remember to stop your codespace to avoid any undesired use of your capacity.
+When you are done, remember to stop your codespace on GitHub to avoid any undesired use of your capacity.
 
-11. Go to <a href="https://github.com/codespaces" target="_blank">github.com/codespaces</a>. At the bottom of the page, all your codespaces are listed. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_horiz</i>) for your codespace. Click "**Stop codespace**" if you'd like to return to your work later. Otherwise, click "**Delete**."
+11. Go to <a href="https://github.com/codespaces" target="_blank">github.com/codespaces</a>. At the bottom of the page, all your codespaces are listed. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_horiz</i>) for your codespace.
 
-    ![Stop or delete your GitHub Codespace](/images/streamlit-community-cloud/deploy-sample-codespaces.png)
+<div style={{ maxWidth: '90%', margin: 'auto' }}>
+<Image alt="Stop or delete your GitHub Codespace" src="/images/streamlit-community-cloud/deploy-sample-codespace-manage.png" />
+</div>
+
+12. Click "**Stop codespace**" if you'd like to return to your work later. Otherwise, click "**Delete**."
+
+    <Flex>
+    <div style={{ maxWidth: '40%', margin: 'auto' }}>
+    <Image alt="Stop your GitHub codespace" src="/images/streamlit-community-cloud/codespace-menu-stop.png" />
+    </div>
+    <div style={{ maxWidth: '40%', margin: 'auto' }}>
+    <Image alt="Delete your GitHub codespace" src="/images/streamlit-community-cloud/codespace-menu-delete.png" />
+    </div>
+    </Flex>

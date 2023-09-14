@@ -20,7 +20,7 @@ You may also find that you already have access to multiple Streamlit Community C
 Your workspace is your base of operations to deploy apps and manage them. You can click on "**New app**" to [Deploy your app](/streamlit-community-cloud/deploy-your-app) from a repository where you have administrative privileges. If you want additional options, click the down arrow (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>expand_more</i>) to begin with a template.
 
 - "**Use existing repo**" is the default to [Deploy your app](/streamlit-community-cloud/deploy-your-app) from a repository where you have administrative privileges.
-- "**Create from sample app template**" will [Fork and deploy a sample Streamlit app](/streamlit-community-cloud/get-started/quickstart#fork-and-deploy-a-sample-streamlit-app) as shown in the Quickstart. See this <a href="https://github.com/streamlit/streamlit-example" target="_blank">simple, one-page app on GitHub</a>.
+- "**Create from sample app template**" will fork and deploy a <a href="https://github.com/streamlit/streamlit-example" target="_blank">simple, one-page Streamlit app</a>.
 - "**Create new app with GitHub Codespaces**" will fork and deploy our multipage <a href="https://github.com/streamlit/streamlit-hello" target="_blank">Streamlit Hello</a> app and create a codespace. To jump quickly into GitHub Codespaces for any of your deployed apps, see [Edit your app with GitHub Codespaces](/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces) instead.
 
 ![Options to deploy a new app from your workspace in Streamlit Community Cloud](/images/streamlit-community-cloud/deploy-menu.png)
