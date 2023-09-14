@@ -125,3 +125,8 @@ div.code-desc {
 tt.docutils.literal {
   @apply border border-gray-40 text-red-70 rounded-md px-1 mx-1 break-words;
 }
+
+/* Override border on line numbers in code blocks */
+.line-numbers .line-numbers-rows {
+  border-right: none !important;
+}

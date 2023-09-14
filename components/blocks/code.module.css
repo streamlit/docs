@@ -37,7 +37,16 @@
   @apply opacity-100;
 }
 
-/* Code block adjustments */
+/* Line numbers */
+.Container span:global(.line-numbers-rows) {
+  @apply -top-[2px];
+}
+
+.Container span:global(.line-numbers-rows) > span {
+  @apply text-base leading-relaxed;
+}
+
+/* Code block styles */
 .Container pre code :global(.operator) {
   @apply text-yellow-50;
 }
@@ -75,7 +84,7 @@
   @apply inline;
 }
 
-/* Dark mode adjustments */
+/* Dark mode styles */
 :global(.dark) .Container pre code :global(.operator),
 :global(.dark) .Container pre code :global(.decorator) {
   @apply text-yellow-80;
