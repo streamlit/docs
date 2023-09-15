@@ -6,7 +6,7 @@ description: st.rerun will rerun the script immediately.
 
 <Autofunction function="streamlit.rerun" />
 
-## Three main concepts of logical flow
+### Three main concepts of logical flow
 
 - `st.rerun`
 - [Callbacks](/library/api-reference/session-state#use-callbacks-to-update-session-state)
