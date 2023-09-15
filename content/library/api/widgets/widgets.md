@@ -10,7 +10,7 @@ With widgets, Streamlit allows you to bake interactivity directly into your apps
 <TileContainer>
 <RefCard href="/library/api-reference/widgets/st.button">
 
-<Image pure alt="screenshot" src="/images/api/button.jpg" />
+<Image pure alt="screenshot" src="/images/api/button.svg" />
 
 #### Button
 
@@ -24,7 +24,7 @@ clicked = st.button("Click me")
 
 <RefCard href="/library/api-reference/widgets/st.download_button">
 
-<Image pure alt="screenshot" src="/images/api/download_button.jpg" />
+<Image pure alt="screenshot" src="/images/api/download_button.svg" />
 
 #### Download button
 
@@ -35,6 +35,21 @@ st.download_button("Download file", file)
 ```
 
 </RefCard>
+
+<RefCard href="/library/api-reference/widgets/st.link_button">
+
+<Image pure alt="screenshot" src="/images/api/link_button.svg" />
+
+#### Link button
+
+Display a link button.
+
+```python
+st.link_button("Go to gallery", url)
+```
+
+</RefCard>
+
 <RefCard href="/library/api-reference/widgets/st.checkbox">
 
 <Image pure alt="screenshot" src="/images/api/checkbox.jpg" />

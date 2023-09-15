@@ -706,7 +706,7 @@ st.altair_chart(chart, use_container_width=True)
 <TileContainer>
 <RefCard href="/library/api-reference/widgets/st.button">
 
-<Image pure alt="screenshot" src="/images/api/button.jpg" />
+<Image pure alt="screenshot" src="/images/api/button.svg" />
 
 #### Button
 
@@ -732,7 +732,7 @@ edited = st.experimental_data_editor(df, num_rows="dynamic")
 </RefCard>
 <RefCard href="/library/api-reference/widgets/st.download_button">
 
-<Image pure alt="screenshot" src="/images/api/download_button.jpg" />
+<Image pure alt="screenshot" src="/images/api/download_button.svg" />
 
 #### Download button
 
@@ -740,6 +740,19 @@ Display a download button widget.
 
 ```python
 st.download_button("Download file", file)
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/widgets/st.link_button">
+
+<Image pure alt="screenshot" src="/images/api/link_button.svg" />
+
+#### Link button
+
+Display a link button.
+
+```python
+st.link_button("Go to gallery", url)
 ```
 
 </RefCard>
