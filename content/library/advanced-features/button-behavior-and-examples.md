@@ -247,7 +247,7 @@ st.text_input('Name', key='name')
 if st.button('Clear name'):
     st.session_state.name = ''
 if st.button('Streamlit!'):
-    set_name('Streamlit')
+    st.session_state.name = ('Streamlit')
 ```
 
 </Important>
