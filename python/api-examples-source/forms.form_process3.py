@@ -18,4 +18,4 @@ with st.form("addition"):
 # a second rerun when the form is submitted to update the value above.
 st.session_state.sum = a + b
 if submit:
-    st.experimental_rerun()
+    st.rerun()
