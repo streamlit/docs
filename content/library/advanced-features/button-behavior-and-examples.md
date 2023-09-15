@@ -207,7 +207,7 @@ st.header(st.session_state['name'])
 
 #### Logic nested in a button with a rerun
 
-Although callbacks are often preferred to avoid extra reruns, our first 'John Doe'/'Jane Doe' example can be modified by adding [`st.experimental_rerun`](/library/api-reference/control-flow/st.experimental_rerun) instead. If you need to acces data in `st.session_state` before the button that modifies it, you can include `st.experimental_rerun` to rerun the script after the change has been committed. This means the script will rerun twice when a button is clicked.
+Although callbacks are often preferred to avoid extra reruns, our first 'John Doe'/'Jane Doe' example can be modified by adding [`st.rerun`](/library/api-reference/control-flow/st.rerun) instead. If you need to acces data in `st.session_state` before the button that modifies it, you can include `st.rerun` to rerun the script after the change has been committed. This means the script will rerun twice when a button is clicked.
 
 ```python
 import streamlit as st
@@ -220,11 +220,11 @@ st.header(st.session_state['name'])
 
 if st.button('Jane'):
     st.session_state['name'] = 'Jane Doe'
-    st.experimental_rerun()
+    st.rerun()
 
 if st.button('John'):
     st.session_state['name'] = 'John Doe'
-    st.experimental_rerun()
+    st.rerun()
 
 st.header(st.session_state['name'])
 ```

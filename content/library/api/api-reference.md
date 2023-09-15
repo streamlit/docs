@@ -1699,14 +1699,14 @@ st.stop()
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/control-flow/st.experimental_rerun">
+<RefCard href="/library/api-reference/control-flow/st.rerun">
 
 #### Rerun script
 
 Rerun the script immediately.
 
 ```python
-st.experimental_rerun()
+st.rerun()
 ```
 
 </RefCard>
