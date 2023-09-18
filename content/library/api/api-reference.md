@@ -428,18 +428,7 @@ style_metric_cards()
 ## Chart elements
 
 <TileContainer>
-<RefCard href="/library/api-reference/charts/st.line_chart">
-<Image pure alt="screenshot" src="/images/api/line_chart.jpg" />
 
-#### Simple line charts
-
-Display a line chart.
-
-```python
-st.line_chart(my_data_frame)
-```
-
-</RefCard>
 <RefCard href="/library/api-reference/charts/st.area_chart">
 <Image pure alt="screenshot" src="/images/api/area_chart.jpg" />
 
@@ -461,6 +450,30 @@ Display a bar chart.
 
 ```python
 st.bar_chart(my_data_frame)
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/charts/st.line_chart">
+<Image pure alt="screenshot" src="/images/api/line_chart.jpg" />
+
+#### Simple line charts
+
+Display a line chart.
+
+```python
+st.line_chart(my_data_frame)
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/charts/st.scatter_chart">
+<Image pure alt="screenshot" src="/images/api/scatter_chart.svg" />
+
+#### Simple scatter charts
+
+Display a line chart.
+
+```python
+st.scatter_chart(my_data_frame)
 ```
 
 </RefCard>
