@@ -139,6 +139,18 @@ export default function Home({ window, menu, gdpr_data }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/streamlit-community-cloud/manage-your-app/edit-your-app"
+              >
+                <i className="material-icons-sharp">cloud</i>
+                <h4>Skip local installation and code in the cloud!</h4>
+                <p>
+                  Streamlit Community Cloud makes it easy to spin up a GitHub
+                  Codespace to start building and editing Streamlit apps &mdahs;
+                  all in the cloud!
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="/library/api-reference/status/st.status"
               >
                 <i className="material-icons-sharp">rotate_right</i>
@@ -166,17 +178,6 @@ export default function Home({ window, menu, gdpr_data }) {
                   Set the series color in <code>st.line_chart</code>,
                   <code>st.bar_chart</code>, and <code>st.area_chart</code>
                   with a new color parameter.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/advanced-features/app-menu#deploy-this-app"
-              >
-                <i className="material-icons-sharp">rocket</i>
-                <h4>Local to Community Cloud just got easier</h4>
-                <p>
-                  Locally running apps now have a Deploy button in their
-                  toolbars.
                 </p>
               </RefCard>
               <RefCard

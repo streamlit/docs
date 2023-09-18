@@ -5,7 +5,7 @@ slug: /streamlit-community-cloud/deploy-your-app
 
 # Deploy your app
 
-Streamlit Community Cloud lets you deploy your apps in just one click, and most apps will deploy in only a few minutes. If you don't have an app ready to deploy, fork or clone one from our <a href="https://streamlit.io/gallery" target="_blank">App gallery</a> — you can find apps for machine learning, data visualization, data exploration, A/B testing and more.
+Streamlit Community Cloud lets you deploy your apps in just one click, and most apps will deploy in only a few minutes. If you don't have an app ready to deploy, fork or clone one from our <a href="https://streamlit.io/gallery" target="_blank">App gallery</a> — you can find apps for machine learning, data visualization, data exploration, A/B testing and more. You can also fork and deploy samples straight from the [New app button](/streamlit-community-cloud/get-started/explore-your-workspace#new-app-button). Once you've deployed your app, check out how you can [Edit your app with GitHub Codespaces](/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces).
 
 <Note>
 
@@ -37,7 +37,7 @@ your-repository/
 
 <Important>
 
-   Although you can deploy multiple apps from the same repository, there can be only one configuration file.
+Although you can deploy multiple apps from the same repository, there can be only one configuration file.
 
 </Important>
 
@@ -45,19 +45,19 @@ your-repository/
 
 1. From your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click "**New app**" from the upper-right corner of your workspace.
 
-    ![Deploy a new app from your workspace](/images/streamlit-community-cloud/deploy-empty-new-app.png)
+   ![Deploy a new app from your workspace](/images/streamlit-community-cloud/deploy-empty-new-app.png)
 
 2. Fill in your repo, branch, and file path. As a shortcut, you can also click "**Paste GitHub URL**" to paste a link directly to `your_app.py` on GitHub.
 
-    An app URL with a random hash is prefilled but you can change this to a custom subdomain instead. In the example below, the app would be deployed to `https://red-balloon.streamlit.app/`. You can always change your subdomain later. See more about [Custom subdomains](#custom-subdomains) at the end of this page.
+   An app URL with a random hash is prefilled but you can change this to a custom subdomain instead. In the example below, the app would be deployed to `https://red-balloon.streamlit.app/`. You can always change your subdomain later. See more about [Custom subdomains](#custom-subdomains) at the end of this page.
 
-    ![Fill in your app's information to deploy your app](/images/streamlit-community-cloud/deploy-an-app.png)
+   ![Fill in your app's information to deploy your app](/images/streamlit-community-cloud/deploy-an-app.png)
 
 ## Advanced settings for deployment
 
 3. (Optional) If you are connecting to a data source or want to specify the Python version for your app, you can do that by clicking "**Advanced settings**" before you deploy the app. Learn more about [Secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management).
 
-    ![Advanced settings for deploying your app](/images/streamlit-community-cloud/deploy-an-app-advanced.png)
+   ![Advanced settings for deploying your app](/images/streamlit-community-cloud/deploy-an-app-advanced.png)
 
 <Tip>
 
