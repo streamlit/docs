@@ -5,7 +5,7 @@ slug: /library/cheatsheet
 
 # Cheat Sheet
 
-This is a summary of the docs, as of [Streamlit v1.26.0](https://pypi.org/project/streamlit/1.26.0/).
+This is a summary of the docs, as of [Streamlit v1.27.0](https://pypi.org/project/streamlit/1.27.0/).
 
 <Masonry>
 
@@ -111,6 +111,28 @@ st.metric('My metric', 42, 2)
 st.image('./header.png')
 st.audio(data)
 st.video(data)
+```
+
+</CodeTile>
+
+<CodeTile>
+
+#### Display charts
+
+```python
+st.area_chart(df)
+st.bar_chart(df)
+st.line_chart(df)
+st.map(df)
+st.scatter_chart(df)
+
+st.altair_chart(chart)
+st.bokeh_chart(fig)
+st.graphviz_chart(fig)
+st.plotly_chart(fig)
+st.pydeck_chart(chart)
+st.pyplot(fig)
+st.vega_lite_chart(df)
 ```
 
 </CodeTile>
