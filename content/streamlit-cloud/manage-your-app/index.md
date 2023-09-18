@@ -23,12 +23,13 @@ At the top of your workspace, "**Analytics**" is a shortcut to [App analytics](/
 
 Each app has a menu accessible from the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) to the right.
 
-* **Copy URL** &mdash; See [Copy your app's URL](/streamlit-community-cloud/share-your-app#copy-your-apps-url)
-* **Favorite** &mdash; See [Favorite your app](/streamlit-community-cloud/manage-your-app/favorite-your-app)
-* **Analytics** &mdash; See [App analytics](/streamlit-community-cloud/manage-your-app/app-analytics)
-* **Reboot** &mdash; See [Reboot your app](/streamlit-community-cloud/manage-your-app/reboot-your-app)
-* **Delete** &mdash; See [Delete your app](/streamlit-community-cloud/manage-your-app/delete-your-app)
-* **Settings** &mdash; See [App settings](/streamlit-community-cloud/manage-your-app/app-settings)
+- **Copy URL** &mdash; See [Copy your app's URL](/streamlit-community-cloud/share-your-app#copy-your-apps-url)
+- **Edit** &mdash; See [Edit your app with GitHub Codespaces](/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces)
+- **Favorite** &mdash; See [Favorite your app](/streamlit-community-cloud/manage-your-app/favorite-your-app)
+- **Analytics** &mdash; See [App analytics](/streamlit-community-cloud/manage-your-app/app-analytics)
+- **Reboot** &mdash; See [Reboot your app](/streamlit-community-cloud/manage-your-app/reboot-your-app)
+- **Delete** &mdash; See [Delete your app](/streamlit-community-cloud/manage-your-app/delete-your-app)
+- **Settings** &mdash; See [App settings](/streamlit-community-cloud/manage-your-app/app-settings)
 
 ![App overflow menu in your workspace](/images/streamlit-community-cloud/workspace-app-overflow.png)
 
@@ -44,15 +45,15 @@ You can manage your deployed app directly from the app itself! Just make sure yo
 
 1. From your app at `<your-custom-subdomain>.streamlit.app`, click "**Manage app**" in the lower-right corner.
 
-    ![Access Cloud logs from Manage app in the lower-right corner of your app](/images/streamlit-community-cloud/cloud-logs-open.png)
+   ![Access Cloud logs from Manage app in the lower-right corner of your app](/images/streamlit-community-cloud/cloud-logs-open.png)
 
 2. Once you've clicked on "**Manage app**", you will be able to view your app's logs. This is your primary place to troubleshoot any issues with your app.
 
-    ![Streamlit Community Cloud logs](/images/streamlit-community-cloud/cloud-logs.png)
+   ![Streamlit Community Cloud logs](/images/streamlit-community-cloud/cloud-logs.png)
 
 3. You can access more developer options by clicking the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) at the bottom of your Cloud logs. To conveniently download your logs, click "**Download log**".
 
-    ![Download your Streamlit Community Cloud logs](/images/streamlit-community-cloud/cloud-logs-menu-download.png)
+   ![Download your Streamlit Community Cloud logs](/images/streamlit-community-cloud/cloud-logs-menu-download.png)
 
 <Flex>
 
@@ -60,13 +61,13 @@ You can manage your deployed app directly from the app itself! Just make sure yo
 
 Other options accessible from Cloud logs are:
 
-* **Analytics** &mdash; See [App analytics](/streamlit-community-cloud/manage-your-app/app-analytics).
-* **Reboot app** &mdash; See [Reboot your app](/streamlit-community-cloud/manage-your-app/reboot-your-app).
-* **Delete app** &mdash; See [Delete your app](/streamlit-community-cloud/manage-your-app/delete-your-app).
-* **Settings** &mdash; See [App settings](/streamlit-community-cloud/manage-your-app/app-settings).
-* **Your apps** &mdash; Takes you to your [app workspace](#manage-your-app-from-your-workspace).
-* **Documentation** &mdash; Takes you to our documentation.
-* **Support** &mdash; Takes you to <a href="https://discuss.streamlit.io/" target="_blank">our forums</a>!
+- **Analytics** &mdash; See [App analytics](/streamlit-community-cloud/manage-your-app/app-analytics).
+- **Reboot app** &mdash; See [Reboot your app](/streamlit-community-cloud/manage-your-app/reboot-your-app).
+- **Delete app** &mdash; See [Delete your app](/streamlit-community-cloud/manage-your-app/delete-your-app).
+- **Settings** &mdash; See [App settings](/streamlit-community-cloud/manage-your-app/app-settings).
+- **Your apps** &mdash; Takes you to your [app workspace](#manage-your-app-from-your-workspace).
+- **Documentation** &mdash; Takes you to our documentation.
+- **Support** &mdash; Takes you to <a href="https://discuss.streamlit.io/" target="_blank">our forums</a>!
 
 </Div>
 
@@ -125,6 +126,7 @@ If you are logged into a developer account for an app over its limits, you can a
 All apps without traffic for 7 consecutive days will automatically go to sleep. This is done to alleviate resources and allow the best communal use of the platform! If you would like to keep your app awake, simply visit the app to create traffic or commit your app's repository, even if it's an empty commit!
 
 If left alone your app will go to sleep at the 7 day mark. When someone visits the app after this, they will see the sleeping page:
+
 <div style={{ maxWidth: '80%', margin: 'auto' }}>
 <Image alt="App state: Zzzz. This app has gone to sleep due to inactivity." src="/images/streamlit-community-cloud/app-state-zzzz.png" />
 </div>

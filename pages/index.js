@@ -139,6 +139,68 @@ export default function Home({ window, menu, gdpr_data }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/library/api-reference/charts/st.scatter_chart"
+              >
+                <i className="material-icons-sharp">scatter_plot</i>
+                <h4>Scatter chart</h4>
+                <p>
+                  Introducing <code>st.scatter_chart</code> — a new, simple
+                  chart element to build scatter charts Streamlit-y fast and
+                  easy!
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/widgets/st.link_button"
+              >
+                <i className="material-icons-sharp">link</i>
+                <h4>Link button</h4>
+                <p>
+                  Introducing <code>st.link_button</code>! Open an external link
+                  in a new tab with a bit more pizazz than a plain-text link.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/control-flow/st.rerun"
+              >
+                <i className="material-icons-sharp">directions_run</i>
+                <h4>
+                  <code>st.rerun</code> is de-experimentalized!
+                </h4>
+                <p>
+                  Announcing the general availability of <code>st.rerun</code>,
+                  a command to interrupt your script and trigger an immediate
+                  rerun.
+                </p>
+              </RefCard>
+              <RefCard size="third" href="/library/api-reference/widgets">
+                <i className="material-icons-sharp">block</i>
+                <h4>More widgets can be empty</h4>
+                <p>
+                  You can initialize widgets with an empty state by setting{" "}
+                  <code>None</code>
+                  as an initial value for <code>st.number_input</code>,{" "}
+                  <code>st.selectbox</code>,<code>st.date_input</code>,{" "}
+                  <code>st.time_input</code>, <code>st.radio</code>,{" "}
+                  <code>st.text_input</code>, and
+                  <code>st.text_area</code>!
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/streamlit-community-cloud/manage-your-app/edit-your-app"
+              >
+                <i className="material-icons-sharp">cloud</i>
+                <h4>Skip local installation and code in the cloud!</h4>
+                <p>
+                  Streamlit Community Cloud makes it easy to spin up a GitHub
+                  Codespace to start building and editing Streamlit apps &mdash;
+                  all in the cloud!
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="/library/api-reference/status/st.status"
               >
                 <i className="material-icons-sharp">rotate_right</i>
@@ -146,60 +208,6 @@ export default function Home({ window, menu, gdpr_data }) {
                 <p>
                   Introducing <code>st.status</code> to display output from
                   long-running processes and external API calls
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/widgets/st.toggle"
-              >
-                <i className="material-icons-sharp">toggle_on</i>
-                <h4>Toggle switch</h4>
-                <p>
-                  Introducing <code>st.toggle</code> — an alternative to
-                  <code>st.checkbox</code> when you need an on/off switch.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/library/api-reference/charts">
-                <i className="material-icons-sharp">palette</i>
-                <h4>Color parameter for simple charts</h4>
-                <p>
-                  Set the series color in <code>st.line_chart</code>,
-                  <code>st.bar_chart</code>, and <code>st.area_chart</code>
-                  with a new color parameter.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/advanced-features/app-menu#deploy-this-app"
-              >
-                <i className="material-icons-sharp">rocket</i>
-                <h4>Local to Community Cloud just got easier</h4>
-                <p>
-                  Locally running apps now have a Deploy button in their
-                  toolbars.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/text/st.markdown"
-              >
-                <i className="material-icons-sharp">looks</i>
-                <h4>More colors in markdown</h4>
-                <p>
-                  Enjoy more ways to color your text with gray/grey and rainbow
-                  options wherever color in markdown is supported.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/text/st.header"
-              >
-                <i className="material-icons-sharp">horizontal_rule</i>
-                <h4>Colored header dividers</h4>
-                <p>
-                  Add colored dividers to <code>st.header</code> and
-                  <code>st.subheader</code>. Dividers can be blue, green,
-                  orange, red, violet, gray/grey, or rainbow!
                 </p>
               </RefCard>
               {/* <Tile
