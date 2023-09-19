@@ -6,15 +6,46 @@ description: st.rerun will rerun the script immediately.
 
 <Autofunction function="streamlit.rerun" />
 
-### Main concepts of logical flow
+### Caveats for `st.rerun`
 
-- Manual interruption: `st.rerun` and [`st.stop`](/library/api-reference/control-flow/st.stop)
-- [Callbacks](/library/api-reference/session-state#use-callbacks-to-update-session-state)
-- [Containers](/library/api-reference/layout)
-- [Forms](/library/advanced-features/forms)
+`st.rerun` is one of the tools to control the logic of your app. While it is great for prototyping, there can be negative side effects:
 
-`st.rerun` is one of the primary tools to control the logic of your app. Like `st.stop` it manually interrupts your script when called. Callbacks allow you to prefix a script rerun with additional logic. Containers allow you execute elements in a different order than they appear in the fully rendered app. Forms allow you to exempt widgets from updating immediately within the Python code.
+- Additional script runs may be inefficient and slower.
+- Excessive reruns may complicate your app's logic and be harder to follow.
+- If used incorrectly, infinite looping may crash your app.
 
-For cases where `st.rerun` is used, callbacks and containers may be direct substitues. Each method has pros and cons depending on the situation. `st.rerun` can be great for prototyping, but carries the risk of infinite loops, increased runtime, and tangled logic. When using `st.rerun` to force an update of some widget or elements, a callback may be cleaner.
+In many cases where `st.rerun` works, [callbacks](/library/api-reference/session-state#use-callbacks-to-update-session-state) may be a cleaner alternative. [Containers](/library/api-reference/layout) may also be useful.
 
-Use of `st.rerun`, callbacks, and containers are explained with examples in [Button behavior and examples](/library/advanced-features/button-behavior-and-examples). The use of callbacks vs. `st.rerun` is highlighted in [Buttons to modify `st.session_state`](/library/advanced-features/button-behavior-and-examples#buttons-to-modify-stsession_state).
+### A simple example in three variations
+
+#### Using `st.rerun` to update an earlier header
+
+```python
+st.header(st.session_state.value)
+
+if st.button("Foo"):
+    st.session_state.value = "Foo"
+    st.rerun()
+```
+
+#### Using a callback to update an earlier header
+
+```python
+st.header(st.session_state.value)
+
+def update_value():
+    st.session_state.value = "Bar"
+
+st.button("Bar", on_click=update_value)
+```
+
+#### Using containers to update an earlier header
+
+```python
+container = st.container()
+
+if st.button("Foo"):
+    st.session_state.value = "Foo"
+
+container.header(st.session_state.value)
+```
