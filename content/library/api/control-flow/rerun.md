@@ -18,7 +18,7 @@ In many cases where `st.rerun` works, [callbacks](/library/api-reference/session
 
 ### A simple example in three variations
 
-#### Using `st.rerun` to update an earlier header
+###### Using `st.rerun` to update an earlier header
 
 ```python
 import streamlit as st
@@ -34,7 +34,7 @@ if st.button("Foo"):
     st.rerun()
 ```
 
-#### Using a callback to update an earlier header
+###### Using a callback to update an earlier header
 
 ```python
 ##### Option using a callback #####
@@ -46,7 +46,7 @@ def update_value():
 st.button("Bar", on_click=update_value)
 ```
 
-#### Using containers to update an earlier header
+###### Using containers to update an earlier header
 
 ```python
 ##### Option using a container #####
