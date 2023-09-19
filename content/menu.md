@@ -296,6 +296,10 @@ site_menu:
   - category: Streamlit library / API reference / Control flow / st.rerun
     url: /library/api-reference/control-flow/st.rerun
     isVersioned: true
+  - category: Streamlit library / API reference / Control flow / st.experimental_rerun
+    url: /library/api-reference/control-flow/st.experimental_rerun
+    isVersioned: true
+    isDeprecated: true
   - category: Streamlit library / API reference / Utilities
     url: /library/api-reference/utilities
   - category: Streamlit library / API reference / Utilities / st.set_page_config
