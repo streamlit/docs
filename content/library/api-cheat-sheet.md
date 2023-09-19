@@ -198,7 +198,7 @@ st.vega_lite_chart(df)
 # Stop execution immediately:
 st.stop()
 # Rerun script immediately:
-st.experimental_rerun()
+st.rerun()
 
 # Group multiple widgets:
 >>> with st.form(key='my_form'):
