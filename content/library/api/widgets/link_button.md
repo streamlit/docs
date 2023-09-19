@@ -1,5 +1,5 @@
 ---
-title: st.button
+title: st.link_button
 slug: /library/api-reference/widgets/st.link_button
 ---
 
