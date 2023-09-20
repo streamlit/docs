@@ -55,15 +55,15 @@ Although you can deploy multiple apps from the same repository, there can be onl
 
 ## Advanced settings for deployment
 
+<Note>
+
+Streamlit Community Cloud supports all released [versions of Python that are still receiving security updates](https://devguide.python.org/versions/). Streamlit Community Cloud defaults to version 3.9. You can select a version of your choice from the "Python version" dropdown in the "Advanced settings" modal. If an app is running a version of Python that becomes unsupported, it will be forcibly upgraded to oldest, supported version of Python and may break.
+
+</Note>
+
 3. (Optional) If you are connecting to a data source or want to specify the Python version for your app, you can do that by clicking "**Advanced settings**" before you deploy the app. Learn more about [Secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management).
 
    ![Advanced settings for deploying your app](/images/streamlit-community-cloud/deploy-an-app-advanced.png)
-
-<Tip>
-
-Streamlit Community Cloud supports Python 3.8 - Python 3.11, and defaults to version 3.9. You can select a version of your choice from the "Python version" dropdown in the "Advanced settings" modal.
-
-</Tip>
 
 ## Watch your app launch
 
