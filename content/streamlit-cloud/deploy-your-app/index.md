@@ -57,7 +57,7 @@ Although you can deploy multiple apps from the same repository, there can be onl
 
 <Note>
 
-Streamlit Community Cloud supports all released [versions of Python](https://devguide.python.org/versions/) that are still receiving security updates. Streamlit Community Cloud defaults to version 3.9. You can select a version of your choice from the "Python version" dropdown in the "Advanced settings" modal. If an app is running a version of Python that becomes unsupported, it will be forcibly upgraded to oldest, supported version of Python and may break.
+Streamlit Community Cloud supports all released [versions of Python that are still receiving security updates](https://devguide.python.org/versions/). Streamlit Community Cloud defaults to version 3.9. You can select a version of your choice from the "Python version" dropdown in the "Advanced settings" modal. If an app is running a version of Python that becomes unsupported, it will be forcibly upgraded to oldest, supported version of Python and may break.
 
 </Note>
 
