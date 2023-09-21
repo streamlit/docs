@@ -5,11 +5,11 @@ slug: /streamlit-community-cloud/get-started/quickstart
 
 # Quickstart
 
-This is a concise set of steps to create your Streamlit Community Cloud account and deploy a sample app. For other options and complete explanations, start with [Create your account](/streamlit-community-cloud/get-started/create-your-account).
+This is a concise set of steps to create your Streamlit Community Cloud account, deploy a sample app, and start editing it with GitHub Codespaces. For other options and complete explanations, start with [Create your account](/streamlit-community-cloud/get-started/create-your-account).
 
 You will be signing in to your Google and GitHub accounts during this process. If you do not already have these accounts, you can create them before you begin. If you do not want to use a Google account, you can [create your account with any email](/streamlit-community-cloud/get-started/create-your-account#primary-identity-option-2-email).
 
-## Sign up
+## Sign up for Streamlit Community Cloud
 
 1. Go to <a href="https://share.streamlit.io/signup" target="_blank">share.streamlit.io/signup</a>.
 2. Click "**Continue with Google**".
@@ -44,18 +44,18 @@ You will be signing in to your Google and GitHub accounts during this process. I
 <Image alt="Your new workspace in Streamlit Community Cloud" src="/images/streamlit-community-cloud/workspace-empty-warning.png" />
 </div>
 
-## Fork a sample app
+## Create a new app with GitHub Codespaces
 
 9. Click the down arrow (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>expand_more</i>) to expand the options under "**New App**".
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
-<Image alt="Options to deploy a new app from your workspace in Streamlit Community Cloud" src="/images/streamlit-community-cloud/deploy-example-1.png" />
+<Image alt="Options to deploy a new app from your workspace in Streamlit Community Cloud" src="/images/streamlit-community-cloud/deploy-menu.png" />
 </div>
 
-10. Click "**Create from sample app template**".
+10. Click "**Create new app with GitHub Codespaces**".
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
-<Image alt="Deploy a new app from a sample app template" src="/images/streamlit-community-cloud/deploy-example-2.png" />
+<Image alt="Deploy a new app from a sample app template" src="/images/streamlit-community-cloud/deploy-codespaces.png" />
 </div>
 
 11. You will be prompted that "Streamlit is requesting additional permissions". Click "**Authorize streamlit**".
@@ -64,34 +64,73 @@ You will be signing in to your Google and GitHub accounts during this process. I
 <Image alt="Authorize streamlit to access private repositories" src="/images/streamlit-community-cloud/GitHub-auth2-none.png" />
 </div>
 
-12. Click "**Fork sample app**".
+12. The <a href="https://github.com/streamlit/streamlit-hello" target="_blank">Streamlit Hello</a> repository will be forked to your GitHub account. Fill in a repository name and click "**Create!**"
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
-<Image alt="Fork the sample Streamlit app" src="/images/streamlit-community-cloud/deploy-example-fork.png" />
+<Image alt="Fork the sample Streamlit app" src="/images/streamlit-community-cloud/deploy-codespaces-1.png" />
 </div>
 
-## Deploy a sample app
-
-13. After the repository is copied to your GitHub account, the forked repository's information is prefilled into a deployment screen. Click "**Deploy!**"
+13. Click "**Create new codespace**" to confirm the creation of a codespace on your GitHub account. Read more about <a href="https://github.com/features/codespaces" target="_blank">GitHub Codespaces</a> the learn about monthly limits for free use and paid plans.
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
-<Image alt="Deploy your sample Streamlit app" src="/images/streamlit-community-cloud/deploy-example-deploy.png" />
+<Image alt="Create your GitHub Codespace" src="/images/streamlit-community-cloud/deploy-codespaces-2.png" />
 </div>
 
-14. Wait for the app to build. This may take a few minutes.
+14. Wait for GitHub to set up your codespace.
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
-<Image alt="Watch your app build and deploy" src="/images/streamlit-community-cloud/deploy-demo-provisioning.png" />
+<Image alt="GitHub preparing your Codespace" src="/images/streamlit-community-cloud/deploy-codespaces-3.png" />
 </div>
 
-## You're done!
-
-Congratulations! You just deployed an app to Streamlit Community Cloud. 🎉 Your app may take a few minutes to fully build, but once it's done it will load automatically.
+15. GitHub will automatically execute the commands to launch your Streamlit app within your codespace. Your app will be visible in a "Simple Browser" on the right. This may take a minute to complete from when your codespace first appears on screen.
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
-<Image alt="See your deployed Streamlit app" src="/images/streamlit-community-cloud/deploy-example-done.png" />
+<Image alt="Your new GitHub Codespace" src="/images/streamlit-community-cloud/deploy-hello-codespace.png" />
 </div>
 
-## What's next?
+## Edit your app in GitHub Codespaces
 
-Start modifying the code in your forked repository and have fun exploring. Alternatively, you can [deploy another Streamlit app](/streamlit-community-cloud/deploy-your-app). Happy Streamlit-ing!🎈
+16. Go to the app's main file (`Hello.py`) and add some text to the title in `st.write()`. Try typing ":balloon:" at the beginning.
+
+<div style={{ maxWidth: '90%', margin: 'auto' }}>
+<Image alt="Edit the title of your sample Streamlit app" src="/images/streamlit-community-cloud/deploy-hello-edit-title.png" />
+</div>
+
+17. Files are automatically saved in your codespace with each edit. Click "**Always rerun**" in the upper-right corner of your app to automatically rerun with each edit.
+
+<div style={{ maxWidth: '90%', margin: 'auto' }}>
+<Image alt='Select "Always rerun" to automatically see edits in your running app' src="/images/streamlit-community-cloud/deploy-hello-edit-rerun.png" />
+</div>
+
+18. See your edits and keep going!
+
+<div style={{ maxWidth: '90%', margin: 'auto' }}>
+<Image alt="See the results of your edit to your Streamlit app" src="/images/streamlit-community-cloud/deploy-hello-edit-result.png" />
+</div>
+
+## Stop or delete your codespace
+
+When you are done, remember to stop your codespace on GitHub to avoid any undesired use of your capacity.
+
+19. Go to <a href="https://github.com/codespaces" target="_blank">github.com/codespaces</a>. At the bottom of the page, all your codespaces are listed. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_horiz</i>) for your codespace.
+
+<div style={{ maxWidth: '90%', margin: 'auto' }}>
+<Image alt="Stop or delete your GitHub Codespace" src="/images/streamlit-community-cloud/deploy-hello-codespace-manage.png" />
+</div>
+
+20. Click "**Stop codespace**" if you'd like to return to your work later. Otherwise, click "**Delete**."
+
+    <Flex>
+    <div style={{ maxWidth: '40%', margin: 'auto' }}>
+    <Image alt="Stop your GitHub codespace" src="/images/streamlit-community-cloud/codespace-menu-stop.png" />
+    </div>
+    <div style={{ maxWidth: '40%', margin: 'auto' }}>
+    <Image alt="Delete your GitHub codespace" src="/images/streamlit-community-cloud/codespace-menu-delete.png" />
+    </div>
+    </Flex>
+
+21. Congratulations! You just deployed an app to Streamlit Community Cloud. 🎉 Head back to your workspace at <a href="https://share.streamlit.io/" target="_blank">share.streamlit.io/</a> and [deploy another Streamlit app](/streamlit-community-cloud/deploy-your-app).
+
+<div style={{ maxWidth: '90%', margin: 'auto' }}>
+<Image alt="See your deployed Streamlit app" src="/images/streamlit-community-cloud/deploy-hello-workspace.png" />
+</div>

@@ -443,6 +443,8 @@ site_menu:
     url: /streamlit-community-cloud/get-started/connect-your-github-account
   - category: Streamlit Community Cloud / Get started / Explore your workspace
     url: /streamlit-community-cloud/get-started/explore-your-workspace
+  - category: Streamlit Community Cloud / Get started / Fork and edit a public app
+    url: /streamlit-community-cloud/get-started/fork-and-edit-a-public-app
   - category: Streamlit Community Cloud / Get started / Trust and Security
     url: /streamlit-community-cloud/get-started/trust-and-security
   - category: Streamlit Community Cloud / Deploy your app
@@ -459,6 +461,8 @@ site_menu:
     url: /streamlit-community-cloud/manage-your-app/app-settings
   - category: Streamlit Community Cloud / Manage your app / Delete your app
     url: /streamlit-community-cloud/manage-your-app/delete-your-app
+  - category: Streamlit Community Cloud / Manage your app / Edit your app
+    url: /streamlit-community-cloud/manage-your-app/edit-your-app
   - category: Streamlit Community Cloud / Manage your app / Favorite your app
     url: /streamlit-community-cloud/manage-your-app/favorite-your-app
   - category: Streamlit Community Cloud / Manage your app / Reboot your app

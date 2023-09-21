@@ -7,6 +7,7 @@ import streamlit as st
 
 st.set_page_config("Profiles", "👤")
 
+
 @st.cache_data
 def get_profile_dataset(number_of_items: int = 100, seed: int = 0) -> pd.DataFrame:
     new_data = []
