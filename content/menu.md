@@ -122,14 +122,17 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / API reference / Chart elements
     url: /library/api-reference/charts
-  - category: Streamlit library / API reference / Chart elements / st.line_chart
-    url: /library/api-reference/charts/st.line_chart
-    isVersioned: true
   - category: Streamlit library / API reference / Chart elements / st.area_chart
     url: /library/api-reference/charts/st.area_chart
     isVersioned: true
   - category: Streamlit library / API reference / Chart elements / st.bar_chart
     url: /library/api-reference/charts/st.bar_chart
+    isVersioned: true
+  - category: Streamlit library / API reference / Chart elements / st.line_chart
+    url: /library/api-reference/charts/st.line_chart
+    isVersioned: true
+  - category: Streamlit library / API reference / Chart elements / st.scatter_chart
+    url: /library/api-reference/charts/st.scatter_chart
     isVersioned: true
   - category: Streamlit library / API reference / Chart elements / st.pyplot
     url: /library/api-reference/charts/st.pyplot
@@ -162,6 +165,9 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.download_button
     url: /library/api-reference/widgets/st.download_button
+    isVersioned: true
+  - category: Streamlit library / API reference / Input widgets / st.link_button
+    url: /library/api-reference/widgets/st.link_button
     isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.checkbox
     url: /library/api-reference/widgets/st.checkbox
@@ -293,9 +299,13 @@ site_menu:
   - category: Streamlit library / API reference / Control flow / st.form_submit_button
     url: /library/api-reference/control-flow/st.form_submit_button
     isVersioned: true
+  - category: Streamlit library / API reference / Control flow / st.rerun
+    url: /library/api-reference/control-flow/st.rerun
+    isVersioned: true
   - category: Streamlit library / API reference / Control flow / st.experimental_rerun
     url: /library/api-reference/control-flow/st.experimental_rerun
     isVersioned: true
+    isDeprecated: true
   - category: Streamlit library / API reference / Utilities
     url: /library/api-reference/utilities
   - category: Streamlit library / API reference / Utilities / st.set_page_config
