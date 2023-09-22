@@ -5,7 +5,7 @@ slug: /library/cheatsheet
 
 # Cheat Sheet
 
-This is a summary of the docs, as of [Streamlit v1.26.0](https://pypi.org/project/streamlit/1.26.0/).
+This is a summary of the docs, as of [Streamlit v1.27.0](https://pypi.org/project/streamlit/1.27.0/).
 
 <Masonry>
 
@@ -117,6 +117,28 @@ st.video(data)
 
 <CodeTile>
 
+#### Display charts
+
+```python
+st.area_chart(df)
+st.bar_chart(df)
+st.line_chart(df)
+st.map(df)
+st.scatter_chart(df)
+
+st.altair_chart(chart)
+st.bokeh_chart(fig)
+st.graphviz_chart(fig)
+st.plotly_chart(fig)
+st.pydeck_chart(chart)
+st.pyplot(fig)
+st.vega_lite_chart(df)
+```
+
+</CodeTile>
+
+<CodeTile>
+
 #### Add widgets to sidebar
 
 ```python
@@ -176,7 +198,7 @@ st.video(data)
 # Stop execution immediately:
 st.stop()
 # Rerun script immediately:
-st.experimental_rerun()
+st.rerun()
 
 # Group multiple widgets:
 >>> with st.form(key='my_form'):
@@ -192,24 +214,25 @@ st.experimental_rerun()
 #### Display interactive widgets
 
 ```python
-st.button('Click me')
-st.data_editor('Edit data', data)
-st.checkbox('I agree')
-st.toggle('Enable')
-st.radio('Pick one', ['cats', 'dogs'])
-st.selectbox('Pick one', ['cats', 'dogs'])
-st.multiselect('Buy', ['milk', 'apples', 'potatoes'])
-st.slider('Pick a number', 0, 100)
-st.select_slider('Pick a size', ['S', 'M', 'L'])
-st.text_input('First name')
-st.number_input('Pick a number', 0, 10)
-st.text_area('Text to translate')
-st.date_input('Your birthday')
-st.time_input('Meeting time')
-st.file_uploader('Upload a CSV')
-st.download_button('Download file', data)
+st.button("Click me")
+st.download_button("Download file", data)
+st.link_button("Go to gallery", url)
+st.data_editor("Edit data", data)
+st.checkbox("I agree")
+st.toggle("Enable")
+st.radio("Pick one", ["cats", "dogs"])
+st.selectbox("Pick one", ["cats", "dogs"])
+st.multiselect("Buy", ["milk", "apples", "potatoes"])
+st.slider("Pick a number", 0, 100)
+st.select_slider("Pick a size", ["S", "M", "L"])
+st.text_input("First name")
+st.number_input("Pick a number", 0, 10)
+st.text_area("Text to translate")
+st.date_input("Your birthday")
+st.time_input("Meeting time")
+st.file_uploader("Upload a CSV")
 st.camera_input("Take a picture")
-st.color_picker('Pick a color')
+st.color_picker("Pick a color")
 
 # Use widgets' returned values in variables:
 >>> for i in range(int(st.number_input('Num:'))):
