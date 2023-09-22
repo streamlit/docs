@@ -42,7 +42,7 @@ Below are a few tools you can use for environment management:
 - [pipenv](https://pipenv-fork.readthedocs.io/en/latest/)
 - [poetry](https://python-poetry.org/)
 - [virtualenv](https://virtualenv.pypa.io/en/latest/)
-- [conda](https://www.anaconda.com/distribution/)
+- [conda](https://docs.anaconda.com/free/anaconda/getting-started/)
 
 ## Install Streamlit on Windows
 
