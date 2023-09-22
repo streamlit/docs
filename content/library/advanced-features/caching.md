@@ -883,12 +883,11 @@ We introduced the caching commands described above in Streamlit 1.18.0. Before t
 
 If your app is still using `st.cache`, don't despair! Here are a few notes on migrating:
 
-- `st.cache` is deprecated. • New versions of Streamlit will show a deprecation warning if your app uses it.
+- Streamlit will show a deprecation warning if your app uses `st.cache`.
 - We will not remove `st.cache` soon, so you don't need to worry about your 2-year-old app breaking. But we encourage you to try the new commands going forward – they will be way less annoying!
 - Switching code to the new commands should be easy in most cases. To decide whether to use `st.cache_data` or `st.cache_resource`, read [Deciding which caching decorator to use](#deciding-which-caching-decorator-to-use). Streamlit will also recognize common use cases and show hints right in the deprecation warnings.
 - Most parameters from `st.cache` are also present in the new commands, with a few exceptions:
   - `allow_output_mutation` does not exist anymore. You can safely delete it. Just make sure you use the right caching command for your use case.
-  - `suppress_st_warning` does not exist anymore. You can safely delete it. Cached functions can now contain Streamlit commands and will replay them. If you want to use widgets inside cached functions, set `experimental_allow_widgets=True`. See [here](#using-streamlit-commands-in-cached-functions).
-  - `hash_funcs` does not exist anymore. You can exclude parameters from caching (and being hashed) by prepending them with an underscore: `_excluded_param`. See [here](#excluding-input-parameters).
+  - `suppress_st_warning` does not exist anymore. You can safely delete it. Cached functions can now contain Streamlit commands and will replay them. If you want to use widgets inside cached functions, set `experimental_allow_widgets=True`. See [Input widgets](#input-widgets) for an example.
 
 If you have any questions or issues during the migration process, please contact us on the [forum](https://discuss.streamlit.io/), and we will be happy to assist you. 🎈
