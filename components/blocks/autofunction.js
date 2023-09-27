@@ -96,9 +96,38 @@ const Autofunction = ({
     setIsHighlighted(true);
   };
 
+  const VersionSelector = ({
+    versionList,
+    currentVersion,
+    handleSelectVersion,
+  }) => {
+    const selectClass =
+      currentVersion !== versionList[0]
+        ? "version-select old-version"
+        : "version-select";
+
+    return (
+      <form className={classNames(selectClass, styles.Form)}>
+        <label>
+          <span className="sr-only">Streamlit Version</span>
+          <select
+            value={currentVersion}
+            onChange={handleSelectVersion}
+            className={styles.Select}
+          >
+            {versionList.map((version, index) => (
+              <option value={version} key={version}>
+                v{version}
+              </option>
+            ))}
+          </select>
+        </label>
+      </form>
+    );
+  };
+
   const handleSelectVersion = (event) => {
     const functionObject = streamlit[streamlitFunction];
-    const name = cleanHref(`st.${functionObject.name}`);
     const slicedSlug = slug.slice();
 
     if (event.target.value !== currentVersion) {
@@ -114,7 +143,12 @@ const Autofunction = ({
       }
     }
 
-    router.push(`/${slicedSlug.join("/")}#${name} `);
+    if (!functionObject) {
+      router.push(`/${slicedSlug.join("/")}`);
+    } else {
+      const name = cleanHref(`st.${functionObject.name}`);
+      router.push(`/${slicedSlug.join("/")}#${name} `);
+    }
   };
 
   const footers = [];
@@ -140,9 +174,16 @@ const Autofunction = ({
     }
   } else {
     return (
-      <div className={styles.Container} ref={blockRef} key={slug}>
-        <div className="code-header">
-          <H2>{streamlitFunction}</H2>
+      <div className={styles.HeaderContainer}>
+        <div className={styles.TitleContainer} ref={blockRef} key={slug}>
+          <H2 className={styles.Title}>
+            {streamlitFunction.replace("streamlit", "st")}
+          </H2>
+          <VersionSelector
+            versionList={versionList}
+            currentVersion={currentVersion}
+            handleSelectVersion={handleSelectVersion}
+          />
         </div>
         <Warning>
           <p>
@@ -173,32 +214,15 @@ const Autofunction = ({
       String(functionObject.name).startsWith("iframe")
         ? `st.components.v1.${functionObject.name}`
         : functionName;
-    const selectClass =
-      currentVersion !== versionList[0]
-        ? "version-select old-version"
-        : "version-select";
     header = (
       <div className={styles.HeaderContainer}>
         <div className={styles.TitleContainer}>
           <H2 className={styles.Title}>{name}</H2>
-          <form className={classNames(selectClass, styles.Form)}>
-            <label>
-              <span className="sr-only">Streamlit Version</span>
-              <select
-                value={currentVersion}
-                onChange={handleSelectVersion}
-                className={styles.Select}
-              >
-                {versionList.map((version, index) => {
-                  return (
-                    <option value={version} key={version}>
-                      v{version}
-                    </option>
-                  );
-                })}
-              </select>
-            </label>
-          </form>
+          <VersionSelector
+            versionList={versionList}
+            currentVersion={currentVersion}
+            handleSelectVersion={handleSelectVersion}
+          />
         </div>
         {deprecated === true ? (
           <Deprecation>

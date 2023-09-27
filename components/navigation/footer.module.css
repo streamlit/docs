@@ -27,7 +27,7 @@
 }
 
 .SocialNetworks {
-  @apply flex items-center gap-4;
+  @apply flex flex-wrap justify-center items-center gap-4;
 }
 
 .IconLink {
@@ -43,21 +43,37 @@
 }
 
 /* Colors for hover states */
-.GitHubIcon,
-.InstagramIcon {
-  @apply hover:fill-gray-90;
+.IconLink:hover .GitHubIcon {
+  @apply fill-brand-GitHub;
 }
 
-.YouTubeIcon {
-  @apply hover:fill-red-80;
+.IconLink:hover .RedditIcon {
+  @apply fill-brand-Reddit;
 }
 
-.TwitterIcon {
-  @apply hover:fill-darkBlue-60;
+.IconLink:hover .DiscordIcon {
+  @apply fill-brand-Discord;
 }
 
-.DiscordIcon {
-  @apply hover:fill-indigo-70;
+.IconLink:hover .YouTubeIcon {
+  @apply fill-brand-YouTube;
+}
+
+.IconLink:hover .TwitterIcon {
+  @apply fill-brand-Twitter;
+}
+
+.IconLink:hover .LinkedInIcon {
+  @apply fill-brand-LinkedIn;
+}
+
+.IconLink:hover .InstagramIcon,
+.IconLink:hover .MediumIcon {
+  @apply fill-brand-mono;
+}
+
+.IconLink:hover .NewsletterIcon path {
+  @apply stroke-red-70;
 }
 
 .Copyright {

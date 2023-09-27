@@ -1,0 +1,33 @@
+/* This margin helps ensure the scale hover effect won't be cut */
+.Container {
+  @apply mb-4 mt-2;
+}
+
+/* Override the default refCard hover state, and add it to the actual <div> tag that slicks add  */
+.Container:hover {
+  transform: none;
+}
+
+/* Add the new tab icon next to title */
+.Container h4::after {
+  @apply ml-2 relative -top-1;
+
+  content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxMCAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEuMTYzNzQgMTBDMC44NDEyNjggMTAgMC41NjY2OTQgOS44ODY2NiAwLjM0MDAxNiA5LjY1OTk4QzAuMTEzMzM5IDkuNDMzMzEgMCA5LjE1ODczIDAgOC44MzYyNlYxLjE2Mzc0QzAgMC44NDEyNjggMC4xMTMzMzkgMC41NjY2OTQgMC4zNDAwMTYgMC4zNDAwMTZDMC41NjY2OTQgMC4xMTMzMzkgMC44NDEyNjggMCAxLjE2Mzc0IDBINC45NTUyNFYxLjE2Mzc0SDEuMTYzNzRWOC44MzYyNkg4LjgzNjI2VjUuMDQ0NzZIMTBWOC44MzYyNkMxMCA5LjE1ODczIDkuODg2NjYgOS40MzMzMSA5LjY1OTk4IDkuNjU5OThDOS40MzMzMSA5Ljg4NjY2IDkuMTU4NzMgMTAgOC44MzYyNiAxMEgxLjE2Mzc0Wk0zLjc0NTQ2IDcuMDczODJMMi45MjYxOCA2LjI1NDU0TDguMDE2OTggMS4xNjM3NEg2LjMxMjkyVjBIMTBWMy42ODcwOEg4LjgzNjI2VjEuOTgzMDJMMy43NDU0NiA3LjA3MzgyWiIgZmlsbD0iIzgwODQ5NSIvPgo8L3N2Zz4K");
+}
+
+.Container p {
+  @apply h-16 overflow-hidden;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Styles for links inside component cards */
+.Container p a {
+  @apply border-none text-darkBlue-70 hover:text-darkBlue-60;
+}
+
+:global(.dark) .Container p a {
+  @apply border-none text-darkBlue-40 hover:text-darkBlue-50;
+}

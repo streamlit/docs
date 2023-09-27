@@ -1,9 +1,9 @@
 .Container {
-  @apply flex flex-wrap flex-col md:flex-row md:flex-nowrap items-center justify-between mt-20 gap-4;
+  @apply flex flex-wrap flex-col md:flex-row md:flex-nowrap items-center justify-between mt-16 mb-8 gap-4;
 }
 
 .Link {
-  @apply overflow-hidden border-none text-base tracking-tight font-sans font-normal text-gray-90 leading-7 hover:opacity-70 flex items-center transition-all;
+  @apply overflow-hidden border-none text-base md:text-lg tracking-tight font-sans font-normal text-gray-90 leading-7 hover:opacity-70 flex items-center transition-all;
 }
 
 .Truncate {
@@ -15,7 +15,7 @@
 }
 
 .NextLink {
-  @apply mt-8 sm:mt-0;
+  @apply mt-0 sm:mt-0;
 }
 
 .Icon {

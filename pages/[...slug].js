@@ -52,6 +52,8 @@ import Important from "../components/blocks/important";
 import Note from "../components/blocks/note";
 import NoteSplit from "../components/blocks/noteSplit";
 import RefCard from "../components/blocks/refCard";
+import ComponentSlider from "../components/blocks/componentSlider";
+import ComponentCard from "../components/blocks/componentCard";
 import DataSourcesCard from "../components/blocks/dataSourcesCard";
 import Tile from "../components/blocks/tile";
 import InlineCallout from "../components/blocks/inlineCallout";
@@ -108,6 +110,8 @@ export default function Article({
     TileContainer,
     Tile,
     RefCard,
+    ComponentCard,
+    ComponentSlider,
     DataSourcesContainer,
     DataSourcesCard,
     Image,
@@ -251,11 +255,11 @@ export default function Article({
               <FloatingNav slug={slug} menu={menu} version={version} />
               <div className={classNames("content", styles.ContentContainer)}>
                 <MDXRemote {...source} components={components} />
+                {arrowContainer}
+                <Psa />
                 <Helpful slug={slug} sourcefile={suggestEditURL} />
               </div>
             </article>
-            <Psa />
-            {arrowContainer}
           </section>
           <Footer />
         </section>
@@ -330,6 +334,28 @@ export async function getStaticProps(context) {
 
     const { current, prev, next } = getPreviousNextFromMenu(menu, location);
 
+    // Determine which previous/next links we should be using, the override option coming from the markdown file (if it exists),
+    // or the one that gets generated automatically above by calling getPreviousNextFromMenu
+    let prevMenuItem;
+    if (data.previousLink && data.previousTitle) {
+      prevMenuItem = {
+        name: data.previousTitle,
+        url: data.previousLink,
+      };
+    } else {
+      prevMenuItem = prev;
+    }
+
+    let nextMenuItem;
+    if (data.nextLink && data.nextTitle) {
+      nextMenuItem = {
+        name: data.nextTitle,
+        url: data.nextLink,
+      };
+    } else {
+      nextMenuItem = next;
+    }
+
     props["menu"] = menu;
     props["gdpr_data"] = gdpr_data;
     props["data"] = data;
@@ -343,13 +369,12 @@ export async function getStaticProps(context) {
           isVersioned: !!current.isVersioned,
         }
       : null;
-    props["nextMenuItem"] = next ? { name: next.name, url: next.url } : null;
-    props["prevMenuItem"] = prev ? { name: prev.name, url: prev.url } : null;
+    props["prevMenuItem"] = prevMenuItem ? prevMenuItem : null;
+    props["nextMenuItem"] = nextMenuItem ? nextMenuItem : null;
   }
 
   return {
     props: props,
-    revalidate: 60,
   };
 }
 

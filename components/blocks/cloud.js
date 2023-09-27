@@ -18,9 +18,9 @@ const Cloud = ({ src, height }) => {
           allow="camera;clipboard-read;clipboard-write;"
           key={src}
         />
-        <a href={src} target="_blank" className={styles.Caption}>
+        {/* <a href={src} target="_blank" className={styles.Caption}>
           (view standalone Streamlit app)
-        </a>
+        </a> */}
       </section>
     );
   } else {
@@ -33,9 +33,9 @@ const Cloud = ({ src, height }) => {
           allow="camera;clipboard-read;clipboard-write;"
           key={src}
         />
-        <a href={src} target="_blank" className={styles.Caption}>
+        {/* <a href={src} target="_blank" className={styles.Caption}>
           (view standalone Streamlit app)
-        </a>
+        </a> */}
       </section>
     );
   }

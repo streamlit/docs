@@ -15,7 +15,7 @@ If you use OpenCV in your app, include `opencv-python-headless` in your requirem
 
 If `opencv-python` is a _required_ (non-optional) dependency of your app or a dependency of a library used in your app, the above solution is not applicable. Instead, you can use the following solution:
 
-Create a `packages.txt` file in your repo with the following line to install the [apt-get dependency](/streamlit-community-cloud/get-started/deploy-an-app/app-dependencies#apt-get-dependencies) `libgl`:
+Create a `packages.txt` file in your repo with the following line to install the [apt-get dependency](/streamlit-community-cloud/deploy-your-app/app-dependencies#apt-get-dependencies) `libgl`:
 
 ```
 libgl1

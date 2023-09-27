@@ -13,13 +13,13 @@ The Snowflake Connector for Python is available on [PyPI](https://pypi.org/proje
 4. Add the raw GitHub URL of the requirements file to your `requirements.txt` file and prepend `-r` to the line.
    For example, if you want to install version `2.7.9` of the connector on Python 3.9, add the following line to your `requirements.txt` file:
 
-   ```text
+   ```bash
    -r https://raw.githubusercontent.com/snowflakedb/snowflake-connector-python/v2.7.9/tested_requirements/requirements_39.reqs
    ```
 
 5. On Streamlit Community Cloud, select the appropriate version of Python for your app by clicking "Advanced settings" before you deploy the app:
 <div style={{ maxWidth: '65%', marginBottom: '-3em', marginLeft: '6em', marginTop: '-2em' }}>
-    <Image src="/images/streamlit-community-cloud/advanced-settings.png" />
+    <Image src="/images/streamlit-community-cloud/deploy-an-app-advanced.png" />
 </div>
 
 That's it! You're ready to use the Snowflake Connector for Python on Streamlit Community Cloud. ❄️🎈

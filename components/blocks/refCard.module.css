@@ -15,7 +15,7 @@
 .Container p,
 .Container a {
   @apply my-0 mx-4 p-0 font-bold;
-  @apply text-gray-90 !important;
+  @apply text-gray-90;
 }
 
 .Container ul {
@@ -63,7 +63,7 @@
 :global(.dark) .Container h6,
 :global(.dark) .Container p,
 :global(.dark) .Container a {
-  @apply text-white !important;
+  @apply text-white;
 }
 
 :global(.dark) .Container section div pre {
@@ -91,7 +91,7 @@
 }
 
 .Container img {
-  @apply w-full h-48 object-cover border-b border-b-gray-30;
+  @apply w-full h-48 object-cover border-b border-b-gray-30 rounded-t-md;
 }
 
 .Container p,

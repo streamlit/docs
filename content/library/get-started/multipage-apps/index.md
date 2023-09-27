@@ -41,7 +41,7 @@ When adding emojis to filenames, it’s best practice to include a numbered-pref
 
 </Tip>
 
-Pages are defined as `.py` files in a `pages/` directory. The filenames of pages are transformed to page names in the sidebar based on the the rules in the [section below](#how-pages-are-labeled-and-sorted-in-the-ui). For example, the `About.py` file will appear as "About" in the sidebar, `2_Page_two.py` appears as "Page two", and `3_😎_three.py` appears as “😎 three”:
+Pages are defined as `.py` files in a `pages/` directory. The filenames of pages are transformed to page names in the sidebar based on the the rules in the [section below](#how-pages-are-labeled-and-sorted-in-the-ui). For example, the `About.py` file will appear as "About" in the sidebar, `2_Page_two.py` appears as "Page two", and `3_😎_three.py` appears as “😎 three":
 
 ![Directory structure](/images/mpa-add-pages.png)
 

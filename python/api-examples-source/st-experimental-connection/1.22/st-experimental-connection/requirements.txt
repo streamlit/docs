@@ -1,0 +1,8 @@
+streamlit>=1.22
+toml
+sqlalchemy==1.4
+duckdb
+git+https://github.com/streamlit/files-connection
+s3fs
+gcsfs
+snowflake-snowpark-python[pandas]

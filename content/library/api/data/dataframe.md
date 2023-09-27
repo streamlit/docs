@@ -4,6 +4,12 @@ slug: /library/api-reference/data/st.dataframe
 description: st.dataframe displays a dataframe as an interactive table.
 ---
 
+<Tip>
+
+This page only contains information on the `st.dataframe` API. For an overview of working with dataframes read [Dataframes](/library/advanced-features/dataframes). If you want to let users interactively edit dataframes, check out [`st.data_editor`](/library/api-reference/data/st.data_editor).
+
+</Tip>
+
 <Autofunction function="streamlit.dataframe" />
 
 <br />
@@ -38,12 +44,10 @@ st.dataframe(df, use_container_width=st.session_state.use_container_width)
 
 ### Interactivity
 
-Dataframes displayed as interactive tables with `st.dataframe` have the following interactive features:
+Dataframes displayed with `st.dataframe` are interactive. End users can sort, resize, search, and copy data to their clipboard. For on overview of features, read our [Dataframes](/library/advanced-features/dataframes#additional-ui-features) guide.
 
-- **Column sorting**: sort columns by clicking on their headers.
-- **Column resizing**: resize columns by dragging and dropping column header borders.
-- **Table (height, width) resizing**: resize tables by dragging and dropping the bottom right corner of tables.
-- **Search**: search through data by clicking a table, using hotkeys (`⌘ Cmd + F` or `Ctrl + F`) to bring up the search bar, and using the search bar to filter data.
-- **Copy to clipboard**: select one or multiple cells, copy them to clipboard, and paste them into your favorite spreadsheet software.
+### Configuring columns
 
-<Image src="/images/dataframe-ui.gif" />
+You can configure the display and editing behavior of columns in `st.dataframe` and `st.data_editor` via the [Column configuration API](/library/api-reference/data/st.column_config). We have developed the API to let you add images, charts, and clickable URLs in dataframe and data editor columns. Additionally, you can make individual columns editable, set columns as categorical and specify which options they can take, hide the index of the dataframe, and much more.
+
+<Cloud src="https://doc-column-config-overview.streamlit.app/?embed=true&embed_options=disable_scrolling" height="480"/>

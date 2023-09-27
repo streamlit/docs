@@ -34,7 +34,7 @@ The [component-template](https://github.com/streamlit/component-template) GitHub
 3. Edit `setup.py`, adding your component's name and other relevant info
 4. Create a release build of your frontend code. This will add a new directory, `frontend/build/`, with your compiled frontend in it:
 
-   ```shell
+   ```bash
    cd frontend
    npm run build
    ```
@@ -61,7 +61,7 @@ Once you've changed the default `my_component` references, compiled the HTML and
 
 2. Create a wheel from the source code:
 
-   ```shell
+   ```bash
     # Run this from your component's top-level directory; that is,
     # the directory that contains `setup.py`
     python setup.py sdist bdist_wheel
@@ -79,13 +79,13 @@ With your wheel created, the final step is to upload to PyPI. The instructions h
 
 2. Upload your wheel to Test PyPI. `twine` will prompt you for a username and password. For the username, use **\_\_token\_\_**. For the password, use your token value from the previous step, including the `pypi-` prefix:
 
-   ```shell
+   ```bash
    python3 -m twine upload --repository testpypi dist/*
    ```
 
 3. Install your newly-uploaded package in a new Python project to make sure it works:
 
-   ```shell
+   ```bash
     python -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-pkg-YOUR-USERNAME-HERE
    ```
 
@@ -95,10 +95,14 @@ Congratulations, you've created a publicly-available Streamlit Component!
 
 ## Promote your Component!
 
-We'd love to help you share your Component with the Streamlit Community! To share it, please post on the [Streamlit 'Show the Community!' Forum category](https://discuss.streamlit.io/c/streamlit-examples/9) with the title similar to "New Component: `<your component name>`, a new way to do X".
+We'd love to help you share your Component with the Streamlit Community! To share it:
 
-You can also Tweet at us [@streamlit](https://twitter.com/streamlit) so that we can retweet your announcement for you.
+1. If you host your code on GitHub, add the tag `streamlit-component`, so that it's listed in the [GitHub **streamlit-component** topic](https://github.com/topics/streamlit-component):
 
-If you host your code on GitHub, add the tag `streamlit-component`, so that it's listed in the [GitHub **streamlit-component** topic](https://github.com/topics/streamlit-component):
+   <Image caption="Add the streamlit-component tag to your GitHub repo" src="/images/component-tag.gif" />
 
-<Image caption="Add the streamlit-component tag to your GitHub repo" src="/images/component-tag.gif" />
+2. Post on the Streamlit Forum in [Show the Community!](https://discuss.streamlit.io/c/streamlit-examples/9). Use a post title similar to "New Component: `<your component name>`, a new way to do X".
+3. Add your component to the [Community Component Tracker](https://discuss.streamlit.io/t/streamlit-components-community-tracker/4634).
+4. Tweet us at [@streamlit](https://twitter.com/streamlit) so that we can retweet your announcement for you.
+
+Our [Components Gallery](https://streamlit.io/components) is updated approximately every month. Follow the above recommendations to maximize the liklihood of your component landing in our Components Gallery. Community Components featured in our docs are hand-curated on a less-regular basis. Popular components with many stars and good documentation are more likely to be selected.

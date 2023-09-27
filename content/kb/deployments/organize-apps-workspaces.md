@@ -23,7 +23,7 @@ If an app's GitHub repository is owned by **an organization** (such as your comp
 
 ## Workspaces with view access
 
-You will also have access to any workspaces containing app(s) for which you only have **view access**. These apps will have a "view-only" tooltip when you click on their respective hamburger menus.
+You will also have access to any workspaces containing app(s) for which you only have **view access**. These apps will have a "view-only" tooltip when you click on their respective overflow menu icons (⋮).
 
 ![App workspaces 4](/images/streamlit-community-cloud/app-workspaces-4.png)
 

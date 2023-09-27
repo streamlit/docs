@@ -15,7 +15,7 @@ guaranteeing compatibility with _at least_ the last three minor versions of Pyth
 As new versions of Python are released, we will try to be compatible with the new version as soon
 as possible, though frequently we are at the mercy of other Python packages to support these new versions as well.
 
-Streamlit currently supports versions 3.7, 3.8, 3.9, 3.10, and 3.11 of Python.
+Streamlit currently supports versions 3.8, 3.9, 3.10, and 3.11 of Python.
 
 ## Check #1: Is Streamlit running?
 
@@ -94,7 +94,7 @@ like the following:
 
 Command Prompt:
 
-```shell
+```bash
 C:\Users\streamlit> streamlit hello
 'streamlit' is not recognized as an internal or external command,
 operable program or batch file.
@@ -102,7 +102,7 @@ operable program or batch file.
 
 PowerShell:
 
-```shell
+```bash
 PS C:\Users\streamlit> streamlit hello
 streamlit : The term 'streamlit' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that
 the path is correct and try again.
@@ -121,11 +121,11 @@ After adding Python to your Windows PATH, you should then be able to follow the 
 
 Streamlit includes [pyarrow](https://arrow.apache.org/docs/python/) as an install dependency. Occasionally, when trying to install Streamlit from PyPI, you may see errors such as the following:
 
-```shell
+```bash
 Using cached pyarrow-1.0.1.tar.gz (1.3 MB)
   Installing build dependencies ... error
   ERROR: Command errored out with exit status 1:
-   command: 'c:\users\streamlit\appdata\local\programs\python\python38-32\python.exe' 'c:\users\streamlit\appdata\local\programs\python\python38-32\lib\site-packages\pip' install --ignore-installed --no-user --prefix 'C:\Users\streamlit\AppData\Local\Temp\pip-build-env-s7owjrle\overlay' --no-warn-script-location --no-binary :none: --only-binary :none: -i https://pypi.org/simple -- 'cython >= 0.29' 'numpy==1.14.5; python_version<'"'"'3.7'"'"'' 'numpy==1.16.0; python_version>='"'"'3.7'"'"'' setuptools setuptools_scm wheel
+   command: 'c:\users\streamlit\appdata\local\programs\python\python38-32\python.exe' 'c:\users\streamlit\appdata\local\programs\python\python38-32\lib\site-packages\pip' install --ignore-installed --no-user --prefix 'C:\Users\streamlit\AppData\Local\Temp\pip-build-env-s7owjrle\overlay' --no-warn-script-location --no-binary :none: --only-binary :none: -i https://pypi.org/simple -- 'cython >= 0.29' 'numpy==1.14.5; python_version<'"'"'3.8'"'"'' 'numpy==1.16.0; python_version>='"'"'3.8'"'"'' setuptools setuptools_scm wheel
        cwd: None
 
   Complete output (319 lines):

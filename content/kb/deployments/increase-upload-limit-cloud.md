@@ -18,11 +18,11 @@ Streamlit provides [four different ways to set configuration options](/library/a
    ```
 2. In a **per-project config file** at `$CWD/.streamlit/config.toml`, where `$CWD` is the folder you're running Streamlit from.
 3. Through `STREAMLIT_*` **environment variables**, such as:
-   ```shell
+   ```bash
    export STREAMLIT_SERVER_MAX_UPLOAD_SIZE=200
    ```
 4. As **flags on the command line** when running `streamlit run`:
-   ```shell
+   ```bash
    streamlit run your_script.py --server.maxUploadSize 200
    ```
 

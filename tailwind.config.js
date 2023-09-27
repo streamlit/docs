@@ -166,6 +166,15 @@ module.exports = {
         100: "#0e1117",
       },
       white: "#ffffff",
+      brand: {
+        GitHub: "#24292F",
+        Reddit: "#ff4500",
+        Discord: "#5865f2",
+        YouTube: "#ff0000",
+        Twitter: "#1da1f2",
+        LinkedIn: "#0a66c2",
+        mono: "#24292F",
+      },
     },
 
     extend: {
