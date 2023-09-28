@@ -99,6 +99,8 @@ with st.form(key="my_form"):
     st.form_submit_button("I'm here!", on_click=take_attendance)
 ```
 
+<Cloud src="https://doc-guide-widgets-form-callbacks.streamlit.app/?embed=true" height="250"/>
+
 ## Statefulness of widgets
 
 As long as the defining parameters of a widget remain the same and that widget is continuously rendered on the frontend, then it will be stateful and remember user input.
@@ -121,6 +123,8 @@ st.slider("No default, with key", minimum, maximum, key="a")
 st.slider("With default, no key", minimum, maximum, value=5)
 st.slider("With default, with key", minimum, maximum, value=5, key="b")
 ```
+
+<Cloud src="https://doc-guide-widgets-change-parameters.streamlit.app/?embed=true" height="550"/>
 
 #### Updating a slider with no default value
 
@@ -257,5 +261,7 @@ def update_value():
 update_value()
 st.slider("A", minimum, maximum, key="a")
 ```
+
+<Cloud src="https://doc-guide-widgets-change-parameters-solution.streamlit.app/?embed=true" height="250"/>
 
 The `update_value()` helper function is actually doing two things. On the surface, it's making sure there are no inconsistent changes to the parameters values as described. Importantly however, it's interrupting the widget clean-up process. When the min or max value of the widget changes, Streamlit sees it as a new widget on rerun. Without saving a value to `st.session_state.a`, the value would be thrown out and replaced by the "new" widget's default value.
