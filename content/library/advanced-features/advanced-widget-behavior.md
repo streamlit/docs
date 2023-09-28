@@ -5,7 +5,19 @@ slug: /library/advanced-features/widget-behavior
 
 # Understanding widget behavior
 
-Widgets are magical and often work how you want. But they can have surprising behavior in some situations. Understanding the different parts of a widget and the precise order in which events occur helps achieve desired results.
+Widgets are magical and often work how you want. But they can have surprising behavior in some situations. Understanding the different parts of a widget and the precise order in which events occur helps you achieve your desired results.
+
+<Collapse title="🎈 TL;DR" expanded={false}>
+
+1. If you call a widget function before the widget state exists, the widget state defaults to a value. This value depends on the widget and its arguments.
+2. A widget function call returns the current widget state value. The return value is a simple Python type, and the exact type depends on the widget and its arguments.
+3. Widget states depend on a particular session (browser connection). The actions of one user do not affect the widgets of any other user.
+4. A widget's identity depends on the arguments passed to the widget function. If those change, the call will create a new widget (with a default value, per 1).
+5. If you don't call a widget function in a script run, we neither store the widget state nor render the widget. If you call a widget function with the same arguments later, Streamlit treats it as a new widget.
+
+4 and 5 are the most likely to be surprising and may pose a problem for some application designs. When you want to persist widget state for recreating a widget, use [Session State](/library/api-reference/session-state) to work around 5.
+
+</Collapse>
 
 ## Anatomy of a widget
 
@@ -203,6 +215,7 @@ When Streamlit gets to the end of a script run, it will delete the data for any 
 ## Additional examples
 
 As promised, let's address how to retain statefulness of widgets when changing pages or modifying their parameters. There are two ways to do this.
+
 1. Use dummy keys to duplicate widget values in `st.session_state` and protect the data from being deleted along with the widget.
 2. Interrupt the widget clean-up process.
 
@@ -216,7 +229,7 @@ To retain information for a widget with `key="my_key"`, just add this to the top
 st.session_state.my_key = st.session_state.my_key
 ```
 
-When you manually save data to a key in `st.session_state`, it will become detached from any widget as far as the clean-up process is concerned. If you navigate away from a widget with some key `"my_key"` and save data to `st.session_state.my_key` on the new page, you will interrupt the widget clean-up process and prevent the key-value pair from being deleted or overwritten if another widget with the same key exists. 
+When you manually save data to a key in `st.session_state`, it will become detached from any widget as far as the clean-up process is concerned. If you navigate away from a widget with some key `"my_key"` and save data to `st.session_state.my_key` on the new page, you will interrupt the widget clean-up process and prevent the key-value pair from being deleted or overwritten if another widget with the same key exists.
 
 ### Retain statefulness when changing a widget's parameters
 
