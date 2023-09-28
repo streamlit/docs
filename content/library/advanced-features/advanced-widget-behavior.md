@@ -112,11 +112,11 @@ st.slider("With default, with key", minimum, maximum, value=5, key="b")
 
 #### Updating a slider with no default value
 
-For the first two sliders above, as soon as the min or max value is changed, the sliders reset to the min value. The changing of the min or max value makes it a "new" widget from Streamlit's perspective and so it is recreated from scratch when the app reruns with the changed parameter. Since no default value is defined, the widget will reset to its min value. This is the same with or without a key since it's seen as a new widget either way. There is a subtle point to understand about pre-existing keys connecting to widgets. This will be explained further down in [Widget life cycle](#widget-life-cycle).
+For the first two sliders above, as soon as the min or max value is changed, the sliders reset to the min value. The changing of the min or max value makes them "new" widgets from Streamlit's perspective and so they are recreated from scratch when the app reruns with the changed parameters. Since no default value is defined, each widget will reset to its min value. This is the same with or without a key since it's seen as a new widget either way. There is a subtle point to understand about pre-existing keys connecting to widgets. This will be explained further down in [Widget life cycle](#widget-life-cycle).
 
 #### Updating a slider with a default value
 
-For the last two sliders above, a change to the min or max value will result in the widget being seen as "new" and thus recreated like before. Since a default value of 5 is defined, the widget will reset to 5 whenever the min or max is changed. This is again the same (with or without a key).
+For the last two sliders above, a change to the min or max value will result in the widgets being seen as "new" and thus recreated like before. Since a default value of 5 is defined, each widget will reset to 5 whenever the min or max is changed. This is again the same (with or without a key).
 
 A solution to [Retain statefulness when changing a widget's parameters](#retain-statefulness-when-changing-a-widgets-parameters) is provided further on.
 
