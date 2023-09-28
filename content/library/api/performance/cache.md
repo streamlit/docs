@@ -28,3 +28,9 @@ For more information about the Streamlit cache, its configuration parameters,
 and its limitations, see [Caching](/library/advanced-features/caching).
 
 <Autofunction function="streamlit.cache" deprecated={true} deprecatedText="<code>st.cache</code> was deprecated in version 1.18.0. Use <a href='/library/api-reference/performance/st.cache_data'><code>st.cache_data</code></a> or <a href='/library/api-reference/performance/st.cache_resource'><code>st.cache_resource</code></a> instead. Learn more in <a href='/library/advanced-features/caching'>Caching</a>."/>
+
+<Warning>
+
+`st.cache` implicitly uses the `pickle` module, which is known to be insecure. Anything your cached function returns is pickled and stored, then unpickled on retrieval. Ensure your cached functions return trusted values because it is possible to construct malicious pickle data that will execute arbitrary code during unpickling. Never load data that could have come from an untrusted source in an unsafe mode or that could have been tampered with. **Only load data you trust**.
+
+</Warning>
