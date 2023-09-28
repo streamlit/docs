@@ -89,7 +89,7 @@ with st.form(key="my_form"):
 
 ## Statefulness of widgets
 
-As long as the defining parameters of a widget remain the same and that widget is continuously rendered on the frontend, then it will be stateful.
+As long as the defining parameters of a widget remain the same and that widget is continuously rendered on the frontend, then it will be stateful and remember user input.
 
 ### Changing parameters of a widget will reset it
 
@@ -112,11 +112,11 @@ st.slider("With default, with key", minimum, maximum, value=5, key="b")
 
 #### Updating a slider with no default value
 
-As soon as the min or max value is changed, the slider will reset to the min value. The changing of the min or max value makes it a "new" widget from Streamlit's perspective and so it is recreated from scratch when the app reruns with the changed parameter. Since no default value is defined, the widget will reset to its min value. This is the same with or without a key since it's seen as a new widget either way. There is a subtle point to understand about pre-existing keys connecting to widgets. This will be explained further down in [Widget life cycle](#widget-life-cycle).
+For the first two sliders above, as soon as the min or max value is changed, the sliders reset to the min value. The changing of the min or max value makes it a "new" widget from Streamlit's perspective and so it is recreated from scratch when the app reruns with the changed parameter. Since no default value is defined, the widget will reset to its min value. This is the same with or without a key since it's seen as a new widget either way. There is a subtle point to understand about pre-existing keys connecting to widgets. This will be explained further down in [Widget life cycle](#widget-life-cycle).
 
 #### Updating a slider with a default value
 
-As with the previous case, a change to the min or max value will result in the widget being seen as "new" and thus recreated. Since a default value of 5 is defined, the widget will reset to 5 whenever the min or max is changed. This is again the same with or without a key and the same subtle point applies.
+For the last two sliders above, a change to the min or max value will result in the widget being seen as "new" and thus recreated like before. Since a default value of 5 is defined, the widget will reset to 5 whenever the min or max is changed. This is again the same (with or without a key).
 
 A solution to [Retain statefulness when changing a widget's parameters](#retain-statefulness-when-changing-a-widgets-parameters) is provided further on.
 
@@ -159,7 +159,7 @@ st.number_input("Number of filters", key="_my_key", on_change=save_value, args="
 
 When a widget function is called, Streamlit will check if it already has a widget with the same parameters. Streamlit will reconnect if it thinks the widget already exists. Otherwise, it will make a new one.
 
-As mentioned earlier, Streanlit determines a widget's ID is based on parameters such as label, min or max value, default value, placeholder text, help text, and key. The page name also factors in to a widget's ID. On the other hand, callback functions, callback args and kwargs, disabling options, and label visibility do not affect a widget's identity.
+As mentioned earlier, Streanlit determines a widget's ID is based on parameters such as label, min or max value, default value, placeholder text, help text, and key. The page name also factors in to a widget's ID. On the other hand, callback functions, callback args and kwargs, label visibility, and disabling a widget do not affect a widget's identity.
 
 ### Calling a widget function when the widget doesn't already exist
 
@@ -168,7 +168,7 @@ If your script rerun calls a widget function with changed parameters or calls a 
 1. Streamlit will build the frontend and backend parts of the widget.
 2. If the widget has been assigned a key, Streamlit will check if that key already exists in session state.  
    a. If it exists and is not currently associated to another widget, Streamlit will attach to that key and take on its value for the widget.  
-   b. Otherwise, it will assign the default value to the key in `st.session_state`.
+   b. Otherwise, it will assign the default value to the key in `st.session_state` (creating a new key-value pair or overwriting an existing one).
 3. If there are args or kwargs for a callback function, they are computed and saved at this point in time.
 4. The default value is then returned by the function.
 
