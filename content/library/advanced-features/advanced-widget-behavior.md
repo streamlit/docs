@@ -5,7 +5,7 @@ slug: /library/advanced-features/widget-behavior
 
 # Understanding widget behavior
 
-Widgets are magical and often work how you want. But they can have surprising behavior in some situations. Understanding the different parts of a widget and the precise order in which events occur helps you achieve your desired results.
+Widgets are at the heart of Streamlit apps. They are the interactive elements of Streamlit that pass information from your users into your Python code. Widgets are magical and often work how you want. But they can have surprising behavior in some situations. Understanding the different parts of a widget and the precise order in which events occur helps you achieve your desired results.
 
 <Collapse title="🎈 TL;DR" expanded={false}>
 
