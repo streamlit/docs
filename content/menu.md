@@ -409,8 +409,8 @@ site_menu:
     visible: false
   - category: Streamlit library / Advanced features/ Add statefulness to apps
     url: /library/advanced-features/session-state
-  - category: Streamlit library / Advanced features/ Widget semantics
-    url: /library/advanced-features/widget-semantics
+  - category: Streamlit library / Advanced features/ Widget behavior
+    url: /library/advanced-features/widget-behavior
   - category: Streamlit library / Advanced features/ Pre-release features
     url: /library/advanced-features/prerelease
   - category: Streamlit library / Advanced features/ Working with timezones
