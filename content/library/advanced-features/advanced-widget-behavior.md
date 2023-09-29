@@ -7,17 +7,17 @@ slug: /library/advanced-features/widget-behavior
 
 Widgets (like `st.button`, `st.selectbox`, and `st.text_input`) are at the heart of Streamlit apps. They are the interactive elements of Streamlit that pass information from your users into your Python code. Widgets are magical and often work how you want, but they can have surprising behavior in some situations. Understanding the different parts of a widget and the precise order in which events occur helps you achieve your desired results.
 
-This guide covers advanced concepts about widgets. For most beginning users, these details won't be important to know right away. When you want to dynamically change widgets or preserve widget information between pages, these concepts will be important to understand.
+This guide covers advanced concepts about widgets. Generally, it begins with simpler concepts and increases in complexity. For most beginning users, these details won't be important to know right away. When you want to dynamically change widgets or preserve widget information between pages, these concepts will be important to understand. We recommend having a basic understanding of [Session State](/library/api-reference/session-state) before reading this guide.
 
 <Collapse title="🎈 TL;DR" expanded={false}>
 
-1. If you call a widget function before the widget state exists, the widget state defaults to a value. This value depends on the widget and its arguments.
-2. A widget function call returns the current widget state value. The return value is a simple Python type, and the exact type depends on the widget and its arguments.
-3. Widget states depend on a particular session (browser connection). The actions of one user do not affect the widgets of any other user.
-4. A widget's identity depends on the arguments passed to the widget function. If those change, the call will create a new widget (with a default value, per 1).
-5. If you don't call a widget function in a script run, we neither store the widget state nor render the widget. If you call a widget function with the same arguments later, Streamlit treats it as a new widget.
+1. The actions of one user do not affect the widgets of any other user.
+2. A widget function call returns the widget's current value, which is a simple Python type. (e.g. `st.button` returns a boolean value.)
+3. Widgets return default values on first call, before a user interacts with them.
+4. A widget's identity depends on the arguments passed to the widget function. Changing a widget's label, min or max value, default value, placeholder text, help text, or key will cause it to reset.
+5. If you don't call a widget function in a script run, Streamlit will delete the widget's information&mdash;_including key-value pair in Session State_. If you call the same widget function later, Streamlit treats it as a new widget.
 
-4 and 5 are the most likely to be surprising and may pose a problem for some application designs. When you want to persist widget state for recreating a widget, use [Session State](/library/api-reference/session-state) to work around 5.
+The last two points (widget identity and widget deletion) are the most relevant when dynamically changing widgets or working with multi-page applications. This is covered in detail later in this guide: [Statefulness of widgets](#statefulness-of-widgets) and [Widget life cycle](#widget-life-cycle).
 
 </Collapse>
 
@@ -36,7 +36,7 @@ Widget states are dependent on a particular session (browser connection). The ac
 
 ### Widgets return simple Python data types
 
-The value of a widget as seen through `st.session_state` and returned by the widget function are of simple Python types. For example, `st.button` returns a boolean value and will have the same boolean value saved in `st.session_state` if using a key.
+The value of a widget as seen through `st.session_state` and returned by the widget function are of simple Python types. For example, `st.button` returns a boolean value and will have the same boolean value saved in `st.session_state` if using a key. The first time a widget function is called (before a user interacts with it), it will return its default value. (e.g. `st.selectbox` returns the first option by default.) Default values are configurable for all widgets with a few special exceptions like `st.button` and `st.file_uploader`.
 
 ### Keys help distinguish widgets and access their values
 
@@ -140,7 +140,7 @@ A solution to [Retain statefulness when changing a widget's parameters](#retain-
 
 ### Widgets do not persist when not continually rendered
 
-If a widget's function is not called during a script run, then none of its parts will be retained, including its value in `st.session_state`. If a widget has a key and you navigate away from that widget, its key and associated value in `st.session_state` will be deleted. Even temporarily hiding a widget will cause it to reset when it reappears; Streamlit will treat it like a new widget. You can either interrupt the [widget cleanup process](#cleaning-up) (described at the end of this page) or save the value to another key.
+If a widget's function is not called during a script run, then none of its parts will be retained, including its value in `st.session_state`. If a widget has a key and you navigate away from that widget, its key and associated value in `st.session_state` will be deleted. Even temporarily hiding a widget will cause it to reset when it reappears; Streamlit will treat it like a new widget. You can either interrupt the [Widget cleanup process](#widget-cleanup-process) (described at the end of this page) or save the value to another key.
 
 #### Save widget values in Session State to preserve them between pages
 
@@ -214,7 +214,7 @@ When rerunning a script without changing a widget's parameters:
 2. If the widget has a key that was deleted from `st.session_state`, then Streamlit will recreate the key using the current frontend value. (e.g Deleting a key will not revert the widget to a default value.)
 3. It will return the current value of the widget.
 
-### Cleaning up
+### Widget cleanup process
 
 When Streamlit gets to the end of a script run, it will delete the data for any widgets it has in memory that were not rendered on the screen. Most importantly, that means Streamlit will delete all key-value pairs in `st.session_state` associated to a widget not currently on screen.
 
