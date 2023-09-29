@@ -13,9 +13,9 @@ This guide covers advanced concepts about widgets. Generally, it begins with sim
 
 1. The actions of one user do not affect the widgets of any other user.
 2. A widget function call returns the widget's current value, which is a simple Python type. (e.g. `st.button` returns a boolean value.)
-3. Widgets return default values on first call, before a user interacts with them.
+3. Widgets return their default values on their first call before a user interacts with them.
 4. A widget's identity depends on the arguments passed to the widget function. Changing a widget's label, min or max value, default value, placeholder text, help text, or key will cause it to reset.
-5. If you don't call a widget function in a script run, Streamlit will delete the widget's information&mdash;_including key-value pair in Session State_. If you call the same widget function later, Streamlit treats it as a new widget.
+5. If you don't call a widget function in a script run, Streamlit will delete the widget's information&mdash;_including its key-value pair in Session State_. If you call the same widget function later, Streamlit treats it as a new widget.
 
 The last two points (widget identity and widget deletion) are the most relevant when dynamically changing widgets or working with multi-page applications. This is covered in detail later in this guide: [Statefulness of widgets](#statefulness-of-widgets) and [Widget life cycle](#widget-life-cycle).
 
@@ -140,7 +140,7 @@ A solution to [Retain statefulness when changing a widget's parameters](#retain-
 
 ### Widgets do not persist when not continually rendered
 
-If a widget's function is not called during a script run, then none of its parts will be retained, including its value in `st.session_state`. If a widget has a key and you navigate away from that widget, its key and associated value in `st.session_state` will be deleted. Even temporarily hiding a widget will cause it to reset when it reappears; Streamlit will treat it like a new widget. You can either interrupt the [Widget cleanup process](#widget-cleanup-process) (described at the end of this page) or save the value to another key.
+If a widget's function is not called during a script run, then none of its parts will be retained, including its value in `st.session_state`. If a widget has a key and you navigate away from that widget, its key and associated value in `st.session_state` will be deleted. Even temporarily hiding a widget will cause it to reset when it reappears; Streamlit will treat it like a new widget. You can either interrupt the [Widget clean-up process](#widget-clean-up-process) (described at the end of this page) or save the value to another key.
 
 #### Save widget values in Session State to preserve them between pages
 
@@ -177,15 +177,15 @@ st.number_input("Number of filters", key="_my_key", on_change=save_value, args="
 
 When a widget function is called, Streamlit will check if it already has a widget with the same parameters. Streamlit will reconnect if it thinks the widget already exists. Otherwise, it will make a new one.
 
-As mentioned earlier, Streanlit determines a widget's ID is based on parameters such as label, min or max value, default value, placeholder text, help text, and key. The page name also factors in to a widget's ID. On the other hand, callback functions, callback args and kwargs, label visibility, and disabling a widget do not affect a widget's identity.
+As mentioned earlier, Streamlit determines a widget's ID based on parameters such as label, min or max value, default value, placeholder text, help text, and key. The page name also factors into a widget's ID. On the other hand, callback functions, callback args and kwargs, label visibility, and disabling a widget do not affect a widget's identity.
 
 ### Calling a widget function when the widget doesn't already exist
 
 If your script rerun calls a widget function with changed parameters or calls a widget function that wasn't used on the last script run:
 
 1. Streamlit will build the frontend and backend parts of the widget.
-2. If the widget has been assigned a key, Streamlit will check if that key already exists in session state.  
-   a. If it exists and is not currently associated to another widget, Streamlit will attach to that key and take on its value for the widget.  
+2. If the widget has been assigned a key, Streamlit will check if that key already exists in Session State.  
+   a. If it exists and is not currently associated with another widget, Streamlit will attach to that key and take on its value for the widget.  
    b. Otherwise, it will assign the default value to the key in `st.session_state` (creating a new key-value pair or overwriting an existing one).
 3. If there are args or kwargs for a callback function, they are computed and saved at this point in time.
 4. The default value is then returned by the function.
@@ -214,13 +214,13 @@ When rerunning a script without changing a widget's parameters:
 2. If the widget has a key that was deleted from `st.session_state`, then Streamlit will recreate the key using the current frontend value. (e.g Deleting a key will not revert the widget to a default value.)
 3. It will return the current value of the widget.
 
-### Widget cleanup process
+### Widget clean-up process
 
-When Streamlit gets to the end of a script run, it will delete the data for any widgets it has in memory that were not rendered on the screen. Most importantly, that means Streamlit will delete all key-value pairs in `st.session_state` associated to a widget not currently on screen.
+When Streamlit gets to the end of a script run, it will delete the data for any widgets it has in memory that were not rendered on the screen. Most importantly, that means Streamlit will delete all key-value pairs in `st.session_state` associated with a widget not currently on screen.
 
 ## Additional examples
 
-As promised, let's address how to retain statefulness of widgets when changing pages or modifying their parameters. There are two ways to do this.
+As promised, let's address how to retain the statefulness of widgets when changing pages or modifying their parameters. There are two ways to do this.
 
 1. Use dummy keys to duplicate widget values in `st.session_state` and protect the data from being deleted along with the widget.
 2. Interrupt the widget clean-up process.
@@ -266,4 +266,4 @@ st.slider("A", minimum, maximum, key="a")
 
 <Cloud src="https://doc-guide-widgets-change-parameters-solution.streamlit.app/?embed=true" height="250"/>
 
-The `update_value()` helper function is actually doing two things. On the surface, it's making sure there are no inconsistent changes to the parameters values as described. Importantly however, it's interrupting the widget clean-up process. When the min or max value of the widget changes, Streamlit sees it as a new widget on rerun. Without saving a value to `st.session_state.a`, the value would be thrown out and replaced by the "new" widget's default value.
+The `update_value()` helper function is actually doing two things. On the surface, it's making sure there are no inconsistent changes to the parameters values as described. Importantly, it's also interrupting the widget clean-up process. When the min or max value of the widget changes, Streamlit sees it as a new widget on rerun. Without saving a value to `st.session_state.a`, the value would be thrown out and replaced by the "new" widget's default value.
