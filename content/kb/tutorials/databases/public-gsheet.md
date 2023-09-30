@@ -11,16 +11,25 @@ This guide explains how to securely access a public Google Sheet from Streamlit.
 
 This method requires you to enable link sharing for your Google Sheet. While the sharing link will not appear in your code (and actually acts as sort of a password!), someone with the link can get all the data in the Sheet. If you don't want this, follow the (more complicated) guide to [Connect Streamlit to a private Google Sheet](private-gsheet).
 
-<Note>
+### Prerequisites
 
-`gsheets_connection` is not yet published on PyPi. Follow the instructions in the [repository's readme](https://github.com/streamlit/gsheets-connection#install) file to install.
-
-</Note>
+This tutorial requires `streamlit>=1.22` and `st-gsheets-connection` in your Python environment.
 
 ## Create a Google Sheet and turn on link sharing
 
-If you already have a Sheet that you want to access, feel free to [skip to the next
-step](#add-the-sheets-url-to-your-local-app-secrets). See Google's documentation on how to [share spreadsheets](https://support.google.com/docs/answer/9331169?hl=en#6.1) for more information.
+If you already have a Sheet that you want to access, feel free to [skip to the next step](#add-the-sheets-url-to-your-local-app-secrets). See Google's documentation on how to [share spreadsheets](https://support.google.com/docs/answer/9331169?hl=en#6.1) for more information.
+
+Create a spreadsheet with this example data and create a share link. The link should have "Anyone with the link" set as a "Viewer."
+
+<div style={{ maxWidth: '200px', margin: 'auto' }}>
+
+| name   | pet  |
+| :----- | :--- |
+| Mary   | dog  |
+| John   | cat  |
+| Robert | bird |
+
+</div>
 
 <Flex>
 <Image alt="screenshot 1" src="/images/databases/public-gsheet-1.png" />
@@ -33,8 +42,8 @@ Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml`
 
 ```toml
 # .streamlit/secrets.toml
-
-public_gsheets_url = "https://docs.google.com/spreadsheets/d/xxxxxxx/edit#gid=0"
+[connections.gsheets]
+spreadsheet = "https://docs.google.com/spreadsheets/d/xxxxxxx/edit#gid=0"
 ```
 
 <Important>
@@ -53,16 +62,22 @@ Copy the code below to your Streamlit app and run it.
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 
+# Create a connection object.
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 
-df = conn.read(spreadsheet=st.secrets["public_gsheets_url"], ttl="10m", usecols=[0, 1])
+df = conn.read(
+    worksheet="Sheet1",  # The first worksheet is used if not specified.
+    ttl="10m",
+    usecols=[0, 1],
+)
+df.dropna(inplace=True)
 
 # Print results.
 for row in df.itertuples():
     st.write(f"{row.name} has a :{row.pet}:")
 ```
 
-See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `read()` results are cached without expiring. In this case, we set `ttl="10m"` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching). Additionally, `usecols=[0,1]` is an option passed to `pandas` under the hood. See more supported options for [`pandas.read_csv`](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html).
+See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `.read()` results are cached without expiring. In this case, we set `ttl="10m"` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching). Additionally, `usecols=[0,1]` is an option passed to `pandas` under the hood. See more supported options for [`pandas.read_csv`](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html).
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 
@@ -72,5 +87,5 @@ If everything worked out (and you used the example table we created above), your
 
 This tutorial assumes a local Streamlit app, however you can also connect to Google Sheets from apps hosted in Community Cloud. The main additional steps are:
 
-- [Include information about dependencies](/streamlit-community-cloud/deploy-your-app/app-dependencies) using a `requirements.txt` file with `streamlit_gsheets` and any other dependencies. Remember that `streamlit_gsheets` is not currently published to PyPi and should be included in a `requirements.txt` file as: `git+https://github.com/streamlit/gsheets-connection`
+- [Include information about dependencies](/streamlit-community-cloud/deploy-your-app/app-dependencies) using a `requirements.txt` file with `st-gsheets-connection` and any other dependencies.
 - [Add your secrets](/streamlit-community-cloud/deploy-your-app/secrets-management#deploy-an-app-and-set-up-secrets) to your Community Cloud app.

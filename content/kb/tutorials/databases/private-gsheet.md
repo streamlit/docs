@@ -7,18 +7,29 @@ slug: /knowledge-base/tutorials/databases/private-gsheet
 
 ## Introduction
 
-This guide explains how to securely access a private Google Sheet from Streamlit Community Cloud. It uses the [gsheetsdb](https://github.com/betodealmeida/gsheets-db-api) library and Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management).
+This guide explains how to securely access a private Google Sheet from Streamlit Community Cloud. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection), [Streamlit GSheetsConnection](https://github.com/streamlit/gsheets-connection), and Streamlit's [Secrets management](/library/advanced-features/secrets-management).
 
 If you are fine with enabling link sharing for your Google Sheet (i.e. everyone with the link can view it), the guide [Connect Streamlit to a public Google Sheet](/knowledge-base/tutorials/databases/public-gsheet) shows a simpler method of doing this. If your Sheet contains sensitive information and you cannot enable link sharing, keep on reading.
 
+### Prerequisites
+
+This tutorial requires `streamlit>=1.22` and `st-gsheets-connection` in your Python environment.
+
 ## Create a Google Sheet
 
-<Note>
+If you already have a Sheet that you want to use, feel free to [skip to the next step](#enable-the-sheets-api).
 
-If you already have a database that you want to use, feel free
-to [skip to the next step](#enable-the-sheets-api).
+Create a spreadsheet with this example data.
 
-</Note>
+<div style={{ maxWidth: '200px', margin: 'auto' }}>
+
+| name   | pet  |
+| :----- | :--- |
+| Mary   | dog  |
+| John   | cat  |
+| Robert | bird |
+
+</div>
 
 ![Google sheet screenshot](/images/databases/private-gsheet-1.png)
 
@@ -44,11 +55,11 @@ To use the Sheets API from Streamlit Community Cloud, you need a Google Cloud Pl
 
 <Note>
 
-The button **CREATE SERVICE ACCOUNT** is gray, you don't have the correct permissions. Ask the admin of your Google Cloud project for help.
+The button "**CREATE SERVICE ACCOUNT**" is gray, you don't have the correct permissions. Ask the admin of your Google Cloud project for help.
 
 </Note>
 
-After clicking **DONE**, you should be back on the service accounts overview. First, note down the email address of the account you just created (**important for next step!**). Then, create a JSON key file for the new account and download it:
+After clicking "**DONE**", you should be back on the service accounts overview. First, note down the email address of the account you just created (**important for next step!**). Then, create a JSON key file for the new account and download it:
 
 <Flex>
 <Image alt="GCP screenshot 8" src="/images/databases/private-gsheet-8.png" />
@@ -58,7 +69,7 @@ After clicking **DONE**, you should be back on the service accounts overview. Fi
 
 ## Share the Google Sheet with the service account
 
-By default, the service account you just created cannot access your Google Sheet. To give it access, click on the **Share** button in the Google Sheet, add the email of the service account (noted down in step 2), and choose the correct permission (if you just want to read the data, **Viewer** is enough):
+By default, the service account you just created cannot access your Google Sheet. To give it access, click on the "**Share**" button in the Google Sheet, add the email of the service account (noted down in step 2), and choose the correct permission (if you just want to read the data, "**Viewer**" is enough):
 
 <Flex>
 <Image alt="GCP screenshot 11" src="/images/databases/private-gsheet-11.png" />
@@ -72,9 +83,10 @@ Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml`
 ```toml
 # .streamlit/secrets.toml
 
-private_gsheets_url = "https://docs.google.com/spreadsheets/d/12345/edit?usp=sharing"
+[connections.gsheets]
+spreadsheet = "https://docs.google.com/spreadsheets/d/xxxxxxx/edit#gid=0"
 
-[gcp_service_account]
+# From your JSON key file
 type = "service_account"
 project_id = "xxx"
 private_key_id = "xxx"
@@ -93,21 +105,6 @@ Add this file to `.gitignore` and don't commit it to your GitHub repo!
 
 </Important>
 
-## Copy your app secrets to the cloud
-
-As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Community Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management).
-
-![Secrets manager screenshot](/images/databases/edit-secrets.png)
-
-## Add gsheetsdb to your requirements file
-
-Add the [gsheetsdb](https://github.com/betodealmeida/gsheets-db-api) package to your `requirements.txt` file, preferably pinning its version (replace `x.x.x` with the version you want installed):
-
-```bash
-# requirements.txt
-gsheetsdb==x.x.x
-```
-
 ## Write your Streamlit app
 
 Copy the code below to your Streamlit app and run it.
@@ -116,36 +113,32 @@ Copy the code below to your Streamlit app and run it.
 # streamlit_app.py
 
 import streamlit as st
-from google.oauth2 import service_account
-from gsheetsdb import connect
+from streamlit_gsheets import GSheetsConnection
 
 # Create a connection object.
-credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"],
-    scopes=[
-        "https://www.googleapis.com/auth/spreadsheets",
-    ],
+conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+
+df = conn.read(
+    worksheet="Sheet1",  # The first worksheet is used if not specified.
+    ttl="10m",
+    usecols=[0, 1],
 )
-conn = connect(credentials=credentials)
-
-# Perform SQL query on the Google Sheet.
-# Uses st.cache_data to only rerun when the query changes or after 10 min.
-@st.cache_data(ttl=600)
-def run_query(query):
-    rows = conn.execute(query, headers=1)
-    rows = rows.fetchall()
-    return rows
-
-sheet_url = st.secrets["private_gsheets_url"]
-rows = run_query(f'SELECT * FROM "{sheet_url}"')
+df.dropna(inplace=True)
 
 # Print results.
-for row in rows:
+for row in df.itertuples():
     st.write(f"{row.name} has a :{row.pet}:")
 ```
 
-See `st.cache_data` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache_data`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Learn more in [Caching](/library/advanced-features/caching).
+See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `.read()` results are cached without expiring. In this case, we set `ttl="10m"` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching). Additionally, `usecols=[0,1]` is an option passed to `pandas` under the hood. See more supported options for [`pandas.read_csv`](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html).
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 
 ![Finished app screenshot](/images/databases/streamlit-app.png)
+
+## Connecting to a Google Sheet from Community Cloud
+
+This tutorial assumes a local Streamlit app, however you can also connect to Google Sheets from apps hosted in Community Cloud. The main additional steps are:
+
+- [Include information about dependencies](/streamlit-community-cloud/deploy-your-app/app-dependencies) using a `requirements.txt` file with `st-gsheets-connection` and any other dependencies.
+- [Add your secrets](/streamlit-community-cloud/deploy-your-app/secrets-management#deploy-an-app-and-set-up-secrets) to your Community Cloud app.
