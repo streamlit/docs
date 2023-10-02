@@ -65,19 +65,25 @@ from streamlit_gsheets import GSheetsConnection
 # Create a connection object.
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 
-df = conn.read(
-    worksheet="Sheet1",  # The first worksheet is used if not specified.
-    ttl="10m",
-    usecols=[0, 1],
-    nrows=3,
-)
+df = conn.read()
 
 # Print results.
 for row in df.itertuples():
     st.write(f"{row.name} has a :{row.pet}:")
 ```
 
-See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `.read()` results are cached without expiring. In this case, we set `ttl="10m"` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching). Additionally, `usecols=[0,1]` is an option passed to `pandas` under the hood. See more supported options for [`pandas.read_csv`](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html).
+See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `.read()` results are cached without expiring. You can pass optional parameters to `.read()` to customize your connection. For example, you can specify the name of a worksheet, cache expiration time, or pass-through parameters for [`pandas.read_csv`](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html) like this:
+
+```python
+df = conn.read(
+    worksheet="Sheet1",
+    ttl="10m",
+    usecols=[0, 1],
+    nrows=3,
+)
+```
+
+In this case, we set `ttl="10m"` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching). We've declared optional parameters `usecols=[0,1]` and `nrows=3` for `pandas` to use under the hood.
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 
