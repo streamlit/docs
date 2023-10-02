@@ -69,8 +69,8 @@ df = conn.read(
     worksheet="Sheet1",  # The first worksheet is used if not specified.
     ttl="10m",
     usecols=[0, 1],
+    nrows=3,
 )
-df.dropna(inplace=True)
 
 # Print results.
 for row in df.itertuples():
