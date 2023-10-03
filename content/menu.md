@@ -120,6 +120,10 @@ site_menu:
   - category: Streamlit library / API reference / Data elements / st.json
     url: /library/api-reference/data/st.json
     isVersioned: true
+  - category: Streamlit library / API reference / Data elements / st.experimental_data_editor
+    url: /library/api-reference/data/st.experimental_data_editor
+    isVersioned: true
+    isDeprecated: true
   - category: Streamlit library / API reference / Chart elements
     url: /library/api-reference/charts
   - category: Streamlit library / API reference / Chart elements / st.area_chart
