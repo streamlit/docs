@@ -42,6 +42,10 @@
 }
 
 /* Color modifiers */
+.RedBackground {
+  @apply bg-red-70;
+}
+
 .OrangeBackground {
   @apply bg-orange-70;
 }
@@ -52,6 +56,16 @@
 
 .BlueBackground {
   @apply bg-lightBlue-70;
+}
+
+.RainbowBackground {
+  background-image: linear-gradient(
+    45deg,
+    #ff4b4b 10%,
+    #803df5 40%,
+    #00c0f2 70%,
+    #ffa421 90%
+  );
 }
 
 .TransparentBackground a {

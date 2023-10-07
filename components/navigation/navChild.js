@@ -91,10 +91,14 @@ const NavChild = ({ slug, page, color, className }) => {
             className={classNames(
               styles.Circle,
               active ? styles.ActiveCircle : "",
-              color === "violet-70"
+              color === "red-70"
+                ? styles.GetStartedCircle
+                : color === "violet-70"
                 ? styles.LibraryCircle
                 : color === "l-blue-70"
                 ? styles.CloudCircle
+                : color === "rainbow"
+                ? styles.ContributeCircle
                 : styles.KBCircle
             )}
           />

@@ -56,8 +56,12 @@ const Tile = ({
   const backgroundColor =
     background === "orange-70"
       ? styles.OrangeBackground
+      : background === "red-70"
+      ? styles.RedBackground
       : background === "violet-70"
       ? styles.VioletBackground
+      : background === "rainbow"
+      ? styles.RainbowBackground
       : background === "unset"
       ? styles.TransparentBackground
       : styles.BlueBackground;

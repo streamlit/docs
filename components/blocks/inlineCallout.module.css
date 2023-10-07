@@ -29,6 +29,10 @@
 }
 
 /* Colors for each category */
+.GetStartedBackground {
+  @apply bg-red-70;
+}
+
 .LibraryBackground {
   @apply bg-indigo-70;
 }
@@ -41,6 +45,20 @@
   @apply bg-orange-70;
 }
 
+.ContributeBackground {
+  background-image: linear-gradient(
+    45deg,
+    #ff4b4b 10%,
+    #803df5 40%,
+    #00c0f2 70%,
+    #ffa421 90%
+  );
+}
+
+.GetStartedText {
+  @apply text-red-70 !important;
+}
+
 .LibraryText {
   @apply text-indigo-70 !important;
 }
@@ -51,4 +69,8 @@
 
 .KBText {
   @apply text-orange-70 !important;
+}
+
+.ContributeText {
+  @apply text-red-70 !important;
 }

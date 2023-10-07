@@ -16,10 +16,14 @@ const NavItem = ({ page, slug, condensed, className }) => {
 
   // We only want the color to show when we're either active, or the menu is condensed.
   let color =
-    page.color === "violet-70"
+    page.color === "red-70"
+      ? styles.GetStartedCategory
+      : page.color === "violet-70"
       ? styles.LibraryCategory
       : page.color === "l-blue-70"
       ? styles.CloudCategory
+      : page.color === "rainbow"
+      ? styles.ContributeCategory
       : styles.KBCategory;
   color = isCondensed || active ? color : "";
 
@@ -34,10 +38,14 @@ const NavItem = ({ page, slug, condensed, className }) => {
         className={classNames(
           styles.HeadingIconContainer,
           isCondensed ? styles.CondensedHeadingIconContainer : "",
-          page.color === "violet-70"
+          page.color === "red-70"
+            ? styles.GetStartedIcon
+            : page.color === "violet-70"
             ? styles.LibraryIcon
             : page.color === "l-blue-70"
             ? styles.CloudIcon
+            : page.color === "rainbow"
+            ? styles.ContributeIcon
             : styles.KBIcon
         )}
       >
