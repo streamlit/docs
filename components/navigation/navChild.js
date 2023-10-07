@@ -70,10 +70,15 @@ const NavChild = ({ slug, page, color, className }) => {
   let url = page.url;
 
   const isLocalPage = page.url.startsWith("/");
+  const isCrossLinkedPage = page.url.startsWith("https://docs.streamlit.io");
 
-  if (!isLocalPage) {
+  if (!isLocalPage && !isCrossLinkedPage) {
     icon = <i className={styles.ExternalIcon}>open_in_new</i>;
     target = "_blank";
+  }
+
+  if (isCrossLinkedPage) {
+    icon = <i className={styles.ExternalIcon}>link</i>;
   }
 
   if (page.isVersioned && version && isLocalPage) {
