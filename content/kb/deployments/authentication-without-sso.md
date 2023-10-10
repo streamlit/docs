@@ -43,11 +43,12 @@ As the `secrets.toml` file above is not committed to GitHub, you need to pass it
 
 ### Step 3: Ask for the password in your Streamlit app
 
-Copy the code below to your Streamlit app, insert your normal app code in the `if` statement at the bottom, and run it:
+Copy the code below to your Streamlit app, insert your normal app code below the `check_password()` function call at the bottom, and run it:
 
 ```python
 # streamlit_app.py
 
+import hmac
 import streamlit as st
 
 def check_password():
@@ -55,32 +56,29 @@ def check_password():
 
     def password_entered():
         """Checks whether a password entered by the user is correct."""
-        if st.session_state["password"] == st.secrets["password"]:
+        if hmac.compare_digest(st.session_state["password"], st.secrets["password"]):
             st.session_state["password_correct"] = True
-            del st.session_state["password"]  # don't store password
+            del st.session_state["password"]  # Don't store the password.
         else:
             st.session_state["password_correct"] = False
 
-    if "password_correct" not in st.session_state:
-        # First run, show input for password.
+    if not st.session_state.get("password_correct", False):
+        # Show input for password.
         st.text_input(
             "Password", type="password", on_change=password_entered, key="password"
         )
-        return False
-    elif not st.session_state["password_correct"]:
-        # Password not correct, show input + error.
-        st.text_input(
-            "Password", type="password", on_change=password_entered, key="password"
-        )
-        st.error("😕 Password incorrect")
-        return False
-    else:
-        # Password correct.
-        return True
+        if (
+            "password_correct" in st.session_state
+            and not st.session_state["password_correct"]
+        ):
+            st.error("😕 Password incorrect")
+        st.stop()
 
-if check_password():
-    st.write("Here goes your normal Streamlit app...")
-    st.button("Click me")
+check_password()
+
+# Main Streamlit app starts here
+st.write("Here goes your normal Streamlit app...")
+st.button("Click me")
 ```
 
 If everything worked out, your app should look like this:
@@ -120,51 +118,51 @@ As the `secrets.toml` file above is not committed to GitHub, you need to pass it
 
 ### Step 3: Ask for username & password in your Streamlit app
 
-Copy the code below to your Streamlit app, insert your normal app code in the `if` statement at the bottom, and run it:
+Copy the code below to your Streamlit app, insert your normal app code below the `check_password()` function call at the bottom, and run it:
 
 ```python
 # streamlit_app.py
 
+import hmac
 import streamlit as st
 
 def check_password():
     """Returns `True` if the user had a correct password."""
 
+    def login_form():
+        """Form with widgets to collect user information"""
+        with st.form("Credentials"):
+            st.text_input("Username", key="username")
+            st.text_input("Password", type="password", key="password")
+            st.form_submit_button("Log in", on_click=password_entered)
+
     def password_entered():
         """Checks whether a password entered by the user is correct."""
-        if (
-            st.session_state["username"] in st.secrets["passwords"]
-            and st.session_state["password"]
-            == st.secrets["passwords"][st.session_state["username"]]
+        if st.session_state["username"] in st.secrets[
+            "passwords"
+        ] and hmac.compare_digest(
+            st.session_state["password"],
+            st.secrets.passwords[st.session_state["username"]],
         ):
             st.session_state["password_correct"] = True
-            del st.session_state["password"]  # don't store username + password
+            del st.session_state["password"]  # Don't store the username or password.
             del st.session_state["username"]
         else:
             st.session_state["password_correct"] = False
 
-    if "password_correct" not in st.session_state:
+    if not st.session_state.get("password_correct", False):
         # First run, show inputs for username + password.
-        st.text_input("Username", on_change=password_entered, key="username")
-        st.text_input(
-            "Password", type="password", on_change=password_entered, key="password"
-        )
-        return False
-    elif not st.session_state["password_correct"]:
-        # Password not correct, show input + error.
-        st.text_input("Username", on_change=password_entered, key="username")
-        st.text_input(
-            "Password", type="password", on_change=password_entered, key="password"
-        )
-        st.error("😕 User not known or password incorrect")
-        return False
-    else:
-        # Password correct.
-        return True
+        login_form()
+        if st.session_state.get("password_correct") == False:
+            # Password not correct, show input + error.
+            st.error("😕 User not known or password incorrect")
+        st.stop()
 
-if check_password():
-    st.write("Here goes your normal Streamlit app...")
-    st.button("Click me")
+check_password()
+
+# Main Streamlit app starts here
+st.write("Here goes your normal Streamlit app...")
+st.button("Click me")
 ```
 
 If everything worked out, your app should look like this:
