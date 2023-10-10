@@ -51,6 +51,7 @@ Copy the code below to your Streamlit app, insert your normal app code below the
 import hmac
 import streamlit as st
 
+
 def check_password():
     """Returns `True` if the user had the correct password."""
 
@@ -62,19 +63,21 @@ def check_password():
         else:
             st.session_state["password_correct"] = False
 
-    if not st.session_state.get("password_correct", False):
-        # Show input for password.
-        st.text_input(
-            "Password", type="password", on_change=password_entered, key="password"
-        )
-        if (
-            "password_correct" in st.session_state
-            and not st.session_state["password_correct"]
-        ):
-            st.error("😕 Password incorrect")
-        st.stop()
+    # Return True if the passward is validated.
+    if st.session_state.get("password_correct", False):
+        return True
 
-check_password()
+    # Show input for password.
+    st.text_input(
+        "Password", type="password", on_change=password_entered, key="password"
+    )
+    if "password_correct" in st.session_state:
+        st.error("😕 Password incorrect")
+    return False
+
+
+if not check_password():
+    st.stop()  # Do not continue if check_password is not True.
 
 # Main Streamlit app starts here
 st.write("Here goes your normal Streamlit app...")
@@ -126,6 +129,7 @@ Copy the code below to your Streamlit app, insert your normal app code below the
 import hmac
 import streamlit as st
 
+
 def check_password():
     """Returns `True` if the user had a correct password."""
 
@@ -150,15 +154,19 @@ def check_password():
         else:
             st.session_state["password_correct"] = False
 
-    if not st.session_state.get("password_correct", False):
-        # First run, show inputs for username + password.
-        login_form()
-        if st.session_state.get("password_correct") == False:
-            # Password not correct, show input + error.
-            st.error("😕 User not known or password incorrect")
-        st.stop()
+    # Return True if the username + password is validated.
+    if st.session_state.get("password_correct", False):
+        return True
 
-check_password()
+    # Show inputs for username + password.
+    login_form()
+    if "password_correct" in st.session_state:
+        st.error("😕 User not known or password incorrect")
+    return False
+
+
+if not check_password():
+    st.stop()
 
 # Main Streamlit app starts here
 st.write("Here goes your normal Streamlit app...")
