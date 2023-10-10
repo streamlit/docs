@@ -49,10 +49,10 @@ widgets is filled before actually rerunning the script. That's what `st.form` is
 Create a form that batches elements together with a “Submit" button.
 
 ```python
-with st.form(key="my_form"):
-    username = st.text_input("Username")
-    password = st.text_input("Password")
-    st.form_submit_button("Login")
+with st.form(key='my_form'):
+    name = st.text_input("Name")
+    email = st.text_input("Email")
+    st.form_submit_button("Sign up")
 ```
 
 </RefCard>
@@ -64,10 +64,10 @@ with st.form(key="my_form"):
 Display a form submit button.
 
 ```python
-with st.form(key="my_form"):
-    username = st.text_input("Username")
-    password = st.text_input("Password")
-    st.form_submit_button("Login")
+with st.form(key='my_form'):
+    name = st.text_input("Name")
+    email = st.text_input("Email")
+    st.form_submit_button("Sign up")
 ```
 
 </RefCard>
