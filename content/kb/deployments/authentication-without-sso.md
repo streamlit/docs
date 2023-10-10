@@ -43,14 +43,13 @@ As the `secrets.toml` file above is not committed to GitHub, you need to pass it
 
 ### Step 3: Ask for the password in your Streamlit app
 
-Copy the code below to your Streamlit app, insert your normal app code in the `if` statement at the bottom, and run it:
+Copy the code below to your Streamlit app, insert your normal app code below the `check_password()` function call at the bottom, and run it:
 
 ```python
 # streamlit_app.py
 
-import streamlit as st
 import hmac
-
+import streamlit as st
 
 def check_password():
     """Returns `True` if the user had the correct password."""
@@ -63,27 +62,23 @@ def check_password():
         else:
             st.session_state["password_correct"] = False
 
-    if "password_correct" not in st.session_state:
-        # First run, show input for password.
+    if not st.session_state.get("password_correct", False):
+        # Show input for password.
         st.text_input(
             "Password", type="password", on_change=password_entered, key="password"
         )
-        return False
-    elif not st.session_state["password_correct"]:
-        # Password not correct, show input + error.
-        st.text_input(
-            "Password", type="password", on_change=password_entered, key="password"
-        )
-        st.error("😕 Password incorrect")
-        return False
-    else:
-        # Password correct.
-        return True
+        if (
+            "password_correct" in st.session_state
+            and not st.session_state["password_correct"]
+        ):
+            st.error("😕 Password incorrect")
+        st.stop()
 
+check_password()
 
-if check_password():
-    st.write("Here goes your normal Streamlit app...")
-    st.button("Click me")
+# Main Streamlit app starts here
+st.write("Here goes your normal Streamlit app...")
+st.button("Click me")
 ```
 
 If everything worked out, your app should look like this:
@@ -123,25 +118,23 @@ As the `secrets.toml` file above is not committed to GitHub, you need to pass it
 
 ### Step 3: Ask for username & password in your Streamlit app
 
-Copy the code below to your Streamlit app, insert your normal app code in the `if` statement at the bottom, and run it:
+Copy the code below to your Streamlit app, insert your normal app code below the `check_password()` function call at the bottom, and run it:
 
 ```python
 # streamlit_app.py
 
-import streamlit as st
 import hmac
-
+import streamlit as st
 
 def check_password():
     """Returns `True` if the user had a correct password."""
 
     def login_form():
         """Form with widgets to collect user information"""
-        input = st.form("Credentials")
-        input.text_input("Username", key="username")
-        input.text_input("Password", type="password", key="password")
-        input.form_submit_button("Log in", on_click=password_entered)
-        return
+        with st.form("Credentials"):
+            st.text_input("Username", key="username")
+            st.text_input("Password", type="password", key="password")
+            st.form_submit_button("Log in", on_click=password_entered)
 
     def password_entered():
         """Checks whether a password entered by the user is correct."""
@@ -157,23 +150,19 @@ def check_password():
         else:
             st.session_state["password_correct"] = False
 
-    if "password_correct" not in st.session_state:
+    if not st.session_state.get("password_correct", False):
         # First run, show inputs for username + password.
         login_form()
-        return False
-    elif not st.session_state["password_correct"]:
-        # Password not correct, show input + error.
-        login_form()
-        st.error("😕 User not known or password incorrect")
-        return False
-    else:
-        # Password correct.
-        return True
+        if st.session_state.get("password_correct") == False:
+            # Password not correct, show input + error.
+            st.error("😕 User not known or password incorrect")
+        st.stop()
 
+check_password()
 
-if check_password():
-    st.write("Here goes your normal Streamlit app...")
-    st.button("Click me")
+# Main Streamlit app starts here
+st.write("Here goes your normal Streamlit app...")
+st.button("Click me")
 ```
 
 If everything worked out, your app should look like this:
