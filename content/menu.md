@@ -25,11 +25,11 @@ site_menu:
   - category: Get started / Basic concepts / Build a simple app
     url: /library/get-started/create-an-app
   - category: Get started / Intermediate concepts
-    url: /library/get-started/intermediate-concepts
+    url: /get-started/intermediate-concepts
   - category: Get started / Intermediate concepts / Build a multipage app
     url: /library/get-started/multipage-apps/create-a-multipage-app
   - category: Get started / Additional features
-    url: /library/get-started/additional-features
+    url: /get-started/additional-features
   - category: Get started / Community Cloud
     url: /streamlit-community-cloud/get-started
   - category: Get started / Community Cloud / Create your account
