@@ -9,7 +9,7 @@ site_menu:
   - category: Get started / Installation
     url: /get-started/installation
   - category: Get started / Installation / Cloud quickstart
-    url: /get-started/installation/cloud-quickstart
+    url: /streamlit-community-cloud/get-started/quickstart
   - category: Get started / Installation / Local quickstart
     url: /get-started/installation/local-quickstart
   - category: Get started / Installation / Python environments
