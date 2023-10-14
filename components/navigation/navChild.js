@@ -85,7 +85,8 @@ const NavChild = ({ slug, page, color, className }) => {
   }
 
   if (isCrossLinkedPage) {
-    icon = <i className={styles.ExternalIcon}>link</i>;
+    url = url.replace("https://docs.streamlit.io", "");
+    icon = <i className={styles.CrossLinkedIcon}>link</i>;
   }
 
   if (page.isVersioned && version && isLocalPage) {

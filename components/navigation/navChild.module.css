@@ -17,6 +17,11 @@
 
 .ExternalIcon {
   @apply relative z-10 cursor-pointer text-sm ml-1;
+  @apply text-gray-70 !important;
+}
+
+.CrossLinkedIcon {
+  @apply relative z-10 cursor-pointer text-xl ml-1;
   @apply text-gray-80 !important;
 }
 
