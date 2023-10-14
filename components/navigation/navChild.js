@@ -65,14 +65,21 @@ const NavChild = ({ slug, page, color, className }) => {
   }
 
   let link;
+  let divider;
   let icon;
   let target;
-  let url = page.url;
+  let url;
+  if (typeof page.url !== "undefined") {
+    url = page.url;
+  } else {
+    url = "";
+  }
 
-  const isLocalPage = page.url.startsWith("/");
-  const isCrossLinkedPage = page.url.startsWith("https://docs.streamlit.io");
+  const isLocalPage = url.startsWith("/");
+  const isCrossLinkedPage = url.startsWith("https://docs.streamlit.io");
+  const isDivider = url === "";
 
-  if (!isLocalPage && !isCrossLinkedPage) {
+  if (!isLocalPage && !isCrossLinkedPage && !isDivider) {
     icon = <i className={styles.ExternalIcon}>open_in_new</i>;
     target = "_blank";
   }
@@ -83,10 +90,18 @@ const NavChild = ({ slug, page, color, className }) => {
 
   if (page.isVersioned && version && isLocalPage) {
     // We need to version this URL, check if the URL has a version for this version
-    const newSlug = page.url.split("/");
+    const newSlug = url.split("/");
     newSlug[0] = version;
     url = `/${newSlug.join("/")}`;
   }
+
+  divider = (
+    <span className={styles.LinkContainer}>
+      <div className={styles.DividerLine}></div>
+      <div className={styles.DividerText}>{page.name}</div>
+      <div className={styles.DividerLine}></div>
+    </span>
+  );
 
   link = (
     <span className={styles.LinkContainer}>
@@ -120,6 +135,10 @@ const NavChild = ({ slug, page, color, className }) => {
       {accordion}
     </span>
   );
+
+  if (isDivider) {
+    link = divider;
+  }
 
   return (
     <li className={classNames(styles.Container, className)}>

@@ -40,6 +40,19 @@
   @apply text-base relative left-1 -top-[1px];
 }
 
+.DividerText {
+  @apply grow-0;
+  @apply text-gray-70;
+  @apply text-2xs;
+  @apply mx-1;
+}
+
+.DividerLine {
+  @apply grow;
+  @apply bg-gray-70;
+  @apply h-px;
+}
+
 .Circle {
   @apply absolute w-2 h-2 -left-4 rounded-full hidden;
 }
