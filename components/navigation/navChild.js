@@ -89,7 +89,7 @@ const NavChild = ({ slug, page, color, className }) => {
     icon = <i className={styles.CrossLinkedIcon}>link</i>;
   }
 
-  if (page.isVersioned && version && isLocalPage) {
+  if (page.isVersioned && version && isLocalPage | isCrossLinkedPage) {
     // We need to version this URL, check if the URL has a version for this version
     const newSlug = url.split("/");
     newSlug[0] = version;
