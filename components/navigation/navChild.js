@@ -96,13 +96,21 @@ const NavChild = ({ slug, page, color, className }) => {
     url = `/${newSlug.join("/")}`;
   }
 
-  divider = (
-    <span className={styles.LinkContainer}>
-      <div className={styles.DividerLine}></div>
-      <div className={styles.DividerText}>{page.name}</div>
-      <div className={styles.DividerLine}></div>
-    </span>
-  );
+  if (page.name == "---") {
+    divider = (
+      <span className={styles.LinkContainer}>
+        <div className={styles.DividerLine}></div>
+      </span>
+    );
+  } else {
+    divider = (
+      <span className={styles.LinkContainer}>
+        <div className={styles.DividerLine}></div>
+        <div className={styles.DividerText}>{page.name}</div>
+        <div className={styles.DividerLine}></div>
+      </span>
+    );
+  }
 
   link = (
     <span className={styles.LinkContainer}>
