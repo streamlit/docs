@@ -13,8 +13,10 @@ const useHeadingsData = (slug) => {
       )
     );
 
-    // Remove the first heading here, since we don't want to show the main title on the TOC
-    headingElements.shift();
+    // If first heading is H1, remove since we don't want to show the main title on the TOC
+    if (headingElements[0].nodeName == "H1") {
+      headingElements.shift();
+    }
 
     const newNestedHeadings = getNestedHeadings(headingElements);
     setNestedHeadings(newNestedHeadings);
