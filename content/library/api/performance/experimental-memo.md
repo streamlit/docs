@@ -59,7 +59,7 @@ if st.button("Clear All"):
     st.experimental_memo.clear()
 ```
 
-### Replay static `st` elements in cache-decorated functions
+## Replay static `st` elements in cache-decorated functions
 
 Functions decorated with `@st.experimental_memo` can contain static `st` elements. When a cache-decorated function is executed, we record the element and block messages produced, so the elements will appear in the app even when execution of the function is skipped because the result was cached.
 
@@ -131,7 +131,7 @@ Supported static `st` elements in cache-decorated functions include:
 - `st.video`
 - `st.warning`
 
-### Replay input widgets in cache-decorated functions
+## Replay input widgets in cache-decorated functions
 
 In addition to static elements, functions decorated with `@st.experimental_memo` can also contain [input widgets](/library/api-reference/widgets)! Replaying input widgets is disabled by default. To enable it, you can set the `experimental_allow_widgets` parameter for `@st.experimental_memo` to `True`. The example below enables widget replaying, and shows the use of a checkbox widget within a cache-decorated function.
 
@@ -187,12 +187,12 @@ In order to know which value the cache should return (in case of a cache hit), S
 
 Let's now understand how enabling and disabling widget replay changes the behavior of the function.
 
-#### Widget replay disabled
+### Widget replay disabled
 
 - Widgets in cached functions throw a `CachedStFunctionWarning` and are ignored.
 - Other static elements in cached functions replay as expected.
 
-#### Widget replay enabled
+### Widget replay enabled
 
 - Widgets in cached functions don't lead to a warning, and are replayed as expected.
 - Interacting with a widget in a cached function will cause the function to be executed again, and the cache to be updated.

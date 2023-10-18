@@ -37,7 +37,7 @@ if st.button("Clear All"):
     st.experimental_singleton.clear()
 ```
 
-### Validating the cache
+## Validating the cache
 
 The `@st.experimental_singleton` decorator is used to cache the output of a function, so that it only needs to be executed once. This can improve performance in certain situations, such as when a function takes a long time to execute or makes a network request.
 
@@ -258,7 +258,7 @@ except requests.exceptions.HTTPError as err:
     st.error(err)
 ``` -->
 
-#### Best Practices
+### Best Practices
 
 - Use the `validate` parameter when the cached output may become invalid over time, such as when a database connection or an API key expires.
 - Use the `validate` parameter judiciously, as it will add an additional overhead of calling the validation function each time the cached output is accessed.
@@ -266,7 +266,7 @@ except requests.exceptions.HTTPError as err:
 - Consider to validate cached data periodically, instead of each time it is accessed, to mitigate the performance impact.
 - Handle errors that may occur during validation and provide a fallback mechanism if the validation fails.
 
-### Replay static `st` elements in cache-decorated functions
+## Replay static `st` elements in cache-decorated functions
 
 Functions decorated with `@st.experimental_singleton` can contain static `st` elements. When a cache-decorated function is executed, we record the element and block messages produced, so the elements will appear in the app even when execution of the function is skipped because the result was cached.
 
@@ -339,7 +339,7 @@ Supported static `st` elements in cache-decorated functions include:
 - `st.video`
 - `st.warning`
 
-### Replay input widgets in cache-decorated functions
+## Replay input widgets in cache-decorated functions
 
 In addition to static elements, functions decorated with `@st.experimental_singleton` can also contain [input widgets](/library/api-reference/widgets)! Replaying input widgets is disabled by default. To enable it, you can set the `experimental_allow_widgets` parameter for `@st.experimental_singleton` to `True`. The example below enables widget replaying, and shows the use of a checkbox widget within a cache-decorated function.
 
@@ -395,12 +395,12 @@ In order to know which value the cache should return (in case of a cache hit), S
 
 Let's now understand how enabling and disabling widget replay changes the behavior of the function.
 
-#### Widget replay disabled
+### Widget replay disabled
 
 - Widgets in cached functions throw a `CachedStFunctionWarning` and are ignored.
 - Other static elements in cached functions replay as expected.
 
-#### Widget replay enabled
+### Widget replay enabled
 
 - Widgets in cached functions don't lead to a warning, and are replayed as expected.
 - Interacting with a widget in a cached function will cause the function to be executed again, and the cache to be updated.
