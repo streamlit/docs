@@ -43,48 +43,6 @@ def init_model():
 
 </RefCard>
 
-<RefCard href="/library/api-reference/performance/st.cache_data.clear" size="half">
-
-#### Clear cached data
-
-Clear all in-memory and on-disk data caches.
-
-```python
-@st.cache_data
-def long_function(param1, param2):
-  # Perform expensive computation here or
-  # fetch data from the web here
-  return data
-
-if st.checkbox("Clear All"):
-  # Clear values from *all* cache_data functions
-  st.cache_data.clear()
-```
-
-</RefCard>
-
-<RefCard href="/library/api-reference/performance/st.cache_resource.clear" size="half">
-
-#### Clear cached resources
-
-Clear all `st.cache_resource` caches.
-
-```python
-@st.cache_resource
-def init_model():
-  # Return a global resource here
-  return pipeline(
-    "sentiment-analysis",
-    model="distilbert-base-uncased-finetuned-sst-2-english"
-  )
-
-if st.checkbox("Clear All"):
-  # Clear values from *all* cache_resource functions
-  st.cache_resource.clear()
-```
-
-</RefCard>
-
 </TileContainer>
 
 <Important>
