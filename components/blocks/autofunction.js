@@ -182,7 +182,7 @@ const Autofunction = ({
               tabIndex="-1"
               href={`#${cleanHref(
                 streamlitFunction.replace("streamlit", "st")
-              )}`}
+              )}`.toLowerCase()}
             >
               <span className="icon icon-link"></span>
             </a>
@@ -227,7 +227,11 @@ const Autofunction = ({
       <div className={styles.HeaderContainer}>
         <div className={styles.TitleContainer}>
           <H2 className={styles.Title}>
-            <a aria-hidden="true" tabIndex="-1" href={`#${cleanHref(name)}`}>
+            <a
+              aria-hidden="true"
+              tabIndex="-1"
+              href={`#${cleanHref(name)}`.toLowerCase()}
+            >
               <span className="icon icon-link"></span>
             </a>
             {name}
