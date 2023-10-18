@@ -12,6 +12,31 @@ This is an experimental feature. Experimental features and their APIs may change
 
 <Autofunction function="streamlit.experimental_singleton" deprecated={true} deprecatedText="<code>st.experimental_singleton</code> was deprecated in version 1.18.0. Use <a href='/library/api-reference/performance/st.cache_resource'><code>st.cache_resource</code></a> instead. Learn more in <a href='/library/advanced-features/caching'>Caching</a>."/>
 
+<Autofunction function="streamlit.experimental_singleton.clear" deprecated={true} deprecatedText="<code>st.experimental_singleton.clear</code> was deprecated in version 1.18.0. Use <a href='/library/api-reference/performance/st.cache_resource.clear'><code>st.cache_resource.clear</code></a> instead. Learn more in <a href='/library/advanced-features/caching'>Caching</a>."/>
+
+#### Example
+
+In the example below, pressing the "Clear All" button will clear _all_ singleton caches. i.e. Clears cached singleton objects from all functions decorated with `@st.experimental_singleton`.
+
+```python
+import streamlit as st
+from transformers import BertModel
+
+@st.experimental_singleton
+ def get_database_session(url):
+     # Create a database session object that points to the URL.
+     return session
+
+@st.experimental_singleton
+def get_model(model_type):
+    # Create a model of the specified type.
+    return BertModel.from_pretrained(model_type)
+
+if st.button("Clear All"):
+    # Clears all singleton caches:
+    st.experimental_singleton.clear()
+```
+
 ### Validating the cache
 
 The `@st.experimental_singleton` decorator is used to cache the output of a function, so that it only needs to be executed once. This can improve performance in certain situations, such as when a function takes a long time to execute or makes a network request.

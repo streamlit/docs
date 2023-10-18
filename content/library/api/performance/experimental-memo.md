@@ -36,6 +36,29 @@ streamlit run app.py
 2022-09-22 13:35:41.587 The memoized function 'load_data' has a TTL that will be ignored. Persistent memo caches currently don't support TTL.
 ```
 
+<Autofunction function="streamlit.experimental_memo.clear" deprecated={true} deprecatedText="<code>st.experimental_memo.clear</code> was deprecated in version 1.18.0. Use <a href='/library/api-reference/performance/st.cache_data.clear'><code>st.cache_data.clear</code></a> instead. Learn more in <a href='/library/advanced-features/caching'>Caching</a>."/>
+
+#### Example
+
+In the example below, pressing the "Clear All" button will clear memoized values from all functions decorated with `@st.experimental_memo`.
+
+```python
+import streamlit as st
+
+@st.experimental_memo
+def square(x):
+    return x**2
+
+@st.experimental_memo
+def cube(x):
+    return x**3
+
+if st.button("Clear All"):
+    # Clear values from *all* memoized functions:
+    # i.e. clear values from both square and cube
+    st.experimental_memo.clear()
+```
+
 ### Replay static `st` elements in cache-decorated functions
 
 Functions decorated with `@st.experimental_memo` can contain static `st` elements. When a cache-decorated function is executed, we record the element and block messages produced, so the elements will appear in the app even when execution of the function is skipped because the result was cached.
