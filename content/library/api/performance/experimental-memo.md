@@ -36,7 +36,7 @@ streamlit run app.py
 2022-09-22 13:35:41.587 The memoized function 'load_data' has a TTL that will be ignored. Persistent memo caches currently don't support TTL.
 ```
 
-<Autofunction function="streamlit.experimental_memo.clear" deprecated={true} deprecatedText="<code>st.experimental_memo.clear</code> was deprecated in version 1.18.0. Use <a href='/library/api-reference/performance/st.cache_data.clear'><code>st.cache_data.clear</code></a> instead. Learn more in <a href='/library/advanced-features/caching'>Caching</a>."/>
+<Autofunction function="streamlit.experimental_memo.clear" deprecated={true} deprecatedText="<code>st.experimental_memo.clear</code> was deprecated in version 1.18.0. Use <a href='/library/api-reference/performance/st.cache_data#stcache_dataclear'><code>st.cache_data.clear</code></a> instead. Learn more in <a href='/library/advanced-features/caching'>Caching</a>."/>
 
 #### Example
 
