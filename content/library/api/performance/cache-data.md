@@ -11,6 +11,12 @@ This page only contains information on the `st.cache_data` API. For a deeper div
 
 <Autofunction function="streamlit.cache_data" />
 
+<Warning>
+
+`st.cache_data` implicitly uses the `pickle` module, which is known to be insecure. Anything your cached function returns is pickled and stored, then unpickled on retrieval. Ensure your cached functions return trusted values because it is possible to construct malicious pickle data that will execute arbitrary code during unpickling. Never load data that could have come from an untrusted source in an unsafe mode or that could have been tampered with. **Only load data you trust**.
+
+</Warning>
+
 ## Using Streamlit commands in cached functions
 
 ### Static elements

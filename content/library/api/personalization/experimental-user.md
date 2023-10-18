@@ -57,7 +57,7 @@ st.write(st.experimental_user['email'])
 st.write(st.experimental_user.email)
 ```
 
-The above outputs either `None` or the logged-in user's email or test@localhost.com, depending on where the app is running. Read further to learn about `st.experimental_user`'s context-dependent behavior.
+The above outputs either `None` or the logged-in user's email or test@example.com, depending on where the app is running. Read further to learn about `st.experimental_user`'s context-dependent behavior.
 
 ### Updates and modifications
 
@@ -105,11 +105,11 @@ This value of this field is empty in a public Streamlit Community Cloud app to p
 
 #### **Local development**
 
-When developing locally, `st.experimental_user.email` returns test@localhost.com. We don't return `None` to make it easier to locally test this functionality. For example:
+When developing locally, `st.experimental_user.email` returns test@example.com. We don't return `None` to make it easier to locally test this functionality. For example:
 
 ```python
 st.experimental_user.email
-# Returns: test@localhost.com
+# Returns: test@example.com
 ```
 
 #### **App deployed on a 3rd party cloud provider**
@@ -118,7 +118,7 @@ When deploying an app on a 3rd party cloud provider (e.g. Amazon EC2, Heroku, et
 
 ```python
 st.experimental_user.email # On a 3rd party cloud provider
-# Returns: test@localhost.com
+# Returns: test@example.com
 ```
 
 ### Examples
@@ -166,5 +166,5 @@ if st.experimental_user.email:
 ### Caveats and limitations
 
 - `st.experimental_user` is **read-only**. You cannot update or modify its value. Doing so will throw a `StreamlitAPIException`.
-- A valid email is returned only if the user is logged in to Streamlit Community Cloud and the app is private. Else, `None` or test@localhost.com is returned.
+- A valid email is returned only if the user is logged in to Streamlit Community Cloud and the app is private. Else, `None` or test@example.com is returned.
 - This is an experimental feature. Experimental features and their APIs may change or be removed at any time. To learn more, click [here](/library/advanced-features/prerelease#experimental-features).

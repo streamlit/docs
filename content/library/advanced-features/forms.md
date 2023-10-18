@@ -128,7 +128,7 @@ The purpose of a form is to override the default behavior of Streamlit which rer
 
 1. The user changes a widget's value on the frontend.
 2. The widget's value in `st.session_state` and in the Python backend (server) is updated.
-3. The script rerun begins. 
+3. The script rerun begins.
 4. If the widget has a callback, it is executed as a prefix to the page rerun.
 5. When the updated widget's function is executed during the rerun, it outputs the new value.
 
@@ -188,7 +188,7 @@ with st.form('addition'):
 
 <Cloud src="https://doc-forms-process2.streamlit.app/?embed=true" height="400"/>
 
-### Use `st.experimental_rerun`
+### Use `st.rerun`
 
 If your process affects content above your form, another alternative is using an extra rerun. This can be less resource-efficient though, and may be less desirable that the above options.
 
@@ -213,15 +213,15 @@ with st.form('addition'):
 # a second rerun when the form is submitted to update the value above.
 st.session_state.sum = a + b
 if submit:
-    st.experimental_rerun()
+    st.rerun()
 ```
 
 <Cloud src="https://doc-forms-process3.streamlit.app/?embed=true" height="400"/>
 
 ## Limitations
 
-* Every form must contain a `st.form_submit_button`.
-* `st.button` and `st.download_button` cannot be added to a form.
-* `st.form` cannot be embedded inside another `st.form`.
-* Callback functions can only be assigned to `st.form_submit_button` within a form; no other widgets in a form can have a callback.
-* Interdependent widgets within a form are unlikely to be particularly useful. If you pass `widget1`'s value into `widget2` when they are both inside a form, then `widget2` will only update when the form is submitted.
+- Every form must contain a `st.form_submit_button`.
+- `st.button` and `st.download_button` cannot be added to a form.
+- `st.form` cannot be embedded inside another `st.form`.
+- Callback functions can only be assigned to `st.form_submit_button` within a form; no other widgets in a form can have a callback.
+- Interdependent widgets within a form are unlikely to be particularly useful. If you pass `widget1`'s value into `widget2` when they are both inside a form, then `widget2` will only update when the form is submitted.

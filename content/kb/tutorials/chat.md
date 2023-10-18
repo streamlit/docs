@@ -368,7 +368,7 @@ if prompt := st.chat_input("What is up?"):
         full_response = ""
 ```
 
-All that's changed is that we've added a default model to `st.session_state` and set our OpenAI API key from Streamlit secrets. Here's where it gets interesting. We can replace our logic from earlier to emulate streaming predetermind responses with the model's responses from OpenAI:
+All that's changed is that we've added a default model to `st.session_state` and set our OpenAI API key from Streamlit secrets. Here's where it gets interesting. We can replace our logic from earlier to emulate streaming predetermined responses with the model's responses from OpenAI:
 
 ```python
     for response in openai.ChatCompletion.create(

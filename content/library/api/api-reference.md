@@ -428,18 +428,7 @@ style_metric_cards()
 ## Chart elements
 
 <TileContainer>
-<RefCard href="/library/api-reference/charts/st.line_chart">
-<Image pure alt="screenshot" src="/images/api/line_chart.jpg" />
 
-#### Simple line charts
-
-Display a line chart.
-
-```python
-st.line_chart(my_data_frame)
-```
-
-</RefCard>
 <RefCard href="/library/api-reference/charts/st.area_chart">
 <Image pure alt="screenshot" src="/images/api/area_chart.jpg" />
 
@@ -461,6 +450,30 @@ Display a bar chart.
 
 ```python
 st.bar_chart(my_data_frame)
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/charts/st.line_chart">
+<Image pure alt="screenshot" src="/images/api/line_chart.jpg" />
+
+#### Simple line charts
+
+Display a line chart.
+
+```python
+st.line_chart(my_data_frame)
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/charts/st.scatter_chart">
+<Image pure alt="screenshot" src="/images/api/scatter_chart.svg" />
+
+#### Simple scatter charts
+
+Display a line chart.
+
+```python
+st.scatter_chart(my_data_frame)
 ```
 
 </RefCard>
@@ -706,7 +719,7 @@ st.altair_chart(chart, use_container_width=True)
 <TileContainer>
 <RefCard href="/library/api-reference/widgets/st.button">
 
-<Image pure alt="screenshot" src="/images/api/button.jpg" />
+<Image pure alt="screenshot" src="/images/api/button.svg" />
 
 #### Button
 
@@ -732,7 +745,7 @@ edited = st.experimental_data_editor(df, num_rows="dynamic")
 </RefCard>
 <RefCard href="/library/api-reference/widgets/st.download_button">
 
-<Image pure alt="screenshot" src="/images/api/download_button.jpg" />
+<Image pure alt="screenshot" src="/images/api/download_button.svg" />
 
 #### Download button
 
@@ -740,6 +753,19 @@ Display a download button widget.
 
 ```python
 st.download_button("Download file", file)
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/widgets/st.link_button">
+
+<Image pure alt="screenshot" src="/images/api/link_button.svg" />
+
+#### Link button
+
+Display a link button.
+
+```python
+st.link_button("Go to gallery", url)
 ```
 
 </RefCard>
@@ -1682,9 +1708,9 @@ Create a form that batches elements together with a “Submit" button.
 
 ```python
 with st.form(key='my_form'):
-    username = st.text_input("Username")
-    password = st.text_input("Password")
-    st.form_submit_button("Login")
+    name = st.text_input("Name")
+    email = st.text_input("Email")
+    st.form_submit_button("Sign up")
 ```
 
 </RefCard>
@@ -1699,14 +1725,14 @@ st.stop()
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/control-flow/st.experimental_rerun">
+<RefCard href="/library/api-reference/control-flow/st.rerun">
 
 #### Rerun script
 
 Rerun the script immediately.
 
 ```python
-st.experimental_rerun()
+st.rerun()
 ```
 
 </RefCard>
