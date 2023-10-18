@@ -15,7 +15,6 @@
     "16": "0.0.2",
     "@mapbox/rehype-prism": "^0.7.0",
     "@svgr/webpack": "^6.2.1",
-    "@tryghost/content-api": "1.11.10",
     "algoliasearch": "^3.35.1",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
@@ -53,7 +52,6 @@
     "react-markdown": "^6.0.3",
     "react-responsive": "^8.2.0",
     "react-slick": "^0.29.0",
-    "react-tabs": "^4.3.0",
     "react-transition-group": "^4.4.2",
     "rehype-autolink-headings": "^5.1.0",
     "rehype-raw": "^5.1.0",
@@ -69,6 +67,7 @@
     "slick-carousel": "^1.8.1",
     "slugify": "^1.6.1",
     "tailwindcss": "^3.0.1",
+    "@tryghost/content-api": "1.11.10",
     "unified": "^9.2.2",
     "uuid": "^8.3.2"
   },
