@@ -177,6 +177,15 @@ const Autofunction = ({
       <div className={styles.HeaderContainer}>
         <div className={styles.TitleContainer} ref={blockRef} key={slug}>
           <H2 className={styles.Title}>
+            <a
+              aria-hidden="true"
+              tabIndex="-1"
+              href={`#${cleanHref(
+                streamlitFunction.replace("streamlit", "st")
+              )}`}
+            >
+              <span className="icon icon-link"></span>
+            </a>
             {streamlitFunction.replace("streamlit", "st")}
           </H2>
           <VersionSelector
@@ -217,7 +226,12 @@ const Autofunction = ({
     header = (
       <div className={styles.HeaderContainer}>
         <div className={styles.TitleContainer}>
-          <H2 className={styles.Title}>{name}</H2>
+          <H2 className={styles.Title}>
+            <a aria-hidden="true" tabIndex="-1" href={`#${cleanHref(name)}`}>
+              <span className="icon icon-link"></span>
+            </a>
+            {name}
+          </H2>
           <VersionSelector
             versionList={versionList}
             currentVersion={currentVersion}
