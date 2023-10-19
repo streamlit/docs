@@ -36,7 +36,30 @@ streamlit run app.py
 2022-09-22 13:35:41.587 The memoized function 'load_data' has a TTL that will be ignored. Persistent memo caches currently don't support TTL.
 ```
 
-### Replay static `st` elements in cache-decorated functions
+<Autofunction function="streamlit.experimental_memo.clear" deprecated={true} deprecatedText="<code>st.experimental_memo.clear</code> was deprecated in version 1.18.0. Use <a href='/library/api-reference/performance/st.cache_data#stcache_dataclear'><code>st.cache_data.clear</code></a> instead. Learn more in <a href='/library/advanced-features/caching'>Caching</a>."/>
+
+#### Example
+
+In the example below, pressing the "Clear All" button will clear memoized values from all functions decorated with `@st.experimental_memo`.
+
+```python
+import streamlit as st
+
+@st.experimental_memo
+def square(x):
+    return x**2
+
+@st.experimental_memo
+def cube(x):
+    return x**3
+
+if st.button("Clear All"):
+    # Clear values from *all* memoized functions:
+    # i.e. clear values from both square and cube
+    st.experimental_memo.clear()
+```
+
+## Replay static `st` elements in cache-decorated functions
 
 Functions decorated with `@st.experimental_memo` can contain static `st` elements. When a cache-decorated function is executed, we record the element and block messages produced, so the elements will appear in the app even when execution of the function is skipped because the result was cached.
 
@@ -108,7 +131,7 @@ Supported static `st` elements in cache-decorated functions include:
 - `st.video`
 - `st.warning`
 
-### Replay input widgets in cache-decorated functions
+## Replay input widgets in cache-decorated functions
 
 In addition to static elements, functions decorated with `@st.experimental_memo` can also contain [input widgets](/library/api-reference/widgets)! Replaying input widgets is disabled by default. To enable it, you can set the `experimental_allow_widgets` parameter for `@st.experimental_memo` to `True`. The example below enables widget replaying, and shows the use of a checkbox widget within a cache-decorated function.
 
@@ -164,12 +187,12 @@ In order to know which value the cache should return (in case of a cache hit), S
 
 Let's now understand how enabling and disabling widget replay changes the behavior of the function.
 
-#### Widget replay disabled
+### Widget replay disabled
 
 - Widgets in cached functions throw a `CachedStFunctionWarning` and are ignored.
 - Other static elements in cached functions replay as expected.
 
-#### Widget replay enabled
+### Widget replay enabled
 
 - Widgets in cached functions don't lead to a warning, and are replayed as expected.
 - Interacting with a widget in a cached function will cause the function to be executed again, and the cache to be updated.

@@ -883,3 +883,7 @@
 /streamlit-community-cloud/get-started/manage-your-app /streamlit-community-cloud/manage-your-app
 /streamlit-community-cloud/trust-and-security /streamlit-community-cloud/get-started/trust-and-security
 /library/advanced-features/widget-semantics /library/advanced-features/widget-behavior
+/library/api-reference/performance/st.cache_data.clear /library/api-reference/performance/st.cache_data
+/library/api-reference/performance/st.cache_resource.clear /library/api-reference/performance/st.cache_resource
+/library/api-reference/performance/st.experimental_memo.clear /library/api-reference/performance/st.experimental_memo
+/library/api-reference/performance/st.experimental_singleton.clear /library/api-reference/performance/st.experimental_singleton

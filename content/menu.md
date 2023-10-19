@@ -336,14 +336,8 @@ site_menu:
   - category: Streamlit library / API reference / Performance / st.cache_data
     url: /library/api-reference/performance/st.cache_data
     isVersioned: true
-  - category: Streamlit library / API reference / Performance / Clear cached data
-    url: /library/api-reference/performance/st.cache_data.clear
-    isVersioned: true
   - category: Streamlit library / API reference / Performance / st.cache_resource
     url: /library/api-reference/performance/st.cache_resource
-    isVersioned: true
-  - category: Streamlit library / API reference / Performance / Clear cached resources
-    url: /library/api-reference/performance/st.cache_resource.clear
     isVersioned: true
   - category: Streamlit library / API reference / Performance / st.cache
     url: /library/api-reference/performance/st.cache
@@ -353,16 +347,8 @@ site_menu:
     url: /library/api-reference/performance/st.experimental_memo
     isVersioned: true
     isDeprecated: true
-  - category: Streamlit library / API reference / Performance / Clear memo
-    url: /library/api-reference/performance/st.experimental_memo.clear
-    isVersioned: true
-    isDeprecated: true
   - category: Streamlit library / API reference / Performance / st.experimental_singleton
     url: /library/api-reference/performance/st.experimental_singleton
-    isVersioned: true
-    isDeprecated: true
-  - category: Streamlit library / API reference / Performance / Clear singleton
-    url: /library/api-reference/performance/st.experimental_singleton.clear
     isVersioned: true
     isDeprecated: true
   - category: Streamlit library / API reference / Personalization
