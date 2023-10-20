@@ -19,12 +19,7 @@ import styles from "./autofunction.module.css";
 import { name } from "file-loader";
 
 const cleanHref = (name) => {
-  return String(name)
-    .replace(".", "")
-    .replace(".", "")
-    .replace(".", "")
-    .replace(".", "")
-    .replace(" ", "-");
+  return String(name).replace(/\./g, "").replace(" ", "-");
 };
 
 const Autofunction = ({
