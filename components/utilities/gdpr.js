@@ -1,86 +1,165 @@
-// Global Imports
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import classNames from "classnames";
 import { MDXRemote } from "next-mdx-remote";
-import { ReactComponent as CookieEmoji } from "../../images/icons/cookie.svg";
 
 import styles from "./gdpr.module.css";
 
-const KEY = "InsertAnalyticsCode";
+const TELEMETRY_PREFERENCE = "InsertTelemetry";
+const TELEMETRY_PREFERENCE_DATE = "TelemetryDate";
 
-const GDPRBanner = (gdprData) => {
-  const title = gdprData.title;
-  const content = gdprData.content;
+export function setTelemetryPreference(accepted) {
+  localStorage.setItem(TELEMETRY_PREFERENCE, JSON.stringify(accepted));
+  localStorage.setItem(TELEMETRY_PREFERENCE_DATE, JSON.stringify(Date.now()));
+}
 
-  // Start with default values
-  const [isVisible, setIsVisible] = useState(true);
-  const [insertAnalyticsCode, setInsertAnalyticsCode] = useState(false);
+// Check if the stored date is > 6 months old
+const isConsentStale = (timestamp) => {
+  const consent_date = new Date(parseInt(timestamp * 1000));
+  const today = new Date();
 
-  const AllowAndCloseBanner = useCallback(() => {
-    // Update state and set the decision into localStorage
-    setIsVisible(false);
-    setInsertAnalyticsCode(true);
-    localStorage.setItem(KEY, JSON.stringify(Date.now()));
-  }, [isVisible, insertAnalyticsCode]);
+  const six_months_in_ms =
+    1000 /*ms*/ * 60 /*s*/ * 60 /*min*/ * 24 /*h*/ * 30 /*days*/ * 6; /*months*/
+  return today - consent_date > six_months_in_ms;
+};
 
-  const DeclineAndCloseBanner = useCallback(() => {
-    // Update state and set the decision into localStorage
-    setIsVisible(false);
-    setInsertAnalyticsCode(false);
-    localStorage.setItem(KEY, false);
-  }, [isVisible, insertAnalyticsCode]);
+function getTelemetryPreference() {
+  // Returns true/false if user accepted/denied telemetry.
+  // Returns null if user never accepted/denied or consent is stale.
 
+  const telemetryPref = localStorage.getItem(TELEMETRY_PREFERENCE);
+  const consentIsStale = isConsentStale(
+    localStorage.getItem(TELEMETRY_PREFERENCE_DATE)
+  );
+
+  if (telemetryPref == null || consentIsStale) return null;
+
+  return telemetryPref == "true";
+}
+
+export default function GDPRBanner({
+  title,
+  content,
+  isTelemetryModalVisible,
+  setIsTelemetryModalVisible,
+  isTelemetryBannerVisible,
+  setIsTelemetryBannerVisible,
+  insertTelemetryCode,
+  setInsertTelemetryCode,
+  allowTelemetryAndCloseBanner,
+  declineTelemetryAndCloseBanner,
+}) {
   useEffect(() => {
-    // Check if there's something in localStorage, and update the banner visibility based on that
-    const localStorageIsSetUp = localStorage.getItem(KEY) != null;
-    setIsVisible(!localStorageIsSetUp);
+    const pref = getTelemetryPreference();
 
-    if (localStorageIsSetUp) {
-      setInsertAnalyticsCode(localStorage.getItem(KEY) != "false");
+    switch (pref) {
+      case true:
+        setInsertTelemetryCode(true);
+        return;
+
+      case false:
+        // This is already false at initialization, but it doesn't hurt to do the right thing
+        // here and make sure it's indeed false.
+        setInsertTelemetryCode(false);
+        return;
+
+      case null:
+        localStorage.clear(); // Do we even need this line?? Seems dangerous to just clear the entire localStorage, as maybe some other library could be using it.
+        setIsTelemetryBannerVisible(true);
+        return;
+
+      default:
+        console.log(`Unexpected telemetry preference: ${pref}`);
+        return;
     }
   }, []);
 
   useEffect(() => {
-    // TODO: Check if timestamp > 1 year, then show banner again before adding snippet
-    if (insertAnalyticsCode) {
-      insertAnalytics();
+    if (insertTelemetryCode) {
+      insertTelemetry();
     }
-  }, [insertAnalyticsCode]);
+  }, [insertTelemetryCode]);
 
   return (
     <>
-      {isVisible && (
-        <div className={styles.Container}>
-          <div className={styles.BannerBackground}>
-            <div className={styles.ImageContainer}>
-              <CookieEmoji className={styles.Image} />
-            </div>
-            <div className={styles.TextContainer}>
-              <h3 className={styles.Title}>{title}</h3>
+      {isTelemetryBannerVisible && (
+        <div
+          className={classNames(
+            isTelemetryBannerVisible === false ? "hidden" : "",
+            "z-30 w-full fixed border-t border-gray-40 p-4 bottom-0",
+            styles.Container
+          )}
+        >
+          <div
+            className={classNames(
+              "flex flex-col lg:flex-row lg:items-center pl-4 pr-4 sm:pl-8 sm:pr-8"
+            )}
+          >
+            <div className="flex-1">
+              {title && (
+                <h6 className="font-bold text-gray-90 text-lg sm:text-2xl">
+                  {title}
+                </h6>
+              )}
               <MDXRemote {...content} />
-              <div className={styles.CtasContainer}>
-                <button
-                  onClick={DeclineAndCloseBanner}
-                  className={classNames(styles.Button, styles.DeclineButton)}
-                >
-                  Decline
-                </button>
-                <button
-                  onClick={AllowAndCloseBanner}
-                  className={classNames(styles.Button, styles.AllowButton)}
-                >
-                  Allow
-                </button>
-              </div>
             </div>
+            <button
+              className={classNames(
+                "mt-4 lg:mt-0",
+                "text-gray-90",
+                "hover:text-gray-70 hover:underline",
+                "order-last lg:order-none",
+                styles.Link
+              )}
+              onClick={() =>
+                setIsTelemetryModalVisible(!isTelemetryModalVisible)
+              }
+            >
+              Cookie settings
+            </button>
+            <button
+              className={classNames(
+                "mt-4 lg:mt-0",
+                "lg:ml-4",
+                "py-2 px-3",
+                "text-gray-90",
+                "border-gray-90 border",
+                "rounded",
+                "hover:bg-gray-90",
+                "hover:text-white",
+                "active:bg-gray-90",
+                "active:text-white",
+                styles.Button
+              )}
+              onClick={declineTelemetryAndCloseBanner}
+            >
+              Reject all
+            </button>
+            <button
+              className={classNames(
+                "mt-4 lg:mt-0",
+                "lg:ml-4",
+                "py-2 px-3",
+                "text-gray-90",
+                "border-gray-90 border",
+                "rounded",
+                "hover:bg-gray-90",
+                "hover:text-white",
+                "active:bg-gray-90",
+                "active:text-white",
+                styles.Button
+              )}
+              onClick={allowTelemetryAndCloseBanner}
+            >
+              Accept all
+            </button>
           </div>
         </div>
       )}
     </>
   );
-};
+}
 
-function insertAnalytics() {
+function insertTelemetry() {
   (function () {
     var analytics = (window.analytics = window.analytics || []);
     if (!analytics.initialize)
@@ -136,12 +215,10 @@ function insertAnalytics() {
           n.parentNode.insertBefore(t, n);
           analytics._loadOptions = e;
         };
-        analytics._writeKey = "pUoB6ihRTAFLDtLp2NWEuJvBNtiooQwE";
+        analytics._writeKey = "5oR9PCgKBs3VqmQCMiiajboWKKBUa4dA";
         analytics.SNIPPET_VERSION = "4.13.2";
-        analytics.load("pUoB6ihRTAFLDtLp2NWEuJvBNtiooQwE");
+        analytics.load("5oR9PCgKBs3VqmQCMiiajboWKKBUa4dA");
         analytics.page();
       }
   })();
 }
-
-export default GDPRBanner;
