@@ -1,6 +1,6 @@
 ---
-title: Testing elements
-slug: /library/api-reference/testing/st.testing-elements
+title: Testing element classes
+slug: /library/api-reference/app-testing/testing-element-classes
 ---
 
 # Testing element classes

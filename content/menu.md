@@ -310,14 +310,6 @@ site_menu:
     url: /library/api-reference/control-flow/st.experimental_rerun
     isVersioned: true
     isDeprecated: true
-  - category: Streamlit library / API reference / Testing
-    url: /library/api-reference/testing
-  - category: Streamlit library / API reference / Testing / st.testing.v1.AppTest
-    url: /library/api-reference/testing/st.testing.v1.apptest
-    isVersioned: true
-  - category: Streamlit library / API reference / Testing / Elements
-    url: /library/api-reference/testing/st.testing-elements
-    isVersioned: true
   - category: Streamlit library / API reference / Utilities
     url: /library/api-reference/utilities
   - category: Streamlit library / API reference / Utilities / st.set_page_config
@@ -378,6 +370,14 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / API reference / Connections and databases / Connection base class
     url: /library/api-reference/connections/st.connections.experimentalbaseconnection
+    isVersioned: true
+  - category: Streamlit library / API reference / App testing
+    url: /library/api-reference/app-testing
+  - category: Streamlit library / API reference / App testing / st.testing.v1.AppTest
+    url: /library/api-reference/app-testing/st.testing.v1.apptest
+    isVersioned: true
+  - category: Streamlit library / API reference / App testing / Testing element classes
+    url: /library/api-reference/app-testing/testing-element-classes
     isVersioned: true
   - category: Streamlit library / Advanced features
     url: /library/advanced-features

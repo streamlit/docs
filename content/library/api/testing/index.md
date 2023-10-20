@@ -1,6 +1,6 @@
 ---
-title: Testing
-slug: /library/api-reference/testing
+title: App testing
+slug: /library/api-reference/app-testing
 ---
 
-# Testing
+# App testing

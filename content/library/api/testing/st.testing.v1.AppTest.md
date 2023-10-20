@@ -1,6 +1,6 @@
 ---
 title: st.testing.v1.AppTest
-slug: /library/api-reference/testing/st.testing.v1.apptest
+slug: /library/api-reference/app-testing/st.testing.v1.apptest
 ---
 
 <h1 style="display:none;"></h1>
@@ -11,11 +11,11 @@ slug: /library/api-reference/testing/st.testing.v1.apptest
 
 # Initialize an AppTest script runner
 
+<Autofunction function="AppTest.from_file" />
+
 <Autofunction function="AppTest.from_string" />
 
 <Autofunction function="AppTest.from_function" />
-
-<Autofunction function="AppTest.from_file" />
 
 # Run an AppTest script
 
