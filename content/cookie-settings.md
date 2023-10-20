@@ -1,4 +1,5 @@
 ---
+visible: false
 ---
 
 ### Cookie settings
