@@ -9,7 +9,7 @@ slug: /library/api-reference/testing/st.testing-elements
 
 The `Block` class has the same methods and attributes as `AppTest`. A `Block` instance represents a container of elements just as `AppTest` represents the entire app. For example, `Block.button` will produce a `WidgetList` of `Button` in the same manner as [`AppTest.button`](/library/api-reference/testing/st.testing.v1.apptest#apptestbutton).
 
-`ChatMessage`, `Column`, and `Tab` all inherit from `Block`.
+`ChatMessage`, `Column`, and `Tab` all inherit from `Block`. For all container classes, parameters of the original element can be obtained as properties. For example, `ChatMessage.avatar` and `Tab.label`.
 
 <Autofunction function="streamlit.testing.v1.element_tree.Element" />
 
