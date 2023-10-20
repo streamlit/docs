@@ -110,6 +110,8 @@ Widgets which support the `on_change` event:
 - `st.checkbox`
 - `st.color_picker`
 - `st.date_input`
+- `st.data_editor`
+- `st.file_uploader`
 - `st.multiselect`
 - `st.number_input`
 - `st.radio`
@@ -119,7 +121,7 @@ Widgets which support the `on_change` event:
 - `st.text_area`
 - `st.text_input`
 - `st.time_input`
-- `st.file_uploader`
+- `st.toggle`
 
 Widgets which support the `on_click` event:
 
