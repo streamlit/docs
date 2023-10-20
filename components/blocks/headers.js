@@ -41,7 +41,7 @@ const getBody = (props) => {
 };
 
 export const cleanHref = (name) => {
-  const clean = String(name).replace(/\./g, "").replace(/ /g, "-");
+  const clean = String(name).replace(/\./g, "").replace(/\s+/g, "-");
   return clean;
 };
 
