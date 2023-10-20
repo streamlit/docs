@@ -310,6 +310,14 @@ site_menu:
     url: /library/api-reference/control-flow/st.experimental_rerun
     isVersioned: true
     isDeprecated: true
+  - category: Streamlit library / API reference / Testing
+    url: /library/api-reference/testing
+  - category: Streamlit library / API reference / Testing / st.testing.v1.AppTest
+    url: /library/api-reference/testing/st.testing.v1.apptest
+    isVersioned: true
+  - category: Streamlit library / API reference / Testing / Elements
+    url: /library/api-reference/testing/st.testing-elements
+    isVersioned: true
   - category: Streamlit library / API reference / Utilities
     url: /library/api-reference/utilities
   - category: Streamlit library / API reference / Utilities / st.set_page_config
