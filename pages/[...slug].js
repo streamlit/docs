@@ -1,7 +1,7 @@
 import fs from "fs";
 import { join, basename } from "path";
 import sortBy from "lodash/sortBy";
-import React from "react";
+import React, { useState, useCallback } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import { serialize } from "next-mdx-remote/serialize";
@@ -10,15 +10,20 @@ import { MDXRemote } from "next-mdx-remote";
 import matter from "gray-matter";
 import remarkUnwrapImages from "remark-unwrap-images";
 import classNames from "classnames";
+import { useRouter } from "next/router";
 
 // Site Components
-import GDPRBanner from "../components/utilities/gdpr";
+import CookieSettingsModal from "../components/utilities/cookieSettingsModal";
+import GDPRBanner, {
+  setTelemetryPreference,
+} from "../components/utilities/gdpr";
 import {
   getArticleSlugs,
   getArticleSlugFromString,
   pythonDirectory,
   getMenu,
   getGDPRBanner,
+  getCookieSettings,
 } from "../lib/api";
 import { getPreviousNextFromMenu } from "../lib/utils.js";
 import useVersion from "../lib/useVersion.js";
@@ -77,12 +82,37 @@ export default function Article({
   versions,
   paths,
   gdpr_data,
+  cookie_data,
   filename,
 }) {
   let versionWarning;
   let currentLink;
   let suggestEditURL;
   const { sourceFile } = useAppContext();
+
+  const [isTelemetryModalVisible, setIsTelemetryModalVisible] = useState(false);
+  const [isTelemetryBannerVisible, setIsTelemetryBannerVisible] =
+    useState(false);
+  const [insertTelemetryCode, setInsertTelemetryCode] = useState(false);
+
+  const router = useRouter();
+
+  const allowTelemetryAndCloseBanner = useCallback(() => {
+    setIsTelemetryBannerVisible(false);
+    setIsTelemetryModalVisible(false);
+    setInsertTelemetryCode(true);
+    setTelemetryPreference(true);
+  }, [isTelemetryBannerVisible, insertTelemetryCode]);
+
+  const declineTelemetryAndCloseBanner = useCallback(() => {
+    setIsTelemetryBannerVisible(false);
+    setIsTelemetryModalVisible(false);
+    setInsertTelemetryCode(false);
+    setTelemetryPreference(false);
+
+    // If previous state was true, and now it's false, reload the page to remove telemetry JS
+    if (insertTelemetryCode) router.reload();
+  }, [isTelemetryBannerVisible, insertTelemetryCode]);
 
   suggestEditURL =
     Object.keys(streamlit).length > 0 && sourceFile
@@ -194,7 +224,25 @@ export default function Article({
       }}
     >
       <Layout>
-        <GDPRBanner {...gdpr_data} />
+        {isTelemetryModalVisible && (
+          <CookieSettingsModal
+            setIsTelemetryModalVisible={setIsTelemetryModalVisible}
+            allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
+            declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
+            {...cookie_data}
+          />
+        )}
+        <GDPRBanner
+          {...gdpr_data}
+          isTelemetryModalVisible={isTelemetryModalVisible}
+          setIsTelemetryModalVisible={setIsTelemetryModalVisible}
+          isTelemetryBannerVisible={isTelemetryBannerVisible}
+          setIsTelemetryBannerVisible={setIsTelemetryBannerVisible}
+          insertTelemetryCode={insertTelemetryCode}
+          setInsertTelemetryCode={setInsertTelemetryCode}
+          allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
+          declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
+        />
         <section className={styles.Container}>
           <SideBar slug={slug} menu={menu} />
           <Head>
@@ -261,7 +309,7 @@ export default function Article({
               </div>
             </article>
           </section>
-          <Footer />
+          <Footer setIsTelemetryModalVisible={setIsTelemetryModalVisible} />
         </section>
       </Layout>
     </MDXProvider>
@@ -273,6 +321,7 @@ export async function getStaticProps(context) {
   const props = {};
   let location = `/${context.params.slug.join("/")}`;
   const gdpr_data = await getGDPRBanner();
+  const cookie_data = await getCookieSettings();
 
   // Sort of documentation versions
   const jsonContents = fs.readFileSync(
