@@ -9,7 +9,7 @@ slug: /library/api-reference/app-testing/st.testing.v1.apptest
 
 <Autofunction function="streamlit.testing.v1.AppTest" />
 
-# Initialize an AppTest script runner
+# Initialize a simulated app using AppTest
 
 <Autofunction function="AppTest.from_file" />
 
