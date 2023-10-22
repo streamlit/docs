@@ -376,7 +376,10 @@ All that's changed is that we've added a default model to `st.session_state` and
         messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
         stream=True,
     ):
-        full_response += response.choices[0].delta.get("content", "")
+        try:
+            full_response += response.choices[0].delta.get("content", "")
+        except IndexError:
+            pass
         message_placeholder.markdown(full_response + "▌")
     message_placeholder.markdown(full_response)
 st.session_state.messages.append({"role": "assistant", "content": full_response})
