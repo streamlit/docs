@@ -12,6 +12,8 @@ import docstring_parser
 import streamlit
 import streamlit.components.v1 as components
 from streamlit.elements.lib.mutable_status_container import StatusContainer
+from streamlit.testing.v1.app_test import AppTest
+import streamlit.testing.v1.element_tree as element_tree
 from docutils.core import publish_parts
 from docutils.parsers.rst import directives
 from numpydoc.docscrape import NumpyDocString
@@ -49,9 +51,7 @@ def strip_code_prompts(rst_string):
 
 def get_github_source(func):
     """Returns a link to the source code on GitHub for a given command."""
-    repo_prefix = (
-        f"https://github.com/streamlit/streamlit/blob/{VERSION}/lib/"
-    )
+    repo_prefix = f"https://github.com/streamlit/streamlit/blob/{VERSION}/lib/"
 
     if hasattr(func, "__dict__"):
         # For Streamlit commands (e.g. st.spinner) wrapped by decorator
@@ -396,6 +396,16 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
         # Get the member object using its name
         member = getattr(obj, membername)
 
+        # Skip non-element or block classes in element tree
+        if obj == element_tree:
+            if not inspect.isclass(member):
+                continue
+            if not (
+                issubclass(member, element_tree.Widget)
+                or member == element_tree.Element
+            ):
+                continue
+
         # Check if the member is a property
         is_property = isinstance(member, property)
         if is_property:
@@ -480,17 +490,24 @@ def get_streamlit_docstring_dict():
             "streamlit.connections.SnowparkConnection",
             "SnowparkConnection",
         ],
+        streamlit.connections.SnowflakeConnection: [
+            "streamlit.connections.SnowflakeConnection",
+            "SnowflakeConnection",
+        ],
         streamlit.connections.ExperimentalBaseConnection: [
             "streamlit.connections.ExperimentalBaseConnection",
             "ExperimentalBaseConnection",
         ],
-        streamlit.column_config: [
-            "streamlit.column_config",
-            "st.column_config",
-        ],
+        streamlit.column_config: ["streamlit.column_config", "st.column_config"],
         components: ["streamlit.components.v1", "st.components.v1"],
         streamlit._DeltaGenerator: ["DeltaGenerator", "element"],
-        StatusContainer: ["StatusContainer", "StatusContainer"]
+        StatusContainer: ["StatusContainer", "StatusContainer"],
+        streamlit.testing.v1: ["streamlit.testing.v1", "st.testing.v1"],
+        AppTest: ["AppTest", "AppTest"],
+        element_tree: [
+            "streamlit.testing.v1.element_tree",
+            "st.testing.v1.element_tree",
+        ],
     }
 
     module_docstring_dict = {}
