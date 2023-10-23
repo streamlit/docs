@@ -91,11 +91,11 @@ disableWidgetStateDuplicationWarning = false
 # Default: true
 showWarningOnDirectExecution = true
 
-# DataFrame serialization.
 # ***DEPRECATED***
-# Legacy serialization has been removed. All dataframes will be serialized using Apache Arrow.
-# This option will be removed on or after 2023-11-01.
+# Legacy serialization has been removed. All dataframes will be serialized
+# using Apache Arrow. This option will be removed on or after 2023-11-01.
 # ****************
+# DataFrame serialization.
 # Acceptable values:
 # - 'legacy' : Serialize DataFrames using Streamlit's custom format. Slow
 #              but battle-tested.
