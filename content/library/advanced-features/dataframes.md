@@ -276,9 +276,9 @@ if st.button('Get results'):
 
 In addition to column configuration, `st.dataframe` and `st.data_editor` have a few more parameters to customize the display of your dataframe.
 
-* `hide_index` : Set to `True` to hide the dataframe's index.
-* `column_order` : Pass a list of column labels to specify the order of display.
-* `disabled` : Pass a list of column labels to disable them from editing. This let's you avoid disabling them individually.
+- `hide_index` : Set to `True` to hide the dataframe's index.
+- `column_order` : Pass a list of column labels to specify the order of display.
+- `disabled` : Pass a list of column labels to disable them from editing. This let's you avoid disabling them individually.
 
 ## Handling large datasets
 
@@ -292,12 +292,11 @@ In addition to these factors, a slow network connection can also significantly s
 
 When handling large datasets with more than 150,000 rows, Streamlit applies additional optimizations and disables column sorting. This can help to reduce the amount of data that needs to be processed at once and improve the app's performance.
 
-## Limitations
+## Limitations and notes
 
-While Streamlit's data editing capabilities offer a lot of functionality, there are some limitations to be aware of:
+- All dataframes are serialized using Apache Arrow.
+- Streamlit casts all column names to strings internally.
+- The dataframe toolbar is not currently configurable.
+- While Streamlit's data editing capabilities offer a lot of functionality, editing is enabled for a limited set of column types ([TextColumn](/library/api-reference/data/st.column_config/st.column_config.textcolumn), [NumberColumn](/library/api-reference/data/st.column_config/st.column_config.numbercolumn), [LinkColumn](/library/api-reference/data/st.column_config/st.column_config.linkcolumn), [CheckboxColumn](/library/api-reference/data/st.column_config/st.column_config.checkboxcolumn), [SelectboxColumn](/library/api-reference/data/st.column_config/st.column_config.selectboxcolumn), [DateColumn](/library/api-reference/data/st.column_config/st.column_config.datecolumn), [TimeColumn](/library/api-reference/data/st.column_config/st.column_config.timecolumn), and [DatetimeColumn](/library/api-reference/data/st.column_config/st.column_config.datetimecolumn)). We are actively working on supporting editing for other column types as well, such as images, lists, and charts.
 
-- Editing is enabled for a limited set of column types ([TextColumn](/library/api-reference/data/st.column_config/st.column_config.textcolumn), [NumberColumn](/library/api-reference/data/st.column_config/st.column_config.numbercolumn), [LinkColumn](/library/api-reference/data/st.column_config/st.column_config.linkcolumn), [CheckboxColumn](/library/api-reference/data/st.column_config/st.column_config.checkboxcolumn), [SelectboxColumn](/library/api-reference/data/st.column_config/st.column_config.selectboxcolumn), [DateColumn](/library/api-reference/data/st.column_config/st.column_config.datecolumn), [TimeColumn](/library/api-reference/data/st.column_config/st.column_config.timecolumn), and [DatetimeColumn](/library/api-reference/data/st.column_config/st.column_config.datetimecolumn)). We are actively working on supporting editing for other column types as well, such as images, lists, and charts.
-- Editing of Pandas DataFrames only supports the following index types: `RangeIndex`, (string) `Index`, `Float64Index`, `Int64Index`, and `UInt64Index`.
-- Some actions like deleting rows or searching data can only be triggered via keyboard hotkeys.
-
-We are working to fix the above limitations in future releases, so keep an eye out for updates.
+We are continually working to improve Streamlit's handling of DataFrame and add functionality to data editing, so keep an eye out for updates.
