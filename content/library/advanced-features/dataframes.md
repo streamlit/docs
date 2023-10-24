@@ -32,13 +32,15 @@ st.dataframe(df, use_container_width=True)
 
 `st.dataframe` also provides some additional functionality by using [glide-data-grid](https://github.com/glideapps/glide-data-grid) under the hood:
 
-- **Column sorting**: sort columns by clicking on their headers.
-- **Column resizing**: resize columns by dragging and dropping column header borders.
-- **Table resizing**: resize tables by dragging and dropping the bottom right corner.
-- **Search**: search through data by clicking a table, using hotkeys (`⌘ Cmd + F` or `Ctrl + F`) to bring up the search bar, and using the search bar to filter data.
-- **Copy to clipboard**: select one or multiple cells, copy them to the clipboard and paste them into your favorite spreadsheet software.
+- **Column sorting**: Sort columns by clicking on their headers.
+- **Column resizing**: Resize columns by dragging and dropping column header borders.
+- **Table resizing**: Resize tables by dragging and dropping the bottom right corner.
+- **Fullscreen view**: Enlarge tables to fullscreen using the toolbar.
+- **Search**: Search and filter through data using the toolbar or hotkeys (`⌘+F` or `Ctrl+F`).
+- **Download**: Download table data using the toolbar.
+- **Copy to clipboard**: Select one or multiple cells, copy them to the clipboard (`⌘+C` or `Ctrl+C`), and paste them into your favorite spreadsheet software.
 
-![dataframe-ui.gif](/images/dataframe-ui.gif)
+<YouTube videoId="VvTwxM_Iz40" loop />
 
 Try out all the UI features using the embedded app from the prior section.
 
