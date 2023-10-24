@@ -67,5 +67,5 @@ with st.sidebar:
 
     with st.spinner("Loading..."):
         time.sleep(5)
-    st.success("Done!")
+    st.success("Done!!")
 ```
