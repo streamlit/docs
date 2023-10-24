@@ -292,11 +292,11 @@ In addition to these factors, a slow network connection can also significantly s
 
 When handling large datasets with more than 150,000 rows, Streamlit applies additional optimizations and disables column sorting. This can help to reduce the amount of data that needs to be processed at once and improve the app's performance.
 
-## Limitations and notes
+## Limitations
 
-- All dataframes are serialized using Apache Arrow.
 - Streamlit casts all column names to strings internally.
 - The dataframe toolbar is not currently configurable.
 - While Streamlit's data editing capabilities offer a lot of functionality, editing is enabled for a limited set of column types ([TextColumn](/library/api-reference/data/st.column_config/st.column_config.textcolumn), [NumberColumn](/library/api-reference/data/st.column_config/st.column_config.numbercolumn), [LinkColumn](/library/api-reference/data/st.column_config/st.column_config.linkcolumn), [CheckboxColumn](/library/api-reference/data/st.column_config/st.column_config.checkboxcolumn), [SelectboxColumn](/library/api-reference/data/st.column_config/st.column_config.selectboxcolumn), [DateColumn](/library/api-reference/data/st.column_config/st.column_config.datecolumn), [TimeColumn](/library/api-reference/data/st.column_config/st.column_config.timecolumn), and [DatetimeColumn](/library/api-reference/data/st.column_config/st.column_config.datetimecolumn)). We are actively working on supporting editing for other column types as well, such as images, lists, and charts.
+- Almost all editable datatypes are supported for index editing. However, `pandas.CategoricalIndex` and `pandas.MultiIndex` are not supported for editing.
 
 We are continually working to improve Streamlit's handling of DataFrame and add functionality to data editing, so keep an eye out for updates.
