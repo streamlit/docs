@@ -141,7 +141,7 @@ This can be useful when working with large dataframes and you only need to know 
 
 Use all we've learned so far and apply them to the above embedded app. Try editing cells, adding new rows, and deleting rows.
 
-Notice how edits to the table are reflected in Session State: when you make any edits, a rerun is triggered which sends the edits to the backend. The widget's state is a JSON object containing three properties: **edited_rows**, **added_rows**, and **deleted rows:**.
+Notice how edits to the table are reflected in Session State. When you make any edits, a rerun is triggered which sends the edits to the backend. The widget's state is a JSON object containing three properties: **edited_rows**, **added_rows**, and **deleted rows:**.
 
 <Warning>
 
@@ -274,5 +274,6 @@ When handling large datasets with more than 150,000 rows, Streamlit applies addi
 - The dataframe toolbar is not currently configurable.
 - While Streamlit's data editing capabilities offer a lot of functionality, editing is enabled for a limited set of column types ([TextColumn](/library/api-reference/data/st.column_config/st.column_config.textcolumn), [NumberColumn](/library/api-reference/data/st.column_config/st.column_config.numbercolumn), [LinkColumn](/library/api-reference/data/st.column_config/st.column_config.linkcolumn), [CheckboxColumn](/library/api-reference/data/st.column_config/st.column_config.checkboxcolumn), [SelectboxColumn](/library/api-reference/data/st.column_config/st.column_config.selectboxcolumn), [DateColumn](/library/api-reference/data/st.column_config/st.column_config.datecolumn), [TimeColumn](/library/api-reference/data/st.column_config/st.column_config.timecolumn), and [DatetimeColumn](/library/api-reference/data/st.column_config/st.column_config.datetimecolumn)). We are actively working on supporting editing for other column types as well, such as images, lists, and charts.
 - Almost all editable datatypes are supported for index editing. However, `pandas.CategoricalIndex` and `pandas.MultiIndex` are not supported for editing.
+- Sorting and reordering are not supported for `st.data_editor`.
 
 We are continually working to improve Streamlit's handling of DataFrame and add functionality to data editing, so keep an eye out for updates.
