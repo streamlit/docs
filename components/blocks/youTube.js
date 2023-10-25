@@ -7,7 +7,7 @@ const YouTube = ({ caption, videoId, start, end, loop }) => {
   let modifier;
 
   if (loop) {
-    modifier = "&autoplay=1&loop=1";
+    modifier = `&autoplay=1&loop=1&playlist=${videoId}`;
   } else {
     modifier = "";
   }
