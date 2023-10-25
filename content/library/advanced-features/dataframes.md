@@ -30,14 +30,14 @@ st.dataframe(df, use_container_width=True)
 
 ## `st.dataframe` UI features
 
-`st.dataframe` also provides some additional functionality by using [glide-data-grid](https://github.com/glideapps/glide-data-grid) under the hood:
+`st.dataframe` provides additional functionality by using [glide-data-grid](https://github.com/glideapps/glide-data-grid) under the hood:
 
 - **Column sorting**: Sort columns by clicking on their headers.
 - **Column resizing**: Resize columns by dragging and dropping column header borders.
 - **Table resizing**: Resize tables by dragging and dropping the bottom right corner.
 - **Fullscreen view**: Enlarge tables to fullscreen by clicking the fullscreen icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>fullscreen</i>) in the toolbar.
-- **Search** through data: Click the search icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>search</i>) in the toolbar or use hotkeys (`⌘+F` or `Ctrl+F`).
-- **Download** table data: Click the download icon in the toolbar.
+- **Search**: Click the search icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>search</i>) in the toolbar or use hotkeys (`⌘+F` or `Ctrl+F`) to search through the data.
+- **Download**: Click the download icon in the toolbar to download the data as a CSV file.
 - **Copy to clipboard**: Select one or multiple cells, copy them to the clipboard (`⌘+C` or `Ctrl+C`), and paste them into your favorite spreadsheet software.
 
 <YouTube videoId="nauAnULRG1c" loop />
@@ -74,12 +74,12 @@ Try it out by double-clicking on any cell. You'll notice you can edit all cell v
 
 `st.data_editor` also supports a few additional things:
 
-- [Add and delete rows](#add-and-delete-rows). You can do this by setting `num_rows= "dynamic"` when calling `st.data_editor`. This will allow users to add and delete rows as needed.
-- [Copy and paste support](#copy-and-paste-support) from and to Excel and Google Sheets.
-- [Access edited data](#access-edited-data). Only access the individual edits instead of the entire edited data structure via Session State.
-- [Bulk edits](#bulk-edits). Similar to Excel, just drag a handle to edit neighboring cells.
-- [Automatic input validation](#automatic-input-validation) with strong data type support and other configurable options. For example, there's no way to enter letters into a number cell. Number cells can have a designated min and max.
-- [Edit common data structures](#edit-common-data-structures) such as lists, dicts, NumPy ndarray, etc.
+- [**Add and delete rows**](#add-and-delete-rows): You can do this by setting `num_rows= "dynamic"` when calling `st.data_editor`. This will allow users to add and delete rows as needed.
+- [**Copy and paste support**](#copy-and-paste-support): Copy and paste both between `st.data_editor` and spreadsheet software like Google Sheets and Excel.
+- [**Access edited data**](#access-edited-data): Access only the individual edits instead of the entire edited data structure via Session State.
+- [**Bulk edits**](#bulk-edits): Similar to Excel, just drag a handle to edit neighboring cells.
+- [**Automatic input validation**](#automatic-input-validation): Column Configuration provides strong data type support and other configurable options. For example, there's no way to enter letters into a number cell. Number cells can have a designated min and max.
+- [**Edit common data structures**](#edit-common-data-structures): `st.data_editor` supports lists, dicts, NumPy ndarray, and more!
 
 <YouTube videoId="6tah69LkfxE" loop />
 
@@ -91,7 +91,7 @@ With `st.data_editor`, viewers can add or delete rows via the table UI. This mod
 edited_df = st.data_editor(df, num_rows="dynamic")
 ```
 
-- To add new rows, click the plus icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>add</i>) after the last row or in the toolbar.
+- To add new rows, click the plus icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>add</i>) in the toolbar. Alternatively, click inside a shaded cell below the bottom row of the table.
 - To delete rows, select one or more rows using the checkboxes on the left. Click the delete icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>delete</i>) or press the `delete` key on your keyboard.
 
 <Cloud src="https://doc-data-editor-clipboard.streamlit.app/?embed=true" height="400px"/>
@@ -123,7 +123,7 @@ As developers, ensure the app is served with a valid, trusted certificate when u
 
 ### Access edited data
 
-Sometimes, it is more convenient to know which cells have been changed rather than getting the entire edited dataframe back. Streamlit makes this easy through the use of [Session State](https://docs.streamlit.io/library/advanced-features/session-state). If a `key` parameter is set, Streamlit will store any changes made to the dataframe in the Session State.
+Sometimes, it is more convenient to know which cells have been changed rather than getting the entire edited dataframe back. Streamlit makes this easy through the use of [Session State](https://docs.streamlit.io/library/advanced-features/session-state). If a `key` parameter is set, Streamlit will store any changes made to the dataframe in Session State.
 
 This snippet shows how you can access changed data using Session State:
 
@@ -133,9 +133,9 @@ st.write("Here's the value in Session State:")
 st.write(st.session_state["my_key"]) # 👈 Show the value in Session State
 ```
 
-In this code snippet, the `key` parameter is set to `"my_key"`. After the data editor is created, the value associated to `"my_key"` in Session State is printed to the screen using `st.write`. This shows the additions, edits, and deletions that were made.
+In this code snippet, the `key` parameter is set to `"my_key"`. After the data editor is created, the value associated to `"my_key"` in Session State is displayed in the app using `st.write`. This shows the additions, edits, and deletions that were made.
 
-This can be useful when working with large dataframes and you only need to know which cells have changed, rather than the entire edited dataframe.
+This can be useful when working with large dataframes and you only need to know which cells have changed, rather than access the entire edited dataframe.
 
 <Cloud src="https://doc-data-editor-changed.streamlit.app/?embed=true" height="700px"/>
 
