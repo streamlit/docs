@@ -61,8 +61,14 @@ role = "..."
 # ...
 ```
 
+<Autofunction function="streamlit.connections.SQLConnection.connect" />
+
 <Autofunction function="streamlit.connections.SQLConnection.query" />
 
 <Autofunction function="streamlit.connections.SQLConnection.reset" />
+
+<Autofunction function="streamlit.connections.SQLConnection.driver" />
+
+<Autofunction function="streamlit.connections.SQLConnection.engine" />
 
 <Autofunction function="streamlit.connections.SQLConnection.session" />
