@@ -2,15 +2,22 @@ import React from "react";
 
 import styles from "./youtube.module.css";
 
-const YouTube = ({ caption, videoId, start, end }) => {
+const YouTube = ({ caption, videoId, start, end, loop }) => {
   let YouTubeBlock;
+  let modifier;
+
+  if (loop) {
+    modifier = `&autoplay=1&loop=1&playlist=${videoId}`;
+  } else {
+    modifier = "";
+  }
 
   if (caption) {
     YouTubeBlock = (
       <section className={styles.Container}>
         <section className={styles.IframeContainer}>
           <iframe
-            src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&start=${start}&end=${end}`}
+            src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&start=${start}&end=${end}${modifier}`}
             className={styles.Iframe}
             title="YouTube video player"
             frameBorder="0"
@@ -27,7 +34,7 @@ const YouTube = ({ caption, videoId, start, end }) => {
     YouTubeBlock = (
       <section className={styles.IframeContainer}>
         <iframe
-          src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&start=${start}&end=${end}`}
+          src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&start=${start}&end=${end}${modifier}`}
           className={styles.Iframe}
           title="YouTube video player"
           frameBorder="0"
