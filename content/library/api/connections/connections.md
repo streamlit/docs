@@ -17,7 +17,7 @@ slug: /library/api-reference/connections
 Connect to a data source or API
 
 ```python
-conn = st.experimental_connection('pets_db', type='sql')
+conn = st.connection('pets_db', type='sql')
 pet_owners = conn.query('select * from pet_owners')
 st.dataframe(pet_owners)
 ```
@@ -38,21 +38,21 @@ st.dataframe(pet_owners)
 A connection to a SQL database using SQLAlchemy.
 
 ```python
-conn = st.experimental_connection('sql')
+conn = st.connection('sql')
 ```
 
 </RefCard>
 
-<RefCard href="/library/api-reference/connections/st.connections.snowparkconnection" size="half">
+<RefCard href="/library/api-reference/connections/st.connections.snowflakeconnection" size="half">
 
 <Image pure alt="screenshot" src="/images/api/connections.SnowflakeConnection.svg" />
 
-#### SnowparkConnection
+#### SnowflakeConnection
 
-A connection to Snowflake Snowpark.
+A connection to Snowflake.
 
 ```python
-conn = st.experimental_connection('snowpark')
+conn = st.connection('snowflake')
 ```
 
 </RefCard>
@@ -61,14 +61,14 @@ conn = st.experimental_connection('snowpark')
 ## Third-party connections
 
 <TileContainer>
-<RefCard href="/library/api-reference/connections/st.connections.experimentalbaseconnection" size="half">
+<RefCard href="/library/api-reference/connections/st.connections.baseconnection" size="half">
 
 #### Connection base class
 
-Build your own connection with `ExperimentalBaseConnection`.
+Build your own connection with `BaseConnection`.
 
 ```python
-class MyConnection(ExperimentalBaseConnection[myconn.MyConnection]):
+class MyConnection(BaseConnection[myconn.MyConnection]):
     def _connect(self, **kwargs) -> MyConnection:
         return myconn.connect(**self._secrets, **kwargs)
     def query(self, query):
