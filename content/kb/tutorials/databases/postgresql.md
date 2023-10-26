@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/postgresql
 
 ## Introduction
 
-This guide explains how to securely access a **_remote_** PostgreSQL database from Streamlit Community Cloud. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection) and Streamlit's [Secrets management](/library/advanced-features/secrets-management). The below example code will **only work on Streamlit version >= 1.22**, when `st.experimental_connection` was added.
+This guide explains how to securely access a **_remote_** PostgreSQL database from Streamlit Community Cloud. It uses [st.connection](/library/api-reference/connections/st.connection) and Streamlit's [Secrets management](/library/advanced-features/secrets-management). The below example code will **only work on Streamlit version >= 1.28**, when `st.connection` was added.
 
 ## Create a PostgreSQL database
 
@@ -79,7 +79,7 @@ Copy the code below to your Streamlit app and run it. Make sure to adapt `query`
 import streamlit as st
 
 # Initialize connection.
-conn = st.experimental_connection("postgresql", type="sql")
+conn = st.connection("postgresql", type="sql")
 
 # Perform query.
 df = conn.query('SELECT * FROM mytable;', ttl="10m")
@@ -89,7 +89,7 @@ for row in df.itertuples():
     st.write(f"{row.name} has a :{row.pet}:")
 ```
 
-See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl="10m"` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
+See `st.connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl="10m"` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 

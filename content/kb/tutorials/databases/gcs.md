@@ -128,7 +128,7 @@ from st_files_connection import FilesConnection
 
 # Create connection object and retrieve file contents.
 # Specify input format is a csv and to cache the result for 600 seconds.
-conn = st.experimental_connection('gcs', type=FilesConnection)
+conn = st.connection('gcs', type=FilesConnection)
 df = conn.read("streamlit-bucket/myfile.csv", input_format="csv", ttl=600)
 
 # Print results.
@@ -136,7 +136,7 @@ for row in df.itertuples():
     st.write(f"{row.Owner} has a :{row.Pet}:")
 ```
 
-See `st.experimental_connection` above? This handles secrets retrieval, setup, result caching and retries. By default, `read()` results are cached without expiring. In this case, we set `ttl=600` to ensure the file contents is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
+See `st.connection` above? This handles secrets retrieval, setup, result caching and retries. By default, `read()` results are cached without expiring. In this case, we set `ttl=600` to ensure the file contents is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
 
 If everything worked out (and you used the example file given above), your app should look like this:
 
