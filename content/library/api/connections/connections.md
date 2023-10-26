@@ -8,9 +8,9 @@ slug: /library/api-reference/connections
 ## Setup your connection
 
 <TileContainer>
-<RefCard href="/library/api-reference/connections/st.experimental_connection" size="half">
+<RefCard href="/library/api-reference/connections/st.connection" size="half">
 
-<Image pure alt="screenshot" src="/images/api/connection.jpg" />
+<Image pure alt="screenshot" src="/images/api/connection.svg" />
 
 #### Create a connection
 
@@ -31,7 +31,7 @@ st.dataframe(pet_owners)
 
 <RefCard href="/library/api-reference/connections/st.connections.sqlconnection" size="half">
 
-<Image pure alt="screenshot" src="/images/api/connections.SQLConnection.jpg" />
+<Image pure alt="screenshot" src="/images/api/connections.SQLConnection.svg" />
 
 #### SQLConnection
 
@@ -45,7 +45,7 @@ conn = st.experimental_connection('sql')
 
 <RefCard href="/library/api-reference/connections/st.connections.snowparkconnection" size="half">
 
-<Image pure alt="screenshot" src="/images/api/connections.SnowparkConnection.jpg" />
+<Image pure alt="screenshot" src="/images/api/connections.SnowflakeConnection.svg" />
 
 #### SnowparkConnection
 
