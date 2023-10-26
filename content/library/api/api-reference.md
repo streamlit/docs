@@ -2075,20 +2075,6 @@ st.dataframe(pet_owners)
 
 <TileContainer>
 
-<RefCard href="/library/api-reference/connections/st.connections.sqlconnection" size="half">
-
-<Image pure alt="screenshot" src="/images/api/connections.SQLConnection.svg" />
-
-#### SQLConnection
-
-A connection to a SQL database using SQLAlchemy.
-
-```python
-conn = st.connection('sql')
-```
-
-</RefCard>
-
 <RefCard href="/library/api-reference/connections/st.connections.snowflakeconnection" size="half">
 
 <Image pure alt="screenshot" src="/images/api/connections.SnowflakeConnection.svg" />
@@ -2099,6 +2085,20 @@ A connection to Snowflake.
 
 ```python
 conn = st.connection('snowflake')
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/connections/st.connections.sqlconnection" size="half">
+
+<Image pure alt="screenshot" src="/images/api/connections.SQLConnection.svg" />
+
+#### SQLConnection
+
+A connection to a SQL database using SQLAlchemy.
+
+```python
+conn = st.connection('sql')
 ```
 
 </RefCard>
