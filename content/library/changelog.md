@@ -26,7 +26,7 @@ _Release date: October 26, 2023_
 - 🧪 Introducing a new testing framework for Streamlit apps! Check out our [documentation](/library/api-reference/app-testing) to learn how to build automated tests for your apps.
 - 💻 Announcing the general availability of `st.connection`, a command to conveniently manage connections in Streamlit apps. Check out the [docs](/library/api-reference/connections/st.connection) to learn more.
 - ❄️ `SnowparkConnection` has been upgraded to the new and improved `SnowflakeConnection` — the same, great functionality _plus more_! Check out our [built-in connections](/library/api-reference/connections#built-in-connections).
-- 🛠️ `st.dataframe`and `st.data_editor` have a new toolbar! Users can search and download data in addition to enjoying improved UI for row additions and deletions. See our updated guide on [Dataframes](/library/advanced-features/dataframes).
+- 🛠️ `st.dataframe` and `st.data_editor` have a new toolbar! Users can search and download data in addition to enjoying improved UI for row additions and deletions. See our updated guide on [Dataframes](/library/advanced-features/dataframes).
 
 **Notable Changes**
 

@@ -137,6 +137,53 @@ export default function Home({ window, menu, gdpr_data }) {
             <H2 className="no-b-m">What's new</H2>
 
             <TileContainer>
+              <RefCard size="third" href="/library/api-reference/app-testing">
+                <i className="material-icons-sharp">science</i>
+                <h4>App testing</h4>
+                <p>
+                  Introducing a new testing framework for Streamlit apps! Build
+                  automated tests for your CI workflows.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/connections/st.connection"
+              >
+                <i className="material-icons-sharp">account_tree</i>
+                <h4>
+                  <code>st.connection</code> is deexperimentalized!
+                </h4>
+                <p>
+                  Announcing the general availability of{" "}
+                  <code>st.connection</code>, a command to conveniently manage
+                  connections in Streamlit apps.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/connections/st.connections.snowflakeconnection"
+              >
+                <i className="material-icons-sharp">ac_unit</i>
+                <h4>
+                  <code>SnowparkConnection</code> has been upgraded!
+                </h4>
+                <p>
+                  <code>SnowflakeConnection</code> has all the same great
+                  functionality <em>plus more!</em>
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/advanced-features/dataframes"
+              >
+                <i className="material-icons-sharp">construction</i>
+                <h4>Dataframe toolbars</h4>
+                <p>
+                  <code>st.dataframe</code>and <code>st.data_editor</code> have
+                  a new toolbar! Users can search and download data in addition
+                  to enjoying improved UI for row additions and deletions.
+                </p>
+              </RefCard>
               <RefCard
                 size="third"
                 href="/library/api-reference/charts/st.scatter_chart"
@@ -158,56 +205,6 @@ export default function Home({ window, menu, gdpr_data }) {
                 <p>
                   Introducing <code>st.link_button</code>! Open an external link
                   in a new tab with a bit more pizazz than a plain-text link.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/control-flow/st.rerun"
-              >
-                <i className="material-icons-sharp">directions_run</i>
-                <h4>
-                  <code>st.rerun</code> is de-experimentalized!
-                </h4>
-                <p>
-                  Announcing the general availability of <code>st.rerun</code>,
-                  a command to interrupt your script and trigger an immediate
-                  rerun.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/library/api-reference/widgets">
-                <i className="material-icons-sharp">block</i>
-                <h4>More widgets can be empty</h4>
-                <p>
-                  You can initialize widgets with an empty state by setting{" "}
-                  <code>None</code>
-                  as an initial value for <code>st.number_input</code>,{" "}
-                  <code>st.selectbox</code>,<code>st.date_input</code>,{" "}
-                  <code>st.time_input</code>, <code>st.radio</code>,{" "}
-                  <code>st.text_input</code>, and
-                  <code>st.text_area</code>!
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/streamlit-community-cloud/manage-your-app/edit-your-app"
-              >
-                <i className="material-icons-sharp">cloud</i>
-                <h4>Skip local installation and code in the cloud!</h4>
-                <p>
-                  Streamlit Community Cloud makes it easy to spin up a GitHub
-                  Codespace to start building and editing Streamlit apps &mdash;
-                  all in the cloud!
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/status/st.status"
-              >
-                <i className="material-icons-sharp">rotate_right</i>
-                <h4>Status container</h4>
-                <p>
-                  Introducing <code>st.status</code> to display output from
-                  long-running processes and external API calls
                 </p>
               </RefCard>
               {/* <Tile
