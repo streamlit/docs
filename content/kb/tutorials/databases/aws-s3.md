@@ -87,8 +87,7 @@ Add the [FilesConnection](https://github.com/streamlit/files-connection) and [s3
 ```bash
 # requirements.txt
 s3fs==x.x.x
-# Direct pypi install coming soon
-git+https://github.com/streamlit/files-connection
+st-files-connection
 ```
 
 ## Write your Streamlit app

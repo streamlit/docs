@@ -112,8 +112,7 @@ Add the [FilesConnection](https://github.com/streamlit/files-connection) and [gc
 ```bash
 # requirements.txt
 gcsfs==x.x.x
-# Direct pypi install coming soon
-git+https://github.com/streamlit/files-connection
+st-files-connection
 ```
 
 ## Write your Streamlit app
