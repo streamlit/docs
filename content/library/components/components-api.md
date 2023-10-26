@@ -95,8 +95,8 @@ To make the process of creating bi-directional Streamlit Components easier, we'v
 
 To build a Streamlit Component, you need the following installed in your development environment:
 
-- Python 3.7 - Python 3.11
-- Streamlit 0.63+
+- Python 3.8 - Python 3.11
+- Streamlit 1.11.1 or higher
 - [nodejs](https://nodejs.org/en/)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
@@ -124,14 +124,16 @@ Clone the [component-template GitHub repo](https://github.com/streamlit/componen
    # React template
    cd template
    . venv/bin/activate # or similar to activate the venv/conda environment where Streamlit is installed
-   streamlit run my_component/__init__.py # run the example
+   pip install -e . # install template as editable package
+   streamlit run my_component/example.py # run the example
 
    # or
 
    # TypeScript-only template
    cd template-reactless
    . venv/bin/activate # or similar to activate the venv/conda environment where Streamlit is installed
-   streamlit run my_component/__init__.py # run the example
+   pip install -e . # install template as editable package
+   streamlit run my_component/example.py # run the example
    ```
 
 After running the steps above, you should see a Streamlit app in your browser that looks like this:

@@ -1,6 +1,5 @@
 // Global Imports
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import React, { useState, useEffect, useCallback } from "react";
 import classNames from "classnames";
 import { MDXRemote } from "next-mdx-remote";
 import { ReactComponent as CookieEmoji } from "../../images/icons/cookie.svg";
@@ -12,84 +11,72 @@ const KEY = "InsertAnalyticsCode";
 const GDPRBanner = (gdprData) => {
   const title = gdprData.title;
   const content = gdprData.content;
-  const data = gdprData.data;
 
-  const router = useRouter();
-  const path = router.asPath;
+  // Start with default values
+  const [isVisible, setIsVisible] = useState(true);
+  const [insertAnalyticsCode, setInsertAnalyticsCode] = useState(false);
 
-  const userIsInEurope = Intl.DateTimeFormat()
-    .resolvedOptions()
-    .timeZone.startsWith("Europe");
-
-  if (typeof window === "undefined") return null;
-
-  const localStorageIsSetUp = localStorage.getItem(KEY) != null;
-
-  // Default to use cookies when outside Europe.
-  if (!localStorageIsSetUp && !userIsInEurope) {
-    localStorage.setItem(KEY, true);
-  }
-
-  // Only show banner if not in europe and banner wasn't already shown.
-  const showBanner = userIsInEurope && !localStorageIsSetUp;
-
-  const [isVisible, setIsVisible] = useState(showBanner);
-  const [insertAnalyticsCode, setInsertAnalyticsCode] = useState(
-    localStorage.getItem(KEY) == "true"
-  );
-
-  const AllowAndCloseBanner = (e) => {
+  const AllowAndCloseBanner = useCallback(() => {
     // Update state and set the decision into localStorage
     setIsVisible(false);
-    const allow = true;
-    setInsertAnalyticsCode(allow);
-    localStorage.setItem(KEY, allow);
-  };
+    setInsertAnalyticsCode(true);
+    localStorage.setItem(KEY, JSON.stringify(Date.now()));
+  }, [isVisible, insertAnalyticsCode]);
 
-  const DeclineAndCloseBanner = (e) => {
+  const DeclineAndCloseBanner = useCallback(() => {
     // Update state and set the decision into localStorage
     setIsVisible(false);
-    const allow = false;
-    setInsertAnalyticsCode(allow);
-    localStorage.setItem(KEY, allow);
-  };
+    setInsertAnalyticsCode(false);
+    localStorage.setItem(KEY, false);
+  }, [isVisible, insertAnalyticsCode]);
 
   useEffect(() => {
+    // Check if there's something in localStorage, and update the banner visibility based on that
+    const localStorageIsSetUp = localStorage.getItem(KEY) != null;
+    setIsVisible(!localStorageIsSetUp);
+
+    if (localStorageIsSetUp) {
+      setInsertAnalyticsCode(localStorage.getItem(KEY) != "false");
+    }
+  }, []);
+
+  useEffect(() => {
+    // TODO: Check if timestamp > 1 year, then show banner again before adding snippet
     if (insertAnalyticsCode) {
       insertAnalytics();
     }
   }, [insertAnalyticsCode]);
 
-  if (!isVisible) {
-    return "";
-  }
-
   return (
-    <div className={styles.Container}>
-      <div className={styles.BannerBackground}>
-        <div className={styles.ImageContainer}>
-          <CookieEmoji className={styles.Image} />
-        </div>
-        <div className={styles.TextContainer}>
-          <h3 className={styles.Title}>{title}</h3>
-          <MDXRemote {...content} />
-          <div className={styles.CtasContainer}>
-            <button
-              onClick={DeclineAndCloseBanner}
-              className={classNames(styles.Button, styles.DeclineButton)}
-            >
-              Decline
-            </button>
-            <button
-              onClick={AllowAndCloseBanner}
-              className={classNames(styles.Button, styles.AllowButton)}
-            >
-              Allow
-            </button>
+    <>
+      {isVisible && (
+        <div className={styles.Container}>
+          <div className={styles.BannerBackground}>
+            <div className={styles.ImageContainer}>
+              <CookieEmoji className={styles.Image} />
+            </div>
+            <div className={styles.TextContainer}>
+              <h3 className={styles.Title}>{title}</h3>
+              <MDXRemote {...content} />
+              <div className={styles.CtasContainer}>
+                <button
+                  onClick={DeclineAndCloseBanner}
+                  className={classNames(styles.Button, styles.DeclineButton)}
+                >
+                  Decline
+                </button>
+                <button
+                  onClick={AllowAndCloseBanner}
+                  className={classNames(styles.Button, styles.AllowButton)}
+                >
+                  Allow
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

@@ -110,6 +110,8 @@ Widgets which support the `on_change` event:
 - `st.checkbox`
 - `st.color_picker`
 - `st.date_input`
+- `st.data_editor`
+- `st.file_uploader`
 - `st.multiselect`
 - `st.number_input`
 - `st.radio`
@@ -119,7 +121,7 @@ Widgets which support the `on_change` event:
 - `st.text_area`
 - `st.text_input`
 - `st.time_input`
-- `st.file_uploader`
+- `st.toggle`
 
 Widgets which support the `on_click` event:
 
@@ -143,6 +145,40 @@ with st.form(key='my_form'):
     checkbox_input = st.checkbox('Yes or No', key='my_checkbox')
     submit_button = st.form_submit_button(label='Submit', on_click=form_callback)
 ```
+
+### Serializable Session State
+
+Serialization refers to the process of converting an object or data structure into a format that can be persisted and shared, and allowing you to recover the data’s original structure. Python’s built-in [pickle](https://docs.python.org/3/library/pickle.html) module serializes Python objects to a byte stream ("pickling") and deserializes the stream into an object ("unpickling").
+
+By default, Streamlit’s [Session State](/library/advanced-features/session-state) allows you to persist any Python object for the duration of the session, irrespective of the object’s pickle-serializability. This property lets you store Python primitives such as integers, floating-point numbers, complex numbers and booleans, dataframes, and even [lambdas](https://docs.python.org/3/reference/expressions.html#lambda) returned by functions. However, some execution environments may require serializing all data in Session State, so it may be useful to detect incompatibility during development, or when the execution environment will stop supporting it in the future.
+
+To that end, Streamlit provides a `runner.enforceSerializableSessionState` [configuration option](/library/advanced-features/configuration) that, when set to `true`, only allows pickle-serializable objects in Session State. To enable the option, either create a global or project config file with the following or use it as a command-line flag:
+
+```toml
+# .streamlit/config.toml
+[runner]
+enforceSerializableSessionState = true
+```
+
+By "_pickle-serializable_", we mean calling `pickle.dumps(obj)` should not raise a [`PicklingError`](https://docs.python.org/3/library/pickle.html#pickle.PicklingError) exception. When the config option is enabled, adding unserializable data to session state should result in an exception. E.g.,
+
+```python
+import streamlit as st
+
+def unserializable_data():
+		return lambda x: x
+
+#👇 results in an exception when enforceSerializableSessionState is on
+st.session_state.unserializable = unserializable_data()
+```
+
+<Image alt="UnserializableSessionStateError" src="/images/unserializable-session-state-error.png" clean />
+
+<Warning>
+
+When `runner.enforceSerializableSessionState` is set to `true`, Session State implicitly uses the `pickle` module, which is known to be insecure. Ensure all data saved and retrieved from Session State is trusted because it is possible to construct malicious pickle data that will execute arbitrary code during unpickling. Never load data that could have come from an untrusted source in an unsafe mode or that could have been tampered with. **Only load data you trust**.
+
+</Warning>
 
 ### Caveats and limitations
 

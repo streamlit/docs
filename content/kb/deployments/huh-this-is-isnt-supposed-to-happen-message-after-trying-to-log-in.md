@@ -20,5 +20,5 @@ This message usually indicates that our system has linked your GitHub username w
 No worries – all you have to do is:
 
 1. Log out of Streamlit Community Cloud completely (via both your email and GitHub accounts).
-2. Log in first with your email account (you can do so via either ["Continue with Google"](/streamlit-community-cloud/get-started#sign-in-with-google) or ["Continue with email"](/knowledge-base/deploy/sign-in-without-sso)).
-3. Log in with your [GitHub account](/streamlit-community-cloud/get-started#sign-in-with-email).
+2. Log in first with your email account (you can do so via either ["Continue with Google"](/streamlit-community-cloud/manage-your-account/sign-in-sign-out#sign-in-with-google) or ["Continue with email"](/knowledge-base/deploy/sign-in-without-sso)).
+3. Log in with your [GitHub account](/streamlit-community-cloud/manage-your-account/sign-in-sign-out#sign-in-with-email).

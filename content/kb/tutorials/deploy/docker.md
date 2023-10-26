@@ -131,7 +131,7 @@ Let’s walk through each line of the Dockerfile :
    - streamlit_app.py
    ```
 
-   where `requirements.txt` file contains all your [Python dependencies](https://docs.streamlit.io/streamlit-community-cloud/get-started/deploy-an-app/app-dependencies#add-python-dependencies). E.g
+   where `requirements.txt` file contains all your [Python dependencies](https://docs.streamlit.io/streamlit-community-cloud/deploy-your-app/app-dependencies#add-python-dependencies). E.g
 
    ```
    altair
@@ -191,7 +191,7 @@ Let’s walk through each line of the Dockerfile :
 
    More generally, the idea is copy your app code from wherever it may live on your server into the container. If the code is not in the same directory as the Dockerfile, modify the above command to include the path to the code.
 
-5. Install your app’s [Python dependencies](/streamlit-community-cloud/get-started/deploy-an-app/app-dependencies#add-python-dependencies) from the cloned `requirements.txt` in the container:
+5. Install your app’s [Python dependencies](/streamlit-community-cloud/deploy-your-app/app-dependencies#add-python-dependencies) from the cloned `requirements.txt` in the container:
 
    ```docker
    RUN pip3 install -r requirements.txt

@@ -428,18 +428,7 @@ style_metric_cards()
 ## Chart elements
 
 <TileContainer>
-<RefCard href="/library/api-reference/charts/st.line_chart">
-<Image pure alt="screenshot" src="/images/api/line_chart.jpg" />
 
-#### Simple line charts
-
-Display a line chart.
-
-```python
-st.line_chart(my_data_frame)
-```
-
-</RefCard>
 <RefCard href="/library/api-reference/charts/st.area_chart">
 <Image pure alt="screenshot" src="/images/api/area_chart.jpg" />
 
@@ -461,6 +450,30 @@ Display a bar chart.
 
 ```python
 st.bar_chart(my_data_frame)
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/charts/st.line_chart">
+<Image pure alt="screenshot" src="/images/api/line_chart.jpg" />
+
+#### Simple line charts
+
+Display a line chart.
+
+```python
+st.line_chart(my_data_frame)
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/charts/st.scatter_chart">
+<Image pure alt="screenshot" src="/images/api/scatter_chart.svg" />
+
+#### Simple scatter charts
+
+Display a line chart.
+
+```python
+st.scatter_chart(my_data_frame)
 ```
 
 </RefCard>
@@ -706,7 +719,7 @@ st.altair_chart(chart, use_container_width=True)
 <TileContainer>
 <RefCard href="/library/api-reference/widgets/st.button">
 
-<Image pure alt="screenshot" src="/images/api/button.jpg" />
+<Image pure alt="screenshot" src="/images/api/button.svg" />
 
 #### Button
 
@@ -732,7 +745,7 @@ edited = st.experimental_data_editor(df, num_rows="dynamic")
 </RefCard>
 <RefCard href="/library/api-reference/widgets/st.download_button">
 
-<Image pure alt="screenshot" src="/images/api/download_button.jpg" />
+<Image pure alt="screenshot" src="/images/api/download_button.svg" />
 
 #### Download button
 
@@ -740,6 +753,19 @@ Display a download button widget.
 
 ```python
 st.download_button("Download file", file)
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/widgets/st.link_button">
+
+<Image pure alt="screenshot" src="/images/api/link_button.svg" />
+
+#### Link button
+
+Display a link button.
+
+```python
+st.link_button("Go to gallery", url)
 ```
 
 </RefCard>
@@ -753,6 +779,19 @@ Display a checkbox widget.
 
 ```python
 selected = st.checkbox("I agree")
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/widgets/st.toggle">
+
+<Image pure alt="screenshot" src="/images/api/toggle.jpg" />
+
+#### Toggle
+
+Display a toggle widget.
+
+```python
+activated = st.toggle("Activate")
 ```
 
 </RefCard>
@@ -1387,6 +1426,60 @@ show_pages([ Page("streamlit_app.py", "Home", "🏠"),
 
 </ComponentSlider>
 
+## Chat elements
+
+Streamlit provides a few commands to help you build conversational apps. These chat elements are designed to be used in conjunction with each other, but you can also use them separately.
+
+`st.chat_message` lets you insert a chat message container into the app so you can display messages from the user or the app. Chat containers can contain other Streamlit elements, including charts, tables, text, and more. `st.chat_input` lets you display a chat input widget so the user can type in a message.
+
+<TileContainer>
+<RefCard href="/library/api-reference/chat/st.chat_message">
+
+<Image pure alt="screenshot" src="/images/api/chat_message.jpg" />
+
+#### Chat message
+
+Insert a chat message container.
+
+```python
+import numpy as np
+with st.chat_message("user"):
+    st.write("Hello 👋")
+    st.line_chart(np.random.randn(30, 3))
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/chat/st.chat_input">
+
+<Image pure alt="screenshot" src="/images/api/chat_input.jpg" />
+
+#### Chat input
+
+Display a chat input widget.
+
+```python
+prompt = st.chat_input("Say something")
+if prompt:
+    st.write(f"The user has sent: {prompt}")
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/status/st.status">
+
+<Image pure alt="screenshot" src="/images/api/status.jpg" />
+
+#### Status container
+
+Display output of long-running tasks in a container.
+
+```python
+with st.status('Running'):
+  do_something_slow()
+```
+
+</RefCard>
+</TileContainer>
+
 ## Display progress and status
 
 <TileContainer>
@@ -1416,6 +1509,33 @@ Temporarily displays a message while executing a block of code.
 ```python
 with st.spinner("Please wait..."):
   do_something_slow()
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/status/st.status">
+
+<Image pure alt="screenshot" src="/images/api/status.jpg" />
+
+#### Status container
+
+Display output of long-running tasks in a container.
+
+```python
+with st.status('Running'):
+  do_something_slow()
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/status/st.toast">
+
+<Image pure alt="screenshot" src="/images/api/toast.jpg" />
+
+#### Toast
+
+Briefly displays a toast message in the bottom-right corner.
+
+```python
+st.toast('Butter!', icon='🧈')
 ```
 
 </RefCard>
@@ -1588,9 +1708,9 @@ Create a form that batches elements together with a “Submit" button.
 
 ```python
 with st.form(key='my_form'):
-    username = st.text_input("Username")
-    password = st.text_input("Password")
-    st.form_submit_button("Login")
+    name = st.text_input("Name")
+    email = st.text_input("Email")
+    st.form_submit_button("Sign up")
 ```
 
 </RefCard>
@@ -1605,14 +1725,14 @@ st.stop()
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/control-flow/st.experimental_rerun">
+<RefCard href="/library/api-reference/control-flow/st.rerun">
 
 #### Rerun script
 
 Rerun the script immediately.
 
 ```python
-st.experimental_rerun()
+st.rerun()
 ```
 
 </RefCard>
@@ -1741,8 +1861,8 @@ Configures the default settings of the page.
 
 ```python
 st.set_page_config(
-  title="My app",
-  favicon=":shark:",
+  page_title="My app",
+  page_icon=":shark:",
 )
 ```
 
@@ -1923,48 +2043,6 @@ def init_model():
     "sentiment-analysis",
     model="distilbert-base-uncased-finetuned-sst-2-english"
   )
-```
-
-</RefCard>
-
-<RefCard href="/library/api-reference/performance/st.cache_data.clear" size="half">
-
-#### Clear cached data
-
-Clear all in-memory and on-disk data caches.
-
-```python
-@st.cache_data
-def long_function(param1, param2):
-  # Perform expensive computation here or
-  # fetch data from the web here
-  return data
-
-if st.checkbox("Clear All"):
-  # Clear values from *all* cache_data functions
-  st.cache_data.clear()
-```
-
-</RefCard>
-
-<RefCard href="/library/api-reference/performance/st.cache_resource.clear" size="half">
-
-#### Clear cached resources
-
-Clear all `st.cache_resource` caches.
-
-```python
-@st.cache_resource
-def init_model():
-  # Return a global resource here
-  return pipeline(
-    "sentiment-analysis",
-    model="distilbert-base-uncased-finetuned-sst-2-english"
-  )
-
-if st.checkbox("Clear All"):
-  # Clear values from *all* cache_resource functions
-  st.cache_data.clear()
 ```
 
 </RefCard>

@@ -11,7 +11,7 @@ This is an experimental feature. Experimental features and their APIs may change
 
 <Tip>
 
-This page only contains on the `st.connections.ExperimentalBaseConnection` API. For a deeper dive into creating and managing data connections within Streamlit apps, read [Connecting to data](/library/advanced-features/connecting-to-data).
+This page only contains information on the `st.connections.ExperimentalBaseConnection` API. For a deeper dive into creating and managing data connections within Streamlit apps, read [Connecting to data](/library/advanced-features/connecting-to-data).
 
 </Tip>
 

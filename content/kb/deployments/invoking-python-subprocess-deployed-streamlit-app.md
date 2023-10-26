@@ -34,7 +34,7 @@ import sys
 subprocess.run([f"{sys.executable}", "script.py"])
 ```
 
-This ensures that `script.py` is running under the same Python executable as your Streamlit code—where your [Python dependencies](/streamlit-community-cloud/get-started/deploy-an-app/app-dependencies#add-python-dependencies) are installed.
+This ensures that `script.py` is running under the same Python executable as your Streamlit code—where your [Python dependencies](/streamlit-community-cloud/deploy-your-app/app-dependencies#add-python-dependencies) are installed.
 
 ### Relevant links
 

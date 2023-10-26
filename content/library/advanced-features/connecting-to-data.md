@@ -36,7 +36,7 @@ Community Cloud apps do not guarantee the persistence of local file storage, so 
 
 To see the example below running live, check out the interactive demo below:
 
-<Cloud src="https://st-connection-preview.streamlit.app/SQL?embed=true" />
+<Cloud src="https://experimental-connection.streamlit.app/SQL?embed=true" />
 
 #### Step 1: Install prerequisite library - SQLAlchemy
 

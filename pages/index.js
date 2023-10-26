@@ -137,67 +137,77 @@ export default function Home({ window, menu, gdpr_data }) {
             <H2 className="no-b-m">What's new</H2>
 
             <TileContainer>
-              <RefCard size="third" href="/library/api-reference/connections">
-                <i className="material-icons-sharp">electrical_services</i>
-                <h4>st.experimental_connection</h4>
+              <RefCard
+                size="third"
+                href="/library/api-reference/charts/st.scatter_chart"
+              >
+                <i className="material-icons-sharp">scatter_plot</i>
+                <h4>Scatter chart</h4>
                 <p>
-                  Introducing <code>st.experimental_connection</code> to let you
-                  easily connect your app to data sources and APIs.
+                  Introducing <code>st.scatter_chart</code> — a new, simple
+                  chart element to build scatter charts Streamlit-y fast and
+                  easy!
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/utilities/st.help"
+                href="/library/api-reference/widgets/st.link_button"
               >
-                <i className="material-icons-sharp">help</i>
-                <h4>Supercharged st.help!</h4>
+                <i className="material-icons-sharp">link</i>
+                <h4>Link button</h4>
                 <p>
-                  <code>st.help</code> has been revamped to show more
-                  information about object methods, attributes, classes, and
-                  more, which is great for debugging!
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/library/api-reference/text">
-                <i className="material-icons-sharp">tips_and_updates</i>
-                <h4>Tooltips on text elements</h4>
-                <p>
-                  Most text elements can optionally include tooltips with the
-                  <code>help</code> parameter.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/library/api-reference/text/st.code">
-                <i className="material-icons-sharp">terminal</i>
-                <h4>Line numbers in st.code</h4>
-                <p>
-                  <code>st.code</code> supports optionally displaying line
-                  numbers to the code block's left with the boolean{" "}
-                  <code>line_numbers</code> parameter.
+                  Introducing <code>st.link_button</code>! Open an external link
+                  in a new tab with a bit more pizazz than a plain-text link.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/advanced-features/secrets-management"
+                href="/library/api-reference/control-flow/st.rerun"
               >
-                <i className="material-icons-sharp">lock</i>
-                <h4>Global secrets.toml file</h4>
+                <i className="material-icons-sharp">directions_run</i>
+                <h4>
+                  <code>st.rerun</code> is de-experimentalized!
+                </h4>
                 <p>
-                  Streamlit now supports the use of a global{" "}
-                  <code>secrets.toml</code>
-                  file, in addition to a project-level file, to easily store and
-                  securely access your secrets. Click to read the docs.
+                  Announcing the general availability of <code>st.rerun</code>,
+                  a command to interrupt your script and trigger an immediate
+                  rerun.
+                </p>
+              </RefCard>
+              <RefCard size="third" href="/library/api-reference/widgets">
+                <i className="material-icons-sharp">block</i>
+                <h4>More widgets can be empty</h4>
+                <p>
+                  You can initialize widgets with an empty state by setting{" "}
+                  <code>None</code>
+                  as an initial value for <code>st.number_input</code>,{" "}
+                  <code>st.selectbox</code>,<code>st.date_input</code>,{" "}
+                  <code>st.time_input</code>, <code>st.radio</code>,{" "}
+                  <code>st.text_input</code>, and
+                  <code>st.text_area</code>!
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/advanced-features/dataframes"
+                href="/streamlit-community-cloud/manage-your-app/edit-your-app"
               >
-                <i className="material-icons-sharp">edit_note</i>
-                <h4>Editable dataframes!</h4>
+                <i className="material-icons-sharp">cloud</i>
+                <h4>Skip local installation and code in the cloud!</h4>
                 <p>
-                  Display a data editor widget with{" "}
-                  <code>st.experimental_data_editor</code>
-                  to edit dataframes and many other data structures in a
-                  table-like UI.
+                  Streamlit Community Cloud makes it easy to spin up a GitHub
+                  Codespace to start building and editing Streamlit apps &mdash;
+                  all in the cloud!
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/status/st.status"
+              >
+                <i className="material-icons-sharp">rotate_right</i>
+                <h4>Status container</h4>
+                <p>
+                  Introducing <code>st.status</code> to display output from
+                  long-running processes and external API calls
                 </p>
               </RefCard>
               {/* <Tile
@@ -215,6 +225,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 text="Do you need more control over cache invalidation? Any function annotated with @st.cache_data or @st.cache_resource gets its own clear() function automatically."
                 link="/library/advanced-features/experimental-cache-primitives#clear-memo-and-singleton-caches-procedurally"
               /> */}
+              {/* Preserve above comment for syntax reference */}
             </TileContainer>
 
             <H2 className="no-b-m">Latest blog posts</H2>

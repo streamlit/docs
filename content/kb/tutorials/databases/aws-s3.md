@@ -7,7 +7,7 @@ slug: /knowledge-base/tutorials/databases/aws-s3
 
 ## Introduction
 
-This guide explains how to securely access files on AWS S3 from Streamlit Community Cloud. It uses [Streamlit FilesConnection](https://github.com/streamlit/files-connection), the [s3fs](https://github.com/dask/s3fs) library and optionally Streamlit's [secrets management](/library/advanced-features/secrets-management).
+This guide explains how to securely access files on AWS S3 from Streamlit Community Cloud. It uses [Streamlit FilesConnection](https://github.com/streamlit/files-connection), the [s3fs](https://github.com/dask/s3fs) library and optionally Streamlit's [Secrets management](/library/advanced-features/secrets-management).
 
 ## Create an S3 bucket and add a file
 
@@ -76,7 +76,7 @@ Be sure to replace `xxx` above with the values you noted down earlier, and add t
 
 ## Copy your app secrets to the cloud
 
-To host your app on Streamlit Community Cloud, you will need to pass your credentials to your deployed app via secrets. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` above into the text area. More information is available at [Secrets Management](/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management).
+To host your app on Streamlit Community Cloud, you will need to pass your credentials to your deployed app via secrets. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` above into the text area. More information is available at [Secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management).
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 

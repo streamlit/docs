@@ -5,6 +5,16 @@ slug: /library/get-started/installation
 
 # Install Streamlit
 
+<Note>
+
+### Skip installation! Community Cloud + GitHub Codespaces
+
+Community Cloud now makes it easy to skip installation and start coding right in your browser with GitHub Codespaces. 🎉 Hop over to our Community Cloud [Quickstart](/streamlit-community-cloud/get-started/quickstart) to create an account, deploy an example app, and jump right into a codespace to start editing. Return to [Main concepts](/library/get-started/main-concepts) to learn all about how Streamlit works.
+
+You can edit any app you've deployed on Community Cloud with GitHub Codespaces. See [Edit your app with GitHub Codespaces](/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces).
+
+</Note>
+
 ## Table of contents
 
 1. [Prerequisites](#prerequisites)
@@ -16,7 +26,7 @@ slug: /library/get-started/installation
 Before you get started, you're going to need a few things:
 
 - Your favorite IDE or text editor
-- [Python 3.7 - Python 3.11](https://www.python.org/downloads/)
+- [Python 3.8 - Python 3.11](https://www.python.org/downloads/)
 - [PIP](https://pip.pypa.io/en/stable/installation/)
 
 ## Set up your virtual environment
@@ -32,7 +42,7 @@ Below are a few tools you can use for environment management:
 - [pipenv](https://pipenv-fork.readthedocs.io/en/latest/)
 - [poetry](https://python-poetry.org/)
 - [virtualenv](https://virtualenv.pypa.io/en/latest/)
-- [conda](https://www.anaconda.com/distribution/)
+- [conda](https://docs.anaconda.com/free/anaconda/getting-started/)
 
 ## Install Streamlit on Windows
 
