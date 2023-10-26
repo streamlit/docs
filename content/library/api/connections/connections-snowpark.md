@@ -15,7 +15,7 @@ This page only contains on the `st.connections.SnowparkConnection` API. For a de
 
 </Tip>
 
-<Autofunction function="streamlit.connections.SnowparkConnection" />
+<Autofunction function="streamlit.connections.SnowparkConnection" deprecated={true} deprecatedText="<code>st.connections.SnowParkConnection</code> was deprecated in version 1.28.0. Use <a href='/library/api-reference/connections/st.connections.snowflakeconnection'><code>st.connections.SnowflakeConnection</code></a> instead." />
 
 <Autofunction function="streamlit.connections.SnowparkConnection.query" />
 
