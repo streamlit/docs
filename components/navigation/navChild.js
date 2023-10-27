@@ -64,94 +64,88 @@ const NavChild = ({ slug, page, color, className }) => {
     );
   }
 
-  let link;
-  let divider;
+  let navElement;
   let icon;
   let target;
-  let url;
-  if (typeof page.url !== "undefined") {
-    url = page.url;
-  } else {
-    url = "";
-  }
+  let url = page.url || "";
 
-  const isLocalPage = url.startsWith("/");
-  const isCrossLinkedPage = url.startsWith("https://docs.streamlit.io");
+  const isRelativePath = url.startsWith("/");
+  const isAbsolutePath = url.startsWith("https://docs.streamlit.io");
   const isDivider = url === "";
+  const isExternal = !isRelativePath && !isAbsolutePath && !isDivider;
 
-  if (!isLocalPage && !isCrossLinkedPage && !isDivider) {
+  if (isExternal) {
     icon = <i className={styles.ExternalIcon}>open_in_new</i>;
     target = "_blank";
   }
 
-  if (isCrossLinkedPage) {
+  if (isAbsolutePath) {
     url = url.replace("https://docs.streamlit.io", "");
-    icon = <i className={styles.CrossLinkedIcon}>link</i>;
+    icon = <i className={styles.CrossLinkedIcon}>navElement</i>;
   }
 
-  if (page.isVersioned && version && isLocalPage | isCrossLinkedPage) {
+  if (page.isVersioned && version && (isRelativePath || isAbsolutePath)) {
     // We need to version this URL, check if the URL has a version for this version
     const newSlug = url.split("/");
     newSlug[0] = version;
     url = `/${newSlug.join("/")}`;
   }
 
-  if (page.name == "---") {
-    divider = (
-      <span className={styles.LinkContainer}>
-        <div className={styles.DividerLine}></div>
-      </span>
+  if (isDivider && page.name == "---") {
+    navElement = (
+      <div className={styles.LinkContainer}>
+        <hr className={styles.DividerLine} />
+      </div>
+    );
+  } else if (isDivider) {
+    navElement = (
+      <div className={styles.LinkContainer}>
+        <hr className={styles.DividerLine} />
+        <span className={styles.DividerText}>{page.name}</span>
+        <hr className={styles.DividerLine} />
+      </div>
     );
   } else {
-    divider = (
+    navElement = (
       <span className={styles.LinkContainer}>
-        <div className={styles.DividerLine}></div>
-        <div className={styles.DividerText}>{page.name}</div>
-        <div className={styles.DividerLine}></div>
+        <Link href={url}>
+          <a className={classNames("not-link", styles.Link)} target={target}>
+            <span
+              className={classNames(
+                styles.Circle,
+                active ? styles.ActiveCircle : "",
+                color === "violet-70"
+                  ? styles.LibraryCircle
+                  : color === "l-blue-70"
+                  ? styles.CloudCircle
+                  : styles.KBCircle
+              )}
+            />
+            <span
+              className={classNames(
+                styles.PageName,
+                active && styles.ActivePage
+              )}
+            >
+              {page.name}
+            </span>
+            {page.isDeprecated === true ? (
+              <i className={classNames("material-icons-sharp", styles.Icon)}>
+                {"delete"}
+              </i>
+            ) : (
+              icon
+            )}
+          </a>
+        </Link>
+        {accordion}
       </span>
     );
-  }
-
-  link = (
-    <span className={styles.LinkContainer}>
-      <Link href={url}>
-        <a className={classNames("not-link", styles.Link)} target={target}>
-          <span
-            className={classNames(
-              styles.Circle,
-              active ? styles.ActiveCircle : "",
-              color === "violet-70"
-                ? styles.LibraryCircle
-                : color === "l-blue-70"
-                ? styles.CloudCircle
-                : styles.KBCircle
-            )}
-          />
-          <span
-            className={classNames(styles.PageName, active && styles.ActivePage)}
-          >
-            {page.name}
-          </span>
-          {page.isDeprecated === true ? (
-            <i className={classNames("material-icons-sharp", styles.Icon)}>
-              {"delete"}
-            </i>
-          ) : (
-            icon
-          )}
-        </a>
-      </Link>
-      {accordion}
-    </span>
-  );
-
-  if (isDivider) {
-    link = divider;
   }
 
   return (
     <li className={classNames(styles.Container, className)}>
-      {link}
+      {navElement}
       {subNav}
     </li>
   );
