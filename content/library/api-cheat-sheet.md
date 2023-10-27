@@ -5,7 +5,7 @@ slug: /library/cheatsheet
 
 # Cheat Sheet
 
-This is a summary of the docs, as of [Streamlit v1.27.0](https://pypi.org/project/streamlit/1.27.0/).
+This is a summary of the docs, as of [Streamlit v1.28.0](https://pypi.org/project/streamlit/1.28.0/).
 
 <Masonry>
 
@@ -326,11 +326,11 @@ st.experimental_set_query_params(**params)
 #### Connect to data sources
 
 ```python
-st.experimental_connection('pets_db', type='sql')
-conn = st.experimental_connection('sql')
-conn = st.experimental_connection('snowpark')
+st.connection("pets_db", type="sql")
+conn = st.connection("sql")
+conn = st.connection("snowflake")
 
->>> class MyConnection(ExperimentalBaseConnection[myconn.MyConnection]):
+>>> class MyConnection(BaseConnection[myconn.MyConnection]):
 >>>    def _connect(self, **kwargs) -> MyConnection:
 >>>        return myconn.connect(**self._secrets, **kwargs)
 >>>    def query(self, query):
