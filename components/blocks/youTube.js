@@ -11,8 +11,8 @@ const YouTube = ({ caption, videoId, start, end, autoplay, loop }) => {
   }
 
   YouTubeBlock = (
-    <div className={styles.Container}>
-      <section className={styles.IframeContainer}>
+    <section className={styles.Container}>
+      <div className={styles.IframeContainer}>
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${videoId}?playlist=${videoId}&rel=0&start=${start}&end=${end}&autoplay=${autoplay}&loop=${loop}&mute=${mute}`}
           className={styles.Iframe}
@@ -21,13 +21,13 @@ const YouTube = ({ caption, videoId, start, end, autoplay, loop }) => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
-      </section>
+      </div>
       {caption && (
         <div className={styles.CaptionContainer}>
           <p className={styles.Caption}>{caption}</p>
         </div>
       )}
-    </div>
+    </section>
   );
   return YouTubeBlock;
 };
