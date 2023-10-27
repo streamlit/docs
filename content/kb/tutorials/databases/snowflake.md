@@ -64,12 +64,6 @@ You can find the instructions and prerequisites for installing `snowflake-connec
 pip install "snowflake-connector-python"
 ```
 
-<Important>
-
-Ensure you have the correct pyarrow version installed for your version of `snowflake-connector-python`. When in doubt, try uninstalling `pyarrow` before installing `snowflake-connector-python`.
-
-</Important>
-
 ## Add connection parameters to your local app secrets
 
 Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app’s root directory. Learn more about [Streamlit secrets management here](/library/advanced-features/secrets-management). Create this file if it doesn’t exist yet and add your Snowflake username, password, [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html), and the name of your warehouse, database, and schema as shown below:
@@ -81,9 +75,11 @@ Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml`
 account = "xxx"
 user = "xxx"
 password = "xxx"
+role = "xxx"
 warehouse = "xxx"
 database = "xxx"
 schema = "xxx"
+client_session_keep_alive = true
 ```
 
 If you created the database from the previous step, the names of your database and schema are `PETS` and `PUBLIC`, respectively. Streamlit will also use **Snowflake config and credentials** from a [SnowSQL config file](https://docs.snowflake.com/en/user-guide/snowsql-config#snowsql-config-file) if available.
