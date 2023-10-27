@@ -40,7 +40,7 @@ st.dataframe(df, use_container_width=True)
 - **Download**: Click the download icon in the toolbar to download the data as a CSV file.
 - **Copy to clipboard**: Select one or multiple cells, copy them to the clipboard (`⌘+C` or `Ctrl+C`), and paste them into your favorite spreadsheet software.
 
-<YouTube videoId="nauAnULRG1c" loop />
+<YouTube videoId="nauAnULRG1c" loop autoplay />
 
 Try out all the UI features using the embedded app from the prior section.
 
@@ -81,7 +81,7 @@ Try it out by double-clicking on any cell. You'll notice you can edit all cell v
 - [**Automatic input validation**](#automatic-input-validation): Column Configuration provides strong data type support and other configurable options. For example, there's no way to enter letters into a number cell. Number cells can have a designated min and max.
 - [**Edit common data structures**](#edit-common-data-structures): `st.data_editor` supports lists, dicts, NumPy ndarray, and more!
 
-<YouTube videoId="6tah69LkfxE" loop />
+<YouTube videoId="6tah69LkfxE" loop autoplay />
 
 ### Add and delete rows
 
