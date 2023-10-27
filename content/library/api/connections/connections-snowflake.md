@@ -5,7 +5,7 @@ slug: /library/api-reference/connections/st.connections.snowflakeconnection
 
 <Tip>
 
-This page only contains on the `st.connections.SnowflakeConnection` API. For a deeper dive into creating and managing data connections within Streamlit apps, read [Connecting to data](/library/advanced-features/connecting-to-data).
+This page only contains the `st.connections.SnowflakeConnection` class. For a deeper dive into creating and managing data connections within Streamlit apps, read [Connecting to data](/library/advanced-features/connecting-to-data).
 
 </Tip>
 
