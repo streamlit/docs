@@ -498,6 +498,10 @@ def get_streamlit_docstring_dict():
             "streamlit.connections.ExperimentalBaseConnection",
             "ExperimentalBaseConnection",
         ],
+        streamlit.connections.BaseConnection: [
+            "streamlit.connections.BaseConnection",
+            "BaseConnection",
+        ],
         streamlit.column_config: ["streamlit.column_config", "st.column_config"],
         components: ["streamlit.components.v1", "st.components.v1"],
         streamlit._DeltaGenerator: ["DeltaGenerator", "element"],

@@ -359,18 +359,30 @@ site_menu:
     isVersioned: false
   - category: Streamlit library / API reference / Connections and databases
     url: /library/api-reference/connections
-  - category: Streamlit library / API reference / Connections and databases / st.experimental_connection
-    url: /library/api-reference/connections/st.experimental_connection
+  - category: Streamlit library / API reference / Connections and databases / st.connection
+    url: /library/api-reference/connections/st.connection
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / SnowflakeConnection
+    url: /library/api-reference/connections/st.connections.snowflakeconnection
     isVersioned: true
   - category: Streamlit library / API reference / Connections and databases / SQLConnection
     url: /library/api-reference/connections/st.connections.sqlconnection
     isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / BaseConnection
+    url: /library/api-reference/connections/st.connections.baseconnection
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / st.experimental_connection
+    url: /library/api-reference/connections/st.experimental_connection
+    isVersioned: true
+    isDeprecated: true
   - category: Streamlit library / API reference / Connections and databases / SnowparkConnection
     url: /library/api-reference/connections/st.connections.snowparkconnection
     isVersioned: true
-  - category: Streamlit library / API reference / Connections and databases / Connection base class
+    isDeprecated: true
+  - category: Streamlit library / API reference / Connections and databases / ExperimentalBaseConnection
     url: /library/api-reference/connections/st.connections.experimentalbaseconnection
     isVersioned: true
+    isDeprecated: true
   - category: Streamlit library / API reference / App testing
     url: /library/api-reference/app-testing
   - category: Streamlit library / API reference / App testing / st.testing.v1.AppTest

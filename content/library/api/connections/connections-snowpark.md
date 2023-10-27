@@ -11,11 +11,11 @@ This is an experimental feature. Experimental features and their APIs may change
 
 <Tip>
 
-This page only contains on the `st.connections.SnowparkConnection` API. For a deeper dive into creating and managing data connections within Streamlit apps, read [Connecting to data](/library/advanced-features/connecting-to-data).
+This page only contains the `st.connections.SnowparkConnection` class. For a deeper dive into creating and managing data connections within Streamlit apps, read [Connecting to data](/library/advanced-features/connecting-to-data).
 
 </Tip>
 
-<Autofunction function="streamlit.connections.SnowparkConnection" />
+<Autofunction function="streamlit.connections.SnowparkConnection" deprecated={true} deprecatedText="<code>st.connections.SnowParkConnection</code> was deprecated in version 1.28.0. Use <a href='/library/api-reference/connections/st.connections.snowflakeconnection'><code>st.connections.SnowflakeConnection</code></a> instead." />
 
 <Autofunction function="streamlit.connections.SnowparkConnection.query" />
 
