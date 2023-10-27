@@ -20,7 +20,9 @@ The provided class, AppTest, simulates a running app and provides methods to set
 `st.testing.v1.AppTest` simulates a running Streamlit app for testing.
 
 ```python
-at = st.testing.v1.AppTest.from_file("streamlit_app.py")
+from streamlit.testing.v1 import AppTest
+
+at = AppTest.from_file("streamlit_app.py")
 at.secrets["WORD"] = "Foobar"
 at.run()
 assert not at.exception
@@ -44,7 +46,9 @@ assert at.warning[0].value == "Try again."
 `st.testing.v1.AppTest.from_file` initializes a simulated app from a file.
 
 ```python
-at = st.testing.v1.AppTest.from_file("streamlit_app.py")
+from streamlit.testing.v1 import AppTest
+
+at = AppTest.from_file("streamlit_app.py")
 at.secrets["WORD"] = "Foobar"
 at.run()
 assert not at.exception
@@ -59,6 +63,8 @@ assert not at.exception
 `st.testing.v1.AppTest.from_string` initializes a simulated app from a string.
 
 ```python
+from streamlit.testing.v1 import AppTest
+
 app_script = """
 import streamlit as st
 
@@ -69,7 +75,7 @@ elif word_of_the_day and word_of_the_day != st.secrets["WORD"]:
     st.warn("Try again.")
 """
 
-at = st.testing.v1.AppTest.from_string(app_script)
+at = AppTest.from_string(app_script)
 at.secrets["WORD"] = "Foobar"
 at.run()
 assert not at.exception
@@ -84,6 +90,8 @@ assert not at.exception
 `st.testing.v1.AppTest.from_function` initializes a simulated app from a function.
 
 ```python
+from streamlit.testing.v1 import AppTest
+
 def app_script ():
     import streamlit as st
 
@@ -93,7 +101,7 @@ def app_script ():
     elif word_of_the_day and word_of_the_day != st.secrets["WORD"]:
         st.warn("Try again.")
 
-at = st.testing.v1.AppTest.from_function(app_script)
+at = AppTest.from_function(app_script)
 at.secrets["WORD"] = "Foobar"
 at.run()
 assert not at.exception
@@ -111,7 +119,7 @@ assert not at.exception
 
 #### Block
 
-A representation of container elements, inlcluding:
+A representation of container elements, including:
 
 - `st.chat_message`
 - `st.columns`

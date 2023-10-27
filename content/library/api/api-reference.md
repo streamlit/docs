@@ -2155,7 +2155,9 @@ else:
 `st.testing.v1.AppTest` simulates a running Streamlit app for testing.
 
 ```python
-at = st.testing.v1.AppTest.from_file("streamlit_app.py")
+from streamlit.testing.v1 import AppTest
+
+at = AppTest.from_file("streamlit_app.py")
 at.secrets["WORD"] = "Foobar"
 at.run()
 assert not at.exception
@@ -2173,7 +2175,9 @@ assert at.warning[0].value == "Try again."
 `st.testing.v1.AppTest.from_file` initializes a simulated app from a file.
 
 ```python
-at = st.testing.v1.AppTest.from_file("streamlit_app.py")
+from streamlit.testing.v1 import AppTest
+
+at = AppTest.from_file("streamlit_app.py")
 at.run()
 ```
 
@@ -2186,7 +2190,9 @@ at.run()
 `st.testing.v1.AppTest.from_string` initializes a simulated app from a string.
 
 ```python
-at = st.testing.v1.AppTest.from_string(app_script_as_string)
+from streamlit.testing.v1 import AppTest
+
+at = AppTest.from_string(app_script_as_string)
 at.run()
 ```
 
@@ -2199,7 +2205,9 @@ at.run()
 `st.testing.v1.AppTest.from_function` initializes a simulated app from a function.
 
 ```python
-at = st.testing.v1.AppTest.from_function(app_script_as_callable)
+from streamlit.testing.v1 import AppTest
+
+at = AppTest.from_function(app_script_as_callable)
 at.run()
 ```
 
@@ -2209,7 +2217,7 @@ at.run()
 
 #### Block
 
-A representation of container elements, inlcluding:
+A representation of container elements, including:
 
 - `st.chat_message`
 - `st.columns`
