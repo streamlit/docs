@@ -37,7 +37,6 @@ function getTelemetryPreference() {
 }
 
 export default function GDPRBanner({
-  title,
   content,
   isTelemetryModalVisible,
   setIsTelemetryModalVisible,
@@ -85,73 +84,66 @@ export default function GDPRBanner({
         <div
           className={classNames(
             isTelemetryBannerVisible === false ? "hidden" : "",
-            "z-30 w-full fixed border-t border-gray-40 p-4 bottom-0",
-            styles.Container
+            "z-30 fixed",
+            "bottom-2 inset-x-2 md:bottom-4 md:inset-x-4"
           )}
         >
           <div
             className={classNames(
-              "flex flex-col lg:flex-row lg:items-center pl-4 pr-4 sm:pl-8 sm:pr-8"
+              "flex flex-col lg:flex-row lg:items-end gap-4",
+              "pl-4 pr-4 sm:pl-8 sm:pr-8",
+              "rounded-lg border border-gray-30",
+              "shadow-lg",
+              "container mx-auto py-8",
+              styles.Container
             )}
           >
-            <div className="flex-1">
-              {title && (
-                <h6 className="font-bold text-gray-90 text-lg sm:text-2xl">
-                  {title}
-                </h6>
-              )}
+            <div className={classNames("flex-1", styles.Markdown)}>
               <MDXRemote {...content} />
             </div>
-            <button
-              className={classNames(
-                "mt-4 lg:mt-0",
-                "text-gray-90",
-                "hover:text-gray-70 hover:underline",
-                "order-last lg:order-none",
-                styles.Link
-              )}
-              onClick={() =>
-                setIsTelemetryModalVisible(!isTelemetryModalVisible)
-              }
-            >
-              Cookie settings
-            </button>
-            <button
-              className={classNames(
-                "mt-4 lg:mt-0",
-                "lg:ml-4",
-                "py-2 px-3",
-                "text-gray-90",
-                "border-gray-90 border",
-                "rounded",
-                "hover:bg-gray-90",
-                "hover:text-white",
-                "active:bg-gray-90",
-                "active:text-white",
-                styles.Button
-              )}
-              onClick={declineTelemetryAndCloseBanner}
-            >
-              Reject all
-            </button>
-            <button
-              className={classNames(
-                "mt-4 lg:mt-0",
-                "lg:ml-4",
-                "py-2 px-3",
-                "text-gray-90",
-                "border-gray-90 border",
-                "rounded",
-                "hover:bg-gray-90",
-                "hover:text-white",
-                "active:bg-gray-90",
-                "active:text-white",
-                styles.Button
-              )}
-              onClick={allowTelemetryAndCloseBanner}
-            >
-              Accept all
-            </button>
+            <div className="flex flex-col lg:flex-row lg:justify-end gap-2 lg:gap-4">
+              <button
+                className={classNames(
+                  "text-gray-90 hover:text-gray-70 hover:underline",
+                  "py-2",
+                  "order-last lg:order-none",
+                  styles.Button
+                )}
+                onClick={() =>
+                  setIsTelemetryModalVisible(!isTelemetryModalVisible)
+                }
+              >
+                Cookie settings
+              </button>
+              <button
+                className={classNames(
+                  "py-2 px-3",
+                  "text-gray-90",
+                  "border-gray-90 border",
+                  "rounded",
+                  "hover:bg-red-70 hover:border-red-70",
+                  "hover:text-white",
+                  styles.Button
+                )}
+                onClick={declineTelemetryAndCloseBanner}
+              >
+                Reject all
+              </button>
+              <button
+                className={classNames(
+                  "py-2 px-3",
+                  "rounded",
+                  "border",
+                  "text-white",
+                  "bg-gray-90 border-gray-90",
+                  "hover:bg-red-70 hover:border-red-70",
+                  styles.Button
+                )}
+                onClick={allowTelemetryAndCloseBanner}
+              >
+                Accept all
+              </button>
+            </div>
           </div>
         </div>
       )}
