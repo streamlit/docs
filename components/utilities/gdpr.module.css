@@ -3,11 +3,19 @@
   background: #fffd;
 }
 
-.Container div p {
-  @apply text-gray-90 text-lg;
+.Markdown div {
+  @apply flex flex-col;
 }
 
-.Container div p a {
+.Markdown h1 {
+  @apply text-gray-90 text-lg sm:text-xl font-bold mb-1;
+}
+
+.Markdown p {
+  @apply text-gray-90 text-base mb-0;
+}
+
+.Markdown p a {
   @apply text-gray-90 underline hover:text-gray-70;
 }
 
@@ -15,8 +23,8 @@
   @apply bg-gray-100 border-gray-90;
 }
 
-:global(.dark) .Container div p,
-:global(.dark) .Container div p a {
+:global(.dark) .Markdown p,
+:global(.dark) .Markdown p a {
   @apply text-gray-20;
 }
 
@@ -27,4 +35,8 @@
 
 :global(.dark) .Button {
   @apply border-gray-80;
+}
+
+:global(.dark) .Markdown h1 {
+  @apply text-white;
 }
