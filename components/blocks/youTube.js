@@ -11,7 +11,7 @@ const YouTube = ({ caption, videoId, start, end, autoplay, loop }) => {
   }
 
   YouTubeBlock = (
-    <section className={styles.Container}>
+    <div className={styles.Container}>
       <section className={styles.IframeContainer}>
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${videoId}?playlist=${videoId}&rel=0&start=${start}&end=${end}&autoplay=${autoplay}&loop=${loop}&mute=${mute}`}
@@ -23,11 +23,11 @@ const YouTube = ({ caption, videoId, start, end, autoplay, loop }) => {
         ></iframe>
       </section>
       {caption && (
-        <section className={styles.CaptionContainer}>
+        <div className={styles.CaptionContainer}>
           <p className={styles.Caption}>{caption}</p>
-        </section>
+        </div>
       )}
-    </section>
+    </div>
   );
   return YouTubeBlock;
 };
