@@ -2,32 +2,19 @@ import React from "react";
 
 import styles from "./youtube.module.css";
 
-const YouTube = ({ caption, videoId, start, end }) => {
+const YouTube = ({ caption, videoId, start, end, autoplay, loop }) => {
   let YouTubeBlock;
+  let mute = 0;
 
-  if (caption) {
-    YouTubeBlock = (
-      <section className={styles.Container}>
-        <section className={styles.IframeContainer}>
-          <iframe
-            src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&start=${start}&end=${end}`}
-            className={styles.Iframe}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </section>
-        <section className={styles.CaptionContainer}>
-          <p className={styles.Caption}>{caption}</p>
-        </section>
-      </section>
-    );
-  } else {
-    YouTubeBlock = (
+  if (autoplay || loop) {
+    mute = 1;
+  }
+
+  YouTubeBlock = (
+    <div className={styles.Container}>
       <section className={styles.IframeContainer}>
         <iframe
-          src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&start=${start}&end=${end}`}
+          src={`https://www.youtube-nocookie.com/embed/${videoId}?playlist=${videoId}&rel=0&start=${start}&end=${end}&autoplay=${autoplay}&loop=${loop}&mute=${mute}`}
           className={styles.Iframe}
           title="YouTube video player"
           frameBorder="0"
@@ -35,8 +22,13 @@ const YouTube = ({ caption, videoId, start, end }) => {
           allowFullScreen
         ></iframe>
       </section>
-    );
-  }
+      {caption && (
+        <div className={styles.CaptionContainer}>
+          <p className={styles.Caption}>{caption}</p>
+        </div>
+      )}
+    </div>
+  );
   return YouTubeBlock;
 };
 
