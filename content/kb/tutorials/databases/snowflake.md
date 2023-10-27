@@ -131,8 +131,8 @@ conn = st.connection("snowflake")
 # Load the table as a dataframe using the Snowpark Session.
 @st.cache_data
 def load_table():
-    with conn.session() as session:
-        return session.table("mytable").to_pandas()
+    session = conn.session()
+    return session.table("mytable").to_pandas()
 
 df = load_table()
 
