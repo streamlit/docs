@@ -80,7 +80,6 @@ export default function Article({
   nextMenuItem,
   versionFromStaticLoad,
   versions,
-  paths,
   gdpr_data,
   cookie_data,
   filename,
@@ -407,6 +406,7 @@ export async function getStaticProps(context) {
 
     props["menu"] = menu;
     props["gdpr_data"] = gdpr_data;
+    props["cookie_data"] = cookie_data;
     props["data"] = data;
     props["filename"] = filename;
     props["slug"] = context.params.slug;
