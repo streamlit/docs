@@ -81,7 +81,7 @@ const NavChild = ({ slug, page, color, className }) => {
 
   if (isAbsolutePath) {
     url = url.replace("https://docs.streamlit.io", "");
-    icon = <i className={styles.CrossLinkedIcon}>navElement</i>;
+    icon = <i className={styles.CrossLinkedIcon}>link</i>;
   }
 
   if (page.isVersioned && version && (isRelativePath || isAbsolutePath)) {
