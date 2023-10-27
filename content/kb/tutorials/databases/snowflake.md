@@ -104,7 +104,7 @@ Copy the code below to your Streamlit app and run it. Make sure to adapt the que
 import streamlit as st
 
 # Initialize connection.
-conn = st.connection("snowflake", type="snowflake")
+conn = st.connection("snowflake")
 
 # Perform query.
 df = conn.query("SELECT * from mytable;", ttl=600)
@@ -122,7 +122,7 @@ If everything worked out (and you used the example table we created above), your
 
 ### Using a Snowpark Session
 
-The same [SnowflakeConnection](/library/api-reference/connections/st.connections.snowflakeconnection) used above also provides access to the [Snowpark Session](https://docs.snowflake.com/en/developer-guide/snowpark/reference/python/session.html) for DataFrame-style operations that run natively inside Snowflake. Using this approach, you can rewrite the app above as follows:
+The same [SnowflakeConnection](/library/api-reference/connections/st.connections.snowflakeconnection) used above also provides access to the [Snowpark Session](https://docs.snowflake.com/en/developer-guide/snowpark/reference/python/session.html) for DataFrame-style operations that run natively inside Snowflake. The [Snowpark Python library](https://docs.snowflake.com/en/developer-guide/snowpark/python/index) is a dependency for this, so be sure to `pip install snowflake-snowpark-python` first. Using this approach, you can rewrite the app above as follows:
 
 ```python
 # streamlit_app.py
@@ -130,7 +130,7 @@ The same [SnowflakeConnection](/library/api-reference/connections/st.connections
 import streamlit as st
 
 # Initialize connection.
-conn = st.connection("snowflake", type="snowflake")
+conn = st.connection("snowflake")
 
 # Load the table as a dataframe using the Snowpark Session.
 @st.cache_data
@@ -145,7 +145,7 @@ for row in df.itertuples():
     st.write(f"{row.NAME} has a :{row.PET}:")
 ```
 
-This example uses `with conn.session()` to provide thread safety. `conn.session` also works directly, but does not guarantee thread safety. If everything worked out (and you used the example table we created above), your app should look the same as the screenshot from the first example above.
+If everything worked out (and you used the example table we created above), your app should look the same as the screenshot from the first example above.
 
 ## Connecting to Snowflake from Community Cloud
 

@@ -20,7 +20,7 @@ For a comprehensive overview of this feature, check out this video tutorial by J
 
 ## Basic usage
 
-For basic startup and usage examples, read up on the relevant [data source tutorial](/knowledge-base/tutorials/databases). Streamlit has built-in connections to SQL dialects and Snowflake Snowpark. We also maintain installable connections for [Cloud File Storage](https://github.com/streamlit/files-connection) and [Google Sheets](https://github.com/streamlit/gsheets-connection).
+For basic startup and usage examples, read up on the relevant [data source tutorial](/knowledge-base/tutorials/databases). Streamlit has built-in connections to SQL dialects and Snowflake. We also maintain installable connections for [Cloud File Storage](https://github.com/streamlit/files-connection) and [Google Sheets](https://github.com/streamlit/gsheets-connection).
 
 If you are just starting, the best way to learn is to pick a data source you can access and get a minimal example working from one of the pages above 👆. Here, we will provide an ultra-minimal usage example for using a SQLite database. From there, the rest of this page will focus on advanced usage.
 
