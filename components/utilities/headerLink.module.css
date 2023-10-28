@@ -3,7 +3,8 @@
 }
 
 .HeaderContainer {
-  @apply flex items-center font-bold text-gray-90 leading-snug break-all md:break-normal;
+  @apply flex items-center font-bold text-gray-90 leading-snug;
+  overflow-wrap: anywhere;
 }
 
 .HeaderContainer strong {
