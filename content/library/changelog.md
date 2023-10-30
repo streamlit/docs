@@ -78,7 +78,7 @@ _Release date: September 21, 2023_
 
 **Notable Changes**
 
-- 👻 You can initialize widgets with an empty state by setting `None` as an initial value for [`st.number_input`](/library/api-reference/widgets/st.number_input), [`st.selectbox`](/library/api-reference/widgets/st.selectbox), [`st.date_input`](/library/api-reference/widgets/st.date_input), [`st.time_input`](/library/api-reference/widgets/st.time_input), [`st.radio`](/library/api-reference/widgets/st.radio), [`st.text_input`](/library/api-reference/widgets/st.text_input), and [`st.text_area`](/library/api-reference/widgets/st.text_area)!
+- 👻 You can initialize widgets with an empty state by setting `None` as an initial value for [`st.number_input`](/library/api-reference/widgets/st.number_input), [`st.selectbox`](/library/api-reference/widgets/st.selectbox), [`st.date_input`](/library/api-reference/widgets/st.date_input), [`st.time_input`](/library/api-reference/widgets/st.time_input), [`st.radio`](/library/api-reference/widgets/st.radio), [`st.text_input`](/library/api-reference/widgets/st.text_input), and [`st.text_area`](/library/api-reference/widgets/st.text_area)!
 - 📤 [`st.download_button`](/library/api-reference/widgets/st.download_button) now uses `target="_self"` instead of opening a new tab ([#7151](https://github.com/streamlit/streamlit/pull/7151), [#7132](https://github.com/streamlit/streamlit/issues/7132)).
 - 🧟 Removed unmaintained `pympler` dependency ([#7193](https://github.com/streamlit/streamlit/pull/7193), [#7131](https://github.com/streamlit/streamlit/issues/7131)). Thanks, [rudyardrichter](https://github.com/rudyardrichter)!
 
