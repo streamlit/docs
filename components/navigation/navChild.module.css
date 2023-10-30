@@ -56,7 +56,11 @@
 /* [fontSize: "0.625rem", lineHeight: "1.25rem", letterSpacing: "0.15em" ]; */
 .DividerLine {
   @apply grow;
-  @apply text-gray-70;
+  @apply text-gray-30;
+}
+
+:global(.dark) .DividerLine {
+  @apply text-gray-90;
 }
 
 .Circle {
