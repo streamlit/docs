@@ -47,13 +47,12 @@
 
 .DividerText {
   @apply grow-0;
-  @apply text-gray-70;
+  @apply text-gray-70 uppercase tracking-widest leading-5;
   @apply mx-1;
+
   font-size: 0.625rem;
-  line-height: 1.25rem;
-  letter-spacing: 0.15em;
 }
-/* [fontSize: "0.625rem", lineHeight: "1.25rem", letterSpacing: "0.15em" ]; */
+
 .DividerLine {
   @apply grow;
   @apply text-gray-30;
