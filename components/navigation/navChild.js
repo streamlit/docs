@@ -107,7 +107,7 @@ const NavChild = ({ slug, page, color, className }) => {
     );
   } else {
     navElement = (
-      <span className={styles.LinkContainer}>
+      <div className={styles.LinkContainer}>
         <Link href={url}>
           <a className={classNames("not-link", styles.Link)} target={target}>
             <span
@@ -139,7 +139,7 @@ const NavChild = ({ slug, page, color, className }) => {
           </a>
         </Link>
         {accordion}
-      </span>
+      </div>
     );
   }
 
