@@ -67,9 +67,13 @@ const NavChild = ({ slug, page, color, className }) => {
   let navElement;
   let icon;
   let target;
-  let url = page.url || "";
+  let url = page.url || ""; //Unset or empty url designates a divider
 
   const isRelativePath = url.startsWith("/");
+  // Passing an absolute, docs.streamlit.io path indicates a duplicate or
+  // cross-link in the menu. The full https:// path is required to simplify
+  // string replacement later when it is converted to a relative path (for
+  // performance and versioning).
   const isAbsolutePath = url.startsWith("https://docs.streamlit.io");
   const isDivider = url === "";
   const isExternal = !isRelativePath && !isAbsolutePath && !isDivider;
