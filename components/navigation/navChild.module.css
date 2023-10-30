@@ -16,13 +16,13 @@
 }
 
 .ExternalIcon {
-  @apply relative z-10 cursor-pointer text-sm ml-1;
+  @apply relative z-10 cursor-pointer text-sm ml-1 -my-2;
   @apply text-gray-70 !important;
 }
 
 .CrossLinkedIcon {
-  @apply relative z-10 cursor-pointer text-xl ml-1;
-  @apply text-gray-80 !important;
+  @apply relative z-10 cursor-pointer text-xl ml-1 -my-2;
+  @apply text-gray-70 !important;
 }
 
 :global(.dark) .AccordionIcon,
@@ -42,7 +42,7 @@
 }
 
 .Icon {
-  @apply text-base relative left-1 -top-[1px];
+  @apply text-base relative left-1 -top-[1px] -my-2;
 }
 
 .DividerText {

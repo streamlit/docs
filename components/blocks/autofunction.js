@@ -19,7 +19,7 @@ import styles from "./autofunction.module.css";
 import { name } from "file-loader";
 
 const cleanHref = (name) => {
-  return String(name).replace(".", "").replace(" ", "-");
+  return String(name).replace(/\./g, "").replace(/\s+/g, "-");
 };
 
 const Autofunction = ({
@@ -176,7 +176,22 @@ const Autofunction = ({
     return (
       <div className={styles.HeaderContainer}>
         <div className={styles.TitleContainer} ref={blockRef} key={slug}>
-          <H2 className={styles.Title}>
+          <H2
+            className={`
+              ${styles.Title}
+              relative
+            `}
+          >
+            <a
+              aria-hidden="true"
+              tabIndex="-1"
+              href={`#${cleanHref(
+                streamlitFunction.replace("streamlit", "st")
+              )}`.toLowerCase()}
+              className="absolute"
+            >
+              <span className="icon icon-link"></span>
+            </a>
             {streamlitFunction.replace("streamlit", "st")}
           </H2>
           <VersionSelector
@@ -216,8 +231,23 @@ const Autofunction = ({
         : functionName;
     header = (
       <div className={styles.HeaderContainer}>
-        <div className={styles.TitleContainer}>
-          <H2 className={styles.Title}>{name}</H2>
+        <div
+          className={`
+            ${styles.TitleContainer}
+            relative
+          `}
+        >
+          <H2 className={styles.Title}>
+            <a
+              aria-hidden="true"
+              tabIndex="-1"
+              href={`#${cleanHref(name)}`.toLowerCase()}
+              className="absolute"
+            >
+              <span className="icon icon-link"></span>
+            </a>
+            {name}
+          </H2>
           <VersionSelector
             versionList={versionList}
             currentVersion={currentVersion}

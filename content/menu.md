@@ -336,14 +336,8 @@ site_menu:
   - category: Streamlit library / API reference / Performance / st.cache_data
     url: /library/api-reference/performance/st.cache_data
     isVersioned: true
-  - category: Streamlit library / API reference / Performance / Clear cached data
-    url: /library/api-reference/performance/st.cache_data.clear
-    isVersioned: true
   - category: Streamlit library / API reference / Performance / st.cache_resource
     url: /library/api-reference/performance/st.cache_resource
-    isVersioned: true
-  - category: Streamlit library / API reference / Performance / Clear cached resources
-    url: /library/api-reference/performance/st.cache_resource.clear
     isVersioned: true
   - category: Streamlit library / API reference / Performance / st.cache
     url: /library/api-reference/performance/st.cache
@@ -353,16 +347,8 @@ site_menu:
     url: /library/api-reference/performance/st.experimental_memo
     isVersioned: true
     isDeprecated: true
-  - category: Streamlit library / API reference / Performance / Clear memo
-    url: /library/api-reference/performance/st.experimental_memo.clear
-    isVersioned: true
-    isDeprecated: true
   - category: Streamlit library / API reference / Performance / st.experimental_singleton
     url: /library/api-reference/performance/st.experimental_singleton
-    isVersioned: true
-    isDeprecated: true
-  - category: Streamlit library / API reference / Performance / Clear singleton
-    url: /library/api-reference/performance/st.experimental_singleton.clear
     isVersioned: true
     isDeprecated: true
   - category: Streamlit library / API reference / Personalization
@@ -373,17 +359,37 @@ site_menu:
     isVersioned: false
   - category: Streamlit library / API reference / Connections and databases
     url: /library/api-reference/connections
-  - category: Streamlit library / API reference / Connections and databases / st.experimental_connection
-    url: /library/api-reference/connections/st.experimental_connection
+  - category: Streamlit library / API reference / Connections and databases / st.connection
+    url: /library/api-reference/connections/st.connection
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / SnowflakeConnection
+    url: /library/api-reference/connections/st.connections.snowflakeconnection
     isVersioned: true
   - category: Streamlit library / API reference / Connections and databases / SQLConnection
     url: /library/api-reference/connections/st.connections.sqlconnection
     isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / BaseConnection
+    url: /library/api-reference/connections/st.connections.baseconnection
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / st.experimental_connection
+    url: /library/api-reference/connections/st.experimental_connection
+    isVersioned: true
+    isDeprecated: true
   - category: Streamlit library / API reference / Connections and databases / SnowparkConnection
     url: /library/api-reference/connections/st.connections.snowparkconnection
     isVersioned: true
-  - category: Streamlit library / API reference / Connections and databases / Connection base class
+    isDeprecated: true
+  - category: Streamlit library / API reference / Connections and databases / ExperimentalBaseConnection
     url: /library/api-reference/connections/st.connections.experimentalbaseconnection
+    isVersioned: true
+    isDeprecated: true
+  - category: Streamlit library / API reference / App testing
+    url: /library/api-reference/app-testing
+  - category: Streamlit library / API reference / App testing / st.testing.v1.AppTest
+    url: /library/api-reference/app-testing/st.testing.v1.apptest
+    isVersioned: true
+  - category: Streamlit library / API reference / App testing / Testing element classes
+    url: /library/api-reference/app-testing/testing-element-classes
     isVersioned: true
   - category: Streamlit library / Advanced features
     url: /library/advanced-features
