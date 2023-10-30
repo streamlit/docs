@@ -17,7 +17,12 @@
 
 .ExternalIcon {
   @apply relative z-10 cursor-pointer text-sm ml-1 -my-2;
-  @apply text-gray-80 !important;
+  @apply text-gray-70 !important;
+}
+
+.CrossLinkedIcon {
+  @apply relative z-10 cursor-pointer text-xl ml-1 -my-2;
+  @apply text-gray-70 !important;
 }
 
 :global(.dark) .AccordionIcon,
@@ -38,6 +43,23 @@
 
 .Icon {
   @apply text-base relative left-1 -top-[1px] -my-2;
+}
+
+.DividerText {
+  @apply grow-0;
+  @apply text-gray-70 uppercase tracking-widest leading-5;
+  @apply mx-1;
+
+  font-size: 0.625rem;
+}
+
+.DividerLine {
+  @apply grow;
+  @apply text-gray-30;
+}
+
+:global(.dark) .DividerLine {
+  @apply text-gray-90;
 }
 
 .Circle {
