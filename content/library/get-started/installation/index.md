@@ -21,7 +21,7 @@ Below are a few tools you can use for environment management:
 - [virtualenv](https://virtualenv.pypa.io/en/latest/)
 - [conda](https://docs.anaconda.com/free/anaconda/getting-started/)
 
-Our [Local quickstart](/library/get-started/installation/local-quickstart) uses `conda` through Anaconda Navigator, while [Using Python environments](/library/get-started/installation/using-python-environments) uses `venv`.
+Our [Local quickstart](/library/get-started/installation/local-quickstart) uses `conda` through Anaconda Navigator, while our instructions to [Use Python environments](/library/get-started/installation/using-python-environments) uses `venv`.
 
 ### Python package managers
 

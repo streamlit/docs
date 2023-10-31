@@ -1,9 +1,9 @@
 ---
-title: Installation
+title: Use Python environments
 slug: /library/get-started/installation/use-python-environments
 ---
 
-# Install Streamlit
+# Use Python environments
 
 This page will walk you through creating an environment with `venv` and installing Streamlit with `pip`.
 
@@ -11,10 +11,10 @@ This page will walk you through creating an environment with `venv` and installi
 
 Before you get started, make sure you have Python and a code editor installed.
 
-- Your favorite IDE or text editor. (We use [VS Code](https://code.visualstudio.com/download) in our tutorials.)
-- [Python 3.8 - Python 3.11](https://www.python.org/downloads/)
+- We use [VS Code](https://code.visualstudio.com/download) in our tutorials.
+- Streamlit requires [Python 3.8 - Python 3.11](https://www.python.org/downloads/).
 
-### macOS only: Install Xcode command line tools
+#### macOS only: Install Xcode command line tools
 
 On macOS, you'll need to install Xcode command line tools. They are required to compile some of Streamlit's Python dependencies during installation. To install Xcode command line tools, run:
 
@@ -28,12 +28,12 @@ xcode-select --install
    ```bash
    cd myproject
    ```
-2. In the terminal, type:
+2. In your terminal, type:
    ```bash
    python -m venv .venv
    ```
 3. A folder named ".venv" will appear in your project. This directory is where your virtual environment and its dependencies are installed.
-4. In the terminal, activate your environment with one of the following commands, depending on your operating system.
+4. In your terminal, activate your environment with one of the following commands, depending on your operating system.
 
    ```bash
    # Windows command prompt
@@ -51,7 +51,7 @@ xcode-select --install
    ```bash
    pip install streamlit
    ```
-7. Test that the installation worked:
+7. Test that the installation worked by launching the Streamlit Hello example app:
    ```bash
    streamlit hello
    ```
@@ -61,7 +61,7 @@ xcode-select --install
 
 ### Use your new environment
 
-1. Any time you want to use the new environment, you first need to go to your project folder (where the `.venv` directory lives) and run the command to activate it:
+1. Any time you want to use your new environment, you first need to go to your project folder (where the `.venv` directory lives) and run the command to activate it:
 
    ```bash
    # Windows command prompt
@@ -74,15 +74,17 @@ xcode-select --install
    source .venv/bin/activate
    ```
 
-2. Once activated, you will see your environment's name in parentheses at the beginning of your terminal prompt. (.venv). For a Streamlit app file named `app.py`, type:
+2. Once activated, you will see your environment's name in parentheses at the beginning of your terminal prompt. "(.venv)"
+
+3. Run your Streamlit app. For a Streamlit app file named `app.py`, type:
 
    ```bash
    streamlit run app.py
    ```
 
-3. To stop the Streamlit server, press `Ctrl+C` in the terminal.
+4. To stop the Streamlit server, press `Ctrl+C` in the terminal.
 
-4. When you're done using this environment, return to your normal shell by typing:
+5. When you're done using this environment, return to your normal shell by typing:
    ```bash
    deactivate
    ```

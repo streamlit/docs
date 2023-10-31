@@ -50,7 +50,7 @@ Anaconda Distribution includes Python so all you need is your favoriate code edi
     ```bash
     python -m streamlit hello
     ```
-14. The example Streamlit Hello app will automatically open in your browser. If it doesn't, open your browser and go to the localhost address indicated in your terminal, typically `http://localhost:8501`.
+14. The Streamlit Hello example app will automatically open in your browser. If it doesn't, open your browser and go to the localhost address indicated in your terminal, typically `http://localhost:8501`. Play around with the app!
 15. Close your terminal.
 
 ## Hello World
@@ -75,7 +75,7 @@ Anaconda Distribution includes Python so all you need is your favoriate code edi
     ```bash
     conda activate streamlitenv
     ```
-23. Enter:
+23. In your terminal, type:
     ```bash
     streamlit run app.py
     ```
