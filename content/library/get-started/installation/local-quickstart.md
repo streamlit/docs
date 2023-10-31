@@ -7,7 +7,7 @@ slug: /library/get-started/installation/local-quickstart
 
 This is a concise set of steps to install Streamlit locally using Anaconda Distribution. If you prefer command line instructions, check out [Use Python environments](/library/get-started/installation/use-python-environments).
 
-Anaconda Distribution includes Python so all you need is your favoriate code editor. We like [Visula Studio Code](https://code.visualstudio.com/download) and will use it in our instructions.
+Anaconda Distribution includes Python so all you need is your favoriate code editor. We like [VS Code](https://code.visualstudio.com/download) and will use it in our instructions.
 
 ## Install Anaconda Distribution
 
