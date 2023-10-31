@@ -89,4 +89,4 @@ xcode-select --install
    deactivate
    ```
 
-Now that you've installed Streamlit, take a few minutes to read through [Main concepts](/library/get-started/main-concepts) to understand Streamlit's data flow model.
+Now that you've installed Streamlit, take a few minutes to read through [Main concepts](/library/get-started/main-concepts) to understand Streamlit's dataflow model.

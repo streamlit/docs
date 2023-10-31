@@ -22,7 +22,7 @@ Anaconda Distribution includes Python so all you need is your favoriate code edi
    ![Open your environments list in Anaconda Navigator](/images/get-started/Anaconda-Navigator-environment-1.png)
 6. At the bottom of your environments list, click "**Create**".
    ![Click "Create" to open the Create new environment dialog](/images/get-started/Anaconda-Navigator-environment-2-create.png)
-7. Enter "streamlitenv" for the name of your evironment.
+7. Enter "streamlitenv" for the name of your environment.
 8. Click "**Create**."
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
@@ -66,7 +66,7 @@ Anaconda Distribution includes Python so all you need is your favoriate code edi
     st.write("Hello World")
     ```
 
-20. Click your Python interpreter in the lower right corner, then choose your `streamlitenv` environment from the drop down.
+20. Click your Python interpreter in the lower-right corner, then choose your `streamlitenv` environment from the drop-down.
     ![Set your Python interpreter to your `streamlitenv` environment](/images/get-started/hello-world-3-change-interpreter.png)
 21. Right-click `app.py` in your file navigation and click "**Open in integrated terminal**".
     ![Open your terminal in your project folder](/images/get-started/hello-world-4-open-terminal.png)
