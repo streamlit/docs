@@ -7,9 +7,9 @@ slug: /library/get-started/installation
 
 ## Local development
 
-When developing locally, there are two layers to managing your Python development environment: environment managers and package managers. Environment managers allow you create virtual environments to isolate Python package installations between projects. We recommend using virtual environments because installing or upgrading a Python package may cause unintentional effects on another package. Python package managers are tools like `pip` that help you quickly install Python packages.
+When developing locally, there are two layers to managing your Python development environment: environment managers and package managers. Environment managers allow you create virtual environments to isolate Python package installations between projects. We recommend using virtual environments because installing or upgrading a Python package may cause unintentional effects on another package.
 
-You use an environment manager to create a virtual envronment. Once inside that environment (e.g. once activated), you use a package manager to install Python packages.
+On the other hand, Python package managers are tools like `pip` that help you quickly install Python packages. You use an environment manager to create a virtual envronment. Once inside that environment (e.g. once activated), you use a package manager to install Python packages.
 
 ### Python environment managers
 
