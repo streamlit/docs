@@ -1,6 +1,6 @@
 ---
 title: Installation
-slug: /library/get-started/installation
+slug: /library/get-started/installation/use-python-environments
 ---
 
 # Install Streamlit
