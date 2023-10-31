@@ -38,8 +38,18 @@ Anaconda Distribution includes Python so all you need is your favoriate code edi
 
 ## Install Streamlit in your environment
 
-12. Enter `pip install streamlit` to install Streamlit in your terminal.
-13. To validate your installation, enter the command `streamlit hello`. (If this doesn't work, use the long-form command `python -m streamlit hello`.)
+12. In your terminal, type:
+    ```bash
+    pip install streamlit
+    ```
+13. To validate your installation, enter:
+    ```bash
+    streamlit hello
+    ```
+    If this doesn't work, use the long-form command:
+    ```bash
+    python -m streamlit hello
+    ```
 14. The example Streamlit Hello app will automatically open in your browser. If it doesn't, open your browser and go to the localhost address indicated in your terminal, typically `http://localhost:8501`.
 15. Close your terminal.
 
@@ -60,8 +70,19 @@ Anaconda Distribution includes Python so all you need is your favoriate code edi
     ![Set your Python interpreter to your `streamlitenv` environment](/images/get-started/hello-world-3-change-interpreter.png)
 21. Right-click `app.py` in your file navigation and click "**Open in integrated terminal**".
     ![Open your terminal in your project folder](/images/get-started/hello-world-4-open-terminal.png)
-22. A terminal will open with your environment activated. Confirm this by looking for "(streamlitenv)" at the beginning of your next prompt. If it is not there, manually activate your environment with the command `conda activate streamlitenv`.
-23. Enter `streamlit run app.py`. (If this doesn't work, use the long-form command `python -m streamlit run app.py`.)
+22. A terminal will open with your environment activated. Confirm this by looking for "(streamlitenv)" at the beginning of your next prompt.
+    If it is not there, manually activate your environment with the command:
+    ```bash
+    conda activate streamlitenv
+    ```
+23. Enter:
+    ```bash
+    streamlit run app.py
+    ```
+    If this doesn't work, use the long-form command:
+    ```bash
+    python -m streamlit run app.py
+    ```
     ![Start your Streamlit app with `streamlit run app.py`](/images/get-started/hello-world-5-streamlit-run.png)
 24. Your app will automatically open in your browser. If it doesn't for any reason, open your browser and go to the localhost address indicated in your terminal, typically `http://localhost:8501`.
 25. Change `st.write` to `st.title` and save your file:
