@@ -30,4 +30,4 @@ First things first, you need to create your Streamlit Community Cloud account to
     />
 </TileContainer>
 
-If you're looking for help to build your first Streamlit app, read our [Get started](/library/get-started) docs for the Streamlit library. If you want to fork an app and start with an example, check out our <a href="https://streamlit.io/gallery" target="_blank">App gallery</a>. Either way, it only takes a few minutes to create your first app.
+If you're looking for help to build your first Streamlit app, read our [Get started](/get-started) docs for the Streamlit library. If you want to fork an app and start with an example, check out our <a href="https://streamlit.io/gallery" target="_blank">App gallery</a>. Either way, it only takes a few minutes to create your first app.

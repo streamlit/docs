@@ -157,11 +157,7 @@ ls -l myscript.sh`}
         <Component label="Arrow Links">
           <ArrowLinkContainer>
             <ArrowLink link="/" type="back" content="Welcome to Streamlit" />
-            <ArrowLink
-              link="/library/get-started"
-              type="next"
-              content="Get Started"
-            />
+            <ArrowLink link="/get-started" type="next" content="Get Started" />
           </ArrowLinkContainer>
         </Component>
         <Component label="Note Block">
@@ -355,7 +351,7 @@ st.altair_chart(chart_data)`}
               }}
               border_color={"gray-40"}
               img={"/logo.svg"}
-              link={"/library/get-started"}
+              link={"/get-started"}
             />
             <Tile
               size={"half"}
@@ -368,7 +364,7 @@ st.altair_chart(chart_data)`}
               }}
               border_color={"gray-40"}
               img={"/logo.svg"}
-              link={"/library/get-started"}
+              link={"/get-started"}
             />
             <Tile
               size={"half"}
@@ -381,7 +377,7 @@ st.altair_chart(chart_data)`}
               }}
               border_color={"gray-40"}
               img={"/logo.svg"}
-              link={"/library/get-started"}
+              link={"/get-started"}
             />
             <Tile
               size={"half"}
@@ -394,7 +390,7 @@ st.altair_chart(chart_data)`}
               }}
               border_color={"gray-40"}
               img={"/logo.svg"}
-              link={"/library/get-started"}
+              link={"/get-started"}
             />
           </TilesContainer>
         </Component>
@@ -424,7 +420,7 @@ st.altair_chart(chart_data)`}
               href="/"
             >
               include our{" "}
-              <Link href="/library/get-started">
+              <Link href="/get-started">
                 <a>Get Started</a>
               </Link>{" "}
               guide and a few step-by-step examples to building different types
@@ -437,7 +433,7 @@ st.altair_chart(chart_data)`}
               href="/"
             >
               include our{" "}
-              <Link href="/library/get-started">
+              <Link href="/get-started">
                 <a>Get Started</a>
               </Link>{" "}
               guide and a few step-by-step examples to building different types

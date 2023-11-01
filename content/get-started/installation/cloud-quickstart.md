@@ -1,6 +1,6 @@
 ---
 title: Cloud quickstart
-slug: /library/get-started/installation/cloud-quickstart
+slug: /get-started/installation/cloud-quickstart
 ---
 
 # Cloud quickstart

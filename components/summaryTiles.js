@@ -8,8 +8,8 @@ const SummaryTiles = () => {
         icon="arrow_forward"
         title="Get started"
         text="If you're new to Streamlit and don't know where to start, this is a good place."
-        background="violet-70"
-        link="/library/get-started"
+        background="red-70"
+        link="/get-started"
       />
 
       <Tile

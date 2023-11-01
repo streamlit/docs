@@ -1,17 +1,17 @@
 ---
 title: Multipage apps
-slug: /library/get-started/multipage-apps
+slug: /get-started/multipage-apps
 ---
 
 # Multipage apps
 
 As apps grow large, it becomes useful to organize them into multiple pages. This makes the app easier to manage as a developer and easier to navigate as a user. Streamlit provides a frictionless way to create multipage apps. Pages are automatically shown in a nice navigation widget inside the app sidebar, and clicking on a page will navigate to the page without reloading the frontend — making app browsing incredibly fast!
 
-We created a "single-page app" to explore a public Uber dataset for pickups and drop-offs in New York City on the [previous page](/library/get-started/create-an-app). In this guide, let’s learn how to create multipage apps. Once we have a solid foundation on what it takes to create multipage apps, let’s build one for ourselves in the [next section](/library/get-started/multipage-apps/create-a-multipage-app)!
+We created a "single-page app" to explore a public Uber dataset for pickups and drop-offs in New York City on the [previous page](/get-started/create-an-app). In this guide, let’s learn how to create multipage apps. Once we have a solid foundation on what it takes to create multipage apps, let’s build one for ourselves in the [next section](/get-started/multipage-apps/create-a-multipage-app)!
 
 ## Structuring multipage apps
 
-Let's understand what it takes to create multipage apps — including how to define pages, structure and run multipage apps, and navigate between pages in the user interface. Once you've understood the basics, you can jump right into the [next section](/library/get-started/multipage-apps/create-a-multipage-app) to convert the familiar `streamlit hello` command into a multipage app!
+Let's understand what it takes to create multipage apps — including how to define pages, structure and run multipage apps, and navigate between pages in the user interface. Once you've understood the basics, you can jump right into the [next section](/get-started/multipage-apps/create-a-multipage-app) to convert the familiar `streamlit hello` command into a multipage app!
 
 ## Run a multipage app
 
@@ -97,7 +97,7 @@ Emojis can be used to make your page names more fun! For example, a file named `
 
 Pages are automatically shown in a nice navigation UI inside the app's sidebar. When you click on a page in the sidebar UI, Streamlit navigates to that page without reloading the entire frontend — making app browsing incredibly fast!
 
-You can also navigate between pages using URLs. Pages have their own URLs, defined by the file's `label`. When multiple files have the same `label`, Streamlit picks the first one (based on the ordering [described above](/library/get-started/multipage-apps#how-pages-are-sorted-in-the-sidebar)). Users can view a specific page by visiting the page's URL.
+You can also navigate between pages using URLs. Pages have their own URLs, defined by the file's `label`. When multiple files have the same `label`, Streamlit picks the first one (based on the ordering [described above](/get-started/multipage-apps#how-pages-are-sorted-in-the-sidebar)). Users can view a specific page by visiting the page's URL.
 
 If a user tries to access a URL for a page that does not exist, they will see a modal like the one below, saying the user has requested a page that was not found in the app’s pages/ directory.
 
@@ -136,4 +136,4 @@ If a user tries to access a URL for a page that does not exist, they will see a 
   # If page1 already executed, this should write True
   ```
 
-You now have a solid understanding of multipage apps. You've learned how to structure apps, define pages, and navigate between pages in the user interface. It's time to [create your first multipage app](/library/get-started/multipage-apps/create-a-multipage-app)! 🥳
+You now have a solid understanding of multipage apps. You've learned how to structure apps, define pages, and navigate between pages in the user interface. It's time to [create your first multipage app](/get-started/multipage-apps/create-a-multipage-app)! 🥳

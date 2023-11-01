@@ -1,31 +1,30 @@
 ---
 site_menu:
+  - category: Get started
+    url: /get-started
+    color: red-70
+    icon: power_settings_new
+  - category: Get started / Installation
+    url: /get-started/installation
+  - category: Get started / Installation / Cloud quickstart
+    url: /get-started/installation/cloud-quickstart
+  - category: Get started / Installation / Local quickstart
+    url: /get-started/installation/local-quickstart
+  - category: Get started / Installation / Use Python environments
+    url: /get-started/installation/use-python-environments
+  - category: Get started / Main concepts
+    url: /get-started/main-concepts
+  - category: Get started / Create an app
+    url: /get-started/create-an-app
+  - category: Get started / Multipage apps
+    url: /get-started/multipage-apps
+  - category: Get started / Multipage apps / Create a multipage app
+    url: /get-started/multipage-apps/create-a-multipage-app
+
   - category: Streamlit library
     url: /library
     color: violet-70
     icon: description
-  - category: Streamlit library / Get started
-    url: /library/get-started
-  - category: Streamlit library / Get started / Installation
-    url: /library/get-started/installation
-  - category: Streamlit library / Get started / Installation / Cloud quickstart
-    url: /library/get-started/installation/cloud-quickstart
-  - category: Streamlit library / Get started / Installation / Local quickstart
-    url: /library/get-started/installation/local-quickstart
-  - category: Streamlit library / Get started / Installation / Use Python environments
-    url: /library/get-started/installation/use-python-environments
-  - category: Streamlit library / Get started / Main concepts
-    url: /library/get-started/main-concepts
-  - category: Streamlit library / Get started / Create an app
-    url: /library/get-started/create-an-app
-  - category: Streamlit library / Get started / Multipage apps
-    url: /library/get-started/multipage-apps
-  - category: Streamlit library / Get started / Multipage apps / Create a multipage app
-    url: /library/get-started/multipage-apps/create-a-multipage-app
-  # - category: Streamlit library / Get started / Deploy an app
-  #   url: /library/get-started/deploy-an-app
-  # - category: Streamlit library / Get started / App gallery
-  #   url: https://streamlit.io/gallery
   - category: Streamlit library / API reference
     url: /library/api-reference
   - category: Streamlit library / API reference / Write and magic

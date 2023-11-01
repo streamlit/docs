@@ -1,6 +1,6 @@
 ---
 title: Use Python environments
-slug: /library/get-started/installation/use-python-environments
+slug: /get-started/installation/use-python-environments
 ---
 
 # Use Python environments
@@ -59,7 +59,7 @@ xcode-select --install
    <Cloud src="https://doc-mpa-hello.streamlit.app/?embed=true" height="700" />
 9. Close your terminal when you are done.
 
-### Use your new environment
+## Use your new environment
 
 1. Any time you want to use your new environment, you first need to go to your project folder (where the `.venv` directory lives) and run the command to activate it:
 
@@ -89,4 +89,4 @@ xcode-select --install
    deactivate
    ```
 
-Now that you've installed Streamlit, take a few minutes to read through [Main concepts](/library/get-started/main-concepts) to understand Streamlit's dataflow model.
+Now that you've installed Streamlit, take a few minutes to read through [Main concepts](/get-started/main-concepts) to understand Streamlit's dataflow model.

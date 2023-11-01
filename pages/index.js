@@ -96,14 +96,23 @@ export default function Home({ window, menu, gdpr_data }) {
             <H2>How to use our docs</H2>
             <InlineCalloutContainer>
               <InlineCallout
+                color="red-70"
+                icon="description"
+                bold="Get started"
+                href="/get-started"
+              >
+                introduces you to the world of Streamlit! Learn the fundamental
+                concepts, set up your development environment, and start coding!
+              </InlineCallout>
+              <InlineCallout
                 color="violet-70"
                 icon="description"
                 bold="Streamlit library"
-                href="/library/get-started"
+                href="/library/api-reference"
               >
-                includes our Get started guide, API reference, and more advanced
-                features of the core library including caching, theming, and
-                Streamlit Components.
+                includes our API reference, and guides to all of Streamlit's
+                features in the core library including caching, theming,
+                Streamlit Components, and more!
               </InlineCallout>
               <InlineCallout
                 color="l-blue-70"
@@ -251,11 +260,7 @@ export default function Home({ window, menu, gdpr_data }) {
           <SocialCallouts />
 
           <ArrowLinkContainer>
-            <ArrowLink
-              link="/library/get-started"
-              type="next"
-              content="Get started"
-            />
+            <ArrowLink link="/get-started" type="next" content="Get started" />
           </ArrowLinkContainer>
         </section>
         <Footer />

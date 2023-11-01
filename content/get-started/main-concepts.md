@@ -1,6 +1,6 @@
 ---
 title: Main concepts
-slug: /library/get-started/main-concepts
+slug: /get-started/main-concepts
 ---
 
 # Main concepts
@@ -100,7 +100,7 @@ page.
 ## Display and style data
 
 There are a few ways to display data (tables, arrays, data frames) in Streamlit
-apps. [Below](/library/get-started/main-concepts#use-magic), you will be introduced to _magic_
+apps. [Below](/get-started/main-concepts#use-magic), you will be introduced to _magic_
 and [`st.write()`](/library/api-reference/write-magic/st.write), which can be used to write
 anything from text to tables. After that, let's take a look at methods designed
 specifically for visualizing data.
@@ -550,7 +550,7 @@ Now run `streamlit run main_page.py` and view your shiny new multipage app!
 
 <Image src="/images/mpa-main-concepts.gif" />
 
-Our documentation on [Multipage apps](/library/get-started/multipage-apps) teaches you how to add pages to your app, including how to define pages, structure and run multipage apps, and navigate between pages. Once you understand the basics, [create your first multipage app](/library/get-started/multipage-apps/create-a-multipage-app)!
+Our documentation on [Multipage apps](/get-started/multipage-apps) teaches you how to add pages to your app, including how to define pages, structure and run multipage apps, and navigate between pages. Once you understand the basics, [create your first multipage app](/get-started/multipage-apps/create-a-multipage-app)!
 
 ## App model
 

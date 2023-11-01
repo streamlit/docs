@@ -1,11 +1,11 @@
 ---
 title: Local quickstart
-slug: /library/get-started/installation/local-quickstart
+slug: /get-started/installation/local-quickstart
 ---
 
 # Local quickstart
 
-This is a concise set of steps to install Streamlit locally using Anaconda Distribution. If you prefer command line instructions, check out [Use Python environments](/library/get-started/installation/use-python-environments).
+This is a concise set of steps to install Streamlit locally using Anaconda Distribution. If you prefer command line instructions, check out [Use Python environments](/get-started/installation/use-python-environments).
 
 Anaconda Distribution includes Python so all you need is your favoriate code editor. We like [VS Code](https://code.visualstudio.com/download) and will use it in our instructions.
 
@@ -100,4 +100,4 @@ Anaconda Distribution includes Python so all you need is your favoriate code edi
 
 ## What's next?
 
-Read about our [Main concepts](/library/get-started/main-concepts) and try out more commands in your app. When you're done, you can stop your app with `Ctrl+C` in your terminal or just by closing your terminal.
+Read about our [Main concepts](/get-started/main-concepts) and try out more commands in your app. When you're done, you can stop your app with `Ctrl+C` in your terminal or just by closing your terminal.

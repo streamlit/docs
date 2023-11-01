@@ -9,7 +9,7 @@ slug: /library/advanced-features/button-behavior-and-examples
 
 Buttons created with [`st.button`](/library/api-reference/widgets/st.button) do not retain state. They return `True` on the script rerun resulting from their click and immediately return to `False` on the next script rerun. If a displayed element is nested inside `if st.button('Click me'):`, the element will be visible when the button is clicked and disappear as soon as the user takes their next action. This is because the script reruns and the button return value becomes `False`.
 
-In this guide, we will illustrate the use of buttons and explain common misconceptions. Read on to see a variety of examples that expand on `st.button` using [`st.session_state`](/library/api-reference/session-state). [Anti-patterns](#anti-patterns) are included at the end. Go ahead and pull up your favorite code editor so you can `streamlit run` the examples as you read. Check out Streamlit's [Main concepts](/library/get-started/main-concepts) if you haven't run your own Streamlit scripts yet.
+In this guide, we will illustrate the use of buttons and explain common misconceptions. Read on to see a variety of examples that expand on `st.button` using [`st.session_state`](/library/api-reference/session-state). [Anti-patterns](#anti-patterns) are included at the end. Go ahead and pull up your favorite code editor so you can `streamlit run` the examples as you read. Check out Streamlit's [Main concepts](/get-started/main-concepts) if you haven't run your own Streamlit scripts yet.
 
 ## When to use `if st.button()`
 

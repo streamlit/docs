@@ -1,9 +1,23 @@
 ---
 title: Setup and installation
-slug: /library/get-started/installation
+slug: /get-started/installation
 ---
 
 # Setup and installation
+
+This section walks you through setting up your Python development environment. As a shortcut for experienced developers, in a virtual environment run:
+
+```bash
+pip install streamlit
+```
+
+Experienced Python developers can then jump ahead to [Main concepts](/get-started/main-concepts). Everyone else, read on!
+
+## Cloud development
+
+Streamlit Community Cloud makes it easy to skip installation and start coding right in your browser with GitHub Codespaces. 🎉 Hop over to our [Cloud quickstart](/get-started/installation/cloud-quickstart) to create an account, deploy an example app, and jump right into a codespace to start editing. Return to [Main concepts](/get-started/main-concepts) to learn all about how Streamlit works.
+
+You can edit any app you've deployed on Community Cloud with GitHub Codespaces, too! See [Edit your app with GitHub Codespaces](/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces).
 
 ## Local development
 
@@ -21,14 +35,8 @@ Below are a few tools you can use for environment management:
 - [virtualenv](https://virtualenv.pypa.io/en/latest/)
 - [conda](https://docs.anaconda.com/free/anaconda/getting-started/)
 
-Our [Local quickstart](/library/get-started/installation/local-quickstart) uses `conda` through Anaconda Navigator, while our instructions to [Use Python environments](/library/get-started/installation/using-python-environments) use `venv`.
+Our [Local quickstart](/get-started/installation/local-quickstart) uses `conda` through Anaconda Navigator, while our instructions to [Use Python environments](/get-started/installation/using-python-environments) use `venv`.
 
 ### Python package managers
 
 [`pip`](https://pip.pypa.io/en/stable/installation/) is the most common Python package manager and what we recommend. [`conda`](https://docs.conda.io) is another Python package manager. You may notice that `conda` is also listed above as an environment manager. It has the functionality of both!
-
-## Cloud development
-
-Streamlit Community Cloud makes it easy to skip installation and start coding right in your browser with GitHub Codespaces. 🎉 Hop over to our [Cloud quickstart](/library/get-started/installation/cloud-quickstart) to create an account, deploy an example app, and jump right into a codespace to start editing. Return to [Main concepts](/library/get-started/main-concepts) to learn all about how Streamlit works.
-
-You can edit any app you've deployed on Community Cloud with GitHub Codespaces, too! See [Edit your app with GitHub Codespaces](/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces).

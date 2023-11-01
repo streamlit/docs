@@ -23,7 +23,7 @@ You can manually trigger a rerun of your app by clicking "**Rerun**" from the ap
 
 ### Settings
 
-With the "**Settings**" option, you can control the appearance of your app while it is running. If viewing the app locally, you can set how your app responds to changes in your source code. See more about development flow in [Main concepts](/library/get-started/main-concepts#development-flow). You can also force your app to appear in wide mode, even if not set within the script using [`st.set_page_config`](/library/api-reference/utilities/st.set_page_config).
+With the "**Settings**" option, you can control the appearance of your app while it is running. If viewing the app locally, you can set how your app responds to changes in your source code. See more about development flow in [Main concepts](/get-started/main-concepts#development-flow). You can also force your app to appear in wide mode, even if not set within the script using [`st.set_page_config`](/library/api-reference/utilities/st.set_page_config).
 
 <div style={{ maxWidth: '30%', margin: 'auto' }}>
     <Image src="/images/app-menu/app-menu-settings-XL.png" alt="Settings" clean />
