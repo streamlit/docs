@@ -17,7 +17,7 @@ This page only contains the `st.connections.SnowflakeConnection` class. For a de
 Internal note: This section is deep-linked from the library in 1.28.1, don't break or change this anchor!
 -->
 
-`st.connection("snowflake")` can be configured using `secrets.toml` or keyword args just like any other connection. It can also use existing Snowflake connection configuration when available.
+`st.connection("snowflake")` can be configured using [Streamlit secrets](/library/advanced-features/secrets-management) or keyword args just like any other connection. It can also use existing Snowflake connection configuration when available.
 
 ### Using Streamlit secrets
 
@@ -32,7 +32,7 @@ user = "<USERNAME>"
 authenticator = "EXTERNALBROWSER"
 ```
 
-You could also specify the full configuration and credentials in your secrets file, as in the [example here](/knowledge-base/tutorials/databases/snowflake#add-connection-parameters-to-your-local-app-secrets).
+Learn more about [account indentifier here](https://docs.snowflake.com/en/user-guide/admin-account-identifier). You could also specify the full configuration and credentials in your secrets file, as in the [example here](/knowledge-base/tutorials/databases/snowflake#add-connection-parameters-to-your-local-app-secrets).
 
 ### Using existing Snowflake configuration
 
