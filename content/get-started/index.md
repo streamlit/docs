@@ -15,7 +15,7 @@ operating system, and how to create your first Streamlit app!
   <InlineCallout color="red-70" icon="description" bold="Main concepts" href="/get-started/main-concepts">
     introduces you to Streamlit's data model and development flow. You'll learn what makes Streamlit the most powerful way to build data apps, including the ability to display and style data, draw charts and maps, add interactive widgets, customize app layouts, cache computation, and define themes.
   </InlineCallout>
-  <InlineCallout color="red-70" icon="auto_awesome" bold="Create an app" href="/get-started/create-an-app">
+  <InlineCallout color="red-70" icon="auto_awesome" bold="Create an app" href="/get-started/main-concepts/create-an-app">
     using Streamlit's core features to fetch and cache data, draw charts, plot information on a map, and use interactive widgets, like a slider, to filter results.
   </InlineCallout>
   <InlineCallout color="red-70" icon="auto_stories" bold="Multipage apps" href="/get-started/multipage-apps">

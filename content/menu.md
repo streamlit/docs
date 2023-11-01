@@ -14,8 +14,8 @@ site_menu:
     url: /get-started/installation/use-python-environments
   - category: Get started / Main concepts
     url: /get-started/main-concepts
-  - category: Get started / Create an app
-    url: /get-started/create-an-app
+  - category: Get started / Main concepts / Create an app
+    url: /get-started/main-concepts/create-an-app
   - category: Get started / Multipage apps
     url: /get-started/multipage-apps
   - category: Get started / Multipage apps / Create a multipage app

@@ -7,7 +7,7 @@ slug: /get-started/multipage-apps
 
 As apps grow large, it becomes useful to organize them into multiple pages. This makes the app easier to manage as a developer and easier to navigate as a user. Streamlit provides a frictionless way to create multipage apps. Pages are automatically shown in a nice navigation widget inside the app sidebar, and clicking on a page will navigate to the page without reloading the frontend — making app browsing incredibly fast!
 
-We created a "single-page app" to explore a public Uber dataset for pickups and drop-offs in New York City on the [previous page](/get-started/create-an-app). In this guide, let’s learn how to create multipage apps. Once we have a solid foundation on what it takes to create multipage apps, let’s build one for ourselves in the [next section](/get-started/multipage-apps/create-a-multipage-app)!
+We created a "single-page app" to explore a public Uber dataset for pickups and drop-offs in New York City on the [previous page](/get-started/main-concepts/create-an-app). In this guide, let’s learn how to create multipage apps. Once we have a solid foundation on what it takes to create multipage apps, let’s build one for ourselves in the [next section](/get-started/multipage-apps/create-a-multipage-app)!
 
 ## Structuring multipage apps
 

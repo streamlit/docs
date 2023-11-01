@@ -1,6 +1,6 @@
 ---
 title: Create an app
-slug: /get-started/create-an-app
+slug: /get-started/main-concepts/create-an-app
 ---
 
 # Create an app
