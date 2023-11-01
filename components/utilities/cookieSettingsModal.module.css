@@ -1,0 +1,167 @@
+.Container > div {
+  @apply text-gray-90 grid grid-cols-1 gap-4 text-base leading-loose;
+}
+
+.Container h1,
+.Container h2,
+.Container h3,
+.Container h4,
+.Container h5,
+.Container h6 {
+  @apply scroll-mt-0 md:scroll-mt-32;
+}
+
+.Container h2,
+.Container h3,
+.Container h4,
+.Container h5 {
+  @apply mt-4 text-lg font-bold text-gray-90;
+}
+
+.Container h2 {
+  @apply text-xl;
+}
+
+.Container h3 {
+  @apply text-2xl;
+}
+
+.Container h2:first-child,
+.Container h3:first-child,
+.Container h4:first-child,
+.Container h5:first-child {
+  @apply mt-0;
+}
+
+.Container p {
+  @apply text-gray-90;
+}
+
+.Container a {
+  @apply underline;
+}
+
+.Container a:hover {
+  @apply opacity-80;
+}
+
+.Container ol {
+  @apply list-decimal pl-8 grid grid-cols-1 gap-4;
+}
+
+.Container section ol {
+  @apply list-none pl-0 gap-0 mb-5;
+}
+
+.Container ul {
+  @apply list-disc pl-8 grid grid-cols-1 gap-4;
+}
+
+.Container li {
+  @apply pl-2;
+}
+
+.Container blockquote {
+  @apply p-6 md:p-8 lg:p-16
+    -mx-6 md:-mx-8 lg:-mx-16
+    my-0 md:my-4 lg:my-12
+    grid grid-cols-1 gap-4
+    bg-lightBlue-10
+    text-gray-80
+    rounded-lg;
+}
+
+.PrivacyContainer blockquote ~ h4 {
+  @apply mt-12 md:mt-8 lg:mt-0 text-gray-90;
+}
+
+.PrivacyContainer blockquote h2 {
+  @apply hidden;
+}
+
+.Container blockquote h2 {
+  @apply text-gray-90 text-3xl;
+}
+
+.Container hr {
+  @apply border-gray-40 border-t-0 border-l-0 border-r-0 border-b my-8;
+}
+
+.Container address {
+  @apply whitespace-pre-line pl-4 border-l-2 border-gray-30 mt-4;
+}
+
+.Container pre {
+  @apply bg-gray-10 p-4 rounded-md overflow-x-auto text-gray-90;
+}
+
+.Container pre code {
+  @apply text-lg;
+}
+
+.Container figure {
+  @apply flex flex-col items-start;
+}
+
+.Container figure img {
+  @apply h-24 ml-2 mb-2;
+}
+
+.Container figure figcaption {
+  @apply text-sm text-gray-70;
+}
+
+/* For table in Privacy notice */
+.Container table {
+  @apply table-fixed my-8 w-full;
+}
+
+.Container table thead tr th {
+  @apply px-4 py-3 text-left bg-gray-20 bg-opacity-50 border border-gray-30 text-gray-90 font-semibold text-lg leading-normal align-top;
+}
+
+.Container table tbody tr td {
+  @apply px-4 py-3 border border-gray-30 text-gray-90 text-lg leading-normal align-top;
+}
+
+.DeploymentTerms ul,
+.DeploymentTerms ol {
+  @apply list-none;
+}
+
+/* Specific classes for colors */
+.Container:global(.red) a {
+  @apply text-red-70;
+}
+
+.Container:global(.orange) a {
+  @apply text-orange-70;
+}
+
+.Container:global(.yellow) a {
+  @apply text-yellow-90;
+}
+
+.Container:global(.green) a {
+  @apply text-green-70;
+}
+
+.Container:global(.acqua) a {
+  @apply text-acqua-70;
+}
+
+.Container:global(.lightBlue) a {
+  @apply text-lightBlue-70;
+}
+
+.Container:global(.darkBlue) a {
+  @apply text-darkBlue-70;
+}
+
+.Container:global(.indigo) a {
+  @apply text-indigo-70;
+}
+
+.Container:global(.gray) a {
+  @apply text-gray-70;
+}
