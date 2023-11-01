@@ -887,3 +887,4 @@
 /library/api-reference/performance/st.cache_resource.clear /library/api-reference/performance/st.cache_resource
 /library/api-reference/performance/st.experimental_memo.clear /library/api-reference/performance/st.experimental_memo
 /library/api-reference/performance/st.experimental_singleton.clear /library/api-reference/performance/st.experimental_singleton
+/st.connections.snowflakeconnection-configuration /library/api-reference/connections/st.connections.snowflakeconnection#configuration
