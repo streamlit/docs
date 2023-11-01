@@ -11,15 +11,16 @@ This page only contains the `st.connections.SnowflakeConnection` class. For a de
 
 <Autofunction function="streamlit.connections.SnowflakeConnection" />
 
-## Configuration
+### Configuration
 
 <!---
-Internal note: This section is deep-linked from the library in 1.28.1, don't break or change this anchor!
+Internal note: This section is deep-linked from the library in 1.28.1 via /st.connections.snowflakeconnection-configuration through a redirect.
+Maintain the redirect if moved or modified.
 -->
 
 `st.connection("snowflake")` can be configured using [Streamlit secrets](/library/advanced-features/secrets-management) or keyword args just like any other connection. It can also use existing Snowflake connection configuration when available.
 
-### Using Streamlit secrets
+#### Using Streamlit secrets
 
 For example, if your Snowflake account supports SSO, you can set up a quick local connection for development using [browser-based SSO](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-use#how-browser-based-sso-works) and `secrets.toml` as follows:
 
@@ -34,14 +35,14 @@ authenticator = "EXTERNALBROWSER"
 
 Learn more about [account indentifier here](https://docs.snowflake.com/en/user-guide/admin-account-identifier). You could also specify the full configuration and credentials in your secrets file, as in the [example here](/knowledge-base/tutorials/databases/snowflake#add-connection-parameters-to-your-local-app-secrets).
 
-### Using existing Snowflake configuration
+#### Using existing Snowflake configuration
 
 Snowflake's python driver also supports a [connection configuration file](https://docs.snowflake.com/en/developer-guide/python-connector/python-connector-example#connecting-using-the-connections-toml-file), which is well integrated with Streamlit `SnowflakeConnection`. If you already have one or more connections configured, all you need to do is pass Streamlit the name of the connection to use. This can be done in several ways:
 
-- Set `connection_name` in your app code, such as `st.connnection("<name>", type="snowflake")`
-- Set `connection_name = "<name>"` in the `[connections.snowflake]` section of your Streamlit secrets
-- Set the environment variable `SNOWFLAKE_DEFAULT_CONNECTION_NAME=<name>`
-- [Set a default connection](https://docs.snowflake.com/en/developer-guide/python-connector/python-connector-example#setting-a-default-connection) in your Snowflake configuration
+- Set `connection_name` in your app code, such as `st.connnection("<name>", type="snowflake")`.
+- Set `connection_name = "<name>"` in the `[connections.snowflake]` section of your Streamlit secrets.
+- Set the environment variable `SNOWFLAKE_DEFAULT_CONNECTION_NAME=<name>`.
+- [Set a default connection](https://docs.snowflake.com/en/developer-guide/python-connector/python-connector-example#setting-a-default-connection) in your Snowflake configuration.
 
 When available in [Streamlit in Snowflake](https://docs.snowflake.com/en/developer-guide/streamlit/about-streamlit), `st.connection("snowflake")` will connect automatically using the [app owner role](https://docs.snowflake.com/en/developer-guide/streamlit/owners-rights) and does not require any configuration.
 
