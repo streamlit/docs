@@ -29,6 +29,10 @@
 }
 
 /* Colors for each category */
+.GetStartedBackground {
+  @apply bg-red-70;
+}
+
 .LibraryBackground {
   @apply bg-indigo-70;
 }
@@ -39,6 +43,10 @@
 
 .KBBackground {
   @apply bg-orange-70;
+}
+
+.GetStartedText {
+  @apply text-red-70 !important;
 }
 
 .LibraryText {

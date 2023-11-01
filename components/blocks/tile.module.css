@@ -46,6 +46,10 @@
   @apply bg-orange-70;
 }
 
+.RedBackground {
+  @apply bg-red-70;
+}
+
 .VioletBackground {
   @apply bg-indigo-70;
 }

@@ -19,6 +19,10 @@
 }
 
 /* Colors for heading icons */
+.GetStartedIcon {
+  @apply bg-red-70;
+}
+
 .LibraryIcon {
   @apply bg-indigo-70;
 }
@@ -45,6 +49,10 @@
 }
 
 /* Colors for active categories */
+.GetStartedCategory {
+  @apply text-red-70 !important;
+}
+
 .LibraryCategory {
   @apply text-indigo-70 !important;
 }
