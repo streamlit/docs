@@ -5,13 +5,19 @@ slug: /get-started/installation
 
 # Setup and installation
 
-This section walks you through setting up your Python development environment. As a shortcut for experienced developers, in a virtual environment run:
+This section walks you through setting up your Python development environment. If you already have an established Python development workflow and understand virtual environments, here's the TLDR:
 
-```bash
-pip install streamlit
-```
+1. In a virtual environment run:
+   ```bash
+   pip install streamlit
+   ```
+2. Validate the installation by running our Hello app:
+   ```bash
+   streamlit hello
+   ```
+3. Jump to our [Main concepts](/get-started/main-concepts).
 
-Experienced Python developers can then jump ahead to [Main concepts](/get-started/main-concepts). Everyone else, read on!
+Everyone else, read on!
 
 ## Cloud development
 
