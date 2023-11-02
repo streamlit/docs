@@ -97,7 +97,7 @@ export default function Home({ window, menu, gdpr_data }) {
             <InlineCalloutContainer>
               <InlineCallout
                 color="red-70"
-                icon="description"
+                icon="power_settings_new"
                 bold="Get started"
                 href="/get-started"
               >

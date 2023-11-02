@@ -5,11 +5,11 @@ const SummaryTiles = () => {
   return (
     <TileContainer>
       <Tile
-        icon="arrow_forward"
-        title="Get started"
-        text="If you're new to Streamlit and don't know where to start, this is a good place."
+        icon="install_desktop"
+        title="Setup and installation"
+        text="Get set up to start working with Streamlit."
         background="red-70"
-        link="/get-started"
+        link="/get-started/installation"
       />
 
       <Tile
