@@ -4,14 +4,14 @@ site_menu:
     url: /get-started
     color: red-70
     icon: power_settings_new
-  - category: Get started / Installation
+  - category: Get started / Setup and installation
     url: /get-started/installation
-  - category: Get started / Installation / Cloud quickstart
+  - category: Get started / Setup and installation / Community Cloud
     url: /get-started/installation/cloud-quickstart
-  - category: Get started / Installation / Local quickstart
-    url: /get-started/installation/local-quickstart
-  - category: Get started / Installation / Use Python environments
-    url: /get-started/installation/use-python-environments
+  - category: Get started / Setup and installation / Anaconda Distribution
+    url: /get-started/installation/anaconda-distribution
+  - category: Get started / Setup and installation / Command line
+    url: /get-started/installation/command-line
   - category: Get started / Main concepts
     url: /get-started/main-concepts
   - category: Get started / Main concepts / Create an app
@@ -463,7 +463,7 @@ site_menu:
   - category: Streamlit Community Cloud / Get started
     url: /streamlit-community-cloud/get-started
   - category: Streamlit Community Cloud / Get started / Quickstart
-    url: /streamlit-community-cloud/get-started/quickstart
+    url: https://docs.streamlit.io/get-started/installation/cloud-quickstart
   - category: Streamlit Community Cloud / Get started / Create your account
     url: /streamlit-community-cloud/get-started/create-your-account
   - category: Streamlit Community Cloud / Get started / Connect your GitHub account

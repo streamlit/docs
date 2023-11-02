@@ -1,9 +1,9 @@
 ---
-title: Use Python environments
-slug: /get-started/installation/use-python-environments
+title: Install Streamlit using command line
+slug: /get-started/installation/command-line
 ---
 
-# Use Python environments
+# Install Streamlit using command line
 
 This page will walk you through creating an environment with `venv` and installing Streamlit with `pip`.
 
@@ -25,14 +25,19 @@ xcode-select --install
 ## Set up your virtual environment
 
 1. Open a terminal and navigate to your project folder.
+
    ```bash
    cd myproject
    ```
+
 2. In your terminal, type:
+
    ```bash
    python -m venv .venv
    ```
+
 3. A folder named ".venv" will appear in your project. This directory is where your virtual environment and its dependencies are installed.
+
 4. In your terminal, activate your environment with one of the following commands, depending on your operating system.
 
    ```bash
@@ -47,14 +52,25 @@ xcode-select --install
    ```
 
 5. Once activated, you will see your environment name in parentheses before your prompt. "(.venv)"
+
 6. In the terminal with your environment activated, type:
+
    ```bash
    pip install streamlit
    ```
+
 7. Test that the installation worked by launching the Streamlit Hello example app:
+
    ```bash
    streamlit hello
    ```
+
+   If this doesn't work, use the long-form command:
+
+   ```bash
+   python -m streamlit hello
+   ```
+
 8. Streamlit's Hello app should appear in a new tab in your web browser!
    <Cloud src="https://doc-mpa-hello.streamlit.app/?embed=true" height="700" />
 9. Close your terminal when you are done.
@@ -80,6 +96,12 @@ xcode-select --install
 
    ```bash
    streamlit run app.py
+   ```
+
+   If this doesn't work, use the long-form command:
+
+   ```bash
+   python -m streamlit run app.py
    ```
 
 4. To stop the Streamlit server, press `Ctrl+C` in the terminal.

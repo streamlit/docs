@@ -14,7 +14,7 @@ First things first, you need to create your Streamlit Community Cloud account to
         icon="rocket_launch"
         title="Quickstart"
         text="Create your account and deploy an example app as fast as possible. Jump right into coding with GitHub Codespaces."
-        link="/streamlit-community-cloud/get-started/quickstart"
+        link="/get-started/installation/cloud-quickstart"
     />
     <Tile
         icon="person"

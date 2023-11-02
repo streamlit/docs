@@ -5,7 +5,7 @@ slug: /get-started/installation
 
 # Setup and installation
 
-This section walks you through setting up your Python development environment. If you already have an established Python development workflow and understand virtual environments, here's the TLDR:
+This section walks you through setting up your Python development environment. If you're already set up for Python development and understand virtual environments, here's the TLDR:
 
 1. In a virtual environment run:
    ```bash
@@ -21,7 +21,7 @@ Everyone else, read on!
 
 ## Cloud development
 
-Streamlit Community Cloud makes it easy to skip installation and start coding right in your browser with GitHub Codespaces. 🎉 Hop over to our [Cloud quickstart](/get-started/installation/cloud-quickstart) to create an account, deploy an example app, and jump right into a codespace to start editing. Return to [Main concepts](/get-started/main-concepts) to learn all about how Streamlit works.
+Streamlit Community Cloud makes it easy to skip installation and start coding right in your browser with GitHub Codespaces. 🎉 Hop over to our [Community Cloud quickstart](/get-started/installation/cloud-quickstart) to create an account, deploy an example app, and jump right into a codespace to start editing. Return to [Main concepts](/get-started/main-concepts) to learn all about how Streamlit works.
 
 You can edit any app you've deployed on Community Cloud with GitHub Codespaces, too! See [Edit your app with GitHub Codespaces](/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces).
 
@@ -41,7 +41,7 @@ Below are a few tools you can use for environment management:
 - [virtualenv](https://virtualenv.pypa.io/en/latest/)
 - [conda](https://docs.anaconda.com/free/anaconda/getting-started/)
 
-Our [Local quickstart](/get-started/installation/local-quickstart) uses `conda` through Anaconda Navigator, while our instructions to [Use Python environments](/get-started/installation/using-python-environments) use `venv`.
+If you [Install Streamlit using Anaconda Distribution](/get-started/installation/anaconda-distribution), you'll use `conda` through Anaconda Navigator. If you follow our instructions to [Install Streamlit using command line](/get-started/installation/command-line), you'll use `venv`.
 
 ### Python package managers
 
