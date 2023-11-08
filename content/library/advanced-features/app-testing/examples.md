@@ -7,13 +7,13 @@ slug: /library/advanced-features/app-testing/examples
 
 ## Testing a login page
 
-Let's consider a login page. In this example, `secrets.toml` is not present. We'll manually declare dummy secrets directly in our tests. We'll be using `hmac` to compare a user's password to the secret value as a security best practice.
+Let's consider a login page. In this example, `secrets.toml` is not present. We'll manually declare dummy secrets directly in our tests. The login script uses `hmac` to compare a user's password to the secret value as a security best practice to avoid [timing attacks](https://en.wikipedia.org/wiki/Timing_attack).
 
 ### Project summary
 
 #### Login page behavior
 
-The specifications of this page we want to test are:
+Before diving into the app's code, let's think about what this page is supposed to do. Whether you use test-driven development or you write unit tests after your code, it's a good idea to think about the functionality that needs to be tested. The login page should behave as follows:
 
 - Before a user interacts with the app:
   - Their status is "unverified."
@@ -40,6 +40,8 @@ myproject/
 ```
 
 #### Login page Python file
+
+The user status mentioned in the page's specifications are encoded in `st.session_state.status`. This value is initialized at the beginning of the script as "unverified" and is updated through a callback when the password prompt receives a new entry.
 
 ```python
 """app.py"""
@@ -77,6 +79,8 @@ welcome()
 ```
 
 #### Login page test file
+
+These tests closely follows the apps specifications above. In each test, a dummy secret is set before running the app and proceeding with further simulations and checks.
 
 ```python
 from streamlit.testing.v1 import AppTest
@@ -131,3 +135,5 @@ def test_log_out():
     assert len(at.button) == 0
     assert at.text_input[0].value == ""
 ```
+
+See how Session State was modified in the last test? Instead of fully simulating a user logging in, the test jumps straight to a logged-in state by setting `at.session_state["status"] = "verified"`. After running the app, the test proceeds to simulate the user logging out.

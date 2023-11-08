@@ -20,9 +20,9 @@ To test a Streamlit app, you must first initialize an instance of [`AppTest`](/l
 
 ### A simple app testing example
 
-Let's continue with the example from our [Introduction to `pytest`](/library/advanced-features/app-testing/pytest-intro):
+Let's continue with the example from [Introduction to `pytest`](/library/advanced-features/app-testing/pytest-intro):
 
-#### The project structure
+#### Project structure
 
 ```none
 myproject/
@@ -31,7 +31,7 @@ myproject/
     └── test_app.py
 ```
 
-#### The app file
+#### App file
 
 ```python
 """app.py"""
@@ -48,7 +48,7 @@ if st.button("Add"):
 st.markdown(f"Toe beans counted: {st.session_state.beans}")
 ```
 
-#### The test file
+#### Test file
 
 ```python
 """test_app.py"""
@@ -62,7 +62,7 @@ def test_increment_and_add():
     assert at.markdown[0].value == "Toe beans counted: 1"
 ```
 
-Look at the first line in our test function:
+Look at the first line in the test function:
 
 ```python
 at = AppTest.from_file("app.py").run()
@@ -71,9 +71,9 @@ at = AppTest.from_file("app.py").run()
 This is doing two things and is equivalent to:
 
 ```python
-# Initialize the app
+# Initialize the app.
 at = AppTest.from_file("app.py")
-# Run the app
+# Run the app.
 at.run()
 ```
 
@@ -81,11 +81,13 @@ at.run()
 
 ## How to retrieve elements
 
-The attributes of the `AppTest` class return collections of elements. In the example, `at.number_input` returns a colleciton of all `st.number_input` elements in the app. Thus, `at.number_input[0]` is the first such element in the app. Similarly, `at.markdown` returns a collection of all `st.markdown` elements where `at.markdown[0]` is the first such element. You can also retrieve widgets by their key, if one is specified. Be sure to read the current list of supported elements in the "Attributes" section of the [`AppTest`](/library/api-reference/app-testing/st.testing.v1.apptest) class.
+The attributes of the `AppTest` class return sequences of elements. The elements are sorted by the order they appear in the rendered app. Specific elements can be retrieved by index. Additionally, widgets with keys can be retrieved by key.
 
 ### Retrieve elements by index
 
-Each attribute of `AppTest` returns a sequence of the associated element type. `at.button` returns a sequence of all buttons (both `st.button` and `st.form_submit_button`). `at.header` returns a sequence of all `st.header` elements. You can also use the `.get()` method and pass the name of the attribute. `at.get("button")` and `at.get("header")` are the equivalent examples, respectively.
+Each attribute of `AppTest` returns a sequence of the associated element type. Specific elements can be retrieved by index. In the above example, `at.number_input` returns a sequence of all `st.number_input` elements in the app. Thus, `at.number_input[0]` is the first such element in the app. Similarly, `at.markdown` returns a collection of all `st.markdown` elements where `at.markdown[0]` is the first such element.
+
+Check out the current list of supported elements in the "Attributes" section of the [`AppTest`](/library/api-reference/app-testing/st.testing.v1.apptest) class or the [App testing cheat sheet](/library/advanced-features/app-testing/cheat-sheet). You can also use the `.get()` method and pass the name of the attribute. `at.get("number_input")` and `at.get("markdown")` are equivalent to `at.number_input` and `at.markdown`, respectively.
 
 The returned sequence of elements are ordered by appearance on the page. If containers are used to insert elements in a different order, these sequences may not match the order they are executed in your code. Consider the following example where containers are used switch the order of two buttons on the page:
 
@@ -99,7 +101,7 @@ second.button("A")
 first.button("B")
 ```
 
-If the above app was tested, `at.button[0]` would correspond to the button labeled "B" and `at.button[1]` would correspond to the button labeled "A". These assertions would be true:
+If the above app was tested, the first button (`at.button[0]`) would be labeled "B" and the second button (`at.button[1]`) would be labeled "A". As true assertions, these would be:
 
 ```python
 assert at.button[0].label == "B"
@@ -108,7 +110,7 @@ assert at.button[1].label == "A"
 
 ### Retrieve widgets by key
 
-You can retrieve keyed widgets by their keys instead of their order on the page. The key of the widget is passed as an argument to the property. Consider this app and the following (true) assertions:
+You can retrieve keyed widgets by their keys instead of their order on the page. The key of the widget is passed as either an arg or kwarg. For example, look at this app and the following (true) assertions:
 
 ```python
 import streamlit as st
@@ -119,18 +121,18 @@ st.button("Back", key="cancel")
 
 ```python
 assert at.button(key="submit").label == "Next"
-assert at.button("cancel").label = "Back"
+assert at.button("cancel").label == "Back"
 ```
 
 ### Retrieve containers
 
 You can also narrow down your sequences of elements by retrieving specific containers. Each retrieved container has the same attributes as `AppTest`. For example, `at.sidebar.checkbox` returns a sequence of all checkboxes in the sidebar. `at.main.selectbox` returns the sequence of all selectboxes in the main body of the app (not in the sidebar).
 
-For `AppTest.columns` and `AppTest.tabs`, a sequence of containers is returned. So `at.columns[0].button` would be the sequence of all buttons in the first column of the app.
+For `AppTest.columns` and `AppTest.tabs`, a sequence of containers is returned. So `at.columns[0].button` would be the sequence of all buttons in the first column appearing in the app.
 
 ## How to manipulate widgets
 
-All widgets have a universal `.set_value()` method. Additionally, many widgets have specific methods for manipulating their value. The names of [Testing element classes](/library/api-reference/app-testing/testing-element-classes) closely match the names of the `AppTest` attributes. For example, look at the return type of [`AppTest.button`](/library/api-reference/app-testing/st.testing.v1.apptest#apptestbutton) to see the corresponding class of [`Button`](/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treebutton). Aside from setting the value of a button with `set_value()`, you can also use `.click()`. Check out each testing class for its specific methods.
+All widgets have a universal `.set_value()` method. Additionally, many widgets have specific methods for manipulating their value. The names of [Testing element classes](/library/api-reference/app-testing/testing-element-classes) closely match the names of the `AppTest` attributes. For example, look at the return type of [`AppTest.button`](/library/api-reference/app-testing/st.testing.v1.apptest#apptestbutton) to see the corresponding class of [`Button`](/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treebutton). Aside from setting the value of a button with `.set_value()`, you can also use `.click()`. Check out each testing element class for its specific methods.
 
 ## How to inspect elements
 
