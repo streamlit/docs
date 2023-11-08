@@ -17,7 +17,7 @@ There are a few extra considerations for secrets and Session State which we'll c
 
 ## Using secrets with app testing
 
-Be careful not to include secrets directly in your tests. Recall this basic scenario from our Introduction to `pytest`:
+Be careful not to include secrets directly in your tests. Recall this basic scenario from our [Introduction to `pytest`](/library/advanced-features/app-testing/pytest-intro):
 
 ```none
 myproject/
@@ -36,7 +36,11 @@ pytest tests/
 
 In the above scenario, your simulated app will have access to your `secrets.toml` file. However, since you don't want to commit your secrets to your repository, you may need to write tests where you securely pull your secrets into memory or use fake secrets.
 
+### Example: declaring secrets in a test
+
 Within a test, declare each secret after initializing your but before the first run. (A missing secret may result in an app that doesn't run!) For example, consider the following secrets file and corresponding test initialization:
+
+#### Secrets file
 
 ```toml
 db_username = "Jane"
@@ -46,9 +50,11 @@ db_password = "mypassword"
 things_i_like = ["Streamlit", "Python"]
 ```
 
+#### Test file
+
 ```python
 # Initialize an AppTest instance.
-at.AppTest.from_file("app.py")
+at = AppTest.from_file("app.py")
 # Declare the secrets.
 at.secrets["db_username"] = "Jane"
 at.secrets["db_password"] = "mypassword"
@@ -63,9 +69,11 @@ Generally, you don't want to type your secrets directly into your test. You shou
 
 Just like with secrets, the `.session_state` attribute for `AppTest` let's you read and update Session State values using key notation (`at.session_state["my_key"]`). Similarly, attribute notation (`at.session_state.my_key`) will **not** work within app testing. By manually declaring values in Session State, you can directly test scenarios that may be dependent on many previous steps taken by a user. Additionally, the testing framework does not provide native support for multipage apps. An instance of `AppTest` can only test one page. You will need to manually declare Session State values if you need to simulate a user carrying information from another page.
 
-### Example test of a multipage app
+### Example: testing a multipage app
 
 Consider a simple multipage app where the first page can be used to modify a value in Session State. To test the second page, set Session State manually within the test prior to running the page script:
+
+#### Project structure
 
 ```none
 myproject/
@@ -75,6 +83,8 @@ myproject/
 └── tests/
     └── test_magic_word.py
 ```
+
+#### First app page
 
 ```python
 """app.py"""
@@ -88,6 +98,8 @@ if st.button("Set the magic word"):
     st.session_state.magic_word = new_word
 ```
 
+#### Second app page
+
 ```python
 """magic_word.py"""
 import streamlit as st
@@ -97,6 +109,8 @@ st.session_state.magic_word = st.session_state.get("magic_word", "Streamlit")
 if st.session_state.magic_word == "Balloons":
     st.markdown(":balloon:")
 ```
+
+#### Test file
 
 ```python
 """test_magic_word.py"""

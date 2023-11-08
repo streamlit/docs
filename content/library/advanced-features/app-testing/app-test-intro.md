@@ -18,7 +18,9 @@ On the next page, we'll cover more advanced scenarios like working with secrets,
 
 To test a Streamlit app, you must first initialize an instance of [`AppTest`](/library/api-reference/app-testing/st.testing.v1.apptest) with the code for one page of your app. There are three methods for initializing a simulated app. These are provided as class methods to `AppTest`. We will focus on `AppTest.from_file()` which allows you to provide a path to a page of your app. This is the most common scenario for building automated tests during app development. `AppTest.from_string()` and `AppTest.from_function()` may be useful for some simple or experimental scenarios.
 
-Let's continue with the example from our [Introduction to `pytest`]():
+### A simple app testing example
+
+Let's continue with the example from our [Introduction to `pytest`](/library/advanced-features/app-testing/pytest-intro):
 
 #### The project structure
 
