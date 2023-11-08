@@ -80,7 +80,7 @@ welcome()
 
 #### Login page test file
 
-These tests closely follows the apps specifications above. In each test, a dummy secret is set before running the app and proceeding with further simulations and checks.
+These tests closely follow the app's specifications above. In each test, a dummy secret is set before running the app and proceeding with further simulations and checks.
 
 ```python
 from streamlit.testing.v1 import AppTest
