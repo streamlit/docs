@@ -441,7 +441,7 @@ site_menu:
     url: /library/advanced-features/app-testing/app-testing-intro
   - category: Streamlit library / Advanced features / App testing / Beyond the basics
     url: /library/advanced-features/app-testing/beyond-the-basics
-  - category: Streamlit library / Advanced features / App testing / Examples
+  - category: Streamlit library / Advanced features / App testing / Example
     url: /library/advanced-features/app-testing/examples
   - category: Streamlit library / Advanced features / App testing / Cheat sheet
     url: /library/advanced-features/app-testing/cheat-sheet

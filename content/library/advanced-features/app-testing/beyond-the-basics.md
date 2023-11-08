@@ -11,7 +11,7 @@ Now that you're comfortable with executing a basic test for a Streamlit app, let
 - `AppTest.session_state`
 - `AppTest.query_params`
 
-For all three attributes, you can read and update values using key notation, but not attribute notation. For example, the `.secrets` attribute for `AppTest` let's you use `at.secrets["my_key"]` but **_not_** `at.secrets.my_key`. For these attributes, the typical pattern is to declare any values before executing the first run of the app. Values can be inspected at any time in a test.
+For all three attributes, you can read and update values using dict-like syntax. Note that you can use key notation but not attribute notation, unlike the associated commands in the main library. For example, the `.secrets` attribute for `AppTest` let's you use `at.secrets["my_key"]` but **_not_** `at.secrets.my_key`. For these attributes, the typical pattern is to declare any values before executing the first run of the app. Values can be inspected at any time in a test.
 
 There are a few extra considerations for secrets and Session State which we'll cover now.
 
