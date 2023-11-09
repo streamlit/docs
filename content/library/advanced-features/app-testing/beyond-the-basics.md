@@ -128,3 +128,9 @@ def test_balloons():
 ```
 
 By setting the value `at.session_state["magic_word"] = "Balloons"` within the test, you can simulate a user navigating to `second.py` after entering and saving "Balloons" on `first.py`.
+
+## Automate your tests with GitHub actions
+
+One of the key benefits of app testing is that tests can be automated. Very commonly, GitHub actions are used to validate commits and prevent accidental breaks. As an example, take a look at our [`streamlit/llm-examples`](https://github.com/streamlit/llm-examples) repo. Within `.github/workflows` a script creates a virtual Python environment and [runs `pytest`](https://github.com/streamlit/llm-examples/blob/bbcc2667cec2a347b34ab3420b57d6ecb42a3188/.github/workflows/python-app.yml#L38).
+
+Check out GitHub docs to learn more about [GitHub Actions](https://docs.github.com/en/actions) and [Automating Projects using Actions](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions).
