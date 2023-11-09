@@ -435,10 +435,8 @@ site_menu:
     url: /library/advanced-features/security-reminders
   - category: Streamlit library / Advanced features / App testing
     url: /library/advanced-features/app-testing
-  - category: Streamlit library / Advanced features / App testing / pytest intro
-    url: /library/advanced-features/app-testing/pytest-intro
-  - category: Streamlit library / Advanced features / App testing / App testing intro
-    url: /library/advanced-features/app-testing/app-testing-intro
+  - category: Streamlit library / Advanced features / App testing / Get started
+    url: /library/advanced-features/app-testing/get-started
   - category: Streamlit library / Advanced features / App testing / Beyond the basics
     url: /library/advanced-features/app-testing/beyond-the-basics
   - category: Streamlit library / Advanced features / App testing / Example

@@ -17,7 +17,7 @@ For these attributes, the typical pattern is to declare any values before execut
 
 ## Using secrets with app testing
 
-Be careful not to include secrets directly in your tests. Recall this basic scenario from [Introduction to `pytest`](/library/advanced-features/app-testing/pytest-intro):
+Be careful not to include secrets directly in your tests. Consider this simple project with `pytest` executed in the project's root directory:
 
 ```none
 myproject/
@@ -40,7 +40,7 @@ In the above scenario, your simulated app will have access to your `secrets.toml
 
 Within a test, declare each secret after initializing your `AppTest` instance but before the first run. (A missing secret may result in an app that doesn't run!) For example, consider the following secrets file and corresponding test initialization to manually assign the same secrets:
 
-#### Secrets file
+Secrets file:
 
 ```toml
 db_username = "Jane"
@@ -50,7 +50,7 @@ db_password = "mypassword"
 things_i_like = ["Streamlit", "Python"]
 ```
 
-#### Test file
+Testing file with equivalent secrets:
 
 ```python
 # Initialize an AppTest instance.
@@ -63,7 +63,11 @@ at.secrets["my_other_secrets.things_i_like"] = ["Streamlit", "Python"]
 at.run()
 ```
 
-Generally, you don't want to type your secrets directly into your test. You should instead use an API to pass them securely and anonymously if you need to use them in your test. If you are automating your tests with GitHub actions, check out their [Security guide](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions). Alternatively, you can manually declare dummy secrets in your tests.
+Generally, you don't want to type your secrets directly into your test. If you don't need your real secrets for a test, you can declare dummy secrets. If your tests require your real secrets, you should use an API to pass them securely and anonymously. If you are automating your tests with GitHub actions, check out their [Security guide](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions).
+
+```python
+at.secrete["my_key"] = <value provided through API>
+```
 
 ## Working with Session State in app testing
 
