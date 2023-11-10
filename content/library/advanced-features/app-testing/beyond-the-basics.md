@@ -5,15 +5,15 @@ slug: /library/advanced-features/app-testing/beyond-the-basics
 
 # Beyond the basics of app testing
 
-Now that you're comfortable with executing a basic test for a Streamlit app, let's cover the mutable attributes of [`AppTest`](/library/api-reference/app-testing/st.testing.v1.apptest):
+Now that you're comfortable with executing a basic test for a Streamlit app let's cover the mutable attributes of [`AppTest`](/library/api-reference/app-testing/st.testing.v1.apptest):
 
 - `AppTest.secrets`
 - `AppTest.session_state`
 - `AppTest.query_params`
 
-For all three attributes, you can read and update values using dict-like syntax. You can use key notation but not attribute notation. For example, the `.secrets` attribute for `AppTest` accepts `at.secrets["my_key"]` but **_not_** `at.secrets.my_key`. This is differnt from how you can use the associated commands in the main library.
+You can read and update values using dict-like syntax for all three attributes. You can use key notation but not attribute notation. For example, the `.secrets` attribute for `AppTest` accepts `at.secrets["my_key"]` but **_not_** `at.secrets.my_key`. This differs from how you can use the associated commands in the main library.
 
-For these attributes, the typical pattern is to declare any values before executing the first run of the app. Values can be inspected at any time in a test. There are a few extra considerations for secrets and Session State which we'll cover now.
+For these attributes, the typical pattern is to declare any values before executing the app's first run. Values can be inspected at any time in a test. There are a few extra considerations for secrets and Session State, which we'll cover now.
 
 ## Using secrets with app testing
 
@@ -38,7 +38,7 @@ In the above scenario, your simulated app will have access to your `secrets.toml
 
 ### Example: declaring secrets in a test
 
-Within a test, declare each secret after initializing your `AppTest` instance but before the first run. (A missing secret may result in an app that doesn't run!) For example, consider the following secrets file and corresponding test initialization to manually assign the same secrets:
+Within a test, declare each secret after initializing your `AppTest` instance but before the first run. (A missing secret may result in an app that doesn't run!) For example, consider the following secrets file and corresponding test initialization to assign the same secrets manually:
 
 Secrets file:
 
@@ -63,7 +63,7 @@ at.secrets["my_other_secrets.things_i_like"] = ["Streamlit", "Python"]
 at.run()
 ```
 
-Generally, you don't want to type your secrets directly into your test. If you don't need your real secrets for a test, you can declare dummy secrets. If your tests require your real secrets, you should use an API to pass them securely and anonymously. If you are automating your tests with GitHub actions, check out their [Security guide](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions).
+Generally, you want to avoid typing your secrets directly into your test. You can declare dummy secrets if you don't need your real secrets for your test. Otherwise, you should use an API to pass them securely and anonymously. If you are automating your tests with GitHub actions, check out their [Security guide](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions).
 
 ```python
 at.secrete["my_key"] = <value provided through API>
@@ -71,13 +71,13 @@ at.secrete["my_key"] = <value provided through API>
 
 ## Working with Session State in app testing
 
-Just like with secrets, the `.session_state` attribute for `AppTest` let's you read and update Session State values using key notation (`at.session_state["my_key"]`), but not attribute notation (`at.session_state.my_key`). By manually declaring values in Session State, you can directly jump to a specific state instead of simulating many steps to get there. Additionally, the testing framework does not provide native support for multipage apps. An instance of `AppTest` can only test one page. You need to manually declare Session State values if you want to simulate a user having data from another page.
+Just like with secrets, the `.session_state` attribute for `AppTest` lets you read and update Session State values using key notation (`at.session_state["my_key"]`) but not attribute notation (`at.session_state.my_key`). By manually declaring values in Session State, you can directly jump to a specific state instead of simulating many steps to get there. Additionally, the testing framework does not provide native support for multipage apps. An instance of `AppTest` can only test one page. You must manually declare Session State values to simulate a user carrying data from another page.
 
 ### Example: testing a multipage app
 
-Consider a simple multipage app where the first page can be used to modify a value in Session State. To test the second page, set Session State manually then run the simulated app within the test:
+Consider a simple multipage app where the first page can modify a value in Session State. To test the second page, set Session State manually and run the simulated app within the test:
 
-#### Project structure
+Project structure:
 
 ```none
 myproject/
@@ -88,7 +88,7 @@ myproject/
     └── test_second.py
 ```
 
-#### First app page
+First app page:
 
 ```python
 """first.py"""
@@ -102,7 +102,7 @@ if st.button("Set the magic word"):
     st.session_state.magic_word = new_word
 ```
 
-#### Second app page
+Second app page:
 
 ```python
 """second.py"""
@@ -114,7 +114,7 @@ if st.session_state.magic_word == "Balloons":
     st.markdown(":balloon:")
 ```
 
-#### Test file
+Testing file:
 
 ```python
 """test_second.py"""
@@ -131,6 +131,6 @@ By setting the value `at.session_state["magic_word"] = "Balloons"` within the te
 
 ## Automate your tests with GitHub actions
 
-One of the key benefits of app testing is that tests can be automated. Very commonly, GitHub actions are used to validate commits and prevent accidental breaks. As an example, take a look at our [`streamlit/llm-examples`](https://github.com/streamlit/llm-examples) repo. Within `.github/workflows` a script creates a virtual Python environment and [runs `pytest`](https://github.com/streamlit/llm-examples/blob/bbcc2667cec2a347b34ab3420b57d6ecb42a3188/.github/workflows/python-app.yml#L38).
+One of the key benefits of app testing is that tests can be automated. GitHub actions are commonly used to validate commits and prevent accidental breaks. As an example, take a look at our [`streamlit/llm-examples`](https://github.com/streamlit/llm-examples) repo. Within `.github/workflows`, a script creates a virtual Python environment and [runs `pytest`](https://github.com/streamlit/llm-examples/blob/bbcc2667cec2a347b34ab3420b57d6ecb42a3188/.github/workflows/python-app.yml#L38).
 
-Check out GitHub docs to learn more about [GitHub Actions](https://docs.github.com/en/actions) and [Automating Projects using Actions](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions).
+Check out GitHub docs to learn about [GitHub Actions](https://docs.github.com/en/actions) and [Automating Projects using Actions](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions).

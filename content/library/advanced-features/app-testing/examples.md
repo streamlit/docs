@@ -7,7 +7,7 @@ slug: /library/advanced-features/app-testing/examples
 
 ## Testing a login page
 
-Let's consider a login page. In this example, `secrets.toml` is not present. We'll manually declare dummy secrets directly in our tests. The login script uses `hmac` to compare a user's password to the secret value as a security best practice to avoid [timing attacks](https://en.wikipedia.org/wiki/Timing_attack).
+Let's consider a login page. In this example, `secrets.toml` is not present. We'll manually declare dummy secrets directly in the tests. To avoid [timing attacks](https://en.wikipedia.org/wiki/Timing_attack), the login script uses `hmac` to compare a user's password to the secret value as a security best practice.
 
 ### Project summary
 
@@ -41,7 +41,7 @@ myproject/
 
 #### Login page Python file
 
-The user status mentioned in the page's specifications are encoded in `st.session_state.status`. This value is initialized at the beginning of the script as "unverified" and is updated through a callback when the password prompt receives a new entry.
+The user's status mentioned in the page's specifications are encoded in `st.session_state.status`. This value is initialized at the beginning of the script as "unverified" and is updated through a callback when the password prompt receives a new entry.
 
 ```python
 """app.py"""
