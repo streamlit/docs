@@ -93,16 +93,12 @@ Assertions are the heart of tests. When the assertion is true, the test passes. 
 
 ### Try out a simple test with `pytest`
 
-1. Install `pytest` into your Streamlit development environment if you haven't already done so:
-   ```bash
-   pip install pytest
-   ```
-2. Copy the files above into a new "myproject" directory.
-3. Open a terminal and change directory to your project.
+1. Copy the files above into a new "myproject" directory.
+2. Open a terminal and change directory to your project.
    ```bash
    cd myproject
    ```
-4. Execute `pytest`:
+3. Execute `pytest`:
    ```bash
    pytest
    ```
@@ -249,7 +245,9 @@ All widgets have a universal `.set_value()` method. Additionally, many widgets h
 
 ### How to inspect elements
 
-All elements, including widgets, have a universal `.value` property. This returns the contents of the element. For widgets, this is the same as the return value or value in Session State. Additionally, you can check many other details for widgets like labels or disabled status. Many parameters are available for inspection, but not all. Use linting software to see what is currently supported. Here's an example:
+All elements, including widgets, have a universal `.value` property. This returns the contents of the element. For widgets, this is the same as the return value or value in Session State. For non-input elements, this will be the value of the primary contents argument. For example, `.value` returns the value of `body` for `st.markdown` or `st.error`. It returns the value of `data` for `st.dataframe` or `st.table`.
+
+Additionally, you can check many other details for widgets like labels or disabled status. Many parameters are available for inspection, but not all. Use linting software to see what is currently supported. Here's an example:
 
 ```python
 import streamlit as st

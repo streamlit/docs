@@ -11,7 +11,7 @@ Now that you're comfortable with executing a basic test for a Streamlit app let'
 - `AppTest.session_state`
 - `AppTest.query_params`
 
-You can read and update values using dict-like syntax for all three attributes. You can use key notation but not attribute notation. For example, the `.secrets` attribute for `AppTest` accepts `at.secrets["my_key"]` but **_not_** `at.secrets.my_key`. This differs from how you can use the associated commands in the main library.
+You can read and update values using dict-like syntax for all three attributes. For `.secrets` and `.query_params`, you can use key notation but not attribute notation. For example, the `.secrets` attribute for `AppTest` accepts `at.secrets["my_key"]` but **_not_** `at.secrets.my_key`. This differs from how you can use the associated command in the main library. On the other hand, `.session_state` allows both key notation and attribute notation.
 
 For these attributes, the typical pattern is to declare any values before executing the app's first run. Values can be inspected at any time in a test. There are a few extra considerations for secrets and Session State, which we'll cover now.
 
@@ -63,15 +63,15 @@ at.secrets["my_other_secrets.things_i_like"] = ["Streamlit", "Python"]
 at.run()
 ```
 
-Generally, you want to avoid typing your secrets directly into your test. You can declare dummy secrets if you don't need your real secrets for your test. Otherwise, you should use an API to pass them securely and anonymously. If you are automating your tests with GitHub actions, check out their [Security guide](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions).
+Generally, you want to avoid typing your secrets directly into your test. If you don't need your real secrets for your test, you can declare dummy secrets as in the example above. If your app uses secrets to connect to an external service like a database or API, consider mocking that service in your app tests. If you need to use the real secrets and actually connect, you should use an API to pass them securely and anonymously. If you are automating your tests with GitHub actions, check out their [Security guide](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions).
 
 ```python
-at.secrete["my_key"] = <value provided through API>
+at.secrets["my_key"] = <value provided through API>
 ```
 
 ## Working with Session State in app testing
 
-Just like with secrets, the `.session_state` attribute for `AppTest` lets you read and update Session State values using key notation (`at.session_state["my_key"]`) but not attribute notation (`at.session_state.my_key`). By manually declaring values in Session State, you can directly jump to a specific state instead of simulating many steps to get there. Additionally, the testing framework does not provide native support for multipage apps. An instance of `AppTest` can only test one page. You must manually declare Session State values to simulate a user carrying data from another page.
+The `.session_state` attribute for `AppTest` lets you read and update Session State values using key notation (`at.session_state["my_key"]`) and attribute notation (`at.session_state.my_key`). By manually declaring values in Session State, you can directly jump to a specific state instead of simulating many steps to get there. Additionally, the testing framework does not provide native support for multipage apps. An instance of `AppTest` can only test one page. You must manually declare Session State values to simulate a user carrying data from another page.
 
 ### Example: testing a multipage app
 
@@ -131,6 +131,6 @@ By setting the value `at.session_state["magic_word"] = "Balloons"` within the te
 
 ## Automate your tests with GitHub actions
 
-One of the key benefits of app testing is that tests can be automated. GitHub actions are commonly used to validate commits and prevent accidental breaks. As an example, take a look at our [`streamlit/llm-examples`](https://github.com/streamlit/llm-examples) repo. Within `.github/workflows`, a script creates a virtual Python environment and [runs `pytest`](https://github.com/streamlit/llm-examples/blob/bbcc2667cec2a347b34ab3420b57d6ecb42a3188/.github/workflows/python-app.yml#L38).
+One of the key benefits of app testing is that tests can be automated. GitHub Actions are commonly used to validate commits and prevent accidental breaks. As an example, take a look at our [`streamlit/llm-examples`](https://github.com/streamlit/llm-examples) repo. Within `.github/workflows`, a script creates a virtual Python environment and [runs `pytest`](https://github.com/streamlit/llm-examples/blob/bbcc2667cec2a347b34ab3420b57d6ecb42a3188/.github/workflows/python-app.yml#L38).
 
 Check out GitHub docs to learn about [GitHub Actions](https://docs.github.com/en/actions) and [Automating Projects using Actions](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions).
