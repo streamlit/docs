@@ -16,10 +16,10 @@ The provided class, AppTest, simulates a running app and provides methods to set
   <InlineCallout color="violet-70" icon="password" bold="Beyond the basics" href="/library/advanced-features/app-testing/beyond-the-basics">
     explains how to work with secrets and Session State within app tests, including how to test multipage apps.
   </InlineCallout>
-  <InlineCallout color="violet-70" icon="quiz" bold="Example" href="/library/advanced-features/app-testing/example">
+  <InlineCallout color="violet-70" icon="quiz" bold="Example" href="/library/advanced-features/app-testing/examples">
     puts together the concepts explained above. Check out an app with multiple tests in place.
   </InlineCallout>
-  <InlineCallout color="violet-70" icon="saved_search" bold="Cheat sheet" href="/library/advanced-features/app-testing/echeet-sheat">
+  <InlineCallout color="violet-70" icon="saved_search" bold="Cheat sheet" href="/library/advanced-features/app-testing/cheat-sheet">
     is a compact reference summarizing the available syntax.
   </InlineCallout>
 </InlineCalloutContainer>
