@@ -46,7 +46,8 @@ Main app file:
 import streamlit as st
 
 # Initialize st.session_state.beans
-beans = st.session_state.get("beans", 0)
+if "beans" not in st.session_state:
+    st.session_state.beans = 0
 
 st.title("Bean counter :paw_prints:")
 
