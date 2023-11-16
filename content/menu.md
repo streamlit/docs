@@ -570,9 +570,9 @@ site_menu:
     url: /knowledge-base/tutorials/deploy/kubernetes
   - category: Knowledge base / Tutorials / Session State basics
     url: /knowledge-base/tutorials/session-state
-  - category: Knowledge base / Tutorials / Build conversational apps
+  - category: Knowledge base / Tutorials / Build a basic LLM chat app
     url: /knowledge-base/tutorials/build-conversational-apps
-  - category: Knowledge base / Tutorials / LLM quickstart
+  - category: Knowledge base / Tutorials / Build an LLM app using LangChain
     url: /knowledge-base/tutorials/llm-quickstart
   - category: Knowledge base / Using Streamlit
     url: /knowledge-base/using-streamlit
