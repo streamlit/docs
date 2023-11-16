@@ -1,9 +1,9 @@
 ---
-title: Build conversational apps
+title: Build a basic LLM chat app
 slug: /knowledge-base/tutorials/build-conversational-apps
 ---
 
-# Build conversational apps
+# Build a basic LLM chat app
 
 ## Introduction
 
