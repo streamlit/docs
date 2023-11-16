@@ -262,7 +262,7 @@ st.color_picker("Pick a color")
 >>> st.chat_input("Say something")
 ```
 
-Learn how to [build chat-based apps](/knowledge-base/tutorials/build-conversational-apps)
+Learn how to [Build a basic LLM chat app](/knowledge-base/tutorials/build-conversational-apps)
 
 </CodeTile>
 
