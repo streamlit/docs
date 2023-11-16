@@ -335,12 +335,12 @@ Now let's write the app. We'll use the same code as before, but we'll replace th
 
 ```python
 import streamlit as st
-import openai
+from openai import OpenAI
 
 st.title("ChatGPT-like clone")
 
 # Set OpenAI API key from Streamlit secrets
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 # Set a default model
 if "openai_model" not in st.session_state:
@@ -371,30 +371,30 @@ if prompt := st.chat_input("What is up?"):
 All that's changed is that we've added a default model to `st.session_state` and set our OpenAI API key from Streamlit secrets. Here's where it gets interesting. We can replace our logic from earlier to emulate streaming predetermined responses with the model's responses from OpenAI:
 
 ```python
-    for response in openai.ChatCompletion.create(
+    for response in client.chat.completions.create(
         model=st.session_state["openai_model"],
         messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
         stream=True,
     ):
-        full_response += response.choices[0].delta.get("content", "")
+        full_response += (response.choices[0].delta.content or "")
         message_placeholder.markdown(full_response + "▌")
     message_placeholder.markdown(full_response)
 st.session_state.messages.append({"role": "assistant", "content": full_response})
 ```
 
-Above, we've replaced the list of responses with a call to [`openai.ChatCompletion.create`](https://platform.openai.com/docs/guides/gpt/chat-completions-api). We've set `stream=True` to stream the responses to the frontend. In the API call, we pass the model name we hardcoded in session state and pass the chat history as a list of messages. We also pass the `role` and `content` of each message in the chat history. Finally, OpenAI returns a stream of responses (split into chunks of tokens), which we iterate through and display each chunk.
+Above, we've replaced the list of responses with a call to [`OpenAI().chat.completions.create`](https://platform.openai.com/docs/guides/text-generation/chat-completions-api). We've set `stream=True` to stream the responses to the frontend. In the API call, we pass the model name we hardcoded in session state and pass the chat history as a list of messages. We also pass the `role` and `content` of each message in the chat history. Finally, OpenAI returns a stream of responses (split into chunks of tokens), which we iterate through and display each chunk.
 
 Putting it all together, here's the full code for our ChatGPT-like app and the result:
 
 <Collapse title="View full code" expanded={false}>
 
 ```python
-import openai
+from openai import OpenAI
 import streamlit as st
 
 st.title("ChatGPT-like clone")
 
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-3.5-turbo"
@@ -414,7 +414,7 @@ if prompt := st.chat_input("What is up?"):
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         full_response = ""
-        for response in openai.ChatCompletion.create(
+        for response in client.chat.completions.create(
             model=st.session_state["openai_model"],
             messages=[
                 {"role": m["role"], "content": m["content"]}
@@ -422,7 +422,7 @@ if prompt := st.chat_input("What is up?"):
             ],
             stream=True,
         ):
-            full_response += response.choices[0].delta.get("content", "")
+            full_response += (response.choices[0].delta.content or "")
             message_placeholder.markdown(full_response + "▌")
         message_placeholder.markdown(full_response)
     st.session_state.messages.append({"role": "assistant", "content": full_response})
