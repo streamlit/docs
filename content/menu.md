@@ -14,20 +14,21 @@ site_menu:
     url: /get-started/installation/command-line
   - category: Get started / Main concepts
     url: /get-started/main-concepts
+  - category: Get started / Main concepts / GRAND TOUR
   - category: Get started / Main concepts / Fundamentals
     url: /get-started/main-concepts/fundamentals
   - category: Get started / Main concepts / Advanced concepts
     url: /get-started/main-concepts/advanced-concepts
   - category: Get started / Main concepts / Additional features
     url: /get-started/main-concepts/additional-features
-  - category: Get started / Main concepts / Create an app
-    url: /get-started/main-concepts/create-an-app
-  - category: Get started / Main concepts / Multipage apps
-    url: /get-started/main-concepts/multipage-apps
-  - category: Get started / Main concepts / Create a multipage app
-    url: /get-started/main-concepts/create-a-multipage-app
   - category: Get started / Main concepts / Summary
     url: /get-started/main-concepts/summary
+  - category: Get started / Main concepts / HANDS-ON
+  - category: Get started / Main concepts / Create an app
+    url: /get-started/main-concepts/create-an-app
+  - category: Get started / Main concepts / Create a multipage app
+    url: /get-started/main-concepts/create-a-multipage-app
+  - category: Get started / Main concepts / ---
 
   - category: Streamlit library
     url: /library
@@ -408,43 +409,45 @@ site_menu:
     url: /library/advanced-features
   - category: Streamlit library / Advanced features / ⋮ App menu
     url: /library/advanced-features/app-menu
-  - category: Streamlit library / Advanced features/ Button behavior and examples
+  - category: Streamlit library / Advanced features / Button behavior and examples
     url: /library/advanced-features/button-behavior-and-examples
-  - category: Streamlit library / Advanced features/ Caching
+  - category: Streamlit library / Advanced features / Caching
     url: /library/advanced-features/caching
-  - category: Streamlit library / Advanced features/ Command-line options
+  - category: Streamlit library / Advanced features / Optimize performance with st.cache
+    url: /library/advanced-features/st.cache
+    visible: false
+  - category: Streamlit library / Advanced features / Experimental cache primitives
+    url: /library/advanced-features/experimental-cache-primitives
+    visible: false
+  - category: Streamlit library / Advanced features / Command-line options
     url: /library/advanced-features/cli
-  - category: Streamlit library / Advanced features/ Configuration
+  - category: Streamlit library / Advanced features / Configuration
     url: /library/advanced-features/configuration
   - category: Streamlit library / Advanced features / Theming
     url: /library/advanced-features/theming
-  - category: Streamlit library / Advanced features/ Connecting to data
+  - category: Streamlit library / Advanced features / Connecting to data
     url: /library/advanced-features/connecting-to-data
-  - category: Streamlit library / Advanced features/ Dataframes
+  - category: Streamlit library / Advanced features / Dataframes
     url: /library/advanced-features/dataframes
-  - category: Streamlit library / Advanced features/ Forms
+  - category: Streamlit library / Advanced features / Forms
     url: /library/advanced-features/forms
-  - category: Streamlit library / Advanced features/ Optimize performance with st.cache
-    url: /library/advanced-features/st.cache
-    visible: false
-  - category: Streamlit library / Advanced features/ Experimental cache primitives
-    url: /library/advanced-features/experimental-cache-primitives
-    visible: false
-  - category: Streamlit library / Advanced features/ Add statefulness to apps
+  - category: Streamlit library / Advanced features / Multipage apps
+    url: /library/advanced-features/multipage-apps
+  - category: Streamlit library / Advanced features / Add statefulness to apps
     url: /library/advanced-features/session-state
-  - category: Streamlit library / Advanced features/ Widget behavior
+  - category: Streamlit library / Advanced features / Widget behavior
     url: /library/advanced-features/widget-behavior
-  - category: Streamlit library / Advanced features/ Pre-release features
+  - category: Streamlit library / Advanced features / Pre-release features
     url: /library/advanced-features/prerelease
-  - category: Streamlit library / Advanced features/ Working with timezones
+  - category: Streamlit library / Advanced features / Working with timezones
     url: /library/advanced-features/timezone-handling
-  - category: Streamlit library / Advanced features/ Static file serving
+  - category: Streamlit library / Advanced features / Static file serving
     url: /library/advanced-features/static-file-serving
-  - category: Streamlit library / Advanced features/ HTTPS support
+  - category: Streamlit library / Advanced features / HTTPS support
     url: /library/advanced-features/https-support
-  - category: Streamlit library / Advanced features/ Secrets management
+  - category: Streamlit library / Advanced features / Secrets management
     url: /library/advanced-features/secrets-management
-  - category: Streamlit library / Advanced features/ Security reminders
+  - category: Streamlit library / Advanced features / Security reminders
     url: /library/advanced-features/security-reminders
   - category: Streamlit library / Components
     url: /library/components

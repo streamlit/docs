@@ -41,6 +41,12 @@ For more information about the Streamlit caching decorators, their configuration
 
 Session State provides a dictionary-like interface where you can save information that is preserved between script reruns. Commonly, a Session State value is initialized at the beginning of a script. The value is then used and updated within the script. Use `st.session_state` with key or attribute notation to store and recall values. For example, `st.session_state["my_key"]` or `st.session_state.my_key`.
 
+### What is a session?
+
+By session, we mean a particular instance of viewing an app. If you view an app from two different tabs in your browser, each tab will have its own session. So each viewer of an app will have a Session State tied to the specific view in the specific tab of their browser they are using. Streamlit maintains this session as the user navigates and interacts with the app. If a user refreshes their browser page or reloads the URL to the app, their Session State resets and the begin again with a new session.
+
+### Examples of using Session State
+
 Here's a simple app that counts the number of times the page has been run. Every time you click the button, the script will rerun.
 
 ```python
@@ -52,15 +58,14 @@ if "counter" not in st.session_state:
 st.session_state.counter += 1
 
 st.header(f"This page has run {st.session_state.counter} times.")
-
 st.button("Run it again")
 ```
 
-- **First run:** The first time the app runs for each user, a key-value pair is create in Session State (`"counter":0`) and it is immediately incremented (`"counter":1`). When that user clicks the button for the first time, the script reruns.
+- **First run:** The first time the app runs for each user, Session State is empty. Therefore, a key-value pair is created (`"counter":0`). As the script continues, the counter is immediately incremented (`"counter":1`) and the result is displayed: "This page has run 1 times." When the page has fully rendered, the script has finished and Streamlit waits for the user to interact. When that user clicks the button, a rerun begins.
 
-- **Second run:** Since "counter" is already a key in Session State, it is not reinitialized. Instead, it's immediately incremented (`"counter":2`) and the result is displayed: "This page has run 2 times."
+- **Second run:** Since "counter" is already a key in Session State, it is not reinitialized. As the script continues, the counter is incremented (`"counter":2`) and the result is displayed: "This page has run 2 times."
 
-There are a few common scenarios where Session State is used. As demonstrated above, Session State is used when you have a progressive process that you want to build upon from one rerun to the next. Session State can also be used to prevent recalculation, similar to caching. The big difference between caching and Session State is that cached values are accessible to all users, across all sessions. Values in Session State are only available to the single user and session where it was generated.
+There are a few common scenarios where Session State is used. As demonstrated above, Session State is used when you have a progressive process that you want to build upon from one rerun to the next. Session State can also be used to prevent recalculation, similar to caching. The big difference between caching and Session State is that cached values are accessible to all users, across all sessions. Values in Session State are only available to the single user within a single session.
 
 If you have any random number generation in your app, you'd likely use Session State. Here's an example where some data is generated randomly at the beginning of each session. By saving this random information in Session State, each user gets different random data when they open the app but it won't keep changing on them as they interact with it. Try selecting different colors and see that the data does not get re-randomized with each rerun. (Open this page in a new tab to start a new session and see different data!)
 

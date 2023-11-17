@@ -1,6 +1,6 @@
 ---
 title: Multipage apps
-slug: /get-started/main-concepts/multipage-apps
+slug: /library/advanced-features/multipage-apps
 ---
 
 # Multipage apps
