@@ -1,6 +1,8 @@
 ---
 title: App model summary
 slug: /get-started/main-concepts/summary
+nextTitle: Create an app
+nextLink: /get-started/main-concepts/create-an-app
 ---
 
 # App model summary

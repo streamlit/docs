@@ -1,6 +1,8 @@
 ---
 title: Create a multipage app
 slug: /get-started/main-concepts/create-a-multipage-app
+nextTitle: API Reference
+nextLink: /library/api-reference
 ---
 
 # Create a multipage app

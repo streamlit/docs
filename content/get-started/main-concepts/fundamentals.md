@@ -1,6 +1,8 @@
 ---
 title: Streamlit fundamentals
 slug: /get-started/main-concepts/fundamentals
+previousLink: /get-started/main-concepts
+previousTitle: Main concepts
 ---
 
 # Streamlit fundamentals
