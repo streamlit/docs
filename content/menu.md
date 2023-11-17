@@ -14,12 +14,20 @@ site_menu:
     url: /get-started/installation/command-line
   - category: Get started / Main concepts
     url: /get-started/main-concepts
+  - category: Get started / Main concepts / Fundamentals
+    url: /get-started/main-concepts/fundamentals
+  - category: Get started / Main concepts / Advanced concepts
+    url: /get-started/main-concepts/advanced-concepts
+  - category: Get started / Main concepts / Additional features
+    url: /get-started/main-concepts/additional-features
   - category: Get started / Main concepts / Create an app
     url: /get-started/main-concepts/create-an-app
-  - category: Get started / Multipage apps
-    url: /get-started/multipage-apps
-  - category: Get started / Multipage apps / Create a multipage app
-    url: /get-started/multipage-apps/create-a-multipage-app
+  - category: Get started / Main concepts / Multipage apps
+    url: /get-started/main-concepts/multipage-apps
+  - category: Get started / Main concepts / Create a multipage app
+    url: /get-started/main-concepts/create-a-multipage-app
+  - category: Get started / Main concepts / Summary
+    url: /get-started/main-concepts/summary
 
   - category: Streamlit library
     url: /library

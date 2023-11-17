@@ -891,6 +891,6 @@
 /library/get-started/installation /get-started/installation
 /library/get-started/main-concepts /get-started/main-concepts
 /library/get-started/create-an-app /get-started/main-concepts/create-an-app
-/library/get-started/multipage-apps /get-started/multipage-apps
-/library/get-started/multipage-apps/create-a-multipage-app /get-started/multipage-apps/create-a-multipage-app
+/library/get-started/multipage-apps /get-started/main-concepts/multipage-apps
+/library/get-started/multipage-apps/create-a-multipage-app /get-started/main-concepts/create-a-multipage-app
 /streamlit-cloud/get-started/quickstart /get-started/installation/cloud-quickstart

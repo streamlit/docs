@@ -1,6 +1,6 @@
 ---
 title: Create a multipage app
-slug: /get-started/multipage-apps/create-a-multipage-app
+slug: /get-started/main-concepts/create-a-multipage-app
 ---
 
 # Create a multipage app
