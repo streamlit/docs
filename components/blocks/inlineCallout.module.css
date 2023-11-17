@@ -60,3 +60,11 @@
 .KBText {
   @apply text-orange-70 !important;
 }
+
+.GrayText {
+  @apply text-gray-80 underline !important;
+}
+
+:global(.dark) .GrayText {
+  @apply text-gray-20 !important;
+}

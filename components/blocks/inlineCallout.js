@@ -12,14 +12,14 @@ const InlineCallout = ({ children, icon, color, bold, href }) => {
       : color === "l-blue-70"
       ? styles.CloudBackground
       : styles.KBBackground;
-  const textColor =
-    color === "red-70"
-      ? styles.GetStartedText
-      : color === "violet-70"
-      ? styles.LibraryText
-      : color === "l-blue-70"
-      ? styles.CloudText
-      : styles.KBText;
+  const textColor = (color = styles.GrayText); //Temporary color until red/Get started can be improved
+  // color === "red-70"
+  //   ? styles.GetStartedText
+  //   : color === "violet-70"
+  //   ? styles.LibraryText
+  //   : color === "l-blue-70"
+  //   ? styles.CloudText
+  //   : styles.KBText;
   return (
     <section className={styles.Container}>
       <Link href={href}>

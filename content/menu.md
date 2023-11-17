@@ -3,7 +3,7 @@ site_menu:
   - category: Get started
     url: /get-started
     color: red-70
-    icon: power_settings_new
+    icon: rocket_launch
   - category: Get started / Setup and installation
     url: /get-started/installation
   - category: Get started / Setup and installation / Community Cloud

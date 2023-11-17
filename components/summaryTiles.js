@@ -8,7 +8,7 @@ const SummaryTiles = () => {
         icon="install_desktop"
         title="Setup and installation"
         text="Get set up to start working with Streamlit."
-        background="red-70"
+        background="orange-70"
         link="/get-started/installation"
       />
 
@@ -24,7 +24,7 @@ const SummaryTiles = () => {
         icon="grid_view"
         title="App gallery"
         text="Try out awesome apps created by our users, and curated from our forums or Twitter."
-        background="orange-70"
+        background="blue-70"
         link="https://streamlit.io/gallery"
       />
     </TileContainer>

@@ -143,7 +143,7 @@ export default function Home({ window, menu, gdpr_data, cookie_data }) {
             <InlineCalloutContainer>
               <InlineCallout
                 color="red-70"
-                icon="power_settings_new"
+                icon="rocket_launch"
                 bold="Get started"
                 href="/get-started"
               >
