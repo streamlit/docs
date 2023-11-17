@@ -449,6 +449,16 @@ site_menu:
     url: /library/advanced-features/secrets-management
   - category: Streamlit library / Advanced features / Security reminders
     url: /library/advanced-features/security-reminders
+  - category: Streamlit library / Advanced features / App testing
+    url: /library/advanced-features/app-testing
+  - category: Streamlit library / Advanced features / App testing / Get started
+    url: /library/advanced-features/app-testing/get-started
+  - category: Streamlit library / Advanced features / App testing / Beyond the basics
+    url: /library/advanced-features/app-testing/beyond-the-basics
+  - category: Streamlit library / Advanced features / App testing / Example
+    url: /library/advanced-features/app-testing/examples
+  - category: Streamlit library / Advanced features / App testing / Cheat sheet
+    url: /library/advanced-features/app-testing/cheat-sheet
   - category: Streamlit library / Components
     url: /library/components
   - category: Streamlit library / Components / Components API
@@ -576,9 +586,9 @@ site_menu:
     url: /knowledge-base/tutorials/deploy/kubernetes
   - category: Knowledge base / Tutorials / Session State basics
     url: /knowledge-base/tutorials/session-state
-  - category: Knowledge base / Tutorials / Build conversational apps
+  - category: Knowledge base / Tutorials / Build a basic LLM chat app
     url: /knowledge-base/tutorials/build-conversational-apps
-  - category: Knowledge base / Tutorials / LLM quickstart
+  - category: Knowledge base / Tutorials / Build an LLM app using LangChain
     url: /knowledge-base/tutorials/llm-quickstart
   - category: Knowledge base / Using Streamlit
     url: /knowledge-base/using-streamlit
