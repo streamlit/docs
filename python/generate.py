@@ -9,17 +9,16 @@ import sys
 import types
 
 import docstring_parser
+import stoutput
 import streamlit
 import streamlit.components.v1 as components
-from streamlit.elements.lib.mutable_status_container import StatusContainer
-from streamlit.testing.v1.app_test import AppTest
 import streamlit.testing.v1.element_tree as element_tree
+import utils
 from docutils.core import publish_parts
 from docutils.parsers.rst import directives
 from numpydoc.docscrape import NumpyDocString
-
-import stoutput
-import utils
+from streamlit.elements.lib.mutable_status_container import StatusContainer
+from streamlit.testing.v1.app_test import AppTest
 
 VERSION = streamlit.__version__
 
@@ -378,7 +377,7 @@ def get_sig_string_without_annots(func):
     return ", ".join(args)
 
 
-def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
+def get_obj_docstring_dict(obj, key_prefix, signature_prefix, only_include=None):
     """Recursively get the docstring dict for an object and its members. Returns a dict of dicts containing the docstring info for each member."""
 
     # Initialize empty dictionary to store function/method/property metadata
@@ -390,8 +389,9 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix):
         if membername.startswith("_"):
             continue
 
-        # if membername == "column_config":
-        #     continue
+        # Skip members that are not included in only_include
+        if only_include is not None and membername not in only_include:
+            continue
 
         # Get the member object using its name
         member = getattr(obj, membername)
@@ -504,8 +504,8 @@ def get_streamlit_docstring_dict():
         ],
         streamlit.column_config: ["streamlit.column_config", "st.column_config"],
         components: ["streamlit.components.v1", "st.components.v1"],
-        streamlit._DeltaGenerator: ["DeltaGenerator", "element"],
-        StatusContainer: ["StatusContainer", "StatusContainer"],
+        streamlit._DeltaGenerator: ["DeltaGenerator", "element", "add_rows"], # Only store docstring for element.add_rows
+        StatusContainer: ["StatusContainer", "StatusContainer", "update"], # Only store docstring for StatusContainer.update
         streamlit.testing.v1: ["streamlit.testing.v1", "st.testing.v1"],
         AppTest: ["AppTest", "AppTest"],
         element_tree: [
@@ -516,7 +516,7 @@ def get_streamlit_docstring_dict():
 
     module_docstring_dict = {}
     for obj, key in obj_key.items():
-        module_docstring_dict.update(get_obj_docstring_dict(obj, key[0], key[1]))
+        module_docstring_dict.update(get_obj_docstring_dict(obj, *key))
 
     return module_docstring_dict
 
