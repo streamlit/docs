@@ -890,8 +890,8 @@
 /st.connections.snowflakeconnection-configuration /library/api-reference/connections/st.connections.snowflakeconnection#configuration
 /library/get-started /get-started
 /library/get-started/installation /get-started/installation
-/library/get-started/main-concepts /get-started/main-concepts
+/library/get-started/main-concepts /get-started/main-concepts/fundamentals
 /library/get-started/create-an-app /get-started/main-concepts/create-an-app
-/library/get-started/multipage-apps /get-started/main-concepts/multipage-apps
+/library/get-started/multipage-apps /library/advanced-features/multipage-apps
 /library/get-started/multipage-apps/create-a-multipage-app /get-started/main-concepts/create-a-multipage-app
 /streamlit-cloud/get-started/quickstart /get-started/installation/cloud-quickstart

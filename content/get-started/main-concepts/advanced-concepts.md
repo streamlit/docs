@@ -5,7 +5,7 @@ slug: /get-started/main-concepts/advanced-concepts
 
 # Advanced Streamlit concepts
 
-Now that you know how a Streamlit app runs and handles data, let's talk about being efficient. With all that rerunning of your script, you'll need to cut out unecessary, repeated computation. Caching allows you to save the output of a function so that you don't need to repeat a calculation with each rerun or even when a new user comes along. Session State lets you save information for each user that is preserved between reruns. This not only allows you to avoid unecessary recalculation, but also allows you to create dynamic pages and handle progressive processes.
+Now that you know how a Streamlit app runs and handles data, let's talk about being efficient. Caching allows you to save the output of a function so you can skip over it on rerun. Session State lets you save information for each user that is preserved between reruns. This not only allows you to avoid unecessary recalculation, but also allows you to create dynamic pages and handle progressive processes.
 
 ## Caching
 
@@ -39,11 +39,11 @@ For more information about the Streamlit caching decorators, their configuration
 
 ## Session State
 
-Session State provides a dictionary-like interface where you can save information that is preserved between script reruns. Commonly, a Session State value is initialized at the beginning of a script. The value is then used and updated within the script. Use `st.session_state` with key or attribute notation to store and recall values. For example, `st.session_state["my_key"]` or `st.session_state.my_key`.
+Session State provides a dictionary-like interface where you can save information that is preserved between script reruns. Use `st.session_state` with key or attribute notation to store and recall values. For example, `st.session_state["my_key"]` or `st.session_state.my_key`. Remember that widgets handle thier statefulness all by themselves, so you won't always need to use Session State!
 
 ### What is a session?
 
-By session, we mean a particular instance of viewing an app. If you view an app from two different tabs in your browser, each tab will have its own session. So each viewer of an app will have a Session State tied to the specific view in the specific tab of their browser they are using. Streamlit maintains this session as the user navigates and interacts with the app. If a user refreshes their browser page or reloads the URL to the app, their Session State resets and the begin again with a new session.
+A session is a single instance of viewing an app. If you view an app from two different tabs in your browser, each tab will have its own session. So each viewer of an app will have a Session State tied to their specific view. Streamlit maintains this session as the user interacts with the app. If the user refreshes their browser page or reloads the URL to the app, their Session State resets and they begin again with a new session.
 
 ### Examples of using Session State
 
@@ -61,13 +61,16 @@ st.header(f"This page has run {st.session_state.counter} times.")
 st.button("Run it again")
 ```
 
-- **First run:** The first time the app runs for each user, Session State is empty. Therefore, a key-value pair is created (`"counter":0`). As the script continues, the counter is immediately incremented (`"counter":1`) and the result is displayed: "This page has run 1 times." When the page has fully rendered, the script has finished and Streamlit waits for the user to interact. When that user clicks the button, a rerun begins.
+- **First run:** The first time the app runs for each user, Session State is empty. Therefore, a key-value pair is created (`"counter":0`). As the script continues, the counter is immediately incremented (`"counter":1`) and the result is displayed: "This page has run 1 times." When the page has fully rendered, the script has finished and the Streamlit server waits for the user to do something. When that user clicks the button, a rerun begins.
 
 - **Second run:** Since "counter" is already a key in Session State, it is not reinitialized. As the script continues, the counter is incremented (`"counter":2`) and the result is displayed: "This page has run 2 times."
 
-There are a few common scenarios where Session State is used. As demonstrated above, Session State is used when you have a progressive process that you want to build upon from one rerun to the next. Session State can also be used to prevent recalculation, similar to caching. The big difference between caching and Session State is that cached values are accessible to all users, across all sessions. Values in Session State are only available to the single user within a single session.
+There are a few common scenarios where Session State is helpful. As demonstrated above, Session State is used when you have a progressive process that you want to build upon from one rerun to the next. Session State can also be used to prevent recalculation, similar to caching. However, the differences are important:
 
-If you have any random number generation in your app, you'd likely use Session State. Here's an example where some data is generated randomly at the beginning of each session. By saving this random information in Session State, each user gets different random data when they open the app but it won't keep changing on them as they interact with it. Try selecting different colors and see that the data does not get re-randomized with each rerun. (Open this page in a new tab to start a new session and see different data!)
+- Caching associates stored values to specific functions and inputs. Cached values are accessible to all users across all sessions.
+- Session State associates stored values to keys (strings). Values in session state are only available in the single session where it was saved.
+
+If you have random number generation in your app, you'd likely use Session State. Here's an example where data is generated randomly at the beginning of each session. By saving this random information in Session State, each user gets different random data when they open the app but it won't keep changing on them as they interact with it. If you select different colors with the picker you'll see that the data does not get re-randomized with each rerun. (If you open the app in a new tab to start a new session, you'll see different data!)
 
 ```python
 import streamlit as st
@@ -81,16 +84,15 @@ st.header("Choose a datapoint color")
 color = st.color_picker("Color", "#FF0000")
 st.divider()
 st.scatter_chart(st.session_state.df, x="x", y="y", color=color)
-
 ```
 
-If you are pulling the same data for all users, you'd likely cache a function that gets that data. On the other hand, if you pull data specific to a user, such as querying their personal information, you'd likely want to save that in Session State. That way, the queried data is only available in that one session and not to any other user of the app.
+If you are pulling the same data for all users, you'd likely cache a function that retrieves that data. On the other hand, if you pull data specific to a user, such as querying their personal information, you may want to save that in Session State. That way, the queried data is only available in that one session.
 
-Session State is also related to widgets. Widgets are magical and handle statefulness on their own quietly in the background. As an advanced feature however, you can manipulate the value of widgets within your code by assigning keys to them. Any key assigned to a widget becomes a key in Session State which holds the value of the widget. This can be used to manipulate the widget. **This is an advanced concept.** So, after you finish understanding the basics of Streamlit, check out our guide on [Widget behavior](/library/advanced-features/widget-behavior) to dig in the details if you're interested.
+As mentioned in [Streamlit fundamentals](/get-started/main-concepts/fundamentals#widgets), Session State is also related to widgets. Widgets are magical and handle statefulness quietly on their own. As an advanced feature however, you can manipulate the value of widgets within your code by assigning keys to them. Any key assigned to a widget becomes a key in Session State tied to the value of the widget. This can be used to manipulate the widget. After you finish understanding the basics of Streamlit, check out our guide on [Widget behavior](/library/advanced-features/widget-behavior) to dig in the details if you're interested.
 
 ## Connections
 
-As hinted above, you can use `@st.cache_resource` to cache connections. This is the most general solution which allows you to use any connection from any Python library. However, Streamlit also offers a convenient way to handle some of the most popular connections, like SQL! `st.connection` takes care of the caching for you so you can enjoy fewer lines of code. Getting data from your database can be as easy as:
+As hinted above, you can use `@st.cache_resource` to cache connections. This is the most general solution which allows you to use almost any connection from any Python library. However, Streamlit also offers a convenient way to handle some of the most popular connections, like SQL! `st.connection` takes care of the caching for you so you can enjoy fewer lines of code. Getting data from your database can be as easy as:
 
 ```python
 import streamlit as st
@@ -100,7 +102,7 @@ df = conn.query("select * from my_table")
 st.dataframe(df)
 ```
 
-Of course, you may be wondering where your username and password goes. Well, Streamlit has a convenient mechanism for [Secrets management](/library/advanced-features/secrets-management). You can read the full details after getting through the basics. For now, let's just see how `st.connection` works very nicely with secrets. In your local project directory, you can save a `.streamlit/secrets.toml` file. You save your secrets in the toml file and `st.connection` just uses them! For example, if you have an app file `streamlit_app.py` your project directory may look like this:
+Of course, you may be wondering where your username and password go. Streamlit has a convenient mechanism for [Secrets management](/library/advanced-features/secrets-management). For now, let's just see how `st.connection` works very nicely with secrets. In your local project directory, you can save a `.streamlit/secrets.toml` file. You save your secrets in the toml file and `st.connection` just uses them! For example, if you have an app file `streamlit_app.py` your project directory may look like this:
 
 ```bash
 your-LOCAL-repository/
@@ -109,7 +111,7 @@ your-LOCAL-repository/
 └── streamlit_app.py
 ```
 
-For the above SQL example, your `secrets.toml` might look like the following:
+For the above SQL example, your `secrets.toml` file might look like the following:
 
 ```toml
 [connections.my_database]
@@ -122,4 +124,4 @@ For the above SQL example, your `secrets.toml` might look like the following:
     database="mydb" # Database name
 ```
 
-Since you don't want to commit your `secrets.toml` file to your repository, you'll need to learn how your host handles secrets when your ready to publish your app. Each host platform may have a different way for you to pass your secrets. If you use Stramlit Community Cloud for example, each deployed app has a settings menu where you can load your secrets. After you've written an app and are ready to deploy, you can read all about how to [Deploy your app](/streamlit-community-cloud/deploy-your-app) on Community Cloud.
+Since you don't want to commit your `secrets.toml` file to your repository, you'll need to learn how your host handles secrets when you're ready to publish your app. Each host platform may have a different way for you to pass your secrets. If you use Stramlit Community Cloud for example, each deployed app has a settings menu where you can load your secrets. After you've written an app and are ready to deploy, you can read all about how to [Deploy your app](/streamlit-community-cloud/deploy-your-app) on Community Cloud.

@@ -5,7 +5,7 @@ slug: /get-started/main-concepts/additional-features
 
 # Additional Streamlit features
 
-So you've read all about the fundamentals of Streamlit apps and maybe read about more advanced concepts to make your apps more dynamic and performant. But what about the bells and whistles? Here's a quick look at some extra features to take your app to the next level.
+So you've read all about the [Streamlit fundamentals](/get-started/main-concepts/fundamentals) and gotten a tase of caching and Session State in [Advanced concepts](/get-started/main-concepts/advanced-concepts). But what about the bells and whistles? Here's a quick look at some extra features to take your app to the next level.
 
 ## Theming
 
@@ -58,7 +58,7 @@ We designed this feature so that building a multipage app is as easy as building
 2. Add new `.py` files in the `pages` folder to add more pages to your app.
 3. Run `streamlit run main_page.py` as usual.
 
-That’s it! The `main_page.py` script will now correspond to the main page of your app. And you’ll see the other scripts from the `pages` folder in the sidebar page selector. For example:
+That’s it! The `main_page.py` script will now correspond to the main page of your app. And you’ll see the other scripts from the `pages` folder in the sidebar page selector. The pages are listed according to filename (without file extensions and disregarding underscores). For example:
 
 <details open>
 <summary><code>main_page.py</code></summary>
@@ -101,11 +101,11 @@ Now run `streamlit run main_page.py` and view your shiny new multipage app!
 
 <Image src="/images/mpa-main-concepts.gif" />
 
-Our documentation on [Multipage apps](/get-started/multipage-apps) teaches you how to add pages to your app, including how to define pages, structure and run multipage apps, and navigate between pages. Once you understand the basics, [create your first multipage app](/get-started/multipage-apps/create-a-multipage-app)!
+Our documentation on [Multipage apps](/library/advanced-features/multipage-apps) teaches you how to add pages to your app, including how to define pages, structure and run multipage apps, and navigate between pages. Once you understand the basics, [create your first multipage app](/get-started/main-concepts/create-a-multipage-app)!
 
 ## Static file serving
 
-As you learned in Streamlit fundamentals, Streamlit runs a server that clients connect to. That means viewers of your app don't have direct access to the files which are local to your to your app. Most of the time, this doesn't matter because Streamlt commands handle that for you. When you use `st.image(<path-to-image>)` your Streamlit server will access the file and handle the necessary hosting so your app viewers can see it. However, if you want need a direct URL to your image or file you'd need to host it. This requires setting the correct configuration and placing your hosted files in a directory named `static`. For example, your project could look like:
+As you learned in Streamlit fundamentals, Streamlit runs a server that clients connect to. That means viewers of your app don't have direct access to the files which are local to your to your app. Most of the time, this doesn't matter because Streamlt commands handle that for you. When you use `st.image(<path-to-image>)` your Streamlit server will access the file and handle the necessary hosting so your app viewers can see it. However, if you want a direct URL to an image or file you'll need to host it. This requires setting the correct configuration and placing your hosted files in a directory named `static`. For example, your project could look like:
 
 ```bash
 your-project/
@@ -118,4 +118,4 @@ To learn more, read our guide on [Static file serving](/library/advanced-feature
 
 ## App testing
 
-Good development hygeine includes testing your code. Automated testing allows you to write higher quality code, faster! Streamlit has a built-in testing framework that let's you build tests easily. Use your favorite testing framework to run your tests. We like `pytest`. When you test a Streamlit app, you simulate running the app, declare user input through the API, and inspect the results. You can use GitHub workflows to automate your tests and get instant alerts about breaking changes. Learn more in our guide to [App testing](/library/advanced-features/app-testing).
+Good development hygeine includes testing your code. Automated testing allows you to write higher quality code, faster! Streamlit has a built-in testing framework that let's you build tests easily. Use your favorite testing framework to run your tests. We like [`pytest`](https://pypi.org/project/pytest/). When you test a Streamlit app, you simulate running the app, declare user input, and inspect the results. You can use GitHub workflows to automate your tests and get instant alerts about breaking changes. Learn more in our guide to [App testing](/library/advanced-features/app-testing).

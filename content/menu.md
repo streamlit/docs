@@ -23,7 +23,7 @@ site_menu:
     url: /get-started/main-concepts/additional-features
   - category: Get started / Main concepts / Summary
     url: /get-started/main-concepts/summary
-  - category: Get started / Main concepts / HANDS-ON
+  - category: Get started / Main concepts / TUTORIALS
   - category: Get started / Main concepts / Create an app
     url: /get-started/main-concepts/create-an-app
   - category: Get started / Main concepts / Create a multipage app
