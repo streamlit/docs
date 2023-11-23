@@ -91,6 +91,8 @@ improves performance. If you'd like to turn it back on, you'll need to find whic
 of your infrastructure is stripping the `Sec-WebSocket-Extensions` HTTP header and
 change that behavior.
 
+Additionally, a crucial note to remember: **Avoid running your application on port 3000**. Port 3000 serves as Streamlit's internal development port, exclusively reserved for internal usage. Using this port externally could lead to conflicts, potentially causing the "Please wait..." issue. While a workaround for this particular conflict might become available in the future, it's advisable to steer clear of using port 3000 for now to ensure smooth application functionality.
+
 ### Symptom #3: Unable to upload files when running in multiple replicas
 
 If the file uploader widget returns an error with status code 403, this is probably
