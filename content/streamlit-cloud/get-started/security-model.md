@@ -15,35 +15,25 @@ number = st.slider("Pick a number: ", min_value=1, max_value=10)
 st.text("Your number is " + str(number))
 ```
 
-When you `streamlit run my_app.py`, you start a web server that runs the interactive application on your local computer at `http://localhost:8501`. This is great for local development. When you want to share with your colleagues, Streamlit Community Cloud enables you to deploy and run these applications in the cloud. Streamlit Community Cloud handles all the details of containerization and provides you an interface for easily managing your deployed apps.
+When you `streamlit run my_app.py`, you start a web server that runs the interactive application on your local computer at `http://localhost:8501`. This is great for local development. When you want to share with your colleagues, Streamlit Community Cloud enables you to deploy and run these applications in the cloud. Streamlit Community Cloud handles the details of containerization and provides you an interface for easily managing your deployed apps.
 
-This document is an overview of how we provide best-in-industry security for you. We'll cover all the important areas in the lifecycle of your data:
-
-- **Product Security**: how we ensure only you can create and view apps that access your data
-- **Network and Application Security**: how we ensure your data is protected when it is in our cloud
-- **Ongoing Operations**: how we stay good stewards of security best practices
+This document provides an overview of the security safeguards we've implemented to protect you and your data.
 
 ## Product Security
 
 ### Authentication
 
-Authentication through GitHub is required to deploy or administer an app. Authentication through Google or single-use emailed links are required to view a private app for which you are not an admin. These links are valid for 15 minutes once requested. We do not store customer passwords.
-
-### Credential Storage
-
-We encrypt sensitive customer data (e.g. secrets, authentication tokens) at-rest with AES256 as described in Google's documentation.
+You must authenticate through GitHub to deploy or administer an app. Authentication through Google or single-use emailed links are required to view a private app for which you are not an admin. These links are valid for 15 minutes once requested.
 
 ### Permissions
 
-Our permission levels inherit from the permissions you have assigned in GitHub. Users with write access to a GitHub repository for a given app will be able to make changes in the Streamlit administrative console.
-
-Only users with _admin access_ to a repository are able to **deploy and delete apps**.
+Streamlit Community Cloud inherits the permissions you have assigned in GitHub. Users with write access to a GitHub repository for a given app will be able to make changes in the Streamlit administrative console. However, only users with _admin access_ to a repository are able to **deploy and delete apps**.
 
 ## Network and Application Security
 
 ### Data Hosting
 
-Our physical infrastructure is hosted and managed within Google Cloud Platform (GCP) using their secure data centers. Streamlit leverages many of the platform's built-in security, privacy, and redundancy features. GCP continually monitors its data centers for risk and undergoes assessments to ensure compliance with industry standards. GCP's data centers have numerous accreditations, including ISO-27001, SOC 1 and SOC 2.
+Our physical infrastructure is hosted and managed within Google Cloud Platform (GCP) using their secure data centers. Streamlit leverages many of the platform's built-in security, privacy, and redundancy features. GCP continually monitors its data centers for risk and undergoes assessments to ensure compliance with industry standards.
 
 ### Virtual Private Cloud
 
@@ -51,38 +41,26 @@ All of our servers are within a virtual private cloud (VPC) with firewalls and n
 
 ### Encryption
 
-All Streamlit apps are served entirely over HTTPS. All data sent to or from Streamlit over the public internet is encrypted in transit using 256-bit encryption. Our API and application endpoints are TLS only (v1.2). We use only strong cipher suites and HTTP Strict Transport Security (HSTS) to ensure browsers interact with Streamlit apps over HTTPS. We also encrypt data at rest using AES-256.
+All Streamlit apps are served entirely over HTTPS. All data sent to or from Streamlit over the public internet is encrypted in transit using 256-bit encryption. Our API and application endpoints use Transport Layer Security (TLS) 1.2 (or better). We use only strong cipher suites and HTTP Strict Transport Security (HSTS) to ensure browsers interact with Streamlit apps over HTTPS. We also encrypt data at rest using AES 256-bit encryption (or better).
 
 ### Permissions and Authentication
 
-Access to customer data is limited to authorized employees who require it for their job. We run a zero-trust corporate network so there are no corporate resources or additional privileges gained from being on Streamlit's internal network. We utilize single sign-on, 2-factor authentication (2FA), and enforce strong password policies to ensure access to all cloud-related services are protected.
+Access to customer data is limited to authorized employees. We run a zero-trust corporate network, utilize single sign-on and multi-factor authentication (MFA), and enforce strong password policies to ensure access to cloud-related services is protected.
 
 ### Incident Response
 
-We have an internal protocol for handling security events which includes escalation procedures, rapid mitigation, and documented post-mortems. We notify customers promptly and publicize security advisories at [https://streamlit.io/advisories](https://streamlit.io/advisories).
+Our internal protocol for handling security events includes detection, analysis, response, escalation, and mitigation procedures, and documented post-mortems. Security advisories are made available at [https://streamlit.io/advisories](https://streamlit.io/advisories).
 
 ### Penetration Testing
 
-Streamlit uses third-party security tools to scan for vulnerabilities on a regular basis. Our security partners conduct periodic, intensive penetration tests on the Streamlit platform. Our product development team immediately responds to any identified issues or potential vulnerabilities to ensure the quality and security of Streamlit applications.
-
-## Security and Compliance Programs
+Streamlit uses third-party security tools to scan for vulnerabilities on a regular basis. Our security partners conduct periodic, intensive penetration tests on the Streamlit platform. Our product development team responds to any identified issues or potential vulnerabilities to ensure the quality, security, and availability of Streamlit applications.
 
 ### People
 
-#### Background Checks
-
-All Streamlit employees go through a thorough background check before hiring.
-
-### Training
-
-We take a least-privilege approach to the access and handling of data. While we retain a minimal amount of customer data and limit internal access on a need-to-know basis, all employees are required to review related security policies and are trained on proper data handling to ensure they uphold our strict commitment to the privacy and security of your data.
-
-### Confidentiality
-
-All employees sign a confidentiality agreement before they start at Streamlit.
-
-## Vulnerability Control
+Streamlit employees go through an industry-standard background check and sign a confidentiality statement before they start at Streamlit. All employees are required to review relevant security policies and are trained on proper data handling procedures.
 
 ### Vulnerability Management
 
-We keep our systems up-to-date with the latest security patches and continuously monitor for new vulnerabilities through compliance and security mailing lists. This includes automatic scanning of our code repositories for vulnerable dependencies.
+We keep our systems up-to-date with the latest security patches and continuously monitor for new vulnerabilities. This includes automated scanning of our code repositories for vulnerable dependencies.
+
+If you discover a vulnerability in one of our products or websites, please report the issue to [HackerOne](https://hackerone.com/snowflake?type=team). Although HackerOne is preferred, you can also email security@snowflake.com with your concerns.
