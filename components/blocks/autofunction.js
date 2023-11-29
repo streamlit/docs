@@ -339,7 +339,7 @@ const Autofunction = ({
       .replace("streamlit", "st")
       .replace(/[.,\/#!$%\^&\*;:{}=\-`~()]/g, "");
     const type_name = method.signature
-      ? method.signature.match(/\(([^)]*)\)/)[1]
+      ? method.signature.match(/\((.*)\)/)[1]
       : "";
     const isDeprecated =
       method.deprecated && method.deprecated.deprecated === true;
