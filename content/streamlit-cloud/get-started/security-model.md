@@ -33,7 +33,7 @@ Streamlit Community Cloud inherits the permissions you have assigned in GitHub. 
 
 ### Data Hosting
 
-Our physical infrastructure is hosted and managed within Google Cloud Platform (GCP) using their secure data centers. Streamlit leverages many of the platform's built-in security, privacy, and redundancy features. GCP continually monitors its data centers for risk and undergoes assessments to ensure compliance with industry standards.
+Our physical infrastructure is hosted and managed within secure data centers maintained by infrastructure-as-a-service cloud providers. Streamlit leverages many of these platforms' built-in security, privacy, and redundancy features. Our cloud providers continually monitor their data centers for risk and undergo assessments to ensure compliance with industry standards.
 
 ### Virtual Private Cloud
 
@@ -41,7 +41,9 @@ All of our servers are within a virtual private cloud (VPC) with firewalls and n
 
 ### Encryption
 
-All Streamlit apps are served entirely over HTTPS. All data sent to or from Streamlit over the public internet is encrypted in transit using 256-bit encryption. Our API and application endpoints use Transport Layer Security (TLS) 1.2 (or better). We use only strong cipher suites and HTTP Strict Transport Security (HSTS) to ensure browsers interact with Streamlit apps over HTTPS. We also encrypt data at rest using AES 256-bit encryption (or better).
+Streamlit apps are served entirely over HTTPS. We use only strong cipher suites and HTTP Strict Transport Security (HSTS) to ensure browsers interact with Streamlit apps over HTTPS.
+
+All data sent to or from Streamlit over the public internet is encrypted in transit using 256-bit encryption. Our API and application endpoints use Transport Layer Security (TLS) 1.2 (or better). We also encrypt data at rest using AES 256-bit encryption (or better).
 
 ### Permissions and Authentication
 
@@ -49,15 +51,11 @@ Access to customer data is limited to authorized employees. We run a zero-trust 
 
 ### Incident Response
 
-Our internal protocol for handling security events includes detection, analysis, response, escalation, and mitigation procedures, and documented post-mortems. Security advisories are made available at [https://streamlit.io/advisories](https://streamlit.io/advisories).
+Our internal protocol for handling security events includes detection, analysis, response, escalation, and mitigation procedures. Security advisories are made available at [https://streamlit.io/advisories](https://streamlit.io/advisories).
 
 ### Penetration Testing
 
 Streamlit uses third-party security tools to scan for vulnerabilities on a regular basis. Our security partners conduct periodic, intensive penetration tests on the Streamlit platform. Our product development team responds to any identified issues or potential vulnerabilities to ensure the quality, security, and availability of Streamlit applications.
-
-### People
-
-Streamlit employees go through an industry-standard background check and sign a confidentiality statement before they start at Streamlit. All employees are required to review relevant security policies and are trained on proper data handling procedures.
 
 ### Vulnerability Management
 
