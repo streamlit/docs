@@ -12,7 +12,7 @@ This page will walk you through creating an environment with `venv` and installi
 Before you get started, make sure you have Python and a code editor installed.
 
 - We use [VS Code](https://code.visualstudio.com/download) in our tutorials.
-- Streamlit requires [Python 3.8 - Python 3.11](https://www.python.org/downloads/).
+- Streamlit requires [Python 3.8 - Python 3.12](https://www.python.org/downloads/).
 
 #### macOS only: Install Xcode command line tools
 

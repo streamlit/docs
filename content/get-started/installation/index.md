@@ -33,16 +33,10 @@ On the other hand, Python package managers are tools like `pip` that help you qu
 
 ### Python environment managers
 
-Below are a few tools you can use for environment management:
-
-- [venv](https://docs.python.org/3/library/venv.html)
-- [pipenv](https://pipenv-fork.readthedocs.io/en/latest/)
-- [poetry](https://python-poetry.org/)
-- [virtualenv](https://virtualenv.pypa.io/en/latest/)
-- [conda](https://docs.anaconda.com/free/anaconda/getting-started/)
+Some common environment managers include: [venv](https://docs.python.org/3/library/venv.html), [pipenv](https://pipenv-fork.readthedocs.io/en/latest/), [poetry](https://python-poetry.org/), [virtualenv](https://virtualenv.pypa.io/en/latest/), and [conda](https://docs.anaconda.com/free/anaconda/getting-started/).
 
 If you [Install Streamlit using Anaconda Distribution](/get-started/installation/anaconda-distribution), you'll use `conda` through Anaconda Navigator. If you follow our instructions to [Install Streamlit using command line](/get-started/installation/command-line), you'll use `venv`.
 
 ### Python package managers
 
-[`pip`](https://pip.pypa.io/en/stable/installation/) is the most common Python package manager and what we recommend. [`conda`](https://docs.conda.io) is another Python package manager. You may notice that `conda` is also listed above as an environment manager. It has the functionality of both!
+[`pip`](https://pip.pypa.io/en/stable/installation/) is the most common Python package manager and what we recommend.
