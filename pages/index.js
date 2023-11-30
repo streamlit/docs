@@ -183,6 +183,18 @@ export default function Home({ window, menu, gdpr_data, cookie_data }) {
             <H2 className="no-b-m">What's new</H2>
 
             <TileContainer>
+              <RefCard
+                size="third"
+                href="/library/api-reference/layout/st.container"
+              >
+                <i className="material-icons-sharp">check_box_outline_blank</i>
+                <h4>Container borders</h4>
+                <p>
+                  Now you can control border visibility for{" "}
+                  <code>st.container</code>
+                  and <code>st.form</code>!
+                </p>
+              </RefCard>
               <RefCard size="third" href="/library/api-reference/app-testing">
                 <i className="material-icons-sharp">science</i>
                 <h4>App testing</h4>
@@ -240,17 +252,6 @@ export default function Home({ window, menu, gdpr_data, cookie_data }) {
                   Introducing <code>st.scatter_chart</code> — a new, simple
                   chart element to build scatter charts Streamlit-y fast and
                   easy!
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/widgets/st.link_button"
-              >
-                <i className="material-icons-sharp">link</i>
-                <h4>Link button</h4>
-                <p>
-                  Introducing <code>st.link_button</code>! Open an external link
-                  in a new tab with a bit more pizazz than a plain-text link.
                 </p>
               </RefCard>
               {/* <Tile
