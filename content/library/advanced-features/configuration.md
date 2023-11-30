@@ -71,6 +71,11 @@ Below are all the sections and options you can have in your `.streamlit/config.t
 ```toml
 [global]
 
+# ***DEPRECATED***
+# global.disableWatchdogWarning has been deprecated has been deprecated and
+# will be removed in a future version. This option will be removed on or after
+# 2024-01-20.
+# ****************
 # By default, Streamlit checks if the Python watchdog module is available
 # and, if not, prints a warning asking for you to install it. The watchdog
 # module is not required, but highly recommended. It improves Streamlit's
@@ -90,19 +95,6 @@ disableWidgetStateDuplicationWarning = false
 # via "python my_script.py".
 # Default: true
 showWarningOnDirectExecution = true
-
-# ***DEPRECATED***
-# Legacy serialization has been removed. All dataframes will be serialized
-# using Apache Arrow. This option will be removed on or after 2023-11-01.
-# ****************
-# DataFrame serialization.
-# Acceptable values:
-# - 'legacy' : Serialize DataFrames using Streamlit's custom format. Slow
-#              but battle-tested.
-# - 'arrow'  : Serialize DataFrames using Apache Arrow. Much faster and
-#              versatile.
-# Default: "arrow"
-dataFrameSerialization = "arrow"
 ```
 
 ### Logger
@@ -127,13 +119,20 @@ messageFormat = "%(asctime)s %(message)s"
 ```toml
 [client]
 
+# ***DEPRECATED***
+# client.caching has been deprecated and is not required anymore for our new
+# caching commands. This option will be removed on or after 2024-01-20.
+# ****************
 # Whether to enable st.cache. This does not affect st.cache_data or
 # st.cache_resource.
 # Default: true
 caching = true
 
-# If false, makes your Streamlit script not draw to a
-# Streamlit app.
+# ***DEPRECATED***
+# client.displayEnabled has been deprecated and will be removed in a future
+# version. This option will be removed on or after 2024-01-20.
+# ****************
+# If false, makes your Streamlit script not draw to a Streamlit app.
 # Default: true
 displayEnabled = true
 
@@ -175,23 +174,24 @@ toolbarMode = "auto"
 # Default: true
 magicEnabled = true
 
+# ***DEPRECATED***
+# runner.installTracer has been deprecated and will be removed in a future
+# version. This option will be removed on or after 2024-01-20.
+# ****************
 # Install a Python tracer to allow you to stop or pause your script at
 # any point and introspect it. As a side-effect, this slows down your
 # script's execution.
 # Default: false
 installTracer = false
 
+# ***DEPRECATED***
+# runner.fixMatplotlib has been deprecated and will be removed in a future
+# version. This option will be removed on or after 2024-01-20.
+# ****************
 # Sets the MPLBACKEND environment variable to Agg inside Streamlit to
 # prevent Python crashing.
 # Default: true
 fixMatplotlib = true
-
-# Run the Python Garbage Collector after each script execution. This
-# can help avoid excess memory use in Streamlit apps, but could
-# introduce delay in rerunning the app script for high-memory-use
-# applications.
-# Default: true
-postScriptGC = true
 
 # Handle script rerun requests immediately, rather than waiting for script
 # execution to reach a yield point. This makes Streamlit much more
@@ -207,6 +207,17 @@ fastReruns = true
 # or when the execution environment will stop supporting it in the future.
 # Default: false
 enforceSerializableSessionState = false
+
+# Adjust how certain 'options' widgets like radio, selectbox, and
+# multiselect coerce Enum members when the Enum class gets
+# re-defined during a script re-run.
+# Allowed values:
+# * "off"          : Disables Enum coercion.
+# * "nameOnly"     : Enum classes can be coerced if their member names match.
+# * "nameAndValue" : Enum classes can be coerced if their member names AND
+#                    member values match.
+# Default: "nameOnly"
+# enumCoercion = "nameOnly"
 ```
 
 ### Server
@@ -358,11 +369,6 @@ token = ""
 
 ```toml
 [deprecation]
-
-# Set to false to disable the deprecation warning for the file uploader
-# encoding.
-# Default: true
-showfileUploaderEncoding = true
 
 # Set to false to disable the deprecation warning for using the global pyplot
 # instance.

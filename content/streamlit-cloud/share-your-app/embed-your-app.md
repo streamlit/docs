@@ -84,7 +84,7 @@ The only noteworthy differences between the methods is that iframing allows you 
 
 ## Embed options
 
-When [Embedding with iframes](#embedding-with-iframes), Streamlit allows you to specify one or more instances of the `?embed_options` query parameter for granular control over the embedding behavior. 
+When [Embedding with iframes](#embedding-with-iframes), Streamlit allows you to specify one or more instances of the `?embed_options` query parameter for granular control over the embedding behavior.
 
 Both `?embed` and `?embed_options` are invisible to [`st.experimental_get_query_params`](/library/api-reference/utilities/st.experimental_get_query_params) and [`st.experimental_set_query_params`](/library/api-reference/utilities/st.experimental_set_query_params). The former ignores the embed query parameters and does not return them, while the latter disallows setting embed query parameters.
 
@@ -102,7 +102,7 @@ The supported values for `?embed_options` are listed below:
    /?embed=true&embed_options=show_padding
    ```
 
-3. Show the footer reading "Made with Streamlit."
+3. Show the footer reading "Made with Streamlit." (This doesn't apply to Streamlit versions 1.29.0 and later since the footer was removed from the library.)
 
    ```javascript
    /?embed=true&embed_options=show_footer
@@ -114,19 +114,25 @@ The supported values for `?embed_options` are listed below:
    /?embed=true&embed_options=show_colored_line
    ```
 
-5. Disable scrolling for the main body of the app. (The sidebar will still be scrollable.)
+5. Hide the "skeleton" that appears while an app is loading.
+
+   ```javascript
+   /?embed=true&embed_options=hide_loading_screen
+   ```
+
+6. Disable scrolling for the main body of the app. (The sidebar will still be scrollable.)
 
    ```javascript
    /?embed=true&embed_options=disable_scrolling
    ```
 
-6. Open the app with light theme.
+7. Open the app with light theme.
 
    ```javascript
    /?embed=true&embed_options=light_theme
    ```
 
-7. Open the app with dark theme.
+8. Open the app with dark theme.
 
    ```javascript
    /?embed=true&embed_options=dark_theme
