@@ -61,4 +61,4 @@ Streamlit uses third-party security tools to scan for vulnerabilities on a regul
 
 We keep our systems up-to-date with the latest security patches and continuously monitor for new vulnerabilities. This includes automated scanning of our code repositories for vulnerable dependencies.
 
-If you discover a vulnerability in one of our products or websites, please report the issue to [HackerOne](https://hackerone.com/snowflake?type=team). Although HackerOne is preferred, you can also email security@snowflake.com with your concerns.
+If you discover a vulnerability in one of our products or websites, please report the issue to [HackerOne](https://hackerone.com/snowflake?type=team).
