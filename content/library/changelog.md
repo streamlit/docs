@@ -21,7 +21,7 @@ pip install --upgrade streamlit
 
 _Release date: November 30, 2023_
 
-**Featured Changes**
+**Highlights**
 
 - 🔲 `st.container` and `st.form` now have a `border` parameter to show or hide a border.
 - 🐍 Streamlit supports Python 3.12!
