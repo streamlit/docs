@@ -23,7 +23,7 @@ _Release date: November 30, 2023_
 
 **Highlights**
 
-- 🔲 `st.container` and `st.form` now have a `border` parameter to show or hide a border.
+- 🔲 [`st.container`](/library/api-reference/layout/st.container) and [`st.form`](/library/api-reference/control-flow/st.form) now have a `border` parameter to show or hide a border.
 - 🐍 Streamlit supports Python 3.12!
 
 **Notable Changes**
