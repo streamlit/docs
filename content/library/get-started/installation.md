@@ -26,7 +26,7 @@ You can edit any app you've deployed on Community Cloud with GitHub Codespaces. 
 Before you get started, you're going to need a few things:
 
 - Your favorite IDE or text editor
-- [Python 3.8 - Python 3.11](https://www.python.org/downloads/)
+- [Python 3.8 - Python 3.12](https://www.python.org/downloads/)
 - [PIP](https://pip.pypa.io/en/stable/installation/)
 
 ## Set up your virtual environment
