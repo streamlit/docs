@@ -568,8 +568,6 @@ site_menu:
     url: /knowledge-base/tutorials/deploy/docker
   - category: Knowledge base / Tutorials / Deploy Streamlit apps / Kubernetes
     url: /knowledge-base/tutorials/deploy/kubernetes
-  - category: Knowledge base / Tutorials / Session State basics
-    url: /knowledge-base/tutorials/session-state
   - category: Knowledge base / Tutorials / Build a basic LLM chat app
     url: /knowledge-base/tutorials/build-conversational-apps
   - category: Knowledge base / Tutorials / Build an LLM app using LangChain
@@ -581,9 +579,6 @@ site_menu:
     visible: false
   - category: Knowledge base / Using Streamlit / Append data to a table or chart
     url: /knowledge-base/using-streamlit/append-data-table-chart
-    visible: false
-  - category: Knowledge base / Using Streamlit / Batch elements and input widgets with st.form
-    url: /knowledge-base/using-streamlit/batch-elements-input-widgets-form
     visible: false
   - category: Knowledge base / Using Streamlit / How do I create an anchor link?
     url: /knowledge-base/using-streamlit/create-anchor-link
@@ -647,9 +642,6 @@ site_menu:
     visible: false
   - category: Knowledge base / Streamlit Components
     url: /knowledge-base/components
-  - category: Knowledge base / Streamlit Components / How do I add a Component to the sidebar?
-    url: /knowledge-base/components/add-component-sidebar
-    visible: false
   - category: Knowledge base / Streamlit Components / My Component seems to be stuttering...how do I fix that?
     url: /knowledge-base/components/component-blinking-stuttering-fix
     visible: false
@@ -673,9 +665,6 @@ site_menu:
   - category: Knowledge base / Installing dependencies / ERROR No matching distribution found for
     url: /knowledge-base/dependencies/no-matching-distribution
     visible: false
-  - category: Knowledge base / Installing dependencies / Install the Snowflake Connector for Python on Streamlit Community Cloud
-    url: /knowledge-base/dependencies/snowflake-connector-python-streamlit-cloud
-    visible: false
   - category: Knowledge base / Deployment issues
     url: /knowledge-base/deploy
   - category: Knowledge base / Deployment issues / Authentication without SSO
@@ -686,9 +675,6 @@ site_menu:
     visible: false
   - category: Knowledge base / Deployment issues / How do I deploy Streamlit on a domain so it appears to run on a regular port (i.e. port 80)?
     url: /knowledge-base/deploy/deploy-streamlit-domain-port-80
-    visible: false
-  - category: Knowledge base / Deployment issues / How do I deploy Streamlit on Heroku, AWS, Google Cloud, etc...?
-    url: /knowledge-base/deploy/deploy-streamlit-heroku-aws-google-cloud
     visible: false
   - category: Knowledge base / Deployment issues / Does Streamlit support the WSGI Protocol? (aka Can I deploy Streamlit with gunicorn?)
     url: /knowledge-base/deploy/does-streamlit-support-wsgi-protocol
@@ -711,26 +697,14 @@ site_menu:
   - category: Knowledge base / Deployment issues / How do I share apps with viewers outside my organization?
     url: /knowledge-base/deploy/share-apps-with-viewers-outside-organization
     visible: false
-  - category: Knowledge base / Deployment issues / I don't have SSO. How do I sign in to Streamlit Community Cloud?
-    url: /knowledge-base/deploy/sign-in-without-sso
-    visible: false
   - category: Knowledge base / Deployment issues / Upgrade the Streamlit version of your app on Streamlit Community Cloud
     url: /knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud
-    visible: false
-  - category: Knowledge base / Deployment issues / Custom subdomains
-    url: /knowledge-base/deploy/custom-subdomains
-    visible: false
-  - category: Knowledge base / Deployment issues / How to update account admin settings on Streamlit Community Cloud?
-    url: /knowledge-base/deploy/how-to-update-account-admin-settings-on-streamlit-community-cloud
     visible: false
   - category: Knowledge base / Deployment issues / Unable to edit or delete apps in Streamlit Community Cloud after modifying GitHub username
     url: /knowledge-base/deploy/unable-to-edit-or-delete-apps-in-streamlit-community-cloud-after-modifying-github-username
     visible: false
   - category: Knowledge base / Deployment issues / Huh. This is isn't supposed to happen message after trying to log in
     url: /knowledge-base/deploy/huh-this-isnt-supposed-to-happen-message-after-trying-to-log-in
-    visible: false
-  - category: Knowledge base / Deployment issues / Huh. This isn't supposed to happen. No valid SSO connection for domain
-    url: /knowledge-base/deploy/huh-this-isnt-supposed-to-happen-no-valid-sso-connection-for-domain
     visible: false
   - category: Knowledge base / Deployment issues / View-only access to app after changing GitHub username or repository name
     url: /knowledge-base/deploy/view-only-access-to-app-after-changing-github-username-or-repository-name
@@ -740,8 +714,5 @@ site_menu:
     visible: false
   - category: Knowledge base / Deployment issues / How to submit a support case for Streamlit Community Cloud
     url: /knowledge-base/deploy/how-to-submit-a-support-case-for-streamlit-community-cloud
-    visible: false
-  - category: Knowledge base / Deployment issues / How to delete your Streamlit Community Cloud account
-    url: /knowledge-base/deploy/how-to-delete-your-streamlit-community-cloud-account
     visible: false
 ---
