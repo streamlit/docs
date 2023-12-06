@@ -38,7 +38,7 @@ The knowledge base is a self-serve library of tips, step-by-step tutorials, and 
     bold="Installing dependencies."
     href="/knowledge-base/dependencies"
   >
-    If you run into problems installing depedencies for your Streamlit apps, we've got you covered.
+    If you run into problems installing dependencies for your Streamlit apps, we've got you covered.
   </InlineCallout>
   <InlineCallout
     color="orange-80"
