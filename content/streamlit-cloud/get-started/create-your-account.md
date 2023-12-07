@@ -27,7 +27,7 @@ If you're sharing a private app, you will assign viewing permission by email. Th
 #### Primary identity option 1: Google
 
 1. Go to <a href="https://share.streamlit.io/signup" target="_blank">share.streamlit.io/signup</a>.
-2. Click "**Continute with Google**".
+2. Click "**Continue with Google**".
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
 <Image alt="Sign up for Streamlit Community Cloud with Google"  src="/images/streamlit-community-cloud/sign-up-Google-XL.png" />
@@ -48,7 +48,7 @@ If you're sharing a private app, you will assign viewing permission by email. Th
 #### Primary identity option 2: email
 
 1. Go to <a href="https://share.streamlit.io/signup" target="_blank">share.streamlit.io/signup</a>.
-2. Enter your email address and click "**Continute with email**".
+2. Enter your email address and click "**Continue with email**".
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
 <Image alt="Sign up for Streamlit Community Cloud with email" src="/images/streamlit-community-cloud/sign-up-email-XL.png" />
@@ -74,7 +74,7 @@ If you're sharing a private app, you will assign viewing permission by email. Th
 
 ### Step 2: Source control
 
-Streamlit Community Cloud is integreated with GitHub for source control. If you begin your sign-up process with GitHub, you will not be directly prompted to create a primary identity. However, you can attach a Google account later.
+Streamlit Community Cloud is integrated with GitHub for source control. If you begin your sign-up process with GitHub, you will not be directly prompted to create a primary identity. However, you can attach a Google account later.
 
 There are two different authorization requests to completely [Connect your GitHub account](/streamlit-community-cloud/get-started/connect-your-github-account). You will encounter the first authorization request when you begin connecting your GitHub account. A second authorization is needed the first time you deploy an app. If you will be deploying or managing any apps from a GitHub organization, your authorization requests will include additional options to allow [Organization access](/streamlit-community-cloud/get-started/connect-github#organization-access).
 
