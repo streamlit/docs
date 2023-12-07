@@ -21,7 +21,7 @@ directory as your Streamlit app.
 
 ## Add Python dependencies
 
-With each `import` statement in your script, you are bringing in a Python dependency. You need to tell Streamlit Community Cloud how to install those depencies through a Python package manager. We recommend using a `requirements.txt` which is based on `pip`.
+With each `import` statement in your script, you are bringing in a Python dependency. You need to tell Streamlit Community Cloud how to install those dependencies through a Python package manager. We recommend using a `requirements.txt` which is based on `pip`.
 
 You should _not_ include <a href="https://docs.python.org/3/py-modindex.html" target="_blank">built-in Python libraries</a> like `math` or `random` in your `requirements.txt` file. These are a part of Python and aren't installed separately. Also, Streamlit Community Cloud has `streamlit` installed by default. You don't strictly need to include `streamlit` unless you want to pin or restrict the version. If you deploy an app without a `requirements.txt` file, your app will run in an environment with just `streamlit` (and its dependencies) installed.
 
@@ -61,7 +61,7 @@ We recommend that you use the latest version of Streamlit to ensure full Streaml
 
 </Note>
 
-If you pin `streamlit` below 1.20.0, you may experience unexpected results if you've pinned any dependencies of `altair`. If `streamlit` is installed below version 1.20.0, `altair<5` will be reinstalled on top of your evironment for compatibility reasons. When this happens all of altair's dependecies will be updated.
+If you pin `streamlit` below 1.20.0, you may experience unexpected results if you've pinned any dependencies of `altair`. If `streamlit` is installed below version 1.20.0, `altair<5` will be reinstalled on top of your environment for compatibility reasons. When this happens all of altair's dependencies will be updated.
 
 ### Other Python package managers
 

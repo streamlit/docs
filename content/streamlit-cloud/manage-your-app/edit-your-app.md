@@ -35,7 +35,7 @@ Spin up a cloud-based development environment for your deployed app in minutes. 
 
    ![Your new GitHub Codespace](/images/streamlit-community-cloud/deploy-sample-codespace.png)
 
-6. When you make changes to your app, the file is automatically saved within your codespace. Your edits do not affect your repository unless you choose to commit those changes. We will describe commiting your changes in a later step.
+6. When you make changes to your app, the file is automatically saved within your codespace. Your edits do not affect your repository unless you choose to commit those changes. We will describe committing your changes in a later step.
 
    In order to see updates automatically reflected on the right, click "**Always rerun**" when prompted after an edit.
 

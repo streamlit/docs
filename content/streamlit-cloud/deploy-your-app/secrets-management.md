@@ -87,7 +87,7 @@ my_db.connect(**st.secrets.db_credentials)
 
 ### Edit your app's secrets
 
-If you need to add or edit your secrets for an app that is already deployed, you can accesss advanced setting from your admin panel.
+If you need to add or edit your secrets for an app that is already deployed, you can access advanced setting from your admin panel.
 
 1. Go to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>.
 2. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) for your app.
