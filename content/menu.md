@@ -484,7 +484,7 @@ site_menu:
   - category: Streamlit Community Cloud / Get started
     url: /streamlit-community-cloud/get-started
   - category: Streamlit Community Cloud / Get started / Quickstart
-    url: https://docs.streamlit.io/get-started/installation/cloud-quickstart
+    url: /streamlit-community-cloud/get-started/cloud-quickstart
   - category: Streamlit Community Cloud / Get started / Create your account
     url: /streamlit-community-cloud/get-started/create-your-account
   - category: Streamlit Community Cloud / Get started / Connect your GitHub account
