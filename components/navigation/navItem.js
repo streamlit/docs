@@ -85,8 +85,8 @@ const NavItem = ({ page, slug, condensed, className }) => {
             {navBox}
           </a>
         ) : (
-          <Link href={page.url}>
-            <a className="not-link">{navBox}</a>
+          <Link className="not-link" href={page.url}>
+            {navBox}
           </Link>
         )}
         {subNav}
