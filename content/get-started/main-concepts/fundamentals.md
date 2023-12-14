@@ -1,11 +1,11 @@
 ---
-title: Streamlit fundamentals
-slug: /get-started/main-concepts/fundamentals
-previousLink: /get-started/main-concepts
-previousTitle: Main concepts
+title: Main concepts of Streamlit
+slug: /get-started/fundamentals/main-concepts
+previousLink: /get-started/fundamentals
+previousTitle: Fundamentals
 ---
 
-# Streamlit fundamentals
+# Main concepts of Streamlit
 
 Working with Streamlit is simple. First you sprinkle a few Streamlit commands
 into a normal Python script, then you run it with `streamlit run`:
@@ -102,7 +102,7 @@ page.
 ## Display and style data
 
 There are a few ways to display data (tables, arrays, data frames) in Streamlit
-apps. [Below](/get-started/main-concepts#use-magic), you will be introduced to _magic_
+apps. [Below](#use-magic), you will be introduced to _magic_
 and [`st.write()`](/library/api-reference/write-magic/st.write), which can be used to write
 anything from text to tables. After that, let's take a look at methods designed
 specifically for visualizing data.

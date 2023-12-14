@@ -209,7 +209,7 @@ We support syntax highlighting for Python, Bash, TOML, SQL, and JSX.
 Use standard Markdown to link to other pages in the docs. E.g. Add an inline link to the "Create an app" page by including the slug defined in the front matter of the "Create an app" `.md` file:
 
 ```markdown
-Learn how to [Create an app](/get-started/main-concepts/create-an-app).
+Learn how to [Create an app](/get-started/fundamentals/create-an-app).
 ```
 
 **Add images:**

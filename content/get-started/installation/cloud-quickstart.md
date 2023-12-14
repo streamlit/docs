@@ -1,9 +1,9 @@
 ---
-title: Community Cloud quickstart
-slug: /get-started/installation/cloud-quickstart
+title: Use Community Cloud to develop with GitHub Codespaces
+slug: /get-started/installation/community-cloud
 ---
 
-# Community Cloud quickstart
+# Use Community Cloud to develop with GitHub Codespaces
 
 This is a concise set of steps to create your Streamlit Community Cloud account, deploy a sample app, and start editing it with GitHub Codespaces&mdash;all in your browser. For a more comprehensive start to using Streamlit Community Cloud, start with [Create your account](/streamlit-community-cloud/get-started/create-your-account).
 

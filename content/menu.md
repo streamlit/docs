@@ -4,31 +4,31 @@ site_menu:
     url: /get-started
     color: red-70
     icon: rocket_launch
-  - category: Get started / Setup and installation
+  - category: Get started / Installation
     url: /get-started/installation
-  - category: Get started / Setup and installation / Community Cloud
-    url: /get-started/installation/cloud-quickstart
-  - category: Get started / Setup and installation / Anaconda Distribution
-    url: /get-started/installation/anaconda-distribution
-  - category: Get started / Setup and installation / Command line
+  - category: Get started / Installation / Use command line
     url: /get-started/installation/command-line
-  - category: Get started / Main concepts
-    url: /get-started/main-concepts
-  - category: Get started / Main concepts / GRAND TOUR
-  - category: Get started / Main concepts / Fundamentals
-    url: /get-started/main-concepts/fundamentals
-  - category: Get started / Main concepts / Advanced concepts
-    url: /get-started/main-concepts/advanced-concepts
-  - category: Get started / Main concepts / Additional features
-    url: /get-started/main-concepts/additional-features
-  - category: Get started / Main concepts / Summary
-    url: /get-started/main-concepts/summary
-  - category: Get started / Main concepts / TUTORIALS
-  - category: Get started / Main concepts / Create an app
-    url: /get-started/main-concepts/create-an-app
-  - category: Get started / Main concepts / Create a multipage app
-    url: /get-started/main-concepts/create-a-multipage-app
-  - category: Get started / Main concepts / ---
+  - category: Get started / Installation / Use Anaconda Distribution
+    url: /get-started/installation/anaconda-distribution
+  - category: Get started / Installation / Use GitHub Codespaces
+    url: /get-started/installation/community-cloud
+  - category: Get started / Fundamentals
+    url: /get-started/fundamentals
+  - category: Get started / Fundamentals / CONCEPTS
+  - category: Get started / Fundamentals / Main concepts
+    url: /get-started/fundamentals/main-concepts
+  - category: Get started / Fundamentals / Advanced concepts
+    url: /get-started/fundamentals/advanced-concepts
+  - category: Get started / Fundamentals / Additional features
+    url: /get-started/fundamentals/additional-features
+  - category: Get started / Fundamentals / Summary
+    url: /get-started/fundamentals/summary
+  - category: Get started / Fundamentals / TUTORIALS
+  - category: Get started / Fundamentals / Create an app
+    url: /get-started/fundamentals/create-an-app
+  - category: Get started / Fundamentals / Create a multipage app
+    url: /get-started/fundamentals/create-a-multipage-app
+  - category: Get started / Fundamentals / ---
 
   - category: Streamlit library
     url: /library
@@ -484,7 +484,7 @@ site_menu:
   - category: Streamlit Community Cloud / Get started
     url: /streamlit-community-cloud/get-started
   - category: Streamlit Community Cloud / Get started / Quickstart
-    url: /streamlit-community-cloud/get-started/cloud-quickstart
+    url: /streamlit-community-cloud/get-started/quickstart
   - category: Streamlit Community Cloud / Get started / Create your account
     url: /streamlit-community-cloud/get-started/create-your-account
   - category: Streamlit Community Cloud / Get started / Connect your GitHub account

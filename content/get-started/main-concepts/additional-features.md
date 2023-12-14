@@ -1,11 +1,11 @@
 ---
 title: Additional Streamlit features
-slug: /get-started/main-concepts/additional-features
+slug: /get-started/fundamentals/additional-features
 ---
 
 # Additional Streamlit features
 
-So you've read all about the [Streamlit fundamentals](/get-started/main-concepts/fundamentals) and gotten a tase of caching and Session State in [Advanced concepts](/get-started/main-concepts/advanced-concepts). But what about the bells and whistles? Here's a quick look at some extra features to take your app to the next level.
+So you've read all about Streamlit's [Main concepts](/get-started/fundamentals/main-concepts) and gotten a tase of caching and Session State in [Advanced concepts](/get-started/fundamentals/advanced-concepts). But what about the bells and whistles? Here's a quick look at some extra features to take your app to the next level.
 
 ## Theming
 
@@ -101,7 +101,7 @@ Now run `streamlit run main_page.py` and view your shiny new multipage app!
 
 <Image src="/images/mpa-main-concepts.gif" />
 
-Our documentation on [Multipage apps](/library/advanced-features/multipage-apps) teaches you how to add pages to your app, including how to define pages, structure and run multipage apps, and navigate between pages. Once you understand the basics, [create your first multipage app](/get-started/main-concepts/create-a-multipage-app)!
+Our documentation on [Multipage apps](/library/advanced-features/multipage-apps) teaches you how to add pages to your app, including how to define pages, structure and run multipage apps, and navigate between pages. Once you understand the basics, [create your first multipage app](/get-started/fundamentals/create-a-multipage-app)!
 
 ## Static file serving
 

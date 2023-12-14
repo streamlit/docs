@@ -1,13 +1,13 @@
 ---
 title: Create a multipage app
-slug: /get-started/main-concepts/create-a-multipage-app
+slug: /get-started/fundamentals/create-a-multipage-app
 nextTitle: API Reference
 nextLink: /library/api-reference
 ---
 
 # Create a multipage app
 
-In the [Additional features](/get-started/main-concepts/additional-features), we introduced multipage apps, including how to define pages, structure and run multipage apps, and navigate between pages in the user interface. You can read more details in our guide to [Multipage apps](/library/advanced-features/multipage-apps)
+In [Additional features](/get-started/fundamentals/additional-features), we introduced multipage apps, including how to define pages, structure and run multipage apps, and navigate between pages in the user interface. You can read more details in our guide to [Multipage apps](/library/advanced-features/multipage-apps)
 
 In this guide, let’s put our understanding of multipage apps to use by converting the previous version of our `streamlit hello` app to a multipage app!
 

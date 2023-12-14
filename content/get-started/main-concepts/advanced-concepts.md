@@ -1,9 +1,9 @@
 ---
-title: Advanced Streamlit concepts
-slug: /get-started/main-concepts/advanced-concepts
+title: Advanced concepts of Streamlit
+slug: /get-started/fundamentals/advanced-concepts
 ---
 
-# Advanced Streamlit concepts
+# Advanced concepts of Streamlit
 
 Now that you know how a Streamlit app runs and handles data, let's talk about being efficient. Caching allows you to save the output of a function so you can skip over it on rerun. Session State lets you save information for each user that is preserved between reruns. This not only allows you to avoid unecessary recalculation, but also allows you to create dynamic pages and handle progressive processes.
 
@@ -88,7 +88,7 @@ st.scatter_chart(st.session_state.df, x="x", y="y", color=color)
 
 If you are pulling the same data for all users, you'd likely cache a function that retrieves that data. On the other hand, if you pull data specific to a user, such as querying their personal information, you may want to save that in Session State. That way, the queried data is only available in that one session.
 
-As mentioned in [Streamlit fundamentals](/get-started/main-concepts/fundamentals#widgets), Session State is also related to widgets. Widgets are magical and handle statefulness quietly on their own. As an advanced feature however, you can manipulate the value of widgets within your code by assigning keys to them. Any key assigned to a widget becomes a key in Session State tied to the value of the widget. This can be used to manipulate the widget. After you finish understanding the basics of Streamlit, check out our guide on [Widget behavior](/library/advanced-features/widget-behavior) to dig in the details if you're interested.
+As mentioned in [Main concepts](/get-started/fundamentals/main-concepts#widgets), Session State is also related to widgets. Widgets are magical and handle statefulness quietly on their own. As an advanced feature however, you can manipulate the value of widgets within your code by assigning keys to them. Any key assigned to a widget becomes a key in Session State tied to the value of the widget. This can be used to manipulate the widget. After you finish understanding the basics of Streamlit, check out our guide on [Widget behavior](/library/advanced-features/widget-behavior) to dig in the details if you're interested.
 
 ## Connections
 
