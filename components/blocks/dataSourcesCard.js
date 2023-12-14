@@ -16,8 +16,8 @@ const DataSourcesCard = ({ children, size, href }) => {
       : styles.Fourth;
 
   return (
-    <Link href={href}>
-      <a className={classNames(styles.Container, tileSize)}>{children}</a>
+    <Link href={href} className={classNames(styles.Container, tileSize)}>
+      {children}
     </Link>
   );
 };

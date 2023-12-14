@@ -13,8 +13,8 @@ const Button = ({ children, link, target }) => {
       {children}
     </a>
   ) : (
-    <Link href={link}>
-      <a className={styles.Button}>{children}</a>
+    <Link href={link} className={styles.Button}>
+      {children}
     </Link>
   );
 };

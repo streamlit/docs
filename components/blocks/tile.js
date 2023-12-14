@@ -70,17 +70,15 @@ const Tile = ({
         backgroundColor
       )}
     >
-      <Link href={link || "/"}>
-        <a className={classNames("not-link", styles.Link)}>
-          {image}
-          <div>
-            <h4 className={styles.Title}>{title || "Install Streamlit"}</h4>
-            <p className={styles.Text}>
-              {text ||
-                "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia."}
-            </p>
-          </div>
-        </a>
+      <Link href={link || "/"} className={classNames("not-link", styles.Link)}>
+        {image}
+        <div>
+          <h4 className={styles.Title}>{title || "Install Streamlit"}</h4>
+          <p className={styles.Text}>
+            {text ||
+              "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia."}
+          </p>
+        </div>
       </Link>
     </div>
   );
