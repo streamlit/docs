@@ -116,7 +116,8 @@ function getAllFilesInDirectory(articleDirectory, files) {
     );
     const slug = url.split("/");
     const isnum = /^[\d\.]+$/.test(slug[1]);
-    const version = isnum ? slug[1] : "latest";
+    const isSiS = /^SiS$/.test(slug[1]);
+    const version = isnum || isSiS ? slug[1] : "latest";
 
     if (meta_keywords) {
       keywords = meta_keywords.getAttribute("content");

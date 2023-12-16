@@ -362,7 +362,8 @@ export async function getStaticProps(context) {
     }
 
     const isnum = /^[\d\.]+$/.test(context.params.slug[0]);
-    if (isnum) {
+    const isSiS = /^SiS$/.test(context.params.slug[0]);
+    if (isnum || isSiS) {
       props["versionFromStaticLoad"] = context.params.slug[0];
       props["streamlit"] = funcs[props["versionFromStaticLoad"]];
 
