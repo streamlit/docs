@@ -331,7 +331,8 @@ export async function getStaticProps(context) {
   const all_versions = Object.keys(streamlitFuncs);
   const versions = sortBy(all_versions, [
     (o) => {
-      return parseInt(o, 10);
+      const numericPart = parseInt(o, 10);
+      return isNaN(numericPart) ? Number.NEGATIVE_INFINITY : numericPart;
     },
   ]);
   const current_version = versions[versions.length - 1];
@@ -442,7 +443,8 @@ export async function getStaticPaths() {
   const all_versions = Object.keys(streamlitFuncs);
   const versions = sortBy(all_versions, [
     (o) => {
-      return parseInt(o, 10);
+      const numericPart = parseInt(o, 10);
+      return isNaN(numericPart) ? Number.NEGATIVE_INFINITY : numericPart;
     },
   ]);
   const current_version = versions[versions.length - 1];
