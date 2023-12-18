@@ -121,7 +121,7 @@ const Autofunction = ({
                   ? "Streamlit in Snowflake"
                   : version.startsWith("SiS.")
                   ? version.replace("SiS.", "Streamlit in Snowflake ")
-                  : `Version $version`}
+                  : "Version " + version}
               </option>
             ))}
           </select>
