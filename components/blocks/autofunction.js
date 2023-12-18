@@ -138,7 +138,7 @@ const Autofunction = ({
       setCurrentVersion(event.target.value);
       if (event.target.value !== maxVersion) {
         let isnum = /^[\d\.]+$/.test(slicedSlug[0]);
-        let isSiS = /^SiS[\d\.]+$/.test(slicedSlug[0]);
+        let isSiS = /^SiS[\d\.]*$/.test(slicedSlug[0]);
         if (isnum || isSiS) {
           slicedSlug[0] = event.target.value;
         } else {
@@ -206,10 +206,14 @@ const Autofunction = ({
           />
         </div>
         <Warning>
-          <p>
-            This method did not exist in version <code>{currentVersion}</code>{" "}
-            of Streamlit.
-          </p>
+          {version && version.startsWith("SiS") ? (
+            <p>This method does not exist in Streamlit in Snowflake.</p>
+          ) : (
+            <p>
+              This method did not exist in version <code>{currentVersion}</code>{" "}
+              of Streamlit.
+            </p>
+          )}
         </Warning>
       </div>
     );

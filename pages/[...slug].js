@@ -173,11 +173,20 @@ export default function Article({
     currentLink = `/${slug.join("/")}`;
     versionWarning = (
       <Warning>
-        <p>
-          You are reading the documentation for Streamlit version {version}, but{" "}
-          <Link href={currentLink}>{maxVersion}</Link> is the latest version
-          available.
-        </p>
+        {version && version.startsWith("SiS") ? (
+          <p>
+            You are reading the documentation for Streamlit in Snowflake. For
+            open-source Streamlit, version{" "}
+            <Link href={currentLink}>{maxVersion}</Link> is the latest version
+            available.
+          </p>
+        ) : (
+          <p>
+            You are reading the documentation for Streamlit version {version},
+            but <Link href={currentLink}>{maxVersion}</Link> is the latest
+            version available.
+          </p>
+        )}
       </Warning>
     );
   }
@@ -363,7 +372,7 @@ export async function getStaticProps(context) {
     }
 
     const isnum = /^[\d\.]+$/.test(context.params.slug[0]);
-    const isSiS = /^SiS[\d\.]+$/.test(context.params.slug[0]);
+    const isSiS = /^SiS[\d\.]*$/.test(context.params.slug[0]);
     if (isnum || isSiS) {
       props["versionFromStaticLoad"] = context.params.slug[0];
       props["streamlit"] = funcs[props["versionFromStaticLoad"]];

@@ -11,7 +11,7 @@ const NavChild = ({ slug, page, color, className }) => {
   const version = useVersion();
 
   const isNum = /^[\d\.]+$/.test(slug[0]);
-  const isSiS = /^SiS[\d\.]+$/.test(slug[0]);
+  const isSiS = /^SiS[\d\.]*$/.test(slug[0]);
 
   if (isNum || isSiS) {
     slug.shift();
