@@ -115,17 +115,15 @@ const Autofunction = ({
             onChange={handleSelectVersion}
             className={styles.Select}
           >
-            {versionList.map((version, index) =>
-              version == "SiS" ? (
-                <option value={version} key={version}>
-                  Streamlit in Snowflake
-                </option>
-              ) : (
-                <option value={version} key={version}>
-                  Version {version}
-                </option>
-              )
-            )}
+            {versionList.map((version, index) => (
+              <option value={version} key={version}>
+                {version == "SiS"
+                  ? "Streamlit in Snowflake"
+                  : version.startsWith("SiS.")
+                  ? version.replace("SiS.", "Streamlit in Snowflake ")
+                  : `Version $version`}
+              </option>
+            ))}
           </select>
         </label>
       </form>
@@ -140,7 +138,7 @@ const Autofunction = ({
       setCurrentVersion(event.target.value);
       if (event.target.value !== maxVersion) {
         let isnum = /^[\d\.]+$/.test(slicedSlug[0]);
-        let isSiS = /^SiS$/.test(slicedSlug[0]);
+        let isSiS = /^SiS[\d\.]+$/.test(slicedSlug[0]);
         if (isnum || isSiS) {
           slicedSlug[0] = event.target.value;
         } else {

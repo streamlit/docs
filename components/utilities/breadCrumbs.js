@@ -43,7 +43,7 @@ const BreadCrumbs = ({ slug, menu }) => {
   });
 
   const isnum = /^[\d\.]+$/.test(slug[0]);
-  const isSiS = /^SiS$/.test(slug[0]);
+  const isSiS = /^SiS[\d\.]+$/.test(slug[0]);
   if (isnum || isSiS) {
     paths = slug.slice(1).join("/");
     breadcrumbs.push({
