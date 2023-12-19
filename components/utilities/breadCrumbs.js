@@ -13,17 +13,18 @@ const BreadCrumbs = ({ slug, menu }) => {
     let formatedCrumb;
     if (index == slug.length) {
       formatedCrumb = (
-        <Link href={crumb.link}>
-          <a className={`not-link ${styles.ActiveLink} ${styles.Link}`}>
-            {crumb.title}
-          </a>
+        <Link
+          href={crumb.link}
+          className={`not-link ${styles.ActiveLink} ${styles.Link}`}
+        >
+          {crumb.title}
         </Link>
       );
     } else {
       formatedCrumb = (
         <>
-          <Link href={crumb.link}>
-            <a className={`not-link ${styles.Link}`}>{crumb.title}</a>
+          <Link href={crumb.link} className={`not-link ${styles.Link}`}>
+            {crumb.title}
           </Link>
           <span className={styles.Separator}>/</span>
         </>

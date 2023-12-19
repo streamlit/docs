@@ -72,11 +72,8 @@ export default function StyleGuide() {
         </Component>
         <Component label="Inside Link">
           <p>
-            Check out our{" "}
-            <Link href="/">
-              <a>community forum</a>
-            </Link>{" "}
-            and post a question
+            Check out our <Link href="/">community forum</Link> and post a
+            question
           </p>
         </Component>
         <Component label="Ordered List - Plain">
@@ -104,11 +101,8 @@ export default function StyleGuide() {
         <Component label="Unordered List">
           <ul>
             <li>
-              Check out our{" "}
-              <Link href="/">
-                <a>community forum</a>
-              </Link>{" "}
-              and post a question
+              Check out our <Link href="/">community forum</Link> and post a
+              question
             </li>
             <li>
               Quick help from command line with{" "}
@@ -118,16 +112,12 @@ export default function StyleGuide() {
               Read more documentation! Check out:
               <ul>
                 <li>
-                  <Link href="/">
-                    <a>Streamlit Cookbook</a>
-                  </Link>{" "}
-                  for things like caching and inserting elements out of order
+                  <Link href="/">Streamlit Cookbook</Link> for things like
+                  caching and inserting elements out of order
                 </li>
                 <li>
-                  <Link href="/">
-                    <a>API reference</a>
-                  </Link>{" "}
-                  for examples of every Streamlit command
+                  <Link href="/">API reference</Link> for examples of every
+                  Streamlit command
                 </li>
               </ul>
             </li>
@@ -172,16 +162,9 @@ ls -l myscript.sh`}
           >
             <p>
               For this guide we’re using small amounts of data so that we can
-              move quickly. You can check out our{" "}
-              <Link href="/">
-                <a>Tutorial</a>
-              </Link>{" "}
+              move quickly. You can check out our <Link href="/">Tutorial</Link>{" "}
               on creating a data explorer to see an example of how to load data
-              from an API and use{" "}
-              <Link href="/">
-                <a>@st.cache</a>
-              </Link>{" "}
-              to cache it.
+              from an API and use <Link href="/">@st.cache</Link> to cache it.
             </p>
           </Note>
         </Component>
@@ -423,10 +406,7 @@ st.altair_chart(chart_data)`}
               bold="Tutorials"
               href="/"
             >
-              include our{" "}
-              <Link href="/library/get-started">
-                <a>Get Started</a>
-              </Link>{" "}
+              include our <Link href="/library/get-started">Get Started</Link>{" "}
               guide and a few step-by-step examples to building different types
               of apps in Streamlit.
             </InlineCallout>
@@ -436,10 +416,7 @@ st.altair_chart(chart_data)`}
               bold="Tutorials"
               href="/"
             >
-              include our{" "}
-              <Link href="/library/get-started">
-                <a>Get Started</a>
-              </Link>{" "}
+              include our <Link href="/library/get-started">Get Started</Link>{" "}
               guide and a few step-by-step examples to building different types
               of apps in Streamlit.
             </InlineCallout>

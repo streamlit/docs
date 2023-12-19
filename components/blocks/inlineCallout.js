@@ -18,23 +18,23 @@ const InlineCallout = ({ children, icon, color, bold, href }) => {
       : styles.KBText;
   return (
     <section className={styles.Container}>
-      <Link href={href}>
-        <a
-          className={classNames(
-            styles.IconContainer,
-            backgroundColor,
-            "not-link"
-          )}
-        >
-          <i className={styles.Icon}>{icon}</i>
-        </a>
+      <Link
+        href={href}
+        className={classNames(
+          styles.IconContainer,
+          backgroundColor,
+          "not-link"
+        )}
+      >
+        <i className={styles.Icon}>{icon}</i>
       </Link>
       <article>
         <p className={styles.Text}>
-          <Link href={href}>
-            <a className={classNames("not-link", styles.Link, textColor)}>
-              {bold}
-            </a>
+          <Link
+            href={href}
+            className={classNames("not-link", styles.Link, textColor)}
+          >
+            {bold}
           </Link>{" "}
           {children}
         </p>
