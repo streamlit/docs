@@ -101,10 +101,12 @@ const Autofunction = ({
     currentVersion,
     handleSelectVersion,
   }) => {
-    const selectClass =
-      currentVersion !== versionList[0]
-        ? "version-select old-version"
-        : "version-select";
+    const isSiS = currentVersion.startsWith("SiS") ? true : false;
+    const selectClass = isSiS
+      ? "version-select sis-version"
+      : currentVersion !== versionList[0]
+      ? "version-select old-version"
+      : "version-select";
 
     return (
       <form className={classNames(selectClass, styles.Form)}>
@@ -117,7 +119,11 @@ const Autofunction = ({
           >
             {versionList.map((version, index) => (
               <option value={version} key={version}>
-                v{version}
+                {version == "SiS"
+                  ? "Streamlit in Snowflake"
+                  : version.startsWith("SiS.")
+                  ? version.replace("SiS.", "Streamlit in Snowflake ")
+                  : "Version " + version}
               </option>
             ))}
           </select>
@@ -134,7 +140,8 @@ const Autofunction = ({
       setCurrentVersion(event.target.value);
       if (event.target.value !== maxVersion) {
         let isnum = /^[\d\.]+$/.test(slicedSlug[0]);
-        if (isnum) {
+        let isSiS = /^SiS[\d\.]*$/.test(slicedSlug[0]);
+        if (isnum || isSiS) {
           slicedSlug[0] = event.target.value;
         } else {
           slicedSlug.unshift(event.target.value);
@@ -201,10 +208,14 @@ const Autofunction = ({
           />
         </div>
         <Warning>
-          <p>
-            This method did not exist in version <code>{currentVersion}</code>{" "}
-            of Streamlit.
-          </p>
+          {version && version.startsWith("SiS") ? (
+            <p>This method does not exist in Streamlit in Snowflake.</p>
+          ) : (
+            <p>
+              This method did not exist in version <code>{currentVersion}</code>{" "}
+              of Streamlit.
+            </p>
+          )}
         </Warning>
       </div>
     );
