@@ -101,10 +101,12 @@ const Autofunction = ({
     currentVersion,
     handleSelectVersion,
   }) => {
-    const selectClass =
-      currentVersion !== versionList[0]
-        ? "version-select old-version"
-        : "version-select";
+    const isSiS = currentVersion.startsWith("SiS") ? true : false;
+    const selectClass = isSiS
+      ? "version-select sis-version"
+      : currentVersion !== versionList[0]
+      ? "version-select old-version"
+      : "version-select";
 
     return (
       <form className={classNames(selectClass, styles.Form)}>

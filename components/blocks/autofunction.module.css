@@ -15,7 +15,7 @@
 }
 
 .Form {
-  @apply relative my-4 md:my-0 ml-0 md:ml-auto max-w-fit;
+  @apply relative my-4 md:my-0 ml-0 ml-auto min-w-fit;
 }
 
 .Form::after {
@@ -25,15 +25,19 @@
 }
 
 .Select {
-  @apply appearance-none bg-white border-none p-0 m-0 w-full font-mono text-lg font-bold leading-none text-left md:text-right pr-2 md:pr-5;
+  @apply appearance-none bg-white border-none p-0 m-0 w-full font-mono text-lg font-bold leading-none text-right pr-5;
+}
+
+:global(.dark) .Select {
+  @apply bg-gray-100 text-white;
 }
 
 :global(.old-version) .Select {
   @apply text-red-70;
 }
 
-:global(.dark) .Select {
-  @apply bg-gray-100 text-white;
+:global(.sis-version) .Select {
+  @apply text-lightBlue-70;
 }
 
 :global(.dark) .Form::after {
