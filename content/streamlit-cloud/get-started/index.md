@@ -5,7 +5,7 @@ slug: /streamlit-community-cloud/get-started
 
 # Get started
 
-Welcome to Streamlit Community Cloud, where you can share your Streamlit apps with the world! Whether you've already created your first Streamlit app or you're just getting started, you're in ther right place.
+Welcome to Streamlit Community Cloud, where you can share your Streamlit apps with the world! Whether you've already created your first Streamlit app or you're just getting started, you're in the right place.
 
 First things first, you need to create your Streamlit Community Cloud account to start deploying apps.
 

@@ -11,8 +11,9 @@ const NavChild = ({ slug, page, color, className }) => {
   const version = useVersion();
 
   const isNum = /^[\d\.]+$/.test(slug[0]);
+  const isSiS = /^SiS[\d\.]*$/.test(slug[0]);
 
-  if (isNum) {
+  if (isNum || isSiS) {
     slug.shift();
   }
 
@@ -112,37 +113,36 @@ const NavChild = ({ slug, page, color, className }) => {
   } else {
     navElement = (
       <div className={styles.LinkContainer}>
-        <Link href={url}>
-          <a className={classNames("not-link", styles.Link)} target={target}>
-            <span
-              className={classNames(
-                styles.Circle,
-                active ? styles.ActiveCircle : "",
-                color === "red-70"
-                  ? styles.GetStartedCircle
-                  : color === "violet-70"
-                  ? styles.LibraryCircle
-                  : color === "l-blue-70"
-                  ? styles.CloudCircle
-                  : styles.KBCircle
-              )}
-            />
-            <span
-              className={classNames(
-                styles.PageName,
-                active && styles.ActivePage
-              )}
-            >
-              {page.name}
-            </span>
-            {page.isDeprecated === true ? (
-              <i className={classNames("material-icons-sharp", styles.Icon)}>
-                {"delete"}
-              </i>
-            ) : (
-              icon
+        <Link
+          href={url}
+          className={classNames("not-link", styles.Link)}
+          target={target}
+        >
+          <span
+            className={classNames(
+              styles.Circle,
+              active ? styles.ActiveCircle : "",
+              color === "red-70"
+                ? styles.GetStartedCircle
+                : color === "violet-70"
+                ? styles.LibraryCircle
+                : color === "l-blue-70"
+                ? styles.CloudCircle
+                : styles.KBCircle
             )}
-          </a>
+          />
+          <span
+            className={classNames(styles.PageName, active && styles.ActivePage)}
+          >
+            {page.name}
+          </span>
+          {page.isDeprecated === true ? (
+            <i className={classNames("material-icons-sharp", styles.Icon)}>
+              {"delete"}
+            </i>
+          ) : (
+            icon
+          )}
         </Link>
         {accordion}
       </div>

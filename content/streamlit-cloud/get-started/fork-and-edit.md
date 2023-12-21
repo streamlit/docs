@@ -27,4 +27,4 @@ Community Cloud is all about learning, sharing, and exploring the world of Strea
 
    ![Your new GitHub Codespace](/images/streamlit-community-cloud/fork-cheatsheet-codespace.png)
 
-You now have a copy the public app deployed from your account. You can edit and explore within your codespace and (if you choose) commit your changes to your deployed app to share with the world! 🌎 Learn more about editing your app in GitHub Codespaces, commiting your edits to your repository, and shutting down your codespace in [Edit your app with GitHub Codespaces](/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces).
+You now have a copy the public app deployed from your account. You can edit and explore within your codespace and (if you choose) commit your changes to your deployed app to share with the world! 🌎 Learn more about editing your app in GitHub Codespaces, committing your edits to your repository, and shutting down your codespace in [Edit your app with GitHub Codespaces](/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces).

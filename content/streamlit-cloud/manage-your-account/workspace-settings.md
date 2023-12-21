@@ -17,7 +17,7 @@ From your workspace at <a href="https://share.streamlit.io" target="_blank">shar
 
 The "**Linked accounts**" section shows your current primary identity and source control account. To learn more, see [Manage your account](/streamlit-community-cloud/manage-your-account).
 
-![Mangae your linked accounts in workspace settings](/images/streamlit-community-cloud/account-primary-identity-and-source-control.png)
+![Manage your linked accounts in workspace settings](/images/streamlit-community-cloud/account-primary-identity-and-source-control.png)
 
 ## Limits
 

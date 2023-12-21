@@ -19,7 +19,7 @@ Streamlit's officially-supported environment manager for macOS and Linux is [Pip
 cd myproject
 ```
 
-2. Activate that environment, upgrade Streamlit, and verify you have the lastest version:
+2. Activate that environment, upgrade Streamlit, and verify you have the latest version:
 
 ```bash
 pipenv shell
@@ -44,7 +44,7 @@ conda activate $ENVIRONMENT_NAME
 
 Be sure to replace`$ENVIRONMENT_NAME` ☝️ with the name your conda environment!
 
-2. Update Streamlit within the active conda environment and verify you have the lastest version:
+2. Update Streamlit within the active conda environment and verify you have the latest version:
 
 ```bash
 conda update -c conda-forge streamlit -y
@@ -53,7 +53,7 @@ streamlit version
 
 ## Poetry
 
-In order to get the latest version of Streamlit with [Poetry](https://python-poetry.org/) and verify you have the lastest version, run:
+In order to get the latest version of Streamlit with [Poetry](https://python-poetry.org/) and verify you have the latest version, run:
 
 ```bash
 poetry update streamlit
