@@ -14,7 +14,6 @@ site_menu:
     url: /get-started/installation/community-cloud
   - category: Get started / Fundamentals
     url: /get-started/fundamentals
-  - category: Get started / Fundamentals / CONCEPTS
   - category: Get started / Fundamentals / Main concepts
     url: /get-started/fundamentals/main-concepts
   - category: Get started / Fundamentals / Advanced concepts
@@ -23,12 +22,10 @@ site_menu:
     url: /get-started/fundamentals/additional-features
   - category: Get started / Fundamentals / Summary
     url: /get-started/fundamentals/summary
-  - category: Get started / Fundamentals / TUTORIALS
   - category: Get started / Fundamentals / Create an app
     url: /get-started/fundamentals/create-an-app
   - category: Get started / Fundamentals / Create a multipage app
     url: /get-started/fundamentals/create-a-multipage-app
-  - category: Get started / Fundamentals / ---
 
   - category: Streamlit library
     url: /library

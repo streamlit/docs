@@ -1,8 +1,6 @@
 ---
 title: Create an app
 slug: /get-started/fundamentals/create-an-app
-previousTitle: Summary
-previousLink: /get-started/fundamentals/summary
 ---
 
 # Create an app

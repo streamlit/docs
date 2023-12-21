@@ -1,8 +1,6 @@
 ---
 title: Fundamentals
 slug: /get-started/fundamentals
-nextLink: /get-started/fundamentals/main-concepts
-nextTitle: Main concepts
 ---
 
 # Fundamentals
