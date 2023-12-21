@@ -9,7 +9,7 @@ As apps grow large, it becomes useful to organize them into multiple pages. This
 
 ## Structuring multipage apps
 
-Let's understand what it takes to create multipage apps — including how to define pages, structure and run multipage apps, and navigate between pages in the user interface. Once you've understood the basics, you can jump right into a tutorial to [Create a multipage app](/get-started/fundamentals/create-a-multipage-app).
+Let's understand what it takes to create multipage apps — including how to define pages, structure and run multipage apps, and navigate between pages in the user interface. Once you've understood the basics, you can jump right into a tutorial to [Create a multipage app](/get-started/tutorials/create-a-multipage-app).
 
 ## Run a multipage app
 
@@ -134,4 +134,4 @@ If a user tries to access a URL for a page that does not exist, they will see a 
   # If page1 already executed, this should write True
   ```
 
-You now have a solid understanding of multipage apps. You've learned how to structure apps, define pages, and navigate between pages in the user interface. It's time to [create your first multipage app](/get-started/fundamentals/create-a-multipage-app)! 🥳
+You now have a solid understanding of multipage apps. You've learned how to structure apps, define pages, and navigate between pages in the user interface. It's time to [create your first multipage app](/get-started/tutorials/create-a-multipage-app)! 🥳

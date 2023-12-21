@@ -31,10 +31,10 @@ Are you new to Streamlit and want the grand tour? If so, you're in the right pla
 </TileContainer>
 
 <InlineCalloutContainer>
-  <InlineCallout color="red-70" icon="description" bold="Create an app" href="/get-started/fundamentals/create-an-app">
+  <InlineCallout color="red-70" icon="description" bold="Create an app" href="/get-started/tutorials/create-an-app">
     uses the concepts learned in Fundamentals along with caching to walk through making your first app.
   </InlineCallout>
-  <InlineCallout color="red-70" icon="auto_stories" bold="Create a multipage app" href="/get-started/fundamentals/create-a-multipage-app">
+  <InlineCallout color="red-70" icon="auto_stories" bold="Create a multipage app" href="/get-started/tutorials/create-a-multipage-app">
     walks through the easy steps to add pages to your app.
   </InlineCallout>
 </InlineCalloutContainer>

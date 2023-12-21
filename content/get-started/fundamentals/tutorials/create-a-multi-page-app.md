@@ -1,6 +1,6 @@
 ---
 title: Create a multipage app
-slug: /get-started/fundamentals/create-a-multipage-app
+slug: /get-started/tutorials/create-a-multipage-app
 nextTitle: API Reference
 nextLink: /library/api-reference
 ---

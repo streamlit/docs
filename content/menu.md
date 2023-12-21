@@ -22,10 +22,12 @@ site_menu:
     url: /get-started/fundamentals/additional-features
   - category: Get started / Fundamentals / Summary
     url: /get-started/fundamentals/summary
-  - category: Get started / Fundamentals / Create an app
-    url: /get-started/fundamentals/create-an-app
-  - category: Get started / Fundamentals / Create a multipage app
-    url: /get-started/fundamentals/create-a-multipage-app
+  - category: Get started / Tutorials
+    url: /get-started/tutorials
+  - category: Get started / Tutorials / Create an app
+    url: /get-started/tutorials/create-an-app
+  - category: Get started / Tutorials / Create a multipage app
+    url: /get-started/tutorials/create-a-multipage-app
 
   - category: Streamlit library
     url: /library
