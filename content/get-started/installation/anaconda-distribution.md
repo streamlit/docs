@@ -71,7 +71,7 @@ Anaconda Distribution includes Python so all you need beforehand is your favoria
 
 15. Close your terminal.
 
-## Hello World
+## Create a `Hello World` app and run it
 
 17. Open VS Code with a new project.
 
@@ -129,6 +129,8 @@ Anaconda Distribution includes Python so all you need beforehand is your favoria
 27. Your app will update! Keep making changes and you will see your changes as soon as you save your file.
     ![Your app updates when you resave your source file](/images/get-started/hello-world-7-updated-app.png)
 
+28. When you're done, you can stop your app with `Ctrl+C` in your terminal or just by closing your terminal.
+
 ## What's next?
 
-Read about our [Main concepts](/get-started/fundamentals/main-concepts) and try out more commands in your app. When you're done, you can stop your app with `Ctrl+C` in your terminal or just by closing your terminal.
+Read about our [Main concepts](/get-started/fundamentals/main-concepts) and try out more commands in your app.
