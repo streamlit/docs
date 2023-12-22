@@ -2,7 +2,7 @@
 site_menu:
   - category: Get started
     url: /get-started
-    color: red-70
+    color: orange-70
     icon: rocket_launch
   - category: Get started / Installation
     url: /get-started/installation
@@ -31,7 +31,7 @@ site_menu:
 
   - category: Streamlit library
     url: /library
-    color: violet-70
+    color: indigo-70
     icon: description
   - category: Streamlit library / API reference
     url: /library/api-reference
@@ -477,7 +477,7 @@ site_menu:
 
   - category: Streamlit Community Cloud
     url: /streamlit-community-cloud
-    color: l-blue-70
+    color: lightBlue-70
     icon: cloud
 
   - category: Streamlit Community Cloud / Get started
@@ -539,7 +539,7 @@ site_menu:
 
   - category: Knowledge base
     url: /knowledge-base
-    color: orange-70
+    color: darkBlue-70
     icon: school
   - category: Knowledge base / Tutorials
     url: /knowledge-base/tutorials

@@ -53,16 +53,7 @@ const Tile = ({
     );
   }
 
-  const backgroundColor =
-    background === "orange-70"
-      ? styles.OrangeBackground
-      : background === "red-70"
-      ? styles.RedBackground
-      : background === "violet-70"
-      ? styles.VioletBackground
-      : background === "unset"
-      ? styles.TransparentBackground
-      : styles.BlueBackground;
+  const backgroundColor = BG_CLASS[background];
 
   return (
     <div
@@ -84,6 +75,19 @@ const Tile = ({
       </Link>
     </div>
   );
+};
+
+const BG_CLASS = {
+  "red-70": styles.RedBackground,
+  "orange-70": styles.OrangeBackground,
+  "yellow-70": styles.YellowBackground,
+  "green-70": styles.GreenBackground,
+  "acqua-70": styles.AcquaBackground,
+  "lightBlue-70": styles.LightBlueBackground,
+  "darkBlue-70": styles.DarkBlueBackground,
+  "indigo-70": styles.IndigoBackground,
+  "gray-70": styles.GrayBackground,
+  unset: styles.TransparentBackground,
 };
 
 export default Tile;

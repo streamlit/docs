@@ -16,7 +16,7 @@ const SummaryTiles = () => {
         icon="dvr"
         title="API reference"
         text="Learn about our APIs, with actionable explanations of specific functions and features."
-        background="violet-70"
+        background="indigo-70"
         link="/library/api-reference"
       />
 
@@ -24,7 +24,7 @@ const SummaryTiles = () => {
         icon="grid_view"
         title="App gallery"
         text="Try out awesome apps created by our users, and curated from our forums or Twitter."
-        background="blue-70"
+        background="lightBlue-70"
         link="https://streamlit.io/gallery"
       />
     </TileContainer>
