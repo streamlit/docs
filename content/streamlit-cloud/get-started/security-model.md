@@ -23,7 +23,7 @@ This document provides an overview of the security safeguards we've implemented 
 
 ### Authentication
 
-You must authenticate through GitHub to deploy or administer an app. Authentication through Google or single-use emailed links are required to view a private app for which you are not an admin. These links are valid for 15 minutes once requested.
+You must authenticate through GitHub to deploy or administer an app. Authentication through Google or single-use emailed links are required to view a private app when you don't have push or admin permissions on the associated GitHub repository. The single-use emailed links are valid for 15 minutes once requested.
 
 ### Permissions
 
