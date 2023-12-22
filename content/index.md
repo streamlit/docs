@@ -3,7 +3,7 @@ title: Welcome to Streamlit
 features:
   - title: Get started
     body: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    color: violet-70
+    color: indigo-70
     icon: arrow_forward
     url: /get-started
     image: ""
@@ -17,7 +17,7 @@ features:
   - title: Topic guides
     body: Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
       fugit, sed quia.
-    color: l-blue-70
+    color: lightBlue-70
     icon: description
     url:
       Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,

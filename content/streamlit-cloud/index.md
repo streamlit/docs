@@ -13,42 +13,42 @@ If you haven't built your first Streamlit app yet, you can check out [Get starte
 
 <InlineCalloutContainer>
     <InlineCallout
-        color="l-blue-70"
+        color="lightBlue-70"
         icon="rocket_launch"
         bold="Quickstart"
         href="/streamlit-community-cloud/get-started"
     >Create your account and deploy an example app as fast as possible. Jump right into coding with GitHub Codespaces.
     </InlineCallout>
     <InlineCallout
-        color="l-blue-70"
+        color="lightBlue-70"
         icon="arrow_forward"
         bold="Get started"
         href="/streamlit-community-cloud/get-started"
     >Learn about Streamlit Community Cloud accounts and how to create one.
     </InlineCallout>
     <InlineCallout
-        color="l-blue-70"
+        color="lightBlue-70"
         icon="flight_takeoff"
         bold="Deploy your app"
         href="/streamlit-community-cloud/deploy-your-app"
     >A step-by-step guide on how to get your app deployed.
     </InlineCallout>
     <InlineCallout
-        color="l-blue-70"
+        color="lightBlue-70"
         icon="share"
         bold="Share your app"
         href="/streamlit-community-cloud/share-your-app"
     >Share or embed your app.
     </InlineCallout>
     <InlineCallout
-        color="l-blue-70"
+        color="lightBlue-70"
         icon="settings"
         bold="Manage your app"
         href="/streamlit-community-cloud/manage-your-app"
     >Access logs, reboot apps, set favorites, and more. Jump into a GitHub Codespace to edit your app in the cloud.
     </InlineCallout>
     <InlineCallout
-        color="l-blue-70"
+        color="lightBlue-70"
         icon="manage_accounts"
         bold="Manage your account"
         href="/streamlit-community-cloud/manage-your-account"
