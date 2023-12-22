@@ -7,7 +7,7 @@ slug: /get-started/installation
 
 There are multiple ways to set up your development environment and install Streamlit. Read below to understand these options. Developing locally with Python installed on your own computer is the most common scenario.
 
-<Div style={{padding: "0 20px 10px 30px", border: "1px solid gray", borderRadius: "20px"}}>
+<div style={{padding: "0 20px 10px 30px", border: "1px solid gray", borderRadius: "20px"}}>
 
 ## Summary for local development
 
@@ -22,7 +22,7 @@ There are multiple ways to set up your development environment and install Strea
    ```
 4. Jump to our [Main concepts](/get-started/fundamentals/main-concepts).
 
-</Div>
+</div>
 
 ## Python environments
 
