@@ -1,7 +1,10 @@
 import styles from "./tileContainer.module.css";
 
-const TilesContainer = ({ children }) => {
-  return <section className={styles.Container}>{children}</section>;
+const TilesContainer = ({ layout, children }) => {
+  const classes =
+    layout == "list" ? styles.ListContainer : styles.GridContainer;
+
+  return <section className={classes}>{children}</section>;
 };
 
 export default TilesContainer;

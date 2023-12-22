@@ -9,9 +9,22 @@ This page walks you through installing Streamlit locally using Anaconda Distribu
 
 ## Prerequisites
 
-Anaconda Distribution includes Python so all you need beforehand is your favoriate code editor.
+1. **A code editor**
 
-- We use [VS Code](https://code.visualstudio.com/download) in our tutorials.
+   Anaconda Distribution includes Python and basically everything you need to get started.
+   The only thing left for you to choose is a code editor.
+
+   Our favorite editor is [VS Code](https://code.visualstudio.com/download), which is also what we
+   use in all our tutorials.
+
+1. **Knowledge about environment managers**
+
+   Environment managers create virtual environments to isolate Python package installations between
+   projects. For a detailed introduction to Python environments, check out
+   [Python Virtual Environments: A Primer](https://realpython.com/python-virtual-environments-a-primer/).
+
+   But don't worry! In this guide we'll teach you how to install and use an environment manager
+   (Anaconda).
 
 ## Install Anaconda Distribution
 

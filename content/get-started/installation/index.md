@@ -5,13 +5,13 @@ slug: /get-started/installation
 
 # Installation
 
-There are multiple ways to set up your development environment and install Streamlit. Read below to understand these options. Developing locally with Python installed on your own computer is the most common scenario.
+There are multiple ways to set up your development environment and install Streamlit. Read below to
+understand these options. Developing locally with Python installed on your own computer is the most
+common scenario.
 
-<div style={{padding: "0 20px 10px 30px", border: "1px solid gray", borderRadius: "20px"}}>
+## Summary for experts
 
-## Summary for local development
-
-1. Set up your Python development environment. (See below for explanation.)
+1. Set up your Python development environment.
 2. Run:
    ```bash
    pip install streamlit
@@ -22,35 +22,34 @@ There are multiple ways to set up your development environment and install Strea
    ```
 4. Jump to our [Main concepts](/get-started/fundamentals/main-concepts).
 
-</div>
+## Installation steps for the rest of us
 
-## Python environments
+<TileContainer layout="list">
 
-As with any programming tool, in order to install Streamlit you first need to make sure your computer is properly set up. More specifically, you’ll need:
+<RefCard href="/get-started/installation/command-line" size="half">
 
-1. Python
-2. A Python environment manager (recommended)
-3. A Python package manager
+##### Option 1: I'm comfortable with the command line
 
-Environment managers create virtual environments to isolate Python package installations between projects. Within an environment, a package manager handles installing each of your Python packages, including Streamlit. We recommend using virtual environments because installing or upgrading a Python package may cause unintentional effects on another package. For a detailed introduction to Python environments, check out [Python Virtual Environments: A Primer](https://realpython.com/python-virtual-environments-a-primer/).
+Install Streamlit on your own machine using tools like `venv` and `pip`.
 
-### Option 1: I'm comfortable with the command line.
+</RefCard>
 
-<InlineCalloutContainer spacing="singleton">
-   <InlineCallout color="orange-70" icon="terminal" bold="Install Streamlit using command line" href="/get-started/installation/command-line">
-   </InlineCallout>
-</InlineCalloutContainer>
+<RefCard href="/get-started/installation/anaconda-distribution" size="half">
 
-### Option 2: I prefer a graphical interface.
+##### Option 2: I prefer a graphical interface
 
-<InlineCalloutContainer spacing="singleton">
-   <InlineCallout color="orange-70" icon="space_dashboard" bold="Install Streamlit using Anaconda Distribution" href="/get-started/installation/anaconda-distribution">
-   </InlineCallout>
-</InlineCalloutContainer>
+Install Streamlit using the Anaconda Distribution graphical user interface. This is also the best
+approach if you're on Windows and don't have Python set up.
 
-### Option 3: I don't want to install anything on my computer.
+</RefCard>
 
-<InlineCalloutContainer spacing="singleton">
-   <InlineCallout color="orange-70" icon="developer_mode" bold="Use Community Cloud to develop with GitHub Codespaces" href="/get-started/installation/community-cloud">
-   </InlineCallout>
-</InlineCalloutContainer>
+<RefCard href="/get-started/installation/community-cloud" size="half">
+
+##### Option 3: I'd rather use a Cloud-based environment
+
+Use Streamlit Cloud with GitHub Codespaces, so you don't have to go through the trouble of
+installing Python, setting up an environment, etc.
+
+</RefCard>
+
+</TileContainer>
