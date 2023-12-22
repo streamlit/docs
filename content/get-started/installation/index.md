@@ -37,20 +37,20 @@ Environment managers create virtual environments to isolate Python package insta
 ### Option 1: I'm comfortable with the command line.
 
 <InlineCalloutContainer spacing="singleton">
-   <InlineCallout color="red-70" icon="terminal" bold="Install Streamlit using command line" href="/get-started/installation/command-line">
+   <InlineCallout color="orange-70" icon="terminal" bold="Install Streamlit using command line" href="/get-started/installation/command-line">
    </InlineCallout>
 </InlineCalloutContainer>
 
 ### Option 2: I prefer a graphical interface.
 
 <InlineCalloutContainer spacing="singleton">
-   <InlineCallout color="red-70" icon="space_dashboard" bold="Install Streamlit using Anaconda Distribution" href="/get-started/installation/anaconda-distribution">
+   <InlineCallout color="orange-70" icon="space_dashboard" bold="Install Streamlit using Anaconda Distribution" href="/get-started/installation/anaconda-distribution">
    </InlineCallout>
 </InlineCalloutContainer>
 
 ### Option 3: I don't want to install anything on my computer.
 
 <InlineCalloutContainer spacing="singleton">
-   <InlineCallout color="red-70" icon="developer_mode" bold="Use Community Cloud to develop with GitHub Codespaces" href="/get-started/installation/community-cloud">
+   <InlineCallout color="orange-70" icon="developer_mode" bold="Use Community Cloud to develop with GitHub Codespaces" href="/get-started/installation/community-cloud">
    </InlineCallout>
 </InlineCalloutContainer>

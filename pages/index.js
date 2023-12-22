@@ -142,7 +142,7 @@ export default function Home({ window, menu, gdpr_data, cookie_data }) {
             <H2>How to use our docs</H2>
             <InlineCalloutContainer>
               <InlineCallout
-                color="red-70"
+                color="orange-70"
                 icon="rocket_launch"
                 bold="Get started"
                 href="/get-started"
@@ -151,7 +151,7 @@ export default function Home({ window, menu, gdpr_data, cookie_data }) {
                 concepts, set up your development environment, and start coding!
               </InlineCallout>
               <InlineCallout
-                color="violet-70"
+                color="indigo-70"
                 icon="description"
                 bold="Streamlit library"
                 href="/library/api-reference"
@@ -161,7 +161,7 @@ export default function Home({ window, menu, gdpr_data, cookie_data }) {
                 Streamlit Components, and more!
               </InlineCallout>
               <InlineCallout
-                color="l-blue-70"
+                color="lightBlue-70"
                 icon="cloud"
                 bold="Streamlit Community Cloud"
                 href="/streamlit-community-cloud"
@@ -172,7 +172,7 @@ export default function Home({ window, menu, gdpr_data, cookie_data }) {
                 iterate quickly with live code updates, and have an impact!
               </InlineCallout>
               <InlineCallout
-                color="orange-70"
+                color="darkBlue-70"
                 icon="school"
                 bold="Knowledge base"
                 href="/knowledge-base"
