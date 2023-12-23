@@ -216,7 +216,7 @@ enforceSerializableSessionState = false
 # Adjust how certain 'options' widgets like radio, selectbox, and
 # multiselect coerce Enum members when the Enum class gets
 # re-defined during a script re-run.
-# See (https://docs.streamlit.io/library/advanced-features/user-classes#enums)
+# See (https://docs.streamlit.io/library/advanced-features/custom-classes#enums)
 # for more information.
 
 # Allowed values:
