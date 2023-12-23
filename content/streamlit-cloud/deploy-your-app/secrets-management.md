@@ -93,9 +93,9 @@ If you need to add or edit your secrets for an app that is already deployed, you
 2. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) for your app.
 3. Click "**Settings**".
    ![Access your app settings from your workspace](/images/streamlit-community-cloud/workspace-app-settings.png)
-3. A modal will appear. Click "**Secrets**"  on the left.
+4. A modal will appear. Click "**Secrets**" on the left.
    ![Access your secrets through your app settings](/images/streamlit-community-cloud/workspace-app-settings-secrets.png)
-4. After you edit your secrets, click "**Save**". It might take a minute for the update to be propagated to your app, but the new values will be reflected when the app re-runs.
+5. After you edit your secrets, click "**Save**". It might take a minute for the update to be propagated to your app, but the new values will be reflected when the app re-runs.
 
 ### Develop locally with secrets
 

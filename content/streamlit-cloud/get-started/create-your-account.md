@@ -14,9 +14,10 @@ Streamlit Community Cloud accounts have two underlying identities: primary and s
 ## Sign up
 
 Although you can begin the sign-up process with GitHub, we recommend starting with Google or email in order to have a complete account from the start.
-* [Step 1: Primary identity](#step-1-primary-identity) (Google or email)
-* [Step 2: Source control](#step-2-source-control) (GitHub)
-* [Step 3: Set up your account](#step-3-set-up-your-account)
+
+- [Step 1: Primary identity](#step-1-primary-identity) (Google or email)
+- [Step 2: Source control](#step-2-source-control) (GitHub)
+- [Step 3: Set up your account](#step-3-set-up-your-account)
 
 ### Step 1: Primary identity
 

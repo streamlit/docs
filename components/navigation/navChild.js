@@ -122,11 +122,7 @@ const NavChild = ({ slug, page, color, className }) => {
             className={classNames(
               styles.Circle,
               active ? styles.ActiveCircle : "",
-              color === "violet-70"
-                ? styles.LibraryCircle
-                : color === "l-blue-70"
-                ? styles.CloudCircle
-                : styles.KBCircle
+              CIRCLE_CLASS[color]
             )}
           />
           <span
@@ -153,6 +149,19 @@ const NavChild = ({ slug, page, color, className }) => {
       {subNav}
     </li>
   );
+};
+
+const CIRCLE_CLASS = {
+  "red-70": styles.RedCircle,
+  "orange-70": styles.OrangeCircle,
+  "yellow-70": styles.YellowCircle,
+  "green-70": styles.GreenCircle,
+  "acqua-70": styles.AcquaCircle,
+  "lightBlue-70": styles.LightBlueCircle,
+  "darkBlue-70": styles.DarkBlueCircle,
+  "indigo-70": styles.IndigoCircle,
+  "gray-70": styles.GrayCircle,
+  unset: styles.TransparentCircle,
 };
 
 export default NavChild;

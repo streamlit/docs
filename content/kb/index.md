@@ -9,7 +9,7 @@ The knowledge base is a self-serve library of tips, step-by-step tutorials, and 
 
 <InlineCalloutContainer>
   <InlineCallout
-    color="orange-80"
+    color="darkBlue-70"
     icon="local_library"
     bold="Tutorials."
     href="/knowledge-base/tutorials"
@@ -17,7 +17,7 @@ The knowledge base is a self-serve library of tips, step-by-step tutorials, and 
     Our tutorials include step-by-step examples of building different types of apps in Streamlit.
   </InlineCallout>
   <InlineCallout
-    color="orange-80"
+    color="darkBlue-70"
     icon="auto_awesome"
     bold="Using Streamlit."
     href="/knowledge-base/using-streamlit"
@@ -25,7 +25,7 @@ The knowledge base is a self-serve library of tips, step-by-step tutorials, and 
     Here are some frequently asked questions about using Streamlit.
   </InlineCallout>
   <InlineCallout
-    color="orange-80"
+    color="darkBlue-70"
     icon="build"
     bold="Streamlit Components."
     href="/knowledge-base/components"
@@ -33,7 +33,7 @@ The knowledge base is a self-serve library of tips, step-by-step tutorials, and 
     Here are some questions we've received about Streamlit Components.
   </InlineCallout>
   <InlineCallout
-    color="orange-80"
+    color="darkBlue-70"
     icon="downloading"
     bold="Installing dependencies."
     href="/knowledge-base/dependencies"
@@ -41,7 +41,7 @@ The knowledge base is a self-serve library of tips, step-by-step tutorials, and 
     If you run into problems installing dependencies for your Streamlit apps, we've got you covered.
   </InlineCallout>
   <InlineCallout
-    color="orange-80"
+    color="darkBlue-70"
     icon="report"
     bold="Deployment issues."
     href="/knowledge-base/deploy"
