@@ -15,51 +15,53 @@ Because streamlit re-runs your main script from top to bottom after every user i
 
 <Collapse title="Table of contents" expanded={true}>
 
-1. [Basic guildelines](#basic-guidelines)
+1. [General guildelines](#general-guidelines)
 2. [Enums](#enums)
 
 </Collapse>
 
-## Basic Guidelines
+## General Guidelines
 
 **For all classes:**
 
-- If possible, move class definitions into their own module file. This keeps them from getting re-defined when Streamlit re-runs your page.
-  In other words
+- If possible, move class definitions into their own module file.
+
+  For example:
 
   ```python
-  # In Main.py
-    import streamlit as st
+  # In Main.py ---------------------------------------
+  import streamlit as st
 
-    # MyClass gets re-defined every time Main.py re-runs
-    class MyClass:
-      def __init__(self, var1, var2):
-          ...
+  # MyClass gets re-defined every time Main.py re-runs
+  class MyClass:
+    def __init__(self, var1, var2):
+        ...
 
-    st.write(MyClass("foo", "bar"))
+  st.write(MyClass("foo", "bar"))
   ```
 
-  becomes
+  becomes:
 
   ```python
-  # In my_class.py
-    class MyClass:
-      def __init__(self, var1, var2):
-          ...
+  # In my_class.py ---------------------------------------
+  class MyClass:
+    def __init__(self, var1, var2):
+        ...
 
-  # In Main.py
-    import streamlit as st
-    from my_class import MyClass
+  # In Main.py -------------------------------------------
+  import streamlit as st
+  from my_class import MyClass
 
-    # MyClass doesn't change identity when Main.py re-runs
+  # MyClass doesn't change identity when Main.py re-runs
 
-    st.write(MyClass("foo", "bar"))
+  st.write(MyClass("foo", "bar"))
   ```
+
+  Streamlit only reloads code in imported modules when it detects the code has changed. Thus, each time your page script re-runs it is using the exact same `MyClass` as on the previous execution.
 
 **For classes that store data (like [dataclasses](https://docs.python.org/3/library/dataclasses.html)):**
 
-- Consider defining a custom `__eq__` method based on the data _in_ the class. The default python `__eq__` implementations for both regular
-  classes as well as `@dataclasses` depend on the in-memory ID of the class or class instance. This can cause comparison problems when a class gets redefined by Streamlit as it re-runs your code, so avoid it alltogether by defining `__eq__` in a way that depends only on the data encapsulated by the class and not the object identity.
+- Consider defining a custom `__eq__` method based on the data _in_ the class.
 
   ```python
   import streamlit as st
@@ -71,12 +73,20 @@ Because streamlit re-runs your main script from top to bottom after every user i
     var2: float
 
     def __eq__(self, other):
+      # Two instances of MyDataclass are equal if both of their
+      # fields match.
       return (self.var1, self.var2) == (other.var1, other.var2)
 
   st.write(MyDataclass(1, 5.5) == MyDataclass(1, 5.5))
   ```
 
-- Consider defining serialization and deserialization methods like `to_str` and `from_str` for your class, and use these to store class instance data in `st.session_state` rather than storing the class instance itself.
+  The default python `__eq__` implementations for both regular
+  classes as well as `@dataclasses` depend on the in-memory ID of the class or class instance. This can cause comparison problems where two
+  dataclass instances that you think should be equal are not evaluated
+  as being equal.
+
+- Alternatively, if you are storing data in `st.session_state`,
+  consider defining serialization and deserialization methods like `to_str` and `from_str` for your class, and use these to store class instance data in `st.session_state` rather than storing the class instance itself.
 
 **For classes that are used as resources (database connections, state managers, APIs):**
 
@@ -137,4 +147,4 @@ widget to members of the class defined in the latest script execution. This is s
 This behavior is [configurable](https://docs.streamlit.io/library/advanced-features/configuration) via the `enumCoercion` setting in your Streamlit
 `config.toml` file. It is enabled by default, and may be disabled or set to a stricter set of matching criteria.
 
-If, with Enum coercion enabled, you find that you still encounter issues, consider following some of the other [basic guildelines](#basic-guidelines), such as moving your Enum class definition to a separate module file.
+If, with Enum coercion enabled, you find that you still encounter issues, consider following some of the other [general guildelines](#general-guidelines), such as moving your Enum class definition to a separate module file.
