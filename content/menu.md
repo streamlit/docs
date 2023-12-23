@@ -1,25 +1,38 @@
 ---
 site_menu:
+  - category: Get started
+    url: /get-started
+    color: orange-70
+    icon: rocket_launch
+  - category: Get started / Installation
+    url: /get-started/installation
+  - category: Get started / Installation / Use command line
+    url: /get-started/installation/command-line
+  - category: Get started / Installation / Use Anaconda Distribution
+    url: /get-started/installation/anaconda-distribution
+  - category: Get started / Installation / Use GitHub Codespaces
+    url: /get-started/installation/community-cloud
+  - category: Get started / Fundamentals
+    url: /get-started/fundamentals
+  - category: Get started / Fundamentals / Main concepts
+    url: /get-started/fundamentals/main-concepts
+  - category: Get started / Fundamentals / Advanced concepts
+    url: /get-started/fundamentals/advanced-concepts
+  - category: Get started / Fundamentals / Additional features
+    url: /get-started/fundamentals/additional-features
+  - category: Get started / Fundamentals / Summary
+    url: /get-started/fundamentals/summary
+  - category: Get started / Tutorials
+    url: /get-started/tutorials
+  - category: Get started / Tutorials / Create an app
+    url: /get-started/tutorials/create-an-app
+  - category: Get started / Tutorials / Create a multipage app
+    url: /get-started/tutorials/create-a-multipage-app
+
   - category: Streamlit library
     url: /library
-    color: violet-70
+    color: indigo-70
     icon: description
-  - category: Streamlit library / Get started
-    url: /library/get-started
-  - category: Streamlit library / Get started / Installation
-    url: /library/get-started/installation
-  - category: Streamlit library / Get started / Main concepts
-    url: /library/get-started/main-concepts
-  - category: Streamlit library / Get started / Create an app
-    url: /library/get-started/create-an-app
-  - category: Streamlit library / Get started / Multipage apps
-    url: /library/get-started/multipage-apps
-  - category: Streamlit library / Get started / Multipage apps / Create a multipage app
-    url: /library/get-started/multipage-apps/create-a-multipage-app
-  # - category: Streamlit library / Get started / Deploy an app
-  #   url: /library/get-started/deploy-an-app
-  # - category: Streamlit library / Get started / App gallery
-  #   url: https://streamlit.io/gallery
   - category: Streamlit library / API reference
     url: /library/api-reference
   - category: Streamlit library / API reference / Write and magic
@@ -399,6 +412,12 @@ site_menu:
     url: /library/advanced-features/button-behavior-and-examples
   - category: Streamlit library / Advanced features / Caching
     url: /library/advanced-features/caching
+  - category: Streamlit library / Advanced features / Optimize performance with st.cache
+    url: /library/advanced-features/st.cache
+    visible: false
+  - category: Streamlit library / Advanced features / Experimental cache primitives
+    url: /library/advanced-features/experimental-cache-primitives
+    visible: false
   - category: Streamlit library / Advanced features / Command-line options
     url: /library/advanced-features/cli
   - category: Streamlit library / Advanced features / Configuration
@@ -411,12 +430,8 @@ site_menu:
     url: /library/advanced-features/dataframes
   - category: Streamlit library / Advanced features / Forms
     url: /library/advanced-features/forms
-  - category: Streamlit library / Advanced features / Optimize performance with st.cache
-    url: /library/advanced-features/st.cache
-    visible: false
-  - category: Streamlit library / Advanced features / Experimental cache primitives
-    url: /library/advanced-features/experimental-cache-primitives
-    visible: false
+  - category: Streamlit library / Advanced features / Multipage apps
+    url: /library/advanced-features/multipage-apps
   - category: Streamlit library / Advanced features / Add statefulness to apps
     url: /library/advanced-features/session-state
   - category: Streamlit library / Advanced features / Widget behavior
@@ -462,7 +477,7 @@ site_menu:
 
   - category: Streamlit Community Cloud
     url: /streamlit-community-cloud
-    color: l-blue-70
+    color: lightBlue-70
     icon: cloud
 
   - category: Streamlit Community Cloud / Get started
@@ -524,7 +539,7 @@ site_menu:
 
   - category: Knowledge base
     url: /knowledge-base
-    color: orange-70
+    color: darkBlue-70
     icon: school
   - category: Knowledge base / Tutorials
     url: /knowledge-base/tutorials

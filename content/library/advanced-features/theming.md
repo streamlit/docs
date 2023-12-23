@@ -8,7 +8,7 @@ slug: /library/advanced-features/theming
 In this guide, we provide examples of how Streamlit page elements are affected
 by the various theme config options. For a more high-level overview of
 Streamlit themes, see the Themes section of the
-[main concepts documentation](/library/get-started/main-concepts#themes).
+[main concepts documentation](/get-started/fundamentals/additional-features#themes).
 
 Streamlit themes are defined using regular config options: a theme can be set
 via command line flag when starting your app using `streamlit run` or by
@@ -55,7 +55,7 @@ Defines the background color used in the main content area of your app.
 ## secondaryBackgroundColor
 
 This color is used where a second background color is needed for added
-contrast. Most notably, it is the sidebar's background color. It is also used 
+contrast. Most notably, it is the sidebar's background color. It is also used
 as the background color for most interactive widgets.
 
 ![Secondary Background Color](/images/theme_config_options/secondaryBackgroundColor.png)

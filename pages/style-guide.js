@@ -147,19 +147,11 @@ ls -l myscript.sh`}
         <Component label="Arrow Links">
           <ArrowLinkContainer>
             <ArrowLink link="/" type="back" content="Welcome to Streamlit" />
-            <ArrowLink
-              link="/library/get-started"
-              type="next"
-              content="Get Started"
-            />
+            <ArrowLink link="/get-started" type="next" content="Get Started" />
           </ArrowLinkContainer>
         </Component>
         <Component label="Note Block">
-          <Note
-            background="l-blue-10"
-            color="gray-90"
-            dark={{ background: "dark-black", color: "white" }}
-          >
+          <Note>
             <p>
               For this guide we’re using small amounts of data so that we can
               move quickly. You can check out our <Link href="/">Tutorial</Link>{" "}
@@ -170,9 +162,9 @@ ls -l myscript.sh`}
         </Component>
         <Component label="Note Block (with code embed option)">
           <Tip
-            background="violet-10"
+            background="indigo-10"
             color="gray-90"
-            dark={{ background: "dark-violet", color: "white" }}
+            dark={{ background: "dark-indigo", color: "white" }}
           >
             <p>
               Did you know you can also pass a URL to streamlit run? This is
@@ -221,7 +213,7 @@ https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streaml
           <TilesContainer>
             <Tile
               size="third"
-              background="l-blue-70"
+              background="lightBlue-70"
               color="white"
               icon="downloading"
               title="Install Streamlit"
@@ -338,7 +330,7 @@ st.altair_chart(chart_data)`}
               }}
               border_color={"gray-40"}
               img={"/logo.svg"}
-              link={"/library/get-started"}
+              link={"/get-started"}
             />
             <Tile
               size={"half"}
@@ -351,7 +343,7 @@ st.altair_chart(chart_data)`}
               }}
               border_color={"gray-40"}
               img={"/logo.svg"}
-              link={"/library/get-started"}
+              link={"/get-started"}
             />
             <Tile
               size={"half"}
@@ -364,7 +356,7 @@ st.altair_chart(chart_data)`}
               }}
               border_color={"gray-40"}
               img={"/logo.svg"}
-              link={"/library/get-started"}
+              link={"/get-started"}
             />
             <Tile
               size={"half"}
@@ -377,7 +369,7 @@ st.altair_chart(chart_data)`}
               }}
               border_color={"gray-40"}
               img={"/logo.svg"}
-              link={"/library/get-started"}
+              link={"/get-started"}
             />
           </TilesContainer>
         </Component>
@@ -401,24 +393,24 @@ st.altair_chart(chart_data)`}
         <Component label="Inline callout">
           <InlineCalloutContainer>
             <InlineCallout
-              color="violet-70"
+              color="indigo-70"
               icon="school"
               bold="Tutorials"
               href="/"
             >
-              include our <Link href="/library/get-started">Get Started</Link>{" "}
-              guide and a few step-by-step examples to building different types
-              of apps in Streamlit.
+              include our <Link href="/get-started">Get Started</Link> guide and
+              a few step-by-step examples to building different types of apps in
+              Streamlit.
             </InlineCallout>
             <InlineCallout
-              color="violet-70"
+              color="indigo-70"
               icon="school"
               bold="Tutorials"
               href="/"
             >
-              include our <Link href="/library/get-started">Get Started</Link>{" "}
-              guide and a few step-by-step examples to building different types
-              of apps in Streamlit.
+              include our <Link href="/get-started">Get Started</Link> guide and
+              a few step-by-step examples to building different types of apps in
+              Streamlit.
             </InlineCallout>
           </InlineCalloutContainer>
         </Component>
