@@ -39,16 +39,16 @@ Install Streamlit on your own machine using tools like `venv` and `pip`.
 ##### Option 2: I prefer a graphical interface
 
 Install Streamlit using the Anaconda Distribution graphical user interface. This is also the best
-approach if you're on Windows and don't have Python set up.
+approach if you're on Windows or don't have Python set up.
 
 </RefCard>
 
 <RefCard href="/get-started/installation/community-cloud" size="half">
 
-##### Option 3: I'd rather use a Cloud-based environment
+##### Option 3: I'd rather use a cloud-based environment
 
-Use Streamlit Cloud with GitHub Codespaces, so you don't have to go through the trouble of
-installing Python, setting up an environment, etc.
+Use Streamlit Community Cloud with GitHub Codespaces so you don't have to go through the trouble
+of installing Python and setting up an environment.
 
 </RefCard>
 
