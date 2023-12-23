@@ -9,11 +9,40 @@ This page will walk you through creating an environment with `venv` and installi
 
 ## Prerequisites
 
-Before you get started, make sure you have Python and a code editor installed.
+As with any programming tool, in order to install Streamlit you first need to make sure your
+computer is properly set up. More specifically, you’ll need:
 
-- We use [VS Code](https://code.visualstudio.com/download) in our tutorials.
-- Streamlit requires [Python 3.8 - Python 3.12](https://www.python.org/downloads/).
-- (macOS only) Streamlit also requires [Xcode command line tools](https://mac.install.guide/commandlinetools/4.html).
+1. **Python**
+
+   We support [version 3.8 to 3.12](https://www.python.org/downloads/).
+
+1. **A Python environment manager** (recommended)
+
+   Environment managers create virtual environments to isolate Python package installations between
+   projects.
+
+   We recommend using virtual environments because installing or upgrading a Python package may
+   cause unintentional effects on another package. For a detailed introduction to Python
+   environments, check out
+   [Python Virtual Environments: A Primer](https://realpython.com/python-virtual-environments-a-primer/).
+
+   For this guide, we'll be using `venv`, which comes with Python.
+
+1. **A Python package manager**
+
+   Package managers handle installing each of your Python packages, including Streamlit.
+
+   For this guide, we'll be using `pip`, which comes with Python.
+
+1. **Only on MacOS: Xcode command line tools**
+
+   Download Xcode command line tools using [these instructions](https://mac.install.guide/commandlinetools/4.html)
+   in order to let the package manager install some of Streamlit's dependencies.
+
+1. **A code editor**
+
+   Our favorite editor is [VS Code](https://code.visualstudio.com/download), which is also what we use in
+   all our tutorials.
 
 ## Create an environment using `venv`
 
