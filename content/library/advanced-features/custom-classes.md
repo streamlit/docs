@@ -1,17 +1,17 @@
 ---
-title: User Classes
-slug: /library/advanced-features/user-classes
+title: Custom Classes
+slug: /library/advanced-features/custom-classes
 ---
 
-# User classes
+# Custom classes
 
-Users building larger or more complex applications, or who are porting existing application code over to streamlit may, eventually, want to utilize user-defined classes within their script. Common reasons for this include:
+Developers building larger or more complex applications, or who are porting existing application code over to streamlit may, eventually, want to utilize custom-defined python classes within their script. Common reasons for this include:
 
 1. Defining a custom `@dataclass` to store data within your app
 2. Defining an `Enum` class to represent a fixed set of options.
 3. Defining custom interfaces to external services or databases not covered by Streamlit's `experimental_connection` [API](/library/api-reference/connections/st.experimental_connection).
 
-Because streamlit runs your main script from top to bottom at every user interaction or code change, care must be taken when defining custom user classes. By following the guidelines on this page, you will be less likely to encounter common pitfalls of using User-defined clases in your app.
+Because streamlit re-runs your main script from top to bottom after every user interaction, care must be taken when defining custom classes to ensure that a re-definition of the class type during these re-runs will not cause unwanted effects. By following the guidelines on this page, you will be less likely to encounter common pitfalls.
 
 <Collapse title="Table of contents" expanded={true}>
 
