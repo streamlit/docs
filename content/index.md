@@ -3,9 +3,9 @@ title: Welcome to Streamlit
 features:
   - title: Get started
     body: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    color: violet-70
+    color: indigo-70
     icon: arrow_forward
-    url: /library/get-started
+    url: /get-started
     image: ""
   - title: API reference
     body: Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
@@ -17,7 +17,7 @@ features:
   - title: Topic guides
     body: Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
       fugit, sed quia.
-    color: l-blue-70
+    color: lightBlue-70
     icon: description
     url:
       Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
@@ -29,27 +29,27 @@ whats_new:
       facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non
       cursus purus tempus porta sodales.
     icon: visibility
-    url: /library/get-started
+    url: /get-started
     image: /img/logo.svg
   - title: Feature title
     body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a
       facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non
       cursus purus tempus porta sodales.
-    url: /library/get-started
+    url: /get-started
     icon: visibility
     image: ""
   - body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a
       facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non
       cursus purus tempus porta sodales.
     title: Feature title
-    url: /library/get-started
+    url: /get-started
     image: /img/logo.svg
     icon: edit
   - title: Feature title
     body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a
       facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non
       cursus purus tempus porta sodales.
-    url: /library/get-started
+    url: /get-started
     icon: edit
     image: ""
 news:
