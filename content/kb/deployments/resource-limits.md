@@ -7,8 +7,6 @@ slug: /knowledge-base/deploy/resource-limits
 
 Sorry! It means you've hit the [resource limits](/streamlit-community-cloud/manage-your-app#app-resources-and-limits) of your [Streamlit Community Cloud](https://streamlit.io/cloud) account.
 
-<!-- One way to avoid this is to [upgrade your plan](https://streamlit.io/cloud) to one with higher resource limits.  -->
-
 There are a few things you can change in your app to make it less resource-hungry:
 
 - Reboot your app (temporary fix)

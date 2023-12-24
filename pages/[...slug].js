@@ -11,6 +11,8 @@ import matter from "gray-matter";
 import remarkUnwrapImages from "remark-unwrap-images";
 import classNames from "classnames";
 import { useRouter } from "next/router";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 // Site Components
 import CookieSettingsModal from "../components/utilities/cookieSettingsModal";
@@ -270,7 +272,7 @@ export default function Article({
               <link
                 rel="canonical"
                 href={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/${slug.join(
-                  "/"
+                  "/",
                 )}`}
               />
             )}
@@ -334,7 +336,7 @@ export async function getStaticProps(context) {
   // Sort of documentation versions
   const jsonContents = fs.readFileSync(
     join(pythonDirectory, "streamlit.json"),
-    "utf8"
+    "utf8",
   );
   const streamlitFuncs = jsonContents ? JSON.parse(jsonContents) : {};
   const all_versions = Object.keys(streamlitFuncs);
@@ -383,10 +385,7 @@ export async function getStaticProps(context) {
     const source = await serialize(content, {
       scope: data,
       mdxOptions: {
-        rehypePlugins: [
-          require("rehype-slug"),
-          require("rehype-autolink-headings"),
-        ],
+        rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
         remarkPlugins: [remarkUnwrapImages],
       },
     });
@@ -446,7 +445,7 @@ export async function getStaticPaths() {
   // Sort of documentation versions
   const jsonContents = fs.readFileSync(
     join(pythonDirectory, "streamlit.json"),
-    "utf8"
+    "utf8",
   );
   const streamlitFuncs = jsonContents ? JSON.parse(jsonContents) : {};
   const all_versions = Object.keys(streamlitFuncs);

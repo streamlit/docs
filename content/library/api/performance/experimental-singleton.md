@@ -43,8 +43,6 @@ The `@st.experimental_singleton` decorator is used to cache the output of a func
 
 However, in some cases, the cached output may become invalid over time, such as when a database connection times out. To handle this, the `@st.experimental_singleton` decorator supports an optional `validate` parameter, which accepts a validation function that is called each time the cached output is accessed. If the validation function returns False, the cached output is discarded and the decorated function is executed again.
 
-<!-- Let's learn how to use the `validate` parameter to ensure that cached output remains valid. Let's also look at specific examples and best practices to help you understand how to use this feature effectively.
-
 #### Example 1: Validating a database connection
 
 In the example below, we connect to a [public PostgreSQL database](https://rnacentral.org/help/public-database) using the `psycopg2` library. We use `@st.experimental_singleton` to cache the connection, and we use the `validate` parameter to validate the connection before returning it. If the connection is invalid, we reconnect and return the new connection. To simulate a connection timeout, we use a checkbox to close the connection. When the connection is closed, the cached value is discarded and the connection is reestablished:
@@ -237,7 +235,7 @@ By using the `validate` parameter in the `@st.experimental_singleton` decorator,
 
 If we do away with the simulation in the above example and use the `validate` parameter to validate the API response, the code can be simplified to:
 
-```python
+````python
 import requests
 import streamlit as st
 
@@ -256,7 +254,7 @@ try:
     st.write(data)
 except requests.exceptions.HTTPError as err:
     st.error(err)
-``` -->
+``` */}
 
 ### Best Practices
 
@@ -290,7 +288,7 @@ def get_model(model_type):
 
 bert_model = get_model("distilbert-base-uncased")
 st.help(bert_model) # Display the model's docstring
-```
+````
 
 <Image src="/images/replay-cached-elements-singleton.png" clean />
 
