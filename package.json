@@ -4,15 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
     "sitemap": "next-sitemap",
-    "start": "next start",
-    "export": "next build && next export",
+    "export": "next build",
     "offline-docs": "node ./scripts/build-offline-docs.js && node ./scripts/merge-pdfs.js",
     "prepare": "husky install"
   },
   "dependencies": {
-    "16": "0.0.2",
     "@mapbox/rehype-prism": "^0.9.0",
     "@svgr/webpack": "^8.1.0",
     "@tryghost/content-api": "1.11.20",

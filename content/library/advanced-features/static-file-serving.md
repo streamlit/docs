@@ -51,7 +51,7 @@ with st.echo():
 
 Additional resources:
 
-- <https://docs.streamlit.io/library/advanced-features/configuration>
-- <https://static-file-serving.streamlit.app/>
+- [https://docs.streamlit.io/library/advanced-features/configuration](https://docs.streamlit.io/library/advanced-features/configuration)
+- [https://static-file-serving.streamlit.app/](https://static-file-serving.streamlit.app/)
 
 <Cloud src="https://static-file-serving.streamlit.app/?embedded=true" height="1000" />

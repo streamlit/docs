@@ -15,12 +15,12 @@ There are a few things you can change in your app to make it less resource-hungr
 - Move big datasets to a database
 - Profile your app's memory usage
 
-Check out our [blog post](https://blog.streamlit.io/common-app-problems-resource-limits/) on [“Common app problems: Resource limits"](https://blog.streamlit.io/common-app-problems-resource-limits/) for more in-depth tips prevent your app from hitting the [resource limits](/streamlit-community-cloud/manage-your-app#app-resources-and-limits) of the Streamlit Community Cloud.
+Check out our [blog post](https://blog.streamlit.io/common-app-problems-resource-limits/) on ["Common app problems: Resource limits"](https://blog.streamlit.io/common-app-problems-resource-limits/) for more in-depth tips prevent your app from hitting the [resource limits](/streamlit-community-cloud/manage-your-app#app-resources-and-limits) of the Streamlit Community Cloud.
 
 Related forum posts:
 
-- <https://discuss.streamlit.io/t/common-app-problems-resource-limits/16969>
-- <https://blog.streamlit.io/common-app-problems-resource-limits/>
+- [https://discuss.streamlit.io/t/common-app-problems-resource-limits/16969](https://discuss.streamlit.io/t/common-app-problems-resource-limits/16969)
+- [https://blog.streamlit.io/common-app-problems-resource-limits/](https://blog.streamlit.io/common-app-problems-resource-limits/)
 
 We offer free resource increases only to support nonprofits or educational organizations on a case-by-case basis. If you are a nonprofit or educational organization, please complete [this form](https://docs.google.com/forms/d/e/1FAIpQLSfzPNqrvH0HeaJnl0dtBgVV-ILqavzSmAEk84vDnMFIbvkGVA/viewform) and we will review your submission as soon as possible.
 

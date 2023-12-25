@@ -785,7 +785,7 @@ _Release date: Aug 5, 2021_
 
 **Notable Changes**
 
-- 📱 When using `st.columns`, columns will stack vertically when viewport size <640px so that column layout on smaller viewports is consistent and cleaner. ([#3594](https://github.com/streamlit/streamlit/issues/3594)).
+- 📱 When using `st.columns`, columns will stack vertically when viewport size \<640px so that column layout on smaller viewports is consistent and cleaner. ([#3594](https://github.com/streamlit/streamlit/issues/3594)).
 
 **Other Changes**
 
@@ -1435,7 +1435,7 @@ _Release date: September 19, 2019_
 **Highlights:**
 
 - ✨ Magic commands! Use `st.write` without typing `st.write`. See
-  <https://docs.streamlit.io/en/latest/api.html#magic-commands>
+  [https://docs.streamlit.io/en/latest/api.html#magic-commands](https://docs.streamlit.io/en/latest/api.html#magic-commands)
 - 🎛️ New `st.multiselect` widget.
 - 🐍 Fixed numerous install issues so now you can use `pip install streamlit`
   even in Conda! We've therefore deactivated our Conda repo.
@@ -1445,7 +1445,7 @@ _Release date: September 19, 2019_
 
 - 🛡️ HTML tags are now blacklisted in `st.write`/`st.markdown` by default. More
   information and a temporary work-around at:
-  <https://github.com/streamlit/streamlit/issues/152>
+  [https://github.com/streamlit/streamlit/issues/152](https://github.com/streamlit/streamlit/issues/152)
 
 ## Version 0.45.0
 
