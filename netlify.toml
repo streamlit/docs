@@ -3,3 +3,7 @@
   to = "/library/api-reference"
   status = 301
   force = true
+
+[[plugins]]
+  # Setting the plugin manually, so we can pick the version (see package.json).
+  package = "@netlify/plugin-nextjs"
