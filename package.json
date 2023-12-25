@@ -9,9 +9,6 @@
     "offline-docs": "node ./scripts/build-offline-docs.js && node ./scripts/merge-pdfs.js",
     "prepare": "husky install"
   },
-  "engines": {
-    "node": ">=18.17.0"
-  },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.9.0",
     "@svgr/webpack": "^8.1.0",
