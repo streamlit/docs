@@ -9,6 +9,9 @@
     "offline-docs": "node ./scripts/build-offline-docs.js && node ./scripts/merge-pdfs.js",
     "prepare": "husky install"
   },
+  "engines": {
+    "node": ">=18.17.0"
+  },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.9.0",
     "@svgr/webpack": "^8.1.0",
@@ -24,7 +27,6 @@
     "is-pdf-valid": "^0.0.1",
     "lodash": "^4.17.21",
     "markdown-it": "^14.0.0",
-    "netlify-plugin-cache-nextjs": "^1.6.1",
     "next": "^14.0.4",
     "next-mdx-remote": "^4.4.1",
     "next-remote-watch": "^2.0.0",
