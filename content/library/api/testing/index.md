@@ -35,7 +35,7 @@ assert at.warning[0].value == "Try again."
 
 <RefCard href="">
 
-{/_ TODO: Bug fix. The second RefCard does not render. Empty card is a workaround. _/}
+{/** TODO: Bug fix. The second RefCard does not render. Empty card is a workaround. **/}
 
 </RefCard>
 
