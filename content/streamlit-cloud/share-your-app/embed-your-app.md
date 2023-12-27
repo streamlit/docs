@@ -19,7 +19,7 @@ For example, say you want to embed the <a href="https://30days.streamlit.app/" t
 <iframe
   src="https://30days.streamlit.app/?embed=true"
   height="450"
-  style="width:100%;border:none;"
+  style={{ width: "100%", border: "none" }}
 ></iframe>
 ```
 

@@ -10,10 +10,6 @@ up:
 start:
 	npm run start
 
-.PHONY: build
-build:
-	npm run build
-
 .PHONY: export
 export:
 	npm run export
