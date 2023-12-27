@@ -275,15 +275,19 @@ st.write("Mutated result:", res)
 
 When you run this app for the first time, you should see three messages on the screen:
 
-- Cache miss (...)
-- Result: {output: 42}
-- Mutated result: {output: "result was manually mutated"}
+```
+Cache miss: expensive_computation(...) ran
+Result: {output: 42}
+Mutated result: {output: "result was manually mutated"}
+```
 
 No surprises here. But now notice what happens when you rerun you app (i.e. press **R**):
 
-- Result: {output: "result was manually mutated"}
-- Mutated result: {output: "result was manually mutated"}
-- Cached object mutated. (...)
+```
+Result: {output: "result was manually mutated"}
+Mutated result: {output: "result was manually mutated"}
+Cached object mutated. (...)
+```
 
 So what's up?
 

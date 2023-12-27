@@ -25,8 +25,6 @@ st.set_page_config(
 </RefCard>
 <RefCard href="/library/api-reference/utilities/st.echo">
 
-<!--<Image pure alt="screenshot" src="/images/api/echo.jpg" />-->
-
 #### Echo
 
 Display some code on the app, then execute it. Useful for tutorials.

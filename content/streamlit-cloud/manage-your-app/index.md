@@ -57,7 +57,7 @@ You can manage your deployed app directly from the app itself! Just make sure yo
 
 <Flex>
 
-<Div>
+<div>
 
 Other options accessible from Cloud logs are:
 
@@ -69,7 +69,7 @@ Other options accessible from Cloud logs are:
 - **Documentation** &mdash; Takes you to our documentation.
 - **Support** &mdash; Takes you to <a href="https://discuss.streamlit.io/" target="_blank">our forums</a>!
 
-</Div>
+</div>
 
 <div style={{ maxWidth: '30%', margin: "auto" }}>
     <Image src="/images/streamlit-community-cloud/cloud-logs-menu-XL.png" clean />

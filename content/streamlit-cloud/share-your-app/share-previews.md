@@ -51,8 +51,6 @@ _This app was built in Streamlit! Check it out and visit https://streamlit.io fo
     </Flex>
 </div>
 
-<!-- ![Default share preview when a description is missing](/images/streamlit-community-cloud/share-preview-private-app.png) -->
-
 If you want your share previews to look great and want users to share your app and click on your links, you should write a good description in the README of your app’s GitHub repository.
 
 ## Preview images
