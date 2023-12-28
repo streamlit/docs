@@ -14,7 +14,7 @@ warnings), and celebratory balloons.
 
 <Image pure alt="screenshot" src="/images/api/progress.jpg" />
 
-#### Progress bar
+<h4>Progress bar</h4>
 
 Display a progress bar.
 
@@ -29,7 +29,7 @@ for i in range(101):
 
 <Image pure alt="screenshot" src="/images/api/spinner.jpg" />
 
-#### Spinner
+<h4>Spinner</h4>
 
 Temporarily displays a message while executing a block of code.
 
@@ -43,7 +43,7 @@ with st.spinner("Please wait..."):
 
 <Image pure alt="screenshot" src="/images/api/status.jpg" />
 
-#### Status container
+<h4>Status container</h4>
 
 Display output of long-running tasks in a container.
 
@@ -57,7 +57,7 @@ with st.status('Running'):
 
 <Image pure alt="screenshot" src="/images/api/toast.jpg" />
 
-#### Toast
+<h4>Toast</h4>
 
 Briefly displays a toast message in the bottom-right corner.
 
@@ -70,7 +70,7 @@ st.toast('Butter!', icon='🧈')
 
 <Image pure alt="screenshot" src="/images/api/balloons.jpg" />
 
-#### Balloons
+<h4>Balloons</h4>
 
 Display celebratory balloons!
 
@@ -83,7 +83,7 @@ st.balloons()
 
 <Image pure alt="screenshot" src="/images/api/snow.jpg" />
 
-#### Snowflakes
+<h4>Snowflakes</h4>
 
 Display celebratory snowflakes!
 
@@ -96,7 +96,7 @@ st.snow()
 
 <Image pure alt="screenshot" src="/images/api/error.jpg" />
 
-#### Error box
+<h4>Error box</h4>
 
 Display error message.
 
@@ -109,7 +109,7 @@ st.error("We encountered an error")
 
 <Image pure alt="screenshot" src="/images/api/warning.jpg" />
 
-#### Warning box
+<h4>Warning box</h4>
 
 Display warning message.
 
@@ -122,7 +122,7 @@ st.warning("Unable to fetch image. Skipping...")
 
 <Image pure alt="screenshot" src="/images/api/info.jpg" />
 
-#### Info box
+<h4>Info box</h4>
 
 Display an informational message.
 
@@ -135,7 +135,7 @@ st.info("Dataset is updated every day at midnight.")
 
 <Image pure alt="screenshot" src="/images/api/success.jpg" />
 
-#### Success box
+<h4>Success box</h4>
 
 Display a success message.
 
@@ -148,7 +148,7 @@ st.success("Match found!")
 
 <Image pure alt="screenshot" src="/images/api/exception.jpg" />
 
-#### Exception output
+<h4>Exception output</h4>
 
 Display an exception.
 
@@ -166,7 +166,7 @@ st.exception(e)
 
 <Image pure alt="screenshot" src="/images/api/components/stqdm.jpg" />
 
-#### Stqdm
+<h4>Stqdm</h4>
 
 The simplest way to handle a progress bar in streamlit app. Created by [@Wirg](https://github.com/Wirg).
 
@@ -183,7 +183,7 @@ for _ in stqdm(range(50)):
 
 <Image pure alt="screenshot" src="/images/api/components/custom-notification-box.jpg" />
 
-#### Custom notification box
+<h4>Custom notification box</h4>
 
 A custom notification box with the ability to close it out. Created by [@Socvest](https://github.com/Socvest).
 
@@ -200,7 +200,7 @@ custom_notification_box(icon='info', textDisplay='We are almost done with your r
 
 <Image pure alt="screenshot" src="/images/api/components/extras-emojis.jpg" />
 
-#### Streamlit Extras
+<h4>Streamlit Extras</h4>
 
 A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
 

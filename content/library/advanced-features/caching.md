@@ -151,6 +151,7 @@ def query():
 <Tip>
 
 You should set a `ttl` (time to live) to get new results from your database. If you set `st.cache_data(ttl=3600)`, Streamlit invalidates any cached values after 1 hour (3600 seconds) and runs the cached function again. See details in [Controlling cache size and duration](#controlling-cache-size-and-duration).
+
 </Tip>
 
 **API calls**
@@ -318,6 +319,7 @@ def get_api_data():
 <Tip>
 
 You can also set `ttl` values using `timedelta`, e.g., `ttl=datetime.timedelta(hours=1)`.
+
 </Tip>
 
 **The `max_entries` parameter**

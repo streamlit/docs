@@ -11,7 +11,7 @@ This section gives you background on how different parts of Streamlit work.
 
 <RefCard href="/library/advanced-features/app-menu" size="half">
 
-##### ⋮ App menu
+<h5>⋮ App menu</h5>
 
 Streamlit provides a configurable menu within your app to access convenient tools for developers and viewers. These options can modify the appearance of your app while running.
 
@@ -24,7 +24,7 @@ Streamlit provides a configurable menu within your app to access convenient tool
 
 <RefCard href="/library/advanced-features/cli" size="half">
 
-##### Command-line options
+<h5>Command-line options</h5>
 
 When you install Streamlit, a command-line (CLI) tool gets installed as well. The purpose of this tool is to run Streamlit apps, change Streamlit configuration options, and help you diagnose and fix issues.
 
@@ -38,7 +38,7 @@ When you install Streamlit, a command-line (CLI) tool gets installed as well. Th
 
 <RefCard href="/library/advanced-features/configuration" size="half">
 
-##### Streamlit configuration
+<h5>Streamlit configuration</h5>
 
 Streamlit provides four different ways to set configuration options. Learn how to use each of them to change the behavior of Streamlit.
 
@@ -50,7 +50,7 @@ Streamlit provides four different ways to set configuration options. Learn how t
 
 <RefCard href="/library/advanced-features/theming" size="half">
 
-##### Theming
+<h5>Theming</h5>
 
 This section provides examples of how Streamlit page elements are affected by the various theme config options.
 
@@ -65,7 +65,7 @@ This section provides examples of how Streamlit page elements are affected by th
 
 <RefCard href="/library/advanced-features/caching" size="half">
 
-##### Caching
+<h5>Caching</h5>
 
 The Streamlit cache allows your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations. To cache a function in Streamlit, you need to decorate it with one of two decorators: `st.cache_data` and `st.cache_resource`.
 
@@ -86,7 +86,7 @@ The Streamlit cache allows your app to stay performant even when loading data fr
 
 <RefCard href="/library/advanced-features/session-state" size="half">
 
-##### Add statefulness to apps
+<h5>Add statefulness to apps</h5>
 
 Session State is a way to share variables between reruns, for each user session. In addition to the ability to store and persist state, Streamlit also exposes the ability to manipulate state using Callbacks.
 
@@ -103,7 +103,7 @@ Session State is a way to share variables between reruns, for each user session.
 
 <RefCard href="/library/advanced-features/prerelease" size="half">
 
-##### Pre-release features
+<h5>Pre-release features</h5>
 
 At Streamlit, we like to move quick while keeping things stable. In our latest effort to move even faster without sacrificing stability, we're offering our bold and fearless users two ways to try out Streamlit's bleeding-edge features.
 
@@ -114,7 +114,7 @@ At Streamlit, we like to move quick while keeping things stable. In our latest e
 
 <RefCard href="/library/advanced-features/secrets-management" size="half">
 
-##### Secrets management
+<h5>Secrets management</h5>
 
 This section provides examples of how to use secrets management to store and retrieve sensitive information in your Streamlit app.
 
@@ -127,7 +127,7 @@ This section provides examples of how to use secrets management to store and ret
 
 <RefCard href="/library/advanced-features/timezone-handling" size="half">
 
-##### Working with timezones
+<h5>Working with timezones</h5>
 
 Working with timezones can be tricky. This section provides a high-level description of how to handle timezones in Streamlit to avoid unexpected behavior.
 
@@ -140,7 +140,7 @@ Working with timezones can be tricky. This section provides a high-level descrip
 
 <RefCard href="/library/advanced-features/widget-semantics" size="full">
 
-##### Advanced notes on widget behavior
+<h5>Advanced notes on widget behavior</h5>
 
 Widgets are magical and often work how you want. But they can have surprising behavior in some situations. This section provides is a high-level, abstract description of widget behavior, including some common edge-cases.
 

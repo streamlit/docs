@@ -52,7 +52,7 @@ Streamlit is more than just a way to make data apps, it’s also a community of 
 
    Running a Streamlit app is no different than any other Python script. Whenever you need to view the app, you can use this command.
 
-    <Tip>
+   <Tip>
 
    Did you know you can also pass a URL to `streamlit run`? This is great when combined with GitHub Gists. For example:
 
@@ -179,6 +179,7 @@ transformational.
 
 Whenever you have a long-running computation in your code, consider
 refactoring it so you can use `@st.cache_data`, if possible. Please read [Caching](/library/advanced-features/caching) for more details.
+
 </Tip>
 
 Now that you know how caching with Streamlit works, let’s get back to the Uber

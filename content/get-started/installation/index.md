@@ -28,7 +28,7 @@ common scenario.
 
 <RefCard href="/get-started/installation/command-line" size="half">
 
-##### Option 1: I'm comfortable with the command line
+<h5>Option 1: I'm comfortable with the command line</h5>
 
 Install Streamlit on your own machine using tools like `venv` and `pip`.
 
@@ -36,7 +36,7 @@ Install Streamlit on your own machine using tools like `venv` and `pip`.
 
 <RefCard href="/get-started/installation/anaconda-distribution" size="half">
 
-##### Option 2: I prefer a graphical interface
+<h5>Option 2: I prefer a graphical interface</h5>
 
 Install Streamlit using the Anaconda Distribution graphical user interface. This is also the best
 approach if you're on Windows or don't have Python set up.
@@ -45,7 +45,7 @@ approach if you're on Windows or don't have Python set up.
 
 <RefCard href="/get-started/installation/community-cloud" size="half">
 
-##### Option 3: I'd rather use a cloud-based environment
+<h5>Option 3: I'd rather use a cloud-based environment</h5>
 
 Use Streamlit Community Cloud with GitHub Codespaces so you don't have to go through the trouble
 of installing Python and setting up an environment.
