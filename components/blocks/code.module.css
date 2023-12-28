@@ -3,16 +3,16 @@
   @apply relative !important;
 }
 
-.Container pre,
+.Pre,
 .Container code {
   @apply overflow-auto max-w-full whitespace-pre;
 }
 
-.Container pre {
+.Pre {
   @apply p-4 bg-gray-90 text-white font-medium rounded-md relative py-6 px-8 leading-relaxed;
 }
 
-.Container pre code {
+.Pre code {
   @apply z-10 relative;
 }
 
@@ -38,70 +38,70 @@
 }
 
 /* Code block adjustments */
-.Container pre code :global(.operator) {
+.Pre code :global(.operator) {
   @apply text-yellow-50;
 }
 
-.Container pre code :global(.decorator.annotation.punctuation) {
+.Pre code :global(.decorator.annotation.punctuation) {
   @apply text-red-60;
 }
 
-.Container pre code :global(.string) {
+.Pre code :global(.string) {
   @apply text-darkBlue-30;
 }
 
-.Container pre code :global(.keyword) {
+.Pre code :global(.keyword) {
   @apply text-darkBlue-50;
 }
 
-.Container pre code :global(.builtin) {
+.Pre code :global(.builtin) {
   @apply text-lightBlue-40;
 }
 
-.Container pre code :global(.number),
-.Container pre code :global(.boolean) {
+.Pre code :global(.number),
+.Pre code :global(.boolean) {
   @apply text-green-40;
 }
 
-.Container pre code :global(.punctuation) {
+.Pre code :global(.punctuation) {
   @apply text-gray-60;
 }
 
-.Container pre code :global(.comment) {
+.Pre code :global(.comment) {
   @apply text-gray-60 italic font-normal;
 }
 
-.Container pre code :global(.table) {
+.Pre code :global(.table) {
   @apply inline;
 }
 
 /* Dark mode adjustments */
-:global(.dark) .Container pre code :global(.operator),
-:global(.dark) .Container pre code :global(.decorator) {
+:global(.dark) .Pre code :global(.operator),
+:global(.dark) .Pre code :global(.decorator) {
   @apply text-yellow-80;
 }
 
-:global(.dark) .Container pre code :global(.keyword) {
+:global(.dark) .Pre code :global(.keyword) {
   @apply text-darkBlue-50;
 }
 
-:global(.dark) .Container pre code :global(.builtin) {
+:global(.dark) .Pre code :global(.builtin) {
   @apply text-lightBlue-60;
 }
 
-:global(.dark) .Container pre code :global(.number),
-:global(.dark) .Container pre code :global(.boolean) {
+:global(.dark) .Pre code :global(.number),
+:global(.dark) .Pre code :global(.boolean) {
   @apply text-green-40;
 }
 
-:global(.dark) .Container pre code :global(.function) {
+:global(.dark) .Pre code :global(.function) {
   @apply text-red-60 font-semibold;
 }
 
-:global(.dark) .Container pre code :global(.comment) {
+:global(.dark) .Pre code :global(.comment) {
   @apply text-gray-60;
 }
 
-:global(.dark) .Container pre code :global(.string) {
+:global(.dark) .Pre code :global(.string) {
   @apply text-darkBlue-30;
 }
