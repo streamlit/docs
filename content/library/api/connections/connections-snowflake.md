@@ -20,6 +20,8 @@ Maintain the redirect if moved or modified.
 
 `st.connection("snowflake")` can be configured using [Streamlit secrets](/library/advanced-features/secrets-management) or keyword args just like any other connection. It can also use existing Snowflake connection configuration when available.
 
+Note that [snowflake-snowpark-python](https://pypi.org/project/snowflake-snowpark-python/) must be installed to use this connection.
+
 #### Using Streamlit secrets
 
 For example, if your Snowflake account supports SSO, you can set up a quick local connection for development using [browser-based SSO](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-use#how-browser-based-sso-works) and `secrets.toml` as follows:
