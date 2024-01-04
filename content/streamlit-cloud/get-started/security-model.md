@@ -35,6 +35,14 @@ Streamlit Community Cloud inherits the permissions you have assigned in GitHub. 
 
 Our physical infrastructure is hosted and managed within secure data centers maintained by infrastructure-as-a-service cloud providers. Streamlit leverages many of these platforms' built-in security, privacy, and redundancy features. Our cloud providers continually monitor their data centers for risk and undergo assessments to ensure compliance with industry standards.
 
+### Data Deletion
+
+Community Cloud users have the option to delete any apps they’ve deployed as well as their entire account.
+
+When a user deletes their application from the admin console, we delete their source code, including any files copied from their GitHub repository or created within our system from the running app. However, we keep a record representing the application in our database. This record contains the coordinates of the application: the GitHub organization or user, the GitHub repository, the branch, and the path of the main module file. 
+
+When a user deletes their account, we perform a hard deletion of their data and a hard deletion of all the apps that belong to the GitHub identity associated with their account. In this case, we do not maintain the records of application coordinates described above. When an account is deleted, we also delete any HubSpot contact associated with the Community Cloud account.
+
 ### Virtual Private Cloud
 
 All of our servers are within a virtual private cloud (VPC) with firewalls and network access control lists (ACLs) to allow external access to a select few API endpoints; all other internal services are only accessible within the VPC.
