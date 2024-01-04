@@ -63,7 +63,7 @@ Our internal protocol for handling security events includes detection, analysis,
 
 ### Penetration Testing
 
-Streamlit uses third-party security tools to scan for vulnerabilities on a regular basis. Our security partners conduct periodic, intensive penetration tests on the Streamlit platform. Our product development team responds to any identified issues or potential vulnerabilities to ensure the quality, security, and availability of Streamlit applications.
+Streamlit uses third-party security tools to scan for vulnerabilities on a regular basis. Our security teams conduct periodic, intensive penetration tests on the Streamlit platform. Our product development team responds to any identified issues or potential vulnerabilities to ensure the quality, security, and availability of Streamlit applications.
 
 ### Vulnerability Management
 
