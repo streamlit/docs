@@ -9,7 +9,7 @@ Now that you know a little more about all the individual pieces, let's close
 the loop and review how it works together:
 
 1. Streamlit apps are Python scripts that run from top to bottom.
-1. Every time a user opens a browser tab pointing to your app, the script is executed and a new session is starts.
+1. Every time a user opens a browser tab pointing to your app, the script is executed and a new session starts.
 1. As the script executes, Streamlit draws its output live in a browser.
 1. Every time a user interacts with a widget, your script is re-executed and Streamlit redraws its output in the brower.
    - The output value of that widget matches the new value during that rerun.
