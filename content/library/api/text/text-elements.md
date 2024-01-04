@@ -21,7 +21,7 @@ also use [magic commands](/library/api-reference/write-magic/magic) in place of 
 
 <Image pure alt="screenshot" src="/images/api/markdown.jpg" />
 
-#### Markdown
+<h4>Markdown</h4>
 
 Display string formatted as Markdown.
 
@@ -34,7 +34,7 @@ st.markdown("Hello **world**!")
 
 <Image pure alt="screenshot" src="/images/api/title.jpg" />
 
-#### Title
+<h4>Title</h4>
 
 Display text in title formatting.
 
@@ -47,7 +47,7 @@ st.title("The app title")
 
 <Image pure alt="screenshot" src="/images/api/header.jpg" />
 
-#### Header
+<h4>Header</h4>
 
 Display text in header formatting.
 
@@ -60,7 +60,7 @@ st.header("This is a header")
 
 <Image pure alt="screenshot" src="/images/api/subheader.jpg" />
 
-#### Subheader
+<h4>Subheader</h4>
 
 Display text in subheader formatting.
 
@@ -73,7 +73,7 @@ st.subheader("This is a subheader")
 
 <Image pure alt="screenshot" src="/images/api/caption.jpg" />
 
-#### Caption
+<h4>Caption</h4>
 
 Display text in small font.
 
@@ -86,7 +86,7 @@ st.caption("This is written small caption text")
 
 <Image pure alt="screenshot" src="/images/api/code.jpg" />
 
-#### Code block
+<h4>Code block</h4>
 
 Display a code block with optional syntax highlighting.
 
@@ -99,7 +99,7 @@ st.code("a = 1234")
 
 <Image pure alt="screenshot" src="/images/api/text.jpg" />
 
-#### Preformatted text
+<h4>Preformatted text</h4>
 
 Write fixed-width and preformatted text.
 
@@ -112,7 +112,7 @@ st.text("Hello world")
 
 <Image pure alt="screenshot" src="/images/api/latex.jpg" />
 
-#### LaTeX
+<h4>LaTeX</h4>
 
 Display mathematical expressions formatted as LaTeX.
 
@@ -125,7 +125,7 @@ st.latex("\int a x^2 \,dx")
 
 <Image pure alt="screenshot" src="/images/api/divider.jpg" />
 
-#### Divider
+<h4>Divider</h4>
 
 Display a horizontal rule.
 
@@ -141,7 +141,7 @@ st.divider()
 
 <Image pure alt="screenshot" src="/images/api/components/annotated-text.jpg" />
 
-#### Annotated text
+<h4>Annotated text</h4>
 
 Display annotated text in Streamlit apps. Created by [@tvst](https://github.com/tvst).
 
@@ -155,7 +155,7 @@ annotated_text("This ", ("is", "verb"), " some ", ("annotated", "adj"), ("text",
 
 <Image pure alt="screenshot" src="/images/api/components/drawable-canvas.jpg" />
 
-#### Drawable Canvas
+<h4>Drawable Canvas</h4>
 
 Provides a sketching canvas using [Fabric.js](http://fabricjs.com/). Created by [@andfanilo](https://github.com/andfanilo).
 
@@ -169,7 +169,7 @@ st_canvas(fill_color="rgba(255, 165, 0, 0.3)", stroke_width=stroke_width, stroke
 
 <Image pure alt="screenshot" src="/images/api/components/tags.jpg" />
 
-#### Tags
+<h4>Tags</h4>
 
 Add tags to your Streamlit apps. Created by [@gagan3012](https://github.com/gagan3012).
 
@@ -183,7 +183,7 @@ st_tags(label='# Enter Keywords:', text='Press enter to add more', value=['Zero'
 
 <Image pure alt="screenshot" src="/images/api/components/nlu.jpg" />
 
-#### NLU
+<h4>NLU</h4>
 
 Apply text mining on a dataframe. Created by [@JohnSnowLabs](https://github.com/JohnSnowLabs/).
 
@@ -197,7 +197,7 @@ nlu.load('sentiment').predict('I love NLU! <3')
 
 <Image pure alt="screenshot" src="/images/api/components/extras-mentions.jpg" />
 
-#### Streamlit Extras
+<h4>Streamlit Extras</h4>
 
 A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
 

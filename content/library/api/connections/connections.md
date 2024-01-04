@@ -12,7 +12,7 @@ slug: /library/api-reference/connections
 
 <Image pure alt="screenshot" src="/images/api/connection.svg" />
 
-#### Create a connection
+<h4>Create a connection</h4>
 
 Connect to a data source or API
 
@@ -33,7 +33,7 @@ st.dataframe(pet_owners)
 
 <Image pure alt="screenshot" src="/images/api/connections.SnowflakeConnection.svg" />
 
-#### SnowflakeConnection
+<h4>SnowflakeConnection</h4>
 
 A connection to Snowflake.
 
@@ -47,7 +47,7 @@ conn = st.connection('snowflake')
 
 <Image pure alt="screenshot" src="/images/api/connections.SQLConnection.svg" />
 
-#### SQLConnection
+<h4>SQLConnection</h4>
 
 A connection to a SQL database using SQLAlchemy.
 
@@ -63,7 +63,7 @@ conn = st.connection('sql')
 <TileContainer>
 <RefCard href="/library/api-reference/connections/st.connections.baseconnection" size="half">
 
-#### Connection base class
+<h4>Connection base class</h4>
 
 Build your own connection with `BaseConnection`.
 

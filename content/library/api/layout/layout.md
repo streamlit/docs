@@ -14,7 +14,7 @@ Streamlit provides several options for controlling how different elements are la
 
 <Image pure alt="screenshot" src="/images/api/sidebar.jpg" />
 
-#### Sidebar
+<h4>Sidebar</h4>
 
 Display items in a sidebar.
 
@@ -28,7 +28,7 @@ st.sidebar.button("Click me!")
 
 <Image pure alt="screenshot" src="/images/api/columns.jpg" />
 
-#### Columns
+<h4>Columns</h4>
 
 Insert containers laid out as side-by-side columns.
 
@@ -43,7 +43,7 @@ col2.write("this is column 2")
 
 <Image pure alt="screenshot" src="/images/api/tabs.jpg" />
 
-#### Tabs
+<h4>Tabs</h4>
 
 Insert containers separated into tabs.
 
@@ -58,7 +58,7 @@ tab2.write("this is tab 2")
 
 <Image pure alt="screenshot" src="/images/api/expander.jpg" />
 
-#### Expander
+<h4>Expander</h4>
 
 Insert a multi-element container that can be expanded/collapsed.
 
@@ -72,7 +72,7 @@ with st.expander("Open to see more"):
 
 <Image pure alt="screenshot" src="/images/api/container.jpg" />
 
-#### Container
+<h4>Container</h4>
 
 Insert a multi-element container.
 
@@ -88,7 +88,7 @@ c.write("This will show second")
 
 <Image pure alt="screenshot" src="/images/api/empty.jpg" />
 
-#### Empty
+<h4>Empty</h4>
 
 Insert a single-element container.
 
@@ -108,7 +108,7 @@ c.write("This will show first")
 
 <Image pure alt="screenshot" src="/images/api/components/elements.jpg" />
 
-#### Streamlit Elements
+<h4>Streamlit Elements</h4>
 
 Create a draggable and resizable dashboard in Streamlit. Created by [@okls](https://github.com/okls).
 
@@ -125,7 +125,7 @@ with elements("new_element"):
 
 <Image pure alt="screenshot" src="/images/api/components/pydantic.jpg" />
 
-#### Pydantic
+<h4>Pydantic</h4>
 
 Auto-generate Streamlit UI from Pydantic Models and Dataclasses. Created by [@lukasmasuch](https://github.com/lukasmasuch).
 
@@ -142,7 +142,7 @@ sp.pydantic_form(key="my_form",
 
 <Image pure alt="screenshot" src="/images/api/components/pages.jpg" />
 
-#### Streamlit Pages
+<h4>Streamlit Pages</h4>
 
 An experimental version of Streamlit Multi-Page Apps. Created by [@blackary](https://github.com/blackary).
 

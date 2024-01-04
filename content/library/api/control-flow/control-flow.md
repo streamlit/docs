@@ -12,7 +12,7 @@ By default, Streamlit apps execute the script entirely, but we allow some functi
 <TileContainer>
 <RefCard href="/library/api-reference/control-flow/st.stop">
 
-#### Stop execution
+<h4>Stop execution</h4>
 
 Stops execution immediately.
 
@@ -24,7 +24,7 @@ st.stop()
 
 <RefCard href="/library/api-reference/control-flow/st.rerun">
 
-#### Rerun script
+<h4>Rerun script</h4>
 
 Rerun the script immediately.
 
@@ -44,7 +44,7 @@ widgets is filled before actually rerunning the script. That's what `st.form` is
 <TileContainer>
 <RefCard href="/library/api-reference/control-flow/st.form">
 
-#### Forms
+<h4>Forms</h4>
 
 Create a form that batches elements together with a “Submit" button.
 
@@ -59,7 +59,7 @@ with st.form(key='my_form'):
 
 <RefCard href="/library/api-reference/control-flow/st.form_submit_button">
 
-#### Form submit button
+<h4>Form submit button</h4>
 
 Display a form submit button.
 
@@ -80,7 +80,7 @@ with st.form(key='my_form'):
 
 <Image pure alt="screenshot" src="/images/api/components/autorefresh.jpg" />
 
-#### Autorefresh
+<h4>Autorefresh</h4>
 
 Force a refresh without tying up a script. Created by [@kmcgrady](https://github.com/kmcgrady).
 
@@ -97,7 +97,7 @@ st_autorefresh(interval=2000, limit=100,
 
 <Image pure alt="screenshot" src="/images/api/components/pydantic.jpg" />
 
-#### Pydantic
+<h4>Pydantic</h4>
 
 Auto-generate Streamlit UI from Pydantic Models and Dataclasses. Created by [@lukasmasuch](https://github.com/lukasmasuch).
 
@@ -114,7 +114,7 @@ sp.pydantic_form(key="my_form",
 
 <Image pure alt="screenshot" src="/images/api/components/pages.jpg" />
 
-#### Streamlit Pages
+<h4>Streamlit Pages</h4>
 
 An experimental version of Streamlit Multi-Page Apps. Created by [@blackary](https://github.com/blackary).
 

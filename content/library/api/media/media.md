@@ -12,7 +12,7 @@ It's easy to embed images, videos, and audio files directly into your Streamlit 
 
 <Image pure alt="screenshot" src="/images/api/image.jpg" />
 
-#### Image
+<h4>Image</h4>
 
 Display an image or list of images.
 
@@ -28,7 +28,7 @@ st.image("https://example.com/myimage.jpg")
 
 <Image pure alt="screenshot" src="/images/api/audio.jpg" />
 
-#### Audio
+<h4>Audio</h4>
 
 Display an audio player.
 
@@ -44,7 +44,7 @@ st.audio("https://example.com/myaudio.mp3", format="audio/mp3")
 
 <Image pure alt="screenshot" src="/images/api/video.jpg" />
 
-#### Video
+<h4>Video</h4>
 
 Display a video player.
 
@@ -64,7 +64,7 @@ st.video("https://example.com/myvideo.mp4", format="video/mp4")
 
 <Image pure alt="screenshot" src="/images/api/components/webrtc.jpg" />
 
-#### Streamlit Webrtc
+<h4>Streamlit Webrtc</h4>
 
 Handling and transmitting real-time video/audio streams with Streamlit. Created by [@whitphx](https://github.com/whitphx).
 
@@ -80,7 +80,7 @@ webrtc_streamer(key="sample")
 
 <Image pure alt="screenshot" src="/images/api/components/drawable-canvas.jpg" />
 
-#### Drawable Canvas
+<h4>Drawable Canvas</h4>
 
 Provides a sketching canvas using [Fabric.js](http://fabricjs.com/). Created by [@andfanilo](https://github.com/andfanilo).
 
@@ -96,7 +96,7 @@ st_canvas(fill_color="rgba(255, 165, 0, 0.3)", stroke_width=stroke_width, stroke
 
 <Image pure alt="screenshot" src="/images/api/components/image-comparison.jpg" />
 
-#### Image Comparison
+<h4>Image Comparison</h4>
 
 Compare images with a slider using [JuxtaposeJS](https://juxtapose.knightlab.com/). Created by [@fcakyon](https://github.com/fcakyon).
 
@@ -112,7 +112,7 @@ image_comparison(img1="image1.jpg", img2="image2.jpg",)
 
 <Image pure alt="screenshot" src="/images/api/components/cropper.jpg" />
 
-#### Streamlit Cropper
+<h4>Streamlit Cropper</h4>
 
 A simple image cropper for Streamlit. Created by [@turner-anderson](https://github.com/turner-anderson).
 
@@ -128,7 +128,7 @@ st_cropper(img, realtime_update=realtime_update, box_color=box_color, aspect_rat
 
 <Image pure alt="screenshot" src="/images/api/components/image-coordinates.jpg" />
 
-#### Image Coordinates
+<h4>Image Coordinates</h4>
 
 Get the coordinates of clicks on an image. Created by [@blackary](https://github.com/blackary/).
 
@@ -144,7 +144,7 @@ streamlit_image_coordinates("https://placekitten.com/200/300")
 
 <Image pure alt="screenshot" src="/images/api/components/lottie.jpg" />
 
-#### Streamlit Lottie
+<h4>Streamlit Lottie</h4>
 
 Integrate [Lottie](https://lottiefiles.com/) animations inside your Streamlit app. Created by [@andfanilo](https://github.com/andfanilo).
 
