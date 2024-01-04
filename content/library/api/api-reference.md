@@ -1700,8 +1700,6 @@ rain(emoji="🎈", font_size=54,
 <TileContainer>
 <RefCard href="/library/api-reference/control-flow/st.form">
 
-<!--<Image pure alt="screenshot" src="/images/api/form.jpg" />-->
-
 #### Forms
 
 Create a form that batches elements together with a “Submit" button.
@@ -1868,8 +1866,6 @@ st.set_page_config(
 
 </RefCard>
 <RefCard href="/library/api-reference/utilities/st.echo">
-
-<!--<Image pure alt="screenshot" src="/images/api/echo.jpg" />-->
 
 #### Echo
 

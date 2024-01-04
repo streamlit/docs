@@ -13,12 +13,14 @@ This page only contains the `st.connections.SnowflakeConnection` class. For a de
 
 ### Configuration
 
-<!---
+{/**
 Internal note: This section is deep-linked from the library in 1.28.1 via /st.connections.snowflakeconnection-configuration through a redirect.
 Maintain the redirect if moved or modified.
--->
+**/}
 
 `st.connection("snowflake")` can be configured using [Streamlit secrets](/library/advanced-features/secrets-management) or keyword args just like any other connection. It can also use existing Snowflake connection configuration when available.
+
+Note that [snowflake-snowpark-python](https://pypi.org/project/snowflake-snowpark-python/) must be installed to use this connection.
 
 #### Using Streamlit secrets
 
