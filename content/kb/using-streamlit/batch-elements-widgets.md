@@ -32,7 +32,7 @@ submit_button = form.form_submit_button(label='Submit')
 ```python
 # st.form_submit_button returns True upon form submit
 if submit_button:
-    st.write(f'hello {name}')
+    st.write(f'hello {text_input}')
 ```
 
 Forms can appear anywhere in your app (sidebar, columns etc), but there are
