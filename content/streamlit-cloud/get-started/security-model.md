@@ -17,7 +17,7 @@ st.text("Your number is " + str(number))
 
 When you `streamlit run my_app.py`, you start a web server that runs the interactive application on your local computer at `http://localhost:8501`. This is great for local development. When you want to share with your colleagues, Streamlit Community Cloud enables you to deploy and run these applications in the cloud. Streamlit Community Cloud handles the details of containerization and provides you an interface for easily managing your deployed apps.
 
-This document provides an overview of the security safeguards we've implemented to protect you and your data.
+This document provides an overview of the security safeguards we've implemented to protect you and your data. Security, however, is a shared responsibility and you are ultimately responsible for making appropriate use of Streamlit and the Streamlit Community Cloud, including implementation of appropriate user-configurable security safeguards and best practices.
 
 ## Product Security
 
