@@ -328,6 +328,9 @@ site_menu:
   - category: Streamlit library / API reference / Utilities / st.set_page_config
     url: /library/api-reference/utilities/st.set_page_config
     isVersioned: true
+  - category: Streamlit library / API reference / Utilities / st.switch_page
+    url: /library/api-reference/utilities/st.switch_page
+    isVersioned: true
   - category: Streamlit library / API reference / Utilities / st.echo
     url: /library/api-reference/utilities/st.echo
     isVersioned: true
