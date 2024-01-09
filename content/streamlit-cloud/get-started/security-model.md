@@ -55,7 +55,7 @@ All data sent to or from Streamlit over the public internet is encrypted in tran
 
 ### Permissions and Authentication
 
-Access to Community Cloud account data is limited to authorized employees. We run a zero-trust corporate network, utilize single sign-on and multi-factor authentication (MFA), and enforce strong password policies to ensure access to cloud-related services is protected.
+Access to Community Cloud user account data is limited to authorized employees. We run a zero-trust corporate network, utilize single sign-on and multi-factor authentication (MFA), and enforce strong password policies to ensure access to cloud-related services is protected.
 
 ### Incident Response
 
