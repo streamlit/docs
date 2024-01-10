@@ -9,6 +9,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { MDXRemote } from "next-mdx-remote";
 import matter from "gray-matter";
 import remarkUnwrapImages from "remark-unwrap-images";
+import remarkGfm from "remark-gfm";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import rehypeSlug from "rehype-slug";
@@ -386,7 +387,7 @@ export async function getStaticProps(context) {
       scope: data,
       mdxOptions: {
         rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
-        remarkPlugins: [remarkUnwrapImages],
+        remarkPlugins: [remarkUnwrapImages, remarkGfm],
       },
     });
 
