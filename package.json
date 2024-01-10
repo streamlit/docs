@@ -47,7 +47,7 @@
     "rehype-slug": "^6.0.0",
     "rehype-toc": "^3.0.2",
     "remark": "^15.0.1",
-    "remark-gfm": "^4.0.0",
+    "remark-gfm": "3.0.1",
     "remark-html": "^16.0.1",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.0.0",
@@ -57,6 +57,9 @@
     "tailwindcss": "^3.4.0",
     "unified": "^11.0.4",
     "uuid": "^9.0.1"
+  },
+  "dependencyComments": {
+    "remark-gfm": "Keep pinned to 3.0.1 until https://github.com/hashicorp/next-mdx-remote/issues/403 is resolved. See https://github.com/streamlit/docs/pull/924"
   },
   "browserslist": [
     ">0.2%",
