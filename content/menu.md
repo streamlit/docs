@@ -307,9 +307,6 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / API reference / Control flow
     url: /library/api-reference/control-flow
-  - category: Streamlit library / API reference / Control flow / st.stop
-    url: /library/api-reference/control-flow/st.stop
-    isVersioned: true
   - category: Streamlit library / API reference / Control flow / st.form
     url: /library/api-reference/control-flow/st.form
     isVersioned: true
@@ -319,6 +316,12 @@ site_menu:
   - category: Streamlit library / API reference / Control flow / st.rerun
     url: /library/api-reference/control-flow/st.rerun
     isVersioned: true
+  - category: Streamlit library / API reference / Control flow / st.stop
+    url: /library/api-reference/control-flow/st.stop
+    isVersioned: true
+  - category: Streamlit library / API reference / Control flow / st.switch_page
+    url: /library/api-reference/control-flow/st.switch_page
+    isVersioned: true
   - category: Streamlit library / API reference / Control flow / st.experimental_rerun
     url: /library/api-reference/control-flow/st.experimental_rerun
     isVersioned: true
@@ -327,9 +330,6 @@ site_menu:
     url: /library/api-reference/utilities
   - category: Streamlit library / API reference / Utilities / st.set_page_config
     url: /library/api-reference/utilities/st.set_page_config
-    isVersioned: true
-  - category: Streamlit library / API reference / Utilities / st.switch_page
-    url: /library/api-reference/utilities/st.switch_page
     isVersioned: true
   - category: Streamlit library / API reference / Utilities / st.echo
     url: /library/api-reference/utilities/st.echo
