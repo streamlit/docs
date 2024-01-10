@@ -499,7 +499,7 @@ site_menu:
     url: /streamlit-community-cloud/get-started/explore-your-workspace
   - category: Streamlit Community Cloud / Get started / Fork and edit a public app
     url: /streamlit-community-cloud/get-started/fork-and-edit-a-public-app
-  - category: Streamlit Community Cloud / Get started / Trust and Security
+  - category: Streamlit Community Cloud / Get started / Trust and security
     url: /streamlit-community-cloud/get-started/trust-and-security
   - category: Streamlit Community Cloud / Deploy your app
     url: /streamlit-community-cloud/deploy-your-app
