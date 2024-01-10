@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import React from "react";
 
 import genericStyles from "./refCard.module.css";
 import customStyles from "./componentCard.module.css";
