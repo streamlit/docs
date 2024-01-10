@@ -58,6 +58,9 @@
     "unified": "^11.0.4",
     "uuid": "^9.0.1"
   },
+  "dependencyComments": {
+    "remark-gfm": "Keep pinned to 3.0.1 until https://github.com/hashicorp/next-mdx-remote/issues/403 is resolved. See https://github.com/streamlit/docs/pull/924"
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
