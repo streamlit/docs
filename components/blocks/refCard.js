@@ -1,23 +1,9 @@
 import Link from "next/link";
 import classNames from "classnames";
 import { useRouter } from "next/router";
-import React from "react";
+import { containsAnchor } from "../../scripts/contains-anchor";
 
 import styles from "./refCard.module.css";
-
-// Utility function to check if children contain an anchor tag
-const containsAnchor = (children) => {
-  let containsAnchorTag = false;
-  React.Children.forEach(children, (child) => {
-    if (child?.type === "a") {
-      containsAnchorTag = true;
-    } else if (child?.props?.children) {
-      containsAnchorTag =
-        containsAnchorTag || containsAnchor(child.props.children);
-    }
-  });
-  return containsAnchorTag;
-};
 
 const RefCard = ({ children, size, href, deprecated }) => {
   const router = useRouter();
