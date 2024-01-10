@@ -5,18 +5,18 @@ const SummaryTiles = () => {
   return (
     <TileContainer>
       <Tile
-        icon="arrow_forward"
-        title="Get started"
-        text="If you're new to Streamlit and don't know where to start, this is a good place."
-        background="violet-70"
-        link="/library/get-started"
+        icon="install_desktop"
+        title="Setup and installation"
+        text="Get set up to start working with Streamlit."
+        background="orange-70"
+        link="/get-started/installation"
       />
 
       <Tile
         icon="dvr"
         title="API reference"
         text="Learn about our APIs, with actionable explanations of specific functions and features."
-        background="violet-70"
+        background="indigo-70"
         link="/library/api-reference"
       />
 
@@ -24,7 +24,7 @@ const SummaryTiles = () => {
         icon="grid_view"
         title="App gallery"
         text="Try out awesome apps created by our users, and curated from our forums or Twitter."
-        background="orange-70"
+        background="lightBlue-70"
         link="https://streamlit.io/gallery"
       />
     </TileContainer>

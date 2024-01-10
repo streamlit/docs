@@ -9,8 +9,11 @@ import { MDXProvider } from "@mdx-js/react";
 import { MDXRemote } from "next-mdx-remote";
 import matter from "gray-matter";
 import remarkUnwrapImages from "remark-unwrap-images";
+import remarkGfm from "remark-gfm";
 import classNames from "classnames";
 import { useRouter } from "next/router";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 // Site Components
 import CookieSettingsModal from "../components/utilities/cookieSettingsModal";
@@ -173,11 +176,20 @@ export default function Article({
     currentLink = `/${slug.join("/")}`;
     versionWarning = (
       <Warning>
-        <p>
-          You are reading the documentation for Streamlit version {version}, but{" "}
-          <Link href={currentLink}>{maxVersion}</Link> is the latest version
-          available.
-        </p>
+        {version && version.startsWith("SiS") ? (
+          <p>
+            You are reading the documentation for Streamlit in Snowflake. For
+            open-source Streamlit, version{" "}
+            <Link href={currentLink}>{maxVersion}</Link> is the latest version
+            available.
+          </p>
+        ) : (
+          <p>
+            You are reading the documentation for Streamlit version {version},
+            but <Link href={currentLink}>{maxVersion}</Link> is the latest
+            version available.
+          </p>
+        )}
       </Warning>
     );
   }
@@ -261,7 +273,7 @@ export default function Article({
               <link
                 rel="canonical"
                 href={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/${slug.join(
-                  "/"
+                  "/",
                 )}`}
               />
             )}
@@ -325,13 +337,14 @@ export async function getStaticProps(context) {
   // Sort of documentation versions
   const jsonContents = fs.readFileSync(
     join(pythonDirectory, "streamlit.json"),
-    "utf8"
+    "utf8",
   );
   const streamlitFuncs = jsonContents ? JSON.parse(jsonContents) : {};
   const all_versions = Object.keys(streamlitFuncs);
   const versions = sortBy(all_versions, [
     (o) => {
-      return parseInt(o, 10);
+      const numericPart = parseInt(o, 10);
+      return isNaN(numericPart) ? Number.NEGATIVE_INFINITY : numericPart;
     },
   ]);
   const current_version = versions[versions.length - 1];
@@ -362,7 +375,8 @@ export async function getStaticProps(context) {
     }
 
     const isnum = /^[\d\.]+$/.test(context.params.slug[0]);
-    if (isnum) {
+    const isSiS = /^SiS[\d\.]*$/.test(context.params.slug[0]);
+    if (isnum || isSiS) {
       props["versionFromStaticLoad"] = context.params.slug[0];
       props["streamlit"] = funcs[props["versionFromStaticLoad"]];
 
@@ -372,11 +386,8 @@ export async function getStaticProps(context) {
     const source = await serialize(content, {
       scope: data,
       mdxOptions: {
-        rehypePlugins: [
-          require("rehype-slug"),
-          require("rehype-autolink-headings"),
-        ],
-        remarkPlugins: [remarkUnwrapImages],
+        rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
+        remarkPlugins: [remarkUnwrapImages, remarkGfm],
       },
     });
 
@@ -435,13 +446,14 @@ export async function getStaticPaths() {
   // Sort of documentation versions
   const jsonContents = fs.readFileSync(
     join(pythonDirectory, "streamlit.json"),
-    "utf8"
+    "utf8",
   );
   const streamlitFuncs = jsonContents ? JSON.parse(jsonContents) : {};
   const all_versions = Object.keys(streamlitFuncs);
   const versions = sortBy(all_versions, [
     (o) => {
-      return parseInt(o, 10);
+      const numericPart = parseInt(o, 10);
+      return isNaN(numericPart) ? Number.NEGATIVE_INFINITY : numericPart;
     },
   ]);
   const current_version = versions[versions.length - 1];

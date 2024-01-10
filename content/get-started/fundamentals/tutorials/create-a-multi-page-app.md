@@ -1,13 +1,15 @@
 ---
 title: Create a multipage app
-slug: /library/get-started/multipage-apps/create-a-multipage-app
+slug: /get-started/tutorials/create-a-multipage-app
+nextTitle: API Reference
+nextLink: /library/api-reference
 ---
 
 # Create a multipage app
 
-In the [last section](/library/get-started/multipage-apps), we learned what it takes to create multipage apps, including how to define pages, structure and run multipage apps, and navigate between pages in the user interface. If you need a refresher, now is a good time to take a look.
+In [Additional features](/get-started/fundamentals/additional-features), we introduced multipage apps, including how to define pages, structure and run multipage apps, and navigate between pages in the user interface. You can read more details in our guide to [Multipage apps](/library/advanced-features/multipage-apps)
 
-In this guide, let’s put our understanding of multipage apps to use by converting the familiar `streamlit hello` command to a multipage app!
+In this guide, let’s put our understanding of multipage apps to use by converting the previous version of our `streamlit hello` app to a multipage app!
 
 ## Motivation
 
@@ -569,6 +571,6 @@ Here are a few resources to help you get started:
 
 - Deploy your app for free on Streamlit's [Community Cloud](/streamlit-community-cloud).
 - Post a question or share your multipage app on our [community forum](https://discuss.streamlit.io/c/streamlit-examples/9).
-- Check out our documentation on [multipage apps](/library/get-started/multipage-apps).
+- Check out our documentation on [Multipage apps](/library/advanced-features/multipage-apps).
 - Read through [Advanced features](/library/advanced-features) for things like caching, theming, and adding statefulness to apps.
 - Browse our [API reference](/library/api-reference/) for examples of every Streamlit command.

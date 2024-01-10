@@ -75,9 +75,7 @@ Yes! You can find [instructions for setting a custom subdomain here](/knowledge-
 
 ## Sharing and accessing apps
 
-<!-- ### I don't have SSO. How do I sign in to Streamlit?
-
-Don't have SSO? No problem! You can sign in to Streamlit with your email address. [Click here](/streamlit-community-cloud/get-started#sign-in-with-email) for step-by-step instructions on how to sign in with email. -->
+Don't have SSO? No problem! You can sign in to Streamlit with your email address. [Click here](/streamlit-community-cloud/get-started#sign-in-with-email) for step-by-step instructions on how to sign in with email. \*/}
 
 ### How do I add viewers to my Streamlit apps?
 
@@ -105,7 +103,6 @@ If a user is still seeing a 404 error after their email address has been added t
 - Check that the user did not log into a different Google account via Single Sign-On (if you have added their work email address to the viewer list, ask the user to check that they are not logged into their personal Google account, and vice versa).
 - Check that the user has navigated to the correct URL.
 - Check that the user's email address has been entered correctly in the viewer list.
-<!-- - Contact [support@streamlit.io](mailto:support@streamlit.io) and we will be happy to help. -->
 - Reach out on our [Community forum](https://discuss.streamlit.io/) and we will be happy to help.
 
 ## Data and app security
