@@ -194,14 +194,61 @@ export default function Home({ window, menu, gdpr_data, cookie_data }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/library/api-reference/control-flow/st.switch_page"
+              >
+                <i className="material-icons-sharp">switch_left</i>
+                <h4>Programmatic page navigation</h4>
+                <p>
+                  Introducing <code>st.switch_page</code>! Programmatically
+                  navigate between the pages of your multipage apps with ease.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/utilities/st.query_params"
+              >
+                <i className="material-icons-sharp">question_mark</i>
+                <h4>Query parameters</h4>
+                <p>
+                  Introducing <code>st.query_params</code> — a new and simple
+                  way to read and manipulate the query parameters in your app's
+                  URL.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/layout/st.container"
+              >
+                <i className="material-icons-sharp">height</i>
+                <h4>Container height and scrolling</h4>
+                <p>
+                  Set a height for <code>st.container</code>. The container will
+                  automatically become scrollable when needed.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/data/st.column_config/st.column_config.linkcolumn"
+              >
+                <i className="material-icons-sharp">link</i>
+                <h4>
+                  <code>LinkColumn</code> improvements
+                </h4>
+                <p>
+                  We've simplified the UX for <code>LinkColumn</code> in{" "}
+                  <code>st.column_configuration</code>. Display text is now
+                  configurable.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="/library/api-reference/layout/st.container"
               >
                 <i className="material-icons-sharp">check_box_outline_blank</i>
                 <h4>Container borders</h4>
                 <p>
                   Now you can control border visibility for{" "}
-                  <code>st.container</code>
-                  and <code>st.form</code>!
+                  <code>st.container</code> and <code>st.form</code>!
                 </p>
               </RefCard>
               <RefCard size="third" href="/library/api-reference/app-testing">
@@ -210,57 +257,6 @@ export default function Home({ window, menu, gdpr_data, cookie_data }) {
                 <p>
                   Introducing a new testing framework for Streamlit apps! Build
                   automated tests for your CI workflows.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/connections/st.connection"
-              >
-                <i className="material-icons-sharp">account_tree</i>
-                <h4>
-                  <code>st.connection</code> is deexperimentalized!
-                </h4>
-                <p>
-                  Announcing the general availability of{" "}
-                  <code>st.connection</code>, a command to conveniently manage
-                  connections in Streamlit apps.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/connections/st.connections.snowflakeconnection"
-              >
-                <i className="material-icons-sharp">ac_unit</i>
-                <h4>
-                  <code>SnowparkConnection</code> has been upgraded!
-                </h4>
-                <p>
-                  <code>SnowflakeConnection</code> has all the same great
-                  functionality <em>plus more!</em>
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/advanced-features/dataframes"
-              >
-                <i className="material-icons-sharp">construction</i>
-                <h4>Dataframe toolbars</h4>
-                <p>
-                  <code>st.dataframe</code>and <code>st.data_editor</code> have
-                  a new toolbar! Users can search and download data in addition
-                  to enjoying improved UI for row additions and deletions.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/charts/st.scatter_chart"
-              >
-                <i className="material-icons-sharp">scatter_plot</i>
-                <h4>Scatter chart</h4>
-                <p>
-                  Introducing <code>st.scatter_chart</code> — a new, simple
-                  chart element to build scatter charts Streamlit-y fast and
-                  easy!
                 </p>
               </RefCard>
               {/* <Tile
