@@ -337,12 +337,17 @@ site_menu:
   - category: Streamlit library / API reference / Utilities / st.help
     url: /library/api-reference/utilities/st.help
     isVersioned: true
+  - category: Streamlit library / API reference / Utilities / st.query_params
+    url: /library/api-reference/utilities/st.query_params
+    isVersioned: true
   - category: Streamlit library / API reference / Utilities / st.experimental_get_query_params
     url: /library/api-reference/utilities/st.experimental_get_query_params
     isVersioned: true
+    isDeprecated: true
   - category: Streamlit library / API reference / Utilities / st.experimental_set_query_params
     url: /library/api-reference/utilities/st.experimental_set_query_params
     isVersioned: true
+    isDeprecated: true
   - category: Streamlit library / API reference / Mutate charts
     url: /library/api-reference/mutate
   - category: Streamlit library / API reference / State management
