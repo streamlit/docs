@@ -81,7 +81,6 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / API reference / Data elements / st.column_config
     url: /library/api-reference/data/st.column_config
-    isVersioned: true
   - category: Streamlit library / API reference / Data elements / st.column_config / Column
     url: /library/api-reference/data/st.column_config/st.column_config.column
     isVersioned: true
