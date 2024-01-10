@@ -2,6 +2,7 @@ import Link from "next/link";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import { containsAnchor } from "../../scripts/contains-anchor";
+import React from "react";
 
 import styles from "./refCard.module.css";
 
