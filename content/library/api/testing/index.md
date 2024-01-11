@@ -117,7 +117,7 @@ assert not at.exception
 
 <RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeblock" size="half">
 
-<h4>Block</h4>
+#### Block
 
 A representation of container elements, including:
 
@@ -137,7 +137,7 @@ assert not at.exception
 
 <RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeelement" size="half">
 
-<h4>Element</h4>
+#### Element
 
 The base class for representation of all elements, including:
 
@@ -156,7 +156,7 @@ assert at.title[0].value == "My awesome app"
 
 <RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treebutton" size="third">
 
-<h4>Button</h4>
+#### Button
 
 A representation of `st.button` and `st.form_submit_button`.
 
@@ -168,7 +168,7 @@ at.button[0].click().run()
 
 <RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treechatinput" size="third">
 
-<h4>ChatInput</h4>
+#### ChatInput
 
 A representation of `st.chat_input`.
 
@@ -180,7 +180,7 @@ at.chat_input[0].set_value("What is Streamlit?").run()
 
 <RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treecheckbox" size="third">
 
-<h4>Checkbox</h4>
+#### Checkbox
 
 A representation of `st.checkbox`.
 
@@ -192,7 +192,7 @@ at.checkbox[0].check().run()
 
 <RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treecolorpicker" size="third">
 
-<h4>ColorPicker</h4>
+#### ColorPicker
 
 A representation of `st.color_picker`.
 
@@ -204,7 +204,7 @@ at.color_picker[0].pick("#FF4B4B").run()
 
 <RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treedateinput" size="third">
 
-<h4>DateInput</h4>
+#### DateInput
 
 A representation of `st.date_input`.
 
@@ -217,7 +217,7 @@ at.date_input[0].set_value(release_date).run()
 
 <RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treemultiselect" size="third">
 
-<h4>Multiselect</h4>
+#### Multiselect
 
 A representation of `st.multiselect`.
 
@@ -229,7 +229,7 @@ at.multiselect[0].select("New York").run()
 
 <RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treenumberinput" size="third">
 
-<h4>NumberInput</h4>
+#### NumberInput
 
 A representation of `st.number_input`.
 
@@ -241,7 +241,7 @@ at.number_input[0].increment().run()
 
 <RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeradio" size="third">
 
-<h4>Radio</h4>
+#### Radio
 
 A representation of `st.radio`.
 
@@ -253,7 +253,7 @@ at.radio[0].set_value("New York").run()
 
 <RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeselectslider" size="third">
 
-<h4>SelectSlider</h4>
+#### SelectSlider
 
 A representation of `st.select_slider`.
 
@@ -265,7 +265,7 @@ at.select_slider[0].set_range("A","C").run()
 
 <RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeselectbox" size="third">
 
-<h4>Selectbox</h4>
+#### Selectbox
 
 A representation of `st.selectbox`.
 
@@ -277,7 +277,7 @@ at.selectbox[0].select("New York").run()
 
 <RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeslider" size="third">
 
-<h4>Slider</h4>
+#### Slider
 
 A representation of `st.slider`.
 
@@ -289,7 +289,7 @@ at.slider[0].set_range(2,5).run()
 
 <RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treetextarea" size="third">
 
-<h4>TextArea</h4>
+#### TextArea
 
 A representation of `st.text_area`.
 
@@ -301,7 +301,7 @@ at.text_area[0].input("Streamlit is awesome!").run()
 
 <RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treetextinput" size="third">
 
-<h4>TextInput</h4>
+#### TextInput
 
 A representation of `st.text_input`.
 
@@ -313,7 +313,7 @@ at.text_input[0].input("Streamlit").run()
 
 <RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treetimeinput" size="third">
 
-<h4>TimeInput</h4>
+#### TimeInput
 
 A representation of `st.time_input`.
 
@@ -325,7 +325,7 @@ at.time_input[0].increment().run()
 
 <RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treetoggle" size="third">
 
-<h4>Toggle</h4>
+#### Toggle
 
 A representation of `st.toggle`.
 

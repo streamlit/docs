@@ -14,7 +14,7 @@ Streamlit provides a few commands to help you build conversational apps. These c
 
 <Image pure alt="screenshot" src="/images/api/chat_message.jpg" />
 
-<h4>Chat message</h4>
+#### Chat message
 
 Insert a chat message container.
 
@@ -30,7 +30,7 @@ with st.chat_message("user"):
 
 <Image pure alt="screenshot" src="/images/api/chat_input.jpg" />
 
-<h4>Chat input</h4>
+#### Chat input
 
 Display a chat input widget.
 
@@ -45,7 +45,7 @@ if prompt:
 
 <Image pure alt="screenshot" src="/images/api/status.jpg" />
 
-<h4>Status container</h4>
+#### Status container
 
 Display output of long-running tasks in a container.
 

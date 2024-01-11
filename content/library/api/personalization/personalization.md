@@ -8,7 +8,7 @@ slug: /library/api-reference/personalization
 <TileContainer>
 <RefCard href="/library/api-reference/personalization/st.experimental_user" size="two-third">
 
-<h4>User info</h4>
+#### User info
 
 `st.experimental_user` returns information about the logged-in user of private apps on Streamlit Community Cloud.
 

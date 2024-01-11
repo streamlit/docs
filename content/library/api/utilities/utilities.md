@@ -11,7 +11,7 @@ app, provide help using doc strings, get and modify configuration options and qu
 <TileContainer>
 <RefCard href="/library/api-reference/utilities/st.set_page_config">
 
-<h4>Set page title, favicon, and more</h4>
+#### Set page title, favicon, and more
 
 Configures the default settings of the page.
 
@@ -25,7 +25,7 @@ st.set_page_config(
 </RefCard>
 <RefCard href="/library/api-reference/utilities/st.echo">
 
-<h4>Echo</h4>
+#### Echo
 
 Display some code on the app, then execute it. Useful for tutorials.
 
@@ -37,7 +37,7 @@ with st.echo():
 </RefCard>
 <RefCard href="/library/api-reference/utilities/st.help">
 
-<h4>Get help</h4>
+#### Get help
 
 Display object’s doc string, nicely formatted.
 
@@ -50,7 +50,7 @@ st.help(pd.DataFrame)
 
 <RefCard href="/library/api-reference/utilities/st.experimental_get_query_params">
 
-<h4>Get query parameters</h4>
+#### Get query parameters
 
 Return the query parameters that are currently showing in the browser's URL bar.
 
@@ -62,7 +62,7 @@ st.experimental_get_query_params()
 
 <RefCard href="/library/api-reference/utilities/st.experimental_set_query_params">
 
-<h4>Set query parameters</h4>
+#### Set query parameters
 
 Set the query parameters that are shown in the browser's URL bar.
 

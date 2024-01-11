@@ -11,7 +11,7 @@ Streamlit provides powerful [cache primitives](/library/advanced-features/cachin
 
 <RefCard href="/library/api-reference/performance/st.cache_data" size="half">
 
-<h4>Cache data</h4>
+#### Cache data
 
 Function decorator to cache functions that return data (e.g. dataframe transforms, database queries, ML inference).
 
@@ -27,7 +27,7 @@ def long_function(param1, param2):
 
 <RefCard href="/library/api-reference/performance/st.cache_resource" size="half">
 
-<h4>Cache resource</h4>
+#### Cache resource
 
 Function decorator to cache functions that return global resources (e.g. database connections, ML models).
 
@@ -58,7 +58,7 @@ All the below commands were deprecated in version 1.18.0. Use the new commands a
 
 > This command was deprecated in version 1.18.0. Use `st.cache_data` or `st.cache_resource` instead.
 
-<h4>Caching</h4>
+#### Caching
 
 Function decorator to memoize function executions.
 
@@ -75,7 +75,7 @@ def run_long_computation(arg1, arg2):
 
 > This command was deprecated in version 1.18.0. Use `st.cache_data` instead.
 
-<h4>Memo</h4>
+#### Memo
 
 Experimental function decorator to memoize function executions.
 
@@ -92,7 +92,7 @@ def fetch_and_clean_data(url):
 
 > This command was deprecated in version 1.18.0. Use `st.cache_resource` instead.
 
-<h4>Singleton</h4>
+#### Singleton
 
 Experimental function decorator to store singleton objects.
 
@@ -109,7 +109,7 @@ def get_database_session(url):
 
 > This command was deprecated in version 1.18.0. Use `st.cache_data.clear` instead.
 
-<h4>Clear memo</h4>
+#### Clear memo
 
 Clear all in-memory and on-disk memo caches.
 
@@ -130,7 +130,7 @@ if st.checkbox("Clear All"):
 
 > This command was deprecated in version 1.18.0. Use `st.cache_resource.clear`instead.
 
-<h4>Clear singleton</h4>
+#### Clear singleton
 
 Clear all singleton caches.
 
