@@ -10,6 +10,19 @@ slug: /library/api-reference/control-flow
 By default, Streamlit apps execute the script entirely, but we allow some functionality to handle control flow in your applications.
 
 <TileContainer>
+
+<RefCard href="/library/api-reference/control-flow/st.rerun">
+
+<h4>Rerun script</h4>
+
+Rerun the script immediately.
+
+```python
+st.rerun()
+```
+
+</RefCard>
+
 <RefCard href="/library/api-reference/control-flow/st.stop">
 
 <h4>Stop execution</h4>
@@ -22,14 +35,14 @@ st.stop()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/control-flow/st.rerun">
+<RefCard href="/library/api-reference/control-flow/st.switch_page">
 
-<h4>Rerun script</h4>
+<h4>Switch page</h4>
 
-Rerun the script immediately.
+Programmatically navigates to a specified page.
 
 ```python
-st.rerun()
+st.switch_page("pages/my_page.py")
 ```
 
 </RefCard>
