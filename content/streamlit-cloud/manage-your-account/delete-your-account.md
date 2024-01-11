@@ -5,7 +5,7 @@ slug: /streamlit-community-cloud/manage-your-account/delete-your-account
 
 # Delete your account
 
-Deleting your Streamlit Community Cloud account is just as easy as creating it. When you delete your account, your information, account, and all your hosted apps are deleted as well.
+Deleting your Streamlit Community Cloud account is just as easy as creating it. When you delete your account, your information, account, and all your hosted apps are deleted as well. Read more about data deletion in [Streamlit trust and security](/streamlit-community-cloud/get-started/trust-and-security#data-deletion).
 
 <Warning>
 
