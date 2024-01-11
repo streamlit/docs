@@ -66,7 +66,7 @@
   @apply text-white;
 }
 
-:global(.dark) .Container section div pre {
+:global(.dark) .Container section div {
   @apply bg-gray-90 text-white;
 }
 
@@ -147,45 +147,42 @@
 
 .Container section div {
   @apply flex flex-col flex-1;
-}
-
-.Container section div pre {
   @apply m-0 rounded-none p-4 h-full text-sm tracking-tight;
   @apply bg-gray-10;
   @apply text-gray-80;
 }
 
 /* Code block adjustments */
-.Container section div pre code :global(.operator) {
+.Container section div code :global(.operator) {
   @apply text-yellow-90;
 }
 
-.Container section div pre code :global(.decorator) {
+.Container section div code :global(.decorator) {
   @apply text-yellow-100;
 }
 
-.Container section div pre code :global(.keyword) {
+.Container section div code :global(.keyword) {
   @apply text-darkBlue-70;
 }
 
-.Container section div pre code :global(.builtin) {
+.Container section div code :global(.builtin) {
   @apply text-lightBlue-80;
 }
 
-.Container section div pre code :global(.string) {
+.Container section div code :global(.string) {
   @apply text-green-80;
 }
 
-.Container section div pre code :global(.number) {
+.Container section div code :global(.number) {
   @apply text-red-90;
 }
 
-.Container section div pre code :global(.function) {
+.Container section div code :global(.function) {
   @apply text-red-60;
 }
 
-.Container section div pre code :global(.comment),
-.Container section div pre code :global(.punctuation) {
+.Container section div code :global(.comment),
+.Container section div code :global(.punctuation) {
   @apply text-gray-60;
 }
 
