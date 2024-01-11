@@ -37,7 +37,7 @@ const Autofunction = ({
   const maxVersion = versions[versions.length - 1];
   const [isHighlighted, setIsHighlighted] = useState(false);
   const [currentVersion, setCurrentVersion] = useState(
-    version ? version : versions[versions.length - 1]
+    version ? version : versions[versions.length - 1],
   );
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const Autofunction = ({
   // Code to destroy and regenerate iframes on each new autofunction render.
   const regenerateIframes = () => {
     const iframes = Array.prototype.slice.call(
-      blockRef.current.getElementsByTagName("iframe")
+      blockRef.current.getElementsByTagName("iframe"),
     );
     if (!iframes) return;
 
@@ -73,7 +73,7 @@ const Autofunction = ({
     }
 
     const pres = Array.prototype.slice.call(
-      blockRef.current.getElementsByTagName("pre")
+      blockRef.current.getElementsByTagName("pre"),
     );
 
     pres.forEach((ele) => {
@@ -105,8 +105,8 @@ const Autofunction = ({
     const selectClass = isSiS
       ? "version-select sis-version"
       : currentVersion !== versionList[0]
-      ? "version-select old-version"
-      : "version-select";
+        ? "version-select old-version"
+        : "version-select";
 
     return (
       <form className={classNames(selectClass, styles.Form)}>
@@ -122,8 +122,8 @@ const Autofunction = ({
                 {version == "SiS"
                   ? "Streamlit in Snowflake"
                   : version.startsWith("SiS.")
-                  ? version.replace("SiS.", "Streamlit in Snowflake ")
-                  : "Version " + version}
+                    ? version.replace("SiS.", "Streamlit in Snowflake ")
+                    : "Version " + version}
               </option>
             ))}
           </select>
@@ -170,6 +170,20 @@ const Autofunction = ({
   let methods = [];
   let properties = [];
 
+  // Shortcut to accepting versions in the URL of otherwise non-versioned pages
+  // Use the machinery of Autofunction to just include a hidden version selector
+  if (streamlitFunction == " ") {
+    return (
+      <div className={styles.HiddenContainer} ref={blockRef} key={slug}>
+        <VersionSelector
+          versionList={versionList}
+          currentVersion={currentVersion}
+          handleSelectVersion={handleSelectVersion}
+        />
+      </div>
+    );
+  }
+
   if (streamlitFunction in streamlit) {
     functionObject = streamlit[streamlitFunction];
     isClass = functionObject.is_class;
@@ -193,7 +207,7 @@ const Autofunction = ({
               aria-hidden="true"
               tabIndex="-1"
               href={`#${cleanHref(
-                streamlitFunction.replace("streamlit", "st")
+                streamlitFunction.replace("streamlit", "st"),
               )}`.toLowerCase()}
               className="absolute"
             >
@@ -370,8 +384,8 @@ const Autofunction = ({
     row["title"] = `
     <p class="${isDeprecated ? "deprecated" : ""}">
       <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
-      method.name
-    }</span></a><span class='italic code'>(${type_name})</span>
+        method.name
+      }</span></a><span class='italic code'>(${type_name})</span>
     </p>`;
     row["body"] = `
     ${deprecatedMarkup}
@@ -409,8 +423,8 @@ const Autofunction = ({
     row["title"] = `
     <p class="${isDeprecated ? "deprecated" : ""}">
       <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
-      property.name
-    }</span>
+        property.name
+      }</span>
     </p>`;
     row["body"] = `
     ${deprecatedMarkup}
@@ -426,9 +440,8 @@ const Autofunction = ({
       ? param.description
       : `<p>No description</p> `;
 
-    row[
-      "title"
-    ] = `<p><span class='italic code'>(${param.type_name})</span></p> `;
+    row["title"] =
+      `<p><span class='italic code'>(${param.type_name})</span></p> `;
     row["body"] = `${description} `;
 
     returns.push(row);

@@ -35,6 +35,7 @@ site_menu:
     icon: description
   - category: Streamlit library / API reference
     url: /library/api-reference
+    isVersioned: true
   - category: Streamlit library / API reference / Write and magic
     url: /library/api-reference/write-magic
   - category: Streamlit library / API reference / Write and magic / st.write
