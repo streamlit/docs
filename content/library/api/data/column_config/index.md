@@ -13,7 +13,7 @@ Whether it's translating temporal data into user-friendly formats or utilizing c
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.column">
 <Image pure alt="screenshot" src="/images/api/column_config.column.jpg" />
 
-<h4>Column</h4>
+#### Column
 
 Configure a generic column.
 
@@ -25,7 +25,7 @@ Column("Streamlit Widgets", width="medium", help="Streamlit **widget** commands 
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.textcolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.textcolumn.jpg" />
 
-<h4>Text column</h4>
+#### Text column
 
 Configure a text column.
 
@@ -38,7 +38,7 @@ TextColumn("Widgets", max_chars=50, validate="^st\.[a-z_]+$")
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.numbercolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.numbercolumn.jpg" />
 
-<h4>Number column</h4>
+#### Number column
 
 Configure a number column.
 
@@ -51,7 +51,7 @@ NumberColumn("Price (in USD)", min_value=0, format="$%d")
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.checkboxcolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.checkboxcolumn.jpg" />
 
-<h4>Checkbox column</h4>
+#### Checkbox column
 
 Configure a checkbox column.
 
@@ -64,7 +64,7 @@ CheckboxColumn("Your favorite?", help="Select your **favorite** widgets")
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.selectboxcolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.selectboxcolumn.jpg" />
 
-<h4>Selectbox column</h4>
+#### Selectbox column
 
 Configure a selectbox column.
 
@@ -77,7 +77,7 @@ SelectboxColumn("App Category", options=["🤖 LLM", "📈 Data Viz"])
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.datetimecolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.datetimecolumn.jpg" />
 
-<h4>Datetime column</h4>
+#### Datetime column
 
 Configure a datetime column.
 
@@ -90,7 +90,7 @@ DatetimeColumn("Appointment", min_value=datetime(2023, 6, 1), format="D MMM YYYY
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.datecolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.datecolumn.jpg" />
 
-<h4>Date column</h4>
+#### Date column
 
 Configure a date column.
 
@@ -103,7 +103,7 @@ DateColumn("Birthday", max_value=date(2005, 1, 1), format="DD.MM.YYYY")
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.timecolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.timecolumn.jpg" />
 
-<h4>Time column</h4>
+#### Time column
 
 Configure a time column.
 
@@ -115,7 +115,7 @@ TimeColumn("Appointment", min_value=time(8, 0, 0), format="hh:mm a")
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.listcolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.listcolumn.jpg" />
 
-<h4>List column</h4>
+#### List column
 
 Configure a list column.
 
@@ -128,7 +128,7 @@ ListColumn("Sales (last 6 months)", width="medium")
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.linkcolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.linkcolumn.jpg" />
 
-<h4>Link column</h4>
+#### Link column
 
 Configure a link column.
 
@@ -141,7 +141,7 @@ LinkColumn("Trending apps", max_chars=100, validate="^https://.*$")
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.imagecolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.imagecolumn.jpg" />
 
-<h4>Image column</h4>
+#### Image column
 
 Configure an image column.
 
@@ -154,7 +154,7 @@ ImageColumn("Preview Image", help="The preview screenshots")
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.linechartcolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.linechartcolumn.jpg" />
 
-<h4>Line chart column</h4>
+#### Line chart column
 
 Configure a line chart column.
 
@@ -167,7 +167,7 @@ LineChartColumn("Sales (last 6 months)" y_min=0, y_max=100)
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.barchartcolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.barchartcolumn.jpg" />
 
-<h4>Bar chart column</h4>
+#### Bar chart column
 
 Configure a bar chart column.
 
@@ -180,7 +180,7 @@ BarChartColumn("Marketing spend" y_min=0, y_max=100)
 <RefCard href="/library/api-reference/data/st.column_config/st.column_config.progresscolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.progresscolumn.jpg" />
 
-<h4>Progress column</h4>
+#### Progress column
 
 Configure a progress column.
 
