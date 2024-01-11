@@ -5,6 +5,8 @@ slug: /get-started
 
 # Get started
 
+<Autofunction function=" " />
+
 This Get Started guide explains how Streamlit works, how to install Streamlit on your preferred
 operating system, and how to create your first Streamlit app!
 

@@ -4,6 +4,7 @@ site_menu:
     url: /get-started
     color: orange-70
     icon: rocket_launch
+    isVersioned: true
   - category: Get started / Installation
     url: /get-started/installation
   - category: Get started / Installation / Use command line
@@ -35,7 +36,6 @@ site_menu:
     icon: description
   - category: Streamlit library / API reference
     url: /library/api-reference
-    isVersioned: true
   - category: Streamlit library / API reference / Write and magic
     url: /library/api-reference/write-magic
   - category: Streamlit library / API reference / Write and magic / st.write
