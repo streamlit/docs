@@ -274,7 +274,7 @@ of personal preference.
 npm add baseui
 ```
 
-- To build a static version of your component, run `npm run build`. See [Prepare your Component](publish#prepare-your-component) for more information
+- To build a static version of your component, run `npm run export`. See [Prepare your Component](publish#prepare-your-component) for more information
 
 ### Python API
 
