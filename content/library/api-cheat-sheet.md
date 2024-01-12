@@ -5,7 +5,7 @@ slug: /library/cheatsheet
 
 # Cheat Sheet
 
-This is a summary of the docs, as of [Streamlit v1.29.0](https://pypi.org/project/streamlit/1.29.0/).
+This is a summary of the docs, as of [Streamlit v1.30.0](https://pypi.org/project/streamlit/1.30.0/).
 
 <Masonry>
 
@@ -62,9 +62,9 @@ Learn more about [experimental features](advanced-features/prerelease#experiment
 ```python
 # Magic commands implicitly
 # call st.write().
-'_This_ is some **Markdown***'
+"_This_ is some **Markdown***"
 my_variable
-'dataframe:', my_data_frame
+"dataframe:", my_data_frame
 
 ```
 
@@ -75,15 +75,15 @@ my_variable
 #### Display text
 
 ```python
-st.text('Fixed width text')
-st.markdown('_Markdown_') # see *
-st.latex(r''' e^{i\pi} + 1 = 0 ''')
-st.write('Most objects') # df, err, func, keras!
-st.write(['st', 'is <', 3]) # see *
-st.title('My title')
-st.header('My header')
-st.subheader('My sub')
-st.code('for i in range(8): foo()')
+st.text("Fixed width text")
+st.markdown("_Markdown_") # see *
+st.latex(r""" e^{i\pi} + 1 = 0 """)
+st.write("Most objects") # df, err, func, keras!
+st.write(["st", "is <", 3]) # see *
+st.title("My title")
+st.header("My header")
+st.subheader("My sub")
+st.code("for i in range(8): foo()")
 * optional kwarg unsafe_allow_html = True
 ```
 
@@ -96,8 +96,8 @@ st.code('for i in range(8): foo()')
 ```python
 st.dataframe(my_dataframe)
 st.table(data.iloc[0:10])
-st.json({'foo':'bar','fu':'ba'})
-st.metric('My metric', 42, 2)
+st.json({"foo":"bar","fu":"ba"})
+st.metric("My metric", 42, 2)
 
 ```
 
@@ -108,7 +108,7 @@ st.metric('My metric', 42, 2)
 #### Display media
 
 ```python
-st.image('./header.png')
+st.image("./header.png")
 st.audio(data)
 st.video(data)
 ```
@@ -143,11 +143,11 @@ st.vega_lite_chart(df)
 
 ```python
 # Just add it after st.sidebar:
->>> a = st.sidebar.radio('Select one:', [1, 2])
+>>> a = st.sidebar.radio("Select one:", [1, 2])
 
 # Or use "with" notation:
 >>> with st.sidebar:
->>>   st.radio('Select one:', [1, 2])
+>>>   st.radio("Select one:", [1, 2])
 ```
 
 </CodeTile>
@@ -168,7 +168,7 @@ st.vega_lite_chart(df)
 
 # You can also use "with" notation:
 >>> with col1:
->>>   st.radio('Select one:', [1, 2])
+>>>   st.radio("Select one:", [1, 2])
 ```
 
 </CodeTile>
@@ -185,7 +185,7 @@ st.vega_lite_chart(df)
 
 # You can also use "with" notation:
 >>> with tab1:
->>>   st.radio('Select one:', [1, 2])
+>>>   st.radio("Select one:", [1, 2])
 ```
 
 </CodeTile>
@@ -199,12 +199,14 @@ st.vega_lite_chart(df)
 st.stop()
 # Rerun script immediately:
 st.rerun()
+# Navigate to another page:
+st.switch_page("pages/my_page.py")
 
 # Group multiple widgets:
->>> with st.form(key='my_form'):
->>>   username = st.text_input('Username')
->>>   password = st.text_input('Password')
->>>   st.form_submit_button('Login')
+>>> with st.form(key="my_form"):
+>>>   username = st.text_input("Username")
+>>>   password = st.text_input("Password")
+>>>   st.form_submit_button("Login")
 ```
 
 </CodeTile>
@@ -235,15 +237,15 @@ st.camera_input("Take a picture")
 st.color_picker("Pick a color")
 
 # Use widgets' returned values in variables:
->>> for i in range(int(st.number_input('Num:'))):
+>>> for i in range(int(st.number_input("Num:"))):
 >>>   foo()
->>> if st.sidebar.selectbox('I:',['f']) == 'f':
+>>> if st.sidebar.selectbox("I:",["f"]) == "f":
 >>>   b()
->>> my_slider_val = st.slider('Quinn Mallory', 1, 88)
+>>> my_slider_val = st.slider("Quinn Mallory", 1, 88)
 >>> st.write(slider_val)
 
 # Disable widgets to remove interactivity:
->>> st.slider('Pick a number', 0, 100, disabled=True)
+>>> st.slider("Pick a number", 0, 100, disabled=True)
 ```
 
 </CodeTile>
@@ -290,7 +292,7 @@ Learn how to [Build a basic LLM chat app](/knowledge-base/tutorials/build-conver
 
 ```python
 >>> with st.echo():
->>>   st.write('Code will be executed and printed')
+>>>   st.write("Code will be executed and printed")
 ```
 
 </CodeTile>
@@ -314,9 +316,10 @@ Learn how to [Build a basic LLM chat app](/knowledge-base/tutorials/build-conver
 st.help(pandas.DataFrame)
 st.get_option(key)
 st.set_option(key, value)
-st.set_page_config(layout='wide')
-st.experimental_get_query_params()
-st.experimental_set_query_params(**params)
+st.set_page_config(layout="wide")
+st.query_params[key]
+st.query_params.get_all(key)
+st.query_params.clear()
 ```
 
 </CodeTile>
@@ -409,27 +412,27 @@ conn = st.connection("snowflake")
 
 ```python
 # Show a spinner during a process
->>> with st.spinner(text='In progress'):
+>>> with st.spinner(text="In progress"):
 >>>   time.sleep(3)
->>>   st.success('Done')
+>>>   st.success("Done")
 
 # Show and update progress bar
 >>> bar = st.progress(50)
 >>> time.sleep(3)
 >>> bar.progress(100)
 
->>> with st.status('Authenticating...') as s:
+>>> with st.status("Authenticating...") as s:
 >>>   time.sleep(2)
->>>   st.write('Some long response.')
->>>   s.update(label='Response')
+>>>   st.write("Some long response.")
+>>>   s.update(label="Response")
 
 st.balloons()
 st.snow()
-st.toast('Warming up...')
-st.error('Error message')
-st.warning('Warning message')
-st.info('Info message')
-st.success('Success message')
+st.toast("Warming up...")
+st.error("Error message")
+st.warning("Warning message")
+st.info("Info message")
+st.success("Success message")
 st.exception(e)
 ```
 
@@ -443,9 +446,9 @@ st.exception(e)
 
 ```python
 # Show different content based on the user's email address.
->>> if st.user.email == 'jane@email.com':
+>>> if st.user.email == "jane@email.com":
 >>>    display_jane_content()
->>> elif st.user.email == 'adam@foocorp.io':
+>>> elif st.user.email == "adam@foocorp.io":
 >>>    display_adam_content()
 >>> else:
 >>>    st.write("Please contact us to get access!")

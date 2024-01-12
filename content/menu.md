@@ -306,9 +306,6 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / API reference / Control flow
     url: /library/api-reference/control-flow
-  - category: Streamlit library / API reference / Control flow / st.stop
-    url: /library/api-reference/control-flow/st.stop
-    isVersioned: true
   - category: Streamlit library / API reference / Control flow / st.form
     url: /library/api-reference/control-flow/st.form
     isVersioned: true
@@ -317,6 +314,12 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / API reference / Control flow / st.rerun
     url: /library/api-reference/control-flow/st.rerun
+    isVersioned: true
+  - category: Streamlit library / API reference / Control flow / st.stop
+    url: /library/api-reference/control-flow/st.stop
+    isVersioned: true
+  - category: Streamlit library / API reference / Control flow / st.switch_page
+    url: /library/api-reference/control-flow/st.switch_page
     isVersioned: true
   - category: Streamlit library / API reference / Control flow / st.experimental_rerun
     url: /library/api-reference/control-flow/st.experimental_rerun
@@ -333,12 +336,17 @@ site_menu:
   - category: Streamlit library / API reference / Utilities / st.help
     url: /library/api-reference/utilities/st.help
     isVersioned: true
+  - category: Streamlit library / API reference / Utilities / st.query_params
+    url: /library/api-reference/utilities/st.query_params
+    isVersioned: true
   - category: Streamlit library / API reference / Utilities / st.experimental_get_query_params
     url: /library/api-reference/utilities/st.experimental_get_query_params
     isVersioned: true
+    isDeprecated: true
   - category: Streamlit library / API reference / Utilities / st.experimental_set_query_params
     url: /library/api-reference/utilities/st.experimental_set_query_params
     isVersioned: true
+    isDeprecated: true
   - category: Streamlit library / API reference / Mutate charts
     url: /library/api-reference/mutate
   - category: Streamlit library / API reference / State management
@@ -491,7 +499,7 @@ site_menu:
     url: /streamlit-community-cloud/get-started/explore-your-workspace
   - category: Streamlit Community Cloud / Get started / Fork and edit a public app
     url: /streamlit-community-cloud/get-started/fork-and-edit-a-public-app
-  - category: Streamlit Community Cloud / Get started / Trust and Security
+  - category: Streamlit Community Cloud / Get started / Trust and security
     url: /streamlit-community-cloud/get-started/trust-and-security
   - category: Streamlit Community Cloud / Deploy your app
     url: /streamlit-community-cloud/deploy-your-app
