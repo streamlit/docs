@@ -519,10 +519,23 @@ def get_streamlit_docstring_dict():
             "st.testing.v1.element_tree",
         ],
     }
+    proxy_obj_key = {
+        streamlit.user_info.UserInfoProxy: ["streamlit.experimental_user", "st.experimental_user"],
+    }
 
     module_docstring_dict = {}
     for obj, key in obj_key.items():
         module_docstring_dict.update(get_obj_docstring_dict(obj, *key))
+    for obj, key in proxy_obj_key.items():
+        member_docstring_dict = get_docstring_dict(
+                obj, #member
+                key[0], #membername
+                key[1], #signature_prefix
+                True, #isClass
+                False, #is_class_method
+                False, #is_property
+            )
+        module_docstring_dict.update({key[0]: member_docstring_dict})
 
     return module_docstring_dict
 
