@@ -22,7 +22,7 @@ jobs:
       - name: Setup node, build the site and search index afterwards
         uses: actions/setup-node@v3
         with:
-          node-version: "14"
+          node-version: "20"
       - run: npm install
       - run: npm run export
       - run: node ./scripts/build-search-index.js
@@ -38,7 +38,7 @@ jobs:
         id: sitemap
         uses: actions/setup-node@v3
         with:
-          node-version: "14"
+          node-version: "20"
       - run: npm install
       - run: npm run export
       - run: npm run sitemap
