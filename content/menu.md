@@ -377,7 +377,7 @@ site_menu:
     isVersioned: false
   - category: Streamlit library / API reference / Personalization / st.experimental_user
     url: /library/api-reference/personalization/st.experimental_user
-    isVersioned: false
+    isVersioned: true
   - category: Streamlit library / API reference / Connections and databases
     url: /library/api-reference/connections
   - category: Streamlit library / API reference / Connections and databases / st.connection
