@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: "14"
       - run: npm install
-      - run: npm run build
+      - run: npm run export
       - run: node ./scripts/build-search-index.js
   build-sitemap:
     runs-on: ubuntu-latest
@@ -40,7 +40,7 @@ jobs:
         with:
           node-version: "14"
       - run: npm install
-      - run: npm run build
+      - run: npm run export
       - run: npm run sitemap
 
       - name: Create Pull Request
