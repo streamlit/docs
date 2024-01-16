@@ -53,3 +53,5 @@ if st.experimental_user.email:
     name = get_name_from_db(st.experimental_user.email)
     st.write('Hello, %s!' % name)
 ```
+
+<Autofunction function="streamlit.experimental_user.to_dict" />
