@@ -9,7 +9,7 @@ slug: /knowledge-base/tutorials/databases/tidb
 
 This guide explains how to securely access a **_remote_** TiDB database from Streamlit Community Cloud. It uses [st.connection](/library/api-reference/connections/st.connection) and Streamlit's [Secrets management](/library/advanced-features/secrets-management). The below example code will **only work on Streamlit version >= 1.28**, when `st.connection` was added.
 
-[TiDB](https://www.pingcap.com/tidb/) is an open-source, MySQL-compatible database that supports Hybrid Transactional and Analytical Processing (HTAP) workloads. [TiDB Cloud](https://www.pingcap.com/tidb-cloud/) is a fully managed cloud database service that simplifies the deployment and management of TiDB databases for developers.
+[TiDB](https://www.pingcap.com/tidb/) is an open-source, MySQL-compatible database that supports Hybrid Transactional and Analytical Processing (HTAP) workloads. [TiDB Cloud](https://tidb.cloud/) is a fully managed cloud database service that simplifies the deployment and management of TiDB databases for developers.
 
 ## Sign in to TiDB Cloud and create a cluster
 
@@ -25,7 +25,7 @@ You can create more clusters if you want to. Click the cluster name to enter clu
 
 ![Cluster overview](/images/databases/tidb-3.png)
 
-Then click **Connect** to easily get the connection arguments to access the cluster. On the popup, click **Create password** to set the password.
+Then click **Connect** to easily get the connection arguments to access the cluster. On the popup, click **Generate password** to set the password.
 
 ![Get connection arguments](/images/databases/tidb-4.png)
 

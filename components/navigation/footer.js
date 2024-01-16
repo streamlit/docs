@@ -8,25 +8,23 @@ const Footer = ({ setIsTelemetryModalVisible }) => {
       <section className={styles.InnerContainer}>
         <hr className={styles.Separator} />
         <nav className={styles.Navigation}>
-          <Link href="/">
-            <a
-              className={`
-                not-link
-                ${styles.Link}
-              `}
-            >
-              Home
-            </a>
+          <Link
+            href="/"
+            className={`
+              not-link
+              ${styles.Link}
+            `}
+          >
+            Home
           </Link>
-          <Link href="mailto:hello@streamlit.io?subject=Contact%20from%20documentation%20">
-            <a
-              className={`
-                not-link
-                ${styles.Link}
-              `}
-            >
-              Contact Us
-            </a>
+          <Link
+            href="mailto:hello@streamlit.io?subject=Contact%20from%20documentation%20"
+            className={`
+              not-link
+              ${styles.Link}
+            `}
+          >
+            Contact Us
           </Link>
           <a
             className={`

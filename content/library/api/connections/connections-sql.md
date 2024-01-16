@@ -13,6 +13,8 @@ This page only contains the `st.connections.SQLConnection` class. For a deeper d
 
 ### Basic usage:
 
+[SQLAlchemy](https://pypi.org/project/SQLAlchemy/) and any required drivers must be installed to use this connection.
+
 ```python
 import streamlit as st
 

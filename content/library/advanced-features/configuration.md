@@ -162,6 +162,11 @@ showErrorDetails = true
 #                 If there are no options left, hide the menu.
 # Default: "auto"
 toolbarMode = "auto"
+
+# Controls whether the default sidebar page navigation in a multipage app is
+# displayed.
+# Default: true
+showSidebarNavigation = true
 ```
 
 ### Runner
@@ -217,7 +222,7 @@ enforceSerializableSessionState = false
 # * "nameAndValue" : Enum classes can be coerced if their member names AND
 #                    member values match.
 # Default: "nameOnly"
-# enumCoercion = "nameOnly"
+enumCoercion = "nameOnly"
 ```
 
 ### Server
@@ -252,7 +257,7 @@ cookieSecret = "a-random-key-appears-here"
 # If false, will attempt to open a browser window on start.
 # Default: false unless (1) we are on a Linux box where DISPLAY is unset, or
 # (2) we are running in the Streamlit Atom plugin.
-# headless = false
+headless = false
 
 # Automatically rerun script when the file is modified on disk.
 # Default: false
@@ -263,7 +268,7 @@ runOnSave = false
 # If set, the server will only be accessible from this address, and not from
 # any aliases (like localhost).
 # Default: (unset)
-# address =
+address =
 
 # The port where the server will listen for browser connections.
 # Default: 8501

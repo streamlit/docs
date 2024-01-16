@@ -3,7 +3,7 @@ title: st.testing.v1.AppTest
 slug: /library/api-reference/app-testing/st.testing.v1.apptest
 ---
 
-<h1 style="display:none;"></h1>
+<h1 style={{display: "none"}}></h1>
 
 # The AppTest class
 

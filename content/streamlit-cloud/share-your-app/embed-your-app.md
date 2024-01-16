@@ -19,7 +19,7 @@ For example, say you want to embed the <a href="https://30days.streamlit.app/" t
 <iframe
   src="https://30days.streamlit.app/?embed=true"
   height="450"
-  style="width:100%;border:none;"
+  style={{ width: "100%", border: "none" }}
 ></iframe>
 ```
 
@@ -86,7 +86,7 @@ The only noteworthy differences between the methods is that iframing allows you 
 
 When [Embedding with iframes](#embedding-with-iframes), Streamlit allows you to specify one or more instances of the `?embed_options` query parameter for granular control over the embedding behavior.
 
-Both `?embed` and `?embed_options` are invisible to [`st.experimental_get_query_params`](/library/api-reference/utilities/st.experimental_get_query_params) and [`st.experimental_set_query_params`](/library/api-reference/utilities/st.experimental_set_query_params). The former ignores the embed query parameters and does not return them, while the latter disallows setting embed query parameters.
+Both `?embed` and `?embed_options` are invisible to [`st.query_params`](/library/api-reference/utilities/st.query_params) and its precursors, [`st.experimental_get_query_params`](/library/api-reference/utilities/st.experimental_get_query_params) and [`st.experimental_set_query_params`](/library/api-reference/utilities/st.experimental_set_query_params). You can't get or set their values.
 
 The supported values for `?embed_options` are listed below:
 

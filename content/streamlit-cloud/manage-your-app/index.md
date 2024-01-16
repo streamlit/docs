@@ -57,7 +57,7 @@ You can manage your deployed app directly from the app itself! Just make sure yo
 
 <Flex>
 
-<Div>
+<div>
 
 Other options accessible from Cloud logs are:
 
@@ -69,7 +69,7 @@ Other options accessible from Cloud logs are:
 - **Documentation** &mdash; Takes you to our documentation.
 - **Support** &mdash; Takes you to <a href="https://discuss.streamlit.io/" target="_blank">our forums</a>!
 
-</Div>
+</div>
 
 <div style={{ maxWidth: '30%', margin: "auto" }}>
     <Image src="/images/streamlit-community-cloud/cloud-logs-menu-XL.png" clean />
@@ -107,7 +107,7 @@ If your app is running slowly or you're hitting the '😦 Oh no.' page, we first
 - <a href="https://blog.streamlit.io/common-app-problems-resource-limits/" target="_blank">Common app problems: Resource limits</a>
 - <a href="https://blog.streamlit.io/3-steps-to-fix-app-memory-leaks/" target="_blank">3 steps to fix app memory leaks</a>
 
-If your app exceeds its resourse limits, developers and viewers alike will see '😦 Oh no.'
+If your app exceeds its resource limits, developers and viewers alike will see '😦 Oh no.'
 
 <div style={{ maxWidth: '70%', margin: 'auto' }}>
 <Image alt="App state: Oh no. Error running your app." src="/images/streamlit-community-cloud/app-state-oh-no.png" />

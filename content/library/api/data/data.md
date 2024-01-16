@@ -16,7 +16,7 @@ raw form. These are the Streamlit commands you can use to display and interact w
 <RefCard href="/library/api-reference/data/st.dataframe">
 <Image pure alt="screenshot" src="/images/api/dataframe.jpg" />
 
-#### Dataframes
+<h4>Dataframes</h4>
 
 Display a dataframe as an interactive table.
 
@@ -29,7 +29,7 @@ st.dataframe(my_data_frame)
 
 <Image pure alt="screenshot" src="/images/api/data_editor.jpg" />
 
-#### Data editor
+<h4>Data editor</h4>
 
 Display a data editor widget.
 
@@ -42,7 +42,7 @@ edited = st.data_editor(df, num_rows="dynamic")
 
 <Image pure alt="screenshot" src="/images/api/column_config.jpg" />
 
-#### Column configuration
+<h4>Column configuration</h4>
 
 Configure the display and editing behavior of dataframes and data editors.
 
@@ -55,7 +55,7 @@ st.column_config.NumberColumn("Price (in USD)", min_value=0, format="$%d")
 <RefCard href="/library/api-reference/data/st.table">
 <Image pure alt="screenshot" src="/images/api/table.jpg" />
 
-#### Static tables
+<h4>Static tables</h4>
 
 Display a static table.
 
@@ -67,7 +67,7 @@ st.table(my_data_frame)
 <RefCard href="/library/api-reference/data/st.metric">
 <Image pure alt="screenshot" src="/images/api/metric.jpg" />
 
-#### Metrics
+<h4>Metrics</h4>
 
 Display a metric in big bold font, with an optional indicator of how the metric changed.
 
@@ -79,7 +79,7 @@ st.metric("My metric", 42, 2)
 <RefCard href="/library/api-reference/data/st.json">
 <Image pure alt="screenshot" src="/images/api/json.jpg" />
 
-#### Dicts and JSON
+<h4>Dicts and JSON</h4>
 
 Display object or string as a pretty-printed JSON string.
 
@@ -96,7 +96,7 @@ st.json(my_dict)
 
 <Image pure alt="screenshot" src="/images/api/components/aggrid.jpg" />
 
-#### Streamlit Aggrid
+<h4>Streamlit Aggrid</h4>
 
 Implementation of Ag-Grid component for Streamlit. Created by [@PablocFonseca](https://github.com/PablocFonseca).
 
@@ -113,7 +113,7 @@ new_df = grid_return['data']
 
 <Image pure alt="screenshot" src="/images/api/components/folium.jpg" />
 
-#### Streamlit Folium
+<h4>Streamlit Folium</h4>
 
 Streamlit Component for rendering Folium maps. Created by [@randyzwitch](https://github.com/randyzwitch).
 
@@ -130,7 +130,7 @@ st_data = st_folium(m, width=725)
 
 <Image pure alt="screenshot" src="/images/api/components/pandas-profiling.jpg" />
 
-#### Pandas Profiling
+<h4>Pandas Profiling</h4>
 
 Pandas profiling component for Streamlit. Created by [@okld](https://github.com/okld/).
 
@@ -147,7 +147,7 @@ st_profile_report(pr)
 
 <Image pure alt="screenshot" src="/images/api/components/image-coordinates.jpg" />
 
-#### Image Coordinates
+<h4>Image Coordinates</h4>
 
 Get the coordinates of clicks on an image. Created by [@blackary](https://github.com/blackary/).
 
@@ -164,7 +164,7 @@ st.write(value)
 
 <Image pure alt="screenshot" src="/images/api/components/plotly-events.jpg" />
 
-#### Plotly Events
+<h4>Plotly Events</h4>
 
 Make Plotly charts interactive!. Created by [@null-jones](https://github.com/null-jones/).
 
@@ -181,7 +181,7 @@ selected_points = plotly_events(fig)
 
 <Image pure alt="screenshot" src="/images/api/components/extras-metric-cards.jpg" />
 
-#### Streamlit Extras
+<h4>Streamlit Extras</h4>
 
 A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
 

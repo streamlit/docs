@@ -75,12 +75,14 @@ def get_github_source(func):
 
     try:
         line = inspect.getsourcelines(func)[1]
-    except TypeError:
+    except: #TypeError:
         try:
             line = inspect.getsourcelines(func.fget)[1]
-        except AttributeError:
-            line = inspect.getsourcelines(func.__call__)[1]
-
+        except: #AttributeError:
+            try:
+                line = inspect.getsourcelines(func.__call__)[1]
+            except:
+                line=""
     # Get the relative path after the "streamlit" directory
     rel_path = os.path.relpath(
         source_file, start=os.path.join(streamlit.__path__[0], "..")
@@ -480,6 +482,10 @@ def get_streamlit_docstring_dict():
         streamlit.runtime.caching.cache_resource_api.CacheResourceAPI: [
             "streamlit.cache_resource",
             "st.cache_resource",
+        ],
+        streamlit.runtime.state.query_params_proxy.QueryParamsProxy: [
+            "streamlit.query_params", 
+            "st.query_params",
         ],
         streamlit.connections: ["streamlit.connections", "st.connections"],
         streamlit.connections.SQLConnection: [

@@ -29,26 +29,70 @@
 }
 
 /* Colors for each category */
-.LibraryBackground {
-  @apply bg-indigo-70;
+.RedBackground {
+  @apply bg-red-70;
 }
 
-.CloudBackground {
-  @apply bg-lightBlue-70;
-}
-
-.KBBackground {
+.OrangeBackground {
   @apply bg-orange-70;
 }
 
-.LibraryText {
-  @apply text-indigo-70 !important;
+.YellowBackground {
+  @apply bg-yellow-70;
 }
 
-.CloudText {
-  @apply text-lightBlue-70 !important;
+.GreenBackground {
+  @apply bg-green-70;
 }
 
-.KBText {
-  @apply text-orange-70 !important;
+.AcquaBackground {
+  @apply bg-acqua-70;
+}
+
+.LightBlueBackground {
+  @apply bg-lightBlue-70;
+}
+
+.DarkBlueBackground {
+  @apply bg-darkBlue-70;
+}
+
+.IndigoBackground {
+  @apply bg-indigo-70;
+}
+
+.RedForeground {
+  @apply text-red-70;
+}
+
+.OrangeForeground {
+  @apply text-orange-70;
+}
+
+.YellowForeground {
+  @apply text-yellow-70;
+}
+
+.GreenForeground {
+  @apply text-green-70;
+}
+
+.AcquaForeground {
+  @apply text-acqua-70;
+}
+
+.LightBlueForeground {
+  @apply text-lightBlue-70;
+}
+
+.DarkBlueForeground {
+  @apply text-darkBlue-70;
+}
+
+.IndigoForeground {
+  @apply text-indigo-70;
+}
+
+:global(.dark) .GrayText {
+  @apply text-gray-20 !important;
 }

@@ -9,8 +9,6 @@ slug: /knowledge-base/tutorials/build-conversational-apps
 
 The advent of large language models like GPT has revolutionized the ease of developing chat-based applications. Streamlit offers several [Chat elements](/library/api-reference/chat), enabling you to build Graphical User Interfaces (GUIs) for conversational agents or chatbots. Leveraging [session state](/library/advanced-features/session-state) along with these elements allows you to construct anything from a basic chatbot to a more advanced, ChatGPT-like experience using purely Python code.
 
-<!-- In this tutorial, we'll first walk through Streamlit's chat elements, `st.chat_message` and `st.chat_input`, and then show you how to [build a simple chatbot GUI](#build-a-simple-chatbot-gui-with-streaming). We'll also discover how to integrate session state with these elements to develop a [sophisticated chatbot](#build-a-chatgpt-like-app), capable of remembering conversational context, in less than 50 lines of code. -->
-
 In this tutorial, we'll start by walking through Streamlit's chat elements, `st.chat_message` and `st.chat_input`. Then we'll proceed to construct three distinct applications, each showcasing an increasing level of complexity and functionality:
 
 1. First, we'll [Build a bot that mirrors your input](#build-a-bot-that-mirrors-your-input) to get a feel for the chat elements and how they work. We'll also introduce [session state](/library/advanced-features/session-state) and how it can be used to store the chat history. This section will serve as a foundation for the rest of the tutorial.

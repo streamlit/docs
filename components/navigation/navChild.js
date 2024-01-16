@@ -11,8 +11,9 @@ const NavChild = ({ slug, page, color, className }) => {
   const version = useVersion();
 
   const isNum = /^[\d\.]+$/.test(slug[0]);
+  const isSiS = /^SiS[\d\.]*$/.test(slug[0]);
 
-  if (isNum) {
+  if (isNum || isSiS) {
     slug.shift();
   }
 
@@ -54,7 +55,7 @@ const NavChild = ({ slug, page, color, className }) => {
         <i
           className={classNames(
             styles.AccordionIcon,
-            opened ? "close" : "open"
+            opened ? "close" : "open",
           )}
           onClick={toggleAccordion}
         >
@@ -112,35 +113,30 @@ const NavChild = ({ slug, page, color, className }) => {
   } else {
     navElement = (
       <div className={styles.LinkContainer}>
-        <Link href={url}>
-          <a className={classNames("not-link", styles.Link)} target={target}>
-            <span
-              className={classNames(
-                styles.Circle,
-                active ? styles.ActiveCircle : "",
-                color === "violet-70"
-                  ? styles.LibraryCircle
-                  : color === "l-blue-70"
-                  ? styles.CloudCircle
-                  : styles.KBCircle
-              )}
-            />
-            <span
-              className={classNames(
-                styles.PageName,
-                active && styles.ActivePage
-              )}
-            >
-              {page.name}
-            </span>
-            {page.isDeprecated === true ? (
-              <i className={classNames("material-icons-sharp", styles.Icon)}>
-                {"delete"}
-              </i>
-            ) : (
-              icon
+        <Link
+          href={url}
+          className={classNames("not-link", styles.Link)}
+          target={target}
+        >
+          <span
+            className={classNames(
+              styles.Circle,
+              active ? styles.ActiveCircle : "",
+              CIRCLE_CLASS[color],
             )}
-          </a>
+          />
+          <span
+            className={classNames(styles.PageName, active && styles.ActivePage)}
+          >
+            {page.name}
+          </span>
+          {page.isDeprecated === true ? (
+            <i className={classNames("material-icons-sharp", styles.Icon)}>
+              {"delete"}
+            </i>
+          ) : (
+            icon
+          )}
         </Link>
         {accordion}
       </div>
@@ -153,6 +149,19 @@ const NavChild = ({ slug, page, color, className }) => {
       {subNav}
     </li>
   );
+};
+
+const CIRCLE_CLASS = {
+  "red-70": styles.RedCircle,
+  "orange-70": styles.OrangeCircle,
+  "yellow-70": styles.YellowCircle,
+  "green-70": styles.GreenCircle,
+  "acqua-70": styles.AcquaCircle,
+  "lightBlue-70": styles.LightBlueCircle,
+  "darkBlue-70": styles.DarkBlueCircle,
+  "indigo-70": styles.IndigoCircle,
+  "gray-70": styles.GrayCircle,
+  unset: styles.TransparentCircle,
 };
 
 export default NavChild;

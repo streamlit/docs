@@ -23,7 +23,7 @@ subprocess.run(["python", "script.py"])
 
 When you run the above code block, you will get the version of Python that is on the system path—not necessarily the Python executable installed in the virtual environment that the Streamlit code is running under.
 
-The solution is to detect the Python executable directy with [`sys.executable`](https://docs.python.org/3/library/sys.html#sys.executable):
+The solution is to detect the Python executable directly with [`sys.executable`](https://docs.python.org/3/library/sys.html#sys.executable):
 
 ```python
 # streamlit_app.py

@@ -84,14 +84,34 @@
 }
 
 /* Colors for circles */
-.LibraryCircle {
-  @apply bg-indigo-70;
+.RedCircle {
+  @apply bg-red-70;
 }
 
-.CloudCircle {
+.OrangeCircle {
+  @apply bg-orange-70;
+}
+
+.YellowCircle {
+  @apply bg-yellow-70;
+}
+
+.GreenCircle {
+  @apply bg-green-70;
+}
+
+.AcquaCircle {
+  @apply bg-acqua-70;
+}
+
+.LightBlueCircle {
   @apply bg-lightBlue-70;
 }
 
-.KBCircle {
-  @apply bg-orange-70;
+.DarkBlueCircle {
+  @apply bg-darkBlue-70;
+}
+
+.IndigoCircle {
+  @apply bg-indigo-70;
 }
