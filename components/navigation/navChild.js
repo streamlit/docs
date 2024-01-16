@@ -55,7 +55,7 @@ const NavChild = ({ slug, page, color, className }) => {
         <i
           className={classNames(
             styles.AccordionIcon,
-            opened ? "close" : "open"
+            opened ? "close" : "open",
           )}
           onClick={toggleAccordion}
         >
@@ -122,7 +122,7 @@ const NavChild = ({ slug, page, color, className }) => {
             className={classNames(
               styles.Circle,
               active ? styles.ActiveCircle : "",
-              CIRCLE_CLASS[color]
+              CIRCLE_CLASS[color],
             )}
           />
           <span

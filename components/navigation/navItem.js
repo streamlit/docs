@@ -24,14 +24,14 @@ const NavItem = ({ page, slug, condensed, className }) => {
     <section
       className={classNames(
         styles.HeadingContainer,
-        isCondensed ? styles.CondensedHeadingContainer : ""
+        isCondensed ? styles.CondensedHeadingContainer : "",
       )}
     >
       <div
         className={classNames(
           styles.HeadingIconContainer,
           isCondensed ? styles.CondensedHeadingIconContainer : "",
-          bgColor
+          bgColor,
         )}
       >
         <i className={styles.Icon}>{page.icon}</i>
@@ -40,7 +40,7 @@ const NavItem = ({ page, slug, condensed, className }) => {
         className={classNames(
           styles.CategoryName,
           isCondensed ? styles.CondensedCategoryName : "",
-          fgColor
+          fgColor,
         )}
       >
         {page.name}
@@ -53,7 +53,7 @@ const NavItem = ({ page, slug, condensed, className }) => {
       <ul
         className={classNames(
           styles.SubNav,
-          isCondensed ? styles.CondensedSubNav : styles.ExpandedSubNav
+          isCondensed ? styles.CondensedSubNav : styles.ExpandedSubNav,
         )}
       >
         {page.children.map((child) => (
