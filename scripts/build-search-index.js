@@ -112,7 +112,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
     const meta_keywords = root.querySelector("meta[name=keywords]");
     const content = convert(
       root.querySelector("article").innerHTML,
-      compileOptions
+      compileOptions,
     );
     const slug = url.split("/");
     const isnum = /^[\d\.]+$/.test(slug[1]);
@@ -130,7 +130,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
 
     if ((!title && !sub_title) || !doc_title) {
       console.warn(
-        `!!! Skipping ${url} because the document has no title or H1 tag.`
+        `!!! Skipping ${url} because the document has no title or H1 tag.`,
       );
       continue;
     }
@@ -141,7 +141,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
 
     if (!content) {
       console.warn(
-        `!!! Skipping ${url} because the document has no ARTICLE tag.`
+        `!!! Skipping ${url} because the document has no ARTICLE tag.`,
       );
       continue;
     }
@@ -163,7 +163,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
 
   const client = algoliasearch(
     "XNXFGO6BQ1",
-    "ddc64745f583d66008a2777620d27517"
+    "ddc64745f583d66008a2777620d27517",
   );
   const index = client.initIndex("documentation");
   const tmp_index = client.initIndex("documentation_tmp");

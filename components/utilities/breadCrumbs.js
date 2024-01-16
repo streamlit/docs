@@ -75,8 +75,8 @@ const BreadCrumbs = ({ slug, menu }) => {
       `This slug: ${slug
         .slice()
         .join(
-          "/"
-        )} doesn't have a corresponding entry in menu.md. Please add it, and if you don't want this entry to show up in the sidebar, add the "visible: false" property to the entry.`
+          "/",
+        )} doesn't have a corresponding entry in menu.md. Please add it, and if you don't want this entry to show up in the sidebar, add the "visible: false" property to the entry.`,
     );
   }
 
