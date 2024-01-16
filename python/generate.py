@@ -82,7 +82,7 @@ def get_github_source(func):
             try:
                 line = inspect.getsourcelines(func.__call__)[1]
             except:
-                line=""
+                return ""
     # Get the relative path after the "streamlit" directory
     rel_path = os.path.relpath(
         source_file, start=os.path.join(streamlit.__path__[0], "..")
@@ -146,6 +146,8 @@ def get_docstring_dict(
                 f"{signature_prefix}.{method_name}",
                 is_class_method=True,
             )
+            if meth_obj["source"] == "":
+                continue
             description["methods"].append(meth_obj)
 
         # Get the class's properties
@@ -456,8 +458,10 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix, only_include=None)
                 is_property,
             )
 
-        # Add the extracted metadata to obj_docstring_dict
-        obj_docstring_dict[fullname] = member_docstring_dict
+        # Add the extracted metadata to obj_docstring_dict if the object is
+        # local to streamlit (null source occurs when the object is inherited
+        if member_docstring_dict["source"]:
+            obj_docstring_dict[fullname] = member_docstring_dict
 
     return obj_docstring_dict
 
@@ -518,6 +522,7 @@ def get_streamlit_docstring_dict():
             "streamlit.testing.v1.element_tree",
             "st.testing.v1.element_tree",
         ],
+        streamlit.user_info.UserInfoProxy: ["streamlit.experimental_user", "st.experimental_user"],
     }
     proxy_obj_key = {
         streamlit.user_info.UserInfoProxy: ["streamlit.experimental_user", "st.experimental_user"],
@@ -529,8 +534,8 @@ def get_streamlit_docstring_dict():
     for obj, key in proxy_obj_key.items():
         member_docstring_dict = get_docstring_dict(
                 obj, #member
-                key[0], #membername
-                key[1], #signature_prefix
+                key[0].split(".")[-1], #membername
+                "st", #signature_prefix
                 True, #isClass
                 False, #is_class_method
                 False, #is_property
