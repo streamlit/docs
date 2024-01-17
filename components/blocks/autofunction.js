@@ -296,8 +296,10 @@ const Autofunction = ({
     footers.push({ title: "Warning", body: functionObject.warning });
   }
 
-  // propertiesRows is initialized early to all "parameters" in class docstrings
-  // to be diverted to the properties section
+  // propertiesRows is initialized early to allow "Parameters" in any class
+  // docstring to be diverted to the properties section. Docstring parsing
+  // needs modification to first recognize "Attributes" or "Properites" then
+  // then parse their contents.
   let propertiesRows = [];
 
   for (const index in functionObject.args) {
