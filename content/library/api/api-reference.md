@@ -1844,7 +1844,7 @@ content
 
 <Image pure alt="screenshot" src="/images/api/components/analytics.jpg" />
 
-<h4>Streamlit Anaylitics</h4>
+<h4>Streamlit Analytics</h4>
 
 Track & visualize user interactions with your streamlit app. Created by [@jrieke](https://github.com/jrieke).
 
