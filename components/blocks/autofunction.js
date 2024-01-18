@@ -296,6 +296,12 @@ const Autofunction = ({
     footers.push({ title: "Warning", body: functionObject.warning });
   }
 
+  // propertiesRows is initialized early to allow "Parameters" in any class
+  // docstring to be diverted to the properties section. Docstring parsing
+  // needs modification to first recognize "Attributes" or "Properites" then
+  // parse their contents.
+  let propertiesRows = [];
+
   for (const index in functionObject.args) {
     const row = {};
     const param = functionObject.args[index];
@@ -335,8 +341,14 @@ const Autofunction = ({
         ${description}
       `;
     }
-
-    args.push(row);
+    // When "Parameters" are included in a class docstring, they are actually
+    // "Properties." Using "Properties" in the docstring does not result in
+    // individually parsed properties; using "Parameters" is a workaround.
+    if (isClass) {
+      propertiesRows.push(row);
+    } else {
+      args.push(row);
+    }
   }
 
   let methodRows = [];
@@ -380,8 +392,6 @@ const Autofunction = ({
 
     methodRows.push(row);
   }
-
-  let propertiesRows = [];
 
   for (const index in properties) {
     const row = {};
@@ -433,24 +443,6 @@ const Autofunction = ({
     returns.push(row);
   }
 
-  const footTitles = [];
-  const footRowsContent = [];
-
-  if (methods.length) {
-    footTitles.push({ title: "Methods" });
-    footRowsContent.push(methodRows);
-  }
-
-  if (returns.length) {
-    footTitles.push({ title: "Returns" });
-    footRowsContent.push(returns);
-  }
-
-  if (properties.length) {
-    footTitles.push({ title: "Properties" });
-    footRowsContent.push(propertiesRows);
-  }
-
   body = (
     <Table
       head={{
@@ -477,12 +469,12 @@ const Autofunction = ({
       foot={[
         methods.length ? { title: "Methods" } : null,
         returns.length ? { title: "Returns" } : null,
-        properties.length ? { title: "Attributes" } : null,
+        propertiesRows.length ? { title: "Attributes" } : null,
       ].filter((section) => section !== null)}
       footRows={[
         methods.length ? methodRows : null,
         returns.length ? returns : null,
-        properties.length ? propertiesRows : null,
+        propertiesRows.length ? propertiesRows : null,
       ].filter((rows) => rows !== null)}
       additionalClass="full-width"
       footers={footers}
