@@ -26,6 +26,8 @@ jobs:
       - run: npm install
       - run: npm run export
       - run: node ./scripts/build-search-index.js
+        env:
+          ALGOLIA_SECRET: ${{ secrets.ALGOLIA_SECRET }}
   build-sitemap:
     runs-on: ubuntu-latest
     name: Build sitemap

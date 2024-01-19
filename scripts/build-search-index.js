@@ -163,7 +163,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
 
   const client = algoliasearch(
     "XNXFGO6BQ1",
-    "ddc64745f583d66008a2777620d27517",
+    process.env.ALGOLIA_SECRET,
   );
   const index = client.initIndex("documentation");
   const tmp_index = client.initIndex("documentation_tmp");
