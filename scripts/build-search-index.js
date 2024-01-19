@@ -165,6 +165,10 @@ function getAllFilesInDirectory(articleDirectory, files) {
     "XNXFGO6BQ1",
     process.env.ALGOLIA_SECRET,
   );
+  console.log("Gibberish", process.env.GIBBERISH, process.env.GIBBERISH == "GIBBERISH")
+  console.log("Algolia", process.env.ALGOLIA_SECRET)
+  console.log("CLI args", process.argv)
+
   const index = client.initIndex("documentation");
   const tmp_index = client.initIndex("documentation_tmp");
 
