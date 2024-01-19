@@ -161,13 +161,14 @@ function getAllFilesInDirectory(articleDirectory, files) {
 
   console.log(`... uploading ${to_index.length} pages to Algolia.`);
 
+  console.log("Gibberish", process.env.GIBBERISH, process.env.GIBBERISH == "GIBBERISH");
+  console.log("Algolia", process.env.ALGOLIA_SECRET);
+  console.log("CLI args", process.argv);
+
   const client = algoliasearch(
     "XNXFGO6BQ1",
     process.env.ALGOLIA_SECRET,
   );
-  console.log("Gibberish", process.env.GIBBERISH, process.env.GIBBERISH == "GIBBERISH")
-  console.log("Algolia", process.env.ALGOLIA_SECRET)
-  console.log("CLI args", process.argv)
 
   const index = client.initIndex("documentation");
   const tmp_index = client.initIndex("documentation_tmp");
@@ -196,5 +197,6 @@ function getAllFilesInDirectory(articleDirectory, files) {
     })
     .catch((err) => {
       console.error(err);
+      process.exit(1)
     });
 })();
