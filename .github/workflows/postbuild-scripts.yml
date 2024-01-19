@@ -24,8 +24,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "20"
-      - run: echo "direct" ${{ secrets.GIBBERISH }}
-      - run: echo "env" $GIBBERISH
+      - run: if [ "GIBBERISH" = "${{ secrets.GIBBERISH }}" ]; then echo direct YES; else echo direct NO; fi
+      - run: if [ "GIBBERISH" = "$GIBBERISH" ]; then echo env YES; else echo env NO; fi
         env:
           GIBBERISH: ${{ secrets.GIBBERISH }}
       - run: npm install
