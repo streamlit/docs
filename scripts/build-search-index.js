@@ -170,8 +170,12 @@ function getAllFilesInDirectory(articleDirectory, files) {
     process.env.ALGOLIA_SECRET,
   );
 
+  console.log("initIndex")
+
   const index = client.initIndex("documentation");
   const tmp_index = client.initIndex("documentation_tmp");
+
+  console.log("copyIndex", index.indexName, tmp_index,indexName)
 
   client
     .copyIndex(index.indexName, tmp_index.indexName, [
@@ -180,15 +184,19 @@ function getAllFilesInDirectory(articleDirectory, files) {
       "rules",
     ])
     .then(({ taskID }) => {
+      console.log("then 1")
       tmp_index.waitTask(taskID);
     })
     .then(() => {
+      console.log("then 2")
       return tmp_index.addObjects(to_index);
     })
     .then(({ taskID }) => {
+      console.log("then 3")
       tmp_index.waitTask(taskID);
     })
     .then(() => {
+      console.log("then 4")
       client.moveIndex(tmp_index.indexName, index.indexName);
       console.log("... updating index");
     })
