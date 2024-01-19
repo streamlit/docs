@@ -175,7 +175,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
   const index = client.initIndex("documentation");
   const tmp_index = client.initIndex("documentation_tmp");
 
-  console.log("copyIndex", index.indexName, tmp_index,indexName)
+  console.log("copyIndex", index, tmp_index, index.indexName, tmp_index.indexName)
 
   client
     .copyIndex(index.indexName, tmp_index.indexName, [
