@@ -24,6 +24,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "20"
+      - run: echo "direct" ${{ secrets.GIBBERISH }}
+      - run: echo "env" $GIBBERISH
+        env:
+          GIBBERISH: ${{ secrets.GIBBERISH }}
       - run: npm install
       - run: npm run export
       - run: node ./scripts/build-search-index.js
