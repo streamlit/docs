@@ -162,12 +162,12 @@ function getAllFilesInDirectory(articleDirectory, files) {
   console.log(`... uploading ${to_index.length} pages to Algolia.`);
 
   console.log("Gibberish", process.env.GIBBERISH, process.env.GIBBERISH == "GIBBERISH");
-  console.log("Algolia", process.env.ALGOLIA_SECRET);
+  console.log("Algolia", process.env.ALGOLIA_SECRET, process.env.ALGOLIA_SECRET == "ddc64745f583d66008a2777620d27517" /* Debugging with key that already leaked */ );
   console.log("CLI args", process.argv);
 
   const client = algoliasearch(
     "XNXFGO6BQ1",
-    process.env.ALGOLIA_SECRET,
+    process.env.ALGOLIA_SECRET.trim(),
   );
 
   console.log("initIndex")
@@ -175,7 +175,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
   const index = client.initIndex("documentation");
   const tmp_index = client.initIndex("documentation_tmp");
 
-  console.log("copyIndex", index, tmp_index, index.indexName, tmp_index.indexName)
+  console.log("copyIndex", index.indexName, tmp_index.indexName)
 
   client
     .copyIndex(index.indexName, tmp_index.indexName, [
@@ -204,7 +204,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
       console.log("Index updated. 🎉");
     })
     .catch((err) => {
-      console.error(err);
+      console.error(JSON.stringify(err));
       process.exit(1)
     });
 })();
