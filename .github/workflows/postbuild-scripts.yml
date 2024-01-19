@@ -14,6 +14,7 @@ jobs:
   build-search-index:
     runs-on: ubuntu-latest
     name: Build Algolia search index
+    environment: Build Search Index
 
     steps:
       - name: Checkout the repo
