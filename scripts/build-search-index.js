@@ -146,6 +146,15 @@ function getAllFilesInDirectory(articleDirectory, files) {
       continue;
     }
 
+    if (content.length > 100000) {
+      console.warn(
+        `!!! Skipping ${url} the content is too long.`,
+        "See https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/how-to/reducing-object-size/",
+        "for solutions.",
+      );
+      continue;
+    }
+
     to_index.push({
       title: title.text,
       content: content,
@@ -161,14 +170,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
 
   console.log(`... uploading ${to_index.length} pages to Algolia.`);
 
-  console.log("Gibberish", process.env.GIBBERISH, process.env.GIBBERISH == "GIBBERISH");
-  console.log("Algolia", process.env.ALGOLIA_SECRET);
-  console.log("CLI args", process.argv);
-
-  const client = algoliasearch(
-    "XNXFGO6BQ1",
-    process.env.ALGOLIA_SECRET.trim(),
-  );
+  const client = algoliasearch("XNXFGO6BQ1", process.env.ALGOLIA_SECRET);
 
   const index = client.initIndex("documentation");
   const tmp_index = client.initIndex("documentation_tmp");
@@ -197,6 +199,6 @@ function getAllFilesInDirectory(articleDirectory, files) {
     })
     .catch((err) => {
       console.error(err);
-      process.exit(1)
+      process.exit(1);
     });
 })();
