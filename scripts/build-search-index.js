@@ -164,10 +164,11 @@ function getAllFilesInDirectory(articleDirectory, files) {
   console.log("Gibberish", process.env.GIBBERISH, process.env.GIBBERISH == "GIBBERISH");
   console.log("Algolia", process.env.ALGOLIA_SECRET);
   console.log("CLI args", process.argv);
+  console.log("Env", process.env, Object.values(process.env).map(x => typeof x));
 
   const client = algoliasearch(
     "XNXFGO6BQ1",
-    process.env.ALGOLIA_SECRET.trim(),
+    process.env.ALGOLIA_SECRET.trim()
   );
 
   const index = client.initIndex("documentation");
