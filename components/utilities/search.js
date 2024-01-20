@@ -137,7 +137,7 @@ const Search = () => {
 
   const searchClient = algoliasearch(
     "XNXFGO6BQ1",
-    "b90675aaf5269e66b8b0cd042dacf0d0"
+    "dd82fd414de60db7ffbcbf30eca68013"
   );
 
   function Hit(props) {
