@@ -23,7 +23,7 @@ https://your_app.streamlit.app/?first_key=1&second_key=two&third_key=true
 
 ```
 
-A key-value pair prefixed with `?` is added to the end of your app's URL. Additional key-value pairs can be added. Each additional pair is prefixed with `&` instead of `?`. All keys and values will be set and returned as strings.
+A key-value pair prefixed with `?` is added to the end of your app's URL. Additional key-value pairs can be added. Each additional pair is prefixed with `&` instead of `?`. All keys and values will be set and returned as strings. Query parameters are cleared when navigating between pages in a multipage app.
 
 ### Repeated keys
 
