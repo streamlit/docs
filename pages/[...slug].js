@@ -257,7 +257,7 @@ export default function Article({
         <section className={styles.Container}>
           <SideBar slug={slug} menu={menu} />
           <Head>
-            <title>{data.title} - Streamlit Docs</title>
+            <title>{data.title + " - Streamlit Docs"}</title>
             <link rel="icon" href="/favicon.svg" />
             <link rel="alternate icon" href="/favicon32.ico" />
             <meta name="theme-color" content="#ffffff" />
