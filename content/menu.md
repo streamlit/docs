@@ -185,6 +185,9 @@ site_menu:
   - category: Streamlit library / API reference / Input widgets / st.link_button
     url: /library/api-reference/widgets/st.link_button
     isVersioned: true
+  - category: Streamlit library / API reference / Input widgets / st.page_link
+    url: /library/api-reference/widgets/st.page_link
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.checkbox
     url: /library/api-reference/widgets/st.checkbox
     isVersioned: true
