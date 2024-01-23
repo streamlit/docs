@@ -15,7 +15,7 @@ Avoid putting sensitve information in your code by using environment variables. 
 
 ### Keep `.gitignore` updated
 
-If you use any sensitive or private information during development, make sure that information is saved in separate files from your code. Ensure `.gitginore` is properly configured to prevent saving private information to your repository.
+If you use any sensitive or private information during development, make sure that information is saved in separate files from your code. Ensure `.gitignore` is properly configured to prevent saving private information to your repository.
 
 ## Pickle warning
 
