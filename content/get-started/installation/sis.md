@@ -7,6 +7,12 @@ slug: /get-started/installation/streamlit-in-snowflake
 
 Snowflake is a single, global platform that powers the Data Cloud. If you want to use a secure platform with role-based access control, this is the option for you! This page walks you through creating a trial Snowflake account and building a simple "Hello world" app. Your trial account comes with an account credit so you can try out the service without entering any payment information.
 
+<Note>
+
+Streamlit in Snowflake is currently based on Streamlit version 1.22.0 with some [Limitations and unsupported features](https://docs.snowflake.com/en/developer-guide/streamlit/limitations). We are working on supporting newer versions and more features.
+
+</Note>
+
 ## Prerequisites
 
 All you need is an email address! Everything else happens in your 30-day trial account.
