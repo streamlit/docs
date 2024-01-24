@@ -5,24 +5,19 @@ slug: /library/advanced-features/custom-classes
 
 # Custom classes
 
-Developers building larger or more complex applications, or who are porting existing application code over to streamlit may, eventually, want to utilize custom-defined python classes within their script. Common reasons for this include:
+If you are building a more complex Streamlit app or working with existing code, you may have custom Python classes defined in your script. Common use-cases for custom Python classes include:
 
-1. Defining a custom `@dataclass` to store data within your app
-2. Defining an `Enum` class to represent a fixed set of options.
-3. Defining custom interfaces to external services or databases not covered by Streamlit's `experimental_connection` [API](/library/api-reference/connections/st.experimental_connection).
+1. Defining a `@dataclass` to store related data within your app.
+2. Defining an `Enum` class to represent a fixed set of options or values.
+3. Defining custom interfaces to external services or databases not covered by [`st.connection`](/library/api-reference/connections/st.connection).
 
-Because streamlit re-runs your main script from top to bottom after every user interaction, care must be taken when defining custom classes to ensure that a re-definition of the class type during these re-runs will not cause unwanted effects. By following the guidelines on this page, you will be less likely to encounter common pitfalls.
+Streamlit reruns your script after every user interaction, custom classes may be redefined multiple times within the same Streamlit session, and this may result in unwanted effects. By following the guidelines on this page, you will be less likely to encounter common pitfalls.
 
-<Collapse title="Table of contents" expanded={true}>
-
-1. [General guildelines](#general-guidelines)
-2. [Enums](#enums)
-
-</Collapse>
+We begin by covering some general-purpose guidelines that can be followed for all types of custom classes. Later on, we go into more detail about [Using `Enum` classes](#enums) specifically, and a configuration option which can make working with them more convenient.
 
 ## General Guidelines
 
-**For all classes:**
+**Option 1 - For all classes:**
 
 - If possible, move class definitions into their own module file.
 
@@ -32,7 +27,7 @@ Because streamlit re-runs your main script from top to bottom after every user i
   # In Main.py ---------------------------------------
   import streamlit as st
 
-  # MyClass gets re-defined every time Main.py re-runs
+  # MyClass gets redefined every time Main.py reruns
   class MyClass:
     def __init__(self, var1, var2):
         ...
@@ -52,14 +47,14 @@ Because streamlit re-runs your main script from top to bottom after every user i
   import streamlit as st
   from my_class import MyClass
 
-  # MyClass doesn't change identity when Main.py re-runs
+  # MyClass doesn't change identity when Main.py reruns
 
   st.write(MyClass("foo", "bar"))
   ```
 
-  Streamlit only reloads code in imported modules when it detects the code has changed. Thus, each time your page script re-runs it is using the exact same `MyClass` as on the previous execution.
+  Streamlit only reloads code in imported modules when it detects the code has changed. Thus, each time your page script reruns it is using the exact same `MyClass` as on the previous execution, rather than re-defining it.
 
-**For classes that store data (like [dataclasses](https://docs.python.org/3/library/dataclasses.html)):**
+**Option 2 - For classes that store data (like [dataclasses](https://docs.python.org/3/library/dataclasses.html)):**
 
 - Consider defining a custom `__eq__` method based on the data _in_ the class.
 
@@ -74,24 +69,23 @@ Because streamlit re-runs your main script from top to bottom after every user i
 
     def __eq__(self, other):
       # Two instances of MyDataclass are equal if both of their
-      # fields match.
+      # fields match -- their type() doesn't matter.
       return (self.var1, self.var2) == (other.var1, other.var2)
 
   st.write(MyDataclass(1, 5.5) == MyDataclass(1, 5.5))
   ```
 
   The default python `__eq__` implementations for both regular
-  classes as well as `@dataclasses` depend on the in-memory ID of the class or class instance. This can cause comparison problems where two
-  dataclass instances that you think should be equal are not evaluated
-  as being equal.
+  classes as well as `@dataclasses` depend on the in-memory ID of the class or class instance. To avoid problems in Streamlit, your custom
+  `__eq__` method should not depend the `type()` of `self` and `other`.
 
 - Alternatively, if you are storing data in `st.session_state`,
   consider defining serialization and deserialization methods like `to_str` and `from_str` for your class, and use these to store class instance data in `st.session_state` rather than storing the class instance itself.
 
-**For classes that are used as resources (database connections, state managers, APIs):**
+**Option 3 - For classes that are used as resources (database connections, state managers, APIs):**
 
 - Consider using the cached singleton pattern: Place a `st.cache_resource` decorator on a `staticmethod` of the class to generate a single
-  instance of the class and cache it for future script re-runs. For example:
+  instance of the class and cache it for future script reruns. For example:
 
   ```python
   import streamlit as st
@@ -105,15 +99,22 @@ Because streamlit re-runs your main script from top to bottom after every user i
     def get_resource_manager(api_url: str):
         return MyResource(api_url)
 
-  # This resource_manager is cached until session_state is cleared.
+  # This resource_manager is cached until session_state is cleared or 5 minutes has elapsed.
   resource_manager = MyResource.get_resource_manager("http://my.resource.io/api/")
   ```
 
+## Explaining the problem with custom classes in Streamlit
+
+So, what kind of pitfalls do these guidlines avoid? To explain that, we need to go into a little technical detail about how Streamlit stores data between each
+page execution.
+
+> TODO A diagram explaining how the internal widget session_state saves the set of values from previous script executions and then returns as the return-value, the user-selected item from among those values on the next script execution.
+
 ## Enums
 
-The [Enum](https://docs.python.org/3/library/enum.html) Python module is a powerful way to define custom symbolic names that can be used as options in an
-`st.multiselect` or `st.selectbox` in place of `str` values. For example, you
-might add the following to your streamlit page:
+The [Enum](https://docs.python.org/3/library/enum.html#enum.Enum) class from the Python standard library is a powerful way to define custom symbolic names
+that can be used as options in an `st.multiselect` or `st.selectbox` in place of `str` values.
+For example, you might add the following to your streamlit page:
 
 ```python
 from enum import Enum
@@ -131,18 +132,27 @@ if selected_colors == {Color.RED, Color.GREEN}:
   st.write("Hooray you found the color YELLOW!")
 ```
 
-There is a hidden problem with this code: the Enum class gets re-defined every
-time this script is run, and this causes the `if` condition to evaluate `False`
-always.
+By default, this Streamlit page will work as it appears it should -- the `Enum` values `Color.RED` and `Color.GREEN` appear in the `st.multiselect` widget,
+and when the user picks both `Color.RED` and `Color.GREEN` they are shown the special message.
 
-> **The technical details**
->
-> In Python, Enum classes with the same class name, members, and values for those members are still considered unique from each other. Due to how Streamlit stores widget values in session state across script re-runs, the enum instances returned by `st.multiselect` in this code example are always members of the class `Color` _defined during the previous script execution_, and thus the `if` statement will _always_ evaluate to `False`.
+However, if you've read the rest of this page you might notice something tricky going on. There is a hidden problem with this code!
+Specifically, the `Enum` class `Color` gets redefined every time this script is run. In Python if you define `Enum` classes with the same class name,
+members, and values for those members, the classes and their members are still considered unique from each other, and cannot be compared.
+This _should_ cause `if` condition to always evaluate `False`, since the `Color` values returned by `st.multiselect` would be of a different class
+than the `Color` defined in each script execution.
 
-In order to avoid this, Streamlit tries to recognize when you are using
+To solve this, we have to have some way of making sure the `Color` values returned by `st.multiselect` are of the same `type()`.
+While this is easily accomplished if you follow the general guidelines above and put your `Color` Enum in a separate python file, sometimes you may not
+want to do all that just to store one small class that represents a few values. That's where the enabled-by-default `enumCoercion` configuration option comes in.
+
+### Understanding the `enumCoercion` configuration option
+
+When enabled (the default configuration) Streamlit tries to recognize when you are using
 an element like `st.multiselect` or `st.selectbox` with a set of Enum members as
 options. If it detects this, it will then convert the Enum values returned by the
 widget to members of the class defined in the latest script execution. This is something we call automatic Enum coercion.
+
+> TODO: Diagram similar to the one above but showing the EnumCoercion process.
 
 This behavior is [configurable](https://docs.streamlit.io/library/advanced-features/configuration) via the `enumCoercion` setting in your Streamlit
 `config.toml` file. It is enabled by default, and may be disabled or set to a stricter set of matching criteria.
