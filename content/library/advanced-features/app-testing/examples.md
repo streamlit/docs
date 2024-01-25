@@ -159,8 +159,8 @@ jobs:
   streamlit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - uses: streamlit/streamlit-app-action@v0.0.3

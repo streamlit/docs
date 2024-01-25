@@ -40,8 +40,8 @@ jobs:
   streamlit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - uses: streamlit/streamlit-app-action@v0.0.3
@@ -70,8 +70,8 @@ jobs:
   streamlit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 ```
@@ -132,22 +132,26 @@ You may want to add a pre-commit hook like [ruff-pre-commit](https://github.com/
 
 If tests fail, the CI workflow will fail and you will see the results in GitHub. Console logs are available by clicking into the workflow run [as described here](https://docs.github.com/en/actions/using-workflows/about-workflows#viewing-the-activity-for-a-workflow-run).
 
+![](/images/test-results-logs.png)
+
 For a higher level test results summary, you can use [pytest-results-action](https://github.com/marketplace/actions/pytest-results-actions). You can combine this with Streamlit App Action as follows:
 
 ```yaml
 # ... setup as above ...
-- uses: streamlit/streamlit-app-action@v0.0.1
+- uses: streamlit/streamlit-app-action@v0.0.3
   with:
     app-path: streamlit_app.py
     # Add pytest-args to output junit xml
     pytest-args: -v --junit-xml=test-results.xml
 - if: always()
-  uses: pmeier/pytest-results-action@main
+  uses: pmeier/pytest-results-action@v0.6.0
   with:
     path: test-results.xml
     summary: true
     display-options: fEX
 ```
+
+![](/images/test-results-summary.png)
 
 ## Writing your own actions
 
