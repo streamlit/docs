@@ -461,6 +461,8 @@ site_menu:
     url: /library/advanced-features/app-testing/get-started
   - category: Streamlit library / Advanced features / App testing / Beyond the basics
     url: /library/advanced-features/app-testing/beyond-the-basics
+  - category: Streamlit library / Advanced features / App testing / Automate your tests
+    url: /library/advanced-features/app-testing/automate-tests
   - category: Streamlit library / Advanced features / App testing / Example
     url: /library/advanced-features/app-testing/examples
   - category: Streamlit library / Advanced features / App testing / Cheat sheet
