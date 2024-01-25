@@ -108,7 +108,9 @@ We begin by covering some general-purpose guidelines that can be followed for al
 So, what kind of pitfalls do these guidlines avoid? To explain that, we need to go into a little technical detail about how Streamlit stores data between each
 page execution.
 
-> TODO A diagram explaining how the internal widget session_state saves the set of values from previous script executions and then returns as the return-value, the user-selected item from among those values on the next script execution.
+![A diagram showing the reason custom dataclasses can have problems when defined in a streamlit script](/img/custom_class_redefinition_flowchart.png)
+
+<!-- TODO A diagram explaining how the internal widget session_state saves the set of values from previous script executions and then returns as the return-value, the user-selected item from among those values on the next script execution. -->
 
 ## Enums
 
