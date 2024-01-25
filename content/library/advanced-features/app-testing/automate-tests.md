@@ -159,4 +159,4 @@ The above is just provided as an example, and Streamlit App Action is a quick wa
 
 ## Working example
 
-As a final working example example, take a look at our [`streamlit/llm-examples`](https://github.com/streamlit/llm-examples) repo. Within `.github/workflows`, a script creates a virtual Python environment and [runs `pytest`](https://github.com/streamlit/llm-examples/blob/bbcc2667cec2a347b34ab3420b57d6ecb42a3188/.github/workflows/python-app.yml#L38).
+As a final working example example, take a look at our [`streamlit/llm-examples` Actions](https://github.com/streamlit/llm-examples/actions), defined in [this workflow file](https://github.com/streamlit/llm-examples/blob/main/.github/workflows/app-testing.yml).
