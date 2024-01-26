@@ -7,7 +7,7 @@ slug: /library/advanced-features/app-testing/automate-tests
 
 One of the key benefits of app testing is that tests can be automated using Continuous Integration (CI). By running tests automatically during development, you can validate that changes to your app don't break existing functionality. You can verify app code as you commit, catch bugs early, and prevent accidental breaks before deployment.
 
-There are many popular CI tools including GitHub Actions, Jenkins, GitLab CI, Azure DevOps, and Circle CI. Streamlit app testing will integrate easily with any of them similar to any other python tests.
+There are many popular CI tools, including GitHub Actions, Jenkins, GitLab CI, Azure DevOps, and Circle CI. Streamlit app testing will integrate easily with any of them similar to any other Python tests.
 
 ## GitHub Actions
 
@@ -21,7 +21,7 @@ Since many Streamlit apps (and all Community Cloud apps) are built in GitHub, th
 
 [Streamlit App Action](https://github.com/marketplace/actions/streamlit-app-action) provides an easy way to add automated testing to your app repository in GitHub. It also includes basic smoke testing for each page of your app without you writing any test code.
 
-To install Streamlit App Action, add a workflow `.yml` file to the `.github/workflows/` folder in your repository. For example:
+To install Streamlit App Action, add a workflow `.yml` file to your repository's `.github/workflows/` folder. For example:
 
 ```yaml
 # .github/workflows/streamlit-app.yml
@@ -78,8 +78,8 @@ jobs:
 
 The workflow has a `streamlit` job that executes a series of steps. The job runs on a Docker container with the `ubuntu-latest` image.
 
-- `actions/checkout@v4` checks out the current repository code from GitHub and copies the code to the job environment
-- `actions/setup-python@v5` installs Python version 3.11
+- `actions/checkout@v4` checks out the current repository code from GitHub and copies the code to the job environment.
+- `actions/setup-python@v5` installs Python version 3.11.
 
 ### Running the app tests
 
@@ -91,27 +91,27 @@ The workflow has a `streamlit` job that executes a series of steps. The job runs
 
 Streamlit App Action does the following:
 
-- Install `pytest` and install any dependencies specified in `requirements.txt`
-- Run the built-in app smoke tests
-- Run any other python tests found in the repository
+- Install `pytest` and install any dependencies specified in `requirements.txt`.
+- Run the built-in app smoke tests.
+- Run any other Python tests found in the repository.
 
 <Tip>
 
-If your app doesn't include use `requirements.txt` in the repository root directory, you will need to add a step to install dependencies with your chosen package manager prior to running Streamlit App Action
+If your app doesn't include `requirements.txt` in the repository root directory, you will need to add a step to install dependencies with your chosen package manager before running Streamlit App Action.
 
 </Tip>
 
 The built-in smoke tests have the following behavior:
 
-- Run the app specified at `app-path` as an AppTest
-- Validate that it completes successfully and does not result in an uncaught exception
-- Do the same for any additional `pages/` of the app relative to `app-path`
+- Run the app specified at `app-path` as an AppTest.
+- Validate that it completes successfully and does not result in an uncaught exception.
+- Do the same for any additional `pages/` of the app relative to `app-path`.
 
-If for some reason you want to run Streamlit App Action without the smoke tests, you can set `skip-smoke: true`.
+If you want to run Streamlit App Action without the smoke tests, you can set `skip-smoke: true`.
 
 ### Linting your app code
 
-Linting is the automated checking of your source code for programmatic and stylistic errors. This is done by using a lint tool (otherwise known as linter). Linting is important to reduce errors and improve the overall quality of your code, especially for repositories with multiple developers or public repositories.
+Linting is the automated checking of source code for programmatic and stylistic errors. This is done by using a lint tool (otherwise known as a linter). Linting is important to reduce errors and improve the overall quality of your code, especially for repositories with multiple developers or public repositories.
 
 You can add automated linting with [Ruff](https://docs.astral.sh/ruff/) by passing `ruff: true` to Streamlit App Action.
 
@@ -134,7 +134,7 @@ If tests fail, the CI workflow will fail and you will see the results in GitHub.
 
 ![](/images/test-results-logs.png)
 
-For a higher level test results summary, you can use [pytest-results-action](https://github.com/marketplace/actions/pytest-results-actions). You can combine this with Streamlit App Action as follows:
+For higher-level test results, you can use [pytest-results-action](https://github.com/marketplace/actions/pytest-results-actions). You can combine this with Streamlit App Action as follows:
 
 ```yaml
 # ... setup as above ...
@@ -155,7 +155,7 @@ For a higher level test results summary, you can use [pytest-results-action](htt
 
 ## Writing your own actions
 
-The above is just provided as an example, and Streamlit App Action is a quick way to get started. Once you learn the basics of your CI tool of choice, it's easy to build and customize your own automated workflows. This is a great way to improve your overall productivity as a developer and the quality of your apps.
+The above is just provided as an example. Streamlit App Action is a quick way to get started. Once you learn the basics of your CI tool of choice, it's easy to build and customize your own automated workflows. This is a great way to improve your overall productivity as a developer and the quality of your apps.
 
 ## Working example
 
