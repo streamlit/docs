@@ -24,6 +24,12 @@ The provided class, AppTest, simulates a running app and provides methods to set
     >explains how to work with secrets and Session State within app tests, including how to test multipage apps.</InlineCallout>
     <InlineCallout
         color="indigo-70"
+        icon="play_circle"
+        bold="Automate your tests"
+        href="/library/advanced-features/app-testing/automate-tests"
+    >with Continuous Integration (CI) to validate app changes over time.</InlineCallout>
+    <InlineCallout
+        color="indigo-70"
         icon="quiz"
         bold="Example"
         href="/library/advanced-features/app-testing/examples"
