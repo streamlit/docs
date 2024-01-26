@@ -78,8 +78,8 @@ jobs:
 
 The workflow has a `streamlit` job that executes a series of steps. The job runs on a Docker container with the `ubuntu-latest` image.
 
-- `actions/checkout@v3` checks out the current repository code from GitHub and copies the code to the job environment
-- `actions/setup-python@v3` installs Python version 3.11
+- `actions/checkout@v4` checks out the current repository code from GitHub and copies the code to the job environment
+- `actions/setup-python@v5` installs Python version 3.11
 
 ### Running the app tests
 
