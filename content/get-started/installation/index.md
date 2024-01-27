@@ -52,4 +52,13 @@ of installing Python and setting up an environment.
 
 </RefCard>
 
+<RefCard href="/get-started/installation/streamlit-in-snowflake" size="half">
+
+<h5>Option 4: I need something secure, controlled, and in the cloud</h5>
+
+Use Streamlit in Snowflake to code your apps in the cloud, right alongside your
+data with role-based access controls.
+
+</RefCard>
+
 </TileContainer>

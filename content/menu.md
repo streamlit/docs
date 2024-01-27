@@ -12,6 +12,8 @@ site_menu:
     url: /get-started/installation/anaconda-distribution
   - category: Get started / Installation / Use GitHub Codespaces
     url: /get-started/installation/community-cloud
+  - category: Get started / Installation / Use Snowflake
+    url: /get-started/installation/streamlit-in-snowflake
   - category: Get started / Fundamentals
     url: /get-started/fundamentals
   - category: Get started / Fundamentals / Main concepts
