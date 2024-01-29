@@ -1,7 +1,7 @@
 import streamlit as st
 from menu import menu
 
-if "role" not in st.session_state:
+if "role" not in st.session_state or st.session_state.role is None:
     st.switch_page("app.py")
 menu()
 
