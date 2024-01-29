@@ -113,3 +113,4 @@ node_modules/
 out/
 public/pdf/pages/
 .idea/
+python/api-examples-source/.streamlit/secrets.toml
