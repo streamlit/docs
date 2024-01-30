@@ -27,6 +27,3 @@ def stream_data():
 
 if st.button("Stream data"):
     st.write_stream(stream_data)
-    st.title("Hi inside the button")
-
-st.title("Hi outside the button")
