@@ -1,6 +1,8 @@
 import streamlit as st
 from menu import menu
 
+st.set_option("client.showSidebarNavigation", False)
+
 if "role" in st.session_state:
     st.session_state._role = st.session_state.role
 else:
