@@ -14,7 +14,7 @@ operating system, and how to create your first Streamlit app!
         icon="downloading"
         bold="Installation"
         href="/get-started/installation"
-    >helps you set up your development environment. Walk through installing Streamlit on Windows, macOS, or Linux. Alternatively, code right in your browser with GitHub Codespaces.</InlineCallout>
+    >helps you set up your development environment. Walk through installing Streamlit on Windows, macOS, or Linux. Alternatively, code right in your browser with GitHub Codespaces or Streamlit in Snowflake.</InlineCallout>
     <InlineCallout
         color="orange-70"
         icon="description"

@@ -12,6 +12,8 @@ site_menu:
     url: /get-started/installation/anaconda-distribution
   - category: Get started / Installation / Use GitHub Codespaces
     url: /get-started/installation/community-cloud
+  - category: Get started / Installation / Use Snowflake
+    url: /get-started/installation/streamlit-in-snowflake
   - category: Get started / Fundamentals
     url: /get-started/fundamentals
   - category: Get started / Fundamentals / Main concepts
@@ -464,6 +466,8 @@ site_menu:
     url: /library/advanced-features/app-testing/get-started
   - category: Streamlit library / Advanced features / App testing / Beyond the basics
     url: /library/advanced-features/app-testing/beyond-the-basics
+  - category: Streamlit library / Advanced features / App testing / Automate your tests
+    url: /library/advanced-features/app-testing/automate-tests
   - category: Streamlit library / Advanced features / App testing / Example
     url: /library/advanced-features/app-testing/examples
   - category: Streamlit library / Advanced features / App testing / Cheat sheet
