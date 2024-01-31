@@ -189,6 +189,9 @@ site_menu:
   - category: Streamlit library / API reference / Input widgets / st.link_button
     url: /library/api-reference/widgets/st.link_button
     isVersioned: true
+  - category: Streamlit library / API reference / Input widgets / st.page_link
+    url: /library/api-reference/widgets/st.page_link
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.checkbox
     url: /library/api-reference/widgets/st.checkbox
     isVersioned: true
@@ -321,6 +324,9 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / API reference / Control flow / st.form_submit_button
     url: /library/api-reference/control-flow/st.form_submit_button
+    isVersioned: true
+  - category: Streamlit library / API reference / Control flow / st.page_link
+    url: https://docs.streamlit.io/library/api-reference/widgets/st.page_link
     isVersioned: true
   - category: Streamlit library / API reference / Control flow / st.rerun
     url: /library/api-reference/control-flow/st.rerun
