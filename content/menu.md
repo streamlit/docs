@@ -41,6 +41,8 @@ site_menu:
     url: /library/api-reference/write-magic
   - category: Streamlit library / API reference / Write and magic / st.write
     url: /library/api-reference/write-magic/st.write
+  - category: Streamlit library / API reference / Write and magic / st.write_stream
+    url: /library/api-reference/write-magic/st.write_stream
     isVersioned: true
   - category: Streamlit library / API reference / Write and magic / magic
     url: /library/api-reference/write-magic/magic
@@ -268,11 +270,17 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / API reference / Chat elements
     url: /library/api-reference/chat
+  - category: Streamlit library / API reference / Chat elements / st.chat_input
+    url: /library/api-reference/chat/st.chat_input
+    isVersioned: true
   - category: Streamlit library / API reference / Chat elements / st.chat_message
     url: /library/api-reference/chat/st.chat_message
     isVersioned: true
-  - category: Streamlit library / API reference / Chat elements / st.chat_input
-    url: /library/api-reference/chat/st.chat_input
+  - category: Streamlit library / API reference / Chat elements / st.status
+    url: https://docs.streamlit.io/library/api-reference/status/st.status
+    isVersioned: true
+  - category: Streamlit library / API reference / Chat elements / st.write_stream
+    url: https://docs.streamlit.io/library/api-reference/write-magic/st.write_stream
     isVersioned: true
   - category: Streamlit library / API reference / Status elements
     url: /library/api-reference/status
