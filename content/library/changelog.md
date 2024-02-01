@@ -23,7 +23,7 @@ _Release date: February 1, 2024_
 
 **Highlights**
 
-- 🔗 Introducing `st.page_link`! Now you can build your own, custom navigation menus for your multipage apps. Check out [our docs](/library/api-reference/widgets/st.page_link) to see how.
+- 🔗 Introducing `st.page_link`! Now, you can build custom navigation menus for your multipage apps. Check out [our docs](/library/api-reference/widgets/st.page_link) to see how.
 - 💦 Announcing `st.write_stream` to conveniently handle generators and streamed responses. Check out [our docs](/library/api-reference/write-magic/st.write_stream) to see how making chat apps just got easier.
 
 **Notable Changes**
