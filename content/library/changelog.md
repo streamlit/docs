@@ -17,6 +17,10 @@ pip install --upgrade streamlit
 
 </Tip>
 
+## What's new?
+
+<YouTube videoId="0TSXM-BGqHU" />
+
 ## **Version 1.31.0**
 
 _Release date: February 1, 2024_
