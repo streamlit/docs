@@ -30,6 +30,18 @@ st.write(my_mpl_figure)
 ```
 
 </RefCard>
+<RefCard href="/library/api-reference/write-magic/st.write_stream">
+
+<h4>st.write_stream</h4>
+
+Write generators or streams to the app with a typewriter effect.
+
+```python
+st.write_stream(my_generator)
+st.write_stream(my_llm_stream)
+```
+
+</RefCard>
 <RefCard href="/library/api-reference/write-magic/magic">
 
 <h4>Magic</h4>
@@ -769,6 +781,20 @@ st.link_button("Go to gallery", url)
 ```
 
 </RefCard>
+<RefCard href="/library/api-reference/widgets/st.page_link">
+
+<Image pure alt="screenshot" src="/images/api/page_link.jpg" />
+
+<h4>Page link</h4>
+
+Display a link to another page in a multipage app.
+
+```python
+st.page_link("app.py", label="Home", icon="🏠")
+st.page_link("pages/profile.py", label="My profile")
+```
+
+</RefCard>
 <RefCard href="/library/api-reference/widgets/st.checkbox">
 
 <Image pure alt="screenshot" src="/images/api/checkbox.jpg" />
@@ -1433,6 +1459,21 @@ Streamlit provides a few commands to help you build conversational apps. These c
 `st.chat_message` lets you insert a chat message container into the app so you can display messages from the user or the app. Chat containers can contain other Streamlit elements, including charts, tables, text, and more. `st.chat_input` lets you display a chat input widget so the user can type in a message.
 
 <TileContainer>
+<RefCard href="/library/api-reference/chat/st.chat_input">
+
+<Image pure alt="screenshot" src="/images/api/chat_input.jpg" />
+
+<h4>Chat input</h4>
+
+Display a chat input widget.
+
+```python
+prompt = st.chat_input("Say something")
+if prompt:
+    st.write(f"The user has sent: {prompt}")
+```
+
+</RefCard>
 <RefCard href="/library/api-reference/chat/st.chat_message">
 
 <Image pure alt="screenshot" src="/images/api/chat_message.jpg" />
@@ -1449,21 +1490,6 @@ with st.chat_message("user"):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/chat/st.chat_input">
-
-<Image pure alt="screenshot" src="/images/api/chat_input.jpg" />
-
-<h4>Chat input</h4>
-
-Display a chat input widget.
-
-```python
-prompt = st.chat_input("Say something")
-if prompt:
-    st.write(f"The user has sent: {prompt}")
-```
-
-</RefCard>
 <RefCard href="/library/api-reference/status/st.status">
 
 <Image pure alt="screenshot" src="/images/api/status.jpg" />
@@ -1475,6 +1501,18 @@ Display output of long-running tasks in a container.
 ```python
 with st.status('Running'):
   do_something_slow()
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/write-magic/st.write_stream">
+
+<h4>st.write_stream</h4>
+
+Write generators or streams to the app with a typewriter effect.
+
+```python
+st.write_stream(my_generator)
+st.write_stream(my_llm_stream)
 ```
 
 </RefCard>
