@@ -14,7 +14,7 @@ Create a new working directory in your development environment. We'll call this 
 
 ## Summary
 
-In this example, we'll build a dynamic navigation menu for a multipage app that depends on the current user's role. We've abstracted away the use of username and creditials and instead use a selectbox on the main page of the app to select a current role. This role will be saved in Session State. The app will have a main page (`app.py`) which serves as the "Login page." There will be three additional pages which will be hidden or accessible depending on the current user's role. The file structure will be as follows:
+In this example, we'll build a dynamic navigation menu for a multipage app that depends on the current user's role. We've abstracted away the use of username and creditials to simplify the example. Instead, we'll use a selectbox on the main page of the app to switch between roles. Session State will carry this selection between pages. The app will have a main page (`app.py`) which serves as the abstracted log-in page. There will be three additional pages which will be hidden or accessible, depending on the current role. The file structure will be as follows:
 
 ```
 your-repository/
@@ -32,16 +32,18 @@ Here's a look at what we'll build:
 
 <Cloud src="https://doc-custom-navigation.streamlit.app/?embed=true" height="400" />
 
-## Hide the default sidebar navigation
+## Build the example
 
-When creating a custom navigation menu, you need to hide the default sidebar navigation using `client.showSidebarNavigation`. Add the following `.streamlit/config.toml` file to your working directory as shown in the above file structure:
+### Hide the default sidebar navigation
+
+When creating a custom navigation menu, you need to hide the default sidebar navigation using `client.showSidebarNavigation`. Add the following `.streamlit/config.toml` file to your working directory:
 
 ```toml
 [client]
 showSidebarNavigation = false
 ```
 
-## Build a menu function
+### Create a menu function
 
 You can write different menu logic for different pages or you can create a single menu function to call on multiple pages. In this example, we'll use the same menu logic on all pages, including a redirect to the main page when a user isn't logged in. We'll build a few helper functions to do this.
 
@@ -52,7 +54,7 @@ You can write different menu logic for different pages or you can create a singl
 
 We'll call `menu()` on the main page and call `menu_with_redirect()` on the other pages. `st.session_state.role` will store the current selected role. If this value does not exist or is set to `None`, then the user is not logged in. Otherwise, it will hold the user's role as a string: `"user"`, `"admin"`, or `"super-admin"`.
 
-Add the following `menu.py` file to your working directory:
+Add the following `menu.py` file to your working directory. (We'll describe the functions in more detail below.)
 
 ```python
 import streamlit as st
@@ -107,7 +109,7 @@ The first two pages in the navigation menu are available to all users. Since we 
     st.sidebar.page_link("pages/user.py", label="Your profile")
 ```
 
-We only want to show the next two pages to admins. Furthermore, we've chosen to disable&mdash;but not hide&mdash;the super-admin page when the admin user is not a super-admin. We do this using the `disabled` parameter.
+We only want to show the next two pages to admins. Furthermore, we've chosen to disable&mdash;but not hide&mdash;the super-admin page when the admin user is not a super-admin. We do this using the `disabled` parameter. (`disabled=True` when the role is not `"super-admin"`.)
 
 ```
     if st.session_state.role in ["admin", "super-admin"]:
@@ -119,7 +121,7 @@ We only want to show the next two pages to admins. Furthermore, we've chosen to 
         )
 ```
 
-It's that simple! `unauthenticated_menu()` will only show a link to the main page of the app with the label "Log in." `menu()` does a simple inspection of `st.session_state.role` to switch between the two helper functions. Finally, `menu_with_redirect()` just extends `menu()` to include a redirect to `app.py` if the user isn't logged in before rendering the menu.
+It's that simple! `unauthenticated_menu()` will only show a link to the main page of the app with the label "Log in." `menu()` does a simple inspection of `st.session_state.role` to switch between the two menu-rendering functions. Finally, `menu_with_redirect()` extends `menu()` to redirect users to `app.py` if they aren't logged in.
 
 <Tip>
 
@@ -127,9 +129,9 @@ If you want to include emojis in your page labels, you can use the `icon` parame
 
 </Tip>
 
-## Create the main file of your app
+### Create the main file of your app
 
-The main `app.py` file will serve as a pseudo, log-in page. The user can choose a role from the `st.selectbox` widget. A few extra bits of logic will save that role into Session State to preserve it while navigating between pages.
+The main `app.py` file will serve as a pseudo-login page. The user can choose a role from the `st.selectbox` widget. A few bits of logic will save that role into Session State to preserve it while navigating between pages&mdash;even when returning to `app.py`.
 
 Add the following `app.py` file to your working directory:
 
@@ -138,11 +140,11 @@ import streamlit as st
 from menu import menu
 
 # Initialize st.session_state.role to None
-if "role" in st.session_state:
-    st.session_state._role = st.session_state.role
-else:
+if "role" not in st.session_state:
     st.session_state.role = None
 
+# Retrieve the role from Session State to initialize the widget
+st.session_state._role = st.session_state.role
 
 def set_role():
     # Callback function to save the role selection to Session State
@@ -159,7 +161,7 @@ st.selectbox(
 menu() # Render the dynamic menu!
 ```
 
-## Add other pages
+### Add other pages to your app
 
 Add the following `pages/user.py` file:
 
@@ -174,7 +176,7 @@ st.title("This page is available to all users")
 st.markdown(f"You are currently logged with the role of {st.session_state.role}.")
 ```
 
-Session State resets if a user manually navigates to a page by URL. Therefore, if a user tries to access an admin page in this example, Session State will be cleared, and they will be redirected to the main page as a unauthenicated user. However, it's still good practice to include a check of the role at the top of the page. You can use `st.stop` to halt an app if a role is not whitelisted.
+Session State resets if a user manually navigates to a page by URL. Therefore, if a user tries to access an admin page in this example, Session State will be cleared, and they will be redirected to the main page as an unauthenicated user. However, it's still good practice to include a check of the role at the top of each restricted page. You can use `st.stop` to halt an app if a role is not whitelisted.
 
 `pages/admin.py`:
 
@@ -212,4 +214,4 @@ st.title("This page is available to super-admins")
 st.markdown(f"You are currently logged with the role of {st.session_state.role}.")
 ```
 
-As noted above, the redirect in `menu_with_redirect()` will prevent a user from ever seeing the warning messages on the admin pages. If you want to see it for yourself, just add another `st.page_link("pages/admin.py")` button at the bottom of `app.py` so you can navigate to the admin page after selecting the "user" role. 😉
+As noted above, the redirect in `menu_with_redirect()` will prevent a user from ever seeing the warning messages on the admin pages. If you want to see the warning, just add another `st.page_link("pages/admin.py")` button at the bottom of `app.py` so you can navigate to the admin page after selecting the "user" role. 😉
