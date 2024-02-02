@@ -17,6 +17,36 @@ pip install --upgrade streamlit
 
 </Tip>
 
+## What's new?
+
+<YouTube videoId="0TSXM-BGqHU" />
+
+## **Version 1.31.0**
+
+_Release date: February 1, 2024_
+
+**Highlights**
+
+- 🔗 Introducing `st.page_link`! Now, you can build custom navigation menus for your multipage apps. Check out [our docs](/library/api-reference/widgets/st.page_link) to see how.
+- 💦 Announcing `st.write_stream` to conveniently handle generators and streamed responses. Check out [our docs](/library/api-reference/write-magic/st.write_stream) to see how making chat apps just got easier.
+
+**Notable Changes**
+
+- 📝 `st.chat_input` can be used inline and placed anywhere in the app. You can also have multiple `st.chat_input` widgets on a page ([#7896](https://github.com/streamlit/streamlit/pull/7896)).
+
+**Other Changes**
+
+- 🧹 Internal refactoring and cleanup ([#7980](https://github.com/streamlit/streamlit/pull/7980)). Thanks, [whitphx](https://github.com/whitphx)!
+- ❄️ Bug fix: Snowpark is now an optional dependency for `SnowflakeConnection` ([#7919](https://github.com/streamlit/streamlit/pull/7919)).
+- 🕷️ Bug fix: The watchdog suggestion is disabled when `server.fileWatcherType` is set to `none` or `poll` ([#8024](https://github.com/streamlit/streamlit/pull/8024), [#7999](https://github.com/streamlit/streamlit/issues/7999)).
+- 🐞 Bug fix: Required columns can be hidden when not using `st.data_editor` with dynamic rows ([#7996](https://github.com/streamlit/streamlit/pull/7996), [#7991](https://github.com/streamlit/streamlit/issues/7991)).
+- 🐝 Bug fix: New period types are supported for pandas 2.2.0 ([#7988](https://github.com/streamlit/streamlit/pull/7988)).
+- 🐜 Bug fix: Custom components receive only the app's origin and path to avoid reloading components when query parameters change ([#7951](https://github.com/streamlit/streamlit/pull/7951), [#7503](https://github.com/streamlit/streamlit/issues/7503)). Thanks, [eric-skydio](https://github.com/eric-skydio)!
+- 🪲 Bug fix: `st.progress` won't raise an exception when given a value above 1.0 due to float precision ([#7953](https://github.com/streamlit/streamlit/pull/7953), [#5517](https://github.com/streamlit/streamlit/issues/5517)). Thanks, [notiona](https://github.com/notiona)!
+- 📚 Streamlit supports`importlib-metadata` version 7 ([#7925](https://github.com/streamlit/streamlit/pull/7925)). Thanks, [elgalu](https://github.com/elgalu)!
+- 🐛 Bug fix: `AppTest` correctly sees widgets inside containers ([#7923](https://github.com/streamlit/streamlit/pull/7923), [#7711](https://github.com/streamlit/streamlit/issues/7711)).
+- 💿 Custom components no longer accumulate style elements when re-rendered for better performance ([#7914](https://github.com/streamlit/streamlit/pull/7914)). Thanks, [Tom-Julux](https://github.com/Tom-Julux)!
+
 ## **Version 1.30.0**
 
 _Release date: January 11, 2024_

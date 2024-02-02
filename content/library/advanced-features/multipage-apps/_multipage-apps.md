@@ -1,6 +1,7 @@
 ---
 title: Multipage apps
 slug: /library/advanced-features/multipage-apps
+description: Streamlit provides a simple way to create multipage apps.
 ---
 
 # Multipage apps
