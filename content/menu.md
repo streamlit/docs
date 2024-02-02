@@ -455,6 +455,8 @@ site_menu:
     url: /library/advanced-features/forms
   - category: Streamlit library / Advanced features / Multipage apps
     url: /library/advanced-features/multipage-apps
+  - category: Streamlit library / Advanced features / Multipage apps / Custom navigation
+    url: /library/advanced-features/multipage-apps/custom-navigation
   - category: Streamlit library / Advanced features / Add statefulness to apps
     url: /library/advanced-features/session-state
   - category: Streamlit library / Advanced features / Widget behavior

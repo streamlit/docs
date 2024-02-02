@@ -1,12 +1,12 @@
 import streamlit as st
-from menu import menu
+from menu import menu_with_redirect
 
 st.set_option("client.showSidebarNavigation", False)
 
-if "role" not in st.session_state or st.session_state.role is None:
-    st.switch_page("app.py")
-menu()
+# Redirect to app.py if not logged in, otherwise show the navigation menu
+menu_with_redirect()
 
+# Verify the user's role
 if st.session_state.role not in ["super-admin"]:
     st.warning("You do not have permission to view this page.")
     st.stop()
