@@ -11,6 +11,10 @@
   @apply font-bold;
 }
 
+.HeaderContainer code {
+  @apply ml-1 mr-1;
+}
+
 h1.HeaderContainer {
   @apply leading-tight;
 }
