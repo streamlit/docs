@@ -12,7 +12,7 @@
 }
 
 .HeaderContainer code {
-  @apply ml-2 mr-2;
+  @apply mx-2;
 }
 
 h1.HeaderContainer {
