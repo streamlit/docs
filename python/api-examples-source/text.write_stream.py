@@ -11,7 +11,7 @@ nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 
 def stream_data():
-    for word in _LOREM_IPSUM.split():
+    for word in _LOREM_IPSUM.split(" "):
         yield word + " "
         time.sleep(0.02)
 
