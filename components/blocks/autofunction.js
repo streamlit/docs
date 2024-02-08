@@ -160,6 +160,7 @@ const Autofunction = ({
 
   const footers = [];
   const args = [];
+  const kwargs = [];
   const returns = [];
   const versionList = reverse(versions.slice());
   let functionObject;
@@ -305,39 +306,26 @@ const Autofunction = ({
   for (const index in functionObject.args) {
     const row = {};
     const param = functionObject.args[index];
-    const isDeprecated =
-      param.deprecated && param.deprecated.deprecated === true;
-    const deprecatedMarkup = isDeprecated
-      ? `
-      <div class="${styles.DeprecatedContent}">
-        <i class="material-icons-sharp">
-          delete
-        </i>
-        ${param.deprecated.deprecatedText}
-      </div>`
-      : "";
     const description = param.description
       ? param.description
       : `<p>No description</p> `;
 
     if (param.is_optional) {
       row["title"] = `
-          <p class="${isDeprecated ? "deprecated" : ""}">
+          <p>
             ${param.name}
             <span class='italic code'>(${param.type_name})</span>
           </p> `;
       row["body"] = `
-        ${deprecatedMarkup}
         ${description}
       `;
     } else {
       row["title"] = `
-          <p class="${isDeprecated ? "deprecated" : ""}">
+          <p>
             <span class='bold'>${param.name}</span>
             <span class='italic code'>(${param.type_name})</span>
           </p>`;
       row["body"] = `
-        ${deprecatedMarkup}
         ${description}
       `;
     }
@@ -346,6 +334,8 @@ const Autofunction = ({
     // individually parsed properties; using "Parameters" is a workaround.
     if (isClass) {
       propertiesRows.push(row);
+    } else if (param.is_kwarg_only) {
+      kwargs.push(row);
     } else {
       args.push(row);
     }
@@ -364,31 +354,15 @@ const Autofunction = ({
     const type_name = method.signature
       ? method.signature.match(/\((.*)\)/)[1]
       : "";
-    const isDeprecated =
-      method.deprecated && method.deprecated.deprecated === true;
-    const deprecatedMarkup = isDeprecated
-      ? `
-    <div class="${styles.DeprecatedContent}">
-      <i class="material-icons-sharp">
-        delete
-      </i>
-      ${method.deprecated.deprecatedText}
-    </div>`
-      : "";
     const description = method.description
       ? method.description
       : `<p>No description</p> `;
     // Add a link to the method by appending the method name to the current URL using slug.slice();
     row["title"] = `
-    <p class="${isDeprecated ? "deprecated" : ""}">
-      <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
-        method.name
-      }</span></a><span class='italic code'>(${type_name})</span>
+    <p>
+      <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${method.name}</span></a><span class='italic code'>(${type_name})</span>
     </p>`;
-    row["body"] = `
-    ${deprecatedMarkup}
-    ${description}
-  `;
+    row["body"] = `${description}`;
 
     methodRows.push(row);
   }
@@ -401,31 +375,15 @@ const Autofunction = ({
       .toLowerCase()
       .replace("streamlit", "st")
       .replace(/[.,\/#!$%\^&\*;:{}=\-`~()]/g, "");
-    const isDeprecated =
-      property.deprecated && property.deprecated.deprecated === true;
-    const deprecatedMarkup = isDeprecated
-      ? `
-    <div class="${styles.DeprecatedContent}">
-      <i class="material-icons-sharp">
-        delete
-      </i>
-      ${property.deprecated.deprecatedText}
-    </div>`
-      : "";
     const description = property.description
       ? property.description
       : `<p>No description</p> `;
     // Add a link to the method by appending the method name to the current URL using slug.slice();
     row["title"] = `
-    <p class="${isDeprecated ? "deprecated" : ""}">
-      <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
-        property.name
-      }</span>
+    <p>
+      <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${property.name}</span>
     </p>`;
-    row["body"] = `
-    ${deprecatedMarkup}
-    ${description}
-  `;
+    row["body"] = `${description}`;
     propertiesRows.push(row);
   }
 
@@ -467,11 +425,13 @@ const Autofunction = ({
       body={args.length ? { title: "Parameters" } : null}
       bodyRows={args.length ? args : null}
       foot={[
+        kwargs.length ? { title: "Keyword-only parameters" } : null,
         methods.length ? { title: "Methods" } : null,
         returns.length ? { title: "Returns" } : null,
         propertiesRows.length ? { title: "Attributes" } : null,
       ].filter((section) => section !== null)}
       footRows={[
+        kwargs.length ? kwargs : null,
         methods.length ? methodRows : null,
         returns.length ? returns : null,
         propertiesRows.length ? propertiesRows : null,
