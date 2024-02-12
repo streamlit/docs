@@ -79,8 +79,7 @@ streamlit run my_app.py --server.enableCORS=false
 ```
 
 If this fixes your issue, **you should re-enable CORS protection** and then set
-`browser.serverPort` and `browser.serverAddress` to the URL and port of your
-Streamlit app.
+`browser.serverAddress` to the URL of your Streamlit app.
 
 If the issue persists, try disabling websocket compression by running Streamlit with the
 `--server.enableWebsocketCompression` flag set to `false`
@@ -110,6 +109,10 @@ with the `--server.enableXsrfProtection` flag set to `false`:
 streamlit run my_app.py --server.enableXsrfProtection=false
 ```
 
-If this fixes your issue, **you should re-enable XSRF protection** and then
-configure your app to use the same secret across every replica by setting the
-`server.cookieSecret` config option to the same hard-to-guess string everywhere.
+If this fixes your issue, **you should re-enable XSRF protection** and try one
+or both of the following:
+
+- Set `browser.serverAddress` and `browser.serverPort` to the URL and port of
+  your Streamlit app.
+- Configure your app to use the same secret across every replica by setting the
+  `server.cookieSecret` config option to the same hard-to-guess string everywhere.
