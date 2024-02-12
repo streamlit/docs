@@ -271,6 +271,7 @@ runOnSave = false
 address =
 
 # The port where the server will listen for browser connections.
+# Don't use port 3000 which is reserved for internal development.
 # Default: 8501
 port = 8501
 
@@ -350,9 +351,12 @@ gatherUsageStats = true
 # Port where users should point their browsers in order to connect to the
 # app.
 # This is used to:
-# - Set the correct URL for CORS and XSRF protection purposes.
-# - Show the URL on the terminal
-# - Open the browser
+# - Set the correct URL for XSRF protection purposes.
+# - Show the URL on the terminal (part of `streamlit run`).
+# - Open the browser automatically (part of `streamlit run`).
+# This option is for advanced use cases. To change the port of your app, use
+# `server.Port` instead. Don't use port 3000 which is reserved for internal
+# development.
 # Default: whatever value is set in server.port.
 serverPort = 8501
 ```
