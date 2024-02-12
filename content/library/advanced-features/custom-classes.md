@@ -147,11 +147,9 @@ print("Marshall is Marshall (a<->b):", a.Student(1, "Marshall") == b.Student(1, 
 # > Marshall is Marshall (a<->b): False
 ```
 
-[Diagram 1]
-
 In this example, the class `Student` is defined twice, once in module `a.py` and once in module `b.py`. By default, instances of `dataclass`es in Python check class identity when being compared to each other. Thus, `a.Student(1, "Marshall") == b.Student(1, "Marshall")` is false, even though both classes have the same name (`Student`) and the same fields (`student_id` and `name`).
 
-### Example Problem 2: Same class redefined upon reloading a module
+### Example Problem 2: Same class redefined upon reloading a module (PROBABLY DELETE THIS SECTION)
 
 If you thought it was fairly obvious that this example wouldn't work, let's remove one of the modules. This time, we'll use the [`importlib.reload()`](https://docs.python.org/3/library/importlib.html#importlib.reload) standard-library function to
 force a single module `page.py` to reload mid-script.
@@ -187,8 +185,6 @@ print("Marshall is Marshall (pre<->post):", marshall_pre_reload == marshall_post
 # > Marshall is Marshall (pre<->post): False
 ```
 
-[Diagram 2]
-
 This time, the `page` module gets reloaded in the middle of `Main.py`, at which point the `Student` class is _redefined_. `page.Student` before the reload is not the same class
 as `page.Student` after the reload, and because they are `dataclass`es, the pre- and post- instances of "Marshall" are not considered equal to each other.
 
@@ -213,8 +209,6 @@ When you call a function like `st.selectbox`, the items in the `list`/`tuple`/`I
 
 When the user of your application interacts with the `selectbox` (or other) widget in their web browser, the Streamlit Javascript code running in their browser sends back the new index(s) of the option(s) they selected. These index(s) are then used to determine which values from the original `options=` list, _saved in the Widget Metadata from the previous page execution_, are returned to your application.
 
-[Diagram ?]
-
 The key detail to note here is that the value(s) returned by the `st.selectbox` or `st.radio` widget function are the ones saved in Session State during the _previous_ execution of the page (except on the very first execution, where this is not the case), NOT the values passed to `options=` on the _current_ execution. There are a number of architectural
 why Streamlit is designed this way, which we won't go into here. Suffice to say that **this** is how we end up in a situation where it is possible to compare instances of the same custom class pre- and post- definition.
 
@@ -235,19 +229,25 @@ student_list = [
   Student(3, "Emma"),
 ]
 
-# Here, the type() of selected_student is the class `Student` from the _last_ time Streamlit ran this page,
+# Here, the type() of selected_student is the class `Student`
+# from the _last_ time Streamlit ran this page,
 # not the class `Student` defined just a couple of lines above.
 selected_student = st.selectbox(student_list)
+st.write("The current Student class ID is", id(Student))
+st.write("The selected Student's class ID is", id(selected_student.__class__))
 
-# So, selected_student can _never_ == Student(2, "Waldo"), because it is always a different Class.
-if selected_student == Student(2, "Waldo"):
+# So, selected_student can _never_ == Student(1, "Marlene"),
+# because it is always a different Class.
+if selected_student == student_list[0]:
+  st.success("You Found Marlene!")
+elif selected_student == student_list[1]:
   st.success("You Found Waldo!")
 ```
 
-![A diagram showing the reason custom dataclasses can have problems when defined in a streamlit script](/img/custom_class_redefinition_flowchart.png)
+![A diagram showing the reason custom dataclasses can have problems when defined in a streamlit script](/images/custom_classes.png)
 
 As a final note, we've been using `dataclass`es in all of the examples in this section to illustrate a point, but in fact it is possible to encounter these same problems in
-non-`dataclass` classes. Any class which checks class identity inside of a comparison operator such as `__eq__`, `__gt__`, etc. can exhibit these issues (see the last example below). `Enum` classes would be another good example, except that Streamlit has implemented some additional default functionality to avoid the Class-Redefinition Problem for `Enum`s specifically. The last section of this page covers the details of how `Enum`s are handled and how developers can control this behavior.
+non-`dataclass` classes. Any class which checks class identity inside of a comparison operator such as `__eq__`, `__gt__`, etc. can exhibit these issues.
 
 ## Enums
 
