@@ -124,4 +124,4 @@ For the above SQL example, your `secrets.toml` file might look like the followin
     database="mydb" # Database name
 ```
 
-Since you don't want to commit your `secrets.toml` file to your repository, you'll need to learn how your host handles secrets when you're ready to publish your app. Each host platform may have a different way for you to pass your secrets. If you use Stramlit Community Cloud for example, each deployed app has a settings menu where you can load your secrets. After you've written an app and are ready to deploy, you can read all about how to [Deploy your app](/streamlit-community-cloud/deploy-your-app) on Community Cloud.
+Since you don't want to commit your `secrets.toml` file to your repository, you'll need to learn how your host handles secrets when you're ready to publish your app. Each host platform may have a different way for you to pass your secrets. If you use Streamlit Community Cloud for example, each deployed app has a settings menu where you can load your secrets. After you've written an app and are ready to deploy, you can read all about how to [Deploy your app](/streamlit-community-cloud/deploy-your-app) on Community Cloud.
