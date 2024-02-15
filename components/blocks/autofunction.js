@@ -329,6 +329,7 @@ const Autofunction = ({
           </p> `;
       row["body"] = `
         ${description}
+        ${deprecatedMarkup}
       `;
     } else {
       row["title"] = `
