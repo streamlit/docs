@@ -323,7 +323,7 @@ const Autofunction = ({
 
     if (param.is_optional) {
       row["title"] = `
-          <p>
+          <p class="${isDeprecated ? "deprecated" : ""}">
             ${param.name}
             <span class='italic code'>(${param.type_name})</span>
           </p> `;
@@ -332,7 +332,7 @@ const Autofunction = ({
       `;
     } else {
       row["title"] = `
-          <pclass="${isDeprecated ? "deprecated" : ""}">
+          <p class="${isDeprecated ? "deprecated" : ""}">
             <span class='bold'>${param.name}</span>
             <span class='italic code'>(${param.type_name})</span>
           </p>`;
