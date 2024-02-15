@@ -306,6 +306,17 @@ const Autofunction = ({
   for (const index in functionObject.args) {
     const row = {};
     const param = functionObject.args[index];
+    const isDeprecated =
+      param.deprecated && param.deprecated.deprecated === true;
+    const deprecatedMarkup = isDeprecated
+      ? `
+      <div class="${styles.DeprecatedContent}">
+        <i class="material-icons-sharp">
+          delete
+        </i>
+        ${param.deprecated.deprecatedText}
+      </div>`
+      : "";
     const description = param.description
       ? param.description
       : `<p>No description</p> `;
@@ -321,11 +332,12 @@ const Autofunction = ({
       `;
     } else {
       row["title"] = `
-          <p>
+          <pclass="${isDeprecated ? "deprecated" : ""}">
             <span class='bold'>${param.name}</span>
             <span class='italic code'>(${param.type_name})</span>
           </p>`;
       row["body"] = `
+        ${deprecatedMarkup}
         ${description}
       `;
     }
@@ -354,15 +366,31 @@ const Autofunction = ({
     const type_name = method.signature
       ? method.signature.match(/\((.*)\)/)[1]
       : "";
+    const isDeprecated =
+      method.deprecated && method.deprecated.deprecated === true;
+    const deprecatedMarkup = isDeprecated
+      ? `
+      <div class="${styles.DeprecatedContent}">
+        <i class="material-icons-sharp">
+          delete
+        </i>
+        ${method.deprecated.deprecatedText}
+      </div>`
+      : "";
     const description = method.description
       ? method.description
       : `<p>No description</p> `;
     // Add a link to the method by appending the method name to the current URL using slug.slice();
     row["title"] = `
-    <p>
-      <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${method.name}</span></a><span class='italic code'>(${type_name})</span>
-    </p>`;
-    row["body"] = `${description}`;
+      <p class="${isDeprecated ? "deprecated" : ""}">
+        <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
+          method.name
+        }</span></a><span class='italic code'>(${type_name})</span>
+      </p>`;
+    row["body"] = `
+      ${deprecatedMarkup}
+      ${description}
+    `;
 
     methodRows.push(row);
   }
@@ -375,15 +403,31 @@ const Autofunction = ({
       .toLowerCase()
       .replace("streamlit", "st")
       .replace(/[.,\/#!$%\^&\*;:{}=\-`~()]/g, "");
+    const isDeprecated =
+      property.deprecated && property.deprecated.deprecated === true;
+    const deprecatedMarkup = isDeprecated
+      ? `
+    <div class="${styles.DeprecatedContent}">
+      <i class="material-icons-sharp">
+        delete
+      </i>
+      ${property.deprecated.deprecatedText}
+    </div>`
+      : "";
     const description = property.description
       ? property.description
       : `<p>No description</p> `;
     // Add a link to the method by appending the method name to the current URL using slug.slice();
     row["title"] = `
-    <p>
-      <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${property.name}</span>
-    </p>`;
-    row["body"] = `${description}`;
+      <p class="${isDeprecated ? "deprecated" : ""}">
+        <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
+          property.name
+        }</span>
+      </p>`;
+    row["body"] = `
+      ${deprecatedMarkup}
+      ${description}
+    `;
     propertiesRows.push(row);
   }
 
