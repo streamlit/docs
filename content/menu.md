@@ -12,6 +12,8 @@ site_menu:
     url: /get-started/installation/anaconda-distribution
   - category: Get started / Installation / Use GitHub Codespaces
     url: /get-started/installation/community-cloud
+  - category: Get started / Installation / Use Snowflake
+    url: /get-started/installation/streamlit-in-snowflake
   - category: Get started / Fundamentals
     url: /get-started/fundamentals
   - category: Get started / Fundamentals / Main concepts
@@ -39,6 +41,8 @@ site_menu:
     url: /library/api-reference/write-magic
   - category: Streamlit library / API reference / Write and magic / st.write
     url: /library/api-reference/write-magic/st.write
+  - category: Streamlit library / API reference / Write and magic / st.write_stream
+    url: /library/api-reference/write-magic/st.write_stream
     isVersioned: true
   - category: Streamlit library / API reference / Write and magic / magic
     url: /library/api-reference/write-magic/magic
@@ -185,6 +189,9 @@ site_menu:
   - category: Streamlit library / API reference / Input widgets / st.link_button
     url: /library/api-reference/widgets/st.link_button
     isVersioned: true
+  - category: Streamlit library / API reference / Input widgets / st.page_link
+    url: /library/api-reference/widgets/st.page_link
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.checkbox
     url: /library/api-reference/widgets/st.checkbox
     isVersioned: true
@@ -263,11 +270,17 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / API reference / Chat elements
     url: /library/api-reference/chat
+  - category: Streamlit library / API reference / Chat elements / st.chat_input
+    url: /library/api-reference/chat/st.chat_input
+    isVersioned: true
   - category: Streamlit library / API reference / Chat elements / st.chat_message
     url: /library/api-reference/chat/st.chat_message
     isVersioned: true
-  - category: Streamlit library / API reference / Chat elements / st.chat_input
-    url: /library/api-reference/chat/st.chat_input
+  - category: Streamlit library / API reference / Chat elements / st.status
+    url: https://docs.streamlit.io/library/api-reference/status/st.status
+    isVersioned: true
+  - category: Streamlit library / API reference / Chat elements / st.write_stream
+    url: https://docs.streamlit.io/library/api-reference/write-magic/st.write_stream
     isVersioned: true
   - category: Streamlit library / API reference / Status elements
     url: /library/api-reference/status
@@ -311,6 +324,9 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / API reference / Control flow / st.form_submit_button
     url: /library/api-reference/control-flow/st.form_submit_button
+    isVersioned: true
+  - category: Streamlit library / API reference / Control flow / st.page_link
+    url: https://docs.streamlit.io/library/api-reference/widgets/st.page_link
     isVersioned: true
   - category: Streamlit library / API reference / Control flow / st.rerun
     url: /library/api-reference/control-flow/st.rerun
@@ -439,6 +455,8 @@ site_menu:
     url: /library/advanced-features/forms
   - category: Streamlit library / Advanced features / Multipage apps
     url: /library/advanced-features/multipage-apps
+  - category: Streamlit library / Advanced features / Multipage apps / Custom navigation
+    url: /library/advanced-features/multipage-apps/custom-navigation
   - category: Streamlit library / Advanced features / Add statefulness to apps
     url: /library/advanced-features/session-state
   - category: Streamlit library / Advanced features / Widget behavior
@@ -463,6 +481,8 @@ site_menu:
     url: /library/advanced-features/app-testing/get-started
   - category: Streamlit library / Advanced features / App testing / Beyond the basics
     url: /library/advanced-features/app-testing/beyond-the-basics
+  - category: Streamlit library / Advanced features / App testing / Automate your tests
+    url: /library/advanced-features/app-testing/automate-tests
   - category: Streamlit library / Advanced features / App testing / Example
     url: /library/advanced-features/app-testing/examples
   - category: Streamlit library / Advanced features / App testing / Cheat sheet

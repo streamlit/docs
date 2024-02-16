@@ -54,27 +54,32 @@ How to start a simple HTTP server:
 python -m http.server [port]
 ```
 
-### Symptom #2: The app says "Please wait..." forever
+### Symptom #2: The app says "Please wait..." or shows skeleton elements forever
 
-If when you try to load your app in a browser you see a blue box in the center
-of the page with the text "Please wait...", the underlying cause is likely one
-of the following:
+This symptom appears differently starting from version 1.29.0. For earlier
+versions of Streamlit, a loading app shows a blue box in the center of the page
+with a "Please wait..." message. Starting from version 1.29.0, a loading app
+shows skeleton elements. If this loading screen does not go away, the
+underlying cause is likely one of the following:
 
+- Using port 3000 which is reserved for internal development.
 - Misconfigured [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
   protection.
 - Server is stripping headers from the Websocket connection, thereby breaking
   compression.
 
-To diagnose the issue, try temporarily disabling CORS protection by running
-Streamlit with the `--server.enableCORS` flag set to `false`:
+To diagnose the issue, first make sure you are not using port 3000. If in doubt,
+try port 80 as described above.
+
+Next, try temporarily disabling CORS protection by running Streamlit with the
+`--server.enableCORS` flag set to `false`:
 
 ```bash
 streamlit run my_app.py --server.enableCORS=false
 ```
 
 If this fixes your issue, **you should re-enable CORS protection** and then set
-`browser.serverPort` and `browser.serverAddress` to the URL and port of your
-Streamlit app.
+`browser.serverAddress` to the URL of your Streamlit app.
 
 If the issue persists, try disabling websocket compression by running Streamlit with the
 `--server.enableWebsocketCompression` flag set to `false`
@@ -104,6 +109,10 @@ with the `--server.enableXsrfProtection` flag set to `false`:
 streamlit run my_app.py --server.enableXsrfProtection=false
 ```
 
-If this fixes your issue, **you should re-enable XSRF protection** and then
-configure your app to use the same secret across every replica by setting the
-`server.cookieSecret` config option to the same hard-to-guess string everywhere.
+If this fixes your issue, **you should re-enable XSRF protection** and try one
+or both of the following:
+
+- Set `browser.serverAddress` and `browser.serverPort` to the URL and port of
+  your Streamlit app.
+- Configure your app to use the same secret across every replica by setting the
+  `server.cookieSecret` config option to the same hard-to-guess string everywhere.
