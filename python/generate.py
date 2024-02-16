@@ -364,10 +364,9 @@ def get_sig_string_without_annots(func):
             continue
 
         # Insert "/" if the previous param was the last positional-only param
-        if param.kind is param.POSITIONAL_OR_KEYWORD:
-            if (prev is not None) and (prev.kind is param.POSITIONAL_ONLY):
+        if (prev is not None) and (prev.kind is param.POSITIONAL_ONLY):
+            if param.kind is not param.POSITIONAL_ONLY:
                 args.append("/")
-                prev_was_positional_only = False
         # Insert "*" if this is the first keyword-only argument
         if param.kind is param.KEYWORD_ONLY:
             if (prev is None) or (prev.kind is not param.KEYWORD_ONLY):
@@ -398,6 +397,10 @@ def get_sig_string_without_annots(func):
 
         # Set the current parameter as the previous one for the next iteration
         prev = param
+    
+    # Edge case: append "/" if all parameters were positional-only
+    if (prev is not None) and (prev.kind is param.POSITIONAL_ONLY):
+        args.append("/")
 
     # Return the formatted argument string
     return ", ".join(args)
