@@ -160,7 +160,6 @@ const Autofunction = ({
 
   const footers = [];
   const args = [];
-  const kwargs = [];
   const returns = [];
   const versionList = reverse(versions.slice());
   let functionObject;
@@ -323,20 +322,26 @@ const Autofunction = ({
 
     if (param.is_optional) {
       row["title"] = `
-          <p class="${isDeprecated ? "deprecated" : ""}">
-            ${param.name}
-            <span class='italic code'>(${param.type_name})</span>
-          </p> `;
+        <p class="${isDeprecated ? "deprecated" : ""} ${
+          param.is_kwarg_only ? styles.Keyword : ""
+        }">
+          ${param.name}<br />
+          <span class='italic code'>(${param.type_name})</span>
+        </p> 
+      `;
       row["body"] = `
         ${description}
         ${deprecatedMarkup}
       `;
     } else {
       row["title"] = `
-          <p class="${isDeprecated ? "deprecated" : ""}">
-            <span class='bold'>${param.name}</span>
-            <span class='italic code'>(${param.type_name})</span>
-          </p>`;
+        <p class="${isDeprecated ? "deprecated" : ""} ${
+          param.is_kwarg_only ? styles.Keyword : ""
+        }">
+          <span class='bold'>${param.name}</span><br />
+          <span class='italic code'>(${param.type_name})</span>
+        </p>
+      `;
       row["body"] = `
         ${deprecatedMarkup}
         ${description}
@@ -347,8 +352,6 @@ const Autofunction = ({
     // individually parsed properties; using "Parameters" is a workaround.
     if (isClass) {
       propertiesRows.push(row);
-    } else if (param.is_kwarg_only) {
-      kwargs.push(row);
     } else {
       args.push(row);
     }
@@ -470,13 +473,11 @@ const Autofunction = ({
       body={args.length ? { title: "Parameters" } : null}
       bodyRows={args.length ? args : null}
       foot={[
-        kwargs.length ? { title: "Keyword-only parameters" } : null,
         methods.length ? { title: "Methods" } : null,
         returns.length ? { title: "Returns" } : null,
         propertiesRows.length ? { title: "Attributes" } : null,
       ].filter((section) => section !== null)}
       footRows={[
-        kwargs.length ? kwargs : null,
         methods.length ? methodRows : null,
         returns.length ? returns : null,
         propertiesRows.length ? propertiesRows : null,

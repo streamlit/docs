@@ -158,3 +158,16 @@
 :global(.dark) .DeprecatedContent {
   @apply bg-orange-100/30;
 }
+
+td:has(> div > .Keyword) {
+  @apply relative;
+}
+
+td:has(> div > .Keyword)::after {
+  @apply text-gray-70 text-2xs leading-5 px-1 absolute top-0 right-0;
+  content: "keyword-only";
+}
+
+:global(.dark) td::after > div > .Keyword {
+  @apply text-gray-30;
+}
