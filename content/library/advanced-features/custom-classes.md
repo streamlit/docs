@@ -182,12 +182,14 @@ class MyResource:
         return MyResource(api_url)
 
 # This is cached until Session State is cleared or 5 minutes has elapsed.
-resource_manager = MyResource.get_resource_manager("http://my.resource.io/api/")
+resource_manager = MyResource.get_resource_manager("http://example.com/api/")
 ```
+
+When you use one of Streamlit's caching decorators on a function, Streamlit doesn't use the function object to look up cached values. Instead, Streamlit's caching decorators index return values using the function's qualified name and module. So, even though Streamlit redefines `MyResource` with each script run, `st.cache_resource` is unaffected by this. `get_resource_manager()` will return its cached value with each rerun, until the value expires.
 
 ## Understanding how Python defines and compares classes
 
-So what's really happening here? We'll consider a simple example to help illustrate why this is a pitfall. Feel free to skip this section if you don't want to deal more details. You can jump ahead to learn about [Using `Enum` classes](#using-enum-classes-in-streamlit).
+So what's really happening here? We'll consider a simple example to illustrate why this is a pitfall. Feel free to skip this section if you don't want to deal more details. You can jump ahead to learn about [Using `Enum` classes](#using-enum-classes-in-streamlit).
 
 ### Example: What happens when you define the same class twice?
 
@@ -223,11 +225,11 @@ In this example, the dataclass `Student` is defined twice. All three Marshalls h
 
 ### What's happening in Streamlit?
 
-In Streamlit, you probably don't have the same class written twice on your page script. However, the rerun logic of Streamlit creates the same effect. Let's use the above example for an analogy. If you define a class in one script run and save an instance in Session State, then a later rerun will redefine the class and you may end up comparing a `Mashall_C` in your rerun to a `Marshall_A` in Session State. Since widgets rely on Session State under the hood, this is where things can get confusing.
+In Streamlit, you probably don't have the same class written twice in your page script. However, the rerun logic of Streamlit creates the same effect. Let's use the above example for an analogy. If you define a class in one script run and save an instance in Session State, then a later rerun will redefine the class and you may end up comparing a `Mashall_C` in your rerun to a `Marshall_A` in Session State. Since widgets rely on Session State under the hood, this is where things can get confusing.
 
 ## How Streamlit widgets store options
 
-Several Streamlit UI elements, such as `st.selectbox` or `st.radio`, accept multiple-choice options via an `options` argument. The user of your application can typically select one or more of these options. The value selected is returned as the value of the Streamlit function call. For example:
+Several Streamlit UI elements, such as `st.selectbox` or `st.radio`, accept multiple-choice options via an `options` argument. The user of your application can typically select one or more of these options. The selected value is returned by the widget function. For example:
 
 ```python
 number = st.selectbox("Pick a number, any number", options=[1, 2, 3])
@@ -238,11 +240,11 @@ When you call a function like `st.selectbox` and pass an `Iterable` to `options`
 
 When the user of your application interacts with the `st.selectbox` widget, the broswer sends the index of their selection to your Streamlit server. This index is used to determine which values from the original `options` list, _saved in the Widget Metadata from the previous page execution_, are returned to your application.
 
-The key detail is that the value returned by `st.selectbox` (or similar widget function) is from an `Iterable` saved in Session State during a _previous_ execution of the page, NOT the values passed to `options` on the _current_ execution. There are a number of architectural reasons why Streamlit is designed this way, which we won't go into here. Suffice to say that **this** is how we end up in a situation where it is possible to compare instances of the same custom class pre- and post- definition.
+The key detail is that the value returned by `st.selectbox` (or similar widget function) is from an `Iterable` saved in Session State during a _previous_ execution of the page, NOT the values passed to `options` on the _current_ execution. There are a number of architectural reasons why Streamlit is designed this way, which we won't go into here. However, **this** is how we end up comparing instances of different classes when we think we are comparing instances of the same class.
 
 ### A pathological example
 
-The above explanation might be a bit confusing so if you want to see it in action, try out this pathological example.
+The above explanation might be a bit confusing, so here's a pathological example to illustrate the idea.
 
 ```python
 import streamlit as st
@@ -281,19 +283,19 @@ import streamlit as st
 
 # class syntax
 class Color(Enum):
-  RED = 1
-  GREEN = 2
-  BLUE = 3
+    RED = 1
+    GREEN = 2
+    BLUE = 3
 
-selected_colors = set(st.multiselect("Pick the colors to use", options=Color))
+selected_colors = set(st.multiselect("Pick colors", options=Color))
 
 if selected_colors == {Color.RED, Color.GREEN}:
-  st.write("Hooray you found the color YELLOW!")
+    st.write("Hooray, you found the color YELLOW!")
 ```
 
-By default, this Streamlit page will work as it appears it should if you're using the latest version of Streamlit. The `Enum` values `Color.RED` and `Color.GREEN` appear in the `st.multiselect` widget, and when the user picks both `Color.RED` and `Color.GREEN`, they are shown the special message.
+If you're using the latest version of Streamlit, this Streamlit page will work as it appears it should. When a user picks both `Color.RED` and `Color.GREEN`, they are shown the special message.
 
-However, if you've read the rest of this page you might notice something tricky going on. Specifically, the `Enum` class `Color` gets redefined every time this script is run. In Python if you define `Enum` classes with the same class name, members, and values for those members, the classes and their members are still considered unique from each other, and cannot be compared. This _should_ cause `if` condition to always evaluate `False`, since the `Color` values returned by `st.multiselect` would be of a different class than the `Color` defined in each script execution.
+However, if you've read the rest of this page you might notice something tricky going on. Specifically, the `Enum` class `Color` gets redefined every time this script is run. In Python, if you define two `Enum` classes with the same class name, members, and values, the classes and their members are still considered unique from each other. This _should_ cause the above `if` condition to always evaluate to `False`. In any script rerun, the `Color` values returned by `st.multiselect` would be of a different class than the `Color` defined in that script run.
 
 If you run the snippet above with Streamlit version 1.28.0 or less, you will not be able see the special message. Thankfully, as of version 1.29.0, Streamlit introduced a configuration option to greatly simplify the problem. That's where the enabled-by-default `enumCoercion` configuration option comes in.
 
@@ -301,7 +303,7 @@ If you run the snippet above with Streamlit version 1.28.0 or less, you will not
 
 When `enumCoercion` is enabled, Streamlit tries to recognize when you are using an element like `st.multiselect` or `st.selectbox` with a set of `Enum` members as options.
 
-If it detects this, it will then convert the widget's returned values to members of the `Enum` class defined in the latest script run. This is something we call automatic `Enum` coercion.
+If Streamlit detects this, it will convert the widget's returned values to members of the `Enum` class defined in the latest script run. This is something we call automatic `Enum` coercion.
 
 This behavior is [configurable](/library/advanced-features/configuration) via the `enumCoercion` setting in your Streamlit `config.toml` file. It is enabled by default, and may be disabled or set to a stricter set of matching criteria.
 
