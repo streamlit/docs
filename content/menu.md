@@ -461,6 +461,8 @@ site_menu:
     url: /library/advanced-features/session-state
   - category: Streamlit library / Advanced features / Widget behavior
     url: /library/advanced-features/widget-behavior
+  - category: Streamlit library / Advanced features/ Custom classes
+    url: /library/advanced-features/custom-classes
   - category: Streamlit library / Advanced features / Pre-release features
     url: /library/advanced-features/prerelease
   - category: Streamlit library / Advanced features / Working with timezones
