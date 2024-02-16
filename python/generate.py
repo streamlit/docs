@@ -369,8 +369,10 @@ def get_sig_string_without_annots(func):
                 args.append("/")
         # Insert "*" if this is the first keyword-only argument
         if param.kind is param.KEYWORD_ONLY:
-            if (prev is None) or (prev.kind is not param.KEYWORD_ONLY):
-                args.append("*")
+            if (prev is not None) and (prev.kind is prev.VAR_POSITIONAL):
+                pass
+            elif (prev is None) or (prev.kind is not prev.KEYWORD_ONLY):
+                    args.append("*")
 
         # If the parameter has a default value, format it accordingly
         if param.default != inspect._empty:
