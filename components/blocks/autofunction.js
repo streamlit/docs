@@ -322,23 +322,27 @@ const Autofunction = ({
 
     if (param.is_optional) {
       row["title"] = `
-        <p class="${isDeprecated ? "deprecated" : ""} ${
-          param.is_kwarg_only ? styles.Keyword : ""
-        }">
-          ${param.name}<br />
+        <p class="
+          ${isDeprecated ? "deprecated" : ""}
+          ${param.is_kwarg_only ? styles.Keyword : ""}
+        ">
+          ${param.name}
+          <br />
           <span class='italic code'>(${param.type_name})</span>
         </p> 
       `;
       row["body"] = `
-        ${description}
         ${deprecatedMarkup}
+        ${description}
       `;
     } else {
       row["title"] = `
-        <p class="${isDeprecated ? "deprecated" : ""} ${
-          param.is_kwarg_only ? styles.Keyword : ""
-        }">
-          <span class='bold'>${param.name}</span><br />
+        <p class="
+          ${isDeprecated ? "deprecated" : ""}
+          ${param.is_kwarg_only ? styles.Keyword : ""}
+        ">
+          <span class='bold'>${param.name}</span>
+          <br />
           <span class='italic code'>(${param.type_name})</span>
         </p>
       `;
