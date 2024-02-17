@@ -310,7 +310,7 @@ const Autofunction = ({
     const deprecatedMarkup = isDeprecated
       ? `
       <div class="${styles.DeprecatedContent}">
-        <i class="material-icons-sharp">
+        <i class="material-icons-sharp ${styles.DeprecatedIcon}">
           delete
         </i>
         ${param.deprecated.deprecatedText}
@@ -327,7 +327,6 @@ const Autofunction = ({
           ${param.is_kwarg_only ? styles.Keyword : ""}
         ">
           ${param.name}
-          <br />
           <span class='italic code'>(${param.type_name})</span>
         </p> 
       `;
@@ -342,7 +341,6 @@ const Autofunction = ({
           ${param.is_kwarg_only ? styles.Keyword : ""}
         ">
           <span class='bold'>${param.name}</span>
-          <br />
           <span class='italic code'>(${param.type_name})</span>
         </p>
       `;

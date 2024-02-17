@@ -144,30 +144,34 @@
 
 /* Styles for deprecation notice in param */
 .DeprecatedContent {
-  @apply bg-orange-20 text-gray-90 px-2 py-1 rounded-md text-sm mb-2 flex items-center;
+  @apply bg-orange-20 text-gray-90 px-2 py-1 rounded-md text-sm mb-2 flex items-center relative;
 }
 
 .DeprecatedContent i {
   @apply text-base text-orange-70 mr-2;
 }
 
+.DeprecatedContent p {
+  @apply ml-5;
+}
+
 .DeprecatedContent p tt {
   @apply text-sm;
+}
+
+.DeprecatedIcon {
+  @apply absolute top-0 left-2;
 }
 
 :global(.dark) .DeprecatedContent {
   @apply bg-orange-100/30;
 }
 
-td:has(> div > .Keyword) {
-  @apply relative;
-}
-
-td:has(> div > .Keyword)::after {
-  @apply text-gray-70 text-2xs leading-5 px-1 absolute top-0 right-0;
+.Keyword::after {
+  @apply block bg-gray-20 text-gray-70 text-opacity-100 text-2xs rounded-lg w-fit px-1 py-0;
   content: "keyword-only";
 }
 
-:global(.dark) td::after > div > .Keyword {
-  @apply text-gray-30;
+:global(.dark) .Keyword::after {
+  @apply bg-gray-80 text-gray-30;
 }
