@@ -268,6 +268,9 @@ site_menu:
   - category: Streamlit library / API reference / Layouts and containers / st.empty
     url: /library/api-reference/layout/st.empty
     isVersioned: true
+  - category: Streamlit library / API reference / Layouts and containers / st.skeleton
+    url: /library/api-reference/layout/st.skeleton
+    isVersioned: true
   - category: Streamlit library / API reference / Chat elements
     url: /library/api-reference/chat
   - category: Streamlit library / API reference / Chat elements / st.chat_input

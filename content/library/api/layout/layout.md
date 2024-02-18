@@ -100,6 +100,20 @@ c.write("This will show first")
 ```
 
 </RefCard>
+<RefCard href="/library/api-reference/layout/st.skeleton">
+
+<Image pure alt="screenshot" src="/images/api/skeleton.jpg" />
+
+<h4>Skeleton</h4>
+
+Insert an animated placeholder.
+
+```python
+c = st.skeleton()
+c.write("Replace the animation")
+```
+
+</RefCard>
 </TileContainer>
 
 <ComponentSlider>
