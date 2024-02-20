@@ -39,7 +39,7 @@ For more information about the Streamlit caching decorators, their configuration
 
 ## Session State
 
-Session State provides a dictionary-like interface where you can save information that is preserved between script reruns. Use `st.session_state` with key or attribute notation to store and recall values. For example, `st.session_state["my_key"]` or `st.session_state.my_key`. Remember that widgets handle thier statefulness all by themselves, so you won't always need to use Session State!
+Session State provides a dictionary-like interface where you can save information that is preserved between script reruns. Use `st.session_state` with key or attribute notation to store and recall values. For example, `st.session_state["my_key"]` or `st.session_state.my_key`. Remember that widgets handle their statefulness all by themselves, so you won't always need to use Session State!
 
 ### What is a session?
 
