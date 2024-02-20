@@ -168,7 +168,7 @@
 }
 
 .Keyword::after {
-  @apply block bg-gray-20 text-gray-70 text-opacity-100 text-2xs rounded-lg w-fit px-1 py-0;
+  @apply block bg-gray-20 text-gray-80 text-opacity-100 text-2xs rounded-lg w-fit px-2 py-0;
   content: "keyword-only";
 }
 
