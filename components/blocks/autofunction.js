@@ -310,7 +310,7 @@ const Autofunction = ({
     const deprecatedMarkup = isDeprecated
       ? `
       <div class="${styles.DeprecatedContent}">
-        <i class="material-icons-sharp">
+        <i class="material-icons-sharp ${styles.DeprecatedIcon}">
           delete
         </i>
         ${param.deprecated.deprecatedText}
@@ -322,20 +322,28 @@ const Autofunction = ({
 
     if (param.is_optional) {
       row["title"] = `
-          <p class="${isDeprecated ? "deprecated" : ""}">
-            ${param.name}
-            <span class='italic code'>(${param.type_name})</span>
-          </p> `;
+        <p class="
+          ${isDeprecated ? "deprecated" : ""}
+          ${param.is_kwarg_only ? styles.Keyword : ""}
+        ">
+          ${param.name}
+          <span class='italic code'>(${param.type_name})</span>
+        </p> 
+      `;
       row["body"] = `
         ${deprecatedMarkup}
         ${description}
       `;
     } else {
       row["title"] = `
-          <p class="${isDeprecated ? "deprecated" : ""}">
-            <span class='bold'>${param.name}</span>
-            <span class='italic code'>(${param.type_name})</span>
-          </p>`;
+        <p class="
+          ${isDeprecated ? "deprecated" : ""}
+          ${param.is_kwarg_only ? styles.Keyword : ""}
+        ">
+          <span class='bold'>${param.name}</span>
+          <span class='italic code'>(${param.type_name})</span>
+        </p>
+      `;
       row["body"] = `
         ${deprecatedMarkup}
         ${description}
@@ -368,27 +376,27 @@ const Autofunction = ({
       method.deprecated && method.deprecated.deprecated === true;
     const deprecatedMarkup = isDeprecated
       ? `
-    <div class="${styles.DeprecatedContent}">
-      <i class="material-icons-sharp">
-        delete
-      </i>
-      ${method.deprecated.deprecatedText}
-    </div>`
+      <div class="${styles.DeprecatedContent}">
+        <i class="material-icons-sharp">
+          delete
+        </i>
+        ${method.deprecated.deprecatedText}
+      </div>`
       : "";
     const description = method.description
       ? method.description
       : `<p>No description</p> `;
     // Add a link to the method by appending the method name to the current URL using slug.slice();
     row["title"] = `
-    <p class="${isDeprecated ? "deprecated" : ""}">
-      <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
-        method.name
-      }</span></a><span class='italic code'>(${type_name})</span>
-    </p>`;
+      <p class="${isDeprecated ? "deprecated" : ""}">
+        <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
+          method.name
+        }</span></a><span class='italic code'>(${type_name})</span>
+      </p>`;
     row["body"] = `
-    ${deprecatedMarkup}
-    ${description}
-  `;
+      ${deprecatedMarkup}
+      ${description}
+    `;
 
     methodRows.push(row);
   }
@@ -417,15 +425,15 @@ const Autofunction = ({
       : `<p>No description</p> `;
     // Add a link to the method by appending the method name to the current URL using slug.slice();
     row["title"] = `
-    <p class="${isDeprecated ? "deprecated" : ""}">
-      <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
-        property.name
-      }</span>
-    </p>`;
+      <p class="${isDeprecated ? "deprecated" : ""}">
+        <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
+          property.name
+        }</span>
+      </p>`;
     row["body"] = `
-    ${deprecatedMarkup}
-    ${description}
-  `;
+      ${deprecatedMarkup}
+      ${description}
+    `;
     propertiesRows.push(row);
   }
 
