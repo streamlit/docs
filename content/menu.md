@@ -41,6 +41,7 @@ site_menu:
     url: /library/api-reference/write-magic
   - category: Streamlit library / API reference / Write and magic / st.write
     url: /library/api-reference/write-magic/st.write
+    isVersioned: true
   - category: Streamlit library / API reference / Write and magic / st.write_stream
     url: /library/api-reference/write-magic/st.write_stream
     isVersioned: true
