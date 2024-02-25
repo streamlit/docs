@@ -37,7 +37,7 @@ const Autofunction = ({
   const maxVersion = versions[versions.length - 1];
   const [isHighlighted, setIsHighlighted] = useState(false);
   const [currentVersion, setCurrentVersion] = useState(
-    version ? version : versions[versions.length - 1]
+    version ? version : versions[versions.length - 1],
   );
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const Autofunction = ({
   // Code to destroy and regenerate iframes on each new autofunction render.
   const regenerateIframes = () => {
     const iframes = Array.prototype.slice.call(
-      blockRef.current.getElementsByTagName("iframe")
+      blockRef.current.getElementsByTagName("iframe"),
     );
     if (!iframes) return;
 
@@ -73,7 +73,7 @@ const Autofunction = ({
     }
 
     const pres = Array.prototype.slice.call(
-      blockRef.current.getElementsByTagName("pre")
+      blockRef.current.getElementsByTagName("pre"),
     );
 
     pres.forEach((ele) => {
@@ -101,8 +101,10 @@ const Autofunction = ({
     currentVersion,
     handleSelectVersion,
   }) => {
-    const selectClass =
-      currentVersion !== versionList[0]
+    const isSiS = currentVersion.startsWith("SiS") ? true : false;
+    const selectClass = isSiS
+      ? "version-select sis-version"
+      : currentVersion !== versionList[0]
         ? "version-select old-version"
         : "version-select";
 
@@ -117,7 +119,11 @@ const Autofunction = ({
           >
             {versionList.map((version, index) => (
               <option value={version} key={version}>
-                v{version}
+                {version == "SiS"
+                  ? "Streamlit in Snowflake"
+                  : version.startsWith("SiS.")
+                    ? version.replace("SiS.", "Streamlit in Snowflake ")
+                    : "Version " + version}
               </option>
             ))}
           </select>
@@ -134,7 +140,8 @@ const Autofunction = ({
       setCurrentVersion(event.target.value);
       if (event.target.value !== maxVersion) {
         let isnum = /^[\d\.]+$/.test(slicedSlug[0]);
-        if (isnum) {
+        let isSiS = /^SiS[\d\.]*$/.test(slicedSlug[0]);
+        if (isnum || isSiS) {
           slicedSlug[0] = event.target.value;
         } else {
           slicedSlug.unshift(event.target.value);
@@ -186,7 +193,7 @@ const Autofunction = ({
               aria-hidden="true"
               tabIndex="-1"
               href={`#${cleanHref(
-                streamlitFunction.replace("streamlit", "st")
+                streamlitFunction.replace("streamlit", "st"),
               )}`.toLowerCase()}
               className="absolute"
             >
@@ -201,10 +208,14 @@ const Autofunction = ({
           />
         </div>
         <Warning>
-          <p>
-            This method did not exist in version <code>{currentVersion}</code>{" "}
-            of Streamlit.
-          </p>
+          {version && version.startsWith("SiS") ? (
+            <p>This method does not exist in Streamlit in Snowflake.</p>
+          ) : (
+            <p>
+              This method did not exist in version <code>{currentVersion}</code>{" "}
+              of Streamlit.
+            </p>
+          )}
         </Warning>
       </div>
     );
@@ -285,6 +296,12 @@ const Autofunction = ({
     footers.push({ title: "Warning", body: functionObject.warning });
   }
 
+  // propertiesRows is initialized early to allow "Parameters" in any class
+  // docstring to be diverted to the properties section. Docstring parsing
+  // needs modification to first recognize "Attributes" or "Properites" then
+  // parse their contents.
+  let propertiesRows = [];
+
   for (const index in functionObject.args) {
     const row = {};
     const param = functionObject.args[index];
@@ -293,7 +310,7 @@ const Autofunction = ({
     const deprecatedMarkup = isDeprecated
       ? `
       <div class="${styles.DeprecatedContent}">
-        <i class="material-icons-sharp">
+        <i class="material-icons-sharp ${styles.DeprecatedIcon}">
           delete
         </i>
         ${param.deprecated.deprecatedText}
@@ -305,27 +322,41 @@ const Autofunction = ({
 
     if (param.is_optional) {
       row["title"] = `
-          <p class="${isDeprecated ? "deprecated" : ""}">
-            ${param.name}
-            <span class='italic code'>(${param.type_name})</span>
-          </p> `;
+        <p class="
+          ${isDeprecated ? "deprecated" : ""}
+          ${param.is_kwarg_only ? styles.Keyword : ""}
+        ">
+          ${param.name}
+          <span class='italic code'>(${param.type_name})</span>
+        </p> 
+      `;
       row["body"] = `
         ${deprecatedMarkup}
         ${description}
       `;
     } else {
       row["title"] = `
-          <p class="${isDeprecated ? "deprecated" : ""}">
-            <span class='bold'>${param.name}</span>
-            <span class='italic code'>(${param.type_name})</span>
-          </p>`;
+        <p class="
+          ${isDeprecated ? "deprecated" : ""}
+          ${param.is_kwarg_only ? styles.Keyword : ""}
+        ">
+          <span class='bold'>${param.name}</span>
+          <span class='italic code'>(${param.type_name})</span>
+        </p>
+      `;
       row["body"] = `
         ${deprecatedMarkup}
         ${description}
       `;
     }
-
-    args.push(row);
+    // When "Parameters" are included in a class docstring, they are actually
+    // "Properties." Using "Properties" in the docstring does not result in
+    // individually parsed properties; using "Parameters" is a workaround.
+    if (isClass) {
+      propertiesRows.push(row);
+    } else {
+      args.push(row);
+    }
   }
 
   let methodRows = [];
@@ -339,38 +370,36 @@ const Autofunction = ({
       .replace("streamlit", "st")
       .replace(/[.,\/#!$%\^&\*;:{}=\-`~()]/g, "");
     const type_name = method.signature
-      ? method.signature.match(/\(([^)]*)\)/)[1]
+      ? method.signature.match(/\((.*)\)/)[1]
       : "";
     const isDeprecated =
       method.deprecated && method.deprecated.deprecated === true;
     const deprecatedMarkup = isDeprecated
       ? `
-    <div class="${styles.DeprecatedContent}">
-      <i class="material-icons-sharp">
-        delete
-      </i>
-      ${method.deprecated.deprecatedText}
-    </div>`
+      <div class="${styles.DeprecatedContent}">
+        <i class="material-icons-sharp">
+          delete
+        </i>
+        ${method.deprecated.deprecatedText}
+      </div>`
       : "";
     const description = method.description
       ? method.description
       : `<p>No description</p> `;
     // Add a link to the method by appending the method name to the current URL using slug.slice();
     row["title"] = `
-    <p class="${isDeprecated ? "deprecated" : ""}">
-      <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
-      method.name
-    }</span></a><span class='italic code'>(${type_name})</span>
-    </p>`;
+      <p class="${isDeprecated ? "deprecated" : ""}">
+        <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
+          method.name
+        }</span></a><span class='italic code'>(${type_name})</span>
+      </p>`;
     row["body"] = `
-    ${deprecatedMarkup}
-    ${description}
-  `;
+      ${deprecatedMarkup}
+      ${description}
+    `;
 
     methodRows.push(row);
   }
-
-  let propertiesRows = [];
 
   for (const index in properties) {
     const row = {};
@@ -396,15 +425,15 @@ const Autofunction = ({
       : `<p>No description</p> `;
     // Add a link to the method by appending the method name to the current URL using slug.slice();
     row["title"] = `
-    <p class="${isDeprecated ? "deprecated" : ""}">
-      <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
-      property.name
-    }</span>
-    </p>`;
+      <p class="${isDeprecated ? "deprecated" : ""}">
+        <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
+          property.name
+        }</span>
+      </p>`;
     row["body"] = `
-    ${deprecatedMarkup}
-    ${description}
-  `;
+      ${deprecatedMarkup}
+      ${description}
+    `;
     propertiesRows.push(row);
   }
 
@@ -415,30 +444,11 @@ const Autofunction = ({
       ? param.description
       : `<p>No description</p> `;
 
-    row[
-      "title"
-    ] = `<p><span class='italic code'>(${param.type_name})</span></p> `;
+    row["title"] =
+      `<p><span class='italic code'>(${param.type_name})</span></p> `;
     row["body"] = `${description} `;
 
     returns.push(row);
-  }
-
-  const footTitles = [];
-  const footRowsContent = [];
-
-  if (methods.length) {
-    footTitles.push({ title: "Methods" });
-    footRowsContent.push(methodRows);
-  }
-
-  if (returns.length) {
-    footTitles.push({ title: "Returns" });
-    footRowsContent.push(returns);
-  }
-
-  if (properties.length) {
-    footTitles.push({ title: "Properties" });
-    footRowsContent.push(propertiesRows);
   }
 
   body = (
@@ -467,12 +477,12 @@ const Autofunction = ({
       foot={[
         methods.length ? { title: "Methods" } : null,
         returns.length ? { title: "Returns" } : null,
-        properties.length ? { title: "Attributes" } : null,
+        propertiesRows.length ? { title: "Attributes" } : null,
       ].filter((section) => section !== null)}
       footRows={[
         methods.length ? methodRows : null,
         returns.length ? returns : null,
-        properties.length ? propertiesRows : null,
+        propertiesRows.length ? propertiesRows : null,
       ].filter((rows) => rows !== null)}
       additionalClass="full-width"
       footers={footers}

@@ -28,17 +28,19 @@ st.dataframe(df, use_container_width=True)
 
 <Cloud src="https://doc-dataframe-basic.streamlit.app/?embed=true" height="300px"/>
 
-## Additional UI features
+## `st.dataframe` UI features
 
-`st.dataframe` also provides some additional functionality by using [glide-data-grid](https://github.com/glideapps/glide-data-grid) under the hood:
+`st.dataframe` provides additional functionality by using [glide-data-grid](https://github.com/glideapps/glide-data-grid) under the hood:
 
-- **Column sorting**: sort columns by clicking on their headers.
-- **Column resizing**: resize columns by dragging and dropping column header borders.
-- **Table resizing**: resize tables by dragging and dropping the bottom right corner.
-- **Search**: search through data by clicking a table, using hotkeys (`⌘ Cmd + F` or `Ctrl + F`) to bring up the search bar, and using the search bar to filter data.
-- **Copy to clipboard**: select one or multiple cells, copy them to the clipboard and paste them into your favorite spreadsheet software.
+- **Column sorting**: Sort columns by clicking on their headers.
+- **Column resizing**: Resize columns by dragging and dropping column header borders.
+- **Table resizing**: Resize tables by dragging and dropping the bottom right corner.
+- **Fullscreen view**: Enlarge tables to fullscreen by clicking the fullscreen icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>fullscreen</i>) in the toolbar.
+- **Search**: Click the search icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>search</i>) in the toolbar or use hotkeys (`⌘+F` or `Ctrl+F`) to search through the data.
+- **Download**: Click the download icon in the toolbar to download the data as a CSV file.
+- **Copy to clipboard**: Select one or multiple cells, copy them to the clipboard (`⌘+C` or `Ctrl+C`), and paste them into your favorite spreadsheet software.
 
-![dataframe-ui.gif](/images/dataframe-ui.gif)
+<YouTube videoId="nauAnULRG1c" loop autoplay />
 
 Try out all the UI features using the embedded app from the prior section.
 
@@ -64,47 +66,48 @@ favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
 st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
 ```
 
-<Collapse title="View interactive app">
-
 <Cloud src="https://doc-data-editor.streamlit.app/?embed=true" height="300px"/>
-
-</Collapse>
 
 Try it out by double-clicking on any cell. You'll notice you can edit all cell values. Try editing the values in the rating column and observe how the text output at the bottom changes:
 
-![data-editor-editing.gif](/images/data-editor-editing.gif)
+## `st.data_editor` UI features
 
 `st.data_editor` also supports a few additional things:
 
-- [Copy and paste support](#copy-and-paste-support) from and to Excel and Google Sheets.
-- [Add and delete rows](#add-and-delete-rows). You can do this by setting `num_rows= "dynamic"` when calling `st.data_editor`. This will allow users to add and delete rows as needed.
-- [Access edited data](#access-edited-data). Only access the individual edits instead of the entire edited data structure via session state.
-- [Bulk edits](#bulk-edits) (similar to Excel, just drag a handle to edit neighboring cells).
-- [Automatic input validation](#automatic-input-validation), a strong data type support. e.g. There's no way to enter letters into a number cell and many other configurable input validation options. e.g. min-/max-value.
-- [Edit common data structures](#edit-common-data-structures) such as lists, dicts, NumPy ndarray, etc.
+- [**Add and delete rows**](#add-and-delete-rows): You can do this by setting `num_rows= "dynamic"` when calling `st.data_editor`. This will allow users to add and delete rows as needed.
+- [**Copy and paste support**](#copy-and-paste-support): Copy and paste both between `st.data_editor` and spreadsheet software like Google Sheets and Excel.
+- [**Access edited data**](#access-edited-data): Access only the individual edits instead of the entire edited data structure via Session State.
+- [**Bulk edits**](#bulk-edits): Similar to Excel, just drag a handle to edit neighboring cells.
+- [**Automatic input validation**](#automatic-input-validation): Column Configuration provides strong data type support and other configurable options. For example, there's no way to enter letters into a number cell. Number cells can have a designated min and max.
+- [**Edit common data structures**](#edit-common-data-structures): `st.data_editor` supports lists, dicts, NumPy ndarray, and more!
+
+<YouTube videoId="6tah69LkfxE" loop autoplay />
+
+### Add and delete rows
+
+With `st.data_editor`, viewers can add or delete rows via the table UI. This mode can be activated by setting the `num_rows` parameter to `"dynamic"`:
+
+```python
+edited_df = st.data_editor(df, num_rows="dynamic")
+```
+
+- To add new rows, click the plus icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>add</i>) in the toolbar. Alternatively, click inside a shaded cell below the bottom row of the table.
+- To delete rows, select one or more rows using the checkboxes on the left. Click the delete icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>delete</i>) or press the `delete` key on your keyboard.
+
+<Cloud src="https://doc-data-editor-clipboard.streamlit.app/?embed=true" height="400px"/>
 
 ### Copy and paste support
 
 The data editor supports pasting in tabular data from Google Sheets, Excel, Notion, and many other similar tools. You can also copy-paste data between `st.data_editor` instances. This functionality, powered by the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API), can be a huge time saver for users who need to work with data across multiple platforms. To try it out:
 
-1. Copy data from [this Google Sheets document](https://docs.google.com/spreadsheets/d/1Z0zd-5dF_HfqUaDDq4BWAOnsdlGCjkbTNwDZMBQ1dOY/edit?usp=sharing) to clipboard
-2. Select any cell in the `name` column of the table below and paste it in (via `ctrl/cmd + v`).
-
-<Collapse title="View interactive app">
-
-<Cloud src="https://doc-data-editor-clipboard.streamlit.app/?embed=true" height="400px"/>
-
-</Collapse>
-
-![data-editor-clipboard.gif](/images/data-editor-clipboard.gif)
+1. Copy data from [this Google Sheets document](https://docs.google.com/spreadsheets/d/1Z0zd-5dF_HfqUaDDq4BWAOnsdlGCjkbTNwDZMBQ1dOY/edit?usp=sharing) to your clipboard.
+2. Single click any cell in the `name` column in the app above. Paste it in using hotkeys (`⌘+V` or `Ctrl+V`).
 
 <Note>
 
-Every cell of the pasted data will be evaluated individually and inserted into the cells if the data is compatible with the column type. E.g., pasting in non-numerical text data into a number column will be ignored.
+Every cell of the pasted data will be evaluated individually and inserted into the cells if the data is compatible with the column type. For example, pasting in non-numerical text data into a number column will be ignored.
 
 </Note>
-
-Did you notice that although the initial dataframe had just five rows, pasting all those rows from the spreadsheet added additional rows to the dataframe? 👀 Let's find out how that works in the next section.
 
 <Tip>
 
@@ -118,58 +121,31 @@ As developers, ensure the app is served with a valid, trusted certificate when u
 
 </Tip>
 
-### Add and delete rows
-
-With `st.data_editor`, viewers can add or delete rows via the table UI. This mode can be activated by setting the `num_rows` parameter to `"dynamic"`. E.g.
-
-```python
-edited_df = st.data_editor(df, num_rows="dynamic")
-```
-
-- To add new rows, scroll to the bottom-most row and click on the “+" sign in any cell.
-- To delete rows, select one or more rows and press the `delete` key on your keyboard.
-
-<Collapse title="View interactive app">
-
-<Cloud src="https://doc-data-editor-clipboard.streamlit.app/?embed=true" height="400px"/>
-
-</Collapse>
-
-![data-editor-add-delete.gif](/images/data-editor-add-delete.gif)
-
 ### Access edited data
 
-Sometimes, it is more convenient to know which cells have been changed rather than getting the entire edited dataframe back. Streamlit makes this easy through the use of [session state](https://docs.streamlit.io/library/advanced-features/session-state). If a `key` parameter is set, Streamlit will store any changes made to the dataframe in the session state.
+Sometimes, it is more convenient to know which cells have been changed rather than getting the entire edited dataframe back. Streamlit makes this easy through the use of [Session State](https://docs.streamlit.io/library/advanced-features/session-state). If a `key` parameter is set, Streamlit will store any changes made to the dataframe in Session State.
 
-This snippet shows how you can access changed data using session state:
+This snippet shows how you can access changed data using Session State:
 
 ```python
-st.data_editor(df, key="data_editor") # 👈 Set a key
-st.write("Here's the session state:")
-st.write(st.session_state["data_editor"]) # 👈 Access the edited data
+st.data_editor(df, key="my_key", num_rows="dynamic") # 👈 Set a key
+st.write("Here's the value in Session State:")
+st.write(st.session_state["my_key"]) # 👈 Show the value in Session State
 ```
 
-In this code snippet, the `key` parameter is set to `"data_editor"`. Any changes made to the data in the `st.data_editor` instance will be tracked by Streamlit and stored in session state under the key `"data_editor"`.
+In this code snippet, the `key` parameter is set to `"my_key"`. After the data editor is created, the value associated to `"my_key"` in Session State is displayed in the app using `st.write`. This shows the additions, edits, and deletions that were made.
 
-After the data editor is created, the contents of the `"data_editor"` key in session state are printed to the screen using `st.write(st.session_state["data_editor"])`. This allows you to see the changes made to the original dataframe without having to return the entire dataframe from the data editor.
-
-This can be useful when working with large dataframes and you only need to know which cells have changed, rather than the entire edited dataframe.
-
-<Collapse title="View interactive app">
+This can be useful when working with large dataframes and you only need to know which cells have changed, rather than access the entire edited dataframe.
 
 <Cloud src="https://doc-data-editor-changed.streamlit.app/?embed=true" height="700px"/>
 
-</Collapse>
-
 Use all we've learned so far and apply them to the above embedded app. Try editing cells, adding new rows, and deleting rows.
 
-![data-editor-session-state.gif](/images/data-editor-session-state.gif)
-
-Notice how edits to the table are reflected in session state: when you make any edits, a rerun is triggered which sends the edits to the backend via `st.data_editor`'s keyed widget state. Its widget state is a JSON object containing three properties: **edited_rows**, **added_rows**, and **deleted rows:**.
+Notice how edits to the table are reflected in Session State. When you make any edits, a rerun is triggered which sends the edits to the backend. The widget's state is a JSON object containing three properties: **edited_rows**, **added_rows**, and **deleted rows:**.
 
 <Warning>
 
-When going from `st.experimental_data_editor` to `st.data_editor` in 1.23.0, the data editor's representation in `st.session_state` was changed. The `edited_cells` dictionary is now called `edited_rows` and uses a different format (`{0: {"column name": "edited value"}}` instead of `{"0:1": "edited value"}`). You may need to adjust the code if your app uses `st.experimental_data_editor` in combination with `st.session_state`."
+When going from `st.experimental_data_editor` to `st.data_editor` in 1.23.0, the data editor's representation in `st.session_state` was changed. The `edited_cells` dictionary is now called `edited_rows` and uses a different format (`{0: {"column name": "edited value"}}` instead of `{"0:1": "edited value"}`). You may need to adjust your code if your app uses `st.experimental_data_editor` in combination with `st.session_state`."
 
 </Warning>
 
@@ -177,17 +153,17 @@ When going from `st.experimental_data_editor` to `st.data_editor` in 1.23.0, the
 - `added_rows` is a list of newly added rows. Each value is a dictionary with the same format as above (e.g. `[{"col1": ..., "col2": ...}]`).
 - `deleted_rows` is a list of row numbers that have been deleted from the table (e.g. `[0, 2]`).
 
+`st.data_editor` does not support reordering rows, so added rows will always be appended to the end of the dataframe with any edits and deletions applicable to the original rows.
+
 ### Bulk edits
 
-The data editor includes a feature that allows for bulk editing of cells. Similar to Excel, you can drag a handle across a selection of cells to edit their values in bulk. You can even apply commonly used [keyboard shortcuts](https://github.com/glideapps/glide-data-grid/blob/main/packages/core/API.md#keybindings) in spreadsheet software. This is useful when you need to make the same change across multiple cells, rather than editing each cell individually:
-
-![data-editor-bulk-editing.gif](/images/data-editor-bulk-editing.gif)
+The data editor includes a feature that allows for bulk editing of cells. Similar to Excel, you can drag a handle across a selection of cells to edit their values in bulk. You can even apply commonly used [keyboard shortcuts](https://github.com/glideapps/glide-data-grid/blob/main/packages/core/API.md#keybindings) in spreadsheet software. This is useful when you need to make the same change across multiple cells, rather than editing each cell individually.
 
 ### Edit common data structures
 
 Editing doesn't just work for Pandas DataFrames! You can also edit lists, tuples, sets, dictionaries, NumPy arrays, or Snowpark & PySpark DataFrames. Most data types will be returned in their original format. But some types (e.g. Snowpark and PySpark) are converted to Pandas DataFrames. To learn about all the supported types, read the [st.data_editor](/library/api-reference/data/st.data_editor) API.
 
-E.g. you can easily let the user add items to a list:
+For example, you can easily let the user add items to a list:
 
 ```python
 edited_list = st.data_editor(["red", "green", "blue"], num_rows= "dynamic")
@@ -276,9 +252,9 @@ if st.button('Get results'):
 
 In addition to column configuration, `st.dataframe` and `st.data_editor` have a few more parameters to customize the display of your dataframe.
 
-* `hide_index` : Set to `True` to hide the dataframe's index.
-* `column_order` : Pass a list of column labels to specify the order of display.
-* `disabled` : Pass a list of column labels to disable them from editing. This let's you avoid disabling them individually.
+- `hide_index` : Set to `True` to hide the dataframe's index.
+- `column_order` : Pass a list of column labels to specify the order of display.
+- `disabled` : Pass a list of column labels to disable them from editing. This let's you avoid disabling them individually.
 
 ## Live filtering
 
@@ -337,10 +313,11 @@ When handling large datasets with more than 150,000 rows, Streamlit applies addi
 
 ## Limitations
 
-While Streamlit's data editing capabilities offer a lot of functionality, there are some limitations to be aware of:
+- Streamlit casts all column names to strings internally, so `st.data_editor` will return a DataFrame where all column names are strings.
+- The dataframe toolbar is not currently configurable.
+- While Streamlit's data editing capabilities offer a lot of functionality, editing is enabled for a limited set of column types ([TextColumn](/library/api-reference/data/st.column_config/st.column_config.textcolumn), [NumberColumn](/library/api-reference/data/st.column_config/st.column_config.numbercolumn), [LinkColumn](/library/api-reference/data/st.column_config/st.column_config.linkcolumn), [CheckboxColumn](/library/api-reference/data/st.column_config/st.column_config.checkboxcolumn), [SelectboxColumn](/library/api-reference/data/st.column_config/st.column_config.selectboxcolumn), [DateColumn](/library/api-reference/data/st.column_config/st.column_config.datecolumn), [TimeColumn](/library/api-reference/data/st.column_config/st.column_config.timecolumn), and [DatetimeColumn](/library/api-reference/data/st.column_config/st.column_config.datetimecolumn)). We are actively working on supporting editing for other column types as well, such as images, lists, and charts.
+- Almost all editable datatypes are supported for index editing. However, `pandas.CategoricalIndex` and `pandas.MultiIndex` are not supported for editing.
+- Sorting is not supported for `st.data_editor` when `num_rows="dynamic"`.
+- Sorting is deactivated to optimize performance on large datasets with more than 150,000 rows.
 
-- Editing is enabled for a limited set of column types ([TextColumn](/library/api-reference/data/st.column_config/st.column_config.textcolumn), [NumberColumn](/library/api-reference/data/st.column_config/st.column_config.numbercolumn), [LinkColumn](/library/api-reference/data/st.column_config/st.column_config.linkcolumn), [CheckboxColumn](/library/api-reference/data/st.column_config/st.column_config.checkboxcolumn), [SelectboxColumn](/library/api-reference/data/st.column_config/st.column_config.selectboxcolumn), [DateColumn](/library/api-reference/data/st.column_config/st.column_config.datecolumn), [TimeColumn](/library/api-reference/data/st.column_config/st.column_config.timecolumn), and [DatetimeColumn](/library/api-reference/data/st.column_config/st.column_config.datetimecolumn)). We are actively working on supporting editing for other column types as well, such as images, lists, and charts.
-- Editing of Pandas DataFrames only supports the following index types: `RangeIndex`, (string) `Index`, `Float64Index`, `Int64Index`, and `UInt64Index`.
-- Some actions like deleting rows or searching data can only be triggered via keyboard hotkeys.
-
-We are working to fix the above limitations in future releases, so keep an eye out for updates.
+We are continually working to improve Streamlit's handling of DataFrame and add functionality to data editing, so keep an eye out for updates.

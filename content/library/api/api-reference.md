@@ -19,7 +19,7 @@ Browse our API below and click to learn more about any of our available commands
 <TileContainer>
 <RefCard href="/library/api-reference/write-magic/st.write">
 
-#### st.write
+<h4>st.write</h4>
 
 Write arguments to the app.
 
@@ -30,9 +30,21 @@ st.write(my_mpl_figure)
 ```
 
 </RefCard>
+<RefCard href="/library/api-reference/write-magic/st.write_stream">
+
+<h4>st.write_stream</h4>
+
+Write generators or streams to the app with a typewriter effect.
+
+```python
+st.write_stream(my_generator)
+st.write_stream(my_llm_stream)
+```
+
+</RefCard>
 <RefCard href="/library/api-reference/write-magic/magic">
 
-#### Magic
+<h4>Magic</h4>
 
 Any time Streamlit sees either a variable or literal value on its own line, it automatically writes that to your app using `st.write`
 
@@ -52,7 +64,7 @@ my_mpl_figure
 
 <Image pure alt="screenshot" src="/images/api/markdown.jpg" />
 
-#### Markdown
+<h4>Markdown</h4>
 
 Display string formatted as Markdown.
 
@@ -65,7 +77,7 @@ st.markdown("Hello **world**!")
 
 <Image pure alt="screenshot" src="/images/api/title.jpg" />
 
-#### Title
+<h4>Title</h4>
 
 Display text in title formatting.
 
@@ -78,7 +90,7 @@ st.title("The app title")
 
 <Image pure alt="screenshot" src="/images/api/header.jpg" />
 
-#### Header
+<h4>Header</h4>
 
 Display text in header formatting.
 
@@ -91,7 +103,7 @@ st.header("This is a header")
 
 <Image pure alt="screenshot" src="/images/api/subheader.jpg" />
 
-#### Subheader
+<h4>Subheader</h4>
 
 Display text in subheader formatting.
 
@@ -104,7 +116,7 @@ st.subheader("This is a subheader")
 
 <Image pure alt="screenshot" src="/images/api/caption.jpg" />
 
-#### Caption
+<h4>Caption</h4>
 
 Display text in small font.
 
@@ -117,7 +129,7 @@ st.caption("This is written small caption text")
 
 <Image pure alt="screenshot" src="/images/api/code.jpg" />
 
-#### Code block
+<h4>Code block</h4>
 
 Display a code block with optional syntax highlighting.
 
@@ -130,7 +142,7 @@ st.code("a = 1234")
 
 <Image pure alt="screenshot" src="/images/api/text.jpg" />
 
-#### Preformatted text
+<h4>Preformatted text</h4>
 
 Write fixed-width and preformatted text.
 
@@ -143,7 +155,7 @@ st.text("Hello world")
 
 <Image pure alt="screenshot" src="/images/api/latex.jpg" />
 
-#### LaTeX
+<h4>LaTeX</h4>
 
 Display mathematical expressions formatted as LaTeX.
 
@@ -156,7 +168,7 @@ st.latex("\int a x^2 \,dx")
 
 <Image pure alt="screenshot" src="/images/api/divider.jpg" />
 
-#### Divider
+<h4>Divider</h4>
 
 Display a horizontal rule.
 
@@ -172,7 +184,7 @@ st.divider()
 
 <Image pure alt="screenshot" src="/images/api/components/annotated-text.jpg" />
 
-#### Annotated text
+<h4>Annotated text</h4>
 
 Display annotated text in Streamlit apps. Created by [@tvst](https://github.com/tvst).
 
@@ -186,7 +198,7 @@ annotated_text("This ", ("is", "verb"), " some ", ("annotated", "adj"), ("text",
 
 <Image pure alt="screenshot" src="/images/api/components/drawable-canvas.jpg" />
 
-#### Drawable Canvas
+<h4>Drawable Canvas</h4>
 
 Provides a sketching canvas using [Fabric.js](http://fabricjs.com/). Created by [@andfanilo](https://github.com/andfanilo).
 
@@ -200,7 +212,7 @@ st_canvas(fill_color="rgba(255, 165, 0, 0.3)", stroke_width=stroke_width, stroke
 
 <Image pure alt="screenshot" src="/images/api/components/tags.jpg" />
 
-#### Tags
+<h4>Tags</h4>
 
 Add tags to your Streamlit apps. Created by [@gagan3012](https://github.com/gagan3012).
 
@@ -214,7 +226,7 @@ st_tags(label='# Enter Keywords:', text='Press enter to add more', value=['Zero'
 
 <Image pure alt="screenshot" src="/images/api/components/nlu.jpg" />
 
-#### NLU
+<h4>NLU</h4>
 
 Apply text mining on a dataframe. Created by [@JohnSnowLabs](https://github.com/JohnSnowLabs/).
 
@@ -228,7 +240,7 @@ nlu.load('sentiment').predict('I love NLU! <3')
 
 <Image pure alt="screenshot" src="/images/api/components/extras-mentions.jpg" />
 
-#### Streamlit Extras
+<h4>Streamlit Extras</h4>
 
 A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
 
@@ -245,7 +257,7 @@ mention(label="An awesome Streamlit App", icon="streamlit",  url="https://extras
 <RefCard href="/library/api-reference/data/st.dataframe">
 <Image pure alt="screenshot" src="/images/api/dataframe.jpg" />
 
-#### Dataframes
+<h4>Dataframes</h4>
 
 Display a dataframe as an interactive table.
 
@@ -258,7 +270,7 @@ st.dataframe(my_data_frame)
 
 <Image pure alt="screenshot" src="/images/api/data_editor.jpg" />
 
-#### Data editor
+<h4>Data editor</h4>
 
 Display a data editor widget.
 
@@ -271,7 +283,7 @@ edited = st.data_editor(df, num_rows="dynamic")
 
 <Image pure alt="screenshot" src="/images/api/column_config.jpg" />
 
-#### Column configuration
+<h4>Column configuration</h4>
 
 Configure the display and editing behavior of dataframes and data editors.
 
@@ -284,7 +296,7 @@ st.column_config.NumberColumn("Price (in USD)", min_value=0, format="$%d")
 <RefCard href="/library/api-reference/data/st.table">
 <Image pure alt="screenshot" src="/images/api/table.jpg" />
 
-#### Static tables
+<h4>Static tables</h4>
 
 Display a static table.
 
@@ -296,7 +308,7 @@ st.table(my_data_frame)
 <RefCard href="/library/api-reference/data/st.metric">
 <Image pure alt="screenshot" src="/images/api/metric.jpg" />
 
-#### Metrics
+<h4>Metrics</h4>
 
 Display a metric in big bold font, with an optional indicator of how the metric changed.
 
@@ -308,7 +320,7 @@ st.metric("My metric", 42, 2)
 <RefCard href="/library/api-reference/data/st.json">
 <Image pure alt="screenshot" src="/images/api/json.jpg" />
 
-#### Dicts and JSON
+<h4>Dicts and JSON</h4>
 
 Display object or string as a pretty-printed JSON string.
 
@@ -325,7 +337,7 @@ st.json(my_dict)
 
 <Image pure alt="screenshot" src="/images/api/components/aggrid.jpg" />
 
-#### Streamlit Aggrid
+<h4>Streamlit Aggrid</h4>
 
 Implementation of Ag-Grid component for Streamlit. Created by [@PablocFonseca](https://github.com/PablocFonseca).
 
@@ -342,7 +354,7 @@ new_df = grid_return['data']
 
 <Image pure alt="screenshot" src="/images/api/components/folium.jpg" />
 
-#### Streamlit Folium
+<h4>Streamlit Folium</h4>
 
 Streamlit Component for rendering Folium maps. Created by [@randyzwitch](https://github.com/randyzwitch).
 
@@ -359,7 +371,7 @@ st_data = st_folium(m, width=725)
 
 <Image pure alt="screenshot" src="/images/api/components/pandas-profiling.jpg" />
 
-#### Pandas Profiling
+<h4>Pandas Profiling</h4>
 
 Pandas profiling component for Streamlit. Created by [@okld](https://github.com/okld/).
 
@@ -376,7 +388,7 @@ st_profile_report(pr)
 
 <Image pure alt="screenshot" src="/images/api/components/image-coordinates.jpg" />
 
-#### Image Coordinates
+<h4>Image Coordinates</h4>
 
 Get the coordinates of clicks on an image. Created by [@blackary](https://github.com/blackary/).
 
@@ -393,7 +405,7 @@ st.write(value)
 
 <Image pure alt="screenshot" src="/images/api/components/plotly-events.jpg" />
 
-#### Plotly Events
+<h4>Plotly Events</h4>
 
 Make Plotly charts interactive!. Created by [@null-jones](https://github.com/null-jones/).
 
@@ -410,7 +422,7 @@ selected_points = plotly_events(fig)
 
 <Image pure alt="screenshot" src="/images/api/components/extras-metric-cards.jpg" />
 
-#### Streamlit Extras
+<h4>Streamlit Extras</h4>
 
 A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
 
@@ -432,7 +444,7 @@ style_metric_cards()
 <RefCard href="/library/api-reference/charts/st.area_chart">
 <Image pure alt="screenshot" src="/images/api/area_chart.jpg" />
 
-#### Simple area charts
+<h4>Simple area charts</h4>
 
 Display an area chart.
 
@@ -444,7 +456,7 @@ st.area_chart(my_data_frame)
 <RefCard href="/library/api-reference/charts/st.bar_chart">
 <Image pure alt="screenshot" src="/images/api/bar_chart.jpg" />
 
-#### Simple bar charts
+<h4>Simple bar charts</h4>
 
 Display a bar chart.
 
@@ -456,7 +468,7 @@ st.bar_chart(my_data_frame)
 <RefCard href="/library/api-reference/charts/st.line_chart">
 <Image pure alt="screenshot" src="/images/api/line_chart.jpg" />
 
-#### Simple line charts
+<h4>Simple line charts</h4>
 
 Display a line chart.
 
@@ -468,7 +480,7 @@ st.line_chart(my_data_frame)
 <RefCard href="/library/api-reference/charts/st.scatter_chart">
 <Image pure alt="screenshot" src="/images/api/scatter_chart.svg" />
 
-#### Simple scatter charts
+<h4>Simple scatter charts</h4>
 
 Display a line chart.
 
@@ -480,7 +492,7 @@ st.scatter_chart(my_data_frame)
 <RefCard href="/library/api-reference/charts/st.map">
 <Image pure alt="screenshot" src="/images/api/map.jpg" />
 
-#### Scatterplots on maps
+<h4>Scatterplots on maps</h4>
 
 Display a map with points on it.
 
@@ -492,7 +504,7 @@ st.map(my_data_frame)
 <RefCard href="/library/api-reference/charts/st.pyplot">
 <Image pure alt="screenshot" src="/images/api/pyplot.jpg" />
 
-#### Matplotlib
+<h4>Matplotlib</h4>
 
 Display a matplotlib.pyplot figure.
 
@@ -504,7 +516,7 @@ st.pyplot(my_mpl_figure)
 <RefCard href="/library/api-reference/charts/st.altair_chart">
 <Image pure alt="screenshot" src="/images/api/vega_lite_chart.jpg" />
 
-#### Altair
+<h4>Altair</h4>
 
 Display a chart using the Altair library.
 
@@ -516,7 +528,7 @@ st.altair_chart(my_altair_chart)
 <RefCard href="/library/api-reference/charts/st.vega_lite_chart">
 <Image pure alt="screenshot" src="/images/api/vega_lite_chart.jpg" />
 
-#### Vega-Lite
+<h4>Vega-Lite</h4>
 
 Display a chart using the Vega-Lite library.
 
@@ -528,7 +540,7 @@ st.vega_lite_chart(my_vega_lite_chart)
 <RefCard href="/library/api-reference/charts/st.plotly_chart">
 <Image pure alt="screenshot" src="/images/api/plotly_chart.jpg" />
 
-#### Plotly
+<h4>Plotly</h4>
 
 Display an interactive Plotly chart.
 
@@ -540,7 +552,7 @@ st.plotly_chart(my_plotly_chart)
 <RefCard href="/library/api-reference/charts/st.bokeh_chart">
 <Image pure alt="screenshot" src="/images/api/bokeh_chart.jpg" />
 
-#### Bokeh
+<h4>Bokeh</h4>
 
 Display an interactive Bokeh chart.
 
@@ -552,7 +564,7 @@ st.bokeh_chart(my_bokeh_chart)
 <RefCard href="/library/api-reference/charts/st.pydeck_chart">
 <Image pure alt="screenshot" src="/images/api/pydeck_chart.jpg" />
 
-#### PyDeck
+<h4>PyDeck</h4>
 
 Display a chart using the PyDeck library.
 
@@ -564,7 +576,7 @@ st.pydeck_chart(my_pydeck_chart)
 <RefCard href="/library/api-reference/charts/st.graphviz_chart">
 <Image pure alt="screenshot" src="/images/api/graphviz_chart.jpg" />
 
-#### GraphViz
+<h4>GraphViz</h4>
 
 Display a graph using the dagre-d3 library.
 
@@ -581,7 +593,7 @@ st.graphviz_chart(my_graphviz_spec)
 
 <Image pure alt="screenshot" src="/images/api/components/plost.jpg" />
 
-#### Plost
+<h4>Plost</h4>
 
 A deceptively simple plotting library for Streamlit. Created by [@tvst](https://github.com/tvst).
 
@@ -596,7 +608,7 @@ plost.line_chart(my_dataframe, x='time', y='stock_value', color='stock_name',)
 
 <Image pure alt="screenshot" src="/images/api/components/hiplot.jpg" />
 
-#### HiPlot
+<h4>HiPlot</h4>
 
 High dimensional Interactive Plotting. Created by [@facebookresearch](https://github.com/facebookresearch).
 
@@ -611,7 +623,7 @@ hip.Experiment.from_iterable(data).display()
 
 <Image pure alt="screenshot" src="/images/api/components/echarts.jpg" />
 
-#### ECharts
+<h4>ECharts</h4>
 
 High dimensional Interactive Plotting. Created by [@andfanilo](https://github.com/andfanilo).
 
@@ -626,7 +638,7 @@ st_echarts(options=options)
 
 <Image pure alt="screenshot" src="/images/api/components/folium.jpg" />
 
-#### Streamlit Folium
+<h4>Streamlit Folium</h4>
 
 Streamlit Component for rendering Folium maps. Created by [@randyzwitch](https://github.com/randyzwitch).
 
@@ -641,7 +653,7 @@ st_data = st_folium(m, width=725)
 
 <Image pure alt="screenshot" src="/images/api/components/spacy.jpg" />
 
-#### Spacy-Streamlit
+<h4>Spacy-Streamlit</h4>
 
 spaCy building blocks and visualizers for Streamlit apps. Created by [@explosion](https://github.com/explosion).
 
@@ -656,7 +668,7 @@ spacy_streamlit.visualize(models, "Sundar Pichai is the CEO of Google.")
 
 <Image pure alt="screenshot" src="/images/api/components/agraph.jpg" />
 
-#### Streamlit Agraph
+<h4>Streamlit Agraph</h4>
 
 A Streamlit Graph Vis, based on [react-grah-vis](https://github.com/crubier/react-graph-vis). Created by [@ChrisDelClea](https://github.com/ChrisDelClea).
 
@@ -671,7 +683,7 @@ agraph(nodes=nodes, edges=edges, config=config)
 
 <Image pure alt="screenshot" src="/images/api/components/lottie.jpg" />
 
-#### Streamlit Lottie
+<h4>Streamlit Lottie</h4>
 
 Integrate [Lottie](https://lottiefiles.com/) animations inside your Streamlit app. Created by [@andfanilo](https://github.com/andfanilo).
 
@@ -686,7 +698,7 @@ st_lottie(lottie_hello, key="hello")
 
 <Image pure alt="screenshot" src="/images/api/components/plotly-events.jpg" />
 
-#### Plotly Events
+<h4>Plotly Events</h4>
 
 Make Plotly charts interactive!. Created by [@null-jones](https://github.com/null-jones/).
 
@@ -701,7 +713,7 @@ selected_points = plotly_events(fig)
 
 <Image pure alt="screenshot" src="/images/api/components/extras-chart-annotations.jpg" />
 
-#### Streamlit Extras
+<h4>Streamlit Extras</h4>
 
 A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
 
@@ -721,7 +733,7 @@ st.altair_chart(chart, use_container_width=True)
 
 <Image pure alt="screenshot" src="/images/api/button.svg" />
 
-#### Button
+<h4>Button</h4>
 
 Display a button widget.
 
@@ -734,7 +746,7 @@ clicked = st.button("Click me")
 
 <Image pure alt="screenshot" src="/images/api/data_editor.jpg" />
 
-#### Data editor
+<h4>Data editor</h4>
 
 Display a data editor widget.
 
@@ -747,7 +759,7 @@ edited = st.experimental_data_editor(df, num_rows="dynamic")
 
 <Image pure alt="screenshot" src="/images/api/download_button.svg" />
 
-#### Download button
+<h4>Download button</h4>
 
 Display a download button widget.
 
@@ -760,7 +772,7 @@ st.download_button("Download file", file)
 
 <Image pure alt="screenshot" src="/images/api/link_button.svg" />
 
-#### Link button
+<h4>Link button</h4>
 
 Display a link button.
 
@@ -769,11 +781,25 @@ st.link_button("Go to gallery", url)
 ```
 
 </RefCard>
+<RefCard href="/library/api-reference/widgets/st.page_link">
+
+<Image pure alt="screenshot" src="/images/api/page_link.jpg" />
+
+<h4>Page link</h4>
+
+Display a link to another page in a multipage app.
+
+```python
+st.page_link("app.py", label="Home", icon="🏠")
+st.page_link("pages/profile.py", label="My profile")
+```
+
+</RefCard>
 <RefCard href="/library/api-reference/widgets/st.checkbox">
 
 <Image pure alt="screenshot" src="/images/api/checkbox.jpg" />
 
-#### Checkbox
+<h4>Checkbox</h4>
 
 Display a checkbox widget.
 
@@ -786,7 +812,7 @@ selected = st.checkbox("I agree")
 
 <Image pure alt="screenshot" src="/images/api/toggle.jpg" />
 
-#### Toggle
+<h4>Toggle</h4>
 
 Display a toggle widget.
 
@@ -799,7 +825,7 @@ activated = st.toggle("Activate")
 
 <Image pure alt="screenshot" src="/images/api/radio.jpg" />
 
-#### Radio
+<h4>Radio</h4>
 
 Display a radio button widget.
 
@@ -812,7 +838,7 @@ choice = st.radio("Pick one", ["cats", "dogs"])
 
 <Image pure alt="screenshot" src="/images/api/selectbox.jpg" />
 
-#### Selectbox
+<h4>Selectbox</h4>
 
 Display a select widget.
 
@@ -825,7 +851,7 @@ choice = st.selectbox("Pick one", ["cats", "dogs"])
 
 <Image pure alt="screenshot" src="/images/api/multiselect.jpg" />
 
-#### Multiselect
+<h4>Multiselect</h4>
 
 Display a multiselect widget. The multiselect widget starts as empty.
 
@@ -838,7 +864,7 @@ choices = st.multiselect("Buy", ["milk", "apples", "potatoes"])
 
 <Image pure alt="screenshot" src="/images/api/slider.jpg" />
 
-#### Slider
+<h4>Slider</h4>
 
 Display a slider widget.
 
@@ -851,7 +877,7 @@ number = st.slider("Pick a number", 0, 100)
 
 <Image pure alt="screenshot" src="/images/api/select_slider.jpg" />
 
-#### Select-slider
+<h4>Select-slider</h4>
 
 Display a slider widget to select items from a list.
 
@@ -864,7 +890,7 @@ size = st.select_slider("Pick a size", ["S", "M", "L"])
 
 <Image pure alt="screenshot" src="/images/api/text_input.jpg" />
 
-#### Text input
+<h4>Text input</h4>
 
 Display a single-line text input widget.
 
@@ -877,7 +903,7 @@ name = st.text_input("First name")
 
 <Image pure alt="screenshot" src="/images/api/number_input.jpg" />
 
-#### Number input
+<h4>Number input</h4>
 
 Display a numeric input widget.
 
@@ -890,7 +916,7 @@ choice = st.number_input("Pick a number", 0, 10)
 
 <Image pure alt="screenshot" src="/images/api/text_area.jpg" />
 
-#### Text-area
+<h4>Text-area</h4>
 
 Display a multi-line text input widget.
 
@@ -903,7 +929,7 @@ text = st.text_area("Text to translate")
 
 <Image pure alt="screenshot" src="/images/api/date_input.jpg" />
 
-#### Date input
+<h4>Date input</h4>
 
 Display a date input widget.
 
@@ -916,7 +942,7 @@ date = st.date_input("Your birthday")
 
 <Image pure alt="screenshot" src="/images/api/time_input.jpg" />
 
-#### Time input
+<h4>Time input</h4>
 
 Display a time input widget.
 
@@ -929,7 +955,7 @@ time = st.time_input("Meeting time")
 
 <Image pure alt="screenshot" src="/images/api/file_uploader.jpg" />
 
-#### File Uploader
+<h4>File Uploader</h4>
 
 Display a file uploader widget.
 
@@ -942,7 +968,7 @@ data = st.file_uploader("Upload a CSV")
 
 <Image pure alt="screenshot" src="/images/api/camera_input.jpg" />
 
-#### Camera input
+<h4>Camera input</h4>
 
 Display a widget that allows users to upload images directly from a camera.
 
@@ -955,7 +981,7 @@ image = st.camera_input("Take a picture")
 
 <Image pure alt="screenshot" src="/images/api/color_picker.jpg" />
 
-#### Color picker
+<h4>Color picker</h4>
 
 Display a color picker widget.
 
@@ -972,7 +998,7 @@ color = st.color_picker("Pick a color")
 
 <Image pure alt="screenshot" src="/images/api/components/elements.jpg" />
 
-#### Streamlit Elements
+<h4>Streamlit Elements</h4>
 
 Create a draggable and resizable dashboard in Streamlit. Created by [@okls](https://github.com/okls).
 
@@ -989,7 +1015,7 @@ with elements("new_element"):
 
 <Image pure alt="screenshot" src="/images/api/components/tags.jpg" />
 
-#### Tags
+<h4>Tags</h4>
 
 Add tags to your Streamlit apps. Created by [@gagan3012](https://github.com/gagan3012).
 
@@ -1006,7 +1032,7 @@ suggestions=['five', 'six', 'seven', 'eight', 'nine', 'three', 'eleven', 'ten', 
 
 <Image pure alt="screenshot" src="/images/api/components/stqdm.jpg" />
 
-#### Stqdm
+<h4>Stqdm</h4>
 
 The simplest way to handle a progress bar in streamlit app. Created by [@Wirg](https://github.com/Wirg).
 
@@ -1023,7 +1049,7 @@ for _ in stqdm(range(50)):
 
 <Image pure alt="screenshot" src="/images/api/components/timeline.jpg" />
 
-#### Timeline
+<h4>Timeline</h4>
 
 Display a Timeline in Streamlit apps using [TimelineJS](https://timeline.knightlab.com/). Created by [@innerdoc](https://github.com/innerdoc).
 
@@ -1040,7 +1066,7 @@ with open('example.json', "r") as f:
 
 <Image pure alt="screenshot" src="/images/api/components/camera-live.jpg" />
 
-#### Camera input live
+<h4>Camera input live</h4>
 
 Alternative for st.camera_input which returns the webcam images live. Created by [@blackary](https://github.com/blackary).
 
@@ -1057,7 +1083,7 @@ st.image(value)
 
 <Image pure alt="screenshot" src="/images/api/components/ace.jpg" />
 
-#### Streamlit Ace
+<h4>Streamlit Ace</h4>
 
 Ace editor component for Streamlit. Created by [@okld](https://github.com/okld).
 
@@ -1074,7 +1100,7 @@ content
 
 <Image pure alt="screenshot" src="/images/api/components/chat.jpg" />
 
-#### Streamlit Chat
+<h4>Streamlit Chat</h4>
 
 Streamlit Component for a Chatbot UI. Created by [@AI-Yash](https://github.com/AI-Yash).
 
@@ -1091,7 +1117,7 @@ message("Hello bot!", is_user=True)  # align's the message to the right
 
 <Image pure alt="screenshot" src="/images/api/components/option-menu.jpg" />
 
-#### Streamlit Option Menu
+<h4>Streamlit Option Menu</h4>
 
 Select a single item from a list of options in a menu. Created by [@victoryhb](https://github.com/victoryhb).
 
@@ -1108,7 +1134,7 @@ option_menu("Main Menu", ["Home", 'Settings'],
 
 <Image pure alt="screenshot" src="/images/api/components/extras-toggle.jpg" />
 
-#### Streamlit Extras
+<h4>Streamlit Extras</h4>
 
 A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
 
@@ -1130,7 +1156,7 @@ stoggle(
 
 <Image pure alt="screenshot" src="/images/api/image.jpg" />
 
-#### Image
+<h4>Image</h4>
 
 Display an image or list of images.
 
@@ -1146,7 +1172,7 @@ st.image("https://example.com/myimage.jpg")
 
 <Image pure alt="screenshot" src="/images/api/audio.jpg" />
 
-#### Audio
+<h4>Audio</h4>
 
 Display an audio player.
 
@@ -1162,7 +1188,7 @@ st.audio("https://example.com/myaudio.mp3", format="audio/mp3")
 
 <Image pure alt="screenshot" src="/images/api/video.jpg" />
 
-#### Video
+<h4>Video</h4>
 
 Display a video player.
 
@@ -1182,7 +1208,7 @@ st.video("https://example.com/myvideo.mp4", format="video/mp4")
 
 <Image pure alt="screenshot" src="/images/api/components/webrtc.jpg" />
 
-#### Streamlit Webrtc
+<h4>Streamlit Webrtc</h4>
 
 Handling and transmitting real-time video/audio streams with Streamlit. Created by [@whitphx](https://github.com/whitphx).
 
@@ -1198,7 +1224,7 @@ webrtc_streamer(key="sample")
 
 <Image pure alt="screenshot" src="/images/api/components/drawable-canvas.jpg" />
 
-#### Drawable Canvas
+<h4>Drawable Canvas</h4>
 
 Provides a sketching canvas using [Fabric.js](http://fabricjs.com/). Created by [@andfanilo](https://github.com/andfanilo).
 
@@ -1214,7 +1240,7 @@ st_canvas(fill_color="rgba(255, 165, 0, 0.3)", stroke_width=stroke_width, stroke
 
 <Image pure alt="screenshot" src="/images/api/components/image-comparison.jpg" />
 
-#### Image Comparison
+<h4>Image Comparison</h4>
 
 Compare images with a slider using [JuxtaposeJS](https://juxtapose.knightlab.com/). Created by [@fcakyon](https://github.com/fcakyon).
 
@@ -1230,7 +1256,7 @@ image_comparison(img1="image1.jpg", img2="image2.jpg",)
 
 <Image pure alt="screenshot" src="/images/api/components/cropper.jpg" />
 
-#### Streamlit Cropper
+<h4>Streamlit Cropper</h4>
 
 A simple image cropper for Streamlit. Created by [@turner-anderson](https://github.com/turner-anderson).
 
@@ -1246,7 +1272,7 @@ st_cropper(img, realtime_update=realtime_update, box_color=box_color, aspect_rat
 
 <Image pure alt="screenshot" src="/images/api/components/image-coordinates.jpg" />
 
-#### Image Coordinates
+<h4>Image Coordinates</h4>
 
 Get the coordinates of clicks on an image. Created by [@blackary](https://github.com/blackary/).
 
@@ -1262,7 +1288,7 @@ streamlit_image_coordinates("https://placekitten.com/200/300")
 
 <Image pure alt="screenshot" src="/images/api/components/lottie.jpg" />
 
-#### Streamlit Lottie
+<h4>Streamlit Lottie</h4>
 
 Integrate [Lottie](https://lottiefiles.com/) animations inside your Streamlit app. Created by [@andfanilo](https://github.com/andfanilo).
 
@@ -1283,7 +1309,7 @@ st_lottie(lottie_hello, key="hello")
 
 <Image pure alt="screenshot" src="/images/api/sidebar.jpg" />
 
-#### Sidebar
+<h4>Sidebar</h4>
 
 Display items in a sidebar.
 
@@ -1297,7 +1323,7 @@ st.sidebar.button("Click me!")
 
 <Image pure alt="screenshot" src="/images/api/columns.jpg" />
 
-#### Columns
+<h4>Columns</h4>
 
 Insert containers laid out as side-by-side columns.
 
@@ -1312,7 +1338,7 @@ col2.write("this is column 2")
 
 <Image pure alt="screenshot" src="/images/api/tabs.jpg" />
 
-#### Tabs
+<h4>Tabs</h4>
 
 Insert containers separated into tabs.
 
@@ -1327,7 +1353,7 @@ tab2.write("this is tab 2")
 
 <Image pure alt="screenshot" src="/images/api/expander.jpg" />
 
-#### Expander
+<h4>Expander</h4>
 
 Insert a multi-element container that can be expanded/collapsed.
 
@@ -1341,7 +1367,7 @@ with st.expander("Open to see more"):
 
 <Image pure alt="screenshot" src="/images/api/container.jpg" />
 
-#### Container
+<h4>Container</h4>
 
 Insert a multi-element container.
 
@@ -1357,7 +1383,7 @@ c.write("This will show second")
 
 <Image pure alt="screenshot" src="/images/api/empty.jpg" />
 
-#### Empty
+<h4>Empty</h4>
 
 Insert a single-element container.
 
@@ -1377,7 +1403,7 @@ c.write("This will show first")
 
 <Image pure alt="screenshot" src="/images/api/components/elements.jpg" />
 
-#### Streamlit Elements
+<h4>Streamlit Elements</h4>
 
 Create a draggable and resizable dashboard in Streamlit. Created by [@okls](https://github.com/okls).
 
@@ -1394,7 +1420,7 @@ with elements("new_element"):
 
 <Image pure alt="screenshot" src="/images/api/components/pydantic.jpg" />
 
-#### Pydantic
+<h4>Pydantic</h4>
 
 Auto-generate Streamlit UI from Pydantic Models and Dataclasses. Created by [@lukasmasuch](https://github.com/lukasmasuch).
 
@@ -1411,7 +1437,7 @@ sp.pydantic_form(key="my_form",
 
 <Image pure alt="screenshot" src="/images/api/components/pages.jpg" />
 
-#### Streamlit Pages
+<h4>Streamlit Pages</h4>
 
 An experimental version of Streamlit Multi-Page Apps. Created by [@blackary](https://github.com/blackary).
 
@@ -1433,11 +1459,26 @@ Streamlit provides a few commands to help you build conversational apps. These c
 `st.chat_message` lets you insert a chat message container into the app so you can display messages from the user or the app. Chat containers can contain other Streamlit elements, including charts, tables, text, and more. `st.chat_input` lets you display a chat input widget so the user can type in a message.
 
 <TileContainer>
+<RefCard href="/library/api-reference/chat/st.chat_input">
+
+<Image pure alt="screenshot" src="/images/api/chat_input.jpg" />
+
+<h4>Chat input</h4>
+
+Display a chat input widget.
+
+```python
+prompt = st.chat_input("Say something")
+if prompt:
+    st.write(f"The user has sent: {prompt}")
+```
+
+</RefCard>
 <RefCard href="/library/api-reference/chat/st.chat_message">
 
 <Image pure alt="screenshot" src="/images/api/chat_message.jpg" />
 
-#### Chat message
+<h4>Chat message</h4>
 
 Insert a chat message container.
 
@@ -1449,32 +1490,29 @@ with st.chat_message("user"):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/chat/st.chat_input">
-
-<Image pure alt="screenshot" src="/images/api/chat_input.jpg" />
-
-#### Chat input
-
-Display a chat input widget.
-
-```python
-prompt = st.chat_input("Say something")
-if prompt:
-    st.write(f"The user has sent: {prompt}")
-```
-
-</RefCard>
 <RefCard href="/library/api-reference/status/st.status">
 
 <Image pure alt="screenshot" src="/images/api/status.jpg" />
 
-#### Status container
+<h4>Status container</h4>
 
 Display output of long-running tasks in a container.
 
 ```python
 with st.status('Running'):
   do_something_slow()
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/write-magic/st.write_stream">
+
+<h4>st.write_stream</h4>
+
+Write generators or streams to the app with a typewriter effect.
+
+```python
+st.write_stream(my_generator)
+st.write_stream(my_llm_stream)
 ```
 
 </RefCard>
@@ -1487,7 +1525,7 @@ with st.status('Running'):
 
 <Image pure alt="screenshot" src="/images/api/progress.jpg" />
 
-#### Progress bar
+<h4>Progress bar</h4>
 
 Display a progress bar.
 
@@ -1502,7 +1540,7 @@ for i in range(101):
 
 <Image pure alt="screenshot" src="/images/api/spinner.jpg" />
 
-#### Spinner
+<h4>Spinner</h4>
 
 Temporarily displays a message while executing a block of code.
 
@@ -1516,7 +1554,7 @@ with st.spinner("Please wait..."):
 
 <Image pure alt="screenshot" src="/images/api/status.jpg" />
 
-#### Status container
+<h4>Status container</h4>
 
 Display output of long-running tasks in a container.
 
@@ -1530,7 +1568,7 @@ with st.status('Running'):
 
 <Image pure alt="screenshot" src="/images/api/toast.jpg" />
 
-#### Toast
+<h4>Toast</h4>
 
 Briefly displays a toast message in the bottom-right corner.
 
@@ -1543,7 +1581,7 @@ st.toast('Butter!', icon='🧈')
 
 <Image pure alt="screenshot" src="/images/api/balloons.jpg" />
 
-#### Balloons
+<h4>Balloons</h4>
 
 Display celebratory balloons!
 
@@ -1559,7 +1597,7 @@ st.balloons()
 
 <Image pure alt="screenshot" src="/images/api/snow.jpg" />
 
-#### Snowflakes
+<h4>Snowflakes</h4>
 
 Display celebratory snowflakes!
 
@@ -1575,7 +1613,7 @@ st.snow()
 
 <Image pure alt="screenshot" src="/images/api/error.jpg" />
 
-#### Error box
+<h4>Error box</h4>
 
 Display error message.
 
@@ -1588,7 +1626,7 @@ st.error("We encountered an error")
 
 <Image pure alt="screenshot" src="/images/api/warning.jpg" />
 
-#### Warning box
+<h4>Warning box</h4>
 
 Display warning message.
 
@@ -1601,7 +1639,7 @@ st.warning("Unable to fetch image. Skipping...")
 
 <Image pure alt="screenshot" src="/images/api/info.jpg" />
 
-#### Info box
+<h4>Info box</h4>
 
 Display an informational message.
 
@@ -1614,7 +1652,7 @@ st.info("Dataset is updated every day at midnight.")
 
 <Image pure alt="screenshot" src="/images/api/success.jpg" />
 
-#### Success box
+<h4>Success box</h4>
 
 Display a success message.
 
@@ -1627,7 +1665,7 @@ st.success("Match found!")
 
 <Image pure alt="screenshot" src="/images/api/exception.jpg" />
 
-#### Exception output
+<h4>Exception output</h4>
 
 Display an exception.
 
@@ -1646,7 +1684,7 @@ st.exception(e)
 
 <Image pure alt="screenshot" src="/images/api/components/stqdm.jpg" />
 
-#### Stqdm
+<h4>Stqdm</h4>
 
 The simplest way to handle a progress bar in streamlit app. Created by [@Wirg](https://github.com/Wirg).
 
@@ -1663,7 +1701,7 @@ for _ in stqdm(range(50)):
 
 <Image pure alt="screenshot" src="/images/api/components/custom-notification-box.jpg" />
 
-#### Custom notification box
+<h4>Custom notification box</h4>
 
 A custom notification box with the ability to close it out. Created by [@Socvest](https://github.com/Socvest).
 
@@ -1680,7 +1718,7 @@ custom_notification_box(icon='info', textDisplay='We are almost done with your r
 
 <Image pure alt="screenshot" src="/images/api/components/extras-emojis.jpg" />
 
-#### Streamlit Extras
+<h4>Streamlit Extras</h4>
 
 A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
 
@@ -1700,9 +1738,7 @@ rain(emoji="🎈", font_size=54,
 <TileContainer>
 <RefCard href="/library/api-reference/control-flow/st.form">
 
-<!--<Image pure alt="screenshot" src="/images/api/form.jpg" />-->
-
-#### Forms
+<h4>Forms</h4>
 
 Create a form that batches elements together with a “Submit" button.
 
@@ -1714,9 +1750,20 @@ with st.form(key='my_form'):
 ```
 
 </RefCard>
+<RefCard href="/library/api-reference/control-flow/st.rerun">
+
+<h4>Rerun script</h4>
+
+Rerun the script immediately.
+
+```python
+st.rerun()
+```
+
+</RefCard>
 <RefCard href="/library/api-reference/control-flow/st.stop">
 
-#### Stop execution
+<h4>Stop execution</h4>
 
 Stops execution immediately.
 
@@ -1725,14 +1772,14 @@ st.stop()
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/control-flow/st.rerun">
+<RefCard href="/library/api-reference/control-flow/st.switch_page">
 
-#### Rerun script
+<h4>Switch page</h4>
 
-Rerun the script immediately.
+Programmatically navigates to a specified page.
 
 ```python
-st.rerun()
+st.switch_page("pages/my_page.py")
 ```
 
 </RefCard>
@@ -1744,7 +1791,7 @@ st.rerun()
 
 <Image pure alt="screenshot" src="/images/api/components/autorefresh.jpg" />
 
-#### Autorefresh
+<h4>Autorefresh</h4>
 
 Force a refresh without tying up a script. Created by [@kmcgrady](https://github.com/kmcgrady).
 
@@ -1761,7 +1808,7 @@ st_autorefresh(interval=2000, limit=100,
 
 <Image pure alt="screenshot" src="/images/api/components/pydantic.jpg" />
 
-#### Pydantic
+<h4>Pydantic</h4>
 
 Auto-generate Streamlit UI from Pydantic Models and Dataclasses. Created by [@lukasmasuch](https://github.com/lukasmasuch).
 
@@ -1778,7 +1825,7 @@ sp.pydantic_form(key="my_form",
 
 <Image pure alt="screenshot" src="/images/api/components/pages.jpg" />
 
-#### Streamlit Pages
+<h4>Streamlit Pages</h4>
 
 An experimental version of Streamlit Multi-Page Apps. Created by [@blackary](https://github.com/blackary).
 
@@ -1801,7 +1848,7 @@ show_pages([ Page("streamlit_app.py", "Home", "🏠"),
 
 <Image pure alt="screenshot" src="/images/api/components/pandas-profiling.jpg" />
 
-#### Pandas Profiling
+<h4>Pandas Profiling</h4>
 
 Pandas profiling component for Streamlit. Created by [@okld](https://github.com/okld/).
 
@@ -1818,7 +1865,7 @@ st_profile_report(pr)
 
 <Image pure alt="screenshot" src="/images/api/components/ace.jpg" />
 
-#### Streamlit Ace
+<h4>Streamlit Ace</h4>
 
 Ace editor component for Streamlit. Created by [@okld](https://github.com/okld).
 
@@ -1835,7 +1882,7 @@ content
 
 <Image pure alt="screenshot" src="/images/api/components/analytics.jpg" />
 
-#### Streamlit Anaylitics
+<h4>Streamlit Analytics</h4>
 
 Track & visualize user interactions with your streamlit app. Created by [@jrieke](https://github.com/jrieke).
 
@@ -1855,7 +1902,7 @@ with streamlit_analytics.track():
 <TileContainer>
 <RefCard href="/library/api-reference/utilities/st.set_page_config">
 
-#### Set page title, favicon, and more
+<h4>Set page title, favicon, and more</h4>
 
 Configures the default settings of the page.
 
@@ -1869,9 +1916,7 @@ st.set_page_config(
 </RefCard>
 <RefCard href="/library/api-reference/utilities/st.echo">
 
-<!--<Image pure alt="screenshot" src="/images/api/echo.jpg" />-->
-
-#### Echo
+<h4>Echo</h4>
 
 Display some code on the app, then execute it. Useful for tutorials.
 
@@ -1883,7 +1928,7 @@ with st.echo():
 </RefCard>
 <RefCard href="/library/api-reference/utilities/st.help">
 
-#### Get help
+<h4>Get help</h4>
 
 Display object’s doc string, nicely formatted.
 
@@ -1893,28 +1938,15 @@ st.help(pd.DataFrame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/utilities/st.experimental_get_query_params">
+<RefCard href="/library/api-reference/utilities/st.query_params">
 
-#### Get query parameters
+<h4>Query parameters</h4>
 
-Return the query parameters that are currently showing in the browser's URL bar.
-
-```python
-st.experimental_get_query_params()
-```
-
-</RefCard>
-<RefCard href="/library/api-reference/utilities/st.experimental_set_query_params">
-
-#### Set query parameters
-
-Set the query parameters that are shown in the browser's URL bar.
+Get, set, or clear the query parameters that are shown in the browser's URL bar.
 
 ```python
-st.experimental_set_query_params(
-  show_map=True,
-  selected=["asia"]
-)
+st.query_params[key] = value
+st.query_params.clear()
 ```
 
 </RefCard>
@@ -1925,7 +1957,7 @@ st.experimental_set_query_params(
 <TileContainer>
 <RefCard href="/library/api-reference/mutate">
 
-#### Add rows
+<h4>Add rows</h4>
 
 Append a dataframe to the bottom of the current one in certain elements, for optimized data updates.
 
@@ -1942,7 +1974,7 @@ element.add_rows(df_with_extra_rows)
 <TileContainer>
 <RefCard href="/library/api-reference/session-state">
 
-#### Session state
+<h4>Session state</h4>
 
 Session state is a way to share variables between reruns, for each user session.
 
@@ -1961,7 +1993,7 @@ st.session_state['key'] = value
 
 <Image pure alt="screenshot" src="/images/api/components/authenticator.jpg" />
 
-#### Authenticator
+<h4>Authenticator</h4>
 
 A secure authentication module to validate user credentials. Created by [@mkhorasani](https://github.com/mkhorasani).
 
@@ -1978,7 +2010,7 @@ config['cookie']['key'], config['cookie']['expiry_days'], config['preauthorized'
 
 <Image pure alt="screenshot" src="/images/api/components/localstorage.jpg" />
 
-#### WS localStorage
+<h4>WS localStorage</h4>
 
 A simple synchronous way of accessing localStorage from your app. Created by [@gagangoku](https://github.com/gagangoku).
 
@@ -1995,7 +2027,7 @@ st.write('ret: ' + ret)
 
 <Image pure alt="screenshot" src="/images/api/components/auth0.jpg" />
 
-#### Streamlit Auth0
+<h4>Streamlit Auth0</h4>
 
 The fastest way to provide comprehensive login inside Streamlit. Created by [@conradbez](https://github.com/conradbez).
 
@@ -2015,7 +2047,7 @@ st.write(user_info)
 <TileContainer>
 <RefCard href="/library/api-reference/performance/st.cache_data" size="half">
 
-#### Cache data
+<h4>Cache data</h4>
 
 Function decorator to cache functions that return data (e.g. dataframe transforms, database queries, ML inference).
 
@@ -2031,7 +2063,7 @@ def long_function(param1, param2):
 
 <RefCard href="/library/api-reference/performance/st.cache_resource" size="half">
 
-#### Cache resource
+<h4>Cache resource</h4>
 
 Function decorator to cache functions that return global resources (e.g. database connections, ML models).
 
@@ -2054,16 +2086,16 @@ def init_model():
 ### Setup your connection
 
 <TileContainer>
-<RefCard href="/library/api-reference/connections/st.experimental_connection" size="half">
+<RefCard href="/library/api-reference/connections/st.connection" size="half">
 
-<Image pure alt="screenshot" src="/images/api/connection.jpg" />
+<Image pure alt="screenshot" src="/images/api/connection.svg" />
 
-#### Create a connection
+<h4>Create a connection</h4>
 
 Connect to a data source or API
 
 ```python
-conn = st.experimental_connection('pets_db', type='sql')
+conn = st.connection('pets_db', type='sql')
 pet_owners = conn.query('select * from pet_owners')
 st.dataframe(pet_owners)
 ```
@@ -2075,30 +2107,30 @@ st.dataframe(pet_owners)
 
 <TileContainer>
 
-<RefCard href="/library/api-reference/connections/st.connections.sqlconnection" size="half">
+<RefCard href="/library/api-reference/connections/st.connections.snowflakeconnection" size="half">
 
-<Image pure alt="screenshot" src="/images/api/connections.SQLConnection.jpg" />
+<Image pure alt="screenshot" src="/images/api/connections.SnowflakeConnection.svg" />
 
-#### SQLConnection
+<h4>SnowflakeConnection</h4>
 
-A connection to a SQL database using SQLAlchemy.
+A connection to Snowflake.
 
 ```python
-conn = st.experimental_connection('sql')
+conn = st.connection('snowflake')
 ```
 
 </RefCard>
 
-<RefCard href="/library/api-reference/connections/st.connections.snowparkconnection" size="half">
+<RefCard href="/library/api-reference/connections/st.connections.sqlconnection" size="half">
 
-<Image pure alt="screenshot" src="/images/api/connections.SnowparkConnection.jpg" />
+<Image pure alt="screenshot" src="/images/api/connections.SQLConnection.svg" />
 
-#### SnowparkConnection
+<h4>SQLConnection</h4>
 
-A connection to Snowflake Snowpark.
+A connection to a SQL database using SQLAlchemy.
 
 ```python
-conn = st.experimental_connection('snowpark')
+conn = st.connection('sql')
 ```
 
 </RefCard>
@@ -2107,14 +2139,14 @@ conn = st.experimental_connection('snowpark')
 ### Third-party connections
 
 <TileContainer>
-<RefCard href="/library/api-reference/connections/st.connections.experimentalbaseconnection" size="half">
+<RefCard href="/library/api-reference/connections/st.connections.baseconnection" size="half">
 
-#### Connection base class
+<h4>Connection base class</h4>
 
-Build your own connection with `ExperimentalBaseConnection`.
+Build your own connection with `BaseConnection`.
 
 ```python
-class MyConnection(ExperimentalBaseConnection[myconn.MyConnection]):
+class MyConnection(BaseConnection[myconn.MyConnection]):
     def _connect(self, **kwargs) -> MyConnection:
         return myconn.connect(**self._secrets, **kwargs)
     def query(self, query):
@@ -2130,7 +2162,7 @@ class MyConnection(ExperimentalBaseConnection[myconn.MyConnection]):
 <TileContainer>
 <RefCard href="/library/api-reference/personalization/st.experimental_user" size="half">
 
-#### User info
+<h4>User info</h4>
 
 `st.experimental_user` returns information about the logged-in user of private apps on Streamlit Community Cloud.
 
@@ -2142,4 +2174,295 @@ else:
 ```
 
 </RefCard>
+</TileContainer>
+
+## App testing
+
+<TileContainer>
+
+<RefCard href="/library/api-reference/app-testing/st.testing.v1.apptest" size="full">
+
+<h4>st.testing.v1.AppTest</h4>
+
+`st.testing.v1.AppTest` simulates a running Streamlit app for testing.
+
+```python
+from streamlit.testing.v1 import AppTest
+
+at = AppTest.from_file("streamlit_app.py")
+at.secrets["WORD"] = "Foobar"
+at.run()
+assert not at.exception
+
+at.text_input("word").input("Bazbat").run()
+assert at.warning[0].value == "Try again."
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/st.testing.v1.apptest#apptestfrom_file" size="full">
+
+<h4>AppTest.from_file</h4>
+
+`st.testing.v1.AppTest.from_file` initializes a simulated app from a file.
+
+```python
+from streamlit.testing.v1 import AppTest
+
+at = AppTest.from_file("streamlit_app.py")
+at.run()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/st.testing.v1.apptest#apptestfrom_string" size="full">
+
+<h4>AppTest.from_string</h4>
+
+`st.testing.v1.AppTest.from_string` initializes a simulated app from a string.
+
+```python
+from streamlit.testing.v1 import AppTest
+
+at = AppTest.from_string(app_script_as_string)
+at.run()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/st.testing.v1.apptest#apptestfrom_function" size="full">
+
+<h4>AppTest.from_function</h4>
+
+`st.testing.v1.AppTest.from_function` initializes a simulated app from a function.
+
+```python
+from streamlit.testing.v1 import AppTest
+
+at = AppTest.from_function(app_script_as_callable)
+at.run()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeblock" size="half">
+
+<h4>Block</h4>
+
+A representation of container elements, including:
+
+- `st.chat_message`
+- `st.columns`
+- `st.sidebar`
+- `st.tabs`
+- The main body of the app.
+
+```python
+# at.sidebar returns a Block
+at.sidebar.button[0].click().run()
+assert not at.exception
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeelement" size="half">
+
+<h4>Element</h4>
+
+The base class for representation of all elements, including:
+
+- `st.title`
+- `st.header`
+- `st.markdown`
+- `st.dataframe`
+
+```python
+# at.title returns a sequence of Title
+# Title inherits from Element
+assert at.title[0].value == "My awesome app"
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treebutton" size="third">
+
+<h4>Button</h4>
+
+A representation of `st.button` and `st.form_submit_button`.
+
+```python
+at.button[0].click().run()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treechatinput" size="third">
+
+<h4>ChatInput</h4>
+
+A representation of `st.chat_input`.
+
+```python
+at.chat_input[0].set_value("What is Streamlit?").run()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treecheckbox" size="third">
+
+<h4>Checkbox</h4>
+
+A representation of `st.checkbox`.
+
+```python
+at.checkbox[0].check().run()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treecolorpicker" size="third">
+
+<h4>ColorPicker</h4>
+
+A representation of `st.color_picker`.
+
+```python
+at.color_picker[0].pick("#FF4B4B").run()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treedateinput" size="third">
+
+<h4>DateInput</h4>
+
+A representation of `st.date_input`.
+
+```python
+release_date = datetime.date(2023, 10, 26)
+at.date_input[0].set_value(release_date).run()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treemultiselect" size="third">
+
+<h4>Multiselect</h4>
+
+A representation of `st.multiselect`.
+
+```python
+at.multiselect[0].select("New York").run()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treenumberinput" size="third">
+
+<h4>NumberInput</h4>
+
+A representation of `st.number_input`.
+
+```python
+at.number_input[0].increment().run()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeradio" size="third">
+
+<h4>Radio</h4>
+
+A representation of `st.radio`.
+
+```python
+at.radio[0].set_value("New York").run()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeselectslider" size="third">
+
+<h4>SelectSlider</h4>
+
+A representation of `st.select_slider`.
+
+```python
+at.select_slider[0].set_range("A","C").run()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeselectbox" size="third">
+
+<h4>Selectbox</h4>
+
+A representation of `st.selectbox`.
+
+```python
+at.selectbox[0].select("New York").run()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeslider" size="third">
+
+<h4>Slider</h4>
+
+A representation of `st.slider`.
+
+```python
+at.slider[0].set_range(2,5).run()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treetextarea" size="third">
+
+<h4>TextArea</h4>
+
+A representation of `st.text_area`.
+
+```python
+at.text_area[0].input("Streamlit is awesome!").run()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treetextinput" size="third">
+
+<h4>TextInput</h4>
+
+A representation of `st.text_input`.
+
+```python
+at.text_input[0].input("Streamlit").run()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treetimeinput" size="third">
+
+<h4>TimeInput</h4>
+
+A representation of `st.time_input`.
+
+```python
+at.time_input[0].increment().run()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treetoggle" size="third">
+
+<h4>Toggle</h4>
+
+A representation of `st.toggle`.
+
+```python
+at.toggle[0].set_value("True").run()
+```
+
+</RefCard>
+
 </TileContainer>

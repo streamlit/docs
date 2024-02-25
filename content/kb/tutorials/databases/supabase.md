@@ -7,11 +7,11 @@ slug: /knowledge-base/tutorials/databases/supabase
 
 ## Introduction
 
-This guide explains how to securely access a Supabase instance from Streamlit Community Cloud. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection), [Streamlit Supabase Connector](https://github.com/SiddhantSadangi/st_supabase_connection/tree/main) (a community-built connection developed by [@SiddhantSadangi](https://github.com/SiddhantSadangi)) and Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management). Supabase is the open source Firebase alternative and is based on PostgreSQL.
+This guide explains how to securely access a Supabase instance from Streamlit Community Cloud. It uses [st.connection](/library/api-reference/connections/st.connection), [Streamlit Supabase Connector](https://github.com/SiddhantSadangi/st_supabase_connection/tree/main) (a community-built connection developed by [@SiddhantSadangi](https://github.com/SiddhantSadangi)) and Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management). Supabase is the open source Firebase alternative and is based on PostgreSQL.
 
 <Note>
 
-Community-built connections, such as the [Streamlit Supabase Connector](https://github.com/SiddhantSadangi/st_supabase_connection/tree/main), extend and build on the `st.experimental_connection` interface and make it easier than ever to build Streamlit apps with a wide variety of data sources. These type of connections work exactly the same as [the ones built into Streamlit](/library/api-reference/connections) and have access to all the same capabilities.
+Community-built connections, such as the [Streamlit Supabase Connector](https://github.com/SiddhantSadangi/st_supabase_connection/tree/main), extend and build on the `st.connection` interface and make it easier than ever to build Streamlit apps with a wide variety of data sources. These type of connections work exactly the same as [the ones built into Streamlit](/library/api-reference/connections) and have access to all the same capabilities.
 
 </Note>
 
@@ -109,7 +109,7 @@ st-supabase-connection==x.x.x
 
 <Tip>
 
-We've used the `st-supabase-connection` library here in combination with `st.experimental_connection` to benefit from the ease of setting up the data connection, managing your credentials, and Streamlit's caching capabilities that native and community-built connections provide.
+We've used the `st-supabase-connection` library here in combination with `st.connection` to benefit from the ease of setting up the data connection, managing your credentials, and Streamlit's caching capabilities that native and community-built connections provide.
 
 You can however still directly use the [Supabase Python Client Library](https://pypi.org/project/supabase/) library if you prefer, but you'll need to write more code to set up the connection and cache the results. See [Using the Supabase Python Client Library](/knowledge-base/tutorials/databases/supabase#using-the-supabase-python-client-library) below for an example.
 
@@ -126,7 +126,7 @@ import streamlit as st
 from st_supabase_connection import SupabaseConnection
 
 # Initialize connection.
-conn = st.experimental_connection("supabase",type=SupabaseConnection)
+conn = st.connection("supabase",type=SupabaseConnection)
 
 # Perform query.
 rows = conn.query("*", table="mytable", ttl="10m").execute()
@@ -137,7 +137,7 @@ for row in rows.data:
 
 ```
 
-See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl="10m"` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
+See `st.connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl="10m"` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 

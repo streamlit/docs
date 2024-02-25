@@ -7,9 +7,9 @@ slug: /knowledge-base/tutorials/databases/tidb
 
 ## Introduction
 
-This guide explains how to securely access a **_remote_** TiDB database from Streamlit Community Cloud. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection) and Streamlit's [Secrets management](/library/advanced-features/secrets-management). The below example code will **only work on Streamlit version >= 1.22**, when `st.experimental_connection` was added.
+This guide explains how to securely access a **_remote_** TiDB database from Streamlit Community Cloud. It uses [st.connection](/library/api-reference/connections/st.connection) and Streamlit's [Secrets management](/library/advanced-features/secrets-management). The below example code will **only work on Streamlit version >= 1.28**, when `st.connection` was added.
 
-[TiDB](https://www.pingcap.com/tidb/) is an open-source, MySQL-compatible database that supports Hybrid Transactional and Analytical Processing (HTAP) workloads. [TiDB Cloud](https://www.pingcap.com/tidb-cloud/) is a fully managed cloud database service that simplifies the deployment and management of TiDB databases for developers.
+[TiDB](https://www.pingcap.com/tidb/) is an open-source, MySQL-compatible database that supports Hybrid Transactional and Analytical Processing (HTAP) workloads. [TiDB Cloud](https://tidb.cloud/) is a fully managed cloud database service that simplifies the deployment and management of TiDB databases for developers.
 
 ## Sign in to TiDB Cloud and create a cluster
 
@@ -25,7 +25,7 @@ You can create more clusters if you want to. Click the cluster name to enter clu
 
 ![Cluster overview](/images/databases/tidb-3.png)
 
-Then click **Connect** to easily get the connection arguments to access the cluster. On the popup, click **Create password** to set the password.
+Then click **Connect** to easily get the connection arguments to access the cluster. On the popup, click **Generate password** to set the password.
 
 ![Get connection arguments](/images/databases/tidb-4.png)
 
@@ -109,7 +109,7 @@ Copy the code below to your Streamlit app and run it. Make sure to adapt `query`
 import streamlit as st
 
 # Initialize connection.
-conn = st.experimental_connection('tidb', type='sql')
+conn = st.connection('tidb', type='sql')
 
 # Perform query.
 df = conn.query('SELECT * from mytable;', ttl=600)
@@ -119,7 +119,7 @@ for row in df.itertuples():
     st.write(f"{row.name} has a :{row.pet}:")
 ```
 
-See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl=600` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
+See `st.connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl=600` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 

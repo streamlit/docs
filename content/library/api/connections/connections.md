@@ -8,16 +8,16 @@ slug: /library/api-reference/connections
 ## Setup your connection
 
 <TileContainer>
-<RefCard href="/library/api-reference/connections/st.experimental_connection" size="half">
+<RefCard href="/library/api-reference/connections/st.connection" size="half">
 
-<Image pure alt="screenshot" src="/images/api/connection.jpg" />
+<Image pure alt="screenshot" src="/images/api/connection.svg" />
 
-#### Create a connection
+<h4>Create a connection</h4>
 
 Connect to a data source or API
 
 ```python
-conn = st.experimental_connection('pets_db', type='sql')
+conn = st.connection('pets_db', type='sql')
 pet_owners = conn.query('select * from pet_owners')
 st.dataframe(pet_owners)
 ```
@@ -29,30 +29,30 @@ st.dataframe(pet_owners)
 
 <TileContainer>
 
-<RefCard href="/library/api-reference/connections/st.connections.sqlconnection" size="half">
+<RefCard href="/library/api-reference/connections/st.connections.snowflakeconnection" size="half">
 
-<Image pure alt="screenshot" src="/images/api/connections.SQLConnection.jpg" />
+<Image pure alt="screenshot" src="/images/api/connections.SnowflakeConnection.svg" />
 
-#### SQLConnection
+<h4>SnowflakeConnection</h4>
 
-A connection to a SQL database using SQLAlchemy.
+A connection to Snowflake.
 
 ```python
-conn = st.experimental_connection('sql')
+conn = st.connection('snowflake')
 ```
 
 </RefCard>
 
-<RefCard href="/library/api-reference/connections/st.connections.snowparkconnection" size="half">
+<RefCard href="/library/api-reference/connections/st.connections.sqlconnection" size="half">
 
-<Image pure alt="screenshot" src="/images/api/connections.SnowparkConnection.jpg" />
+<Image pure alt="screenshot" src="/images/api/connections.SQLConnection.svg" />
 
-#### SnowparkConnection
+<h4>SQLConnection</h4>
 
-A connection to Snowflake Snowpark.
+A connection to a SQL database using SQLAlchemy.
 
 ```python
-conn = st.experimental_connection('snowpark')
+conn = st.connection('sql')
 ```
 
 </RefCard>
@@ -61,14 +61,14 @@ conn = st.experimental_connection('snowpark')
 ## Third-party connections
 
 <TileContainer>
-<RefCard href="/library/api-reference/connections/st.connections.experimentalbaseconnection" size="half">
+<RefCard href="/library/api-reference/connections/st.connections.baseconnection" size="half">
 
-#### Connection base class
+<h4>Connection base class</h4>
 
-Build your own connection with `ExperimentalBaseConnection`.
+Build your own connection with `BaseConnection`.
 
 ```python
-class MyConnection(ExperimentalBaseConnection[myconn.MyConnection]):
+class MyConnection(BaseConnection[myconn.MyConnection]):
     def _connect(self, **kwargs) -> MyConnection:
         return myconn.connect(**self._secrets, **kwargs)
     def query(self, query):

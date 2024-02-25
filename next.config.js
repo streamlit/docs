@@ -1,4 +1,6 @@
 module.exports = {
+  output: "export",
+
   webpack: (configuration) => {
     configuration.module.rules.push(
       {
@@ -8,7 +10,7 @@ module.exports = {
       {
         test: /\.svg$/,
         use: ["@svgr/webpack", "file-loader"],
-      }
+      },
     );
     return configuration;
   },

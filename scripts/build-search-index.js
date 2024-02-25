@@ -112,11 +112,12 @@ function getAllFilesInDirectory(articleDirectory, files) {
     const meta_keywords = root.querySelector("meta[name=keywords]");
     const content = convert(
       root.querySelector("article").innerHTML,
-      compileOptions
+      compileOptions,
     );
     const slug = url.split("/");
     const isnum = /^[\d\.]+$/.test(slug[1]);
-    const version = isnum ? slug[1] : "latest";
+    const isSiS = /^SiS[\d\.]*$/.test(slug[1]);
+    const version = isnum || isSiS ? slug[1] : "latest";
 
     if (meta_keywords) {
       keywords = meta_keywords.getAttribute("content");
@@ -129,7 +130,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
 
     if ((!title && !sub_title) || !doc_title) {
       console.warn(
-        `!!! Skipping ${url} because the document has no title or H1 tag.`
+        `!!! Skipping ${url} because the document has no title or H1 tag.`,
       );
       continue;
     }
@@ -140,7 +141,16 @@ function getAllFilesInDirectory(articleDirectory, files) {
 
     if (!content) {
       console.warn(
-        `!!! Skipping ${url} because the document has no ARTICLE tag.`
+        `!!! Skipping ${url} because the document has no ARTICLE tag.`,
+      );
+      continue;
+    }
+
+    if (content.length > 100000) {
+      console.warn(
+        `!!! Skipping ${url} the content is too long.`,
+        "See https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/how-to/reducing-object-size/",
+        "for solutions.",
       );
       continue;
     }
@@ -160,10 +170,8 @@ function getAllFilesInDirectory(articleDirectory, files) {
 
   console.log(`... uploading ${to_index.length} pages to Algolia.`);
 
-  const client = algoliasearch(
-    "XNXFGO6BQ1",
-    "ddc64745f583d66008a2777620d27517"
-  );
+  const client = algoliasearch("XNXFGO6BQ1", process.env.ALGOLIA_SECRET);
+
   const index = client.initIndex("documentation");
   const tmp_index = client.initIndex("documentation_tmp");
 
@@ -191,5 +199,6 @@ function getAllFilesInDirectory(articleDirectory, files) {
     })
     .catch((err) => {
       console.error(err);
+      process.exit(1);
     });
 })();

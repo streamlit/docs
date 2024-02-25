@@ -1,86 +1,157 @@
-// Global Imports
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import classNames from "classnames";
 import { MDXRemote } from "next-mdx-remote";
-import { ReactComponent as CookieEmoji } from "../../images/icons/cookie.svg";
 
 import styles from "./gdpr.module.css";
 
-const KEY = "InsertAnalyticsCode";
+const TELEMETRY_PREFERENCE = "InsertTelemetry";
+const TELEMETRY_PREFERENCE_DATE = "TelemetryDate";
 
-const GDPRBanner = (gdprData) => {
-  const title = gdprData.title;
-  const content = gdprData.content;
+export function setTelemetryPreference(accepted) {
+  localStorage.setItem(TELEMETRY_PREFERENCE, JSON.stringify(accepted));
+  localStorage.setItem(TELEMETRY_PREFERENCE_DATE, JSON.stringify(Date.now()));
+}
 
-  // Start with default values
-  const [isVisible, setIsVisible] = useState(true);
-  const [insertAnalyticsCode, setInsertAnalyticsCode] = useState(false);
+// Check if the stored date is > 6 months old
+const isConsentStale = (timestamp) => {
+  const consent_date = new Date(parseInt(timestamp * 1000));
+  const today = new Date();
 
-  const AllowAndCloseBanner = useCallback(() => {
-    // Update state and set the decision into localStorage
-    setIsVisible(false);
-    setInsertAnalyticsCode(true);
-    localStorage.setItem(KEY, JSON.stringify(Date.now()));
-  }, [isVisible, insertAnalyticsCode]);
+  const six_months_in_ms =
+    1000 /*ms*/ * 60 /*s*/ * 60 /*min*/ * 24 /*h*/ * 30 /*days*/ * 6; /*months*/
+  return today - consent_date > six_months_in_ms;
+};
 
-  const DeclineAndCloseBanner = useCallback(() => {
-    // Update state and set the decision into localStorage
-    setIsVisible(false);
-    setInsertAnalyticsCode(false);
-    localStorage.setItem(KEY, false);
-  }, [isVisible, insertAnalyticsCode]);
+function getTelemetryPreference() {
+  // Returns true/false if user accepted/denied telemetry.
+  // Returns null if user never accepted/denied or consent is stale.
 
+  const telemetryPref = localStorage.getItem(TELEMETRY_PREFERENCE);
+  const consentIsStale = isConsentStale(
+    localStorage.getItem(TELEMETRY_PREFERENCE_DATE)
+  );
+
+  if (telemetryPref == null || consentIsStale) return null;
+
+  return telemetryPref == "true";
+}
+
+export default function GDPRBanner({
+  content,
+  isTelemetryModalVisible,
+  setIsTelemetryModalVisible,
+  isTelemetryBannerVisible,
+  setIsTelemetryBannerVisible,
+  insertTelemetryCode,
+  setInsertTelemetryCode,
+  allowTelemetryAndCloseBanner,
+  declineTelemetryAndCloseBanner,
+}) {
   useEffect(() => {
-    // Check if there's something in localStorage, and update the banner visibility based on that
-    const localStorageIsSetUp = localStorage.getItem(KEY) != null;
-    setIsVisible(!localStorageIsSetUp);
+    const pref = getTelemetryPreference();
 
-    if (localStorageIsSetUp) {
-      setInsertAnalyticsCode(localStorage.getItem(KEY) != "false");
+    switch (pref) {
+      case true:
+        setInsertTelemetryCode(true);
+        return;
+
+      case false:
+        // This is already false at initialization, but it doesn't hurt to do the right thing
+        // here and make sure it's indeed false.
+        setInsertTelemetryCode(false);
+        return;
+
+      case null:
+        localStorage.clear(); // Do we even need this line?? Seems dangerous to just clear the entire localStorage, as maybe some other library could be using it.
+        setIsTelemetryBannerVisible(true);
+        return;
+
+      default:
+        console.log(`Unexpected telemetry preference: ${pref}`);
+        return;
     }
   }, []);
 
   useEffect(() => {
-    // TODO: Check if timestamp > 1 year, then show banner again before adding snippet
-    if (insertAnalyticsCode) {
-      insertAnalytics();
+    if (insertTelemetryCode) {
+      insertTelemetry();
     }
-  }, [insertAnalyticsCode]);
+  }, [insertTelemetryCode]);
 
   return (
     <>
-      {isVisible && (
-        <div className={styles.Container}>
-          <div className={styles.BannerBackground}>
-            <div className={styles.ImageContainer}>
-              <CookieEmoji className={styles.Image} />
-            </div>
-            <div className={styles.TextContainer}>
-              <h3 className={styles.Title}>{title}</h3>
+      {isTelemetryBannerVisible && (
+        <div
+          className={classNames(
+            isTelemetryBannerVisible === false ? "hidden" : "",
+            "z-30 fixed",
+            "bottom-2 inset-x-2 md:bottom-4 md:inset-x-4"
+          )}
+        >
+          <div
+            className={classNames(
+              "flex flex-col lg:flex-row lg:items-end gap-4",
+              "pl-4 pr-4 sm:pl-8 sm:pr-8",
+              "rounded-lg border border-gray-30",
+              "shadow-lg",
+              "container mx-auto py-8",
+              styles.Container
+            )}
+          >
+            <div className={classNames("flex-1", styles.Markdown)}>
               <MDXRemote {...content} />
-              <div className={styles.CtasContainer}>
-                <button
-                  onClick={DeclineAndCloseBanner}
-                  className={classNames(styles.Button, styles.DeclineButton)}
-                >
-                  Decline
-                </button>
-                <button
-                  onClick={AllowAndCloseBanner}
-                  className={classNames(styles.Button, styles.AllowButton)}
-                >
-                  Allow
-                </button>
-              </div>
+            </div>
+            <div className="flex flex-col lg:flex-row lg:justify-end gap-2 lg:gap-4">
+              <button
+                className={classNames(
+                  "text-gray-90 hover:text-gray-70 hover:underline",
+                  "py-2",
+                  "order-last lg:order-none",
+                  styles.Button
+                )}
+                onClick={() =>
+                  setIsTelemetryModalVisible(!isTelemetryModalVisible)
+                }
+              >
+                Cookie settings
+              </button>
+              <button
+                className={classNames(
+                  "py-2 px-3",
+                  "text-gray-90",
+                  "border-gray-90 border",
+                  "rounded",
+                  "hover:bg-red-70 hover:border-red-70",
+                  "hover:text-white",
+                  styles.Button
+                )}
+                onClick={declineTelemetryAndCloseBanner}
+              >
+                Reject all
+              </button>
+              <button
+                className={classNames(
+                  "py-2 px-3",
+                  "rounded",
+                  "border",
+                  "text-white",
+                  "bg-gray-90 border-gray-90",
+                  "hover:bg-red-70 hover:border-red-70",
+                  styles.Button
+                )}
+                onClick={allowTelemetryAndCloseBanner}
+              >
+                Accept all
+              </button>
             </div>
           </div>
         </div>
       )}
     </>
   );
-};
+}
 
-function insertAnalytics() {
+function insertTelemetry() {
   (function () {
     var analytics = (window.analytics = window.analytics || []);
     if (!analytics.initialize)
@@ -143,5 +214,3 @@ function insertAnalytics() {
       }
   })();
 }
-
-export default GDPRBanner;

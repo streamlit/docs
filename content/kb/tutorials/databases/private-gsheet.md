@@ -7,13 +7,13 @@ slug: /knowledge-base/tutorials/databases/private-gsheet
 
 ## Introduction
 
-This guide explains how to securely access a private Google Sheet from Streamlit Community Cloud. It uses [st.experimental_connection](/library/api-reference/connections/st.experimental_connection), [Streamlit GSheetsConnection](https://github.com/streamlit/gsheets-connection), and Streamlit's [Secrets management](/library/advanced-features/secrets-management).
+This guide explains how to securely access a private Google Sheet from Streamlit Community Cloud. It uses [st.connection](/library/api-reference/connections/st.connection), [Streamlit GSheetsConnection](https://github.com/streamlit/gsheets-connection), and Streamlit's [Secrets management](/library/advanced-features/secrets-management).
 
 If you are fine with enabling link sharing for your Google Sheet (i.e. everyone with the link can view it), the guide [Connect Streamlit to a public Google Sheet](/knowledge-base/tutorials/databases/public-gsheet) shows a simpler method of doing this. If your Sheet contains sensitive information and you cannot enable link sharing, keep on reading.
 
 ### Prerequisites
 
-This tutorial requires `streamlit>=1.22` and `st-gsheets-connection` in your Python environment.
+This tutorial requires `streamlit>=1.28` and `st-gsheets-connection` in your Python environment.
 
 ## Create a Google Sheet
 
@@ -116,7 +116,7 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 
 # Create a connection object.
-conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+conn = st.connection("gsheets", type=GSheetsConnection)
 
 df = conn.read()
 
@@ -125,7 +125,7 @@ for row in df.itertuples():
     st.write(f"{row.name} has a :{row.pet}:")
 ```
 
-See `st.experimental_connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `.read()` results are cached without expiring. You can pass optional parameters to `.read()` to customize your connection. For example, you can specify the name of a worksheet, cache expiration time, or pass-through parameters for [`pandas.read_csv`](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html) like this:
+See `st.connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `.read()` results are cached without expiring. You can pass optional parameters to `.read()` to customize your connection. For example, you can specify the name of a worksheet, cache expiration time, or pass-through parameters for [`pandas.read_csv`](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html) like this:
 
 ```python
 df = conn.read(

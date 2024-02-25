@@ -11,13 +11,13 @@ Streamlit Community Cloud is organized into workspaces, which automatically grou
 
 ## Personal workspace
 
-If an app's GitHub repository is owned by you, the app will appear in your personal workspace, named "<YourGitHubHandle\>".
+If an app's GitHub repository is owned by you, the app will appear in your personal workspace, named "\<YourGitHubHandle>".
 
 ![App workspaces 2](/images/streamlit-community-cloud/app-workspaces-2.png)
 
 ## Organization workspace
 
-If an app's GitHub repository is owned by **an organization** (such as your company), the app will appear in a separate workspace, named "<GitHubOrganizationHandle\>".
+If an app's GitHub repository is owned by **an organization** (such as your company), the app will appear in a separate workspace, named "\<GitHubOrganizationHandle>".
 
 ![App workspaces 3](/images/streamlit-community-cloud/app-workspaces-3.jpg)
 

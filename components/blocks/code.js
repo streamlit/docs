@@ -45,7 +45,7 @@ const Code = ({ code, children, language, img, lines }) => {
             languageImports.set(importLanguage, true);
           } catch (error) {
             console.error(
-              `Prism doesn't support this language: ${importLanguage}`
+              `Prism doesn't support this language: ${importLanguage}`,
             );
           }
         }
@@ -72,31 +72,31 @@ const Code = ({ code, children, language, img, lines }) => {
     ConditionalRendering = (
       <section className={styles.Container}>
         <Image src={img} clean={true} />
-        <pre>
+        <div className={styles.Pre}>
           <code ref={codeRef} className={languageClass}>
             {customCode}
           </code>
-        </pre>
+        </div>
       </section>
     );
   } else if (lines) {
     ConditionalRendering = (
       <section className={classNames(styles.Container, styles.LineHighlight)}>
-        <pre data-line={lines}>
+        <div data-line={lines}>
           <code ref={codeRef} className={languageClass}>
             {customCode}
           </code>
-        </pre>
+        </div>
       </section>
     );
   } else {
     ConditionalRendering = (
       <section className={styles.Container}>
-        <pre>
+        <div className={styles.Pre}>
           <code ref={codeRef} className={languageClass}>
             {customCode}
           </code>
-        </pre>
+        </div>
       </section>
     );
   }

@@ -1,7 +1,7 @@
 import fs from "fs";
 import { join, basename } from "path";
 import sortBy from "lodash/sortBy";
-import React from "react";
+import React, { useState, useCallback } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import { serialize } from "next-mdx-remote/serialize";
@@ -9,16 +9,24 @@ import { MDXProvider } from "@mdx-js/react";
 import { MDXRemote } from "next-mdx-remote";
 import matter from "gray-matter";
 import remarkUnwrapImages from "remark-unwrap-images";
+import remarkGfm from "remark-gfm";
 import classNames from "classnames";
+import { useRouter } from "next/router";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 // Site Components
-import GDPRBanner from "../components/utilities/gdpr";
+import CookieSettingsModal from "../components/utilities/cookieSettingsModal";
+import GDPRBanner, {
+  setTelemetryPreference,
+} from "../components/utilities/gdpr";
 import {
   getArticleSlugs,
   getArticleSlugFromString,
   pythonDirectory,
   getMenu,
   getGDPRBanner,
+  getCookieSettings,
 } from "../lib/api";
 import { getPreviousNextFromMenu } from "../lib/utils.js";
 import useVersion from "../lib/useVersion.js";
@@ -75,14 +83,38 @@ export default function Article({
   nextMenuItem,
   versionFromStaticLoad,
   versions,
-  paths,
   gdpr_data,
+  cookie_data,
   filename,
 }) {
   let versionWarning;
   let currentLink;
   let suggestEditURL;
   const { sourceFile } = useAppContext();
+
+  const [isTelemetryModalVisible, setIsTelemetryModalVisible] = useState(false);
+  const [isTelemetryBannerVisible, setIsTelemetryBannerVisible] =
+    useState(false);
+  const [insertTelemetryCode, setInsertTelemetryCode] = useState(false);
+
+  const router = useRouter();
+
+  const allowTelemetryAndCloseBanner = useCallback(() => {
+    setIsTelemetryBannerVisible(false);
+    setIsTelemetryModalVisible(false);
+    setInsertTelemetryCode(true);
+    setTelemetryPreference(true);
+  }, [isTelemetryBannerVisible, insertTelemetryCode]);
+
+  const declineTelemetryAndCloseBanner = useCallback(() => {
+    setIsTelemetryBannerVisible(false);
+    setIsTelemetryModalVisible(false);
+    setInsertTelemetryCode(false);
+    setTelemetryPreference(false);
+
+    // If previous state was true, and now it's false, reload the page to remove telemetry JS
+    if (insertTelemetryCode) router.reload();
+  }, [isTelemetryBannerVisible, insertTelemetryCode]);
 
   suggestEditURL =
     Object.keys(streamlit).length > 0 && sourceFile
@@ -144,11 +176,20 @@ export default function Article({
     currentLink = `/${slug.join("/")}`;
     versionWarning = (
       <Warning>
-        <p>
-          You are reading the documentation for Streamlit version {version}, but{" "}
-          <Link href={currentLink}>{maxVersion}</Link> is the latest version
-          available.
-        </p>
+        {version && version.startsWith("SiS") ? (
+          <p>
+            You are reading the documentation for Streamlit in Snowflake. For
+            open-source Streamlit, version{" "}
+            <Link href={currentLink}>{maxVersion}</Link> is the latest version
+            available.
+          </p>
+        ) : (
+          <p>
+            You are reading the documentation for Streamlit version {version},
+            but <Link href={currentLink}>{maxVersion}</Link> is the latest
+            version available.
+          </p>
+        )}
       </Warning>
     );
   }
@@ -194,11 +235,29 @@ export default function Article({
       }}
     >
       <Layout>
-        <GDPRBanner {...gdpr_data} />
+        {isTelemetryModalVisible && (
+          <CookieSettingsModal
+            setIsTelemetryModalVisible={setIsTelemetryModalVisible}
+            allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
+            declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
+            {...cookie_data}
+          />
+        )}
+        <GDPRBanner
+          {...gdpr_data}
+          isTelemetryModalVisible={isTelemetryModalVisible}
+          setIsTelemetryModalVisible={setIsTelemetryModalVisible}
+          isTelemetryBannerVisible={isTelemetryBannerVisible}
+          setIsTelemetryBannerVisible={setIsTelemetryBannerVisible}
+          insertTelemetryCode={insertTelemetryCode}
+          setInsertTelemetryCode={setInsertTelemetryCode}
+          allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
+          declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
+        />
         <section className={styles.Container}>
           <SideBar slug={slug} menu={menu} />
           <Head>
-            <title>{data.title} - Streamlit Docs</title>
+            <title>{data.title + " - Streamlit Docs"}</title>
             <link rel="icon" href="/favicon.svg" />
             <link rel="alternate icon" href="/favicon32.ico" />
             <meta name="theme-color" content="#ffffff" />
@@ -214,7 +273,7 @@ export default function Article({
               <link
                 rel="canonical"
                 href={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/${slug.join(
-                  "/"
+                  "/",
                 )}`}
               />
             )}
@@ -261,7 +320,7 @@ export default function Article({
               </div>
             </article>
           </section>
-          <Footer />
+          <Footer setIsTelemetryModalVisible={setIsTelemetryModalVisible} />
         </section>
       </Layout>
     </MDXProvider>
@@ -273,17 +332,19 @@ export async function getStaticProps(context) {
   const props = {};
   let location = `/${context.params.slug.join("/")}`;
   const gdpr_data = await getGDPRBanner();
+  const cookie_data = await getCookieSettings();
 
   // Sort of documentation versions
   const jsonContents = fs.readFileSync(
     join(pythonDirectory, "streamlit.json"),
-    "utf8"
+    "utf8",
   );
   const streamlitFuncs = jsonContents ? JSON.parse(jsonContents) : {};
   const all_versions = Object.keys(streamlitFuncs);
   const versions = sortBy(all_versions, [
     (o) => {
-      return parseInt(o, 10);
+      const numericPart = parseInt(o, 10);
+      return isNaN(numericPart) ? Number.NEGATIVE_INFINITY : numericPart;
     },
   ]);
   const current_version = versions[versions.length - 1];
@@ -314,7 +375,8 @@ export async function getStaticProps(context) {
     }
 
     const isnum = /^[\d\.]+$/.test(context.params.slug[0]);
-    if (isnum) {
+    const isSiS = /^SiS[\d\.]*$/.test(context.params.slug[0]);
+    if (isnum || isSiS) {
       props["versionFromStaticLoad"] = context.params.slug[0];
       props["streamlit"] = funcs[props["versionFromStaticLoad"]];
 
@@ -324,11 +386,8 @@ export async function getStaticProps(context) {
     const source = await serialize(content, {
       scope: data,
       mdxOptions: {
-        rehypePlugins: [
-          require("rehype-slug"),
-          require("rehype-autolink-headings"),
-        ],
-        remarkPlugins: [remarkUnwrapImages],
+        rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
+        remarkPlugins: [remarkUnwrapImages, remarkGfm],
       },
     });
 
@@ -358,6 +417,7 @@ export async function getStaticProps(context) {
 
     props["menu"] = menu;
     props["gdpr_data"] = gdpr_data;
+    props["cookie_data"] = cookie_data;
     props["data"] = data;
     props["filename"] = filename;
     props["slug"] = context.params.slug;
@@ -386,13 +446,14 @@ export async function getStaticPaths() {
   // Sort of documentation versions
   const jsonContents = fs.readFileSync(
     join(pythonDirectory, "streamlit.json"),
-    "utf8"
+    "utf8",
   );
   const streamlitFuncs = jsonContents ? JSON.parse(jsonContents) : {};
   const all_versions = Object.keys(streamlitFuncs);
   const versions = sortBy(all_versions, [
     (o) => {
-      return parseInt(o, 10);
+      const numericPart = parseInt(o, 10);
+      return isNaN(numericPart) ? Number.NEGATIVE_INFINITY : numericPart;
     },
   ]);
   const current_version = versions[versions.length - 1];

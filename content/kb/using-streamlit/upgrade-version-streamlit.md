@@ -5,7 +5,7 @@ slug: /knowledge-base/using-streamlit/how-upgrade-latest-version-streamlit
 
 # How do I upgrade to the latest version of Streamlit?
 
-We recommend upgrading to the latest official release of Streamlit so you have access to the newest, cutting-edge features. If you haven't installed Streamlit yet, please read our [Installation guide](/library/get-started/installation). It helps you set up your virtual environment and walks you through installing Streamlit on Windows, macOS, and Linux. Regardless of which package management tool and OS you're using, we recommend running the commands on this page in a virtual environment.
+We recommend upgrading to the latest official release of Streamlit so you have access to the newest, cutting-edge features. If you haven't installed Streamlit yet, please read our [Installation guide](/get-started/installation). It helps you set up your virtual environment and walks you through installing Streamlit on Windows, macOS, and Linux. Regardless of which package management tool and OS you're using, we recommend running the commands on this page in a virtual environment.
 
 If you've previously installed Streamlit and want to upgrade to the latest version, here's how to do it based on your dependency manager.
 
@@ -19,7 +19,7 @@ Streamlit's officially-supported environment manager for macOS and Linux is [Pip
 cd myproject
 ```
 
-2. Activate that environment, upgrade Streamlit, and verify you have the lastest version:
+2. Activate that environment, upgrade Streamlit, and verify you have the latest version:
 
 ```bash
 pipenv shell
@@ -44,7 +44,7 @@ conda activate $ENVIRONMENT_NAME
 
 Be sure to replace`$ENVIRONMENT_NAME` ☝️ with the name your conda environment!
 
-2. Update Streamlit within the active conda environment and verify you have the lastest version:
+2. Update Streamlit within the active conda environment and verify you have the latest version:
 
 ```bash
 conda update -c conda-forge streamlit -y
@@ -53,7 +53,7 @@ streamlit version
 
 ## Poetry
 
-In order to get the latest version of Streamlit with [Poetry](https://python-poetry.org/) and verify you have the lastest version, run:
+In order to get the latest version of Streamlit with [Poetry](https://python-poetry.org/) and verify you have the latest version, run:
 
 ```bash
 poetry update streamlit

@@ -2,31 +2,29 @@ import Link from "next/link";
 
 import styles from "./footer.module.css";
 
-const Footer = () => {
+const Footer = ({ setIsTelemetryModalVisible }) => {
   return (
     <footer className={styles.Container}>
       <section className={styles.InnerContainer}>
         <hr className={styles.Separator} />
         <nav className={styles.Navigation}>
-          <Link href="/">
-            <a
-              className={`
-                not-link
-                ${styles.Link}
-              `}
-            >
-              Home
-            </a>
+          <Link
+            href="/"
+            className={`
+              not-link
+              ${styles.Link}
+            `}
+          >
+            Home
           </Link>
-          <Link href="mailto:hello@streamlit.io?subject=Contact%20from%20documentation%20">
-            <a
-              className={`
-                not-link
-                ${styles.Link}
-              `}
-            >
-              Contact Us
-            </a>
+          <Link
+            href="mailto:hello@streamlit.io?subject=Contact%20from%20documentation%20"
+            className={`
+              not-link
+              ${styles.Link}
+            `}
+          >
+            Contact Us
           </Link>
           <a
             className={`
@@ -302,9 +300,17 @@ const Footer = () => {
             </i>
           </a>
         </section>
-        <p className={styles.Copyright}>
-          Copyright &copy; {new Date().getFullYear()}, Streamlit Inc.
-        </p>
+        <div className={styles.Copyright}>
+          <span>
+            Copyright &copy; {new Date().getFullYear()}, Streamlit Inc.
+          </span>
+          <button
+            className="hover:opacity-80 ml-2"
+            onClick={() => setIsTelemetryModalVisible(true)}
+          >
+            Cookie policy
+          </button>
+        </div>
       </section>
     </footer>
   );

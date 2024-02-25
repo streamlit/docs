@@ -1,31 +1,49 @@
 ---
 site_menu:
+  - category: Get started
+    url: /get-started
+    color: orange-70
+    icon: rocket_launch
+  - category: Get started / Installation
+    url: /get-started/installation
+  - category: Get started / Installation / Use command line
+    url: /get-started/installation/command-line
+  - category: Get started / Installation / Use Anaconda Distribution
+    url: /get-started/installation/anaconda-distribution
+  - category: Get started / Installation / Use GitHub Codespaces
+    url: /get-started/installation/community-cloud
+  - category: Get started / Installation / Use Snowflake
+    url: /get-started/installation/streamlit-in-snowflake
+  - category: Get started / Fundamentals
+    url: /get-started/fundamentals
+  - category: Get started / Fundamentals / Main concepts
+    url: /get-started/fundamentals/main-concepts
+  - category: Get started / Fundamentals / Advanced concepts
+    url: /get-started/fundamentals/advanced-concepts
+  - category: Get started / Fundamentals / Additional features
+    url: /get-started/fundamentals/additional-features
+  - category: Get started / Fundamentals / Summary
+    url: /get-started/fundamentals/summary
+  - category: Get started / Tutorials
+    url: /get-started/tutorials
+  - category: Get started / Tutorials / Create an app
+    url: /get-started/tutorials/create-an-app
+  - category: Get started / Tutorials / Create a multipage app
+    url: /get-started/tutorials/create-a-multipage-app
+
   - category: Streamlit library
     url: /library
-    color: violet-70
+    color: indigo-70
     icon: description
-  - category: Streamlit library / Get started
-    url: /library/get-started
-  - category: Streamlit library / Get started / Installation
-    url: /library/get-started/installation
-  - category: Streamlit library / Get started / Main concepts
-    url: /library/get-started/main-concepts
-  - category: Streamlit library / Get started / Create an app
-    url: /library/get-started/create-an-app
-  - category: Streamlit library / Get started / Multipage apps
-    url: /library/get-started/multipage-apps
-  - category: Streamlit library / Get started / Multipage apps / Create a multipage app
-    url: /library/get-started/multipage-apps/create-a-multipage-app
-  # - category: Streamlit library / Get started / Deploy an app
-  #   url: /library/get-started/deploy-an-app
-  # - category: Streamlit library / Get started / App gallery
-  #   url: https://streamlit.io/gallery
   - category: Streamlit library / API reference
     url: /library/api-reference
   - category: Streamlit library / API reference / Write and magic
     url: /library/api-reference/write-magic
   - category: Streamlit library / API reference / Write and magic / st.write
     url: /library/api-reference/write-magic/st.write
+    isVersioned: true
+  - category: Streamlit library / API reference / Write and magic / st.write_stream
+    url: /library/api-reference/write-magic/st.write_stream
     isVersioned: true
   - category: Streamlit library / API reference / Write and magic / magic
     url: /library/api-reference/write-magic/magic
@@ -68,7 +86,6 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / API reference / Data elements / st.column_config
     url: /library/api-reference/data/st.column_config
-    isVersioned: true
   - category: Streamlit library / API reference / Data elements / st.column_config / Column
     url: /library/api-reference/data/st.column_config/st.column_config.column
     isVersioned: true
@@ -173,6 +190,9 @@ site_menu:
   - category: Streamlit library / API reference / Input widgets / st.link_button
     url: /library/api-reference/widgets/st.link_button
     isVersioned: true
+  - category: Streamlit library / API reference / Input widgets / st.page_link
+    url: /library/api-reference/widgets/st.page_link
+    isVersioned: true
   - category: Streamlit library / API reference / Input widgets / st.checkbox
     url: /library/api-reference/widgets/st.checkbox
     isVersioned: true
@@ -251,11 +271,17 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / API reference / Chat elements
     url: /library/api-reference/chat
+  - category: Streamlit library / API reference / Chat elements / st.chat_input
+    url: /library/api-reference/chat/st.chat_input
+    isVersioned: true
   - category: Streamlit library / API reference / Chat elements / st.chat_message
     url: /library/api-reference/chat/st.chat_message
     isVersioned: true
-  - category: Streamlit library / API reference / Chat elements / st.chat_input
-    url: /library/api-reference/chat/st.chat_input
+  - category: Streamlit library / API reference / Chat elements / st.status
+    url: https://docs.streamlit.io/library/api-reference/status/st.status
+    isVersioned: true
+  - category: Streamlit library / API reference / Chat elements / st.write_stream
+    url: https://docs.streamlit.io/library/api-reference/write-magic/st.write_stream
     isVersioned: true
   - category: Streamlit library / API reference / Status elements
     url: /library/api-reference/status
@@ -294,17 +320,23 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / API reference / Control flow
     url: /library/api-reference/control-flow
-  - category: Streamlit library / API reference / Control flow / st.stop
-    url: /library/api-reference/control-flow/st.stop
-    isVersioned: true
   - category: Streamlit library / API reference / Control flow / st.form
     url: /library/api-reference/control-flow/st.form
     isVersioned: true
   - category: Streamlit library / API reference / Control flow / st.form_submit_button
     url: /library/api-reference/control-flow/st.form_submit_button
     isVersioned: true
+  - category: Streamlit library / API reference / Control flow / st.page_link
+    url: https://docs.streamlit.io/library/api-reference/widgets/st.page_link
+    isVersioned: true
   - category: Streamlit library / API reference / Control flow / st.rerun
     url: /library/api-reference/control-flow/st.rerun
+    isVersioned: true
+  - category: Streamlit library / API reference / Control flow / st.stop
+    url: /library/api-reference/control-flow/st.stop
+    isVersioned: true
+  - category: Streamlit library / API reference / Control flow / st.switch_page
+    url: /library/api-reference/control-flow/st.switch_page
     isVersioned: true
   - category: Streamlit library / API reference / Control flow / st.experimental_rerun
     url: /library/api-reference/control-flow/st.experimental_rerun
@@ -321,12 +353,17 @@ site_menu:
   - category: Streamlit library / API reference / Utilities / st.help
     url: /library/api-reference/utilities/st.help
     isVersioned: true
+  - category: Streamlit library / API reference / Utilities / st.query_params
+    url: /library/api-reference/utilities/st.query_params
+    isVersioned: true
   - category: Streamlit library / API reference / Utilities / st.experimental_get_query_params
     url: /library/api-reference/utilities/st.experimental_get_query_params
     isVersioned: true
+    isDeprecated: true
   - category: Streamlit library / API reference / Utilities / st.experimental_set_query_params
     url: /library/api-reference/utilities/st.experimental_set_query_params
     isVersioned: true
+    isDeprecated: true
   - category: Streamlit library / API reference / Mutate charts
     url: /library/api-reference/mutate
   - category: Streamlit library / API reference / State management
@@ -356,63 +393,101 @@ site_menu:
     isVersioned: false
   - category: Streamlit library / API reference / Personalization / st.experimental_user
     url: /library/api-reference/personalization/st.experimental_user
-    isVersioned: false
+    isVersioned: true
   - category: Streamlit library / API reference / Connections and databases
     url: /library/api-reference/connections
-  - category: Streamlit library / API reference / Connections and databases / st.experimental_connection
-    url: /library/api-reference/connections/st.experimental_connection
+  - category: Streamlit library / API reference / Connections and databases / st.connection
+    url: /library/api-reference/connections/st.connection
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / SnowflakeConnection
+    url: /library/api-reference/connections/st.connections.snowflakeconnection
     isVersioned: true
   - category: Streamlit library / API reference / Connections and databases / SQLConnection
     url: /library/api-reference/connections/st.connections.sqlconnection
     isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / BaseConnection
+    url: /library/api-reference/connections/st.connections.baseconnection
+    isVersioned: true
+  - category: Streamlit library / API reference / Connections and databases / st.experimental_connection
+    url: /library/api-reference/connections/st.experimental_connection
+    isVersioned: true
+    isDeprecated: true
   - category: Streamlit library / API reference / Connections and databases / SnowparkConnection
     url: /library/api-reference/connections/st.connections.snowparkconnection
     isVersioned: true
-  - category: Streamlit library / API reference / Connections and databases / Connection base class
+    isDeprecated: true
+  - category: Streamlit library / API reference / Connections and databases / ExperimentalBaseConnection
     url: /library/api-reference/connections/st.connections.experimentalbaseconnection
+    isVersioned: true
+    isDeprecated: true
+  - category: Streamlit library / API reference / App testing
+    url: /library/api-reference/app-testing
+  - category: Streamlit library / API reference / App testing / st.testing.v1.AppTest
+    url: /library/api-reference/app-testing/st.testing.v1.apptest
+    isVersioned: true
+  - category: Streamlit library / API reference / App testing / Testing element classes
+    url: /library/api-reference/app-testing/testing-element-classes
     isVersioned: true
   - category: Streamlit library / Advanced features
     url: /library/advanced-features
   - category: Streamlit library / Advanced features / ⋮ App menu
     url: /library/advanced-features/app-menu
-  - category: Streamlit library / Advanced features/ Button behavior and examples
+  - category: Streamlit library / Advanced features / Button behavior and examples
     url: /library/advanced-features/button-behavior-and-examples
-  - category: Streamlit library / Advanced features/ Caching
+  - category: Streamlit library / Advanced features / Caching
     url: /library/advanced-features/caching
-  - category: Streamlit library / Advanced features/ Command-line options
+  - category: Streamlit library / Advanced features / Optimize performance with st.cache
+    url: /library/advanced-features/st.cache
+    visible: false
+  - category: Streamlit library / Advanced features / Experimental cache primitives
+    url: /library/advanced-features/experimental-cache-primitives
+    visible: false
+  - category: Streamlit library / Advanced features / Command-line options
     url: /library/advanced-features/cli
-  - category: Streamlit library / Advanced features/ Configuration
+  - category: Streamlit library / Advanced features / Configuration
     url: /library/advanced-features/configuration
   - category: Streamlit library / Advanced features / Theming
     url: /library/advanced-features/theming
-  - category: Streamlit library / Advanced features/ Connecting to data
+  - category: Streamlit library / Advanced features / Connecting to data
     url: /library/advanced-features/connecting-to-data
-  - category: Streamlit library / Advanced features/ Dataframes
+  - category: Streamlit library / Advanced features / Dataframes
     url: /library/advanced-features/dataframes
-  - category: Streamlit library / Advanced features/ Forms
+  - category: Streamlit library / Advanced features / Forms
     url: /library/advanced-features/forms
-  - category: Streamlit library / Advanced features/ Optimize performance with st.cache
-    url: /library/advanced-features/st.cache
-    visible: false
-  - category: Streamlit library / Advanced features/ Experimental cache primitives
-    url: /library/advanced-features/experimental-cache-primitives
-    visible: false
-  - category: Streamlit library / Advanced features/ Add statefulness to apps
+  - category: Streamlit library / Advanced features / Multipage apps
+    url: /library/advanced-features/multipage-apps
+  - category: Streamlit library / Advanced features / Multipage apps / Custom navigation
+    url: /library/advanced-features/multipage-apps/custom-navigation
+  - category: Streamlit library / Advanced features / Add statefulness to apps
     url: /library/advanced-features/session-state
-  - category: Streamlit library / Advanced features/ Widget behavior
+  - category: Streamlit library / Advanced features / Widget behavior
     url: /library/advanced-features/widget-behavior
-  - category: Streamlit library / Advanced features/ Pre-release features
+  - category: Streamlit library / Advanced features/ Custom classes
+    url: /library/advanced-features/custom-classes
+  - category: Streamlit library / Advanced features / Pre-release features
     url: /library/advanced-features/prerelease
-  - category: Streamlit library / Advanced features/ Working with timezones
+  - category: Streamlit library / Advanced features / Working with timezones
     url: /library/advanced-features/timezone-handling
-  - category: Streamlit library / Advanced features/ Static file serving
+  - category: Streamlit library / Advanced features / Static file serving
     url: /library/advanced-features/static-file-serving
-  - category: Streamlit library / Advanced features/ HTTPS support
+  - category: Streamlit library / Advanced features / HTTPS support
     url: /library/advanced-features/https-support
-  - category: Streamlit library / Advanced features/ Secrets management
+  - category: Streamlit library / Advanced features / Secrets management
     url: /library/advanced-features/secrets-management
-  - category: Streamlit library / Advanced features/ Security reminders
+  - category: Streamlit library / Advanced features / Security reminders
     url: /library/advanced-features/security-reminders
+  - category: Streamlit library / Advanced features / App testing
+    url: /library/advanced-features/app-testing
+  - category: Streamlit library / Advanced features / App testing / Get started
+    url: /library/advanced-features/app-testing/get-started
+  - category: Streamlit library / Advanced features / App testing / Beyond the basics
+    url: /library/advanced-features/app-testing/beyond-the-basics
+  - category: Streamlit library / Advanced features / App testing / Automate your tests
+    url: /library/advanced-features/app-testing/automate-tests
+  - category: Streamlit library / Advanced features / App testing / Example
+    url: /library/advanced-features/app-testing/examples
+  - category: Streamlit library / Advanced features / App testing / Cheat sheet
+    url: /library/advanced-features/app-testing/cheat-sheet
   - category: Streamlit library / Components
     url: /library/components
   - category: Streamlit library / Components / Components API
@@ -432,7 +507,7 @@ site_menu:
 
   - category: Streamlit Community Cloud
     url: /streamlit-community-cloud
-    color: l-blue-70
+    color: lightBlue-70
     icon: cloud
 
   - category: Streamlit Community Cloud / Get started
@@ -447,7 +522,7 @@ site_menu:
     url: /streamlit-community-cloud/get-started/explore-your-workspace
   - category: Streamlit Community Cloud / Get started / Fork and edit a public app
     url: /streamlit-community-cloud/get-started/fork-and-edit-a-public-app
-  - category: Streamlit Community Cloud / Get started / Trust and Security
+  - category: Streamlit Community Cloud / Get started / Trust and security
     url: /streamlit-community-cloud/get-started/trust-and-security
   - category: Streamlit Community Cloud / Deploy your app
     url: /streamlit-community-cloud/deploy-your-app
@@ -494,7 +569,7 @@ site_menu:
 
   - category: Knowledge base
     url: /knowledge-base
-    color: orange-70
+    color: darkBlue-70
     icon: school
   - category: Knowledge base / Tutorials
     url: /knowledge-base/tutorials
@@ -538,11 +613,9 @@ site_menu:
     url: /knowledge-base/tutorials/deploy/docker
   - category: Knowledge base / Tutorials / Deploy Streamlit apps / Kubernetes
     url: /knowledge-base/tutorials/deploy/kubernetes
-  - category: Knowledge base / Tutorials / Session State basics
-    url: /knowledge-base/tutorials/session-state
-  - category: Knowledge base / Tutorials / Build conversational apps
+  - category: Knowledge base / Tutorials / Build a basic LLM chat app
     url: /knowledge-base/tutorials/build-conversational-apps
-  - category: Knowledge base / Tutorials / LLM quickstart
+  - category: Knowledge base / Tutorials / Build an LLM app using LangChain
     url: /knowledge-base/tutorials/llm-quickstart
   - category: Knowledge base / Using Streamlit
     url: /knowledge-base/using-streamlit
@@ -551,9 +624,6 @@ site_menu:
     visible: false
   - category: Knowledge base / Using Streamlit / Append data to a table or chart
     url: /knowledge-base/using-streamlit/append-data-table-chart
-    visible: false
-  - category: Knowledge base / Using Streamlit / Batch elements and input widgets with st.form
-    url: /knowledge-base/using-streamlit/batch-elements-input-widgets-form
     visible: false
   - category: Knowledge base / Using Streamlit / How do I create an anchor link?
     url: /knowledge-base/using-streamlit/create-anchor-link
@@ -617,9 +687,6 @@ site_menu:
     visible: false
   - category: Knowledge base / Streamlit Components
     url: /knowledge-base/components
-  - category: Knowledge base / Streamlit Components / How do I add a Component to the sidebar?
-    url: /knowledge-base/components/add-component-sidebar
-    visible: false
   - category: Knowledge base / Streamlit Components / My Component seems to be stuttering...how do I fix that?
     url: /knowledge-base/components/component-blinking-stuttering-fix
     visible: false
@@ -643,9 +710,6 @@ site_menu:
   - category: Knowledge base / Installing dependencies / ERROR No matching distribution found for
     url: /knowledge-base/dependencies/no-matching-distribution
     visible: false
-  - category: Knowledge base / Installing dependencies / Install the Snowflake Connector for Python on Streamlit Community Cloud
-    url: /knowledge-base/dependencies/snowflake-connector-python-streamlit-cloud
-    visible: false
   - category: Knowledge base / Deployment issues
     url: /knowledge-base/deploy
   - category: Knowledge base / Deployment issues / Authentication without SSO
@@ -656,9 +720,6 @@ site_menu:
     visible: false
   - category: Knowledge base / Deployment issues / How do I deploy Streamlit on a domain so it appears to run on a regular port (i.e. port 80)?
     url: /knowledge-base/deploy/deploy-streamlit-domain-port-80
-    visible: false
-  - category: Knowledge base / Deployment issues / How do I deploy Streamlit on Heroku, AWS, Google Cloud, etc...?
-    url: /knowledge-base/deploy/deploy-streamlit-heroku-aws-google-cloud
     visible: false
   - category: Knowledge base / Deployment issues / Does Streamlit support the WSGI Protocol? (aka Can I deploy Streamlit with gunicorn?)
     url: /knowledge-base/deploy/does-streamlit-support-wsgi-protocol
@@ -681,26 +742,14 @@ site_menu:
   - category: Knowledge base / Deployment issues / How do I share apps with viewers outside my organization?
     url: /knowledge-base/deploy/share-apps-with-viewers-outside-organization
     visible: false
-  - category: Knowledge base / Deployment issues / I don't have SSO. How do I sign in to Streamlit Community Cloud?
-    url: /knowledge-base/deploy/sign-in-without-sso
-    visible: false
   - category: Knowledge base / Deployment issues / Upgrade the Streamlit version of your app on Streamlit Community Cloud
     url: /knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud
-    visible: false
-  - category: Knowledge base / Deployment issues / Custom subdomains
-    url: /knowledge-base/deploy/custom-subdomains
-    visible: false
-  - category: Knowledge base / Deployment issues / How to update account admin settings on Streamlit Community Cloud?
-    url: /knowledge-base/deploy/how-to-update-account-admin-settings-on-streamlit-community-cloud
     visible: false
   - category: Knowledge base / Deployment issues / Unable to edit or delete apps in Streamlit Community Cloud after modifying GitHub username
     url: /knowledge-base/deploy/unable-to-edit-or-delete-apps-in-streamlit-community-cloud-after-modifying-github-username
     visible: false
   - category: Knowledge base / Deployment issues / Huh. This is isn't supposed to happen message after trying to log in
     url: /knowledge-base/deploy/huh-this-isnt-supposed-to-happen-message-after-trying-to-log-in
-    visible: false
-  - category: Knowledge base / Deployment issues / Huh. This isn't supposed to happen. No valid SSO connection for domain
-    url: /knowledge-base/deploy/huh-this-isnt-supposed-to-happen-no-valid-sso-connection-for-domain
     visible: false
   - category: Knowledge base / Deployment issues / View-only access to app after changing GitHub username or repository name
     url: /knowledge-base/deploy/view-only-access-to-app-after-changing-github-username-or-repository-name
@@ -710,8 +759,5 @@ site_menu:
     visible: false
   - category: Knowledge base / Deployment issues / How to submit a support case for Streamlit Community Cloud
     url: /knowledge-base/deploy/how-to-submit-a-support-case-for-streamlit-community-cloud
-    visible: false
-  - category: Knowledge base / Deployment issues / How to delete your Streamlit Community Cloud account
-    url: /knowledge-base/deploy/how-to-delete-your-streamlit-community-cloud-account
     visible: false
 ---

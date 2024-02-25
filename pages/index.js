@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
-import { getMenu, getGDPRBanner } from "../lib/api";
+import { getMenu, getGDPRBanner, getCookieSettings } from "../lib/api";
 
 import Layout from "../components/layouts/globalTemplate";
 import Footer from "../components/navigation/footer";
@@ -10,7 +11,10 @@ import SideBar from "../components/navigation/sideBar";
 import ArrowLinkContainer from "../components/navigation/arrowLinkContainer";
 import ArrowLink from "../components/navigation/arrowLink";
 
-import GDPRBanner from "../components/utilities/gdpr";
+import GDPRBanner, {
+  setTelemetryPreference,
+} from "../components/utilities/gdpr";
+import CookieSettingsModal from "../components/utilities/cookieSettingsModal";
 import SocialCallouts from "../components/utilities/socialCallout";
 import Spacer from "../components/utilities/spacer";
 
@@ -31,8 +35,32 @@ import { attributes } from "../content/index.md";
 
 import styles from "../components/layouts/container.module.css";
 
-export default function Home({ window, menu, gdpr_data }) {
+export default function Home({ window, menu, gdpr_data, cookie_data }) {
   let { description } = attributes;
+
+  const [isTelemetryModalVisible, setIsTelemetryModalVisible] = useState(false);
+  const [isTelemetryBannerVisible, setIsTelemetryBannerVisible] =
+    useState(false);
+  const [insertTelemetryCode, setInsertTelemetryCode] = useState(false);
+
+  const router = useRouter();
+
+  const allowTelemetryAndCloseBanner = useCallback(() => {
+    setIsTelemetryBannerVisible(false);
+    setIsTelemetryModalVisible(false);
+    setInsertTelemetryCode(true);
+    setTelemetryPreference(true);
+  }, [isTelemetryBannerVisible, insertTelemetryCode]);
+
+  const declineTelemetryAndCloseBanner = useCallback(() => {
+    setIsTelemetryBannerVisible(false);
+    setIsTelemetryModalVisible(false);
+    setInsertTelemetryCode(false);
+    setTelemetryPreference(false);
+
+    // If previous state was true, and now it's false, reload the page to remove telemetry JS
+    if (insertTelemetryCode) router.reload();
+  }, [isTelemetryBannerVisible, insertTelemetryCode]);
 
   return (
     <Layout window={window}>
@@ -66,7 +94,25 @@ export default function Home({ window, menu, gdpr_data }) {
           content={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-twitter.jpg`}
         />
       </Head>
-      <GDPRBanner {...gdpr_data} />
+      {isTelemetryModalVisible && (
+        <CookieSettingsModal
+          {...cookie_data}
+          setIsTelemetryModalVisible={setIsTelemetryModalVisible}
+          allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
+          declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
+        />
+      )}
+      <GDPRBanner
+        {...gdpr_data}
+        isTelemetryModalVisible={isTelemetryModalVisible}
+        setIsTelemetryModalVisible={setIsTelemetryModalVisible}
+        isTelemetryBannerVisible={isTelemetryBannerVisible}
+        setIsTelemetryBannerVisible={setIsTelemetryBannerVisible}
+        insertTelemetryCode={insertTelemetryCode}
+        setInsertTelemetryCode={setInsertTelemetryCode}
+        allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
+        declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
+      />
       <section className={styles.Container}>
         <SideBar menu={menu} slug={[]} />
         <section className={styles.InnerContainer}>
@@ -96,17 +142,26 @@ export default function Home({ window, menu, gdpr_data }) {
             <H2>How to use our docs</H2>
             <InlineCalloutContainer>
               <InlineCallout
-                color="violet-70"
-                icon="description"
-                bold="Streamlit library"
-                href="/library/get-started"
+                color="orange-70"
+                icon="rocket_launch"
+                bold="Get started"
+                href="/get-started"
               >
-                includes our Get started guide, API reference, and more advanced
-                features of the core library including caching, theming, and
-                Streamlit Components.
+                introduces you to the world of Streamlit! Learn the fundamental
+                concepts, set up your development environment, and start coding!
               </InlineCallout>
               <InlineCallout
-                color="l-blue-70"
+                color="indigo-70"
+                icon="description"
+                bold="Streamlit library"
+                href="/library/api-reference"
+              >
+                includes our API reference, and guides to all of Streamlit's
+                features in the core library including caching, theming,
+                Streamlit Components, and more!
+              </InlineCallout>
+              <InlineCallout
+                color="lightBlue-70"
                 icon="cloud"
                 bold="Streamlit Community Cloud"
                 href="/streamlit-community-cloud"
@@ -117,7 +172,7 @@ export default function Home({ window, menu, gdpr_data }) {
                 iterate quickly with live code updates, and have an impact!
               </InlineCallout>
               <InlineCallout
-                color="orange-70"
+                color="darkBlue-70"
                 icon="school"
                 bold="Knowledge base"
                 href="/knowledge-base"
@@ -139,75 +194,73 @@ export default function Home({ window, menu, gdpr_data }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/library/api-reference/charts/st.scatter_chart"
+                href="/library/api-reference/widgets/st.page_link"
               >
-                <i className="material-icons-sharp">scatter_plot</i>
-                <h4>Scatter chart</h4>
+                <i className="material-icons-sharp">file_open</i>
+                <h4>Custom navigation menus</h4>
                 <p>
-                  Introducing <code>st.scatter_chart</code> — a new, simple
-                  chart element to build scatter charts Streamlit-y fast and
-                  easy!
+                  Introducing <code>st.page_link</code>! Now you can build your
+                  own, custom navigation menus for your multipage apps.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/widgets/st.link_button"
+                href="/library/api-reference/write-magic/st.write_stream"
               >
-                <i className="material-icons-sharp">link</i>
-                <h4>Link button</h4>
+                <i className="material-icons-sharp">chat</i>
+                <h4>Write streamed content</h4>
                 <p>
-                  Introducing <code>st.link_button</code>! Open an external link
-                  in a new tab with a bit more pizazz than a plain-text link.
+                  Announcing <code>st.write_stream</code> to conveniently handle
+                  generators and streamed responses. See how making chat apps
+                  just got easier!
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/control-flow/st.rerun"
+                href="/library/api-reference/chat/st.chat_input"
               >
-                <i className="material-icons-sharp">directions_run</i>
+                <i className="material-icons-sharp">forum</i>
                 <h4>
-                  <code>st.rerun</code> is de-experimentalized!
+                  Use <code>st.chat_input</code> inline
                 </h4>
                 <p>
-                  Announcing the general availability of <code>st.rerun</code>,
-                  a command to interrupt your script and trigger an immediate
-                  rerun.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/library/api-reference/widgets">
-                <i className="material-icons-sharp">block</i>
-                <h4>More widgets can be empty</h4>
-                <p>
-                  You can initialize widgets with an empty state by setting{" "}
-                  <code>None</code>
-                  as an initial value for <code>st.number_input</code>,{" "}
-                  <code>st.selectbox</code>,<code>st.date_input</code>,{" "}
-                  <code>st.time_input</code>, <code>st.radio</code>,{" "}
-                  <code>st.text_input</code>, and
-                  <code>st.text_area</code>!
+                  <code>st.chat_input</code> can be used inline and placed
+                  anywhere in the app. You can also have multiple
+                  <code>st.chat_input</code> widgets on a page!
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/streamlit-community-cloud/manage-your-app/edit-your-app"
+                href="/library/api-reference/control-flow/st.switch_page"
               >
-                <i className="material-icons-sharp">cloud</i>
-                <h4>Skip local installation and code in the cloud!</h4>
+                <i className="material-icons-sharp">switch_left</i>
+                <h4>Programmatic page navigation</h4>
                 <p>
-                  Streamlit Community Cloud makes it easy to spin up a GitHub
-                  Codespace to start building and editing Streamlit apps &mdash;
-                  all in the cloud!
+                  Introducing <code>st.switch_page</code>! Programmatically
+                  navigate between the pages of your multipage apps with ease.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/status/st.status"
+                href="/library/api-reference/utilities/st.query_params"
               >
-                <i className="material-icons-sharp">rotate_right</i>
-                <h4>Status container</h4>
+                <i className="material-icons-sharp">question_mark</i>
+                <h4>Query parameters</h4>
                 <p>
-                  Introducing <code>st.status</code> to display output from
-                  long-running processes and external API calls
+                  Introducing <code>st.query_params</code> — a new and simple
+                  way to read and manipulate the query parameters in your app's
+                  URL.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/layout/st.container"
+              >
+                <i className="material-icons-sharp">height</i>
+                <h4>Container height and scrolling</h4>
+                <p>
+                  Set a height for <code>st.container</code>. The container will
+                  automatically become scrollable when needed.
                 </p>
               </RefCard>
               {/* <Tile
@@ -254,14 +307,10 @@ export default function Home({ window, menu, gdpr_data }) {
           <SocialCallouts />
 
           <ArrowLinkContainer>
-            <ArrowLink
-              link="/library/get-started"
-              type="next"
-              content="Get started"
-            />
+            <ArrowLink link="/get-started" type="next" content="Get started" />
           </ArrowLinkContainer>
         </section>
-        <Footer />
+        <Footer setIsTelemetryModalVisible={setIsTelemetryModalVisible} />
       </section>
     </Layout>
   );
@@ -271,6 +320,7 @@ export async function getStaticProps(context) {
   const props = {};
   props["menu"] = getMenu();
   props["gdpr_data"] = await getGDPRBanner();
+  props["cookie_data"] = await getCookieSettings();
 
   return {
     props: props,

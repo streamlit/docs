@@ -12,7 +12,7 @@ With widgets, Streamlit allows you to bake interactivity directly into your apps
 
 <Image pure alt="screenshot" src="/images/api/button.svg" />
 
-#### Button
+<h4>Button</h4>
 
 Display a button widget.
 
@@ -26,7 +26,7 @@ clicked = st.button("Click me")
 
 <Image pure alt="screenshot" src="/images/api/download_button.svg" />
 
-#### Download button
+<h4>Download button</h4>
 
 Display a download button widget.
 
@@ -40,7 +40,7 @@ st.download_button("Download file", file)
 
 <Image pure alt="screenshot" src="/images/api/link_button.svg" />
 
-#### Link button
+<h4>Link button</h4>
 
 Display a link button.
 
@@ -50,11 +50,26 @@ st.link_button("Go to gallery", url)
 
 </RefCard>
 
+<RefCard href="/library/api-reference/widgets/st.page_link">
+
+<Image pure alt="screenshot" src="/images/api/page_link.jpg" />
+
+<h4>Page link</h4>
+
+Display a link to another page in a multipage app.
+
+```python
+st.page_link("app.py", label="Home", icon="🏠")
+st.page_link("pages/profile.py", label="My profile")
+```
+
+</RefCard>
+
 <RefCard href="/library/api-reference/widgets/st.checkbox">
 
 <Image pure alt="screenshot" src="/images/api/checkbox.jpg" />
 
-#### Checkbox
+<h4>Checkbox</h4>
 
 Display a checkbox widget.
 
@@ -67,7 +82,7 @@ selected = st.checkbox("I agree")
 
 <Image pure alt="screenshot" src="/images/api/toggle.jpg" />
 
-#### Toggle
+<h4>Toggle</h4>
 
 Display a toggle widget.
 
@@ -80,7 +95,7 @@ activated = st.toggle("Activate")
 
 <Image pure alt="screenshot" src="/images/api/radio.jpg" />
 
-#### Radio
+<h4>Radio</h4>
 
 Display a radio button widget.
 
@@ -93,7 +108,7 @@ choice = st.radio("Pick one", ["cats", "dogs"])
 
 <Image pure alt="screenshot" src="/images/api/selectbox.jpg" />
 
-#### Selectbox
+<h4>Selectbox</h4>
 
 Display a select widget.
 
@@ -106,7 +121,7 @@ choice = st.selectbox("Pick one", ["cats", "dogs"])
 
 <Image pure alt="screenshot" src="/images/api/multiselect.jpg" />
 
-#### Multiselect
+<h4>Multiselect</h4>
 
 Display a multiselect widget. The multiselect widget starts as empty.
 
@@ -119,7 +134,7 @@ choices = st.multiselect("Buy", ["milk", "apples", "potatoes"])
 
 <Image pure alt="screenshot" src="/images/api/slider.jpg" />
 
-#### Slider
+<h4>Slider</h4>
 
 Display a slider widget.
 
@@ -132,7 +147,7 @@ number = st.slider("Pick a number", 0, 100)
 
 <Image pure alt="screenshot" src="/images/api/select_slider.jpg" />
 
-#### Select slider
+<h4>Select slider</h4>
 
 Display a slider widget to select items from a list.
 
@@ -145,7 +160,7 @@ size = st.select_slider("Pick a size", ["S", "M", "L"])
 
 <Image pure alt="screenshot" src="/images/api/text_input.jpg" />
 
-#### Text input
+<h4>Text input</h4>
 
 Display a single-line text input widget.
 
@@ -158,7 +173,7 @@ name = st.text_input("First name")
 
 <Image pure alt="screenshot" src="/images/api/number_input.jpg" />
 
-#### Number input
+<h4>Number input</h4>
 
 Display a numeric input widget.
 
@@ -171,7 +186,7 @@ choice = st.number_input("Pick a number", 0, 10)
 
 <Image pure alt="screenshot" src="/images/api/text_area.jpg" />
 
-#### Text area
+<h4>Text area</h4>
 
 Display a multi-line text input widget.
 
@@ -184,7 +199,7 @@ text = st.text_area("Text to translate")
 
 <Image pure alt="screenshot" src="/images/api/date_input.jpg" />
 
-#### Date input
+<h4>Date input</h4>
 
 Display a date input widget.
 
@@ -197,7 +212,7 @@ date = st.date_input("Your birthday")
 
 <Image pure alt="screenshot" src="/images/api/time_input.jpg" />
 
-#### Time input
+<h4>Time input</h4>
 
 Display a time input widget.
 
@@ -210,7 +225,7 @@ time = st.time_input("Meeting time")
 
 <Image pure alt="screenshot" src="/images/api/file_uploader.jpg" />
 
-#### File uploader
+<h4>File uploader</h4>
 
 Display a file uploader widget.
 
@@ -223,7 +238,7 @@ data = st.file_uploader("Upload a CSV")
 
 <Image pure alt="screenshot" src="/images/api/camera_input.jpg" />
 
-#### Camera input
+<h4>Camera input</h4>
 
 Display a widget that allows users to upload images directly from a camera.
 
@@ -236,7 +251,7 @@ image = st.camera_input("Take a picture")
 
 <Image pure alt="screenshot" src="/images/api/color_picker.jpg" />
 
-#### Color picker
+<h4>Color picker</h4>
 
 Display a color picker widget.
 
@@ -253,7 +268,7 @@ color = st.color_picker("Pick a color")
 
 <Image pure alt="screenshot" src="/images/api/components/elements.jpg" />
 
-#### Streamlit Elements
+<h4>Streamlit Elements</h4>
 
 Create a draggable and resizable dashboard in Streamlit. Created by [@okls](https://github.com/okls).
 
@@ -270,7 +285,7 @@ with elements("new_element"):
 
 <Image pure alt="screenshot" src="/images/api/components/tags.jpg" />
 
-#### Tags
+<h4>Tags</h4>
 
 Add tags to your Streamlit apps. Created by [@gagan3012](https://github.com/gagan3012).
 
@@ -287,7 +302,7 @@ suggestions=['five', 'six', 'seven', 'eight', 'nine', 'three', 'eleven', 'ten', 
 
 <Image pure alt="screenshot" src="/images/api/components/stqdm.jpg" />
 
-#### Stqdm
+<h4>Stqdm</h4>
 
 The simplest way to handle a progress bar in streamlit app. Created by [@Wirg](https://github.com/Wirg).
 
@@ -304,7 +319,7 @@ for _ in stqdm(range(50)):
 
 <Image pure alt="screenshot" src="/images/api/components/timeline.jpg" />
 
-#### Timeline
+<h4>Timeline</h4>
 
 Display a Timeline in Streamlit apps using [TimelineJS](https://timeline.knightlab.com/). Created by [@innerdoc](https://github.com/innerdoc).
 
@@ -321,7 +336,7 @@ with open('example.json', "r") as f:
 
 <Image pure alt="screenshot" src="/images/api/components/camera-live.jpg" />
 
-#### Camera input live
+<h4>Camera input live</h4>
 
 Alternative for st.camera_input which returns the webcam images live. Created by [@blackary](https://github.com/blackary).
 
@@ -338,7 +353,7 @@ st.image(value)
 
 <Image pure alt="screenshot" src="/images/api/components/ace.jpg" />
 
-#### Streamlit Ace
+<h4>Streamlit Ace</h4>
 
 Ace editor component for Streamlit. Created by [@okld](https://github.com/okld).
 
@@ -355,7 +370,7 @@ content
 
 <Image pure alt="screenshot" src="/images/api/components/chat.jpg" />
 
-#### Streamlit Chat
+<h4>Streamlit Chat</h4>
 
 Streamlit Component for a Chatbot UI. Created by [@AI-Yash](https://github.com/AI-Yash).
 
@@ -372,7 +387,7 @@ message("Hello bot!", is_user=True)  # align's the message to the right
 
 <Image pure alt="screenshot" src="/images/api/components/option-menu.jpg" />
 
-#### Streamlit Option Menu
+<h4>Streamlit Option Menu</h4>
 
 Select a single item from a list of options in a menu. Created by [@victoryhb](https://github.com/victoryhb).
 
@@ -389,7 +404,7 @@ option_menu("Main Menu", ["Home", 'Settings'],
 
 <Image pure alt="screenshot" src="/images/api/components/extras-toggle.jpg" />
 
-#### Streamlit Extras
+<h4>Streamlit Extras</h4>
 
 A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
 

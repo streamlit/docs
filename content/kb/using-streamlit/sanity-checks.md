@@ -15,7 +15,7 @@ guaranteeing compatibility with _at least_ the last three minor versions of Pyth
 As new versions of Python are released, we will try to be compatible with the new version as soon
 as possible, though frequently we are at the mercy of other Python packages to support these new versions as well.
 
-Streamlit currently supports versions 3.8, 3.9, 3.10, and 3.11 of Python.
+Streamlit currently supports versions 3.8, 3.9, 3.10, 3.11, and 3.12 of Python.
 
 ## Check #1: Is Streamlit running?
 
@@ -56,7 +56,7 @@ st.write(st.__version__)
 
 ...then call `streamlit run` on your script and make sure it says the same
 version as above. If not the same version, check out [these
-instructions](/library/get-started/installation) for some sure-fire ways to set up your
+instructions](/get-started/installation) for some sure-fire ways to set up your
 environment.
 
 ## Check #4: Is your browser caching your app too aggressively?
@@ -115,7 +115,7 @@ At line:1 char:1
 
 To resolve this issue, add [Python to the Windows system PATH](https://datatofish.com/add-python-to-windows-path/).
 
-After adding Python to your Windows PATH, you should then be able to follow the instructions in our [Get Started](/library/get-started) section.
+After adding Python to your Windows PATH, you should then be able to follow the instructions in our [Get Started](/get-started) section.
 
 ## Check #7 [Windows]: Do you need Build Tools for Visual Studio installed?
 

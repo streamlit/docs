@@ -1,5 +1,5 @@
 module.exports = {
-  purge: [
+  content: [
     "./components/*.js",
     "./components/**/*.js",
     "./pages/*.js",
@@ -41,6 +41,7 @@ module.exports = {
 
     fontSize: {
       // Defaults are: https://tailwindcss.com/docs/font-size
+      "2xs": ["0.667rem", { lineHeight: "1.25rem", letterSpacing: "0.1em" }],
       xs: ["0.75rem", { lineHeight: "1.5rem", letterSpacing: "0.1em" }],
       sm: ["0.875rem", { lineHeight: "1.75rem", letterSpacing: "0.05em" }],
       base: ["1rem", { lineHeight: "2rem" }],

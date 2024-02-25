@@ -4,10 +4,15 @@
 
 .HeaderContainer {
   @apply flex items-center font-bold text-gray-90 leading-snug;
+  overflow-wrap: anywhere;
 }
 
 .HeaderContainer strong {
   @apply font-bold;
+}
+
+.HeaderContainer code {
+  @apply mx-2;
 }
 
 h1.HeaderContainer {

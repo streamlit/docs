@@ -7,6 +7,7 @@ description: st.cache_resource is used to cache functions that return shared glo
 <Tip>
 
 This page only contains information on the `st.cache_resource` API. For a deeper dive into caching and how to use it, check out [Caching](/library/advanced-features/caching).
+
 </Tip>
 
 <Autofunction function="streamlit.cache_resource" />
@@ -73,7 +74,7 @@ def load_model():
 You can also use [interactive input widgets](/library/api-reference/widgets) like `st.slider` or `st.text_input` in cached functions. Widget replay is an experimental feature at the moment. To enable it, you need to set the `experimental_allow_widgets` parameter:
 
 ```python
-@st.cache_data(experimental_allow_widgets=True)  # 👈 Set the parameter
+@st.cache_resource(experimental_allow_widgets=True)  # 👈 Set the parameter
 def load_model():
     pretrained = st.checkbox("Use pre-trained model:")  # 👈 Add a checkbox
     model = torchvision.models.resnet50(weights=ResNet50_Weights.DEFAULT, pretrained=pretrained)

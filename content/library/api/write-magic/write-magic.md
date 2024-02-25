@@ -11,7 +11,7 @@ first thing you try: `st.write` and magic.
 <TileContainer>
 <RefCard href="/library/api-reference/write-magic/st.write">
 
-#### st.write
+<h4>st.write</h4>
 
 Write arguments to the app.
 
@@ -22,9 +22,21 @@ st.write(my_mpl_figure)
 ```
 
 </RefCard>
+<RefCard href="/library/api-reference/write-magic/st.write_stream">
+
+<h4>st.write_stream</h4>
+
+Write generators or streams to the app with a typewriter effect.
+
+```python
+st.write_stream(my_generator)
+st.write_stream(my_llm_stream)
+```
+
+</RefCard>
 <RefCard href="/library/api-reference/write-magic/magic">
 
-#### Magic
+<h4>Magic</h4>
 
 Any time Streamlit sees either a variable or literal value on its own line, it automatically writes that to your app using `st.write`
 

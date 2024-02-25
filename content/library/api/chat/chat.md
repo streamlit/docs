@@ -7,14 +7,29 @@ slug: /library/api-reference/chat
 
 Streamlit provides a few commands to help you build conversational apps. These chat elements are designed to be used in conjunction with each other, but you can also use them separately.
 
-`st.chat_message` lets you insert a chat message container into the app so you can display messages from the user or the app. Chat containers can contain other Streamlit elements, including charts, tables, text, and more. `st.chat_input` lets you display a chat input widget so the user can type in a message. Remeber to check out `st.status` to display output from long-running processes and external API calls.
+`st.chat_message` lets you insert a chat message container into the app so you can display messages from the user or the app. Chat containers can contain other Streamlit elements, including charts, tables, text, and more. `st.chat_input` lets you display a chat input widget so the user can type in a message. Remember to check out `st.status` to display output from long-running processes and external API calls.
 
 <TileContainer>
+<RefCard href="/library/api-reference/chat/st.chat_input">
+
+<Image pure alt="screenshot" src="/images/api/chat_input.jpg" />
+
+<h4>Chat input</h4>
+
+Display a chat input widget.
+
+```python
+prompt = st.chat_input("Say something")
+if prompt:
+    st.write(f"The user has sent: {prompt}")
+```
+
+</RefCard>
 <RefCard href="/library/api-reference/chat/st.chat_message">
 
 <Image pure alt="screenshot" src="/images/api/chat_message.jpg" />
 
-#### Chat message
+<h4>Chat message</h4>
 
 Insert a chat message container.
 
@@ -26,32 +41,29 @@ with st.chat_message("user"):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/chat/st.chat_input">
-
-<Image pure alt="screenshot" src="/images/api/chat_input.jpg" />
-
-#### Chat input
-
-Display a chat input widget.
-
-```python
-prompt = st.chat_input("Say something")
-if prompt:
-    st.write(f"The user has sent: {prompt}")
-```
-
-</RefCard>
 <RefCard href="/library/api-reference/status/st.status">
 
 <Image pure alt="screenshot" src="/images/api/status.jpg" />
 
-#### Status container
+<h4>Status container</h4>
 
 Display output of long-running tasks in a container.
 
 ```python
 with st.status('Running'):
   do_something_slow()
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/write-magic/st.write_stream">
+
+<h4>st.write_stream</h4>
+
+Write generators or streams to the app with a typewriter effect.
+
+```python
+st.write_stream(my_generator)
+st.write_stream(my_llm_stream)
 ```
 
 </RefCard>

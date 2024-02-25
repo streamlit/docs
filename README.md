@@ -209,7 +209,7 @@ We support syntax highlighting for Python, Bash, TOML, SQL, and JSX.
 Use standard Markdown to link to other pages in the docs. E.g. Add an inline link to the "Create an app" page by including the slug defined in the front matter of the "Create an app" `.md` file:
 
 ```markdown
-Learn how to [Create an app](/library/get-started/create-an-app).
+Learn how to [Create an app](/get-started/tutorials/create-an-app).
 ```
 
 **Add images:**
@@ -242,13 +242,13 @@ However, a user has to know the URL to visit the page. The page is therefore _re
 
 How do you make the page you created appear in the Menu? Edit the special markdown file `content/menu.md`. All it has is front matter in YAML.
 
-Suppose you have created an "Installation" page that is available at `docs.streamlit.io/library/get-started/installation`. You want to it to appear in the Menu within the "Streamlit Library" section, nested under the "Get Started" page.
+Suppose you have created an "Quickstart" page that is available at `docs.streamlit.io/get-started/installation/quickstart`. You want to it to appear in the Menu within the "Get started" section, nested under the "Installation" page.
 
 To do so, find the lines that define the `category`, `url` and `visible` properties for "Get Started" in `menu.md` and add three new lines below it, containing:
 
 ```YAML
-- category: Streamlit Library / Get Started / Installation
-  url: /library/get-started/installation
+- category: Get Started / Installation / Quickstart
+  url: /get-started/installation/quickstart
   visible: true
 ```
 
@@ -265,7 +265,7 @@ To preview your changes, refresh your browser tab and visit the edited page!
 
 ### Add a new docstring to the API Reference
 
-Any time a new version of Streamlit is released, the docstrings stored in `python/streamlit.json` have to be updated by running `make docstrings` . This will build the nesscary Docker image, and update the file with the documentation for the latest release on PyPi.
+Any time a new version of Streamlit is released, the docstrings stored in `python/streamlit.json` have to be updated by running `make docstrings` . This will build the necessary Docker image, and update the file with the documentation for the latest release on PyPi.
 
 If you need to regenerate all function signatures, across all versions, delete the content in `python/streamlit.json`, leaving the file in place, and run `make docstrings`. This will systematically install each version of streamlit, and generate the necessary function signatures in `streamlit.json`.
 
