@@ -15,10 +15,6 @@
   @apply absolute h-6 w-full bg-gradient-to-b from-white z-10;
 }
 
-:global(.dark) .TopGradient {
-  @apply from-gray-100;
-}
-
 /* Contents Title */
 .ListTitle {
   @apply pt-6 uppercase font-semibold tracking-widest;
@@ -26,16 +22,23 @@
 }
 
 /* Styles for the active item on the floating nav */
-:global(.dark) .activeLink {
-  @apply text-white !important;
+.activeLink {
+  @apply relative text-gray-90 font-bold transform scale-105 !important;
 }
 
-.activeLink {
-  @apply text-gray-90 !important;
+.ListItem > .activeLink::before {
+  @apply absolute -left-4 top-1/4 transform scale-95 bg-gray-70 w-2 h-2 rounded-full;
+  content: "";
 }
 
 .Link {
-  @apply border-none inline-block pr-2 w-40 leading-4 hover:opacity-70 hover:no-underline;
+  @apply inline-block pr-2 w-40 leading-4 hover:opacity-70 hover:no-underline;
+  @apply text-gray-70 !important;
+}
+
+.ListItem .Link {
+  @apply no-underline;
+  @apply relative border-none inline-block pr-2 w-40 leading-4 hover:opacity-70;
   @apply text-gray-70 !important;
 }
 
@@ -66,4 +69,22 @@
 
 .List li[data-hierarchy="6"] {
   @apply pl-20;
+}
+
+/* Dark mode adjustments */
+:global(.dark) .TopGradient {
+  @apply from-gray-100;
+}
+
+:global(.dark) .ListItem .Link {
+  @apply text-gray-40 !important;
+}
+
+:global(.dark) .ListTitle,
+:global(.dark) .ListItem > .activeLink {
+  @apply text-white !important;
+}
+
+:global(.dark) .ListItem > .activeLink::before {
+  @apply bg-white;
 }
