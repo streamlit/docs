@@ -613,14 +613,14 @@ site_menu:
     url: /knowledge-base/tutorials/deploy/docker
   - category: Knowledge base / Tutorials / Deploy Streamlit apps / Kubernetes
     url: /knowledge-base/tutorials/deploy/kubernetes
-  - category: Knowledge base / Tutorials / Deploy Streamlit apps / Google App Engine
-    url: https://dev.to/whitphx/how-to-deploy-streamlit-apps-to-google-app-engine-407o
   - category: Knowledge base / Tutorials / Deploy Streamlit apps / Amazon EC2
     url: https://towardsdatascience.com/how-to-deploy-a-streamlit-app-using-an-amazon-free-ec2-instance-416a41f69dc3
-  - category: Knowledge base / Tutorials / Deploy Streamlit apps / Heroku
-    url: https://towardsdatascience.com/quickly-build-and-deploy-an-application-with-streamlit-988ca08c7e83
   - category: Knowledge base / Tutorials / Deploy Streamlit apps / Azure
     url: https://towardsdatascience.com/deploying-a-streamlit-web-app-with-azure-app-service-1f09a2159743
+  - category: Knowledge base / Tutorials / Deploy Streamlit apps / Google App Engine
+    url: https://dev.to/whitphx/how-to-deploy-streamlit-apps-to-google-app-engine-407o
+  - category: Knowledge base / Tutorials / Deploy Streamlit apps / Heroku
+    url: https://towardsdatascience.com/quickly-build-and-deploy-an-application-with-streamlit-988ca08c7e83
   - category: Knowledge base / Tutorials / Deploy Streamlit apps / Ploomber Cloud
     url: https://docs.cloud.ploomber.io/en/latest/apps/streamlit.html
   - category: Knowledge base / Tutorials / Deploy Streamlit apps / 21YunBox
