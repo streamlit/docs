@@ -213,7 +213,7 @@ const Helpful = ({ slug, sourcefile }) => {
         method="POST"
         data-netlify="true"
         ref={formRef}
-        data-netlify-honeypot="definitely-required-field"
+        netlify-honeypot="required-email"
         className={styles.Form}
       >
         <input type="hidden" name="form-name" value="helpful" />
@@ -221,7 +221,7 @@ const Helpful = ({ slug, sourcefile }) => {
         <input type="hidden" name="was_helpful" value={isHelpful} />
         <div style={{ display: "none" }}>
           If you're a human, do not fill out this field:
-          <input type="hidden" name="definitely-required-field" />
+          <input type="hidden" name="required-email" />
         </div>
         <input
           type="hidden"
