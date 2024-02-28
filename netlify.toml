@@ -7,3 +7,43 @@
 [[plugins]]
   # Setting the plugin manually, so we can pick the version (see package.json).
   package = "@netlify/plugin-nextjs"
+
+# IMPORTANT: Keep this in sync with next.config.js
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    X-Content-Type-Options = "nosniff"
+    Content-Security-Policy = """
+upgrade-insecure-requests; \
+frame-ancestors 'self' ; \
+frame-src https: ; \
+connect-src \
+  'self' \
+  https://streamlit.ghost.io/ghost/api/ \
+; \
+default-src 'none' ; \
+font-src 'self' ; \
+form-action 'self' ; \
+img-src \
+  'self' \
+  data: \
+  https: \
+; \
+media-src \
+  https://s3-us-west-2.amazonaws.com/assets.streamlit.io/ \
+; \
+script-src \
+  'self' \
+  'unsafe-inline' \
+  https://cdn.heapanalytics.com/ \
+  https://cdn.segment.com/ \
+  https://identity.netlify.com/ \
+  https://netlify-cdp-loader.netlify.app/netlify.js \
+  https://www.google-analytics.com/ \
+  https://www.googletagmanager.com/ \
+; \
+style-src \
+  'self' \
+  'unsafe-inline' \
+;"""
