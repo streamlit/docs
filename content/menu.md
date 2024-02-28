@@ -41,6 +41,7 @@ site_menu:
     url: /library/api-reference/write-magic
   - category: Streamlit library / API reference / Write and magic / st.write
     url: /library/api-reference/write-magic/st.write
+    isVersioned: true
   - category: Streamlit library / API reference / Write and magic / st.write_stream
     url: /library/api-reference/write-magic/st.write_stream
     isVersioned: true
@@ -612,6 +613,20 @@ site_menu:
     url: /knowledge-base/tutorials/deploy/docker
   - category: Knowledge base / Tutorials / Deploy Streamlit apps / Kubernetes
     url: /knowledge-base/tutorials/deploy/kubernetes
+  - category: Knowledge base / Tutorials / Deploy Streamlit apps / Amazon EC2
+    url: https://towardsdatascience.com/how-to-deploy-a-streamlit-app-using-an-amazon-free-ec2-instance-416a41f69dc3
+  - category: Knowledge base / Tutorials / Deploy Streamlit apps / Azure
+    url: https://towardsdatascience.com/deploying-a-streamlit-web-app-with-azure-app-service-1f09a2159743
+  - category: Knowledge base / Tutorials / Deploy Streamlit apps / Google App Engine
+    url: https://dev.to/whitphx/how-to-deploy-streamlit-apps-to-google-app-engine-407o
+  - category: Knowledge base / Tutorials / Deploy Streamlit apps / Heroku
+    url: https://towardsdatascience.com/quickly-build-and-deploy-an-application-with-streamlit-988ca08c7e83
+  - category: Knowledge base / Tutorials / Deploy Streamlit apps / Ploomber Cloud
+    url: https://docs.cloud.ploomber.io/en/latest/apps/streamlit.html
+  - category: Knowledge base / Tutorials / Deploy Streamlit apps / 21YunBox
+    url: https://www.21yunbox.com/docs/#/deploy-streamlit
+  - category: Knowledge base / Tutorials / Deploy Streamlit apps / Community-built guides
+    url: https://discuss.streamlit.io/t/streamlit-deployment-guide-wiki/5099
   - category: Knowledge base / Tutorials / Build a basic LLM chat app
     url: /knowledge-base/tutorials/build-conversational-apps
   - category: Knowledge base / Tutorials / Build an LLM app using LangChain
