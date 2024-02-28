@@ -18,7 +18,7 @@ like `st.line_chart` and `st.area_chart`.
 <RefCard href="/library/api-reference/charts/st.area_chart">
 <Image pure alt="screenshot" src="/images/api/area_chart.jpg" />
 
-#### Simple area charts
+<h4>Simple area charts</h4>
 
 Display an area chart.
 
@@ -30,7 +30,7 @@ st.area_chart(my_data_frame)
 <RefCard href="/library/api-reference/charts/st.bar_chart">
 <Image pure alt="screenshot" src="/images/api/bar_chart.jpg" />
 
-#### Simple bar charts
+<h4>Simple bar charts</h4>
 
 Display a bar chart.
 
@@ -42,7 +42,7 @@ st.bar_chart(my_data_frame)
 <RefCard href="/library/api-reference/charts/st.line_chart">
 <Image pure alt="screenshot" src="/images/api/line_chart.jpg" />
 
-#### Simple line charts
+<h4>Simple line charts</h4>
 
 Display a line chart.
 
@@ -54,7 +54,7 @@ st.line_chart(my_data_frame)
 <RefCard href="/library/api-reference/charts/st.scatter_chart">
 <Image pure alt="screenshot" src="/images/api/scatter_chart.svg" />
 
-#### Simple scatter charts
+<h4>Simple scatter charts</h4>
 
 Display a line chart.
 
@@ -66,7 +66,7 @@ st.scatter_chart(my_data_frame)
 <RefCard href="/library/api-reference/charts/st.map">
 <Image pure alt="screenshot" src="/images/api/map.jpg" />
 
-#### Scatterplots on maps
+<h4>Scatterplots on maps</h4>
 
 Display a map with points on it.
 
@@ -78,7 +78,7 @@ st.map(my_data_frame)
 <RefCard href="/library/api-reference/charts/st.pyplot">
 <Image pure alt="screenshot" src="/images/api/pyplot.jpg" />
 
-#### Matplotlib
+<h4>Matplotlib</h4>
 
 Display a matplotlib.pyplot figure.
 
@@ -90,7 +90,7 @@ st.pyplot(my_mpl_figure)
 <RefCard href="/library/api-reference/charts/st.altair_chart">
 <Image pure alt="screenshot" src="/images/api/vega_lite_chart.jpg" />
 
-#### Altair
+<h4>Altair</h4>
 
 Display a chart using the Altair library.
 
@@ -102,7 +102,7 @@ st.altair_chart(my_altair_chart)
 <RefCard href="/library/api-reference/charts/st.vega_lite_chart">
 <Image pure alt="screenshot" src="/images/api/vega_lite_chart.jpg" />
 
-#### Vega-Lite
+<h4>Vega-Lite</h4>
 
 Display a chart using the Vega-Lite library.
 
@@ -114,7 +114,7 @@ st.vega_lite_chart(my_vega_lite_chart)
 <RefCard href="/library/api-reference/charts/st.plotly_chart">
 <Image pure alt="screenshot" src="/images/api/plotly_chart.jpg" />
 
-#### Plotly
+<h4>Plotly</h4>
 
 Display an interactive Plotly chart.
 
@@ -126,7 +126,7 @@ st.plotly_chart(my_plotly_chart)
 <RefCard href="/library/api-reference/charts/st.bokeh_chart">
 <Image pure alt="screenshot" src="/images/api/bokeh_chart.jpg" />
 
-#### Bokeh
+<h4>Bokeh</h4>
 
 Display an interactive Bokeh chart.
 
@@ -138,7 +138,7 @@ st.bokeh_chart(my_bokeh_chart)
 <RefCard href="/library/api-reference/charts/st.pydeck_chart">
 <Image pure alt="screenshot" src="/images/api/pydeck_chart.jpg" />
 
-#### PyDeck
+<h4>PyDeck</h4>
 
 Display a chart using the PyDeck library.
 
@@ -150,7 +150,7 @@ st.pydeck_chart(my_pydeck_chart)
 <RefCard href="/library/api-reference/charts/st.graphviz_chart">
 <Image pure alt="screenshot" src="/images/api/graphviz_chart.jpg" />
 
-#### GraphViz
+<h4>GraphViz</h4>
 
 Display a graph using the dagre-d3 library.
 
@@ -167,7 +167,7 @@ st.graphviz_chart(my_graphviz_spec)
 
 <Image pure alt="screenshot" src="/images/api/components/plost.jpg" />
 
-#### Plost
+<h4>Plost</h4>
 
 A deceptively simple plotting library for Streamlit. Created by [@tvst](https://github.com/tvst).
 
@@ -182,7 +182,7 @@ plost.line_chart(my_dataframe, x='time', y='stock_value', color='stock_name',)
 
 <Image pure alt="screenshot" src="/images/api/components/hiplot.jpg" />
 
-#### HiPlot
+<h4>HiPlot</h4>
 
 High dimensional Interactive Plotting. Created by [@facebookresearch](https://github.com/facebookresearch).
 
@@ -197,7 +197,7 @@ hip.Experiment.from_iterable(data).display()
 
 <Image pure alt="screenshot" src="/images/api/components/echarts.jpg" />
 
-#### ECharts
+<h4>ECharts</h4>
 
 High dimensional Interactive Plotting. Created by [@andfanilo](https://github.com/andfanilo).
 
@@ -212,7 +212,7 @@ st_echarts(options=options)
 
 <Image pure alt="screenshot" src="/images/api/components/folium.jpg" />
 
-#### Streamlit Folium
+<h4>Streamlit Folium</h4>
 
 Streamlit Component for rendering Folium maps. Created by [@randyzwitch](https://github.com/randyzwitch).
 
@@ -227,7 +227,7 @@ st_data = st_folium(m, width=725)
 
 <Image pure alt="screenshot" src="/images/api/components/spacy.jpg" />
 
-#### Spacy-Streamlit
+<h4>Spacy-Streamlit</h4>
 
 spaCy building blocks and visualizers for Streamlit apps. Created by [@explosion](https://github.com/explosion).
 
@@ -242,7 +242,7 @@ spacy_streamlit.visualize(models, "Sundar Pichai is the CEO of Google.")
 
 <Image pure alt="screenshot" src="/images/api/components/agraph.jpg" />
 
-#### Streamlit Agraph
+<h4>Streamlit Agraph</h4>
 
 A Streamlit Graph Vis, based on [react-grah-vis](https://github.com/crubier/react-graph-vis). Created by [@ChrisDelClea](https://github.com/ChrisDelClea).
 
@@ -257,7 +257,7 @@ agraph(nodes=nodes, edges=edges, config=config)
 
 <Image pure alt="screenshot" src="/images/api/components/lottie.jpg" />
 
-#### Streamlit Lottie
+<h4>Streamlit Lottie</h4>
 
 Integrate [Lottie](https://lottiefiles.com/) animations inside your Streamlit app. Created by [@andfanilo](https://github.com/andfanilo).
 
@@ -272,7 +272,7 @@ st_lottie(lottie_hello, key="hello")
 
 <Image pure alt="screenshot" src="/images/api/components/plotly-events.jpg" />
 
-#### Plotly Events
+<h4>Plotly Events</h4>
 
 Make Plotly charts interactive!. Created by [@null-jones](https://github.com/null-jones/).
 
@@ -287,7 +287,7 @@ selected_points = plotly_events(fig)
 
 <Image pure alt="screenshot" src="/images/api/components/extras-chart-annotations.jpg" />
 
-#### Streamlit Extras
+<h4>Streamlit Extras</h4>
 
 A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
 
