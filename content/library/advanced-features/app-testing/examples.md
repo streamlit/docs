@@ -137,3 +137,33 @@ def test_log_out():
 ```
 
 See how Session State was modified in the last test? Instead of fully simulating a user logging in, the test jumps straight to a logged-in state by setting `at.session_state["status"] = "verified"`. After running the app, the test proceeds to simulate the user logging out.
+
+### Automating your tests
+
+If `myproject/` was pushed to GitHub as a repository, you could add GitHub Actions test automation with [Streamlit App Action](https://github.com/marketplace/actions/streamlit-app-action). This is as simple as adding a workflow file at `myproject/.github/workflows/`:
+
+```yaml
+# .github/workflows/streamlit-app.yml
+name: Streamlit app
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  streamlit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: streamlit/streamlit-app-action@v0.0.3
+        with:
+          app-path: app.py
+```

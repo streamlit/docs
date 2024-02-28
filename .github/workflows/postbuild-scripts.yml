@@ -14,6 +14,7 @@ jobs:
   build-search-index:
     runs-on: ubuntu-latest
     name: Build Algolia search index
+    environment: Build Search Index
 
     steps:
       - name: Checkout the repo
@@ -22,10 +23,13 @@ jobs:
       - name: Setup node, build the site and search index afterwards
         uses: actions/setup-node@v3
         with:
-          node-version: "14"
+          node-version: "20"
       - run: npm install
-      - run: npm run build
-      - run: node ./scripts/build-search-index.js
+      - run: npm run export
+      - name: Run build-search-index script
+        run: node ./scripts/build-search-index.js
+        env:
+          ALGOLIA_SECRET: ${{ secrets.ALGOLIA_SECRET }}
   build-sitemap:
     runs-on: ubuntu-latest
     name: Build sitemap
@@ -38,9 +42,9 @@ jobs:
         id: sitemap
         uses: actions/setup-node@v3
         with:
-          node-version: "14"
+          node-version: "20"
       - run: npm install
-      - run: npm run build
+      - run: npm run export
       - run: npm run sitemap
 
       - name: Create Pull Request

@@ -162,6 +162,11 @@ showErrorDetails = true
 #                 If there are no options left, hide the menu.
 # Default: "auto"
 toolbarMode = "auto"
+
+# Controls whether the default sidebar page navigation in a multipage app is
+# displayed.
+# Default: true
+showSidebarNavigation = true
 ```
 
 ### Runner
@@ -210,14 +215,16 @@ enforceSerializableSessionState = false
 
 # Adjust how certain 'options' widgets like radio, selectbox, and
 # multiselect coerce Enum members when the Enum class gets
-# re-defined during a script re-run.
+# re-defined during a script re-run. For more information, check out the docs:
+# https://docs.streamlit.io/library/advanced-features/custom-classes#enums
+#
 # Allowed values:
 # * "off"          : Disables Enum coercion.
 # * "nameOnly"     : Enum classes can be coerced if their member names match.
 # * "nameAndValue" : Enum classes can be coerced if their member names AND
 #                    member values match.
 # Default: "nameOnly"
-# enumCoercion = "nameOnly"
+enumCoercion = "nameOnly"
 ```
 
 ### Server
@@ -252,7 +259,7 @@ cookieSecret = "a-random-key-appears-here"
 # If false, will attempt to open a browser window on start.
 # Default: false unless (1) we are on a Linux box where DISPLAY is unset, or
 # (2) we are running in the Streamlit Atom plugin.
-# headless = false
+headless = false
 
 # Automatically rerun script when the file is modified on disk.
 # Default: false
@@ -263,9 +270,10 @@ runOnSave = false
 # If set, the server will only be accessible from this address, and not from
 # any aliases (like localhost).
 # Default: (unset)
-# address =
+address =
 
 # The port where the server will listen for browser connections.
+# Don't use port 3000 which is reserved for internal development.
 # Default: 8501
 port = 8501
 
@@ -345,9 +353,12 @@ gatherUsageStats = true
 # Port where users should point their browsers in order to connect to the
 # app.
 # This is used to:
-# - Set the correct URL for CORS and XSRF protection purposes.
-# - Show the URL on the terminal
-# - Open the browser
+# - Set the correct URL for XSRF protection purposes.
+# - Show the URL on the terminal (part of `streamlit run`).
+# - Open the browser automatically (part of `streamlit run`).
+# This option is for advanced use cases. To change the port of your app, use
+# `server.Port` instead. Don't use port 3000 which is reserved for internal
+# development.
 # Default: whatever value is set in server.port.
 serverPort = 8501
 ```

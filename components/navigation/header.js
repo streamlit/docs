@@ -41,7 +41,7 @@ const Header = ({ isSticky }) => {
     <header
       className={classNames(
         styles.Container,
-        isSticky ? styles.stickyContainer : styles.standardContainer
+        isSticky ? styles.stickyContainer : styles.standardContainer,
       )}
     >
       <nav className={styles.Navigation} id="main-header">

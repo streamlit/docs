@@ -194,73 +194,73 @@ export default function Home({ window, menu, gdpr_data, cookie_data }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/library/api-reference/widgets/st.page_link"
+              >
+                <i className="material-icons-sharp">file_open</i>
+                <h4>Custom navigation menus</h4>
+                <p>
+                  Introducing <code>st.page_link</code>! Now you can build your
+                  own, custom navigation menus for your multipage apps.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/write-magic/st.write_stream"
+              >
+                <i className="material-icons-sharp">chat</i>
+                <h4>Write streamed content</h4>
+                <p>
+                  Announcing <code>st.write_stream</code> to conveniently handle
+                  generators and streamed responses. See how making chat apps
+                  just got easier!
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/chat/st.chat_input"
+              >
+                <i className="material-icons-sharp">forum</i>
+                <h4>
+                  Use <code>st.chat_input</code> inline
+                </h4>
+                <p>
+                  <code>st.chat_input</code> can be used inline and placed
+                  anywhere in the app. You can also have multiple
+                  <code>st.chat_input</code> widgets on a page!
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/control-flow/st.switch_page"
+              >
+                <i className="material-icons-sharp">switch_left</i>
+                <h4>Programmatic page navigation</h4>
+                <p>
+                  Introducing <code>st.switch_page</code>! Programmatically
+                  navigate between the pages of your multipage apps with ease.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/library/api-reference/utilities/st.query_params"
+              >
+                <i className="material-icons-sharp">question_mark</i>
+                <h4>Query parameters</h4>
+                <p>
+                  Introducing <code>st.query_params</code> — a new and simple
+                  way to read and manipulate the query parameters in your app's
+                  URL.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="/library/api-reference/layout/st.container"
               >
-                <i className="material-icons-sharp">check_box_outline_blank</i>
-                <h4>Container borders</h4>
+                <i className="material-icons-sharp">height</i>
+                <h4>Container height and scrolling</h4>
                 <p>
-                  Now you can control border visibility for{" "}
-                  <code>st.container</code>
-                  and <code>st.form</code>!
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/library/api-reference/app-testing">
-                <i className="material-icons-sharp">science</i>
-                <h4>App testing</h4>
-                <p>
-                  Introducing a new testing framework for Streamlit apps! Build
-                  automated tests for your CI workflows.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/connections/st.connection"
-              >
-                <i className="material-icons-sharp">account_tree</i>
-                <h4>
-                  <code>st.connection</code> is deexperimentalized!
-                </h4>
-                <p>
-                  Announcing the general availability of{" "}
-                  <code>st.connection</code>, a command to conveniently manage
-                  connections in Streamlit apps.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/connections/st.connections.snowflakeconnection"
-              >
-                <i className="material-icons-sharp">ac_unit</i>
-                <h4>
-                  <code>SnowparkConnection</code> has been upgraded!
-                </h4>
-                <p>
-                  <code>SnowflakeConnection</code> has all the same great
-                  functionality <em>plus more!</em>
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/advanced-features/dataframes"
-              >
-                <i className="material-icons-sharp">construction</i>
-                <h4>Dataframe toolbars</h4>
-                <p>
-                  <code>st.dataframe</code>and <code>st.data_editor</code> have
-                  a new toolbar! Users can search and download data in addition
-                  to enjoying improved UI for row additions and deletions.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/charts/st.scatter_chart"
-              >
-                <i className="material-icons-sharp">scatter_plot</i>
-                <h4>Scatter chart</h4>
-                <p>
-                  Introducing <code>st.scatter_chart</code> — a new, simple
-                  chart element to build scatter charts Streamlit-y fast and
-                  easy!
+                  Set a height for <code>st.container</code>. The container will
+                  automatically become scrollable when needed.
                 </p>
               </RefCard>
               {/* <Tile

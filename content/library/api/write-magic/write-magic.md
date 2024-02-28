@@ -22,6 +22,18 @@ st.write(my_mpl_figure)
 ```
 
 </RefCard>
+<RefCard href="/library/api-reference/write-magic/st.write_stream">
+
+<h4>st.write_stream</h4>
+
+Write generators or streams to the app with a typewriter effect.
+
+```python
+st.write_stream(my_generator)
+st.write_stream(my_llm_stream)
+```
+
+</RefCard>
 <RefCard href="/library/api-reference/write-magic/magic">
 
 <h4>Magic</h4>
