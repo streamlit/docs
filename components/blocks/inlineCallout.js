@@ -13,7 +13,7 @@ const InlineCallout = ({ children, icon, color, bold, href }) => {
         className={classNames(
           styles.IconContainer,
           backgroundColor,
-          "not-link"
+          "not-link",
         )}
       >
         <i className={styles.Icon}>{icon}</i>

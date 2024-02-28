@@ -48,29 +48,15 @@ st.help(pd.DataFrame)
 
 </RefCard>
 
-<RefCard href="/library/api-reference/utilities/st.experimental_get_query_params">
+<RefCard href="/library/api-reference/utilities/st.query_params">
 
-<h4>Get query parameters</h4>
+<h4>Query parameters</h4>
 
-Return the query parameters that are currently showing in the browser's URL bar.
-
-```python
-st.experimental_get_query_params()
-```
-
-</RefCard>
-
-<RefCard href="/library/api-reference/utilities/st.experimental_set_query_params">
-
-<h4>Set query parameters</h4>
-
-Set the query parameters that are shown in the browser's URL bar.
+Get, set, or clear the query parameters that are shown in the browser's URL bar.
 
 ```python
-st.experimental_set_query_params(
-  show_map=True,
-  selected=["asia"]
-)
+st.query_params[key] = value
+st.query_params.clear()
 ```
 
 </RefCard>

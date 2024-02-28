@@ -137,7 +137,7 @@ const Search = () => {
 
   const searchClient = algoliasearch(
     "XNXFGO6BQ1",
-    "b90675aaf5269e66b8b0cd042dacf0d0"
+    "dd82fd414de60db7ffbcbf30eca68013",
   );
 
   function Hit(props) {
@@ -155,7 +155,7 @@ const Search = () => {
       <article
         className={classNames(
           styles.HitContainer,
-          props.hit.__position === indexFocus ? styles.ActiveHit : ""
+          props.hit.__position === indexFocus ? styles.ActiveHit : "",
         )}
         tabIndex="-1"
       >

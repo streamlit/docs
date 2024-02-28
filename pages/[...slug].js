@@ -9,6 +9,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { MDXRemote } from "next-mdx-remote";
 import matter from "gray-matter";
 import remarkUnwrapImages from "remark-unwrap-images";
+import remarkGfm from "remark-gfm";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import rehypeSlug from "rehype-slug";
@@ -256,7 +257,7 @@ export default function Article({
         <section className={styles.Container}>
           <SideBar slug={slug} menu={menu} />
           <Head>
-            <title>{data.title} - Streamlit Docs</title>
+            <title>{data.title + " - Streamlit Docs"}</title>
             <link rel="icon" href="/favicon.svg" />
             <link rel="alternate icon" href="/favicon32.ico" />
             <meta name="theme-color" content="#ffffff" />
@@ -315,7 +316,7 @@ export default function Article({
                 <MDXRemote {...source} components={components} />
                 {arrowContainer}
                 <Psa />
-                <Helpful slug={slug} sourcefile={suggestEditURL} />
+                {/*<Helpful slug={slug} sourcefile={suggestEditURL} />*/}
               </div>
             </article>
           </section>
@@ -386,7 +387,7 @@ export async function getStaticProps(context) {
       scope: data,
       mdxOptions: {
         rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
-        remarkPlugins: [remarkUnwrapImages],
+        remarkPlugins: [remarkUnwrapImages, remarkGfm],
       },
     });
 

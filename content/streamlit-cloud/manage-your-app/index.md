@@ -101,19 +101,38 @@ It is best practice to pin your Streamlit version in `requirements.txt`. Otherw
 
 ### Resource limits
 
-All Streamlit Community Cloud users have access to the same resources and are subject to the same limits (1 GB of RAM).
-If your app is running slowly or you're hitting the '😦 Oh no.' page, we first highly recommend going through and implementing the suggestions in the following blog posts to prevent your app from hitting the resource limits and to detect if your Streamlit app leaks memory:
+All Streamlit Community Cloud users have access to the same resources and are subject to the same limits. These limits may change at any time without notice. If your app meets or exceeds its limits, it may slow down from throttling or become nonfunctional. The limits as of February 2024 are approximately as follows:
+
+- CPU: 0.078 cores minimum, 2 cores maximum
+- Memory: 690MB minimum, 2.7GBs maximum
+- Storage: No minimum, 50GB maximum
+
+Symptoms that your app is running out of resources include the following:
+
+- Your app is running slowly.
+- Your app displays "🤯 This app has gone over its resource limits."
+- Your app displays "😦 Oh no."
+
+### Good for the world
+
+Streamlit offers increased resources for apps with good-for-the-world use cases. Generally, these apps are used by an educational institution or nonprofit organization, are part of an open-source project, or benefit the world in some way. If your app is **not** primarily used by a for-profit company you can [apply for increased resources](https://share.hsforms.com/1DzDGAjUmSPy_2nUzBj3rlQ3wudj).
+
+If you are an educator or student looking to deploy additional private apps, please [apply to our education program](https://share.hsforms.com/1M_e2WDcSRFuKzA2iteoAIg3wudj) instead.
+
+### Optimizing your app
+
+If your app is running slow or showing the error pages mentioned above, we first highly recommend going through and implementing the suggestions in the following blog posts to prevent your app from hitting the resource limits and to detect if your Streamlit app leaks memory:
 
 - <a href="https://blog.streamlit.io/common-app-problems-resource-limits/" target="_blank">Common app problems: Resource limits</a>
 - <a href="https://blog.streamlit.io/3-steps-to-fix-app-memory-leaks/" target="_blank">3 steps to fix app memory leaks</a>
 
-If your app exceeds its resource limits, developers and viewers alike will see '😦 Oh no.'
+If your app exceeds its resource limits, developers and viewers alike will see "😦 Oh no."
 
 <div style={{ maxWidth: '70%', margin: 'auto' }}>
 <Image alt="App state: Oh no. Error running your app." src="/images/streamlit-community-cloud/app-state-oh-no.png" />
 </div>
 
-If see '😦 Oh no.' when viewing your app, first check your Cloud logs for any specific errors. If there are no errors in your Cloud logs you are likely dealing with a resource issue.
+If see "😦 Oh no." when viewing your app, first check your Cloud logs for any specific errors. If there are no errors in your Cloud logs you are likely dealing with a resource issue.
 
 #### Developer view
 

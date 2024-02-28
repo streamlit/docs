@@ -73,18 +73,28 @@ def get_github_source(func):
         except AttributeError:
             source_file = inspect.getsourcefile(func.__call__)
 
+    # Get the relative path after the "streamlit" directory
+    rel_path = os.path.relpath(
+        source_file, start=os.path.join(streamlit.__path__[0], "..")
+    )
+
+    # Exit if not in the Streamlit library
+    if ".." in rel_path:
+        return ""
+
     try:
         line = inspect.getsourcelines(func)[1]
     except TypeError:
         try:
             line = inspect.getsourcelines(func.fget)[1]
         except AttributeError:
-            line = inspect.getsourcelines(func.__call__)[1]
+            try:
+                line = inspect.getsourcelines(func.__call__)[1]
+            except:
+                print(f"No line found for {func}")
+                return ""
 
-    # Get the relative path after the "streamlit" directory
-    rel_path = os.path.relpath(
-        source_file, start=os.path.join(streamlit.__path__[0], "..")
-    )
+
 
     return "".join([repo_prefix, rel_path, f"#L{line}"])
 
@@ -144,6 +154,8 @@ def get_docstring_dict(
                 f"{signature_prefix}.{method_name}",
                 is_class_method=True,
             )
+            if meth_obj["source"] == "":
+                continue
             description["methods"].append(meth_obj)
 
         # Get the class's properties
@@ -254,6 +266,25 @@ def get_docstring_dict(
             arg_obj["name"] = param.arg_name  ## Store the argument name
             arg_obj["type_name"] = param.type_name  # Store the argument type
             arg_obj["is_optional"] = param.is_optional  # Store the optional flag
+            if (not is_class) and callable(obj):
+                if param.arg_name.startswith("**"):
+                    arg_obj["is_kwarg_only"] = True
+                elif param.arg_name == "*args":
+                    arg_obj["is_kwarg_only"] = False
+                else:
+                    try:
+                        # Check if the function is a bound method
+                        if isinstance(obj, types.MethodType):
+                            # Get the signature of the function object being bound
+                            sig = inspect.signature(obj.__func__)
+                        else:
+                            # Get the signature of the function
+                            sig = inspect.signature(obj)
+                        param_obj = sig.parameters[param.arg_name]
+                        arg_obj["is_kwarg_only"] = (param_obj.kind is param_obj.KEYWORD_ONLY)
+                    except:
+                        print(sig)
+                        print(f"Can't find {param.arg_name} as an argument for {obj}")
             arg_obj["description"] = (
                 parse_rst(param.description) if param.description else ""
             )  # Store the argument description (parsed from RST to HTML)
@@ -327,25 +358,21 @@ def get_sig_string_without_annots(func):
     for name, param in sig.parameters.items():
         # Skip the "self" parameter for class methods
         if name == "self":
-            prev = param
+            continue
+        # Skip private parameters that are for internal use
+        if name.startswith("_"):
             continue
 
-        # If there was a previous parameter, check for certain conditions
-        if prev:
-            # Insert "/" if going from positional_only to anything else
-            if (
-                prev.kind is prev.POSITIONAL_ONLY
-                and param.kind is not param.POSITIONAL_ONLY
-            ):
+        # Insert "/" if the previous param was the last positional-only param
+        if (prev is not None) and (prev.kind is param.POSITIONAL_ONLY):
+            if param.kind is not param.POSITIONAL_ONLY:
                 args.append("/")
-                prev_was_positional_only = False
-
-            # Insert "*" if going from something that's not *foo to keyword-only
-            if (
-                prev.kind not in (prev.VAR_POSITIONAL, prev.KEYWORD_ONLY)
-                and param.kind is param.KEYWORD_ONLY
-            ):
-                args.append("*")
+        # Insert "*" if this is the first keyword-only argument
+        if param.kind is param.KEYWORD_ONLY:
+            if (prev is not None) and (prev.kind is prev.VAR_POSITIONAL):
+                pass
+            elif (prev is None) or (prev.kind is not prev.KEYWORD_ONLY):
+                    args.append("*")
 
         # If the parameter has a default value, format it accordingly
         if param.default != inspect._empty:
@@ -372,6 +399,10 @@ def get_sig_string_without_annots(func):
 
         # Set the current parameter as the previous one for the next iteration
         prev = param
+    
+    # Edge case: append "/" if all parameters were positional-only
+    if (prev is not None) and (prev.kind is param.POSITIONAL_ONLY):
+        args.append("/")
 
     # Return the formatted argument string
     return ", ".join(args)
@@ -454,8 +485,10 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix, only_include=None)
                 is_property,
             )
 
-        # Add the extracted metadata to obj_docstring_dict
-        obj_docstring_dict[fullname] = member_docstring_dict
+        # Add the extracted metadata to obj_docstring_dict if the object is
+        # local to streamlit (null source occurs when the object is inherited
+        if member_docstring_dict["source"]:
+            obj_docstring_dict[fullname] = member_docstring_dict
 
     return obj_docstring_dict
 
@@ -480,6 +513,10 @@ def get_streamlit_docstring_dict():
         streamlit.runtime.caching.cache_resource_api.CacheResourceAPI: [
             "streamlit.cache_resource",
             "st.cache_resource",
+        ],
+        streamlit.runtime.state.query_params_proxy.QueryParamsProxy: [
+            "streamlit.query_params", 
+            "st.query_params",
         ],
         streamlit.connections: ["streamlit.connections", "st.connections"],
         streamlit.connections.SQLConnection: [
@@ -512,11 +549,25 @@ def get_streamlit_docstring_dict():
             "streamlit.testing.v1.element_tree",
             "st.testing.v1.element_tree",
         ],
+        streamlit.user_info.UserInfoProxy: ["streamlit.experimental_user", "st.experimental_user"],
+    }
+    proxy_obj_key = {
+        streamlit.user_info.UserInfoProxy: ["streamlit.experimental_user", "st.experimental_user"],
     }
 
     module_docstring_dict = {}
     for obj, key in obj_key.items():
         module_docstring_dict.update(get_obj_docstring_dict(obj, *key))
+    for obj, key in proxy_obj_key.items():
+        member_docstring_dict = get_docstring_dict(
+                obj, #member
+                key[0].split(".")[-1], #membername
+                "st", #signature_prefix
+                True, #isClass
+                False, #is_class_method
+                False, #is_property
+            )
+        module_docstring_dict.update({key[0]: member_docstring_dict})
 
     return module_docstring_dict
 

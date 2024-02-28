@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import inspect
-import textwrap
 from urllib.error import URLError
 
 import pandas as pd
@@ -26,7 +24,7 @@ def mapping_demo():
     @st.cache_data
     def from_data_file(filename):
         url = (
-            "http://raw.githubusercontent.com/streamlit/"
+            "https://raw.githubusercontent.com/streamlit/"
             "example-data/master/hello/v1/%s" % filename
         )
         return pd.read_json(url)

@@ -213,12 +213,16 @@ const Helpful = ({ slug, sourcefile }) => {
         method="POST"
         data-netlify="true"
         ref={formRef}
-        data-netlify-honeypot="bot-field"
+        netlify-honeypot="required-email"
         className={styles.Form}
       >
         <input type="hidden" name="form-name" value="helpful" />
         <input type="hidden" name="url" value={joinedSlug} />
         <input type="hidden" name="was_helpful" value={isHelpful} />
+        <div style={{ display: "none" }}>
+          If you're a human, do not fill out this field:
+          <input type="hidden" name="required-email" />
+        </div>
         <input
           type="hidden"
           name="improvements"

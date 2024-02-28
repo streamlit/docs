@@ -10,17 +10,6 @@ slug: /library/api-reference/control-flow
 By default, Streamlit apps execute the script entirely, but we allow some functionality to handle control flow in your applications.
 
 <TileContainer>
-<RefCard href="/library/api-reference/control-flow/st.stop">
-
-<h4>Stop execution</h4>
-
-Stops execution immediately.
-
-```python
-st.stop()
-```
-
-</RefCard>
 
 <RefCard href="/library/api-reference/control-flow/st.rerun">
 
@@ -33,6 +22,46 @@ st.rerun()
 ```
 
 </RefCard>
+
+<RefCard href="/library/api-reference/control-flow/st.stop">
+
+<h4>Stop execution</h4>
+
+Stops execution immediately.
+
+```python
+st.stop()
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/control-flow/st.switch_page">
+
+<h4>Switch page</h4>
+
+Programmatically navigates to a specified page.
+
+```python
+st.switch_page("pages/my_page.py")
+```
+
+</RefCard>
+
+<RefCard href="/library/api-reference/widgets/st.page_link">
+
+<Image pure alt="screenshot" src="/images/api/page_link.jpg" />
+
+<h4>Page link</h4>
+
+Display a link to another page in a multipage app.
+
+```python
+st.page_link("app.py", label="Home", icon="🏠")
+st.page_link("pages/profile.py", label="My profile")
+```
+
+</RefCard>
+
 </TileContainer>
 
 ## Group multiple widgets

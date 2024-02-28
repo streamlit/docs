@@ -23,12 +23,12 @@ const Tile = ({
     size === "full"
       ? styles.Full
       : size === "half"
-      ? styles.Half
-      : size === "third"
-      ? styles.Third
-      : size === "two-third"
-      ? styles.TwoThirds
-      : styles.Third;
+        ? styles.Half
+        : size === "third"
+          ? styles.Third
+          : size === "two-third"
+            ? styles.TwoThirds
+            : styles.Third;
 
   useEffect(() => {
     window.addEventListener("ChangeTheme", handleTheme);
@@ -60,7 +60,7 @@ const Tile = ({
       className={classNames(
         styles.Container,
         tileSize || "third",
-        backgroundColor
+        backgroundColor,
       )}
     >
       <Link href={link || "/"} className={classNames("not-link", styles.Link)}>
