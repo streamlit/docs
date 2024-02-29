@@ -11,10 +11,6 @@
   @apply font-bold;
 }
 
-.HeaderContainer code {
-  @apply mx-2;
-}
-
 h1.HeaderContainer {
   @apply leading-tight;
 }
