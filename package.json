@@ -21,7 +21,6 @@
     "fs": "0.0.1-security",
     "gray-matter": "^4.0.3",
     "html-to-text": "^9.0.5",
-    "is-pdf-valid": "^0.0.1",
     "lodash": "^4.17.21",
     "markdown-it": "^14.0.0",
     "next": "^14.0.4",
@@ -30,10 +29,7 @@
     "next-sitemap": "^4.2.3",
     "node-html-parser": "^6.1.11",
     "nprogress": "^0.2.0",
-    "pdf-merger-js": "^4.3.0",
-    "prettier": "^3.1.1",
     "prismjs": "^1.29.0",
-    "puppeteer": "^21.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-instantsearch-dom": "^6.40.4",
@@ -54,7 +50,6 @@
     "remark-unwrap-images": "^4.0.0",
     "slick-carousel": "^1.8.1",
     "slugify": "^1.6.6",
-    "tailwindcss": "^3.4.0",
     "unified": "^11.0.4",
     "uuid": "^9.0.1"
   },
@@ -82,9 +77,14 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
+    "is-pdf-valid": "^0.0.1",
     "lint-staged": "^15.2.0",
+    "pdf-merger-js": "^4.3.0",
     "postcss": "^8.4.32",
-    "sass": "^1.69.5"
+    "prettier": "^3.1.1",
+    "puppeteer": "^21.6.1",
+    "sass": "^1.69.5",
+    "tailwindcss": "^3.4.0"
   },
   "lint-staged": {
     "*": "prettier --ignore-unknown --write"
