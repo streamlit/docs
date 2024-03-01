@@ -45,6 +45,9 @@ module.exports = {
   output: "export",
 
   webpack: (configuration) => {
+    // Don't try to polyfill the fs module.
+    configuration.resolve.fallback = { fs: false };
+
     configuration.module.rules.push(
       {
         test: /\.md$/,

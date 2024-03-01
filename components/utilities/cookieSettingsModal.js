@@ -1,5 +1,6 @@
 import classNames from "classnames";
-import { MDXRemote } from "next-mdx-remote";
+
+import content from "../../content/cookie-settings.md";
 
 import styles from "./cookieSettingsModal.module.css";
 
@@ -7,7 +8,6 @@ export default function CookieSettingsModal({
   setIsTelemetryModalVisible,
   declineTelemetryAndCloseBanner,
   allowTelemetryAndCloseBanner,
-  content,
 }) {
   return (
     <div className="fixed w-full h-full z-40 bg-gray-90 bg-opacity-90 top-0 flex items-center justify-center">
@@ -19,7 +19,7 @@ export default function CookieSettingsModal({
           "p-8 md:p-12",
           "w-full max-w-4xl",
           "overscroll-none overflow-y-auto",
-          "max-h-screen"
+          "max-h-screen",
         )}
       >
         <button
@@ -34,7 +34,7 @@ export default function CookieSettingsModal({
             <path d="m253.897-229.795-24.102-24.102L455.897-480 229.795-706.103l24.102-24.102L480-504.103l226.103-226.102 24.102 24.102L504.103-480l226.102 226.103-24.102 24.102L480-455.897 253.897-229.795Z" />
           </svg>
         </button>
-        <MDXRemote {...content} />
+        <div dangerouslySetInnerHTML={{ __html: content.html }} />
         <button
           className={classNames(
             "mt-4 md:mt-8",
@@ -45,7 +45,7 @@ export default function CookieSettingsModal({
             "hover:bg-gray-90",
             "hover:text-white",
             "active:bg-gray-90",
-            "active:text-white"
+            "active:text-white",
           )}
           onClick={declineTelemetryAndCloseBanner}
         >
@@ -61,7 +61,7 @@ export default function CookieSettingsModal({
             "hover:bg-gray-90",
             "hover:text-white",
             "active:bg-gray-90",
-            "active:text-white"
+            "active:text-white",
           )}
           onClick={allowTelemetryAndCloseBanner}
         >

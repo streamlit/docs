@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import classNames from "classnames";
-import { MDXRemote } from "next-mdx-remote";
+
+import content from "../../content/gdpr-banner.md";
 
 import styles from "./gdpr.module.css";
 
@@ -28,7 +29,7 @@ function getTelemetryPreference() {
 
   const telemetryPref = localStorage.getItem(TELEMETRY_PREFERENCE);
   const consentIsStale = isConsentStale(
-    localStorage.getItem(TELEMETRY_PREFERENCE_DATE)
+    localStorage.getItem(TELEMETRY_PREFERENCE_DATE),
   );
 
   if (telemetryPref == null || consentIsStale) return null;
@@ -37,7 +38,6 @@ function getTelemetryPreference() {
 }
 
 export default function GDPRBanner({
-  content,
   isTelemetryModalVisible,
   setIsTelemetryModalVisible,
   isTelemetryBannerVisible,
@@ -85,29 +85,30 @@ export default function GDPRBanner({
           className={classNames(
             isTelemetryBannerVisible === false ? "hidden" : "",
             "z-30 fixed",
-            "bottom-2 inset-x-2 md:bottom-4 md:inset-x-4"
+            "bottom-2 inset-x-2 md:bottom-4 md:inset-x-4",
           )}
         >
           <div
             className={classNames(
-              "flex flex-col lg:flex-row lg:items-end gap-4",
+              "flex flex-col xl:flex-row xl:items-end gap-4",
               "pl-4 pr-4 sm:pl-8 sm:pr-8",
               "rounded-lg border border-gray-30",
               "shadow-lg",
               "container mx-auto py-8",
-              styles.Container
+              styles.Container,
             )}
           >
-            <div className={classNames("flex-1", styles.Markdown)}>
-              <MDXRemote {...content} />
-            </div>
+            <div
+              className={classNames("flex-1", styles.Markdown)}
+              dangerouslySetInnerHTML={{ __html: content.html }}
+            />
             <div className="flex flex-col lg:flex-row lg:justify-end gap-2 lg:gap-4">
               <button
                 className={classNames(
                   "text-gray-90 hover:text-gray-70 hover:underline",
                   "py-2",
                   "order-last lg:order-none",
-                  styles.Button
+                  styles.Button,
                 )}
                 onClick={() =>
                   setIsTelemetryModalVisible(!isTelemetryModalVisible)
@@ -123,7 +124,7 @@ export default function GDPRBanner({
                   "rounded",
                   "hover:bg-red-70 hover:border-red-70",
                   "hover:text-white",
-                  styles.Button
+                  styles.Button,
                 )}
                 onClick={declineTelemetryAndCloseBanner}
               >
@@ -137,7 +138,7 @@ export default function GDPRBanner({
                   "text-white",
                   "bg-gray-90 border-gray-90",
                   "hover:bg-red-70 hover:border-red-70",
-                  styles.Button
+                  styles.Button,
                 )}
                 onClick={allowTelemetryAndCloseBanner}
               >
