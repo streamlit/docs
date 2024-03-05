@@ -10,20 +10,6 @@ slug: /library/api-reference/layout
 Streamlit provides several options for controlling how different elements are laid out on the screen.
 
 <TileContainer>
-<RefCard href="/library/api-reference/layout/st.sidebar">
-
-<Image pure alt="screenshot" src="/images/api/sidebar.jpg" />
-
-<h4>Sidebar</h4>
-
-Display items in a sidebar.
-
-```python
-st.sidebar.write("This lives in the sidebar")
-st.sidebar.button("Click me!")
-```
-
-</RefCard>
 <RefCard href="/library/api-reference/layout/st.columns">
 
 <Image pure alt="screenshot" src="/images/api/columns.jpg" />
@@ -36,35 +22,6 @@ Insert containers laid out as side-by-side columns.
 col1, col2 = st.columns(2)
 col1.write("this is column 1")
 col2.write("this is column 2")
-```
-
-</RefCard>
-<RefCard href="/library/api-reference/layout/st.tabs">
-
-<Image pure alt="screenshot" src="/images/api/tabs.jpg" />
-
-<h4>Tabs</h4>
-
-Insert containers separated into tabs.
-
-```python
-tab1, tab2 = st.tabs(["Tab 1", "Tab2"])
-tab1.write("this is tab 1")
-tab2.write("this is tab 2")
-```
-
-</RefCard>
-<RefCard href="/library/api-reference/layout/st.expander">
-
-<Image pure alt="screenshot" src="/images/api/expander.jpg" />
-
-<h4>Expander</h4>
-
-Insert a multi-element container that can be expanded/collapsed.
-
-```python
-with st.expander("Open to see more"):
-  st.write("This is more content")
 ```
 
 </RefCard>
@@ -97,6 +54,63 @@ c = st.empty()
 st.write("This will show last")
 c.write("This will be replaced")
 c.write("This will show first")
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/layout/st.expander">
+
+<Image pure alt="screenshot" src="/images/api/expander.jpg" />
+
+<h4>Expander</h4>
+
+Insert a multi-element container that can be expanded/collapsed.
+
+```python
+with st.expander("Open to see more"):
+  st.write("This is more content")
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/layout/st.popover">
+
+<Image pure alt="screenshot" src="/images/api/popover.svg" />
+
+<h4>Popover</h4>
+
+Insert a multi-element popover container that can be opened/closed.
+
+```python
+with st.popover("Settings"):
+  st.checkbox("Show completed")
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/layout/st.sidebar">
+
+<Image pure alt="screenshot" src="/images/api/sidebar.jpg" />
+
+<h4>Sidebar</h4>
+
+Display items in a sidebar.
+
+```python
+st.sidebar.write("This lives in the sidebar")
+st.sidebar.button("Click me!")
+```
+
+</RefCard>
+<RefCard href="/library/api-reference/layout/st.tabs">
+
+<Image pure alt="screenshot" src="/images/api/tabs.jpg" />
+
+<h4>Tabs</h4>
+
+Insert containers separated into tabs.
+
+```python
+tab1, tab2 = st.tabs(["Tab 1", "Tab2"])
+tab1.write("this is tab 1")
+tab2.write("this is tab 2")
 ```
 
 </RefCard>
