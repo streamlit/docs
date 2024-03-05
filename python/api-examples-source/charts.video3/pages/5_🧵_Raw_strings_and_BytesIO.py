@@ -235,3 +235,6 @@ st.video(
     subtitles={"English VTT": vtt, "English SRT": srt},
     start_time=18,
 )
+
+st.caption("The featured video by [Blender Foundation | www.sintel.org](https://durian.blender.org) is licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)")
+
