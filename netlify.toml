@@ -36,6 +36,7 @@ media-src \
 script-src \
   'self' \
   'unsafe-inline' \
+  'unsafe-eval' \
   https://cdn.heapanalytics.com/ \
   https://cdn.segment.com/ \
   https://identity.netlify.com/ \
