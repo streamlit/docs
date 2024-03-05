@@ -54,4 +54,6 @@ if subtitles:
         f"Now playing with the following subtitles: {', '.join([file.name for file in subtitles])}"
     )
 
-st.caption("The featured video by [Blender Foundation | www.sintel.org](https://durian.blender.org) is licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)")
+st.caption(
+    "The featured video by [Blender Foundation | www.sintel.org](https://durian.blender.org) is licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)"
+)

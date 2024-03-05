@@ -52,4 +52,6 @@ col2.video(
     "python/api-examples-source/charts.video3/sintel-short.mp4",
     subtitles={"English": webvtt_string},
 )
-col2.caption("The featured video by [Blender Foundation | www.sintel.org](https://durian.blender.org) is licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)")
+col2.caption(
+    "The featured video by [Blender Foundation | www.sintel.org](https://durian.blender.org) is licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)"
+)
