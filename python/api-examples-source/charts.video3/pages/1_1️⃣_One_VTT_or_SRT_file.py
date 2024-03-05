@@ -5,7 +5,9 @@ from utils import colored_header
 
 col1, col2 = st.columns(2)
 
-st.caption("The featured video by [Blender Foundation | www.sintel.org](https://durian.blender.org) is licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)")
+st.caption(
+    "The featured video by [Blender Foundation | www.sintel.org](https://durian.blender.org) is licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)"
+)
 
 
 with col1:
