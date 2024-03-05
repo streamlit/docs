@@ -27,7 +27,7 @@ const CSP_HEADER = [
   "script-src",
   "'self'",
   "'unsafe-inline'", // NextJS payload
-  IS_DEV ? "'unsafe-eval'" : "",
+  "'unsafe-eval'", // Required for MDXRemote in [...slug].js. Using App Router may fix this.
   "https://cdn.heapanalytics.com/", // Analytics
   "https://cdn.segment.com/", // Analytics
   "https://identity.netlify.com/", // Netlify dev tools
