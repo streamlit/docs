@@ -1,43 +1,45 @@
 const IS_DEV = process.env.NODE_ENV === "development";
 
 // IMPORTANT: Keep this in sync with netlify.toml
+// prettier-ignore
 const CSP_HEADER = [
   "upgrade-insecure-requests;",
   "frame-ancestors",
-  "'self'",
+    "'self'",
   ";",
   "frame-src",
-  "https:",
+    "https:",
   ";",
   "connect-src",
-  "'self'",
-  "https://streamlit.ghost.io/ghost/api/", // Blog API
+    "'self'",
+    "https://streamlit.ghost.io/ghost/api/", // Blog API
+    "https://api.segment.io/", // Analytics
   ";",
   "default-src 'none';",
   "font-src 'self';",
   "form-action 'self';",
   "img-src",
-  "'self'",
-  "data:",
-  "https:",
+    "'self'",
+    "data:",
+    "https:",
   ";",
   "media-src",
-  "https://s3-us-west-2.amazonaws.com/assets.streamlit.io/", // Videos
+    "https://s3-us-west-2.amazonaws.com/assets.streamlit.io/", // Videos
   ";",
   "script-src",
-  "'self'",
-  "'unsafe-inline'", // NextJS payload
-  "'unsafe-eval'", // Required for MDXRemote in [...slug].js. Using App Router may fix this.
-  "https://cdn.heapanalytics.com/", // Analytics
-  "https://cdn.segment.com/", // Analytics
-  "https://identity.netlify.com/", // Netlify dev tools
-  "https://netlify-cdp-loader.netlify.app/netlify.js", // Netlify dev tools
-  "https://www.google-analytics.com/", // Analytics
-  "https://www.googletagmanager.com/", // Analytics
+    "'self'",
+    "'unsafe-inline'", // NextJS payload
+    "'unsafe-eval'", // Required for MDXRemote in [...slug].js. Using App Router may fix this.
+    "https://cdn.heapanalytics.com/", // Analytics
+    "https://cdn.segment.com/", // Analytics
+    "https://identity.netlify.com/", // Netlify dev tools
+    "https://netlify-cdp-loader.netlify.app/netlify.js", // Netlify dev tools
+    "https://www.google-analytics.com/", // Analytics
+    "https://www.googletagmanager.com/", // Analytics
   ";",
   "style-src",
-  "'self'",
-  "'unsafe-inline'", // Twitter CSS
+    "'self'",
+    "'unsafe-inline'", // Twitter CSS
   ";",
 ];
 

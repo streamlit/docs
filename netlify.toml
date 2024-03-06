@@ -21,6 +21,7 @@ frame-src https: ; \
 connect-src \
   'self' \
   https://streamlit.ghost.io/ghost/api/ \
+  https://api.segment.io/ \
 ; \
 default-src 'none' ; \
 font-src 'self' ; \
