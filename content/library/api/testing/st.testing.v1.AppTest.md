@@ -55,6 +55,8 @@ Note that you can also retrieve elements within a specific container in the same
 
 <Autofunction function="AppTest.exception" />
 
+<Autofunction function="AppTest.expander" />
+
 <Autofunction function="AppTest.header" />
 
 <Autofunction function="AppTest.info" />
@@ -86,6 +88,8 @@ Note that you can also retrieve elements within a specific container in the same
 <Autofunction function="AppTest.subheader" />
 
 <Autofunction function="AppTest.success" />
+
+<Autofunction function="AppTest.status" />
 
 <Autofunction function="AppTest.table" />
 

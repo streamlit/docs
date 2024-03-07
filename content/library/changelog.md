@@ -17,13 +17,60 @@ pip install --upgrade streamlit
 
 </Tip>
 
-## What's new?
+## **Version 1.32.0**
 
-<YouTube videoId="0TSXM-BGqHU" />
+_Release date: March 7, 2024_
+
+**Highlights**
+
+- 🍿 Introducing `st.popover` to create popover elements in your Streamlit apps. Check out [the docs](/library/api-reference/layout/st.popover) to see how to use it!
+
+**Notable Changes**
+
+- 📺 You can now pass subtitles to [`st.video`](/library/api-reference/media/st.video)! Check out our [feature demo](https://doc-video-subtitle-inputs.streamlit.app/).
+- ⚗️ [`AppTest`](/library/api-reference/app-testing/st.testing.v1.apptest) includes support for `st.expander` and `st.status`.
+- 🧪 [`AppTest.from_function`](/library/api-reference/app-testing/st.testing.v1.apptest#apptestfrom_function) accepts a function that takes arguments and/or returns a value.
+- 🧩 The timeout warning for custom components was replaced with an element skeleton to improve the UX for slow loading components, especially in some cloud hosted platforms ([#8179](https://github.com/streamlit/streamlit/pull/8179), [#7046](https://github.com/streamlit/streamlit/issues/7046)).
+- 📄 `st.switch_page` and `st.page_link` received significant improvements to path handling, performance, and visual appearance (see below for details).
+- 🦀 Bug fix: Streamlit uses `glide-data-grid` version 6.0.4 to fix a variety of dataframe issues ([#7779](https://github.com/streamlit/streamlit/pull/7779), [#6900](https://github.com/streamlit/streamlit/issues/6900), [#7032](https://github.com/streamlit/streamlit/issues/7032), [#7727](https://github.com/streamlit/streamlit/issues/7727), [#6810](https://github.com/streamlit/streamlit/issues/6810), [#7930](https://github.com/streamlit/streamlit/issues/7930), [#7949](https://github.com/streamlit/streamlit/issues/7949), [#7831](https://github.com/streamlit/streamlit/issues/7831), [#8168](https://github.com/streamlit/streamlit/issues/8168)).
+- 💦 Bug fix: We've plugged a significant memory leak in the coroutine loop. Apps that generate a large number of small messages between client and server will benefit greatly ([#8068](https://github.com/streamlit/streamlit/pull/8068), [#7989](https://github.com/streamlit/streamlit/issues/7989), [#6510](https://github.com/streamlit/streamlit/issues/6510)).
+
+**Other Changes**
+
+- 💪 Multiple modules are now lazy-loaded to speed up Streamlit's import time ([#8150](https://github.com/streamlit/streamlit/pull/8150), [#8143](https://github.com/streamlit/streamlit/pull/8143), [#8134](https://github.com/streamlit/streamlit/pull/8134), [#8113](https://github.com/streamlit/streamlit/pull/8113), [#8125](https://github.com/streamlit/streamlit/pull/8125), [#8111](https://github.com/streamlit/streamlit/pull/8111), [#8109](https://github.com/streamlit/streamlit/pull/8109), [#6066](https://github.com/streamlit/streamlit/issues/6066)).
+- 🖼️ `st.write` supports `PIL` images ([#8039](https://github.com/streamlit/streamlit/pull/8039)).
+- 🔗 `st.radio` allows markdown links within the items passed to `options` ([#8028](https://github.com/streamlit/streamlit/pull/8028), [#7992](https://github.com/streamlit/streamlit/issues/7992)).
+- 💀 The `deprecation.showPyplotGlobalUse` config option is deprecated and will be removed in the subsequent release ([#8133](https://github.com/streamlit/streamlit/pull/8133)).
+- 🤖 Streamlit supports AzureOpenAI chat stream ([#8107](https://github.com/streamlit/streamlit/pull/8107), [#8084](https://github.com/streamlit/streamlit/issues/8084)).
+- 🌐 The `/healthz` endpoint supports the HTTP HEAD method ([#8145](https://github.com/streamlit/streamlit/pull/8145), [#8144](https://github.com/streamlit/streamlit/issues/8144)). Thanks, [rahulmistri1997](https://github.com/rahulmistri1997)!
+- 🌀 The `cache` parameter for `st.spinner` is now private (`_cache`) since it's for internal use ([#8118](https://github.com/streamlit/streamlit/pull/8118)).
+- 🏃 Session storage is checked and expired asynchronously to improve performance and efficiency of apps with lower traffic ([#8083](https://github.com/streamlit/streamlit/pull/8083)).
+- 🐜 `st.write_stream` raises a descriptive `Exception` when the message cannot be parsed ([#8036](https://github.com/streamlit/streamlit/pull/8036)).
+- 📘 Fixed a typo in the examples for `st.switch_page` and `st.page_link` ([#8162](https://github.com/streamlit/streamlit/pull/8162)). Thanks, [t1emp0](https://github.com/t1emp0)!
+- 👻 Bug fix: `st.help` correctly displays conditional members ([#8228](https://github.com/streamlit/streamlit/pull/8228)).
+- 🦋 Bug fix: App State fully clears on page change to prevent lingering stale elements ([#8208](https://github.com/streamlit/streamlit/pull/8208)).
+- 🦎 Bug fix: `st.info`, `st.success`, `st.warning`, and `st.error` don't overflow with long markdown strings ([#8194](https://github.com/streamlit/streamlit/pull/8194), [#6394](https://github.com/streamlit/streamlit/issues/6394)).
+- 🐌 Bug fix: Streamlit shows a warning that port 3000 is reserved for development when the server port is set to 3000 ([#8152](https://github.com/streamlit/streamlit/pull/8152), [#8149](https://github.com/streamlit/streamlit/issues/8149)).
+- 🕸️ Bug fix: `st.page_link` and `st.switch_page` have improved path calculation for consistency ([#8127](https://github.com/streamlit/streamlit/pull/8127)).
+- 🦗 Bug fix: `st.page_link` shows the correct path in browser on hover ([#8086](https://github.com/streamlit/streamlit/pull/8086), [#8080](https://github.com/streamlit/streamlit/issues/8080)).
+- 🦂 Bug fix: `st.page_link` and `st.switch_page` normalize paths for correct handling in Windows ([#8103](https://github.com/streamlit/streamlit/pull/8103), [#8070](https://github.com/streamlit/streamlit/issues/8070)).
+- 🦟 Bug fix: Script runner uses a while loop instead of recursion to avoid stack overflows ([#8100](https://github.com/streamlit/streamlit/pull/8100)).
+- 🦠 Bug fix: `st.page_link` and `st.switch_page` correctly handle relative paths prefixed with `"/"` ([#8085](https://github.com/streamlit/streamlit/pull/8085), [#8081](https://github.com/streamlit/streamlit/issues/8081)).
+- 🪰 Bug fix: `st.image` parses paths in Windows correctly ([#8092](https://github.com/streamlit/streamlit/pull/8092), [#7271](https://github.com/streamlit/streamlit/issues/7271), [#6066](https://github.com/streamlit/streamlit/issues/6066)).
+- 🪳 Bug fix: `st.switch_page` no longer waits for the current page to finish running before switching pages ([#8054](https://github.com/streamlit/streamlit/pull/8054), [#7954](https://github.com/streamlit/streamlit/issues/7954)).
+- 🕷️ Bug fix: `st.map` and other simple charts correctly handle color when data is not indexed starting from 0 ([#8158](https://github.com/streamlit/streamlit/pull/8158), [#8079](https://github.com/streamlit/streamlit/pull/8079), [#8077](https://github.com/streamlit/streamlit/issues/8077)). Thanks, [awhazell](https://github.com/awhazell)!
+- 🐞 Bug fix: `st.selectbox`, `st.multiselect`, `st.select_slider`, and `st.radio` use shallow copies of their options to prevent unexpected mutations ([#8064](https://github.com/streamlit/streamlit/pull/8064), [#7534](https://github.com/streamlit/streamlit/issues/7534)).
+- 🐝 Bug fix: The selected time in `st.time_input` displays correctly in dark mode ([#8056](https://github.com/streamlit/streamlit/pull/8056), [#7436](https://github.com/streamlit/streamlit/issues/7436)).
+- 🪲 Bug fix: Dataframe scrollbars display correctly in the latest version of Chrome ([#8034](https://github.com/streamlit/streamlit/pull/8034)).
+- 🐛 Bug fix: Casting `st.query_params` to `str` will print the content of the query parameters instead of the class description ([#8030](https://github.com/streamlit/streamlit/pull/8030)).
 
 ## **Version 1.31.0**
 
 _Release date: February 1, 2024_
+
+**Release videos**
+
+- [What's new?](https://www.youtube.com/watch?v=0TSXM-BGqHU)
 
 **Highlights**
 
@@ -50,6 +97,10 @@ _Release date: February 1, 2024_
 ## **Version 1.30.0**
 
 _Release date: January 11, 2024_
+
+**Release videos**
+
+- [What's new?](https://www.youtube.com/watch?v=OIQskkX_DK0)
 
 **Highlights**
 
@@ -126,6 +177,10 @@ _Release date: November 30, 2023_
 ## **Version 1.28.0**
 
 _Release date: October 26, 2023_
+
+**Release videos**
+
+- [Introducing `AppTest`](https://www.youtube.com/watch?v=99OEoP5sy0U)
 
 **Highlights**
 
