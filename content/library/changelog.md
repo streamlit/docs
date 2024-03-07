@@ -68,6 +68,10 @@ _Release date: March 7, 2024_
 
 _Release date: February 1, 2024_
 
+**Release videos**
+
+- [What's new?](https://www.youtube.com/watch?v=0TSXM-BGqHU)
+
 **Highlights**
 
 - 🔗 Introducing `st.page_link`! Now, you can build custom navigation menus for your multipage apps. Check out [our docs](/library/api-reference/widgets/st.page_link) to see how.
@@ -93,6 +97,10 @@ _Release date: February 1, 2024_
 ## **Version 1.30.0**
 
 _Release date: January 11, 2024_
+
+**Release videos**
+
+- [What's new?](https://www.youtube.com/watch?v=OIQskkX_DK0)
 
 **Highlights**
 
@@ -169,6 +177,10 @@ _Release date: November 30, 2023_
 ## **Version 1.28.0**
 
 _Release date: October 26, 2023_
+
+**Release videos**
+
+- [Introducing `AppTest`](https://www.youtube.com/watch?v=99OEoP5sy0U)
 
 **Highlights**
 
