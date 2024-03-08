@@ -170,7 +170,6 @@ module.exports = {
       brand: {
         GitHub: "#24292F",
         Reddit: "#ff4500",
-        Discord: "#5865f2",
         YouTube: "#ff0000",
         Twitter: "#1da1f2",
         LinkedIn: "#0a66c2",

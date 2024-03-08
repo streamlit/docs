@@ -48,10 +48,6 @@
   @apply bg-brand-Reddit;
 }
 
-.Discord {
-  @apply bg-brand-Discord;
-}
-
 .YouTube {
   @apply bg-brand-YouTube;
 }
