@@ -31,9 +31,10 @@ const HeaderLink = ({ name, level, className, children }) => {
   };
 
   // Check if there's a <code> tag in the heading, so we can style it properly.
-  // If we're getting something back, that means there is one, so we add the special class
+  // If we're getting something back, that means there is one, so we will wrap
+  // the header contents in <span> to prevent it from flexing
   const withInlineCode = Array.from(children).find(
-    (child) => child && child.props && child.props.mdxType === "inlineCode"
+    (child) => child && child.type && child.type === "code",
   );
 
   const Header = `h${level}`;
