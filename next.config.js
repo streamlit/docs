@@ -12,8 +12,14 @@ const CSP_HEADER = [
   ";",
   "connect-src",
     "'self'",
+    "https://*.streamlit.app/",
+    "wss://*.streamlit.app/",
     "https://streamlit.ghost.io/ghost/api/", // Blog API
     "https://api.segment.io/", // Analytics
+    "https://cdn.segment.com/", // Analytics
+    "https://client-api.auryc.com/", // Analytics (Heap)
+    "https://www.google-analytics.com/", // Analytics
+    "https://stats.g.doubleclick.net/", // Analytics
   ";",
   "default-src 'none';",
   "font-src 'self';",
@@ -24,6 +30,7 @@ const CSP_HEADER = [
     "https:",
   ";",
   "media-src",
+    "'self'",
     "https://s3-us-west-2.amazonaws.com/assets.streamlit.io/", // Videos
   ";",
   "script-src",
@@ -32,14 +39,19 @@ const CSP_HEADER = [
     "'unsafe-eval'", // Required for MDXRemote in [...slug].js. Using App Router may fix this.
     "https://cdn.heapanalytics.com/", // Analytics
     "https://cdn.segment.com/", // Analytics
-    "https://identity.netlify.com/", // Netlify dev tools
-    "https://netlify-cdp-loader.netlify.app/netlify.js", // Netlify dev tools
     "https://www.google-analytics.com/", // Analytics
     "https://www.googletagmanager.com/", // Analytics
+    "https://identity.netlify.com/", // Netlify dev tools
+    "https://netlify-cdp-loader.netlify.app/netlify.js", // Netlify dev tools
+    "https://www.youtube.com/iframe_api/", // YouTube Embed
   ";",
   "style-src",
     "'self'",
     "'unsafe-inline'", // Twitter CSS
+  ";",
+  "worker-src",
+    "'self'",
+    "blob:",
   ";",
 ];
 

@@ -20,8 +20,14 @@ frame-ancestors 'self' ; \
 frame-src https: ; \
 connect-src \
   'self' \
+  https://*.streamlit.app/ \
+  wss://*.streamlit.app/ \
   https://streamlit.ghost.io/ghost/api/ \
   https://api.segment.io/ \
+  https://cdn.segment.com/ \
+  https://client-api.auryc.com/ \
+  https://www.google-analytics.com/ \
+  https://stats.g.doubleclick.net/ \
 ; \
 default-src 'none' ; \
 font-src 'self' ; \
@@ -32,6 +38,7 @@ img-src \
   https: \
 ; \
 media-src \
+  'self'
   https://s3-us-west-2.amazonaws.com/assets.streamlit.io/ \
 ; \
 script-src \
@@ -40,12 +47,17 @@ script-src \
   'unsafe-eval' \
   https://cdn.heapanalytics.com/ \
   https://cdn.segment.com/ \
-  https://identity.netlify.com/ \
-  https://netlify-cdp-loader.netlify.app/netlify.js \
   https://www.google-analytics.com/ \
   https://www.googletagmanager.com/ \
+  https://identity.netlify.com/ \
+  https://netlify-cdp-loader.netlify.app/netlify.js \
+  https://www.youtube.com/iframe_api/ \
 ; \
 style-src \
   'self' \
   'unsafe-inline' \
+; \
+worker-src \
+  'self' \
+  blob: \
 ;"""
