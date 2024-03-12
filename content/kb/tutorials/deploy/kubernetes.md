@@ -76,9 +76,9 @@ trap stopRunningProcess EXIT TERM
 source ${VIRTUAL_ENV}/bin/activate
 
 streamlit run ${HOME}/app/streamlit_app.py &
-APP_ID=${!}
+APP_PID=${!}
 
-wait ${APP_ID}
+wait ${APP_PID}
 ```
 
 ### Create a Dockerfile
