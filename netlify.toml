@@ -25,7 +25,7 @@ connect-src \
   https://streamlit.ghost.io/ghost/api/ \
   https://api.segment.io/ \
   https://cdn.segment.com/ \
-  https://client-api.auryc.com/ \
+  https://*.auryc.com/ \
   https://www.google-analytics.com/ \
   https://stats.g.doubleclick.net/ \
 ; \

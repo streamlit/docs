@@ -17,7 +17,7 @@ const CSP_HEADER = [
     "https://streamlit.ghost.io/ghost/api/", // Blog API
     "https://api.segment.io/", // Analytics
     "https://cdn.segment.com/", // Analytics
-    "https://client-api.auryc.com/", // Analytics (Heap)
+    "https://*.auryc.com/", // Analytics (Heap)
     "https://www.google-analytics.com/", // Analytics
     "https://stats.g.doubleclick.net/", // Analytics
   ";",
