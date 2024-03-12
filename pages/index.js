@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import { getMenu, getGDPRBanner, getCookieSettings } from "../lib/api";
+import { getMenu } from "../lib/api";
 
 import Layout from "../components/layouts/globalTemplate";
 import Footer from "../components/navigation/footer";
@@ -35,7 +35,7 @@ import { attributes } from "../content/index.md";
 
 import styles from "../components/layouts/container.module.css";
 
-export default function Home({ window, menu, gdpr_data, cookie_data }) {
+export default function Home({ window, menu }) {
   let { description } = attributes;
 
   const [isTelemetryModalVisible, setIsTelemetryModalVisible] = useState(false);
@@ -96,14 +96,12 @@ export default function Home({ window, menu, gdpr_data, cookie_data }) {
       </Head>
       {isTelemetryModalVisible && (
         <CookieSettingsModal
-          {...cookie_data}
           setIsTelemetryModalVisible={setIsTelemetryModalVisible}
           allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
           declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
         />
       )}
       <GDPRBanner
-        {...gdpr_data}
         isTelemetryModalVisible={isTelemetryModalVisible}
         setIsTelemetryModalVisible={setIsTelemetryModalVisible}
         isTelemetryBannerVisible={isTelemetryBannerVisible}
@@ -316,8 +314,6 @@ export default function Home({ window, menu, gdpr_data, cookie_data }) {
 export async function getStaticProps(context) {
   const props = {};
   props["menu"] = getMenu();
-  props["gdpr_data"] = await getGDPRBanner();
-  props["cookie_data"] = await getCookieSettings();
 
   return {
     props: props,
