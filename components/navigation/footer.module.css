@@ -51,10 +51,6 @@
   @apply fill-brand-Reddit;
 }
 
-.IconLink:hover .DiscordIcon {
-  @apply fill-brand-Discord;
-}
-
 .IconLink:hover .YouTubeIcon {
   @apply fill-brand-YouTube;
 }

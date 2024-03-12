@@ -312,7 +312,7 @@ export default function Article({
                 <MDXRemote {...source} components={components} />
                 {arrowContainer}
                 <Psa />
-                <Helpful slug={slug} sourcefile={suggestEditURL} />
+                {/*<Helpful slug={slug} sourcefile={suggestEditURL} />*/}
               </div>
             </article>
           </section>

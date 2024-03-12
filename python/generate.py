@@ -94,8 +94,6 @@ def get_github_source(func):
                 print(f"No line found for {func}")
                 return ""
 
-
-
     return "".join([repo_prefix, rel_path, f"#L{line}"])
 
 
