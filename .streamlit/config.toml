@@ -1,0 +1,5 @@
+[global]
+storeCachedForwardMessagesInMemory=false
+
+[logger]
+level = "error"

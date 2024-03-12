@@ -192,73 +192,70 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/library/api-reference/widgets/st.page_link"
+                href="/library/api-reference/layout/st.popover"
               >
-                <i className="material-icons-sharp">file_open</i>
-                <h4>Custom navigation menus</h4>
+                <i className="material-icons-sharp">layers</i>
+                <h4>New popover element</h4>
                 <p>
-                  Introducing <code>st.page_link</code>! Now you can build your
-                  own, custom navigation menus for your multipage apps.
+                  Introducing <code>st.popover</code> to create popover elements
+                  in your Streamlit apps.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/write-magic/st.write_stream"
+                href="/library/api-reference/media/st.video"
               >
-                <i className="material-icons-sharp">chat</i>
-                <h4>Write streamed content</h4>
+                <i className="material-icons-sharp">videocam</i>
+                <h4>Video subtitles</h4>
                 <p>
-                  Announcing <code>st.write_stream</code> to conveniently handle
-                  generators and streamed responses. See how making chat apps
-                  just got easier!
+                  You can now add subtitles to <code>st.video</code>!
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/chat/st.chat_input"
+                href="/library/api-reference/app-testing/st.testing.v1.apptest"
               >
-                <i className="material-icons-sharp">forum</i>
+                <i className="material-icons-sharp">science</i>
                 <h4>
-                  Use <code>st.chat_input</code> inline
+                  <code>st.AppTest</code> improvements
                 </h4>
                 <p>
-                  <code>st.chat_input</code> can be used inline and placed
-                  anywhere in the app. You can also have multiple
-                  <code>st.chat_input</code> widgets on a page!
+                  <code>AppTest</code> now supports <code>st.expander</code>
+                  and <code>st.status</code>. You can also pass functions that
+                  accept arguments to <code>AppTest.from_function</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/control-flow/st.switch_page"
+                href="https://github.com/streamlit/streamlit/pull/8068"
               >
-                <i className="material-icons-sharp">switch_left</i>
-                <h4>Programmatic page navigation</h4>
+                <i className="material-icons-sharp">water_drop</i>
+                <h4>Major memory leak fix</h4>
                 <p>
-                  Introducing <code>st.switch_page</code>! Programmatically
-                  navigate between the pages of your multipage apps with ease.
+                  We've fixed a significant memory leak. Upgrade today to boost
+                  your app's performance.
+                </p>
+              </RefCard>
+              <RefCard size="third" href="/library/components">
+                <i className="material-icons-sharp">extension</i>
+                <h4>Custom component improvements</h4>
+                <p>
+                  The timeout warning for custom components was replaced with an
+                  element skeleton to improve the UX for slow loading
+                  components, especially in some cloud hosted platforms.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/utilities/st.query_params"
+                href="https://github.com/streamlit/streamlit/pull/7779"
               >
-                <i className="material-icons-sharp">question_mark</i>
-                <h4>Query parameters</h4>
+                <i className="material-icons-sharp">table_view</i>
+                <h4>
+                  <code>glide-data-grid</code> 6.0.4
+                </h4>
                 <p>
-                  Introducing <code>st.query_params</code> — a new and simple
-                  way to read and manipulate the query parameters in your app's
-                  URL.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/layout/st.container"
-              >
-                <i className="material-icons-sharp">height</i>
-                <h4>Container height and scrolling</h4>
-                <p>
-                  Set a height for <code>st.container</code>. The container will
-                  automatically become scrollable when needed.
+                  Streamlit now uses <code>glide-data-grid</code> version 6.0.4
+                  which fixes a variety of issues. Upgrade today!
                 </p>
               </RefCard>
               {/* <Tile

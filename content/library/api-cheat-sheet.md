@@ -14,11 +14,26 @@ This is a summary of the docs, as of [Streamlit v1.31.0](https://pypi.org/projec
 #### Install & Import
 
 ```python
+pip install streamlit
+
 streamlit run first_app.py
 
 # Import convention
 >>> import streamlit as st
 ```
+
+</CodeTile>
+
+<CodeTile featured>
+
+#### Pre-release features
+
+```python
+pip uninstall streamlit
+pip install streamlit-nightly --upgrade
+```
+
+Learn more about [experimental features](advanced-features/prerelease#experimental-features)
 
 </CodeTile>
 
@@ -35,19 +50,6 @@ streamlit cache clear
 streamlit docs
 streamlit --version
 ```
-
-</CodeTile>
-
-<CodeTile featured>
-
-#### Pre-release features
-
-```python
-pip uninstall streamlit
-pip install streamlit-nightly --upgrade
-```
-
-Learn more about [experimental features](advanced-features/prerelease#experimental-features)
 
 </CodeTile>
 
@@ -114,6 +116,7 @@ st.metric("My metric", 42, 2)
 st.image("./header.png")
 st.audio(data)
 st.video(data)
+st.video(data, subtitles="./subs.vtt")
 ```
 
 </CodeTile>
@@ -188,6 +191,23 @@ st.vega_lite_chart(df)
 
 # You can also use "with" notation:
 >>> with tab1:
+>>>   st.radio("Select one:", [1, 2])
+```
+
+</CodeTile>
+
+<CodeTile>
+
+#### Expandable containers
+
+```python
+>>> expand = st.expander("My label")
+>>> expand.write("Inside the expander.")
+>>> pop = st.popover("Button label")
+>>> pop.checkbox("Show all")
+
+# You can also use "with" notation:
+>>> with expand:
 >>>   st.radio("Select one:", [1, 2])
 ```
 
