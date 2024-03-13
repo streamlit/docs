@@ -28,6 +28,8 @@ connect-src \
   https://*.auryc.com/ \
   https://www.google-analytics.com/ \
   https://stats.g.doubleclick.net/ \
+  https://*.algolia.net/ \
+  https://*.algolianet.com/ \
 ; \
 default-src 'none' ; \
 font-src 'self' ; \
@@ -52,6 +54,8 @@ script-src \
   https://identity.netlify.com/ \
   https://netlify-cdp-loader.netlify.app/netlify.js \
   https://www.youtube.com/iframe_api/ \
+  https://*.algolia.net/ \
+  https://*.algolianet.com/ \
 ; \
 style-src \
   'self' \

@@ -20,6 +20,8 @@ const CSP_HEADER = [
     "https://*.auryc.com/", // Analytics (Heap)
     "https://www.google-analytics.com/", // Analytics
     "https://stats.g.doubleclick.net/", // Analytics
+    "https://*.algolia.net/", // Search
+    "https://*.algolianet.com/", // Search
   ";",
   "default-src 'none';",
   "font-src 'self';",
@@ -44,6 +46,8 @@ const CSP_HEADER = [
     "https://identity.netlify.com/", // Netlify dev tools
     "https://netlify-cdp-loader.netlify.app/netlify.js", // Netlify dev tools
     "https://www.youtube.com/iframe_api/", // YouTube Embed
+    "https://*.algolia.net/", // Search
+    "https://*.algolianet.com/", // Search
   ";",
   "style-src",
     "'self'",
