@@ -559,6 +559,14 @@ site_menu:
     url: /deploy
     color: lightBlue-70
     icon: web_asset
+  - category: Deploy / Concepts
+    url: /deploy/concepts
+  - category: Deploy / Concepts / Server-client structure
+    url: /deploy/concepts/server-client
+  - category: Deploy / Concepts / Python dependencies
+    url: /deploy/concepts/python-dependencies
+  - category: Deploy / Concepts / Other dependencies
+    url: /deploy/concepts/other-dependencies
   - category: Deploy / Streamlit Community Cloud
     url: /deploy/streamlit-community-cloud
   - category: Deploy / Streamlit Community Cloud / Get started
