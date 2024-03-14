@@ -236,7 +236,7 @@ export default function Home({ window, menu }) {
                   your app's performance.
                 </p>
               </RefCard>
-              <RefCard size="third" href="/develop/components">
+              <RefCard size="third" href="/develop/concepts/custom-components">
                 <i className="material-icons-sharp">extension</i>
                 <h4>Custom component improvements</h4>
                 <p>

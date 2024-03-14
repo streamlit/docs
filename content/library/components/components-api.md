@@ -1,6 +1,6 @@
 ---
 title: Components API
-slug: /develop/components/components-api
+slug: /develop/concepts/custom-components/components-api
 ---
 
 # Components API Reference

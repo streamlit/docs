@@ -458,6 +458,16 @@ site_menu:
     url: /develop/concepts/configuration/theming
   - category: Develop / Concepts / Connecting to data
     url: /develop/concepts/connecting-to-data
+  - category: Develop / Concepts / Custom components
+    url: /develop/concepts/custom-components
+  - category: Develop / Concepts / Custom components / Components API
+    url: /develop/concepts/custom-components/components-api
+  - category: Develop / Concepts / Custom components / Create a Component
+    url: /develop/concepts/custom-components/create
+  - category: Develop / Concepts / Custom components / Publish a Component
+    url: /develop/concepts/custom-components/publish
+  - category: Develop / Concepts / Custom components / Component gallery
+    url: https://streamlit.io/components
   - category: Develop / Concepts / Dataframes
     url: /develop/concepts/dataframes
   - category: Develop / Concepts / Forms
@@ -494,16 +504,6 @@ site_menu:
     url: /develop/concepts/app-testing/examples
   - category: Develop / Concepts / App testing / Cheat sheet
     url: /develop/concepts/app-testing/cheat-sheet
-  - category: Develop / Components
-    url: /develop/components
-  - category: Develop / Components / Components API
-    url: /develop/components/components-api
-  - category: Develop / Components / Create a Component
-    url: /develop/components/create
-  - category: Develop / Components / Publish a Component
-    url: /develop/components/publish
-  - category: Develop / Components / Component gallery
-    url: https://streamlit.io/components
   - category: Develop / Tutorials
     url: /develop/tutorials
   - category: Develop / Tutorials / Connect to data sources

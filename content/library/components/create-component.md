@@ -1,6 +1,6 @@
 ---
 title: Create a Component
-slug: /develop/components/create
+slug: /develop/concepts/custom-components/create
 ---
 
 # Create a Component
