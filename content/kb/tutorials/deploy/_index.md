@@ -1,6 +1,6 @@
 ---
 title: Deploy Streamlit apps
-slug: /knowledge-base/tutorials/deploy
+slug: /deploy/tutorials
 ---
 
 # Deploy Streamlit apps
@@ -8,7 +8,7 @@ slug: /knowledge-base/tutorials/deploy
 This sections contains step-by-step guides on how to deploy Streamlit apps to various cloud platforms and services. We have deployment guides for:
 
 <DataSourcesContainer>
-<DataSourcesCard href="/streamlit-community-cloud/get-started">
+<DataSourcesCard href="/deploy/streamlit-community-cloud/get-started">
 
 <Image pure alt="screenshot" src="/images/deploy/streamlit-cloud.png" />
 
@@ -16,7 +16,7 @@ This sections contains step-by-step guides on how to deploy Streamlit apps to va
 
 </DataSourcesCard>
 
-<DataSourcesCard href="/knowledge-base/tutorials/deploy/docker">
+<DataSourcesCard href="/deploy/tutorials/docker">
 
 <Image pure alt="screenshot" src="/images/deploy/docker.png" />
 
@@ -24,7 +24,7 @@ This sections contains step-by-step guides on how to deploy Streamlit apps to va
 
 </DataSourcesCard>
 
-<DataSourcesCard href="/knowledge-base/tutorials/deploy/kubernetes">
+<DataSourcesCard href="/deploy/tutorials/kubernetes">
 
 <Image pure alt="screenshot" src="/images/deploy/kubernetes.png" />
 

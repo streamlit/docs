@@ -1,6 +1,6 @@
 ---
 title: st.subheader
-slug: /library/api-reference/text/st.subheader
+slug: /develop/api-reference/text/st.subheader
 description: st.subheader displays text in subheader formatting.
 ---
 

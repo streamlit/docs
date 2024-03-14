@@ -1,6 +1,6 @@
 ---
 title: API Reference
-slug: /library/api-reference
+slug: /develop/api-reference
 next: caching
 previous: index.md
 ---
@@ -17,7 +17,7 @@ Browse our API below and click to learn more about any of our available commands
 ## Display almost anything
 
 <TileContainer>
-<RefCard href="/library/api-reference/write-magic/st.write">
+<RefCard href="/develop/api-reference/write-magic/st.write">
 
 <h4>st.write</h4>
 
@@ -30,7 +30,7 @@ st.write(my_mpl_figure)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/write-magic/st.write_stream">
+<RefCard href="/develop/api-reference/write-magic/st.write_stream">
 
 <h4>st.write_stream</h4>
 
@@ -42,7 +42,7 @@ st.write_stream(my_llm_stream)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/write-magic/magic">
+<RefCard href="/develop/api-reference/write-magic/magic">
 
 <h4>Magic</h4>
 
@@ -60,7 +60,7 @@ my_mpl_figure
 ## Text elements
 
 <TileContainer>
-<RefCard href="/library/api-reference/text/st.markdown">
+<RefCard href="/develop/api-reference/text/st.markdown">
 
 <Image pure alt="screenshot" src="/images/api/markdown.jpg" />
 
@@ -73,7 +73,7 @@ st.markdown("Hello **world**!")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.title">
+<RefCard href="/develop/api-reference/text/st.title">
 
 <Image pure alt="screenshot" src="/images/api/title.jpg" />
 
@@ -86,7 +86,7 @@ st.title("The app title")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.header">
+<RefCard href="/develop/api-reference/text/st.header">
 
 <Image pure alt="screenshot" src="/images/api/header.jpg" />
 
@@ -99,7 +99,7 @@ st.header("This is a header")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.subheader">
+<RefCard href="/develop/api-reference/text/st.subheader">
 
 <Image pure alt="screenshot" src="/images/api/subheader.jpg" />
 
@@ -112,7 +112,7 @@ st.subheader("This is a subheader")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.caption">
+<RefCard href="/develop/api-reference/text/st.caption">
 
 <Image pure alt="screenshot" src="/images/api/caption.jpg" />
 
@@ -125,7 +125,7 @@ st.caption("This is written small caption text")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.code">
+<RefCard href="/develop/api-reference/text/st.code">
 
 <Image pure alt="screenshot" src="/images/api/code.jpg" />
 
@@ -138,7 +138,7 @@ st.code("a = 1234")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.text">
+<RefCard href="/develop/api-reference/text/st.text">
 
 <Image pure alt="screenshot" src="/images/api/text.jpg" />
 
@@ -151,7 +151,7 @@ st.text("Hello world")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.latex">
+<RefCard href="/develop/api-reference/text/st.latex">
 
 <Image pure alt="screenshot" src="/images/api/latex.jpg" />
 
@@ -164,7 +164,7 @@ st.latex("\int a x^2 \,dx")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.divider">
+<RefCard href="/develop/api-reference/text/st.divider">
 
 <Image pure alt="screenshot" src="/images/api/divider.jpg" />
 
@@ -254,7 +254,7 @@ mention(label="An awesome Streamlit App", icon="streamlit",  url="https://extras
 ## Data elements
 
 <TileContainer>
-<RefCard href="/library/api-reference/data/st.dataframe">
+<RefCard href="/develop/api-reference/data/st.dataframe">
 <Image pure alt="screenshot" src="/images/api/dataframe.jpg" />
 
 <h4>Dataframes</h4>
@@ -266,7 +266,7 @@ st.dataframe(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/data/st.data_editor">
+<RefCard href="/develop/api-reference/data/st.data_editor">
 
 <Image pure alt="screenshot" src="/images/api/data_editor.jpg" />
 
@@ -279,7 +279,7 @@ edited = st.data_editor(df, num_rows="dynamic")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/data/st.column_config">
+<RefCard href="/develop/api-reference/data/st.column_config">
 
 <Image pure alt="screenshot" src="/images/api/column_config.jpg" />
 
@@ -293,7 +293,7 @@ st.column_config.NumberColumn("Price (in USD)", min_value=0, format="$%d")
 
 </RefCard>
 
-<RefCard href="/library/api-reference/data/st.table">
+<RefCard href="/develop/api-reference/data/st.table">
 <Image pure alt="screenshot" src="/images/api/table.jpg" />
 
 <h4>Static tables</h4>
@@ -305,7 +305,7 @@ st.table(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/data/st.metric">
+<RefCard href="/develop/api-reference/data/st.metric">
 <Image pure alt="screenshot" src="/images/api/metric.jpg" />
 
 <h4>Metrics</h4>
@@ -317,7 +317,7 @@ st.metric("My metric", 42, 2)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/data/st.json">
+<RefCard href="/develop/api-reference/data/st.json">
 <Image pure alt="screenshot" src="/images/api/json.jpg" />
 
 <h4>Dicts and JSON</h4>
@@ -441,7 +441,7 @@ style_metric_cards()
 
 <TileContainer>
 
-<RefCard href="/library/api-reference/charts/st.area_chart">
+<RefCard href="/develop/api-reference/charts/st.area_chart">
 <Image pure alt="screenshot" src="/images/api/area_chart.jpg" />
 
 <h4>Simple area charts</h4>
@@ -453,7 +453,7 @@ st.area_chart(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.bar_chart">
+<RefCard href="/develop/api-reference/charts/st.bar_chart">
 <Image pure alt="screenshot" src="/images/api/bar_chart.jpg" />
 
 <h4>Simple bar charts</h4>
@@ -465,7 +465,7 @@ st.bar_chart(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.line_chart">
+<RefCard href="/develop/api-reference/charts/st.line_chart">
 <Image pure alt="screenshot" src="/images/api/line_chart.jpg" />
 
 <h4>Simple line charts</h4>
@@ -477,7 +477,7 @@ st.line_chart(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.scatter_chart">
+<RefCard href="/develop/api-reference/charts/st.scatter_chart">
 <Image pure alt="screenshot" src="/images/api/scatter_chart.svg" />
 
 <h4>Simple scatter charts</h4>
@@ -489,7 +489,7 @@ st.scatter_chart(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.map">
+<RefCard href="/develop/api-reference/charts/st.map">
 <Image pure alt="screenshot" src="/images/api/map.jpg" />
 
 <h4>Scatterplots on maps</h4>
@@ -501,7 +501,7 @@ st.map(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.pyplot">
+<RefCard href="/develop/api-reference/charts/st.pyplot">
 <Image pure alt="screenshot" src="/images/api/pyplot.jpg" />
 
 <h4>Matplotlib</h4>
@@ -513,7 +513,7 @@ st.pyplot(my_mpl_figure)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.altair_chart">
+<RefCard href="/develop/api-reference/charts/st.altair_chart">
 <Image pure alt="screenshot" src="/images/api/vega_lite_chart.jpg" />
 
 <h4>Altair</h4>
@@ -525,7 +525,7 @@ st.altair_chart(my_altair_chart)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.vega_lite_chart">
+<RefCard href="/develop/api-reference/charts/st.vega_lite_chart">
 <Image pure alt="screenshot" src="/images/api/vega_lite_chart.jpg" />
 
 <h4>Vega-Lite</h4>
@@ -537,7 +537,7 @@ st.vega_lite_chart(my_vega_lite_chart)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.plotly_chart">
+<RefCard href="/develop/api-reference/charts/st.plotly_chart">
 <Image pure alt="screenshot" src="/images/api/plotly_chart.jpg" />
 
 <h4>Plotly</h4>
@@ -549,7 +549,7 @@ st.plotly_chart(my_plotly_chart)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.bokeh_chart">
+<RefCard href="/develop/api-reference/charts/st.bokeh_chart">
 <Image pure alt="screenshot" src="/images/api/bokeh_chart.jpg" />
 
 <h4>Bokeh</h4>
@@ -561,7 +561,7 @@ st.bokeh_chart(my_bokeh_chart)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.pydeck_chart">
+<RefCard href="/develop/api-reference/charts/st.pydeck_chart">
 <Image pure alt="screenshot" src="/images/api/pydeck_chart.jpg" />
 
 <h4>PyDeck</h4>
@@ -573,7 +573,7 @@ st.pydeck_chart(my_pydeck_chart)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.graphviz_chart">
+<RefCard href="/develop/api-reference/charts/st.graphviz_chart">
 <Image pure alt="screenshot" src="/images/api/graphviz_chart.jpg" />
 
 <h4>GraphViz</h4>
@@ -729,7 +729,7 @@ st.altair_chart(chart, use_container_width=True)
 ## Input widgets
 
 <TileContainer>
-<RefCard href="/library/api-reference/widgets/st.button">
+<RefCard href="/develop/api-reference/widgets/st.button">
 
 <Image pure alt="screenshot" src="/images/api/button.svg" />
 
@@ -742,7 +742,7 @@ clicked = st.button("Click me")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.experimental_data_editor">
+<RefCard href="/develop/api-reference/widgets/st.experimental_data_editor">
 
 <Image pure alt="screenshot" src="/images/api/data_editor.jpg" />
 
@@ -755,7 +755,7 @@ edited = st.experimental_data_editor(df, num_rows="dynamic")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.download_button">
+<RefCard href="/develop/api-reference/widgets/st.download_button">
 
 <Image pure alt="screenshot" src="/images/api/download_button.svg" />
 
@@ -768,7 +768,7 @@ st.download_button("Download file", file)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.link_button">
+<RefCard href="/develop/api-reference/widgets/st.link_button">
 
 <Image pure alt="screenshot" src="/images/api/link_button.svg" />
 
@@ -781,7 +781,7 @@ st.link_button("Go to gallery", url)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.page_link">
+<RefCard href="/develop/api-reference/widgets/st.page_link">
 
 <Image pure alt="screenshot" src="/images/api/page_link.jpg" />
 
@@ -795,7 +795,7 @@ st.page_link("pages/profile.py", label="My profile")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.checkbox">
+<RefCard href="/develop/api-reference/widgets/st.checkbox">
 
 <Image pure alt="screenshot" src="/images/api/checkbox.jpg" />
 
@@ -808,7 +808,7 @@ selected = st.checkbox("I agree")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.toggle">
+<RefCard href="/develop/api-reference/widgets/st.toggle">
 
 <Image pure alt="screenshot" src="/images/api/toggle.jpg" />
 
@@ -821,7 +821,7 @@ activated = st.toggle("Activate")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.radio">
+<RefCard href="/develop/api-reference/widgets/st.radio">
 
 <Image pure alt="screenshot" src="/images/api/radio.jpg" />
 
@@ -834,7 +834,7 @@ choice = st.radio("Pick one", ["cats", "dogs"])
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.selectbox">
+<RefCard href="/develop/api-reference/widgets/st.selectbox">
 
 <Image pure alt="screenshot" src="/images/api/selectbox.jpg" />
 
@@ -847,7 +847,7 @@ choice = st.selectbox("Pick one", ["cats", "dogs"])
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.multiselect">
+<RefCard href="/develop/api-reference/widgets/st.multiselect">
 
 <Image pure alt="screenshot" src="/images/api/multiselect.jpg" />
 
@@ -860,7 +860,7 @@ choices = st.multiselect("Buy", ["milk", "apples", "potatoes"])
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.slider">
+<RefCard href="/develop/api-reference/widgets/st.slider">
 
 <Image pure alt="screenshot" src="/images/api/slider.jpg" />
 
@@ -873,7 +873,7 @@ number = st.slider("Pick a number", 0, 100)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.select_slider">
+<RefCard href="/develop/api-reference/widgets/st.select_slider">
 
 <Image pure alt="screenshot" src="/images/api/select_slider.jpg" />
 
@@ -886,7 +886,7 @@ size = st.select_slider("Pick a size", ["S", "M", "L"])
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.text_input">
+<RefCard href="/develop/api-reference/widgets/st.text_input">
 
 <Image pure alt="screenshot" src="/images/api/text_input.jpg" />
 
@@ -899,7 +899,7 @@ name = st.text_input("First name")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.number_input">
+<RefCard href="/develop/api-reference/widgets/st.number_input">
 
 <Image pure alt="screenshot" src="/images/api/number_input.jpg" />
 
@@ -912,7 +912,7 @@ choice = st.number_input("Pick a number", 0, 10)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.text_area">
+<RefCard href="/develop/api-reference/widgets/st.text_area">
 
 <Image pure alt="screenshot" src="/images/api/text_area.jpg" />
 
@@ -925,7 +925,7 @@ text = st.text_area("Text to translate")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.date_input">
+<RefCard href="/develop/api-reference/widgets/st.date_input">
 
 <Image pure alt="screenshot" src="/images/api/date_input.jpg" />
 
@@ -938,7 +938,7 @@ date = st.date_input("Your birthday")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.time_input">
+<RefCard href="/develop/api-reference/widgets/st.time_input">
 
 <Image pure alt="screenshot" src="/images/api/time_input.jpg" />
 
@@ -951,7 +951,7 @@ time = st.time_input("Meeting time")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.file_uploader">
+<RefCard href="/develop/api-reference/widgets/st.file_uploader">
 
 <Image pure alt="screenshot" src="/images/api/file_uploader.jpg" />
 
@@ -964,7 +964,7 @@ data = st.file_uploader("Upload a CSV")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.camera_input">
+<RefCard href="/develop/api-reference/widgets/st.camera_input">
 
 <Image pure alt="screenshot" src="/images/api/camera_input.jpg" />
 
@@ -977,7 +977,7 @@ image = st.camera_input("Take a picture")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.color_picker">
+<RefCard href="/develop/api-reference/widgets/st.color_picker">
 
 <Image pure alt="screenshot" src="/images/api/color_picker.jpg" />
 
@@ -1152,7 +1152,7 @@ stoggle(
 ## Media elements
 
 <TileContainer>
-<RefCard href="/library/api-reference/media/st.image">
+<RefCard href="/develop/api-reference/media/st.image">
 
 <Image pure alt="screenshot" src="/images/api/image.jpg" />
 
@@ -1168,7 +1168,7 @@ st.image("https://example.com/myimage.jpg")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/media/st.audio">
+<RefCard href="/develop/api-reference/media/st.audio">
 
 <Image pure alt="screenshot" src="/images/api/audio.jpg" />
 
@@ -1184,7 +1184,7 @@ st.audio("https://example.com/myaudio.mp3", format="audio/mp3")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/media/st.video">
+<RefCard href="/develop/api-reference/media/st.video">
 
 <Image pure alt="screenshot" src="/images/api/video.jpg" />
 
@@ -1305,7 +1305,7 @@ st_lottie(lottie_hello, key="hello")
 ## Layouts and containers
 
 <TileContainer>
-<RefCard href="/library/api-reference/layout/st.columns">
+<RefCard href="/develop/api-reference/layout/st.columns">
 
 <Image pure alt="screenshot" src="/images/api/columns.jpg" />
 
@@ -1320,7 +1320,7 @@ col2.write("this is column 2")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/layout/st.container">
+<RefCard href="/develop/api-reference/layout/st.container">
 
 <Image pure alt="screenshot" src="/images/api/container.jpg" />
 
@@ -1336,7 +1336,7 @@ c.write("This will show second")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/layout/st.empty">
+<RefCard href="/develop/api-reference/layout/st.empty">
 
 <Image pure alt="screenshot" src="/images/api/empty.jpg" />
 
@@ -1352,7 +1352,7 @@ c.write("This will show first")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/layout/st.expander">
+<RefCard href="/develop/api-reference/layout/st.expander">
 
 <Image pure alt="screenshot" src="/images/api/expander.jpg" />
 
@@ -1366,7 +1366,7 @@ with st.expander("Open to see more"):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/layout/st.popover">
+<RefCard href="/develop/api-reference/layout/st.popover">
 
 <Image pure alt="screenshot" src="/images/api/popover.svg" />
 
@@ -1380,7 +1380,7 @@ with st.popover("Settings"):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/layout/st.sidebar">
+<RefCard href="/develop/api-reference/layout/st.sidebar">
 
 <Image pure alt="screenshot" src="/images/api/sidebar.jpg" />
 
@@ -1394,7 +1394,7 @@ st.sidebar.button("Click me!")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/layout/st.tabs">
+<RefCard href="/develop/api-reference/layout/st.tabs">
 
 <Image pure alt="screenshot" src="/images/api/tabs.jpg" />
 
@@ -1473,7 +1473,7 @@ Streamlit provides a few commands to help you build conversational apps. These c
 `st.chat_message` lets you insert a chat message container into the app so you can display messages from the user or the app. Chat containers can contain other Streamlit elements, including charts, tables, text, and more. `st.chat_input` lets you display a chat input widget so the user can type in a message.
 
 <TileContainer>
-<RefCard href="/library/api-reference/chat/st.chat_input">
+<RefCard href="/develop/api-reference/chat/st.chat_input">
 
 <Image pure alt="screenshot" src="/images/api/chat_input.jpg" />
 
@@ -1488,7 +1488,7 @@ if prompt:
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/chat/st.chat_message">
+<RefCard href="/develop/api-reference/chat/st.chat_message">
 
 <Image pure alt="screenshot" src="/images/api/chat_message.jpg" />
 
@@ -1504,7 +1504,7 @@ with st.chat_message("user"):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.status">
+<RefCard href="/develop/api-reference/status/st.status">
 
 <Image pure alt="screenshot" src="/images/api/status.jpg" />
 
@@ -1518,7 +1518,7 @@ with st.status('Running'):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/write-magic/st.write_stream">
+<RefCard href="/develop/api-reference/write-magic/st.write_stream">
 
 <h4>st.write_stream</h4>
 
@@ -1535,7 +1535,7 @@ st.write_stream(my_llm_stream)
 ## Display progress and status
 
 <TileContainer>
-<RefCard href="/library/api-reference/status/st.progress">
+<RefCard href="/develop/api-reference/status/st.progress">
 
 <Image pure alt="screenshot" src="/images/api/progress.jpg" />
 
@@ -1550,7 +1550,7 @@ for i in range(101):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.spinner">
+<RefCard href="/develop/api-reference/status/st.spinner">
 
 <Image pure alt="screenshot" src="/images/api/spinner.jpg" />
 
@@ -1564,7 +1564,7 @@ with st.spinner("Please wait..."):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.status">
+<RefCard href="/develop/api-reference/status/st.status">
 
 <Image pure alt="screenshot" src="/images/api/status.jpg" />
 
@@ -1578,7 +1578,7 @@ with st.status('Running'):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.toast">
+<RefCard href="/develop/api-reference/status/st.toast">
 
 <Image pure alt="screenshot" src="/images/api/toast.jpg" />
 
@@ -1591,7 +1591,7 @@ st.toast('Butter!', icon='🧈')
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.balloons">
+<RefCard href="/develop/api-reference/status/st.balloons">
 
 <Image pure alt="screenshot" src="/images/api/balloons.jpg" />
 
@@ -1607,7 +1607,7 @@ st.balloons()
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.snow">
+<RefCard href="/develop/api-reference/status/st.snow">
 
 <Image pure alt="screenshot" src="/images/api/snow.jpg" />
 
@@ -1623,7 +1623,7 @@ st.snow()
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.error">
+<RefCard href="/develop/api-reference/status/st.error">
 
 <Image pure alt="screenshot" src="/images/api/error.jpg" />
 
@@ -1636,7 +1636,7 @@ st.error("We encountered an error")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.warning">
+<RefCard href="/develop/api-reference/status/st.warning">
 
 <Image pure alt="screenshot" src="/images/api/warning.jpg" />
 
@@ -1649,7 +1649,7 @@ st.warning("Unable to fetch image. Skipping...")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.info">
+<RefCard href="/develop/api-reference/status/st.info">
 
 <Image pure alt="screenshot" src="/images/api/info.jpg" />
 
@@ -1662,7 +1662,7 @@ st.info("Dataset is updated every day at midnight.")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.success">
+<RefCard href="/develop/api-reference/status/st.success">
 
 <Image pure alt="screenshot" src="/images/api/success.jpg" />
 
@@ -1675,7 +1675,7 @@ st.success("Match found!")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.exception">
+<RefCard href="/develop/api-reference/status/st.exception">
 
 <Image pure alt="screenshot" src="/images/api/exception.jpg" />
 
@@ -1750,7 +1750,7 @@ rain(emoji="🎈", font_size=54,
 ## Control flow
 
 <TileContainer>
-<RefCard href="/library/api-reference/control-flow/st.form">
+<RefCard href="/develop/api-reference/control-flow/st.form">
 
 <h4>Forms</h4>
 
@@ -1764,7 +1764,7 @@ with st.form(key='my_form'):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/control-flow/st.rerun">
+<RefCard href="/develop/api-reference/control-flow/st.rerun">
 
 <h4>Rerun script</h4>
 
@@ -1775,7 +1775,7 @@ st.rerun()
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/control-flow/st.stop">
+<RefCard href="/develop/api-reference/control-flow/st.stop">
 
 <h4>Stop execution</h4>
 
@@ -1786,7 +1786,7 @@ st.stop()
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/control-flow/st.switch_page">
+<RefCard href="/develop/api-reference/control-flow/st.switch_page">
 
 <h4>Switch page</h4>
 
@@ -1914,7 +1914,7 @@ with streamlit_analytics.track():
 ## Utilities
 
 <TileContainer>
-<RefCard href="/library/api-reference/utilities/st.set_page_config">
+<RefCard href="/develop/api-reference/utilities/st.set_page_config">
 
 <h4>Set page title, favicon, and more</h4>
 
@@ -1928,7 +1928,7 @@ st.set_page_config(
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/utilities/st.echo">
+<RefCard href="/develop/api-reference/utilities/st.echo">
 
 <h4>Echo</h4>
 
@@ -1940,7 +1940,7 @@ with st.echo():
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/utilities/st.help">
+<RefCard href="/develop/api-reference/utilities/st.help">
 
 <h4>Get help</h4>
 
@@ -1952,7 +1952,7 @@ st.help(pd.DataFrame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/utilities/st.query_params">
+<RefCard href="/develop/api-reference/utilities/st.query_params">
 
 <h4>Query parameters</h4>
 
@@ -1969,7 +1969,7 @@ st.query_params.clear()
 ## Mutate charts
 
 <TileContainer>
-<RefCard href="/library/api-reference/mutate">
+<RefCard href="/develop/api-reference/mutate">
 
 <h4>Add rows</h4>
 
@@ -1986,7 +1986,7 @@ element.add_rows(df_with_extra_rows)
 ## State management
 
 <TileContainer>
-<RefCard href="/library/api-reference/session-state">
+<RefCard href="/develop/api-reference/session-state">
 
 <h4>Session state</h4>
 
@@ -2059,7 +2059,7 @@ st.write(user_info)
 ## Performance
 
 <TileContainer>
-<RefCard href="/library/api-reference/performance/st.cache_data" size="half">
+<RefCard href="/develop/api-reference/performance/st.cache_data" size="half">
 
 <h4>Cache data</h4>
 
@@ -2075,7 +2075,7 @@ def long_function(param1, param2):
 
 </RefCard>
 
-<RefCard href="/library/api-reference/performance/st.cache_resource" size="half">
+<RefCard href="/develop/api-reference/performance/st.cache_resource" size="half">
 
 <h4>Cache resource</h4>
 
@@ -2100,7 +2100,7 @@ def init_model():
 ### Setup your connection
 
 <TileContainer>
-<RefCard href="/library/api-reference/connections/st.connection" size="half">
+<RefCard href="/develop/api-reference/connections/st.connection" size="half">
 
 <Image pure alt="screenshot" src="/images/api/connection.svg" />
 
@@ -2121,7 +2121,7 @@ st.dataframe(pet_owners)
 
 <TileContainer>
 
-<RefCard href="/library/api-reference/connections/st.connections.snowflakeconnection" size="half">
+<RefCard href="/develop/api-reference/connections/st.connections.snowflakeconnection" size="half">
 
 <Image pure alt="screenshot" src="/images/api/connections.SnowflakeConnection.svg" />
 
@@ -2135,7 +2135,7 @@ conn = st.connection('snowflake')
 
 </RefCard>
 
-<RefCard href="/library/api-reference/connections/st.connections.sqlconnection" size="half">
+<RefCard href="/develop/api-reference/connections/st.connections.sqlconnection" size="half">
 
 <Image pure alt="screenshot" src="/images/api/connections.SQLConnection.svg" />
 
@@ -2153,7 +2153,7 @@ conn = st.connection('sql')
 ### Third-party connections
 
 <TileContainer>
-<RefCard href="/library/api-reference/connections/st.connections.baseconnection" size="half">
+<RefCard href="/develop/api-reference/connections/st.connections.baseconnection" size="half">
 
 <h4>Connection base class</h4>
 
@@ -2174,7 +2174,7 @@ class MyConnection(BaseConnection[myconn.MyConnection]):
 ## Personalization
 
 <TileContainer>
-<RefCard href="/library/api-reference/personalization/st.experimental_user" size="half">
+<RefCard href="/develop/api-reference/personalization/st.experimental_user" size="half">
 
 <h4>User info</h4>
 
@@ -2194,7 +2194,7 @@ else:
 
 <TileContainer>
 
-<RefCard href="/library/api-reference/app-testing/st.testing.v1.apptest" size="full">
+<RefCard href="/develop/api-reference/app-testing/st.testing.v1.apptest" size="full">
 
 <h4>st.testing.v1.AppTest</h4>
 
@@ -2214,7 +2214,7 @@ assert at.warning[0].value == "Try again."
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/st.testing.v1.apptest#apptestfrom_file" size="full">
+<RefCard href="/develop/api-reference/app-testing/st.testing.v1.apptest#apptestfrom_file" size="full">
 
 <h4>AppTest.from_file</h4>
 
@@ -2229,7 +2229,7 @@ at.run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/st.testing.v1.apptest#apptestfrom_string" size="full">
+<RefCard href="/develop/api-reference/app-testing/st.testing.v1.apptest#apptestfrom_string" size="full">
 
 <h4>AppTest.from_string</h4>
 
@@ -2244,7 +2244,7 @@ at.run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/st.testing.v1.apptest#apptestfrom_function" size="full">
+<RefCard href="/develop/api-reference/app-testing/st.testing.v1.apptest#apptestfrom_function" size="full">
 
 <h4>AppTest.from_function</h4>
 
@@ -2259,7 +2259,7 @@ at.run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeblock" size="half">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treeblock" size="half">
 
 <h4>Block</h4>
 
@@ -2279,7 +2279,7 @@ assert not at.exception
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeelement" size="half">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treeelement" size="half">
 
 <h4>Element</h4>
 
@@ -2298,7 +2298,7 @@ assert at.title[0].value == "My awesome app"
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treebutton" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treebutton" size="third">
 
 <h4>Button</h4>
 
@@ -2310,7 +2310,7 @@ at.button[0].click().run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treechatinput" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treechatinput" size="third">
 
 <h4>ChatInput</h4>
 
@@ -2322,7 +2322,7 @@ at.chat_input[0].set_value("What is Streamlit?").run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treecheckbox" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treecheckbox" size="third">
 
 <h4>Checkbox</h4>
 
@@ -2334,7 +2334,7 @@ at.checkbox[0].check().run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treecolorpicker" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treecolorpicker" size="third">
 
 <h4>ColorPicker</h4>
 
@@ -2346,7 +2346,7 @@ at.color_picker[0].pick("#FF4B4B").run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treedateinput" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treedateinput" size="third">
 
 <h4>DateInput</h4>
 
@@ -2359,7 +2359,7 @@ at.date_input[0].set_value(release_date).run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treemultiselect" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treemultiselect" size="third">
 
 <h4>Multiselect</h4>
 
@@ -2371,7 +2371,7 @@ at.multiselect[0].select("New York").run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treenumberinput" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treenumberinput" size="third">
 
 <h4>NumberInput</h4>
 
@@ -2383,7 +2383,7 @@ at.number_input[0].increment().run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeradio" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treeradio" size="third">
 
 <h4>Radio</h4>
 
@@ -2395,7 +2395,7 @@ at.radio[0].set_value("New York").run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeselectslider" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treeselectslider" size="third">
 
 <h4>SelectSlider</h4>
 
@@ -2407,7 +2407,7 @@ at.select_slider[0].set_range("A","C").run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeselectbox" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treeselectbox" size="third">
 
 <h4>Selectbox</h4>
 
@@ -2419,7 +2419,7 @@ at.selectbox[0].select("New York").run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeslider" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treeslider" size="third">
 
 <h4>Slider</h4>
 
@@ -2431,7 +2431,7 @@ at.slider[0].set_range(2,5).run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treetextarea" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treetextarea" size="third">
 
 <h4>TextArea</h4>
 
@@ -2443,7 +2443,7 @@ at.text_area[0].input("Streamlit is awesome!").run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treetextinput" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treetextinput" size="third">
 
 <h4>TextInput</h4>
 
@@ -2455,7 +2455,7 @@ at.text_input[0].input("Streamlit").run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treetimeinput" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treetimeinput" size="third">
 
 <h4>TimeInput</h4>
 
@@ -2467,7 +2467,7 @@ at.time_input[0].increment().run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treetoggle" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treetoggle" size="third">
 
 <h4>Toggle</h4>
 

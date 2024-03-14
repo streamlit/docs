@@ -1,6 +1,6 @@
 ---
 title: Embed your app
-slug: /streamlit-community-cloud/share-your-app/embed-your-app
+slug: /deploy/streamlit-community-cloud/share-your-app/embed-your-app
 ---
 
 # Embed your app
@@ -86,7 +86,7 @@ The only noteworthy differences between the methods is that iframing allows you 
 
 When [Embedding with iframes](#embedding-with-iframes), Streamlit allows you to specify one or more instances of the `?embed_options` query parameter for granular control over the embedding behavior.
 
-Both `?embed` and `?embed_options` are invisible to [`st.query_params`](/library/api-reference/utilities/st.query_params) and its precursors, [`st.experimental_get_query_params`](/library/api-reference/utilities/st.experimental_get_query_params) and [`st.experimental_set_query_params`](/library/api-reference/utilities/st.experimental_set_query_params). You can't get or set their values.
+Both `?embed` and `?embed_options` are invisible to [`st.query_params`](/develop/api-reference/utilities/st.query_params) and its precursors, [`st.experimental_get_query_params`](/develop/api-reference/utilities/st.experimental_get_query_params) and [`st.experimental_set_query_params`](/develop/api-reference/utilities/st.experimental_set_query_params). You can't get or set their values.
 
 The supported values for `?embed_options` are listed below:
 

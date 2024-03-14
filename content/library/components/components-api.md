@@ -1,6 +1,6 @@
 ---
 title: Components API
-slug: /library/components/components-api
+slug: /develop/components/components-api
 ---
 
 # Components API Reference
@@ -15,7 +15,7 @@ If you are unsure whether you need bi-directional communication, **start here fi
 
 ### Render an HTML string
 
-While [`st.text`](/library/api-reference/text/st.text), [`st.markdown`](/library/api-reference/text/st.markdown) and [`st.write`](/library/api-reference/write-magic/st.write) make it easy to write text to a Streamlit app, sometimes you'd rather implement a custom piece of HTML. Similarly, while Streamlit natively supports [many charting libraries](/library/api-reference/charts#chart-elements), you may want to implement a specific HTML/JavaScript template for a new charting library. `components.html` works by giving you the ability to embed an iframe inside of a Streamlit app that contains your desired output.
+While [`st.text`](/develop/api-reference/text/st.text), [`st.markdown`](/develop/api-reference/text/st.markdown) and [`st.write`](/develop/api-reference/write-magic/st.write) make it easy to write text to a Streamlit app, sometimes you'd rather implement a custom piece of HTML. Similarly, while Streamlit natively supports [many charting libraries](/develop/api-reference/charts#chart-elements), you may want to implement a specific HTML/JavaScript template for a new charting library. `components.html` works by giving you the ability to embed an iframe inside of a Streamlit app that contains your desired output.
 
 <Autofunction function="streamlit.components.v1.html" />
 

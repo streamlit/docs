@@ -1,6 +1,6 @@
 ---
 title: Input widgets
-slug: /library/api-reference/widgets
+slug: /develop/api-reference/widgets
 ---
 
 # Input widgets
@@ -8,7 +8,7 @@ slug: /library/api-reference/widgets
 With widgets, Streamlit allows you to bake interactivity directly into your apps with buttons, sliders, text inputs, and more.
 
 <TileContainer>
-<RefCard href="/library/api-reference/widgets/st.button">
+<RefCard href="/develop/api-reference/widgets/st.button">
 
 <Image pure alt="screenshot" src="/images/api/button.svg" />
 
@@ -22,7 +22,7 @@ clicked = st.button("Click me")
 
 </RefCard>
 
-<RefCard href="/library/api-reference/widgets/st.download_button">
+<RefCard href="/develop/api-reference/widgets/st.download_button">
 
 <Image pure alt="screenshot" src="/images/api/download_button.svg" />
 
@@ -36,7 +36,7 @@ st.download_button("Download file", file)
 
 </RefCard>
 
-<RefCard href="/library/api-reference/widgets/st.link_button">
+<RefCard href="/develop/api-reference/widgets/st.link_button">
 
 <Image pure alt="screenshot" src="/images/api/link_button.svg" />
 
@@ -50,7 +50,7 @@ st.link_button("Go to gallery", url)
 
 </RefCard>
 
-<RefCard href="/library/api-reference/widgets/st.page_link">
+<RefCard href="/develop/api-reference/widgets/st.page_link">
 
 <Image pure alt="screenshot" src="/images/api/page_link.jpg" />
 
@@ -65,7 +65,7 @@ st.page_link("pages/profile.py", label="My profile")
 
 </RefCard>
 
-<RefCard href="/library/api-reference/widgets/st.checkbox">
+<RefCard href="/develop/api-reference/widgets/st.checkbox">
 
 <Image pure alt="screenshot" src="/images/api/checkbox.jpg" />
 
@@ -78,7 +78,7 @@ selected = st.checkbox("I agree")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.toggle">
+<RefCard href="/develop/api-reference/widgets/st.toggle">
 
 <Image pure alt="screenshot" src="/images/api/toggle.jpg" />
 
@@ -91,7 +91,7 @@ activated = st.toggle("Activate")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.radio">
+<RefCard href="/develop/api-reference/widgets/st.radio">
 
 <Image pure alt="screenshot" src="/images/api/radio.jpg" />
 
@@ -104,7 +104,7 @@ choice = st.radio("Pick one", ["cats", "dogs"])
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.selectbox">
+<RefCard href="/develop/api-reference/widgets/st.selectbox">
 
 <Image pure alt="screenshot" src="/images/api/selectbox.jpg" />
 
@@ -117,7 +117,7 @@ choice = st.selectbox("Pick one", ["cats", "dogs"])
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.multiselect">
+<RefCard href="/develop/api-reference/widgets/st.multiselect">
 
 <Image pure alt="screenshot" src="/images/api/multiselect.jpg" />
 
@@ -130,7 +130,7 @@ choices = st.multiselect("Buy", ["milk", "apples", "potatoes"])
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.slider">
+<RefCard href="/develop/api-reference/widgets/st.slider">
 
 <Image pure alt="screenshot" src="/images/api/slider.jpg" />
 
@@ -143,7 +143,7 @@ number = st.slider("Pick a number", 0, 100)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.select_slider">
+<RefCard href="/develop/api-reference/widgets/st.select_slider">
 
 <Image pure alt="screenshot" src="/images/api/select_slider.jpg" />
 
@@ -156,7 +156,7 @@ size = st.select_slider("Pick a size", ["S", "M", "L"])
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.text_input">
+<RefCard href="/develop/api-reference/widgets/st.text_input">
 
 <Image pure alt="screenshot" src="/images/api/text_input.jpg" />
 
@@ -169,7 +169,7 @@ name = st.text_input("First name")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.number_input">
+<RefCard href="/develop/api-reference/widgets/st.number_input">
 
 <Image pure alt="screenshot" src="/images/api/number_input.jpg" />
 
@@ -182,7 +182,7 @@ choice = st.number_input("Pick a number", 0, 10)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.text_area">
+<RefCard href="/develop/api-reference/widgets/st.text_area">
 
 <Image pure alt="screenshot" src="/images/api/text_area.jpg" />
 
@@ -195,7 +195,7 @@ text = st.text_area("Text to translate")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.date_input">
+<RefCard href="/develop/api-reference/widgets/st.date_input">
 
 <Image pure alt="screenshot" src="/images/api/date_input.jpg" />
 
@@ -208,7 +208,7 @@ date = st.date_input("Your birthday")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.time_input">
+<RefCard href="/develop/api-reference/widgets/st.time_input">
 
 <Image pure alt="screenshot" src="/images/api/time_input.jpg" />
 
@@ -221,7 +221,7 @@ time = st.time_input("Meeting time")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.file_uploader">
+<RefCard href="/develop/api-reference/widgets/st.file_uploader">
 
 <Image pure alt="screenshot" src="/images/api/file_uploader.jpg" />
 
@@ -234,7 +234,7 @@ data = st.file_uploader("Upload a CSV")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.camera_input">
+<RefCard href="/develop/api-reference/widgets/st.camera_input">
 
 <Image pure alt="screenshot" src="/images/api/camera_input.jpg" />
 
@@ -247,7 +247,7 @@ image = st.camera_input("Take a picture")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/widgets/st.color_picker">
+<RefCard href="/develop/api-reference/widgets/st.color_picker">
 
 <Image pure alt="screenshot" src="/images/api/color_picker.jpg" />
 

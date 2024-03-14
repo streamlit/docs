@@ -5,7 +5,7 @@ slug: /knowledge-base/using-streamlit/insert-elements-out-of-order
 
 # How to insert elements out of order?
 
-You can use the [`st.empty`](/library/api-reference/layout/st.empty) method as a placeholder,
+You can use the [`st.empty`](/develop/api-reference/layout/st.empty) method as a placeholder,
 to "save" a slot in your app that you can use later.
 
 ```python

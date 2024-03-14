@@ -1,12 +1,12 @@
 ---
 title: st.cache_resource
-slug: /library/api-reference/performance/st.cache_resource
+slug: /develop/api-reference/performance/st.cache_resource
 description: st.cache_resource is used to cache functions that return shared global resources (e.g. database connections, ML models).
 ---
 
 <Tip>
 
-This page only contains information on the `st.cache_resource` API. For a deeper dive into caching and how to use it, check out [Caching](/library/advanced-features/caching).
+This page only contains information on the `st.cache_resource` API. For a deeper dive into caching and how to use it, check out [Caching](/develop/concepts/caching).
 
 </Tip>
 
@@ -71,7 +71,7 @@ def load_model():
 
 ### Input widgets
 
-You can also use [interactive input widgets](/library/api-reference/widgets) like `st.slider` or `st.text_input` in cached functions. Widget replay is an experimental feature at the moment. To enable it, you need to set the `experimental_allow_widgets` parameter:
+You can also use [interactive input widgets](/develop/api-reference/widgets) like `st.slider` or `st.text_input` in cached functions. Widget replay is an experimental feature at the moment. To enable it, you need to set the `experimental_allow_widgets` parameter:
 
 ```python
 @st.cache_resource(experimental_allow_widgets=True)  # 👈 Set the parameter

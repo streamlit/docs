@@ -1,6 +1,6 @@
 ---
 title: Text elements
-slug: /library/api-reference/text
+slug: /develop/api-reference/text
 ---
 
 # Text elements
@@ -14,10 +14,10 @@ Pure text is entered with `st.text`, and Markdown with
 
 We also offer a "swiss-army knife" command called `st.write`, which accepts
 multiple arguments, and multiple data types. And as described above, you can
-also use [magic commands](/library/api-reference/write-magic/magic) in place of `st.write`.
+also use [magic commands](/develop/api-reference/write-magic/magic) in place of `st.write`.
 
 <TileContainer>
-<RefCard href="/library/api-reference/text/st.markdown">
+<RefCard href="/develop/api-reference/text/st.markdown">
 
 <Image pure alt="screenshot" src="/images/api/markdown.jpg" />
 
@@ -30,7 +30,7 @@ st.markdown("Hello **world**!")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.title">
+<RefCard href="/develop/api-reference/text/st.title">
 
 <Image pure alt="screenshot" src="/images/api/title.jpg" />
 
@@ -43,7 +43,7 @@ st.title("The app title")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.header">
+<RefCard href="/develop/api-reference/text/st.header">
 
 <Image pure alt="screenshot" src="/images/api/header.jpg" />
 
@@ -56,7 +56,7 @@ st.header("This is a header")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.subheader">
+<RefCard href="/develop/api-reference/text/st.subheader">
 
 <Image pure alt="screenshot" src="/images/api/subheader.jpg" />
 
@@ -69,7 +69,7 @@ st.subheader("This is a subheader")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.caption">
+<RefCard href="/develop/api-reference/text/st.caption">
 
 <Image pure alt="screenshot" src="/images/api/caption.jpg" />
 
@@ -82,7 +82,7 @@ st.caption("This is written small caption text")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.code">
+<RefCard href="/develop/api-reference/text/st.code">
 
 <Image pure alt="screenshot" src="/images/api/code.jpg" />
 
@@ -95,7 +95,7 @@ st.code("a = 1234")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.text">
+<RefCard href="/develop/api-reference/text/st.text">
 
 <Image pure alt="screenshot" src="/images/api/text.jpg" />
 
@@ -108,7 +108,7 @@ st.text("Hello world")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.latex">
+<RefCard href="/develop/api-reference/text/st.latex">
 
 <Image pure alt="screenshot" src="/images/api/latex.jpg" />
 
@@ -121,7 +121,7 @@ st.latex("\int a x^2 \,dx")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/text/st.divider">
+<RefCard href="/develop/api-reference/text/st.divider">
 
 <Image pure alt="screenshot" src="/images/api/divider.jpg" />
 

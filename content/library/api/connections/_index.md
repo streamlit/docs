@@ -1,6 +1,6 @@
 ---
 title: Connections and databases
-slug: /library/api-reference/connections
+slug: /develop/api-reference/connections
 ---
 
 # Connections and databases
@@ -8,7 +8,7 @@ slug: /library/api-reference/connections
 ## Setup your connection
 
 <TileContainer>
-<RefCard href="/library/api-reference/connections/st.connection" size="half">
+<RefCard href="/develop/api-reference/connections/st.connection" size="half">
 
 <Image pure alt="screenshot" src="/images/api/connection.svg" />
 
@@ -29,7 +29,7 @@ st.dataframe(pet_owners)
 
 <TileContainer>
 
-<RefCard href="/library/api-reference/connections/st.connections.snowflakeconnection" size="half">
+<RefCard href="/develop/api-reference/connections/st.connections.snowflakeconnection" size="half">
 
 <Image pure alt="screenshot" src="/images/api/connections.SnowflakeConnection.svg" />
 
@@ -43,7 +43,7 @@ conn = st.connection('snowflake')
 
 </RefCard>
 
-<RefCard href="/library/api-reference/connections/st.connections.sqlconnection" size="half">
+<RefCard href="/develop/api-reference/connections/st.connections.sqlconnection" size="half">
 
 <Image pure alt="screenshot" src="/images/api/connections.SQLConnection.svg" />
 
@@ -61,7 +61,7 @@ conn = st.connection('sql')
 ## Third-party connections
 
 <TileContainer>
-<RefCard href="/library/api-reference/connections/st.connections.baseconnection" size="half">
+<RefCard href="/develop/api-reference/connections/st.connections.baseconnection" size="half">
 
 <h4>Connection base class</h4>
 

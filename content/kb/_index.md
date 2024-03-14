@@ -12,7 +12,7 @@ The knowledge base is a self-serve library of tips, step-by-step tutorials, and 
     color="darkBlue-70"
     icon="local_library"
     bold="Tutorials."
-    href="/knowledge-base/tutorials"
+    href="/develop/tutorials"
   >Our tutorials include step-by-step examples of building different types of apps in Streamlit.</InlineCallout>
   <InlineCallout
     color="darkBlue-70"

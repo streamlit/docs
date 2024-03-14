@@ -1,11 +1,11 @@
 ---
 title: Workspace settings
-slug: /streamlit-community-cloud/manage-your-account/workspace-settings
+slug: /deploy/streamlit-community-cloud/manage-your-account/workspace-settings
 ---
 
 # Workspace settings
 
-From your workspace settings you can [Manage your account](/streamlit-community-cloud/manage-your-account), see your [App resources and limits](/streamlit-community-cloud/manage-your-app#app-resources-and-limits) and access support resources.
+From your workspace settings you can [Manage your account](/deploy/streamlit-community-cloud/manage-your-account), see your [App resources and limits](/deploy/streamlit-community-cloud/manage-your-app#app-resources-and-limits) and access support resources.
 
 ## Access your workspace settings
 
@@ -15,13 +15,13 @@ From your workspace at <a href="https://share.streamlit.io" target="_blank">shar
 
 ## Linked accounts
 
-The "**Linked accounts**" section shows your current primary identity and source control account. To learn more, see [Manage your account](/streamlit-community-cloud/manage-your-account).
+The "**Linked accounts**" section shows your current primary identity and source control account. To learn more, see [Manage your account](/deploy/streamlit-community-cloud/manage-your-account).
 
 ![Manage your linked accounts in workspace settings](/images/streamlit-community-cloud/account-primary-identity-and-source-control.png)
 
 ## Limits
 
-The "**Limits**" section shows your current resources and limits. To learn more, see [App resources and limits](/streamlit-community-cloud/manage-your-app#app-resources-and-limits).
+The "**Limits**" section shows your current resources and limits. To learn more, see [App resources and limits](/deploy/streamlit-community-cloud/manage-your-app#app-resources-and-limits).
 
 ![Resource limits displayed in workspace settings](/images/streamlit-community-cloud/workspace-limits.png)
 

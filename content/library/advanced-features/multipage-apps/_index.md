@@ -1,6 +1,6 @@
 ---
 title: Multipage apps
-slug: /library/advanced-features/multipage-apps
+slug: /develop/concepts/multipage-apps
 description: Streamlit provides a simple way to create multipage apps.
 ---
 
@@ -48,7 +48,7 @@ Only `.py` files in the `pages/` directory will be loaded as pages. Streamlit ig
 
 ## How pages are labeled and sorted in the UI
 
-Page labels in the sidebar UI are generated from filenames. They may differ from the page title set in [`st.set_page_config`](/library/api-reference/utilities/st.set_page_config). Let's learn what constitutes a valid filename for a page, how pages are displayed in the sidebar, and how pages are sorted.
+Page labels in the sidebar UI are generated from filenames. They may differ from the page title set in [`st.set_page_config`](/develop/api-reference/utilities/st.set_page_config). Let's learn what constitutes a valid filename for a page, how pages are displayed in the sidebar, and how pages are sorted.
 
 ### Valid filenames for pages
 
@@ -104,11 +104,11 @@ If a user tries to access a URL for a page that does not exist, they will see a 
 
 ## Notes
 
-- Pages support [magic commands](/library/api-reference/write-magic/magic).
+- Pages support [magic commands](/develop/api-reference/write-magic/magic).
 - Pages support run-on-save. Additionally, when you save a page, this causes a rerun for users currently viewing that exact page.
 - Adding or deleting a page causes the UI to update immediately.
 - Updating pages in the sidebar does not rerun the script.
-- `st.set_page_config` works at the page level. When you set a title or favicon using [st.set_page_config](/library/api-reference/utilities/st.set_page_config), this applies to the current page only.
+- `st.set_page_config` works at the page level. When you set a title or favicon using [st.set_page_config](/develop/api-reference/utilities/st.set_page_config), this applies to the current page only.
 - Pages share the same Python modules globally:
 
   ```python
@@ -121,7 +121,7 @@ If a user tries to access a URL for a page that does not exist, they will see a 
   st.write(foo.hello)  # If page1 already executed, this should write 123
   ```
 
-- Pages share the same [st.session_state](/library/advanced-features/session-state):
+- Pages share the same [st.session_state](/develop/concepts/session-state):
 
   ```python
   # page1.py

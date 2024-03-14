@@ -1,11 +1,11 @@
 ---
 title: st.connection
-slug: /library/api-reference/connections/st.connection
+slug: /develop/api-reference/connections/st.connection
 ---
 
 <Tip>
 
-This page only contains the `st.connection` API. For a deeper dive into creating and managing data connections within Streamlit apps, read [Connecting to data](/library/advanced-features/connecting-to-data).
+This page only contains the `st.connection` API. For a deeper dive into creating and managing data connections within Streamlit apps, read [Connecting to data](/develop/concepts/connecting-to-data).
 
 </Tip>
 

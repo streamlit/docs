@@ -1,6 +1,6 @@
 ---
 title: st.write and magic commands
-slug: /library/api-reference/write-magic
+slug: /develop/api-reference/write-magic
 ---
 
 # st.write and magic commands
@@ -9,7 +9,7 @@ Streamlit has two easy ways to display information into your app, which should t
 first thing you try: `st.write` and magic.
 
 <TileContainer>
-<RefCard href="/library/api-reference/write-magic/st.write">
+<RefCard href="/develop/api-reference/write-magic/st.write">
 
 <h4>st.write</h4>
 
@@ -22,7 +22,7 @@ st.write(my_mpl_figure)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/write-magic/st.write_stream">
+<RefCard href="/develop/api-reference/write-magic/st.write_stream">
 
 <h4>st.write_stream</h4>
 
@@ -34,7 +34,7 @@ st.write_stream(my_llm_stream)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/write-magic/magic">
+<RefCard href="/develop/api-reference/write-magic/magic">
 
 <h4>Magic</h4>
 

@@ -1,17 +1,17 @@
 ---
 title: Connect Streamlit to Supabase
-slug: /knowledge-base/tutorials/databases/supabase
+slug: /develop/tutorials/databases/supabase
 ---
 
 # Connect Streamlit to Supabase
 
 ## Introduction
 
-This guide explains how to securely access a Supabase instance from Streamlit Community Cloud. It uses [st.connection](/library/api-reference/connections/st.connection), [Streamlit Supabase Connector](https://github.com/SiddhantSadangi/st_supabase_connection/tree/main) (a community-built connection developed by [@SiddhantSadangi](https://github.com/SiddhantSadangi)) and Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management). Supabase is the open source Firebase alternative and is based on PostgreSQL.
+This guide explains how to securely access a Supabase instance from Streamlit Community Cloud. It uses [st.connection](/develop/api-reference/connections/st.connection), [Streamlit Supabase Connector](https://github.com/SiddhantSadangi/st_supabase_connection/tree/main) (a community-built connection developed by [@SiddhantSadangi](https://github.com/SiddhantSadangi)) and Streamlit's [Secrets management](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management). Supabase is the open source Firebase alternative and is based on PostgreSQL.
 
 <Note>
 
-Community-built connections, such as the [Streamlit Supabase Connector](https://github.com/SiddhantSadangi/st_supabase_connection/tree/main), extend and build on the `st.connection` interface and make it easier than ever to build Streamlit apps with a wide variety of data sources. These type of connections work exactly the same as [the ones built into Streamlit](/library/api-reference/connections) and have access to all the same capabilities.
+Community-built connections, such as the [Streamlit Supabase Connector](https://github.com/SiddhantSadangi/st_supabase_connection/tree/main), extend and build on the `st.connection` interface and make it easier than ever to build Streamlit apps with a wide variety of data sources. These type of connections work exactly the same as [the ones built into Streamlit](/develop/api-reference/connections) and have access to all the same capabilities.
 
 </Note>
 
@@ -84,7 +84,7 @@ SUPABASE_URL = "xxxx"
 SUPABASE_KEY = "xxxx"
 ```
 
-Replace `xxxx` above with your Project URL and API key from [Step 1](/knowledge-base/tutorials/databases/supabase#sign-in-to-supabase-and-create-a-project).
+Replace `xxxx` above with your Project URL and API key from [Step 1](/develop/tutorials/databases/supabase#sign-in-to-supabase-and-create-a-project).
 
 <Important>
 
@@ -94,7 +94,7 @@ Add this file to `.gitignore` and don't commit it to your GitHub repo!
 
 ## Copy your app secrets to the cloud
 
-As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Community Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management).
+As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Community Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets management](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 
@@ -111,7 +111,7 @@ st-supabase-connection==x.x.x
 
 We've used the `st-supabase-connection` library here in combination with `st.connection` to benefit from the ease of setting up the data connection, managing your credentials, and Streamlit's caching capabilities that native and community-built connections provide.
 
-You can however still directly use the [Supabase Python Client Library](https://pypi.org/project/supabase/) library if you prefer, but you'll need to write more code to set up the connection and cache the results. See [Using the Supabase Python Client Library](/knowledge-base/tutorials/databases/supabase#using-the-supabase-python-client-library) below for an example.
+You can however still directly use the [Supabase Python Client Library](https://pypi.org/project/supabase/) library if you prefer, but you'll need to write more code to set up the connection and cache the results. See [Using the Supabase Python Client Library](/develop/tutorials/databases/supabase#using-the-supabase-python-client-library) below for an example.
 
 </Tip>
 
@@ -137,13 +137,13 @@ for row in rows.data:
 
 ```
 
-See `st.connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl="10m"` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
+See `st.connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl="10m"` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/develop/concepts/caching).
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 
 ![Finished app screenshot](/images/databases/supabase-10.png)
 
-As Supabase uses PostgresSQL under the hood, you can also connect to Supabase by using the connection string Supabase provides under Settings > Databases. From there, you can refer to the [PostgresSQL tutorial](/knowledge-base/tutorials/databases/postgresql) to connect to your database.
+As Supabase uses PostgresSQL under the hood, you can also connect to Supabase by using the connection string Supabase provides under Settings > Databases. From there, you can refer to the [PostgresSQL tutorial](/develop/tutorials/databases/postgresql) to connect to your database.
 
 ## Using the Supabase Python Client Library
 
@@ -202,4 +202,4 @@ If you prefer to use the [Supabase Python Client Library](https://pypi.org/proje
        st.write(f"{row['name']} has a :{row['pet']}:")
    ```
 
-   See `st.cache_data` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache_data`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Learn more in [Caching](/library/advanced-features/caching).
+   See `st.cache_data` above? Without it, Streamlit would run the query every time the app reruns (e.g. on a widget interaction). With `st.cache_data`, it only runs when the query changes or after 10 minutes (that's what `ttl` is for). Watch out: If your database updates more frequently, you should adapt `ttl` or remove caching so viewers always see the latest data. Learn more in [Caching](/develop/concepts/caching).

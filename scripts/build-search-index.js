@@ -11,13 +11,13 @@ const SKIP_THESE = [
   "/menu",
   "/404",
   "/500",
-  "/library/api-reference/performance/st.cache",
-  "/library/api-reference/performance/st.experimental_memo",
-  "/library/api-reference/performance/st.experimental_singleton",
-  "/library/api-reference/performance/st.experimental_singleton.clear",
-  "/library/api-reference/utilities/st.experimental_show",
-  "/library/advanced-features/st.cache",
-  "/library/advanced-features/experimental-cache-primitives",
+  "/develop/api-reference/performance/st.cache",
+  "/develop/api-reference/performance/st.experimental_memo",
+  "/develop/api-reference/performance/st.experimental_singleton",
+  "/develop/api-reference/performance/st.experimental_singleton.clear",
+  "/develop/api-reference/utilities/st.experimental_show",
+  "/develop/concepts/st.cache",
+  "/develop/concepts/experimental-cache-primitives",
 ];
 
 function getAllFilesInDirectory(articleDirectory, files) {

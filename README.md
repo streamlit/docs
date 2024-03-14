@@ -149,7 +149,7 @@ Do you want to add a new page to the docs?
 
 1. First, decide which section the page should live in (Streamlit Library, Streamlit Community Cloud, or Knowledge Base).
 
-2. Next, navigate to the relevant folder and subfolder within `content/` and create a `.md` file whose filename mirrors the title of the page. E.g. For a page titled "Create a component", navigate to `content/library/components/` and create a file named `create-component.md`.
+2. Next, navigate to the relevant folder and subfolder within `content/` and create a `.md` file whose filename mirrors the title of the page. E.g. For a page titled "Create a component", navigate to `content/develop/components/` and create a file named `create-component.md`.
 
 ### Structure of the `.md` file
 
@@ -159,12 +159,12 @@ Now that you've decided where the file should live and have named the file, it's
 
 Every `.md` file has front matter at the very top that defines the page title which appears in the browser tab bar, and the URL slug which appears after the slash in `docs.streamlit.io/` and `localhost:3000/`.
 
-E.g. For a page titled "Create a component" that should exist at `docs.streamlit.io/library/components/create`, the front matter at the top of `create-component.md` is:
+E.g. For a page titled "Create a component" that should exist at `docs.streamlit.io/develop/components/create`, the front matter at the top of `create-component.md` is:
 
 ```markdown
 ---
 title: Create a Component
-slug: /library/components/create
+slug: /develop/components/create
 ---
 ```
 
@@ -272,19 +272,19 @@ If you need to regenerate all function signatures, across all versions, delete t
 Suppose a new Streamlit release includes a `st.my_chart` function that you want to include in the "Chart elements" section of the API Reference:
 
 1. Run `make docstrings`
-2. Create Markdown file (`my_chart.md`) in `content/library/api/charts/`
+2. Create Markdown file (`my_chart.md`) in `content/develop/api/charts/`
 3. Add the following to `my_chart.md`:
 
    ```markdown
    ---
    title: st.my_chart
-   slug: /library/api-reference/charts/st.my_chart
+   slug: /develop/api-reference/charts/st.my_chart
    ---
 
    <Autofunction function="streamlit.my_chart" />
    ```
 
-4. Add the following under the "Chart elements" heading in `content/library/api/api-reference.md`:
+4. Add the following under the "Chart elements" heading in `content/develop/api/api-reference.md`:
    1. A RefCard MDX function containing the URL slug defined in `my_chart.md` . This is the card that will appear on the API Reference landing page.
    2. An Image MDX function containing alt text and the location of the image to be displayed on the card.
    3. A bold heading that will appear on the card (`#### Heading`). It appears below the card image.
@@ -292,7 +292,7 @@ Suppose a new Streamlit release includes a `st.my_chart` function that you want 
    5. A code block illustrating how to use `st.my_chart`. It appears below the card description and has a Copy icon that when clicked copies the code block to the users' clipboard.
 
 ````markdown
-    <RefCard href="/library/api-reference/charts/st.my_chart">
+    <RefCard href="/develop/api-reference/charts/st.my_chart">
     <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
     #### My charts
@@ -310,7 +310,7 @@ Suppose a new Streamlit release includes a `st.my_chart` function that you want 
 
    ```YAML
    - category: Streamlit Library / API Reference / Chart elements / st.my_chart
-     url: /library/api-reference/charts/st.my_chart
+     url: /develop/api-reference/charts/st.my_chart
    ```
 
 6. Save your changes and refresh the browser tab. If all went well, you should see a new entry in the Menu, a new card in the API Reference, and a new page for `st.my_chart`.

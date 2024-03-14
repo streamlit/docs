@@ -1,17 +1,17 @@
 ---
 title: Build a basic LLM chat app
-slug: /knowledge-base/tutorials/build-conversational-apps
+slug: /develop/tutorials/llms/build-conversational-apps
 ---
 
 # Build a basic LLM chat app
 
 ## Introduction
 
-The advent of large language models like GPT has revolutionized the ease of developing chat-based applications. Streamlit offers several [Chat elements](/library/api-reference/chat), enabling you to build Graphical User Interfaces (GUIs) for conversational agents or chatbots. Leveraging [session state](/library/advanced-features/session-state) along with these elements allows you to construct anything from a basic chatbot to a more advanced, ChatGPT-like experience using purely Python code.
+The advent of large language models like GPT has revolutionized the ease of developing chat-based applications. Streamlit offers several [Chat elements](/develop/api-reference/chat), enabling you to build Graphical User Interfaces (GUIs) for conversational agents or chatbots. Leveraging [session state](/develop/concepts/session-state) along with these elements allows you to construct anything from a basic chatbot to a more advanced, ChatGPT-like experience using purely Python code.
 
 In this tutorial, we'll start by walking through Streamlit's chat elements, `st.chat_message` and `st.chat_input`. Then we'll proceed to construct three distinct applications, each showcasing an increasing level of complexity and functionality:
 
-1. First, we'll [Build a bot that mirrors your input](#build-a-bot-that-mirrors-your-input) to get a feel for the chat elements and how they work. We'll also introduce [session state](/library/advanced-features/session-state) and how it can be used to store the chat history. This section will serve as a foundation for the rest of the tutorial.
+1. First, we'll [Build a bot that mirrors your input](#build-a-bot-that-mirrors-your-input) to get a feel for the chat elements and how they work. We'll also introduce [session state](/develop/concepts/session-state) and how it can be used to store the chat history. This section will serve as a foundation for the rest of the tutorial.
 2. Next, you'll learn how to [Build a simple chatbot GUI with streaming](#build-a-simple-chatbot-gui-with-streaming).
 3. Finally, we'll [Build a ChatGPT-like app](#build-a-chatgpt-like-app) that leverages session state to remember conversational context, all within less than 50 lines of code.
 
@@ -31,7 +31,7 @@ Before we start building, let's take a closer look at the chat elements we'll us
 
 Streamlit offers several commands to help you build conversational apps. These chat elements are designed to be used in conjunction with each other, but you can also use them separately.
 
-[`st.chat_message`](/library/api-reference/chat/st.chat_message) lets you insert a chat message container into the app so you can display messages from the user or the app. Chat containers can contain other Streamlit elements, including charts, tables, text, and more. [`st.chat_input`](/library/api-reference/chat/st.chat_input) lets you display a chat input widget so the user can type in a message.
+[`st.chat_message`](/develop/api-reference/chat/st.chat_message) lets you insert a chat message container into the app so you can display messages from the user or the app. Chat containers can contain other Streamlit elements, including charts, tables, text, and more. [`st.chat_input`](/develop/api-reference/chat/st.chat_input) lets you display a chat input widget so the user can type in a message.
 
 For an overview of the API, check out this video tutorial by Chanin Nantasenamat ([@dataprofessor](https://www.youtube.com/dataprofessor)), a Senior Developer Advocate at Streamlit.
 
@@ -55,7 +55,7 @@ with st.chat_message("user"):
 <Image src="/images/knowledge-base/chat-message-hello.png" clean />
 <br />
 
-Notice the message is displayed with a default avatar and styling since we passed in `"user"` as the author name. You can also pass in `"assistant"` as the author name to use a different default avatar and styling, or pass in a custom name and avatar. See the [API reference](/library/api-reference/chat/st.chat_message) for more details.
+Notice the message is displayed with a default avatar and styling since we passed in `"user"` as the author name. You can also pass in `"assistant"` as the author name to use a different default avatar and styling, or pass in a custom name and avatar. See the [API reference](/develop/api-reference/chat/st.chat_message) for more details.
 
 ```python
 import streamlit as st
@@ -99,7 +99,7 @@ Pretty straightforward, right? Now let's combine `st.chat_message` and `st.chat_
 
 ## Build a bot that mirrors your input
 
-In this section, we'll build a bot that mirrors or echoes your input. More specifically, the bot will respond to your input with the same message. We'll use `st.chat_message` to display the user's input and `st.chat_input` to accept user input. We'll also use [session state](/library/advanced-features/session-state) to store the chat history so we can display it in the chat message container.
+In this section, we'll build a bot that mirrors or echoes your input. More specifically, the bot will respond to your input with the same message. We'll use `st.chat_message` to display the user's input and `st.chat_input` to accept user input. We'll also use [session state](/develop/concepts/session-state) to store the chat history so we can display it in the chat message container.
 
 First, let's think about the different components we'll need to build our bot:
 
@@ -322,7 +322,7 @@ pip install openai streamlit
 
 ### Add OpenAI API key to Streamlit secrets
 
-Next, let's add our OpenAI API key to [Streamlit secrets](/library/advanced-features/secrets-management). We do this by creating `.streamlit/secrets.toml` file in our project directory and adding the following lines to it:
+Next, let's add our OpenAI API key to [Streamlit secrets](/develop/concepts/configuration/secrets-management). We do this by creating `.streamlit/secrets.toml` file in our project directory and adding the following lines to it:
 
 ```toml
 # .streamlit/secrets.toml

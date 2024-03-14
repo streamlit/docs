@@ -1,6 +1,6 @@
 ---
 title: ⋮ App menu
-slug: /library/advanced-features/app-menu
+slug: /develop/concepts/app-menu
 ---
 
 # <i style={{ verticalAlign: "-.25em", fontSize: "1em" }} className={{ class: "material-icons-sharp" }}>more_vert</i> App menu
@@ -15,7 +15,7 @@ The menu is split into two sections. The upper section contains options availabl
 
 ### Rerun
 
-You can manually trigger a rerun of your app by clicking "**Rerun**" from the app menu. This rerun will not reset your session. Your widget states and values stored in [`st.session_state`](/library/advanced-features/session-state) will be preserved. As a shortcut, without opening the app menu, you can rerun your app by pressing "**R**" on your keyboard (if you aren't currently focused on an input element).
+You can manually trigger a rerun of your app by clicking "**Rerun**" from the app menu. This rerun will not reset your session. Your widget states and values stored in [`st.session_state`](/develop/concepts/session-state) will be preserved. As a shortcut, without opening the app menu, you can rerun your app by pressing "**R**" on your keyboard (if you aren't currently focused on an input element).
 
 <div style={{ maxWidth: '30%', margin: 'auto' }}>
     <Image src="/images/app-menu/app-menu-rerun-XL.png" alt="Rerun" clean />
@@ -23,7 +23,7 @@ You can manually trigger a rerun of your app by clicking "**Rerun**" from the ap
 
 ### Settings
 
-With the "**Settings**" option, you can control the appearance of your app while it is running. If viewing the app locally, you can set how your app responds to changes in your source code. See more about development flow in [Main concepts](/get-started/fundamentals/main-concepts#development-flow). You can also force your app to appear in wide mode, even if not set within the script using [`st.set_page_config`](/library/api-reference/utilities/st.set_page_config).
+With the "**Settings**" option, you can control the appearance of your app while it is running. If viewing the app locally, you can set how your app responds to changes in your source code. See more about development flow in [Main concepts](/get-started/fundamentals/main-concepts#development-flow). You can also force your app to appear in wide mode, even if not set within the script using [`st.set_page_config`](/develop/api-reference/utilities/st.set_page_config).
 
 <div style={{ maxWidth: '30%', margin: 'auto' }}>
     <Image src="/images/app-menu/app-menu-settings-XL.png" alt="Settings" clean />
@@ -103,7 +103,7 @@ The whole process looks like this:
 
 ### About
 
-You can conveniently check what version of Streamlit is running from the "**About**" option. Developers also have the option to customize the message shown here using [`st.set_page_config`](/library/api-reference/utilities/st.set_page_config).
+You can conveniently check what version of Streamlit is running from the "**About**" option. Developers also have the option to customize the message shown here using [`st.set_page_config`](/develop/api-reference/utilities/st.set_page_config).
 
 <div style={{ maxWidth: '30%', margin: 'auto' }}>
     <Image src="/images/app-menu/app-menu-about-XL.png" alt="Rerun" clean />
@@ -115,7 +115,7 @@ By default, developer options only show when viewing an app locally or when view
 
 ### Clear cache
 
-Reset your app's cache by clicking "**Clear cache**" from the app's menu or by pressing "**C**" on your keyboard while not focused on an input element. This will remove all cached entries for [`@st.cache_data`](/library/api-reference/performance/st.cache_data) and [`@st.cache_resource`](/library/api-reference/performance/st.cache_resource).
+Reset your app's cache by clicking "**Clear cache**" from the app's menu or by pressing "**C**" on your keyboard while not focused on an input element. This will remove all cached entries for [`@st.cache_data`](/develop/api-reference/performance/st.cache_data) and [`@st.cache_resource`](/develop/api-reference/performance/st.cache_resource).
 
 <div style={{ maxWidth: '30%', margin: 'auto' }}>
     <Image src="/images/app-menu/app-menu-clear-XL.png" alt="Rerun" clean />
@@ -123,7 +123,7 @@ Reset your app's cache by clicking "**Clear cache**" from the app's menu or by p
 
 ### Deploy this app
 
-If you are running an app locally from within a git repo, you can deploy your app to Streamlit Community Cloud in a few easy clicks! Make sure your work has been pushed to your online GitHub repository before beginning. For the greatest convenience, make sure you have already created your [Community Cloud account](/streamlit-community-cloud/get-started/create-your-account) and are signed in.
+If you are running an app locally from within a git repo, you can deploy your app to Streamlit Community Cloud in a few easy clicks! Make sure your work has been pushed to your online GitHub repository before beginning. For the greatest convenience, make sure you have already created your [Community Cloud account](/deploy/streamlit-community-cloud/get-started/create-your-account) and are signed in.
 
 1. Click "**Deploy**" next to the app menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>).
 
@@ -137,7 +137,7 @@ If you are running an app locally from within a git repo, you can deploy your ap
     <Image src="/images/app-menu/app-menu-deploy-1.png" alt="Settings" />
 </div>
 
-3. You will be taken to Community Cloud's "Deploy an app" page. Your app's repository, branch, and file name will be prefilled to match your current app! Learn more about [deploying an app](/streamlit-community-cloud/deploy-your-app) on Streamlit Community Cloud.
+3. You will be taken to Community Cloud's "Deploy an app" page. Your app's repository, branch, and file name will be prefilled to match your current app! Learn more about [deploying an app](/deploy/streamlit-community-cloud/deploy-your-app) on Streamlit Community Cloud.
 
 The whole process looks like this:
 
@@ -147,9 +147,9 @@ The whole process looks like this:
 
 ## Customize the menu
 
-Using `client.toolbarMode` in your app's [configuration](/library/advanced-features/configuration), you can make the app menu appear in the following ways:
+Using `client.toolbarMode` in your app's [configuration](/develop/concepts/configuration), you can make the app menu appear in the following ways:
 
 - `"developer"` &mdash; Show the developer options to all viewers.
 - `"viewer"` &mdash; Hide the developer options from all viewers.
-- `"minimal"` &mdash; Show only those options set externally. These options can be declared through [`st.set_page_config`](/library/api-reference/utilities/st.set_page_config) or populated through Streamlit Community Cloud.
+- `"minimal"` &mdash; Show only those options set externally. These options can be declared through [`st.set_page_config`](/develop/api-reference/utilities/st.set_page_config) or populated through Streamlit Community Cloud.
 - `"auto"` &mdash; This is the default and will show the developer options when accessed through localhost or through Streamlit Community Cloud when logged into an administrative account for the app. Otherwise, the developer options will not show.

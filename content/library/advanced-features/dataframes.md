@@ -1,11 +1,11 @@
 ---
 title: Dataframes
-slug: /library/advanced-features/dataframes
+slug: /develop/concepts/dataframes
 ---
 
 # Dataframes
 
-Dataframes are a great way to display and edit data in a tabular format. Working with Pandas DataFrames and other tabular data structures is key to data science workflows. If developers and data scientists want to display this data in Streamlit, they have multiple options: `st.dataframe` and `st.data_editor`. If you want to solely display data in a table-like UI, [st.dataframe](/library/api-reference/data/st.dataframe) is the way to go. If you want to interactively edit data, use [st.data_editor](/library/api-reference/data/st.data_editor). We explore the use cases and advantages of each option in the following sections.
+Dataframes are a great way to display and edit data in a tabular format. Working with Pandas DataFrames and other tabular data structures is key to data science workflows. If developers and data scientists want to display this data in Streamlit, they have multiple options: `st.dataframe` and `st.data_editor`. If you want to solely display data in a table-like UI, [st.dataframe](/develop/api-reference/data/st.dataframe) is the way to go. If you want to interactively edit data, use [st.data_editor](/develop/api-reference/data/st.data_editor). We explore the use cases and advantages of each option in the following sections.
 
 ## Display dataframes with st.dataframe
 
@@ -48,7 +48,7 @@ In addition to Pandas DataFrames, `st.dataframe` also supports other common Pyth
 
 ## Edit data with st.data_editor
 
-Streamlit supports editable dataframes via the `st.data_editor` command. Check out its API in [st.data_editor](/library/api-reference/data/st.data_editor). It shows the dataframe in a table, similar to `st.dataframe`. But in contrast to `st.dataframe`, this table isn't static! The user can click on cells and edit them. The edited data is then returned on the Python side. Here's an example:
+Streamlit supports editable dataframes via the `st.data_editor` command. Check out its API in [st.data_editor](/develop/api-reference/data/st.data_editor). It shows the dataframe in a table, similar to `st.dataframe`. But in contrast to `st.dataframe`, this table isn't static! The user can click on cells and edit them. The edited data is then returned on the Python side. Here's an example:
 
 ```python
 df = pd.DataFrame(
@@ -123,7 +123,7 @@ As developers, ensure the app is served with a valid, trusted certificate when u
 
 ### Access edited data
 
-Sometimes, it is more convenient to know which cells have been changed rather than getting the entire edited dataframe back. Streamlit makes this easy through the use of [Session State](https://docs.streamlit.io/library/advanced-features/session-state). If a `key` parameter is set, Streamlit will store any changes made to the dataframe in Session State.
+Sometimes, it is more convenient to know which cells have been changed rather than getting the entire edited dataframe back. Streamlit makes this easy through the use of [Session State](https://docs.streamlit.io/develop/concepts/session-state). If a `key` parameter is set, Streamlit will store any changes made to the dataframe in Session State.
 
 This snippet shows how you can access changed data using Session State:
 
@@ -161,7 +161,7 @@ The data editor includes a feature that allows for bulk editing of cells. Simila
 
 ### Edit common data structures
 
-Editing doesn't just work for Pandas DataFrames! You can also edit lists, tuples, sets, dictionaries, NumPy arrays, or Snowpark & PySpark DataFrames. Most data types will be returned in their original format. But some types (e.g. Snowpark and PySpark) are converted to Pandas DataFrames. To learn about all the supported types, read the [st.data_editor](/library/api-reference/data/st.data_editor) API.
+Editing doesn't just work for Pandas DataFrames! You can also edit lists, tuples, sets, dictionaries, NumPy arrays, or Snowpark & PySpark DataFrames. Most data types will be returned in their original format. But some types (e.g. Snowpark and PySpark) are converted to Pandas DataFrames. To learn about all the supported types, read the [st.data_editor](/develop/api-reference/data/st.data_editor) API.
 
 For example, you can easily let the user add items to a list:
 
@@ -202,19 +202,19 @@ st.data_editor({
 
 ### Automatic input validation
 
-The data editor includes automatic input validation to help prevent errors when editing cells. For example, if you have a column that contains numerical data, the input field will automatically restrict the user to only entering numerical data. This helps to prevent errors that could occur if the user were to accidentally enter a non-numerical value. Additional input validation can be configured through the [Column configuration API](/library/api-reference/data/st.column_config). Keep reading below for an overview of column configuration, including validation options.
+The data editor includes automatic input validation to help prevent errors when editing cells. For example, if you have a column that contains numerical data, the input field will automatically restrict the user to only entering numerical data. This helps to prevent errors that could occur if the user were to accidentally enter a non-numerical value. Additional input validation can be configured through the [Column configuration API](/develop/api-reference/data/st.column_config). Keep reading below for an overview of column configuration, including validation options.
 
 ## Configuring columns
 
-You can configure the display and editing behavior of columns in `st.dataframe` and `st.data_editor` via the [Column configuration API](/library/api-reference/data/st.column_config). We have developed the API to let you add images, charts, and clickable URLs in dataframe and data editor columns. Additionally, you can make individual columns editable, set columns as categorical and specify which options they can take, hide the index of the dataframe, and much more.
+You can configure the display and editing behavior of columns in `st.dataframe` and `st.data_editor` via the [Column configuration API](/develop/api-reference/data/st.column_config). We have developed the API to let you add images, charts, and clickable URLs in dataframe and data editor columns. Additionally, you can make individual columns editable, set columns as categorical and specify which options they can take, hide the index of the dataframe, and much more.
 
-Column configuration includes the following column types: Text, Number, Checkbox, Selectbox, Date, Time, Datetime, List, Link, Image, Line chart, Bar chart, and Progress. There is also a generic Column option. See the embedded app below to view these different column types. Each column type is individually previewed in the [Column configuration API](/library/api-reference/data/st.column_config) documentation.
+Column configuration includes the following column types: Text, Number, Checkbox, Selectbox, Date, Time, Datetime, List, Link, Image, Line chart, Bar chart, and Progress. There is also a generic Column option. See the embedded app below to view these different column types. Each column type is individually previewed in the [Column configuration API](/develop/api-reference/data/st.column_config) documentation.
 
 <Cloud src="https://doc-column-config-overview.streamlit.app/?embed=true&embed_options=disable_scrolling" height="480"/>
 
 ### Format values
 
-A `format` parameter is available in column configuration for [Text](/library/api-reference/data/st.column_config/st.column_config.textcolumn), [Date](/library/api-reference/data/st.column_config/st.column_config.datecolumn), [Time](/library/api-reference/data/st.column_config/st.column_config.timecolumn), and [Datetime](/library/api-reference/data/st.column_config/st.column_config.datetimecolumn) columns. Chart-like columns can also be formatted. [Line chart](/library/api-reference/data/st.column_config/st.column_config.linechartcolumn) and [Bar chart](/library/api-reference/data/st.column_config/st.column_config.barchartcolumn) columns have a `y_min` and `y_max` parameters to set the vertical bounds. For a [Progress column](/library/api-reference/data/st.column_config/st.column_config.progresscolumn), you can declare the horizontal bounds with `min_value` and `max_value`.
+A `format` parameter is available in column configuration for [Text](/develop/api-reference/data/st.column_config/st.column_config.textcolumn), [Date](/develop/api-reference/data/st.column_config/st.column_config.datecolumn), [Time](/develop/api-reference/data/st.column_config/st.column_config.timecolumn), and [Datetime](/develop/api-reference/data/st.column_config/st.column_config.datetimecolumn) columns. Chart-like columns can also be formatted. [Line chart](/develop/api-reference/data/st.column_config/st.column_config.linechartcolumn) and [Bar chart](/develop/api-reference/data/st.column_config/st.column_config.barchartcolumn) columns have a `y_min` and `y_max` parameters to set the vertical bounds. For a [Progress column](/develop/api-reference/data/st.column_config/st.column_config.progresscolumn), you can declare the horizontal bounds with `min_value` and `max_value`.
 
 ### Validate input
 
@@ -260,7 +260,7 @@ In addition to column configuration, `st.dataframe` and `st.data_editor` have a 
 
 `st.dataframe` and `st.data_editor` have been designed to theoretically handle tables with millions of rows thanks to their highly performant implementation using the glide-data-grid library and HTML canvas. However, the maximum amount of data that an app can realistically handle will depend on several other factors, including:
 
-1. The maximum size of WebSocket messages: Streamlit's WebSocket messages are configurable via the `server.maxMessageSize` [config option](https://docs.streamlit.io/library/advanced-features/configuration#view-all-configuration-options), which limits the amount of data that can be transferred via the WebSocket connection at once.
+1. The maximum size of WebSocket messages: Streamlit's WebSocket messages are configurable via the `server.maxMessageSize` [config option](https://docs.streamlit.io/develop/concepts/configuration#view-all-configuration-options), which limits the amount of data that can be transferred via the WebSocket connection at once.
 2. The server memory: The amount of data that your app can handle will also depend on the amount of memory available on your server. If the server's memory is exceeded, the app may become slow or unresponsive.
 3. The user's browser memory: Since all the data needs to be transferred to the user's browser for rendering, the amount of memory available on the user's device can also affect the app's performance. If the browser's memory is exceeded, it may crash or become unresponsive.
 
@@ -272,7 +272,7 @@ When handling large datasets with more than 150,000 rows, Streamlit applies addi
 
 - Streamlit casts all column names to strings internally, so `st.data_editor` will return a DataFrame where all column names are strings.
 - The dataframe toolbar is not currently configurable.
-- While Streamlit's data editing capabilities offer a lot of functionality, editing is enabled for a limited set of column types ([TextColumn](/library/api-reference/data/st.column_config/st.column_config.textcolumn), [NumberColumn](/library/api-reference/data/st.column_config/st.column_config.numbercolumn), [LinkColumn](/library/api-reference/data/st.column_config/st.column_config.linkcolumn), [CheckboxColumn](/library/api-reference/data/st.column_config/st.column_config.checkboxcolumn), [SelectboxColumn](/library/api-reference/data/st.column_config/st.column_config.selectboxcolumn), [DateColumn](/library/api-reference/data/st.column_config/st.column_config.datecolumn), [TimeColumn](/library/api-reference/data/st.column_config/st.column_config.timecolumn), and [DatetimeColumn](/library/api-reference/data/st.column_config/st.column_config.datetimecolumn)). We are actively working on supporting editing for other column types as well, such as images, lists, and charts.
+- While Streamlit's data editing capabilities offer a lot of functionality, editing is enabled for a limited set of column types ([TextColumn](/develop/api-reference/data/st.column_config/st.column_config.textcolumn), [NumberColumn](/develop/api-reference/data/st.column_config/st.column_config.numbercolumn), [LinkColumn](/develop/api-reference/data/st.column_config/st.column_config.linkcolumn), [CheckboxColumn](/develop/api-reference/data/st.column_config/st.column_config.checkboxcolumn), [SelectboxColumn](/develop/api-reference/data/st.column_config/st.column_config.selectboxcolumn), [DateColumn](/develop/api-reference/data/st.column_config/st.column_config.datecolumn), [TimeColumn](/develop/api-reference/data/st.column_config/st.column_config.timecolumn), and [DatetimeColumn](/develop/api-reference/data/st.column_config/st.column_config.datetimecolumn)). We are actively working on supporting editing for other column types as well, such as images, lists, and charts.
 - Almost all editable datatypes are supported for index editing. However, `pandas.CategoricalIndex` and `pandas.MultiIndex` are not supported for editing.
 - Sorting is not supported for `st.data_editor` when `num_rows="dynamic"`.
 - Sorting is deactivated to optimize performance on large datasets with more than 150,000 rows.

@@ -1,16 +1,16 @@
 ---
 title: Connect to data sources
-slug: /knowledge-base/tutorials/databases
+slug: /develop/tutorials/databases
 ---
 
 # Connect Streamlit to data sources
 
 These step-by-step guides demonstrate how to connect Streamlit apps to various databases & APIs.
-They use Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management) and
-[caching](/library/advanced-features/caching) to provide secure and fast data access.
+They use Streamlit's [Secrets management](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management) and
+[caching](/develop/concepts/caching) to provide secure and fast data access.
 
 <DataSourcesContainer>
-<DataSourcesCard href="/knowledge-base/tutorials/databases/aws-s3">
+<DataSourcesCard href="/develop/tutorials/databases/aws-s3">
 
 <Image pure alt="screenshot" src="/images/databases/s3.png" />
 
@@ -18,7 +18,7 @@ They use Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your
 
 </DataSourcesCard>
 
-<DataSourcesCard href="/knowledge-base/tutorials/databases/bigquery">
+<DataSourcesCard href="/develop/tutorials/databases/bigquery">
 
 <Image pure alt="screenshot" src="/images/databases/bigquery.png" />
 
@@ -26,7 +26,7 @@ They use Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your
 
 </DataSourcesCard>
 
-<DataSourcesCard href="/knowledge-base/tutorials/databases/deta-base">
+<DataSourcesCard href="/develop/tutorials/databases/deta-base">
 
 <Image pure alt="screenshot" src="/images/databases/deta-base.png" />
 
@@ -42,7 +42,7 @@ They use Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your
 
 </DataSourcesCard>
 
-<DataSourcesCard href="/knowledge-base/tutorials/databases/gcs">
+<DataSourcesCard href="/develop/tutorials/databases/gcs">
 
 <Image pure alt="screenshot" src="/images/databases/gcs.png" />
 
@@ -50,7 +50,7 @@ They use Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your
 
 </DataSourcesCard>
 
-<DataSourcesCard href="/knowledge-base/tutorials/databases/mssql">
+<DataSourcesCard href="/develop/tutorials/databases/mssql">
 
 <Image pure alt="screenshot" src="/images/databases/mssql.png" />
 
@@ -58,7 +58,7 @@ They use Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your
 
 </DataSourcesCard>
 
-<DataSourcesCard href="/knowledge-base/tutorials/databases/mongodb">
+<DataSourcesCard href="/develop/tutorials/databases/mongodb">
 
 <Image pure alt="screenshot" src="/images/databases/mongodb.png" />
 
@@ -66,7 +66,7 @@ They use Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your
 
 </DataSourcesCard>
 
-<DataSourcesCard href="/knowledge-base/tutorials/databases/mysql">
+<DataSourcesCard href="/develop/tutorials/databases/mysql">
 
 <Image pure alt="screenshot" src="/images/databases/mysql.png" />
 
@@ -74,7 +74,7 @@ They use Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your
 
 </DataSourcesCard>
 
-<DataSourcesCard href="/knowledge-base/tutorials/databases/postgresql">
+<DataSourcesCard href="/develop/tutorials/databases/postgresql">
 
 <Image pure alt="screenshot" src="/images/databases/postgresql.png" />
 
@@ -82,7 +82,7 @@ They use Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your
 
 </DataSourcesCard>
 
-<DataSourcesCard href="/knowledge-base/tutorials/databases/private-gsheet">
+<DataSourcesCard href="/develop/tutorials/databases/private-gsheet">
 
 <Image pure alt="screenshot" src="/images/databases/gsheet.png" />
 
@@ -90,7 +90,7 @@ They use Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your
 
 </DataSourcesCard>
 
-<DataSourcesCard href="/knowledge-base/tutorials/databases/public-gsheet">
+<DataSourcesCard href="/develop/tutorials/databases/public-gsheet">
 
 <Image pure alt="screenshot" src="/images/databases/gsheet.png" />
 
@@ -98,7 +98,7 @@ They use Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your
 
 </DataSourcesCard>
 
-<DataSourcesCard href="/knowledge-base/tutorials/databases/snowflake">
+<DataSourcesCard href="/develop/tutorials/databases/snowflake">
 
 <Image pure alt="screenshot" src="/images/databases/snowflake.png" />
 
@@ -106,7 +106,7 @@ They use Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your
 
 </DataSourcesCard>
 
-<DataSourcesCard href="/knowledge-base/tutorials/databases/supabase">
+<DataSourcesCard href="/develop/tutorials/databases/supabase">
 
 <Image pure alt="screenshot" src="/images/databases/supabase.png" />
 
@@ -114,7 +114,7 @@ They use Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your
 
 </DataSourcesCard>
 
-<DataSourcesCard href="/knowledge-base/tutorials/databases/tableau">
+<DataSourcesCard href="/develop/tutorials/databases/tableau">
 
 <Image pure alt="screenshot" src="/images/databases/tableau.png" />
 
@@ -122,7 +122,7 @@ They use Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your
 
 </DataSourcesCard>
 
-<DataSourcesCard href="/knowledge-base/tutorials/databases/tidb">
+<DataSourcesCard href="/develop/tutorials/databases/tidb">
 
 <Image pure alt="screenshot" src="/images/databases/tidb.png" />
 
@@ -130,7 +130,7 @@ They use Streamlit's [Secrets management](/streamlit-community-cloud/deploy-your
 
 </DataSourcesCard>
 
-<DataSourcesCard href="/knowledge-base/tutorials/databases/tigergraph">
+<DataSourcesCard href="/develop/tutorials/databases/tigergraph">
 
 <Image pure alt="screenshot" src="/images/databases/tigergraph.png" />
 

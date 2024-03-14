@@ -29,7 +29,7 @@ st.dataframe(pet_owners)
     )
 
 with tab2:
-    "Compared to [Streamlit's original MySQL tutorial](https://web.archive.org/web/20230330050343/https://docs.streamlit.io/knowledge-base/tutorials/databases/mysql#write-your-streamlit-app)"
+    "Compared to [Streamlit's original MySQL tutorial](https://web.archive.org/web/20230330050343/https://docs.streamlit.io/develop/tutorials/databases/mysql#write-your-streamlit-app)"
 
     st.code("""
 import streamlit as st
@@ -66,5 +66,5 @@ st.experimental_connection includes:
 
 👈 Pick a data source to see how easy it is!
 
-[Learn more in the API docs.](https://docs.streamlit.io/library/api-reference/connections)
+[Learn more in the API docs.](https://docs.streamlit.io/develop/api-reference/connections)
 """

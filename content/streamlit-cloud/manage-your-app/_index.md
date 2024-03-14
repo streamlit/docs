@@ -1,6 +1,6 @@
 ---
 title: Manage your app
-slug: /streamlit-community-cloud/manage-your-app
+slug: /deploy/streamlit-community-cloud/manage-your-app
 ---
 
 # Manage your app
@@ -17,19 +17,19 @@ To deploy or manage any app, always switch to the workspace matching the reposit
 
 ![Switching between app workspaces in Streamlit Community Cloud](/images/streamlit-community-cloud/workspace-switch.png)
 
-At the top of your workspace, "**Analytics**" is a shortcut to [App analytics](/streamlit-community-cloud/manage-your-app/app-analytics) and "**Settings**" links to your [Workspace settings](/streamlit-community-cloud/manage-your-account/workspace-settings) (not to be confused with [App settings](/streamlit-community-cloud/manage-your-app/app-settings) for each of your apps).
+At the top of your workspace, "**Analytics**" is a shortcut to [App analytics](/deploy/streamlit-community-cloud/manage-your-app/app-analytics) and "**Settings**" links to your [Workspace settings](/deploy/streamlit-community-cloud/manage-your-account/workspace-settings) (not to be confused with [App settings](/deploy/streamlit-community-cloud/manage-your-app/app-settings) for each of your apps).
 
 ### App overflow menus
 
 Each app has a menu accessible from the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) to the right.
 
-- **Copy URL** &mdash; See [Copy your app's URL](/streamlit-community-cloud/share-your-app#copy-your-apps-url)
-- **Edit** &mdash; See [Edit your app with GitHub Codespaces](/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces)
-- **Favorite** &mdash; See [Favorite your app](/streamlit-community-cloud/manage-your-app/favorite-your-app)
-- **Analytics** &mdash; See [App analytics](/streamlit-community-cloud/manage-your-app/app-analytics)
-- **Reboot** &mdash; See [Reboot your app](/streamlit-community-cloud/manage-your-app/reboot-your-app)
-- **Delete** &mdash; See [Delete your app](/streamlit-community-cloud/manage-your-app/delete-your-app)
-- **Settings** &mdash; See [App settings](/streamlit-community-cloud/manage-your-app/app-settings)
+- **Copy URL** &mdash; See [Copy your app's URL](/deploy/streamlit-community-cloud/share-your-app#copy-your-apps-url)
+- **Edit** &mdash; See [Edit your app with GitHub Codespaces](/deploy/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces)
+- **Favorite** &mdash; See [Favorite your app](/deploy/streamlit-community-cloud/manage-your-app/favorite-your-app)
+- **Analytics** &mdash; See [App analytics](/deploy/streamlit-community-cloud/manage-your-app/app-analytics)
+- **Reboot** &mdash; See [Reboot your app](/deploy/streamlit-community-cloud/manage-your-app/reboot-your-app)
+- **Delete** &mdash; See [Delete your app](/deploy/streamlit-community-cloud/manage-your-app/delete-your-app)
+- **Settings** &mdash; See [App settings](/deploy/streamlit-community-cloud/manage-your-app/app-settings)
 
 ![App overflow menu in your workspace](/images/streamlit-community-cloud/workspace-app-overflow.png)
 
@@ -61,10 +61,10 @@ You can manage your deployed app directly from the app itself! Just make sure yo
 
 Other options accessible from Cloud logs are:
 
-- **Analytics** &mdash; See [App analytics](/streamlit-community-cloud/manage-your-app/app-analytics).
-- **Reboot app** &mdash; See [Reboot your app](/streamlit-community-cloud/manage-your-app/reboot-your-app).
-- **Delete app** &mdash; See [Delete your app](/streamlit-community-cloud/manage-your-app/delete-your-app).
-- **Settings** &mdash; See [App settings](/streamlit-community-cloud/manage-your-app/app-settings).
+- **Analytics** &mdash; See [App analytics](/deploy/streamlit-community-cloud/manage-your-app/app-analytics).
+- **Reboot app** &mdash; See [Reboot your app](/deploy/streamlit-community-cloud/manage-your-app/reboot-your-app).
+- **Delete app** &mdash; See [Delete your app](/deploy/streamlit-community-cloud/manage-your-app/delete-your-app).
+- **Settings** &mdash; See [App settings](/deploy/streamlit-community-cloud/manage-your-app/app-settings).
 - **Your apps** &mdash; Takes you to your [app workspace](#manage-your-app-from-your-workspace).
 - **Documentation** &mdash; Takes you to our documentation.
 - **Support** &mdash; Takes you to <a href="https://discuss.streamlit.io/" target="_blank">our forums</a>!
@@ -79,7 +79,7 @@ Other options accessible from Cloud logs are:
 
 ### App menus
 
-From your app at `<your-custom-subdomain>.streamlit.app`, you can always access your [app's menu](/library/advanced-features/app-menu) just like you can when developing locally. The option to deploy your app is removed, but you can still clear your cache from here.
+From your app at `<your-custom-subdomain>.streamlit.app`, you can always access your [app's menu](/develop/concepts/app-menu) just like you can when developing locally. The option to deploy your app is removed, but you can still clear your cache from here.
 
 ![App menus in Streamlit Community Cloud](/images/streamlit-community-cloud/app-menu.png)
 

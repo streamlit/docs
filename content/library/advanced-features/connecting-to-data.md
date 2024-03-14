@@ -1,18 +1,18 @@
 ---
 title: Connecting to data
-slug: /library/advanced-features/connecting-to-data
+slug: /develop/concepts/connecting-to-data
 ---
 
 # Connecting to data
 
 Most Streamlit apps need some kind of data or API access to be useful - either retrieving data to view or saving the results of some user action. This data or API is often part of some remote service, database, or other data source.
 
-**Anything you can do with Python, including data connections, will generally work in Streamlit**. Streamlit's [tutorials](/knowledge-base/tutorials/databases) are a great starting place for many data sources. However:
+**Anything you can do with Python, including data connections, will generally work in Streamlit**. Streamlit's [tutorials](/develop/tutorials/databases) are a great starting place for many data sources. However:
 
 - Connecting to data in a Python application is often tedious and annoying.
 - There are specific considerations for connecting to data from streamlit apps, such as caching and secrets management.
 
-**Streamlit provides [`st.connection()`](/library/api-reference/connections/st.connection) to more easily connect your Streamlit apps to data and APIs with just a few lines of code**. This page provides a basic example of using the feature and then focuses on advanced usage.
+**Streamlit provides [`st.connection()`](/develop/api-reference/connections/st.connection) to more easily connect your Streamlit apps to data and APIs with just a few lines of code**. This page provides a basic example of using the feature and then focuses on advanced usage.
 
 For a comprehensive overview of this feature, check out this video tutorial by Joshua Carroll, Streamlit's Product Manager for Developer Experience. You'll learn about the feature's utility in creating and managing data connections within your apps by using real-world examples.
 
@@ -20,7 +20,7 @@ For a comprehensive overview of this feature, check out this video tutorial by J
 
 ## Basic usage
 
-For basic startup and usage examples, read up on the relevant [data source tutorial](/knowledge-base/tutorials/databases). Streamlit has built-in connections to SQL dialects and Snowflake. We also maintain installable connections for [Cloud File Storage](https://github.com/streamlit/files-connection) and [Google Sheets](https://github.com/streamlit/gsheets-connection).
+For basic startup and usage examples, read up on the relevant [data source tutorial](/develop/tutorials/databases). Streamlit has built-in connections to SQL dialects and Snowflake. We also maintain installable connections for [Cloud File Storage](https://github.com/streamlit/files-connection) and [Google Sheets](https://github.com/streamlit/gsheets-connection).
 
 If you are just starting, the best way to learn is to pick a data source you can access and get a minimal example working from one of the pages above 👆. Here, we will provide an ultra-minimal usage example for using a SQLite database. From there, the rest of this page will focus on advanced usage.
 
@@ -40,7 +40,7 @@ To see the example below running live, check out the interactive demo below:
 
 #### Step 1: Install prerequisite library - SQLAlchemy
 
-All SQLConnections in Streamlit use SQLAlchemy. For most other SQL dialects, you also need to install the driver. But the [SQLite driver ships with python3](https://docs.python.org/3/library/sqlite3.html), so it isn't necessary.
+All SQLConnections in Streamlit use SQLAlchemy. For most other SQL dialects, you also need to install the driver. But the [SQLite driver ships with python3](https://docs.python.org/3/develop/sqlite3.html), so it isn't necessary.
 
 ```bash
 pip install SQLAlchemy==1.4.0
@@ -86,7 +86,7 @@ pet_owners = conn.query('select * from pet_owners')
 st.dataframe(pet_owners)
 ```
 
-In this example, we didn't set a `ttl=` value on the call to [`conn.query()`](/library/api-reference/connections/st.connections.sqlconnection#sqlconnectionquery), meaning Streamlit caches the result indefinitely as long as the app server runs.
+In this example, we didn't set a `ttl=` value on the call to [`conn.query()`](/develop/api-reference/connections/st.connections.sqlconnection#sqlconnectionquery), meaning Streamlit caches the result indefinitely as long as the app server runs.
 
 Now, on to more advanced topics! 🚀
 
@@ -94,7 +94,7 @@ Now, on to more advanced topics! 🚀
 
 ### Global secrets, managing multiple apps and multiple data stores
 
-Streamlit [supports a global secrets file](/library/advanced-features/secrets-management) specified in the user's home directory, such as `~/.streamlit/secrets.toml`. If you build or manage multiple apps, we recommend using a global credential or secret file for local development across apps. With this approach, you only need to set up and manage your credentials in one place, and connecting a new app to your existing data sources is effectively a one-liner. It also reduces the risk of accidentally checking in your credentials to git since they don't need to exist in the project repository.
+Streamlit [supports a global secrets file](/develop/concepts/configuration/secrets-management) specified in the user's home directory, such as `~/.streamlit/secrets.toml`. If you build or manage multiple apps, we recommend using a global credential or secret file for local development across apps. With this approach, you only need to set up and manage your credentials in one place, and connecting a new app to your existing data sources is effectively a one-liner. It also reduces the risk of accidentally checking in your credentials to git since they don't need to exist in the project repository.
 
 For cases where you have multiple similar data sources that you connect to during local development (such as a local vs. staging database), you can define different connection sections in your secrets or credentials file for different environments and then decide which to use at runtime. `st.connection` supports this with the _`name=env:<MY_NAME_VARIABLE>`_ syntax.
 
@@ -133,9 +133,9 @@ DB_CONN=staging streamlit run streamlit_app.py
 
 ### Advanced SQLConnection configuration
 
-The [SQLConnection](/library/api-reference/connections/st.connections.sqlconnection) configuration uses SQLAlchemy `create_engine()` function. It will take a single URL argument or attempt to construct a URL from several parts (username, database, host, and so on) using [`SQLAlchemy.engine.URL.create()`](https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.engine.URL.create).
+The [SQLConnection](/develop/api-reference/connections/st.connections.sqlconnection) configuration uses SQLAlchemy `create_engine()` function. It will take a single URL argument or attempt to construct a URL from several parts (username, database, host, and so on) using [`SQLAlchemy.engine.URL.create()`](https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.engine.URL.create).
 
-Several popular SQLAlchemy dialects, such as Snowflake and Google BigQuery, can be configured using additional arguments to `create_engine()` besides the URL. These can be passed as `**kwargs` to the [st.connection](/library/api-reference/connections/st.connection) call directly or specified in an additional secrets section called `create_engine_kwargs`.
+Several popular SQLAlchemy dialects, such as Snowflake and Google BigQuery, can be configured using additional arguments to `create_engine()` besides the URL. These can be passed as `**kwargs` to the [st.connection](/develop/api-reference/connections/st.connection) call directly or specified in an additional secrets section called `create_engine_kwargs`.
 
 E.g. snowflake-sqlalchemy takes an additional [`connect_args`](https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine.params.connect_args) argument as a dictionary for configuration that isn’t supported in the URL. These could be specified as follows:
 
@@ -186,11 +186,11 @@ You can also provide both kwargs and secrets.toml values, and they will be merge
 
 ### Connection considerations in frequently used or long-running apps
 
-By default, connection objects are cached without expiration using [`st.cache_resource`](/library/api-reference/performance/st.cache_resource). In most cases this is desired. You can do `st.connection('myconn', type=MyConnection, ttl=<N>)` if you want the connection object to expire after some time.
+By default, connection objects are cached without expiration using [`st.cache_resource`](/develop/api-reference/performance/st.cache_resource). In most cases this is desired. You can do `st.connection('myconn', type=MyConnection, ttl=<N>)` if you want the connection object to expire after some time.
 
 Many connection types are expected to be long-running or completely stateless, so expiration is unnecessary. Suppose a connection becomes stale (such as a cached token expiring or a server-side connection being closed). In that case, every connection has a `reset()` method, which will invalidate the cached version and cause Streamlit to recreate the connection the next time it is retrieved
 
-Convenience methods like `query()` and `read()` will typically cache results by default using [`st.cache_data`](/library/api-reference/performance/st.cache_data) without an expiration. When an app can run many different read operations with large results, it can cause high memory usage over time and results to become stale in a long-running app, the same as with any other usage of `st.cache_data`. For production use cases, we recommend setting an appropriate `ttl` on these read operations, such as `conn.read('path/to/file', ttl="1d")`. Refer to [Caching](/library/advanced-features/caching) for more information.
+Convenience methods like `query()` and `read()` will typically cache results by default using [`st.cache_data`](/develop/api-reference/performance/st.cache_data) without an expiration. When an app can run many different read operations with large results, it can cause high memory usage over time and results to become stale in a long-running app, the same as with any other usage of `st.cache_data`. For production use cases, we recommend setting an appropriate `ttl` on these read operations, such as `conn.read('path/to/file', ttl="1d")`. Refer to [Caching](/develop/concepts/caching) for more information.
 
 For apps that could get significant concurrent usage, ensure that you understand any thread safety implications of your connection, particularly when using a connection built by a third party. Connections built by Streamlit should provide thread-safe operations by default.
 
@@ -206,7 +206,7 @@ Check out the [Build your own Connection page](https://experimental-connection.s
 
 The typical steps are:
 
-1. Declare the Connection class, extending [`ExperimentalBaseConnection`](/library/api-reference/connections/st.connections.experimentalbaseconnection) with the type parameter bound to the underlying connection object:
+1. Declare the Connection class, extending [`ExperimentalBaseConnection`](/develop/api-reference/connections/st.connections.experimentalbaseconnection) with the type parameter bound to the underlying connection object:
 
    ```python
    from streamlit.connections import ExperimentalBaseConnection
@@ -234,7 +234,7 @@ We recommend applying the following best practices to make your Connection consi
 
 1. **Extend existing drivers or SDKs, and default to semantics that makes sense for their existing users.**
 
-   You should rarely need to implement complex data access logic from scratch when building a Connection. Use existing popular Python drivers and clients whenever possible. Doing so makes your Connection easier to maintain, more secure, and enables users to get the latest features. E.g. [SQLConnection](/library/api-reference/connections/st.connections.sqlconnection) extends SQLAlchemy, [FileConnection](https://github.com/streamlit/files-connection) extends [fsspec](https://filesystem-spec.readthedocs.io/en/latest/), [GsheetsConnection](https://github.com/streamlit/gsheets-connection) extends [gspread](https://docs.gspread.org/en/latest/), etc.
+   You should rarely need to implement complex data access logic from scratch when building a Connection. Use existing popular Python drivers and clients whenever possible. Doing so makes your Connection easier to maintain, more secure, and enables users to get the latest features. E.g. [SQLConnection](/develop/api-reference/connections/st.connections.sqlconnection) extends SQLAlchemy, [FileConnection](https://github.com/streamlit/files-connection) extends [fsspec](https://filesystem-spec.readthedocs.io/en/latest/), [GsheetsConnection](https://github.com/streamlit/gsheets-connection) extends [gspread](https://docs.gspread.org/en/latest/), etc.
 
    Consider using access patterns, method/argument naming, and return values that are consistent with the underlying package and familiar to existing users of that package.
 
@@ -263,4 +263,4 @@ We recommend applying the following best practices to make your Connection consi
 
    Connections should provide thread-safe operations when practical (which should be most of the time) and clearly document any considerations around this. Most underlying drivers or SDKs should provide thread-safe objects or methods - use these when possible.
 
-   If the underlying driver or SDK has a risk of stateful connection objects becoming stale or invalid, consider building a low impact health check or reset/retry pattern into the access methods. The SQLConnection built into Streamlit has a good example of this pattern using [tenacity](https://tenacity.readthedocs.io/) and the built-in [Connection.reset()](/library/api-reference/connections/st.connections.sqlconnection#sqlconnectionreset) method. An alternate approach is to encourage developers to set an appropriate TTL on the `st.connection()` call to ensure it periodically reinitializes the connection object.
+   If the underlying driver or SDK has a risk of stateful connection objects becoming stale or invalid, consider building a low impact health check or reset/retry pattern into the access methods. The SQLConnection built into Streamlit has a good example of this pattern using [tenacity](https://tenacity.readthedocs.io/) and the built-in [Connection.reset()](/develop/api-reference/connections/st.connections.sqlconnection#sqlconnectionreset) method. An alternate approach is to encourage developers to set an appropriate TTL on the `st.connection()` call to ensure it periodically reinitializes the connection object.

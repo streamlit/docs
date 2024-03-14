@@ -1,6 +1,6 @@
 ---
 title: Streamlit Library
-slug: /library
+slug: /develop
 ---
 
 # Streamlit Library

@@ -1,6 +1,6 @@
 ---
 title: Layouts and Containers
-slug: /library/api-reference/layout
+slug: /develop/api-reference/layout
 ---
 
 # Layouts and Containers
@@ -10,7 +10,7 @@ slug: /library/api-reference/layout
 Streamlit provides several options for controlling how different elements are laid out on the screen.
 
 <TileContainer>
-<RefCard href="/library/api-reference/layout/st.columns">
+<RefCard href="/develop/api-reference/layout/st.columns">
 
 <Image pure alt="screenshot" src="/images/api/columns.jpg" />
 
@@ -25,7 +25,7 @@ col2.write("this is column 2")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/layout/st.container">
+<RefCard href="/develop/api-reference/layout/st.container">
 
 <Image pure alt="screenshot" src="/images/api/container.jpg" />
 
@@ -41,7 +41,7 @@ c.write("This will show second")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/layout/st.empty">
+<RefCard href="/develop/api-reference/layout/st.empty">
 
 <Image pure alt="screenshot" src="/images/api/empty.jpg" />
 
@@ -57,7 +57,7 @@ c.write("This will show first")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/layout/st.expander">
+<RefCard href="/develop/api-reference/layout/st.expander">
 
 <Image pure alt="screenshot" src="/images/api/expander.jpg" />
 
@@ -71,7 +71,7 @@ with st.expander("Open to see more"):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/layout/st.popover">
+<RefCard href="/develop/api-reference/layout/st.popover">
 
 <Image pure alt="screenshot" src="/images/api/popover.svg" />
 
@@ -85,7 +85,7 @@ with st.popover("Settings"):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/layout/st.sidebar">
+<RefCard href="/develop/api-reference/layout/st.sidebar">
 
 <Image pure alt="screenshot" src="/images/api/sidebar.jpg" />
 
@@ -99,7 +99,7 @@ st.sidebar.button("Click me!")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/layout/st.tabs">
+<RefCard href="/develop/api-reference/layout/st.tabs">
 
 <Image pure alt="screenshot" src="/images/api/tabs.jpg" />
 

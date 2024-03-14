@@ -73,7 +73,7 @@ const NavItem = ({ page, slug, condensed, className }) => {
   if (page.url.startsWith("/")) {
     navItem = (
       <li className={styles.NavItem} id={page.menu_key}>
-        {page.url === "/library" ? (
+        {page.url === "/develop" ? (
           <a href={page.url} className="not-link">
             {navBox}
           </a>

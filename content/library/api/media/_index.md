@@ -1,6 +1,6 @@
 ---
 title: Media elements
-slug: /library/api-reference/media
+slug: /develop/api-reference/media
 ---
 
 # Media elements
@@ -8,7 +8,7 @@ slug: /library/api-reference/media
 It's easy to embed images, videos, and audio files directly into your Streamlit apps.
 
 <TileContainer>
-<RefCard href="/library/api-reference/media/st.image">
+<RefCard href="/develop/api-reference/media/st.image">
 
 <Image pure alt="screenshot" src="/images/api/image.jpg" />
 
@@ -24,7 +24,7 @@ st.image("https://example.com/myimage.jpg")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/media/st.audio">
+<RefCard href="/develop/api-reference/media/st.audio">
 
 <Image pure alt="screenshot" src="/images/api/audio.jpg" />
 
@@ -40,7 +40,7 @@ st.audio("https://example.com/myaudio.mp3", format="audio/mp3")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/media/st.video">
+<RefCard href="/develop/api-reference/media/st.video">
 
 <Image pure alt="screenshot" src="/images/api/video.jpg" />
 

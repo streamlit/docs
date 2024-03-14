@@ -1,6 +1,6 @@
 ---
 title: Data elements
-slug: /library/api-reference/data
+slug: /develop/api-reference/data
 ---
 
 # Data elements
@@ -13,7 +13,7 @@ You can display data via [charts](#display-charts), and you can display it in
 raw form. These are the Streamlit commands you can use to display and interact with raw data.
 
 <TileContainer>
-<RefCard href="/library/api-reference/data/st.dataframe">
+<RefCard href="/develop/api-reference/data/st.dataframe">
 <Image pure alt="screenshot" src="/images/api/dataframe.jpg" />
 
 <h4>Dataframes</h4>
@@ -25,7 +25,7 @@ st.dataframe(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/data/st.data_editor">
+<RefCard href="/develop/api-reference/data/st.data_editor">
 
 <Image pure alt="screenshot" src="/images/api/data_editor.jpg" />
 
@@ -38,7 +38,7 @@ edited = st.data_editor(df, num_rows="dynamic")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/data/st.column_config">
+<RefCard href="/develop/api-reference/data/st.column_config">
 
 <Image pure alt="screenshot" src="/images/api/column_config.jpg" />
 
@@ -52,7 +52,7 @@ st.column_config.NumberColumn("Price (in USD)", min_value=0, format="$%d")
 
 </RefCard>
 
-<RefCard href="/library/api-reference/data/st.table">
+<RefCard href="/develop/api-reference/data/st.table">
 <Image pure alt="screenshot" src="/images/api/table.jpg" />
 
 <h4>Static tables</h4>
@@ -64,7 +64,7 @@ st.table(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/data/st.metric">
+<RefCard href="/develop/api-reference/data/st.metric">
 <Image pure alt="screenshot" src="/images/api/metric.jpg" />
 
 <h4>Metrics</h4>
@@ -76,7 +76,7 @@ st.metric("My metric", 42, 2)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/data/st.json">
+<RefCard href="/develop/api-reference/data/st.json">
 <Image pure alt="screenshot" src="/images/api/json.jpg" />
 
 <h4>Dicts and JSON</h4>

@@ -1,6 +1,6 @@
 ---
 title: Manage your GitHub connection
-slug: /streamlit-community-cloud/manage-your-account/manage-your-github-connection
+slug: /deploy/streamlit-community-cloud/manage-your-account/manage-your-github-connection
 ---
 
 # Manage your GitHub connection
@@ -9,12 +9,12 @@ If you did not connect GitHub when you created your account or need to correct y
 
 If you are not fully logged in and authorized to both a primary identity (Google or email) and source control (GitHub), there will be a warning symbol in the upper-right corner of your workspace. This can mean one of three things:
 
-* You are not signed in to a primary identity (Google or email).
-  * See [Connect Google to your account](/streamlit-community-cloud/manage-your-account/update-your-email#connect-google-to-your-account).
-* You are not signed in to source control (GitHub.)
-  * See [Connecting GitHub to an existing primary identity](#connecting-github-to-an-existing-primary-identity).
-* Your source control has incomplete permissions.
-  * Access your workspace settings see [Authorize Streamlit to access private repositories](#authorize-streamlit-to-access-private-repositories).
+- You are not signed in to a primary identity (Google or email).
+  - See [Connect Google to your account](/deploy/streamlit-community-cloud/manage-your-account/update-your-email#connect-google-to-your-account).
+- You are not signed in to source control (GitHub.)
+  - See [Connecting GitHub to an existing primary identity](#connecting-github-to-an-existing-primary-identity).
+- Your source control has incomplete permissions.
+  - Access your workspace settings see [Authorize Streamlit to access private repositories](#authorize-streamlit-to-access-private-repositories).
 
 <Image alt="Authorize your GitHub account" src="/images/streamlit-community-cloud/workspace-empty-warning-annotated.png" />
 
@@ -25,8 +25,7 @@ If you created your account without connecting GitHub or if you disconnected Git
 1. Click "**Settings**" in the upper-right corner of your workspace.
 2. If you do not have GitHub connected, a warning is displayed saying, "**You are not signed in with a source control account**".
 
-  If instead you see "**Streamlit does not have access to private repos on this GitHub account**" skip to step 5.
-3. Click "**Sign in with GitHub**".
+If instead you see "**Streamlit does not have access to private repos on this GitHub account**" skip to step 5. 3. Click "**Sign in with GitHub**".
 
 <div style={{ maxWidth: '75%', margin: 'auto' }}>
 <Image alt="Sign in with GitHub to connect GitHub to your Streamlit Community Cloud account" src="/images/streamlit-community-cloud/account-no-source.png" />
@@ -58,7 +57,7 @@ GitHub is now connected to your account! 🥳
 
 ## Authorizing with an organization
 
-If you are in an organization, you can grant or request access to that organization when you connect your GitHub account. Read more about [Organization access](/streamlit-community-cloud/get-started/connect-your-github-account#organization-access).
+If you are in an organization, you can grant or request access to that organization when you connect your GitHub account. Read more about [Organization access](/deploy/streamlit-community-cloud/get-started/connect-your-github-account#organization-access).
 
 If your GitHub account is already connected, you can remove permissions in your GitHub settings and force Streamlit to reprompt for GitHub authorization the next time you sign into Streamlit Community Cloud.
 
@@ -83,7 +82,7 @@ If your GitHub account is already connected, you can remove permissions in your 
 <Image alt="Confirm to revoke access for Streamlit to your GitHub account" src="/images/streamlit-community-cloud/GitHub-revoke-confirm.png" />
 </div>
 
-5. Return to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a> and sign in. You will be prompted to authorize GitHub as explained in [Connect GitHub](/streamlit-community-cloud/get-started/connect-your-github-account#organization-access).
+5. Return to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a> and sign in. You will be prompted to authorize GitHub as explained in [Connect GitHub](/deploy/streamlit-community-cloud/get-started/connect-your-github-account#organization-access).
 
 ### Granting previously denied access
 

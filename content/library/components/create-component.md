@@ -1,6 +1,6 @@
 ---
 title: Create a Component
-slug: /library/components/create
+slug: /develop/components/create
 ---
 
 # Create a Component

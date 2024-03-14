@@ -1,6 +1,6 @@
 ---
 title: st.altair_chart
-slug: /library/api-reference/charts/st.altair_chart
+slug: /develop/api-reference/charts/st.altair_chart
 description: st.altair_chart displays a chart using the Altair library.
 ---
 
@@ -149,7 +149,7 @@ source = get_data()
 
 Next, we define a function `get_chart()` to create the interactive time-series chart of the stock prices with a multi-line tooltip. The x-axis represents the date, and the y-axis represents the stock price.
 
-We then invoke `get_chart()` that takes the stock prices dataframe as an input and returns a chart object. This is going to be our base chart on which we will overlay the annotations in [Step 2](/library/api-reference/charts/st.altair_chart#step-2-annotate-the-chart).
+We then invoke `get_chart()` that takes the stock prices dataframe as an input and returns a chart object. This is going to be our base chart on which we will overlay the annotations in [Step 2](/develop/api-reference/charts/st.altair_chart#step-2-annotate-the-chart).
 
 ```python
 # Define the base time-series chart.
@@ -202,7 +202,7 @@ For simplicity, let's annotate four specific dates and set the height of the ann
 
 <Tip>
 
-You can vary the horizontal and vertical postions of the annotations by replacing the hard-coded values with the output of Streamlit widgets! Click [here](/library/api-reference/charts/st.altair_chart#interactive-example) to jump to a live example below, and develop an intuition for the ideal horizontal and vertical positions of the annotations by playing with Streamlit widgets.
+You can vary the horizontal and vertical postions of the annotations by replacing the hard-coded values with the output of Streamlit widgets! Click [here](/develop/api-reference/charts/st.altair_chart#interactive-example) to jump to a live example below, and develop an intuition for the ideal horizontal and vertical positions of the annotations by playing with Streamlit widgets.
 
 </Tip>
 

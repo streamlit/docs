@@ -1,6 +1,6 @@
 ---
 title: App testing
-slug: /library/api-reference/app-testing
+slug: /develop/api-reference/app-testing
 ---
 
 # App testing
@@ -13,7 +13,7 @@ The provided class, AppTest, simulates a running app and provides methods to set
 
 <TileContainer>
 
-<RefCard href="/library/api-reference/app-testing/st.testing.v1.apptest" size="full">
+<RefCard href="/develop/api-reference/app-testing/st.testing.v1.apptest" size="full">
 
 <h3>st.testing.v1.AppTest</h3>
 
@@ -39,7 +39,7 @@ assert at.warning[0].value == "Try again."
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/st.testing.v1.apptest#apptestfrom_file" size="full">
+<RefCard href="/develop/api-reference/app-testing/st.testing.v1.apptest#apptestfrom_file" size="full">
 
 <h3>AppTest.from_file</h3>
 
@@ -56,7 +56,7 @@ assert not at.exception
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/st.testing.v1.apptest#apptestfrom_string" size="full">
+<RefCard href="/develop/api-reference/app-testing/st.testing.v1.apptest#apptestfrom_string" size="full">
 
 <h3>AppTest.from_string</h3>
 
@@ -83,7 +83,7 @@ assert not at.exception
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/st.testing.v1.apptest#apptestfrom_function" size="full">
+<RefCard href="/develop/api-reference/app-testing/st.testing.v1.apptest#apptestfrom_function" size="full">
 
 <h3>AppTest.from_function</h3>
 
@@ -115,7 +115,7 @@ assert not at.exception
 
 <TileContainer>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeblock" size="half">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treeblock" size="half">
 
 <h4>Block</h4>
 
@@ -135,7 +135,7 @@ assert not at.exception
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeelement" size="half">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treeelement" size="half">
 
 <h4>Element</h4>
 
@@ -154,7 +154,7 @@ assert at.title[0].value == "My awesome app"
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treebutton" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treebutton" size="third">
 
 <h4>Button</h4>
 
@@ -166,7 +166,7 @@ at.button[0].click().run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treechatinput" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treechatinput" size="third">
 
 <h4>ChatInput</h4>
 
@@ -178,7 +178,7 @@ at.chat_input[0].set_value("What is Streamlit?").run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treecheckbox" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treecheckbox" size="third">
 
 <h4>Checkbox</h4>
 
@@ -190,7 +190,7 @@ at.checkbox[0].check().run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treecolorpicker" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treecolorpicker" size="third">
 
 <h4>ColorPicker</h4>
 
@@ -202,7 +202,7 @@ at.color_picker[0].pick("#FF4B4B").run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treedateinput" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treedateinput" size="third">
 
 <h4>DateInput</h4>
 
@@ -215,7 +215,7 @@ at.date_input[0].set_value(release_date).run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treemultiselect" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treemultiselect" size="third">
 
 <h4>Multiselect</h4>
 
@@ -227,7 +227,7 @@ at.multiselect[0].select("New York").run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treenumberinput" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treenumberinput" size="third">
 
 <h4>NumberInput</h4>
 
@@ -239,7 +239,7 @@ at.number_input[0].increment().run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeradio" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treeradio" size="third">
 
 <h4>Radio</h4>
 
@@ -251,7 +251,7 @@ at.radio[0].set_value("New York").run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeselectslider" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treeselectslider" size="third">
 
 <h4>SelectSlider</h4>
 
@@ -263,7 +263,7 @@ at.select_slider[0].set_range("A","C").run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeselectbox" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treeselectbox" size="third">
 
 <h4>Selectbox</h4>
 
@@ -275,7 +275,7 @@ at.selectbox[0].select("New York").run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treeslider" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treeslider" size="third">
 
 <h4>Slider</h4>
 
@@ -287,7 +287,7 @@ at.slider[0].set_range(2,5).run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treetextarea" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treetextarea" size="third">
 
 <h4>TextArea</h4>
 
@@ -299,7 +299,7 @@ at.text_area[0].input("Streamlit is awesome!").run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treetextinput" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treetextinput" size="third">
 
 <h4>TextInput</h4>
 
@@ -311,7 +311,7 @@ at.text_input[0].input("Streamlit").run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treetimeinput" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treetimeinput" size="third">
 
 <h4>TimeInput</h4>
 
@@ -323,7 +323,7 @@ at.time_input[0].increment().run()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treetoggle" size="third">
+<RefCard href="/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treetoggle" size="third">
 
 <h4>Toggle</h4>
 

@@ -1,6 +1,6 @@
 ---
 title: Configuration
-slug: /library/advanced-features/configuration
+slug: /develop/concepts/configuration
 ---
 
 # Configuration
@@ -53,11 +53,11 @@ gatherUsageStats = false
 ## Theming
 
 You can change the base colors of your app using the `[theme]` section of the configuration system.
-To learn more, see [Theming.](/library/advanced-features/theming)
+To learn more, see [Theming.](/develop/concepts/configuration/theming)
 
 ## View all configuration options
 
-As described in [Command-line options](/library/advanced-features/cli), you can
+As described in [Command-line options](/develop/concepts/configuration/cli), you can
 view all available configuration option using:
 
 ```bash
@@ -109,7 +109,7 @@ level = "info"
 # String format for logging messages. If logger.datetimeFormat is set,
 # logger messages will default to `%(asctime)s.%(msecs)03d %(message)s`. See
 # Python's documentation for available attributes:
-# https://docs.python.org/2.6/library/logging.html#formatter-objects
+# https://docs.python.org/2.6/develop/logging.html#formatter-objects
 # Default: "%(asctime)s %(message)s"
 messageFormat = "%(asctime)s %(message)s"
 ```
@@ -216,7 +216,7 @@ enforceSerializableSessionState = false
 # Adjust how certain 'options' widgets like radio, selectbox, and
 # multiselect coerce Enum members when the Enum class gets
 # re-defined during a script re-run. For more information, check out the docs:
-# https://docs.streamlit.io/library/advanced-features/custom-classes#enums
+# https://docs.streamlit.io/develop/concepts/custom-classes#enums
 #
 # Allowed values:
 # * "off"          : Disables Enum coercion.

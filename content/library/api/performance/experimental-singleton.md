@@ -1,18 +1,18 @@
 ---
 title: st.experimental_singleton
-slug: /library/api-reference/performance/st.experimental_singleton
+slug: /develop/api-reference/performance/st.experimental_singleton
 description: st.experimental_singleton is a function decorator used to store singleton objects.
 ---
 
 <Important>
 
-This is an experimental feature. Experimental features and their APIs may change or be removed at any time. To learn more, click [here](/library/advanced-features/prerelease#experimental-features).
+This is an experimental feature. Experimental features and their APIs may change or be removed at any time. To learn more, click [here](/develop/concepts/prerelease#experimental-features).
 
 </Important>
 
-<Autofunction function="streamlit.experimental_singleton" deprecated={true} deprecatedText="<code>st.experimental_singleton</code> was deprecated in version 1.18.0. Use <a href='/library/api-reference/performance/st.cache_resource'><code>st.cache_resource</code></a> instead. Learn more in <a href='/library/advanced-features/caching'>Caching</a>."/>
+<Autofunction function="streamlit.experimental_singleton" deprecated={true} deprecatedText="<code>st.experimental_singleton</code> was deprecated in version 1.18.0. Use <a href='/develop/api-reference/performance/st.cache_resource'><code>st.cache_resource</code></a> instead. Learn more in <a href='/develop/concepts/caching'>Caching</a>."/>
 
-<Autofunction function="streamlit.experimental_singleton.clear" deprecated={true} deprecatedText="<code>st.experimental_singleton.clear</code> was deprecated in version 1.18.0. Use <a href='/library/api-reference/performance/st.cache_resource#stcache_resourceclear'><code>st.cache_resource.clear</code></a> instead. Learn more in <a href='/library/advanced-features/caching'>Caching</a>."/>
+<Autofunction function="streamlit.experimental_singleton.clear" deprecated={true} deprecatedText="<code>st.experimental_singleton.clear</code> was deprecated in version 1.18.0. Use <a href='/develop/api-reference/performance/st.cache_resource#stcache_resourceclear'><code>st.cache_resource.clear</code></a> instead. Learn more in <a href='/develop/concepts/caching'>Caching</a>."/>
 
 #### Example
 
@@ -126,7 +126,7 @@ Supported static `st` elements in cache-decorated functions include:
 
 ## Replay input widgets in cache-decorated functions
 
-In addition to static elements, functions decorated with `@st.experimental_singleton` can also contain [input widgets](/library/api-reference/widgets)! Replaying input widgets is disabled by default. To enable it, you can set the `experimental_allow_widgets` parameter for `@st.experimental_singleton` to `True`. The example below enables widget replaying, and shows the use of a checkbox widget within a cache-decorated function.
+In addition to static elements, functions decorated with `@st.experimental_singleton` can also contain [input widgets](/develop/api-reference/widgets)! Replaying input widgets is disabled by default. To enable it, you can set the `experimental_allow_widgets` parameter for `@st.experimental_singleton` to `True`. The example below enables widget replaying, and shows the use of a checkbox widget within a cache-decorated function.
 
 ```python
 import streamlit as st
@@ -194,7 +194,7 @@ Let's now understand how enabling and disabling widget replay changes the behavi
 - Calling a cached function multiple times in one script run with the same arguments triggers a `DuplicateWidgetID` error.
 - If the arguments to a cached function change, widgets from that function that render again retain their state.
 - Changing the source code of a cached function invalidates the cache.
-- Both [`st.experimental_singleton`](/library/api-reference/performance/st.experimental_singleton) and [`st.experimental_memo`](/library/api-reference/performance/st.experimental_memo) support widget replay.
+- Both [`st.experimental_singleton`](/develop/api-reference/performance/st.experimental_singleton) and [`st.experimental_memo`](/develop/api-reference/performance/st.experimental_memo) support widget replay.
 - Fundamentally, the behavior of a function with (supported) widgets in it doesn't change when it is decorated with `@st.experimental_singleton` or `@st.experimental_memo`. The only difference is that the function is only executed when we detect a cache "miss".
 
 ### Supported widgets

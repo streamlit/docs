@@ -1,11 +1,11 @@
 ---
 title: st.connections.SnowflakeConnection
-slug: /library/api-reference/connections/st.connections.snowflakeconnection
+slug: /develop/api-reference/connections/st.connections.snowflakeconnection
 ---
 
 <Tip>
 
-This page only contains the `st.connections.SnowflakeConnection` class. For a deeper dive into creating and managing data connections within Streamlit apps, read [Connecting to data](/library/advanced-features/connecting-to-data).
+This page only contains the `st.connections.SnowflakeConnection` class. For a deeper dive into creating and managing data connections within Streamlit apps, read [Connecting to data](/develop/concepts/connecting-to-data).
 
 </Tip>
 
@@ -18,7 +18,7 @@ Internal note: This section is deep-linked from the library in 1.28.1 via /st.co
 Maintain the redirect if moved or modified.
 **/}
 
-`st.connection("snowflake")` can be configured using [Streamlit secrets](/library/advanced-features/secrets-management) or keyword args just like any other connection. It can also use existing Snowflake connection configuration when available.
+`st.connection("snowflake")` can be configured using [Streamlit secrets](/develop/concepts/configuration/secrets-management) or keyword args just like any other connection. It can also use existing Snowflake connection configuration when available.
 
 Note that [snowflake-snowpark-python](https://pypi.org/project/snowflake-snowpark-python/) must be installed to use this connection.
 
@@ -35,7 +35,7 @@ user = "<USERNAME>"
 authenticator = "EXTERNALBROWSER"
 ```
 
-Learn more about [account indentifier here](https://docs.snowflake.com/en/user-guide/admin-account-identifier). You could also specify the full configuration and credentials in your secrets file, as in the [example here](/knowledge-base/tutorials/databases/snowflake#add-connection-parameters-to-your-local-app-secrets).
+Learn more about [account indentifier here](https://docs.snowflake.com/en/user-guide/admin-account-identifier). You could also specify the full configuration and credentials in your secrets file, as in the [example here](/develop/tutorials/databases/snowflake#add-connection-parameters-to-your-local-app-secrets).
 
 #### Using existing Snowflake configuration
 
@@ -48,7 +48,7 @@ Snowflake's python driver also supports a [connection configuration file](https:
 
 When available in [Streamlit in Snowflake](https://docs.snowflake.com/en/developer-guide/streamlit/about-streamlit), `st.connection("snowflake")` will connect automatically using the [app owner role](https://docs.snowflake.com/en/developer-guide/streamlit/owners-rights) and does not require any configuration.
 
-Learn more about setting up connections in the [Connecting Streamlit to Snowflake tutorial](/knowledge-base/tutorials/databases/snowflake) and [Connecting to data](/library/advanced-features/connecting-to-data).
+Learn more about setting up connections in the [Connecting Streamlit to Snowflake tutorial](/develop/tutorials/databases/snowflake) and [Connecting to data](/develop/concepts/connecting-to-data).
 
 <Autofunction function="streamlit.connections.SnowflakeConnection.cursor" />
 

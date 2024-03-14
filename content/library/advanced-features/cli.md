@@ -1,6 +1,6 @@
 ---
 title: Command-line options
-slug: /library/advanced-features/cli
+slug: /develop/concepts/configuration/cli
 ---
 
 # Command-line interface
@@ -55,12 +55,12 @@ Opens the Streamlit documentation (i.e. this website) in a web browser.
 streamlit cache clear
 ```
 
-Clears persisted files from the on-disk [Streamlit cache](/library/api-reference/performance), if
+Clears persisted files from the on-disk [Streamlit cache](/develop/api-reference/performance), if
 present.
 
 ### View all configuration options
 
-As described in [Configuration](/library/advanced-features/configuration), Streamlit has several
+As described in [Configuration](/develop/concepts/configuration), Streamlit has several
 configuration options. To view them all, including their current values, just type:
 
 ```bash

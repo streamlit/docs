@@ -1,6 +1,6 @@
 ---
 title: Chat elements
-slug: /library/api-reference/chat
+slug: /develop/api-reference/chat
 ---
 
 # Chat elements
@@ -10,7 +10,7 @@ Streamlit provides a few commands to help you build conversational apps. These c
 `st.chat_message` lets you insert a chat message container into the app so you can display messages from the user or the app. Chat containers can contain other Streamlit elements, including charts, tables, text, and more. `st.chat_input` lets you display a chat input widget so the user can type in a message. Remember to check out `st.status` to display output from long-running processes and external API calls.
 
 <TileContainer>
-<RefCard href="/library/api-reference/chat/st.chat_input">
+<RefCard href="/develop/api-reference/chat/st.chat_input">
 
 <Image pure alt="screenshot" src="/images/api/chat_input.jpg" />
 
@@ -25,7 +25,7 @@ if prompt:
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/chat/st.chat_message">
+<RefCard href="/develop/api-reference/chat/st.chat_message">
 
 <Image pure alt="screenshot" src="/images/api/chat_message.jpg" />
 
@@ -41,7 +41,7 @@ with st.chat_message("user"):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.status">
+<RefCard href="/develop/api-reference/status/st.status">
 
 <Image pure alt="screenshot" src="/images/api/status.jpg" />
 
@@ -55,7 +55,7 @@ with st.status('Running'):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/write-magic/st.write_stream">
+<RefCard href="/develop/api-reference/write-magic/st.write_stream">
 
 <h4>st.write_stream</h4>
 

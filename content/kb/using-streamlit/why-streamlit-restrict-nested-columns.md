@@ -5,7 +5,7 @@ slug: /knowledge-base/using-streamlit/why-streamlit-restrict-nested-columns
 
 # Why does Streamlit restrict nested `st.columns`?
 
-Starting in version 1.18.0, Streamlit allows nesting [`st.columns`](/library/api-reference/layout/st.columns) inside other
+Starting in version 1.18.0, Streamlit allows nesting [`st.columns`](/develop/api-reference/layout/st.columns) inside other
 `st.columns` with the following restrictions:
 
 - In the main area of the app, columns can be nested up to one level of nesting.

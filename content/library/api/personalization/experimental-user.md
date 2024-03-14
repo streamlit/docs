@@ -1,12 +1,12 @@
 ---
 title: st.experimental_user
-slug: /library/api-reference/personalization/st.experimental_user
+slug: /develop/api-reference/personalization/st.experimental_user
 description: st.experimental_user returns information about the logged-in user of private apps on Streamlit Community Cloud.
 ---
 
 <Important>
 
-This is an experimental feature. Experimental features and their APIs may change or be removed at any time. To learn more, click [here](/library/advanced-features/prerelease#experimental-features).
+This is an experimental feature. Experimental features and their APIs may change or be removed at any time. To learn more, click [here](/develop/concepts/prerelease#experimental-features).
 
 </Important>
 

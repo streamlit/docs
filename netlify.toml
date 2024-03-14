@@ -1,6 +1,6 @@
 [[redirects]]
-  from = "/library"
-  to = "/library/api-reference"
+  from = "/develop"
+  to = "/develop/api-reference"
   status = 301
   force = true
 

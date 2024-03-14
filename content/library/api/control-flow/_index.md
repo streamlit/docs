@@ -1,6 +1,6 @@
 ---
 title: Control flow
-slug: /library/api-reference/control-flow
+slug: /develop/api-reference/control-flow
 ---
 
 # Control flow
@@ -11,7 +11,7 @@ By default, Streamlit apps execute the script entirely, but we allow some functi
 
 <TileContainer>
 
-<RefCard href="/library/api-reference/control-flow/st.rerun">
+<RefCard href="/develop/api-reference/control-flow/st.rerun">
 
 <h4>Rerun script</h4>
 
@@ -23,7 +23,7 @@ st.rerun()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/control-flow/st.stop">
+<RefCard href="/develop/api-reference/control-flow/st.stop">
 
 <h4>Stop execution</h4>
 
@@ -35,7 +35,7 @@ st.stop()
 
 </RefCard>
 
-<RefCard href="/library/api-reference/control-flow/st.switch_page">
+<RefCard href="/develop/api-reference/control-flow/st.switch_page">
 
 <h4>Switch page</h4>
 
@@ -47,7 +47,7 @@ st.switch_page("pages/my_page.py")
 
 </RefCard>
 
-<RefCard href="/library/api-reference/widgets/st.page_link">
+<RefCard href="/develop/api-reference/widgets/st.page_link">
 
 <Image pure alt="screenshot" src="/images/api/page_link.jpg" />
 
@@ -71,7 +71,7 @@ However, sometimes it's a better user experience to wait until a group of relate
 widgets is filled before actually rerunning the script. That's what `st.form` is for!
 
 <TileContainer>
-<RefCard href="/library/api-reference/control-flow/st.form">
+<RefCard href="/develop/api-reference/control-flow/st.form">
 
 <h4>Forms</h4>
 
@@ -86,7 +86,7 @@ with st.form(key='my_form'):
 
 </RefCard>
 
-<RefCard href="/library/api-reference/control-flow/st.form_submit_button">
+<RefCard href="/develop/api-reference/control-flow/st.form_submit_button">
 
 <h4>Form submit button</h4>
 

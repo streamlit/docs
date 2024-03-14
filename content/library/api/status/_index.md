@@ -1,6 +1,6 @@
 ---
 title: Display progress and status
-slug: /library/api-reference/status
+slug: /develop/api-reference/status
 ---
 
 # Display progress and status
@@ -10,7 +10,7 @@ apps. These animations include progress bars, status messages (like
 warnings), and celebratory balloons.
 
 <TileContainer>
-<RefCard href="/library/api-reference/status/st.progress">
+<RefCard href="/develop/api-reference/status/st.progress">
 
 <Image pure alt="screenshot" src="/images/api/progress.jpg" />
 
@@ -25,7 +25,7 @@ for i in range(101):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.spinner">
+<RefCard href="/develop/api-reference/status/st.spinner">
 
 <Image pure alt="screenshot" src="/images/api/spinner.jpg" />
 
@@ -39,7 +39,7 @@ with st.spinner("Please wait..."):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.status">
+<RefCard href="/develop/api-reference/status/st.status">
 
 <Image pure alt="screenshot" src="/images/api/status.jpg" />
 
@@ -53,7 +53,7 @@ with st.status('Running'):
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.toast">
+<RefCard href="/develop/api-reference/status/st.toast">
 
 <Image pure alt="screenshot" src="/images/api/toast.jpg" />
 
@@ -66,7 +66,7 @@ st.toast('Butter!', icon='🧈')
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.balloons">
+<RefCard href="/develop/api-reference/status/st.balloons">
 
 <Image pure alt="screenshot" src="/images/api/balloons.jpg" />
 
@@ -79,7 +79,7 @@ st.balloons()
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.snow">
+<RefCard href="/develop/api-reference/status/st.snow">
 
 <Image pure alt="screenshot" src="/images/api/snow.jpg" />
 
@@ -92,7 +92,7 @@ st.snow()
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.error">
+<RefCard href="/develop/api-reference/status/st.error">
 
 <Image pure alt="screenshot" src="/images/api/error.jpg" />
 
@@ -105,7 +105,7 @@ st.error("We encountered an error")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.warning">
+<RefCard href="/develop/api-reference/status/st.warning">
 
 <Image pure alt="screenshot" src="/images/api/warning.jpg" />
 
@@ -118,7 +118,7 @@ st.warning("Unable to fetch image. Skipping...")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.info">
+<RefCard href="/develop/api-reference/status/st.info">
 
 <Image pure alt="screenshot" src="/images/api/info.jpg" />
 
@@ -131,7 +131,7 @@ st.info("Dataset is updated every day at midnight.")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.success">
+<RefCard href="/develop/api-reference/status/st.success">
 
 <Image pure alt="screenshot" src="/images/api/success.jpg" />
 
@@ -144,7 +144,7 @@ st.success("Match found!")
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/status/st.exception">
+<RefCard href="/develop/api-reference/status/st.exception">
 
 <Image pure alt="screenshot" src="/images/api/exception.jpg" />
 

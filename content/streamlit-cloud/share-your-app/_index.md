@@ -1,6 +1,6 @@
 ---
 title: Share your app
-slug: /streamlit-community-cloud/share-your-app
+slug: /deploy/streamlit-community-cloud/share-your-app
 ---
 
 # Share your app
@@ -21,7 +21,7 @@ If you deployed your app from a public repository, your app will be public by de
 
 ### Set privacy from your app settings
 
-1. Access your [App settings](/streamlit-community-cloud/manage-your-app/app-settings) and go to the "**Sharing**" section.
+1. Access your [App settings](/deploy/streamlit-community-cloud/manage-your-app/app-settings) and go to the "**Sharing**" section.
 
    ![Share settings on Streamlit Community Cloud](/images/streamlit-community-cloud/workspace-app-settings-sharing.png)
 
@@ -58,7 +58,7 @@ Use the social media sharing buttons to post your app on our forum! We'd love to
 
 ### Invite viewers by email
 
-Whether your app is public or private, you can send an email invite to your app directly from Streamlit Community Cloud. This grants the viewer access to analytics for all your public apps and the ability to invite other viewers to your workspace. Developers and invited viewers are identified by their email in analytics instead of appearing anonymously (if they view any of your apps while logged in). Read more about viewers in [App analytics](/streamlit-community-cloud/manage-your-app/app-analytics).
+Whether your app is public or private, you can send an email invite to your app directly from Streamlit Community Cloud. This grants the viewer access to analytics for all your public apps and the ability to invite other viewers to your workspace. Developers and invited viewers are identified by their email in analytics instead of appearing anonymously (if they view any of your apps while logged in). Read more about viewers in [App analytics](/deploy/streamlit-community-cloud/manage-your-app/app-analytics).
 
 1. From your app at `<your-custom-subdomain>.streamlit.app`, click "**Share**" in the upper-right corner.
 2. Enter an email address and click "**Invite**".
@@ -113,7 +113,7 @@ Once you have added someone's email address to your app's viewer list, that pers
 
 <Important>
 
-When you add a viewer to any app in your workspace, they are granted access to analytics for that app as well as analytics for all your public apps. They can also pass these permissions to others by inviting more viewers. All viewers and developers in your workspace are identified by their email in analytics. Furthermore, their emails show in analytics for every app in your workspace and not just apps they are explicitly invited to. Read more about viewers in [App analytics](/streamlit-community-cloud/manage-your-app/app-analytics)
+When you add a viewer to any app in your workspace, they are granted access to analytics for that app as well as analytics for all your public apps. They can also pass these permissions to others by inviting more viewers. All viewers and developers in your workspace are identified by their email in analytics. Furthermore, their emails show in analytics for every app in your workspace and not just apps they are explicitly invited to. Read more about viewers in [App analytics](/deploy/streamlit-community-cloud/manage-your-app/app-analytics)
 
 </Important>
 
@@ -141,7 +141,7 @@ When you add a viewer to any app in your workspace, they are granted access to a
 
 ### Invite viewers from your app settings
 
-1. Access your [App settings](/streamlit-community-cloud/manage-your-app/app-settings) and go to the "**Sharing**" section.
+1. Access your [App settings](/deploy/streamlit-community-cloud/manage-your-app/app-settings) and go to the "**Sharing**" section.
 
    ![Access sharing settings from your app settings](/images/streamlit-community-cloud/workspace-app-settings-sharing.png)
 

@@ -1,13 +1,13 @@
 ---
 title: Connect Streamlit to Snowflake
-slug: /knowledge-base/tutorials/databases/snowflake
+slug: /develop/tutorials/databases/snowflake
 ---
 
 # Connect Streamlit to Snowflake
 
 ## Introduction
 
-This guide explains how to securely access a Snowflake database from Streamlit. It uses [st.connection](/library/api-reference/connections/st.connection), the [Snowpark library](https://docs.snowflake.com/en/developer-guide/snowpark/python/index) and Streamlit's [Secrets management](/library/advanced-features/secrets-management). The below example code **will only work on Streamlit version >= 1.28**, when `st.connection` was added.
+This guide explains how to securely access a Snowflake database from Streamlit. It uses [st.connection](/develop/api-reference/connections/st.connection), the [Snowpark library](https://docs.snowflake.com/en/developer-guide/snowpark/python/index) and Streamlit's [Secrets management](/develop/concepts/configuration/secrets-management). The below example code **will only work on Streamlit version >= 1.28**, when `st.connection` was added.
 
 ## Create a Snowflake database
 
@@ -66,7 +66,7 @@ pip install snowflake-snowpark-python
 
 ## Add connection parameters to your local app secrets
 
-Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app’s root directory. Learn more about [Streamlit secrets management here](/library/advanced-features/secrets-management). Create this file if it doesn’t exist yet and add your Snowflake username, password, [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html), and the name of your warehouse, database, and schema as shown below:
+Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app’s root directory. Learn more about [Streamlit secrets management here](/develop/concepts/configuration/secrets-management). Create this file if it doesn’t exist yet and add your Snowflake username, password, [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html), and the name of your warehouse, database, and schema as shown below:
 
 ```toml
 # .streamlit/secrets.toml
@@ -110,7 +110,7 @@ for row in df.itertuples():
     st.write(f"{row.NAME} has a :{row.PET}:")
 ```
 
-See `st.connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl=600` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/library/advanced-features/caching).
+See `st.connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl=600` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/develop/concepts/caching).
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 
@@ -118,7 +118,7 @@ If everything worked out (and you used the example table we created above), your
 
 ### Using a Snowpark Session
 
-The same [SnowflakeConnection](/library/api-reference/connections/st.connections.snowflakeconnection) used above also provides access to the [Snowpark Session](https://docs.snowflake.com/en/developer-guide/snowpark/reference/python/session.html) for DataFrame-style operations that run natively inside Snowflake. Using this approach, you can rewrite the app above as follows:
+The same [SnowflakeConnection](/develop/api-reference/connections/st.connections.snowflakeconnection) used above also provides access to the [Snowpark Session](https://docs.snowflake.com/en/developer-guide/snowpark/reference/python/session.html) for DataFrame-style operations that run natively inside Snowflake. Using this approach, you can rewrite the app above as follows:
 
 ```python
 # streamlit_app.py
@@ -147,5 +147,5 @@ If everything worked out (and you used the example table we created above), your
 
 This tutorial assumes a local Streamlit app, however you can also connect to Snowflake from apps hosted in Community Cloud. The main additional steps are:
 
-- [Include information about dependencies](/streamlit-community-cloud/deploy-your-app/app-dependencies) using a `requirements.txt` file with `snowflake-snowpark-python` and any other dependencies.
-- [Add your secrets](/streamlit-community-cloud/deploy-your-app/secrets-management#deploy-an-app-and-set-up-secrets) to your Community Cloud app.
+- [Include information about dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies) using a `requirements.txt` file with `snowflake-snowpark-python` and any other dependencies.
+- [Add your secrets](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management#deploy-an-app-and-set-up-secrets) to your Community Cloud app.

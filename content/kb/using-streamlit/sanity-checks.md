@@ -84,7 +84,7 @@ pip install --upgrade streamlit==1.0.0
 ```
 
 ...where `1.0.0` is the version you'd like to downgrade to. See
-[Changelog](/library/changelog) for a complete list of Streamlit versions.
+[Changelog](/develop/quick-references/changelog) for a complete list of Streamlit versions.
 
 ## Check #6 [Windows]: Is Python added to your PATH?
 

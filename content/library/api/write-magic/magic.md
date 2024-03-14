@@ -1,6 +1,6 @@
 ---
 title: Magic
-slug: /library/api-reference/write-magic/magic
+slug: /develop/api-reference/write-magic/magic
 ---
 
 ## Magic
@@ -39,7 +39,7 @@ fig  # 👈 Draw a Matplotlib chart
 
 Any time Streamlit sees either a variable or literal
 value on its own line, it automatically writes that to your app using
-[`st.write`](/library/api-reference/write-magic/st.write) (which you'll learn about later).
+[`st.write`](/develop/api-reference/write-magic/st.write) (which you'll learn about later).
 
 Also, magic is smart enough to ignore docstrings. That is, it ignores the
 strings at the top of files and functions.
@@ -58,6 +58,6 @@ magicEnabled = false
 
 ### Featured video
 
-Learn what the [`st.write`](/library/api-reference/write-magic/st.write) and [magic](/library/api-reference/write-magic/magic) commands are and how to use them.
+Learn what the [`st.write`](/develop/api-reference/write-magic/st.write) and [magic](/develop/api-reference/write-magic/magic) commands are and how to use them.
 
 <YouTube videoId="wpDuY9I2fDg" />

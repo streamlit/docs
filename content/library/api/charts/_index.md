@@ -1,6 +1,6 @@
 ---
 title: Chart elements
-slug: /library/api-reference/charts
+slug: /develop/api-reference/charts
 ---
 
 # Chart elements
@@ -15,7 +15,7 @@ finally we also provide a few chart types that are "native" to Streamlit,
 like `st.line_chart` and `st.area_chart`.
 
 <TileContainer>
-<RefCard href="/library/api-reference/charts/st.area_chart">
+<RefCard href="/develop/api-reference/charts/st.area_chart">
 <Image pure alt="screenshot" src="/images/api/area_chart.jpg" />
 
 <h4>Simple area charts</h4>
@@ -27,7 +27,7 @@ st.area_chart(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.bar_chart">
+<RefCard href="/develop/api-reference/charts/st.bar_chart">
 <Image pure alt="screenshot" src="/images/api/bar_chart.jpg" />
 
 <h4>Simple bar charts</h4>
@@ -39,7 +39,7 @@ st.bar_chart(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.line_chart">
+<RefCard href="/develop/api-reference/charts/st.line_chart">
 <Image pure alt="screenshot" src="/images/api/line_chart.jpg" />
 
 <h4>Simple line charts</h4>
@@ -51,7 +51,7 @@ st.line_chart(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.scatter_chart">
+<RefCard href="/develop/api-reference/charts/st.scatter_chart">
 <Image pure alt="screenshot" src="/images/api/scatter_chart.svg" />
 
 <h4>Simple scatter charts</h4>
@@ -63,7 +63,7 @@ st.scatter_chart(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.map">
+<RefCard href="/develop/api-reference/charts/st.map">
 <Image pure alt="screenshot" src="/images/api/map.jpg" />
 
 <h4>Scatterplots on maps</h4>
@@ -75,7 +75,7 @@ st.map(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.pyplot">
+<RefCard href="/develop/api-reference/charts/st.pyplot">
 <Image pure alt="screenshot" src="/images/api/pyplot.jpg" />
 
 <h4>Matplotlib</h4>
@@ -87,7 +87,7 @@ st.pyplot(my_mpl_figure)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.altair_chart">
+<RefCard href="/develop/api-reference/charts/st.altair_chart">
 <Image pure alt="screenshot" src="/images/api/vega_lite_chart.jpg" />
 
 <h4>Altair</h4>
@@ -99,7 +99,7 @@ st.altair_chart(my_altair_chart)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.vega_lite_chart">
+<RefCard href="/develop/api-reference/charts/st.vega_lite_chart">
 <Image pure alt="screenshot" src="/images/api/vega_lite_chart.jpg" />
 
 <h4>Vega-Lite</h4>
@@ -111,7 +111,7 @@ st.vega_lite_chart(my_vega_lite_chart)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.plotly_chart">
+<RefCard href="/develop/api-reference/charts/st.plotly_chart">
 <Image pure alt="screenshot" src="/images/api/plotly_chart.jpg" />
 
 <h4>Plotly</h4>
@@ -123,7 +123,7 @@ st.plotly_chart(my_plotly_chart)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.bokeh_chart">
+<RefCard href="/develop/api-reference/charts/st.bokeh_chart">
 <Image pure alt="screenshot" src="/images/api/bokeh_chart.jpg" />
 
 <h4>Bokeh</h4>
@@ -135,7 +135,7 @@ st.bokeh_chart(my_bokeh_chart)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.pydeck_chart">
+<RefCard href="/develop/api-reference/charts/st.pydeck_chart">
 <Image pure alt="screenshot" src="/images/api/pydeck_chart.jpg" />
 
 <h4>PyDeck</h4>
@@ -147,7 +147,7 @@ st.pydeck_chart(my_pydeck_chart)
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/charts/st.graphviz_chart">
+<RefCard href="/develop/api-reference/charts/st.graphviz_chart">
 <Image pure alt="screenshot" src="/images/api/graphviz_chart.jpg" />
 
 <h4>GraphViz</h4>

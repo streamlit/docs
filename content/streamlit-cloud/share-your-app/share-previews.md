@@ -1,6 +1,6 @@
 ---
 title: Share previews
-slug: /streamlit-community-cloud/share-your-app/share-previews
+slug: /deploy/streamlit-community-cloud/share-your-app/share-previews
 ---
 
 # Share previews
@@ -25,7 +25,7 @@ The title is the text that appears at the top of the share preview. The text als
 
 There are two ways to set the title of a share preview:
 
-1. Set the `page_title` parameter in [`st.set_page_config()`](/library/api-reference/utilities/st.set_page_config) to your desired title. E.g.:
+1. Set the `page_title` parameter in [`st.set_page_config()`](/develop/api-reference/utilities/st.set_page_config) to your desired title. E.g.:
 
    ```python
    import streamlit as st

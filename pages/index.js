@@ -152,7 +152,7 @@ export default function Home({ window, menu }) {
                 color="indigo-70"
                 icon="description"
                 bold="Streamlit library"
-                href="/library/api-reference"
+                href="/develop/api-reference"
               >
                 includes our API reference, and guides to all of Streamlit's
                 features in the core library including caching, theming,
@@ -162,7 +162,7 @@ export default function Home({ window, menu }) {
                 color="lightBlue-70"
                 icon="cloud"
                 bold="Streamlit Community Cloud"
-                href="/streamlit-community-cloud"
+                href="/deploy/streamlit-community-cloud"
               >
                 is an open and free platform for the community to deploy,
                 discover, and share Streamlit apps and code with each other.
@@ -192,7 +192,7 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/library/api-reference/layout/st.popover"
+                href="/develop/api-reference/layout/st.popover"
               >
                 <i className="material-icons-sharp">layers</i>
                 <h4>New popover element</h4>
@@ -203,7 +203,7 @@ export default function Home({ window, menu }) {
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/media/st.video"
+                href="/develop/api-reference/media/st.video"
               >
                 <i className="material-icons-sharp">videocam</i>
                 <h4>Video subtitles</h4>
@@ -213,7 +213,7 @@ export default function Home({ window, menu }) {
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/app-testing/st.testing.v1.apptest"
+                href="/develop/api-reference/app-testing/st.testing.v1.apptest"
               >
                 <i className="material-icons-sharp">science</i>
                 <h4>
@@ -236,7 +236,7 @@ export default function Home({ window, menu }) {
                   your app's performance.
                 </p>
               </RefCard>
-              <RefCard size="third" href="/library/components">
+              <RefCard size="third" href="/develop/components">
                 <i className="material-icons-sharp">extension</i>
                 <h4>Custom component improvements</h4>
                 <p>
@@ -271,7 +271,7 @@ export default function Home({ window, menu }) {
                 img="/logo.svg"
                 title="Clear memo + singleton caches procedurally"
                 text="Do you need more control over cache invalidation? Any function annotated with @st.cache_data or @st.cache_resource gets its own clear() function automatically."
-                link="/library/advanced-features/experimental-cache-primitives#clear-memo-and-singleton-caches-procedurally"
+                link="/develop/concepts/experimental-cache-primitives#clear-memo-and-singleton-caches-procedurally"
               /> */}
               {/* Preserve above comment for syntax reference */}
             </TileContainer>

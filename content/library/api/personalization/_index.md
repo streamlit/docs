@@ -1,12 +1,12 @@
 ---
 title: Personalize apps for the user
-slug: /library/api-reference/personalization
+slug: /develop/api-reference/personalization
 ---
 
 # Personalize apps for the user
 
 <TileContainer>
-<RefCard href="/library/api-reference/personalization/st.experimental_user" size="two-third">
+<RefCard href="/develop/api-reference/personalization/st.experimental_user" size="two-third">
 
 <h4>User info</h4>
 

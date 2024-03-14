@@ -1,21 +1,21 @@
 ---
 title: Deploy your app
-slug: /streamlit-community-cloud/deploy-your-app
+slug: /deploy/streamlit-community-cloud/deploy-your-app
 ---
 
 # Deploy your app
 
-Streamlit Community Cloud lets you deploy your apps in just one click, and most apps will deploy in only a few minutes. If you don't have an app ready to deploy, fork or clone one from our <a href="https://streamlit.io/gallery" target="_blank">App gallery</a> — you can find apps for machine learning, data visualization, data exploration, A/B testing and more. You can also fork and deploy samples straight from the [New app button](/streamlit-community-cloud/get-started/explore-your-workspace#new-app-button). Once you've deployed your app, check out how you can [Edit your app with GitHub Codespaces](/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces).
+Streamlit Community Cloud lets you deploy your apps in just one click, and most apps will deploy in only a few minutes. If you don't have an app ready to deploy, fork or clone one from our <a href="https://streamlit.io/gallery" target="_blank">App gallery</a> — you can find apps for machine learning, data visualization, data exploration, A/B testing and more. You can also fork and deploy samples straight from the [New app button](/deploy/streamlit-community-cloud/get-started/explore-your-workspace#new-app-button). Once you've deployed your app, check out how you can [Edit your app with GitHub Codespaces](/deploy/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces).
 
 <Note>
 
-If you want to deploy your app on a different cloud service, check out the [Deploy Streamlit apps](/knowledge-base/tutorials/deploy) article in our Knowledge Base.
+If you want to deploy your app on a different cloud service, check out the [Deploy Streamlit apps](/deploy/tutorials) article in our Knowledge Base.
 
 </Note>
 
 ## Add your app to GitHub
 
-Streamlit Community Cloud launches apps directly from your GitHub repo, so your app code and dependencies need to be on GitHub before you try to deploy your app. For more information on how to specify dependencies, see [App dependencies](/streamlit-community-cloud/deploy-your-app/app-dependencies).
+Streamlit Community Cloud launches apps directly from your GitHub repo, so your app code and dependencies need to be on GitHub before you try to deploy your app. For more information on how to specify dependencies, see [App dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies).
 
 Your directory structure should look similar to this:
 
@@ -25,7 +25,7 @@ your-repository/
 └── requirements.txt
 ```
 
-If you are including any custom [Configuration](/library/advanced-features/configuration) or [Theming](/library/advanced-features/theming), make sure your config file is saved relative to the root of your repo. Within your repo, your config file should be named `.streamlit/config.toml`.
+If you are including any custom [Configuration](/develop/concepts/configuration) or [Theming](/develop/concepts/configuration/theming), make sure your config file is saved relative to the root of your repo. Within your repo, your config file should be named `.streamlit/config.toml`.
 
 ```
 your-repository/
@@ -61,7 +61,7 @@ Streamlit Community Cloud supports all released [versions of Python that are sti
 
 </Note>
 
-3. (Optional) If you are connecting to a data source or want to specify the Python version for your app, you can do that by clicking "**Advanced settings**" before you deploy the app. Learn more about [Secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management).
+3. (Optional) If you are connecting to a data source or want to specify the Python version for your app, you can do that by clicking "**Advanced settings**" before you deploy the app. Learn more about [Secrets management](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
 
    ![Advanced settings for deploying your app](/images/streamlit-community-cloud/deploy-an-app-advanced.png)
 
@@ -73,13 +73,13 @@ Your app is now deploying and you can watch while it launches. Most apps take on
 
 <Note>
 
-The Streamlit Community Cloud logs on the right hand side of your app are only viewable to users with developer access to your repository. These logs help you debug any issues with the app. Learn more about [Streamlit Community Cloud logs](/streamlit-community-cloud/manage-your-app#streamlit-community-cloud-logs).
+The Streamlit Community Cloud logs on the right hand side of your app are only viewable to users with developer access to your repository. These logs help you debug any issues with the app. Learn more about [Streamlit Community Cloud logs](/deploy/streamlit-community-cloud/manage-your-app#streamlit-community-cloud-logs).
 
 </Note>
 
 ## Your app URL
 
-That's it — you're done! Your app now has a unique subdomain URL that you can share with others. Read more about how to [Share your app](/streamlit-community-cloud/share-your-app) with viewers.
+That's it — you're done! Your app now has a unique subdomain URL that you can share with others. Read more about how to [Share your app](/deploy/streamlit-community-cloud/share-your-app) with viewers.
 
 ### Unique subdomains
 

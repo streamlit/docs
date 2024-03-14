@@ -1,6 +1,6 @@
 ---
 title: st.query_params
-slug: /library/api-reference/utilities/st.query_params
+slug: /develop/api-reference/utilities/st.query_params
 description: st.query_params reads and manipulates query parameters in the browser's URL bar.
 ---
 
@@ -27,11 +27,11 @@ A key-value pair prefixed with `?` is added to the end of your app's URL. Additi
 
 ### Repeated keys
 
-When a key is repeated in your app's URL (`?a=1&a=2&a=3`), dict-like methods will return only the last value. In this example, `st.query_params["a"]` returns `"3"`. To get all keys as a list, use the [`.get_all()`](/library/api-reference/utilities/st.query_params#stquery_paramsget_all) method shown below. To set the value of a repeated key, assign the values as a list. For example, `st.query_params.a = ["1", "2", "3"]` produces the repeated key given at the beginning of this paragraph.
+When a key is repeated in your app's URL (`?a=1&a=2&a=3`), dict-like methods will return only the last value. In this example, `st.query_params["a"]` returns `"3"`. To get all keys as a list, use the [`.get_all()`](/develop/api-reference/utilities/st.query_params#stquery_paramsget_all) method shown below. To set the value of a repeated key, assign the values as a list. For example, `st.query_params.a = ["1", "2", "3"]` produces the repeated key given at the beginning of this paragraph.
 
 ### Limitation
 
-`st.query_params` can't get or set embedding settings as described in [Embed your app](/streamlit-community-cloud/share-your-app/embed-your-app#embed-options). `st.query_params.embed` and `st.query_params.embed_options` will raise an `AttributeError` or `StreamlitAPIException` when trying to get or set their values, respectively.
+`st.query_params` can't get or set embedding settings as described in [Embed your app](/deploy/streamlit-community-cloud/share-your-app/embed-your-app#embed-options). `st.query_params.embed` and `st.query_params.embed_options` will raise an `AttributeError` or `StreamlitAPIException` when trying to get or set their values, respectively.
 
 <Autofunction function="streamlit.query_params.get_all" />
 

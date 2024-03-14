@@ -1,11 +1,11 @@
 ---
 title: Update your email
-slug: /streamlit-community-cloud/manage-your-account/update-your-email
+slug: /deploy/streamlit-community-cloud/manage-your-account/update-your-email
 ---
 
 # Update your email
 
-If you wish to update your email on Streamlit Community Cloud, you can do so via your [Workspace settings](/streamlit-community-cloud/manage-your-account/workspace-settings). Updating your email changes the primary identity of your account. Once updated, if your account's email is associated with a Google account, you can sign in with Google OAuth. Otherwise, you through emailed links. The latter involves typing in your email, after which we'll send you a unique, single-use link (valid for 15 minutes).
+If you wish to update your email on Streamlit Community Cloud, you can do so via your [Workspace settings](/deploy/streamlit-community-cloud/manage-your-account/workspace-settings). Updating your email changes the primary identity of your account. Once updated, if your account's email is associated with a Google account, you can sign in with Google OAuth. Otherwise, you through emailed links. The latter involves typing in your email, after which we'll send you a unique, single-use link (valid for 15 minutes).
 
 If you are signed in to GitHub and don't already have a primary identity on your account, see [Connect Google to your account](#connect-google-to-your-account).
 
@@ -55,7 +55,7 @@ If your confirmation link expires, don't worry! You can resend it by following t
 
 ## Troubleshooting
 
-If you click the confirmation link in a browser session where you are not signed in, you will be informed that "Sign in is required." If you try to sign in with your new email, you will create a second account instead. You cannot resend your confirmation link while you have this second account. If you accidentally created a second account, you can follow the steps to [Delete your account](/streamlit-community-cloud/manage-your-account/delete-your-account) to get rid of the duplicate. Afterwards, [Resend your confirmation link](#resend-your-confirmation-link) from your first account.
+If you click the confirmation link in a browser session where you are not signed in, you will be informed that "Sign in is required." If you try to sign in with your new email, you will create a second account instead. You cannot resend your confirmation link while you have this second account. If you accidentally created a second account, you can follow the steps to [Delete your account](/deploy/streamlit-community-cloud/manage-your-account/delete-your-account) to get rid of the duplicate. Afterwards, [Resend your confirmation link](#resend-your-confirmation-link) from your first account.
 
 ## Connect Google to your account
 

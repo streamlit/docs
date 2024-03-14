@@ -1,6 +1,6 @@
 ---
 title: Placeholders, help, and options
-slug: /library/api-reference/utilities
+slug: /develop/api-reference/utilities
 ---
 
 # Placeholders, help, and options
@@ -9,7 +9,7 @@ There are a handful of methods that allow you to create placeholders in your
 app, provide help using doc strings, get and modify configuration options and query parameters.
 
 <TileContainer>
-<RefCard href="/library/api-reference/utilities/st.set_page_config">
+<RefCard href="/develop/api-reference/utilities/st.set_page_config">
 
 <h4>Set page title, favicon, and more</h4>
 
@@ -23,7 +23,7 @@ st.set_page_config(
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/utilities/st.echo">
+<RefCard href="/develop/api-reference/utilities/st.echo">
 
 <h4>Echo</h4>
 
@@ -35,7 +35,7 @@ with st.echo():
 ```
 
 </RefCard>
-<RefCard href="/library/api-reference/utilities/st.help">
+<RefCard href="/develop/api-reference/utilities/st.help">
 
 <h4>Get help</h4>
 
@@ -48,7 +48,7 @@ st.help(pd.DataFrame)
 
 </RefCard>
 
-<RefCard href="/library/api-reference/utilities/st.query_params">
+<RefCard href="/develop/api-reference/utilities/st.query_params">
 
 <h4>Query parameters</h4>
 

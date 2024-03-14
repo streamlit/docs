@@ -1,6 +1,6 @@
 ---
 title: Delete your app
-slug: /streamlit-community-cloud/manage-your-app/delete-your-app
+slug: /deploy/streamlit-community-cloud/manage-your-app/delete-your-app
 ---
 
 # Delete your app
@@ -11,7 +11,7 @@ If you need to delete your app, it's simple and easy. There are several cases wh
 - You want to deploy from a private repository but already have a private app.
 - You want to change the Python version for your app or otherwise redeploy your app.
 
-If you delete your app and intend to immediately redploy it, your custom subdomain should be immediately available for reuse. Read more about data deletion in [Streamlit trust and security](/streamlit-community-cloud/get-started/trust-and-security#data-deletion).
+If you delete your app and intend to immediately redploy it, your custom subdomain should be immediately available for reuse. Read more about data deletion in [Streamlit trust and security](/deploy/streamlit-community-cloud/get-started/trust-and-security#data-deletion).
 
 You can delete your app:
 

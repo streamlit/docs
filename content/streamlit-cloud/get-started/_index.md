@@ -1,6 +1,6 @@
 ---
 title: Get started
-slug: /streamlit-community-cloud/get-started
+slug: /deploy/streamlit-community-cloud/get-started
 ---
 
 # Get started
@@ -14,14 +14,14 @@ First things first, you need to create your Streamlit Community Cloud account to
         icon="rocket_launch"
         title="Quickstart"
         text="Create your account and deploy an example app as fast as possible. Jump right into coding with GitHub Codespaces."
-        link="/streamlit-community-cloud/get-started"
+        link="/deploy/streamlit-community-cloud/get-started"
         background="lightBlue-70"
     />
     <Tile
         icon="person"
         title="Create your account"
         text="See all the options and get complete explanations as you create your Streamlit Community Cloud account."
-        link="/streamlit-community-cloud/get-started/create-your-account"
+        link="/deploy/streamlit-community-cloud/get-started/create-your-account"
         background="lightBlue-70"
     />
     <Tile
