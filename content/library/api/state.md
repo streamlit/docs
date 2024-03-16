@@ -1,6 +1,6 @@
 ---
 title: Session State
-slug: /develop/api-reference/session-state
+slug: /develop/api-reference/caching-and-state/session-state
 description: st.session_state is a way to share variables between reruns, for each user session.
 ---
 

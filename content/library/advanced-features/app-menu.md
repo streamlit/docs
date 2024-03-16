@@ -1,6 +1,6 @@
 ---
 title: ⋮ App menu
-slug: /develop/concepts/app-menu
+slug: /develop/concepts/elements-and-ui/app-menu
 ---
 
 # <i style={{ verticalAlign: "-.25em", fontSize: "1em" }} className={{ class: "material-icons-sharp" }}>more_vert</i> App menu
@@ -115,7 +115,7 @@ By default, developer options only show when viewing an app locally or when view
 
 ### Clear cache
 
-Reset your app's cache by clicking "**Clear cache**" from the app's menu or by pressing "**C**" on your keyboard while not focused on an input element. This will remove all cached entries for [`@st.cache_data`](/develop/api-reference/performance/st.cache_data) and [`@st.cache_resource`](/develop/api-reference/performance/st.cache_resource).
+Reset your app's cache by clicking "**Clear cache**" from the app's menu or by pressing "**C**" on your keyboard while not focused on an input element. This will remove all cached entries for [`@st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) and [`@st.cache_resource`](/develop/api-reference/caching-and-state/st.cache_resource).
 
 <div style={{ maxWidth: '30%', margin: 'auto' }}>
     <Image src="/images/app-menu/app-menu-clear-XL.png" alt="Rerun" clean />

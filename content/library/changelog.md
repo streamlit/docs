@@ -5,7 +5,7 @@ slug: /develop/quick-references/changelog
 
 # Changelog
 
-This page lists highlights, bug fixes, and known issues for official Streamlit releases. If you're looking for information about nightly releases, beta features, or experimental features, see [Try pre-release features](/develop/concepts/prerelease).
+This page lists highlights, bug fixes, and known issues for official Streamlit releases. If you're looking for information about nightly releases, beta features, or experimental features, see [Try pre-release features](/develop/quick-references/prerelease).
 
 <Tip>
 
@@ -187,7 +187,7 @@ _Release date: October 26, 2023_
 - 🧪 Introducing a new testing framework for Streamlit apps! Check out our [documentation](/develop/api-reference/app-testing) to learn how to build automated tests for your apps.
 - 💻 Announcing the general availability of `st.connection`, a command to conveniently manage connections in Streamlit apps. Check out the [docs](/develop/api-reference/connections/st.connection) to learn more.
 - ❄️ `SnowparkConnection` has been upgraded to the new and improved `SnowflakeConnection` — the same, great functionality _plus more_! Check out our [built-in connections](/develop/api-reference/connections#built-in-connections).
-- 🛠️ `st.dataframe` and `st.data_editor` have a new toolbar! Users can search and download data in addition to enjoying improved UI for row additions and deletions. See our updated guide on [Dataframes](/develop/concepts/dataframes).
+- 🛠️ `st.dataframe` and `st.data_editor` have a new toolbar! Users can search and download data in addition to enjoying improved UI for row additions and deletions. See our updated guide on [Dataframes](/develop/concepts/elements-and-ui/dataframes).
 
 **Notable Changes**
 
@@ -276,7 +276,7 @@ _Release date: August 24, 2023_
 - 🎨 Simple [chart elements](/develop/api-reference/charts) have a `color` parameter to set the color of your data points or series ([#7022](https://github.com/streamlit/streamlit/pull/7022)).
 - 🌈 [Markdown](/develop/api-reference/text/st.markdown) supports rainbow and gray colors ([#7106](https://github.com/streamlit/streamlit/pull/7106), [#7179](https://github.com/streamlit/streamlit/pull/7179)).
 - 📏 [`st.header`](/develop/api-reference/text/st.header) and [`st.subheader`](/develop/api-reference/text/st.subheader) have optional, colored dividers ([#7133](https://github.com/streamlit/streamlit/pull/7133)).
-- 🚀 Deploying to Community Cloud is even easier—locally running apps have a [deploy button](/develop/concepts/app-menu#deploy-this-app) in their toolbars ([#7085](https://github.com/streamlit/streamlit/pull/7085), [#6935](https://github.com/streamlit/streamlit/issues/6935)).
+- 🚀 Deploying to Community Cloud is even easier—locally running apps have a [deploy button](/develop/concepts/elements-and-ui/app-menu#deploy-this-app) in their toolbars ([#7085](https://github.com/streamlit/streamlit/pull/7085), [#6935](https://github.com/streamlit/streamlit/issues/6935)).
 - 🖌️ [`st.download_button`](/develop/api-reference/widgets/st.download_button) has a new parameter `type` for theming ([#7056](https://github.com/streamlit/streamlit/pull/7056), [#7038](https://github.com/streamlit/streamlit/issues/7038)).
 - 🤖 [`st.chat_message`](/develop/api-reference/chat/st.chat_message) has ai and human presets for messages ([#7094](https://github.com/streamlit/streamlit/pull/7094)).
 - 💅 [`st.radio`](/develop/api-reference/widgets/st.radio) options support markdown and have captions ([#7018](https://github.com/streamlit/streamlit/pull/7018), [#7105](https://github.com/streamlit/streamlit/pull/7105), [#6085](https://github.com/streamlit/streamlit/issues/6085)).
@@ -358,15 +358,15 @@ _Release date: June 1, 2023_
 
 **Highlights**
 
-- ✂️ Announcing the general availability of [st.data_editor](/develop/api-reference/data/st.data_editor), a widget that allows you to edit DataFrames and many other data structures in a table-like UI. **Breaking change:** the data editor's representation used in `st.session_state` was altered. Find out more about the new format in [Access edited data](/develop/concepts/dataframes#access-edited-data).
-- ⚙️ Introducing the [Column configuration API](/develop/api-reference/data/st.column_config) with a suite of methods to configure the display and editing behavior of `st.dataframe` and `st.data_editor` columns (e.g. their title, visibility, type, or format). Keep an eye out for a detailed [blog post](https://blog.streamlit.io/) and in-depth [documentation](/develop/concepts/dataframes#configuring-columns) upcoming in the next two weeks.
+- ✂️ Announcing the general availability of [st.data_editor](/develop/api-reference/data/st.data_editor), a widget that allows you to edit DataFrames and many other data structures in a table-like UI. **Breaking change:** the data editor's representation used in `st.session_state` was altered. Find out more about the new format in [Access edited data](/develop/concepts/elements-and-ui/dataframes#access-edited-data).
+- ⚙️ Introducing the [Column configuration API](/develop/api-reference/data/st.column_config) with a suite of methods to configure the display and editing behavior of `st.dataframe` and `st.data_editor` columns (e.g. their title, visibility, type, or format). Keep an eye out for a detailed [blog post](https://blog.streamlit.io/) and in-depth [documentation](/develop/concepts/elements-and-ui/dataframes#configuring-columns) upcoming in the next two weeks.
 - 🔌 Learn to use `st.experimental_connection` to create and manage data connections in your apps with the new [Connecting to data](/develop/concepts/connecting-to-data) docs and [video tutorial](https://www.youtube.com/watch?v=xQwDfW7UHMo).
 
 **Notable Changes**
 
 - 📊 Streamlit now supports Protobuf 4 and Altair 5 ([#6215](https://github.com/streamlit/streamlit/issues/6215), [#6618](https://github.com/streamlit/streamlit/pull/6618), [#5626](https://github.com/streamlit/streamlit/issues/5626), [#6622](https://github.com/streamlit/streamlit/pull/6622)).
 - ☎️ st.dataframe and st.data_editor can hide index columns with `hide_index`, specify the display order of columns with `column_order`, and disable editing for individual columns with the `disabled` parameter.
-- ⏱️ The `ttl` parameter in [st.cache_data](/develop/api-reference/performance/st.cache_data) and [st.cache_resource](/develop/api-reference/performance/st.cache_resource) accepts formatted strings, so you can simply say `ttl="30d"`, `ttl="1h30m"` and any other combination of `w`, `d`, `h`, `m`, `s` supported by [Pandas's Timedelta constructor](https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.html) ([#6560](https://github.com/streamlit/streamlit/pull/6560)).
+- ⏱️ The `ttl` parameter in [st.cache_data](/develop/api-reference/caching-and-state/st.cache_data) and [st.cache_resource](/develop/api-reference/caching-and-state/st.cache_resource) accepts formatted strings, so you can simply say `ttl="30d"`, `ttl="1h30m"` and any other combination of `w`, `d`, `h`, `m`, `s` supported by [Pandas's Timedelta constructor](https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.html) ([#6560](https://github.com/streamlit/streamlit/pull/6560)).
 - 📂 `st.file_uploader` now interprets the `type` parameter more accurately. For example, "jpg" or ".jpg" now accept both "jpg" and "jpeg" extensions. This functionality has also been extended to "mpeg/mpg", "tiff/tif", "html/htm", and "mpeg4/mp4".
 - 🤫 The new `global.disableWidgetStateDuplicationWarning` configuration option allows the silencing of warnings triggered by setting widget default values and keyed session state values concurrently ([#3605](https://github.com/streamlit/streamlit/issues/3605), [#6640](https://github.com/streamlit/streamlit/pull/6640)). Thanks, [@antonAce](https://github.com/antonAce)!
 
@@ -457,7 +457,7 @@ _Release date: March 09, 2023_
 
 **Notable Changes**
 
-- 🔐 Added support for configuring SSL to [serve apps directly over HTTPS](/develop/concepts/https-support) ([#5969](https://github.com/streamlit/streamlit/pull/5969)).
+- 🔐 Added support for configuring SSL to [serve apps directly over HTTPS](/develop/concepts/configuration/https-support) ([#5969](https://github.com/streamlit/streamlit/pull/5969)).
 - 🖼️ Granular control over app embedding behavior with the `/?embed` and `/?embed_options` query parameters. Learn how to use this feature in our [docs](/deploy/streamlit-community-cloud/share-your-app/embed-your-app) ([#6011](https://github.com/streamlit/streamlit/pull/6011), [#6019](https://github.com/streamlit/streamlit/pull/6019)).
 - ⚡ Enabled the `runner.fastReruns` [configuration option](/develop/concepts/configuration#view-all-configuration-options) by default to make apps much more responsive to user interaction ([#6200](https://github.com/streamlit/streamlit/pull/6200)).
 
@@ -478,7 +478,7 @@ _Release date: February 23, 2023_
 
 **Highlights**
 
-- ✂️ Introducing `st.experimental_data_editor`, a widget that allows you to edit DataFrames and many other data structures in a table-like UI. Read more in our [documentation](/develop/concepts/dataframes) and [blog post](https://blog.streamlit.io/editable-dataframes-are-here/).
+- ✂️ Introducing `st.experimental_data_editor`, a widget that allows you to edit DataFrames and many other data structures in a table-like UI. Read more in our [documentation](/develop/concepts/elements-and-ui/dataframes) and [blog post](https://blog.streamlit.io/editable-dataframes-are-here/).
 
 **Other Changes**
 
@@ -505,7 +505,7 @@ _Release date: February 09, 2023_
 - ↔️ `st.button` has an optional `use_container_width` parameter to allow you to stretch buttons across the full container width.
 - 🐍 We formally added support for Python 3.11.
 - 🖨️ Save your app as a PDF via the "Print" option in your app's hamburger menu.
-- 🛎️ Apps can serve small, static media files via the `enableStaticServing` config option. See our [documentation](/develop/concepts/static-file-serving) on how to use this feature and our demo [app](https://static-file-serving.streamlit.app/) for an example.
+- 🛎️ Apps can serve small, static media files via the `enableStaticServing` config option. See our [documentation](/develop/concepts/configuration/static-file-serving) on how to use this feature and our demo [app](https://static-file-serving.streamlit.app/) for an example.
 
 **Other Changes**
 
@@ -527,8 +527,8 @@ _Release date: January 12, 2023_
 
 **Notable Changes**
 
-- 🪄 [`@st.experimental_singleton`](/develop/api-reference/performance/st.experimental_singleton#validating-the-cache) supports an optional `validate` parameter that accepts a validation function for cached data and is called each time the cached value is accessed.
-- 💾  [`@st.experimental_memo`](https://docs.streamlit.io/develop/api-reference/performance/st.experimental_memo)'s `persist` parameter can also accept booleans.
+- 🪄 [`@st.experimental_singleton`](/develop/api-reference/caching-and-state/st.experimental_singleton#validating-the-cache) supports an optional `validate` parameter that accepts a validation function for cached data and is called each time the cached value is accessed.
+- 💾  [`@st.experimental_memo`](https://docs.streamlit.io/develop/api-reference/caching-and-state/st.experimental_memo)'s `persist` parameter can also accept booleans.
 
 **Other Changes**
 

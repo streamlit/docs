@@ -11,3 +11,5 @@ Static tables with `st.table` are the most basic way to display dataframes. For 
 </Tip>
 
 <Autofunction function="streamlit.table" />
+
+<Autofunction function="DeltaGenerator.add_rows" />

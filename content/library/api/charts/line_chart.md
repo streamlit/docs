@@ -5,3 +5,5 @@ description: st.line_chart displays a line chart.
 ---
 
 <Autofunction function="streamlit.line_chart" />
+
+<Autofunction function="DeltaGenerator.add_rows" />

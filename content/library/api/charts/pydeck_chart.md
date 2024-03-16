@@ -5,3 +5,5 @@ description: st.pydeck_chart displays a chart using the PyDeck library.
 ---
 
 <Autofunction function="streamlit.pydeck_chart" />
+
+<Autofunction function="DeltaGenerator.add_rows" />

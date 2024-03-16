@@ -1986,7 +1986,7 @@ element.add_rows(df_with_extra_rows)
 ## State management
 
 <TileContainer>
-<RefCard href="/develop/api-reference/session-state">
+<RefCard href="/develop/api-reference/caching-and-state/session-state">
 
 <h4>Session state</h4>
 
@@ -2059,7 +2059,7 @@ st.write(user_info)
 ## Performance
 
 <TileContainer>
-<RefCard href="/develop/api-reference/performance/st.cache_data" size="half">
+<RefCard href="/develop/api-reference/caching-and-state/st.cache_data" size="half">
 
 <h4>Cache data</h4>
 
@@ -2075,7 +2075,7 @@ def long_function(param1, param2):
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/performance/st.cache_resource" size="half">
+<RefCard href="/develop/api-reference/caching-and-state/st.cache_resource" size="half">
 
 <h4>Cache resource</h4>
 

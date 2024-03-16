@@ -50,9 +50,6 @@ site_menu:
     url: /develop/api-reference/write-magic/magic
   - category: Develop / API reference / Text elements
     url: /develop/api-reference/text
-  - category: Develop / API reference / Text elements / st.markdown
-    url: /develop/api-reference/text/st.markdown
-    isVersioned: true
   - category: Develop / API reference / Text elements / st.title
     url: /develop/api-reference/text/st.title
     isVersioned: true
@@ -62,20 +59,23 @@ site_menu:
   - category: Develop / API reference / Text elements / st.subheader
     url: /develop/api-reference/text/st.subheader
     isVersioned: true
+  - category: Develop / API reference / Text elements / st.markdown
+    url: /develop/api-reference/text/st.markdown
+    isVersioned: true
   - category: Develop / API reference / Text elements / st.caption
     url: /develop/api-reference/text/st.caption
     isVersioned: true
   - category: Develop / API reference / Text elements / st.code
     url: /develop/api-reference/text/st.code
     isVersioned: true
-  - category: Develop / API reference / Text elements / st.text
-    url: /develop/api-reference/text/st.text
+  - category: Develop / API reference / Text elements / st.divider
+    url: /develop/api-reference/text/st.divider
     isVersioned: true
   - category: Develop / API reference / Text elements / st.latex
     url: /develop/api-reference/text/st.latex
     isVersioned: true
-  - category: Develop / API reference / Text elements / st.divider
-    url: /develop/api-reference/text/st.divider
+  - category: Develop / API reference / Text elements / st.text
+    url: /develop/api-reference/text/st.text
     isVersioned: true
   - category: Develop / API reference / Data elements
     url: /develop/api-reference/data
@@ -322,7 +322,7 @@ site_menu:
   - category: Develop / API reference / Status elements / st.exception
     url: /develop/api-reference/status/st.exception
     isVersioned: true
-  - category: Develop / API reference / CONTROL
+  - category: Develop / API reference / LOGIC
   - category: Develop / API reference / Control flow
     url: /develop/api-reference/control-flow
   - category: Develop / API reference / Control flow / st.form
@@ -347,7 +347,6 @@ site_menu:
     url: /develop/api-reference/control-flow/st.experimental_rerun
     isVersioned: true
     isDeprecated: true
-  - category: Develop / API reference / DATA HANDLING
   - category: Develop / API reference / Utilities
     url: /develop/api-reference/utilities
   - category: Develop / API reference / Utilities / st.set_page_config
@@ -372,28 +371,40 @@ site_menu:
     isDeprecated: true
   - category: Develop / API reference / Mutate charts
     url: /develop/api-reference/mutate
-  - category: Develop / API reference / State management
-    url: /develop/api-reference/session-state
-  - category: Develop / API reference / Performance
-    url: /develop/api-reference/performance
-  - category: Develop / API reference / Performance / st.cache_data
-    url: /develop/api-reference/performance/st.cache_data
+  - category: Develop / API reference / Caching and state
+    url: /develop/api-reference/caching-and-state
+  - category: Develop / API reference / Caching and state / st.cache_data
+    url: /develop/api-reference/caching-and-state/st.cache_data
     isVersioned: true
-  - category: Develop / API reference / Performance / st.cache_resource
-    url: /develop/api-reference/performance/st.cache_resource
+  - category: Develop / API reference / Caching and state / st.cache_resource
+    url: /develop/api-reference/caching-and-state/st.cache_resource
     isVersioned: true
-  - category: Develop / API reference / Performance / st.cache
-    url: /develop/api-reference/performance/st.cache
-    isVersioned: true
-    isDeprecated: true
-  - category: Develop / API reference / Performance / st.experimental_memo
-    url: /develop/api-reference/performance/st.experimental_memo
+  - category: Develop / API reference / Caching and state / st.session_state
+    url: /develop/api-reference/caching-and-state/session-state
+  - category: Develop / API reference / Caching and state / st.cache
+    url: /develop/api-reference/caching-and-state/st.cache
     isVersioned: true
     isDeprecated: true
-  - category: Develop / API reference / Performance / st.experimental_singleton
-    url: /develop/api-reference/performance/st.experimental_singleton
+  - category: Develop / API reference / Caching and state / st.experimental_memo
+    url: /develop/api-reference/caching-and-state/st.experimental_memo
     isVersioned: true
     isDeprecated: true
+  - category: Develop / API reference / Caching and state / st.experimental_singleton
+    url: /develop/api-reference/caching-and-state/st.experimental_singleton
+    isVersioned: true
+    isDeprecated: true
+  - category: Develop / API reference / Custom components
+    url: /develop/api-reference/custom-components
+    isVersioned: false
+  - category: Develop / API reference / Custom components / st.components.v1​.declare_component
+    url: /develop/api-reference/custom-components/st.components.v1.declare_component
+    isVersioned: true
+  - category: Develop / API reference / Custom components / st.components.v1.html
+    url: /develop/api-reference/custom-components/st.components.v1.html
+    isVersioned: true
+  - category: Develop / API reference / Custom components / st.components.v1.iframe
+    url: /develop/api-reference/custom-components/st.components.v1.iframe
+    isVersioned: true
   - category: Develop / API reference / Personalization
     url: /develop/api-reference/personalization
     isVersioned: false
@@ -426,6 +437,7 @@ site_menu:
     url: /develop/api-reference/connections/st.connections.experimentalbaseconnection
     isVersioned: true
     isDeprecated: true
+  - category: Develop / API reference / TOOLS
   - category: Develop / API reference / App testing
     url: /develop/api-reference/app-testing
   - category: Develop / API reference / App testing / st.testing.v1.AppTest
@@ -434,12 +446,21 @@ site_menu:
   - category: Develop / API reference / App testing / Testing element classes
     url: /develop/api-reference/app-testing/testing-element-classes
     isVersioned: true
+  - category: Develop / API reference / ---
   - category: Develop / Concepts
     url: /develop/concepts
-  - category: Develop / Concepts / ⋮ App menu
-    url: /develop/concepts/app-menu
-  - category: Develop / Concepts / Button behavior and examples
-    url: /develop/concepts/button-behavior-and-examples
+  - category: Develop / Concepts / Elements and UI
+    url: /develop/concepts/elements-and-ui
+  - category: Develop / Concepts / Elements and UI/ App menu
+    url: /develop/concepts/elements-and-ui/app-menu
+  - category: Develop / Concepts / Elements and UI/ Button behavior and examples
+    url: /develop/concepts/elements-and-ui/button-behavior-and-examples
+  - category: Develop / Concepts / Elements and UI/ Dataframes
+    url: /develop/concepts/elements-and-ui/dataframes
+  - category: Develop / Concepts / Elements and UI/ Forms
+    url: /develop/concepts/elements-and-ui/forms
+  - category: Develop / Concepts / Elements and UI/ Widget behavior
+    url: /develop/concepts/elements-and-ui/widget-behavior
   - category: Develop / Concepts / Caching
     url: /develop/concepts/caching
   - category: Develop / Concepts / Optimize performance with st.cache
@@ -452,46 +473,38 @@ site_menu:
     url: /develop/concepts/configuration
   - category: Develop / Concepts / Configuration / Command-line interface
     url: /develop/concepts/configuration/cli
+  - category: Develop / Concepts / Configuration / HTTPS support
+    url: /develop/concepts/configuration/https-support
   - category: Develop / Concepts / Configuration / Secrets management
     url: /develop/concepts/configuration/secrets-management
+  - category: Develop / Concepts / Configuration / Security reminders
+    url: /develop/concepts/configuration/security-reminders
+  - category: Develop / Concepts / Configuration / Static file serving
+    url: /develop/concepts/configuration/static-file-serving
   - category: Develop / Concepts / Configuration / Theming
     url: /develop/concepts/configuration/theming
   - category: Develop / Concepts / Connecting to data
     url: /develop/concepts/connecting-to-data
   - category: Develop / Concepts / Custom components
     url: /develop/concepts/custom-components
-  - category: Develop / Concepts / Custom components / Components API
-    url: /develop/concepts/custom-components/components-api
+  - category: Develop / Concepts / Custom components / Intro to custom components
+    url: /develop/concepts/custom-components/intro
   - category: Develop / Concepts / Custom components / Create a Component
     url: /develop/concepts/custom-components/create
   - category: Develop / Concepts / Custom components / Publish a Component
     url: /develop/concepts/custom-components/publish
   - category: Develop / Concepts / Custom components / Component gallery
     url: https://streamlit.io/components
-  - category: Develop / Concepts / Dataframes
-    url: /develop/concepts/dataframes
-  - category: Develop / Concepts / Forms
-    url: /develop/concepts/forms
   - category: Develop / Concepts / Multipage apps
     url: /develop/concepts/multipage-apps
   - category: Develop / Concepts / Multipage apps / Custom navigation
     url: /develop/concepts/multipage-apps/custom-navigation
-  - category: Develop / Concepts / Add statefulness to apps
+  - category: Develop / Concepts / Session State
     url: /develop/concepts/session-state
-  - category: Develop / Concepts / Widget behavior
-    url: /develop/concepts/widget-behavior
   - category: Develop / Concepts/ Custom classes
     url: /develop/concepts/custom-classes
-  - category: Develop / Concepts / Pre-release features
-    url: /develop/concepts/prerelease
   - category: Develop / Concepts / Working with timezones
     url: /develop/concepts/timezone-handling
-  - category: Develop / Concepts / Static file serving
-    url: /develop/concepts/static-file-serving
-  - category: Develop / Concepts / HTTPS support
-    url: /develop/concepts/https-support
-  - category: Develop / Concepts / Security reminders
-    url: /develop/concepts/security-reminders
   - category: Develop / Concepts / App testing
     url: /develop/concepts/app-testing
   - category: Develop / Concepts / App testing / Get started
@@ -552,6 +565,8 @@ site_menu:
     url: /develop/quick-references/changelog
   - category: Develop / Quick references / Cheat sheet
     url: /develop/quick-references/cheatsheet
+  - category: Develop / Quick references / Pre-release features
+    url: /develop/quick-references/prerelease
   - category: Develop / Quick references/ Roadmap
     url: https://roadmap.streamlit.app
 

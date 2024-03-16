@@ -1,6 +1,6 @@
 ---
 title: Using forms
-slug: /develop/concepts/forms
+slug: /develop/concepts/elements-and-ui/forms
 ---
 
 # Using forms

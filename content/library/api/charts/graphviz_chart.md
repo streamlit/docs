@@ -5,3 +5,5 @@ description: st.graphviz_chart displays a graph using the dagre-d3 library.
 ---
 
 <Autofunction function="streamlit.graphviz_chart" />
+
+<Autofunction function="DeltaGenerator.add_rows" />

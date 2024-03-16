@@ -1,6 +1,6 @@
 ---
 title: Button behavior and examples
-slug: /develop/concepts/button-behavior-and-examples
+slug: /develop/concepts/elements-and-ui/button-behavior-and-examples
 ---
 
 # Button behavior and examples
@@ -9,7 +9,7 @@ slug: /develop/concepts/button-behavior-and-examples
 
 Buttons created with [`st.button`](/develop/api-reference/widgets/st.button) do not retain state. They return `True` on the script rerun resulting from their click and immediately return to `False` on the next script rerun. If a displayed element is nested inside `if st.button('Click me'):`, the element will be visible when the button is clicked and disappear as soon as the user takes their next action. This is because the script reruns and the button return value becomes `False`.
 
-In this guide, we will illustrate the use of buttons and explain common misconceptions. Read on to see a variety of examples that expand on `st.button` using [`st.session_state`](/develop/api-reference/session-state). [Anti-patterns](#anti-patterns) are included at the end. Go ahead and pull up your favorite code editor so you can `streamlit run` the examples as you read. Check out Streamlit's [Main concepts](/get-started/fundamentals/main-concepts) if you haven't run your own Streamlit scripts yet.
+In this guide, we will illustrate the use of buttons and explain common misconceptions. Read on to see a variety of examples that expand on `st.button` using [`st.session_state`](/develop/api-reference/caching-and-state/session-state). [Anti-patterns](#anti-patterns) are included at the end. Go ahead and pull up your favorite code editor so you can `streamlit run` the examples as you read. Check out Streamlit's [Main concepts](/get-started/fundamentals/main-concepts) if you haven't run your own Streamlit scripts yet.
 
 ## When to use `if st.button()`
 
@@ -371,7 +371,7 @@ if option in st.session_state.processed:
     st.write(st.session_state.processed[option][0])
 ```
 
-Astute observers may think, "This feels a little like caching." We are only saving results relative to one parameter, but the pattern could easily be expanded to save results relative to both parameters. In that sense, yes, it has some similarities to caching, but also some important differences. When you save results in `st.session_state`, the results are only available to the current user in their current session. If you use [`st.cache_data`](/develop/api-reference/performance/st.cache_data) instead, the results are available to all users across all sessions. Furthermore, if you want to update a saved result, you have to clear all saved results for that function to do so.
+Astute observers may think, "This feels a little like caching." We are only saving results relative to one parameter, but the pattern could easily be expanded to save results relative to both parameters. In that sense, yes, it has some similarities to caching, but also some important differences. When you save results in `st.session_state`, the results are only available to the current user in their current session. If you use [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) instead, the results are available to all users across all sessions. Furthermore, if you want to update a saved result, you have to clear all saved results for that function to do so.
 
 ## Anti-patterns
 

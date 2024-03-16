@@ -79,7 +79,7 @@ Other options accessible from Cloud logs are:
 
 ### App menus
 
-From your app at `<your-custom-subdomain>.streamlit.app`, you can always access your [app's menu](/develop/concepts/app-menu) just like you can when developing locally. The option to deploy your app is removed, but you can still clear your cache from here.
+From your app at `<your-custom-subdomain>.streamlit.app`, you can always access your [app's menu](/develop/concepts/elements-and-ui/app-menu) just like you can when developing locally. The option to deploy your app is removed, but you can still clear your cache from here.
 
 ![App menus in Streamlit Community Cloud](/images/streamlit-community-cloud/app-menu.png)
 

@@ -55,7 +55,7 @@ Opens the Streamlit documentation (i.e. this website) in a web browser.
 streamlit cache clear
 ```
 
-Clears persisted files from the on-disk [Streamlit cache](/develop/api-reference/performance), if
+Clears persisted files from the on-disk [Streamlit cache](/develop/api-reference/caching-and-state), if
 present.
 
 ### View all configuration options

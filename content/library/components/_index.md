@@ -46,7 +46,7 @@ If you're interested in making your own component, check out the following resou
 
 - [Create a Component](/develop/concepts/custom-components/create)
 - [Publish a Component](/develop/concepts/custom-components/publish)
-- [Components API](/develop/concepts/custom-components/components-api)
+- [Components API](/develop/concepts/custom-components/intro)
 - [Blog post for when we launched Components!](https://blog.streamlit.io/introducing-streamlit-components/)
 
 Alternatively, if you prefer to learn using videos, our engineer Tim Conkling has put together some

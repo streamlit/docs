@@ -1,6 +1,6 @@
 ---
 title: HTTPS support
-slug: /develop/concepts/https-support
+slug: /develop/concepts/configuration/https-support
 ---
 
 # HTTPS support

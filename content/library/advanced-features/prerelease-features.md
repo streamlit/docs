@@ -1,6 +1,6 @@
 ---
 title: Pre-release features
-slug: /develop/concepts/prerelease
+slug: /develop/quick-references/prerelease
 ---
 
 # Pre-release features

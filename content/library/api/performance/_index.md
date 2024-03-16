@@ -1,6 +1,6 @@
 ---
 title: Optimize performance
-slug: /develop/api-reference/performance
+slug: /develop/api-reference/caching-and-state
 ---
 
 # Optimize performance
@@ -9,7 +9,7 @@ Streamlit provides powerful [cache primitives](/develop/concepts/caching) for da
 
 <TileContainer>
 
-<RefCard href="/develop/api-reference/performance/st.cache_data" size="half">
+<RefCard href="/develop/api-reference/caching-and-state/st.cache_data" size="half">
 
 <h4>Cache data</h4>
 
@@ -25,7 +25,7 @@ def long_function(param1, param2):
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/performance/st.cache_resource" size="half">
+<RefCard href="/develop/api-reference/caching-and-state/st.cache_resource" size="half">
 
 <h4>Cache resource</h4>
 
@@ -54,7 +54,7 @@ All the below commands were deprecated in version 1.18.0. Use the new commands a
 
 <TileContainer>
 
-<RefCard href="/develop/api-reference/performance/st.cache" deprecated={true}>
+<RefCard href="/develop/api-reference/caching-and-state/st.cache" deprecated={true}>
 
 > This command was deprecated in version 1.18.0. Use `st.cache_data` or `st.cache_resource` instead.
 
@@ -71,7 +71,7 @@ def run_long_computation(arg1, arg2):
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/performance/st.experimental_memo" deprecated={true}>
+<RefCard href="/develop/api-reference/caching-and-state/st.experimental_memo" deprecated={true}>
 
 > This command was deprecated in version 1.18.0. Use `st.cache_data` instead.
 
@@ -88,7 +88,7 @@ def fetch_and_clean_data(url):
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/performance/st.experimental_singleton" deprecated={true}>
+<RefCard href="/develop/api-reference/caching-and-state/st.experimental_singleton" deprecated={true}>
 
 > This command was deprecated in version 1.18.0. Use `st.cache_resource` instead.
 
@@ -105,7 +105,7 @@ def get_database_session(url):
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/performance/st.experimental_memo.clear" deprecated={true}>
+<RefCard href="/develop/api-reference/caching-and-state/st.experimental_memo.clear" deprecated={true}>
 
 > This command was deprecated in version 1.18.0. Use `st.cache_data.clear` instead.
 
@@ -126,7 +126,7 @@ if st.checkbox("Clear All"):
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/performance/st.experimental_singleton.clear"  deprecated={true}>
+<RefCard href="/develop/api-reference/caching-and-state/st.experimental_singleton.clear"  deprecated={true}>
 
 > This command was deprecated in version 1.18.0. Use `st.cache_resource.clear`instead.
 

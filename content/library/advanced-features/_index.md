@@ -9,16 +9,16 @@ This section gives you background on how different parts of Streamlit work.
 
 <TileContainer>
 
-<RefCard href="/develop/concepts/app-menu" size="half">
+<RefCard href="/develop/concepts/elements-and-ui/app-menu" size="half">
 
 <h5>⋮ App menu</h5>
 
 Streamlit provides a configurable menu within your app to access convenient tools for developers and viewers. These options can modify the appearance of your app while running.
 
-- [Modify your app's theme while running](/develop/concepts/app-menu#settings)
-- [Record a screencast of your app](/develop/concepts/app-menu#record-a-screencast)
-- [Deploy a local app to Streamlit Community Cloud](/develop/concepts/app-menu#deploy-this-app)
-- [Customize or hide the app menu](/develop/concepts/app-menu#customize-the-menu)
+- [Modify your app's theme while running](/develop/concepts/elements-and-ui/app-menu#settings)
+- [Record a screencast of your app](/develop/concepts/elements-and-ui/app-menu#record-a-screencast)
+- [Deploy a local app to Streamlit Community Cloud](/develop/concepts/elements-and-ui/app-menu#deploy-this-app)
+- [Customize or hide the app menu](/develop/concepts/elements-and-ui/app-menu#customize-the-menu)
 
 </RefCard>
 
@@ -101,14 +101,14 @@ Session State is a way to share variables between reruns, for each user session.
 
 </RefCard>
 
-<RefCard href="/develop/concepts/prerelease" size="half">
+<RefCard href="/develop/quick-references/prerelease" size="half">
 
 <h5>Pre-release features</h5>
 
 At Streamlit, we like to move quick while keeping things stable. In our latest effort to move even faster without sacrificing stability, we're offering our bold and fearless users two ways to try out Streamlit's bleeding-edge features.
 
-- [Experimental features](/develop/concepts/prerelease#experimental-features)
-- [Nightly releases](/develop/concepts/prerelease#nightly-releases)
+- [Experimental features](/develop/quick-references/prerelease#experimental-features)
+- [Nightly releases](/develop/quick-references/prerelease#nightly-releases)
 
 </RefCard>
 

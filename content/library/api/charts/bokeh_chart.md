@@ -5,3 +5,5 @@ description: st.bokeh_chart displays an interactive Bokeh chart.
 ---
 
 <Autofunction function="streamlit.bokeh_chart" />
+
+<Autofunction function="DeltaGenerator.add_rows" />

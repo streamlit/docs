@@ -5,3 +5,5 @@ description: st.scatter_chart displays an scatter chart.
 ---
 
 <Autofunction function="streamlit.scatter_chart" />
+
+<Autofunction function="DeltaGenerator.add_rows" />

@@ -1,6 +1,6 @@
 ---
 title: Static file serving
-slug: /develop/concepts/static-file-serving
+slug: /develop/concepts/configuration/static-file-serving
 ---
 
 # Static file serving

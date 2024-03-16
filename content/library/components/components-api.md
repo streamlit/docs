@@ -1,9 +1,9 @@
 ---
-title: Components API
-slug: /develop/concepts/custom-components/components-api
+title: Intro to custom components
+slug: /develop/concepts/custom-components/intro
 ---
 
-# Components API Reference
+# Intro to custom components
 
 The first step in developing a Streamlit Component is deciding whether to create a static component (i.e. rendered once, controlled by Python) or to create a bi-directional component that can communicate from Python to JavaScript and back.
 
@@ -15,9 +15,7 @@ If you are unsure whether you need bi-directional communication, **start here fi
 
 ### Render an HTML string
 
-While [`st.text`](/develop/api-reference/text/st.text), [`st.markdown`](/develop/api-reference/text/st.markdown) and [`st.write`](/develop/api-reference/write-magic/st.write) make it easy to write text to a Streamlit app, sometimes you'd rather implement a custom piece of HTML. Similarly, while Streamlit natively supports [many charting libraries](/develop/api-reference/charts#chart-elements), you may want to implement a specific HTML/JavaScript template for a new charting library. `components.html` works by giving you the ability to embed an iframe inside of a Streamlit app that contains your desired output.
-
-<Autofunction function="streamlit.components.v1.html" />
+While [`st.text`](/develop/api-reference/text/st.text), [`st.markdown`](/develop/api-reference/text/st.markdown) and [`st.write`](/develop/api-reference/write-magic/st.write) make it easy to write text to a Streamlit app, sometimes you'd rather implement a custom piece of HTML. Similarly, while Streamlit natively supports [many charting libraries](/develop/api-reference/charts#chart-elements), you may want to implement a specific HTML/JavaScript template for a new charting library. [`components.html`](/develop/api-reference/custom-components/st.components.v1.html) works by giving you the ability to embed an iframe inside of a Streamlit app that contains your desired output.
 
 **Example**
 
@@ -68,9 +66,7 @@ components.html(
 
 ### Render an iframe URL
 
-`components.iframe` is similar in features to `components.html`, with the difference being that `components.iframe` takes a URL as its input. This is used for situations where you want to include an entire page within a Streamlit app.
-
-<Autofunction function="streamlit.components.v1.iframe" />
+[`components.iframe`](/develop/api-reference/custom-components/st.components.v1.iframe) is similar in features to `components.html`, with the difference being that `components.iframe` takes a URL as its input. This is used for situations where you want to include an entire page within a Streamlit app.
 
 **Example**
 

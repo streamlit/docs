@@ -6,6 +6,8 @@ description: st.vega_lite_chart displays a chart using the Vega-Lite library.
 
 <Autofunction function="streamlit.vega_lite_chart" />
 
+<Autofunction function="DeltaGenerator.add_rows" />
+
 ### Theming
 
 Vega-Lite charts are displayed using the Streamlit theme by default. This theme is sleek, user-friendly, and incorporates Streamlit's color palette. The added benefit is that your charts better integrate with the rest of your app's design.

@@ -6,7 +6,7 @@ description: st.experimental_user returns information about the logged-in user o
 
 <Important>
 
-This is an experimental feature. Experimental features and their APIs may change or be removed at any time. To learn more, click [here](/develop/concepts/prerelease#experimental-features).
+This is an experimental feature. Experimental features and their APIs may change or be removed at any time. To learn more, click [here](/develop/quick-references/prerelease#experimental-features).
 
 </Important>
 

@@ -6,6 +6,8 @@ description: st.altair_chart displays a chart using the Altair library.
 
 <Autofunction function="streamlit.altair_chart" />
 
+<Autofunction function="DeltaGenerator.add_rows" />
+
 ### Theming
 
 Altair charts are displayed using the Streamlit theme by default. This theme is sleek, user-friendly, and incorporates Streamlit's color palette. The added benefit is that your charts better integrate with the rest of your app's design.
