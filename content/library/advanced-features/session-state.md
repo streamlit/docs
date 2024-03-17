@@ -1,6 +1,6 @@
 ---
 title: Add statefulness to apps
-slug: /develop/concepts/session-state
+slug: /develop/concepts/logical-design/session-state
 ---
 
 # Add statefulness to apps
@@ -13,7 +13,7 @@ Session State is a way to share variables between reruns, for each user session.
 
 In this guide, we will illustrate the usage of **Session State** and **Callbacks** as we build a stateful Counter app.
 
-For details on the Session State and Callbacks API, please refer to our [Session State API Reference Guide](/develop/api-reference/caching-and-state/session-state).
+For details on the Session State and Callbacks API, please refer to our [Session State API Reference Guide](/develop/api-reference/control-flow/session-state).
 
 Also, check out this Session State basics tutorial video by Streamlit Developer Advocate Dr. Marisa Smith to get started:
 
@@ -129,7 +129,7 @@ As you can see in the above example, pressing the **_Increment_** button updates
 
 Now that we've built a basic Counter app using Session State, let's move on to something a little more complex. The next example uses Callbacks with Session State.
 
-**Callbacks**: A callback is a Python function which gets called when an input widget changes. Callbacks can be used with widgets using the parameters `on_change` (or `on_click`), `args`, and `kwargs`. The full Callbacks API can be found in our [Session State API Reference Guide](/develop/api-reference/caching-and-state/session-state#use-callbacks-to-update-session-state).
+**Callbacks**: A callback is a Python function which gets called when an input widget changes. Callbacks can be used with widgets using the parameters `on_change` (or `on_click`), `args`, and `kwargs`. The full Callbacks API can be found in our [Session State API Reference Guide](/develop/api-reference/control-flow/session-state#use-callbacks-to-update-session-state).
 
 ```python
 import streamlit as st
@@ -274,7 +274,7 @@ st.button('Submit', key='my_button')
 
 Serialization refers to the process of converting an object or data structure into a format that can be persisted and shared, and allowing you to recover the data’s original structure. Python’s built-in [pickle](https://docs.python.org/3/develop/pickle.html) module serializes Python objects to a byte stream ("pickling") and deserializes the stream into an object ("unpickling").
 
-By default, Streamlit’s [Session State](/develop/concepts/session-state) allows you to persist any Python object for the duration of the session, irrespective of the object’s pickle-serializability. This property lets you store Python primitives such as integers, floating-point numbers, complex numbers and booleans, dataframes, and even [lambdas](https://docs.python.org/3/reference/expressions.html#lambda) returned by functions. However, some execution environments may require serializing all data in Session State, so it may be useful to detect incompatibility during development, or when the execution environment will stop supporting it in the future.
+By default, Streamlit’s [Session State](/develop/concepts/logical-design/session-state) allows you to persist any Python object for the duration of the session, irrespective of the object’s pickle-serializability. This property lets you store Python primitives such as integers, floating-point numbers, complex numbers and booleans, dataframes, and even [lambdas](https://docs.python.org/3/reference/expressions.html#lambda) returned by functions. However, some execution environments may require serializing all data in Session State, so it may be useful to detect incompatibility during development, or when the execution environment will stop supporting it in the future.
 
 To that end, Streamlit provides a `runner.enforceSerializableSessionState` [configuration option](/develop/concepts/configuration) that, when set to `true`, only allows pickle-serializable objects in Session State. To enable the option, either create a global or project config file with the following or use it as a command-line flag:
 
@@ -310,4 +310,4 @@ Here are some limitations to keep in mind when using Session State:
 
 - Session State exists for as long as the tab is open and connected to the Streamlit server. As soon as you close the tab, everything stored in Session State is lost.
 - Session State is not persisted. If the Streamlit server crashes, then everything stored in Session State gets wiped
-- For caveats and limitations with the Session State API, please see the [API limitations](/develop/api-reference/caching-and-state/session-state#caveats-and-limitations).
+- For caveats and limitations with the Session State API, please see the [API limitations](/develop/api-reference/control-flow/session-state#caveats-and-limitations).

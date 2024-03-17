@@ -343,6 +343,8 @@ site_menu:
   - category: Develop / API reference / Flow and navigation / st.rerun
     url: /develop/api-reference/control-flow/st.rerun
     isVersioned: true
+  - category: Develop / API reference / Flow and navigation / st.session_state
+    url: /develop/api-reference/control-flow/session-state
   - category: Develop / API reference / Flow and navigation / st.stop
     url: /develop/api-reference/control-flow/st.stop
     isVersioned: true
@@ -370,28 +372,24 @@ site_menu:
     url: /develop/api-reference/utilities/st.experimental_set_query_params
     isVersioned: true
     isDeprecated: true
-  - category: Develop / API reference / Mutate charts
-    url: /develop/api-reference/mutate
-  - category: Develop / API reference / Caching and state
+  - category: Develop / API reference / Caching and performance
     url: /develop/api-reference/caching-and-state
-  - category: Develop / API reference / Caching and state / st.cache_data
+  - category: Develop / API reference / Caching and performance / st.cache_data
     url: /develop/api-reference/caching-and-state/st.cache_data
     isVersioned: true
-  - category: Develop / API reference / Caching and state / st.cache_resource
+  - category: Develop / API reference / Caching and performance / st.cache_resource
     url: /develop/api-reference/caching-and-state/st.cache_resource
     isVersioned: true
-  - category: Develop / API reference / Caching and state / st.session_state
-    url: /develop/api-reference/caching-and-state/session-state
-  - category: Develop / API reference / Caching and state / st.cache
+  - category: Develop / API reference / Caching and performance / st.cache
     url: /develop/api-reference/caching-and-state/st.cache
     isVersioned: true
     isDeprecated: true
-  - category: Develop / API reference / Caching and state / st.experimental_memo
+  - category: Develop / API reference / Caching and performance / st.experimental_memo
     url: /develop/api-reference/caching-and-state/st.experimental_memo
     isVersioned: true
     isDeprecated: true
     visible: false
-  - category: Develop / API reference / Caching and state / st.experimental_singleton
+  - category: Develop / API reference / Caching and performance / st.experimental_singleton
     url: /develop/api-reference/caching-and-state/st.experimental_singleton
     isVersioned: true
     isDeprecated: true
@@ -485,32 +483,38 @@ site_menu:
     url: /develop/concepts/elements-and-ui/dataframes
   - category: Develop / Concepts / Elements and UI/ Forms
     url: /develop/concepts/elements-and-ui/forms
+  - category: Develop / Concepts / Elements and UI / Mutate charts
+    url: /develop/concepts/elements-and-ui/mutate
   - category: Develop / Concepts / Elements and UI/ Widget behavior
     url: /develop/concepts/elements-and-ui/widget-behavior
-  - category: Develop / Concepts / Caching
-    url: /develop/concepts/caching
-  - category: Develop / Concepts / Optimize performance with st.cache
-    url: /develop/concepts/st.cache
+  - category: Develop / Concepts / Logical design and optimization
+    url: /develop/concepts/logical-design
+  - category: Develop / Concepts / Logical design and optimization / Caching
+    url: /develop/concepts/logical-design/caching
+  - category: Develop / Concepts / Logical design and optimization / Optimize performance with st.cache
+    url: /develop/concepts/logical-design/st.cache
     visible: false
-  - category: Develop / Concepts / Experimental cache primitives
-    url: /develop/concepts/experimental-cache-primitives
+  - category: Develop / Concepts / Logical design and optimization / Experimental cache primitives
+    url: /develop/concepts/logical-design/experimental-cache-primitives
     visible: false
+  - category: Develop / Concepts / Logical design and optimization / Connecting to data
+    url: /develop/concepts/logical-design/connecting-to-data
+  - category: Develop / Concepts / Logical design and optimization / Secrets management
+    url: /develop/concepts/logical-design/secrets-management
+  - category: Develop / Concepts / Logical design and optimization / Security reminders
+    url: /develop/concepts/logical-design/security-reminders
+  - category: Develop / Concepts / Logical design and optimization/ Session State
+    url: /develop/concepts/logical-design/session-state
   - category: Develop / Concepts / Configuration
     url: /develop/concepts/configuration
   - category: Develop / Concepts / Configuration / Command-line interface
     url: /develop/concepts/configuration/cli
   - category: Develop / Concepts / Configuration / HTTPS support
     url: /develop/concepts/configuration/https-support
-  - category: Develop / Concepts / Configuration / Secrets management
-    url: /develop/concepts/configuration/secrets-management
-  - category: Develop / Concepts / Configuration / Security reminders
-    url: /develop/concepts/configuration/security-reminders
   - category: Develop / Concepts / Configuration / Static file serving
     url: /develop/concepts/configuration/static-file-serving
   - category: Develop / Concepts / Configuration / Theming
     url: /develop/concepts/configuration/theming
-  - category: Develop / Concepts / Connecting to data
-    url: /develop/concepts/connecting-to-data
   - category: Develop / Concepts / Custom components
     url: /develop/concepts/custom-components
   - category: Develop / Concepts / Custom components / Intro to custom components
@@ -525,12 +529,12 @@ site_menu:
     url: /develop/concepts/multipage-apps
   - category: Develop / Concepts / Multipage apps / Custom navigation
     url: /develop/concepts/multipage-apps/custom-navigation
-  - category: Develop / Concepts / Session State
-    url: /develop/concepts/session-state
-  - category: Develop / Concepts/ Custom classes
-    url: /develop/concepts/custom-classes
-  - category: Develop / Concepts / Working with timezones
-    url: /develop/concepts/timezone-handling
+  - category: Develop / Concepts / Special considerations
+    url: /develop/concepts/special-considerations
+  - category: Develop / Concepts / Special considerations/ Custom classes
+    url: /develop/concepts/special-considerations/custom-classes
+  - category: Develop / Concepts / Special considerations/ Working with timezones
+    url: /develop/concepts/special-considerations/timezone-handling
   - category: Develop / Concepts / App testing
     url: /develop/concepts/app-testing
   - category: Develop / Concepts / App testing / Get started

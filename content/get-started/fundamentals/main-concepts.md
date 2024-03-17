@@ -89,7 +89,7 @@ This can happen in two situations:
 - Whenever a user interacts with widgets in the app. For example, when dragging
   a slider, entering text in an input box, or clicking a button.
 
-Whenever a callback is passed to a widget via the `on_change` (or `on_click`) parameter, the callback will always run before the rest of your script. For details on the Callbacks API, please refer to our [Session State API Reference Guide](/develop/api-reference/caching-and-state/session-state#use-callbacks-to-update-session-state).
+Whenever a callback is passed to a widget via the `on_change` (or `on_click`) parameter, the callback will always run before the rest of your script. For details on the Callbacks API, please refer to our [Session State API Reference Guide](/develop/api-reference/control-flow/session-state#use-callbacks-to-update-session-state).
 
 And to make all of this fast and seamless, Streamlit does some heavy lifting
 for you behind the scenes. A big player in this story is the
@@ -293,7 +293,7 @@ st.text_input("Your name", key="name")
 st.session_state.name
 ```
 
-Every widget with a key is automatically added to Session State. For more information about Session State, its association with widget state, and its limitations, see [Session State API Reference Guide](/develop/api-reference/caching-and-state/session-state).
+Every widget with a key is automatically added to Session State. For more information about Session State, its association with widget state, and its limitations, see [Session State API Reference Guide](/develop/api-reference/control-flow/session-state).
 
 ### Use checkboxes to show/hide data
 

@@ -178,7 +178,7 @@ transformational.
 <Tip>
 
 Whenever you have a long-running computation in your code, consider
-refactoring it so you can use `@st.cache_data`, if possible. Please read [Caching](/develop/concepts/caching) for more details.
+refactoring it so you can use `@st.cache_data`, if possible. Please read [Caching](/develop/concepts/logical-design/caching) for more details.
 
 </Tip>
 

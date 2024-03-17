@@ -7,7 +7,7 @@ slug: /develop/tutorials/databases/mysql
 
 ## Introduction
 
-This guide explains how to securely access a **_remote_** MySQL database from Streamlit Community Cloud. It uses [st.connection](/develop/api-reference/connections/st.connection) and Streamlit's [Secrets management](/develop/concepts/configuration/secrets-management). The below example code will **only work on Streamlit version >= 1.28**, when `st.connection` was added.
+This guide explains how to securely access a **_remote_** MySQL database from Streamlit Community Cloud. It uses [st.connection](/develop/api-reference/connections/st.connection) and Streamlit's [Secrets management](/develop/concepts/logical-design/secrets-management). The below example code will **only work on Streamlit version >= 1.28**, when `st.connection` was added.
 
 ## Create a MySQL database
 
@@ -35,7 +35,7 @@ INSERT INTO mytable VALUES ('Mary', 'dog'), ('John', 'cat'), ('Robert', 'bird');
 
 ## Add username and password to your local app secrets
 
-Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Learn more about [Streamlit secrets management here](/develop/concepts/configuration/secrets-management). Create this file if it doesn't exist yet and add the database name, user, and password of your MySQL server as shown below:
+Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app's root directory. Learn more about [Streamlit secrets management here](/develop/concepts/logical-design/secrets-management). Create this file if it doesn't exist yet and add the database name, user, and password of your MySQL server as shown below:
 
 ```toml
 # .streamlit/secrets.toml
@@ -93,7 +93,7 @@ for row in df.itertuples():
     st.write(f"{row.name} has a :{row.pet}:")
 ```
 
-See `st.connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl=600` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/develop/concepts/caching).
+See `st.connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl=600` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/develop/concepts/logical-design/caching).
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 

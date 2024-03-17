@@ -1,6 +1,6 @@
 ---
 title: Working with timezones
-slug: /develop/concepts/timezone-handling
+slug: /develop/concepts/special-considerations/timezone-handling
 ---
 
 # Working with timezones
