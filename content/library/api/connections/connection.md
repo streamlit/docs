@@ -9,7 +9,7 @@ This page only contains the `st.connection` API. For a deeper dive into creating
 
 </Tip>
 
-<Autofunction function="streamlit.connection" />
+<Autofunction function="streamlit.connection" ancestor="streamlit.experimental_connection" />
 
 For a comprehensive overview of this feature, check out this video tutorial by Joshua Carroll, Streamlit's Product Manager for Developer Experience. You'll learn about the feature's utility in creating and managing data connections within your apps by using real-world examples.
 

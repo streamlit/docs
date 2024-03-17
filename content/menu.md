@@ -146,6 +146,7 @@ site_menu:
     url: /develop/api-reference/data/st.experimental_data_editor
     isVersioned: true
     isDeprecated: true
+    visible: false
   - category: Develop / API reference / Chart elements
     url: /develop/api-reference/charts
   - category: Develop / API reference / Chart elements / st.area_chart
@@ -352,6 +353,7 @@ site_menu:
     url: /develop/api-reference/control-flow/st.experimental_rerun
     isVersioned: true
     isDeprecated: true
+    visible: false
   - category: Develop / API reference / Utilities
     url: /develop/api-reference/utilities
   - category: Develop / API reference / Utilities / st.help
@@ -388,10 +390,12 @@ site_menu:
     url: /develop/api-reference/caching-and-state/st.experimental_memo
     isVersioned: true
     isDeprecated: true
+    visible: false
   - category: Develop / API reference / Caching and state / st.experimental_singleton
     url: /develop/api-reference/caching-and-state/st.experimental_singleton
     isVersioned: true
     isDeprecated: true
+    visible: false
   - category: Develop / API reference / Configuration
     url: /develop/api-reference/configuration
     isVersioned: false
@@ -437,6 +441,7 @@ site_menu:
     url: /develop/api-reference/connections/st.experimental_connection
     isVersioned: true
     isDeprecated: true
+    visible: false
   - category: Develop / API reference / Connections and authentication / SnowparkConnection
     url: /develop/api-reference/connections/st.connections.snowparkconnection
     isVersioned: true
@@ -445,6 +450,7 @@ site_menu:
     url: /develop/api-reference/connections/st.connections.experimentalbaseconnection
     isVersioned: true
     isDeprecated: true
+    visible: false
   - category: Develop / API reference / Custom components
     url: /develop/api-reference/custom-components
     isVersioned: false

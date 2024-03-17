@@ -10,9 +10,9 @@ This page only contains information on the `st.cache_resource` API. For a deeper
 
 </Tip>
 
-<Autofunction function="streamlit.cache_resource" />
+<Autofunction function="streamlit.cache_resource" ancestor="streamlit.experimental_singleton" />
 
-<Autofunction function="streamlit.cache_resource.clear" />
+<Autofunction function="streamlit.cache_resource.clear" ancestor="streamlit.experimental_singleton.clear" />
 
 #### Example
 

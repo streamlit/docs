@@ -10,7 +10,7 @@ This page only contains information on the `st.cache_data` API. For a deeper div
 
 </Tip>
 
-<Autofunction function="streamlit.cache_data" />
+<Autofunction function="streamlit.cache_data" ancestor="streamlit.experimental_memo" />
 
 <Warning>
 
@@ -18,7 +18,7 @@ This page only contains information on the `st.cache_data` API. For a deeper div
 
 </Warning>
 
-<Autofunction function="streamlit.cache_data.clear" />
+<Autofunction function="streamlit.cache_data.clear" ancestor="streamlit.experimental_memo.clear" />
 
 #### Example
 
