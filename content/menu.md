@@ -591,6 +591,8 @@ site_menu:
     url: /develop/tutorials/llms/llm-quickstart
   - category: Develop / Quick references
     url: /develop/quick-references
+  - category: Develop / Quick references / A-Z function index
+    url: /develop/quick-references/a-z-index
   - category: Develop / Quick references / Changelog
     url: /develop/quick-references/changelog
   - category: Develop / Quick references / Cheat sheet
