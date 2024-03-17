@@ -7,7 +7,7 @@ slug: /develop/tutorials/databases
 
 These step-by-step guides demonstrate how to connect Streamlit apps to various databases & APIs.
 They use Streamlit's [Secrets management](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management) and
-[caching](/develop/concepts/caching) to provide secure and fast data access.
+[caching](/develop/concepts/logical-design/caching) to provide secure and fast data access.
 
 <DataSourcesContainer>
 <DataSourcesCard href="/develop/tutorials/databases/aws-s3">

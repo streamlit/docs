@@ -1969,7 +1969,7 @@ st.query_params.clear()
 ## Mutate charts
 
 <TileContainer>
-<RefCard href="/develop/api-reference/mutate">
+<RefCard href="/develop/concepts/elements-and-ui/mutate">
 
 <h4>Add rows</h4>
 
@@ -1986,7 +1986,7 @@ element.add_rows(df_with_extra_rows)
 ## State management
 
 <TileContainer>
-<RefCard href="/develop/api-reference/caching-and-state/session-state">
+<RefCard href="/develop/api-reference/control-flow/session-state">
 
 <h4>Session state</h4>
 

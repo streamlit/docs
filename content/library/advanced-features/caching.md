@@ -1,11 +1,11 @@
 ---
 title: Caching
-slug: /develop/concepts/caching
+slug: /develop/concepts/logical-design/caching
 ---
 
 <Note>
 
-Documentation for the deprecated `@st.cache` decorator can be found in [Optimize performance with st.cache](/develop/concepts/st.cache).
+Documentation for the deprecated `@st.cache` decorator can be found in [Optimize performance with st.cache](/develop/concepts/logical-design/st.cache).
 
 </Note>
 

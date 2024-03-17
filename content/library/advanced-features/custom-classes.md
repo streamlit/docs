@@ -1,6 +1,6 @@
 ---
 title: Using custom Python classes in your Streamlit app
-slug: /develop/concepts/custom-classes
+slug: /develop/concepts/special-considerations/custom-classes
 ---
 
 # Using custom Python classes in your Streamlit app
@@ -236,7 +236,7 @@ number = st.selectbox("Pick a number, any number", options=[1, 2, 3])
 # number == whatever value the user has selected from the UI.
 ```
 
-When you call a function like `st.selectbox` and pass an `Iterable` to `options`, the `Iterable` and current selection are saved into a hidden portion of [Session State](/develop/concepts/session-state) called the Widget Metadata.
+When you call a function like `st.selectbox` and pass an `Iterable` to `options`, the `Iterable` and current selection are saved into a hidden portion of [Session State](/develop/concepts/logical-design/session-state) called the Widget Metadata.
 
 When the user of your application interacts with the `st.selectbox` widget, the broswer sends the index of their selection to your Streamlit server. This index is used to determine which values from the original `options` list, _saved in the Widget Metadata from the previous page execution_, are returned to your application.
 
