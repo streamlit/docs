@@ -14,7 +14,7 @@ description: st.rerun will rerun the script immediately.
 - Excessive reruns may complicate your app's logic and be harder to follow.
 - If misused, infinite looping may crash your app.
 
-In many cases where `st.rerun` works, [callbacks](/develop/api-reference/caching-and-state/session-state#use-callbacks-to-update-session-state) may be a cleaner alternative. [Containers](/develop/api-reference/layout) may also be helpful.
+In many cases where `st.rerun` works, [callbacks](/develop/api-reference/control-flow/session-state#use-callbacks-to-update-session-state) may be a cleaner alternative. [Containers](/develop/api-reference/layout) may also be helpful.
 
 ### A simple example in three variations
 

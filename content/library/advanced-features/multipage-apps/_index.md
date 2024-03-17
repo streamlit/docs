@@ -121,7 +121,7 @@ If a user tries to access a URL for a page that does not exist, they will see a 
   st.write(foo.hello)  # If page1 already executed, this should write 123
   ```
 
-- Pages share the same [st.session_state](/develop/concepts/session-state):
+- Pages share the same [st.session_state](/develop/concepts/logical-design/session-state):
 
   ```python
   # page1.py

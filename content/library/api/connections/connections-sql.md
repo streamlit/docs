@@ -5,7 +5,7 @@ slug: /develop/api-reference/connections/st.connections.sqlconnection
 
 <Tip>
 
-This page only contains the `st.connections.SQLConnection` class. For a deeper dive into creating and managing data connections within Streamlit apps, read [Connecting to data](/develop/concepts/connecting-to-data).
+This page only contains the `st.connections.SQLConnection` class. For a deeper dive into creating and managing data connections within Streamlit apps, read [Connecting to data](/develop/concepts/logical-design/connecting-to-data).
 
 </Tip>
 
@@ -33,7 +33,7 @@ conn = st.connection(
 )
 ```
 
-Or specify parameters in [secrets](/develop/concepts/configuration/secrets-management):
+Or specify parameters in [secrets](/develop/concepts/logical-design/secrets-management):
 
 ```toml
 # .streamlit/secrets.toml

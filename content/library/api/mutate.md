@@ -1,6 +1,6 @@
 ---
 title: Mutate charts
-slug: /develop/api-reference/mutate
+slug: /develop/concepts/elements-and-ui/mutate
 description: st.add_rows appends a dataframe to the bottom of the current one in certain elements, for optimized data updates.
 ---
 
@@ -17,4 +17,23 @@ do this:
 
 Here we discuss that last case.
 
-<Autofunction function="DeltaGenerator.add_rows" />
+## The `.add_rows()` method
+
+`st.dataframe`, `st.table`, and all chart functions can be mutated using the `.add_rows()` method to their output. In the following example, we use `my_data_element = st.line_chart(df)`. You can try the example with `st.table`, `st.dataframe`, and most of the other simple charts by just swapping out `st.line_chart`. Note that `st.dataframe` only shows the first ten rows by default and enables scrolling for additional rows. This means adding rows is not as visually apparent as it is with `st.table` or the chart elements.
+
+```python
+import streamlit as st
+import pandas as pd
+import numpy as np
+import time
+
+df = pd.DataFrame(np.random.randn(15, 3), columns=(["A", "B", "C"]))
+my_data_element = st.line_chart(df)
+
+for tick in range(10):
+    time.sleep(.5)
+    add_df = pd.DataFrame(np.random.randn(1, 3), columns=(["A", "B", "C"]))
+    my_data_element.add_rows(add_df)
+
+st.button("Regenerate")
+```
