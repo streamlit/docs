@@ -251,23 +251,26 @@ site_menu:
     isVersioned: true
   - category: Streamlit library / API reference / Layouts and containers
     url: /library/api-reference/layout
-  - category: Streamlit library / API reference / Layouts and containers / st.sidebar
-    url: /library/api-reference/layout/st.sidebar
-    isVersioned: true
   - category: Streamlit library / API reference / Layouts and containers / st.columns
     url: /library/api-reference/layout/st.columns
-    isVersioned: true
-  - category: Streamlit library / API reference / Layouts and containers / st.tabs
-    url: /library/api-reference/layout/st.tabs
-    isVersioned: true
-  - category: Streamlit library / API reference / Layouts and containers / st.expander
-    url: /library/api-reference/layout/st.expander
     isVersioned: true
   - category: Streamlit library / API reference / Layouts and containers / st.container
     url: /library/api-reference/layout/st.container
     isVersioned: true
   - category: Streamlit library / API reference / Layouts and containers / st.empty
     url: /library/api-reference/layout/st.empty
+    isVersioned: true
+  - category: Streamlit library / API reference / Layouts and containers / st.expander
+    url: /library/api-reference/layout/st.expander
+    isVersioned: true
+  - category: Streamlit library / API reference / Layouts and containers / st.popover
+    url: /library/api-reference/layout/st.popover
+    isVersioned: true
+  - category: Streamlit library / API reference / Layouts and containers / st.sidebar
+    url: /library/api-reference/layout/st.sidebar
+    isVersioned: true
+  - category: Streamlit library / API reference / Layouts and containers / st.tabs
+    url: /library/api-reference/layout/st.tabs
     isVersioned: true
   - category: Streamlit library / API reference / Chat elements
     url: /library/api-reference/chat
