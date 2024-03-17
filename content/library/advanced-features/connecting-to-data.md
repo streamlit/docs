@@ -1,6 +1,6 @@
 ---
 title: Connecting to data
-slug: /develop/concepts/logical-design/connecting-to-data
+slug: /develop/concepts/connecting-to-data
 ---
 
 # Connecting to data
@@ -94,7 +94,7 @@ Now, on to more advanced topics! 🚀
 
 ### Global secrets, managing multiple apps and multiple data stores
 
-Streamlit [supports a global secrets file](/develop/concepts/logical-design/secrets-management) specified in the user's home directory, such as `~/.streamlit/secrets.toml`. If you build or manage multiple apps, we recommend using a global credential or secret file for local development across apps. With this approach, you only need to set up and manage your credentials in one place, and connecting a new app to your existing data sources is effectively a one-liner. It also reduces the risk of accidentally checking in your credentials to git since they don't need to exist in the project repository.
+Streamlit [supports a global secrets file](/develop/concepts/configuration/secrets-management) specified in the user's home directory, such as `~/.streamlit/secrets.toml`. If you build or manage multiple apps, we recommend using a global credential or secret file for local development across apps. With this approach, you only need to set up and manage your credentials in one place, and connecting a new app to your existing data sources is effectively a one-liner. It also reduces the risk of accidentally checking in your credentials to git since they don't need to exist in the project repository.
 
 For cases where you have multiple similar data sources that you connect to during local development (such as a local vs. staging database), you can define different connection sections in your secrets or credentials file for different environments and then decide which to use at runtime. `st.connection` supports this with the _`name=env:<MY_NAME_VARIABLE>`_ syntax.
 
@@ -190,7 +190,7 @@ By default, connection objects are cached without expiration using [`st.cache_re
 
 Many connection types are expected to be long-running or completely stateless, so expiration is unnecessary. Suppose a connection becomes stale (such as a cached token expiring or a server-side connection being closed). In that case, every connection has a `reset()` method, which will invalidate the cached version and cause Streamlit to recreate the connection the next time it is retrieved
 
-Convenience methods like `query()` and `read()` will typically cache results by default using [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) without an expiration. When an app can run many different read operations with large results, it can cause high memory usage over time and results to become stale in a long-running app, the same as with any other usage of `st.cache_data`. For production use cases, we recommend setting an appropriate `ttl` on these read operations, such as `conn.read('path/to/file', ttl="1d")`. Refer to [Caching](/develop/concepts/logical-design/caching) for more information.
+Convenience methods like `query()` and `read()` will typically cache results by default using [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) without an expiration. When an app can run many different read operations with large results, it can cause high memory usage over time and results to become stale in a long-running app, the same as with any other usage of `st.cache_data`. For production use cases, we recommend setting an appropriate `ttl` on these read operations, such as `conn.read('path/to/file', ttl="1d")`. Refer to [Caching](/develop/concepts/caching) for more information.
 
 For apps that could get significant concurrent usage, ensure that you understand any thread safety implications of your connection, particularly when using a connection built by a third party. Connections built by Streamlit should provide thread-safe operations by default.
 

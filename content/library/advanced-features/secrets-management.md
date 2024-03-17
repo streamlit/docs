@@ -1,6 +1,6 @@
 ---
 title: Secrets management
-slug: /develop/concepts/logical-design/secrets-management
+slug: /develop/concepts/configuration/secrets-management
 ---
 
 # Secrets management
@@ -70,7 +70,7 @@ st.write(
 
 <Tip>
 
-You can access `st.secrets` via attribute notation (e.g. `st.secrets.key`), in addition to key notation (e.g. `st.secrets["key"]`) — like [st.session_state](/develop/api-reference/control-flow/session-state).
+You can access `st.secrets` via attribute notation (e.g. `st.secrets.key`), in addition to key notation (e.g. `st.secrets["key"]`) — like [st.session_state](/develop/api-reference/caching-and-state/session-state).
 
 </Tip>
 

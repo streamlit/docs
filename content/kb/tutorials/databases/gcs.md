@@ -7,7 +7,7 @@ slug: /develop/tutorials/databases/gcs
 
 ## Introduction
 
-This guide explains how to securely access files on Google Cloud Storage from Streamlit Community Cloud. It uses [Streamlit FilesConnection](https://github.com/streamlit/files-connection), the [gcsfs](https://github.com/fsspec/gcsfs) library and Streamlit's [Secrets management](/develop/concepts/logical-design/secrets-management).
+This guide explains how to securely access files on Google Cloud Storage from Streamlit Community Cloud. It uses [Streamlit FilesConnection](https://github.com/streamlit/files-connection), the [gcsfs](https://github.com/fsspec/gcsfs) library and Streamlit's [Secrets management](/develop/concepts/configuration/secrets-management).
 
 ## Create a Google Cloud Storage bucket and add a file
 
@@ -135,7 +135,7 @@ for row in df.itertuples():
     st.write(f"{row.Owner} has a :{row.Pet}:")
 ```
 
-See `st.connection` above? This handles secrets retrieval, setup, result caching and retries. By default, `read()` results are cached without expiring. In this case, we set `ttl=600` to ensure the file contents is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/develop/concepts/logical-design/caching).
+See `st.connection` above? This handles secrets retrieval, setup, result caching and retries. By default, `read()` results are cached without expiring. In this case, we set `ttl=600` to ensure the file contents is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/develop/concepts/caching).
 
 If everything worked out (and you used the example file given above), your app should look like this:
 

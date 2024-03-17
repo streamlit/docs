@@ -1,11 +1,11 @@
 ---
 title: Optimize performance with st.cache
-slug: /develop/concepts/logical-design/st.cache
+slug: /develop/concepts/st.cache
 ---
 
 <Deprecation>
 
-`st.cache` was deprecated in version 1.18.0. Use [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) or [`st.cache_resource`](/develop/api-reference/caching-and-state/st.cache_resource) instead. Learn more in [Caching](/develop/concepts/logical-design/caching).
+`st.cache` was deprecated in version 1.18.0. Use [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) or [`st.cache_resource`](/develop/api-reference/caching-and-state/st.cache_resource) instead. Learn more in [Caching](/develop/concepts/caching).
 
 </Deprecation>
 
@@ -299,7 +299,7 @@ In this specific case, the fix is just to not mutate `res["output"]` outside the
 
 ## Advanced caching
 
-In [caching](/develop/concepts/logical-design/caching), you learned about the Streamlit cache, which is accessed with the [`@st.cache`](/develop/api-reference/caching-and-state/st.cache) decorator. In this article you'll see how Streamlit's caching functionality is implemented, so that you can use it to improve the performance of your Streamlit apps.
+In [caching](/develop/concepts/caching), you learned about the Streamlit cache, which is accessed with the [`@st.cache`](/develop/api-reference/caching-and-state/st.cache) decorator. In this article you'll see how Streamlit's caching functionality is implemented, so that you can use it to improve the performance of your Streamlit apps.
 
 The cache is a key-value store, where the key is a hash of:
 

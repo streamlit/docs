@@ -63,41 +63,41 @@ This section provides examples of how Streamlit page elements are affected by th
 
 </RefCard>
 
-<RefCard href="/develop/concepts/logical-design/caching" size="half">
+<RefCard href="/develop/concepts/caching" size="half">
 
 <h5>Caching</h5>
 
 The Streamlit cache allows your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations. To cache a function in Streamlit, you need to decorate it with one of two decorators: `st.cache_data` and `st.cache_resource`.
 
-- [Minimal example](/develop/concepts/logical-design/caching#minimal-example)
-- [Basic usage](/develop/concepts/logical-design/caching#basic-usage)
-  - [st.cache_data](/develop/concepts/logical-design/caching#stcache_data)
-  - [st.cache_resource](/develop/concepts/logical-design/caching#stcache_resource)
-  - [Deciding which caching decorator to use](/develop/concepts/logical-design/caching#deciding-which-caching-decorator-to-use)
-- [Advanced usage](/develop/concepts/logical-design/caching#advanced-usage)
-  - [Excluding input parameters](/develop/concepts/logical-design/caching#excluding-input-parameters)
-  - [Controlling cache size and duration](/develop/concepts/logical-design/caching#controlling-cache-size-and-duration)
-  - [Customizing the spinner](/develop/concepts/logical-design/caching#customizing-the-spinner)
-  - [Using Streamlit commands in cached functions](/develop/concepts/logical-design/caching#using-streamlit-commands-in-cached-functions)
-  - [Mutation and concurrency issues](/develop/concepts/logical-design/caching#mutation-and-concurrency-issues)
-- [Migrating from st.cache](/develop/concepts/logical-design/caching#migrating-from-stcache)
+- [Minimal example](/develop/concepts/caching#minimal-example)
+- [Basic usage](/develop/concepts/caching#basic-usage)
+  - [st.cache_data](/develop/concepts/caching#stcache_data)
+  - [st.cache_resource](/develop/concepts/caching#stcache_resource)
+  - [Deciding which caching decorator to use](/develop/concepts/caching#deciding-which-caching-decorator-to-use)
+- [Advanced usage](/develop/concepts/caching#advanced-usage)
+  - [Excluding input parameters](/develop/concepts/caching#excluding-input-parameters)
+  - [Controlling cache size and duration](/develop/concepts/caching#controlling-cache-size-and-duration)
+  - [Customizing the spinner](/develop/concepts/caching#customizing-the-spinner)
+  - [Using Streamlit commands in cached functions](/develop/concepts/caching#using-streamlit-commands-in-cached-functions)
+  - [Mutation and concurrency issues](/develop/concepts/caching#mutation-and-concurrency-issues)
+- [Migrating from st.cache](/develop/concepts/caching#migrating-from-stcache)
 
 </RefCard>
 
-<RefCard href="/develop/concepts/logical-design/session-state" size="half">
+<RefCard href="/develop/concepts/session-state" size="half">
 
 <h5>Add statefulness to apps</h5>
 
 Session State is a way to share variables between reruns, for each user session. In addition to the ability to store and persist state, Streamlit also exposes the ability to manipulate state using Callbacks.
 
-- [What is Session State?](/develop/concepts/logical-design/session-state#what-is-state)
-- [How to initialize Session State items?](/develop/concepts/logical-design/session-state#initialization)
-- [How to read and update Session State items?](/develop/concepts/logical-design/session-state#reads-and-updates)
-- [How to use callbacks in Session State?](/develop/concepts/logical-design/session-state#example-2-session-state-and-callbacks)
-- [How to use `args` and `kwargs` in callbacks?](/develop/concepts/logical-design/session-state#example-3-use-args-and-kwargs-in-callbacks)
-- [How to use callbacks in forms?](/develop/concepts/logical-design/session-state#example-4-forms-and-callbacks)
-- [How is Session State related to Widget State?](/develop/concepts/logical-design/session-state#session-state-and-widget-state-association)
-- [Caveats and limitations](/develop/concepts/logical-design/session-state#caveats-and-limitations)
+- [What is Session State?](/develop/concepts/session-state#what-is-state)
+- [How to initialize Session State items?](/develop/concepts/session-state#initialization)
+- [How to read and update Session State items?](/develop/concepts/session-state#reads-and-updates)
+- [How to use callbacks in Session State?](/develop/concepts/session-state#example-2-session-state-and-callbacks)
+- [How to use `args` and `kwargs` in callbacks?](/develop/concepts/session-state#example-3-use-args-and-kwargs-in-callbacks)
+- [How to use callbacks in forms?](/develop/concepts/session-state#example-4-forms-and-callbacks)
+- [How is Session State related to Widget State?](/develop/concepts/session-state#session-state-and-widget-state-association)
+- [Caveats and limitations](/develop/concepts/session-state#caveats-and-limitations)
 
 </RefCard>
 
@@ -112,29 +112,29 @@ At Streamlit, we like to move quick while keeping things stable. In our latest e
 
 </RefCard>
 
-<RefCard href="/develop/concepts/logical-design/secrets-management" size="half">
+<RefCard href="/develop/concepts/configuration/secrets-management" size="half">
 
 <h5>Secrets management</h5>
 
 This section provides examples of how to use secrets management to store and retrieve sensitive information in your Streamlit app.
 
-- [Develop locally and set up secrets](/develop/concepts/logical-design/secrets-management#develop-locally-and-set-up-secrets)
-- [Use secrets in your app](/develop/concepts/logical-design/secrets-management#use-secrets-in-your-app)
-- [Error handling](/develop/concepts/logical-design/secrets-management#error-handling)
-- [Use secrets on Streamlit Community Cloud](/develop/concepts/logical-design/secrets-management#use-secrets-on-streamlit-community-cloud)
+- [Develop locally and set up secrets](/develop/concepts/configuration/secrets-management#develop-locally-and-set-up-secrets)
+- [Use secrets in your app](/develop/concepts/configuration/secrets-management#use-secrets-in-your-app)
+- [Error handling](/develop/concepts/configuration/secrets-management#error-handling)
+- [Use secrets on Streamlit Community Cloud](/develop/concepts/configuration/secrets-management#use-secrets-on-streamlit-community-cloud)
 
 </RefCard>
 
-<RefCard href="/develop/concepts/special-considerations/timezone-handling" size="half">
+<RefCard href="/develop/concepts/timezone-handling" size="half">
 
 <h5>Working with timezones</h5>
 
 Working with timezones can be tricky. This section provides a high-level description of how to handle timezones in Streamlit to avoid unexpected behavior.
 
-- [Overview](/develop/concepts/special-considerations/timezone-handling#working-with-timezones)
-- [How Streamlit handles timezones](/develop/concepts/special-considerations/timezone-handling#how-streamlit-handles-timezones)
-- [`datetime` instance without a timezone (naive)](/develop/concepts/special-considerations/timezone-handling#datetime-instance-without-a-timezone-naive)
-- [`datetime` instance with a timezone](/develop/concepts/special-considerations/timezone-handling#datetime-instance-with-a-timezone)
+- [Overview](/develop/concepts/timezone-handling#working-with-timezones)
+- [How Streamlit handles timezones](/develop/concepts/timezone-handling#how-streamlit-handles-timezones)
+- [`datetime` instance without a timezone (naive)](/develop/concepts/timezone-handling#datetime-instance-without-a-timezone-naive)
+- [`datetime` instance with a timezone](/develop/concepts/timezone-handling#datetime-instance-with-a-timezone)
 
 </RefCard>
 

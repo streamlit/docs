@@ -5,7 +5,7 @@ slug: /develop/api-reference/caching-and-state
 
 # Optimize performance
 
-Streamlit provides powerful [cache primitives](/develop/concepts/logical-design/caching) for data and global resources. They allow your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations.
+Streamlit provides powerful [cache primitives](/develop/concepts/caching) for data and global resources. They allow your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations.
 
 <TileContainer>
 
@@ -47,7 +47,7 @@ def init_model():
 
 <Important>
 
-All the below commands were deprecated in version 1.18.0. Use the new commands above instead. Learn more in [Caching](/develop/concepts/logical-design/caching).
+All the below commands were deprecated in version 1.18.0. Use the new commands above instead. Learn more in [Caching](/develop/concepts/caching).
 </Important>
 
 ## Deprecated commands
