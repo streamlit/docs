@@ -9,7 +9,7 @@ There are a handful of methods that allow you to create placeholders in your
 app, provide help using doc strings, get and modify configuration options and query parameters.
 
 <TileContainer>
-<RefCard href="/develop/api-reference/utilities/st.set_page_config">
+<RefCard href="/develop/api-reference/configuration/st.set_page_config">
 
 <h4>Set page title, favicon, and more</h4>
 
@@ -23,7 +23,7 @@ st.set_page_config(
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/utilities/st.echo">
+<RefCard href="/develop/api-reference/text/st.echo">
 
 <h4>Echo</h4>
 

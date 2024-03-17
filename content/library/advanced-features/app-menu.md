@@ -23,7 +23,7 @@ You can manually trigger a rerun of your app by clicking "**Rerun**" from the ap
 
 ### Settings
 
-With the "**Settings**" option, you can control the appearance of your app while it is running. If viewing the app locally, you can set how your app responds to changes in your source code. See more about development flow in [Main concepts](/get-started/fundamentals/main-concepts#development-flow). You can also force your app to appear in wide mode, even if not set within the script using [`st.set_page_config`](/develop/api-reference/utilities/st.set_page_config).
+With the "**Settings**" option, you can control the appearance of your app while it is running. If viewing the app locally, you can set how your app responds to changes in your source code. See more about development flow in [Main concepts](/get-started/fundamentals/main-concepts#development-flow). You can also force your app to appear in wide mode, even if not set within the script using [`st.set_page_config`](/develop/api-reference/configuration/st.set_page_config).
 
 <div style={{ maxWidth: '30%', margin: 'auto' }}>
     <Image src="/images/app-menu/app-menu-settings-XL.png" alt="Settings" clean />
@@ -103,7 +103,7 @@ The whole process looks like this:
 
 ### About
 
-You can conveniently check what version of Streamlit is running from the "**About**" option. Developers also have the option to customize the message shown here using [`st.set_page_config`](/develop/api-reference/utilities/st.set_page_config).
+You can conveniently check what version of Streamlit is running from the "**About**" option. Developers also have the option to customize the message shown here using [`st.set_page_config`](/develop/api-reference/configuration/st.set_page_config).
 
 <div style={{ maxWidth: '30%', margin: 'auto' }}>
     <Image src="/images/app-menu/app-menu-about-XL.png" alt="Rerun" clean />
@@ -151,5 +151,5 @@ Using `client.toolbarMode` in your app's [configuration](/develop/concepts/confi
 
 - `"developer"` &mdash; Show the developer options to all viewers.
 - `"viewer"` &mdash; Hide the developer options from all viewers.
-- `"minimal"` &mdash; Show only those options set externally. These options can be declared through [`st.set_page_config`](/develop/api-reference/utilities/st.set_page_config) or populated through Streamlit Community Cloud.
+- `"minimal"` &mdash; Show only those options set externally. These options can be declared through [`st.set_page_config`](/develop/api-reference/configuration/st.set_page_config) or populated through Streamlit Community Cloud.
 - `"auto"` &mdash; This is the default and will show the developer options when accessed through localhost or through Streamlit Community Cloud when logged into an administrative account for the app. Otherwise, the developer options will not show.

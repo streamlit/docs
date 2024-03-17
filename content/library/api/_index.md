@@ -1914,7 +1914,7 @@ with streamlit_analytics.track():
 ## Utilities
 
 <TileContainer>
-<RefCard href="/develop/api-reference/utilities/st.set_page_config">
+<RefCard href="/develop/api-reference/configuration/st.set_page_config">
 
 <h4>Set page title, favicon, and more</h4>
 
@@ -1928,7 +1928,7 @@ st.set_page_config(
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/utilities/st.echo">
+<RefCard href="/develop/api-reference/text/st.echo">
 
 <h4>Echo</h4>
 
@@ -2174,7 +2174,7 @@ class MyConnection(BaseConnection[myconn.MyConnection]):
 ## Personalization
 
 <TileContainer>
-<RefCard href="/develop/api-reference/personalization/st.experimental_user" size="half">
+<RefCard href="/develop/api-reference/connections/st.experimental_user" size="half">
 
 <h4>User info</h4>
 

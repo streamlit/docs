@@ -62,6 +62,7 @@ site_menu:
   - category: Develop / API reference / Text elements / st.markdown
     url: /develop/api-reference/text/st.markdown
     isVersioned: true
+  - category: Develop / API reference / Text elements / ---
   - category: Develop / API reference / Text elements / st.caption
     url: /develop/api-reference/text/st.caption
     isVersioned: true
@@ -70,6 +71,9 @@ site_menu:
     isVersioned: true
   - category: Develop / API reference / Text elements / st.divider
     url: /develop/api-reference/text/st.divider
+    isVersioned: true
+  - category: Develop / API reference / Text elements / st.echo
+    url: /develop/api-reference/text/st.echo
     isVersioned: true
   - category: Develop / API reference / Text elements / st.latex
     url: /develop/api-reference/text/st.latex
@@ -153,32 +157,33 @@ site_menu:
   - category: Develop / API reference / Chart elements / st.line_chart
     url: /develop/api-reference/charts/st.line_chart
     isVersioned: true
+  - category: Develop / API reference / Chart elements / st.map
+    url: /develop/api-reference/charts/st.map
+    isVersioned: true
   - category: Develop / API reference / Chart elements / st.scatter_chart
     url: /develop/api-reference/charts/st.scatter_chart
     isVersioned: true
-  - category: Develop / API reference / Chart elements / st.pyplot
-    url: /develop/api-reference/charts/st.pyplot
-    isVersioned: true
+  - category: Develop / API reference / Chart elements / ---
   - category: Develop / API reference / Chart elements / st.altair_chart
     url: /develop/api-reference/charts/st.altair_chart
-    isVersioned: true
-  - category: Develop / API reference / Chart elements / st.vega_lite_chart
-    url: /develop/api-reference/charts/st.vega_lite_chart
-    isVersioned: true
-  - category: Develop / API reference / Chart elements / st.plotly_chart
-    url: /develop/api-reference/charts/st.plotly_chart
     isVersioned: true
   - category: Develop / API reference / Chart elements / st.bokeh_chart
     url: /develop/api-reference/charts/st.bokeh_chart
     isVersioned: true
-  - category: Develop / API reference / Chart elements / st.pydeck_chart
-    url: /develop/api-reference/charts/st.pydeck_chart
-    isVersioned: true
   - category: Develop / API reference / Chart elements / st.graphviz_chart
     url: /develop/api-reference/charts/st.graphviz_chart
     isVersioned: true
-  - category: Develop / API reference / Chart elements / st.map
-    url: /develop/api-reference/charts/st.map
+  - category: Develop / API reference / Chart elements / st.plotly_chart
+    url: /develop/api-reference/charts/st.plotly_chart
+    isVersioned: true
+  - category: Develop / API reference / Chart elements / st.pydeck_chart
+    url: /develop/api-reference/charts/st.pydeck_chart
+    isVersioned: true
+  - category: Develop / API reference / Chart elements / st.pyplot
+    url: /develop/api-reference/charts/st.pyplot
+    isVersioned: true
+  - category: Develop / API reference / Chart elements / st.vega_lite_chart
+    url: /develop/api-reference/charts/st.vega_lite_chart
     isVersioned: true
   - category: Develop / API reference / Input widgets
     url: /develop/api-reference/widgets
@@ -241,11 +246,11 @@ site_menu:
     isVersioned: true
   - category: Develop / API reference / Media elements
     url: /develop/api-reference/media
-  - category: Develop / API reference / Media elements / st.image
-    url: /develop/api-reference/media/st.image
-    isVersioned: true
   - category: Develop / API reference / Media elements / st.audio
     url: /develop/api-reference/media/st.audio
+    isVersioned: true
+  - category: Develop / API reference / Media elements / st.image
+    url: /develop/api-reference/media/st.image
     isVersioned: true
   - category: Develop / API reference / Media elements / st.video
     url: /develop/api-reference/media/st.video
@@ -323,38 +328,32 @@ site_menu:
     url: /develop/api-reference/status/st.exception
     isVersioned: true
   - category: Develop / API reference / LOGIC
-  - category: Develop / API reference / Control flow
+  - category: Develop / API reference / Flow and navigation
     url: /develop/api-reference/control-flow
-  - category: Develop / API reference / Control flow / st.form
+  - category: Develop / API reference / Flow and navigation / st.form
     url: /develop/api-reference/control-flow/st.form
     isVersioned: true
-  - category: Develop / API reference / Control flow / st.form_submit_button
+  - category: Develop / API reference / Flow and navigation / st.form_submit_button
     url: /develop/api-reference/control-flow/st.form_submit_button
     isVersioned: true
-  - category: Develop / API reference / Control flow / st.page_link
+  - category: Develop / API reference / Flow and navigation / st.page_link
     url: https://docs.streamlit.io/develop/api-reference/widgets/st.page_link
     isVersioned: true
-  - category: Develop / API reference / Control flow / st.rerun
+  - category: Develop / API reference / Flow and navigation / st.rerun
     url: /develop/api-reference/control-flow/st.rerun
     isVersioned: true
-  - category: Develop / API reference / Control flow / st.stop
+  - category: Develop / API reference / Flow and navigation / st.stop
     url: /develop/api-reference/control-flow/st.stop
     isVersioned: true
-  - category: Develop / API reference / Control flow / st.switch_page
+  - category: Develop / API reference / Flow and navigation / st.switch_page
     url: /develop/api-reference/control-flow/st.switch_page
     isVersioned: true
-  - category: Develop / API reference / Control flow / st.experimental_rerun
+  - category: Develop / API reference / Flow and navigation / st.experimental_rerun
     url: /develop/api-reference/control-flow/st.experimental_rerun
     isVersioned: true
     isDeprecated: true
   - category: Develop / API reference / Utilities
     url: /develop/api-reference/utilities
-  - category: Develop / API reference / Utilities / st.set_page_config
-    url: /develop/api-reference/utilities/st.set_page_config
-    isVersioned: true
-  - category: Develop / API reference / Utilities / st.echo
-    url: /develop/api-reference/utilities/st.echo
-    isVersioned: true
   - category: Develop / API reference / Utilities / st.help
     url: /develop/api-reference/utilities/st.help
     isVersioned: true
@@ -393,6 +392,59 @@ site_menu:
     url: /develop/api-reference/caching-and-state/st.experimental_singleton
     isVersioned: true
     isDeprecated: true
+  - category: Develop / API reference / Configuration
+    url: /develop/api-reference/configuration
+    isVersioned: false
+  - category: Develop / API reference / Configuration / CLI
+    url: /develop/api-reference/configuration/cli
+    isVersioned: true
+  - category: Develop / API reference / Configuration / config.toml
+    url: /develop/api-reference/configuration/config.toml
+    isVersioned: true
+  - category: Develop / API reference / Configuration / st.get_option
+    url: /develop/api-reference/configuration/st.get_option
+    isVersioned: true
+  - category: Develop / API reference / Configuration / st.set_page_config
+    url: /develop/api-reference/configuration/st.set_page_config
+    isVersioned: true
+  - category: Develop / API reference / Configuration / st.set_option
+    url: /develop/api-reference/configuration/st.set_option
+    isVersioned: true
+  - category: Develop / API reference / Connections and authentication
+    url: /develop/api-reference/connections
+  - category: Develop / API reference / Connections and authentication / st.connection
+    url: /develop/api-reference/connections/st.connection
+    isVersioned: true
+  - category: Develop / API reference / Connections and authentication / SnowflakeConnection
+    url: /develop/api-reference/connections/st.connections.snowflakeconnection
+    isVersioned: true
+  - category: Develop / API reference / Connections and authentication / SQLConnection
+    url: /develop/api-reference/connections/st.connections.sqlconnection
+    isVersioned: true
+  - category: Develop / API reference / Connections and authentication / BaseConnection
+    url: /develop/api-reference/connections/st.connections.baseconnection
+    isVersioned: true
+  - category: Develop / API reference / Connections and authentication / st.experimental_user
+    url: /develop/api-reference/connections/st.experimental_user
+    isVersioned: true
+  - category: Develop / API reference / Connections and authentication / st.secrets
+    url: /develop/api-reference/connections/st.secrets
+    isVersioned: true
+  - category: Develop / API reference / Connections and authentication / secrets.toml
+    url: /develop/api-reference/connections/secrets.toml
+    isVersioned: true
+  - category: Develop / API reference / Connections and authentication / st.experimental_connection
+    url: /develop/api-reference/connections/st.experimental_connection
+    isVersioned: true
+    isDeprecated: true
+  - category: Develop / API reference / Connections and authentication / SnowparkConnection
+    url: /develop/api-reference/connections/st.connections.snowparkconnection
+    isVersioned: true
+    isDeprecated: true
+  - category: Develop / API reference / Connections and authentication / ExperimentalBaseConnection
+    url: /develop/api-reference/connections/st.connections.experimentalbaseconnection
+    isVersioned: true
+    isDeprecated: true
   - category: Develop / API reference / Custom components
     url: /develop/api-reference/custom-components
     isVersioned: false
@@ -405,38 +457,6 @@ site_menu:
   - category: Develop / API reference / Custom components / st.components.v1.iframe
     url: /develop/api-reference/custom-components/st.components.v1.iframe
     isVersioned: true
-  - category: Develop / API reference / Personalization
-    url: /develop/api-reference/personalization
-    isVersioned: false
-  - category: Develop / API reference / Personalization / st.experimental_user
-    url: /develop/api-reference/personalization/st.experimental_user
-    isVersioned: true
-  - category: Develop / API reference / Connections and databases
-    url: /develop/api-reference/connections
-  - category: Develop / API reference / Connections and databases / st.connection
-    url: /develop/api-reference/connections/st.connection
-    isVersioned: true
-  - category: Develop / API reference / Connections and databases / SnowflakeConnection
-    url: /develop/api-reference/connections/st.connections.snowflakeconnection
-    isVersioned: true
-  - category: Develop / API reference / Connections and databases / SQLConnection
-    url: /develop/api-reference/connections/st.connections.sqlconnection
-    isVersioned: true
-  - category: Develop / API reference / Connections and databases / BaseConnection
-    url: /develop/api-reference/connections/st.connections.baseconnection
-    isVersioned: true
-  - category: Develop / API reference / Connections and databases / st.experimental_connection
-    url: /develop/api-reference/connections/st.experimental_connection
-    isVersioned: true
-    isDeprecated: true
-  - category: Develop / API reference / Connections and databases / SnowparkConnection
-    url: /develop/api-reference/connections/st.connections.snowparkconnection
-    isVersioned: true
-    isDeprecated: true
-  - category: Develop / API reference / Connections and databases / ExperimentalBaseConnection
-    url: /develop/api-reference/connections/st.connections.experimentalbaseconnection
-    isVersioned: true
-    isDeprecated: true
   - category: Develop / API reference / TOOLS
   - category: Develop / API reference / App testing
     url: /develop/api-reference/app-testing

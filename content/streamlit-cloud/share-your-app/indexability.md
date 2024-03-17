@@ -30,7 +30,7 @@ We recommend choosing a custom subdomain when you deploy your app. This ensures 
 
 ### Choose a descriptive app title
 
-The meta title of your app is the text that appears in search engine results. It is also the text that appears in the browser tab when your app is open. By default, the meta title of your app is the same as the title of your app. However, you can customize the meta title of your app by setting the [`st.set_page_config`](/develop/api-reference/utilities/st.set_page_config) parameter `page_title` to a custom string. For example:
+The meta title of your app is the text that appears in search engine results. It is also the text that appears in the browser tab when your app is open. By default, the meta title of your app is the same as the title of your app. However, you can customize the meta title of your app by setting the [`st.set_page_config`](/develop/api-reference/configuration/st.set_page_config) parameter `page_title` to a custom string. For example:
 
 ```python
 st.set_page_config(page_title="Traingenerator")
