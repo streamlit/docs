@@ -34,7 +34,7 @@ const HeaderLink = ({ name, level, className, children }) => {
   // If we're getting something back, that means there is one, so we will wrap
   // the header contents in <span> to prevent it from flexing
   const withInlineCode = Array.from(children).find(
-    (child) => child && child.type && child.type === "code",
+    (child) => child?.type === "code",
   );
 
   const Header = `h${level}`;
