@@ -1,4 +1,4 @@
-streamlit==1.32.1
+streamlit==1.32.2
 toml
 sqlalchemy==1.4
 duckdb
