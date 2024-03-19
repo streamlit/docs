@@ -155,7 +155,7 @@ export default function Article({
         version={version}
         versions={versions}
         slug={slug}
-        ancestorFunction={props.ancestor ?? ""}
+        oldStreamlitFunction={props.oldName ?? ""}
       />
     ),
     pre: (props) => <Code {...props} />,
