@@ -31,7 +31,6 @@ const Autofunction = ({
   hideHeader,
   deprecated,
   deprecatedText,
-  ancestorFunction,
 }) => {
   const blockRef = useRef();
   const router = useRouter();
@@ -134,9 +133,7 @@ const Autofunction = ({
   };
 
   const handleSelectVersion = (event) => {
-    const functionObject = streamlit[streamlitFunction]
-      ? streamlit[streamlitFunction]
-      : streamlit[ancestorFunction];
+    const functionObject = streamlit[streamlitFunction];
     const slicedSlug = slug.slice();
 
     if (event.target.value !== currentVersion) {
@@ -173,10 +170,8 @@ const Autofunction = ({
   let methods = [];
   let properties = [];
 
-  if (streamlitFunction in streamlit || ancestorFunction in streamlit) {
-    functionObject = streamlit[streamlitFunction]
-      ? streamlit[streamlitFunction]
-      : streamlit[ancestorFunction];
+  if (streamlitFunction in streamlit) {
+    functionObject = streamlit[streamlitFunction];
     isClass = functionObject.is_class;
     if (
       functionObject.description !== undefined &&

@@ -155,7 +155,6 @@ export default function Article({
         version={version}
         versions={versions}
         slug={slug}
-        ancestorFunction={props.ancestor ? props.ancestor : ""}
       />
     ),
     pre: (props) => <Code {...props} />,
