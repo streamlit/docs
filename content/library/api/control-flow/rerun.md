@@ -4,7 +4,7 @@ slug: /develop/api-reference/control-flow/st.rerun
 description: st.rerun will rerun the script immediately.
 ---
 
-<Autofunction function="streamlit.rerun" ancestor="streamlit.experimental_rerun" />
+<Autofunction function="streamlit.rerun" oldName="streamlit.experimental_rerun" />
 
 ### Caveats for `st.rerun`
 

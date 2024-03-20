@@ -9,6 +9,6 @@ This page only contains information on the `st.connections.BaseConnection` class
 
 </Tip>
 
-<Autofunction function="streamlit.connections.BaseConnection" ancestor="streamlit.connections.ExperimentalBaseConnection" />
+<Autofunction function="streamlit.connections.BaseConnection" oldName="streamlit.connections.ExperimentalBaseConnection" />
 
-<Autofunction function="streamlit.connections.BaseConnection.reset" ancestor="streamlit.connections.ExperimentalBaseConnection.reset" />
+<Autofunction function="streamlit.connections.BaseConnection.reset" oldName="streamlit.connections.ExperimentalBaseConnection.reset" />

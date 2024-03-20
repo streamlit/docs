@@ -10,7 +10,7 @@ This page only contains information on the `st.data_editor` API. For an overview
 
 </Tip>
 
-<Autofunction function="streamlit.data_editor" ancestor="streamlit.experimental_data_editor" />
+<Autofunction function="streamlit.data_editor" oldName="streamlit.experimental_data_editor" />
 
 ### Configuring columns
 
