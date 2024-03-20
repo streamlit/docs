@@ -1,6 +1,6 @@
 ---
 title: Working with timezones
-slug: /develop/concepts/special-considerations/timezone-handling
+slug: /develop/concepts/server-client/timezone-handling
 ---
 
 # Working with timezones

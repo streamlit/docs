@@ -5,7 +5,7 @@ slug: /develop/api-reference/connections/st.connection
 
 <Tip>
 
-This page only contains the `st.connection` API. For a deeper dive into creating and managing data connections within Streamlit apps, read [Connecting to data](/develop/concepts/logical-design/connecting-to-data).
+This page only contains the `st.connection` API. For a deeper dive into creating and managing data connections within Streamlit apps, read [Connecting to data](/develop/concepts/connections/connecting-to-data).
 
 </Tip>
 

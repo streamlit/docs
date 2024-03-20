@@ -37,7 +37,7 @@ site_menu:
     icon: code
   - category: Develop / API reference
     url: /develop/api-reference
-  - category: Develop / API reference / ELEMENTS
+  - category: Develop / API reference / PAGE ELEMENTS
   - category: Develop / API reference / Write and magic
     url: /develop/api-reference/write-magic
   - category: Develop / API reference / Write and magic / st.write
@@ -50,6 +50,7 @@ site_menu:
     url: /develop/api-reference/write-magic/magic
   - category: Develop / API reference / Text elements
     url: /develop/api-reference/text
+  - category: Develop / API reference / Text elements / BASIC
   - category: Develop / API reference / Text elements / st.title
     url: /develop/api-reference/text/st.title
     isVersioned: true
@@ -62,7 +63,7 @@ site_menu:
   - category: Develop / API reference / Text elements / st.markdown
     url: /develop/api-reference/text/st.markdown
     isVersioned: true
-  - category: Develop / API reference / Text elements / ---
+  - category: Develop / API reference / Text elements / SPECIAL
   - category: Develop / API reference / Text elements / st.caption
     url: /develop/api-reference/text/st.caption
     isVersioned: true
@@ -149,6 +150,7 @@ site_menu:
     visible: false
   - category: Develop / API reference / Chart elements
     url: /develop/api-reference/charts
+  - category: Develop / API reference / Chart elements / SIMPLE
   - category: Develop / API reference / Chart elements / st.area_chart
     url: /develop/api-reference/charts/st.area_chart
     isVersioned: true
@@ -164,7 +166,7 @@ site_menu:
   - category: Develop / API reference / Chart elements / st.scatter_chart
     url: /develop/api-reference/charts/st.scatter_chart
     isVersioned: true
-  - category: Develop / API reference / Chart elements / ---
+  - category: Develop / API reference / Chart elements / ADVANCED
   - category: Develop / API reference / Chart elements / st.altair_chart
     url: /develop/api-reference/charts/st.altair_chart
     isVersioned: true
@@ -188,11 +190,15 @@ site_menu:
     isVersioned: true
   - category: Develop / API reference / Input widgets
     url: /develop/api-reference/widgets
+  - category: Develop / API reference / Input widgets / BUTTONS
   - category: Develop / API reference / Input widgets / st.button
     url: /develop/api-reference/widgets/st.button
     isVersioned: true
   - category: Develop / API reference / Input widgets / st.download_button
     url: /develop/api-reference/widgets/st.download_button
+    isVersioned: true
+  - category: Develop / API reference / Input widgets / st.form_submit_button
+    url: https://docs.streamlit.io/develop/api-reference/control-flow/st.form_submit_button
     isVersioned: true
   - category: Develop / API reference / Input widgets / st.link_button
     url: /develop/api-reference/widgets/st.link_button
@@ -200,11 +206,15 @@ site_menu:
   - category: Develop / API reference / Input widgets / st.page_link
     url: /develop/api-reference/widgets/st.page_link
     isVersioned: true
+  - category: Develop / API reference / Input widgets / SELECTIONS
   - category: Develop / API reference / Input widgets / st.checkbox
     url: /develop/api-reference/widgets/st.checkbox
     isVersioned: true
-  - category: Develop / API reference / Input widgets / st.toggle
-    url: /develop/api-reference/widgets/st.toggle
+  - category: Develop / API reference / Input widgets / st.color_picker
+    url: /develop/api-reference/widgets/st.color_picker
+    isVersioned: true
+  - category: Develop / API reference / Input widgets / st.multiselect
+    url: /develop/api-reference/widgets/st.multiselect
     isVersioned: true
   - category: Develop / API reference / Input widgets / st.radio
     url: /develop/api-reference/widgets/st.radio
@@ -212,39 +222,40 @@ site_menu:
   - category: Develop / API reference / Input widgets / st.selectbox
     url: /develop/api-reference/widgets/st.selectbox
     isVersioned: true
-  - category: Develop / API reference / Input widgets / st.multiselect
-    url: /develop/api-reference/widgets/st.multiselect
-    isVersioned: true
-  - category: Develop / API reference / Input widgets / st.slider
-    url: /develop/api-reference/widgets/st.slider
-    isVersioned: true
   - category: Develop / API reference / Input widgets / st.select_slider
     url: /develop/api-reference/widgets/st.select_slider
     isVersioned: true
-  - category: Develop / API reference / Input widgets / st.text_input
-    url: /develop/api-reference/widgets/st.text_input
+  - category: Develop / API reference / Input widgets / st.toggle
+    url: /develop/api-reference/widgets/st.toggle
+    isVersioned: true
+  - category: Develop / API reference / Input widgets / NUMERIC
+  - category: Develop / API reference / Input widgets / st.date_input
+    url: /develop/api-reference/widgets/st.date_input
     isVersioned: true
   - category: Develop / API reference / Input widgets / st.number_input
     url: /develop/api-reference/widgets/st.number_input
     isVersioned: true
-  - category: Develop / API reference / Input widgets / st.text_area
-    url: /develop/api-reference/widgets/st.text_area
-    isVersioned: true
-  - category: Develop / API reference / Input widgets / st.date_input
-    url: /develop/api-reference/widgets/st.date_input
+  - category: Develop / API reference / Input widgets / st.slider
+    url: /develop/api-reference/widgets/st.slider
     isVersioned: true
   - category: Develop / API reference / Input widgets / st.time_input
     url: /develop/api-reference/widgets/st.time_input
     isVersioned: true
-  - category: Develop / API reference / Input widgets / st.file_uploader
-    url: /develop/api-reference/widgets/st.file_uploader
+  - category: Develop / API reference / Input widgets / TEXT
+  - category: Develop / API reference / Input widgets / st.text_area
+    url: /develop/api-reference/widgets/st.text_area
     isVersioned: true
+  - category: Develop / API reference / Input widgets / st.text_input
+    url: /develop/api-reference/widgets/st.text_input
+    isVersioned: true
+  - category: Develop / API reference / Input widgets / OTHER
   - category: Develop / API reference / Input widgets / st.camera_input
     url: /develop/api-reference/widgets/st.camera_input
     isVersioned: true
-  - category: Develop / API reference / Input widgets / st.color_picker
-    url: /develop/api-reference/widgets/st.color_picker
+  - category: Develop / API reference / Input widgets / st.file_uploader
+    url: /develop/api-reference/widgets/st.file_uploader
     isVersioned: true
+
   - category: Develop / API reference / Media elements
     url: /develop/api-reference/media
   - category: Develop / API reference / Media elements / st.audio
@@ -295,6 +306,23 @@ site_menu:
     isVersioned: true
   - category: Develop / API reference / Status elements
     url: /develop/api-reference/status
+  - category: Develop / API reference / Status elements / SIMPLE
+  - category: Develop / API reference / Status elements / st.success
+    url: /develop/api-reference/status/st.success
+    isVersioned: true
+  - category: Develop / API reference / Status elements / st.info
+    url: /develop/api-reference/status/st.info
+    isVersioned: true
+  - category: Develop / API reference / Status elements / st.warning
+    url: /develop/api-reference/status/st.warning
+    isVersioned: true
+  - category: Develop / API reference / Status elements / st.exception
+    url: /develop/api-reference/status/st.exception
+    isVersioned: true
+  - category: Develop / API reference / Status elements / st.error
+    url: /develop/api-reference/status/st.error
+    isVersioned: true
+  - category: Develop / API reference / Status elements / OTHER
   - category: Develop / API reference / Status elements / st.progress
     url: /develop/api-reference/status/st.progress
     isVersioned: true
@@ -313,22 +341,9 @@ site_menu:
   - category: Develop / API reference / Status elements / st.snow
     url: /develop/api-reference/status/st.snow
     isVersioned: true
-  - category: Develop / API reference / Status elements / st.error
-    url: /develop/api-reference/status/st.error
-    isVersioned: true
-  - category: Develop / API reference / Status elements / st.warning
-    url: /develop/api-reference/status/st.warning
-    isVersioned: true
-  - category: Develop / API reference / Status elements / st.info
-    url: /develop/api-reference/status/st.info
-    isVersioned: true
-  - category: Develop / API reference / Status elements / st.success
-    url: /develop/api-reference/status/st.success
-    isVersioned: true
-  - category: Develop / API reference / Status elements / st.exception
-    url: /develop/api-reference/status/st.exception
-    isVersioned: true
-  - category: Develop / API reference / LOGIC
+  - category: Develop / API reference / Third-party components
+    url: https://streamlit.io/components
+  - category: Develop / API reference / LOGICAL FUNCTIONS
   - category: Develop / API reference / Flow and navigation
     url: /develop/api-reference/control-flow
   - category: Develop / API reference / Flow and navigation / st.form
@@ -356,40 +371,43 @@ site_menu:
     isVersioned: true
     isDeprecated: true
     visible: false
-  - category: Develop / API reference / Utilities
+  - category: Develop / API reference / Utilities and data
     url: /develop/api-reference/utilities
-  - category: Develop / API reference / Utilities / st.help
+  - category: Develop / API reference / Utilities and data / st.experimental_user
+    url: /develop/api-reference/utilities/st.experimental_user
+    isVersioned: true
+  - category: Develop / API reference / Utilities and data / st.help
     url: /develop/api-reference/utilities/st.help
     isVersioned: true
-  - category: Develop / API reference / Utilities / st.query_params
+  - category: Develop / API reference / Utilities and data / st.query_params
     url: /develop/api-reference/utilities/st.query_params
     isVersioned: true
-  - category: Develop / API reference / Utilities / st.experimental_get_query_params
+  - category: Develop / API reference / Utilities and data / st.experimental_get_query_params
     url: /develop/api-reference/utilities/st.experimental_get_query_params
     isVersioned: true
     isDeprecated: true
-  - category: Develop / API reference / Utilities / st.experimental_set_query_params
+  - category: Develop / API reference / Utilities and data / st.experimental_set_query_params
     url: /develop/api-reference/utilities/st.experimental_set_query_params
     isVersioned: true
     isDeprecated: true
-  - category: Develop / API reference / Caching and performance
+  - category: Develop / API reference / Caching
     url: /develop/api-reference/caching-and-state
-  - category: Develop / API reference / Caching and performance / st.cache_data
+  - category: Develop / API reference / Caching / st.cache_data
     url: /develop/api-reference/caching-and-state/st.cache_data
     isVersioned: true
-  - category: Develop / API reference / Caching and performance / st.cache_resource
+  - category: Develop / API reference / Caching / st.cache_resource
     url: /develop/api-reference/caching-and-state/st.cache_resource
     isVersioned: true
-  - category: Develop / API reference / Caching and performance / st.cache
+  - category: Develop / API reference / Caching / st.cache
     url: /develop/api-reference/caching-and-state/st.cache
     isVersioned: true
     isDeprecated: true
-  - category: Develop / API reference / Caching and performance / st.experimental_memo
+  - category: Develop / API reference / Caching / st.experimental_memo
     url: /develop/api-reference/caching-and-state/st.experimental_memo
     isVersioned: true
     isDeprecated: true
     visible: false
-  - category: Develop / API reference / Caching and performance / st.experimental_singleton
+  - category: Develop / API reference / Caching / st.experimental_singleton
     url: /develop/api-reference/caching-and-state/st.experimental_singleton
     isVersioned: true
     isDeprecated: true
@@ -412,39 +430,36 @@ site_menu:
   - category: Develop / API reference / Configuration / st.set_option
     url: /develop/api-reference/configuration/st.set_option
     isVersioned: true
-  - category: Develop / API reference / Connections and authentication
+  - category: Develop / API reference / Connections and secrets
     url: /develop/api-reference/connections
-  - category: Develop / API reference / Connections and authentication / st.connection
+  - category: Develop / API reference / Connections and secrets / st.connection
     url: /develop/api-reference/connections/st.connection
     isVersioned: true
-  - category: Develop / API reference / Connections and authentication / SnowflakeConnection
+  - category: Develop / API reference / Connections and secrets / SnowflakeConnection
     url: /develop/api-reference/connections/st.connections.snowflakeconnection
     isVersioned: true
-  - category: Develop / API reference / Connections and authentication / SQLConnection
+  - category: Develop / API reference / Connections and secrets / SQLConnection
     url: /develop/api-reference/connections/st.connections.sqlconnection
     isVersioned: true
-  - category: Develop / API reference / Connections and authentication / BaseConnection
+  - category: Develop / API reference / Connections and secrets / BaseConnection
     url: /develop/api-reference/connections/st.connections.baseconnection
     isVersioned: true
-  - category: Develop / API reference / Connections and authentication / st.experimental_user
-    url: /develop/api-reference/connections/st.experimental_user
-    isVersioned: true
-  - category: Develop / API reference / Connections and authentication / st.secrets
+  - category: Develop / API reference / Connections and secrets / st.secrets
     url: /develop/api-reference/connections/st.secrets
     isVersioned: true
-  - category: Develop / API reference / Connections and authentication / secrets.toml
+  - category: Develop / API reference / Connections and secrets / secrets.toml
     url: /develop/api-reference/connections/secrets.toml
     isVersioned: true
-  - category: Develop / API reference / Connections and authentication / st.experimental_connection
+  - category: Develop / API reference / Connections and secrets / st.experimental_connection
     url: /develop/api-reference/connections/st.experimental_connection
     isVersioned: true
     isDeprecated: true
     visible: false
-  - category: Develop / API reference / Connections and authentication / SnowparkConnection
+  - category: Develop / API reference / Connections and secrets / SnowparkConnection
     url: /develop/api-reference/connections/st.connections.snowparkconnection
     isVersioned: true
     isDeprecated: true
-  - category: Develop / API reference / Connections and authentication / ExperimentalBaseConnection
+  - category: Develop / API reference / Connections and secrets / ExperimentalBaseConnection
     url: /develop/api-reference/connections/st.connections.experimentalbaseconnection
     isVersioned: true
     isDeprecated: true
@@ -470,9 +485,9 @@ site_menu:
   - category: Develop / API reference / App testing / Testing element classes
     url: /develop/api-reference/app-testing/testing-element-classes
     isVersioned: true
-  - category: Develop / API reference / ---
   - category: Develop / Concepts
     url: /develop/concepts
+  - category: Develop / Concepts / FUNDAMENTALS
   - category: Develop / Concepts / Elements and UI
     url: /develop/concepts/elements-and-ui
   - category: Develop / Concepts / Elements and UI/ App menu
@@ -487,24 +502,32 @@ site_menu:
     url: /develop/concepts/elements-and-ui/mutate
   - category: Develop / Concepts / Elements and UI/ Widget behavior
     url: /develop/concepts/elements-and-ui/widget-behavior
-  - category: Develop / Concepts / Logical design and optimization
-    url: /develop/concepts/logical-design
-  - category: Develop / Concepts / Logical design and optimization / Caching
-    url: /develop/concepts/logical-design/caching
-  - category: Develop / Concepts / Logical design and optimization / Optimize performance with st.cache
-    url: /develop/concepts/logical-design/st.cache
+  - category: Develop / Concepts / Execution model
+    url: /develop/concepts/execution-model
+  - category: Develop / Concepts / Execution model / Caching
+    url: /develop/concepts/execution-model/caching
+  - category: Develop / Concepts / Execution model / Optimize performance with st.cache
+    url: /develop/concepts/execution-model/st.cache
     visible: false
-  - category: Develop / Concepts / Logical design and optimization / Experimental cache primitives
-    url: /develop/concepts/logical-design/experimental-cache-primitives
+  - category: Develop / Concepts / Execution model / Experimental cache primitives
+    url: /develop/concepts/execution-model/experimental-cache-primitives
     visible: false
-  - category: Develop / Concepts / Logical design and optimization / Connecting to data
-    url: /develop/concepts/logical-design/connecting-to-data
-  - category: Develop / Concepts / Logical design and optimization / Secrets management
-    url: /develop/concepts/logical-design/secrets-management
-  - category: Develop / Concepts / Logical design and optimization / Security reminders
-    url: /develop/concepts/logical-design/security-reminders
-  - category: Develop / Concepts / Logical design and optimization/ Session State
-    url: /develop/concepts/logical-design/session-state
+  - category: Develop / Concepts / Execution model / Session State
+    url: /develop/concepts/execution-model/session-state
+  - category: Develop / Concepts / Execution model / Custom classes
+    url: /develop/concepts/execution-model/custom-classes
+  - category: Develop / Concepts / Multipage apps
+    url: /develop/concepts/multipage-apps
+  - category: Develop / Concepts / Multipage apps / Custom navigation
+    url: /develop/concepts/multipage-apps/custom-navigation
+  - category: Develop / Concepts / Server-client structure
+    url: /develop/concepts/server-client
+  - category: Develop / Concepts / Server-client structure / Streamlit's architecture
+    url: /develop/concepts/server-client/architecture
+  - category: Develop / Concepts / Server-client structure / Working with timezones
+    url: /develop/concepts/server-client/timezone-handling
+
+  - category: Develop / Concepts / ADDITIONAL FEATURES
   - category: Develop / Concepts / Configuration
     url: /develop/concepts/configuration
   - category: Develop / Concepts / Configuration / Command-line interface
@@ -515,6 +538,14 @@ site_menu:
     url: /develop/concepts/configuration/static-file-serving
   - category: Develop / Concepts / Configuration / Theming
     url: /develop/concepts/configuration/theming
+  - category: Develop / Concepts / Connections and secrets
+    url: /develop/concepts/connections
+  - category: Develop / Concepts / Connections and secrets / Connecting to data
+    url: /develop/concepts/connections/connecting-to-data
+  - category: Develop / Concepts / Connections and secrets / Secrets management
+    url: /develop/concepts/connections/secrets-management
+  - category: Develop / Concepts / Connections and secrets / Security reminders
+    url: /develop/concepts/connections/security-reminders
   - category: Develop / Concepts / Custom components
     url: /develop/concepts/custom-components
   - category: Develop / Concepts / Custom components / Intro to custom components
@@ -525,16 +556,6 @@ site_menu:
     url: /develop/concepts/custom-components/publish
   - category: Develop / Concepts / Custom components / Component gallery
     url: https://streamlit.io/components
-  - category: Develop / Concepts / Multipage apps
-    url: /develop/concepts/multipage-apps
-  - category: Develop / Concepts / Multipage apps / Custom navigation
-    url: /develop/concepts/multipage-apps/custom-navigation
-  - category: Develop / Concepts / Special considerations
-    url: /develop/concepts/special-considerations
-  - category: Develop / Concepts / Special considerations/ Custom classes
-    url: /develop/concepts/special-considerations/custom-classes
-  - category: Develop / Concepts / Special considerations/ Working with timezones
-    url: /develop/concepts/special-considerations/timezone-handling
   - category: Develop / Concepts / App testing
     url: /develop/concepts/app-testing
   - category: Develop / Concepts / App testing / Get started

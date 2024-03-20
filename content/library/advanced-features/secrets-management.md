@@ -1,6 +1,6 @@
 ---
 title: Secrets management
-slug: /develop/concepts/logical-design/secrets-management
+slug: /develop/concepts/connections/secrets-management
 ---
 
 # Secrets management

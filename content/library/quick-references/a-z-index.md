@@ -5,6 +5,8 @@ slug: /develop/quick-references/a-z-index
 
 # A-Z Streamlit function index
 
+# (example stub; won't commit until formatted and automated)
+
 - `st.altair_chart`
 - `st.area_chart`
 - `st.audio`

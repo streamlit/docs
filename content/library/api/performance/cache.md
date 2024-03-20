@@ -25,9 +25,9 @@ The main limitation is that Streamlit’s cache feature doesn’t know about
 changes that take place outside the body of the annotated function.
 
 For more information about the Streamlit cache, its configuration parameters,
-and its limitations, see [Caching](/develop/concepts/logical-design/caching).
+and its limitations, see [Caching](/develop/concepts/execution-model/caching).
 
-<Autofunction function="streamlit.cache" deprecated={true} deprecatedText="<code>st.cache</code> was deprecated in version 1.18.0. Use <a href='/develop/api-reference/caching-and-state/st.cache_data'><code>st.cache_data</code></a> or <a href='/develop/api-reference/caching-and-state/st.cache_resource'><code>st.cache_resource</code></a> instead. Learn more in <a href='/develop/concepts/logical-design/caching'>Caching</a>."/>
+<Autofunction function="streamlit.cache" deprecated={true} deprecatedText="<code>st.cache</code> was deprecated in version 1.18.0. Use <a href='/develop/api-reference/caching-and-state/st.cache_data'><code>st.cache_data</code></a> or <a href='/develop/api-reference/caching-and-state/st.cache_resource'><code>st.cache_resource</code></a> instead. Learn more in <a href='/develop/concepts/execution-model/caching'>Caching</a>."/>
 
 <Warning>
 

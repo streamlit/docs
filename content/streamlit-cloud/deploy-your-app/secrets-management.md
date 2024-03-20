@@ -99,7 +99,7 @@ If you need to add or edit your secrets for an app that is already deployed, you
 
 ### Develop locally with secrets
 
-When developing your app locally, add a file called `secrets.toml` in a folder called `.streamlit` at the root of your app repo, and copy/paste your secrets into that file. Further instructions are available in the Streamlit library [Secrets management](/develop/concepts/logical-design/secrets-management) documentation.
+When developing your app locally, add a file called `secrets.toml` in a folder called `.streamlit` at the root of your app repo, and copy/paste your secrets into that file. Further instructions are available in the Streamlit library [Secrets management](/develop/concepts/connections/secrets-management) documentation.
 
 <Important>
 

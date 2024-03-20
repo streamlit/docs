@@ -11,7 +11,7 @@ This is an experimental feature. Experimental features and their APIs may change
 
 <Tip>
 
-This page only contains the `st.connections.SnowparkConnection` class. For a deeper dive into creating and managing data connections within Streamlit apps, read [Connecting to data](/develop/concepts/logical-design/connecting-to-data).
+This page only contains the `st.connections.SnowparkConnection` class. For a deeper dive into creating and managing data connections within Streamlit apps, read [Connecting to data](/develop/concepts/connections/connecting-to-data).
 
 </Tip>
 

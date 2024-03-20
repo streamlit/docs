@@ -1,11 +1,11 @@
 ---
 title: Experimental cache primitives
-slug: /develop/concepts/logical-design/experimental-cache-primitives
+slug: /develop/concepts/execution-model/experimental-cache-primitives
 ---
 
 <Deprecation>
 
-The experimental cache primitives described on this page were deprecated in version 1.18.0. Use [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) or [`st.cache_resource`](/develop/api-reference/caching-and-state/st.cache_resource) instead. Learn more in [Caching](/develop/concepts/logical-design/caching).
+The experimental cache primitives described on this page were deprecated in version 1.18.0. Use [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) or [`st.cache_resource`](/develop/api-reference/caching-and-state/st.cache_resource) instead. Learn more in [Caching](/develop/concepts/execution-model/caching).
 
 </Deprecation>
 
@@ -17,7 +17,7 @@ Streamlit's unique execution model is a part of what makes it a joy to use: your
 
 Whenever your code re-executes, a decorator called [`@st.cache`](/develop/api-reference/caching-and-state/st.cache)—which is a powerful primitive for memoization and state storage capabilities—provides a caching mechanism that allows your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations.
 
-However, we've found that [`@st.cache`](/develop/concepts/logical-design/caching) is hard to use and not fast. You're either faced with cryptic errors like `InternalHashError` or `UnhashableTypeError`. Or you need to understand concepts like [`hash_funcs`](/develop/concepts/logical-design/caching#the-hash_funcs-parameter) and [`allow_output_mutation`](/develop/concepts/logical-design/caching#example-1-pass-a-database-connection-around).
+However, we've found that [`@st.cache`](/develop/concepts/execution-model/caching) is hard to use and not fast. You're either faced with cryptic errors like `InternalHashError` or `UnhashableTypeError`. Or you need to understand concepts like [`hash_funcs`](/develop/concepts/execution-model/caching#the-hash_funcs-parameter) and [`allow_output_mutation`](/develop/concepts/execution-model/caching#example-1-pass-a-database-connection-around).
 
 Our solutions include two new primitives: [**`st.experimental_memo`**](/develop/api-reference/caching-and-state/st.experimental_memo) and [**`st.experimental_singleton`**](/develop/api-reference/caching-and-state/st.experimental_singleton). They're conceptually simpler and much, much faster. In some of our internal tests on caching large dataframes, `@st.experimental_memo` has outperformed `@st.cache` by an order of magnitude. That's over 10X faster! 🚀
 

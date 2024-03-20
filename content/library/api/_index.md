@@ -2174,7 +2174,7 @@ class MyConnection(BaseConnection[myconn.MyConnection]):
 ## Personalization
 
 <TileContainer>
-<RefCard href="/develop/api-reference/connections/st.experimental_user" size="half">
+<RefCard href="/develop/api-reference/utilities/st.experimental_user" size="half">
 
 <h4>User info</h4>
 

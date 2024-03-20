@@ -1,6 +1,8 @@
 ---
-title: Deployment concepts
-slug: /deploy/concepts
+title: Deploy
+slug: /deploy
 ---
 
-# Deployment concepts
+# Deploy
+
+## Everything you need to deploy Streamlit apps to the world
