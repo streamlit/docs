@@ -242,6 +242,9 @@ site_menu:
     url: /develop/api-reference/widgets/st.time_input
     isVersioned: true
   - category: Develop / API reference / Input widgets / TEXT
+  - category: Develop / API reference / Input widgets / st.chat_input
+    url: https://docs.streamlit.io/develop/api-reference/chat/st.chat_input
+    isVersioned: true
   - category: Develop / API reference / Input widgets / st.text_area
     url: /develop/api-reference/widgets/st.text_area
     isVersioned: true
@@ -280,6 +283,9 @@ site_menu:
     isVersioned: true
   - category: Develop / API reference / Layouts and containers / st.expander
     url: /develop/api-reference/layout/st.expander
+    isVersioned: true
+  - category: Develop / API reference / Layouts and containers / st.form
+    url: https://docs.streamlit.io/develop/api-reference/control-flow/st.form
     isVersioned: true
   - category: Develop / API reference / Layouts and containers / st.popover
     url: /develop/api-reference/layout/st.popover
@@ -487,7 +493,7 @@ site_menu:
     isVersioned: true
   - category: Develop / Concepts
     url: /develop/concepts
-  - category: Develop / Concepts / FUNDAMENTALS
+  - category: Develop / Concepts / CORE FEATURES
   - category: Develop / Concepts / Elements and UI
     url: /develop/concepts/elements-and-ui
   - category: Develop / Concepts / Elements and UI/ App menu
@@ -504,6 +510,10 @@ site_menu:
     url: /develop/concepts/elements-and-ui/widget-behavior
   - category: Develop / Concepts / Execution model
     url: /develop/concepts/execution-model
+  - category: Develop / Concepts / Execution model / INITIALIZATION
+  - category: Develop / Concepts / Execution model / Run your app
+    url: /develop/concepts/execution-model/run-your-app
+  - category: Develop / Concepts / Execution model / RERUN MODEL
   - category: Develop / Concepts / Execution model / Caching
     url: /develop/concepts/execution-model/caching
   - category: Develop / Concepts / Execution model / Optimize performance with st.cache
@@ -516,16 +526,15 @@ site_menu:
     url: /develop/concepts/execution-model/session-state
   - category: Develop / Concepts / Execution model / Custom classes
     url: /develop/concepts/execution-model/custom-classes
+  - category: Develop / Concepts / Execution model / SERVER-CLIENT MODEL
+  - category: Develop / Concepts / Execution model / Streamlit's architecture
+    url: /develop/concepts/execution-model/architecture
+  - category: Develop / Concepts / Execution model / Working with timezones
+    url: /develop/concepts/execution-model/timezone-handling
   - category: Develop / Concepts / Multipage apps
     url: /develop/concepts/multipage-apps
   - category: Develop / Concepts / Multipage apps / Custom navigation
     url: /develop/concepts/multipage-apps/custom-navigation
-  - category: Develop / Concepts / Server-client structure
-    url: /develop/concepts/server-client
-  - category: Develop / Concepts / Server-client structure / Streamlit's architecture
-    url: /develop/concepts/server-client/architecture
-  - category: Develop / Concepts / Server-client structure / Working with timezones
-    url: /develop/concepts/server-client/timezone-handling
 
   - category: Develop / Concepts / ADDITIONAL FEATURES
   - category: Develop / Concepts / Configuration
@@ -554,6 +563,8 @@ site_menu:
     url: /develop/concepts/custom-components/create
   - category: Develop / Concepts / Custom components / Publish a Component
     url: /develop/concepts/custom-components/publish
+  - category: Develop / Concepts / Custom components / Limitations
+    url: /develop/concepts/custom-components/limitations
   - category: Develop / Concepts / Custom components / Component gallery
     url: https://streamlit.io/components
   - category: Develop / Concepts / App testing
@@ -720,84 +731,64 @@ site_menu:
     url: /knowledge-base
     color: darkBlue-70
     icon: school
-  - category: Knowledge base / Using Streamlit
+  - category: Knowledge base / FAQ
     url: /knowledge-base/using-streamlit
-  - category: Knowledge base / Using Streamlit / How to animate elements?
+  - category: Knowledge base / FAQ / How to animate elements?
     url: /knowledge-base/using-streamlit/animate-elements
     visible: false
-  - category: Knowledge base / Using Streamlit / Append data to a table or chart
-    url: /knowledge-base/using-streamlit/append-data-table-chart
-    visible: false
-  - category: Knowledge base / Using Streamlit / How do I create an anchor link?
+  - category: Knowledge base / FAQ / How do I create an anchor link?
     url: /knowledge-base/using-streamlit/create-anchor-link
     visible: false
-  - category: Knowledge base / Using Streamlit / Enabling camera access in your browser
+  - category: Knowledge base / FAQ / Enabling camera access in your browser
     url: /knowledge-base/using-streamlit/enable-camera
     visible: false
-  - category: Knowledge base / Using Streamlit / How do I run my Streamlit script?
-    url: /knowledge-base/using-streamlit/how-do-i-run-my-streamlit-script
-    visible: false
-  - category: Knowledge base / Using Streamlit / How to download a file in Streamlit?
+  - category: Knowledge base / FAQ / How to download a file in Streamlit?
     url: /knowledge-base/using-streamlit/how-download-file-streamlit
     visible: false
-  - category: Knowledge base / Using Streamlit / How to download a Pandas DataFrame as a CSV?
+  - category: Knowledge base / FAQ / How to download a Pandas DataFrame as a CSV?
     url: /knowledge-base/using-streamlit/how-download-pandas-dataframe-csv
     visible: false
-  - category: Knowledge base / Using Streamlit / How do I get dataframe row-selections from a user?
+  - category: Knowledge base / FAQ / How do I get dataframe row-selections from a user?
     url: /knowledge-base/using-streamlit/how-to-get-row-selections
     visible: false
-  - category: Knowledge base / Using Streamlit / How do I upgrade to the latest version of Streamlit?
+  - category: Knowledge base / FAQ / How do I upgrade to the latest version of Streamlit?
     url: /knowledge-base/using-streamlit/how-upgrade-latest-version-streamlit
     visible: false
-  - category: Knowledge base / Using Streamlit / How to insert elements out of order?
+  - category: Knowledge base / FAQ / How to insert elements out of order?
     url: /knowledge-base/using-streamlit/insert-elements-out-of-order
     visible: false
-  - category: Knowledge base / Using Streamlit / What is the path of Streamlit’s config.toml file?
+  - category: Knowledge base / FAQ / What is the path of Streamlit’s config.toml file?
     url: /knowledge-base/using-streamlit/path-streamlit-config-toml
     visible: false
-  - category: Knowledge base / Using Streamlit / How can I make st.pydeck_chart use custom Mapbox styles?
+  - category: Knowledge base / FAQ / How can I make st.pydeck_chart use custom Mapbox styles?
     url: /knowledge-base/using-streamlit/pydeck-chart-custom-mapbox-styles
     visible: false
-  - category: Knowledge base / Using Streamlit / How to remove "· Streamlit" from the app title?
+  - category: Knowledge base / FAQ / How to remove "· Streamlit" from the app title?
     url: /knowledge-base/using-streamlit/remove-streamlit-app-title
     visible: false
-  - category: Knowledge base / Using Streamlit / How do you retrieve the filename of a file uploaded with st.file_uploader?
+  - category: Knowledge base / FAQ / How do you retrieve the filename of a file uploaded with st.file_uploader?
     url: /knowledge-base/using-streamlit/retrieve-filename-uploaded
     visible: false
-  - category: Knowledge base / Using Streamlit / Sanity checks
+  - category: Knowledge base / FAQ / Sanity checks
     url: /knowledge-base/using-streamlit/sanity-checks
     visible: false
-  - category: Knowledge base / Using Streamlit / How can I make Streamlit watch for changes in other modules I'm importing in my app?
+  - category: Knowledge base / FAQ / How can I make Streamlit watch for changes in other modules I'm importing in my app?
     url: /knowledge-base/using-streamlit/streamlit-watch-changes-other-modules-importing-app
     visible: false
-  - category: Knowledge base / Using Streamlit / What browsers does Streamlit support?
+  - category: Knowledge base / FAQ / What browsers does Streamlit support?
     url: /knowledge-base/using-streamlit/supported-browsers
     visible: false
-  - category: Knowledge base / Using Streamlit / Where does st.file_uploader store uploaded files and when do they get deleted?
+  - category: Knowledge base / FAQ / Where does st.file_uploader store uploaded files and when do they get deleted?
     url: /knowledge-base/using-streamlit/where-file-uploader-store-when-deleted
     visible: false
-  - category: Knowledge base / Using Streamlit / Widget updating for every second input when using session state
+  - category: Knowledge base / FAQ / Widget updating for every second input when using session state
     url: /knowledge-base/using-streamlit/widget-updating-session-state
     visible: false
-  - category: Knowledge base / Using Streamlit / Why does Streamlit restrict nested st.columns?
+  - category: Knowledge base / FAQ / Why does Streamlit restrict nested st.columns?
     url: /knowledge-base/using-streamlit/why-streamlit-restrict-nested-columns
     visible: false
-  - category: Knowledge base / Using Streamlit / How to host static files in Streamlit?
-    url: /knowledge-base/using-streamlit/how-host-static-files
-    visible: false
-  - category: Knowledge base / Using Streamlit / What is serializable session state?
+  - category: Knowledge base / FAQ / What is serializable session state?
     url: /knowledge-base/using-streamlit/serializable-session-state
-    visible: false
-  - category: Knowledge base / Streamlit Components
-    url: /knowledge-base/components
-  - category: Knowledge base / Streamlit Components / My Component seems to be stuttering...how do I fix that?
-    url: /knowledge-base/components/component-blinking-stuttering-fix
-    visible: false
-  - category: Knowledge base / Streamlit Components / How do Streamlit Components differ from functionality provided in the base Streamlit package?
-    url: /knowledge-base/components/how-streamlit-components-differ-base-package
-    visible: false
-  - category: Knowledge base / Streamlit Components / What types of things aren't possible with Streamlit Components?
-    url: /knowledge-base/components/not-possibe-streamlit-components
     visible: false
   - category: Knowledge base / Installing dependencies
     url: /knowledge-base/dependencies

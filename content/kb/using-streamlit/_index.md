@@ -1,14 +1,13 @@
 ---
-title: Using Streamlit
+title: FAQ
 slug: /knowledge-base/using-streamlit
 ---
 
-# Using Streamlit
+# FAQ
 
 Here are some frequently asked questions about using Streamlit. If you feel something important is missing that everyone needs to know, please [open an issue](https://github.com/streamlit/docs/issues) or [submit a pull request](https://github.com/streamlit/docs/pulls) and we'll be happy to review it!
 
 - [Sanity checks](/knowledge-base/using-streamlit/sanity-checks)
-- [How do I run my Streamlit script?](/knowledge-base/using-streamlit/how-do-i-run-my-streamlit-script)
 - [How can I make Streamlit watch for changes in other modules I'm importing in my app?](/knowledge-base/using-streamlit/streamlit-watch-changes-other-modules-importing-app)
 - [What browsers does Streamlit support?](/knowledge-base/using-streamlit/supported-browsers)
 - [What is the path of Streamlit’s `config.toml` file?](/knowledge-base/using-streamlit/path-streamlit-config-toml)
@@ -21,11 +20,9 @@ Here are some frequently asked questions about using Streamlit. If you feel some
 - [How can I make `st.pydeck_chart` use custom Mapbox styles?](/knowledge-base/using-streamlit/pydeck-chart-custom-mapbox-styles)
 - [How to insert elements out of order?](/knowledge-base/using-streamlit/insert-elements-out-of-order)
 - [How to animate elements?](/knowledge-base/using-streamlit/animate-elements)
-- [Append data to a table or chart](/knowledge-base/using-streamlit/append-data-table-chart)
 - [How do I upgrade to the latest version of Streamlit?](/knowledge-base/using-streamlit/how-upgrade-latest-version-streamlit)
 - [Widget updating for every second input when using session state](/knowledge-base/using-streamlit/widget-updating-session-state)
 - [How do I create an anchor link?](/knowledge-base/using-streamlit/create-anchor-link)
 - [How do I enable camera access?](/knowledge-base/using-streamlit/enable-camera)
 - [Why does Streamlit restrict nested `st.columns`?](/knowledge-base/using-streamlit/why-streamlit-restrict-nested-columns)
-- [How to host static files in Streamlit?](/develop/concepts/configuration/static-file-serving)
 - [What is serializable session state?](/knowledge-base/using-streamlit/serializable-session-state)
