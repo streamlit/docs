@@ -22,17 +22,17 @@ Streamlit provides a configurable menu within your app to access convenient tool
 
 </RefCard>
 
-<RefCard href="/develop/concepts/configuration/cli" size="half">
+<RefCard href="/develop/api-reference/cli" size="half">
 
 <h5>Command-line options</h5>
 
 When you install Streamlit, a command-line (CLI) tool gets installed as well. The purpose of this tool is to run Streamlit apps, change Streamlit configuration options, and help you diagnose and fix issues.
 
-- [What is the command-line interface (CLI)?](/develop/concepts/configuration/cli#command-line-interface)
-- [How to run Streamlit apps from the CLI?](/develop/concepts/configuration/cli#run-streamlit-apps)
-- [View Streamlit version from the CLI?](/develop/concepts/configuration/cli#view-streamlit-version)
-- [View documentation from the CLI](/develop/concepts/configuration/cli#view-documentation)
-- [Clear cache from the CLI](/develop/concepts/configuration/cli#clear-cache)
+- [What is the command-line interface (CLI)?](/develop/api-reference/cli#command-line-interface)
+- [How to run Streamlit apps from the CLI?](/develop/api-reference/cli#run-streamlit-apps)
+- [View Streamlit version from the CLI?](/develop/api-reference/cli#view-streamlit-version)
+- [View documentation from the CLI](/develop/api-reference/cli#view-documentation)
+- [Clear cache from the CLI](/develop/api-reference/cli#clear-cache)
 
 </RefCard>
 

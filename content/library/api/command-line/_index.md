@@ -1,6 +1,6 @@
 ---
 title: Command-line options
-slug: /develop/concepts/configuration/cli
+slug: /develop/api-reference/cli
 ---
 
 # Command-line interface

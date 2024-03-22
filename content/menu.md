@@ -418,12 +418,13 @@ site_menu:
     isVersioned: true
     isDeprecated: true
     visible: false
+  - category: Develop / API reference / Command line
+    url: /develop/api-reference/cli
+  - category: Develop / API reference / Command line / streamlit run
+    url: /develop/api-reference/cli/run
   - category: Develop / API reference / Configuration
     url: /develop/api-reference/configuration
     isVersioned: false
-  - category: Develop / API reference / Configuration / CLI
-    url: /develop/api-reference/configuration/cli
-    isVersioned: true
   - category: Develop / API reference / Configuration / config.toml
     url: /develop/api-reference/configuration/config.toml
     isVersioned: true
@@ -539,8 +540,8 @@ site_menu:
   - category: Develop / Concepts / ADDITIONAL FEATURES
   - category: Develop / Concepts / Configuration
     url: /develop/concepts/configuration
-  - category: Develop / Concepts / Configuration / Command-line interface
-    url: /develop/concepts/configuration/cli
+  - category: Develop / Concepts / Configuration / Configuration options
+    url: /develop/concepts/configuration/options
   - category: Develop / Concepts / Configuration / HTTPS support
     url: /develop/concepts/configuration/https-support
   - category: Develop / Concepts / Configuration / Static file serving
