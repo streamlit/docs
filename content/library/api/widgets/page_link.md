@@ -6,7 +6,7 @@ description: st.page_link displays a link to another page in a multipage app or 
 
 <Tip>
 
-Check out our [tutorial](/develop/concepts/multipage-apps/custom-navigation) to learn about building custom, dynamic menus with `st.page_link`.
+Check out our [tutorial](/develop/tutorials/multipage/st.page_link-nav) to learn about building custom, dynamic menus with `st.page_link`.
 
 </Tip>
 

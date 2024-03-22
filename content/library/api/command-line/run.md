@@ -17,7 +17,7 @@ streamlit run <file or path> [-- config options] [-- script args]
 
 ### Options
 
-For a complete list of configuration options, see [`config.toml`]() in the API reference. For examples, see below.
+For a complete list of configuration options, see [`config.toml`](/develop/api-reference/configuration/config.toml) in the API reference. For examples, see below.
 
 ### Script arguments
 

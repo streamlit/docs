@@ -534,8 +534,8 @@ site_menu:
     url: /develop/concepts/execution-model/timezone-handling
   - category: Develop / Concepts / Multipage apps
     url: /develop/concepts/multipage-apps
-  - category: Develop / Concepts / Multipage apps / Custom navigation
-    url: /develop/concepts/multipage-apps/custom-navigation
+  - category: Develop / Concepts / Multipage apps / Pages directory (v1)
+    url: /develop/concepts/multipage-apps/pages-directory
 
   - category: Develop / Concepts / ADDITIONAL FEATURES
   - category: Develop / Concepts / Configuration
@@ -616,6 +616,10 @@ site_menu:
     url: /develop/tutorials/databases/tidb
   - category: Develop / Tutorials / Connect to data sources / TigerGraph
     url: /develop/tutorials/databases/tigergraph
+  - category: Develop / Tutorials / Multipage apps
+    url: /develop/tutorials/multipage
+  - category: Develop / Tutorials / Multipage apps / Build navigation with st.page_link
+    url: /develop/tutorials/multipage/st.page_link-nav
   - category: Develop / Tutorials / Work with LLMs
     url: /develop/tutorials/llms
   - category: Develop / Tutorials / Work with LLMs / Build a basic LLM chat app

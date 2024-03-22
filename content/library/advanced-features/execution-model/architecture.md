@@ -7,15 +7,15 @@ slug: /develop/concepts/execution-model/architecture
 
 Streamlit apps have a server-client structure. The Python backend of your app is the server. The frontend you view through a browswer is the client. When you develop an app locally, your computer runs both the server and the client. If someone views your app across a local or global network, the server and client run on different machines. If you intend to share or deploy your app, it's important to understand this server-client structure to avoid common pitfalls.
 
-## What is a Streamlit server?
+## Python backend (server)
 
-When you execute the command `streamlit run your_app.py`, your computer uses Python to start up a Streamlit server. This server is the brains of your app and performs the computations for all users who view your app. Whether users view your app across a local network or the internet, the Streamlit server runs on the one computer where the app was initialized with `streamlit run`. The machine running your Streamlit server is also called a host.
+When you execute the command `streamlit run your_app.py`, your computer uses Python to start up a Streamlit server. This server is the brains of your app and performs the computations for all users who view your app. Whether users view your app across a local network or the internet, the Streamlit server runs on the one machine where the app was initialized with `streamlit run`. The machine running your Streamlit server is also called a host.
 
-## What is a Streamlit client?
+## Browser frontend (client)
 
 When someone views your app through a browser, their device is a Streamlit client. When you view your app from the same computer where you are running or developing your app, then server and client are coincidentally running on the same machine. However, when users view your app across a local network or the internet, the client runs on a different machine from the server.
 
-## Why is the server-client distinction important?
+## Server-client impact on app design
 
 Keep in mind the following considerations when building your Streamlit app:
 
