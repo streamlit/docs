@@ -28,6 +28,7 @@ connect-src \
   https://*.auryc.com/ \
   https://www.google-analytics.com/ \
   https://stats.g.doubleclick.net/ \
+  https://px.ads.linkedin.com/ \
   https://*.algolia.net/ \
   https://*.algolianet.com/ \
 ; \
@@ -54,6 +55,8 @@ script-src \
   https://identity.netlify.com/ \
   https://netlify-cdp-loader.netlify.app/netlify.js \
   https://www.youtube.com/iframe_api/ \
+  https://snap.licdn.com/ \
+  https://connect.facebook.net/ \
   https://*.algolia.net/ \
   https://*.algolianet.com/ \
 ; \
