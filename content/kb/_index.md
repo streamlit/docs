@@ -10,22 +10,10 @@ The knowledge base is a self-serve library of tips, step-by-step tutorials, and 
 <InlineCalloutContainer>
   <InlineCallout
     color="darkBlue-70"
-    icon="local_library"
-    bold="Tutorials."
-    href="/develop/tutorials"
-  >Our tutorials include step-by-step examples of building different types of apps in Streamlit.</InlineCallout>
-  <InlineCallout
-    color="darkBlue-70"
-    icon="auto_awesome"
-    bold="Using Streamlit."
+    icon="quiz"
+    bold="FAQ"
     href="/knowledge-base/using-streamlit"
   >Here are some frequently asked questions about using Streamlit.</InlineCallout>
-  <InlineCallout
-    color="darkBlue-70"
-    icon="build"
-    bold="Streamlit Components."
-    href="/knowledge-base/components"
-  >Here are some questions we've received about Streamlit Components.</InlineCallout>
   <InlineCallout
     color="darkBlue-70"
     icon="downloading"

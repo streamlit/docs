@@ -5,4 +5,31 @@ slug: /develop
 
 # Develop
 
-## Everything you need to develop Streamlit apps
+Get all the information you need to build beautiful, performant web apps with Streamlit!
+
+<InlineCalloutContainer>
+    <InlineCallout
+        color="indigo-70"
+        icon="list"
+        bold="API reference."
+        href="/develop/api-reference"
+    >Learn about our API with function definitions and examples.</InlineCallout>
+    <InlineCallout
+        color="indigo-70"
+        icon="book"
+        bold="Concepts."
+        href="/develop/concepts"
+    >Learn how Streamlit works with in-depth guides to our execution model and features.</InlineCallout>
+    <InlineCallout
+        color="indigo-70"
+        icon="auto_awesome"
+        bold="Tutorials."
+        href="/develop/tutorials"
+    >Security first! If you want to read up on how we handle your data before you get started, we've got you covered.</InlineCallout>
+    <InlineCallout
+        color="indigo-70"
+        icon="bolt"
+        bold="Quick references."
+        href="/develop/quick-references"
+    >Check out our quick references for easy access to convenient information like our changelog, cheat sheet, pre-release features, and roadmap.</InlineCallout>
+</InlineCalloutContainer>
