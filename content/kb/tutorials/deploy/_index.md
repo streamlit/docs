@@ -1,9 +1,9 @@
 ---
-title: Deploy Streamlit apps
+title: Deployment tutorials
 slug: /deploy/tutorials
 ---
 
-# Deploy Streamlit apps
+# Deployment tutorials
 
 This sections contains step-by-step guides on how to deploy Streamlit apps to various cloud platforms and services. We have deployment guides for:
 

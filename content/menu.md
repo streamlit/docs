@@ -645,12 +645,10 @@ site_menu:
     icon: web_asset
   - category: Deploy / Concepts
     url: /deploy/concepts
-  - category: Deploy / Concepts / Server-client structure
-    url: /deploy/concepts/server-client
-  - category: Deploy / Concepts / Python dependencies
-    url: /deploy/concepts/python-dependencies
-  - category: Deploy / Concepts / Other dependencies
-    url: /deploy/concepts/other-dependencies
+  - category: Deploy / Concepts / Dependencies
+    url: /deploy/concepts/dependencies
+  - category: Deploy / Concepts / Secrets
+    url: /deploy/concepts/secrets
   - category: Deploy / Streamlit Community Cloud
     url: /deploy/streamlit-community-cloud
   - category: Deploy / Streamlit Community Cloud / Get started
@@ -711,25 +709,25 @@ site_menu:
     url: /deploy/streamlit-community-cloud/troubleshooting
   - category: Deploy / Streamlit in Snowflake
     url: https://docs.snowflake.com/developer-guide/streamlit/about-streamlit
-  - category: Deploy / Other platforms
+  - category: Deploy / All platforms
     url: /deploy/tutorials
-  - category: Deploy / Other platforms / Docker
+  - category: Deploy / All platforms / Docker
     url: /deploy/tutorials/docker
-  - category: Deploy / Other platforms / Kubernetes
+  - category: Deploy / All platforms / Kubernetes
     url: /deploy/tutorials/kubernetes
-  - category: Deploy / Other platforms / Amazon EC2
+  - category: Deploy / All platforms / Amazon EC2
     url: https://towardsdatascience.com/how-to-deploy-a-streamlit-app-using-an-amazon-free-ec2-instance-416a41f69dc3
-  - category: Deploy / Other platforms / Azure
+  - category: Deploy / All platforms / Azure
     url: https://towardsdatascience.com/deploying-a-streamlit-web-app-with-azure-app-service-1f09a2159743
-  - category: Deploy / Other platforms / Google App Engine
+  - category: Deploy / All platforms / Google App Engine
     url: https://dev.to/whitphx/how-to-deploy-streamlit-apps-to-google-app-engine-407o
-  - category: Deploy / Other platforms / Heroku
+  - category: Deploy / All platforms / Heroku
     url: https://towardsdatascience.com/quickly-build-and-deploy-an-application-with-streamlit-988ca08c7e83
-  - category: Deploy / Other platforms / Ploomber Cloud
+  - category: Deploy / All platforms / Ploomber Cloud
     url: https://docs.cloud.ploomber.io/en/latest/apps/streamlit.html
-  - category: Deploy / Other platforms / 21YunBox
+  - category: Deploy / All platforms / 21YunBox
     url: https://www.21yunbox.com/docs/#/deploy-streamlit
-  - category: Deploy / Other platforms / Community-built guides
+  - category: Deploy / All platforms / Community-built guides
     url: https://discuss.streamlit.io/t/streamlit-deployment-guide-wiki/5099
 
   - category: Knowledge base
