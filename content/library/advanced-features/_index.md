@@ -9,140 +9,73 @@ This section gives you background on how different parts of Streamlit work.
 
 <TileContainer>
 
-<RefCard href="/develop/concepts/elements-and-ui/app-menu" size="half">
+<RefCard href="/develop/concepts/elements-and-ui" size="half">
 
-<h5>⋮ App menu</h5>
+<h5>Elements and UI</h5>
 
-Streamlit provides a configurable menu within your app to access convenient tools for developers and viewers. These options can modify the appearance of your app while running.
+Streamlit provides a variety of commands to render content for your users. Streamlit also creates common UI elements like the app menu and toolbar.
 
-- [Modify your app's theme while running](/develop/concepts/elements-and-ui/app-menu#settings)
-- [Record a screencast of your app](/develop/concepts/elements-and-ui/app-menu#record-a-screencast)
-- [Deploy a local app to Streamlit Community Cloud](/develop/concepts/elements-and-ui/app-menu#deploy-this-app)
-- [Customize or hide the app menu](/develop/concepts/elements-and-ui/app-menu#customize-the-menu)
+- Learn how to work with widgets, dataframes, forms, and more.
+- Understand how your users can interact with these elements.
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/cli" size="half">
+<RefCard href="/develop/concepts/execution-model" size="half">
 
-<h5>Command-line options</h5>
+<h5>Execution model and project structure</h5>
 
-When you install Streamlit, a command-line (CLI) tool gets installed as well. The purpose of this tool is to run Streamlit apps, change Streamlit configuration options, and help you diagnose and fix issues.
+Streamlit's execution model makes it easy to turn your scripts into beautiful, interactive web apps.
 
-- [What is the command-line interface (CLI)?](/develop/api-reference/cli#command-line-interface)
-- [How to run Streamlit apps from the CLI?](/develop/api-reference/cli#run-streamlit-apps)
-- [View Streamlit version from the CLI?](/develop/api-reference/cli#view-streamlit-version)
-- [View documentation from the CLI](/develop/api-reference/cli#view-documentation)
-- [Clear cache from the CLI](/develop/api-reference/cli#clear-cache)
+- Learn how to make your apps performant and easy-to-manage.
+- Learn how to structure and design your project.
+- Understand Streamlit's rerun and server-client model.
 
 </RefCard>
 
-<RefCard href="/develop/concepts/configuration" size="half">
+<RefCard href="/develop/concepts/multipage-apps" size="half">
 
-<h5>Streamlit configuration</h5>
+<h5>Multipage apps</h5>
 
-Streamlit provides four different ways to set configuration options. Learn how to use each of them to change the behavior of Streamlit.
+Streamlit provides an automated way to build multipage apps through directory structure.
 
-- [How to set configuration options?](/develop/concepts/configuration)
-- [Opt out of telemetry collection](/develop/concepts/configuration#telemetry)
-- [View all configuration options](/develop/concepts/configuration#view-all-configuration-options)
+- Learn how to structure and configure your multipage app.
 
 </RefCard>
 
 <RefCard href="/develop/concepts/configuration/theming" size="half">
 
-<h5>Theming</h5>
+<h5>Configuration</h5>
 
-This section provides examples of how Streamlit page elements are affected by the various theme config options.
+Streamlit provides a variety options to customize and configure your app.
 
-- [primaryColor](/develop/concepts/configuration/theming#primarycolor)
-- [backgroundcolor](/develop/concepts/configuration/theming#backgroundcolor)
-- [secondarybackgroundcolor](/develop/concepts/configuration/theming#secondarybackgroundcolor)
-- [textcolor](/develop/concepts/configuration/theming#textcolor)
-- [font](/develop/concepts/configuration/theming#font)
-- [base](/develop/concepts/configuration/theming#base)
+- Learn how to work with configuration options, including server settings, client settings, and theming.
 
 </RefCard>
 
-<RefCard href="/develop/concepts/execution-model/caching" size="half">
+<RefCard href="/develop/concepts/connections" size="half">
 
-<h5>Caching</h5>
+<h5>Connections</h5>
 
-The Streamlit cache allows your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations. To cache a function in Streamlit, you need to decorate it with one of two decorators: `st.cache_data` and `st.cache_resource`.
-
-- [Minimal example](/develop/concepts/execution-model/caching#minimal-example)
-- [Basic usage](/develop/concepts/execution-model/caching#basic-usage)
-  - [st.cache_data](/develop/concepts/execution-model/caching#stcache_data)
-  - [st.cache_resource](/develop/concepts/execution-model/caching#stcache_resource)
-  - [Deciding which caching decorator to use](/develop/concepts/execution-model/caching#deciding-which-caching-decorator-to-use)
-- [Advanced usage](/develop/concepts/execution-model/caching#advanced-usage)
-  - [Excluding input parameters](/develop/concepts/execution-model/caching#excluding-input-parameters)
-  - [Controlling cache size and duration](/develop/concepts/execution-model/caching#controlling-cache-size-and-duration)
-  - [Customizing the spinner](/develop/concepts/execution-model/caching#customizing-the-spinner)
-  - [Using Streamlit commands in cached functions](/develop/concepts/execution-model/caching#using-streamlit-commands-in-cached-functions)
-  - [Mutation and concurrency issues](/develop/concepts/execution-model/caching#mutation-and-concurrency-issues)
-- [Migrating from st.cache](/develop/concepts/execution-model/caching#migrating-from-stcache)
+- Learn how to manage connections and secrets with Streamlit's convenient, built-in features.
 
 </RefCard>
 
-<RefCard href="/develop/concepts/execution-model/session-state" size="half">
+<RefCard href="/develop/concepts/custom-components" size="half">
 
-<h5>Add statefulness to apps</h5>
+<h5>Custom components</h5>
 
-Session State is a way to share variables between reruns, for each user session. In addition to the ability to store and persist state, Streamlit also exposes the ability to manipulate state using Callbacks.
+Custom components extend Streamlit's functionality.
 
-- [What is Session State?](/develop/concepts/execution-model/session-state#what-is-state)
-- [How to initialize Session State items?](/develop/concepts/execution-model/session-state#initialization)
-- [How to read and update Session State items?](/develop/concepts/execution-model/session-state#reads-and-updates)
-- [How to use callbacks in Session State?](/develop/concepts/execution-model/session-state#example-2-session-state-and-callbacks)
-- [How to use `args` and `kwargs` in callbacks?](/develop/concepts/execution-model/session-state#example-3-use-args-and-kwargs-in-callbacks)
-- [How to use callbacks in forms?](/develop/concepts/execution-model/session-state#example-4-forms-and-callbacks)
-- [How is Session State related to Widget State?](/develop/concepts/execution-model/session-state#session-state-and-widget-state-association)
-- [Caveats and limitations](/develop/concepts/execution-model/session-state#caveats-and-limitations)
+- Learn how to build your own custom component.
+- Learn how install a third-party component.
 
 </RefCard>
 
-<RefCard href="/develop/quick-references/prerelease" size="half">
+<RefCard href="/develop/concepts/app-testing" size="half">
 
-<h5>Pre-release features</h5>
+<h5>App testing</h5>
 
-At Streamlit, we like to move quick while keeping things stable. In our latest effort to move even faster without sacrificing stability, we're offering our bold and fearless users two ways to try out Streamlit's bleeding-edge features.
-
-- [Experimental features](/develop/quick-references/prerelease#experimental-features)
-- [Nightly releases](/develop/quick-references/prerelease#nightly-releases)
-
-</RefCard>
-
-<RefCard href="/develop/concepts/connections/secrets-management" size="half">
-
-<h5>Secrets management</h5>
-
-This section provides examples of how to use secrets management to store and retrieve sensitive information in your Streamlit app.
-
-- [Develop locally and set up secrets](/develop/concepts/connections/secrets-management#develop-locally-and-set-up-secrets)
-- [Use secrets in your app](/develop/concepts/connections/secrets-management#use-secrets-in-your-app)
-- [Error handling](/develop/concepts/connections/secrets-management#error-handling)
-- [Use secrets on Streamlit Community Cloud](/develop/concepts/connections/secrets-management#use-secrets-on-streamlit-community-cloud)
-
-</RefCard>
-
-<RefCard href="/develop/concepts/server-client/timezone-handling" size="half">
-
-<h5>Working with timezones</h5>
-
-Working with timezones can be tricky. This section provides a high-level description of how to handle timezones in Streamlit to avoid unexpected behavior.
-
-- [Overview](/develop/concepts/server-client/timezone-handling#working-with-timezones)
-- [How Streamlit handles timezones](/develop/concepts/server-client/timezone-handling#how-streamlit-handles-timezones)
-- [`datetime` instance without a timezone (naive)](/develop/concepts/server-client/timezone-handling#datetime-instance-without-a-timezone-naive)
-- [`datetime` instance with a timezone](/develop/concepts/server-client/timezone-handling#datetime-instance-with-a-timezone)
-
-</RefCard>
-
-<RefCard href="/develop/concepts/widget-semantics" size="full">
-
-<h5>Advanced notes on widget behavior</h5>
-
-Widgets are magical and often work how you want. But they can have surprising behavior in some situations. This section provides is a high-level, abstract description of widget behavior, including some common edge-cases.
+Streamlit app testing enables developers to build and run automated tests. Bring your favorite test automation software and enjoy simple syntax to simulate user input and inspect rendered output.
 
 </RefCard>
 </TileContainer>
