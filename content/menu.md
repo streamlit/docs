@@ -628,8 +628,6 @@ site_menu:
     url: /develop/tutorials/llms/llm-quickstart
   - category: Develop / Quick references
     url: /develop/quick-references
-  - category: Develop / Quick references / A-Z function index
-    url: /develop/quick-references/a-z-index
   - category: Develop / Quick references / Changelog
     url: /develop/quick-references/changelog
   - category: Develop / Quick references / Cheat sheet
@@ -759,9 +757,6 @@ site_menu:
     visible: false
   - category: Knowledge base / FAQ / How to insert elements out of order?
     url: /knowledge-base/using-streamlit/insert-elements-out-of-order
-    visible: false
-  - category: Knowledge base / FAQ / What is the path of Streamlit’s config.toml file?
-    url: /knowledge-base/using-streamlit/path-streamlit-config-toml
     visible: false
   - category: Knowledge base / FAQ / How can I make st.pydeck_chart use custom Mapbox styles?
     url: /knowledge-base/using-streamlit/pydeck-chart-custom-mapbox-styles
