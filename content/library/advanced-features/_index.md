@@ -54,7 +54,7 @@ Streamlit provides a variety options to customize and configure your app.
 
 <RefCard href="/develop/concepts/connections" size="half">
 
-<h5>Connections</h5>
+<h5>Connections and secrets</h5>
 
 - Learn how to manage connections and secrets with Streamlit's convenient, built-in features.
 

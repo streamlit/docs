@@ -418,10 +418,6 @@ site_menu:
     isVersioned: true
     isDeprecated: true
     visible: false
-  - category: Develop / API reference / Command line
-    url: /develop/api-reference/cli
-  - category: Develop / API reference / Command line / streamlit run
-    url: /develop/api-reference/cli/run
   - category: Develop / API reference / Configuration
     url: /develop/api-reference/configuration
     isVersioned: false
@@ -492,6 +488,10 @@ site_menu:
   - category: Develop / API reference / App testing / Testing element classes
     url: /develop/api-reference/app-testing/testing-element-classes
     isVersioned: true
+  - category: Develop / API reference / Command line
+    url: /develop/api-reference/cli
+  - category: Develop / API reference / Command line / streamlit run
+    url: /develop/api-reference/cli/run
   - category: Develop / Concepts
     url: /develop/concepts
   - category: Develop / Concepts / CORE FEATURES

@@ -78,3 +78,48 @@ class MyConnection(BaseConnection[myconn.MyConnection]):
 </RefCard>
 
 </TileContainer>
+
+## Secrets
+
+<TileContainer>
+<RefCard href="/develop/api-reference/connections/st.secrets" size="half">
+
+<h4>Secrets singleton</h4>
+
+Access secrets from a local TOML file.
+
+```python
+key = st.secrets["OpenAI_key"]
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/connections/secrets.toml" size="half">
+
+<h4>Secrets file</h4>
+
+Save your secrets in a per-project or per-profile TOML file.
+
+```python
+OpenAI_key = "<YOUR_SECRET_KEY>"
+```
+
+</RefCard>
+
+</TileContainer>
+
+## Deprecated classes
+
+<TileContainer>
+<RefCard href="/develop/api-reference/connections/st.connections.snowparkconnection" size="half" deprecated={true}>
+
+<h4>SnowparkConnection</h4>
+
+A connection to Snowflake.
+
+```python
+conn = st.connection("snowpark")
+```
+
+</RefCard>
+
+</TileContainer>

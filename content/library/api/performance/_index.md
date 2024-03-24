@@ -45,11 +45,6 @@ def init_model():
 
 </TileContainer>
 
-<Important>
-
-All the below commands were deprecated in version 1.18.0. Use the new commands above instead. Learn more in [Caching](/develop/concepts/execution-model/caching).
-</Important>
-
 ## Deprecated commands
 
 <TileContainer>
@@ -101,48 +96,6 @@ Experimental function decorator to store singleton objects.
 def get_database_session(url):
   # Create a database session object that points to the URL.
   return session
-```
-
-</RefCard>
-
-<RefCard href="/develop/api-reference/caching-and-state/st.experimental_memo.clear" deprecated={true}>
-
-> This command was deprecated in version 1.18.0. Use `st.cache_data.clear` instead.
-
-<h4>Clear memo</h4>
-
-Clear all in-memory and on-disk memo caches.
-
-```python
-@st.experimental_memo
-def fetch_and_clean_data(url):
-  # Fetch data from URL here, and then clean it up.
-  return data
-
-if st.checkbox("Clear All"):
-  # Clear values from *all* memoized functions
-  st.experimental_memo.clear()
-```
-
-</RefCard>
-
-<RefCard href="/develop/api-reference/caching-and-state/st.experimental_singleton.clear"  deprecated={true}>
-
-> This command was deprecated in version 1.18.0. Use `st.cache_resource.clear`instead.
-
-<h4>Clear singleton</h4>
-
-Clear all singleton caches.
-
-```python
-@st.experimental_singleton
-def get_database_session(url):
-  # Create a database session object that points to the URL.
-  return session
-
-if st.button("Clear All"):
-  # Clears all singleton caches:
-  st.experimental_singleton.clear()
 ```
 
 </RefCard>

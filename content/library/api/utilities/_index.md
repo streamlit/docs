@@ -9,33 +9,21 @@ There are a handful of methods that allow you to create placeholders in your
 app, provide help using doc strings, get and modify configuration options and query parameters.
 
 <TileContainer>
-<RefCard href="/develop/api-reference/configuration/st.set_page_config">
+<RefCard href="/develop/api-reference/utilities/st.experimental_user" size="half">
 
-<h4>Set page title, favicon, and more</h4>
+<h4>User info</h4>
 
-Configures the default settings of the page.
+`st.experimental_user` returns information about the logged-in user of private apps on Streamlit Community Cloud.
 
 ```python
-st.set_page_config(
-  page_title="My app",
-  page_icon=":shark:",
-)
+if st.experimental_user.email == "foo@corp.com":
+  st.write("Welcome back, ", st.experimental_user.email)
+else:
+  st.write("You are not authorized to view this page.")
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/text/st.echo">
-
-<h4>Echo</h4>
-
-Display some code on the app, then execute it. Useful for tutorials.
-
-```python
-with st.echo():
-  st.write('This code will be printed')
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/utilities/st.help">
+<RefCard href="/develop/api-reference/utilities/st.help" size="half">
 
 <h4>Get help</h4>
 
@@ -47,8 +35,7 @@ st.help(pd.DataFrame)
 ```
 
 </RefCard>
-
-<RefCard href="/develop/api-reference/utilities/st.query_params">
+<RefCard href="/develop/api-reference/utilities/st.query_params" size="half">
 
 <h4>Query parameters</h4>
 
@@ -57,6 +44,35 @@ Get, set, or clear the query parameters that are shown in the browser's URL bar.
 ```python
 st.query_params[key] = value
 st.query_params.clear()
+```
+
+</RefCard>
+</TileContainer>
+
+## Deprecated commands
+
+<TileContainer>
+<RefCard href="/develop/api-reference/utilities/st.experimental_get_query_params" size="half" deprecated={true}>
+
+<h4>Get query parameters</h4>
+
+Get query parameters that are shown in the browser's URL bar.
+
+```python
+param_dict = st.experimental_get_query_params()
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/utilities/st.experimental_set_query_params" size="half" deprecated={true}>
+
+<h4>Set query parameters</h4>
+
+Set query parameters that are shown in the browser's URL bar.
+
+```python
+st.experimental_set_query_params(
+  {"show_all"=True, "selected"=["asia", "america"]}
+)
 ```
 
 </RefCard>

@@ -95,6 +95,18 @@ st.code("a = 1234")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/text/st.echo">
+
+<h4>Echo</h4>
+
+Display some code on the app, then execute it. Useful for tutorials.
+
+```python
+with st.echo():
+  st.write('This code will be printed')
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/text/st.text">
 
 <Image pure alt="screenshot" src="/images/api/text.jpg" />
