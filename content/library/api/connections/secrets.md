@@ -10,3 +10,23 @@ slug: /develop/api-reference/connections/st.secrets
 ### secrets.toml
 
 Secrets can be saved globally or per-project. When both types of secrets are saved, Streamlit will combine the saved values but give precedence to per-project secrets if there are duplicate keys. For information on how to format and locate your `secrets.toml` file for your development environment, see [`secrets.toml`](/develop/api-reference/connections/secrets.toml).
+
+#### Example
+
+```toml
+OpenAI_key = "your OpenAI key"
+whitelist = ["sally", "bob", "joe"]
+
+[database]
+user = "your username"
+password = "your password"
+```
+
+In your Streamlit app, the following values would be true:
+
+```python
+st.secrets["OpenAI_key"] == "your OpenAI key"
+"sally" in st.secrets.whitelist
+st.secrets["database"]["user"] == "your username"
+st.secrets.database.password == "your password"
+```
