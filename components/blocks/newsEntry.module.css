@@ -28,7 +28,7 @@
 
 :global(.dark) .Title,
 :global(.dark) .Text {
-  @apply text-white !important;
+  @apply text-darkModeGray-40 !important;
 }
 
 .Text {

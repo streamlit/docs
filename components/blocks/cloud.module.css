@@ -15,5 +15,5 @@
 }
 
 :global(.dark) .Caption {
-  @apply text-white;
+  @apply text-darkModeGray-40;
 }

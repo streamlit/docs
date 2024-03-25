@@ -22,7 +22,7 @@
 
 :global(.dark) .Container section pre {
   @apply bg-gray-100;
-  @apply text-white;
+  @apply text-darkModeGray-40;
 }
 
 .Container h1,

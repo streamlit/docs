@@ -12,5 +12,5 @@
 }
 
 :global(.dark) .Icon {
-  @apply text-white;
+  @apply text-darkModeGray-40;
 }

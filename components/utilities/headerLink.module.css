@@ -27,7 +27,7 @@ h1.HeaderContainer {
 :global(.dark) .HeaderContainer,
 :global(.dark) .CopiedMessage,
 :global(.dark) .CopiedIcon {
-  @apply text-white !important;
+  @apply text-darkModeGray-40 !important;
 }
 
 .CopyLink {

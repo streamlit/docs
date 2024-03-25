@@ -32,11 +32,11 @@
 }
 
 .activeLink {
-  @apply text-gray-90 !important;
+  @apply text-gray-100 !important;
 }
 
 :global(.dark) .activeLink {
-  @apply text-white !important;
+  @apply text-darkModeGray-40 !important;
 }
 
 /* Paddings for different title hierarchies */

@@ -92,5 +92,5 @@
 :global(.dark) .TransparentBackground i,
 :global(.dark) .TransparentBackground h4,
 :global(.dark) .TransparentBackground p {
-  @apply text-white !important;
+  @apply text-darkModeGray-40 !important;
 }

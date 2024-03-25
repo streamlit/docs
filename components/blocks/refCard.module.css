@@ -52,7 +52,7 @@
 }
 
 :global(.dark) .Container i {
-  @apply text-white;
+  @apply text-darkModeGray-40;
 }
 
 :global(.dark) .Container h1,
@@ -63,11 +63,11 @@
 :global(.dark) .Container h6,
 :global(.dark) .Container p,
 :global(.dark) .Container a {
-  @apply text-white;
+  @apply text-darkModeGray-40;
 }
 
 :global(.dark) .Container section div {
-  @apply bg-gray-90 text-white;
+  @apply bg-gray-90 text-darkModeGray-40;
 }
 
 :global(.dark) .Container img {

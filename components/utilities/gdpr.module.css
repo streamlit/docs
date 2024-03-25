@@ -38,5 +38,5 @@
 }
 
 :global(.dark) .Markdown h1 {
-  @apply text-white;
+  @apply text-darkModeGray-40;
 }
