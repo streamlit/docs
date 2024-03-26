@@ -37,7 +37,7 @@
 }
 
 :global(.dark) .LogoText {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 .NavigationContainer {

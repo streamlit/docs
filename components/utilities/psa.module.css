@@ -12,7 +12,7 @@
 }
 
 :global(.dark) .Icon {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 .Title {
@@ -23,7 +23,7 @@
 :global(.dark) .Title,
 :global(.dark) .Text,
 :global(.dark) .Link {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 .Text {

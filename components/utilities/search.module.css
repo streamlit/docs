@@ -21,7 +21,7 @@
 }
 
 :global(.dark) .SearchBar {
-  @apply text-white bg-gray-90 !important;
+  @apply text-gray-40 bg-gray-90 !important;
 }
 
 .SearchIcon {
@@ -42,7 +42,7 @@
 :global(.dark) .HotKey,
 :global(.dark) .SearchText,
 :global(.dark) .SearchIcon {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 /* Hits */
@@ -94,5 +94,5 @@
 }
 
 :global(.dark) .HitTitle {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }

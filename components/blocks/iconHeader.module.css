@@ -77,5 +77,5 @@
 }
 
 :global(.dark) .IndigoText {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
