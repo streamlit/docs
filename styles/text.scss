@@ -91,7 +91,7 @@ li p:only-child {
 
 .bold,
 strong {
-  @apply font-bold dark:font-extrabold dark:text-darkModeGray-10;
+  @apply font-bold dark:font-extrabold;
 }
 
 ol + p,
