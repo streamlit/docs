@@ -19,11 +19,11 @@
 }
 
 :global(.dark) .HeadingRow {
-  @apply bg-darkBlue-100/60 text-darkModeGray-40;
+  @apply bg-darkBlue-100/60 text-gray-40;
 }
 
 :global(.dark) .Row td {
-  @apply text-darkModeGray-40;
+  @apply text-gray-40;
 }
 
 .Cell {

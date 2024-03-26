@@ -36,7 +36,7 @@
 }
 
 :global(.dark) .activeLink {
-  @apply text-darkModeGray-40 !important;
+  @apply text-gray-40 !important;
 }
 
 /* Paddings for different title hierarchies */

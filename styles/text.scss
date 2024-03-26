@@ -48,7 +48,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply dark:text-darkModeGray-40;
+  @apply dark:text-gray-40;
 }
 
 /* Margin modifiers */
@@ -69,15 +69,15 @@ a {
 }
 
 p {
-  @apply mb-4 text-gray-90 break-words dark:text-darkModeGray-40;
+  @apply mb-4 text-gray-90 break-words dark:text-gray-40;
 }
 
 summary {
-  @apply mb-4 text-gray-90 dark:text-darkModeGray-40;
+  @apply mb-4 text-gray-90 dark:text-gray-40;
 }
 
 sup a {
-  @apply underline hover:no-underline dark:text-darkModeGray-40;
+  @apply underline hover:no-underline dark:text-gray-40;
 }
 
 p:last-child,
@@ -110,7 +110,7 @@ button:focus-visible {
 /* Inline code blocks */
 p > code,
 li > code {
-  @apply border border-gray-40 dark:border-darkModeGray-80 text-red-70 rounded-md px-1 mx-1 break-words;
+  @apply border border-gray-40 dark:border-gray-80 text-red-70 rounded-md px-1 mx-1 break-words;
 }
 
 p a code {
@@ -119,7 +119,7 @@ p a code {
 
 /* One-line code descriptions in docstrings */
 div.code-desc {
-  @apply mb-4 text-gray-90 dark:text-darkModeGray-40;
+  @apply mb-4 text-gray-90 dark:text-gray-40;
 }
 
 /* Inline code blocks in docstrings */

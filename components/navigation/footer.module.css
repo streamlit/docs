@@ -23,7 +23,7 @@
 }
 
 :global(.dark) .Link {
-  @apply text-darkModeGray-40 !important;
+  @apply text-gray-40 !important;
 }
 
 .SocialNetworks {

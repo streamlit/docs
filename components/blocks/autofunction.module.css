@@ -35,7 +35,7 @@
 }
 
 :global(.dark) .Select {
-  @apply bg-gray-100 text-darkModeGray-40;
+  @apply bg-gray-100 text-gray-40;
 }
 
 :global(.old-version) .Select {

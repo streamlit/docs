@@ -175,19 +175,6 @@ module.exports = {
         LinkedIn: "#0a66c2",
         mono: "#24292F",
       },
-      darkModeGray: {
-        //Temporary color set for easy text replacement
-        10: "#fafafa",
-        20: "#f0f2f6",
-        30: "#e6eaf1",
-        40: "#d5dae5",
-        50: "#bfc5d3",
-        60: "#a3a8b8",
-        70: "#808495",
-        80: "#555867",
-        90: "#262730",
-        100: "#0e1117",
-      },
     },
 
     extend: {

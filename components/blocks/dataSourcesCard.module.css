@@ -33,11 +33,11 @@
 :global(.dark) .Container h6,
 :global(.dark) .Container p,
 :global(.dark) .Container a {
-  @apply text-darkModeGray-40 !important;
+  @apply text-gray-40 !important;
 }
 
 :global(.dark) .Container section div pre {
-  @apply bg-gray-90 text-darkModeGray-40;
+  @apply bg-gray-90 text-gray-40;
 }
 
 :global(.dark) .Container img {

@@ -19,7 +19,7 @@
 }
 
 :global(.dark) .Caption {
-  @apply text-darkModeGray-40;
+  @apply text-gray-40;
 }
 
 .LightBox {
@@ -44,5 +44,5 @@
 }
 
 :global(.dark) .CloseButton {
-  @apply bg-gray-90 text-darkModeGray-40;
+  @apply bg-gray-90 text-gray-40;
 }
