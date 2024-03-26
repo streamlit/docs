@@ -70,12 +70,12 @@
 :global(.dark) .ImproveTitle,
 :global(.dark) .ImproveText,
 :global(.dark) .Label {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 :global(.dark) .Button {
   @apply bg-gray-80;
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 :global(.dark) .Icon {

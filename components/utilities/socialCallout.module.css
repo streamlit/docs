@@ -6,7 +6,7 @@
 :global(.dark) .Title,
 :global(.dark) .Subtitle,
 :global(.dark) .Text {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 .ListContainer {
