@@ -187,6 +187,22 @@ export default function Home({ window, menu }) {
               </InlineCallout> */}
             </InlineCalloutContainer>
 
+            <iframe
+              src="https://lu.ma/embed-checkout/evt-rwgKuK3o37lU4ZJ"
+              height="450"
+              frameborder="0"
+              style={{
+                width: "600px",
+                maxWidth: "100%",
+                border: "0",
+                borderRadius: "12px",
+                margin: "auto",
+              }}
+              allowfullscreen=""
+              aria-hidden="false"
+              tabindex="0"
+            ></iframe>
+
             <H2 className="no-b-m">What's new</H2>
 
             <TileContainer>
