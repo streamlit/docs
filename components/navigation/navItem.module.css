@@ -57,7 +57,7 @@
 }
 
 :global(.dark) .CategoryName {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 .CondensedCategoryName {

@@ -19,5 +19,5 @@
 }
 
 :global(.dark) .Container p {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
