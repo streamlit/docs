@@ -141,7 +141,6 @@ const NavChild = ({ slug, page, color, className, depth }) => {
       </div>
     );
   }
-  console.log(depth);
   return (
     <li
       className={classNames(
