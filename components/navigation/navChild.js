@@ -6,7 +6,7 @@ import useVersion from "../../lib/useVersion.js";
 
 import styles from "./navChild.module.css";
 
-const NavChild = ({ slug, page, color, className }) => {
+const NavChild = ({ slug, page, color, className, depth }) => {
   const [manualState, setManualState] = useState(null);
   const version = useVersion();
 
@@ -31,7 +31,7 @@ const NavChild = ({ slug, page, color, className }) => {
   const visibleItems = page.children.filter((child) => child.visible !== false);
   if (page.children?.length > 0 && visibleItems.length > 0 && opened) {
     subNav = (
-      <ul className={styles.List}>
+      <ul className={classNames(styles.List, LIST_DEPTH[depth])}>
         {page.children
           .filter((child) => child.visible !== false)
           .map((child) => (
@@ -99,15 +99,16 @@ const NavChild = ({ slug, page, color, className }) => {
   if (isDivider && page.name == "---") {
     navElement = (
       <div className={styles.LinkContainer}>
-        <hr className={styles.DividerLine} />
+        <hr className={classNames(styles.DividerLine, DIVIDER_CLASS[color])} />
       </div>
     );
   } else if (isDivider) {
     navElement = (
       <div className={styles.LinkContainer}>
-        <hr className={styles.DividerLine} />
-        <span className={styles.DividerText}>{page.name}</span>
-        <hr className={styles.DividerLine} />
+        <span className={classNames(styles.DividerText, DIVIDER_CLASS[color])}>
+          {page.name}
+        </span>
+        <hr className={classNames(styles.DividerLine, DIVIDER_CLASS[color])} />
       </div>
     );
   } else {
@@ -142,9 +143,15 @@ const NavChild = ({ slug, page, color, className }) => {
       </div>
     );
   }
-
+  console.log(depth);
   return (
-    <li className={classNames(styles.Container, className)}>
+    <li
+      className={classNames(
+        styles.Container,
+        CONTAINER_DEPTH[depth],
+        className,
+      )}
+    >
       {navElement}
       {subNav}
     </li>
@@ -162,6 +169,37 @@ const CIRCLE_CLASS = {
   "indigo-70": styles.IndigoCircle,
   "gray-70": styles.GrayCircle,
   unset: styles.TransparentCircle,
+};
+
+const DIVIDER_CLASS = {
+  "red-70": styles.RedDivider,
+  "orange-70": styles.OrangeDivider,
+  "yellow-70": styles.YellowDivider,
+  "green-70": styles.GreenDivider,
+  "acqua-70": styles.AcquaDivider,
+  "lightBlue-70": styles.LightBlueDivider,
+  "darkBlue-70": styles.DarkBlueDivider,
+  "indigo-70": styles.IndigoDivider,
+  "gray-70": styles.GrayDivider,
+  unset: styles.TransparentDivider,
+};
+
+const CONTAINER_DEPTH = {
+  11: styles.ContainerZero,
+  21: styles.ContainerOne,
+  31: styles.ContainerTwo,
+  41: styles.ContainerTwo,
+  51: styles.ContainerTwo,
+  unset: styles.ContainerTwo,
+};
+
+const LIST_DEPTH = {
+  11: styles.ListZero,
+  21: styles.ListOne,
+  31: styles.ListOne,
+  41: styles.ListOne,
+  51: styles.ListOne,
+  unset: styles.ListOne,
 };
 
 export default NavChild;
