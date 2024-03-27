@@ -66,20 +66,24 @@
 
 .DividerText {
   @apply grow-0;
-  @apply text-gray-70 uppercase tracking-widest leading-5 font-bold;
+  @apply text-gray-90 uppercase tracking-widest leading-5 font-bold;
   @apply mr-1;
+  @apply text-xs;
+  /* font-size: 0.625rem; */
+}
 
-  font-size: 0.625rem;
+:global(.dark) .DividerText {
+  @apply text-gray-40;
 }
 
 .DividerLine {
   @apply grow;
-  @apply text-gray-30;
+  @apply text-gray-90;
 }
 
-/* :global(.dark) .DividerLine {
-  @apply text-gray-90;
-} */
+:global(.dark) .DividerLine {
+  @apply text-gray-40;
+}
 
 .Circle {
   @apply absolute w-2 h-2 -left-4 rounded-full hidden;

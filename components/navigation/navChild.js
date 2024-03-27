@@ -99,16 +99,14 @@ const NavChild = ({ slug, page, color, className, depth }) => {
   if (isDivider && page.name == "---") {
     navElement = (
       <div className={styles.LinkContainer}>
-        <hr className={classNames(styles.DividerLine, DIVIDER_CLASS[color])} />
+        <hr className={classNames(styles.DividerLine)} />
       </div>
     );
   } else if (isDivider) {
     navElement = (
       <div className={styles.LinkContainer}>
-        <span className={classNames(styles.DividerText, DIVIDER_CLASS[color])}>
-          {page.name}
-        </span>
-        <hr className={classNames(styles.DividerLine, DIVIDER_CLASS[color])} />
+        <span className={classNames(styles.DividerText)}>{page.name}</span>
+        <hr className={classNames(styles.DividerLine)} />
       </div>
     );
   } else {
