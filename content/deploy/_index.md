@@ -30,6 +30,6 @@ Get all the information you need to deploy your app and share it with your users
         color="lightBlue-70"
         icon="bolt"
         bold="Other platforms."
-        href="/develop/quick-references"
+        href="/develop/quick-reference"
     >Learn how to deploy your on a variety of platforms with our convenient collection of tutorials.</InlineCallout>
 </InlineCalloutContainer>

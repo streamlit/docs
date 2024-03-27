@@ -5,7 +5,7 @@ slug: /develop/api-reference/connections/st.connections.experimentalbaseconnecti
 
 <Important>
 
-This is an experimental feature. Experimental features and their APIs may change or be removed at any time. To learn more, click [here](/develop/quick-references/prerelease#experimental-features).
+This is an experimental feature. Experimental features and their APIs may change or be removed at any time. To learn more, click [here](/develop/quick-reference/prerelease#experimental-features).
 
 </Important>
 

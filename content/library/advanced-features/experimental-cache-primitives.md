@@ -168,7 +168,7 @@ In summary:
 
 <Note>
 
-The commands are **experimental**, so they're governed by our [experimental API process](/develop/quick-references/prerelease#experimental).
+The commands are **experimental**, so they're governed by our [experimental API process](/develop/quick-reference/prerelease#experimental).
 
 </Note>
 

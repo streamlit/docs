@@ -1,6 +1,6 @@
 ---
 title: Cheat sheet
-slug: /develop/quick-references/cheatsheet
+slug: /develop/quick-reference/cheatsheet
 ---
 
 # Cheat Sheet

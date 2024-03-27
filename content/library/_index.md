@@ -30,6 +30,6 @@ Get all the information you need to build beautiful, performant web apps with St
         color="indigo-70"
         icon="bolt"
         bold="Quick references."
-        href="/develop/quick-references"
+        href="/develop/quick-reference"
     >Check out our quick references for easy access to convenient information like our changelog, cheat sheet, pre-release features, and roadmap.</InlineCallout>
 </InlineCalloutContainer>

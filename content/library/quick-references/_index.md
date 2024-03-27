@@ -1,13 +1,13 @@
 ---
 title: Quick references
-slug: /develop/quick-references
+slug: /develop/quick-reference
 ---
 
 # Quick references
 
 <TileContainer layout="list">
 
-<RefCard href="/develop/quick-references/changelog">
+<RefCard href="/develop/quick-reference/changelog">
 
 <h5>Changelog</h5>
 
@@ -15,7 +15,7 @@ See how Streamlit has changed with each new version.
 
 </RefCard>
 
-<RefCard href="/develop/quick-references/cheatsheet">
+<RefCard href="/develop/quick-reference/cheatsheet">
 
 <h5>Cheatsheet</h5>
 
@@ -23,7 +23,7 @@ A dense list of Streamlit commands with example syntax.
 
 </RefCard>
 
-<RefCard href="/develop/quick-references/prerelease">
+<RefCard href="/develop/quick-reference/prerelease">
 
 <h5>Pre-release features</h5>
 

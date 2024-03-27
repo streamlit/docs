@@ -629,15 +629,15 @@ site_menu:
     url: /develop/tutorials/llms/build-conversational-apps
   - category: Develop / Tutorials / Work with LLMs / Build an LLM app using LangChain
     url: /develop/tutorials/llms/llm-quickstart
-  - category: Develop / Quick references
-    url: /develop/quick-references
-  - category: Develop / Quick references / Changelog
-    url: /develop/quick-references/changelog
-  - category: Develop / Quick references / Cheat sheet
-    url: /develop/quick-references/cheatsheet
-  - category: Develop / Quick references / Pre-release features
-    url: /develop/quick-references/prerelease
-  - category: Develop / Quick references/ Roadmap
+  - category: Develop / Quick reference
+    url: /develop/quick-reference
+  - category: Develop / Quick reference / Cheat sheet
+    url: /develop/quick-reference/cheatsheet
+  - category: Develop / Quick reference / Changelog
+    url: /develop/quick-reference/changelog
+  - category: Develop / Quick reference / Pre-release features
+    url: /develop/quick-reference/prerelease
+  - category: Develop / Quick reference/ Roadmap
     url: https://roadmap.streamlit.app
 
   - category: Deploy
