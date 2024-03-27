@@ -118,10 +118,9 @@ export default function Home({ window, menu }) {
             <H1>Streamlit documentation</H1>
             <p>
               <a href="https://www.streamlit.io">Streamlit</a> is an open-source
-              Python library that makes it easy to create and share beautiful,
-              custom web apps for machine learning and data science. In just a
-              few minutes you can build and deploy powerful data apps. So let's
-              get started!
+              Python framework for data scientists and AI/ML engineers to
+              deliver dynamic data apps with only a few lines of code. Build and
+              deploy powerful data apps in minutes. Let's get started!
             </p>
 
             <Spacer size="2rem" />
@@ -145,29 +144,30 @@ export default function Home({ window, menu }) {
                 bold="Get started"
                 href="/get-started"
               >
-                introduces you to the world of Streamlit! Learn the fundamental
-                concepts, set up your development environment, and start coding!
+                with Streamlit! Set up your development environment and learn
+                the fundamental concepts, and start coding!
               </InlineCallout>
               <InlineCallout
                 color="indigo-70"
                 icon="description"
-                bold="Streamlit library"
-                href="/develop/api-reference"
+                bold="Develop"
+                href="/develop"
               >
-                includes our API reference, and guides to all of Streamlit's
-                features in the core library including caching, theming,
-                Streamlit Components, and more!
+                your Streamlit app! Our API reference explains each Streamlit
+                function with examples. Dive deep into all of our features with
+                conceptual guides. Try out our step-by-step tutorials.
               </InlineCallout>
               <InlineCallout
                 color="lightBlue-70"
                 icon="cloud"
-                bold="Streamlit Community Cloud"
-                href="/deploy/streamlit-community-cloud"
+                bold="Deploy"
+                href="/deploy"
               >
-                is an open and free platform for the community to deploy,
-                discover, and share Streamlit apps and code with each other.
-                Create a new app, share it with the community, get feedback,
-                iterate quickly with live code updates, and have an impact!
+                your Streamlit app! Streamlit Community Cloud our free platform
+                for deploying and sharing Streamlit apps. Streamlit in Snowflake
+                is an enterprise-class solution where you can house your data
+                and apps in one, unified, global system. Explore all your
+                options!
               </InlineCallout>
               <InlineCallout
                 color="darkBlue-70"
@@ -175,9 +175,9 @@ export default function Home({ window, menu }) {
                 bold="Knowledge base"
                 href="/knowledge-base"
               >
-                is a self-serve library of tips, step-by-step tutorials, and
-                articles that answer your questions about creating and deploying
-                Streamlit apps.
+                is a self-serve library of tips, tricks, and articles that
+                answer your questions about creating and deploying Streamlit
+                apps.
               </InlineCallout>
               {/* <InlineCallout color="green-70" icon="code" bold="Cookbook" href="/cookbook">
                 provides short code snippets that you can copy in for specific use cases.

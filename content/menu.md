@@ -255,6 +255,9 @@ site_menu:
   - category: Develop / API reference / Input widgets / st.camera_input
     url: /develop/api-reference/widgets/st.camera_input
     isVersioned: true
+  - category: Develop / API reference / Input widgets / st.data_editor
+    url: https://docs.streamlit.io/develop/api-reference/data/st.data_editor
+    isVersioned: true
   - category: Develop / API reference / Input widgets / st.file_uploader
     url: /develop/api-reference/widgets/st.file_uploader
     isVersioned: true
@@ -322,11 +325,11 @@ site_menu:
   - category: Develop / API reference / Status elements / st.warning
     url: /develop/api-reference/status/st.warning
     isVersioned: true
-  - category: Develop / API reference / Status elements / st.exception
-    url: /develop/api-reference/status/st.exception
-    isVersioned: true
   - category: Develop / API reference / Status elements / st.error
     url: /develop/api-reference/status/st.error
+    isVersioned: true
+  - category: Develop / API reference / Status elements / st.exception
+    url: /develop/api-reference/status/st.exception
     isVersioned: true
   - category: Develop / API reference / Status elements / OTHER
   - category: Develop / API reference / Status elements / st.progress

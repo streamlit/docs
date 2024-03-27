@@ -16,6 +16,8 @@ Browse our API below and click to learn more about any of our available commands
 
 ## Display almost anything
 
+### Write and magic
+
 <TileContainer>
 <RefCard href="/develop/api-reference/write-magic/st.write">
 
@@ -57,7 +59,7 @@ my_mpl_figure
 </RefCard>
 </TileContainer>
 
-## Text elements
+### Text elements
 
 <TileContainer>
 <RefCard href="/develop/api-reference/text/st.markdown">
@@ -138,16 +140,17 @@ st.code("a = 1234")
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/text/st.text">
+<RefCard href="/develop/api-reference/text/st.echo">
 
-<Image pure alt="screenshot" src="/images/api/text.jpg" />
+<Image pure alt="screenshot" src="/images/api/code.jpg" />
 
-<h4>Preformatted text</h4>
+<h4>Echo</h4>
 
-Write fixed-width and preformatted text.
+Display some code in the app, then execute it. Useful for tutorials.
 
 ```python
-st.text("Hello world")
+with st.echo():
+  st.write('This code will be printed')
 ```
 
 </RefCard>
@@ -161,6 +164,19 @@ Display mathematical expressions formatted as LaTeX.
 
 ```python
 st.latex("\int a x^2 \,dx")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/text/st.text">
+
+<Image pure alt="screenshot" src="/images/api/text.jpg" />
+
+<h4>Preformatted text</h4>
+
+Write fixed-width and preformatted text.
+
+```python
+st.text("Hello world")
 ```
 
 </RefCard>
@@ -251,7 +267,7 @@ mention(label="An awesome Streamlit App", icon="streamlit",  url="https://extras
 </ComponentCard>
 </ComponentSlider>
 
-## Data elements
+### Data elements
 
 <TileContainer>
 <RefCard href="/develop/api-reference/data/st.dataframe">
@@ -437,7 +453,7 @@ style_metric_cards()
 
 </ComponentSlider>
 
-## Chart elements
+### Chart elements
 
 <TileContainer>
 
@@ -726,7 +742,7 @@ st.altair_chart(chart, use_container_width=True)
 
 </ComponentSlider>
 
-## Input widgets
+### Input widgets
 
 <TileContainer>
 <RefCard href="/develop/api-reference/widgets/st.button">
@@ -742,19 +758,6 @@ clicked = st.button("Click me")
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/widgets/st.experimental_data_editor">
-
-<Image pure alt="screenshot" src="/images/api/data_editor.jpg" />
-
-<h4>Data editor</h4>
-
-Display a data editor widget.
-
-```python
-edited = st.experimental_data_editor(df, num_rows="dynamic")
-```
-
-</RefCard>
 <RefCard href="/develop/api-reference/widgets/st.download_button">
 
 <Image pure alt="screenshot" src="/images/api/download_button.svg" />
@@ -765,6 +768,19 @@ Display a download button widget.
 
 ```python
 st.download_button("Download file", file)
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/control-flow/st.form_submit_button">
+
+<Image pure alt="screenshot" src="/images/api/form_submit_button.svg" />
+
+<h4>Form button</h4>
+
+Display a form submit button. For use with `st.form`.
+
+```python
+st.form_submit_button("Sign up")
 ```
 
 </RefCard>
@@ -808,16 +824,29 @@ selected = st.checkbox("I agree")
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/widgets/st.toggle">
+<RefCard href="/develop/api-reference/widgets/st.color_picker">
 
-<Image pure alt="screenshot" src="/images/api/toggle.jpg" />
+<Image pure alt="screenshot" src="/images/api/color_picker.jpg" />
 
-<h4>Toggle</h4>
+<h4>Color picker</h4>
 
-Display a toggle widget.
+Display a color picker widget.
 
 ```python
-activated = st.toggle("Activate")
+color = st.color_picker("Pick a color")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/widgets/st.multiselect">
+
+<Image pure alt="screenshot" src="/images/api/multiselect.jpg" />
+
+<h4>Multiselect</h4>
+
+Display a multiselect widget. The multiselect widget starts as empty.
+
+```python
+choices = st.multiselect("Buy", ["milk", "apples", "potatoes"])
 ```
 
 </RefCard>
@@ -847,32 +876,6 @@ choice = st.selectbox("Pick one", ["cats", "dogs"])
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/widgets/st.multiselect">
-
-<Image pure alt="screenshot" src="/images/api/multiselect.jpg" />
-
-<h4>Multiselect</h4>
-
-Display a multiselect widget. The multiselect widget starts as empty.
-
-```python
-choices = st.multiselect("Buy", ["milk", "apples", "potatoes"])
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/widgets/st.slider">
-
-<Image pure alt="screenshot" src="/images/api/slider.jpg" />
-
-<h4>Slider</h4>
-
-Display a slider widget.
-
-```python
-number = st.slider("Pick a number", 0, 100)
-```
-
-</RefCard>
 <RefCard href="/develop/api-reference/widgets/st.select_slider">
 
 <Image pure alt="screenshot" src="/images/api/select_slider.jpg" />
@@ -886,42 +889,16 @@ size = st.select_slider("Pick a size", ["S", "M", "L"])
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/widgets/st.text_input">
+<RefCard href="/develop/api-reference/widgets/st.toggle">
 
-<Image pure alt="screenshot" src="/images/api/text_input.jpg" />
+<Image pure alt="screenshot" src="/images/api/toggle.jpg" />
 
-<h4>Text input</h4>
+<h4>Toggle</h4>
 
-Display a single-line text input widget.
-
-```python
-name = st.text_input("First name")
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/widgets/st.number_input">
-
-<Image pure alt="screenshot" src="/images/api/number_input.jpg" />
-
-<h4>Number input</h4>
-
-Display a numeric input widget.
+Display a toggle widget.
 
 ```python
-choice = st.number_input("Pick a number", 0, 10)
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/widgets/st.text_area">
-
-<Image pure alt="screenshot" src="/images/api/text_area.jpg" />
-
-<h4>Text-area</h4>
-
-Display a multi-line text input widget.
-
-```python
-text = st.text_area("Text to translate")
+activated = st.toggle("Activate")
 ```
 
 </RefCard>
@@ -938,6 +915,32 @@ date = st.date_input("Your birthday")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/widgets/st.number_input">
+
+<Image pure alt="screenshot" src="/images/api/number_input.jpg" />
+
+<h4>Number input</h4>
+
+Display a numeric input widget.
+
+```python
+choice = st.number_input("Pick a number", 0, 10)
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/widgets/st.slider">
+
+<Image pure alt="screenshot" src="/images/api/slider.jpg" />
+
+<h4>Slider</h4>
+
+Display a slider widget.
+
+```python
+number = st.slider("Pick a number", 0, 100)
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/widgets/st.time_input">
 
 <Image pure alt="screenshot" src="/images/api/time_input.jpg" />
@@ -948,6 +951,60 @@ Display a time input widget.
 
 ```python
 time = st.time_input("Meeting time")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/chat/st.chat_input">
+
+<Image pure alt="screenshot" src="/images/api/chat_input.jpg" />
+
+<h4>Chat input</h4>
+
+Display a chat input widget.
+
+```python
+prompt = st.chat_input("Say something")
+if prompt:
+    st.write(f"The user has sent: {prompt}")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/widgets/st.text_area">
+
+<Image pure alt="screenshot" src="/images/api/text_area.jpg" />
+
+<h4>Text-area</h4>
+
+Display a multi-line text input widget.
+
+```python
+text = st.text_area("Text to translate")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/widgets/st.text_input">
+
+<Image pure alt="screenshot" src="/images/api/text_input.jpg" />
+
+<h4>Text input</h4>
+
+Display a single-line text input widget.
+
+```python
+name = st.text_input("First name")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/data/st.data_editor">
+
+<Image pure alt="screenshot" src="/images/api/data_editor.jpg" />
+
+<h4>Data editor</h4>
+
+Display a data editor widget.
+
+```python
+edited = st.experimental_data_editor(df, num_rows="dynamic")
 ```
 
 </RefCard>
@@ -974,19 +1031,6 @@ Display a widget that allows users to upload images directly from a camera.
 
 ```python
 image = st.camera_input("Take a picture")
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/widgets/st.color_picker">
-
-<Image pure alt="screenshot" src="/images/api/color_picker.jpg" />
-
-<h4>Color picker</h4>
-
-Display a color picker widget.
-
-```python
-color = st.color_picker("Pick a color")
 ```
 
 </RefCard>
@@ -1149,7 +1193,7 @@ stoggle(
 
 </ComponentSlider>
 
-## Media elements
+### Media elements
 
 <TileContainer>
 <RefCard href="/develop/api-reference/media/st.image">
@@ -1302,7 +1346,7 @@ st_lottie(lottie_hello, key="hello")
 
 </ComponentSlider>
 
-## Layouts and containers
+### Layouts and containers
 
 <TileContainer>
 <RefCard href="/develop/api-reference/layout/st.columns">
@@ -1466,7 +1510,7 @@ show_pages([ Page("streamlit_app.py", "Home", "🏠"),
 
 </ComponentSlider>
 
-## Chat elements
+### Chat elements
 
 Streamlit provides a few commands to help you build conversational apps. These chat elements are designed to be used in conjunction with each other, but you can also use them separately.
 
@@ -1532,7 +1576,7 @@ st.write_stream(my_llm_stream)
 </RefCard>
 </TileContainer>
 
-## Display progress and status
+### Status elements
 
 <TileContainer>
 <RefCard href="/develop/api-reference/status/st.progress">
@@ -1623,29 +1667,16 @@ st.snow()
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/status/st.error">
+<RefCard href="/develop/api-reference/status/st.success">
 
-<Image pure alt="screenshot" src="/images/api/error.jpg" />
+<Image pure alt="screenshot" src="/images/api/success.jpg" />
 
-<h4>Error box</h4>
+<h4>Success box</h4>
 
-Display error message.
-
-```python
-st.error("We encountered an error")
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/status/st.warning">
-
-<Image pure alt="screenshot" src="/images/api/warning.jpg" />
-
-<h4>Warning box</h4>
-
-Display warning message.
+Display a success message.
 
 ```python
-st.warning("Unable to fetch image. Skipping...")
+st.success("Match found!")
 ```
 
 </RefCard>
@@ -1662,16 +1693,29 @@ st.info("Dataset is updated every day at midnight.")
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/status/st.success">
+<RefCard href="/develop/api-reference/status/st.warning">
 
-<Image pure alt="screenshot" src="/images/api/success.jpg" />
+<Image pure alt="screenshot" src="/images/api/warning.jpg" />
 
-<h4>Success box</h4>
+<h4>Warning box</h4>
 
-Display a success message.
+Display warning message.
 
 ```python
-st.success("Match found!")
+st.warning("Unable to fetch image. Skipping...")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/status/st.error">
+
+<Image pure alt="screenshot" src="/images/api/error.jpg" />
+
+<h4>Error box</h4>
+
+Display error message.
+
+```python
+st.error("We encountered an error")
 ```
 
 </RefCard>
@@ -1747,7 +1791,9 @@ rain(emoji="🎈", font_size=54,
 
 </ComponentSlider>
 
-## Control flow
+## Logical functions
+
+### Flow and navigation
 
 <TileContainer>
 <RefCard href="/develop/api-reference/control-flow/st.form">
@@ -1794,6 +1840,17 @@ Programmatically navigates to a specified page.
 
 ```python
 st.switch_page("pages/my_page.py")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/control-flow/session-state">
+
+<h4>Session state</h4>
+
+Session state is a way to share variables between reruns, for each user session.
+
+```python
+st.session_state['key'] = value
 ```
 
 </RefCard>
@@ -1854,89 +1911,20 @@ show_pages([ Page("streamlit_app.py", "Home", "🏠"),
 
 </ComponentSlider>
 
-## Developer tools
-
-<ComponentSlider>
-
-<ComponentCard href="https://github.com/okld/streamlit-pandas-profiling">
-
-<Image pure alt="screenshot" src="/images/api/components/pandas-profiling.jpg" />
-
-<h4>Pandas Profiling</h4>
-
-Pandas profiling component for Streamlit. Created by [@okld](https://github.com/okld/).
-
-```python
-df = pd.read_csv("https://storage.googleapis.com/tf-datasets/titanic/train.csv")
-pr = df.profile_report()
-
-st_profile_report(pr)
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/okld/streamlit-ace">
-
-<Image pure alt="screenshot" src="/images/api/components/ace.jpg" />
-
-<h4>Streamlit Ace</h4>
-
-Ace editor component for Streamlit. Created by [@okld](https://github.com/okld).
-
-```python
-from streamlit_ace import st_ace
-
-content = st_ace()
-content
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/jrieke/streamlit-analytics">
-
-<Image pure alt="screenshot" src="/images/api/components/analytics.jpg" />
-
-<h4>Streamlit Analytics</h4>
-
-Track & visualize user interactions with your streamlit app. Created by [@jrieke](https://github.com/jrieke).
-
-```python
-import streamlit_analytics
-
-with streamlit_analytics.track():
-    st.text_input("Write something")
-```
-
-</ComponentCard>
-
-</ComponentSlider>
-
-## Utilities
+### Utilities and data
 
 <TileContainer>
-<RefCard href="/develop/api-reference/configuration/st.set_page_config">
+<RefCard href="/develop/api-reference/utilities/st.experimental_user">
 
-<h4>Set page title, favicon, and more</h4>
+<h4>User info</h4>
 
-Configures the default settings of the page.
-
-```python
-st.set_page_config(
-  page_title="My app",
-  page_icon=":shark:",
-)
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/text/st.echo">
-
-<h4>Echo</h4>
-
-Display some code on the app, then execute it. Useful for tutorials.
+`st.experimental_user` returns information about the logged-in user of private apps on Streamlit Community Cloud.
 
 ```python
-with st.echo():
-  st.write('This code will be printed')
+if st.experimental_user.email == "foo@corp.com":
+  st.write("Welcome back, ", st.experimental_user.email)
+else:
+  st.write("You are not authorized to view this page.")
 ```
 
 </RefCard>
@@ -1966,40 +1954,204 @@ st.query_params.clear()
 </RefCard>
 </TileContainer>
 
-## Mutate charts
+### Caching and performance
 
 <TileContainer>
-<RefCard href="/develop/concepts/elements-and-ui/mutate">
+<RefCard href="/develop/api-reference/caching-and-state/st.cache_data" size="half">
 
-<h4>Add rows</h4>
+<h4>Cache data</h4>
 
-Append a dataframe to the bottom of the current one in certain elements, for optimized data updates.
+Function decorator to cache functions that return data (e.g. dataframe transforms, database queries, ML inference).
 
 ```python
-element = st.line_chart(df)
-element.add_rows(df_with_extra_rows)
+@st.cache_data
+def long_function(param1, param2):
+  # Perform expensive computation here or
+  # fetch data from the web here
+  return data
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/caching-and-state/st.cache_resource" size="half">
+
+<h4>Cache resource</h4>
+
+Function decorator to cache functions that return global resources (e.g. database connections, ML models).
+
+```python
+@st.cache_resource
+def init_model():
+  # Return a global resource here
+  return pipeline(
+    "sentiment-analysis",
+    model="distilbert-base-uncased-finetuned-sst-2-english"
+  )
+```
+
+</RefCard>
+
+</TileContainer>
+
+### Configuration
+
+<TileContainer>
+<RefCard href="/develop/api-reference/configuration/config.toml">
+
+<h4>Configuration file</h4>
+
+Configures the default settings for your app.
+
+```
+your-project/
+├── .streamlit/
+│   └── config.toml
+└── your_app.py
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/configuration/st.get_option">
+
+<h4>Get option</h4>
+
+Get a the current value of a Streamlit config option.
+
+```python
+st.get_option("theme.primaryColor")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/configuration/st.set_page_config">
+
+<h4>Set page title, favicon, and more</h4>
+
+Configures the default settings of the page.
+
+```python
+st.set_page_config(
+  page_title="My app",
+  page_icon=":shark:",
+)
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/configuration/st.set_option">
+
+<h4>Set option</h4>
+
+Set a configuration option. (This is _very_ limited.)
+
+```python
+st.set_option("deprecation.showPyplotGlobalUse", True)
 ```
 
 </RefCard>
 </TileContainer>
 
-## State management
+### Connections and databases
+
+#### Setup your connection
 
 <TileContainer>
-<RefCard href="/develop/api-reference/control-flow/session-state">
+<RefCard href="/develop/api-reference/connections/st.connection" size="half">
 
-<h4>Session state</h4>
+<Image pure alt="screenshot" src="/images/api/connection.svg" />
 
-Session state is a way to share variables between reruns, for each user session.
+<h4>Create a connection</h4>
+
+Connect to a data source or API
 
 ```python
-st.session_state['key'] = value
+conn = st.connection('pets_db', type='sql')
+pet_owners = conn.query('select * from pet_owners')
+st.dataframe(pet_owners)
 ```
 
 </RefCard>
 </TileContainer>
 
-## Connections and databases
+#### Built-in connections
+
+<TileContainer>
+
+<RefCard href="/develop/api-reference/connections/st.connections.snowflakeconnection" size="half">
+
+<Image pure alt="screenshot" src="/images/api/connections.SnowflakeConnection.svg" />
+
+<h4>SnowflakeConnection</h4>
+
+A connection to Snowflake.
+
+```python
+conn = st.connection('snowflake')
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/connections/st.connections.sqlconnection" size="half">
+
+<Image pure alt="screenshot" src="/images/api/connections.SQLConnection.svg" />
+
+<h4>SQLConnection</h4>
+
+A connection to a SQL database using SQLAlchemy.
+
+```python
+conn = st.connection('sql')
+```
+
+</RefCard>
+</TileContainer>
+
+#### Build your own connections
+
+<TileContainer>
+<RefCard href="/develop/api-reference/connections/st.connections.baseconnection" size="half">
+
+<h4>Connection base class</h4>
+
+Build your own connection with `BaseConnection`.
+
+```python
+class MyConnection(BaseConnection[myconn.MyConnection]):
+    def _connect(self, **kwargs) -> MyConnection:
+        return myconn.connect(**self._secrets, **kwargs)
+    def query(self, query):
+        return self._instance.query(query)
+```
+
+</RefCard>
+
+</TileContainer>
+
+#### Secrets management
+
+<TileContainer>
+
+<RefCard href="/develop/api-reference/connections/st.secrets" size="half">
+
+<h4>Secrets singleton</h4>
+
+Access secrets from a local TOML file.
+
+```python
+key = st.secrets["OpenAI_key"]
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/connections/secrets.toml" size="half">
+
+<h4>Secrets file</h4>
+
+Save your secrets in a per-project or per-profile TOML file.
+
+```python
+OpenAI_key = "<YOUR_SECRET_KEY>"
+```
+
+</RefCard>
+
+</TileContainer>
 
 <ComponentSlider>
 
@@ -2056,141 +2208,58 @@ st.write(user_info)
 
 </ComponentSlider>
 
-## Performance
+### Custom Components
 
 <TileContainer>
-<RefCard href="/develop/api-reference/caching-and-state/st.cache_data" size="half">
 
-<h4>Cache data</h4>
+<RefCard href="/develop/api-reference/custom-components/st.components.v1.declare_component">
 
-Function decorator to cache functions that return data (e.g. dataframe transforms, database queries, ML inference).
+<h4>Declare a component</h4>
+
+Create and register a custom component.
 
 ```python
-@st.cache_data
-def long_function(param1, param2):
-  # Perform expensive computation here or
-  # fetch data from the web here
-  return data
+st.components.v1.declare_component(
+    "custom_slider",
+    "/frontend",
+)
 ```
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/caching-and-state/st.cache_resource" size="half">
+<RefCard href="/develop/api-reference/custom-components/st.components.v1.html">
 
-<h4>Cache resource</h4>
+<h4>HTML</h4>
 
-Function decorator to cache functions that return global resources (e.g. database connections, ML models).
+Display an HTML string in an iframe.
 
 ```python
-@st.cache_resource
-def init_model():
-  # Return a global resource here
-  return pipeline(
-    "sentiment-analysis",
-    model="distilbert-base-uncased-finetuned-sst-2-english"
-  )
+st.components.v1.html(
+    "<p>Foo bar.</p>"
+)
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/custom-components/st.components.v1.iframe">
+
+<h4>iframe</h4>
+
+Load a remote URL in an iframe.
+
+```python
+st.components.v1.iframe(
+    "docs.streamlit.io"
+)
 ```
 
 </RefCard>
 
 </TileContainer>
 
-## Connections and databases
+## Developer tools
 
-### Setup your connection
-
-<TileContainer>
-<RefCard href="/develop/api-reference/connections/st.connection" size="half">
-
-<Image pure alt="screenshot" src="/images/api/connection.svg" />
-
-<h4>Create a connection</h4>
-
-Connect to a data source or API
-
-```python
-conn = st.connection('pets_db', type='sql')
-pet_owners = conn.query('select * from pet_owners')
-st.dataframe(pet_owners)
-```
-
-</RefCard>
-</TileContainer>
-
-### Built-in connections
-
-<TileContainer>
-
-<RefCard href="/develop/api-reference/connections/st.connections.snowflakeconnection" size="half">
-
-<Image pure alt="screenshot" src="/images/api/connections.SnowflakeConnection.svg" />
-
-<h4>SnowflakeConnection</h4>
-
-A connection to Snowflake.
-
-```python
-conn = st.connection('snowflake')
-```
-
-</RefCard>
-
-<RefCard href="/develop/api-reference/connections/st.connections.sqlconnection" size="half">
-
-<Image pure alt="screenshot" src="/images/api/connections.SQLConnection.svg" />
-
-<h4>SQLConnection</h4>
-
-A connection to a SQL database using SQLAlchemy.
-
-```python
-conn = st.connection('sql')
-```
-
-</RefCard>
-</TileContainer>
-
-### Third-party connections
-
-<TileContainer>
-<RefCard href="/develop/api-reference/connections/st.connections.baseconnection" size="half">
-
-<h4>Connection base class</h4>
-
-Build your own connection with `BaseConnection`.
-
-```python
-class MyConnection(BaseConnection[myconn.MyConnection]):
-    def _connect(self, **kwargs) -> MyConnection:
-        return myconn.connect(**self._secrets, **kwargs)
-    def query(self, query):
-        return self._instance.query(query)
-```
-
-</RefCard>
-
-</TileContainer>
-
-## Personalization
-
-<TileContainer>
-<RefCard href="/develop/api-reference/utilities/st.experimental_user" size="half">
-
-<h4>User info</h4>
-
-`st.experimental_user` returns information about the logged-in user of private apps on Streamlit Community Cloud.
-
-```python
-if st.experimental_user.email == "foo@corp.com":
-  st.write("Welcome back, ", st.experimental_user.email)
-else:
-  st.write("You are not authorized to view this page.")
-```
-
-</RefCard>
-</TileContainer>
-
-## App testing
+### App testing
 
 <TileContainer>
 
@@ -2480,3 +2549,58 @@ at.toggle[0].set_value("True").run()
 </RefCard>
 
 </TileContainer>
+
+<ComponentSlider>
+
+<ComponentCard href="https://github.com/okld/streamlit-pandas-profiling">
+
+<Image pure alt="screenshot" src="/images/api/components/pandas-profiling.jpg" />
+
+<h4>Pandas Profiling</h4>
+
+Pandas profiling component for Streamlit. Created by [@okld](https://github.com/okld/).
+
+```python
+df = pd.read_csv("https://storage.googleapis.com/tf-datasets/titanic/train.csv")
+pr = df.profile_report()
+
+st_profile_report(pr)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/okld/streamlit-ace">
+
+<Image pure alt="screenshot" src="/images/api/components/ace.jpg" />
+
+<h4>Streamlit Ace</h4>
+
+Ace editor component for Streamlit. Created by [@okld](https://github.com/okld).
+
+```python
+from streamlit_ace import st_ace
+
+content = st_ace()
+content
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/jrieke/streamlit-analytics">
+
+<Image pure alt="screenshot" src="/images/api/components/analytics.jpg" />
+
+<h4>Streamlit Analytics</h4>
+
+Track & visualize user interactions with your streamlit app. Created by [@jrieke](https://github.com/jrieke).
+
+```python
+import streamlit_analytics
+
+with streamlit_analytics.track():
+    st.text_input("Write something")
+```
+
+</ComponentCard>
+
+</ComponentSlider>
