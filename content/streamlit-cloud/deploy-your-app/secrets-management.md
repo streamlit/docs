@@ -61,7 +61,7 @@ st.write(
 
 <Tip>
 
-You can access `st.secrets` via attribute notation (e.g. `st.secrets.key`) or key notation (e.g. `st.secrets["key"]`) &mdash; just like [`st.session_state`](/develop/api-reference/control-flow/session-state).
+You can access `st.secrets` via attribute notation (e.g. `st.secrets.key`) or key notation (e.g. `st.secrets["key"]`) &mdash; just like [`st.session_state`](/develop/api-reference/control-flow/st.session_state).
 
 </Tip>
 

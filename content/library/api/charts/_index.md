@@ -14,6 +14,8 @@ Lite](https://vega.github.io/vega-lite/) (2D charts) and
 finally we also provide a few chart types that are "native" to Streamlit,
 like `st.line_chart` and `st.area_chart`.
 
+## Simple chart elements
+
 <TileContainer>
 <RefCard href="/develop/api-reference/charts/st.area_chart">
 <Image pure alt="screenshot" src="/images/api/area_chart.jpg" />
@@ -75,6 +77,11 @@ st.map(my_data_frame)
 ```
 
 </RefCard>
+</TileContainer>
+
+## Advanced chart elements
+
+<TileContainer>
 <RefCard href="/develop/api-reference/charts/st.pyplot">
 <Image pure alt="screenshot" src="/images/api/pyplot.jpg" />
 

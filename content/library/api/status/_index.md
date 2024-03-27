@@ -9,6 +9,8 @@ Streamlit provides a few methods that allow you to add animation to your
 apps. These animations include progress bars, status messages (like
 warnings), and celebratory balloons.
 
+## Animated status elements
+
 <TileContainer>
 <RefCard href="/develop/api-reference/status/st.progress">
 
@@ -92,29 +94,21 @@ st.snow()
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/status/st.error">
+</TileContainer>
 
-<Image pure alt="screenshot" src="/images/api/error.jpg" />
+## Simple status messages
 
-<h4>Error box</h4>
+<TileContainer>
+<RefCard href="/develop/api-reference/status/st.success">
 
-Display error message.
+<Image pure alt="screenshot" src="/images/api/success.jpg" />
 
-```python
-st.error("We encountered an error")
-```
+<h4>Success box</h4>
 
-</RefCard>
-<RefCard href="/develop/api-reference/status/st.warning">
-
-<Image pure alt="screenshot" src="/images/api/warning.jpg" />
-
-<h4>Warning box</h4>
-
-Display warning message.
+Display a success message.
 
 ```python
-st.warning("Unable to fetch image. Skipping...")
+st.success("Match found!")
 ```
 
 </RefCard>
@@ -131,16 +125,29 @@ st.info("Dataset is updated every day at midnight.")
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/status/st.success">
+<RefCard href="/develop/api-reference/status/st.warning">
 
-<Image pure alt="screenshot" src="/images/api/success.jpg" />
+<Image pure alt="screenshot" src="/images/api/warning.jpg" />
 
-<h4>Success box</h4>
+<h4>Warning box</h4>
 
-Display a success message.
+Display warning message.
 
 ```python
-st.success("Match found!")
+st.warning("Unable to fetch image. Skipping...")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/status/st.error">
+
+<Image pure alt="screenshot" src="/images/api/error.jpg" />
+
+<h4>Error box</h4>
+
+Display error message.
+
+```python
+st.error("We encountered an error")
 ```
 
 </RefCard>

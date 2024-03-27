@@ -7,7 +7,7 @@ slug: /knowledge-base/using-streamlit/widget-updating-session-state
 
 ## Overview
 
-You are using [session state](/develop/api-reference/control-flow/session-state) to store page interactions in your app. When users interact with a widget in your app (e.g., click a button), you expect your app to update its widget states and reflect the new values. However, you notice that it doesn't. Instead, users have to interact with the widget twice (e.g., click a button twice) for the app to show the correct values. What do you do now? 🤔 Let's walk through the solution in the section below.
+You are using [session state](/develop/api-reference/control-flow/st.session_state) to store page interactions in your app. When users interact with a widget in your app (e.g., click a button), you expect your app to update its widget states and reflect the new values. However, you notice that it doesn't. Instead, users have to interact with the widget twice (e.g., click a button twice) for the app to show the correct values. What do you do now? 🤔 Let's walk through the solution in the section below.
 
 ## Solution
 
@@ -15,7 +15,7 @@ When using session state to update widgets or values in your script, you need to
 
 Let's see this in an example. Say you want a user to click a button that resets a slider.
 
-To have the slider's value update on the button click, you need to use a [callback function](/develop/api-reference/control-flow/session-state#use-callbacks-to-update-session-state) with the `on_click` parameter of [`st.button`](/develop/api-reference/widgets/st.button):
+To have the slider's value update on the button click, you need to use a [callback function](/develop/api-reference/control-flow/st.session_state#use-callbacks-to-update-session-state) with the `on_click` parameter of [`st.button`](/develop/api-reference/widgets/st.button):
 
 ```python
 # the callback function for the button will add 1 to the

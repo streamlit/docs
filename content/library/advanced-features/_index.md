@@ -3,7 +3,7 @@ title: Concepts
 slug: /develop/concepts
 ---
 
-## Concepts
+# Concepts
 
 This section gives you background on how different parts of Streamlit work.
 

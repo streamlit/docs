@@ -7,7 +7,32 @@ slug: /develop/tutorials
 
 Our tutorials include step-by-step examples of building different types of apps in Streamlit.
 
-- [Connect to data sources](/develop/tutorials/databases)
-- [Deploy Streamlit apps](/deploy/tutorials)
-- [Build a basic LLM chat app](/develop/tutorials/llms/build-conversational-apps)
-- [Build an LLM app using LangChain](/develop/tutorials/llms/llm-quickstart)
+<TileContainer layout="list">
+
+<RefCard href="/develop/tutorials/databases">
+
+<h5>Connect to data sources</h5>
+
+Connect to popular datasources.
+
+</RefCard>
+
+<RefCard href="/develop/tutorials/multipage">
+
+<h5>Create multipage apps</h5>
+
+Create multipage apps, navigation, and flows.
+
+</RefCard>
+
+<RefCard href="/develop/tutorials/llms">
+
+<h5>Chat apps and LLMs</h5>
+
+Work with LLMs and create chat apps.
+
+</RefCard>
+
+</TileContainer>
+
+When you're done developing your app, see our [deployment tutorials](/deploy/tutorials), too!

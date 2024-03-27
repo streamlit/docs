@@ -7,6 +7,8 @@ slug: /develop/api-reference/widgets
 
 With widgets, Streamlit allows you to bake interactivity directly into your apps with buttons, sliders, text inputs, and more.
 
+## Button elements
+
 <TileContainer>
 <RefCard href="/develop/api-reference/widgets/st.button">
 
@@ -32,6 +34,20 @@ Display a download button widget.
 
 ```python
 st.download_button("Download file", file)
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/control-flow/st.form_submit_button">
+
+<Image pure alt="screenshot" src="/images/api/form_submit_button.svg" />
+
+<h4>Form button</h4>
+
+Display a form submit button. For use with `st.form`.
+
+```python
+st.form_submit_button("Sign up")
 ```
 
 </RefCard>
@@ -64,6 +80,12 @@ st.page_link("pages/profile.py", label="My profile")
 ```
 
 </RefCard>
+
+</TileContainer>
+
+## Selection elements
+
+<TileContainer>
 
 <RefCard href="/develop/api-reference/widgets/st.checkbox">
 
@@ -130,19 +152,6 @@ choices = st.multiselect("Buy", ["milk", "apples", "potatoes"])
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/widgets/st.slider">
-
-<Image pure alt="screenshot" src="/images/api/slider.jpg" />
-
-<h4>Slider</h4>
-
-Display a slider widget.
-
-```python
-number = st.slider("Pick a number", 0, 100)
-```
-
-</RefCard>
 <RefCard href="/develop/api-reference/widgets/st.select_slider">
 
 <Image pure alt="screenshot" src="/images/api/select_slider.jpg" />
@@ -156,19 +165,25 @@ size = st.select_slider("Pick a size", ["S", "M", "L"])
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/widgets/st.text_input">
+<RefCard href="/develop/api-reference/widgets/st.color_picker">
 
-<Image pure alt="screenshot" src="/images/api/text_input.jpg" />
+<Image pure alt="screenshot" src="/images/api/color_picker.jpg" />
 
-<h4>Text input</h4>
+<h4>Color picker</h4>
 
-Display a single-line text input widget.
+Display a color picker widget.
 
 ```python
-name = st.text_input("First name")
+color = st.color_picker("Pick a color")
 ```
 
 </RefCard>
+
+</TileContainer>
+
+## Numeric input elements
+
+<TileContainer>
 <RefCard href="/develop/api-reference/widgets/st.number_input">
 
 <Image pure alt="screenshot" src="/images/api/number_input.jpg" />
@@ -182,16 +197,16 @@ choice = st.number_input("Pick a number", 0, 10)
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/widgets/st.text_area">
+<RefCard href="/develop/api-reference/widgets/st.slider">
 
-<Image pure alt="screenshot" src="/images/api/text_area.jpg" />
+<Image pure alt="screenshot" src="/images/api/slider.jpg" />
 
-<h4>Text area</h4>
+<h4>Slider</h4>
 
-Display a multi-line text input widget.
+Display a slider widget.
 
 ```python
-text = st.text_area("Text to translate")
+number = st.slider("Pick a number", 0, 100)
 ```
 
 </RefCard>
@@ -221,6 +236,73 @@ time = st.time_input("Meeting time")
 ```
 
 </RefCard>
+
+</TileContainer>
+
+## Text input elements
+
+<TileContainer>
+
+<RefCard href="/develop/api-reference/widgets/st.text_input">
+
+<Image pure alt="screenshot" src="/images/api/text_input.jpg" />
+
+<h4>Text input</h4>
+
+Display a single-line text input widget.
+
+```python
+name = st.text_input("First name")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/widgets/st.text_area">
+
+<Image pure alt="screenshot" src="/images/api/text_area.jpg" />
+
+<h4>Text area</h4>
+
+Display a multi-line text input widget.
+
+```python
+text = st.text_area("Text to translate")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/chat/st.chat_input">
+
+<Image pure alt="screenshot" src="/images/api/chat_input.jpg" />
+
+<h4>Chat input</h4>
+
+Display a chat input widget.
+
+```python
+prompt = st.chat_input("Say something")
+if prompt:
+    st.write(f"The user has sent: {prompt}")
+```
+
+</RefCard>
+
+</TileContainer>
+
+## Other input elements
+
+<TileContainer>
+<RefCard href="/develop/api-reference/data/st.data_editor">
+
+<Image pure alt="screenshot" src="/images/api/data_editor.jpg" />
+
+<h4>Data editor</h4>
+
+Display a data editor widget.
+
+```python
+edited = st.experimental_data_editor(df, num_rows="dynamic")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/widgets/st.file_uploader">
 
 <Image pure alt="screenshot" src="/images/api/file_uploader.jpg" />
@@ -244,19 +326,6 @@ Display a widget that allows users to upload images directly from a camera.
 
 ```python
 image = st.camera_input("Take a picture")
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/widgets/st.color_picker">
-
-<Image pure alt="screenshot" src="/images/api/color_picker.jpg" />
-
-<h4>Color picker</h4>
-
-Display a color picker widget.
-
-```python
-color = st.color_picker("Pick a color")
 ```
 
 </RefCard>

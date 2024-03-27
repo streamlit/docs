@@ -368,7 +368,7 @@ site_menu:
     url: /develop/api-reference/control-flow/st.rerun
     isVersioned: true
   - category: Develop / API reference / Flow and navigation / st.session_state
-    url: /develop/api-reference/control-flow/session-state
+    url: /develop/api-reference/control-flow/st.session_state
   - category: Develop / API reference / Flow and navigation / st.stop
     url: /develop/api-reference/control-flow/st.stop
     isVersioned: true

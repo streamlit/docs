@@ -1843,7 +1843,7 @@ st.switch_page("pages/my_page.py")
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/control-flow/session-state">
+<RefCard href="/develop/api-reference/control-flow/st.session_state">
 
 <h4>Session state</h4>
 
