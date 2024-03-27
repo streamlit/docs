@@ -48,7 +48,7 @@
 .DividerText {
   @apply grow-0;
   @apply text-gray-70 uppercase tracking-widest leading-5;
-  @apply mx-1;
+  @apply mr-1;
 
   font-size: 0.625rem;
 }
