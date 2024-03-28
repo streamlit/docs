@@ -5,7 +5,7 @@ slug: /develop/concepts/elements-and-ui/forms
 
 # Using forms
 
-When you don't want to rerun your script with each input made by a user, [`st.form`](/develop/api-reference/control-flow/st.form) is here to help! Forms make it easy to batch user input into a single rerun. This guide to using forms provides examples and explains how users interact with forms.
+When you don't want to rerun your script with each input made by a user, [`st.form`](/develop/api-reference/execution-flow/st.form) is here to help! Forms make it easy to batch user input into a single rerun. This guide to using forms provides examples and explains how users interact with forms.
 
 ## Example
 

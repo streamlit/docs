@@ -104,8 +104,8 @@ _Release date: January 11, 2024_
 
 **Highlights**
 
-- 🔄 Announcing `st.switch_page` to programmatically switch pages in multipage apps! Check out our [docs](/develop/api-reference/control-flow/st.switch_page) to learn about this highly anticipated feature!
-- ❓Introducing `st.query_params` to handle variables passed through your app's URL. Check out our [docs](/develop/api-reference/utilities/st.query_params) to understand this feature and how it's been upgraded and improved from our experimental version!
+- 🔄 Announcing `st.switch_page` to programmatically switch pages in multipage apps! Check out our [docs](/develop/api-reference/navigation/st.switch_page) to learn about this highly anticipated feature!
+- ❓Introducing `st.query_params` to handle variables passed through your app's URL. Check out our [docs](/develop/api-reference/caching-and-state/st.query_params) to understand this feature and how it's been upgraded and improved from our experimental version!
 
 **Notable Changes**
 
@@ -138,7 +138,7 @@ _Release date: November 30, 2023_
 
 **Highlights**
 
-- 🔲 [`st.container`](/develop/api-reference/layout/st.container) and [`st.form`](/develop/api-reference/control-flow/st.form) now have a `border` parameter to show or hide a border.
+- 🔲 [`st.container`](/develop/api-reference/layout/st.container) and [`st.form`](/develop/api-reference/execution-flow/st.form) now have a `border` parameter to show or hide a border.
 - 🐍 Streamlit supports Python 3.12!
 
 **Notable Changes**
@@ -235,7 +235,7 @@ _Release date: September 21, 2023_
 
 - ✨ Introducing `st.scatter_chart` — a new, simple chart element to build scatter charts Streamlit-y fast and easy! See our [documentation](/develop/api-reference/charts/st.scatter_chart).
 - 🔗 Introducing `st.link_button`! Want to open an external link in a new tab with a bit more pizazz than a plain-text link? Check out our [documentation](/develop/api-reference/widgets/st.link_button) to see how.
-- 🏃 Announcing the general availability of [`st.rerun`](/develop/api-reference/control-flow/st.rerun), a command to interrupt your script and trigger an immediate rerun.
+- 🏃 Announcing the general availability of [`st.rerun`](/develop/api-reference/execution-flow/st.rerun), a command to interrupt your script and trigger an immediate rerun.
 
 **Notable Changes**
 
@@ -312,7 +312,7 @@ _Release date: July 20, 2023_
 - 🗺️ [`st.map`](/develop/api-reference/charts/st.map) now has parameters for `latitude`, `longitude`, `color`, and `size` to customize data points ([#6896](https://github.com/streamlit/streamlit/pull/6896)).
 - 🚩 [`st.multiselect`](/develop/api-reference/widgets/st.multiselect) supports setting placeholders and specifying the maximum number of selections via the `placeholder` and `max_selections` keyword-only arguments, respectively ([#6901](https://github.com/streamlit/streamlit/pull/6901), [#4750](https://github.com/streamlit/streamlit/issues/4750)). Thanks, [@fhiroki](https://github.com/fhiroki)!
 - 📅 Customize the date format for `st.date_input` with the `format` parameter ([#6974](https://github.com/streamlit/streamlit/pull/6974), [#5234](https://github.com/streamlit/streamlit/issues/5234)).
-- ↩️ [Forms](/develop/api-reference/control-flow/st.form) can now be submitted with Enter/Return while inside [`st.text_input`](/develop/api-reference/widgets/st.text_input), [`st.number_input`](/develop/api-reference/widgets/st.number_input), or [`st.text_area`](/develop/api-reference/widgets/st.text_area) ([#6911](https://github.com/streamlit/streamlit/pull/6911), [#3790](https://github.com/streamlit/streamlit/issues/3790)).
+- ↩️ [Forms](/develop/api-reference/execution-flow/st.form) can now be submitted with Enter/Return while inside [`st.text_input`](/develop/api-reference/widgets/st.text_input), [`st.number_input`](/develop/api-reference/widgets/st.number_input), or [`st.text_area`](/develop/api-reference/widgets/st.text_area) ([#6911](https://github.com/streamlit/streamlit/pull/6911), [#3790](https://github.com/streamlit/streamlit/issues/3790)).
 - 🍢 The app menu icon in the upper-right corner of apps has been changed from "**☰**" to "**⋮**" ([#6947](https://github.com/streamlit/streamlit/pull/6947)).
 
 **Other Changes**

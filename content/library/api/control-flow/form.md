@@ -1,6 +1,6 @@
 ---
 title: st.form
-slug: /develop/api-reference/control-flow/st.form
+slug: /develop/api-reference/execution-flow/st.form
 description: st.form creates a form that batches elements together with a “Submit" button.
 ---
 

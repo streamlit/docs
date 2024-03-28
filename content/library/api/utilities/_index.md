@@ -35,45 +35,4 @@ st.help(pd.DataFrame)
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/utilities/st.query_params" size="half">
-
-<h4>Query parameters</h4>
-
-Get, set, or clear the query parameters that are shown in the browser's URL bar.
-
-```python
-st.query_params[key] = value
-st.query_params.clear()
-```
-
-</RefCard>
-</TileContainer>
-
-## Deprecated commands
-
-<TileContainer>
-<RefCard href="/develop/api-reference/utilities/st.experimental_get_query_params" size="half" deprecated={true}>
-
-<h4>Get query parameters</h4>
-
-Get query parameters that are shown in the browser's URL bar.
-
-```python
-param_dict = st.experimental_get_query_params()
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/utilities/st.experimental_set_query_params" size="half" deprecated={true}>
-
-<h4>Set query parameters</h4>
-
-Set query parameters that are shown in the browser's URL bar.
-
-```python
-st.experimental_set_query_params(
-  {"show_all"=True, "selected"=["asia", "america"]}
-)
-```
-
-</RefCard>
 </TileContainer>

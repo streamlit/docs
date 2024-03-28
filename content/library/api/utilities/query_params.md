@@ -1,6 +1,6 @@
 ---
 title: st.query_params
-slug: /develop/api-reference/utilities/st.query_params
+slug: /develop/api-reference/caching-and-state/st.query_params
 description: st.query_params reads and manipulates query parameters in the browser's URL bar.
 ---
 
@@ -27,7 +27,7 @@ A key-value pair prefixed with `?` is added to the end of your app's URL. Additi
 
 ### Repeated keys
 
-When a key is repeated in your app's URL (`?a=1&a=2&a=3`), dict-like methods will return only the last value. In this example, `st.query_params["a"]` returns `"3"`. To get all keys as a list, use the [`.get_all()`](/develop/api-reference/utilities/st.query_params#stquery_paramsget_all) method shown below. To set the value of a repeated key, assign the values as a list. For example, `st.query_params.a = ["1", "2", "3"]` produces the repeated key given at the beginning of this paragraph.
+When a key is repeated in your app's URL (`?a=1&a=2&a=3`), dict-like methods will return only the last value. In this example, `st.query_params["a"]` returns `"3"`. To get all keys as a list, use the [`.get_all()`](/develop/api-reference/caching-and-state/st.query_params#stquery_paramsget_all) method shown below. To set the value of a repeated key, assign the values as a list. For example, `st.query_params.a = ["1", "2", "3"]` produces the repeated key given at the beginning of this paragraph.
 
 ### Limitation
 

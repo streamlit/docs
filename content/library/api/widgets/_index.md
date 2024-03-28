@@ -38,7 +38,7 @@ st.download_button("Download file", file)
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/control-flow/st.form_submit_button">
+<RefCard href="/develop/api-reference/execution-flow/st.form_submit_button">
 
 <Image pure alt="screenshot" src="/images/api/form_submit_button.svg" />
 

@@ -1,9 +1,9 @@
 ---
-title: Flow and navigation
-slug: /develop/api-reference/control-flow
+title: Execution flow
+slug: /develop/api-reference/execution-flow
 ---
 
-# Flow and navigation
+# Execution flow
 
 ## Change execution
 
@@ -11,7 +11,7 @@ By default, Streamlit apps execute the script entirely, but we allow some functi
 
 <TileContainer>
 
-<RefCard href="/develop/api-reference/control-flow/st.rerun">
+<RefCard href="/develop/api-reference/execution-flow/st.rerun">
 
 <h4>Rerun script</h4>
 
@@ -23,7 +23,7 @@ st.rerun()
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/control-flow/st.stop">
+<RefCard href="/develop/api-reference/execution-flow/st.stop">
 
 <h4>Stop execution</h4>
 
@@ -31,52 +31,6 @@ Stops execution immediately.
 
 ```python
 st.stop()
-```
-
-</RefCard>
-
-<RefCard href="/develop/api-reference/control-flow/st.switch_page">
-
-<h4>Switch page</h4>
-
-Programmatically navigates to a specified page.
-
-```python
-st.switch_page("pages/my_page.py")
-```
-
-</RefCard>
-
-<RefCard href="/develop/api-reference/widgets/st.page_link" size="half">
-
-<Image pure alt="screenshot" src="/images/api/page_link.jpg" />
-
-<h4>Page link</h4>
-
-Display a link to another page in a multipage app.
-
-```python
-st.page_link("app.py", label="Home", icon="🏠")
-st.page_link("pages/profile.py", label="Profile")
-```
-
-</RefCard>
-
-</TileContainer>
-
-## Manage state
-
-Streamlit re-executes your script with each user interaction. Widgets have built-in statefullness between reruns, but Session State lets you do more!
-
-<TileContainer>
-<RefCard href="/develop/api-reference/control-flow/st.session_state" size="half" >
-
-<h4>Session State</h4>
-
-Save data between reruns and across pages.
-
-```python
-st.session_state["foo"] = "bar"
 ```
 
 </RefCard>
@@ -90,7 +44,7 @@ However, sometimes it's a better user experience to wait until a group of relate
 widgets is filled before actually rerunning the script. That's what `st.form` is for!
 
 <TileContainer>
-<RefCard href="/develop/api-reference/control-flow/st.form" size="half">
+<RefCard href="/develop/api-reference/execution-flow/st.form" size="half">
 
 <h4>Forms</h4>
 
@@ -105,7 +59,7 @@ with st.form(key='my_form'):
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/control-flow/st.form_submit_button" size="half">
+<RefCard href="/develop/api-reference/execution-flow/st.form_submit_button" size="half">
 
 <h4>Form submit button</h4>
 

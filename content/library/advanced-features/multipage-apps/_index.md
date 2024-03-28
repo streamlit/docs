@@ -90,7 +90,7 @@ Emojis can be used to make your page names more fun! For example, a file named `
 
 Pages are automatically shown in a sidebar navigation UI. When a user clicks on a page in the sidebar UI, Streamlit navigates to that page without reloading the entire frontend — making app browsing incredibly fast! Optionally, you can hide the default navigation UI and build your own with [`st.page_link`](/develop/api-reference/widgets/st.page_link). For more information, see [Build a custom navigation menu with `st.page_link`](/develop/tutorials/multipage/st.page_link-nav).
 
-If you need to programmatically switch pages, use [`st.switch_page`](/develop/api-reference/control-flow/st.switch_page).
+If you need to programmatically switch pages, use [`st.switch_page`](/develop/api-reference/navigation/st.switch_page).
 
 Users can also navigate between pages using URLs. Pages have their own URLs, defined by the file's `label`. When multiple files have the same `label`, Streamlit picks the first one (based on the ordering [described above](#how-pages-are-sorted-in-the-sidebar)). Users can view a specific page by visiting the page's URL.
 

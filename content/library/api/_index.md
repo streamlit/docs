@@ -771,7 +771,7 @@ st.download_button("Download file", file)
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/control-flow/st.form_submit_button">
+<RefCard href="/develop/api-reference/execution-flow/st.form_submit_button">
 
 <Image pure alt="screenshot" src="/images/api/form_submit_button.svg" />
 
@@ -1796,7 +1796,7 @@ rain(emoji="🎈", font_size=54,
 ### Flow and navigation
 
 <TileContainer>
-<RefCard href="/develop/api-reference/control-flow/st.form">
+<RefCard href="/develop/api-reference/execution-flow/st.form">
 
 <h4>Forms</h4>
 
@@ -1810,7 +1810,7 @@ with st.form(key='my_form'):
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/control-flow/st.rerun">
+<RefCard href="/develop/api-reference/execution-flow/st.rerun">
 
 <h4>Rerun script</h4>
 
@@ -1821,7 +1821,7 @@ st.rerun()
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/control-flow/st.stop">
+<RefCard href="/develop/api-reference/execution-flow/st.stop">
 
 <h4>Stop execution</h4>
 
@@ -1832,7 +1832,7 @@ st.stop()
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/control-flow/st.switch_page">
+<RefCard href="/develop/api-reference/navigation/st.switch_page">
 
 <h4>Switch page</h4>
 
@@ -1843,7 +1843,7 @@ st.switch_page("pages/my_page.py")
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/control-flow/st.session_state">
+<RefCard href="/develop/api-reference/caching-and-state/st.session_state">
 
 <h4>Session state</h4>
 
@@ -1940,7 +1940,7 @@ st.help(pd.DataFrame)
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/utilities/st.query_params">
+<RefCard href="/develop/api-reference/caching-and-state/st.query_params">
 
 <h4>Query parameters</h4>
 

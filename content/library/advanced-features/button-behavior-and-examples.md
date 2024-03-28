@@ -9,7 +9,7 @@ slug: /develop/concepts/elements-and-ui/button-behavior-and-examples
 
 Buttons created with [`st.button`](/develop/api-reference/widgets/st.button) do not retain state. They return `True` on the script rerun resulting from their click and immediately return to `False` on the next script rerun. If a displayed element is nested inside `if st.button('Click me'):`, the element will be visible when the button is clicked and disappear as soon as the user takes their next action. This is because the script reruns and the button return value becomes `False`.
 
-In this guide, we will illustrate the use of buttons and explain common misconceptions. Read on to see a variety of examples that expand on `st.button` using [`st.session_state`](/develop/api-reference/control-flow/st.session_state). [Anti-patterns](#anti-patterns) are included at the end. Go ahead and pull up your favorite code editor so you can `streamlit run` the examples as you read. Check out Streamlit's [Main concepts](/get-started/fundamentals/main-concepts) if you haven't run your own Streamlit scripts yet.
+In this guide, we will illustrate the use of buttons and explain common misconceptions. Read on to see a variety of examples that expand on `st.button` using [`st.session_state`](/develop/api-reference/caching-and-state/st.session_state). [Anti-patterns](#anti-patterns) are included at the end. Go ahead and pull up your favorite code editor so you can `streamlit run` the examples as you read. Check out Streamlit's [Main concepts](/get-started/fundamentals/main-concepts) if you haven't run your own Streamlit scripts yet.
 
 ## When to use `if st.button()`
 
@@ -207,7 +207,7 @@ st.header(st.session_state['name'])
 
 #### Logic nested in a button with a rerun
 
-Although callbacks are often preferred to avoid extra reruns, our first 'John Doe'/'Jane Doe' example can be modified by adding [`st.rerun`](/develop/api-reference/control-flow/st.rerun) instead. If you need to acces data in `st.session_state` before the button that modifies it, you can include `st.rerun` to rerun the script after the change has been committed. This means the script will rerun twice when a button is clicked.
+Although callbacks are often preferred to avoid extra reruns, our first 'John Doe'/'Jane Doe' example can be modified by adding [`st.rerun`](/develop/api-reference/execution-flow/st.rerun) instead. If you need to acces data in `st.session_state` before the button that modifies it, you can include `st.rerun` to rerun the script after the change has been committed. This means the script will rerun twice when a button is clicked.
 
 ```python
 import streamlit as st

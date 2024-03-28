@@ -1,9 +1,13 @@
 ---
-title: Optimize performance
+title: Caching and state
 slug: /develop/api-reference/caching-and-state
 ---
 
-# Optimize performance
+# Caching and state
+
+Optimize performance and add statefulness to your app!
+
+## Caching
 
 Streamlit provides powerful [cache primitives](/develop/concepts/execution-model/caching) for data and global resources. They allow your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations.
 
@@ -39,6 +43,37 @@ def init_model():
     "sentiment-analysis",
     model="distilbert-base-uncased-finetuned-sst-2-english"
   )
+```
+
+</RefCard>
+
+</TileContainer>
+
+## Manage state
+
+Streamlit re-executes your script with each user interaction. Widgets have built-in statefullness between reruns, but Session State lets you do more!
+
+<TileContainer>
+<RefCard href="/develop/api-reference/caching-and-state/st.session_state" size="half" >
+
+<h4>Session State</h4>
+
+Save data between reruns and across pages.
+
+```python
+st.session_state["foo"] = "bar"
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/caching-and-state/st.query_params" size="half">
+
+<h4>Query parameters</h4>
+
+Get, set, or clear the query parameters that are shown in the browser's URL bar.
+
+```python
+st.query_params[key] = value
+st.query_params.clear()
 ```
 
 </RefCard>
@@ -96,6 +131,30 @@ Experimental function decorator to store singleton objects.
 def get_database_session(url):
   # Create a database session object that points to the URL.
   return session
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/caching-and-state/st.experimental_get_query_params" size="half" deprecated={true}>
+
+<h4>Get query parameters</h4>
+
+Get query parameters that are shown in the browser's URL bar.
+
+```python
+param_dict = st.experimental_get_query_params()
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/caching-and-state/st.experimental_set_query_params" size="half" deprecated={true}>
+
+<h4>Set query parameters</h4>
+
+Set query parameters that are shown in the browser's URL bar.
+
+```python
+st.experimental_set_query_params(
+  {"show_all"=True, "selected"=["asia", "america"]}
+)
 ```
 
 </RefCard>
