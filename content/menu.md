@@ -50,7 +50,7 @@ site_menu:
     url: /develop/api-reference/write-magic/magic
   - category: Develop / API reference / Text elements
     url: /develop/api-reference/text
-  - category: Develop / API reference / Text elements / BASIC
+  - category: Develop / API reference / Text elements / HEADINGS & BODY
   - category: Develop / API reference / Text elements / st.title
     url: /develop/api-reference/text/st.title
     isVersioned: true
@@ -63,7 +63,7 @@ site_menu:
   - category: Develop / API reference / Text elements / st.markdown
     url: /develop/api-reference/text/st.markdown
     isVersioned: true
-  - category: Develop / API reference / Text elements / SPECIAL
+  - category: Develop / API reference / Text elements / FORMATTED TEXT
   - category: Develop / API reference / Text elements / st.caption
     url: /develop/api-reference/text/st.caption
     isVersioned: true
@@ -229,14 +229,15 @@ site_menu:
     url: /develop/api-reference/widgets/st.toggle
     isVersioned: true
   - category: Develop / API reference / Input widgets / NUMERIC
-  - category: Develop / API reference / Input widgets / st.date_input
-    url: /develop/api-reference/widgets/st.date_input
-    isVersioned: true
   - category: Develop / API reference / Input widgets / st.number_input
     url: /develop/api-reference/widgets/st.number_input
     isVersioned: true
   - category: Develop / API reference / Input widgets / st.slider
     url: /develop/api-reference/widgets/st.slider
+    isVersioned: true
+  - category: Develop / API reference / Input widgets / DATETIME
+  - category: Develop / API reference / Input widgets / st.date_input
+    url: /develop/api-reference/widgets/st.date_input
     isVersioned: true
   - category: Develop / API reference / Input widgets / st.time_input
     url: /develop/api-reference/widgets/st.time_input
@@ -261,7 +262,6 @@ site_menu:
   - category: Develop / API reference / Input widgets / st.file_uploader
     url: /develop/api-reference/widgets/st.file_uploader
     isVersioned: true
-
   - category: Develop / API reference / Media elements
     url: /develop/api-reference/media
   - category: Develop / API reference / Media elements / st.audio
@@ -315,7 +315,7 @@ site_menu:
     isVersioned: true
   - category: Develop / API reference / Status elements
     url: /develop/api-reference/status
-  - category: Develop / API reference / Status elements / SIMPLE
+  - category: Develop / API reference / Status elements / STATIC TEXT
   - category: Develop / API reference / Status elements / st.success
     url: /develop/api-reference/status/st.success
     isVersioned: true
@@ -331,7 +331,7 @@ site_menu:
   - category: Develop / API reference / Status elements / st.exception
     url: /develop/api-reference/status/st.exception
     isVersioned: true
-  - category: Develop / API reference / Status elements / OTHER
+  - category: Develop / API reference / Status elements / DYNAMIC
   - category: Develop / API reference / Status elements / st.progress
     url: /develop/api-reference/status/st.progress
     isVersioned: true
@@ -495,93 +495,93 @@ site_menu:
     url: /develop/api-reference/cli
   - category: Develop / API reference / Command line / streamlit run
     url: /develop/api-reference/cli/run
-  - category: Develop / Concepts
+  - category: Develop / Guides
     url: /develop/concepts
-  - category: Develop / Concepts / CORE FEATURES
-  - category: Develop / Concepts / Elements and UI
+  - category: Develop / Guides / CORE FEATURES
+  - category: Develop / Guides / Elements and UI
     url: /develop/concepts/elements-and-ui
-  - category: Develop / Concepts / Elements and UI/ App menu
+  - category: Develop / Guides / Elements and UI/ App menu
     url: /develop/concepts/elements-and-ui/app-menu
-  - category: Develop / Concepts / Elements and UI/ Button behavior and examples
+  - category: Develop / Guides / Elements and UI/ Button behavior and examples
     url: /develop/concepts/elements-and-ui/button-behavior-and-examples
-  - category: Develop / Concepts / Elements and UI/ Dataframes
+  - category: Develop / Guides / Elements and UI/ Dataframes
     url: /develop/concepts/elements-and-ui/dataframes
-  - category: Develop / Concepts / Elements and UI/ Forms
+  - category: Develop / Guides / Elements and UI/ Forms
     url: /develop/concepts/elements-and-ui/forms
-  - category: Develop / Concepts / Elements and UI / Mutate charts
+  - category: Develop / Guides / Elements and UI / Mutate charts
     url: /develop/concepts/elements-and-ui/mutate
-  - category: Develop / Concepts / Elements and UI/ Widget behavior
+  - category: Develop / Guides / Elements and UI/ Widget behavior
     url: /develop/concepts/elements-and-ui/widget-behavior
-  - category: Develop / Concepts / Execution model
+  - category: Develop / Guides / Execution model
     url: /develop/concepts/execution-model
-  - category: Develop / Concepts / Execution model / INITIALIZATION
-  - category: Develop / Concepts / Execution model / Run your app
+  - category: Develop / Guides / Execution model / INITIALIZATION
+  - category: Develop / Guides / Execution model / Run your app
     url: /develop/concepts/execution-model/run-your-app
-  - category: Develop / Concepts / Execution model / RERUN MODEL
-  - category: Develop / Concepts / Execution model / Caching
+  - category: Develop / Guides / Execution model / RERUN MODEL
+  - category: Develop / Guides / Execution model / Caching
     url: /develop/concepts/execution-model/caching
-  - category: Develop / Concepts / Execution model / Optimize performance with st.cache
+  - category: Develop / Guides / Execution model / Optimize performance with st.cache
     url: /develop/concepts/execution-model/st.cache
     visible: false
-  - category: Develop / Concepts / Execution model / Experimental cache primitives
+  - category: Develop / Guides / Execution model / Experimental cache primitives
     url: /develop/concepts/execution-model/experimental-cache-primitives
     visible: false
-  - category: Develop / Concepts / Execution model / Session State
+  - category: Develop / Guides / Execution model / Session State
     url: /develop/concepts/execution-model/session-state
-  - category: Develop / Concepts / Execution model / Custom classes
+  - category: Develop / Guides / Execution model / Custom classes
     url: /develop/concepts/execution-model/custom-classes
-  - category: Develop / Concepts / Execution model / SERVER-CLIENT MODEL
-  - category: Develop / Concepts / Execution model / Streamlit's architecture
+  - category: Develop / Guides / Execution model / SERVER-CLIENT MODEL
+  - category: Develop / Guides / Execution model / Streamlit's architecture
     url: /develop/concepts/execution-model/architecture
-  - category: Develop / Concepts / Execution model / Working with timezones
+  - category: Develop / Guides / Execution model / Working with timezones
     url: /develop/concepts/execution-model/timezone-handling
-  - category: Develop / Concepts / Multipage apps
+  - category: Develop / Guides / Multipage apps
     url: /develop/concepts/multipage-apps
-  - category: Develop / Concepts / Multipage apps / Pages directory (v1)
+  - category: Develop / Guides / Multipage apps / Pages directory (v1)
     url: /develop/concepts/multipage-apps/pages-directory
 
-  - category: Develop / Concepts / ADDITIONAL FEATURES
-  - category: Develop / Concepts / Configuration
+  - category: Develop / Guides / ADDITIONAL FEATURES
+  - category: Develop / Guides / Configuration
     url: /develop/concepts/configuration
-  - category: Develop / Concepts / Configuration / Configuration options
+  - category: Develop / Guides / Configuration / Configuration options
     url: /develop/concepts/configuration/options
-  - category: Develop / Concepts / Configuration / HTTPS support
+  - category: Develop / Guides / Configuration / HTTPS support
     url: /develop/concepts/configuration/https-support
-  - category: Develop / Concepts / Configuration / Static file serving
+  - category: Develop / Guides / Configuration / Static file serving
     url: /develop/concepts/configuration/static-file-serving
-  - category: Develop / Concepts / Configuration / Theming
+  - category: Develop / Guides / Configuration / Theming
     url: /develop/concepts/configuration/theming
-  - category: Develop / Concepts / Connections and secrets
+  - category: Develop / Guides / Connections and secrets
     url: /develop/concepts/connections
-  - category: Develop / Concepts / Connections and secrets / Connecting to data
+  - category: Develop / Guides / Connections and secrets / Connecting to data
     url: /develop/concepts/connections/connecting-to-data
-  - category: Develop / Concepts / Connections and secrets / Secrets management
+  - category: Develop / Guides / Connections and secrets / Secrets management
     url: /develop/concepts/connections/secrets-management
-  - category: Develop / Concepts / Connections and secrets / Security reminders
+  - category: Develop / Guides / Connections and secrets / Security reminders
     url: /develop/concepts/connections/security-reminders
-  - category: Develop / Concepts / Custom components
+  - category: Develop / Guides / Custom components
     url: /develop/concepts/custom-components
-  - category: Develop / Concepts / Custom components / Intro to custom components
+  - category: Develop / Guides / Custom components / Intro to custom components
     url: /develop/concepts/custom-components/intro
-  - category: Develop / Concepts / Custom components / Create a Component
+  - category: Develop / Guides / Custom components / Create a Component
     url: /develop/concepts/custom-components/create
-  - category: Develop / Concepts / Custom components / Publish a Component
+  - category: Develop / Guides / Custom components / Publish a Component
     url: /develop/concepts/custom-components/publish
-  - category: Develop / Concepts / Custom components / Limitations
+  - category: Develop / Guides / Custom components / Limitations
     url: /develop/concepts/custom-components/limitations
-  - category: Develop / Concepts / Custom components / Component gallery
+  - category: Develop / Guides / Custom components / Component gallery
     url: https://streamlit.io/components
-  - category: Develop / Concepts / App testing
+  - category: Develop / Guides / App testing
     url: /develop/concepts/app-testing
-  - category: Develop / Concepts / App testing / Get started
+  - category: Develop / Guides / App testing / Get started
     url: /develop/concepts/app-testing/get-started
-  - category: Develop / Concepts / App testing / Beyond the basics
+  - category: Develop / Guides / App testing / Beyond the basics
     url: /develop/concepts/app-testing/beyond-the-basics
-  - category: Develop / Concepts / App testing / Automate your tests
+  - category: Develop / Guides / App testing / Automate your tests
     url: /develop/concepts/app-testing/automate-tests
-  - category: Develop / Concepts / App testing / Example
+  - category: Develop / Guides / App testing / Example
     url: /develop/concepts/app-testing/examples
-  - category: Develop / Concepts / App testing / Cheat sheet
+  - category: Develop / Guides / App testing / Cheat sheet
     url: /develop/concepts/app-testing/cheat-sheet
   - category: Develop / Tutorials
     url: /develop/tutorials
@@ -716,20 +716,6 @@ site_menu:
     url: /deploy/tutorials/docker
   - category: Deploy / All platforms / Kubernetes
     url: /deploy/tutorials/kubernetes
-  - category: Deploy / All platforms / Amazon EC2
-    url: https://towardsdatascience.com/how-to-deploy-a-streamlit-app-using-an-amazon-free-ec2-instance-416a41f69dc3
-  - category: Deploy / All platforms / Azure
-    url: https://towardsdatascience.com/deploying-a-streamlit-web-app-with-azure-app-service-1f09a2159743
-  - category: Deploy / All platforms / Google App Engine
-    url: https://dev.to/whitphx/how-to-deploy-streamlit-apps-to-google-app-engine-407o
-  - category: Deploy / All platforms / Heroku
-    url: https://towardsdatascience.com/quickly-build-and-deploy-an-application-with-streamlit-988ca08c7e83
-  - category: Deploy / All platforms / Ploomber Cloud
-    url: https://docs.cloud.ploomber.io/en/latest/apps/streamlit.html
-  - category: Deploy / All platforms / 21YunBox
-    url: https://www.21yunbox.com/docs/#/deploy-streamlit
-  - category: Deploy / All platforms / Community-built guides
-    url: https://discuss.streamlit.io/t/streamlit-deployment-guide-wiki/5099
 
   - category: Knowledge base
     url: /knowledge-base
