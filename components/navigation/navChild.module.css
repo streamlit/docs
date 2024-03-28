@@ -1,9 +1,28 @@
 .Container {
-  @apply text-sm tracking-tight dark:text-gray-40 mb-4;
+  @apply text-sm tracking-tight dark:text-gray-40;
+}
+
+.ContainerZero {
+  @apply mb-4;
+}
+
+.ContainerOne {
+  @apply mb-3;
+}
+
+.ContainerTwo {
+  @apply mb-2;
 }
 
 .List {
-  @apply list-none mt-4;
+  @apply list-none;
+}
+
+.ListZero {
+  @apply mt-3;
+}
+.ListOne {
+  @apply mt-2;
 }
 
 .Accordion {
@@ -47,8 +66,8 @@
 
 .DividerText {
   @apply grow-0;
-  @apply text-gray-70 uppercase tracking-widest leading-5;
-  @apply mx-1;
+  @apply text-gray-70 uppercase tracking-widest leading-5 font-bold;
+  @apply mr-1;
 
   font-size: 0.625rem;
 }
@@ -58,9 +77,9 @@
   @apply text-gray-30;
 }
 
-:global(.dark) .DividerLine {
+/* :global(.dark) .DividerLine {
   @apply text-gray-90;
-}
+} */
 
 .Circle {
   @apply absolute w-2 h-2 -left-4 rounded-full hidden;
@@ -114,4 +133,37 @@
 
 .IndigoCircle {
   @apply bg-indigo-70;
+}
+
+/* Colors for dividers */
+.RedDivider {
+  @apply text-red-70;
+}
+
+.OrangeDivider {
+  @apply text-orange-70;
+}
+
+.YellowDivider {
+  @apply text-yellow-70;
+}
+
+.GreenDivider {
+  @apply text-green-70;
+}
+
+.AcquaDivider {
+  @apply text-acqua-70;
+}
+
+.LightBlueDivider {
+  @apply text-lightBlue-70;
+}
+
+.DarkBlueDivider {
+  @apply text-darkBlue-70;
+}
+
+.IndigoDivider {
+  @apply text-indigo-70;
 }
