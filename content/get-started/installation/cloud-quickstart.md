@@ -7,7 +7,7 @@ slug: /get-started/installation/community-cloud
 
 To use GitHub codespaces for Streamlit development, a properly configured `devcontainer.json` file is needed to set up the environment. Fortunately, Community Cloud is here to help! Although Streamlit Community Cloud is primarily used to deploy and share apps with the rest of the world, we've build in some handy features to make it easy to use GitHub Codespaces. This guide explains how to create a Community Cloud account and use an automated workflow to get you into a GitHub codespace and live-editing a Streamlit app. The automated workflow will fork our Streamlit Hello app to your GitHub account, deploy it, then open up a codespace for you to start editing. All this happens right in your browser, no installation required.
 
-You will be signing in to your Google and GitHub accounts during this process. If you do not already have these accounts, you can create them before you begin. If you do not want to use a Google account, you can [create your account with any email](/streamlit-community-cloud/get-started/create-your-account#primary-identity-option-2-email).
+You will be signing in to your Google and GitHub accounts during this process. If you do not already have these accounts, you can create them before you begin. If you do not want to use a Google account, you can [create your account with any email](/deploy/streamlit-community-cloud/get-started/create-your-account#primary-identity-option-2-email).
 
 ## Sign up for Streamlit Community Cloud
 
@@ -129,7 +129,7 @@ When you are done, remember to stop your codespace on GitHub to avoid any undesi
     </div>
     </Flex>
 
-21. Congratulations! You just deployed an app to Streamlit Community Cloud. 🎉 Head back to your workspace at <a href="https://share.streamlit.io/" target="_blank">share.streamlit.io/</a> and [deploy another Streamlit app](/streamlit-community-cloud/deploy-your-app).
+21. Congratulations! You just deployed an app to Streamlit Community Cloud. 🎉 Head back to your workspace at <a href="https://share.streamlit.io/" target="_blank">share.streamlit.io/</a> and [deploy another Streamlit app](/deploy/streamlit-community-cloud/deploy-your-app).
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
 <Image alt="See your deployed Streamlit app" src="/images/streamlit-community-cloud/deploy-hello-workspace.png" />

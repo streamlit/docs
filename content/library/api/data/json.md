@@ -1,6 +1,6 @@
 ---
 title: st.json
-slug: /library/api-reference/data/st.json
+slug: /develop/api-reference/data/st.json
 description: st.json displays object or string as a pretty-printed JSON string.
 ---
 

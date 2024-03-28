@@ -1,6 +1,6 @@
 ---
 title: st.text
-slug: /library/api-reference/text/st.text
+slug: /develop/api-reference/text/st.text
 description: st.text writes fixed-width and preformatted text.
 ---
 

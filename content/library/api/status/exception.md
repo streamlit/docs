@@ -1,6 +1,6 @@
 ---
 title: st.exception
-slug: /library/api-reference/status/st.exception
+slug: /develop/api-reference/status/st.exception
 description: st.exception displays an exception.
 ---
 

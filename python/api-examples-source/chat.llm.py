@@ -30,7 +30,7 @@ if len(st.session_state.messages) >= st.session_state.max_messages:
     st.info(
         """Notice: The maximum message limit for this demo version has been reached. We value your interest!
         We encourage you to experience further interactions by building your own application with instructions
-        from Streamlit's [Build a basic LLM chat app](https://docs.streamlit.io/knowledge-base/tutorials/build-conversational-apps)
+        from Streamlit's [Build a basic LLM chat app](https://docs.streamlit.io/develop/tutorials/llms/build-conversational-apps)
         tutorial. Thank you for your understanding."""
     )
 

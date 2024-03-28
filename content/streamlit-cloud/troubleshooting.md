@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-slug: /streamlit-community-cloud/troubleshooting
+slug: /deploy/streamlit-community-cloud/troubleshooting
 ---
 
 # Troubleshooting
@@ -11,10 +11,10 @@ Sorry to hear you're having issues! Please take a look at some frequently asked 
 
 1. [General help](#general-help)
 2. [Deploying apps](#deploying-apps)
-3. [Sharing and accessing apps](/streamlit-community-cloud/troubleshooting#sharing-and-accessing-apps)
-4. [Data and app security](/streamlit-community-cloud/troubleshooting#data-and-app-security)
-5. [GitHub integration](/streamlit-community-cloud/troubleshooting#github-integration)
-6. [Limitations and known issues](/streamlit-community-cloud/troubleshooting#limitations-and-known-issues)
+3. [Sharing and accessing apps](/deploy/streamlit-community-cloud/troubleshooting#sharing-and-accessing-apps)
+4. [Data and app security](/deploy/streamlit-community-cloud/troubleshooting#data-and-app-security)
+5. [GitHub integration](/deploy/streamlit-community-cloud/troubleshooting#github-integration)
+6. [Limitations and known issues](/deploy/streamlit-community-cloud/troubleshooting#limitations-and-known-issues)
 
 ## General help
 
@@ -56,7 +56,7 @@ If you have really big or binary data that you change frequently, and git is fee
 
 ### My app is running into issues while deploying
 
-Check your Cloud logs by clicking on the "Manage app" expander in the bottom right corner of your screen. Often the trouble is due to a dependency not being declared. See here for [more information on dependency management](/streamlit-community-cloud/deploy-your-app/app-dependencies).
+Check your Cloud logs by clicking on the "Manage app" expander in the bottom right corner of your screen. Often the trouble is due to a dependency not being declared. See here for [more information on dependency management](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies).
 
 If that's not the issue, then please send the logs and warning you are seeing to our [Community forum](https://discuss.streamlit.io/) and we'll help get you sorted!
 
@@ -67,7 +67,7 @@ If your app is running slowly or you're hitting the 'Argh' page, we first highly
 - [Common app problems: Resource limits](https://blog.streamlit.io/common-app-problems-resource-limits/)
 - [3 steps to fix app memory leaks](https://blog.streamlit.io/3-steps-to-fix-app-memory-leaks/)
 
-If you're still having issues, click [here](/streamlit-community-cloud/manage-your-app#app-resources-and-limits) to learn more about resource limits.
+If you're still having issues, click [here](/deploy/streamlit-community-cloud/manage-your-app#app-resources-and-limits) to learn more about resource limits.
 
 ### Can I get a custom URL for my app?
 
@@ -75,11 +75,11 @@ Yes! You can find [instructions for setting a custom subdomain here](/knowledge-
 
 ## Sharing and accessing apps
 
-Don't have SSO? No problem! You can sign in to Streamlit with your email address. [Click here](/streamlit-community-cloud/get-started#sign-in-with-email) for step-by-step instructions on how to sign in with email. \*/}
+Don't have SSO? No problem! You can sign in to Streamlit with your email address. [Click here](/deploy/streamlit-community-cloud/get-started#sign-in-with-email) for step-by-step instructions on how to sign in with email. \*/}
 
 ### How do I add viewers to my Streamlit apps?
 
-Viewer auth allows you to restrict the viewers of your private app. To access your app, users have to authenticate using an email-based passwordless login or Google OAuth. To learn more about how to share your public and private apps with viewers, click [here](/streamlit-community-cloud/share-your-app).
+Viewer auth allows you to restrict the viewers of your private app. To access your app, users have to authenticate using an email-based passwordless login or Google OAuth. To learn more about how to share your public and private apps with viewers, click [here](/deploy/streamlit-community-cloud/share-your-app).
 
 ### Do viewers need access to the GitHub repo?
 
@@ -90,7 +90,7 @@ Nope! You only need access to the GitHub repo if you want to push changes to the
 A 404 error is displayed to unauthorized viewers to avoid providing any unnecessary information about your app to unintended viewers. Users who satisfy any of the following conditions will see a 404 error when attempting to view your app after you have configured viewer auth:
 
 - User is not logged in with their primary identity.
-- User is not included in the [list of allowed viewers](/streamlit-community-cloud/share-your-app#share-your-private-app) provided in the app settings.
+- User is not included in the [list of allowed viewers](/deploy/streamlit-community-cloud/share-your-app#share-your-private-app) provided in the app settings.
 - User lacks read access to your app's GitHub repo.
 - User has read access to your app's GitHub repo but is not enrolled in Streamlit Community Cloud.
 
@@ -109,7 +109,7 @@ If a user is still seeing a 404 error after their email address has been added t
 
 ### How will Streamlit secure my data?
 
-Streamlit takes a number of industry best-practice measures to ensure your code, data, and apps are all secure. Read more in our [Trust and Security memo](/streamlit-community-cloud/get-started/trust-and-security).
+Streamlit takes a number of industry best-practice measures to ensure your code, data, and apps are all secure. Read more in our [Trust and Security memo](/deploy/streamlit-community-cloud/get-started/trust-and-security).
 
 ### How do I set up SSO for my organization?
 

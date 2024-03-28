@@ -1,6 +1,6 @@
 ---
 title: Deploy Streamlit using Kubernetes
-slug: /knowledge-base/tutorials/deploy/kubernetes
+slug: /deploy/tutorials/kubernetes
 ---
 
 # Deploy Streamlit using Kubernetes
@@ -12,7 +12,7 @@ So you have an amazing app and you want to start sharing it with other people, w
 - **On your corporate network** - Most corporate networks are closed to the outside world. You typically use a VPN to log onto your corporate network and access resources there. You could run your Streamlit app on a server in your corporate network for security reasons, to ensure that only folks internal to your company can access it.
 - **On the cloud** - If you'd like to access your Streamlit app from outside of a corporate network, or share your app with folks outside of your home network or laptop, you might choose this option. In this case, it'll depend on your hosting provider. We have [community-submitted guides](/knowledge-base/deploy/deploy-streamlit-heroku-aws-google-cloud) from Heroku, AWS, and other providers.
 
-Wherever you decide to deploy your app, you will first need to containerize it. This guide walks you through using Kubernetes to deploy your app. If you prefer Docker see [Deploy Streamlit using Docker](/knowledge-base/tutorials/deploy/docker).
+Wherever you decide to deploy your app, you will first need to containerize it. This guide walks you through using Kubernetes to deploy your app. If you prefer Docker see [Deploy Streamlit using Docker](/deploy/tutorials/docker).
 
 ## Prerequisites
 

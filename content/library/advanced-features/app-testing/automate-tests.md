@@ -1,6 +1,6 @@
 ---
 title: Automate your tests with CI
-slug: /library/advanced-features/app-testing/automate-tests
+slug: /develop/concepts/app-testing/automate-tests
 ---
 
 # Automate your tests with CI

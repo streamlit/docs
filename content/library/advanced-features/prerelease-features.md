@@ -1,6 +1,6 @@
 ---
 title: Pre-release features
-slug: /library/advanced-features/prerelease
+slug: /develop/quick-reference/prerelease
 ---
 
 # Pre-release features

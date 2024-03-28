@@ -1,6 +1,6 @@
 ---
 title: App testing example
-slug: /library/advanced-features/app-testing/examples
+slug: /develop/concepts/app-testing/examples
 ---
 
 # App testing example

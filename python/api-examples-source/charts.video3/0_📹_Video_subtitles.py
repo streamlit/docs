@@ -16,7 +16,7 @@ Welcome to the feature demo of subtitles support for `st.video`!
 This feature adds a `subtitles` parameter to `st.video` to display subtitles on videos, supporting several input types.
 
 - Subtitle support is available in Streamlit 1.32.0 and later.
-- Get started by reading the docstring for `st.video` below (or read the [documentation](https://docs.streamlit.io/library/api-reference/media/st.video) for additional details).
+- Get started by reading the docstring for `st.video` below (or read the [documentation](https://docs.streamlit.io/develop/api-reference/media/st.video) for additional details).
 - 👈 Check out the demos of all supported input types by visiting the other pages in the sidebar. 
 """
 )

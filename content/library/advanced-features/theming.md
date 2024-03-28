@@ -1,6 +1,6 @@
 ---
 title: Theming
-slug: /library/advanced-features/theming
+slug: /develop/concepts/configuration/theming
 ---
 
 # Theming
@@ -14,7 +14,7 @@ Streamlit themes are defined using regular config options: a theme can be set
 via command line flag when starting your app using `streamlit run` or by
 defining it in the `[theme]` section of a `.streamlit/config.toml` file. For
 more information on setting config options, please refer to the
-[Streamlit configuration documentation](/library/advanced-features/configuration#set-configuration-options).
+[Streamlit configuration documentation](/develop/concepts/configuration#set-configuration-options).
 
 The following config options show the default Streamlit Light theme recreated
 in the `[theme]` section of a `.streamlit/config.toml` file.

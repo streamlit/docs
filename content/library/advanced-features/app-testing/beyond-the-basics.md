@@ -1,11 +1,11 @@
 ---
 title: Beyond the basics of app testing
-slug: /library/advanced-features/app-testing/beyond-the-basics
+slug: /develop/concepts/app-testing/beyond-the-basics
 ---
 
 # Beyond the basics of app testing
 
-Now that you're comfortable with executing a basic test for a Streamlit app let's cover the mutable attributes of [`AppTest`](/library/api-reference/app-testing/st.testing.v1.apptest):
+Now that you're comfortable with executing a basic test for a Streamlit app let's cover the mutable attributes of [`AppTest`](/develop/api-reference/app-testing/st.testing.v1.apptest):
 
 - `AppTest.secrets`
 - `AppTest.session_state`

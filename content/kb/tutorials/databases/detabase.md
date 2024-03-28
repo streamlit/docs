@@ -1,13 +1,13 @@
 ---
 title: Connect Streamlit to Deta Base
-slug: /knowledge-base/tutorials/databases/deta-base
+slug: /develop/tutorials/databases/deta-base
 ---
 
 # Connect Streamlit to Deta Base
 
 ## Introduction
 
-This guide explains how to securely access and write to a [Deta Base](https://deta.space/docs/en/reference/base/about) database from Streamlit Community Cloud. Deta Base is a fully-managed and fast NoSQL database with a focus on end-user simplicity. The data is stored in your own "personal cloud" on [Deta Space](https://deta.space/developers). This guide uses the [Deta Python SDK](https://github.com/deta/deta-python) for Deta Base and Streamlit's [Secrets management](https://www.notion.so/streamlit-community-cloud/deploy-your-app/secrets-management).
+This guide explains how to securely access and write to a [Deta Base](https://deta.space/docs/en/reference/base/about) database from Streamlit Community Cloud. Deta Base is a fully-managed and fast NoSQL database with a focus on end-user simplicity. The data is stored in your own "personal cloud" on [Deta Space](https://deta.space/developers). This guide uses the [Deta Python SDK](https://github.com/deta/deta-python) for Deta Base and Streamlit's [Secrets management](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
 
 ## Create an account and sign in to Deta Space
 
@@ -45,7 +45,7 @@ Add this file to `.gitignore` and don't commit it to your GitHub repo!
 
 ## Copy your app secrets to the cloud
 
-As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Community Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management).
+As the `secrets.toml` file above is not committed to GitHub, you need to pass its content to your deployed app (on Streamlit Community Cloud) separately. Go to the [app dashboard](https://share.streamlit.io/) and in the app's dropdown menu, click on **Edit Secrets**. Copy the content of `secrets.toml` into the text area. More information is available at [Secrets management](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
 
 ![Secrets manager screenshot](/images/databases/edit-secrets.png)
 

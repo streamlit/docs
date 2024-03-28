@@ -1,19 +1,19 @@
 ---
 title: Connect your GitHub account
-slug: /streamlit-community-cloud/get-started/connect-your-github-account
+slug: /deploy/streamlit-community-cloud/get-started/connect-your-github-account
 ---
 
 # Connect your GitHub account
 
 Connecting GitHub to your Streamlit Community Cloud account allows you to deploy apps directly from the files you store in your repos. It also lets the system check for updates to those files and automatically update your app. There are two stages to this authorization: the first happens when you connect your account for the first time and the second happens when you deploy your first app.
 
-Everyone is prompted to connect GitHub when they create an account. If you need to connect GitHub to an existing primary identity, see [Manage your GitHub connection](/streamlit-community-cloud/manage-your-account/manage-your-github-connection).
+Everyone is prompted to connect GitHub when they create an account. If you need to connect GitHub to an existing primary identity, see [Manage your GitHub connection](/deploy/streamlit-community-cloud/manage-your-account/manage-your-github-connection).
 
-This page contains additional information about the authorization needed to connect GitHub. If you have just created your account, you are free to skip ahead and [Explore your workspace](/streamlit-community-cloud/get-started/explore-your-workspace). GitHub's authorization prompts occur automatically as needed.
+This page contains additional information about the authorization needed to connect GitHub. If you have just created your account, you are free to skip ahead and [Explore your workspace](/deploy/streamlit-community-cloud/get-started/explore-your-workspace). GitHub's authorization prompts occur automatically as needed.
 
 ## Authorize your GitHub account
 
-There are two different authorization prompts to grant access between Streamlit and your GitHub account. The first authorization&mdash;"Authorize Streamlit"&mdash;happens when you connect your GitHub account to Streamlit. The second authorization&mdash;"Streamlit is requesting additional permissions"&mdash;happens when you deploy your first app. You must click "**Authorize streamlit**" on both. If you are a member of any GitHub organizations, read below to understand the extras steps to [authorize an organization](#organization-access). Questions about GitHub permissions? Read some frequently asked questions about our [GitHub integration](/streamlit-community-cloud/troubleshooting#github-integration).
+There are two different authorization prompts to grant access between Streamlit and your GitHub account. The first authorization&mdash;"Authorize Streamlit"&mdash;happens when you connect your GitHub account to Streamlit. The second authorization&mdash;"Streamlit is requesting additional permissions"&mdash;happens when you deploy your first app. You must click "**Authorize streamlit**" on both. If you are a member of any GitHub organizations, read below to understand the extras steps to [authorize an organization](#organization-access). Questions about GitHub permissions? Read some frequently asked questions about our [GitHub integration](/deploy/streamlit-community-cloud/troubleshooting#github-integration).
 
 <Image alt="Authorize your GitHub account" src="/images/streamlit-community-cloud/GitHub-auth-none.png" />
 
@@ -71,4 +71,4 @@ If a request has been previously sent and denied, no option to grant or request 
 
 ## What's next?
 
-Now that you have your account you can [Explore your workspace](/streamlit-community-cloud/get-started/explore-your-workspace). Or if you're ready to go, jump right in and [Deploy your app](/streamlit-community-cloud/deploy-your-app).
+Now that you have your account you can [Explore your workspace](/deploy/streamlit-community-cloud/get-started/explore-your-workspace). Or if you're ready to go, jump right in and [Deploy your app](/deploy/streamlit-community-cloud/deploy-your-app).

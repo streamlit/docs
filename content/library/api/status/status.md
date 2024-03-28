@@ -1,6 +1,6 @@
 ---
 title: st.status
-slug: /library/api-reference/status/st.status
+slug: /develop/api-reference/status/st.status
 description: st.status inserts a mutable expander element
 ---
 

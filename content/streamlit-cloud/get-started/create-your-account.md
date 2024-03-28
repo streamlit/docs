@@ -1,6 +1,6 @@
 ---
 title: Create your account
-slug: /streamlit-community-cloud/get-started/create-your-account
+slug: /deploy/streamlit-community-cloud/get-started/create-your-account
 ---
 
 # Create your account
@@ -40,7 +40,7 @@ If you're sharing a private app, you will assign viewing permission by email. Th
 <Image alt="Enter your Google credentials" src="/images/streamlit-community-cloud/sign-in-Google-2.png" />
 </div>
 
-4. If you will be deploying or managing any apps, click "**Connect GitHub account**" and proceed to [Step 2: Source Control](/streamlit-community-cloud/get-started/create-your-account#step-2-source-control). If you are only going to be viewing apps and will not be using GitHub, you can click "**Skip this step**" and proceed to [Step 3: Set up your account](#step-3-set-up-your-account).
+4. If you will be deploying or managing any apps, click "**Connect GitHub account**" and proceed to [Step 2: Source Control](/deploy/streamlit-community-cloud/get-started/create-your-account#step-2-source-control). If you are only going to be viewing apps and will not be using GitHub, you can click "**Skip this step**" and proceed to [Step 3: Set up your account](#step-3-set-up-your-account).
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
 <Image alt="Connect your GitHub account to Streamlit Community Cloud" src="/images/streamlit-community-cloud/sign-up-2.png" />
@@ -67,7 +67,7 @@ If you're sharing a private app, you will assign viewing permission by email. Th
 <Image alt="Streamlit Community Cloud sign-in email" src="/images/streamlit-community-cloud/sign-in-email-3.png" />
 </div>
 
-5. If you will be deploying or managing any apps, click "**Connect GitHub account**" and proceed to [Step 2: Source control](/streamlit-community-cloud/get-started/create-your-account#step-2-source-control). If you are only going to be viewing apps and will not be using GitHub, you can click "**Skip this step**" and proceed to [Step 3: Set up your account](#step-3-set-up-your-account).
+5. If you will be deploying or managing any apps, click "**Connect GitHub account**" and proceed to [Step 2: Source control](/deploy/streamlit-community-cloud/get-started/create-your-account#step-2-source-control). If you are only going to be viewing apps and will not be using GitHub, you can click "**Skip this step**" and proceed to [Step 3: Set up your account](#step-3-set-up-your-account).
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
 <Image alt="Connect your GitHub account to Streamlit Community Cloud" src="/images/streamlit-community-cloud/sign-up-2.png" />
@@ -77,7 +77,7 @@ If you're sharing a private app, you will assign viewing permission by email. Th
 
 Streamlit Community Cloud is integrated with GitHub for source control. If you begin your sign-up process with GitHub, you will not be directly prompted to create a primary identity. However, you can attach a Google account later.
 
-There are two different authorization requests to completely [Connect your GitHub account](/streamlit-community-cloud/get-started/connect-your-github-account). You will encounter the first authorization request when you begin connecting your GitHub account. A second authorization is needed the first time you deploy an app. If you will be deploying or managing any apps from a GitHub organization, your authorization requests will include additional options to allow [Organization access](/streamlit-community-cloud/get-started/connect-github#organization-access).
+There are two different authorization requests to completely [Connect your GitHub account](/deploy/streamlit-community-cloud/get-started/connect-your-github-account). You will encounter the first authorization request when you begin connecting your GitHub account. A second authorization is needed the first time you deploy an app. If you will be deploying or managing any apps from a GitHub organization, your authorization requests will include additional options to allow [Organization access](/deploy/streamlit-community-cloud/get-started/connect-github#organization-access).
 
 1. After completing [Step 1: Primary identity](#step-1-primary-identity) or after clicking "**Continue with GitHub**" from the sign-up page, enter your GitHub credentials and click "**Sign in**".
 
@@ -119,4 +119,4 @@ Congratulations on creating your Streamlit Community Cloud account! A warning ic
 
 ## What's next?
 
-Now that you have your account you can [Explore your workspace](/streamlit-community-cloud/get-started/explore-your-workspace). Or if you're ready to go, jump right in and [Deploy your app](/streamlit-community-cloud/deploy-your-app).
+Now that you have your account you can [Explore your workspace](/deploy/streamlit-community-cloud/get-started/explore-your-workspace). Or if you're ready to go, jump right in and [Deploy your app](/deploy/streamlit-community-cloud/deploy-your-app).

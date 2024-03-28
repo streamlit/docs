@@ -17,7 +17,7 @@ const SummaryTiles = () => {
         title="API reference"
         text="Learn about our APIs, with actionable explanations of specific functions and features."
         background="indigo-70"
-        link="/library/api-reference"
+        link="/develop/api-reference"
       />
 
       <Tile

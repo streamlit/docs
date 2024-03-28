@@ -1,6 +1,6 @@
 ---
 title: Fork and edit a public app
-slug: /streamlit-community-cloud/get-started/fork-and-edit-a-public-app
+slug: /deploy/streamlit-community-cloud/get-started/fork-and-edit-a-public-app
 ---
 
 # Fork and edit a public app
@@ -11,7 +11,7 @@ Community Cloud is all about learning, sharing, and exploring the world of Strea
 
    ![Click Fork this app from a public app](/images/streamlit-community-cloud/fork-and-edit.png)
 
-2. Click "**Fork!**" The repository will be forked to your GitHub account. If you have already forked the repository or have another repository of the same name, the fork will fail. In this case, you can manually fork the repository on GitHub, then follow the instructions to [Deploy your app](/streamlit-community-cloud/deploy-your-app#deploy-your-app) and [Edit your app with GitHub Codespaces](/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces).
+2. Click "**Fork!**" The repository will be forked to your GitHub account. If you have already forked the repository or have another repository of the same name, the fork will fail. In this case, you can manually fork the repository on GitHub, then follow the instructions to [Deploy your app](/deploy/streamlit-community-cloud/deploy-your-app#deploy-your-app) and [Edit your app with GitHub Codespaces](/deploy/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces).
 
    ![Click Fork to confirm](/images/streamlit-community-cloud/fork-codespace-1.png)
 
@@ -27,4 +27,4 @@ Community Cloud is all about learning, sharing, and exploring the world of Strea
 
    ![Your new GitHub Codespace](/images/streamlit-community-cloud/fork-cheatsheet-codespace.png)
 
-You now have a copy the public app deployed from your account. You can edit and explore within your codespace and (if you choose) commit your changes to your deployed app to share with the world! 🌎 Learn more about editing your app in GitHub Codespaces, committing your edits to your repository, and shutting down your codespace in [Edit your app with GitHub Codespaces](/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces).
+You now have a copy the public app deployed from your account. You can edit and explore within your codespace and (if you choose) commit your changes to your deployed app to share with the world! 🌎 Learn more about editing your app in GitHub Codespaces, committing your edits to your repository, and shutting down your codespace in [Edit your app with GitHub Codespaces](/deploy/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces).

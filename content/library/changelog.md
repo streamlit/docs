@@ -1,11 +1,11 @@
 ---
 title: Changelog
-slug: /library/changelog
+slug: /develop/quick-reference/changelog
 ---
 
 # Changelog
 
-This page lists highlights, bug fixes, and known issues for official Streamlit releases. If you're looking for information about nightly releases, beta features, or experimental features, see [Try pre-release features](/library/advanced-features/prerelease).
+This page lists highlights, bug fixes, and known issues for official Streamlit releases. If you're looking for information about nightly releases, beta features, or experimental features, see [Try pre-release features](/develop/quick-reference/prerelease).
 
 <Tip>
 
@@ -23,13 +23,13 @@ _Release date: March 7, 2024_
 
 **Highlights**
 
-- 🍿 Introducing `st.popover` to create popover elements in your Streamlit apps. Check out [the docs](/library/api-reference/layout/st.popover) to see how to use it!
+- 🍿 Introducing `st.popover` to create popover elements in your Streamlit apps. Check out [the docs](/develop/api-reference/layout/st.popover) to see how to use it!
 
 **Notable Changes**
 
-- 📺 You can now pass subtitles to [`st.video`](/library/api-reference/media/st.video)! Check out our [feature demo](https://doc-video-subtitle-inputs.streamlit.app/).
-- ⚗️ [`AppTest`](/library/api-reference/app-testing/st.testing.v1.apptest) includes support for `st.expander` and `st.status`.
-- 🧪 [`AppTest.from_function`](/library/api-reference/app-testing/st.testing.v1.apptest#apptestfrom_function) accepts a function that takes arguments and/or returns a value.
+- 📺 You can now pass subtitles to [`st.video`](/develop/api-reference/media/st.video)! Check out our [feature demo](https://doc-video-subtitle-inputs.streamlit.app/).
+- ⚗️ [`AppTest`](/develop/api-reference/app-testing/st.testing.v1.apptest) includes support for `st.expander` and `st.status`.
+- 🧪 [`AppTest.from_function`](/develop/api-reference/app-testing/st.testing.v1.apptest#apptestfrom_function) accepts a function that takes arguments and/or returns a value.
 - 🧩 The timeout warning for custom components was replaced with an element skeleton to improve the UX for slow-loading components, especially in some cloud-hosted platforms ([#8179](https://github.com/streamlit/streamlit/pull/8179), [#7046](https://github.com/streamlit/streamlit/issues/7046)).
 - 📄 `st.switch_page` and `st.page_link` received significant improvements to path handling, performance, and visual appearance (see below for details).
 - 🦀 Bug fix: Streamlit uses `glide-data-grid` version 6.0.4 to fix a variety of dataframe issues ([#7779](https://github.com/streamlit/streamlit/pull/7779), [#6900](https://github.com/streamlit/streamlit/issues/6900), [#7032](https://github.com/streamlit/streamlit/issues/7032), [#7727](https://github.com/streamlit/streamlit/issues/7727), [#6810](https://github.com/streamlit/streamlit/issues/6810), [#7930](https://github.com/streamlit/streamlit/issues/7930), [#7949](https://github.com/streamlit/streamlit/issues/7949), [#7831](https://github.com/streamlit/streamlit/issues/7831), [#8168](https://github.com/streamlit/streamlit/issues/8168)).
@@ -74,8 +74,8 @@ _Release date: February 1, 2024_
 
 **Highlights**
 
-- 🔗 Introducing `st.page_link`! Now, you can build custom navigation menus for your multipage apps. Check out [our docs](/library/api-reference/widgets/st.page_link) to see how.
-- 💦 Announcing `st.write_stream` to conveniently handle generators and streamed responses. Check out [our docs](/library/api-reference/write-magic/st.write_stream) to see how making chat apps just got easier.
+- 🔗 Introducing `st.page_link`! Now, you can build custom navigation menus for your multipage apps. Check out [our docs](/develop/api-reference/widgets/st.page_link) to see how.
+- 💦 Announcing `st.write_stream` to conveniently handle generators and streamed responses. Check out [our docs](/develop/api-reference/write-magic/st.write_stream) to see how making chat apps just got easier.
 
 **Notable Changes**
 
@@ -104,8 +104,8 @@ _Release date: January 11, 2024_
 
 **Highlights**
 
-- 🔄 Announcing `st.switch_page` to programmatically switch pages in multipage apps! Check out our [docs](/library/api-reference/control-flow/st.switch_page) to learn about this highly anticipated feature!
-- ❓Introducing `st.query_params` to handle variables passed through your app's URL. Check out our [docs](/library/api-reference/utilities/st.query_params) to understand this feature and how it's been upgraded and improved from our experimental version!
+- 🔄 Announcing `st.switch_page` to programmatically switch pages in multipage apps! Check out our [docs](/develop/api-reference/navigation/st.switch_page) to learn about this highly anticipated feature!
+- ❓Introducing `st.query_params` to handle variables passed through your app's URL. Check out our [docs](/develop/api-reference/caching-and-state/st.query_params) to understand this feature and how it's been upgraded and improved from our experimental version!
 
 **Notable Changes**
 
@@ -138,7 +138,7 @@ _Release date: November 30, 2023_
 
 **Highlights**
 
-- 🔲 [`st.container`](/library/api-reference/layout/st.container) and [`st.form`](/library/api-reference/control-flow/st.form) now have a `border` parameter to show or hide a border.
+- 🔲 [`st.container`](/develop/api-reference/layout/st.container) and [`st.form`](/develop/api-reference/execution-flow/st.form) now have a `border` parameter to show or hide a border.
 - 🐍 Streamlit supports Python 3.12!
 
 **Notable Changes**
@@ -184,10 +184,10 @@ _Release date: October 26, 2023_
 
 **Highlights**
 
-- 🧪 Introducing a new testing framework for Streamlit apps! Check out our [documentation](/library/api-reference/app-testing) to learn how to build automated tests for your apps.
-- 💻 Announcing the general availability of `st.connection`, a command to conveniently manage connections in Streamlit apps. Check out the [docs](/library/api-reference/connections/st.connection) to learn more.
-- ❄️ `SnowparkConnection` has been upgraded to the new and improved `SnowflakeConnection` — the same, great functionality _plus more_! Check out our [built-in connections](/library/api-reference/connections#built-in-connections).
-- 🛠️ `st.dataframe` and `st.data_editor` have a new toolbar! Users can search and download data in addition to enjoying improved UI for row additions and deletions. See our updated guide on [Dataframes](/library/advanced-features/dataframes).
+- 🧪 Introducing a new testing framework for Streamlit apps! Check out our [documentation](/develop/api-reference/app-testing) to learn how to build automated tests for your apps.
+- 💻 Announcing the general availability of `st.connection`, a command to conveniently manage connections in Streamlit apps. Check out the [docs](/develop/api-reference/connections/st.connection) to learn more.
+- ❄️ `SnowparkConnection` has been upgraded to the new and improved `SnowflakeConnection` — the same, great functionality _plus more_! Check out our [built-in connections](/develop/api-reference/connections#built-in-connections).
+- 🛠️ `st.dataframe` and `st.data_editor` have a new toolbar! Users can search and download data in addition to enjoying improved UI for row additions and deletions. See our updated guide on [Dataframes](/develop/concepts/elements-and-ui/dataframes).
 
 **Notable Changes**
 
@@ -233,14 +233,14 @@ _Release date: September 21, 2023_
 
 **Highlights**
 
-- ✨ Introducing `st.scatter_chart` — a new, simple chart element to build scatter charts Streamlit-y fast and easy! See our [documentation](/library/api-reference/charts/st.scatter_chart).
-- 🔗 Introducing `st.link_button`! Want to open an external link in a new tab with a bit more pizazz than a plain-text link? Check out our [documentation](/library/api-reference/widgets/st.link_button) to see how.
-- 🏃 Announcing the general availability of [`st.rerun`](/library/api-reference/control-flow/st.rerun), a command to interrupt your script and trigger an immediate rerun.
+- ✨ Introducing `st.scatter_chart` — a new, simple chart element to build scatter charts Streamlit-y fast and easy! See our [documentation](/develop/api-reference/charts/st.scatter_chart).
+- 🔗 Introducing `st.link_button`! Want to open an external link in a new tab with a bit more pizazz than a plain-text link? Check out our [documentation](/develop/api-reference/widgets/st.link_button) to see how.
+- 🏃 Announcing the general availability of [`st.rerun`](/develop/api-reference/execution-flow/st.rerun), a command to interrupt your script and trigger an immediate rerun.
 
 **Notable Changes**
 
-- 👻 You can initialize widgets with an empty state by setting `None` as an initial value for [`st.number_input`](/library/api-reference/widgets/st.number_input), [`st.selectbox`](/library/api-reference/widgets/st.selectbox), [`st.date_input`](/library/api-reference/widgets/st.date_input), [`st.time_input`](/library/api-reference/widgets/st.time_input), [`st.radio`](/library/api-reference/widgets/st.radio), [`st.text_input`](/library/api-reference/widgets/st.text_input), and [`st.text_area`](/library/api-reference/widgets/st.text_area)!
-- 📤 [`st.download_button`](/library/api-reference/widgets/st.download_button) now uses `target="_self"` instead of opening a new tab ([#7151](https://github.com/streamlit/streamlit/pull/7151), [#7132](https://github.com/streamlit/streamlit/issues/7132)).
+- 👻 You can initialize widgets with an empty state by setting `None` as an initial value for [`st.number_input`](/develop/api-reference/widgets/st.number_input), [`st.selectbox`](/develop/api-reference/widgets/st.selectbox), [`st.date_input`](/develop/api-reference/widgets/st.date_input), [`st.time_input`](/develop/api-reference/widgets/st.time_input), [`st.radio`](/develop/api-reference/widgets/st.radio), [`st.text_input`](/develop/api-reference/widgets/st.text_input), and [`st.text_area`](/develop/api-reference/widgets/st.text_area)!
+- 📤 [`st.download_button`](/develop/api-reference/widgets/st.download_button) now uses `target="_self"` instead of opening a new tab ([#7151](https://github.com/streamlit/streamlit/pull/7151), [#7132](https://github.com/streamlit/streamlit/issues/7132)).
 - 🧟 Removed unmaintained `pympler` dependency ([#7193](https://github.com/streamlit/streamlit/pull/7193), [#7131](https://github.com/streamlit/streamlit/issues/7131)). Thanks, [rudyardrichter](https://github.com/rudyardrichter)!
 
 **Other Changes**
@@ -268,21 +268,21 @@ _Release date: August 24, 2023_
 
 **Highlights**
 
-- 🤖 Introducing `st.status` to display output from long-running processes and external API calls ([#7140](https://github.com/streamlit/streamlit/pull/7140)). Works great with `st.chat_message`! See our [documentation](/library/api-reference/status/st.status) for how to use this feature.
-- 🚥 Introducing [`st.toggle`](/library/api-reference/widgets/st.toggle) — an alternative to `st.checkbox` when you need an on/off switch.
+- 🤖 Introducing `st.status` to display output from long-running processes and external API calls ([#7140](https://github.com/streamlit/streamlit/pull/7140)). Works great with `st.chat_message`! See our [documentation](/develop/api-reference/status/st.status) for how to use this feature.
+- 🚥 Introducing [`st.toggle`](/develop/api-reference/widgets/st.toggle) — an alternative to `st.checkbox` when you need an on/off switch.
 
 **Notable Changes**
 
-- 🎨 Simple [chart elements](/library/api-reference/charts) have a `color` parameter to set the color of your data points or series ([#7022](https://github.com/streamlit/streamlit/pull/7022)).
-- 🌈 [Markdown](/library/api-reference/text/st.markdown) supports rainbow and gray colors ([#7106](https://github.com/streamlit/streamlit/pull/7106), [#7179](https://github.com/streamlit/streamlit/pull/7179)).
-- 📏 [`st.header`](/library/api-reference/text/st.header) and [`st.subheader`](/library/api-reference/text/st.subheader) have optional, colored dividers ([#7133](https://github.com/streamlit/streamlit/pull/7133)).
-- 🚀 Deploying to Community Cloud is even easier—locally running apps have a [deploy button](/library/advanced-features/app-menu#deploy-this-app) in their toolbars ([#7085](https://github.com/streamlit/streamlit/pull/7085), [#6935](https://github.com/streamlit/streamlit/issues/6935)).
-- 🖌️ [`st.download_button`](/library/api-reference/widgets/st.download_button) has a new parameter `type` for theming ([#7056](https://github.com/streamlit/streamlit/pull/7056), [#7038](https://github.com/streamlit/streamlit/issues/7038)).
-- 🤖 [`st.chat_message`](/library/api-reference/chat/st.chat_message) has ai and human presets for messages ([#7094](https://github.com/streamlit/streamlit/pull/7094)).
-- 💅 [`st.radio`](/library/api-reference/widgets/st.radio) options support markdown and have captions ([#7018](https://github.com/streamlit/streamlit/pull/7018), [#7105](https://github.com/streamlit/streamlit/pull/7105), [#6085](https://github.com/streamlit/streamlit/issues/6085)).
+- 🎨 Simple [chart elements](/develop/api-reference/charts) have a `color` parameter to set the color of your data points or series ([#7022](https://github.com/streamlit/streamlit/pull/7022)).
+- 🌈 [Markdown](/develop/api-reference/text/st.markdown) supports rainbow and gray colors ([#7106](https://github.com/streamlit/streamlit/pull/7106), [#7179](https://github.com/streamlit/streamlit/pull/7179)).
+- 📏 [`st.header`](/develop/api-reference/text/st.header) and [`st.subheader`](/develop/api-reference/text/st.subheader) have optional, colored dividers ([#7133](https://github.com/streamlit/streamlit/pull/7133)).
+- 🚀 Deploying to Community Cloud is even easier—locally running apps have a [deploy button](/develop/concepts/elements-and-ui/app-menu#deploy-this-app) in their toolbars ([#7085](https://github.com/streamlit/streamlit/pull/7085), [#6935](https://github.com/streamlit/streamlit/issues/6935)).
+- 🖌️ [`st.download_button`](/develop/api-reference/widgets/st.download_button) has a new parameter `type` for theming ([#7056](https://github.com/streamlit/streamlit/pull/7056), [#7038](https://github.com/streamlit/streamlit/issues/7038)).
+- 🤖 [`st.chat_message`](/develop/api-reference/chat/st.chat_message) has ai and human presets for messages ([#7094](https://github.com/streamlit/streamlit/pull/7094)).
+- 💅 [`st.radio`](/develop/api-reference/widgets/st.radio) options support markdown and have captions ([#7018](https://github.com/streamlit/streamlit/pull/7018), [#7105](https://github.com/streamlit/streamlit/pull/7105), [#6085](https://github.com/streamlit/streamlit/issues/6085)).
 - 🧼 Assorted visual tweaks ([#7050](https://github.com/streamlit/streamlit/pull/7050), [#894](https://github.com/streamlit/streamlit/issues/894)).
 - 🛏️ Replaced deprecated `imghdr` dependency with `pillow` ([#7081](https://github.com/streamlit/streamlit/pull/7081), [#7027](https://github.com/streamlit/streamlit/issues/7027)).
-- 🔢 [`st.number_input`](/library/api-reference/widgets/st.number_input)'s step buttons (+/-) are ignored during tabbing navigation ([#7154](https://github.com/streamlit/streamlit/pull/7154)). Thanks [@denck007](https://github.com/denck007)!
+- 🔢 [`st.number_input`](/develop/api-reference/widgets/st.number_input)'s step buttons (+/-) are ignored during tabbing navigation ([#7154](https://github.com/streamlit/streamlit/pull/7154)). Thanks [@denck007](https://github.com/denck007)!
 
 **Other Changes**
 
@@ -297,7 +297,7 @@ _Release date: August 24, 2023_
 - 🐜 Bug fix: Tweaked Altair color specification for improved visibility in dark mode ([#7061](https://github.com/streamlit/streamlit/pull/7061), [#3343](https://github.com/streamlit/streamlit/issues/3343)).
 - 🪲 Bug fix: `st.chat_message` can correctly use local images as avatars ([#7130](https://github.com/streamlit/streamlit/pull/7130)).
 - 🐛 Bug fix: Specified that MD5 is not used for security ([#7122](https://github.com/streamlit/streamlit/pull/7122), [#7120](https://github.com/streamlit/streamlit/issues/7120)).
-- 🪄 Bug fix: Async function docstrings are ignored by [Streamlit magic](/library/api-reference/write-magic/magic) ([#7143](https://github.com/streamlit/streamlit/pull/7143), [#7137](https://github.com/streamlit/streamlit/issues/7137)).
+- 🪄 Bug fix: Async function docstrings are ignored by [Streamlit magic](/develop/api-reference/write-magic/magic) ([#7143](https://github.com/streamlit/streamlit/pull/7143), [#7137](https://github.com/streamlit/streamlit/issues/7137)).
 
 ## **Version 1.25.0**
 
@@ -305,14 +305,14 @@ _Release date: July 20, 2023_
 
 **Highlights**
 
-- 🍞 Introducing `st.toast` — a command to briefly show toast messages to users in the bottom-right corner of apps. See [our documentation](/library/api-reference/status/st.toast) on how to use this feature.
+- 🍞 Introducing `st.toast` — a command to briefly show toast messages to users in the bottom-right corner of apps. See [our documentation](/develop/api-reference/status/st.toast) on how to use this feature.
 
 **Notable Changes**
 
-- 🗺️ [`st.map`](/library/api-reference/charts/st.map) now has parameters for `latitude`, `longitude`, `color`, and `size` to customize data points ([#6896](https://github.com/streamlit/streamlit/pull/6896)).
-- 🚩 [`st.multiselect`](/library/api-reference/widgets/st.multiselect) supports setting placeholders and specifying the maximum number of selections via the `placeholder` and `max_selections` keyword-only arguments, respectively ([#6901](https://github.com/streamlit/streamlit/pull/6901), [#4750](https://github.com/streamlit/streamlit/issues/4750)). Thanks, [@fhiroki](https://github.com/fhiroki)!
+- 🗺️ [`st.map`](/develop/api-reference/charts/st.map) now has parameters for `latitude`, `longitude`, `color`, and `size` to customize data points ([#6896](https://github.com/streamlit/streamlit/pull/6896)).
+- 🚩 [`st.multiselect`](/develop/api-reference/widgets/st.multiselect) supports setting placeholders and specifying the maximum number of selections via the `placeholder` and `max_selections` keyword-only arguments, respectively ([#6901](https://github.com/streamlit/streamlit/pull/6901), [#4750](https://github.com/streamlit/streamlit/issues/4750)). Thanks, [@fhiroki](https://github.com/fhiroki)!
 - 📅 Customize the date format for `st.date_input` with the `format` parameter ([#6974](https://github.com/streamlit/streamlit/pull/6974), [#5234](https://github.com/streamlit/streamlit/issues/5234)).
-- ↩️ [Forms](/library/api-reference/control-flow/st.form) can now be submitted with Enter/Return while inside [`st.text_input`](/library/api-reference/widgets/st.text_input), [`st.number_input`](/library/api-reference/widgets/st.number_input), or [`st.text_area`](/library/api-reference/widgets/st.text_area) ([#6911](https://github.com/streamlit/streamlit/pull/6911), [#3790](https://github.com/streamlit/streamlit/issues/3790)).
+- ↩️ [Forms](/develop/api-reference/execution-flow/st.form) can now be submitted with Enter/Return while inside [`st.text_input`](/develop/api-reference/widgets/st.text_input), [`st.number_input`](/develop/api-reference/widgets/st.number_input), or [`st.text_area`](/develop/api-reference/widgets/st.text_area) ([#6911](https://github.com/streamlit/streamlit/pull/6911), [#3790](https://github.com/streamlit/streamlit/issues/3790)).
 - 🍢 The app menu icon in the upper-right corner of apps has been changed from "**☰**" to "**⋮**" ([#6947](https://github.com/streamlit/streamlit/pull/6947)).
 
 **Other Changes**
@@ -332,8 +332,8 @@ _Release date: June 27, 2023_
 
 **Highlights**
 
-- 💬 Introducing `st.chat_message` and `st.chat_input` — two new [chat elements](/library/api-reference/chat) that let you build conversational apps. Learn how to use these features in your LLM-powered chat apps in our [tutorial](/knowledge-base/tutorials/build-conversational-apps).
-- 💾 Streamlit's caching decorators now allow you to customize Streamlit's hashing of input parameters with the keyword-only argument [`hash_funcs`](/library/advanced-features/caching#the-hash_funcs-parameter).
+- 💬 Introducing `st.chat_message` and `st.chat_input` — two new [chat elements](/develop/api-reference/chat) that let you build conversational apps. Learn how to use these features in your LLM-powered chat apps in our [tutorial](/develop/tutorials/llms/build-conversational-apps).
+- 💾 Streamlit's caching decorators now allow you to customize Streamlit's hashing of input parameters with the keyword-only argument [`hash_funcs`](/develop/concepts/execution-model/caching#the-hash_funcs-parameter).
 
 **Notable Changes**
 
@@ -358,15 +358,15 @@ _Release date: June 1, 2023_
 
 **Highlights**
 
-- ✂️ Announcing the general availability of [st.data_editor](/library/api-reference/data/st.data_editor), a widget that allows you to edit DataFrames and many other data structures in a table-like UI. **Breaking change:** the data editor's representation used in `st.session_state` was altered. Find out more about the new format in [Access edited data](/library/advanced-features/dataframes#access-edited-data).
-- ⚙️ Introducing the [Column configuration API](/library/api-reference/data/st.column_config) with a suite of methods to configure the display and editing behavior of `st.dataframe` and `st.data_editor` columns (e.g. their title, visibility, type, or format). Keep an eye out for a detailed [blog post](https://blog.streamlit.io/) and in-depth [documentation](/library/advanced-features/dataframes#configuring-columns) upcoming in the next two weeks.
-- 🔌 Learn to use `st.experimental_connection` to create and manage data connections in your apps with the new [Connecting to data](/library/advanced-features/connecting-to-data) docs and [video tutorial](https://www.youtube.com/watch?v=xQwDfW7UHMo).
+- ✂️ Announcing the general availability of [st.data_editor](/develop/api-reference/data/st.data_editor), a widget that allows you to edit DataFrames and many other data structures in a table-like UI. **Breaking change:** the data editor's representation used in `st.session_state` was altered. Find out more about the new format in [Access edited data](/develop/concepts/elements-and-ui/dataframes#access-edited-data).
+- ⚙️ Introducing the [Column configuration API](/develop/api-reference/data/st.column_config) with a suite of methods to configure the display and editing behavior of `st.dataframe` and `st.data_editor` columns (e.g. their title, visibility, type, or format). Keep an eye out for a detailed [blog post](https://blog.streamlit.io/) and in-depth [documentation](/develop/concepts/elements-and-ui/dataframes#configuring-columns) upcoming in the next two weeks.
+- 🔌 Learn to use `st.experimental_connection` to create and manage data connections in your apps with the new [Connecting to data](/develop/concepts/connections/connecting-to-data) docs and [video tutorial](https://www.youtube.com/watch?v=xQwDfW7UHMo).
 
 **Notable Changes**
 
 - 📊 Streamlit now supports Protobuf 4 and Altair 5 ([#6215](https://github.com/streamlit/streamlit/issues/6215), [#6618](https://github.com/streamlit/streamlit/pull/6618), [#5626](https://github.com/streamlit/streamlit/issues/5626), [#6622](https://github.com/streamlit/streamlit/pull/6622)).
 - ☎️ st.dataframe and st.data_editor can hide index columns with `hide_index`, specify the display order of columns with `column_order`, and disable editing for individual columns with the `disabled` parameter.
-- ⏱️ The `ttl` parameter in [st.cache_data](/library/api-reference/performance/st.cache_data) and [st.cache_resource](/library/api-reference/performance/st.cache_resource) accepts formatted strings, so you can simply say `ttl="30d"`, `ttl="1h30m"` and any other combination of `w`, `d`, `h`, `m`, `s` supported by [Pandas's Timedelta constructor](https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.html) ([#6560](https://github.com/streamlit/streamlit/pull/6560)).
+- ⏱️ The `ttl` parameter in [st.cache_data](/develop/api-reference/caching-and-state/st.cache_data) and [st.cache_resource](/develop/api-reference/caching-and-state/st.cache_resource) accepts formatted strings, so you can simply say `ttl="30d"`, `ttl="1h30m"` and any other combination of `w`, `d`, `h`, `m`, `s` supported by [Pandas's Timedelta constructor](https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.html) ([#6560](https://github.com/streamlit/streamlit/pull/6560)).
 - 📂 `st.file_uploader` now interprets the `type` parameter more accurately. For example, "jpg" or ".jpg" now accept both "jpg" and "jpeg" extensions. This functionality has also been extended to "mpeg/mpg", "tiff/tif", "html/htm", and "mpeg4/mp4".
 - 🤫 The new `global.disableWidgetStateDuplicationWarning` configuration option allows the silencing of warnings triggered by setting widget default values and keyed session state values concurrently ([#3605](https://github.com/streamlit/streamlit/issues/3605), [#6640](https://github.com/streamlit/streamlit/pull/6640)). Thanks, [@antonAce](https://github.com/antonAce)!
 
@@ -402,12 +402,12 @@ _Release date: April 27, 2023_
 
 **Highlights**
 
-- 🔌 Introducing `st.experimental_connection`: Easily connect your app to data sources and APIs using our new connection feature. Find more details in the [API reference](/library/api-reference/connections), and stay tuned for an upcoming blog post and in-depth documentation! In the meantime, explore our updated [MySQL](/knowledge-base/tutorials/databases/mysql) and [Snowflake](/knowledge-base/tutorials/databases/snowflake) connection tutorials for examples of this feature.
+- 🔌 Introducing `st.experimental_connection`: Easily connect your app to data sources and APIs using our new connection feature. Find more details in the [API reference](/develop/api-reference/connections), and stay tuned for an upcoming blog post and in-depth documentation! In the meantime, explore our updated [MySQL](/develop/tutorials/databases/mysql) and [Snowflake](/develop/tutorials/databases/snowflake) connection tutorials for examples of this feature.
 
 **Notable Changes**
 
 - 🐼 Streamlit now supports Pandas 2.0 ([#6413](https://github.com/streamlit/streamlit/issues/6413), [#6378](https://github.com/streamlit/streamlit/pull/6378), [#6507](https://github.com/streamlit/streamlit/pull/6507)). Thanks, [connortann](https://github.com/connortann)!
-- 🍔 Customize the visibility of items in the toolbar, options menu, and the settings dialog using the `client.toolbarMode` [config option](https://docs.streamlit.io/library/advanced-features/configuration#view-all-configuration-options) ([#6174](https://github.com/streamlit/streamlit/pull/6174)).
+- 🍔 Customize the visibility of items in the toolbar, options menu, and the settings dialog using the `client.toolbarMode` [config option](https://docs.streamlit.io/develop/concepts/configuration#view-all-configuration-options) ([#6174](https://github.com/streamlit/streamlit/pull/6174)).
 - 🪵 Streamlit logs now reside in the "streamlit" namespace instead of the root logger, enabling app developers to better manage log handling ([#3978](https://github.com/streamlit/streamlit/issues/3978), [#6377](https://github.com/streamlit/streamlit/pull/6377)).
 
 **Other Changes**
@@ -426,21 +426,21 @@ _Release date: April 6, 2023_
 
 **Highlights**
 
-- 📏 Introducing `st.divider` — a command that displays a horizontal line in your app. Learn how to use this command in its [API reference](/library/api-reference/text/st.divider).
-- 🔏 Streamlit now supports the use of a global `secrets.toml` file, in addition to a project-level file, to easily store and securely access your secrets. Learn more in [Secrets management](/library/advanced-features/secrets-management).
-- 🚀 [st.help](/library/api-reference/utilities/st.help) has been revamped to show more information about object methods, attributes, classes, and more, which is great for debugging ([#5857](https://github.com/streamlit/streamlit/pull/5857), [#6382](https://github.com/streamlit/streamlit/pull/6382))!
+- 📏 Introducing `st.divider` — a command that displays a horizontal line in your app. Learn how to use this command in its [API reference](/develop/api-reference/text/st.divider).
+- 🔏 Streamlit now supports the use of a global `secrets.toml` file, in addition to a project-level file, to easily store and securely access your secrets. Learn more in [Secrets management](/develop/concepts/connections/secrets-management).
+- 🚀 [st.help](/develop/api-reference/utilities/st.help) has been revamped to show more information about object methods, attributes, classes, and more, which is great for debugging ([#5857](https://github.com/streamlit/streamlit/pull/5857), [#6382](https://github.com/streamlit/streamlit/pull/6382))!
 
 **Notable Changes**
 
-- 🪜 [st.time_input](/library/api-reference/widgets/st.time_input) supports adding a stepping interval with the keyword-only `step` parameter ([#6071](https://github.com/streamlit/streamlit/pull/6071)).
-- ❓ Most [text elements](/library/api-reference/text) can include tooltips with the `help` parameter ([#6043](https://github.com/streamlit/streamlit/pull/6043)).
-- ↔️ [st.pyplot](/library/api-reference/charts/st.pyplot) has a `use_container_width` parameter to set the chart to the container width (now all [chart elements](/library/api-reference/charts) support this parameter) ([#6067](https://github.com/streamlit/streamlit/pull/6067)).
-- 👩‍💻 [st.code](/library/api-reference/text/st.code) supports optionally displaying line numbers to the code block's left with the boolean `line_numbers` parameter ([#5756](https://github.com/streamlit/streamlit/issues/5756), [#6042](https://github.com/streamlit/streamlit/pull/6042)).
+- 🪜 [st.time_input](/develop/api-reference/widgets/st.time_input) supports adding a stepping interval with the keyword-only `step` parameter ([#6071](https://github.com/streamlit/streamlit/pull/6071)).
+- ❓ Most [text elements](/develop/api-reference/text) can include tooltips with the `help` parameter ([#6043](https://github.com/streamlit/streamlit/pull/6043)).
+- ↔️ [st.pyplot](/develop/api-reference/charts/st.pyplot) has a `use_container_width` parameter to set the chart to the container width (now all [chart elements](/develop/api-reference/charts) support this parameter) ([#6067](https://github.com/streamlit/streamlit/pull/6067)).
+- 👩‍💻 [st.code](/develop/api-reference/text/st.code) supports optionally displaying line numbers to the code block's left with the boolean `line_numbers` parameter ([#5756](https://github.com/streamlit/streamlit/issues/5756), [#6042](https://github.com/streamlit/streamlit/pull/6042)).
 - ⚓ Anchors in header elements can be turned off by setting `anchor=False` ([#6158](https://github.com/streamlit/streamlit/pull/6158)).
 
 **Other Changes**
 
-- 🐼 [st.table](/library/api-reference/data/st.table) and [st.dataframe](/library/api-reference/data/st.dataframe) support `pandas.Period`, and number and boolean types in categorical columns ([#2547](https://github.com/streamlit/streamlit/issues/2547), [#5429](https://github.com/streamlit/streamlit/pull/5429), [#5329](https://github.com/streamlit/streamlit/issues/5392), [#6248](https://github.com/streamlit/streamlit/pull/6248)).
+- 🐼 [st.table](/develop/api-reference/data/st.table) and [st.dataframe](/develop/api-reference/data/st.dataframe) support `pandas.Period`, and number and boolean types in categorical columns ([#2547](https://github.com/streamlit/streamlit/issues/2547), [#5429](https://github.com/streamlit/streamlit/pull/5429), [#5329](https://github.com/streamlit/streamlit/issues/5392), [#6248](https://github.com/streamlit/streamlit/pull/6248)).
 - 🕸️ Added `.webp` to the list of allowed static file extensions ([#6331](https://github.com/streamlit/streamlit/pull/6331))
 - 🐞 Bug fix: stop script execution on websocket close to immediately clear session information ([#6166](https://github.com/streamlit/streamlit/issues/6166), [#6204](https://github.com/streamlit/streamlit/pull/6204)).
 - 🐜 Bug fixes: updated allowed/disallowed label markdown behavior such that unsupported elements are unwrapped and only their children (text contents) render ([#5872](https://github.com/streamlit/streamlit/issues/5872), [#6036](https://github.com/streamlit/streamlit/issues/6036), [#6054](https://github.com/streamlit/streamlit/issues/6054), [#6163](https://github.com/streamlit/streamlit/pull/6163)).
@@ -457,9 +457,9 @@ _Release date: March 09, 2023_
 
 **Notable Changes**
 
-- 🔐 Added support for configuring SSL to [serve apps directly over HTTPS](/library/advanced-features/https-support) ([#5969](https://github.com/streamlit/streamlit/pull/5969)).
-- 🖼️ Granular control over app embedding behavior with the `/?embed` and `/?embed_options` query parameters. Learn how to use this feature in our [docs](/streamlit-community-cloud/share-your-app/embed-your-app) ([#6011](https://github.com/streamlit/streamlit/pull/6011), [#6019](https://github.com/streamlit/streamlit/pull/6019)).
-- ⚡ Enabled the `runner.fastReruns` [configuration option](/library/advanced-features/configuration#view-all-configuration-options) by default to make apps much more responsive to user interaction ([#6200](https://github.com/streamlit/streamlit/pull/6200)).
+- 🔐 Added support for configuring SSL to [serve apps directly over HTTPS](/develop/concepts/configuration/https-support) ([#5969](https://github.com/streamlit/streamlit/pull/5969)).
+- 🖼️ Granular control over app embedding behavior with the `/?embed` and `/?embed_options` query parameters. Learn how to use this feature in our [docs](/deploy/streamlit-community-cloud/share-your-app/embed-your-app) ([#6011](https://github.com/streamlit/streamlit/pull/6011), [#6019](https://github.com/streamlit/streamlit/pull/6019)).
+- ⚡ Enabled the `runner.fastReruns` [configuration option](/develop/concepts/configuration#view-all-configuration-options) by default to make apps much more responsive to user interaction ([#6200](https://github.com/streamlit/streamlit/pull/6200)).
 
 **Other Changes**
 
@@ -478,7 +478,7 @@ _Release date: February 23, 2023_
 
 **Highlights**
 
-- ✂️ Introducing `st.experimental_data_editor`, a widget that allows you to edit DataFrames and many other data structures in a table-like UI. Read more in our [documentation](/library/advanced-features/dataframes) and [blog post](https://blog.streamlit.io/editable-dataframes-are-here/).
+- ✂️ Introducing `st.experimental_data_editor`, a widget that allows you to edit DataFrames and many other data structures in a table-like UI. Read more in our [documentation](/develop/concepts/elements-and-ui/dataframes) and [blog post](https://blog.streamlit.io/editable-dataframes-are-here/).
 
 **Other Changes**
 
@@ -496,7 +496,7 @@ _Release date: February 09, 2023_
 
 **Highlights**
 
-- 🎊 Introducing `@st.cache_data` and `@st.cache_resource` — two new caching commands to replace `st.cache`! Check out our [blog post](https://blog.streamlit.io/p/c0a90231-9848-47ec-a40c-ad4a344e4de1/) and [documentation](/library/advanced-features/caching) for more information.
+- 🎊 Introducing `@st.cache_data` and `@st.cache_resource` — two new caching commands to replace `st.cache`! Check out our [blog post](https://blog.streamlit.io/p/c0a90231-9848-47ec-a40c-ad4a344e4de1/) and [documentation](/develop/concepts/execution-model/caching) for more information.
 
 **Notable Changes**
 
@@ -505,7 +505,7 @@ _Release date: February 09, 2023_
 - ↔️ `st.button` has an optional `use_container_width` parameter to allow you to stretch buttons across the full container width.
 - 🐍 We formally added support for Python 3.11.
 - 🖨️ Save your app as a PDF via the "Print" option in your app's hamburger menu.
-- 🛎️ Apps can serve small, static media files via the `enableStaticServing` config option. See our [documentation](/library/advanced-features/static-file-serving) on how to use this feature and our demo [app](https://static-file-serving.streamlit.app/) for an example.
+- 🛎️ Apps can serve small, static media files via the `enableStaticServing` config option. See our [documentation](/develop/concepts/configuration/static-file-serving) on how to use this feature and our demo [app](https://static-file-serving.streamlit.app/) for an example.
 
 **Other Changes**
 
@@ -527,8 +527,8 @@ _Release date: January 12, 2023_
 
 **Notable Changes**
 
-- 🪄 [`@st.experimental_singleton`](/library/api-reference/performance/st.experimental_singleton#validating-the-cache) supports an optional `validate` parameter that accepts a validation function for cached data and is called each time the cached value is accessed.
-- 💾  [`@st.experimental_memo`](https://docs.streamlit.io/library/api-reference/performance/st.experimental_memo)'s `persist` parameter can also accept booleans.
+- 🪄 [`@st.experimental_singleton`](/develop/api-reference/caching-and-state/st.experimental_singleton#validating-the-cache) supports an optional `validate` parameter that accepts a validation function for cached data and is called each time the cached value is accessed.
+- 💾  [`@st.experimental_memo`](https://docs.streamlit.io/develop/api-reference/caching-and-state/st.experimental_memo)'s `persist` parameter can also accept booleans.
 
 **Other Changes**
 
@@ -544,19 +544,19 @@ _Release date: December 14, 2022_
 **Highlights**
 
 - 👩‍🎨 Introducing a new Streamlit theme for Altair, Plotly, and Vega-Lite charts! Check out our [blog post](https://blog.streamlit.io/a-new-streamlit-theme-for-altair-and-plotly/) for more information.
-- 🎨 Streamlit now supports colored text in all commands that accept Markdown, including `st.markdown`, `st.header`, and more. Learn more in our [documentation](/library/api-reference/text/st.markdown).
+- 🎨 Streamlit now supports colored text in all commands that accept Markdown, including `st.markdown`, `st.header`, and more. Learn more in our [documentation](/develop/api-reference/text/st.markdown).
 
 **Notable Changes**
 
 - 🔁 Functions cached with `st.experimental_memo` or `st.experimental_singleton` can contain Streamlit media elements and forms.
 - ⛄ All Streamlit commands that accept pandas DataFrames as input also support Snowpark and PySpark DataFrames.
-- 🏷 [st.checkbox](/library/api-reference/widgets/st.checkbox) and [st.metric](/library/api-reference/data/st.metric) can customize how to hide their labels with the `label_visibility` parameter.
+- 🏷 [st.checkbox](/develop/api-reference/widgets/st.checkbox) and [st.metric](/develop/api-reference/data/st.metric) can customize how to hide their labels with the `label_visibility` parameter.
 
 **Other Changes**
 
 - 🗺️ `st.map` improvements: support for upper case columns and better exception messages ([#5679](https://github.com/streamlit/streamlit/pull/5679), [#5792](https://github.com/streamlit/streamlit/pull/5792)).
 - 🐞 Bug fix: `st.plotly_chart` respects the figure's height attribute and the `use_container_width` parameter ([#5779](https://github.com/streamlit/streamlit/pull/5779)).
-- 🪲 Bug fix: all commands with the `icon` parameter such as [st.error](/library/api-reference/status/st.error), [st.warning](/library/api-reference/status/st.warning), etc, can contain emojis with variant selectors ([#5583](https://github.com/streamlit/streamlit/pull/5583)).
+- 🪲 Bug fix: all commands with the `icon` parameter such as [st.error](/develop/api-reference/status/st.error), [st.warning](/develop/api-reference/status/st.warning), etc, can contain emojis with variant selectors ([#5583](https://github.com/streamlit/streamlit/pull/5583)).
 - 🐝 Bug fix: prevent `st.camera_input` from jittering when resizing the browser window ([#5661](https://github.com/streamlit/streamlit/pull/5711)).
 - 🐜 Bug fix: update exception layout to avoid overflow of stack traces ([#5700](https://github.com/streamlit/streamlit/pull/5700)).
 
@@ -566,8 +566,8 @@ _Release date: November 17, 2022_
 
 **Notable Changes**
 
-- 💅 Widget labels can contain inline Markdown. See our [docs](https://docs.streamlit.io/library/api-reference/widgets) and demo [app](https://markdown-labels.streamlit.app/) for more info.
-- 🎵 [`st.audio`](/library/api-reference/media/st.audio) now supports playing audio data passed in as NumPy arrays with the keyword-only `sample_rate` parameter.
+- 💅 Widget labels can contain inline Markdown. See our [docs](https://docs.streamlit.io/develop/api-reference/widgets) and demo [app](https://markdown-labels.streamlit.app/) for more info.
+- 🎵 [`st.audio`](/develop/api-reference/media/st.audio) now supports playing audio data passed in as NumPy arrays with the keyword-only `sample_rate` parameter.
 - 🔁 Functions cached with `st.experimental_memo` or `st.experimental_singleton` can contain Streamlit widgets using the `experimental_allow_widgets` parameter. This allows caching checkboxes, sliders, radio buttons, and more!
 
 **Other Changes**
@@ -659,7 +659,7 @@ _Release date: July 14, 2022_
 
 **Highlights**
 
-- 🗂 Introducing `st.tabs` to have tab containers in your app. See our [documentation](/library/api-reference/layout/st.tabs) on how to use this feature.
+- 🗂 Introducing `st.tabs` to have tab containers in your app. See our [documentation](/develop/api-reference/layout/st.tabs) on how to use this feature.
 
 **Notable Changes**
 
@@ -864,7 +864,7 @@ _Release date: Sep 22, 2021_
 - 💅 We updated our UI to a more polished look with a new font.
 - 🎨 We now support `theme.base` in the theme object when it's sent to custom components.
 - 🧠 We've modified session state to reset widgets if any of their arguments changed even if they provide a key.
-  - Some widget behavior may have changed, but we believe this change makes the most sense. We have added a section to [our documentation](/library/advanced-features/widget-semantics) describing how they behave.
+  - Some widget behavior may have changed, but we believe this change makes the most sense. We have added a section to [our documentation](/develop/concepts/widget-semantics) describing how they behave.
 
 **Other Changes**
 
@@ -1477,10 +1477,10 @@ _Release date: November 10, 2019_
 **Highlights:**
 
 - 👩‍🎓 SymPy support and ability to draw mathematical expressions using LaTeX! See
-  [`st.latex`](/library/api-reference/text/st.latex),
-  [`st.markdown`](/library/api-reference/text/st.markdown),
+  [`st.latex`](/develop/api-reference/text/st.latex),
+  [`st.markdown`](/develop/api-reference/text/st.markdown),
   and
-  [`st.write`](/library/api-reference/write-magic/st.write).
+  [`st.write`](/develop/api-reference/write-magic/st.write).
 - 🌄 You can now set config options using environment variables. For example,
   `export STREAMLIT_SERVER_PORT=9876`.
 - 🐱 Ability to call `streamlit run` directly with Github and Gist URLs. No

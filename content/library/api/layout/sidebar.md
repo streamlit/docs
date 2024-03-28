@@ -1,6 +1,6 @@
 ---
 title: st.sidebar
-slug: /library/api-reference/layout/st.sidebar
+slug: /develop/api-reference/layout/st.sidebar
 description: st.sidebar displays items in a sidebar.
 ---
 
@@ -56,7 +56,7 @@ The only elements that aren't supported using object notation are `st.echo`, `st
 
 </Important>
 
-Here's an example of how you'd add [`st.echo`](/library/api-reference/utilities/st.echo) and [`st.spinner`](/library/api-reference/status/st.spinner) to your sidebar:
+Here's an example of how you'd add [`st.echo`](/develop/api-reference/text/st.echo) and [`st.spinner`](/develop/api-reference/status/st.spinner) to your sidebar:
 
 ```python
 import streamlit as st

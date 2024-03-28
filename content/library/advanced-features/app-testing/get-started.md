@@ -1,6 +1,6 @@
 ---
 title: Get started with app testing
-slug: /library/advanced-features/app-testing/get-started
+slug: /develop/concepts/app-testing/get-started
 ---
 
 # Get started with app testing
@@ -149,11 +149,11 @@ pytest tests/
 
 Now that you understand the basics of `pytest` let's dive into using Streamlit's app testing framework. Every test begins with initializing and running your simulated app. Additional commands are used to retrieve, manipulate, and inspect elements.
 
-On the next page, we'll go [Beyond the basics](/library/advanced-features/app-testing/beyond-the-basics) and cover more advanced scenarios like working with secrets, Session State, or multipage apps.
+On the next page, we'll go [Beyond the basics](/develop/concepts/app-testing/beyond-the-basics) and cover more advanced scenarios like working with secrets, Session State, or multipage apps.
 
 ### How to initialize and run a simulated app
 
-To test a Streamlit app, you must first initialize an instance of [`AppTest`](/library/api-reference/app-testing/st.testing.v1.apptest) with the code for one page of your app. There are three methods for initializing a simulated app. These are provided as class methods to `AppTest`. We will focus on `AppTest.from_file()` which allows you to provide a path to a page of your app. This is the most common scenario for building automated tests during app development. `AppTest.from_string()` and `AppTest.from_function()` may be helpful for some simple or experimental scenarios.
+To test a Streamlit app, you must first initialize an instance of [`AppTest`](/develop/api-reference/app-testing/st.testing.v1.apptest) with the code for one page of your app. There are three methods for initializing a simulated app. These are provided as class methods to `AppTest`. We will focus on `AppTest.from_file()` which allows you to provide a path to a page of your app. This is the most common scenario for building automated tests during app development. `AppTest.from_string()` and `AppTest.from_function()` may be helpful for some simple or experimental scenarios.
 
 Let's continue with the [example from above](#example-project-with-app-testing).
 
@@ -196,7 +196,7 @@ The attributes of the `AppTest` class return sequences of elements. The elements
 
 Each attribute of `AppTest` returns a sequence of the associated element type. Specific elements can be retrieved by index. In the above example, `at.number_input` returns a sequence of all `st.number_input` elements in the app. Thus, `at.number_input[0]` is the first such element in the app. Similarly, `at.markdown` returns a collection of all `st.markdown` elements where `at.markdown[0]` is the first such element.
 
-Check out the current list of supported elements in the "Attributes" section of the [`AppTest`](/library/api-reference/app-testing/st.testing.v1.apptest) class or the [App testing cheat sheet](/library/advanced-features/app-testing/cheat-sheet). You can also use the `.get()` method and pass the attribute's name. `at.get("number_input")` and `at.get("markdown")` are equivalent to `at.number_input` and `at.markdown`, respectively.
+Check out the current list of supported elements in the "Attributes" section of the [`AppTest`](/develop/api-reference/app-testing/st.testing.v1.apptest) class or the [App testing cheat sheet](/develop/concepts/app-testing/cheat-sheet). You can also use the `.get()` method and pass the attribute's name. `at.get("number_input")` and `at.get("markdown")` are equivalent to `at.number_input` and `at.markdown`, respectively.
 
 The returned sequence of elements is ordered by appearance on the page. If containers are used to insert elements in a different order, these sequences may not match the order within your code. Consider the following example where containers are used to switch the order of two buttons on the page:
 
@@ -241,7 +241,7 @@ For `AppTest.columns` and `AppTest.tabs`, a sequence of containers is returned. 
 
 ### How to manipulate widgets
 
-All widgets have a universal `.set_value()` method. Additionally, many widgets have specific methods for manipulating their value. The names of [Testing element classes](/library/api-reference/app-testing/testing-element-classes) closely match the names of the `AppTest` attributes. For example, look at the return type of [`AppTest.button`](/library/api-reference/app-testing/st.testing.v1.apptest#apptestbutton) to see the corresponding class of [`Button`](/library/api-reference/app-testing/testing-element-classes#sttestingv1element_treebutton). Aside from setting the value of a button with `.set_value()`, you can also use `.click()`. Check out each testing element class for its specific methods.
+All widgets have a universal `.set_value()` method. Additionally, many widgets have specific methods for manipulating their value. The names of [Testing element classes](/develop/api-reference/app-testing/testing-element-classes) closely match the names of the `AppTest` attributes. For example, look at the return type of [`AppTest.button`](/develop/api-reference/app-testing/st.testing.v1.apptest#apptestbutton) to see the corresponding class of [`Button`](/develop/api-reference/app-testing/testing-element-classes#sttestingv1element_treebutton). Aside from setting the value of a button with `.set_value()`, you can also use `.click()`. Check out each testing element class for its specific methods.
 
 ### How to inspect elements
 
@@ -267,6 +267,6 @@ assert at.selectbox[0].disabled == False
 
 <Tip>
 
-Note that the `options` for `st.selectbox` were declared as integers but asserted as strings. As noted in the documentation for [`st.selectbox`](/library/api-reference/widgets/st.selectbox), options are cast internally to strings. If you ever find yourself getting unexpected results, check the documentation carefully for any notes about recasting types internally.
+Note that the `options` for `st.selectbox` were declared as integers but asserted as strings. As noted in the documentation for [`st.selectbox`](/develop/api-reference/widgets/st.selectbox), options are cast internally to strings. If you ever find yourself getting unexpected results, check the documentation carefully for any notes about recasting types internally.
 
 </Tip>

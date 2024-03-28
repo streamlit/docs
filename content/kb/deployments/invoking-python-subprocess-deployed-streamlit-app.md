@@ -23,7 +23,7 @@ subprocess.run(["python", "script.py"])
 
 When you run the above code block, you will get the version of Python that is on the system path—not necessarily the Python executable installed in the virtual environment that the Streamlit code is running under.
 
-The solution is to detect the Python executable directly with [`sys.executable`](https://docs.python.org/3/library/sys.html#sys.executable):
+The solution is to detect the Python executable directly with [`sys.executable`](https://docs.python.org/3/develop/sys.html#sys.executable):
 
 ```python
 # streamlit_app.py
@@ -34,10 +34,10 @@ import sys
 subprocess.run([f"{sys.executable}", "script.py"])
 ```
 
-This ensures that `script.py` is running under the same Python executable as your Streamlit code—where your [Python dependencies](/streamlit-community-cloud/deploy-your-app/app-dependencies#add-python-dependencies) are installed.
+This ensures that `script.py` is running under the same Python executable as your Streamlit code—where your [Python dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies#add-python-dependencies) are installed.
 
 ### Relevant links
 
 - https://stackoverflow.com/questions/69947867/run-portion-of-python-code-in-parallel-from-a-streamlit-app/69948545#69948545
 - https://discuss.streamlit.io/t/modulenotfounderror-no-module-named-cv2-streamlit/18319/3?u=snehankekre
-- https://docs.python.org/3/library/sys.html#sys.executable
+- https://docs.python.org/3/develop/sys.html#sys.executable

@@ -49,8 +49,8 @@ warehouse = "[MYWAREHOUSE]"
     """
 
 """
-- View the [API Reference for SnowparkConnection](https://docs.streamlit.io/library/api-reference/connections/st.connections.snowparkconnection).
-- View the [tutorial for connecting Streamlit to Snowflake](https://docs.streamlit.io/knowledge-base/tutorials/databases/snowflake).
+- View the [API Reference for SnowparkConnection](https://docs.streamlit.io/develop/api-reference/connections/st.connections.snowparkconnection).
+- View the [tutorial for connecting Streamlit to Snowflake](https://docs.streamlit.io/develop/tutorials/databases/snowflake).
 """
 
 run_the_code = st.checkbox("Try running the code (requires local snowflake creds)")
