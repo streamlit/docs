@@ -1,5 +1,5 @@
 .Container {
-  @apply text-sm tracking-tight dark:text-gray-40 mb-2;
+  @apply text-sm tracking-tight dark:text-gray-40 mb-3;
 }
 
 .ContainerZero {
@@ -7,22 +7,22 @@
 }
 
 .ContainerOne {
-  @apply mb-3;
+  @apply mb-3.5;
 }
 
 .ContainerTwo {
-  @apply mb-2;
+  @apply mb-3;
 }
 
 .List {
-  @apply list-none mt-2;
+  @apply list-none mt-3;
 }
 
 .ListZero {
-  @apply mt-3;
+  @apply mt-3.5;
 }
 .ListOne {
-  @apply mt-2;
+  @apply mt-3;
 }
 
 .Accordion {
