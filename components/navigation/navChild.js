@@ -6,7 +6,7 @@ import useVersion from "../../lib/useVersion.js";
 
 import styles from "./navChild.module.css";
 
-const NavChild = ({ slug, page, color, className }) => {
+const NavChild = ({ slug, page, color, className, depth }) => {
   const [manualState, setManualState] = useState(null);
   const version = useVersion();
 
@@ -31,7 +31,7 @@ const NavChild = ({ slug, page, color, className }) => {
   const visibleItems = page.children.filter((child) => child.visible !== false);
   if (page.children?.length > 0 && visibleItems.length > 0 && opened) {
     subNav = (
-      <ul className={styles.List}>
+      <ul className={classNames(styles.List, LIST_DEPTH[depth])}>
         {page.children
           .filter((child) => child.visible !== false)
           .map((child) => (
@@ -143,7 +143,13 @@ const NavChild = ({ slug, page, color, className }) => {
   }
 
   return (
-    <li className={classNames(styles.Container, className)}>
+    <li
+      className={classNames(
+        styles.Container,
+        CONTAINER_DEPTH[depth],
+        className,
+      )}
+    >
       {navElement}
       {subNav}
     </li>
@@ -161,6 +167,19 @@ const CIRCLE_CLASS = {
   "indigo-70": styles.IndigoCircle,
   "gray-70": styles.GrayCircle,
   unset: styles.TransparentCircle,
+};
+
+const CONTAINER_DEPTH = {
+  11: styles.ContainerZero,
+  21: styles.ContainerOne,
+  31: styles.ContainerTwo,
+  unset: styles.ContainerTwo,
+};
+
+const LIST_DEPTH = {
+  11: styles.ListZero,
+  21: styles.ListOne,
+  unset: styles.ListOne,
 };
 
 export default NavChild;
