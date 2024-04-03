@@ -1,9 +1,9 @@
 ---
-title: Get started
+title: Get started with Streamlit Community Cloud
 slug: /deploy/streamlit-community-cloud/get-started
 ---
 
-# Get started
+# Get started with Streamlit Community Cloud
 
 Welcome to Streamlit Community Cloud, where you can share your Streamlit apps with the world! Whether you've already created your first Streamlit app or you're just getting started, you're in the right place.
 

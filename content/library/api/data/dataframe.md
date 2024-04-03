@@ -6,7 +6,7 @@ description: st.dataframe displays a dataframe as an interactive table.
 
 <Tip>
 
-This page only contains information on the `st.dataframe` API. For an overview of working with dataframes read [Dataframes](/develop/concepts/elements-and-ui/dataframes). If you want to let users interactively edit dataframes, check out [`st.data_editor`](/develop/api-reference/data/st.data_editor).
+This page only contains information on the `st.dataframe` API. For an overview of working with dataframes read [Dataframes](/develop/concepts/design/dataframes). If you want to let users interactively edit dataframes, check out [`st.data_editor`](/develop/api-reference/data/st.data_editor).
 
 </Tip>
 
@@ -46,7 +46,7 @@ st.dataframe(df, use_container_width=st.session_state.use_container_width)
 
 ### Interactivity
 
-Dataframes displayed with `st.dataframe` are interactive. End users can sort, resize, search, and copy data to their clipboard. For on overview of features, read our [Dataframes](/develop/concepts/elements-and-ui/dataframes#additional-ui-features) guide.
+Dataframes displayed with `st.dataframe` are interactive. End users can sort, resize, search, and copy data to their clipboard. For on overview of features, read our [Dataframes](/develop/concepts/design/dataframes#additional-ui-features) guide.
 
 ### Configuring columns
 

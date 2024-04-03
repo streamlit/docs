@@ -1,9 +1,9 @@
 ---
-title: Managing secrets
+title: Managing secrets when deploying your app
 slug: /deploy/concepts/secrets
 ---
 
-# Managing secrets
+# Managing secrets when deploying your app
 
 If you are connecting to data sources or external services, you will likely be handling secret information like credentials or keys. Secret information should be stored and transmitted in a secure manner. When you deploy your app, ensure that you understand your platform's features and mechanisms for handling secrets so you can follow best practice.
 

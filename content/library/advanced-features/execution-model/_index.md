@@ -35,7 +35,7 @@ Manage your app's statefulness with Session State.
 
 </RefCard>
 
-<RefCard href="/develop/concepts/execution-model/custom-classes">
+<RefCard href="/develop/concepts/design/custom-classes">
 
 <h5>Custom classes</h5>
 
@@ -53,7 +53,7 @@ Understand Streamlit's server-client architecture and related considerations.
 
 </RefCard>
 
-<RefCard href="/develop/concepts/execution-model/timezone-handling">
+<RefCard href="/develop/concepts/design/timezone-handling">
 
 <h5>Working with timezones</h5>
 

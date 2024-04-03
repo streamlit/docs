@@ -1,13 +1,13 @@
 ---
 title: Elements and UI
-slug: /develop/concepts/elements-and-ui
+slug: /develop/concepts/design
 ---
 
 # Elements and UI
 
 <TileContainer layout="list">
 
-<RefCard href="/develop/concepts/elements-and-ui/app-menu">
+<RefCard href="/develop/concepts/design/app-menu">
 
 <h5>App menu and toolbar</h5>
 
@@ -15,7 +15,7 @@ Understand and configure the developer and user options in the app menu.
 
 </RefCard>
 
-<RefCard href="/develop/concepts/elements-and-ui/button-behavior-and-examples">
+<RefCard href="/develop/concepts/design/buttons">
 
 <h5>Button behavior and examples</h5>
 
@@ -23,7 +23,7 @@ Understand how buttons work with explanations and examples to avoid common mista
 
 </RefCard>
 
-<RefCard href="/develop/concepts/elements-and-ui/dataframes">
+<RefCard href="/develop/concepts/design/dataframes">
 
 <h5>Dataframes</h5>
 
@@ -31,7 +31,7 @@ Dataframes are a great way to display and edit data in a tabular format. Underst
 
 </RefCard>
 
-<RefCard href="/develop/concepts/elements-and-ui/forms">
+<RefCard href="/develop/concepts/execution-model/forms">
 
 <h5>Using forms</h5>
 
@@ -39,7 +39,7 @@ Understand how to use forms to efficiently handle your app's reruns and make it 
 
 </RefCard>
 
-<RefCard href="/develop/concepts/elements-and-ui/mutate">
+<RefCard href="/develop/concepts/design/animate">
 
 <h5>Mutate dataframes and charts</h5>
 
@@ -47,7 +47,7 @@ Understand how to append data to your dataframe and chart elements at the end of
 
 </RefCard>
 
-<RefCard href="/develop/concepts/elements-and-ui/widget-behavior">
+<RefCard href="/develop/concepts/execution-model/widget-behavior">
 
 <h5>Understanding widget behavior</h5>
 

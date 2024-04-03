@@ -1,8 +1,6 @@
 ---
 title: API Reference
 slug: /develop/api-reference
-next: caching
-previous: index.md
 ---
 
 # API reference

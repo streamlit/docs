@@ -1,9 +1,9 @@
 ---
-title: Main concepts of Streamlit
+title: Basic concepts of Streamlit
 slug: /get-started/fundamentals/main-concepts
 ---
 
-# Main concepts of Streamlit
+# Basic concepts of Streamlit
 
 Working with Streamlit is simple. First you sprinkle a few Streamlit commands
 into a normal Python script, then you run it with `streamlit run`:

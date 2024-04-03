@@ -1,9 +1,9 @@
 ---
-title: Cheat sheet
-slug: /develop/quick-reference/cheatsheet
+title: Streamlit API cheat sheet
+slug: /develop/quick-reference/cheat-sheet
 ---
 
-# Cheat Sheet
+# Streamlit API cheat sheet
 
 This is a summary of the docs, as of [Streamlit v1.31.0](https://pypi.org/project/streamlit/1.31.0/).
 

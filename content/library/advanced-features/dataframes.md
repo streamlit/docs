@@ -1,6 +1,6 @@
 ---
 title: Dataframes
-slug: /develop/concepts/elements-and-ui/dataframes
+slug: /develop/concepts/design/dataframes
 ---
 
 # Dataframes

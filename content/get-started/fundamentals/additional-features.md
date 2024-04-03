@@ -5,7 +5,7 @@ slug: /get-started/fundamentals/additional-features
 
 # Additional Streamlit features
 
-So you've read all about Streamlit's [Main concepts](/get-started/fundamentals/main-concepts) and gotten a tase of caching and Session State in [Advanced concepts](/get-started/fundamentals/advanced-concepts). But what about the bells and whistles? Here's a quick look at some extra features to take your app to the next level.
+So you've read all about Streamlit's [Basic concepts](/get-started/fundamentals/main-concepts) and gotten a tase of caching and Session State in [Advanced concepts](/get-started/fundamentals/advanced-concepts). But what about the bells and whistles? Here's a quick look at some extra features to take your app to the next level.
 
 ## Theming
 

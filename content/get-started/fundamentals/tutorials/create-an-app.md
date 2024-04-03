@@ -5,7 +5,7 @@ slug: /get-started/tutorials/create-an-app
 
 # Create an app
 
-If you've made it this far, chances are you've [installed Streamlit](/get-started/installation) and run through the basics in [Main concepts](/get-started/fundamentals/main-concepts) and [Advanced concepts](/get-started/fundamentals/advanced-concepts). If not, now is a good time to take a look.
+If you've made it this far, chances are you've [installed Streamlit](/get-started/installation) and run through the basics in [Basic concepts](/get-started/fundamentals/main-concepts) and [Advanced concepts](/get-started/fundamentals/advanced-concepts). If not, now is a good time to take a look.
 
 The easiest way to learn how to use Streamlit is to try things out yourself. As you read through this guide, test each method. As long as your app is running, every time you add a new element to your script and save, Streamlit's UI will ask if you'd like to rerun the app and view the changes. This allows you to work in a fast interactive loop: you write some code, save it, review the output, write some more, and so on, until you're happy with the results. The goal is to use Streamlit to create an interactive app for your data or model and along the way to use Streamlit to review, debug, perfect, and share your code.
 
@@ -196,7 +196,7 @@ st.subheader('Raw data')
 st.write(data)
 ```
 
-In the [Main concepts](/get-started/fundamentals/main-concepts) guide you learned that
+In the [Basic concepts](/get-started/fundamentals/main-concepts) guide you learned that
 [`st.write`](/develop/api-reference/write-magic/st.write) will render almost anything you pass
 to it. In this case, you're passing in a dataframe and it's rendering as an
 interactive table.

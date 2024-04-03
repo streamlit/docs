@@ -1,9 +1,9 @@
 ---
-title: Get started
+title: Get started with Streamlit
 slug: /get-started
 ---
 
-# Get started
+# Get started with Streamlit
 
 This Get Started guide explains how Streamlit works, how to install Streamlit on your preferred
 operating system, and how to create your first Streamlit app!
@@ -24,7 +24,7 @@ operating system, and how to create your first Streamlit app!
     <InlineCallout
         color="orange-70"
         icon="auto_awesome"
-        bold="Tutorials"
+        bold="First steps"
         href="/get-started/tutorials"
     >walks you through creating apps using core features to fetch and cache data, draw charts, plot information on a map, and use interactive widgets to filter results.</InlineCallout>
     <InlineCallout

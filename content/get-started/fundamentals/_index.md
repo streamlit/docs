@@ -1,9 +1,9 @@
 ---
-title: Fundamentals
+title: Fundamental concepts
 slug: /get-started/fundamentals
 ---
 
-# Fundamentals
+# Fundamental concepts
 
 Are you new to Streamlit and want the grand tour? If so, you're in the right place!
 
@@ -11,7 +11,7 @@ Are you new to Streamlit and want the grand tour? If so, you're in the right pla
     <InlineCallout
         color="orange-70"
         icon="description"
-        bold="Main concepts."
+        bold="Basic concepts."
         href="/get-started/fundamentals/main-concepts"
     >Learn the fundamental concepts of Streamlit. How is a Streamlit app structured? How does it run? How does it magically get your data on a webpage?</InlineCallout>
     <InlineCallout

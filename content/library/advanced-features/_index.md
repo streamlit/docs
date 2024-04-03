@@ -1,15 +1,15 @@
 ---
-title: Concepts
+title: Development concepts
 slug: /develop/concepts
 ---
 
-# Concepts
+# Development concepts
 
 This section gives you background on how different parts of Streamlit work.
 
 <TileContainer>
 
-<RefCard href="/develop/concepts/elements-and-ui" size="half">
+<RefCard href="/develop/concepts/design" size="half">
 
 <h5>Elements and UI</h5>
 
@@ -42,16 +42,6 @@ Streamlit provides an automated way to build multipage apps through directory st
 
 </RefCard>
 
-<RefCard href="/develop/concepts/configuration/theming" size="half">
-
-<h5>Configuration</h5>
-
-Streamlit provides a variety options to customize and configure your app.
-
-- Learn how to work with configuration options, including server settings, client settings, and theming.
-
-</RefCard>
-
 <RefCard href="/develop/concepts/connections" size="half">
 
 <h5>Connections and secrets</h5>
@@ -62,12 +52,22 @@ Streamlit provides a variety options to customize and configure your app.
 
 <RefCard href="/develop/concepts/custom-components" size="half">
 
-<h5>Custom components</h5>
+<h5>Creating custom components</h5>
 
 Custom components extend Streamlit's functionality.
 
 - Learn how to build your own custom component.
 - Learn how install a third-party component.
+
+</RefCard>
+
+<RefCard href="/develop/concepts/configuration/theming" size="half">
+
+<h5>Configuration and theming</h5>
+
+Streamlit provides a variety options to customize and configure your app.
+
+- Learn how to work with configuration options, including server settings, client settings, and theming.
 
 </RefCard>
 

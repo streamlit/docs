@@ -1,6 +1,6 @@
 ---
 title: Mutate charts
-slug: /develop/concepts/elements-and-ui/mutate
+slug: /develop/concepts/design/animate
 description: st.add_rows appends a dataframe to the bottom of the current one in certain elements, for optimized data updates.
 ---
 

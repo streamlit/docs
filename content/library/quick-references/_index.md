@@ -1,9 +1,9 @@
 ---
-title: Quick references
+title: Quick reference
 slug: /develop/quick-reference
 ---
 
-# Quick references
+# Quick reference
 
 <TileContainer layout="list">
 
@@ -15,7 +15,7 @@ See how Streamlit has changed with each new version.
 
 </RefCard>
 
-<RefCard href="/develop/quick-reference/cheatsheet">
+<RefCard href="/develop/quick-reference/cheat-sheet">
 
 <h5>Cheatsheet</h5>
 
