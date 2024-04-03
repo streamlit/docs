@@ -1,11 +1,13 @@
 ---
-title: ⋮ App menu
+title: The app chrome
 slug: /develop/concepts/architecture/app-chrome
 ---
 
-# <i style={{ verticalAlign: "-.25em", fontSize: "1em" }} className={{ class: "material-icons-sharp" }}>more_vert</i> App menu
+# The app chrome
 
-Streamlit provides a configurable menu within your app to access convenient tools for developers and viewers. By default, you can access developer options from the app menu when viewing an app locally or on Streamlit Community Cloud while logged into an account with administrative access. While viewing an app, click the icon in the upper-right corner to access the menu.
+Your Streamlit app has a few widgets in the top right to help you as you develop. These widgets also help your viewers as they use your app. We call this things “the app chrome”. The chrome includes a status area, toolbar, and app menu.
+
+Your app menu is configurable. By default, you can access developer options from the app menu when viewing an app locally or on Streamlit Community Cloud while logged into an account with administrative access. While viewing an app, click the icon in the upper-right corner to access the menu.
 
 ![App menu](/images/app-menu/app-menu-developer.png)
 
