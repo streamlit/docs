@@ -20,17 +20,6 @@ your-project/
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/configuration/st.get_option">
-
-<h4>Get option</h4>
-
-Get a the current value of a Streamlit config option.
-
-```python
-st.get_option("theme.primaryColor")
-```
-
-</RefCard>
 <RefCard href="/develop/api-reference/configuration/st.set_page_config">
 
 <h4>Set page title, favicon, and more</h4>
@@ -42,17 +31,6 @@ st.set_page_config(
   page_title="My app",
   page_icon=":shark:",
 )
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/configuration/st.set_option">
-
-<h4>Set option</h4>
-
-Set a configuration option. (This is _very_ limited.)
-
-```python
-st.set_option("deprecation.showPyplotGlobalUse", True)
 ```
 
 </RefCard>
