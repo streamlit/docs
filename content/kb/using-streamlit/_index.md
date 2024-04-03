@@ -18,7 +18,6 @@ Here are some frequently asked questions about using Streamlit. If you feel some
 - [How do I get dataframe row-selections from a user?](/knowledge-base/using-streamlit/how-to-get-row-selections)
 - [How can I make `st.pydeck_chart` use custom Mapbox styles?](/knowledge-base/using-streamlit/pydeck-chart-custom-mapbox-styles)
 - [How to insert elements out of order?](/knowledge-base/using-streamlit/insert-elements-out-of-order)
-- [How to animate elements?](/knowledge-base/using-streamlit/animate-elements)
 - [How do I upgrade to the latest version of Streamlit?](/knowledge-base/using-streamlit/how-upgrade-latest-version-streamlit)
 - [Widget updating for every second input when using session state](/knowledge-base/using-streamlit/widget-updating-session-state)
 - [How do I create an anchor link?](/knowledge-base/using-streamlit/create-anchor-link)

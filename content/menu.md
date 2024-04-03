@@ -708,9 +708,6 @@ site_menu:
     icon: school
   - category: Knowledge base / FAQ
     url: /knowledge-base/using-streamlit
-  - category: Knowledge base / FAQ / How to animate elements?
-    url: /knowledge-base/using-streamlit/animate-elements
-    visible: false
   - category: Knowledge base / FAQ / How do I create an anchor link?
     url: /knowledge-base/using-streamlit/create-anchor-link
     visible: false
