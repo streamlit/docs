@@ -38,6 +38,7 @@ site_menu:
 
   - category: Develop / Concepts
     url: /develop/concepts
+  - category: Develop / Concepts / CORE
   - category: Develop / Concepts / Architecture & execution
     url: /develop/concepts/architecture
   - category: Develop / Concepts / Architecture & execution / Running your app
@@ -64,6 +65,7 @@ site_menu:
     url: /develop/concepts/multipage-apps
   - category: Develop / Concepts / Multipage apps / Pages directory (v1)
     url: /develop/concepts/multipage-apps/pages-directory
+  - category: Develop / Concepts / ADDITIONAL
   - category: Develop / Concepts / App design
     url: /develop/concepts/design
   - category: Develop / Concepts / App design / Animate & update elements
@@ -121,6 +123,7 @@ site_menu:
 
   - category: Develop / API reference
     url: /develop/api-reference
+  - category: Develop / API reference / PAGE ELEMENTS
   - category: Develop / API reference / Write and magic
     url: /develop/api-reference/write-magic
   - category: Develop / API reference / Write and magic / st.write
@@ -133,6 +136,7 @@ site_menu:
     url: /develop/api-reference/write-magic/magic
   - category: Develop / API reference / Text elements
     url: /develop/api-reference/text
+  - category: Develop / API reference / Text elements / HEADINGS & BODY
   - category: Develop / API reference / Text elements / st.title
     url: /develop/api-reference/text/st.title
     isVersioned: true
@@ -145,6 +149,7 @@ site_menu:
   - category: Develop / API reference / Text elements / st.markdown
     url: /develop/api-reference/text/st.markdown
     isVersioned: true
+  - category: Develop / API reference / Text elements / FORMATTED TEXT
   - category: Develop / API reference / Text elements / st.caption
     url: /develop/api-reference/text/st.caption
     isVersioned: true
@@ -231,6 +236,7 @@ site_menu:
     visible: false
   - category: Develop / API reference / Chart elements
     url: /develop/api-reference/charts
+  - category: Develop / API reference / Chart elements / SIMPLE
   - category: Develop / API reference / Chart elements / st.area_chart
     url: /develop/api-reference/charts/st.area_chart
     isVersioned: true
@@ -246,6 +252,7 @@ site_menu:
   - category: Develop / API reference / Chart elements / st.scatter_chart
     url: /develop/api-reference/charts/st.scatter_chart
     isVersioned: true
+  - category: Develop / API reference / Chart elements / ADVANCED
   - category: Develop / API reference / Chart elements / st.altair_chart
     url: /develop/api-reference/charts/st.altair_chart
     isVersioned: true
@@ -269,6 +276,7 @@ site_menu:
     isVersioned: true
   - category: Develop / API reference / Input widgets
     url: /develop/api-reference/widgets
+  - category: Develop / API reference / Input widgets / BUTTONS
   - category: Develop / API reference / Input widgets / st.button
     url: /develop/api-reference/widgets/st.button
     isVersioned: true
@@ -284,6 +292,7 @@ site_menu:
   - category: Develop / API reference / Input widgets / st.page_link
     url: /develop/api-reference/widgets/st.page_link
     isVersioned: true
+  - category: Develop / API reference / Input widgets / SELECTIONS
   - category: Develop / API reference / Input widgets / st.checkbox
     url: /develop/api-reference/widgets/st.checkbox
     isVersioned: true
@@ -305,18 +314,21 @@ site_menu:
   - category: Develop / API reference / Input widgets / st.toggle
     url: /develop/api-reference/widgets/st.toggle
     isVersioned: true
+  - category: Develop / API reference / Input widgets / NUMERIC
   - category: Develop / API reference / Input widgets / st.number_input
     url: /develop/api-reference/widgets/st.number_input
     isVersioned: true
   - category: Develop / API reference / Input widgets / st.slider
     url: /develop/api-reference/widgets/st.slider
     isVersioned: true
+  - category: Develop / API reference / Input widgets / DATE & TIME
   - category: Develop / API reference / Input widgets / st.date_input
     url: /develop/api-reference/widgets/st.date_input
     isVersioned: true
   - category: Develop / API reference / Input widgets / st.time_input
     url: /develop/api-reference/widgets/st.time_input
     isVersioned: true
+  - category: Develop / API reference / Input widgets / TEXT
   - category: Develop / API reference / Input widgets / st.chat_input
     url: https://docs.streamlit.io/develop/api-reference/chat/st.chat_input
     isVersioned: true
@@ -326,6 +338,7 @@ site_menu:
   - category: Develop / API reference / Input widgets / st.text_input
     url: /develop/api-reference/widgets/st.text_input
     isVersioned: true
+  - category: Develop / API reference / Input widgets / MEDIA & FILES
   - category: Develop / API reference / Input widgets / st.camera_input
     url: /develop/api-reference/widgets/st.camera_input
     isVersioned: true
@@ -388,6 +401,7 @@ site_menu:
     isVersioned: true
   - category: Develop / API reference / Status elements
     url: /develop/api-reference/status
+  - category: Develop / API reference / Status elements / CALLOUTS
   - category: Develop / API reference / Status elements / st.success
     url: /develop/api-reference/status/st.success
     isVersioned: true
@@ -403,6 +417,7 @@ site_menu:
   - category: Develop / API reference / Status elements / st.exception
     url: /develop/api-reference/status/st.exception
     isVersioned: true
+  - category: Develop / API reference / Status elements / OTHER
   - category: Develop / API reference / Status elements / st.progress
     url: /develop/api-reference/status/st.progress
     isVersioned: true
@@ -423,6 +438,15 @@ site_menu:
     isVersioned: true
   - category: Develop / API reference / Third-party components
     url: https://streamlit.io/components
+  - category: Develop / API reference / APPLICATION LOGIC
+  - category: Develop / API reference / Navigation and pages
+    url: /develop/api-reference/navigation
+  - category: Develop / API reference / Navigation and pages / st.page_link
+    url: https://docs.streamlit.io/develop/api-reference/widgets/st.page_link
+    isVersioned: true
+  - category: Develop / API reference / Navigation and pages / st.switch_page
+    url: /develop/api-reference/navigation/st.switch_page
+    isVersioned: true
   - category: Develop / API reference / Execution flow
     url: /develop/api-reference/execution-flow
   - category: Develop / API reference / Execution flow / st.form
@@ -477,22 +501,16 @@ site_menu:
     url: /develop/api-reference/caching-and-state/st.experimental_set_query_params
     isVersioned: true
     isDeprecated: true
-  - category: Develop / API reference / Navigation and pages
-    url: /develop/api-reference/navigation
-  - category: Develop / API reference / Navigation and pages / st.page_link
-    url: https://docs.streamlit.io/develop/api-reference/widgets/st.page_link
-    isVersioned: true
-  - category: Develop / API reference / Navigation and pages / st.switch_page
-    url: /develop/api-reference/navigation/st.switch_page
-    isVersioned: true
   - category: Develop / API reference / Connections and secrets
     url: /develop/api-reference/connections
+  - category: Develop / API reference / Connections and secrets / SECRETS
   - category: Develop / API reference / Connections and secrets / st.secrets
     url: /develop/api-reference/connections/st.secrets
     isVersioned: true
   - category: Develop / API reference / Connections and secrets / secrets.toml
     url: /develop/api-reference/connections/secrets.toml
     isVersioned: true
+  - category: Develop / API reference / Connections and secrets / CONNECTIONS
   - category: Develop / API reference / Connections and secrets / st.connection
     url: /develop/api-reference/connections/st.connection
     isVersioned: true
@@ -531,6 +549,14 @@ site_menu:
   - category: Develop / API reference / Custom components / st.components.v1.iframe
     url: /develop/api-reference/custom-components/st.components.v1.iframe
     isVersioned: true
+  - category: Develop / API reference / Utilities
+    url: /develop/api-reference/utilities
+  - category: Develop / API reference / Utilities / st.experimental_user
+    url: /develop/api-reference/utilities/st.experimental_user
+    isVersioned: true
+  - category: Develop / API reference / Utilities / st.help
+    url: /develop/api-reference/utilities/st.help
+    isVersioned: true
   - category: Develop / API reference / Configuration
     url: /develop/api-reference/configuration
     isVersioned: false
@@ -540,14 +566,7 @@ site_menu:
   - category: Develop / API reference / Configuration / st.set_page_config
     url: /develop/api-reference/configuration/st.set_page_config
     isVersioned: true
-  - category: Develop / API reference / Utilities
-    url: /develop/api-reference/utilities
-  - category: Develop / API reference / Utilities / st.experimental_user
-    url: /develop/api-reference/utilities/st.experimental_user
-    isVersioned: true
-  - category: Develop / API reference / Utilities / st.help
-    url: /develop/api-reference/utilities/st.help
-    isVersioned: true
+  - category: Develop / API reference / TOOLS
   - category: Develop / API reference / App testing
     url: /develop/api-reference/app-testing
   - category: Develop / API reference / App testing / st.testing.v1.AppTest
