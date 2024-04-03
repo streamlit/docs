@@ -14,15 +14,15 @@ site_menu:
     url: /get-started/installation/community-cloud
   - category: Get started / Installation / Use Snowflake
     url: /get-started/installation/streamlit-in-snowflake
-  - category: Get started / Fundamental concepts
+  - category: Get started / Fundamentals
     url: /get-started/fundamentals
-  - category: Get started / Fundamental concepts / Basic concepts
+  - category: Get started / Fundamentals / Basic concepts
     url: /get-started/fundamentals/main-concepts
-  - category: Get started / Fundamental concepts / Advanced concepts
+  - category: Get started / Fundamentals / Advanced concepts
     url: /get-started/fundamentals/advanced-concepts
-  - category: Get started / Fundamental concepts / Additional features
+  - category: Get started / Fundamentals / Additional features
     url: /get-started/fundamentals/additional-features
-  - category: Get started / Fundamental concepts / Summary
+  - category: Get started / Fundamentals / Summary
     url: /get-started/fundamentals/summary
   - category: Get started / First steps
     url: /get-started/tutorials
@@ -60,6 +60,10 @@ site_menu:
     url: /develop/concepts/architecture/forms
   - category: Develop / Concepts / Architecture & execution/ Widget behavior
     url: /develop/concepts/architecture/widget-behavior
+  - category: Develop / Concepts / Multipage apps
+    url: /develop/concepts/multipage-apps
+  - category: Develop / Concepts / Multipage apps / Pages directory (v1)
+    url: /develop/concepts/multipage-apps/pages-directory
   - category: Develop / Concepts / App design
     url: /develop/concepts/design
   - category: Develop / Concepts / App design / Animate & update elements
@@ -72,11 +76,6 @@ site_menu:
     url: /develop/concepts/design/custom-classes
   - category: Develop / Concepts / App design / Working with timezones
     url: /develop/concepts/design/timezone-handling
-  - category: Develop / Concepts / Multipage apps
-    url: /develop/concepts/multipage-apps
-  - category: Develop / Concepts / Multipage apps / Pages directory (v1)
-    url: /develop/concepts/multipage-apps/pages-directory
-
   - category: Develop / Concepts / Connections and secrets
     url: /develop/concepts/connections
   - category: Develop / Concepts / Connections and secrets / Connecting to data
