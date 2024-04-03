@@ -271,7 +271,7 @@ export default function Home({ window, menu }) {
                 img="/logo.svg"
                 title="Clear memo + singleton caches procedurally"
                 text="Do you need more control over cache invalidation? Any function annotated with @st.cache_data or @st.cache_resource gets its own clear() function automatically."
-                link="/develop/concepts/execution-model/experimental-cache-primitives#clear-memo-and-singleton-caches-procedurally"
+                link="/develop/concepts/architecture/experimental-cache-primitives#clear-memo-and-singleton-caches-procedurally"
               /> */}
               {/* Preserve above comment for syntax reference */}
             </TileContainer>

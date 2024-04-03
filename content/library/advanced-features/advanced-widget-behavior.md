@@ -1,6 +1,6 @@
 ---
 title: Widget behavior
-slug: /develop/concepts/execution-model/widget-behavior
+slug: /develop/concepts/architecture/widget-behavior
 ---
 
 # Understanding widget behavior

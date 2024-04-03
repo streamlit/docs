@@ -1,6 +1,6 @@
 ---
 title: Run your Streamlit script
-slug: /develop/concepts/execution-model/run-your-app
+slug: /develop/concepts/architecture/run-your-app
 ---
 
 # Run your Streamlit script

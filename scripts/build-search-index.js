@@ -16,8 +16,8 @@ const SKIP_THESE = [
   "/develop/api-reference/caching-and-state/st.experimental_singleton",
   "/develop/api-reference/caching-and-state/st.experimental_singleton.clear",
   "/develop/api-reference/utilities/st.experimental_show",
-  "/develop/concepts/execution-model/st.cache",
-  "/develop/concepts/execution-model/experimental-cache-primitives",
+  "/develop/concepts/architecture/st.cache",
+  "/develop/concepts/architecture/experimental-cache-primitives",
 ];
 
 function getAllFilesInDirectory(articleDirectory, files) {

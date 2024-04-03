@@ -6,7 +6,7 @@ description: st.cache_data is used to cache functions that return data (e.g. dat
 
 <Tip>
 
-This page only contains information on the `st.cache_data` API. For a deeper dive into caching and how to use it, check out [Caching](/develop/concepts/execution-model/caching).
+This page only contains information on the `st.cache_data` API. For a deeper dive into caching and how to use it, check out [Caching](/develop/concepts/architecture/caching).
 
 </Tip>
 

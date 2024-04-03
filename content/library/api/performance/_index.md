@@ -9,7 +9,7 @@ Optimize performance and add statefulness to your app!
 
 ## Caching
 
-Streamlit provides powerful [cache primitives](/develop/concepts/execution-model/caching) for data and global resources. They allow your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations.
+Streamlit provides powerful [cache primitives](/develop/concepts/architecture/caching) for data and global resources. They allow your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations.
 
 <TileContainer>
 

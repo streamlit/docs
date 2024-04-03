@@ -10,9 +10,9 @@ This is an experimental feature. Experimental features and their APIs may change
 
 </Important>
 
-<Autofunction function="streamlit.experimental_singleton" deprecated={true} deprecatedText="<code>st.experimental_singleton</code> was deprecated in version 1.18.0. Use <a href='/develop/api-reference/caching-and-state/st.cache_resource'><code>st.cache_resource</code></a> instead. Learn more in <a href='/develop/concepts/execution-model/caching'>Caching</a>."/>
+<Autofunction function="streamlit.experimental_singleton" deprecated={true} deprecatedText="<code>st.experimental_singleton</code> was deprecated in version 1.18.0. Use <a href='/develop/api-reference/caching-and-state/st.cache_resource'><code>st.cache_resource</code></a> instead. Learn more in <a href='/develop/concepts/architecture/caching'>Caching</a>."/>
 
-<Autofunction function="streamlit.experimental_singleton.clear" deprecated={true} deprecatedText="<code>st.experimental_singleton.clear</code> was deprecated in version 1.18.0. Use <a href='/develop/api-reference/caching-and-state/st.cache_resource#stcache_resourceclear'><code>st.cache_resource.clear</code></a> instead. Learn more in <a href='/develop/concepts/execution-model/caching'>Caching</a>."/>
+<Autofunction function="streamlit.experimental_singleton.clear" deprecated={true} deprecatedText="<code>st.experimental_singleton.clear</code> was deprecated in version 1.18.0. Use <a href='/develop/api-reference/caching-and-state/st.cache_resource#stcache_resourceclear'><code>st.cache_resource.clear</code></a> instead. Learn more in <a href='/develop/concepts/architecture/caching'>Caching</a>."/>
 
 #### Example
 

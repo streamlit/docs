@@ -1,11 +1,11 @@
 ---
 title: Caching overview
-slug: /develop/concepts/execution-model/caching
+slug: /develop/concepts/architecture/caching
 ---
 
 <Note>
 
-Documentation for the deprecated `@st.cache` decorator can be found in [Optimize performance with st.cache](/develop/concepts/execution-model/st.cache).
+Documentation for the deprecated `@st.cache` decorator can be found in [Optimize performance with st.cache](/develop/concepts/architecture/st.cache).
 
 </Note>
 

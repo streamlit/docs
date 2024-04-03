@@ -1,6 +1,6 @@
 ---
 title: Understanding Streamlit's server-client architecture
-slug: /develop/concepts/execution-model/architecture
+slug: /develop/concepts/architecture/architecture
 ---
 
 # Understanding Streamlit's server-client architecture

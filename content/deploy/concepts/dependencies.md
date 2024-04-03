@@ -5,7 +5,7 @@ slug: /deploy/concepts/dependencies
 
 # Managing dependencies when deploying your app
 
-Before you began developing your app, you set up and configured your development environment by installing Python and Streamlit. When you deploy your app, you need to set up and configure your deploymnet environment in the same way. When you deploy your app to a cloud service, your app's [Python server](/develop/concepts/execution-model/architecture#python-backend-server) will be running on a remote machine. This remote machine will not have access all the files and programs on your personal computer.
+Before you began developing your app, you set up and configured your development environment by installing Python and Streamlit. When you deploy your app, you need to set up and configure your deploymnet environment in the same way. When you deploy your app to a cloud service, your app's [Python server](/develop/concepts/architecture/architecture#python-backend-server) will be running on a remote machine. This remote machine will not have access all the files and programs on your personal computer.
 
 All Streamlit apps have at least two dependencies: Python and Streamlit. Your app may have additional dependencies in the form of Python packages or software that must be installed to properly execute your script. If you are using a service like Streamlit Community Cloud which is designed for Streamlit apps, we'll take care of Python and Streamlit for you!
 

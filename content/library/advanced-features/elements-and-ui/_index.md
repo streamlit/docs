@@ -7,7 +7,7 @@ slug: /develop/concepts/design
 
 <TileContainer layout="list">
 
-<RefCard href="/develop/concepts/design/app-menu">
+<RefCard href="/develop/concepts/architecture/app-chrome">
 
 <h5>App menu and toolbar</h5>
 
@@ -31,7 +31,7 @@ Dataframes are a great way to display and edit data in a tabular format. Underst
 
 </RefCard>
 
-<RefCard href="/develop/concepts/execution-model/forms">
+<RefCard href="/develop/concepts/architecture/forms">
 
 <h5>Using forms</h5>
 
@@ -47,7 +47,7 @@ Understand how to append data to your dataframe and chart elements at the end of
 
 </RefCard>
 
-<RefCard href="/develop/concepts/execution-model/widget-behavior">
+<RefCard href="/develop/concepts/architecture/widget-behavior">
 
 <h5>Understanding widget behavior</h5>
 

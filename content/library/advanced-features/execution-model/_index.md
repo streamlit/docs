@@ -1,6 +1,6 @@
 ---
 title: Working with Streamlit's execution model
-slug: /develop/concepts/execution-model
+slug: /develop/concepts/architecture
 ---
 
 # Working with Streamlit's execution model
@@ -9,7 +9,7 @@ slug: /develop/concepts/execution-model
 
 ### Initialization
 
-<RefCard href="/develop/concepts/execution-model/run-your-app">
+<RefCard href="/develop/concepts/architecture/run-your-app">
 
 <h5>Run your app</h5>
 
@@ -19,7 +19,7 @@ Understand how to start your Streamlit app.
 
 ### Rerun model
 
-<RefCard href="/develop/concepts/execution-model/caching">
+<RefCard href="/develop/concepts/architecture/caching">
 
 <h5>Caching</h5>
 
@@ -27,7 +27,7 @@ Make your app performant by caching results to avoid unecessary recomputation wi
 
 </RefCard>
 
-<RefCard href="/develop/concepts/execution-model/session-state">
+<RefCard href="/develop/concepts/architecture/session-state">
 
 <h5>Session State</h5>
 
@@ -45,7 +45,7 @@ Understand the impact of defining your own Python classes within Streamlit's rer
 
 ### Server-client model
 
-<RefCard href="/develop/concepts/execution-model/architecture">
+<RefCard href="/develop/concepts/architecture/architecture">
 
 <h5>Streamlit's architecture</h5>
 

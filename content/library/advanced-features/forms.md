@@ -1,6 +1,6 @@
 ---
 title: Using forms
-slug: /develop/concepts/execution-model/forms
+slug: /develop/concepts/architecture/forms
 ---
 
 # Using forms

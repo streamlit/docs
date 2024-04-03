@@ -38,32 +38,32 @@ site_menu:
 
   - category: Develop / Concepts
     url: /develop/concepts
-  - category: Develop / Concepts / Execution model
-    url: /develop/concepts/execution-model
-  - category: Develop / Concepts / Execution model / Running your app
-    url: /develop/concepts/execution-model/run-your-app
-  - category: Develop / Concepts / Execution model / Streamlit's architecture
-    url: /develop/concepts/execution-model/architecture
-  - category: Develop / Concepts / Execution model / Caching
-    url: /develop/concepts/execution-model/caching
-  - category: Develop / Concepts / Execution model / Optimize performance with st.cache
-    url: /develop/concepts/execution-model/st.cache
+  - category: Develop / Concepts / Architecture & execution
+    url: /develop/concepts/architecture
+  - category: Develop / Concepts / Architecture & execution / Running your app
+    url: /develop/concepts/architecture/run-your-app
+  - category: Develop / Concepts / Architecture & execution / Streamlit's architecture
+    url: /develop/concepts/architecture/architecture
+  - category: Develop / Concepts / Architecture & execution / The app chrome
+    url: /develop/concepts/architecture/app-chrome
+  - category: Develop / Concepts / Architecture & execution / Caching
+    url: /develop/concepts/architecture/caching
+  - category: Develop / Concepts / Architecture & execution / Optimize performance with st.cache
+    url: /develop/concepts/architecture/st.cache
     visible: false
-  - category: Develop / Concepts / Execution model / Experimental cache primitives
-    url: /develop/concepts/execution-model/experimental-cache-primitives
+  - category: Develop / Concepts / Architecture & execution / Experimental cache primitives
+    url: /develop/concepts/architecture/experimental-cache-primitives
     visible: false
-  - category: Develop / Concepts / Execution model / Session State
-    url: /develop/concepts/execution-model/session-state
-  - category: Develop / Concepts / Execution model / Forms
-    url: /develop/concepts/execution-model/forms
-  - category: Develop / Concepts / Execution model/ Widget behavior
-    url: /develop/concepts/execution-model/widget-behavior
+  - category: Develop / Concepts / Architecture & execution / Session State
+    url: /develop/concepts/architecture/session-state
+  - category: Develop / Concepts / Architecture & execution / Forms
+    url: /develop/concepts/architecture/forms
+  - category: Develop / Concepts / Architecture & execution/ Widget behavior
+    url: /develop/concepts/architecture/widget-behavior
   - category: Develop / Concepts / App design
     url: /develop/concepts/design
   - category: Develop / Concepts / App design / Animate & update elements
     url: /develop/concepts/design/animate
-  - category: Develop / Concepts / App design / App menu
-    url: /develop/concepts/design/app-menu
   - category: Develop / Concepts / App design / Button behavior and examples
     url: /develop/concepts/design/buttons
   - category: Develop / Concepts / App design / Dataframes

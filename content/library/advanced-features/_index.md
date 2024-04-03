@@ -20,7 +20,7 @@ Streamlit provides a variety of commands to render content for your users. Strea
 
 </RefCard>
 
-<RefCard href="/develop/concepts/execution-model" size="half">
+<RefCard href="/develop/concepts/architecture" size="half">
 
 <h5>Execution model and project structure</h5>
 
