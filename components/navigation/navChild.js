@@ -105,7 +105,6 @@ const NavChild = ({ slug, page, color, className }) => {
   } else if (isDivider) {
     navElement = (
       <div className={styles.LinkContainer}>
-        <hr className={styles.DividerLine} />
         <span className={styles.DividerText}>{page.name}</span>
         <hr className={styles.DividerLine} />
       </div>
