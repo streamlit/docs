@@ -16,7 +16,7 @@ We also offer a "swiss-army knife" command called `st.write`, which accepts
 multiple arguments, and multiple data types. And as described above, you can
 also use [magic commands](/develop/api-reference/write-magic/magic) in place of `st.write`.
 
-## Basic text elements
+## Headings and body text
 
 <TileContainer>
 <RefCard href="/develop/api-reference/text/st.markdown">
@@ -73,7 +73,7 @@ st.subheader("This is a subheader")
 </RefCard>
 </TileContainer>
 
-## Speical-purpose text elements
+## Formatted text
 
 <TileContainer>
 

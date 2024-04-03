@@ -65,7 +65,6 @@ site_menu:
     url: /develop/concepts/multipage-apps
   - category: Develop / Concepts / Multipage apps / Pages directory (v1)
     url: /develop/concepts/multipage-apps/pages-directory
-  - category: Develop / Concepts / ADDITIONAL
   - category: Develop / Concepts / App design
     url: /develop/concepts/design
   - category: Develop / Concepts / App design / Animate & update elements
@@ -78,6 +77,7 @@ site_menu:
     url: /develop/concepts/design/custom-classes
   - category: Develop / Concepts / App design / Working with timezones
     url: /develop/concepts/design/timezone-handling
+  - category: Develop / Concepts / ADDITIONAL
   - category: Develop / Concepts / Connections and secrets
     url: /develop/concepts/connections
   - category: Develop / Concepts / Connections and secrets / Connecting to data

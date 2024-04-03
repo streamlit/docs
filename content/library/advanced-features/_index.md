@@ -9,26 +9,15 @@ This section gives you background on how different parts of Streamlit work.
 
 <TileContainer>
 
-<RefCard href="/develop/concepts/design" size="half">
-
-<h5>Elements and UI</h5>
-
-Streamlit provides a variety of commands to render content for your users. Streamlit also creates common UI elements like the app menu and toolbar.
-
-- Learn how to work with widgets, dataframes, forms, and more.
-- Understand how your users can interact with these elements.
-
-</RefCard>
-
 <RefCard href="/develop/concepts/architecture" size="half">
 
-<h5>Execution model and project structure</h5>
+<h5>Streamlit's architecture and execution model</h5>
 
 Streamlit's execution model makes it easy to turn your scripts into beautiful, interactive web apps.
 
-- Learn how to make your apps performant and easy-to-manage.
-- Learn how to structure and design your project.
-- Understand Streamlit's rerun and server-client model.
+- Understand how to run your app.
+- Understand Streamlit's execution and server-client model.
+- Understand the primary tools to work with Streamlit reruns.
 
 </RefCard>
 
@@ -39,6 +28,18 @@ Streamlit's execution model makes it easy to turn your scripts into beautiful, i
 Streamlit provides an automated way to build multipage apps through directory structure.
 
 - Learn how to structure and configure your multipage app.
+
+</RefCard>
+
+<RefCard href="/develop/concepts/design" size="half">
+
+<h5>App design considerations</h5>
+
+Bring together Streamlit's architecture and execution model to design your app. Work with Streamlit commands to render dynamic and
+interactic content for your users.
+
+- Learn how to make your apps performant and easy-to-manage.
+- Learn how to structure and design your project.
 
 </RefCard>
 
@@ -61,7 +62,7 @@ Custom components extend Streamlit's functionality.
 
 </RefCard>
 
-<RefCard href="/develop/concepts/configuration/theming" size="half">
+<RefCard href="/develop/concepts/configuration" size="half">
 
 <h5>Configuration and theming</h5>
 

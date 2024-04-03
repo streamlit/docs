@@ -7,8 +7,6 @@ slug: /develop/concepts/architecture
 
 <TileContainer layout="list">
 
-### Initialization
-
 <RefCard href="/develop/concepts/architecture/run-your-app">
 
 <h5>Run your app</h5>
@@ -17,7 +15,21 @@ Understand how to start your Streamlit app.
 
 </RefCard>
 
-### Rerun model
+<RefCard href="/develop/concepts/architecture/architecture">
+
+<h5>Streamlit's architecture</h5>
+
+Understand Streamlit's server-client architecture and related considerations.
+
+</RefCard>
+
+<RefCard href="/develop/concepts/architecture/app-chrome">
+
+<h5>The app chrome</h5>
+
+Every Streamlit app has a few widgets in the top right to help you as you develop your app and help your users as they view your app. This is called the app chrome.
+
+</RefCard>
 
 <RefCard href="/develop/concepts/architecture/caching">
 
@@ -35,29 +47,19 @@ Manage your app's statefulness with Session State.
 
 </RefCard>
 
-<RefCard href="/develop/concepts/design/custom-classes">
+<RefCard href="/develop/concepts/architecture/forms">
 
-<h5>Custom classes</h5>
+<h5>Forms</h5>
 
-Understand the impact of defining your own Python classes within Streamlit's rerun model.
-
-</RefCard>
-
-### Server-client model
-
-<RefCard href="/develop/concepts/architecture/architecture">
-
-<h5>Streamlit's architecture</h5>
-
-Understand Streamlit's server-client architecture and related considerations.
+Use forms to isolate user input and prevent unnecessary app reruns.
 
 </RefCard>
 
-<RefCard href="/develop/concepts/design/timezone-handling">
+<RefCard href="/develop/concepts/architecture/widget-behavior">
 
-<h5>Working with timezones</h5>
+<h5>Widget behavior</h5>
 
-Understand how to localize time to your users.
+Understand how widgets work in detail.
 
 </RefCard>
 

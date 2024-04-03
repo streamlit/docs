@@ -16,7 +16,10 @@ Browse our API below and click to learn more about any of our available commands
 
 ### Write and magic
 
+<br />
+
 <TileContainer>
+
 <RefCard href="/develop/api-reference/write-magic/st.write">
 
 <h4>st.write</h4>
@@ -58,6 +61,8 @@ my_mpl_figure
 </TileContainer>
 
 ### Text elements
+
+<br />
 
 <TileContainer>
 <RefCard href="/develop/api-reference/text/st.markdown">
@@ -267,6 +272,8 @@ mention(label="An awesome Streamlit App", icon="streamlit",  url="https://extras
 
 ### Data elements
 
+<br />
+
 <TileContainer>
 <RefCard href="/develop/api-reference/data/st.dataframe">
 <Image pure alt="screenshot" src="/images/api/dataframe.jpg" />
@@ -452,6 +459,8 @@ style_metric_cards()
 </ComponentSlider>
 
 ### Chart elements
+
+<br />
 
 <TileContainer>
 
@@ -742,6 +751,8 @@ st.altair_chart(chart, use_container_width=True)
 
 ### Input widgets
 
+<br />
+
 <TileContainer>
 <RefCard href="/develop/api-reference/widgets/st.button">
 
@@ -900,19 +911,6 @@ activated = st.toggle("Activate")
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/widgets/st.date_input">
-
-<Image pure alt="screenshot" src="/images/api/date_input.jpg" />
-
-<h4>Date input</h4>
-
-Display a date input widget.
-
-```python
-date = st.date_input("Your birthday")
-```
-
-</RefCard>
 <RefCard href="/develop/api-reference/widgets/st.number_input">
 
 <Image pure alt="screenshot" src="/images/api/number_input.jpg" />
@@ -936,6 +934,19 @@ Display a slider widget.
 
 ```python
 number = st.slider("Pick a number", 0, 100)
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/widgets/st.date_input">
+
+<Image pure alt="screenshot" src="/images/api/date_input.jpg" />
+
+<h4>Date input</h4>
+
+Display a date input widget.
+
+```python
+date = st.date_input("Your birthday")
 ```
 
 </RefCard>
@@ -1193,6 +1204,8 @@ stoggle(
 
 ### Media elements
 
+<br />
+
 <TileContainer>
 <RefCard href="/develop/api-reference/media/st.image">
 
@@ -1345,6 +1358,8 @@ st_lottie(lottie_hello, key="hello")
 </ComponentSlider>
 
 ### Layouts and containers
+
+<br />
 
 <TileContainer>
 <RefCard href="/develop/api-reference/layout/st.columns">
@@ -1510,6 +1525,8 @@ show_pages([ Page("streamlit_app.py", "Home", "🏠"),
 
 ### Chat elements
 
+<br />
+
 Streamlit provides a few commands to help you build conversational apps. These chat elements are designed to be used in conjunction with each other, but you can also use them separately.
 
 `st.chat_message` lets you insert a chat message container into the app so you can display messages from the user or the app. Chat containers can contain other Streamlit elements, including charts, tables, text, and more. `st.chat_input` lets you display a chat input widget so the user can type in a message.
@@ -1575,6 +1592,8 @@ st.write_stream(my_llm_stream)
 </TileContainer>
 
 ### Status elements
+
+<br />
 
 <TileContainer>
 <RefCard href="/develop/api-reference/status/st.progress">
@@ -1789,9 +1808,46 @@ rain(emoji="🎈", font_size=54,
 
 </ComponentSlider>
 
-## Logical functions
+## App logic and configuration
 
-### Flow and navigation
+### Navigation and pages
+
+<br />
+
+<TileContainer>
+
+<RefCard href="/develop/api-reference/navigation/st.switch_page">
+
+<h4>Switch page</h4>
+
+Programmatically navigates to a specified page.
+
+```python
+st.switch_page("pages/my_page.py")
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/widgets/st.page_link">
+
+<Image pure alt="screenshot" src="/images/api/page_link.jpg" />
+
+<h4>Page link</h4>
+
+Display a link to another page in a multipage app.
+
+```python
+st.page_link("app.py", label="Home", icon="🏠")
+st.page_link("pages/profile.py", label="My profile")
+```
+
+</RefCard>
+
+</TileContainer>
+
+### Execution flow
+
+<br />
 
 <TileContainer>
 <RefCard href="/develop/api-reference/execution-flow/st.form">
@@ -1827,28 +1883,6 @@ Stops execution immediately.
 
 ```python
 st.stop()
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/navigation/st.switch_page">
-
-<h4>Switch page</h4>
-
-Programmatically navigates to a specified page.
-
-```python
-st.switch_page("pages/my_page.py")
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/caching-and-state/st.session_state">
-
-<h4>Session state</h4>
-
-Session state is a way to share variables between reruns, for each user session.
-
-```python
-st.session_state['key'] = value
 ```
 
 </RefCard>
@@ -1909,50 +1943,9 @@ show_pages([ Page("streamlit_app.py", "Home", "🏠"),
 
 </ComponentSlider>
 
-### Utilities and data
+### Caching and state
 
-<TileContainer>
-<RefCard href="/develop/api-reference/utilities/st.experimental_user">
-
-<h4>User info</h4>
-
-`st.experimental_user` returns information about the logged-in user of private apps on Streamlit Community Cloud.
-
-```python
-if st.experimental_user.email == "foo@corp.com":
-  st.write("Welcome back, ", st.experimental_user.email)
-else:
-  st.write("You are not authorized to view this page.")
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/utilities/st.help">
-
-<h4>Get help</h4>
-
-Display object’s doc string, nicely formatted.
-
-```python
-st.help(st.write)
-st.help(pd.DataFrame)
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/caching-and-state/st.query_params">
-
-<h4>Query parameters</h4>
-
-Get, set, or clear the query parameters that are shown in the browser's URL bar.
-
-```python
-st.query_params[key] = value
-st.query_params.clear()
-```
-
-</RefCard>
-</TileContainer>
-
-### Caching and performance
+<br />
 
 <TileContainer>
 <RefCard href="/develop/api-reference/caching-and-state/st.cache_data" size="half">
@@ -1989,39 +1982,31 @@ def init_model():
 
 </RefCard>
 
-</TileContainer>
+<RefCard href="/develop/api-reference/caching-and-state/st.session_state">
 
-### Configuration
+<h4>Session state</h4>
 
-<TileContainer>
-<RefCard href="/develop/api-reference/configuration/config.toml">
-
-<h4>Configuration file</h4>
-
-Configures the default settings for your app.
-
-```
-your-project/
-├── .streamlit/
-│   └── config.toml
-└── your_app.py
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/configuration/st.set_page_config">
-
-<h4>Set page title, favicon, and more</h4>
-
-Configures the default settings of the page.
+Session state is a way to share variables between reruns, for each user session.
 
 ```python
-st.set_page_config(
-  page_title="My app",
-  page_icon=":shark:",
-)
+st.session_state['key'] = value
 ```
 
 </RefCard>
+
+<RefCard href="/develop/api-reference/caching-and-state/st.query_params">
+
+<h4>Query parameters</h4>
+
+Get, set, or clear the query parameters that are shown in the browser's URL bar.
+
+```python
+st.query_params[key] = value
+st.query_params.clear()
+```
+
+</RefCard>
+
 </TileContainer>
 
 ### Connections and databases
@@ -2186,6 +2171,8 @@ st.write(user_info)
 
 ### Custom Components
 
+<br />
+
 <TileContainer>
 
 <RefCard href="/develop/api-reference/custom-components/st.components.v1.declare_component">
@@ -2233,9 +2220,79 @@ st.components.v1.iframe(
 
 </TileContainer>
 
+### Utilities and data
+
+<br />
+
+<TileContainer>
+<RefCard href="/develop/api-reference/utilities/st.experimental_user">
+
+<h4>User info</h4>
+
+`st.experimental_user` returns information about the logged-in user of private apps on Streamlit Community Cloud.
+
+```python
+if st.experimental_user.email == "foo@corp.com":
+  st.write("Welcome back, ", st.experimental_user.email)
+else:
+  st.write("You are not authorized to view this page.")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/utilities/st.help">
+
+<h4>Get help</h4>
+
+Display object’s doc string, nicely formatted.
+
+```python
+st.help(st.write)
+st.help(pd.DataFrame)
+```
+
+</RefCard>
+</TileContainer>
+
+### Configuration
+
+<br />
+
+<TileContainer>
+<RefCard href="/develop/api-reference/configuration/config.toml">
+
+<h4>Configuration file</h4>
+
+Configures the default settings for your app.
+
+```
+your-project/
+├── .streamlit/
+│   └── config.toml
+└── your_app.py
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/configuration/st.set_page_config">
+
+<h4>Set page title, favicon, and more</h4>
+
+Configures the default settings of the page.
+
+```python
+st.set_page_config(
+  page_title="My app",
+  page_icon=":shark:",
+)
+```
+
+</RefCard>
+</TileContainer>
+
 ## Developer tools
 
 ### App testing
+
+<br />
 
 <TileContainer>
 

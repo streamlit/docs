@@ -210,6 +210,13 @@ number = st.slider("Pick a number", 0, 100)
 ```
 
 </RefCard>
+
+</TileContainer>
+
+## Date and time input elements
+
+<TileContainer>
+
 <RefCard href="/develop/api-reference/widgets/st.date_input">
 
 <Image pure alt="screenshot" src="/images/api/date_input.jpg" />

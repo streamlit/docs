@@ -96,7 +96,7 @@ st.snow()
 </RefCard>
 </TileContainer>
 
-## Simple status messages
+## Simple callout messages
 
 <TileContainer>
 <RefCard href="/develop/api-reference/status/st.success">

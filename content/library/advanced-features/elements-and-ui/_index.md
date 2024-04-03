@@ -1,17 +1,17 @@
 ---
-title: Elements and UI
+title: App design concepts and considerations
 slug: /develop/concepts/design
 ---
 
-# Elements and UI
+# App design concepts and considerations
 
 <TileContainer layout="list">
 
-<RefCard href="/develop/concepts/architecture/app-chrome">
+<RefCard href="/develop/concepts/design/animate">
 
-<h5>App menu and toolbar</h5>
+<h5>Animate and update elements</h5>
 
-Understand and configure the developer and user options in the app menu.
+Understand how to create dynamic, animated content or update elements without rerunning your app.
 
 </RefCard>
 
@@ -31,27 +31,19 @@ Dataframes are a great way to display and edit data in a tabular format. Underst
 
 </RefCard>
 
-<RefCard href="/develop/concepts/architecture/forms">
+<RefCard href="/develop/concepts/design/custom-classes">
 
-<h5>Using forms</h5>
+<h5>Using custom Python classes in your Streamlit app</h5>
 
-Understand how to use forms to efficiently handle your app's reruns and make it more performant.
-
-</RefCard>
-
-<RefCard href="/develop/concepts/design/animate">
-
-<h5>Mutate dataframes and charts</h5>
-
-Understand how to append data to your dataframe and chart elements at the end of your script without rerunning it.
+Understand the impact of defining your own Python classes within Streamlit's rerun model.
 
 </RefCard>
 
-<RefCard href="/develop/concepts/architecture/widget-behavior">
+<RefCard href="/develop/concepts/design/timezone-handling">
 
-<h5>Understanding widget behavior</h5>
+<h5>Working with timezones</h5>
 
-Widgets are at the heart of Streamlit apps. They are magical but can sometimes have surprising behavior as your app grows more complex. Take a deep dive to really understand how they work.
+Understand how to localize time to your users.
 
 </RefCard>
 
