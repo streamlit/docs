@@ -557,6 +557,9 @@ site_menu:
   - category: Develop / API reference / Utilities / st.help
     url: /develop/api-reference/utilities/st.help
     isVersioned: true
+  - category: Develop / API reference / Utilities / st.html
+    url: /develop/api-reference/utilities/st.html
+    isVersioned: true
   - category: Develop / API reference / Configuration
     url: /develop/api-reference/configuration
     isVersioned: false

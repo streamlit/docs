@@ -2220,7 +2220,7 @@ st.components.v1.iframe(
 
 </TileContainer>
 
-### Utilities and data
+### Utilities and user info
 
 <br />
 
@@ -2248,6 +2248,22 @@ Display object’s doc string, nicely formatted.
 ```python
 st.help(st.write)
 st.help(pd.DataFrame)
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/utilities/st.html">
+
+<h4>Render HTML</h4>
+
+Renders HTML strings to your app.
+
+```python
+css = """
+<style>
+    p { color: red; }
+</style>
+"""
+st.html(css)
 ```
 
 </RefCard>
