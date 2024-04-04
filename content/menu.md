@@ -455,6 +455,9 @@ site_menu:
   - category: Develop / API reference / Execution flow / st.form_submit_button
     url: /develop/api-reference/execution-flow/st.form_submit_button
     isVersioned: true
+  - category: Develop / API reference / Execution flow / st.fragment
+    url: /develop/api-reference/execution-flow/st.fragment
+    isVersioned: true
   - category: Develop / API reference / Execution flow / st.rerun
     url: /develop/api-reference/execution-flow/st.rerun
     isVersioned: true
