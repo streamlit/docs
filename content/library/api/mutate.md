@@ -14,7 +14,7 @@ Updatable elements include the following:
 
 - `st.empty` containers can be written to in sequence and will always show the last thing written. They can also be cleared with an
   additional `.empty()` called like a method.
-- `st.dataframe`, `st.table`, and all chart elements can be updated with the `.add_rows()` method which appends data.
+- `st.dataframe`, `st.table`, and many chart elements can be updated with the `.add_rows()` method which appends data.
 - `st.progress` elements can be updated with additional `.progress()` calls. They can also be cleared with a `.empty()` method call.
 - `st.status` containers have an `.update()` method to change their labels, expanded state, and status.
 - `st.toast` messages can be updated in place with additional `.toast()` calls.
