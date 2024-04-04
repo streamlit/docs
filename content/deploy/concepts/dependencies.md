@@ -5,7 +5,7 @@ slug: /deploy/concepts/dependencies
 
 # Managing dependencies when deploying your app
 
-Before you began developing your app, you set up and configured your development environment by installing Python and Streamlit. When you deploy your app, you need to set up and configure your deploymnet environment in the same way. When you deploy your app to a cloud service, your app's [Python server](/develop/concepts/architecture/architecture#python-backend-server) will be running on a remote machine. This remote machine will not have access all the files and programs on your personal computer.
+Before you began developing your app, you set up and configured your development environment by installing Python and Streamlit. When you deploy your app, you need to set up and configure your deployment environment in the same way. When you deploy your app to a cloud service, your app's [Python server](/develop/concepts/architecture/architecture#python-backend-server) will be running on a remote machine. This remote machine will not have access all the files and programs on your personal computer.
 
 All Streamlit apps have at least two dependencies: Python and Streamlit. Your app may have additional dependencies in the form of Python packages or software that must be installed to properly execute your script. If you are using a service like Streamlit Community Cloud which is designed for Streamlit apps, we'll take care of Python and Streamlit for you!
 
@@ -36,7 +36,7 @@ import random
 st.write('Hi!')
 ```
 
-However, it's a best practice accurately record pacakges you use, so the recommended `requirements.txt` file would be:
+However, it's a best practice accurately record packages you use, so the recommended `requirements.txt` file would be:
 
 ```none
 streamlit
@@ -52,4 +52,4 @@ pandas>2.0
 numpy<=1.25.1
 ```
 
-A `requirements.txt` file is commonly saved in the root of your repository or file directory. If you are using Streamlit Community Cloud, see [Add Python dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies#add-python-dependencies) for more information. Othwerwise, check your platform's documentation.
+A `requirements.txt` file is commonly saved in the root of your repository or file directory. If you are using Streamlit Community Cloud, see [Add Python dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies#add-python-dependencies) for more information. Otherwise, check your platform's documentation.

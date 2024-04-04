@@ -1,9 +1,9 @@
 ---
-title: Run your Streamlit script
+title: Run your Streamlit app
 slug: /develop/concepts/architecture/run-your-app
 ---
 
-# Run your Streamlit script
+# Run your Streamlit app
 
 Working with Streamlit is simple. First you sprinkle a few Streamlit commands into a normal Python script, and then you run it. We list few ways to run your script, depending on your use case.
 

@@ -51,7 +51,7 @@ def init_model():
 
 ## Manage state
 
-Streamlit re-executes your script with each user interaction. Widgets have built-in statefullness between reruns, but Session State lets you do more!
+Streamlit re-executes your script with each user interaction. Widgets have built-in statefulness between reruns, but Session State lets you do more!
 
 <TileContainer>
 <RefCard href="/develop/api-reference/caching-and-state/st.session_state" size="half" >

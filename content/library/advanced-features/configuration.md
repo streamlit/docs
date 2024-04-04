@@ -58,7 +58,7 @@ To learn more, see [Theming.](/develop/concepts/configuration/theming)
 ## View all configuration options
 
 As described in [Command-line options](/develop/api-reference/cli), you can
-view all available configuration option using:
+view all available configuration options using:
 
 ```bash
 streamlit config show

@@ -25,7 +25,7 @@ Get all the information you need to build beautiful, performant web apps with St
         icon="auto_awesome"
         bold="Tutorials."
         href="/develop/tutorials"
-    >Security first! If you want to read up on how we handle your data before you get started, we've got you covered.</InlineCallout>
+    >Follow step-by-step instructions to build example apps and useful snippets.</InlineCallout>
     <InlineCallout
         color="indigo-70"
         icon="bolt"

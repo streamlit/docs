@@ -16,7 +16,7 @@ This section gives you background on how different parts of Streamlit work.
 Streamlit's execution model makes it easy to turn your scripts into beautiful, interactive web apps.
 
 - Understand how to run your app.
-- Understand Streamlit's execution and server-client model.
+- Understand Streamlit's execution and client-server model.
 - Understand the primary tools to work with Streamlit reruns.
 
 </RefCard>

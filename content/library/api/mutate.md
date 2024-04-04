@@ -6,7 +6,7 @@ description: st.add_rows appends a dataframe to the bottom of the current one in
 
 # Animate and update elements
 
-Sometimes you display a chart or dataframe and want to modify live as the app
+Sometimes you display a chart or dataframe and want to modify it live as the app
 runs (for example, in a loop). Some elements have built-in methods to allow you
 to update them in-place without rerunning the app.
 

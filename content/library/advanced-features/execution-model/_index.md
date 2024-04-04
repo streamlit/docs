@@ -19,7 +19,7 @@ Understand how to start your Streamlit app.
 
 <h5>Streamlit's architecture</h5>
 
-Understand Streamlit's server-client architecture and related considerations.
+Understand Streamlit's client-server architecture and related considerations.
 
 </RefCard>
 
