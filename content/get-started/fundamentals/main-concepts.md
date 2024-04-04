@@ -1,9 +1,9 @@
 ---
-title: Main concepts of Streamlit
+title: Basic concepts of Streamlit
 slug: /get-started/fundamentals/main-concepts
 ---
 
-# Main concepts of Streamlit
+# Basic concepts of Streamlit
 
 Working with Streamlit is simple. First you sprinkle a few Streamlit commands
 into a normal Python script, then you run it with `streamlit run`:
@@ -17,9 +17,9 @@ spin up and your app will open in a new tab in your default web browser. The app
 is your canvas, where you'll draw charts, text, widgets, tables, and more.
 
 What gets drawn in the app is up to you. For example
-[`st.text`](/library/api-reference/text/st.text) writes raw text to your app, and
-[`st.line_chart`](/library/api-reference/charts/st.line_chart) draws — you guessed it — a
-line chart. Refer to our [API documentation](/library/api-reference) to see all commands that
+[`st.text`](/develop/api-reference/text/st.text) writes raw text to your app, and
+[`st.line_chart`](/develop/api-reference/charts/st.line_chart) draws — you guessed it — a
+line chart. Refer to our [API documentation](/develop/api-reference) to see all commands that
 are available to you.
 
 <Note>
@@ -73,7 +73,7 @@ time. Give it a try!
 
 As of Streamlit version 1.10.0 and higher, Streamlit apps cannot be run from the root directory of Linux distributions. If you try to run a Streamlit app from the root directory, Streamlit will throw a `FileNotFoundError: [Errno 2] No such file or directory` error. For more information, see GitHub issue [#5239](https://github.com/streamlit/streamlit/issues/5239).
 
-If you are using Streamlit version 1.10.0 or higher, your main script should live in a directory other than the root directory. When using Docker, you can use the `WORKDIR` command to specify the directory where your main script lives. For an example of how to do this, read [Create a Dockerfile](/knowledge-base/tutorials/deploy/docker#create-a-dockerfile).
+If you are using Streamlit version 1.10.0 or higher, your main script should live in a directory other than the root directory. When using Docker, you can use the `WORKDIR` command to specify the directory where your main script lives. For an example of how to do this, read [Create a Dockerfile](/deploy/tutorials/docker#create-a-dockerfile).
 
 ## Data flow
 
@@ -89,7 +89,7 @@ This can happen in two situations:
 - Whenever a user interacts with widgets in the app. For example, when dragging
   a slider, entering text in an input box, or clicking a button.
 
-Whenever a callback is passed to a widget via the `on_change` (or `on_click`) parameter, the callback will always run before the rest of your script. For details on the Callbacks API, please refer to our [Session State API Reference Guide](/library/api-reference/session-state#use-callbacks-to-update-session-state).
+Whenever a callback is passed to a widget via the `on_change` (or `on_click`) parameter, the callback will always run before the rest of your script. For details on the Callbacks API, please refer to our [Session State API Reference Guide](/develop/api-reference/caching-and-state/st.session_state#use-callbacks-to-update-session-state).
 
 And to make all of this fast and seamless, Streamlit does some heavy lifting
 for you behind the scenes. A big player in this story is the
@@ -101,15 +101,15 @@ page.
 
 There are a few ways to display data (tables, arrays, data frames) in Streamlit
 apps. [Below](#use-magic), you will be introduced to _magic_
-and [`st.write()`](/library/api-reference/write-magic/st.write), which can be used to write
+and [`st.write()`](/develop/api-reference/write-magic/st.write), which can be used to write
 anything from text to tables. After that, let's take a look at methods designed
 specifically for visualizing data.
 
 ### Use magic
 
 You can also write to your app without calling any Streamlit methods.
-Streamlit supports "[magic commands](/library/api-reference/write-magic/magic)," which means you don't have to use
-[`st.write()`](/library/api-reference/write-magic/st.write) at all! To see this in action try this snippet:
+Streamlit supports "[magic commands](/develop/api-reference/write-magic/magic)," which means you don't have to use
+[`st.write()`](/develop/api-reference/write-magic/st.write) at all! To see this in action try this snippet:
 
 ```python
 """
@@ -129,14 +129,14 @@ df
 
 Any time that Streamlit sees a variable or a literal
 value on its own line, it automatically writes that to your app using
-[`st.write()`](/library/api-reference/write-magic/st.write). For more information, refer to the
-documentation on [magic commands](/library/api-reference/write-magic/magic).
+[`st.write()`](/develop/api-reference/write-magic/st.write). For more information, refer to the
+documentation on [magic commands](/develop/api-reference/write-magic/magic).
 
 ### Write a data frame
 
-Along with [magic commands](/library/api-reference/write-magic/magic),
-[`st.write()`](/library/api-reference/write-magic/st.write) is Streamlit's "Swiss Army knife". You
-can pass almost anything to [`st.write()`](/library/api-reference/write-magic/st.write):
+Along with [magic commands](/develop/api-reference/write-magic/magic),
+[`st.write()`](/develop/api-reference/write-magic/st.write) is Streamlit's "Swiss Army knife". You
+can pass almost anything to [`st.write()`](/develop/api-reference/write-magic/st.write):
 text, data, Matplotlib figures, Altair charts, and more. Don't worry, Streamlit
 will figure it out and render things the right way.
 
@@ -152,14 +152,14 @@ st.write(pd.DataFrame({
 ```
 
 There are other data specific functions like
-[`st.dataframe()`](/library/api-reference/data/st.dataframe) and
-[`st.table()`](/library/api-reference/data/st.table) that you can also use for displaying
+[`st.dataframe()`](/develop/api-reference/data/st.dataframe) and
+[`st.table()`](/develop/api-reference/data/st.table) that you can also use for displaying
 data. Let's understand when to use these features and how to add colors and styling to your data frames.
 
 You might be asking yourself, "why wouldn't I always use `st.write()`?" There are
 a few reasons:
 
-1. _Magic_ and [`st.write()`](/library/api-reference/write-magic/st.write) inspect the type of
+1. _Magic_ and [`st.write()`](/develop/api-reference/write-magic/st.write) inspect the type of
    data that you've passed in, and then decide how to best render it in the
    app. Sometimes you want to draw it another way. For example, instead of
    drawing a dataframe as an interactive table, you may want to draw it as a
@@ -171,7 +171,7 @@ a few reasons:
 
 For example, let's create a data frame and change its formatting with a Pandas
 `Styler` object. In this example, you'll use Numpy to generate a random sample,
-and the [`st.dataframe()`](/library/api-reference/data/st.dataframe) method to draw an
+and the [`st.dataframe()`](/develop/api-reference/data/st.dataframe) method to draw an
 interactive table.
 
 <Note>
@@ -205,7 +205,7 @@ st.dataframe(dataframe.style.highlight_max(axis=0))
 ```
 
 Streamlit also has a method for static table generation:
-[`st.table()`](/library/api-reference/data/st.table).
+[`st.table()`](/develop/api-reference/data/st.table).
 
 ```python
 import streamlit as st
@@ -221,13 +221,13 @@ st.table(dataframe)
 ### Draw charts and maps
 
 Streamlit supports several popular data charting libraries like [Matplotlib,
-Altair, deck.gl, and more](/library/api-reference#chart-elements). In this section, you'll
+Altair, deck.gl, and more](/develop/api-reference#chart-elements). In this section, you'll
 add a bar chart, line chart, and a map to your app.
 
 ### Draw a line chart
 
 You can easily add a line chart to your app with
-[`st.line_chart()`](/library/api-reference/charts/st.line_chart). We'll generate a random
+[`st.line_chart()`](/develop/api-reference/charts/st.line_chart). We'll generate a random
 sample using Numpy and then chart it.
 
 ```python
@@ -244,7 +244,7 @@ st.line_chart(chart_data)
 
 ### Plot a map
 
-With [`st.map()`](/library/api-reference/charts/st.map) you can display data points on a map.
+With [`st.map()`](/develop/api-reference/charts/st.map) you can display data points on a map.
 Let's use Numpy to generate some sample data and plot it on a map of
 San Francisco.
 
@@ -263,9 +263,9 @@ st.map(map_data)
 ## Widgets
 
 When you've got the data or model into the state that you want to explore, you
-can add in widgets like [`st.slider()`](/library/api-reference/widgets/st.slider),
-[`st.button()`](/library/api-reference/widgets/st.button) or
-[`st.selectbox()`](/library/api-reference/widgets/st.selectbox). It's really straightforward
+can add in widgets like [`st.slider()`](/develop/api-reference/widgets/st.slider),
+[`st.button()`](/develop/api-reference/widgets/st.button) or
+[`st.selectbox()`](/develop/api-reference/widgets/st.selectbox). It's really straightforward
 — treat widgets as variables:
 
 ```python
@@ -293,12 +293,12 @@ st.text_input("Your name", key="name")
 st.session_state.name
 ```
 
-Every widget with a key is automatically added to Session State. For more information about Session State, its association with widget state, and its limitations, see [Session State API Reference Guide](/library/api-reference/session-state).
+Every widget with a key is automatically added to Session State. For more information about Session State, its association with widget state, and its limitations, see [Session State API Reference Guide](/develop/api-reference/caching-and-state/st.session_state).
 
 ### Use checkboxes to show/hide data
 
 One use case for checkboxes is to hide or show a specific chart or section in
-an app. [`st.checkbox()`](/library/api-reference/widgets/st.checkbox) takes a single argument,
+an app. [`st.checkbox()`](/develop/api-reference/widgets/st.checkbox) takes a single argument,
 which is the widget label. In this sample, the checkbox is used to toggle a
 conditional statement.
 
@@ -317,7 +317,7 @@ if st.checkbox('Show dataframe'):
 
 ### Use a selectbox for options
 
-Use [`st.selectbox`](/library/api-reference/widgets/st.selectbox) to choose from a series. You
+Use [`st.selectbox`](/develop/api-reference/widgets/st.selectbox) to choose from a series. You
 can write in the options you want, or pass through an array or data frame
 column.
 
@@ -342,8 +342,8 @@ option = st.selectbox(
 ## Layout
 
 Streamlit makes it easy to organize your widgets in a left panel sidebar with
-[`st.sidebar`](/library/api-reference/layout/st.sidebar). Each element that's passed to
-[`st.sidebar`](/library/api-reference/layout/st.sidebar) is pinned to the left, allowing
+[`st.sidebar`](/develop/api-reference/layout/st.sidebar). Each element that's passed to
+[`st.sidebar`](/develop/api-reference/layout/st.sidebar) is pinned to the left, allowing
 users to focus on the content in your app while still having access to UI
 controls.
 
@@ -368,8 +368,8 @@ add_slider = st.sidebar.slider(
 ```
 
 Beyond the sidebar, Streamlit offers several other ways to control the layout
-of your app. [`st.columns`](/library/api-reference/layout/st.columns) lets you place widgets side-by-side, and
-[`st.expander`](/library/api-reference/layout/st.expander) lets you conserve space by hiding away large content.
+of your app. [`st.columns`](/develop/api-reference/layout/st.columns) lets you place widgets side-by-side, and
+[`st.expander`](/develop/api-reference/layout/st.expander) lets you conserve space by hiding away large content.
 
 ```python
 import streamlit as st
@@ -396,7 +396,7 @@ or layout options. Rest assured, though, we're currently working on adding suppo
 ### Show progress
 
 When adding long running computations to an app, you can use
-[`st.progress()`](/library/api-reference/status/st.progress) to display status in real time.
+[`st.progress()`](/develop/api-reference/status/st.progress) to display status in real time.
 
 First, let's import time. We're going to use the `time.sleep()` method to
 simulate a long running computation:
