@@ -23,7 +23,7 @@ Understand how to configure SSL and TLS for your Streamlit app.
 
 </RefCard>
 
-<RefCard href="/develop/concepts/configuration/static-file-serving">
+<RefCard href="/develop/concepts/configuration/serving-static-files">
 
 <h5>Static file serving</h5>
 

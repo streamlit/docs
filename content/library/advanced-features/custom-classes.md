@@ -78,7 +78,7 @@ Streamlit only reloads code in imported modules when it detects the code has cha
 
 ### Pattern 2: Force your class to compare internal values
 
-For classes that store data (like [dataclasses](https://docs.python.org/3/develop/dataclasses.html)), you may be more interested in comparing the internally stored values rather than the class itself. If you define a custom `__eq__` method, you can force comparisons to be made on the internally stored values.
+For classes that store data (like [dataclasses](https://docs.python.org/3/library/dataclasses.html)), you may be more interested in comparing the internally stored values rather than the class itself. If you define a custom `__eq__` method, you can force comparisons to be made on the internally stored values.
 
 #### Example: Define `__eq__`
 
@@ -273,7 +273,7 @@ As a final note, we used `@dataclass` in the example for this section to illustr
 
 ## Using `Enum` classes in Streamlit
 
-The [`Enum`](https://docs.python.org/3/develop/enum.html#enum.Enum) class from the Python standard library is a powerful way to define custom symbolic names that can be used as options for `st.multiselect` or `st.selectbox` in place of `str` values.
+The [`Enum`](https://docs.python.org/3/library/enum.html#enum.Enum) class from the Python standard library is a powerful way to define custom symbolic names that can be used as options for `st.multiselect` or `st.selectbox` in place of `str` values.
 
 For example, you might add the following to your streamlit page:
 

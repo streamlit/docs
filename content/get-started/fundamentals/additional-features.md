@@ -25,7 +25,7 @@ out different colors and see your app update live.
 ![Editing Themes](/images/edit_theme.gif)
 
 When you're happy with your work, themes can be saved by
-[setting config options](/develop/concepts/configuration#set-configuration-options)
+[setting config options](/develop/concepts/configuration)
 in the `[theme]` config section. After you've defined a theme for your app, it
 will appear as "Custom Theme" in the theme selector and will be applied by
 default instead of the included Light and Dark themes.
@@ -118,7 +118,7 @@ your-project/
 └── streamlit_app.py
 ```
 
-To learn more, read our guide on [Static file serving](/develop/concepts/configuration/static-file-serving).
+To learn more, read our guide on [Static file serving](/develop/concepts/configuration/serving-static-files).
 
 ## App testing
 

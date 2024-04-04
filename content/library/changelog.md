@@ -505,7 +505,7 @@ _Release date: February 09, 2023_
 - ↔️ `st.button` has an optional `use_container_width` parameter to allow you to stretch buttons across the full container width.
 - 🐍 We formally added support for Python 3.11.
 - 🖨️ Save your app as a PDF via the "Print" option in your app's hamburger menu.
-- 🛎️ Apps can serve small, static media files via the `enableStaticServing` config option. See our [documentation](/develop/concepts/configuration/static-file-serving) on how to use this feature and our demo [app](https://static-file-serving.streamlit.app/) for an example.
+- 🛎️ Apps can serve small, static media files via the `enableStaticServing` config option. See our [documentation](/develop/concepts/configuration/serving-static-files) on how to use this feature and our demo [app](https://static-file-serving.streamlit.app/) for an example.
 
 **Other Changes**
 
@@ -528,7 +528,7 @@ _Release date: January 12, 2023_
 **Notable Changes**
 
 - 🪄 [`@st.experimental_singleton`](/develop/api-reference/caching-and-state/st.experimental_singleton#validating-the-cache) supports an optional `validate` parameter that accepts a validation function for cached data and is called each time the cached value is accessed.
-- 💾  [`@st.experimental_memo`](https://docs.streamlit.io/develop/api-reference/caching-and-state/st.experimental_memo)'s `persist` parameter can also accept booleans.
+- 💾  [`@st.experimental_memo`](/develop/api-reference/caching-and-state/st.experimental_memo)'s `persist` parameter can also accept booleans.
 
 **Other Changes**
 
@@ -566,7 +566,7 @@ _Release date: November 17, 2022_
 
 **Notable Changes**
 
-- 💅 Widget labels can contain inline Markdown. See our [docs](https://docs.streamlit.io/develop/api-reference/widgets) and demo [app](https://markdown-labels.streamlit.app/) for more info.
+- 💅 Widget labels can contain inline Markdown. See our [docs](/develop/api-reference/widgets) and demo [app](https://markdown-labels.streamlit.app/) for more info.
 - 🎵 [`st.audio`](/develop/api-reference/media/st.audio) now supports playing audio data passed in as NumPy arrays with the keyword-only `sample_rate` parameter.
 - 🔁 Functions cached with `st.experimental_memo` or `st.experimental_singleton` can contain Streamlit widgets using the `experimental_allow_widgets` parameter. This allows caching checkboxes, sliders, radio buttons, and more!
 

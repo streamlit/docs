@@ -131,7 +131,7 @@ Let’s walk through each line of the Dockerfile :
    - streamlit_app.py
    ```
 
-   where `requirements.txt` file contains all your [Python dependencies](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies#add-python-dependencies). E.g
+   where `requirements.txt` file contains all your [Python dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies#add-python-dependencies). E.g
 
    ```
    altair

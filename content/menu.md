@@ -105,7 +105,7 @@ site_menu:
   - category: Develop / Concepts / Configuration and theming / HTTPS support
     url: /develop/concepts/configuration/https-support
   - category: Develop / Concepts / Configuration and theming / Serving static files
-    url: /develop/concepts/configuration/static-file-serving
+    url: /develop/concepts/configuration/serving-static-files
   - category: Develop / Concepts / Configuration and theming / Customize your theme
     url: /develop/concepts/configuration/theming
   - category: Develop / Concepts / App testing

@@ -123,7 +123,7 @@ As developers, ensure the app is served with a valid, trusted certificate when u
 
 ### Access edited data
 
-Sometimes, it is more convenient to know which cells have been changed rather than getting the entire edited dataframe back. Streamlit makes this easy through the use of [Session State](https://docs.streamlit.io/develop/concepts/architecture/session-state). If a `key` parameter is set, Streamlit will store any changes made to the dataframe in Session State.
+Sometimes, it is more convenient to know which cells have been changed rather than getting the entire edited dataframe back. Streamlit makes this easy through the use of [Session State](/develop/concepts/architecture/session-state). If a `key` parameter is set, Streamlit will store any changes made to the dataframe in Session State.
 
 This snippet shows how you can access changed data using Session State:
 

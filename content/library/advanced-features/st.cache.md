@@ -391,7 +391,7 @@ Because Streamlit's hash function works recursively, you don't have to hash the 
 
 While it's possible to write custom hash functions, let's take a look at some of the tools that Python provides out of the box. Here's a list of some hash functions and when it makes sense to use them.
 
-Python's [`id`](https://docs.python.org/3/develop/functions.html#id) function | [Example](#example-1-pass-a-database-connection-around)
+Python's [`id`](https://docs.python.org/3/library/functions.html#id) function | [Example](#example-1-pass-a-database-connection-around)
 
 - Speed: Fast
 - Use case: If you're hashing a singleton object, like an open database connection or a TensorFlow session. These are objects that will only be instantiated once, no matter how many times your script reruns.
@@ -401,7 +401,7 @@ Python's [`id`](https://docs.python.org/3/develop/functions.html#id) function | 
 - Speed: Fast
 - Use case: If you want to turn off hashing of this type. This is useful if you know the object is not going to change.
 
-Python's [`hash()`](https://docs.python.org/3/develop/functions.html#hash) function | [Example](#example-3-use-pythons-hash-function)
+Python's [`hash()`](https://docs.python.org/3/library/functions.html#hash) function | [Example](#example-3-use-pythons-hash-function)
 
 - Speed: Can be slow based the size of the object being cached
 - Use case: If Python already knows how to hash this type correctly.

@@ -1,12 +1,12 @@
 ---
 title: Static file serving
-slug: /develop/concepts/configuration/static-file-serving
+slug: /develop/concepts/configuration/serving-static-files
 ---
 
 # Static file serving
 
 Streamlit apps can host and serve small, static media files to support media embedding use cases that
-won't work with the normal [media elements](https://docs.streamlit.io/develop/api-reference/media).
+won't work with the normal [media elements](/develop/api-reference/media).
 
 To enable this feature, set `enableStaticServing = true` under `[server]` in your config file,
 or environment variable `STREAMLIT_SERVER_ENABLE_STATIC_SERVING=true`.
