@@ -5,7 +5,7 @@ slug: /get-started/tutorials/create-an-app
 
 # Create an app
 
-If you've made it this far, chances are you've [installed Streamlit](/get-started/installation) and run through the basics in [Main concepts](/get-started/fundamentals/main-concepts) and [Advanced concepts](/get-started/fundamentals/advanced-concepts). If not, now is a good time to take a look.
+If you've made it this far, chances are you've [installed Streamlit](/get-started/installation) and run through the basics in [Basic concepts](/get-started/fundamentals/main-concepts) and [Advanced concepts](/get-started/fundamentals/advanced-concepts). If not, now is a good time to take a look.
 
 The easiest way to learn how to use Streamlit is to try things out yourself. As you read through this guide, test each method. As long as your app is running, every time you add a new element to your script and save, Streamlit's UI will ask if you'd like to rerun the app and view the changes. This allows you to work in a fast interactive loop: you write some code, save it, review the output, write some more, and so on, until you're happy with the results. The goal is to use Streamlit to create an interactive app for your data or model and along the way to use Streamlit to review, debug, perfect, and share your code.
 
@@ -178,7 +178,7 @@ transformational.
 <Tip>
 
 Whenever you have a long-running computation in your code, consider
-refactoring it so you can use `@st.cache_data`, if possible. Please read [Caching](/library/advanced-features/caching) for more details.
+refactoring it so you can use `@st.cache_data`, if possible. Please read [Caching](/develop/concepts/architecture/caching) for more details.
 
 </Tip>
 
@@ -196,15 +196,15 @@ st.subheader('Raw data')
 st.write(data)
 ```
 
-In the [Main concepts](/get-started/fundamentals/main-concepts) guide you learned that
-[`st.write`](/library/api-reference/write-magic/st.write) will render almost anything you pass
+In the [Basic concepts](/get-started/fundamentals/main-concepts) guide you learned that
+[`st.write`](/develop/api-reference/write-magic/st.write) will render almost anything you pass
 to it. In this case, you're passing in a dataframe and it's rendering as an
 interactive table.
 
-[`st.write`](/library/api-reference/write-magic/st.write) tries to do the right thing based on
+[`st.write`](/develop/api-reference/write-magic/st.write) tries to do the right thing based on
 the data type of the input. If it isn't doing what you expect you can use a
-specialized command like [`st.dataframe`](/library/api-reference/data/st.dataframe)
-instead. For a full list, see [API reference](/library/api-reference).
+specialized command like [`st.dataframe`](/develop/api-reference/data/st.dataframe)
+instead. For a full list, see [API reference](/develop/api-reference).
 
 ## Draw a histogram
 
@@ -227,7 +227,7 @@ Uber's busiest hours are in New York City.
    ```
 
 3. Now, let's use Streamlit's
-   [`st.bar_chart()`](/library/api-reference/charts/st.bar_chart) method to draw this
+   [`st.bar_chart()`](/develop/api-reference/charts/st.bar_chart) method to draw this
    histogram.
 
    ```python
@@ -240,7 +240,7 @@ Uber's busiest hours are in New York City.
 To draw this diagram we used Streamlit's native `bar_chart()` method, but it's
 important to know that Streamlit supports more complex charting libraries like
 Altair, Bokeh, Plotly, Matplotlib and more. For a full list, see
-[supported charting libraries](/library/api-reference/charts).
+[supported charting libraries](/develop/api-reference/charts).
 
 ## Plot data on a map
 
@@ -249,7 +249,7 @@ times are for pickups, but what if we wanted to figure out where pickups were
 concentrated throughout the city. While you could use a bar chart to show this
 data, it wouldn't be easy to interpret unless you were intimately familiar with
 latitudinal and longitudinal coordinates in the city. To show pickup
-concentration, let's use Streamlit [`st.map()`](/library/api-reference/charts/st.map)
+concentration, let's use Streamlit [`st.map()`](/develop/api-reference/charts/st.map)
 function to overlay the data on a map of New York City.
 
 1. Add a subheader for the section:
@@ -289,9 +289,9 @@ at 17:00.
 
 3. You should see the data update instantly.
 
-To draw this map we used the [`st.map`](/library/api-reference/charts/st.map) function that's built into Streamlit, but
+To draw this map we used the [`st.map`](/develop/api-reference/charts/st.map) function that's built into Streamlit, but
 if you'd like to visualize complex map data, we encourage you to take a look at
-the [`st.pydeck_chart`](/library/api-reference/charts/st.pydeck_chart).
+the [`st.pydeck_chart`](/develop/api-reference/charts/st.pydeck_chart).
 
 ## Filter results with a slider
 
@@ -311,7 +311,7 @@ slider to the app with the `st.slider()` method.
 ## Use a button to toggle data
 
 Sliders are just one way to dynamically change the composition of your app.
-Let's use the [`st.checkbox`](/library/api-reference/widgets/st.checkbox) function to add a
+Let's use the [`st.checkbox`](/develop/api-reference/widgets/st.checkbox) function to add a
 checkbox to your app. We'll use this checkbox to show/hide the raw data
 table at the top of your app.
 
@@ -330,7 +330,7 @@ table at the top of your app.
        st.write(data)
    ```
 
-We're sure you've got your own ideas. When you're done with this tutorial, check out all the widgets that Streamlit exposes in our [API Reference](/library/api-reference).
+We're sure you've got your own ideas. When you're done with this tutorial, check out all the widgets that Streamlit exposes in our [API Reference](/develop/api-reference).
 
 ## Let's put it all together
 
@@ -392,7 +392,7 @@ It works in 3 simple steps:
 2. Sign into [share.streamlit.io](https://share.streamlit.io)
 3. Click 'Deploy an app' and then paste in your GitHub URL
 
-That's it! 🎈 You now have a publicly deployed app that you can share with the world. Click to learn more about [how to use Streamlit Community Cloud](/streamlit-community-cloud).
+That's it! 🎈 You now have a publicly deployed app that you can share with the world. Click to learn more about [how to use Streamlit Community Cloud](/deploy/streamlit-community-cloud).
 
 ## Get help
 
@@ -403,5 +403,5 @@ run into difficulties here are a few things you can do.
 - Quick help from command line with `streamlit help`
 - Go through our [Knowledge Base](/knowledge-base) for tips, step-by-step tutorials, and articles that answer your questions about creating and deploying Streamlit apps.
 - Read more documentation! Check out:
-  - [Advanced features](/library/advanced-features) for things like caching, theming, and adding statefulness to apps.
-  - [API reference](/library/api-reference/) for examples of every Streamlit command.
+  - [Concepts](/develop/concepts) for things like caching, theming, and adding statefulness to apps.
+  - [API reference](/develop/api-reference/) for examples of every Streamlit command.

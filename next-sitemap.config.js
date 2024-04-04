@@ -7,6 +7,6 @@ module.exports = {
     "/style-guide",
     "/gdpr-banner",
     "/index",
-    "/library",
+    "/develop",
   ],
 };

@@ -12,7 +12,7 @@ features:
       fugit, sed quia.
     color: orange-70
     icon: dvr
-    url: /library/api-reference
+    url: /develop/api-reference
     image: ""
   - title: Topic guides
     body: Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut

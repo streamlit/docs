@@ -7,9 +7,9 @@ slug: /knowledge-base/deploy/increase-file-uploader-limit-streamlit-cloud
 
 ## Overview
 
-By default, files uploaded using [`st.file_uploader()`](/library/api-reference/widgets/st.file_uploader) are limited to 200MB. You can configure this using the `server.maxUploadSize` config option.
+By default, files uploaded using [`st.file_uploader()`](/develop/api-reference/widgets/st.file_uploader) are limited to 200MB. You can configure this using the `server.maxUploadSize` config option.
 
-Streamlit provides [four different ways to set configuration options](/library/advanced-features/configuration#set-configuration-options):
+Streamlit provides [four different ways to set configuration options](/develop/concepts/configuration):
 
 1. In a **global config file** at `~/.streamlit/config.toml` for macOS/Linux or `%userprofile%/.streamlit/config.toml` for Windows:
    ```toml
@@ -26,7 +26,7 @@ Streamlit provides [four different ways to set configuration options](/library/a
    streamlit run your_script.py --server.maxUploadSize 200
    ```
 
-Which of the four options should you choose for an app deployed to [Streamlit Community Cloud](/streamlit-community-cloud)? 🤔
+Which of the four options should you choose for an app deployed to [Streamlit Community Cloud](/deploy/streamlit-community-cloud)? 🤔
 
 ## Solution
 
@@ -42,5 +42,5 @@ maxUploadSize = 400
 ## Relevant resources
 
 - [Streamlit drag and drop capping at 200MB, need workaround](https://discuss.streamlit.io/t/streamlit-drag-and-drop-capping-at-200mb-need-workaround/19803/2)
-- [File uploader widget API](/library/api-reference/widgets/st.file_uploader)
-- [How to set Streamlit configuration options](/library/advanced-features/configuration#set-configuration-options)
+- [File uploader widget API](/develop/api-reference/widgets/st.file_uploader)
+- [How to set Streamlit configuration options](/develop/concepts/configuration)
