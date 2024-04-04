@@ -1,6 +1,6 @@
 ---
 title: st.testing.v1.AppTest
-slug: /library/api-reference/app-testing/st.testing.v1.apptest
+slug: /develop/api-reference/app-testing/st.testing.v1.apptest
 ---
 
 <h1 style={{display: "none"}}></h1>

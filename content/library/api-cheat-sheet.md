@@ -1,9 +1,9 @@
 ---
-title: Cheat sheet
-slug: /library/cheatsheet
+title: Streamlit API cheat sheet
+slug: /develop/quick-reference/cheat-sheet
 ---
 
-# Cheat Sheet
+# Streamlit API cheat sheet
 
 This is a summary of the docs, as of [Streamlit v1.31.0](https://pypi.org/project/streamlit/1.31.0/).
 
@@ -292,7 +292,7 @@ st.color_picker("Pick a color")
 >>>     st.chat_input("Say something")
 ```
 
-Learn how to [Build a basic LLM chat app](/knowledge-base/tutorials/build-conversational-apps)
+Learn how to [Build a basic LLM chat app](/develop/tutorials/llms/build-conversational-apps)
 
 </CodeTile>
 

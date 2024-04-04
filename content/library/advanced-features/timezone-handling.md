@@ -1,6 +1,6 @@
 ---
 title: Working with timezones
-slug: /library/advanced-features/timezone-handling
+slug: /develop/concepts/design/timezone-handling
 ---
 
 # Working with timezones
@@ -13,7 +13,7 @@ Streamlit always shows `datetime` information on the frontend with the same info
 
 ### **`datetime` instance without a timezone (naive)**
 
-When you provide a `datetime` instance _without specifying a timezone_, the frontend shows the `datetime` instance without timezone information. For example (this also applies to other widgets like [`st.dataframe`](/library/api-reference/data/st.dataframe)):
+When you provide a `datetime` instance _without specifying a timezone_, the frontend shows the `datetime` instance without timezone information. For example (this also applies to other widgets like [`st.dataframe`](/develop/api-reference/data/st.dataframe)):
 
 ```python
 import streamlit as st
@@ -27,7 +27,7 @@ Users of the above app always see the output as `2020-01-10 10:30:00`.
 
 ### **`datetime` instance with a timezone**
 
-When you provide a `datetime` instance _and specify a timezone_, the frontend shows the `datetime` instance in that same timezone. For example (this also applies to other widgets like [`st.dataframe`](/library/api-reference/data/st.dataframe)):
+When you provide a `datetime` instance _and specify a timezone_, the frontend shows the `datetime` instance in that same timezone. For example (this also applies to other widgets like [`st.dataframe`](/develop/api-reference/data/st.dataframe)):
 
 ```python
 import streamlit as st
@@ -44,6 +44,6 @@ In both cases, neither the date nor time information automatically adjusts to th
 
 <Note>
 
-The legacy version of the `st.dataframe` has issues with timezones. We do not plan to roll out additional fixes or enhancements for the legacy dataframe. If you need stable timezone support, please consider switching to the arrow serialization by changing the [config setting](/library/advanced-features/configuration#set-configuration-options), _config.dataFrameSerialization = "arrow"_.
+The legacy version of the `st.dataframe` has issues with timezones. We do not plan to roll out additional fixes or enhancements for the legacy dataframe. If you need stable timezone support, please consider switching to the arrow serialization by changing the [config setting](/develop/concepts/configuration), _config.dataFrameSerialization = "arrow"_.
 
 </Note>

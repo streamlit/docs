@@ -1,6 +1,6 @@
 ---
 title: st.slider
-slug: /library/api-reference/widgets/st.slider
+slug: /develop/api-reference/widgets/st.slider
 description: st.slider displays a slider widget.
 ---
 

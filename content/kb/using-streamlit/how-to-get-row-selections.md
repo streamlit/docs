@@ -5,7 +5,7 @@ slug: /knowledge-base/using-streamlit/how-to-get-row-selections
 
 # How do I get dataframe row-selections from a user?
 
-At the moment, [`st.dataframe`](/api-reference/data/st.dataframe) and [`st.data_editor`](/library/api-reference/data/st.data_editor) do not natively support passing user-selected rows to the Python backend. We are working to support this in the future. For now, if you need to get row-selections from a user, you can accomplish this by adding an extra [Checkbox column](/library/api-reference/data/st.column_config/st.column_config.checkboxcolumn)) to your dataframe and using `st.data_editor`. You can use this extra column to collect a user's selection(s).
+At the moment, [`st.dataframe`](/api-reference/data/st.dataframe) and [`st.data_editor`](/develop/api-reference/data/st.data_editor) do not natively support passing user-selected rows to the Python backend. We are working to support this in the future. For now, if you need to get row-selections from a user, you can accomplish this by adding an extra [Checkbox column](/develop/api-reference/data/st.column_config/st.column_config.checkboxcolumn)) to your dataframe and using `st.data_editor`. You can use this extra column to collect a user's selection(s).
 
 ## Example
 

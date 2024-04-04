@@ -1,6 +1,6 @@
 ---
 title: st.warning
-slug: /library/api-reference/status/st.warning
+slug: /develop/api-reference/status/st.warning
 description: st.warning displays warning message.
 ---
 

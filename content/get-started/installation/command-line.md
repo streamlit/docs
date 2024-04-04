@@ -148,4 +148,4 @@ deactivate
 
 ## What's next?
 
-Read about our [Main concepts](/get-started/fundamentals/main-concepts) to understand Streamlit's dataflow model.
+Read about our [Basic concepts](/get-started/fundamentals/main-concepts) to understand Streamlit's dataflow model.

@@ -1,15 +1,15 @@
 ---
-title: Caching
-slug: /library/advanced-features/caching
+title: Caching overview
+slug: /develop/concepts/architecture/caching
 ---
 
 <Note>
 
-Documentation for the deprecated `@st.cache` decorator can be found in [Optimize performance with st.cache](/library/advanced-features/st.cache).
+Documentation for the deprecated `@st.cache` decorator can be found in [Optimize performance with st.cache](/develop/concepts/architecture/st.cache).
 
 </Note>
 
-# Caching
+# Caching overview
 
 Streamlit runs your script from top to bottom at every user interaction or code change. This execution model makes development super easy. But it comes with two major challenges:
 
@@ -138,7 +138,7 @@ def add(arr1, arr2):
 
 **Database queries**
 
-You usually make SQL queries to load data into your app when working with databases. Repeatedly running these queries can be slow, cost money, and degrade the performance of your database. We strongly recommend caching any database queries in your app. See also [our guides on connecting Streamlit to different databases](/knowledge-base/tutorials/databases) for in-depth examples.
+You usually make SQL queries to load data into your app when working with databases. Repeatedly running these queries can be slow, cost money, and degrade the performance of your database. We strongly recommend caching any database queries in your app. See also [our guides on connecting Streamlit to different databases](/develop/tutorials/databases) for in-depth examples.
 
 ```python
 connection = database.connect()
@@ -248,7 +248,7 @@ def init_connection():
 conn = init_connection()
 ```
 
-Of course, you can do the same for any other database. Have a look at [our guides on how to connect Streamlit to databases](/knowledge-base/tutorials/databases) for in-depth examples.
+Of course, you can do the same for any other database. Have a look at [our guides on how to connect Streamlit to databases](/develop/tutorials/databases) for in-depth examples.
 
 **Loading ML models**
 
@@ -733,7 +733,7 @@ def show_data():
 
 #### Input widgets
 
-You can also use [interactive input widgets](/library/api-reference/widgets) like `st.slider` or `st.text_input` in cached functions. Widget replay is an experimental feature at the moment. To enable it, you need to set the `experimental_allow_widgets` parameter:
+You can also use [interactive input widgets](/develop/api-reference/widgets) like `st.slider` or `st.text_input` in cached functions. Widget replay is an experimental feature at the moment. To enable it, you need to set the `experimental_allow_widgets` parameter:
 
 ```python
 @st.cache_data(experimental_allow_widgets=True)  # 👈 Set the parameter

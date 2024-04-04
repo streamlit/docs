@@ -1,11 +1,11 @@
 ---
 title: Using forms
-slug: /library/advanced-features/forms
+slug: /develop/concepts/architecture/forms
 ---
 
 # Using forms
 
-When you don't want to rerun your script with each input made by a user, [`st.form`](/library/api-reference/control-flow/st.form) is here to help! Forms make it easy to batch user input into a single rerun. This guide to using forms provides examples and explains how users interact with forms.
+When you don't want to rerun your script with each input made by a user, [`st.form`](/develop/api-reference/execution-flow/st.form) is here to help! Forms make it easy to batch user input into a single rerun. This guide to using forms provides examples and explains how users interact with forms.
 
 ## Example
 
@@ -99,7 +99,7 @@ st.write(my_color)
 
 ## Forms are containers
 
-When `st.form` is called, a container is created on the frontend. You can write to that container like you do with other [container elements](/library/api-reference/layout). That is, you can use Python's `with` statement as shown in the example above, or you can assign the form container to a variable and call methods on it directly. Additionally, you can place `st.form_submit_button` anywhere in the form container.
+When `st.form` is called, a container is created on the frontend. You can write to that container like you do with other [container elements](/develop/api-reference/layout). That is, you can use Python's `with` statement as shown in the example above, or you can assign the form container to a variable and call methods on it directly. Additionally, you can place `st.form_submit_button` anywhere in the form container.
 
 ```python
 import streamlit as st

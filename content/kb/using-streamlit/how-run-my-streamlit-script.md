@@ -1,9 +1,9 @@
 ---
-title: How do I run my Streamlit script?
-slug: /knowledge-base/using-streamlit/how-do-i-run-my-streamlit-script
+title: Run your Streamlit app
+slug: /develop/concepts/architecture/run-your-app
 ---
 
-# How do I run my Streamlit script?
+# Run your Streamlit app
 
 Working with Streamlit is simple. First you sprinkle a few Streamlit commands into a normal Python script, and then you run it. We list few ways to run your script, depending on your use case.
 

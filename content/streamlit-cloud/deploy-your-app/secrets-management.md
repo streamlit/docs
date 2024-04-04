@@ -1,13 +1,13 @@
 ---
 title: Secrets management
-slug: /streamlit-community-cloud/deploy-your-app/secrets-management
+slug: /deploy/streamlit-community-cloud/deploy-your-app/secrets-management
 ---
 
 # Secrets management
 
 ## Introduction
 
-If you are [connecting to data sources](/knowledge-base/tutorials/databases), you will likely need to handle credentials or secrets. It's generally considered bad practice to store unencrypted secrets in a git repository. If your application needs access to sensitive credentials the recommended solution is to store those credentials in a file that is not committed to the repository and to pass them as environment variables.
+If you are [connecting to data sources](/develop/tutorials/databases), you will likely need to handle credentials or secrets. It's generally considered bad practice to store unencrypted secrets in a git repository. If your application needs access to sensitive credentials the recommended solution is to store those credentials in a file that is not committed to the repository and to pass them as environment variables.
 
 Secrets management allows you to store secrets securely and access them in your Streamlit app as environment variables.
 
@@ -61,7 +61,7 @@ st.write(
 
 <Tip>
 
-You can access `st.secrets` via attribute notation (e.g. `st.secrets.key`) or key notation (e.g. `st.secrets["key"]`) &mdash; just like [`st.session_state`](/library/api-reference/session-state).
+You can access `st.secrets` via attribute notation (e.g. `st.secrets.key`) or key notation (e.g. `st.secrets["key"]`) &mdash; just like [`st.session_state`](/develop/api-reference/caching-and-state/st.session_state).
 
 </Tip>
 
@@ -99,7 +99,7 @@ If you need to add or edit your secrets for an app that is already deployed, you
 
 ### Develop locally with secrets
 
-When developing your app locally, add a file called `secrets.toml` in a folder called `.streamlit` at the root of your app repo, and copy/paste your secrets into that file. Further instructions are available in the Streamlit library [Secrets management](/library/advanced-features/secrets-management) documentation.
+When developing your app locally, add a file called `secrets.toml` in a folder called `.streamlit` at the root of your app repo, and copy/paste your secrets into that file. Further instructions are available in the Streamlit library [Secrets management](/develop/concepts/connections/secrets-management) documentation.
 
 <Important>
 

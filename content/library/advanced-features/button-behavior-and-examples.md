@@ -1,15 +1,15 @@
 ---
 title: Button behavior and examples
-slug: /library/advanced-features/button-behavior-and-examples
+slug: /develop/concepts/design/buttons
 ---
 
 # Button behavior and examples
 
 ## Summary
 
-Buttons created with [`st.button`](/library/api-reference/widgets/st.button) do not retain state. They return `True` on the script rerun resulting from their click and immediately return to `False` on the next script rerun. If a displayed element is nested inside `if st.button('Click me'):`, the element will be visible when the button is clicked and disappear as soon as the user takes their next action. This is because the script reruns and the button return value becomes `False`.
+Buttons created with [`st.button`](/develop/api-reference/widgets/st.button) do not retain state. They return `True` on the script rerun resulting from their click and immediately return to `False` on the next script rerun. If a displayed element is nested inside `if st.button('Click me'):`, the element will be visible when the button is clicked and disappear as soon as the user takes their next action. This is because the script reruns and the button return value becomes `False`.
 
-In this guide, we will illustrate the use of buttons and explain common misconceptions. Read on to see a variety of examples that expand on `st.button` using [`st.session_state`](/library/api-reference/session-state). [Anti-patterns](#anti-patterns) are included at the end. Go ahead and pull up your favorite code editor so you can `streamlit run` the examples as you read. Check out Streamlit's [Main concepts](/get-started/fundamentals/main-concepts) if you haven't run your own Streamlit scripts yet.
+In this guide, we will illustrate the use of buttons and explain common misconceptions. Read on to see a variety of examples that expand on `st.button` using [`st.session_state`](/develop/api-reference/caching-and-state/st.session_state). [Anti-patterns](#anti-patterns) are included at the end. Go ahead and pull up your favorite code editor so you can `streamlit run` the examples as you read. Check out Streamlit's [Basic concepts](/get-started/fundamentals/main-concepts) if you haven't run your own Streamlit scripts yet.
 
 ## When to use `if st.button()`
 
@@ -38,7 +38,7 @@ need to keep that info.
 
 If you want to give the user a quick button to check if an entry is valid, but not keep that check displayed as the user continues.
 
-In this example, a user can click a button to check if their `animal` string is in the `animal_shelter` list. When the user clicks "**Check availability**" they will see "We have that animal!" or "We don't have that animal." If they change the animal in [`st.text_input`](/library/api-reference/widgets/st.text_input), the script reruns and the message disappears until they click "**Check availability**" again.
+In this example, a user can click a button to check if their `animal` string is in the `animal_shelter` list. When the user clicks "**Check availability**" they will see "We have that animal!" or "We don't have that animal." If they change the animal in [`st.text_input`](/develop/api-reference/widgets/st.text_input), the script reruns and the message disappears until they click "**Check availability**" again.
 
 ```python
 import streamlit as st
@@ -52,7 +52,7 @@ if st.button('Check availability'):
     'We have that animal!' if have_it else 'We don\'t have that animal.'
 ```
 
-Note: The above example uses [magic](/library/api-reference/write-magic/magic) to render the message on the frontend.
+Note: The above example uses [magic](/develop/api-reference/write-magic/magic) to render the message on the frontend.
 
 ### Stateful button
 
@@ -77,9 +77,9 @@ if st.session_state.clicked:
 
 ### Toggle button
 
-If you want a button to work like a toggle switch, consider using [`st.checkbox`](/library/api-reference/widgets/st.checkbox). Otherwise, you can use a button with a callback function to reverse a boolean value saved in `st.session_state`.
+If you want a button to work like a toggle switch, consider using [`st.checkbox`](/develop/api-reference/widgets/st.checkbox). Otherwise, you can use a button with a callback function to reverse a boolean value saved in `st.session_state`.
 
-In this example, we use `st.button` to toggle another widget on and off. By displaying [`st.slider`](/library/api-reference/widgets/st.slider) conditionally on a value in `st.session_state`, the user can interact with the slider without it disappearing.
+In this example, we use `st.button` to toggle another widget on and off. By displaying [`st.slider`](/develop/api-reference/widgets/st.slider) conditionally on a value in `st.session_state`, the user can interact with the slider without it disappearing.
 
 ```python
 import streamlit as st
@@ -207,7 +207,7 @@ st.header(st.session_state['name'])
 
 #### Logic nested in a button with a rerun
 
-Although callbacks are often preferred to avoid extra reruns, our first 'John Doe'/'Jane Doe' example can be modified by adding [`st.rerun`](/library/api-reference/control-flow/st.rerun) instead. If you need to acces data in `st.session_state` before the button that modifies it, you can include `st.rerun` to rerun the script after the change has been committed. This means the script will rerun twice when a button is clicked.
+Although callbacks are often preferred to avoid extra reruns, our first 'John Doe'/'Jane Doe' example can be modified by adding [`st.rerun`](/develop/api-reference/execution-flow/st.rerun) instead. If you need to acces data in `st.session_state` before the button that modifies it, you can include `st.rerun` to rerun the script after the change has been committed. This means the script will rerun twice when a button is clicked.
 
 ```python
 import streamlit as st
@@ -288,7 +288,7 @@ st.button('Streamlit!', on_click=set_name, args=['Streamlit'])
 
 #### Option 3: Use containers
 
-By using [`st.container`](/library/api-reference/layout/st.container) you can have widgets appear in different orders in your script and frontend view (webpage).
+By using [`st.container`](/develop/api-reference/layout/st.container) you can have widgets appear in different orders in your script and frontend view (webpage).
 
 ```python
 import streamlit as st
@@ -371,7 +371,7 @@ if option in st.session_state.processed:
     st.write(st.session_state.processed[option][0])
 ```
 
-Astute observers may think, "This feels a little like caching." We are only saving results relative to one parameter, but the pattern could easily be expanded to save results relative to both parameters. In that sense, yes, it has some similarities to caching, but also some important differences. When you save results in `st.session_state`, the results are only available to the current user in their current session. If you use [`st.cache_data`](/library/api-reference/performance/st.cache_data) instead, the results are available to all users across all sessions. Furthermore, if you want to update a saved result, you have to clear all saved results for that function to do so.
+Astute observers may think, "This feels a little like caching." We are only saving results relative to one parameter, but the pattern could easily be expanded to save results relative to both parameters. In that sense, yes, it has some similarities to caching, but also some important differences. When you save results in `st.session_state`, the results are only available to the current user in their current session. If you use [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) instead, the results are available to all users across all sessions. Furthermore, if you want to update a saved result, you have to clear all saved results for that function to do so.
 
 ## Anti-patterns
 

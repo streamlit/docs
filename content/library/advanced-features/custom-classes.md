@@ -1,6 +1,6 @@
 ---
 title: Using custom Python classes in your Streamlit app
-slug: /library/advanced-features/custom-classes
+slug: /develop/concepts/design/custom-classes
 ---
 
 # Using custom Python classes in your Streamlit app
@@ -9,7 +9,7 @@ If you are building a complex Streamlit app or working with existing code, you m
 
 - Defining a `@dataclass` to store related data within your app.
 - Defining an `Enum` class to represent a fixed set of options or values.
-- Defining custom interfaces to external services or databases not covered by [`st.connection`](/library/api-reference/connections/st.connection).
+- Defining custom interfaces to external services or databases not covered by [`st.connection`](/develop/api-reference/connections/st.connection).
 
 Because Streamlit reruns your script after every user interaction, custom classes may be redefined multiple times within the same Streamlit session. This may result in unwanted effects, especially with class and instance comparisons. Read on to understand this common pitfall and how to avoid it.
 
@@ -236,7 +236,7 @@ number = st.selectbox("Pick a number, any number", options=[1, 2, 3])
 # number == whatever value the user has selected from the UI.
 ```
 
-When you call a function like `st.selectbox` and pass an `Iterable` to `options`, the `Iterable` and current selection are saved into a hidden portion of [Session State](/library/advanced-features/session-state) called the Widget Metadata.
+When you call a function like `st.selectbox` and pass an `Iterable` to `options`, the `Iterable` and current selection are saved into a hidden portion of [Session State](/develop/concepts/architecture/session-state) called the Widget Metadata.
 
 When the user of your application interacts with the `st.selectbox` widget, the broswer sends the index of their selection to your Streamlit server. This index is used to determine which values from the original `options` list, _saved in the Widget Metadata from the previous page execution_, are returned to your application.
 
@@ -305,6 +305,6 @@ When `enumCoercion` is enabled, Streamlit tries to recognize when you are using 
 
 If Streamlit detects this, it will convert the widget's returned values to members of the `Enum` class defined in the latest script run. This is something we call automatic `Enum` coercion.
 
-This behavior is [configurable](/library/advanced-features/configuration) via the `enumCoercion` setting in your Streamlit `config.toml` file. It is enabled by default, and may be disabled or set to a stricter set of matching criteria.
+This behavior is [configurable](/develop/concepts/configuration) via the `enumCoercion` setting in your Streamlit `config.toml` file. It is enabled by default, and may be disabled or set to a stricter set of matching criteria.
 
 If you find that you still encounter issues with `enumCoercion` enabled, consider using the [custom class patterns](#patterns-to-define-your-custom-classes) described above, such as moving your `Enum` class definition to a separate module file.

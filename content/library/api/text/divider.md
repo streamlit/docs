@@ -1,6 +1,6 @@
 ---
 title: st.divider
-slug: /library/api-reference/text/st.divider
+slug: /develop/api-reference/text/st.divider
 description: st.divider displays a horizontal rule in your app.
 ---
 

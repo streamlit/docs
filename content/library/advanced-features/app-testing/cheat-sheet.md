@@ -1,6 +1,6 @@
 ---
 title: App testing cheat sheet
-slug: /library/advanced-features/app-testing/cheat-sheet
+slug: /develop/concepts/app-testing/cheat-sheet
 ---
 
 # App testing cheat sheet

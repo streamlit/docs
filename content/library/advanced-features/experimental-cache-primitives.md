@@ -1,11 +1,11 @@
 ---
 title: Experimental cache primitives
-slug: /library/advanced-features/experimental-cache-primitives
+slug: /develop/concepts/architecture/experimental-cache-primitives
 ---
 
 <Deprecation>
 
-The experimental cache primitives described on this page were deprecated in version 1.18.0. Use [`st.cache_data`](/library/api-reference/performance/st.cache_data) or [`st.cache_resource`](/library/api-reference/performance/st.cache_resource) instead. Learn more in [Caching](/library/advanced-features/caching).
+The experimental cache primitives described on this page were deprecated in version 1.18.0. Use [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) or [`st.cache_resource`](/develop/api-reference/caching-and-state/st.cache_resource) instead. Learn more in [Caching](/develop/concepts/architecture/caching).
 
 </Deprecation>
 
@@ -15,11 +15,11 @@ The experimental cache primitives described on this page were deprecated in vers
 
 Streamlit's unique execution model is a part of what makes it a joy to use: your code executes from top to bottom like a simple script for every interaction. There's no need to think about models, views, controllers, or anything of the sort.
 
-Whenever your code re-executes, a decorator called [`@st.cache`](/library/api-reference/performance/st.cache)—which is a powerful primitive for memoization and state storage capabilities—provides a caching mechanism that allows your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations.
+Whenever your code re-executes, a decorator called [`@st.cache`](/develop/api-reference/caching-and-state/st.cache)—which is a powerful primitive for memoization and state storage capabilities—provides a caching mechanism that allows your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations.
 
-However, we've found that [`@st.cache`](/library/advanced-features/caching) is hard to use and not fast. You're either faced with cryptic errors like `InternalHashError` or `UnhashableTypeError`. Or you need to understand concepts like [`hash_funcs`](/library/advanced-features/caching#the-hash_funcs-parameter) and [`allow_output_mutation`](/library/advanced-features/caching#example-1-pass-a-database-connection-around).
+However, we've found that [`@st.cache`](/develop/concepts/architecture/caching) is hard to use and not fast. You're either faced with cryptic errors like `InternalHashError` or `UnhashableTypeError`. Or you need to understand concepts like [`hash_funcs`](/develop/concepts/architecture/caching#the-hash_funcs-parameter) and [`allow_output_mutation`](/develop/concepts/architecture/caching#example-1-pass-a-database-connection-around).
 
-Our solutions include two new primitives: [**`st.experimental_memo`**](/library/api-reference/performance/st.experimental_memo) and [**`st.experimental_singleton`**](/library/api-reference/performance/st.experimental_singleton). They're conceptually simpler and much, much faster. In some of our internal tests on caching large dataframes, `@st.experimental_memo` has outperformed `@st.cache` by an order of magnitude. That's over 10X faster! 🚀
+Our solutions include two new primitives: [**`st.experimental_memo`**](/develop/api-reference/caching-and-state/st.experimental_memo) and [**`st.experimental_singleton`**](/develop/api-reference/caching-and-state/st.experimental_singleton). They're conceptually simpler and much, much faster. In some of our internal tests on caching large dataframes, `@st.experimental_memo` has outperformed `@st.cache` by an order of magnitude. That's over 10X faster! 🚀
 
 Let's take a look at the use-cases these _two_ experimental APIs serve, and how they're a significant improvement over `@st.cache`.
 
@@ -39,7 +39,7 @@ While `@st.cache` tries to solve two very different problems simultaneously (cac
 
 ### `@st.experimental_memo`
 
-Use [`@st.experimental_memo`](/library/api-reference/performance/st.experimental_memo) to store expensive computation which can be "cached" or "memoized" in the traditional sense. It has almost the exact same API as the existing `@st.cache`, so you can often blindly replace one for the other:
+Use [`@st.experimental_memo`](/develop/api-reference/caching-and-state/st.experimental_memo) to store expensive computation which can be "cached" or "memoized" in the traditional sense. It has almost the exact same API as the existing `@st.cache`, so you can often blindly replace one for the other:
 
 ```python
 import streamlit as st
@@ -97,7 +97,7 @@ def get_page(_sessionmaker, page_size, page):
 
 ### `@st.experimental_singleton`
 
-[`@st.experimental_singleton`](/library/api-reference/performance/st.experimental_singleton) is a key-value store that's shared across all sessions of a Streamlit app. It's great for storing heavyweight singleton objects across sessions (like TensorFlow/Torch/Keras sessions and/or database connections).
+[`@st.experimental_singleton`](/develop/api-reference/caching-and-state/st.experimental_singleton) is a key-value store that's shared across all sessions of a Streamlit app. It's great for storing heavyweight singleton objects across sessions (like TensorFlow/Torch/Keras sessions and/or database connections).
 
 Example usage:
 
@@ -164,11 +164,11 @@ Pressing the "Clear Square" button will clear `square()`'s memoized values. Pres
 In summary:
 
 - Any function annotated with `@st.experimental_memo` or `@st.experimental_singleton` gets its own `clear()` function automatically.
-- Additionally, you can use [`st.experimental_memo.clear()`](/library/api-reference/performance/st.experimental_memo.clear) and [`st.experimental_singleton.clear()`](/library/api-reference/performance/st.experimental_singleton.clear) to clear _all_ memo and singleton caches, respectively.
+- Additionally, you can use [`st.experimental_memo.clear()`](/develop/api-reference/caching-and-state/st.experimental_memo.clear) and [`st.experimental_singleton.clear()`](/develop/api-reference/caching-and-state/st.experimental_singleton.clear) to clear _all_ memo and singleton caches, respectively.
 
 <Note>
 
-The commands are **experimental**, so they're governed by our [experimental API process](/library/advanced-features/prerelease#experimental).
+The commands are **experimental**, so they're governed by our [experimental API process](/develop/quick-reference/prerelease#experimental).
 
 </Note>
 

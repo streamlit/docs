@@ -1,6 +1,6 @@
 ---
 title: Deploy Streamlit using Docker
-slug: /knowledge-base/tutorials/deploy/docker
+slug: /deploy/tutorials/docker
 ---
 
 # Deploy Streamlit using Docker
@@ -12,7 +12,7 @@ So you have an amazing app and you want to start sharing it with other people, w
 - **On your corporate network** - Most corporate networks are closed to the outside world. You typically use a VPN to log onto your corporate network and access resources there. You could run your Streamlit app on a server in your corporate network for security reasons, to ensure that only folks internal to your company can access it.
 - **On the cloud** - If you'd like to access your Streamlit app from outside of a corporate network, or share your app with folks outside of your home network or laptop, you might choose this option. In this case, it'll depend on your hosting provider. We have [community-submitted guides](/knowledge-base/deploy/deploy-streamlit-heroku-aws-google-cloud) from Heroku, AWS, and other providers.
 
-Wherever you decide to deploy your app, you will first need to containerize it. This guide walks you through using Docker to deploy your app. If you prefer Kubernetes see [Deploy Streamlit using Kubernetes](/knowledge-base/tutorials/deploy/kubernetes).
+Wherever you decide to deploy your app, you will first need to containerize it. This guide walks you through using Docker to deploy your app. If you prefer Kubernetes see [Deploy Streamlit using Kubernetes](/deploy/tutorials/kubernetes).
 
 ## Prerequisites
 
@@ -131,7 +131,7 @@ Let’s walk through each line of the Dockerfile :
    - streamlit_app.py
    ```
 
-   where `requirements.txt` file contains all your [Python dependencies](https://docs.streamlit.io/streamlit-community-cloud/deploy-your-app/app-dependencies#add-python-dependencies). E.g
+   where `requirements.txt` file contains all your [Python dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies#add-python-dependencies). E.g
 
    ```
    altair
@@ -191,7 +191,7 @@ Let’s walk through each line of the Dockerfile :
 
    More generally, the idea is copy your app code from wherever it may live on your server into the container. If the code is not in the same directory as the Dockerfile, modify the above command to include the path to the code.
 
-5. Install your app’s [Python dependencies](/streamlit-community-cloud/deploy-your-app/app-dependencies#add-python-dependencies) from the cloned `requirements.txt` in the container:
+5. Install your app’s [Python dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies#add-python-dependencies) from the cloned `requirements.txt` in the container:
 
    ```docker
    RUN pip3 install -r requirements.txt

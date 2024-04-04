@@ -5,7 +5,7 @@ slug: /knowledge-base/using-streamlit/how-download-file-streamlit
 
 # How to download a file in Streamlit?
 
-Use the [`st.download_button`](/library/api-reference/widgets/st.download_button) widget that is natively built into Streamlit. Check out a [sample app](https://streamlit-release-demos-0-88streamlit-app-0-88-v8ram3.streamlit.app/) demonstrating how you can use `st.download_button` to download common file formats.
+Use the [`st.download_button`](/develop/api-reference/widgets/st.download_button) widget that is natively built into Streamlit. Check out a [sample app](https://streamlit-release-demos-0-88streamlit-app-0-88-v8ram3.streamlit.app/) demonstrating how you can use `st.download_button` to download common file formats.
 
 ## Example usage
 
@@ -51,4 +51,4 @@ Additional resources:
 
 - [https://blog.streamlit.io/0-88-0-release-notes/](https://blog.streamlit.io/0-88-0-release-notes/)
 - [https://streamlit-release-demos-0-88streamlit-app-0-88-v8ram3.streamlit.app/](https://streamlit-release-demos-0-88streamlit-app-0-88-v8ram3.streamlit.app/)
-- [https://docs.streamlit.io/library/api-reference/widgets/st.download_button](https://docs.streamlit.io/library/api-reference/widgets/st.download_button)
+- [https://docs.streamlit.io/develop/api-reference/widgets/st.download_button](/develop/api-reference/widgets/st.download_button)

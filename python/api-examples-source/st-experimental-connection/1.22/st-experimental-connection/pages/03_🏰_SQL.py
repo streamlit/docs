@@ -68,7 +68,7 @@ st.subheader("query() for common cases")
 For a typical use case where you just need to query and cache some data, it's much simpler.
 Just use `conn.query()`. By default it caches the result without expiration, or you can add a TTL.
 This also support parameters, pagination, date conversions, and more
-(see the [full docs](https://docs.streamlit.io/library/api-reference/connections/st.connections.sqlconnection#sqlconnectionquery)).
+(see the [full docs](https://docs.streamlit.io/develop/api-reference/connections/st.connections.sqlconnection#sqlconnectionquery)).
 
 `query()` returns a `pandas.DataFrame`.
 """

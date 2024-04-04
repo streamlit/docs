@@ -1,16 +1,16 @@
 ---
 title: st.experimental_memo
-slug: /library/api-reference/performance/st.experimental_memo
+slug: /develop/api-reference/caching-and-state/st.experimental_memo
 description: st.experimental_memo is used to memoize function executions.
 ---
 
 <Important>
 
-This is an experimental feature. Experimental features and their APIs may change or be removed at any time. To learn more, click [here](/library/advanced-features/prerelease#experimental-features).
+This is an experimental feature. Experimental features and their APIs may change or be removed at any time. To learn more, click [here](/develop/quick-reference/prerelease#experimental-features).
 
 </Important>
 
-<Autofunction function="streamlit.experimental_memo" deprecated={true} deprecatedText="<code>st.experimental_memo</code> was deprecated in version 1.18.0. Use <a href='/library/api-reference/performance/st.cache_data'><code>st.cache_data</code></a> instead. Learn more in <a href='/library/advanced-features/caching'>Caching</a>."/>
+<Autofunction function="streamlit.experimental_memo" deprecated={true} deprecatedText="<code>st.experimental_memo</code> was deprecated in version 1.18.0. Use <a href='/develop/api-reference/caching-and-state/st.cache_data'><code>st.cache_data</code></a> instead. Learn more in <a href='/develop/concepts/architecture/caching'>Caching</a>."/>
 
 Persistent memo caches currently don't support TTL. `ttl` will be ignored if `persist` is specified:
 
@@ -36,7 +36,7 @@ streamlit run app.py
 2022-09-22 13:35:41.587 The memoized function 'load_data' has a TTL that will be ignored. Persistent memo caches currently don't support TTL.
 ```
 
-<Autofunction function="streamlit.experimental_memo.clear" deprecated={true} deprecatedText="<code>st.experimental_memo.clear</code> was deprecated in version 1.18.0. Use <a href='/library/api-reference/performance/st.cache_data#stcache_dataclear'><code>st.cache_data.clear</code></a> instead. Learn more in <a href='/library/advanced-features/caching'>Caching</a>."/>
+<Autofunction function="streamlit.experimental_memo.clear" deprecated={true} deprecatedText="<code>st.experimental_memo.clear</code> was deprecated in version 1.18.0. Use <a href='/develop/api-reference/caching-and-state/st.cache_data#stcache_dataclear'><code>st.cache_data.clear</code></a> instead. Learn more in <a href='/develop/concepts/architecture/caching'>Caching</a>."/>
 
 #### Example
 
@@ -133,7 +133,7 @@ Supported static `st` elements in cache-decorated functions include:
 
 ## Replay input widgets in cache-decorated functions
 
-In addition to static elements, functions decorated with `@st.experimental_memo` can also contain [input widgets](/library/api-reference/widgets)! Replaying input widgets is disabled by default. To enable it, you can set the `experimental_allow_widgets` parameter for `@st.experimental_memo` to `True`. The example below enables widget replaying, and shows the use of a checkbox widget within a cache-decorated function.
+In addition to static elements, functions decorated with `@st.experimental_memo` can also contain [input widgets](/develop/api-reference/widgets)! Replaying input widgets is disabled by default. To enable it, you can set the `experimental_allow_widgets` parameter for `@st.experimental_memo` to `True`. The example below enables widget replaying, and shows the use of a checkbox widget within a cache-decorated function.
 
 ```python
 import streamlit as st
@@ -201,7 +201,7 @@ Let's now understand how enabling and disabling widget replay changes the behavi
 - Calling a cached function multiple times in one script run with the same arguments triggers a `DuplicateWidgetID` error.
 - If the arguments to a cached function change, widgets from that function that render again retain their state.
 - Changing the source code of a cached function invalidates the cache.
-- Both [`st.experimental_memo`](/library/api-reference/performance/st.experimental_memo) and [`st.experimental_singleton`](/library/api-reference/performance/st.experimental_singleton) support widget replay.
+- Both [`st.experimental_memo`](/develop/api-reference/caching-and-state/st.experimental_memo) and [`st.experimental_singleton`](/develop/api-reference/caching-and-state/st.experimental_singleton) support widget replay.
 - Fundamentally, the behavior of a function with (supported) widgets in it doesn't change when it is decorated with `@st.experimental_memo` or `@st.experimental_singleton`. The only difference is that the function is only executed when we detect a cache "miss".
 
 ### Supported widgets

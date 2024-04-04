@@ -1,6 +1,6 @@
 ---
 title: Secrets management
-slug: /library/advanced-features/secrets-management
+slug: /develop/concepts/connections/secrets-management
 ---
 
 # Secrets management
@@ -70,7 +70,7 @@ st.write(
 
 <Tip>
 
-You can access `st.secrets` via attribute notation (e.g. `st.secrets.key`), in addition to key notation (e.g. `st.secrets["key"]`) — like [st.session_state](/library/api-reference/session-state).
+You can access `st.secrets` via attribute notation (e.g. `st.secrets.key`), in addition to key notation (e.g. `st.secrets["key"]`) — like [st.session_state](/develop/api-reference/caching-and-state/st.session_state).
 
 </Tip>
 
@@ -111,4 +111,4 @@ Here are some common errors you might encounter when using secrets management.
 
 ### Use secrets on Streamlit Community Cloud
 
-When you deploy your app to [Streamlit Community Cloud](https://streamlit.io/cloud), you can use the same secrets management workflow as you would locally. However, you'll need to also set up your secrets in the Community Cloud Secrets Management console. Learn how to do so via the Cloud-specific [Secrets management](/streamlit-community-cloud/deploy-your-app/secrets-management) documentation.
+When you deploy your app to [Streamlit Community Cloud](https://streamlit.io/cloud), you can use the same secrets management workflow as you would locally. However, you'll need to also set up your secrets in the Community Cloud Secrets Management console. Learn how to do so via the Cloud-specific [Secrets management](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management) documentation.

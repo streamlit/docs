@@ -1,16 +1,16 @@
 ---
 title: st.cache_data
-slug: /library/api-reference/performance/st.cache_data
+slug: /develop/api-reference/caching-and-state/st.cache_data
 description: st.cache_data is used to cache functions that return data (e.g. dataframe transforms, database queries, ML inference).
 ---
 
 <Tip>
 
-This page only contains information on the `st.cache_data` API. For a deeper dive into caching and how to use it, check out [Caching](/library/advanced-features/caching).
+This page only contains information on the `st.cache_data` API. For a deeper dive into caching and how to use it, check out [Caching](/develop/concepts/architecture/caching).
 
 </Tip>
 
-<Autofunction function="streamlit.cache_data" />
+<Autofunction function="streamlit.cache_data" oldName="streamlit.experimental_memo" />
 
 <Warning>
 
@@ -18,7 +18,7 @@ This page only contains information on the `st.cache_data` API. For a deeper div
 
 </Warning>
 
-<Autofunction function="streamlit.cache_data.clear" />
+<Autofunction function="streamlit.cache_data.clear" oldName="streamlit.experimental_memo.clear" />
 
 #### Example
 
@@ -73,7 +73,7 @@ def show_data():
 
 ### Input widgets
 
-You can also use [interactive input widgets](/library/api-reference/widgets) like `st.slider` or `st.text_input` in cached functions. Widget replay is an experimental feature at the moment. To enable it, you need to set the `experimental_allow_widgets` parameter:
+You can also use [interactive input widgets](/develop/api-reference/widgets) like `st.slider` or `st.text_input` in cached functions. Widget replay is an experimental feature at the moment. To enable it, you need to set the `experimental_allow_widgets` parameter:
 
 ```python
 @st.cache_data(experimental_allow_widgets=True)  # 👈 Set the parameter

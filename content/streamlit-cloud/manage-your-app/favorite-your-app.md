@@ -1,6 +1,6 @@
 ---
 title: Favorite your app
-slug: /streamlit-community-cloud/manage-your-app/favorite-your-app
+slug: /deploy/streamlit-community-cloud/manage-your-app/favorite-your-app
 ---
 
 # Favorite your app
@@ -18,22 +18,23 @@ Favorites are specific to your account. Other members of your workspace cannot s
 ## Favoriting and unfavoriting your app
 
 You can favorite your app:
-* [From your workspace](#favorite-your-app-from-your-workspace).
-* [From your app](#favorite-your-app-from-your-app-toolbar)!
+
+- [From your workspace](#favorite-your-app-from-your-workspace).
+- [From your app](#favorite-your-app-from-your-app-toolbar)!
 
 ### Favorite your app from your workspace
 
 1. From your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) next to your app. Click "**Favorite**".
 
-    ![Favorite your app from your workspace](/images/streamlit-community-cloud/workspace-app-favorite.png)
+   ![Favorite your app from your workspace](/images/streamlit-community-cloud/workspace-app-favorite.png)
 
 2. Your favorited app will move to the top of your list (with other favorited apps if you have them) and display with a yellow star.
 
-    ![Favorited app in your workspace](/images/streamlit-community-cloud/workspace-app-favorited.png)
+   ![Favorited app in your workspace](/images/streamlit-community-cloud/workspace-app-favorited.png)
 
-* Once favorited, from the same menu, click "**Unfavorite**" to remove the star.
+- Once favorited, from the same menu, click "**Unfavorite**" to remove the star.
 
-    ![Unfavorite your app from your workspace](/images/streamlit-community-cloud/workspace-app-unfavorite.png)
+  ![Unfavorite your app from your workspace](/images/streamlit-community-cloud/workspace-app-unfavorite.png)
 
 Alternatively, you can favorite and unfavorite apps by clicking directly on the star next to their names. (Hover over an unfavorited app to reveal an empty star icon next to its name.)
 

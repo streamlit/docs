@@ -1,6 +1,6 @@
 ---
 title: st.header
-slug: /library/api-reference/text/st.header
+slug: /develop/api-reference/text/st.header
 description: st.header displays text in header formatting.
 ---
 
