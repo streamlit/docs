@@ -151,6 +151,19 @@ ImageColumn("Preview Image", help="The preview screenshots")
 
 </RefCard>
 
+<RefCard href="/develop/api-reference/data/st.column_config/st.column_config.areachartcolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.areachartcolumn.jpg" />
+
+<h4>Area chart column</h4>
+
+Configure an area chart column.
+
+```python
+AreaChartColumn("Sales (last 6 months)" y_min=0, y_max=100)
+```
+
+</RefCard>
+
 <RefCard href="/develop/api-reference/data/st.column_config/st.column_config.linechartcolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.linechartcolumn.jpg" />
 

@@ -213,6 +213,9 @@ site_menu:
   - category: Develop / API reference / Data elements / st.column_config / Image column
     url: /develop/api-reference/data/st.column_config/st.column_config.imagecolumn
     isVersioned: true
+  - category: Develop / API reference / Data elements / st.column_config / Area chart column
+    url: /develop/api-reference/data/st.column_config/st.column_config.areachartcolumn
+    isVersioned: true
   - category: Develop / API reference / Data elements / st.column_config / Line chart column
     url: /develop/api-reference/data/st.column_config/st.column_config.linechartcolumn
     isVersioned: true
