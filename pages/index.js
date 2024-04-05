@@ -192,6 +192,67 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/develop/concepts/architecture/fragments"
+              >
+                <i className="material-icons-sharp">repartition</i>
+                <h4>Introducing fragments!</h4>
+                <p>
+                  Use the <code>st.experimental_fragment</code> decorator to
+                  turn functions into fragments that can rerun independantly
+                  from the rest of your app.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/utilities/st.html"
+              >
+                <i className="material-icons-sharp">html</i>
+                <h4>
+                  Introducing <code>st.html</code>!
+                </h4>
+                <p>Render custom HTML in your app without an iframe.</p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/media/st.audio"
+              >
+                <i className="material-icons-sharp">videocam</i>
+                <h4>Set looping and end times for media elements</h4>
+                <p>
+                  You can enable looping for <code>st.audio</code> and
+                  <code>st.video</code>. You can also set a start and end time.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/app-testing/st.testing.v1.apptest#apptestswitch_page"
+              >
+                <i className="material-icons-sharp">science</i>
+                <h4>
+                  Switch pages within <code>st.AppTest</code>
+                </h4>
+                <p>
+                  Switch pages in your tests using{" "}
+                  <code>AppTest.switch_page()</code>.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/data/st.column_config/st.column_config.linechartcolumn"
+              >
+                <i className="material-icons-sharp">show_chart</i>
+                <h4>
+                  <code>LineChartColumn</code>'s new look
+                </h4>
+                <p>
+                  <code>LineChartColumn</code> no longer has an area fill. We've
+                  also added
+                  <code>AreaChartColumn</code> so you can still have area-filled
+                  curves.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="/develop/api-reference/layout/st.popover"
               >
                 <i className="material-icons-sharp">layers</i>
@@ -199,63 +260,6 @@ export default function Home({ window, menu }) {
                 <p>
                   Introducing <code>st.popover</code> to create popover elements
                   in your Streamlit apps.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/media/st.video"
-              >
-                <i className="material-icons-sharp">videocam</i>
-                <h4>Video subtitles</h4>
-                <p>
-                  You can now add subtitles to <code>st.video</code>!
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/app-testing/st.testing.v1.apptest"
-              >
-                <i className="material-icons-sharp">science</i>
-                <h4>
-                  <code>st.AppTest</code> improvements
-                </h4>
-                <p>
-                  <code>AppTest</code> now supports <code>st.expander</code>
-                  and <code>st.status</code>. You can also pass functions that
-                  accept arguments to <code>AppTest.from_function</code>.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="https://github.com/streamlit/streamlit/pull/8068"
-              >
-                <i className="material-icons-sharp">water_drop</i>
-                <h4>Major memory leak fix</h4>
-                <p>
-                  We've fixed a significant memory leak. Upgrade today to boost
-                  your app's performance.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/develop/concepts/custom-components">
-                <i className="material-icons-sharp">extension</i>
-                <h4>Custom component improvements</h4>
-                <p>
-                  The timeout warning for custom components was replaced with an
-                  element skeleton to improve the UX for slow loading
-                  components, especially in some cloud hosted platforms.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="https://github.com/streamlit/streamlit/pull/7779"
-              >
-                <i className="material-icons-sharp">table_view</i>
-                <h4>
-                  <code>glide-data-grid</code> 6.0.4
-                </h4>
-                <p>
-                  Streamlit now uses <code>glide-data-grid</code> version 6.0.4
-                  which fixes a variety of issues. Upgrade today!
                 </p>
               </RefCard>
               {/* <Tile

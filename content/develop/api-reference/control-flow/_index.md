@@ -11,6 +11,21 @@ By default, Streamlit apps execute the script entirely, but we allow some functi
 
 <TileContainer>
 
+<RefCard href="/develop/api-reference/execution-flow/st.fragment">
+
+<h4>Partial reruns</h4>
+
+Define a fragment to rerun independently from the rest of the script.
+
+```python
+@st.experimental_fragment(run_every="10s")
+def fragment():
+    df = get_data()
+    st.line_chart(df)
+```
+
+</RefCard>
+
 <RefCard href="/develop/api-reference/execution-flow/st.rerun">
 
 <h4>Rerun script</h4>
