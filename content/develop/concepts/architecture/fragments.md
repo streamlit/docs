@@ -51,27 +51,27 @@ import streamlit as st
 st.title("My Awesome App")
 
 @st.experimental_fragment()
-def fragment_one():
+def toggle_and_text():
     cols = st.columns(2)
     cols[0].toggle("Toggle")
     cols[1].text_area("Enter text")
 
 @st.experimental_fragment()
-def fragment_two():
+def filter_and_file():
     cols = st.columns(2)
     cols[0].checkbox("Filter")
     cols[1].file_uploader("Upload image")
 
-fragment_one()
+toggle_and_text()
 cols = st.columns(2)
 cols[0].selectbox("Select", [1,2,3], None)
 cols[1].button("Update")
-fragment_two()
+filter_and_file()
 ```
 
-When a user interacts with an input widget inside a fragment, only the fragment reruns instead of the full script as usual. When a user interacts with an input widget outside a fragment, the full script reruns as usual.
+When a user interacts with an input widget inside a fragment, only the fragment reruns instead of the full script. When a user interacts with an input widget outside a fragment, the full script reruns as usual.
 
-If you run the code above, the full script will run top to bottom on your app's initial load. If you flip the toggle button in your running app, the first fragment will rerun which will redraw the toggle and text area while leaving everything else unchanged. If you then click the checkbox, the second fragment will rerun and consequently redraw the checkbox and file uploader. Everything else remains unchanged. Finally, if you click the update button, the full script will rerun and Streamlit will redraw everything.
+If you run the code above, the full script will run top to bottom on your app's initial load. If you flip the toggle button in your running app, the first fragment (`toggle_and_text()`) will rerun which will redraw the toggle and text area while leaving everything else unchanged. If you then click the checkbox, the second fragment (`filter_and_file()`) will rerun and consequently redraw the checkbox and file uploader. Everything else remains unchanged. Finally, if you click the update button, the full script will rerun and Streamlit will redraw everything.
 
 ![Diagram of fragment execution flow](/images/concepts/fragment_diagram.png)
 
