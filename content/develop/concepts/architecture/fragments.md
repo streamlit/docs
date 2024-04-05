@@ -5,7 +5,7 @@ slug: /develop/concepts/architecture/fragments
 
 # Working with fragments and partial reruns
 
-Reruns are a central part of every Streamlit app. When users interact with widgets, your script reruns from top to bottom and your app's frontend is updated. Streamlit provides several features to help you develop your app within this execution model. Streamlit version 1.33.0 introduced fragments to allow rerunning a portion or your code instead of your full script. As your app grows larger and more complex, these partial reruns help your app be efficient and performant.
+Reruns are a central part of every Streamlit app. When users interact with widgets, your script reruns from top to bottom and your app's frontend is updated. Streamlit provides several features to help you develop your app within this execution model. Streamlit version 1.33.0 introduced fragments to allow rerunning a portion or your code instead of your full script. As your app grows larger and more complex, these partial reruns help your app be efficient and performant. Fragments give you finer, easy-to-understand control over your app's execution flow.
 
 Before you read about fragments, we recommend having a basic understanding of [caching](/develop/concepts/architecture/caching), [Session State](/concepts/architecture/session-state), and [forms](/develop/concepts/architecture/forms).
 
