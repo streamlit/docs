@@ -198,7 +198,7 @@ export default function Home({ window, menu }) {
                 <h4>Introducing fragments!</h4>
                 <p>
                   Use the <code>st.experimental_fragment</code> decorator to
-                  turn functions into fragments that can rerun independantly
+                  turn functions into fragments that can rerun independently
                   from the rest of your app.
                 </p>
               </RefCard>
