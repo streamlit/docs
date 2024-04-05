@@ -17,6 +17,41 @@ pip install --upgrade streamlit
 
 </Tip>
 
+## **Version 1.33.0**
+
+_Release date: April 4, 2024_
+
+**Highlights**
+
+- 👟 Introducing [`st.experimental_fragment`](/develop/api-reference/execution-flow/st.fragment) to decorate functions and rerun them independently of the whole page. Check out the [docs](/develop/concepts/architecture/fragments) and give your apps a speed boost!
+- 🌐 Introducing `st.html` to insert custom HTML into your app! Check out the [docs](/develop/api-reference/utilities/st.html) for how to use it.
+
+**Notable Changes**
+
+- 📺 [`st.audio`](/develop/api-reference/media/st.audio) and [`st.video`](/develop/api-reference/media/st.video) allow looping and setting an end time ([#8203](https://github.com/streamlit/streamlit/pull/8203), [#8348](https://github.com/streamlit/streamlit/pull/8348)).
+- 🔁 `AppTest` allows switching pages with [`AppTest.switch_page`](/develop/api-reference/app-testing/st.testing.v1.apptest#apptestswitch_page) ([#8280](https://github.com/streamlit/streamlit/pull/8280)).
+- 🧪 `format_func` is accessible in `AppTest` for widgets that use it ([#8189](https://github.com/streamlit/streamlit/pull/8189), [#8019](https://github.com/streamlit/streamlit/issues/8019), [#7679](https://github.com/streamlit/streamlit/issues/7679)).
+- 📈 Column configuration now includes [`AreaChartColumn`](/develop/api-reference/data/st.column_config/st.column_config.areachartcolumn). [`LineChartColumn`](/develop/api-reference/data/st.column_config/st.column_config.linechartcolumn) no longer shows area ([#8237](https://github.com/streamlit/streamlit/pull/8237)).
+- 🚧 Breaking change: [`st.write`](/develop/api-reference/write-magic/st.write) will no longer set `unsafe_allow_html=True` when passed an object containing a `_repr_html_` method. For more information, see PR [#8238](https://github.com/streamlit/streamlit/pull/8238).
+
+**Other Changes**
+
+- 🖱️Users can click on the widget label to focus on input for `st.number_input`, `st.text_input`, and `st.text_area` ([#8155](https://github.com/streamlit/streamlit/pull/8155)). Thanks, [filiptammergard](https://github.com/filiptammergard)!
+- ⬆️ Streamlit supports `packaging` version 24.x ([#8338](https://github.com/streamlit/streamlit/pull/8338), [#8328](https://github.com/streamlit/streamlit/issues/8328)).
+- 🕸️ Bug fix: Streamlit now watches for changes to imported modules in addition to pages ([#8372](https://github.com/streamlit/streamlit/pull/8372)). Thanks, [zyxue](https://github.com/zyxue)!
+- 🦗 Bug fix: Overflowing toast messages are correctly truncated ([#8337](https://github.com/streamlit/streamlit/pull/8337), [#8330](https://github.com/streamlit/streamlit/issues/8330)).
+- 🦂 Bug fix: `st.status` correctly updates to complete when using LangChain's `StreamlitCallbackHandler` ([#8331](https://github.com/streamlit/streamlit/pull/8311)).
+- 🦟 Bug fix: Custom components no longer show white backgrounds in dark themes ([#8242](https://github.com/streamlit/streamlit/pull/8242), [#8156](https://github.com/streamlit/streamlit/issues/8156), [#7813](https://github.com/streamlit/streamlit/issues/7813)).
+- 🦠 Bug fix: Content area width is reduced when a fullscreen icon would otherwise cause horizontal overflow ([#8279](https://github.com/streamlit/streamlit/pull/8279), [#6990](https://github.com/streamlit/streamlit/issues/6990)).
+- 🪰 Bug fix: Custom components with undefined frame heights will render with a height of 0 ([#8290](https://github.com/streamlit/streamlit/pull/8290), [#8285](https://github.com/streamlit/streamlit/issues/8285)).
+- 🪳 Bug fix: Restored a check for active sessions to prevent apps from needlessly running when no users are connected ([#8294](https://github.com/streamlit/streamlit/pull/8294)).
+- 🕷️ Bug fix: Custom themes have precedence over embedding options ([#8021](https://github.com/streamlit/streamlit/pull/8021), [#7118](https://github.com/streamlit/streamlit/issues/7118)).
+- 🐞 Bug fix: Reverted the async timer to expire session storage cache to address computational efficiency ([#8281](https://github.com/streamlit/streamlit/pull/8281)).
+- 🐝 Bug fix: When using `st.popover` with `use_container_width=True`, the popover container's minimum width will match the popover button ([#8266](https://github.com/streamlit/streamlit/pull/8266), [#8261](https://github.com/streamlit/streamlit/issues/8261)).
+- 🐜 Bug fix: Using `st.rerun` with a triggering widget in `AppTest` no longer creates an infinite loop ([#8264](https://github.com/streamlit/streamlit/pull/8264), [#7768](https://github.com/streamlit/streamlit/issues/7768)).
+- 🪲 Bug fix: URLs are correctly decoded in `LinkColumn` if regex is used or if not using fully qualified URLs ([#8258](https://github.com/streamlit/streamlit/pull/8258), [#7064](https://github.com/streamlit/streamlit/issues/7064)).
+- 🐛 Bug fix: `st.query_params` only sends one `ForwardMsg` when updating multiple parameters ([#8205](https://github.com/streamlit/streamlit/pull/8205), [#8199](https://github.com/streamlit/streamlit/issues/8199)). Thanks, [Asaurus1](https://github.com/Asaurus1)!
+
 ## **Version 1.32.0**
 
 _Release date: March 7, 2024_

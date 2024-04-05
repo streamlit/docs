@@ -59,6 +59,8 @@ site_menu:
     url: /develop/concepts/architecture/session-state
   - category: Develop / Concepts / Architecture & execution / Forms
     url: /develop/concepts/architecture/forms
+  - category: Develop / Concepts / Architecture & execution / Fragments
+    url: /develop/concepts/architecture/fragments
   - category: Develop / Concepts / Architecture & execution/ Widget behavior
     url: /develop/concepts/architecture/widget-behavior
   - category: Develop / Concepts / Multipage apps
@@ -210,6 +212,9 @@ site_menu:
     isVersioned: true
   - category: Develop / API reference / Data elements / st.column_config / Image column
     url: /develop/api-reference/data/st.column_config/st.column_config.imagecolumn
+    isVersioned: true
+  - category: Develop / API reference / Data elements / st.column_config / Area chart column
+    url: /develop/api-reference/data/st.column_config/st.column_config.areachartcolumn
     isVersioned: true
   - category: Develop / API reference / Data elements / st.column_config / Line chart column
     url: /develop/api-reference/data/st.column_config/st.column_config.linechartcolumn
@@ -455,6 +460,9 @@ site_menu:
   - category: Develop / API reference / Execution flow / st.form_submit_button
     url: /develop/api-reference/execution-flow/st.form_submit_button
     isVersioned: true
+  - category: Develop / API reference / Execution flow / st.fragment
+    url: /develop/api-reference/execution-flow/st.fragment
+    isVersioned: true
   - category: Develop / API reference / Execution flow / st.rerun
     url: /develop/api-reference/execution-flow/st.rerun
     isVersioned: true
@@ -556,6 +564,9 @@ site_menu:
     isVersioned: true
   - category: Develop / API reference / Utilities / st.help
     url: /develop/api-reference/utilities/st.help
+    isVersioned: true
+  - category: Develop / API reference / Utilities / st.html
+    url: /develop/api-reference/utilities/st.html
     isVersioned: true
   - category: Develop / API reference / Configuration
     url: /develop/api-reference/configuration

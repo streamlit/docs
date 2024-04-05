@@ -1850,7 +1850,7 @@ st.page_link("pages/profile.py", label="My profile")
 <br />
 
 <TileContainer>
-<RefCard href="/develop/api-reference/execution-flow/st.form">
+<RefCard href="/develop/api-reference/execution-flow/st.form" size="half">
 
 <h4>Forms</h4>
 
@@ -1861,6 +1861,20 @@ with st.form(key='my_form'):
     name = st.text_input("Name")
     email = st.text_input("Email")
     st.form_submit_button("Sign up")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/execution-flow/st.fragment" size="half">
+
+<h4>Partial reruns</h4>
+
+Define a fragment to rerun independently from the rest of the script.
+
+```python
+@st.experimental_fragment(run_every="10s")
+def fragment():
+    df = get_data()
+    st.line_chart(df)
 ```
 
 </RefCard>
@@ -2220,7 +2234,7 @@ st.components.v1.iframe(
 
 </TileContainer>
 
-### Utilities and data
+### Utilities and user info
 
 <br />
 
@@ -2248,6 +2262,22 @@ Display object’s doc string, nicely formatted.
 ```python
 st.help(st.write)
 st.help(pd.DataFrame)
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/utilities/st.html">
+
+<h4>Render HTML</h4>
+
+Renders HTML strings to your app.
+
+```python
+css = """
+<style>
+    p { color: red; }
+</style>
+"""
+st.html(css)
 ```
 
 </RefCard>

@@ -21,6 +21,8 @@ slug: /develop/api-reference/app-testing/st.testing.v1.apptest
 
 <Autofunction function="AppTest.run" />
 
+<Autofunction function="AppTest.switch_page" />
+
 # Get AppTest script elements
 
 The main value of `AppTest` is providing an API to programmatically inspect and interact with the elements and widgets produced by a running Streamlit app. Using the `AppTest.<element type>` properties or `AppTest.get()` method returns a collection of all the elements or widgets of the specified type that would have been displayed by running the app.

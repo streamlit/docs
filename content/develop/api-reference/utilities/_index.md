@@ -1,9 +1,9 @@
 ---
-title: Placeholders, help, and options
+title: Utilities and user info
 slug: /develop/api-reference/utilities
 ---
 
-# Placeholders, help, and options
+# Utilities and user info
 
 There are a handful of methods that allow you to create placeholders in your
 app, provide help using doc strings, get and modify configuration options and query parameters.
@@ -32,6 +32,22 @@ Display object’s doc string, nicely formatted.
 ```python
 st.help(st.write)
 st.help(pd.DataFrame)
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/utilities/st.html" size="half">
+
+<h4>Render HTML</h4>
+
+Renders HTML strings to your app.
+
+```python
+css = """
+<style>
+    p { color: red; }
+</style>
+"""
+st.html(css)
 ```
 
 </RefCard>

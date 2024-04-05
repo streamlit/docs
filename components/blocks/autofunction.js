@@ -235,14 +235,9 @@ const Autofunction = ({
   if (hideHeader !== undefined && hideHeader) {
     header = "";
   } else {
-    const functionName = functionObject.signature
+    const name = functionObject.signature
       ? `${functionObject.signature}`.split("(")[0].replace("streamlit", "st")
       : "";
-    const name =
-      String(functionObject.name).startsWith("html") ||
-      String(functionObject.name).startsWith("iframe")
-        ? `st.components.v1.${functionObject.name}`
-        : functionName;
     header = (
       <div className={styles.HeaderContainer}>
         <div

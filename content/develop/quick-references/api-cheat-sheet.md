@@ -230,6 +230,15 @@ st.switch_page("pages/my_page.py")
 >>>   username = st.text_input("Username")
 >>>   password = st.text_input("Password")
 >>>   st.form_submit_button("Login")
+
+# Define a fragment
+>>> @st.experimental_fragment
+>>> def fragment_function():
+>>>     df = get_data()
+>>>     st.line_chart(df)
+>>>     st.button("Update")
+>>>
+>>> fragment_function()
 ```
 
 </CodeTile>
@@ -348,6 +357,7 @@ st.set_page_config(layout="wide")
 st.query_params[key]
 st.query_params.get_all(key)
 st.query_params.clear()
+st.html("<p>Hi!</p>")
 ```
 
 </CodeTile>

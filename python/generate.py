@@ -21,6 +21,7 @@ from streamlit.elements.lib.mutable_status_container import StatusContainer
 from streamlit.testing.v1.app_test import AppTest
 
 VERSION = streamlit.__version__
+DEBUG = False
 
 # Set up logging to print debug messages to stdout
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
@@ -93,7 +94,6 @@ def get_github_source(func):
             except:
                 print(f"No line found for {func}")
                 return ""
-
     return "".join([repo_prefix, rel_path, f"#L{line}"])
 
 
@@ -109,7 +109,10 @@ def get_property_docstring_dict(
         is_class_method=is_class_method,
         is_property=is_property,
     )
-    docstring_dict["description"] = docstring_dict["description"].split("\n")[0]
+    if "description" in docstring_dict:
+        docstring_dict["description"] = docstring_dict["description"].split("\n")[0]
+    else:
+        docstring_dict["description"] = ""
 
     return docstring_dict
 
@@ -176,6 +179,9 @@ def get_docstring_dict(
                 is_class_method=False,
                 is_property=True,
             )
+            if prop_obj["description"] == "":
+                print(f"Missing docstring: {prop_name}")
+                continue
             description["properties"].append(prop_obj)
 
         description["source"] = get_github_source(obj)
@@ -484,8 +490,10 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix, only_include=None)
             )
 
         # Add the extracted metadata to obj_docstring_dict if the object is
-        # local to streamlit (null source occurs when the object is inherited
-        if member_docstring_dict["source"]:
+        # local to streamlit (source is an empty string when the object is inherited)
+        if "source" not in member_docstring_dict:
+            print(f"No source for {key_prefix}.{membername}") # Unexpected
+        elif member_docstring_dict["source"]:
             obj_docstring_dict[fullname] = member_docstring_dict
 
     return obj_docstring_dict
@@ -539,7 +547,7 @@ def get_streamlit_docstring_dict():
         ],
         streamlit.column_config: ["streamlit.column_config", "st.column_config"],
         components: ["streamlit.components.v1", "st.components.v1"],
-        streamlit._DeltaGenerator: ["DeltaGenerator", "element", "add_rows"], # Only store docstring for element.add_rows
+        streamlit.delta_generator.DeltaGenerator: ["DeltaGenerator", "element", "add_rows"], # Only store docstring for element.add_rows
         StatusContainer: ["StatusContainer", "StatusContainer", "update"], # Only store docstring for StatusContainer.update
         streamlit.testing.v1: ["streamlit.testing.v1", "st.testing.v1"],
         AppTest: ["AppTest", "AppTest"],
@@ -555,8 +563,12 @@ def get_streamlit_docstring_dict():
 
     module_docstring_dict = {}
     for obj, key in obj_key.items():
+        if DEBUG:
+            print(f"Fetching {obj}")
         module_docstring_dict.update(get_obj_docstring_dict(obj, *key))
     for obj, key in proxy_obj_key.items():
+        if DEBUG:
+            print(f"Fetching {obj}")
         member_docstring_dict = get_docstring_dict(
                 obj, #member
                 key[0].split(".")[-1], #membername
@@ -573,5 +585,7 @@ def get_streamlit_docstring_dict():
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         VERSION = sys.argv[1]
+    if len(sys.argv) > 2 and sys.argv[2] == "debug":
+        DEBUG = True
     data = get_streamlit_docstring_dict()
     utils.write_to_existing_dict(VERSION, data)
