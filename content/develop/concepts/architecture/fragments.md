@@ -1,5 +1,5 @@
 ---
-title: Working withwq fragments and partial reruns
+title: Working with fragments and partial reruns
 slug: /develop/concepts/architecture/fragments
 ---
 
@@ -23,7 +23,7 @@ Streamlit provides a decorator ([`st.experimental_fragment`](/develop/api-refere
 
 Here is a basic example of defining and calling a fragment function. Just like with caching, remember to call your function after defining it.
 
-```ptyhon
+```python
 import streamlit as st
 
 @st.experimental_fragment
@@ -86,10 +86,10 @@ To prevent elements from accumulating in outside containers, use [`st.empty`](/d
 
 ## Automate fragment reruns
 
-`st.experimental_fragment` includes a convenient `run_every` parameter that causes the fragment to rerun automatically at the specified time interval. These reruns are in addition to any reruns (fragment or full-script) triggered by your user. The automatic fragment reruns will continue even if your user is not interacting with your app. This is a great way to show a live data stream, efficiently updating your rendered data and _only_ your rendered data.
+`st.experimental_fragment` includes a convenient `run_every` parameter that causes the fragment to rerun automatically at the specified time interval. These reruns are in addition to any reruns (fragment or full-script) triggered by your user. The automatic fragment reruns will continue even if your user is not interacting with your app. This is a great way to show a live data stream or status on a running background job, efficiently updating your rendered data and _only_ your rendered data.
 
 ```python
-@st.fragment(run_every="10s")
+@st.experimental_fragment(run_every="10s")
 def auto_function():
 		# This will update every 10 seconds!
 		df = get_latest_updates()
@@ -140,4 +140,4 @@ Caching saves you from unnecessarily running a piece of your app while the rest 
 
 - Fragments can't detect a change in input values. It is best to use Session State for dynamic input and output for fragment functions.
 - Calling fragments within fragments is unsupported.
-- Using caching and fragments on the same function is unsupoorted.
+- Using caching and fragments on the same function is unsupported.
