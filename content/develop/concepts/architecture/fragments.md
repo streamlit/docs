@@ -5,7 +5,7 @@ slug: /develop/concepts/architecture/fragments
 
 # Working with fragments and partial reruns
 
-Reruns are a central part of every Streamlit app. When users interact with widgets, your script reruns from top to bottom and your app's frontend is updated. Streamlit provides several features to help you develop your app within this execution model. Streamlit version 1.33.0 introduced fragments to allow rerunning a portion or your code instead of your full script. As your app grows larger and more complex, these partial reruns help your app be efficient and performant. Fragments give you finer, easy-to-understand control over your app's execution flow.
+Reruns are a central part of every Streamlit app. When users interact with widgets, your script reruns from top to bottom, and your app's frontend is updated. Streamlit provides several features to help you develop your app within this execution model. Streamlit version 1.33.0 introduced fragments to allow rerunning a portion of your code instead of your full script. As your app grows larger and more complex, these partial reruns help your app be efficient and performant. Fragments give you finer, easy-to-understand control over your app's execution flow.
 
 Before you read about fragments, we recommend having a basic understanding of [caching](/develop/concepts/architecture/caching), [Session State](/concepts/architecture/session-state), and [forms](/develop/concepts/architecture/forms).
 
@@ -19,7 +19,7 @@ Fragments are versatile and applicable to a wide variety of circumstances. Here 
 
 ## Defining and calling a fragment
 
-Streamlit provides a decorator ([`st.experimental_fragment`](/develop/api-reference/execution-flow/st.fragment)) to turn any function into a fragment function. When you call a fragment function that contains a widget function, a user triggers a _partial rerun_ instead of a full rerun when they interact with that fragment's widget. During a partial rerun, your fragment function is re-executed. Anything within the main body of your fragment is updated on the frontend while the rest of your app remains the same. We'll describe fragments written across multiple containers later on.
+Streamlit provides a decorator ([`st.experimental_fragment`](/develop/api-reference/execution-flow/st.fragment)) to turn any function into a fragment function. When you call a fragment function that contains a widget function, a user triggers a _partial rerun_ instead of a full rerun when they interact with that fragment's widget. During a partial rerun, your fragment function is re-executed. Anything within the main body of your fragment is updated on the frontend, while the rest of your app remains the same. We'll describe fragments written across multiple containers later on.
 
 Here is a basic example of defining and calling a fragment function. Just like with caching, remember to call your function after defining it.
 
@@ -43,7 +43,7 @@ with st.sidebar:
 
 ### Partial rerun execution flow
 
-Consider the following code with the explanation and diagram that follow.
+Consider the following code with the explanation and diagram below.
 
 ```python
 import streamlit as st
@@ -71,13 +71,13 @@ filter_and_file()
 
 When a user interacts with an input widget inside a fragment, only the fragment reruns instead of the full script. When a user interacts with an input widget outside a fragment, the full script reruns as usual.
 
-If you run the code above, the full script will run top to bottom on your app's initial load. If you flip the toggle button in your running app, the first fragment (`toggle_and_text()`) will rerun which will redraw the toggle and text area while leaving everything else unchanged. If you then click the checkbox, the second fragment (`filter_and_file()`) will rerun and consequently redraw the checkbox and file uploader. Everything else remains unchanged. Finally, if you click the update button, the full script will rerun and Streamlit will redraw everything.
+If you run the code above, the full script will run top to bottom on your app's initial load. If you flip the toggle button in your running app, the first fragment (`toggle_and_text()`) will rerun, redrawing the toggle and text area while leaving everything else unchanged. If you click the checkbox, the second fragment (`filter_and_file()`) will rerun and consequently redraw the checkbox and file uploader. Everything else remains unchanged. Finally, if you click the update button, the full script will rerun, and Streamlit will redraw everything.
 
 ![Diagram of fragment execution flow](/images/concepts/fragment_diagram.png)
 
-## Fragment returns and interacting with the rest of your app
+## Fragment return values and interacting with the rest of your app
 
-Fragment returns are ignored on reruns so it's not recommended to define return values for your fragment functions. Instead, if your fragment needs to share data with the rest of your app, use Session State. Fragments are just functions in your script, so they can access Session State, imported modules, and other Streamlit elements like containers. If your fragment writes to any container created outside of itself, note the following difference in behavior:
+Streamlit ignores fragment return values during fragment reruns, so defining return values for your fragment functions is not recommended. Instead, if your fragment needs to share data with the rest of your app, use Session State. Fragments are just functions in your script, so they can access Session State, imported modules, and other Streamlit elements like containers. If your fragment writes to any container created outside of itself, note the following difference in behavior:
 
 - Elements drawn in the main body of your fragment are cleared and redrawn in place during a fragment rerun. Repeated fragment reruns will not cause additional elements to appear.
 - Elements drawn to containers outside the main body of fragment will not be cleared with each fragment rerun. Instead, Streamlit will draw them additively and these elements will accumulate until the next full-script rerun.
@@ -104,26 +104,26 @@ auto_function()
 
 Here is a comparison between fragments and forms:
 
-- **Forms** allow users to interact with widgets without rerunning your app. Streamlit does not send user actions within a form to your app's Python backend until the form is submitted. Widgets within a form can not dynamically update other widgets (in or out of the form) in real time.
-- **Fragments** run independently from the rest of your code. As your users interact with fragment widgets, their actions are immediately processed by your app's Python backend and your fragment code is rerun. Widgets within a fragment can dynamically update other widgets within the same fragment in real time.
+- **Forms** allow users to interact with widgets without rerunning your app. Streamlit does not send user actions within a form to your app's Python backend until the form is submitted. Widgets within a form can not dynamically update other widgets (in or out of the form) in real-time.
+- **Fragments** run independently from the rest of your code. As your users interact with fragment widgets, their actions are immediately processed by your app's Python backend and your fragment code is rerun. Widgets within a fragment can dynamically update other widgets within the same fragment in real-time.
 
-A form batches user input, without interaction between any widgets. A fragment immediately processes user input but limits the scope of the rerun.
+A form batches user input without interaction between any widgets. A fragment immediately processes user input but limits the scope of the rerun.
 
 ### Fragments vs callbacks
 
 Here is a comparison between fragments and callbacks:
 
 - **Callbacks** allow you to execute a function at the beginning of a script rerun. A callback is a _single prefix_ to your script rerun.
-- **Fragments** allow you to rerun a portion of script. Fragment reruns happen at the end of a script rerun. A fragment is a _repeatable postfix_ to your script.
+- **Fragments** allow you to rerun a portion of your script. Fragment reruns happen at the end of a script rerun. A fragment is a _repeatable postfix_ to your script.
 
-When callbacks render elements to your page, they are rendered before the rest of your page elements. When fragments renders elements to your page, they are updated with each fragment rerun (unless they are written to containers outside of the fragment, in which case they accumulate there).
+When callbacks render elements to your page, they are rendered before the rest of your page elements. When fragments render elements to your page, they are updated with each fragment rerun (unless they are written to containers outside of the fragment, in which case they accumulate there).
 
 ### Fragments vs custom components
 
 Here is a comparison between fragments and custom components:
 
-- **Components** are custom frontend code which can interact with the Python code, native elements, and widgets in your Streamlit app. Custom components extend what’s possible with Streamlit. They follow the normal Streamlit execution flow.
-- **Fragments** are parts of your app that can rerun independently of the full app. Fragments can be composed of multiple Streamlit elements and widgets or any Python code.
+- **Components** are custom frontend code that can interact with the Python code, native elements, and widgets in your Streamlit app. Custom components extend what’s possible with Streamlit. They follow the normal Streamlit execution flow.
+- **Fragments** are parts of your app that can rerun independently of the full app. Fragments can be composed of multiple Streamlit elements, widgets, or any Python code.
 
 A fragment can include one or more custom components. A custom component could not easily include a fragment!
 
@@ -134,7 +134,7 @@ Here is a comparison between fragments and caching:
 - **Caching:** allows you to skip over a function and return a previously computed value. When you use caching, you execute everything except the cached function (if you've already run it before).
 - **Fragments:** allow you to freeze most of your app and just execute the fragment. When you use fragments, you execute only the fragment (when triggering a fragment rerun).
 
-Caching saves you from unnecessarily running a piece of your app while the rest runs. Fragments save you from running all of your app when you only want to run one piece.
+Caching saves you from unnecessarily running a piece of your app while the rest runs. Fragments save you from running your full app when you only want to run one piece.
 
 ## Limitations and unsupported behavior
 
