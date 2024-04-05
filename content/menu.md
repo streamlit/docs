@@ -59,6 +59,8 @@ site_menu:
     url: /develop/concepts/architecture/session-state
   - category: Develop / Concepts / Architecture & execution / Forms
     url: /develop/concepts/architecture/forms
+  - category: Develop / Concepts / Architecture & execution / Fragments
+    url: /develop/concepts/architecture/fragments
   - category: Develop / Concepts / Architecture & execution/ Widget behavior
     url: /develop/concepts/architecture/widget-behavior
   - category: Develop / Concepts / Multipage apps
