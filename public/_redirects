@@ -15,7 +15,7 @@
 /en/latest/publish_streamlit_components.html    /develop/concepts/custom-components
 /en/latest/session_state_api.html    /develop/api-reference/caching-and-state/st.session_state
 /en/latest/streamlit_components.html    /develop/concepts/custom-components
-/en/latest/streamlit_configuration.html    /develop/concepts/configuration
+/en/latest/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/latest/streamlit_faq.html    /knowledge-base
 /en/latest/theme_options.html    /develop/concepts/configuration/theming
 /en/latest/troubleshooting/    /knowledge-base
@@ -52,7 +52,7 @@
 /en/stable/session_state_api.html    /develop/api-reference/caching-and-state/st.session_state
 /en/stable/streamlit_components.html    /develop/concepts/custom-components/create
 /en/stable/streamlit_components_faq.html    /knowledge-base/components
-/en/stable/streamlit_configuration.html    /develop/concepts/configuration
+/en/stable/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/stable/streamlit_faq.html    /knowledge-base
 /en/stable/theme_options.html    /develop/concepts/configuration/theming
 /en/stable/troubleshooting/    /knowledge-base
@@ -222,7 +222,7 @@
 /en/0.68.0/main_concepts.html    /get-started/fundamentals/main-concepts
 /en/0.68.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.68.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.68.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.68.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.68.0/streamlit_faq.html    /knowledge-base
 /en/0.68.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
 /en/0.68.0/troubleshooting/clean-install.html    /get-started/installation
@@ -245,7 +245,7 @@
 /en/0.69.0/main_concepts.html    /get-started/fundamentals/main-concepts
 /en/0.69.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.69.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.69.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.69.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.69.0/streamlit_faq.html    /knowledge-base
 /en/0.69.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
 /en/0.69.0/troubleshooting/clean-install.html    /get-started/installation
@@ -268,7 +268,7 @@
 /en/0.70.0/main_concepts.html    /get-started/fundamentals/main-concepts
 /en/0.70.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.70.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.70.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.70.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.70.0/streamlit_faq.html    /knowledge-base
 /en/0.70.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
 /en/0.70.0/troubleshooting/clean-install.html    /get-started/installation
@@ -291,7 +291,7 @@
 /en/0.71.0/main_concepts.html    /get-started/fundamentals/main-concepts
 /en/0.71.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.71.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.71.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.71.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.71.0/streamlit_faq.html    /knowledge-base
 /en/0.71.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
 /en/0.71.0/troubleshooting/clean-install.html    /get-started/installation
@@ -314,7 +314,7 @@
 /en/0.72.0/main_concepts.html    /get-started/fundamentals/main-concepts
 /en/0.72.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.72.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.72.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.72.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.72.0/streamlit_faq.html    /knowledge-base
 /en/0.72.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
 /en/0.72.0/troubleshooting/clean-install.html    /get-started/installation
@@ -337,7 +337,7 @@
 /en/0.73.0/main_concepts.html    /get-started/fundamentals/main-concepts
 /en/0.73.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.73.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.73.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.73.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.73.0/streamlit_faq.html    /knowledge-base
 /en/0.73.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
 /en/0.73.0/troubleshooting/clean-install.html    /get-started/installation
@@ -360,7 +360,7 @@
 /en/0.74.0/main_concepts.html    /get-started/fundamentals/main-concepts
 /en/0.74.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.74.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.74.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.74.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.74.0/streamlit_faq.html    /knowledge-base
 /en/0.74.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
 /en/0.74.0/troubleshooting/clean-install.html    /get-started/installation
@@ -383,7 +383,7 @@
 /en/0.75.0/main_concepts.html    /get-started/fundamentals/main-concepts
 /en/0.75.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.75.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.75.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.75.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.75.0/streamlit_faq.html    /knowledge-base
 /en/0.75.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
 /en/0.75.0/troubleshooting/clean-install.html    /get-started/installation
@@ -406,7 +406,7 @@
 /en/0.76.0/main_concepts.html    /get-started/fundamentals/main-concepts
 /en/0.76.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.76.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.76.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.76.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.76.0/streamlit_faq.html    /knowledge-base
 /en/0.76.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
 /en/0.76.0/troubleshooting/clean-install.html    /get-started/installation
@@ -429,7 +429,7 @@
 /en/0.77.0/main_concepts.html    /get-started/fundamentals/main-concepts
 /en/0.77.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.77.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.77.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.77.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.77.0/streamlit_faq.html    /knowledge-base
 /en/0.77.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
 /en/0.77.0/troubleshooting/clean-install.html    /get-started/installation
@@ -452,7 +452,7 @@
 /en/0.78.0/main_concepts.html    /get-started/fundamentals/main-concepts
 /en/0.78.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.78.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.78.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.78.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.78.0/streamlit_faq.html    /knowledge-base
 /en/0.78.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
 /en/0.78.0/troubleshooting/clean-install.html    /get-started/installation
@@ -473,7 +473,7 @@
 /en/0.79.0/main_concepts.html    /get-started/fundamentals/main-concepts
 /en/0.79.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.79.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.79.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.79.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.79.0/streamlit_faq.html    /knowledge-base
 /en/0.79.0/theme_options.html    /develop/concepts/configuration/theming
 /en/0.79.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
@@ -495,7 +495,7 @@
 /en/0.80.0/main_concepts.html    /get-started/fundamentals/main-concepts
 /en/0.80.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.80.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.80.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.80.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.80.0/streamlit_faq.html    /knowledge-base
 /en/0.80.0/theme_options.html    /develop/concepts/configuration/theming
 /en/0.80.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
@@ -517,7 +517,7 @@
 /en/0.81.0/main_concepts.html    /get-started/fundamentals/main-concepts
 /en/0.81.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.81.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.81.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.81.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.81.0/streamlit_faq.html    /knowledge-base
 /en/0.81.0/theme_options.html    /develop/concepts/configuration/theming
 /en/0.81.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
@@ -539,7 +539,7 @@
 /en/0.81.1/main_concepts.html    /get-started/fundamentals/main-concepts
 /en/0.81.1/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.81.1/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.81.1/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.81.1/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.81.1/streamlit_faq.html    /knowledge-base
 /en/0.81.1/theme_options.html    /develop/concepts/configuration/theming
 /en/0.81.1/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
@@ -561,7 +561,7 @@
 /en/0.82.0/main_concepts.html    /get-started/fundamentals/main-concepts
 /en/0.82.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.82.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.82.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.82.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.82.0/streamlit_faq.html    /knowledge-base
 /en/0.82.0/theme_options.html    /develop/concepts/configuration/theming
 /en/0.82.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
@@ -583,7 +583,7 @@
 /en/0.83.0/main_concepts.html    /get-started/fundamentals/main-concepts
 /en/0.83.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.83.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.83.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.83.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.83.0/streamlit_faq.html    /knowledge-base
 /en/0.83.0/theme_options.html    /develop/concepts/configuration/theming
 /en/0.83.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
@@ -615,7 +615,7 @@
 /en/0.84.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.84.0/session_state_api.html    /develop/api-reference/caching-and-state/st.session_state
 /en/0.84.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.84.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.84.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.84.0/streamlit_faq.html    /knowledge-base
 /en/0.84.0/theme_options.html    /develop/concepts/configuration/theming
 /en/0.84.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
@@ -647,7 +647,7 @@
 /en/0.85.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.85.0/session_state_api.html    /develop/api-reference/caching-and-state/st.session_state
 /en/0.85.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.85.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.85.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.85.0/streamlit_faq.html    /knowledge-base
 /en/0.85.0/theme_options.html    /develop/concepts/configuration/theming
 /en/0.85.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
@@ -680,7 +680,7 @@
 /en/0.86.0/publish_streamlit_components.html    /develop/concepts/custom-components/publish
 /en/0.86.0/session_state_api.html    /develop/api-reference/caching-and-state/st.session_state
 /en/0.86.0/streamlit_components.html    /develop/concepts/custom-components/create
-/en/0.86.0/streamlit_configuration.html    /develop/concepts/configuration
+/en/0.86.0/streamlit_configuration.html    /develop/api-reference/configuration/config.toml
 /en/0.86.0/streamlit_faq.html    /knowledge-base
 /en/0.86.0/theme_options.html    /develop/concepts/configuration/theming
 /en/0.86.0/troubleshooting/caching_issues.html    /knowledge-base/using-streamlit/caching-issues
@@ -713,7 +713,7 @@
 /en/0.87.0/publish_streamlit_components.html		/develop/concepts/custom-components/publish
 /en/0.87.0/session_state_api.html		/develop/api-reference/caching-and-state/st.session_state
 /en/0.87.0/streamlit_components.html		/develop/concepts/custom-components/create
-/en/0.87.0/streamlit_configuration.html		/develop/concepts/configuration
+/en/0.87.0/streamlit_configuration.html		/develop/api-reference/configuration/config.toml
 /en/0.87.0/streamlit_faq.html		/knowledge-base
 /en/0.87.0/theme_options.html		/develop/concepts/configuration/theming
 /en/0.87.0/troubleshooting/caching_issues.html		/knowledge-base/using-streamlit/caching-issues
@@ -746,7 +746,7 @@
 /en/0.88.0/publish_streamlit_components.html		/develop/concepts/custom-components/publish
 /en/0.88.0/session_state_api.html		/develop/api-reference/caching-and-state/st.session_state
 /en/0.88.0/streamlit_components.html		/develop/concepts/custom-components/create
-/en/0.88.0/streamlit_configuration.html		/develop/concepts/configuration
+/en/0.88.0/streamlit_configuration.html		/develop/api-reference/configuration/config.toml
 /en/0.88.0/streamlit_faq.html		/knowledge-base
 /en/0.88.0/theme_options.html		/develop/concepts/configuration/theming
 /en/0.88.0/troubleshooting/caching_issues.html		/knowledge-base/using-streamlit/caching-issues
@@ -779,7 +779,7 @@
 /en/0.89.0/publish_streamlit_components.html		/develop/concepts/custom-components/publish
 /en/0.89.0/session_state_api.html		/develop/api-reference/caching-and-state/st.session_state
 /en/0.89.0/streamlit_components.html		/develop/concepts/custom-components/create
-/en/0.89.0/streamlit_configuration.html		/develop/concepts/configuration
+/en/0.89.0/streamlit_configuration.html		/develop/api-reference/configuration/config.toml
 /en/0.89.0/streamlit_faq.html		/knowledge-base
 /en/0.89.0/theme_options.html		/develop/concepts/configuration/theming
 /en/0.89.0/troubleshooting/caching_issues.html		/knowledge-base/using-streamlit/caching-issues
@@ -812,7 +812,7 @@
 /en/1.0.0/publish_streamlit_components.html		/develop/concepts/custom-components/publish
 /en/1.0.0/session_state_api.html		/develop/api-reference/caching-and-state/st.session_state
 /en/1.0.0/streamlit_components.html		/develop/concepts/custom-components/create
-/en/1.0.0/streamlit_configuration.html		/develop/concepts/configuration
+/en/1.0.0/streamlit_configuration.html		/develop/api-reference/configuration/config.toml
 /en/1.0.0/streamlit_faq.html		/knowledge-base
 /en/1.0.0/theme_options.html		/develop/concepts/configuration/theming
 /en/1.0.0/troubleshooting/caching_issues.html		/knowledge-base/using-streamlit/caching-issues
@@ -838,8 +838,8 @@
 /api.html	/develop/api-reference
 /en/stable/pre_release_features.html	/develop/quick-reference/prerelease
 /en/latest/pre_release_features.html	/develop/quick-reference/prerelease
-/en/latest/cli.html	/develop/concepts/configuration
-/en/stable/cli.html	/develop/concepts/configuration
+/en/latest/cli.html	/get-started
+/en/stable/cli.html	/get-started
 /en/latest/advanced_caching.html	/develop/concepts/architecture/caching
 /en/stable/advanced_caching.html	/develop/concepts/architecture/caching
 /troubleshooting/caching_issues.html	/knowledge-base/using-streamlit/caching-issues
@@ -1044,7 +1044,7 @@
 /library/advanced-features/st.cache /develop/concepts/architecture/st.cache
 /library/advanced-features/experimental-cache-primitives /develop/concepts/architecture/experimental-cache-primitives
 /library/advanced-features/cli /develop/api-reference/cli
-/library/advanced-features/configuration /develop/concepts/configuration
+/library/advanced-features/configuration /develop/api-reference/configuration/config.toml
 /library/advanced-features/theming /develop/concepts/configuration/theming
 /library/advanced-features/connecting-to-data /develop/concepts/connections/connecting-to-data
 /library/advanced-features/dataframes /develop/concepts/design/dataframes
