@@ -5,7 +5,7 @@ slug: /develop/quick-reference/cheat-sheet
 
 # Streamlit API cheat sheet
 
-This is a summary of the docs, as of [Streamlit v1.31.0](https://pypi.org/project/streamlit/1.31.0/).
+This is a summary of the docs, as of [Streamlit v1.33.0](https://pypi.org/project/streamlit/1.33.0/).
 
 <Masonry>
 
