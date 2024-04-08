@@ -35,9 +35,4 @@
 
 # DOCS CONTENT
 
-/content* @sfc-gh-dmatthews @snowflakedb/docs-expandcollab
-
-#TODO
-# First create a team named docs-expandcollab in the streamlit repo, add @sfc-gh-dmatthews to it, then add this file to the .github folder
-
-  
+/content* @streamlit/docs-writers
