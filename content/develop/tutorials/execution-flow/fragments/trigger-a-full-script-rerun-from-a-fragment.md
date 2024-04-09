@@ -18,7 +18,9 @@ Streamlit lets you turn functions into [fragments](/develop/concepts/architectur
 
 In this example, you'll build an app to display sales data. The app has two sets of elements that depend on a date selection. One set of elements displays information for the selected day. The other set of elements displays information for the associated month. If the user changes days within a month, Streamlit only needs to update the first set of elements. If the user selects a day in a different month, Streamlit needs to update all the elements.
 
-You'll collect the day-specific elements into a fragment to avoid rerunning the full app when a user changes days within the same month.
+You'll collect the day-specific elements into a fragment to avoid rerunning the full app when a user changes days within the same month. If you want to jump ahead to the fragment function definition, see [Build a function to show daily sales data](#build-a-function-to-show-daily-sales-data).
+
+![Execution flow of example Streamlit app showing daily sales on the left and monthly sales on the right](/images/tutorials/fragment-rerun-tutorial-execution-flow.png)
 
 Here's a look at what you'll build:
 
@@ -65,10 +67,9 @@ def show_daily_sales(data):
     if "previous_date" not in st.session_state:
         st.session_state.previous_date = selected_date
     previous_date = st.session_state.previous_date
-    is_different_year = previous_date.year != selected_date.year
-    is_different_month = previous_date.month != selected_date.month
     st.session_state.previous_date = selected_date
-    if is_different_year or is_different_month:
+    is_new_month = selected_date.replace(day=1) != previous_date.replace(day=1)
+    if is_new_month:
         st.rerun()
 
     with st.container(height=510):
@@ -249,10 +250,9 @@ def show_daily_sales(data):
     if "previous_date" not in st.session_state:
         st.session_state.previous_date = selected_date
     previous_date = st.session_state.previous_date
-    is_different_year = previous_date.year != selected_date.year
-    is_different_month = previous_date.month != selected_date.month
     st.session_state.previous_date = selected_date
-    if is_different_year or is_different_month:
+    is_new_month = selected_date.replace(day=1) != previous_date.replace(day=1)
+    if is_new_month:
         st.rerun()
 
     st.header(f"Best sellers, {selected_date:%m/%d/%y}")
@@ -306,20 +306,19 @@ def show_daily_sales(data):
            st.session_state.previous_date = selected_date
    ```
 
-1. Compare the current date selection to the previous one.
+1. Save the previous date selection into a new variable and update `"previous_date"` in Session State.
 
    ```python
-       previous_date = st.session_state.previous_date
-       is_different_year = previous_date.year != selected_date.year
-       is_different_month = previous_date.month != selected_date.month
+        previous_date = st.session_state.previous_date
+        st.session_state.previous_date = selected_date
    ```
 
-1. Update `"previous_date"` in Session State and call `st.rerun()` if the month changed.
+1. Call `st.rerun()` if the month changed.
 
    ```python
-       st.session_state.previous_date = selected_date
-       if is_different_year or is_different_month:
-           st.rerun()
+        is_new_month = selected_date.replace(day=1) != previous_date.replace(day=1)
+        if is_new_month:
+            st.rerun()
    ```
 
 1. Show the best sellers from the selected date.
@@ -476,11 +475,11 @@ Now, you have a functioning app that uses a fragment to prevent unnecessarily re
        if "previous_date" not in st.session_state:
            st.session_state.previous_date = selected_date
        previous_date = st.session_state.previous_date
-       is_different_year = previous_date.year != selected_date.year
-       is_different_month = previous_date.month != selected_date.month
-       st.session_state.previous_date = selected_date
-       if is_different_year or is_different_month:
-           st.rerun()
+        previous_date = st.session_state.previous_date
+        st.session_state.previous_date = selected_date
+        is_new_month = selected_date.replace(day=1) != previous_date.replace(day=1)
+        if is_new_month:
+            st.rerun()
 
        with st.container(height=510): ### ADD CONTAINER ###
            st.header(f"Best sellers, {selected_date:%m/%d/%y}")
