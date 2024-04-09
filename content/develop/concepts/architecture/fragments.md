@@ -114,7 +114,7 @@ A form batches user input without interaction between any widgets. A fragment im
 Here is a comparison between fragments and callbacks:
 
 - **Callbacks** allow you to execute a function at the beginning of a script rerun. A callback is a _single prefix_ to your script rerun.
-- **Fragments** allow you to rerun a portion of your script. Fragment reruns happen at the end of a script rerun. A fragment is a _repeatable postfix_ to your script.
+- **Fragments** allow you to rerun a portion of your script. A fragment is a _repeatable postfix_ to your script, running each time a user interacts with a fragment widget, or automatically in sequence when `run_every` is set.
 
 When callbacks render elements to your page, they are rendered before the rest of your page elements. When fragments render elements to your page, they are updated with each fragment rerun (unless they are written to containers outside of the fragment, in which case they accumulate there).
 

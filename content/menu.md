@@ -593,6 +593,15 @@ site_menu:
 
   - category: Develop / Tutorials
     url: /develop/tutorials
+  - category: Develop / Tutorials / Execution flow
+    url: /develop/tutorials/execution-flow
+  - category: Develop / Tutorials / Execution flow / FRAGMENTS
+  - category: Develop / Tutorials / Execution flow / Rerun your app from a fragment
+    url: /develop/tutorials/execution-flow/trigger-a-full-script-rerun-from-a-fragment
+  - category: Develop / Tutorials / Execution flow / Create a disconnected fragment
+    url: /develop/tutorials/execution-flow/create-a-disconnected-fragment
+  - category: Develop / Tutorials / Execution flow / Start and stop a streaming fragment
+    url: /develop/tutorials/execution-flow/start-and-stop-fragment-auto-reruns
   - category: Develop / Tutorials / Connect to data sources
     url: /develop/tutorials/databases
   - category: Develop / Tutorials / Connect to data sources / AWS S3
