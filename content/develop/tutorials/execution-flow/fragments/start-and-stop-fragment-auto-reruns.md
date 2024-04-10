@@ -11,7 +11,7 @@ Streamlit lets you turn function into fragments which can rerun independently fr
 
 **`streamlit>=1.33.0`**
 
-- This tutorial uses fragments, which was introduced in Streamlit version 1.33.0.
+- This tutorial uses fragments, which require Streamlit version 1.33.0 or later.
 - This tutorial assumes you have a clean working directory called `your-repository`.
 
 ## Summary

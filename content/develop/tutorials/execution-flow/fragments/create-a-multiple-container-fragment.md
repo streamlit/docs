@@ -5,19 +5,24 @@ slug: /develop/tutorials/execution-flow/create-a-multiple-container-fragment
 
 # Create a fragment across multiple containers
 
-Streamlit lets you turn functions into [fragments](/develop/concepts/architecture/fragments), which can rerun independently from the full script. If your fragment is written to a single container, Streamlit will clear and redraw all the fragment elements with each fragment rerun. However, when you use a fragment to write elements to multiple containers, those elements will not be cleared during a fragment rerun. Instead, those elements accumulate with each fragment rerun until the next full-script rerun. If you want a fragment to update multiple containers in your app, use [`st.empty()`](/develop/api-reference/layout/st.empty) containers to prevent accumulating elements.
+Streamlit lets you turn functions into [fragments](/develop/concepts/architecture/fragments), which can rerun independently from the full script. If your fragment doesn't write to outside containers, Streamlit will clear and redraw all the fragment elements with each fragment rerun. However, if your fragment _does_ write elements to outside containers, Streamlit will not clear those elements during a fragment rerun. Instead, those elements accumulate with each fragment rerun until the next full-script rerun. If you want a fragment to update multiple containers in your app, use [`st.empty()`](/develop/api-reference/layout/st.empty) containers to prevent accumulating elements.
+
+## Applied concepts
+
+- Use fragments to run two independent processes separately.
+- Distribute a fragment across multiple containers.
 
 ## Prerequisites
 
 **`streamlit>=1.33.0`**
 
-- This tutorial uses fragments, which was introduced in Streamlit version 1.33.0.
+- This tutorial uses fragments, which require Streamlit version 1.33.0 or later.
 - This tutorial assumes you have a clean working directory called `your-repository`.
 - You should have a basic understanding of fragments and `st.empty()`.
 
 ## Summary
 
-In this toy example, you'll build an app with six containers. Three containers will have orange cats. The other three containers will have black cats. You'll have three buttons in the sidebar: "Herd the black cats," "Herd the orange cats," and "Herd all the cats." Since herding cats is a slow process, you'll use fragments to help Streamlit run the associated processes efficiently. You'll create two fragments, one for the black cats and one for the orange cats. Since the buttons will be in the sidebar and the fragments will update containers in the main body, you'll use a trick with `st.empty()` to ensure you don't end up with too many cats in your app (if it's even possible to have too many cats). 😻
+In this toy example, you'll build an app with six containers. Three containers will have orange cats. The other three containers will have black cats. You'll have three buttons in the sidebar: "**Herd the black cats**," "**Herd the orange cats**," and "**Herd all the cats**." Since herding cats is slow, you'll use fragments to help Streamlit run the associated processes efficiently. You'll create two fragments, one for the black cats and one for the orange cats. Since the buttons will be in the sidebar and the fragments will update containers in the main body, you'll use a trick with `st.empty()` to ensure you don't end up with too many cats in your app (if it's even possible to have too many cats). 😻
 
 Here's a look at what you'll build:
 
@@ -187,7 +192,7 @@ Since each fragment will span across the sidebar and three additional containers
            black_cats()
    ```
 
-   This will not behave as desired, but you'll explore and correct this in the next steps.
+   **This code above will not behave as desired, but you'll explore and correct this in the following steps.**
 
 1. Test out your code. Call your fragment function in the sidebar.
 
@@ -196,11 +201,13 @@ Since each fragment will span across the sidebar and three additional containers
        herd_black_cats(grid[0], grid[2], grid[4])
    ```
 
-   Save your file and try using the button in the sidebar. More and more cats are added to the cards with each fragment rerun! This is the expected behavior when fragments write to outside containers. To fix this, you will pass `st.empty()` containers to your fragment function.
+   Save your file and try using the button in the sidebar. More and more cats are appear in the cards with each fragment rerun! This is the expected behavior when fragments write to outside containers. To fix this, you will pass `st.empty()` containers to your fragment function.
+
+   ![Example Streamlit app showing accumulating elements when a fragment writes to outside containers](/images/tutorials/fragment-multiple-containers-tutorial-app-duplicates.jpg)
 
 1. Delete the lines of code from the previous two steps.
 
-1. Correct your cat-herding function. After the button, define containers to place in the `st.empty()` cards you'll pass to your fragment.
+1. To prepare for using `st.empty()` containers, correct your cat-herding function as follows. After the button, define containers to place in the `st.empty()` cards you'll pass to your fragment.
 
    ```python
        container_a = card_a.container()
@@ -243,9 +250,9 @@ Since each fragment will span across the sidebar and three additional containers
        herd_orange_cats(grid[1].empty(), grid[3].empty(), grid[5].empty())
    ```
 
-   By creating `st.empty()` containers in each card and passing them to your fragments, you prevent the fragments from accumulating elements in the cards. If you create the `st.empty()` containers earlier in your app, full-script reruns will clear the orange-cat cards while (first) rendering the black-cat cards.
+   By creating `st.empty()` containers in each card and passing them to your fragments, you prevent elements from accumulating in the cards with each fragment rerun. If you create the `st.empty()` containers earlier in your app, full-script reruns will clear the orange-cat cards while (first) rendering the black-cat cards.
 
-1. Include a button outside of your fragments. This will trigger a full-script rerun when clicked.
+1. Include a button outside of your fragments. When clicked, the button will trigger a full-script rerun since you're calling its widget function outside of any fragment.
 
    ```python
        st.button("Herd all the cats")
