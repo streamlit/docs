@@ -311,16 +311,16 @@ def show_daily_sales(data):
 1. Save the previous date selection into a new variable and update `"previous_date"` in Session State.
 
    ```python
-        previous_date = st.session_state.previous_date
-        st.session_state.previous_date = selected_date
+       previous_date = st.session_state.previous_date
+       st.session_state.previous_date = selected_date
    ```
 
 1. Call `st.rerun()` if the month changed.
 
    ```python
-        is_new_month = selected_date.replace(day=1) != previous_date.replace(day=1)
-        if is_new_month:
-            st.rerun()
+       is_new_month = selected_date.replace(day=1) != previous_date.replace(day=1)
+       if is_new_month:
+           st.rerun()
    ```
 
 1. Show the best sellers from the selected date.
@@ -410,7 +410,7 @@ def show_monthly_sales(data):
        st.bar_chart(monthly_sales.sum())
    ```
 
-1. (Optional) Test out your function but calling it and displaying the data.
+1. (Optional) Test out your function by calling it and displaying the data.
 
    ```python
    data = get_data()
@@ -477,11 +477,11 @@ Now, you have a functioning app that uses a fragment to prevent unnecessarily re
        if "previous_date" not in st.session_state:
            st.session_state.previous_date = selected_date
        previous_date = st.session_state.previous_date
-        previous_date = st.session_state.previous_date
-        st.session_state.previous_date = selected_date
-        is_new_month = selected_date.replace(day=1) != previous_date.replace(day=1)
-        if is_new_month:
-            st.rerun()
+       previous_date = st.session_state.previous_date
+       st.session_state.previous_date = selected_date
+       is_new_month = selected_date.replace(day=1) != previous_date.replace(day=1)
+       if is_new_month:
+           st.rerun()
 
        with st.container(height=510): ### ADD CONTAINER ###
            st.header(f"Best sellers, {selected_date:%m/%d/%y}")

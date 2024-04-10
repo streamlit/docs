@@ -17,11 +17,11 @@ Call `st.rerun` from inside a fragment to trigger a full-script rerun when a con
 
 </RefCard>
 
-<RefCard href="/develop/tutorials/execution-flow/create-a-disconnected-fragment">
+<RefCard href="/develop/tutorials/execution-flow/create-a-multiple-container-fragment">
 
-<h5>Create a fragment with disconnected content</h5>
+<h5>Create a fragment across multiple containers</h5>
 
-Use a fragment to update multiple, disconnected containers in your app.
+Use a fragment to write to multiple containers across your app.
 
 </RefCard>
 

@@ -598,8 +598,8 @@ site_menu:
   - category: Develop / Tutorials / Execution flow / FRAGMENTS
   - category: Develop / Tutorials / Execution flow / Rerun your app from a fragment
     url: /develop/tutorials/execution-flow/trigger-a-full-script-rerun-from-a-fragment
-  - category: Develop / Tutorials / Execution flow / Create a disconnected fragment
-    url: /develop/tutorials/execution-flow/create-a-disconnected-fragment
+  - category: Develop / Tutorials / Execution flow / Create a multiple-container fragment
+    url: /develop/tutorials/execution-flow/create-a-multiple-container-fragment
   - category: Develop / Tutorials / Execution flow / Start and stop a streaming fragment
     url: /develop/tutorials/execution-flow/start-and-stop-fragment-auto-reruns
   - category: Develop / Tutorials / Connect to data sources
