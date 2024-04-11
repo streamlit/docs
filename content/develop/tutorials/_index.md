@@ -9,6 +9,14 @@ Our tutorials include step-by-step examples of building different types of apps 
 
 <TileContainer layout="list">
 
+<RefCard href="/develop/tutorials/execution-flow">
+
+<h5>Use core features to work with Streamlit's execution model</h5>
+
+Build simple apps and walk through examples to learn about Streamlit's core features and execution model.
+
+</RefCard>
+
 <RefCard href="/develop/tutorials/databases">
 
 <h5>Connect to data sources</h5>
