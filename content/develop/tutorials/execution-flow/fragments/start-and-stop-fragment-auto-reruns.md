@@ -59,6 +59,7 @@ def toggle_streaming():
     st.session_state.stream = not st.session_state.stream
 
 
+st.title("Data feed")
 st.sidebar.slider(
     "Check for updates every: (seconds)", 0.5, 5.0, value=1.0, key="run_every"
 )
@@ -89,6 +90,8 @@ show_latest_data()
 ```
 
 </Collapse>
+
+![Example Streamlit app showing two streaming data series in a line chart](/images/tutorials/fragment-streaming-tutorial-app.jpg)
 
 ## Build the example
 
@@ -220,6 +223,12 @@ Since you will dynamically change the `run_every` parameter of `@st.experimental
    ```python
    def toggle_streaming():
        st.session_state.stream = not st.session_state.stream
+   ```
+
+1. Add a title to your app.
+
+   ```python
+   st.title("Data feed")
    ```
 
 1. Add a slider to the sidebar to set how frequently to check for data while streaming.
