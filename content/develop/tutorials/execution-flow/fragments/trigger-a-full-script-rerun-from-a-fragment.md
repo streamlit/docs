@@ -9,7 +9,7 @@ Streamlit lets you turn functions into [fragments](/develop/concepts/architectur
 
 ## Applied concepts
 
-- Use a fragment rerun part or all of your app, depending on user input.
+- Use a fragment to rerun part or all of your app, depending on user input.
 
 ## Prerequisites
 
