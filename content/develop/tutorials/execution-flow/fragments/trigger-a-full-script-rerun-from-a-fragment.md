@@ -9,7 +9,7 @@ Streamlit lets you turn functions into [fragments](/develop/concepts/architectur
 
 ## Applied concepts
 
-- Use a fragment conditionally rerun part or all of your app depending on user input.
+- Use a fragment rerun part or all of your app, depending on user input.
 
 ## Prerequisites
 
@@ -126,6 +126,8 @@ with monthly:
 </Collapse>
 
 ![Example Streamlit app showing daily sales on the left and monthly sales on the right](/images/tutorials/fragment-rerun-tutorial-app.jpg)
+
+[Click here to see the example live on Community Cloud.](https://doc-tutorial-fragment-rerun.streamlit.app/)
 
 ## Build the example
 

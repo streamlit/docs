@@ -92,7 +92,7 @@ show_latest_data()
 
 </Collapse>
 
-![Example Streamlit app showing two streaming data series in a line chart](/images/tutorials/fragment-streaming-tutorial-app.jpg)
+<Cloud src="https://doc-tutorial-fragment-streaming.streamlit.app/?embed=true" height="550" />
 
 ## Build the example
 

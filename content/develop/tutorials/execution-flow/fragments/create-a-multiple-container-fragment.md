@@ -89,7 +89,7 @@ with st.sidebar:
 
 </Collapse>
 
-![Example Streamlit app showing six cards updated in two independent groups by fragments](/images/tutorials/fragment-multiple-containers-tutorial-app.jpg)
+<Cloud src="https://doc-tutorial-fragment-multiple-container.streamlit.app/?embed=true" height="650" />
 
 ## Build the example
 
