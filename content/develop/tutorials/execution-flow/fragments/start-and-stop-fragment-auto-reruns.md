@@ -18,6 +18,7 @@ Streamlit lets you turn functions into [fragments](/develop/concepts/architectur
 
 - This tutorial uses fragments, which require Streamlit version 1.33.0 or later.
 - This tutorial assumes you have a clean working directory called `your-repository`.
+- You should have a basic understanding of fragments.
 
 ## Summary
 

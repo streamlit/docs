@@ -5,11 +5,11 @@ slug: /develop/tutorials/execution-flow/trigger-a-full-script-rerun-from-a-fragm
 
 # Trigger a full-script rerun from inside a fragment
 
-Streamlit lets you turn functions into [fragments](/develop/concepts/architecture/fragments), which can rerun independently from the full script. When a user interacts with a widget inside a fragment, only the fragment ruruns. Sometimes, you may want to trigger a full-script rerun form inside a fragment. To do this, call [`st.rerun`](/develop/api-reference/execution-flow/st.rerun) inside the fragment.
+Streamlit lets you turn functions into [fragments](/develop/concepts/architecture/fragments), which can rerun independently from the full script. When a user interacts with a widget inside a fragment, only the fragment ruruns. Sometimes, you may want to trigger a full-script rerun from inside a fragment. To do this, call [`st.rerun`](/develop/api-reference/execution-flow/st.rerun) inside the fragment.
 
 ## Applied concepts
 
-- Use fragments to run a granular process separately from a related, coarser process.
+- Use a fragment conditionally rerun part or all of your app depending on user input.
 
 ## Prerequisites
 
@@ -17,6 +17,7 @@ Streamlit lets you turn functions into [fragments](/develop/concepts/architectur
 
 - This tutorial uses fragments, which require Streamlit version 1.33.0 or later.
 - This tutorial assumes you have a clean working directory called `your-repository`.
+- You should have a basic understanding of fragments and `st.rerun`.
 
 ## Summary
 
