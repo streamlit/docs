@@ -5,7 +5,7 @@ slug: /develop/concepts/architecture/architecture
 
 # Understanding Streamlit's client-server architecture
 
-Streamlit apps have a client-server structure. The Python backend of your app is the server. The frontend you view through a browswer is the client. When you develop an app locally, your computer runs both the server and the client. If someone views your app across a local or global network, the server and client run on different machines. If you intend to share or deploy your app, it's important to understand this client-server structure to avoid common pitfalls.
+Streamlit apps have a client-server structure. The Python backend of your app is the server. The frontend you view through a browser is the client. When you develop an app locally, your computer runs both the server and the client. If someone views your app across a local or global network, the server and client run on different machines. If you intend to share or deploy your app, it's important to understand this client-server structure to avoid common pitfalls.
 
 ## Python backend (server)
 
