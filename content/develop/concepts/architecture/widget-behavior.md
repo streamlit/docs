@@ -144,18 +144,18 @@ If a widget's function is not called during a script run, then none of its parts
 
 #### Save widget values in Session State to preserve them between pages
 
-If you want to navigate away from a widget and return to it while keeping its value, use a separate key in `st.session_state` to save the information independently from the widget. In this example, a temporary key is used with a widget. The temporary key uses an underscore prefix. Hence, `_my_key` is used as the widget key, but the data is copied to `my_key` to preserve it between pages.
+If you want to navigate away from a widget and return to it while keeping its value, use a separate key in `st.session_state` to save the information independently from the widget. In this example, a temporary key is used with a widget. The temporary key uses an underscore prefix. Hence, `"_my_key"` is used as the widget key, but the data is copied to `"my_key"` to preserve it between pages.
 
 ```python
 import streamlit as st
 
-def save_value():
+def store_value():
     # Copy the value to the permanent key
     st.session_state["my_key"] = st.session_state["_my_key"]
 
 # Copy the saved value to the temporary key
 st.session_state["_my_key"] = st.session_state["my_key"]
-st.number_input("Number of filters", key="_my_key", on_change=save_value)
+st.number_input("Number of filters", key="_my_key", on_change=store_value)
 ```
 
 If this is functionalized to work with multiple widgets, it could look something like this:
@@ -163,14 +163,13 @@ If this is functionalized to work with multiple widgets, it could look something
 ```python
 import streamlit as st
 
-def save_value(key):
+def store_value(key):
     st.session_state[key] = st.session_state["_"+key]
-def get_value(key):
+def load_value(key):
     st.session_state["_"+key] = st.session_state[key]
 
-get_value("my_key")
-st.number_input("Number of filters", key="_my_key", on_change=save_value, args=["my_key"])
-
+load_value("my_key")
+st.number_input("Number of filters", key="_my_key", on_change=store_value, args=["my_key"])
 ```
 
 ## Widget life cycle
