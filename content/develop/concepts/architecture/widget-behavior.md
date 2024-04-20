@@ -169,7 +169,7 @@ def get_value(key):
     st.session_state["_"+key] = st.session_state[key]
 
 get_value("my_key")
-st.number_input("Number of filters", key="_my_key", on_change=save_value, args=("my_key",))
+st.number_input("Number of filters", key="_my_key", on_change=save_value, args=["my_key"])
 
 ```
 
