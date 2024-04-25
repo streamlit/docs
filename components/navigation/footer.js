@@ -275,9 +275,7 @@ const Footer = ({ setIsTelemetryModalVisible }) => {
           </a>
         </section>
         <div className={styles.Copyright}>
-          <span>
-            Copyright &copy; {new Date().getFullYear()}, Streamlit Inc.
-          </span>
+          <span>&copy; {new Date().getFullYear()} Snowflake Inc.</span>
           <button
             className="hover:opacity-80 ml-2"
             onClick={() => setIsTelemetryModalVisible(true)}
