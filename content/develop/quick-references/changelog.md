@@ -1,9 +1,10 @@
 ---
-title: Changelog
+title: Release notes
 slug: /develop/quick-reference/changelog
+description: Changelog, release notes, version history
 ---
 
-# Changelog
+# Release notes
 
 This page lists highlights, bug fixes, and known issues for official Streamlit releases. If you're looking for information about nightly releases, beta features, or experimental features, see [Try pre-release features](/develop/quick-reference/prerelease).
 
@@ -16,6 +17,47 @@ pip install --upgrade streamlit
 ```
 
 </Tip>
+
+## **Version 1.34.0**
+
+_Release date: May 2, 2024_
+
+**Highlights**
+
+- 🍿 Introducing `st.experimental_dialog`! Create a modal overlay that can also rerun independently from the rest of your app. Check out the [docs](/develop/api-reference/execution-flow/st.dialog) to learn how.
+
+**Notable Changes**
+
+- 🔣 `st.toast`, `st.chat_message`, `st.set_page_config`, `st.info`, `st.success`, `st.error`, and `st.warning` can use Google Material Symbols for their icons.
+- 🌈 [Markdown](/develop/api-reference/text/st.markdown) supports background colors for text.
+- 🎥 [`st.audio`](/develop/api-reference/media/st.audio) and [`st.video`](/develop/api-reference/media/st.video) can now be set to autoplay. `st.video` can be muted.
+- 🗃️ You can [clear specific cached values](/develop/api-reference/caching-and-state/st.cache_data#cachedfuncclear) for a cached function. Thanks, [OscarSaharoy](https://github.com/OscarSaharoy)!
+- ❓ You can now set all query parameters with a single call to [`st.query_params.from_dict`](/develop/api-reference/caching-and-state/st.query_params#stquery_paramsfrom_dict). Thanks, [Asaurus1](https://github.com/Asaurus1)!
+
+**Other Changes**
+
+- 🔲 Streamlit supports Modin and Snowpark pandas DataFrames and Series ([#8506](https://github.com/streamlit/streamlit/pull/8506)).
+- ⏱️ Improved support for `period` data types in `st.dataframe` and `st.data_editor` ([#7987](https://github.com/streamlit/streamlit/pull/7987)).
+- 🗺️ Streamlit supports using `pydeck-carto` with `st.pydeck_chart` ([#8422](https://github.com/streamlit/streamlit/pull/8422)).
+- ❄️ Additional `snowflake` requirements were updated to allow Python versions 3.8 to 3.11 ([#8538](https://github.com/streamlit/streamlit/pull/8538)).
+- 🍞 `st.toast` received visual improvements and now appears in the top right ([#8433](https://github.com/streamlit/streamlit/pull/8433)).
+- 🦋 Visual tweaks for dialogs and modals.
+- 🦀 Bug fix: `st.write_stream` returns an empty string when passed a generator with no yield ([#8560](https://github.com/streamlit/streamlit/pull/8560)).
+- 🦎 Bug fix: Widgets that support `None` values can be correctly set to `None` through Session State ([#8529](https://github.com/streamlit/streamlit/pull/8529), [#7649](https://github.com/streamlit/streamlit/issues/7649)).
+- 🐌 Bug fix: If the initial value for `st.date_input` is not set and today’s date falls outside the declared minimum or maximum, then the minimum or maximum will be used instead, whichever is closer ([#8519](https://github.com/streamlit/streamlit/pull/8519), [#6167](https://github.com/streamlit/streamlit/issues/6167)).
+- 🕸️ Bug fix: Altair’s `resolve_scale` method is handled correctly ([#8497](https://github.com/streamlit/streamlit/pull/8497), [#1667](https://github.com/streamlit/streamlit/issues/1667)).
+- 🦗 Bug fix: `st.multiselects` correctly handles sets when passed to `options` or `default` ([#8471](https://github.com/streamlit/streamlit/pull/8471), [#8466](https://github.com/streamlit/streamlit/issues/8466)).
+- 🦂 Bug fix: `st.status` does not show the expander toggle when empty ([#8369](https://github.com/streamlit/streamlit/pull/8369)).
+- 🦟 Bug fix: The width of `vconcat` charts in Vega and Altair is set correctly ([#8498](https://github.com/streamlit/streamlit/pull/8498), [#2751](https://github.com/streamlit/streamlit/issues/2751)).
+- 🦠 Bug fix: Apps print beautifully and no longer show excessive whitespace ([#8502](https://github.com/streamlit/streamlit/pull/8502), [#7815](https://github.com/streamlit/streamlit/issues/7815)).
+- 🪰 Bug fix: Invalid escape sequences were removed to avoid warnings from `pytest` ([#8510](https://github.com/streamlit/streamlit/pull/8510), [#8501](https://github.com/streamlit/streamlit/issues/8501)).
+- 🪳 Bug fix: `st.file_uploader` callback is correctly executed once per file selection after the first selection ([#8493](https://github.com/streamlit/streamlit/pull/8493), [#4877](https://github.com/streamlit/streamlit/issues/4877)).
+- 🕷️ Bug fix: Streamlit is compatible down to `pillow` version 7.1.0 instead of 9.1.0 ([#8492](https://github.com/streamlit/streamlit/pull/8492), [#8486](https://github.com/streamlit/streamlit/issues/8486)).
+- 🐞 Bug fix: Widget values are correctly dropped when a script run is interrupted by switching pages ([#8425](https://github.com/streamlit/streamlit/pull/8425), [#7338](https://github.com/streamlit/streamlit/issues/7338)).
+- 🐝 Bug fix: Apps in dark mode will return to dark mode after printing ([#8469](https://github.com/streamlit/streamlit/pull/8469), [#7879](https://github.com/streamlit/streamlit/issues/7879)).
+- 🐜 Bug fix: Component ready state is dynamic to avoid race conditions that caused blank apps in Safari ([#8434](https://github.com/streamlit/streamlit/pull/8434), [#8362](https://github.com/streamlit/streamlit/issues/8362)).
+- 🪲 Bug fix: `st.slider` yields a Python error when `min_value` is less than or equal to `max_value` ([#8413](https://github.com/streamlit/streamlit/pull/8413), [#8342](https://github.com/streamlit/streamlit/issues/8342)).
+- 🐛 Bug fix: Time is offset correctly for Vega and Altair ([#8278](https://github.com/streamlit/streamlit/pull/8278), [#4342](https://github.com/streamlit/streamlit/issues/4342)).
 
 ## **Version 1.33.0**
 
