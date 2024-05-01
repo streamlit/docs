@@ -19,6 +19,7 @@ from docutils.parsers.rst import directives
 from numpydoc.docscrape import NumpyDocString
 from streamlit.elements.lib.mutable_status_container import StatusContainer
 from streamlit.testing.v1.app_test import AppTest
+from streamlit.runtime.caching.cache_utils import CachedFunc
 
 VERSION = streamlit.__version__
 DEBUG = False
@@ -556,6 +557,7 @@ def get_streamlit_docstring_dict():
             "st.testing.v1.element_tree",
         ],
         streamlit.user_info.UserInfoProxy: ["streamlit.experimental_user", "st.experimental_user"],
+        CachedFunc: ["CachedFunc", "CachedFunc"],
     }
     proxy_obj_key = {
         streamlit.user_info.UserInfoProxy: ["streamlit.experimental_user", "st.experimental_user"],
