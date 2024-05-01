@@ -47,6 +47,7 @@ port = 3306
 database = "xxx"
 username = "xxx"
 password = "xxx"
+query = { charset = "xxx" }
 ```
 
 <Important>
