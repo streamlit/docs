@@ -5,7 +5,7 @@ slug: /develop/quick-reference/cheat-sheet
 
 # Streamlit API cheat sheet
 
-This is a summary of the docs, as of [Streamlit v1.33.0](https://pypi.org/project/streamlit/1.33.0/).
+This is a summary of the docs, as of [Streamlit v1.34.0](https://pypi.org/project/streamlit/1.34.0/).
 
 <Masonry>
 
@@ -231,6 +231,13 @@ st.switch_page("pages/my_page.py")
 >>>   password = st.text_input("Password")
 >>>   st.form_submit_button("Login")
 
+# Define a dialog function
+>>> @st.experimental_dialog
+>>> def modal_dialog():
+>>>     st.write("Hello")
+>>>
+>>> modal_dialog()
+
 # Define a fragment
 >>> @st.experimental_fragment
 >>> def fragment_function():
@@ -355,6 +362,7 @@ st.get_option(key)
 st.set_option(key, value)
 st.set_page_config(layout="wide")
 st.query_params[key]
+st.query_params.from_dict(params_dict)
 st.query_params.get_all(key)
 st.query_params.clear()
 st.html("<p>Hi!</p>")
@@ -399,6 +407,8 @@ conn = st.connection("snowflake")
 >>> d2 = foo(ref1)
 # Different arg, so function foo executes
 >>> d3 = foo(ref2)
+# Clear the cached value for foo(ref1)
+>>> foo.clear(ref1)
 # Clear all cached entries for this function
 >>> foo.clear()
 # Clear values from *all* in-memory or on-disk cached functions
@@ -420,6 +430,8 @@ conn = st.connection("snowflake")
 >>> s2 = foo(ref1)
 # Different arg, so function foo executes
 >>> s3 = foo(ref2)
+# Clear the cached value for foo(ref1)
+>>> foo.clear(ref1)
 # Clear all cached entries for this function
 >>> foo.clear()
 # Clear all global resources from cache

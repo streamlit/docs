@@ -37,6 +37,8 @@ if st.button("Clear All"):
     st.cache_resource.clear()
 ```
 
+<Autofunction function="CachedFunc.clear" />
+
 ## Using Streamlit commands in cached functions
 
 ### Static elements

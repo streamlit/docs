@@ -37,7 +37,7 @@ if st.query_params["first_key"] == "1":
 if st.query_params.second_key == "two":
     do_something_else()
 
-# And you can change a param by just writing to it 
+# And you can change a param by just writing to it
 st.query_params.first_key = 2  # This gets converted to str automatically
 ```
 
@@ -49,8 +49,10 @@ When a key is repeated in your app's URL (`?a=1&a=2&a=3`), dict-like methods wil
 
 `st.query_params` can't get or set embedding settings as described in [Embed your app](/deploy/streamlit-community-cloud/share-your-app/embed-your-app#embed-options). `st.query_params.embed` and `st.query_params.embed_options` will raise an `AttributeError` or `StreamlitAPIException` when trying to get or set their values, respectively.
 
-<Autofunction function="streamlit.query_params.get_all" />
-
 <Autofunction function="streamlit.query_params.clear" />
+
+<Autofunction function="streamlit.query_params.from_dict" />
+
+<Autofunction function="streamlit.query_params.get_all" />
 
 <Autofunction function="streamlit.query_params.to_dict" />
