@@ -192,74 +192,69 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/develop/concepts/architecture/fragments"
+                href="/develop/api-reference/execution-flow/st.dialog"
               >
-                <i className="material-icons-sharp">repartition</i>
-                <h4>Introducing fragments!</h4>
+                <i className="material-icons-sharp">crop_7_5</i>
+                <h4>Modal dialogs</h4>
                 <p>
-                  Use the <code>st.experimental_fragment</code> decorator to
-                  turn functions into fragments that can rerun independently
-                  from the rest of your app.
+                  Introducing <code>st.experimental_dialog</code> to create
+                  modal dialogs that can rerun independently from the rest of
+                  your app.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/utilities/st.html"
+                href="https://fonts.google.com/icons?icon.set=Material+Symbols&icon.style=Outlined"
               >
-                <i className="material-icons-sharp">html</i>
-                <h4>
-                  Introducing <code>st.html</code>!
-                </h4>
-                <p>Render custom HTML in your app without an iframe.</p>
+                <i className="material-icons-sharp">info</i>
+                <h4>Google Material Symbols</h4>
+                <p>
+                  <code>st.toast</code>, <code>st.chat_message</code>, and alert
+                  messages now support Material Symbols for their icons.
+                </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/media/st.audio"
+                href="/develop/api-reference/text/st.markdown"
+              >
+                <i className="material-icons-sharp">highlight</i>
+                <h4>Markdown support for text highlighting</h4>
+                <p>
+                  You can set the background color for you text in markdown.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/media/st.video"
               >
                 <i className="material-icons-sharp">videocam</i>
-                <h4>Set looping and end times for media elements</h4>
+                <h4>Media autoplay</h4>
                 <p>
-                  You can enable looping for <code>st.audio</code> and
-                  <code>st.video</code>. You can also set a start and end time.
+                  You can enable autoplay for <code>st.audio</code> and
+                  <code>st.video</code>. You can also mute videos.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/app-testing/st.testing.v1.apptest#apptestswitch_page"
+                href="/develop/api-reference/caching-and-state/st.cache_data#cachedfuncclear"
               >
-                <i className="material-icons-sharp">science</i>
+                <i className="material-icons-sharp">cached</i>
+                <h4>Clear specific cached values</h4>
+                <p>
+                  When clearing cached values for a function, you can now pass
+                  function arguments to clear a specific cached value.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/caching-and-state/st.query_params#stquery_paramsfrom_dict"
+              >
+                <i className="material-icons-sharp">question_mark</i>
                 <h4>
-                  Switch pages within <code>st.AppTest</code>
+                  <code>st.query_params.from_dict()</code>
                 </h4>
                 <p>
-                  Switch pages in your tests using{" "}
-                  <code>AppTest.switch_page()</code>.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/data/st.column_config/st.column_config.linechartcolumn"
-              >
-                <i className="material-icons-sharp">show_chart</i>
-                <h4>
-                  <code>LineChartColumn</code>'s new look
-                </h4>
-                <p>
-                  <code>LineChartColumn</code> no longer has an area fill. We've
-                  also added
-                  <code>AreaChartColumn</code> so you can still have area-filled
-                  curves.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/layout/st.popover"
-              >
-                <i className="material-icons-sharp">layers</i>
-                <h4>New popover element</h4>
-                <p>
-                  Introducing <code>st.popover</code> to create popover elements
-                  in your Streamlit apps.
+                  You can now set all query parameters with a single command.
                 </p>
               </RefCard>
               {/* <Tile

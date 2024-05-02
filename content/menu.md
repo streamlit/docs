@@ -372,6 +372,9 @@ site_menu:
   - category: Develop / API reference / Layouts and containers / st.container
     url: /develop/api-reference/layout/st.container
     isVersioned: true
+  - category: Develop / API reference / Layouts and containers / st.dialog
+    url: https://docs.streamlit.io/develop/api-reference/execution-flow/st.dialog
+    isVersioned: true
   - category: Develop / API reference / Layouts and containers / st.empty
     url: /develop/api-reference/layout/st.empty
     isVersioned: true
@@ -454,6 +457,9 @@ site_menu:
     isVersioned: true
   - category: Develop / API reference / Execution flow
     url: /develop/api-reference/execution-flow
+  - category: Develop / API reference / Execution flow / st.dialog
+    url: /develop/api-reference/execution-flow/st.dialog
+    isVersioned: true
   - category: Develop / API reference / Execution flow / st.form
     url: /develop/api-reference/execution-flow/st.form
     isVersioned: true
@@ -650,7 +656,7 @@ site_menu:
     url: /develop/quick-reference
   - category: Develop / Quick reference / Cheat sheet
     url: /develop/quick-reference/cheat-sheet
-  - category: Develop / Quick reference / Changelog
+  - category: Develop / Quick reference / Release notes
     url: /develop/quick-reference/changelog
   - category: Develop / Quick reference / Pre-release features
     url: /develop/quick-reference/prerelease

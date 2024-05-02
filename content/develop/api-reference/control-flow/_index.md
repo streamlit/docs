@@ -11,6 +11,23 @@ By default, Streamlit apps execute the script entirely, but we allow some functi
 
 <TileContainer>
 
+<RefCard href="/develop/api-reference/execution-flow/st.dialog" size="full">
+
+<Image pure alt="screenshot" src="/images/api/dialog.jpg" />
+
+<h4>Modal dialogs</h4>
+
+Insert a modal dialog that can rerun independently from the rest of the script.
+
+```python
+@st.experimental_dialog()
+def email_form():
+    name = st.text_input("Name")
+    email = st.text_input("Email")
+```
+
+</RefCard>
+
 <RefCard href="/develop/api-reference/execution-flow/st.fragment">
 
 <h4>Partial reruns</h4>
