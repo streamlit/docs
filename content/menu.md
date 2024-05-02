@@ -656,7 +656,7 @@ site_menu:
     url: /develop/quick-reference
   - category: Develop / Quick reference / Cheat sheet
     url: /develop/quick-reference/cheat-sheet
-  - category: Develop / Quick reference / Changelog
+  - category: Develop / Quick reference / Release notes
     url: /develop/quick-reference/changelog
   - category: Develop / Quick reference / Pre-release features
     url: /develop/quick-reference/prerelease

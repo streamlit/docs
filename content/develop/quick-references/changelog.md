@@ -29,7 +29,7 @@ _Release date: May 2, 2024_
 **Notable Changes**
 
 - 🔣 `st.toast`, `st.chat_message`, `st.set_page_config`, `st.info`, `st.success`, `st.error`, and `st.warning` can use Google Material Symbols for their icons.
-- 🌈 [Markdown](/develop/api-reference/text/st.markdown) supports background colors for text.
+- 🌈 [Markdown](/develop/api-reference/text/st.markdown) supports background colors for text. Check out the [feature demo app](https://background-colors.streamlit.app/).
 - 🎥 [`st.audio`](/develop/api-reference/media/st.audio) and [`st.video`](/develop/api-reference/media/st.video) can now be set to autoplay. `st.video` can be muted.
 - 🗃️ You can [clear specific cached values](/develop/api-reference/caching-and-state/st.cache_data#cachedfuncclear) for a cached function. Thanks, [OscarSaharoy](https://github.com/OscarSaharoy)!
 - ❓ You can now set all query parameters with a single call to [`st.query_params.from_dict`](/develop/api-reference/caching-and-state/st.query_params#stquery_paramsfrom_dict). Thanks, [Asaurus1](https://github.com/Asaurus1)!
