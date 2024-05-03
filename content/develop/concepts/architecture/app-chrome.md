@@ -19,17 +19,9 @@ The menu is split into two sections. The upper section contains options availabl
 
 You can manually trigger a rerun of your app by clicking "**Rerun**" from the app menu. This rerun will not reset your session. Your widget states and values stored in [`st.session_state`](/develop/concepts/architecture/session-state) will be preserved. As a shortcut, without opening the app menu, you can rerun your app by pressing "**R**" on your keyboard (if you aren't currently focused on an input element).
 
-<div style={{ maxWidth: '30%', margin: 'auto' }}>
-    <Image src="/images/app-menu/app-menu-rerun-XL.png" alt="Rerun" clean />
-</div>
-
 ### Settings
 
 With the "**Settings**" option, you can control the appearance of your app while it is running. If viewing the app locally, you can set how your app responds to changes in your source code. See more about development flow in [Basic concepts](/get-started/fundamentals/main-concepts#development-flow). You can also force your app to appear in wide mode, even if not set within the script using [`st.set_page_config`](/develop/api-reference/configuration/st.set_page_config).
-
-<div style={{ maxWidth: '30%', margin: 'auto' }}>
-    <Image src="/images/app-menu/app-menu-settings-XL.png" alt="Settings" clean />
-</div>
 
 #### Theme settings
 
@@ -47,11 +39,12 @@ After clicking "**Settings**" from the app menu, you can choose between "**Light
 
 ### Print
 
-Click "**Print**" to open a print dialog. This option uses your browser's built-in print-to-pdf function.
+Click "**Print**" or use keyboard shortcuts (`⌘+P` or `Ctrl+P`) to open a print dialog. This option uses your browser's built-in print-to-pdf function. To modify the appearance of your print, you can do the following:
 
-<div style={{ maxWidth: '30%', margin: 'auto' }}>
-    <Image src="/images/app-menu/app-menu-print-XL.png" alt="Print" clean />
-</div>
+- Expand or collapse the sidebar before printing to respectively include or exclude it from the print.
+- Resize the sidebar in your app by clicking and dragging its right border to achieve your desired width.
+- You may need to enable "**Background graphics**" in your print dialog if you are printing in dark mode.
+- You may need to disable wide mode in [Settings](#settings) or adjust the print scale to prevent elements from clipping off the page.
 
 ### Record a screencast
 
@@ -59,11 +52,6 @@ You can easily make screen recordings right from your app! Screen recording is s
 
 1. While viewing your app, open the app menu from the upper-right corner.
 2. Click "**Record a screencast**."
-
-<div style={{ maxWidth: '30%', margin: 'auto' }}>
-    <Image src="/images/app-menu/app-menu-record-XL.png" alt="Record" clean />
-</div>
-
 3. If you want to record audio through your microphone, check "**Also record audio**."
 4. Click "**Start recording**." (You may be prompted by your OS to permit your browser to record your screen or use your microphone.)
 
@@ -107,10 +95,6 @@ The whole process looks like this:
 
 You can conveniently check what version of Streamlit is running from the "**About**" option. Developers also have the option to customize the message shown here using [`st.set_page_config`](/develop/api-reference/configuration/st.set_page_config).
 
-<div style={{ maxWidth: '30%', margin: 'auto' }}>
-    <Image src="/images/app-menu/app-menu-about-XL.png" alt="Rerun" clean />
-</div>
-
 ## Developer options
 
 By default, developer options only show when viewing an app locally or when viewing a Community Cloud app while logged in with administrative permission. You can [customize the menu](#customize-the-menu) if you want to make these options available for all users.
@@ -118,10 +102,6 @@ By default, developer options only show when viewing an app locally or when view
 ### Clear cache
 
 Reset your app's cache by clicking "**Clear cache**" from the app's menu or by pressing "**C**" on your keyboard while not focused on an input element. This will remove all cached entries for [`@st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) and [`@st.cache_resource`](/develop/api-reference/caching-and-state/st.cache_resource).
-
-<div style={{ maxWidth: '30%', margin: 'auto' }}>
-    <Image src="/images/app-menu/app-menu-clear-XL.png" alt="Rerun" clean />
-</div>
 
 ### Deploy this app
 
