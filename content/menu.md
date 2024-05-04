@@ -658,6 +658,9 @@ site_menu:
     url: /develop/quick-reference/cheat-sheet
   - category: Develop / Quick reference / Release notes
     url: /develop/quick-reference/changelog
+  - category: Develop / Quick reference / Release notes (historical)
+    url: /develop/quick-reference/older-versions
+    visible: false
   - category: Develop / Quick reference / Pre-release features
     url: /develop/quick-reference/prerelease
   - category: Develop / Quick reference/ Roadmap
