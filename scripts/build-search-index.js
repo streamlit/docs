@@ -68,7 +68,9 @@ function getAllFilesInDirectory(articleDirectory, files) {
     let breadCrumbs;
     // Parse each HTML file and get the content we need
     const contents = fs.readFileSync(pages[index], "utf8");
-    const url = pages[index].split(contentDirectory)[1].split(".html")[0];
+    const url = pages[index]
+      .split(contentDirectory)[1]
+      .match(/^(.*?)\.html$/)[1];
 
     if (url in data) {
       meta = JSON.parse(fs.readFileSync(data[url], "utf8"));
