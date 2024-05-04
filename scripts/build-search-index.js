@@ -22,6 +22,7 @@ const SKIP_THESE = [
   "/develop/api-reference/data/st.experimental_data_editor",
   "/develop/concepts/architecture/st.cache",
   "/develop/concepts/architecture/experimental-cache-primitives",
+  "/develop/quick-reference/older-versions",
 ];
 
 function getAllFilesInDirectory(articleDirectory, files) {
