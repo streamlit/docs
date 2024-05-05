@@ -142,6 +142,7 @@ const Search = () => {
 
   function Hit(props) {
     const icon = props.hit.icon ? props.hit.icon : "text_snippet";
+    const color = props.hit.color ? props.hit.color : "orange-70";
     const category = props.hit.category ? props.hit.category : "Page";
     let snippet;
     if (
@@ -163,12 +164,16 @@ const Search = () => {
           className={classNames("not-link", styles.HitLink)}
           href={props.hit.url}
         >
-          <section className={styles.IconContainer}>
+          <section
+            className={classNames(styles.IconContainer, ICON_COLOR[color])}
+          >
             <div className={classNames(styles.ImageContainer, `icon-${icon}`)}>
               <i className={styles.Icon}>{icon}</i>
             </div>
           </section>
-          <section className={styles.TextContainer}>
+          <section
+            className={classNames(styles.TextContainer, HIGHLIGHT_COLOR[color])}
+          >
             <p className={styles.HitCategory}>{category}</p>
             <h5 className={styles.HitTitle}>
               <Highlight hit={props.hit} attribute="title"></Highlight>
@@ -264,6 +269,32 @@ const Search = () => {
     </section>
   );
   return searchBar;
+};
+
+const HIGHLIGHT_COLOR = {
+  "red-70": styles.RedHighlight,
+  "orange-70": styles.OrangeHighlight,
+  "yellow-70": styles.YellowHighlight,
+  "green-70": styles.GreenHighlight,
+  "acqua-70": styles.AcquaHighlight,
+  "lightBlue-70": styles.LightBlueHighlight,
+  "darkBlue-70": styles.DarkBlueHighlight,
+  "indigo-70": styles.IndigoHighlight,
+  "gray-70": styles.GrayHighlight,
+  unset: styles.TransparentHighlight,
+};
+
+const ICON_COLOR = {
+  "red-70": styles.RedIcon,
+  "orange-70": styles.OrangeIcon,
+  "yellow-70": styles.YellowIcon,
+  "green-70": styles.GreenIcon,
+  "acqua-70": styles.AcquaIcon,
+  "lightBlue-70": styles.LightBlueIcon,
+  "darkBlue-70": styles.DarkBlueIcon,
+  "indigo-70": styles.IndigoIcon,
+  "gray-70": styles.GrayIcon,
+  unset: styles.TransparentIcon,
 };
 
 export default withRouter(Search);

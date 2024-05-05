@@ -67,7 +67,43 @@
 }
 
 .IconContainer {
-  @apply relative overflow-hidden rounded-md bg-yellow-90 w-10 h-10;
+  @apply relative overflow-hidden rounded-md w-10 h-10;
+}
+
+.RedIcon {
+  @apply bg-red-70;
+}
+
+.OrangeIcon {
+  @apply bg-orange-70;
+}
+
+.YellowIcon {
+  @apply bg-yellow-70;
+}
+
+.GreenIcon {
+  @apply bg-green-70;
+}
+
+.AcquaIcon {
+  @apply bg-acqua-70;
+}
+
+.LightBlueIcon {
+  @apply bg-lightBlue-70;
+}
+
+.DarkBlueIcon {
+  @apply bg-darkBlue-70;
+}
+
+.IndigoIcon {
+  @apply bg-indigo-70;
+}
+
+.GrayIcon {
+  @apply bg-gray-70;
 }
 
 .ImageContainer {
@@ -81,6 +117,42 @@
 
 .TextContainer {
   @apply pr-8 flex-1;
+}
+
+.RedHighlight em {
+  @apply border-b-red-70;
+}
+
+.OrangeHighlight em {
+  @apply border-b-orange-70;
+}
+
+.YellowHighlight em {
+  @apply border-b-yellow-70;
+}
+
+.GreenHighlight em {
+  @apply border-b-green-70;
+}
+
+.AcquaHighlight em {
+  @apply border-b-acqua-70;
+}
+
+.LightBlueHighlight em {
+  @apply border-b-lightBlue-70;
+}
+
+.DarkBlueHighlight em {
+  @apply border-b-darkBlue-70;
+}
+
+.IndigoHighlight em {
+  @apply border-b-indigo-70;
+}
+
+.GrayHighlight em {
+  @apply border-b-gray-70;
 }
 
 .HitCategory {
