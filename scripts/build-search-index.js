@@ -65,6 +65,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
 
   for (const index in pages) {
     let icon;
+    let color;
     let category;
     let breadCrumbs;
     // Parse each HTML file and get the content we need
@@ -81,6 +82,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
         if (breadCrumbs.length > 0) {
           category = breadCrumbs[0].name;
           icon = breadCrumbs[0].icon ? breadCrumbs[0].icon : "text_snippet";
+          color = breadCrumbs[0].color ? breadCrumbs[0].color : "orange-70";
         }
       }
     }
@@ -168,6 +170,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
       url: url,
       category: category,
       icon: icon,
+      color: color,
       version: version,
       keywords: keywords,
     });
