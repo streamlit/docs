@@ -22,6 +22,7 @@ const SKIP_THESE = [
   "/develop/api-reference/data/st.experimental_data_editor",
   "/develop/concepts/architecture/st.cache",
   "/develop/concepts/architecture/experimental-cache-primitives",
+  "/develop/quick-reference/older-versions",
 ];
 
 function getAllFilesInDirectory(articleDirectory, files) {
@@ -64,11 +65,14 @@ function getAllFilesInDirectory(articleDirectory, files) {
 
   for (const index in pages) {
     let icon;
+    let color;
     let category;
     let breadCrumbs;
     // Parse each HTML file and get the content we need
     const contents = fs.readFileSync(pages[index], "utf8");
-    const url = pages[index].split(contentDirectory)[1].split(".html")[0];
+    const url = pages[index]
+      .split(contentDirectory)[1]
+      .match(/^(.*?)\.html$/)[1];
 
     if (url in data) {
       meta = JSON.parse(fs.readFileSync(data[url], "utf8"));
@@ -78,6 +82,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
         if (breadCrumbs.length > 0) {
           category = breadCrumbs[0].name;
           icon = breadCrumbs[0].icon ? breadCrumbs[0].icon : "text_snippet";
+          color = breadCrumbs[0].color ? breadCrumbs[0].color : "orange-70";
         }
       }
     }
@@ -165,6 +170,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
       url: url,
       category: category,
       icon: icon,
+      color: color,
       version: version,
       keywords: keywords,
     });
