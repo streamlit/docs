@@ -112,6 +112,10 @@
   @apply hidden;
 }
 
+.Container h4 code {
+  overflow-wrap: anywhere;
+}
+
 /* Deprecation notice */
 .Container i.DeprecatedIcon {
   @apply absolute -right-2 top-0 cursor-pointer;
