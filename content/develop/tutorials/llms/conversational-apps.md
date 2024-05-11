@@ -17,7 +17,7 @@ In this tutorial, we'll start by walking through Streamlit's chat elements, `st.
 
 Here's a sneak peek of the LLM-powered chatbot GUI with streaming we'll build in this tutorial:
 
-<Cloud src="https://doc-chat-llm.streamlit.app/?embed=true" height="700px" />
+<Cloud name="doc-chat-llm" height="700px" />
 
 Play around with the above demo to get a feel for what we'll build in this tutorial. A few things to note:
 
@@ -66,7 +66,7 @@ with st.chat_message("assistant"):
     st.bar_chart(np.random.randn(30, 3))
 ```
 
-<Cloud src="https://doc-chat-message-user1.streamlit.app/?embed=true" height="450px" />
+<Cloud name="doc-chat-message-user1" height="450px" />
 
 While we've used the preferred `with` notation in the above examples, you can also just call methods directly in the returned objects. The below example is equivalent to the one above:
 
@@ -93,7 +93,7 @@ if prompt:
     st.write(f"User has sent the following prompt: {prompt}")
 ```
 
-<Cloud src="https://doc-chat-input.streamlit.app/?embed=true" height="350px" />
+<Cloud name="doc-chat-input" height="350px" />
 
 Pretty straightforward, right? Now let's combine `st.chat_message` and `st.chat_input` to build a bot the mirrors or echoes your input.
 
@@ -184,7 +184,7 @@ if prompt := st.chat_input("What is up?"):
 
 </Collapse>
 
-<Cloud src="https://doc-chat-echo.streamlit.app/?embed=true" height="700px" />
+<Cloud name="doc-chat-echo" height="700px" />
 
 While the above example is very simple, it's a good starting point for building more complex conversational apps. Notice how the bot responds instantly to your input. In the next section, we'll add a delay to simulate the bot "thinking" before responding.
 
@@ -304,7 +304,7 @@ if prompt := st.chat_input("What is up?"):
 
 </Collapse>
 
-<Cloud src="https://doc-chat-simple.streamlit.app/?embed=true" height="700px" />
+<Cloud name="doc-chat-simple" height="700px" />
 
 Play around with the above demo to get a feel for what we've built. It's a very simple chatbot GUI, but it has all the components of a more sophisticated chatbot. In the next section, we'll see how to build a ChatGPT-like app using OpenAI.
 
@@ -427,7 +427,7 @@ if prompt := st.chat_input("What is up?"):
 
 </Collapse>
 
-<Cloud src="https://doc-chat-llm.streamlit.app/?embed=true" height="700px" />
+<Cloud name="doc-chat-llm" height="700px" />
 
 Congratulations! You've built your own ChatGPT-like app in less than 50 lines of code.
 

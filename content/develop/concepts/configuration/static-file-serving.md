@@ -54,4 +54,4 @@ Additional resources:
 - [https://docs.streamlit.io/develop/concepts/configuration](https://docs.streamlit.io/develop/concepts/configuration)
 - [https://static-file-serving.streamlit.app/](https://static-file-serving.streamlit.app/)
 
-<Cloud src="https://static-file-serving.streamlit.app/?embedded=true" height="1000" />
+<Cloud name="static-file-serving" height="1000px" />

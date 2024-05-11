@@ -39,7 +39,7 @@ with tab2:
 
 Click the tabs in the interactive app below to see the charts with the Streamlit theme enabled and disabled.
 
-<Cloud src="https://doc-altair-chart.streamlit.app/?embed=true" height="500" />
+<Cloud name="doc-altair-chart" height="500px" />
 
 If you're wondering if your own customizations will still be taken into account, don't worry! You can still make changes to your chart configurations. In other words, although we now enable the Streamlit theme by default, you can overwrite it with custom colors or fonts. For example, if you want a chart line to be green instead of the default red, you can do it!
 
@@ -115,7 +115,7 @@ with tab2:
 
 Notice how the custom colors are still reflected in the chart, even when the Streamlit theme is enabled 👇
 
-<Cloud src="https://doc-altair-custom-colors.streamlit.app/?embed=true" height="675" />
+<Cloud name="doc-altair-custom-colors" height="675px" />
 
 For many more examples of Altair charts with and without the Streamlit theme, check out the [altair.streamlit.app](https://altair.streamlit.app).
 
@@ -263,4 +263,4 @@ To use images instead of emojis, replace the line containing `.mark_text()` with
 
 Now that you've learned how to annotate charts, the sky's the limit! We've extended the above example to let you interactively paste your favorite emoji and set its position on the chart with Streamlit widgets. 👇
 
-<Cloud src="https://example-time-series-annotation.streamlit.app/?embed=true" height="700" />
+<Cloud name="example-time-series-annotation" height="700px" />

@@ -162,7 +162,6 @@ export default function Article({
     h1: H1,
     h2: H2,
     h3: H3,
-    // iframe : WrappedIFrame
   };
 
   let previousArrow;
