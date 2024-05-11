@@ -17,13 +17,14 @@ For example, say you want to embed the <a href="https://30days.streamlit.app/" t
 
 ```javascript
 <iframe
-  src="https://30days.streamlit.app/?embed=true"
-  height="450"
-  style={{ width: "100%", border: "none" }}
+  src="https://30days.streamlit.app?embed=true"
+  style="height: 450px; width: 100%;"
 ></iframe>
 ```
 
-<Cloud src="https://30days.streamlit.app/?embed=true" />
+And the code below should result in an embed like this:
+
+<Cloud name="30days" height="450px"/>
 
 <Important>
 

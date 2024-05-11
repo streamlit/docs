@@ -3,6 +3,8 @@ FROM python:3.9-slim
 COPY sources.list /etc/apt/sources.list
 
 RUN apt-get update
+
+# Please keep this in sync with ./requirements.txt
 RUN pip install docstring_parser
 RUN pip install docutils
 RUN pip install lxml

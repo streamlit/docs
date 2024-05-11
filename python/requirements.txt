@@ -1,0 +1,8 @@
+# This file is useful for testing things locally without docker.
+# Please keep it in sync with ./Dockerfile
+docstring_parser
+docutils
+lxml
+requests
+numpydoc
+protobuf==3.20.1

@@ -2,24 +2,53 @@
 """
 from docutils import nodes
 from docutils.parsers.rst import Directive
-
+import re
 
 class StOutput(Directive):
     """Insert Streamlit app into HTML doc.
 
-    The first argument is a URL to be iframed, and the second argument
-    (optional) is a string of inline styles to assign to the iframe.
+    This converts the RestructuredText directive ".. output::" to an intermediate format that's
+    easier to parse in JS. Then in JS, we convert that to an iframe.
+
+    The first argument is a URL to be iframed, and the second argument (optional) is a string of
+    inline styles to assign to the iframe. So the directive looks like this:
+
+        .. output::
+        URL_GOES_HERE
+        STYLE_GOES_HERE
+
+    The intermediate format looks like this:
+
+        [[!URL_GOES_HERE||STYLE_GOES_HERE!]]
+
+    The reason we're using the intermediate format instead of just outputting an <iframe> here
+    is that we'd like that iframe to be wrapped in a bunch of fancy HTML. And we'd like to be
+    able to change that HTML without having to rebuild the JSON file that this script ultimately
+    produces.
+
+    The code that parses this intermediate format is at /components/blocks/table.js
 
     Examples
     --------
 
-        .. output::
-        https://static.streamlit.io/0.25.0-2EdmD/index.html?id=jD8gaXYmw8WZeSNQbko9p
+    This directive...
 
         .. output::
-        https://static.streamlit.io/0.25.0-2EdmD/index.html?id=jD8gaXYmw8WZeSNQbko9p
+        https://foo.bar.baz
+
+    ...becomes:
+
+        [[!https://foo.bar.baz||!]]
+
+    And this directive...
+
+        .. output::
+        https://foo.bar.baz/bleep/bloop?plim=plom
         height: 5rem; border: 1px solid red;
 
+    ...becomes:
+
+        [[!https://foo.bar.baz/bleep/bloop?plim=plom||height: 5rem; border: 1px solid red;!]]
     """
 
     has_content = True
@@ -43,20 +72,7 @@ class StOutput(Directive):
         node = nodes.raw(
             rawsource="",
             format="html",
-            text="""
-                <iframe
-                    loading="lazy"
-                    src="%(src)s?embed=true"
-                    style="
-                        width: 100%%;
-                        border: none;
-                        margin-bottom: 1rem;
-                        %(additional_styles)s
-                    "
-                    allow="camera;clipboard-read;clipboard-write;"
-                ></iframe>
-            """
-            % {"src": src, "additional_styles": additional_styles},
+            text=f"[[!{src}||{additional_styles}!]]",
         )
         return [node]
 

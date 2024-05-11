@@ -1,5 +1,8 @@
 import React from "react";
+import ReactDOMServer from "react-dom/server";
 import classNames from "classnames";
+
+import Cloud from "./cloud.js";
 
 import styles from "./table.module.css";
 
@@ -100,7 +103,9 @@ const Table = ({
         const body = footer.jsx ? (
           footer.body
         ) : (
-          <section dangerouslySetInnerHTML={createMarkup(footer.body)} />
+          <section
+            dangerouslySetInnerHTML={createMarkup(insertIframes(footer.body))}
+          />
         );
         return (
           <React.Fragment key={`footer-${index}`}>
@@ -116,5 +121,41 @@ const Table = ({
     </section>
   );
 };
+
+// Regex capturing our iframe notation:
+//
+//   [[!https://foo.bar.baz/bleep/bloop?plim=plom||height: 5rem; border: 1px solid red;!]]
+//
+// For more details about this notation, see /python/stoutput.py.
+//
+// This Regex defines the following capture groups:
+//
+//   Description   Group   Example
+//   ------------------------------------------------------------
+//   domain        $1      "foo.bar.baz"
+//   path          $2      "bleep/bloop"
+//   query         $3      "plim=plom"
+//   styles        $4      "height: 5rem; border: 1px solid red;"
+//
+const CLOUD_IFRAME_NOTATION_RE = new RegExp(
+  [
+    "\\[\\[!", // match "[[!"
+    "https:\\/\\/", // match "https://"
+    "([^/|?]+)", // domain = everything up to / or ? or |
+    "/?([^|?]+)?", // path = everything after / and up to ? or |
+    "\\??([^|]+)?", // query = everything after ? and up to |
+    "\\|\\|([^!]+)?", // styles = everything after || and up to !
+    "!\\]\\]", // match "!]]"
+  ].join(""),
+  "g",
+);
+
+const CLOUD_EMBED_HTML = ReactDOMServer.renderToString(
+  <Cloud domain="$1" path="$2" query="$3" stylePlaceholder="$4" />,
+);
+
+function insertIframes(htmlStr) {
+  return htmlStr.replace(CLOUD_IFRAME_NOTATION_RE, CLOUD_EMBED_HTML);
+}
 
 export default Table;
