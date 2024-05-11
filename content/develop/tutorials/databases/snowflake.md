@@ -114,7 +114,7 @@ See `st.connection` above? This handles secrets retrieval, setup, query caching 
 
 If everything worked out (and you used the example table we created above), your app should look like this:
 
-![Finished app screenshot](/images/databases/snowflake-app.png)
+![Finished app screenshot](/images/databases/streamlit-app.png)
 
 ### Using a Snowpark Session
 
