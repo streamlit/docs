@@ -16,6 +16,9 @@ PYPI_URL = 'https://pypi.org/pypi/streamlit/json'
 # Only consider the latest N releases
 LOOKBACK = 15
 
+# Set to True if you want to rebuild all versions
+FORCE_REBUILD = False
+
 # Get the PyPI data
 pypi_data = requests.get(PYPI_URL).json()
 current_data = utils.get_existing_dict()
@@ -45,7 +48,7 @@ if 'info' in pypi_data:
         if version_obj.is_prerelease:
             continue
 
-        if version_str not in current_data:
+        if FORCE_REBUILD or version_str not in current_data:
             logging.info(f"[{version_str}] Installing streamlit...")
 
             # Download Streamlit.
