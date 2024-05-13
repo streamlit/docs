@@ -31,17 +31,20 @@ import classNames from "classnames";
 //   <Cloud name="foo" path="bar" query="embedOptions=show_padding&embedOptions=show_colored_line" />
 //   -> https://foo.streamlit.app/bar/?embed=true&embed_options=show_padding&embed_options=show_colored_line
 //
-const Cloud = ({ name, domain, path, query, height, stylePlaceholder }) => {
+const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
   if (!domain) domain = `${name}.streamlit.app`;
+  if (domain.endsWith("/")) domain = domain.slice(0, -1);
 
   if (path) {
-    if (path.startsWith("/")) path = path.substr(1);
-    if (!path.endsWith("/")) path += "/";
+    if (!path.startsWith("/")) path = "/" + path;
   } else {
     path = "";
   }
 
   const queryStr = query ? `&${query}` : "";
+
+  if (!height) height = "10rem";
+
   const style = stylePlaceholder
     ? // Hack so React lets us put a capture group placeholder in the style tag.
       { ["--ignore-me"]: `42; ${stylePlaceholder}` }
@@ -49,8 +52,8 @@ const Cloud = ({ name, domain, path, query, height, stylePlaceholder }) => {
       ? { height }
       : null;
 
-  const frameSrc = `https://${domain}/~/+/${path}?embed=true${queryStr}`;
-  const linkSrc = `https://${domain}/${path}/?utm_medium=oembed`;
+  const frameSrc = `https://${domain}/~/+${path}?embed=true${queryStr}`;
+  const linkSrc = `https://${domain}${path}?utm_medium=oembed`;
 
   return (
     <section className="overflow-hidden rounded-lg border border-gray-30 my-4 flex flex-col">
@@ -64,7 +67,12 @@ const Cloud = ({ name, domain, path, query, height, stylePlaceholder }) => {
       />
 
       {/* This toolbar imitates the Cloud OEmbed toolbar */}
-      <div className="flex flex-row px-3 py-1 bg-gray-20 text-xs tracking-[0.05em] text-gray-80 gap-16">
+      <div
+        className={classNames(
+          "flex flex-row px-3 py-1 bg-gray-20",
+          "text-xs tracking-[0.05em] text-gray-80 gap-16",
+        )}
+      >
         <div className="flex-1">
           <a
             className="text-xs tracking-[0.05em] text-gray-80 hover:text-gray-70"
@@ -75,10 +83,15 @@ const Cloud = ({ name, domain, path, query, height, stylePlaceholder }) => {
             Built with Streamlit 🎈
           </a>
         </div>
+
         <div>
           <a
             href={linkSrc}
-            className="text-xs tracking-[0.05em] text-gray-80 hover:text-gray-70 flex flex-row gap-1"
+            className={classNames(
+              "text-xs tracking-[0.05em]",
+              "text-gray-80 hover:text-gray-70",
+              "flex flex-row gap-1",
+            )}
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -122,11 +122,11 @@ const Table = ({
   );
 };
 
-// Regex capturing our iframe notation:
+// Regex capturing the stoutput iframe directive:
 //
-//   [[!https://foo.bar.baz/bleep/bloop?plim=plom||height: 5rem; border: 1px solid red;!]]
-//
-// For more details about this notation, see /python/stoutput.py.
+//   .. output::
+//      https://foo.bar.baz/bleep/bloop?plim=plom
+//      height: 5rem; border: 1px solid red;
 //
 // This Regex defines the following capture groups:
 //
@@ -137,15 +137,11 @@ const Table = ({
 //   query         $3      "plim=plom"
 //   styles        $4      "height: 5rem; border: 1px solid red;"
 //
-const CLOUD_IFRAME_NOTATION_RE = new RegExp(
+const OUTPUT_DIRECTIVE_RE = new RegExp(
   [
-    "\\[\\[!", // match "[[!"
-    "https:\\/\\/", // match "https://"
-    "([^/|?]+)", // domain = everything up to / or ? or |
-    "/?([^|?]+)?", // path = everything after / and up to ? or |
-    "\\??([^|]+)?", // query = everything after ? and up to |
-    "\\|\\|([^!]+)?", // styles = everything after || and up to !
-    "!\\]\\]", // match "!]]"
+    "\\.\\. output:: *\\n",
+    " *https?:\\/\\/([^\\/\\s]+)\\/?([^?\\s]+)?\\??([\\S]+)? *\\n",
+    " *([^\\n<]+)?",
   ].join(""),
   "g",
 );
@@ -155,7 +151,7 @@ const CLOUD_EMBED_HTML = ReactDOMServer.renderToString(
 );
 
 function insertIframes(htmlStr) {
-  return htmlStr.replace(CLOUD_IFRAME_NOTATION_RE, CLOUD_EMBED_HTML);
+  return htmlStr.replace(OUTPUT_DIRECTIVE_RE, CLOUD_EMBED_HTML);
 }
 
 export default Table;

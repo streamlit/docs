@@ -5,50 +5,33 @@ from docutils.parsers.rst import Directive
 import re
 
 class StOutput(Directive):
-    """Insert Streamlit app into HTML doc.
+    """This is a do-nothing directive that allows ".. output::" to pass through.
 
-    This converts the RestructuredText directive ".. output::" to an intermediate format that's
-    easier to parse in JS. Then in JS, we convert that to an iframe.
+    The ".. output::" directive used to be handled here by converting it into an <iframe>. The
+    directive looks like this:
 
-    The first argument is a URL to be iframed, and the second argument (optional) is a string of
-    inline styles to assign to the iframe. So the directive looks like this:
+    .. output::
+       URL_GOES_HERE
+       STYLE_GOES_HERE
 
-        .. output::
-        URL_GOES_HERE
-        STYLE_GOES_HERE
+    However, to make it easier to change the exact appearance of the <iframe>, we decided to stop
+    parsing the directive here and instead just parse it in JS. See /components/block/table.js.
 
-    The intermediate format looks like this:
-
-        [[!URL_GOES_HERE||STYLE_GOES_HERE!]]
-
-    The reason we're using the intermediate format instead of just outputting an <iframe> here
-    is that we'd like that iframe to be wrapped in a bunch of fancy HTML. And we'd like to be
-    able to change that HTML without having to rebuild the JSON file that this script ultimately
-    produces.
-
-    The code that parses this intermediate format is at /components/blocks/table.js
+    "But wait", you say, "if we don't parse the directive here, then why do we need this class at
+    all???" Ah yes, young one. I see you have not learned the ways of RestructuredText. You see,
+    if something looks like a directive but doesn't have a class to go with it, ResT complains.
+    So this class is here to tell ResT: take this directive and just shove it right back in the
+    string exactly as it was.
 
     Examples
     --------
 
-    This directive...
+    .. output::
+       https://foo.bar.baz
 
-        .. output::
-        https://foo.bar.baz
-
-    ...becomes:
-
-        [[!https://foo.bar.baz||!]]
-
-    And this directive...
-
-        .. output::
-        https://foo.bar.baz/bleep/bloop?plim=plom
-        height: 5rem; border: 1px solid red;
-
-    ...becomes:
-
-        [[!https://foo.bar.baz/bleep/bloop?plim=plom||height: 5rem; border: 1px solid red;!]]
+    .. output::
+       https://foo.bar.baz/bleep/bloop?plim=plom
+       height: 5rem; border: 1px solid red;
     """
 
     has_content = True
@@ -61,19 +44,15 @@ class StOutput(Directive):
 
         if not src.startswith("https://"):
             raise ValueError(
-                "Iframed URLs in docs should be HTTPS!\n" "--> Culprit: %s" % src
+                f"Please use HTTPS in '.. output::' directives\n--> Culprit: {src}"
             )
-
-        if len(self.arguments) > 1:
-            additional_styles = self.arguments[1]
-        else:
-            additional_styles = "height: 10rem;"
 
         node = nodes.raw(
             rawsource="",
             format="html",
-            text=f"[[!{src}||{additional_styles}!]]",
+            text=self.block_text,
         )
+
         return [node]
 
 
