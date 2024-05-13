@@ -589,4 +589,4 @@ if __name__ == "__main__":
     if len(sys.argv) > 2 and sys.argv[2] == "debug":
         DEBUG = True
     data = get_streamlit_docstring_dict()
-    utils.write_to_existing_dict(VERSION, data)
+    utils.write_version_to_existing_file(VERSION, data)
