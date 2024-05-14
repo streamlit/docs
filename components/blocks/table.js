@@ -139,9 +139,18 @@ const Table = ({
 //
 const OUTPUT_DIRECTIVE_RE = new RegExp(
   [
-    "\\.\\. output:: *\\n",
-    " *https?:\\/\\/([^\\/\\s]+)\\/?([^?\\s]+)?\\??([\\S]+)? *\\n",
-    " *([^\\n<]+)?",
+    "\\.\\. output::", // ".. output::"
+    " *\\n", // Trailing whitespace and newline
+    " *", // Indentation
+    "https?:\\/\\/", // "https://"
+    "([^\\/\\s]+)", // --> Capture domain
+    "\\/?", // Path separator "/"
+    "([^?\\s]+)?", // --> Capture path
+    "\\??", // Query separator "?"
+    "([\\S]+)?", // --> Capture query
+    " *\\n", // Trailing whitespaces and newline
+    " *", // Indentation
+    "([^\\n<]+)?", // --> Capture styles (and avoid capturing next HTML tag)
   ].join(""),
   "g",
 );
