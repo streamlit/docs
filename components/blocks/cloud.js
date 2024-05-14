@@ -32,11 +32,12 @@ import classNames from "classnames";
 //   -> https://foo.streamlit.app/bar/?embed=true&embed_options=show_padding&embed_options=show_colored_line
 //
 const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
-  if (!domain) domain = `${name}.streamlit.app`;
+  if (!domain) domain = `${name}.streamlit.app/`;
   if (domain.endsWith("/")) domain = domain.slice(0, -1);
 
   if (path) {
     if (!path.startsWith("/")) path = "/" + path;
+    if (path.endsWith("/")) path = path.slice(0, -1);
   } else {
     path = "";
   }
@@ -52,8 +53,8 @@ const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
       ? { height }
       : null;
 
-  const frameSrc = `https://${domain}/~/+${path}?embed=true${queryStr}`;
-  const linkSrc = `https://${domain}${path}?utm_medium=oembed`;
+  const frameSrc = `https://${domain}/~/+${path}/?embed=true${queryStr}`;
+  const linkSrc = `https://${domain}${path}/?utm_medium=oembed`;
 
   return (
     <section className="overflow-hidden rounded-xl border border-gray-40 my-4 flex flex-col">
