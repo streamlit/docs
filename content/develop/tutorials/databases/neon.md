@@ -20,7 +20,7 @@ This guide explains how to securely access a [Neon database](https://neon.tech/)
   ```
 
     <Note>
-        You may use `psycopg2` instead of `psycopg2-binary`. However, building Psycopg requires a few prerequisites (like a C compiler). Because of these prequisites, `psycopg2` will not install on Community Cloud. `psycopg2-binary` is a stand-alone package that is practical for testing and development.
+        You may use `psycopg2` instead of `psycopg2-binary`. However, building Psycopg requires a few prerequisites (like a C compiler). To use `psycopg2` on Community Cloud, you must include `libpq-dev` in a [`packages.txt`](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies#apt-get-dependencies) file in the root of your repository. `psycopg2-binary` is a stand-alone package that is practical for testing and development.
     </Note>
 
 - You must have a Neon account.
@@ -106,7 +106,7 @@ If you already have a Neon project that you want to use, feel free to [skip to t
    streamlit run streamlit_app.py
    ```
 
-   If everything worked out (and you used the example table we created above), your app should dlook like this:
+   If everything worked out (and you used the example table we created above), your app should look like this:
 
    ![Finished app screenshot](/images/databases/streamlit-app.png)
 
