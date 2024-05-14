@@ -53,6 +53,10 @@ const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
       ? { height }
       : null;
 
+  // {domain} is garanteed to never has slashes at the ends.
+  // {path} is either empty or garanteed to be of the form "/something"
+  // However, note that tthese guarantees don't apply for iframes rendered via the table.js code
+  // path.
   const frameSrc = `https://${domain}/~/+${path}/?embed=true${queryStr}`;
   const linkSrc = `https://${domain}${path}/?utm_medium=oembed`;
 
