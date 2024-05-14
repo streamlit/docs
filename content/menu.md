@@ -626,6 +626,8 @@ site_menu:
     url: /develop/tutorials/databases/mongodb
   - category: Develop / Tutorials / Connect to data sources / MySQL
     url: /develop/tutorials/databases/mysql
+  - category: Develop / Tutorials / Connect to data sources / Neon
+    url: /develop/tutorials/databases/neon
   - category: Develop / Tutorials / Connect to data sources / PostgreSQL
     url: /develop/tutorials/databases/postgresql
   - category: Develop / Tutorials / Connect to data sources / Private Google Sheet
