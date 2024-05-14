@@ -56,7 +56,7 @@ const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
   const linkSrc = `https://${domain}${path}?utm_medium=oembed`;
 
   return (
-    <section className="overflow-hidden rounded-lg border border-gray-30 my-4 flex flex-col">
+    <section className="overflow-hidden rounded-xl border border-gray-40 my-4 flex flex-col">
       <iframe
         src={frameSrc}
         allow="camera;clipboard-read;clipboard-write;"
