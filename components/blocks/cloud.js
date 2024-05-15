@@ -15,8 +15,10 @@ import classNames from "classnames";
 // - height: an optional string with a value CSS height. Must include a unit.
 //
 //
-// Arguments you shouldn't use by hand. Instead, these are meant to be used in table.js, which
-// needs to handle deprecated arguments we used to support in the iframes from our docstrings.
+// Arguments you shouldn't use by hand:
+//
+// Instead, these are meant to be used in table.js, which needs to handle deprecated arguments
+// we used to support in the iframes from our docstrings.
 //
 // - domain: a string with the app's full domain, like "foo.streamlit.app".
 //
@@ -42,7 +44,29 @@ const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
     path = "";
   }
 
-  const queryStr = query ? `&${query}` : "";
+  let normalQueryStr = "";
+  let embedQueryStr = "";
+
+  // Separate "normal" query params from "embed-related" query params.
+  // This way we can include only the "normal" query params in the Fullscreen link.
+  // Note that this only applies to iframes rendered via the <Cloud> component
+  // in React. For iframes rendered via the ".. output::" directive we **always**
+  // include any provided query param in the Fullscreen link.
+  if (query) {
+    const embedQueryParams = [];
+    const normalQueryParams = [];
+
+    query.split("&").forEach((qStr) => {
+      if (qStr.startsWith("embed=") || qStr.startsWith("embed_options=")) {
+        embedQueryParams.push(qStr);
+      } else {
+        normalQueryParams.push(qStr);
+      }
+    });
+
+    embedQueryStr = "&" + embedQueryParams.join("&");
+    normalQueryStr = "&" + normalQueryParams.join("&");
+  }
 
   if (!height) height = "10rem";
 
@@ -53,8 +77,12 @@ const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
       ? { height }
       : null;
 
-  const frameSrc = `https://${domain}/~/+${path}/?embed=true${queryStr}`;
-  const linkSrc = `https://${domain}${path}/?utm_medium=oembed`;
+  // ${domain} is garanteed to never has slashes at the ends.
+  // ${path} is either empty or garanteed to be of the form "/something"
+  // Note that these guarantees only apply for iframes rendered via the <Cloud> component
+  // in React, and don't apply for iframes rendered via the ".. output::" directive.
+  const frameSrc = `https://${domain}/~/+${path}/?embed=true${embedQueryStr}${normalQueryStr}`;
+  const linkSrc = `https://${domain}${path}/?utm_medium=oembed${normalQueryStr}`;
 
   return (
     <section className="overflow-hidden rounded-xl border border-gray-40 my-4 flex flex-col">
