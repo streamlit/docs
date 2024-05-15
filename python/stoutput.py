@@ -13,6 +13,13 @@ class StOutput(Directive):
        URL
        STYLE
 
+    And it outputs something like:
+
+        <Cloud name="SUBDOMAIN" path="SUBPATH" query="QUERYPARAMS" stylePlaceholder="STYLE" />
+
+    ...where every attribute is guaranteed to be present (even when empty) and there's always
+    exactly one space before/after each attribute.
+
     Parameters
     ----------
         URL
@@ -26,9 +33,13 @@ class StOutput(Directive):
     .. output::
        https://foo.bar.baz
 
+       <Cloud name="foo" path="" query="" stylePlaceholder="" />
+
     .. output::
        https://foo.bar.baz/bleep/bloop?plim=plom
        height: 5rem; border: 1px solid red;
+
+       <Cloud name="foo" path="bleep/bloop" query="plim=plom" stylePlaceholder="height: 5rem; border: 1px solid red;" />
     """
 
     has_content = True
@@ -46,14 +57,21 @@ class StOutput(Directive):
             additional_styles = self.arguments[1]
         else:
             additional_styles = ""
-        name, path, query = re.findall(r'https:\/\/([^\/\s]+)\.streamlit\.app\/?([^?\s]+)?\??([\S]+)?', src)[0]
+        name, path, query = re.findall(
+            r'https:\/\/([^\/\s]+)\.streamlit\.app\/?([^?\s]+)?\??([\S]+)?', src)[0]
 
         if name=="":
             raise ValueError(
                 f"Custom subdomain was not recognized.\n--> Culprit: {src}"
             )
 
-        component = f"""<Cloud name="{name}" path="{path}" query="{query}" stylePlaceholder="{additional_styles}" />"""
+        component = (
+            '<Cloud'
+            f' name="{name}"'
+            f' path="{path}"'
+            f' query="{query}"'
+            f' stylePlaceholder="{additional_styles}"'
+            ' />')
 
         node = nodes.raw(
             format="html",
