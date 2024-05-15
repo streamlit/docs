@@ -4,7 +4,7 @@
 /en/latest/advanced_concepts.html    /knowledge-base/using-streamlit
 /en/latest/api.html    /develop/api-reference
 /en/latest/caching.html    /develop/api-reference/caching-and-state/st.cache
-/en/latest/changelog.html    /develop/quick-reference/changelog
+/en/latest/changelog.html    /develop/quick-reference/release-notes
 /streamlit-cloud   /deploy/streamlit-community-cloud
 /en/latest/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/latest/develop_streamlit_components.html    /develop/concepts/custom-components
@@ -41,7 +41,7 @@
 /en/stable/advanced_concepts.html    /knowledge-base/using-streamlit
 /en/stable/api.html    /develop/api-reference
 /en/stable/caching.html    /develop/concepts/architecture/caching
-/en/stable/changelog.html    /develop/quick-reference/changelog
+/en/stable/changelog.html    /develop/quick-reference/release-notes
 /en/stable/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/stable/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/stable/getting_started.html    /get-started
@@ -78,7 +78,7 @@
 /en/0.62.0/advanced_concepts.html    /knowledge-base/using-streamlit
 /en/0.62.0/api.html    /develop/api-reference
 /en/0.62.0/caching.html    /develop/concepts/architecture/caching
-/en/0.62.0/changelog.html    /develop/quick-reference/changelog
+/en/0.62.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.62.0/cli.html    /get-started
 /en/0.62.0/getting_started.html    /get-started
 /en/0.62.0/index.html    /
@@ -97,7 +97,7 @@
 /en/0.63.0/advanced_concepts.html    /knowledge-base/using-streamlit
 /en/0.63.0/api.html    /develop/api-reference
 /en/0.63.0/caching.html    /develop/concepts/architecture/caching
-/en/0.63.0/changelog.html    /develop/quick-reference/changelog
+/en/0.63.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.63.0/cli.html    /get-started
 /en/0.63.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.63.0/getting_started.html    /get-started
@@ -120,7 +120,7 @@
 /en/0.64.0/advanced_concepts.html    /knowledge-base/using-streamlit
 /en/0.64.0/api.html    /develop/api-reference
 /en/0.64.0/caching.html    /develop/concepts/architecture/caching
-/en/0.64.0/changelog.html    /develop/quick-reference/changelog
+/en/0.64.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.64.0/cli.html    /get-started
 /en/0.64.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.64.0/getting_started.html    /get-started
@@ -143,7 +143,7 @@
 /en/0.65.0/advanced_concepts.html    /knowledge-base/using-streamlit
 /en/0.65.0/api.html    /develop/api-reference
 /en/0.65.0/caching.html    /develop/concepts/architecture/caching
-/en/0.65.0/changelog.html    /develop/quick-reference/changelog
+/en/0.65.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.65.0/cli.html    /get-started
 /en/0.65.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.65.0/getting_started.html    /get-started
@@ -166,7 +166,7 @@
 /en/0.66.0/advanced_concepts.html    /knowledge-base/using-streamlit
 /en/0.66.0/api.html    /develop/api-reference
 /en/0.66.0/caching.html    /develop/concepts/architecture/caching
-/en/0.66.0/changelog.html    /develop/quick-reference/changelog
+/en/0.66.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.66.0/cli.html    /get-started
 /en/0.66.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.66.0/getting_started.html    /get-started
@@ -189,7 +189,7 @@
 /en/0.67.0/advanced_concepts.html    /knowledge-base/using-streamlit
 /en/0.67.0/api.html    /develop/api-reference
 /en/0.67.0/caching.html    /develop/concepts/architecture/caching
-/en/0.67.0/changelog.html    /develop/quick-reference/changelog
+/en/0.67.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.67.0/cli.html    /get-started
 /en/0.67.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.67.0/getting_started.html    /get-started
@@ -212,7 +212,7 @@
 /en/0.68.0/api.html    /develop/api-reference
 /en/0.68.0/api.md    /get-started
 /en/0.68.0/caching.html    /develop/concepts/architecture/caching
-/en/0.68.0/changelog.html    /develop/quick-reference/changelog
+/en/0.68.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.68.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.68.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.68.0/getting_started.html    /get-started
@@ -235,7 +235,7 @@
 /en/0.69.0/api.html    /develop/api-reference
 /en/0.69.0/api.md    /get-started
 /en/0.69.0/caching.html    /develop/concepts/architecture/caching
-/en/0.69.0/changelog.html    /develop/quick-reference/changelog
+/en/0.69.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.69.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.69.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.69.0/getting_started.html    /get-started
@@ -258,7 +258,7 @@
 /en/0.70.0/api.html    /develop/api-reference
 /en/0.70.0/api.md    /get-started
 /en/0.70.0/caching.html    /develop/concepts/architecture/caching
-/en/0.70.0/changelog.html    /develop/quick-reference/changelog
+/en/0.70.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.70.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.70.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.70.0/getting_started.html    /get-started
@@ -281,7 +281,7 @@
 /en/0.71.0/api.html    /develop/api-reference
 /en/0.71.0/api.md    /get-started
 /en/0.71.0/caching.html    /develop/concepts/architecture/caching
-/en/0.71.0/changelog.html    /develop/quick-reference/changelog
+/en/0.71.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.71.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.71.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.71.0/getting_started.html    /get-started
@@ -304,7 +304,7 @@
 /en/0.72.0/api.html    /develop/api-reference
 /en/0.72.0/api.md    /get-started
 /en/0.72.0/caching.html    /develop/concepts/architecture/caching
-/en/0.72.0/changelog.html    /develop/quick-reference/changelog
+/en/0.72.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.72.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.72.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.72.0/getting_started.html    /get-started
@@ -327,7 +327,7 @@
 /en/0.73.0/api.html    /develop/api-reference
 /en/0.73.0/api.md    /get-started
 /en/0.73.0/caching.html    /develop/concepts/architecture/caching
-/en/0.73.0/changelog.html    /develop/quick-reference/changelog
+/en/0.73.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.73.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.73.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.73.0/getting_started.html    /get-started
@@ -350,7 +350,7 @@
 /en/0.74.0/api.html    /develop/api-reference
 /en/0.74.0/api.md    /get-started
 /en/0.74.0/caching.html    /develop/concepts/architecture/caching
-/en/0.74.0/changelog.html    /develop/quick-reference/changelog
+/en/0.74.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.74.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.74.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.74.0/getting_started.html    /get-started
@@ -373,7 +373,7 @@
 /en/0.75.0/api.html    /develop/api-reference
 /en/0.75.0/api.md    /get-started
 /en/0.75.0/caching.html    /develop/concepts/architecture/caching
-/en/0.75.0/changelog.html    /develop/quick-reference/changelog
+/en/0.75.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.75.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.75.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.75.0/getting_started.html    /get-started
@@ -396,7 +396,7 @@
 /en/0.76.0/api.html    /develop/api-reference
 /en/0.76.0/api.md    /get-started
 /en/0.76.0/caching.html    /develop/concepts/architecture/caching
-/en/0.76.0/changelog.html    /develop/quick-reference/changelog
+/en/0.76.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.76.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.76.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.76.0/getting_started.html    /get-started
@@ -419,7 +419,7 @@
 /en/0.77.0/api.html    /develop/api-reference
 /en/0.77.0/api.md    /get-started
 /en/0.77.0/caching.html    /develop/concepts/architecture/caching
-/en/0.77.0/changelog.html    /develop/quick-reference/changelog
+/en/0.77.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.77.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.77.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.77.0/getting_started.html    /get-started
@@ -442,7 +442,7 @@
 /en/0.78.0/api.html    /develop/api-reference
 /en/0.78.0/api.md    /get-started
 /en/0.78.0/caching.html    /develop/concepts/architecture/caching
-/en/0.78.0/changelog.html    /develop/quick-reference/changelog
+/en/0.78.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.78.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.78.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.78.0/getting_started.html    /get-started
@@ -464,7 +464,7 @@
 /en/0.79.0/advanced_concepts.html    /knowledge-base/using-streamlit
 /en/0.79.0/api.html    /develop/api-reference
 /en/0.79.0/caching.html    /develop/concepts/architecture/caching
-/en/0.79.0/changelog.html    /develop/quick-reference/changelog
+/en/0.79.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.79.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.79.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.79.0/getting_started.html    /get-started
@@ -486,7 +486,7 @@
 /en/0.80.0/advanced_concepts.html    /knowledge-base/using-streamlit
 /en/0.80.0/api.html    /develop/api-reference
 /en/0.80.0/caching.html    /develop/concepts/architecture/caching
-/en/0.80.0/changelog.html    /develop/quick-reference/changelog
+/en/0.80.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.80.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.80.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.80.0/getting_started.html    /get-started
@@ -508,7 +508,7 @@
 /en/0.81.0/advanced_concepts.html    /knowledge-base/using-streamlit
 /en/0.81.0/api.html    /develop/api-reference
 /en/0.81.0/caching.html    /develop/concepts/architecture/caching
-/en/0.81.0/changelog.html    /develop/quick-reference/changelog
+/en/0.81.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.81.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.81.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.81.0/getting_started.html    /get-started
@@ -530,7 +530,7 @@
 /en/0.81.1/advanced_concepts.html    /knowledge-base/using-streamlit
 /en/0.81.1/api.html    /develop/api-reference
 /en/0.81.1/caching.html    /develop/concepts/architecture/caching
-/en/0.81.1/changelog.html    /develop/quick-reference/changelog
+/en/0.81.1/changelog.html    /develop/quick-reference/release-notes
 /en/0.81.1/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.81.1/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.81.1/getting_started.html    /get-started
@@ -552,7 +552,7 @@
 /en/0.82.0/advanced_concepts.html    /knowledge-base/using-streamlit
 /en/0.82.0/api.html    /develop/api-reference
 /en/0.82.0/caching.html    /develop/concepts/architecture/caching
-/en/0.82.0/changelog.html    /develop/quick-reference/changelog
+/en/0.82.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.82.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.82.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.82.0/getting_started.html    /get-started
@@ -574,7 +574,7 @@
 /en/0.83.0/advanced_concepts.html    /knowledge-base/using-streamlit
 /en/0.83.0/api.html    /develop/api-reference
 /en/0.83.0/caching.html    /develop/concepts/architecture/caching
-/en/0.83.0/changelog.html    /develop/quick-reference/changelog
+/en/0.83.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.83.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.83.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.83.0/getting_started.html    /get-started
@@ -605,7 +605,7 @@
 /en/0.84.0/advanced_concepts.html    /knowledge-base/using-streamlit
 /en/0.84.0/api.html    /develop/api-reference
 /en/0.84.0/caching.html    /develop/concepts/architecture/caching
-/en/0.84.0/changelog.html    /develop/quick-reference/changelog
+/en/0.84.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.84.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.84.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.84.0/getting_started.html    /get-started
@@ -637,7 +637,7 @@
 /en/0.85.0/advanced_concepts.html    /knowledge-base/using-streamlit
 /en/0.85.0/api.html    /develop/api-reference
 /en/0.85.0/caching.html    /develop/concepts/architecture/caching
-/en/0.85.0/changelog.html    /develop/quick-reference/changelog
+/en/0.85.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.85.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.85.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.85.0/getting_started.html    /get-started
@@ -670,7 +670,7 @@
 /en/0.86.0/advanced_concepts.html    /knowledge-base/using-streamlit
 /en/0.86.0/api.html    /develop/api-reference
 /en/0.86.0/caching.html    /develop/concepts/architecture/caching
-/en/0.86.0/changelog.html    /develop/quick-reference/changelog
+/en/0.86.0/changelog.html    /develop/quick-reference/release-notes
 /en/0.86.0/deploy_streamlit_app.html    /deploy/streamlit-community-cloud/deploy-your-app
 /en/0.86.0/develop_streamlit_components.html    /develop/concepts/custom-components/intro
 /en/0.86.0/getting_started.html    /get-started
@@ -703,7 +703,7 @@
 /en/0.87.0/advanced_concepts.html		/knowledge-base/using-streamlit
 /en/0.87.0/api.html		/develop/api-reference
 /en/0.87.0/caching.html		/develop/concepts/architecture/caching
-/en/0.87.0/changelog.html		/develop/quick-reference/changelog
+/en/0.87.0/changelog.html		/develop/quick-reference/release-notes
 /en/0.87.0/deploy_streamlit_app.html		/deploy/streamlit-community-cloud/deploy-your-app
 /en/0.87.0/develop_streamlit_components.html		/develop/concepts/custom-components/intro
 /en/0.87.0/getting_started.html		/get-started
@@ -736,7 +736,7 @@
 /en/0.88.0/advanced_concepts.html		/knowledge-base/using-streamlit
 /en/0.88.0/api.html		/develop/api-reference
 /en/0.88.0/caching.html		/develop/concepts/architecture/caching
-/en/0.88.0/changelog.html		/develop/quick-reference/changelog
+/en/0.88.0/changelog.html		/develop/quick-reference/release-notes
 /en/0.88.0/deploy_streamlit_app.html		/deploy/streamlit-community-cloud/deploy-your-app
 /en/0.88.0/develop_streamlit_components.html		/develop/concepts/custom-components/intro
 /en/0.88.0/getting_started.html		/get-started
@@ -769,7 +769,7 @@
 /en/0.89.0/advanced_concepts.html		/knowledge-base/using-streamlit
 /en/0.89.0/api.html		/develop/api-reference
 /en/0.89.0/caching.html		/develop/concepts/architecture/caching
-/en/0.89.0/changelog.html		/develop/quick-reference/changelog
+/en/0.89.0/changelog.html		/develop/quick-reference/release-notes
 /en/0.89.0/deploy_streamlit_app.html		/deploy/streamlit-community-cloud/deploy-your-app
 /en/0.89.0/develop_streamlit_components.html		/develop/concepts/custom-components/intro
 /en/0.89.0/getting_started.html		/get-started
@@ -802,7 +802,7 @@
 /en/1.0.0/advanced_concepts.html		/knowledge-base/using-streamlit
 /en/1.0.0/api.html		/develop/api-reference
 /en/1.0.0/caching.html		/develop/concepts/architecture/caching
-/en/1.0.0/changelog.html		/develop/quick-reference/changelog
+/en/1.0.0/changelog.html		/develop/quick-reference/release-notes
 /en/1.0.0/deploy_streamlit_app.html		/deploy/streamlit-community-cloud/deploy-your-app
 /en/1.0.0/develop_streamlit_components.html		/develop/concepts/custom-components/intro
 /en/1.0.0/getting_started.html		/get-started
@@ -1070,7 +1070,7 @@
 /library/components/components-api /develop/concepts/custom-components/intro
 /library/components/create /develop/concepts/custom-components/create
 /library/components/publish /develop/concepts/custom-components/publish
-/library/changelog /develop/quick-reference/changelog
+/library/changelog /develop/quick-reference/release-notes
 /library/cheatsheet /develop/quick-reference/cheat-sheet
 /streamlit-community-cloud /deploy/streamlit-community-cloud
 /streamlit-community-cloud/get-started /deploy/streamlit-community-cloud/get-started
@@ -1132,3 +1132,4 @@
 /knowledge-base/components/component-blinking-stuttering-fix /develop/concepts/custom-components/limitations
 /knowledge-base/components/how-streamlit-components-differ-base-package /develop/concepts/custom-components/limitations
 /knowledge-base/components/not-possibe-streamlit-components /develop/concepts/custom-components/limitations
+/develop/quick-reference/changelog /develop/quick-reference/release-notes
