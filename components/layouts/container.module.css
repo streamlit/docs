@@ -30,5 +30,6 @@
 
   .ArticleContainer :global(.toc):not(.advanced-features) ~ .ContentContainer {
     padding-right: calc(226px + 2rem);
+    @apply 4xl:pr-[calc(322px+2rem)];
   }
 }

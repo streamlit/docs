@@ -50,6 +50,12 @@ const Header = ({ isSticky }) => {
           <h4 className={styles.LogoText}>Documentation</h4>
         </Link>
         <section className={styles.NavigationContainer}>
+          <Link
+            href="/develop/quick-reference/release-notes"
+            className={styles.ReleaseNotes}
+          >
+            <span>Release notes</span>
+          </Link>
           <Search />
           <ThemeToggle />
           {mobileNav}

@@ -47,3 +47,7 @@
 .Container nav section i {
   @apply text-gray-70;
 }
+
+.ReleaseNotes {
+  @apply flex flex-auto justify-end text-gray-70 hover:opacity-70;
+}
