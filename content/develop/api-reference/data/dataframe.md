@@ -40,7 +40,7 @@ df = load_data()
 st.dataframe(df, use_container_width=st.session_state.use_container_width)
 ```
 
-<Cloud src="https://doc-dataframe2.streamlit.app/?embed=true" height="350" />
+<Cloud name="doc-dataframe2" height="350px" />
 
 <Autofunction function="DeltaGenerator.add_rows" />
 
@@ -52,4 +52,4 @@ Dataframes displayed with `st.dataframe` are interactive. End users can sort, re
 
 You can configure the display and editing behavior of columns in `st.dataframe` and `st.data_editor` via the [Column configuration API](/develop/api-reference/data/st.column_config). We have developed the API to let you add images, charts, and clickable URLs in dataframe and data editor columns. Additionally, you can make individual columns editable, set columns as categorical and specify which options they can take, hide the index of the dataframe, and much more.
 
-<Cloud src="https://doc-column-config-overview.streamlit.app/?embed=true&embed_options=disable_scrolling" height="480"/>
+<Cloud name="doc-column-config-overview" query="embed_options=disable_scrolling" height="480px" />

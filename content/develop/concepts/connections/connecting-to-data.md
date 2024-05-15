@@ -36,7 +36,7 @@ Community Cloud apps do not guarantee the persistence of local file storage, so 
 
 To see the example below running live, check out the interactive demo below:
 
-<Cloud src="https://experimental-connection.streamlit.app/SQL?embed=true" />
+<Cloud name="experimental-connection" path="SQL" />
 
 #### Step 1: Install prerequisite library - SQLAlchemy
 
@@ -202,7 +202,7 @@ Maintaining a tailored internal Connection implementation across many apps can b
 
 Check out the [Build your own Connection page](https://experimental-connection.streamlit.app/Build_your_own) in the st.experimental connection demo app below for a quick tutorial and working implementation. This demo builds a minimal but very functional Connection on top of DuckDB.
 
-<Cloud src="https://experimental-connection.streamlit.app/Build_your_own?embed=true" />
+<Cloud name="experimental-connection" path="Build_your_own" />
 
 The typical steps are:
 

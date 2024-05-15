@@ -22,7 +22,7 @@ if st.button('Three cheers'):
     st.toast('Hooray!', icon='🎉')
 ```
 
-<Cloud src="https://doc-status-toast1.streamlit.app/?embed=true" height="300" />
+<Cloud name="doc-status-toast1" height="300px" />
 
 Toast messages can also be updated. Assign `st.toast(my_message)` to a variable
 and use the `.toast()` method to update it. Note: if a toast has already disappeared
@@ -43,4 +43,4 @@ if st.button('Cook breakfast'):
     cook_breakfast()
 ```
 
-<Cloud src="https://doc-status-toast2.streamlit.app/?embed=true" height="200" />
+<Cloud name="doc-status-toast2" height="200px" />
