@@ -7,11 +7,11 @@
 }
 
 .CondensedHeadingContainer {
-  @apply lg:flex-wrap lg:justify-center lg:text-center lg:w-min;
+  @apply xl:flex-wrap xl:justify-center xl:text-center xl:w-min;
 }
 
 .CondensedHeadingIconContainer {
-  @apply lg:mr-0;
+  @apply xl:mr-0;
 }
 
 .Icon {
