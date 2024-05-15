@@ -1,5 +1,8 @@
 import React from "react";
+import ReactDOMServer from "react-dom/server";
 import classNames from "classnames";
+
+import Cloud from "./cloud.js";
 
 import styles from "./table.module.css";
 
@@ -100,7 +103,9 @@ const Table = ({
         const body = footer.jsx ? (
           footer.body
         ) : (
-          <section dangerouslySetInnerHTML={createMarkup(footer.body)} />
+          <section
+            dangerouslySetInnerHTML={createMarkup(insertCloud(footer.body))}
+          />
         );
         return (
           <React.Fragment key={`footer-${index}`}>
@@ -116,5 +121,26 @@ const Table = ({
     </section>
   );
 };
+
+// Regex capturing React components:
+const CLOUD_RE = new RegExp(
+  [
+    "<Cloud ",
+    'name="([^<>]*)" ',
+    'path="([^<>]*)" ',
+    'query="([^<>]*)" ',
+    'stylePlaceholder="([^<>]*)" ',
+    "\\/>",
+  ].join(""),
+  "g",
+);
+
+const CLOUD_HTML = ReactDOMServer.renderToString(
+  <Cloud name="$1" path="$2" query="$3" stylePlaceholder="$4" />,
+);
+
+function insertCloud(htmlStr) {
+  return htmlStr.replace(CLOUD_RE, CLOUD_HTML);
+}
 
 export default Table;
