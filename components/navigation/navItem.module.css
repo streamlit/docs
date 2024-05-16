@@ -6,15 +6,15 @@
   @apply flex items-center p-2 mr-4 xl:mr-4 mb-0 rounded-md;
 }
 
-/*CondensedHedaing disabled until additional styling between md and xl is added.*/
+/*
+.CondensedHeadingContainer {
+  @apply lg:flex-wrap lg:justify-center lg:text-center lg:w-min;
+}
 
-/* .CondensedHeadingContainer {
-  @apply xl:flex-wrap xl:justify-center xl:text-center xl:w-min;
-} */
-
-/* .CondensedHeadingIconContainer {
-  @apply xl:mr-0;
-} */
+.CondensedHeadingIconContainer {
+  @apply lg:mr-0;
+}
+*/
 
 .Icon {
   @apply text-white !important;
