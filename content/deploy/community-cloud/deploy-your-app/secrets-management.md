@@ -15,7 +15,7 @@ Secrets management allows you to store secrets securely and access them in your 
 
 ### Deploy an app and set up secrets
 
-1. From your worksapce at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click "**New app**".
+1. From your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click "**New app**".
 2. Fill out your app's information and click "**Advanced settings...**"
 
    ![Access advanced settings when deploying your app](/images/streamlit-community-cloud/deploy-an-app-advanced-settings.png)
