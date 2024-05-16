@@ -5,6 +5,7 @@ import styles from "./themeToggle.module.css";
 const ThemeToggle = () => {
   const [activeTheme, setActiveTheme] = useState("light");
   let inactiveTheme;
+  inactiveTheme = activeTheme === "light" ? "dark" : "light";
 
   const getUserPreference = () => {
     if (window.localStorage.getItem("theme")) {
@@ -16,11 +17,7 @@ const ThemeToggle = () => {
   };
 
   const changeTailwindTheme = (theme) => {
-    if (theme === "dark") {
-      inactiveTheme = "light";
-    } else {
-      inactiveTheme = "dark";
-    }
+    inactiveTheme = theme === "light" ? "dark" : "light";
     document.documentElement.classList.add(theme);
     document.documentElement.classList.remove(inactiveTheme);
     setActiveTheme(theme);
