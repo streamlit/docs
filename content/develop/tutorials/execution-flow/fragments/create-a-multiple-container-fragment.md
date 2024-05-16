@@ -89,7 +89,7 @@ with st.sidebar:
 
 </Collapse>
 
-<Cloud src="https://doc-tutorial-fragment-multiple-container.streamlit.app/?embed=true" height="650" />
+<Cloud name="doc-tutorial-fragment-multiple-container" height="650px" />
 
 ## Build the example
 

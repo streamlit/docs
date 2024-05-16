@@ -92,7 +92,7 @@ show_latest_data()
 
 </Collapse>
 
-<Cloud src="https://doc-tutorial-fragment-streaming.streamlit.app/?embed=true" height="550" />
+<Cloud name="doc-tutorial-fragment-streaming" height="550px" />
 
 ## Build the example
 
