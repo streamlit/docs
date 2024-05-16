@@ -60,10 +60,6 @@ _Release date: July 14, 2022_
 - 🏓 `st.table` presents overflowing content to be scrollable when placed inside columns and expanders ([#4934](https://github.com/streamlit/streamlit/pull/4934)).
 - 🐍 Types: More updated type annotations across Streamlit! ([#4808](https://github.com/streamlit/streamlit/pull/4808), [#4809](https://github.com/streamlit/streamlit/pull/4809), [#4856](https://github.com/streamlit/streamlit/pull/4856))
 
-## Older versions
-
-Are you curious about older versions? To see older release notes, see [Release notes (historical)](/develop/quick-reference/older-versions).
-
 ## **Version 1.10.0**
 
 _Release date: June 2, 2022_
