@@ -232,7 +232,7 @@ st.switch_page("pages/my_page.py")
 >>>   st.form_submit_button("Login")
 
 # Define a dialog function
->>> @st.experimental_dialog
+>>> @st.experimental_dialog("Welcome!")
 >>> def modal_dialog():
 >>>     st.write("Hello")
 >>>
