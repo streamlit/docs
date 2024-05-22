@@ -42,6 +42,10 @@ st.dataframe(df, use_container_width=st.session_state.use_container_width)
 
 <Cloud name="doc-dataframe2" height="350px" />
 
+<Autofunction function="DataframeState" />
+
+<Autofunction function="DataframeSelectionState" />
+
 <Autofunction function="DeltaGenerator.add_rows" />
 
 ### Interactivity
