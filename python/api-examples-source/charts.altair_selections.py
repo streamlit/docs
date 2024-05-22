@@ -27,6 +27,6 @@ chart = (
     .add_params(point_selector, interval_selector)
 )
 
-st.altair_chart(chart, key="alt_chart", on_select="rerun")
+event = st.altair_chart(chart, key="alt_chart", on_select="rerun")
 
-st.session_state.alt_chart
+event

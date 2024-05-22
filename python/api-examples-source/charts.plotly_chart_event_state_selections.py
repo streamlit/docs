@@ -11,6 +11,6 @@ fig = px.scatter(
     hover_data=["petal_width"],
 )
 
-st.plotly_chart(fig, key="iris", on_select="rerun")
+event = st.plotly_chart(fig, key="iris", on_select="rerun")
 
-st.session_state.iris.selection
+event.selection
