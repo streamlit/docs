@@ -469,29 +469,31 @@ const Autofunction = ({
 
   body = (
     <Table
-      head={{
-        title: (
-          <>
-            {isAttributeDict
-              ? "Dictionary schema"
-              : isClass
-                ? "Class description"
-                : "Function signature"}
-            <a
-              className={styles.Title.a}
-              href={functionObject.source}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={
-                "View st." + functionObject.name + " source code on GitHub"
-              }
-            >
-              [source]
-            </a>
-          </>
-        ),
-        content: `<p class='code'> ${functionObject.signature}</p> `,
-      }}
+      head={
+        isAttributeDict
+          ? ""
+          : {
+              title: (
+                <>
+                  {isClass ? "Class description" : "Function signature"}
+                  <a
+                    className={styles.Title.a}
+                    href={functionObject.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={
+                      "View st." +
+                      functionObject.name +
+                      " source code on GitHub"
+                    }
+                  >
+                    [source]
+                  </a>
+                </>
+              ),
+              content: `<p class='code'> ${functionObject.signature}</p> `,
+            }
+      }
       body={args.length ? { title: "Parameters" } : null}
       bodyRows={args.length ? args : null}
       foot={[
