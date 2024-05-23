@@ -209,7 +209,7 @@ export default function Home({ window, menu }) {
                 <h4>Chart selections</h4>
                 <p>
                   Make your charts more dynamic by using point selections in
-                  Plotly, Altair, and Vega_lite charts.
+                  Plotly, Altair, and Vega-Lite charts.
                 </p>
               </RefCard>
               <RefCard size="third" href="/develop/api-reference/media/st.logo">
