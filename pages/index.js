@@ -195,9 +195,7 @@ export default function Home({ window, menu }) {
                 href="/develop/api-reference/data/st.dataframe"
               >
                 <i className="material-icons-sharp">table_chart</i>
-                <h4>
-                  <code>Row and column selections</code>
-                </h4>
+                <h4>Row and column selections</h4>
                 <p>
                   Get row and column selections from users to make your
                   dataframes even more interactive.
