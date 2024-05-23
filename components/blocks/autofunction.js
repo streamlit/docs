@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import reverse from "lodash/reverse";
 import classNames from "classnames";
 import Table from "./table";
-import { H2 } from "./headers";
+import { H2, H3 } from "./headers";
 import Warning from "./warning";
 import Deprecation from "./deprecation";
 import { withRouter, useRouter } from "next/router";
@@ -167,8 +167,10 @@ const Autofunction = ({
   let functionObject;
   let functionDescription;
   let header;
+  let headerTitle;
   let body;
   let isClass;
+  let isAttributeDict;
   let methods = [];
   let properties = [];
 
@@ -176,6 +178,7 @@ const Autofunction = ({
     functionObject =
       streamlit[streamlitFunction] ?? streamlit[oldStreamlitFunction];
     isClass = functionObject.is_class;
+    isAttributeDict = functionObject.is_attribute_dict ?? false;
     if (
       functionObject.description !== undefined &&
       functionObject.description
@@ -238,6 +241,31 @@ const Autofunction = ({
     const name = functionObject.signature
       ? `${functionObject.signature}`.split("(")[0].replace("streamlit", "st")
       : "";
+    headerTitle = isAttributeDict ? (
+      <H3 className={styles.Title}>
+        <a
+          aria-hidden="true"
+          tabIndex="-1"
+          href={`#${cleanHref(name)}`.toLowerCase()}
+          className="absolute"
+        >
+          <span className="icon icon-link"></span>
+        </a>
+        {name}
+      </H3>
+    ) : (
+      <H2 className={styles.Title}>
+        <a
+          aria-hidden="true"
+          tabIndex="-1"
+          href={`#${cleanHref(name)}`.toLowerCase()}
+          className="absolute"
+        >
+          <span className="icon icon-link"></span>
+        </a>
+        {name}
+      </H2>
+    );
     header = (
       <div className={styles.HeaderContainer}>
         <div
@@ -246,17 +274,7 @@ const Autofunction = ({
             relative
           `}
         >
-          <H2 className={styles.Title}>
-            <a
-              aria-hidden="true"
-              tabIndex="-1"
-              href={`#${cleanHref(name)}`.toLowerCase()}
-              className="absolute"
-            >
-              <span className="icon icon-link"></span>
-            </a>
-            {name}
-          </H2>
+          {headerTitle}
           <VersionSelector
             versionList={versionList}
             currentVersion={currentVersion}
@@ -451,25 +469,31 @@ const Autofunction = ({
 
   body = (
     <Table
-      head={{
-        title: (
-          <>
-            {isClass ? "Class description" : "Function signature"}
-            <a
-              className={styles.Title.a}
-              href={functionObject.source}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={
-                "View st." + functionObject.name + " source code on GitHub"
-              }
-            >
-              [source]
-            </a>
-          </>
-        ),
-        content: `<p class='code'> ${functionObject.signature}</p> `,
-      }}
+      head={
+        isAttributeDict
+          ? ""
+          : {
+              title: (
+                <>
+                  {isClass ? "Class description" : "Function signature"}
+                  <a
+                    className={styles.Title.a}
+                    href={functionObject.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={
+                      "View st." +
+                      functionObject.name +
+                      " source code on GitHub"
+                    }
+                  >
+                    [source]
+                  </a>
+                </>
+              ),
+              content: `<p class='code'> ${functionObject.signature}</p> `,
+            }
+      }
       body={args.length ? { title: "Parameters" } : null}
       bodyRows={args.length ? args : null}
       foot={[
