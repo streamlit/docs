@@ -618,6 +618,7 @@ def get_streamlit_docstring_dict():
         docstring = getattr(obj, "__doc__", "")
         docstring = docstring.replace("    Attributes\n", "    Parameters\n")
         member_docstring_dict = get_attribute_dict_dict(obj, key[0].split(".")[-1])
+        member_docstring_dict["is_attribute_dict"] = True
         module_docstring_dict.update({key[0]: member_docstring_dict})
 
     return module_docstring_dict
