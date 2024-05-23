@@ -10,11 +10,11 @@ def load_data():
 
 df = load_data()
 
-st.dataframe(
+event = st.dataframe(
     df,
     key="data",
     on_select="rerun",
     selection_mode=["multi-row", "multi-column"],
 )
 
-st.session_state.data.selection
+event.selection
