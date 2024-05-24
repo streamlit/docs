@@ -5,7 +5,7 @@ slug: /develop/quick-reference/cheat-sheet
 
 # Streamlit API cheat sheet
 
-This is a summary of the docs, as of [Streamlit v1.34.0](https://pypi.org/project/streamlit/1.34.0/).
+This is a summary of the docs, as of [Streamlit v1.35.0](https://pypi.org/project/streamlit/1.35.0/).
 
 <Masonry>
 
@@ -117,6 +117,7 @@ st.image("./header.png")
 st.audio(data)
 st.video(data)
 st.video(data, subtitles="./subs.vtt")
+st.logo("logo.jpg")
 ```
 
 </CodeTile>
@@ -138,7 +139,22 @@ st.graphviz_chart(fig)
 st.plotly_chart(fig)
 st.pydeck_chart(chart)
 st.pyplot(fig)
-st.vega_lite_chart(df)
+st.vega_lite_chart(df, spec)
+
+# Work with user selections
+event = st.plotly_chart(
+    df,
+    on_select="rerun"
+)
+event = st.altair_chart(
+    chart,
+    on_select="rerun"
+)
+event = st.vega_lite_chart(
+    df,
+    spec,
+    on_select="rerun"
+)
 ```
 
 </CodeTile>

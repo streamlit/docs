@@ -1223,6 +1223,19 @@ st.image("https://example.com/myimage.jpg")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/media/st.logo">
+
+<Image pure alt="screenshot" src="/images/api/logo.jpg" />
+
+<h4>Logo</h4>
+
+Display a logo in the upper-left corner of your app and its sidebar.
+
+```python
+st.logo("logo.jpg")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/media/st.audio">
 
 <Image pure alt="screenshot" src="/images/api/audio.jpg" />
