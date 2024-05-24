@@ -26,8 +26,8 @@ CREATE DATABASE pets;
 USE pets;
 
 CREATE TABLE mytable (
-    name            varchar(80),
-    pet             varchar(80)
+    name varchar(80),
+    pet varchar(80)
 );
 
 INSERT INTO mytable VALUES ('Mary', 'dog'), ('John', 'cat'), ('Robert', 'bird');
@@ -49,6 +49,8 @@ username = "xxx"
 password = "xxx"
 query = { charset = "xxx" }
 ```
+
+If you use `query` when defining your connection, you must use `streamlit>=1.35.0`.
 
 <Important>
 
