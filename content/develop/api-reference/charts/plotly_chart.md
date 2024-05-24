@@ -6,7 +6,13 @@ description: st.plotly_chart displays an interactive Plotly chart.
 
 <Autofunction function="streamlit.plotly_chart" />
 
-### Theming
+## Chart selections
+
+<Autofunction function="PlotlyState" />
+
+<Autofunction function="PlotlySelectionState" />
+
+## Theming
 
 Plotly charts are displayed using the Streamlit theme by default. This theme is sleek, user-friendly, and incorporates Streamlit's color palette. The added benefit is that your charts better integrate with the rest of your app's design.
 
