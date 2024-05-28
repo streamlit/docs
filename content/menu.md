@@ -604,8 +604,8 @@ site_menu:
     url: /develop/tutorials
   - category: Develop / Tutorials / Charts
     url: /develop/tutorials/charts
-  - category: Develop / Tutorials / Charts / Add annotations and selections to an Altair chart
-    url: /develop/tutorials/charts/annotations-and-selections-in-altair-chart
+  - category: Develop / Tutorials / Charts / Annotate an Altair chart
+    url: /develop/tutorials/charts/annotate-an-altair-chart
   - category: Develop / Tutorials / Execution flow
     url: /develop/tutorials/execution-flow
   - category: Develop / Tutorials / Execution flow / FRAGMENTS

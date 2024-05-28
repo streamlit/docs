@@ -1,9 +1,9 @@
 ---
-title: Add annotations and selections to an Altair chart
-slug: /develop/tutorials/charts/annotations-and-selections-in-altair-chart
+title: Annotate an Altair chart
+slug: /develop/tutorials/charts/annotate-an-altair-chart
 ---
 
-# Add annotations and selections to an Altair chart
+# Annotate an Altair chart
 
 Altair allows you to annotate your charts with text, images, and emojis. You can do this by overlaying two charts to create a [layered chart](https://altair-viz.github.io/user_guide/compound_charts.html#layered-charts).
 
@@ -109,6 +109,8 @@ st.altair_chart(combined_chart, use_container_width=True)
 ```
 
 </Collapse>
+
+<Cloud name="doc-annotate-altair" height="450px" />
 
 ## Build the example
 
@@ -278,7 +280,7 @@ Now that you have the first chart that shows the data, you can annotate it with 
    st.altair_chart(combined_chart, use_container_width=True)
    ```
 
-### What's next?
+## What's next?
 
 Play around with your new app.
 
