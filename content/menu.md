@@ -602,10 +602,17 @@ site_menu:
 
   - category: Develop / Tutorials
     url: /develop/tutorials
-  - category: Develop / Tutorials / Charts
-    url: /develop/tutorials/charts
-  - category: Develop / Tutorials / Charts / Annotate an Altair chart
-    url: /develop/tutorials/charts/annotate-an-altair-chart
+  - category: Develop / Tutorials / Elements
+    url: /develop/tutorials/elements
+  - category: Develop / Tutorials / Elements / CHARTS
+  - category: Develop / Tutorials / Elements / Annotate an Altair chart
+    url: /develop/tutorials/elements/annotate-an-altair-chart
+  - category: Develop / Tutorials / Elements / DATAFRAMES
+  - category: Develop / Tutorials / Elements / Get dataframe row-selections
+    url: /develop/tutorials/elements/dataframe-row-selections
+  - category: Develop / Tutorials / Elements / Get dataframe row-selections (streamlit<1.35.0)
+    url: /develop/tutorials/elements/dataframe-row-selections-old
+    visible: false
   - category: Develop / Tutorials / Execution flow
     url: /develop/tutorials/execution-flow
   - category: Develop / Tutorials / Execution flow / FRAGMENTS
@@ -769,9 +776,6 @@ site_menu:
     visible: false
   - category: Knowledge base / FAQ / How to download a Pandas DataFrame as a CSV?
     url: /knowledge-base/using-streamlit/how-download-pandas-dataframe-csv
-    visible: false
-  - category: Knowledge base / FAQ / How do I get dataframe row-selections from a user?
-    url: /knowledge-base/using-streamlit/how-to-get-row-selections
     visible: false
   - category: Knowledge base / FAQ / How do I upgrade to the latest version of Streamlit?
     url: /knowledge-base/using-streamlit/how-upgrade-latest-version-streamlit

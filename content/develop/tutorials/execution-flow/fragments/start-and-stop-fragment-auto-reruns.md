@@ -14,10 +14,13 @@ Streamlit lets you turn functions into [fragments](/develop/concepts/architectur
 
 ## Prerequisites
 
-**`streamlit>=1.33.0`**
+- The following must be installed in your Python environment:
 
-- This tutorial uses fragments, which require Streamlit version 1.33.0 or later.
-- This tutorial assumes you have a clean working directory called `your-repository`.
+  ```text
+  streamlit>=1.33.0
+  ```
+
+- You should have a clean working directory called `your-repository`.
 - You should have a basic understanding of fragments.
 
 ## Summary
@@ -323,7 +326,7 @@ def show_latest_data():
 
 1. Test out your app by clicking "**Start streaming**." Try adjusting the frequency of updates.
 
-### Next steps
+## Next steps
 
 Try adjusting the frequency of data generation or how much data is kept in Session State. Within `get_recent_data` try setting `sample_time` with a widget.
 

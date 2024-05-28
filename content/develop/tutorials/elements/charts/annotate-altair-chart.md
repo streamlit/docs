@@ -1,6 +1,6 @@
 ---
 title: Annotate an Altair chart
-slug: /develop/tutorials/charts/annotate-an-altair-chart
+slug: /develop/tutorials/elements/annotate-an-altair-chart
 ---
 
 # Annotate an Altair chart
@@ -280,7 +280,7 @@ Now that you have the first chart that shows the data, you can annotate it with 
    st.altair_chart(combined_chart, use_container_width=True)
    ```
 
-## What's next?
+## Next steps
 
 Play around with your new app.
 
