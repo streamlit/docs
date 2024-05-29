@@ -49,5 +49,5 @@
 }
 
 .ReleaseNotes {
-  @apply hidden xs:flex flex-auto justify-end text-gray-70 hover:opacity-70;
+  @apply flex flex-auto justify-end text-gray-70 hover:opacity-70;
 }

@@ -13,7 +13,7 @@
 
 /* Search Bar */
 .SearchBarContainer {
-  @apply flex justify-end flex-auto xs:flex-none;
+  @apply flex justify-end;
 }
 
 .SearchBar {
