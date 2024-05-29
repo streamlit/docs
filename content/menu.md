@@ -659,7 +659,7 @@ site_menu:
   - category: Develop / Quick reference / Cheat sheet
     url: /develop/quick-reference/cheat-sheet
   - category: Develop / Quick reference / Release notes
-    url: /develop/quick-reference/release-notes
+    url: /develop/quick-reference/changelog
   - category: Develop / Quick reference / Release notes (historical)
     url: /develop/quick-reference/older-versions
     visible: false
