@@ -21,4 +21,4 @@ st.markdown('''{md}''')
 st.markdown(md)
 ```
 
-<Cloud src="https://doc-markdown1.streamlit.app/?embed=true" height="500" />
+<Cloud name="doc-markdown1" height="500px" />

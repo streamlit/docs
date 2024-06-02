@@ -45,4 +45,4 @@ with col2:
         st.write("You entered: ", text_input)
 ```
 
-<Cloud src="https://doc-text-input1.streamlit.app/?embed=true" height="400" />
+<Cloud name="doc-text-input1" height="400px" />

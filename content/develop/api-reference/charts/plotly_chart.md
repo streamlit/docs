@@ -6,7 +6,13 @@ description: st.plotly_chart displays an interactive Plotly chart.
 
 <Autofunction function="streamlit.plotly_chart" />
 
-### Theming
+## Chart selections
+
+<Autofunction function="PlotlyState" />
+
+<Autofunction function="PlotlySelectionState" />
+
+## Theming
 
 Plotly charts are displayed using the Streamlit theme by default. This theme is sleek, user-friendly, and incorporates Streamlit's color palette. The added benefit is that your charts better integrate with the rest of your app's design.
 
@@ -43,7 +49,7 @@ with tab2:
 
 Click the tabs in the interactive app below to see the charts with the Streamlit theme enabled and disabled.
 
-<Cloud src="https://doc-plotly-chart-theme.streamlit.app/?embed=true" height="525" />
+<Cloud name="doc-plotly-chart-theme" height="525px" />
 
 If you're wondering if your own customizations will still be taken into account, don't worry! You can still make changes to your chart configurations. In other words, although we now enable the Streamlit theme by default, you can overwrite it with custom colors or fonts. For example, if you want a chart line to be green instead of the default red, you can do it!
 
@@ -72,6 +78,6 @@ with tab2:
 
 Notice how the custom color scale is still reflected in the chart, even when the Streamlit theme is enabled 👇
 
-<Cloud src="https://doc-plotly-custom-colors.streamlit.app/?embed=true" height="650" />
+<Cloud name="doc-plotly-custom-colors" height="650px" />
 
 For many more examples of Plotly charts with and without the Streamlit theme, check out the [plotly.streamlit.app](https://plotly.streamlit.app).

@@ -36,7 +36,7 @@ with col2:
     )
 ```
 
-<Cloud src="https://doc-radio1.streamlit.app/?embed=true" height="300" />
+<Cloud name="doc-radio1" height="300px" />
 
 ### Featured videos
 

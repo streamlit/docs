@@ -30,7 +30,7 @@ your-repository/
 
 Here's a look at what we'll build:
 
-<Cloud src="https://doc-custom-navigation.streamlit.app/?embed=true" height="400" />
+<Cloud name="doc-custom-navigation" height="400px" />
 
 ## Build the example
 

@@ -361,6 +361,9 @@ site_menu:
   - category: Develop / API reference / Media elements / st.image
     url: /develop/api-reference/media/st.image
     isVersioned: true
+  - category: Develop / API reference / Media elements / st.logo
+    url: /develop/api-reference/media/st.logo
+    isVersioned: true
   - category: Develop / API reference / Media elements / st.video
     url: /develop/api-reference/media/st.video
     isVersioned: true
@@ -626,6 +629,8 @@ site_menu:
     url: /develop/tutorials/databases/mongodb
   - category: Develop / Tutorials / Connect to data sources / MySQL
     url: /develop/tutorials/databases/mysql
+  - category: Develop / Tutorials / Connect to data sources / Neon
+    url: /develop/tutorials/databases/neon
   - category: Develop / Tutorials / Connect to data sources / PostgreSQL
     url: /develop/tutorials/databases/postgresql
   - category: Develop / Tutorials / Connect to data sources / Private Google Sheet

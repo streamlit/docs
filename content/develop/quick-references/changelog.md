@@ -19,6 +19,44 @@ pip install --upgrade streamlit
 
 </Tip>
 
+## **Version 1.35.0**
+
+_Release date: May 23, 2024_
+
+**Highlights**
+
+- 📈 Announcing user selections for charts! Use [`st.plotly_chart`](/develop/api-reference/charts/st.plotly_chart), [`st.altair_chart`](/develop/api-reference/charts/st.altair_chart), and [`st.vega_lite_chart`](/develop/api-reference/charts/st.vega_lite_chart) to make chart widgets for even more interactive apps.
+- 🚣‍♂️ Announcing user selections for dataframes. Get row and column selections from users with [`st.dataframe`](/develop/api-reference/data/st.dataframe).
+- 💼 Introducing [`st.logo`](/develop/api-reference/media/st.logo) to add an image in the sidebar, above navigation.
+
+**Notable Changes**
+
+- 🔗 [`st.page_link`](/develop/api-reference/widgets/st.page_link) supports Material icons ([#8593](https://github.com/streamlit/streamlit/pull/8593)).
+- ⚓ Anchor button for headers display inline at the end of headers for a more beautiful and consistent appearance ([#8587](https://github.com/streamlit/streamlit/pull/8587)).
+- 🈂️ [`SQLConnection`](/develop/api-reference/connections/st.connections.sqlconnection) accepts `query` as a `sqlalchemy.URL.create` parameter so you can specify character sets ([#8581](https://github.com/streamlit/streamlit/pull/8581)). Thanks, [LucianLiu6](https://github.com/LucianLiu6)!
+
+**Other Changes**
+
+- 🕸️ Bug fix: A fallback method was added for CSV downloads to increase browser compatibility ([#8452](https://github.com/streamlit/streamlit/pull/8452), [#8210](https://github.com/streamlit/streamlit/issues/8210)).
+- 🦗 Bug fix: Column config is deep-copied when cloned to prevent unintentional modifications ([#8677](https://github.com/streamlit/streamlit/pull/8677)).
+- 🦂 Bug fix: `st.data_editor` renders correctly when using `num_rows=dynamic` with null values in added rows ([#8640](https://github.com/streamlit/streamlit/pull/8640), [#7458](https://github.com/streamlit/streamlit/issues/7458)).
+- 🦟 Bug fix: `streamlit run` will display the `localhost` address when initializing Streamlit with `server.headless=true` ([#8647](https://github.com/streamlit/streamlit/pull/8647), [#8629](https://github.com/streamlit/streamlit/issues/8629)).
+- 🦠 Bug fix: Scroll margin matches the new toolbar (app chrome) height ([#8641](https://github.com/streamlit/streamlit/pull/8641), [#8554](https://github.com/streamlit/streamlit/pull/8554)).
+- 🪰 Bug fix: Enum coercion is compatible with StrEnum ([#8622](https://github.com/streamlit/streamlit/pull/8622), [#8500](https://github.com/streamlit/streamlit/issues/8500)). Thanks, [97k](https://github.com/97k)!
+- 🪳 Bug fix: Focus is returned to chat input after clicking submit for a better mobile experience ([#8637](https://github.com/streamlit/streamlit/pull/8637)).
+- 🕷️ Bug fix: Internal parameter and view names for Altair charts are stabilized for better performance ([#8628](https://github.com/streamlit/streamlit/pull/8628)).
+- 🐞 Bug fix: Typing was improved for `st.query_params.update()` and `st.query_params.from_dict()` ([#8614](https://github.com/streamlit/streamlit/pull/8614), [#8613](https://github.com/streamlit/streamlit/issues/8613)). Thanks, [Asaurus1](https://github.com/Asaurus1)!
+- 🐝 Bug fix: The fullscreen button no longer appears for `st.table` to prevent unwanted side scrolling ([#8621](https://github.com/streamlit/streamlit/pull/8621), [#2358](https://github.com/streamlit/streamlit/issues/2358)).
+- 🐜 Bug fix: Streamlit correctly clears stale elements when using `st.rerun` ([#8599](https://github.com/streamlit/streamlit/pull/8599), [#8360](https://github.com/streamlit/streamlit/issues/8360)).
+- 🪲 Bug fix: Custom components can be executed standalone for testing and scripting ([#8620](https://github.com/streamlit/streamlit/pull/8620), [#8606](https://github.com/streamlit/streamlit/issues/8606)).
+- 👻 Bug fix: Plotly charts no longer render cached data when updated ([#8191](https://github.com/streamlit/streamlit/pull/8191), [#5902](https://github.com/streamlit/streamlit/issues/5902))
+- 👽 Plotly chart widths will not overflow its parent container when rendered in a bordered container ([#8191](https://github.com/streamlit/streamlit/pull/8191), [#8244](https://github.com/streamlit/streamlit/issues/8244)).
+- 🦀 Plotly charts using `webgl` render correctly on M1/M2 chipsets for macOS ([#8191](https://github.com/streamlit/streamlit/pull/8191), [#8169](https://github.com/streamlit/streamlit/issues/8169)).
+- 🦋 Plotly charts are sized correctly when rendered vertically adjacent ([#8191](https://github.com/streamlit/streamlit/pull/8191), [#7597](https://github.com/streamlit/streamlit/issues/7597)).
+- 🦎 Bug fix: Plotly charts retain their state when the app window is resized ([#8191](https://github.com/streamlit/streamlit/pull/8191), [#6324](https://github.com/streamlit/streamlit/issues/6324)).
+- 🐛 Bug fix: Plotly charts in `st.tabs` no longer flicker when changing tabs ([#8191](https://github.com/streamlit/streamlit/pull/8191), [#8575](https://github.com/streamlit/streamlit/issues/8575)).
+- 🐌 Bug fix: Plotly charts respect `use_container_width` if this parameter is changed between reruns ([#8191](https://github.com/streamlit/streamlit/pull/8191), [#8576](https://github.com/streamlit/streamlit/issues/8576)).
+
 ## **Version 1.34.0**
 
 _Release date: May 2, 2024_
@@ -45,8 +83,8 @@ _Release date: May 2, 2024_
 - 🦋 Visual tweaks for dialogs and modals.
 - 🦀 Bug fix: `st.write_stream` returns an empty string when passed a generator with no yield ([#8560](https://github.com/streamlit/streamlit/pull/8560)).
 - 🦎 Bug fix: Widgets that support `None` values can be correctly set to `None` through Session State ([#8529](https://github.com/streamlit/streamlit/pull/8529), [#7649](https://github.com/streamlit/streamlit/issues/7649)).
-- 🐌 Bug fix: If the initial value for `st.date_input` is not set and today’s date falls outside the declared minimum or maximum, then the minimum or maximum will be used instead, whichever is closer ([#8519](https://github.com/streamlit/streamlit/pull/8519), [#6167](https://github.com/streamlit/streamlit/issues/6167)).
-- 🕸️ Bug fix: Altair’s `resolve_scale` method is handled correctly ([#8497](https://github.com/streamlit/streamlit/pull/8497), [#1667](https://github.com/streamlit/streamlit/issues/1667)).
+- 🐌 Bug fix: If the initial value for `st.date_input` is not set and today's date falls outside the declared minimum or maximum, then the minimum or maximum will be used instead, whichever is closer ([#8519](https://github.com/streamlit/streamlit/pull/8519), [#6167](https://github.com/streamlit/streamlit/issues/6167)).
+- 🕸️ Bug fix: Altair's `resolve_scale` method is handled correctly ([#8497](https://github.com/streamlit/streamlit/pull/8497), [#1667](https://github.com/streamlit/streamlit/issues/1667)).
 - 🦗 Bug fix: `st.multiselects` correctly handles sets when passed to `options` or `default` ([#8471](https://github.com/streamlit/streamlit/pull/8471), [#8466](https://github.com/streamlit/streamlit/issues/8466)).
 - 🦂 Bug fix: `st.status` does not show the expander toggle when empty ([#8369](https://github.com/streamlit/streamlit/pull/8369)).
 - 🦟 Bug fix: The width of `vconcat` charts in Vega and Altair is set correctly ([#8498](https://github.com/streamlit/streamlit/pull/8498), [#2751](https://github.com/streamlit/streamlit/issues/2751)).
@@ -700,58 +738,6 @@ _Release date: September 22, 2022_
 - 🚒 `st.sidebar` UI fixes including a fix for scrollbars in Firefox browsers ([#5157](https://github.com/streamlit/streamlit/pull/5157), [#5324](https://github.com/streamlit/streamlit/pull/5324)).
 - 👩‍💻 Improvements to usage metrics to guide API development.
 - ✍️ More type hints! ([#5191](https://github.com/streamlit/streamlit/pull/5191), [#5192](https://github.com/streamlit/streamlit/pull/5192), [#5242](https://github.com/streamlit/streamlit/pull/5242), [#5243](https://github.com/streamlit/streamlit/pull/5243), [#5244](https://github.com/streamlit/streamlit/pull/5244), [#5245](https://github.com/streamlit/streamlit/pull/5245), [#5246](https://github.com/streamlit/streamlit/pull/5246)) Thanks [harahu](https://github.com/harahu)!
-
-## **Version 1.12.0**
-
-_Release date: August 11, 2022_
-
-**Highlights**
-
-- 📊 Built-in charts (e.g. `st.line_chart`) get a brand-new look and parameters `x` and `y`! Check out our [blog post](https://blog.streamlit.io/built-in-charts-get-a-new-look-and-parameters/) for more information.
-
-**Notable Changes**
-
-- ⏯ Functions cached with `st.experimental_memo` or `st.experimental_singleton` can now contain static `st` commands. This allows caching text, charts, dataframes, and more!
-- ↔️ The sidebar is now resizable via drag and drop.
-- ☎️ `st.info`, `st.success`, `st.error`, and `st.warning` got a redesign and have a new keyword-only parameter: `icon`.
-
-**Other Changes**
-
-- 🎚️ `st.select_slider` correctly handles all floats now ([#4973](https://github.com/streamlit/streamlit/pull/4973), [#4978](https://github.com/streamlit/streamlit/pull/4978)).
-- 🔢 `st.multi_select` can take values from enums ([#4987](https://github.com/streamlit/streamlit/pull/4987)).
-- 🍊 `st.slider` range values can now be set through `st.session_state` ([#5007](https://github.com/streamlit/streamlit/pull/5007)).
-- 🎨 `st.progress` got a redesign ([#5011](https://github.com/streamlit/streamlit/pull/5011), [#5086](https://github.com/streamlit/streamlit/pull/5086)).
-- 🔘 `st.radio` better deals with list-like dataframes ([#5021](https://github.com/streamlit/streamlit/pull/5021)).
-- 🧞‍♂️ `st.cache` properly handles JSON files now ([#5023](https://github.com/streamlit/streamlit/pull/5023)).
-- ⚓️ Headers render markdown now when the `anchor` parameter is set ([#5038](https://github.com/streamlit/streamlit/pull/5038)).
-- 🗻 `st.image` can now load SVGs from Inkscape ([#5040](https://github.com/streamlit/streamlit/pull/5040)).
-- 🗺️ `st.map` and `st.pydeck_chart` use light or dark style based on the app's theme ([#5074](https://github.com/streamlit/streamlit/pull/5074), [#5108](https://github.com/streamlit/streamlit/pull/5108)).
-- 🎈 Clicks on elements below `st.balloons` and `st.snow` don't get blocked anymore ([#5098](https://github.com/streamlit/streamlit/pull/5098)).
-- 🔝 Embedded apps have lower top padding ([#5111](https://github.com/streamlit/streamlit/pull/5111)).
-- 💅 Adjusted padding and alignment for widgets, charts, and dataframes ([#4995](https://github.com/streamlit/streamlit/pull/4995), [#5061](https://github.com/streamlit/streamlit/pull/5061), [#5081](https://github.com/streamlit/streamlit/pull/5081)).
-- ✍️ More type hints! ([#4926](https://github.com/streamlit/streamlit/pull/4926), [#4932](https://github.com/streamlit/streamlit/pull/4932), [#4933](https://github.com/streamlit/streamlit/pull/4933))
-
-## **Version 1.11.0**
-
-_Release date: July 14, 2022_
-
-**Highlights**
-
-- 🗂 Introducing `st.tabs` to have tab containers in your app. See our [documentation](/develop/api-reference/layout/st.tabs) on how to use this feature.
-
-**Notable Changes**
-
-- ℹ️ `st.metric` supports tooltips with the `help` keyword parameter.
-- 🚇 `st.columns` supports setting the gap size between columns with the `gap` keyword parameter.
-
-**Other Changes**
-
-- 💅 Design tweaks to `st.selectbox`, `st.expander`, `st.spinner` ([#4801](https://github.com/streamlit/streamlit/pull/4801)).
-- 📱 The sidebar will close when users select a page from the navigation menu on mobile devices ([#4851](https://github.com/streamlit/streamlit/pull/4841)).
-- 🧠 `st.memo` supports dataclasses! ([#4850](https://github.com/streamlit/streamlit/pull/4850))
-- 🏎 Bug fix for a race condition that destroyed widget state with rapid interaction ([#4882](https://github.com/streamlit/streamlit/pull/4882)).
-- 🏓 `st.table` presents overflowing content to be scrollable when placed inside columns and expanders ([#4934](https://github.com/streamlit/streamlit/pull/4934)).
-- 🐍 Types: More updated type annotations across Streamlit! ([#4808](https://github.com/streamlit/streamlit/pull/4808), [#4809](https://github.com/streamlit/streamlit/pull/4809), [#4856](https://github.com/streamlit/streamlit/pull/4856))
 
 ## Older versions
 

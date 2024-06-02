@@ -26,7 +26,7 @@ df = pd.DataFrame(
 st.dataframe(df, use_container_width=True)
 ```
 
-<Cloud src="https://doc-dataframe-basic.streamlit.app/?embed=true" height="300px"/>
+<Cloud name="doc-dataframe-basic" height="300px"/>
 
 ## `st.dataframe` UI features
 
@@ -59,14 +59,13 @@ df = pd.DataFrame(
     ]
 )
 
-df = load_data()
 edited_df = st.data_editor(df) # 👈 An editable dataframe
 
 favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
 st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
 ```
 
-<Cloud src="https://doc-data-editor.streamlit.app/?embed=true" height="300px"/>
+<Cloud name="doc-data-editor" height="300px"/>
 
 Try it out by double-clicking on any cell. You'll notice you can edit all cell values. Try editing the values in the rating column and observe how the text output at the bottom changes:
 
@@ -94,7 +93,7 @@ edited_df = st.data_editor(df, num_rows="dynamic")
 - To add new rows, click the plus icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>add</i>) in the toolbar. Alternatively, click inside a shaded cell below the bottom row of the table.
 - To delete rows, select one or more rows using the checkboxes on the left. Click the delete icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>delete</i>) or press the `delete` key on your keyboard.
 
-<Cloud src="https://doc-data-editor-clipboard.streamlit.app/?embed=true" height="400px"/>
+<Cloud name="doc-data-editor-clipboard" height="400px"/>
 
 ### Copy and paste support
 
@@ -137,7 +136,7 @@ In this code snippet, the `key` parameter is set to `"my_key"`. After the data e
 
 This can be useful when working with large dataframes and you only need to know which cells have changed, rather than access the entire edited dataframe.
 
-<Cloud src="https://doc-data-editor-changed.streamlit.app/?embed=true" height="700px"/>
+<Cloud name="doc-data-editor-changed" height="700px"/>
 
 Use all we've learned so far and apply them to the above embedded app. Try editing cells, adding new rows, and deleting rows.
 
@@ -210,7 +209,7 @@ You can configure the display and editing behavior of columns in `st.dataframe` 
 
 Column configuration includes the following column types: Text, Number, Checkbox, Selectbox, Date, Time, Datetime, List, Link, Image, Line chart, Bar chart, and Progress. There is also a generic Column option. See the embedded app below to view these different column types. Each column type is individually previewed in the [Column configuration API](/develop/api-reference/data/st.column_config) documentation.
 
-<Cloud src="https://doc-column-config-overview.streamlit.app/?embed=true&embed_options=disable_scrolling" height="480"/>
+<Cloud name="doc-column-config-overview" query="embed_options=disable_scrolling" height="480px"/>
 
 ### Format values
 
@@ -246,7 +245,7 @@ if st.button('Get results'):
     st.write(result)
 ```
 
-<Cloud src="https://doc-column-config-empty.streamlit.app/?embed=true" height="300"/>
+<Cloud name="doc-column-config-empty" height="300px"/>
 
 ## Additional formatting options
 

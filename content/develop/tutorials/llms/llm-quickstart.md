@@ -11,7 +11,7 @@ In this tutorial, you will build a Streamlit LLM app that can generate text from
 
 _This tutorial is adapted from a blog post by Chanin Nantesanamat: [LangChain tutorial #1: Build an LLM-powered app in 18 lines of code](https://blog.streamlit.io/langchain-tutorial-1-build-an-llm-powered-app-in-18-lines-of-code/)._
 
-<Cloud src="https://doc-tutorial-llm-18-lines-of-code.streamlit.app/?embed=true" height="600" />
+<Cloud name="doc-tutorial-llm-18-lines-of-code" height="600px" />
 
 ## Objectives
 

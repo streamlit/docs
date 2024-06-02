@@ -192,6 +192,46 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/develop/api-reference/data/st.dataframe"
+              >
+                <i className="material-icons-sharp">table_chart</i>
+                <h4>Row and column selections</h4>
+                <p>
+                  Get row and column selections from users to make your
+                  dataframes even more interactive.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/charts/st.plotly_chart"
+              >
+                <i className="material-icons-sharp">query_stats</i>
+                <h4>Chart selections</h4>
+                <p>
+                  Make your charts more dynamic by using point selections in
+                  Plotly, Altair, and Vega-Lite charts.
+                </p>
+              </RefCard>
+              <RefCard size="third" href="/develop/api-reference/media/st.logo">
+                <i className="material-icons-sharp">diamond</i>
+                <h4>App logos</h4>
+                <p>
+                  Add a logo to your app with <code>st.logo</code>.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/widgets/st.page_link"
+              >
+                <i className="material-icons-sharp">info</i>
+                <h4>Google Material Symbols</h4>
+                <p>
+                  <code>st.page_link</code> now supports Material Symbols as a
+                  page icon.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="/develop/api-reference/execution-flow/st.dialog"
               >
                 <i className="material-icons-sharp">crop_7_5</i>
@@ -204,57 +244,12 @@ export default function Home({ window, menu }) {
               </RefCard>
               <RefCard
                 size="third"
-                href="https://fonts.google.com/icons?icon.set=Material+Symbols&icon.style=Outlined"
-              >
-                <i className="material-icons-sharp">info</i>
-                <h4>Google Material Symbols</h4>
-                <p>
-                  <code>st.toast</code>, <code>st.chat_message</code>, and alert
-                  messages now support Material Symbols for their icons.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
                 href="/develop/api-reference/text/st.markdown"
               >
                 <i className="material-icons-sharp">highlight</i>
                 <h4>Markdown support for text highlighting</h4>
                 <p>
                   You can set the background color for you text in markdown.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/media/st.video"
-              >
-                <i className="material-icons-sharp">videocam</i>
-                <h4>Media autoplay</h4>
-                <p>
-                  You can enable autoplay for <code>st.audio</code> and
-                  <code>st.video</code>. You can also mute videos.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/caching-and-state/st.cache_data#cachedfuncclear"
-              >
-                <i className="material-icons-sharp">cached</i>
-                <h4>Clear specific cached values</h4>
-                <p>
-                  When clearing cached values for a function, you can now pass
-                  function arguments to clear a specific cached value.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/caching-and-state/st.query_params#stquery_paramsfrom_dict"
-              >
-                <i className="material-icons-sharp">question_mark</i>
-                <h4>
-                  <code>st.query_params.from_dict()</code>
-                </h4>
-                <p>
-                  You can now set all query parameters with a single command.
                 </p>
               </RefCard>
               {/* <Tile

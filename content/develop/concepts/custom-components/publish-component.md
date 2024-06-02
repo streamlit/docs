@@ -36,7 +36,7 @@ The [component-template](https://github.com/streamlit/component-template) GitHub
 
    ```bash
    cd frontend
-   npm run export
+   npm run build
    ```
 
 5. Pass the build folder's path as the `path` parameter to `declare_component`. (If you're using the template Python file, you can set `_RELEASE = True` at the top of the file):

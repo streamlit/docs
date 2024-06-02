@@ -6,7 +6,13 @@ description: st.altair_chart displays a chart using the Altair library.
 
 <Autofunction function="streamlit.altair_chart" />
 
-### Theming
+## Chart selections
+
+<Autofunction function="VegaLiteState" />
+
+<Autofunction function="DeltaGenerator.add_rows" />
+
+## Theming
 
 Altair charts are displayed using the Streamlit theme by default. This theme is sleek, user-friendly, and incorporates Streamlit's color palette. The added benefit is that your charts better integrate with the rest of your app's design.
 
@@ -39,7 +45,7 @@ with tab2:
 
 Click the tabs in the interactive app below to see the charts with the Streamlit theme enabled and disabled.
 
-<Cloud src="https://doc-altair-chart.streamlit.app/?embed=true" height="500" />
+<Cloud name="doc-altair-chart" height="500px" />
 
 If you're wondering if your own customizations will still be taken into account, don't worry! You can still make changes to your chart configurations. In other words, although we now enable the Streamlit theme by default, you can overwrite it with custom colors or fonts. For example, if you want a chart line to be green instead of the default red, you can do it!
 
@@ -115,17 +121,17 @@ with tab2:
 
 Notice how the custom colors are still reflected in the chart, even when the Streamlit theme is enabled 👇
 
-<Cloud src="https://doc-altair-custom-colors.streamlit.app/?embed=true" height="675" />
+<Cloud name="doc-altair-custom-colors" height="675px" />
 
 For many more examples of Altair charts with and without the Streamlit theme, check out the [altair.streamlit.app](https://altair.streamlit.app).
 
-### Annotating charts
+## Annotating charts
 
 Altair also allows you to annotate your charts with text, images, and emojis. You can do this by creating [layered charts](https://altair-viz.github.io/user_guide/compound_charts.html#layered-charts), which let you overlay two different charts on top of each other. The idea is to use the first chart to show the data, and the second chart to show the annotations. The second chart can then be overlaid on top of the first chart using the `+` operator to create a layered chart.
 
 Let's walk through an example of annotating a time-series chart with text and an emoji.
 
-#### Step 1: Create the base chart
+### Step 1: Create the base chart
 
 In this example, we create a time-series chart to track the evolution of stock prices. The chart is interactive and contains a multi-line tooltip. Click [here](https://altair-viz.github.io/gallery/multiline_tooltip.html) to learn more about multi-line tooltips in Altair.
 
@@ -194,7 +200,7 @@ def get_chart(data):
 chart = get_chart(source)
 ```
 
-#### Step 2: Annotate the chart
+### Step 2: Annotate the chart
 
 Now that we have our first chart that shows the data, we can annotate it with text and an emoji. Let's overlay the ⬇ emoji on top of the time-series chart at specifc points of interest. We want users to hover over the ⬇ emoji to see the associated annotation text.
 
@@ -259,8 +265,8 @@ To use images instead of emojis, replace the line containing `.mark_text()` with
 )
 ```
 
-#### Interactive example
+### Interactive example
 
 Now that you've learned how to annotate charts, the sky's the limit! We've extended the above example to let you interactively paste your favorite emoji and set its position on the chart with Streamlit widgets. 👇
 
-<Cloud src="https://example-time-series-annotation.streamlit.app/?embed=true" height="700" />
+<Cloud name="example-time-series-annotation" height="700px" />

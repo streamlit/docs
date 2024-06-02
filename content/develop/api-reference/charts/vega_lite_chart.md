@@ -6,9 +6,13 @@ description: st.vega_lite_chart displays a chart using the Vega-Lite library.
 
 <Autofunction function="streamlit.vega_lite_chart" />
 
+## Chart selections
+
+<Autofunction function="VegaLiteState" />
+
 <Autofunction function="DeltaGenerator.add_rows" />
 
-### Theming
+## Theming
 
 Vega-Lite charts are displayed using the Streamlit theme by default. This theme is sleek, user-friendly, and incorporates Streamlit's color palette. The added benefit is that your charts better integrate with the rest of your app's design.
 
@@ -54,6 +58,6 @@ with tab2:
 
 Click the tabs in the interactive app below to see the charts with the Streamlit theme enabled and disabled.
 
-<Cloud src="https://doc-vega-lite-theme.streamlit.app/?embed=true" height="500" />
+<Cloud name="doc-vega-lite-theme" height="500px" />
 
 If you're wondering if your own customizations will still be taken into account, don't worry! You can still make changes to your chart configurations. In other words, although we now enable the Streamlit theme by default, you can overwrite it with custom colors or fonts. For example, if you want a chart line to be green instead of the default red, you can do it!

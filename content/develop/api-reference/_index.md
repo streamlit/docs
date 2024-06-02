@@ -1223,6 +1223,19 @@ st.image("https://example.com/myimage.jpg")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/media/st.logo">
+
+<Image pure alt="screenshot" src="/images/api/logo.jpg" />
+
+<h4>Logo</h4>
+
+Display a logo in the upper-left corner of your app and its sidebar.
+
+```python
+st.logo("logo.jpg")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/media/st.audio">
 
 <Image pure alt="screenshot" src="/images/api/audio.jpg" />
@@ -1402,7 +1415,7 @@ c.write("This will show second")
 Insert a modal dialog that can rerun independently from the rest of the script.
 
 ```python
-@st.experimental_dialog()
+@st.experimental_dialog("Sign up")
 def email_form():
     name = st.text_input("Name")
     email = st.text_input("Email")
@@ -1875,7 +1888,7 @@ st.page_link("pages/profile.py", label="My profile")
 Insert a modal dialog that can rerun independently from the rest of the script.
 
 ```python
-@st.experimental_dialog()
+@st.experimental_dialog("Sign up")
 def email_form():
     name = st.text_input("Name")
     email = st.text_input("Email")
