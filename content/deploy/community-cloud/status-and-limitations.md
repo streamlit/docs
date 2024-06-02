@@ -11,11 +11,15 @@ You can view the current status of Community Cloud at [streamlitstatus.com](http
 
 ## Known issues and limitations
 
-### GitHub OAuth Scope
+### GitHub OAuth scope
 
 In order to deploy your app, Streamlit requires access to your app's source code in GitHub and also the ability to manage the public keys associated with your repositories. The default GitHub OAuth scopes are sufficient to work with apps in public GitHub repositories. However, to access your private repositories, we create a read-only [GitHub Deploy Key](https://docs.github.com/en/free-pro-team@latest/developers/overview/managing-deploy-keys#deploy-keys) then access your repo using a public SSH key. When we create this key, GitHub notifies repo admins of the creation as a security measure.
 
 Streamlit requires the additional `repo` OAuth scope from GitHub to work with your private repos and manage deploy keys. We recognize that the `repo` scope provides Streamlit with extra permissions that we do not really need, and which, as people who prize security, we'd rather not even be granted. Alas, we need to work with the APIs we are provided by GitHub.
+
+### Developer permissions
+
+Because of the OAuth limitations noted above, a developer must have administrative permissions to a repository to deploy apps from it.
 
 ### Python environments
 
