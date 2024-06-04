@@ -583,6 +583,12 @@ site_menu:
   - category: Develop / API reference / Configuration / config.toml
     url: /develop/api-reference/configuration/config.toml
     isVersioned: true
+  - category: Develop / API reference / Configuration / st.get_option
+    url: /develop/api-reference/configuration/st.get_option
+    isVersioned: true
+  - category: Develop / API reference / Configuration / st.set_option
+    url: /develop/api-reference/configuration/st.set_option
+    isVersioned: true
   - category: Develop / API reference / Configuration / st.set_page_config
     url: /develop/api-reference/configuration/st.set_page_config
     isVersioned: true
