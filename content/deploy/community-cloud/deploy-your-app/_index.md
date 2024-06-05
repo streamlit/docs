@@ -35,9 +35,17 @@ your-repository/
 └── requirements.txt
 ```
 
+Additionally, any files that need to be locally available to your app should be included in your repo.
+
+<Tip>
+
+If you have really big or binary data that you change frequently, and git is feeling slow, you might want to check out [Git Large File Store (LFS)](https://git-lfs.github.com/) as a better way to store large files in GitHub. You don't need to make any changes to your app to start using it. If your GitHub repo uses LFS, it will _just work_ with Streamlit Community Cloud.
+
+</Tip>
+
 <Important>
 
-Although you can deploy multiple apps from the same repository, there can be only one configuration file.
+Although you can deploy multiple apps from the same repository, there can be only one configuration file. This configuration file must be in a `.streamlit` directory in the root of your repository.
 
 </Important>
 
@@ -52,6 +60,8 @@ Although you can deploy multiple apps from the same repository, there can be onl
    An app URL with a random hash is prefilled but you can change this to a custom subdomain instead. In the example below, the app would be deployed to `https://red-balloon.streamlit.app/`. You can always change your subdomain later. See more about [Custom subdomains](#custom-subdomains) at the end of this page.
 
    ![Fill in your app's information to deploy your app](/images/streamlit-community-cloud/deploy-an-app.png)
+
+   While Community Cloud attempts to suggest available repos and files, these suggestions are not always complete. If you do not see the desired information populating a drop-down list in each field, type it in manually.
 
 ## Advanced settings for deployment
 
