@@ -24,7 +24,7 @@ Because of the OAuth limitations noted above, a developer must have administrati
 You can deploy multiple apps from your repository, and your entrypoint file(s) may be anywhere in your directory structure. However, Community Cloud initializes all apps from the root of your repository, even if the entrypoint file is in a subdirectory. This has the following consequences:
 
 - Community Cloud only recognizes one `.streamlit/configuration.toml` file at the root (of each branch) of your repository.
-- You must declare image, video, and audio file paths for Streamlit commands relative to the root of your repository. For example, `st.image`, `st.logo`, and the `page_icon` parameter in `st.set_page_config` expect file locations relative to your working directory when you execute `streamlit run`.
+- You must declare image, video, and audio file paths for Streamlit commands relative to the root of your repository. For example, `st.image`, `st.logo`, and the `page_icon` parameter in `st.set_page_config` expect file locations relative to your working directory (i.e. where you execute `streamlit run`).
 
 ## Python environments
 
@@ -36,3 +36,4 @@ You can deploy multiple apps from your repository, and your entrypoint file(s) m
 
 - When you print something to the Cloud logs, you may need to do a `sys.stdout.flush()` before it shows up.
 - Community Cloud hosts all apps in the United States. This is currently not configurable.
+- Community Cloud is built on Debian Linux. All file paths must use forward-slash path separators.
