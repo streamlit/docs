@@ -42,9 +42,8 @@ streamlit config show
 [global]
 
 # ***DEPRECATED***
-# global.disableWatchdogWarning has been deprecated has been deprecated and
-# will be removed in a future version. This option will be removed on or after
-# 2024-01-20.
+# global.disableWatchdogWarning has been deprecated and will be removed in a
+# future version. This option will be removed on or after 2024-01-20.
 # ****************
 # By default, Streamlit checks if the Python watchdog module is available
 # and, if not, prints a warning asking for you to install it. The watchdog
