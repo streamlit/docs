@@ -104,7 +104,7 @@ widgets to switch pages.
 
 If a user tries to access a URL for a page that does not exist, they will see a modal like the one below, saying the user has requested a page that was not found in the app’s `pages/` directory.
 
-<Image src="/images/mpa-page-not-found.png" />
+<Image alt="Page not found error" src="/images/mpa-page-not-found.png" />
 
 ## Notes and limitations
 
