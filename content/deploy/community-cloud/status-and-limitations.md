@@ -32,6 +32,25 @@ You can deploy multiple apps from your repository, and your entrypoint file(s) m
 - If you pin `streamlit< 1.20.0`, you must also pin `altair<5`. Earlier versions of Streamlit did not correctly restrict Altair's version. A workaround script running on Community Cloud will forcibly install `altair<5` if a newer version is detected. This could unintentionally upgrade Altair's dependencies in violation of your environment configuration. Newer versions of Streamlit support Altair version 5.
 - Community Cloud only supports released versions of Python that are still receiving security updates. You may not use end-of-life, prerelease, or feature versions of Python. For more information, see [Status of Python versions](https://devguide.python.org/versions/).
 
+## Configuration
+
+The following configuration options are set within Community Cloud and will override any contrary setting in your `config.toml` file:
+
+```toml
+[client]
+showErrorDetails = false
+
+[runner]
+fastReruns = true
+
+[server]
+runOnSave = true
+enableXsrfProtection = true
+
+[browser]
+gatherUsageStats = true
+```
+
 ## Other limitations
 
 - When you print something to the Cloud logs, you may need to do a `sys.stdout.flush()` before it shows up.
