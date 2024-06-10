@@ -7,11 +7,11 @@ slug: /develop/tutorials/elements/dataframe-row-selections
 
 Streamlit offers two commands for rendering beautiful, interactive dataframes in your app. If you need users to edit data, add rows, or delete rows, use `st.data_editor`. If you don't want users to change the data in your dataframe, use `st.dataframe`. Users can sort and search through data rendered with `st.dataframe`. Additionally, you can activate selections to work with users' row and column selections.
 
-This tutorial uses row selections which were introduced in Streamlit version 1.35.0. For an older workaround using `st.data_editor`, see [Get dataframe row-selections (`streamlit<1.35.0`)](/develop/tutorials/elements/dataframe-row-selections-old).
+This tutorial uses row selections, which were introduced in Streamlit version 1.35.0. For an older workaround using `st.data_editor`, see [Get dataframe row-selections (`streamlit<1.35.0`)](/develop/tutorials/elements/dataframe-row-selections-old).
 
 ## Applied concepts
 
-- Use dataframe row-selections to filter a dataframe.
+- Use dataframe row selections to filter a dataframe.
 
 ## Prerequisites
 
@@ -202,9 +202,9 @@ To begin with, you'll define a function to randomly generate some member data. I
    def get_profile_dataset(number_of_items: int = 20, seed: int = 0) -> pd.DataFrame:
    ```
 
-   The `@st.cache_data` decorator turns `get_profile_dataset()` into a cached function. Streamlit saves the output of a cached functions to reuse when the cached function is called again with the same inputs. This keeps you app performant when rerunning as part Streamlit's execution model. For more information, see [Caching](/develop/concepts/architecture/caching).
+   The `@st.cache_data` decorator turns `get_profile_dataset()` into a cached function. Streamlit saves the output of a cached function to reuse when the cached function is called again with the same inputs. This keeps your app performant when rerunning as part of Streamlit's execution model. For more information, see [Caching](/develop/concepts/architecture/caching).
 
-   The `get_profile_dataset` function has two parameters to configure the size of the data set and the seed for random generation. This example will use the default values (20 members in the set with a seed of 0). The funtion will return a `pandas.DataFrame`.
+   The `get_profile_dataset` function has two parameters to configure the size of the data set and the seed for random generation. This example will use the default values (20 members in the set with a seed of 0). The function will return a `pandas.DataFrame`.
 
 1. Initialize an empty list to store data.
 
@@ -291,7 +291,7 @@ To begin with, you'll define a function to randomly generate some member data. I
    df = get_profile_dataset()
    ```
 
-1. Display your dataframe with selection activated.
+1. Display your dataframe with selections activated.
 
    ```python
    event = st.dataframe(
@@ -308,7 +308,7 @@ To begin with, you'll define a function to randomly generate some member data. I
 
 ### Display the selected data
 
-1. Insert a header to identify subset of data you will display.
+1. Insert a header to identify the subset of data you will display.
 
    ```python
    st.header("Selected members")
@@ -335,7 +335,7 @@ To begin with, you'll define a function to randomly generate some member data. I
 
    For consistency, reuse the existing column configuration.
 
-1. (Optional) Save your file and test it out. Try selecting some rows in your app then return to your code.
+1. (Optional) Save your file and test it out. Try selecting some rows in your app, and then return to your code.
 
 ### Combine activity data for the selected rows
 
@@ -345,7 +345,7 @@ To begin with, you'll define a function to randomly generate some member data. I
    activity_df = {}
    ```
 
-1. Iterate through selected rows and save each members' activity in the dictionary indexed by their name.
+1. Iterate through selected rows and save each member's activity in the dictionary indexed by their name.
 
    ```python
    for person in people:
@@ -384,7 +384,7 @@ To begin with, you'll define a function to randomly generate some member data. I
    if len(people) > 0:
    ```
 
-   Since no members are selected when the app loads, this check will prevent displaying empty charts.
+   Since no members are selected when the app loads, this check will prevent empty charts from being displayed.
 
 1. Add a header to identify your first chart.
 
@@ -398,7 +398,7 @@ To begin with, you'll define a function to randomly generate some member data. I
        st.bar_chart(daily_activity_df)
    ```
 
-1. Similarly for yearly activity, add a header and line chart.
+1. Similarly, for yearly activity, add a header and line chart.
 
    ```python
        st.header("Yearly activity comparison")
@@ -422,7 +422,7 @@ You should have a functioning app at this point. Now you can beautify it. In thi
    select, compare = st.tabs(["Select members", "Compare selected"])
    ```
 
-1. Indent the code following the line in the previous step and group into the two new tabs.
+1. Indent the code following the line in the previous step and group it into the two new tabs.
 
    ```python
    with select: # Add select tab #############################################
