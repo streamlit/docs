@@ -1,6 +1,6 @@
 ---
 title: Release notes
-slug: /develop/quick-reference/changelog
+slug: /develop/quick-reference/release-notes
 description: A changelog of highlights and fixes for each version of Streamlit.
 keywords: changelog, release notes, version history
 ---
