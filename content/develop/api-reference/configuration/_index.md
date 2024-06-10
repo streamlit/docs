@@ -20,6 +20,28 @@ your-project/
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/configuration/st.get_option">
+
+<h4>Get config option</h4>
+
+Retrieve a single configuration option.
+
+```python
+st.get_option("theme.primaryColor")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/configuration/st.set_option">
+
+<h4>Set config option</h4>
+
+Set a single configuration option. (This is very limited.)
+
+```python
+st.set_option("deprecation.showPyplotGlobalUse", False)
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/configuration/st.set_page_config">
 
 <h4>Set page title, favicon, and more</h4>
