@@ -1,5 +1,5 @@
 .ListContainer {
-  @apply absolute right-0 top-0 h-full w-56 z-10 hidden;
+  @apply absolute right-0 top-0 h-full w-56 z-10 hidden 3xl:w-64;
 }
 
 .List {
@@ -27,7 +27,7 @@
 
 /* Styles for the active item on the floating nav */
 .Link {
-  @apply border-none inline-block pr-2 w-40 leading-4 hover:opacity-70 hover:no-underline;
+  @apply border-none inline-block pr-2 w-40 leading-4 hover:opacity-70 hover:no-underline 3xl:w-48;
   @apply text-gray-70 !important;
 }
 
