@@ -17,7 +17,7 @@
 }
 
 :global(.dark) .Link {
-  @apply text-gray-50 !important;
+  @apply text-gray-70 !important;
 }
 
 .Separator {
