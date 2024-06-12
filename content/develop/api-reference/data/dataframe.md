@@ -6,9 +6,7 @@ description: st.dataframe displays a dataframe as an interactive table.
 
 <Tip>
 
-`st.dataframe` is an interactive element that users can sort and resize. Additionally, it can return row and column selections from users. Check out our tutorial, [Get dataframe row-selections from users](/develop/tutorials/elements/dataframe-row-selections).
-
-If you want to let users interactively edit dataframes, check out [`st.data_editor`](/develop/api-reference/data/st.data_editor).
+Learn more in our [Dataframes](/develop/concepts/design/dataframes) guide and check out our tutorial, [Get dataframe row-selections from users](/develop/tutorials/elements/dataframe-row-selections).
 
 </Tip>
 
