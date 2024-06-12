@@ -6,7 +6,7 @@ description: st.dataframe displays a dataframe as an interactive table.
 
 <Tip>
 
-This page only contains information on the `st.dataframe` API. For an overview of working with dataframes read [Dataframes](/develop/concepts/design/dataframes). If you want to let users interactively edit dataframes, check out [`st.data_editor`](/develop/api-reference/data/st.data_editor).
+Learn more in our [Dataframes](/develop/concepts/design/dataframes) guide and check out our tutorial, [Get dataframe row-selections from users](/develop/tutorials/elements/dataframe-row-selections).
 
 </Tip>
 

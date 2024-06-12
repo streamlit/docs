@@ -13,10 +13,13 @@ Streamlit lets you turn functions into [fragments](/develop/concepts/architectur
 
 ## Prerequisites
 
-**`streamlit>=1.33.0`**
+- The following must be installed in your Python environment:
 
-- This tutorial uses fragments, which require Streamlit version 1.33.0 or later.
-- This tutorial assumes you have a clean working directory called `your-repository`.
+  ```text
+  streamlit>=1.33.0
+  ```
+
+- You should have a clean working directory called `your-repository`.
 - You should have a basic understanding of fragments and `st.rerun`.
 
 ## Summary
@@ -528,6 +531,6 @@ Now, you have a functioning app that uses a fragment to prevent unnecessarily re
 
    The first container creates space to coordinate with the input widget in the `show_daily_sales` function.
 
-### Next steps
+## Next steps
 
 Continue beautifying the example. Try using [`st.plotly_chart`](/develop/api-reference/charts/st.plotly_chart) or [`st.altair_chart`](/develop/api-reference/charts/st.altair_chart) to add labels to your charts and adjust their height.
