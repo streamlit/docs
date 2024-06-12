@@ -15,7 +15,6 @@ Here are some frequently asked questions about using Streamlit. If you feel some
 - [How to remove "· Streamlit" from the app title?](/knowledge-base/using-streamlit/remove-streamlit-app-title)
 - [How to download a file in Streamlit?](/knowledge-base/using-streamlit/how-download-file-streamlit)
 - [How to download a Pandas DataFrame as a CSV?](/knowledge-base/using-streamlit/how-download-pandas-dataframe-csv)
-- [How do I get dataframe row-selections from a user?](/knowledge-base/using-streamlit/how-to-get-row-selections)
 - [How can I make `st.pydeck_chart` use custom Mapbox styles?](/knowledge-base/using-streamlit/pydeck-chart-custom-mapbox-styles)
 - [How to insert elements out of order?](/knowledge-base/using-streamlit/insert-elements-out-of-order)
 - [How do I upgrade to the latest version of Streamlit?](/knowledge-base/using-streamlit/how-upgrade-latest-version-streamlit)
