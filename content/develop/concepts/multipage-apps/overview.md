@@ -26,7 +26,7 @@ your_working_directory/
 └── your_homepage.py
 ```
 
-If you want to customize your navigation menu with this option, you can deactivate the default navigation through configuration. Then, you can manually contruct a custom navigation menu with `st.page_link`. With `st.page_link` you can change the page label and icon in your navigation menu, but you can't change the URLs of your pages.
+Streamlit determines the page order in navigation from the filenames. You can use numerical prefixes in the filenames to adjust page order. For more information, see [How pages are sorted in the sidebar](/develop/concepts/multipage-apps/pages-directory#how-pages-are-sorted-in-the-sidebar). If you want to customize your navigation menu with this option, you can deactivate the default navigation through [configuration](/develop/api-reference/configuration/config.toml) (`client.showSidebarNavigation = false`). Then, you can use `st.page_link` to manually contruct a custom navigation menu. With `st.page_link`, you can change the page label and icon in your navigation menu, but you can't change the URLs of your pages.
 
 ## Page terminology
 
@@ -85,11 +85,11 @@ The following filenames and callables would all display as "Awesome page" in the
 
 Your app's homepage is associated to the root URL of app. For all other pages, their `identifier` or `number` becomes their URL pathname as follows:
 
-- If your page has an `identifier` that came from a filename, Streamlit uses the `identifier` with two modifications. Streamlit condenses each consecutive grouping of spaces (`" "`) and underscores (`"_"`) to a single underscore. Additionally, Streamlit converts all characters to lowercase.
+- If your page has an `identifier` that came from a filename, Streamlit uses the `identifier` with one modification. Streamlit condenses each consecutive grouping of spaces (`" "`) and underscores (`"_"`) to a single underscore.
 - Otherwise, if your page has an `identifier` that came from the name of a callable, Streamlit uses the `identifier` unmodified.
 - Otherwise, if your page has a `number` but does not have an `identifier`, Streamlit uses the `number`. Leading zeros are included, if present.
 
-For each filename in the list above, the URL pathname would be "Awesome_page" relative to the root URL of the app. For example, if your app was running on `localhost` port `8501`, the full URL would be `localhost:8501/Awesome_page`. For the last two callables, however, the pathname wound include the leading and trailing underscores to match the callable name exactly.
+For each filename in the list above, the URL pathname would be "Awesome_page" relative to the root URL of the app. For example, if your app was running on `localhost` port `8501`, the full URL would be `localhost:8501/awesome_page`. For the last two callables, however, the pathname wound include the leading and trailing underscores to match the callable name exactly.
 
 <Important>
     Navigating between pages by URL creates a new browser session. In particular, clicking markdown links to other pages resets ``st.session_state``. In order to retain values in ``st.session_state``, handle page switching through Streamlit navigation commands and widgets, like ``st.navigation``, ``st.switch_page``, ``st.page_link``, and the built-in navigation menu.

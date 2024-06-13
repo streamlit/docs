@@ -1,5 +1,5 @@
 ---
-title: st.page
+title: st.Page
 slug: /develop/api-reference/navigation/st.page
 description: st.Page initializes a StreamlitPage object for multipage apps
 ---
