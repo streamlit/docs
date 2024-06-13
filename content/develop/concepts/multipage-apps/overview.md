@@ -89,7 +89,7 @@ Your app's homepage is associated to the root URL of app. For all other pages, t
 - Otherwise, if your page has an `identifier` that came from the name of a callable, Streamlit uses the `identifier` unmodified.
 - Otherwise, if your page has a `number` but does not have an `identifier`, Streamlit uses the `number`. Leading zeros are included, if present.
 
-For each filename in the list above, the URL pathname would be "Awesome_page" relative to the root URL of the app. For example, if your app was running on `localhost` port `8501`, the full URL would be `localhost:8501/awesome_page`. For the last two callables, however, the pathname wound include the leading and trailing underscores to match the callable name exactly.
+For each filename in the list above, the URL pathname would be "Awesome_page" relative to the root URL of the app. For example, if your app was running on `localhost` port `8501`, the full URL would be `localhost:8501/awesome_page`. For the last two callables, however, the pathname would include the leading and trailing underscores to match the callable name exactly.
 
 <Important>
     Navigating between pages by URL creates a new browser session. In particular, clicking markdown links to other pages resets ``st.session_state``. In order to retain values in ``st.session_state``, handle page switching through Streamlit navigation commands and widgets, like ``st.navigation``, ``st.switch_page``, ``st.page_link``, and the built-in navigation menu.
