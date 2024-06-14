@@ -312,15 +312,15 @@ const Autofunction = ({
     footers.push({ title: "Warning", body: functionObject.warning });
   }
 
-  // propertiesRows is initialized early to allow Attributes (recorded as args)
-  // in any class docstring to be diverted to the properties section.
+  // propertiesRows is initialized early to allow "Parameters" in any class
+  // docstring to be diverted to the properties section. Docstring parsing
+  // needs modification to first recognize "Attributes" or "Properites" then
+  // parse their contents.
   let propertiesRows = [];
-  let docstringProperties = []; // Used to avoid duplicates with @property
 
   for (const index in functionObject.args) {
     const row = {};
     const param = functionObject.args[index];
-    docstringProperties.push(param.name);
     const isDeprecated =
       param.deprecated && param.deprecated.deprecated === true;
     const deprecatedMarkup = isDeprecated
@@ -420,10 +420,6 @@ const Autofunction = ({
   for (const index in properties) {
     const row = {};
     const property = properties[index];
-    // If attribute is in class docstring don't also show the same @property.
-    if (docstringProperties.includes(property.name)) {
-      continue;
-    }
     const slicedSlug = slug.slice().join("/");
     const hrefName = `${functionObject.name}.${property.name}`
       .toLowerCase()
