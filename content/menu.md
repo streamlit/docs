@@ -65,7 +65,9 @@ site_menu:
     url: /develop/concepts/architecture/widget-behavior
   - category: Develop / Concepts / Multipage apps
     url: /develop/concepts/multipage-apps
-  - category: Develop / Concepts / Multipage apps / Pages directory (v1)
+  - category: Develop / Concepts / Multipage apps / Overview
+    url: /develop/concepts/multipage-apps/overview
+  - category: Develop / Concepts / Multipage apps / Pages directory
     url: /develop/concepts/multipage-apps/pages-directory
   - category: Develop / Concepts / App design
     url: /develop/concepts/design
@@ -452,6 +454,12 @@ site_menu:
   - category: Develop / API reference / APPLICATION LOGIC
   - category: Develop / API reference / Navigation and pages
     url: /develop/api-reference/navigation
+  - category: Develop / API reference / Navigation and pages / st.navigation
+    url: /develop/api-reference/navigation/st.navigation
+    isVersioned: true
+  - category: Develop / API reference / Navigation and pages / st.Page
+    url: /develop/api-reference/navigation/st.page
+    isVersioned: true
   - category: Develop / API reference / Navigation and pages / st.page_link
     url: https://docs.streamlit.io/develop/api-reference/widgets/st.page_link
     isVersioned: true
