@@ -5,7 +5,7 @@ slug: /develop/api-reference/custom-components/st.components.v1.html
 
 <Autofunction function="streamlit.components.v1.html" />
 
-#### Example
+The following example uses `components.html` and Bootstrap to render a collapsilbe group.
 
 ```python
 import streamlit as st
