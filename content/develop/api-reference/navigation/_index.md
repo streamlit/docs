@@ -7,6 +7,42 @@ slug: /develop/api-reference/navigation
 
 <TileContainer>
 
+<RefCard href="/develop/api-reference/widgets/st.navigation">
+
+<Image pure alt="screenshot" src="/images/api/navigation.jpg" />
+
+<h4>Navigation</h4>
+
+Display a navigation widget in the sidebar.
+
+```python
+st.navigation({
+    "Your account" : [log_out, settings],
+    "Reports" : [overview, usage],
+    "Tools" : [search]
+})
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/widgets/st.page">
+
+<Image pure alt="screenshot" src="/images/api/page.jpg" />
+
+<h4>Page</h4>
+
+Define a page in a multipage app.
+
+```python
+home = st.Page(
+    "home.py",
+    title="Home",
+    icon=":material/home:"
+)
+```
+
+</RefCard>
+
 <RefCard href="/develop/api-reference/widgets/st.page_link">
 
 <Image pure alt="screenshot" src="/images/api/page_link.jpg" />
