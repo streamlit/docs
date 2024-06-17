@@ -49,12 +49,6 @@ site_menu:
     url: /develop/concepts/architecture/app-chrome
   - category: Develop / Concepts / Architecture & execution / Caching
     url: /develop/concepts/architecture/caching
-  - category: Develop / Concepts / Architecture & execution / Optimize performance with st.cache
-    url: /develop/concepts/architecture/st.cache
-    visible: false
-  - category: Develop / Concepts / Architecture & execution / Experimental cache primitives
-    url: /develop/concepts/architecture/experimental-cache-primitives
-    visible: false
   - category: Develop / Concepts / Architecture & execution / Session State
     url: /develop/concepts/architecture/session-state
   - category: Develop / Concepts / Architecture & execution / Forms
@@ -499,10 +493,6 @@ site_menu:
   - category: Develop / API reference / Caching and state / st.cache_resource
     url: /develop/api-reference/caching-and-state/st.cache_resource
     isVersioned: true
-  - category: Develop / API reference / Caching and state / st.cache
-    url: /develop/api-reference/caching-and-state/st.cache
-    isVersioned: true
-    isDeprecated: true
   - category: Develop / API reference / Caching and state / st.experimental_memo
     url: /develop/api-reference/caching-and-state/st.experimental_memo
     isVersioned: true
