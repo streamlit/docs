@@ -192,65 +192,65 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/develop/api-reference/data/st.dataframe"
+                href="/develop/concepts/multipage-apps/overview"
               >
-                <i className="material-icons-sharp">table_chart</i>
-                <h4>Row and column selections</h4>
+                <i className="material-icons-sharp">auto_stories</i>
+                <h4>Multipage apps v2</h4>
                 <p>
-                  Get row and column selections from users to make your
-                  dataframes even more interactive.
+                  Introducing <code>st.navigation</code> and{" "}
+                  <code>st.Page</code>, the new, preferred way to declare
+                  multipage apps!
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/charts/st.plotly_chart"
+                href="/develop/api-reference/charts/st.bar_chart"
               >
-                <i className="material-icons-sharp">query_stats</i>
-                <h4>Chart selections</h4>
+                <i className="material-icons-sharp">align_horizontal_left</i>
+                <h4>Horizontal bar charts</h4>
                 <p>
-                  Make your charts more dynamic by using point selections in
-                  Plotly, Altair, and Vega-Lite charts.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/develop/api-reference/media/st.logo">
-                <i className="material-icons-sharp">diamond</i>
-                <h4>App logos</h4>
-                <p>
-                  Add a logo to your app with <code>st.logo</code>.
+                  Create horizontal bar charts with <code>st.bar_chart</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/widgets/st.page_link"
+                href="/develop/api-reference/layout/st.expander"
               >
                 <i className="material-icons-sharp">info</i>
-                <h4>Google Material Symbols</h4>
+                <h4>Icons for expanders</h4>
                 <p>
-                  <code>st.page_link</code> now supports Material Symbols as a
-                  page icon.
+                  Add icons to your <code>st.expander</code> labels.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/execution-flow/st.dialog"
+                href="/develop/api-reference/layout/st.columns"
               >
-                <i className="material-icons-sharp">crop_7_5</i>
-                <h4>Modal dialogs</h4>
+                <i className="material-icons-sharp">align_vertical_bottom</i>
+                <h4>Vertical alignment</h4>
                 <p>
-                  Introducing <code>st.experimental_dialog</code> to create
-                  modal dialogs that can rerun independently from the rest of
-                  your app.
+                  Set the vertical alignment for <code>st.columns</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/text/st.markdown"
+                href="/develop/api-reference/charts/st.line_chart"
               >
-                <i className="material-icons-sharp">highlight</i>
-                <h4>Markdown support for text highlighting</h4>
+                <i className="material-icons-sharp">show_chart</i>
+                <h4>Axis labels</h4>
                 <p>
-                  You can set the background color for you text in markdown.
+                  <code>st.area_chart</code>, <code>st.bar_chart</code>,{" "}
+                  <code>st.line_chart</code>, and <code>st.scatter_chart</code>{" "}
+                  let you set axis labels.
                 </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="https://github.com/streamlit/streamlit/pull/8633"
+              >
+                <i className="material-icons-sharp">call</i>
+                <h4>Custom component callbacks</h4>
+                <p>Custom components now support callback functions.</p>
               </RefCard>
               {/* <Tile
                 size="half"
