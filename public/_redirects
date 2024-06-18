@@ -1133,6 +1133,9 @@
 /knowledge-base/components/not-possibe-streamlit-components /develop/concepts/custom-components/limitations
 /deploy/streamlit-community-cloud/troubleshooting /deploy/streamlit-community-cloud/status
 /knowledge-base/using-streamlit/how-to-get-row-selections /develop/tutorials/elements/dataframe-row-selections
+/develop/concepts/architecture/st.cache /develop/concepts/architecture/caching
+/develop/concepts/architecture/experimental-cache-primitives /develop/concepts/architecture/caching
+/develop/api-reference/caching-and-state/st.cache /develop/api-reference/caching-and-state/st.cache_data
 
 # Deep links included in streamlit/streamlit source code
 /st.connections.snowflakeconnection-configuration /develop/api-reference/connections/st.connections.snowflakeconnection#configuration
