@@ -15,7 +15,7 @@ import pandas as pd
 
 df = pd.read_csv("dir/file.csv")
 
-@st.experimental_memo
+@st.cache_data
 def convert_df(df):
    return df.to_csv(index=False).encode('utf-8')
 
