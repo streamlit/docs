@@ -65,6 +65,8 @@ site_menu:
     url: /develop/concepts/multipage-apps/page-and-navigation
   - category: Develop / Concepts / Multipage apps / Pages directory
     url: /develop/concepts/multipage-apps/pages-directory
+  - category: Develop / Concepts / Multipage apps / Working with widgets
+    url: /develop/concepts/multipage-apps/widgets
   - category: Develop / Concepts / App design
     url: /develop/concepts/design
   - category: Develop / Concepts / App design / Animate & update elements
