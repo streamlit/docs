@@ -7,13 +7,13 @@ slug: /develop/api-reference/navigation
 
 <TileContainer>
 
-<RefCard href="/develop/api-reference/widgets/st.navigation">
+<RefCard href="/develop/api-reference/navigation/st.navigation">
 
 <Image pure alt="screenshot" src="/images/api/navigation.jpg" />
 
 <h4>Navigation</h4>
 
-Display a navigation widget in the sidebar.
+Configure the available pages in a multipage app.
 
 ```python
 st.navigation({
@@ -25,7 +25,7 @@ st.navigation({
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/widgets/st.page">
+<RefCard href="/develop/api-reference/navigation/st.page">
 
 <Image pure alt="screenshot" src="/images/api/page.jpg" />
 

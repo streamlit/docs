@@ -146,5 +146,5 @@ Caching saves you from unnecessarily running a piece of your app while the rest 
 - Fragments can't detect a change in input values. It is best to use Session State for dynamic input and output for fragment functions.
 - Calling fragments within fragments is unsupported.
 - Using caching and fragments on the same function is unsupported.
-- Using fragments in within callback functions is unsupported.
+- Using fragments within callback functions is unsupported.
 - Fragments can't render widgets in externally-created containers; widgets can only be in the main body of a fragment.
