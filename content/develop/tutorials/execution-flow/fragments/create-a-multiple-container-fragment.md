@@ -142,7 +142,7 @@ with st.sidebar:
    def black_cats():
        time.sleep(1)
        st.title("🐈‍⬛ 🐈‍⬛")
-   st.markdown("🐾 🐾 🐾 🐾")
+       st.markdown("🐾 🐾 🐾 🐾")
    ```
 
    This function represents "herding two cats" and uses `time.sleep()` to simulate a slower process. You will use this to draw two cats in one of your grid cards later on.
@@ -153,7 +153,7 @@ with st.sidebar:
    def orange_cats():
        time.sleep(1)
        st.title("🐈 🐈")
-   st.markdown("🐾 🐾 🐾 🐾")
+       st.markdown("🐾 🐾 🐾 🐾")
    ```
 
 1. (Optional) Test out your functions by calling each one within a grid card.
