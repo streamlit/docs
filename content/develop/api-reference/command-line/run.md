@@ -13,7 +13,7 @@ streamlit run <entrypoint file> [-- config options] [script args]
 
 ### Arguments
 
-`<entrypoint file>`: The path to your entrypoint file for your Streamlit app. In a multipgae app with `st.navigation`, your entrypoint file acts as a router between your pages. Otherwise, your engtypoint file is your app's homepage.
+`<entrypoint file>`: The path to your entrypoint file for your Streamlit app. In a multipage app with `st.navigation`, your entrypoint file acts as a router between your pages. Otherwise, your entrypoint file is your app's homepage.
 
 ### Options
 
