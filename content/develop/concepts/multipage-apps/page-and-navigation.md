@@ -144,4 +144,6 @@ pg.run()
 
 If you want more control over your navigation menu, you can hide the default navigation and build your own. If you want a page to available to a user without showing it in the navigation menu, you must use this method. A user can't be routed to a page if the page isn't included in `st.navigation`. This applies to navigationg by URL as well as functions like `st.switch_page` and `st.page_link`.
 
-<!-- Insert link to updated tutorial -->
+{/**
+Insert link to updated tutorial
+**/}
