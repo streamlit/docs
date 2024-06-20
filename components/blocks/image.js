@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 import styles from "./image.module.css";
 
-const Image = ({ caption, pure, src, alt, clean }) => {
+const Image = ({ caption, pure, src, alt, clean, frame }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -13,6 +13,8 @@ const Image = ({ caption, pure, src, alt, clean }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
+
+  const borderStyle = frame ? styles.ImageBorder : "";
 
   useEffect(() => {
     const handleEsc = (event) => {
@@ -46,7 +48,7 @@ const Image = ({ caption, pure, src, alt, clean }) => {
             onClick={openModal}
             src={src}
             alt={alt}
-            className={classNames(captionClass, styles.Image)}
+            className={classNames(captionClass, styles.Image, borderStyle)}
           />
           {customCaption}
         </section>
@@ -78,7 +80,7 @@ const Image = ({ caption, pure, src, alt, clean }) => {
         <section className={styles.InnerContainer}>
           <img
             onClick={openModal}
-            className={classNames(captionClass, styles.Image)}
+            className={classNames(captionClass, styles.Image, borderStyle)}
             src={src}
             alt={alt}
           />
