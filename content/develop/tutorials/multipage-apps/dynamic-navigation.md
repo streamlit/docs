@@ -28,9 +28,9 @@ This tutorial uses `st.navigation` and `st.Page`, which were introduced in Strea
 
 ## Summary
 
-In this example, we'll build a dynamic navigation menu for a multipage app that depends on the current user's role. You'll abstract away the use of username and creditials to simplify the example. Instead, you'll use a selectbox to let users choose a role and log in.
+In this example, we'll build a dynamic navigation menu for a multipage app that depends on the current user's role. You'll abstract away the use of username and credentials to simplify the example. Instead, you'll use a selectbox to let users choose a role and log in.
 
-The entrypoing file, `streamlit_app.py` will handle user authentication. The other pages will be stubs representing account management (`account/settings.py) and specific pages associated to three roles: Requester, Responder, and Admin. Requesters can access the account and request pages. Responders can access the account and respond pages. Admins can access all pages.
+The entrypoint file, `streamlit_app.py` will handle user authentication. The other pages will be stubs representing account management (`account/settings.py) and specific pages associated to three roles: Requester, Responder, and Admin. Requesters can access the account and request pages. Responders can access the account and respond pages. Admins can access all pages.
 
 Here's a look at what we'll build:
 
@@ -183,7 +183,7 @@ pg.run()
    st.write(f"You are logged in as {st.session_state.role}.")
    ```
 
-   In later steps, you'll create an authetication method which saves the current user's role to `st.session_state.role`. Since you'll be blocking access to this page until a user is logged in, you don't need to initialize the `"role"` key in Session State for this page.
+   In later steps, you'll create an authentication method that saves the current user's role to `st.session_state.role`. Since you'll be blocking access to this page until a user is logged in, you don't need to initialize the `"role"` key in Session State for this page.
 
 1. Create similar stubs by changing the value of `st.header` for the following six pages:
 
@@ -218,7 +218,7 @@ pg.run()
 
 ### Initialize global values
 
-1. Return to `streamlit_app.py` and initialialize `"role"` in Session State.
+1. Return to `streamlit_app.py` and initialize `"role"` in Session State.
 
    ```python
    if "role" not in st.session_state:
@@ -276,7 +276,7 @@ pg.run()
            st.rerun()
    ```
 
-   This is an abstraction of an authentication workflow. When a user clicks the button, Streamlit saves the role to Session State and reruns the app. In later steps, you'll add logic to direct users to a role's default page wWhen the value changes in `st.session_state.role`. This completes your login page function.
+   This is an abstraction of an authentication workflow. When a user clicks the button, Streamlit saves the role to Session State and reruns the app. In later steps, you'll add logic to direct users to a role's default page when the value changes in `st.session_state.role`. This completes your login page function.
 
 1. Begin your logout page (function definition).
 
@@ -376,7 +376,7 @@ pg.run()
    st.logo("images/horizontal_blue.png", icon_image="images/icon_blue.png")
    ```
 
-   Once again, since you're calling this command in your entrypoit file, you won't need to also call it within each page.
+   Once again, since you're calling this command in your entrypoint file, you won't need to also call it within each page.
 
 1. Initialize a dictionary of page lists.
 
