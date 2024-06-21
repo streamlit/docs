@@ -3,19 +3,13 @@ import streamlit as st
 if "role" not in st.session_state:
     st.session_state.role = None
 
-DEFAULT_PAGES = {
-    None: None,
-    "Requester": "request/request_1.py",
-    "Responder": "respond/respond_1.py",
-    "Admin": "admin/admin_1.py",
-}
+ROLES = [None, "Requester", "Responder", "Admin"]
 
 
 def login():
-    roles = DEFAULT_PAGES.keys()
 
     st.header("Log in")
-    role = st.selectbox("Choose your role", roles)
+    role = st.selectbox("Choose your role", ROLES)
 
     if st.button("Log in"):
         st.session_state.role = role
@@ -35,7 +29,7 @@ request_1 = st.Page(
     "request/request_1.py",
     title="Request 1",
     icon=":material/help:",
-    default=(DEFAULT_PAGES[role] == "request/request_1.py"),
+    default=(role == "Requester"),
 )
 request_2 = st.Page(
     "request/request_2.py", title="Request 2", icon=":material/bug_report:"
@@ -44,7 +38,7 @@ respond_1 = st.Page(
     "respond/respond_1.py",
     title="Respond 1",
     icon=":material/healing:",
-    default=(DEFAULT_PAGES[role] == "respond/respond_1.py"),
+    default=(role == "Responder"),
 )
 respond_2 = st.Page(
     "respond/respond_2.py", title="Respond 2", icon=":material/handyman:"
@@ -53,7 +47,7 @@ admin_1 = st.Page(
     "admin/admin_1.py",
     title="Admin 1",
     icon=":material/person_add:",
-    default=(DEFAULT_PAGES[role] == "admin/admin_1.py"),
+    default=(role == "Admin"),
 )
 admin_2 = st.Page("admin/admin_2.py", title="Admin 2", icon=":material/security:")
 
@@ -65,7 +59,7 @@ admin_pages = [admin_1, admin_2]
 st.title("Request manager")
 st.logo(
     "python/api-examples-source/tutorials/dynamic-navigation/images/horizontal_blue.png",
-    icon_image="python/api-examples-source/tutorials/dynamic-navigation/images/icon_blue.png"
+    icon_image="python/api-examples-source/tutorials/dynamic-navigation/images/icon_blue.png",
 )
 
 page_dict = {}
