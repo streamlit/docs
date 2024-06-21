@@ -81,6 +81,7 @@ Streamlit ignores fragment return values during fragment reruns, so defining ret
 
 - Elements drawn in the main body of your fragment are cleared and redrawn in place during a fragment rerun. Repeated fragment reruns will not cause additional elements to appear.
 - Elements drawn to containers outside the main body of fragment will not be cleared with each fragment rerun. Instead, Streamlit will draw them additively and these elements will accumulate until the next full-script rerun.
+- A fragment can't draw widgets in containers outside of the main body of the fragment. Widgets can only go in the main body of a fragment.
 
 To prevent elements from accumulating in outside containers, use [`st.empty`](/develop/api-reference/layout/st.empty) containers. For a related tutorial, see [Create a fragment across multiple containers](/develop/tutorials/execution-flow/create-a-multiple-container-fragment).
 
@@ -145,3 +146,5 @@ Caching saves you from unnecessarily running a piece of your app while the rest 
 - Fragments can't detect a change in input values. It is best to use Session State for dynamic input and output for fragment functions.
 - Calling fragments within fragments is unsupported.
 - Using caching and fragments on the same function is unsupported.
+- Using fragments within callback functions is unsupported.
+- Fragments can't render widgets in externally-created containers; widgets can only be in the main body of a fragment.
