@@ -64,19 +64,13 @@ import streamlit as st
 if "role" not in st.session_state:
     st.session_state.role = None
 
-DEFAULT_PAGES = {
-    None: None,
-    "Requester": "request/request_1.py",
-    "Responder": "respond/respond_1.py",
-    "Admin": "admin/admin_1.py",
-}
+ROLES = [None, "Requester", "Responder", "Admin"]
 
 
 def login():
-    roles = DEFAULT_PAGES.keys()
 
     st.header("Log in")
-    role = st.selectbox("Choose your role", roles)
+    role = st.selectbox("Choose your role", ROLES)
 
     if st.button("Log in"):
         st.session_state.role = role
@@ -96,7 +90,7 @@ request_1 = st.Page(
     "request/request_1.py",
     title="Request 1",
     icon=":material/help:",
-    default=(DEFAULT_PAGES[role] == "request/request_1.py"),
+    default=(role == "Requester"),
 )
 request_2 = st.Page(
     "request/request_2.py", title="Request 2", icon=":material/bug_report:"
@@ -105,7 +99,7 @@ respond_1 = st.Page(
     "respond/respond_1.py",
     title="Respond 1",
     icon=":material/healing:",
-    default=(DEFAULT_PAGES[role] == "respond/respond_1.py"),
+    default=(role == "Responder"),
 )
 respond_2 = st.Page(
     "respond/respond_2.py", title="Respond 2", icon=":material/handyman:"
@@ -114,7 +108,7 @@ admin_1 = st.Page(
     "admin/admin_1.py",
     title="Admin 1",
     icon=":material/person_add:",
-    default=(DEFAULT_PAGES[role] == "admin/admin_1.py"),
+    default=(role == "Admin"),
 )
 admin_2 = st.Page("admin/admin_2.py", title="Admin 2", icon=":material/security:")
 
@@ -227,18 +221,13 @@ pg.run()
 
    You will use this value to gatekeep access to your app. This represents the role of the current, authenticated user.
 
-1. Declare the default page for each user role.
+1. Define the available roles.
 
    ```python
-   DEFAULT_PAGES = {
-       None: None,
-       "Requester": "request/request_1.py",
-       "Responder": "respond/respond_1.py",
-       "Admin": "admin/admin_1.py",
-   }
+   ROLES = [None, "Requester", "Responder", "Admin"]
    ```
 
-   If you don't manually declare a default page in `st.navigation`, then the first page will automatically be the default. The first page in the menu will be "Log out" within an "Account" section of the menu. Therefore, you'll need to tell Streamlit what page each user should be directed to by default. `None` is included as a role since that is the value corresponding to an unauthenticated user.
+   `None` is included as a role since that is the value corresponding to an unauthenticated user.
 
 ### Define your user authentication pages
 
@@ -250,12 +239,6 @@ pg.run()
    def login():
    ```
 
-1. Extract the available roles from `DEFAULT_PAGES`.
-
-   ```python
-       roles = DEFAULT_PAGES.keys()
-   ```
-
 1. Add a header for the page.
 
    ```python
@@ -265,7 +248,7 @@ pg.run()
 1. Create a selectbox for the user to choose a role.
 
    ```python
-       role = st.selectbox("Choose your role", roles)
+       role = st.selectbox("Choose your role", ROLES)
    ```
 
 1. Add a button to commit the user role to Session State.
@@ -317,14 +300,16 @@ pg.run()
        "request/request_1.py",
        title="Request 1",
        icon=":material/help:",
-       default=(DEFAULT_PAGES[role] == "request/request_1.py"),
+       default=(role == "Requester"),
    )
    request_2 = st.Page(
        "request/request_2.py", title="Request 2", icon=":material/bug_report:"
    )
    ```
 
-   Because `request/request_1.py` is a default page for one of the roles, you include the `default` parameter. Using the `DEFAULT_PAGES` dict you defined earlier, this dynamically sets `default=True` when the role is "Requester" and sets it to `False`, otherwise.
+   If you don't manually declare a default page in `st.navigation`, then the first page will automatically be the default. The first page in the menu will be "Log out" within an "Account" section of the menu. Therefore, you'll need to tell Streamlit what page each user should be directed to by default.
+
+   This code dynamically sets `default=True` when the role is "Requester" and sets it to `False`, otherwise.
 
 1. Define your remaining pages.
 
@@ -333,7 +318,7 @@ pg.run()
        "respond/respond_1.py",
        title="Respond 1",
        icon=":material/healing:",
-       default=(DEFAULT_PAGES[role] == "respond/respond_1.py"),
+       default=(role == "Responder"),
    )
    respond_2 = st.Page(
        "respond/respond_2.py", title="Respond 2", icon=":material/handyman:"
@@ -342,12 +327,12 @@ pg.run()
        "admin/admin_1.py",
        title="Admin 1",
        icon=":material/person_add:",
-       default=(DEFAULT_PAGES[role] == "admin/admin_1.py"),
+       default=(role == "Admin"),
    )
    admin_2 = st.Page("admin/admin_2.py", title="Admin 2", icon=":material/security:")
    ```
 
-   Similar to the request pages, the `default` parameter is set for the other possible default pages.
+   Similar to the request pages, the `default` parameter is set for the other roles' default pages.
 
 1. Group your pages into convenient lists.
 
