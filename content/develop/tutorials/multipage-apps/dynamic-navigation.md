@@ -30,7 +30,7 @@ This tutorial uses `st.navigation` and `st.Page`, which were introduced in Strea
 
 In this example, we'll build a dynamic navigation menu for a multipage app that depends on the current user's role. You'll abstract away the use of username and credentials to simplify the example. Instead, you'll use a selectbox to let users choose a role and log in.
 
-The entrypoint file, `streamlit_app.py` will handle user authentication. The other pages will be stubs representing account management (`account/settings.py) and specific pages associated to three roles: Requester, Responder, and Admin. Requesters can access the account and request pages. Responders can access the account and respond pages. Admins can access all pages.
+The entrypoint file, `streamlit_app.py` will handle user authentication. The other pages will be stubs representing account management (`settings.py`) and specific pages associated to three roles: Requester, Responder, and Admin. Requesters can access the account and request pages. Responders can access the account and respond pages. Admins can access all pages.
 
 Here's a look at what we'll build:
 
