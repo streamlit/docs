@@ -61,8 +61,12 @@ site_menu:
     url: /develop/concepts/multipage-apps
   - category: Develop / Concepts / Multipage apps / Overview
     url: /develop/concepts/multipage-apps/overview
+  - category: Develop / Concepts / Multipage apps / Page and navigation
+    url: /develop/concepts/multipage-apps/page-and-navigation
   - category: Develop / Concepts / Multipage apps / Pages directory
     url: /develop/concepts/multipage-apps/pages-directory
+  - category: Develop / Concepts / Multipage apps / Working with widgets
+    url: /develop/concepts/multipage-apps/widgets
   - category: Develop / Concepts / App design
     url: /develop/concepts/design
   - category: Develop / Concepts / App design / Animate & update elements
@@ -664,8 +668,11 @@ site_menu:
     url: /develop/tutorials/databases/tigergraph
   - category: Develop / Tutorials / Multipage apps
     url: /develop/tutorials/multipage
+  - category: Develop / Tutorials / Multipage apps / Dynamic navigation
+    url: /develop/tutorials/multipage/dynamic-navigation
   - category: Develop / Tutorials / Multipage apps / Build navigation with st.page_link
     url: /develop/tutorials/multipage/st.page_link-nav
+    visible: false
   - category: Develop / Tutorials / Work with LLMs
     url: /develop/tutorials/llms
   - category: Develop / Tutorials / Work with LLMs / Build a basic LLM chat app
