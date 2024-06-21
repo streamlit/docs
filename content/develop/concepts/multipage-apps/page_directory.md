@@ -6,11 +6,11 @@ description: Streamlit provides a simple way to create multipage apps.
 
 # Creating multipage apps using the `pages/` directory
 
-As your app grows large, it becomes useful to organize your script into multiple pages. This makes your app easier to manage as a developer and easier to navigate as a user. Streamlit provides a frictionless way to create multipage apps. Pages are automatically shown in a navigation widget inside your app's sidebar. If a user clicks on a page in the sidebar, Streamlit navigates to that page without reloading the frontend — making app browsing incredibly fast! In this guide, let’s learn how to create multipage apps.
+As your app grows large, it becomes useful to organize your script into multiple pages. This makes your app easier to manage as a developer and easier to navigate as a user. The most customizable method for declaring multipage apps is using [Page and navigation](/develop/concepts/multipage-apps/page-and-navigation). However, Streamlit also provides a frictionless way to create multipage apps where pages are automatically shown in a navigation widget inside your app's sidebar. This method is called the `pages/` directory.
 
 ## Structuring your multipage app
 
-Streamlit identifies pages in a multipage app by directory structure and filenames. The file you pass to `streamlit run` is called your entrypoint file. This is your app's homepage. When you have a `pages/` directory next to your entrypoint file, Streamlit will identify each Python file within it as a page. The following example has three pages. `your_homepage.py` is the entrypoint file and homepage.
+When you use a `pages/` directory, Streamlit identifies pages in a multipage app by directory structure and filenames. The file you pass to `streamlit run` is called your entrypoint file. This is your app's homepage. When you have a `pages/` directory next to your entrypoint file, Streamlit will identify each Python file within it as a page. The following example has three pages. `your_homepage.py` is the entrypoint file and homepage.
 
 ```
 your_working_directory/
@@ -28,39 +28,15 @@ streamlit run your_homepage.py
 
 Only `.py` files in the `pages/` directory will be identified as pages. Streamlit ignores all other files in the `pages/` directory and its subdirectories. Streamlit also ignores Python files in subdirectories of `pages/`.
 
-Keep reading to learn how filenames are displayed and ordered in your app's navigation.
+<Important>
 
-## Naming and ordering your pages
+If you call `st.navigation` in your app (in any session), Streamlit will switch to using the newer, Page-and-navigation multipage structure. In this case, the `pages/` directory will be ignored across all sessions. You will not be able to revert back to the `pages/` directory unless you restart you app.
 
-The entrypoint file is your app's homepage and the first page users will see when visiting your app. Once you've added pages to your app, the entrypoint file appears as the topmost page in the sidebar. Streamlit determines the page label and ordering of each page from your filenames. Labels may differ from the page title set in [`st.set_page_config`](/develop/api-reference/configuration/st.set_page_config).
-
-### Filenames for pages
-
-Filenames are composed of four different parts as follows:
-
-1. `number`. A non-negative integer.
-2. `separator`. Any combination of underscore (`"_"`), dash (`"-"`), and space (`" "`).
-3. `label`. Everything up to, but not including, `".py"`.
-4. `".py"`
-
-### How Streamlit converts filenames into page labels
-
-Streamlit displays page labels as follows:
-
-1. If your filename contains a `label`, Streamlit displays the `label` in the left navigation. Any underscores within the page's `label` are treated as spaces.
-2. If your filename contains a `number` but does not contain a `label`, Streamlit displays the `number` instead.
-3. If your filename contains only a `separator` with no `number` and no `label`, Streamlit will not display the page in the sidebar navigation.
-
-The following filenames would all display as "Awesome homepage" in the sidebar navigation.
-
-- `"Awesome homepage.py"`
-- `"Awesome_homepage.py"`
-- `"02Awesome_homepage.py"`
-- `"--Awesome_homepage.py"`
-- `"1_Awesome_homepage.py"`
-- `"33 - Awesome homepage.py"`
+</Important>
 
 ### How pages are sorted in the sidebar
+
+Refer to the overview to understand [Page terminology](/develop/concepts/multipage-apps/overview#page-terminology) and how Streamlit assigns labels to pages.
 
 The entrypoint file is always displayed first. The remaining pages are sorted as follows:
 
