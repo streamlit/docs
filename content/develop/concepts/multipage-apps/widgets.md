@@ -74,9 +74,9 @@ st.number_input("Number of filters", key="_my_key", on_change=store_value, args=
 
 When Streamlit gets to the end of an app run, it will delete the data for any widgets that were not rendered. This includes data for any widget not associated to the current page. However, if you re-save a key-value pair in an app run, Streamlit will not associate the key-value pair to any widget until you call a widget function again with that key.
 
-As a result, if you have the following code at the top of every page, any widget with the key `"my_key"` will retain its value wherever its rendered (or not). Alternatively, if you are using `st.navigation` and `st.Page`, you can include this once in your entrypoint file before executing your page.
+As a result, if you have the following code at the top of every page, any widget with the key `"my_key"` will retain its value wherever it's rendered (or not). Alternatively, if you are using `st.navigation` and `st.Page`, you can include this once in your entrypoint file before executing your page.
 
 ```python
-if "my_key" in Session State:
+if "my_key" in st.session_state:
     st.session_state.my_key = st.session_state.my_key
 ```
