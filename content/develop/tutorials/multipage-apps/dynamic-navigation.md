@@ -8,6 +8,8 @@ description: Streamlit makes it easy to build a custom navigation menu in your m
 
 `st.navigation` makes it easy to build dynamic navigation menus. You can change the set of pages passed to `st.navigation` with each rerun, which changes the navigation menu to match. This is a convenient feature for creating custom, role-based navigation menus.
 
+This tutorial uses `st.navigation` and `st.Page`, which were introduced in Streamlit version 1.36.0. For an older workaround using the `pages/` directory and `st.page_link`, see [Build a custom navigation menu with `st.page_link`](/develop/tutorials/multipage/st.page_link-nav).
+
 ## Applied concepts
 
 - Use `st.navigation` and `st.Page` to define a multipage app.
