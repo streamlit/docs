@@ -70,7 +70,7 @@ pg.run()
 
 If you want to group your pages into sections, `st.navigation` lets you insert headers within your navigation. Alternatively, you can disable the default navigation widget and build a custom navigation menut with `st.page_link`.
 
-Although you can dynamically change which pages you pass to `st.navigation`, only the page returned by `st.navigation` accepts the `.run()` method. If a user enters a URL with a pathname, and that pathname is not associated to a page in `st.navigation` (on first run), Streamlit will throw a "Page not found" error and redirect them to the default page.
+Additionally, you can dynamically change which pages you pass to `st.navigation`. However, only the page returned by `st.navigation` accepts the `.run()` method. If a user enters a URL with a pathname, and that pathname is not associated to a page in `st.navigation` (on first run), Streamlit will throw a "Page not found" error and redirect them to the default page.
 
 ### Adding section headers
 
@@ -140,12 +140,10 @@ pg.run()
 
 <Image src="/images/mpa-v2-page-sections.jpg" frame />
 
+### Dynamically changing the available pages
+
+You can change what pages are available to a user by updating the list of pages in `st.navigation`. This is a convenient way to handle role-based or user-based access to certain pages. For more information, check out our tutorial, [Create a dynamic navigation menu](/develop/tutorials/multipage/dynamic-navigation).
+
 ### Build a custom navigation menu
 
-If you want more control over your navigation menu, you can hide the default navigation and build your own. If you want a page to be available to a user without showing it in the navigation menu, you must use this method. A user can't be routed to a page if the page isn't included in `st.navigation`. This applies to navigationg by URL as well as functions like `st.switch_page` and `st.page_link`.
-
-For a tutorial on building custom navigation menus with `st.page_link`, see [Build navigation with st.page_link](/develop/tutorials/multipage/st.page_link-nav).
-
-{/**
-Insert link to updated tutorial for MPAv2
-**/}
+If you want more control over your navigation menu, you can hide the default navigation and build your own. You can hide the default navigation by including `position="hidden"` in your `st.navigation` command. If you want a page to be available to a user without showing it in the navigation menu, you must use this method. A user can't be routed to a page if the page isn't included in `st.navigation`. This applies to navigationg by URL as well as functions like `st.switch_page` and `st.page_link`.

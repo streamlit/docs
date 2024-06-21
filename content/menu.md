@@ -668,8 +668,11 @@ site_menu:
     url: /develop/tutorials/databases/tigergraph
   - category: Develop / Tutorials / Multipage apps
     url: /develop/tutorials/multipage
+  - category: Develop / Tutorials / Multipage apps / Dynamic navigation
+    url: /develop/tutorials/multipage/dynamic-navigation
   - category: Develop / Tutorials / Multipage apps / Build navigation with st.page_link
     url: /develop/tutorials/multipage/st.page_link-nav
+    visible: false
   - category: Develop / Tutorials / Work with LLMs
     url: /develop/tutorials/llms
   - category: Develop / Tutorials / Work with LLMs / Build a basic LLM chat app
