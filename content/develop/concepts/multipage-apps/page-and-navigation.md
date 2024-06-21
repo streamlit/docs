@@ -70,7 +70,7 @@ pg.run()
 
 ## Customizing navigation
 
-If you want to group your pages into sections, `st.navigation` lets you insert headers within your navigation. Alternatively, you can disable the default navigation widget and build a custom navigation menut with `st.page_link`.
+If you want to group your pages into sections, `st.navigation` lets you insert headers within your navigation. Alternatively, you can disable the default navigation widget and build a custom navigation menu with `st.page_link`.
 
 Additionally, you can dynamically change which pages you pass to `st.navigation`. However, only the page returned by `st.navigation` accepts the `.run()` method. If a user enters a URL with a pathname, and that pathname is not associated to a page in `st.navigation` (on first run), Streamlit will throw a "Page not found" error and redirect them to the default page.
 
@@ -78,7 +78,7 @@ Additionally, you can dynamically change which pages you pass to `st.navigation`
 
 As long as you don't want to hide a valid, accessible page in the navigation menu, the simplest way to customize your navigation menu is to organize the pages within `st.navigation`. You can sort or group pages, as well as remove any pages you don't want the user to access. This is a convenient way to handle user permissions.
 
-The following example creates two menu states. When a user starts a new session, they are not logged in. In this case, the only available page is the login page. If a user tries to access an other page by URL, it will create a new session and Streamlit will not recognize the page. The user will be diverted to the login page. However, after a user logs in, they will see a navigation menu with three sections and be directed to the dashbaord as the app's default page (i.e. homepage).
+The following example creates two menu states. When a user starts a new session, they are not logged in. In this case, the only available page is the login page. If a user tries to access another page by URL, it will create a new session and Streamlit will not recognize the page. The user will be diverted to the login page. However, after a user logs in, they will see a navigation menu with three sections and be directed to the dashboard as the app's default page (i.e. homepage).
 
 **Directory structure:**
 
