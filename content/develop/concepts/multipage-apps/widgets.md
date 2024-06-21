@@ -6,13 +6,13 @@ description: Understand how widgets interact with pages
 
 # Working with widgets in multipage apps
 
-When you call a widget function in a Streamlit app, Streamlit creates a widget ID and uses it to make your widget stateful. As your users interact with your app and your app reruns, Streamlit keeps track of the widget's value by associating its value to its ID. In particular, a widget's ID depends on the page it's called from. If you define an identical widget on two different pages, then the widget will reset to its default value when you switch pages.
+When you create a widget in a Streamlit app, Streamlit generates a widget ID and uses it to make your widget stateful. As your app reruns with user interaction, Streamlit keeps track of the widget's value by associating its value to its ID. In particular, a widget's ID depends on the page where it's created. If you define an identical widget on two different pages, then the widget will reset to its default value when you switch pages.
 
 This guide explains three strategies to deal with the behavior if you'd like to have a widget remain stateful across all pages. If don't want a widget to appear on all pages, but you do want it to remain stateful when you navigate away from its page (and then back), Options 2 and 3 can be used. For detailed information about these strategies, see [Understanding widget behavior](/develop/concepts/architecture/widget-behavior).
 
-## Option 1 (preferred): Call your widget function in your entrypoint file
+## Option 1 (preferred): Execute your widget command in your entrypoint file
 
-When you define your multipage app with `st.Page` and `st.navigation`, your entrypoint file becomes a frame of common elements around your pages. When you call a widget function in your entrypoint, it is associated to your entrypoint file instead of a particular page. Since your entrypoint file is executed in every app rerun, any widget in your entrypoint file will remain stateful as your users switch between pages.
+When you define your multipage app with `st.Page` and `st.navigation`, your entrypoint file becomes a frame of common elements around your pages. When you execute a widget command in your entrypoint file, Streamlit associates the widget to your entrypoint file instead of a particular page. Since your entrypoint file is executed in every app rerun, any widget in your entrypoint file will remain stateful as your users switch between pages.
 
 This method does not work if you define your app with the `pages/` directory.
 
@@ -72,7 +72,7 @@ st.number_input("Number of filters", key="_my_key", on_change=store_value, args=
 
 ## Option 3: Interrupt the widget clean-up process
 
-When Streamlit gets to the end of an app run, it will delete the data for any widgets that were not rendered. This includes data for any widget not associated to the current page. However, if you re-save a key-value pair in an app run, Streamlit will not associate the key-value pair to any widget until you call a widget function again with that key.
+When Streamlit gets to the end of an app run, it will delete the data for any widgets that were not rendered. This includes data for any widget not associated to the current page. However, if you re-save a key-value pair in an app run, Streamlit will not associate the key-value pair to any widget until you execute a widget command again with that key.
 
 As a result, if you have the following code at the top of every page, any widget with the key `"my_key"` will retain its value wherever it's rendered (or not). Alternatively, if you are using `st.navigation` and `st.Page`, you can include this once in your entrypoint file before executing your page.
 
