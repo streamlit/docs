@@ -8,7 +8,7 @@ description: Understand how widgets interact with pages
 
 When you call a widget function in a Streamlit app, Streamlit creates a widget ID and uses it to make your widget stateful. As your users interact with your app and your app reruns, Streamlit keeps track of the widget's value by associating its value to its ID. In particular, a widget's ID depends on the page it's called from. If you define an identical widget on two different pages, then the widget will reset to its default value when you switch pages.
 
-This guide explains several strategies to deal with the behavior if you'd like to have a widget remain stateful across all pages. For detailed information about these strategies, see [Understanding widget behavior](/develop/concepts/architecture/widget-behavior).
+This guide explains three strategies to deal with the behavior if you'd like to have a widget remain stateful across all pages. If don't want a widget to appear on all pages, but you do want it to remain stateful when you navigate away from its page (and then back), Options 2 and 3 can be used. For detailed information about these strategies, see [Understanding widget behavior](/develop/concepts/architecture/widget-behavior).
 
 ## Option 1 (preferred): Call your widget function in your entrypoint file
 

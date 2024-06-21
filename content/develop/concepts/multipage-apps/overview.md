@@ -44,7 +44,9 @@ Additionly, a page can have two icons as follows:
 
 Typically, the page icon and favicon are the same, but it's possible make them different.
 
+<div style={{ maxWidth: '564px', margin: 'auto' }}>
 <Image caption="1. Page label, 2.Page titles, 3. Page URL pathname, 4.Page favicon, 5. Page icon" src="/images/page_parts.jpg" frame />
+</div>
 
 ## Automatic page labels and URLs
 
@@ -91,6 +93,20 @@ Your app's homepage is associated to the root URL of app. For all other pages, t
 
 For each filename in the list above, the URL pathname would be "Awesome_page" relative to the root URL of the app. For example, if your app was running on `localhost` port `8501`, the full URL would be `localhost:8501/awesome_page`. For the last two callables, however, the pathname would include the leading and trailing underscores to match the callable name exactly.
 
+## Navigating between pages
+
+The primary way users navigate between pages is through the navigation widget. Both methods for defining multipage apps include a default navigation menu that appears in the sidebar. When a user clicks this navigation widget, the app reruns and loads the selected page. Optionally, you can hide the default navigation UI and build your own with [`st.page_link`](/develop/api-reference/widgets/st.page_link). For more information, see [Build a custom navigation menu with `st.page_link`](/develop/tutorials/multipage/st.page_link-nav).
+
+If you need to programmatically switch pages, use [`st.switch_page`](/develop/api-reference/navigation/st.switch_page).
+
+Users can also navigate between pages using URLs as noted above. When multiple files have the same URL pathname, Streamlit picks the first one (based on the ordering in the navigation menu. Users can view a specific page by visiting the page's URL.
+
 <Important>
     Navigating between pages by URL creates a new browser session. In particular, clicking markdown links to other pages resets ``st.session_state``. In order to retain values in ``st.session_state``, handle page switching through Streamlit navigation commands and widgets, like ``st.navigation``, ``st.switch_page``, ``st.page_link``, and the built-in navigation menu.
 </Important>
+
+If a user tries to access a URL for a page that does not exist, they will see a modal like the one below, saying the user has requested a page that was not found.
+
+<div style={{ maxWidth: '75%', margin: 'auto' }}>
+<Image alt="Page not found" src="/images/mpa-page-not-found.png" />
+</div>

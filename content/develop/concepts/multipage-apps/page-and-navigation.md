@@ -64,7 +64,9 @@ st.set_page_config(page_title="Data manager", page_icon=":material/edit:")
 pg.run()
 ```
 
+<div style={{ maxWidth: '564px', margin: 'auto' }}>
 <Image src="/images/mpa-v2-use-set-page-config.jpg" frame />
+</div>
 
 ## Customizing navigation
 
@@ -138,12 +140,14 @@ else:
 pg.run()
 ```
 
+<div style={{ maxWidth: '564px', margin: 'auto' }}>
 <Image src="/images/mpa-v2-page-sections.jpg" frame />
+</div>
 
 ### Dynamically changing the available pages
 
 You can change what pages are available to a user by updating the list of pages in `st.navigation`. This is a convenient way to handle role-based or user-based access to certain pages. For more information, check out our tutorial, [Create a dynamic navigation menu](/develop/tutorials/multipage/dynamic-navigation).
 
-### Build a custom navigation menu
+### Building a custom navigation menu
 
-If you want more control over your navigation menu, you can hide the default navigation and build your own. You can hide the default navigation by including `position="hidden"` in your `st.navigation` command. If you want a page to be available to a user without showing it in the navigation menu, you must use this method. A user can't be routed to a page if the page isn't included in `st.navigation`. This applies to navigationg by URL as well as functions like `st.switch_page` and `st.page_link`.
+If you want more control over your navigation menu, you can hide the default navigation and build your own. You can hide the default navigation by including `position="hidden"` in your `st.navigation` command. If you want a page to be available to a user without showing it in the navigation menu, you must use this method. A user can't be routed to a page if the page isn't included in `st.navigation`. This applies to navigation by URL as well as functions like `st.switch_page` and `st.page_link`.

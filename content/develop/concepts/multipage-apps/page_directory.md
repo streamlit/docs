@@ -6,11 +6,13 @@ description: Streamlit provides a simple way to create multipage apps.
 
 # Creating multipage apps using the `pages/` directory
 
-As your app grows large, it becomes useful to organize your script into multiple pages. This makes your app easier to manage as a developer and easier to navigate as a user. The most customizable method for declaring multipage apps is using [Page and navigation](/develop/concepts/multipage-apps/page-and-navigation). However, Streamlit also provides a frictionless way to create multipage apps where pages are automatically shown in a navigation widget inside your app's sidebar. This method is called the `pages/` directory.
+The most customizable method for declaring multipage apps is using [Page and navigation](/develop/concepts/multipage-apps/page-and-navigation). However, Streamlit also provides a frictionless way to create multipage apps where pages are automatically recognized and shown in a navigation widget inside your app's sidebar. This method uses the `pages/` directory.
 
-## Structuring your multipage app
+This page assumes you understand the [Page terminology](/develop/concepts/multipage-apps/overview#page-terminology) presented in the overview.
 
-When you use a `pages/` directory, Streamlit identifies pages in a multipage app by directory structure and filenames. The file you pass to `streamlit run` is called your entrypoint file. This is your app's homepage. When you have a `pages/` directory next to your entrypoint file, Streamlit will identify each Python file within it as a page. The following example has three pages. `your_homepage.py` is the entrypoint file and homepage.
+## App structure
+
+When you use the `pages/` directory, Streamlit identifies pages in your multipage app by directory structure and filenames. Your entrypoint file (the file you pass to `streamlit run`), is your app's homepage. When you have a `pages/` directory next to your entrypoint file, Streamlit will identify each Python file within it as a page. The following example has three pages. `your_homepage.py` is the entrypoint file and homepage.
 
 ```
 your_working_directory/
@@ -36,7 +38,7 @@ If you call `st.navigation` in your app (in any session), Streamlit will switch 
 
 ### How pages are sorted in the sidebar
 
-Refer to the overview to understand [Page terminology](/develop/concepts/multipage-apps/overview#page-terminology) and how Streamlit assigns labels to pages.
+See the overview to understand how Streamlit assigns [Automatic page labels and URLs](/develop/concepts/multipage-apps/overview#automatic-page-labels-and-urls) based on the `number`, `separator`, `identifier`, and `".py"` extension that constitute a filename.
 
 The entrypoint file is always displayed first. The remaining pages are sorted as follows:
 
@@ -61,26 +63,6 @@ This table shows examples of filenames and their corresponding labels, sorted by
 Emojis can be used to make your page names more fun! For example, a file named `🏠_Home.py` will create a page titled "🏠 Home" in the sidebar. When adding emojis to filenames, it’s best practice to include a numbered prefix to make autocompletion in your terminal easier. Terminal-autocomplete can get confused by unicode (which is how emojis are represented).
 
 </Tip>
-
-## Navigating between pages
-
-Pages are automatically shown in a sidebar navigation UI. When a user clicks on a page in the sidebar UI, Streamlit navigates to that page without reloading the entire frontend — making app browsing incredibly fast! Optionally, you can hide the default navigation UI and build your own with [`st.page_link`](/develop/api-reference/widgets/st.page_link). For more information, see [Build a custom navigation menu with `st.page_link`](/develop/tutorials/multipage/st.page_link-nav).
-
-If you need to programmatically switch pages, use [`st.switch_page`](/develop/api-reference/navigation/st.switch_page).
-
-Users can also navigate between pages using URLs. Pages have their own URLs, defined by the file's `label`. When multiple files have the same `label`, Streamlit picks the first one (based on the ordering [described above](#how-pages-are-sorted-in-the-sidebar)). Users can view a specific page by visiting the page's URL.
-
-<Important>
-
-Navigating between pages by URL creates a new browser session and clears `st.session_state`. In particular, clicking markdown links to other
-pages resets `st.session_state`. In order to retain values in `st.session_state`, a user must use the sidebar navigation or other Streamlit
-widgets to switch pages.
-
-</Important>
-
-If a user tries to access a URL for a page that does not exist, they will see a modal like the one below, saying the user has requested a page that was not found in the app’s `pages/` directory.
-
-<Image src="/images/mpa-page-not-found.png" />
 
 ## Notes and limitations
 
