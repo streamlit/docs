@@ -19,6 +19,47 @@ pip install --upgrade streamlit
 
 </Tip>
 
+## **Version 1.36.0**
+
+_Release date: June 20, 2024_
+
+**Highlights**
+
+- 🧭 Introducing [`st.navigation`](/develop/api-reference/navigation/st.navigation) and [`st.Page`](/develop/api-reference/navigation/st.page) for a new way to define multipage apps! Check out the [docs](/develop/concepts/multipage-apps/overview) to learn more.
+
+**Notable Changes**
+
+- 📊 [`st.bar_chart`](/develop/api-reference/charts/st.bar_chart) can render charts horizontally.
+- ℹ️ [`st.expander`](/develop/api-reference/layout/st.expander) supports adding an icon next to its label.
+- 🏗️ [`st.columns`](/develop/api-reference/layout/st.columns) lets you set vertical alignment.
+- 📲 Custom components support callback functions ([#8633](https://github.com/streamlit/streamlit/pull/8633), [#3977](https://github.com/streamlit/streamlit/issues/3977)).
+- 📥 Fragments no longer support rendering widgets outside of their main body ([#8756](https://github.com/streamlit/streamlit/pull/8756)).
+- 🏷️ You can now customize axis labels for [`st.area_chart`](/develop/api-reference/charts/st.area_chart), [`st.bar_chart`](/develop/api-reference/charts/st.bar_chart), [`st.line_chart`](/develop/api-reference/charts/st.line_chart), and [`st.scatter_chart`](/develop/api-reference/charts/st.scatter_chart).
+- ⌛ The caching parameter `experimental_allow_widgets` is deprecated ([#8817](https://github.com/streamlit/streamlit/pull/8817)).
+- ❌ Streamlit no longer supports legacy caching. `st.cache` is now an alias for `st.cache_data` and `st.cache_resource` ([#8737](https://github.com/streamlit/streamlit/pull/8737)).
+- ⬆️ Streamlit supports `protobuf` version 5 ([#8627](https://github.com/streamlit/streamlit/pull/8627)).
+
+**Other Changes**
+
+- ✨ Streamlit Hello uses `st.navigation` and `st.Page`, the new, preferred method for declaring multipage apps ([#8806](https://github.com/streamlit/streamlit/pull/8806)).
+- 🧹 Streamlit no longer appends "· Streamlit" to the page title of apps, unless running on Community Cloud ([#8900](https://github.com/streamlit/streamlit/pull/8900)).
+- 🦋 Streamlit magic and `st.write` use `st.json` to display `st.secrets` ([#8659](https://github.com/streamlit/streamlit/pull/8659), [#2905](https://github.com/streamlit/streamlit/issues/2905)).
+- 🔍 Streamlit doesn't automatically check for newer version on PyPi ([#8841](https://github.com/streamlit/streamlit/pull/8841), [#8453](https://github.com/streamlit/streamlit/issues/8453)).
+- 🐌 Bug fix: Custom component functions require importing `streamlit.components.v1` ([#8666](https://github.com/streamlit/streamlit/pull/8666), [#8644](https://github.com/streamlit/streamlit/issues/8644)).
+- 🕸️ Bug fix: Reverted change to handle Altairs `resolve_scale` method since it caused a regression ([#8845](https://github.com/streamlit/streamlit/pull/8845), [#8642](https://github.com/streamlit/streamlit/issues/8642)).
+- 🦗 Bug fix: Images in Markdown do not overflow the Markdown container ([#8794](https://github.com/streamlit/streamlit/pull/8794)).
+- 🦂 Bug fix: Clarified the error message for `st.selectbox` when `index` is larger than the size of `options` ([#8775](https://github.com/streamlit/streamlit/pull/8775), [#8771](https://github.com/streamlit/streamlit/issues/8771)).
+- 🦟 Bug fix: Streamlit correctly handles non-widget elements with IDs ([#8770](https://github.com/streamlit/streamlit/pull/8770), [#8768](https://github.com/streamlit/streamlit/issues/8768)).
+- 🦠 Bug fix: Docstrings correctly identify when `use_container_width=True` is the default ([#8809](https://github.com/streamlit/streamlit/pull/8809)).
+- 🪰 Bug fix: Streamlit has a consistent minimum element height for better vertical alignment ([#8797](https://github.com/streamlit/streamlit/pull/8797), [#8835](https://github.com/streamlit/streamlit/pull/8835), [#8027](https://github.com/streamlit/streamlit/issues/8027), [#8706](https://github.com/streamlit/streamlit/issues/8706)).
+- 🪳 Bug fix: Added check to ensure `SessionInfo` is initialized before performing actions ([#8779](https://github.com/streamlit/streamlit/pull/8779), [#8321](https://github.com/streamlit/streamlit/issues/8321), [#7549](https://github.com/streamlit/streamlit/issues/7549)).
+- 🕷️ Bug fix: Dataframe use raw numbers without formatting by default ([#8708](https://github.com/streamlit/streamlit/pull/8708), [#8695](https://github.com/streamlit/streamlit/issues/8695)).
+- 🐞 Bug fix: Updated the error message for disallowed writes to Session State ([#8720](https://github.com/streamlit/streamlit/pull/8720), [#8715](https://github.com/streamlit/streamlit/issues/8715)).
+- 🐝 Bug fix: Streamlit doesn't initialize `LocalSourcesWatcher` if file watching is disabled ([#8741](https://github.com/streamlit/streamlit/pull/8741), [#8738](https://github.com/streamlit/streamlit/issues/8738)).
+- 🐜 Bug fix: `st.experimental_dialog` no longer has an invalid default value for `title` ([#8729](https://github.com/streamlit/streamlit/pull/8729)).
+- 🪲 Bug fix: Removed deprecated kwargs in [`ast.Call`](http://ast.Call) to prevent type error ([#8711](https://github.com/streamlit/streamlit/pull/8711)). Thanks, [JelleZijlstra](https://github.com/JelleZijlstra)!
+- 🐛 Bug fix: `st.experimental_dialog` is explicitly exported to avoid a type checking error ([#8728](https://github.com/streamlit/streamlit/pull/8728), [#8712](https://github.com/streamlit/streamlit/issues/8712)).
+
 ## **Version 1.35.0**
 
 _Release date: May 23, 2024_

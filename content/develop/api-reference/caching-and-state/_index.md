@@ -84,23 +84,6 @@ st.query_params.clear()
 
 <TileContainer>
 
-<RefCard href="/develop/api-reference/caching-and-state/st.cache" deprecated={true}>
-
-> This command was deprecated in version 1.18.0. Use `st.cache_data` or `st.cache_resource` instead.
-
-<h4>Caching</h4>
-
-Function decorator to memoize function executions.
-
-```python
-@st.cache(ttl=3600)
-def run_long_computation(arg1, arg2):
-  # Do stuff here
-  return computation_output
-```
-
-</RefCard>
-
 <RefCard href="/develop/api-reference/caching-and-state/st.experimental_memo" deprecated={true}>
 
 > This command was deprecated in version 1.18.0. Use `st.cache_data` instead.

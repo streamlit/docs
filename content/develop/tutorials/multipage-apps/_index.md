@@ -7,11 +7,11 @@ slug: /develop/tutorials/multipage
 
 <TileContainer layout="list">
 
-<RefCard href="/develop/tutorials/multipage/st.page_link-nav">
+<RefCard href="/develop/tutorials/multipage/dynamic-navigation">
 
-<h5>Build a custom navigation menu with `st.page_link`</h5>
+<h5>Create a dynamic navigation menu</h5>
 
-Create a dynamic, user-dependant navigation menu to replace the default sidebar navigation.
+Create a dynamic, user-dependant navigation menu with `st.navigation`.
 
 </RefCard>
 

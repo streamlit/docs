@@ -887,7 +887,6 @@
 /library/api-reference/performance/st.cache_resource.clear /develop/api-reference/caching-and-state/st.cache_resource
 /library/api-reference/performance/st.experimental_memo.clear /develop/api-reference/caching-and-state/st.experimental_memo
 /library/api-reference/performance/st.experimental_singleton.clear /develop/api-reference/caching-and-state/st.experimental_singleton
-/st.connections.snowflakeconnection-configuration /develop/api-reference/connections/st.connections.snowflakeconnection#configuration
 /knowledge-base/deploy/how-to-delete-your-streamlit-community-cloud-account /deploy/streamlit-community-cloud/manage-your-account/delete-your-account
 /knowledge-base/deploy/how-to-update-account-admin-settings-on-streamlit-community-cloud /deploy/streamlit-community-cloud/get-started/explore-your-workspace#invite-other-developers-to-your-workspace
 /knowledge-base/deploy/custom-subdomains /deploy/streamlit-community-cloud/deploy-your-app#custom-subdomains
@@ -1134,4 +1133,12 @@
 /knowledge-base/components/not-possibe-streamlit-components /develop/concepts/custom-components/limitations
 /deploy/streamlit-community-cloud/troubleshooting /deploy/streamlit-community-cloud/status
 /knowledge-base/using-streamlit/how-to-get-row-selections /develop/tutorials/elements/dataframe-row-selections
+/develop/concepts/architecture/st.cache /develop/concepts/architecture/caching
+/develop/concepts/architecture/experimental-cache-primitives /develop/concepts/architecture/caching
+/develop/api-reference/caching-and-state/st.cache /develop/api-reference/caching-and-state/st.cache_data
 /develop/quick-reference/changelog /develop/quick-reference/release-notes
+
+# Deep links included in streamlit/streamlit source code
+/st.connections.snowflakeconnection-configuration /develop/api-reference/connections/st.connections.snowflakeconnection#configuration
+/st.page.automatic-page-labels /develop/concepts/multipage-apps/overview#how-streamlit-converts-filenames-into-labels-and-titles
+/st.page.automatic-page-urls /develop/concepts/multipage-apps/overview#how-streamlit-converts-filenames-into-url-pathnames

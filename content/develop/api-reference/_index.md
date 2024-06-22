@@ -1845,14 +1845,38 @@ rain(emoji="🎈", font_size=54,
 
 <TileContainer>
 
-<RefCard href="/develop/api-reference/navigation/st.switch_page">
+<RefCard href="/develop/api-reference/navigation/st.navigation">
 
-<h4>Switch page</h4>
+<Image pure alt="screenshot" src="/images/api/navigation.jpg" />
 
-Programmatically navigates to a specified page.
+<h4>Navigation</h4>
+
+Configure the available pages in a multipage app.
 
 ```python
-st.switch_page("pages/my_page.py")
+st.navigation({
+    "Your account" : [log_out, settings],
+    "Reports" : [overview, usage],
+    "Tools" : [search]
+})
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/navigation/st.page">
+
+<Image pure alt="screenshot" src="/images/api/page.jpg" />
+
+<h4>Page</h4>
+
+Define a page in a multipage app.
+
+```python
+home = st.Page(
+    "home.py",
+    title="Home",
+    icon=":material/home:"
+)
 ```
 
 </RefCard>
@@ -1868,6 +1892,18 @@ Display a link to another page in a multipage app.
 ```python
 st.page_link("app.py", label="Home", icon="🏠")
 st.page_link("pages/profile.py", label="My profile")
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/navigation/st.switch_page">
+
+<h4>Switch page</h4>
+
+Programmatically navigates to a specified page.
+
+```python
+st.switch_page("pages/my_page.py")
 ```
 
 </RefCard>

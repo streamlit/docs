@@ -23,6 +23,8 @@ from streamlit.runtime.caching.cache_utils import CachedFunc
 from streamlit.elements.plotly_chart import PlotlyState, PlotlySelectionState
 from streamlit.elements.vega_charts import VegaLiteState
 from streamlit.elements.arrow import DataframeState, DataframeSelectionState
+from streamlit.navigation import page
+from streamlit.navigation.page import StreamlitPage
 
 VERSION = streamlit.__version__
 DEBUG = False
@@ -125,7 +127,6 @@ def get_attribute_dict_dict(obj, objname, signature_prefix=None):
     description = {}
     # Get the object's docstring or an empty string if it doesn't have one
     docstring = getattr(obj, "__doc__", "")
-    docstring = docstring.replace("    Attributes\n", "    Parameters\n")
     # Set the object's name
     description["name"] = objname
     if signature_prefix is None:
@@ -264,7 +265,8 @@ def get_docstring_dict(
         arguments = get_sig_string_without_annots(obj)
         if arguments is None:
             arguments = ""
-        description["signature"] = f"{signature_prefix}.{objname}({arguments})"
+        # Strip "." in case key_prefix==""
+        description["signature"] = f"{signature_prefix}.{objname}({arguments})".strip(".")
         description["is_class"] = True
         # Get the class's methods
         methods = inspect.getmembers(obj, inspect.isfunction)
@@ -446,6 +448,9 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix, only_include=None)
 
     # Iterate over the names of the members of the object
     for membername in dir(obj):
+        if DEBUG > 1:
+            print(f"Looking up {membername}")
+
         # Skip members starting with an underscore
         if membername.startswith("_"):
             continue
@@ -478,7 +483,8 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix, only_include=None)
                 is_class_method=False,
                 is_property=True,
             )
-            fullname = "{}.{}".format(key_prefix, membername)
+            # Strip "." in case key_prefix==""
+            fullname = f"{key_prefix}.{membername}".strip(".")
             obj_docstring_dict[fullname] = member_docstring_dict
         else:
             # Skip members that are not callable
@@ -487,12 +493,14 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix, only_include=None)
 
             # memo and singleton are callable objects rather than functions
             # See: https://github.com/streamlit/streamlit/pull/4263
-            # Replace the member with its decorator object
-            while member in streamlit.runtime.caching.__dict__.values():
+            # Replace the member with its decorator object except st.cache
+            # which is deprecated
+            while (member in streamlit.runtime.caching.__dict__.values() and member != streamlit.cache):
                 member = member._decorator
 
             # Create the full name of the member using key_prefix and membername
-            fullname = "{}.{}".format(key_prefix, membername)
+            # Strip "." in case key_prefix==""
+            fullname = f"{key_prefix}.{membername}".strip(".")
 
             # Call get_function_docstring_dict to get metadata of the current member
             is_class = inspect.isclass(
@@ -573,8 +581,8 @@ def get_streamlit_docstring_dict():
         ],
         streamlit.column_config: ["streamlit.column_config", "st.column_config"],
         components: ["streamlit.components.v1", "st.components.v1"],
-        streamlit.delta_generator.DeltaGenerator: ["DeltaGenerator", "element", "add_rows"], # Only store docstring for element.add_rows
-        StatusContainer: ["StatusContainer", "StatusContainer", "update"], # Only store docstring for StatusContainer.update
+        streamlit.delta_generator.DeltaGenerator: ["DeltaGenerator", "element", ["add_rows"]], # Only store docstring for element.add_rows
+        StatusContainer: ["StatusContainer", "StatusContainer", ["update"]], # Only store docstring for StatusContainer.update
         streamlit.testing.v1: ["streamlit.testing.v1", "st.testing.v1"],
         AppTest: ["AppTest", "AppTest"],
         element_tree: [
@@ -583,6 +591,8 @@ def get_streamlit_docstring_dict():
         ],
         streamlit.user_info.UserInfoProxy: ["streamlit.experimental_user", "st.experimental_user"],
         CachedFunc: ["CachedFunc", "CachedFunc"],
+        page: ["", "", ["StreamlitPage"]],
+        StreamlitPage: ["StreamlitPage", "StreamlitPage"],
     }
     proxy_obj_key = {
         streamlit.user_info.UserInfoProxy: ["streamlit.experimental_user", "st.experimental_user"],
@@ -600,6 +610,7 @@ def get_streamlit_docstring_dict():
         if DEBUG:
             print(f"Fetching {obj}")
         module_docstring_dict.update(get_obj_docstring_dict(obj, *key))
+    # Proxy objects
     for obj, key in proxy_obj_key.items():
         if DEBUG:
             print(f"Fetching {obj}")
@@ -616,7 +627,6 @@ def get_streamlit_docstring_dict():
         if DEBUG:
             print(f"Fetching {obj}")
         docstring = getattr(obj, "__doc__", "")
-        docstring = docstring.replace("    Attributes\n", "    Parameters\n")
         member_docstring_dict = get_attribute_dict_dict(obj, key[0].split(".")[-1])
         member_docstring_dict["is_attribute_dict"] = True
         module_docstring_dict.update({key[0]: member_docstring_dict})
@@ -626,7 +636,7 @@ def get_streamlit_docstring_dict():
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         VERSION = sys.argv[1]
-    if len(sys.argv) > 2 and sys.argv[2] == "debug":
-        DEBUG = True
+    if len(sys.argv) > 2 and sys.argv[2].isnumeric():
+        DEBUG = int(sys.argv[2])
     data = get_streamlit_docstring_dict()
     utils.write_to_existing_dict(VERSION, data)

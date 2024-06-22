@@ -13,15 +13,12 @@ const SKIP_THESE = [
   "/500",
   "/develop/api-reference/caching-and-state/st.experimental_get_query_params",
   "/develop/api-reference/caching-and-state/st.experimental_set_query_params",
-  "/develop/api-reference/caching-and-state/st.cache",
   "/develop/api-reference/connections/st.connections.experimentalbaseconnection",
   "/develop/api-reference/connections/st.experimental_connection",
   "/develop/api-reference/caching-and-state/st.experimental_memo",
   "/develop/api-reference/caching-and-state/st.experimental_singleton",
   "/develop/api-reference/execution-flow/st.experimental_rerun",
   "/develop/api-reference/data/st.experimental_data_editor",
-  "/develop/concepts/architecture/st.cache",
-  "/develop/concepts/architecture/experimental-cache-primitives",
   "/develop/quick-reference/older-versions",
 ];
 

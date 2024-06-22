@@ -49,12 +49,6 @@ site_menu:
     url: /develop/concepts/architecture/app-chrome
   - category: Develop / Concepts / Architecture & execution / Caching
     url: /develop/concepts/architecture/caching
-  - category: Develop / Concepts / Architecture & execution / Optimize performance with st.cache
-    url: /develop/concepts/architecture/st.cache
-    visible: false
-  - category: Develop / Concepts / Architecture & execution / Experimental cache primitives
-    url: /develop/concepts/architecture/experimental-cache-primitives
-    visible: false
   - category: Develop / Concepts / Architecture & execution / Session State
     url: /develop/concepts/architecture/session-state
   - category: Develop / Concepts / Architecture & execution / Forms
@@ -65,8 +59,14 @@ site_menu:
     url: /develop/concepts/architecture/widget-behavior
   - category: Develop / Concepts / Multipage apps
     url: /develop/concepts/multipage-apps
-  - category: Develop / Concepts / Multipage apps / Pages directory (v1)
+  - category: Develop / Concepts / Multipage apps / Overview
+    url: /develop/concepts/multipage-apps/overview
+  - category: Develop / Concepts / Multipage apps / Page and navigation
+    url: /develop/concepts/multipage-apps/page-and-navigation
+  - category: Develop / Concepts / Multipage apps / Pages directory
     url: /develop/concepts/multipage-apps/pages-directory
+  - category: Develop / Concepts / Multipage apps / Working with widgets
+    url: /develop/concepts/multipage-apps/widgets
   - category: Develop / Concepts / App design
     url: /develop/concepts/design
   - category: Develop / Concepts / App design / Animate & update elements
@@ -452,6 +452,12 @@ site_menu:
   - category: Develop / API reference / APPLICATION LOGIC
   - category: Develop / API reference / Navigation and pages
     url: /develop/api-reference/navigation
+  - category: Develop / API reference / Navigation and pages / st.navigation
+    url: /develop/api-reference/navigation/st.navigation
+    isVersioned: true
+  - category: Develop / API reference / Navigation and pages / st.Page
+    url: /develop/api-reference/navigation/st.page
+    isVersioned: true
   - category: Develop / API reference / Navigation and pages / st.page_link
     url: https://docs.streamlit.io/develop/api-reference/widgets/st.page_link
     isVersioned: true
@@ -491,10 +497,6 @@ site_menu:
   - category: Develop / API reference / Caching and state / st.cache_resource
     url: /develop/api-reference/caching-and-state/st.cache_resource
     isVersioned: true
-  - category: Develop / API reference / Caching and state / st.cache
-    url: /develop/api-reference/caching-and-state/st.cache
-    isVersioned: true
-    isDeprecated: true
   - category: Develop / API reference / Caching and state / st.experimental_memo
     url: /develop/api-reference/caching-and-state/st.experimental_memo
     isVersioned: true
@@ -666,8 +668,11 @@ site_menu:
     url: /develop/tutorials/databases/tigergraph
   - category: Develop / Tutorials / Multipage apps
     url: /develop/tutorials/multipage
+  - category: Develop / Tutorials / Multipage apps / Dynamic navigation
+    url: /develop/tutorials/multipage/dynamic-navigation
   - category: Develop / Tutorials / Multipage apps / Build navigation with st.page_link
     url: /develop/tutorials/multipage/st.page_link-nav
+    visible: false
   - category: Develop / Tutorials / Work with LLMs
     url: /develop/tutorials/llms
   - category: Develop / Tutorials / Work with LLMs / Build a basic LLM chat app

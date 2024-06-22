@@ -1,0 +1,2 @@
+vega_datasets
+streamlit==1.36.0
