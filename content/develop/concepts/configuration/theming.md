@@ -21,7 +21,7 @@ in the `[theme]` section of a `.streamlit/config.toml` file.
 
 ```toml
 [theme]
-primaryColor="#F63366"
+primaryColor="#FF4B4B"
 backgroundColor="#FFFFFF"
 secondaryBackgroundColor="#F0F2F6"
 textColor="#262730"
