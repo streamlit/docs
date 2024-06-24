@@ -82,6 +82,12 @@ schema = "xxx"
 client_session_keep_alive = true
 ```
 
+<Tip>
+
+Make sure your account name is in the format `<my_organization>-<my_account>`. This is the general-purpose identifier format and not the `.`-separated format used for SQL commands.
+
+</Tip>
+
 If you created the database from the previous step, the names of your database and schema are `PETS` and `PUBLIC`, respectively. Streamlit will also use **Snowflake config and credentials** from a [SnowSQL config file](https://docs.snowflake.com/en/user-guide/snowsql-config#snowsql-config-file) if available.
 
 <Important>

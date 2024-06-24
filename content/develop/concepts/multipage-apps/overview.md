@@ -105,7 +105,7 @@ Users can also navigate between pages using URLs as noted above. When multiple f
     Navigating between pages by URL creates a new browser session. In particular, clicking markdown links to other pages resets ``st.session_state``. In order to retain values in ``st.session_state``, handle page switching through Streamlit navigation commands and widgets, like ``st.navigation``, ``st.switch_page``, ``st.page_link``, and the built-in navigation menu.
 </Important>
 
-If a user tries to access a URL for a page that does not exist, they will see a modal like the one below, saying the user has requested a page that was not found.
+If a user tries to access a URL for a page that does not exist, they will see a modal like the one below, saying "Page not found."
 
 <div style={{ maxWidth: '75%', margin: 'auto' }}>
 <Image alt="Page not found" src="/images/mpa-page-not-found.png" />

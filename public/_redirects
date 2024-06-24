@@ -1136,6 +1136,7 @@
 /develop/concepts/architecture/st.cache /develop/concepts/architecture/caching
 /develop/concepts/architecture/experimental-cache-primitives /develop/concepts/architecture/caching
 /develop/api-reference/caching-and-state/st.cache /develop/api-reference/caching-and-state/st.cache_data
+/develop/quick-reference/changelog /develop/quick-reference/release-notes
 
 # Deep links included in streamlit/streamlit source code
 /st.connections.snowflakeconnection-configuration /develop/api-reference/connections/st.connections.snowflakeconnection#configuration
