@@ -36,6 +36,24 @@ If you change theme settings in `.streamlit/config.toml` _while_ the app is runn
    streamlit run your_script.py --server.port 80
    ```
 
+## Available options
+
+All available configuration options are documented in [`config.toml`](/develop/api-reference/configuration/config.toml). These options may be declared in a TOML file, as environment variables, or as command line options.
+
+When using environment variables to override `config.toml`, convert the variable (including its section header) to upper snake case and add a `STREAMLIT_` prefix. For example, `STREAMLIT_CLIENT_SHOW_ERROR_DETAILS` is equivalent to the following in TOML:
+
+```toml
+[client]
+showErrorDetails = true
+```
+
+When using command line options to override `config.toml` and environment variables, use the same case as you would in the TOML file and include the section header as a period-separated prefix. For example, the command line option `--server.enableStaticServing true` is equivalent to the following:
+
+```toml
+[server]
+enableStaticServing = true
+```
+
 ## Telemetry
 
 As mentioned during the installation process, Streamlit collects usage statistics. You can find out

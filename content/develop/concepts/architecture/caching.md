@@ -16,7 +16,7 @@ Streamlit runs your script from top to bottom at every user interaction or code 
 1. Long-running functions run again and again, which slows down your app.
 2. Objects get recreated again and again, which makes it hard to persist them across reruns or sessions.
 
-But don't worry! Streamlit lets you tackle both issues with its built-in caching mechanism. Caching stores the results of slow function calls, so they only need to run once. This makes your app much faster and helps with persisting objects across reruns.
+But don't worry! Streamlit lets you tackle both issues with its built-in caching mechanism. Caching stores the results of slow function calls, so they only need to run once. This makes your app much faster and helps with persisting objects across reruns. Cached values are available to all users of your app. If you need to save results that should only be accessible within a session, use [Session State](/develop/concepts/architecture/session-stat) instead.
 
 <Collapse title="Table of contents" expanded={true}>
 
@@ -55,7 +55,7 @@ As mentioned, there are two caching decorators:
 
 ### st.cache_data
 
-`st.cache_data` is your go-to command for all functions that return data – whether DataFrames, NumPy arrays, str, int, float, or other serializable types. It's the right command for almost all use cases!
+`st.cache_data` is your go-to command for all functions that return data – whether DataFrames, NumPy arrays, str, int, float, or other serializable types. It's the right command for almost all use cases! Within each user session, an `@st.cache_data`-decorated function returns a _copy_ of the cached return value (if the value is already cached).
 
 #### Usage
 
@@ -177,7 +177,7 @@ def run_model(inputs):
 
 ### st.cache_resource
 
-`st.cache_resource` is the right command to cache “resources" that should be available globally across all users, sessions, and reruns. It has more limited use cases than `st.cache_data`, especially for caching database connections and ML models.
+`st.cache_resource` is the right command to cache “resources" that should be available globally across all users, sessions, and reruns. It has more limited use cases than `st.cache_data`, especially for caching database connections and ML models. Within each user session, an `@st.cache_resource`-decorated function returns the cached instance of the return value (if the value is already cached). Therefore, objects cached by `st.cache_resource` act like singletons and can mutate.
 
 #### Usage
 

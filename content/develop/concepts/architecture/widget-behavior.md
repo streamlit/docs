@@ -182,12 +182,12 @@ As mentioned earlier, Streamlit determines a widget's ID based on parameters suc
 
 If your script rerun calls a widget function with changed parameters or calls a widget function that wasn't used on the last script run:
 
-1. Streamlit will build the frontend and backend parts of the widget.
+1. Streamlit will build the frontend and backend parts of the widget, using its default value.
 2. If the widget has been assigned a key, Streamlit will check if that key already exists in Session State.  
-   a. If it exists and is not currently associated with another widget, Streamlit will attach to that key and take on its value for the widget.  
+   a. If it exists and is not currently associated with another widget, Streamlit will assign that key's value to the widget.
    b. Otherwise, it will assign the default value to the key in `st.session_state` (creating a new key-value pair or overwriting an existing one).
 3. If there are args or kwargs for a callback function, they are computed and saved at this point in time.
-4. The default value is then returned by the function.
+4. The widget value is then returned by the function.
 
 Step 2 can be tricky. If you have a widget:
 
