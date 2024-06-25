@@ -6,7 +6,7 @@ description: A changelog of highlights and fixes for older versions of Streamlit
 
 # Release notes (historical)
 
-This page contains release notes for Streamlit versions less than 1.11.0. For more recent versions of Streamlit, see [Release notes](/develop/quick-reference/changelog).
+This page contains release notes for Streamlit versions less than 1.16.0. For more recent versions of Streamlit, see [Release notes](/develop/quick-reference/changelog).
 
 ## **Version 1.15.0**
 
