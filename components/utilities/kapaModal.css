@@ -1,0 +1,29 @@
+.mantine-Modal-overlay {
+  background-color: rgba(166, 168, 184, 0.6) !important;
+}
+
+.mantine-Modal-header,
+.mantine-Modal-header h3 {
+  @apply bg-gray-10 dark:bg-gray-90 text-gray-90 dark:text-gray-40;
+}
+
+.mantine-Modal-body,
+.mantine-Modal-body > div > div {
+  @apply bg-gray-10 dark:bg-gray-90;
+}
+
+.mantine-Modal-body > div > div > div > div {
+  @apply text-gray-70;
+}
+
+/* .mantine-Text-root {
+    @apply bg-gray-10 dark:bg-gray-90 text-gray-90 dark:text-gray-40;
+} */
+
+.mantine-Input-input {
+  @apply bg-gray-10 dark:bg-gray-90 border-gray-70 focus:border-gray-90 dark:focus:border-gray-40 text-gray-90 dark:text-gray-40;
+}
+
+.mantine-Input-rightSection > .mantine-Group-root > .mantine-ActionIcon-root {
+  @apply bg-red-70 border-none text-white !important;
+}

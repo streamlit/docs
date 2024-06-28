@@ -2,6 +2,7 @@ import { debounce } from "lodash";
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import Link from "next/link";
+import Kapa from "../utilities/kapa";
 import dynamic from "next/dynamic";
 
 // import Navigation from
@@ -50,6 +51,7 @@ const Header = ({ isSticky }) => {
           <h4 className={styles.LogoText}>Documentation</h4>
         </Link>
         <section className={styles.NavigationContainer}>
+          <Kapa />
           <Search />
           <ThemeToggle />
           {mobileNav}
