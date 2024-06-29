@@ -2,6 +2,7 @@ import { debounce } from "lodash";
 
 import "../styles/globals.css";
 import "../components/utilities/searchModal.css";
+import "../components/utilities/kapaModal.css";
 import "../styles/main.scss";
 import "../public/fonts/styles.css";
 

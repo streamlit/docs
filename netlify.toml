@@ -25,6 +25,7 @@ connect-src \
   https://px.ads.linkedin.com/ \
   https://*.algolia.net/ \
   https://*.algolianet.com/ \
+  https://widget.kapa.ai/kapa-widget.bundle.js \
 ; \
 default-src 'none' ; \
 font-src 'self' ; \
@@ -53,6 +54,7 @@ script-src \
   https://connect.facebook.net/ \
   https://*.algolia.net/ \
   https://*.algolianet.com/ \
+  https://widget.kapa.ai/kapa-widget.bundle.js \
 ; \
 style-src \
   'self' \

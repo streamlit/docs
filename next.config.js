@@ -23,6 +23,7 @@ const CSP_HEADER = [
     "https://px.ads.linkedin.com/", // LinkedIn ad pixel
     "https://*.algolia.net/", // Search
     "https://*.algolianet.com/", // Search
+    "https://widget.kapa.ai/kapa-widget.bundle.js", // Kapa.ai
   ";",
   "default-src 'none';",
   "font-src 'self';",
@@ -51,6 +52,7 @@ const CSP_HEADER = [
     "https://connect.facebook.net/", // Facebook ad pixel
     "https://*.algolia.net/", // Search
     "https://*.algolianet.com/", // Search
+    "https://widget.kapa.ai/kapa-widget.bundle.js", // Kapa.ai
   ";",
   "style-src",
     "'self'",
