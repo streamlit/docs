@@ -51,8 +51,8 @@ const Header = ({ isSticky }) => {
           <h4 className={styles.LogoText}>Documentation</h4>
         </Link>
         <section className={styles.NavigationContainer}>
-          <Kapa />
           <Search />
+          <Kapa />
           <ThemeToggle />
           {mobileNav}
         </section>
