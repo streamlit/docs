@@ -11,7 +11,7 @@ slug: /develop/concepts/configuration
 
 <h5>Configuration options</h5>
 
-Understand they types of options available to you through Streamlit configuration.
+Understand the types of options available to you through Streamlit configuration.
 
 </RefCard>
 
