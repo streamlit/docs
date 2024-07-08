@@ -16,7 +16,7 @@ Streamlit runs your script from top to bottom at every user interaction or code 
 1. Long-running functions run again and again, which slows down your app.
 2. Objects get recreated again and again, which makes it hard to persist them across reruns or sessions.
 
-But don't worry! Streamlit lets you tackle both issues with its built-in caching mechanism. Caching stores the results of slow function calls, so they only need to run once. This makes your app much faster and helps with persisting objects across reruns. Cached values are available to all users of your app. If you need to save results that should only be accessible within a session, use [Session State](/develop/concepts/architecture/session-stat) instead.
+But don't worry! Streamlit lets you tackle both issues with its built-in caching mechanism. Caching stores the results of slow function calls, so they only need to run once. This makes your app much faster and helps with persisting objects across reruns. Cached values are available to all users of your app. If you need to save results that should only be accessible within a session, use [Session State](/develop/concepts/architecture/session-state) instead.
 
 <Collapse title="Table of contents" expanded={true}>
 
