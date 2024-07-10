@@ -22,3 +22,15 @@
 :global(.dark) .AskIcon {
   @apply text-gray-40 !important;
 }
+
+.Tooltip {
+  @apply hidden absolute top-20 right-[4.5rem] h-8 px-2 pt-0.5 rounded-md bg-gray-20;
+}
+
+.Tooltip p {
+  @apply text-gray-70;
+}
+
+:global(.dark) .Tooltip {
+  @apply bg-gray-90;
+}
