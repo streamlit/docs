@@ -25,7 +25,7 @@ You can create more clusters if you want to. Click the cluster name to enter clu
 
 ![Cluster overview](/images/databases/tidb-3.png)
 
-Then click **Connect** to easily get the connection arguments to access the cluster. On the popup, click **Generate password** to set the password.
+Then click **Connect** to easily get the connection arguments to access the cluster. On the popup, click **Generate Password** to set the password.
 
 ![Get connection arguments](/images/databases/tidb-4.png)
 
@@ -44,7 +44,7 @@ to [skip to the next step](#add-username-and-password-to-your-local-app-secrets)
 
 </Note>
 
-Once your TiDB cluster is up and running, connect to it with the `mysql` client(or with **Chat2Query** tab on the console) and enter the following commands to create a database and a table with some example values:
+Once your TiDB cluster is up and running, connect to it with the `mysql` client(or with **SQL Editor** tab on the console) and enter the following commands to create a database and a table with some example values:
 
 ```sql
 CREATE DATABASE pets;
