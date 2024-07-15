@@ -76,6 +76,7 @@ export default function Article({
   data,
   source,
   streamlit,
+  exceptions,
   slug,
   menu,
   currMenuItem,
@@ -152,6 +153,7 @@ export default function Article({
         {...props}
         streamlitFunction={props.function}
         streamlit={streamlit}
+        exceptions={exceptions}
         version={version}
         versions={versions}
         slug={slug}
@@ -334,7 +336,12 @@ export async function getStaticProps(context) {
     join(pythonDirectory, "streamlit.json"),
     "utf8",
   );
+  const jsonExceptions = fs.readFileSync(
+    join(pythonDirectory, "snowflake.json"),
+    "utf8",
+  );
   const streamlitFuncs = jsonContents ? JSON.parse(jsonContents) : {};
+  const streamlitExceptions = jsonExceptions ? JSON.parse(jsonExceptions) : {};
   const all_versions = Object.keys(streamlitFuncs);
   const versions = sortBy(all_versions, [
     (o) => {
@@ -343,11 +350,11 @@ export async function getStaticProps(context) {
     },
   ]);
   const current_version = versions[versions.length - 1];
-  const funcs = jsonContents ? JSON.parse(jsonContents) : {};
 
   const menu = getMenu();
 
   props["streamlit"] = {};
+  props["exceptions"] = {};
   props["versions"] = all_versions;
   props["versionFromStaticLoad"] = null;
 
@@ -366,14 +373,17 @@ export async function getStaticProps(context) {
     const should_version = /<Autofunction(.*?)\/>/gi.test(fileContents);
 
     if (should_version) {
-      props["streamlit"] = funcs[current_version];
+      props["streamlit"] = streamlitFuncs[current_version];
+      props["exceptions"] = streamlitExceptions[current_version] ?? {};
     }
 
     const isnum = /^[\d\.]+$/.test(context.params.slug[0]);
     const isSiS = /^SiS[\d\.]*$/.test(context.params.slug[0]);
     if (isnum || isSiS) {
       props["versionFromStaticLoad"] = context.params.slug[0];
-      props["streamlit"] = funcs[props["versionFromStaticLoad"]];
+      props["streamlit"] = streamlitFuncs[props["versionFromStaticLoad"]];
+      props["exceptions"] =
+        streamlitExceptions[props["versionFromStaticLoad"]] ?? {};
 
       location = `/${context.params.slug.slice(1).join("/")}`;
     }
