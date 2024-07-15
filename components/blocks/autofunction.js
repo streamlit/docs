@@ -485,7 +485,7 @@ const Autofunction = ({
       ${property.deprecated.deprecatedText}
     </div>`
       : "";
-    const properyPrefix = functionException[property.name]
+    const propertyPrefix = functionException[property.name]
       ? functionException[property.name]["content"]
       : "";
     const description = property.description
