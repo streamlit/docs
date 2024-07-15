@@ -1,8 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
+import ReactDOMServer from "react-dom/server";
+import Markdown from "react-markdown";
 import reverse from "lodash/reverse";
 import classNames from "classnames";
 import Table from "./table";
 import { H2, H3 } from "./headers";
+import Note from "./note";
 import Warning from "./warning";
 import Deprecation from "./deprecation";
 import { withRouter, useRouter } from "next/router";
@@ -25,8 +28,10 @@ const cleanHref = (name) => {
 const Autofunction = ({
   version,
   versions,
+  snowflakeVersions,
   streamlitFunction,
   streamlit,
+  exceptions,
   slug,
   hideHeader,
   deprecated,
@@ -99,6 +104,7 @@ const Autofunction = ({
 
   const VersionSelector = ({
     versionList,
+    snowflakeVersions,
     currentVersion,
     handleSelectVersion,
   }) => {
@@ -120,11 +126,9 @@ const Autofunction = ({
           >
             {versionList.map((version, index) => (
               <option value={version} key={version}>
-                {version == "SiS"
-                  ? "Streamlit in Snowflake"
-                  : version.startsWith("SiS.")
-                    ? version.replace("SiS.", "Streamlit in Snowflake ")
-                    : "Version " + version}
+                {snowflakeVersions.includes(version)
+                  ? version + " ❄"
+                  : version}
               </option>
             ))}
           </select>
@@ -165,7 +169,9 @@ const Autofunction = ({
   const returns = [];
   const versionList = reverse(versions.slice());
   let functionObject;
+  let functionException;
   let functionDescription;
+  let functionDescriptionPrefix = "";
   let header;
   let headerTitle;
   let body;
@@ -177,8 +183,17 @@ const Autofunction = ({
   if (streamlitFunction in streamlit || oldStreamlitFunction in streamlit) {
     functionObject =
       streamlit[streamlitFunction] ?? streamlit[oldStreamlitFunction];
+    functionException =
+      streamlitFunction in streamlit
+        ? exceptions[streamlitFunction] ?? {}
+        : oldStreamlitFunction in streamlit
+          ? exceptions[oldStreamlitFunction] ?? {}
+          : {};
     isClass = functionObject.is_class;
     isAttributeDict = functionObject.is_attribute_dict ?? false;
+    if ("_" in functionException && "content" in functionException["_"]) {
+      functionDescriptionPrefix = functionException["_"]["content"];
+    }
     if (
       functionObject.description !== undefined &&
       functionObject.description
@@ -209,6 +224,7 @@ const Autofunction = ({
           </H2>
           <VersionSelector
             versionList={versionList}
+            snowflakeVersions={snowflakeVersions}
             currentVersion={currentVersion}
             handleSelectVersion={handleSelectVersion}
           />
@@ -277,6 +293,7 @@ const Autofunction = ({
           {headerTitle}
           <VersionSelector
             versionList={versionList}
+            snowflakeVersions={snowflakeVersions}
             currentVersion={currentVersion}
             handleSelectVersion={handleSelectVersion}
           />
@@ -285,6 +302,13 @@ const Autofunction = ({
           <Deprecation>
             <p dangerouslySetInnerHTML={{ __html: deprecatedText }} />
           </Deprecation>
+        ) : (
+          ""
+        )}
+        {functionDescriptionPrefix ? (
+          <Note label="Streamlit in Snowflake Note" compact>
+            <Markdown children={functionDescriptionPrefix} />
+          </Note>
         ) : (
           ""
         )}
@@ -315,7 +339,7 @@ const Autofunction = ({
   // propertiesRows is initialized early to allow Attributes (recorded as args)
   // in any class docstring to be diverted to the properties section.
   let propertiesRows = [];
-  let docstringProperties = []; // Used to avoid duplicates with @property
+  let docstringProperties = []; // Internal use to avoid duplicates with @property
 
   for (const index in functionObject.args) {
     const row = {};
@@ -331,6 +355,9 @@ const Autofunction = ({
         </i>
         ${param.deprecated.deprecatedText}
       </div>`
+      : "";
+    const paramPrefix = functionException[param.name]
+      ? functionException[param.name]["content"]
       : "";
     const description = param.description
       ? param.description
@@ -348,6 +375,15 @@ const Autofunction = ({
       `;
       row["body"] = `
         ${deprecatedMarkup}
+        ${
+          paramPrefix
+            ? ReactDOMServer.renderToString(
+                <Note label="Streamlit in Snowflake Note" compact>
+                  <Markdown children={paramPrefix} />
+                </Note>,
+              )
+            : ""
+        }
         ${description}
       `;
     } else {
@@ -362,6 +398,15 @@ const Autofunction = ({
       `;
       row["body"] = `
         ${deprecatedMarkup}
+        ${
+          paramPrefix
+            ? ReactDOMServer.renderToString(
+                <Note label="Streamlit in Snowflake Note" compact>
+                  <Markdown children={paramPrefix} />
+                </Note>,
+              )
+            : ""
+        }
         ${description}
       `;
     }
@@ -440,6 +485,9 @@ const Autofunction = ({
       ${property.deprecated.deprecatedText}
     </div>`
       : "";
+    const propertyPrefix = functionException[property.name]
+      ? functionException[property.name]["content"]
+      : "";
     const description = property.description
       ? property.description
       : `<p>No description</p> `;
@@ -452,6 +500,15 @@ const Autofunction = ({
       </p>`;
     row["body"] = `
       ${deprecatedMarkup}
+      ${
+        propertyPrefix
+          ? ReactDOMServer.renderToString(
+              <Note label="Streamlit in Snowflake Note" compact>
+                <Markdown children={propertyPrefix} />
+              </Note>,
+            )
+          : ""
+      }
       ${description}
     `;
     propertiesRows.push(row);
