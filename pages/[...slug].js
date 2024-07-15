@@ -84,6 +84,7 @@ export default function Article({
   nextMenuItem,
   versionFromStaticLoad,
   versions,
+  snowflakeVersions,
   filename,
 }) {
   let versionWarning;
@@ -156,6 +157,7 @@ export default function Article({
         exceptions={exceptions}
         version={version}
         versions={versions}
+        snowflakeVersions={snowflakeVersions}
         slug={slug}
         oldStreamlitFunction={props.oldName ?? ""}
       />
@@ -356,6 +358,7 @@ export async function getStaticProps(context) {
   props["streamlit"] = {};
   props["exceptions"] = {};
   props["versions"] = all_versions;
+  props["snowflakeVersions"] = [];
   props["versionFromStaticLoad"] = null;
 
   if ("slug" in context.params) {
@@ -375,6 +378,7 @@ export async function getStaticProps(context) {
     if (should_version) {
       props["streamlit"] = streamlitFuncs[current_version];
       props["exceptions"] = streamlitExceptions[current_version] ?? {};
+      props["snowflakeVersions"] = Object.keys(streamlitExceptions);
     }
 
     const isnum = /^[\d\.]+$/.test(context.params.slug[0]);

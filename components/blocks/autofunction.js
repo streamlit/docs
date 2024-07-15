@@ -28,6 +28,7 @@ const cleanHref = (name) => {
 const Autofunction = ({
   version,
   versions,
+  snowflakeVersions,
   streamlitFunction,
   streamlit,
   exceptions,
@@ -103,6 +104,7 @@ const Autofunction = ({
 
   const VersionSelector = ({
     versionList,
+    snowflakeVersions,
     currentVersion,
     handleSelectVersion,
   }) => {
@@ -124,11 +126,9 @@ const Autofunction = ({
           >
             {versionList.map((version, index) => (
               <option value={version} key={version}>
-                {version == "SiS"
-                  ? "Streamlit in Snowflake"
-                  : version.startsWith("SiS.")
-                    ? version.replace("SiS.", "Streamlit in Snowflake ")
-                    : "Version " + version}
+                {snowflakeVersions.includes(version)
+                  ? version + " (SiS)"
+                  : version}
               </option>
             ))}
           </select>
@@ -224,6 +224,7 @@ const Autofunction = ({
           </H2>
           <VersionSelector
             versionList={versionList}
+            snowflakeVersions={snowflakeVersions}
             currentVersion={currentVersion}
             handleSelectVersion={handleSelectVersion}
           />
@@ -292,6 +293,7 @@ const Autofunction = ({
           {headerTitle}
           <VersionSelector
             versionList={versionList}
+            snowflakeVersions={snowflakeVersions}
             currentVersion={currentVersion}
             handleSelectVersion={handleSelectVersion}
           />
