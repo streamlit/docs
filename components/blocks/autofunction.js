@@ -127,7 +127,7 @@ const Autofunction = ({
             {versionList.map((version, index) => (
               <option value={version} key={version}>
                 {snowflakeVersions.includes(version)
-                  ? version + " (SiS)"
+                  ? version + " ❄"
                   : version}
               </option>
             ))}
