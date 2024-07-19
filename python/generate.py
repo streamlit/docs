@@ -582,12 +582,14 @@ def get_streamlit_docstring_dict():
             "st.testing.v1.element_tree",
         ],
         streamlit.user_info.UserInfoProxy: ["streamlit.experimental_user", "st.experimental_user"],
+        streamlit.runtime.context.ContextProxy: ["context", "context"],
         CachedFunc: ["CachedFunc", "CachedFunc"],
         page: ["", "", ["StreamlitPage"]],
         StreamlitPage: ["StreamlitPage", "StreamlitPage"],
     }
     proxy_obj_key = {
         streamlit.user_info.UserInfoProxy: ["streamlit.experimental_user", "st.experimental_user"],
+        streamlit.runtime.context.ContextProxy: ["streamlit.context", "st.context"]
     }
     attribute_dicts = {
         PlotlyState: ["PlotlyState", "PlotlyState"],
