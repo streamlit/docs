@@ -538,17 +538,9 @@ def get_streamlit_docstring_dict():
 
     obj_key = {
         streamlit: ["streamlit", "st"],
-        streamlit.runtime.caching.experimental_memo: [
-            "streamlit.experimental_memo",
-            "st.experimental_memo",
-        ],
         streamlit.runtime.caching.cache_data_api.CacheDataAPI: [
             "streamlit.cache_data",
             "st.cache_data",
-        ],
-        streamlit.runtime.caching.experimental_singleton: [
-            "streamlit.experimental_singleton",
-            "st.experimental_singleton",
         ],
         streamlit.runtime.caching.cache_resource_api.CacheResourceAPI: [
             "streamlit.cache_resource",
