@@ -573,6 +573,9 @@ site_menu:
     isVersioned: true
   - category: Develop / API reference / Utilities
     url: /develop/api-reference/utilities
+  - category: Develop / API reference / Utilities / st.context
+    url: /develop/api-reference/utilities/st.context
+    isVersioned: true
   - category: Develop / API reference / Utilities / st.experimental_user
     url: /develop/api-reference/utilities/st.experimental_user
     isVersioned: true
