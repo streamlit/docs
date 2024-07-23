@@ -38,6 +38,20 @@ st.download_button("Download file", file)
 
 </RefCard>
 
+<RefCard href="/develop/api-reference/widgets/st.feedback">
+
+<Image pure alt="screenshot" src="/images/api/feedback.jpg" />
+
+<h4>Feedback</h4>
+
+Display a rating or sentiment button group.
+
+```python
+st.feedback("stars")
+```
+
+</RefCard>
+
 <RefCard href="/develop/api-reference/execution-flow/st.form_submit_button">
 
 <Image pure alt="screenshot" src="/images/api/form_submit_button.svg" />
