@@ -252,22 +252,6 @@ export default function Home({ window, menu }) {
                 <h4>Custom component callbacks</h4>
                 <p>Custom components now support callback functions.</p>
               </RefCard>
-              {/* <Tile
-                size="half"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                img="/logo.svg"
-                title="Clear memo + singleton caches procedurally"
-                text="Do you need more control over cache invalidation? Any function annotated with @st.cache_data or @st.cache_resource gets its own clear() function automatically."
-                link="/develop/concepts/architecture/experimental-cache-primitives#clear-memo-and-singleton-caches-procedurally"
-              /> */}
-              {/* Preserve above comment for syntax reference */}
             </TileContainer>
 
             <H2 className="no-b-m">Latest blog posts</H2>
