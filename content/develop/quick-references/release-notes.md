@@ -19,6 +19,50 @@ pip install --upgrade streamlit
 
 </Tip>
 
+## **Version 1.37.0**
+
+_Release date: July 25, 2024_
+
+**Highlights**
+
+- 🍪 Introducing [`st.context`](/develop/api-reference/utilities/st.context) to read headers and cookies!
+- ⭐ Introducing [`st.feedback`](/develop/api-reference/widgets/st.feedback) to collect ratings and sentiment from your users!
+- 👟 Announcing the general availability of [`st.fragment`](/develop/api-reference/execution-flow/st.fragment), a decorator that lets you rerun functions independently of the whole page.
+- 🍿 Announcing the general availability of [`st.dialog`](/develop/api-reference/execution-flow/st.dialog), a decorator that lets you create modal dialogs.
+
+**Notable Changes**
+
+- ℹ️ You can use icons from the Material Symbols library in [Markdown](/develop/api-reference/text/st.markdown)!
+- 📈 You can pass `graphviz.Source` objects to [`st.graphviz_chart`](/develop/api-reference/charts/st.graphviz_chart).
+- 📊 You can modify the stacking behavior for [`st.bar_chart`](/develop/api-reference/charts/st.bar_chart) and [`st.area_chart`](/develop/api-reference/charts/st.area_chart).
+- 🔭 Within a fragment, you can scope [`st.rerun`](/develop/api-reference/execution-flow/st.rerun) to the fragment.
+- 🪺 Streamlit supports nested fragments ([#8931](https://github.com/streamlit/streamlit/pull/8931), [#8635](https://github.com/streamlit/streamlit/issues/8635)).
+- 📞 Fragments can be used in callback functions ([#8916](https://github.com/streamlit/streamlit/pull/8916), [#8591](https://github.com/streamlit/streamlit/issues/8591)).
+
+**Other Changes**
+
+- ⭕ Material Symbols are rounded instead of outlined ([#8998](https://github.com/streamlit/streamlit/pull/8998)).
+- 2️⃣ Streamlit supports Numpy version 2.0 ([#8940](https://github.com/streamlit/streamlit/pull/8940)).
+- 😄 We’ve updated emoji validation for new emojis ([#8923](https://github.com/streamlit/streamlit/pull/8923)).
+- 👻 We’ve removed several experimental commands with new, generally available versions ([#8943](https://github.com/streamlit/streamlit/pull/8943)).
+- ☠️ We’ve removed deprecated configuration options per their announced expiration date ([#9005](https://github.com/streamlit/streamlit/pull/9005), [#9013](https://github.com/streamlit/streamlit/pull/9013), [#9018](https://github.com/streamlit/streamlit/pull/9018)).
+- 🦎 Bug fix: Nested fragments rerun correctly when a child fragment precedes a widget in the parent fragment ([#9114](https://github.com/streamlit/streamlit/pull/9114)).
+- 🐌 Bug fix: Streamlit validates file paths before performing additional checks when using static file serving for improved security ([#8990](https://github.com/streamlit/streamlit/pull/8990)).
+- 🕸️ Bug fix: [`st.map`](http://st.map) displays at the correct width inside `st.expander` ([#9070](https://github.com/streamlit/streamlit/pull/9070), [#8004](https://github.com/streamlit/streamlit/issues/8004)).
+- 🦗 Bug fix: Streamlit displays the correct (Windows) path for `secrets.toml` in an error message ([#9061](https://github.com/streamlit/streamlit/pull/9061), [#6147](https://github.com/streamlit/streamlit/issues/6147)).
+- 🦂 Bug fix: `st.switch_page` correctly clears non-embed query parameters when the user switches pages ([#9059](https://github.com/streamlit/streamlit/pull/9059), [#9050](https://github.com/streamlit/streamlit/issues/9050)).
+- 🦟 Bug fix: Custom themes display correctly for multipage elements like `st.page_link` ([#8994](https://github.com/streamlit/streamlit/pull/8994), [#8978](https://github.com/streamlit/streamlit/issues/8978)).
+- 🦠 Bug fix: `st.snow` and `st.balloons` don’t show in prints ([#9053](https://github.com/streamlit/streamlit/pull/9053), [#7790](https://github.com/streamlit/streamlit/issues/7790)).
+- 🪰 Bug fix: We’ve improved the default formatting for `st.number_input` ([#9035](https://github.com/streamlit/streamlit/pull/9035), [#7163](https://github.com/streamlit/streamlit/issues/7163)).
+- 🪳 Bug fix: An `st.navigation` example was corrected ([#9027](https://github.com/streamlit/streamlit/pull/9027), [#9026](https://github.com/streamlit/streamlit/issues/9026)). Thanks, [mahotd](https://github.com/mahotd)!
+- 🕷️ Bug fix: Dialogs no longer have a brief delay when closing ([#9023](https://github.com/streamlit/streamlit/pull/9023), [#8747](https://github.com/streamlit/streamlit/issues/8747)).
+- 🦀 Bug fix: Streamlit correctly raises a `KeyError` when encountered in a fragment instead of a misleading, fragment-related error ([#9011](https://github.com/streamlit/streamlit/pull/9011), [#8494](https://github.com/streamlit/streamlit/issues/8494)).
+- 🐞 Bug fix: Streamlit doesn’t clear `MediaFileManager` on fragment reruns to prevent invalid references ([#9010](https://github.com/streamlit/streamlit/pull/9010), [#8932](https://github.com/streamlit/streamlit/issues/8932)).
+- 🐝 Bug fix: Custom themes are correctly removed when deleted ([#8989](https://github.com/streamlit/streamlit/pull/8989), [#8962](https://github.com/streamlit/streamlit/issues/8962)).
+- 🐜 Bug fix: Streamlit supports non-unix style paths for correct multipage routing in Windows ([#8988](https://github.com/streamlit/streamlit/pull/8988), [#8958](https://github.com/streamlit/streamlit/issues/8958)).
+- 🪲 Bug fix: Using `st.rerun` in a fragment will not cause the app’s main body content to render in the fragment in rare events ([#8798](https://github.com/streamlit/streamlit/pull/8798)).
+- 🐛 Bug fix: When an exception is raised within a fragment, Streamlit shows the error message within the fragment ([#8868](https://github.com/streamlit/streamlit/pull/8868)).
+
 ## **Version 1.36.0**
 
 _Release date: June 20, 2024_
