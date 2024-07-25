@@ -5,7 +5,7 @@ slug: /develop/quick-reference/cheat-sheet
 
 # Streamlit API cheat sheet
 
-This is a summary of the docs, as of [Streamlit v1.35.0](https://pypi.org/project/streamlit/1.36.0/).
+This is a summary of the docs, as of [Streamlit v1.37.0](https://pypi.org/project/streamlit/1.37.0/).
 
 <Masonry>
 
@@ -259,14 +259,14 @@ with st.form(key="my_form"):
     st.form_submit_button("Login")
 
 # Define a dialog function
-@st.experimental_dialog("Welcome!")
+@st.dialog("Welcome!")
 def modal_dialog():
     st.write("Hello")
 
 modal_dialog()
 
 # Define a fragment
-@st.experimental_fragment
+@st.fragment
 def fragment_function():
     df = get_data()
     st.line_chart(df)
@@ -284,6 +284,7 @@ fragment_function()
 ```python
 st.button("Click me")
 st.download_button("Download file", data)
+st.feedback("thumbs")
 st.link_button("Go to gallery", url)
 st.page_link("app.py", label="Home")
 st.data_editor("Edit data", data)
@@ -507,12 +508,16 @@ st.exception(e)
 
 ```python
 # Show different content based on the user's email address.
-if st.user.email == "jane@email.com":
+if st.experimental_user.email == "jane@examples.com":
     display_jane_content()
-elif st.user.email == "adam@foocorp.io":
+elif st.experimental_user.email == "adam@example.com":
     display_adam_content()
 else:
     st.write("Please contact us to get access!")
+
+# Get dictionaries of cookies and headers
+st.context.cookies
+st.context.headers
 ```
 
 </CodeTile>

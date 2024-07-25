@@ -9,17 +9,15 @@ There are a handful of methods that allow you to create placeholders in your
 app, provide help using doc strings, get and modify configuration options and query parameters.
 
 <TileContainer>
-<RefCard href="/develop/api-reference/utilities/st.experimental_user" size="half">
+<RefCard href="/develop/api-reference/utilities/st.context" size="half">
 
-<h4>User info</h4>
+<h4>Context</h4>
 
-`st.experimental_user` returns information about the logged-in user of private apps on Streamlit Community Cloud.
+`st.context` provides a read-only interface to access cookies and headers.
 
 ```python
-if st.experimental_user.email == "foo@corp.com":
-  st.write("Welcome back, ", st.experimental_user.email)
-else:
-  st.write("You are not authorized to view this page.")
+st.context.cookies
+st.context.headers
 ```
 
 </RefCard>
@@ -42,12 +40,21 @@ st.help(pd.DataFrame)
 Renders HTML strings to your app.
 
 ```python
-css = """
-<style>
-    p { color: red; }
-</style>
-"""
-st.html(css)
+st.html("<p>Foo bar.</p>")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/utilities/st.experimental_user" size="half">
+
+<h4>User info</h4>
+
+`st.experimental_user` returns information about the logged-in user of private apps on Streamlit Community Cloud.
+
+```python
+if st.experimental_user.email == "foo@corp.com":
+  st.write("Welcome back, ", st.experimental_user.email)
+else:
+  st.write("You are not authorized to view this page.")
 ```
 
 </RefCard>

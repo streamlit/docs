@@ -192,82 +192,70 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/develop/concepts/multipage-apps/overview"
+                href="/develop/api-reference/utilities/st.context"
               >
-                <i className="material-icons-sharp">auto_stories</i>
-                <h4>Multipage apps v2</h4>
+                <i className="material-icons-sharp">cookie</i>
+                <h4>User session context</h4>
                 <p>
-                  Introducing <code>st.navigation</code> and{" "}
-                  <code>st.Page</code>, the new, preferred way to declare
-                  multipage apps!
+                  Introducing <code>st.context</code>, a read-only interface to
+                  access headers and cookies!
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/widgets/st.feedback"
+              >
+                <i className="material-icons-sharp">star</i>
+                <h4>User feedback</h4>
+                <p>
+                  Introducing <code>st.feedback</code> to collect user ratings
+                  and sentiment.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/execution-flow/st.fragment"
+              >
+                <i className="material-icons-sharp">bolt</i>
+                <h4>Fragments and dialogs</h4>
+                <p>
+                  We've polished <code>st.fragment</code> and
+                  <code>st.dialog</code> with multiple bug fixes and
+                  improvements. They're no longer experimental!
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/execution-flow/st.rerun"
+              >
+                <i className="material-icons-sharp">location_searching</i>
+                <h4>Rerun scope</h4>
+                <p>
+                  <code>st.rerun</code> can be scoped to a fragment.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
                 href="/develop/api-reference/charts/st.bar_chart"
               >
-                <i className="material-icons-sharp">align_horizontal_left</i>
-                <h4>Horizontal bar charts</h4>
+                <i className="material-icons-sharp">bar_chart</i>
+                <h4>Chart stacking</h4>
                 <p>
-                  Create horizontal bar charts with <code>st.bar_chart</code>.
+                  <code>st.area_chart</code> and <code>st.bar_chart</code>
+                  have a new parameter to set stacking behavior.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/layout/st.expander"
+                href="/develop/api-reference/text/st.markdown"
               >
                 <i className="material-icons-sharp">info</i>
-                <h4>Icons for expanders</h4>
+                <h4>Icons in Markdown</h4>
                 <p>
-                  Add icons to your <code>st.expander</code> labels.
+                  Streamlit supports icons from the Google Material Symbols
+                  library in Markdown.
                 </p>
               </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/layout/st.columns"
-              >
-                <i className="material-icons-sharp">align_vertical_bottom</i>
-                <h4>Vertical alignment</h4>
-                <p>
-                  Set the vertical alignment for <code>st.columns</code>.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/charts/st.line_chart"
-              >
-                <i className="material-icons-sharp">show_chart</i>
-                <h4>Axis labels</h4>
-                <p>
-                  <code>st.area_chart</code>, <code>st.bar_chart</code>,{" "}
-                  <code>st.line_chart</code>, and <code>st.scatter_chart</code>{" "}
-                  let you set axis labels.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="https://github.com/streamlit/streamlit/pull/8633"
-              >
-                <i className="material-icons-sharp">call</i>
-                <h4>Custom component callbacks</h4>
-                <p>Custom components now support callback functions.</p>
-              </RefCard>
-              {/* <Tile
-                size="half"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                img="/logo.svg"
-                title="Clear memo + singleton caches procedurally"
-                text="Do you need more control over cache invalidation? Any function annotated with @st.cache_data or @st.cache_resource gets its own clear() function automatically."
-                link="/develop/concepts/architecture/experimental-cache-primitives#clear-memo-and-singleton-caches-procedurally"
-              /> */}
-              {/* Preserve above comment for syntax reference */}
             </TileContainer>
 
             <H2 className="no-b-m">Latest blog posts</H2>
