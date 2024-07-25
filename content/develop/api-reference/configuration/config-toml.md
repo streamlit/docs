@@ -41,18 +41,6 @@ streamlit config show
 ```toml
 [global]
 
-# ***DEPRECATED***
-# global.disableWatchdogWarning has been deprecated and will be removed in a
-# future version. This option will be removed on or after 2024-01-20.
-# ****************
-# By default, Streamlit checks if the Python watchdog module is available
-# and, if not, prints a warning asking for you to install it. The watchdog
-# module is not required, but highly recommended. It improves Streamlit's
-# ability to detect changes to files in your filesystem.
-# If you'd like to turn off this warning, set this to True.
-# Default: false
-disableWatchdogWarning = false
-
 # By default, Streamlit displays a warning when a user sets both a widget
 # default value in the function defining the widget and a widget value via
 # the widget's key in `st.session_state`.
@@ -78,7 +66,7 @@ level = "info"
 # String format for logging messages. If logger.datetimeFormat is set,
 # logger messages will default to `%(asctime)s.%(msecs)03d %(message)s`. See
 # Python's documentation for available attributes:
-# https://docs.python.org/2.6/develop/logging.html#formatter-objects
+# https://docs.python.org/2.6/library/logging.html#formatter-objects
 # Default: "%(asctime)s %(message)s"
 messageFormat = "%(asctime)s %(message)s"
 ```
@@ -88,28 +76,10 @@ messageFormat = "%(asctime)s %(message)s"
 ```toml
 [client]
 
-# ***DEPRECATED***
-# client.caching has been deprecated and is not required anymore for our new
-# caching commands. This option will be removed on or after 2024-01-20.
-# ****************
-# Whether to enable st.cache. This does not affect st.cache_data or
-# st.cache_resource.
-# Default: true
-caching = true
-
-# ***DEPRECATED***
-# client.displayEnabled has been deprecated and will be removed in a future
-# version. This option will be removed on or after 2024-01-20.
-# ****************
-# If false, makes your Streamlit script not draw to a Streamlit app.
-# Default: true
-displayEnabled = true
-
 # Controls whether uncaught app exceptions and deprecation warnings
 # are displayed in the browser. By default, this is set to True and
 # Streamlit displays app exceptions and associated tracebacks, and
 # deprecation warnings, in the browser.
-#
 # If set to False, deprecation warnings and full exception messages
 # will print to the console only. Exceptions will still display in the
 # browser with a generic error message. For now, the exception type and
@@ -132,8 +102,9 @@ showErrorDetails = true
 # Default: "auto"
 toolbarMode = "auto"
 
-# Controls whether the default sidebar page navigation in a multipage app is
-# displayed.
+# Controls whether to display the default sidebar page navigation in a
+# multi-page app. This only applies when app's pages are defined by the
+# `pages/` directory.
 # Default: true
 showSidebarNavigation = true
 ```
@@ -147,25 +118,6 @@ showSidebarNavigation = true
 # Python code to write it to the app.
 # Default: true
 magicEnabled = true
-
-# ***DEPRECATED***
-# runner.installTracer has been deprecated and will be removed in a future
-# version. This option will be removed on or after 2024-01-20.
-# ****************
-# Install a Python tracer to allow you to stop or pause your script at
-# any point and introspect it. As a side-effect, this slows down your
-# script's execution.
-# Default: false
-installTracer = false
-
-# ***DEPRECATED***
-# runner.fixMatplotlib has been deprecated and will be removed in a future
-# version. This option will be removed on or after 2024-01-20.
-# ****************
-# Sets the MPLBACKEND environment variable to Agg inside Streamlit to
-# prevent Python crashing.
-# Default: true
-fixMatplotlib = true
 
 # Handle script rerun requests immediately, rather than waiting for script
 # execution to reach a yield point. This makes Streamlit much more
@@ -186,7 +138,6 @@ enforceSerializableSessionState = false
 # multiselect coerce Enum members when the Enum class gets
 # re-defined during a script re-run. For more information, check out the docs:
 # https://docs.streamlit.io/develop/concepts/design/custom-classes#enums
-#
 # Allowed values:
 # * "off"          : Disables Enum coercion.
 # * "nameOnly"     : Enum classes can be coerced if their member names match.
@@ -201,8 +152,7 @@ enumCoercion = "nameOnly"
 ```toml
 [server]
 
-# List of folders that should not be watched for changes. This
-# impacts both "Run on Save" and @st.cache.
+# List of folders that should not be watched for changes.
 # Relative paths will be taken as relative to the current working directory.
 # Example: ['/home/user1/env', 'relative/path/to/folder']
 # Default: []
@@ -290,7 +240,7 @@ enableStaticServing = false
 # security audits or performance tests. For the production environment, we
 # recommend performing SSL termination by the load balancer or the reverse
 # proxy.']
-# sslCertFile =
+sslCertFile =
 
 # Cryptographic key file for connecting via HTTPS.
 # Must be set at the same time as "server.sslCertFile".
@@ -298,7 +248,7 @@ enableStaticServing = false
 # security audits or performance tests. For the production environment, we
 # recommend performing SSL termination by the load balancer or the reverse
 # proxy.']
-# sslKeyFile =
+sslKeyFile =
 ```
 
 #### Browser
@@ -345,17 +295,6 @@ serverPort = 8501
 token = ""
 ```
 
-#### Deprecation
-
-```toml
-[deprecation]
-
-# Set to false to disable the deprecation warning for using the global pyplot
-# instance.
-# Default: true
-showPyplotGlobalUse = true
-```
-
 #### Theme
 
 ```toml
@@ -363,21 +302,21 @@ showPyplotGlobalUse = true
 
 # The preset Streamlit theme that your custom theme inherits from.
 # One of "light" or "dark".
-# base =
+base =
 
 # Primary accent color for interactive elements.
-# primaryColor =
+primaryColor =
 
 # Background color for the main content area.
-# backgroundColor =
+backgroundColor =
 
 # Background color used for the sidebar and most interactive widgets.
-# secondaryBackgroundColor =
+secondaryBackgroundColor =
 
 # Color used for almost all text.
-# textColor =
+textColor =
 
 # Font family for all text in the app, except code blocks. One of "sans serif",
 # "serif", or "monospace".
-# font =
+font =
 ```
