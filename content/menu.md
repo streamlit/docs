@@ -288,6 +288,9 @@ site_menu:
   - category: Develop / API reference / Input widgets / st.download_button
     url: /develop/api-reference/widgets/st.download_button
     isVersioned: true
+  - category: Develop / API reference / Input widgets / st.feedback
+    url: /develop/api-reference/widgets/st.feedback
+    isVersioned: true
   - category: Develop / API reference / Input widgets / st.form_submit_button
     url: https://docs.streamlit.io/develop/api-reference/execution-flow/st.form_submit_button
     isVersioned: true
@@ -570,6 +573,9 @@ site_menu:
     isVersioned: true
   - category: Develop / API reference / Utilities
     url: /develop/api-reference/utilities
+  - category: Develop / API reference / Utilities / st.context
+    url: /develop/api-reference/utilities/st.context
+    isVersioned: true
   - category: Develop / API reference / Utilities / st.experimental_user
     url: /develop/api-reference/utilities/st.experimental_user
     isVersioned: true
