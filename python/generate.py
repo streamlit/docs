@@ -76,7 +76,16 @@ def get_github_source(func):
         source_file = inspect.getsourcefile(func)
     except TypeError:
         try:
-            source_file = inspect.getsourcefile(func.fget)
+            # TODO: The inspect module returns the correct line number but not
+            # the correct source file for functions with both @property and
+            # @gather_metrics. Replace ContextProxy properties with their
+            # parent class for the purposes of getting the correct source file.
+            # Generalize this two deal with arbitrarily wrapped functions.
+            context_obj = getattr(streamlit.runtime.context, "ContextProxy")
+            if func.fget.__module__ == context_obj.__module__:
+                source_file = inspect.getsourcefile(context_obj)
+            else:
+                source_file = inspect.getsourcefile(func.fget)
         except AttributeError:
             source_file = inspect.getsourcefile(func.__call__)
 
