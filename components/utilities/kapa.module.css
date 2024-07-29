@@ -29,6 +29,11 @@
   transform: scale(1.025);
 }
 
+.AskButton:focus,
+.AskButton:focus-visible {
+  @apply outline-0;
+}
+
 :global(.dark) .AskButton {
   @apply text-gray-100 bg-gray-40 !important;
 }
