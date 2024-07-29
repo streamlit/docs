@@ -27,7 +27,6 @@
 
 .AskButton:hover {
   transform: scale(1.025);
-  animation: none;
 }
 
 :global(.dark) .AskButton {

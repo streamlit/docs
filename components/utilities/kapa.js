@@ -2,11 +2,17 @@ import styles from "./kapa.module.css";
 
 const Kapa = () => {
   const showTooltip = () => {
-    document.getElementsByClassName(styles.Tooltip)[0].style.display = "block";
+    let tips = document.getElementsByClassName(styles.Tooltip);
+    if (tips.length > 0) {
+      tips[0].style.display = "block";
+    }
   };
 
   const hideTooltip = () => {
-    document.getElementsByClassName(styles.Tooltip)[0].style.display = "none";
+    let tips = document.getElementsByClassName(styles.Tooltip);
+    if (tips.length > 0) {
+      tips[0].style.display = "none";
+    }
   };
   let kapaWidget = (
     <div className={styles.FooterContainer}>
@@ -20,9 +26,9 @@ const Kapa = () => {
         >
           <i className={styles.AskIcon}>forum</i> Ask AI
         </button>
-        <div className={styles.Tooltip}>
+        {/* <div className={styles.Tooltip}>
           <p>Try our new docs assistant!</p>
-        </div>
+        </div> */}
         <script
           src="https://widget.kapa.ai/kapa-widget.bundle.js"
           data-website-id="e81c2b35-6c03-4576-a56c-3c825f866e06"
