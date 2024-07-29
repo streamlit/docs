@@ -33,10 +33,10 @@ Bonus: Deploy the app on Streamlit Community Cloud!
 
 ## Setup coding environment
 
-In your IDE (integrated coding environment), open the terminal and install the following three Python libraries:
+In your IDE (integrated coding environment), open the terminal and install the following two Python libraries:
 
 ```python
-pip install streamlit openai langchain langchain-community langchain-openai
+pip install streamlit langchain-openai
 ```
 
 Create a `requirements.txt` file located in the root of your working directory and save these dependencies. This is necessary for deploying the app to the Streamlit Community Cloud later.
