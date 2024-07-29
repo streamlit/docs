@@ -84,39 +84,41 @@ To start, create a new Python file and save it as `streamlit_app.py` in the roo
 
    ```python
    import streamlit as st
-   from langchain.llms import OpenAI
+   from langchain_openai.chat_models import ChatOpenAI
    ```
 
 2. Create the app's title using `st.title`.
 
    ```python
-   st.title('🦜🔗 Quickstart App')
+   st.title("🦜🔗 Quickstart App")
    ```
 
 3. Add a text input box for the user to enter their OpenAI API key.
 
    ```python
-   openai_api_key = st.sidebar.text_input('OpenAI API Key', type='password')
+   openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
    ```
 
 4. Define a function to authenticate to OpenAI API with the user's key, send a prompt, and get an AI-generated response. This function accepts the user's prompt as an argument and displays the AI-generated response in a blue box using `st.info`.
 
    ```python
    def generate_response(input_text):
-      model = ChatOpenAI(temperature=0.7, api_key=openai_api_key)
-      st.info(model.invoke(input_text))
-
+   model = ChatOpenAI(temperature=0.7, api_key=openai_api_key)
+       st.info(model.invoke(input_text))
    ```
 
 5. Finally, use `st.form()` to create a text box (`st.text_area()`) for user input. When the user clicks `Submit`, the `generate-response()` function is called with the user's input as an argument.
 
    ```python
-   with st.form('my_form'):
-       text = st.text_area('Enter text:', 'What are the three key pieces of advice for learning how to code?')
-       submitted = st.form_submit_button('Submit')
-       if not openai_api_key.startswith('sk-'):
-           st.warning('Please enter your OpenAI API key!', icon='⚠')
-       if submitted and openai_api_key.startswith('sk-'):
+   with st.form("my_form"):
+       text = st.text_area(
+           "Enter text:",
+           "What are the three key pieces of advice for learning how to code?",
+       )
+       submitted = st.form_submit_button("Submit")
+       if not openai_api_key.startswith("sk-"):
+           st.warning("Please enter your OpenAI API key!", icon="⚠")
+       if submitted and openai_api_key.startswith("sk-"):
            generate_response(text)
    ```
 
