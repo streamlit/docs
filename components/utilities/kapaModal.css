@@ -36,6 +36,14 @@
   @apply text-gray-70 dark:text-gray-50;
 }
 
+.mantine-Group-root button {
+  @apply text-gray-70;
+}
+
+.mantine-Group-root button:hover {
+  @apply bg-gray-20 dark:bg-gray-80;
+}
+
 .mantine-Input-input {
   @apply bg-white dark:bg-gray-90 border-gray-70 focus:border-orange-70 text-gray-90 dark:text-gray-40;
 }
