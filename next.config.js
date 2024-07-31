@@ -54,6 +54,7 @@ const CSP_HEADER = [
     "https://*.algolianet.com/", // Search
     "https://widget.kapa.ai/kapa-widget.bundle.js", // Kapa.ai
     "https://www.google.com/recaptcha/api.js", // Recaptcha for Kapa.ai
+    "https://wwww.gstatic.com/recaptcha/releases/*", // Recaptchas for Kapa.ai
   ";",
   "style-src",
     "'self'",

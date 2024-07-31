@@ -27,6 +27,7 @@ connect-src \
   https://*.algolianet.com/ \
   https://widget.kapa.ai/kapa-widget.bundle.js \
   https://www.google.com/recaptcha/api.js \
+  https://wwww.gstatic.com/recaptcha/releases/* \
 ; \
 default-src 'none' ; \
 font-src 'self' ; \
@@ -57,6 +58,7 @@ script-src \
   https://*.algolianet.com/ \
   https://widget.kapa.ai/kapa-widget.bundle.js \
   https://www.google.com/recaptcha/api.js \
+  https://wwww.gstatic.com/recaptcha/releases/* \
 ; \
 style-src \
   'self' \
