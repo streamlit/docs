@@ -62,3 +62,15 @@
 .mantine-Code-root {
   @apply bg-transparent border border-gray-40 dark:border-gray-80 rounded-md text-red-70 px-1 mx-1;
 }
+
+.mantine-Grid-root .mantine-Grid-col a {
+  @apply border-gray-20 dark:border-gray-80 bg-transparent;
+}
+
+.mantine-Grid-root .mantine-Grid-col a:hover {
+  @apply bg-gray-20 dark:bg-gray-80;
+}
+
+.mantine-Tooltip-tooltip {
+  @apply bg-gray-80 dark:bg-gray-20 text-gray-50 dark:text-gray-70;
+}
