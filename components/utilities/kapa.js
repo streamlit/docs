@@ -35,7 +35,7 @@ const Kapa = () => {
           data-project-name="Streamlit"
           data-project-color="#000000"
           data-project-logo="https://docs.streamlit.io/logo.svg"
-          data-modal-title="Streamlit Docs assistant"
+          data-modal-title="Streamlit docs assistant (beta)"
           data-modal-disclaimer="
                 This AI chatbot is powered by kapa.ai and public Streamlit information.
                 Answers may be inaccurate, inefficient, or biased. Any use or decisions
