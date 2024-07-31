@@ -17,7 +17,7 @@
 }
 
 .mantine-Modal-body {
-  @apply text-gray-70;
+  @apply text-gray-90 dark:text-gray-70;
 }
 
 .mantine-Modal-body
@@ -44,4 +44,8 @@
   > .mantine-ActionIcon-root
   svg {
   @apply scale-150 hover:scale-[1.6];
+}
+
+.mantine-Code-root {
+  @apply bg-none border border-gray-40 dark:border-gray-80 rounded-md text-red-70 px-1 mx-1;
 }
