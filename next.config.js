@@ -53,6 +53,7 @@ const CSP_HEADER = [
     "https://*.algolia.net/", // Search
     "https://*.algolianet.com/", // Search
     "https://widget.kapa.ai/kapa-widget.bundle.js", // Kapa.ai
+    "https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app/", // Kapa.ai
     "https://www.google.com/recaptcha/api.js", // Recaptcha for Kapa.ai
     "https://www.gstatic.com/recaptcha/releases/", // Recaptchas for Kapa.ai
   ";",
