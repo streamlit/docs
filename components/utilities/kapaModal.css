@@ -11,23 +11,25 @@
   @apply hidden;
 }
 
-.mantine-Modal-body,
-.mantine-Modal-body > div > div {
-  @apply bg-white dark:bg-gray-90;
-}
-
 .mantine-Modal-body {
+  @apply bg-white dark:bg-gray-90;
   @apply text-gray-90 dark:text-gray-70;
 }
 
-.mantine-Modal-body
-  .mantine-Modal-body
+.mantine-Paper-root
+  > .mantine-Modal-body
+  > .mantine-Modal-body
   > div:first-child
   > div:first-child:has(.mantine-Text-root) {
   @apply bg-gray-20 dark:bg-gray-80;
 }
 
-.mantine-Modal-body .mantine-Modal-body > div:first-child .mantine-Text-root {
+.mantine-Paper-root
+  > .mantine-Modal-body
+  > .mantine-Modal-body
+  > div:first-child
+  > div:first-child
+  .mantine-Text-root {
   @apply text-gray-70 dark:text-gray-50;
 }
 
@@ -47,5 +49,5 @@
 }
 
 .mantine-Code-root {
-  @apply bg-none border border-gray-40 dark:border-gray-80 rounded-md text-red-70 px-1 mx-1;
+  @apply bg-transparent border border-gray-40 dark:border-gray-80 rounded-md text-red-70 px-1 mx-1;
 }
