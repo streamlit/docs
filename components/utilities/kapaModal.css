@@ -11,9 +11,12 @@
   @apply hidden;
 }
 
-.mantine-Modal-body {
+.mantine-Modal-body,
+.mantine-Modal-body a,
+.mantine-Modal-body .mantine-List-root,
+.mantine-Modal-body .mantine-List-item {
   @apply bg-white dark:bg-gray-90;
-  @apply text-gray-90 dark:text-gray-70;
+  @apply text-gray-90 dark:text-gray-40;
 }
 
 .mantine-Paper-root
