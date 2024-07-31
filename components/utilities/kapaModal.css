@@ -76,5 +76,5 @@
 }
 
 .mantine-Tooltip-tooltip {
-  @apply bg-gray-80 dark:bg-gray-20 text-gray-50 dark:text-gray-70;
+  @apply bg-gray-80 dark:bg-gray-20 text-red-50 dark:text-green-70;
 }
