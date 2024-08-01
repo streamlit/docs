@@ -84,6 +84,10 @@
   @apply bg-white dark:bg-gray-90 text-gray-90 dark:text-gray-40;
 }
 
+.mantine-Popover-dropdown .mantine-Button-root {
+  @apply text-white;
+}
+
 .mantine-Popover-dropdown h5 {
   @apply text-gray-90 dark:text-gray-40;
 }
