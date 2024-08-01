@@ -87,3 +87,7 @@
 .mantine-Popover-dropdown h5 {
   @apply text-gray-90 dark:text-gray-40;
 }
+
+.mantine-Popover-dropdown form button.mantine-UnstyledButton-root {
+  @apply bg-gray-90 text-white dark:bg-gray-40 dark:text-90 hover:opacity-40 !important;
+}
