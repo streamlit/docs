@@ -55,6 +55,7 @@ const Kapa = () => {
           data-modal-lock-scroll="false"
           data-modal-border-radius="6px"
           data-modal-image-height="18px"
+          data-answer-feedback-button-active-bg-color="#808495"
         ></script>
       </section>
     </div>

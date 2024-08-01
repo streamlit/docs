@@ -99,3 +99,18 @@
 .mantine-Checkbox-label {
   @apply text-gray-90 dark:text-gray-40;
 }
+
+.mantine-Paper-root
+  > .mantine-Modal-body
+  > .mantine-Modal-body
+  > div:last-child {
+  @apply text-gray-70;
+}
+
+.mantine-Paper-root
+  > .mantine-Modal-body
+  > .mantine-Modal-body
+  > div:last-child
+  a {
+  @apply text-gray-70;
+}
