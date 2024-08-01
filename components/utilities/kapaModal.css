@@ -88,6 +88,10 @@
   @apply text-gray-90 dark:text-gray-40;
 }
 
-.mantine-Popover-dropdown form button.mantine-UnstyledButton-root {
-  @apply bg-gray-90 text-white dark:bg-gray-40 dark:text-90 hover:opacity-40 !important;
+.mantine-Checkbox-input {
+  @apply bg-gray-20 dark:bg-gray-80 border-gray-70;
+}
+
+.mantine-Checkbox-label {
+  @apply text-gray-90 dark:text-gray-40;
 }
