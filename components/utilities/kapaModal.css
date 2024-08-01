@@ -78,3 +78,12 @@
 .mantine-Grid-root .mantine-Grid-col div.mantine-Tooltip-tooltip {
   @apply bg-gray-80 dark:bg-gray-20 text-gray-50 dark:text-gray-70;
 }
+
+.mantine-Popover-dropdown,
+.mantine-Popover-arrow {
+  @apply bg-white dark:bg-gray-90 text-gray-90 dark:text-gray-40;
+}
+
+.mantine-Popover-dropdown h5 {
+  @apply text-gray-90 dark:text-gray-40;
+}
