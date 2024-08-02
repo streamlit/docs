@@ -114,3 +114,11 @@
   a {
   @apply text-gray-70;
 }
+
+.mantine-Button-icon:has(.tabler-icon-player-stop) {
+  @apply hidden;
+}
+
+.mantine-Button-root:has(.tabler-icon-player-stop) {
+  @apply py-0 px-4;
+}
