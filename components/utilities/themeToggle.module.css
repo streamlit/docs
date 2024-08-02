@@ -31,3 +31,15 @@
 :global(.dark) .LightIcon {
   @apply opacity-0;
 }
+
+.Tooltip {
+  @apply hidden absolute top-20 right-4 h-8 px-2 pt-0.5 rounded-md bg-gray-20;
+}
+
+.Tooltip p {
+  @apply text-gray-70;
+}
+
+:global(.dark) .Tooltip {
+  @apply bg-gray-90;
+}

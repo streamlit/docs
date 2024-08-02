@@ -1,0 +1,11 @@
+.Container {
+  @apply fixed bottom-[30px] w-full z-10;
+}
+
+.Navigation {
+  @apply container px-2 xl:px-4 flex items-center justify-between relative transition-all mx-auto h-full left-auto;
+}
+
+.NavigationContainer {
+  @apply flex flex-auto justify-end;
+}
