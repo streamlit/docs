@@ -25,10 +25,7 @@ connect-src \
   https://px.ads.linkedin.com/ \
   https://*.algolia.net/ \
   https://*.algolianet.com/ \
-  https://widget.kapa.ai/kapa-widget.bundle.js \
   https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app/ \
-  https://www.google.com/recaptcha/api.js \
-  https://www.gstatic.com/recaptcha/releases/ \
 ; \
 default-src 'none' ; \
 font-src 'self' ; \
@@ -58,7 +55,6 @@ script-src \
   https://*.algolia.net/ \
   https://*.algolianet.com/ \
   https://widget.kapa.ai/kapa-widget.bundle.js \
-  https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app/ \
   https://www.google.com/recaptcha/api.js \
   https://www.gstatic.com/recaptcha/releases/ \
 ; \
