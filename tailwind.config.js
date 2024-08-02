@@ -168,6 +168,7 @@ module.exports = {
         100: "#0e1117",
       },
       white: "#ffffff",
+      transparent: "transparent",
       brand: {
         GitHub: "#24292F",
         Reddit: "#ff4500",
