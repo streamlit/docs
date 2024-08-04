@@ -23,7 +23,7 @@
 }
 
 :global(.dark) .Link {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 .SocialNetworks {
@@ -47,10 +47,6 @@
   @apply fill-brand-GitHub;
 }
 
-.IconLink:hover .RedditIcon {
-  @apply fill-brand-Reddit;
-}
-
 .IconLink:hover .YouTubeIcon {
   @apply fill-brand-YouTube;
 }
@@ -61,11 +57,6 @@
 
 .IconLink:hover .LinkedInIcon {
   @apply fill-brand-LinkedIn;
-}
-
-.IconLink:hover .InstagramIcon,
-.IconLink:hover .MediumIcon {
-  @apply fill-brand-mono;
 }
 
 .IconLink:hover .NewsletterIcon path {

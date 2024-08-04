@@ -11,13 +11,15 @@ const SKIP_THESE = [
   "/menu",
   "/404",
   "/500",
-  "/library/api-reference/performance/st.cache",
-  "/library/api-reference/performance/st.experimental_memo",
-  "/library/api-reference/performance/st.experimental_singleton",
-  "/library/api-reference/performance/st.experimental_singleton.clear",
-  "/library/api-reference/utilities/st.experimental_show",
-  "/library/advanced-features/st.cache",
-  "/library/advanced-features/experimental-cache-primitives",
+  "/develop/api-reference/caching-and-state/st.experimental_get_query_params",
+  "/develop/api-reference/caching-and-state/st.experimental_set_query_params",
+  "/develop/api-reference/connections/st.connections.experimentalbaseconnection",
+  "/develop/api-reference/connections/st.experimental_connection",
+  "/develop/api-reference/caching-and-state/st.experimental_memo",
+  "/develop/api-reference/caching-and-state/st.experimental_singleton",
+  "/develop/api-reference/execution-flow/st.experimental_rerun",
+  "/develop/api-reference/data/st.experimental_data_editor",
+  "/develop/quick-reference/older-versions",
 ];
 
 function getAllFilesInDirectory(articleDirectory, files) {
@@ -60,11 +62,14 @@ function getAllFilesInDirectory(articleDirectory, files) {
 
   for (const index in pages) {
     let icon;
+    let color;
     let category;
     let breadCrumbs;
     // Parse each HTML file and get the content we need
     const contents = fs.readFileSync(pages[index], "utf8");
-    const url = pages[index].split(contentDirectory)[1].split(".html")[0];
+    const url = pages[index]
+      .split(contentDirectory)[1]
+      .match(/^(.*?)\.html$/)[1];
 
     if (url in data) {
       meta = JSON.parse(fs.readFileSync(data[url], "utf8"));
@@ -74,6 +79,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
         if (breadCrumbs.length > 0) {
           category = breadCrumbs[0].name;
           icon = breadCrumbs[0].icon ? breadCrumbs[0].icon : "text_snippet";
+          color = breadCrumbs[0].color ? breadCrumbs[0].color : "orange-70";
         }
       }
     }
@@ -161,6 +167,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
       url: url,
       category: category,
       icon: icon,
+      color: color,
       version: version,
       keywords: keywords,
     });

@@ -1,3 +1,2 @@
-streamlit==1.32.1
-openai
-langchain
+streamlit>=1.37.0
+langchain-openai

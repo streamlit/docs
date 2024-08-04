@@ -98,7 +98,7 @@ computer is properly set up. More specifically, you’ll need:
    ```
 
 8. Streamlit's Hello app should appear in a new tab in your web browser!
-   <Cloud src="https://doc-mpa-hello.streamlit.app/?embed=true" height="700" />
+   <Cloud name="doc-mpa-hello" height="700px" />
 9. Close your terminal when you are done.
 
 ## Create a "Hello World" app and run it
@@ -148,4 +148,4 @@ deactivate
 
 ## What's next?
 
-Read about our [Main concepts](/get-started/fundamentals/main-concepts) to understand Streamlit's dataflow model.
+Read about our [Basic concepts](/get-started/fundamentals/main-concepts) to understand Streamlit's dataflow model.

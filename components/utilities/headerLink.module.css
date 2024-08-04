@@ -3,7 +3,7 @@
 }
 
 .HeaderContainer {
-  @apply items-center font-bold text-gray-90 leading-snug;
+  @apply flex items-center font-bold text-gray-90 leading-snug;
   overflow-wrap: anywhere;
 }
 
@@ -27,7 +27,7 @@ h1.HeaderContainer {
 :global(.dark) .HeaderContainer,
 :global(.dark) .CopiedMessage,
 :global(.dark) .CopiedIcon {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 .CopyLink {

@@ -20,8 +20,13 @@ const CSP_HEADER = [
     "https://*.auryc.com/", // Analytics (Heap)
     "https://www.google-analytics.com/", // Analytics
     "https://stats.g.doubleclick.net/", // Analytics
+    "https://px.ads.linkedin.com/", // LinkedIn ad pixel
     "https://*.algolia.net/", // Search
     "https://*.algolianet.com/", // Search
+    "https://widget.kapa.ai/kapa-widget.bundle.js", // Kapa.ai
+    "https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app/", // Kapa.ai
+    "https://www.google.com/recaptcha/api.js", // Recaptcha for Kapa.ai
+    "https://www.gstatic.com/recaptcha/releases/", // Recaptchas for Kapa.ai
   ";",
   "default-src 'none';",
   "font-src 'self';",
@@ -46,8 +51,14 @@ const CSP_HEADER = [
     "https://identity.netlify.com/", // Netlify dev tools
     "https://netlify-cdp-loader.netlify.app/netlify.js", // Netlify dev tools
     "https://www.youtube.com/iframe_api/", // YouTube Embed
+    "https://snap.licdn.com/", // LinkedIn ad pixel
+    "https://connect.facebook.net/", // Facebook ad pixel
     "https://*.algolia.net/", // Search
     "https://*.algolianet.com/", // Search
+    "https://widget.kapa.ai/kapa-widget.bundle.js", // Kapa.ai
+    "https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app/", // Kapa.ai
+    "https://www.google.com/recaptcha/api.js", // Recaptcha for Kapa.ai
+    "https://www.gstatic.com/recaptcha/releases/", // Recaptchas for Kapa.ai
   ";",
   "style-src",
     "'self'",

@@ -118,10 +118,9 @@ export default function Home({ window, menu }) {
             <H1>Streamlit documentation</H1>
             <p>
               <a href="https://www.streamlit.io">Streamlit</a> is an open-source
-              Python library that makes it easy to create and share beautiful,
-              custom web apps for machine learning and data science. In just a
-              few minutes you can build and deploy powerful data apps. So let's
-              get started!
+              Python framework for data scientists and AI/ML engineers to
+              deliver dynamic data apps with only a few lines of code. Build and
+              deploy powerful data apps in minutes. Let's get started!
             </p>
 
             <Spacer size="2rem" />
@@ -145,29 +144,30 @@ export default function Home({ window, menu }) {
                 bold="Get started"
                 href="/get-started"
               >
-                introduces you to the world of Streamlit! Learn the fundamental
-                concepts, set up your development environment, and start coding!
+                with Streamlit! Set up your development environment and learn
+                the fundamental concepts, and start coding!
               </InlineCallout>
               <InlineCallout
                 color="indigo-70"
                 icon="description"
-                bold="Streamlit library"
-                href="/library/api-reference"
+                bold="Develop"
+                href="/develop"
               >
-                includes our API reference, and guides to all of Streamlit's
-                features in the core library including caching, theming,
-                Streamlit Components, and more!
+                your Streamlit app! Our API reference explains each Streamlit
+                function with examples. Dive deep into all of our features with
+                conceptual guides. Try out our step-by-step tutorials.
               </InlineCallout>
               <InlineCallout
                 color="lightBlue-70"
                 icon="cloud"
-                bold="Streamlit Community Cloud"
-                href="/streamlit-community-cloud"
+                bold="Deploy"
+                href="/deploy"
               >
-                is an open and free platform for the community to deploy,
-                discover, and share Streamlit apps and code with each other.
-                Create a new app, share it with the community, get feedback,
-                iterate quickly with live code updates, and have an impact!
+                your Streamlit app! Streamlit Community Cloud our free platform
+                for deploying and sharing Streamlit apps. Streamlit in Snowflake
+                is an enterprise-class solution where you can house your data
+                and apps in one, unified, global system. Explore all your
+                options!
               </InlineCallout>
               <InlineCallout
                 color="darkBlue-70"
@@ -175,9 +175,9 @@ export default function Home({ window, menu }) {
                 bold="Knowledge base"
                 href="/knowledge-base"
               >
-                is a self-serve library of tips, step-by-step tutorials, and
-                articles that answer your questions about creating and deploying
-                Streamlit apps.
+                is a self-serve library of tips, tricks, and articles that
+                answer your questions about creating and deploying Streamlit
+                apps.
               </InlineCallout>
               {/* <InlineCallout color="green-70" icon="code" bold="Cookbook" href="/cookbook">
                 provides short code snippets that you can copy in for specific use cases.
@@ -192,88 +192,70 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/library/api-reference/layout/st.popover"
+                href="/develop/api-reference/utilities/st.context"
               >
-                <i className="material-icons-sharp">layers</i>
-                <h4>New popover element</h4>
+                <i className="material-icons-sharp">cookie</i>
+                <h4>User session context</h4>
                 <p>
-                  Introducing <code>st.popover</code> to create popover elements
-                  in your Streamlit apps.
+                  Introducing <code>st.context</code>, a read-only interface to
+                  access headers and cookies!
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/media/st.video"
+                href="/develop/api-reference/widgets/st.feedback"
               >
-                <i className="material-icons-sharp">videocam</i>
-                <h4>Video subtitles</h4>
+                <i className="material-icons-sharp">star</i>
+                <h4>User feedback</h4>
                 <p>
-                  You can now add subtitles to <code>st.video</code>!
+                  Introducing <code>st.feedback</code> to collect user ratings
+                  and sentiment.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/app-testing/st.testing.v1.apptest"
+                href="/develop/api-reference/execution-flow/st.fragment"
               >
-                <i className="material-icons-sharp">science</i>
-                <h4>
-                  <code>st.AppTest</code> improvements
-                </h4>
+                <i className="material-icons-sharp">bolt</i>
+                <h4>Fragments and dialogs</h4>
                 <p>
-                  <code>AppTest</code> now supports <code>st.expander</code>
-                  and <code>st.status</code>. You can also pass functions that
-                  accept arguments to <code>AppTest.from_function</code>.
+                  We've polished <code>st.fragment</code> and
+                  <code>st.dialog</code> with multiple bug fixes and
+                  improvements. They're no longer experimental!
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="https://github.com/streamlit/streamlit/pull/8068"
+                href="/develop/api-reference/execution-flow/st.rerun"
               >
-                <i className="material-icons-sharp">water_drop</i>
-                <h4>Major memory leak fix</h4>
+                <i className="material-icons-sharp">location_searching</i>
+                <h4>Rerun scope</h4>
                 <p>
-                  We've fixed a significant memory leak. Upgrade today to boost
-                  your app's performance.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/library/components">
-                <i className="material-icons-sharp">extension</i>
-                <h4>Custom component improvements</h4>
-                <p>
-                  The timeout warning for custom components was replaced with an
-                  element skeleton to improve the UX for slow loading
-                  components, especially in some cloud hosted platforms.
+                  <code>st.rerun</code> can be scoped to a fragment.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="https://github.com/streamlit/streamlit/pull/7779"
+                href="/develop/api-reference/charts/st.bar_chart"
               >
-                <i className="material-icons-sharp">table_view</i>
-                <h4>
-                  <code>glide-data-grid</code> 6.0.4
-                </h4>
+                <i className="material-icons-sharp">bar_chart</i>
+                <h4>Chart stacking</h4>
                 <p>
-                  Streamlit now uses <code>glide-data-grid</code> version 6.0.4
-                  which fixes a variety of issues. Upgrade today!
+                  <code>st.area_chart</code> and <code>st.bar_chart</code>
+                  have a new parameter to set stacking behavior.
                 </p>
               </RefCard>
-              {/* <Tile
-                size="half"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                img="/logo.svg"
-                title="Clear memo + singleton caches procedurally"
-                text="Do you need more control over cache invalidation? Any function annotated with @st.cache_data or @st.cache_resource gets its own clear() function automatically."
-                link="/library/advanced-features/experimental-cache-primitives#clear-memo-and-singleton-caches-procedurally"
-              /> */}
-              {/* Preserve above comment for syntax reference */}
+              <RefCard
+                size="third"
+                href="/develop/api-reference/text/st.markdown"
+              >
+                <i className="material-icons-sharp">info</i>
+                <h4>Icons in Markdown</h4>
+                <p>
+                  Streamlit supports icons from the Google Material Symbols
+                  library in Markdown.
+                </p>
+              </RefCard>
             </TileContainer>
 
             <H2 className="no-b-m">Latest blog posts</H2>

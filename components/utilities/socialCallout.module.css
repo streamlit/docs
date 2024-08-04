@@ -6,7 +6,7 @@
 :global(.dark) .Title,
 :global(.dark) .Subtitle,
 :global(.dark) .Text {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 .ListContainer {
@@ -44,16 +44,8 @@
   @apply bg-brand-GitHub;
 }
 
-.Reddit {
-  @apply bg-brand-Reddit;
-}
-
 .YouTube {
   @apply bg-brand-YouTube;
-}
-
-.Medium {
-  @apply bg-brand-mono;
 }
 
 .Twitter {
@@ -62,15 +54,6 @@
 
 .LinkedIn {
   @apply bg-brand-LinkedIn;
-}
-
-.Instagram {
-  background-image: linear-gradient(
-    40.67deg,
-    #f7cc3e 6.51%,
-    #ef4a6e 49.3%,
-    #972aaa 100%
-  );
 }
 
 .Newsletter {

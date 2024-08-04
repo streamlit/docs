@@ -1,9 +1,3 @@
-[[redirects]]
-  from = "/library"
-  to = "/library/api-reference"
-  status = 301
-  force = true
-
 [[plugins]]
   # Setting the plugin manually, so we can pick the version (see package.json).
   package = "@netlify/plugin-nextjs"
@@ -28,8 +22,10 @@ connect-src \
   https://*.auryc.com/ \
   https://www.google-analytics.com/ \
   https://stats.g.doubleclick.net/ \
+  https://px.ads.linkedin.com/ \
   https://*.algolia.net/ \
   https://*.algolianet.com/ \
+  https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app/ \
 ; \
 default-src 'none' ; \
 font-src 'self' ; \
@@ -54,8 +50,13 @@ script-src \
   https://identity.netlify.com/ \
   https://netlify-cdp-loader.netlify.app/netlify.js \
   https://www.youtube.com/iframe_api/ \
+  https://snap.licdn.com/ \
+  https://connect.facebook.net/ \
   https://*.algolia.net/ \
   https://*.algolianet.com/ \
+  https://widget.kapa.ai/kapa-widget.bundle.js \
+  https://www.google.com/recaptcha/api.js \
+  https://www.gstatic.com/recaptcha/releases/ \
 ; \
 style-src \
   'self' \

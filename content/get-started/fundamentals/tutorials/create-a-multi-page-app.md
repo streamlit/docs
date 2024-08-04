@@ -1,13 +1,11 @@
 ---
 title: Create a multipage app
 slug: /get-started/tutorials/create-a-multipage-app
-nextTitle: API Reference
-nextLink: /library/api-reference
 ---
 
 # Create a multipage app
 
-In [Additional features](/get-started/fundamentals/additional-features), we introduced multipage apps, including how to define pages, structure and run multipage apps, and navigate between pages in the user interface. You can read more details in our guide to [Multipage apps](/library/advanced-features/multipage-apps)
+In [Additional features](/get-started/fundamentals/additional-features), we introduced multipage apps, including how to define pages, structure and run multipage apps, and navigate between pages in the user interface. You can read more details in our guide to [Multipage apps](/develop/concepts/multipage-apps)
 
 In this guide, let’s put our understanding of multipage apps to use by converting the previous version of our `streamlit hello` app to a multipage app!
 
@@ -64,7 +62,7 @@ def mapping_demo():
     st.write(
         """
         This demo shows how to use
-[`st.pydeck_chart`](https://docs.streamlit.io/library/api-reference/charts/st.pydeck_chart)
+[`st.pydeck_chart`](https://docs.streamlit.io/develop/api-reference/charts/st.pydeck_chart)
 to display geospatial data.
 """
     )
@@ -256,7 +254,7 @@ page_names_to_funcs[demo_name]()
 
 </details>
 
-<Cloud src="https://doc-hello.streamlit.app/?embed=true" height="700" />
+<Cloud name="doc-hello" height="700px" />
 
 Notice how large the file is! Each app “page" is written as a function, and the selectbox is used to pick which page to display. As our app grows, maintaining the code requires a lot of additional overhead. Moreover, we’re limited by the `st.selectbox` UI to choose which “page" to run, we cannot customize individual page titles with `st.set_page_config`, and we’re unable to navigate between pages using URLs.
 
@@ -392,7 +390,7 @@ st.markdown("# Mapping Demo")
 st.sidebar.header("Mapping Demo")
 st.write(
     """This demo shows how to use
-[`st.pydeck_chart`](https://docs.streamlit.io/library/api-reference/charts/st.pydeck_chart)
+[`st.pydeck_chart`](https://docs.streamlit.io/develop/api-reference/charts/st.pydeck_chart)
 to display geospatial data."""
 )
 
@@ -561,7 +559,7 @@ streamlit run Hello.py
 
 That’s it! The `Hello.py` script now corresponds to the main page of your app, and other scripts that Streamlit finds in the pages folder will also be present in the new page selector that appears in the sidebar.
 
-<Cloud src="https://doc-mpa-hello.streamlit.app/?embed=true" height="700" />
+<Cloud name="doc-mpa-hello" height="700px" />
 
 ## Next steps
 
@@ -569,8 +567,8 @@ Congratulations! 🎉 If you've read this far, chances are you've learned to cre
 
 Here are a few resources to help you get started:
 
-- Deploy your app for free on Streamlit's [Community Cloud](/streamlit-community-cloud).
+- Deploy your app for free on Streamlit's [Community Cloud](/deploy/streamlit-community-cloud).
 - Post a question or share your multipage app on our [community forum](https://discuss.streamlit.io/c/streamlit-examples/9).
-- Check out our documentation on [Multipage apps](/library/advanced-features/multipage-apps).
-- Read through [Advanced features](/library/advanced-features) for things like caching, theming, and adding statefulness to apps.
-- Browse our [API reference](/library/api-reference/) for examples of every Streamlit command.
+- Check out our documentation on [Multipage apps](/develop/concepts/multipage-apps).
+- Read through [Concepts](/develop/concepts) for things like caching, theming, and adding statefulness to apps.
+- Browse our [API reference](/develop/api-reference/) for examples of every Streamlit command.

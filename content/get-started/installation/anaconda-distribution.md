@@ -146,4 +146,4 @@ This page walks you through installing Streamlit locally using Anaconda Distribu
 
 ## What's next?
 
-Read about our [Main concepts](/get-started/fundamentals/main-concepts) and try out more commands in your app.
+Read about our [Basic concepts](/get-started/fundamentals/main-concepts) and try out more commands in your app.

@@ -1,0 +1,38 @@
+# Each line is a file pattern followed by one or more owners, which can be an individual user, multiple users, or a team.
+# For lines that contain two or more owners, the first owner is the primary topic writer, the second owner is the secondary writer.
+# The LAST matched pattern takes precedence, so specific items should be placed LATER in the file.
+
+# Format for owners is
+# Username @sfc-gh-<ldap_name>
+# Team @snowflakedb/team
+# Email email@snowflake.com
+
+# * @global-owner-of-last-resort
+
+# You can also use email addresses if you prefer. They'll be
+# used to look up users just like we do for commit author
+# emails.
+
+# *.foo foo@snowflake.com
+
+# Jenkinsfile @snowflakedb/repository-test-owner
+
+# We are not aiming to identify ownership for every directory or file yet, but for now add a few rules as examples so we can update as we go.
+
+# More details:
+  # https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+  # Syntax, which is based on the rules for the .gitignore file: https://git-scm.com/docs/gitignore#_pattern_format
+
+#**************************************************************
+# General structure and notes
+# - Top to bottom starting in the root directory.
+# - Directories first, then individual files.
+# - Keep it alphabetical in the sections.
+# - A forward slash (/) matches everything in a directory.
+# - A wildcard (*) matches everything except the forward slash.
+#**************************************************************
+
+# DOCS CONTENT
+
+/content* @streamlit/docs-writers
