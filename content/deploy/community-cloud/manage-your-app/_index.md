@@ -115,9 +115,7 @@ Symptoms that your app is running out of resources include the following:
 
 ### Good for the world
 
-Streamlit offers increased resources for apps with good-for-the-world use cases. Generally, these apps are used by an educational institution or nonprofit organization, are part of an open-source project, or benefit the world in some way. If your app is **not** primarily used by a for-profit company you can [apply for increased resources](https://share.hsforms.com/1DzDGAjUmSPy_2nUzBj3rlQ3wudj).
-
-If you are an educator or student looking to deploy additional private apps, please [apply to our education program](https://share.hsforms.com/1M_e2WDcSRFuKzA2iteoAIg3wudj) instead.
+Streamlit offers increased resources for apps with good-for-the-world use cases. Generally, these apps are used by an educational institution or nonprofit organization, are part of an open-source project, or benefit the world in some way. If your app is **not** primarily used by a for-profit company you can [apply for increased resources](https://info.snowflake.com/streamlit-resource-increase-request.html).
 
 ### Optimizing your app
 
