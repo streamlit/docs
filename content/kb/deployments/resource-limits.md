@@ -22,6 +22,6 @@ Related forum posts:
 - [https://discuss.streamlit.io/t/common-app-problems-resource-limits/16969](https://discuss.streamlit.io/t/common-app-problems-resource-limits/16969)
 - [https://blog.streamlit.io/common-app-problems-resource-limits/](https://blog.streamlit.io/common-app-problems-resource-limits/)
 
-We offer free resource increases only to support nonprofits or educational organizations on a case-by-case basis. If you are a nonprofit or educational organization, please complete [this form](https://docs.google.com/forms/d/e/1FAIpQLSfzPNqrvH0HeaJnl0dtBgVV-ILqavzSmAEk84vDnMFIbvkGVA/viewform) and we will review your submission as soon as possible.
+We offer free resource increases only to support nonprofits or educational organizations on a case-by-case basis. If you are a nonprofit or educational organization, please complete [this form](https://info.snowflake.com/streamlit-resource-increase-request.html) and we will review your submission as soon as possible.
 
 Once the increase is completed, you will receive an email from the Streamlit marketing team with a confirmation that the increase has been applied.
