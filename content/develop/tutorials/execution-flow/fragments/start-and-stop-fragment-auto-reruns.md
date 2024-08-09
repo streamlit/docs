@@ -80,7 +80,7 @@ else:
     run_every = None
 
 
-@st.experimental_fragment(run_every=run_every)
+@st.fragment(run_every=run_every)
 def show_latest_data():
     last_timestamp = st.session_state.data.index[-1]
     st.session_state.data = pd.concat(
@@ -204,7 +204,7 @@ def get_recent_data(last_timestamp):
 
 ### Initialize Session State values for your app
 
-Since you will dynamically change the `run_every` parameter of `@st.experimental_fragment()`, you'll need to initialize the associated variables and Session State values before defining your fragment function. Your fragment function will also read and update values in Session State, so you can define those now to make the fragment function easier to understand.
+Since you will dynamically change the `run_every` parameter of `@st.fragment()`, you'll need to initialize the associated variables and Session State values before defining your fragment function. Your fragment function will also read and update values in Session State, so you can define those now to make the fragment function easier to understand.
 
 1. Initialize your data for the first app load in a session.
 
@@ -267,12 +267,12 @@ Since you will dynamically change the `run_every` parameter of `@st.experimental
 
 ### Build a fragment function to stream data
 
-To allow the user to turn data streaming on and off, you must set the `run_every` parameter in the `@st.experimental_fragment()` decorator.
+To allow the user to turn data streaming on and off, you must set the `run_every` parameter in the `@st.fragment()` decorator.
 
 <Collapse title="Complete function to show and stream data" expanded={false}>
 
 ```python
-@st.experimental_fragment(run_every=run_every)
+@st.fragment(run_every=run_every)
 def show_latest_data():
     last_timestamp = st.session_state.data.index[-1]
     st.session_state.data = pd.concat(
@@ -284,10 +284,10 @@ def show_latest_data():
 
 </Collapse>
 
-1. Use an [`@st.experimental_fragment`](/develop/api-reference/execution-flow/st.fragment) decorator and start your function definition.
+1. Use an [`@st.fragment`](/develop/api-reference/execution-flow/st.fragment) decorator and start your function definition.
 
    ```python
-    @st.experimental_fragment(run_every=run_every)
+    @st.fragment(run_every=run_every)
     def show_latest_data():
    ```
 

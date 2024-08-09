@@ -56,7 +56,7 @@ def orange_cats():
     st.markdown("🐾 🐾 🐾 🐾")
 
 
-@st.experimental_fragment
+@st.fragment
 def herd_black_cats(card_a, card_b, card_c):
     st.button("Herd the black cats")
     container_a = card_a.container()
@@ -70,7 +70,7 @@ def herd_black_cats(card_a, card_b, card_c):
         black_cats()
 
 
-@st.experimental_fragment
+@st.fragment
 def herd_orange_cats(card_a, card_b, card_c):
     st.button("Herd the orange cats")
     container_a = card_a.container()
@@ -171,10 +171,10 @@ with st.sidebar:
 
 Since each fragment will span across the sidebar and three additional containers, you'll use the sidebar to hold the main body of the fragment and pass the three containers as function arguments.
 
-1. Use an [`@st.experimental_fragment`](/develop/api-reference/execution-flow/st.fragment) decorator and start your black-cat fragment definition.
+1. Use an [`@st.fragment`](/develop/api-reference/execution-flow/st.fragment) decorator and start your black-cat fragment definition.
 
    ```python
-   @st.experimental_fragment
+   @st.fragment
    def herd_black_cats(card_a, card_b, card_c):
    ```
 
@@ -229,7 +229,7 @@ Since each fragment will span across the sidebar and three additional containers
 1. Similarly define your orange-cat fragment function.
 
    ```python
-   @st.experimental_fragment
+   @st.fragment
    def herd_orange_cats(card_a, card_b, card_c):
        st.button("Herd the orange cats")
        container_a = card_a.container()
