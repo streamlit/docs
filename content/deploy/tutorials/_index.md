@@ -41,4 +41,5 @@ While we work on official Streamlit deployment guides for other hosting provider
 - [Host Streamlit on **Heroku**](https://towardsdatascience.com/quickly-build-and-deploy-an-application-with-streamlit-988ca08c7e83), by Maarten Grootendorst.
 - [Deploy Streamlit on **Ploomber Cloud**](https://docs.cloud.ploomber.io/en/latest/apps/streamlit.html), by Ido Michael.
 - [Host Streamlit on **21YunBox**](https://www.21yunbox.com/docs/#/deploy-streamlit), by Toby Lei.
+- [Deploy a Streamlit App on **Koyeb**](https://www.koyeb.com/docs/deploy/streamlit), by Justin Ellingwood.
 - [Community-supported deployment wiki](https://discuss.streamlit.io/t/streamlit-deployment-guide-wiki/5099).
