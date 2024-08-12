@@ -59,10 +59,6 @@
   @apply fill-brand-LinkedIn;
 }
 
-.IconLink:hover .NewsletterIcon path {
-  @apply stroke-red-70;
-}
-
 .Copyright {
   @apply text-base tracking-tight leading-7 mt-2;
   @apply text-gray-60 !important;
