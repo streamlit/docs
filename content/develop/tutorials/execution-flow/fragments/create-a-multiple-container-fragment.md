@@ -17,7 +17,7 @@ Streamlit lets you turn functions into [fragments](/develop/concepts/architectur
 - The following must be installed in your Python environment:
 
   ```text
-  streamlit>=1.33.0
+  streamlit>=1.37.0
   ```
 
 - You should have a clean working directory called `your-repository`.
