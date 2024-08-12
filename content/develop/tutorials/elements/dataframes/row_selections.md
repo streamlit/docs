@@ -304,7 +304,7 @@ To begin with, you'll define a function to randomly generate some member data. I
    )
    ```
 
-   By setting `on_selection="rerun"`, you've activated selections for the dataframe. `seelction_mode="multi_row"` specifies the type of selections allowed (multiple rows, no columns). `event` stores the selection data from the user. Selections can be accessed from the `event.selection` attribute.
+   By setting `on_selection="rerun"`, you've activated selections for the dataframe. `selection_mode="multi_row"` specifies the type of selections allowed (multiple rows, no columns). `event` stores the selection data from the user. Selections can be accessed from the `event.selection` attribute.
 
 ### Display the selected data
 
