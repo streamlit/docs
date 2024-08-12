@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  @apply overflow-x-hidden overflow-y-auto scroll-pt-12;
+  @apply overflow-x-hidden overflow-y-auto scroll-pt-24;
 }
 
 body {
