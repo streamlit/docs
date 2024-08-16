@@ -310,5 +310,5 @@ Here are some limitations to keep in mind when using Session State:
 
 - Session State exists for as long as the tab is open and connected to the Streamlit server. As soon as you close the tab, everything stored in Session State is lost.
 - Session State is not persisted. If the Streamlit server crashes, then everything stored in Session State gets wiped.
-- State in other modules also persists. In other words, if you depend on another python file from your python file, it will not be rerun every time your file is.
+- State in other modules also persists for as long as the session. In other words, if you depend on another python file from your python file, it will not be rerun every time your file is.
 - For caveats and limitations with the Session State API, please see the [API limitations](/develop/api-reference/caching-and-state/st.session_state#caveats-and-limitations).
