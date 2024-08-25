@@ -16,7 +16,7 @@ Streamlit lets you turn functions into [fragments](/develop/concepts/architectur
 - The following must be installed in your Python environment:
 
   ```text
-  streamlit>=1.33.0
+  streamlit>=1.37.0
   ```
 
 - You should have a clean working directory called `your-repository`.
@@ -62,7 +62,7 @@ def get_data():
     return data
 
 
-@st.experimental_fragment
+@st.fragment
 def show_daily_sales(data):
     time.sleep(1)
     with st.container(height=100):
@@ -248,7 +248,7 @@ Since the daily sales data updates with every new date selection, you'll turn th
 <Collapse title="Complete function to display daily sales data" expanded={false}>
 
 ```python
-@st.experimental_fragment
+@st.fragment
 def show_daily_sales(data):
     time.sleep(1)
     selected_date = st.date_input(
@@ -282,10 +282,10 @@ def show_daily_sales(data):
 
 </Collapse>
 
-1. Use an [`@st.experimental_fragment`](/develop/api-reference/execution-flow/st.fragment) decorator and start your function definition.
+1. Use an [`@st.fragment`](/develop/api-reference/execution-flow/st.fragment) decorator and start your function definition.
 
    ```python
-   @st.experimental_fragment
+   @st.fragment
    def show_daily_sales(data):
    ```
 
@@ -472,7 +472,7 @@ Now, you have a functioning app that uses a fragment to prevent unnecessarily re
 1. Add three containers to fix the height of elements in the `show_daily_sales` function.
 
    ```python
-   @st.experimental_fragment
+   @st.fragment
    def show_daily_sales(data):
        time.sleep(1)
        with st.container(height=100): ### ADD CONTAINER ###

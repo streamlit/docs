@@ -1,25 +1,39 @@
-/* Improve scrollbars on Chrome + Windows/Linux. */
-body:not(.mac) {
+@supports (scrollbar-color: #000 #111) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+
+  :hover {
+    scrollbar-color: theme("colors.gray.40") transparent;
+  }
+
+  .dark:hover,
+  .dark :hover {
+    scrollbar-color: theme("colors.gray.70") transparent;
+  }
+}
+
+@supports not (scrollbar-color: #000 #111) {
   ::-webkit-scrollbar {
-    height: 6px;
-    width: 6px;
-    background: transparent;
+    @apply h-2 w-2 bg-transparent;
   }
 
-  ::-webkit-scrollbar-thumb:horizontal {
-    margin-top: -6px;
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full;
   }
 
-  ::-webkit-scrollbar-thumb:active {
-    opacity: 1;
-    background-color: rgba(128, 132, 149, 0.75);
+  :hover::-webkit-scrollbar-thumb {
+    @apply bg-gray-50 bg-opacity-70;
   }
 
   ::-webkit-scrollbar-thumb:hover,
-  :hover::-webkit-scrollbar-thumb:horizontal,
-  :hover::-webkit-scrollbar-thumb:vertical {
-    border-radius: 9999px;
-    opacity: 1;
-    background-color: rgba(191, 197, 211, 0.75);
+  :hover::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-50 bg-opacity-100;
+  }
+
+  ::-webkit-scrollbar-thumb:active,
+  :hover::-webkit-scrollbar-thumb:active {
+    @apply bg-gray-70 bg-opacity-100;
   }
 }

@@ -9,6 +9,11 @@
 
 .ContentContainer {
   @apply p-0 rounded-md w-96 overflow-x-hidden overflow-y-auto w-full h-full;
+  @apply bg-gray-10;
+}
+
+:global(.dark) .ContentContainer {
+  @apply bg-gray-90;
 }
 
 /* Search Bar */
