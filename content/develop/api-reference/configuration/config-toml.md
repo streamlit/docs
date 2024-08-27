@@ -135,8 +135,8 @@ fastReruns = true
 enforceSerializableSessionState = false
 
 # Adjust how certain 'options' widgets like radio, selectbox, and
-# multiselect coerce Enum members when the Enum class gets
-# re-defined during a script re-run. For more information, check out the docs:
+# multiselect coerce Enum members when the Enum class gets re-defined
+# during a script re-run. For more information, check out the docs:
 # https://docs.streamlit.io/develop/concepts/design/custom-classes#enums
 # Allowed values:
 # * "off"          : Disables Enum coercion.
@@ -319,4 +319,18 @@ textColor =
 # Font family for all text in the app, except code blocks. One of "sans serif",
 # "serif", or "monospace".
 font =
+```
+
+#### Secrets
+
+```toml
+[secrets]
+
+# List of locations where secrets are searched. Entries can be a path to
+# toml file or directory path where Kubernetes style secrets will be
+# scanned. Order is important, import is first to last, so secrets in later
+# files will take precedence over earlier ones.
+
+# Default: [ <path to local environment's secrets.toml file>, <path to project's secrets.toml file>,]
+files = [ "~/.streamlit/secrets.toml", "~/project directory/.streamlit/secrets.toml",]
 ```
