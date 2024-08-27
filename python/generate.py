@@ -232,9 +232,7 @@ def parse_docstring(obj, docstring, description, is_class, is_class_method, is_p
         arg_obj["default"] = param.default  # Store the default value
 
         # Check if the argument is deprecated
-        if docstring_obj.deprecation and param.arg_name in parse_rst(
-            docstring_obj.deprecation.description
-        ):
+        if docstring_obj.deprecation and "``"+param.arg_name+"``" in docstring_obj.deprecation.description:
             # Add the deprecated flag and the deprecation message to the argument object
             arg_obj["deprecated"] = {
                 "deprecated": True,
