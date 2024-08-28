@@ -13,6 +13,8 @@ To define your secrets locally or per-project, add `.streamlit/secrets.toml` to 
 
 To define your configuration globally, you must first locate your global `.streamlit` directory. Streamlit adds this hidden directory to your OS user profile during installation. For MacOS/Linx, this will be `~/.streamlit/secrets.toml`. For Windows, this will be `%userprofile%/.streamlit/secrets.toml`.
 
+Optionally, you can change where Streamlit searches for secrets through the configuration option, [`secrets.files`](/develop/api-reference/configuration/config.toml#secrets).
+
 ### File format
 
 `secrets.toml` is a [TOML](https://toml.io/en/) file.
