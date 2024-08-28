@@ -192,6 +192,26 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/develop/api-reference/data/st.dataframe"
+              >
+                <i className="material-icons-sharp">table_chart</i>
+                <h4>More dataframe types!</h4>
+                <p>
+                  Streamlit natively supports even more dataframe types. Use
+                  Dask, Modin, Numpy, pandas, Polars, PyArrow, Snowpark, Xarray,
+                  and more.
+                </p>
+              </RefCard>
+              <RefCard size="third" href="/develop/api-reference/data/st.json">
+                <i className="material-icons-sharp">unfold_less</i>
+                <h4>Configurable JSON expansion</h4>
+                <p>
+                  You can control the initial expansion state of
+                  <code>st.json</code> elements.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="/develop/api-reference/utilities/st.context"
               >
                 <i className="material-icons-sharp">cookie</i>
@@ -232,28 +252,6 @@ export default function Home({ window, menu }) {
                 <h4>Rerun scope</h4>
                 <p>
                   <code>st.rerun</code> can be scoped to a fragment.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/charts/st.bar_chart"
-              >
-                <i className="material-icons-sharp">bar_chart</i>
-                <h4>Chart stacking</h4>
-                <p>
-                  <code>st.area_chart</code> and <code>st.bar_chart</code>
-                  have a new parameter to set stacking behavior.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/text/st.markdown"
-              >
-                <i className="material-icons-sharp">info</i>
-                <h4>Icons in Markdown</h4>
-                <p>
-                  Streamlit supports icons from the Google Material Symbols
-                  library in Markdown.
                 </p>
               </RefCard>
             </TileContainer>

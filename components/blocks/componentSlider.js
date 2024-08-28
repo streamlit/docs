@@ -72,14 +72,14 @@ const ComponentSlider = ({ children }) => {
             className={classNames(styles.Tooltip, tooltipOpen && styles.Open)}
           >
             <p className={styles.TooltipText}>
-              These are featured components created by our lovely community. If
-              you don't see what you're looking for, check out our{" "}
+              These are featured components created by our lovely community. For
+              more examples and inspiration, check out our{" "}
               <a
-                href="https://components.streamlit.app"
+                href="https://streamlit.io/components"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Components Hub app
+                Components Gallery
               </a>{" "}
               and{" "}
               <a
@@ -88,14 +88,14 @@ const ComponentSlider = ({ children }) => {
                 rel="noopener noreferrer"
               >
                 Streamlit Extras
-              </a>{" "}
-              for more examples and inspiration!
+              </a>
+              !
             </p>
             <span
               className={classNames(
                 "transform rotate-45",
                 styles.TooltipArrow,
-                tooltipOpen && styles.Open
+                tooltipOpen && styles.Open,
               )}
             />
           </div>

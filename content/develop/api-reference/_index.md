@@ -1960,7 +1960,7 @@ with st.form(key='my_form'):
 </RefCard>
 <RefCard href="/develop/api-reference/execution-flow/st.fragment" size="half">
 
-<h4>Partial reruns</h4>
+<h4>Fragments</h4>
 
 Define a fragment to rerun independently from the rest of the script.
 
