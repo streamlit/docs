@@ -55,3 +55,7 @@
 .LinkedIn {
   @apply bg-brand-LinkedIn;
 }
+
+.Newsletter {
+  @apply bg-red-70;
+}

@@ -125,6 +125,39 @@ const SocialCallout = () => {
             </article>
           </a>
         </li>
+        {/* Newsletter */}
+        <li className={`group ${styles.ListItem}`}>
+          <a
+            className={`${styles.Link} not-link`}
+            href="https://share.hsforms.com/1WGycc-S0R8qfyL2iIw_70w3wudj"
+            target="_blank"
+          >
+            <div className={`${styles.IconContainer} ${styles.Newsletter}`}>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className={styles.Icon}
+              >
+                <path
+                  d="M21.75 6.75v10.5a1.5 1.5 0 0 1-1.5 1.5H3.75a1.5 1.5 0 0 1-1.5-1.5V6.75m19.5 0a1.5 1.5 0 0 0-1.5-1.5H3.75a1.5 1.5 0 0 0-1.5 1.5m19.5 0-8.896 6.159a1.5 1.5 0 0 1-1.708 0L2.25 6.75"
+                  stroke="#FFFFFF"
+                  strokeWidth={1.5}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <article>
+              <h5 className={styles.Subtitle}>Newsletter</h5>
+              <p className={styles.Text}>
+                Sign up for communications from Streamlit.
+              </p>
+            </article>
+          </a>
+        </li>
       </ul>
     </section>
   );
