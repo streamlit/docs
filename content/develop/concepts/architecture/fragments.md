@@ -1,11 +1,11 @@
 ---
-title: Working with fragments and partial reruns
+title: Working with fragments
 slug: /develop/concepts/architecture/fragments
 ---
 
-# Working with fragments and partial reruns
+# Working with fragments
 
-Reruns are a central part of every Streamlit app. When users interact with widgets, your script reruns from top to bottom, and your app's frontend is updated. Streamlit provides several features to help you develop your app within this execution model. Streamlit version 1.37.0 introduced fragments to allow rerunning a portion of your code instead of your full script. As your app grows larger and more complex, these partial reruns help your app be efficient and performant. Fragments give you finer, easy-to-understand control over your app's execution flow.
+Reruns are a central part of every Streamlit app. When users interact with widgets, your script reruns from top to bottom, and your app's frontend is updated. Streamlit provides several features to help you develop your app within this execution model. Streamlit version 1.37.0 introduced fragments to allow rerunning a portion of your code instead of your full script. As your app grows larger and more complex, these fragment reruns help your app be efficient and performant. Fragments give you finer, easy-to-understand control over your app's execution flow.
 
 Before you read about fragments, we recommend having a basic understanding of [caching](/develop/concepts/architecture/caching), [Session State](/concepts/architecture/session-state), and [forms](/develop/concepts/architecture/forms).
 
@@ -19,7 +19,7 @@ Fragments are versatile and applicable to a wide variety of circumstances. Here 
 
 ## Defining and calling a fragment
 
-Streamlit provides a decorator ([`st.fragment`](/develop/api-reference/execution-flow/st.fragment)) to turn any function into a fragment function. When you call a fragment function that contains a widget function, a user triggers a _partial rerun_ instead of a full rerun when they interact with that fragment's widget. During a partial rerun, your fragment function is re-executed. Anything within the main body of your fragment is updated on the frontend, while the rest of your app remains the same. We'll describe fragments written across multiple containers later on.
+Streamlit provides a decorator ([`st.fragment`](/develop/api-reference/execution-flow/st.fragment)) to turn any function into a fragment function. When you call a fragment function that contains a widget function, a user triggers a _fragment rerun_ instead of a full rerun when they interact with that fragment's widget. During a fragment rerun, only your fragment function is re-executed. Anything within the main body of your fragment is updated on the frontend, while the rest of your app remains the same. We'll describe fragments written across multiple containers later on.
 
 Here is a basic example of defining and calling a fragment function. Just like with caching, remember to call your function after defining it.
 
@@ -41,7 +41,7 @@ with st.sidebar:
     fragment_function()
 ```
 
-### Partial rerun execution flow
+### Fragment execution flow
 
 Consider the following code with the explanation and diagram below.
 
