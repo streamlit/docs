@@ -152,7 +152,7 @@ const Footer = ({ setIsTelemetryModalVisible }) => {
               not-link
               ${styles.IconLink}
             `}
-            href="https://share.hsforms.com/1WGycc-S0R8qfyL2iIw_70w3wudj"
+            href="https://info.snowflake.com/streamlit-newsletter-sign-up.html"
             target="_blank"
             title="Newsletter"
           >

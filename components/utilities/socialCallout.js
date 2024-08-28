@@ -129,7 +129,7 @@ const SocialCallout = () => {
         <li className={`group ${styles.ListItem}`}>
           <a
             className={`${styles.Link} not-link`}
-            href="https://share.hsforms.com/1WGycc-S0R8qfyL2iIw_70w3wudj"
+            href="https://info.snowflake.com/streamlit-newsletter-sign-up.html"
             target="_blank"
           >
             <div className={`${styles.IconContainer} ${styles.Newsletter}`}>
