@@ -52,7 +52,7 @@ _Release date: August 27, 2024_
 - 🦀 Bug fix: `st.write_stream` will not immediately fail when receiving an empty chunk ([#9234](https://github.com/streamlit/streamlit/pull/9234), [#9227](https://github.com/streamlit/streamlit/issues/9227)).
 - 🦋 Bug fix: Streamlit won't auto-scroll to an empty anchor, if present ([#9206](https://github.com/streamlit/streamlit/pull/9206), [#9203](https://github.com/streamlit/streamlit/issues/9203)).
 - 🦎 Bug fix: We changed the handling of `scriptRunId` to prevent `st.tabs` from showing extra, empty tabs in fragments ([#9186](https://github.com/streamlit/streamlit/pull/9186), [#9158](https://github.com/streamlit/streamlit/issues/9158), [#9215](https://github.com/streamlit/streamlit/pull/9215)).
-- 🐌 Bug fix: Automatically rerunning fragments don't raise **`FragmentStorageKeyError` to prevent a possible race condition ([#9183](https://github.com/streamlit/streamlit/pull/9183), [#9080](https://github.com/streamlit/streamlit/issues/9080)).**
+- 🐌 Bug fix: Automatically rerunning fragments don't raise `FragmentStorageKeyError` to prevent a possible race condition ([#9183](https://github.com/streamlit/streamlit/pull/9183), [#9080](https://github.com/streamlit/streamlit/issues/9080)).
 - 🕸️ Bug fix: We improved `st.plotly_chart`'s handling of the pass-through keyword argument `config` ([#9190](https://github.com/streamlit/streamlit/pull/9190), [#9134](https://github.com/streamlit/streamlit/issues/9134)).
 - 🦗 Bug fix: Markdown in all `label` parameters correctly ignores headers ([#9189](https://github.com/streamlit/streamlit/pull/9189), [#9141](https://github.com/streamlit/streamlit/issues/9141)).
 - 🦂 Bug fix: We reverted a change to fragments which caused some widgets to lose state in some circumstances ([#9178](https://github.com/streamlit/streamlit/pull/9178), [#9171](https://github.com/streamlit/streamlit/issues/9171)).
@@ -90,7 +90,7 @@ _Release date: July 25, 2024_
 **Other Changes**
 
 - ⭕ Material Symbols are rounded instead of outlined ([#8998](https://github.com/streamlit/streamlit/pull/8998)).
-- 2️⃣ Streamlit supports Numpy version 2.0 ([#8940](https://github.com/streamlit/streamlit/pull/8940)).
+- 🔢 Streamlit supports Numpy version 2.0 ([#8940](https://github.com/streamlit/streamlit/pull/8940)).
 - 😄 We've updated emoji validation for new emojis ([#8923](https://github.com/streamlit/streamlit/pull/8923)).
 - 👻 We've removed several experimental commands with new, generally available versions ([#8943](https://github.com/streamlit/streamlit/pull/8943)).
 - ☠️ We've removed deprecated configuration options per their announced expiration date ([#9005](https://github.com/streamlit/streamlit/pull/9005), [#9013](https://github.com/streamlit/streamlit/pull/9013), [#9018](https://github.com/streamlit/streamlit/pull/9018)).
