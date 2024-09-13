@@ -5,7 +5,7 @@ slug: /deploy/streamlit-community-cloud/deploy-your-app/app-dependencies
 
 # App dependencies
 
-The main reason that apps fail to build properly is because Streamlit Community Cloud can't find your dependencies! There are two kinds of dependencies your app might have: Python dependencies and external dependencies. Python dependencies are other Python packages (just like Streamlit!) that you `import` into you script. External dependencies are less common, but they include any other software your script needs to function properly. Since Streamlit Community Cloud runs on Linux, these will be Linux dependencies installed with `apt-get` outside the Python environment.
+The main reason that apps fail to build properly is because Streamlit Community Cloud can't find your dependencies! There are two kinds of dependencies your app might have: Python dependencies and external dependencies. Python dependencies are other Python packages (just like Streamlit!) that you `import` into your script. External dependencies are less common, but they include any other software your script needs to function properly. Since Streamlit Community Cloud runs on Linux, these will be Linux dependencies installed with `apt-get` outside the Python environment.
 
 For your dependencies to be installed correctly, make sure you:
 

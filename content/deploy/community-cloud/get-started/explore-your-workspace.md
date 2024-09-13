@@ -5,29 +5,28 @@ slug: /deploy/streamlit-community-cloud/get-started/explore-your-workspace
 
 # Explore your workspace
 
-If you just [created your account](/deploy/streamlit-community-cloud/get-started/create-your-account), congrats! You are now logged in and ready to go. If you are joining someone else's workspace you may already see apps populated in your workspace. If not, then you need to deploy an app! Check out our next section on how to [Deploy your app](/deploy/streamlit-community-cloud/deploy-your-app). If you need an app to deploy, check out our <a href="https://streamlit.io/gallery" target="_blank">App gallery</a> which includes apps for machine learning, data science, and business use cases.
+If you just [created your account](/deploy/streamlit-community-cloud/get-started/create-your-account) and [connected your GitHub account](/deploy/streamlit-community-cloud/get-started/connect-your-github-account), congrats! You are now logged in and ready to go. If you are joining someone else's workspace you may already see some apps.
 
-![Your Streamlit Community Cloud workspace](/images/streamlit-community-cloud/workspace-empty.png)
+## Workspaces
 
-## Switching workspaces
+Each GitHub account and organization is associated to a workspace in Community Cloud. When you sign in to Community Cloud for the first time, you will land in your personal workspace associated to your GitHub user account. The upper-left corner of Commuity Cloud shows your current workspace.
 
-You may also find that you already have access to multiple Streamlit Community Cloud workspaces. Streamlit Community Cloud automatically groups your apps according to the corresponding GitHub repository's owner or organzation. In the upper-right corner you can see the workspaces you have access to. If apps have already been deployed from any of your repositories, then you will see those apps when you select the associated workspace in the upper-right corner. Learn more about how to [Manage your app from your workspace](/deploy/streamlit-community-cloud/manage-your-app#manage-your-app-from-your-workspace).
+![A new, empty workspace in Streamlit Community Cloud. The workspace owner is displayed in the upper-left corner.](/images/streamlit-community-cloud/workspace-empty-SM.png)
 
-![Switch between your Streamlit Community Cloud workspaces](/images/streamlit-community-cloud/workspace-empty-switch.png)
+### Switching workspaces
 
-## New app button
+To switch between workspaces, click the workspace name in the upper-left corner and select a new workspace.
 
-Your workspace is your base of operations to deploy apps and manage them. You can click on "**New app**" to [Deploy your app](/deploy/streamlit-community-cloud/deploy-your-app) from a repository where you have administrative privileges. If you want additional options, click the down arrow (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>expand_more</i>) to begin with a template.
+Other workspaces available to you as follows:
 
-- "**Use existing repo**" is the default to [Deploy your app](/deploy/streamlit-community-cloud/deploy-your-app) from a repository where you have administrative privileges.
-- "**Create from sample app template**" will fork and deploy a <a href="https://github.com/streamlit/streamlit-example" target="_blank">simple, one-page Streamlit app</a>.
-- "**Create new app with GitHub Codespaces**" will fork and deploy our multipage <a href="https://github.com/streamlit/streamlit-hello" target="_blank">Streamlit Hello</a> app and create a codespace. To jump quickly into GitHub Codespaces for any of your deployed apps, see [Edit your app with GitHub Codespaces](/deploy/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces) instead.
+- When you have write permissions to a repository and the repository owner has joined Community Cloud, you can select the associated workspace. An owner can be a GitHub user or organization.
+- If someone has shared an app with you through Community Cloud, you will see the app's associated workspace. This is view-only access.
 
-![Options to deploy a new app from your workspace in Streamlit Community Cloud](/images/streamlit-community-cloud/deploy-menu.png)
+![This workspace is for the user `sammy-streamlit`, who has access to their personal workspace and another workspace for the organization `we-love-streamlit`.](/images/streamlit-community-cloud/workspace-empty-switch.png)
 
-## Invite other developers to your workspace
+### Invite other developers to your workspace
 
-Inviting other developers is simple, just invite them to your GitHub repository so that you can code on apps together, and then have them log in to <a href="https://share.streamlit.io/signup" target="_blank">share.streamlit.io/signup</a>. Read more about connecting to a GitHub organization in [Organization access](/deploy/streamlit-community-cloud/get-started/connect-your-github-account#organization-access).
+Inviting other developers is simple, just invite them to your GitHub repository so that you can code on apps together, and then have them log in to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>. Read more about connecting to a GitHub organization in [Organization access](/deploy/streamlit-community-cloud/get-started/connect-your-github-account#organization-access).
 
 Streamlit Community Cloud inherits developer permissions from GitHub so when others sign in, they will automatically see the workspaces they share with you. From there you can all deploy, manage, and share apps together.
 
@@ -38,3 +37,21 @@ Once a user is added to a repository on GitHub, it will take at most 15 minutes 
 </Note>
 
 And remember, whenever anyone on the team updates the code on GitHub, the app will also automatically update for you!
+
+## My apps
+
+The "**My apps**" section of your workspace is your base of operations to deploy and manage your apps. When you deploy an app, it is added to this section of your workspace.
+
+### Deploying apps
+
+If you already have an app saved to a GitHub repo, you can deploy it directly. Otherwise, Community Cloud provides templates you can use. When you deploy from a template, Community Cloud will fork a project into your GitHub account and deploy from the new fork. This is a convenient way to get started if you haven't already created a Streamlit app.
+
+Just click "**Create app**" in the upper-right corner to get started. To learn more, see [Deploy your app](/deploy/streamlit-community-cloud/deploy-your-app) and [Deploy from a template](/deploy/streamlit-community-cloud/get-started/deploy-from-a-template).
+
+## My profile
+
+The "**My profile**" section of your workspace lets you customize a personal portfolio of Streamlit apps to share with the world. Curate and feature your Streamlit apps to show off your work.
+
+## Explore
+
+For inspiration, check out the "**Explore**" section. This is a gallery of Streamlit apps created by the Streamlit community. Check out popular and trending apps, or search for apps in an area that interests you.

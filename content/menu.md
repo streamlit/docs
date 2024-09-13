@@ -721,16 +721,22 @@ site_menu:
     url: /deploy/streamlit-community-cloud/get-started/connect-your-github-account
   - category: Deploy / Streamlit Community Cloud / Get started / Explore your workspace
     url: /deploy/streamlit-community-cloud/get-started/explore-your-workspace
+  - category: Deploy / Streamlit Community Cloud / Get started / Deploy from a template
+    url: /deploy/streamlit-community-cloud/get-started/deploy-from-a-template
   - category: Deploy / Streamlit Community Cloud / Get started / Fork and edit a public app
     url: /deploy/streamlit-community-cloud/get-started/fork-and-edit-a-public-app
   - category: Deploy / Streamlit Community Cloud / Get started / Trust and security
     url: /deploy/streamlit-community-cloud/get-started/trust-and-security
   - category: Deploy / Streamlit Community Cloud / Deploy your app
     url: /deploy/streamlit-community-cloud/deploy-your-app
+  - category: Deploy / Streamlit Community Cloud / Deploy your app / File organization
+    url: /deploy/streamlit-community-cloud/deploy-your-app/file-organization
   - category: Deploy / Streamlit Community Cloud / Deploy your app / App dependencies
     url: /deploy/streamlit-community-cloud/deploy-your-app/app-dependencies
   - category: Deploy / Streamlit Community Cloud / Deploy your app / Secrets management
     url: /deploy/streamlit-community-cloud/deploy-your-app/secrets-management
+  - category: Deploy / Streamlit Community Cloud / Deploy your app / Deploy!
+    url: /deploy/streamlit-community-cloud/deploy-your-app/deploy
   - category: Deploy / Streamlit Community Cloud / Manage your app
     url: /deploy/streamlit-community-cloud/manage-your-app
   - category: Deploy / Streamlit Community Cloud / Manage your app / App analytics
@@ -745,6 +751,8 @@ site_menu:
     url: /deploy/streamlit-community-cloud/manage-your-app/favorite-your-app
   - category: Deploy / Streamlit Community Cloud / Manage your app / Reboot your app
     url: /deploy/streamlit-community-cloud/manage-your-app/reboot-your-app
+  - category: Deploy / Streamlit Community Cloud / Manage your app / Upgrade Python
+    url: /deploy/streamlit-community-cloud/manage-your-app/upgrade-python
   - category: Deploy / Streamlit Community Cloud / Share your app
     url: /deploy/streamlit-community-cloud/share-your-app
   - category: Deploy / Streamlit Community Cloud / Share your app / Embed your app
@@ -863,9 +871,6 @@ site_menu:
     visible: false
   - category: Knowledge base / Deployment issues / Invoking a Python subprocess in a deployed Streamlit app
     url: /knowledge-base/deploy/invoking-python-subprocess-deployed-streamlit-app
-    visible: false
-  - category: Knowledge base / Deployment issues / Organizing your apps with workspaces on Streamlit Community Cloud
-    url: /knowledge-base/deploy/organizing-apps-workspaces-streamlit-cloud
     visible: false
   - category: Knowledge base / Deployment issues / App is not loading when running remotely
     url: /knowledge-base/deploy/remote-start
