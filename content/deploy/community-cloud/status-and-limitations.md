@@ -56,3 +56,4 @@ gatherUsageStats = true
 - When you print something to the Cloud logs, you may need to do a `sys.stdout.flush()` before it shows up.
 - Community Cloud hosts all apps in the United States. This is currently not configurable.
 - Community Cloud is built on Debian Linux. All file paths must use forward-slash path separators.
+- Community Cloud rate limits app updates from GitHub to no more than five per minute.
