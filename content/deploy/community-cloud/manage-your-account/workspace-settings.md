@@ -9,9 +9,13 @@ From your workspace settings you can [Manage your account](/deploy/streamlit-com
 
 ## Access your workspace settings
 
-From your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click "**Settings**" in the upper-right corner.
+1. Sign in to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>.
+1. In the upper-left corner, click on your workspace name.
+1. In the drop-down menu, click "**Settings**."
 
-![Access your workspace settings](/images/streamlit-community-cloud/account-settings-header.png)
+<div style={{ maxWidth: '90%', marginLeft: '3em' }}>
+    <Image src="/images/streamlit-community-cloud/account-settings-header.png" alt="Access your workspace settings from your workspace" />
+</div>
 
 ## Linked accounts
 
