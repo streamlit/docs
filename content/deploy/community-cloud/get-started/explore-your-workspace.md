@@ -17,7 +17,7 @@ Each GitHub account and organization is associated to a workspace in Community C
 
 To switch between workspaces, click the workspace name in the upper-left corner and select a new workspace.
 
-Other workspaces available to you as follows:
+Other workspaces are available to you as follows:
 
 - When you have write permissions to a repository and the repository owner has joined Community Cloud, you can select the associated workspace. An owner can be a GitHub user or organization.
 - If someone has shared an app with you through Community Cloud, you will see the app's associated workspace. This is view-only access.

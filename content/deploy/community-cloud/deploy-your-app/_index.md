@@ -13,6 +13,14 @@ If you want to deploy your app on a different cloud service, check out the [Depl
 
 </Note>
 
+## Summary
+
+The pages that follow explain how to organize your app and provide complete information for Community Cloud to run it correctly.
+
+When your app has everything it needs, deploying is easy. Just go to your workspace and click "**Create app**" in the upper-right corner. Follow the prompts to fill in your app's information, and click "**Deploy**."
+
+![Deploy a new app from your workspace](/images/streamlit-community-cloud/deploy-empty-new-app.png)
+
 ## Ready, set, go!
 
 <InlineCalloutContainer>

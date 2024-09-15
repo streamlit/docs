@@ -9,26 +9,22 @@ You can manage your deployed app from your workspace at <a href="https://share.
 
 ## Manage your app from your workspace
 
-Streamlit Community Cloud is organized into workspaces, which automatically group your apps according to the corresponding GitHub repository's owner. Your workspace is indicated in the upper-right corner. You will have one workspace that matches your GitHub username and additional workspaces for any GitHub organization or user who has granted you access.
-
-Additionally, if you have view-only access to an app, you will be able to see that app's workspace. When you do not have developer access to an app, your management options for that app will be restricted as shown in the following sections.
+Streamlit Community Cloud is organized into workspaces, which automatically group your apps according to their repository's owner in GitHub. Your workspace is indicated in the upper-left corner. For more information, see [Switching workspaces](/deploy/streamlit-community-cloud/get-started/explore-your-workspace#switching-workspaces).
 
 To deploy or manage any app, always switch to the workspace matching the repository's owner first.
 
-![Switching between app workspaces in Streamlit Community Cloud](/images/streamlit-community-cloud/workspace-switch.png)
+### Sort your apps
 
-At the top of your workspace, "**Analytics**" is a shortcut to [App analytics](/deploy/streamlit-community-cloud/manage-your-app/app-analytics) and "**Settings**" links to your [Workspace settings](/deploy/streamlit-community-cloud/manage-your-account/workspace-settings) (not to be confused with [App settings](/deploy/streamlit-community-cloud/manage-your-app/app-settings) for each of your apps).
+If you have many apps in your workspace, you can pin apps to the top by marking them as favorite (<i style={{ verticalAlign: "-.25em", color: "#faca2b" }} className={{ class: "material-icons-sharp" }}>star</i>). For more information, see [Favorite your app](/deploy/streamlit-community-cloud/manage-your-app/favorite-your-app).
 
 ### App overflow menus
 
 Each app has a menu accessible from the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) to the right.
 
-- **Copy URL** &mdash; See [Copy your app's URL](/deploy/streamlit-community-cloud/share-your-app#copy-your-apps-url)
-- **Edit** &mdash; See [Edit your app with GitHub Codespaces](/deploy/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces)
-- **Favorite** &mdash; See [Favorite your app](/deploy/streamlit-community-cloud/manage-your-app/favorite-your-app)
-- **Analytics** &mdash; See [App analytics](/deploy/streamlit-community-cloud/manage-your-app/app-analytics)
+- **Edit with Codespaces** &mdash; See [Edit your app with GitHub Codespaces](/deploy/streamlit-community-cloud/manage-your-app/edit-your-app#edit-your-app-with-github-codespaces)
 - **Reboot** &mdash; See [Reboot your app](/deploy/streamlit-community-cloud/manage-your-app/reboot-your-app)
 - **Delete** &mdash; See [Delete your app](/deploy/streamlit-community-cloud/manage-your-app/delete-your-app)
+- **Analytics** &mdash; See [App analytics](/deploy/streamlit-community-cloud/manage-your-app/app-analytics)
 - **Settings** &mdash; See [App settings](/deploy/streamlit-community-cloud/manage-your-app/app-settings)
 
 ![App overflow menu in your workspace](/images/streamlit-community-cloud/workspace-app-overflow.png)

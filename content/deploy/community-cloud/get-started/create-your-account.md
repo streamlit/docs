@@ -37,6 +37,8 @@ Community Cloud allows you to sign in using one of the three following methods:
    1. Click "**Continue with Google**."
    1. Enter your Google credentials, and follow Google's authentication prompts.
 
+      This adds the "Streamlit Community Cloud" OAuth application to your GitHub account. This application is only used to pass your email when you log in to Community Cloud. On the next page, you'll perform additional steps to allow Community Cloud to access your repositories. For more information about using and reviewing the OAuth applications on your accounts, see [Using OAuth apps](https://docs.github.com/en/apps/oauth-apps/using-oauth-apps) in GitHub's docs.
+
    ### Option 3: Sign in using GitHub
 
    1. Click "**Continue with GitHub**."

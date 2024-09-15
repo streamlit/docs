@@ -71,15 +71,9 @@ Whether your app is public or private, you can send an email invite to your app 
 
 ### Copy your app's URL
 
-You can convenitiently copy your app's URL from the share menu or from your workspace.
+From your app click "**Share**" in the upper-right corner then click "**Copy link**".
 
-- From your app click "**Share**" in the upper-right corner then click "**Copy link**".
-
-  ![Copy your app's URL from the share button](/images/streamlit-community-cloud/share-copy.png)
-
-- From your workspace click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) then click "**Copy URL**".
-
-  ![Copy your app's URL from your workspace](/images/streamlit-community-cloud/workspace-app-copy.png)
+![Copy your app's URL from the share button](/images/streamlit-community-cloud/share-copy.png)
 
 ### Add a badge to your GitHub repository
 

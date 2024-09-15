@@ -25,9 +25,11 @@ If you are a member of a GitHub organization, you will see that organization at 
 1. Enter your GitHub credentials and follow GitHub's authentication prompts.
 1. Click "**Authorize streamlit**".
 
-<div style={{ maxWidth: '40%', margin: 'auto' }}>
-<Image alt="Authorize Community Cloud to connect to your GitHub account" src="/images/streamlit-community-cloud/GitHub-auth1-none.png" />
-</div>
+   <div style={{ maxWidth: '40%', margin: 'auto' }}>
+   <Image alt="Authorize Community Cloud to connect to your GitHub account" src="/images/streamlit-community-cloud/GitHub-auth1-none.png" />
+   </div>
+
+   This adds the "Streamlit" OAuth application to your GitHub account. This allows Community Cloud to work with your public repositories and create codespaces for you. In the next section, you can allow Community Cloud to access your private repositories, too. For more information about using and reviewing the OAuth applications on your accounts, see [Using OAuth apps](https://docs.github.com/en/apps/oauth-apps/using-oauth-apps) in GitHub's docs.
 
 ## Optional: Add access to private repositories
 

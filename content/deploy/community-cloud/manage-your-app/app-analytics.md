@@ -26,10 +26,6 @@ From your workspace at <a href="https://share.streamlit.io" target="_blank">shar
 
 ![Access app analytics from your workspace through your app overflow menu](/images/streamlit-community-cloud/workspace-app-analytics.png)
 
-Alternatively, from the top of your workspace, click "**Analytics**".
-
-![Access app analytics from your workspace](/images/streamlit-community-cloud/workspace-analytics.png)
-
 ### Access app analytics from your Cloud logs
 
 From your app at `<your-custom-subdomain>.streamlit.app`, click "**Manage app**" in the lower-right corner.
@@ -39,12 +35,6 @@ From your app at `<your-custom-subdomain>.streamlit.app`, click "**Manage app**"
 Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) and click "**Analytics**".
 
 ![Access app analytics from your Cloud logs](/images/streamlit-community-cloud/cloud-logs-menu-analytics.png)
-
-## Switch between apps
-
-Once you are in the analytics modal, you can switch between apps in your workspace from the drop-down list. Remember to switch workspaces if you want to view analytics for an app in another workspace.
-
-![Switch between apps with app analytics](/images/streamlit-community-cloud/workspace-app-analytics-switch.png)
 
 ## App viewers
 
@@ -62,8 +52,7 @@ Additionally, you may occasionally see anonymous users in a private app. Rest as
 
 Common reasons why users show up anonymously are:
 
-1. The app was previously public.
-2. The given viewer viewed the app in April 2022, when the Streamlit team was honing user identification for this feature.
-3. The given viewer previously disconnected their primary identity (Google or email) and source control identity (GitHub).
+- The app was previously public.
+- The given viewer viewed the app in April 2022, when the Streamlit team was honing user identification for this feature.
 
 See Streamlit's general <a href="https://streamlit.io/privacy-policy" target="_blank">Privacy Notice</a>.

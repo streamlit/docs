@@ -94,7 +94,7 @@ You will be signing in to your GitHub account during this process. If you do not
 
 ## Publish your changes
 
-1. On the left navigation bar, click the source control icon.
+1. In the left navigation bar, click the source control icon.
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
 <Image alt="See your deployed Streamlit app" src="/images/streamlit-community-cloud/deploy-template-blank-codespace-edit-source-control.png" />
