@@ -12,7 +12,6 @@ slug: /knowledge-base/deploy
 - [Argh. This app has gone over its resource limits.](/knowledge-base/deploy/resource-limits)
 - [App is not loading when running remotely](/knowledge-base/deploy/remote-start)
 - [Authentication without SSO](/knowledge-base/deploy/authentication-without-sso)
-- [Upgrade the Streamlit version of your app on Streamlit Community Cloud](/knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud)
 - [How do I increase the upload limit of `st.file_uploader` on Streamlit Community Cloud?](/knowledge-base/deploy/increase-file-uploader-limit-streamlit-cloud)
 - [Unable to edit or delete apps in Streamlit Community Cloud after modifying GitHub username](/knowledge-base/deploy/unable-to-edit-or-delete-apps-in-streamlit-community-cloud-after-modifying-github-username)
 - [Huh. This is isn't supposed to happen message after trying to log in](/knowledge-base/deploy/huh-this-isnt-supposed-to-happen-message-after-trying-to-log-in)

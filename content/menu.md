@@ -753,6 +753,8 @@ site_menu:
     url: /deploy/streamlit-community-cloud/manage-your-app/reboot-your-app
   - category: Deploy / Streamlit Community Cloud / Manage your app / Upgrade Python
     url: /deploy/streamlit-community-cloud/manage-your-app/upgrade-python
+  - category: Deploy / Streamlit Community Cloud / Manage your app / Upgrade Streamlit
+    url: /deploy/streamlit-community-cloud/manage-your-app/upgrade-streamlit
   - category: Deploy / Streamlit Community Cloud / Share your app
     url: /deploy/streamlit-community-cloud/share-your-app
   - category: Deploy / Streamlit Community Cloud / Share your app / Embed your app
