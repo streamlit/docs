@@ -7,11 +7,11 @@ keywords: View-only access, Can't edit app, Can't delete app, Can't reboot app
 
 # Rename or change your app's GitHub coordinates
 
-Community Cloud identifies apps by their GitHub coordinates (owner, repository, branch, entrypoint file). If you move or rename one of these coordinates, you will lose access to administer any associated app.
+Streamlit Community Cloud identifies apps by their GitHub coordinates (owner, repository, branch, entrypoint file path). If you move or rename one of these coordinates without preparation, you will lose access to administer any associated app.
 
 ## Delete, rename, redeploy
 
-If you need to rename your repository, move your entrypoint file, or otherwise change a deployed app's GitHub coordinates, do the following for any affected app:
+If you need to rename your repository, move your entrypoint file, or otherwise change a deployed app's GitHub coordinates, do the following:
 
 1. Delete your app.
 1. Make your desired changes in GitHub.
@@ -19,7 +19,7 @@ If you need to rename your repository, move your entrypoint file, or otherwise c
 
 ## Regain access when you've already made changes to your app's GitHub coordinates
 
-If you have changed a repository so that Community Cloud can no longer find your app on GitHub, your apps will be missing or shown as view-only. View-only means that you can't edit, reboot, delete, or view settings for your app. You can only access analytics for your app.
+If you have changed a repository so that Community Cloud can no longer find your app on GitHub, your app will be missing or shown as view-only. View-only means that you can't edit, reboot, delete, or view settings for your app. You can only access analytics.
 
 You may be able to regain control as follows:
 
@@ -28,4 +28,4 @@ You may be able to regain control as follows:
 1. Sign back in to Community Cloud and GitHub.
 1. If you have regained access, delete your app. Proceed with your original change, and redeploy your app.
 
-   If this does not restore access to your app, please [contact Snowflake support](/knowledge-base/deploy/how-to-submit-a-support-case-for-streamlit-community-cloud) for assistance.
+   If this does not restore access to your app, please [contact Snowflake support](/knowledge-base/deploy/how-to-submit-a-support-case-for-streamlit-community-cloud) for assistance. They can delete your disconnected apps so you can redeploy them. For the quickest help, please provide a complete list of your affected apps by URL.

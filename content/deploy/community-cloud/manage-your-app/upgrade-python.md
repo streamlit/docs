@@ -5,13 +5,13 @@ slug: /deploy/streamlit-community-cloud/manage-your-app/upgrade-python
 
 # Upgrade your app's Python version on Community Cloud
 
-Dependencies within Python can be upgraded in-place by simply changing your environment configuration file (typically `requirements.txt`). However, Python itself can't be changed after deployment.
+Dependencies within Python can be upgraded in place by simply changing your environment configuration file (typically `requirements.txt`). However, Python itself can't be changed after deployment.
 
 When you deploy an app, you can select the version of Python through the "**Advanced settings**" dialog. After you have deployed an app, you must delete it and redeploy it to change the version of Python it uses.
 
 1. Take note of your app's settings:
 
-   - Current, custom domain.
+   - Current, custom subdomain.
    - GitHub coordinates (repository, branch, and entrypoint file path).
    - Secrets.
 

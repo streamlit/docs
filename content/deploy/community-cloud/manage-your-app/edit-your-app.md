@@ -5,7 +5,7 @@ slug: /deploy/streamlit-community-cloud/manage-your-app/edit-your-app
 
 # Edit your app
 
-You can edit your app from any development environment of your choice. Community Cloud will monitor your repository and automatically copy any file changes you commit. You will immediately see commits reflected in your deployed app for most changes (such as edits to your app's Python files).
+You can edit your app from any development environment of your choice. Streamlit Community Cloud will monitor your repository and automatically copy any file changes you commit. You will immediately see commits reflected in your deployed app for most changes (such as edits to your app's Python files).
 
 Community Cloud also makes it easy to skip the work of setting up a development environment. With a few simple clicks, you can configure a development environment using GitHub Codespaces.
 
@@ -19,7 +19,7 @@ Spin up a cloud-based development environment for your deployed app in minutes. 
 
    ![Edit your app with GitHub Codespaces](/images/streamlit-community-cloud/workspace-app-edit.png)
 
-   Community Cloud will add a `.devcontainer/devcontainer.json` file to your repository. If you already have a file of the same name in your repository, it will not be changed. You may delete or rename your existing devcontainer configuration if you would like your repository to receive the instance created by Streamlit Community Cloud.
+   Community Cloud will add a `.devcontainer/devcontainer.json` file to your repository. If you already have a file of the same name in your repository, it will not be changed. You may delete or rename your existing devcontainer configuration if you would like your repository to receive the instance created by Community Cloud.
 
 1. Wait for GitHub to set up your codespace.
 
@@ -39,7 +39,9 @@ Spin up a cloud-based development environment for your deployed app in minutes. 
 
    ![Select "Always rerun" to automatically see edits in your running app](/images/streamlit-community-cloud/deploy-template-blank-codespace-edit.png)
 
-1. Continue to edit your app. Your codespace will continue to automatically save your files as you work with them, and the preview will continue to update as the files are saved.
+   Alternatively, you can click "**Rerun**" to avoid unecessary reruns while writing code. Since your code will continually resave, automatically rerunning the app will raises errors when you pause partway through a line of code. Regardless which you choose, you can change the setting through the app chrome. Just click the the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) in the upper-right corner of your preview app, click "**Settings**," and toggle "**Run on save**."
+
+1. Continue to edit your app. Your codespace will continue to automatically save your files as you work with them, and the preview will continue to update as the app reruns.
 
 ### Optional: Publish your changes
 
@@ -52,9 +54,7 @@ After making edits to your app, you can choose to commit your edits to your repo
 1. In the source control sidebar on the left, enter a name for your commit.
 1. Click "**<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>check</i> Commit**."
 
-<div style={{ maxWidth: '90%', margin: 'auto' }}>
-<Image alt="See your deployed Streamlit app" src="/images/streamlit-community-cloud/deploy-template-blank-codespace-edit-commit.png" />
-</div>
+   ![See your deployed Streamlit app](/images/streamlit-community-cloud/deploy-template-blank-codespace-edit-commit.png)
 
 1. In the confirmation dialog, click "**Yes**" to stage and commit all your changes. Your changes are committed locally in your codespace.
 1. In the source control sidebar on the left, click "**<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>cached</i> 1 <i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>arrow_upward</i>**" to push your commit to GitHub.
@@ -66,13 +66,11 @@ After making edits to your app, you can choose to commit your edits to your repo
 
 ### Stop or delete your codespace
 
-When you stop interacting with your codespace, GitHub will generally stop your codespace for you. However, the surest way to avoid undesired use of your capacity is to stop or delete your codespaces when you are done.
+When you stop interacting with your codespace, GitHub will generally stop your codespace for you. However, the surest way to avoid undesired use of your capacity is to stop or delete your codespace when you are done.
 
 1. Go to <a href="https://github.com/codespaces" target="_blank">github.com/codespaces</a>. At the bottom of the page, all your codespaces are listed. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_horiz</i>) for your codespace.
 
-<div style={{ maxWidth: '90%', margin: 'auto' }}>
-<Image alt="Stop or delete your GitHub Codespace" src="/images/streamlit-community-cloud/deploy-hello-codespace-manage.png" />
-</div>
+   ![Stop or delete your GitHub Codespace](/images/streamlit-community-cloud/deploy-hello-codespace-manage.png)
 
 2. Click "**Stop codespace**" if you'd like to return to your work later. Otherwise, click "**Delete**."
 
@@ -80,8 +78,6 @@ When you stop interacting with your codespace, GitHub will generally stop your c
    <Image alt="Stop your GitHub codespace" src="/images/streamlit-community-cloud/codespace-menu.png" />
    </div>
 
-3. Congratulations! You just deployed an app to Streamlit Community Cloud. 🎉 Head back to your workspace at <a href="https://share.streamlit.io/" target="_blank">share.streamlit.io/</a> and [deploy another Streamlit app](/deploy/streamlit-community-cloud/deploy-your-app).
+3. Congratulations! You just deployed an app to Community Cloud. 🎉 Head back to your workspace at <a href="https://share.streamlit.io/" target="_blank">share.streamlit.io/</a> and [deploy another Streamlit app](/deploy/streamlit-community-cloud/deploy-your-app).
 
-   <div style={{ maxWidth: '90%', margin: 'auto' }}>
-   <Image alt="See your deployed Streamlit app" src="/images/streamlit-community-cloud/deploy-template-blank-edited.png" />
-   </div>
+   ![See your deployed Streamlit app](/images/streamlit-community-cloud/deploy-template-blank-edited.png)

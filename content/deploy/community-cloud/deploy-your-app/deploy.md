@@ -51,7 +51,7 @@ Your app is now deploying and you can watch while it launches. Most apps deploy 
 
 <Note>
 
-The Streamlit Community Cloud logs on the right hand side of your app are only viewable to users with write access to your repository. These logs help you debug any issues with the app. Learn more about [Streamlit Community Cloud logs](/deploy/streamlit-community-cloud/manage-your-app#streamlit-community-cloud-logs).
+The Streamlit Community Cloud logs on the right hand side of your app are only viewable to users with write access to your repository. These logs help you debug any issues with the app. Learn more about [Streamlit Community Cloud logs](/deploy/streamlit-community-cloud/manage-your-app#cloud-logs).
 
 </Note>
 

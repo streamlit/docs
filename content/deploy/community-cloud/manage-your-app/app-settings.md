@@ -5,9 +5,9 @@ slug: /deploy/streamlit-community-cloud/manage-your-app/app-settings
 
 # App settings
 
-This page is about your app settings on Streamlit Community Cloud. From your app settings you can [view or modify your app's URL](/deploy/streamlit-community-cloud/deploy-your-app#custom-subdomains), [manage public or private access to your apps](/deploy/streamlit-community-cloud/share-your-app) and [update your saved secrets for your apps](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
+This page is about your app settings on Streamlit Community Cloud. From your app settings you can [view or change your app's URL](/deploy/streamlit-community-cloud/manage-your-app/app-settings#view-or-change-your-apps-url), manage [public or private access to your app](/deploy/streamlit-community-cloud/share-your-app), and update your saved [secrets for your apps](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
 
-If you access "**Settings**" from your [App menu](/develop/concepts/architecture/app-chrome) in the upper-right corner of your running app, you can access features to control the appearance of your app while its running.
+If you access "**Settings**" from your [app chrome](/develop/concepts/architecture/app-chrome) in the upper-right corner of your running app, you can access features to control the appearance of your app while its running.
 
 ## Access your app settings
 
@@ -39,23 +39,17 @@ Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={
 To view or customize your app subdomain from the dashboard:
 
 1. Access your app's settings as described above.
-1. On the "**General**" tab in the App settings modal, see your app's unique subdomain in the "App URL" field.
+1. On the "**General**" tab in the "App settings" dialog, see your app's unique subdomain in the "App URL" field.
 
-<div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/streamlit-community-cloud/workspace-app-settings-general.png" alt="General app settings on Streamlit Community Cloud: Custom subdomain" />
-</div>
+   ![General app settings on Streamlit Community Cloud: Custom subdomain](/images/streamlit-community-cloud/workspace-app-settings-general.png)
 
 1. (Optional) Enter a new, custom subdomain between 6 and 63 characters in length, and hit "**Save**".
 
-   <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-       <Image src="/images/streamlit-community-cloud/workspace-app-settings-general-valid-domain.png" alt="New custom subdomain for your app" />
-   </div>
+   ![New custom subdomain for your app](/images/streamlit-community-cloud/workspace-app-settings-general-valid-domain.png)
 
    If a custom subdomain is not available (e.g. because it's already taken or contains restricted words), you'll see an error message. Change your subdomain as indicated.
 
-   <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-       <Image src="/images/streamlit-community-cloud/workspace-app-settings-general-invalid-domain.png" alt="Invalid custom subdomain for your app" />
-   </div>
+   ![Invalid custom subdomain for your app](/images/streamlit-community-cloud/workspace-app-settings-general-invalid-domain.png)
 
 ### Update your app's share settings
 
@@ -66,12 +60,10 @@ Learn how to [Share your app](/deploy/streamlit-community-cloud/share-your-app).
 ### View or update your secrets
 
 1. Access your app's settings as described above.
-1. On the "**Secrets**" tab in the "App settings" modal, see your app's secrets in the "Secrets" field.
+1. On the "**Secrets**" tab in the "App settings" dialog, see your app's secrets in the "Secrets" field.
 
-<div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/streamlit-community-cloud/workspace-app-settings-secrets.png" alt="Secrets app settings on Streamlit Community Cloud" />
-</div>
+   ![Secrets app settings on Streamlit Community Cloud](/images/streamlit-community-cloud/workspace-app-settings-secrets.png)
 
 1. (Optional) Add, edit, or delete your secrets, and click "**Save**".
 
-Learn more about [Community Cloud secrets management](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
+Learn more about [Secrets management for your Community Cloud app](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).

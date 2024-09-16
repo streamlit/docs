@@ -8,7 +8,7 @@ slug: /deploy/streamlit-community-cloud/manage-your-app/app-analytics
 Streamlit Community Cloud allows you to see the viewership of each of your apps. Specifically, you can see:
 
 - The total viewers count of your app (counted from April 2022).
-- The most recent unique viewers (capped up to your last 20 viewers).
+- The most recent unique viewers (capped at the last 20 viewers).
 - A relative timestamp of each unique viewer's last visit.
 
 ![App analytics on Streamlit Community Cloud](/images/streamlit-community-cloud/workspace-app-analytics-viewers.png)

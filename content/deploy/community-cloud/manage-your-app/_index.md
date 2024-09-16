@@ -29,15 +29,15 @@ Each app has a menu accessible from the overflow icon (<i style={{ verticalAlign
 
 ![App overflow menu in your workspace](/images/streamlit-community-cloud/workspace-app-overflow.png)
 
-If you have view-only access to an app, options will be restricted in that app's menu.
+If you have view-only access to an app, all options in the app's menu will be disabled except analytics.
 
 ![View-only app overflow menu in your workspace](/images/streamlit-community-cloud/workspace-view-only.png)
 
 ## Manage your app directly from your app
 
-You can manage your deployed app directly from the app itself! Just make sure you are signed in to Streamlit Community Cloud then visit your app.
+You can manage your deployed app directly from the app itself! Just make sure you are signed in to Community Cloud then visit your app.
 
-### Streamlit Community Cloud logs
+### Cloud logs
 
 1. From your app at `<your-custom-subdomain>.streamlit.app`, click "**Manage app**" in the lower-right corner.
 
@@ -73,9 +73,9 @@ Other options accessible from Cloud logs are:
 
 </Flex>
 
-### App menus
+### App chrome
 
-From your app at `<your-custom-subdomain>.streamlit.app`, you can always access your [app's menu](/develop/concepts/architecture/app-chrome) just like you can when developing locally. The option to deploy your app is removed, but you can still clear your cache from here.
+From your app at `<your-custom-subdomain>.streamlit.app`, you can always access the [app chrome](/develop/concepts/architecture/app-chrome) just like you can when developing locally. The option to deploy your app is removed, but you can still clear your cache from here.
 
 ![App menus in Streamlit Community Cloud](/images/streamlit-community-cloud/app-menu.png)
 
@@ -83,13 +83,13 @@ From your app at `<your-custom-subdomain>.streamlit.app`, you can always access 
 
 ### Update your app
 
-Your GitHub repository is the source for the app, so that means that any time you push an update to your repo you'll see it reflected in the app in almost real time. Try it out!
+Your GitHub repository is the source for your app, so that means that any time you push an update to your repository you'll see it reflected in the app in almost real time. Try it out!
 
 Streamlit also smartly detects whether you touched your dependencies, in which case it will automatically do a full redeploy for you—which will take a little more time. But since most updates don't involve dependency changes, you should usually see your app update in real time.
 
 ### Add or remove dependencies
 
-You can add/remove dependencies at any point by updating `requirements.txt` (Python dependenciess) or `packages.txt` (Linux dependencies) and committing the changes to your repository on GitHub. This will cause Streamlit Community Cloud to detect there was a change in your dependencies and automatically trigger (re)installation.
+You can add or remove dependencies at any point by updating `requirements.txt` (Python dependenciess) or `packages.txt` (Linux dependencies) and committing the changes to your repository on GitHub. This will cause Community Cloud to detect there was a change in your dependencies and automatically trigger (re)installation.
 
 It is best practice to pin your Streamlit version in `requirements.txt`. Otherwise, the version may be auto-upgraded at any point without your knowledge, which could lead to undesired results (e.g. when we deprecate a feature in Streamlit).
 
@@ -97,7 +97,7 @@ It is best practice to pin your Streamlit version in `requirements.txt`. Otherw
 
 ### Resource limits
 
-All Streamlit Community Cloud users have access to the same resources and are subject to the same limits. These limits may change at any time without notice. If your app meets or exceeds its limits, it may slow down from throttling or become nonfunctional. The limits as of February 2024 are approximately as follows:
+All Community Cloud users have access to the same resources and are subject to the same limits. These limits may change at any time without notice. If your app meets or exceeds its limits, it may slow down from throttling or become nonfunctional. The limits as of February 2024 are approximately as follows:
 
 - CPU: 0.078 cores minimum, 2 cores maximum
 - Memory: 690MB minimum, 2.7GBs maximum
@@ -150,4 +150,4 @@ To wake the app up, click "**Yes, get this app back up!**" This can be done by 
 
 You can see which of your apps are asleep from your workspace. Sleeping apps have a moon icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>bedtime</i>) to the right.
 
-![App state: Zzzz. This app has gone to sleep due to inactivity](/images/streamlit-community-cloud/app-state-zzzz-workspace.png)
+![App state: Zzzz. This app has gone to sleep due to inactivity](/images/streamlit-community-cloud/workspace-sleeping-app.png)

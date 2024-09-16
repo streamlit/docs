@@ -32,6 +32,6 @@ You can favorite your app:
 
 ### Favorite your app from your app toolbar
 
-From your app at `<your-custom-subdomain>.streamlit.app`, click the star (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>star_border</i>/<i style={{ verticalAlign: "-.25em", color: "#faca2b" }} className={{ class: "material-icons-sharp" }}>star</i>) in the upper-right corner to toggle your app's favorite status.
+From your app at `<your-custom-subdomain>.streamlit.app`, click the star (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>star_border</i>/<i style={{ verticalAlign: "-.25em", color: "#faca2b" }} className={{ class: "material-icons-sharp" }}>star</i>) in the upper-right corner to toggle your app's favorited status.
 
 ![Favorite your app directly from your live app](/images/streamlit-community-cloud/favorite-select.png)
