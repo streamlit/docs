@@ -13,8 +13,6 @@ slug: /knowledge-base/deploy
 - [App is not loading when running remotely](/knowledge-base/deploy/remote-start)
 - [Authentication without SSO](/knowledge-base/deploy/authentication-without-sso)
 - [How do I increase the upload limit of `st.file_uploader` on Streamlit Community Cloud?](/knowledge-base/deploy/increase-file-uploader-limit-streamlit-cloud)
-- [Unable to edit or delete apps in Streamlit Community Cloud after modifying GitHub username](/knowledge-base/deploy/unable-to-edit-or-delete-apps-in-streamlit-community-cloud-after-modifying-github-username)
 - [Huh. This is isn't supposed to happen message after trying to log in](/knowledge-base/deploy/huh-this-isnt-supposed-to-happen-message-after-trying-to-log-in)
-- [View-only access to app after changing GitHub username or repository name](/knowledge-base/deploy/view-only-access-to-app-after-changing-github-username-or-repository-name)
 - [Login attempt to Streamlit Community Cloud fails with error 403](/knowledge-base/deploy/login-attempt-to-streamlit-community-cloud-fails-with-error-403)
 - [How to submit a support case for Streamlit Community Cloud](/knowledge-base/deploy/how-to-submit-a-support-case-for-streamlit-community-cloud)

@@ -751,6 +751,8 @@ site_menu:
     url: /deploy/streamlit-community-cloud/manage-your-app/favorite-your-app
   - category: Deploy / Streamlit Community Cloud / Manage your app / Reboot your app
     url: /deploy/streamlit-community-cloud/manage-your-app/reboot-your-app
+  - category: Deploy / Streamlit Community Cloud / Manage your app / Rename your app in GitHub
+    url: /deploy/streamlit-community-cloud/manage-your-app/rename-your-app
   - category: Deploy / Streamlit Community Cloud / Manage your app / Upgrade Python
     url: /deploy/streamlit-community-cloud/manage-your-app/upgrade-python
   - category: Deploy / Streamlit Community Cloud / Manage your app / Upgrade Streamlit
@@ -886,14 +888,8 @@ site_menu:
   - category: Knowledge base / Deployment issues / Upgrade the Streamlit version of your app on Streamlit Community Cloud
     url: /knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud
     visible: false
-  - category: Knowledge base / Deployment issues / Unable to edit or delete apps in Streamlit Community Cloud after modifying GitHub username
-    url: /knowledge-base/deploy/unable-to-edit-or-delete-apps-in-streamlit-community-cloud-after-modifying-github-username
-    visible: false
   - category: Knowledge base / Deployment issues / Huh. This is isn't supposed to happen message after trying to log in
     url: /knowledge-base/deploy/huh-this-isnt-supposed-to-happen-message-after-trying-to-log-in
-    visible: false
-  - category: Knowledge base / Deployment issues / View-only access to app after changing GitHub username or repository name
-    url: /knowledge-base/deploy/view-only-access-to-app-after-changing-github-username-or-repository-name
     visible: false
   - category: Knowledge base / Deployment issues / Login attempt to Streamlit Community Cloud fails with error 403
     url: /knowledge-base/deploy/login-attempt-to-streamlit-community-cloud-fails-with-error-403

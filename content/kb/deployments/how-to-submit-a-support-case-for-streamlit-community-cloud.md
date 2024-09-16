@@ -14,20 +14,11 @@ For Snowflake customers, a support case can be submitted via [the support portal
 </Note>
 
 1. Navigate to [https://community.snowflake.com/s/](https://community.snowflake.com/s/) in your browser.
-2. Ensure you are registered.
+1. If you already have a Snowflake Community account, sign in. Otherwise, click "**CREATE ACCOUNT**," and follow the prompts.
+1. After you have signed in, go the top of the page, and click "**SUPPORT**."
+1. From the drop-down menu, select "**Submit A Case**."
+1. Select the option "**I am a Streamlit Community Cloud user**."
+1. Click "**Next**" to open the case description page.
+1. Fill out your request and submit the support case.
 
-   a. _If you are already a registered user_, enter your Snowflake Community username and password into the login form. Click **LOG IN**.
-
-   b. _If you are not a registered user_, click "**Not a member?**". Complete the form on the next screen and follow the instructions to reset your password. Return to the original "SUBMIT A CASE" page and log in to your account.
-
-   ![Snowsight not a member](/images/knowledge-base/snowsight-not-a-member.jpeg)
-
-3. Scroll down to the first main section of the page (past the search bar) and locate the **Support** dropdown menu. Select the "**SUBMIT A CASE**" link.
-4. Select the option "**I am a Streamlit Community Cloud User**"
-   ![Snowsight submit a case](/images/knowledge-base/snowsight-submit-a-case.jpeg)
-
-5. Hit the button "Next" to open the case description page.
-6. Please fill out your request and submit the support case.
-7. You should receive a confirmation email with the case number.
-
-A Snowflake Support engineer will follow up directly with the next steps to resolve your case. All communication will be through email.
+You should receive a confirmation email with the case number. A Snowflake Support engineer will follow up directly with the next steps to resolve your case. All communication will be through email.
