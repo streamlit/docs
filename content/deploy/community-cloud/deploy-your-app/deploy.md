@@ -1,11 +1,11 @@
 ---
-title: Deploy your app
+title: Deploy your app on Community Cloud
 slug: /deploy/streamlit-community-cloud/deploy-your-app/deploy
 ---
 
-# Deploy your app
+# Deploy your app on Community Cloud
 
-After you've [organized your files](/deploy/streamlit-community-cloud/deploy-your-app/file-organization) and [added your dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies) as described on the previous pages, your ready to deploy your app to Community Cloud!
+After you've [organized your files](/deploy/streamlit-community-cloud/deploy-your-app/file-organization) and [added your dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies) as described on the previous pages, you're ready to deploy your app to Community Cloud!
 
 ## Select your repository and entrypoint file
 
@@ -14,14 +14,14 @@ After you've [organized your files](/deploy/streamlit-community-cloud/deploy-you
    ![Deploy a new app from your workspace](/images/streamlit-community-cloud/deploy-empty-new-app.png)
 
 1. When asked "Do you already have an app?" click "**Yup, I have an app**."
-1. Fill in your repo, branch, and file path. Alternatively, you can click "**Paste GitHub URL**" to paste a link directly to `your_app.py` on GitHub.
+1. Fill in your repository, branch, and file path. Alternatively, you can click "**Paste GitHub URL**" to paste a link directly to `your_app.py` on GitHub.
 1. (Optional) In the "App URL" field, choose a subdomain for your new app.
 
    Every Community Cloud app is deployed to a subdomain on `streamlit.app`, but you can change your app's subdomain at any time. For more information, see [App settings](/deploy/streamlit-community-cloud/manage-your-app/app-settings). In the example below, Community Cloud will deploy an app to `https://red-balloon.streamlit.app/`.
 
    ![Fill in your app's information to deploy your app](/images/streamlit-community-cloud/deploy-an-app.png)
 
-   While Community Cloud attempts to suggest available repos and files, these suggestions are not always complete. If you do not see the desired information populating a drop-down list in each field, type it in manually.
+   While Community Cloud attempts to suggest available repositories and files, these suggestions are not always complete. If you do not see the desired information populating a drop-down list in each field, type it in manually.
 
 ## (Optional) Configure secrets and Python version
 
@@ -59,7 +59,7 @@ The Streamlit Community Cloud logs on the right hand side of your app are only v
 
 ## View your app
 
-That's it — you're done! Your app now has a unique subdomain URL that you can share with others. Read more about how to [Share your app](/deploy/streamlit-community-cloud/share-your-app) with viewers.
+That's it — you're done! Your app now has a unique URL that you can share with others. Read more about how to [Share your app](/deploy/streamlit-community-cloud/share-your-app) with viewers.
 
 ### Unique subdomains
 
@@ -83,4 +83,4 @@ https://streamlit-demo-self-driving-streamlit-app-8jya0g.streamlit.app
 
 ### Custom subdomains
 
-Setting a custom subdomain makes it much easier to share your app since you can choose something memorable. To learn how to change the subdomain of a deployed app, see (View or change your app's URL)[/deploy/streamlit-community-cloud/manage-your-app/app-settings#view-or-change-your-apps-url].
+Setting a custom subdomain makes it much easier to share your app since you can choose something memorable. To learn how to change the subdomain of a deployed app, see [View or change your app's URL](/deploy/streamlit-community-cloud/manage-your-app/app-settings#view-or-change-your-apps-url).

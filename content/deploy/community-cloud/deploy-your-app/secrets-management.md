@@ -1,21 +1,21 @@
 ---
-title: Community Cloud secrets management
+title: Secrets management for your Community Cloud app
 slug: /deploy/streamlit-community-cloud/deploy-your-app/secrets-management
 ---
 
-# Community Cloud secrets management
+# Secrets management for your Community Cloud app
 
 ## Introduction
 
-If you are [connecting to data sources](/develop/tutorials/databases), you will likely need to handle credentials or secrets. Storing unencrypted secrets in a git repository is a bad practice. If your application needs access to sensitive credentials the recommended solution is to store those credentials in a file that is not committed to the repository and to pass them as environment variables.
+If you are [connecting to data sources](/develop/tutorials/databases), you will likely need to handle credentials or secrets. Storing unencrypted secrets in a git repository is a bad practice. If your application needs access to sensitive credentials, the recommended solution is to store those credentials in a file that is not committed to the repository and to pass them as environment variables.
 
 ## How to use secrets management
 
 Community Cloud lets you save your secrets within your app's settings. When developing locally, you can use `st.secrets` in your code to read secrets from a `.streamlit/secrets.toml` file. However, this `secrets.toml` file should never be committed your repository. Instead, when you deploy your app, you can paste the contents of your `secrets.toml` file into the "**Advanced settings**" dialog. You can update your secrets at any time through your app's settings in your workspace.
 
-### Prerequisite: Understand `st.secrets`
+### Prerequisites
 
-To understand how to develop your app with `st.secrets` and `secrets.toml` in your development environment, see [Secrets management](/develop/concepts/connections/secrets-management).
+- You should understand how to use `st.secrets` and `secrets.toml`. See [Secrets management](/develop/concepts/connections/secrets-management).
 
 ### Advanced settings
 

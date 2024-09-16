@@ -1,9 +1,9 @@
 ---
-title: GitHub file organization
+title: File organization for your Community Cloud app
 slug: /deploy/streamlit-community-cloud/deploy-your-app/file-organization
 ---
 
-# GitHub file organization
+# File organization for your Community Cloud app
 
 Streamlit Community Cloud copies all the files in your repository and executes `streamlit run` from its root directory. Since Community Cloud is creating a new Python environment to run your app, you need to include a declaration of any [App dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies) in additional to any [Configuration](/develop/concepts/configuration) options.
 
@@ -11,7 +11,7 @@ You can have multiple apps in your repository and their entrypoint files may be 
 
 ## Basic example
 
-In this example, the entrypoint file (`your_app.py`) is in the root of the project directory alongside a `requirements.txt` file to declare the app's dependencies.
+In the following example, the entrypoint file (`your_app.py`) is in the root of the project directory alongside a `requirements.txt` file to declare the app's dependencies.
 
 ```
 your_repository/
@@ -29,7 +29,7 @@ your_repository/
 └── your_app.py
 ```
 
-Additionally, any files that need to be locally available to your app should be included in your repo.
+Additionally, any files that need to be locally available to your app should be included in your repository.
 
 <Tip>
 
@@ -39,9 +39,9 @@ If you have really big or binary data that you change frequently, and git is fee
 
 ## Use an entrypoint file in a subdirectory
 
-When your entrypoint file is in a subdirectory, the configuration file must stay at the root. However, your dependencies file may either be at the root or next to your entrypoint file.
+When your entrypoint file is in a subdirectory, the configuration file must stay at the root. However, your dependency file may either be at the root or next to your entrypoint file.
 
-Your dependencies file can be at the root of your repository while your entrypoint file is in a subdirectory.
+Your dependency file can be at the root of your repository while your entrypoint file is in a subdirectory.
 
 ```
 your_repository/
@@ -52,7 +52,7 @@ your_repository/
     └── your_app.py
 ```
 
-Alternatively, your dependencies file can be in the same subdirectory as your entrypoint file.
+Alternatively, your dependency file can be in the same subdirectory as your entrypoint file.
 
 ```
 your_repository/
@@ -78,4 +78,4 @@ streamlit run subdirectory/your_app.py
 
 ## Multiple apps in one repository
 
-When you have multiple apps in one repository, they share the same configuration file (`.streamlit/config.toml`) at the root of your repository. A dependencies file may be shared or configured separately for these multiple apps. To define separate dependencies files for your apps, place each entrypoint file in its own subdirectory along with its own dependencies file. To learn more about how Community Cloud prioritizes and parses dependencies files, see [App dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies).
+When you have multiple apps in one repository, they share the same configuration file (`.streamlit/config.toml`) at the root of your repository. A dependency file may be shared or configured separately for these multiple apps. To define separate dependency files for your apps, place each entrypoint file in its own subdirectory along with its own dependency file. To learn more about how Community Cloud prioritizes and parses dependency files, see [App dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies).
