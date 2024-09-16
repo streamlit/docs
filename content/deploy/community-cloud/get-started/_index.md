@@ -14,7 +14,7 @@ First things first, you need to create your Streamlit Community Cloud account to
         icon="rocket_launch"
         title="Quickstart"
         text="Create your account and deploy an example app as fast as possible. Jump right into coding with GitHub Codespaces."
-        link="/deploy/streamlit-community-cloud/get-started"
+        link="/deploy/streamlit-community-cloud/get-started/quickstart"
         background="lightBlue-70"
     />
     <Tile
@@ -28,7 +28,7 @@ First things first, you need to create your Streamlit Community Cloud account to
         icon="security"
         title="Trust and Security"
         text="Security first! If you want to read up on how we handle your data before you get started, we've got you covered."
-        link="streamlit-community-cloud/get-started/trust-and-security"
+        link="/deploy/streamlit-community-cloud/get-started/trust-and-security"
         background="lightBlue-70"
     />
 </TileContainer>

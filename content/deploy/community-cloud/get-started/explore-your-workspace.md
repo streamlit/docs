@@ -26,17 +26,17 @@ Other workspaces are available to you as follows:
 
 ### Invite other developers to your workspace
 
-Inviting other developers is simple, just invite them to your GitHub repository so that you can code on apps together, and then have them log in to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>. Read more about connecting to a GitHub organization in [Organization access](/deploy/streamlit-community-cloud/get-started/connect-your-github-account#organization-access).
+Inviting other developers is simple, just give them write access to your GitHub repository so that you can code together. When they log in to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, they'll have access to your workspace.
 
-Streamlit Community Cloud inherits developer permissions from GitHub so when others sign in, they will automatically see the workspaces they share with you. From there you can all deploy, manage, and share apps together.
+Streamlit Community Cloud inherits developer permissions from GitHub. When others sign in to Community Cloud, they will automatically see the workspaces they share with you. From there you can all deploy, manage, and share apps together.
 
 <Note>
 
-Once a user is added to a repository on GitHub, it will take at most 15 minutes before they can deploy the app on Cloud. If a user is removed from a repository on GitHub, it will take at most 15 minutes before their permissions to manage the app from that repository are revoked.
+Once a user is added to a repository on GitHub, it will take at most 15 minutes before they can deploy or manage the app on Community Cloud. If a user is removed from a repository on GitHub, it will take at most 15 minutes before their permission to manage the app from that repository is revoked.
 
 </Note>
 
-And remember, whenever anyone on the team updates the code on GitHub, the app will also automatically update for you!
+And remember, whenever anyone on the team updates the code on GitHub, the app will automatically update for you!
 
 ## My apps
 

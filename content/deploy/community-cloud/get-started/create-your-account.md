@@ -7,7 +7,7 @@ slug: /deploy/streamlit-community-cloud/get-started/create-your-account
 
 Before you can start deploying apps for the world to see, you need to sign up for your Streamlit Community Cloud account.
 
-Each account is associated to an email. Two accounts can't have the same email. When sharing private apps, you will assign viewing privileges by email.
+Each Community Cloud account is associated to an email. Two accounts can't have the same email. When sharing a private app, you will assign viewing privileges by email. Additionally, two accounts can't have the same source control (GitHub account). If you try to create a second Community Cloud account with the same source control, Community Cloud will merge the accounts.
 
 ## Sign up
 
@@ -18,7 +18,7 @@ Community Cloud allows you to sign in using one of the three following methods:
 - GitHub
 
 <Important>
-    Even when signing in through GitHub, the authentication flow returns your email address to Community Cloud. Changing the email on your GitHub account can affect your community Cloud account if you sign in through GitHub.
+    Even when signing in through GitHub, the authentication flow returns your email address to Community Cloud. Changing the email on your GitHub account can affect your Community Cloud account if you sign in through GitHub.
 </Important>
 
 1. Go to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>.
@@ -28,7 +28,7 @@ Community Cloud allows you to sign in using one of the three following methods:
    ### Option 1: Sign in using emailed codes
 
    1. In the "Email" field, enter your email address.
-   1. Click "**Continue**."
+   1. Click "**Continue**." (If prompted, verify you are human.)
    1. Go to your email inbox, and copy your one-time, six-digit code. The code is valid for ten minutes.
    1. Return to the authentication page, and enter your code. (If prompted, verify you are human.)
 
@@ -37,16 +37,16 @@ Community Cloud allows you to sign in using one of the three following methods:
    1. Click "**Continue with Google**."
    1. Enter your Google credentials, and follow Google's authentication prompts.
 
-      This adds the "Streamlit Community Cloud" OAuth application to your GitHub account. This application is only used to pass your email when you log in to Community Cloud. On the next page, you'll perform additional steps to allow Community Cloud to access your repositories. For more information about using and reviewing the OAuth applications on your accounts, see [Using OAuth apps](https://docs.github.com/en/apps/oauth-apps/using-oauth-apps) in GitHub's docs.
-
    ### Option 3: Sign in using GitHub
 
    1. Click "**Continue with GitHub**."
    1. Enter your GitHub credentials, and follow GitHub's authentication prompts.
 
+      This adds the "Streamlit Community Cloud" OAuth application to your GitHub account. This application is only used to pass your email when you sign in to Community Cloud. On the next page, you'll perform additional steps to allow Community Cloud to access your repositories. For more information about using and reviewing the OAuth applications on your account, see [Using OAuth apps](https://docs.github.com/en/apps/oauth-apps/using-oauth-apps) in GitHub's docs.
+
 1. Fill in your information, and click "**Continue**" at the bottom.
 
-   The "Primary email" field is prefilled with the email you used to sign in. If you change this email in the account setup form, it will not reflect on your account. To change the email associated to your account after it's created, see [Update your email address](/deploy/streamlit-community-cloud/manage-your-account/update-your-email).
+   The "Primary email" field is prefilled with the email you used to sign in. If you change this email in the account setup form, it will only impact marketing emails; it will not reflect on your new account. To change the email associated to your account after it's created, see [Update your email address](/deploy/streamlit-community-cloud/manage-your-account/update-your-email).
 
 ## Finish up
 

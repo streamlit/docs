@@ -17,11 +17,11 @@ Community Cloud is all about learning, sharing, and exploring the world of Strea
 
 1. Click "**Fork!**"
 
-   The repository will be forked to your GitHub account. If you have already forked the repository, Community Cloud will use the existing fork. If your existing fork already has an associated codespace, it will be reused.
+   The repository will be forked to your GitHub account. If you have already forked the repository, Community Cloud will use the existing fork. If your existing fork already has an associated codespace, the codespace will be reused.
 
    <Warning>
       Do not use this method in the following situations:
-      - You have an existing repo that matches the fork name (but isn't a fork of this app).
+      - You have an existing repository that matches the fork name (but isn't a fork of this app).
       - You have an existing fork of this app, but you've changed the name of the repository.
 
    If you have an existing fork of this app and kept the original repository name, Community Cloud will use your existing fork. If you've previously deployed the app and opened a codespace, Community Cloud will open your existing codespace.

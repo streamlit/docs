@@ -8,10 +8,15 @@ slug: /deploy/streamlit-community-cloud/get-started/connect-your-github-account
 Connecting GitHub to your Streamlit Community Cloud account allows you to deploy apps directly from the files you store in your repositories. It also lets the system check for updates to those files and automatically update your apps. When you first connect your GitHub account to your Community Cloud account, you'll be able to deploy apps from your public repositories to Community Cloud. If you want to deploy from private repositories, you can give Community Cloud additional permissions to do so. For additional information about these permissions, see [GitHub OAuth scope](/deploy/streamlit-community-cloud/status#github-oauth-scope).
 
 <Important>
-    You must have **admin** permissions to your repository in order to deploy apps. If you don't have admin access, talk to the repository's owner or reach out to us on the <a href="https://discuss.streamlit.io/" target="_blank">Community forum</a>.
+    You must have **admin** permissions to a repository in order to deploy apps. If you don't have admin access, talk to the repository's owner or fork the repository to create your own copy. Reach out to us on the <a href="https://discuss.streamlit.io/" target="_blank">Community forum</a> for more help.
 </Important>
 
 If you are a member of a GitHub organization, you will see that organization at the bottom of each GitHub OAuth prompt. In this case, we recommend reading about [Organization access](#organization-access) at the end of this page before performing the steps to connect your GitHub account. You must be an organization's owner in GitHub to grant access to that organization.
+
+## Prerequisites
+
+- You must have a Community Cloud account. See [Create your account](/deploy/streamlit-community-cloud/get-started/create-your-account).
+- You must have a GitHub account.
 
 ## Add access to public repositories
 
@@ -29,7 +34,7 @@ If you are a member of a GitHub organization, you will see that organization at 
    <Image alt="Authorize Community Cloud to connect to your GitHub account" src="/images/streamlit-community-cloud/GitHub-auth1-none.png" />
    </div>
 
-   This adds the "Streamlit" OAuth application to your GitHub account. This allows Community Cloud to work with your public repositories and create codespaces for you. In the next section, you can allow Community Cloud to access your private repositories, too. For more information about using and reviewing the OAuth applications on your accounts, see [Using OAuth apps](https://docs.github.com/en/apps/oauth-apps/using-oauth-apps) in GitHub's docs.
+   This adds the "Streamlit" OAuth application to your GitHub account. This allows Community Cloud to work with your public repositories and create codespaces for you. In the next section, you can allow Community Cloud to access your private repositories, too. For more information about using and reviewing the OAuth applications on your account, see [Using OAuth apps](https://docs.github.com/en/apps/oauth-apps/using-oauth-apps) in GitHub's docs.
 
 ## Optional: Add access to private repositories
 
@@ -42,7 +47,7 @@ After your Community Cloud account has access to deploy from your public reposit
 </div>
 
 1. From the drop down, click "**Settings**."
-1. On the left side of the modal dialog, select "**Linked accounts**."
+1. On the left side of the dialog, select "**Linked accounts**."
 1. Under "Source control," click "**Connect here <i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>arrow_forward</i>**."
 1. Click "**Authorize streamlit**."
 
@@ -52,7 +57,7 @@ After your Community Cloud account has access to deploy from your public reposit
 
 ## Organization access
 
-If you are working in a repository that is owned by an organization, Community Cloud must have permission to access the organization's repositories. If you are an owner or member of a GitHub organization when you connect your GitHub account, your OAuth prompts will include an extra section labeled "Organization access."
+To deploy apps from repositories owned by a GitHub organization, Community Cloud must have permission to access the organization's repositories. If you are a member of a GitHub organization when you connect your GitHub account, your OAuth prompts will include a section labeled "Organization access."
 
 <div style={{ maxWidth: '40%', margin: 'auto' }}>
 <Image alt="GitHub Oauth prompt including organization access" src="/images/streamlit-community-cloud/GitHub-auth1-organizations.png" />
@@ -62,7 +67,7 @@ If you have already connected your GitHub account and need to add access to an o
 
 ### Organizations you own
 
-For any organization you own, if authorization has not been previously granted or denied you can click "**Grant**" before you click "**Authorize streamlit**."
+For any organization you own, if authorization has not been previously granted or denied, you can click "**Grant**" before you click "**Authorize streamlit**."
 
 <div style={{ maxWidth: '80%', margin: 'auto' }}>
 <Image alt="Authorize your Streamlit on a GitHub organization you own" src="/images/streamlit-community-cloud/GitHub-auth-grant-XL.png" />
@@ -70,7 +75,7 @@ For any organization you own, if authorization has not been previously granted o
 
 ### Organizations owned by others
 
-For an organization you don't own, if authorization has not been previously granted or denied you can click "**Request**" before you click "**Authorize streamlit**."
+For an organization you don't own, if authorization has not been previously granted or denied, you can click "**Request**" before you click "**Authorize streamlit**."
 
 <div style={{ maxWidth: '80%', margin: 'auto' }}>
 <Image alt="Authorize your Streamlit on a GitHub organization owned by others" src="/images/streamlit-community-cloud/GitHub-auth-request-XL.png" />
@@ -98,7 +103,7 @@ If a request has been previously sent but not yet approved, the OAuth prompt sho
 
 #### Denied access
 
-If a request has been previously sent and denied, the OAuth prompt shows a red cross (<i style={{ verticalAlign: "-.25em", color: "#d1242f" }} className={{ class: "material-icons-sharp" }}>close</i>). In this case, the organization owner will need to authorize Streamlit from GitHub. See GitHub's documentation on <a href="https://docs.github.com/en/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps#oauth-apps-and-organizations" target="_blank">OAuth apps and organizations</a>.
+If a request has been previously sent and denied, the OAuth prompt shows a red X (<i style={{ verticalAlign: "-.25em", color: "#d1242f" }} className={{ class: "material-icons-sharp" }}>close</i>). In this case, the organization owner will need to authorize Streamlit from GitHub. See GitHub's documentation on <a href="https://docs.github.com/en/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps#oauth-apps-and-organizations" target="_blank">OAuth apps and organizations</a>.
 
 <div style={{ maxWidth: '60%', margin: 'auto' }}>
 <Image alt="Denied authorization for Streamlit on an organization" src="/images/streamlit-community-cloud/GitHub-auth-denied-XL.png" />

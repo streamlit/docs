@@ -7,7 +7,11 @@ slug: /deploy/streamlit-community-cloud/get-started/quickstart
 
 This is a concise set of steps to create your Streamlit Community Cloud account, deploy a sample app, and start editing it with GitHub Codespaces. For other options and complete explanations, start with [Create your account](/deploy/streamlit-community-cloud/get-started/create-your-account).
 
-You will be signing in to your GitHub account during this process. If you do not already have this account, you can create it before you begin. Community Cloud will use the email from your GitHub account to create your Community Cloud account. For other sign in options, see [Create your account](/deploy/streamlit-community-cloud/get-started/create-your-account).
+You will be signing in to your GitHub account during this process. Community Cloud will use the email from your GitHub account to create your Community Cloud account. For other sign in options, see [Create your account](/deploy/streamlit-community-cloud/get-started/create-your-account).
+
+## Prerequisites
+
+- You must have a GitHub account.
 
 ## Sign up for Streamlit Community Cloud
 
@@ -42,7 +46,7 @@ You will be signing in to your GitHub account during this process. If you do not
 </div>
 
 1. From the drop down, click "**Settings**."
-1. On the left side of the modal dialog, select "**Linked accounts**."
+1. On the left side of the dialog, select "**Linked accounts**."
 1. Under "Source control," click "**Connect here <i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>arrow_forward</i>**."
 1. Click "**Authorize streamlit**."
 
@@ -58,9 +62,9 @@ You will be signing in to your GitHub account during this process. If you do not
 <Image alt="Create a new app from your workspace in Streamlit Community Cloud" src="/images/streamlit-community-cloud/deploy-empty-new-app.png" />
 </div>
 
-1. On the "Do you already have an app?" page, click "**Nope, create one from a template**."
+1. When asked "Do you already have an app?" click "**Nope, create one from a template**."
 1. From the list of templates on the left, select "**Blank app**."
-1. At the bottom, select the option to "Open GitHub Codespaces..."
+1. At the bottom, select the option to "**Open GitHub Codespaces...**"
 1. At the bottom, click "**Deploy**."
 
 ## Edit your app in GitHub Codespaces
@@ -117,7 +121,7 @@ You will be signing in to your GitHub account during this process. If you do not
 
 ## Stop or delete your codespace
 
-When you stop interacting with your codespace, GitHub will generally stop your codespace for you. However, the surest way to avoid undesired use of your capacity it to stop or delete your codespaces when you are done.
+When you stop interacting with your codespace, GitHub will generally stop your codespace for you. However, the surest way to avoid undesired use of your capacity is to stop or delete your codespaces when you are done.
 
 1. Go to <a href="https://github.com/codespaces" target="_blank">github.com/codespaces</a>. At the bottom of the page, all your codespaces are listed. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_horiz</i>) for your codespace.
 
