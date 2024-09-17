@@ -528,10 +528,8 @@ site_menu:
   - category: Develop / API reference / Connections and secrets / SECRETS
   - category: Develop / API reference / Connections and secrets / st.secrets
     url: /develop/api-reference/connections/st.secrets
-    isVersioned: true
   - category: Develop / API reference / Connections and secrets / secrets.toml
     url: /develop/api-reference/connections/secrets.toml
-    isVersioned: true
   - category: Develop / API reference / Connections and secrets / CONNECTIONS
   - category: Develop / API reference / Connections and secrets / st.connection
     url: /develop/api-reference/connections/st.connection
@@ -590,7 +588,6 @@ site_menu:
     isVersioned: false
   - category: Develop / API reference / Configuration / config.toml
     url: /develop/api-reference/configuration/config.toml
-    isVersioned: true
   - category: Develop / API reference / Configuration / st.get_option
     url: /develop/api-reference/configuration/st.get_option
     isVersioned: true
