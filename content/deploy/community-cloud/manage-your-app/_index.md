@@ -136,9 +136,14 @@ If you are logged into a developer account for an app over its limits, you can a
 
 ### App hibernation
 
-All apps without traffic for 7 consecutive days will automatically go to sleep. This is done to alleviate resources and allow the best communal use of the platform! If you would like to keep your app awake, simply visit the app to create traffic or commit your app's repository, even if it's an empty commit!
+All apps without traffic for one weekday will go to sleep. The system checks apps for inactivity throughout each day as follows:
 
-If left alone your app will go to sleep at the 7 day mark. When someone visits the app after this, they will see the sleeping page:
+- Tuesday through Friday: All apps without traffic for 24 hours (one day) will go to sleep.
+- Saturday through Monday: All apps without traffic for 72 hours (three days) will go to sleep.
+
+This is done to alleviate resources and allow the best communal use of the platform! If you would like to keep your app awake, simply visit the app or commit to your app's repository, even if it's an empty commit!
+
+When someone visits a sleeping app, they will see the sleeping page:
 
 <div style={{ maxWidth: '80%', margin: 'auto' }}>
 <Image alt="App state: Zzzz. This app has gone to sleep due to inactivity." src="/images/streamlit-community-cloud/app-state-zzzz.png" />
