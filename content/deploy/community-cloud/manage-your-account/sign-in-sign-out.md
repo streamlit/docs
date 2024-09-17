@@ -5,7 +5,7 @@ slug: /deploy/streamlit-community-cloud/manage-your-account/sign-in-sign-out
 
 # Sign in & sign out
 
-Once you've created your account, you can sign in to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a> and follow the steps below.
+Once you've created your account, you can sign in to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a> as described by the options below.
 
 ![Sign in to Streamlit Community Cloud](/images/streamlit-community-cloud/account-sign-in.png)
 
@@ -31,8 +31,7 @@ If your account is already linked to GitHub, you may be immediately prompted to 
 
 1. Click "**Continue to sign-in**."
 1. In the "Email" field, enter your email address.
-1. Click "**Continue**."
-1. If prompted, verify you are human.
+1. Click "**Continue**." (If prompted, verify you are human.)
 1. Go to your email inbox, and copy your one-time, six-digit code. The code is valid for ten minutes.
 1. Return to the authentication page, and enter your code. (If prompted, verify you are human.)
 

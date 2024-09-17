@@ -18,11 +18,11 @@ Here are some tips to help you get the most out of app indexability:
 
 ### Make sure your app is public
 
-All public apps hosted on Streamlit Community Cloud are indexed by search engines. If your app is private, it will not be indexed by search engines. To make your private app public, read [Share your app](/deploy/streamlit-community-cloud/share-your-app).
+All public apps hosted on Community Cloud are indexed by search engines. If your app is private, it will not be indexed by search engines. To make your private app public, read [Share your app](/deploy/streamlit-community-cloud/share-your-app).
 
 ### Choose a custom subdomain early
 
-Streamlit Community Cloud automatically generates a random subdomain for your app. However, subdomains are customizable! Custom subdomains modify your app URLs to reflect your app content, personal branding, or whatever you’d like. Read more about custom subdomains in [Custom subdomains](/deploy/streamlit-community-cloud/deploy-your-app#custom-subdomains).
+Community Cloud automatically generates a subdomain for your app if you do not choose one. However, you can change your subdomain at any time! Custom subdomains modify your app URLs to reflect your app content, personal branding, or whatever you’d like. To learn how to change your app's subdomain, see [View or change your app's URL](/deploy/streamlit-community-cloud/manage-your-app/app-settings#view-or-change-your-apps-url).
 
 By choosing a custom subdomain, you can use it to help people find your app. For example, if you're deploying an app that generates training data, you might choose a subdomain like `traingenerator.streamlit.app`. This makes it easy for people to find your app by searching for "training generator" or "train generator streamlit app."
 
@@ -62,4 +62,4 @@ Example: `site:traingenerator.streamlit.app`
 
 If you don't want your app to be indexed by search engines, you can make it private. Read [Share your app](/deploy/streamlit-community-cloud/share-your-app) to learn more about making your app private. Note: each workspace can only have one private app. If you want to make your app private, you must first delete any other private app in your workspace or make it public.
 
-That said, Streamlit Community Cloud is an open and free platform for the community to deploy, discover, and share Streamlit apps and code with each other. As such, we encourage you to make your app public so that it can be indexed by search engines and discovered by other Streamlit users and community members.
+That said, Community Cloud is an open and free platform for the community to deploy, discover, and share Streamlit apps and code with each other. As such, we encourage you to make your app public so that it can be indexed by search engines and discovered by other Streamlit users and community members.

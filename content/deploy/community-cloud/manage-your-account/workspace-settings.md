@@ -13,13 +13,11 @@ From your workspace settings you can [Manage your account](/deploy/streamlit-com
 1. In the upper-left corner, click on your workspace name.
 1. In the drop-down menu, click "**Settings**."
 
-<div style={{ maxWidth: '90%', marginLeft: '3em' }}>
-    <Image src="/images/streamlit-community-cloud/account-settings-header.png" alt="Access your workspace settings from your workspace" />
-</div>
+   ![Access your workspace settings from your workspace](/images/streamlit-community-cloud/account-settings-header.png)
 
 ## Linked accounts
 
-The "**Linked accounts**" section shows your current primary identity and source control account. To learn more, see [Manage your account](/deploy/streamlit-community-cloud/manage-your-account).
+The "**Linked accounts**" section shows your current email identity and source control account. To learn more, see [Manage your account](/deploy/streamlit-community-cloud/manage-your-account).
 
 ![Manage your linked accounts in workspace settings](/images/streamlit-community-cloud/workspace-settings-linked-accounts.png)
 
