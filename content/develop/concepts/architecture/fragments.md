@@ -1,11 +1,11 @@
 ---
-title: Working with fragments and partial reruns
+title: Working with fragments
 slug: /develop/concepts/architecture/fragments
 ---
 
-# Working with fragments and partial reruns
+# Working with fragments
 
-Reruns are a central part of every Streamlit app. When users interact with widgets, your script reruns from top to bottom, and your app's frontend is updated. Streamlit provides several features to help you develop your app within this execution model. Streamlit version 1.33.0 introduced fragments to allow rerunning a portion of your code instead of your full script. As your app grows larger and more complex, these partial reruns help your app be efficient and performant. Fragments give you finer, easy-to-understand control over your app's execution flow.
+Reruns are a central part of every Streamlit app. When users interact with widgets, your script reruns from top to bottom, and your app's frontend is updated. Streamlit provides several features to help you develop your app within this execution model. Streamlit version 1.37.0 introduced fragments to allow rerunning a portion of your code instead of your full script. As your app grows larger and more complex, these fragment reruns help your app be efficient and performant. Fragments give you finer, easy-to-understand control over your app's execution flow.
 
 Before you read about fragments, we recommend having a basic understanding of [caching](/develop/concepts/architecture/caching), [Session State](/concepts/architecture/session-state), and [forms](/develop/concepts/architecture/forms).
 
@@ -19,14 +19,14 @@ Fragments are versatile and applicable to a wide variety of circumstances. Here 
 
 ## Defining and calling a fragment
 
-Streamlit provides a decorator ([`st.experimental_fragment`](/develop/api-reference/execution-flow/st.fragment)) to turn any function into a fragment function. When you call a fragment function that contains a widget function, a user triggers a _partial rerun_ instead of a full rerun when they interact with that fragment's widget. During a partial rerun, your fragment function is re-executed. Anything within the main body of your fragment is updated on the frontend, while the rest of your app remains the same. We'll describe fragments written across multiple containers later on.
+Streamlit provides a decorator ([`st.fragment`](/develop/api-reference/execution-flow/st.fragment)) to turn any function into a fragment function. When you call a fragment function that contains a widget function, a user triggers a _fragment rerun_ instead of a full rerun when they interact with that fragment's widget. During a fragment rerun, only your fragment function is re-executed. Anything within the main body of your fragment is updated on the frontend, while the rest of your app remains the same. We'll describe fragments written across multiple containers later on.
 
 Here is a basic example of defining and calling a fragment function. Just like with caching, remember to call your function after defining it.
 
 ```python
 import streamlit as st
 
-@st.experimental_fragment
+@st.fragment
 def fragment_function():
     if st.button("Hi!"):
         st.write("Hi back!")
@@ -41,7 +41,7 @@ with st.sidebar:
     fragment_function()
 ```
 
-### Partial rerun execution flow
+### Fragment execution flow
 
 Consider the following code with the explanation and diagram below.
 
@@ -50,13 +50,13 @@ import streamlit as st
 
 st.title("My Awesome App")
 
-@st.experimental_fragment()
+@st.fragment()
 def toggle_and_text():
     cols = st.columns(2)
     cols[0].toggle("Toggle")
     cols[1].text_area("Enter text")
 
-@st.experimental_fragment()
+@st.fragment()
 def filter_and_file():
     cols = st.columns(2)
     cols[0].checkbox("Filter")
@@ -89,10 +89,10 @@ If you need to trigger a full-script rerun from inside a fragment, call [`st.rer
 
 ## Automate fragment reruns
 
-`st.experimental_fragment` includes a convenient `run_every` parameter that causes the fragment to rerun automatically at the specified time interval. These reruns are in addition to any reruns (fragment or full-script) triggered by your user. The automatic fragment reruns will continue even if your user is not interacting with your app. This is a great way to show a live data stream or status on a running background job, efficiently updating your rendered data and _only_ your rendered data.
+`st.fragment` includes a convenient `run_every` parameter that causes the fragment to rerun automatically at the specified time interval. These reruns are in addition to any reruns (fragment or full-script) triggered by your user. The automatic fragment reruns will continue even if your user is not interacting with your app. This is a great way to show a live data stream or status on a running background job, efficiently updating your rendered data and _only_ your rendered data.
 
 ```python
-@st.experimental_fragment(run_every="10s")
+@st.fragment(run_every="10s")
 def auto_function():
 		# This will update every 10 seconds!
 		df = get_latest_updates()
@@ -144,7 +144,5 @@ Caching saves you from unnecessarily running a piece of your app while the rest 
 ## Limitations and unsupported behavior
 
 - Fragments can't detect a change in input values. It is best to use Session State for dynamic input and output for fragment functions.
-- Calling fragments within fragments is unsupported.
 - Using caching and fragments on the same function is unsupported.
-- Using fragments within callback functions is unsupported.
 - Fragments can't render widgets in externally-created containers; widgets can only be in the main body of a fragment.

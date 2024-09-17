@@ -19,6 +19,54 @@ pip install --upgrade streamlit
 
 </Tip>
 
+## **Version 1.38.0**
+
+_Release date: August 27, 2024_
+
+**Highlights**
+
+- 📈 Streamlit natively supports more dataframe formats! Use dataframe and series objects from popular libraries like Dask, Modin, Numpy, pandas, Polars, PyArrow, Snowpark, Xarray, and more. Use database cursors compliant with the Python Database API Specification 2.0. Use anything that supports the Python dataframe interchange protocol. See the [docs](/develop/api-reference/data/st.dataframe).
+
+**Notable Changes**
+
+- ↔️ You can control the initial expansion state of [`st.json`](/develop/api-reference/data/st.json) elements.
+- 🧑‍💻 You can choose to wrap lines in [`st.code`](/develop/api-reference/text/st.code).
+- 🕵️ Streamlit supports Kubernetes style secrets so you can use Snowflake Snowpark Container Services secret format ([#9078](https://github.com/streamlit/streamlit/pull/9078)).
+- ⤴️ Breaking change: We removed a patch that allows custom validators in `pydantic<2.0` ([#9257](https://github.com/streamlit/streamlit/pull/9257)).
+- 💔 Breaking change: We removed the experimental cache replay feature from caching decorators ([#9305](https://github.com/streamlit/streamlit/pull/9305)).
+
+**Other Changes**
+
+- 🌐 For better app efficiency, a WebSocket reconnect will not trigger a rerun unless a script run was interrupted ([#9083](https://github.com/streamlit/streamlit/pull/9083)).
+- 👋 We updated our `streamlit hello` app to use Google Material icons.
+- ⌨️ `st.number_input`, `st.selectbox`, `st.slider`, `st.select_slider`, and [`st.radio`](http://st.radio) provide more precise type hinting for their return values ([#9048](https://github.com/streamlit/streamlit/pull/9048), [#9296](https://github.com/streamlit/streamlit/pull/9296), [#8717](https://github.com/streamlit/streamlit/issues/8717)). Thanks, [Asaurus1](https://github.com/Asaurus1)!
+- ⭐ [`st.feedback`](http://st.feedback) provides more precise type hinting for its return value ([#9216](https://github.com/streamlit/streamlit/pull/9216)). Thanks, [wyattscarpenter](https://github.com/wyattscarpenter)!
+- 💅 We improved theme management for embedded apps via `postMessage` ([#9103](https://github.com/streamlit/streamlit/pull/9103)).
+- 🌱 Bug fix: Within the sidebar, the image for `st.logo` resizes along with the sidebar width ([#9298](https://github.com/streamlit/streamlit/pull/9298), [#8707](https://github.com/streamlit/streamlit/issues/8707)).
+- 🪹 Bug fix: When a parent fragment updates, Streamlit cleans up child fragments correctly ([#9246](https://github.com/streamlit/streamlit/pull/9246), [#9233](https://github.com/streamlit/streamlit/issues/9233), [#9267](https://github.com/streamlit/streamlit/issues/9267)).
+- 💩 Bug fix: Elements unstale within a fragment rerun as they are updated instead of all together at the end of the fragment rerun ([#9285](https://github.com/streamlit/streamlit/pull/9285)).
+- 🪱 Bug fix: If a block type changes during a rerun, Streamlit discards the child elements of that block to prevent improper visual artifacts, like `st.tabs` causing a blank page ([#9276](https://github.com/streamlit/streamlit/pull/9276), [#9259](https://github.com/streamlit/streamlit/issues/9259), [#8676](https://github.com/streamlit/streamlit/issues/8676)).
+- ☠️ Bug fix: Widget state is preserved when page reruns are interrupted with another rerun ([#9187](https://github.com/streamlit/streamlit/pull/9187), [#9163](https://github.com/streamlit/streamlit/issues/9163)). Thanks, [dannyopts](https://github.com/dannyopts)!
+- 👽 Bug fix: `options` in `st.selectbox`, `st.multiselect`, `st.radio`, and `st.select_slider` correctly use `dict_items` ([#9241](https://github.com/streamlit/streamlit/pull/9241), [#9237](https://github.com/streamlit/streamlit/issues/9237), [#5377](https://github.com/streamlit/streamlit/issues/5377)).
+- 👻 Bug fix: A `SelectboxColumn` index will show with the correct, grayed-out styling in a dataframe ([#9231](https://github.com/streamlit/streamlit/pull/9231), [#8772](https://github.com/streamlit/streamlit/issues/8772)).
+- 🦀 Bug fix: `st.write_stream` will not immediately fail when receiving an empty chunk ([#9234](https://github.com/streamlit/streamlit/pull/9234), [#9227](https://github.com/streamlit/streamlit/issues/9227)).
+- 🦋 Bug fix: Streamlit won't auto-scroll to an empty anchor, if present ([#9206](https://github.com/streamlit/streamlit/pull/9206), [#9203](https://github.com/streamlit/streamlit/issues/9203)).
+- 🦎 Bug fix: We changed the handling of `scriptRunId` to prevent `st.tabs` from showing extra, empty tabs in fragments ([#9186](https://github.com/streamlit/streamlit/pull/9186), [#9158](https://github.com/streamlit/streamlit/issues/9158), [#9215](https://github.com/streamlit/streamlit/pull/9215)).
+- 🐌 Bug fix: Automatically rerunning fragments don't raise `FragmentStorageKeyError` to prevent a possible race condition ([#9183](https://github.com/streamlit/streamlit/pull/9183), [#9080](https://github.com/streamlit/streamlit/issues/9080)).
+- 🕸️ Bug fix: We improved `st.plotly_chart`'s handling of the pass-through keyword argument `config` ([#9190](https://github.com/streamlit/streamlit/pull/9190), [#9134](https://github.com/streamlit/streamlit/issues/9134)).
+- 🦗 Bug fix: Markdown in all `label` parameters correctly ignores headers ([#9189](https://github.com/streamlit/streamlit/pull/9189), [#9141](https://github.com/streamlit/streamlit/issues/9141)).
+- 🦂 Bug fix: We reverted a change to fragments which caused some widgets to lose state in some circumstances ([#9178](https://github.com/streamlit/streamlit/pull/9178), [#9171](https://github.com/streamlit/streamlit/issues/9171)).
+- 🦟 Bug fix: The deprecation warnings for `st.experimental_fragment` and `st.experimental_dialog` only show when the commands are called. This prevents custom components which use them from raising premature warnings on import ([#9170](https://github.com/streamlit/streamlit/pull/9170), [#9143](https://github.com/streamlit/streamlit/issues/9143)).
+- 🦠 Bug fix: `st.code` shows syntax highlighting for diff code when `language="diff"` ([#9172](https://github.com/streamlit/streamlit/pull/9172), [#8687](https://github.com/streamlit/streamlit/issues/8687)).
+- 🪰 Bug fix: Streamlit commands that raise `ScriptControlException` execute as expected in try-except blocks ([#9167](https://github.com/streamlit/streamlit/pull/9167), [#9155](https://github.com/streamlit/streamlit/issues/9155), [#9182](https://github.com/streamlit/streamlit/issues/9182)).
+- 🪳 Bug fix: The `value` for `st.date_input` has the correct type for linting ([#9149](https://github.com/streamlit/streamlit/pull/9149)). Thanks, [wyattscarpenter](https://github.com/wyattscarpenter)!
+- 🕷️ Bug fix: We updated `plotly.js` to support `hoversubplots="axis"` ([#9144](https://github.com/streamlit/streamlit/pull/9144), [#9118](https://github.com/streamlit/streamlit/issues/9118)).
+- 🐞 Bug fix: We stabilized the identity of [`st.map`](http://st.map) instances so the command doesn't create multiple maps when its parameters are updated ([#9092](https://github.com/streamlit/streamlit/pull/9092), [#8329](https://github.com/streamlit/streamlit/issues/8329)).
+- 🐝 Bug fix: You can now clear the cache for cached class instance methods ([#9101](https://github.com/streamlit/streamlit/pull/9101), [#8638](https://github.com/streamlit/streamlit/issues/8638)).
+- 🐜 Bug fix: Copy buttons work correctly in dialogs ([#9130](https://github.com/streamlit/streamlit/pull/9130), [#9112](https://github.com/streamlit/streamlit/issues/9112)).
+- 🪲 Bug fix: Streamlit magic works consistently in for-else, while-else, try-else, try-except, and match blocks ([#9110](https://github.com/streamlit/streamlit/pull/9110), [#9109](https://github.com/streamlit/streamlit/issues/9109)). Thanks, [whitphx](https://github.com/whitphx)!
+- 🐛 Bug fix: When printing an app, the bottom container will always print at the end without overlapping other content ([#9129](https://github.com/streamlit/streamlit/pull/9129)).
+
 ## **Version 1.37.0**
 
 _Release date: July 25, 2024_
@@ -42,7 +90,7 @@ _Release date: July 25, 2024_
 **Other Changes**
 
 - ⭕ Material Symbols are rounded instead of outlined ([#8998](https://github.com/streamlit/streamlit/pull/8998)).
-- 2️⃣ Streamlit supports Numpy version 2.0 ([#8940](https://github.com/streamlit/streamlit/pull/8940)).
+- 🔢 Streamlit supports Numpy version 2.0 ([#8940](https://github.com/streamlit/streamlit/pull/8940)).
 - 😄 We've updated emoji validation for new emojis ([#8923](https://github.com/streamlit/streamlit/pull/8923)).
 - 👻 We've removed several experimental commands with new, generally available versions ([#8943](https://github.com/streamlit/streamlit/pull/8943)).
 - ☠️ We've removed deprecated configuration options per their announced expiration date ([#9005](https://github.com/streamlit/streamlit/pull/9005), [#9013](https://github.com/streamlit/streamlit/pull/9013), [#9018](https://github.com/streamlit/streamlit/pull/9018)).

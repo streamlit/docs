@@ -2,6 +2,10 @@
   background-color: rgba(166, 168, 184, 0.6) !important;
 }
 
+.mantine-Paper-root {
+  @apply bg-white dark:bg-gray-90;
+}
+
 .mantine-Modal-header,
 .mantine-Modal-header h3 {
   @apply bg-white dark:bg-gray-90 text-gray-90 dark:text-gray-40 border-b-0 font-normal tracking-wide;
