@@ -77,7 +77,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
     "is-pdf-valid": "^0.0.1",
-    "lint-staged": "^15.2.0",
+    "lint-staged": "^15.2.9",
     "pdf-merger-js": "^4.3.0",
     "postcss": "^8.4.32",
     "prettier": "^3.1.1",
