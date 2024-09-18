@@ -5,11 +5,11 @@ slug: /develop/concepts/architecture/threading
 
 # Threading in Streamlit
 
-While Streamlit makes code work like magic, the things beneath are still plain Python objects. This means the use of threads to improve performance and responsiveness also applies to Streamlit. However it can be tricky to use threads correctly from your code. This guide is meant to help do threading right in Streamlit.
+While building with Streamlit may feel like magic, the things beneath are still plain Python objects. This means the use of threads to improve performance and responsiveness still applies to Streamlit. However it can be tricky to start more threads from your code. This guide is meant to help do threading right in Streamlit.
 
 Before reading on, you are advised to check [architecture](/develop/concepts/architecture/architecture) and [session-state](/develop/concepts/architecture/session-state) first.
 
-## Streamlit threads
+## Threads created by Streamlit
 
 A `streamlit run` process uses 2 types of threads:
 
@@ -34,6 +34,7 @@ class StreamlitServer(WebSocketServer):
 class Session()
     def on_page_run_message(self, conn, message):
         script_thread = ScriptThread(conn=conn, page_file=message.page_to_run, session=self)
+        setattr(script_thread, "secret_runner_context_attribute", ScriptRunContext(session))
         script_thread.start()
 
 
@@ -42,7 +43,6 @@ class ScriptThread(Thread):
     def __init__(self, conn, page_file, session):
         self.conn = conn
         self.page_file = page_file
-        self.script_context = ScriptRunContext(session)
 
     def run(self):
         with open(self.page_file) as f:
@@ -55,28 +55,27 @@ class ScriptThread(Thread):
 StreamlitServer().listen()
 ```
 
-## `missing ScriptRunContext`
+## `missing ScriptRunContext!` warning or `streamlit.errors.NoSessionContext` error
 
-Since you are reading this page, chances are that you have saw this warning message.
+Since you are reading this page, chances are that you have already noticed such messages.
 
-Many Streamlit APIs, including `st.cache_data()` / `st.widget_method()`, expect to be executed on a ScriptThread. Such APIs are often related to per-session or per-page-run internal states. For example, `st.cache_data()` needs access to a per-session cache storage.
+Many Streamlit APIs, including `st.session_state` and multiple builtin widgets, expect themselves to run on a ScriptThread. Such APIs are typically related to per-session or per-page-run internal states.
 
-Normally the access to internal states are provided via a `ScriptRunContext`. A `Sc. Such objects are kept with a `WeakMap[Thread, ScriptRunContext]`.
+In a happy scenario, such code finds the `ScriptRunContext` object attached to the current thread (like in the illustriial code above). But when such Streamlit APIs find no `ScriptRunContext` in the current thread, they have to issue such warnings or errors.
 
-<!-->
-But when such Streamlit APIs find them to be running on a thread without `Script  created by user's code ("custom thread")  the expectation is not met, and it often results in mysterous warning message like `missing ScriptRunContext`. Please read on to find out the workarounds.
+## Custom threads
 
--->
+An effective mitigation to delay, is to create threads and let them do things concurrently. This works especially well with IO-heavy operations like remote query or data load.
 
-## Custom threads done right
+But due to the reasons you read by far, interacting with Streamlit code from your thread can be quirky. In this sectionn we introduce 2 patterns to
 
-To avoid the quirks with custom threads, we introduce 2 patterns:
+Note: they are only patterns rather than complete solutions. You are advised to think them as an idea to start with. For example, one could extend pattern 1 into using a `concurrent.futures.ThreadPoolExecutor` thread pool.
 
-### 1. Ensure Stramlit code is called from script thread
+### 1. Only call Stramlit code from script thread
 
 Python threading provides ways to start a thread, wait for its execution, and collect its result. If we isolate custom thread from Streamlit APIs, everything should just work in order.
 
-In the following example, the script thread starts 2 custom `WorkerThread`, waits them to run concurrently, and update UI with their results.
+In the following example page, `main` runs on the script thread and creates 2 custom `WorkerThread`. After WorkerThread-s run concurrently, `main` collects their results and updates UI.
 
 ```py
 import streamlit as st
@@ -90,8 +89,10 @@ class WorkerThread(Thread):
         self.return_value = None
     def run(self):
         # runs in custom thread, touches no Streamlit APIs
+        start_time = time.time()
         time.sleep(self.delay)
-        self.return_value = self.delay
+        end_time = time.time()
+        self.return_value = f"start: {start_time}, end: {end_time}"
 
 result_1 = st.empty()
 result_2 = st.empty()
@@ -104,46 +105,51 @@ def main():
     t2.start()
     t1.join()
     t2.join()
-    result_1.write(f"t1: slept {t1.return_value}s")
-    result_2.write(f"t2: slept {t1.return_value}s")
+    result_1.markdown(f"### t1\n{t1.return_value}")
+    result_2.markdown(f"### t2\n{t2.return_value}")
 
 main()
 ```
 
-### 2. Reuse current Streamlit Session from custom thread
+### 2. Expose context object to custom thread
 
-Alternatively , one can let a custom thread have access to , as a script thread does. This pattern is also used by Streamlit standard widgets like [st.spanner](#).
+Alternatively, one can let a custom thread have access to the `ScriptRunContext` attached to ScriptThread. This pattern is also used by Streamlit standard widgets like [st.spinner](https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/elements/spinner.py).
 
-
-
-**Caution** when using this pattern, please ensure . Otherwise 
-
-### Example of threaded executor
+**Caution** when using this pattern, please ensure a custom thread that uses `ScriptRunContext` does not outlive the Script Thread. Leak of `ScriptRunContext` may cause subtle bugs.
 
 ```py
-# src/thread_executor.py
 import streamlit as st
+from streamlit.runtime.scriptrunner import add_script_run_ctx, get_script_run_ctx
+import time
+from threading import Thread
 
-@st.cache_resource()
-def get_thread_executor():
-    pass
+class WorkerThread(Thread):
+    def __init__(self, delay, target):
+        super().__init__()
+        self.delay = delay
+        self.target = target
+    def run(self):
+        # runs in custom thread, but can call Streamlit APIs
+        start_time = time.time()
+        time.sleep(self.delay)
+        end_time = time.time()
+        self.target.write(f"start: {start_time}, end: {end_time}")
 
+st.header("t1")
+result_1 = st.empty()
+st.header("t2")
+result_2 = st.empty()
+
+def main():
+    t1 = WorkerThread(5, result_1)
+    t2 = WorkerThread(5, result_2)
+    # obtain the ScriptRunContext of the current Script Thread, and assign to worker threads
+    add_script_run_ctx(t1, get_script_run_ctx())
+    add_script_run_ctx(t2, get_script_run_ctx())
+    t1.start()
+    t2.start()
+    t1.join()
+    t2.join()
+
+main()
 ```
-
-
-```py
-# pages/multithread_example.py
-
-from src.thread_executor import 
-
-
-def run_query(sql_query: str) -> pd.DataFrame
-    pass
-
-f
-
-```
-
-## Multi processing
-
-## Async IO
