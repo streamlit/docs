@@ -57,6 +57,8 @@ site_menu:
     url: /develop/concepts/architecture/fragments
   - category: Develop / Concepts / Architecture & execution/ Widget behavior
     url: /develop/concepts/architecture/widget-behavior
+  - category: Develop / Concepts / Architecture & execution / Threading in Streamlit
+    url: /develop/concepts/architecture/threading
   - category: Develop / Concepts / Multipage apps
     url: /develop/concepts/multipage-apps
   - category: Develop / Concepts / Multipage apps / Overview
