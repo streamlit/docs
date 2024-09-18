@@ -70,7 +70,7 @@ In a happy scenario, such code finds the `ScriptRunContext` object attached to t
 
 An effective mitigation to delay, is to create threads and let them work concurrently. This works especially well with IO-heavy operations like remote query or data load.
 
-But due to the reasons you read by far, interacting with Streamlit code from your thread can be quirky. In this sectionn we introduce 2 patterns to
+But due to the reasons you read by far, interacting with Streamlit code from your thread can be quirky. In this section we introduce 2 patterns to let different threads work together.
 
 Note: they are only patterns rather than complete solutions. You are advised to think them as an idea to start with. For example, one could extend pattern 1 into using a `concurrent.futures.ThreadPoolExecutor` thread pool.
 
