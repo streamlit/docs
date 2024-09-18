@@ -11,7 +11,7 @@ Before reading on, you are advised to check [architecture](/develop/concepts/arc
 
 ## Threads created by Streamlit
 
-A `streamlit run` process uses 2 types of threads:
+A `streamlit run` process creates 2 types of threads:
 
 - Main thread: runs the web (HTTP + WebSocket) server
 - Script thread: runs page code when triggered (by page view or UI interactivity)
@@ -34,7 +34,9 @@ class StreamlitServer(WebSocketServer):
 class Session()
     def on_page_run_message(self, conn, message):
         script_thread = ScriptThread(conn=conn, page_file=message.page_to_run, session=self)
-        setattr(script_thread, "secret_runner_context_attribute", ScriptRunContext(session))
+        # attach the context object,
+        # it can be used inside script thread like getattr(current_thread(), "secret..")
+        setattr(script_thread, "secret_runner_context", ScriptRunContext(session))
         script_thread.start()
 
 
@@ -49,23 +51,24 @@ class ScriptThread(Thread):
             page_code = f.read()
         ui_state = eval(page_code)
         self.conn.send_ui_state(ui_state)
-        # on the other end of WebSocket connection, frontend receives the state and updates UI
+        # on the other end of WebSocket connection,
+        # frontend receives the state and updates UI
 
 
 StreamlitServer().listen()
 ```
 
-## `missing ScriptRunContext!` warning or `streamlit.errors.NoSessionContext` error
+## `missing ScriptRunContext!` or `streamlit.errors.NoSessionContext`
 
 Since you are reading this page, chances are that you have already noticed such messages.
 
 Many Streamlit APIs, including `st.session_state` and multiple builtin widgets, expect themselves to run on a ScriptThread. Such APIs are typically related to per-session or per-page-run internal states.
 
-In a happy scenario, such code finds the `ScriptRunContext` object attached to the current thread (like in the illustriial code above). But when such Streamlit APIs find no `ScriptRunContext` in the current thread, they have to issue such warnings or errors.
+In a happy scenario, such code finds the `ScriptRunContext` object attached to the current thread (like in the illustriial code above). But when such Streamlit APIs couldn't, they issue such warnings or errors.
 
 ## Custom threads
 
-An effective mitigation to delay, is to create threads and let them do things concurrently. This works especially well with IO-heavy operations like remote query or data load.
+An effective mitigation to delay, is to create threads and let them work concurrently. This works especially well with IO-heavy operations like remote query or data load.
 
 But due to the reasons you read by far, interacting with Streamlit code from your thread can be quirky. In this sectionn we introduce 2 patterns to
 
@@ -94,28 +97,35 @@ class WorkerThread(Thread):
         end_time = time.time()
         self.return_value = f"start: {start_time}, end: {end_time}"
 
+st.header("t1")
 result_1 = st.empty()
+st.header("t2")
 result_2 = st.empty()
 
 def main():
-    # runs in script thread, calls Streamlit APIs with no problem
     t1 = WorkerThread(5)
     t2 = WorkerThread(5)
     t1.start()
     t2.start()
     t1.join()
     t2.join()
-    result_1.markdown(f"### t1\n{t1.return_value}")
-    result_2.markdown(f"### t2\n{t2.return_value}")
+    # main() runs in script thread, and can safely call Streamlit APIs
+    result_1.write(t1.return_value)
+    result_2.write(t2.return_value)
 
 main()
+
 ```
 
 ### 2. Expose context object to custom thread
 
 Alternatively, one can let a custom thread have access to the `ScriptRunContext` attached to ScriptThread. This pattern is also used by Streamlit standard widgets like [st.spinner](https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/elements/spinner.py).
 
+**Caution** this may not work with all Streamlit code. The previous pattern is safer in this way.
+
 **Caution** when using this pattern, please ensure a custom thread that uses `ScriptRunContext` does not outlive the Script Thread. Leak of `ScriptRunContext` may cause subtle bugs.
+
+In the following example page, a custom thread with `ScriptRunContext` attached can call `st.write` without a warning. (Remove a call to `add_script_run_ctx()` and you will see a `streamlit.errors.NoSessionContext`)
 
 ```py
 import streamlit as st
