@@ -16,7 +16,7 @@ A `streamlit run` process creates 2 types of threads:
 - Main thread: runs the web (HTTP + WebSocket) server
 - Script thread: runs page code when triggered (by page view or UI interactivity)
 
-This is an oversimplifed and inaccurate illustration to show the creation of Streamlit threads:
+This is an oversimplifed illustration to show how Streamlit _conceptually_ works:
 
 ```py
 from threading import Thread
@@ -27,15 +27,19 @@ class StreamlitServer(WebSocketServer):
     def on_websocket_connection(self, conn):
         # assuming 1 connection bounds to exactly 1 session
         session = Session()
-        conn.on_page_run_message(lambda message: session.on_page_run_message(conn, message))
+        conn.on_page_run_message(
+            lambda message: session.on_page_run_message(conn, message)
+        )
 
 
 # created for each session
 class Session()
     def on_page_run_message(self, conn, message):
-        script_thread = ScriptThread(conn=conn, page_file=message.page_to_run, session=self)
+        script_thread = ScriptThread(
+            conn=conn, page_file=message.page_to_run, session=self
+        )
         # attach the context object,
-        # it can be used inside script thread like getattr(current_thread(), "secret..")
+        # for script thread to retrive it like getattr(current_thread(), ...)
         setattr(script_thread, "secret_runner_context", ScriptRunContext(session))
         script_thread.start()
 
@@ -66,17 +70,19 @@ Many Streamlit APIs, including `st.session_state` and multiple builtin widgets, 
 
 In a happy scenario, such code finds the `ScriptRunContext` object attached to the current thread (like in the illustriial code above). But when such Streamlit APIs couldn't, they issue such warnings or errors.
 
+Read on to find how to prevent them with non-Streamlit threads.
+
 ## Creating custom threads
 
-An effective mitigation to delay, is to create threads and let them work concurrently. This works especially well with IO-heavy operations like remote query or data loading.
+An effective mitigation to delay, is to create threads and let them work concurrently. This works especially well with IO-heavy operations like remote query or data loading. But due to the reasons you read by far, it can quirky to create more threads from your code ("custom thread") and let them interact with Streamlit.
 
-But due to the reasons you read by far, it can quirky to create more threads from your code ("custom thread") and let them interact with Streamlit. In this section we introduce 2 patterns to let different threads work together.
+In this section we introduce 2 patterns to let different threads work together.
 
 Note: they are only patterns rather than complete solutions. You are advised to think them as idea to start with. For example, one could extend pattern 1 into using a `concurrent.futures.ThreadPoolExecutor` thread pool.
 
 ### 1. Only call Stramlit code from script thread
 
-If we don't call Streamlit APIs from custom thread, things should just work in order. Luckily Python threading provides ways to start a thread, wait for its execution, and collect its result from another thread.
+If we don't call Streamlit APIs from custom thread, things should just work in order. Luckily Python threading provides ways to start a thread and collect its result from another thread.
 
 In the following example page, `main` runs on the script thread and creates 2 custom `WorkerThread`. After WorkerThread-s run concurrently, `main` collects their results and updates UI.
 
@@ -121,11 +127,13 @@ main()
 
 Alternatively, one can let a custom thread have access to the `ScriptRunContext` attached to ScriptThread. This pattern is also used by Streamlit standard widgets like [st.spinner](https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/elements/spinner.py).
 
-**Caution** this may not work with all Streamlit code. The previous pattern is safer in this way.
+**Caution** with this pattern:
 
-**Caution** `get_script_run_ctx` is meant to be called from a script thread, not a main or custom thread.
+- This may not work with all Streamlit code. The previous pattern is safer in this way.
 
-**Caution** when using this pattern, please ensure a custom thread that have access to `ScriptRunContext` does not outlive the script thread. Leak of `ScriptRunContext` may cause security issues or subtle bugs.
+- `get_script_run_ctx` is meant to be called from a script thread, not a main or custom thread.
+
+- When using this pattern, ensure a custom thread that have access to `ScriptRunContext` does not outlive the script thread. Leak of `ScriptRunContext` may cause security issues or subtle bugs.
 
 In the following example page, a custom thread with `ScriptRunContext` attached can call `st.write` without a warning. (Remove a call to `add_script_run_ctx()` and you will see a `streamlit.errors.NoSessionContext`)
 
