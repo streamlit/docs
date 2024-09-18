@@ -123,7 +123,9 @@ Alternatively, one can let a custom thread have access to the `ScriptRunContext`
 
 **Caution** this may not work with all Streamlit code. The previous pattern is safer in this way.
 
-**Caution** when using this pattern, please ensure a custom thread that uses `ScriptRunContext` does not outlive the Script Thread. Leak of `ScriptRunContext` may cause subtle bugs.
+**Caution** `get_script_run_ctx` is meant to be called from a script thread, not a main or custom thread.
+
+**Caution** when using this pattern, please ensure a custom thread that uses `ScriptRunContext` does not outlive the script thread. Leak of `ScriptRunContext` may cause subtle bugs.
 
 In the following example page, a custom thread with `ScriptRunContext` attached can call `st.write` without a warning. (Remove a call to `add_script_run_ctx()` and you will see a `streamlit.errors.NoSessionContext`)
 
@@ -153,7 +155,7 @@ result_2 = st.empty()
 def main():
     t1 = WorkerThread(5, result_1)
     t2 = WorkerThread(5, result_2)
-    # obtain the ScriptRunContext of the current Script Thread, and assign to worker threads
+    # obtain the ScriptRunContext of the current script thread, and assign to worker threads
     add_script_run_ctx(t1, get_script_run_ctx())
     add_script_run_ctx(t2, get_script_run_ctx())
     t1.start()
