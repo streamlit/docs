@@ -66,7 +66,7 @@ StreamlitServer().listen()
 
 Since you are reading this page, chances are that you have already noticed such messages.
 
-Many Streamlit APIs, including `st.session_state` and multiple builtin widgets, expect themselves to run on a ScriptThread. Such APIs are typically related to per-session or per-page-run internal states.
+Many Streamlit APIs, including `st.session_state` and multiple builtin widgets, expect themselves to run on a script thread. Such APIs are typically related to per-session or per-page-run internal states.
 
 In a happy scenario, such code finds the `ScriptRunContext` object attached to the current thread (like in the illustriial code above). But when such Streamlit APIs couldn't, they issue such warnings or errors.
 
@@ -125,15 +125,15 @@ main()
 
 ### 2. Expose context object to custom thread
 
-Alternatively, one can let a custom thread have access to the `ScriptRunContext` attached to ScriptThread. This pattern is also used by Streamlit standard widgets like [st.spinner](https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/elements/spinner.py).
+Alternatively, one can let a custom thread have access to the `ScriptRunContext` attached to script thread. This pattern is also used by Streamlit standard widgets like [st.spinner](https://github.com/streamlit/streamlit/blob/develop/lib/streamlit/elements/spinner.py).
 
-**Caution** with this pattern:
+**Caution**:
 
-- This may not work with all Streamlit code. The previous pattern is safer in this way.
+- This may not work with all Streamlit APIs. The previous pattern is more guaranteed in this sense.
 
 - `get_script_run_ctx` is meant to be called from a script thread, not a main or custom thread.
 
-- When using this pattern, ensure a custom thread that have access to `ScriptRunContext` does not outlive the script thread. Leak of `ScriptRunContext` may cause security issues or subtle bugs.
+- When using this pattern, ensure custom thread does not outlive the script thread owning the ScriptRunContext. Leak of `ScriptRunContext` may cause security vulnerability or subtle bugs.
 
 In the following example page, a custom thread with `ScriptRunContext` attached can call `st.write` without a warning. (Remove a call to `add_script_run_ctx()` and you will see a `streamlit.errors.NoSessionContext`)
 
