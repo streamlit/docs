@@ -243,7 +243,7 @@ To begin with, you'll define a function to randomly generate some member data. I
        return profile_df
    ```
 
-1. (Optional) Test out your function by calling it and displaying the data.
+1. Optional: Test out your function by calling it and displaying the data.
 
    ```python
    st.dataframe(get_profile_dataset())
@@ -335,7 +335,7 @@ To begin with, you'll define a function to randomly generate some member data. I
 
    For consistency, reuse the existing column configuration.
 
-1. (Optional) Save your file and test it out. Try selecting some rows in your app, and then return to your code.
+1. Optional: Save your file and test it out. Try selecting some rows in your app, and then return to your code.
 
 ### Combine activity data for the selected rows
 
@@ -367,7 +367,7 @@ To begin with, you'll define a function to randomly generate some member data. I
    daily_activity_df = pd.DataFrame(daily_activity_df)
    ```
 
-1. (Optional) Test out your combined data by displaying it.
+1. Optional: Test out your combined data by displaying it.
 
    ```python
    st.dataframe(activity_df)

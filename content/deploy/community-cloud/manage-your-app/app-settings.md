@@ -18,7 +18,7 @@ You can get to your app's settings:
 
 ### Access app settings from your workspace
 
-From your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) next to your app. Click "**Settings**".
+From your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) next to your app. Click "**Settings**."
 
 ![Access app settings from your workspace](/images/streamlit-community-cloud/workspace-app-settings.png)
 
@@ -28,7 +28,7 @@ From your app at `<your-custom-subdomain>.streamlit.app`, click "**Manage app**"
 
 ![Access Streamlit Community Cloud logs from your app](/images/streamlit-community-cloud/cloud-logs-open.png)
 
-Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) and click "**Settings**".
+Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) and click "**Settings**."
 
 ![Access app settings from your Cloud logs](/images/streamlit-community-cloud/cloud-logs-menu-settings.png)
 
@@ -64,6 +64,6 @@ Learn how to [Share your app](/deploy/streamlit-community-cloud/share-your-app).
 
    ![Secrets app settings on Streamlit Community Cloud](/images/streamlit-community-cloud/workspace-app-settings-secrets.png)
 
-1. (Optional) Add, edit, or delete your secrets, and then click "**Save**."
+1. Optional: Add, edit, or delete your secrets, and then click "**Save**."
 
 Learn more about [Secrets management for your Community Cloud app](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).

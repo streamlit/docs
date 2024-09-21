@@ -14,11 +14,11 @@ Rebooting your app on Community Cloud is easy! You can reboot your app:
 
 ### Reboot your app from your workspace
 
-1. From your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) next to your app. Click "**Reboot**".
+1. From your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) next to your app. Click "**Reboot**."
 
    ![Reboot your app from your workspace](/images/streamlit-community-cloud/workspace-app-reboot.png)
 
-2. A confirmation will display. Click "**Reboot**".
+2. A confirmation will display. Click "**Reboot**."
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
 <Image alt="Confirm rebooting your app in Streamlit Community Cloud" src="/images/streamlit-community-cloud/workspace-app-reboot-confirm.png" clean />
@@ -30,11 +30,11 @@ Rebooting your app on Community Cloud is easy! You can reboot your app:
 
    ![Access Streamlit Community Cloud logs from your app](/images/streamlit-community-cloud/cloud-logs-open.png)
 
-2. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) and click "**Reboot app**".
+2. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) and click "**Reboot app**."
 
    ![Reboot your app from your Cloud logs](/images/streamlit-community-cloud/cloud-logs-menu-reboot.png)
 
-3. A confirmation will display. Click "**Reboot**".
+3. A confirmation will display. Click "**Reboot**."
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
 <Image alt="Confirm rebooting your app in Streamlit Community Cloud" src="/images/streamlit-community-cloud/workspace-app-reboot-confirm.png" clean />

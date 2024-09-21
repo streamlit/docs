@@ -29,7 +29,7 @@ The template picker shows a list of available templates on the left. A preview f
        Even if you have another user's or organization's workspace selected, Community Cloud will always deploy a template app from your personal workspace. Hence, Community Cloud will always fork a template into your GitHub user account. If you want to deploy a template app from an organization, manually fork the template in GitHub, and deploy it from your fork in the associated workspace.
    </Note>
 
-1. (Optional) In the "App URL" field, choose a subdomain for your new app.
+1. Optional: In the "App URL" field, choose a subdomain for your new app.
 
    Every Community Cloud app is deployed to a subdomain on `streamlit.app`, but you can change your app's subdomain at any time. For more information, see [App settings](/deploy/streamlit-community-cloud/manage-your-app/app-settings).
 
@@ -37,7 +37,7 @@ The template picker shows a list of available templates on the left. A preview f
 
    You can create a codespace for your app at any time. To learn how to create a codespace after you've deployed an app, see [Edit your app](/deploy/streamlit-community-cloud/manage-your-app/edit-your-app).
 
-1. (Optional) At the bottom of the screen, click "**Advanced settings**" to choose a different version of Python.
+1. Optional: At the bottom of the screen, click "**Advanced settings**" to choose a different version of Python.
 
    After you change the Python version in the "Advanced settings" dialog, click "**Save**."
 

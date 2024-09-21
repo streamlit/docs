@@ -39,7 +39,7 @@ If your account is already linked to GitHub, you may be immediately prompted to 
 
 ## Sign out of your account
 
-From your workspace, click on your workspace name in the upper-left corner. Click "**Sign out**".
+From your workspace, click on your workspace name in the upper-left corner. Click "**Sign out**."
 
 <div style={{ maxWidth: '80%', margin: 'auto' }}>
 <Image alt="Sign out of Streamlit Community Cloud" src="/images/streamlit-community-cloud/account-sign-out.png" />

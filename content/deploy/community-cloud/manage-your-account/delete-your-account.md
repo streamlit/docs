@@ -21,7 +21,7 @@ Follow these steps to delete your account:
 
    ![Delete your Streamlit Community Cloud account from your workspace settings](/images/streamlit-community-cloud/workspace-settings-linked-accounts.png)
 
-1. From the "**Linked accounts**" section, click "**Delete account**".
+1. From the "**Linked accounts**" section, click "**Delete account**."
 1. In the confirmation dialog, follow the prompt and click "**Delete account forever**."
 
    All your information and apps will be permanently deleted.

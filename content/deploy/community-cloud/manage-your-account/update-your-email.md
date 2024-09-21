@@ -26,7 +26,7 @@ Alternatively, you can change the email on your GitHub account and then sign in 
 1. If you are currently signed in to Community Cloud, sign out.
 1. Sign in to Community Cloud _using GitHub_.
 
-   If you are redirected to your workspace and you see your existing apps, you're done! Your email has been changed. To confirm your current email and GitHub account, click on your workspace name in the upper-left corner and look at the bottom of the drop-down menu.
+   If you are redirected to your workspace and you see your existing apps, you're done! Your email has been changed. To confirm your current email and GitHub account, click on your workspace name in the upper-left corner, and look at the bottom of the drop-down menu.
 
    If you are redirected to an empty workspace and you see "**Workspaces <i style={{ verticalAlign: "-.25em", color: "#ff8700" }} className={{ class: "material-icons-sharp" }}>warning</i>**" in the upper-left corner, proceed to [Connect your GitHub account](/deploy/streamlit-community-cloud/get-started/connect-your-github-account). This can happen if you previously created an account with your new email but didn't connect a GitHub account to it.
 

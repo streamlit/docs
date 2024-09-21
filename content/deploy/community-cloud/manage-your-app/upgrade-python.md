@@ -23,7 +23,7 @@ When you deploy an app, you can select the version of Python through the "**Adva
    1. Set your custom domain to match your deleted instance.
    1. Click "**Advanced settings**."
    1. Choose your desired version of Python.
-   1. (Optional) If your app had secrets, re-enter them.
+   1. Optional: If your app had secrets, re-enter them.
    1. Click "**Save**."
    1. Click "**Deploy**."
 

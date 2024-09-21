@@ -15,7 +15,7 @@ For Snowflake customers, a support case can be submitted via [the support portal
 
 1. Navigate to [https://community.snowflake.com/s/](https://community.snowflake.com/s/) in your browser.
 1. If you already have a Snowflake Community account, sign in. Otherwise, click "**CREATE ACCOUNT**," and follow the prompts.
-1. After you have signed in, go the top of the page, and click "**SUPPORT**."
+1. At the top of the page, click "**SUPPORT**."
 1. From the drop-down menu, select "**Submit A Case**."
 1. Select the option "**I am a Streamlit Community Cloud user**."
 1. Click "**Next**" to open the case description page.

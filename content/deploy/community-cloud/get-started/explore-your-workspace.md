@@ -5,7 +5,7 @@ slug: /deploy/streamlit-community-cloud/get-started/explore-your-workspace
 
 # Explore your workspace
 
-If you just [created your account](/deploy/streamlit-community-cloud/get-started/create-your-account) and [connected your GitHub account](/deploy/streamlit-community-cloud/get-started/connect-your-github-account), congrats! You are now logged in and ready to go. If you are joining someone else's workspace you may already see some apps.
+If you just [created your account](/deploy/streamlit-community-cloud/get-started/create-your-account) and [connected your GitHub account](/deploy/streamlit-community-cloud/get-started/connect-your-github-account), congrats! You are now signed in and ready to go. If you are joining someone else's workspace you may already see some apps.
 
 ## Workspaces
 
@@ -26,7 +26,7 @@ Other workspaces are available to you as follows:
 
 ### Invite other developers to your workspace
 
-Inviting other developers is simple, just give them write access to your GitHub repository so that you can code together. When they log in to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, they'll have access to your workspace.
+Inviting other developers is simple: Just give them write access to your GitHub repository so that you can code together. When they sign in to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, they'll have access to your workspace.
 
 Streamlit Community Cloud inherits developer permissions from GitHub. When others sign in to Community Cloud, they will automatically see the workspaces they share with you. From there you can all deploy, manage, and share apps together.
 

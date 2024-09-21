@@ -47,7 +47,7 @@ You can manage your deployed app directly from the app itself! Just make sure yo
 
    ![Streamlit Community Cloud logs](/images/streamlit-community-cloud/cloud-logs.png)
 
-3. You can access more developer options by clicking the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) at the bottom of your Cloud logs. To conveniently download your logs, click "**Download log**".
+3. You can access more developer options by clicking the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) at the bottom of your Cloud logs. To conveniently download your logs, click "**Download log**."
 
    ![Download your Streamlit Community Cloud logs](/images/streamlit-community-cloud/cloud-logs-menu-download.png)
 
@@ -89,7 +89,7 @@ Streamlit also smartly detects whether you touched your dependencies, in which c
 
 ### Add or remove dependencies
 
-To add or remove dependencies at any point, just update `requirements.txt` (Python dependenciess) or `packages.txt` (Linux dependencies) and commit the changes to your repository on GitHub. Community Cloud detects the change in your dependencies and automatically triggers (re)installation.
+To add or remove dependencies at any point, just update `requirements.txt` (Python dependenciess) or `packages.txt` (Linux dependencies), and commit the changes to your repository on GitHub. Community Cloud detects the change in your dependencies and automatically triggers (re)installation.
 
 It is best practice to pin your Streamlit version in `requirements.txt`. Otherwise, the version may be auto-upgraded at any point without your knowledge, which could lead to undesired results (e.g. when we deprecate a feature in Streamlit).
 
@@ -130,7 +130,7 @@ If see "😦 Oh no." when viewing your app, first check your Cloud logs for any 
 
 #### Developer view
 
-If you are logged into a developer account for an app over its limits, you can access "**Manage app**" from the lower-right corner of the app to reboot it and clear its memory. "**Manage app**" will be red and have a warning icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>error</i>).
+If you are signed in to a developer account for an app over its limits, you can access "**Manage app**" from the lower-right corner of the app to reboot it and clear its memory. "**Manage app**" will be red and have a warning icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>error</i>).
 
 ![Developer view: Oh no. Error running your app.](/images/streamlit-community-cloud/app-state-oh-no-developer.png)
 
@@ -141,7 +141,7 @@ All apps without traffic for one weekday will go to sleep. The system checks app
 - Tuesday through Friday: All apps without traffic for 24 hours (one day) will go to sleep.
 - Saturday through Monday: All apps without traffic for 72 hours (three days) will go to sleep.
 
-This is done to alleviate resources and allow the best communal use of the platform! If you would like to keep your app awake, simply visit the app or commit to your app's repository, even if it's an empty commit!
+Community Cloud hibernates apps to conserve resources and allow the best communal use of the platform. To keep your app awake, simply visit the app or commit to your app's repository, even if it's an empty commit!
 
 When someone visits a sleeping app, they will see the sleeping page:
 

@@ -29,7 +29,7 @@ Spin up a cloud-based development environment for your deployed app in minutes. 
 
 1. Optional: For more room to work, open the app preview in another tab.
 
-   If you have multiple monitors and want a little more room to work, open your app preview in another tab instead of using the Simple Browser with Visual Studio code. Just copy the URL from the Simple Browser into another tab, and then close the Simple Browser. Now you have more room to edit your code. This page will continue to display your code on the left and your preview on the right.
+   If you have multiple monitors and want a little more room to work, open your app preview in another tab instead of using the Simple Browser within Visual Studio Code. Just copy the URL from the Simple Browser into another tab, and then close the Simple Browser. Now you have more room to edit your code. The remaining steps on this page will continue to display the split-screen view in Visual Studio Code.
 
 1. Make a change to your app.
 

@@ -31,7 +31,7 @@ If you already created a Community Cloud account and connected GitHub, jump ahea
 
 1. From the drop down, click "**Connect GitHub account**."
 1. Enter your GitHub credentials and follow GitHub's authentication prompts.
-1. Click "**Authorize streamlit**".
+1. Click "**Authorize streamlit**."
 
 <div style={{ maxWidth: '40%', margin: 'auto' }}>
 <Image alt="Authorize Community Cloud to connect to your GitHub account" src="/images/streamlit-community-cloud/GitHub-auth1-none.png" />
@@ -94,7 +94,7 @@ If you already created a Community Cloud account and connected GitHub, jump ahea
 
    If the rerun prompt disappears before you click it, you can hover over the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) to bring it back.
 
-1. (Optional) Continue to make edits and observe the changes within seconds.
+1. Optional: Continue to make edits and observe the changes within seconds.
 
 ## Publish your changes
 
