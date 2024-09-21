@@ -5,16 +5,16 @@ slug: /deploy/streamlit-community-cloud/manage-your-account
 
 # Manage your account
 
-You can [Update your email](/deploy/streamlit-community-cloud/manage-your-account/update-your-email) or [Delete your account](/deploy/streamlit-community-cloud/manage-your-account/delete-your-account) entirely through [Workspace settings](/deploy/streamlit-community-cloud/manage-your-account/workspace-settings).
+You can [Update your email](/deploy/streamlit-community-cloud/manage-your-account/update-your-email) or completely [Delete your account](/deploy/streamlit-community-cloud/manage-your-account/delete-your-account) through [Workspace settings](/deploy/streamlit-community-cloud/manage-your-account/workspace-settings).
 
-When using Streamlit Community Cloud, you have two identities behind your account: a primary identity (Google or email) and source control (GitHub). Your primary identity allows other users to share private apps with you and grant you access to their analytics. Your source control identity allows you to deploy apps from GitHub repositories and manage them through your Streamlit Community Cloud workspace.
+Your Streamlit Community Cloud account is identified by your email. When you sign in to Community Cloud, regardless of which method you use, you are providing Community Cloud with your email address. In particular, when you sign in to Community Cloud using GitHub, you are using the primary email on your GitHub account. You can view your email identity and source-control identity from your workspace settings, under "[**Linked accounts**](/deploy/streamlit-community-cloud/manage-your-account/workspace-settings#linked-accounts)."
 
 ## Access your workspace settings
 
-To manage your account, sign in to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a> and click "**Settings**" in the top right corner to access your workspace settings.
+1. Sign in to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>.
+1. In the upper-left corner, click on your workspace name.
+1. In the drop-down menu, click "**Settings**."
 
 <div style={{ maxWidth: '75%', marginLeft: '3em' }}>
     <Image src="/images/streamlit-community-cloud/account-settings-header.png" alt="Access your workspace settings from your workspace" />
 </div>
-
-Learn more about how to [Update your email](/deploy/streamlit-community-cloud/manage-your-account/update-your-email) and [Delete your account](/deploy/streamlit-community-cloud/manage-your-account/delete-your-account).

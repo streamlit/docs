@@ -38,10 +38,10 @@ This page walks you through installing Streamlit locally using Anaconda Distribu
 
 4. You can decline signing in to Anaconda if prompted.
 
-5. In the left menu, click "**Environments**".
+5. In the left menu, click "**Environments**."
    ![Open your environments list in Anaconda Navigator](/images/get-started/Anaconda-Navigator-environment-1.png)
 
-6. At the bottom of your environments list, click "**Create**".
+6. At the bottom of your environments list, click "**Create**."
    ![Click "Create" to open the Create new environment dialog](/images/get-started/Anaconda-Navigator-environment-2-create.png)
 
 7. Enter "streamlitenv" for the name of your environment.
@@ -102,7 +102,7 @@ This page walks you through installing Streamlit locally using Anaconda Distribu
 20. Click your Python interpreter in the lower-right corner, then choose your `streamlitenv` environment from the drop-down.
     ![Set your Python interpreter to your `streamlitenv` environment](/images/get-started/hello-world-3-change-interpreter.png)
 
-21. Right-click `app.py` in your file navigation and click "**Open in integrated terminal**".
+21. Right-click `app.py` in your file navigation and click "**Open in integrated terminal**."
     ![Open your terminal in your project folder](/images/get-started/hello-world-4-open-terminal.png)
 
 22. A terminal will open with your environment activated. Confirm this by looking for "(streamlitenv)" at the beginning of your next prompt.

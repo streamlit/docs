@@ -7,7 +7,7 @@ slug: /develop/tutorials/databases/deta-base
 
 ## Introduction
 
-This guide explains how to securely access and write to a [Deta Base](https://deta.space/docs/en/reference/base/about) database from Streamlit Community Cloud. Deta Base is a fully-managed and fast NoSQL database with a focus on end-user simplicity. The data is stored in your own "personal cloud" on [Deta Space](https://deta.space/developers). This guide uses the [Deta Python SDK](https://github.com/deta/deta-python) for Deta Base and Streamlit's [Secrets management](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
+This guide explains how to securely access and write to a [Deta Base](https://deta.space/docs/en/reference/base/about) database from Streamlit Community Cloud. Deta Base is a fully-managed and fast NoSQL database with a focus on end-user simplicity. The data is stored in your own "personal cloud" on [Deta Space](https://deta.space/developers). This guide uses the [Deta Python SDK](https://github.com/deta/deta-python) for Deta Base and Streamlit's [Secrets management](/develop/concepts/connections/secrets-management).
 
 ## Create an account and sign in to Deta Space
 

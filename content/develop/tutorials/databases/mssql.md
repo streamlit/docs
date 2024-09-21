@@ -7,7 +7,7 @@ slug: /develop/tutorials/databases/mssql
 
 ## Introduction
 
-This guide explains how to securely access a **_remote_** Microsoft SQL Server database from Streamlit Community Cloud. It uses the [pyodbc](https://github.com/mkleehammer/pyodbc/wiki) library and Streamlit's [Secrets management](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
+This guide explains how to securely access a **_remote_** Microsoft SQL Server database from Streamlit Community Cloud. It uses the [pyodbc](https://github.com/mkleehammer/pyodbc/wiki) library and Streamlit's [Secrets management](/develop/concepts/connections/secrets-management).
 
 ## Create an SQL Server database
 

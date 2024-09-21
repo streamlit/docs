@@ -32,7 +32,7 @@ If you already have a Neon project that you want to use, feel free to [skip to t
 
 1. Log in to the Neon console and navigate to the [Projects](https://console.neon.tech/app/projects) section.
 1. If you see a prompt to enter your project name, skip to the next step. Otherwise, click the "**New Project**" button to create a new project.
-1. Enter "Streamlit-Neon" for your project name, accept the othe default settings, and click "**Create Project**".
+1. Enter "Streamlit-Neon" for your project name, accept the othe default settings, and click "**Create Project**."
 
    After Neon creates your project with a ready-to-use `neondb` database, you will be redirected to your project's Quickstart.
 

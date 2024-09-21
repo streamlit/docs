@@ -29,6 +29,7 @@ You can deploy multiple apps from your repository, and your entrypoint file(s) m
 ## Python environments
 
 - You cannot mix and match Python package managers for a single app. Community Cloud configures your app's Python environment based on the first environment configuration file it finds. For more information, see [Other Python package managers](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies#other-python-package-managers).
+- We recommend that you use the latest version of Streamlit to ensure full Community Cloud functionality. Be sure to take note of Streamlit's [current requirements](https://github.com/streamlit/streamlit/blob/develop/lib/setup.py) for package compatibility when planning your environment, especially `protobuf>=3.20,<6`.
 - If you pin `streamlit< 1.20.0`, you must also pin `altair<5`. Earlier versions of Streamlit did not correctly restrict Altair's version. A workaround script running on Community Cloud will forcibly install `altair<5` if a newer version is detected. This could unintentionally upgrade Altair's dependencies in violation of your environment configuration. Newer versions of Streamlit support Altair version 5.
 - Community Cloud only supports released versions of Python that are still receiving security updates. You may not use end-of-life, prerelease, or feature versions of Python. For more information, see [Status of Python versions](https://devguide.python.org/versions/).
 
@@ -56,3 +57,4 @@ gatherUsageStats = true
 - When you print something to the Cloud logs, you may need to do a `sys.stdout.flush()` before it shows up.
 - Community Cloud hosts all apps in the United States. This is currently not configurable.
 - Community Cloud is built on Debian Linux. All file paths must use forward-slash path separators.
+- Community Cloud rate limits app updates from GitHub to no more than five per minute.

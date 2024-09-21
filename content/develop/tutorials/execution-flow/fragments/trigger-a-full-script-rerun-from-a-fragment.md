@@ -162,7 +162,7 @@ with monthly:
    - You'll generate random sales numbers with `numpy`.
    - The data will have `datetime.date` index values.
    - The products sold will be "Widget A" through "Widget Z," so you'll use `string` for easy access to an alphabetical string.
-   - (Optional) To help add emphasis at the end, you'll use `time.sleep()` to slow things down and see the fragment working.
+   - Optional: To help add emphasis at the end, you'll use `time.sleep()` to slow things down and see the fragment working.
 
 1. Save your `app.py` file and view your running app.
 1. Click "**Always rerun**" or hit your "**A**" key in your running app.
@@ -232,7 +232,7 @@ def get_data():
        return data
    ```
 
-1. (Optional) Test out your function by calling it and displaying the data.
+1. Optional: Test out your function by calling it and displaying the data.
 
    ```python
    data = get_data()
@@ -291,7 +291,7 @@ def show_daily_sales(data):
 
    Since your data will not change during a fragment rerun, you can pass the data into the fragment as an argument.
 
-1. (Optional) Add `time.sleep(1)` to slow down the function and show off how the fragment works.
+1. Optional: Add `time.sleep(1)` to slow down the function and show off how the fragment works.
 
    ```python
        time.sleep(1)
@@ -353,7 +353,7 @@ def show_daily_sales(data):
        cols[1].bar_chart(bottom_ten)
    ```
 
-1. (Optional) Test out your function by calling it and displaying the data.
+1. Optional: Test out your function by calling it and displaying the data.
 
    ```python
    data = get_data()
@@ -391,7 +391,7 @@ def show_monthly_sales(data):
    def show_monthly_sales(data):
    ```
 
-1. (Optional) Add `time.sleep(1)` to slow down the function and show off how the fragment works.
+1. Optional: Add `time.sleep(1)` to slow down the function and show off how the fragment works.
 
    ```python
        time.sleep(1)
@@ -420,7 +420,7 @@ def show_monthly_sales(data):
        st.bar_chart(monthly_sales.sum())
    ```
 
-1. (Optional) Test out your function by calling it and displaying the data.
+1. Optional: Test out your function by calling it and displaying the data.
 
    ```python
    data = get_data()
