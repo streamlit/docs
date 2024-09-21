@@ -889,7 +889,7 @@
 /library/api-reference/performance/st.experimental_singleton.clear /develop/api-reference/caching-and-state/st.experimental_singleton
 /knowledge-base/deploy/how-to-delete-your-streamlit-community-cloud-account /deploy/streamlit-community-cloud/manage-your-account/delete-your-account
 /knowledge-base/deploy/how-to-update-account-admin-settings-on-streamlit-community-cloud /deploy/streamlit-community-cloud/get-started/explore-your-workspace#invite-other-developers-to-your-workspace
-/knowledge-base/deploy/custom-subdomains /deploy/streamlit-community-cloud/deploy-your-app#custom-subdomains
+/knowledge-base/deploy/custom-subdomains /deploy/streamlit-community-cloud/share-your-app/indexability#choose-a-custom-subdomain-early
 /knowledge-base/deploy/huh-this-isnt-supposed-to-happen-no-valid-sso-connection-for-domain /deploy/streamlit-community-cloud/manage-your-account/sign-in-sign-out
 /knowledge-base/deploy/sign-in-without-sso /deploy/streamlit-community-cloud/manage-your-account/sign-in-sign-out
 /knowledge-base/deploy/deploy-streamlit-heroku-aws-google-cloud /deploy/tutorials
@@ -1137,6 +1137,11 @@
 /develop/concepts/architecture/experimental-cache-primitives /develop/concepts/architecture/caching
 /develop/api-reference/caching-and-state/st.cache /develop/api-reference/caching-and-state/st.cache_data
 /develop/quick-reference/changelog /develop/quick-reference/release-notes
+/knowledge-base/deploy/organizing-apps-workspaces-streamlit-cloud /deploy/streamlit-community-cloud/get-started/explore-your-workspace
+/knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud /deploy/streamlit-community-cloud/manage-your-app/upgrade-streamlit
+/knowledge-base/deploy/view-only-access-to-app-after-changing-github-username-or-repository-name /deploy/streamlit-community-cloud/manage-your-app/rename-your-app
+/knowledge-base/deploy/unable-to-edit-or-delete-apps-in-streamlit-community-cloud-after-modifying-github-username /deploy/streamlit-community-cloud/manage-your-app/rename-your-app
+
 
 # Deep links included in streamlit/streamlit source code
 /st.connections.snowflakeconnection-configuration /develop/api-reference/connections/st.connections.snowflakeconnection#configuration

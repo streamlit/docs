@@ -193,7 +193,7 @@ def get_recent_data(last_timestamp):
        return data
    ```
 
-1. (Optional) Test out your function by calling it and displaying the data.
+1. Optional: Test out your function by calling it and displaying the data.
 
    ```python
    data = get_recent_data(datetime.now() - timedelta(seconds=60))

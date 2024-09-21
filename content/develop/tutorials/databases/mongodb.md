@@ -7,7 +7,7 @@ slug: /develop/tutorials/databases/mongodb
 
 ## Introduction
 
-This guide explains how to securely access a **_remote_** MongoDB database from Streamlit Community Cloud. It uses the [PyMongo](https://github.com/mongodb/mongo-python-driver) library and Streamlit's [Secrets management](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
+This guide explains how to securely access a **_remote_** MongoDB database from Streamlit Community Cloud. It uses the [PyMongo](https://github.com/mongodb/mongo-python-driver) library and Streamlit's [Secrets management](/develop/concepts/connections/secrets-management).
 
 ## Create a MongoDB Database
 

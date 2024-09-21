@@ -25,7 +25,7 @@ With the "**Settings**" option, you can control the appearance of your app while
 
 #### Theme settings
 
-After clicking "**Settings**" from the app menu, you can choose between "**Light**", "**Dark**", or "**Use system setting**" for the app's base theme. Click on "**Edit active theme**" to modify the theme, color-by-color.
+After clicking "**Settings**" from the app menu, you can choose between "**Light**", "**Dark**", or "**Use system setting**" for the app's base theme. Click "**Edit active theme**" to modify the theme, color-by-color.
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
     <Image src="/images/app-menu/app-menu-settings-modal.png" alt="Settings" clean />
@@ -113,7 +113,7 @@ If you are running an app locally from within a git repo, you can deploy your ap
     <Image src="/images/app-menu/app-menu-deploy.png" alt="Settings" />
 </div>
 
-2. Click "**Deploy now**".
+2. Click "**Deploy now**."
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
     <Image src="/images/app-menu/app-menu-deploy-1.png" alt="Settings" />
