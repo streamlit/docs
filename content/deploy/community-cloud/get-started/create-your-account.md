@@ -7,7 +7,7 @@ slug: /deploy/streamlit-community-cloud/get-started/create-your-account
 
 Before you can start deploying apps for the world to see, you need to sign up for your Streamlit Community Cloud account.
 
-Each Community Cloud account is associated to an email. Two accounts can't have the same email. When sharing a private app, you will assign viewing privileges by email. Additionally, two accounts can't have the same source control (GitHub account). If you try to create a second Community Cloud account with the same source control, Community Cloud will merge the accounts.
+Each Community Cloud account is associated with an email. Two accounts can't have the same email. When sharing a private app, you will assign viewing privileges by email. Additionally, two accounts can't have the same source control (GitHub account). If you try to create a second Community Cloud account with the same source control, Community Cloud will merge the accounts.
 
 ## Sign up
 
@@ -46,7 +46,7 @@ Community Cloud allows you to sign in using one of the three following methods:
 
 1. Fill in your information, and click "**Continue**" at the bottom.
 
-   The "Primary email" field is prefilled with the email you used to sign in. If you change this email in the account setup form, it will only impact marketing emails; it will not reflect on your new account. To change the email associated to your account after it's created, see [Update your email address](/deploy/streamlit-community-cloud/manage-your-account/update-your-email).
+   The "Primary email" field is prefilled with the email you used to sign in. If you change this email in the account setup form, it will only impact marketing emails; it will not reflect on your new account. To change the email associated with your account after it's created, see [Update your email address](/deploy/streamlit-community-cloud/manage-your-account/update-your-email).
 
 ## Finish up
 

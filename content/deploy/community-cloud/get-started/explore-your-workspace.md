@@ -9,7 +9,7 @@ If you just [created your account](/deploy/streamlit-community-cloud/get-started
 
 ## Workspaces
 
-Each GitHub account and organization is associated to a workspace in Community Cloud. When you sign in to Community Cloud for the first time, you will land in your personal workspace associated to your GitHub user account. The upper-left corner of Community Cloud shows your current workspace.
+Each GitHub account and organization is associated with a workspace in Community Cloud. When you sign in to Community Cloud for the first time, you will land in your personal workspace associated with your GitHub user account. The upper-left corner of Community Cloud shows your current workspace.
 
 ![A new, empty workspace in Streamlit Community Cloud. The workspace owner is displayed in the upper-left corner.](/images/streamlit-community-cloud/workspace-empty-SM.png)
 

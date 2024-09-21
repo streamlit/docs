@@ -27,7 +27,7 @@ After you've [organized your files](/deploy/streamlit-community-cloud/deploy-you
 
 <Note>
 
-Streamlit Community Cloud supports all released [versions of Python that are still receiving security updates](https://devguide.python.org/versions/). Streamlit Community Cloud defaults to version 3.12. You can select a version of your choice from the "Python version" dropdown in the "Advanced settings" modal. If an app is running a version of Python that becomes unsupported, it will be forcibly upgraded to the oldest, supported version of Python and may break.
+Streamlit Community Cloud supports all released [versions of Python that are still receiving security updates](https://devguide.python.org/versions/). Streamlit Community Cloud defaults to version 3.12. You can select a version of your choice from the "Python version" dropdown in the "Advanced settings" modal. If an app is running a version of Python that becomes unsupported, it will be forcibly upgraded to the oldest supported version of Python and may break.
 
 </Note>
 
@@ -37,7 +37,7 @@ Streamlit Community Cloud supports all released [versions of Python that are sti
 
    For more information, see [Community Cloud secrets management](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
 
-1. Click "**Save**" when done.
+1. Click "**Save**."
 
 <div style={{ maxWidth: '70%', margin: 'auto' }}>
 <Image alt="Advanced settings for deploying your app" src="/images/streamlit-community-cloud/deploy-an-app-advanced.png" />
@@ -59,7 +59,7 @@ The Streamlit Community Cloud logs on the right-hand side of your app are only v
 
 ## View your app
 
-That's it — you're done! Your app now has a unique URL that you can share with others. Read more about how to [Share your app](/deploy/streamlit-community-cloud/share-your-app) with viewers.
+That's it&mdash;you're done! Your app now has a unique URL that you can share with others. Read more about how to [Share your app](/deploy/streamlit-community-cloud/share-your-app) with viewers.
 
 ### Unique subdomains
 

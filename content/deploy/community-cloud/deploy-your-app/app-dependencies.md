@@ -5,7 +5,7 @@ slug: /deploy/streamlit-community-cloud/deploy-your-app/app-dependencies
 
 # App dependencies for your Community Cloud app
 
-The main reason that apps fail to build properly is because Streamlit Community Cloud can't find your dependencies! There are two kinds of dependencies your app might have: Python dependencies and external dependencies. Python dependencies are other Python packages (just like Streamlit!) that you `import` into your script. External dependencies are less common, but they include any other software your script needs to function properly. Since Community Cloud runs on Linux, these will be Linux dependencies installed with `apt-get` outside the Python environment.
+The main reason that apps fail to build properly is because Streamlit Community Cloud can't find your dependencies! There are two kinds of dependencies your app might have: Python dependencies and external dependencies. Python dependencies are other Python packages (just like Streamlit!) that you `import` into your script. External dependencies are less common, but they include any other software your script needs to function properly. Because Community Cloud runs on Linux, these will be Linux dependencies installed with `apt-get` outside the Python environment.
 
 For your dependencies to be installed correctly, make sure you:
 
@@ -21,7 +21,7 @@ directory as your app's entrypoint file.
 
 ## Add Python dependencies
 
-With each `import` statement in your script, you are bringing in a Python dependency. You need to tell Community Cloud how to install those dependencies through a Python package manager. We recommend using a `requirements.txt` which is based on `pip`.
+With each `import` statement in your script, you are bringing in a Python dependency. You need to tell Community Cloud how to install those dependencies through a Python package manager. We recommend using a `requirements.txt` file, which is based on `pip`.
 
 You should _not_ include <a href="https://docs.python.org/3/py-modindex.html" target="_blank">built-in Python libraries</a> like `math` or `random` in your `requirements.txt` file. These are a part of Python and aren't installed separately. Also, Community Cloud has `streamlit` installed by default. You don't strictly need to include `streamlit` unless you want to pin or restrict the version. If you deploy an app without a `requirements.txt` file, your app will run in an environment with just `streamlit` (and its dependencies) installed.
 
@@ -61,7 +61,7 @@ In the above example, `streamlit` is pinned to version `1.24.1`, `pandas` must b
 
 ### Other Python package managers
 
-There are other Python package managers besides `pip`. If you want to consider alternatives to using a `requirements.txt` file, Community Cloud will look for other Python dependency managers to use in the order below. Streamlit will stop and install the first dependency file found.
+There are other Python package managers in addition to `pip`. If you want to consider alternatives to using a `requirements.txt` file, Community Cloud will look for and use the first dependency file it finds in the following order:
 
 <table style={{ textAlign: 'center' }}>
     <tr>

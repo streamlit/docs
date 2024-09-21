@@ -26,7 +26,7 @@ The template picker shows a list of available templates on the left. A preview f
    When you deploy a template, Community Cloud forks the template repository into your GitHub account. Community Cloud chooses a default name for this repository based on the selected template. If you have previously deployed the same template with its default name, Community Cloud will append an auto-incrementing number to the name.
 
    <Note>
-       Even if you have another user's or organization's workspace selected, Community Cloud will always deploy a template app from your personal workspace. Hence, Community Cloud will always fork a template into your GitHub user account. If you want to deploy a template app from an organization, manually fork the template in GitHub, and deploy it from your fork in the associated workspace.
+       Even if you have another user's or organization's workspace selected, Community Cloud will always deploy a template app from your personal workspace. That is, Community Cloud will always fork a template into your GitHub user account. If you want to deploy a template app from an organization, manually fork the template in GitHub, and deploy it from your fork in the associated workspace.
    </Note>
 
 1. Optional: In the "App URL" field, choose a subdomain for your new app.
@@ -37,9 +37,7 @@ The template picker shows a list of available templates on the left. A preview f
 
    You can create a codespace for your app at any time. To learn how to create a codespace after you've deployed an app, see [Edit your app](/deploy/streamlit-community-cloud/manage-your-app/edit-your-app).
 
-1. Optional: At the bottom of the screen, click "**Advanced settings**" to choose a different version of Python.
-
-   After you change the Python version in the "Advanced settings" dialog, click "**Save**."
+1. Optional: To change the version of Python, at the bottom of the screen, click "**Advanced settings**," select a Python version, and then click "**Save**."
 
    <Important>
        After an app is deployed, you can't change the version of Python without deleting and redeploying the app. 
