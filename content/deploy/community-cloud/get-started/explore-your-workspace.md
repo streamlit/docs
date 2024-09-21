@@ -9,7 +9,7 @@ If you just [created your account](/deploy/streamlit-community-cloud/get-started
 
 ## Workspaces
 
-Each GitHub account and organization is associated to a workspace in Community Cloud. When you sign in to Community Cloud for the first time, you will land in your personal workspace associated to your GitHub user account. The upper-left corner of Commuity Cloud shows your current workspace.
+Each GitHub account and organization is associated to a workspace in Community Cloud. When you sign in to Community Cloud for the first time, you will land in your personal workspace associated to your GitHub user account. The upper-left corner of Community Cloud shows your current workspace.
 
 ![A new, empty workspace in Streamlit Community Cloud. The workspace owner is displayed in the upper-left corner.](/images/streamlit-community-cloud/workspace-empty-SM.png)
 
@@ -32,7 +32,7 @@ Streamlit Community Cloud inherits developer permissions from GitHub. When other
 
 <Note>
 
-Once a user is added to a repository on GitHub, it will take at most 15 minutes before they can deploy or manage the app on Community Cloud. If a user is removed from a repository on GitHub, it will take at most 15 minutes before their permission to manage the app from that repository is revoked.
+When a user is added to a repository on GitHub, it will take at most 15 minutes before they can deploy or manage the app on Community Cloud. If a user is removed from a repository on GitHub, it will take at most 15 minutes before their permission to manage the app from that repository is revoked.
 
 </Note>
 
@@ -46,7 +46,7 @@ The "**My apps**" section of your workspace is your base of operations to deploy
 
 If you already have an app saved to a GitHub repo, you can deploy it directly. Otherwise, Community Cloud provides templates you can use. When you deploy from a template, Community Cloud will fork a project into your GitHub account and deploy from the new fork. This is a convenient way to get started if you haven't already created a Streamlit app.
 
-Just click "**Create app**" in the upper-right corner to get started. To learn more, see [Deploy your app](/deploy/streamlit-community-cloud/deploy-your-app) and [Deploy from a template](/deploy/streamlit-community-cloud/get-started/deploy-from-a-template).
+To get started, just click "**Create app**" in the upper-right corner. To learn more, see [Deploy your app](/deploy/streamlit-community-cloud/deploy-your-app) and [Deploy from a template](/deploy/streamlit-community-cloud/get-started/deploy-from-a-template).
 
 ## My profile
 

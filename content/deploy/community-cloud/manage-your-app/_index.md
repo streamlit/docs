@@ -35,7 +35,7 @@ If you have view-only access to an app, all options in the app's menu will be di
 
 ## Manage your app directly from your app
 
-You can manage your deployed app directly from the app itself! Just make sure you are signed in to Community Cloud then visit your app.
+You can manage your deployed app directly from the app itself! Just make sure you are signed in to Community Cloud, and then visit your app.
 
 ### Cloud logs
 
@@ -89,7 +89,7 @@ Streamlit also smartly detects whether you touched your dependencies, in which c
 
 ### Add or remove dependencies
 
-You can add or remove dependencies at any point by updating `requirements.txt` (Python dependenciess) or `packages.txt` (Linux dependencies) and committing the changes to your repository on GitHub. This will cause Community Cloud to detect there was a change in your dependencies and automatically trigger (re)installation.
+To add or remove dependencies at any point, just update `requirements.txt` (Python dependenciess) or `packages.txt` (Linux dependencies) and commit the changes to your repository on GitHub. Community Cloud detects the change in your dependencies and automatically triggers (re)installation.
 
 It is best practice to pin your Streamlit version in `requirements.txt`. Otherwise, the version may be auto-upgraded at any point without your knowledge, which could lead to undesired results (e.g. when we deprecate a feature in Streamlit).
 

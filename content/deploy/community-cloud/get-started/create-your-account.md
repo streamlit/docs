@@ -18,11 +18,11 @@ Community Cloud allows you to sign in using one of the three following methods:
 - GitHub
 
 <Important>
-    Even when signing in through GitHub, the authentication flow returns your email address to Community Cloud. Changing the email on your GitHub account can affect your Community Cloud account if you sign in through GitHub.
+    Even when you sign in through GitHub, the authentication flow returns your email address to Community Cloud. Changing the email on your GitHub account can affect your Community Cloud account if you sign in through GitHub.
 </Important>
 
 1. Go to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>.
-1. Click "**Continue to sign-in**".
+1. Click "**Continue to sign-in**."
 1. Continue with one of the three options listed below.
 
    ### Option 1: Sign in using emailed codes

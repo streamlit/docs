@@ -5,14 +5,14 @@ slug: /deploy/streamlit-community-cloud/manage-your-account/sign-in-sign-out
 
 # Sign in & sign out
 
-Once you've created your account, you can sign in to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a> as described by the options below.
+After you've created your account, you can sign in to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a> as described by the following options.
 
 ![Sign in to Streamlit Community Cloud](/images/streamlit-community-cloud/account-sign-in.png)
 
 ## Sign in with Google
 
 1. Click "**Continue to sign-in**."
-1. Click "**Continue with Google**".
+1. Click "**Continue with Google**."
 1. Enter your Google account credentials and follow the prompts.
 
 If your account is already linked to GitHub, you may be immediately prompted to sign in with GitHub.
@@ -20,7 +20,7 @@ If your account is already linked to GitHub, you may be immediately prompted to 
 ## Sign in with GitHub
 
 1. Click "**Continue to sign-in**."
-1. Click "**Continue with GitHub**".
+1. Click "**Continue with GitHub**."
 1. Enter your GitHub credentials and follow the prompts.
 
 <Important>

@@ -11,7 +11,7 @@ Community Cloud is all about learning, sharing, and exploring the world of Strea
 
    ![Click Fork in the upper-right corner of a public app](/images/streamlit-community-cloud/fork-public-hello.png)
 
-1. (Optional) In the "App URL" field, choose a custom subdomain for your app.
+1. Optional: In the "App URL" field, choose a custom subdomain for your app.
 
    Every Community Cloud app is deployed to a subdomain on `streamlit.app`, but you can change your app's subdomain at any time. For more information, see [App settings](/deploy/streamlit-community-cloud/manage-your-app/app-settings).
 
@@ -31,12 +31,12 @@ Community Cloud is all about learning, sharing, and exploring the world of Strea
 
 1. Wait for GitHub to set up your codespace.
 
-   It can take several minutes to fully initialize your codespace. After you see the Visual Studio Code editor in your codespace, it can take several minutes to install Python and start the Streamlit server. When complete, you will see a split screen view with a code editor on the left and a running app on the right. The code editor opens two tabs by default: the repository's readme file and the app's entrypoint file.
+   It can take several minutes to fully initialize your codespace. After the Visual Studio Code editor appears in your codespace, it can take several minutes to install Python and start the Streamlit server. When complete, a split screen view displays a code editor on the left and a running app on the right. The code editor opens two tabs by default: the repository's readme file and the app's entrypoint file.
 
    ![Click Fork to confirm and deploy your app](/images/streamlit-community-cloud/fork-public-hello-codespace.png)
 
    <Important>
-      When working with a codespace, the app you see in your codespace is not the same instance you deployed on Community Cloud. Your codespace is a self-contained development environment. When you make edits inside a codespace, those edits don't leave the codespace until you commit them to your repository. When you commit your changes to your repository, Community Cloud detects the changes and updates your deployed app. To learn more, see [Edit your app](/deploy/streamlit-community-cloud/manage-your-app/edit-your-app).
+      The app displayed in your codespace is not the same instance you deployed on Community Cloud. Your codespace is a self-contained development environment. When you make edits inside a codespace, those edits don't leave the codespace until you commit them to your repository. When you commit your changes to your repository, Community Cloud detects the changes and updates your deployed app. To learn more, see [Edit your app](/deploy/streamlit-community-cloud/manage-your-app/edit-your-app).
    </Important>
 
 1. Edit your newly forked app as desired. For more instructions on working with GitHub Codespaces, see [Edit your app](/deploy/streamlit-community-cloud/manage-your-app/edit-your-app).

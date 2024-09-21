@@ -19,27 +19,27 @@ Spin up a cloud-based development environment for your deployed app in minutes. 
 
    ![Edit your app with GitHub Codespaces](/images/streamlit-community-cloud/workspace-app-edit.png)
 
-   Community Cloud will add a `.devcontainer/devcontainer.json` file to your repository. If you already have a file of the same name in your repository, it will not be changed. You may delete or rename your existing devcontainer configuration if you would like your repository to receive the instance created by Community Cloud.
+   Community Cloud will add a `.devcontainer/devcontainer.json` file to your repository. If you already have a file of the same name in your repository, it will not be changed. If you want your repository to receive the instance created by Community Cloud, delete or rename your existing devcontainer configuration.
 
 1. Wait for GitHub to set up your codespace.
 
-   It can take several minutes to fully initialize your codespace. After you see the Visual Studio Code editor in your codespace, it can take several minutes to install Python and start the Streamlit server. When complete, you will see a split screen view with a code editor on the left and a running app on the right. The code editor opens two tabs by default: the repository's readme file and the app's entrypoint file.
+   It can take several minutes to fully initialize your codespace. After the Visual Studio Code editor appears in your codespace, it can take several minutes to install Python and start the Streamlit server. When complete, a split screen view displays a code editor on the left and a running app on the right. The code editor opens two tabs by default: the repository's readme file and the app's entrypoint file.
 
    ![Your new GitHub Codespace](/images/streamlit-community-cloud/deploy-template-blank-codespace.png)
 
-1. (Optional) Open the app preview in another tab for more room to work.
+1. Optional: For more room to work, open the app preview in another tab.
 
-   If you have multiple monitors and would like a little more room to work, you can open your app preview in another tab instead of using the Simple Browser with Visual Studio code. Just copy the URL from the Simple Browser into another tab, then close the Simple Browser. Now you have more room to edit your code. This page will continue to refer to your code on the left and your preview on the right.
+   If you have multiple monitors and want a little more room to work, open your app preview in another tab instead of using the Simple Browser with Visual Studio code. Just copy the URL from the Simple Browser into another tab, and then close the Simple Browser. Now you have more room to edit your code. This page will continue to display your code on the left and your preview on the right.
 
 1. Make a change to your app.
 
-   When you make changes to your app, the file is automatically saved within your codespace. Your edits do not affect your repository or deployed app until you commit those changes. We will describe committing your changes in a later step. The app preview shown on the right is local to your codespace.
+   When you make changes to your app, the file is automatically saved within your codespace. Your edits do not affect your repository or deployed app until you commit those changes, which is explained in a later step. The app preview shown on the right is local to your codespace.
 
 1. In order to see updates automatically reflected on the right, click "**Always rerun**" when prompted after your first edit.
 
    ![Select "Always rerun" to automatically see edits in your running app](/images/streamlit-community-cloud/deploy-template-blank-codespace-edit.png)
 
-   Alternatively, you can click "**Rerun**" to avoid unecessary reruns while writing code. Since your code will continually resave, automatically rerunning the app will raises errors when you pause partway through a line of code. Regardless which you choose, you can change the setting through the app chrome. Just click the the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) in the upper-right corner of your preview app, click "**Settings**," and toggle "**Run on save**."
+   Alternatively, you can click "**Rerun**" to avoid unnecessary reruns while writing code. Because your code is continually saved, automatically rerunning the app will raises errors when you pause partway through a line of code. Regardless of which you choose, you can change the setting through the app chrome. Just click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) in the upper-right corner of your preview app, click "**Settings**," and then toggle "**Run on save**."
 
 1. Continue to edit your app. Your codespace will continue to automatically save your files as you work with them, and the preview will continue to update as the app reruns.
 
@@ -56,13 +56,13 @@ After making edits to your app, you can choose to commit your edits to your repo
 
    ![See your deployed Streamlit app](/images/streamlit-community-cloud/deploy-template-blank-codespace-edit-commit.png)
 
-1. In the confirmation dialog, click "**Yes**" to stage and commit all your changes. Your changes are committed locally in your codespace.
-1. In the source control sidebar on the left, click "**<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>cached</i> 1 <i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>arrow_upward</i>**" to push your commit to GitHub.
-1. In the confirmation dialog, click "**OK**" to push commits to "origin/main."
+1. To stage and commit all your changes, in the confirmation dialog, click "**Yes**." Your changes are committed locally in your codespace.
+1. To push your commit to GitHub, in the source control sidebar on the left, click "**<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>cached</i> 1 <i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>arrow_upward</i>**."
+1. To push commits to "origin/main," in the confirmation dialog, click "**OK**."
 
    Your changes are now saved to your GitHub repository. Community Cloud will immediately reflect the changes in your deployed app.
 
-1. (Optional) Return to the "**My apps**" section of your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>. Click on your app to see your updated, published app.
+1. Optional: To see your updated, published app, return to the "**My apps**" section of your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, and click on your app.
 
 ### Stop or delete your codespace
 

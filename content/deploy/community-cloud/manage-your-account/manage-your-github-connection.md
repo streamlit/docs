@@ -7,17 +7,17 @@ slug: /deploy/streamlit-community-cloud/manage-your-account/manage-your-github-c
 
 If you have created an account but not yet connected GitHub, see [Connect your GitHub account](/deploy/streamlit-community-cloud/get-started/connect-your-github-account).
 
-If you have already connected your GitHub account, but still need to allow Streamlit Community Cloud to access private repositories, see [Optional: Add access to private repositories](/deploy/streamlit-community-cloud/get-started/connect-your-github-account#optional-add-access-to-private-repositories).
+If you have already connected your GitHub account but still need to allow Streamlit Community Cloud to access private repositories, see [Optional: Add access to private repositories](/deploy/streamlit-community-cloud/get-started/connect-your-github-account#optional-add-access-to-private-repositories).
 
 ## Add access to an organization
 
-If you are in an organization, you can grant or request access to that organization when you connect your GitHub account. For more informaiton, see [Organization access](/deploy/streamlit-community-cloud/get-started/connect-your-github-account#organization-access).
+If you are in an organization, you can grant or request access to that organization when you connect your GitHub account. For more information, see [Organization access](/deploy/streamlit-community-cloud/get-started/connect-your-github-account#organization-access).
 
-If your GitHub account is already connected, you can remove permissions in your GitHub settings and force Streamlit to reprompt for GitHub authorization the next time you sign into Community Cloud.
+If your GitHub account is already connected, you can remove permissions in your GitHub settings and force Streamlit to reprompt for GitHub authorization the next time you sign in to Community Cloud.
 
 ### Revoke and reauthorize
 
-1. From your workspace, click on your workspace name in the upper-right corner. Click "**Sign out**" to sign out of Community Cloud.
+1. From your workspace, click on your workspace name in the upper-right corner. To sign out of Community Cloud, click "**Sign out**." 
 
    ![Sign out of Streamlit Community Cloud](/images/streamlit-community-cloud/account-sign-out.png)
 
@@ -32,7 +32,7 @@ If your GitHub account is already connected, you can remove permissions in your 
    <Image alt="Revoke access for Streamlit to access your GitHub account" src="/images/streamlit-community-cloud/GitHub-revoke.png" />
    </div>
 
-1. Click "**I understand, revoke access**".
+1. Click "**I understand, revoke access**."
 
   <div style={{ maxWidth: '50%', margin: 'auto' }}>
   <Image alt="Confirm to revoke access for Streamlit to your GitHub account" src="/images/streamlit-community-cloud/GitHub-revoke-confirm.png" />

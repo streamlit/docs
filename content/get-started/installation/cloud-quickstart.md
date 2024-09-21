@@ -117,11 +117,11 @@ If you already created a Community Cloud account and connected GitHub, jump ahea
 
    Your changes are now saved to your GitHub repository. Community Cloud will immediately reflect the changes in your deployed app.
 
-1. (Optional) Return to the "**My apps**" section of your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>. Click on your app to see your updated, published app.
+1. Optional: To see your updated, published app, return to the "**My apps**" section of your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, and click on your app.
 
 ## Learn Streamlit fundamentals
 
-If you haven't learned Streamlit's basic concepts yet, nows a great time to go to [Fundamentals](/get-started/fundamentals). Use your codespace to walk through and try basic Streamlit commands. When finished, come back here to learn how to clearn up your codespace.
+If you haven't learned Streamlit's basic concepts yet, this is a great time to go to [Fundamentals](/get-started/fundamentals). Use your codespace to walk through and try basic Streamlit commands. When finished, come back here to learn how to clean up your codespace.
 
 ## Stop or delete your codespace
 
@@ -133,13 +133,13 @@ When you stop interacting with your codespace, GitHub will generally stop your c
 <Image alt="Stop or delete your GitHub Codespace" src="/images/streamlit-community-cloud/deploy-hello-codespace-manage.png" />
 </div>
 
-2. Click "**Stop codespace**" if you'd like to return to your work later. Otherwise, click "**Delete**."
+2. If you want to return to your work later, click "**Stop codespace**." Otherwise, click "**Delete**."
 
    <div style={{ maxWidth: '40%', margin: 'auto' }}>
    <Image alt="Stop your GitHub codespace" src="/images/streamlit-community-cloud/codespace-menu.png" />
    </div>
 
-3. Congratulations! You just deployed an app to Streamlit Community Cloud. 🎉 Head back to your workspace at <a href="https://share.streamlit.io/" target="_blank">share.streamlit.io/</a> and [deploy another Streamlit app](/deploy/streamlit-community-cloud/deploy-your-app).
+3. Congratulations! You just deployed an app to Streamlit Community Cloud. 🎉 Return to your workspace at <a href="https://share.streamlit.io/" target="_blank">share.streamlit.io/</a> and [deploy another Streamlit app](/deploy/streamlit-community-cloud/deploy-your-app).
 
    <div style={{ maxWidth: '90%', margin: 'auto' }}>
    <Image alt="See your deployed Streamlit app" src="/images/streamlit-community-cloud/deploy-template-blank-edited.png" />

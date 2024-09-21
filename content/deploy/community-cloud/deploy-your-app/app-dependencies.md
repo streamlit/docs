@@ -10,7 +10,7 @@ The main reason that apps fail to build properly is because Streamlit Community 
 For your dependencies to be installed correctly, make sure you:
 
 1. Add a [requirements file](#add-python-dependencies) for Python dependencies.
-2. (Optional) Add a `packages.txt` file to manage any external dependencies.
+2. Optional: To manage any external dependencies, add a `packages.txt` file.
 
 <Note>
 
@@ -94,7 +94,7 @@ You should only use one requirements file for your app. If you include more than
 
 ## apt-get dependencies
 
-For many apps, a `packages.txt` file is not required. However, if your script requires any software to be installed that is not a Python package, then you will need a `packages.txt` file. Community Cloud is built on Debian Linux. Anything you would like to `apt-get install` needs to go in your `packages.txt` file.
+For many apps, a `packages.txt` file is not required. However, if your script requires any software to be installed that is not a Python package, you need a `packages.txt` file. Community Cloud is built on Debian Linux. Anything you want to `apt-get install` must go in your `packages.txt` file.
 
 If `packages.txt` exists in the root directory of your repository we automatically detect it, parse it, and install the listed packages. You can read more about apt-get in <a href="https://linux.die.net/man/8/apt-get" target="_blank">Linux documentation</a>.
 

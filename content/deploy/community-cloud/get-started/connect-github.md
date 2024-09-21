@@ -11,7 +11,7 @@ Connecting GitHub to your Streamlit Community Cloud account allows you to deploy
     You must have **admin** permissions to a repository in order to deploy apps. If you don't have admin access, talk to the repository's owner or fork the repository to create your own copy. Reach out to us on the <a href="https://discuss.streamlit.io/" target="_blank">Community forum</a> for more help.
 </Important>
 
-If you are a member of a GitHub organization, you will see that organization at the bottom of each GitHub OAuth prompt. In this case, we recommend reading about [Organization access](#organization-access) at the end of this page before performing the steps to connect your GitHub account. You must be an organization's owner in GitHub to grant access to that organization.
+If you are a member of a GitHub organization, that organization is displayed at the bottom of each GitHub OAuth prompt. In this case, we recommend reading about [Organization access](#organization-access) at the end of this page before performing the steps to connect your GitHub account. You must be an organization's owner in GitHub to grant access to that organization.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ If you are a member of a GitHub organization, you will see that organization at 
 
 ## Add access to public repositories
 
-1. In the upper-left corner, click on "**Workspaces <i style={{ verticalAlign: "-.25em", color: "#ff8700" }} className={{ class: "material-icons-sharp" }}>warning</i>**."
+1. In the upper-left corner, click "**Workspaces <i style={{ verticalAlign: "-.25em", color: "#ff8700" }} className={{ class: "material-icons-sharp" }}>warning</i>**."
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
 <Image alt="Connect your GitHub account to a new Community Cloud account" src="/images/streamlit-community-cloud/workspace-unconnected-setup.png" />
@@ -28,7 +28,7 @@ If you are a member of a GitHub organization, you will see that organization at 
 
 1. From the drop down, click "**Connect GitHub account**."
 1. Enter your GitHub credentials and follow GitHub's authentication prompts.
-1. Click "**Authorize streamlit**".
+1. Click "**Authorize streamlit**."
 
    <div style={{ maxWidth: '40%', margin: 'auto' }}>
    <Image alt="Authorize Community Cloud to connect to your GitHub account" src="/images/streamlit-community-cloud/GitHub-auth1-none.png" />
