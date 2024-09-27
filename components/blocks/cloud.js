@@ -88,7 +88,7 @@ const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
     <section className="overflow-hidden rounded-xl border border-gray-40 my-4 flex flex-col">
       <iframe
         src={frameSrc}
-        allow="camera;clipboard-read;clipboard-write;"
+        allow="camera;microphone;clipboard-read;clipboard-write;"
         loading="lazy"
         className="w-full"
         style={style}
