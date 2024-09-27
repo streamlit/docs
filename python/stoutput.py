@@ -2,24 +2,44 @@
 """
 from docutils import nodes
 from docutils.parsers.rst import Directive
-
+import re
 
 class StOutput(Directive):
-    """Insert Streamlit app into HTML doc.
+    """Convert the ".. output" directive into a <Cloud> component.
 
-    The first argument is a URL to be iframed, and the second argument
-    (optional) is a string of inline styles to assign to the iframe.
+    The ".. output::" directive looks like this:
+
+    .. output::
+       URL
+       STYLE
+
+    And it outputs something like:
+
+        <Cloud name="SUBDOMAIN" path="SUBPATH" query="QUERYPARAMS" stylePlaceholder="STYLE" />
+
+    ...where every attribute is guaranteed to be present (even when empty) and there's always
+    exactly one space before/after each attribute.
+
+    Parameters
+    ----------
+        URL
+            The full path of the Streamlit app to embed, including protocol.
+        STYLE (optional)
+            A string of inline styles.
 
     Examples
     --------
 
-        .. output::
-        https://static.streamlit.io/0.25.0-2EdmD/index.html?id=jD8gaXYmw8WZeSNQbko9p
+    .. output::
+       https://foo.bar.baz
 
-        .. output::
-        https://static.streamlit.io/0.25.0-2EdmD/index.html?id=jD8gaXYmw8WZeSNQbko9p
-        height: 5rem; border: 1px solid red;
+       <Cloud name="foo" path="" query="" stylePlaceholder="" />
 
+    .. output::
+       https://foo.bar.baz/bleep/bloop?plim=plom
+       height: 5rem; border: 1px solid red;
+
+       <Cloud name="foo" path="bleep/bloop" query="plim=plom" stylePlaceholder="height: 5rem; border: 1px solid red;" />
     """
 
     has_content = True
@@ -29,35 +49,36 @@ class StOutput(Directive):
 
     def run(self):
         src = self.arguments[0]
-
         if not src.startswith("https://"):
             raise ValueError(
-                "Iframed URLs in docs should be HTTPS!\n" "--> Culprit: %s" % src
+                f"Please use HTTPS in '.. output::' directives\n--> Culprit: {src}"
             )
-
         if len(self.arguments) > 1:
             additional_styles = self.arguments[1]
         else:
-            additional_styles = "height: 10rem;"
+            additional_styles = ""
+        name, path, query = re.findall(
+            r'https:\/\/([^\/\s]+)\.streamlit\.app\/?([^?\s]+)?\??([\S]+)?', src)[0]
+
+        if name=="":
+            raise ValueError(
+                f"Custom subdomain was not recognized.\n--> Culprit: {src}"
+            )
+
+        component = (
+            '<Cloud'
+            f' name="{name}"'
+            f' path="{path}"'
+            f' query="{query}"'
+            f' stylePlaceholder="{additional_styles}"'
+            ' />')
 
         node = nodes.raw(
-            rawsource="",
             format="html",
-            text="""
-                <iframe
-                    loading="lazy"
-                    src="%(src)s?embed=true"
-                    style="
-                        width: 100%%;
-                        border: none;
-                        margin-bottom: 1rem;
-                        %(additional_styles)s
-                    "
-                    allow="camera;clipboard-read;clipboard-write;"
-                ></iframe>
-            """
-            % {"src": src, "additional_styles": additional_styles},
+            text=component,
+            rawsource=component
         )
+
         return [node]
 
 

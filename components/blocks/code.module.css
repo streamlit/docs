@@ -75,6 +75,13 @@
   @apply inline;
 }
 
+.Pre code :global(.deleted) {
+  @apply text-red-70 bg-red-70 bg-opacity-20;
+}
+.Pre code :global(.inserted) {
+  @apply text-green-70 bg-green-70 bg-opacity-20;
+}
+
 /* Dark mode adjustments */
 :global(.dark) .Pre code :global(.operator),
 :global(.dark) .Pre code :global(.decorator) {

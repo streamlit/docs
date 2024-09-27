@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import reverse from "lodash/reverse";
 import classNames from "classnames";
 import Table from "./table";
-import { H2 } from "./headers";
+import { H2, H3 } from "./headers";
 import Warning from "./warning";
 import Deprecation from "./deprecation";
 import { withRouter, useRouter } from "next/router";
@@ -31,6 +31,7 @@ const Autofunction = ({
   hideHeader,
   deprecated,
   deprecatedText,
+  oldStreamlitFunction,
 }) => {
   const blockRef = useRef();
   const router = useRouter();
@@ -133,7 +134,8 @@ const Autofunction = ({
   };
 
   const handleSelectVersion = (event) => {
-    const functionObject = streamlit[streamlitFunction];
+    const functionObject =
+      streamlit[streamlitFunction] ?? streamlit[oldStreamlitFunction];
     const slicedSlug = slug.slice();
 
     if (event.target.value !== currentVersion) {
@@ -165,14 +167,18 @@ const Autofunction = ({
   let functionObject;
   let functionDescription;
   let header;
+  let headerTitle;
   let body;
   let isClass;
+  let isAttributeDict;
   let methods = [];
   let properties = [];
 
-  if (streamlitFunction in streamlit) {
-    functionObject = streamlit[streamlitFunction];
+  if (streamlitFunction in streamlit || oldStreamlitFunction in streamlit) {
+    functionObject =
+      streamlit[streamlitFunction] ?? streamlit[oldStreamlitFunction];
     isClass = functionObject.is_class;
+    isAttributeDict = functionObject.is_attribute_dict ?? false;
     if (
       functionObject.description !== undefined &&
       functionObject.description
@@ -232,14 +238,34 @@ const Autofunction = ({
   if (hideHeader !== undefined && hideHeader) {
     header = "";
   } else {
-    const functionName = functionObject.signature
+    const name = functionObject.signature
       ? `${functionObject.signature}`.split("(")[0].replace("streamlit", "st")
       : "";
-    const name =
-      String(functionObject.name).startsWith("html") ||
-      String(functionObject.name).startsWith("iframe")
-        ? `st.components.v1.${functionObject.name}`
-        : functionName;
+    headerTitle = isAttributeDict ? (
+      <H3 className={styles.Title}>
+        <a
+          aria-hidden="true"
+          tabIndex="-1"
+          href={`#${cleanHref(name)}`.toLowerCase()}
+          className="absolute"
+        >
+          <span className="icon icon-link"></span>
+        </a>
+        {name}
+      </H3>
+    ) : (
+      <H2 className={styles.Title}>
+        <a
+          aria-hidden="true"
+          tabIndex="-1"
+          href={`#${cleanHref(name)}`.toLowerCase()}
+          className="absolute"
+        >
+          <span className="icon icon-link"></span>
+        </a>
+        {name}
+      </H2>
+    );
     header = (
       <div className={styles.HeaderContainer}>
         <div
@@ -248,17 +274,7 @@ const Autofunction = ({
             relative
           `}
         >
-          <H2 className={styles.Title}>
-            <a
-              aria-hidden="true"
-              tabIndex="-1"
-              href={`#${cleanHref(name)}`.toLowerCase()}
-              className="absolute"
-            >
-              <span className="icon icon-link"></span>
-            </a>
-            {name}
-          </H2>
+          {headerTitle}
           <VersionSelector
             versionList={versionList}
             currentVersion={currentVersion}
@@ -296,15 +312,15 @@ const Autofunction = ({
     footers.push({ title: "Warning", body: functionObject.warning });
   }
 
-  // propertiesRows is initialized early to allow "Parameters" in any class
-  // docstring to be diverted to the properties section. Docstring parsing
-  // needs modification to first recognize "Attributes" or "Properites" then
-  // parse their contents.
+  // propertiesRows is initialized early to allow Attributes (recorded as args)
+  // in any class docstring to be diverted to the properties section.
   let propertiesRows = [];
+  let docstringProperties = []; // Used to avoid duplicates with @property
 
   for (const index in functionObject.args) {
     const row = {};
     const param = functionObject.args[index];
+    docstringProperties.push(param.name);
     const isDeprecated =
       param.deprecated && param.deprecated.deprecated === true;
     const deprecatedMarkup = isDeprecated
@@ -404,6 +420,10 @@ const Autofunction = ({
   for (const index in properties) {
     const row = {};
     const property = properties[index];
+    // If attribute is in class docstring don't also show the same @property.
+    if (docstringProperties.includes(property.name)) {
+      continue;
+    }
     const slicedSlug = slug.slice().join("/");
     const hrefName = `${functionObject.name}.${property.name}`
       .toLowerCase()
@@ -453,25 +473,31 @@ const Autofunction = ({
 
   body = (
     <Table
-      head={{
-        title: (
-          <>
-            {isClass ? "Class description" : "Function signature"}
-            <a
-              className={styles.Title.a}
-              href={functionObject.source}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={
-                "View st." + functionObject.name + " source code on GitHub"
-              }
-            >
-              [source]
-            </a>
-          </>
-        ),
-        content: `<p class='code'> ${functionObject.signature}</p> `,
-      }}
+      head={
+        isAttributeDict
+          ? ""
+          : {
+              title: (
+                <>
+                  {isClass ? "Class description" : "Function signature"}
+                  <a
+                    className={styles.Title.a}
+                    href={functionObject.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={
+                      "View st." +
+                      functionObject.name +
+                      " source code on GitHub"
+                    }
+                  >
+                    [source]
+                  </a>
+                </>
+              ),
+              content: `<p class='code'> ${functionObject.signature}</p> `,
+            }
+      }
       body={args.length ? { title: "Parameters" } : null}
       bodyRows={args.length ? args : null}
       foot={[

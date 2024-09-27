@@ -1,5 +1,5 @@
 .Container {
-  @apply relative w-screen z-30 border-b;
+  @apply relative w-full z-30 border-b;
   @apply bg-white !important;
 }
 
@@ -37,7 +37,7 @@
 }
 
 :global(.dark) .LogoText {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 .NavigationContainer {

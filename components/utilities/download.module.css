@@ -4,5 +4,5 @@
 }
 
 :global(.dark) .Link {
-  @apply text-white border-b-white !important;
+  @apply text-gray-40 border-b-white !important;
 }

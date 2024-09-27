@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import { getMenu, getGDPRBanner, getCookieSettings } from "../lib/api";
+import { getMenu } from "../lib/api";
 
 import Layout from "../components/layouts/globalTemplate";
 import Footer from "../components/navigation/footer";
@@ -35,7 +35,7 @@ import { attributes } from "../content/index.md";
 
 import styles from "../components/layouts/container.module.css";
 
-export default function Home({ window, menu, gdpr_data, cookie_data }) {
+export default function Home({ window, menu }) {
   let { description } = attributes;
 
   const [isTelemetryModalVisible, setIsTelemetryModalVisible] = useState(false);
@@ -96,14 +96,12 @@ export default function Home({ window, menu, gdpr_data, cookie_data }) {
       </Head>
       {isTelemetryModalVisible && (
         <CookieSettingsModal
-          {...cookie_data}
           setIsTelemetryModalVisible={setIsTelemetryModalVisible}
           allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
           declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
         />
       )}
       <GDPRBanner
-        {...gdpr_data}
         isTelemetryModalVisible={isTelemetryModalVisible}
         setIsTelemetryModalVisible={setIsTelemetryModalVisible}
         isTelemetryBannerVisible={isTelemetryBannerVisible}
@@ -120,10 +118,9 @@ export default function Home({ window, menu, gdpr_data, cookie_data }) {
             <H1>Streamlit documentation</H1>
             <p>
               <a href="https://www.streamlit.io">Streamlit</a> is an open-source
-              Python library that makes it easy to create and share beautiful,
-              custom web apps for machine learning and data science. In just a
-              few minutes you can build and deploy powerful data apps. So let's
-              get started!
+              Python framework for data scientists and AI/ML engineers to
+              deliver dynamic data apps with only a few lines of code. Build and
+              deploy powerful data apps in minutes. Let's get started!
             </p>
 
             <Spacer size="2rem" />
@@ -147,29 +144,30 @@ export default function Home({ window, menu, gdpr_data, cookie_data }) {
                 bold="Get started"
                 href="/get-started"
               >
-                introduces you to the world of Streamlit! Learn the fundamental
-                concepts, set up your development environment, and start coding!
+                with Streamlit! Set up your development environment and learn
+                the fundamental concepts, and start coding!
               </InlineCallout>
               <InlineCallout
                 color="indigo-70"
                 icon="description"
-                bold="Streamlit library"
-                href="/library/api-reference"
+                bold="Develop"
+                href="/develop"
               >
-                includes our API reference, and guides to all of Streamlit's
-                features in the core library including caching, theming,
-                Streamlit Components, and more!
+                your Streamlit app! Our API reference explains each Streamlit
+                function with examples. Dive deep into all of our features with
+                conceptual guides. Try out our step-by-step tutorials.
               </InlineCallout>
               <InlineCallout
                 color="lightBlue-70"
                 icon="cloud"
-                bold="Streamlit Community Cloud"
-                href="/streamlit-community-cloud"
+                bold="Deploy"
+                href="/deploy"
               >
-                is an open and free platform for the community to deploy,
-                discover, and share Streamlit apps and code with each other.
-                Create a new app, share it with the community, get feedback,
-                iterate quickly with live code updates, and have an impact!
+                your Streamlit app! Streamlit Community Cloud our free platform
+                for deploying and sharing Streamlit apps. Streamlit in Snowflake
+                is an enterprise-class solution where you can house your data
+                and apps in one, unified, global system. Explore all your
+                options!
               </InlineCallout>
               <InlineCallout
                 color="darkBlue-70"
@@ -177,9 +175,9 @@ export default function Home({ window, menu, gdpr_data, cookie_data }) {
                 bold="Knowledge base"
                 href="/knowledge-base"
               >
-                is a self-serve library of tips, step-by-step tutorials, and
-                articles that answer your questions about creating and deploying
-                Streamlit apps.
+                is a self-serve library of tips, tricks, and articles that
+                answer your questions about creating and deploying Streamlit
+                apps.
               </InlineCallout>
               {/* <InlineCallout color="green-70" icon="code" bold="Cookbook" href="/cookbook">
                 provides short code snippets that you can copy in for specific use cases.
@@ -194,91 +192,68 @@ export default function Home({ window, menu, gdpr_data, cookie_data }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/library/api-reference/widgets/st.page_link"
+                href="/develop/api-reference/data/st.dataframe"
               >
-                <i className="material-icons-sharp">file_open</i>
-                <h4>Custom navigation menus</h4>
+                <i className="material-icons-sharp">table_chart</i>
+                <h4>More dataframe types!</h4>
                 <p>
-                  Introducing <code>st.page_link</code>! Now you can build your
-                  own, custom navigation menus for your multipage apps.
+                  Streamlit natively supports even more dataframe types. Use
+                  Dask, Modin, Numpy, pandas, Polars, PyArrow, Snowpark, Xarray,
+                  and more.
+                </p>
+              </RefCard>
+              <RefCard size="third" href="/develop/api-reference/data/st.json">
+                <i className="material-icons-sharp">unfold_less</i>
+                <h4>Configurable JSON expansion</h4>
+                <p>
+                  You can control the initial expansion state of
+                  <code>st.json</code> elements.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/write-magic/st.write_stream"
+                href="/develop/api-reference/utilities/st.context"
               >
-                <i className="material-icons-sharp">chat</i>
-                <h4>Write streamed content</h4>
+                <i className="material-icons-sharp">cookie</i>
+                <h4>User session context</h4>
                 <p>
-                  Announcing <code>st.write_stream</code> to conveniently handle
-                  generators and streamed responses. See how making chat apps
-                  just got easier!
+                  Introducing <code>st.context</code>, a read-only interface to
+                  access headers and cookies!
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/chat/st.chat_input"
+                href="/develop/api-reference/widgets/st.feedback"
               >
-                <i className="material-icons-sharp">forum</i>
-                <h4>
-                  Use <code>st.chat_input</code> inline
-                </h4>
+                <i className="material-icons-sharp">star</i>
+                <h4>User feedback</h4>
                 <p>
-                  <code>st.chat_input</code> can be used inline and placed
-                  anywhere in the app. You can also have multiple
-                  <code>st.chat_input</code> widgets on a page!
+                  Introducing <code>st.feedback</code> to collect user ratings
+                  and sentiment.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/control-flow/st.switch_page"
+                href="/develop/api-reference/execution-flow/st.fragment"
               >
-                <i className="material-icons-sharp">switch_left</i>
-                <h4>Programmatic page navigation</h4>
+                <i className="material-icons-sharp">bolt</i>
+                <h4>Fragments and dialogs</h4>
                 <p>
-                  Introducing <code>st.switch_page</code>! Programmatically
-                  navigate between the pages of your multipage apps with ease.
+                  We've polished <code>st.fragment</code> and
+                  <code>st.dialog</code> with multiple bug fixes and
+                  improvements. They're no longer experimental!
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/api-reference/utilities/st.query_params"
+                href="/develop/api-reference/execution-flow/st.rerun"
               >
-                <i className="material-icons-sharp">question_mark</i>
-                <h4>Query parameters</h4>
+                <i className="material-icons-sharp">location_searching</i>
+                <h4>Rerun scope</h4>
                 <p>
-                  Introducing <code>st.query_params</code> — a new and simple
-                  way to read and manipulate the query parameters in your app's
-                  URL.
+                  <code>st.rerun</code> can be scoped to a fragment.
                 </p>
               </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/layout/st.container"
-              >
-                <i className="material-icons-sharp">height</i>
-                <h4>Container height and scrolling</h4>
-                <p>
-                  Set a height for <code>st.container</code>. The container will
-                  automatically become scrollable when needed.
-                </p>
-              </RefCard>
-              {/* <Tile
-                size="half"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                img="/logo.svg"
-                title="Clear memo + singleton caches procedurally"
-                text="Do you need more control over cache invalidation? Any function annotated with @st.cache_data or @st.cache_resource gets its own clear() function automatically."
-                link="/library/advanced-features/experimental-cache-primitives#clear-memo-and-singleton-caches-procedurally"
-              /> */}
-              {/* Preserve above comment for syntax reference */}
             </TileContainer>
 
             <H2 className="no-b-m">Latest blog posts</H2>
@@ -319,8 +294,6 @@ export default function Home({ window, menu, gdpr_data, cookie_data }) {
 export async function getStaticProps(context) {
   const props = {};
   props["menu"] = getMenu();
-  props["gdpr_data"] = await getGDPRBanner();
-  props["cookie_data"] = await getCookieSettings();
 
   return {
     props: props,

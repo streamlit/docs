@@ -16,6 +16,7 @@ module.exports = {
       lg: "1024px",
       xl: "1280px",
       "2xl": "1448px",
+      "3xl": "1600px",
     },
     fontFamily: {
       sans: [
@@ -167,10 +168,10 @@ module.exports = {
         100: "#0e1117",
       },
       white: "#ffffff",
+      transparent: "transparent",
       brand: {
         GitHub: "#24292F",
         Reddit: "#ff4500",
-        Discord: "#5865f2",
         YouTube: "#ff0000",
         Twitter: "#1da1f2",
         LinkedIn: "#0a66c2",

@@ -11,7 +11,7 @@
 }
 
 .Title {
-  @apply mt-6 mb-2 text-4xl;
+  @apply mt-6 mb-2;
 }
 
 .Form {
@@ -35,7 +35,7 @@
 }
 
 :global(.dark) .Select {
-  @apply bg-gray-100 text-white;
+  @apply bg-gray-100 text-gray-40;
 }
 
 :global(.old-version) .Select {
