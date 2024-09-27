@@ -1147,3 +1147,4 @@
 /st.connections.snowflakeconnection-configuration /develop/api-reference/connections/st.connections.snowflakeconnection#configuration
 /st.page.automatic-page-labels /develop/concepts/multipage-apps/overview#how-streamlit-converts-filenames-into-labels-and-titles
 /st.page.automatic-page-urls /develop/concepts/multipage-apps/overview#how-streamlit-converts-filenames-into-url-pathnames
+/end-users/enable-peripherals /knowledge-base/using-streamlit/enable-camera
