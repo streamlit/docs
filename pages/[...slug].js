@@ -83,8 +83,6 @@ export default function Article({
   nextMenuItem,
   versionFromStaticLoad,
   versions,
-  gdpr_data,
-  cookie_data,
   filename,
 }) {
   let versionWarning;
@@ -157,6 +155,7 @@ export default function Article({
         version={version}
         versions={versions}
         slug={slug}
+        oldStreamlitFunction={props.oldName ?? ""}
       />
     ),
     pre: (props) => <Code {...props} />,
@@ -240,11 +239,9 @@ export default function Article({
             setIsTelemetryModalVisible={setIsTelemetryModalVisible}
             allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
             declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
-            {...cookie_data}
           />
         )}
         <GDPRBanner
-          {...gdpr_data}
           isTelemetryModalVisible={isTelemetryModalVisible}
           setIsTelemetryModalVisible={setIsTelemetryModalVisible}
           isTelemetryBannerVisible={isTelemetryBannerVisible}
@@ -331,8 +328,6 @@ export async function getStaticProps(context) {
   const paths = await getStaticPaths();
   const props = {};
   let location = `/${context.params.slug.join("/")}`;
-  const gdpr_data = await getGDPRBanner();
-  const cookie_data = await getCookieSettings();
 
   // Sort of documentation versions
   const jsonContents = fs.readFileSync(
@@ -416,8 +411,6 @@ export async function getStaticProps(context) {
     }
 
     props["menu"] = menu;
-    props["gdpr_data"] = gdpr_data;
-    props["cookie_data"] = cookie_data;
     props["data"] = data;
     props["filename"] = filename;
     props["slug"] = context.params.slug;

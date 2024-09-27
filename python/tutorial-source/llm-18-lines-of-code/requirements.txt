@@ -1,3 +1,2 @@
-streamlit-nightly
-openai
-langchain
+streamlit>=1.38.0
+langchain-openai

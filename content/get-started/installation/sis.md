@@ -9,7 +9,7 @@ Snowflake is a single, global platform that powers the Data Cloud. If you want t
 
 <Note>
 
-Streamlit in Snowflake is currently based on Streamlit version 1.22.0 with some [Limitations and unsupported features](https://docs.snowflake.com/en/developer-guide/streamlit/limitations). We are working on supporting newer versions and more features.
+For more information, see [Limitations and unsupported features](https://docs.snowflake.com/en/developer-guide/streamlit/limitations) in the Snowflake documentation.
 
 </Note>
 
@@ -129,6 +129,6 @@ All you need is an email address! Everything else happens in your 30-day trial a
 
 ## What's next?
 
-Read about our [Main concepts](/get-started/fundamentals/main-concepts) and try out more commands in your app. To create more apps in your account, you can proceed from [Create a "Hello World" Streamlit app](#create-a-hello-world-streamlit-app). The warehouse and database setup do not need to be repeated.
+Read about our [Basic concepts](/get-started/fundamentals/main-concepts) and try out more commands in your app. To create more apps in your account, you can proceed from [Create a "Hello World" Streamlit app](#create-a-hello-world-streamlit-app). The warehouse and database setup do not need to be repeated.
 
 For more information about creating and managing Streamlit in Snowflake apps, check out the [Snowflake docs](https://docs.snowflake.com/en/developer-guide/streamlit/about-streamlit).

@@ -6,6 +6,12 @@
   @apply flex items-center p-2 mr-4 xl:mr-4 mb-0 rounded-md;
 }
 
+/* Design pass needed.
+Centering the text under the icons when condensed creates misalignment.
+Either complete the details for center alignment, or remove this to leave it left
+justified. The condensed menu requires hover to expand, which isn't mobile-friendly.*/
+
+/*
 .CondensedHeadingContainer {
   @apply lg:flex-wrap lg:justify-center lg:text-center lg:w-min;
 }
@@ -13,6 +19,7 @@
 .CondensedHeadingIconContainer {
   @apply lg:mr-0;
 }
+*/
 
 .Icon {
   @apply text-white !important;
@@ -57,7 +64,7 @@
 }
 
 :global(.dark) .CategoryName {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 .CondensedCategoryName {

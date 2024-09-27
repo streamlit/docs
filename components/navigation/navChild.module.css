@@ -1,5 +1,5 @@
 .Container {
-  @apply text-sm tracking-tight dark:text-white mb-4;
+  @apply text-sm tracking-tight dark:text-gray-40 mb-4;
 }
 
 .List {
@@ -29,7 +29,7 @@
 :global(.dark) .ExternalIcon,
 :global(.dark) .ActivePage,
 :global(.dark) .ActivePage ~ .Icon {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 .LinkContainer {
@@ -48,7 +48,7 @@
 .DividerText {
   @apply grow-0;
   @apply text-gray-70 uppercase tracking-widest leading-5;
-  @apply mx-1;
+  @apply mr-1;
 
   font-size: 0.625rem;
 }
@@ -71,7 +71,7 @@
 }
 
 :global(.dark) .PageName:not(.ActivePage) {
-  @apply text-gray-40 !important;
+  @apply text-gray-50 !important;
 }
 
 .ActivePage {

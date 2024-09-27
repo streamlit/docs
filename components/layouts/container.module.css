@@ -29,6 +29,6 @@
   }
 
   .ArticleContainer :global(.toc):not(.advanced-features) ~ .ContentContainer {
-    padding-right: calc(226px + 2rem);
+    @apply pr-64 3xl:pr-72;
   }
 }
