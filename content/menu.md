@@ -351,7 +351,7 @@ site_menu:
     url: /develop/api-reference/widgets/st.text_input
     isVersioned: true
   - category: Develop / API reference / Input widgets / MEDIA & FILES
-  - category: Develop / API reference / Input widgets / st.audio_input
+  - category: Develop / API reference / Input widgets / st.experimental_audio_input
     url: /develop/api-reference/widgets/st.audio_input
     isVersioned: true
   - category: Develop / API reference / Input widgets / st.camera_input
