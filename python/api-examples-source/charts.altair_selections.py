@@ -4,6 +4,8 @@ import numpy as np
 import altair as alt
 
 
+st.write('TEST')
+
 @st.cache_data
 def load_data():
     return pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
