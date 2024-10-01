@@ -1104,7 +1104,7 @@
 /knowledge-base/tutorials/databases /develop/tutorials/databases
 /knowledge-base/tutorials/databases/aws-s3 /develop/tutorials/databases/aws-s3
 /knowledge-base/tutorials/databases/bigquery /develop/tutorials/databases/bigquery
-/knowledge-base/tutorials/databases/deta-base /develop/tutorials/databases/deta-base
+/knowledge-base/tutorials/databases/deta-base /develop/tutorials/databases
 /knowledge-base/tutorials/databases/gcs /develop/tutorials/databases/gcs
 /knowledge-base/tutorials/databases/mssql /develop/tutorials/databases/mssql
 /knowledge-base/tutorials/databases/mongodb /develop/tutorials/databases/mongodb
@@ -1141,7 +1141,7 @@
 /knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud /deploy/streamlit-community-cloud/manage-your-app/upgrade-streamlit
 /knowledge-base/deploy/view-only-access-to-app-after-changing-github-username-or-repository-name /deploy/streamlit-community-cloud/manage-your-app/rename-your-app
 /knowledge-base/deploy/unable-to-edit-or-delete-apps-in-streamlit-community-cloud-after-modifying-github-username /deploy/streamlit-community-cloud/manage-your-app/rename-your-app
-
+/develop/tutorials/databases/deta-base /develop/tutorials/databases/
 
 # Deep links included in streamlit/streamlit source code
 /st.connections.snowflakeconnection-configuration /develop/api-reference/connections/st.connections.snowflakeconnection#configuration
