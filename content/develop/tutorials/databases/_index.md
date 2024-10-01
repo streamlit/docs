@@ -26,14 +26,6 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 </DataSourcesCard>
 
-<DataSourcesCard href="/develop/tutorials/databases/deta-base">
-
-<Image pure alt="screenshot" src="/images/databases/deta-base.png" />
-
-<h5>Deta Base</h5>
-
-</DataSourcesCard>
-
 <DataSourcesCard href="https://blog.streamlit.io/streamlit-firestore/">
 
 <Image pure alt="screenshot" src="/images/databases/firestore.png" />

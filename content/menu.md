@@ -170,6 +170,10 @@ site_menu:
   - category: Develop / API reference / Text elements / st.text
     url: /develop/api-reference/text/st.text
     isVersioned: true
+  - category: Develop / API reference / Text elements / UTILITIES
+  - category: Develop / API reference / Text elements / st.html
+    url: https://docs.streamlit.io/develop/api-reference/utilities/st.html
+    isVersioned: true
   - category: Develop / API reference / Data elements
     url: /develop/api-reference/data
   - category: Develop / API reference / Data elements / st.dataframe
@@ -347,6 +351,9 @@ site_menu:
     url: /develop/api-reference/widgets/st.text_input
     isVersioned: true
   - category: Develop / API reference / Input widgets / MEDIA & FILES
+  - category: Develop / API reference / Input widgets / st.audio_input
+    url: /develop/api-reference/widgets/st.audio_input
+    isVersioned: true
   - category: Develop / API reference / Input widgets / st.camera_input
     url: /develop/api-reference/widgets/st.camera_input
     isVersioned: true
@@ -639,8 +646,6 @@ site_menu:
     url: /develop/tutorials/databases/aws-s3
   - category: Develop / Tutorials / Connect to data sources / BigQuery
     url: /develop/tutorials/databases/bigquery
-  - category: Develop / Tutorials / Connect to data sources / Deta Base
-    url: /develop/tutorials/databases/deta-base
   - category: Develop / Tutorials / Connect to data sources / Firestore
     url: https://blog.streamlit.io/streamlit-firestore/
   - category: Develop / Tutorials / Connect to data sources / Google Cloud Storage
