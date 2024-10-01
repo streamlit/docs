@@ -35,7 +35,7 @@ _Release date: October 1, 2024_
 - 😃 [`st.button`](/develop/api-reference/widgets/st.button), [`st.download_button`](/develop/api-reference/widgets/st.download_button), [`st.form_submit_button`](/develop/api-reference/execution-flow/st.form_submit_button), [`st.link_button`](/develop/api-reference/widgets/st.link_button), and [`st.popover`](/develop/api-reference/layout/st.popover) each have a new parameter to add an icon.
 - 🏢 [`st.logo`](/develop/api-reference/media/st.logo) has a new parameter to adjust the size of your logo.
 - 🧭 [`st.navigation`](/develop/api-reference/navigation/st.navigation) lets you display an always-expanded or collapsible menu using a new `expanded` parameter.
-- ↕️ You can set `height` and `width` for `st.map` and [`st.pydeck_chart`](/develop/api-reference/charts/st.pydeck_chart#chart-selections).
+- ↕️ You can set `height` and `width` for [`st.map`](/develop/api-reference/charts/st.map) and [`st.pydeck_chart`](/develop/api-reference/charts/st.pydeck_chart).
 - ↩️ Form submission behavior can be configured with a new `enter_to_submit` parameter ([#9480](https://github.com/streamlit/streamlit/pull/9480), [#7538](https://github.com/streamlit/streamlit/issues/7538), [#9406](https://github.com/streamlit/streamlit/pull/9406), [#8042](https://github.com/streamlit/streamlit/issues/8042)).
 - ⏱️ A new config option, `server.disconnectedSessionTTL`, lets you set a minimum time before a disconnected session is cleaned up ([#9179](https://github.com/streamlit/streamlit/pull/9179)).
 - 🤹 Dataframes support multi-index headers ([#9483](https://github.com/streamlit/streamlit/pull/9483), [#6319](https://github.com/streamlit/streamlit/issues/6319)).
