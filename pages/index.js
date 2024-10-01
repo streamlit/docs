@@ -192,67 +192,63 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/develop/api-reference/data/st.dataframe"
+                href="/develop/api-reference/widgets/st.audio_input"
               >
-                <i className="material-icons-sharp">table_chart</i>
-                <h4>More dataframe types!</h4>
+                <i className="material-icons-sharp">mic</i>
+                <h4>Audio input</h4>
                 <p>
-                  Streamlit natively supports even more dataframe types. Use
-                  Dask, Modin, Numpy, pandas, Polars, PyArrow, Snowpark, Xarray,
-                  and more.
+                  <code>st.experimental_audio_input</code> lets users record
+                  sound with their microphone.
                 </p>
               </RefCard>
-              <RefCard size="third" href="/develop/api-reference/data/st.json">
+              <RefCard
+                size="third"
+                href="/develop/api-reference/charts/st.pydeck_chart"
+              >
+                <i className="material-icons-sharp">pin_drop</i>
+                <h4>Pydeck chart selections</h4>
+                <p>
+                  <code>st.pydeck_chart</code> can return user selections! We've
+                  also added <code>height</code> and <code>width</code>
+                  parameters.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/widgets/st.button"
+              >
+                <i className="material-icons-sharp">sentiment_very_satisfied</i>
+                <h4>Button icons</h4>
+                <p>
+                  You can add icons to buttons with a new <code>icon</code>
+                  parameter.
+                </p>
+              </RefCard>
+              <RefCard size="third" href="/develop/api-reference/media/st.logo">
+                <i className="material-icons-sharp">branding_watermark</i>
+                <h4>Logo sizing</h4>
+                <p>
+                  You can customize logo size for <code>st.logo</code>.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/navigation/st.navigation"
+              >
                 <i className="material-icons-sharp">unfold_less</i>
-                <h4>Configurable JSON expansion</h4>
+                <h4>Customize menu expansion</h4>
                 <p>
-                  You can control the initial expansion state of
-                  <code>st.json</code> elements.
+                  You can set the menu as collapsible or always-expanded for
+                  <code>st.navigation</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/utilities/st.context"
+                href="/develop/api-reference/execution-flow/st.form"
               >
-                <i className="material-icons-sharp">cookie</i>
-                <h4>User session context</h4>
-                <p>
-                  Introducing <code>st.context</code>, a read-only interface to
-                  access headers and cookies!
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/widgets/st.feedback"
-              >
-                <i className="material-icons-sharp">star</i>
-                <h4>User feedback</h4>
-                <p>
-                  Introducing <code>st.feedback</code> to collect user ratings
-                  and sentiment.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/execution-flow/st.fragment"
-              >
-                <i className="material-icons-sharp">bolt</i>
-                <h4>Fragments and dialogs</h4>
-                <p>
-                  We've polished <code>st.fragment</code> and
-                  <code>st.dialog</code> with multiple bug fixes and
-                  improvements. They're no longer experimental!
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/execution-flow/st.rerun"
-              >
-                <i className="material-icons-sharp">location_searching</i>
-                <h4>Rerun scope</h4>
-                <p>
-                  <code>st.rerun</code> can be scoped to a fragment.
-                </p>
+                <i className="material-icons-sharp">assignment</i>
+                <h4>Form submission</h4>
+                <p>You can configure the enter-to-submit behavior of forms.</p>
               </RefCard>
             </TileContainer>
 
