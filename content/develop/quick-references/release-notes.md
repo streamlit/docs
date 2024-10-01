@@ -49,7 +49,6 @@ _Release date: October 1, 2024_
 - 🕵️ Streamlit is compatible with Watchdog version 5 ([#9354](https://github.com/streamlit/streamlit/pull/9354)). Thanks, [RubenVanEldik](https://github.com/RubenVanEldik)!
 - 🔁 Streamlit is compatible with Tenacity version 9 ([#9348](https://github.com/streamlit/streamlit/pull/9348)).
 - 🔢 Bug fix: Column configuration will override any text or number format from `pandas.Styler` ([#9538](https://github.com/streamlit/streamlit/pull/9538), [#7329](https://github.com/streamlit/streamlit/issues/7329), [#7977](https://github.com/streamlit/streamlit/issues/7977)).
-- 🗼 Bug fix: Streamlit’s CLI tool accepts array values for configuration options ([#9539](https://github.com/streamlit/streamlit/pull/9539)).
 - 🦋 Bug fix: Deck GL zoom button has the correct border radius ([#9536](https://github.com/streamlit/streamlit/pull/9536)).
 - 🦐 Bug fix: Embedded apps have the correct padding to avoid hiding elements ([#9524](https://github.com/streamlit/streamlit/pull/9524), [#9341](https://github.com/streamlit/streamlit/issues/9341)).
 - 🎨 Bug fix: The `st.multiselect` placeholder text has the correct color ([#9523](https://github.com/streamlit/streamlit/pull/9523), [#9514](https://github.com/streamlit/streamlit/issues/9514)).
