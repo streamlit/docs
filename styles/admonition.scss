@@ -21,6 +21,15 @@ div.admonition {
     }
   }
 
+  // Important
+  &.important {
+    @apply bg-orange-10 dark:bg-orange-100/30;
+
+    p.first.admonition-title {
+      @apply text-orange-70;
+    }
+  }
+
   // Warning
   &.warning {
     @apply bg-orange-10 dark:bg-orange-100/30;
