@@ -104,7 +104,7 @@ const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
       >
         <div className="flex-1">
           <a
-            className="text-xs tracking-[0.05em] text-gray-80 hover:text-gray-70"
+            className="text-xs tracking-[0.05em] text-gray-80 hover:text-gray-70 cursor-pointer"
             href="https://streamlit.io"
             target="_blank"
             rel="noopener noreferrer"
@@ -120,6 +120,7 @@ const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
               "text-xs tracking-[0.05em]",
               "text-gray-80 hover:text-gray-70",
               "flex flex-row gap-1",
+              "cursor-pointer",
             )}
             target="_blank"
             rel="noopener noreferrer"
