@@ -790,8 +790,8 @@ site_menu:
     url: /deploy/streamlit-community-cloud/manage-your-account/delete-your-account
   - category: Deploy / Streamlit Community Cloud / Status and limitations
     url: /deploy/streamlit-community-cloud/status
-  - category: Deploy / Streamlit in Snowflake
-    url: https://docs.snowflake.com/developer-guide/streamlit/about-streamlit
+  - category: Deploy / Snowflake
+    url: /deploy/snowflake
   - category: Deploy / Other platforms
     url: /deploy/tutorials
   - category: Deploy / Other platforms / Docker
