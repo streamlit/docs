@@ -175,3 +175,7 @@
 :global(.dark) .Keyword::after {
   @apply bg-gray-80 text-gray-30;
 }
+
+.Snowflake::after {
+  content: "SiS";
+}
