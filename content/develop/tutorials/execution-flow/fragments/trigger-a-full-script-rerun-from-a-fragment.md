@@ -16,7 +16,7 @@ Streamlit lets you turn functions into [fragments](/develop/concepts/architectur
 - The following must be installed in your Python environment:
 
   ```text
-  streamlit>=1.33.0
+  streamlit>=1.37.0
   ```
 
 - You should have a clean working directory called `your-repository`.
@@ -62,7 +62,7 @@ def get_data():
     return data
 
 
-@st.experimental_fragment
+@st.fragment
 def show_daily_sales(data):
     time.sleep(1)
     with st.container(height=100):
@@ -162,7 +162,7 @@ with monthly:
    - You'll generate random sales numbers with `numpy`.
    - The data will have `datetime.date` index values.
    - The products sold will be "Widget A" through "Widget Z," so you'll use `string` for easy access to an alphabetical string.
-   - (Optional) To help add emphasis at the end, you'll use `time.sleep()` to slow things down and see the fragment working.
+   - Optional: To help add emphasis at the end, you'll use `time.sleep()` to slow things down and see the fragment working.
 
 1. Save your `app.py` file and view your running app.
 1. Click "**Always rerun**" or hit your "**A**" key in your running app.
@@ -232,7 +232,7 @@ def get_data():
        return data
    ```
 
-1. (Optional) Test out your function by calling it and displaying the data.
+1. Optional: Test out your function by calling it and displaying the data.
 
    ```python
    data = get_data()
@@ -248,7 +248,7 @@ Since the daily sales data updates with every new date selection, you'll turn th
 <Collapse title="Complete function to display daily sales data" expanded={false}>
 
 ```python
-@st.experimental_fragment
+@st.fragment
 def show_daily_sales(data):
     time.sleep(1)
     selected_date = st.date_input(
@@ -282,16 +282,16 @@ def show_daily_sales(data):
 
 </Collapse>
 
-1. Use an [`@st.experimental_fragment`](/develop/api-reference/execution-flow/st.fragment) decorator and start your function definition.
+1. Use an [`@st.fragment`](/develop/api-reference/execution-flow/st.fragment) decorator and start your function definition.
 
    ```python
-   @st.experimental_fragment
+   @st.fragment
    def show_daily_sales(data):
    ```
 
    Since your data will not change during a fragment rerun, you can pass the data into the fragment as an argument.
 
-1. (Optional) Add `time.sleep(1)` to slow down the function and show off how the fragment works.
+1. Optional: Add `time.sleep(1)` to slow down the function and show off how the fragment works.
 
    ```python
        time.sleep(1)
@@ -353,7 +353,7 @@ def show_daily_sales(data):
        cols[1].bar_chart(bottom_ten)
    ```
 
-1. (Optional) Test out your function by calling it and displaying the data.
+1. Optional: Test out your function by calling it and displaying the data.
 
    ```python
    data = get_data()
@@ -391,7 +391,7 @@ def show_monthly_sales(data):
    def show_monthly_sales(data):
    ```
 
-1. (Optional) Add `time.sleep(1)` to slow down the function and show off how the fragment works.
+1. Optional: Add `time.sleep(1)` to slow down the function and show off how the fragment works.
 
    ```python
        time.sleep(1)
@@ -420,7 +420,7 @@ def show_monthly_sales(data):
        st.bar_chart(monthly_sales.sum())
    ```
 
-1. (Optional) Test out your function by calling it and displaying the data.
+1. Optional: Test out your function by calling it and displaying the data.
 
    ```python
    data = get_data()
@@ -472,7 +472,7 @@ Now, you have a functioning app that uses a fragment to prevent unnecessarily re
 1. Add three containers to fix the height of elements in the `show_daily_sales` function.
 
    ```python
-   @st.experimental_fragment
+   @st.fragment
    def show_daily_sales(data):
        time.sleep(1)
        with st.container(height=100): ### ADD CONTAINER ###

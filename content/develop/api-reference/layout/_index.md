@@ -50,7 +50,7 @@ c.write("This will show second")
 Insert a modal dialog that can rerun independently from the rest of the script.
 
 ```python
-@st.experimental_dialog("Sign up")
+@st.dialog("Sign up")
 def email_form():
     name = st.text_input("Name")
     email = st.text_input("Email")

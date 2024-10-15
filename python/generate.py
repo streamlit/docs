@@ -23,6 +23,7 @@ from streamlit.runtime.caching.cache_utils import CachedFunc
 from streamlit.elements.plotly_chart import PlotlyState, PlotlySelectionState
 from streamlit.elements.vega_charts import VegaLiteState
 from streamlit.elements.arrow import DataframeState, DataframeSelectionState
+from streamlit.elements.deck_gl_json_chart import PydeckState, PydeckSelectionState
 from streamlit.navigation import page
 from streamlit.navigation.page import StreamlitPage
 
@@ -76,7 +77,16 @@ def get_github_source(func):
         source_file = inspect.getsourcefile(func)
     except TypeError:
         try:
-            source_file = inspect.getsourcefile(func.fget)
+            # TODO: The inspect module returns the correct line number but not
+            # the correct source file for functions with both @property and
+            # @gather_metrics. Replace ContextProxy properties with their
+            # parent class for the purposes of getting the correct source file.
+            # Generalize this two deal with arbitrarily wrapped functions.
+            context_obj = getattr(streamlit.runtime.context, "ContextProxy")
+            if func.fget.__module__ == context_obj.__module__:
+                source_file = inspect.getsourcefile(context_obj)
+            else:
+                source_file = inspect.getsourcefile(func.fget)
         except AttributeError:
             source_file = inspect.getsourcefile(func.__call__)
 
@@ -223,9 +233,7 @@ def parse_docstring(obj, docstring, description, is_class, is_class_method, is_p
         arg_obj["default"] = param.default  # Store the default value
 
         # Check if the argument is deprecated
-        if docstring_obj.deprecation and param.arg_name in parse_rst(
-            docstring_obj.deprecation.description
-        ):
+        if docstring_obj.deprecation and "``"+param.arg_name+"``" in docstring_obj.deprecation.description:
             # Add the deprecated flag and the deprecation message to the argument object
             arg_obj["deprecated"] = {
                 "deprecated": True,
@@ -538,17 +546,9 @@ def get_streamlit_docstring_dict():
 
     obj_key = {
         streamlit: ["streamlit", "st"],
-        streamlit.runtime.caching.experimental_memo: [
-            "streamlit.experimental_memo",
-            "st.experimental_memo",
-        ],
         streamlit.runtime.caching.cache_data_api.CacheDataAPI: [
             "streamlit.cache_data",
             "st.cache_data",
-        ],
-        streamlit.runtime.caching.experimental_singleton: [
-            "streamlit.experimental_singleton",
-            "st.experimental_singleton",
         ],
         streamlit.runtime.caching.cache_resource_api.CacheResourceAPI: [
             "streamlit.cache_resource",
@@ -590,12 +590,14 @@ def get_streamlit_docstring_dict():
             "st.testing.v1.element_tree",
         ],
         streamlit.user_info.UserInfoProxy: ["streamlit.experimental_user", "st.experimental_user"],
+        streamlit.runtime.context.ContextProxy: ["context", "context"],
         CachedFunc: ["CachedFunc", "CachedFunc"],
         page: ["", "", ["StreamlitPage"]],
         StreamlitPage: ["StreamlitPage", "StreamlitPage"],
     }
     proxy_obj_key = {
         streamlit.user_info.UserInfoProxy: ["streamlit.experimental_user", "st.experimental_user"],
+        streamlit.runtime.context.ContextProxy: ["streamlit.context", "st.context"]
     }
     attribute_dicts = {
         PlotlyState: ["PlotlyState", "PlotlyState"],
@@ -603,6 +605,9 @@ def get_streamlit_docstring_dict():
         VegaLiteState: ["VegaLiteState", "VegaLiteState"],
         DataframeState: ["DataframeState", "DataframeState"],
         DataframeSelectionState: ["DataframeSelectionState", "DataframeSelectionState"],
+        PydeckState: ["PydeckState", "PydeckState"],
+        PydeckSelectionState: ["PydeckSelectionState", "PydeckSelectionState"]
+
     }
 
     module_docstring_dict = {}

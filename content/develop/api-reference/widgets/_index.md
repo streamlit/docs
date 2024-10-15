@@ -38,6 +38,20 @@ st.download_button("Download file", file)
 
 </RefCard>
 
+<RefCard href="/develop/api-reference/widgets/st.feedback">
+
+<Image pure alt="screenshot" src="/images/api/feedback.jpg" />
+
+<h4>Feedback</h4>
+
+Display a rating or sentiment button group.
+
+```python
+st.feedback("stars")
+```
+
+</RefCard>
+
 <RefCard href="/develop/api-reference/execution-flow/st.form_submit_button">
 
 <Image pure alt="screenshot" src="/images/api/form_submit_button.svg" />
@@ -297,6 +311,19 @@ if prompt:
 ## Other input elements
 
 <TileContainer>
+<RefCard href="/develop/api-reference/widgets/st.audio_input">
+
+<Image pure alt="screenshot" src="/images/api/audio_input.jpg" />
+
+<h4>Audio input</h4>
+
+Display a widget that allows users to record with their microphone.
+
+```python
+speech = st.experimental_audio_input("Record a voice message")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/data/st.data_editor">
 
 <Image pure alt="screenshot" src="/images/api/data_editor.jpg" />
@@ -306,7 +333,7 @@ if prompt:
 Display a data editor widget.
 
 ```python
-edited = st.experimental_data_editor(df, num_rows="dynamic")
+edited = st.data_editor(df, num_rows="dynamic")
 ```
 
 </RefCard>

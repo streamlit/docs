@@ -9,7 +9,7 @@ Snowflake is a single, global platform that powers the Data Cloud. If you want t
 
 <Note>
 
-Streamlit in Snowflake is currently based on Streamlit version 1.22.0 with some [Limitations and unsupported features](https://docs.snowflake.com/en/developer-guide/streamlit/limitations). We are working on supporting newer versions and more features.
+For more information, see [Limitations and unsupported features](https://docs.snowflake.com/en/developer-guide/streamlit/limitations) in the Snowflake documentation.
 
 </Note>
 

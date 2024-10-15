@@ -45,7 +45,7 @@ Streamlit's oEmbed support allows for a simpler embedding experience. You can di
 
 ### Example
 
-When creating content in a Notion page, Medium article, or Ghost blog, you only need to paste the app's URL and hit "**Enter**". The app will then render automatically at that spot in your content. You can use your undecorated app URL without the `?embed=true` query parameter.
+When creating content in a Notion page, Medium article, or Ghost blog, you only need to paste the app's URL and hit "**Enter**." The app will then render automatically at that spot in your content. You can use your undecorated app URL without the `?embed=true` query parameter.
 
 ```
 https://30days.streamlit.app/

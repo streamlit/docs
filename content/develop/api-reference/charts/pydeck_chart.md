@@ -5,3 +5,9 @@ description: st.pydeck_chart displays a chart using the PyDeck library.
 ---
 
 <Autofunction function="streamlit.pydeck_chart" />
+
+## Chart selections
+
+<Autofunction function="PydeckState" />
+
+<Autofunction function="PydeckSelectionState" />

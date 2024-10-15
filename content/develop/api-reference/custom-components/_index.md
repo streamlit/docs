@@ -14,7 +14,8 @@ slug: /develop/api-reference/custom-components
 Create and register a custom component.
 
 ```python
-st.components.v1.declare_component(
+from st.components.v1 import declare_component
+declare_component(
     "custom_slider",
     "/frontend",
 )
@@ -29,7 +30,8 @@ st.components.v1.declare_component(
 Display an HTML string in an iframe.
 
 ```python
-st.components.v1.html(
+from st.components.v1 import html
+html(
     "<p>Foo bar.</p>"
 )
 ```
@@ -43,7 +45,8 @@ st.components.v1.html(
 Load a remote URL in an iframe.
 
 ```python
-st.components.v1.iframe(
+from st.components.v1 import iframe
+iframe(
     "docs.streamlit.io"
 )
 ```

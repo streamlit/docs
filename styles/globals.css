@@ -3,11 +3,16 @@
 @tailwind utilities;
 
 html {
-  @apply overflow-x-hidden scroll-pt-12;
+  @apply overflow-x-hidden overflow-y-auto scroll-pt-24;
 }
 
 body {
+  @apply bg-white;
   @apply scroll-m-12;
+}
+
+.dark body {
+  @apply bg-gray-100;
 }
 
 /* Utility to hide text that only is needed in screen readers */

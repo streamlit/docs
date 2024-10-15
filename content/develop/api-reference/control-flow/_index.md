@@ -20,7 +20,7 @@ By default, Streamlit apps execute the script entirely, but we allow some functi
 Insert a modal dialog that can rerun independently from the rest of the script.
 
 ```python
-@st.experimental_dialog("Sign up")
+@st.dialog("Sign up")
 def email_form():
     name = st.text_input("Name")
     email = st.text_input("Email")
@@ -30,12 +30,12 @@ def email_form():
 
 <RefCard href="/develop/api-reference/execution-flow/st.fragment">
 
-<h4>Partial reruns</h4>
+<h4>Fragments</h4>
 
 Define a fragment to rerun independently from the rest of the script.
 
 ```python
-@st.experimental_fragment(run_every="10s")
+@st.fragment(run_every="10s")
 def fragment():
     df = get_data()
     st.line_chart(df)

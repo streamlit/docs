@@ -60,6 +60,7 @@ Here's an example of how you'd add [`st.echo`](/develop/api-reference/text/st.ec
 
 ```python
 import streamlit as st
+import time
 
 with st.sidebar:
     with st.echo():

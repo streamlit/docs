@@ -1,2 +1,2 @@
 Faker
-streamlit==1.36.0
+streamlit==1.38.0

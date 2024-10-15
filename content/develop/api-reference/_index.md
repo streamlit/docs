@@ -780,6 +780,19 @@ st.download_button("Download file", file)
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/widgets/st.feedback">
+
+<Image pure alt="screenshot" src="/images/api/feedback.jpg" />
+
+<h4>Feedback</h4>
+
+Display a rating or sentiment button group.
+
+```python
+st.feedback("stars")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/execution-flow/st.form_submit_button">
 
 <Image pure alt="screenshot" src="/images/api/form_submit_button.svg" />
@@ -1004,6 +1017,19 @@ name = st.text_input("First name")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/widgets/st.audio_input">
+
+<Image pure alt="screenshot" src="/images/api/audio_input.jpg" />
+
+<h4>Audio input</h4>
+
+Display a widget that allows users to record with their microphone.
+
+```python
+speech = st.experimental_audio_input("Record a voice message")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/data/st.data_editor">
 
 <Image pure alt="screenshot" src="/images/api/data_editor.jpg" />
@@ -1013,7 +1039,7 @@ name = st.text_input("First name")
 Display a data editor widget.
 
 ```python
-edited = st.experimental_data_editor(df, num_rows="dynamic")
+edited = st.data_editor(df, num_rows="dynamic")
 ```
 
 </RefCard>
@@ -1415,7 +1441,7 @@ c.write("This will show second")
 Insert a modal dialog that can rerun independently from the rest of the script.
 
 ```python
-@st.experimental_dialog("Sign up")
+@st.dialog("Sign up")
 def email_form():
     name = st.text_input("Name")
     email = st.text_input("Email")
@@ -1924,7 +1950,7 @@ st.switch_page("pages/my_page.py")
 Insert a modal dialog that can rerun independently from the rest of the script.
 
 ```python
-@st.experimental_dialog("Sign up")
+@st.dialog("Sign up")
 def email_form():
     name = st.text_input("Name")
     email = st.text_input("Email")
@@ -1947,12 +1973,12 @@ with st.form(key='my_form'):
 </RefCard>
 <RefCard href="/develop/api-reference/execution-flow/st.fragment" size="half">
 
-<h4>Partial reruns</h4>
+<h4>Fragments</h4>
 
 Define a fragment to rerun independently from the rest of the script.
 
 ```python
-@st.experimental_fragment(run_every="10s")
+@st.fragment(run_every="10s")
 def fragment():
     df = get_data()
     st.line_chart(df)
@@ -2277,7 +2303,8 @@ st.write(user_info)
 Create and register a custom component.
 
 ```python
-st.components.v1.declare_component(
+from st.components.v1 import declare_component
+declare_component(
     "custom_slider",
     "/frontend",
 )
@@ -2292,7 +2319,8 @@ st.components.v1.declare_component(
 Display an HTML string in an iframe.
 
 ```python
-st.components.v1.html(
+from st.components.v1 import html
+html(
     "<p>Foo bar.</p>"
 )
 ```
@@ -2306,7 +2334,8 @@ st.components.v1.html(
 Load a remote URL in an iframe.
 
 ```python
-st.components.v1.iframe(
+from st.components.v1 import iframe
+iframe(
     "docs.streamlit.io"
 )
 ```
@@ -2320,17 +2349,15 @@ st.components.v1.iframe(
 <br />
 
 <TileContainer>
-<RefCard href="/develop/api-reference/utilities/st.experimental_user">
+<RefCard href="/develop/api-reference/utilities/st.context">
 
-<h4>User info</h4>
+<h4>Context</h4>
 
-`st.experimental_user` returns information about the logged-in user of private apps on Streamlit Community Cloud.
+`st.context` provides a read-only interface to access cookies and headers.
 
 ```python
-if st.experimental_user.email == "foo@corp.com":
-  st.write("Welcome back, ", st.experimental_user.email)
-else:
-  st.write("You are not authorized to view this page.")
+st.context.cookies
+st.context.headers
 ```
 
 </RefCard>
@@ -2353,12 +2380,21 @@ st.help(pd.DataFrame)
 Renders HTML strings to your app.
 
 ```python
-css = """
-<style>
-    p { color: red; }
-</style>
-"""
-st.html(css)
+st.html("<p>Foo bar.</p>")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/utilities/st.experimental_user" size="full">
+
+<h4>User info</h4>
+
+`st.experimental_user` returns information about the logged-in user of private apps on Streamlit Community Cloud.
+
+```python
+if st.experimental_user.email == "foo@corp.com":
+  st.write("Welcome back, ", st.experimental_user.email)
+else:
+  st.write("You are not authorized to view this page.")
 ```
 
 </RefCard>

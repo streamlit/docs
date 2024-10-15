@@ -192,82 +192,64 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/develop/concepts/multipage-apps/overview"
+                href="/develop/api-reference/widgets/st.audio_input"
               >
-                <i className="material-icons-sharp">auto_stories</i>
-                <h4>Multipage apps v2</h4>
+                <i className="material-icons-sharp">mic</i>
+                <h4>Audio input</h4>
                 <p>
-                  Introducing <code>st.navigation</code> and{" "}
-                  <code>st.Page</code>, the new, preferred way to declare
-                  multipage apps!
+                  <code>st.experimental_audio_input</code> lets users record
+                  sound with their microphone.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/charts/st.bar_chart"
+                href="/develop/api-reference/charts/st.pydeck_chart"
               >
-                <i className="material-icons-sharp">align_horizontal_left</i>
-                <h4>Horizontal bar charts</h4>
+                <i className="material-icons-sharp">pin_drop</i>
+                <h4>Pydeck chart selections</h4>
                 <p>
-                  Create horizontal bar charts with <code>st.bar_chart</code>.
+                  <code>st.pydeck_chart</code> can return user selections! We've
+                  also added <code>height</code> and <code>width</code>
+                  parameters.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/layout/st.expander"
+                href="/develop/api-reference/widgets/st.button"
               >
-                <i className="material-icons-sharp">info</i>
-                <h4>Icons for expanders</h4>
+                <i className="material-icons-sharp">sentiment_very_satisfied</i>
+                <h4>Button icons</h4>
                 <p>
-                  Add icons to your <code>st.expander</code> labels.
+                  You can add icons to buttons with a new <code>icon</code>
+                  parameter.
+                </p>
+              </RefCard>
+              <RefCard size="third" href="/develop/api-reference/media/st.logo">
+                <i className="material-icons-sharp">branding_watermark</i>
+                <h4>Logo sizing</h4>
+                <p>
+                  You can customize logo size for <code>st.logo</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/layout/st.columns"
+                href="/develop/api-reference/navigation/st.navigation"
               >
-                <i className="material-icons-sharp">align_vertical_bottom</i>
-                <h4>Vertical alignment</h4>
+                <i className="material-icons-sharp">unfold_less</i>
+                <h4>Customize menu expansion</h4>
                 <p>
-                  Set the vertical alignment for <code>st.columns</code>.
+                  You can set the menu as collapsible or always-expanded for
+                  <code>st.navigation</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/charts/st.line_chart"
+                href="/develop/api-reference/execution-flow/st.form"
               >
-                <i className="material-icons-sharp">show_chart</i>
-                <h4>Axis labels</h4>
-                <p>
-                  <code>st.area_chart</code>, <code>st.bar_chart</code>,{" "}
-                  <code>st.line_chart</code>, and <code>st.scatter_chart</code>{" "}
-                  let you set axis labels.
-                </p>
+                <i className="material-icons-sharp">assignment</i>
+                <h4>Form submission</h4>
+                <p>You can configure the enter-to-submit behavior of forms.</p>
               </RefCard>
-              <RefCard
-                size="third"
-                href="https://github.com/streamlit/streamlit/pull/8633"
-              >
-                <i className="material-icons-sharp">call</i>
-                <h4>Custom component callbacks</h4>
-                <p>Custom components now support callback functions.</p>
-              </RefCard>
-              {/* <Tile
-                size="half"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                img="/logo.svg"
-                title="Clear memo + singleton caches procedurally"
-                text="Do you need more control over cache invalidation? Any function annotated with @st.cache_data or @st.cache_resource gets its own clear() function automatically."
-                link="/develop/concepts/architecture/experimental-cache-primitives#clear-memo-and-singleton-caches-procedurally"
-              /> */}
-              {/* Preserve above comment for syntax reference */}
             </TileContainer>
 
             <H2 className="no-b-m">Latest blog posts</H2>

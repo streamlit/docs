@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "../navigation/header";
+import ChatSticky from "../navigation/chatSticky";
 
 import styles from "./globalTemplate.module.css";
 
@@ -25,6 +26,7 @@ const Layout = ({ children }) => {
       <div className={isSticky ? styles.stickyPageWrapper : undefined}>
         {children}
       </div>
+      <ChatSticky />
     </main>
   );
 };

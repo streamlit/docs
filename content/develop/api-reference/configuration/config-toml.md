@@ -11,7 +11,7 @@ slug: /develop/api-reference/configuration/config.toml
 
 To define your configuration locally or per-project, add `.streamlit/config.toml` to your working directory. Your working directory is wherever you call `streamlit run`. If you haven't previously created the `.streamlit` directory, you will need to add it.
 
-To define your configuration globally, you must first locate your global `.streamlit` directory. Streamlit adds this hidden directory to your OS user profile during installation. For MacOS/Linx, this will be `~/.streamlit/config.toml`. For Windows, this will be `%userprofile%/.streamlit/config.toml`.
+To define your configuration globally, you must first locate your global `.streamlit` directory. Streamlit adds this hidden directory to your OS user profile during installation. For MacOS/Linux, this will be `~/.streamlit/config.toml`. For Windows, this will be `%userprofile%/.streamlit/config.toml`.
 
 ### File format
 
@@ -41,18 +41,6 @@ streamlit config show
 ```toml
 [global]
 
-# ***DEPRECATED***
-# global.disableWatchdogWarning has been deprecated and will be removed in a
-# future version. This option will be removed on or after 2024-01-20.
-# ****************
-# By default, Streamlit checks if the Python watchdog module is available
-# and, if not, prints a warning asking for you to install it. The watchdog
-# module is not required, but highly recommended. It improves Streamlit's
-# ability to detect changes to files in your filesystem.
-# If you'd like to turn off this warning, set this to True.
-# Default: false
-disableWatchdogWarning = false
-
 # By default, Streamlit displays a warning when a user sets both a widget
 # default value in the function defining the widget and a widget value via
 # the widget's key in `st.session_state`.
@@ -71,16 +59,17 @@ showWarningOnDirectExecution = true
 ```toml
 [logger]
 
-# Level of logging: 'error', 'warning', 'info', or 'debug'.
-# Default: 'info'
+# Level of logging for Streamlit's internal logger: "error", "warning",
+# "info", or "debug".
+# Default: "info"
 level = "info"
 
 # String format for logging messages. If logger.datetimeFormat is set,
 # logger messages will default to `%(asctime)s.%(msecs)03d %(message)s`. See
 # Python's documentation for available attributes:
-# https://docs.python.org/2.6/develop/logging.html#formatter-objects
+# https://docs.python.org/3/library/logging.html#formatter-objects
 # Default: "%(asctime)s %(message)s"
-messageFormat = "%(asctime)s %(message)s"
+messageFormat = "%(asctime)s %(levelname) -7s %(name)s: %(message)s"
 ```
 
 #### Client
@@ -88,28 +77,10 @@ messageFormat = "%(asctime)s %(message)s"
 ```toml
 [client]
 
-# ***DEPRECATED***
-# client.caching has been deprecated and is not required anymore for our new
-# caching commands. This option will be removed on or after 2024-01-20.
-# ****************
-# Whether to enable st.cache. This does not affect st.cache_data or
-# st.cache_resource.
-# Default: true
-caching = true
-
-# ***DEPRECATED***
-# client.displayEnabled has been deprecated and will be removed in a future
-# version. This option will be removed on or after 2024-01-20.
-# ****************
-# If false, makes your Streamlit script not draw to a Streamlit app.
-# Default: true
-displayEnabled = true
-
 # Controls whether uncaught app exceptions and deprecation warnings
 # are displayed in the browser. By default, this is set to True and
 # Streamlit displays app exceptions and associated tracebacks, and
 # deprecation warnings, in the browser.
-#
 # If set to False, deprecation warnings and full exception messages
 # will print to the console only. Exceptions will still display in the
 # browser with a generic error message. For now, the exception type and
@@ -132,8 +103,9 @@ showErrorDetails = true
 # Default: "auto"
 toolbarMode = "auto"
 
-# Controls whether the default sidebar page navigation in a multipage app is
-# displayed.
+# Controls whether to display the default sidebar page navigation in a
+# multi-page app. This only applies when app's pages are defined by the
+# `pages/` directory.
 # Default: true
 showSidebarNavigation = true
 ```
@@ -147,25 +119,6 @@ showSidebarNavigation = true
 # Python code to write it to the app.
 # Default: true
 magicEnabled = true
-
-# ***DEPRECATED***
-# runner.installTracer has been deprecated and will be removed in a future
-# version. This option will be removed on or after 2024-01-20.
-# ****************
-# Install a Python tracer to allow you to stop or pause your script at
-# any point and introspect it. As a side-effect, this slows down your
-# script's execution.
-# Default: false
-installTracer = false
-
-# ***DEPRECATED***
-# runner.fixMatplotlib has been deprecated and will be removed in a future
-# version. This option will be removed on or after 2024-01-20.
-# ****************
-# Sets the MPLBACKEND environment variable to Agg inside Streamlit to
-# prevent Python crashing.
-# Default: true
-fixMatplotlib = true
 
 # Handle script rerun requests immediately, rather than waiting for script
 # execution to reach a yield point. This makes Streamlit much more
@@ -183,10 +136,9 @@ fastReruns = true
 enforceSerializableSessionState = false
 
 # Adjust how certain 'options' widgets like radio, selectbox, and
-# multiselect coerce Enum members when the Enum class gets
-# re-defined during a script re-run. For more information, check out the docs:
+# multiselect coerce Enum members when the Enum class gets re-defined
+# during a script re-run. For more information, check out the docs:
 # https://docs.streamlit.io/develop/concepts/design/custom-classes#enums
-#
 # Allowed values:
 # * "off"          : Disables Enum coercion.
 # * "nameOnly"     : Enum classes can be coerced if their member names match.
@@ -201,8 +153,7 @@ enumCoercion = "nameOnly"
 ```toml
 [server]
 
-# List of folders that should not be watched for changes. This
-# impacts both "Run on Save" and @st.cache.
+# List of folders that should not be watched for changes.
 # Relative paths will be taken as relative to the current working directory.
 # Example: ['/home/user1/env', 'relative/path/to/folder']
 # Default: []
@@ -258,8 +209,8 @@ baseUrlPath = ""
 # Default: true
 enableCORS = true
 
-# Enables support for Cross-Site Request Forgery (XSRF) protection, for added
-# security.
+# Enables support for Cross-Site Request Forgery (XSRF) protection, for
+# added security.
 # Due to conflicts between CORS and XSRF, if `server.enableXsrfProtection` is
 # on and `server.enableCORS` is off at the same time, we will prioritize
 # `server.enableXsrfProtection`.
@@ -284,13 +235,19 @@ enableWebsocketCompression = false
 # Default: false
 enableStaticServing = false
 
+# TTL in seconds for sessions whose websockets have been disconnected. The server
+# may choose to clean up session state, uploaded files, etc for a given session
+# with no active websocket connection at any point after this time has passed.
+# Default: 120
+disconnectedSessionTTL = 120
+
 # Server certificate file for connecting via HTTPS.
 # Must be set at the same time as "server.sslKeyFile".
 # ['DO NOT USE THIS OPTION IN A PRODUCTION ENVIRONMENT. It has not gone through
 # security audits or performance tests. For the production environment, we
 # recommend performing SSL termination by the load balancer or the reverse
 # proxy.']
-# sslCertFile =
+sslCertFile =
 
 # Cryptographic key file for connecting via HTTPS.
 # Must be set at the same time as "server.sslCertFile".
@@ -298,7 +255,7 @@ enableStaticServing = false
 # security audits or performance tests. For the production environment, we
 # recommend performing SSL termination by the load balancer or the reverse
 # proxy.']
-# sslKeyFile =
+sslKeyFile =
 ```
 
 #### Browser
@@ -345,17 +302,6 @@ serverPort = 8501
 token = ""
 ```
 
-#### Deprecation
-
-```toml
-[deprecation]
-
-# Set to false to disable the deprecation warning for using the global pyplot
-# instance.
-# Default: true
-showPyplotGlobalUse = true
-```
-
 #### Theme
 
 ```toml
@@ -363,21 +309,34 @@ showPyplotGlobalUse = true
 
 # The preset Streamlit theme that your custom theme inherits from.
 # One of "light" or "dark".
-# base =
+base =
 
 # Primary accent color for interactive elements.
-# primaryColor =
+primaryColor =
 
 # Background color for the main content area.
-# backgroundColor =
+backgroundColor =
 
 # Background color used for the sidebar and most interactive widgets.
-# secondaryBackgroundColor =
+secondaryBackgroundColor =
 
 # Color used for almost all text.
-# textColor =
+textColor =
 
 # Font family for all text in the app, except code blocks. One of "sans serif",
 # "serif", or "monospace".
-# font =
+font =
+```
+
+#### Secrets
+
+```toml
+[secrets]
+
+# List of locations where secrets are searched. An entry can be a path to a
+# TOML file or directory path where Kubernetes style secrets are saved.
+# Order is important, import is first to last, so secrets in later files
+# will take precedence over earlier ones.
+# Default: [ <path to local environment's secrets.toml file>, <path to project's secrets.toml file>,]
+files = [ "~/.streamlit/secrets.toml", "~/project directory/.streamlit/secrets.toml",]
 ```
