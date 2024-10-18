@@ -71,11 +71,13 @@ import YouTube from "../components/blocks/youTube";
 import Cloud from "../components/blocks/cloud";
 
 import styles from "../components/layouts/container.module.css";
+import { reverse } from "lodash";
 
 export default function Article({
   data,
   source,
   streamlit,
+  exceptions,
   slug,
   menu,
   currMenuItem,
@@ -83,6 +85,7 @@ export default function Article({
   nextMenuItem,
   versionFromStaticLoad,
   versions,
+  snowflakeVersions,
   filename,
 }) {
   let versionWarning;
@@ -152,8 +155,10 @@ export default function Article({
         {...props}
         streamlitFunction={props.function}
         streamlit={streamlit}
+        exceptions={exceptions}
         version={version}
         versions={versions}
+        snowflakeVersions={snowflakeVersions}
         slug={slug}
         oldStreamlitFunction={props.oldName ?? ""}
       />
@@ -175,20 +180,11 @@ export default function Article({
     currentLink = `/${slug.join("/")}`;
     versionWarning = (
       <Warning>
-        {version && version.startsWith("SiS") ? (
-          <p>
-            You are reading the documentation for Streamlit in Snowflake. For
-            open-source Streamlit, version{" "}
-            <Link href={currentLink}>{maxVersion}</Link> is the latest version
-            available.
-          </p>
-        ) : (
-          <p>
-            You are reading the documentation for Streamlit version {version},
-            but <Link href={currentLink}>{maxVersion}</Link> is the latest
-            version available.
-          </p>
-        )}
+        <p>
+          You are reading the documentation for Streamlit version {version}, but{" "}
+          <Link href={currentLink}>{maxVersion}</Link> is the latest version
+          available.
+        </p>
       </Warning>
     );
   }
@@ -334,7 +330,12 @@ export async function getStaticProps(context) {
     join(pythonDirectory, "streamlit.json"),
     "utf8",
   );
+  const jsonExceptions = fs.readFileSync(
+    join(pythonDirectory, "snowflake.json"),
+    "utf8",
+  );
   const streamlitFuncs = jsonContents ? JSON.parse(jsonContents) : {};
+  const streamlitExceptions = jsonExceptions ? JSON.parse(jsonExceptions) : {};
   const all_versions = Object.keys(streamlitFuncs);
   const versions = sortBy(all_versions, [
     (o) => {
@@ -343,12 +344,13 @@ export async function getStaticProps(context) {
     },
   ]);
   const current_version = versions[versions.length - 1];
-  const funcs = jsonContents ? JSON.parse(jsonContents) : {};
 
   const menu = getMenu();
 
   props["streamlit"] = {};
+  props["exceptions"] = {};
   props["versions"] = all_versions;
+  props["snowflakeVersions"] = [];
   props["versionFromStaticLoad"] = null;
 
   if ("slug" in context.params) {
@@ -366,14 +368,18 @@ export async function getStaticProps(context) {
     const should_version = /<Autofunction(.*?)\/>/gi.test(fileContents);
 
     if (should_version) {
-      props["streamlit"] = funcs[current_version];
+      props["streamlit"] = streamlitFuncs[current_version];
+      props["exceptions"] = streamlitExceptions[current_version] ?? {};
+      props["snowflakeVersions"] = reverse(Object.keys(streamlitExceptions));
     }
 
     const isnum = /^[\d\.]+$/.test(context.params.slug[0]);
     const isSiS = /^SiS[\d\.]*$/.test(context.params.slug[0]);
     if (isnum || isSiS) {
       props["versionFromStaticLoad"] = context.params.slug[0];
-      props["streamlit"] = funcs[props["versionFromStaticLoad"]];
+      props["streamlit"] = streamlitFuncs[props["versionFromStaticLoad"]];
+      props["exceptions"] =
+        streamlitExceptions[props["versionFromStaticLoad"]] ?? {};
 
       location = `/${context.params.slug.slice(1).join("/")}`;
     }

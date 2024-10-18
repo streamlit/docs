@@ -2,17 +2,21 @@ import classNames from "classnames";
 
 import styles from "./iconHeader.module.css";
 
-const IconHeader = ({ icon, rotate, title, background, color }) => {
+const IconHeader = ({ icon, rotate, title, background, color, compact }) => {
   return (
     <section className={classNames(styles.Container)}>
-      <i
-        className={classNames(styles.Icon, BG_CLASS[background])}
-        style={{
-          transform: `rotate(${rotate}deg)`,
-        }}
-      >
-        {icon}
-      </i>
+      {compact ? (
+        ""
+      ) : (
+        <i
+          className={classNames(styles.Icon, BG_CLASS[background])}
+          style={{
+            transform: `rotate(${rotate}deg)`,
+          }}
+        >
+          {icon}
+        </i>
+      )}
       <h4 className={classNames(styles.Title, FG_CLASS[background])}>
         {title}
       </h4>
