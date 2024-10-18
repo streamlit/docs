@@ -17,6 +17,7 @@ import "prismjs/plugins/line-highlight/prism-line-highlight.css";
 import "prismjs/plugins/toolbar/prism-toolbar";
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
+import VersionSelector from "../utilities/versionSelector";
 
 import styles from "./autofunction.module.css";
 import { name } from "file-loader";
@@ -102,57 +103,22 @@ const Autofunction = ({
     setIsHighlighted(true);
   };
 
-  const VersionSelector = ({
-    versionList,
-    snowflakeVersions,
-    currentVersion,
-    handleSelectVersion,
-  }) => {
-    const isSiS = currentVersion.startsWith("SiS") ? true : false;
-    const selectClass = isSiS
-      ? "version-select sis-version"
-      : currentVersion !== versionList[0]
-        ? "version-select old-version"
-        : "version-select";
-
-    return (
-      <form className={classNames(selectClass, styles.Form)}>
-        <label>
-          <span className="sr-only">Streamlit Version</span>
-          <select
-            value={currentVersion}
-            onChange={handleSelectVersion}
-            className={styles.Select}
-          >
-            {versionList.map((version, index) => (
-              <option value={version} key={version}>
-                {snowflakeVersions.includes(version)
-                  ? version + " ❄"
-                  : version}
-              </option>
-            ))}
-          </select>
-        </label>
-      </form>
-    );
-  };
-
   const handleSelectVersion = (event) => {
     const functionObject =
       streamlit[streamlitFunction] ?? streamlit[oldStreamlitFunction];
     const slicedSlug = slug.slice();
 
-    if (event.target.value !== currentVersion) {
-      setCurrentVersion(event.target.value);
-      if (event.target.value !== maxVersion) {
+    if (event !== currentVersion) {
+      setCurrentVersion(event);
+      if (event !== maxVersion) {
         let isnum = /^[\d\.]+$/.test(slicedSlug[0]);
         let isSiS = /^SiS[\d\.]*$/.test(slicedSlug[0]);
         if (isnum || isSiS) {
-          slicedSlug[0] = event.target.value;
+          slicedSlug[0] = event;
         } else {
-          slicedSlug.unshift(event.target.value);
+          slicedSlug.unshift(event);
         }
-        slug.unshift(event.target.value);
+        slug.unshift(event);
       }
     }
 

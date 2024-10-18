@@ -11,7 +11,7 @@
 }
 
 .Title {
-  @apply mt-6 mb-2;
+  @apply grow mt-6 mb-2;
 }
 
 .Form {

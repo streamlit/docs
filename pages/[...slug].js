@@ -71,6 +71,7 @@ import YouTube from "../components/blocks/youTube";
 import Cloud from "../components/blocks/cloud";
 
 import styles from "../components/layouts/container.module.css";
+import { reverse } from "lodash";
 
 export default function Article({
   data,
@@ -179,20 +180,11 @@ export default function Article({
     currentLink = `/${slug.join("/")}`;
     versionWarning = (
       <Warning>
-        {version && version.startsWith("SiS") ? (
-          <p>
-            You are reading the documentation for Streamlit in Snowflake. For
-            open-source Streamlit, version{" "}
-            <Link href={currentLink}>{maxVersion}</Link> is the latest version
-            available.
-          </p>
-        ) : (
-          <p>
-            You are reading the documentation for Streamlit version {version},
-            but <Link href={currentLink}>{maxVersion}</Link> is the latest
-            version available.
-          </p>
-        )}
+        <p>
+          You are reading the documentation for Streamlit version {version}, but{" "}
+          <Link href={currentLink}>{maxVersion}</Link> is the latest version
+          available.
+        </p>
       </Warning>
     );
   }
@@ -378,7 +370,7 @@ export async function getStaticProps(context) {
     if (should_version) {
       props["streamlit"] = streamlitFuncs[current_version];
       props["exceptions"] = streamlitExceptions[current_version] ?? {};
-      props["snowflakeVersions"] = Object.keys(streamlitExceptions);
+      props["snowflakeVersions"] = reverse(Object.keys(streamlitExceptions));
     }
 
     const isnum = /^[\d\.]+$/.test(context.params.slug[0]);
