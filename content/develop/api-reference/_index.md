@@ -1047,7 +1047,7 @@ edited = st.data_editor(df, num_rows="dynamic")
 
 <Image pure alt="screenshot" src="/images/api/file_uploader.jpg" />
 
-<h4>File Uploader</h4>
+<h4>File uploader</h4>
 
 Display a file uploader widget.
 
@@ -1436,7 +1436,7 @@ c.write("This will show second")
 
 <Image pure alt="screenshot" src="/images/api/dialog.jpg" />
 
-<h4>Modal dialogs</h4>
+<h4>Modal dialog</h4>
 
 Insert a modal dialog that can rerun independently from the rest of the script.
 
@@ -1945,7 +1945,7 @@ st.switch_page("pages/my_page.py")
 
 <Image pure alt="screenshot" src="/images/api/dialog.jpg" />
 
-<h4>Modal dialogs</h4>
+<h4>Modal dialog</h4>
 
 Insert a modal dialog that can rerun independently from the rest of the script.
 
