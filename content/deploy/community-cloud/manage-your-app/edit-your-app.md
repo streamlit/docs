@@ -5,7 +5,7 @@ slug: /deploy/streamlit-community-cloud/manage-your-app/edit-your-app
 
 # Edit your app
 
-You can edit your app from any development environment of your choice. Community Cloud will monitor your repository and automatically copy any file changes you commit. You will immediately see commits reflected in your deployed app for most changes (such as edits to your app's Python files).
+You can edit your app from any development environment of your choice. Streamlit Community Cloud will monitor your repository and automatically copy any file changes you commit. You will immediately see commits reflected in your deployed app for most changes (such as edits to your app's Python files).
 
 Community Cloud also makes it easy to skip the work of setting up a development environment. With a few simple clicks, you can configure a development environment using GitHub Codespaces.
 
@@ -15,72 +15,69 @@ Spin up a cloud-based development environment for your deployed app in minutes. 
 
 ### Create a codespace for your deployed app
 
-1. From your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) next to your app. Click "**Edit**."
+1. From your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) next to your app. Click "**Edit with Codespaces**."
 
    ![Edit your app with GitHub Codespaces](/images/streamlit-community-cloud/workspace-app-edit.png)
 
-2. A `.devcontainer/devcontainer.json` file will be added to your repository. If you already have a file of the same name in your repository, it will not be changed. You may delete or rename your existing devcontainer configuration if you would like your repository to receive the instance created by Streamlit Community Cloud.
+   Community Cloud will add a `.devcontainer/devcontainer.json` file to your repository. If you already have a file of the same name in your repository, it will not be changed. If you want your repository to receive the instance created by Community Cloud, delete or rename your existing devcontainer configuration.
 
-   ![Adding a devcontainer file to your repository](/images/streamlit-community-cloud/workspace-app-edit-preparing.png)
+1. Wait for GitHub to set up your codespace.
 
-3. Click "**Create codespace**" to confirm the creation of a codespace on your account. Read more about <a href="https://github.com/features/codespaces" target="_blank">GitHub Codespaces</a> to learn about monthly limits for free use and paid plans.
+   It can take several minutes to fully initialize your codespace. After the Visual Studio Code editor appears in your codespace, it can take several minutes to install Python and start the Streamlit server. When complete, a split screen view displays a code editor on the left and a running app on the right. The code editor opens two tabs by default: the repository's readme file and the app's entrypoint file.
 
-   ![Create your GitHub Codespace](/images/streamlit-community-cloud/deploy-codespaces-2.png)
+   ![Your new GitHub Codespace](/images/streamlit-community-cloud/deploy-template-blank-codespace.png)
 
-4. Wait for GitHub to set up your codespace.
+1. Optional: For more room to work, open the app preview in another tab.
 
-   ![GitHub preparing your codespace](/images/streamlit-community-cloud/deploy-codespaces-3.png)
+   If you have multiple monitors and want a little more room to work, open your app preview in another tab instead of using the Simple Browser within Visual Studio Code. Just copy the URL from the Simple Browser into another tab, and then close the Simple Browser. Now you have more room to edit your code. The remaining steps on this page will continue to display the split-screen view in Visual Studio Code.
 
-5. GitHub will automatically execute the commands to launch your Streamlit app within your codespace. Your app will be visible in a "Simple Browser" on the right. This may take a minute to complete from when your codespace first appears on screen.
+1. Make a change to your app.
 
-   ![Your new GitHub Codespace](/images/streamlit-community-cloud/deploy-sample-codespace.png)
+   When you make changes to your app, the file is automatically saved within your codespace. Your edits do not affect your repository or deployed app until you commit those changes, which is explained in a later step. The app preview shown on the right is local to your codespace.
 
-6. When you make changes to your app, the file is automatically saved within your codespace. Your edits do not affect your repository unless you choose to commit those changes. We will describe committing your changes in a later step.
+1. In order to see updates automatically reflected on the right, click "**Always rerun**" when prompted after your first edit.
 
-   In order to see updates automatically reflected on the right, click "**Always rerun**" when prompted after an edit.
+   ![Select "Always rerun" to automatically see edits in your running app](/images/streamlit-community-cloud/deploy-template-blank-codespace-edit.png)
 
-   ![Edit the title of your sample Streamlit app](/images/streamlit-community-cloud/deploy-sample-edit-title.png)
-   ![Select "Always rerun" to automatically see edits in your running app](/images/streamlit-community-cloud/deploy-sample-edit-rerun.png)
+   Alternatively, you can click "**Rerun**" to avoid unnecessary reruns while writing code. Because your code is continually saved, automatically rerunning the app will raises errors when you pause partway through a line of code. Regardless of which you choose, you can change the setting through the app chrome. Just click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) in the upper-right corner of your preview app, click "**Settings**," and then toggle "**Run on save**."
 
-7. See your edits appear within the "Simple Browser" tab and keep going with more!
+1. Continue to edit your app. Your codespace will continue to automatically save your files as you work with them, and the preview will continue to update as the app reruns.
 
-   ![See the results of your edit to your Streamlit app](/images/streamlit-community-cloud/deploy-sample-edit-result.png)
-
-### Commit your changes to your repository (optional)
+### Optional: Publish your changes
 
 After making edits to your app, you can choose to commit your edits to your repository to update your deployed app instantly. If you just want to keep your edits in your codespace to return to later, skip to [Stop or delete your codespace](#stop-or-delete-your-codespace).
 
-8. In the left navigation bar, click the source control icon.
+1. In the left navigation bar, click the source control icon.
 
-   ![Click on the source control icon](/images/streamlit-community-cloud/deploy-sample-edit-commit-1.png)
+   ![Click on the source control icon](/images/streamlit-community-cloud/deploy-template-blank-codespace-edit-source-control.png)
 
-9. Fill out your desired commit message and click "**Commit**."
+1. In the source control sidebar on the left, enter a name for your commit.
+1. Click "**<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>check</i> Commit**."
 
-   ![Commit your changes](/images/streamlit-community-cloud/deploy-sample-edit-commit-2.png)
+   ![See your deployed Streamlit app](/images/streamlit-community-cloud/deploy-template-blank-codespace-edit-commit.png)
 
-10. Click "**Yes**" to stage and commit all your changes. To learn more about source control in GitHub Codespaces, check out <a href="https://docs.github.com/en/codespaces/developing-in-codespaces/using-source-control-in-your-codespace" target="_blank">Source control</a> in GitHub Docs.
+1. To stage and commit all your changes, in the confirmation dialog, click "**Yes**." Your changes are committed locally in your codespace.
+1. To push your commit to GitHub, in the source control sidebar on the left, click "**<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>cached</i> 1 <i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>arrow_upward</i>**."
+1. To push commits to "origin/main," in the confirmation dialog, click "**OK**."
 
-<div style={{ maxWidth: '70%', margin: 'auto' }}>
-<Image alt="Confirm to stage all changes and commit" src="/images/streamlit-community-cloud/deploy-sample-edit-commit-3.png" />
-</div>
+   Your changes are now saved to your GitHub repository. Community Cloud will immediately reflect the changes in your deployed app.
+
+1. Optional: To see your updated, published app, return to the "**My apps**" section of your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, and click on your app.
 
 ### Stop or delete your codespace
 
-When you are done, remember to stop your codespace on GitHub to avoid any undesired use of your capacity.
+When you stop interacting with your codespace, GitHub will generally stop your codespace for you. However, the surest way to avoid undesired use of your capacity is to stop or delete your codespace when you are done.
 
-11. Go to <a href="https://github.com/codespaces" target="_blank">github.com/codespaces</a>. At the bottom of the page, all your codespaces are listed. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_horiz</i>) for your codespace.
+1. Go to <a href="https://github.com/codespaces" target="_blank">github.com/codespaces</a>. At the bottom of the page, all your codespaces are listed. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_horiz</i>) for your codespace.
 
-<div style={{ maxWidth: '90%', margin: 'auto' }}>
-<Image alt="Stop or delete your GitHub Codespace" src="/images/streamlit-community-cloud/deploy-sample-codespace-manage.png" />
-</div>
+   ![Stop or delete your GitHub Codespace](/images/streamlit-community-cloud/deploy-hello-codespace-manage.png)
 
-12. Click "**Stop codespace**" if you'd like to return to your work later. Otherwise, click "**Delete**."
+2. Click "**Stop codespace**" if you'd like to return to your work later. Otherwise, click "**Delete**."
 
-    <Flex>
-    <div style={{ maxWidth: '40%', margin: 'auto' }}>
-    <Image alt="Stop your GitHub codespace" src="/images/streamlit-community-cloud/codespace-menu-stop.png" />
-    </div>
-    <div style={{ maxWidth: '40%', margin: 'auto' }}>
-    <Image alt="Delete your GitHub codespace" src="/images/streamlit-community-cloud/codespace-menu-delete.png" />
-    </div>
-    </Flex>
+   <div style={{ maxWidth: '40%', margin: 'auto' }}>
+   <Image alt="Stop your GitHub codespace" src="/images/streamlit-community-cloud/codespace-menu.png" />
+   </div>
+
+3. Congratulations! You just deployed an app to Community Cloud. 🎉 Head back to your workspace at <a href="https://share.streamlit.io/" target="_blank">share.streamlit.io/</a> and [deploy another Streamlit app](/deploy/streamlit-community-cloud/deploy-your-app).
+
+   ![See your deployed Streamlit app](/images/streamlit-community-cloud/deploy-template-blank-edited.png)

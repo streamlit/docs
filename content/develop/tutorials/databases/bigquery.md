@@ -9,7 +9,7 @@ slug: /develop/tutorials/databases/bigquery
 
 This guide explains how to securely access a BigQuery database from Streamlit Community Cloud. It uses the
 [google-cloud-bigquery](https://googleapis.dev/python/bigquery/latest/index.html) library and
-Streamlit's [Secrets management](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
+Streamlit's [Secrets management](/develop/concepts/connections/secrets-management).
 
 ## Create a BigQuery database
 

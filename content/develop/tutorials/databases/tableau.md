@@ -7,7 +7,7 @@ slug: /develop/tutorials/databases/tableau
 
 ## Introduction
 
-This guide explains how to securely access data on Tableau from Streamlit Community Cloud. It uses the [tableauserverclient](https://tableau.github.io/server-client-python/#) library and Streamlit's [Secrets management](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
+This guide explains how to securely access data on Tableau from Streamlit Community Cloud. It uses the [tableauserverclient](https://tableau.github.io/server-client-python/#) library and Streamlit's [Secrets management](/develop/concepts/connections/secrets-management).
 
 ## Create a Tableau site
 

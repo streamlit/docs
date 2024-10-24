@@ -15,9 +15,9 @@ A dense list of Streamlit commands with example syntax.
 
 </RefCard>
 
-<RefCard href="/develop/quick-reference/changelog">
+<RefCard href="/develop/quick-reference/release-notes">
 
-<h5>Changelog</h5>
+<h5>Release notes</h5>
 
 See how Streamlit has changed with each new version.
 

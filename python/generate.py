@@ -23,6 +23,7 @@ from streamlit.runtime.caching.cache_utils import CachedFunc
 from streamlit.elements.plotly_chart import PlotlyState, PlotlySelectionState
 from streamlit.elements.vega_charts import VegaLiteState
 from streamlit.elements.arrow import DataframeState, DataframeSelectionState
+from streamlit.elements.deck_gl_json_chart import PydeckState, PydeckSelectionState
 from streamlit.navigation import page
 from streamlit.navigation.page import StreamlitPage
 
@@ -604,6 +605,9 @@ def get_streamlit_docstring_dict():
         VegaLiteState: ["VegaLiteState", "VegaLiteState"],
         DataframeState: ["DataframeState", "DataframeState"],
         DataframeSelectionState: ["DataframeSelectionState", "DataframeSelectionState"],
+        PydeckState: ["PydeckState", "PydeckState"],
+        PydeckSelectionState: ["PydeckSelectionState", "PydeckSelectionState"]
+
     }
 
     module_docstring_dict = {}

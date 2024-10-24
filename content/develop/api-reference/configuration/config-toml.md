@@ -59,16 +59,17 @@ showWarningOnDirectExecution = true
 ```toml
 [logger]
 
-# Level of logging: 'error', 'warning', 'info', or 'debug'.
-# Default: 'info'
+# Level of logging for Streamlit's internal logger: "error", "warning",
+# "info", or "debug".
+# Default: "info"
 level = "info"
 
 # String format for logging messages. If logger.datetimeFormat is set,
 # logger messages will default to `%(asctime)s.%(msecs)03d %(message)s`. See
 # Python's documentation for available attributes:
-# https://docs.python.org/2.6/library/logging.html#formatter-objects
+# https://docs.python.org/3/library/logging.html#formatter-objects
 # Default: "%(asctime)s %(message)s"
-messageFormat = "%(asctime)s %(message)s"
+messageFormat = "%(asctime)s %(levelname) -7s %(name)s: %(message)s"
 ```
 
 #### Client
@@ -208,8 +209,8 @@ baseUrlPath = ""
 # Default: true
 enableCORS = true
 
-# Enables support for Cross-Site Request Forgery (XSRF) protection, for added
-# security.
+# Enables support for Cross-Site Request Forgery (XSRF) protection, for
+# added security.
 # Due to conflicts between CORS and XSRF, if `server.enableXsrfProtection` is
 # on and `server.enableCORS` is off at the same time, we will prioritize
 # `server.enableXsrfProtection`.
@@ -233,6 +234,12 @@ enableWebsocketCompression = false
 # directory.
 # Default: false
 enableStaticServing = false
+
+# TTL in seconds for sessions whose websockets have been disconnected. The server
+# may choose to clean up session state, uploaded files, etc for a given session
+# with no active websocket connection at any point after this time has passed.
+# Default: 120
+disconnectedSessionTTL = 120
 
 # Server certificate file for connecting via HTTPS.
 # Must be set at the same time as "server.sslKeyFile".
@@ -326,11 +333,10 @@ font =
 ```toml
 [secrets]
 
-# List of locations where secrets are searched. Entries can be a path to
-# toml file or directory path where Kubernetes style secrets will be
-# scanned. Order is important, import is first to last, so secrets in later
-# files will take precedence over earlier ones.
-
+# List of locations where secrets are searched. An entry can be a path to a
+# TOML file or directory path where Kubernetes style secrets are saved.
+# Order is important, import is first to last, so secrets in later files
+# will take precedence over earlier ones.
 # Default: [ <path to local environment's secrets.toml file>, <path to project's secrets.toml file>,]
 files = [ "~/.streamlit/secrets.toml", "~/project directory/.streamlit/secrets.toml",]
 ```

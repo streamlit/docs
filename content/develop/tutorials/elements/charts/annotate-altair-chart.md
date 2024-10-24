@@ -225,7 +225,7 @@ You'll build an interactive time-series chart of the stock prices with a multi-l
    data_layer = lines + points + tooltips
    ```
 
-1. (Optional) Test out your code by rendering your data layer.
+1. Optional: Test out your code by rendering your data layer.
 
    ```python
    st.altair_chart(data_layer, use_container_width=True)

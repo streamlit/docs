@@ -156,7 +156,7 @@ with st.sidebar:
        st.markdown("🐾 🐾 🐾 🐾")
    ```
 
-1. (Optional) Test out your functions by calling each one within a grid card.
+1. Optional: Test out your functions by calling each one within a grid card.
 
    ```python
    with grid[0]:

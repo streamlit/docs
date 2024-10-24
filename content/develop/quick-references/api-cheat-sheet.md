@@ -5,7 +5,7 @@ slug: /develop/quick-reference/cheat-sheet
 
 # Streamlit API cheat sheet
 
-This is a summary of the docs, as of [Streamlit v1.38.0](https://pypi.org/project/streamlit/1.38.0/).
+This is a summary of the docs for the latest version of Streamlit, [v1.39.0](https://pypi.org/project/streamlit/1.39.0/).
 
 <Masonry>
 
@@ -301,6 +301,7 @@ st.text_area("Text to translate")
 st.date_input("Your birthday")
 st.time_input("Meeting time")
 st.file_uploader("Upload a CSV")
+st.experimental_audio_input("Record a voice message")
 st.camera_input("Take a picture")
 st.color_picker("Pick a color")
 

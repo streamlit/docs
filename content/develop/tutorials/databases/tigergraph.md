@@ -7,7 +7,7 @@ slug: /develop/tutorials/databases/tigergraph
 
 ## Introduction
 
-This guide explains how to securely access a TigerGraph database from Streamlit Community Cloud. It uses the [pyTigerGraph](https://pytigergraph.github.io/pyTigerGraph/GettingStarted/) library and Streamlit's [Secrets management](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
+This guide explains how to securely access a TigerGraph database from Streamlit Community Cloud. It uses the [pyTigerGraph](https://pytigergraph.github.io/pyTigerGraph/GettingStarted/) library and Streamlit's [Secrets management](/develop/concepts/connections/secrets-management).
 
 ## Create a TigerGraph Cloud Database
 

@@ -1017,6 +1017,19 @@ name = st.text_input("First name")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/widgets/st.audio_input">
+
+<Image pure alt="screenshot" src="/images/api/audio_input.jpg" />
+
+<h4>Audio input</h4>
+
+Display a widget that allows users to record with their microphone.
+
+```python
+speech = st.experimental_audio_input("Record a voice message")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/data/st.data_editor">
 
 <Image pure alt="screenshot" src="/images/api/data_editor.jpg" />
@@ -1026,7 +1039,7 @@ name = st.text_input("First name")
 Display a data editor widget.
 
 ```python
-edited = st.experimental_data_editor(df, num_rows="dynamic")
+edited = st.data_editor(df, num_rows="dynamic")
 ```
 
 </RefCard>
@@ -1034,7 +1047,7 @@ edited = st.experimental_data_editor(df, num_rows="dynamic")
 
 <Image pure alt="screenshot" src="/images/api/file_uploader.jpg" />
 
-<h4>File Uploader</h4>
+<h4>File uploader</h4>
 
 Display a file uploader widget.
 
@@ -1423,12 +1436,12 @@ c.write("This will show second")
 
 <Image pure alt="screenshot" src="/images/api/dialog.jpg" />
 
-<h4>Modal dialogs</h4>
+<h4>Modal dialog</h4>
 
 Insert a modal dialog that can rerun independently from the rest of the script.
 
 ```python
-@st.experimental_dialog("Sign up")
+@st.dialog("Sign up")
 def email_form():
     name = st.text_input("Name")
     email = st.text_input("Email")
@@ -1932,12 +1945,12 @@ st.switch_page("pages/my_page.py")
 
 <Image pure alt="screenshot" src="/images/api/dialog.jpg" />
 
-<h4>Modal dialogs</h4>
+<h4>Modal dialog</h4>
 
 Insert a modal dialog that can rerun independently from the rest of the script.
 
 ```python
-@st.experimental_dialog("Sign up")
+@st.dialog("Sign up")
 def email_form():
     name = st.text_input("Name")
     email = st.text_input("Email")
