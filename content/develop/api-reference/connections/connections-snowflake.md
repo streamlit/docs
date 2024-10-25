@@ -16,7 +16,7 @@ Internal note: This section is deep-linked from the library in 1.28.1 via /st.co
 Maintain the redirect if moved or modified.
 **/}
 
-#### Using existing Snowflake configuration
+#### Using your existing Snowflake configuration
 
 Snowflake's Python connector supports a [connection configuration file](https://docs.snowflake.com/en/developer-guide/python-connector/python-connector-connect#connecting-using-the-connections-toml-file), which is well integrated with Streamlit's `SnowflakeConnection`. If you already have one or more connections configured, all you need to do is pass Streamlit the name of the connection to use. If your `connections.toml` file defines a connection under `[myconnection]`, you can use that configuration in one of the following ways:
 
