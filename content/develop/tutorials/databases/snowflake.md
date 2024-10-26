@@ -17,7 +17,6 @@ This guide explains how to securely access a Snowflake database from Streamlit. 
   streamlit>=1.28
   snowflake-snowpark-python>=0.9.0
   snowflake-connector-python>=2.8.0
-  sqlalchemy>=2.0.0
   ```
 
     <Note>
