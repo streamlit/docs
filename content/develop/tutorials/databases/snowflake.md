@@ -7,134 +7,205 @@ slug: /develop/tutorials/databases/snowflake
 
 ## Introduction
 
-This guide explains how to securely access a Snowflake database from Streamlit. It uses [st.connection](/develop/api-reference/connections/st.connection), the [Snowpark library](https://docs.snowflake.com/en/developer-guide/snowpark/python/index) and Streamlit's [Secrets management](/develop/concepts/connections/secrets-management). The below example code **will only work on Streamlit version >= 1.28**, when `st.connection` was added.
+This guide explains how to securely access a Snowflake database from Streamlit. It uses [st.connection](/develop/api-reference/connections/st.connection), the [Snowpark library](https://docs.snowflake.com/en/developer-guide/snowpark/python/index) and Streamlit's [Secrets management](/develop/concepts/connections/secrets-management).
+
+### Prerequisites
+
+- The following packages must be installed in your Python environment:
+
+  ```txt
+  streamlit>=1.28
+  snowflake-snowpark-python>=0.9.0
+  snowflake-connector-python>=2.8.0
+  sqlalchemy>=2.0.0
+  ```
+
+    <Note>
+        Use the correct version of Python required by `snowflake-snowpark-python`. For example, if you use `snowflake-snowpark-python==1.23.0` you must use Python version \>=3.8, \<3.12.
+    </Note>
+
+- You must have a Snowflake account. To create a trial account, follow our [tutorial](/get-started/installation/streamlit-in-snowflake).
+- You should have a basic understanding of [`st.connection`](/develop/api-reference/connections/st.connection) and [Secrets management](/develop/concepts/connections/secrets-management).
 
 ## Create a Snowflake database
 
-<Note>
+If you already have a database that you want to use, you can [skip to the next step](#add-connection-parameters-to-your-local-app-secrets).
 
-If you already have a database that you want to use, feel free to [skip to the next step](#add-username-and-password-to-your-local-app-secrets).
+1. Sign in to your Snowflake account at [https://app.snowflake.com](https://app.snowflake.com).
+1. In the left navigation, click "**Projects**," then click "**Worksheets**."
+1. To create a new worksheet, in the upper-right corner, click the plus icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>add</i>).
 
-</Note>
+   You can use a worksheet to quickly and conveniently execute SQL commands. This is a great way to learn about and experiment with SQL in a trial account.
 
-First, [sign up for Snowflake](https://signup.snowflake.com/) and log into the [Snowflake web interface](https://docs.snowflake.com/en/user-guide/connecting.html#logging-in-using-the-web-interface) (note down your username, password, and [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html)!):
+1. Optional: To rename your worksheet, in the upper-left, hover over the tab with your worksheet name and click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>). Select "**Rename**", enter a new worksheet name (e.g. "Scratchwork"), and press "**Enter**".
+1. To create a new database with a table, in your new worksheet, type the following SQL commands, and execute them.
 
-![](/images/databases/snowflake-1.png)
+   ```sql
+   CREATE DATABASE PETS;
 
-Enter the following queries into the SQL editor in the Worksheets page to create a database and a table with some example values:
+   CREATE TABLE MYTABLE (NAME varchar(80), PET varchar(80));
 
-```sql
-CREATE DATABASE PETS;
+   INSERT INTO MYTABLE
+   VALUES ('Mary', 'dog'), ('John', 'cat'), ('Robert', 'bird');
 
-CREATE TABLE MYTABLE (
-    NAME            varchar(80),
-    PET             varchar(80)
-);
+   SELECT * FROM MYTABLE;
+   ```
 
-INSERT INTO MYTABLE VALUES ('Mary', 'dog'), ('John', 'cat'), ('Robert', 'bird');
+   To execute the queries in a Worksheet, select all the lines you want to execute by highlighting them with your mouse, and click the play button (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>play_arrow</i>) in the upper-right corner. Alternatively, if you want to execute everything in a worksheet, click the down arrow (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>expand_more</i>) next to the play button, and select "**Run All**".
 
-SELECT * FROM MYTABLE;
-```
+   <Image alt="AWS screenshot 1" src="/images/databases/snowflake-worksheet-execute.png" />
 
-Before you execute the queries, first determine which Snowflake UI / web interface you're using. The examples below use [Snowsight](https://docs.snowflake.com/en/user-guide/ui-snowsight). You can also use [Classic Console Worksheets](https://docs.snowflake.com/en/user-guide/ui-worksheet) or any other means of running Snowflake SQL statements.
+   <Important>
 
-### Execute queries in a Worksheet
+   If no lines are highlighted and you click the play button, only the line with your cursor will execute.
 
-To execute the queries in a Worksheet, highlight or select all the queries with your mouse, and click the play button in the top right corner.
+   </Important>
 
-<Image alt="AWS screenshot 1" src="/images/databases/snowflake-4.png" />
+1. Optional: To view your new database, above the left navigation, select "**Databases**." Click the down arrows (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>expand_more</i>) to expand PETS → PUBLIC → Tables → MYTABLE.
 
-<Important>
+<Image alt="AWS screenshot 2" src="/images/databases/snowflake-database-new.png" />
 
-Be sure to highlight or select **all** the queries (lines 1-10) before clicking the play button.
+1. To configure your connection in later steps, note down your role, warehouse, database, and schema. In the preceding screenshot, these are the following:
 
-</Important>
+   ```toml
+   role = "ACCOUNTADMIN"
+   warehouse = "COMPUTE_WH"
+   database = "PETS"
+   schema = "PUBLIC"
+   ```
 
-Once you have executed the queries, you should see a preview of the table in the **Results** panel at the bottom of the page. Additionally, you should see your newly created database and schema by expanding the accordion on the left side of the page. Lastly, the warehouse name is displayed on the button to the left of the **Share** button.
+   Because the SQL commands did not specify a schema, they defaulted to using the default "PUBLIC" schema within the new database, "PETS." The role and warehouse were defaults from the trial account. You can see the role and warehouse used by your worksheet in the upper-right corner, to the left of the "**Share**" and play (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>play_arrow</i>) buttons.
 
-<Image alt="AWS screenshot 2" src="/images/databases/snowflake-5.png" />
+   In Snowflake, databases provide storage and warehouses provide compute. When you configure your connection, you aren't explicitly required to declare role, warehouse, database, and schema; the connection will use your account defaults if these are not specified. You can also change these settings within an active connection if you need to use multiple roles, warehouses, or databases. However, it is often convenient to declare these defaults to avoid unintentional selections.
 
-Make sure to note down the name of your warehouse, database, and schema. ☝️
+1. To conveniently copy your account identifier, in the lower-left corner, click your profile image, and hover over your account. A popover dialog expands to the right with your organization and account. In the popover, hover over your account, and click the copy icon (<i style={{ verticalAlign: "-.25em", transform: "rotateZ(90deg)" }} className={{ class: "material-icons-sharp" }}>content_copy</i>).
 
-## Install snowflake-snowpark-python
+   The account identifier in your clipboard is period-separated, which is the format used for SQL queries. Paste your account identifier into your notes and change the period into a hyphen. The Snowflake Connector for Python requires the hyphen-separated format for your account identifier.
 
-You can find the instructions and prerequisites for installing `snowflake-snowpark-python` in the [Snowflake Developer Guide](https://docs.snowflake.com/en/developer-guide/snowpark/python/setup#installation-instructions).
+   ```toml
+   account = "xxxxxxx-xxxxxxx"
+   ```
 
-```bash
-pip install snowflake-snowpark-python
-```
+   For more information, see [Account identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html) in the Snowflake docs.
 
 ## Add connection parameters to your local app secrets
 
-Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml` in your app’s root directory. Learn more about [Streamlit secrets management here](/develop/concepts/connections/secrets-management). Create this file if it doesn’t exist yet and add your Snowflake username, password, [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html), and the name of your warehouse, database, and schema as shown below:
+There are three places Streamlit looks for your connection parameters: keyword arguments in `st.connection`, `.streamlit/secrets.toml`, and `.snowflake/configuration.toml`. For more information, especially if you want to manage multiple connections, see the examples in the API reference for [`SnowflakeConnnection`](/develop/api-reference/connections/st.connections.snowflakeconnection).
 
-```toml
-# .streamlit/secrets.toml
+To configure your connection, you are required to have the following:
 
-[connections.snowflake]
-account = "xxx"
-user = "xxx"
-password = "xxx"
-role = "xxx"
-warehouse = "xxx"
-database = "xxx"
-schema = "xxx"
-client_session_keep_alive = true
-```
+    - Your account identifier (`account`)
+    - Your username (`user`)
+    - Some form of authentication parameter (like `password` or `private_key_file`)
 
-<Tip>
+If you don't have MFA on your account, you can just specify your `password`. Alternatively, you can set up [key-pair authication](https://docs.snowflake.com/en/user-guide/key-pair-auth) on your account and point to your `private_key_file`. If you are just looking for a quick, local connection, you can set `authenticator` to prompt you for credentials in an external browser.
 
-Make sure your account name is in the format `<my_organization>-<my_account>`. This is the general-purpose identifier format and not the `.`-separated format used for SQL commands.
+In addition to the three required parameters to authenticate your connection, it is common to specify the default `role`, `warehouse`, `database`, and `schema` for convenience. For more information about required and optional parameters, see the [Snowflake Connector for Python](https://docs.snowflake.com/en/developer-guide/python-connector/python-connector-api#functions) documentation.
 
-</Tip>
+### Option 1: Use `.streamlit/secrets.toml`
 
-If you created the database from the previous step, the names of your database and schema are `PETS` and `PUBLIC`, respectively. Streamlit will also use **Snowflake config and credentials** from a [SnowSQL config file](https://docs.snowflake.com/en/user-guide/snowsql-config#snowsql-config-file) if available.
+1. If you don't already have a `.streamlit/secrets.toml` file in your app's working directory, create an empty secrets file.
 
-<Important>
+   To learn more, see [Secrets Management](/develop/concepts/connections/secrets-management).
 
-Add this file to `.gitignore` and don't commit it to your GitHub repo!
+   <Important>
 
-</Important>
+   Add this file to `.gitignore` and don't commit it to your GitHub repo! If you want to use this connection in multiple repositories, you can create a global `secrets.toml` file instead. For more information, see [`secrets.toml` file location](/develop/api-reference/connections/secrets.toml#file-location).
+
+   </Important>
+
+1. Add your connection parameters to `.streamlit/secrets.toml`:
+
+   ```toml
+   [connections.snowflake]
+   account = "xxxxxxx-xxxxxxx"
+   user = "xxx"
+   private_key_file = "../xxx/xxx.p8"
+   role = "xxx"
+   warehouse = "xxx"
+   database = "xxx"
+   schema = "xxx"
+   ```
+
+   <Important>
+
+   Your account identifier must be hyphen-separated: `<my_organization>-<my_account>`. This is the general-purpose identifier format and not the period-separated format used within SQL commands.
+
+   </Important>
+
+   In this example, the connection uses key-pair authentication, so `private_key_file` is defined instead of `password`. `private_key_file` can be an absolute or relative path. If you use a relative path, it should be relative to your app's working directory (where you execute `streamlit run`).
+
+### Option 2: Use `.snowflake/connections.toml`
+
+If you already have your connection configured using [Snowflake's connections file](https://docs.snowflake.com/en/developer-guide/python-connector/python-connector-connect#connecting-using-the-connections-toml-file), you can use it as-is. If you are using a default connection, no change is needed in later steps of this tutorial. If you are using a named connection, you will need to include the name in `st.connection`. This will be noted in a later step. For information about using named connections, see the examples in the API reference for [`SnowflakeConnnection`](/develop/api-reference/connections/st.connections.snowflakeconnection).
+
+1. If you don't already have a `.snowflake/configuration.toml` file in your user profile directory, create an empty connections file.
+1. Add your connection parameters to `.snowflake/connection.toml`:
+
+   ```toml
+   [default]
+   account = "xxxxxxx-xxxxxxx"
+   user = "xxx"
+   private_key_file = "../xxx/xxx.p8"
+   role = "xxx"
+   warehouse = "xxx"
+   database = "xxx"
+   schema = "xxx"
+   ```
+
+   This example uses key-pair authentication as described in the previous option.
 
 ## Write your Streamlit app
 
-Copy the code below to your Streamlit app and run it. Make sure to adapt the query to use the name of your table.
+1. Copy the code below to your Streamlit app and save it. If you are not using the example database and table from the first section of this tutorial, replace the SQL query as desired and results handling as desired.
+
+   ```python
+   # streamlit_app.py
+
+   import streamlit as st
+
+   conn = st.connection("snowflake")
+   df = conn.query("SELECT * FROM mytable;", ttl="10m")
+
+   for row in df.itertuples():
+       st.write(f"{row.NAME} has a :{row.PET}:")
+   ```
+
+   The `st.connection` object above handles secrets retrieval, setup, query caching and retries.
+
+   By default, `.query()` results are cached without expiring. Setting `ttl="10m"` ensures the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/develop/concepts/architecture/caching).
+
+   <Note>
+
+   If you configured your connection using a named connection in `.snowflake/connections.toml` instead of `[default]`, you must include your connection name in `st.connection`. If you have `[my_connection]` in your connections file, replace the line with `st.connection` as follows:
+
+   ```python
+   conn = st.connection("my_connection", type="snowflake")
+   ```
+
+   </Note>
+
+1. In your working directory, open a terminal, and run your Streamlit app.
+
+   ```bash
+   streamlit run streamlit_app.py
+   ```
+
+   If everything worked out (and you used the example table from the first section), your app should look like this:
+
+   ![Finished app screenshot](/images/databases/streamlit-app.png)
+
+### Use a Snowpark Session
+
+The [SnowflakeConnection](/develop/api-reference/connections/st.connections.snowflakeconnection) used above also provides access to [Snowpark sessions](https://docs.snowflake.com/en/developer-guide/snowpark/reference/python/session.html) for dataframe-style operations that run natively inside Snowflake. Using this approach, you can rewrite the app above as follows:
 
 ```python
 # streamlit_app.py
 
 import streamlit as st
 
-# Initialize connection.
 conn = st.connection("snowflake")
 
-# Perform query.
-df = conn.query("SELECT * from mytable;", ttl=600)
-
-# Print results.
-for row in df.itertuples():
-    st.write(f"{row.NAME} has a :{row.PET}:")
-```
-
-See `st.connection` above? This handles secrets retrieval, setup, query caching and retries. By default, `query()` results are cached without expiring. In this case, we set `ttl=600` to ensure the query result is cached for no longer than 10 minutes. You can also set `ttl=0` to disable caching. Learn more in [Caching](/develop/concepts/architecture/caching).
-
-If everything worked out (and you used the example table we created above), your app should look like this:
-
-![Finished app screenshot](/images/databases/streamlit-app.png)
-
-### Using a Snowpark Session
-
-The same [SnowflakeConnection](/develop/api-reference/connections/st.connections.snowflakeconnection) used above also provides access to the [Snowpark Session](https://docs.snowflake.com/en/developer-guide/snowpark/reference/python/session.html) for DataFrame-style operations that run natively inside Snowflake. Using this approach, you can rewrite the app above as follows:
-
-```python
-# streamlit_app.py
-
-import streamlit as st
-
-# Initialize connection.
-conn = st.connection("snowflake")
-
-# Load the table as a dataframe using the Snowpark Session.
 @st.cache_data
 def load_table():
     session = conn.session()
@@ -142,16 +213,17 @@ def load_table():
 
 df = load_table()
 
-# Print results.
 for row in df.itertuples():
     st.write(f"{row.NAME} has a :{row.PET}:")
 ```
 
-If everything worked out (and you used the example table we created above), your app should look the same as the screenshot from the first example above.
+Because this example uses `.session()` instead of `.query()`, caching is added manually for better performance and efficiency.
+
+If everything worked out (and you used the example table from the first section), your app should look the same as the preceding screenshot.
 
 ## Connecting to Snowflake from Community Cloud
 
 This tutorial assumes a local Streamlit app, however you can also connect to Snowflake from apps hosted in Community Cloud. The main additional steps are:
 
 - [Include information about dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies) using a `requirements.txt` file with `snowflake-snowpark-python` and any other dependencies.
-- [Add your secrets](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management) to your Community Cloud app.
+- [Add your secrets](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management) to your Community Cloud app. You must use the `.streamlit/secrets.toml` format described in [Option 1](/develop/tutorials/databases/snowflake#option-1-use-streamlitsecretstoml) above.
