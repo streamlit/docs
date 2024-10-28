@@ -60,7 +60,7 @@ If you already have a database that you want to use, you can [skip to the next s
 
    </Important>
 
-1. Optional: To view your new database, above the left navigation, select "**Databases**." Click the down arrows (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>expand_more</i>) to expand PETS → PUBLIC → Tables → MYTABLE.
+1. Optional: To view your new database, above the left navigation, select "**Databases**." Click the down arrows (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>expand_more</i>) to expand "PETS" → "PUBLIC" → "Tables" → "MYTABLE."
 
    <Image alt="AWS screenshot 2" src="/images/databases/snowflake-database-new.png" />
 

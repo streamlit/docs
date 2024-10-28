@@ -21,111 +21,135 @@ All you need is an email address! Everything else happens in your 30-day trial a
 
 1. Go to <a href="https://signup.snowflake.com/?utm_source=streamlit&utm_medium=referral&utm_campaign=na-us-en-&utm_content=-ss-streamlit-docs" target="_blank">signup.snowflake.com</a>. (This link will open in a new tab.)
 
-2. Fill in your information and click "**CONTINUE**."
+1. Fill in your information and click "**CONTINUE**."
 
-3. Select "**Standard**" for your Snowflake edition and "**Amazon Web Services**" for your cloud provider.
+1. Select "**Standard**" for your Snowflake edition and "**Amazon Web Services**" for your cloud provider.
 
-4. Choose the region nearest you, accept the terms, and click "**GET STARTED**."
+1. Choose the region nearest you, accept the terms, and click "**GET STARTED**."
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
     <Image alt="Choose your Snowflake edition, provider, and region" src="/images/get-started/SiS-region.png" />
 </div>
 
-5. Answer or skip a few questions to let us know more about yourself.
+1. Answer or skip a few questions to let us know more about yourself.
 
-6. A message will display to confirm "You're now signed up!" Go to your email and click on the activation link. (Within your link, note the subdomain. This is your Snowflake account identifier. `https://<account_identifier>.snowflakecomputing.com`)
+1. A message will display to confirm "You're now signed up!" Go to your email and click on the activation link. (Within your link, note the subdomain. This is your Snowflake account identifier. `https://<account_identifier>.snowflakecomputing.com`)
 
-7. Set your username and password. This will be an admin user account within your Snowflake account. Your Snowflake account can have multiple users within it.
+1. Set your username and password. This will be an admin user account within your Snowflake account. Your Snowflake account can have multiple users within it.
 
-8. If you are not signed in after setting your password, follow the instructions to enter your Snowflake account identifier before entering your username and password. If you've accidentally closed your browser, you can log in at [app.snowflake.com](https://app.snowflake.com/).
+1. If you are not signed in after setting your password, follow the instructions to enter your Snowflake account identifier before entering your username and password. If you've accidentally closed your browser, you can log in at [app.snowflake.com](https://app.snowflake.com/).
 
-9. Congratulations! You have a trial Snowflake account. The first thing you will see are some sample databases. (This interface is called Snowsight. Check out the Snowflake docs for a [quick tour](https://docs.snowflake.com/en/user-guide/ui-snowsight-quick-tour).)
+1. Congratulations! You have a trial Snowflake account.
+
+   The displayed interface is called Snowsight. Snowsight provides a web-based, graphical user interface for your Snowflake account. The default page is "**Home**," which provides popular quick actions to get started. You can access your "**Projects**" in the left navigation or at the bottom of your "**Home**" page. "**Projects**" include worksheets, notebooks, Streamlit apps, and dashboards. Check out the Snowflake docs for a [quick tour](https://docs.snowflake.com/en/user-guide/ui-snowsight-quick-tour).)
 
    ![Sample databases in your new trial Snowflake account](/images/get-started/SiS-1-landing-page.png)
 
-## Accept the use of Anaconda on your Snowflake account
+## Optional: Create a warehouse to provide compute resources
 
-10. In the left navigation, go to "**Admin**" then "**Billing & Terms**."
+Warehouses provide compute resources for tasks and apps in your Snowflake account. Your trial account already has an XS warehouse which you can use. This is named "COMPUTE_WH." However, if you want to use more compute resources, you can create another warehouse.
 
-11. In the "**Anaconda**" section, click "**Enable**."
+1. In the lower-left corner under your name, confirm that your current role is "ACCOUNTADMIN." If it isn't, click your name, hover over "**Switch Role**," and select "**ACCOUNTADMIN**."
 
-12. Accept the terms. The "**Anaconda**" section will now show "**Acknowledged**."
+1. In the left navigation, select "**Admin**" → "**Warehouses**."
 
-## Create a warehouse and database to hold your Streamlit apps
+1. In the upper-right corner, click the blue "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>add</i> **Warehouse**" button.
 
-13. Click on your name in the left navigation. Hover over "**Switch Role**" and select "**ACCOUNTADMIN**" to use your account in the context of an admin.
+1. Enter "STREAMLIT_WH" for the name and select a type and size. The default type and size are "Standard" and "X-Small," respectively. Click "**Create Warehouse**."
 
-14. In the left navigation under "**Admin**," click on "**Warehouses**."
+## Create a database to provide storage
 
-15. In the upper-right corner, click the blue "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>add</i> **Warehouse**" button.
+Databases provide storage for data and apps in your Snowflake account. Your trial account comes with a shared database of sample data, but you must create a new database in your account to store your app files.
 
-16. Enter "STREAMLITWAREHOUSE" for the name and keep the defaults of "Standard" type and "X-Small" size. Click "**Create Warehouse**."
+1. In the left navigation, select "**Data**" → "**Databases**."
 
-17. In the left navigation, go to "**Data**" then "**Databases**." (This is back where you started!)
+1. In the upper-right corner, click the blue "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>add</i> **Database**" button.
 
-18. In the upper-right corner, click the blue "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>add</i> **Database**" button.
+1. Enter "STREAMLIT_DB" for the name. Click "**Create**."
 
-19. Enter "STREAMLITAPPSDB" for the name. Click "**Create**."
+1. Yay! You now have a new database to hold all your Streamlit apps.
 
-20. Yay! You now have a new database to hold all your Streamlit apps.
+   ![New database in your new trial Snowflake account](/images/get-started/SiS-2-databases.png)
 
-    ![New database in your new trial Snowflake account](/images/get-started/SiS-2-databases.png)
+   The databases in the above screenshot are as follows:
+
+   - "SNOWFLAKE:" A built-in database that stores meta data for your account.
+   - "SNOWFLAKE_SAMPLE_DATA:" A shared database with sample data.
+   - "STREAMLIT_DB:" Your new database where you'll put your Streamlit files.
 
 ## Create a "Hello World" Streamlit app
 
-21. In the left navigation, click on "**Streamlit**."
+1. In the left navigation, select "**Projects**" → "**Streamlit**."
 
-22. In the upper-right corner, click the blue "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>add</i> **Streamlit App**" button.
+1. In the upper-right corner, click the blue "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>add</i> **Streamlit App**" button.
 
-23. Enter "Hello World" for the name of your app. Your new warehouse and database should already be filled in, along with the "PUBLIC" schema for your database. Click "**Create**." (Note that the app will run with the rights of "ACCOUNTADMIN" for simplicity. You can curate your roles and permissions to choose who can create and access apps.)
+1. Enter your app details as follows:
 
-    ![Create your first Streamlit in Snowflake app](/images/get-started/SiS-3-create-app.png)
+   - "App title:" "Hello World"
+   - "App location:" "STREAMLIT_DB" and "PUBLIC"
+   - "App warehouse:" "COMPUTE_WH" (default) or "STREAMLIT_WH" (if you created a new warehouse)
 
-24. Your new app, prefilled with example code, will open in editing mode. The left panel shows your code. The right panel shows the resulting app.
+   If you can't select your database, refresh the page to ensure the interface is displaying current information.
 
-25. You can explore the example if you want, but we'll proceed here with a simpler example. (Don't worry! You can always make another app to get the same example again.) Delete the code on the left and replace it with:
+1. Click "**Create**." (Note that the app will run with the rights of "ACCOUNTADMIN" for simplicity. You can curate your roles and permissions to choose who can create and access apps.)
 
-    ```python
-    import streamlit as st
+   ![Create your first Streamlit in Snowflake app](/images/get-started/SiS-3-create-app.png)
 
-    st.write("Hello World")
-    ```
+   Your new app, prefilled with example code, opens in editing mode. The left panel shows your code. The right panel shows the resulting app.
 
-26. In the upper-right corner, click the blue "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>play_arrow</i> **Run**" button to make the running app reflect your changes.
+1. Optional: Explore the example app.
 
-27. Hooray! You just wrote a Streamlit app.
+1. In the left code editor, delete everything, and replace it with the following:
 
-![Hello World in Streamlit in Snowflake app](/images/get-started/SiS-4-hello-world-1.png)
+   ```python
+   import streamlit as st
 
-28. Change `st.write` to `st.title`:
+   st.write("Hello World")
+   ```
 
-    ```python
-    import streamlit as st
+   If you want to get back to the sample code later, you can always make another app to get the same example again.
 
-    st.title("Hello World")
-    ```
+1. In the upper-right corner, click the blue "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>play_arrow</i> **Run**" button to make the running app reflect your changes.
 
-29. In the upper-right corner, click the blue "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>play_arrow</i> **Run**" button to make the running app reflect your changes.
+   Hooray! You just wrote a Streamlit app.
 
-30. You've just edited your app. It's that easy.
+   ![Hello World in Streamlit in Snowflake app](/images/get-started/SiS-4-hello-world.png)
 
-    ![Hello World in Streamlit in Snowflake app](/images/get-started/SiS-5-hello-world-2.png)
+   <Tip>
 
-31. When you're done, click "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>chevron_left</i> **Streamlit Apps**" in the upper-left corner to go back to Snowsight.
+   In the lower-left corner of the editing interface, you can toggle the visibility of your file navigation, code editor, and app preview using the splitscreen icons.
 
-## Returning to your app
+   </Tip>
 
-32. When you are ready to return to your app, go to your Snowsight interface. (If you are returning to the site, you can log in at [app.snowflake.com](https://app.snowflake.com/).)
+1. Change `st.write` to `st.title`:
 
-33. In the left navigation, go to "**Streamlit**."
+   ```python
+   import streamlit as st
 
-34. Click on "**Hello World**." (If you don't see your app, check that you have your role set to "ACCOUNTADMIN" as above.)
+   st.title("Hello World")
+   ```
 
-    ![Return to your Streamlit in Snowflake app](/images/get-started/SiS-6-hello-world-return.png)
+1. In the upper-right corner, click the blue "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>play_arrow</i> **Run**" button to make the running app reflect your changes.
 
-35. Your app will open in viewing mode. Just click "**Edit**" in the upper-right corner to modify your app again.
+   Your app now displays the larger title text.
 
-    ![Change to editing mode in Streamlit in Snowflake](/images/get-started/SiS-7-hello-world-edit.png)
+1. Optional: Make more edits to your app. You must interact with your app or click the blue "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>play_arrow</i> **Run**" button to display the changes. This is different from a local environment where you can save your changes to trigger a rerun.
+
+1. To go back to Snowsight, in the upper-left corner, click "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>chevron_left</i> **Streamlit Apps**."
+
+## Return to your app
+
+When you want to view or edit your app again, you can return to it through Snowsight. If you are returning to the site, you can log in at [app.snowflake.com](https://app.snowflake.com/).
+
+1. In the left navigation, select "**Projects**" → "**Streamlit**."
+
+1. In your list of apps, click "**Hello World**."
+
+   If you don't see your app, check that you have your role set to "ACCOUNTADMIN" as described in [Optional: Create a warehouse to provide compute resources](/get-started/installation/streamlit-in-snowflake#optional-create-a-warehouse-to-provide-compute-resources).
+
+1. Your app will open in viewing mode. To edit your app, in the upper-right corner, click "**Edit**."
+
+   ![Change to editing mode in Streamlit in Snowflake](/images/get-started/SiS-5-hello-world-edit.png)
 
 ## What's next?
 
