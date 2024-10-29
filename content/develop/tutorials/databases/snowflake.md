@@ -79,7 +79,7 @@ If you already have a database that you want to use, you can [skip to the next s
 
 1. To conveniently copy your account identifier, in the lower-left corner, click your profile image, and hover over your account. A popover dialog expands to the right with your organization and account. In the popover, hover over your account, and click the copy icon (<i style={{ verticalAlign: "-.25em", transform: "rotateZ(90deg)" }} className={{ class: "material-icons-sharp" }}>content_copy</i>).
 
-   The account identifier in your clipboard is period-separated, which is the format used for SQL queries. Paste your account identifier into your notes, and change the period into a hyphen. The Snowflake Connector for Python requires the hyphen-separated format for your account identifier.
+   The account identifier in your clipboard is period-separated, which is the format used for SQL statements. Paste your account identifier into your notes, and change the period into a hyphen. The Snowflake Connector for Python requires the hyphen-separated format for your account identifier.
 
    ```toml
    account = "xxxxxxx-xxxxxxx"

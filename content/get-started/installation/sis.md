@@ -5,7 +5,7 @@ slug: /get-started/installation/streamlit-in-snowflake
 
 # Use Streamlit in Snowflake to code in a secure environment
 
-Snowflake is a single, global platform that powers the Data Cloud. If you want to use a secure platform with role-based access control, this is the option for you! This page walks you through creating a trial Snowflake account and building a simple "Hello world" app. Your trial account comes with an account credit so you can try out the service without entering any payment information.
+Snowflake is a single, global platform that powers the Data Cloud. If you want to use a secure platform with role-based access control, this is the option for you! This page walks you through creating a trial Snowflake account and building a "Hello world" app. Your trial account comes with an account credit so you can try out the service without entering any payment information.
 
 <Note>
 
@@ -21,7 +21,7 @@ All you need is an email address! Everything else happens in your 30-day trial a
 
 1. Go to <a href="https://signup.snowflake.com/?utm_source=streamlit&utm_medium=referral&utm_campaign=na-us-en-&utm_content=-ss-streamlit-docs" target="_blank">signup.snowflake.com</a>. (This link will open in a new tab.)
 
-1. Fill in your information and click "**CONTINUE**."
+1. Fill in your information, and click "**CONTINUE**."
 
 1. Select "**Standard**" for your Snowflake edition and "**Amazon Web Services**" for your cloud provider.
 
@@ -33,19 +33,19 @@ All you need is an email address! Everything else happens in your 30-day trial a
 
 1. Answer or skip a few questions to let us know more about yourself.
 
-1. A message will display to confirm "You're now signed up!" Go to your email and click on the activation link. (Within your link, note the subdomain. This is your Snowflake account identifier. `https://<account_identifier>.snowflakecomputing.com`)
+1. A message will display: "You're now signed up!" Go to your email, and click on the activation link. (Within your link, note the subdomain. This is your Snowflake account identifier. `https://<account_identifier>.snowflakecomputing.com`)
 
 1. Set your username and password. This will be an admin user account within your Snowflake account. Your Snowflake account can have multiple users within it.
 
-1. If you are not signed in after setting your password, follow the instructions to enter your Snowflake account identifier before entering your username and password. If you've accidentally closed your browser, you can log in at [app.snowflake.com](https://app.snowflake.com/).
+1. If you are not signed in after setting your password, follow the instructions to enter your Snowflake account identifier, then enter your username and password. If you've accidentally closed your browser, you can log in at [app.snowflake.com](https://app.snowflake.com/).
 
-1. Congratulations! You have a trial Snowflake account.
+Congratulations! You have a trial Snowflake account.
 
-   The displayed interface is called Snowsight. Snowsight provides a web-based, graphical user interface for your Snowflake account. The default page is "**Home**," which provides popular quick actions to get started. You can access your "**Projects**" in the left navigation or at the bottom of your "**Home**" page. "**Projects**" include worksheets, notebooks, Streamlit apps, and dashboards. Check out the Snowflake docs for a [quick tour](https://docs.snowflake.com/en/user-guide/ui-snowsight-quick-tour).)
+The displayed interface is called Snowsight. Snowsight provides a web-based, graphical user interface for your Snowflake account. The default page is "**Home**," which provides popular quick actions to get started. You can access your "**Projects**" in the left navigation or at the bottom of your "**Home**" page. "**Projects**" include worksheets, notebooks, Streamlit apps, and dashboards. Check out the Snowflake docs for a [quick tour](https://docs.snowflake.com/en/user-guide/ui-snowsight-quick-tour).)
 
-   ![Sample databases in your new trial Snowflake account](/images/get-started/SiS-1-landing-page.png)
+![Sample databases in your new trial Snowflake account](/images/get-started/SiS-1-landing-page.png)
 
-## Optional: Create a warehouse to provide compute resources
+## Optional: Create a warehouse
 
 Warehouses provide compute resources for tasks and apps in your Snowflake account. Your trial account already has an XS warehouse which you can use. This is named "COMPUTE_WH." However, if you want to use more compute resources, you can create another warehouse.
 
@@ -57,7 +57,7 @@ Warehouses provide compute resources for tasks and apps in your Snowflake accoun
 
 1. Enter "STREAMLIT_WH" for the name and select a type and size. The default type and size are "Standard" and "X-Small," respectively. Click "**Create Warehouse**."
 
-## Create a database to provide storage
+## Create a database
 
 Databases provide storage for data and apps in your Snowflake account. Your trial account comes with a shared database of sample data, but you must create a new database in your account to store your app files.
 
@@ -65,17 +65,17 @@ Databases provide storage for data and apps in your Snowflake account. Your tria
 
 1. In the upper-right corner, click the blue "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>add</i> **Database**" button.
 
-1. Enter "STREAMLIT_DB" for the name. Click "**Create**."
+1. Enter "STREAMLIT_DB" for the name, and click "**Create**."
 
-1. Yay! You now have a new database to hold all your Streamlit apps.
+Yay! You now have a new database to hold all your Streamlit apps.
 
-   ![New database in your new trial Snowflake account](/images/get-started/SiS-2-databases.png)
+![New database in your new trial Snowflake account](/images/get-started/SiS-2-databases.png)
 
-   The databases in the above screenshot are as follows:
+The databases in the above screenshot are as follows:
 
-   - "SNOWFLAKE:" A built-in database that stores meta data for your account.
-   - "SNOWFLAKE_SAMPLE_DATA:" A shared database with sample data.
-   - "STREAMLIT_DB:" Your new database where you'll put your Streamlit files.
+- "SNOWFLAKE:" A built-in database that stores meta data for your account.
+- "SNOWFLAKE_SAMPLE_DATA:" A shared database with sample data.
+- "STREAMLIT_DB:" Your new database where you'll put your Streamlit files.
 
 ## Create a "Hello World" Streamlit app
 
@@ -85,9 +85,9 @@ Databases provide storage for data and apps in your Snowflake account. Your tria
 
 1. Enter your app details as follows:
 
-   - "App title:" "Hello World"
-   - "App location:" "STREAMLIT_DB" and "PUBLIC"
-   - "App warehouse:" "COMPUTE_WH" (default) or "STREAMLIT_WH" (if you created a new warehouse)
+   - App title: "Hello World"
+   - App location: "STREAMLIT_DB" and "PUBLIC"
+   - App warehouse: "COMPUTE_WH" (default) or "STREAMLIT_WH" (if you created a new warehouse)
 
    If you can't select your database, refresh the page to ensure the interface is displaying current information.
 
@@ -95,7 +95,7 @@ Databases provide storage for data and apps in your Snowflake account. Your tria
 
    ![Create your first Streamlit in Snowflake app](/images/get-started/SiS-3-create-app.png)
 
-   Your new app, prefilled with example code, opens in editing mode. The left panel shows your code. The right panel shows the resulting app.
+   Your new app is prefilled with example code and opens in editing mode. The left panel shows your code. The right panel shows the resulting app.
 
 1. Optional: Explore the example app.
 
@@ -107,7 +107,7 @@ Databases provide storage for data and apps in your Snowflake account. Your tria
    st.write("Hello World")
    ```
 
-   If you want to get back to the sample code later, you can always make another app to get the same example again.
+   If you want to get back to the sample code later, you can always make another app to edit the same example again.
 
 1. In the upper-right corner, click the blue "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>play_arrow</i> **Run**" button to make the running app reflect your changes.
 
@@ -117,7 +117,7 @@ Databases provide storage for data and apps in your Snowflake account. Your tria
 
    <Tip>
 
-   In the lower-left corner of the editing interface, you can toggle the visibility of your file navigation, code editor, and app preview using the splitscreen icons.
+   In the lower-left corner of the editing interface, you can click the splitscreen icons to toggle the visibility of your file navigation, code editor, and app preview.
 
    </Tip>
 
@@ -145,7 +145,7 @@ When you want to view or edit your app again, you can return to it through Snows
 
 1. In your list of apps, click "**Hello World**."
 
-   If you don't see your app, check that you have your role set to "ACCOUNTADMIN" as described in [Optional: Create a warehouse to provide compute resources](/get-started/installation/streamlit-in-snowflake#optional-create-a-warehouse-to-provide-compute-resources).
+   If you don't see your app, check that you have your role set to "ACCOUNTADMIN" as described in [Optional: Create a warehouse](/get-started/installation/streamlit-in-snowflake#optional-create-a-warehouse).
 
 1. Your app will open in viewing mode. To edit your app, in the upper-right corner, click "**Edit**."
 
@@ -153,6 +153,6 @@ When you want to view or edit your app again, you can return to it through Snows
 
 ## What's next?
 
-Read about our [Basic concepts](/get-started/fundamentals/main-concepts) and try out more commands in your app. To create more apps in your account, you can proceed from [Create a "Hello World" Streamlit app](#create-a-hello-world-streamlit-app). The warehouse and database setup do not need to be repeated.
+Read about our [Basic concepts](/get-started/fundamentals/main-concepts) and try out more commands in your app. Or, create more apps in Snowflake! You can reuse your warehouse and database, so you don't need to repeat those steps.
 
 For more information about creating and managing Streamlit in Snowflake apps, check out the [Snowflake docs](https://docs.snowflake.com/en/developer-guide/streamlit/about-streamlit).
