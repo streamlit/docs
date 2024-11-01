@@ -345,7 +345,7 @@ if prompt:
 Display a widget that allows users to record with their microphone.
 
 ```python
-speech = st.experimental_audio_input("Record a voice message")
+speech = st.audio_input("Record a voice message")
 ```
 
 </RefCard>
