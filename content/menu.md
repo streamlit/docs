@@ -317,11 +317,11 @@ site_menu:
   - category: Develop / API reference / Input widgets / st.pills
     url: /develop/api-reference/widgets/st.pills
     isVersioned: true
-  - category: Develop / API reference / Input widgets / st.segmented_control
-    url: /develop/api-reference/widgets/st.segmented_control
-    isVersioned: true
   - category: Develop / API reference / Input widgets / st.radio
     url: /develop/api-reference/widgets/st.radio
+    isVersioned: true
+  - category: Develop / API reference / Input widgets / st.segmented_control
+    url: /develop/api-reference/widgets/st.segmented_control
     isVersioned: true
   - category: Develop / API reference / Input widgets / st.selectbox
     url: /develop/api-reference/widgets/st.selectbox

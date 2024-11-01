@@ -38,20 +38,6 @@ st.download_button("Download file", file)
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/widgets/st.feedback">
-
-<Image pure alt="screenshot" src="/images/api/feedback.jpg" />
-
-<h4>Feedback</h4>
-
-Display a rating or sentiment button group.
-
-```python
-st.feedback("stars")
-```
-
-</RefCard>
-
 <RefCard href="/develop/api-reference/execution-flow/st.form_submit_button">
 
 <Image pure alt="screenshot" src="/images/api/form_submit_button.svg" />
@@ -114,42 +100,29 @@ selected = st.checkbox("I agree")
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/widgets/st.toggle">
+<RefCard href="/develop/api-reference/widgets/st.color_picker">
 
-<Image pure alt="screenshot" src="/images/api/toggle.jpg" />
+<Image pure alt="screenshot" src="/images/api/color_picker.jpg" />
 
-<h4>Toggle</h4>
+<h4>Color picker</h4>
 
-Display a toggle widget.
+Display a color picker widget.
 
 ```python
-activated = st.toggle("Activate")
+color = st.color_picker("Pick a color")
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/widgets/st.radio">
+<RefCard href="/develop/api-reference/widgets/st.feedback">
 
-<Image pure alt="screenshot" src="/images/api/radio.jpg" />
+<Image pure alt="screenshot" src="/images/api/feedback.jpg" />
 
-<h4>Radio</h4>
+<h4>Feedback</h4>
 
-Display a radio button widget.
-
-```python
-choice = st.radio("Pick one", ["cats", "dogs"])
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/widgets/st.selectbox">
-
-<Image pure alt="screenshot" src="/images/api/selectbox.jpg" />
-
-<h4>Selectbox</h4>
-
-Display a select widget.
+Display a rating or sentiment button group.
 
 ```python
-choice = st.selectbox("Pick one", ["cats", "dogs"])
+st.feedback("stars")
 ```
 
 </RefCard>
@@ -166,6 +139,45 @@ choices = st.multiselect("Buy", ["milk", "apples", "potatoes"])
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/widgets/st.pills">
+
+<Image pure alt="screenshot" src="/images/api/pills.jpg" />
+
+<h4>Pills</h4>
+
+Display a pill-button selection widget.
+
+```python
+st.pills("Tags", ["Sports", "AI", "Politics"])
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/widgets/st.radio">
+
+<Image pure alt="screenshot" src="/images/api/radio.jpg" />
+
+<h4>Radio</h4>
+
+Display a radio button widget.
+
+```python
+choice = st.radio("Pick one", ["cats", "dogs"])
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/widgets/st.segmented_control">
+
+<Image pure alt="screenshot" src="/images/api/segmented_control.jpg" />
+
+<h4>Segmented control</h4>
+
+Display a segmented-button selection widget.
+
+```python
+st.segmented_control("Filter", ["Open", "Closed", "All"])
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/widgets/st.select_slider">
 
 <Image pure alt="screenshot" src="/images/api/select_slider.jpg" />
@@ -179,16 +191,29 @@ size = st.select_slider("Pick a size", ["S", "M", "L"])
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/widgets/st.color_picker">
+<RefCard href="/develop/api-reference/widgets/st.selectbox">
 
-<Image pure alt="screenshot" src="/images/api/color_picker.jpg" />
+<Image pure alt="screenshot" src="/images/api/selectbox.jpg" />
 
-<h4>Color picker</h4>
+<h4>Selectbox</h4>
 
-Display a color picker widget.
+Display a select widget.
 
 ```python
-color = st.color_picker("Pick a color")
+choice = st.selectbox("Pick one", ["cats", "dogs"])
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/widgets/st.toggle">
+
+<Image pure alt="screenshot" src="/images/api/toggle.jpg" />
+
+<h4>Toggle</h4>
+
+Display a toggle widget.
+
+```python
+activated = st.toggle("Activate")
 ```
 
 </RefCard>

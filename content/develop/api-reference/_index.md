@@ -780,19 +780,6 @@ st.download_button("Download file", file)
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/widgets/st.feedback">
-
-<Image pure alt="screenshot" src="/images/api/feedback.jpg" />
-
-<h4>Feedback</h4>
-
-Display a rating or sentiment button group.
-
-```python
-st.feedback("stars")
-```
-
-</RefCard>
 <RefCard href="/develop/api-reference/execution-flow/st.form_submit_button">
 
 <Image pure alt="screenshot" src="/images/api/form_submit_button.svg" />
@@ -859,6 +846,19 @@ color = st.color_picker("Pick a color")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/widgets/st.feedback">
+
+<Image pure alt="screenshot" src="/images/api/feedback.jpg" />
+
+<h4>Feedback</h4>
+
+Display a rating or sentiment button group.
+
+```python
+st.feedback("stars")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/widgets/st.multiselect">
 
 <Image pure alt="screenshot" src="/images/api/multiselect.jpg" />
@@ -872,6 +872,19 @@ choices = st.multiselect("Buy", ["milk", "apples", "potatoes"])
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/widgets/st.pills">
+
+<Image pure alt="screenshot" src="/images/api/pills.jpg" />
+
+<h4>Pills</h4>
+
+Display a pill-button selection widget.
+
+```python
+st.pills("Tags", ["Sports", "AI", "Politics"])
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/widgets/st.radio">
 
 <Image pure alt="screenshot" src="/images/api/radio.jpg" />
@@ -882,6 +895,19 @@ Display a radio button widget.
 
 ```python
 choice = st.radio("Pick one", ["cats", "dogs"])
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/widgets/st.segmented_control">
+
+<Image pure alt="screenshot" src="/images/api/segmented_control.jpg" />
+
+<h4>Segmented control</h4>
+
+Display a segmented-button selection widget.
+
+```python
+st.segmented_control("Filter", ["Open", "Closed", "All"])
 ```
 
 </RefCard>
