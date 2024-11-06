@@ -3,7 +3,7 @@ title: Streamlit in Snowflake
 slug: /deploy/snowflake
 ---
 
-{/_Review_/}
+{/_*Review*_/}
 
 # Deploy Streamlit apps in Snowflake
 
