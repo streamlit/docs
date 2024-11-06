@@ -3,6 +3,8 @@ title: Streamlit in Snowflake
 slug: /deploy/snowflake
 ---
 
+{/_Review_/}
+
 # Deploy Streamlit apps in Snowflake
 
 Host your apps alongside your data in a single, global platform. Snowflake provides industry-leading features that ensure the highest levels of security for your account, users, data, and apps. If you're looking for an enterprise hosting solution, try Snowflake!
