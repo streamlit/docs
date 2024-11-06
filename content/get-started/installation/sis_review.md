@@ -3,7 +3,7 @@ title: Use Streamlit in Snowflake
 slug: /get-started/installation/streamlit-in-snowflake
 ---
 
-{/_*Review*_/}
+{/** Review **/}
 
 # Use Streamlit in Snowflake to code in a secure environment
 
