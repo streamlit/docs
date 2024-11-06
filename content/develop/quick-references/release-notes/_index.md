@@ -37,11 +37,11 @@ _Release date: November 6, 2024_
 - <img src="/logo.svg" style={{ display: "inline-block", width: "1em" }} /> You can use `:streamlit:` to render the Streamlit logo in [Markdown](/develop/api-reference/text/st.markdown).
 - 🐍 [`st.text`](/develop/api-reference/text/st.text) wraps text and no longer uses monospace font.
 - 🪣 You can set `use_container_width` for [`st.image`](/develop/api-reference/media/st.image). `use_column_width` is deprecated.
-- 📅 [`st.date_input`](/develop/api-reference/widgets/st.date_input) infers the first day of the week from the user’s locale ([#9706](https://github.com/streamlit/streamlit/pull/9706), [#5215](https://github.com/streamlit/streamlit/issues/5215)).
+- 📅 [`st.date_input`](/develop/api-reference/widgets/st.date_input) infers the first day of the week from the user's locale ([#9706](https://github.com/streamlit/streamlit/pull/9706), [#5215](https://github.com/streamlit/streamlit/issues/5215)).
 
 **Other Changes**
 
-- 🎶 Streamlit’s CLI tool accepts array values for configuration options ([#9577](https://github.com/streamlit/streamlit/pull/9577)).
+- 🎶 Streamlit's CLI tool accepts array values for configuration options ([#9577](https://github.com/streamlit/streamlit/pull/9577)).
 - ⛓️ Static file serving supports symlinks ([#9147](https://github.com/streamlit/streamlit/pull/9147), [#9146](https://github.com/streamlit/streamlit/issues/9146)). Thanks, [link89](https://github.com/link89)!
 - 🚀 Streamlit provides helpful links for deployment when an app is running locally ([#9681](https://github.com/streamlit/streamlit/pull/9681)).
 - ↕️ The fullscreen button for charts matches with the dataframe toolbar ([#9721](https://github.com/streamlit/streamlit/pull/9721)).
