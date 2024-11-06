@@ -192,63 +192,63 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/develop/api-reference/widgets/st.pills"
+              >
+                <i className="material-icons-sharp">more_horiz</i>
+                <h4>Pills</h4>
+                <p>
+                  You can create a single- or multi-select group of
+                  pill-buttons.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/widgets/st.segmented_control"
+              >
+                <i className="material-icons-sharp">view_week</i>
+                <h4>Segmented control</h4>
+                <p>You can create a segmented button or button group.</p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="/develop/api-reference/widgets/st.audio_input"
               >
                 <i className="material-icons-sharp">mic</i>
                 <h4>Audio input</h4>
                 <p>
-                  <code>st.experimental_audio_input</code> lets users record
-                  sound with their microphone.
+                  <code>st.audio_input</code> lets users record sound with their
+                  microphone.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/charts/st.pydeck_chart"
+                href="/develop/api-reference/text/st.markdown"
               >
-                <i className="material-icons-sharp">pin_drop</i>
-                <h4>Pydeck chart selections</h4>
-                <p>
-                  <code>st.pydeck_chart</code> can return user selections! We've
-                  also added <code>height</code> and <code>width</code>
-                  parameters.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/widgets/st.button"
-              >
-                <i className="material-icons-sharp">sentiment_very_satisfied</i>
-                <h4>Button icons</h4>
-                <p>
-                  You can add icons to buttons with a new <code>icon</code>
-                  parameter.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/develop/api-reference/media/st.logo">
                 <i className="material-icons-sharp">branding_watermark</i>
-                <h4>Logo sizing</h4>
+                <h4>Markdown improvements</h4>
                 <p>
-                  You can customize logo size for <code>st.logo</code>.
+                  Add a Streamlit logo with <code>:streamlit:</code> or render
+                  arrows like <code>&lt;- -&gt;</code>.
+                </p>
+              </RefCard>
+              <RefCard size="third" href="/develop/api-reference/text/st.text">
+                <i className="material-icons-sharp">title</i>
+                <h4>Plain text</h4>
+                <p>
+                  <code>st.text</code> renders plain text without monospace
+                  font.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/navigation/st.navigation"
+                href="/develop/api-reference/widgets/st.date_input"
               >
-                <i className="material-icons-sharp">unfold_less</i>
-                <h4>Customize menu expansion</h4>
+                <i className="material-icons-sharp">event</i>
+                <h4>Date input localization</h4>
                 <p>
-                  You can set the menu as collapsible or always-expanded for
-                  <code>st.navigation</code>.
+                  The first day of the week in <code>st.date_input</code> is
+                  determined from the user's locale.
                 </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/execution-flow/st.form"
-              >
-                <i className="material-icons-sharp">assignment</i>
-                <h4>Form submission</h4>
-                <p>You can configure the enter-to-submit behavior of forms.</p>
               </RefCard>
             </TileContainer>
 
