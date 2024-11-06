@@ -53,3 +53,9 @@ There are three ways to host Streamlit apps in Snowflake.
         href="https://docs.snowflake.com/en/developer-guide/snowpark-container-services/overview"
     >Deploy your app in a container that's optimized to run in Snowflake. This is the most flexible option where you can use any library. Share your app publicly or privately. Check out Snowflake docs!</InlineCallout>
 </InlineCalloutContainer>
+
+<Note>
+
+    Using Snowpark Container Services to deploy a Streamlit app requires a compute pool, which is not available in a trial account at this time.
+
+</Note>
