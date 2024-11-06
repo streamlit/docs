@@ -17,7 +17,7 @@ This tutorial requires `streamlit>=1.28` and `st-gsheets-connection` in your Pyt
 
 ## Create a Google Sheet
 
-If you already have a Sheet that you want to use, feel free to [skip to the next step](#enable-the-sheets-api).
+If you already have a Sheet that you want to use, you can [skip to the next step](#enable-the-sheets-api).
 
 Create a spreadsheet with this example data.
 
