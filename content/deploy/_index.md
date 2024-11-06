@@ -23,7 +23,7 @@ Get all the information you need to deploy your app and share it with your users
     <InlineCallout
         color="lightBlue-70"
         icon="ac_unit"
-        bold="Snowflake"
+        bold="Snowflake."
         href="/deploy/snowflake"
     >Deploy your app in Snowflake for a secure, enterprise-grade environment. This is a great place for your business apps.</InlineCallout>
     <InlineCallout

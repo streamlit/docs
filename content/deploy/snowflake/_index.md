@@ -43,13 +43,13 @@ There are three ways to host Streamlit apps in Snowflake.
     <InlineCallout
         color="lightBlue-70"
         icon="ac_unit"
-        bold="Snowflake Native Apps"
+        bold="Snowflake Native Apps."
         href="https://docs.snowflake.com/en/developer-guide/native-apps/adding-streamlit"
     >Package your app with data and share it with other Snowflake accounts. This is a great way to share apps and their underlying data with other organizations who use Snowflake so they can run it in their own account. Check out Snowflake docs!</InlineCallout>
     <InlineCallout
         color="lightBlue-70"
         icon="web_asset"
-        bold="Snowpark Container Services"
+        bold="Snowpark Container Services."
         href="https://docs.snowflake.com/en/developer-guide/snowpark-container-services/overview"
     >Deploy your app in a container that's optimized to run in Snowflake. This is the most flexible option where you can use any library. Share your app publicly or privately. Check out Snowflake docs!</InlineCallout>
 </InlineCalloutContainer>
