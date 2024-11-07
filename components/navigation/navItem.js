@@ -7,7 +7,7 @@ import NavChild from "./navChild";
 
 import styles from "./navItem.module.css";
 
-const NavItem = ({ page, slug, condensed, className }) => {
+const NavItem = ({ page, slug, condensed, className, version }) => {
   let subNav;
   let navItem;
   let navBox;
@@ -64,6 +64,7 @@ const NavItem = ({ page, slug, condensed, className }) => {
             key={child.menu_key}
             depth={child.depth + 1}
             className={className}
+            version={version}
           />
         ))}
       </ul>

@@ -2,13 +2,10 @@ import React, { useState } from "react";
 import Link from "next/link";
 import classNames from "classnames";
 
-import useVersion from "../../lib/useVersion.js";
-
 import styles from "./navChild.module.css";
 
-const NavChild = ({ slug, page, color, className }) => {
+const NavChild = ({ slug, page, color, className, version }) => {
   const [manualState, setManualState] = useState(null);
-  const version = useVersion();
 
   const isNum = /^[\d\.]+$/.test(slug[0]);
   const isSiS = /^SiS[\d\.]*$/.test(slug[0]);
@@ -41,6 +38,7 @@ const NavChild = ({ slug, page, color, className }) => {
               page={child}
               color={color}
               depth={child.depth + 1}
+              version={version}
             />
           ))}
       </ul>

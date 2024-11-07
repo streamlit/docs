@@ -4,6 +4,7 @@ import classNames from "classnames";
 
 import bus from "../../lib/bus";
 import NavItem from "../navigation/navItem";
+import useVersion from "../../lib/useVersion.js";
 
 import styles from "./sideBar.module.css";
 
@@ -14,6 +15,7 @@ const SideBar = ({ menu, slug }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [theme, setTheme] = useState("light-mode");
   const [hasSlug, setHasSlug] = useState("");
+  const version = useVersion();
 
   const handleTheme = () => {
     setTheme(document.body.dataset.theme);
@@ -84,6 +86,7 @@ const SideBar = ({ menu, slug }) => {
       page={page}
       depth={page.depth + 1}
       condensed={isCondensed}
+      version={version}
       // className={isOver && styles.OverNavItem}
     />
   ));
@@ -94,7 +97,7 @@ const SideBar = ({ menu, slug }) => {
         styles.Container,
         isOpen ? styles.OpenNav : styles.ClosedNav,
         isOver ? styles.OverNav : styles.CollapsedNav,
-        isSticky === "window" && styles.WindowStickyNav
+        isSticky === "window" && styles.WindowStickyNav,
       )}
       onScroll={(e) => handleScroll(e)}
     >
@@ -104,8 +107,8 @@ const SideBar = ({ menu, slug }) => {
           isSticky === "window"
             ? styles.WindowStickyGradient
             : isSticky === "scrollbar"
-            ? styles.ScrollBarStickyGradient
-            : styles.StandardGradient
+              ? styles.ScrollBarStickyGradient
+              : styles.StandardGradient,
         )}
       />
       <nav onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
