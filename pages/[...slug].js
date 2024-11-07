@@ -125,6 +125,12 @@ export default function Article({
   const maxVersion = versions[versions.length - 1];
   const version = useVersion(versionFromStaticLoad, versions, currMenuItem);
 
+  if (version && versionFromStaticLoad === null && currMenuItem.isVersioned) {
+    console.log("overrude null version in URL");
+    slug.unshift(version);
+    router.push(`/${slug.join("/")}`);
+  }
+
   const components = {
     Note,
     NoteSplit,
@@ -167,6 +173,7 @@ export default function Article({
     h1: H1,
     h2: H2,
     h3: H3,
+    a: ({ ...props }) => <Link href={props.href}>{props.children}</Link>,
     // iframe : WrappedIFrame
   };
 
