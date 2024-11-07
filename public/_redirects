@@ -1145,7 +1145,7 @@
 /develop/quick-reference/older-versions /develop/quick-reference/release-notes/2024
 
 # Deep links included in streamlit/streamlit source code
-/st.connections.snowflakeconnection-configuration /develop/api-reference/connections/st.connections.snowflakeconnection#configuration
+/st.connections.snowflakeconnection-configuration /develop/api-reference/connections/st.connections.snowflakeconnection
 /st.page.automatic-page-labels /develop/concepts/multipage-apps/overview#how-streamlit-converts-filenames-into-labels-and-titles
 /st.page.automatic-page-urls /develop/concepts/multipage-apps/overview#how-streamlit-converts-filenames-into-url-pathnames
 /end-users/enable-peripherals /knowledge-base/using-streamlit/enable-camera

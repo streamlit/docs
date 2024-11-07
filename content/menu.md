@@ -292,9 +292,6 @@ site_menu:
   - category: Develop / API reference / Input widgets / st.download_button
     url: /develop/api-reference/widgets/st.download_button
     isVersioned: true
-  - category: Develop / API reference / Input widgets / st.feedback
-    url: /develop/api-reference/widgets/st.feedback
-    isVersioned: true
   - category: Develop / API reference / Input widgets / st.form_submit_button
     url: https://docs.streamlit.io/develop/api-reference/execution-flow/st.form_submit_button
     isVersioned: true
@@ -311,11 +308,20 @@ site_menu:
   - category: Develop / API reference / Input widgets / st.color_picker
     url: /develop/api-reference/widgets/st.color_picker
     isVersioned: true
+  - category: Develop / API reference / Input widgets / st.feedback
+    url: /develop/api-reference/widgets/st.feedback
+    isVersioned: true
   - category: Develop / API reference / Input widgets / st.multiselect
     url: /develop/api-reference/widgets/st.multiselect
     isVersioned: true
+  - category: Develop / API reference / Input widgets / st.pills
+    url: /develop/api-reference/widgets/st.pills
+    isVersioned: true
   - category: Develop / API reference / Input widgets / st.radio
     url: /develop/api-reference/widgets/st.radio
+    isVersioned: true
+  - category: Develop / API reference / Input widgets / st.segmented_control
+    url: /develop/api-reference/widgets/st.segmented_control
     isVersioned: true
   - category: Develop / API reference / Input widgets / st.selectbox
     url: /develop/api-reference/widgets/st.selectbox
@@ -790,8 +796,8 @@ site_menu:
     url: /deploy/streamlit-community-cloud/manage-your-account/delete-your-account
   - category: Deploy / Streamlit Community Cloud / Status and limitations
     url: /deploy/streamlit-community-cloud/status
-  - category: Deploy / Streamlit in Snowflake
-    url: https://docs.snowflake.com/developer-guide/streamlit/about-streamlit
+  - category: Deploy / Snowflake
+    url: /deploy/snowflake
   - category: Deploy / Other platforms
     url: /deploy/tutorials
   - category: Deploy / Other platforms / Docker

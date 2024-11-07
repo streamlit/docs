@@ -17,7 +17,7 @@ This tutorial requires `streamlit>=1.28` and `st-gsheets-connection` in your Pyt
 
 ## Create a Google Sheet and turn on link sharing
 
-If you already have a Sheet that you want to access, feel free to [skip to the next step](#add-the-sheets-url-to-your-local-app-secrets). See Google's documentation on how to [share spreadsheets](https://support.google.com/docs/answer/9331169?hl=en#6.1) for more information.
+If you already have a Sheet that you want to access, you can [skip to the next step](#add-the-sheets-url-to-your-local-app-secrets). See Google's documentation on how to [share spreadsheets](https://support.google.com/docs/answer/9331169?hl=en#6.1) for more information.
 
 Create a spreadsheet with this example data and create a share link. The link should have "Anyone with the link" set as a "Viewer."
 
