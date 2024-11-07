@@ -1,6 +1,6 @@
 pandas
 plotly
-bokeh
+bokeh==2.4.3
 graphviz
 requests
 matplotlib
