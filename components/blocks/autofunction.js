@@ -103,30 +103,33 @@ const Autofunction = ({
     setIsHighlighted(true);
   };
 
-  const handleSelectVersion = (event) => {
+  const handleSelectVersion = (selectedVersion) => {
     const functionObject =
       streamlit[streamlitFunction] ?? streamlit[oldStreamlitFunction];
     const slicedSlug = slug.slice();
 
-    if (event !== currentVersion) {
-      setCurrentVersion(event);
-      if (event !== maxVersion) {
-        let isnum = /^[\d\.]+$/.test(slicedSlug[0]);
-        let isSiS = /^SiS[\d\.]*$/.test(slicedSlug[0]);
-        if (isnum || isSiS) {
-          slicedSlug[0] = event;
-        } else {
-          slicedSlug.unshift(event);
-        }
-        slug.unshift(event);
+    if (selectedVersion !== currentVersion) {
+      setCurrentVersion(selectedVersion);
+
+      let isnum = /^[\d\.]+$/.test(slicedSlug[0]);
+      let isSiS = /^SiS[\d\.]*$/.test(slicedSlug[0]);
+
+      if (isnum || isSiS) {
+        slicedSlug.shift(); // Remove first element.
       }
+
+      if (selectedVersion !== maxVersion) {
+        slicedSlug.unshift(selectedVersion); // Insert first element.
+      }
+
+      slug = slicedSlug.join("/"); // TODO: Use slicedSlug everywhere below.
     }
 
-    if (!functionObject) {
-      router.push(`/${slicedSlug.join("/")}`);
-    } else {
+    if (functionObject) {
       const name = cleanHref(`st.${functionObject.name}`);
-      router.push(`/${slicedSlug.join("/")}#${name} `);
+      router.push(`/${slug}#${name} `);
+    } else {
+      router.push(`/${slug}`);
     }
   };
 

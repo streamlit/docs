@@ -131,6 +131,24 @@ export default function Article({
     router.push(`/${slug.join("/")}`);
   }
 
+  // if (version != versionFromStaticLoad && currMenuItem.isVersioned) {
+  //   // Use version from the static load
+  //   // Just to guarantee that there's no scenario where the two are different.
+  //   // And I'd also do a console.warning(...) here.
+  // }
+
+  // if (currMenuItem.isVersioned) {
+  //   if (versionFromStaticLoad === null) {
+  //     if (version) {
+  //       // Do lines 130-131
+  //     }
+  //   } else {
+  //     if (version !== versionFromStaticLoad) {
+  //       // Do 135-137
+  //     }
+  //   }
+  // }
+
   const components = {
     Note,
     NoteSplit,

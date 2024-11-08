@@ -20,9 +20,20 @@ const VersionSelector = ({
   handleSelectVersion,
 }) => {
   const [currentPlatform, setCurrentPlatform] = useState("oss");
+  const {
+    version: currentVersion,
+    platform: currentPlatform,
+    setVersionAndPlatform,
+  } = useVersion();
+
   const handleSelectPlatform = (event) => {
     setCurrentPlatform(event); // Replace with context
   };
+
+  const validVersions =
+    currentPlatform == "oss" || currentPlatform == null
+      ? versionList
+      : snowflakeVersions[currentPlatform];
 
   return (
     <Popover.Root>
@@ -42,7 +53,7 @@ const VersionSelector = ({
             <legend>Show exceptions for:</legend>
             <RadioGroup.Root
               className={styles.RadioGroupRoot}
-              defaultValue={null}
+              defaultValue={"oss"}
               aria-label="streamlit platform"
               onValueChange={handleSelectPlatform}
             >
@@ -74,51 +85,25 @@ const VersionSelector = ({
                 aria-label="streamlit version"
                 onValueChange={handleSelectVersion}
               >
-                {currentPlatform !== null && currentPlatform !== undefined
-                  ? snowflakeVersions["sis"].map((sf_version) => (
-                      <div>
-                        <RadioGroup.Item
-                          className={styles.VersionListItem}
-                          value={sf_version}
-                          id={sf_version}
-                        >
-                          <RadioGroup.Indicator
-                            className={classNames(
-                              "material-icons-sharp",
-                              styles.VersionListIndicator,
-                            )}
-                          />
-                        </RadioGroup.Item>
-                        <label
-                          className={styles.VersionLabel}
-                          htmlFor={sf_version}
-                        >
-                          Version {sf_version}
-                        </label>
-                      </div>
-                    ))
-                  : versionList.map((oss_version) => (
-                      <div>
-                        <RadioGroup.Item
-                          className={styles.VersionListItem}
-                          value={oss_version}
-                          id={oss_version}
-                        >
-                          <RadioGroup.Indicator
-                            className={classNames(
-                              "material-icons-sharp",
-                              styles.VersionListIndicator,
-                            )}
-                          />
-                        </RadioGroup.Item>
-                        <label
-                          className={styles.VersionLabel}
-                          htmlFor={oss_version}
-                        >
-                          Version {oss_version}
-                        </label>
-                      </div>
-                    ))}
+                {validVersions.map((sf_version) => (
+                  <div>
+                    <RadioGroup.Item
+                      className={styles.VersionListItem}
+                      value={sf_version}
+                      id={sf_version}
+                    >
+                      <RadioGroup.Indicator
+                        className={classNames(
+                          "material-icons-sharp",
+                          styles.VersionListIndicator,
+                        )}
+                      />
+                    </RadioGroup.Item>
+                    <label className={styles.VersionLabel} htmlFor={sf_version}>
+                      Version {sf_version}
+                    </label>
+                  </div>
+                ))}
               </RadioGroup.Root>
             </ScrollArea.Viewport>
             <div className={styles.FadeBottom}></div>
