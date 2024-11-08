@@ -4,11 +4,13 @@ import * as RadioGroup from "@radix-ui/react-radio-group";
 import * as ScrollArea from "@radix-ui/react-scroll-area";
 import classNames from "classnames";
 import styles from "./versionSelector.module.css";
+import useVersion from "../../lib/useVersion";
+import usePlatform from "../../lib/usePlatform";
 
-const platforms = [
+const PLATFORMS = [
   { id: "oss", name: "None" },
   { id: "sis", name: "Streamlit in Snowflake" },
-  { id: "sf-na", name: "Snowflake Native Apps" },
+  { id: "na", name: "Native Apps" },
 ];
 
 const VersionSelector = ({
@@ -17,7 +19,10 @@ const VersionSelector = ({
   currentVersion,
   handleSelectVersion,
 }) => {
-  const [platform, setPlatform] = useState("oss");
+  const [currentPlatform, setCurrentPlatform] = useState("oss");
+  const handleSelectPlatform = (event) => {
+    setCurrentPlatform(event); // Replace with context
+  };
 
   return (
     <Popover.Root>
@@ -37,11 +42,11 @@ const VersionSelector = ({
             <legend>Show exceptions for:</legend>
             <RadioGroup.Root
               className={styles.RadioGroupRoot}
-              defaultValue={platform}
+              defaultValue={null}
               aria-label="streamlit platform"
-              onValueChange={setPlatform}
+              onValueChange={handleSelectPlatform}
             >
-              {platforms.map((platform) => (
+              {PLATFORMS.map((platform) => (
                 <div>
                   <RadioGroup.Item
                     className={styles.RadioGroupItem}
@@ -69,8 +74,8 @@ const VersionSelector = ({
                 aria-label="streamlit version"
                 onValueChange={handleSelectVersion}
               >
-                {platform == "sis"
-                  ? snowflakeVersions.map((sf_version) => (
+                {currentPlatform !== null && currentPlatform !== undefined
+                  ? snowflakeVersions["sis"].map((sf_version) => (
                       <div>
                         <RadioGroup.Item
                           className={styles.VersionListItem}

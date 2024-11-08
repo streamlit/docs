@@ -124,9 +124,9 @@ export default function Article({
         filename.substring(filename.indexOf("/content/"));
   const maxVersion = versions[versions.length - 1];
   const version = useVersion(versionFromStaticLoad, versions, currMenuItem);
+  // const platform = usePlatform()
 
   if (version && versionFromStaticLoad === null && currMenuItem.isVersioned) {
-    console.log("overrude null version in URL");
     slug.unshift(version);
     router.push(`/${slug.join("/")}`);
   }
@@ -357,7 +357,7 @@ export async function getStaticProps(context) {
   props["streamlit"] = {};
   props["exceptions"] = {};
   props["versions"] = all_versions;
-  props["snowflakeVersions"] = [];
+  props["snowflakeVersions"] = {};
   props["versionFromStaticLoad"] = null;
 
   if ("slug" in context.params) {
@@ -377,7 +377,13 @@ export async function getStaticProps(context) {
     if (should_version) {
       props["streamlit"] = streamlitFuncs[current_version];
       props["exceptions"] = streamlitExceptions[current_version] ?? {};
-      props["snowflakeVersions"] = reverse(Object.keys(streamlitExceptions));
+      const platforms = Object.keys(streamlitExceptions);
+      for (const index in platforms) {
+        const platform = platforms[index];
+        props["snowflakeVersions"][platform] = reverse(
+          Object.keys(streamlitExceptions[platform]),
+        );
+      }
     }
 
     const isnum = /^[\d\.]+$/.test(context.params.slug[0]);
