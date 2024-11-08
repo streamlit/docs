@@ -38,7 +38,7 @@ There are three ways to host Streamlit apps in Snowflake.
         color="lightBlue-70"
         icon="bolt"
         bold="Streamlit in Snowflake."
-        href=""
+        href="https://docs.snowflake.com/developer-guide/streamlit/about-streamlit"
     >Run your Streamlit app as a native object in Snowflake. Enjoy an in-browser editor and minimal work to configure your environment. Share your app with other users in your Snowflake account through role-based access control. This is a great way to deploy apps internally for your business. Check out Snowflake docs!</InlineCallout>
     <InlineCallout
         color="lightBlue-70"
