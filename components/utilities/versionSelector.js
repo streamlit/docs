@@ -1,12 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import * as Popover from "@radix-ui/react-popover";
 import * as RadioGroup from "@radix-ui/react-radio-group";
 import * as ScrollArea from "@radix-ui/react-scroll-area";
 import classNames from "classnames";
 import styles from "./versionSelector.module.css";
-import useVersion from "../../lib/useVersion";
 import usePlatform from "../../lib/usePlatform";
+import {
+  useVersion,
+  DEFAULT_PLATFORM,
+  getBestNumericVersion,
+  versionAndPlatformAreCompatible,
+} from "../../context/VersionContext";
+import { CurrentRefinements } from "react-instantsearch-dom";
 
+// TODO(debbie): Pull this from the metadata.
 const PLATFORMS = [
   { id: "oss", name: "None" },
   { id: "sis", name: "Streamlit in Snowflake" },
@@ -16,31 +23,77 @@ const PLATFORMS = [
 const VersionSelector = ({
   versionList,
   snowflakeVersions,
-  currentVersion,
-  handleSelectVersion,
+  functionObject,
+  slug,
 }) => {
-  const [currentPlatform, setCurrentPlatform] = useState("oss");
   const {
-    version: currentVersion,
-    platform: currentPlatform,
+    version: versionContext,
+    platform: platformContext,
     setVersionAndPlatform,
   } = useVersion();
 
-  const handleSelectPlatform = (event) => {
-    setCurrentPlatform(event); // Replace with context
-  };
+  const [numericVersion, compatiblePlatform] = getBestNumericVersion(
+    versionContext,
+    platformContext,
+    versionList,
+    snowflakeVersions,
+  );
 
-  const validVersions =
-    currentPlatform == "oss" || currentPlatform == null
+  const [widgetPlatform, setWidgetPlatform] = useState(compatiblePlatform);
+
+  const handleSelectPlatform = useCallback(
+    (selectedPlatform) => {
+      if (
+        selectedPlatform != platformContext &&
+        versionAndPlatformAreCompatible(
+          // versionContext can be LATEST_VERSION (null) or "1.40.0" (even if that's the latest).
+          versionContext,
+          selectedPlatform,
+          versionList,
+          snowflakeVersions,
+        )
+      ) {
+        // Navigate to new version and platform.
+        setVersionAndPlatform({
+          newVersion: versionContext,
+          newPlatform: selectedPlatform,
+          functionName: functionObject.name,
+          versionList,
+          snowflakeVersions,
+        });
+      } else {
+        // Just set the widget to the selected platform but dont navigate anywhere.
+        // The user should pick a version first.
+        setWidgetPlatform(selectedPlatform);
+      }
+    },
+    [functionObject, versionList, snowflakeVersions],
+  );
+
+  const handleSelectVersion = useCallback(
+    (selectedVersion) => {
+      setVersionAndPlatform({
+        newVersion: selectedVersion,
+        newPlatform: widgetPlatform,
+        functionName: functionObject.name,
+        versionList,
+        snowflakeVersions,
+      });
+    },
+    [widgetPlatform, functionObject, versionList, snowflakeVersions],
+  );
+
+  const validVersionForWidgetPlatform =
+    widgetPlatform == DEFAULT_PLATFORM
       ? versionList
-      : snowflakeVersions[currentPlatform];
+      : snowflakeVersions[widgetPlatform];
 
   return (
     <Popover.Root>
       <Popover.Trigger asChild>
         <button className={styles.VersionButton} id="selectButton">
           <i className="material-icons-sharp">keyboard_arrow_down</i>
-          <span>Version {currentVersion}</span>
+          <span>Version {numericVersion}</span>
         </button>
       </Popover.Trigger>
       <Popover.Portal>
@@ -53,12 +106,12 @@ const VersionSelector = ({
             <legend>Show exceptions for:</legend>
             <RadioGroup.Root
               className={styles.RadioGroupRoot}
-              defaultValue={"oss"}
+              defaultValue={widgetPlatform}
               aria-label="streamlit platform"
               onValueChange={handleSelectPlatform}
             >
               {PLATFORMS.map((platform) => (
-                <div>
+                <div key={platform.id}>
                   <RadioGroup.Item
                     className={styles.RadioGroupItem}
                     value={platform.id}
@@ -81,29 +134,34 @@ const VersionSelector = ({
             <ScrollArea.Viewport className={styles.ScrollAreaViewport}>
               <RadioGroup.Root
                 className={styles.VersionListRoot}
-                defaultValue={currentVersion}
+                defaultValue={numericVersion}
                 aria-label="streamlit version"
                 onValueChange={handleSelectVersion}
               >
-                {validVersions.map((sf_version) => (
-                  <div>
-                    <RadioGroup.Item
-                      className={styles.VersionListItem}
-                      value={sf_version}
-                      id={sf_version}
-                    >
-                      <RadioGroup.Indicator
-                        className={classNames(
-                          "material-icons-sharp",
-                          styles.VersionListIndicator,
-                        )}
-                      />
-                    </RadioGroup.Item>
-                    <label className={styles.VersionLabel} htmlFor={sf_version}>
-                      Version {sf_version}
-                    </label>
-                  </div>
-                ))}
+                {validVersionForWidgetPlatform
+                  .toReversed()
+                  .map((validVersion) => (
+                    <div key={validVersion}>
+                      <RadioGroup.Item
+                        className={styles.VersionListItem}
+                        value={validVersion}
+                        id={validVersion}
+                      >
+                        <RadioGroup.Indicator
+                          className={classNames(
+                            "material-icons-sharp",
+                            styles.VersionListIndicator,
+                          )}
+                        />
+                      </RadioGroup.Item>
+                      <label
+                        className={styles.VersionLabel}
+                        htmlFor={validVersion}
+                      >
+                        Version {validVersion}
+                      </label>
+                    </div>
+                  ))}
               </RadioGroup.Root>
             </ScrollArea.Viewport>
             <div className={styles.FadeBottom}></div>

@@ -2,12 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import ReactDOMServer from "react-dom/server";
 import Markdown from "react-markdown";
 import reverse from "lodash/reverse";
-import classNames from "classnames";
-import Table from "./table";
-import { H2, H3 } from "./headers";
-import Note from "./note";
-import Warning from "./warning";
-import Deprecation from "./deprecation";
 import { withRouter, useRouter } from "next/router";
 import Prism from "prismjs";
 import "prismjs/components/prism-python";
@@ -17,14 +11,17 @@ import "prismjs/plugins/line-highlight/prism-line-highlight.css";
 import "prismjs/plugins/toolbar/prism-toolbar";
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
+
+import Table from "./table";
+import { H2, H3 } from "./headers";
+import Note from "./note";
+import Warning from "./warning";
+import Deprecation from "./deprecation";
+import { functionNameToAnchorName } from "../../lib/utils";
 import VersionSelector from "../utilities/versionSelector";
+import { useVersion } from "../../context/VersionContext";
 
 import styles from "./autofunction.module.css";
-import { name } from "file-loader";
-
-const cleanHref = (name) => {
-  return String(name).replace(/\./g, "").replace(/\s+/g, "-");
-};
 
 const Autofunction = ({
   version,
@@ -40,12 +37,9 @@ const Autofunction = ({
   oldStreamlitFunction,
 }) => {
   const blockRef = useRef();
-  const router = useRouter();
-  const maxVersion = versions[versions.length - 1];
   const [isHighlighted, setIsHighlighted] = useState(false);
-  const [currentVersion, setCurrentVersion] = useState(
-    version ? version : versions[versions.length - 1],
-  );
+
+  const { version: currentVersion } = useVersion();
 
   useEffect(() => {
     highlightWithPrism();
@@ -103,40 +97,9 @@ const Autofunction = ({
     setIsHighlighted(true);
   };
 
-  const handleSelectVersion = (selectedVersion) => {
-    const functionObject =
-      streamlit[streamlitFunction] ?? streamlit[oldStreamlitFunction];
-    const slicedSlug = slug.slice();
-
-    if (selectedVersion !== currentVersion) {
-      setCurrentVersion(selectedVersion);
-
-      let isnum = /^[\d\.]+$/.test(slicedSlug[0]);
-      let isSiS = /^SiS[\d\.]*$/.test(slicedSlug[0]);
-
-      if (isnum || isSiS) {
-        slicedSlug.shift(); // Remove first element.
-      }
-
-      if (selectedVersion !== maxVersion) {
-        slicedSlug.unshift(selectedVersion); // Insert first element.
-      }
-
-      slug = slicedSlug.join("/"); // TODO: Use slicedSlug everywhere below.
-    }
-
-    if (functionObject) {
-      const name = cleanHref(`st.${functionObject.name}`);
-      router.push(`/${slug}#${name} `);
-    } else {
-      router.push(`/${slug}`);
-    }
-  };
-
   const footers = [];
   const args = [];
   const returns = [];
-  const versionList = reverse(versions.slice());
   let functionObject;
   let functionException;
   let functionDescription;
@@ -182,9 +145,7 @@ const Autofunction = ({
             <a
               aria-hidden="true"
               tabIndex="-1"
-              href={`#${cleanHref(
-                streamlitFunction.replace("streamlit", "st"),
-              )}`.toLowerCase()}
+              href={`#${functionNameToAnchorName(streamlitFunction)}`}
               className="absolute"
             >
               <span className="icon icon-link"></span>
@@ -192,10 +153,10 @@ const Autofunction = ({
             {streamlitFunction.replace("streamlit", "st")}
           </H2>
           <VersionSelector
-            versionList={versionList}
+            versionList={versions}
             snowflakeVersions={snowflakeVersions}
-            currentVersion={currentVersion}
-            handleSelectVersion={handleSelectVersion}
+            functionObject={functionObject}
+            slug={slug}
           />
         </div>
         <Warning>
@@ -231,7 +192,7 @@ const Autofunction = ({
         <a
           aria-hidden="true"
           tabIndex="-1"
-          href={`#${cleanHref(name)}`.toLowerCase()}
+          href={`#${functionNameToAnchorName(name)}`}
           className="absolute"
         >
           <span className="icon icon-link"></span>
@@ -243,7 +204,7 @@ const Autofunction = ({
         <a
           aria-hidden="true"
           tabIndex="-1"
-          href={`#${cleanHref(name)}`.toLowerCase()}
+          href={`#${functionNameToAnchorName(name)}`}
           className="absolute"
         >
           <span className="icon icon-link"></span>
@@ -261,10 +222,10 @@ const Autofunction = ({
         >
           {headerTitle}
           <VersionSelector
-            versionList={versionList}
+            versionList={versions}
             snowflakeVersions={snowflakeVersions}
-            currentVersion={currentVersion}
-            handleSelectVersion={handleSelectVersion}
+            functionObject={functionObject}
+            slug={slug}
           />
         </div>
         {deprecated === true ? (

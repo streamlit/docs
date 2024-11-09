@@ -1,6 +1,5 @@
 import fs from "fs";
 import { join, basename } from "path";
-import sortBy from "lodash/sortBy";
 import React, { useState, useCallback } from "react";
 import Link from "next/link";
 import Head from "next/head";
@@ -25,11 +24,15 @@ import {
   getArticleSlugFromString,
   pythonDirectory,
   getMenu,
-  getGDPRBanner,
-  getCookieSettings,
 } from "../lib/api";
-import { getPreviousNextFromMenu } from "../lib/utils.js";
-import useVersion from "../lib/useVersion.js";
+import { getPreviousNextFromMenu } from "../lib/utils";
+import {
+  DEFAULT_PLATFORM,
+  LATEST_VERSION,
+  getVersionAndPlatformFromPathPart,
+  looksLikeVersionAndPlatformString,
+  useVersion,
+} from "../context/VersionContext";
 import { useAppContext } from "../context/AppContext";
 import Layout from "../components/layouts/globalTemplate";
 import Footer from "../components/navigation/footer";
@@ -42,7 +45,6 @@ import InlineCalloutContainer from "../components/layouts/inlineCalloutContainer
 
 import ArrowLinkContainer from "../components/navigation/arrowLinkContainer";
 import ArrowLink from "../components/navigation/arrowLink";
-import Helpful from "../components/utilities/helpful";
 import { H1, H2, H3 } from "../components/blocks/headers";
 import Psa from "../components/utilities/psa";
 import FloatingNav from "../components/utilities/floatingNav";
@@ -71,7 +73,6 @@ import YouTube from "../components/blocks/youTube";
 import Cloud from "../components/blocks/cloud";
 
 import styles from "../components/layouts/container.module.css";
-import { reverse } from "lodash";
 
 export default function Article({
   data,
@@ -84,6 +85,7 @@ export default function Article({
   prevMenuItem,
   nextMenuItem,
   versionFromStaticLoad,
+  platformFromStaticLoad,
   versions,
   snowflakeVersions,
   filename,
@@ -122,14 +124,23 @@ export default function Article({
       ? sourceFile
       : "https://github.com/streamlit/docs/tree/main" +
         filename.substring(filename.indexOf("/content/"));
-  const maxVersion = versions[versions.length - 1];
-  const version = useVersion(versionFromStaticLoad, versions, currMenuItem);
-  // const platform = usePlatform()
 
-  if (version && versionFromStaticLoad === null && currMenuItem.isVersioned) {
-    slug.unshift(version);
-    router.push(`/${slug.join("/")}`);
-  }
+  const { initialize } = useVersion();
+
+  const [version] = initialize({
+    router,
+    newVersion: versionFromStaticLoad,
+    newPlatform: platformFromStaticLoad,
+    versionList: versions,
+    snowflakeVersions,
+    functionName: null,
+    currMenuItem,
+  });
+
+  // If version wasn't specied by hand in the URL, remove version from URL of unversioned pages.
+  //if (versionFromStaticLoad === null && currMenuItem.isVersioned) {
+  //  updateUrlWithVersionAndPlatformIfNeeded(router, version, platform);
+  //}
 
   // if (version != versionFromStaticLoad && currMenuItem.isVersioned) {
   //   // Use version from the static load
@@ -199,6 +210,9 @@ export default function Article({
   let nextArrow;
   let arrowContainer;
   let keywordsTag;
+
+  // TODO(debbie): Add platform warnings here and make maxVersion take platform into consideration.
+  const maxVersion = versions[versions.length - 1];
 
   if (version && version != maxVersion && currMenuItem.isVersioned) {
     // Slugs don't have the version number, so we just have to join them.
@@ -361,22 +375,17 @@ export async function getStaticProps(context) {
   );
   const streamlitFuncs = jsonContents ? JSON.parse(jsonContents) : {};
   const streamlitExceptions = jsonExceptions ? JSON.parse(jsonExceptions) : {};
-  const all_versions = Object.keys(streamlitFuncs);
-  const versions = sortBy(all_versions, [
-    (o) => {
-      const numericPart = parseInt(o, 10);
-      return isNaN(numericPart) ? Number.NEGATIVE_INFINITY : numericPart;
-    },
-  ]);
+  const versions = Object.keys(streamlitFuncs);
   const current_version = versions[versions.length - 1];
 
   const menu = getMenu();
 
   props["streamlit"] = {};
   props["exceptions"] = {};
-  props["versions"] = all_versions;
+  props["versions"] = versions;
   props["snowflakeVersions"] = {};
-  props["versionFromStaticLoad"] = null;
+  props["versionFromStaticLoad"] = LATEST_VERSION;
+  props["platformFromStaticLoad"] = DEFAULT_PLATFORM;
 
   if ("slug" in context.params) {
     let filename;
@@ -398,17 +407,21 @@ export async function getStaticProps(context) {
       const platforms = Object.keys(streamlitExceptions);
       for (const index in platforms) {
         const platform = platforms[index];
-        props["snowflakeVersions"][platform] = reverse(
-          Object.keys(streamlitExceptions[platform]),
+        props["snowflakeVersions"][platform] = Object.keys(
+          streamlitExceptions[platform],
         );
       }
     }
 
-    const isnum = /^[\d\.]+$/.test(context.params.slug[0]);
-    const isSiS = /^SiS[\d\.]*$/.test(context.params.slug[0]);
-    if (isnum || isSiS) {
-      props["versionFromStaticLoad"] = context.params.slug[0];
+    if (looksLikeVersionAndPlatformString(context.params.slug[0])) {
+      const [version, platform] = getVersionAndPlatformFromPathPart(
+        context.params.slug[0],
+      );
+      props["versionFromStaticLoad"] = version;
+      props["platformFromStaticLoad"] = platform;
       props["streamlit"] = streamlitFuncs[props["versionFromStaticLoad"]];
+
+      // TODO(debbie): Use platform here?
       props["exceptions"] =
         streamlitExceptions[props["versionFromStaticLoad"]] ?? {};
 
@@ -479,13 +492,7 @@ export async function getStaticPaths() {
     "utf8",
   );
   const streamlitFuncs = jsonContents ? JSON.parse(jsonContents) : {};
-  const all_versions = Object.keys(streamlitFuncs);
-  const versions = sortBy(all_versions, [
-    (o) => {
-      const numericPart = parseInt(o, 10);
-      return isNaN(numericPart) ? Number.NEGATIVE_INFINITY : numericPart;
-    },
-  ]);
+  const versions = Object.keys(streamlitFuncs);
   const current_version = versions[versions.length - 1];
 
   // Load each file and map a path
@@ -495,7 +502,7 @@ export async function getStaticPaths() {
     let realSlug = [slug];
     slug = `/${slug}`;
     const fileContents = fs.readFileSync(articles[index], "utf8");
-    const { data, content } = matter(fileContents);
+    const { data } = matter(fileContents);
 
     // Use slug instead of Category if it's present
     if ("slug" in data) {
@@ -523,30 +530,36 @@ export async function getStaticPaths() {
       continue;
     }
 
-    for (const v_index in versions) {
-      const version = versions[v_index];
+    for (const platform of [null, "oss", "sis", "na"]) {
+      for (const version of versions) {
+        if (version == current_version) {
+          continue;
+        }
 
-      if (version == current_version) {
-        continue;
+        const versionAndPlatform = platform
+          ? `${version}-${platform}`
+          : version;
+
+        const versionLocation = `/${versionAndPlatform}${slug}`;
+        const newSlug = [...realSlug];
+
+        newSlug.unshift(versionAndPlatform);
+
+        path = {
+          params: {
+            slug: newSlug,
+            location: versionLocation,
+            fileName: articles[index],
+            title: data.title ? data.title : "Untitled",
+            description: data.description ? data.description : "",
+          },
+        };
+        paths.push(path);
       }
-
-      const versioned_location = `/${version}${slug}`;
-      const newSlug = [...realSlug];
-
-      newSlug.unshift(version);
-
-      path = {
-        params: {
-          slug: newSlug,
-          location: versioned_location,
-          fileName: articles[index],
-          title: data.title ? data.title : "Untitled",
-          description: data.description ? data.description : "",
-        },
-      };
-      paths.push(path);
     }
   }
+
+  fs.writeFileSync("output.txt", JSON.stringify(paths));
 
   return {
     paths: paths,

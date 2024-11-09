@@ -4,7 +4,10 @@ import classNames from "classnames";
 
 import bus from "../../lib/bus";
 import NavItem from "../navigation/navItem";
-import useVersion from "../../lib/useVersion.js";
+import {
+  getVersionAndPlatformStr,
+  useVersion,
+} from "../../context/VersionContext";
 
 import styles from "./sideBar.module.css";
 
@@ -15,7 +18,9 @@ const SideBar = ({ menu, slug }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [theme, setTheme] = useState("light-mode");
   const [hasSlug, setHasSlug] = useState("");
-  const version = useVersion();
+  const { version, platform } = useVersion();
+
+  const versionAndPlatformStr = getVersionAndPlatformStr(version, platform);
 
   const handleTheme = () => {
     setTheme(document.body.dataset.theme);
@@ -86,7 +91,7 @@ const SideBar = ({ menu, slug }) => {
       page={page}
       depth={page.depth + 1}
       condensed={isCondensed}
-      version={version}
+      version={versionAndPlatformStr}
       // className={isOver && styles.OverNavItem}
     />
   ));
