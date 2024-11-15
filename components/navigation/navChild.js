@@ -3,14 +3,12 @@ import Link from "next/link";
 import classNames from "classnames";
 
 import styles from "./navChild.module.css";
+import { looksLikeVersionAndPlatformString } from "../../context/VersionContext";
 
 const NavChild = ({ slug, page, color, className, version }) => {
   const [manualState, setManualState] = useState(null);
 
-  const isNum = /^[\d\.]+$/.test(slug[0]);
-  const isSiS = /^SiS[\d\.]*$/.test(slug[0]);
-
-  if (isNum || isSiS) {
+  if (looksLikeVersionAndPlatformString(slug[0])) {
     slug.shift();
   }
 

@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useState } from "react";
 import { useRouter } from "next/router";
 import { functionNameToAnchorName } from "../lib/utils";
+import { getLatest } from "../lib/api";
 
 const Context = createContext();
 
@@ -123,8 +124,8 @@ export function isLatestVersion(
 ) {
   const maxVersion =
     platform == DEFAULT_PLATFORM
-      ? versionList.at(-1)
-      : snowflakeVersions[platform].at(-1);
+      ? getLatest(versionList)
+      : getLatest(snowflakeVersions[platform]);
 
   return version == maxVersion;
 }
@@ -243,10 +244,10 @@ export function getBestNumericVersion(
   if (version == LATEST_VERSION) {
     if (snowflakeVersions[platform]) {
       // This is a valid platform so return the latest version in the platform.
-      return [snowflakeVersions[platform].at(-1), platform];
+      return [getLatest(snowflakeVersions[platform]), platform];
     } else {
       // This is an invalid platform so we return the latest version for OSS.
-      return [versionList.at(-1), DEFAULT_PLATFORM];
+      return [getLatest(versionList), DEFAULT_PLATFORM];
     }
   } else {
     if (
@@ -263,11 +264,11 @@ export function getBestNumericVersion(
       if (snowflakeVersions[platform]) {
         // Version and platform are incompatible, but platform exists. So return the latest
         // for the platform.
-        return [snowflakeVersions[platform].at(-1), platform];
+        return [getLatest(snowflakeVersions[platform]), platform];
       } else {
         // Version and platform are incompatible, and platform does not exist. So return the
         // latest for OSS.
-        return [versionList.at(-1), DEFAULT_PLATFORM];
+        return [getLatest(versionList), DEFAULT_PLATFORM];
       }
     }
   }
