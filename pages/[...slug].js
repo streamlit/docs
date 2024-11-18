@@ -31,7 +31,9 @@ import {
   DEFAULT_PLATFORM,
   LATEST_VERSION,
   getVersionAndPlatformFromPathPart,
+  getVersionAndPlatformStr,
   looksLikeVersionAndPlatformString,
+  updateUrlWithVersionAndPlatformIfNeeded,
   useVersion,
 } from "../context/VersionContext";
 import { useAppContext } from "../context/AppContext";
@@ -128,7 +130,7 @@ export default function Article({
 
   const { initialize } = useVersion();
 
-  const [version] = initialize({
+  const [version, platform] = initialize({
     router,
     newVersion: versionFromStaticLoad,
     newPlatform: platformFromStaticLoad,
@@ -138,28 +140,26 @@ export default function Article({
     currMenuItem,
   });
 
-  // If version wasn't specied by hand in the URL, remove version from URL of unversioned pages.
-  // if (versionFromStaticLoad === null && currMenuItem.isVersioned) {
-  //  updateUrlWithVersionAndPlatformIfNeeded(router, version, platform);
-  // }
-
-  // if (version != versionFromStaticLoad && currMenuItem.isVersioned) {
-  //   // Use version from the static load
-  //   // Just to guarantee that there's no scenario where the two are different.
-  //   // And I'd also do a console.warning(...) here.
-  // }
-
-  // if (currMenuItem.isVersioned) {
-  //   if (versionFromStaticLoad === null) {
-  //     if (version) {
-  //       // Do lines 130-131
-  //     }
-  //   } else {
-  //     if (version !== versionFromStaticLoad) {
-  //       // Do 135-137
-  //     }
-  //   }
-  // }
+  // If version wasn't specified by hand in the URL, remove version from URL of unversioned pages.
+  if (versionFromStaticLoad != version || platformFromStaticLoad != platform) {
+    if (
+      versionFromStaticLoad === null &&
+      platformFromStaticLoad == DEFAULT_PLATFORM &&
+      !currMenuItem.isVersioned
+    ) {
+      // Unversioned page with no version and platform; keep context and pass
+    } else if (
+      versionFromStaticLoad === null &&
+      platformFromStaticLoad == DEFAULT_PLATFORM &&
+      currMenuItem.isVersioned
+    ) {
+      // Versioned page with no version and platform in the URL; use context
+      // updateUrlWithVersionAndPlatformIfNeeded(router, version, platform); //Doesn't work with router
+      const versionAndPlatformStr = getVersionAndPlatformStr(version, platform);
+      slug.unshift(versionAndPlatformStr);
+      router.push(`/${slug.join("/")}`);
+    }
+  }
 
   const components = {
     Note,

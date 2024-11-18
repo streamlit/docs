@@ -5,7 +5,7 @@ import classNames from "classnames";
 import styles from "./navChild.module.css";
 import { looksLikeVersionAndPlatformString } from "../../context/VersionContext";
 
-const NavChild = ({ slug, page, color, className, version }) => {
+const NavChild = ({ slug, page, color, className }) => {
   const [manualState, setManualState] = useState(null);
 
   if (looksLikeVersionAndPlatformString(slug[0])) {
@@ -36,7 +36,6 @@ const NavChild = ({ slug, page, color, className, version }) => {
               page={child}
               color={color}
               depth={child.depth + 1}
-              version={version}
             />
           ))}
       </ul>
@@ -83,13 +82,6 @@ const NavChild = ({ slug, page, color, className, version }) => {
   if (isAbsolutePath) {
     url = url.replace("https://docs.streamlit.io", "");
     icon = <i className={styles.CrossLinkedIcon}>link</i>;
-  }
-
-  if (page.isVersioned && version && (isRelativePath || isAbsolutePath)) {
-    // We need to version this URL, check if the URL has a version for this version
-    const newSlug = url.split("/");
-    newSlug[0] = version;
-    url = `/${newSlug.join("/")}`;
   }
 
   if (isDivider && page.name == "---") {
