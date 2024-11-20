@@ -24,7 +24,6 @@ const VersionSelector = ({
   versionList,
   snowflakeVersions,
   functionObject,
-  slug,
 }) => {
   const {
     version: versionContext,
@@ -57,7 +56,7 @@ const VersionSelector = ({
         setVersionAndPlatform({
           newVersion: versionContext,
           newPlatform: selectedPlatform,
-          functionName: functionObject.name,
+          functionName: functionObject ? functionObject.name : "",
           versionList,
           snowflakeVersions,
         });
@@ -75,7 +74,7 @@ const VersionSelector = ({
       setVersionAndPlatform({
         newVersion: selectedVersion,
         newPlatform: widgetPlatform,
-        functionName: functionObject.name,
+        functionName: functionObject ? functionObject.name : "",
         versionList,
         snowflakeVersions,
       });
