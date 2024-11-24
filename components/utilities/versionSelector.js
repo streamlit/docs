@@ -4,7 +4,6 @@ import * as RadioGroup from "@radix-ui/react-radio-group";
 import * as ScrollArea from "@radix-ui/react-scroll-area";
 import classNames from "classnames";
 import styles from "./versionSelector.module.css";
-import usePlatform from "../../lib/usePlatform";
 import {
   useVersion,
   DEFAULT_PLATFORM,
@@ -45,7 +44,7 @@ const VersionSelector = ({
       if (
         selectedPlatform != platformContext &&
         versionAndPlatformAreCompatible(
-          // versionContext can be LATEST_VERSION (null) or "1.40.0" (even if that's the latest).
+          // versionContext can be DEFAULT_VERSION (null) or "1.40.0" (even if that's the latest).
           versionContext,
           selectedPlatform,
           versionList,

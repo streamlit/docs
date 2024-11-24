@@ -5,7 +5,7 @@ import { getLatest } from "../lib/api";
 
 const Context = createContext();
 
-export const LATEST_VERSION = null; // Latest
+export const DEFAULT_VERSION = null; // Latest
 export const DEFAULT_PLATFORM = "oss";
 
 export function VersionContextProvider({ children }) {
@@ -79,7 +79,7 @@ export function VersionContextProvider({ children }) {
         versionList,
         snowflakeVersions,
       )
-        ? LATEST_VERSION
+        ? DEFAULT_VERSION
         : newVersion;
       setVersionState(cleanedVersion);
 
@@ -147,7 +147,7 @@ export function updateUrlWithVersionAndPlatformIfNeeded({
     urlParts[0],
   )
     ? getVersionAndPlatformFromPathPart(urlParts[0])
-    : [LATEST_VERSION, DEFAULT_PLATFORM];
+    : [DEFAULT_VERSION, DEFAULT_PLATFORM];
 
   if (versionFromSlug == newVersion && platformFromSlug == newPlatform) {
     // Nothing to do.
@@ -156,7 +156,7 @@ export function updateUrlWithVersionAndPlatformIfNeeded({
 
   // Remove version from urlParts (because we'll re-add later).
   if (
-    versionFromSlug != LATEST_VERSION ||
+    versionFromSlug != DEFAULT_VERSION ||
     platformFromSlug != DEFAULT_PLATFORM
   ) {
     urlParts.shift();
@@ -176,7 +176,7 @@ export function updateUrlWithVersionAndPlatformIfNeeded({
 }
 
 export function getVersionAndPlatformStr(version, platform) {
-  if (version == LATEST_VERSION) {
+  if (version == DEFAULT_VERSION) {
     if (platform == DEFAULT_PLATFORM) {
       return null;
     }
@@ -209,12 +209,12 @@ export function looksLikeVersionAndPlatformString(urlPart) {
 
 export function getVersionAndPlatformFromPathPart(pathPart) {
   if (!looksLikeVersionAndPlatformString(pathPart)) {
-    return [LATEST_VERSION, DEFAULT_PLATFORM];
+    return [DEFAULT_VERSION, DEFAULT_PLATFORM];
   }
 
   const [version, platform] = pathPart.split("-");
 
-  const cleanedVersion = version == "latest" ? LATEST_VERSION : version;
+  const cleanedVersion = version == "latest" ? DEFAULT_VERSION : version;
   const cleanedPlatform = platform ?? DEFAULT_PLATFORM;
 
   return [cleanedVersion, cleanedPlatform];
@@ -226,7 +226,7 @@ export function versionAndPlatformAreCompatible(
   versionList,
   snowflakeVersions,
 ) {
-  if (version == LATEST_VERSION) return true;
+  if (version == DEFAULT_VERSION) return true;
 
   if (platform == DEFAULT_PLATFORM && versionList.indexOf(version) >= 0) {
     return true;
@@ -241,7 +241,7 @@ export function getBestNumericVersion(
   versionList,
   snowflakeVersions,
 ) {
-  if (version == LATEST_VERSION) {
+  if (version == DEFAULT_VERSION) {
     if (snowflakeVersions[platform]) {
       // This is a valid platform so return the latest version in the platform.
       return [getLatest(snowflakeVersions[platform]), platform];

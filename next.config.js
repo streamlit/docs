@@ -1,3 +1,30 @@
+const fs = require("fs");
+const path = require("path");
+const PYTHON_DIRECTORY = path.join(process.cwd(), "python/");
+
+const jsonFunctions = fs.readFileSync(
+  path.join(PYTHON_DIRECTORY, "streamlit.json"),
+  "utf8",
+);
+const jsonNotes = fs.readFileSync(
+  path.join(PYTHON_DIRECTORY, "snowflake.json"),
+  "utf8",
+);
+
+const STREAMLIT_FUNCTIONS = jsonFunctions ? JSON.parse(jsonFunctions) : {};
+const VERSIONS_LIST = Object.keys(STREAMLIT_FUNCTIONS);
+const LATEST_OSS_VERSION = VERSIONS_LIST[VERSIONS_LIST.length - 1];
+const PLATFORM_NOTES = jsonNotes ? JSON.parse(jsonNotes) : {};
+let platformVersions = {};
+let latestPlatformVersion = {};
+for (const index in Object.keys(PLATFORM_NOTES)) {
+  const key = Object.keys(PLATFORM_NOTES)[index];
+  platformVersions[key] = Object.keys(PLATFORM_NOTES[key]);
+  latestPlatformVersion[key] = Object.keys(PLATFORM_NOTES[key]).at(-1);
+}
+const PLATFORM_VERSIONS = platformVersions;
+const PLATFORM_LATEST_VERSIONS = latestPlatformVersion;
+
 const IS_DEV = process.env.NODE_ENV === "development";
 
 // IMPORTANT: Keep this in sync with netlify.toml
@@ -71,6 +98,15 @@ const CSP_HEADER = [
 ];
 
 module.exports = {
+  serverRuntimeConfig: {
+    STREAMLIT_FUNCTIONS,
+    VERSIONS_LIST,
+    LATEST_OSS_VERSION,
+    PLATFORM_NOTES,
+    PLATFORM_VERSIONS,
+    PLATFORM_LATEST_VERSIONS,
+  },
+
   output: "export",
 
   webpack: (configuration) => {

@@ -13,6 +13,8 @@ import classNames from "classnames";
 import { useRouter } from "next/router";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import getConfig from "next/config";
+const { serverRuntimeConfig } = getConfig();
 
 // Site Components
 import CookieSettingsModal from "../components/utilities/cookieSettingsModal";
@@ -29,7 +31,7 @@ import {
 import { getPreviousNextFromMenu } from "../lib/utils";
 import {
   DEFAULT_PLATFORM,
-  LATEST_VERSION,
+  DEFAULT_VERSION,
   getVersionAndPlatformFromPathPart,
   getVersionAndPlatformStr,
   looksLikeVersionAndPlatformString,
@@ -366,32 +368,19 @@ export async function getStaticProps(context) {
   let location = `/${context.params.slug.join("/")}`;
 
   // Sort of documentation versions
-  const jsonFunctions = fs.readFileSync(
-    join(pythonDirectory, "streamlit.json"),
-    "utf8",
-  );
-  const jsonNotes = fs.readFileSync(
-    join(pythonDirectory, "snowflake.json"),
-    "utf8",
-  );
-  const streamlitFuncs = jsonFunctions ? JSON.parse(jsonFunctions) : {};
-  const versions = Object.keys(streamlitFuncs);
-  const latestVersion = versions[versions.length - 1];
-  const platformNotes = jsonNotes ? JSON.parse(jsonNotes) : {};
-  let platformVersions = {};
-  let latestPlatformVersion = {};
-  for (const index in Object.keys(platformNotes)) {
-    const key = Object.keys(platformNotes)[index];
-    platformVersions[key] = Object.keys(platformNotes[key]);
-    latestPlatformVersion[key] = getLatest(Object.keys(platformNotes[key]));
-  }
+  const streamlitFuncs = serverRuntimeConfig.STREAMLIT_FUNCTIONS;
+  const versions = serverRuntimeConfig.VERSIONS_LIST;
+  const latestVersion = serverRuntimeConfig.LATEST_OSS_VERSION;
+  const platformNotes = serverRuntimeConfig.PLATFORM_NOTES;
+  const platformVersions = serverRuntimeConfig.PLATFORM_VERSIONS;
+  const latestPlatformVersion = serverRuntimeConfig.PLATFORM_LATEST_VERSIONS;
   const menu = getMenu();
 
   props["streamlit"] = {};
   props["exceptions"] = {};
   props["versions"] = versions;
   props["snowflakeVersions"] = platformVersions;
-  props["versionFromStaticLoad"] = LATEST_VERSION;
+  props["versionFromStaticLoad"] = DEFAULT_VERSION;
   props["platformFromStaticLoad"] = DEFAULT_PLATFORM;
 
   if ("slug" in context.params) {
@@ -494,26 +483,11 @@ export async function getStaticPaths() {
   const articles = getArticleSlugs();
   const paths = [];
 
-  // Sort of documentation versions
-  const jsonFunctions = fs.readFileSync(
-    join(pythonDirectory, "streamlit.json"),
-    "utf8",
-  );
-  const jsonNotes = fs.readFileSync(
-    join(pythonDirectory, "snowflake.json"),
-    "utf8",
-  );
-  const streamlitFuncs = jsonFunctions ? JSON.parse(jsonFunctions) : {};
-  const versions = Object.keys(streamlitFuncs);
-  const latestVersion = versions[versions.length - 1];
-  const platformNotes = jsonNotes ? JSON.parse(jsonNotes) : {};
-  let platformVersions = {};
-  let latestPlatformVersion = {};
-  for (const index in Object.keys(platformNotes)) {
-    const key = Object.keys(platformNotes)[index];
-    platformVersions[key] = Object.keys(platformNotes[key]);
-    latestPlatformVersion[key] = getLatest(Object.keys(platformNotes[key]));
-  }
+  const versions = serverRuntimeConfig.VERSIONS_LIST;
+  const latestVersion = serverRuntimeConfig.LATEST_OSS_VERSION;
+  const platformNotes = serverRuntimeConfig.PLATFORM_NOTES;
+  const platformVersions = serverRuntimeConfig.PLATFORM_VERSIONS;
+  const latestPlatformVersion = serverRuntimeConfig.PLATFORM_LATEST_VERSIONS;
 
   // Load each file and map a path
   for (const index in articles) {
