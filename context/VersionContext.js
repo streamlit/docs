@@ -2,16 +2,18 @@ import { createContext, useCallback, useContext, useState } from "react";
 import { useRouter } from "next/router";
 import { functionNameToAnchorName } from "../lib/utils";
 import { getLatest } from "../lib/api";
+import getConfig from "next/config";
+const { publicRuntimeConfig } = getConfig();
 
 const Context = createContext();
 
-export const DEFAULT_VERSION = null; // Latest
+export const DEFAULT_VERSION = "latest";
 export const DEFAULT_PLATFORM = "oss";
 
 export function VersionContextProvider({ children }) {
   const [initialized, setInitialized] = useState(false);
 
-  const [version, setVersionState] = useState(null);
+  const [version, setVersionState] = useState(DEFAULT_VERSION);
   const [platform, setPlatformState] = useState(DEFAULT_PLATFORM);
   const router = useRouter();
 
@@ -127,7 +129,7 @@ export function isLatestVersion(
       ? getLatest(versionList)
       : getLatest(snowflakeVersions[platform]);
 
-  return version == maxVersion;
+  return version == DEFAULT_VERSION || version == maxVersion;
 }
 
 export function updateUrlWithVersionAndPlatformIfNeeded({
@@ -181,7 +183,7 @@ export function getVersionAndPlatformStr(version, platform) {
       return null;
     }
 
-    return `latest-${platform}`;
+    return `${DEFAULT_VERSION}-${platform}`;
   }
 
   if (platform == DEFAULT_PLATFORM) {
@@ -192,16 +194,22 @@ export function getVersionAndPlatformStr(version, platform) {
 }
 
 export function looksLikeVersionAndPlatformString(urlPart) {
+  const platforms = [DEFAULT_PLATFORM].concat(
+    Object.keys(publicRuntimeConfig.PLATFORM_VERSIONS),
+  );
+
   // docs.streamlit.io/1.23.0/path1/path2
   const isPureVersion = /^[\d\.]+$/.test(urlPart);
   if (isPureVersion) return true;
 
   // docs.streamlit.io/1.23.0-sis/path1/path2
-  const isVersionWithPlatform = /^[\d\.]+-(sis|oss|na)$/.test(urlPart);
+  const versionPlatformRegex = RegExp(`^[\\d\\.]+-(${platforms.join("|")})$`);
+  const isVersionWithPlatform = versionPlatformRegex.test(urlPart);
   if (isVersionWithPlatform) return true;
 
   // docs.streamlit.io/latest-sis/path1/path2
-  const isLatestPlatform = /^latest-(sis|oss|na)$/.test(urlPart);
+  const latestPlatformRegex = RegExp(`^latest-(${platforms.join("|")})$`);
+  const isLatestPlatform = latestPlatformRegex.test(urlPart);
   if (isLatestPlatform) return true;
 
   return false;
@@ -213,11 +221,9 @@ export function getVersionAndPlatformFromPathPart(pathPart) {
   }
 
   const [version, platform] = pathPart.split("-");
-
-  const cleanedVersion = version == "latest" ? DEFAULT_VERSION : version;
   const cleanedPlatform = platform ?? DEFAULT_PLATFORM;
 
-  return [cleanedVersion, cleanedPlatform];
+  return [version, cleanedPlatform];
 }
 
 export function versionAndPlatformAreCompatible(

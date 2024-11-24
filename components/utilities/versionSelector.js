@@ -3,6 +3,9 @@ import * as Popover from "@radix-ui/react-popover";
 import * as RadioGroup from "@radix-ui/react-radio-group";
 import * as ScrollArea from "@radix-ui/react-scroll-area";
 import classNames from "classnames";
+import getConfig from "next/config";
+const { publicRuntimeConfig } = getConfig();
+
 import styles from "./versionSelector.module.css";
 import {
   useVersion,
@@ -12,7 +15,11 @@ import {
 } from "../../context/VersionContext";
 import { CurrentRefinements } from "react-instantsearch-dom";
 
-// TODO(debbie): Pull this from the metadata.
+// const VERSIONS_LIST = publicRuntimeConfig.VERSIONS_LIST;
+// const LATEST_OSS_VERSION = publicRuntimeConfig.LATEST_OSS_VERSION;
+// const PLATFORM_VERSIONS = publicRuntimeConfig.PLATFORM_VERSIONS;
+// const PLATFORM_LATEST_VERSIONS = publicRuntimeConfig.PLATFORM_LATEST_VERSIONS;
+// const PLATFORMS = [DEFAULT_PLATFORM].concat(Object.keys(PLATFORM_VERSIONS))
 const PLATFORMS = [
   { id: "oss", name: "None" },
   { id: "sis", name: "Streamlit in Snowflake" },

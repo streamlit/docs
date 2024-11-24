@@ -145,13 +145,13 @@ export default function Article({
   // If version wasn't specified by hand in the URL, remove version from URL of unversioned pages.
   if (versionFromStaticLoad != version || platformFromStaticLoad != platform) {
     if (
-      versionFromStaticLoad === null &&
+      versionFromStaticLoad == DEFAULT_VERSION &&
       platformFromStaticLoad == DEFAULT_PLATFORM &&
       !currMenuItem.isVersioned
     ) {
       // Unversioned page with no version and platform; keep context and pass
     } else if (
-      versionFromStaticLoad === null &&
+      versionFromStaticLoad == DEFAULT_VERSION &&
       platformFromStaticLoad == DEFAULT_PLATFORM &&
       currMenuItem.isVersioned
     ) {
@@ -217,7 +217,11 @@ export default function Article({
   // TODO(debbie): Add platform warnings here and make maxVersion take platform into consideration.
   const maxVersion = versions[versions.length - 1];
 
-  if (version && version != maxVersion && currMenuItem.isVersioned) {
+  if (
+    version != DEFAULT_VERSION &&
+    version != maxVersion &&
+    currMenuItem.isVersioned
+  ) {
     // Slugs don't have the version number, so we just have to join them.
     currentLink = `/${slug.join("/")}`;
     versionWarning = (
@@ -297,7 +301,7 @@ export default function Article({
             <link rel="alternate icon" href="/favicon32.ico" />
             <meta name="theme-color" content="#ffffff" />
             {keywordsTag}
-            {version ? (
+            {version != DEFAULT_VERSION || platform != DEFAULT_PLATFORM ? (
               <link
                 rel="canonical"
                 href={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/${slug
@@ -368,18 +372,17 @@ export async function getStaticProps(context) {
   let location = `/${context.params.slug.join("/")}`;
 
   // Sort of documentation versions
-  const streamlitFuncs = serverRuntimeConfig.STREAMLIT_FUNCTIONS;
   const versions = serverRuntimeConfig.VERSIONS_LIST;
   const latestVersion = serverRuntimeConfig.LATEST_OSS_VERSION;
   const platformNotes = serverRuntimeConfig.PLATFORM_NOTES;
-  const platformVersions = serverRuntimeConfig.PLATFORM_VERSIONS;
+  const PLATFORM_VERSIONS = serverRuntimeConfig.PLATFORM_VERSIONS;
   const latestPlatformVersion = serverRuntimeConfig.PLATFORM_LATEST_VERSIONS;
   const menu = getMenu();
 
   props["streamlit"] = {};
   props["exceptions"] = {};
   props["versions"] = versions;
-  props["snowflakeVersions"] = platformVersions;
+  props["snowflakeVersions"] = PLATFORM_VERSIONS;
   props["versionFromStaticLoad"] = DEFAULT_VERSION;
   props["platformFromStaticLoad"] = DEFAULT_PLATFORM;
 
@@ -398,7 +401,8 @@ export async function getStaticProps(context) {
     const should_version = /<Autofunction(.*?)\/>/gi.test(fileContents);
 
     if (should_version) {
-      props.streamlit = streamlitFuncs[getLatest(versions)];
+      props.streamlit =
+        serverRuntimeConfig.STREAMLIT_FUNCTIONS[getLatest(versions)];
       props.exception = {};
     }
 
@@ -409,16 +413,20 @@ export async function getStaticProps(context) {
 
       props["versionFromStaticLoad"] = version;
       props["platformFromStaticLoad"] = platform;
-      props["streamlit"] = version
-        ? streamlitFuncs[version]
-        : platform
-          ? streamlitFuncs[latestPlatformVersion[platform]]
-          : streamlitFuncs[latestVersion];
-      if (Object.keys(platformVersions).includes(platform)) {
+      props["streamlit"] =
+        version != DEFAULT_VERSION
+          ? serverRuntimeConfig.STREAMLIT_FUNCTIONS[version]
+          : platform != DEFAULT_PLATFORM
+            ? serverRuntimeConfig.STREAMLIT_FUNCTIONS[
+                latestPlatformVersion[platform]
+              ]
+            : serverRuntimeConfig.STREAMLIT_FUNCTIONS[latestVersion];
+      if (Object.keys(PLATFORM_VERSIONS).includes(platform)) {
         props.exceptions =
-          version && platformVersions[platform].includes(version)
+          version != DEFAULT_VERSION &&
+          PLATFORM_VERSIONS[platform].includes(version)
             ? platformNotes[platform][version]
-            : version == null
+            : version == DEFAULT_VERSION
               ? platformNotes[platform][latestPlatformVersion[platform]]
               : {};
       }
@@ -483,11 +491,11 @@ export async function getStaticPaths() {
   const articles = getArticleSlugs();
   const paths = [];
 
-  const versions = serverRuntimeConfig.VERSIONS_LIST;
-  const latestVersion = serverRuntimeConfig.LATEST_OSS_VERSION;
-  const platformNotes = serverRuntimeConfig.PLATFORM_NOTES;
-  const platformVersions = serverRuntimeConfig.PLATFORM_VERSIONS;
-  const latestPlatformVersion = serverRuntimeConfig.PLATFORM_LATEST_VERSIONS;
+  const VERSIONS_LIST = serverRuntimeConfig.VERSIONS_LIST;
+  const LATEST_OSS_VERSION = serverRuntimeConfig.LATEST_OSS_VERSION;
+  const PLATFORM_NOTES = serverRuntimeConfig.PLATFORM_NOTES;
+  const PLATFORM_VERSIONS = serverRuntimeConfig.PLATFORM_VERSIONS;
+  const PLATFORM_LATEST_VERSIONS = serverRuntimeConfig.PLATFORM_LATEST_VERSIONS;
 
   // Load each file and map a path
   for (const index in articles) {
@@ -519,17 +527,26 @@ export async function getStaticPaths() {
     // If the file uses Autofunction, we need to version it.
     const should_version = /<Autofunction(.*?)\/>/gi.test(fileContents);
     if (should_version) {
-      for (const platform of [null].concat(Object.keys(platformNotes))) {
-        for (const version of versions) {
+      for (const platform of [DEFAULT_PLATFORM].concat(
+        Object.keys(PLATFORM_NOTES),
+      )) {
+        for (const version of VERSIONS_LIST) {
           let versionAndPlatform;
-          versionAndPlatform = platform ? `${version}-${platform}` : version;
-          if (platform && version == latestPlatformVersion[platform]) {
+          versionAndPlatform =
+            platform == DEFAULT_PLATFORM ? version : `${version}-${platform}`;
+          if (
+            platform != DEFAULT_PLATFORM &&
+            version == PLATFORM_LATEST_VERSIONS[platform]
+          ) {
             versionAndPlatform = `latest-${platform}`;
           }
-          if (platform == null && version == latestVersion) {
+          if (platform == DEFAULT_PLATFORM && version == LATEST_OSS_VERSION) {
             continue;
           }
-          if (platform && !platformVersions[platform].includes(version)) {
+          if (
+            platform != DEFAULT_PLATFORM &&
+            !PLATFORM_VERSIONS[platform].includes(version)
+          ) {
             continue;
           }
 

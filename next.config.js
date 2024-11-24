@@ -106,6 +106,12 @@ module.exports = {
     PLATFORM_VERSIONS,
     PLATFORM_LATEST_VERSIONS,
   },
+  publicRuntimeConfig: {
+    VERSIONS_LIST,
+    LATEST_OSS_VERSION,
+    PLATFORM_VERSIONS,
+    PLATFORM_LATEST_VERSIONS,
+  },
 
   output: "export",
 
