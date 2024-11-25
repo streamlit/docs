@@ -374,7 +374,6 @@ export async function getStaticProps(context) {
   // Sort of documentation versions
   const versions = serverRuntimeConfig.VERSIONS_LIST;
   const latestVersion = serverRuntimeConfig.LATEST_OSS_VERSION;
-  const platformNotes = serverRuntimeConfig.PLATFORM_NOTES;
   const PLATFORM_VERSIONS = serverRuntimeConfig.PLATFORM_VERSIONS;
   const latestPlatformVersion = serverRuntimeConfig.PLATFORM_LATEST_VERSIONS;
   const menu = getMenu();
@@ -425,9 +424,11 @@ export async function getStaticProps(context) {
         props.exceptions =
           version != DEFAULT_VERSION &&
           PLATFORM_VERSIONS[platform].includes(version)
-            ? platformNotes[platform][version]
+            ? serverRuntimeConfig.PLATFORM_NOTES[platform][version]
             : version == DEFAULT_VERSION
-              ? platformNotes[platform][latestPlatformVersion[platform]]
+              ? serverRuntimeConfig.PLATFORM_NOTES[platform][
+                  latestPlatformVersion[platform]
+                ]
               : {};
       }
       location = `/${context.params.slug.slice(1).join("/")}`;
