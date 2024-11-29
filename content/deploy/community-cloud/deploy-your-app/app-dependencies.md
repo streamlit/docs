@@ -90,7 +90,7 @@ There are other Python package managers in addition to `pip`. If you want to con
     </tr>
 </table>
 
-&dagger; For efficiency, Community Cloud will attempt process `requirements.txt` with `uv`, but will fall back to `pip` if needed. `uv` is generally faster and more efficient than `pip`.
+&dagger; For efficiency, Community Cloud will attempt to process `requirements.txt` with `uv`, but will fall back to `pip` if needed. `uv` is generally faster and more efficient than `pip`.
 
 <Warning>
 
