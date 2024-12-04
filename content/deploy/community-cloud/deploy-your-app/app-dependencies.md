@@ -61,12 +61,16 @@ In the above example, `streamlit` is pinned to version `1.24.1`, `pandas` must b
 
 ### Other Python package managers
 
-There are other Python package managers in addition to `pip`. If you want to consider alternatives to using a `requirements.txt` file, Community Cloud will look for and use the first dependency file it finds in the following order:
+There are other Python package managers in addition to `pip`. If you want to consider alternatives to using a `requirements.txt` file, Community Cloud will use the first dependency file it finds. Community Cloud will search the directory where your entrypoint file is, then it will search the root of your repository. In each location, dependency files are prioritized in the following order:
 
 <table style={{ textAlign: 'center' }}>
     <tr>
         <th style={{ fontSize: '1.2em' }}> Recognized Filename</th>
         <th style={{ fontSize: '1.2em' }}>Python Package Manager</th>
+    </tr>
+    <tr>
+        <td style={{ fontSize: '1em' }}><code>uv.lock</code></td>
+        <td style={{ fontSize: '1em' }}><a href="https://docs.astral.sh/uv/concepts/projects/sync/" target="_blank">uv</a></td>
     </tr>
     <tr>
         <td style={{ fontSize: '1em' }}><code>Pipfile</code></td>
@@ -78,7 +82,7 @@ There are other Python package managers in addition to `pip`. If you want to con
     </tr>
     <tr>
         <td style={{ fontSize: '1em' }}><code>requirements.txt</code></td>
-        <td style={{ fontSize: '1em' }}><a href="https://pip.pypa.io/en/stable/user_guide/#requirements-files" target="_blank">pip</a></td>
+        <td style={{ fontSize: '1em' }}><a href="https://pip.pypa.io/en/stable/user_guide/#requirements-files" target="_blank">pip</a><sup>&dagger;</sup></td>
     </tr>
     <tr>
         <td style={{ fontSize: '1em' }}><code>pyproject.toml</code></td>
@@ -86,9 +90,11 @@ There are other Python package managers in addition to `pip`. If you want to con
     </tr>
 </table>
 
+&dagger; For efficiency, Community Cloud will attempt to process `requirements.txt` with `uv`, but will fall back to `pip` if needed. `uv` is generally faster and more efficient than `pip`.
+
 <Warning>
 
-You should only use one requirements file for your app. If you include more than one (e.g. `requirements.txt` and `Pipfile`), only the first file encountered will be used as described above. Additionally, Streamlit will first look in the directory of your Streamlit app; however, if no requirements file is found, Streamlit will then look at the root of the repo.
+You should only use one dependency file for your app. If you include more than one (e.g. `requirements.txt` and `environment.yaml`), only the first file encountered will be used as described above, with any dependency file in your entrypoint file's directory taking precedence over any dependency file in the root of your repository.
 
 </Warning>
 
