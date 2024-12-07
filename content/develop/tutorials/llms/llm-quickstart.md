@@ -26,7 +26,7 @@ Bonus: Deploy the app on Streamlit Community Cloud!
 
 ## Prerequisites
 
-- Python 3.8+
+- Python 3.9+
 - Streamlit
 - LangChain
 - [OpenAI API key](https://platform.openai.com/account/api-keys?ref=blog.streamlit.io)
