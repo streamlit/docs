@@ -3,140 +3,118 @@
     "1.22.0": {
       "streamlit.bokeh_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.cache_data": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_data` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.cache_resource": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_resource` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.camera_input": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.caption": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.download_button": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.experimental_get_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.experimental_set_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.file_uploader": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.map": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.map`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.markdown": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.pydeck_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.pydeck_chart`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.set_page_config": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "page_title": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         },
         "page_icon": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         }
       },
       "streamlit.write": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.components.v1.declare_component": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.html": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.iframe": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
@@ -145,133 +123,112 @@
     "1.26.0": {
       "streamlit.bokeh_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.cache_data": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_data` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.cache_resource": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_resource` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.camera_input": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.caption": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.experimental_get_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.experimental_set_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.file_uploader": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.map": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.map`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.markdown": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.pydeck_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.pydeck_chart`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.set_page_config": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "page_title": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         },
         "page_icon": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         }
       },
       "streamlit.write": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.components.v1.declare_component": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.html": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.iframe": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
@@ -280,140 +237,118 @@
     "1.29.0": {
       "streamlit.bokeh_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.cache_data": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_data` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.cache_resource": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_resource` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.camera_input": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.caption": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.experimental_get_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.experimental_set_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.file_uploader": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.map": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.map`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.markdown": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.pydeck_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.pydeck_chart`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.set_page_config": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "page_title": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         },
         "page_icon": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         }
       },
       "streamlit.write": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.components.v1.declare_component": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.html": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.iframe": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.link_button": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "External links are blocked by default. For more information, see [External network access in Streamlit in Snowflake](https://docs.snowflake.com/en/developer-guide/streamlit/additional-features#external-network-access-in-sis)."
         }
@@ -422,147 +357,124 @@
     "1.31.0": {
       "streamlit.bokeh_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.cache_data": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_data` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.cache_resource": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_resource` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.camera_input": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.caption": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.experimental_get_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.experimental_set_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.file_uploader": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.map": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.map`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.markdown": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.pydeck_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.pydeck_chart`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.set_page_config": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "page_title": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         },
         "page_icon": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         }
       },
       "streamlit.write": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.components.v1.declare_component": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.html": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.iframe": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.link_button": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "External links are blocked by default. For more information, see [External network access in Streamlit in Snowflake](https://docs.snowflake.com/en/developer-guide/streamlit/additional-features#external-network-access-in-sis)."
         }
       },
       "streamlit.query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "Query parameters are not visible in your app's URL in Streamlit in Snowflake. However, query parameters can still be read and set through `st.query_params`."
         }
@@ -571,147 +483,124 @@
     "1.35.0": {
       "streamlit.bokeh_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.cache_data": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_data` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.cache_resource": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_resource` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.camera_input": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.caption": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.experimental_get_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.experimental_set_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.file_uploader": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.map": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.map`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.markdown": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.pydeck_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.pydeck_chart`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.set_page_config": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "page_title": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         },
         "page_icon": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         }
       },
       "streamlit.write": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.components.v1.declare_component": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.html": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.iframe": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.link_button": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "External links are blocked by default. For more information, see [External network access in Streamlit in Snowflake](https://docs.snowflake.com/en/developer-guide/streamlit/additional-features#external-network-access-in-sis)."
         }
       },
       "streamlit.query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "Query parameters are not visible in your app's URL in Streamlit in Snowflake. However, query parameters can still be read and set through `st.query_params`."
         }
@@ -722,140 +611,118 @@
     "1.22.0": {
       "streamlit.bokeh_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.cache_data": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_data` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.cache_resource": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_resource` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.camera_input": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.caption": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.download_button": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.experimental_get_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.experimental_set_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.file_uploader": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.map": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.map`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.markdown": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.pydeck_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.pydeck_chart`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.set_page_config": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "page_title": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         },
         "page_icon": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         }
       },
       "streamlit.write": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.components.v1.declare_component": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.html": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.iframe": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
@@ -864,133 +731,112 @@
     "1.26.0": {
       "streamlit.bokeh_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.cache_data": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_data` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.cache_resource": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_resource` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.camera_input": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.caption": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.experimental_get_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.experimental_set_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.file_uploader": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.map": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.map`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.markdown": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.pydeck_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.pydeck_chart`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.set_page_config": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "page_title": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         },
         "page_icon": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         }
       },
       "streamlit.write": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.components.v1.declare_component": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.html": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.iframe": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
@@ -999,140 +845,118 @@
     "1.29.0": {
       "streamlit.bokeh_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.cache_data": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_data` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.cache_resource": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_resource` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.camera_input": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.caption": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.experimental_get_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.experimental_set_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.file_uploader": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.map": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.map`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.markdown": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.pydeck_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.pydeck_chart`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.set_page_config": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "page_title": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         },
         "page_icon": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         }
       },
       "streamlit.write": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.components.v1.declare_component": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.html": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.iframe": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.link_button": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "External links are blocked by default. For more information, see [External network access in Streamlit in Snowflake](https://docs.snowflake.com/en/developer-guide/streamlit/additional-features#external-network-access-in-sis)."
         }
@@ -1141,147 +965,124 @@
     "1.31.0": {
       "streamlit.bokeh_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.cache_data": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_data` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.cache_resource": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_resource` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.camera_input": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.caption": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.experimental_get_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.experimental_set_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.file_uploader": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.map": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.map`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.markdown": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.pydeck_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.pydeck_chart`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.set_page_config": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "page_title": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         },
         "page_icon": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         }
       },
       "streamlit.write": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.components.v1.declare_component": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.html": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.iframe": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.link_button": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "External links are blocked by default. For more information, see [External network access in Streamlit in Snowflake](https://docs.snowflake.com/en/developer-guide/streamlit/additional-features#external-network-access-in-sis)."
         }
       },
       "streamlit.query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "Query parameters are not visible in your app's URL in Streamlit in Snowflake. However, query parameters can still be read and set through `st.query_params`."
         }
@@ -1290,147 +1091,124 @@
     "1.35.0": {
       "streamlit.bokeh_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.cache_data": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_data` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.cache_resource": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "`st.cache_resource` is not fully supported in Streamlit in Snowflake. Caching only works within a single session. Cached values can't be carried over to other sessions."
         }
       },
       "streamlit.camera_input": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.caption": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.experimental_get_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.experimental_set_query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.file_uploader": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.map": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.map`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.markdown": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.pydeck_chart": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "supported",
           "content": "When you use the `st.pydeck_chart`, Mapbox provides the map tiles when rendering map content. Mapbox is a third-party application and is subject to Snowflake's [External Offerings Terms](https://www.snowflake.com/legal/external-offering-terms/)."
         }
       },
       "streamlit.set_page_config": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "page_title": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         },
         "page_icon": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake."
         }
       },
       "streamlit.write": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial"
         },
         "unsafe_allow_html": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This parameter is ignored in Streamlit in Snowflake. All HTML tags will be escaped and therefore treated as pure text."
         }
       },
       "streamlit.components.v1.declare_component": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.html": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.components.v1.iframe": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "unsupported",
           "content": "This command does not exist in Streamlit in Snowflake."
         }
       },
       "streamlit.link_button": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "External links are blocked by default. For more information, see [External network access in Streamlit in Snowflake](https://docs.snowflake.com/en/developer-guide/streamlit/additional-features#external-network-access-in-sis)."
         }
       },
       "streamlit.query_params": {
         "_": {
-          "platform": "Streamlit in Snowflake",
           "type": "partial",
           "content": "Query parameters are not visible in your app's URL in Streamlit in Snowflake. However, query parameters can still be read and set through `st.query_params`."
         }
