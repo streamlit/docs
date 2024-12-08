@@ -79,6 +79,11 @@ import Cloud from "../components/blocks/cloud";
 
 import styles from "../components/layouts/container.module.css";
 
+const VERSIONS_LIST = serverRuntimeConfig.VERSIONS_LIST;
+const LATEST_OSS_VERSION = serverRuntimeConfig.LATEST_OSS_VERSION;
+const PLATFORM_VERSIONS = serverRuntimeConfig.PLATFORM_VERSIONS;
+const PLATFORM_LATEST_VERSIONS = serverRuntimeConfig.PLATFORM_LATEST_VERSIONS;
+
 export default function Article({
   data,
   source,
@@ -372,15 +377,11 @@ export async function getStaticProps(context) {
   let location = `/${context.params.slug.join("/")}`;
 
   // Sort of documentation versions
-  const versions = serverRuntimeConfig.VERSIONS_LIST;
-  const latestVersion = serverRuntimeConfig.LATEST_OSS_VERSION;
-  const PLATFORM_VERSIONS = serverRuntimeConfig.PLATFORM_VERSIONS;
-  const latestPlatformVersion = serverRuntimeConfig.PLATFORM_LATEST_VERSIONS;
   const menu = getMenu();
 
   props["streamlit"] = {};
   props["exceptions"] = {};
-  props["versions"] = versions;
+  props["versions"] = VERSIONS_LIST;
   props["snowflakeVersions"] = PLATFORM_VERSIONS;
   props["versionFromStaticLoad"] = DEFAULT_VERSION;
   props["platformFromStaticLoad"] = DEFAULT_PLATFORM;
@@ -401,7 +402,7 @@ export async function getStaticProps(context) {
 
     if (should_version) {
       props.streamlit =
-        serverRuntimeConfig.STREAMLIT_FUNCTIONS[getLatest(versions)];
+        serverRuntimeConfig.STREAMLIT_FUNCTIONS[LATEST_OSS_VERSION];
       props.exception = {};
     }
 
@@ -417,9 +418,9 @@ export async function getStaticProps(context) {
           ? serverRuntimeConfig.STREAMLIT_FUNCTIONS[version]
           : platform != DEFAULT_PLATFORM
             ? serverRuntimeConfig.STREAMLIT_FUNCTIONS[
-                latestPlatformVersion[platform]
+                PLATFORM_LATEST_VERSIONS[platform]
               ]
-            : serverRuntimeConfig.STREAMLIT_FUNCTIONS[latestVersion];
+            : serverRuntimeConfig.STREAMLIT_FUNCTIONS[LATEST_OSS_VERSION];
       if (Object.keys(PLATFORM_VERSIONS).includes(platform)) {
         props.exceptions =
           version != DEFAULT_VERSION &&
@@ -427,7 +428,7 @@ export async function getStaticProps(context) {
             ? serverRuntimeConfig.PLATFORM_NOTES[platform][version]
             : version == DEFAULT_VERSION
               ? serverRuntimeConfig.PLATFORM_NOTES[platform][
-                  latestPlatformVersion[platform]
+                  PLATFORM_LATEST_VERSIONS[platform]
                 ]
               : {};
       }
@@ -492,12 +493,6 @@ export async function getStaticPaths() {
   const articles = getArticleSlugs();
   const paths = [];
 
-  const VERSIONS_LIST = serverRuntimeConfig.VERSIONS_LIST;
-  const LATEST_OSS_VERSION = serverRuntimeConfig.LATEST_OSS_VERSION;
-  const PLATFORM_NOTES = serverRuntimeConfig.PLATFORM_NOTES;
-  const PLATFORM_VERSIONS = serverRuntimeConfig.PLATFORM_VERSIONS;
-  const PLATFORM_LATEST_VERSIONS = serverRuntimeConfig.PLATFORM_LATEST_VERSIONS;
-
   // Load each file and map a path
   for (const index in articles) {
     let slug = basename(articles[index]).replace(/\.md$/, "");
@@ -529,7 +524,7 @@ export async function getStaticPaths() {
     const should_version = /<Autofunction(.*?)\/>/gi.test(fileContents);
     if (should_version) {
       for (const platform of [DEFAULT_PLATFORM].concat(
-        Object.keys(PLATFORM_NOTES),
+        Object.keys(PLATFORM_VERSIONS),
       )) {
         for (const version of VERSIONS_LIST) {
           let versionAndPlatform;
