@@ -3,12 +3,14 @@ import { createContext, useContext, useState } from "react";
 const AppContext = createContext();
 
 export function AppContextProvider({ children }) {
-  const [version, setVersion] = useState(null);
-  const [sourceFile, setSourceFile] = useState(null);
+  const [sourceFile, setSourceFile] = useState(null); // TODO: Move out of context?
 
   return (
     <AppContext.Provider
-      value={{ version, setVersion, sourceFile, setSourceFile }}
+      value={{
+        sourceFile,
+        setSourceFile,
+      }}
     >
       {children}
     </AppContext.Provider>
