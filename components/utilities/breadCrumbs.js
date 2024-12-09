@@ -3,6 +3,7 @@ import { breadcrumbsForSlug } from "../../lib/utils.js";
 import Link from "next/link";
 
 import styles from "./breadCrumbs.module.css";
+import { looksLikeVersionAndPlatformString } from "../../context/VersionContext.js";
 
 const BreadCrumbs = ({ slug, menu }) => {
   const formatedTitle = (title) => {
@@ -43,9 +44,7 @@ const BreadCrumbs = ({ slug, menu }) => {
     title: "Home",
   });
 
-  const isnum = /^[\d\.]+$/.test(slug[0]);
-  const isSiS = /^SiS[\d\.]*$/.test(slug[0]);
-  if (isnum || isSiS) {
+  if (looksLikeVersionAndPlatformString(slug[0])) {
     paths = slug.slice(1).join("/");
     breadcrumbs.push({
       link: "#",
