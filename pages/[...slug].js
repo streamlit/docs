@@ -368,7 +368,9 @@ export default function Article({
 export function getFunctionSubset(allFunctionsInVerions, functionsOnPage) {
   const docstrings = {};
   for (const func of functionsOnPage) {
-    docstrings[func] = allFunctionsInVerions[func];
+    if (allFunctionsInVerions[func]) {
+      docstrings[func] = allFunctionsInVerions[func];
+    }
   }
   return docstrings;
 }
