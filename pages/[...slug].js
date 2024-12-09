@@ -21,13 +21,7 @@ import CookieSettingsModal from "../components/utilities/cookieSettingsModal";
 import GDPRBanner, {
   setTelemetryPreference,
 } from "../components/utilities/gdpr";
-import {
-  getArticleSlugs,
-  getArticleSlugFromString,
-  pythonDirectory,
-  getMenu,
-  getLatest,
-} from "../lib/api";
+import { getArticleSlugs, getArticleSlugFromString, getMenu } from "../lib/api";
 import { getPreviousNextFromMenu } from "../lib/utils";
 import {
   DEFAULT_PLATFORM,
@@ -35,7 +29,6 @@ import {
   getVersionAndPlatformFromPathPart,
   getVersionAndPlatformStr,
   looksLikeVersionAndPlatformString,
-  updateUrlWithVersionAndPlatformIfNeeded,
   useVersion,
 } from "../context/VersionContext";
 import { useAppContext } from "../context/AppContext";
@@ -78,6 +71,7 @@ import YouTube from "../components/blocks/youTube";
 import Cloud from "../components/blocks/cloud";
 
 import styles from "../components/layouts/container.module.css";
+import { m } from "framer-motion";
 
 const VERSIONS_LIST = serverRuntimeConfig.VERSIONS_LIST;
 const LATEST_OSS_VERSION = serverRuntimeConfig.LATEST_OSS_VERSION;
@@ -371,6 +365,14 @@ export default function Article({
   );
 }
 
+export function getFunctionSubset(allFunctionsInVerions, functionsOnPage) {
+  const docstrings = {};
+  for (const func of functionsOnPage) {
+    docstrings[func] = allFunctionsInVerions[func];
+  }
+  return docstrings;
+}
+
 export async function getStaticProps(context) {
   const paths = await getStaticPaths();
   const props = {};
@@ -398,41 +400,64 @@ export async function getStaticProps(context) {
     // Get the last element of the array to find the MD file
     const fileContents = fs.readFileSync(filename, "utf8");
     const { data, content } = matter(fileContents);
-    const should_version = /<Autofunction(.*?)\/>/gi.test(fileContents);
-
-    if (should_version) {
-      props.streamlit =
-        serverRuntimeConfig.STREAMLIT_FUNCTIONS[LATEST_OSS_VERSION];
-      props.exception = {};
-    }
-
-    if (looksLikeVersionAndPlatformString(context.params.slug[0])) {
-      const [version, platform] = getVersionAndPlatformFromPathPart(
-        context.params.slug[0],
-      );
-
-      props["versionFromStaticLoad"] = version;
-      props["platformFromStaticLoad"] = platform;
-      props["streamlit"] =
-        version != DEFAULT_VERSION
-          ? serverRuntimeConfig.STREAMLIT_FUNCTIONS[version]
-          : platform != DEFAULT_PLATFORM
-            ? serverRuntimeConfig.STREAMLIT_FUNCTIONS[
-                PLATFORM_LATEST_VERSIONS[platform]
-              ]
-            : serverRuntimeConfig.STREAMLIT_FUNCTIONS[LATEST_OSS_VERSION];
-      if (Object.keys(PLATFORM_VERSIONS).includes(platform)) {
-        props.exceptions =
-          version != DEFAULT_VERSION &&
-          PLATFORM_VERSIONS[platform].includes(version)
-            ? serverRuntimeConfig.PLATFORM_NOTES[platform][version]
-            : version == DEFAULT_VERSION
-              ? serverRuntimeConfig.PLATFORM_NOTES[platform][
-                  PLATFORM_LATEST_VERSIONS[platform]
-                ]
-              : {};
+    if (/<Autofunction(.*?)\/>/gi.test(fileContents)) {
+      const autofunctions = fileContents.matchAll(/<Autofunction(.*?)\/>/gi);
+      const functions = new Set();
+      for (const match of autofunctions) {
+        const mainFunction = match[0]
+          .match(/ function="(.*?)" /gi)[0]
+          .match(/"(.*?)"/gi)[0];
+        functions.add(mainFunction.slice(1, -1));
+        if (/ oldName="(.*?)" /gi.test(match)) {
+          const oldFunction = match[0]
+            .match(/ oldName="(.*?)" /gi)[0]
+            .match(/"(.*?)"/gi)[0];
+          functions.add(oldFunction.slice(1, -1));
+        }
       }
-      location = `/${context.params.slug.slice(1).join("/")}`;
+      props.streamlit = getFunctionSubset(
+        serverRuntimeConfig.STREAMLIT_FUNCTIONS[LATEST_OSS_VERSION],
+        functions,
+      );
+      props.exception = {};
+
+      if (looksLikeVersionAndPlatformString(context.params.slug[0])) {
+        const [version, platform] = getVersionAndPlatformFromPathPart(
+          context.params.slug[0],
+        );
+
+        props.versionFromStaticLoad = version;
+        props.platformFromStaticLoad = platform;
+        props.streamlit =
+          version != DEFAULT_VERSION
+            ? getFunctionSubset(
+                serverRuntimeConfig.STREAMLIT_FUNCTIONS[version],
+                functions,
+              )
+            : platform != DEFAULT_PLATFORM
+              ? getFunctionSubset(
+                  serverRuntimeConfig.STREAMLIT_FUNCTIONS[
+                    PLATFORM_LATEST_VERSIONS[platform]
+                  ],
+                  functions,
+                )
+              : getFunctionSubset(
+                  serverRuntimeConfig.STREAMLIT_FUNCTIONS[LATEST_OSS_VERSION],
+                  functions,
+                );
+        if (Object.keys(PLATFORM_VERSIONS).includes(platform)) {
+          props.exceptions =
+            version != DEFAULT_VERSION &&
+            PLATFORM_VERSIONS[platform].includes(version)
+              ? serverRuntimeConfig.PLATFORM_NOTES[platform][version]
+              : version == DEFAULT_VERSION
+                ? serverRuntimeConfig.PLATFORM_NOTES[platform][
+                    PLATFORM_LATEST_VERSIONS[platform]
+                  ]
+                : {};
+        }
+        location = `/${context.params.slug.slice(1).join("/")}`;
+      }
     }
 
     const source = await serialize(content, {
