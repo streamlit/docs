@@ -71,7 +71,6 @@ import YouTube from "../components/blocks/youTube";
 import Cloud from "../components/blocks/cloud";
 
 import styles from "../components/layouts/container.module.css";
-import { m } from "framer-motion";
 
 const VERSIONS_LIST = serverRuntimeConfig.VERSIONS_LIST;
 const LATEST_OSS_VERSION = serverRuntimeConfig.LATEST_OSS_VERSION;
@@ -129,7 +128,7 @@ export default function Article({
       : "https://github.com/streamlit/docs/tree/main" +
         filename.substring(filename.indexOf("/content/"));
 
-  const { initialize } = useVersion();
+  const { initialize, goToLatest } = useVersion();
 
   const [version, platform] = initialize({
     router,
@@ -142,23 +141,21 @@ export default function Article({
   });
 
   // If version wasn't specified by hand in the URL, remove version from URL of unversioned pages.
-  if (versionFromStaticLoad != version || platformFromStaticLoad != platform) {
+  if (currMenuItem.isVersioned) {
     if (
       versionFromStaticLoad == DEFAULT_VERSION &&
-      platformFromStaticLoad == DEFAULT_PLATFORM &&
-      !currMenuItem.isVersioned
+      platformFromStaticLoad == DEFAULT_PLATFORM
     ) {
-      // Unversioned page with no version and platform; keep context and pass
-    } else if (
-      versionFromStaticLoad == DEFAULT_VERSION &&
-      platformFromStaticLoad == DEFAULT_PLATFORM &&
-      currMenuItem.isVersioned
-    ) {
-      // Versioned page with no version and platform in the URL; use context
-      // updateUrlWithVersionAndPlatformIfNeeded(router, version, platform); //Doesn't work with router
-      const versionAndPlatformStr = getVersionAndPlatformStr(version, platform);
-      slug.unshift(versionAndPlatformStr);
-      router.push(`/${slug.join("/")}`);
+      if (
+        versionFromStaticLoad != version ||
+        platformFromStaticLoad != platform
+      ) {
+        const versionAndPlatformStr = getVersionAndPlatformStr(
+          version,
+          platform,
+        );
+        router.push(`/${versionAndPlatformStr}/${slug.join("/")}`);
+      }
     }
   }
 
@@ -227,8 +224,10 @@ export default function Article({
       <Warning>
         <p>
           You are reading the documentation for Streamlit version {version}, but{" "}
-          <Link href={currentLink}>{maxVersion}</Link> is the latest version
-          available.
+          <Link href={currentLink} onClick={goToLatest}>
+            {maxVersion}
+          </Link>{" "}
+          is the latest version available.
         </p>
       </Warning>
     );

@@ -15,6 +15,7 @@ export function VersionContextProvider({ children }) {
 
   const [version, setVersionState] = useState(DEFAULT_VERSION);
   const [platform, setPlatformState] = useState(DEFAULT_PLATFORM);
+  // const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
   const initialize = useCallback(
@@ -100,6 +101,10 @@ export function VersionContextProvider({ children }) {
     [router, version, platform],
   );
 
+  function goToLatest() {
+    setVersionState(DEFAULT_VERSION);
+  }
+
   return (
     <Context.Provider
       value={{
@@ -107,6 +112,9 @@ export function VersionContextProvider({ children }) {
         platform,
         initialize,
         setVersionAndPlatform,
+        goToLatest,
+        // isOpen,
+        // setIsOpen
       }}
     >
       {children}
