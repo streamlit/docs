@@ -62,7 +62,7 @@ If you need to whitelist IP addresses for a connection, Community Cloud is curre
 
 </Warning>
 
-<div style={{ display: "flex", flexWrap: "wrap", flexDirection: "row", alignItems: "start" }}>
+<Flex wrap >
     <div style={{ width: "150px" }}>35.230.127.150</div>
     <div style={{ width: "150px" }}>35.203.151.101</div>
     <div style={{ width: "150px" }}>34.19.100.134</div>
@@ -81,7 +81,7 @@ If you need to whitelist IP addresses for a connection, Community Cloud is curre
     <div style={{ width: "150px" }}>35.227.190.87</div>
     <div style={{ width: "150px" }}>35.199.156.97</div>
     <div style={{ width: "150px" }}>34.82.135.155</div>
-</div>
+</Flex>
 
 ## Other limitations
 
