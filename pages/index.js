@@ -192,6 +192,50 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/develop/api-reference/layout/st.columns"
+              >
+                <i className="material-icons-sharp">view_column</i>
+                <h4>Add borders to columns and metrics</h4>
+                <p>
+                  <code>st.columns</code> and <code>st.metric</code> have a new
+                  <code>border</code> parameter to show an optional border.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/text/st.markdown"
+              >
+                <i className="material-icons-sharp">palette</i>
+                <h4>Primary color in Markdown</h4>
+                <p>
+                  Now you can use the color "primary" in Markdown to color or
+                  highlight text with your app's primary color.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/data/st.column_config"
+              >
+                <i className="material-icons-sharp">push_pin</i>
+                <h4>Pin or freeze dataframe columns</h4>
+                <p>
+                  Column configuration has a new <code>pinned</code> parameter
+                  to pin columns on the left as users scroll horizontally.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/widgets/st.button"
+              >
+                <i className="material-icons-sharp">ads_click</i>
+                <h4>Tertiary buttons</h4>
+                <p>
+                  Buttons have a new, "tertiary" type for a more subtle
+                  appearance.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="/develop/api-reference/widgets/st.pills"
               >
                 <i className="material-icons-sharp">more_horiz</i>
@@ -208,47 +252,6 @@ export default function Home({ window, menu }) {
                 <i className="material-icons-sharp">view_week</i>
                 <h4>Segmented control</h4>
                 <p>You can create a segmented button or button group.</p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/widgets/st.audio_input"
-              >
-                <i className="material-icons-sharp">mic</i>
-                <h4>Audio input</h4>
-                <p>
-                  <code>st.audio_input</code> lets users record sound with their
-                  microphone.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/text/st.markdown"
-              >
-                <i className="material-icons-sharp">branding_watermark</i>
-                <h4>Markdown improvements</h4>
-                <p>
-                  Add a Streamlit logo with <code>:streamlit:</code> or render
-                  arrows like <code>&lt;- -&gt;</code>.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/develop/api-reference/text/st.text">
-                <i className="material-icons-sharp">title</i>
-                <h4>Plain text</h4>
-                <p>
-                  <code>st.text</code> renders plain text without monospace
-                  font.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/widgets/st.date_input"
-              >
-                <i className="material-icons-sharp">event</i>
-                <h4>Date input localization</h4>
-                <p>
-                  The first day of the week in <code>st.date_input</code> is
-                  determined from the user's locale.
-                </p>
               </RefCard>
             </TileContainer>
 
