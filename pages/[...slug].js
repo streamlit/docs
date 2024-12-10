@@ -71,6 +71,7 @@ import YouTube from "../components/blocks/youTube";
 import Cloud from "../components/blocks/cloud";
 
 import styles from "../components/layouts/container.module.css";
+import { DotFilledIcon } from "@radix-ui/react-icons";
 
 const VERSIONS_LIST = serverRuntimeConfig.VERSIONS_LIST;
 const LATEST_OSS_VERSION = serverRuntimeConfig.LATEST_OSS_VERSION;
@@ -128,7 +129,7 @@ export default function Article({
       : "https://github.com/streamlit/docs/tree/main" +
         filename.substring(filename.indexOf("/content/"));
 
-  const { initialize, goToLatest } = useVersion();
+  const { initialize, goToLatest, goToOpenSource } = useVersion();
 
   const [version, platform] = initialize({
     router,
@@ -210,24 +211,65 @@ export default function Article({
   let arrowContainer;
   let keywordsTag;
 
-  // TODO(debbie): Add platform warnings here and make maxVersion take platform into consideration.
-  const maxVersion = versions[versions.length - 1];
+  // Why doesn't this work?
+  // const maxVersion = platform == DEFAULT_PLATFORM ? LATEST_OSS_VERSION : PLATFORM_LATEST_VERSIONS[platform];
+
+  const PLATFORMS = {};
+  PLATFORMS["sis"] = "Streamlit in Snowflake";
+  PLATFORMS["na"] = "Snowflake Native Apps";
+  const maxVersion =
+    platform == DEFAULT_PLATFORM
+      ? versions.at(-1)
+      : snowflakeVersions[platform].at(-1);
+  // Slugs don't have the version number, so we just have to join them.
+  const onPlatform =
+    platform != DEFAULT_PLATFORM ? " on " + PLATFORMS[platform] : "";
+  currentLink = `/${slug.join("/")}`;
 
   if (
+    // Not a latest version within the current platform
     version != DEFAULT_VERSION &&
     version != maxVersion &&
     currMenuItem.isVersioned
   ) {
-    // Slugs don't have the version number, so we just have to join them.
-    currentLink = `/${slug.join("/")}`;
+    // Link to latest version within the current platform
     versionWarning = (
       <Warning>
         <p>
-          You are reading the documentation for Streamlit version {version}, but{" "}
-          <Link href={currentLink} onClick={goToLatest}>
+          You are reading the documentation for Streamlit version {version}
+          {onPlatform}. The latest version available{onPlatform} is version{" "}
+          <Link
+            href={currentLink}
+            onClick={goToLatest}
+            style={{ textDecoration: "underline" }}
+          >
             {maxVersion}
+          </Link>
+          .
+        </p>
+      </Warning>
+    );
+  } else if (
+    // Latest within the current (not OSS) platform
+    (version == DEFAULT_VERSION || version == maxVersion) &&
+    platform != DEFAULT_PLATFORM &&
+    currMenuItem.isVersioned
+  ) {
+    // Link to latest OSS version
+    versionWarning = (
+      <Warning>
+        <p>
+          You are reading the documentation for Streamlit version {version}
+          {onPlatform}. The latest available open-source version of Streamlit is
+          version{" "}
+          <Link
+            href={currentLink}
+            onClick={goToOpenSource}
+            style={{ textDecoration: "underline" }}
+          >
+            {versions.at(-1)}
           </Link>{" "}
-          is the latest version available.
+          .
         </p>
       </Warning>
     );

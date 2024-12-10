@@ -24,6 +24,9 @@ for (const index in Object.keys(PLATFORM_NOTES)) {
 }
 const PLATFORM_VERSIONS = platformVersions;
 const PLATFORM_LATEST_VERSIONS = latestPlatformVersion;
+const PLATFORMS = {};
+PLATFORMS["sis"] = "Streamlit in Snowflake";
+PLATFORMS["na"] = "Snowflake Native Apps";
 
 const IS_DEV = process.env.NODE_ENV === "development";
 
@@ -107,12 +110,14 @@ module.exports = {
     PLATFORM_NOTES,
     PLATFORM_VERSIONS,
     PLATFORM_LATEST_VERSIONS,
+    PLATFORMS,
   },
   publicRuntimeConfig: {
     VERSIONS_LIST,
     LATEST_OSS_VERSION,
     PLATFORM_VERSIONS,
     PLATFORM_LATEST_VERSIONS,
+    PLATFORMS,
   },
 
   output: "export",

@@ -105,6 +105,10 @@ export function VersionContextProvider({ children }) {
     setVersionState(DEFAULT_VERSION);
   }
 
+  function goToOpenSource() {
+    setPlatformState(DEFAULT_PLATFORM);
+  }
+
   return (
     <Context.Provider
       value={{
@@ -113,6 +117,7 @@ export function VersionContextProvider({ children }) {
         initialize,
         setVersionAndPlatform,
         goToLatest,
+        goToOpenSource,
         // isOpen,
         // setIsOpen
       }}
