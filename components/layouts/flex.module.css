@@ -1,3 +1,11 @@
 .Container {
-  @apply flex flex-col lg:flex-row;
+  @apply flex flex-col lg:flex-row text-gray-90;
+}
+
+:global(.dark) .Container {
+  @apply text-gray-40;
+}
+
+.wrapContainer {
+  @apply flex-wrap flex-row;
 }
