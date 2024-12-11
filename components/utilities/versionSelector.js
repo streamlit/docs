@@ -13,23 +13,15 @@ import {
   getBestNumericVersion,
   versionAndPlatformAreCompatible,
 } from "../../context/VersionContext";
-import { CurrentRefinements } from "react-instantsearch-dom";
 
-// const VERSIONS_LIST = publicRuntimeConfig.VERSIONS_LIST;
-// const LATEST_OSS_VERSION = publicRuntimeConfig.LATEST_OSS_VERSION;
-// const PLATFORM_VERSIONS = publicRuntimeConfig.PLATFORM_VERSIONS;
-// const PLATFORM_LATEST_VERSIONS = publicRuntimeConfig.PLATFORM_LATEST_VERSIONS;
-// const PLATFORMS = [DEFAULT_PLATFORM].concat(Object.keys(PLATFORM_VERSIONS))
-const PLATFORMS = [
-  { id: "oss", name: "None" },
-  { id: "sis", name: "Streamlit in Snowflake" },
-  { id: "na", name: "Native Apps" },
-];
+const VERSIONS_LIST = publicRuntimeConfig.VERSIONS_LIST;
+const LATEST_OSS_VERSION = publicRuntimeConfig.LATEST_OSS_VERSION;
+const PLATFORM_VERSIONS = publicRuntimeConfig.PLATFORM_VERSIONS;
+const PLATFORM_LATEST_VERSIONS = publicRuntimeConfig.PLATFORM_LATEST_VERSIONS;
+const PLATFORMS = publicRuntimeConfig.PLATFORMS;
 
 const VersionSelector = ({
-  versionList,
-  snowflakeVersions,
-  functionObject,
+  functionObject, // For anchor link to jump back to function upon version change
 }) => {
   const {
     version: versionContext,
@@ -40,8 +32,6 @@ const VersionSelector = ({
   const [numericVersion, compatiblePlatform] = getBestNumericVersion(
     versionContext,
     platformContext,
-    versionList,
-    snowflakeVersions,
   );
 
   const [widgetPlatform, setWidgetPlatform] = useState(compatiblePlatform);
@@ -54,8 +44,6 @@ const VersionSelector = ({
           // versionContext can be DEFAULT_VERSION (null) or "1.40.0" (even if that's the latest).
           versionContext,
           selectedPlatform,
-          versionList,
-          snowflakeVersions,
         )
       ) {
         // Navigate to new version and platform.
@@ -63,8 +51,6 @@ const VersionSelector = ({
           newVersion: versionContext,
           newPlatform: selectedPlatform,
           functionName: functionObject ? functionObject.name : "",
-          versionList,
-          snowflakeVersions,
         });
       } else {
         // Just set the widget to the selected platform but dont navigate anywhere.
@@ -72,7 +58,7 @@ const VersionSelector = ({
         setWidgetPlatform(selectedPlatform);
       }
     },
-    [functionObject, versionList, snowflakeVersions],
+    [functionObject],
   );
 
   const handleSelectVersion = useCallback(
@@ -81,17 +67,15 @@ const VersionSelector = ({
         newVersion: selectedVersion,
         newPlatform: widgetPlatform,
         functionName: functionObject ? functionObject.name : "",
-        versionList,
-        snowflakeVersions,
       });
     },
-    [widgetPlatform, functionObject, versionList, snowflakeVersions],
+    [widgetPlatform, functionObject],
   );
 
   const validVersionForWidgetPlatform =
     widgetPlatform == DEFAULT_PLATFORM
-      ? versionList
-      : snowflakeVersions[widgetPlatform];
+      ? VERSIONS_LIST
+      : PLATFORM_VERSIONS[widgetPlatform];
 
   return (
     <Popover.Root>
@@ -115,19 +99,19 @@ const VersionSelector = ({
               aria-label="streamlit platform"
               onValueChange={handleSelectPlatform}
             >
-              {PLATFORMS.map((platform) => (
-                <div key={platform.id}>
+              {Object.keys(PLATFORMS).map((platform) => (
+                <div key={platform}>
                   <RadioGroup.Item
                     className={styles.RadioGroupItem}
-                    value={platform.id}
-                    id={platform.id}
+                    value={platform}
+                    id={platform}
                   >
                     <RadioGroup.Indicator
                       className={styles.RadioGroupIndicator}
                     />
                   </RadioGroup.Item>
-                  <label className={styles.RadioLabel} htmlFor={platform.id}>
-                    {platform.name}
+                  <label className={styles.RadioLabel} htmlFor={platform}>
+                    {PLATFORMS[platform]}
                   </label>
                 </div>
               ))}

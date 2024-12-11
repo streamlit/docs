@@ -152,12 +152,7 @@ const Autofunction = ({
             </a>
             {streamlitFunction.replace("streamlit", "st")}
           </H2>
-          <VersionSelector
-            versionList={versions}
-            snowflakeVersions={snowflakeVersions}
-            functionObject={functionObject}
-            slug={slug}
-          />
+          <VersionSelector functionObject={functionObject} slug={slug} />
         </div>
         <Warning>
           {version && version.startsWith("SiS") ? (
@@ -221,12 +216,7 @@ const Autofunction = ({
           `}
         >
           {headerTitle}
-          <VersionSelector
-            versionList={versions}
-            snowflakeVersions={snowflakeVersions}
-            functionObject={functionObject}
-            slug={slug}
-          />
+          <VersionSelector functionObject={functionObject} slug={slug} />
         </div>
         {deprecated === true ? (
           <Deprecation>

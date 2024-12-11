@@ -9,6 +9,11 @@ const Context = createContext();
 
 export const DEFAULT_VERSION = "latest";
 export const DEFAULT_PLATFORM = "oss";
+const VERSIONS_LIST = publicRuntimeConfig.VERSIONS_LIST;
+const LATEST_OSS_VERSION = publicRuntimeConfig.LATEST_OSS_VERSION;
+const PLATFORM_VERSIONS = publicRuntimeConfig.PLATFORM_VERSIONS;
+const PLATFORM_LATEST_VERSIONS = publicRuntimeConfig.PLATFORM_LATEST_VERSIONS;
+const PLATFORMS = publicRuntimeConfig.PLATFORMS;
 
 export function VersionContextProvider({ children }) {
   const [initialized, setInitialized] = useState(false);
@@ -19,21 +24,12 @@ export function VersionContextProvider({ children }) {
   const router = useRouter();
 
   const initialize = useCallback(
-    ({
-      newVersion,
-      newPlatform,
-      versionList,
-      snowflakeVersions,
-      functionName = null,
-      currMenuItem = null,
-    }) => {
+    ({ newVersion, newPlatform, functionName = null, currMenuItem = null }) => {
       if (initialized) return [version, platform];
 
       setVersionAndPlatform({
         newVersion,
         newPlatform,
-        versionList,
-        snowflakeVersions,
         functionName,
         currMenuItem,
         updateURL: true,
@@ -50,20 +46,11 @@ export function VersionContextProvider({ children }) {
     ({
       newVersion,
       newPlatform,
-      versionList,
-      snowflakeVersions,
       functionName = null,
       currMenuItem = null,
       updateURL = true,
     }) => {
-      if (
-        !versionAndPlatformAreCompatible(
-          newVersion,
-          newPlatform,
-          versionList,
-          snowflakeVersions,
-        )
-      ) {
+      if (!versionAndPlatformAreCompatible(newVersion, newPlatform)) {
         console.error(
           "Incompatible version and platform:",
           newVersion,
@@ -76,12 +63,7 @@ export function VersionContextProvider({ children }) {
         return;
       }
 
-      const cleanedVersion = isLatestVersion(
-        newVersion,
-        newPlatform,
-        versionList,
-        snowflakeVersions,
-      )
+      const cleanedVersion = isLatestVersion(newVersion, newPlatform)
         ? DEFAULT_VERSION
         : newVersion;
       setVersionState(cleanedVersion);
@@ -131,16 +113,11 @@ export function useVersion() {
   return useContext(Context);
 }
 
-export function isLatestVersion(
-  version,
-  platform,
-  versionList,
-  snowflakeVersions,
-) {
+export function isLatestVersion(version, platform) {
   const maxVersion =
     platform == DEFAULT_PLATFORM
-      ? getLatest(versionList)
-      : getLatest(snowflakeVersions[platform]);
+      ? LATEST_OSS_VERSION
+      : PLATFORM_LATEST_VERSIONS[platform];
 
   return version == DEFAULT_VERSION || version == maxVersion;
 }
@@ -239,55 +216,38 @@ export function getVersionAndPlatformFromPathPart(pathPart) {
   return [version, cleanedPlatform];
 }
 
-export function versionAndPlatformAreCompatible(
-  version,
-  platform,
-  versionList,
-  snowflakeVersions,
-) {
+export function versionAndPlatformAreCompatible(version, platform) {
   if (version == DEFAULT_VERSION) return true;
 
-  if (platform == DEFAULT_PLATFORM && versionList.indexOf(version) >= 0) {
+  if (platform == DEFAULT_PLATFORM && VERSIONS_LIST.indexOf(version) >= 0) {
     return true;
   }
 
-  return snowflakeVersions[platform].indexOf(version) >= 0;
+  return PLATFORM_VERSIONS[platform].indexOf(version) >= 0;
 }
 
-export function getBestNumericVersion(
-  version,
-  platform,
-  versionList,
-  snowflakeVersions,
-) {
+export function getBestNumericVersion(version, platform) {
   if (version == DEFAULT_VERSION) {
-    if (snowflakeVersions[platform]) {
+    if (PLATFORM_VERSIONS[platform]) {
       // This is a valid platform so return the latest version in the platform.
-      return [getLatest(snowflakeVersions[platform]), platform];
+      return [PLATFORM_LATEST_VERSIONS[platform], platform];
     } else {
       // This is an invalid platform so we return the latest version for OSS.
-      return [getLatest(versionList), DEFAULT_PLATFORM];
+      return [LATEST_OSS_VERSION, DEFAULT_PLATFORM];
     }
   } else {
-    if (
-      versionAndPlatformAreCompatible(
-        version,
-        platform,
-        versionList,
-        snowflakeVersions,
-      )
-    ) {
+    if (versionAndPlatformAreCompatible(version, platform)) {
       // This is a numeric version that is compatible with the platform. Return it all back.
       return [version, platform];
     } else {
-      if (snowflakeVersions[platform]) {
+      if (PLATFORM_VERSIONS[platform]) {
         // Version and platform are incompatible, but platform exists. So return the latest
         // for the platform.
-        return [getLatest(snowflakeVersions[platform]), platform];
+        return [PLATFORM_LATEST_VERSIONS[platform], platform];
       } else {
         // Version and platform are incompatible, and platform does not exist. So return the
         // latest for OSS.
-        return [getLatest(versionList), DEFAULT_PLATFORM];
+        return [LATEST_OSS_VERSION, DEFAULT_PLATFORM];
       }
     }
   }

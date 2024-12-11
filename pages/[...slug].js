@@ -135,8 +135,6 @@ export default function Article({
     router,
     newVersion: versionFromStaticLoad,
     newPlatform: platformFromStaticLoad,
-    versionList: versions,
-    snowflakeVersions,
     functionName: null,
     currMenuItem,
   });
