@@ -140,7 +140,7 @@ export default function Article({
   });
 
   // If version wasn't specified by hand in the URL, remove version from URL of unversioned pages.
-  if (currMenuItem.isVersioned) {
+  if (currMenuItem && currMenuItem.isVersioned) {
     if (
       versionFromStaticLoad == DEFAULT_VERSION &&
       platformFromStaticLoad == DEFAULT_PLATFORM
@@ -228,6 +228,7 @@ export default function Article({
     // Not a latest version within the current platform
     version != DEFAULT_VERSION &&
     version != maxVersion &&
+    currMenuItem &&
     currMenuItem.isVersioned
   ) {
     // Link to latest version within the current platform
@@ -251,6 +252,7 @@ export default function Article({
     // Latest within the current (not OSS) platform
     (version == DEFAULT_VERSION || version == maxVersion) &&
     platform != DEFAULT_PLATFORM &&
+    currMenuItem &&
     currMenuItem.isVersioned
   ) {
     // Link to latest OSS version

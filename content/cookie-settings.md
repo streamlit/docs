@@ -1,6 +1,5 @@
 ---
 visible: false
-isVersioned: false
 ---
 
 ### Cookie settings
