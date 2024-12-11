@@ -15,6 +15,7 @@
     "@radix-ui/react-popover": "1.1.2",
     "@radix-ui/react-radio-group": "1.2.1",
     "@radix-ui/react-scroll-area": "1.2.0",
+    "@radix-ui/react-tabs": "1.1.1",
     "@svgr/webpack": "^8.1.0",
     "@tryghost/content-api": "1.11.20",
     "algoliasearch": "^3.35.1",
