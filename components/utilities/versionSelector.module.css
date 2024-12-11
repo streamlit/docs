@@ -7,12 +7,6 @@
 .PopoverContent legend {
   @apply text-sm tracking-tight;
 }
-.PopoverArrow {
-  @apply fill-gray-20;
-}
-:global(.dark) .PopoverArrow {
-  @apply fill-gray-90;
-}
 .PopoverClose {
   @apply h-6 w-6 absolute top-1.5 right-1.5;
 }
@@ -90,13 +84,13 @@
   @apply bg-gradient-to-b from-white to-transparent h-8 -mb-8 mr-3 relative z-auto;
 }
 :global(.dark) .FadeTop {
-  @apply bg-gradient-to-b from-gray-80 to-transparent;
+  @apply bg-gradient-to-b from-gray-90 to-transparent;
 }
 .FadeBottom {
   @apply bg-gradient-to-t from-white to-transparent h-8 -mt-8 mr-3 relative z-auto;
 }
 :global(.dark) .FadeBottom {
-  @apply bg-gradient-to-t from-gray-80 to-transparent;
+  @apply bg-gradient-to-t from-gray-90 to-transparent;
 }
 
 /* List of versions within the scroll area*/
@@ -120,9 +114,6 @@
 .VersionLabel {
   @apply tracking-tight text-base pl-2 font-mono select-none;
 }
-/* :global(.dark) .VersionLabel {
-  @apply text-gray-80;
-} */
 .VersionLabel:hover {
   @apply opacity-70 cursor-pointer;
 }
@@ -132,7 +123,7 @@
 }
 
 .TabsList {
-  @apply flex flex-col shrink-0 border-r border-gray-40 text-start;
+  @apply flex flex-col shrink-0 border-r border-gray-40;
 }
 
 .TabsTitle {
@@ -140,7 +131,7 @@
 }
 
 .TabsTrigger {
-  @apply shrink-0 grow-0 h-14 px-4 select-none;
+  @apply shrink-0 grow-0 h-14 px-4 select-none text-left;
 }
 .TabsTrigger:hover {
   @apply text-indigo-70;
@@ -153,10 +144,10 @@
 }
 
 .TabsContent {
-  @apply pl-2 bg-white;
+  @apply pl-2 bg-white rounded-r-md;
   flex-grow: 1;
   outline: none;
 }
 :global(.dark) .TabsContent {
-  @apply bg-gray-80;
+  @apply bg-gray-90;
 }

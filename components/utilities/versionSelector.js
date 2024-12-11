@@ -12,7 +12,6 @@ import {
   useVersion,
   DEFAULT_PLATFORM,
   getBestNumericVersion,
-  versionAndPlatformAreCompatible,
 } from "../../context/VersionContext";
 
 const VERSIONS_LIST = publicRuntimeConfig.VERSIONS_LIST;
@@ -36,32 +35,6 @@ const VersionSelector = ({
   );
 
   const [widgetPlatform, setWidgetPlatform] = useState(compatiblePlatform);
-
-  // const handleSelectPlatform = useCallback(
-  //   (selectedPlatform) => {
-  //     if (
-  //       selectedPlatform != platformContext &&
-  //       versionAndPlatformAreCompatible(
-  //         // versionContext can be DEFAULT_VERSION (null) or "1.40.0" (even if that's the latest).
-  //         versionContext,
-  //         selectedPlatform,
-  //       )
-  //     ) {
-  //       // Navigate to new version and platform.
-  //       setVersionAndPlatform({
-  //         newVersion: versionContext,
-  //         newPlatform: selectedPlatform,
-  //         functionName: functionObject ? functionObject.name : "",
-  //       });
-  //     } else {
-  //       // Just set the widget to the selected platform but dont navigate anywhere.
-  //       // The user should pick a version first.
-  //       setWidgetPlatform(selectedPlatform);
-  //     }
-  //   },
-  //   [functionObject],
-  // );
-
   const handleSelectPlatform = useCallback(
     (selectedPlatform) => {
       setWidgetPlatform(selectedPlatform);
@@ -127,7 +100,7 @@ const VersionSelector = ({
                     <RadioGroup.Root
                       className={styles.VersionListRoot}
                       defaultValue={
-                        availablePlatform == widgetPlatform
+                        availablePlatform == platformContext
                           ? numericVersion
                           : null
                       }
@@ -170,87 +143,10 @@ const VersionSelector = ({
                 </ScrollArea.Root>
               </Tabs.Content>
             ))}
-            {/* <Tabs.Content className="TabsContent" value="oss">
-            <form>
-              <legend>Show exceptions for:</legend>
-              <RadioGroup.Root
-                className={styles.RadioGroupRoot}
-                defaultValue={widgetPlatform}
-                aria-label="streamlit platform"
-                onValueChange={handleSelectPlatform}
-              >
-                {Object.keys(PLATFORMS).map((platform) => (
-                  <div key={platform}>
-                    <RadioGroup.Item
-                      className={styles.RadioGroupItem}
-                      value={platform}
-                      id={platform}
-                    >
-                      <RadioGroup.Indicator
-                        className={styles.RadioGroupIndicator}
-                      />
-                    </RadioGroup.Item>
-                    <label className={styles.RadioLabel} htmlFor={platform}>
-                      {PLATFORMS[platform]}
-                    </label>
-                  </div>
-                ))}
-              </RadioGroup.Root>
-            </form>
-          </Tabs.Content>
-          <Tabs.Content className="TabsContent" value="sis"> */}
-            {/* <ScrollArea.Root className={styles.ScrollAreaRoot}>
-              <div className={styles.FadeTop}></div>
-              <ScrollArea.Viewport className={styles.ScrollAreaViewport}>
-                <RadioGroup.Root
-                  className={styles.VersionListRoot}
-                  defaultValue={numericVersion}
-                  aria-label="streamlit version"
-                  onValueChange={handleSelectVersion}
-                >
-                  {validVersionForWidgetPlatform
-                    .toReversed()
-                    .map((validVersion) => (
-                      <div key={validVersion}>
-                        <RadioGroup.Item
-                          className={styles.VersionListItem}
-                          value={validVersion}
-                          id={validVersion}
-                        >
-                          <RadioGroup.Indicator
-                            className={classNames(
-                              "material-icons-sharp",
-                              styles.VersionListIndicator,
-                            )}
-                          />
-                        </RadioGroup.Item>
-                        <label
-                          className={styles.VersionLabel}
-                          htmlFor={validVersion}
-                        >
-                          Version {validVersion}
-                        </label>
-                      </div>
-                    ))}
-                </RadioGroup.Root>
-              </ScrollArea.Viewport>
-              <div className={styles.FadeBottom}></div>
-              <ScrollArea.Scrollbar
-                className={styles.ScrollAreaScrollbar}
-                orientation="vertical"
-              >
-                <ScrollArea.Thumb className={styles.ScrollAreaThumb} />
-              </ScrollArea.Scrollbar>
-            </ScrollArea.Root> */}
-            {/* </Tabs.Content>
-          <Tabs.Content className="TabsContent" value="na">
-            <p>Test</p>
-          </Tabs.Content> */}
           </Tabs.Root>
           <Popover.Close className={styles.PopoverClose} aria-label="Close">
             <i className="material-icons-sharp">close</i>
           </Popover.Close>
-          <Popover.Arrow className={styles.PopoverArrow} />
         </Popover.Content>
       </Popover.Portal>
     </Popover.Root>
