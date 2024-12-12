@@ -109,8 +109,12 @@ button:focus-visible {
 
 /* Inline code blocks */
 p > code,
-li > code {
-  @apply border border-gray-40 dark:border-gray-80 text-red-70 rounded-md px-1 mx-1 break-words;
+li > code,
+/* Inline code blocks in docstrings */
+tt.docutils.literal {
+  @apply border-b px-1 rounded break-words;
+  @apply text-green-80 bg-gray-10 border-gray-30;
+  @apply dark:text-green-40 dark:bg-gray-90 dark:border-gray-100;
 }
 
 p a code {
@@ -120,9 +124,4 @@ p a code {
 /* One-line code descriptions in docstrings */
 div.code-desc {
   @apply mb-4 text-gray-90 dark:text-gray-40;
-}
-
-/* Inline code blocks in docstrings */
-tt.docutils.literal {
-  @apply border border-gray-40 text-red-70 rounded-md px-1 mx-1 break-words;
 }
