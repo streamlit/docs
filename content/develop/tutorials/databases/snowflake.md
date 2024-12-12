@@ -7,7 +7,7 @@ slug: /develop/tutorials/databases/snowflake
 
 ## Introduction
 
-This guide explains how to securely access a Snowflake database from Streamlit. It uses [st.connection](/develop/api-reference/connections/st.connection), the [Snowpark library](https://docs.snowflake.com/en/developer-guide/snowpark/python/index) and Streamlit's [Secrets management](/develop/concepts/connections/secrets-management).
+This guide explains how to securely access a Snowflake database from Streamlit. It uses [st.connection](/develop/api-reference/connections/st.connection), the [Snowpark library](https://docs.snowflake.com/en/developer-guide/snowpark/python/index), and Streamlit's [Secrets management](/develop/concepts/connections/secrets-management).
 
 ### Prerequisites
 
@@ -20,7 +20,7 @@ This guide explains how to securely access a Snowflake database from Streamlit. 
   ```
 
     <Note>
-        Use the correct version of Python required by `snowflake-snowpark-python`. For example, if you use `snowflake-snowpark-python==1.23.0` you must use Python version \>=3.8, \<3.12.
+        Use the correct version of Python required by `snowflake-snowpark-python`. For example, if you use `snowflake-snowpark-python==1.23.0`, you must use Python version \>=3.8, \<3.12.
     </Note>
 
 - You must have a Snowflake account. To create a trial account, see the [tutorial](/get-started/installation/streamlit-in-snowflake) in _Get started_.
@@ -31,13 +31,13 @@ This guide explains how to securely access a Snowflake database from Streamlit. 
 If you already have a database that you want to use, you can [skip to the next step](#add-connection-parameters-to-your-local-app-secrets).
 
 1. Sign in to your Snowflake account at [https://app.snowflake.com](https://app.snowflake.com).
-1. In the left navigation, click "**Projects**," then click "**Worksheets**."
+1. In the left navigation, select "**Projects**," and then select "**Worksheets**."
 1. To create a new worksheet, in the upper-right corner, click the plus icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>add</i>).
 
    You can use a worksheet to quickly and conveniently execute SQL statements. This is a great way to learn about and experiment with SQL in a trial account.
 
-1. Optional: To rename your worksheet, in the upper-left corner, hover over the tab with your worksheet name, and click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>). Select "**Rename**", enter a new worksheet name (e.g. "Scratchwork"), and press "**Enter**".
-1. To create a new database with a table, in your worksheet's SQL editor, type the following SQL statements, and execute them.
+1. Optional: To rename your worksheet, in the upper-left corner, hover over the tab with your worksheet name, and then click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>). Select "**Rename**", enter a new worksheet name (e.g. "Scratchwork"), and then press "**Enter**".
+1. To create a new database with a table, in your worksheet's SQL editor, type and execute the following SQL statements:
 
    ```sql
    CREATE DATABASE PETS;
@@ -56,7 +56,7 @@ If you already have a database that you want to use, you can [skip to the next s
 
    <Important>
 
-   If no lines are highlighted and you click the play button, only the line with your cursor will execute.
+   If no lines are highlighted and you click the play button, only the line with your cursor will be executed.
 
    </Important>
 
@@ -75,11 +75,11 @@ If you already have a database that you want to use, you can [skip to the next s
 
    Because the SQL statements did not specify a schema, they defaulted to the "PUBLIC" schema within the new "PETS" database. The role and warehouse are trial-account defaults. You can see the role and warehouse used by your worksheet in the upper-right corner, to the left of the "**Share**" and play (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>play_arrow</i>) buttons.
 
-   In Snowflake, databases provide storage and warehouses provide compute. When you configure your connection, you aren't explicitly required to declare role, warehouse, database, and schema; if these are not specified, the connection will use your account defaults. You can also change these settings within an active connection if you need to use multiple roles, warehouses, or databases. However, declaring these defaults avoids unintentional selections.
+   In Snowflake, databases provide storage, and warehouses provide compute. When you configure your connection, you aren't explicitly required to declare role, warehouse, database, and schema; if these are not specified, the connection will use your account defaults. If you want to use multiple roles, warehouses, or databases, you can also change these settings within an active connection. However, declaring these defaults avoids unintentional selections.
 
 1. To conveniently copy your account identifier, in the lower-left corner, click your profile image, and hover over your account. A popover dialog expands to the right with your organization and account. In the popover, hover over your account, and click the copy icon (<i style={{ verticalAlign: "-.25em", transform: "rotateZ(90deg)" }} className={{ class: "material-icons-sharp" }}>content_copy</i>).
 
-   The account identifier in your clipboard is period-separated, which is the format used for SQL statements. Paste your account identifier into your notes, and change the period into a hyphen. The Snowflake Connector for Python requires the hyphen-separated format for your account identifier.
+   The account identifier in your clipboard is period-separated, which is the format used for SQL statements. However, the Snowflake Connector for Python requires a hyphen-separated format. Paste your account identifier into your notes, and change the period to a hyphen.
 
    ```toml
    account = "xxxxxxx-xxxxxxx"
@@ -156,7 +156,7 @@ If you already have your connection configured using [Snowflake's connections fi
 
 ## Write your Streamlit app
 
-1. Copy the code below to your Streamlit app and save it. If you are not using the example database and table from the first section of this tutorial, replace the SQL query and results handling as desired.
+1. Copy the following code to your Streamlit app and save it. If you are not using the example database and table from the first section of this tutorial, replace the SQL query and results handling as appropriate.
 
    ```python
    # streamlit_app.py
@@ -170,7 +170,7 @@ If you already have your connection configured using [Snowflake's connections fi
        st.write(f"{row.NAME} has a :{row.PET}:")
    ```
 
-   The `st.connection` command creates a `SnowflakeConnection` object and handles secrets retrieval. The `.query()` method handles query caching and retries. By default, query results are cached without expiring. Setting `ttl="10m"` ensures the query result is cached for no longer than 10 minutes. To disable caching, you can set `ttl=0` instead. Learn more in [Caching](/develop/concepts/architecture/caching).
+   The `st.connection` command creates a `SnowflakeConnection` object and handles secrets retrieval. The `.query()` method handles query caching and retries. By default, query results are cached without expiring. Setting `ttl="10m"` ensures that the query result is cached for no longer than 10 minutes. To disable caching, you can set `ttl=0` instead. Learn more in [Caching](/develop/concepts/architecture/caching).
 
    <Note>
 
@@ -192,7 +192,7 @@ If you already have your connection configured using [Snowflake's connections fi
 
    ![Finished app screenshot](/images/databases/streamlit-app.png)
 
-### Use a Snowpark Session
+### Use a Snowpark session
 
 The [SnowflakeConnection](/develop/api-reference/connections/st.connections.snowflakeconnection) used above also provides access to [Snowpark sessions](https://docs.snowflake.com/en/developer-guide/snowpark/reference/python/session.html) for dataframe-style operations that run natively inside Snowflake. Using this approach, you can rewrite the app above as follows:
 
