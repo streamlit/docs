@@ -119,12 +119,12 @@ tt.docutils.literal {
 }
 
 /* Improve `code` links. Don't use border, use underline instead. */
-p > a:has(tt.docutils.literal) {
+a:has(tt.docutils.literal) {
   @apply border-0;
 }
 
 /* Improve `code` links. Don't use border, use underline instead. */
-p > a > tt.docutils.literal {
+a > tt.docutils.literal {
   @apply underline;
 }
 
