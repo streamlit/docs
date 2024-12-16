@@ -21,7 +21,7 @@ To define your configuration globally, you must first locate your global `.strea
 
 ```toml
 [client]
-showErrorDetails = false
+showErrorDetails = "none"
 
 [theme]
 primaryColor = "#F63366"
