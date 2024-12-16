@@ -118,6 +118,16 @@ tt.docutils.literal {
   @apply text-base;
 }
 
+/* Improve `code` links. Don't use border, use underline instead. */
+p > a:has(tt.docutils.literal) {
+  @apply border-0;
+}
+
+/* Improve `code` links. Don't use border, use underline instead. */
+p > a > tt.docutils.literal {
+  @apply underline;
+}
+
 p a code {
   @apply border-none p-0;
 }
