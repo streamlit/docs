@@ -18,7 +18,7 @@ Host your apps alongside your data in a single, global platform. Snowflake provi
     <Tile
         icon="code"
         title="Examples"
-        text="Explore a plethora of example apps in Snowflake Labs' snowflake-demo-streamlit repository."
+        text="Explore a wide variety of example apps in Snowflake Labs' snowflake-demo-streamlit repository."
         link="https://github.com/Snowflake-Labs/snowflake-demo-streamlit"
         background="lightBlue-70"
     />
@@ -31,7 +31,7 @@ Host your apps alongside your data in a single, global platform. Snowflake provi
     />
 </TileContainer>
 
-There are three ways to host Streamlit apps in Snowflake.
+There are three ways to host Streamlit apps in Snowflake:
 
 <InlineCalloutContainer>
     <InlineCallout
@@ -39,19 +39,19 @@ There are three ways to host Streamlit apps in Snowflake.
         icon="bolt"
         bold="Streamlit in Snowflake."
         href="https://docs.snowflake.com/developer-guide/streamlit/about-streamlit"
-    >Run your Streamlit app as a native object in Snowflake. Enjoy an in-browser editor and minimal work to configure your environment. Share your app with other users in your Snowflake account through role-based access control. This is a great way to deploy apps internally for your business. Check out Snowflake docs!</InlineCallout>
+    >Run your Streamlit app as a native object in Snowflake. Enjoy an in-browser editor and minimal work to configure your environment. Share your app with other users in your Snowflake account through role-based access control (RBAC). This is a great way to deploy apps internally for your business. Check out Snowflake docs!</InlineCallout>
     <InlineCallout
         color="lightBlue-70"
         icon="ac_unit"
         bold="Snowflake Native Apps."
         href="https://docs.snowflake.com/en/developer-guide/native-apps/adding-streamlit"
-    >Package your app with data and share it with other Snowflake accounts. This is a great way to share apps and their underlying data with other organizations who use Snowflake so they can run it in their own account. Check out Snowflake docs!</InlineCallout>
+    >Package your app with data and share it with other Snowflake accounts. This is a great way to share apps and their underlying data with other organizations who use Snowflake. Check out Snowflake docs!</InlineCallout>
     <InlineCallout
         color="lightBlue-70"
         icon="web_asset"
         bold="Snowpark Container Services."
         href="https://docs.snowflake.com/en/developer-guide/snowpark-container-services/overview"
-    >Deploy your app in a container that's optimized to run in Snowflake. This is the most flexible option where you can use any library. Share your app publicly or privately. Check out Snowflake docs!</InlineCallout>
+    >Deploy your app in a container that's optimized to run in Snowflake. This is the most flexible option, where you can use any library and assign a public URL to your app. Manage your allowed viewers through your Snowflake account. Check out Snowflake docs!</InlineCallout>
 </InlineCalloutContainer>
 
 <Note>
