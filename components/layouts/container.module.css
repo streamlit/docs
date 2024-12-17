@@ -17,12 +17,6 @@
   @apply border-b border-b-gray-90 hover:border-red-60 hover:opacity-80;
 }
 
-/* If link is just for code, don't add border */
-.ArticleContainer a:has(tt:only-child),
-.ArticleContainer a:has(code:only-child) {
-  @apply border-0;
-}
-
 :global(.dark) .ArticleContainer p a,
 :global(.dark) .ArticleContainer ol li a,
 :global(.dark) .ArticleContainer ul li a {

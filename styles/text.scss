@@ -108,30 +108,13 @@ button:focus-visible {
 }
 
 /* Inline code blocks */
-p > code,
-li > code,
+p code,
 /* Inline code blocks in docstrings */
 tt.docutils.literal {
   @apply break-words px-1 rounded;
   @apply text-green-80 bg-green-80/5;
   @apply dark:text-green-50 dark:bg-green-50/10;
   @apply text-base;
-}
-
-/* Improve `code` links. Don't use border, use underline instead. */
-a:has(tt:only-child),
-a:has(code:only-child) {
-  @apply border-0;
-}
-
-/* Improve `code` links. Don't use border, use underline instead. */
-a > tt:only-child,
-a > code:only-child {
-  @apply underline;
-}
-
-p a code {
-  @apply border-none p-0;
 }
 
 /* One-line code descriptions in docstrings */
