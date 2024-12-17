@@ -99,7 +99,7 @@ ul + p {
   @apply mt-8;
 }
 
-/* Focuss styles */
+/* Focus styles */
 a:focus,
 a:focus-visible,
 button:focus,
@@ -113,8 +113,8 @@ li > code,
 /* Inline code blocks in docstrings */
 tt.docutils.literal {
   @apply break-words px-1 rounded;
-  @apply text-green-80 bg-gray-10;
-  @apply dark:text-green-50 dark:bg-gray-90;
+  @apply text-green-80 bg-green-80/5;
+  @apply dark:text-green-50 dark:bg-green-50/10;
   @apply text-base;
 }
 
