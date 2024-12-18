@@ -99,7 +99,7 @@ ul + p {
   @apply mt-8;
 }
 
-/* Focuss styles */
+/* Focus styles */
 a:focus,
 a:focus-visible,
 button:focus,
@@ -108,21 +108,16 @@ button:focus-visible {
 }
 
 /* Inline code blocks */
-p > code,
-li > code {
-  @apply border border-gray-40 dark:border-gray-80 text-red-70 rounded-md px-1 mx-1 break-words;
-}
-
-p a code {
-  @apply border-none p-0;
+p code,
+/* Inline code blocks in docstrings */
+tt.docutils.literal {
+  @apply break-words px-1 rounded;
+  @apply text-green-80 bg-green-80/5;
+  @apply dark:text-green-50 dark:bg-green-50/10;
+  @apply text-base;
 }
 
 /* One-line code descriptions in docstrings */
 div.code-desc {
   @apply mb-4 text-gray-90 dark:text-gray-40;
-}
-
-/* Inline code blocks in docstrings */
-tt.docutils.literal {
-  @apply border border-gray-40 text-red-70 rounded-md px-1 mx-1 break-words;
 }
