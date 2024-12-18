@@ -693,6 +693,8 @@ site_menu:
     url: /develop/tutorials/llms/build-conversational-apps
   - category: Develop / Tutorials / Work with LLMs / Build an LLM app using LangChain
     url: /develop/tutorials/llms/llm-quickstart
+  - category: Develop / Tutorials / Work with LLMs / Get chat response feedback
+    url: /develop/tutorials/llms/chat-response-feedback
   - category: Develop / Quick reference
     url: /develop/quick-reference
   - category: Develop / Quick reference / Cheat sheet
