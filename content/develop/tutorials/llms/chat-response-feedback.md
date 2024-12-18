@@ -260,11 +260,11 @@ To make your chat app stateful, you'll save the conversation history into Sessio
 
 1. Save your file and go to your browser to try your new app.
 
-### (Optional) Change the feeback behavior
+### Optional: Change the feeback behavior
 
 At this point, the app allows users to rate any response once at any point in time. If you only want users to rate the most recent response, you can remove the widget from the chat-history loop:
 
-```python
+```diff
   for i, message in enumerate(st.session_state.history):
       with st.chat_message(message["role"]):
           st.write(message["content"])
@@ -282,7 +282,7 @@ At this point, the app allows users to rate any response once at any point in ti
 
 Alternatively, if you want to allow users to change their responses, you can just remove the `disabled` parameter:
 
-```python
+```diff
   for i, message in enumerate(st.session_state.history):
       with st.chat_message(message["role"]):
           st.write(message["content"])
