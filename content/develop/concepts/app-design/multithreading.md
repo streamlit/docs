@@ -46,18 +46,21 @@ import streamlit as st
 import time
 from threading import Thread
 
+
 class WorkerThread(Thread):
     def __init__(self, delay):
         super().__init__()
         self.delay = delay
         self.return_value = None
+
     def run(self):
         start_time = time.time()
         time.sleep(self.delay)
         end_time = time.time()
         self.return_value = f"start: {start_time}, end: {end_time}"
 
-delays = [5,4,3,2,1]
+
+delays = [5, 4, 3, 2, 1]
 threads = [WorkerThread(delay) for delay in delays]
 for thread in threads:
     thread.start()
@@ -79,18 +82,21 @@ import streamlit as st
 import time
 from threading import Thread
 
+
 class WorkerThread(Thread):
     def __init__(self, delay):
         super().__init__()
         self.delay = delay
         self.return_value = None
+
     def run(self):
         start_time = time.time()
         time.sleep(self.delay)
         end_time = time.time()
         self.return_value = f"start: {start_time}, end: {end_time}"
 
-delays = [5,4,3,2,1]
+
+delays = [5, 4, 3, 2, 1]
 result_containers = []
 for i, delay in enumerate(delays):
     st.header(f"Thread {i}")
@@ -99,14 +105,14 @@ for i, delay in enumerate(delays):
 threads = [WorkerThread(delay) for delay in delays]
 for thread in threads:
     thread.start()
-thread_lives = [True]*len(threads)
+thread_lives = [True] * len(threads)
 
 while any(thread_lives):
-    for i,thread in enumerate(threads):
+    for i, thread in enumerate(threads):
         if thread_lives[i] and not thread.is_alive():
             result_containers[i].write(thread.return_value)
             thread_lives[i] = False
-    time.sleep(.5)
+    time.sleep(0.5)
 
 for thread in threads:
     thread.join()
@@ -130,17 +136,19 @@ If you want to call Streamlit commands from within your custom threads, you must
 
 In the following example page, a custom thread with `ScriptRunContext` attached can call `st.write` without a warning.
 
-```py
+```python
 import streamlit as st
 from streamlit.runtime.scriptrunner import add_script_run_ctx, get_script_run_ctx
 import time
 from threading import Thread
+
 
 class WorkerThread(Thread):
     def __init__(self, delay, target):
         super().__init__()
         self.delay = delay
         self.target = target
+
     def run(self):
         # runs in custom thread, but can call Streamlit APIs
         start_time = time.time()
@@ -148,13 +156,17 @@ class WorkerThread(Thread):
         end_time = time.time()
         self.target.write(f"start: {start_time}, end: {end_time}")
 
-delays = [5,4,3,2,1]
+
+delays = [5, 4, 3, 2, 1]
 result_containers = []
 for i, delay in enumerate(delays):
     st.header(f"Thread {i}")
     result_containers.append(st.container())
 
-threads = [WorkerThread(delay, container) for delay, container in zip(delays, result_containers)]
+threads = [
+    WorkerThread(delay, container)
+    for delay, container in zip(delays, result_containers)
+]
 for thread in threads:
     add_script_run_ctx(thread, get_script_run_ctx())
     thread.start()
