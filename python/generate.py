@@ -7,6 +7,7 @@ import os
 import pathlib
 import sys
 import types
+import re
 
 import docstring_parser
 import stoutput
@@ -23,6 +24,7 @@ from streamlit.runtime.caching.cache_utils import CachedFunc
 from streamlit.elements.plotly_chart import PlotlyState, PlotlySelectionState
 from streamlit.elements.vega_charts import VegaLiteState
 from streamlit.elements.arrow import DataframeState, DataframeSelectionState
+from streamlit.elements.deck_gl_json_chart import PydeckState, PydeckSelectionState
 from streamlit.navigation import page
 from streamlit.navigation.page import StreamlitPage
 
@@ -232,12 +234,14 @@ def parse_docstring(obj, docstring, description, is_class, is_class_method, is_p
         arg_obj["default"] = param.default  # Store the default value
 
         # Check if the argument is deprecated
-        if docstring_obj.deprecation and "``"+param.arg_name+"``" in docstring_obj.deprecation.description:
-            # Add the deprecated flag and the deprecation message to the argument object
-            arg_obj["deprecated"] = {
-                "deprecated": True,
-                "deprecatedText": parse_rst(docstring_obj.deprecation.description),
-            }
+        if docstring_obj.deprecation:
+            match = re.search("``[^ `]*``", docstring_obj.deprecation.description)
+            if match is not None and match.group(0) == f"``{param.arg_name}``":
+                # Add the deprecated flag and the deprecation message to the argument object
+                arg_obj["deprecated"] = {
+                    "deprecated": True,
+                    "deprecatedText": parse_rst(docstring_obj.deprecation.description),
+                }
         # Append the argument object to the list of arguments
         description["args"].append(arg_obj)
 
@@ -604,6 +608,9 @@ def get_streamlit_docstring_dict():
         VegaLiteState: ["VegaLiteState", "VegaLiteState"],
         DataframeState: ["DataframeState", "DataframeState"],
         DataframeSelectionState: ["DataframeSelectionState", "DataframeSelectionState"],
+        PydeckState: ["PydeckState", "PydeckState"],
+        PydeckSelectionState: ["PydeckSelectionState", "PydeckSelectionState"]
+
     }
 
     module_docstring_dict = {}

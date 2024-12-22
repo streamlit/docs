@@ -17,7 +17,7 @@ This tutorial requires `streamlit>=1.28` and `st-gsheets-connection` in your Pyt
 
 ## Create a Google Sheet and turn on link sharing
 
-If you already have a Sheet that you want to access, feel free to [skip to the next step](#add-the-sheets-url-to-your-local-app-secrets). See Google's documentation on how to [share spreadsheets](https://support.google.com/docs/answer/9331169?hl=en#6.1) for more information.
+If you already have a Sheet that you want to access, you can [skip to the next step](#add-the-sheets-url-to-your-local-app-secrets). See Google's documentation on how to [share spreadsheets](https://support.google.com/docs/answer/9331169?hl=en#6.1) for more information.
 
 Create a spreadsheet with this example data and create a share link. The link should have "Anyone with the link" set as a "Viewer."
 
@@ -94,4 +94,4 @@ If everything worked out (and you used the example table we created above), your
 This tutorial assumes a local Streamlit app, however you can also connect to Google Sheets from apps hosted in Community Cloud. The main additional steps are:
 
 - [Include information about dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies) using a `requirements.txt` file with `st-gsheets-connection` and any other dependencies.
-- [Add your secrets](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management#deploy-an-app-and-set-up-secrets) to your Community Cloud app.
+- [Add your secrets](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management) to your Community Cloud app.

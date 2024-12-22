@@ -172,6 +172,10 @@ site_menu:
   - category: Develop / API reference / Text elements / st.text
     url: /develop/api-reference/text/st.text
     isVersioned: true
+  - category: Develop / API reference / Text elements / UTILITIES
+  - category: Develop / API reference / Text elements / st.html
+    url: https://docs.streamlit.io/develop/api-reference/utilities/st.html
+    isVersioned: true
   - category: Develop / API reference / Data elements
     url: /develop/api-reference/data
   - category: Develop / API reference / Data elements / st.dataframe
@@ -290,9 +294,6 @@ site_menu:
   - category: Develop / API reference / Input widgets / st.download_button
     url: /develop/api-reference/widgets/st.download_button
     isVersioned: true
-  - category: Develop / API reference / Input widgets / st.feedback
-    url: /develop/api-reference/widgets/st.feedback
-    isVersioned: true
   - category: Develop / API reference / Input widgets / st.form_submit_button
     url: https://docs.streamlit.io/develop/api-reference/execution-flow/st.form_submit_button
     isVersioned: true
@@ -309,11 +310,20 @@ site_menu:
   - category: Develop / API reference / Input widgets / st.color_picker
     url: /develop/api-reference/widgets/st.color_picker
     isVersioned: true
+  - category: Develop / API reference / Input widgets / st.feedback
+    url: /develop/api-reference/widgets/st.feedback
+    isVersioned: true
   - category: Develop / API reference / Input widgets / st.multiselect
     url: /develop/api-reference/widgets/st.multiselect
     isVersioned: true
+  - category: Develop / API reference / Input widgets / st.pills
+    url: /develop/api-reference/widgets/st.pills
+    isVersioned: true
   - category: Develop / API reference / Input widgets / st.radio
     url: /develop/api-reference/widgets/st.radio
+    isVersioned: true
+  - category: Develop / API reference / Input widgets / st.segmented_control
+    url: /develop/api-reference/widgets/st.segmented_control
     isVersioned: true
   - category: Develop / API reference / Input widgets / st.selectbox
     url: /develop/api-reference/widgets/st.selectbox
@@ -349,6 +359,9 @@ site_menu:
     url: /develop/api-reference/widgets/st.text_input
     isVersioned: true
   - category: Develop / API reference / Input widgets / MEDIA & FILES
+  - category: Develop / API reference / Input widgets / st.audio_input
+    url: /develop/api-reference/widgets/st.audio_input
+    isVersioned: true
   - category: Develop / API reference / Input widgets / st.camera_input
     url: /develop/api-reference/widgets/st.camera_input
     isVersioned: true
@@ -530,10 +543,8 @@ site_menu:
   - category: Develop / API reference / Connections and secrets / SECRETS
   - category: Develop / API reference / Connections and secrets / st.secrets
     url: /develop/api-reference/connections/st.secrets
-    isVersioned: true
   - category: Develop / API reference / Connections and secrets / secrets.toml
     url: /develop/api-reference/connections/secrets.toml
-    isVersioned: true
   - category: Develop / API reference / Connections and secrets / CONNECTIONS
   - category: Develop / API reference / Connections and secrets / st.connection
     url: /develop/api-reference/connections/st.connection
@@ -592,7 +603,6 @@ site_menu:
     isVersioned: false
   - category: Develop / API reference / Configuration / config.toml
     url: /develop/api-reference/configuration/config.toml
-    isVersioned: true
   - category: Develop / API reference / Configuration / st.get_option
     url: /develop/api-reference/configuration/st.get_option
     isVersioned: true
@@ -644,8 +654,6 @@ site_menu:
     url: /develop/tutorials/databases/aws-s3
   - category: Develop / Tutorials / Connect to data sources / BigQuery
     url: /develop/tutorials/databases/bigquery
-  - category: Develop / Tutorials / Connect to data sources / Deta Base
-    url: /develop/tutorials/databases/deta-base
   - category: Develop / Tutorials / Connect to data sources / Firestore
     url: https://blog.streamlit.io/streamlit-firestore/
   - category: Develop / Tutorials / Connect to data sources / Google Cloud Storage
@@ -693,9 +701,18 @@ site_menu:
     url: /develop/quick-reference/cheat-sheet
   - category: Develop / Quick reference / Release notes
     url: /develop/quick-reference/release-notes
-  - category: Develop / Quick reference / Release notes (historical)
-    url: /develop/quick-reference/older-versions
-    visible: false
+  - category: Develop / Quick reference / Release notes / 2024
+    url: /develop/quick-reference/release-notes/2024
+  - category: Develop / Quick reference / Release notes / 2023
+    url: /develop/quick-reference/release-notes/2023
+  - category: Develop / Quick reference / Release notes / 2022
+    url: /develop/quick-reference/release-notes/2022
+  - category: Develop / Quick reference / Release notes / 2021
+    url: /develop/quick-reference/release-notes/2021
+  - category: Develop / Quick reference / Release notes / 2020
+    url: /develop/quick-reference/release-notes/2020
+  - category: Develop / Quick reference / Release notes / 2019
+    url: /develop/quick-reference/release-notes/2019
   - category: Develop / Quick reference / Pre-release features
     url: /develop/quick-reference/prerelease
   - category: Develop / Quick reference/ Roadmap
@@ -723,16 +740,22 @@ site_menu:
     url: /deploy/streamlit-community-cloud/get-started/connect-your-github-account
   - category: Deploy / Streamlit Community Cloud / Get started / Explore your workspace
     url: /deploy/streamlit-community-cloud/get-started/explore-your-workspace
+  - category: Deploy / Streamlit Community Cloud / Get started / Deploy from a template
+    url: /deploy/streamlit-community-cloud/get-started/deploy-from-a-template
   - category: Deploy / Streamlit Community Cloud / Get started / Fork and edit a public app
     url: /deploy/streamlit-community-cloud/get-started/fork-and-edit-a-public-app
   - category: Deploy / Streamlit Community Cloud / Get started / Trust and security
     url: /deploy/streamlit-community-cloud/get-started/trust-and-security
   - category: Deploy / Streamlit Community Cloud / Deploy your app
     url: /deploy/streamlit-community-cloud/deploy-your-app
+  - category: Deploy / Streamlit Community Cloud / Deploy your app / File organization
+    url: /deploy/streamlit-community-cloud/deploy-your-app/file-organization
   - category: Deploy / Streamlit Community Cloud / Deploy your app / App dependencies
     url: /deploy/streamlit-community-cloud/deploy-your-app/app-dependencies
   - category: Deploy / Streamlit Community Cloud / Deploy your app / Secrets management
     url: /deploy/streamlit-community-cloud/deploy-your-app/secrets-management
+  - category: Deploy / Streamlit Community Cloud / Deploy your app / Deploy!
+    url: /deploy/streamlit-community-cloud/deploy-your-app/deploy
   - category: Deploy / Streamlit Community Cloud / Manage your app
     url: /deploy/streamlit-community-cloud/manage-your-app
   - category: Deploy / Streamlit Community Cloud / Manage your app / App analytics
@@ -747,6 +770,12 @@ site_menu:
     url: /deploy/streamlit-community-cloud/manage-your-app/favorite-your-app
   - category: Deploy / Streamlit Community Cloud / Manage your app / Reboot your app
     url: /deploy/streamlit-community-cloud/manage-your-app/reboot-your-app
+  - category: Deploy / Streamlit Community Cloud / Manage your app / Rename your app in GitHub
+    url: /deploy/streamlit-community-cloud/manage-your-app/rename-your-app
+  - category: Deploy / Streamlit Community Cloud / Manage your app / Upgrade Python
+    url: /deploy/streamlit-community-cloud/manage-your-app/upgrade-python
+  - category: Deploy / Streamlit Community Cloud / Manage your app / Upgrade Streamlit
+    url: /deploy/streamlit-community-cloud/manage-your-app/upgrade-streamlit
   - category: Deploy / Streamlit Community Cloud / Share your app
     url: /deploy/streamlit-community-cloud/share-your-app
   - category: Deploy / Streamlit Community Cloud / Share your app / Embed your app
@@ -769,8 +798,8 @@ site_menu:
     url: /deploy/streamlit-community-cloud/manage-your-account/delete-your-account
   - category: Deploy / Streamlit Community Cloud / Status and limitations
     url: /deploy/streamlit-community-cloud/status
-  - category: Deploy / Streamlit in Snowflake
-    url: https://docs.snowflake.com/developer-guide/streamlit/about-streamlit
+  - category: Deploy / Snowflake
+    url: /deploy/snowflake
   - category: Deploy / Other platforms
     url: /deploy/tutorials
   - category: Deploy / Other platforms / Docker
@@ -866,9 +895,6 @@ site_menu:
   - category: Knowledge base / Deployment issues / Invoking a Python subprocess in a deployed Streamlit app
     url: /knowledge-base/deploy/invoking-python-subprocess-deployed-streamlit-app
     visible: false
-  - category: Knowledge base / Deployment issues / Organizing your apps with workspaces on Streamlit Community Cloud
-    url: /knowledge-base/deploy/organizing-apps-workspaces-streamlit-cloud
-    visible: false
   - category: Knowledge base / Deployment issues / App is not loading when running remotely
     url: /knowledge-base/deploy/remote-start
     visible: false
@@ -881,14 +907,8 @@ site_menu:
   - category: Knowledge base / Deployment issues / Upgrade the Streamlit version of your app on Streamlit Community Cloud
     url: /knowledge-base/deploy/upgrade-streamlit-version-on-streamlit-cloud
     visible: false
-  - category: Knowledge base / Deployment issues / Unable to edit or delete apps in Streamlit Community Cloud after modifying GitHub username
-    url: /knowledge-base/deploy/unable-to-edit-or-delete-apps-in-streamlit-community-cloud-after-modifying-github-username
-    visible: false
   - category: Knowledge base / Deployment issues / Huh. This is isn't supposed to happen message after trying to log in
     url: /knowledge-base/deploy/huh-this-isnt-supposed-to-happen-message-after-trying-to-log-in
-    visible: false
-  - category: Knowledge base / Deployment issues / View-only access to app after changing GitHub username or repository name
-    url: /knowledge-base/deploy/view-only-access-to-app-after-changing-github-username-or-repository-name
     visible: false
   - category: Knowledge base / Deployment issues / Login attempt to Streamlit Community Cloud fails with error 403
     url: /knowledge-base/deploy/login-attempt-to-streamlit-community-cloud-fails-with-error-403

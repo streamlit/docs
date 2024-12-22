@@ -7,10 +7,6 @@
   @apply text-gray-90 !important;
 }
 
-.Container p > code {
-  @apply border border-gray-40 text-red-70 rounded-md px-1 mx-1 break-words;
-}
-
 .Container p:only-child,
 .Container p:last-child,
 .Container section:last-child,

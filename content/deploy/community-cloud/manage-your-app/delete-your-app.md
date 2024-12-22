@@ -9,7 +9,8 @@ If you need to delete your app, it's simple and easy. There are several cases wh
 
 - You have finished playing around with an example app.
 - You want to deploy from a private repository but already have a private app.
-- You want to change the Python version for your app or otherwise redeploy your app.
+- You want to [change the Python version](/deploy/streamlit-community-cloud/manage-your-app/upgrade-python) for your app.
+- You want to [rename your repository](/deploy/streamlit-community-cloud/manage-your-app/rename-your-app) or move your entrypoint file.
 
 If you delete your app and intend to immediately redploy it, your custom subdomain should be immediately available for reuse. Read more about data deletion in [Streamlit trust and security](/deploy/streamlit-community-cloud/get-started/trust-and-security#data-deletion).
 
@@ -20,15 +21,15 @@ You can delete your app:
 
 ### Delete your app from your workspace
 
-1. From your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) next to your app. Click "**Delete**".
+1. From your workspace at <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a>, click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) next to your app. Click "**Delete**."
 
    ![Delete your app from your workspace](/images/streamlit-community-cloud/workspace-app-delete.png)
 
-2. A confirmation will display. Enter the required confirmation string and click "**Delete**".
+2. A confirmation will display. Enter the required confirmation string and click "**Delete**."
 
-<div style={{ maxWidth: '50%', margin: 'auto' }}>
-<Image alt="Confirm deleting your app from Streamlit Community Cloud" src="/images/streamlit-community-cloud/workspace-app-delete-confirm.png" clean />
-</div>
+   <div style={{ maxWidth: '50%', margin: 'auto' }}>
+   <Image alt="Confirm deleting your app from Streamlit Community Cloud" src="/images/streamlit-community-cloud/workspace-app-delete-confirm.png" clean />
+   </div>
 
 ### Delete your app from your Cloud logs
 
@@ -36,11 +37,11 @@ You can delete your app:
 
    ![Access Streamlit Community Cloud logs from your app](/images/streamlit-community-cloud/cloud-logs-open.png)
 
-2. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) and click "**Delete app**".
+2. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) and click "**Delete app**."
 
    ![Delete your app from your Cloud logs](/images/streamlit-community-cloud/cloud-logs-menu-delete.png)
 
-3. A confirmation will display. Enter the required confirmation string and click "**Delete**".
+3. A confirmation will display. Enter the required confirmation string and click "**Delete**."
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
 <Image alt="Confirm deleting your app from Streamlit Community Cloud" src="/images/streamlit-community-cloud/workspace-app-delete-confirm.png" clean />

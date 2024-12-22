@@ -5,7 +5,7 @@ slug: /develop/api-reference/configuration/config.toml
 
 ## config.toml
 
-`config.toml` is an optional file you can define for your working directory or global development environment. When `config.toml` is defined both globally and in your working directory, Streamlit combines the configuration options and gives precendence to the working-directory configuration. Additionally, you can use environment variables and command-line options to override additional configuration options. For more information, see [Configuration options](/develop/concepts/configuration/options).
+`config.toml` is an optional file you can define for your working directory or global development environment. When `config.toml` is defined both globally and in your working directory, Streamlit combines the configuration options and gives precedence to the working-directory configuration. Additionally, you can use environment variables and command-line options to override additional configuration options. For more information, see [Configuration options](/develop/concepts/configuration/options).
 
 ### File location
 
@@ -21,7 +21,7 @@ To define your configuration globally, you must first locate your global `.strea
 
 ```toml
 [client]
-showErrorDetails = false
+showErrorDetails = "none"
 
 [theme]
 primaryColor = "#F63366"
@@ -59,14 +59,15 @@ showWarningOnDirectExecution = true
 ```toml
 [logger]
 
-# Level of logging: 'error', 'warning', 'info', or 'debug'.
-# Default: 'info'
+# Level of logging for Streamlit's internal logger: "error", "warning",
+# "info", or "debug".
+# Default: "info"
 level = "info"
 
 # String format for logging messages. If logger.datetimeFormat is set,
 # logger messages will default to `%(asctime)s.%(msecs)03d %(message)s`. See
 # Python's documentation for available attributes:
-# https://docs.python.org/2.6/library/logging.html#formatter-objects
+# https://docs.python.org/3/library/logging.html#formatter-objects
 # Default: "%(asctime)s %(message)s"
 messageFormat = "%(asctime)s %(message)s"
 ```
@@ -77,26 +78,39 @@ messageFormat = "%(asctime)s %(message)s"
 [client]
 
 # Controls whether uncaught app exceptions and deprecation warnings
-# are displayed in the browser. By default, this is set to True and
-# Streamlit displays app exceptions and associated tracebacks, and
-# deprecation warnings, in the browser.
-# If set to False, deprecation warnings and full exception messages
-# will print to the console only. Exceptions will still display in the
-# browser with a generic error message. For now, the exception type and
-# traceback show in the browser also, but they will be removed in the
-# future.
-# Default: true
-showErrorDetails = true
+# are displayed in the browser. This can be one of the following:
+# - "full"       : In the browser, Streamlit displays app deprecation
+#                  warnings and exceptions, including exception types,
+#                  exception messages, and associated tracebacks.
+# - "stacktrace" : In the browser, Streamlit displays exceptions,
+#                  including exception types, generic exception messages,
+#                  and associated tracebacks. Deprecation warnings and
+#                  full exception messages will only print to the
+#                  console.
+# - "type"       : In the browser, Streamlit displays exception types and
+#                  generic exception messages. Deprecation warnings, full
+#                  exception messages, and associated tracebacks only
+#                  print to the console.
+# - "none"       : In the browser, Streamlit displays generic exception
+#                  messages. Deprecation warnings, full exception
+#                  messages, associated tracebacks, and exception types
+#                  will only print to the console.
+# - True         : This is deprecated. Streamlit displays "full"
+#                  error details.
+# - False        : This is deprecated. Streamlit displays "stacktrace"
+#                  error details.
+# Default: "full"
+showErrorDetails = "full"
 
 # Change the visibility of items in the toolbar, options menu,
 # and settings dialog (top right of the app).
 # Allowed values:
-# * "auto"      : Show the developer options if the app is accessed through
+# - "auto"      : Show the developer options if the app is accessed through
 #                 localhost or through Streamlit Community Cloud as a developer.
 #                 Hide them otherwise.
-# * "developer" : Show the developer options.
-# * "viewer"    : Hide the developer options.
-# * "minimal"   : Show only options set externally (e.g. through
+# - "developer" : Show the developer options.
+# - "viewer"    : Hide the developer options.
+# - "minimal"   : Show only options set externally (e.g. through
 #                 Streamlit Community Cloud) or through st.set_page_config.
 #                 If there are no options left, hide the menu.
 # Default: "auto"
@@ -139,9 +153,9 @@ enforceSerializableSessionState = false
 # during a script re-run. For more information, check out the docs:
 # https://docs.streamlit.io/develop/concepts/design/custom-classes#enums
 # Allowed values:
-# * "off"          : Disables Enum coercion.
-# * "nameOnly"     : Enum classes can be coerced if their member names match.
-# * "nameAndValue" : Enum classes can be coerced if their member names AND
+# - "off"          : Disables Enum coercion.
+# - "nameOnly"     : Enum classes can be coerced if their member names match.
+# - "nameAndValue" : Enum classes can be coerced if their member names AND
 #                    member values match.
 # Default: "nameOnly"
 enumCoercion = "nameOnly"
@@ -161,11 +175,11 @@ folderWatchBlacklist = []
 # Change the type of file watcher used by Streamlit, or turn it off
 # completely.
 # Allowed values:
-# * "auto"     : Streamlit will attempt to use the watchdog module, and
+# - "auto"     : Streamlit will attempt to use the watchdog module, and
 #                falls back to polling if watchdog is not available.
-# * "watchdog" : Force Streamlit to use the watchdog module.
-# * "poll"     : Force Streamlit to always use polling.
-# * "none"     : Streamlit will not watch files.
+# - "watchdog" : Force Streamlit to use the watchdog module.
+# - "poll"     : Force Streamlit to always use polling.
+# - "none"     : Streamlit will not watch files.
 # Default: "auto"
 fileWatcherType = "auto"
 
@@ -200,19 +214,17 @@ port = 8501
 # Default: ""
 baseUrlPath = ""
 
-# Enables support for Cross-Origin Resource Sharing (CORS) protection, for
-# added security.
-# Due to conflicts between CORS and XSRF, if `server.enableXsrfProtection` is
-# on and `server.enableCORS` is off at the same time, we will prioritize
-# `server.enableXsrfProtection`.
+# Enables support for Cross-Origin Resource Sharing (CORS) protection,
+# for added security.
+# If XSRF protection is enabled and CORS protection is disabled at the
+# same time, Streamlit will enable them both instead.
 # Default: true
 enableCORS = true
 
-# Enables support for Cross-Site Request Forgery (XSRF) protection, for added
-# security.
-# Due to conflicts between CORS and XSRF, if `server.enableXsrfProtection` is
-# on and `server.enableCORS` is off at the same time, we will prioritize
-# `server.enableXsrfProtection`.
+# Enables support for Cross-Site Request Forgery (XSRF) protection, for
+# added security.
+# If XSRF protection is enabled and CORS protection is disabled at the
+# same time, Streamlit will enable them both instead.
 # Default: true
 enableXsrfProtection = true
 
@@ -233,6 +245,12 @@ enableWebsocketCompression = false
 # directory.
 # Default: false
 enableStaticServing = false
+
+# TTL in seconds for sessions whose websockets have been disconnected. The server
+# may choose to clean up session state, uploaded files, etc for a given session
+# with no active websocket connection at any point after this time has passed.
+# Default: 120
+disconnectedSessionTTL = 120
 
 # Server certificate file for connecting via HTTPS.
 # Must be set at the same time as "server.sslKeyFile".
@@ -326,11 +344,10 @@ font =
 ```toml
 [secrets]
 
-# List of locations where secrets are searched. Entries can be a path to
-# toml file or directory path where Kubernetes style secrets will be
-# scanned. Order is important, import is first to last, so secrets in later
-# files will take precedence over earlier ones.
-
+# List of locations where secrets are searched. An entry can be a path to a
+# TOML file or directory path where Kubernetes style secrets are saved.
+# Order is important, import is first to last, so secrets in later files
+# will take precedence over earlier ones.
 # Default: [ <path to local environment's secrets.toml file>, <path to project's secrets.toml file>,]
 files = [ "~/.streamlit/secrets.toml", "~/project directory/.streamlit/secrets.toml",]
 ```

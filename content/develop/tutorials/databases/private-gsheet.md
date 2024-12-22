@@ -17,7 +17,7 @@ This tutorial requires `streamlit>=1.28` and `st-gsheets-connection` in your Pyt
 
 ## Create a Google Sheet
 
-If you already have a Sheet that you want to use, feel free to [skip to the next step](#enable-the-sheets-api).
+If you already have a Sheet that you want to use, you can [skip to the next step](#enable-the-sheets-api).
 
 Create a spreadsheet with this example data.
 
@@ -147,4 +147,4 @@ If everything worked out (and you used the example table we created above), your
 This tutorial assumes a local Streamlit app, however you can also connect to Google Sheets from apps hosted in Community Cloud. The main additional steps are:
 
 - [Include information about dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies) using a `requirements.txt` file with `st-gsheets-connection` and any other dependencies.
-- [Add your secrets](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management#deploy-an-app-and-set-up-secrets) to your Community Cloud app.
+- [Add your secrets](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management) to your Community Cloud app.

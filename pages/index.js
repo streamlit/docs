@@ -192,67 +192,66 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/develop/api-reference/data/st.dataframe"
+                href="/develop/api-reference/layout/st.columns"
               >
-                <i className="material-icons-sharp">table_chart</i>
-                <h4>More dataframe types!</h4>
+                <i className="material-icons-sharp">view_column</i>
+                <h4>Add borders to columns and metrics</h4>
                 <p>
-                  Streamlit natively supports even more dataframe types. Use
-                  Dask, Modin, Numpy, pandas, Polars, PyArrow, Snowpark, Xarray,
-                  and more.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/develop/api-reference/data/st.json">
-                <i className="material-icons-sharp">unfold_less</i>
-                <h4>Configurable JSON expansion</h4>
-                <p>
-                  You can control the initial expansion state of
-                  <code>st.json</code> elements.
+                  <code>st.columns</code> and <code>st.metric</code> have a new
+                  <code>border</code> parameter to show an optional border.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/utilities/st.context"
+                href="/develop/api-reference/text/st.markdown"
               >
-                <i className="material-icons-sharp">cookie</i>
-                <h4>User session context</h4>
+                <i className="material-icons-sharp">palette</i>
+                <h4>Primary color in Markdown</h4>
                 <p>
-                  Introducing <code>st.context</code>, a read-only interface to
-                  access headers and cookies!
+                  Now you can use the color "primary" in Markdown to color or
+                  highlight text with your app's primary color.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/widgets/st.feedback"
+                href="/develop/api-reference/data/st.column_config"
               >
-                <i className="material-icons-sharp">star</i>
-                <h4>User feedback</h4>
+                <i className="material-icons-sharp">push_pin</i>
+                <h4>Pin or freeze dataframe columns</h4>
                 <p>
-                  Introducing <code>st.feedback</code> to collect user ratings
-                  and sentiment.
+                  Column configuration has a new <code>pinned</code> parameter
+                  to pin columns on the left as users scroll horizontally.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/execution-flow/st.fragment"
+                href="/develop/api-reference/widgets/st.button"
               >
-                <i className="material-icons-sharp">bolt</i>
-                <h4>Fragments and dialogs</h4>
+                <i className="material-icons-sharp">ads_click</i>
+                <h4>Tertiary buttons</h4>
                 <p>
-                  We've polished <code>st.fragment</code> and
-                  <code>st.dialog</code> with multiple bug fixes and
-                  improvements. They're no longer experimental!
+                  Buttons have a new, "tertiary" type for a more subtle
+                  appearance.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/execution-flow/st.rerun"
+                href="/develop/api-reference/widgets/st.pills"
               >
-                <i className="material-icons-sharp">location_searching</i>
-                <h4>Rerun scope</h4>
+                <i className="material-icons-sharp">more_horiz</i>
+                <h4>Pills</h4>
                 <p>
-                  <code>st.rerun</code> can be scoped to a fragment.
+                  You can create a single- or multi-select group of
+                  pill-buttons.
                 </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/widgets/st.segmented_control"
+              >
+                <i className="material-icons-sharp">view_week</i>
+                <h4>Segmented control</h4>
+                <p>You can create a segmented button or button group.</p>
               </RefCard>
             </TileContainer>
 

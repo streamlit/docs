@@ -29,6 +29,7 @@ You can deploy multiple apps from your repository, and your entrypoint file(s) m
 ## Python environments
 
 - You cannot mix and match Python package managers for a single app. Community Cloud configures your app's Python environment based on the first environment configuration file it finds. For more information, see [Other Python package managers](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies#other-python-package-managers).
+- We recommend that you use the latest version of Streamlit to ensure full Community Cloud functionality. Be sure to take note of Streamlit's [current requirements](https://github.com/streamlit/streamlit/blob/develop/lib/setup.py) for package compatibility when planning your environment, especially `protobuf>=3.20,<6`.
 - If you pin `streamlit< 1.20.0`, you must also pin `altair<5`. Earlier versions of Streamlit did not correctly restrict Altair's version. A workaround script running on Community Cloud will forcibly install `altair<5` if a newer version is detected. This could unintentionally upgrade Altair's dependencies in violation of your environment configuration. Newer versions of Streamlit support Altair version 5.
 - Community Cloud only supports released versions of Python that are still receiving security updates. You may not use end-of-life, prerelease, or feature versions of Python. For more information, see [Status of Python versions](https://devguide.python.org/versions/).
 
@@ -51,8 +52,40 @@ enableXsrfProtection = true
 gatherUsageStats = true
 ```
 
+## IP addresses
+
+If you need to whitelist IP addresses for a connection, Community Cloud is currently served from the following IP addresses:
+
+<Warning>
+
+    These IP addresses may change at any time without notice.
+
+</Warning>
+
+<Flex wrap >
+    <div style={{ width: "150px" }}>35.230.127.150</div>
+    <div style={{ width: "150px" }}>35.203.151.101</div>
+    <div style={{ width: "150px" }}>34.19.100.134</div>
+    <div style={{ width: "150px" }}>34.83.176.217</div>
+    <div style={{ width: "150px" }}>35.230.58.211</div>
+    <div style={{ width: "150px" }}>35.203.187.165</div>
+    <div style={{ width: "150px" }}>35.185.209.55</div>
+    <div style={{ width: "150px" }}>34.127.88.74</div>
+    <div style={{ width: "150px" }}>34.127.0.121</div>
+    <div style={{ width: "150px" }}>35.230.78.192</div>
+    <div style={{ width: "150px" }}>35.247.110.67</div>
+    <div style={{ width: "150px" }}>35.197.92.111</div>
+    <div style={{ width: "150px" }}>34.168.247.159</div>
+    <div style={{ width: "150px" }}>35.230.56.30</div>
+    <div style={{ width: "150px" }}>34.127.33.101</div>
+    <div style={{ width: "150px" }}>35.227.190.87</div>
+    <div style={{ width: "150px" }}>35.199.156.97</div>
+    <div style={{ width: "150px" }}>34.82.135.155</div>
+</Flex>
+
 ## Other limitations
 
 - When you print something to the Cloud logs, you may need to do a `sys.stdout.flush()` before it shows up.
 - Community Cloud hosts all apps in the United States. This is currently not configurable.
 - Community Cloud is built on Debian Linux. All file paths must use forward-slash path separators.
+- Community Cloud rate limits app updates from GitHub to no more than five per minute.

@@ -6,7 +6,7 @@ slug: /develop/tutorials/databases
 # Connect Streamlit to data sources
 
 These step-by-step guides demonstrate how to connect Streamlit apps to various databases & APIs.
-They use Streamlit's [Secrets management](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management) and
+They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-management) and
 [caching](/develop/concepts/architecture/caching) to provide secure and fast data access.
 
 <DataSourcesContainer>
@@ -23,14 +23,6 @@ They use Streamlit's [Secrets management](/deploy/streamlit-community-cloud/depl
 <Image pure alt="screenshot" src="/images/databases/bigquery.png" />
 
 <h5>BigQuery</h5>
-
-</DataSourcesCard>
-
-<DataSourcesCard href="/develop/tutorials/databases/deta-base">
-
-<Image pure alt="screenshot" src="/images/databases/deta-base.png" />
-
-<h5>Deta Base</h5>
 
 </DataSourcesCard>
 
