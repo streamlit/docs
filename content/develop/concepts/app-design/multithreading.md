@@ -10,7 +10,6 @@ Multithreading is a common technique to improve the efficiency of computer progr
 ## Prerequisites
 
 - You should have a basic understanding of Streamlit's [architecture](/develop/concepts/architecture/architecture).
-- You should have a basic understanding of [Session State](/develop/concepts/architecture/session-state).
 
 ## Threads created by Streamlit
 
@@ -134,7 +133,7 @@ If you want to call Streamlit commands from within your custom threads, you must
 
 </Warning>
 
-In the following example page, a custom thread with `ScriptRunContext` attached can call `st.write` without a warning.
+In the following example, a custom thread with `ScriptRunContext` attached can call `st.write` without a warning.
 
 ```python
 import streamlit as st
