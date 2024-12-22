@@ -70,7 +70,7 @@ for i, thread in enumerate(threads):
 st.button("Rerun")
 ```
 
-<Cloud name="doc-multithreading-no-streamlit-commands-batched" height="700px" />
+<Cloud name="doc-multithreading-no-st-commands-batched" height="700px" />
 
 If you want to display results in your app as various custom threads finish running, use containers. In the following example, five custom threads are created similarly to the previous example. However, five containers are initialized before running the custom threads and a `while` loop is used to display results as they become available. Since the Streamlit `write` command is called outside of the custom threads, this does not raise an exception.
 
@@ -114,7 +114,7 @@ for thread in threads:
 st.button("Rerun")
 ```
 
-<Cloud name="doc-multithreading-no-streamlit-commands-iterative" height="700px" />
+<Cloud name="doc-multithreading-no-st-commands-iterative" height="700px" />
 
 ### Option 2: Expose `ScriptRunContext` to the thread
 
