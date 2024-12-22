@@ -57,8 +57,6 @@ site_menu:
     url: /develop/concepts/architecture/fragments
   - category: Develop / Concepts / Architecture & execution/ Widget behavior
     url: /develop/concepts/architecture/widget-behavior
-  - category: Develop / Concepts / Architecture & execution / Threading in Streamlit
-    url: /develop/concepts/architecture/threading
   - category: Develop / Concepts / Multipage apps
     url: /develop/concepts/multipage-apps
   - category: Develop / Concepts / Multipage apps / Overview
@@ -77,6 +75,8 @@ site_menu:
     url: /develop/concepts/design/buttons
   - category: Develop / Concepts / App design / Dataframes
     url: /develop/concepts/design/dataframes
+  - category: Develop / Concepts / App design / Multithreading
+    url: /develop/concepts/design/multithreading
   - category: Develop / Concepts / App design / Using custom classes
     url: /develop/concepts/design/custom-classes
   - category: Develop / Concepts / App design / Working with timezones
