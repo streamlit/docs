@@ -365,10 +365,8 @@ if 'processed' not in st.session_state:
 if st.button('Process'):
     result = expensive_process(option, add)
     st.session_state.processed[option] = result
-
-if option in st.session_state.processed:
     st.write(f'Option {option} processed with add {add}')
-    st.write(st.session_state.processed[option][0])
+    result[0]
 ```
 
 Astute observers may think, "This feels a little like caching." We are only saving results relative to one parameter, but the pattern could easily be expanded to save results relative to both parameters. In that sense, yes, it has some similarities to caching, but also some important differences. When you save results in `st.session_state`, the results are only available to the current user in their current session. If you use [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) instead, the results are available to all users across all sessions. Furthermore, if you want to update a saved result, you have to clear all saved results for that function to do so.
