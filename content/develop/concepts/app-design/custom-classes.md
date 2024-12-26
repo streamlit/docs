@@ -19,7 +19,7 @@ We begin by covering some general-purpose patterns you can use for different typ
 
 ### Pattern 1: Define your class in a separate module
 
-This is the recommended, general solution. If possible, move class definitions into their own module file and import them into your app script. As long as you are not editing the file where your class is defined, Streamlit will not re-import it with each rerun. Therefore, if a class is defined in an external file and imported into your script, the class will not be redefined during the session.
+This is the recommended, general solution. If possible, move class definitions into their own module file and import them into your app script. As long as you are not editing the files that define your app, Streamlit will not re-import those classes with each rerun. Therefore, if a class is defined in an external file and imported into your script, the class will not be redefined during the session, unless you are actively editing your app.
 
 #### Example: Move your class definition
 
@@ -74,7 +74,7 @@ st.write(isinstance(st.session_state.my_instance, MyClass))
 st.button("Rerun")
 ```
 
-Streamlit only reloads code in imported modules when it detects the code has changed. Thus, if you are actively editing the file where your class is defined, you may need to stop and restart your Streamlit server to avoid an undesirable class redefinition mid-session.
+Streamlit only reloads code in imported modules when it detects the code has changed. Thus, if you are actively editing your app code, you may need to start a new session or restart your Streamlit server to avoid an undesirable class redefinition.
 
 ### Pattern 2: Force your class to compare internal values
 

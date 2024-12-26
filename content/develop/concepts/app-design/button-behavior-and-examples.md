@@ -306,7 +306,7 @@ begin.text_input('Name', key='name')
 
 ### Buttons to add other widgets dynamically
 
-When dynamically adding widgets to the page, make sure to use an index to keep the keys unique and avoid a `DuplicateWidgetID` error. In this example, we define a function `display_input_row` which renders a row of widgets. That function accepts an `index` as a parameter. The widgets rendered by `display_input_row` use `index` within their keys so that `dispaly_input_row` can be executed multiple times on a single script rerun without repeating any widget keys.
+When dynamically adding widgets to the page, make sure to use an index to keep the keys unique and avoid a `DuplicateWidgetID` error. In this example, we define a function `display_input_row` which renders a row of widgets. That function accepts an `index` as a parameter. The widgets rendered by `display_input_row` use `index` within their keys so that `display_input_row` can be executed multiple times on a single script rerun without repeating any widget keys.
 
 ```python
 import streamlit as st
