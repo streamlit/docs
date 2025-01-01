@@ -1,6 +1,6 @@
 ---
 title: Build a basic LLM chat app
-slug: /develop/tutorials/llms/build-conversational-apps
+slug: /develop/tutorials/chat-and-llm-apps/build-conversational-apps
 ---
 
 # Build a basic LLM chat app

@@ -1,6 +1,6 @@
 ---
 title: Build an LLM app using LangChain
-slug: /develop/tutorials/llms/llm-quickstart
+slug: /develop/tutorials/chat-and-llm-apps/llm-quickstart
 ---
 
 # Build an LLM app using LangChain
