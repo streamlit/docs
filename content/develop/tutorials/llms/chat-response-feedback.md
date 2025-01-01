@@ -1,6 +1,6 @@
 ---
 title: Collect user feedback about LLM responses
-slug: /develop/tutorials/llms/chat-response-feedback
+slug: /develop/tutorials/chat-and-llm-apps/chat-response-feedback
 ---
 
 # Collect user feedback about LLM responses
@@ -105,7 +105,7 @@ if prompt := st.chat_input("Say something"):
    You'll use `time` to build a simulated chat response stream.
 
 1. Save your `app.py` file and view your running app.
-1. Click "**Always rerun**" or hit your "**A**" key in your running app.
+1. In your browser, view your app, and click "**Always rerun**" or hit your "**A**" key.
 
    Your running preview will automatically update as you save changes to `app.py`. Your preview will still be blank. Return to your code.
 

@@ -1143,6 +1143,9 @@
 /knowledge-base/deploy/unable-to-edit-or-delete-apps-in-streamlit-community-cloud-after-modifying-github-username /deploy/streamlit-community-cloud/manage-your-app/rename-your-app
 /develop/tutorials/databases/deta-base /develop/tutorials/databases/
 /develop/quick-reference/older-versions /develop/quick-reference/release-notes/2024
+/develop/tutorials/llms /develop/tutorials/chat-and-llm-apps
+/develop/tutorials/llms/build-conversational-apps /develop/tutorials/chat-and-llm-apps/build-conversational-apps
+/develop/tutorials/llms/llm-quickstart /develop/tutorials/chat-and-llm-apps/llm-quickstart
 
 # Deep links included in streamlit/streamlit source code
 /st.connections.snowflakeconnection-configuration /develop/api-reference/connections/st.connections.snowflakeconnection

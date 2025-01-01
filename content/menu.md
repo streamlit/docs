@@ -687,14 +687,16 @@ site_menu:
   - category: Develop / Tutorials / Multipage apps / Build navigation with st.page_link
     url: /develop/tutorials/multipage/st.page_link-nav
     visible: false
-  - category: Develop / Tutorials / Work with LLMs
-    url: /develop/tutorials/llms
-  - category: Develop / Tutorials / Work with LLMs / Build a basic LLM chat app
-    url: /develop/tutorials/llms/build-conversational-apps
-  - category: Develop / Tutorials / Work with LLMs / Build an LLM app using LangChain
-    url: /develop/tutorials/llms/llm-quickstart
-  - category: Develop / Tutorials / Work with LLMs / Get chat response feedback
-    url: /develop/tutorials/llms/chat-response-feedback
+  - category: Develop / Tutorials / Chat & LLM apps
+    url: /develop/tutorials/chat-and-llm-apps
+  - category: Develop / Tutorials / Chat & LLM apps / Build a basic LLM chat app
+    url: /develop/tutorials/chat-and-llm-apps/build-conversational-apps
+  - category: Develop / Tutorials / Chat & LLM apps / Build an LLM app using LangChain
+    url: /develop/tutorials/chat-and-llm-apps/llm-quickstart
+  - category: Develop / Tutorials / Chat & LLM apps / Get chat response feedback
+    url: /develop/tutorials/chat-and-llm-apps/chat-response-feedback
+  - category: Develop / Tutorials / Chat & LLM apps / Validate & edit chat responses
+    url: /develop/tutorials/chat-and-llm-apps/validate-and-edit-chat-responses
   - category: Develop / Quick reference
     url: /develop/quick-reference
   - category: Develop / Quick reference / Cheat sheet

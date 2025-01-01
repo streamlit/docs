@@ -1,6 +1,6 @@
 ---
 title: Build LLM apps
-slug: /develop/tutorials/llms
+slug: /develop/tutorials/chat-and-llm-apps
 ---
 
 # Build LLM apps
