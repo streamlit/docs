@@ -57,6 +57,7 @@ script-src \
   https://widget.kapa.ai/kapa-widget.bundle.js \
   https://www.google.com/recaptcha/api.js \
   https://www.gstatic.com/recaptcha/releases/ \
+  https://www.google.com/recaptcha/enterprise.js \
 ; \
 style-src \
   'self' \

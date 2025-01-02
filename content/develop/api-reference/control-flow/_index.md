@@ -15,7 +15,7 @@ By default, Streamlit apps execute the script entirely, but we allow some functi
 
 <Image pure alt="screenshot" src="/images/api/dialog.jpg" />
 
-<h4>Modal dialogs</h4>
+<h4>Modal dialog</h4>
 
 Insert a modal dialog that can rerun independently from the rest of the script.
 

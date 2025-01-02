@@ -15,7 +15,7 @@ guaranteeing compatibility with _at least_ the last three minor versions of Pyth
 As new versions of Python are released, we will try to be compatible with the new version as soon
 as possible, though frequently we are at the mercy of other Python packages to support these new versions as well.
 
-Streamlit currently supports versions 3.8, 3.9, 3.10, 3.11, and 3.12 of Python.
+Streamlit currently supports versions 3.9, 3.10, 3.11, 3.12, and 3.13 of Python.
 
 ## Check #1: Is Streamlit running?
 
@@ -84,7 +84,7 @@ pip install --upgrade streamlit==1.0.0
 ```
 
 ...where `1.0.0` is the version you'd like to downgrade to. See
-[Changelog](/develop/quick-reference/changelog) for a complete list of Streamlit versions.
+[Release notes](/develop/quick-reference/release-notes) for a complete list of Streamlit versions.
 
 ## Check #6 [Windows]: Is Python added to your PATH?
 
@@ -125,47 +125,16 @@ Streamlit includes [pyarrow](https://arrow.apache.org/docs/python/) as an instal
 Using cached pyarrow-1.0.1.tar.gz (1.3 MB)
   Installing build dependencies ... error
   ERROR: Command errored out with exit status 1:
-   command: 'c:\users\streamlit\appdata\local\programs\python\python38-32\python.exe' 'c:\users\streamlit\appdata\local\programs\python\python38-32\lib\site-packages\pip' install --ignore-installed --no-user --prefix 'C:\Users\streamlit\AppData\Local\Temp\pip-build-env-s7owjrle\overlay' --no-warn-script-location --no-binary :none: --only-binary :none: -i https://pypi.org/simple -- 'cython >= 0.29' 'numpy==1.14.5; python_version<'"'"'3.8'"'"'' 'numpy==1.16.0; python_version>='"'"'3.8'"'"'' setuptools setuptools_scm wheel
+   command: 'c:\users\streamlit\appdata\local\programs\python\python38-32\python.exe' 'c:\users\streamlit\appdata\local\programs\python\python38-32\lib\site-packages\pip' install --ignore-installed --no-user --prefix 'C:\Users\streamlit\AppData\Local\Temp\pip-build-env-s7owjrle\overlay' --no-warn-script-location --no-binary :none: --only-binary :none: -i https://pypi.org/simple -- 'cython >= 0.29' 'numpy==1.14.5; python_version<'"'"'3.9'"'"'' 'numpy==1.16.0; python_version>='"'"'3.9'"'"'' setuptools setuptools_scm wheel
        cwd: None
 
   Complete output (319 lines):
 
       Running setup.py install for numpy: finished with status 'error'
       ERROR: Command errored out with exit status 1:
-       command: 'c:\users\streamlit\appdata\local\programs\python\python38-32\python.exe' -u -c 'import sys, setuptools, tokenize; sys.argv[0] = '"'"'C:\\Users\\streamlit\\AppData\\Local\\Temp\\pip-install-0jwfwx_u\\numpy\\setup.py'"'"'; __file__='"'"'C:\\Users\\streamlit\\AppData\\Local\\Temp\\pip-install-0jwfwx_u\\numpy\\setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' install --record 'C:\Users\streamlit\AppData\Local\Temp\pip-record-eys4l2gc\install-record.txt' --single-version-externally-managed --prefix 'C:\Users\streamlit\AppData\Local\Temp\pip-build-env-s7owjrle\overlay' --compile --install-headers 'C:\Users\streamlit\AppData\Local\Temp\pip-build-env-s7owjrle\overlay\Include\numpy'
-           cwd: C:\Users\streamlit\AppData\Local\Temp\pip-install-0jwfwx_u\numpy\
-      Complete output (298 lines):
-
-      blas_opt_info:
-      blas_mkl_info:
-      No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils
-      customize MSVCCompiler
-        libraries mkl_rt not found in ['c:\\users\\streamlit\\appdata\\local\\programs\\python\\python38-32\\lib', 'C:\\', 'c:\\users\\streamlit\\appdata\\local\\programs\\python\\python38-32\\libs']
-        NOT AVAILABLE
-
-      blis_info:
-      No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils
-      customize MSVCCompiler
-        libraries blis not found in ['c:\\users\\streamlit\\appdata\\local\\programs\\python\\python38-32\\lib', 'C:\\', 'c:\\users\\streamlit\\appdata\\local\\programs\\python\\python38-32\\libs']
-        NOT AVAILABLE
 
       # <truncated for brevity> #
 
-      c:\users\streamlit\appdata\local\programs\python\python38-32\lib\distutils\dist.py:274: UserWarning: Unknown distribution option: 'define_macros'
-        warnings.warn(msg)
-      running install
-      running build
-      running config_cc
-      unifing config_cc, config, build_clib, build_ext, build commands --compiler options
-      running config_fc
-      unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
-      running build_src
-      build_src
-      building py_modules sources
-      creating build
-      creating build\src.win32-3.8
-      creating build\src.win32-3.8\numpy
-      creating build\src.win32-3.8\numpy\distutils
       building library "npymath" sources
       No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils
       error: Microsoft Visual C++ 14.0 is required. Get it with "Build Tools for Visual Studio": https://visualstudio.microsoft.com/downloads/

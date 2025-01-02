@@ -5,7 +5,7 @@ slug: /develop/quick-reference/cheat-sheet
 
 # Streamlit API cheat sheet
 
-This is a summary of the docs for the latest version of Streamlit, [v1.39.0](https://pypi.org/project/streamlit/1.39.0/).
+This is a summary of the docs for the latest version of Streamlit, [v1.41.0](https://pypi.org/project/streamlit/1.41.0/).
 
 <Masonry>
 
@@ -64,7 +64,7 @@ streamlit --version
 ```python
 # Magic commands implicitly
 # call st.write().
-"_This_ is some **Markdown***"
+"_This_ is some **Markdown**"
 my_variable
 "dataframe:", my_data_frame
 
@@ -78,12 +78,12 @@ my_variable
 
 ```python
 st.write("Most objects") # df, err, func, keras!
-st.write(["st", "is <", 3]) # see *
+st.write(["st", "is <", 3])
 st.write_stream(my_generator)
 st.write_stream(my_llm_stream)
 
 st.text("Fixed width text")
-st.markdown("_Markdown_") # see *
+st.markdown("_Markdown_")
 st.latex(r""" e^{i\pi} + 1 = 0 """)
 st.title("My title")
 st.header("My header")
@@ -284,13 +284,15 @@ fragment_function()
 ```python
 st.button("Click me")
 st.download_button("Download file", data)
-st.feedback("thumbs")
 st.link_button("Go to gallery", url)
 st.page_link("app.py", label="Home")
 st.data_editor("Edit data", data)
 st.checkbox("I agree")
-st.toggle("Enable")
+st.feedback("thumbs")
+st.pills("Tags", ["Sports", "Politics"])
 st.radio("Pick one", ["cats", "dogs"])
+st.segmented_control("Filter", ["Open", "Closed"])
+st.toggle("Enable")
 st.selectbox("Pick one", ["cats", "dogs"])
 st.multiselect("Buy", ["milk", "apples", "potatoes"])
 st.slider("Pick a number", 0, 100)
@@ -301,7 +303,7 @@ st.text_area("Text to translate")
 st.date_input("Your birthday")
 st.time_input("Meeting time")
 st.file_uploader("Upload a CSV")
-st.experimental_audio_input("Record a voice message")
+st.audio_input("Record a voice message")
 st.camera_input("Take a picture")
 st.color_picker("Pick a color")
 

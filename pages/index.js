@@ -192,63 +192,66 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/develop/api-reference/widgets/st.audio_input"
+                href="/develop/api-reference/layout/st.columns"
               >
-                <i className="material-icons-sharp">mic</i>
-                <h4>Audio input</h4>
+                <i className="material-icons-sharp">view_column</i>
+                <h4>Add borders to columns and metrics</h4>
                 <p>
-                  <code>st.experimental_audio_input</code> lets users record
-                  sound with their microphone.
+                  <code>st.columns</code> and <code>st.metric</code> have a new
+                  <code>border</code> parameter to show an optional border.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/charts/st.pydeck_chart"
+                href="/develop/api-reference/text/st.markdown"
               >
-                <i className="material-icons-sharp">pin_drop</i>
-                <h4>Pydeck chart selections</h4>
+                <i className="material-icons-sharp">palette</i>
+                <h4>Primary color in Markdown</h4>
                 <p>
-                  <code>st.pydeck_chart</code> can return user selections! We've
-                  also added <code>height</code> and <code>width</code>
-                  parameters.
+                  Now you can use the color "primary" in Markdown to color or
+                  highlight text with your app's primary color.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/data/st.column_config"
+              >
+                <i className="material-icons-sharp">push_pin</i>
+                <h4>Pin or freeze dataframe columns</h4>
+                <p>
+                  Column configuration has a new <code>pinned</code> parameter
+                  to pin columns on the left as users scroll horizontally.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
                 href="/develop/api-reference/widgets/st.button"
               >
-                <i className="material-icons-sharp">sentiment_very_satisfied</i>
-                <h4>Button icons</h4>
+                <i className="material-icons-sharp">ads_click</i>
+                <h4>Tertiary buttons</h4>
                 <p>
-                  You can add icons to buttons with a new <code>icon</code>
-                  parameter.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/develop/api-reference/media/st.logo">
-                <i className="material-icons-sharp">branding_watermark</i>
-                <h4>Logo sizing</h4>
-                <p>
-                  You can customize logo size for <code>st.logo</code>.
+                  Buttons have a new, "tertiary" type for a more subtle
+                  appearance.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/navigation/st.navigation"
+                href="/develop/api-reference/widgets/st.pills"
               >
-                <i className="material-icons-sharp">unfold_less</i>
-                <h4>Customize menu expansion</h4>
+                <i className="material-icons-sharp">more_horiz</i>
+                <h4>Pills</h4>
                 <p>
-                  You can set the menu as collapsible or always-expanded for
-                  <code>st.navigation</code>.
+                  You can create a single- or multi-select group of
+                  pill-buttons.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/execution-flow/st.form"
+                href="/develop/api-reference/widgets/st.segmented_control"
               >
-                <i className="material-icons-sharp">assignment</i>
-                <h4>Form submission</h4>
-                <p>You can configure the enter-to-submit behavior of forms.</p>
+                <i className="material-icons-sharp">view_week</i>
+                <h4>Segmented control</h4>
+                <p>You can create a segmented button or button group.</p>
               </RefCard>
             </TileContainer>
 

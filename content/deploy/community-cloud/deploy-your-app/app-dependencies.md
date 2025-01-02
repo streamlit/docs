@@ -23,7 +23,13 @@ directory as your app's entrypoint file.
 
 With each `import` statement in your script, you are bringing in a Python dependency. You need to tell Community Cloud how to install those dependencies through a Python package manager. We recommend using a `requirements.txt` file, which is based on `pip`.
 
-You should _not_ include <a href="https://docs.python.org/3/py-modindex.html" target="_blank">built-in Python libraries</a> like `math` or `random` in your `requirements.txt` file. These are a part of Python and aren't installed separately. Also, Community Cloud has `streamlit` installed by default. You don't strictly need to include `streamlit` unless you want to pin or restrict the version. If you deploy an app without a `requirements.txt` file, your app will run in an environment with just `streamlit` (and its dependencies) installed.
+You should _not_ include <a href="https://docs.python.org/3/py-modindex.html" target="_blank">built-in Python libraries</a> like `math`, `random`, or `distutils` in your `requirements.txt` file. These are a part of Python and aren't installed separately. Also, Community Cloud has `streamlit` installed by default. You don't strictly need to include `streamlit` unless you want to pin or restrict the version. If you deploy an app without a `requirements.txt` file, your app will run in an environment with just `streamlit` (and its dependencies) installed.
+
+<Important>
+
+The version of Python you use is important! Built-in libraries change between versions of Python and other libraries may have specific version requirements, too. Whenever Streamlit supports a new version of Python, Community Cloud quickly follows to default to that new version of Python. Always develop your app in the same version of Python you will use to deploy it. For more information about setting the version of Python when you deploy your app, see [Optional: Configure secrets and Python version](/deploy/streamlit-community-cloud/deploy-your-app/deploy#optional-configure-secrets-and-python-version).
+
+</Important>
 
 If you have a script like the following, no extra dependencies would be needed since `pandas` and `numpy` are installed as direct dependencies of `streamlit`. Similarly, `math` and `random` are built into Python.
 
@@ -61,12 +67,16 @@ In the above example, `streamlit` is pinned to version `1.24.1`, `pandas` must b
 
 ### Other Python package managers
 
-There are other Python package managers in addition to `pip`. If you want to consider alternatives to using a `requirements.txt` file, Community Cloud will look for and use the first dependency file it finds in the following order:
+There are other Python package managers in addition to `pip`. If you want to consider alternatives to using a `requirements.txt` file, Community Cloud will use the first dependency file it finds. Community Cloud will search the directory where your entrypoint file is, then it will search the root of your repository. In each location, dependency files are prioritized in the following order:
 
 <table style={{ textAlign: 'center' }}>
     <tr>
         <th style={{ fontSize: '1.2em' }}> Recognized Filename</th>
         <th style={{ fontSize: '1.2em' }}>Python Package Manager</th>
+    </tr>
+    <tr>
+        <td style={{ fontSize: '1em' }}><code>uv.lock</code></td>
+        <td style={{ fontSize: '1em' }}><a href="https://docs.astral.sh/uv/concepts/projects/sync/" target="_blank">uv</a></td>
     </tr>
     <tr>
         <td style={{ fontSize: '1em' }}><code>Pipfile</code></td>
@@ -78,7 +88,7 @@ There are other Python package managers in addition to `pip`. If you want to con
     </tr>
     <tr>
         <td style={{ fontSize: '1em' }}><code>requirements.txt</code></td>
-        <td style={{ fontSize: '1em' }}><a href="https://pip.pypa.io/en/stable/user_guide/#requirements-files" target="_blank">pip</a></td>
+        <td style={{ fontSize: '1em' }}><a href="https://pip.pypa.io/en/stable/user_guide/#requirements-files" target="_blank">pip</a><sup>&dagger;</sup></td>
     </tr>
     <tr>
         <td style={{ fontSize: '1em' }}><code>pyproject.toml</code></td>
@@ -86,15 +96,17 @@ There are other Python package managers in addition to `pip`. If you want to con
     </tr>
 </table>
 
+&dagger; For efficiency, Community Cloud will attempt to process `requirements.txt` with `uv`, but will fall back to `pip` if needed. `uv` is generally faster and more efficient than `pip`.
+
 <Warning>
 
-You should only use one requirements file for your app. If you include more than one (e.g. `requirements.txt` and `Pipfile`), only the first file encountered will be used as described above. Additionally, Streamlit will first look in the directory of your Streamlit app; however, if no requirements file is found, Streamlit will then look at the root of the repo.
+You should only use one dependency file for your app. If you include more than one (e.g. `requirements.txt` and `environment.yaml`), only the first file encountered will be used as described above, with any dependency file in your entrypoint file's directory taking precedence over any dependency file in the root of your repository.
 
 </Warning>
 
 ## apt-get dependencies
 
-For many apps, a `packages.txt` file is not required. However, if your script requires any software to be installed that is not a Python package, you need a `packages.txt` file. Community Cloud is built on Debian Linux. Anything you want to `apt-get install` must go in your `packages.txt` file.
+For many apps, a `packages.txt` file is not required. However, if your script requires any software to be installed that is not a Python package, you need a `packages.txt` file. Community Cloud is built on Debian Linux. Anything you want to `apt-get install` must go in your `packages.txt` file. To browse available packages that can be installed, see the Debian 11 ("bullseye") [package list](https://packages.debian.org/bullseye/).
 
 If `packages.txt` exists in the root directory of your repository we automatically detect it, parse it, and install the listed packages. You can read more about apt-get in <a href="https://linux.die.net/man/8/apt-get" target="_blank">Linux documentation</a>.
 

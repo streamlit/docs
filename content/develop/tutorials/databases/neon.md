@@ -28,7 +28,7 @@ This guide explains how to securely access a [Neon database](https://neon.tech/)
 
 ## Create a Neon project
 
-If you already have a Neon project that you want to use, feel free to [skip to the next step](#add-neon-connection-string-to-your-local-app-secrets).
+If you already have a Neon project that you want to use, you can [skip to the next step](#add-neon-connection-string-to-your-local-app-secrets).
 
 1. Log in to the Neon console and navigate to the [Projects](https://console.neon.tech/app/projects) section.
 1. If you see a prompt to enter your project name, skip to the next step. Otherwise, click the "**New Project**" button to create a new project.

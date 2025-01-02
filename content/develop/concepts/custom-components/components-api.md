@@ -91,8 +91,8 @@ To make the process of creating bi-directional Streamlit Components easier, we'v
 
 To build a Streamlit Component, you need the following installed in your development environment:
 
-- Python 3.8 - Python 3.12
-- Streamlit 1.11.1 or higher
+- Python 3.9 - Python 3.13
+- Streamlit
 - [nodejs](https://nodejs.org/en/)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 

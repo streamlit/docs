@@ -19,13 +19,13 @@ Get all the information you need to deploy your app and share it with your users
         icon="cloud"
         bold="Streamlit Community Cloud."
         href="/deploy/streamlit-community-cloud"
-    >Deploy your app on our free platform and join a community of developers who share their apps around the world.</InlineCallout>
+    >Deploy your app on our free platform and join a community of developers who share their apps around the world. This is a great place for your non-commerical, personal, and educational apps.</InlineCallout>
     <InlineCallout
         color="lightBlue-70"
         icon="ac_unit"
-        bold="Streamlit in Snowflake"
-        href="https://docs.snowflake.com/developer-guide/streamlit/about-streamlit"
-    >Deploy your app in Snowflake for a secure, enterprise-grade environment.</InlineCallout>
+        bold="Snowflake."
+        href="/deploy/snowflake"
+    >Deploy your app in Snowflake for a secure, enterprise-grade environment. This is a great place for your business apps.</InlineCallout>
     <InlineCallout
         color="lightBlue-70"
         icon="bolt"
