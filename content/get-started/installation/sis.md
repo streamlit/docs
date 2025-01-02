@@ -31,13 +31,13 @@ All you need is an email address! Everything else happens in your 30-day trial a
     <Image alt="Choose your Snowflake edition, provider, and region" src="/images/get-started/SiS-region.png" />
 </div>
 
-1. Answer or skip a few questions to let us know more about yourself.
+1. Answer a few questions to let us know more about yourself, or skip them.
 
 1. A message will display: "You're now signed up!" Go to your email, and click on the activation link. (Within your link, note the subdomain. This is your Snowflake account identifier. `https://<account_identifier>.snowflakecomputing.com`)
 
 1. Set your username and password. This will be an admin user account within your Snowflake account. Your Snowflake account can have multiple users within it.
 
-1. If you are not signed in after setting your password, follow the instructions to enter your Snowflake account identifier, then enter your username and password. If you've accidentally closed your browser, you can log in at [app.snowflake.com](https://app.snowflake.com/).
+1. If you are not signed in after setting your password, follow the instructions to enter your Snowflake account identifier, and then enter your username and password. If you've accidentally closed your browser, you can sign in at [app.snowflake.com](https://app.snowflake.com/).
 
 Congratulations! You have a trial Snowflake account.
 
@@ -89,7 +89,7 @@ The databases in the above screenshot are as follows:
    - App location: "STREAMLIT_DB" and "PUBLIC"
    - App warehouse: "COMPUTE_WH" (default) or "STREAMLIT_WH" (if you created a new warehouse)
 
-   If you can't select your database, refresh the page to ensure the interface is displaying current information.
+   If you can't select your database, refresh the page to ensure that the interface is displaying current information.
 
 1. Click "**Create**." (Note that the app will run with the rights of "ACCOUNTADMIN" for simplicity. You can curate your roles and permissions to choose who can create and access apps.)
 
@@ -107,7 +107,7 @@ The databases in the above screenshot are as follows:
    st.write("Hello World")
    ```
 
-   If you want to get back to the sample code later, you can always make another app to edit the same example again.
+   If you want to return to the sample code later, you can always make another app to edit the same example again.
 
 1. In the upper-right corner, click the blue "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>play_arrow</i> **Run**" button to make the running app reflect your changes.
 
@@ -135,17 +135,17 @@ The databases in the above screenshot are as follows:
 
 1. Optional: Make more edits to your app. You must interact with your app or click the blue "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>play_arrow</i> **Run**" button to display the changes. This is different from a local environment where you can save your changes to trigger a rerun.
 
-1. To go back to Snowsight, in the upper-left corner, click "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>chevron_left</i> **Streamlit Apps**."
+1. To return to Snowsight, in the upper-left corner, click "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>chevron_left</i> **Streamlit Apps**."
 
 ## Return to your app
 
-When you want to view or edit your app again, you can return to it through Snowsight. If you are returning to the site, you can log in at [app.snowflake.com](https://app.snowflake.com/).
+When you want to view or edit your app again, you can return to it through Snowsight. If you are returning to the site, you can sign in at [app.snowflake.com](https://app.snowflake.com/).
 
 1. In the left navigation, select "**Projects**" → "**Streamlit**."
 
 1. In your list of apps, click "**Hello World**."
 
-   If you don't see your app, check that you have your role set to "ACCOUNTADMIN" as described in [Optional: Create a warehouse](/get-started/installation/streamlit-in-snowflake#optional-create-a-warehouse).
+   If you don't see your app, check that your role is set to "ACCOUNTADMIN" as described in [Optional: Create a warehouse](/get-started/installation/streamlit-in-snowflake#optional-create-a-warehouse).
 
 1. Your app will open in viewing mode. To edit your app, in the upper-right corner, click "**Edit**."
 

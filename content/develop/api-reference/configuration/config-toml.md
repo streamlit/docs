@@ -21,7 +21,7 @@ To define your configuration globally, you must first locate your global `.strea
 
 ```toml
 [client]
-showErrorDetails = false
+showErrorDetails = "none"
 
 [theme]
 primaryColor = "#F63366"
@@ -69,7 +69,7 @@ level = "info"
 # Python's documentation for available attributes:
 # https://docs.python.org/3/library/logging.html#formatter-objects
 # Default: "%(asctime)s %(message)s"
-messageFormat = "%(asctime)s %(levelname) -7s %(name)s: %(message)s"
+messageFormat = "%(asctime)s %(message)s"
 ```
 
 #### Client
@@ -78,26 +78,39 @@ messageFormat = "%(asctime)s %(levelname) -7s %(name)s: %(message)s"
 [client]
 
 # Controls whether uncaught app exceptions and deprecation warnings
-# are displayed in the browser. By default, this is set to True and
-# Streamlit displays app exceptions and associated tracebacks, and
-# deprecation warnings, in the browser.
-# If set to False, deprecation warnings and full exception messages
-# will print to the console only. Exceptions will still display in the
-# browser with a generic error message. For now, the exception type and
-# traceback show in the browser also, but they will be removed in the
-# future.
-# Default: true
-showErrorDetails = true
+# are displayed in the browser. This can be one of the following:
+# - "full"       : In the browser, Streamlit displays app deprecation
+#                  warnings and exceptions, including exception types,
+#                  exception messages, and associated tracebacks.
+# - "stacktrace" : In the browser, Streamlit displays exceptions,
+#                  including exception types, generic exception messages,
+#                  and associated tracebacks. Deprecation warnings and
+#                  full exception messages will only print to the
+#                  console.
+# - "type"       : In the browser, Streamlit displays exception types and
+#                  generic exception messages. Deprecation warnings, full
+#                  exception messages, and associated tracebacks only
+#                  print to the console.
+# - "none"       : In the browser, Streamlit displays generic exception
+#                  messages. Deprecation warnings, full exception
+#                  messages, associated tracebacks, and exception types
+#                  will only print to the console.
+# - True         : This is deprecated. Streamlit displays "full"
+#                  error details.
+# - False        : This is deprecated. Streamlit displays "stacktrace"
+#                  error details.
+# Default: "full"
+showErrorDetails = "full"
 
 # Change the visibility of items in the toolbar, options menu,
 # and settings dialog (top right of the app).
 # Allowed values:
-# * "auto"      : Show the developer options if the app is accessed through
+# - "auto"      : Show the developer options if the app is accessed through
 #                 localhost or through Streamlit Community Cloud as a developer.
 #                 Hide them otherwise.
-# * "developer" : Show the developer options.
-# * "viewer"    : Hide the developer options.
-# * "minimal"   : Show only options set externally (e.g. through
+# - "developer" : Show the developer options.
+# - "viewer"    : Hide the developer options.
+# - "minimal"   : Show only options set externally (e.g. through
 #                 Streamlit Community Cloud) or through st.set_page_config.
 #                 If there are no options left, hide the menu.
 # Default: "auto"
@@ -140,9 +153,9 @@ enforceSerializableSessionState = false
 # during a script re-run. For more information, check out the docs:
 # https://docs.streamlit.io/develop/concepts/design/custom-classes#enums
 # Allowed values:
-# * "off"          : Disables Enum coercion.
-# * "nameOnly"     : Enum classes can be coerced if their member names match.
-# * "nameAndValue" : Enum classes can be coerced if their member names AND
+# - "off"          : Disables Enum coercion.
+# - "nameOnly"     : Enum classes can be coerced if their member names match.
+# - "nameAndValue" : Enum classes can be coerced if their member names AND
 #                    member values match.
 # Default: "nameOnly"
 enumCoercion = "nameOnly"
@@ -162,11 +175,11 @@ folderWatchBlacklist = []
 # Change the type of file watcher used by Streamlit, or turn it off
 # completely.
 # Allowed values:
-# * "auto"     : Streamlit will attempt to use the watchdog module, and
+# - "auto"     : Streamlit will attempt to use the watchdog module, and
 #                falls back to polling if watchdog is not available.
-# * "watchdog" : Force Streamlit to use the watchdog module.
-# * "poll"     : Force Streamlit to always use polling.
-# * "none"     : Streamlit will not watch files.
+# - "watchdog" : Force Streamlit to use the watchdog module.
+# - "poll"     : Force Streamlit to always use polling.
+# - "none"     : Streamlit will not watch files.
 # Default: "auto"
 fileWatcherType = "auto"
 
@@ -201,19 +214,17 @@ port = 8501
 # Default: ""
 baseUrlPath = ""
 
-# Enables support for Cross-Origin Resource Sharing (CORS) protection, for
-# added security.
-# Due to conflicts between CORS and XSRF, if `server.enableXsrfProtection` is
-# on and `server.enableCORS` is off at the same time, we will prioritize
-# `server.enableXsrfProtection`.
+# Enables support for Cross-Origin Resource Sharing (CORS) protection,
+# for added security.
+# If XSRF protection is enabled and CORS protection is disabled at the
+# same time, Streamlit will enable them both instead.
 # Default: true
 enableCORS = true
 
 # Enables support for Cross-Site Request Forgery (XSRF) protection, for
 # added security.
-# Due to conflicts between CORS and XSRF, if `server.enableXsrfProtection` is
-# on and `server.enableCORS` is off at the same time, we will prioritize
-# `server.enableXsrfProtection`.
+# If XSRF protection is enabled and CORS protection is disabled at the
+# same time, Streamlit will enable them both instead.
 # Default: true
 enableXsrfProtection = true
 
