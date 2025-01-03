@@ -1,0 +1,153 @@
+.PopoverContent {
+  @apply bg-gray-20 rounded-md shadow-2xl text-gray-70;
+}
+:global(.dark) .PopoverContent {
+  @apply bg-gray-90 text-gray-40;
+}
+.PopoverContent legend {
+  @apply text-sm tracking-tight;
+}
+.PopoverClose {
+  @apply h-6 w-6 absolute top-1.5 right-1.5;
+}
+.PopoverClose:hover {
+  @apply opacity-70;
+}
+
+.VersionButton {
+  @apply font-mono font-bold flex flex-row md:flex-row-reverse text-lg;
+}
+:global(.dark) .VersionButton {
+  @apply text-gray-40;
+}
+.VersionButton:hover {
+  @apply opacity-60;
+}
+.VersionButton i {
+  @apply mt-1;
+}
+.PlatformOption {
+  @apply flex-none;
+}
+
+/* Platform selection */
+/* ------------------ */
+.RadioGroupRoot {
+  @apply flex flex-col gap-1 pl-1;
+}
+.RadioGroupItem {
+  @apply bg-white w-4 h-4 rounded-2xl border border-gray-70;
+}
+:global(.dark) .RadioGroupItem {
+  @apply border-gray-70 bg-gray-40;
+}
+.RadioGroupItem:hover {
+  @apply opacity-70 cursor-pointer;
+}
+.RadioGroupIndicator {
+  @apply flex items-center justify-center w-full h-full relative;
+}
+.RadioGroupIndicator::after {
+  content: "";
+  @apply bg-indigo-70 block w-2 h-2 rounded-md;
+}
+.RadioLabel {
+  @apply tracking-tight text-base pl-2;
+}
+.RadioLabel:hover {
+  @apply opacity-70 cursor-pointer;
+}
+
+/* Lower section (scroll area) */
+/* --------------------------- */
+.ScrollAreaRoot {
+  @apply mt-4 w-[200px] rounded-md overflow-hidden;
+}
+.ScrollAreaViewport {
+  @apply w-full h-full max-h-96;
+}
+.ScrollAreaScrollbar {
+  @apply flex touch-none p-0.5;
+}
+.ScrollAreaScrollbar[data-orientation="vertical"] {
+  @apply w-2.5;
+}
+.ScrollAreaThumb {
+  @apply bg-gray-40 rounded-md relative flex-1;
+}
+/* increase target size for touch devices https://www.w3.org/WAI/WCAG21/Understanding/target-size.html */
+.ScrollAreaThumb::before {
+  content: "";
+  @apply absolute top-1/2 left-1/2 w-full h-full min-w-11 min-h-11 -translate-x-1/2 -translate-y-1/2;
+}
+.FadeTop {
+  @apply bg-gradient-to-b from-white to-transparent h-8 -mb-8 mr-3 relative z-auto;
+}
+:global(.dark) .FadeTop {
+  @apply bg-gradient-to-b from-gray-90 to-transparent;
+}
+.FadeBottom {
+  @apply bg-gradient-to-t from-white to-transparent h-8 -mt-8 mr-3 relative z-auto;
+}
+:global(.dark) .FadeBottom {
+  @apply bg-gradient-to-t from-gray-90 to-transparent;
+}
+
+/* List of versions within the scroll area*/
+/* -------------------------------------- */
+.VersionListRoot {
+  @apply flex flex-col gap-1 w-full pl-1 pt-6 pb-6;
+}
+.VersionListItem {
+  @apply w-4 h-4 border-transparent;
+}
+.VersionListItem:hover {
+  @apply opacity-70 cursor-pointer;
+}
+.VersionListIndicator {
+  @apply flex items-center justify-center w-full h-full relative top-1.5;
+}
+.VersionListIndicator::after {
+  content: "check";
+  @apply text-indigo-70 text-2xl;
+}
+.VersionLabel {
+  @apply tracking-tight text-base pl-2 font-mono select-none;
+}
+.VersionLabel:hover {
+  @apply opacity-70 cursor-pointer;
+}
+
+.TabsRoot {
+  @apply flex flex-row;
+}
+
+.TabsList {
+  @apply flex flex-col shrink-0 border-r border-gray-40;
+}
+
+.TabsTitle {
+  @apply py-2 pl-4 text-sm mb-0;
+}
+
+.TabsTrigger {
+  @apply shrink-0 grow-0 h-14 px-4 select-none text-left;
+}
+.TabsTrigger:hover {
+  @apply text-indigo-70;
+}
+.TabsTrigger[data-state="active"] {
+  @apply text-indigo-70 border-l-indigo-70 border-l-4 bg-gray-30 pl-3;
+}
+:global(.dark) .TabsTrigger[data-state="active"] {
+  @apply bg-gray-80 bg-opacity-20;
+}
+
+.TabsContent {
+  @apply pl-2 bg-white rounded-r-md;
+  flex-grow: 1;
+  outline: none;
+}
+:global(.dark) .TabsContent {
+  @apply bg-gray-90;
+}
