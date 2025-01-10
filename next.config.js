@@ -25,7 +25,7 @@ for (const index in Object.keys(PLATFORM_NOTES)) {
 const PLATFORM_VERSIONS = platformVersions;
 const PLATFORM_LATEST_VERSIONS = latestPlatformVersion;
 const PLATFORMS = {};
-PLATFORMS["oss"] = "Open-source Streamlit";
+PLATFORMS["oss"] = "All versions";
 PLATFORMS["sis"] = "Streamlit in Snowflake";
 PLATFORMS["na"] = "Snowflake Native Apps";
 

@@ -79,7 +79,7 @@ const VersionSelector = ({
             onValueChange={handleSelectPlatform}
           >
             <Tabs.List className={styles.TabsList} aria-label="Platform">
-              <p className={styles.TabsTitle}>Show notes for:</p>
+              <p className={styles.TabsTitle}>Versions by platform:</p>
               {Object.keys(PLATFORMS).map((availablePlatform) => (
                 <Tabs.Trigger
                   className={styles.TabsTrigger}
