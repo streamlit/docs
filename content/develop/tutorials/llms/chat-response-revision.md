@@ -185,7 +185,7 @@ elif st.session_state.stage == "rewrite":
 
 </Collapse>
 
-<Cloud name="doc-tutorial-chat-response-feedback" height="600px" />
+<Cloud name="doc-tutorial-chat-response-revision" height="600px" />
 
 ## Build the example
 
