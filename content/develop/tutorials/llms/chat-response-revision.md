@@ -150,6 +150,9 @@ elif st.session_state.stage == "correct":
             if cols[1].button("Remove"):
                 st.session_state.validation["sentences"].pop(focus)
                 st.session_state.validation["valid"].pop(focus)
+                st.session_state.pending = " ".join(
+                    st.session_state.validation["sentences"]
+                )
                 st.rerun()
         else:
             cols = st.columns(2)
@@ -620,12 +623,20 @@ When `st.session_state.stage` is `"correct"`, the user can correct or accept the
 
    If the user clicks the "**Update**" button, the app will rerun and execute this conditional block. At the end of this block, the app will rerun again and continue in the `"correct"` stage with the next error highlighted.
 
-1. In the second column, start a conditional block and display a button labeled "Remove." Within the conditional block, pop the response sentence and validation information out of their lists in Session State, and rerun the app.
+1. In the second column, start a conditional block and display a button labeled "Remove." Within the conditional block, pop the response sentence and validation information out of their lists in Session State.
 
    ```python
                if cols[1].button("Remove"):
                    st.session_state.validation["sentences"].pop(focus)
                    st.session_state.validation["valid"].pop(focus)
+   ```
+
+1. Update the complete response in `st.session_state.pending` with the new, resultant response, and rerun the app.
+
+   ```python
+                   st.session_state.pending = " ".join(
+                       st.session_state.validation["sentences"]
+                   )
                    st.rerun()
    ```
 

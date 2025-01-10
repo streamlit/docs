@@ -37,14 +37,17 @@ Here's a look at what you'll build:
 import streamlit as st
 import time
 
+
 def chat_stream(prompt):
     response = f'You said, "{prompt}" ...interesting.'
     for char in response:
         yield char
-        time.sleep(.02)
+        time.sleep(0.02)
+
 
 def save_feedback(index):
     st.session_state.history[index]["feedback"] = st.session_state[f"feedback_{index}"]
+
 
 if "history" not in st.session_state:
     st.session_state.history = []
@@ -60,22 +63,22 @@ for i, message in enumerate(st.session_state.history):
                 key=f"feedback_{i}",
                 disabled=feedback is not None,
                 on_change=save_feedback,
-                args=[i]
+                args=[i],
             )
 
 if prompt := st.chat_input("Say something"):
     with st.chat_message("user"):
         st.write(prompt)
-    st.session_state.history.append({"role":"user","content":prompt})
+    st.session_state.history.append({"role": "user", "content": prompt})
     with st.chat_message("assistant"):
         response = st.write_stream(chat_stream(prompt))
         st.feedback(
             "thumbs",
             key=f"feedback_{len(st.session_state.history)}",
             on_change=save_feedback,
-            args=[len(st.session_state.history)]
+            args=[len(st.session_state.history)],
         )
-    st.session_state.history.append({"role":"assistant","content":response})
+    st.session_state.history.append({"role": "assistant", "content": response})
 ```
 
 </Collapse>
@@ -120,7 +123,7 @@ def chat_stream(prompt):
     response = f'You said, "{prompt}" ...interesting.'
     for char in response:
         yield char
-        time.sleep(.02)
+        time.sleep(0.02)
 ```
 
 </Collapse>
@@ -213,7 +216,7 @@ To make your chat app stateful, you'll save the conversation history into Sessio
                    key=f"feedback_{i}",
                    disabled=feedback is not None,
    +               on_change=save_feedback,
-   +               args=[i]
+   +               args=[i],
                )
    ```
 
@@ -225,7 +228,7 @@ To make your chat app stateful, you'll save the conversation history into Sessio
    if prompt := st.chat_input("Say something"):
        with st.chat_message("user"):
            st.write(prompt)
-       st.session_state.history.append({"role":"user","content":prompt})
+       st.session_state.history.append({"role": "user", "content": prompt})
    ```
 
    The `st.chat_input` widget acts like a button. When a user enters a prompt and clicks the send icon, it triggers a rerun. During the rerun, the preceding code displays the chat history. When this conditional block executes, the user's new prompt is displayed and then added to the history. On the next rerun, this prompt will be cleared from the widget and instead displayed as part of the history.
@@ -237,7 +240,7 @@ To make your chat app stateful, you'll save the conversation history into Sessio
    if prompt:
        with st.chat_message("user"):
            st.write(prompt)
-       st.session_state.history.append({"role":"user","content":prompt})
+       st.session_state.history.append({"role": "user", "content": prompt})
    ```
 
 1. Process the prompt and display the response in another chat message container along with a feedback widget. When the chat stream is finished, append the response to the chat history.
@@ -249,9 +252,9 @@ To make your chat app stateful, you'll save the conversation history into Sessio
               "thumbs",
               key=f"feedback_{len(st.session_state.history)}",
               on_change=save_feedback,
-              args=[len(st.session_state.history)]
+              args=[len(st.session_state.history)],
           )
-      st.session_state.history.append({"role":"assistant","content":response})
+      st.session_state.history.append({"role": "assistant", "content": response})
    ```
 
    This is the same pattern used for the user's prompt. Within the body of the conditional block, the response is displayed and then added to the history. On the next rerun, this response will be display as a part of the history.
@@ -276,7 +279,7 @@ At this point, the app allows users to rate any response once at any point in ti
 -                 key=f"feedback_{i}",
 -                 disabled=feedback is not None,
 -                 on_change=save_feedback,
--                 args=[i]
+-                 args=[i],
 -             )
 ```
 
@@ -294,6 +297,6 @@ Alternatively, if you want to allow users to change their responses, you can jus
                   key=f"feedback_{i}",
 -                 disabled=feedback is not None,
                   on_change=save_feedback,
-                  args=[i]
+                  args=[i],
               )
 ```
