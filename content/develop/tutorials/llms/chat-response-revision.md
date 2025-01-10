@@ -739,4 +739,30 @@ When `st.session_state.stage` is `"rewrite"`, the user can freely edit the respo
 
 ## Improve the example
 
-Now that you have a working app, you can iteratively improve it. Since there are some common elements between stages, you may want to introduce additional functions to reduce duplicate code. Alternatively, you can use callbacks with the buttons so the app doesn't rerun twice in a row.
+Now that you have a working app, you can iteratively improve it. Since there are some common elements between stages, you may want to introduce additional functions to reduce duplicate code. You can use callbacks with the buttons so the app doesn't rerun twice in a row. Alternatively, you can handle more edge cases.
+
+The example includes some protection against saving an empty response, but it isn't comprehensive. If every sentence in a response is marked as an error, a user can remove each of them in the `"correct"` stage and accept the empty result. Try disabling the "**Accept**" but in the `"correct"` stage if the response is empty.
+
+To see another edge case, try this in the running example:
+
+1. Submit a prompt.
+1. Select "**Rewrite answer**."
+1. In the text area, highlight all text and press delete. Do not click or tab outside of the text area.
+1. Immediatly click "**Update**."
+
+When you click a button with an unsubmitted value in another widget, Streamlit will update that widget's value and the button's value in succession before triggering the rerun. Because there isn't a rerun between updating the text area and updating the button, the "**Update**" button doesn't get disabled as expected. To correct this, you can add an extra check for an empty text area within the `"rewrite"` stage:
+
+```diff
+-       if st.button(
+-           "Update", type="primary", disabled=new is None or new.strip(". ") == ""
+-       ):
++       is_empty = new is None or new.strip(". ") == ""
++       if st.button("Update", type="primary", disabled=is_empty) and not is_empty:
+            st.session_state.history.append({"role": "assistant", "content": new})
+            st.session_state.pending = None
+            st.session_state.validation = {}
+            st.session_state.stage = "user"
+            st.rerun()
+```
+
+Now if you repeat the steps mentioned previously, when the app reruns, the conditional block won't be executed even though the button triggered the rerun. The button will be disabled and the user can proceed as if they had just clicked or tabbed out of the text area.
