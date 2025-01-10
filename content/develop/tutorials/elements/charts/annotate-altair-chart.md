@@ -117,7 +117,7 @@ st.altair_chart(combined_chart, use_container_width=True)
 ### Initialize your app
 
 1. In `your_repository`, create a file named `app.py`.
-1. In a terminal, change directories to `your_repository` and start your app.
+1. In a terminal, change directories to `your_repository`, and start your app.
 
    ```bash
    streamlit run app.py
@@ -140,10 +140,10 @@ st.altair_chart(combined_chart, use_container_width=True)
    - You'll maniputate the data using `pandas`.
    - You'll define a chart using `altair`.
 
-1. Save your `app.py` file and view your running app.
-1. Click "**Always rerun**" or hit your "**A**" key in your running app.
+1. Save your `app.py` file, and view your running app.
+1. Select "**Always rerun**", or press your "**A**" key.
 
-   Your running preview will automatically update as you save changes to `app.py`. Your preview will still be blank. Return to your code.
+   Your preview will be blank but will automatically update as you save changes to `app.py`. Return to your code.
 
 ### Build the data layer
 
