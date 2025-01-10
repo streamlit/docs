@@ -1,5 +1,3 @@
-import { debounce } from "lodash";
-
 import "../styles/globals.css";
 import "../components/utilities/searchModal.css";
 import "../components/utilities/kapaModal.css";
@@ -13,6 +11,7 @@ import NProgress from "nprogress";
 import { useEffect } from "react";
 
 import { AppContextProvider } from "../context/AppContext";
+import { VersionContextProvider } from "../context/VersionContext";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -27,7 +26,14 @@ function StreamlitDocs({ Component, pageProps }) {
 
   return (
     <AppContextProvider>
-      <Component {...pageProps} />
+      <VersionContextProvider
+        versionFromStaticLoad={pageProps.versionFromStaticLoad}
+        platformFromStaticLoad={pageProps.platformFromStaticLoad}
+        functionName={null}
+        currMenuItem={pageProps.currMenuItem}
+      >
+        <Component {...pageProps} />
+      </VersionContextProvider>
     </AppContextProvider>
   );
 }
