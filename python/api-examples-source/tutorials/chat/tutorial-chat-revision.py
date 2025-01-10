@@ -114,6 +114,9 @@ elif st.session_state.stage == "correct":
             if cols[1].button("Remove"):
                 st.session_state.validation["sentences"].pop(focus)
                 st.session_state.validation["valid"].pop(focus)
+                st.session_state.pending = " ".join(
+                    st.session_state.validation["sentences"]
+                )
                 st.rerun()
         else:
             cols = st.columns(2)
