@@ -15,32 +15,14 @@ const PLATFORM_VERSIONS = publicRuntimeConfig.PLATFORM_VERSIONS;
 const PLATFORM_LATEST_VERSIONS = publicRuntimeConfig.PLATFORM_LATEST_VERSIONS;
 const PLATFORMS = publicRuntimeConfig.PLATFORMS;
 
-export function VersionContextProvider({ children }) {
-  const [initialized, setInitialized] = useState(false);
-
-  const [version, setVersionState] = useState(DEFAULT_VERSION);
-  const [platform, setPlatformState] = useState(DEFAULT_PLATFORM);
-  // const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
-
-  const initialize = useCallback(
-    ({ newVersion, newPlatform, functionName = null, currMenuItem = null }) => {
-      if (initialized) return [version, platform];
-
-      setVersionAndPlatform({
-        newVersion,
-        newPlatform,
-        functionName,
-        currMenuItem,
-        updateURL: true,
-      });
-
-      setInitialized(true);
-
-      return [newVersion, newPlatform];
-    },
-    [initialized, version, platform],
+export function VersionContextProvider(props) {
+  const [platform, setPlatformState] = useState(() =>
+    getCleanedPlatform(props.platformFromStaticLoad),
   );
+  const [version, setVersionState] = useState(() =>
+    getCleanedVersion(props.versionFromStaticLoad, platform),
+  );
+  const router = useRouter();
 
   const setVersionAndPlatform = useCallback(
     ({
@@ -63,12 +45,10 @@ export function VersionContextProvider({ children }) {
         return;
       }
 
-      const cleanedVersion = isLatestVersion(newVersion, newPlatform)
-        ? DEFAULT_VERSION
-        : newVersion;
-      setVersionState(cleanedVersion);
+      const cleanedVersion = getCleanedVersion(newVersion, newPlatform);
+      const cleanedPlatform = getCleanedPlatform(newPlatform);
 
-      const cleanedPlatform = newPlatform ?? DEFAULT_PLATFORM;
+      setVersionState(cleanedVersion);
       setPlatformState(cleanedPlatform);
 
       if (updateURL) {
@@ -96,7 +76,6 @@ export function VersionContextProvider({ children }) {
       value={{
         version,
         platform,
-        initialize,
         setVersionAndPlatform,
         goToLatest,
         goToOpenSource,
@@ -104,7 +83,7 @@ export function VersionContextProvider({ children }) {
         // setIsOpen
       }}
     >
-      {children}
+      {props.children}
     </Context.Provider>
   );
 }
@@ -219,8 +198,8 @@ export function getVersionAndPlatformFromPathPart(pathPart) {
 export function versionAndPlatformAreCompatible(version, platform) {
   if (version == DEFAULT_VERSION) return true;
 
-  if (platform == DEFAULT_PLATFORM && VERSIONS_LIST.indexOf(version) >= 0) {
-    return true;
+  if (platform == DEFAULT_PLATFORM) {
+    return VERSIONS_LIST.indexOf(version) >= 0;
   }
 
   return PLATFORM_VERSIONS[platform].indexOf(version) >= 0;
@@ -251,4 +230,12 @@ export function getBestNumericVersion(version, platform) {
       }
     }
   }
+}
+
+function getCleanedVersion(version, platform) {
+  return isLatestVersion(version, platform) ? DEFAULT_VERSION : version;
+}
+
+function getCleanedPlatform(platform) {
+  return platform ?? DEFAULT_PLATFORM;
 }

@@ -1,6 +1,6 @@
 import fs from "fs";
-import { join, basename } from "path";
-import React, { useState, useCallback } from "react";
+import { basename } from "path";
+import React, { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import { serialize } from "next-mdx-remote/serialize";
@@ -71,7 +71,6 @@ import YouTube from "../components/blocks/youTube";
 import Cloud from "../components/blocks/cloud";
 
 import styles from "../components/layouts/container.module.css";
-import { DotFilledIcon } from "@radix-ui/react-icons";
 
 const VERSIONS_LIST = serverRuntimeConfig.VERSIONS_LIST;
 const LATEST_OSS_VERSION = serverRuntimeConfig.LATEST_OSS_VERSION;
@@ -129,34 +128,24 @@ export default function Article({
       : "https://github.com/streamlit/docs/tree/main" +
         filename.substring(filename.indexOf("/content/"));
 
-  const { initialize, goToLatest, goToOpenSource } = useVersion();
+  const { version, platform, goToLatest, goToOpenSource } = useVersion();
 
-  const [version, platform] = initialize({
-    router,
-    newVersion: versionFromStaticLoad,
-    newPlatform: platformFromStaticLoad,
-    functionName: null,
-    currMenuItem,
-  });
+  useEffect(
+    () => {
+      // If this page isn't versioned, no action needed.
+      if (!currMenuItem || !currMenuItem.isVersioned) return;
 
-  // If version wasn't specified by hand in the URL, remove version from URL of unversioned pages.
-  if (currMenuItem && currMenuItem.isVersioned) {
-    if (
-      versionFromStaticLoad == DEFAULT_VERSION &&
-      platformFromStaticLoad == DEFAULT_PLATFORM
-    ) {
+      // If the URL already matches VersionContext, no action needed.
       if (
-        versionFromStaticLoad != version ||
-        platformFromStaticLoad != platform
-      ) {
-        const versionAndPlatformStr = getVersionAndPlatformStr(
-          version,
-          platform,
-        );
-        router.push(`/${versionAndPlatformStr}/${slug.join("/")}`);
-      }
-    }
-  }
+        versionFromStaticLoad == version &&
+        platformFromStaticLoad == platform
+      )
+        return;
+
+      const versionAndPlatformStr = getVersionAndPlatformStr(version, platform);
+      router.replace(`/${versionAndPlatformStr}/${slug.join("/")}`);
+    } /* Run on every page load */,
+  );
 
   const components = {
     Note,

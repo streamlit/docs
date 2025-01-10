@@ -26,7 +26,12 @@ function StreamlitDocs({ Component, pageProps }) {
 
   return (
     <AppContextProvider>
-      <VersionContextProvider>
+      <VersionContextProvider
+        versionFromStaticLoad={pageProps.versionFromStaticLoad}
+        platformFromStaticLoad={pageProps.platformFromStaticLoad}
+        functionName={null}
+        currMenuItem={pageProps.currMenuItem}
+      >
         <Component {...pageProps} />
       </VersionContextProvider>
     </AppContextProvider>
