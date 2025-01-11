@@ -75,6 +75,8 @@ site_menu:
     url: /develop/concepts/design/buttons
   - category: Develop / Concepts / App design / Dataframes
     url: /develop/concepts/design/dataframes
+  - category: Develop / Concepts / App design / Multithreading
+    url: /develop/concepts/design/multithreading
   - category: Develop / Concepts / App design / Using custom classes
     url: /develop/concepts/design/custom-classes
   - category: Develop / Concepts / App design / Working with timezones
