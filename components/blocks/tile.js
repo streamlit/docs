@@ -3,6 +3,7 @@ import classNames from "classnames";
 import Link from "next/link";
 
 import styles from "./tile.module.css";
+import { useRouter } from "next/router";
 
 const Tile = ({
   img,
@@ -54,6 +55,7 @@ const Tile = ({
   }
 
   const backgroundColor = BG_CLASS[background];
+  const router = useRouter();
 
   return (
     <div
@@ -63,7 +65,11 @@ const Tile = ({
         backgroundColor,
       )}
     >
-      <Link href={link || "/"} className={classNames("not-link", styles.Link)}>
+      <Link
+        href={{ pathname: link || "/", query: router.query }}
+        className={classNames("not-link", styles.Link)}
+      >
+        {/*<Link href={link || "/"} className={classNames("not-link", styles.Link)}>*/}
         {image}
         <div>
           <h4 className={styles.Title}>{title || "Install Streamlit"}</h4>

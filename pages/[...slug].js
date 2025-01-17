@@ -69,6 +69,7 @@ import Tip from "../components/blocks/tip";
 import Warning from "../components/blocks/warning";
 import YouTube from "../components/blocks/youTube";
 import Cloud from "../components/blocks/cloud";
+import SmartLink from "../components/blocks/smartLink";
 
 import styles from "../components/layouts/container.module.css";
 
@@ -147,6 +148,7 @@ export default function Article({
     Image,
     Download,
     Flex,
+    SmartLink,
     Autofunction: (props) => (
       <Autofunction
         {...props}

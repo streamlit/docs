@@ -19,7 +19,7 @@ All you need is an email address! Everything else happens in your 30-day trial a
 
 ## Create an account
 
-1. Go to <a href="https://signup.snowflake.com/?utm_source=streamlit&utm_medium=referral&utm_campaign=na-us-en-&utm_content=-ss-streamlit-docs" target="_blank">signup.snowflake.com</a>. (This link will open in a new tab.)
+1. <SmartLink />
 
 1. Fill in your information, and click "**CONTINUE**."
 
