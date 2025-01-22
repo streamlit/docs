@@ -12,46 +12,10 @@ This is an experimental feature. Experimental features and their APIs may change
 
 <Autofunction function="streamlit.experimental_user" />
 
-### Examples
+### Community Cloud
 
-The ability to personalize apps for the user viewing the app is a great way to make your app more engaging.
+On Community Cloud, if your app is not configured for authentication, `st.experimental_user` will have a single attribute: `email`. If a user is logged in and a member of your app's workspace, this will return the user's email. For all other cases, it returns `None`.
 
-It unlocks a plethora of use-cases for developers, some of which could include: showing additional controls for admins, visualizing a user's Streamlit history, a personalized stock ticker, a chatbot app, and much more. We're excited to see what you build with this feature!
-
-Here's a code snippet that shows extra buttons for admins:
-
-```python
-# Show extra buttons for admin users.
-ADMIN_USERS = {
-    'person1@email.com',
-    'person2@email.com',
-    'person3@email.com'
-}
-if st.experimental_user.email in ADMIN_USERS:
-    display_the_extra_admin_buttons()
-display_the_interface_everyone_sees()
-```
-
-Show different content to users based on their email address:
-
-```python
-# Show different content based on the user's email address.
-if st.experimental_user.email == 'jane@email.com':
-    display_jane_content()
-elif st.experimental_user.email == 'adam@foocorp.io':
-    display_adam_content()
-else:
-    st.write("Please contact us to get access!")
-```
-
-Greet users with their name that's stored in a database:
-
-```python
-# Greet the user by their name.
-if st.experimental_user.email:
-    # Get the user's name from the database.
-    name = get_name_from_db(st.experimental_user.email)
-    st.write('Hello, %s!' % name)
-```
+On Community Cloud, if your app is configured for authentication (`[auth]` exists in your app's secrets), `st.experimental_user` will behave the same as a locally running app. Make sure to update your identity provider's configuration and your app's secrets to allow your new domain. If needed, a list of [IP addresses](/deploy/streamlit-community-cloud/status#ip-addresses) used by Community Cloud is available. An authentication-configured app counts as your one, allowed private app.
 
 <Autofunction function="streamlit.experimental_user.to_dict" />
