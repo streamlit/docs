@@ -171,8 +171,11 @@ site_menu:
     url: /develop/api-reference/text/st.text
     isVersioned: true
   - category: Develop / API reference / Text elements / UTILITIES
+  - category: Develop / API reference / Text elements / st.help
+    url: /develop/api-reference/text/st.help
+    isVersioned: true
   - category: Develop / API reference / Text elements / st.html
-    url: https://docs.streamlit.io/develop/api-reference/utilities/st.html
+    url: /develop/api-reference/text/st.html
     isVersioned: true
   - category: Develop / API reference / Data elements
     url: /develop/api-reference/data
@@ -466,6 +469,20 @@ site_menu:
   - category: Develop / API reference / Third-party components
     url: https://streamlit.io/components
   - category: Develop / API reference / APPLICATION LOGIC
+  - category: Develop / API reference / Authentication & user info
+    url: /develop/api-reference/user
+  - category: Develop / API reference / Authentication & user info / st.context
+    url: /develop/api-reference/user/st.context
+    isVersioned: true
+  - category: Develop / API reference / Authentication & user info / st.login
+    url: /develop/api-reference/user/st.login
+    isVersioned: true
+  - category: Develop / API reference / Authentication & user info / st.logout
+    url: /develop/api-reference/user/st.logout
+    isVersioned: true
+  - category: Develop / API reference / Authentication & user info / st.user
+    url: /develop/api-reference/user/st.user
+    isVersioned: true
   - category: Develop / API reference / Navigation and pages
     url: /develop/api-reference/navigation
   - category: Develop / API reference / Navigation and pages / st.navigation
@@ -581,20 +598,6 @@ site_menu:
     isVersioned: true
   - category: Develop / API reference / Custom components / st.components.v1.iframe
     url: /develop/api-reference/custom-components/st.components.v1.iframe
-    isVersioned: true
-  - category: Develop / API reference / Utilities
-    url: /develop/api-reference/utilities
-  - category: Develop / API reference / Utilities / st.context
-    url: /develop/api-reference/utilities/st.context
-    isVersioned: true
-  - category: Develop / API reference / Utilities / st.experimental_user
-    url: /develop/api-reference/utilities/st.experimental_user
-    isVersioned: true
-  - category: Develop / API reference / Utilities / st.help
-    url: /develop/api-reference/utilities/st.help
-    isVersioned: true
-  - category: Develop / API reference / Utilities / st.html
-    url: /develop/api-reference/utilities/st.html
     isVersioned: true
   - category: Develop / API reference / Configuration
     url: /develop/api-reference/configuration
