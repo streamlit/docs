@@ -69,7 +69,7 @@ import Tip from "../components/blocks/tip";
 import Warning from "../components/blocks/warning";
 import YouTube from "../components/blocks/youTube";
 import Cloud from "../components/blocks/cloud";
-import SmartLink from "../components/blocks/smartLink";
+import SnowflakeTrial from "../components/blocks/snowflakeTrial";
 
 import styles from "../components/layouts/container.module.css";
 
@@ -148,7 +148,7 @@ export default function Article({
     Image,
     Download,
     Flex,
-    SmartLink,
+    SnowflakeTrial,
     Autofunction: (props) => (
       <Autofunction
         {...props}

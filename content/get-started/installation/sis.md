@@ -19,7 +19,7 @@ All you need is an email address! Everything else happens in your 30-day trial a
 
 ## Create an account
 
-1. <SmartLink />
+1. Go to <SnowflakeTrial />. (This link will open in a new tab.)
 
 1. Fill in your information, and click "**CONTINUE**."
 

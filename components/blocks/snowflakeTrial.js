@@ -6,7 +6,7 @@ const useQuery = () => {
   return router.query;
 };
 
-const SmartLink = () => {
+const SnowflakeTrial = ({ text }) => {
   const query = useQuery();
   const utm_content = query.utm_content;
   const baseUrl = "https://signup.snowflake.com/";
@@ -17,15 +17,12 @@ const SmartLink = () => {
     utm_content: utm_content || "-ss-streamlit-docs",
   });
   const signupUrlWithUTMs = `${baseUrl}?${params.toString()}`;
+  const linkText = text || "signup.snowflake.com";
   return (
-    <div>
-      Go to{" "}
-      <a href={signupUrlWithUTMs} target="_blank">
-        signup.snowflake.com
-      </a>
-      . (This link will open in a new tab.)
-    </div>
+    <a href={signupUrlWithUTMs} target="_blank">
+      {linkText}
+    </a>
   );
 };
 
-export default SmartLink;
+export default SnowflakeTrial;
