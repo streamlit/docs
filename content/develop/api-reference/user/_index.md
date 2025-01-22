@@ -9,7 +9,7 @@ There are a handful of methods that allow you to create placeholders in your
 app, provide help using doc strings, get and modify configuration options and query parameters.
 
 <TileContainer>
-<RefCard href="/develop/api-reference/utilities/st.context" size="half">
+<RefCard href="/develop/api-reference/utilities/st.context">
 
 <h4>Context</h4>
 
@@ -21,40 +21,37 @@ st.context.headers
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/utilities/st.help" size="half">
+<RefCard href="/develop/api-reference/user/st.login">
 
-<h4>Get help</h4>
+<h4>Log in a user</h4>
 
-Display object’s doc string, nicely formatted.
+`st.login()` starts an authentication flow with an identity provider.
 
 ```python
-st.help(st.write)
-st.help(pd.DataFrame)
+st.login()
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/utilities/st.html" size="half">
+<RefCard href="/develop/api-reference/user/st.logout">
 
-<h4>Render HTML</h4>
+<h4>Log out a user</h4>
 
-Renders HTML strings to your app.
+`st.logout` removes a user's identity information.
 
 ```python
-st.html("<p>Foo bar.</p>")
+st.logout()
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/utilities/st.experimental_user" size="half">
+<RefCard href="/develop/api-reference/utilities/st.user" size="full">
 
 <h4>User info</h4>
 
 `st.experimental_user` returns information about the logged-in user of private apps on Streamlit Community Cloud.
 
 ```python
-if st.experimental_user.email == "foo@corp.com":
-  st.write("Welcome back, ", st.experimental_user.email)
-else:
-  st.write("You are not authorized to view this page.")
+if st.experimental_user.is_logged_in:
+  st.write(f"Welcome back, {st.experimental_user.name}!")
 ```
 
 </RefCard>

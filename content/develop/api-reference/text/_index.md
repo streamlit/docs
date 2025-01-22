@@ -158,6 +158,34 @@ st.divider()
 </RefCard>
 </TileContainer>
 
+## Utilities
+
+<TileContainer>
+<RefCard href="/develop/api-reference/text/st.help" size="half">
+
+<h4>Get help</h4>
+
+Display object’s doc string, nicely formatted.
+
+```python
+st.help(st.write)
+st.help(pd.DataFrame)
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/text/st.html" size="half">
+
+<h4>Render HTML</h4>
+
+Renders HTML strings to your app.
+
+```python
+st.html("<p>Foo bar.</p>")
+```
+
+</RefCard>
+</TileContainer>
+
 <ComponentSlider>
 <ComponentCard href="https://github.com/tvst/st-annotated-text">
 
