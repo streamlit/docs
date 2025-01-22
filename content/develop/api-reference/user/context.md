@@ -1,6 +1,6 @@
 ---
 title: st.context
-slug: /develop/api-reference/utilities/st.context
+slug: /develop/api-reference/user/st.context
 description: st.context displays a read-only dict of cookies and headers
 ---
 

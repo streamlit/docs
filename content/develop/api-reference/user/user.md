@@ -1,6 +1,6 @@
 ---
-title: st.experimental_user
-slug: /develop/api-reference/utilities/st.experimental_user
+title: st.user
+slug: /develop/api-reference/user/st.user
 description: st.experimental_user returns information about the logged-in user of private apps on Streamlit Community Cloud.
 ---
 
