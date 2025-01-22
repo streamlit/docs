@@ -47,7 +47,7 @@ st.logout()
 
 <h4>User info</h4>
 
-`st.experimental_user` returns information about the logged-in user of private apps on Streamlit Community Cloud.
+`st.experimental_user` returns information about a logged-in user.
 
 ```python
 if st.experimental_user.is_logged_in:
