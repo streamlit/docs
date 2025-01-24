@@ -108,7 +108,7 @@ button:focus-visible {
 }
 
 /* Inline code blocks */
-p code,
+p code, li>code,
 /* Inline code blocks in docstrings */
 tt.docutils.literal {
   @apply break-words px-1 rounded;

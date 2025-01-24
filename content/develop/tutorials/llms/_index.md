@@ -23,4 +23,22 @@ Build a chat app using the LangChain framework with OpenAI.
 
 </RefCard>
 
+<RefCard href="/develop/tutorials/chat-and-llm-apps/chat-response-feedback">
+
+<h5>Get chat response feedback</h5>
+
+Buid a chat app and let users rate the responses.
+(<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>thumb_up</i>
+<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>thumb_down</i>)
+
+</RefCard>
+
+<RefCard href="/develop/tutorials/chat-and-llm-apps/validate-and-edit-chat-responses">
+
+<h5>Validate and edit chat responses</h5>
+
+Build a chat app with response validation. Let users correct or edit the responses.
+
+</RefCard>
+
 </TileContainer>

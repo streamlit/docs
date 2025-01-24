@@ -151,7 +151,7 @@ pg.run()
    streamlit run streamlit_app.py
    ```
 
-   Your app will be blank since you still need to add code.
+   Your app will be blank because you still need to add code.
 
 1. In `streamlit_app.py`, write the following:
 
@@ -160,7 +160,7 @@ pg.run()
    ```
 
 1. Save your `streamlit_app.py` file, and view your running app.
-1. Select "**Always rerun**", or press your "**A**" key.
+1. In your app, select "**Always rerun**", or press your "**A**" key.
 
    Your preview will be blank but will automatically update as you save changes to `streamlit_app.py`. Return to your code.
 

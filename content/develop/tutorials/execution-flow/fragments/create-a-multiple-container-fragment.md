@@ -105,7 +105,7 @@ with st.sidebar:
    streamlit run app.py
    ```
 
-   Your app will be blank since you still need to add code.
+   Your app will be blank because you still need to add code.
 
 1. In `app.py`, write the following:
 
@@ -117,7 +117,7 @@ with st.sidebar:
    You'll use `time.sleep()` to slow things down and see the fragments working.
 
 1. Save your `app.py` file, and view your running app.
-1. Select "**Always rerun**", or press your "**A**" key.
+1. In your app, select "**Always rerun**", or press your "**A**" key.
 
    Your preview will be blank but will automatically update as you save changes to `app.py`. Return to your code.
 
