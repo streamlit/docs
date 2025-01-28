@@ -16,7 +16,7 @@ This tutorial uses Streamlit's chat commands along with `st.feedback` to build a
 
 ## Prerequisites
 
-- The following must be installed in your Python environment:
+- This tutorial requires the following version of Streamlit:
 
   ```text
   streamlit>=1.42.0
@@ -90,7 +90,7 @@ if prompt := st.chat_input("Say something"):
 ### Initialize your app
 
 1. In `your_repository`, create a file named `app.py`.
-1. In a terminal, change directories to `your_repository`, and start your app.
+1. In a terminal, change directories to `your_repository`, and start your app:
 
    ```bash
    streamlit run app.py
@@ -110,11 +110,13 @@ if prompt := st.chat_input("Say something"):
 1. Save your `app.py` file, and view your running app.
 1. In your app, select "**Always rerun**", or press your "**A**" key.
 
-   Your preview will be blank but will automatically update as you save changes to `app.py`. Return to your code.
+   Your preview will be blank but will automatically update as you save changes to `app.py`.
+
+1. Return to your code.
 
 ### Build a function to simulate a chat response stream
 
-To begin with, you'll define a function to stream a fixed chat response. It's okay to skip this section if you just want to copy the function.
+To begin, you'll define a function to stream a fixed chat response. You can skip this section if you just want to copy the function.
 
 <Collapse title="Complete function to simulate a chat stream" expanded={false}>
 
@@ -135,7 +137,7 @@ def chat_stream(prompt):
        response = f'You said, "{prompt}" ...interesting.'
    ```
 
-1. Loop through the characters and yield each one at 0.02-second intervals.
+1. Loop through the characters and yield each one at 0.02-second intervals:
 
    ```python
        for char in response:
@@ -149,18 +151,18 @@ You now have a complete generator function to simulate a chat stream object.
 
 To make your chat app stateful, you'll save the conversation history into Session State as a list of messages. Each message is a dictionary of message attributes. The dictionary keys include the following:
 
-- `"role"`: This has a value of `"user"` or `"assistant"` to indicate the source of the message.
-- `"content"`: This is the body of the message as a string.
-- `"feedback"`: This is an integer that indicates a user's feedback. This is only included when the message role is `"assistant"` because the user will not leave feedback on their own prompts..
+- `"role"`: Indicates the source of the message (either `"user"` or `"assistant"`).
+- `"content"`: The body of the message as a string.
+- `"feedback"`: An integer that indicates a user's feedback. This is only included when the message role is `"assistant"` because users do not leave feedback on their own prompts.
 
-1. Initialize the chat history in Session State.
+1. Initialize the chat history in Session State:
 
    ```python
    if "history" not in st.session_state:
        st.session_state.history = []
    ```
 
-1. Iterate through the messages in your chat history and render their contents in chat message containers.
+1. Iterate through the messages in your chat history and render their contents in chat message containers:
 
    ```python
    for i, message in enumerate(st.session_state.history):
@@ -168,9 +170,9 @@ To make your chat app stateful, you'll save the conversation history into Sessio
            st.write(message["content"])
    ```
 
-   In a later step, you'll need a unique key for each assistant message. You can do this using the index of the message in your chat history. Therefore, use `enumerate()` to get an index along with each message dictionary.
+   In a later step, you'll need a unique key for each assistant message. You can use the index of the message in your chat history to create a unique key. Therefore, use `enumerate()` to get an index along with each message dictionary.
 
-1. For each assistant message, check if feedback has been saved.
+1. For each assistant message, check whether feedback has been saved:
 
    ```python
            if message["role"] == "assistant":
@@ -179,7 +181,7 @@ To make your chat app stateful, you'll save the conversation history into Sessio
 
    If no feedback is saved for the current message, the `.get()` method will return the specified default of `None`.
 
-1. Save the feedback value into Session State under a unique key for that message.
+1. Save the feedback value into Session State under a unique key for that message:
 
    ```python
                st.session_state[f"feedback_{i}"] = feedback
@@ -187,7 +189,7 @@ To make your chat app stateful, you'll save the conversation history into Sessio
 
    Because the message index within the ordered chat history is unique, you can use the index as the key. For readability, you can add a prefix, "feedback\_", to the index. In the next step, to make the feedback widget show this value, you'll assign the same key to the widget.
 
-1. Add a feedback widget to the chat message container.
+1. Add a feedback widget to the chat message container:
 
    ```python
                st.feedback(
@@ -201,7 +203,7 @@ To make your chat app stateful, you'll save the conversation history into Sessio
 
    All unrated messages include an enabled feedback widget. However, if a user interacts with one of those widgets, there is no code to save that information into the chat history yet. To solve this, use a callback as shown in the following steps.
 
-1. At the top of your app, after the definition of `chat_stream()` and before you initialize your chat history, define a function to use as a callback.
+1. At the top of your app, after the definition of `chat_stream()` and before you initialize your chat history, define a function to use as a callback:
 
    ```python
    def save_feedback(index):
@@ -210,7 +212,7 @@ To make your chat app stateful, you'll save the conversation history into Sessio
 
    The `save_feedback()` function accepts an index and uses the index to get the associated widget value from Session State. Then, this value is saved into chat history.
 
-1. Add the callback and index argument to your `st.feedback` widget.
+1. Add the callback and index argument to your `st.feedback` widget:
 
    ```diff
                st.feedback(
@@ -226,7 +228,7 @@ To make your chat app stateful, you'll save the conversation history into Sessio
 
 ### Add chat input
 
-1. Accept the user's prompt from an `st.chat_input` widget, display it in a chat message container, and then save it to the chat history.
+1. Accept the user's prompt from an `st.chat_input` widget, display it in a chat message container, and then save it to the chat history:
 
    ```python
    if prompt := st.chat_input("Say something"):
@@ -235,7 +237,7 @@ To make your chat app stateful, you'll save the conversation history into Sessio
        st.session_state.history.append({"role": "user", "content": prompt})
    ```
 
-   The `st.chat_input` widget acts like a button. When a user enters a prompt and clicks the send icon, it triggers a rerun. During the rerun, the previous code displays the chat history. When this conditional block executes, the user's new prompt is displayed and then added to the history. On the next rerun, this prompt will just be displayed as part of the history.
+   The `st.chat_input` widget acts like a button. When a user enters a prompt and clicks the send icon, it triggers a rerun. During the rerun, the previous code displays the chat history. When this conditional block is executed, the user's new prompt is displayed and then added to the history. On the next rerun, this prompt will be displayed as part of the history.
 
    The `:=` notation is shorthand to assign a variable within an expression. The following code is equivalent to the previous code in this step:
 
@@ -247,7 +249,7 @@ To make your chat app stateful, you'll save the conversation history into Sessio
        st.session_state.history.append({"role": "user", "content": prompt})
    ```
 
-1. In another chat message container, process the prompt, display the response, and add a feedback widget. Finally, append the response to the chat history.
+1. In another chat message container, process the prompt, display the response, add a feedback widget, and append the response to the chat history:
 
    ```python
       with st.chat_message("assistant"):
@@ -267,9 +269,11 @@ To make your chat app stateful, you'll save the conversation history into Sessio
 
 1. Save your file and go to your browser to try your new app.
 
-### Optional: Change the feeback behavior
+### Optional: Change the feedback behavior
 
-Your app currently allows users to rate any response once. They can submit their rating at any time, but can't change it. If you only want users to rate the most recent response, you can remove the widgets from the chat history.
+Your app currently allows users to rate any response once. They can submit their rating at any time, but can't change it.
+
+If you want users to rate only the _most recent_ response, you can remove the widgets from the chat history:
 
 ```diff
   for i, message in enumerate(st.session_state.history):
@@ -287,7 +291,7 @@ Your app currently allows users to rate any response once. They can submit their
 -             )
 ```
 
-Alternatively, if you want to allow users to change their responses, you can just remove the `disabled` parameter.
+Or, if you want to allow users to change their responses, you can just remove the `disabled` parameter:
 
 ```diff
   for i, message in enumerate(st.session_state.history):

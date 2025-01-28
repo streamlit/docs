@@ -14,7 +14,7 @@ Streamlit lets you turn functions into [fragments](/develop/concepts/architectur
 
 ## Prerequisites
 
-- The following must be installed in your Python environment:
+- This tutorial requires the following version of Streamlit:
 
   ```text
   streamlit>=1.37.0
@@ -102,7 +102,7 @@ show_latest_data()
 ### Initialize your app
 
 1. In `your_repository`, create a file named `app.py`.
-1. In a terminal, change directories to `your_repository`, and start your app.
+1. In a terminal, change directories to `your_repository`, and start your app:
 
    ```bash
    streamlit run app.py
@@ -128,7 +128,9 @@ show_latest_data()
 1. Save your `app.py` file, and view your running app.
 1. In your app, select "**Always rerun**", or press your "**A**" key.
 
-   Your preview will be blank but will automatically update as you save changes to `app.py`. Return to your code.
+   Your preview will be blank but will automatically update as you save changes to `app.py`.
+
+1. Return to your code.
 
 ### Build a function to generate random, recent data
 
