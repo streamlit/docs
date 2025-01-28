@@ -69,7 +69,6 @@ const Tile = ({
         href={{ pathname: link || "/", query: router.query }}
         className={classNames("not-link", styles.Link)}
       >
-        {/*<Link href={link || "/"} className={classNames("not-link", styles.Link)}>*/}
         {image}
         <div>
           <h4 className={styles.Title}>{title || "Install Streamlit"}</h4>
