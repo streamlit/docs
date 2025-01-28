@@ -160,7 +160,7 @@ Here's a look at what you'll build:
    - You'll manipulate the data with `pandas`.
 
 1. Save your `app.py` file, and view your running app.
-1. In your app, select "**Always rerun**", or press your "**A**" key.
+1. In your app, select "**Always rerun**", or press the "**A**" key.
 
    Your preview will be blank but will automatically update as you save changes to `app.py`.
 

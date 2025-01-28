@@ -7,7 +7,7 @@ slug: /develop/tutorials/chat-and-llm-apps/chat-response-feedback
 
 A common task in a chat app is to collect user feedback about an LLM's responses. Streamlit includes `st.feedback` to conveniently collect user sentiment by displaying a group of selectable sentiment icons.
 
-This tutorial uses Streamlit's chat commands along with `st.feedback` to build a simple chat app that collects user feedback about each response.
+This tutorial uses Streamlit's chat commands and `st.feedback` to build a simple chat app that collects user feedback about each response.
 
 ## Applied concepts
 
@@ -108,7 +108,7 @@ if prompt := st.chat_input("Say something"):
    You'll use `time` to build a simulated chat response stream.
 
 1. Save your `app.py` file, and view your running app.
-1. In your app, select "**Always rerun**", or press your "**A**" key.
+1. In your app, select "**Always rerun**", or press the "**A**" key.
 
    Your preview will be blank but will automatically update as you save changes to `app.py`.
 

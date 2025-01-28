@@ -212,7 +212,7 @@ elif st.session_state.stage == "rewrite":
    You'll use `lorem`, `random`, and `time` to build a simulated chat response stream.
 
 1. Save your `app.py` file, and view your running app.
-1. In your app, select "**Always rerun**", or press your "**A**" key.
+1. In your app, select "**Always rerun**", or press the "**A**" key.
 
    Your preview will be blank but will automatically update as you save changes to `app.py`.
 

@@ -117,7 +117,7 @@ with st.sidebar:
    You'll use `time.sleep()` to slow things down and see the fragments working.
 
 1. Save your `app.py` file, and view your running app.
-1. In your app, select "**Always rerun**", or press your "**A**" key.
+1. In your app, select "**Always rerun**", or press the "**A**" key.
 
    Your preview will be blank but will automatically update as you save changes to `app.py`.
 

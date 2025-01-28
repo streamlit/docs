@@ -160,7 +160,7 @@ pg.run()
    ```
 
 1. Save your `streamlit_app.py` file, and view your running app.
-1. In your app, select "**Always rerun**", or press your "**A**" key.
+1. In your app, select "**Always rerun**", or press the "**A**" key.
 
    Your preview will be blank but will automatically update as you save changes to `streamlit_app.py`.
 

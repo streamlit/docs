@@ -141,7 +141,7 @@ st.altair_chart(combined_chart, use_container_width=True)
    - You'll define a chart using `altair`.
 
 1. Save your `app.py` file, and view your running app.
-1. In your app, select "**Always rerun**", or press your "**A**" key.
+1. In your app, select "**Always rerun**", or press the "**A**" key.
 
    Your preview will be blank but will automatically update as you save changes to `app.py`.
 
