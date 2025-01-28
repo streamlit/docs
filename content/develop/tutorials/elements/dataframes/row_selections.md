@@ -15,7 +15,7 @@ This tutorial uses row selections, which were introduced in Streamlit version 1.
 
 ## Prerequisites
 
-- The following must be installed in your Python environment:
+- This tutorial requires the following version of Streamlit:
 
   ```text
   streamlit>=1.35.0
@@ -135,13 +135,13 @@ Here's a look at what you'll build:
 ### Initialize your app
 
 1. In `your_repository`, create a file named `app.py`.
-1. In a terminal, change directories to `your_repository` and start your app.
+1. In a terminal, change directories to `your_repository`, and start your app:
 
    ```bash
    streamlit run app.py
    ```
 
-   Your app will be blank since you still need to add code.
+   Your app will be blank because you still need to add code.
 
 1. In `app.py`, write the following:
 
@@ -159,10 +159,12 @@ Here's a look at what you'll build:
    - You'll generate random activity data with `numpy`.
    - You'll manipulate the data with `pandas`.
 
-1. Save your `app.py` file and view your running app.
-1. Click "**Always rerun**" or hit your "**A**" key in your running app.
+1. Save your `app.py` file, and view your running app.
+1. In your app, select "**Always rerun**", or press the "**A**" key.
 
-   Your running preview will automatically update as you save changes to `app.py`. Your preview will still be blank. Return to your code.
+   Your preview will be blank but will automatically update as you save changes to `app.py`.
+
+1. Return to your code.
 
 ### Build a function to create random member data
 
