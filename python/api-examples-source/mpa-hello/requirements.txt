@@ -1,6 +1,5 @@
 pandas==1.5.3
 numpy==1.23.5
-scipy
 altair==4.2.0
 pydeck==0.8.0
 opencv-python-headless==4.6.0.66
