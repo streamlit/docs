@@ -196,6 +196,29 @@ st.divider()
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/text/st.help">
+
+<h4>Get help</h4>
+
+Display object’s doc string, nicely formatted.
+
+```python
+st.help(st.write)
+st.help(pd.DataFrame)
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/text/st.html">
+
+<h4>Render HTML</h4>
+
+Renders HTML strings to your app.
+
+```python
+st.html("<p>Foo bar.</p>")
+```
+
+</RefCard>
 </TileContainer>
 
 <ComponentSlider>
@@ -1891,6 +1914,59 @@ rain(emoji="🎈", font_size=54,
 
 ## App logic and configuration
 
+### Authentication and user info
+
+<br />
+
+<TileContainer>
+<RefCard href="/develop/api-reference/user/st.context">
+
+<h4>Context</h4>
+
+`st.context` provides a read-only interface to access cookies and headers.
+
+```python
+st.context.cookies
+st.context.headers
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/user/st.login">
+
+<h4>Log in a user</h4>
+
+`st.login()` starts an authentication flow with an identity provider.
+
+```python
+st.login()
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/user/st.logout">
+
+<h4>Log out a user</h4>
+
+`st.logout()` removes a user's identity information.
+
+```python
+st.logout()
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/user/st.user" size="full">
+
+<h4>User info</h4>
+
+`st.experimental_user` returns information about a logged-in user.
+
+```python
+if st.experimental_user.is_logged_in:
+  st.write(f"Welcome back, {st.experimental_user.name}!")
+```
+
+</RefCard>
+</TileContainer>
+
 ### Navigation and pages
 
 <br />
@@ -2368,62 +2444,6 @@ iframe(
 
 </RefCard>
 
-</TileContainer>
-
-### Utilities and user info
-
-<br />
-
-<TileContainer>
-<RefCard href="/develop/api-reference/utilities/st.context">
-
-<h4>Context</h4>
-
-`st.context` provides a read-only interface to access cookies and headers.
-
-```python
-st.context.cookies
-st.context.headers
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/utilities/st.help">
-
-<h4>Get help</h4>
-
-Display object’s doc string, nicely formatted.
-
-```python
-st.help(st.write)
-st.help(pd.DataFrame)
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/utilities/st.html">
-
-<h4>Render HTML</h4>
-
-Renders HTML strings to your app.
-
-```python
-st.html("<p>Foo bar.</p>")
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/utilities/st.experimental_user" size="full">
-
-<h4>User info</h4>
-
-`st.experimental_user` returns information about the logged-in user of private apps on Streamlit Community Cloud.
-
-```python
-if st.experimental_user.email == "foo@corp.com":
-  st.write("Welcome back, ", st.experimental_user.email)
-else:
-  st.write("You are not authorized to view this page.")
-```
-
-</RefCard>
 </TileContainer>
 
 ### Configuration

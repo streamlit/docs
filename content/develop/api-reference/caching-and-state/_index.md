@@ -49,12 +49,24 @@ def init_model():
 
 </TileContainer>
 
-## Manage state
+## Browser and server state
 
 Streamlit re-executes your script with each user interaction. Widgets have built-in statefulness between reruns, but Session State lets you do more!
 
 <TileContainer>
-<RefCard href="/develop/api-reference/caching-and-state/st.session_state" size="half" >
+<RefCard href="/develop/api-reference/utilities/st.context">
+
+<h4>Context</h4>
+
+`st.context` provides a read-only interface to access cookies and headers.
+
+```python
+st.context.cookies
+st.context.headers
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/caching-and-state/st.session_state">
 
 <h4>Session State</h4>
 
@@ -65,7 +77,7 @@ st.session_state["foo"] = "bar"
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/caching-and-state/st.query_params" size="half">
+<RefCard href="/develop/api-reference/caching-and-state/st.query_params">
 
 <h4>Query parameters</h4>
 
@@ -84,39 +96,6 @@ st.query_params.clear()
 
 <TileContainer>
 
-<RefCard href="/develop/api-reference/caching-and-state/st.experimental_memo" deprecated={true}>
-
-> This command was deprecated in version 1.18.0. Use `st.cache_data` instead.
-
-<h4>Memo</h4>
-
-Experimental function decorator to memoize function executions.
-
-```python
-@st.experimental_memo
-def fetch_and_clean_data(url):
-  # Fetch data from URL here, and then clean it up.
-  return data
-```
-
-</RefCard>
-
-<RefCard href="/develop/api-reference/caching-and-state/st.experimental_singleton" deprecated={true}>
-
-> This command was deprecated in version 1.18.0. Use `st.cache_resource` instead.
-
-<h4>Singleton</h4>
-
-Experimental function decorator to store singleton objects.
-
-```python
-@st.experimental_singleton
-def get_database_session(url):
-  # Create a database session object that points to the URL.
-  return session
-```
-
-</RefCard>
 <RefCard href="/develop/api-reference/caching-and-state/st.experimental_get_query_params" size="half" deprecated={true}>
 
 <h4>Get query parameters</h4>

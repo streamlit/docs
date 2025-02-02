@@ -1143,6 +1143,13 @@
 /knowledge-base/deploy/unable-to-edit-or-delete-apps-in-streamlit-community-cloud-after-modifying-github-username /deploy/streamlit-community-cloud/manage-your-app/rename-your-app
 /develop/tutorials/databases/deta-base /develop/tutorials/databases/
 /develop/quick-reference/older-versions /develop/quick-reference/release-notes/2024
+/develop/api-reference/utilities/st.help /develop/api-reference/text/st.help
+/develop/api-reference/utilities/st.html /develop/api-reference/text/st.html
+/develop/api-reference/utilities/st.context /develop/api-reference/caching-and-state/st.context
+/develop/api-reference/utilities/st.experimental_user /develop/api-reference/user/st.user
+/develop/api-reference/utilities /develop/api-reference/user
+/develop/api-reference/caching-and-state/st.experimental_memo /develop/api-reference/caching-and-state/st.cache_data
+/develop/api-reference/caching-and-state/st.experimental_singleton /develop/api-reference/caching-and-state/st.cache_resource
 
 # Deep links included in streamlit/streamlit source code
 /st.connections.snowflakeconnection-configuration /develop/api-reference/connections/st.connections.snowflakeconnection
