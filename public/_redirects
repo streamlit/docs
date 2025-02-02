@@ -1150,6 +1150,9 @@
 /develop/api-reference/utilities /develop/api-reference/user
 /develop/api-reference/caching-and-state/st.experimental_memo /develop/api-reference/caching-and-state/st.cache_data
 /develop/api-reference/caching-and-state/st.experimental_singleton /develop/api-reference/caching-and-state/st.cache_resource
+/develop/tutorials/llms /develop/tutorials/chat-and-llm-apps
+/develop/tutorials/llms/build-conversational-apps /develop/tutorials/chat-and-llm-apps/build-conversational-apps
+/develop/tutorials/llms/llm-quickstart /develop/tutorials/chat-and-llm-apps/llm-quickstart
 
 # Deep links included in streamlit/streamlit source code
 /st.connections.snowflakeconnection-configuration /develop/api-reference/connections/st.connections.snowflakeconnection

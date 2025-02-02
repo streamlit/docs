@@ -80,13 +80,13 @@ site_menu:
   - category: Develop / Concepts / App design / Working with timezones
     url: /develop/concepts/design/timezone-handling
   - category: Develop / Concepts / ADDITIONAL
-  - category: Develop / Concepts / Connections and secrets
+  - category: Develop / Concepts / Connections & secrets
     url: /develop/concepts/connections
-  - category: Develop / Concepts / Connections and secrets / Connecting to data
+  - category: Develop / Concepts / Connections & secrets / Connecting to data
     url: /develop/concepts/connections/connecting-to-data
-  - category: Develop / Concepts / Connections and secrets / Secrets management
+  - category: Develop / Concepts / Connections & secrets / Secrets management
     url: /develop/concepts/connections/secrets-management
-  - category: Develop / Concepts / Connections and secrets / Security reminders
+  - category: Develop / Concepts / Connections & secrets / Security reminders
     url: /develop/concepts/connections/security-reminders
   - category: Develop / Concepts / Custom components
     url: /develop/concepts/custom-components
@@ -100,15 +100,15 @@ site_menu:
     url: /develop/concepts/custom-components/limitations
   - category: Develop / Concepts / Custom components / Component gallery
     url: https://streamlit.io/components
-  - category: Develop / Concepts / Configuration and theming
+  - category: Develop / Concepts / Configuration & theming
     url: /develop/concepts/configuration
-  - category: Develop / Concepts / Configuration and theming / Configuration options
+  - category: Develop / Concepts / Configuration & theming / Configuration options
     url: /develop/concepts/configuration/options
-  - category: Develop / Concepts / Configuration and theming / HTTPS support
+  - category: Develop / Concepts / Configuration & theming / HTTPS support
     url: /develop/concepts/configuration/https-support
-  - category: Develop / Concepts / Configuration and theming / Serving static files
+  - category: Develop / Concepts / Configuration & theming / Serving static files
     url: /develop/concepts/configuration/serving-static-files
-  - category: Develop / Concepts / Configuration and theming / Customize your theme
+  - category: Develop / Concepts / Configuration & theming / Customize your theme
     url: /develop/concepts/configuration/theming
   - category: Develop / Concepts / App testing
     url: /develop/concepts/app-testing
@@ -126,15 +126,15 @@ site_menu:
   - category: Develop / API reference
     url: /develop/api-reference
   - category: Develop / API reference / PAGE ELEMENTS
-  - category: Develop / API reference / Write and magic
+  - category: Develop / API reference / Write & magic
     url: /develop/api-reference/write-magic
-  - category: Develop / API reference / Write and magic / st.write
+  - category: Develop / API reference / Write & magic / st.write
     url: /develop/api-reference/write-magic/st.write
     isVersioned: true
-  - category: Develop / API reference / Write and magic / st.write_stream
+  - category: Develop / API reference / Write & magic / st.write_stream
     url: /develop/api-reference/write-magic/st.write_stream
     isVersioned: true
-  - category: Develop / API reference / Write and magic / magic
+  - category: Develop / API reference / Write & magic / magic
     url: /develop/api-reference/write-magic/magic
   - category: Develop / API reference / Text elements
     url: /develop/api-reference/text
@@ -386,33 +386,33 @@ site_menu:
   - category: Develop / API reference / Media elements / st.video
     url: /develop/api-reference/media/st.video
     isVersioned: true
-  - category: Develop / API reference / Layouts and containers
+  - category: Develop / API reference / Layouts & containers
     url: /develop/api-reference/layout
-  - category: Develop / API reference / Layouts and containers / st.columns
+  - category: Develop / API reference / Layouts & containers / st.columns
     url: /develop/api-reference/layout/st.columns
     isVersioned: true
-  - category: Develop / API reference / Layouts and containers / st.container
+  - category: Develop / API reference / Layouts & containers / st.container
     url: /develop/api-reference/layout/st.container
     isVersioned: true
-  - category: Develop / API reference / Layouts and containers / st.dialog
+  - category: Develop / API reference / Layouts & containers / st.dialog
     url: https://docs.streamlit.io/develop/api-reference/execution-flow/st.dialog
     isVersioned: true
-  - category: Develop / API reference / Layouts and containers / st.empty
+  - category: Develop / API reference / Layouts & containers / st.empty
     url: /develop/api-reference/layout/st.empty
     isVersioned: true
-  - category: Develop / API reference / Layouts and containers / st.expander
+  - category: Develop / API reference / Layouts & containers / st.expander
     url: /develop/api-reference/layout/st.expander
     isVersioned: true
-  - category: Develop / API reference / Layouts and containers / st.form
+  - category: Develop / API reference / Layouts & containers / st.form
     url: https://docs.streamlit.io/develop/api-reference/execution-flow/st.form
     isVersioned: true
-  - category: Develop / API reference / Layouts and containers / st.popover
+  - category: Develop / API reference / Layouts & containers / st.popover
     url: /develop/api-reference/layout/st.popover
     isVersioned: true
-  - category: Develop / API reference / Layouts and containers / st.sidebar
+  - category: Develop / API reference / Layouts & containers / st.sidebar
     url: /develop/api-reference/layout/st.sidebar
     isVersioned: true
-  - category: Develop / API reference / Layouts and containers / st.tabs
+  - category: Develop / API reference / Layouts & containers / st.tabs
     url: /develop/api-reference/layout/st.tabs
     isVersioned: true
   - category: Develop / API reference / Chat elements
@@ -480,18 +480,18 @@ site_menu:
   - category: Develop / API reference / Authentication & user info / st.user
     url: /develop/api-reference/user/st.user
     isVersioned: true
-  - category: Develop / API reference / Navigation and pages
+  - category: Develop / API reference / Navigation & pages
     url: /develop/api-reference/navigation
-  - category: Develop / API reference / Navigation and pages / st.navigation
+  - category: Develop / API reference / Navigation & pages / st.navigation
     url: /develop/api-reference/navigation/st.navigation
     isVersioned: true
-  - category: Develop / API reference / Navigation and pages / st.Page
+  - category: Develop / API reference / Navigation & pages / st.Page
     url: /develop/api-reference/navigation/st.page
     isVersioned: true
-  - category: Develop / API reference / Navigation and pages / st.page_link
+  - category: Develop / API reference / Navigation & pages / st.page_link
     url: https://docs.streamlit.io/develop/api-reference/widgets/st.page_link
     isVersioned: true
-  - category: Develop / API reference / Navigation and pages / st.switch_page
+  - category: Develop / API reference / Navigation & pages / st.switch_page
     url: /develop/api-reference/navigation/st.switch_page
     isVersioned: true
   - category: Develop / API reference / Execution flow
@@ -555,36 +555,36 @@ site_menu:
     url: /develop/api-reference/caching-and-state/st.experimental_set_query_params
     isVersioned: true
     isDeprecated: true
-  - category: Develop / API reference / Connections and secrets
+  - category: Develop / API reference / Connections & secrets
     url: /develop/api-reference/connections
-  - category: Develop / API reference / Connections and secrets / SECRETS
-  - category: Develop / API reference / Connections and secrets / st.secrets
+  - category: Develop / API reference / Connections & secrets / SECRETS
+  - category: Develop / API reference / Connections & secrets / st.secrets
     url: /develop/api-reference/connections/st.secrets
-  - category: Develop / API reference / Connections and secrets / secrets.toml
+  - category: Develop / API reference / Connections & secrets / secrets.toml
     url: /develop/api-reference/connections/secrets.toml
-  - category: Develop / API reference / Connections and secrets / CONNECTIONS
-  - category: Develop / API reference / Connections and secrets / st.connection
+  - category: Develop / API reference / Connections & secrets / CONNECTIONS
+  - category: Develop / API reference / Connections & secrets / st.connection
     url: /develop/api-reference/connections/st.connection
     isVersioned: true
-  - category: Develop / API reference / Connections and secrets / SnowflakeConnection
+  - category: Develop / API reference / Connections & secrets / SnowflakeConnection
     url: /develop/api-reference/connections/st.connections.snowflakeconnection
     isVersioned: true
-  - category: Develop / API reference / Connections and secrets / SQLConnection
+  - category: Develop / API reference / Connections & secrets / SQLConnection
     url: /develop/api-reference/connections/st.connections.sqlconnection
     isVersioned: true
-  - category: Develop / API reference / Connections and secrets / BaseConnection
+  - category: Develop / API reference / Connections & secrets / BaseConnection
     url: /develop/api-reference/connections/st.connections.baseconnection
     isVersioned: true
-  - category: Develop / API reference / Connections and secrets / st.experimental_connection
+  - category: Develop / API reference / Connections & secrets / st.experimental_connection
     url: /develop/api-reference/connections/st.experimental_connection
     isVersioned: true
     isDeprecated: true
     visible: false
-  - category: Develop / API reference / Connections and secrets / SnowparkConnection
+  - category: Develop / API reference / Connections & secrets / SnowparkConnection
     url: /develop/api-reference/connections/st.connections.snowparkconnection
     isVersioned: true
     isDeprecated: true
-  - category: Develop / API reference / Connections and secrets / ExperimentalBaseConnection
+  - category: Develop / API reference / Connections & secrets / ExperimentalBaseConnection
     url: /develop/api-reference/connections/st.connections.experimentalbaseconnection
     isVersioned: true
     isDeprecated: true
@@ -692,12 +692,16 @@ site_menu:
   - category: Develop / Tutorials / Multipage apps / Build navigation with st.page_link
     url: /develop/tutorials/multipage/st.page_link-nav
     visible: false
-  - category: Develop / Tutorials / Work with LLMs
-    url: /develop/tutorials/llms
-  - category: Develop / Tutorials / Work with LLMs / Build a basic LLM chat app
-    url: /develop/tutorials/llms/build-conversational-apps
-  - category: Develop / Tutorials / Work with LLMs / Build an LLM app using LangChain
-    url: /develop/tutorials/llms/llm-quickstart
+  - category: Develop / Tutorials / Chat & LLM apps
+    url: /develop/tutorials/chat-and-llm-apps
+  - category: Develop / Tutorials / Chat & LLM apps / Build a basic LLM chat app
+    url: /develop/tutorials/chat-and-llm-apps/build-conversational-apps
+  - category: Develop / Tutorials / Chat & LLM apps / Build an LLM app using LangChain
+    url: /develop/tutorials/chat-and-llm-apps/llm-quickstart
+  - category: Develop / Tutorials / Chat & LLM apps / Get chat response feedback
+    url: /develop/tutorials/chat-and-llm-apps/chat-response-feedback
+  - category: Develop / Tutorials / Chat & LLM apps / Validate and edit chat responses
+    url: /develop/tutorials/chat-and-llm-apps/validate-and-edit-chat-responses
   - category: Develop / Quick reference
     url: /develop/quick-reference
   - category: Develop / Quick reference / Cheat sheet
