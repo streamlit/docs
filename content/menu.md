@@ -471,9 +471,6 @@ site_menu:
   - category: Develop / API reference / APPLICATION LOGIC
   - category: Develop / API reference / Authentication & user info
     url: /develop/api-reference/user
-  - category: Develop / API reference / Authentication & user info / st.context
-    url: /develop/api-reference/user/st.context
-    isVersioned: true
   - category: Develop / API reference / Authentication & user info / st.login
     url: /develop/api-reference/user/st.login
     isVersioned: true
@@ -522,34 +519,39 @@ site_menu:
     isVersioned: true
     isDeprecated: true
     visible: false
-  - category: Develop / API reference / Caching and state
+  - category: Develop / API reference / Caching & state
     url: /develop/api-reference/caching-and-state
-  - category: Develop / API reference / Caching and state / st.cache_data
+  - category: Develop / API reference / Caching & state / SERVER
+  - category: Develop / API reference / Caching & state / st.cache_data
     url: /develop/api-reference/caching-and-state/st.cache_data
     isVersioned: true
-  - category: Develop / API reference / Caching and state / st.cache_resource
+  - category: Develop / API reference / Caching & state / st.cache_resource
     url: /develop/api-reference/caching-and-state/st.cache_resource
     isVersioned: true
-  - category: Develop / API reference / Caching and state / st.experimental_memo
+  - category: Develop / API reference / Caching & state / st.experimental_memo
     url: /develop/api-reference/caching-and-state/st.experimental_memo
     isVersioned: true
     isDeprecated: true
     visible: false
-  - category: Develop / API reference / Caching and state / st.experimental_singleton
+  - category: Develop / API reference / Caching & state / st.experimental_singleton
     url: /develop/api-reference/caching-and-state/st.experimental_singleton
     isVersioned: true
     isDeprecated: true
     visible: false
-  - category: Develop / API reference / Caching and state / st.session_state
+  - category: Develop / API reference / Caching & state / st.session_state
     url: /develop/api-reference/caching-and-state/st.session_state
-  - category: Develop / API reference / Caching and state / st.query_params
+  - category: Develop / API reference / Caching & state / BROWSER
+  - category: Develop / API reference / Caching & state / st.context
+    url: /develop/api-reference/caching-and-state/st.context
+    isVersioned: true
+  - category: Develop / API reference / Caching & state / st.query_params
     url: /develop/api-reference/caching-and-state/st.query_params
     isVersioned: true
-  - category: Develop / API reference / Caching and state / st.experimental_get_query_params
+  - category: Develop / API reference / Caching & state / st.experimental_get_query_params
     url: /develop/api-reference/caching-and-state/st.experimental_get_query_params
     isVersioned: true
     isDeprecated: true
-  - category: Develop / API reference / Caching and state / st.experimental_set_query_params
+  - category: Develop / API reference / Caching & state / st.experimental_set_query_params
     url: /develop/api-reference/caching-and-state/st.experimental_set_query_params
     isVersioned: true
     isDeprecated: true

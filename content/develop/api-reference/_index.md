@@ -1946,7 +1946,7 @@ st.login()
 
 <h4>Log out a user</h4>
 
-`st.logout` removes a user's identity information.
+`st.logout()` removes a user's identity information.
 
 ```python
 st.logout()
