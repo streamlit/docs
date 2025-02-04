@@ -32,13 +32,14 @@ st.dataframe(df, use_container_width=True)
 
 `st.dataframe` provides additional functionality by using [glide-data-grid](https://github.com/glideapps/glide-data-grid) under the hood:
 
-- **Column sorting**: Sort columns by clicking on their headers.
-- **Column resizing**: Resize columns by dragging and dropping column header borders.
-- **Table resizing**: Resize tables by dragging and dropping the bottom right corner.
-- **Fullscreen view**: Enlarge tables to fullscreen by clicking the fullscreen icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>fullscreen</i>) in the toolbar.
-- **Search**: Click the search icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>search</i>) in the toolbar or use hotkeys (`⌘+F` or `Ctrl+F`) to search through the data.
-- **Download**: Click the download icon in the toolbar to download the data as a CSV file.
-- **Copy to clipboard**: Select one or multiple cells, copy them to the clipboard (`⌘+C` or `Ctrl+C`), and paste them into your favorite spreadsheet software.
+- **Column sorting**: To sort columns, select their headers.
+- **Column resizing**: To resize columns, drag and drop column header borders.
+- **Reorder and pin columns**: To reorder columns or pin them on the left, drag and drop column headers or use the header menu (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>).
+- **Dataframe resizing**: To resize dataframes, drag and drop the bottom right corner.
+- **Fullscreen view**: To enlarge dataframes to fullscreen, select the fullscreen icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>fullscreen</i>) in the toolbar.
+- **Search**: To search through the data, select the search icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>search</i>) in the toolbar or use hotkeys (`⌘+F` or `Ctrl+F`).
+- **Download**: To download the data as a CSV file, select the download icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>download</i>) in the toolbar.
+- **Copy to clipboard**: To copy the data to the clipboard, select one or multiple cells, use the hotkeys (`⌘+C` or `Ctrl+C`), and paste them into your favorite spreadsheet software.
 
 <YouTube videoId="nauAnULRG1c" loop autoplay />
 

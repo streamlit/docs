@@ -3,12 +3,6 @@ title: Caching overview
 slug: /develop/concepts/architecture/caching
 ---
 
-<Note>
-
-Documentation for the deprecated `@st.cache` decorator can be found in [Optimize performance with st.cache](/develop/concepts/architecture/st.cache).
-
-</Note>
-
 # Caching overview
 
 Streamlit runs your script from top to bottom at every user interaction or code change. This execution model makes development super easy. But it comes with two major challenges:

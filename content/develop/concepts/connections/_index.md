@@ -1,9 +1,9 @@
 ---
-title: Working with connections and secrets
+title: Working with connections, secrets, and user authentication
 slug: /develop/concepts/connections
 ---
 
-# Working with connections and secrets
+# Working with connections, secrets, and user authentication
 
 <TileContainer layout="list">
 
@@ -20,6 +20,14 @@ Connect your app to remote data or a third-party API.
 <h5>Secrets managements</h5>
 
 Set up your development environement and design your app to handle secrets securely.
+
+</RefCard>
+
+<RefCard href="/develop/concepts/connections/authentication">
+
+<h5>Authentication and user information</h5>
+
+Use an OpenID Connect provider to authenticate users and personalize your app.
 
 </RefCard>
 

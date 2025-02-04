@@ -5,7 +5,7 @@ slug: /develop/quick-reference/cheat-sheet
 
 # Streamlit API cheat sheet
 
-This is a summary of the docs for the latest version of Streamlit, [v1.41.0](https://pypi.org/project/streamlit/1.41.0/).
+This is a summary of the docs for the latest version of Streamlit, [v1.42.0](https://pypi.org/project/streamlit/1.42.0/).
 
 <Masonry>
 
@@ -502,21 +502,17 @@ st.exception(e)
 ```
 
 </CodeTile>
-</Masonry>
 
-<Masonry>
 <CodeTile>
 
 #### Personalize apps for users
 
 ```python
-# Show different content based on the user's email address.
-if st.experimental_user.email == "jane@examples.com":
-    display_jane_content()
-elif st.experimental_user.email == "adam@example.com":
-    display_adam_content()
-else:
-    st.write("Please contact us to get access!")
+# Authenticate users
+if not st.experimental_user.is_logged_in:
+    st.login("my_provider")
+f"Hi, {st.experimental_user.name}"
+st.logout()
 
 # Get dictionaries of cookies and headers
 st.context.cookies

@@ -80,13 +80,15 @@ site_menu:
   - category: Develop / Concepts / App design / Working with timezones
     url: /develop/concepts/design/timezone-handling
   - category: Develop / Concepts / ADDITIONAL
-  - category: Develop / Concepts / Connections & secrets
+  - category: Develop / Concepts / Connections, secrets, & authentication
     url: /develop/concepts/connections
-  - category: Develop / Concepts / Connections & secrets / Connecting to data
+  - category: Develop / Concepts / Connections, secrets, & authentication / Connecting to data
     url: /develop/concepts/connections/connecting-to-data
-  - category: Develop / Concepts / Connections & secrets / Secrets management
+  - category: Develop / Concepts / Connections, secrets, & authentication / Secrets management
     url: /develop/concepts/connections/secrets-management
-  - category: Develop / Concepts / Connections & secrets / Security reminders
+  - category: Develop / Concepts / Connections, secrets, & authentication / User authentication
+    url: /develop/concepts/connections/authentication
+  - category: Develop / Concepts / Connections, secrets, & authentication / Security reminders
     url: /develop/concepts/connections/security-reminders
   - category: Develop / Concepts / Custom components
     url: /develop/concepts/custom-components
@@ -171,8 +173,11 @@ site_menu:
     url: /develop/api-reference/text/st.text
     isVersioned: true
   - category: Develop / API reference / Text elements / UTILITIES
+  - category: Develop / API reference / Text elements / st.help
+    url: /develop/api-reference/text/st.help
+    isVersioned: true
   - category: Develop / API reference / Text elements / st.html
-    url: https://docs.streamlit.io/develop/api-reference/utilities/st.html
+    url: /develop/api-reference/text/st.html
     isVersioned: true
   - category: Develop / API reference / Data elements
     url: /develop/api-reference/data
@@ -466,6 +471,17 @@ site_menu:
   - category: Develop / API reference / Third-party components
     url: https://streamlit.io/components
   - category: Develop / API reference / APPLICATION LOGIC
+  - category: Develop / API reference / Authentication & user info
+    url: /develop/api-reference/user
+  - category: Develop / API reference / Authentication & user info / st.login
+    url: /develop/api-reference/user/st.login
+    isVersioned: true
+  - category: Develop / API reference / Authentication & user info / st.logout
+    url: /develop/api-reference/user/st.logout
+    isVersioned: true
+  - category: Develop / API reference / Authentication & user info / st.user
+    url: /develop/api-reference/user/st.user
+    isVersioned: true
   - category: Develop / API reference / Navigation & pages
     url: /develop/api-reference/navigation
   - category: Develop / API reference / Navigation & pages / st.navigation
@@ -507,6 +523,7 @@ site_menu:
     visible: false
   - category: Develop / API reference / Caching & state
     url: /develop/api-reference/caching-and-state
+  - category: Develop / API reference / Caching & state / SERVER
   - category: Develop / API reference / Caching & state / st.cache_data
     url: /develop/api-reference/caching-and-state/st.cache_data
     isVersioned: true
@@ -525,6 +542,10 @@ site_menu:
     visible: false
   - category: Develop / API reference / Caching & state / st.session_state
     url: /develop/api-reference/caching-and-state/st.session_state
+  - category: Develop / API reference / Caching & state / BROWSER
+  - category: Develop / API reference / Caching & state / st.context
+    url: /develop/api-reference/caching-and-state/st.context
+    isVersioned: true
   - category: Develop / API reference / Caching & state / st.query_params
     url: /develop/api-reference/caching-and-state/st.query_params
     isVersioned: true
@@ -581,20 +602,6 @@ site_menu:
     isVersioned: true
   - category: Develop / API reference / Custom components / st.components.v1.iframe
     url: /develop/api-reference/custom-components/st.components.v1.iframe
-    isVersioned: true
-  - category: Develop / API reference / Utilities
-    url: /develop/api-reference/utilities
-  - category: Develop / API reference / Utilities / st.context
-    url: /develop/api-reference/utilities/st.context
-    isVersioned: true
-  - category: Develop / API reference / Utilities / st.experimental_user
-    url: /develop/api-reference/utilities/st.experimental_user
-    isVersioned: true
-  - category: Develop / API reference / Utilities / st.help
-    url: /develop/api-reference/utilities/st.help
-    isVersioned: true
-  - category: Develop / API reference / Utilities / st.html
-    url: /develop/api-reference/utilities/st.html
     isVersioned: true
   - category: Develop / API reference / Configuration
     url: /develop/api-reference/configuration
@@ -703,6 +710,8 @@ site_menu:
     url: /develop/quick-reference/cheat-sheet
   - category: Develop / Quick reference / Release notes
     url: /develop/quick-reference/release-notes
+  - category: Develop / Quick reference / Release notes / 2025
+    url: /develop/quick-reference/release-notes/2025
   - category: Develop / Quick reference / Release notes / 2024
     url: /develop/quick-reference/release-notes/2024
   - category: Develop / Quick reference / Release notes / 2023
