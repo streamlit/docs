@@ -1919,18 +1919,6 @@ rain(emoji="🎈", font_size=54,
 <br />
 
 <TileContainer>
-<RefCard href="/develop/api-reference/user/st.context">
-
-<h4>Context</h4>
-
-`st.context` provides a read-only interface to access cookies and headers.
-
-```python
-st.context.cookies
-st.context.headers
-```
-
-</RefCard>
 <RefCard href="/develop/api-reference/user/st.login">
 
 <h4>Log in a user</h4>
@@ -1953,7 +1941,7 @@ st.logout()
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/user/st.user" size="full">
+<RefCard href="/develop/api-reference/user/st.user">
 
 <h4>User info</h4>
 
@@ -2226,6 +2214,18 @@ Get, set, or clear the query parameters that are shown in the browser's URL bar.
 ```python
 st.query_params[key] = value
 st.query_params.clear()
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/user/st.context">
+
+<h4>Context</h4>
+
+`st.context` provides a read-only interface to access cookies and headers.
+
+```python
+st.context.cookies
+st.context.headers
 ```
 
 </RefCard>
