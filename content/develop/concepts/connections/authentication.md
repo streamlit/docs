@@ -5,15 +5,15 @@ slug: /develop/concepts/connections/authentication
 
 # User authentication and information
 
-The ability to personalize your app for your users is a great way to make your app more engaging.
+Personalizing your app for your users is a great way to make your app more engaging.
 
-User authentication and personalization unlocks a plethora of use cases for developers, some of which could include: controls for admins, a personalized stock ticker, a chatbot app with a saved history between sessions, and much more.
+User authentication and personalization unlocks a plethora of use cases for developers, including controls for admins, a personalized stock ticker, or a chatbot app with a saved history between sessions.
 
-You should have a basic understanding of [secrets management](/develop/concepts/connections/secrets-management) before reading this guide.
+Before reading this guide, you should have a basic understanding of [secrets management](/develop/concepts/connections/secrets-management).
 
 ## OpenID Connect
 
-Streamlit supports user authentication for any identity provider using OpenID Connect (OIDC). Although OIDC is built on OAuth 2.0, Streamlit doesn't support generic OAuth providers. Streamlit supports authentication, not authorization. OIDC connections return identifying information about a user so you know who they are (authentication). These connections don't return access tokens (authorization)&mdash;your app can't act on behalf of a user through your identity provider. If you need your app to act on behalf of your users in another system, you might consider using or creating a custom component.
+Streamlit supports user authentication with OpenID Connect (OIDC), which is an authentication protocol built on top of OAuth 2.0. OIDC supports authentication, but not authorization: that is, OIDC connections tell you _who_ a user is (authentication), but don't give you the authority to _impersonate_ them (authorization). If you need to connect with a generic OAuth 2.0 provider or have your app to act on behalf of a user, consider using or creating a custom component.
 
 Some popular OIDC providers are:
 
@@ -26,41 +26,43 @@ Some popular OIDC providers are:
 
 There are three commands involved with user authentication:
 
-- [`st.login()`](/develop/api-reference/user/st.login) redirects the user to your identity provider. After they log in, Streamlit stores an identity cookie, then redirects them to the homepage of your app in a new session.
+- [`st.login()`](/develop/api-reference/user/st.login) redirects the user to your identity provider. After they log in, Streamlit stores an identity cookie and then redirects them to the homepage of your app in a new session.
 - [`st.experimental_user`](/develop/api-reference/user/st.user) is a dict-like object for accessing user information. It has a persistent attribute, `.is_logged_in`, which you can check for the user's login status. When they are logged in, other attributes are available per your identity provider's configuration.
 - [`st.logout()`](/develop/api-reference/user/st.logout) removes the identity cookie from the user's browser and redirects them to the homepage of your app in a new session.
 
 ## User cookies and logging out
 
-Streamlit checks for the identity cookie at the beginning of each new session. If a user logs into your app in one tab and then opens a new tab, they will automatically be logged into your app in the new tab. When you call `st.logout()` in a user session, Streamlit removes the identity cookie and starts a new session. This logs the user out from the current session. However, if they were logged into other sessions already, they will remain logged in within those sessions. The information in `st.experimental_user` is updated at the beginning of a session (which is why `st.login()` and `st.logout()` both start new sessions after saving or deletin).
+Streamlit checks for the identity cookie at the beginning of each new session. If a user logs in to your app in one tab and then opens a new tab, they will automatically be logged in to your app in the new tab. When you call `st.logout()` in a user session, Streamlit removes the identity cookie and starts a new session. This logs the user out from the current session. However, if they were logged in to other sessions already, they will remain logged in within those sessions. The information in `st.experimental_user` is updated at the beginning of a session (which is why `st.login()` and `st.logout()` both start new sessions after saving or deleting the identity cookie).
 
 If a user closes your app without logging out, the identity cookie will expire after 30 days. This expiration time is not configurable and is not tied to any expiration time that may be returned in your user's identity token. If you need to prevent persistent authentication in your app, check the expiration information returned by the identity provider in `st.experimental_user` and manually call `st.logout()` when needed.
 
-Streamlit does not modify or delete any cookies saved directly by your identity provider. For example, if you use Google as your identity provider and a user signs in to your app with Google, they will remain logged into their Google account after they log out of your app with `st.logout()`.
+Streamlit does not modify or delete any cookies saved directly by your identity provider. For example, if you use Google as your identity provider and a user logs in to your app with Google, they will remain logged in to their Google account after they log out of your app with `st.logout()`.
 
 ## Setting up an identity provider
 
-In order to use an identity provider, you must first configure your identity provider through an admin account. This typically involves setting up client or application within the identity provider's system. Follow the documentaion for your identity provider. As a general overview, an identity-provider client typically does the following:
+In order to use an identity provider, you must first configure your identity provider through an admin account. This typically involves setting up a client or application within the identity provider's system. Follow the documentation for your identity provider. As a general overview, an identity-provider client typically does the following:
 
 - Manages the list of your users.
 - Optional: Allows users to add themselves to your user list.
 - Declares the set of attributes passed from each user account to the client (which is then passed to your Streamlit app).
-- Only allows authenctication requests to come from your Streamlit app.
+- Only allows authentication requests to come from your Streamlit app.
 - Redirects users back to your Streamlit app after they authenticate.
 
 To configure your app, you'll need the following:
 
-- Your app's URL. For example, use `http://localhost:8501` for most local development cases.
-- A redirect URL, which is your app's URL with the pathname `oauth2callback`. For example, `http://localhost:8501/oauth2callback` for most local development cases.
-- A cookie secret, which should be a strong, randomly generated string.
+- Your app's URL
+  For example, use `http://localhost:8501` for most local development cases.
+- A redirect URL, which is your app's URL with the pathname `oauth2callback`
+  For example, `http://localhost:8501/oauth2callback` for most local development cases.
+- A cookie secret, which should be a strong, randomly generated string
 
-After you use this information to configure your identity-provider client, you'll get the following from your identity provider:
+After you use this information to configure your identity-provider client, you'll receive the following information from your identity provider:
 
-- Client id
+- Client ID
 - Client secret
 - Server metadata URL
 
-Examples for popular OIDC prvoider configurations are provided in the API reference for `st.login()`.
+Examples for popular OIDC provider configurations are listed in the API reference for `st.login()`.
 
 ## Configure your OIDC connection in Streamlit
 
@@ -68,11 +70,11 @@ After you've configured your identity-provider client, you'll need to configure 
 
 Whether you have one OIDC provider or many, you'll need to have an `[auth]` dictionary in `secrets.toml`. You must declare `redirect_uri` and `cookie_secret` in the `[auth]` dictionary. These two values are shared between all OIDC providers in your app.
 
-If you are only using one OIDC provider, you can put the remaining three properties in `[auth]` (`client_id`, `client_secret`, and `server_metadata_url`). However, if you are using multiple providers, they should each have a unique name so you can declare their unique values in their own dictionaries. For example, `[auth.connection_1]` and `[auth.connection_2]`.
+If you are only using one OIDC provider, you can put the remaining three properties (`client_id`, `client_secret`, and `server_metadata_url`) in `[auth]`. However, if you are using multiple providers, they should each have a unique name so you can declare their unique values in their own dictionaries. For example, if you name your connections `"connection_1"` and `"connection_2"`, put their remaining properties in dictionaries named `[auth.connection_1]` and `[auth.connection_2]`, respectively.
 
 ## A simple example
 
-If you use Google Identity as your identity provider, a basic configuration for local development will look like the following:
+If you use Google Identity as your identity provider, a basic configuration for local development will look like the following TOML file:
 
 `.streamlit/secrets.toml`:
 
@@ -104,7 +106,7 @@ if st.button("Log out"):
 st.markdown(f"Welcome! {st.experimental_user.name}")
 ```
 
-By using `st.stop()`, your script run ends as soon as the login button is displayed. This lets you avoid nesting your entire page within a conditional block. Additionally, you can use callbacks to simplify the code further:
+When you use `st.stop()`, your script run ends as soon as the login button is displayed. This lets you avoid nesting your entire page within a conditional block. Additionally, you can use callbacks to simplify the code further:
 
 ```python
 import streamlit as st
@@ -119,7 +121,7 @@ st.markdown(f"Welcome! {st.experimental_user.name}")
 
 ## Using multiple OIDC providers
 
-If you use more than one OIDC provider, you'll need to declare a unique name for each. If you want to use Google Identity and Microsoft Entra ID as two providers for the same app, your configuration for local development will look like the following:
+If you use more than one OIDC provider, you'll need to declare a unique name for each. If you want to use Google Identity and Microsoft Entra ID as two providers for the same app, your configuration for local development will look like the following TOML file:
 
 `.streamlit/secrets.toml`:
 
