@@ -192,66 +192,59 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/develop/api-reference/layout/st.columns"
+                href="/develop/concepts/connections/authentication"
               >
-                <i className="material-icons-sharp">view_column</i>
-                <h4>Add borders to columns and metrics</h4>
+                <i className="material-icons-sharp">account_circle</i>
+                <h4>User authentication</h4>
+                <p>Authenticate users with an OpenID Connect provider.</p>
+              </RefCard>
+              <RefCard size="third" href="/develop/api-reference/data/st.table">
+                <i className="material-icons-sharp">format_paint</i>
+                <h4>Markdown in tables</h4>
                 <p>
-                  <code>st.columns</code> and <code>st.metric</code> have a new
-                  <code>border</code> parameter to show an optional border.
+                  <code>st.table</code> supports Markdown text in all cells,
+                  headers, and indices.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/text/st.markdown"
+                href="/develop/api-reference/data/st.dataframe"
+              >
+                <i className="material-icons-sharp">table</i>
+                <h4>Dataframe improvements</h4>
+                <p>
+                  Users can sort and pin columns. Rows are highlighted on hover.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/status/st.spinner"
+              >
+                <i className="material-icons-sharp">timer</i>
+                <h4>Spinner elapsed time</h4>
+                <p>
+                  <code>st.spinner</code> can optionally show elapsed time with
+                  the new parameter <code>show_time</code>.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/media/st.image"
               >
                 <i className="material-icons-sharp">palette</i>
-                <h4>Primary color in Markdown</h4>
+                <h4>Markdown image captions</h4>
                 <p>
-                  Now you can use the color "primary" in Markdown to color or
-                  highlight text with your app's primary color.
+                  <code>st.image</code> supports Markdown text in
+                  <code>caption</code>.
                 </p>
               </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/data/st.column_config"
-              >
-                <i className="material-icons-sharp">push_pin</i>
-                <h4>Pin or freeze dataframe columns</h4>
+              <RefCard size="third" href="/develop/api-reference/text/st.code">
+                <i className="material-icons-sharp">height</i>
+                <h4>Code height</h4>
                 <p>
-                  Column configuration has a new <code>pinned</code> parameter
-                  to pin columns on the left as users scroll horizontally.
+                  You can set the height of <code>st.code</code> with the new
+                  parameter <code>height</code>.
                 </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/widgets/st.button"
-              >
-                <i className="material-icons-sharp">ads_click</i>
-                <h4>Tertiary buttons</h4>
-                <p>
-                  Buttons have a new, "tertiary" type for a more subtle
-                  appearance.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/widgets/st.pills"
-              >
-                <i className="material-icons-sharp">more_horiz</i>
-                <h4>Pills</h4>
-                <p>
-                  You can create a single- or multi-select group of
-                  pill-buttons.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/widgets/st.segmented_control"
-              >
-                <i className="material-icons-sharp">view_week</i>
-                <h4>Segmented control</h4>
-                <p>You can create a segmented button or button group.</p>
               </RefCard>
             </TileContainer>
 
