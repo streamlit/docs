@@ -80,13 +80,15 @@ site_menu:
   - category: Develop / Concepts / App design / Working with timezones
     url: /develop/concepts/design/timezone-handling
   - category: Develop / Concepts / ADDITIONAL
-  - category: Develop / Concepts / Connections & secrets
+  - category: Develop / Concepts / Connections, secrets, & authentication
     url: /develop/concepts/connections
-  - category: Develop / Concepts / Connections & secrets / Connecting to data
+  - category: Develop / Concepts / Connections, secrets, & authentication / Connecting to data
     url: /develop/concepts/connections/connecting-to-data
-  - category: Develop / Concepts / Connections & secrets / Secrets management
+  - category: Develop / Concepts / Connections, secrets, & authentication / Secrets management
     url: /develop/concepts/connections/secrets-management
-  - category: Develop / Concepts / Connections & secrets / Security reminders
+  - category: Develop / Concepts / Connections, secrets, & authentication / User authentication
+    url: /develop/concepts/connections/authentication
+  - category: Develop / Concepts / Connections, secrets, & authentication / Security reminders
     url: /develop/concepts/connections/security-reminders
   - category: Develop / Concepts / Custom components
     url: /develop/concepts/custom-components
