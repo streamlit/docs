@@ -22,6 +22,46 @@ Google is one of the most popular identity providers for social logins. You can 
 - You must have a project in Google Cloud within which to create your application.
   For more information about managing your projects in Google Cloud, see [Creating and managing projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects) in Google's documentation.
 
+## Summary
+
+In this tutorial, you'll build an app that users can log in to with their Google accounts. When they log in, they'll see a personalized greeting with their name and have the option to log out.
+
+Here's a look at what you'll build:
+
+<Collapse title="Complete code" expanded={false}>
+
+`.streamlit/secrets.toml`
+
+```toml
+[auth]
+redirect_uri = "http://localhost:8501/oauth2callback"
+cookie_secret = "xxx"
+client_id = "xxx"
+client_secret = "xxx"
+server_metadata_url = (
+    "https://accounts.google.com/.well-known/openid-configuration"
+)
+```
+
+`app.py`
+
+```python
+import streamlit as st
+
+def login_screen():
+    st.header("This app is private.")
+    st.subheader("Please log in.")
+    st.button("Log in with Google", on_click=st.login)
+
+if not st.experimental_user.is_logged_in:
+    login_screen()
+else:
+    st.header(f"Welcome, {st.experimental_user.name}!")
+    st.button("Log out", on_click=st.logout)
+```
+
+</Collapse>
+
 ## Create a web application in Google Cloud
 
 For your project in Google Cloud, you'll need to configure your consent screen and audience before creating a client. The consent screen is what users see from Google within the authentication flow. The audience settings manage your applications status (testing vs published). After those are configured, you'll create a client which will generate the ID and secrets needed to configure your app.
