@@ -144,7 +144,7 @@ To create an app with user authentication, you'll need to configure your secrets
 
 1. Generate a strong, random secret to use as your cookie secret.
 
-   The cookie secret is used to encrypt each user's identity cookie which Streamlit stores when they log in.
+   The cookie secret is used to sign each user's identity cookie which Streamlit stores when they log in.
 
 1. In `.streamlit/secrets.toml`, add your connection configuration:
 
