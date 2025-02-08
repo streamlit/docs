@@ -637,6 +637,8 @@ site_menu:
     url: /develop/tutorials/authentication
   - category: Develop / Tutorials / Authentication & personalization / Google Auth Platform
     url: /develop/tutorials/authentication/google
+  - category: Develop / Tutorials / Authentication & personalization / Microsoft Entra
+    url: /develop/tutorials/authentication/microsoft
   - category: Develop / Tutorials / Elements
     url: /develop/tutorials/elements
   - category: Develop / Tutorials / Elements / CHARTS
