@@ -894,9 +894,6 @@ site_menu:
     visible: false
   - category: Knowledge base / Deployment issues
     url: /knowledge-base/deploy
-  - category: Knowledge base / Deployment issues / Authentication without SSO
-    url: /knowledge-base/deploy/authentication-without-sso
-    visible: false
   - category: Knowledge base / Deployment issues / How can I deploy multiple Streamlit apps on different subdomains?
     url: /knowledge-base/deploy/deploy-multiple-streamlit-apps-different-subdomains
     visible: false

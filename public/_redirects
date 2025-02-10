@@ -1153,6 +1153,7 @@
 /develop/tutorials/llms /develop/tutorials/chat-and-llm-apps
 /develop/tutorials/llms/build-conversational-apps /develop/tutorials/chat-and-llm-apps/build-conversational-apps
 /develop/tutorials/llms/llm-quickstart /develop/tutorials/chat-and-llm-apps/llm-quickstart
+/knowledge-base/deploy/authentication-without-sso /develop/concepts/connections/authentication
 
 # Deep links included in streamlit/streamlit source code
 /st.connections.snowflakeconnection-configuration /develop/api-reference/connections/st.connections.snowflakeconnection
