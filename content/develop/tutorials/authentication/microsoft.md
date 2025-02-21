@@ -6,7 +6,7 @@ description: Learn how to authenticate users with Microsoft Entra
 
 # Use Microsoft Entra to authenticate users
 
-[Microsoft Identity Platform](https://learn.microsoft.com/en-us/entra/identity-platform/v2-overview) is a service within Microsoft Entra that lets you build applications to authenticate users. Your applications can use personal, work, and school accounts managed by Microsoft. You can also connect other identity providers, like [Facebook](https://learn.microsoft.com/en-us/entra/external-id/facebook-federation).
+[Microsoft Identity Platform](https://learn.microsoft.com/en-us/entra/identity-platform/v2-overview) is a service within Microsoft Entra that lets you build applications to authenticate users. Your applications can use personal, work, and school accounts managed by Microsoft.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ description: Learn how to authenticate users with Microsoft Entra
   ```
 
 - You should have a clean working directory called `your-repository`.
-- You must have a Microsoft Azure account, which include Microsoft Entra ID.
+- You must have a Microsoft Azure account, which includes Microsoft Entra ID.
 
 ## Summary
 
@@ -60,7 +60,7 @@ else:
 
 ## Create a web application in Microsoft Entra ID
 
-Within Microsoft Entra ID in Azure, you'll need to register a new application and generate a secret needed to configure your app. In this example, your application will only accept personal Microsoft accounts, but you can optionally accept work and school accounts, or restrict the application to your personal tenant. Microsoft Entra also lets you connect other, external identity providers.
+Within Microsoft Entra ID in Azure, you'll need to register a new application and generate a secret needed to configure your app. In this example, your application will only accept personal Microsoft accounts, but you can optionally accept work and school accounts or restrict the application to your personal tenant. Microsoft Entra also lets you connect other, external identity providers.
 
 ### Register a new application
 
@@ -78,7 +78,7 @@ Within Microsoft Entra ID in Azure, you'll need to register a new application an
 
 1. Under "Supported account types," select "**Personal Microsoft accounts only**."
 
-1. Under "Redirect URI," select a "**Web**" platform, and enter enter your app's URL with the pathname `oauth2callback`.
+1. Under "Redirect URI," select a "**Web**" platform, and enter your app's URL with the pathname `oauth2callback`.
 
    For example, if you are developing locally, enter `http://localhost:8501/oauth2callback`. If you are using a different port, change `8501` to match your port.
 
@@ -88,13 +88,17 @@ Within Microsoft Entra ID in Azure, you'll need to register a new application an
 
 ### Gather your application's details
 
-1. Under "Essentials," take note of the "Application (client) ID."
+1. To store your app information to use in later steps, open a text editor, or (even better) create a new item in a password locker.
+
+   Always handle your app secrets securely. Remember to label the values as you paste them so you don't mix them up.
+
+1. Under "Essentials," copy the "Application (client) ID" into your text editor.
 
    This is your `client_id`.
 
 1. At the top of the page, select "**Endpoints**."
 
-1. Take note of the "OpenID Connect metadata document."
+1. Copy the "OpenID Connect metadata document" into your text editor.
 
    This is your `server_metadata_url`.
 
@@ -110,11 +114,11 @@ Within Microsoft Entra ID in Azure, you'll need to register a new application an
 
    It may take a few seconds for Azure to generate your secret.
 
-1. Take note of the "Value."
+1. Copy the "Value" into your text editor.
 
-   This is your `client_secret`. Microsoft will hide the value after you leave Azure, so ensure that you take note of it now. If you lose your secret, you'll need to delete it and generate a new one.
+   This is your `client_secret`. Microsoft will hide the value after you leave Azure, so ensure that you securely store it somewhere now. If you lose your secret, you'll need to delete it from your configuration and generate a new one.
 
-You client is ready to accept users.
+Your client is ready to accept users.
 
 ## Build the example
 
@@ -126,13 +130,13 @@ To create an app with user authentication, you'll need to configure your secrets
 
 1. Add `secrets.toml` to your `.gitignore` file.
 
-<Important>
-    Never commit secrets to your repository. For more information about `.gitignore`, see [Ignoring files](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files).
-</Important>
+   <Important>
+      Never commit secrets to your repository. For more information about `.gitignore`, see [Ignoring files](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files).
+   </Important>
 
 1. Generate a strong, random secret to use as your cookie secret.
 
-   The cookie secret is used to sign each user's identity cookie which Streamlit stores when they log in.
+   The cookie secret is used to sign each user's identity cookie, which Streamlit stores when they log in.
 
 1. In `.streamlit/secrets.toml`, add your connection configuration:
 
@@ -145,7 +149,7 @@ To create an app with user authentication, you'll need to configure your secrets
     server_metadata_url = "https://login.microsoftonline.com/consumers/v2.0/.well-known/openid-configuration"
    ```
 
-   Replace the values of `client_id`, `client_secret`, and `server_metadata_url` with the values you obtained from Microsoft. Replace value of `cookie_secret` with the random secret you generated in the previous step.
+   Replace the values of `client_id`, `client_secret`, and `server_metadata_url` with the values you copied into your text editor earlier. Replace the value of `cookie_secret` with the random secret you generated in the previous step.
 
 1. Save your `secrets.toml` file.
 
@@ -184,7 +188,7 @@ To create an app with user authentication, you'll need to configure your secrets
        st.button("Log in with Microsoft", on_click=st.login)
    ```
 
-   This function displays a short message and a button. Streamlit's login command is assigned to the button as a callback. Alternatively, you could use a conditional:
+   This function displays a short message and a button. Streamlit's login command is assigned to the button as a callback. If you don't want to use a callback, you can replace the last line with the following, equivalent code:
 
    ```python
        if st.button("Log in with Google"):
@@ -205,11 +209,11 @@ To create an app with user authentication, you'll need to configure your secrets
        st.experimental_user
    ```
 
-   Since `st.experimental_user` is a dict-like object in a line by itself, Streamlit magic displays it in your app.
+   Because `st.experimental_user` is a dict-like object in a line by itself, Streamlit magic displays it in your app.
 
 1. Save your `app.py` file, and test your running app.
 
-   In your live preview, if you log in to your app, the login button will be replaced with the contents of your identity token. Observe the different values that are available from Google.
+   In your live preview, when you log in to your app, the login button is replaced with the contents of your identity token. Observe the different values that are available from Microsoft. You can use these values to personalize your app for your users.
 
 1. Return to your code.
 
@@ -242,17 +246,17 @@ When you are ready to deploy your app, you must update your application in Micro
    Authlib>=1.3.2
    ```
 
-   This ensures the correct Python dependencies are installed for your deployed app.
+   This ensures that the correct Python dependencies are installed for your deployed app.
 
 1. Save your `requirements.txt` file.
 
-1. Deploy your app and take note of your app's URL.
+1. Deploy your app, and copy your app's URL into your text editor.
 
-   You'll update your secrets in the following steps. For more information about deploying an app on Community Cloud, see [Deploy your app](/deploy/streamlit-community-cloud/deploy-your-app).
+   You'll use your app's URL to update your secrets and application configuration in the following steps. For more information about deploying an app on Community Cloud, see [Deploy your app](/deploy/streamlit-community-cloud/deploy-your-app).
 
 1. In your [app settings](/deploy/streamlit-community-cloud/manage-your-app/app-settings) in Community Cloud, select "**Secrets**."
 
-1. Copy the contents of your local `secrets.toml` file and paste them into your app settings.
+1. Copy the contents of your local `secrets.toml` file, and paste them into your app settings.
 
 1. Change your `redirect_uri` to reflect your deployed app's URL.
 

@@ -1,12 +1,12 @@
 ---
-title: Use Google Auth Platform to authenticate users
+title: Use the Google Auth Platform to authenticate users
 slug: /develop/tutorials/authentication/google
 description: Learn how to authenticate users with Google's OpenID Connect (OIDC) service
 ---
 
-# Use Google Auth Platform to authenticate users
+# Use the Google Auth Platform to authenticate users
 
-Google is one of the most popular identity providers for social logins. You can use Google Auth Platform with both private and organizational Google accounts. This tutorial configures authentication for anyone with a Google account. For more information about using Google Auth Platform, see [OpenID Connect](https://developers.google.com/identity/openid-connect/openid-connect#discovery) in Google's documentation.
+Google is one of the most popular identity providers for social logins. You can use the Google Auth Platform with both private and organizational Google accounts. This tutorial configures authentication for anyone with a Google account. For more information, see Google's overview of the [Google Auth Platform](https://support.google.com/cloud/topic/15540269?hl=en&ref_topic=3473162&sjid=576431444945556851-NC) and [OpenID Connect](https://developers.google.com/identity/openid-connect/openid-connect#discovery).
 
 ## Prerequisites
 
@@ -64,11 +64,11 @@ else:
 
 ## Create a web application in Google Cloud
 
-For your project in Google Cloud, you'll need to configure your consent screen and audience before creating a client. The consent screen is what users see from Google within the authentication flow. The audience settings manage your applications status (testing vs published). After those are configured, you'll create a client which will generate the ID and secrets needed to configure your app.
+For your project in Google Cloud, you'll need to configure your consent screen and audience before creating a client. The consent screen is what users see from Google within the authentication flow. The audience settings manage your application's status (_Testing_ or _Published_). After those are configured, you'll create a client, which will generate the ID and secrets needed to configure your app. To learn more about consent screens, audience, and clients, see Google's overview of the [Google Auth Platform](https://support.google.com/cloud/topic/15540269?hl=en&ref_topic=3473162&sjid=576431444945556851-NC).
 
 ### Configure your consent screen
 
-1. Go to [Google Auth Platform](https://console.cloud.google.com/auth/overview), and sign in to Google.
+1. Go to the [Google Auth Platform](https://console.cloud.google.com/auth/overview), and sign in to Google.
 
 1. In the upper-left corner, select your project.
 
@@ -88,7 +88,7 @@ For your project in Google Cloud, you'll need to configure your consent screen a
 
 1. Enter the email address for a personal Google account, and select "**SAVE**."
 
-   When you create a new application in Google Auth Platform, its status is "Testing." While the status is "Testing," only specific users can authenticate to your application; users can't register themselves. Therefore, add any email address you want to use for testing your app in development. When you're ready to publish your app, you'll return to this section and change the status to "Published." After an application is published, your application will accept new users.
+   When you create a new application in the Google Auth Platform, its status is _Testing_. While the status is _Testing_, only specific users can authenticate to your application; users can't register themselves. Therefore, add any email address you want to use for testing your app in development. When you're ready to publish your app, you'll return to this section and change the status to _Published_. After an application is published, your application will accept new users.
 
 ### Configure your client
 
@@ -122,11 +122,13 @@ You now have a client in Google Cloud that's ready to authenticate your users.
 
 1. From the clients page, select your new client.
 
-1. On the right, note your "Client ID" and "Client secret."
+1. To store your app information to use in later steps, open a text editor, or (even better) create a new item in a password locker.
 
-   In a later step, you will need to copy and paste these values into your app's `secrets.toml` file.
+   Always handle your app secrets securely. Remember to label the values as you paste them so you don't mix them up.
 
-For Google Auth Platform, the server metadata URL is shared between all applications and isn't listed individually in your client. The server metadata URL for Google Auth Platform is `https://accounts.google.com/.well-known/openid-configuration`. For more information about the server metadata URL, see [The discovery document](https://developers.google.com/identity/openid-connect/openid-connect#discovery) in Google's documentation.
+1. On the right, copy your "Client ID" and "Client secret" into your text editor.
+
+For the Google Auth Platform, the server metadata URL is shared between all applications and isn't listed individually in your client. The server metadata URL for the Google Auth Platform is `https://accounts.google.com/.well-known/openid-configuration`. For more information about the server metadata URL, see [The discovery document](https://developers.google.com/identity/openid-connect/openid-connect#discovery) in Google's documentation.
 
 ## Build the example
 
@@ -138,13 +140,13 @@ To create an app with user authentication, you'll need to configure your secrets
 
 1. Add `secrets.toml` to your `.gitignore` file.
 
-<Important>
-    Never commit secrets to your repository. For more information about `.gitignore`, see [Ignoring files](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files).
-</Important>
+   <Important>
+      Never commit secrets to your repository. For more information about `.gitignore`, see [Ignoring files](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files).
+   </Important>
 
 1. Generate a strong, random secret to use as your cookie secret.
 
-   The cookie secret is used to sign each user's identity cookie which Streamlit stores when they log in.
+   The cookie secret is used to sign each user's identity cookie, which Streamlit stores when they log in.
 
 1. In `.streamlit/secrets.toml`, add your connection configuration:
 
@@ -159,7 +161,7 @@ To create an app with user authentication, you'll need to configure your secrets
    )
    ```
 
-   Replace the values of `client_id` and `client_secret` with the values you obtained from Google Cloud. Replace value of `cookie_secret` with the random secret you generated in the previous step.
+   Replace the values of `client_id` and `client_secret` with the values you copied into your text editor earlier. Replace the value of `cookie_secret` with the random secret you generated in the previous step.
 
 1. Save your `secrets.toml` file.
 
@@ -198,7 +200,7 @@ To create an app with user authentication, you'll need to configure your secrets
        st.button("Log in with Google", on_click=st.login)
    ```
 
-   This function displays a short message and a button. Streamlit's login command is assigned to the button as a callback. Alternatively, you could use a conditional:
+   This function displays a short message and a button. Streamlit's login command is assigned to the button as a callback. If you don't want to use a callback, you can replace the last line with the following, equivalent code:
 
    ```python
        if st.button("Log in with Google"):
@@ -219,11 +221,11 @@ To create an app with user authentication, you'll need to configure your secrets
        st.experimental_user
    ```
 
-   Since `st.experimental_user` is a dict-like object in a line by itself, Streamlit magic displays it in your app.
+   Because `st.experimental_user` is a dict-like object in a line by itself, Streamlit magic displays it in your app.
 
 1. Save your `app.py` file, and test your running app.
 
-   In your live preview, if you log in to your app, the login button will be replaced with the contents of your identity token. Observe the different values that are available from Google.
+   In your live preview, when you log in to your app, the login button is replaced with the contents of your identity token. Observe the different values that are available from Google. You can use these values to personalize your app for your users.
 
 1. Return to your code.
 
@@ -256,25 +258,25 @@ When you are ready to deploy your app, you must update your application on Googl
    Authlib>=1.3.2
    ```
 
-   This ensures the correct Python dependencies are installed for your deployed app.
+   This ensures that the correct Python dependencies are installed for your deployed app.
 
 1. Save your `requirements.txt` file.
 
-1. Deploy your app and take note of your app's URL.
+1. Deploy your app, and copy your app's URL into your text editor.
 
-   You'll update your secrets in the following steps. For more information about deploying an app on Community Cloud, see [Deploy your app](/deploy/streamlit-community-cloud/deploy-your-app).
+   You'll use your app's URL to update your secrets and client configuration in the following steps. For more information about deploying an app on Community Cloud, see [Deploy your app](/deploy/streamlit-community-cloud/deploy-your-app).
 
 1. In your [app settings](/deploy/streamlit-community-cloud/manage-your-app/app-settings) in Community Cloud, select "**Secrets**."
 
-1. Copy the contents of your local `secrets.toml` file and paste them into your app settings.
+1. Copy the contents of your local `secrets.toml` file, and paste them into your app settings.
 
-1. Change your `redirect_uri` to reflect your deployed app's URL.
+1. Change your `redirect_uri` to reflect your deployed app's URL, which you copied earlier in this tutorial.
 
    For example, if your app is `my_streamlit_app.streamlit.io`, your redirect URI would be `https://my_streamlit_app.streamlit.io/oauth2callback`.
 
 1. Save and close your settings.
 
-1. Return to the clients page in Google Auth Platform, and select your client.
+1. Return to the clients page in the Google Auth Platform, and select your client.
 
 1. Under "Authorized redirect URIs," add or update a URI to match your new `redirect_uri`.
 
@@ -282,6 +284,6 @@ When you are ready to deploy your app, you must update your application on Googl
 
 1. Open your deployed app, and test it.
 
-   Your Google Cloud application's status is still "Testing." You should be able to log in and out of your app with the personal Google account you entered on the "Audience" page.
+   Your Google Cloud application's status is still _Testing_. You should be able to log in and out of your app with the personal Google account you entered on the "Audience" page.
 
-1. When you are ready for others to use your app, return to the "Audience" page in Google Auth Platform, and set your application status to "Published."
+1. When you are ready for others to use your app, return to the "Audience" page in the Google Auth Platform, and set your application status to _Published_.

@@ -10,7 +10,7 @@ Streamlit supports user authentication with the OpenID Connect (OIDC) protocol. 
 <TileContainer layout="list">
     <RefCard href="/develop/tutorials/authentication/google">
         <h5>Google Auth Platform</h5>
-        Google is one of the most popular identity providers for social logins. You can use Google Auth Platform with any Google account, including personal and organization accounts.
+        Google is one of the most popular identity providers for social logins. You can use the Google Auth Platform with any Google account, including personal and organization accounts.
     </RefCard>
     <RefCard href="/develop/tutorials/authentication/microsoft">
         <h5>Microsoft Entra</h5>
