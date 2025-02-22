@@ -50,11 +50,11 @@ your config.toml file, and watch as your app reruns with the new theme colors ap
 
 ## Pages
 
-As apps grow large, it becomes useful to organize them into multiple pages. This makes the app easier to manage as a developer and easier to navigate as a user. Streamlit provides a powerful way to create multipage apps using `st.Page` and `st.navigation`. Just create your pages and connect them with navigation as follows:
+As apps grow large, it becomes useful to organize them into multiple pages. This makes the app easier to manage as a developer and easier to navigate as a user. Streamlit provides a powerful way to create multipage apps using [`st.Page`](http://localhost:3000/develop/api-reference/navigation/st.page) and [`st.navigation`](http://localhost:3000/develop/api-reference/navigation/st.navigation). Just create your pages and connect them with navigation as follows:
 
 1. Create an entry point script that defines and connects your pages
 2. Create separate Python files for each page's content
-3. Use `st.Page` to define your pages and `st.navigation` to connect them
+3. Use [`st.Page`](http://localhost:3000/develop/api-reference/navigation/st.page) to define your pages and [`st.navigation`](http://localhost:3000/develop/api-reference/navigation/st.navigation) to connect them
 
 Here's an example of a three-page app:
 
