@@ -633,6 +633,12 @@ site_menu:
 
   - category: Develop / Tutorials
     url: /develop/tutorials
+  - category: Develop / Tutorials / Authentication & personalization
+    url: /develop/tutorials/authentication
+  - category: Develop / Tutorials / Authentication & personalization / Google Auth Platform
+    url: /develop/tutorials/authentication/google
+  - category: Develop / Tutorials / Authentication & personalization / Microsoft Entra
+    url: /develop/tutorials/authentication/microsoft
   - category: Develop / Tutorials / Elements
     url: /develop/tutorials/elements
   - category: Develop / Tutorials / Elements / CHARTS
@@ -888,9 +894,6 @@ site_menu:
     visible: false
   - category: Knowledge base / Deployment issues
     url: /knowledge-base/deploy
-  - category: Knowledge base / Deployment issues / Authentication without SSO
-    url: /knowledge-base/deploy/authentication-without-sso
-    visible: false
   - category: Knowledge base / Deployment issues / How can I deploy multiple Streamlit apps on different subdomains?
     url: /knowledge-base/deploy/deploy-multiple-streamlit-apps-different-subdomains
     visible: false
