@@ -188,23 +188,22 @@ To create an app with user authentication, you'll need to configure your secrets
        st.button("Log in with Microsoft", on_click=st.login)
    ```
 
-   This function displays a short message and a button. Streamlit's login command is assigned to the button as a callback. If you don't want to use a callback, you can replace the last line with the following, equivalent code:
+   This function displays a short message and a button. Streamlit's login command is assigned to the button as a callback.
 
-   ```python
-       if st.button("Log in with Google"):
-           st.login()
-   ```
+   <Note>
+      If you don't want to use a callback, you can replace the last line with an equivalent `if` statement:
+      ```diff
+      -  st.button("Log in with Microsoft", on_click=st.login)
+      +  if st.button("Log in with Microsoft"):
+      +     st.login()
+      ```
+   </Note>
 
-1. If no user is logged in, call your function to prompt the user:
+1. Conditioned on whether the user is logged in, call your function to prompt the user, or show their information:
 
    ```python
    if not st.experimental_user.is_logged_in:
        login_screen()
-   ```
-
-1. Otherwise, if a user _is_ logged in, display their information:
-
-   ```python
    else:
        st.experimental_user
    ```

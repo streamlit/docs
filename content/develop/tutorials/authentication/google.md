@@ -62,9 +62,15 @@ else:
 
 </Collapse>
 
-## Create a web application in Google Cloud
+## Create a web application in Google Cloud Console
 
-For your project in Google Cloud, you'll need to configure your consent screen and audience before creating a client. The consent screen is what users see from Google within the authentication flow. The audience settings manage your application's status (_Testing_ or _Published_). After those are configured, you'll create a client, which will generate the ID and secrets needed to configure your app. To learn more about consent screens, audience, and clients, see Google's overview of the [Google Auth Platform](https://support.google.com/cloud/topic/15540269?hl=en&ref_topic=3473162&sjid=576431444945556851-NC).
+In this section, you'll complete three steps to create your web application in your project in Google Cloud Console:
+
+- Configure your consent screen.
+- Configure your audience.
+- Configure your client.
+
+The consent screen is what users see from Google within the authentication flow. The audience settings manage your application's status (_Testing_ or _Published_). Creating a client for your web application generates the ID and secrets needed to configure your Streamlit app. To learn more about consent screens, audience, and clients, see Google's overview of the [Google Auth Platform](https://support.google.com/cloud/topic/15540269?hl=en&ref_topic=3473162&sjid=576431444945556851-NC).
 
 ### Configure your consent screen
 
@@ -200,23 +206,22 @@ To create an app with user authentication, you'll need to configure your secrets
        st.button("Log in with Google", on_click=st.login)
    ```
 
-   This function displays a short message and a button. Streamlit's login command is assigned to the button as a callback. If you don't want to use a callback, you can replace the last line with the following, equivalent code:
+   This function displays a short message and a button. Streamlit's login command is assigned to the button as a callback.
 
-   ```python
-       if st.button("Log in with Google"):
-           st.login()
-   ```
+   <Note>
+      If you don't want to use a callback, you can replace the last line with an equivalent `if` statement:
+      ```diff
+      -  st.button("Log in with Google", on_click=st.login)
+      +  if st.button("Log in with Google"):
+      +     st.login()
+      ```
+   </Note>
 
-1. If no user is logged in, call your function to prompt the user:
+1. Conditioned on whether the user is logged in, call your function to prompt the user, or show their information:
 
    ```python
    if not st.experimental_user.is_logged_in:
        login_screen()
-   ```
-
-1. Otherwise, if a user _is_ logged in, display their information:
-
-   ```python
    else:
        st.experimental_user
    ```
