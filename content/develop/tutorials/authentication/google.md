@@ -38,9 +38,7 @@ redirect_uri = "http://localhost:8501/oauth2callback"
 cookie_secret = "xxx"
 client_id = "xxx"
 client_secret = "xxx"
-server_metadata_url = (
-    "https://accounts.google.com/.well-known/openid-configuration"
-)
+server_metadata_url = "https://accounts.google.com/.well-known/openid-configuration"
 ```
 
 `app.py`
@@ -162,9 +160,7 @@ To create an app with user authentication, you'll need to configure your secrets
    cookie_secret = "xxx"
    client_id = "xxx"
    client_secret = "xxx"
-   server_metadata_url = (
-       "https://accounts.google.com/.well-known/openid-configuration"
-   )
+   server_metadata_url = "https://accounts.google.com/.well-known/openid-configuration"
    ```
 
    Replace the values of `client_id` and `client_secret` with the values you copied into your text editor earlier. Replace the value of `cookie_secret` with the random secret you generated in the previous step.
