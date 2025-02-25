@@ -39,6 +39,14 @@ Understand the impact of defining your own Python classes within Streamlit's rer
 
 </RefCard>
 
+<RefCard href="/develop/concepts/design/multithreading">
+
+<h5>Multithreading</h5>
+
+Understand how to use multithreading within Streamlit apps.
+
+</RefCard>
+
 <RefCard href="/develop/concepts/design/timezone-handling">
 
 <h5>Working with timezones</h5>
