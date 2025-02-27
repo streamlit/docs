@@ -50,15 +50,33 @@ your config.toml file, and watch as your app reruns with the new theme colors ap
 
 ## Pages
 
-As apps grow large, it becomes useful to organize them into multiple pages. This makes the app easier to manage as a developer and easier to navigate as a user. Streamlit provides a frictionless way to create multipage apps.
+As apps grow large, it becomes useful to organize them into multiple pages. This makes the app easier to manage as a developer and easier to navigate as a user. Streamlit provides a powerful way to create multipage apps using [`st.Page`](/develop/api-reference/navigation/st.page) and [`st.navigation`](/develop/api-reference/navigation/st.navigation). Just create your pages and connect them with navigation as follows:
 
-We designed this feature so that building a multipage app is as easy as building a single-page app! Just add more pages to an existing app as follows:
+1. Create an entry point script that defines and connects your pages
+2. Create separate Python files for each page's content
+3. Use [`st.Page`](/develop/api-reference/navigation/st.page) to define your pages and [`st.navigation`](/develop/api-reference/navigation/st.navigation) to connect them
 
-1. In the folder containing your main script, create a new `pages` folder. Let’s say your main script is named `main_page.py`.
-2. Add new `.py` files in the `pages` folder to add more pages to your app.
-3. Run `streamlit run main_page.py` as usual.
+Here's an example of a three-page app:
 
-That’s it! The `main_page.py` script will now correspond to the main page of your app. And you’ll see the other scripts from the `pages` folder in the sidebar page selector. The pages are listed according to filename (without file extensions and disregarding underscores). For example:
+<details open>
+<summary><code>streamlit_app.py</code></summary>
+
+```python
+import streamlit as st
+
+# Define the pages
+main_page = st.Page("main_page.py", title="Main Page", icon="🎈")
+page_2 = st.Page("page_2.py", title="Page 2", icon="❄️")
+page_3 = st.Page("page_3.py", title="Page 3", icon="🎉")
+
+# Set up navigation
+pg = st.navigation([main_page, page_2, page_3])
+
+# Run the selected page
+pg.run()
+```
+
+</details>
 
 <details open>
 <summary><code>main_page.py</code></summary>
@@ -66,6 +84,7 @@ That’s it! The `main_page.py` script will now correspond to the main page of y
 ```python
 import streamlit as st
 
+# Main page content
 st.markdown("# Main page 🎈")
 st.sidebar.markdown("# Main page 🎈")
 ```
@@ -73,7 +92,7 @@ st.sidebar.markdown("# Main page 🎈")
 </details>
 
 <details open>
-<summary><code>pages/page_2.py</code></summary>
+<summary><code>page_2.py</code></summary>
 
 ```python
 import streamlit as st
@@ -85,7 +104,7 @@ st.sidebar.markdown("# Page 2 ❄️")
 </details>
 
 <details open>
-<summary><code>pages/page_3.py</code></summary>
+<summary><code>page_3.py</code></summary>
 
 ```python
 import streamlit as st
@@ -97,9 +116,9 @@ st.sidebar.markdown("# Page 3 🎉")
 </details>
 <br />
 
-Now run `streamlit run main_page.py` and view your shiny new multipage app!
+Now run `streamlit run streamlit_app.py` and view your shiny new multipage app! The navigation menu will automatically appear, allowing users to switch between pages.
 
-<Image src="/images/mpa-main-concepts.gif" />
+<Image src="/images/mpa-v2-main-concepts.gif" />
 
 Our documentation on [Multipage apps](/develop/concepts/multipage-apps) teaches you how to add pages to your app, including how to define pages, structure and run multipage apps, and navigate between pages. Once you understand the basics, [create your first multipage app](/get-started/tutorials/create-a-multipage-app)!
 
