@@ -7,11 +7,6 @@ div.admonition {
     @apply text-lg font-bold;
   }
 
-  // Text
-  p {
-    @apply mb-0;
-  }
-
   // Note
   &.note {
     @apply bg-lightBlue-10 dark:bg-lightBlue-100/30;
