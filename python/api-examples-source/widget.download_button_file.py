@@ -7,4 +7,3 @@ with open("python/api-examples-source/flower.png", "rb") as file:
         file_name="flower.png",
         mime="image/png",
     )
-    st.write(type(file))
