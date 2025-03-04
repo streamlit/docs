@@ -334,8 +334,9 @@ secondaryBackgroundColor =
 # Color used for almost all text.
 textColor =
 
-# Font family for all text in the app, except code blocks. One of "sans serif",
-# "serif", or "monospace".
+# The font family for all text in the app, except code blocks. One of
+# "sans serif", "serif", or "monospace".
+# To use a custom font, it needs to be added via [theme.fontFaces]. 🐰🥚
 font =
 ```
 

@@ -16,9 +16,12 @@ Media stored in the folder `./static/` relative to the running app file is serve
 
 ## Details on usage
 
-- Files with the following extensions will be served normally: `".jpg", ".jpeg", ".png", ".gif"`. Any other
-  file will be sent with header `Content-Type:text/plain` which will cause browsers to render in plain text.
-  This is included for security - other file types that need to render should be hosted outside the app.
+- Files with the following extensions will be served normally:
+  - Common image types: `.jpg`, `.jpeg`, `.png`, `.gif`
+  - Common font types: `.otf`, `.ttf`, `.woff`, `.woff2`
+  - Other types: `.pdf`, `.xml`, `.json`
+    Any other file will be sent with header `Content-Type:text/plain` which will cause browsers to render in plain text.
+    This is included for security - other file types that need to render should be hosted outside the app.
 - Streamlit also sets `X-Content-Type-Options:nosniff` for all files rendered from the static directory.
 - For apps running on Streamlit Community Cloud:
   - Files available in the Github repo will always be served. Any files generated while the app is running,
