@@ -32,9 +32,11 @@ st.dataframe(df, use_container_width=True)
 
 `st.dataframe` provides additional functionality by using [glide-data-grid](https://github.com/glideapps/glide-data-grid) under the hood:
 
-- **Column sorting**: To sort columns, select their headers.
-- **Column resizing**: To resize columns, drag and drop column header borders.
-- **Reorder and pin columns**: To reorder columns or pin them on the left, drag and drop column headers or use the header menu (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>).
+- **Column sorting**: To sort columns, select their headers, or select "**Sort ascending**" or "**Sort descending**" from the header menu (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>).
+- **Column resizing**: To resize columns, drag and drop column header borders, or select "**Autosize**" from the header menu.
+- **Column hiding**: To hide columns, select "**Hide column**" from the header menu.
+- **Reorder and pin columns**: To reorder columns or pin them on the left, drag and drop column headers or select "**Pin column**" from the header menu, respectively.
+- **Format numbers, dates, and times**: To change the format of numeric columns, select an option under "**Format**" in the header menu.
 - **Dataframe resizing**: To resize dataframes, drag and drop the bottom right corner.
 - **Fullscreen view**: To enlarge dataframes to fullscreen, select the fullscreen icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>fullscreen</i>) in the toolbar.
 - **Search**: To search through the data, select the search icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>search</i>) in the toolbar or use hotkeys (`⌘+F` or `Ctrl+F`).

@@ -215,6 +215,9 @@ site_menu:
   - category: Develop / API reference / Data elements / st.column_config / Time column
     url: /develop/api-reference/data/st.column_config/st.column_config.timecolumn
     isVersioned: true
+  - category: Develop / API reference / Data elements / st.column_config / JSON column
+    url: /develop/api-reference/data/st.column_config/st.column_config.jsoncolumn
+    isVersioned: true
   - category: Develop / API reference / Data elements / st.column_config / List column
     url: /develop/api-reference/data/st.column_config/st.column_config.listcolumn
     isVersioned: true

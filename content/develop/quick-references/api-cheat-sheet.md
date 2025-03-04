@@ -5,7 +5,7 @@ slug: /develop/quick-reference/cheat-sheet
 
 # Streamlit API cheat sheet
 
-This is a summary of the docs for the latest version of Streamlit, [v1.42.0](https://pypi.org/project/streamlit/1.42.0/).
+This is a summary of the docs for the latest version of Streamlit, [v1.43.0](https://pypi.org/project/streamlit/1.43.0/).
 
 <Masonry>
 
@@ -157,6 +157,8 @@ event = st.vega_lite_chart(
     on_select="rerun"
 )
 ```
+
+To use newer versions of Bokeh, see our custom component [`streamlit-bokeh`](https://github.com/streamlit/streamlit-bokeh).
 
 </CodeTile>
 
@@ -332,7 +334,7 @@ with st.chat_message("user"):
     st.line_chart(np.random.randn(30, 3))
 
 # Display a chat input widget at the bottom of the app.
->>> st.chat_input("Say something")
+st.chat_input("Say something")
 
 # Display a chat input widget inline.
 with st.container():

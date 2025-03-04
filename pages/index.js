@@ -192,58 +192,70 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/develop/concepts/connections/authentication"
+                href="/develop/api-reference/chat/st.chat_input"
               >
-                <i className="material-icons-sharp">account_circle</i>
-                <h4>User authentication</h4>
-                <p>Authenticate users with an OpenID Connect provider.</p>
-              </RefCard>
-              <RefCard size="third" href="/develop/api-reference/data/st.table">
-                <i className="material-icons-sharp">format_paint</i>
-                <h4>Markdown in tables</h4>
+                <i className="material-icons-sharp">attach_file</i>
+                <h4>
+                  File uploader for <code>st.chat_input</code>
+                </h4>
                 <p>
-                  <code>st.table</code> supports Markdown text in all cells,
-                  headers, and indices.
+                  User's can upload files directly within
+                  <code>st.chat_input</code>!
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/data/st.column_config/st.column_config.jsoncolumn"
+              >
+                <i className="material-icons-sharp">view_column</i>
+                <h4>JSON column configuration</h4>
+                <p>
+                  <code>st.dataframe</code> and <code>st.data_editor</code>
+                  support JSON compatible objects.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/widgets/st.download_button"
+              >
+                <i className="material-icons-sharp">download</i>
+                <h4>Download buttons without reruns</h4>
+                <p>
+                  You can disable app reruns for
+                  <code>st.download_button</code>.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/caching-and-state/st.context#contexttimezone"
+              >
+                <i className="material-icons-sharp">timer</i>
+                <h4>Access the user's timezone</h4>
+                <p>
+                  <code>st.context</code> lets you read the user's timezone and
+                  timezone offset.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
                 href="/develop/api-reference/data/st.dataframe"
               >
-                <i className="material-icons-sharp">table</i>
-                <h4>Dataframe improvements</h4>
+                <i className="material-icons-sharp">height</i>
+                <h4>Dataframe row height</h4>
                 <p>
-                  Users can sort and pin columns. Rows are highlighted on hover.
+                  You can set the height of rows in <code>st.dataframe</code>
+                  and <code>st.data_editor</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/status/st.spinner"
+                href="/develop/api-reference/text/st.markdown"
               >
-                <i className="material-icons-sharp">timer</i>
-                <h4>Spinner elapsed time</h4>
-                <p>
-                  <code>st.spinner</code> can optionally show elapsed time with
-                  the new parameter <code>show_time</code>.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/media/st.image"
-              >
-                <i className="material-icons-sharp">palette</i>
+                <i className="material-icons-sharp">edit</i>
                 <h4>Markdown image captions</h4>
                 <p>
-                  <code>st.image</code> supports Markdown text in
-                  <code>caption</code>.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/develop/api-reference/text/st.code">
-                <i className="material-icons-sharp">height</i>
-                <h4>Code height</h4>
-                <p>
-                  You can set the height of <code>st.code</code> with the new
-                  parameter <code>height</code>.
+                  Markdown has a new <code>:small[]</code> directive for small
+                  text, the same size as <code>st.caption</code>.
                 </p>
               </RefCard>
             </TileContainer>
