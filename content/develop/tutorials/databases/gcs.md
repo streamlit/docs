@@ -21,15 +21,15 @@ to [skip to the next step](#enable-the-google-cloud-storage-api).
 First, [sign up for Google Cloud Platform](https://console.cloud.google.com/) or log in. Go to the [Google Cloud Storage console](https://console.cloud.google.com/storage/) and create a new bucket.
 
 <Flex>
-<Image alt="GCS screenshot 1" src="/images/databases/gcs-1.png" />
-<Image alt="GCS screenshot 2" src="/images/databases/gcs-2.png" />
+<Image src="/images/databases/gcs-1.png" alt="GCS screenshot 1" width={2560} height={1600} />
+<Image src="/images/databases/gcs-2.png" alt="GCS screenshot 2" width={2560} height={1600} />
 </Flex>
 
 Navigate to the upload section of your new bucket:
 
 <Flex>
-<Image alt="GCS screenshot 3" src="/images/databases/gcs-3.png" />
-<Image alt="GCS screenshot 4" src="/images/databases/gcs-4.png" />
+<Image src="/images/databases/gcs-3.png" alt="GCS screenshot 3" width={2560} height={1600} />
+<Image src="/images/databases/gcs-4.png" alt="GCS screenshot 4" width={2560} height={1600} />
 </Flex>
 
 And upload the following CSV file, which contains some example data:
@@ -43,9 +43,9 @@ The Google Cloud Storage API is [enabled by default](https://cloud.google.com/se
 If you do need to enable the API for programmatic access in your project, head over to the [APIs & Services dashboard](https://console.cloud.google.com/apis/dashboard) (select or create a project if asked). Search for the Cloud Storage API and enable it. The screenshot below has a blue "Manage" button and indicates the "API is enabled" which means no further action needs to be taken. This is very likely what you have since the API is enabled by default. However, if that is not what you see and you have an "Enable" button, you'll need to enable the API:
 
 <Flex>
-<Image alt="GCS screenshot 5" src="/images/databases/gcs-5.png" />
-<Image alt="GCS screenshot 6" src="/images/databases/gcs-6.png" />
-<Image alt="GCS screenshot 7" src="/images/databases/gcs-7.png" />
+<Image src="/images/databases/gcs-5.png" alt="GCS screenshot 5" width={2560} height={1600} />
+<Image src="/images/databases/gcs-6.png" alt="GCS screenshot 6" width={2560} height={1600} />
+<Image src="/images/databases/gcs-7.png" alt="GCS screenshot 7" width={2560} height={1600} />
 </Flex>
 
 ## Create a service account and key file
@@ -53,9 +53,9 @@ If you do need to enable the API for programmatic access in your project, head o
 To use the Google Cloud Storage API from Streamlit, you need a Google Cloud Platform service account (a special type for programmatic data access). Go to the Service Accounts page and create an account with <b>Viewer</b> permission.
 
 <Flex>
-<Image alt="GCS screenshot 8" src="/images/databases/gcs-8.png" />
-<Image alt="GCS screenshot 9" src="/images/databases/gcs-9.png" />
-<Image alt="GCS screenshot 10" src="/images/databases/gcs-10.png" />
+<Image src="/images/databases/gcs-8.png" alt="GCS screenshot 8" width={2560} height={1600} />
+<Image src="/images/databases/gcs-9.png" alt="GCS screenshot 9" width={2560} height={1600} />
+<Image src="/images/databases/gcs-10.png" alt="GCS screenshot 10" width={2560} height={1600} />
 </Flex>
 
 <Note>
@@ -68,9 +68,9 @@ admin of your Google Cloud project for help.
 After clicking **DONE**, you should be back on the service accounts overview. Create a JSON key file for the new account and download it:
 
 <Flex>
-<Image alt="GCS screenshot 11" src="/images/databases/gcs-11.png" />
-<Image alt="GCS screenshot 12" src="/images/databases/gcs-12.png" />
-<Image alt="GCS screenshot 13" src="/images/databases/gcs-13.png" />
+<Image src="/images/databases/gcs-11.png" alt="GCS screenshot 11" width={2560} height={1600} />
+<Image src="/images/databases/gcs-12.png" alt="GCS screenshot 12" width={2560} height={1600} />
+<Image src="/images/databases/gcs-13.png" alt="GCS screenshot 13" width={2560} height={1600} />
 </Flex>
 
 ## Add the key to your local app secrets

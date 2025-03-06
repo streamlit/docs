@@ -22,4 +22,4 @@ st.write("This text is between the horizontal rules.")
 st.divider()  # 👈 Another horizontal rule
 ```
 
-<Image src="/images/api/st.divider.png" clean />
+<Image src="/images/api/st.divider.png" width={752} height={339} clean />

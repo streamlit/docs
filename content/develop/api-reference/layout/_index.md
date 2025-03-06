@@ -12,7 +12,7 @@ Streamlit provides several options for controlling how different elements are la
 <TileContainer>
 <RefCard href="/develop/api-reference/layout/st.columns">
 
-<Image pure alt="screenshot" src="/images/api/columns.jpg" />
+<Image src="/images/api/columns.jpg" alt="screenshot" width={600} height={568} pure />
 
 <h4>Columns</h4>
 
@@ -27,7 +27,7 @@ col2.write("this is column 2")
 </RefCard>
 <RefCard href="/develop/api-reference/layout/st.container">
 
-<Image pure alt="screenshot" src="/images/api/container.jpg" />
+<Image src="/images/api/container.jpg" alt="screenshot" width={600} height={568} pure />
 
 <h4>Container</h4>
 
@@ -43,7 +43,7 @@ c.write("This will show second")
 </RefCard>
 <RefCard href="/develop/api-reference/execution-flow/st.dialog">
 
-<Image pure alt="screenshot" src="/images/api/dialog.jpg" />
+<Image src="/images/api/dialog.jpg" alt="screenshot" width={862} height={862} pure />
 
 <h4>Modal dialog</h4>
 
@@ -59,7 +59,7 @@ def email_form():
 </RefCard>
 <RefCard href="/develop/api-reference/layout/st.empty">
 
-<Image pure alt="screenshot" src="/images/api/empty.jpg" />
+<Image src="/images/api/empty.jpg" alt="screenshot" width={600} height={568} pure />
 
 <h4>Empty</h4>
 
@@ -75,7 +75,7 @@ c.write("This will show first")
 </RefCard>
 <RefCard href="/develop/api-reference/layout/st.expander">
 
-<Image pure alt="screenshot" src="/images/api/expander.jpg" />
+<Image src="/images/api/expander.jpg" alt="screenshot" width={600} height={568} pure />
 
 <h4>Expander</h4>
 
@@ -89,7 +89,7 @@ with st.expander("Open to see more"):
 </RefCard>
 <RefCard href="/develop/api-reference/layout/st.popover">
 
-<Image pure alt="screenshot" src="/images/api/popover.svg" />
+<Image src="/images/api/popover.svg" alt="screenshot" width={None} height={None} pure />
 
 <h4>Popover</h4>
 
@@ -103,7 +103,7 @@ with st.popover("Settings"):
 </RefCard>
 <RefCard href="/develop/api-reference/layout/st.sidebar">
 
-<Image pure alt="screenshot" src="/images/api/sidebar.jpg" />
+<Image src="/images/api/sidebar.jpg" alt="screenshot" width={600} height={408} pure />
 
 <h4>Sidebar</h4>
 
@@ -117,7 +117,7 @@ st.sidebar.button("Click me!")
 </RefCard>
 <RefCard href="/develop/api-reference/layout/st.tabs">
 
-<Image pure alt="screenshot" src="/images/api/tabs.jpg" />
+<Image src="/images/api/tabs.jpg" alt="screenshot" width={600} height={568} pure />
 
 <h4>Tabs</h4>
 
@@ -136,7 +136,7 @@ tab2.write("this is tab 2")
 
 <ComponentCard href="https://github.com/okld/streamlit-elements">
 
-<Image pure alt="screenshot" src="/images/api/components/elements.jpg" />
+<Image src="/images/api/components/elements.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Elements</h4>
 
@@ -153,7 +153,7 @@ with elements("new_element"):
 
 <ComponentCard href="https://github.com/lukasmasuch/streamlit-pydantic">
 
-<Image pure alt="screenshot" src="/images/api/components/pydantic.jpg" />
+<Image src="/images/api/components/pydantic.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Pydantic</h4>
 
@@ -170,7 +170,7 @@ sp.pydantic_form(key="my_form",
 
 <ComponentCard href="https://github.com/blackary/st_pages">
 
-<Image pure alt="screenshot" src="/images/api/components/pages.jpg" />
+<Image src="/images/api/components/pages.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Pages</h4>
 

@@ -32,8 +32,8 @@ Create a spreadsheet with this example data and create a share link. The link sh
 </div>
 
 <Flex>
-<Image alt="screenshot 1" src="/images/databases/public-gsheet-1.png" />
-<Image alt="screenshot 1" src="/images/databases/public-gsheet-2.png" />
+<Image src="/images/databases/public-gsheet-1.png" alt="screenshot 1" width={1000} height={843} />
+<Image src="/images/databases/public-gsheet-2.png" alt="screenshot 1" width={1000} height={843} />
 </Flex>
 
 ## Add the Sheets URL to your local app secrets

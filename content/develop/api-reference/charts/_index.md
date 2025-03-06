@@ -18,7 +18,7 @@ like `st.line_chart` and `st.area_chart`.
 
 <TileContainer>
 <RefCard href="/develop/api-reference/charts/st.area_chart">
-<Image pure alt="screenshot" src="/images/api/area_chart.jpg" />
+<Image src="/images/api/area_chart.jpg" alt="screenshot" width={600} height={600} pure />
 
 <h4>Simple area charts</h4>
 
@@ -30,7 +30,7 @@ st.area_chart(my_data_frame)
 
 </RefCard>
 <RefCard href="/develop/api-reference/charts/st.bar_chart">
-<Image pure alt="screenshot" src="/images/api/bar_chart.jpg" />
+<Image src="/images/api/bar_chart.jpg" alt="screenshot" width={600} height={600} pure />
 
 <h4>Simple bar charts</h4>
 
@@ -42,7 +42,7 @@ st.bar_chart(my_data_frame)
 
 </RefCard>
 <RefCard href="/develop/api-reference/charts/st.line_chart">
-<Image pure alt="screenshot" src="/images/api/line_chart.jpg" />
+<Image src="/images/api/line_chart.jpg" alt="screenshot" width={600} height={600} pure />
 
 <h4>Simple line charts</h4>
 
@@ -54,7 +54,7 @@ st.line_chart(my_data_frame)
 
 </RefCard>
 <RefCard href="/develop/api-reference/charts/st.scatter_chart">
-<Image pure alt="screenshot" src="/images/api/scatter_chart.svg" />
+<Image src="/images/api/scatter_chart.svg" alt="screenshot" width={None} height={None} pure />
 
 <h4>Simple scatter charts</h4>
 
@@ -66,7 +66,7 @@ st.scatter_chart(my_data_frame)
 
 </RefCard>
 <RefCard href="/develop/api-reference/charts/st.map">
-<Image pure alt="screenshot" src="/images/api/map.jpg" />
+<Image src="/images/api/map.jpg" alt="screenshot" width={862} height={816} pure />
 
 <h4>Scatterplots on maps</h4>
 
@@ -83,7 +83,7 @@ st.map(my_data_frame)
 
 <TileContainer>
 <RefCard href="/develop/api-reference/charts/st.pyplot">
-<Image pure alt="screenshot" src="/images/api/pyplot.jpg" />
+<Image src="/images/api/pyplot.jpg" alt="screenshot" width={600} height={568} pure />
 
 <h4>Matplotlib</h4>
 
@@ -95,7 +95,7 @@ st.pyplot(my_mpl_figure)
 
 </RefCard>
 <RefCard href="/develop/api-reference/charts/st.altair_chart">
-<Image pure alt="screenshot" src="/images/api/vega_lite_chart.jpg" />
+<Image src="/images/api/vega_lite_chart.jpg" alt="screenshot" width={862} height={816} pure />
 
 <h4>Altair</h4>
 
@@ -107,7 +107,7 @@ st.altair_chart(my_altair_chart)
 
 </RefCard>
 <RefCard href="/develop/api-reference/charts/st.vega_lite_chart">
-<Image pure alt="screenshot" src="/images/api/vega_lite_chart.jpg" />
+<Image src="/images/api/vega_lite_chart.jpg" alt="screenshot" width={862} height={816} pure />
 
 <h4>Vega-Lite</h4>
 
@@ -119,7 +119,7 @@ st.vega_lite_chart(my_vega_lite_chart)
 
 </RefCard>
 <RefCard href="/develop/api-reference/charts/st.plotly_chart">
-<Image pure alt="screenshot" src="/images/api/plotly_chart.jpg" />
+<Image src="/images/api/plotly_chart.jpg" alt="screenshot" width={862} height={816} pure />
 
 <h4>Plotly</h4>
 
@@ -131,7 +131,7 @@ st.plotly_chart(my_plotly_chart)
 
 </RefCard>
 <RefCard href="/develop/api-reference/charts/st.bokeh_chart">
-<Image pure alt="screenshot" src="/images/api/bokeh_chart.jpg" />
+<Image src="/images/api/bokeh_chart.jpg" alt="screenshot" width={862} height={816} pure />
 
 <h4>Bokeh</h4>
 
@@ -143,7 +143,7 @@ st.bokeh_chart(my_bokeh_chart)
 
 </RefCard>
 <RefCard href="/develop/api-reference/charts/st.pydeck_chart">
-<Image pure alt="screenshot" src="/images/api/pydeck_chart.jpg" />
+<Image src="/images/api/pydeck_chart.jpg" alt="screenshot" width={862} height={816} pure />
 
 <h4>PyDeck</h4>
 
@@ -155,7 +155,7 @@ st.pydeck_chart(my_pydeck_chart)
 
 </RefCard>
 <RefCard href="/develop/api-reference/charts/st.graphviz_chart">
-<Image pure alt="screenshot" src="/images/api/graphviz_chart.jpg" />
+<Image src="/images/api/graphviz_chart.jpg" alt="screenshot" width={600} height={568} pure />
 
 <h4>GraphViz</h4>
 
@@ -172,7 +172,7 @@ st.graphviz_chart(my_graphviz_spec)
 
 <ComponentCard href="https://github.com/tvst/plost">
 
-<Image pure alt="screenshot" src="/images/api/components/plost.jpg" />
+<Image src="/images/api/components/plost.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Plost</h4>
 
@@ -187,7 +187,7 @@ plost.line_chart(my_dataframe, x='time', y='stock_value', color='stock_name',)
 
 <ComponentCard href="https://github.com/facebookresearch/hiplot">
 
-<Image pure alt="screenshot" src="/images/api/components/hiplot.jpg" />
+<Image src="/images/api/components/hiplot.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>HiPlot</h4>
 
@@ -202,7 +202,7 @@ hip.Experiment.from_iterable(data).display()
 
 <ComponentCard href="https://github.com/andfanilo/streamlit-echarts">
 
-<Image pure alt="screenshot" src="/images/api/components/echarts.jpg" />
+<Image src="/images/api/components/echarts.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>ECharts</h4>
 
@@ -217,7 +217,7 @@ st_echarts(options=options)
 
 <ComponentCard href="https://github.com/randyzwitch/streamlit-folium">
 
-<Image pure alt="screenshot" src="/images/api/components/folium.jpg" />
+<Image src="/images/api/components/folium.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Folium</h4>
 
@@ -232,7 +232,7 @@ st_data = st_folium(m, width=725)
 
 <ComponentCard href="https://github.com/explosion/spacy-streamlit">
 
-<Image pure alt="screenshot" src="/images/api/components/spacy.jpg" />
+<Image src="/images/api/components/spacy.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Spacy-Streamlit</h4>
 
@@ -247,7 +247,7 @@ spacy_streamlit.visualize(models, "Sundar Pichai is the CEO of Google.")
 
 <ComponentCard href="https://github.com/ChrisDelClea/streamlit-agraph">
 
-<Image pure alt="screenshot" src="/images/api/components/agraph.jpg" />
+<Image src="/images/api/components/agraph.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Agraph</h4>
 
@@ -262,7 +262,7 @@ agraph(nodes=nodes, edges=edges, config=config)
 
 <ComponentCard href="https://github.com/andfanilo/streamlit-lottie">
 
-<Image pure alt="screenshot" src="/images/api/components/lottie.jpg" />
+<Image src="/images/api/components/lottie.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Lottie</h4>
 
@@ -277,7 +277,7 @@ st_lottie(lottie_hello, key="hello")
 
 <ComponentCard href="https://github.com/null-jones/streamlit-plotly-events">
 
-<Image pure alt="screenshot" src="/images/api/components/plotly-events.jpg" />
+<Image src="/images/api/components/plotly-events.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Plotly Events</h4>
 
@@ -292,7 +292,7 @@ selected_points = plotly_events(fig)
 
 <ComponentCard href="https://extras.streamlit.app/">
 
-<Image pure alt="screenshot" src="/images/api/components/extras-chart-annotations.jpg" />
+<Image src="/images/api/components/extras-chart-annotations.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Extras</h4>
 

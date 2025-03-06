@@ -9,7 +9,7 @@ Social media sites generate a card with a title, preview image, and description 
 
 <div style={{ marginLeft: '3em' }}>
     <Flex>
-    <Image caption="Share preview for a public Streamlit app" src="/images/streamlit-community-cloud/share-preview-twitter-annotated.png" />
+    <Image src="/images/streamlit-community-cloud/share-preview-twitter-annotated.png" width={606} height={668} caption="Share preview for a public Streamlit app" />
     </Flex>
 </div>
 
@@ -47,7 +47,7 @@ _This app was built in Streamlit! Check it out and visit https://streamlit.io fo
 
 <div style={{ marginLeft: '6em' }}>
     <Flex>
-    <Image caption="Default share preview when a description is missing" src="/images/streamlit-community-cloud/share-preview-private-app.png" />
+    <Image src="/images/streamlit-community-cloud/share-preview-private-app.png" width={520} height={407} caption="Default share preview when a description is missing" />
     </Flex>
 </div>
 

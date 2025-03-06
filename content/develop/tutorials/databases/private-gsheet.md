@@ -38,9 +38,9 @@ Create a spreadsheet with this example data.
 Programmatic access to Google Sheets is controlled through [Google Cloud Platform](https://cloud.google.com/). Create an account or sign in and head over to the [**APIs & Services** dashboard](https://console.cloud.google.com/apis/dashboard) (select or create a project if asked). As shown below, search for the Sheets API and enable it:
 
 <Flex>
-<Image alt="GCP screenshot 1" src="/images/databases/private-gsheet-2.png" />
-<Image alt="GCP screenshot 2" src="/images/databases/private-gsheet-3.png" />
-<Image alt="GCP screenshot 3" src="/images/databases/private-gsheet-4.png" />
+<Image src="/images/databases/private-gsheet-2.png" alt="GCP screenshot 1" width={1000} height={797} />
+<Image src="/images/databases/private-gsheet-3.png" alt="GCP screenshot 2" width={1000} height={797} />
+<Image src="/images/databases/private-gsheet-4.png" alt="GCP screenshot 3" width={1000} height={797} />
 </Flex>
 
 ## Create a service account & key file
@@ -48,9 +48,9 @@ Programmatic access to Google Sheets is controlled through [Google Cloud Platfor
 To use the Sheets API from Streamlit Community Cloud, you need a Google Cloud Platform service account (a special account type for programmatic data access). Go to the [**Service Accounts** page](https://console.cloud.google.com/iam-admin/serviceaccounts) and create an account with the **Viewer** permission (this will let the account access data but not change it):
 
 <Flex>
-<Image alt="GCP screenshot 5" src="/images/databases/private-gsheet-5.png" />
-<Image alt="GCP screenshot 6" src="/images/databases/private-gsheet-6.png" />
-<Image alt="GCP screenshot 7" src="/images/databases/private-gsheet-7.png" />
+<Image src="/images/databases/private-gsheet-5.png" alt="GCP screenshot 5" width={1000} height={800} />
+<Image src="/images/databases/private-gsheet-6.png" alt="GCP screenshot 6" width={1000} height={800} />
+<Image src="/images/databases/private-gsheet-7.png" alt="GCP screenshot 7" width={1000} height={810} />
 </Flex>
 
 <Note>
@@ -62,9 +62,9 @@ The button "**CREATE SERVICE ACCOUNT**" is gray, you don't have the correct perm
 After clicking "**DONE**", you should be back on the service accounts overview. First, note down the email address of the account you just created (**important for next step!**). Then, create a JSON key file for the new account and download it:
 
 <Flex>
-<Image alt="GCP screenshot 8" src="/images/databases/private-gsheet-8.png" />
-<Image alt="GCP screenshot 9" src="/images/databases/private-gsheet-9.png" />
-<Image alt="GCP screenshot 10" src="/images/databases/private-gsheet-10.png" />
+<Image src="/images/databases/private-gsheet-8.png" alt="GCP screenshot 8" width={1000} height={810} />
+<Image src="/images/databases/private-gsheet-9.png" alt="GCP screenshot 9" width={1000} height={810} />
+<Image src="/images/databases/private-gsheet-10.png" alt="GCP screenshot 10" width={1000} height={810} />
 </Flex>
 
 ## Share the Google Sheet with the service account
@@ -72,8 +72,8 @@ After clicking "**DONE**", you should be back on the service accounts overview. 
 By default, the service account you just created cannot access your Google Sheet. To give it access, click on the "**Share**" button in the Google Sheet, add the email of the service account (noted down in step 2), and choose the correct permission (if you just want to read the data, "**Viewer**" is enough):
 
 <Flex>
-<Image alt="GCP screenshot 11" src="/images/databases/private-gsheet-11.png" />
-<Image alt="GCP screenshot 12" src="/images/databases/private-gsheet-12.png" />
+<Image src="/images/databases/private-gsheet-11.png" alt="GCP screenshot 11" width={1000} height={843} />
+<Image src="/images/databases/private-gsheet-12.png" alt="GCP screenshot 12" width={1000} height={843} />
 </Flex>
 
 ## Add the key file to your local app secrets

@@ -107,7 +107,7 @@ Here are some common errors you might encounter when using secrets management.
   st.write(st.secrets["nonexistent_key"])
   ```
 
-    <Image alt="Secrets management KeyError" src="/images/secrets-keyerror.png" clean />
+    <Image src="/images/secrets-keyerror.png" alt="Secrets management KeyError" width={1227} height={625} clean />
 
 ### Use secrets on Streamlit Community Cloud
 

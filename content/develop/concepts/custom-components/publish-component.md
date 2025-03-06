@@ -99,7 +99,7 @@ We'd love to help you share your Component with the Streamlit Community! To shar
 
 1. If you host your code on GitHub, add the tag `streamlit-component`, so that it's listed in the [GitHub **streamlit-component** topic](https://github.com/topics/streamlit-component):
 
-   <Image caption="Add the streamlit-component tag to your GitHub repo" src="/images/component-tag.gif" />
+   <Image src="/images/component-tag.gif" width={1308} height={900} caption="Add the streamlit-component tag to your GitHub repo" />
 
 2. Post on the Streamlit Forum in [Show the Community!](https://discuss.streamlit.io/c/streamlit-examples/9). Use a post title similar to "New Component: `<your component name>`, a new way to do X".
 3. Add your component to the [Community Component Tracker](https://discuss.streamlit.io/t/streamlit-components-community-tracker/4634).

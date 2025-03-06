@@ -268,7 +268,7 @@ if 'my_button' not in st.session_state:
 st.button('Submit', key='my_button')
 ```
 
-<Image alt="state-button-exception" src="/images/state_button_exception.png" clean />
+<Image src="/images/state_button_exception.png" alt="state-button-exception" width={932} height={310} clean />
 
 ### Serializable Session State
 
@@ -296,7 +296,7 @@ def unserializable_data():
 st.session_state.unserializable = unserializable_data()
 ```
 
-<Image alt="UnserializableSessionStateError" src="/images/unserializable-session-state-error.png" clean />
+<Image src="/images/unserializable-session-state-error.png" alt="UnserializableSessionStateError" width={769} height={136} clean />
 
 <Warning>
 

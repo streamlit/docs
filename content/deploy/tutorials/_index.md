@@ -10,7 +10,7 @@ This sections contains step-by-step guides on how to deploy Streamlit apps to va
 <DataSourcesContainer>
 <DataSourcesCard href="/deploy/streamlit-community-cloud/get-started">
 
-<Image pure alt="screenshot" src="/images/deploy/streamlit-cloud.png" />
+<Image src="/images/deploy/streamlit-cloud.png" alt="screenshot" width={912} height={908} pure />
 
 <h5 align="center">Streamlit Community Cloud</h5>
 
@@ -18,7 +18,7 @@ This sections contains step-by-step guides on how to deploy Streamlit apps to va
 
 <DataSourcesCard href="/deploy/tutorials/docker">
 
-<Image pure alt="screenshot" src="/images/deploy/docker.png" />
+<Image src="/images/deploy/docker.png" alt="screenshot" width={912} height={908} pure />
 
 <h5 align="center">Docker</h5>
 
@@ -26,7 +26,7 @@ This sections contains step-by-step guides on how to deploy Streamlit apps to va
 
 <DataSourcesCard href="/deploy/tutorials/kubernetes">
 
-<Image pure alt="screenshot" src="/images/deploy/kubernetes.png" />
+<Image src="/images/deploy/kubernetes.png" alt="screenshot" width={912} height={908} pure />
 
 <h5 align="center">Kubernetes</h5>
 

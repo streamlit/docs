@@ -27,9 +27,9 @@ For this example, we will use one of the [sample datasets](https://cloud.google.
 Programmatic access to BigQuery is controlled through [Google Cloud Platform](https://cloud.google.com). Create an account or sign in and head over to the [APIs & Services dashboard](https://console.cloud.google.com/apis/dashboard) (select or create a project if asked). As shown below, search for the BigQuery API and enable it:
 
 <Flex>
-<Image alt="Bigquery screenshot 1" src="/images/databases/big-query-1.png" />
-<Image alt="Bigquery screenshot 2" src="/images/databases/big-query-2.png" />
-<Image alt="Bigquery screenshot 3" src="/images/databases/big-query-3.png" />
+<Image src="/images/databases/big-query-1.png" alt="Bigquery screenshot 1" width={1000} height={797} />
+<Image src="/images/databases/big-query-2.png" alt="Bigquery screenshot 2" width={1000} height={797} />
+<Image src="/images/databases/big-query-3.png" alt="Bigquery screenshot 3" width={1000} height={797} />
 </Flex>
 
 ## Create a service account & key file
@@ -37,9 +37,9 @@ Programmatic access to BigQuery is controlled through [Google Cloud Platform](ht
 To use the BigQuery API from Streamlit Community Cloud, you need a Google Cloud Platform service account (a special account type for programmatic data access). Go to the [Service Accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) page and create an account with the **Viewer** permission (this will let the account access data but not change it):
 
 <Flex>
-<Image alt="Bigquery screenshot 4" src="/images/databases/big-query-4.png" />
-<Image alt="Bigquery screenshot 5" src="/images/databases/big-query-5.png" />
-<Image alt="Bigquery screenshot 6" src="/images/databases/big-query-6.png" />
+<Image src="/images/databases/big-query-4.png" alt="Bigquery screenshot 4" width={1000} height={800} />
+<Image src="/images/databases/big-query-5.png" alt="Bigquery screenshot 5" width={1000} height={800} />
+<Image src="/images/databases/big-query-6.png" alt="Bigquery screenshot 6" width={1000} height={810} />
 </Flex>
 
 <Note>
@@ -52,9 +52,9 @@ admin of your Google Cloud project for help.
 After clicking **DONE**, you should be back on the service accounts overview. Create a JSON key file for the new account and download it:
 
 <Flex>
-<Image alt="Bigquery screenshot 7" src="/images/databases/big-query-7.png" />
-<Image alt="Bigquery screenshot 8" src="/images/databases/big-query-8.png" />
-<Image alt="Bigquery screenshot 9" src="/images/databases/big-query-9.png" />
+<Image src="/images/databases/big-query-7.png" alt="Bigquery screenshot 7" width={1000} height={810} />
+<Image src="/images/databases/big-query-8.png" alt="Bigquery screenshot 8" width={1000} height={810} />
+<Image src="/images/databases/big-query-9.png" alt="Bigquery screenshot 9" width={1000} height={810} />
 </Flex>
 
 ## Add the key file to your local app secrets

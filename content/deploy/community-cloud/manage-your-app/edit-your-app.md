@@ -75,7 +75,7 @@ When you stop interacting with your codespace, GitHub will generally stop your c
 2. Click "**Stop codespace**" if you'd like to return to your work later. Otherwise, click "**Delete**."
 
    <div style={{ maxWidth: '40%', margin: 'auto' }}>
-   <Image alt="Stop your GitHub codespace" src="/images/streamlit-community-cloud/codespace-menu.png" />
+   <Image src="/images/streamlit-community-cloud/codespace-menu.png" alt="Stop your GitHub codespace" width={506} height={691} />
    </div>
 
 3. Congratulations! You just deployed an app to Community Cloud. 🎉 Head back to your workspace at <a href="https://share.streamlit.io/" target="_blank">share.streamlit.io/</a> and [deploy another Streamlit app](/deploy/streamlit-community-cloud/deploy-your-app).

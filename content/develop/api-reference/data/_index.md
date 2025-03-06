@@ -14,7 +14,7 @@ raw form. These are the Streamlit commands you can use to display and interact w
 
 <TileContainer>
 <RefCard href="/develop/api-reference/data/st.dataframe">
-<Image pure alt="screenshot" src="/images/api/dataframe.jpg" />
+<Image src="/images/api/dataframe.jpg" alt="screenshot" width={862} height={816} pure />
 
 <h4>Dataframes</h4>
 
@@ -27,7 +27,7 @@ st.dataframe(my_data_frame)
 </RefCard>
 <RefCard href="/develop/api-reference/data/st.data_editor">
 
-<Image pure alt="screenshot" src="/images/api/data_editor.jpg" />
+<Image src="/images/api/data_editor.jpg" alt="screenshot" width={862} height={862} pure />
 
 <h4>Data editor</h4>
 
@@ -40,7 +40,7 @@ edited = st.data_editor(df, num_rows="dynamic")
 </RefCard>
 <RefCard href="/develop/api-reference/data/st.column_config">
 
-<Image pure alt="screenshot" src="/images/api/column_config.jpg" />
+<Image src="/images/api/column_config.jpg" alt="screenshot" width={862} height={862} pure />
 
 <h4>Column configuration</h4>
 
@@ -53,7 +53,7 @@ st.column_config.NumberColumn("Price (in USD)", min_value=0, format="$%d")
 </RefCard>
 
 <RefCard href="/develop/api-reference/data/st.table">
-<Image pure alt="screenshot" src="/images/api/table.jpg" />
+<Image src="/images/api/table.jpg" alt="screenshot" width={600} height={568} pure />
 
 <h4>Static tables</h4>
 
@@ -65,7 +65,7 @@ st.table(my_data_frame)
 
 </RefCard>
 <RefCard href="/develop/api-reference/data/st.metric">
-<Image pure alt="screenshot" src="/images/api/metric.jpg" />
+<Image src="/images/api/metric.jpg" alt="screenshot" width={600} height={568} pure />
 
 <h4>Metrics</h4>
 
@@ -77,7 +77,7 @@ st.metric("My metric", 42, 2)
 
 </RefCard>
 <RefCard href="/develop/api-reference/data/st.json">
-<Image pure alt="screenshot" src="/images/api/json.jpg" />
+<Image src="/images/api/json.jpg" alt="screenshot" width={600} height={568} pure />
 
 <h4>Dicts and JSON</h4>
 
@@ -94,7 +94,7 @@ st.json(my_dict)
 
 <ComponentCard href="https://github.com/PablocFonseca/streamlit-aggrid">
 
-<Image pure alt="screenshot" src="/images/api/components/aggrid.jpg" />
+<Image src="/images/api/components/aggrid.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Aggrid</h4>
 
@@ -111,7 +111,7 @@ new_df = grid_return['data']
 
 <ComponentCard href="https://github.com/randyzwitch/streamlit-folium">
 
-<Image pure alt="screenshot" src="/images/api/components/folium.jpg" />
+<Image src="/images/api/components/folium.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Folium</h4>
 
@@ -128,7 +128,7 @@ st_data = st_folium(m, width=725)
 
 <ComponentCard href="https://github.com/okld/streamlit-pandas-profiling">
 
-<Image pure alt="screenshot" src="/images/api/components/pandas-profiling.jpg" />
+<Image src="/images/api/components/pandas-profiling.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Pandas Profiling</h4>
 
@@ -145,7 +145,7 @@ st_profile_report(pr)
 
 <ComponentCard href="https://github.com/blackary/streamlit-image-coordinates">
 
-<Image pure alt="screenshot" src="/images/api/components/image-coordinates.jpg" />
+<Image src="/images/api/components/image-coordinates.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Image Coordinates</h4>
 
@@ -162,7 +162,7 @@ st.write(value)
 
 <ComponentCard href="https://github.com/null-jones/streamlit-plotly-events">
 
-<Image pure alt="screenshot" src="/images/api/components/plotly-events.jpg" />
+<Image src="/images/api/components/plotly-events.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Plotly Events</h4>
 
@@ -179,7 +179,7 @@ selected_points = plotly_events(fig)
 
 <ComponentCard href="https://extras.streamlit.app/">
 
-<Image pure alt="screenshot" src="/images/api/components/extras-metric-cards.jpg" />
+<Image src="/images/api/components/extras-metric-cards.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Extras</h4>
 

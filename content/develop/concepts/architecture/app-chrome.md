@@ -28,13 +28,13 @@ With the "**Settings**" option, you can control the appearance of your app while
 After clicking "**Settings**" from the app menu, you can choose between "**Light**", "**Dark**", or "**Use system setting**" for the app's base theme. Click "**Edit active theme**" to modify the theme, color-by-color.
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/app-menu/app-menu-settings-modal.png" alt="Settings" clean />
+    <Image src="/images/app-menu/app-menu-settings-modal.png" alt="Settings" width={2336} height={1286} clean />
 </div>
 
 <br />
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/app-menu/app-menu-settings-theme.png" alt="Theme" clean />
+    <Image src="/images/app-menu/app-menu-settings-theme.png" alt="Theme" width={2336} height={1286} clean />
 </div>
 
 ### Print
@@ -56,31 +56,31 @@ You can easily make screen recordings right from your app! Screen recording is s
 4. Click "**Start recording**." (You may be prompted by your OS to permit your browser to record your screen or use your microphone.)
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/app-menu/app-menu-record-2.png" alt="Record" />
+    <Image src="/images/app-menu/app-menu-record-2.png" alt="Record" width={2336} height={1456} />
 </div>
 
 5. Select which tab, window, or monitor you want to record from the listed options. The interface will vary depending on your browser.
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/app-menu/app-menu-record-3.png" alt="Record" />
+    <Image src="/images/app-menu/app-menu-record-3.png" alt="Record" width={2336} height={1456} />
 </div>
 
 6. Click "**Share**."
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/app-menu/app-menu-record-4.png" alt="Record" />
+    <Image src="/images/app-menu/app-menu-record-4.png" alt="Record" width={2336} height={1456} />
 </div>
 
 7. While recording, you will see a red circle on your app's tab and on the app menu icon. If you want to cancel the recording, click "**Stop sharing**" at the bottom of your app.
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/app-menu/app-menu-record-5.png" alt="Record" />
+    <Image src="/images/app-menu/app-menu-record-5.png" alt="Record" width={2336} height={1456} />
 </div>
 
 8. When you are done recording, press "**Esc**" on your keyboard or click "**Stop recording**" from your app's menu.
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/app-menu/app-menu-record-6.png" alt="Record" />
+    <Image src="/images/app-menu/app-menu-record-6.png" alt="Record" width={2336} height={1456} />
 </div>
 
 9. Follow your browser's instructions to save your recording. Your saved recording will be available where your browser saves downloads.
@@ -88,7 +88,7 @@ You can easily make screen recordings right from your app! Screen recording is s
 The whole process looks like this:
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/app-menu/app-menu-record.gif" alt="Record" />
+    <Image src="/images/app-menu/app-menu-record.gif" alt="Record" width={1671} height={1040} />
 </div>
 
 ### About
@@ -110,13 +110,13 @@ If you are running an app locally from within a git repo, you can deploy your ap
 1. Click "**Deploy**" next to the app menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>).
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/app-menu/app-menu-deploy.png" alt="Settings" />
+    <Image src="/images/app-menu/app-menu-deploy.png" alt="Settings" width={2336} height={1286} />
 </div>
 
 2. Click "**Deploy now**."
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/app-menu/app-menu-deploy-1.png" alt="Settings" />
+    <Image src="/images/app-menu/app-menu-deploy-1.png" alt="Settings" width={2336} height={1286} />
 </div>
 
 3. You will be taken to Community Cloud's "Deploy an app" page. Your app's repository, branch, and file name will be prefilled to match your current app! Learn more about [deploying an app](/deploy/streamlit-community-cloud/deploy-your-app) on Streamlit Community Cloud.
@@ -124,7 +124,7 @@ If you are running an app locally from within a git repo, you can deploy your ap
 The whole process looks like this:
 
 <div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/app-menu/deploy-from-local.gif" alt="Settings" />
+    <Image src="/images/app-menu/deploy-from-local.gif" alt="Settings" width={1671} height={1040} />
 </div>
 
 ## Customize the menu

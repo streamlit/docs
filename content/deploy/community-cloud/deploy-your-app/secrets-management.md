@@ -22,7 +22,7 @@ Community Cloud lets you save your secrets within your app's settings. When deve
 While deploying your app, you can access "**Advanced settings**" to set your secrets. After your app is deployed, you can view or update your secrets through the app's settings. The deployment workflow is fully described on the next page, but the "**Advanced settings**" dialog looks like this:
 
 <div style={{ maxWidth: '70%', margin: 'auto' }}>
-<Image alt="Advanced settings for deploying your app" src="/images/streamlit-community-cloud/deploy-an-app-advanced.png" />
+<Image src="/images/streamlit-community-cloud/deploy-an-app-advanced.png" alt="Advanced settings for deploying your app" width={700} height={648} />
 </div>
 
 Simply copy and paste the contents of your local `secrets.toml` file into the "Secrets" field within the dialog. After you click "**Save**" to commit the changes, that's it!

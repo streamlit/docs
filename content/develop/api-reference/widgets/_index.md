@@ -12,7 +12,7 @@ With widgets, Streamlit allows you to bake interactivity directly into your apps
 <TileContainer>
 <RefCard href="/develop/api-reference/widgets/st.button">
 
-<Image pure alt="screenshot" src="/images/api/button.svg" />
+<Image src="/images/api/button.svg" alt="screenshot" width={None} height={None} pure />
 
 <h4>Button</h4>
 
@@ -26,7 +26,7 @@ clicked = st.button("Click me")
 
 <RefCard href="/develop/api-reference/widgets/st.download_button">
 
-<Image pure alt="screenshot" src="/images/api/download_button.svg" />
+<Image src="/images/api/download_button.svg" alt="screenshot" width={None} height={None} pure />
 
 <h4>Download button</h4>
 
@@ -40,7 +40,7 @@ st.download_button("Download file", file)
 
 <RefCard href="/develop/api-reference/execution-flow/st.form_submit_button">
 
-<Image pure alt="screenshot" src="/images/api/form_submit_button.svg" />
+<Image src="/images/api/form_submit_button.svg" alt="screenshot" width={None} height={None} pure />
 
 <h4>Form button</h4>
 
@@ -54,7 +54,7 @@ st.form_submit_button("Sign up")
 
 <RefCard href="/develop/api-reference/widgets/st.link_button">
 
-<Image pure alt="screenshot" src="/images/api/link_button.svg" />
+<Image src="/images/api/link_button.svg" alt="screenshot" width={None} height={None} pure />
 
 <h4>Link button</h4>
 
@@ -68,7 +68,7 @@ st.link_button("Go to gallery", url)
 
 <RefCard href="/develop/api-reference/widgets/st.page_link">
 
-<Image pure alt="screenshot" src="/images/api/page_link.jpg" />
+<Image src="/images/api/page_link.jpg" alt="screenshot" width={862} height={862} pure />
 
 <h4>Page link</h4>
 
@@ -89,7 +89,7 @@ st.page_link("pages/profile.py", label="My profile")
 
 <RefCard href="/develop/api-reference/widgets/st.checkbox">
 
-<Image pure alt="screenshot" src="/images/api/checkbox.jpg" />
+<Image src="/images/api/checkbox.jpg" alt="screenshot" width={600} height={600} pure />
 
 <h4>Checkbox</h4>
 
@@ -102,7 +102,7 @@ selected = st.checkbox("I agree")
 </RefCard>
 <RefCard href="/develop/api-reference/widgets/st.color_picker">
 
-<Image pure alt="screenshot" src="/images/api/color_picker.jpg" />
+<Image src="/images/api/color_picker.jpg" alt="screenshot" width={600} height={600} pure />
 
 <h4>Color picker</h4>
 
@@ -115,7 +115,7 @@ color = st.color_picker("Pick a color")
 </RefCard>
 <RefCard href="/develop/api-reference/widgets/st.feedback">
 
-<Image pure alt="screenshot" src="/images/api/feedback.jpg" />
+<Image src="/images/api/feedback.jpg" alt="screenshot" width={862} height={862} pure />
 
 <h4>Feedback</h4>
 
@@ -128,7 +128,7 @@ st.feedback("stars")
 </RefCard>
 <RefCard href="/develop/api-reference/widgets/st.multiselect">
 
-<Image pure alt="screenshot" src="/images/api/multiselect.jpg" />
+<Image src="/images/api/multiselect.jpg" alt="screenshot" width={600} height={600} pure />
 
 <h4>Multiselect</h4>
 
@@ -141,7 +141,7 @@ choices = st.multiselect("Buy", ["milk", "apples", "potatoes"])
 </RefCard>
 <RefCard href="/develop/api-reference/widgets/st.pills">
 
-<Image pure alt="screenshot" src="/images/api/pills.jpg" />
+<Image src="/images/api/pills.jpg" alt="screenshot" width={862} height={862} pure />
 
 <h4>Pills</h4>
 
@@ -154,7 +154,7 @@ st.pills("Tags", ["Sports", "AI", "Politics"])
 </RefCard>
 <RefCard href="/develop/api-reference/widgets/st.radio">
 
-<Image pure alt="screenshot" src="/images/api/radio.jpg" />
+<Image src="/images/api/radio.jpg" alt="screenshot" width={600} height={600} pure />
 
 <h4>Radio</h4>
 
@@ -167,7 +167,7 @@ choice = st.radio("Pick one", ["cats", "dogs"])
 </RefCard>
 <RefCard href="/develop/api-reference/widgets/st.segmented_control">
 
-<Image pure alt="screenshot" src="/images/api/segmented_control.jpg" />
+<Image src="/images/api/segmented_control.jpg" alt="screenshot" width={862} height={862} pure />
 
 <h4>Segmented control</h4>
 
@@ -180,7 +180,7 @@ st.segmented_control("Filter", ["Open", "Closed", "All"])
 </RefCard>
 <RefCard href="/develop/api-reference/widgets/st.select_slider">
 
-<Image pure alt="screenshot" src="/images/api/select_slider.jpg" />
+<Image src="/images/api/select_slider.jpg" alt="screenshot" width={600} height={600} pure />
 
 <h4>Select slider</h4>
 
@@ -193,7 +193,7 @@ size = st.select_slider("Pick a size", ["S", "M", "L"])
 </RefCard>
 <RefCard href="/develop/api-reference/widgets/st.selectbox">
 
-<Image pure alt="screenshot" src="/images/api/selectbox.jpg" />
+<Image src="/images/api/selectbox.jpg" alt="screenshot" width={600} height={600} pure />
 
 <h4>Selectbox</h4>
 
@@ -206,7 +206,7 @@ choice = st.selectbox("Pick one", ["cats", "dogs"])
 </RefCard>
 <RefCard href="/develop/api-reference/widgets/st.toggle">
 
-<Image pure alt="screenshot" src="/images/api/toggle.jpg" />
+<Image src="/images/api/toggle.jpg" alt="screenshot" width={862} height={862} pure />
 
 <h4>Toggle</h4>
 
@@ -225,7 +225,7 @@ activated = st.toggle("Activate")
 <TileContainer>
 <RefCard href="/develop/api-reference/widgets/st.number_input">
 
-<Image pure alt="screenshot" src="/images/api/number_input.jpg" />
+<Image src="/images/api/number_input.jpg" alt="screenshot" width={600} height={600} pure />
 
 <h4>Number input</h4>
 
@@ -238,7 +238,7 @@ choice = st.number_input("Pick a number", 0, 10)
 </RefCard>
 <RefCard href="/develop/api-reference/widgets/st.slider">
 
-<Image pure alt="screenshot" src="/images/api/slider.jpg" />
+<Image src="/images/api/slider.jpg" alt="screenshot" width={600} height={600} pure />
 
 <h4>Slider</h4>
 
@@ -258,7 +258,7 @@ number = st.slider("Pick a number", 0, 100)
 
 <RefCard href="/develop/api-reference/widgets/st.date_input">
 
-<Image pure alt="screenshot" src="/images/api/date_input.jpg" />
+<Image src="/images/api/date_input.jpg" alt="screenshot" width={600} height={600} pure />
 
 <h4>Date input</h4>
 
@@ -271,7 +271,7 @@ date = st.date_input("Your birthday")
 </RefCard>
 <RefCard href="/develop/api-reference/widgets/st.time_input">
 
-<Image pure alt="screenshot" src="/images/api/time_input.jpg" />
+<Image src="/images/api/time_input.jpg" alt="screenshot" width={600} height={600} pure />
 
 <h4>Time input</h4>
 
@@ -291,7 +291,7 @@ time = st.time_input("Meeting time")
 
 <RefCard href="/develop/api-reference/widgets/st.text_input">
 
-<Image pure alt="screenshot" src="/images/api/text_input.jpg" />
+<Image src="/images/api/text_input.jpg" alt="screenshot" width={600} height={600} pure />
 
 <h4>Text input</h4>
 
@@ -304,7 +304,7 @@ name = st.text_input("First name")
 </RefCard>
 <RefCard href="/develop/api-reference/widgets/st.text_area">
 
-<Image pure alt="screenshot" src="/images/api/text_area.jpg" />
+<Image src="/images/api/text_area.jpg" alt="screenshot" width={600} height={600} pure />
 
 <h4>Text area</h4>
 
@@ -317,7 +317,7 @@ text = st.text_area("Text to translate")
 </RefCard>
 <RefCard href="/develop/api-reference/chat/st.chat_input">
 
-<Image pure alt="screenshot" src="/images/api/chat_input.jpg" />
+<Image src="/images/api/chat_input.jpg" alt="screenshot" width={1724} height={1724} pure />
 
 <h4>Chat input</h4>
 
@@ -338,7 +338,7 @@ if prompt:
 <TileContainer>
 <RefCard href="/develop/api-reference/widgets/st.audio_input">
 
-<Image pure alt="screenshot" src="/images/api/audio_input.jpg" />
+<Image src="/images/api/audio_input.jpg" alt="screenshot" width={862} height={862} pure />
 
 <h4>Audio input</h4>
 
@@ -351,7 +351,7 @@ speech = st.audio_input("Record a voice message")
 </RefCard>
 <RefCard href="/develop/api-reference/data/st.data_editor">
 
-<Image pure alt="screenshot" src="/images/api/data_editor.jpg" />
+<Image src="/images/api/data_editor.jpg" alt="screenshot" width={862} height={862} pure />
 
 <h4>Data editor</h4>
 
@@ -364,7 +364,7 @@ edited = st.data_editor(df, num_rows="dynamic")
 </RefCard>
 <RefCard href="/develop/api-reference/widgets/st.file_uploader">
 
-<Image pure alt="screenshot" src="/images/api/file_uploader.jpg" />
+<Image src="/images/api/file_uploader.jpg" alt="screenshot" width={600} height={600} pure />
 
 <h4>File uploader</h4>
 
@@ -377,7 +377,7 @@ data = st.file_uploader("Upload a CSV")
 </RefCard>
 <RefCard href="/develop/api-reference/widgets/st.camera_input">
 
-<Image pure alt="screenshot" src="/images/api/camera_input.jpg" />
+<Image src="/images/api/camera_input.jpg" alt="screenshot" width={600} height={600} pure />
 
 <h4>Camera input</h4>
 
@@ -394,7 +394,7 @@ image = st.camera_input("Take a picture")
 
 <ComponentCard href="https://github.com/okld/streamlit-elements">
 
-<Image pure alt="screenshot" src="/images/api/components/elements.jpg" />
+<Image src="/images/api/components/elements.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Elements</h4>
 
@@ -411,7 +411,7 @@ with elements("new_element"):
 
 <ComponentCard href="https://github.com/gagan3012/streamlit-tags">
 
-<Image pure alt="screenshot" src="/images/api/components/tags.jpg" />
+<Image src="/images/api/components/tags.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Tags</h4>
 
@@ -428,7 +428,7 @@ suggestions=['five', 'six', 'seven', 'eight', 'nine', 'three', 'eleven', 'ten', 
 
 <ComponentCard href="https://github.com/Wirg/stqdm">
 
-<Image pure alt="screenshot" src="/images/api/components/stqdm.jpg" />
+<Image src="/images/api/components/stqdm.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Stqdm</h4>
 
@@ -445,7 +445,7 @@ for _ in stqdm(range(50)):
 
 <ComponentCard href="https://github.com/innerdoc/streamlit-timeline">
 
-<Image pure alt="screenshot" src="/images/api/components/timeline.jpg" />
+<Image src="/images/api/components/timeline.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Timeline</h4>
 
@@ -462,7 +462,7 @@ with open('example.json', "r") as f:
 
 <ComponentCard href="https://github.com/blackary/streamlit-camera-input-live">
 
-<Image pure alt="screenshot" src="/images/api/components/camera-live.jpg" />
+<Image src="/images/api/components/camera-live.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Camera input live</h4>
 
@@ -479,7 +479,7 @@ st.image(value)
 
 <ComponentCard href="https://github.com/okld/streamlit-ace">
 
-<Image pure alt="screenshot" src="/images/api/components/ace.jpg" />
+<Image src="/images/api/components/ace.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Ace</h4>
 
@@ -496,7 +496,7 @@ content
 
 <ComponentCard href="https://github.com/AI-Yash/st-chat">
 
-<Image pure alt="screenshot" src="/images/api/components/chat.jpg" />
+<Image src="/images/api/components/chat.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Chat</h4>
 
@@ -513,7 +513,7 @@ message("Hello bot!", is_user=True)  # align's the message to the right
 
 <ComponentCard href="https://github.com/victoryhb/streamlit-option-menu">
 
-<Image pure alt="screenshot" src="/images/api/components/option-menu.jpg" />
+<Image src="/images/api/components/option-menu.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Option Menu</h4>
 
@@ -530,7 +530,7 @@ option_menu("Main Menu", ["Home", 'Settings'],
 
 <ComponentCard href="https://extras.streamlit.app/">
 
-<Image pure alt="screenshot" src="/images/api/components/extras-toggle.jpg" />
+<Image src="/images/api/components/extras-toggle.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Extras</h4>
 

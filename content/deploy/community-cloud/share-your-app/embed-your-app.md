@@ -53,7 +53,7 @@ https://30days.streamlit.app/
 
 Here's an example of <a href="https://github.com/chrieke" target="_blank">@chrieke</a>'s <a href="https://chrieke-prettymapp-streamlit-prettymappapp-1k0qxh.streamlit.app/" target="_blank">Prettymapp app</a> embedded in a Medium article:
 
-<Image src="/images/streamlit-community-cloud/oembed.gif" alt="Example: Embed an app in a Medium article with oEmbed" clean />
+<Image src="/images/streamlit-community-cloud/oembed.gif" alt="Example: Embed an app in a Medium article with oEmbed" width={1286} height={1152} clean />
 
 <Tip>
 

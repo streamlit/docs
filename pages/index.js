@@ -280,6 +280,8 @@ export default function Home({ window, menu }) {
                 target: "_blank",
               }}
               image="/join.png"
+              imageWidth={362}
+              imageHeight={313}
             />
           </article>
 

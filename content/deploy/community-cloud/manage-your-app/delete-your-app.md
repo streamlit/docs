@@ -28,7 +28,7 @@ You can delete your app:
 2. A confirmation will display. Enter the required confirmation string and click "**Delete**."
 
    <div style={{ maxWidth: '50%', margin: 'auto' }}>
-   <Image alt="Confirm deleting your app from Streamlit Community Cloud" src="/images/streamlit-community-cloud/workspace-app-delete-confirm.png" clean />
+   <Image src="/images/streamlit-community-cloud/workspace-app-delete-confirm.png" alt="Confirm deleting your app from Streamlit Community Cloud" width={1257} height={746} clean />
    </div>
 
 ### Delete your app from your Cloud logs
@@ -44,5 +44,5 @@ You can delete your app:
 3. A confirmation will display. Enter the required confirmation string and click "**Delete**."
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
-<Image alt="Confirm deleting your app from Streamlit Community Cloud" src="/images/streamlit-community-cloud/workspace-app-delete-confirm.png" clean />
+<Image src="/images/streamlit-community-cloud/workspace-app-delete-confirm.png" alt="Confirm deleting your app from Streamlit Community Cloud" width={1257} height={746} clean />
 </div>

@@ -10,7 +10,7 @@ slug: /develop/api-reference/connections
 <TileContainer>
 <RefCard href="/develop/api-reference/connections/st.connection" size="half">
 
-<Image pure alt="screenshot" src="/images/api/connection.svg" />
+<Image src="/images/api/connection.svg" alt="screenshot" width={None} height={None} pure />
 
 <h4>Create a connection</h4>
 
@@ -31,7 +31,7 @@ st.dataframe(pet_owners)
 
 <RefCard href="/develop/api-reference/connections/st.connections.snowflakeconnection" size="half">
 
-<Image pure alt="screenshot" src="/images/api/connections.SnowflakeConnection.svg" />
+<Image src="/images/api/connections.SnowflakeConnection.svg" alt="screenshot" width={None} height={None} pure />
 
 <h4>SnowflakeConnection</h4>
 
@@ -45,7 +45,7 @@ conn = st.connection('snowflake')
 
 <RefCard href="/develop/api-reference/connections/st.connections.sqlconnection" size="half">
 
-<Image pure alt="screenshot" src="/images/api/connections.SQLConnection.svg" />
+<Image src="/images/api/connections.SQLConnection.svg" alt="screenshot" width={None} height={None} pure />
 
 <h4>SQLConnection</h4>
 

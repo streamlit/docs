@@ -10,7 +10,7 @@ It's easy to embed images, videos, and audio files directly into your Streamlit 
 <TileContainer>
 <RefCard href="/develop/api-reference/media/st.image">
 
-<Image pure alt="screenshot" src="/images/api/image.jpg" />
+<Image src="/images/api/image.jpg" alt="screenshot" width={600} height={568} pure />
 
 <h4>Image</h4>
 
@@ -26,7 +26,7 @@ st.image("https://example.com/myimage.jpg")
 </RefCard>
 <RefCard href="/develop/api-reference/media/st.logo">
 
-<Image pure alt="screenshot" src="/images/api/logo.jpg" />
+<Image src="/images/api/logo.jpg" alt="screenshot" width={862} height={862} pure />
 
 <h4>Logo</h4>
 
@@ -39,7 +39,7 @@ st.logo("logo.jpg")
 </RefCard>
 <RefCard href="/develop/api-reference/media/st.audio">
 
-<Image pure alt="screenshot" src="/images/api/audio.jpg" />
+<Image src="/images/api/audio.jpg" alt="screenshot" width={600} height={568} pure />
 
 <h4>Audio</h4>
 
@@ -55,7 +55,7 @@ st.audio("https://example.com/myaudio.mp3", format="audio/mp3")
 </RefCard>
 <RefCard href="/develop/api-reference/media/st.video">
 
-<Image pure alt="screenshot" src="/images/api/video.jpg" />
+<Image src="/images/api/video.jpg" alt="screenshot" width={600} height={568} pure />
 
 <h4>Video</h4>
 
@@ -75,7 +75,7 @@ st.video("https://example.com/myvideo.mp4", format="video/mp4")
 
 <ComponentCard href="https://github.com/whitphx/streamlit-webrtc">
 
-<Image pure alt="screenshot" src="/images/api/components/webrtc.jpg" />
+<Image src="/images/api/components/webrtc.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Webrtc</h4>
 
@@ -91,7 +91,7 @@ webrtc_streamer(key="sample")
 
 <ComponentCard href="https://github.com/andfanilo/streamlit-drawable-canvas">
 
-<Image pure alt="screenshot" src="/images/api/components/drawable-canvas.jpg" />
+<Image src="/images/api/components/drawable-canvas.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Drawable Canvas</h4>
 
@@ -107,7 +107,7 @@ st_canvas(fill_color="rgba(255, 165, 0, 0.3)", stroke_width=stroke_width, stroke
 
 <ComponentCard href="https://github.com/fcakyon/streamlit-image-comparison">
 
-<Image pure alt="screenshot" src="/images/api/components/image-comparison.jpg" />
+<Image src="/images/api/components/image-comparison.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Image Comparison</h4>
 
@@ -123,7 +123,7 @@ image_comparison(img1="image1.jpg", img2="image2.jpg",)
 
 <ComponentCard href="https://github.com/turner-anderson/streamlit-cropper">
 
-<Image pure alt="screenshot" src="/images/api/components/cropper.jpg" />
+<Image src="/images/api/components/cropper.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Cropper</h4>
 
@@ -139,7 +139,7 @@ st_cropper(img, realtime_update=realtime_update, box_color=box_color, aspect_rat
 
 <ComponentCard href="https://github.com/blackary/streamlit-image-coordinates">
 
-<Image pure alt="screenshot" src="/images/api/components/image-coordinates.jpg" />
+<Image src="/images/api/components/image-coordinates.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Image Coordinates</h4>
 
@@ -155,7 +155,7 @@ streamlit_image_coordinates("https://placekitten.com/200/300")
 
 <ComponentCard href="https://github.com/andfanilo/streamlit-lottie">
 
-<Image pure alt="screenshot" src="/images/api/components/lottie.jpg" />
+<Image src="/images/api/components/lottie.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Lottie</h4>
 

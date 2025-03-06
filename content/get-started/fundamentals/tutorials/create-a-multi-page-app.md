@@ -314,7 +314,7 @@ st.markdown(
 
 We rename our entrypoint file to `Hello.py` , so that the title in the sidebar is capitalized and only the code for the intro page is included. Additionally, we’re able to customize the page title and favicon — as it appears in the browser tab with `st.set_page_config`. We can do so for each of our pages too!
 
-<Image src="/images/mpa-hello.png" />
+<Image src="/images/mpa-hello.png" width={1264} height={1019} />
 
 Notice how the sidebar does not contain page labels as we haven’t created any pages yet.
 
@@ -373,7 +373,7 @@ st.button("Re-run")
 
 </details>
 
-<Image src="/images/mpa-plotting-demo.png" />
+<Image src="/images/mpa-plotting-demo.png" width={1308} height={1063} />
 
 <details>
 <summary><code>pages/2_🌍_Mapping_Demo.py</code></summary>
@@ -479,7 +479,7 @@ except URLError as e:
 
 </details>
 
-<Image src="/images/mpa-mapping-demo.png" />
+<Image src="/images/mpa-mapping-demo.png" width={1264} height={1019} />
 
 <details>
 <summary><code>pages/3_📊_DataFrame_Demo.py</code></summary>
@@ -545,7 +545,7 @@ except URLError as e:
 
 </details>
 
-<Image src="/images/mpa-dataframe-demo.png" />
+<Image src="/images/mpa-dataframe-demo.png" width={1308} height={1063} />
 
 With our additional pages created, we can now put it all together in the final step below.
 

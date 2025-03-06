@@ -28,7 +28,7 @@ All you need is an email address! Everything else happens in your 30-day trial a
 1. Choose the region nearest you, accept the terms, and click "**GET STARTED**."
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
-    <Image alt="Choose your Snowflake edition, provider, and region" src="/images/get-started/SiS-region.png" />
+    <Image src="/images/get-started/SiS-region.png" alt="Choose your Snowflake edition, provider, and region" width={840} height={1316} />
 </div>
 
 1. Answer a few questions to let us know more about yourself, or skip them.

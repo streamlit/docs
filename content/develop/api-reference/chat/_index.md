@@ -12,7 +12,7 @@ Streamlit provides a few commands to help you build conversational apps. These c
 <TileContainer>
 <RefCard href="/develop/api-reference/chat/st.chat_input">
 
-<Image pure alt="screenshot" src="/images/api/chat_input.jpg" />
+<Image src="/images/api/chat_input.jpg" alt="screenshot" width={1724} height={1724} pure />
 
 <h4>Chat input</h4>
 
@@ -27,7 +27,7 @@ if prompt:
 </RefCard>
 <RefCard href="/develop/api-reference/chat/st.chat_message">
 
-<Image pure alt="screenshot" src="/images/api/chat_message.jpg" />
+<Image src="/images/api/chat_message.jpg" alt="screenshot" width={1724} height={1724} pure />
 
 <h4>Chat message</h4>
 
@@ -43,7 +43,7 @@ with st.chat_message("user"):
 </RefCard>
 <RefCard href="/develop/api-reference/status/st.status">
 
-<Image pure alt="screenshot" src="/images/api/status.jpg" />
+<Image src="/images/api/status.jpg" alt="screenshot" width={862} height={862} pure />
 
 <h4>Status container</h4>
 

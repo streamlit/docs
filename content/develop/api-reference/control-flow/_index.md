@@ -13,7 +13,7 @@ By default, Streamlit apps execute the script entirely, but we allow some functi
 
 <RefCard href="/develop/api-reference/execution-flow/st.dialog" size="full">
 
-<Image pure alt="screenshot" src="/images/api/dialog.jpg" />
+<Image src="/images/api/dialog.jpg" alt="screenshot" width={862} height={862} pure />
 
 <h4>Modal dialog</h4>
 
@@ -112,7 +112,7 @@ with st.form(key='my_form'):
 
 <ComponentCard href="https://github.com/kmcgrady/streamlit-autorefresh">
 
-<Image pure alt="screenshot" src="/images/api/components/autorefresh.jpg" />
+<Image src="/images/api/components/autorefresh.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Autorefresh</h4>
 
@@ -129,7 +129,7 @@ st_autorefresh(interval=2000, limit=100,
 
 <ComponentCard href="https://github.com/lukasmasuch/streamlit-pydantic">
 
-<Image pure alt="screenshot" src="/images/api/components/pydantic.jpg" />
+<Image src="/images/api/components/pydantic.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Pydantic</h4>
 
@@ -146,7 +146,7 @@ sp.pydantic_form(key="my_form",
 
 <ComponentCard href="https://github.com/blackary/st_pages">
 
-<Image pure alt="screenshot" src="/images/api/components/pages.jpg" />
+<Image src="/images/api/components/pages.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Pages</h4>
 

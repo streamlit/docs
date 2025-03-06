@@ -21,7 +21,7 @@ Rebooting your app on Community Cloud is easy! You can reboot your app:
 2. A confirmation will display. Click "**Reboot**."
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
-<Image alt="Confirm rebooting your app in Streamlit Community Cloud" src="/images/streamlit-community-cloud/workspace-app-reboot-confirm.png" clean />
+<Image src="/images/streamlit-community-cloud/workspace-app-reboot-confirm.png" alt="Confirm rebooting your app in Streamlit Community Cloud" width={1257} height={554} clean />
 </div>
 
 ### Reboot your app from your Cloud logs
@@ -37,5 +37,5 @@ Rebooting your app on Community Cloud is easy! You can reboot your app:
 3. A confirmation will display. Click "**Reboot**."
 
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
-<Image alt="Confirm rebooting your app in Streamlit Community Cloud" src="/images/streamlit-community-cloud/workspace-app-reboot-confirm.png" clean />
+<Image src="/images/streamlit-community-cloud/workspace-app-reboot-confirm.png" alt="Confirm rebooting your app in Streamlit Community Cloud" width={1257} height={554} clean />
 </div>

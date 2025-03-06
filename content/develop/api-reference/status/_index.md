@@ -14,7 +14,7 @@ warnings), and celebratory balloons.
 <TileContainer>
 <RefCard href="/develop/api-reference/status/st.progress">
 
-<Image pure alt="screenshot" src="/images/api/progress.jpg" />
+<Image src="/images/api/progress.jpg" alt="screenshot" width={862} height={816} pure />
 
 <h4>Progress bar</h4>
 
@@ -29,7 +29,7 @@ for i in range(101):
 </RefCard>
 <RefCard href="/develop/api-reference/status/st.spinner">
 
-<Image pure alt="screenshot" src="/images/api/spinner.jpg" />
+<Image src="/images/api/spinner.jpg" alt="screenshot" width={862} height={816} pure />
 
 <h4>Spinner</h4>
 
@@ -43,7 +43,7 @@ with st.spinner("Please wait..."):
 </RefCard>
 <RefCard href="/develop/api-reference/status/st.status">
 
-<Image pure alt="screenshot" src="/images/api/status.jpg" />
+<Image src="/images/api/status.jpg" alt="screenshot" width={862} height={862} pure />
 
 <h4>Status container</h4>
 
@@ -57,7 +57,7 @@ with st.status('Running'):
 </RefCard>
 <RefCard href="/develop/api-reference/status/st.toast">
 
-<Image pure alt="screenshot" src="/images/api/toast.jpg" />
+<Image src="/images/api/toast.jpg" alt="screenshot" width={862} height={862} pure />
 
 <h4>Toast</h4>
 
@@ -70,7 +70,7 @@ st.toast('Butter!', icon='🧈')
 </RefCard>
 <RefCard href="/develop/api-reference/status/st.balloons">
 
-<Image pure alt="screenshot" src="/images/api/balloons.jpg" />
+<Image src="/images/api/balloons.jpg" alt="screenshot" width={600} height={568} pure />
 
 <h4>Balloons</h4>
 
@@ -83,7 +83,7 @@ st.balloons()
 </RefCard>
 <RefCard href="/develop/api-reference/status/st.snow">
 
-<Image pure alt="screenshot" src="/images/api/snow.jpg" />
+<Image src="/images/api/snow.jpg" alt="screenshot" width={731} height={718} pure />
 
 <h4>Snowflakes</h4>
 
@@ -101,7 +101,7 @@ st.snow()
 <TileContainer>
 <RefCard href="/develop/api-reference/status/st.success">
 
-<Image pure alt="screenshot" src="/images/api/success.jpg" />
+<Image src="/images/api/success.jpg" alt="screenshot" width={862} height={816} pure />
 
 <h4>Success box</h4>
 
@@ -114,7 +114,7 @@ st.success("Match found!")
 </RefCard>
 <RefCard href="/develop/api-reference/status/st.info">
 
-<Image pure alt="screenshot" src="/images/api/info.jpg" />
+<Image src="/images/api/info.jpg" alt="screenshot" width={862} height={816} pure />
 
 <h4>Info box</h4>
 
@@ -127,7 +127,7 @@ st.info("Dataset is updated every day at midnight.")
 </RefCard>
 <RefCard href="/develop/api-reference/status/st.warning">
 
-<Image pure alt="screenshot" src="/images/api/warning.jpg" />
+<Image src="/images/api/warning.jpg" alt="screenshot" width={862} height={816} pure />
 
 <h4>Warning box</h4>
 
@@ -140,7 +140,7 @@ st.warning("Unable to fetch image. Skipping...")
 </RefCard>
 <RefCard href="/develop/api-reference/status/st.error">
 
-<Image pure alt="screenshot" src="/images/api/error.jpg" />
+<Image src="/images/api/error.jpg" alt="screenshot" width={862} height={816} pure />
 
 <h4>Error box</h4>
 
@@ -153,7 +153,7 @@ st.error("We encountered an error")
 </RefCard>
 <RefCard href="/develop/api-reference/status/st.exception">
 
-<Image pure alt="screenshot" src="/images/api/exception.jpg" />
+<Image src="/images/api/exception.jpg" alt="screenshot" width={862} height={816} pure />
 
 <h4>Exception output</h4>
 
@@ -171,7 +171,7 @@ st.exception(e)
 
 <ComponentCard href="https://github.com/Wirg/stqdm">
 
-<Image pure alt="screenshot" src="/images/api/components/stqdm.jpg" />
+<Image src="/images/api/components/stqdm.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Stqdm</h4>
 
@@ -188,7 +188,7 @@ for _ in stqdm(range(50)):
 
 <ComponentCard href="https://github.com/Socvest/streamlit-custom-notification-box">
 
-<Image pure alt="screenshot" src="/images/api/components/custom-notification-box.jpg" />
+<Image src="/images/api/components/custom-notification-box.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Custom notification box</h4>
 
@@ -205,7 +205,7 @@ custom_notification_box(icon='info', textDisplay='We are almost done with your r
 
 <ComponentCard href="https://extras.streamlit.app/">
 
-<Image pure alt="screenshot" src="/images/api/components/extras-emojis.jpg" />
+<Image src="/images/api/components/extras-emojis.jpg" alt="screenshot" width={600} height={380} pure />
 
 <h4>Streamlit Extras</h4>
 

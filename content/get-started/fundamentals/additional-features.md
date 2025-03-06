@@ -118,7 +118,7 @@ st.sidebar.markdown("# Page 3 🎉")
 
 Now run `streamlit run streamlit_app.py` and view your shiny new multipage app! The navigation menu will automatically appear, allowing users to switch between pages.
 
-<Image src="/images/mpa-v2-main-concepts.gif" />
+<Image src="/images/mpa-v2-main-concepts.gif" width={1280} height={1048} />
 
 Our documentation on [Multipage apps](/develop/concepts/multipage-apps) teaches you how to add pages to your app, including how to define pages, structure and run multipage apps, and navigate between pages. Once you understand the basics, [create your first multipage app](/get-started/tutorials/create-a-multipage-app)!
 

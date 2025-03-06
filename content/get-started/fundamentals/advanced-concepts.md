@@ -34,7 +34,7 @@ In the above example, `long_running_function` is decorated with `@st.cache_data`
 
 Before running the code within `long_running_function`, Streamlit checks its cache for a previously saved result. If it finds a cached result for the given function and input values, it will return that cached result and not rerun function's code. Otherwise, Streamlit executes the function, saves the result in its cache, and proceeds with the script run. During development, the cache updates automatically as the function code changes, ensuring that the latest changes are reflected in the cache.
 
-<Image src="/images/caching-high-level-diagram.png" caption="Streamlit's two caching decorators and their use cases." alt="Streamlit's two caching decorators and their use cases. Use st.cache_data for anything you'd store in a database. Use st.cache_resource for anything you can't store in a database, like a connection to a database or a machine learning model." />
+<Image src="/images/caching-high-level-diagram.png" alt="Streamlit's two caching decorators and their use cases. Use st.cache_data for anything you'd store in a database. Use st.cache_resource for anything you can't store in a database, like a connection to a database or a machine learning model." width={1431} height={548} caption="Streamlit's two caching decorators and their use cases." />
 
 For more information about the Streamlit caching decorators, their configuration parameters, and their limitations, see [Caching](/develop/concepts/architecture/caching).
 

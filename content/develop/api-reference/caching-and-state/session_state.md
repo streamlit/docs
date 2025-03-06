@@ -172,7 +172,7 @@ def unserializable_data():
 st.session_state.unserializable = unserializable_data()
 ```
 
-<Image alt="UnserializableSessionStateError" src="/images/unserializable-session-state-error.png" clean />
+<Image src="/images/unserializable-session-state-error.png" alt="UnserializableSessionStateError" width={769} height={136} clean />
 
 <Warning>
 

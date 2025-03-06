@@ -20,20 +20,20 @@ Community-built connections, such as the [Streamlit Supabase Connector](https://
 First, head over to [Supabase](https://app.supabase.io/) and sign up for a free account using your GitHub.
 
 <Flex>
-<Image caption="Sign in with GitHub" src="/images/databases/supabase-1.png" />
-<Image caption="Authorize Supabase" src="/images/databases/supabase-2.png" />
+<Image src="/images/databases/supabase-1.png" width={1460} height={1073} caption="Sign in with GitHub" />
+<Image src="/images/databases/supabase-2.png" width={1460} height={1073} caption="Authorize Supabase" />
 </Flex>
 
 Once you're signed in, you can create a project.
 
 <Flex>
-<Image caption="Your Supabase account" src="/images/databases/supabase-3.png" />
-<Image caption="Create a new project" src="/images/databases/supabase-4.png" />
+<Image src="/images/databases/supabase-3.png" width={1460} height={1073} caption="Your Supabase account" />
+<Image src="/images/databases/supabase-4.png" width={1460} height={1073} caption="Create a new project" />
 </Flex>
 
 Your screen should look like this once your project has been created:
 
-<Image src="/images/databases/supabase-5.png" />
+<Image src="/images/databases/supabase-5.png" width={1728} height={1318} />
 
 <Important>
 
@@ -48,8 +48,8 @@ You will need these to connect to your Supabase instance from Streamlit.
 Now that you have a project, you can create a database and populate it with some sample data. To do so, click on the **SQL editor** button on the same project page, followed by the **New query** button in the SQL editor.
 
 <Flex>
-<Image caption="Open the SQL editor" src="/images/databases/supabase-6.png" />
-<Image caption="Create a new query" src="/images/databases/supabase-7.png" />
+<Image src="/images/databases/supabase-6.png" width={1728} height={1318} caption="Open the SQL editor" />
+<Image src="/images/databases/supabase-7.png" width={1728} height={1318} caption="Create a new query" />
 </Flex>
 
 In the SQL editor, enter the following queries to create a database and a table with some example values:
@@ -66,8 +66,8 @@ INSERT INTO mytable VALUES ('Mary', 'dog'), ('John', 'cat'), ('Robert', 'bird');
 Click **Run** to execute the queries. To verify that the queries were executed successfully, click on the **Table Editor** button on the left menu, followed by your newly created table `mytable`.
 
 <Flex>
-<Image caption="Write and run your queries" src="/images/databases/supabase-8.png" />
-<Image caption="View your table in the Table Editor" src="/images/databases/supabase-9.png" />
+<Image src="/images/databases/supabase-8.png" width={1728} height={1318} caption="Write and run your queries" />
+<Image src="/images/databases/supabase-9.png" width={1728} height={1318} caption="View your table in the Table Editor" />
 </Flex>
 
 With your Supabase database created, you can now connect to it from Streamlit!

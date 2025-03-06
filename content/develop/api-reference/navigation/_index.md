@@ -9,7 +9,7 @@ slug: /develop/api-reference/navigation
 
 <RefCard href="/develop/api-reference/navigation/st.navigation">
 
-<Image pure alt="screenshot" src="/images/api/navigation.jpg" />
+<Image src="/images/api/navigation.jpg" alt="screenshot" width={862} height={862} pure />
 
 <h4>Navigation</h4>
 
@@ -27,7 +27,7 @@ st.navigation({
 
 <RefCard href="/develop/api-reference/navigation/st.page">
 
-<Image pure alt="screenshot" src="/images/api/page.jpg" />
+<Image src="/images/api/page.jpg" alt="screenshot" width={862} height={862} pure />
 
 <h4>Page</h4>
 
@@ -45,7 +45,7 @@ home = st.Page(
 
 <RefCard href="/develop/api-reference/widgets/st.page_link">
 
-<Image pure alt="screenshot" src="/images/api/page_link.jpg" />
+<Image src="/images/api/page_link.jpg" alt="screenshot" width={862} height={862} pure />
 
 <h4>Page link</h4>
 

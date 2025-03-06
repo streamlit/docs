@@ -29,8 +29,8 @@ While the Tableau API allows authentication via username and password, you shoul
 Go to your [Tableau Online homepage](https://online.tableau.com/), create an access token and note down the token name and secret.
 
 <Flex>
-<Image alt="Tableau screenshot 2" src="/images/databases/tableau-2.png" />
-<Image alt="Tableau screenshot 3" src="/images/databases/tableau-3.png" />
+<Image src="/images/databases/tableau-2.png" alt="Tableau screenshot 2" width={1000} height={781} />
+<Image src="/images/databases/tableau-3.png" alt="Tableau screenshot 3" width={1000} height={781} />
 </Flex>
 
 <Note>

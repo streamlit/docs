@@ -29,7 +29,7 @@ In this example, you'll build an app to display sales data. The app has two sets
 You'll collect the day-specific elements into a fragment to avoid rerunning the full app when a user changes days within the same month. If you want to jump ahead to the fragment function definition, see [Build a function to show daily sales data](#build-a-function-to-show-daily-sales-data).
 
 <div style={{ maxWidth: '60%', margin: 'auto' }}>
-<Image alt="Execution flow of example Streamlit app showing daily sales on the left and monthly sales on the right" src="/images/tutorials/fragment-rerun-tutorial-execution-flow.png" />
+<Image src="/images/tutorials/fragment-rerun-tutorial-execution-flow.png" alt="Execution flow of example Streamlit app showing daily sales on the left and monthly sales on the right" width={744} height={941} />
 </div>
 
 Here's a look at what you'll build:

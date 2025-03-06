@@ -38,7 +38,7 @@ st.set_page_config(page_title="Traingenerator")
 
 This will change the meta title of your app to "Traingenerator." This makes it easier for people to find your app by searching for "Traingenerator" or "train generator streamlit app":
 
-<Image src="/images/streamlit-community-cloud/indexability-app-title.png" caption='Google search results for "train generator streamlit app"' />
+<Image src="/images/streamlit-community-cloud/indexability-app-title.png" width={856} height={367} Google search results for train generator streamlit />
 
 ### Customize your app's meta description
 
@@ -56,7 +56,7 @@ site:<your-custom-subdomain>.streamlit.app
 
 Example: `site:traingenerator.streamlit.app`
 
-<Image src="/images/streamlit-community-cloud/indexability-search-result.png" caption='Google search results for "site:traingenerator.streamlit.app"' />
+<Image src="/images/streamlit-community-cloud/indexability-search-result.png" width={1574} height={608} Google search results for />
 
 ## What if I don't want my app to be indexed?
 

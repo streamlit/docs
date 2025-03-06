@@ -52,7 +52,7 @@ with st.chat_message("user"):
     st.write("Hello 👋")
 ```
 
-<Image src="/images/knowledge-base/chat-message-hello.png" clean />
+<Image src="/images/knowledge-base/chat-message-hello.png" width={1056} height={96} clean />
 <br />
 
 Notice the message is displayed with a default avatar and styling since we passed in `"user"` as the author name. You can also pass in `"assistant"` as the author name to use a different default avatar and styling, or pass in a custom name and avatar. See the [API reference](/develop/api-reference/chat/st.chat_message) for more details.
@@ -423,7 +423,7 @@ if prompt := st.chat_input("What is up?"):
     st.session_state.messages.append({"role": "assistant", "content": response})
 ```
 
-<Image src="/images/knowledge-base/chatgpt-clone.gif" clean />
+<Image src="/images/knowledge-base/chatgpt-clone.gif" width={1127} height={991} clean />
 
 </Collapse>
 

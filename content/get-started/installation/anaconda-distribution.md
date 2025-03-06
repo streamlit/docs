@@ -48,7 +48,7 @@ This page walks you through installing Streamlit locally using Anaconda Distribu
 
 8. Click "**Create**."
 <div style={{ maxWidth: '50%', margin: 'auto' }}>
-    <Image alt="Finalize your new conda environment" src="/images/get-started/Anaconda-Navigator-environment-3-name.png" />
+    <Image src="/images/get-started/Anaconda-Navigator-environment-3-name.png" alt="Finalize your new conda environment" width={920} height={533} />
 </div>
 
 ## Activate your environment

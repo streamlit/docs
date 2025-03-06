@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
+import NextImage from "next/image";
 
 import styles from "./image.module.css";
 
-const Image = ({ caption, pure, src, alt, clean, frame }) => {
+const Image = ({ caption, pure, src, alt, clean, frame, width, height }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -15,6 +16,13 @@ const Image = ({ caption, pure, src, alt, clean, frame }) => {
   };
 
   const borderStyle = frame ? styles.ImageBorder : "";
+
+  const isExternal = src.startsWith("http://") || src.startsWith("https://");
+
+  if (isExternal && (width == null || height == null)) {
+    width = 0;
+    height = 0;
+  }
 
   useEffect(() => {
     const handleEsc = (event) => {
@@ -39,15 +47,17 @@ const Image = ({ caption, pure, src, alt, clean, frame }) => {
     customCaption = <p className={styles.Caption}>{caption}</p>;
   }
   if (pure) {
-    block = <img src={src} alt={alt} />;
+    block = <NextImage src={src} alt={alt} />;
   } else if (isOpen) {
     block = (
       <section className={styles.Container}>
         <section className={styles.InnerContainer}>
-          <img
+          <NextImage
             onClick={openModal}
             src={src}
             alt={alt}
+            width={width}
+            height={height}
             className={classNames(captionClass, styles.Image, borderStyle)}
           />
           {customCaption}
@@ -57,9 +67,11 @@ const Image = ({ caption, pure, src, alt, clean, frame }) => {
             close
           </button>
           <section className={styles.ImageContainer}>
-            <img
+            <NextImage
               src={src}
               alt={alt}
+              width={width}
+              height={height}
               className={classNames(captionClass, styles.ModalImage)}
             />
             {customCaption}
@@ -70,7 +82,14 @@ const Image = ({ caption, pure, src, alt, clean, frame }) => {
   } else if (clean) {
     block = (
       <section>
-        <img onClick={openModal} src={src} alt={alt} className={captionClass} />
+        <NextImage
+          onClick={openModal}
+          src={src}
+          alt={alt}
+          className={captionClass}
+          width={width}
+          height={height}
+        />
         {customCaption}
       </section>
     );
@@ -78,11 +97,13 @@ const Image = ({ caption, pure, src, alt, clean, frame }) => {
     block = (
       <section className={styles.Container}>
         <section className={styles.InnerContainer}>
-          <img
+          <NextImage
             onClick={openModal}
             className={classNames(captionClass, styles.Image, borderStyle)}
             src={src}
             alt={alt}
+            width={width}
+            height={height}
           />
           {customCaption}
         </section>

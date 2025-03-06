@@ -40,7 +40,7 @@ Streamlit Community Cloud supports all released [versions of Python that are sti
 1. Click "**Save**."
 
 <div style={{ maxWidth: '70%', margin: 'auto' }}>
-<Image alt="Advanced settings for deploying your app" src="/images/streamlit-community-cloud/deploy-an-app-advanced.png" />
+<Image src="/images/streamlit-community-cloud/deploy-an-app-advanced.png" alt="Advanced settings for deploying your app" width={700} height={648} />
 </div>
 
 ## Watch your app launch

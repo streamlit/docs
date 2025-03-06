@@ -82,7 +82,7 @@ To help others find and play with your Streamlit app, you can add Streamlit's Gi
 <div style={{ marginBottom: '2em' }}>
 <div style={{ width: 'fit-content', margin: 'auto' }}>
     <a href="https://roadmap.streamlit.app/" target="_blank">
-    <Image alt="Open in Streamlit badge for GitHub" src="/images/streamlit-community-cloud/github-badge.svg" pure />
+    <Image src="/images/streamlit-community-cloud/github-badge.svg" alt="Open in Streamlit badge for GitHub" width={None} height={None} pure />
     </a>
 </div>
 </div>

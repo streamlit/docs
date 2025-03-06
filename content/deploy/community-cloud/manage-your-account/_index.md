@@ -16,5 +16,5 @@ Your Streamlit Community Cloud account is identified by your email. When you sig
 1. In the drop-down menu, click "**Settings**."
 
 <div style={{ maxWidth: '75%', marginLeft: '3em' }}>
-    <Image src="/images/streamlit-community-cloud/account-settings-header.png" alt="Access your workspace settings from your workspace" />
+    <Image src="/images/streamlit-community-cloud/account-settings-header.png" alt="Access your workspace settings from your workspace" width={1168} height={641} />
 </div>

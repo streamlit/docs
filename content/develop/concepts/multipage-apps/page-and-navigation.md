@@ -65,7 +65,7 @@ pg.run()
 ```
 
 <div style={{ maxWidth: '564px', margin: 'auto' }}>
-<Image src="/images/mpa-v2-use-set-page-config.jpg" frame />
+<Image src="/images/mpa-v2-use-set-page-config.jpg" width={500} height={400} frame />
 </div>
 
 ## Customizing navigation
@@ -141,7 +141,7 @@ pg.run()
 ```
 
 <div style={{ maxWidth: '564px', margin: 'auto' }}>
-<Image src="/images/mpa-v2-page-sections.jpg" frame />
+<Image src="/images/mpa-v2-page-sections.jpg" width={500} height={400} frame />
 </div>
 
 ### Dynamically changing the available pages

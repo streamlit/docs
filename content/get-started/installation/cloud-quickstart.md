@@ -26,7 +26,7 @@ If you already created a Community Cloud account and connected GitHub, jump ahea
 1. In the upper-left corner, click on "**Workspaces <i style={{ verticalAlign: "-.25em", color: "#ff8700" }} className={{ class: "material-icons-sharp" }}>warning</i>**."
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
-<Image alt="Connect your GitHub account to a new Community Cloud account" src="/images/streamlit-community-cloud/workspace-unconnected-setup.png" />
+<Image src="/images/streamlit-community-cloud/workspace-unconnected-setup.png" alt="Connect your GitHub account to a new Community Cloud account" width={1168} height={641} />
 </div>
 
 1. From the drop down, click "**Connect GitHub account**."
@@ -34,7 +34,7 @@ If you already created a Community Cloud account and connected GitHub, jump ahea
 1. Click "**Authorize streamlit**."
 
 <div style={{ maxWidth: '40%', margin: 'auto' }}>
-<Image alt="Authorize Community Cloud to connect to your GitHub account" src="/images/streamlit-community-cloud/GitHub-auth1-none.png" />
+<Image src="/images/streamlit-community-cloud/GitHub-auth1-none.png" alt="Authorize Community Cloud to connect to your GitHub account" width={598} height={855} />
 </div>
 
 ## Optional: Add access to private repositories
@@ -42,7 +42,7 @@ If you already created a Community Cloud account and connected GitHub, jump ahea
 1. In the upper-left corner, click on your GitHub username.
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
-<Image alt="Access your workspace settings" src="/images/streamlit-community-cloud/workspace-empty-menu.png" />
+<Image src="/images/streamlit-community-cloud/workspace-empty-menu.png" alt="Access your workspace settings" width={1168} height={640} />
 </div>
 
 1. From the drop down, click "**Settings**."
@@ -51,7 +51,7 @@ If you already created a Community Cloud account and connected GitHub, jump ahea
 1. Click "**Authorize streamlit**."
 
 <div style={{ maxWidth: '40%', margin: 'auto' }}>
-<Image alt="Authorize Community Cloud to connect to your private GitHub repositories" src="/images/streamlit-community-cloud/GitHub-auth2-none.png" />
+<Image src="/images/streamlit-community-cloud/GitHub-auth2-none.png" alt="Authorize Community Cloud to connect to your private GitHub repositories" width={598} height={839} />
 </div>
 
 ## Create a new app from a template
@@ -59,7 +59,7 @@ If you already created a Community Cloud account and connected GitHub, jump ahea
 1. In the upper-right corner, click "**Create app**."
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
-<Image alt="Create a new app from your workspace in Streamlit Community Cloud" src="/images/streamlit-community-cloud/deploy-empty-new-app.png" />
+<Image src="/images/streamlit-community-cloud/deploy-empty-new-app.png" alt="Create a new app from your workspace in Streamlit Community Cloud" width={1168} height={641} />
 </div>
 
 1. When asked "Do you already have an app?" click "**Nope, create one from a template**."
@@ -74,7 +74,7 @@ If you already created a Community Cloud account and connected GitHub, jump ahea
    It can take several minutes to fully initialize your codespace. After you see the Visual Studio Code editor in your codespace, it can take several minutes to install Python and start the Streamlit server. When complete, you will see a split screen view with a code editor on the left and a running app on the right. The code editor opens two tabs by default: the repository's readme file and the app's entrypoint file.
 
    <div style={{ maxWidth: '90%', margin: 'auto' }}>
-   <Image alt="Your new GitHub Codespace" src="/images/streamlit-community-cloud/deploy-template-blank-codespace.png" />
+   <Image src="/images/streamlit-community-cloud/deploy-template-blank-codespace.png" alt="Your new GitHub Codespace" width={1168} height={640} />
    </div>
 
 1. Go to the app's entrypoint file (`streamlit_app.py`) in the left pane, and change line 3 by adding "Streamlit" inside `st.title`.
@@ -89,7 +89,7 @@ If you already created a Community Cloud account and connected GitHub, jump ahea
 1. A moment after typing a change, your app on the right side will display a rerun prompt. Click "**Always rerun**."
 
    <div style={{ maxWidth: '90%', margin: 'auto' }}>
-   <Image alt="Edit the title of your sample Streamlit app" src="/images/streamlit-community-cloud/deploy-template-blank-codespace-edit.png" />
+   <Image src="/images/streamlit-community-cloud/deploy-template-blank-codespace-edit.png" alt="Edit the title of your sample Streamlit app" width={1168} height={640} />
    </div>
 
    If the rerun prompt disappears before you click it, you can hover over the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) to bring it back.
@@ -101,14 +101,14 @@ If you already created a Community Cloud account and connected GitHub, jump ahea
 1. In the left navigation bar, click the source control icon.
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
-<Image alt="See your deployed Streamlit app" src="/images/streamlit-community-cloud/deploy-template-blank-codespace-edit-source-control.png" />
+<Image src="/images/streamlit-community-cloud/deploy-template-blank-codespace-edit-source-control.png" alt="See your deployed Streamlit app" width={1168} height={640} />
 </div>
 
 1. In the source control sidebar on the left, enter a name for your commit.
 1. Click "**<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>check</i> Commit**."
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
-<Image alt="See your deployed Streamlit app" src="/images/streamlit-community-cloud/deploy-template-blank-codespace-edit-commit.png" />
+<Image src="/images/streamlit-community-cloud/deploy-template-blank-codespace-edit-commit.png" alt="See your deployed Streamlit app" width={1168} height={640} />
 </div>
 
 1. In the confirmation dialog, click "**Yes**" to stage and commit all your changes. Your changes are committed locally in your codespace.
@@ -130,17 +130,17 @@ When you stop interacting with your codespace, GitHub will generally stop your c
 1. Go to <a href="https://github.com/codespaces" target="_blank">github.com/codespaces</a>. At the bottom of the page, all your codespaces are listed. Click the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_horiz</i>) for your codespace.
 
 <div style={{ maxWidth: '90%', margin: 'auto' }}>
-<Image alt="Stop or delete your GitHub Codespace" src="/images/streamlit-community-cloud/deploy-hello-codespace-manage.png" />
+<Image src="/images/streamlit-community-cloud/deploy-hello-codespace-manage.png" alt="Stop or delete your GitHub Codespace" width={2336} height={1383} />
 </div>
 
 2. If you want to return to your work later, click "**Stop codespace**." Otherwise, click "**Delete**."
 
    <div style={{ maxWidth: '40%', margin: 'auto' }}>
-   <Image alt="Stop your GitHub codespace" src="/images/streamlit-community-cloud/codespace-menu.png" />
+   <Image src="/images/streamlit-community-cloud/codespace-menu.png" alt="Stop your GitHub codespace" width={506} height={691} />
    </div>
 
 3. Congratulations! You just deployed an app to Streamlit Community Cloud. 🎉 Return to your workspace at <a href="https://share.streamlit.io/" target="_blank">share.streamlit.io/</a> and [deploy another Streamlit app](/deploy/streamlit-community-cloud/deploy-your-app).
 
    <div style={{ maxWidth: '90%', margin: 'auto' }}>
-   <Image alt="See your deployed Streamlit app" src="/images/streamlit-community-cloud/deploy-template-blank-edited.png" />
+   <Image src="/images/streamlit-community-cloud/deploy-template-blank-edited.png" alt="See your deployed Streamlit app" width={1168} height={728} />
    </div>

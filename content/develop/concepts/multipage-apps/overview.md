@@ -45,7 +45,7 @@ Additionly, a page can have two icons as follows:
 Typically, the page icon and favicon are the same, but it's possible make them different.
 
 <div style={{ maxWidth: '564px', margin: 'auto' }}>
-<Image caption="1. Page label, 2.Page titles, 3. Page URL pathname, 4.Page favicon, 5. Page icon" src="/images/page_parts.jpg" frame />
+<Image src="/images/page_parts.jpg" width={500} height={400} caption="1. Page label, 2.Page titles, 3. Page URL pathname, 4.Page favicon, 5. Page icon" frame />
 </div>
 
 ## Automatic page labels and URLs
@@ -108,5 +108,5 @@ Users can also navigate between pages using URLs as noted above. When multiple f
 If a user tries to access a URL for a page that does not exist, they will see a modal like the one below, saying "Page not found."
 
 <div style={{ maxWidth: '75%', margin: 'auto' }}>
-<Image alt="Page not found" src="/images/mpa-page-not-found.png" />
+<Image src="/images/mpa-page-not-found.png" alt="Page not found" width={500} height={159} />
 </div>

@@ -21,15 +21,15 @@ to [skip to the next step](#create-access-keys).
 First, [sign up for AWS](https://aws.amazon.com/) or log in. Go to the [S3 console](https://s3.console.aws.amazon.com/s3/home) and create a new bucket:
 
 <Flex>
-<Image alt="AWS screenshot 1" src="/images/databases/aws-1.png" />
-<Image alt="AWS screenshot 2" src="/images/databases/aws-2.png" />
+<Image src="/images/databases/aws-1.png" alt="AWS screenshot 1" width={1000} height={814} />
+<Image src="/images/databases/aws-2.png" alt="AWS screenshot 2" width={1000} height={814} />
 </Flex>
 
 Navigate to the upload section of your new bucket:
 
 <Flex>
-<Image alt="AWS screenshot 3" src="/images/databases/aws-3.png" />
-<Image alt="AWS screenshot 4" src="/images/databases/aws-4.png" />
+<Image src="/images/databases/aws-3.png" alt="AWS screenshot 3" width={1000} height={814} />
+<Image src="/images/databases/aws-4.png" alt="AWS screenshot 4" width={1000} height={814} />
 </Flex>
 
 And note down the "AWS Region" for later. In this example, it's `us-east-1`, but it may differ for you.
@@ -43,8 +43,8 @@ Next, upload the following CSV file, which contains some example data:
 Go to the [AWS console](https://console.aws.amazon.com/), create access keys as shown below and copy the "Access Key ID" and "Secret Access Key":
 
 <Flex>
-<Image alt="AWS screenshot 5" src="/images/databases/aws-5.png" />
-<Image alt="AWS screenshot 6" src="/images/databases/aws-6.png" />
+<Image src="/images/databases/aws-5.png" alt="AWS screenshot 5" width={1000} height={780} />
+<Image src="/images/databases/aws-6.png" alt="AWS screenshot 6" width={1000} height={780} />
 </Flex>
 
 <Tip>

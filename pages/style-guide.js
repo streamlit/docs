@@ -202,11 +202,15 @@ https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streaml
             src="/embed-image-01.jpg"
             alt="Streamlit's email highlighted on their GitHub profile"
             caption="Caption can go within the frame if necessary"
+            width={300}
+            height={300}
           />
           <Image
             src="/embed-image-02.png"
             alt="Streamlit's 'your apps' page highlighting the 'Edit secerets' link"
             caption="Caption can go within the frame if necessary"
+            width={300}
+            height={300}
           />
         </Component>
         <Component label="1, 2 or 3-Up Tiles">

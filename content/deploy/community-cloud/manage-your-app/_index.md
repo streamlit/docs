@@ -68,7 +68,7 @@ Other options accessible from Cloud logs are:
 </div>
 
 <div style={{ maxWidth: '30%', margin: "auto" }}>
-    <Image src="/images/streamlit-community-cloud/cloud-logs-menu-XL.png" clean />
+    <Image src="/images/streamlit-community-cloud/cloud-logs-menu-XL.png" width={540} height={928} clean />
 </div>
 
 </Flex>
@@ -123,7 +123,7 @@ If your app is running slow or showing the error pages mentioned above, we first
 If your app exceeds its resource limits, developers and viewers alike will see "😦 Oh no."
 
 <div style={{ maxWidth: '70%', margin: 'auto' }}>
-<Image alt="App state: Oh no. Error running your app." src="/images/streamlit-community-cloud/app-state-oh-no.png" />
+<Image src="/images/streamlit-community-cloud/app-state-oh-no.png" alt="App state: Oh no. Error running your app." width={1444} height={508} />
 </div>
 
 If see "😦 Oh no." when viewing your app, first check your Cloud logs for any specific errors. If there are no errors in your Cloud logs you are likely dealing with a resource issue.
@@ -146,7 +146,7 @@ Community Cloud hibernates apps to conserve resources and allow the best communa
 When someone visits a sleeping app, they will see the sleeping page:
 
 <div style={{ maxWidth: '80%', margin: 'auto' }}>
-<Image alt="App state: Zzzz. This app has gone to sleep due to inactivity." src="/images/streamlit-community-cloud/app-state-zzzz.png" />
+<Image src="/images/streamlit-community-cloud/app-state-zzzz.png" alt="App state: Zzzz. This app has gone to sleep due to inactivity." width={1610} height={858} />
 </div>
 
 To wake the app up, click "**Yes, get this app back up!**" This can be done by *anyone* who has access to view the app, not just the app developer!

@@ -52,7 +52,7 @@ If you already have a database that you want to use, you can [skip to the next s
 
    To execute the statements in a worksheet, select all the lines you want to execute by highlighting them with your mouse. Then, in the upper-right corner, click the play button (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>play_arrow</i>). Alternatively, if you want to execute everything in a worksheet, click the down arrow (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>expand_more</i>) next to the play button, and select "**Run All**".
 
-   <Image alt="AWS screenshot 1" src="/images/databases/snowflake-worksheet-execute.png" />
+   <Image src="/images/databases/snowflake-worksheet-execute.png" alt="AWS screenshot 1" width={1175} height={640} />
 
    <Important>
 
@@ -62,7 +62,7 @@ If you already have a database that you want to use, you can [skip to the next s
 
 1. Optional: To view your new database, above the left navigation, select "**Databases**." Click the down arrows (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>expand_more</i>) to expand "PETS" → "PUBLIC" → "Tables" → "MYTABLE."
 
-   <Image alt="AWS screenshot 2" src="/images/databases/snowflake-database-new.png" />
+   <Image src="/images/databases/snowflake-database-new.png" alt="AWS screenshot 2" width={1168} height={640} />
 
 1. For your use in later steps, note down your role, warehouse, database, and schema. In the preceding screenshot, these are the following:
 

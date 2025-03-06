@@ -12,7 +12,7 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 <DataSourcesContainer>
 <DataSourcesCard href="/develop/tutorials/databases/aws-s3">
 
-<Image pure alt="screenshot" src="/images/databases/s3.png" />
+<Image src="/images/databases/s3.png" alt="screenshot" width={863} height={804} pure />
 
 <h5>AWS S3</h5>
 
@@ -20,7 +20,7 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 <DataSourcesCard href="/develop/tutorials/databases/bigquery">
 
-<Image pure alt="screenshot" src="/images/databases/bigquery.png" />
+<Image src="/images/databases/bigquery.png" alt="screenshot" width={862} height={816} pure />
 
 <h5>BigQuery</h5>
 
@@ -28,7 +28,7 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 <DataSourcesCard href="https://blog.streamlit.io/streamlit-firestore/">
 
-<Image pure alt="screenshot" src="/images/databases/firestore.png" />
+<Image src="/images/databases/firestore.png" alt="screenshot" width={912} height={908} pure />
 
 <h5>Firestore (blog)</h5>
 
@@ -36,7 +36,7 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 <DataSourcesCard href="/develop/tutorials/databases/gcs">
 
-<Image pure alt="screenshot" src="/images/databases/gcs.png" />
+<Image src="/images/databases/gcs.png" alt="screenshot" width={863} height={804} pure />
 
 <h5>Google Cloud Storage</h5>
 
@@ -44,7 +44,7 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 <DataSourcesCard href="/develop/tutorials/databases/mssql">
 
-<Image pure alt="screenshot" src="/images/databases/mssql.png" />
+<Image src="/images/databases/mssql.png" alt="screenshot" width={863} height={804} pure />
 
 <h5>Microsoft SQL Server</h5>
 
@@ -52,7 +52,7 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 <DataSourcesCard href="/develop/tutorials/databases/mongodb">
 
-<Image pure alt="screenshot" src="/images/databases/mongodb.png" />
+<Image src="/images/databases/mongodb.png" alt="screenshot" width={912} height={908} pure />
 
 <h5>MongoDB</h5>
 
@@ -60,7 +60,7 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 <DataSourcesCard href="/develop/tutorials/databases/mysql">
 
-<Image pure alt="screenshot" src="/images/databases/mysql.png" />
+<Image src="/images/databases/mysql.png" alt="screenshot" width={912} height={908} pure />
 
 <h5>MySQL</h5>
 
@@ -68,7 +68,7 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 <DataSourcesCard href="/develop/tutorials/databases/neon">
 
-<Image pure alt="screenshot" src="/images/databases/neon-logo.png" />
+<Image src="/images/databases/neon-logo.png" alt="screenshot" width={800} height={800} pure />
 
 <h5>Neon</h5>
 
@@ -76,7 +76,7 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 <DataSourcesCard href="/develop/tutorials/databases/postgresql">
 
-<Image pure alt="screenshot" src="/images/databases/postgresql.png" />
+<Image src="/images/databases/postgresql.png" alt="screenshot" width={912} height={908} pure />
 
 <h5>PostgreSQL</h5>
 
@@ -84,7 +84,7 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 <DataSourcesCard href="/develop/tutorials/databases/private-gsheet">
 
-<Image pure alt="screenshot" src="/images/databases/gsheet.png" />
+<Image src="/images/databases/gsheet.png" alt="screenshot" width={912} height={908} pure />
 
 <h5>Private Google Sheet</h5>
 
@@ -92,7 +92,7 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 <DataSourcesCard href="/develop/tutorials/databases/public-gsheet">
 
-<Image pure alt="screenshot" src="/images/databases/gsheet.png" />
+<Image src="/images/databases/gsheet.png" alt="screenshot" width={912} height={908} pure />
 
 <h5>Public Google Sheet</h5>
 
@@ -100,7 +100,7 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 <DataSourcesCard href="/develop/tutorials/databases/snowflake">
 
-<Image pure alt="screenshot" src="/images/databases/snowflake.png" />
+<Image src="/images/databases/snowflake.png" alt="screenshot" width={862} height={816} pure />
 
 <h5>Snowflake</h5>
 
@@ -108,7 +108,7 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 <DataSourcesCard href="/develop/tutorials/databases/supabase">
 
-<Image pure alt="screenshot" src="/images/databases/supabase.png" />
+<Image src="/images/databases/supabase.png" alt="screenshot" width={912} height={908} pure />
 
 <h5>Supabase</h5>
 
@@ -116,7 +116,7 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 <DataSourcesCard href="/develop/tutorials/databases/tableau">
 
-<Image pure alt="screenshot" src="/images/databases/tableau.png" />
+<Image src="/images/databases/tableau.png" alt="screenshot" width={912} height={908} pure />
 
 <h5>Tableau</h5>
 
@@ -124,7 +124,7 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 <DataSourcesCard href="/develop/tutorials/databases/tidb">
 
-<Image pure alt="screenshot" src="/images/databases/tidb.png" />
+<Image src="/images/databases/tidb.png" alt="screenshot" width={912} height={908} pure />
 
 <h5>TiDB</h5>
 
@@ -132,7 +132,7 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 <DataSourcesCard href="/develop/tutorials/databases/tigergraph">
 
-<Image pure alt="screenshot" src="/images/databases/tigergraph.png" />
+<Image src="/images/databases/tigergraph.png" alt="screenshot" width={912} height={908} pure />
 
 <h5>TigerGraph</h5>
 
