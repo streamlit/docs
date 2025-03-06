@@ -9,7 +9,7 @@ There are multiple ways to set up your development environment and install Strea
 understand these options. Developing locally with Python installed on your own computer is the most
 common scenario.
 
-## Summary for experienced developers
+## Quick setup for experienced Python developers
 
 1. Set up your Python development environment.
 2. Run:
@@ -22,11 +22,9 @@ common scenario.
    ```
 4. Jump to our [Basic concepts](/get-started/fundamentals/main-concepts).
 
-## General setup and installation
+## Setup options for everyone else
 
-### Local development options
-
-<p></p>
+There are many ways to get started coding with Streamlit. If you're brand new to Streamlit or just passing through on a random internet walk, we recommend using the Streamlit Playground for your first hands-on experience. It's quick and ready to go in your browser. After you experience the awesomeness of Streamlit, we're confident you'll want to come back and set up a full development environment, which you can do locally or in the cloud, as described in the options below.
 
 <InlineCalloutContainer>
     <InlineCallout
@@ -36,6 +34,13 @@ common scenario.
         href="/get-started/installation/streamlit-playground"
     ><em><strong>"Let me try it out as fast and easy as possible."</strong></em><br />
       Try out Streamlit in your browser. Visit the Streamlit Playground and start playing with code in seconds.</InlineCallout>
+</InlineCalloutContainer>
+
+### Local development options
+
+<p></p>
+
+<InlineCalloutContainer>
     <InlineCallout
         color="indigo-70"
         icon="terminal"
