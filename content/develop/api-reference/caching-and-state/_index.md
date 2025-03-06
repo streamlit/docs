@@ -54,7 +54,7 @@ def init_model():
 Streamlit re-executes your script with each user interaction. Widgets have built-in statefulness between reruns, but Session State lets you do more!
 
 <TileContainer>
-<RefCard href="/develop/api-reference/utilities/st.context">
+<RefCard href="/develop/api-reference/caching-and-state/st.context">
 
 <h4>Context</h4>
 
