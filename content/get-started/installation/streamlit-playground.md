@@ -5,7 +5,7 @@ slug: /get-started/installation/streamlit-playground
 
 # Use Streamlit Playground in your browser
 
-The fastest way to try out Streamlit is to try out our Playground! Streamlit Playground runs in your browser. Just visit the Playground, and a limited version of Streamlit loads as browser scripts.
+The fastest way to try out Streamlit is to try out our Playground! Streamlit Playground runs in your browser. Just visit the Playground, and a _limited_ version of Streamlit loads as browser scripts.
 
 Enjoy the following conveniences:
 
@@ -14,13 +14,13 @@ Enjoy the following conveniences:
 - No command line.
 - No application installations in your OS.
 
-<Note>
-    The Playground is dependendant on your computer's resources because it runs _locally_ in your browser. The setup time can vary depending on your machine and internet connection. Although the Playground has everything you need to get started, to access the full awesomeness of Streamlit, see [Install Streamlit using command line](/get-started/installation/command-line) or [Install Streamlit using Anaconda Distribution](/get-started/installation/anaconda-distribution).
-</Note>
+<Important>    
+    Although the Playground has everything you need to get started, it doesn't contain the full version of Streamlit. To access the full awesomeness of Streamlit, see [Install Streamlit using command line](/get-started/installation/command-line) or [Install Streamlit using Anaconda Distribution](/get-started/installation/anaconda-distribution).
+</Important>
 
 ## Prerequisites
 
-Because the Playground runs Streamlit in your browser, you should visit the Playground from a personal computer, not a mobile device.
+Because the Playground runs Streamlit _locally_ in your browser, you should visit the Playground from a personal computer, not a mobile device.
 
 ## Go to the Playground
 
@@ -28,7 +28,7 @@ Because the Playground runs Streamlit in your browser, you should visit the Play
 
 1. Wait for [`stlite`](https://github.com/whitphx/stlite) &mdash; a browser-based version of Streamlit &mdash; to load in your browser.
 
-   This can take as little as a few seconds. However, it may take longer depending on your machine and internet. When Streamlit is done loading, an example app is displayed in the right panel.
+   This can take as little as a few seconds. The setup time can vary depending on your machine and internet connection. When Streamlit is done loading, an example app is displayed in the right panel.
 
    ![Streamlit Playground is fully loaded and ready to accept code edits](/images/get-started/Playground-1-loaded.png)
 
