@@ -30,7 +30,7 @@ st.logout()
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/utilities/st.user">
+<RefCard href="/develop/api-reference/user/st.user">
 
 <h4>User info</h4>
 
