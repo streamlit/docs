@@ -41,10 +41,22 @@ Because the Playground runs Streamlit _locally_ in your browser, you should visi
    ```python
    import streamlit as st
 
-   st.title("Hello World")
+   st.write("Hello World")
    ```
 
    A second or two after typing or pasting the code into the editor, the right panel will display the updated app. The code editor saves your edits whenever you pause from typing. Therefore, if you pause between keystrokes as you type a new line of code, you may see an error on the right because Streamlit executed an incomplete line. If this happens, just keep typing to complete the line(s) you are writing. When you pause again at the end of the line, Streamlit reruns the app.
+
+1. On the left, change `st.write` to `st.title` so the code editor has the following code:
+
+   ```python
+   import streamlit as st
+
+   st.title("Hello World")
+   ```
+
+   A second after you stop typing, Streamlit reruns the app and updates the display on the right.
+
+1. Keep making changes! Watch as your edits are automatically saved and the new result is displayed on the right.
 
 ## What's next?
 
