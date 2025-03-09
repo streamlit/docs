@@ -68,10 +68,12 @@ import SnowflakeTrial from "../components/blocks/snowflakeTrial";
 
 import styles from "../components/layouts/container.module.css";
 
+const DOCSTRINGS = serverRuntimeConfig.DOCSTRINGS;
 const VERSIONS_LIST = serverRuntimeConfig.VERSIONS_LIST;
 const LATEST_VERSION = serverRuntimeConfig.LATEST_VERSION;
 const DEFAULT_VERSION = serverRuntimeConfig.DEFAULT_VERSION;
 
+const PLATFORM_NOTES = serverRuntimeConfig.PLATFORM_NOTES;
 const PLATFORM_VERSIONS = serverRuntimeConfig.PLATFORM_VERSIONS;
 const PLATFORM_LATEST_VERSIONS = serverRuntimeConfig.PLATFORM_LATEST_VERSIONS;
 const DEFAULT_PLATFORM = serverRuntimeConfig.DEFAULT_PLATFORM;
@@ -343,7 +345,7 @@ export function getFunctionSubset(allFunctionsInVerions, functionsOnPage) {
 // Verion helper one
 export function looksLikeVersionAndPlatformString(urlPart) {
   const platforms = [DEFAULT_PLATFORM].concat(
-    Object.keys(serverRuntimeConfig.PLATFORM_VERSIONS), //Use public when moved to context
+    Object.keys(PLATFORM_VERSIONS), //Use public when moved to context
   );
 
   // docs.streamlit.io/1.23.0/path1/path2
@@ -416,7 +418,7 @@ export async function getStaticProps(context) {
         }
       }
       props.docstrings = getFunctionSubset(
-        serverRuntimeConfig.DOCSTRINGS[LATEST_VERSION],
+        DOCSTRINGS[LATEST_VERSION],
         functions,
       );
 
@@ -429,30 +431,20 @@ export async function getStaticProps(context) {
         props.platformFromStaticLoad = platform;
         props.docstrings =
           version != DEFAULT_VERSION // Not "latest"
-            ? getFunctionSubset(
-                serverRuntimeConfig.DOCSTRINGS[version],
-                functions,
-              )
+            ? getFunctionSubset(DOCSTRINGS[version], functions)
             : platform != DEFAULT_PLATFORM
               ? getFunctionSubset(
-                  serverRuntimeConfig.DOCSTRINGS[
-                    PLATFORM_LATEST_VERSIONS[platform]
-                  ],
+                  DOCSTRINGS[PLATFORM_LATEST_VERSIONS[platform]],
                   functions,
                 )
-              : getFunctionSubset(
-                  serverRuntimeConfig.DOCSTRINGS[LATEST_VERSION],
-                  functions,
-                );
+              : getFunctionSubset(DOCSTRINGS[LATEST_VERSION], functions);
         if (Object.keys(PLATFORM_VERSIONS).includes(platform)) {
           props.notes =
             version != DEFAULT_VERSION &&
             PLATFORM_VERSIONS[platform].includes(version)
-              ? serverRuntimeConfig.PLATFORM_NOTES[platform][version]
+              ? PLATFORM_NOTES[platform][version]
               : version == DEFAULT_VERSION
-                ? serverRuntimeConfig.PLATFORM_NOTES[platform][
-                    PLATFORM_LATEST_VERSIONS[platform]
-                  ]
+                ? PLATFORM_NOTES[platform][PLATFORM_LATEST_VERSIONS[platform]]
                 : {};
         }
         location = `/${context.params.slug.slice(1).join("/")}`;
