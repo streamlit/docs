@@ -1,0 +1,118 @@
+screenshot_width: 800
+screenshot_height: 600
+default_padding: 50
+browser_window_width: 400
+enable_overlays: false
+
+elements:
+  # Text elements
+  - name: markdown
+  - name: title
+  - name: header
+  - name: subheader
+  - name: caption
+  - name: code
+  - name: latex
+  - name: text
+  - name: divider
+
+  # Data elements
+  - name: dataframe
+  - name: data_editor
+    overlay: overlays/cursor.svg
+  - name: column_config
+  - name: table
+  - name: metric
+    padding: 150
+  - name: json
+
+  # Chart elements
+  - name: area_chart
+  - name: bar_chart
+  - name: line_chart
+  - name: scatter_chart
+  - name: map
+  - name: pyplot
+  - name: altair_chart
+  - name: vega_lite_chart
+  - name: plotly_chart
+  - name: bokeh_chart
+  - name: pydeck_chart
+  - name: graphviz_chart
+
+  # Input widgets
+  - name: button
+    padding: 200
+    overlay: overlays/cursor.svg
+  - name: download_button
+    padding: 200
+    overlay: overlays/cursor.svg
+  - name: form_submit_button
+  - name: link_button
+    padding: 200
+    overlay: overlays/cursor.svg
+  - name: page_link
+    padding: 200
+    overlay: overlays/cursor.svg
+  - name: checkbox
+    padding: 200
+    overlay: overlays/cursor.svg
+  - name: color_picker
+    overlay: overlays/cursor.svg
+  - name: feedback
+    padding: 100
+    overlay: overlays/cursor.svg
+  - name: multiselect
+    overlay: overlays/cursor.svg
+  - name: pills
+    padding: 100
+    overlay: overlays/cursor.svg
+  - name: radio
+    padding: 150
+    overlay: overlays/cursor.svg
+  - name: segmented_control
+    padding: 100
+    overlay: overlays/cursor.svg
+  - name: selectbox
+    overlay: overlays/cursor.svg
+  - name: select_slider
+    overlay: overlays/cursor.svg
+  - name: toggle
+    padding: 200
+    overlay: overlays/cursor.svg
+  - name: number_input
+    overlay: overlays/cursor.svg
+  - name: slider
+    overlay: overlays/cursor.svg
+  - name: date_input
+    overlay: overlays/cursor.svg
+  - name: time_input
+    overlay: overlays/cursor.svg
+  - name: chat_input
+    overlay: overlays/cursor.svg
+  - name: text_area
+    overlay: overlays/cursor.svg
+  - name: text_input
+    overlay: overlays/cursor.svg
+  - name: audio_input
+    overlay: overlays/cursor.svg
+  - name: file_uploader
+    overlay: overlays/cursor.svg
+
+  # Media elements
+  - name: image
+  - name: audio
+  - name: video
+
+  # Chat elements
+  - name: chat_message
+  - name: status
+
+  # Status elements
+  - name: progress
+  #- name: spinner
+  - name: success
+  - name: info
+  - name: warning
+  - name: error
+  - name: exception 
