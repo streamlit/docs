@@ -6,15 +6,22 @@ import NoteStyles from "./note.module.css";
 
 import IconHeader from "./iconHeader";
 
-const Note = ({ children }) => {
+const Note = ({ children, label, compact }) => {
   return (
-    <section className={classNames(CalloutStyles.Container, NoteStyles.Note)}>
+    <section
+      className={classNames(
+        CalloutStyles.Container,
+        NoteStyles.Note,
+        compact ? NoteStyles.Compact : "",
+      )}
+    >
       <IconHeader
-        icon="push_pin"
+        icon={"push_pin"}
         rotate="45"
-        title="Note"
+        title={label ?? "Note"}
         background="lightBlue-70"
         color="white"
+        compact={compact}
       />
       {children}
     </section>

@@ -5,3 +5,7 @@
 :global(.dark) .Note {
   background-color: #062633;
 }
+
+.Compact {
+  @apply p-4;
+}

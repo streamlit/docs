@@ -1,10 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
+import ReactDOMServer from "react-dom/server";
+import Markdown from "react-markdown";
 import reverse from "lodash/reverse";
-import classNames from "classnames";
-import Table from "./table";
-import { H2, H3 } from "./headers";
-import Warning from "./warning";
-import Deprecation from "./deprecation";
 import { withRouter, useRouter } from "next/router";
 import Prism from "prismjs";
 import "prismjs/components/prism-python";
@@ -15,18 +12,24 @@ import "prismjs/plugins/toolbar/prism-toolbar";
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 
-import styles from "./autofunction.module.css";
-import { name } from "file-loader";
+import Table from "./table";
+import { H2, H3 } from "./headers";
+import Note from "./note";
+import Warning from "./warning";
+import Deprecation from "./deprecation";
+import { functionNameToAnchorName } from "../../lib/utils";
+import VersionSelector from "../utilities/versionSelector";
+import { useVersion } from "../../context/VersionContext";
 
-const cleanHref = (name) => {
-  return String(name).replace(/\./g, "").replace(/\s+/g, "-");
-};
+import styles from "./autofunction.module.css";
 
 const Autofunction = ({
   version,
   versions,
+  snowflakeVersions,
   streamlitFunction,
   streamlit,
+  exceptions,
   slug,
   hideHeader,
   deprecated,
@@ -34,12 +37,9 @@ const Autofunction = ({
   oldStreamlitFunction,
 }) => {
   const blockRef = useRef();
-  const router = useRouter();
-  const maxVersion = versions[versions.length - 1];
   const [isHighlighted, setIsHighlighted] = useState(false);
-  const [currentVersion, setCurrentVersion] = useState(
-    version ? version : versions[versions.length - 1],
-  );
+
+  const { version: currentVersion } = useVersion();
 
   useEffect(() => {
     highlightWithPrism();
@@ -97,75 +97,13 @@ const Autofunction = ({
     setIsHighlighted(true);
   };
 
-  const VersionSelector = ({
-    versionList,
-    currentVersion,
-    handleSelectVersion,
-  }) => {
-    const isSiS = currentVersion.startsWith("SiS") ? true : false;
-    const selectClass = isSiS
-      ? "version-select sis-version"
-      : currentVersion !== versionList[0]
-        ? "version-select old-version"
-        : "version-select";
-
-    return (
-      <form className={classNames(selectClass, styles.Form)}>
-        <label>
-          <span className="sr-only">Streamlit Version</span>
-          <select
-            value={currentVersion}
-            onChange={handleSelectVersion}
-            className={styles.Select}
-          >
-            {versionList.map((version, index) => (
-              <option value={version} key={version}>
-                {version == "SiS"
-                  ? "Streamlit in Snowflake"
-                  : version.startsWith("SiS.")
-                    ? version.replace("SiS.", "Streamlit in Snowflake ")
-                    : "Version " + version}
-              </option>
-            ))}
-          </select>
-        </label>
-      </form>
-    );
-  };
-
-  const handleSelectVersion = (event) => {
-    const functionObject =
-      streamlit[streamlitFunction] ?? streamlit[oldStreamlitFunction];
-    const slicedSlug = slug.slice();
-
-    if (event.target.value !== currentVersion) {
-      setCurrentVersion(event.target.value);
-      if (event.target.value !== maxVersion) {
-        let isnum = /^[\d\.]+$/.test(slicedSlug[0]);
-        let isSiS = /^SiS[\d\.]*$/.test(slicedSlug[0]);
-        if (isnum || isSiS) {
-          slicedSlug[0] = event.target.value;
-        } else {
-          slicedSlug.unshift(event.target.value);
-        }
-        slug.unshift(event.target.value);
-      }
-    }
-
-    if (!functionObject) {
-      router.push(`/${slicedSlug.join("/")}`);
-    } else {
-      const name = cleanHref(`st.${functionObject.name}`);
-      router.push(`/${slicedSlug.join("/")}#${name} `);
-    }
-  };
-
   const footers = [];
   const args = [];
   const returns = [];
-  const versionList = reverse(versions.slice());
   let functionObject;
+  let functionException;
   let functionDescription;
+  let functionDescriptionPrefix = "";
   let header;
   let headerTitle;
   let body;
@@ -177,8 +115,17 @@ const Autofunction = ({
   if (streamlitFunction in streamlit || oldStreamlitFunction in streamlit) {
     functionObject =
       streamlit[streamlitFunction] ?? streamlit[oldStreamlitFunction];
+    functionException =
+      streamlitFunction in streamlit
+        ? exceptions[streamlitFunction] ?? {}
+        : oldStreamlitFunction in streamlit
+          ? exceptions[oldStreamlitFunction] ?? {}
+          : {};
     isClass = functionObject.is_class;
     isAttributeDict = functionObject.is_attribute_dict ?? false;
+    if ("_" in functionException && "content" in functionException["_"]) {
+      functionDescriptionPrefix = functionException["_"]["content"];
+    }
     if (
       functionObject.description !== undefined &&
       functionObject.description
@@ -198,20 +145,14 @@ const Autofunction = ({
             <a
               aria-hidden="true"
               tabIndex="-1"
-              href={`#${cleanHref(
-                streamlitFunction.replace("streamlit", "st"),
-              )}`.toLowerCase()}
+              href={`#${functionNameToAnchorName(streamlitFunction)}`}
               className="absolute"
             >
               <span className="icon icon-link"></span>
             </a>
             {streamlitFunction.replace("streamlit", "st")}
           </H2>
-          <VersionSelector
-            versionList={versionList}
-            currentVersion={currentVersion}
-            handleSelectVersion={handleSelectVersion}
-          />
+          <VersionSelector functionObject={functionObject} slug={slug} />
         </div>
         <Warning>
           {version && version.startsWith("SiS") ? (
@@ -246,7 +187,7 @@ const Autofunction = ({
         <a
           aria-hidden="true"
           tabIndex="-1"
-          href={`#${cleanHref(name)}`.toLowerCase()}
+          href={`#${functionNameToAnchorName(name)}`}
           className="absolute"
         >
           <span className="icon icon-link"></span>
@@ -258,7 +199,7 @@ const Autofunction = ({
         <a
           aria-hidden="true"
           tabIndex="-1"
-          href={`#${cleanHref(name)}`.toLowerCase()}
+          href={`#${functionNameToAnchorName(name)}`}
           className="absolute"
         >
           <span className="icon icon-link"></span>
@@ -275,16 +216,19 @@ const Autofunction = ({
           `}
         >
           {headerTitle}
-          <VersionSelector
-            versionList={versionList}
-            currentVersion={currentVersion}
-            handleSelectVersion={handleSelectVersion}
-          />
+          <VersionSelector functionObject={functionObject} slug={slug} />
         </div>
         {deprecated === true ? (
           <Deprecation>
             <p dangerouslySetInnerHTML={{ __html: deprecatedText }} />
           </Deprecation>
+        ) : (
+          ""
+        )}
+        {functionDescriptionPrefix ? (
+          <Note label="Streamlit in Snowflake Note" compact>
+            <Markdown children={functionDescriptionPrefix} />
+          </Note>
         ) : (
           ""
         )}
@@ -315,7 +259,7 @@ const Autofunction = ({
   // propertiesRows is initialized early to allow Attributes (recorded as args)
   // in any class docstring to be diverted to the properties section.
   let propertiesRows = [];
-  let docstringProperties = []; // Used to avoid duplicates with @property
+  let docstringProperties = []; // Internal use to avoid duplicates with @property
 
   for (const index in functionObject.args) {
     const row = {};
@@ -331,6 +275,9 @@ const Autofunction = ({
         </i>
         ${param.deprecated.deprecatedText}
       </div>`
+      : "";
+    const paramPrefix = functionException[param.name]
+      ? functionException[param.name]["content"]
       : "";
     const description = param.description
       ? param.description
@@ -348,6 +295,15 @@ const Autofunction = ({
       `;
       row["body"] = `
         ${deprecatedMarkup}
+        ${
+          paramPrefix
+            ? ReactDOMServer.renderToString(
+                <Note label="Streamlit in Snowflake Note" compact>
+                  <Markdown children={paramPrefix} />
+                </Note>,
+              )
+            : ""
+        }
         ${description}
       `;
     } else {
@@ -362,6 +318,15 @@ const Autofunction = ({
       `;
       row["body"] = `
         ${deprecatedMarkup}
+        ${
+          paramPrefix
+            ? ReactDOMServer.renderToString(
+                <Note label="Streamlit in Snowflake Note" compact>
+                  <Markdown children={paramPrefix} />
+                </Note>,
+              )
+            : ""
+        }
         ${description}
       `;
     }
@@ -440,6 +405,9 @@ const Autofunction = ({
       ${property.deprecated.deprecatedText}
     </div>`
       : "";
+    const propertyPrefix = functionException[property.name]
+      ? functionException[property.name]["content"]
+      : "";
     const description = property.description
       ? property.description
       : `<p>No description</p> `;
@@ -452,6 +420,15 @@ const Autofunction = ({
       </p>`;
     row["body"] = `
       ${deprecatedMarkup}
+      ${
+        propertyPrefix
+          ? ReactDOMServer.renderToString(
+              <Note label="Streamlit in Snowflake Note" compact>
+                <Markdown children={propertyPrefix} />
+              </Note>,
+            )
+          : ""
+      }
       ${description}
     `;
     propertiesRows.push(row);

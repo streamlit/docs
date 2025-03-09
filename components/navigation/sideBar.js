@@ -4,6 +4,10 @@ import classNames from "classnames";
 
 import bus from "../../lib/bus";
 import NavItem from "../navigation/navItem";
+import {
+  getVersionAndPlatformStr,
+  useVersion,
+} from "../../context/VersionContext";
 
 import styles from "./sideBar.module.css";
 
@@ -94,7 +98,7 @@ const SideBar = ({ menu, slug }) => {
         styles.Container,
         isOpen ? styles.OpenNav : styles.ClosedNav,
         isOver ? styles.OverNav : styles.CollapsedNav,
-        isSticky === "window" && styles.WindowStickyNav
+        isSticky === "window" && styles.WindowStickyNav,
       )}
       onScroll={(e) => handleScroll(e)}
     >
@@ -104,8 +108,8 @@ const SideBar = ({ menu, slug }) => {
           isSticky === "window"
             ? styles.WindowStickyGradient
             : isSticky === "scrollbar"
-            ? styles.ScrollBarStickyGradient
-            : styles.StandardGradient
+              ? styles.ScrollBarStickyGradient
+              : styles.StandardGradient,
         )}
       />
       <nav onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
