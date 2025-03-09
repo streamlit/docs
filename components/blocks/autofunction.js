@@ -26,7 +26,7 @@ const Autofunction = ({
   version,
   versions,
   streamlitFunction,
-  streamlit,
+  docstrings,
   slug,
   hideHeader,
   deprecated,
@@ -135,7 +135,7 @@ const Autofunction = ({
 
   const handleSelectVersion = (event) => {
     const functionObject =
-      streamlit[streamlitFunction] ?? streamlit[oldStreamlitFunction];
+      docstrings[streamlitFunction] ?? docstrings[oldStreamlitFunction];
     const slicedSlug = slug.slice();
 
     if (event.target.value !== currentVersion) {
@@ -174,9 +174,9 @@ const Autofunction = ({
   let methods = [];
   let properties = [];
 
-  if (streamlitFunction in streamlit || oldStreamlitFunction in streamlit) {
+  if (streamlitFunction in docstrings || oldStreamlitFunction in docstrings) {
     functionObject =
-      streamlit[streamlitFunction] ?? streamlit[oldStreamlitFunction];
+      docstrings[streamlitFunction] ?? docstrings[oldStreamlitFunction];
     isClass = functionObject.is_class;
     isAttributeDict = functionObject.is_attribute_dict ?? false;
     if (

@@ -14,20 +14,15 @@ import classNames from "classnames";
 import { useRouter } from "next/router";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import getConfig from "next/config";
+const { serverRuntimeConfig } = getConfig();
 
 // Site Components
 import CookieSettingsModal from "../components/utilities/cookieSettingsModal";
 import GDPRBanner, {
   setTelemetryPreference,
 } from "../components/utilities/gdpr";
-import {
-  getArticleSlugs,
-  getArticleSlugFromString,
-  pythonDirectory,
-  getMenu,
-  getGDPRBanner,
-  getCookieSettings,
-} from "../lib/api";
+import { getArticleSlugs, getArticleSlugFromString, getMenu } from "../lib/api";
 import { getPreviousNextFromMenu } from "../lib/utils.js";
 import useVersion from "../lib/useVersion.js";
 import { useAppContext } from "../context/AppContext";
@@ -73,10 +68,18 @@ import SnowflakeTrial from "../components/blocks/snowflakeTrial";
 
 import styles from "../components/layouts/container.module.css";
 
+const VERSIONS_LIST = serverRuntimeConfig.VERSIONS_LIST;
+const LATEST_VERSION = serverRuntimeConfig.LATEST_VERSION;
+const DEFAULT_VERSION = serverRuntimeConfig.DEFAULT_VERSION;
+
+const PLATFORM_VERSIONS = serverRuntimeConfig.PLATFORM_VERSIONS;
+const PLATFORM_LATEST_VERSIONS = serverRuntimeConfig.PLATFORM_LATEST_VERSIONS;
+const DEFAULT_PLATFORM = serverRuntimeConfig.DEFAULT_PLATFORM;
+
 export default function Article({
   data,
   source,
-  streamlit,
+  docstrings,
   slug,
   menu,
   currMenuItem,
@@ -116,7 +119,7 @@ export default function Article({
   }, [isTelemetryBannerVisible, insertTelemetryCode]);
 
   suggestEditURL =
-    Object.keys(streamlit).length > 0 && sourceFile
+    Object.keys(docstrings).length > 0 && sourceFile
       ? sourceFile
       : "https://github.com/streamlit/docs/tree/main" +
         filename.substring(filename.indexOf("/content/"));
@@ -153,7 +156,7 @@ export default function Article({
       <Autofunction
         {...props}
         streamlitFunction={props.function}
-        streamlit={streamlit}
+        docstrings={docstrings}
         version={version}
         versions={versions}
         slug={slug}
@@ -326,32 +329,64 @@ export default function Article({
   );
 }
 
+export function getFunctionSubset(allFunctionsInVerions, functionsOnPage) {
+  const docstrings = {};
+  for (const func of functionsOnPage) {
+    if (allFunctionsInVerions[func]) {
+      docstrings[func] = allFunctionsInVerions[func];
+    }
+  }
+  return docstrings;
+}
+
+//TODO: Move version helpers to version context
+// Verion helper one
+export function looksLikeVersionAndPlatformString(urlPart) {
+  const platforms = [DEFAULT_PLATFORM].concat(
+    Object.keys(serverRuntimeConfig.PLATFORM_VERSIONS), //Use public when moved to context
+  );
+
+  // docs.streamlit.io/1.23.0/path1/path2
+  const isPureVersion = /^[\d\.]+$/.test(urlPart);
+  if (isPureVersion) return true;
+
+  // docs.streamlit.io/1.23.0-sis/path1/path2
+  const versionPlatformRegex = RegExp(`^[\\d\\.]+-(${platforms.join("|")})$`);
+  const isVersionWithPlatform = versionPlatformRegex.test(urlPart);
+  if (isVersionWithPlatform) return true;
+
+  // docs.streamlit.io/latest-sis/path1/path2
+  const latestPlatformRegex = RegExp(`^latest-(${platforms.join("|")})$`);
+  const isLatestPlatform = latestPlatformRegex.test(urlPart);
+  if (isLatestPlatform) return true;
+
+  return false;
+}
+
+// Version helper two
+export function getVersionAndPlatformFromPathPart(pathPart) {
+  if (!looksLikeVersionAndPlatformString(pathPart)) {
+    return [DEFAULT_VERSION, DEFAULT_PLATFORM];
+  }
+
+  const [version, platform] = pathPart.split("-");
+  const cleanedPlatform = platform ?? DEFAULT_PLATFORM;
+
+  return [version, cleanedPlatform];
+}
+
 export async function getStaticProps(context) {
   const paths = await getStaticPaths();
   const props = {};
   let location = `/${context.params.slug.join("/")}`;
-
-  // Sort of documentation versions
-  const jsonContents = fs.readFileSync(
-    join(pythonDirectory, "streamlit.json"),
-    "utf8",
-  );
-  const streamlitFuncs = jsonContents ? JSON.parse(jsonContents) : {};
-  const all_versions = Object.keys(streamlitFuncs);
-  const versions = sortBy(all_versions, [
-    (o) => {
-      const numericPart = parseInt(o, 10);
-      return isNaN(numericPart) ? Number.NEGATIVE_INFINITY : numericPart;
-    },
-  ]);
-  const current_version = versions[versions.length - 1];
-  const funcs = jsonContents ? JSON.parse(jsonContents) : {};
-
   const menu = getMenu();
 
-  props["streamlit"] = {};
-  props["versions"] = all_versions;
-  props["versionFromStaticLoad"] = null;
+  props["docstrings"] = {};
+  props["notes"] = {};
+  props["versions"] = VERSIONS_LIST;
+  props["snowflakeVersions"] = PLATFORM_VERSIONS;
+  props["versionFromStaticLoad"] = DEFAULT_VERSION;
+  props["platformFromStaticLoad"] = DEFAULT_PLATFORM;
 
   if ("slug" in context.params) {
     let filename;
@@ -365,19 +400,63 @@ export async function getStaticProps(context) {
     // Get the last element of the array to find the MD file
     const fileContents = fs.readFileSync(filename, "utf8");
     const { data, content } = matter(fileContents);
-    const should_version = /<Autofunction(.*?)\/>/gi.test(fileContents);
+    if (/<Autofunction(.*?)\/>/gi.test(fileContents)) {
+      const autofunctions = fileContents.matchAll(/<Autofunction(.*?)\/>/gi);
+      const functions = new Set();
+      for (const match of autofunctions) {
+        const mainFunction = match[0]
+          .match(/ function="(.*?)" /gi)[0]
+          .match(/"(.*?)"/gi)[0];
+        functions.add(mainFunction.slice(1, -1));
+        if (/ oldName="(.*?)" /gi.test(match)) {
+          const oldFunction = match[0]
+            .match(/ oldName="(.*?)" /gi)[0]
+            .match(/"(.*?)"/gi)[0];
+          functions.add(oldFunction.slice(1, -1));
+        }
+      }
+      props.docstrings = getFunctionSubset(
+        serverRuntimeConfig.DOCSTRINGS[LATEST_VERSION],
+        functions,
+      );
 
-    if (should_version) {
-      props["streamlit"] = funcs[current_version];
-    }
+      if (looksLikeVersionAndPlatformString(context.params.slug[0])) {
+        const [version, platform] = getVersionAndPlatformFromPathPart(
+          context.params.slug[0],
+        );
 
-    const isnum = /^[\d\.]+$/.test(context.params.slug[0]);
-    const isSiS = /^SiS[\d\.]*$/.test(context.params.slug[0]);
-    if (isnum || isSiS) {
-      props["versionFromStaticLoad"] = context.params.slug[0];
-      props["streamlit"] = funcs[props["versionFromStaticLoad"]];
-
-      location = `/${context.params.slug.slice(1).join("/")}`;
+        props.versionFromStaticLoad = version;
+        props.platformFromStaticLoad = platform;
+        props.docstrings =
+          version != DEFAULT_VERSION // Not "latest"
+            ? getFunctionSubset(
+                serverRuntimeConfig.DOCSTRINGS[version],
+                functions,
+              )
+            : platform != DEFAULT_PLATFORM
+              ? getFunctionSubset(
+                  serverRuntimeConfig.DOCSTRINGS[
+                    PLATFORM_LATEST_VERSIONS[platform]
+                  ],
+                  functions,
+                )
+              : getFunctionSubset(
+                  serverRuntimeConfig.DOCSTRINGS[LATEST_VERSION],
+                  functions,
+                );
+        if (Object.keys(PLATFORM_VERSIONS).includes(platform)) {
+          props.notes =
+            version != DEFAULT_VERSION &&
+            PLATFORM_VERSIONS[platform].includes(version)
+              ? serverRuntimeConfig.PLATFORM_NOTES[platform][version]
+              : version == DEFAULT_VERSION
+                ? serverRuntimeConfig.PLATFORM_NOTES[platform][
+                    PLATFORM_LATEST_VERSIONS[platform]
+                  ]
+                : {};
+        }
+        location = `/${context.params.slug.slice(1).join("/")}`;
+      }
     }
 
     const source = await serialize(content, {
@@ -438,29 +517,13 @@ export async function getStaticPaths() {
   const articles = getArticleSlugs();
   const paths = [];
 
-  // Sort of documentation versions
-  const jsonContents = fs.readFileSync(
-    join(pythonDirectory, "streamlit.json"),
-    "utf8",
-  );
-  const streamlitFuncs = jsonContents ? JSON.parse(jsonContents) : {};
-  const all_versions = Object.keys(streamlitFuncs);
-  const versions = sortBy(all_versions, [
-    (o) => {
-      const numericPart = parseInt(o, 10);
-      return isNaN(numericPart) ? Number.NEGATIVE_INFINITY : numericPart;
-    },
-  ]);
-  const current_version = versions[versions.length - 1];
-
   // Load each file and map a path
-
   for (const index in articles) {
     let slug = basename(articles[index]).replace(/\.md$/, "");
     let realSlug = [slug];
     slug = `/${slug}`;
     const fileContents = fs.readFileSync(articles[index], "utf8");
-    const { data, content } = matter(fileContents);
+    const { data } = matter(fileContents);
 
     // Use slug instead of Category if it's present
     if ("slug" in data) {
@@ -479,37 +542,50 @@ export async function getStaticPaths() {
       },
     };
 
-    paths.push(path);
+    paths.push(path); // Unversioned page, which is the latest OSS page
 
     // If the file uses Autofunction, we need to version it.
-    // Major versions only --TO DO--
     const should_version = /<Autofunction(.*?)\/>/gi.test(fileContents);
-    if (!should_version) {
-      continue;
-    }
+    if (should_version) {
+      for (const platform of [DEFAULT_PLATFORM].concat(
+        Object.keys(PLATFORM_VERSIONS),
+      )) {
+        for (const version of VERSIONS_LIST) {
+          let versionAndPlatform =
+            platform == DEFAULT_PLATFORM ? version : `${version}-${platform}`;
+          if (
+            platform != DEFAULT_PLATFORM &&
+            version == PLATFORM_LATEST_VERSIONS[platform]
+          ) {
+            versionAndPlatform = `latest-${platform}`;
+          }
+          if (platform == DEFAULT_PLATFORM && version == LATEST_VERSION) {
+            continue;
+          }
+          if (
+            platform != DEFAULT_PLATFORM &&
+            !PLATFORM_VERSIONS[platform].includes(version)
+          ) {
+            continue;
+          }
 
-    for (const v_index in versions) {
-      const version = versions[v_index];
+          const versionLocation = `/${versionAndPlatform}${slug}`;
+          const newSlug = [...realSlug];
 
-      if (version == current_version) {
-        continue;
+          newSlug.unshift(versionAndPlatform);
+
+          path = {
+            params: {
+              slug: newSlug,
+              location: versionLocation,
+              fileName: articles[index],
+              title: data.title ? data.title : "Untitled",
+              description: data.description ? data.description : "",
+            },
+          };
+          paths.push(path);
+        }
       }
-
-      const versioned_location = `/${version}${slug}`;
-      const newSlug = [...realSlug];
-
-      newSlug.unshift(version);
-
-      path = {
-        params: {
-          slug: newSlug,
-          location: versioned_location,
-          fileName: articles[index],
-          title: data.title ? data.title : "Untitled",
-          description: data.description ? data.description : "",
-        },
-      };
-      paths.push(path);
     }
   }
 
