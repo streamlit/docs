@@ -127,6 +127,14 @@ module.exports = {
     PLATFORM_NAMES,
     DEFAULT_PLATFORM,
   },
+  async rewrites() {
+    return [
+      {
+        source: "/sis/:path*",
+        destination: "/1.39.0/:path*",
+      },
+    ];
+  },
 
   output: "export",
 
