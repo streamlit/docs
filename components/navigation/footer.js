@@ -182,7 +182,7 @@ const Footer = ({ setIsTelemetryModalVisible }) => {
         <div className={styles.Copyright}>
           <span>&copy; {new Date().getFullYear()} Snowflake Inc.</span>
           <button
-            className="hover:opacity-80 ml-2"
+            className={styles.CookiePolicy}
             onClick={() => setIsTelemetryModalVisible(true)}
           >
             Cookie policy
