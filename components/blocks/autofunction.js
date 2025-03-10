@@ -14,9 +14,12 @@ import "prismjs/plugins/line-highlight/prism-line-highlight.css";
 import "prismjs/plugins/toolbar/prism-toolbar";
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
+import getConfig from "next/config";
+const { serverRuntimeConfig } = getConfig();
 
 import styles from "./autofunction.module.css";
-import { name } from "file-loader";
+
+const VERSIONS_LIST = serverRuntimeConfig.VERSIONS_LIST;
 
 const cleanHref = (name) => {
   return String(name).replace(/\./g, "").replace(/\s+/g, "-");
@@ -24,7 +27,6 @@ const cleanHref = (name) => {
 
 const Autofunction = ({
   version,
-  versions,
   streamlitFunction,
   docstrings,
   slug,
@@ -35,10 +37,10 @@ const Autofunction = ({
 }) => {
   const blockRef = useRef();
   const router = useRouter();
-  const maxVersion = versions[versions.length - 1];
+  const maxVersion = VERSIONS_LIST[VERSIONS_LIST.length - 1];
   const [isHighlighted, setIsHighlighted] = useState(false);
   const [currentVersion, setCurrentVersion] = useState(
-    version ? version : versions[versions.length - 1],
+    version ? version : VERSIONS_LIST[VERSIONS_LIST.length - 1],
   );
 
   useEffect(() => {
@@ -163,7 +165,7 @@ const Autofunction = ({
   const footers = [];
   const args = [];
   const returns = [];
-  const versionList = reverse(versions.slice());
+  const versionList = reverse(VERSIONS_LIST.slice());
   let functionObject;
   let functionDescription;
   let header;
