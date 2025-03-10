@@ -88,7 +88,6 @@ export default function Article({
   prevMenuItem,
   nextMenuItem,
   versionFromStaticLoad,
-  versions,
   filename,
 }) {
   let versionWarning;
@@ -125,8 +124,12 @@ export default function Article({
       ? sourceFile
       : "https://github.com/streamlit/docs/tree/main" +
         filename.substring(filename.indexOf("/content/"));
-  const maxVersion = versions[versions.length - 1];
-  const version = useVersion(versionFromStaticLoad, versions, currMenuItem);
+  const maxVersion = VERSIONS_LIST[VERSIONS_LIST.length - 1];
+  const version = useVersion(
+    versionFromStaticLoad,
+    VERSIONS_LIST,
+    currMenuItem,
+  );
 
   const components = {
     Note,
@@ -160,7 +163,6 @@ export default function Article({
         streamlitFunction={props.function}
         docstrings={docstrings}
         version={version}
-        versions={versions}
         slug={slug}
         oldStreamlitFunction={props.oldName ?? ""}
       />
@@ -385,8 +387,6 @@ export async function getStaticProps(context) {
 
   props["docstrings"] = {};
   props["notes"] = {};
-  props["versions"] = VERSIONS_LIST;
-  props["snowflakeVersions"] = PLATFORM_VERSIONS;
   props["versionFromStaticLoad"] = DEFAULT_VERSION;
   props["platformFromStaticLoad"] = DEFAULT_PLATFORM;
 
