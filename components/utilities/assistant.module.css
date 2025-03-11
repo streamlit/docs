@@ -57,7 +57,7 @@
 .IframeWrapper {
   @apply flex-1;
   @apply flex;
-  @apply -mx-8 -mb-8 sm:-mx-12 sm:-mt-12 sm:-mb-4 sm:rounded-b-xl sm:z-0;
+  @apply -mx-8 -mb-8 sm:-mx-12 sm:-mt-12 sm:-mb-4 sm:z-0;
 }
 
 .Iframe {
