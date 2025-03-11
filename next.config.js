@@ -1,5 +1,13 @@
 const IS_DEV = process.env.NODE_ENV === "development";
 
+const PROD_OPTIMIZATIONS = IS_DEV
+  ? {}
+  : {
+      experimental: {
+        cpus: 1,
+      },
+    };
+
 // IMPORTANT: Keep this in sync with netlify.toml
 // prettier-ignore
 const CSP_HEADER = [
@@ -74,6 +82,8 @@ const CSP_HEADER = [
 
 module.exports = {
   output: "export",
+
+  ...PROD_OPTIMIZATIONS,
 
   webpack: (configuration) => {
     // Don't try to polyfill the fs module.
