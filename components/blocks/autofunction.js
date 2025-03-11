@@ -14,9 +14,14 @@ import "prismjs/plugins/line-highlight/prism-line-highlight.css";
 import "prismjs/plugins/toolbar/prism-toolbar";
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
+import getConfig from "next/config";
+const { publicRuntimeConfig } = getConfig();
 
 import styles from "./autofunction.module.css";
-import { name } from "file-loader";
+
+const REVERSE_VERSIONS_LIST = publicRuntimeConfig.VERSIONS_LIST.reverse();
+const LATEST_VERSION = publicRuntimeConfig.LATEST_VERSION;
+const DEFAULT_VERSION = publicRuntimeConfig.DEFAULT_VERSION;
 
 const cleanHref = (name) => {
   return String(name).replace(/\./g, "").replace(/\s+/g, "-");
@@ -24,9 +29,8 @@ const cleanHref = (name) => {
 
 const Autofunction = ({
   version,
-  versions,
   streamlitFunction,
-  streamlit,
+  docstrings,
   slug,
   hideHeader,
   deprecated,
@@ -35,10 +39,9 @@ const Autofunction = ({
 }) => {
   const blockRef = useRef();
   const router = useRouter();
-  const maxVersion = versions[versions.length - 1];
   const [isHighlighted, setIsHighlighted] = useState(false);
   const [currentVersion, setCurrentVersion] = useState(
-    version ? version : versions[versions.length - 1],
+    version ? version : LATEST_VERSION,
   );
 
   useEffect(() => {
@@ -97,15 +100,11 @@ const Autofunction = ({
     setIsHighlighted(true);
   };
 
-  const VersionSelector = ({
-    versionList,
-    currentVersion,
-    handleSelectVersion,
-  }) => {
+  const VersionSelector = ({ currentVersion, handleSelectVersion }) => {
     const isSiS = currentVersion.startsWith("SiS") ? true : false;
     const selectClass = isSiS
       ? "version-select sis-version"
-      : currentVersion !== versionList[0]
+      : currentVersion !== DEFAULT_VERSION
         ? "version-select old-version"
         : "version-select";
 
@@ -118,7 +117,7 @@ const Autofunction = ({
             onChange={handleSelectVersion}
             className={styles.Select}
           >
-            {versionList.map((version, index) => (
+            {REVERSE_VERSIONS_LIST.map((version, index) => (
               <option value={version} key={version}>
                 {version == "SiS"
                   ? "Streamlit in Snowflake"
@@ -135,12 +134,12 @@ const Autofunction = ({
 
   const handleSelectVersion = (event) => {
     const functionObject =
-      streamlit[streamlitFunction] ?? streamlit[oldStreamlitFunction];
+      docstrings[streamlitFunction] ?? docstrings[oldStreamlitFunction];
     const slicedSlug = slug.slice();
 
     if (event.target.value !== currentVersion) {
       setCurrentVersion(event.target.value);
-      if (event.target.value !== maxVersion) {
+      if (event.target.value !== LATEST_VERSION) {
         let isnum = /^[\d\.]+$/.test(slicedSlug[0]);
         let isSiS = /^SiS[\d\.]*$/.test(slicedSlug[0]);
         if (isnum || isSiS) {
@@ -163,7 +162,6 @@ const Autofunction = ({
   const footers = [];
   const args = [];
   const returns = [];
-  const versionList = reverse(versions.slice());
   let functionObject;
   let functionDescription;
   let header;
@@ -174,9 +172,9 @@ const Autofunction = ({
   let methods = [];
   let properties = [];
 
-  if (streamlitFunction in streamlit || oldStreamlitFunction in streamlit) {
+  if (streamlitFunction in docstrings || oldStreamlitFunction in docstrings) {
     functionObject =
-      streamlit[streamlitFunction] ?? streamlit[oldStreamlitFunction];
+      docstrings[streamlitFunction] ?? docstrings[oldStreamlitFunction];
     isClass = functionObject.is_class;
     isAttributeDict = functionObject.is_attribute_dict ?? false;
     if (
@@ -208,7 +206,6 @@ const Autofunction = ({
             {streamlitFunction.replace("streamlit", "st")}
           </H2>
           <VersionSelector
-            versionList={versionList}
             currentVersion={currentVersion}
             handleSelectVersion={handleSelectVersion}
           />
@@ -276,7 +273,6 @@ const Autofunction = ({
         >
           {headerTitle}
           <VersionSelector
-            versionList={versionList}
             currentVersion={currentVersion}
             handleSelectVersion={handleSelectVersion}
           />
