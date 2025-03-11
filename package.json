@@ -22,7 +22,7 @@
     "html-to-text": "^9.0.5",
     "lodash": "^4.17.21",
     "markdown-it": "^14.0.0",
-    "next": "^14.2.24",
+    "next": "^14.2.20",
     "next-mdx-remote": "^4.4.1",
     "next-remote-watch": "^2.0.0",
     "next-sitemap": "^4.2.3",
@@ -62,7 +62,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^5.10.0",
+    "@netlify/plugin-nextjs": "^4.41.3",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "autoprefixer": "^10.4.16",
