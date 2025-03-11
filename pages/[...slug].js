@@ -92,8 +92,6 @@ export default function Article({
 }) {
   let versionWarning;
   let currentLink;
-  let suggestEditURL;
-  const { sourceFile } = useAppContext();
 
   const [isTelemetryModalVisible, setIsTelemetryModalVisible] = useState(false);
   const [isTelemetryBannerVisible, setIsTelemetryBannerVisible] =
@@ -119,11 +117,6 @@ export default function Article({
     if (insertTelemetryCode) router.reload();
   }, [isTelemetryBannerVisible, insertTelemetryCode]);
 
-  suggestEditURL =
-    Object.keys(docstrings).length > 0 && sourceFile
-      ? sourceFile
-      : "https://github.com/streamlit/docs/tree/main" +
-        filename.substring(filename.indexOf("/content/"));
   const version = useVersion(versionFromSlug, VERSIONS_LIST, currMenuItem);
 
   const components = {
@@ -317,7 +310,6 @@ export default function Article({
                 <MDXRemote {...source} components={components} />
                 {arrowContainer}
                 <Psa />
-                {/*<Helpful slug={slug} sourcefile={suggestEditURL} />*/}
               </div>
             </article>
           </section>
