@@ -118,15 +118,15 @@ module.exports = {
     PLATFORM_NAMES,
     DEFAULT_PLATFORM,
   },
-  // publicRuntimeConfig: {
-  //   VERSIONS_LIST,
-  //   LATEST_VERSION,
-  //   DEFAULT_VERSION,
-  //   PLATFORM_VERSIONS,
-  //   PLATFORM_LATEST_VERSIONS,
-  //   PLATFORM_NAMES,
-  //   DEFAULT_PLATFORM,
-  // },
+  publicRuntimeConfig: {
+    VERSIONS_LIST,
+    LATEST_VERSION,
+    DEFAULT_VERSION,
+    PLATFORM_VERSIONS,
+    PLATFORM_LATEST_VERSIONS,
+    PLATFORM_NAMES,
+    DEFAULT_PLATFORM,
+  },
   async rewrites() {
     return [
       {
