@@ -84,7 +84,7 @@ export default function GDPRBanner({
         <div
           className={classNames(
             isTelemetryBannerVisible === false ? "hidden" : "",
-            "z-50 fixed",
+            "z-30 fixed",
             "bottom-2 inset-x-2 md:bottom-4 md:inset-x-4",
           )}
         >

@@ -24,7 +24,7 @@
 
 .AskButtonContainer {
   @apply flex justify-end;
-  @apply fixed bottom-4 right-4 sm:bottom-12 sm:right-12 z-40;
+  @apply fixed bottom-4 right-4 sm:bottom-12 sm:right-12 z-20;
 }
 
 .AskButton {
