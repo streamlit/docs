@@ -87,7 +87,7 @@ export default function Article({
   currMenuItem,
   prevMenuItem,
   nextMenuItem,
-  versionFromStaticLoad,
+  versionFromSlug,
   filename,
 }) {
   let versionWarning;
@@ -125,11 +125,7 @@ export default function Article({
       : "https://github.com/streamlit/docs/tree/main" +
         filename.substring(filename.indexOf("/content/"));
   const maxVersion = VERSIONS_LIST[VERSIONS_LIST.length - 1];
-  const version = useVersion(
-    versionFromStaticLoad,
-    VERSIONS_LIST,
-    currMenuItem,
-  );
+  const version = useVersion(versionFromSlug, VERSIONS_LIST, currMenuItem);
 
   const components = {
     Note,
@@ -387,8 +383,8 @@ export async function getStaticProps(context) {
 
   props["docstrings"] = {};
   props["notes"] = {};
-  props["versionFromStaticLoad"] = DEFAULT_VERSION;
-  props["platformFromStaticLoad"] = DEFAULT_PLATFORM;
+  props["versionFromSlug"] = DEFAULT_VERSION;
+  props["platformFromSlug"] = DEFAULT_PLATFORM;
 
   if ("slug" in context.params) {
     let filename;
@@ -427,8 +423,8 @@ export async function getStaticProps(context) {
           context.params.slug[0],
         );
 
-        props.versionFromStaticLoad = version;
-        props.platformFromStaticLoad = platform;
+        props.versionFromSlug = version;
+        props.platformFromSlug = platform;
         props.docstrings =
           version != DEFAULT_VERSION // Not "latest"
             ? getFunctionSubset(DOCSTRINGS[version], functions)
