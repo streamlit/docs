@@ -76,8 +76,9 @@ module.exports = {
   output: "export",
 
   experimental: {
-    //workerThreads: false, // Not sure if this does anything when cpu=1
-    cpus: 1,
+    workerThreads: true,
+    cpus: 2,
+    sharedPool: true,
   },
 
   webpack: (configuration) => {
