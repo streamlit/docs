@@ -20,6 +20,7 @@ const { serverRuntimeConfig } = getConfig();
 import styles from "./autofunction.module.css";
 
 const VERSIONS_LIST = serverRuntimeConfig.VERSIONS_LIST;
+const LATEST_VERSION = serverRuntimeConfig.LATEST_VERSION;
 
 const cleanHref = (name) => {
   return String(name).replace(/\./g, "").replace(/\s+/g, "-");
@@ -37,10 +38,9 @@ const Autofunction = ({
 }) => {
   const blockRef = useRef();
   const router = useRouter();
-  const maxVersion = VERSIONS_LIST[VERSIONS_LIST.length - 1];
   const [isHighlighted, setIsHighlighted] = useState(false);
   const [currentVersion, setCurrentVersion] = useState(
-    version ? version : VERSIONS_LIST[VERSIONS_LIST.length - 1],
+    version ? version : LATEST_VERSION,
   );
 
   useEffect(() => {
@@ -142,7 +142,7 @@ const Autofunction = ({
 
     if (event.target.value !== currentVersion) {
       setCurrentVersion(event.target.value);
-      if (event.target.value !== maxVersion) {
+      if (event.target.value !== LATEST_VERSION) {
         let isnum = /^[\d\.]+$/.test(slicedSlug[0]);
         let isSiS = /^SiS[\d\.]*$/.test(slicedSlug[0]);
         if (isnum || isSiS) {
