@@ -75,6 +75,11 @@ const CSP_HEADER = [
 module.exports = {
   output: "export",
 
+  experimental: {
+    //workerThreads: false, // Not sure if this does anything when cpu=1
+    cpus: 1,
+  },
+
   webpack: (configuration) => {
     // Don't try to polyfill the fs module.
     configuration.resolve.fallback = { fs: false };
