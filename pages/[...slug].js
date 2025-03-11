@@ -124,7 +124,6 @@ export default function Article({
       ? sourceFile
       : "https://github.com/streamlit/docs/tree/main" +
         filename.substring(filename.indexOf("/content/"));
-  const maxVersion = VERSIONS_LIST[VERSIONS_LIST.length - 1];
   const version = useVersion(versionFromSlug, VERSIONS_LIST, currMenuItem);
 
   const components = {
@@ -175,7 +174,7 @@ export default function Article({
   let arrowContainer;
   let keywordsTag;
 
-  if (version && version != maxVersion && currMenuItem.isVersioned) {
+  if (version && version != LATEST_VERSION && currMenuItem.isVersioned) {
     // Slugs don't have the version number, so we just have to join them.
     currentLink = `/${slug.join("/")}`;
     versionWarning = (
@@ -184,13 +183,13 @@ export default function Article({
           <p>
             You are reading the documentation for Streamlit in Snowflake. For
             open-source Streamlit, version{" "}
-            <Link href={currentLink}>{maxVersion}</Link> is the latest version
-            available.
+            <Link href={currentLink}>{LATEST_VERSION}</Link> is the latest
+            version available.
           </p>
         ) : (
           <p>
             You are reading the documentation for Streamlit version {version},
-            but <Link href={currentLink}>{maxVersion}</Link> is the latest
+            but <Link href={currentLink}>{LATEST_VERSION}</Link> is the latest
             version available.
           </p>
         )}

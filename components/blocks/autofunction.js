@@ -15,12 +15,12 @@ import "prismjs/plugins/toolbar/prism-toolbar";
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 import getConfig from "next/config";
-const { serverRuntimeConfig } = getConfig();
+const { publicRuntimeConfig } = getConfig();
 
 import styles from "./autofunction.module.css";
 
-const VERSIONS_LIST = serverRuntimeConfig.VERSIONS_LIST;
-const LATEST_VERSION = serverRuntimeConfig.LATEST_VERSION;
+const VERSIONS_LIST = publicRuntimeConfig.VERSIONS_LIST;
+const LATEST_VERSION = publicRuntimeConfig.LATEST_VERSION;
 
 const cleanHref = (name) => {
   return String(name).replace(/\./g, "").replace(/\s+/g, "-");
@@ -99,15 +99,11 @@ const Autofunction = ({
     setIsHighlighted(true);
   };
 
-  const VersionSelector = ({
-    versionList,
-    currentVersion,
-    handleSelectVersion,
-  }) => {
+  const VersionSelector = ({ currentVersion, handleSelectVersion }) => {
     const isSiS = currentVersion.startsWith("SiS") ? true : false;
     const selectClass = isSiS
       ? "version-select sis-version"
-      : currentVersion !== versionList[0]
+      : currentVersion !== VERSIONS_LIST[0]
         ? "version-select old-version"
         : "version-select";
 
@@ -120,7 +116,7 @@ const Autofunction = ({
             onChange={handleSelectVersion}
             className={styles.Select}
           >
-            {versionList.map((version, index) => (
+            {VERSIONS_LIST.map((version, index) => (
               <option value={version} key={version}>
                 {version == "SiS"
                   ? "Streamlit in Snowflake"
@@ -165,7 +161,7 @@ const Autofunction = ({
   const footers = [];
   const args = [];
   const returns = [];
-  const versionList = reverse(VERSIONS_LIST.slice());
+  // const versionList = reverse(VERSIONS_LIST.slice());
   let functionObject;
   let functionDescription;
   let header;
@@ -210,7 +206,6 @@ const Autofunction = ({
             {streamlitFunction.replace("streamlit", "st")}
           </H2>
           <VersionSelector
-            versionList={versionList}
             currentVersion={currentVersion}
             handleSelectVersion={handleSelectVersion}
           />
@@ -278,7 +273,6 @@ const Autofunction = ({
         >
           {headerTitle}
           <VersionSelector
-            versionList={versionList}
             currentVersion={currentVersion}
             handleSelectVersion={handleSelectVersion}
           />
