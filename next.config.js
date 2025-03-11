@@ -4,7 +4,9 @@ const PROD_OPTIMIZATIONS = IS_DEV
   ? {}
   : {
       experimental: {
-        cpus: 1,
+        workerThreads: true,
+        cpus: 2,
+        sharedPool: true,
       },
     };
 
