@@ -2,6 +2,10 @@
   @apply text-gray-90 grid grid-cols-1 gap-4 text-base leading-loose;
 }
 
+.Content {
+  @apply overflow-y-auto;
+}
+
 .Container h1,
 .Container h2,
 .Container h3,

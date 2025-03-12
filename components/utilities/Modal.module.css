@@ -1,0 +1,29 @@
+.Shim {
+  @apply fixed inset-0 z-40;
+  @apply bg-gray-90 bg-opacity-90;
+  @apply flex items-center justify-center;
+}
+
+.Modal {
+  @apply relative;
+  @apply bg-white sm:rounded-xl;
+  @apply p-8 md:p-12;
+  @apply overscroll-none;
+  @apply h-full sm:max-h-[90vh];
+  @apply w-full sm:max-w-4xl;
+  @apply flex flex-col;
+  @apply gap-4;
+}
+
+.Header {
+  @apply flex flex-row w-full items-center z-10;
+}
+
+.Content {
+  @apply overflow-y-auto;
+  @apply flex-1;
+}
+
+.Title {
+  @apply flex-1;
+}
