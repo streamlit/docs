@@ -36,6 +36,16 @@ PLATFORM_NAMES["sis"] = "Streamlit in Snowflake";
 PLATFORM_NAMES["na"] = "Snowflake Native Apps";
 const DEFAULT_PLATFORM = "oss";
 
+const PROD_OPTIMIZATIONS = IS_DEV
+  ? {}
+  : {
+      experimental: {
+        workerThreads: true,
+        cpus: 2,
+        sharedPool: true,
+      },
+    };
+
 // IMPORTANT: Keep this in sync with netlify.toml
 // prettier-ignore
 const CSP_HEADER = [
@@ -139,6 +149,8 @@ module.exports = {
   },
 
   output: "export",
+
+  ...PROD_OPTIMIZATIONS,
 
   webpack: (configuration) => {
     // Don't try to polyfill the fs module.
