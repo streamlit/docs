@@ -147,7 +147,7 @@ export default function Article({
       urlParts.unshift(versionAndPlatformString);
       router.push(`/${urlParts.join("/")}`);
     }
-  }, [versionFromSlug, platformFromSlug]);
+  }, [versionFromSlug, platformFromSlug, slug]);
 
   const components = {
     Note,
