@@ -1,3 +1,5 @@
+// import reverse from "lodash/reverse";
+
 const fs = require("fs");
 const path = require("path");
 
@@ -14,8 +16,8 @@ const jsonPlatformNotes = fs.readFileSync(
 );
 
 const DOCSTRINGS = jsonDocstrings ? JSON.parse(jsonDocstrings) : {};
-const VERSIONS_LIST = Object.keys(DOCSTRINGS);
-const LATEST_VERSION = VERSIONS_LIST.at(-1);
+const VERSIONS_LIST = Object.keys(DOCSTRINGS).reverse();
+const LATEST_VERSION = VERSIONS_LIST[0];
 const DEFAULT_VERSION = "latest";
 
 const PLATFORM_NOTES = jsonPlatformNotes ? JSON.parse(jsonPlatformNotes) : {};

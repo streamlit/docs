@@ -1,7 +1,6 @@
 import fs from "fs";
-import { join, basename } from "path";
-import sortBy from "lodash/sortBy";
-import React, { useState, useCallback } from "react";
+import { basename } from "path";
+import React, { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import { serialize } from "next-mdx-remote/serialize";
@@ -15,7 +14,7 @@ import { useRouter } from "next/router";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import getConfig from "next/config";
-const { serverRuntimeConfig } = getConfig();
+const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
 
 // Site Components
 import CookieSettingsModal from "../components/utilities/cookieSettingsModal";
@@ -24,8 +23,12 @@ import GDPRBanner, {
 } from "../components/utilities/gdpr";
 import { getArticleSlugs, getArticleSlugFromString, getMenu } from "../lib/api";
 import { getPreviousNextFromMenu } from "../lib/utils.js";
-import useVersion from "../lib/useVersion.js";
-import { useAppContext } from "../context/AppContext";
+import {
+  getVersionAndPlatformFromPathPart,
+  getVersionAndPlatformString,
+  looksLikeVersionAndPlatformString,
+  useVersionContext,
+} from "../context/VersionContext";
 import Layout from "../components/layouts/globalTemplate";
 import Footer from "../components/navigation/footer";
 import BreadCrumbs from "../components/utilities/breadCrumbs";
@@ -68,15 +71,25 @@ import SnowflakeTrial from "../components/blocks/snowflakeTrial";
 
 import styles from "../components/layouts/container.module.css";
 
-const DOCSTRINGS = serverRuntimeConfig.DOCSTRINGS;
-const VERSIONS_LIST = serverRuntimeConfig.VERSIONS_LIST;
-const LATEST_VERSION = serverRuntimeConfig.LATEST_VERSION;
-const DEFAULT_VERSION = serverRuntimeConfig.DEFAULT_VERSION;
+const DOCSTRINGS =
+  serverRuntimeConfig.DOCSTRINGS ?? publicRuntimeConfig.DOCSTRINGS;
+const VERSIONS_LIST =
+  serverRuntimeConfig.VERSIONS_LIST ?? publicRuntimeConfig.VERSIONS_LIST;
+const LATEST_VERSION =
+  serverRuntimeConfig.LATEST_VERSION ?? publicRuntimeConfig.LATEST_VERSION;
+const DEFAULT_VERSION =
+  serverRuntimeConfig.DEFAULT_VERSION ?? publicRuntimeConfig.DEFAULT_VERSION;
 
-const PLATFORM_NOTES = serverRuntimeConfig.PLATFORM_NOTES;
-const PLATFORM_VERSIONS = serverRuntimeConfig.PLATFORM_VERSIONS;
-const PLATFORM_LATEST_VERSIONS = serverRuntimeConfig.PLATFORM_LATEST_VERSIONS;
-const DEFAULT_PLATFORM = serverRuntimeConfig.DEFAULT_PLATFORM;
+const PLATFORM_NOTES =
+  serverRuntimeConfig.PLATFORM_NOTES ?? publicRuntimeConfig.PLATFORM_NOTES;
+const PLATFORM_VERSIONS =
+  serverRuntimeConfig.PLATFORM_VERSIONS ??
+  publicRuntimeConfig.PLATFORM_VERSIONS;
+const PLATFORM_LATEST_VERSIONS =
+  serverRuntimeConfig.PLATFORM_LATEST_VERSIONS ??
+  publicRuntimeConfig.PLATFORM_LATEST_VERSIONS;
+const DEFAULT_PLATFORM =
+  serverRuntimeConfig.DEFAULT_PLATFORM ?? publicRuntimeConfig.DEFAULT_PLATFORM;
 
 export default function Article({
   data,
@@ -88,6 +101,7 @@ export default function Article({
   prevMenuItem,
   nextMenuItem,
   versionFromSlug,
+  platformFromSlug,
   filename,
 }) {
   let versionWarning;
@@ -117,7 +131,23 @@ export default function Article({
     if (insertTelemetryCode) router.reload();
   }, [isTelemetryBannerVisible, insertTelemetryCode]);
 
-  const version = useVersion(versionFromSlug, VERSIONS_LIST, currMenuItem);
+  const { version, platform, goToLatest, goToOpenSource } = useVersionContext();
+  useEffect(() => {
+    const isVersionedPage = currMenuItem && currMenuItem.isVersioned;
+    const isUnversionedURL = !versionFromSlug || !platformFromSlug;
+    const contextIsDefault =
+      version == DEFAULT_VERSION && platform == DEFAULT_PLATFORM;
+    if (isVersionedPage && isUnversionedURL && !contextIsDefault) {
+      const versionAndPlatformString = getVersionAndPlatformString(
+        version,
+        platform,
+      );
+      const urlParts = router.asPath.split("#")[0].split("/");
+      urlParts.shift(); // Remove spare item that comes from the trailing slash.
+      urlParts.unshift(versionAndPlatformString);
+      router.push(`/${urlParts.join("/")}`);
+    }
+  }, [versionFromSlug, platformFromSlug]);
 
   const components = {
     Note,
@@ -153,6 +183,7 @@ export default function Article({
         version={version}
         slug={slug}
         oldStreamlitFunction={props.oldName ?? ""}
+        goToLatest={goToLatest}
       />
     ),
     pre: (props) => <Code {...props} />,
@@ -167,25 +198,16 @@ export default function Article({
   let arrowContainer;
   let keywordsTag;
 
-  if (version && version != LATEST_VERSION && currMenuItem.isVersioned) {
+  if (version != DEFAULT_VERSION && currMenuItem.isVersioned) {
     // Slugs don't have the version number, so we just have to join them.
     currentLink = `/${slug.join("/")}`;
     versionWarning = (
       <Warning>
-        {version && version.startsWith("SiS") ? (
-          <p>
-            You are reading the documentation for Streamlit in Snowflake. For
-            open-source Streamlit, version{" "}
-            <Link href={currentLink}>{LATEST_VERSION}</Link> is the latest
-            version available.
-          </p>
-        ) : (
-          <p>
-            You are reading the documentation for Streamlit version {version},
-            but <Link href={currentLink}>{LATEST_VERSION}</Link> is the latest
-            version available.
-          </p>
-        )}
+        <p>
+          You are reading the documentation for Streamlit version {version}, but{" "}
+          <Link href={currentLink}>{LATEST_VERSION}</Link> is the latest version
+          available.
+        </p>
       </Warning>
     );
   }
@@ -256,7 +278,7 @@ export default function Article({
             <link rel="alternate icon" href="/favicon32.ico" />
             <meta name="theme-color" content="#ffffff" />
             {keywordsTag}
-            {version ? (
+            {version != DEFAULT_VERSION ? (
               <link
                 rel="canonical"
                 href={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/${slug
@@ -300,12 +322,12 @@ export default function Article({
           </Head>
           <section className={styles.InnerContainer} id="documentation">
             {versionWarning}
-            <BreadCrumbs slug={slug} menu={menu} version={version} />
+            <BreadCrumbs slug={slug} menu={menu} />
             <article
               id="content-container"
               className={classNames("leaf-page", styles.ArticleContainer)}
             >
-              <FloatingNav slug={slug} menu={menu} version={version} />
+              <FloatingNav slug={slug} menu={menu} />
               <div className={classNames("content", styles.ContentContainer)}>
                 <MDXRemote {...source} components={components} />
                 {arrowContainer}
@@ -330,42 +352,6 @@ export function getFunctionSubset(allFunctionsInVerions, functionsOnPage) {
   return docstrings;
 }
 
-//TODO: Move version helpers to version context
-// Verion helper one
-export function looksLikeVersionAndPlatformString(urlPart) {
-  const platforms = [DEFAULT_PLATFORM].concat(
-    Object.keys(PLATFORM_VERSIONS), //Use public when moved to context
-  );
-
-  // docs.streamlit.io/1.23.0/path1/path2
-  const isPureVersion = /^[\d\.]+$/.test(urlPart);
-  if (isPureVersion) return true;
-
-  // docs.streamlit.io/1.23.0-sis/path1/path2
-  const versionPlatformRegex = RegExp(`^[\\d\\.]+-(${platforms.join("|")})$`);
-  const isVersionWithPlatform = versionPlatformRegex.test(urlPart);
-  if (isVersionWithPlatform) return true;
-
-  // docs.streamlit.io/latest-sis/path1/path2
-  const latestPlatformRegex = RegExp(`^latest-(${platforms.join("|")})$`);
-  const isLatestPlatform = latestPlatformRegex.test(urlPart);
-  if (isLatestPlatform) return true;
-
-  return false;
-}
-
-// Version helper two
-export function getVersionAndPlatformFromPathPart(pathPart) {
-  if (!looksLikeVersionAndPlatformString(pathPart)) {
-    return [DEFAULT_VERSION, DEFAULT_PLATFORM];
-  }
-
-  const [version, platform] = pathPart.split("-");
-  const cleanedPlatform = platform ?? DEFAULT_PLATFORM;
-
-  return [version, cleanedPlatform];
-}
-
 export async function getStaticProps(context) {
   const paths = await getStaticPaths();
   const props = {};
@@ -374,8 +360,8 @@ export async function getStaticProps(context) {
 
   props["docstrings"] = {};
   props["notes"] = {};
-  props["versionFromSlug"] = DEFAULT_VERSION;
-  props["platformFromSlug"] = DEFAULT_PLATFORM;
+  props["versionFromSlug"] = null;
+  props["platformFromSlug"] = null;
 
   if ("slug" in context.params) {
     let filename;
@@ -404,10 +390,6 @@ export async function getStaticProps(context) {
           functions.add(oldFunction.slice(1, -1));
         }
       }
-      props.docstrings = getFunctionSubset(
-        DOCSTRINGS[LATEST_VERSION],
-        functions,
-      );
 
       if (looksLikeVersionAndPlatformString(context.params.slug[0])) {
         const [version, platform] = getVersionAndPlatformFromPathPart(
@@ -435,6 +417,11 @@ export async function getStaticProps(context) {
                 : {};
         }
         location = `/${context.params.slug.slice(1).join("/")}`;
+      } else {
+        props.docstrings = getFunctionSubset(
+          DOCSTRINGS[LATEST_VERSION],
+          functions,
+        );
       }
     }
 
@@ -521,7 +508,7 @@ export async function getStaticPaths() {
       },
     };
 
-    paths.push(path); // Unversioned page, which is the latest OSS page
+    paths.push(path); // Unversioned page
 
     // If the file uses Autofunction, we need to version it.
     const should_version = /<Autofunction(.*?)\/>/gi.test(fileContents);
@@ -539,6 +526,7 @@ export async function getStaticPaths() {
             versionAndPlatform = `latest-${platform}`;
           }
           if (platform == DEFAULT_PLATFORM && version == LATEST_VERSION) {
+            // versionAndPlatform = "latest";
             continue;
           }
           if (

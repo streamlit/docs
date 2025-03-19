@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "next/router";
 
 import styles from "./floatingNav.module.css";
@@ -9,8 +9,8 @@ const useHeadingsData = (slug) => {
   useEffect(() => {
     const headingElements = Array.from(
       document.querySelectorAll(
-        "article.leaf-page h1, article.leaf-page h2, article.leaf-page h3, article.leaf-page h4, article.leaf-page h5, article.leaf-page h6"
-      )
+        "article.leaf-page h1, article.leaf-page h2, article.leaf-page h3, article.leaf-page h4, article.leaf-page h5, article.leaf-page h6",
+      ),
     );
 
     // If first heading is H1, remove since we don't want to show the main title on the TOC
@@ -69,8 +69,8 @@ const useIntersectionObserver = (slug) => {
           "article.leaf-page h4 a:first-of-type",
           "article.leaf-page h5 a:first-of-type",
           "article.leaf-page h6 a:first-of-type",
-        ].join(",")
-      )
+        ].join(","),
+      ),
     );
 
     // Function that will be called when the links enter/leave the screen.
@@ -147,7 +147,7 @@ const Headings = ({ headings, activeId }) => {
         heading.hierarchy = index;
       }
       return heading;
-    })
+    }),
   );
 
   return (

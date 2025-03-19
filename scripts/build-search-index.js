@@ -6,6 +6,9 @@ const contentDirectory = path.join(process.cwd(), ".next/server/pages");
 const parser = require("node-html-parser");
 const algoliasearch = require("algoliasearch");
 const { convert } = require("html-to-text");
+const {
+  looksLikeVersionAndPlatformString,
+} = require("../context/VersionContext.js");
 
 const SKIP_THESE = [
   "/menu",
@@ -120,9 +123,9 @@ function getAllFilesInDirectory(articleDirectory, files) {
       compileOptions,
     );
     const slug = url.split("/");
-    const isnum = /^[\d\.]+$/.test(slug[1]);
-    const isSiS = /^SiS[\d\.]*$/.test(slug[1]);
-    const version = isnum || isSiS ? slug[1] : "latest";
+    const version = looksLikeVersionAndPlatformString(slug[1])
+      ? slug[1]
+      : "latest";
 
     if (meta_keywords) {
       keywords = meta_keywords.getAttribute("content");

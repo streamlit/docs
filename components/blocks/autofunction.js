@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import reverse from "lodash/reverse";
 import classNames from "classnames";
 import Table from "./table";
 import { H2, H3 } from "./headers";
@@ -18,10 +17,11 @@ import getConfig from "next/config";
 const { publicRuntimeConfig } = getConfig();
 
 import styles from "./autofunction.module.css";
+import { looksLikeVersionAndPlatformString } from "../../context/VersionContext";
 
-const REVERSE_VERSIONS_LIST = publicRuntimeConfig.VERSIONS_LIST.reverse();
 const LATEST_VERSION = publicRuntimeConfig.LATEST_VERSION;
 const DEFAULT_VERSION = publicRuntimeConfig.DEFAULT_VERSION;
+const VERSIONS_LIST = publicRuntimeConfig.VERSIONS_LIST;
 
 const cleanHref = (name) => {
   return String(name).replace(/\./g, "").replace(/\s+/g, "-");
@@ -36,13 +36,13 @@ const Autofunction = ({
   deprecated,
   deprecatedText,
   oldStreamlitFunction,
+  goToLatest,
 }) => {
   const blockRef = useRef();
   const router = useRouter();
   const [isHighlighted, setIsHighlighted] = useState(false);
-  const [currentVersion, setCurrentVersion] = useState(
-    version ? version : LATEST_VERSION,
-  );
+  const currentNumericVersion =
+    version == DEFAULT_VERSION ? LATEST_VERSION : version;
 
   useEffect(() => {
     highlightWithPrism();
@@ -100,11 +100,9 @@ const Autofunction = ({
     setIsHighlighted(true);
   };
 
-  const VersionSelector = ({ currentVersion, handleSelectVersion }) => {
-    const isSiS = currentVersion.startsWith("SiS") ? true : false;
-    const selectClass = isSiS
-      ? "version-select sis-version"
-      : currentVersion !== DEFAULT_VERSION
+  const VersionSelector = ({ currentNumericVersion, handleSelectVersion }) => {
+    const selectClass =
+      currentNumericVersion != LATEST_VERSION
         ? "version-select old-version"
         : "version-select";
 
@@ -113,17 +111,13 @@ const Autofunction = ({
         <label>
           <span className="sr-only">Streamlit Version</span>
           <select
-            value={currentVersion}
+            value={currentNumericVersion}
             onChange={handleSelectVersion}
             className={styles.Select}
           >
-            {REVERSE_VERSIONS_LIST.map((version, index) => (
+            {VERSIONS_LIST.map((version, index) => (
               <option value={version} key={version}>
-                {version == "SiS"
-                  ? "Streamlit in Snowflake"
-                  : version.startsWith("SiS.")
-                    ? version.replace("SiS.", "Streamlit in Snowflake ")
-                    : "Version " + version}
+                {"Version " + version}
               </option>
             ))}
           </select>
@@ -137,17 +131,14 @@ const Autofunction = ({
       docstrings[streamlitFunction] ?? docstrings[oldStreamlitFunction];
     const slicedSlug = slug.slice();
 
-    if (event.target.value !== currentVersion) {
-      setCurrentVersion(event.target.value);
+    if (event.target.value !== currentNumericVersion) {
+      if (looksLikeVersionAndPlatformString(slicedSlug[0])) {
+        slicedSlug.shift();
+      }
       if (event.target.value !== LATEST_VERSION) {
-        let isnum = /^[\d\.]+$/.test(slicedSlug[0]);
-        let isSiS = /^SiS[\d\.]*$/.test(slicedSlug[0]);
-        if (isnum || isSiS) {
-          slicedSlug[0] = event.target.value;
-        } else {
-          slicedSlug.unshift(event.target.value);
-        }
-        slug.unshift(event.target.value);
+        slicedSlug.unshift(event.target.value);
+      } else {
+        goToLatest();
       }
     }
 
@@ -206,19 +197,15 @@ const Autofunction = ({
             {streamlitFunction.replace("streamlit", "st")}
           </H2>
           <VersionSelector
-            currentVersion={currentVersion}
+            currentNumericVersion={currentNumericVersion}
             handleSelectVersion={handleSelectVersion}
           />
         </div>
         <Warning>
-          {version && version.startsWith("SiS") ? (
-            <p>This method does not exist in Streamlit in Snowflake.</p>
-          ) : (
-            <p>
-              This method did not exist in version <code>{currentVersion}</code>{" "}
-              of Streamlit.
-            </p>
-          )}
+          <p>
+            This method did not exist in version{" "}
+            <code>{currentNumericVersion}</code> of Streamlit.
+          </p>
         </Warning>
       </div>
     );
@@ -273,7 +260,7 @@ const Autofunction = ({
         >
           {headerTitle}
           <VersionSelector
-            currentVersion={currentVersion}
+            currentNumericVersion={currentNumericVersion}
             handleSelectVersion={handleSelectVersion}
           />
         </div>
