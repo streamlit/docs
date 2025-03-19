@@ -6,7 +6,6 @@ import styles from "./breadCrumbs.module.css";
 import { looksLikeVersionAndPlatformString } from "../../context/VersionContext.js";
 
 const BreadCrumbs = ({ slug, menu }) => {
-  console.log("Start of crumbs", slug);
   const formatedTitle = (title) => {
     return `${title}`.replace(/\-/g, " ").replace(/\bapi\b/, "API");
   };
