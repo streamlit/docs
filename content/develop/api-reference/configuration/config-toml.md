@@ -65,8 +65,8 @@ showWarningOnDirectExecution = true
 level = "info"
 
 # String format for logging messages. If logger.datetimeFormat is set,
-# logger messages will default to `%(asctime)s.%(msecs)03d %(message)s`. See
-# Python's documentation for available attributes:
+# logger messages will default to `%(asctime)s.%(msecs)03d %(message)s`.
+# See Python's documentation for available attributes:
 # https://docs.python.org/3/library/logging.html#formatter-objects
 # Default: "%(asctime)s %(message)s"
 messageFormat = "%(asctime)s %(message)s"
@@ -319,25 +319,160 @@ token = ""
 [theme]
 
 # The preset Streamlit theme that your custom theme inherits from.
-# One of "light" or "dark".
+# This can be one of the following: "light" or "dark".
 base =
 
-# Primary accent color for interactive elements.
+# Primary accent color.
 primaryColor =
 
-# Background color for the main content area.
+# Background color of the app.
 backgroundColor =
 
-# Background color used for the sidebar and most interactive widgets.
+# Background color used for most interactive widgets.
 secondaryBackgroundColor =
 
 # Color used for almost all text.
 textColor =
 
-# The font family for all text in the app, except code blocks. One of
-# "sans serif", "serif", or "monospace".
-# To use a custom font, it needs to be added via [theme.fontFaces]. 🐰🥚
+# Color used for all links.
+linkColor =
+
+# Background color used for code blocks.
+codeBackgroundColor =
+
+# The font family for all text, except code blocks. This can be one of
+# the following:
+# - "sans-serif"
+# - "serif"
+# - "monospace"
+# - the `font` value for a custom font table under [[theme.fontFaces]]
+# - a comma-separated list of these (as a single string) to specify
+#   fallbacks
+# For example, you can use the following:
+# font = "cool-font, fallback-cool-font, sans-serif"
 font =
+
+# The font family to use for code (monospace) in the sidebar. This can be
+# one of the following:
+# - "sans-serif"
+# - "serif"
+# - "monospace"
+# - the `font` value for a custom font table under [[theme.fontFaces]]
+# - a comma-separated list of these (as a single string) to specify
+#   fallbacks
+codeFont =
+
+# The font family to use for headings. This can be one of the following:
+# - "sans-serif"
+# - "serif"
+# - "monospace"
+# - the `font` value for a custom font table under [[theme.fontFaces]]
+# - a comma-separated list of these (as a single string) to specify
+#   fallbacks
+# If no heading font is set, Streamlit uses `theme.font` for headings.
+headingFont =
+
+# An array of fonts to use in your app. Each font in the array is a table
+# (dictionary) with the following three attributes: font, url, weight,
+# and style. To host a font with your app, enable static file serving
+# with `server.enableStaticServing=true`. You can define multiple
+# [[theme.fontFaces]] tables.
+# For example, each font is defined in a [[theme.fontFaces]] table as
+# follows:
+# [[theme.fontFaces]]
+# font = "font_name"
+# url = "app/static/font_file.woff"
+# weight = 400
+# style = "normal"
+fontFaces =
+
+# The radius used as basis for the corners of most UI elements. This can
+# be one of the following: "none", "small", "medium", "large", "full",
+# or the number in pixels or rem. For example, you can use "10px",
+# "0.5rem", or "2rem". To follow best practices, use rem instead of
+# pixels when specifying a numeric size.
+baseRadius =
+
+# The color of the border around elements.
+borderColor =
+
+# Whether to show a border around input widgets.
+showWidgetBorder =
+
+# Sets the root font size (in pixels) for the app, which determines the
+# overall scale of text and UI elements. The default base font size is 16.
+baseFontSize =
+
+# Whether to show a vertical separator between the sidebar and the main
+# content area.
+showSidebarBorder =
+```
+
+#### Sidebar theme
+
+```toml
+# Primary accent color.
+primaryColor =
+
+# Background color of the app.
+backgroundColor =
+
+# Background color used for most interactive widgets.
+secondaryBackgroundColor =
+
+# Color used for almost all text.
+textColor =
+
+# Color used for all links.
+linkColor =
+
+# Background color used for code blocks.
+codeBackgroundColor =
+
+# The font family for all text, except code blocks. This can be one of
+# the following:
+# - "sans-serif"
+# - "serif"
+# - "monospace"
+# - the `font` value for a custom font table under [[theme.fontFaces]]
+# - a comma-separated list of these (as a single string) to specify
+#   fallbacks
+# For example, you can use the following:
+# font = "cool-font, fallback-cool-font, sans-serif"
+font =
+
+# The font family to use for code (monospace) in the sidebar. This can be
+# one of the following:
+# - "sans-serif"
+# - "serif"
+# - "monospace"
+# - the `font` value for a custom font table under [[theme.fontFaces]]
+# - a comma-separated list of these (as a single string) to specify
+#   fallbacks
+codeFont =
+
+# The font family to use for headings. This can be one of the following:
+# - "sans-serif"
+# - "serif"
+# - "monospace"
+# - the `font` value for a custom font table under [[theme.fontFaces]]
+# - a comma-separated list of these (as a single string) to specify
+#   fallbacks
+# If no heading font is set, Streamlit uses `theme.font` for headings.
+headingFont =
+
+# The radius used as basis for the corners of most UI elements. This can
+# be one of the following: "none", "small", "medium", "large", "full",
+# or the number in pixels or rem. For example, you can use "10px",
+# "0.5rem", or "2rem". To follow best practices, use rem instead of
+# pixels when specifying a numeric size.
+baseRadius =
+
+# The color of the border around elements.
+borderColor =
+
+# Whether to show a border around input widgets.
+showWidgetBorder =
 ```
 
 #### Secrets
