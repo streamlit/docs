@@ -636,8 +636,22 @@ site_menu:
     isVersioned: true
   - category: Develop / API reference / Command line
     url: /develop/api-reference/cli
+  - category: Develop / API reference / Command line / streamlit cache
+    url: /develop/api-reference/cli/cache
+  - category: Develop / API reference / Command line / streamlit config
+    url: /develop/api-reference/cli/config
+  - category: Develop / API reference / Command line / streamlit docs
+    url: /develop/api-reference/cli/docs
+  - category: Develop / API reference / Command line / streamlit hello
+    url: /develop/api-reference/cli/hello
+  - category: Develop / API reference / Command line / streamlit help
+    url: /develop/api-reference/cli/help
+  - category: Develop / API reference / Command line / streamlit init
+    url: /develop/api-reference/cli/init
   - category: Develop / API reference / Command line / streamlit run
     url: /develop/api-reference/cli/run
+  - category: Develop / API reference / Command line / streamlit version
+    url: /develop/api-reference/cli/version
 
   - category: Develop / Tutorials
     url: /develop/tutorials
