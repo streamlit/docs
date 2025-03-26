@@ -48,8 +48,7 @@ streamlit init <directory>
    streamlit init project
    ```
 
-   Streamlti creates the following files:
-
+   Streamlit creates the following files:
    ```
    CWD/
    └── project/
