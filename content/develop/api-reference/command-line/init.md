@@ -27,8 +27,7 @@ streamlit init <directory>
    streamlit init
    ```
 
-   Streamlti creates the following files:
-
+   Streamlit creates the following files:
    ```
    CWD/
    ├── requirements.txt
