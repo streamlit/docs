@@ -136,12 +136,7 @@ If you are signed in to a developer account for an app over its limits, you can 
 
 ### App hibernation
 
-All apps without traffic for one weekday will go to sleep. The system checks apps for inactivity throughout each day as follows:
-
-- Tuesday through Friday: All apps without traffic for 24 hours (one day) will go to sleep.
-- Saturday through Monday: All apps without traffic for 72 hours (three days) will go to sleep.
-
-Community Cloud hibernates apps to conserve resources and allow the best communal use of the platform. To keep your app awake, simply visit the app or commit to your app's repository, even if it's an empty commit!
+All apps without traffic for 12 hours go to sleep. Community Cloud hibernates apps to conserve resources and allow the best communal use of the platform. To keep your app awake, simply visit your app or commit to your app's repository.
 
 When someone visits a sleeping app, they will see the sleeping page:
 
