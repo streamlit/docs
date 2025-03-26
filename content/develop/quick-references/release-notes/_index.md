@@ -33,7 +33,7 @@ _Release date: March 25, 2025_
 
 **Notable Changes**
 
-- 🤖 [`st.exception`](/develop/api-reference/status/st.exception) includes links to open Google or ChatGPT with the contents of the exception. This include uncaught exceptions displayed in the app.
+- 🤖 [`st.exception`](/develop/api-reference/status/st.exception) includes links to open Google or ChatGPT with the contents of the exception. This includes uncaught exceptions displayed in the app.
 - 🗺️ You can access the user's locale through [`st.context`](/develop/api-reference/caching-and-state/st.context#contextlocale) ([#10563](https://github.com/streamlit/streamlit/pull/10563)).
 
 **Other Changes**
