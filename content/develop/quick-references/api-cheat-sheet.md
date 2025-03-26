@@ -5,7 +5,7 @@ slug: /develop/quick-reference/cheat-sheet
 
 # Streamlit API cheat sheet
 
-This is a summary of the docs for the latest version of Streamlit, [v1.43.0](https://pypi.org/project/streamlit/1.43.0/).
+This is a summary of the docs for the latest version of Streamlit, [v1.44.0](https://pypi.org/project/streamlit/1.44.0/).
 
 <Masonry>
 
@@ -42,13 +42,14 @@ Learn more about [experimental features](advanced-features/prerelease#experiment
 #### Command line
 
 ```python
-streamlit --help
-streamlit run your_script.py
-streamlit hello
-streamlit config show
 streamlit cache clear
+streamlit config show
 streamlit docs
-streamlit --version
+streamlit hello
+streamlit help
+streamlit init
+streamlit run streamlit_app.py
+streamlit version
 ```
 
 </CodeTile>
@@ -89,6 +90,7 @@ st.title("My title")
 st.header("My header")
 st.subheader("My sub")
 st.code("for i in range(8): foo()")
+st.badge("New")
 st.html("<p>Hi!</p>")
 ```
 
@@ -519,6 +521,9 @@ st.logout()
 # Get dictionaries of cookies and headers
 st.context.cookies
 st.context.headers
+st.context.locale
+st.context.timezone
+st.context.timezone_offset
 ```
 
 </CodeTile>

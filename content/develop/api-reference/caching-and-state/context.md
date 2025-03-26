@@ -10,6 +10,8 @@ description: st.context displays a read-only dict of cookies and headers
 
 <Autofunction function="context.headers" />
 
+<Autofunction function="context.locale" />
+
 <Autofunction function="context.timezone" />
 
 <Autofunction function="context.timezone_offset" />

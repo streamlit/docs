@@ -77,6 +77,19 @@ st.subheader("This is a subheader")
 
 <TileContainer>
 
+<RefCard href="/develop/api-reference/text/st.badge">
+
+<Image pure alt="screenshot" src="/images/api/badge.jpg" />
+
+<h4>Badge</h4>
+
+Display a small, colored badge.
+
+```python
+st.badge("New")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/text/st.caption">
 
 <Image pure alt="screenshot" src="/images/api/caption.jpg" />
