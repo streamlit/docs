@@ -192,6 +192,56 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/develop/api-reference/configuration/config.toml#theme"
+              >
+                <i className="material-icons-sharp">dark_mode</i>
+                <h4>Advanced theming</h4>
+                <p>
+                  Streamlit added a greater variety of theme configuration
+                  options in <code>config.toml</code>, including support for
+                  custom fonts!
+                </p>
+              </RefCard>
+              <RefCard size="third" href="/develop/api-reference/text/st.badge">
+                <i className="material-icons-sharp">badge</i>
+                <h4>Colored badges</h4>
+                <p>
+                  Streamlit has a new Markdown directive,{" "}
+                  <code>:color-badge[]</code>, and a new command,{" "}
+                  <code>st.badge</code>.
+                </p>
+              </RefCard>
+              <RefCard size="third" href="/develop/api-reference/cli/init">
+                <i className="material-icons-sharp">auto_fix_high</i>
+                <h4>Streamlit init</h4>
+                <p>
+                  Streamlit's CLI tool has a new <code>streamlit init</code>{" "}
+                  command to create files to start you next Streamlit project.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/caching-and-state/st.context#contextlocale"
+              >
+                <i className="material-icons-sharp">language</i>
+                <h4>User locale</h4>
+                <p>
+                  <code>st.context</code> lets you read the user's locale.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/status/st.exception"
+              >
+                <i className="material-icons-sharp">manage_search</i>
+                <h4>Chat and search links</h4>
+                <p>
+                  <code>st.exception</code> includes links to Google and ChatGPT
+                  that are prefilled with its error message.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="/develop/api-reference/chat/st.chat_input"
               >
                 <i className="material-icons-sharp">attach_file</i>
@@ -201,61 +251,6 @@ export default function Home({ window, menu }) {
                 <p>
                   User's can upload files directly within
                   <code>st.chat_input</code>!
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/data/st.column_config/st.column_config.jsoncolumn"
-              >
-                <i className="material-icons-sharp">view_column</i>
-                <h4>JSON column configuration</h4>
-                <p>
-                  <code>st.dataframe</code> and <code>st.data_editor</code>
-                  support JSON compatible objects.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/widgets/st.download_button"
-              >
-                <i className="material-icons-sharp">download</i>
-                <h4>Download buttons without reruns</h4>
-                <p>
-                  You can disable app reruns for
-                  <code>st.download_button</code>.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/caching-and-state/st.context#contexttimezone"
-              >
-                <i className="material-icons-sharp">timer</i>
-                <h4>Access the user's timezone</h4>
-                <p>
-                  <code>st.context</code> lets you read the user's timezone and
-                  timezone offset.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/data/st.dataframe"
-              >
-                <i className="material-icons-sharp">height</i>
-                <h4>Dataframe row height</h4>
-                <p>
-                  You can set the height of rows in <code>st.dataframe</code>
-                  and <code>st.data_editor</code>.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/text/st.markdown"
-              >
-                <i className="material-icons-sharp">edit</i>
-                <h4>Markdown image captions</h4>
-                <p>
-                  Markdown has a new <code>:small[]</code> directive for small
-                  text, the same size as <code>st.caption</code>.
                 </p>
               </RefCard>
             </TileContainer>
