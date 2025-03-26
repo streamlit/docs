@@ -156,6 +156,9 @@ site_menu:
     url: /develop/api-reference/text/st.markdown
     isVersioned: true
   - category: Develop / API reference / Text elements / FORMATTED TEXT
+  - category: Develop / API reference / Text elements / st.badge
+    url: /develop/api-reference/text/st.badge
+    isVersioned: true
   - category: Develop / API reference / Text elements / st.caption
     url: /develop/api-reference/text/st.caption
     isVersioned: true
