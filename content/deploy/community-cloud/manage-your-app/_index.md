@@ -136,7 +136,7 @@ If you are signed in to a developer account for an app over its limits, you can 
 
 ### App hibernation
 
-All apps without traffic for 12 hours go to sleep. Community Cloud hibernates apps to conserve resources and allow the best communal use of the platform. To keep your app awake, simply visit your app or commit to your app's repository.
+All apps without traffic for 12 hours go to sleep. Community Cloud hibernates apps to conserve resources and allow the best communal use of the platform. To keep your app awake, simply visit your app.
 
 When someone visits a sleeping app, they will see the sleeping page:
 
