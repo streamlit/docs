@@ -1,5 +1,7 @@
 .Container {
   @apply col-span-full lg:col-start-2 lg:col-end-5;
+  /* Avoid overlap with AI button */
+  @apply pb-16;
 }
 
 .InnerContainer {
@@ -66,4 +68,9 @@
 .Copyright {
   @apply text-base tracking-tight leading-7 mt-2;
   @apply text-gray-60 !important;
+}
+
+.CookiePolicy {
+  @apply ml-2 cursor-pointer;
+  @apply hover:opacity-80 hover:underline;
 }
