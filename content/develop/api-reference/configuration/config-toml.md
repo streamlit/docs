@@ -411,6 +411,8 @@ showSidebarBorder =
 #### Sidebar theme
 
 ```toml
+[theme.sidebar]
+
 # Primary accent color.
 primaryColor =
 
