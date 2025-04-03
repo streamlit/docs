@@ -2,18 +2,12 @@ import React, { useState } from "react";
 import Link from "next/link";
 import classNames from "classnames";
 
-import useVersion from "../../lib/useVersion.js";
-
 import styles from "./navChild.module.css";
+import { looksLikeVersionAndPlatformString } from "../../context/VersionContext";
 
 const NavChild = ({ slug, page, color, className }) => {
   const [manualState, setManualState] = useState(null);
-  const version = useVersion();
-
-  const isNum = /^[\d\.]+$/.test(slug[0]);
-  const isSiS = /^SiS[\d\.]*$/.test(slug[0]);
-
-  if (isNum || isSiS) {
+  if (looksLikeVersionAndPlatformString(slug[0])) {
     slug.shift();
   }
 
@@ -87,13 +81,6 @@ const NavChild = ({ slug, page, color, className }) => {
   if (isAbsolutePath) {
     url = url.replace("https://docs.streamlit.io", "");
     icon = <i className={styles.CrossLinkedIcon}>link</i>;
-  }
-
-  if (page.isVersioned && version && (isRelativePath || isAbsolutePath)) {
-    // We need to version this URL, check if the URL has a version for this version
-    const newSlug = url.split("/");
-    newSlug[0] = version;
-    url = `/${newSlug.join("/")}`;
   }
 
   if (isDivider && page.name == "---") {
