@@ -32,7 +32,7 @@ export function VersionContextProvider(props) {
   }
 
   function goToOpenSource() {
-    setPlatformState(DEFAULT_PLATFORM);
+    setPlatform(DEFAULT_PLATFORM);
   }
 
   return (
