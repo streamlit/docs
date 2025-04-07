@@ -15,11 +15,11 @@ const jsonPlatformNotes = fs.readFileSync(
   "utf8",
 );
 
+// Gather all versioning informationing to be available for import everywhere
 const DOCSTRINGS = jsonDocstrings ? JSON.parse(jsonDocstrings) : {};
 const VERSIONS_LIST = Object.keys(DOCSTRINGS).reverse();
 const LATEST_VERSION = VERSIONS_LIST[0];
 const DEFAULT_VERSION = "latest";
-
 const PLATFORM_NOTES = jsonPlatformNotes ? JSON.parse(jsonPlatformNotes) : {};
 let platformVersions = {};
 let latestPlatformVersion = {};
@@ -144,6 +144,14 @@ module.exports = {
       {
         source: "/sis/:path*",
         destination: "/1.39.0/:path*",
+      },
+      {
+        source: `/${LATEST_VERSION}/:path*`,
+        destination: "/:path*",
+      },
+      {
+        source: `/latest/:path*`,
+        destination: "/:path*",
       },
     ];
   },

@@ -95,6 +95,7 @@ export default function Article({
   data,
   source,
   docstrings,
+  notes,
   slug,
   menu,
   currMenuItem,
@@ -137,6 +138,7 @@ export default function Article({
     const isUnversionedURL = !versionFromSlug || !platformFromSlug;
     const contextIsDefault =
       version == DEFAULT_VERSION && platform == DEFAULT_PLATFORM;
+    // Reroute to the version in context if needed
     if (isVersionedPage && isUnversionedURL && !contextIsDefault) {
       const versionAndPlatformString = getVersionAndPlatformString(
         version,
@@ -190,6 +192,7 @@ export default function Article({
     h1: H1,
     h2: H2,
     h3: H3,
+    a: ({ ...props }) => <Link href={props.href}>{props.children}</Link>,
     // iframe : WrappedIFrame
   };
 
@@ -205,8 +208,10 @@ export default function Article({
       <Warning>
         <p>
           You are reading the documentation for Streamlit version {version}, but{" "}
-          <Link href={currentLink}>{LATEST_VERSION}</Link> is the latest version
-          available.
+          <Link href={currentLink} onClick={goToLatest}>
+            {LATEST_VERSION}
+          </Link>{" "}
+          is the latest version available.
         </p>
       </Warning>
     );
@@ -278,7 +283,7 @@ export default function Article({
             <link rel="alternate icon" href="/favicon32.ico" />
             <meta name="theme-color" content="#ffffff" />
             {keywordsTag}
-            {version != DEFAULT_VERSION ? (
+            {version != DEFAULT_VERSION || platform != DEFAULT_PLATFORM ? (
               <link
                 rel="canonical"
                 href={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/${slug
