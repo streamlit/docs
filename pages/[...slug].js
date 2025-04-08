@@ -145,7 +145,7 @@ export default function Article({
         platform,
       );
       const urlParts = router.asPath.split("#")[0].split("/");
-      urlParts.shift(); // Remove spare item that comes from the trailing slash.
+      urlParts.shift(); // Remove spare item that comes from the leading slash.
       urlParts.unshift(versionAndPlatformString);
       router.push(`/${urlParts.join("/")}`);
     }
@@ -347,11 +347,11 @@ export default function Article({
   );
 }
 
-export function getFunctionSubset(allFunctionsInVerions, functionsOnPage) {
+function getFunctionSubset(allFunctionsInVerion, functionsOnPage) {
   const docstrings = {};
   for (const func of functionsOnPage) {
-    if (allFunctionsInVerions[func]) {
-      docstrings[func] = allFunctionsInVerions[func];
+    if (allFunctionsInVerion[func]) {
+      docstrings[func] = allFunctionsInVerion[func];
     }
   }
   return docstrings;
@@ -380,14 +380,19 @@ export async function getStaticProps(context) {
     // Get the last element of the array to find the MD file
     const fileContents = fs.readFileSync(filename, "utf8");
     const { data, content } = matter(fileContents);
-    if (/<Autofunction(.*?)\/>/gi.test(fileContents)) {
+    const shouldVersion = /<Autofunction(.*?)\/>/gi.test(fileContents);
+    if (shouldVersion) {
       const autofunctions = fileContents.matchAll(/<Autofunction(.*?)\/>/gi);
+      // Build list of functions that are on the page
       const functions = new Set();
       for (const match of autofunctions) {
+        // For each Autofunction on the page
+        // Add the main function to the list
         const mainFunction = match[0]
           .match(/ function="(.*?)" /gi)[0]
           .match(/"(.*?)"/gi)[0];
         functions.add(mainFunction.slice(1, -1));
+        // If an old function name is present, add it to the list, too
         if (/ oldName="(.*?)" /gi.test(match)) {
           const oldFunction = match[0]
             .match(/ oldName="(.*?)" /gi)[0]
@@ -403,23 +408,32 @@ export async function getStaticProps(context) {
 
         props.versionFromSlug = version;
         props.platformFromSlug = platform;
-        props.docstrings =
-          version != DEFAULT_VERSION // Not "latest"
-            ? getFunctionSubset(DOCSTRINGS[version], functions)
-            : platform != DEFAULT_PLATFORM
-              ? getFunctionSubset(
-                  DOCSTRINGS[PLATFORM_LATEST_VERSIONS[platform]],
-                  functions,
-                )
-              : getFunctionSubset(DOCSTRINGS[LATEST_VERSION], functions);
+        if (version == DEFAULT_VERSION) {
+          // Version is "latest"
+          if (platform == DEFAULT_PLATFORM) {
+            // Platform is "oss"
+            props.docstrings = getFunctionSubset(
+              DOCSTRINGS[LATEST_VERSION],
+              functions,
+            );
+          } else {
+            // Other platform (which can have a different latest version than oss)
+            props.docstrings = getFunctionSubset(
+              DOCSTRINGS[PLATFORM_LATEST_VERSIONS[platform]],
+              functions,
+            );
+          }
+        } else {
+          // Version is numeric
+          props.docstrings = getFunctionSubset(DOCSTRINGS[version], functions);
+        }
         if (Object.keys(PLATFORM_VERSIONS).includes(platform)) {
-          props.notes =
-            version != DEFAULT_VERSION &&
-            PLATFORM_VERSIONS[platform].includes(version)
-              ? PLATFORM_NOTES[platform][version]
-              : version == DEFAULT_VERSION
-                ? PLATFORM_NOTES[platform][PLATFORM_LATEST_VERSIONS[platform]]
-                : {};
+          if (version == DEFAULT_VERSION) {
+            props.notes =
+              PLATFORM_NOTES[platform][PLATFORM_LATEST_VERSIONS[platform]];
+          } else if (PLATFORM_VERSIONS[platform].includes(version)) {
+            props.notes = PLATFORM_NOTES[platform][version];
+          }
         }
         location = `/${context.params.slug.slice(1).join("/")}`;
       } else {
@@ -516,8 +530,8 @@ export async function getStaticPaths() {
     paths.push(path); // Unversioned page
 
     // If the file uses Autofunction, we need to version it.
-    const should_version = /<Autofunction(.*?)\/>/gi.test(fileContents);
-    if (should_version) {
+    const shouldVersion = /<Autofunction(.*?)\/>/gi.test(fileContents);
+    if (shouldVersion) {
       for (const platform of [DEFAULT_PLATFORM].concat(
         Object.keys(PLATFORM_VERSIONS),
       )) {

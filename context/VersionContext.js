@@ -1,4 +1,10 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useCallback,
+  useState,
+  useEffect,
+} from "react";
 import getConfig from "next/config";
 const { publicRuntimeConfig } = getConfig();
 
@@ -27,13 +33,13 @@ export function VersionContextProvider(props) {
     }
   }, [props.versionFromSlug, props.platformFromSlug]);
 
-  function goToLatest() {
+  const goToLatest = useCallback(() => {
     setVersion(DEFAULT_VERSION);
-  }
+  }, []);
 
-  function goToOpenSource() {
+  const goToOpenSource = useCallback(() => {
     setPlatform(DEFAULT_PLATFORM);
-  }
+  }, []);
 
   return (
     <VersionContext.Provider
