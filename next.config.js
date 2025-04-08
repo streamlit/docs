@@ -1,4 +1,40 @@
+// import reverse from "lodash/reverse";
+
+const fs = require("fs");
+const path = require("path");
+
 const IS_DEV = process.env.NODE_ENV === "development";
+const PYTHON_DIRECTORY = path.join(process.cwd(), "python/");
+
+const jsonDocstrings = fs.readFileSync(
+  path.join(PYTHON_DIRECTORY, "streamlit.json"),
+  "utf8",
+);
+const jsonPlatformNotes = fs.readFileSync(
+  path.join(PYTHON_DIRECTORY, "snowflake.json"),
+  "utf8",
+);
+
+// Gather all versioning informationing to be available for import everywhere
+const DOCSTRINGS = jsonDocstrings ? JSON.parse(jsonDocstrings) : {};
+const VERSIONS_LIST = Object.keys(DOCSTRINGS).reverse();
+const LATEST_VERSION = VERSIONS_LIST[0];
+const DEFAULT_VERSION = "latest";
+const PLATFORM_NOTES = jsonPlatformNotes ? JSON.parse(jsonPlatformNotes) : {};
+let platformVersions = {};
+let latestPlatformVersion = {};
+for (const index in Object.keys(PLATFORM_NOTES)) {
+  const key = Object.keys(PLATFORM_NOTES)[index];
+  platformVersions[key] = Object.keys(PLATFORM_NOTES[key]);
+  latestPlatformVersion[key] = Object.keys(PLATFORM_NOTES[key]).at(-1);
+}
+const PLATFORM_VERSIONS = platformVersions;
+const PLATFORM_LATEST_VERSIONS = latestPlatformVersion;
+const PLATFORM_NAMES = {};
+PLATFORM_NAMES["oss"] = "All versions";
+PLATFORM_NAMES["sis"] = "Streamlit in Snowflake";
+PLATFORM_NAMES["na"] = "Snowflake Native Apps";
+const DEFAULT_PLATFORM = "oss";
 
 const PROD_OPTIMIZATIONS = IS_DEV
   ? {}
@@ -83,6 +119,43 @@ const CSP_HEADER = [
 ];
 
 module.exports = {
+  serverRuntimeConfig: {
+    DOCSTRINGS,
+    VERSIONS_LIST,
+    LATEST_VERSION,
+    DEFAULT_VERSION,
+    PLATFORM_NOTES,
+    PLATFORM_VERSIONS,
+    PLATFORM_LATEST_VERSIONS,
+    PLATFORM_NAMES,
+    DEFAULT_PLATFORM,
+  },
+  publicRuntimeConfig: {
+    VERSIONS_LIST,
+    LATEST_VERSION,
+    DEFAULT_VERSION,
+    PLATFORM_VERSIONS,
+    PLATFORM_LATEST_VERSIONS,
+    PLATFORM_NAMES,
+    DEFAULT_PLATFORM,
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/sis/:path*",
+        destination: "/1.39.0/:path*",
+      },
+      {
+        source: `/${LATEST_VERSION}/:path*`,
+        destination: "/:path*",
+      },
+      {
+        source: `/latest/:path*`,
+        destination: "/:path*",
+      },
+    ];
+  },
+
   output: "export",
 
   ...PROD_OPTIMIZATIONS,
