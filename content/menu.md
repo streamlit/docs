@@ -112,8 +112,11 @@ site_menu:
     url: /develop/concepts/configuration/https-support
   - category: Develop / Concepts / Configuration & theming / Serving static files
     url: /develop/concepts/configuration/serving-static-files
+  - category: Develop / Concepts / Configuration & theming / THEMING
   - category: Develop / Concepts / Configuration & theming / Customize your theme
     url: /develop/concepts/configuration/theming
+  - category: Develop / Concepts / Configuration & theming / Custom fonts
+    url: /develop/concepts/configuration/theming-custom-fonts
   - category: Develop / Concepts / App testing
     url: /develop/concepts/app-testing
   - category: Develop / Concepts / App testing / Get started
