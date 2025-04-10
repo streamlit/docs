@@ -11,7 +11,18 @@ Streamlit lets you use custom fonts in your app. You can load these fonts from a
 
 Streamlit comes with [Source Sans](https://fonts.adobe.com/fonts/source-sans), [Source Serif](https://fonts.adobe.com/fonts/source-serif), and [Source Code](https://fonts.adobe.com/fonts/source-code-pro) fonts. These font files are included with the Streamlit library to prevent clients from downloading them from a third party. By default, Streamlit uses Source Sans for all text except inline code and code blocks, which use Source Code instead.
 
-To use these default faults, you can set each of the following configuration options to `"sans-serif"` (Source Sans), `"serif"` (Source Serif), or `"monospace"` (Source Code):
+To use these default faults, you can set each of the following configuration options to `"sans-serif"` (Source Sans), `"serif"` (Source Serif), or `"monospace"` (Source Code) in `config.toml`:
+
+```toml
+[theme]
+font = "sans-serif"
+headingFront = "sans-serif"
+codeFont = "monospace"
+[theme.sidebar]
+font = "sans-serif"
+headingFront = "sans-serif"
+codeFont = "monospace"
+```
 
 - `theme.font` sets the default font for all text in the app (except inline code and code blocks). This is `"sans-serif"` (Source Sans) by default.
 - `theme.headingFont` sets the default font for all headings in the app. If this is not set, it uses `theme.font` instead.
@@ -39,7 +50,7 @@ Streamlit supports self-hosting for OTF, TTF, WOFF, and WOFF2 font file formats.
 
 </Important>
 
-Each font needs the following attributes:
+Each font needs the following attributes in its `[[theme.fontFaces]]` table:
 
 - `font`: This is the name of the font and is used to identify the font for use by other configuration options.
 - `url`: This is the location of the font file. If you are self-hosting the font file with your app, the value will be similar to `"app/static/font_file.woff"`.
@@ -128,7 +139,7 @@ codeFont="noto-mono"
 
    This sets Noto Sans as the default for all text in your app except inline code and code blocks, which will use Noto Sans Mono instead.
 
-### Example 2: Define a custom font with multiple static font files
+### Example 2: Define a custom font with static font files
 
 In this configuration example, a custom font is declared with multiple static font files. For each font,four static files are needed to define the following weight-style pairs:
 
@@ -137,11 +148,14 @@ In this configuration example, a custom font is declared with multiple static fo
 - italic normal
 - italic bold
 
-```none
+### Example 3: Define a custom font with fallbacks
 
-```
+`{Use and external hosted source and fallback to a local source}`
 
-```toml
+## Font colors
 
+`{textColor, linkColor, codeBackgroundColor, plus sidebar}`
 
-```
+## Font size
+
+`{baseFontSize}`
