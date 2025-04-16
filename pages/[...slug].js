@@ -147,7 +147,7 @@ export default function Article({
       const urlParts = router.asPath.split("#")[0].split("/");
       urlParts.shift(); // Remove spare item that comes from the leading slash.
       urlParts.unshift(versionAndPlatformString);
-      router.push(`/${urlParts.join("/")}`);
+      router.replace(`/${urlParts.join("/")}`);
     }
   }, [versionFromSlug, platformFromSlug, slug]);
 
