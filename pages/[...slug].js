@@ -1,6 +1,6 @@
 import fs from "fs";
 import { basename } from "path";
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import { serialize } from "next-mdx-remote/serialize";
@@ -105,6 +105,8 @@ export default function Article({
   platformFromSlug,
   filename,
 }) {
+  const router = useRouter();
+
   let versionWarning;
   let currentLink;
 
@@ -112,8 +114,6 @@ export default function Article({
   const [isTelemetryBannerVisible, setIsTelemetryBannerVisible] =
     useState(false);
   const [insertTelemetryCode, setInsertTelemetryCode] = useState(false);
-
-  const router = useRouter();
 
   const allowTelemetryAndCloseBanner = useCallback(() => {
     setIsTelemetryBannerVisible(false);
@@ -133,23 +133,22 @@ export default function Article({
   }, [isTelemetryBannerVisible, insertTelemetryCode]);
 
   const { version, platform, goToLatest, goToOpenSource } = useVersionContext();
-  useEffect(() => {
-    const isVersionedPage = currMenuItem && currMenuItem.isVersioned;
-    const isUnversionedURL = !versionFromSlug || !platformFromSlug;
-    const contextIsDefault =
-      version == DEFAULT_VERSION && platform == DEFAULT_PLATFORM;
-    // Reroute to the version in context if needed
-    if (isVersionedPage && isUnversionedURL && !contextIsDefault) {
-      const versionAndPlatformString = getVersionAndPlatformString(
-        version,
-        platform,
-      );
-      const urlParts = router.asPath.split("#")[0].split("/");
-      urlParts.shift(); // Remove spare item that comes from the leading slash.
-      urlParts.unshift(versionAndPlatformString);
-      router.replace(`/${urlParts.join("/")}`);
-    }
-  }, [versionFromSlug, platformFromSlug, slug]);
+  const isVersionedPage = currMenuItem && currMenuItem.isVersioned;
+  const isUnversionedURL = !versionFromSlug || !platformFromSlug;
+  const contextIsDefault =
+    version == DEFAULT_VERSION && platform == DEFAULT_PLATFORM;
+  // Reroute to the version in context if needed
+  if (isVersionedPage && isUnversionedURL && !contextIsDefault) {
+    const versionAndPlatformString = getVersionAndPlatformString(
+      version,
+      platform,
+    );
+    const urlParts = router.asPath.split("#")[0].split("/");
+    urlParts.shift(); // Remove spare item that comes from the leading slash.
+    urlParts.unshift(versionAndPlatformString);
+    router.replace(`/${urlParts.join("/")}`);
+    return;
+  }
 
   const components = {
     Note,
