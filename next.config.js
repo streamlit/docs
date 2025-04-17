@@ -143,7 +143,7 @@ module.exports = {
     return [
       {
         source: "/sis/:path*",
-        destination: "/1.39.0/:path*",
+        destination: "/1.42.0/:path*",
       },
       {
         source: `/${LATEST_VERSION}/:path*`,
