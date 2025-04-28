@@ -10,8 +10,14 @@ description: st.context displays a read-only dict of cookies and headers
 
 <Autofunction function="context.headers" />
 
+<Autofunction function="context.ip_address" />
+
+<Autofunction function="context.is_embedded" />
+
 <Autofunction function="context.locale" />
 
 <Autofunction function="context.timezone" />
 
 <Autofunction function="context.timezone_offset" />
+
+<Autofunction function="context.url" />
