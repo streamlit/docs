@@ -1958,11 +1958,11 @@ st.logout()
 
 <h4>User info</h4>
 
-`st.experimental_user` returns information about a logged-in user.
+`st.user` returns information about a logged-in user.
 
 ```python
-if st.experimental_user.is_logged_in:
-  st.write(f"Welcome back, {st.experimental_user.name}!")
+if st.user.is_logged_in:
+  st.write(f"Welcome back, {st.user.name}!")
 ```
 
 </RefCard>

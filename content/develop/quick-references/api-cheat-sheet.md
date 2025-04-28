@@ -513,9 +513,9 @@ st.exception(e)
 
 ```python
 # Authenticate users
-if not st.experimental_user.is_logged_in:
+if not st.user.is_logged_in:
     st.login("my_provider")
-f"Hi, {st.experimental_user.name}"
+f"Hi, {st.user.name}"
 st.logout()
 
 # Get dictionaries of cookies and headers

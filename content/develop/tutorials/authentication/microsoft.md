@@ -49,10 +49,10 @@ def login_screen():
     st.subheader("Please log in.")
     st.button("Log in with Microsoft", on_click=st.login)
 
-if not st.experimental_user.is_logged_in:
+if not st.user.is_logged_in:
     login_screen()
 else:
-    st.header(f"Welcome, {st.experimental_user.name}!")
+    st.header(f"Welcome, {st.user.name}!")
     st.button("Log out", on_click=st.logout)
 ```
 
@@ -202,13 +202,13 @@ To create an app with user authentication, you'll need to configure your secrets
 1. Conditioned on whether the user is logged in, call your function to prompt the user, or show their information:
 
    ```python
-   if not st.experimental_user.is_logged_in:
+   if not st.user.is_logged_in:
        login_screen()
    else:
-       st.experimental_user
+       st.user
    ```
 
-   Because `st.experimental_user` is a dict-like object in a line by itself, Streamlit magic displays it in your app.
+   Because `st.user` is a dict-like object in a line by itself, Streamlit magic displays it in your app.
 
 1. Save your `app.py` file, and test your running app.
 
@@ -216,12 +216,12 @@ To create an app with user authentication, you'll need to configure your secrets
 
 1. Return to your code.
 
-1. Replace `st.experimental_user` with a personalized greeting:
+1. Replace `st.user` with a personalized greeting:
 
    ```diff
    else:
-   -   st.experimental_user
-   +   st.header(f"Welcome, {st.experimental_user.name}!")
+   -   st.user
+   +   st.header(f"Welcome, {st.user.name}!")
    ```
 
 1. Add a logout button:
