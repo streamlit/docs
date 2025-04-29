@@ -43,12 +43,7 @@ export function VersionContextProvider(props) {
 
   return (
     <VersionContext.Provider
-      value={{
-        version,
-        platform,
-        goToLatest,
-        goToOpenSource,
-      }}
+      value={{ version, platform, goToLatest, goToOpenSource }}
     >
       {props.children}
     </VersionContext.Provider>
