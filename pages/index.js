@@ -238,7 +238,7 @@ export default function Home({ window, menu }) {
                 <i className="material-icons-sharp">widgets</i>
                 <h4>Tab order</h4>
                 <p>
-                  You can specificy the sequential navigation order of
+                  You can specify the sequential navigation order of
                   <code>st.components.v1.iframe</code> and
                   <code>st.components.v1.html</code>.
                 </p>
