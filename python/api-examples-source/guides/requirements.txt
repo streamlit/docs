@@ -1,1 +1,1 @@
-streamlit>=1.44.0
+streamlit-nightly
