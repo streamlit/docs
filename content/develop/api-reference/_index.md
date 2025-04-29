@@ -1958,11 +1958,11 @@ st.logout()
 
 <h4>User info</h4>
 
-`st.experimental_user` returns information about a logged-in user.
+`st.user` returns information about a logged-in user.
 
 ```python
-if st.experimental_user.is_logged_in:
-  st.write(f"Welcome back, {st.experimental_user.name}!")
+if st.user.is_logged_in:
+  st.write(f"Welcome back, {st.user.name}!")
 ```
 
 </RefCard>
@@ -2234,7 +2234,7 @@ st.query_params.clear()
 
 <h4>Context</h4>
 
-`st.context` provides a read-only interface to access cookies and headers.
+`st.context` provides a read-only interface to access cookies, headers, locale, and other browser-session information.
 
 ```python
 st.context.cookies

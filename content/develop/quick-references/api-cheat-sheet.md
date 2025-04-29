@@ -5,7 +5,7 @@ slug: /develop/quick-reference/cheat-sheet
 
 # Streamlit API cheat sheet
 
-This is a summary of the docs for the latest version of Streamlit, [v1.44.0](https://pypi.org/project/streamlit/1.44.0/).
+This is a summary of the docs for the latest version of Streamlit, [v1.45.0](https://pypi.org/project/streamlit/1.45.0/).
 
 <Masonry>
 
@@ -513,17 +513,20 @@ st.exception(e)
 
 ```python
 # Authenticate users
-if not st.experimental_user.is_logged_in:
+if not st.user.is_logged_in:
     st.login("my_provider")
-f"Hi, {st.experimental_user.name}"
+f"Hi, {st.user.name}"
 st.logout()
 
-# Get dictionaries of cookies and headers
+# Get dictionaries of cookies, headers, locale, and browser data
 st.context.cookies
 st.context.headers
+st.context.ip_address
+st.context.is_embedded
 st.context.locale
 st.context.timezone
 st.context.timezone_offset
+st.context.url
 ```
 
 </CodeTile>

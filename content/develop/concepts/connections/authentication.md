@@ -22,19 +22,19 @@ Some popular OIDC providers are:
 - [Okta](https://help.okta.com/en-us/content/topics/apps/apps_app_integration_wizard_oidc.htm)
 - [Auth0](https://auth0.com/docs/get-started/auth0-overview/create-applications/regular-web-apps)
 
-## `st.login()`, `st.experimental_user`, and `st.logout()`
+## `st.login()`, `st.user`, and `st.logout()`
 
 There are three commands involved with user authentication:
 
 - [`st.login()`](/develop/api-reference/user/st.login) redirects the user to your identity provider. After they log in, Streamlit stores an identity cookie and then redirects them to the homepage of your app in a new session.
-- [`st.experimental_user`](/develop/api-reference/user/st.user) is a dict-like object for accessing user information. It has a persistent attribute, `.is_logged_in`, which you can check for the user's login status. When they are logged in, other attributes are available per your identity provider's configuration.
+- [`st.user`](/develop/api-reference/user/st.user) is a dict-like object for accessing user information. It has a persistent attribute, `.is_logged_in`, which you can check for the user's login status. When they are logged in, other attributes are available per your identity provider's configuration.
 - [`st.logout()`](/develop/api-reference/user/st.logout) removes the identity cookie from the user's browser and redirects them to the homepage of your app in a new session.
 
 ## User cookies and logging out
 
-Streamlit checks for the identity cookie at the beginning of each new session. If a user logs in to your app in one tab and then opens a new tab, they will automatically be logged in to your app in the new tab. When you call `st.logout()` in a user session, Streamlit removes the identity cookie and starts a new session. This logs the user out from the current session. However, if they were logged in to other sessions already, they will remain logged in within those sessions. The information in `st.experimental_user` is updated at the beginning of a session (which is why `st.login()` and `st.logout()` both start new sessions after saving or deleting the identity cookie).
+Streamlit checks for the identity cookie at the beginning of each new session. If a user logs in to your app in one tab and then opens a new tab, they will automatically be logged in to your app in the new tab. When you call `st.logout()` in a user session, Streamlit removes the identity cookie and starts a new session. This logs the user out from the current session. However, if they were logged in to other sessions already, they will remain logged in within those sessions. The information in `st.user` is updated at the beginning of a session (which is why `st.login()` and `st.logout()` both start new sessions after saving or deleting the identity cookie).
 
-If a user closes your app without logging out, the identity cookie will expire after 30 days. This expiration time is not configurable and is not tied to any expiration time that may be returned in your user's identity token. If you need to prevent persistent authentication in your app, check the expiration information returned by the identity provider in `st.experimental_user` and manually call `st.logout()` when needed.
+If a user closes your app without logging out, the identity cookie will expire after 30 days. This expiration time is not configurable and is not tied to any expiration time that may be returned in your user's identity token. If you need to prevent persistent authentication in your app, check the expiration information returned by the identity provider in `st.user` and manually call `st.logout()` when needed.
 
 Streamlit does not modify or delete any cookies saved directly by your identity provider. For example, if you use Google as your identity provider and a user logs in to your app with Google, they will remain logged in to their Google account after they log out of your app with `st.logout()`.
 
@@ -96,14 +96,14 @@ In your app, create a simple login flow:
 ```python
 import streamlit as st
 
-if not st.experimental_user.is_logged_in:
+if not st.user.is_logged_in:
     if st.button("Log in with Google"):
         st.login()
     st.stop()
 
 if st.button("Log out"):
     st.logout()
-st.markdown(f"Welcome! {st.experimental_user.name}")
+st.markdown(f"Welcome! {st.user.name}")
 ```
 
 When you use `st.stop()`, your script run ends as soon as the login button is displayed. This lets you avoid nesting your entire page within a conditional block. Additionally, you can use callbacks to simplify the code further:
@@ -111,12 +111,12 @@ When you use `st.stop()`, your script run ends as soon as the login button is di
 ```python
 import streamlit as st
 
-if not st.experimental_user.is_logged_in:
+if not st.user.is_logged_in:
     st.button("Log in with Google", on_click=st.login)
     st.stop()
 
 st.button("Log out", on_click=st.logout)
-st.markdown(f"Welcome! {st.experimental_user.name}")
+st.markdown(f"Welcome! {st.user.name}")
 ```
 
 ## Using multiple OIDC providers
@@ -152,7 +152,7 @@ Your app code:
 ```python
 import streamlit as st
 
-if not st.experimental_user.is_logged_in:
+if not st.user.is_logged_in:
     if st.button("Log in with Google"):
         st.login("google")
     if st.button("Log in with Microsoft"):
@@ -161,7 +161,7 @@ if not st.experimental_user.is_logged_in:
 
 if st.button("Log out"):
     st.logout()
-st.markdown(f"Welcome! {st.experimental_user.name}")
+st.markdown(f"Welcome! {st.user.name}")
 ```
 
 Using callbacks, this would look like:
@@ -169,13 +169,13 @@ Using callbacks, this would look like:
 ```python
 import streamlit as st
 
-if not st.experimental_user.is_logged_in:
+if not st.user.is_logged_in:
     st.button("Log in with Google", on_click=st.login, args=["google"])
     st.button("Log in with Microsoft", on_click=st.login, args=["microsoft"])
     st.stop()
 
 st.button("Log out", on_click=st.logout)
-st.markdown(f"Welcome! {st.experimental_user.name}")
+st.markdown(f"Welcome! {st.user.name}")
 ```
 
 ## Passing keywords to your identity provider

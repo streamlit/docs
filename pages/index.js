@@ -190,67 +190,65 @@ export default function Home({ window, menu }) {
             <H2 className="no-b-m">What's new</H2>
 
             <TileContainer>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/configuration/config.toml#theme"
-              >
-                <i className="material-icons-sharp">dark_mode</i>
-                <h4>Advanced theming</h4>
+              <RefCard size="third" href="/develop/api-reference/user/st.user">
+                <i className="material-icons-sharp">account_circle</i>
+                <h4>
+                  <code>st.user</code>
+                </h4>
                 <p>
-                  Streamlit added a greater variety of theme configuration
-                  options in <code>config.toml</code>, including support for
-                  custom fonts!
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/develop/api-reference/text/st.badge">
-                <i className="material-icons-sharp">badge</i>
-                <h4>Colored badges</h4>
-                <p>
-                  Streamlit has a new Markdown directive,{" "}
-                  <code>:color-badge[]</code>, and a new command,{" "}
-                  <code>st.badge</code>.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/develop/api-reference/cli/init">
-                <i className="material-icons-sharp">auto_fix_high</i>
-                <h4>Streamlit init</h4>
-                <p>
-                  Streamlit's CLI tool has a new <code>streamlit init</code>{" "}
-                  command to create files to start you next Streamlit project.
+                  <code>st.user</code> is generally available! Get user
+                  information from a dict-like interface.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/caching-and-state/st.context#contextlocale"
+                href="/develop/api-reference/widgets/st.multiselect"
               >
-                <i className="material-icons-sharp">language</i>
-                <h4>User locale</h4>
+                <i className="material-icons-sharp">add</i>
+                <h4>User-defined selections</h4>
                 <p>
-                  <code>st.context</code> lets you read the user's locale.
+                  <code>st.multiselect</code> and <code>st.selectbox</code> can
+                  be configured to let users add new options.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/caching-and-state/st.context"
+              >
+                <i className="material-icons-sharp">http</i>
+                <h4>New user context attributes</h4>
+                <p>
+                  <code>st.context</code> has additional attributes. Get the URL
+                  used to access the app, the user's IP address, and whether the
+                  app is embedded.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
                 href="/develop/api-reference/status/st.exception"
               >
-                <i className="material-icons-sharp">manage_search</i>
-                <h4>Chat and search links</h4>
-                <p>
-                  <code>st.exception</code> includes links to Google and ChatGPT
-                  that are prefilled with its error message.
-                </p>
+                <i className="material-icons-sharp">swap_horiz</i>
+                <h4>Text alert width</h4>
+                <p>Text alerts and exceptions have a new width parameter.</p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/chat/st.chat_input"
+                href="/develop/api-reference/custom-components/st.components.v1.iframe"
               >
-                <i className="material-icons-sharp">attach_file</i>
-                <h4>
-                  File uploader for <code>st.chat_input</code>
-                </h4>
+                <i className="material-icons-sharp">widgets</i>
+                <h4>Tab order</h4>
                 <p>
-                  User's can upload files directly within
-                  <code>st.chat_input</code>!
+                  You can specify the sequential navigation order of
+                  <code>st.components.v1.iframe</code> and
+                  <code>st.components.v1.html</code>.
+                </p>
+              </RefCard>
+              <RefCard size="third" href="/develop/api-reference/text/st.html">
+                <i className="material-icons-sharp">css</i>
+                <h4>Automatic style tags</h4>
+                <p>
+                  <code>st.html</code> now automatically adds style tags when
+                  used to include a CSS file.
                 </p>
               </RefCard>
             </TileContainer>
