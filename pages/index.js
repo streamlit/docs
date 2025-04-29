@@ -248,7 +248,7 @@ export default function Home({ window, menu }) {
                 <h4>Automatic style tags</h4>
                 <p>
                   <code>st.html</code> now automatically adds style tags when
-                  used to inject only CSS.
+                  used to include a CSS file.
                 </p>
               </RefCard>
             </TileContainer>
