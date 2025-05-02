@@ -91,7 +91,7 @@ Alternately, you can try using Microsoft's WSL ("Windows Subsystem for Linux"), 
 
 ```bash
 # Install a Python version using pyenv with the `CONFIGURE_OPTS=--enable-shared` flag set:
-$ CONFIGURE_OPTS=--enable-shared pyenv install 3.7.5 && pyenv global 3.7.5
+$ CONFIGURE_OPTS=--enable-shared pyenv install 3.9 && pyenv global 3.9
 
 $ python -m venv venv
 ```
