@@ -2,8 +2,6 @@
 visible: false
 ---
 
-### Cookie settings
-
 ##### Strictly necessary cookies
 
 These cookies are necessary for the website to function and cannot be switched off. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in or filling in forms.
