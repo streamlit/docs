@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import { getMenu } from "../lib/api";
+import { getMenu } from "../lib/node/api";
 
 import Layout from "../components/layouts/globalTemplate";
 import Footer from "../components/navigation/footer";
