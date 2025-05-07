@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import classNames from "classnames";
 
-import { urlInChildren } from "../../lib/purejs/breadcrumb_helpers";
+import { urlInChildren } from "../../lib/purejs/breadcrumbHelpers";
 import NavChild from "./navChild";
 
 import styles from "./navItem.module.css";

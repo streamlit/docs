@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { breadcrumbsForSlug } from "../../lib/purejs/breadcrumb_helpers";
+import { breadcrumbsForSlug } from "../../lib/purejs/breadcrumbHelpers";
 import { looksLikeVersionAndPlatformString } from "../../lib/next/utils";
 
 import styles from "./breadCrumbs.module.css";

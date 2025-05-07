@@ -5,10 +5,10 @@ const parser = require("node-html-parser");
 const algoliasearch = require("algoliasearch");
 const { convert } = require("html-to-text");
 
-const { breadcrumbsForSlug } = require("../lib/purejs/breadcrumb_helpers");
+const { breadcrumbsForSlug } = require("../lib/purejs/breadcrumbHelpers");
 const {
   looksLikeVersionAndPlatformStringGeneric,
-} = require("../lib/purejs/version_helpers");
+} = require("../lib/purejs/versionHelpers");
 const { DEFAULT_PLATFORM, PLATFORM_VERSIONS } = require("../lib/node/defaults");
 
 const contentDirectory = path.join(process.cwd(), ".next/server/pages");
