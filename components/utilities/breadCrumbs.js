@@ -1,9 +1,10 @@
 import React from "react";
-import { breadcrumbsForSlug } from "../../lib/utils.js";
 import Link from "next/link";
 
+import { breadcrumbsForSlug } from "../../lib/purejs/breadcrumb_helpers";
+import { looksLikeVersionAndPlatformString } from "../../lib/next/utils";
+
 import styles from "./breadCrumbs.module.css";
-import { looksLikeVersionAndPlatformString } from "../../context/VersionContext.js";
 
 const BreadCrumbs = ({ slug, menu }) => {
   const formatedTitle = (title) => {

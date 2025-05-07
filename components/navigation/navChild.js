@@ -3,7 +3,7 @@ import Link from "next/link";
 import classNames from "classnames";
 
 import styles from "./navChild.module.css";
-import { looksLikeVersionAndPlatformString } from "../../context/VersionContext";
+import { looksLikeVersionAndPlatformString } from "../../lib/next/utils";
 
 const NavChild = ({ slug, page, color, className }) => {
   const [manualState, setManualState] = useState(null);

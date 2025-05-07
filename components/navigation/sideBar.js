@@ -2,7 +2,7 @@ import { debounce } from "lodash";
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 
-import bus from "../../lib/bus";
+import bus from "../../lib/node/bus";
 import NavItem from "../navigation/navItem";
 
 import styles from "./sideBar.module.css";
@@ -94,7 +94,7 @@ const SideBar = ({ menu, slug }) => {
         styles.Container,
         isOpen ? styles.OpenNav : styles.ClosedNav,
         isOver ? styles.OverNav : styles.CollapsedNav,
-        isSticky === "window" && styles.WindowStickyNav
+        isSticky === "window" && styles.WindowStickyNav,
       )}
       onScroll={(e) => handleScroll(e)}
     >
@@ -104,8 +104,8 @@ const SideBar = ({ menu, slug }) => {
           isSticky === "window"
             ? styles.WindowStickyGradient
             : isSticky === "scrollbar"
-            ? styles.ScrollBarStickyGradient
-            : styles.StandardGradient
+              ? styles.ScrollBarStickyGradient
+              : styles.StandardGradient,
         )}
       />
       <nav onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
