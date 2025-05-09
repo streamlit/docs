@@ -20,70 +20,104 @@ While it is possible for you to specify an alpha value for your colors, this isn
 
 </Tip>
 
-## primaryColor
+## Default Streamlit colors
 
-`primaryColor` defines the accent color most often used throughout a Streamlit
-app. A few examples of Streamlit widgets that use `primaryColor` include
-`st.checkbox`, `st.slider`, and `st.text_input` (when focused).
+Streamlit comes with two preconfigured themes: light and dark.
 
-![Primary Color](/images/theme_config_options/primaryColor.png)
+## Color and border configuration options
 
-## backgroundColor
+Most theme configuration options can be set for your whole app, with the option to override it with a different value for the sidebar. For example, your app's primary color (`primaryColor`) is used to highlight interactive elements and show focus. If you set `theme.primaryColor`, this will change the primary color for your whole app. However, if you set `theme.sidebar.primaryColor`, this will override `theme.primaryColor` in the sidebar, allowing you to use two different primary colors.
 
-Defines the background color used in the main content area of your app.
+The following two configuration options can only be applied to the whole app:
 
-## secondaryBackgroundColor
+- `theme.base` sets the default colors for your app's theme to match one of Streamlit's two default themes (`"light"` or `"dark"`).
+- `theme.showSidebarBorder` sets the visibility of the border between the sidebar and the main body of your app.
 
-This color is used where a second background color is needed for added
-contrast. Most notably, it is the sidebar's background color. It is also used
-as the background color for most interactive widgets.
+The following configuration options can be set separately for the sidebar by using the `[theme.sidebar]` table instead of the `[theme]` table in `config.toml`:
 
-![Secondary Background Color](/images/theme_config_options/secondaryBackgroundColor.png)
+- `theme.primaryColor`
+- `theme.backgroundColor`
+- `theme.secondaryBackgroundColor`
+- `theme.textColor`
+- `theme.linkColor`
+- `theme.codeBackgroundColor`
+- `theme.baseRadius`
+- `theme.borderColor`
+- `theme.showWidgetBorder`
 
-## textColor
+### `primaryColor`
 
-This option controls the text color for most of your Streamlit app.
+`primaryColor` defines the accent color most often used throughout your Streamlit
+app. The following features and effects use your primary color:
 
-## font
+- Button hover effects.
+- Elements in focus.
+- Selected elements.
 
-Selects the font used in your Streamlit app. Valid values are `"sans serif"`,
-`"serif"`, and `"monospace"`. This option defaults to `"sans serif"` if unset
-or invalid.
+<Tip>
 
-Note that code blocks are always rendered using the monospace font regardless of
-the font selected here.
+When your primary color is used as a background, Streamlit changes the text color to white. For example, this happens for `type="primary"` buttons and for selected items in `st.multiselect`.
 
-## base
+For legibility, always choose a primary color that is dark enough to contrast well with white text.
 
-An easy way to define custom themes that make small changes to one of the
-preset Streamlit themes is to use the `base` option. Using `base`, the
-Streamlit Light theme can be recreated as a custom theme by writing the
-following:
+</Tip>
 
-```toml
-[theme]
-base="light"
-```
+### `backgroundColor`, `secondaryBackgroundColor`, and `codeBackgroundColor`
 
-The `base` option allows you to specify a preset Streamlit theme that your
-custom theme inherits from. Any theme config options not defined in your theme
-settings have their values set to those of the base theme. Valid values for
-`base` are `"light"` and `"dark"`.
+`backgroundColor` defines the background color of your app. `secondaryBackgroundColor` defines the background color where contrast is needed.
 
-For example, the following theme config defines a custom theme nearly identical
-to the Streamlit Dark theme, but with a new `primaryColor`.
+`secondaryBackgroundColor` is used in the following places:
 
-```toml
-[theme]
-base="dark"
-primaryColor="purple"
-```
+- The background of input or selection regions for widgets.
+- Headers within elements like `st.dataframe` and `st.help`.
+- Code blocks and inline code (if `codeBackgroundColor` is not set).
 
-If `base` itself is omitted, it defaults to `"light"`, so you can define a
-custom theme that changes the font of the Streamlit Light theme to serif with
-the following config
+`codeBackgroundColor` sets the background for code blocks and line code. If `codeBackgroundColor` is not set, Streamlit uses `secondaryBackgroundColor` instead.
 
-```toml
-[theme]
-font="serif"
-```
+<Note>
+
+If you do not define background colors for the sidebar, Streamlit will will swap `backgroundColor` and `secondaryBackgroundColor` in the sidebar:
+
+- If `theme.sidebar.backgroundColor` is not defined, Streamlit uses `theme.secondaryBackgroundColor`.
+- If `theme.sidebar.secondaryBackgroundColor` is not defined, Streamlit uses `theme.backgroundColor`.
+
+</Note>
+
+### `textColor` and `linkColor`
+
+You can configure color of body text and links.
+
+- `textColor` sets the default text color for all text in the app except language-highlighting in code blocks, inline code, and links.
+- `linkColor` sets the default font color for all Markdown links in the app.
+
+`st.page_link` and `st.link_button` use `textColor`, not `linkColor`. Also, as noted previously, Streamlit changes the text color to white when text is displayed on a background of your primary color.
+
+### `baseRadius`
+
+`borderRadius` defines the border radius on a varient elements. Some of these elements do not have a visible border but are still affected by this configuration options because they do have a background color. The following elements are impacted by `baseRadius`:
+
+- Buttons and input areas on widgets.
+- Code blocks and inline code.
+- Dataframes (exterior).
+- Badges and Markdown text backgrounds.
+- Containers with borders, inlcuding expanders, forms, dialogs, popovers, and toasts.
+- Tooltips, including toolips within charts.
+- Status and exception message blocks.
+- Images, including `st.graphviz` and `st.pyplot` which display as static images.
+
+A few elements are notably not impacted by `borderRadius` (except for sub-elements like tooltips). Interactive charts and videos, which have a more complex underlying HTML, will always have square corners. This includes `st.video`, `st.map`, and `st.pydeck_chart`. Conversely, `st.chat_input` and `st.audio_input` will always be fully rounded.
+
+### `borderColor` and `showWidgetBorder`
+
+Streamlit does not display widget borders by default (except for buttons). When a user focuses on a widget, the border of the input area is dispalyed in your `primaryColor`. If you set `showWidgetBorder=true`, Streamlit will display these borders when the widget is not in focus.
+
+For unfocused widgets, the border color is set by `borderColor`. If `borderColor` is not set, Streamlit infers a color by adding transparency to your `textColor`.
+
+The following elements have borders that you can modify:
+
+- Containers with borders, inlcuding expanders, forms, dialogs, popovers, and toasts.
+- The sidebar, including the right edge and the boundary below the navigation menu.
+- Dataframes and tables.
+- `st.tabs` (bottom border).
+- Buttons, including `st.button`, `st.pills`, and `st.segmented_control`.
+- Borders on input regions (if `showWidgetBorder` is true).

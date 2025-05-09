@@ -187,37 +187,6 @@ If any of your font family names contain spaces and you are declaring a fallback
 
 </Tip>
 
-## Font colors
-
-You can configure color of body text and links. These colors can be set separately for the main body of the app and the sidebar. Each of these configuration options accepts one of the following strings:
-
-- A CSS [`<named-color>`](https://developer.mozilla.org/en-US/docs/Web/CSS/named-color) like `"darkblue"` or `"maroon"`.
-- A HEX string like `"#483d8b"` or `"#6A5ACD"`.
-- An RGB string like `"rgb(106, 90, 205)"` or `"RGB(70, 130, 180)"`.
-- An HSL string like `"hsl(248, 53%, 58%)"` or `"HSL(147, 50%, 47%)"`.
-
-<Tip>
-
-While it is possible for you to specify an alpha value for your font colors, this isn't recommended. Streamlit adjusts the alpha value of your font color to ensure contextually appropriate shading on different background colors.
-
-</Tip>
-
-The following configuration is equivalent to Streamlit's default light theme:
-
-```toml
-[theme]
-textColor = "#31333F"
-linkColor = "#0068c9"
-[theme.sidebar]
-textColor = "#31333F"
-linkColor = "#0068c9"
-```
-
-- `theme.textColor` sets the default font color for all text in the app except language-highlighting in code blocks, inline code, and links.
-- `theme.linkColor` sets the default font color for all Markdown links in the app. (`st.page_link` and `st.link_button` use `theme.textColor`.)
-- `theme.sidebar.textColor` sets the default font color for all text in the sidebar except language-highlighting in code blocks, inline code, and links. If this is not set, Streamlit uses `theme.textColor` instead.
-- `theme.sidebar.linkColor` sets the default font color for all Markdown links in the sidebar. If this is not set, Streamlit uses `theme.linkColor` instead.
-
 ## Font size
 
 You can set the base font size for your app in pixels. You must specify the base font size as an integer. The following configuration is equivalent to the default base font size of 16 pixels:
@@ -226,3 +195,13 @@ You can set the base font size for your app in pixels. You must specify the base
 [theme]
 baseFontSize=16
 ```
+
+## Font colors
+
+Font color options are described in [Customize colors and borders in your Streamlit app](/develop/concepts/configuration/theming-customize-colors-and-borders).
+
+## Design tips
+
+When using alternative fonts in your Streamlit app, keep good design practices in mind. The legibility of a font is strongly influenced by its size, contrast with its background, and its shape. Streamlit lets you declare a different font for you headers from the rest of your text. If you introduce a more artistic font, try limiting it to your headers. Because `theme.font` and `theme.sidebar.font` are used to set the font in widget labels, tooltips, column headers, and dataframe cells, they should always be a highly readable font.
+
+For inspiration, see [Fonts in Use](https://fontsinuse.com/).
