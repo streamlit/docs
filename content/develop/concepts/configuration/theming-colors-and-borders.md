@@ -97,6 +97,7 @@ You can configure color of body text and links.
 `borderRadius` defines the border radius on a varient elements. Some of these elements do not have a visible border but are still affected by this configuration options because they do have a background color. The following elements are impacted by `baseRadius`:
 
 - Buttons and input areas on widgets.
+- Selection elements, including items in `st.multiselect` and the navigation menu.
 - Code blocks and inline code.
 - Dataframes (exterior).
 - Badges and Markdown text backgrounds.
