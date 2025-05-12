@@ -676,26 +676,6 @@ site_menu:
     url: /develop/tutorials/chat-and-llm-apps/chat-response-feedback
   - category: Develop / Tutorials / Chat & LLM apps / Validate and edit chat responses
     url: /develop/tutorials/chat-and-llm-apps/validate-and-edit-chat-responses
-  - category: Develop / Tutorials / Elements
-    url: /develop/tutorials/elements
-  - category: Develop / Tutorials / Elements / CHARTS
-  - category: Develop / Tutorials / Elements / Annotate an Altair chart
-    url: /develop/tutorials/elements/annotate-an-altair-chart
-  - category: Develop / Tutorials / Elements / DATAFRAMES
-  - category: Develop / Tutorials / Elements / Get dataframe row-selections
-    url: /develop/tutorials/elements/dataframe-row-selections
-  - category: Develop / Tutorials / Elements / Get dataframe row-selections (streamlit<1.35.0)
-    url: /develop/tutorials/elements/dataframe-row-selections-old
-    visible: false
-  - category: Develop / Tutorials / Execution flow
-    url: /develop/tutorials/execution-flow
-  - category: Develop / Tutorials / Execution flow / FRAGMENTS
-  - category: Develop / Tutorials / Execution flow / Rerun your app from a fragment
-    url: /develop/tutorials/execution-flow/trigger-a-full-script-rerun-from-a-fragment
-  - category: Develop / Tutorials / Execution flow / Create a multiple-container fragment
-    url: /develop/tutorials/execution-flow/create-a-multiple-container-fragment
-  - category: Develop / Tutorials / Execution flow / Start and stop a streaming fragment
-    url: /develop/tutorials/execution-flow/start-and-stop-fragment-auto-reruns
   - category: Develop / Tutorials / Configuration & theming
     url: /develop/tutorials/configuration-and-theming
   - category: Develop / Tutorials / Configuration & theming / Use static font files
@@ -736,6 +716,26 @@ site_menu:
     url: /develop/tutorials/databases/tidb
   - category: Develop / Tutorials / Connect to data sources / TigerGraph
     url: /develop/tutorials/databases/tigergraph
+  - category: Develop / Tutorials / Elements
+    url: /develop/tutorials/elements
+  - category: Develop / Tutorials / Elements / CHARTS
+  - category: Develop / Tutorials / Elements / Annotate an Altair chart
+    url: /develop/tutorials/elements/annotate-an-altair-chart
+  - category: Develop / Tutorials / Elements / DATAFRAMES
+  - category: Develop / Tutorials / Elements / Get dataframe row-selections
+    url: /develop/tutorials/elements/dataframe-row-selections
+  - category: Develop / Tutorials / Elements / Get dataframe row-selections (streamlit<1.35.0)
+    url: /develop/tutorials/elements/dataframe-row-selections-old
+    visible: false
+  - category: Develop / Tutorials / Execution flow
+    url: /develop/tutorials/execution-flow
+  - category: Develop / Tutorials / Execution flow / FRAGMENTS
+  - category: Develop / Tutorials / Execution flow / Rerun your app from a fragment
+    url: /develop/tutorials/execution-flow/trigger-a-full-script-rerun-from-a-fragment
+  - category: Develop / Tutorials / Execution flow / Create a multiple-container fragment
+    url: /develop/tutorials/execution-flow/create-a-multiple-container-fragment
+  - category: Develop / Tutorials / Execution flow / Start and stop a streaming fragment
+    url: /develop/tutorials/execution-flow/start-and-stop-fragment-auto-reruns
   - category: Develop / Tutorials / Multipage apps
     url: /develop/tutorials/multipage
   - category: Develop / Tutorials / Multipage apps / Dynamic navigation

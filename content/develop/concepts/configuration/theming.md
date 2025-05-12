@@ -7,12 +7,12 @@ slug: /develop/concepts/configuration/theming
 
 In this guide, we provide an overview of theming and visual customization of Streamlit apps. Streamlit themes are defined using configuration options, which are most commonly defined in a `.streamlit/config.toml` file. For more information on setting configuration options, see [Working with configuration options](/develop/concepts/configuration/options).
 
-With Streamlit theme configuration, you can configure the following options for your app:
+The following options can be set once for your whole app:
 
 - **Base color scheme**: Set your custom theme to inherit from Streamlit's light or dark theme.
 - **Font size**: Set the base font size for your app.
 
-Separately for the main body of your app and the sidebar, you can configure the following options:
+The following options can be configured separately for the main body of your app and the sidebar:
 
 - **Font**: Set the font family for body text, headers, and code.
 - **Text color**: Set the color of body text and links.

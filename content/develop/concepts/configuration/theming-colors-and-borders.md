@@ -22,7 +22,7 @@ While it is possible for you to specify an alpha value for your colors, this isn
 
 ## Default Streamlit colors
 
-Streamlit comes with two preconfigured themes: light and dark.
+Streamlit comes with two preconfigured themes: light and dark. If you don't specify a theme, for each user, Streamlit will attempt to use the preconfigured theme that best matches their browser settings.
 
 ## Color and border configuration options
 
@@ -44,6 +44,8 @@ The following configuration options can be set separately for the sidebar by usi
 - `theme.baseRadius`
 - `theme.borderColor`
 - `theme.showWidgetBorder`
+
+For brevity, on the rest of this page, theming configuration options will not include the `theme.` or `theme.sidebar.` prefix.
 
 ### `primaryColor`
 
@@ -85,7 +87,7 @@ If you do not define background colors for the sidebar, Streamlit will will swap
 
 ### `textColor` and `linkColor`
 
-You can configure color of body text and links.
+You can configure the color of body text and links.
 
 - `textColor` sets the default text color for all text in the app except language-highlighting in code blocks, inline code, and links.
 - `linkColor` sets the default font color for all Markdown links in the app.
@@ -94,13 +96,13 @@ You can configure color of body text and links.
 
 ### `baseRadius`
 
-`borderRadius` defines the border radius on a varient elements. Some of these elements do not have a visible border but are still affected by this configuration options because they do have a background color. The following elements are impacted by `baseRadius`:
+`borderRadius` defines the border radius on a variety of elements. Some of these elements do not have a visible border but are still affected by this configuration options because they do have a background color. The following elements are impacted by `baseRadius`:
 
 - Buttons and input areas on widgets.
-- Selection elements, including items in `st.multiselect` and the navigation menu.
+- Selected items, including items in `st.multiselect` and the navigation menu.
 - Code blocks and inline code.
 - Dataframes (exterior).
-- Badges and Markdown text backgrounds.
+- Badges and Markdown-text backgrounds.
 - Containers with borders, inlcuding expanders, forms, dialogs, popovers, and toasts.
 - Tooltips, including toolips within charts.
 - Status and exception message blocks.
@@ -110,9 +112,9 @@ A few elements are notably not impacted by `borderRadius` (except for sub-elemen
 
 ### `borderColor` and `showWidgetBorder`
 
-Streamlit does not display widget borders by default (except for buttons). When a user focuses on a widget, the border of the input area is dispalyed in your `primaryColor`. If you set `showWidgetBorder=true`, Streamlit will display these borders when the widget is not in focus.
+Streamlit does not display borders for unfocused widgets by default (except for buttons). When a user focuses on a widget, Streamlit displays a border around the input area in your `primaryColor`. When the user removes focus, Streamlit hides the border.
 
-For unfocused widgets, the border color is set by `borderColor`. If `borderColor` is not set, Streamlit infers a color by adding transparency to your `textColor`.
+If you set `showWidgetBorder=true`, Streamlit will display widget borders when the widget is not in focus. For unfocused widgets, the border color is set by `borderColor`. If `borderColor` is not set, Streamlit infers a color by adding transparency to your `textColor`.
 
 The following elements have borders that you can modify:
 
@@ -121,4 +123,4 @@ The following elements have borders that you can modify:
 - Dataframes and tables.
 - `st.tabs` (bottom border).
 - Buttons, including `st.button`, `st.pills`, and `st.segmented_control`.
-- Borders on input regions (if `showWidgetBorder` is true).
+- Borders on input regions.

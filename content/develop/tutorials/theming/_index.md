@@ -11,7 +11,7 @@ slug: /develop/tutorials/configuration-and-theming
 
 <h5>Use static font files to customize your font</h5>
 
-Make a new font available to your app. The tutorial uses static font files to define an alternative font.
+Make a new font available to your app. This tutorial uses static font files to define an alternative font.
 
 </RefCard>
 
@@ -19,7 +19,7 @@ Make a new font available to your app. The tutorial uses static font files to de
 
 <h5>Use variable font files to customize your font</h5>
 
-Make a new font available to your app. The tutorial uses variable font files to define an alternative font.
+Make a new font available to your app. This tutorial uses variable font files to define an alternative font.
 
 </RefCard>
 

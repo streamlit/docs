@@ -5,7 +5,7 @@ slug: /develop/concepts/configuration
 
 # Configure and customize your app
 
-<TileContainer layout="list">
+<TileContainer>
 
 <RefCard href="/develop/concepts/configuration/options">
 
@@ -31,11 +31,33 @@ Understand how to host files alongside your app to make them accessible by URL. 
 
 </RefCard>
 
+</TileContainer>
+
+## Theming
+
+<TileContainer>
+
 <RefCard href="/develop/concepts/configuration/theming">
 
 <h5>Theming</h5>
 
-Understand how to use the theming configuration options to customize the color and appearance of your app.
+Understand how you can use theming configuration options to customize the appearance of your app.
+
+</RefCard>
+
+<RefCard href="/develop/concepts/configuration/theming-customize-colors-and-borders">
+
+<h5>Customize colors and borders</h5>
+
+Understand the theming configuration options for customizing your app's color scheme.
+
+</RefCard>
+
+<RefCard href="/develop/concepts/configuration/theming-customize-fonts">
+
+<h5>Customize fonts</h5>
+
+Understand the theming configuration options for customizing your app's font.
 
 </RefCard>
 

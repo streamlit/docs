@@ -109,14 +109,14 @@ project_directory/
 
 ### Example 2: Define an alternative font with static font files
 
-In this configuration example, an alternative font is declared with multiple static font files. For each font,four static files are needed to define the following weight-style pairs:
+In this configuration example, an alternative font is declared with multiple static font files. For each font, four static files are needed to define the following weight-style pairs:
 
 - normal normal
 - normal bold
 - italic normal
 - italic bold
 
-If one of the files is missing and you try to use its associate weight and style in your app, the user's browser will use the closest font that is available. The following example uses [Tuffy](https://fonts.google.com/specimen/Tuffy) font. The font has four static font files which cover the four weight-style pairs mentioned previously.
+If one of the files is missing and you try to use its associated weight and style in your app, the user's browser will use the closest font that is available. The following example uses [Tuffy](https://fonts.google.com/specimen/Tuffy) font. The font has four static font files which cover the four weight-style pairs mentioned previously.
 
 A line-by-line explanation of this example is available in a [tutorial](/develop/tutorials/configuration-and-theming/static-fonts).
 
@@ -167,7 +167,13 @@ project_directory/
 
 ### Example 3: Define an alternative font with fallbacks
 
-If you don't want to download and host your font files with your app, you can point to externally hosted font files. If your files aren't host with your app, it's recommended to declare fallback fonts.
+If you don't want to download and host your font files with your app, you can point to externally hosted font files. If your files aren't hosted with your app, it's recommended to declare fallback fonts.
+
+<Important>
+
+If you configure your app to include any third-party integrations, including externally hosted fonts, your app may transmit user data (for example, IP addresses) to external servers. As the app developer, you are solely responsible for notifying your users about these third-party integrations, providing access to relevant privacy policies, and ensuring compliance with all applicable data protection laws and regulations.
+
+</Important>
 
 In your configuration file, wherever you declare a default font, you can use a comma-separated list of fonts instead. You can always include one of Streamlit's default fonts as a final fallback.
 
@@ -198,10 +204,10 @@ baseFontSize=16
 
 ## Font colors
 
-Font color options are described in [Customize colors and borders in your Streamlit app](/develop/concepts/configuration/theming-customize-colors-and-borders).
+Font color options are described in [Customize colors and borders in your Streamlit app](/develop/concepts/configuration/theming-customize-colors-and-borders#textcolor-and-linkcolor).
 
 ## Design tips
 
-When using alternative fonts in your Streamlit app, keep good design practices in mind. The legibility of a font is strongly influenced by its size, contrast with its background, and its shape. Streamlit lets you declare a different font for you headers from the rest of your text. If you introduce a more artistic font, try limiting it to your headers. Because `theme.font` and `theme.sidebar.font` are used to set the font in widget labels, tooltips, column headers, and dataframe cells, they should always be a highly readable font.
+When using alternative fonts in your Streamlit app, keep good design practices in mind. The legibility of a font is strongly influenced by its size, contrast with its background, and its shape. Streamlit lets you declare a different font for your headers from the rest of your text. If you introduce a more elaborate font, limit it to your headers. Because `theme.font` and `theme.sidebar.font` are used to set the font in widget labels, tooltips, column headers, and dataframe cells, they should always be a highly readable font.
 
 For inspiration, see [Fonts in Use](https://fontsinuse.com/).
