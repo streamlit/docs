@@ -186,9 +186,7 @@ cookie_secret = "xxx"
 [auth.auth0]
 client_id = "xxx"
 client_secret = "xxx"
-server_metadata_url = (
-    "https://{account}.{region}.auth0.com/.well-known/openid-configuration"
-)
+server_metadata_url = "https://{account}.{region}.auth0.com/.well-known/openid-configuration"
 client_kwargs = { "prompt" = "login" }
 ```
 
