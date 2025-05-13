@@ -84,9 +84,7 @@ redirect_uri = "http://localhost:8501/oauth2callback"
 cookie_secret = "xxx"
 client_id = "xxx"
 client_secret = "xxx"
-server_metadata_url = (
-    "https://accounts.google.com/.well-known/openid-configuration"
-)
+server_metadata_url = "https://accounts.google.com/.well-known/openid-configuration"
 ```
 
 Make sure the port in `redirect_uri` matches the port you are using. The `cookie_secret` should be a strong, randomly generated secret. Both the `redirect_uri` and `cookie_secret` should have been entered into your client configuration on Google Cloud. You must copy the `client_id` and `client_secret` from Google Cloud after you create your client. For some identity providers, `server_metadata_url` may be unique to your client. However, for Google Cloud, a single URL is shared for OIDC clients.
@@ -133,16 +131,12 @@ cookie_secret = "xxx"
 [auth.google]
 client_id = "xxx"
 client_secret = "xxx"
-server_metadata_url = (
-    "https://accounts.google.com/.well-known/openid-configuration"
-)
+server_metadata_url = "https://accounts.google.com/.well-known/openid-configuration"
 
 [auth.microsoft]
 client_id = "xxx"
 client_secret = "xxx"
-server_metadata_url = (
-    "https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration"
-)
+server_metadata_url = "https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration"
 ```
 
 Microsoft's server metadata URL varies slightly depending on how your client is scoped. Replace `{tenant}` with the appropriate value described in Microsoft's documentation for [OpenID configuration](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc#find-your-apps-openid-configuration-document-uri).
@@ -192,8 +186,10 @@ cookie_secret = "xxx"
 [auth.auth0]
 client_id = "xxx"
 client_secret = "xxx"
-server_metadata_url = (
-    "https://{account}.{region}.auth0.com/.well-known/openid-configuration"
-)
+server_metadata_url = "https://{account}.{region}.auth0.com/.well-known/openid-configuration"
 client_kwargs = { "prompt" = "login" }
 ```
+
+<Note>
+  Hosted Code environments such as GitHub Codespaces have additional security controls in place preventing the login redirect to be handled properly.
+</Note>
