@@ -1,0 +1,32 @@
+
+[theme]
+base = "dark"
+baseFontSize = 16
+showSidebarBorder = true
+
+primaryColor = "#CCA702"
+backgroundColor = "#1E1E1E"
+secondaryBackgroundColor = "#333333"
+textColor = "#D4D4D4"
+linkColor = "#3B8FE9"
+codeBackgroundColor = "#252526"
+font = "SpaceGrotesk"
+codeFont = "SpaceMono"
+headingFont = "SpaceGrotesk"
+baseRadius = ".2rem"
+borderColor = "#73C990"
+showWidgetBorder = false
+
+[theme.sidebar]
+primaryColor = "#CC3E44"
+backgroundColor = "#333333"
+secondaryBackgroundColor = "#333333"
+textColor = "#D4D4D4"
+linkColor = "#3B8FE9"
+codeBackgroundColor = "#252526"
+font = "SpaceGrotesk"
+codeFont = "SpaceMono"
+headingFont = "SpaceGrotesk"
+baseRadius = ".2rem"
+borderColor = "#73C990"
+showWidgetBorder = true

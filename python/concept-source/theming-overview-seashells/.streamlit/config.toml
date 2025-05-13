@@ -1,0 +1,41 @@
+[server]
+enableStaticServing = true
+
+[[theme.fontFaces]]
+family = "PlaywriteUSModern"
+url = "/app/static/PlaywriteUSModern-VariableFont_wght.ttf"
+style = "normal"
+
+[[theme.fontFaces]]
+family = "Quicksand"
+url = "/app/static/Quicksand-VariableFont_wght.ttf"
+style = "normal"
+
+[[theme.fontFaces]]
+family = "Sono"
+url = "/app/static/Sono-VariableFont_MONO,wght.ttf"
+style = "normal"
+
+
+[theme]
+base = "light"
+baseFontSize = 20
+showSidebarBorder = false
+
+primaryColor = "#46B4DB"
+backgroundColor = "#EDFBFF"
+secondaryBackgroundColor = "#D4EAF2"
+textColor = "#0E1B27"
+linkColor = "#6F768E"
+codeBackgroundColor = "#E0ECF7"
+font = "Quicksand"
+codeFont = "Sono"
+headingFont = "PlaywriteUSModern"
+baseRadius = "1.5rem"
+borderColor = "#2D3348"
+showWidgetBorder = false
+
+[theme.sidebar]
+primaryColor = "#566271"
+backgroundColor = "#D3E1F3"
+secondaryBackgroundColor = "#EDFBFF"

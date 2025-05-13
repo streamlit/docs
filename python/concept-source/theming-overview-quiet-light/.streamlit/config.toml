@@ -1,0 +1,49 @@
+[server]
+enableStaticServing = true
+
+[[theme.fontFaces]]
+family = "DMSans"
+url = "app/static/DMSans-Italic-VariableFont_opsz,wght.ttf"
+style = "italic"
+
+[[theme.fontFaces]]
+family = "DMSans"
+url = "app/static/DMSans-VariableFont_opsz,wght.ttf"
+style = "normal"
+
+[[theme.fontFaces]]
+family = "DMMono"
+url = "app/static/DMMono-Italic.ttf"
+style = "italic"
+
+[[theme.fontFaces]]
+family = "DMMono"
+url = "app/static/DMMono-Regular.ttf"
+style = "normal"
+
+[[theme.fontFaces]]
+family = "DMSansHeader"
+url = "app/static/DMSans-SemiBold.ttf"
+style = "normal"
+
+[theme]
+base = "light"
+baseFontSize = 16
+showSidebarBorder = true
+
+primaryColor = "#705697"
+backgroundColor = "#F5F5F5"
+secondaryBackgroundColor = "#EDE8EF"
+textColor = "#333333"
+linkColor = "#0251A5"
+codeBackgroundColor = "#ECECEC"
+font = "DMSans"
+headingFont = "DMSansHeader"
+codeFont = "DMMono"
+borderColor = "#D6CFE1"
+
+
+[theme.sidebar]
+backgroundColor = "#F2F2F2"
+secondaryBackgroundColor = "#D2DBCD"
+textColor = "#616161"

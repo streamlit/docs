@@ -1,0 +1,9 @@
+[theme]
+base="dark"
+backgroundColor="#162025"
+secondaryBackgroundColor="indigo"
+codeBackgroundColor="darkslategrey"
+
+[theme.sidebar]
+backgroundColor="#253137"
+secondaryBackgroundColor="darkgoldenrod"
