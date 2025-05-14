@@ -1,0 +1,5 @@
+[theme]
+borderRadius="full"
+
+[theme.sidebar]
+borderRadius="none"
