@@ -19,7 +19,7 @@ Streamlit Components let you expand the functionality provided in the base Strea
 
 **Types of Streamlit Components you could create include:**
 
-- Custom versions of existing Streamlit elements and widgets, such as `st.slider` or `st.file_uploader`.
+- Create your own components to use in place of existing Streamlit elements and widgets.
 - Completely new Streamlit elements and widgets by wrapping existing React.js, Vue.js, or other JavaScript widget toolkits.
 - Rendering Python objects having methods that output HTML, such as IPython [`__repr_html__`](https://ipython.readthedocs.io/en/stable/config/integrating.html#rich-display).
 - Convenience functions for commonly-used web features like [GitHub gists and Pastebin](https://github.com/randyzwitch/streamlit-embedcode).
