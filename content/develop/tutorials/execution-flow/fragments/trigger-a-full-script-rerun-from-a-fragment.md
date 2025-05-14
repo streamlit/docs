@@ -489,7 +489,6 @@ Now, you have a functioning app that uses a fragment to prevent unnecessarily re
        if "previous_date" not in st.session_state:
            st.session_state.previous_date = selected_date
        previous_date = st.session_state.previous_date
-       previous_date = st.session_state.previous_date
        st.session_state.previous_date = selected_date
        is_new_month = selected_date.replace(day=1) != previous_date.replace(day=1)
        if is_new_month:

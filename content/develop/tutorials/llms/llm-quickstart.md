@@ -103,7 +103,7 @@ To start, create a new Python file and save it as `streamlit_app.py` in the roo
 
    ```python
    def generate_response(input_text):
-   model = ChatOpenAI(temperature=0.7, api_key=openai_api_key)
+       model = ChatOpenAI(temperature=0.7, api_key=openai_api_key)
        st.info(model.invoke(input_text))
    ```
 
