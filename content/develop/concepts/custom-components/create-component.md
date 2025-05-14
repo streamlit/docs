@@ -21,7 +21,7 @@ Streamlit Components let you expand the functionality provided in the base Strea
 
 - Create your own components to use in place of existing Streamlit elements and widgets.
 - Create completely new Streamlit elements and widgets by wrapping existing React.js, Vue.js, or other JavaScript widget toolkits.
-- Render Python objects by constructing HTML representations.
+- Render Python objects by constructing HTML representations and styling them to fit your app's theme.
 - Create convenience functions to embed commonly-used web features like [GitHub gists and Pastebin](https://github.com/randyzwitch/streamlit-embedcode).
 
 Check out these Streamlit Components tutorial videos by Streamlit engineer Tim Conkling to get started:
