@@ -5,7 +5,7 @@ slug: /develop/concepts/configuration/theming
 
 # Theming overview
 
-In this guide, we provide an overview of theming and visual customization of Streamlit apps. Streamlit themes are defined using configuration options, which are most commonly defined in a `.streamlit/config.toml` file. For more information on setting configuration options, see [Working with configuration options](/develop/concepts/configuration/options).
+In this guide, we provide an overview of theming and visual customization of Streamlit apps. Streamlit themes are defined using configuration options, which are most commonly defined in a `.streamlit/config.toml` file. For more information on setting configuration options, see [Working with configuration options](/develop/concepts/configuration/options). For a complete list configuration options and definitions, see the API reference for [config.toml](/develop/api-reference/configuration/config.toml#theme).
 
 The following options can be set once for your whole app:
 
@@ -16,12 +16,16 @@ The following options can be configured separately for the main body of your app
 
 - **Font**: Set the font family for body text, headers, and code.
 - **Text color**: Set the color of body text and links.
-- **Accent color**: Set the color of interactive elements and highlights.
+- **Primary color**: Set the color of interactive elements and highlights.
 - **Background color**: Set the color of app, widget, and code block backgrounds.
 - **Border radii**: Set the roundness of elements and widgets.
 - **Border color**: Set the color and visibility of element, widget, and sidebar borders.
 
 ## Example themes
+
+<Cloud name="doc-theming-overview-solarized-light" height="500px" />
+
+<Cloud name="doc-theming-overview-abyss" height="500px" />
 
 ## Working with theme configuration during development
 
