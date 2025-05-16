@@ -137,21 +137,20 @@ As noted previously, Streamlit changes the text color to white when text is disp
 
 #### Example 3: Text colors
 
-The following configuration example has `"gold"` text and `"aqua"` links. For contrast, it has a `"dark"` base and `"fuchsia"` primary color. Buttons (including `st.link_button`) use the `"gold"` text color. If you open a multiselect widget, the options are also `"gold"`. If you hover over the sidebar, the scrollbar and collapse icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>chevron_left</i>) are `"gold"`.
+The following configuration example has `"darkGoldenrod"` text and `"darkOrchid"` links on a `"dark"` base. Buttons (including `st.link_button`) use the `"darkGoldenrod"` text color. In the multiselect widget, the placehoder text, drop-down menu, and tooltip all have `"darkGoldenrod"` text. If you hover over the sidebar, the scrollbar and collapse icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>chevron_left</i>) are `"darkGoldenrod"`.
 
 ```toml
 [theme]
 base="dark"
-primaryColor="fuchsia"
-textColor="gold"
-linkColor="aqua"
+textColor="darkGoldenrod"
+linkColor="darkOrchid"
 ```
 
 <Cloud name="doc-theming-color-textcolor" height="400px" />
 
 ### `baseRadius`
 
-`borderRadius` defines the radius of borders and backgrounds for various of elements. The following elements are impacted by `baseRadius`:
+`baseRadius` defines the radius of borders and backgrounds for various of elements. The following elements are impacted by `baseRadius`:
 
 - Buttons and input areas on widgets.
 - Selected items, including items in `st.multiselect` and the navigation menu.
@@ -163,11 +162,25 @@ linkColor="aqua"
 - Status and exception message blocks.
 - Images, including `st.graphviz` and `st.pyplot` which display as static images.
 
-A few elements are notably not impacted by `borderRadius` (except for sub-elements like tooltips). Interactive charts and videos, which have a more complex underlying HTML, will always have square corners. This includes `st.video`, `st.map`, and `st.pydeck_chart`. Conversely, `st.chat_input` and `st.audio_input` will always be fully rounded.
+A few elements are notably not impacted by `baseRadius` (except for sub-elements like tooltips). Interactive charts and videos, which have a more complex underlying HTML, will always have square corners. This includes `st.video`, `st.map`, and `st.pydeck_chart`. Conversely, `st.chat_input` and `st.audio_input` will always be fully rounded.
 
 #### Example 4: Border radius
 
-<Cloud name="doc-theming-color-borderradius" height="400px" />
+```toml
+[theme]
+base="light"
+primaryColor="slateBlue"
+backgroundColor="mintCream"
+secondaryBackgroundColor="darkSeaGreen"
+baseRadius="full"
+
+[theme.sidebar]
+backgroundColor="aliceBlue"
+secondaryBackgroundColor="skyBlue"
+baseRadius="none"
+```
+
+<Cloud name="doc-theming-color-baseradius" height="400px" />
 
 ### `borderColor` and `showWidgetBorder`
 
