@@ -180,7 +180,7 @@ secondaryBackgroundColor="skyBlue"
 baseRadius="none"
 ```
 
-<Cloud name="doc-theming-color-baseradius" height="400px" />
+<Cloud name="doc-theming-color-baseradius" height="500px" />
 
 ### `borderColor` and `showWidgetBorder`
 
