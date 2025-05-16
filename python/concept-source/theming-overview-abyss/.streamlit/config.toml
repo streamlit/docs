@@ -1,0 +1,48 @@
+[server]
+enableStaticServing = true
+
+[[theme.fontFaces]]
+family = "Rubik"
+url = "app/static/Rubik-VariableFont_wght.ttf"
+style = "normal"
+weight = 400
+
+[[theme.fontFaces]]
+family = "Rubik"
+url = "app/static/Rubik-Italic-VariableFont_wght.ttf"
+style = "normal"
+weight = 700
+
+[[theme.fontFaces]]
+family = "Norse"
+url = "app/static/Norse.otf"
+style = "normal"
+weight = 400
+
+[[theme.fontFaces]]
+family = "Norse"
+url = "app/static/NorseBold.otf"
+style = "normal"
+weight = 700
+
+[theme]
+base = "dark"
+baseFontSize = 18
+showSidebarBorder = true
+
+primaryColor = "#771210"
+backgroundColor = "#000C18"
+secondaryBackgroundColor = "#082050"
+textColor = "#6688CC"
+linkColor = "#D1F1AA"
+font = "Rubik"
+headingFont = "Norse"
+borderColor = ""
+
+
+[theme.sidebar]
+primaryColor = "#596F99"
+backgroundColor = "#060621"
+secondaryBackgroundColor = "#152037"
+textColor = "#74C991"
+showWidgetBorder = true

@@ -1,0 +1,23 @@
+[server]
+enableStaticServing = true
+
+
+[theme]
+base = "dark"
+baseFontSize = 14
+showSidebarBorder = true
+
+primaryColor = "#6A6AF6"
+backgroundColor = "#000000"
+secondaryBackgroundColor = "#000000"
+textColor = "white"
+linkColor = "#04CD00"
+codeBackgroundColor = "#272727"
+font = "monospace"
+baseRadius = "0rem"
+borderColor = "#F38518"
+showWidgetBorder = true
+
+
+[theme.sidebar]
+textColor = "#74C991"

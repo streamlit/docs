@@ -1,0 +1,42 @@
+[server]
+enableStaticServing = true
+
+[[theme.fontFaces]]
+family = "LibreFranklin"
+url = "app/static/LibreFranklin-Italic-VariableFont_wght.ttf"
+style = "italic"
+
+[[theme.fontFaces]]
+family = "LibreFranklin"
+url = "app/static/LibreFranklin-VariableFont_wght.ttf"
+style = "normal"
+
+[[theme.fontFaces]]
+family = "LibreFranklinHeader"
+url = "app/static/LibreFranklin-Medium.ttf"
+style = "normal"
+weight = 700
+
+
+[theme]
+base = "light"
+baseFontSize = 14
+showSidebarBorder = false
+
+primaryColor = "#B58901"
+backgroundColor = "#FDF6E3"
+secondaryBackgroundColor = "#EEE8D5"
+textColor = "#657B83"
+linkColor = "#1E71AA"
+codeBackgroundColor = "#EEE8D5"
+font = "LibreFranklin"
+headingFont = "LibreFranklinHeader"
+borderColor = "#D3D3D3"
+
+
+[theme.sidebar]
+backgroundColor = "#EEE8D5"
+secondaryBackgroundColor = "#D1CBB8"
+textColor = "#616161"
+codeBackgroundColor = "#D1CBB8"
+borderColor = "#A9A9A9"

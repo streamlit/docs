@@ -1,0 +1,7 @@
+[theme]
+primaryColor=
+borderColor=
+showWidgetBorder=false
+
+[theme.sidebar]
+showWidgetBorder=true
