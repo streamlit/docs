@@ -112,8 +112,13 @@ site_menu:
     url: /develop/concepts/configuration/https-support
   - category: Develop / Concepts / Configuration & theming / Serving static files
     url: /develop/concepts/configuration/serving-static-files
+  - category: Develop / Concepts / Configuration & theming / THEMING
   - category: Develop / Concepts / Configuration & theming / Customize your theme
     url: /develop/concepts/configuration/theming
+  - category: Develop / Concepts / Configuration & theming / Customize colors & borders
+    url: /develop/concepts/configuration/theming-customize-colors-and-borders
+  - category: Develop / Concepts / Configuration & theming / Customize fonts
+    url: /develop/concepts/configuration/theming-customize-fonts
   - category: Develop / Concepts / App testing
     url: /develop/concepts/app-testing
   - category: Develop / Concepts / App testing / Get started
@@ -661,26 +666,22 @@ site_menu:
     url: /develop/tutorials/authentication/google
   - category: Develop / Tutorials / Authentication & personalization / Microsoft Entra
     url: /develop/tutorials/authentication/microsoft
-  - category: Develop / Tutorials / Elements
-    url: /develop/tutorials/elements
-  - category: Develop / Tutorials / Elements / CHARTS
-  - category: Develop / Tutorials / Elements / Annotate an Altair chart
-    url: /develop/tutorials/elements/annotate-an-altair-chart
-  - category: Develop / Tutorials / Elements / DATAFRAMES
-  - category: Develop / Tutorials / Elements / Get dataframe row-selections
-    url: /develop/tutorials/elements/dataframe-row-selections
-  - category: Develop / Tutorials / Elements / Get dataframe row-selections (streamlit<1.35.0)
-    url: /develop/tutorials/elements/dataframe-row-selections-old
-    visible: false
-  - category: Develop / Tutorials / Execution flow
-    url: /develop/tutorials/execution-flow
-  - category: Develop / Tutorials / Execution flow / FRAGMENTS
-  - category: Develop / Tutorials / Execution flow / Rerun your app from a fragment
-    url: /develop/tutorials/execution-flow/trigger-a-full-script-rerun-from-a-fragment
-  - category: Develop / Tutorials / Execution flow / Create a multiple-container fragment
-    url: /develop/tutorials/execution-flow/create-a-multiple-container-fragment
-  - category: Develop / Tutorials / Execution flow / Start and stop a streaming fragment
-    url: /develop/tutorials/execution-flow/start-and-stop-fragment-auto-reruns
+  - category: Develop / Tutorials / Chat & LLM apps
+    url: /develop/tutorials/chat-and-llm-apps
+  - category: Develop / Tutorials / Chat & LLM apps / Build a basic LLM chat app
+    url: /develop/tutorials/chat-and-llm-apps/build-conversational-apps
+  - category: Develop / Tutorials / Chat & LLM apps / Build an LLM app using LangChain
+    url: /develop/tutorials/chat-and-llm-apps/llm-quickstart
+  - category: Develop / Tutorials / Chat & LLM apps / Get chat response feedback
+    url: /develop/tutorials/chat-and-llm-apps/chat-response-feedback
+  - category: Develop / Tutorials / Chat & LLM apps / Validate and edit chat responses
+    url: /develop/tutorials/chat-and-llm-apps/validate-and-edit-chat-responses
+  - category: Develop / Tutorials / Configuration & theming
+    url: /develop/tutorials/configuration-and-theming
+  - category: Develop / Tutorials / Configuration & theming / Use static font files
+    url: /develop/tutorials/configuration-and-theming/static-fonts
+  - category: Develop / Tutorials / Configuration & theming / Use variable font files
+    url: /develop/tutorials/configuration-and-theming/variable-fonts
   - category: Develop / Tutorials / Connect to data sources
     url: /develop/tutorials/databases
   - category: Develop / Tutorials / Connect to data sources / AWS S3
@@ -715,6 +716,26 @@ site_menu:
     url: /develop/tutorials/databases/tidb
   - category: Develop / Tutorials / Connect to data sources / TigerGraph
     url: /develop/tutorials/databases/tigergraph
+  - category: Develop / Tutorials / Elements
+    url: /develop/tutorials/elements
+  - category: Develop / Tutorials / Elements / CHARTS
+  - category: Develop / Tutorials / Elements / Annotate an Altair chart
+    url: /develop/tutorials/elements/annotate-an-altair-chart
+  - category: Develop / Tutorials / Elements / DATAFRAMES
+  - category: Develop / Tutorials / Elements / Get dataframe row-selections
+    url: /develop/tutorials/elements/dataframe-row-selections
+  - category: Develop / Tutorials / Elements / Get dataframe row-selections (streamlit<1.35.0)
+    url: /develop/tutorials/elements/dataframe-row-selections-old
+    visible: false
+  - category: Develop / Tutorials / Execution flow
+    url: /develop/tutorials/execution-flow
+  - category: Develop / Tutorials / Execution flow / FRAGMENTS
+  - category: Develop / Tutorials / Execution flow / Rerun your app from a fragment
+    url: /develop/tutorials/execution-flow/trigger-a-full-script-rerun-from-a-fragment
+  - category: Develop / Tutorials / Execution flow / Create a multiple-container fragment
+    url: /develop/tutorials/execution-flow/create-a-multiple-container-fragment
+  - category: Develop / Tutorials / Execution flow / Start and stop a streaming fragment
+    url: /develop/tutorials/execution-flow/start-and-stop-fragment-auto-reruns
   - category: Develop / Tutorials / Multipage apps
     url: /develop/tutorials/multipage
   - category: Develop / Tutorials / Multipage apps / Dynamic navigation
@@ -722,16 +743,6 @@ site_menu:
   - category: Develop / Tutorials / Multipage apps / Build navigation with st.page_link
     url: /develop/tutorials/multipage/st.page_link-nav
     visible: false
-  - category: Develop / Tutorials / Chat & LLM apps
-    url: /develop/tutorials/chat-and-llm-apps
-  - category: Develop / Tutorials / Chat & LLM apps / Build a basic LLM chat app
-    url: /develop/tutorials/chat-and-llm-apps/build-conversational-apps
-  - category: Develop / Tutorials / Chat & LLM apps / Build an LLM app using LangChain
-    url: /develop/tutorials/chat-and-llm-apps/llm-quickstart
-  - category: Develop / Tutorials / Chat & LLM apps / Get chat response feedback
-    url: /develop/tutorials/chat-and-llm-apps/chat-response-feedback
-  - category: Develop / Tutorials / Chat & LLM apps / Validate and edit chat responses
-    url: /develop/tutorials/chat-and-llm-apps/validate-and-edit-chat-responses
   - category: Develop / Quick reference
     url: /develop/quick-reference
   - category: Develop / Quick reference / Cheat sheet
