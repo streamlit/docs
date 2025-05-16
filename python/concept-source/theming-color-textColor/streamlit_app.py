@@ -6,7 +6,7 @@ st.markdown(
     """
 )
 st.code("""import streamlit as st\n\nst.write("Hello World!")""")
-st.multiselect("Multiselect", ["A", "B", "C"])
+st.multiselect("Multiselect", ["A", "B", "C"], help="This is a tooltip.")
 cols = st.columns(3)
 with cols[0]:
     st.button("Primary button", type="primary")
