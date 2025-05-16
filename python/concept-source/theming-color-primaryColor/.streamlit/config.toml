@@ -1,6 +1,6 @@
 [theme]
 base="dark"
-primaryColor="forestgreen"
+primaryColor="forestGreen"
 
 [theme.sidebar]
-primaryColor="darkgoldenrod"
+primaryColor="darkGoldenrod"

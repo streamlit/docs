@@ -6,17 +6,17 @@ st.markdown(
     """
 )
 st.code("""import streamlit as st\n\nst.write("Hello World!")""")
-st.multiselect("Widgets", ["A", "B", "C"])
+st.multiselect("Multiselect", ["A", "B", "C"])
 cols = st.columns(3)
 with cols[0]:
-    st.button("CLICK ME!", type="primary")
+    st.button("Primary button", type="primary")
 with cols[1]:
-    st.button("Click me!")
+    st.button("Secondary button")
 with cols[2]:
-    st.link_button("Streamlit Docs", "https://docs.streamlit.io")
+    st.link_button("Link button", "https://docs.streamlit.io", icon=":material/open_in_new:")
 
 with st.sidebar:
     st.number_input("Count", 0, 100, 50)
     st.feedback("faces")
-    st.segmented_control("Gadgets", ["A", "B", "C"], default="B")
-    st.pills("Doodads", ["One", "Two", "Three"], default="Two")
+    st.segmented_control("Segmented control", ["A", "B", "C"], default="B")
+    st.pills("Pills", ["One", "Two", "Three"], default="Two")

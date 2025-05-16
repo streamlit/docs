@@ -2,8 +2,8 @@
 base="dark"
 backgroundColor="#162025"
 secondaryBackgroundColor="indigo"
-codeBackgroundColor="darkslategrey"
+codeBackgroundColor="darkSlateGrey"
 
 [theme.sidebar]
 backgroundColor="#253137"
-secondaryBackgroundColor="darkgoldenrod"
+secondaryBackgroundColor="darkGoldenrod"

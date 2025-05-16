@@ -1,5 +1,4 @@
 [theme]
 base="dark"
-primaryColor="fuchsia"
-textColor="gold"
-linkColor="aqua"
+textColor="darkGoldenrod"
+linkColor="darkOrchid"
