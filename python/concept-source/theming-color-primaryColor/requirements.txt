@@ -1,1 +1,1 @@
-https://core-previews.s3-us-west-2.amazonaws.com/pr-10173/streamlit-1.45.0-py3-none-any.whl
+./python/concept-source/streamlit-1.45.1-py3-none-any.whl
