@@ -3,17 +3,17 @@ enableStaticServing = true
 
 [[theme.fontFaces]]
 family = "PlaywriteUSModern"
-url = "/app/static/PlaywriteUSModern-VariableFont_wght.ttf"
+url = "app/static/PlaywriteUSModern-VariableFont_wght.ttf"
 style = "normal"
 
 [[theme.fontFaces]]
 family = "Quicksand"
-url = "/app/static/Quicksand-VariableFont_wght.ttf"
+url = "app/static/Quicksand-VariableFont_wght.ttf"
 style = "normal"
 
 [[theme.fontFaces]]
 family = "Sono"
-url = "/app/static/Sono-VariableFont_MONO,wght.ttf"
+url = "app/static/Sono-VariableFont_MONO,wght.ttf"
 style = "normal"
 
 
