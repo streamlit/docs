@@ -24,12 +24,13 @@ headingFront = "sans-serif"
 codeFont = "monospace"
 ```
 
+The following configuration options can be set separately for the sidebar by using the `[theme.sidebar]` table instead of the `[theme]` table in `config.toml`:
+
 - `theme.font` sets the default font for all text in the app (except inline code and code blocks). This is `"sans-serif"` (Source Sans) by default.
 - `theme.headingFont` sets the default font for all headings in the app. If this is not set, Streamlit uses `theme.font` instead.
 - `theme.codeFont` sets the default font for all inline code and code blocks. This is `"monospace"` (Source Code) by default.
-- `theme.sidebar.font` sets the default font for all text in the sidebar. If this is not set, Streamlit uses `theme.font` instead.
-- `theme.sidebar.headingFront` sets the default font for all headings in the sidebar. If this is not set, Streamlit uses (in order of precedence) `theme.headingFont`, `theme.sidebar.font`, or `theme.font` instead.
-- `theme.sidebar.codeFont` sets the default font for all inline code and code blocks in the sidebar. If this is not set, Streamlit uses `theme.codeFont` instead.
+
+When fonts are not declared in `[theme.sidebar]`, Streamlit will inherit each option from `[theme]` before falling back to less specific options. For example, if `theme.sidebar.headingFront` is not set, Streamlit uses (in order of precedence) `theme.headingFont`, `theme.sidebar.font`, or `theme.font` instead.
 
 In the following `config.toml` example, Streamlit uses Source Serif in the main body of the app and Source Sans in the sidebar.
 
@@ -59,7 +60,7 @@ Fonts are defined with the following attributes in their `[[theme.fontFaces]]` t
 
 <Note>
 
-Font files can be static or variable. A static font file contains a single weight and style of a font. If you don't declare `weight` and `style`, Streamlit assumes the font is normal weight (400) and normal style. If you use static font files, it is common to load multiple files to fully support the font across different weights (normal, bold) and styles (normal, italic). Variable font files parameterize one or more font attributes, which means a single font file can support multiple weights and/or styles.
+Font files can be static or variable. A static font file contains a single weight and style of a font. If you use static font files, it is common to load multiple files to fully support the font across different weights (normal, bold) and styles (normal, italic). Variable font files parameterize one or more font attributes, which means a single font file can support multiple weights and/or styles.
 
 The font attributes in `[[theme.fontFaces]]` are passed to the CSS [`@font-face`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) rule. Streamlit passes `font`, `weight`, and `style` to `font-family`, `font-weight`, and `font-style`, respectively.
 
