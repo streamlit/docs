@@ -11,7 +11,7 @@ with cols[0]:
     st.segmented_control("Segmented control", ["Alpha", "Beta", "Gamma"])
 with cols[1]:
     st.code("""import streamlit as st\n\nst.write("Hello World!")""")
-    st.dataframe({"Dataframe column 1": [1, 2], "Dataframe column 2": [3, 4]})
+    st.dataframe({"Column 1": [1, 2], "Column 2": [3, 4]})
     st.info("This is an info message.")
 
 
