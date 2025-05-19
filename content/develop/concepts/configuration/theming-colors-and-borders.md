@@ -66,7 +66,7 @@ For legibility, always choose a primary color that is dark enough to contrast we
 
 #### Example 1: Primary color
 
-The following configuration example has a `"forestGreen"` primary color. In the sidebar, the configuration overrides the primary color to `"darkGoldenrod"`. If you click inside a widget, Streamlit displays a border around the widget to show that it's in focus. Additionally, if you hover over the secondary and tertirary buttons, the hover color matches the primary color.
+The following configuration example has a `"forestGreen"` primary color. In the sidebar, the configuration overrides the primary color to `"darkGoldenrod"`. If you click inside a widget to give it focus, Streamlit displays a primary-color border around the widget. Additionally, if you hover over the secondary and tertirary buttons, the hover color matches the primary color.
 
 ```toml
 [theme]
@@ -102,18 +102,18 @@ If you do not define background colors for the sidebar, Streamlit will will swap
 
 #### Example 2: Background colors
 
-The following configuration example has a dark background, with the main body a shade darker than the sidebar. These dark backgrounds have a hint of blue-green to coordinate with the `"darkSlateGray"` used for code backgrounds everywhere in the app. In the main body of the app, the secondary background color is `"indigo"`. In the sidebar, the secondary background is `"darkGoldenrod"`. To see the secondary color used for a hover effect, hover over each of the dataframe cells.
+The following configuration example has a `"white"` background, with a laveder-blushed `"ghostWhite"` sidebar background. The sedondary color for the whole app is `"lavendar"` and the code background color is `"powderBlue"`. The code background color is configured once in `[theme]` and inheritied in the sidebar. However, because Streamlit swaps background colors when the sidebar inherits them, the secondary background color is set in both `[theme]` and `[theme.sidebar]`. To see the secondary color used for a hover effect, hover over a dataframe cell or open the multiselect drop-down menu.
 
 ```toml
 [theme]
-base="dark"
-backgroundColor="#162025"
-secondaryBackgroundColor="indigo"
-codeBackgroundColor="darkSlateGray"
+base="light"
+backgroundColor="white"
+secondaryBackgroundColor="lavender"
+codeBackgroundColor="powderBlue"
 
 [theme.sidebar]
-backgroundColor="#253137"
-secondaryBackgroundColor="darkGoldenrod"
+backgroundColor="ghostWhite"
+secondaryBackgroundColor="lavender"
 ```
 
 <Cloud name="doc-theming-color-backgroundcolor" height="450px" />
@@ -124,7 +124,7 @@ You can configure the color of body text and links.
 
 `textColor` sets the default text color for all text in the app except language-highlighting in code blocks, inline code, and links. `linkColor` sets the default font color for all Markdown links in the app.
 
-The following element are impacted by `textColor`:
+The following elements are impacted by `textColor`:
 
 - Markdown text, except links.
 - Text in code blocks that's not colored otherwise from language highlighting.
@@ -166,6 +166,8 @@ A few elements are notably not impacted by `baseRadius` (except for sub-elements
 
 #### Example 4: Border radius
 
+In the following configuration example, the main body of the app uses a `"full"` (1rem) base radius and the sidebar uses `"none"` (0rem). To better highlight this difference, the example includes contrasting primary and background colors.
+
 ```toml
 [theme]
 base="light"
@@ -198,5 +200,17 @@ The following elements have borders that you can modify:
 - Borders on input regions.
 
 #### Example 5: Border color and visibility
+
+The following configuration example uses a `"mediumSlateBlue"` border color throughout the whole app. In the sidebar, widget borders are shown. In the main body of the app, widget borders are not shown. In the main body of the app, there is no border around the multiselect, text, or chat input regions. These elements will only have a border whent they are in focus. However, many other elements have always-visible borders, like buttons and dataframes.
+
+```toml
+[theme]
+base="dark"
+borderColor="mediumSlateBlue"
+showWidgetBorder=false
+
+[theme.sidebar]
+showWidgetBorder=true
+```
 
 <Cloud name="doc-theming-color-bordercolor" height="400px" />
