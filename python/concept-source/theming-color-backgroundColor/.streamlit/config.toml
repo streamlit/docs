@@ -1,9 +1,9 @@
 [theme]
 base="light"
-backgroundColor="aliceBlue"
-secondaryBackgroundColor="thistle"
+backgroundColor="white"
+secondaryBackgroundColor="lavender"
 codeBackgroundColor="powderBlue"
 
 [theme.sidebar]
-backgroundColor="lightSteelBlue"
-secondaryBackgroundColor="antiqueWhite"
+backgroundColor="ghostWhite"
+secondaryBackgroundColor="lavender"
