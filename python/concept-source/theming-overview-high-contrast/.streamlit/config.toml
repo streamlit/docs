@@ -1,23 +1,44 @@
 [server]
 enableStaticServing = true
 
+[[theme.fontFaces]]
+family = "Poppins"
+url = "app/static/Poppins-Regular.ttf"
+style="normal"
+weight="400"
+
+[[theme.fontFaces]]
+family = "Poppins"
+url = "app/static/Poppins-Italic.ttf"
+style="italic"
+weight="400"
+
+[[theme.fontFaces]]
+family = "Poppins"
+url = "app/static/Poppins-Bold.ttf"
+style="normal"
+weight="700"
+
+[[theme.fontFaces]]
+family = "Poppins"
+url = "app/static/Poppins-BoldItalic.ttf"
+style="italic"
+weight="700"
 
 [theme]
 base = "dark"
-baseFontSize = 14
-showSidebarBorder = true
-
-primaryColor = "#6A6AF6"
-backgroundColor = "#000000"
-secondaryBackgroundColor = "#000000"
-textColor = "white"
-linkColor = "#04CD00"
-codeBackgroundColor = "#272727"
-font = "monospace"
-baseRadius = "0rem"
-borderColor = "#F38518"
-showWidgetBorder = true
-
+baseFontSize = 15
+primaryColor = "#1ED760"
+backgroundColor = "#121212"
+secondaryBackgroundColor = "#333333"
+textColor = "#FFFFFF"
+linkColor = "#9D9D9D"
+borderColor = "#7F7F7F"
+showWidgetBorder = false
+baseRadius = "0.3rem"
+font = "Poppins"
 
 [theme.sidebar]
-textColor = "#74C991"
+backgroundColor = "#000000"
+secondaryBackgroundColor = "#333333"
+borderColor = "#696969"

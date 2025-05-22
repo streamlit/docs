@@ -98,3 +98,7 @@ with st.sidebar.container(height=310):
             "Select a page from above. This sidebar thumbnail shows a subset of "
             "elements from each page so you can see the sidebar theme."
         )
+
+st.sidebar.caption(
+    "This app uses [Poppins](https://fonts.google.com/specimen/Poppins) font."
+)
