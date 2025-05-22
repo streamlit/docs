@@ -23,9 +23,11 @@ The following options can be configured separately for the main body of your app
 
 ## Example themes
 
-<Cloud name="doc-theming-overview-solarized-light" height="500px" />
+The following light theme is inspired by [Anthropic](https://docs.anthropic.com/en/home).
+<Cloud name="doc-theming-overview-anthropic-light-inspired" height="500px" />
 
-<Cloud name="doc-theming-overview-abyss" height="500px" />
+The following dark theme is inspired by [Spotify](https://open.spotify.com/).
+<Cloud name="doc-theming-overview-spotify-inspired" height="500px" />
 
 ## Working with theme configuration during development
 
