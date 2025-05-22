@@ -49,7 +49,7 @@ Understand how you can use theming configuration options to customize the appear
 
 <h5>Customize colors and borders</h5>
 
-Understand the theming configuration options for customizing your app's color scheme.
+Understand the configuration options for customizing your app's color scheme.
 
 </RefCard>
 
@@ -57,7 +57,7 @@ Understand the theming configuration options for customizing your app's color sc
 
 <h5>Customize fonts</h5>
 
-Understand the theming configuration options for customizing your app's font.
+Understand the configuration options for customizing your app's font.
 
 </RefCard>
 

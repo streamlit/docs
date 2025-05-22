@@ -9,24 +9,24 @@ slug: /develop/concepts/configuration/theming-customize-colors-and-borders
 
 For all configuration options that accept a color, you can specify the value with one of the following strings:
 
-- A CSS [`<named-color>`](https://developer.mozilla.org/en-US/docs/Web/CSS/named-color) like `"darkblue"` or `"maroon"`.
+- A CSS [`<named-color>`](https://developer.mozilla.org/en-US/docs/Web/CSS/named-color) like `"darkBlue"` or `"maroon"`.
 - A HEX string like `"#483d8b"` or `"#6A5ACD"`.
 - An RGB string like `"rgb(106, 90, 205)"` or `"RGB(70, 130, 180)"`.
 - An HSL string like `"hsl(248, 53%, 58%)"` or `"HSL(147, 50%, 47%)"`.
 
 <Tip>
 
-While it is possible for you to specify an alpha value for your colors, this isn't recommended. Streamlit adjusts the alpha value of colors to ensure contextually appropriate shading between background and foreground.
+Although you can specify an alpha value for your colors, this isn't recommended. Streamlit adjusts the alpha value of colors to ensure contextually appropriate shading between background and foreground.
 
 </Tip>
 
 ## Default Streamlit colors
 
-Streamlit comes with two preconfigured themes: light and dark. If you don't specify any theme configuration options, then for each user, Streamlit will attempt to use the preconfigured theme that best matches their browser settings.
+Streamlit comes with two preconfigured themes: light and dark. If you don't specify any theme configuration options, Streamlit will attempt to use the preconfigured theme that best matches each user's browser settings.
 
 ## Color and border configuration options
 
-Most theme configuration options can be set for your whole app, with the option to override it with a different value for the sidebar. For example, your app's primary color (`primaryColor`) is used to highlight interactive elements and show focus. If you set `theme.primaryColor`, this will change the primary color for your whole app. However, if you set `theme.sidebar.primaryColor`, this will override `theme.primaryColor` in the sidebar, allowing you to use two different primary colors.
+Most theme configuration options can be set for your whole app, but you can override some with a different value for the sidebar. For example, your app's primary color (`primaryColor`) is used to highlight interactive elements and show focus. If you set `theme.primaryColor`, this will change the primary color for your whole app. However, if you set `theme.sidebar.primaryColor`, this will override `theme.primaryColor` in the sidebar, allowing you to use two different primary colors.
 
 The following two configuration options can only be applied to the whole app:
 
@@ -52,9 +52,9 @@ For brevity, on the rest of this page, theming configuration options will not in
 `primaryColor` defines the accent color most often used throughout your Streamlit
 app. The following features and effects use your primary color:
 
-- Button hover effects.
-- Elements in focus.
-- Selected elements.
+- Button hover effects
+- Elements in focus
+- Selected elements
 
 <Tip>
 
@@ -66,7 +66,7 @@ For legibility, always choose a primary color that is dark enough to contrast we
 
 #### Example 1: Primary color
 
-The following configuration example has a `"forestGreen"` primary color. In the sidebar, the configuration overrides the primary color to `"darkGoldenrod"`. If you click inside a widget to give it focus, Streamlit displays a primary-color border around the widget. Additionally, if you hover over the secondary and tertirary buttons, the hover color matches the primary color.
+The following configuration example has a `"forestGreen"` primary color. In the sidebar, the configuration overrides the primary color to `"darkGoldenrod"`. If you click inside a widget to give it focus, Streamlit displays a primary-color border around the widget. Additionally, if you hover over the secondary and tertiary buttons, the hover color matches the primary color.
 
 ```toml
 [theme]
@@ -85,15 +85,15 @@ primaryColor="darkGoldrod"
 
 `secondaryBackgroundColor` is used for contrast in the following places:
 
-- The background of input or selection regions for widgets.
-- Headers within elements like `st.dataframe` and `st.help`.
-- Code blocks and inline code (if `codeBackgroundColor` is not set).
+- The background of input or selection regions for widgets
+- Headers within elements like `st.dataframe` and `st.help`
+- Code blocks and inline code (if `codeBackgroundColor` is not set)
 
 `codeBackgroundColor` sets the background for code blocks and line code. If `codeBackgroundColor` is not set, Streamlit uses `secondaryBackgroundColor` instead.
 
 <Note>
 
-If you do not define background colors for the sidebar, Streamlit will will swap `backgroundColor` and `secondaryBackgroundColor` in the sidebar:
+If you do not define background colors for the sidebar, Streamlit will swap `backgroundColor` and `secondaryBackgroundColor` in the sidebar:
 
 - If `theme.sidebar.backgroundColor` is not defined, Streamlit uses `theme.secondaryBackgroundColor`.
 - If `theme.sidebar.secondaryBackgroundColor` is not defined, Streamlit uses `theme.backgroundColor`.
@@ -102,7 +102,7 @@ If you do not define background colors for the sidebar, Streamlit will will swap
 
 #### Example 2: Background colors
 
-The following configuration example has a `"white"` background, with a laveder-blushed `"ghostWhite"` sidebar background. The sedondary color for the whole app is `"lavendar"` and the code background color is `"powderBlue"`. The code background color is configured once in `[theme]` and inheritied in the sidebar. However, because Streamlit swaps background colors when the sidebar inherits them, the secondary background color is set in both `[theme]` and `[theme.sidebar]`. To see the secondary color used for a hover effect, hover over a dataframe cell or open the multiselect drop-down menu.
+The following configuration example has a `"white"` background, with a lavender-tinted `"ghostWhite"` sidebar background. The secondary color for the whole app is `"lavender"` and the code background color is `"powderBlue"`. The code background color is configured once in `[theme]` and inherited in the sidebar. However, because Streamlit swaps background colors when the sidebar inherits them, the secondary background color is set in both `[theme]` and `[theme.sidebar]`. To see the secondary color used for a hover effect, hover over a dataframe cell or open the multiselect drop-down menu.
 
 ```toml
 [theme]
@@ -126,18 +126,18 @@ You can configure the color of body text and links.
 
 The following elements are impacted by `textColor`:
 
-- Markdown text, except links.
-- Text in code blocks that's not colored otherwise from language highlighting.
-- App-chrome and sidebar menu icons.
-- Widget labels, icons, option text, and placeholder text.
-- Dataframe and table text.
-- Non-Markdown links, like `st.page_link`, `st.link_button`, and the navigation menu.
+- Markdown text, except links
+- Text in code blocks that's not colored otherwise from language highlighting
+- App-chrome and sidebar menu icons
+- Widget labels, icons, option text, and placeholder text
+- Dataframe and table text
+- Non-Markdown links, like `st.page_link`, `st.link_button`, and the navigation menu
 
 As noted previously, Streamlit changes the text color to white when text is displayed against your primary color.
 
 #### Example 3: Text colors
 
-The following configuration example has `"darkGoldenrod"` text and `"darkOrchid"` links on a `"dark"` base. Buttons (including `st.link_button`) use the `"darkGoldenrod"` text color. In the multiselect widget, the placehoder text, drop-down menu, and tooltip all have `"darkGoldenrod"` text. If you hover over the sidebar, the scrollbar and collapse icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>chevron_left</i>) are `"darkGoldenrod"`.
+The following configuration example has `"darkGoldenrod"` text and `"darkOrchid"` links on a `"dark"` base. Buttons (including `st.link_button`) use the `"darkGoldenrod"` text color. In the multiselect widget, the placeholder text, drop-down menu, and tooltip all have `"darkGoldenrod"` text. If you hover over the sidebar, the scrollbar and collapse icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>chevron_left</i>) are `"darkGoldenrod"`.
 
 ```toml
 [theme]
@@ -150,23 +150,23 @@ linkColor="darkOrchid"
 
 ### `baseRadius`
 
-`baseRadius` defines the radius of borders and backgrounds for various of elements. The following elements are impacted by `baseRadius`:
+`baseRadius` defines the radius of borders and backgrounds for the following elements:
 
-- Buttons and input areas on widgets.
-- Selected items, including items in `st.multiselect` and the navigation menu.
-- Code blocks and inline code.
-- Dataframes (exterior).
-- Badges and Markdown-text backgrounds.
-- Containers with borders, inlcuding expanders, forms, dialogs, popovers, and toasts.
-- Tooltips, including toolips within charts.
-- Status and exception message blocks.
-- Images, including `st.graphviz` and `st.pyplot` which display as static images.
+- Buttons and input areas on widgets
+- Selected items, including items in `st.multiselect` and the navigation menu
+- Code blocks and inline code
+- Dataframes (exterior)
+- Badges and Markdown-text backgrounds
+- Containers with borders, including expanders, forms, dialogs, popovers, and toasts
+- Tooltips, including tooltips within charts
+- Status and exception message blocks
+- Images, including `st.graphviz` and `st.pyplot`, which display as static images
 
-A few elements are notably not impacted by `baseRadius` (except for sub-elements like tooltips). Interactive charts and videos, which have a more complex underlying HTML, will always have square corners. This includes `st.video`, `st.map`, and `st.pydeck_chart`. Conversely, `st.chat_input` and `st.audio_input` will always be fully rounded.
+A few elements are notably not fully affected by `baseRadius`. Interactive charts and videos, which have a more complex underlying HTML, will always have square corners. This includes `st.video`, `st.map`, and `st.pydeck_chart`. Conversely, `st.chat_input` and `st.audio_input` will always be fully rounded. Sub-elements like tooltips are still affected by `baseRadius`.
 
 #### Example 4: Border radius
 
-In the following configuration example, the main body of the app uses a `"full"` (1rem) base radius and the sidebar uses `"none"` (0rem). To better highlight this difference, the example includes contrasting primary and background colors.
+In the following configuration example, the main body of the app uses a `"full"` (1rem) base radius, and the sidebar uses `"none"` (0rem). To better highlight this difference, the example includes contrasting primary and background colors.
 
 ```toml
 [theme]
@@ -188,20 +188,20 @@ baseRadius="none"
 
 Streamlit does not display borders for unfocused widgets by default (except for buttons). When a user focuses on a widget, Streamlit displays a border around the input area in your `primaryColor`. When the user removes focus, Streamlit hides the border.
 
-If you set `showWidgetBorder=true`, Streamlit will display widget borders when the widget is not in focus. For unfocused widgets, the border color is set by `borderColor`. If `borderColor` is not set, Streamlit infers a color by adding transparency to your `textColor`.
+If you set `showWidgetBorder=true`, Streamlit will display widget borders when the widget is not in focus. For those widgets, the border color is set by `borderColor`. If `borderColor` is not set, Streamlit infers a color by adding transparency to your `textColor`.
 
 The following elements have borders that you can modify:
 
-- Containers with borders, inlcuding expanders, forms, dialogs, popovers, and toasts.
-- The sidebar, including the right edge and the boundary below the navigation menu.
-- Dataframes and tables.
-- `st.tabs` (bottom border).
-- Buttons, including `st.button`, `st.pills`, and `st.segmented_control`.
-- Borders on input regions.
+- Containers with borders, including expanders, forms, dialogs, popovers, and toasts
+- The sidebar, including the right edge and the boundary below the navigation menu
+- Dataframes and tables
+- `st.tabs` (bottom border)
+- Buttons, including `st.button`, `st.pills`, and `st.segmented_control`
+- Borders on input regions
 
 #### Example 5: Border color and visibility
 
-The following configuration example uses a `"mediumSlateBlue"` border color throughout the whole app. In the sidebar, widget borders are shown. In the main body of the app, widget borders are not shown. In the main body of the app, there is no border around the multiselect, text, or chat input regions. These elements will only have a border whent they are in focus. However, many other elements have always-visible borders, like buttons and dataframes.
+The following configuration example uses a `"mediumSlateBlue"` border color throughout the app. In the sidebar, widget borders are shown. In the main body of the app, widget borders are not shown, and there is no border around the multiselect, text, or chat input regions except when they are in focus. However, many other elements, like buttons and dataframes, have always-visible borders.
 
 ```toml
 [theme]

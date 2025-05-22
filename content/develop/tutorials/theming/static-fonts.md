@@ -6,7 +6,7 @@ description: Learn how to load an alternative font and use it in your app.
 
 # Use static font files to customize your font
 
-Streamlit comes with Source Sans as the default font, but you can configure your app to use another font. This tutorial uses static font files and is a walkthrough of Example 2 from [Customize fonts in your Streamlit app](/develop/concepts/configuration/theming-customize-fonts#example-2-define-an-alternative-font-with-static-font-files). To see an exmample that uses variable font files, see [Use variable font files to customize your font](/develop/tutorials/configuration-and-theming/variable-fonts).
+Streamlit comes with Source Sans as the default font, but you can configure your app to use another font. This tutorial uses static font files and is a walkthrough of Example 2 from [Customize fonts in your Streamlit app](/develop/concepts/configuration/theming-customize-fonts#example-2-define-an-alternative-font-with-static-font-files). For an example that uses variable font files, see [Use variable font files to customize your font](/develop/tutorials/configuration-and-theming/variable-fonts).
 
 ## Prerequisites
 
@@ -98,11 +98,9 @@ st.write("`Code ABCabc123`")
 
 1. Search for or follow the link to [Tuffy](https://fonts.google.com/specimen/Tuffy), and select "**Get font**."
 
-1. To view your selection, in the upper-right corner, click the shopping bag icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>shopping_bag</i>).
+1. To download your font files, in the upper-right corner, select the shopping bag (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>shopping_bag</i>), and then select "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>download</i> **Download all**."
 
-1. To download your font files, on the right, select "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>download</i> **Download all**."
-
-1. Go to your downloads directory, and unzip the downloaded file.
+1. In your downloads directory, unzip the downloaded file.
 
 1. From the unzipped files, copy and save the TTF font files into a `static/` directory in `your_repository/`.
 
@@ -129,7 +127,7 @@ st.write("`Code ABCabc123`")
 
 ## Create your app configuration
 
-1. In `your_repository/`, create a `.streamlit/config.toml` file.
+1. In `your_repository/`, create a `.streamlit/config.toml` file:
 
    ```none
    your_repository/
@@ -176,11 +174,11 @@ st.write("`Code ABCabc123`")
     weight=700
    ```
 
-   The `[[theme.fontFaces]]` table can be repeated to use multiple files to define a single font and to define multiple fonts. In this example, the definitions make `"tuffy"` available to other font configuration options.
+   The `[[theme.fontFaces]]` table can be repeated to use multiple files to define a single font or to define multiple fonts. In this example, the definitions make `"tuffy"` available to other font configuration options.
 
    <Tip>
 
-   For convenience, avoid spaces in your font family names. When you declare what font to use by default, you can also declare fallback fonts. If you avoid spaces in your font family names, you can avoid needing inner quotes.
+   For convenience, avoid spaces in your font family names. When you declare the default font, you can also declare fallback fonts. If you avoid spaces in your font family names, you don't need inner quotes.
 
    </Tip>
 

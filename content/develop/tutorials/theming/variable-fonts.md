@@ -6,7 +6,7 @@ description: Learn how to load an alternative font and use it in your app.
 
 # Use variable font files to customize your font
 
-Streamlit comes with Source Sans as the default font, but you can configure your app to use another font. This tutorial uses variable font files and is a walkthrough of Example 1 from [Customize fonts in your Streamlit app](/develop/concepts/configuration/theming-customize-fonts#example-1-define-an-alternative-font-with-variable-font-files). To see an exmample that uses static font files, see [Use static font files to customize your font](/develop/tutorials/configuration-and-theming/static-fonts).
+Streamlit comes with Source Sans as the default font, but you can configure your app to use another font. This tutorial uses variable font files and is a walkthrough of Example 1 from [Customize fonts in your Streamlit app](/develop/concepts/configuration/theming-customize-fonts#example-1-define-an-alternative-font-with-variable-font-files). For an example that uses static font files, see [Use static font files to customize your font](/develop/tutorials/configuration-and-theming/static-fonts).
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Streamlit comes with Source Sans as the default font, but you can configure your
 
 ## Summary
 
-The following example uses static file serving to host Google's [Noto Sans](https://fonts.google.com/noto/specimen/Noto+Sans) and [Noto Sans Mono](https://fonts.google.com/noto/specimen/Noto+Sans+Mono) fonts and configures the app to use them. Both of these fonts are defined with variable font files which include a parameterized weight. However, because font style is not parameterized, Noto Sans requires two files to define the normal and italic styles separately. Noto Sans Mono does not include a separate file for its italic style. Per [CSS rules](https://developer.mozilla.org/en-US/docs/Web/CSS/font-style#italic), because no italic style is explicitly provided, it will be simulated by skewing the normal-style font.
+The following example uses static file serving to host Google's [Noto Sans](https://fonts.google.com/noto/specimen/Noto+Sans) and [Noto Sans Mono](https://fonts.google.com/noto/specimen/Noto+Sans+Mono) fonts and configures the app to use them. Both of these fonts are defined with variable font files that include a parameterized weight. However, because font style is not parameterized, Noto Sans requires two files to define the normal and italic styles separately. Noto Sans Mono does not include a separate file for its italic style. Per [CSS rules](https://developer.mozilla.org/en-US/docs/Web/CSS/font-style#italic), because no italic style is explicitly provided, it will be simulated by skewing the normal-style font.
 
 Here's a look at what you'll build:
 
@@ -86,11 +86,9 @@ st.write("`Code efg`")
 
 1. Search for or follow the link to [Noto Sans Mono](https://fonts.google.com/noto/specimen/Noto+Sans+Mono), and select "**Get font**."
 
-1. To view your selections, in the upper-right corner, click the shopping bag icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>shopping_bag</i>).
+1. To download your font files, in the upper-right corner, select the shopping bag (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>shopping_bag</i>), and then select "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>download</i> **Download all**."
 
-1. To download your font files, on the right, select "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>download</i> **Download all**."
-
-1. Go to your downloads directory, and unzip the downloaded file.
+1. In your downloads directory, unzip the downloaded file.
 
 1. From the unzipped files, copy and save the TTF font files into a `static/` directory in `your_repository/`.
 
@@ -119,7 +117,7 @@ st.write("`Code efg`")
 
 ## Create your app configuration
 
-1. In `your_repository/`, create a `.streamlit/config.toml` file.
+1. In `your_repository/`, create a `.streamlit/config.toml` file:
 
    ```none
    your_repository/
@@ -156,11 +154,11 @@ st.write("`Code efg`")
    url="app/static/NotoSansMono-VariableFont_wdth,wght.ttf"
    ```
 
-   The `[[theme.fontFaces]]` table can be repeated to use multiple files to define a single font and to define multiple fonts. In this example, the definitions make `"noto-sans"` and `"noto-mono"` available to other font configuration options.
+   The `[[theme.fontFaces]]` table can be repeated to use multiple files to define a single font or to define multiple fonts. In this example, the definitions make `"noto-sans"` and `"noto-mono"` available to other font configuration options.
 
    <Tip>
 
-   For convenience, avoid spaces in your font family names. When you declare what font to use by default, you can also declare fallback fonts. If you avoid spaces in your font family names, you can avoid needing inner quotes.
+   For convenience, avoid spaces in your font family names. When you declare the default font, you can also declare fallback fonts. If you avoid spaces in your font family names, you don't need inner quotes.
 
    </Tip>
 
@@ -220,6 +218,6 @@ To verify that your font is loaded correctly, create a simple app.
    st.write("`Code efg`")
    ```
 
-   The example includes "efg" in each line to better show the typographical differences when you run your app. The italic "f" descends below baseline, but the normal "f" doesn't. The italic "e" has a rounded front but the normal "e" has a sharp corner.
+   The example includes "efg" in each line to better show the typographical differences when you run your app. The italic "f" descends below baseline, but the normal "f" doesn't. The italic "e" has a rounded front, but the normal "e" has a sharp corner.
 
 1. Save your `streamlit_app.py` file, and view your running app.

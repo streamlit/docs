@@ -9,18 +9,18 @@ Streamlit lets you change and customize the fonts in your app. You can load font
 
 ## Default Streamlit fonts
 
-Streamlit comes with [Source Sans](https://fonts.adobe.com/fonts/source-sans), [Source Serif](https://fonts.adobe.com/fonts/source-serif), and [Source Code](https://fonts.adobe.com/fonts/source-code-pro) fonts. These font files are included with the Streamlit library to prevent clients from downloading them from a third party. By default, Streamlit uses Source Sans for all text except inline code and code blocks, which use Source Code instead.
+Streamlit comes with [Source Sans](https://fonts.adobe.com/fonts/source-sans), [Source Serif](https://fonts.adobe.com/fonts/source-serif), and [Source Code](https://fonts.adobe.com/fonts/source-code-pro) fonts. These font files are included with the Streamlit library so clients don't download them from a third party. By default, Streamlit uses Source Sans for all text except inline code and code blocks, which use Source Code instead.
 
 To use these default faults, you can set each of the following configuration options to `"sans-serif"` (Source Sans), `"serif"` (Source Serif), or `"monospace"` (Source Code) in `config.toml`:
 
 ```toml
 [theme]
 font = "sans-serif"
-headingFront = "sans-serif"
+headingFont = "sans-serif"
 codeFont = "monospace"
 [theme.sidebar]
 font = "sans-serif"
-headingFront = "sans-serif"
+headingFont = "sans-serif"
 codeFont = "monospace"
 ```
 
@@ -30,7 +30,7 @@ The following configuration options can be set separately for the sidebar by usi
 - `theme.headingFont` sets the default font for all headings in the app. If this is not set, Streamlit uses `theme.font` instead.
 - `theme.codeFont` sets the default font for all inline code and code blocks. This is `"monospace"` (Source Code) by default.
 
-When fonts are not declared in `[theme.sidebar]`, Streamlit will inherit each option from `[theme]` before falling back to less specific options. For example, if `theme.sidebar.headingFront` is not set, Streamlit uses (in order of precedence) `theme.headingFont`, `theme.sidebar.font`, or `theme.font` instead.
+When fonts are not declared in `[theme.sidebar]`, Streamlit will inherit each option from `[theme]` before defaulting to less specific options. For example, if `theme.sidebar.headingFont` is not set, Streamlit uses (in order of precedence) `theme.headingFont`, `theme.sidebar.font`, or `theme.font` instead.
 
 In the following `config.toml` example, Streamlit uses Source Serif in the main body of the app and Source Sans in the sidebar.
 
@@ -43,7 +43,7 @@ font = "sans-serif"
 
 ## Loading alternative fonts
 
-To use an alternative font in your app, you must declare the font in `config.toml` under `[[theme.fontFaces]]`. For multiple alternative fonts, declare multiple `[[theme.fontFaces]]` tables in your configuration file. You can self-host your font by using Streamlit static file serving or you can point to a publicly hosted font file.
+To use an alternative font in your app, you must declare the font in `config.toml` under `[[theme.fontFaces]]`. For multiple alternative fonts, declare multiple `[[theme.fontFaces]]` tables in your configuration file. You can self-host your font by using Streamlit static file serving, or you can point to a publicly hosted font file.
 
 <Important>
 
@@ -53,14 +53,14 @@ Streamlit supports self-hosting for OTF, TTF, WOFF, and WOFF2 font file formats.
 
 Fonts are defined with the following attributes in their `[[theme.fontFaces]]` tables:
 
-- `font`: This is the name of the font and is used to identify the font for use by other configuration options.
+- `family`: This is the name of the font and is used to identify the font for use by other configuration options.
 - `url`: This is the location of the font file. If you are self-hosting the font file with your app, the value will be similar to `"app/static/font_file.woff"`.
-- `weight` (optional): This declares the weight of the font within the font file (e.g. `400` or `"800"`). For more information, see the [`font-weight`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-weight) CSS `@font-face` descriptor. This must be an integer or numeric string. Weight ranges and keyword values are not supported.
-- `style` (optional): This declares the style of the font within the font file (e.g. `"normal"`, `"italic"`, or `"oblique"`). For more information, see the [`font-style`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-style) CSS `@font-face` descriptor.
+- `weight` (optional): This declares the weight of the font within the font file (e.g., `400` or `"800"`). For more information, see the [`font-weight`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-weight) CSS `@font-face` descriptor. This must be an integer or numeric string. Weight ranges and keyword values are not supported.
+- `style` (optional): This declares the style of the font within the font file (e.g., `"normal"`, `"italic"`, or `"oblique"`). For more information, see the [`font-style`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-style) CSS `@font-face` descriptor.
 
 <Note>
 
-Font files can be static or variable. A static font file contains a single weight and style of a font. If you use static font files, it is common to load multiple files to fully support the font across different weights (normal, bold) and styles (normal, italic). Variable font files parameterize one or more font attributes, which means a single font file can support multiple weights and/or styles.
+Font files can be static or variable. A static font file contains a single weight and style of font. If you use static font files, it is common to load multiple files to fully support the font across different weights (normal, bold) and styles (normal, italic). Variable font files parameterize one or more font attributes, which means a single font file can support multiple weights and styles.
 
 The font attributes in `[[theme.fontFaces]]` are passed to the CSS [`@font-face`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) rule. Streamlit passes `font`, `weight`, and `style` to `font-family`, `font-weight`, and `font-style`, respectively.
 
@@ -68,7 +68,7 @@ The font attributes in `[[theme.fontFaces]]` are passed to the CSS [`@font-face`
 
 ### Example 1: Define an alternative font with variable font files
 
-The following example uses static file serving to host Google's [Noto Sans](https://fonts.google.com/noto/specimen/Noto+Sans) and [Noto Sans Mono](https://fonts.google.com/noto/specimen/Noto+Sans+Mono) fonts and configures the app to use them. Both of these fonts are defined with variable font files which include a parameterized weight. However, because font style is not parameterized, Noto Sans requires two files to define the normal and italic styles separately. Noto Sans Mono does not include a separate file for its italic style. Per [CSS rules](https://developer.mozilla.org/en-US/docs/Web/CSS/font-style#italic), if no italic style is explicitly provided, it will be simulated by skewing the normal-style font.
+The following example uses static file serving to host Google's [Noto Sans](https://fonts.google.com/noto/specimen/Noto+Sans) and [Noto Sans Mono](https://fonts.google.com/noto/specimen/Noto+Sans+Mono) fonts and configures the app to use them. Both of these fonts are defined with variable font files that include a parameterized weight. However, because font style is not parameterized, Noto Sans requires two files to define the normal and italic styles separately. Noto Sans Mono does not include a separate file for its italic style. Per [CSS rules](https://developer.mozilla.org/en-US/docs/Web/CSS/font-style#italic), if no italic style is explicitly provided, it will be simulated by skewing the normal-style font.
 
 A line-by-line explanation of this example is available in a [tutorial](/develop/tutorials/configuration-and-theming/variable-fonts).
 
@@ -117,7 +117,7 @@ In this configuration example, an alternative font is declared with multiple sta
 - italic normal
 - italic bold
 
-If one of the files is missing and you try to use its associated weight and style in your app, the user's browser will use the closest font that is available. The following example uses [Tuffy](https://fonts.google.com/specimen/Tuffy) font. The font has four static font files which cover the four weight-style pairs mentioned previously.
+If one of the files is missing and you try to use its associated weight and style in your app, the user's browser will use the closest font that is available. The following example uses [Tuffy](https://fonts.google.com/specimen/Tuffy) font. The font has four static font files that cover the four weight-style pairs.
 
 A line-by-line explanation of this example is available in a [tutorial](/develop/tutorials/configuration-and-theming/static-fonts).
 
@@ -209,6 +209,6 @@ Font color options are described in [Customize colors and borders in your Stream
 
 ## Design tips
 
-When using alternative fonts in your Streamlit app, keep good design practices in mind. The legibility of a font is strongly influenced by its size, contrast with its background, and its shape. Streamlit lets you declare a different font for your headers from the rest of your text. If you introduce a more elaborate font, limit it to your headers. Because `theme.font` and `theme.sidebar.font` are used to set the font in widget labels, tooltips, column headers, and dataframe cells, they should always be a highly readable font.
+When using alternative fonts in your Streamlit app, keep good design practices in mind. The legibility of a font is strongly influenced by its size, contrast with its background, and shape. Streamlit lets you declare a different font for your headers from the rest of your text. If you introduce a more elaborate font, limit it to your headers. Because `theme.font` and `theme.sidebar.font` are used to set the font in widget labels, tooltips, column headers, and dataframe cells, they should always be a highly readable font.
 
 For inspiration, see [Fonts in Use](https://fontsinuse.com/).
