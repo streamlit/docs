@@ -62,7 +62,7 @@ Fonts are defined with the following attributes in their `[[theme.fontFaces]]` t
 
 Font files can be static or variable. A static font file contains a single weight and style of font. If you use static font files, it is common to load multiple files to fully support the font across different weights (normal, bold) and styles (normal, italic). Variable font files parameterize one or more font attributes, which means a single font file can support multiple weights and styles.
 
-The font attributes in `[[theme.fontFaces]]` are passed to the CSS [`@font-face`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) rule. Streamlit passes `font`, `weight`, and `style` to `font-family`, `font-weight`, and `font-style`, respectively.
+The font attributes in `[[theme.fontFaces]]` are passed to the CSS [`@font-face`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) rule. Streamlit passes `family`, `weight`, and `style` to `font-family`, `font-weight`, and `font-style`, respectively.
 
 </Note>
 
