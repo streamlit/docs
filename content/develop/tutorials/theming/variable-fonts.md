@@ -160,7 +160,7 @@ st.write("`Code efg`")
 
    <Tip>
 
-   For convenience, avoid spaces in your font family names. When you declare what font to use by default, you can also declare fallback fonts. If you avoid spaces in your font family names, you can avoid needing inner quotes.
+   For convenience, avoid spaces in your font family names. When you declare the default font, you can also declare fallback fonts. If you avoid spaces in your font family names, you don't need inner quotes.
 
    </Tip>
 
