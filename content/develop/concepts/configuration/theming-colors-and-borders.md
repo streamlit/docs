@@ -213,4 +213,4 @@ showWidgetBorder=false
 showWidgetBorder=true
 ```
 
-<Cloud name="doc-theming-color-bordercolor" height="400px" />
+<Cloud name="doc-theming-color-bordercolor" height="420px" />
