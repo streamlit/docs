@@ -345,7 +345,7 @@ codeBackgroundColor =
 # - "sans-serif"
 # - "serif"
 # - "monospace"
-# - the `font` value for a custom font table under [[theme.fontFaces]]
+# - the `family` value for a custom font table under [[theme.fontFaces]]
 # - a comma-separated list of these (as a single string) to specify
 #   fallbacks
 # For example, you can use the following:
@@ -357,7 +357,7 @@ font =
 # - "sans-serif"
 # - "serif"
 # - "monospace"
-# - the `font` value for a custom font table under [[theme.fontFaces]]
+# - the `family` value for a custom font table under [[theme.fontFaces]]
 # - a comma-separated list of these (as a single string) to specify
 #   fallbacks
 codeFont =
@@ -366,21 +366,21 @@ codeFont =
 # - "sans-serif"
 # - "serif"
 # - "monospace"
-# - the `font` value for a custom font table under [[theme.fontFaces]]
+# - the `family` value for a custom font table under [[theme.fontFaces]]
 # - a comma-separated list of these (as a single string) to specify
 #   fallbacks
 # If no heading font is set, Streamlit uses `theme.font` for headings.
 headingFont =
 
 # An array of fonts to use in your app. Each font in the array is a table
-# (dictionary) with the following three attributes: font, url, weight,
+# (dictionary) with the following three attributes: family, url, weight,
 # and style. To host a font with your app, enable static file serving
 # with `server.enableStaticServing=true`. You can define multiple
 # [[theme.fontFaces]] tables.
 # For example, each font is defined in a [[theme.fontFaces]] table as
 # follows:
 # [[theme.fontFaces]]
-# font = "font_name"
+# family = "font_name"
 # url = "app/static/font_file.woff"
 # weight = 400
 # style = "normal"
@@ -436,7 +436,7 @@ codeBackgroundColor =
 # - "sans-serif"
 # - "serif"
 # - "monospace"
-# - the `font` value for a custom font table under [[theme.fontFaces]]
+# - the `family` value for a custom font table under [[theme.fontFaces]]
 # - a comma-separated list of these (as a single string) to specify
 #   fallbacks
 # For example, you can use the following:
@@ -448,7 +448,7 @@ font =
 # - "sans-serif"
 # - "serif"
 # - "monospace"
-# - the `font` value for a custom font table under [[theme.fontFaces]]
+# - the `family` value for a custom font table under [[theme.fontFaces]]
 # - a comma-separated list of these (as a single string) to specify
 #   fallbacks
 codeFont =
@@ -457,7 +457,7 @@ codeFont =
 # - "sans-serif"
 # - "serif"
 # - "monospace"
-# - the `font` value for a custom font table under [[theme.fontFaces]]
+# - the `family` value for a custom font table under [[theme.fontFaces]]
 # - a comma-separated list of these (as a single string) to specify
 #   fallbacks
 # If no heading font is set, Streamlit uses `theme.font` for headings.
