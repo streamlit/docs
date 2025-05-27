@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { getMenu } from "../lib/api";
+import { getMenu } from "../lib/node/api";
 import Layout from "../components/layouts/globalTemplate";
 import SideBar from "../components/navigation/sideBar";
 import Footer from "../components/navigation/footer";
