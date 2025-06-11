@@ -198,7 +198,9 @@ def format_function_info(func_info: Dict[str, Any]) -> str:
 
     # Function signature
     if signature:
-        markdown_parts.append(f"* Function signature:\n\n   {signature}\n")
+        markdown_parts.append(
+            f"* Function signature:\n\n   ```python\n   {signature}\n   ```\n"
+        )
 
     # Parameters table
     if args:
