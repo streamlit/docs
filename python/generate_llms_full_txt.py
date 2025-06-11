@@ -135,14 +135,14 @@ def has_markdown_title(content: str) -> Tuple[bool, Optional[str]]:
 
 def get_latest_streamlit_functions() -> Dict[str, Any]:
     """
-    Read streamlit.json and get the function information from the latest version.
+    Read streamlit_api.json and get the function information from the latest version.
 
     Returns:
         Dict mapping function names to their information
     """
     try:
-        # Read the streamlit.json file
-        streamlit_json_path = Path(__file__).parent / "streamlit.json"
+        # Read the streamlit_api.json file
+        streamlit_json_path = Path(__file__).parent / "streamlit_api.json"
         with open(streamlit_json_path, "r") as f:
             streamlit_data = json.load(f)
 
@@ -160,7 +160,7 @@ def get_latest_streamlit_functions() -> Dict[str, Any]:
                 continue
 
         if latest_version is None:
-            print("No valid version found in streamlit.json")
+            print("No valid version found in streamlit_api.json")
             return {}
 
         print(f"Using latest version: {latest_version}")
@@ -171,7 +171,7 @@ def get_latest_streamlit_functions() -> Dict[str, Any]:
         return version_data
 
     except (FileNotFoundError, json.JSONDecodeError, KeyError) as e:
-        print(f"Error reading streamlit.json: {str(e)}")
+        print(f"Error reading streamlit_api.json: {str(e)}")
         return {}
 
 
@@ -180,7 +180,7 @@ def format_function_info(func_info: Dict[str, Any]) -> str:
     Format function information as structured markdown.
 
     Args:
-        func_info: Dictionary containing function information from streamlit.json
+        func_info: Dictionary containing function information from streamlit_api.json
 
     Returns:
         Formatted markdown string
@@ -276,7 +276,7 @@ def replace_autofunction_tags(content: str, function_info: Dict[str, Any]) -> st
             if function_name:
                 print(
                     f"Warning: Function '{function_name}' not found in "
-                    "streamlit.json"
+                    "streamlit_api.json"
                 )
             # If function not found, remove the tag but leave a placeholder
             tag.replace_with(f"[Function '{function_name}' not found]")
@@ -298,7 +298,7 @@ def process_markdown_files(content_dir: Path) -> List[Dict[str, Optional[str]]]:
         content_dir: Path to the content directory containing markdown files.
 
     Returns:
-        List of dictionaries containing 'url' (from frontmatter slug) and 'content' 
+        List of dictionaries containing 'url' (from frontmatter slug) and 'content'
         for each markdown file.
     """
     content_catalog: List[Dict[str, Optional[str]]] = []
@@ -336,7 +336,7 @@ def main() -> None:
     streamlit_functions = get_latest_streamlit_functions()
     print(
         f"Loaded information for {len(streamlit_functions)} functions from "
-        "streamlit.json"
+        "streamlit_api.json"
     )
 
     # Process all markdown files
@@ -393,4 +393,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
