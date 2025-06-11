@@ -11,11 +11,11 @@ start:
 	npm run start
 
 .PHONY: export
-export: llms
+export: llms-full
 	npm run export
 
-.PHONY: llms
-llms:
+.PHONY: llms-full
+llms-full:
 	uv run python/generate_llms_full_txt.py
 
 .PHONY: lint
