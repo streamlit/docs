@@ -1,4 +1,18 @@
 #!/usr/bin/python
+# /// script
+# dependencies = [
+#   "docstring-parser>=0.16",
+#   "numpydoc>=1.8.0",
+#   "streamlit",
+# ]
+# ///
+#
+# This file is used to generate streamlit_api.json, which contains
+# the function signatures for all Streamlit commands in an easily-parsable
+# JSON file.
+#
+# Usage:
+#   uv run generate_api_json.py
 
 import inspect
 import json
@@ -133,6 +147,7 @@ def get_property_docstring_dict(
 
     return docstring_dict
 
+
 def get_attribute_dict_dict(obj, objname, signature_prefix=None):
     # Initialize an empty dictionary to store the object description
     description = {}
@@ -150,7 +165,10 @@ def get_attribute_dict_dict(obj, objname, signature_prefix=None):
     parse_docstring(obj, docstring, description, True, False, False)
     return description
 
-def parse_docstring(obj, docstring, description, is_class, is_class_method, is_property):
+
+def parse_docstring(
+    obj, docstring, description, is_class, is_class_method, is_property
+):
     try:
         # Explicitly create the 'Example' section which Streamlit seems to use a lot of.
         NumpyDocString.sections.update({"Example": []})
@@ -181,9 +199,7 @@ def parse_docstring(obj, docstring, description, is_class, is_class_method, is_p
     # Get the short and long descriptions from the docstring object
     short_description = docstring_obj.short_description
     long_description = str(
-        ""
-        if docstring_obj.long_description is None
-        else docstring_obj.long_description
+        "" if docstring_obj.long_description is None else docstring_obj.long_description
     )
 
     # Insert a blank line between the short and long description, if the latter exists.
@@ -206,7 +222,7 @@ def parse_docstring(obj, docstring, description, is_class, is_class_method, is_p
     # Iterate through the parameters from the parsed docstring
     for param in docstring_obj.params:
         arg_obj = {}  # Create an argument object dictionary
-        arg_obj["name"] = param.arg_name  ## Store the argument name
+        arg_obj["name"] = param.arg_name  # Store the argument name
         arg_obj["type_name"] = param.type_name  # Store the argument type
         arg_obj["is_optional"] = param.is_optional  # Store the optional flag
         if (not is_class) and callable(obj):
@@ -224,7 +240,7 @@ def parse_docstring(obj, docstring, description, is_class, is_class_method, is_p
                         # Get the signature of the function
                         sig = inspect.signature(obj)
                     param_obj = sig.parameters[param.arg_name]
-                    arg_obj["is_kwarg_only"] = (param_obj.kind is param_obj.KEYWORD_ONLY)
+                    arg_obj["is_kwarg_only"] = param_obj.kind is param_obj.KEYWORD_ONLY
                 except:
                     print(sig)
                     print(f"Can't find {param.arg_name} as an argument for {obj}")
@@ -258,7 +274,8 @@ def parse_docstring(obj, docstring, description, is_class, is_class_method, is_p
             description["returns"].append(return_obj)
 
     description["source"] = get_github_source(obj)
-    return # Description dictionary is mutated
+    return  # Description dictionary is mutated
+
 
 def get_docstring_dict(
     obj, objname, signature_prefix, is_class, is_class_method, is_property
@@ -277,7 +294,9 @@ def get_docstring_dict(
         if arguments is None:
             arguments = ""
         # Strip "." in case key_prefix==""
-        description["signature"] = f"{signature_prefix}.{objname}({arguments})".strip(".")
+        description["signature"] = f"{signature_prefix}.{objname}({arguments})".strip(
+            "."
+        )
         description["is_class"] = True
         # Get the class's methods
         methods = inspect.getmembers(obj, inspect.isfunction)
@@ -343,9 +362,9 @@ def get_docstring_dict(
         # Remove _ from the start of static component function names
         if objname.startswith("_"):
             description["name"] = objname.lstrip("_")
-            description[
-                "signature"
-            ] = f'{signature_prefix}.{description["name"]}({arguments})'
+            description["signature"] = (
+                f"{signature_prefix}.{description['name']}({arguments})"
+            )
 
         # Edge case for .clear() method on st.experimental_memo, st.experimental_singleton, st.cache_data, and st.cache_resource
         # Prepend either "experimental_[memo | singleton]." or "cache_[data | resource]." to the name "clear"
@@ -358,7 +377,9 @@ def get_docstring_dict(
     # If there is a docstring, process it
     if docstring:
         # Mutate `description` dictionary
-        parse_docstring(obj, docstring, description, is_class, is_class_method, is_property)
+        parse_docstring(
+            obj, docstring, description, is_class, is_class_method, is_property
+        )
 
     return description
 
@@ -381,6 +402,7 @@ def get_function_docstring_dict(
 
     return get_docstring_dict(func, funcname, signature_prefix, is_class=False)
 
+
 def get_sig_string_without_annots(func):
     """Returns a string representation of the function signature without annotations."""
     if not callable(func):
@@ -392,6 +414,7 @@ def get_sig_string_without_annots(func):
     else:
         # Get the signature of the function
         sig = inspect.signature(func)
+
     # Initialize an empty list to store the arguments
     args = []
     # Initialize a variable to store the previous parameter
@@ -415,7 +438,7 @@ def get_sig_string_without_annots(func):
             if (prev is not None) and (prev.kind is prev.VAR_POSITIONAL):
                 pass
             elif (prev is None) or (prev.kind is not prev.KEYWORD_ONLY):
-                    args.append("*")
+                args.append("*")
 
         # If the parameter has a default value, format it accordingly
         if param.default != inspect._empty:
@@ -442,7 +465,7 @@ def get_sig_string_without_annots(func):
 
         # Set the current parameter as the previous one for the next iteration
         prev = param
-    
+
     # Edge case: append "/" if all parameters were positional-only
     if (prev is not None) and (prev.kind is param.POSITIONAL_ONLY):
         args.append("/")
@@ -506,7 +529,10 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix, only_include=None)
             # See: https://github.com/streamlit/streamlit/pull/4263
             # Replace the member with its decorator object except st.cache
             # which is deprecated
-            while (member in streamlit.runtime.caching.__dict__.values() and member != streamlit.cache):
+            while (
+                member in streamlit.runtime.caching.__dict__.values()
+                and member != streamlit.cache
+            ):
                 member = member._decorator
 
             # Create the full name of the member using key_prefix and membername
@@ -516,7 +542,8 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix, only_include=None)
             # Call get_function_docstring_dict to get metadata of the current member
             is_class = inspect.isclass(
                 member
-            )  # or isinstance(member, streamlit.elements.lib.column_types.ColumnConfigAPI)
+                # or isinstance(member, streamlit.elements.lib.column_types.ColumnConfigAPI)
+            )
             is_property = isinstance(member, property)
             if is_class:
                 is_class_method = False
@@ -537,7 +564,7 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix, only_include=None)
         # Add the extracted metadata to obj_docstring_dict if the object is
         # local to streamlit (source is an empty string when the object is inherited)
         if "source" not in member_docstring_dict:
-            print(f"No source for {key_prefix}.{membername}") # Unexpected
+            print(f"No source for {key_prefix}.{membername}")  # Unexpected
         elif member_docstring_dict["source"]:
             obj_docstring_dict[fullname] = member_docstring_dict
 
@@ -558,7 +585,7 @@ def get_streamlit_docstring_dict():
             "st.cache_resource",
         ],
         streamlit.runtime.state.query_params_proxy.QueryParamsProxy: [
-            "streamlit.query_params", 
+            "streamlit.query_params",
             "st.query_params",
         ],
         streamlit.connections: ["streamlit.connections", "st.connections"],
@@ -584,8 +611,14 @@ def get_streamlit_docstring_dict():
         ],
         streamlit.column_config: ["streamlit.column_config", "st.column_config"],
         components: ["streamlit.components.v1", "st.components.v1"],
-        streamlit.delta_generator.DeltaGenerator: ["DeltaGenerator", "element", ["add_rows"]], # Only store docstring for element.add_rows
-        StatusContainer: ["StatusContainer", "StatusContainer", ["update"]], # Only store docstring for StatusContainer.update
+        # Only store docstring for element.add_rows
+        streamlit.delta_generator.DeltaGenerator: [
+            "DeltaGenerator",
+            "element",
+            ["add_rows"],
+        ],
+        # Only store docstring for StatusContainer.update
+        StatusContainer: ["StatusContainer", "StatusContainer", ["update"]],
         streamlit.testing.v1: ["streamlit.testing.v1", "st.testing.v1"],
         AppTest: ["AppTest", "AppTest"],
         element_tree: [
@@ -600,7 +633,7 @@ def get_streamlit_docstring_dict():
     }
     proxy_obj_key = {
         streamlit.user_info.UserInfoProxy: ["streamlit.user", "st.user"],
-        streamlit.runtime.context.ContextProxy: ["streamlit.context", "st.context"]
+        streamlit.runtime.context.ContextProxy: ["streamlit.context", "st.context"],
     }
     attribute_dicts = {
         PlotlyState: ["PlotlyState", "PlotlyState"],
@@ -609,8 +642,7 @@ def get_streamlit_docstring_dict():
         DataframeState: ["DataframeState", "DataframeState"],
         DataframeSelectionState: ["DataframeSelectionState", "DataframeSelectionState"],
         PydeckState: ["PydeckState", "PydeckState"],
-        PydeckSelectionState: ["PydeckSelectionState", "PydeckSelectionState"]
-
+        PydeckSelectionState: ["PydeckSelectionState", "PydeckSelectionState"],
     }
 
     module_docstring_dict = {}
@@ -623,13 +655,13 @@ def get_streamlit_docstring_dict():
         if DEBUG:
             print(f"Fetching {obj}")
         member_docstring_dict = get_docstring_dict(
-                obj, #member
-                key[0].split(".")[-1], #membername
-                "st", #signature_prefix
-                True, #isClass
-                False, #is_class_method
-                False, #is_property
-            )
+            obj,  # member
+            key[0].split(".")[-1],  # membername
+            "st",  # signature_prefix
+            True,  # isClass
+            False,  # is_class_method
+            False,  # is_property
+        )
         module_docstring_dict.update({key[0]: member_docstring_dict})
     for obj, key in attribute_dicts.items():
         if DEBUG:
@@ -640,6 +672,7 @@ def get_streamlit_docstring_dict():
         module_docstring_dict.update({key[0]: member_docstring_dict})
 
     return module_docstring_dict
+
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
