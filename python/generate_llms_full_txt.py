@@ -203,15 +203,12 @@ def format_function_info(func_info: Dict[str, Any]) -> str:
     # Parameters table
     if args:
         markdown_parts.append("* Parameters:\n")
-        markdown_parts.append("   | name | type | default | description |")
-        markdown_parts.append("   |---|---|---|---|")
+        markdown_parts.append("   | name | type | description |")
+        markdown_parts.append("   |---|---|---|")
 
         for arg in args:
             name = arg.get("name", "")
             type_name = arg.get("type_name", "")
-            default = arg.get("default", "")
-            if default is None:
-                default = ""
             description = arg.get("description", "")
 
             # Clean up HTML entities in description
@@ -221,9 +218,7 @@ def format_function_info(func_info: Dict[str, Any]) -> str:
             # Replace newlines with spaces for table format
             description = description.replace("\n", " ").strip()
 
-            markdown_parts.append(
-                f"   | {name} | {type_name} | {default} | {description} |"
-            )
+            markdown_parts.append(f"   | {name} | {type_name} | {description} |")
 
         markdown_parts.append("")  # Empty line after table
 
