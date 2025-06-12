@@ -4,6 +4,7 @@
 #   "docstring-parser>=0.16",
 #   "numpydoc>=1.8.0",
 #   "streamlit",
+#   "semver>=3.0.0",
 # ]
 # ///
 #

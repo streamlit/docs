@@ -28,6 +28,7 @@ from markdown_it import MarkdownIt
 import semver
 from bs4 import BeautifulSoup, Tag
 import yaml
+import utils
 
 
 def parse_menu_ordering(menu_file_path: Path) -> List[str]:
@@ -145,39 +146,8 @@ def get_latest_streamlit_functions() -> Dict[str, Any]:
     Returns:
         Dict mapping function names to their information
     """
-    try:
-        # Read the streamlit_api.json file
-        streamlit_json_path = Path(__file__).parent / "streamlit_api.json"
-        with open(streamlit_json_path, "r") as f:
-            streamlit_data = json.load(f)
-
-        # Find the latest version using semver
-        latest_version = None
-        for version in streamlit_data.keys():
-            try:
-                if (
-                    latest_version is None
-                    or semver.compare(version, latest_version) > 0
-                ):
-                    latest_version = version
-            except ValueError:
-                # Skip non-semver versions
-                continue
-
-        if latest_version is None:
-            print("No valid version found in streamlit_api.json")
-            return {}
-
-        print(f"Using latest version: {latest_version}")
-
-        # Return the function information for the latest version
-        version_data = streamlit_data[latest_version]
-
-        return version_data
-
-    except (FileNotFoundError, json.JSONDecodeError, KeyError) as e:
-        print(f"Error reading streamlit_api.json: {str(e)}")
-        return {}
+    streamlit_json_path = Path(__file__).parent / "streamlit_api.json"
+    return utils.get_latest_data(str(streamlit_json_path))
 
 
 def format_function_info(func_info: Dict[str, Any]) -> str:
@@ -309,7 +279,7 @@ def process_markdown_files(content_dir: Path) -> List[Dict[str, Optional[str]]]:
         for each markdown file.
     """
     content_catalog: List[Dict[str, Optional[str]]] = []
-    
+
     # First process index.md specially to ensure it's first
     index_path = content_dir / "index.md"
     if index_path.exists():
@@ -333,7 +303,7 @@ def process_markdown_files(content_dir: Path) -> List[Dict[str, Optional[str]]]:
         # Skip index.md since we already processed it
         if file_path == index_path:
             continue
-            
+
         try:
             # Read the content of the markdown file with frontmatter
             post = frontmatter.load(file_path)
