@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env -S uv run --script
 # /// script
 # dependencies = [
 #   "docstring-parser>=0.16",
