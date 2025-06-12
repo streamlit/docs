@@ -96,12 +96,16 @@ def sort_content_by_menu_order(
         """
         Get sort key for an entry. Returns (order_position, url) tuple.
         Items not in menu get a high order position to appear at the end.
+        Root URL (/) gets position -1 to always appear first.
         """
         url = entry.get("url", "")
         if url:
             # Remove the base URL part to match with menu URLs
             # e.g., "https://docs.streamlit.io/develop" -> "develop"
             url_path = url.replace("https://docs.streamlit.io/", "")
+            # Special case: root URL should come first
+            if not url_path:  # This is the root URL (/)
+                return (-1, "")
             order_pos = url_ordering.get(url_path, len(url_ordering))
             return (order_pos, url_path)
         return (len(url_ordering), "")
@@ -304,9 +308,31 @@ def process_markdown_files(content_dir: Path) -> List[Dict[str, Optional[str]]]:
         for each markdown file.
     """
     content_catalog: List[Dict[str, Optional[str]]] = []
+    
+    # First process index.md specially to ensure it's first
+    index_path = content_dir / "index.md"
+    if index_path.exists():
+        try:
+            post = frontmatter.load(index_path)
+            # For index.md, we use the root URL
+            url = "https://docs.streamlit.io/"
+            # Add title from frontmatter if it exists
+            title = post.get("title")
+            content = post.content
+            if title:
+                content = f"# {title}\n\n{content}"
+            content_catalog.append({"url": url, "content": content})
+        except frontmatter.FrontmatterError as e:
+            print(f"Error parsing frontmatter in {index_path}: {str(e)}")
+        except Exception as e:
+            print(f"Error processing {index_path}: {str(e)}")
 
     # Walk through all directories and files
     for file_path in content_dir.rglob("*.md"):
+        # Skip index.md since we already processed it
+        if file_path == index_path:
+            continue
+            
         try:
             # Read the content of the markdown file with frontmatter
             post = frontmatter.load(file_path)
