@@ -2,25 +2,41 @@ import pathlib
 import json
 import logging
 import semver
+import os
 from typing import Dict, Any, Optional
+from pathlib import Path
 
-OUT_FILE_NAME = "streamlit_api.json"
+# Get the directory containing this script
+SCRIPT_DIR = Path(__file__).parent
 
 
-def get_existing_dict(filename=OUT_FILE_NAME) -> Dict[str, Any]:
+def get_output_path(filename: str) -> Path:
+    """
+    Get the absolute path for the output file in the python directory.
+
+    Args:
+        filename: Name of the output file
+
+    Returns:
+        Absolute path to the output file
+    """
+    return SCRIPT_DIR / filename
+
+
+def get_existing_dict(output_file: Path) -> Dict[str, Any]:
     """
     Read and parse a JSON file into a dictionary.
 
     Args:
-        filename: Path to the JSON file to read
+        output_file: Path to the JSON file to read
 
     Returns:
         Dictionary containing the parsed JSON data
     """
-    logging.debug(f"Reading {filename}...")
+    logging.debug(f"Reading {output_file}...")
 
-    if pathlib.Path(filename).is_file():
-        with open(filename, "r") as current_json:
+    if output_file.is_file():
+        with open(output_file, "r") as current_json:
             docstring_dict = json.loads(current_json.read())
             logging.debug(f"Done!")
             return docstring_dict
@@ -31,7 +47,7 @@ def get_existing_dict(filename=OUT_FILE_NAME) -> Dict[str, Any]:
 def write_to_existing_dict(
     streamlit_version: str,
     docstring_dict: Dict[str, Any],
-    filename: str = OUT_FILE_NAME,
+    output_file: Path,
 ) -> None:
     """
     Write docstring data for a specific Streamlit version to a JSON file.
@@ -39,14 +55,14 @@ def write_to_existing_dict(
     Args:
         streamlit_version: The version of Streamlit this data is for
         docstring_dict: Dictionary containing the docstring data
-        filename: Path to the JSON file to write to
+        output_file: Path to the JSON file to write to
     """
-    logging.debug(f"Writing {filename}...")
+    logging.debug(f"Writing {output_file}...")
 
-    existing_dict = get_existing_dict(filename)
+    existing_dict = get_existing_dict(output_file)
     existing_dict[streamlit_version] = docstring_dict
 
-    with open(filename, "w") as out_file:
+    with open(output_file, "w") as out_file:
         out_file.write(json.dumps(existing_dict))
         logging.debug(f"Done!")
 
@@ -73,7 +89,7 @@ def get_latest_version(version_dict: Dict[str, Any]) -> Optional[str]:
     return latest_version
 
 
-def get_latest_data(json_path: str) -> Dict[str, Any]:
+def get_latest_data(json_path: Path) -> Dict[str, Any]:
     """
     Read a versioned JSON file and return data for the latest version.
 

@@ -63,7 +63,7 @@ if "info" in pypi_data:
             # Needs to be a subprocess so it imports the latest installed Streamlit correctly.
             # (modules are cached!)
             output = subprocess.Popen(
-                ["python", "generate_api_json.py", version_str],
+                ["python", "generate_streamlit_api_json.py", version_str],
                 stdout=subprocess.DEVNULL,
             )
             output.wait()

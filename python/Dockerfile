@@ -13,6 +13,6 @@ RUN pip install uv
 
 RUN mkdir -p /docs
 COPY build.py /docs
-COPY generate_api_json.py /docs
+COPY generate_streamlit_api_json.py /docs
 
 WORKDIR /docs

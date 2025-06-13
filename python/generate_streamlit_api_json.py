@@ -7,14 +7,23 @@
 #   "semver>=3.0.0",
 # ]
 # ///
-#
-# This file is used to generate streamlit_api.json, which contains
-# the function signatures for all Streamlit commands in an easily-parsable
-# JSON file.
-#
-# Usage:
-#   uv run generate_api_json.py
 
+"""
+This script generates streamlit_api.json, which contains the function signatures
+for all Streamlit commands in an easily-parsable JSON format.
+
+The script parses docstrings from the Streamlit codebase and generates a structured
+JSON representation of the API documentation.
+
+Usage:
+  uv run generate_streamlit_api_json.py [version] [debug_level]
+
+Args:
+    version: Optional version string to use instead of streamlit.__version__
+    debug_level: Optional debug level (0-2). Higher numbers = more verbose output
+"""
+
+from typing import Any, Dict, List, Optional, Tuple, Union
 import inspect
 import json
 import logging
@@ -43,15 +52,26 @@ from streamlit.elements.deck_gl_json_chart import PydeckState, PydeckSelectionSt
 from streamlit.navigation import page
 from streamlit.navigation.page import StreamlitPage
 
+# Constants
 VERSION = streamlit.__version__
 DEBUG = False
+REPO_PREFIX = f"https://github.com/streamlit/streamlit/blob/{VERSION}/lib/"
+OUT_FILE_NAME = "streamlit_api.json"
 
-# Set up logging to print debug messages to stdout
+# Configure logging
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 
-def parse_rst(rst_string):
-    """Parses RST string to HTML using docutils."""
+def parse_rst(rst_string: str) -> str:
+    """Parses RST string to HTML using docutils.
+
+    Args:
+        rst_string: The RST formatted string to parse
+
+    Returns:
+        The HTML representation of the RST content
+    """
     docutil_settings = {"embed_stylesheet": 0}
     # Register the custom RST directive for output
     directives.register_directive("output", stoutput.StOutput)
@@ -62,8 +82,15 @@ def parse_rst(rst_string):
     return str(document["body"])
 
 
-def strip_code_prompts(rst_string):
-    """Removes >>> and ... prompts from code blocks in examples."""
+def strip_code_prompts(rst_string: str) -> str:
+    """Removes >>> and ... prompts from code blocks in examples.
+
+    Args:
+        rst_string: The RST string containing code blocks
+
+    Returns:
+        The RST string with code prompts removed
+    """
     return (
         rst_string.replace("&gt;&gt;&gt; ", "")
         .replace("&gt;&gt;&gt;\n", "\n")
@@ -72,67 +99,102 @@ def strip_code_prompts(rst_string):
     )
 
 
-def get_github_source(func):
-    """Returns a link to the source code on GitHub for a given command."""
-    repo_prefix = f"https://github.com/streamlit/streamlit/blob/{VERSION}/lib/"
+def get_github_source(func: Union[types.FunctionType, property]) -> str:
+    """Returns a link to the source code on GitHub for a given command.
 
-    if hasattr(func, "__dict__"):
-        # For Streamlit commands (e.g. st.spinner) wrapped by decorator
-        while "__wrapped__" in func.__dict__:
-            # Continue to unwrap until we get to the original function
-            func = func.__wrapped__
+    Args:
+        func: The function or property to get the source link for
 
-    # Tuple with three elements: part before the first occurrence of "/streamlit",
-    # the string "/streamlit", and the part after "/streamlit"
-    # path_parts = func.__code__.co_filename.partition("/streamlit")
-    # # Get the line number where the function is defined in the source code
-    # line = func.__code__.co_firstlineno
+    Returns:
+        The GitHub URL pointing to the source code, or empty string if source cannot be determined
+    """
+    if DEBUG:
+        logger.debug(f"Getting source for {func.__name__ if hasattr(func, '__name__') else func}")
 
-    # return "".join([repo_prefix, path_parts[1], path_parts[2], f"#L{line}"])
+    def unwrap_function(f):
+        """Unwrap a function to get its original implementation."""
+        while hasattr(f, "__wrapped__"):
+            f = f.__wrapped__
+        return f
+        
     try:
-        source_file = inspect.getsourcefile(func)
-    except TypeError:
+        # Handle different types of functions/properties
+        if isinstance(func, property):
+            # For properties, we want the getter function
+            target_func = unwrap_function(func.fget) if func.fget else None
+        else:
+            # For regular functions, unwrap any decorators
+            target_func = unwrap_function(func)
+            
+        if target_func is None:
+            logger.debug(f"Could not determine target function for {func}")
+            return ""
+            
+        if DEBUG:
+            logger.debug(f"Unwrapped function: {target_func}")
+            
+        # Get source file for the unwrapped function
+        source_file = inspect.getsourcefile(target_func)
+        if DEBUG:
+            logger.debug(f"Source file: {source_file}")
+            
+        if source_file is None:
+            logger.debug(f"Could not determine source file for {target_func}")
+            return ""
+
+        # Get the relative path after the "streamlit" directory
+        streamlit_path = os.path.join(streamlit.__path__[0], "..")
+        if DEBUG:
+            logger.debug(f"Streamlit path: {streamlit_path}")
+            
+        rel_path = os.path.relpath(source_file, start=streamlit_path)
+        if DEBUG:
+            logger.debug(f"Relative path: {rel_path}")
+
+        # Exit if not in the Streamlit library
+        if ".." in rel_path:
+            if DEBUG:
+                logger.debug(f"Source file {source_file} not in Streamlit library")
+            return ""
+
+        # Get the line number from the unwrapped function
         try:
-            # TODO: The inspect module returns the correct line number but not
-            # the correct source file for functions with both @property and
-            # @gather_metrics. Replace ContextProxy properties with their
-            # parent class for the purposes of getting the correct source file.
-            # Generalize this two deal with arbitrarily wrapped functions.
-            context_obj = getattr(streamlit.runtime.context, "ContextProxy")
-            if func.fget.__module__ == context_obj.__module__:
-                source_file = inspect.getsourcefile(context_obj)
-            else:
-                source_file = inspect.getsourcefile(func.fget)
-        except AttributeError:
-            source_file = inspect.getsourcefile(func.__call__)
+            line = inspect.getsourcelines(target_func)[1]
+            if DEBUG:
+                logger.debug(f"Line number: {line}")
+        except (TypeError, OSError) as e:
+            logger.debug(f"Could not determine line number for {target_func}: {e}")
+            return ""
 
-    # Get the relative path after the "streamlit" directory
-    rel_path = os.path.relpath(
-        source_file, start=os.path.join(streamlit.__path__[0], "..")
-    )
+        result = "".join([REPO_PREFIX, rel_path, f"#L{line}"])
+        if DEBUG:
+            logger.debug(f"Final URL: {result}")
+        return result
 
-    # Exit if not in the Streamlit library
-    if ".." in rel_path:
+    except Exception as e:
+        logger.debug(f"Error generating GitHub source URL for {func}: {e}")
         return ""
-
-    try:
-        line = inspect.getsourcelines(func)[1]
-    except TypeError:
-        try:
-            line = inspect.getsourcelines(func.fget)[1]
-        except AttributeError:
-            try:
-                line = inspect.getsourcelines(func.__call__)[1]
-            except:
-                print(f"No line found for {func}")
-                return ""
-    return "".join([repo_prefix, rel_path, f"#L{line}"])
 
 
 def get_property_docstring_dict(
-    prop, propname, signature_prefix, is_class_method, is_property
-):
-    """Returns a dictionary containing the docstring information for a given property."""
+    prop: property,
+    propname: str,
+    signature_prefix: str,
+    is_class_method: bool,
+    is_property: bool,
+) -> Dict[str, Any]:
+    """Returns a dictionary containing the docstring information for a given property.
+
+    Args:
+        prop: The property object to parse
+        propname: Name of the property
+        signature_prefix: Prefix to use in the signature
+        is_class_method: Whether this is a class method
+        is_property: Whether this is a property
+
+    Returns:
+        A dictionary containing the parsed docstring information
+    """
     docstring_dict = get_docstring_dict(
         prop,
         propname,
@@ -141,6 +203,8 @@ def get_property_docstring_dict(
         is_class_method=is_class_method,
         is_property=is_property,
     )
+
+    # Get first line of description or empty string
     if "description" in docstring_dict:
         docstring_dict["description"] = docstring_dict["description"].split("\n")[0]
     else:
@@ -168,21 +232,42 @@ def get_attribute_dict_dict(obj, objname, signature_prefix=None):
 
 
 def parse_docstring(
-    obj, docstring, description, is_class, is_class_method, is_property
-):
+    obj: Any,
+    docstring: str,
+    description: Dict[str, Any],
+    is_class: bool,
+    is_class_method: bool,
+    is_property: bool,
+) -> None:
+    """Parses a docstring and updates the description dictionary with the parsed information.
+
+    Args:
+        obj: The object whose docstring is being parsed
+        docstring: The docstring to parse
+        description: Dictionary to update with parsed information
+        is_class: Whether the object is a class
+        is_class_method: Whether the object is a class method
+        is_property: Whether the object is a property
+
+    Note:
+        This function mutates the description dictionary rather than returning a new one.
+    """
     try:
-        # Explicitly create the 'Example' section which Streamlit seems to use a lot of.
+        # Parse numpy-style docstring sections
         NumpyDocString.sections.update({"Example": []})
         numpydoc_obj = NumpyDocString(docstring)
 
+        # Extract Notes section
         if "Notes" in numpydoc_obj and len(numpydoc_obj["Notes"]) > 0:
             collapsed = "\n".join(numpydoc_obj["Notes"])
             description["notes"] = parse_rst(collapsed)
 
+        # Extract Warning section
         if "Warning" in numpydoc_obj and len(numpydoc_obj["Warning"]) > 0:
             collapsed = "\n".join(numpydoc_obj["Warning"])
             description["warnings"] = parse_rst(collapsed)
 
+        # Extract Example/Examples sections
         if "Example" in numpydoc_obj and len(numpydoc_obj["Example"]) > 0:
             collapsed = "\n".join(numpydoc_obj["Example"])
             description["example"] = strip_code_prompts(parse_rst(collapsed))
@@ -191,91 +276,101 @@ def parse_docstring(
             collapsed = "\n".join(numpydoc_obj["Examples"])
             description["examples"] = strip_code_prompts(parse_rst(collapsed))
 
-    except:
-        print(f"Failed to parse notes, warning, and/or examples for {obj}.")
-
-    # Parse the docstring using docstring_parser
-    docstring_obj = docstring_parser.parse(docstring)
-
-    # Get the short and long descriptions from the docstring object
-    short_description = docstring_obj.short_description
-    long_description = str(
-        "" if docstring_obj.long_description is None else docstring_obj.long_description
-    )
-
-    # Insert a blank line between the short and long description, if the latter exists.
-    if long_description:
-        description["description"] = parse_rst(
-            "\n\n".join([short_description, long_description])
+    except Exception as e:
+        logger.error(
+            f"Failed to parse notes, warning, and/or examples for {obj}: {str(e)}"
         )
-    else:
-        description["description"] = short_description
+        return
 
-    if is_property and is_class_method:
-        description["description"] = parse_rst(short_description)
-    else:
-        description["description"] = parse_rst(
-            "\n\n".join([short_description, long_description])
-        )
+    try:
+        # Parse docstring using docstring_parser
+        docstring_obj = docstring_parser.parse(docstring)
 
-    # Initialize the list of arguments in the description dictionary
-    description["args"] = []
-    # Iterate through the parameters from the parsed docstring
-    for param in docstring_obj.params:
-        arg_obj = {}  # Create an argument object dictionary
-        arg_obj["name"] = param.arg_name  # Store the argument name
-        arg_obj["type_name"] = param.type_name  # Store the argument type
-        arg_obj["is_optional"] = param.is_optional  # Store the optional flag
-        if (not is_class) and callable(obj):
-            if param.arg_name.startswith("**"):
-                arg_obj["is_kwarg_only"] = True
-            elif param.arg_name == "*args":
-                arg_obj["is_kwarg_only"] = False
-            else:
-                try:
-                    # Check if the function is a bound method
-                    if isinstance(obj, types.MethodType):
-                        # Get the signature of the function object being bound
-                        sig = inspect.signature(obj.__func__)
-                    else:
-                        # Get the signature of the function
-                        sig = inspect.signature(obj)
-                    param_obj = sig.parameters[param.arg_name]
-                    arg_obj["is_kwarg_only"] = param_obj.kind is param_obj.KEYWORD_ONLY
-                except:
-                    print(sig)
-                    print(f"Can't find {param.arg_name} as an argument for {obj}")
-        arg_obj["description"] = (
-            parse_rst(param.description) if param.description else ""
-        )  # Store the argument description (parsed from RST to HTML)
-        arg_obj["default"] = param.default  # Store the default value
+        # Get short and long descriptions
+        short_description = docstring_obj.short_description or ""
+        long_description = docstring_obj.long_description or ""
 
-        # Check if the argument is deprecated
-        if docstring_obj.deprecation:
-            match = re.search("``[^ `]*``", docstring_obj.deprecation.description)
-            if match is not None and match.group(0) == f"``{param.arg_name}``":
-                # Add the deprecated flag and the deprecation message to the argument object
-                arg_obj["deprecated"] = {
-                    "deprecated": True,
-                    "deprecatedText": parse_rst(docstring_obj.deprecation.description),
-                }
-        # Append the argument object to the list of arguments
-        description["args"].append(arg_obj)
-
-    description["returns"] = []
-    if type(docstring_obj.returns) is not None:
-        for returns in docstring_obj.many_returns:
-            return_obj = {}
-            return_obj["type_name"] = returns.type_name
-            return_obj["is_generator"] = returns.is_generator
-            return_obj["description"] = (
-                parse_rst(returns.description) if returns.description else ""
+        # Format description based on object type
+        if is_property and is_class_method:
+            description["description"] = parse_rst(short_description)
+        else:
+            description["description"] = parse_rst(
+                "\n\n".join(filter(None, [short_description, long_description]))
             )
-            return_obj["return_name"] = returns.return_name
-            description["returns"].append(return_obj)
 
-    description["source"] = get_github_source(obj)
-    return  # Description dictionary is mutated
+        # Initialize args list
+        description["args"] = []
+
+        # Parse parameters
+        for param in docstring_obj.params:
+            arg_obj = {
+                "name": param.arg_name,
+                "type_name": param.type_name,
+                "is_optional": param.is_optional,
+                "description": parse_rst(param.description)
+                if param.description
+                else "",
+                "default": param.default,
+            }
+
+            # Handle special argument types
+            if not is_class and callable(obj):
+                if param.arg_name.startswith("**"):
+                    arg_obj["is_kwarg_only"] = True
+                elif param.arg_name == "*args":
+                    arg_obj["is_kwarg_only"] = False
+                else:
+                    try:
+                        # Get appropriate signature based on object type
+                        sig = (
+                            inspect.signature(obj.__func__)
+                            if isinstance(obj, types.MethodType)
+                            else inspect.signature(obj)
+                        )
+                        param_obj = sig.parameters[param.arg_name]
+                        arg_obj["is_kwarg_only"] = (
+                            param_obj.kind is param_obj.KEYWORD_ONLY
+                        )
+                    except Exception as e:
+                        logger.error(
+                            f"Failed to process argument {param.arg_name} for {obj}: {
+                                str(e)
+                            }"
+                        )
+                        continue
+
+            # Check for deprecation
+            if docstring_obj.deprecation:
+                match = re.search("``[^ `]*``", docstring_obj.deprecation.description)
+                if match is not None and match.group(0) == f"``{param.arg_name}``":
+                    arg_obj["deprecated"] = {
+                        "deprecated": True,
+                        "deprecatedText": parse_rst(
+                            docstring_obj.deprecation.description
+                        ),
+                    }
+
+            description["args"].append(arg_obj)
+
+        # Parse return values
+        description["returns"] = []
+        if docstring_obj.many_returns:
+            for returns in docstring_obj.many_returns:
+                return_obj = {
+                    "type_name": returns.type_name,
+                    "is_generator": returns.is_generator,
+                    "description": parse_rst(returns.description)
+                    if returns.description
+                    else "",
+                    "return_name": returns.return_name,
+                }
+                description["returns"].append(return_obj)
+
+        # Add source link
+        description["source"] = get_github_source(obj)
+
+    except Exception as e:
+        logger.error(f"Failed to parse docstring for {obj}: {str(e)}")
 
 
 def get_docstring_dict(
@@ -675,10 +770,51 @@ def get_streamlit_docstring_dict():
     return module_docstring_dict
 
 
+def main() -> None:
+    """Main entry point for the script.
+
+    Parses command line arguments and generates the API JSON file.
+    Command line arguments:
+        version: Optional version string to use instead of streamlit.__version__
+        debug_level: Optional debug level (0-2). Higher numbers = more verbose output
+    """
+    global VERSION, DEBUG
+
+    try:
+        # Parse command line arguments
+        if len(sys.argv) > 1:
+            VERSION = sys.argv[1]
+            logger.info(f"Using specified version: {VERSION}")
+
+        if len(sys.argv) > 2:
+            try:
+                debug_level = int(sys.argv[2])
+                if debug_level not in (0, 1, 2):
+                    raise ValueError("Debug level must be 0, 1, or 2")
+                DEBUG = debug_level
+                logger.info(f"Setting debug level to: {DEBUG}")
+            except ValueError as e:
+                logger.error(f"Invalid debug level: {e}")
+                sys.exit(1)
+
+        # Generate API documentation
+        logger.info("Generating API documentation...")
+        data = get_streamlit_docstring_dict()
+
+        # Get output file path
+        output_file = utils.get_output_path(OUT_FILE_NAME)
+
+        # Write to JSON file
+        logger.info(f"Writing documentation for version {VERSION}")
+        utils.write_to_existing_dict(VERSION, data, output_file)
+        logger.info("Documentation generation complete")
+
+    except Exception as e:
+        logger.error(f"Failed to generate API documentation: {e}")
+        if DEBUG:
+            logger.exception("Detailed error information:")
+        sys.exit(1)
+
+
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        VERSION = sys.argv[1]
-    if len(sys.argv) > 2 and sys.argv[2].isnumeric():
-        DEBUG = int(sys.argv[2])
-    data = get_streamlit_docstring_dict()
-    utils.write_to_existing_dict(VERSION, data)
+    main()
