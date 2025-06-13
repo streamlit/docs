@@ -109,14 +109,16 @@ def get_github_source(func: Union[types.FunctionType, property]) -> str:
         The GitHub URL pointing to the source code, or empty string if source cannot be determined
     """
     if DEBUG:
-        logger.debug(f"Getting source for {func.__name__ if hasattr(func, '__name__') else func}")
+        logger.debug(
+            f"Getting source for {func.__name__ if hasattr(func, '__name__') else func}"
+        )
 
     def unwrap_function(f):
         """Unwrap a function to get its original implementation."""
         while hasattr(f, "__wrapped__"):
             f = f.__wrapped__
         return f
-        
+
     try:
         # Handle different types of functions/properties
         if isinstance(func, property):
@@ -125,19 +127,19 @@ def get_github_source(func: Union[types.FunctionType, property]) -> str:
         else:
             # For regular functions, unwrap any decorators
             target_func = unwrap_function(func)
-            
+
         if target_func is None:
             logger.debug(f"Could not determine target function for {func}")
             return ""
-            
+
         if DEBUG:
             logger.debug(f"Unwrapped function: {target_func}")
-            
+
         # Get source file for the unwrapped function
         source_file = inspect.getsourcefile(target_func)
         if DEBUG:
             logger.debug(f"Source file: {source_file}")
-            
+
         if source_file is None:
             logger.debug(f"Could not determine source file for {target_func}")
             return ""
@@ -146,7 +148,7 @@ def get_github_source(func: Union[types.FunctionType, property]) -> str:
         streamlit_path = os.path.join(streamlit.__path__[0], "..")
         if DEBUG:
             logger.debug(f"Streamlit path: {streamlit_path}")
-            
+
         rel_path = os.path.relpath(source_file, start=streamlit_path)
         if DEBUG:
             logger.debug(f"Relative path: {rel_path}")
@@ -542,6 +544,10 @@ def get_sig_string_without_annots(func):
                 def_value = f'"{param.default}"'
             elif type(param.default) is type or callable(param.default):
                 def_value = f"special_internal_function"
+            # st.help's obj argument defaults to streamlit (to show Streamlit help),
+            # and if we don't special-case it here we get an ugly string.
+            elif param.default is streamlit:
+                def_value = "streamlit"
             else:
                 def_value = param.default
 
