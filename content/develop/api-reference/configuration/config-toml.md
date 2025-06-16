@@ -133,11 +133,11 @@ showSidebarNavigation = true
 # Default: true
 magicEnabled = true
 
-# Handle script rerun requests immediately, rather than waiting for script
-# execution to reach a yield point. This makes Streamlit much more
-# responsive to user interaction, but it can lead to race conditions in
-# apps that mutate session_state data outside of explicit session_state
-# assignment statements.
+# Handle script rerun requests immediately, rather than waiting for
+# script execution to reach a yield point.
+# This makes Streamlit much more responsive to user interaction, but it
+# can lead to race conditions in apps that mutate session_state data
+# outside of explicit session_state assignment statements.
 # Default: true
 fastReruns = true
 
@@ -149,8 +149,9 @@ fastReruns = true
 enforceSerializableSessionState = false
 
 # Adjust how certain 'options' widgets like radio, selectbox, and
-# multiselect coerce Enum members when the Enum class gets re-defined
-# during a script re-run. For more information, check out the docs:
+# multiselect coerce Enum members.
+# This is useful when the Enum class gets re-defined during a script
+# re-run. For more information, check out the docs:
 # https://docs.streamlit.io/develop/concepts/design/custom-classes#enums
 # Allowed values:
 # - "off"          : Disables Enum coercion.
@@ -166,8 +167,18 @@ enumCoercion = "nameOnly"
 ```toml
 [server]
 
-# List of folders that should not be watched for changes.
-# Relative paths will be taken as relative to the current working directory.
+# List of directories to watch for changes.
+# By default, Streamlit watches files in the current working directory
+# and its subdirectories. Use this option to specify additional
+# directories to watch. Paths must be absolute.
+# Default: []
+folderWatchList = []
+
+# List of directories to ignore for changes.
+# By default, Streamlit watches files in the current working directory
+# and its subdirectories. Use this option to specify exceptions within
+# watched directories. Paths can be absolute or relative to the current
+# working directory.
 # Example: ['/home/user1/env', 'relative/path/to/folder']
 # Default: []
 folderWatchBlacklist = []
@@ -199,14 +210,14 @@ headless = false
 runOnSave = false
 
 # The address where the server will listen for client and browser
-# connections. Use this if you want to bind the server to a specific address.
+# connections.
+# Use this if you want to bind the server to a specific address.
 # If set, the server will only be accessible from this address, and not from
 # any aliases (like localhost).
 # Default: (unset)
 address =
 
 # The port where the server will listen for browser connections.
-# Don't use port 3000 which is reserved for internal development.
 # Default: 8501
 port = 8501
 
@@ -220,6 +231,15 @@ baseUrlPath = ""
 # same time, Streamlit will enable them both instead.
 # Default: true
 enableCORS = true
+
+# Allowed list of origins.
+# If CORS protection is enabled (`server.enableCORS=True`), use this
+# option to set a list of allowed origins that the Streamlit server will
+# accept traffic from.
+# This config option does nothing if CORS protection is disabled.
+# Example: ['http://example.com', 'https://streamlit.io']
+# Default: []
+corsAllowedOrigins = []
 
 # Enables support for Cross-Site Request Forgery (XSRF) protection, for
 # added security.
@@ -246,9 +266,10 @@ enableWebsocketCompression = false
 # Default: false
 enableStaticServing = false
 
-# TTL in seconds for sessions whose websockets have been disconnected. The server
-# may choose to clean up session state, uploaded files, etc for a given session
-# with no active websocket connection at any point after this time has passed.
+# TTL in seconds for sessions whose websockets have been disconnected.
+# The server may choose to clean up session state, uploaded files, etc
+# for a given session with no active websocket connection at any point
+# after this time has passed.
 # Default: 120
 disconnectedSessionTTL = 120
 
@@ -294,8 +315,7 @@ gatherUsageStats = true
 # - Show the URL on the terminal (part of `streamlit run`).
 # - Open the browser automatically (part of `streamlit run`).
 # This option is for advanced use cases. To change the port of your app, use
-# `server.Port` instead. Don't use port 3000 which is reserved for internal
-# development.
+# `server.Port` instead.
 # Default: whatever value is set in server.port.
 serverPort = 8501
 ```
@@ -305,10 +325,12 @@ serverPort = 8501
 ```toml
 [mapbox]
 
-# Configure Streamlit to use a custom Mapbox
-# token for elements like st.pydeck_chart and st.map.
-# To get a token for yourself, create an account at
-# https://mapbox.com. It's free (for moderate usage levels)!
+# If you'd like to show maps using Mapbox rather than Carto, use this
+# to pass the Mapbox API token.
+# THIS IS DEPRECATED.
+# Instead of this, you should use either the MAPBOX_API_KEY environment
+variable or PyDeck's `api_keys` argument.
+# This option will be removed on or after 2026-05-01.
 # Default: ""
 token = ""
 ```
@@ -340,67 +362,99 @@ linkColor =
 # Background color used for code blocks.
 codeBackgroundColor =
 
-# The font family for all text, except code blocks. This can be one of
-# the following:
+# The font family for all text, except code blocks.
+# This can be one of the following:
 # - "sans-serif"
 # - "serif"
 # - "monospace"
-# - the `family` value for a custom font table under [[theme.fontFaces]]
-# - a comma-separated list of these (as a single string) to specify
+# - The `family` value for a custom font table under [[theme.fontFaces]]
+# - A comma-separated list of these (as a single string) to specify
 #   fallbacks
 # For example, you can use the following:
 # font = "cool-font, fallback-cool-font, sans-serif"
 font =
 
-# The font family to use for code (monospace) in the sidebar. This can be
-# one of the following:
+# The font family to use for code (monospace) in the sidebar.
+# This can be one of the following:
 # - "sans-serif"
 # - "serif"
 # - "monospace"
-# - the `family` value for a custom font table under [[theme.fontFaces]]
-# - a comma-separated list of these (as a single string) to specify
+# - The `family` value for a custom font table under [[theme.fontFaces]]
+# - A comma-separated list of these (as a single string) to specify
 #   fallbacks
 codeFont =
 
-# The font family to use for headings. This can be one of the following:
+# The font family to use for headings.
+# This can be one of the following:
 # - "sans-serif"
 # - "serif"
 # - "monospace"
-# - the `family` value for a custom font table under [[theme.fontFaces]]
-# - a comma-separated list of these (as a single string) to specify
+# - The `family` value for a custom font table under [[theme.fontFaces]]
+# - A comma-separated list of these (as a single string) to specify
 #   fallbacks
 # If no heading font is set, Streamlit uses `theme.font` for headings.
 headingFont =
 
-# An array of fonts to use in your app. Each font in the array is a table
-# (dictionary) with the following three attributes: family, url, weight,
-# and style. To host a font with your app, enable static file serving
-# with `server.enableStaticServing=true`. You can define multiple
-# [[theme.fontFaces]] tables.
-# For example, each font is defined in a [[theme.fontFaces]] table as
-# follows:
+# An array of fonts to use in your app.
+# Each font in the array is a table (dictionary) that can have the
+# following attributes, closely resembling CSS font-face definitions:
+# - family
+# - url
+# - weight (optional)
+# - style (optional)
+# - unicodeRange (optional)
+# To host a font with your app, enable static file serving with
+# `server.enableStaticServing=true`.
+# You can define multiple [[theme.fontFaces]] tables, including multiple
+# tables with the same family if your font is defined by multiple files.
+# For example, a font hosted with your app may have a [[theme.fontFaces]]
+# table as follows:
 # [[theme.fontFaces]]
 # family = "font_name"
 # url = "app/static/font_file.woff"
-# weight = 400
+# weight = "400"
 # style = "normal"
 fontFaces =
 
-# The radius used as basis for the corners of most UI elements. This can
-# be one of the following: "none", "small", "medium", "large", "full",
-# or the number in pixels or rem. For example, you can use "10px",
-# "0.5rem", or "2rem". To follow best practices, use rem instead of
-# pixels when specifying a numeric size.
+# The radius used as basis for the corners of most UI elements.
+# This can be one of the following:
+# - "none"
+# - "small"
+# - "medium"
+# - "large"
+# - "full"
+# - The number in pixels or rem.
+# For example, you can use "10px", "0.5rem", or "2rem". To follow best
+# practices, use rem instead of pixels when specifying a numeric size.
 baseRadius =
+
+# The radius used as basis for the corners of buttons.
+# This can be one of the following:
+# - "none"
+# - "small"
+# - "medium"
+# - "large"
+# - "full"
+# - The number in pixels or rem.
+# For example, you can use "10px", "0.5rem", or "2rem". To follow best
+# practices, use rem instead of pixels when specifying a numeric size.
+# If no button radius is set, Streamlit uses `theme.baseRadius` instead.
+buttonRadius =
 
 # The color of the border around elements.
 borderColor =
 
+# The color of the border around dataframes and tables.
+# If no dataframe border color is set, Streamlit uses `theme.borderColor`
+# instead.
+dataframeBorderColor =
+
 # Whether to show a border around input widgets.
 showWidgetBorder =
 
-# Sets the root font size (in pixels) for the app, which determines the
-# overall scale of text and UI elements. The default base font size is 16.
+# Sets the root font size (in pixels) for the app.
+# This determines the overall scale of text and UI elements.
+# When unset, the font size will be 16px.
 baseFontSize =
 
 # Whether to show a vertical separator between the sidebar and the main
@@ -431,47 +485,71 @@ linkColor =
 # Background color used for code blocks.
 codeBackgroundColor =
 
-# The font family for all text, except code blocks. This can be one of
-# the following:
+# The font family for all text, except code blocks.
+# This can be one of the following:
 # - "sans-serif"
 # - "serif"
 # - "monospace"
-# - the `family` value for a custom font table under [[theme.fontFaces]]
-# - a comma-separated list of these (as a single string) to specify
+# - The `family` value for a custom font table under [[theme.fontFaces]]
+# - A comma-separated list of these (as a single string) to specify
 #   fallbacks
 # For example, you can use the following:
 # font = "cool-font, fallback-cool-font, sans-serif"
 font =
 
-# The font family to use for code (monospace) in the sidebar. This can be
-# one of the following:
+# The font family to use for code (monospace) in the sidebar.
+# This can be one of the following:
 # - "sans-serif"
 # - "serif"
 # - "monospace"
-# - the `family` value for a custom font table under [[theme.fontFaces]]
-# - a comma-separated list of these (as a single string) to specify
+# - The `family` value for a custom font table under [[theme.fontFaces]]
+# - A comma-separated list of these (as a single string) to specify
 #   fallbacks
 codeFont =
 
-# The font family to use for headings. This can be one of the following:
+# The font family to use for headings.
+# This can be one of the following:
 # - "sans-serif"
 # - "serif"
 # - "monospace"
-# - the `family` value for a custom font table under [[theme.fontFaces]]
-# - a comma-separated list of these (as a single string) to specify
+# - The `family` value for a custom font table under [[theme.fontFaces]]
+# - A comma-separated list of these (as a single string) to specify
 #   fallbacks
 # If no heading font is set, Streamlit uses `theme.font` for headings.
 headingFont =
 
-# The radius used as basis for the corners of most UI elements. This can
-# be one of the following: "none", "small", "medium", "large", "full",
-# or the number in pixels or rem. For example, you can use "10px",
-# "0.5rem", or "2rem". To follow best practices, use rem instead of
-# pixels when specifying a numeric size.
+# The radius used as basis for the corners of most UI elements.
+# This can be one of the following:
+# - "none"
+# - "small"
+# - "medium"
+# - "large"
+# - "full"
+# - The number in pixels or rem.
+# For example, you can use "10px", "0.5rem", or "2rem". To follow best
+# practices, use rem instead of pixels when specifying a numeric size.
 baseRadius =
+
+# The radius used as basis for the corners of buttons.
+# This can be one of the following:
+# - "none"
+# - "small"
+# - "medium"
+# - "large"
+# - "full"
+# - The number in pixels or rem.
+# For example, you can use "10px", "0.5rem", or "2rem". To follow best
+# practices, use rem instead of pixels when specifying a numeric size.
+# If no button radius is set, Streamlit uses `theme.baseRadius` instead.
+buttonRadius =
 
 # The color of the border around elements.
 borderColor =
+
+# The color of the border around dataframes and tables.
+# If no dataframe border color is set, Streamlit uses `theme.borderColor`
+# instead.
+dataframeBorderColor =
 
 # Whether to show a border around input widgets.
 showWidgetBorder =
@@ -482,10 +560,11 @@ showWidgetBorder =
 ```toml
 [secrets]
 
-# List of locations where secrets are searched. An entry can be a path to a
-# TOML file or directory path where Kubernetes style secrets are saved.
-# Order is important, import is first to last, so secrets in later files
-# will take precedence over earlier ones.
+# List of locations where secrets are searched.
+# An entry can be a path to a TOML file or directory path where
+# Kubernetes style secrets are saved. Order is important, import is
+# first to last, so secrets in later files will take precedence over
+# earlier ones.
 # Default: [ <path to local environment's secrets.toml file>, <path to project's secrets.toml file>,]
 files = [ "~/.streamlit/secrets.toml", "~/project directory/.streamlit/secrets.toml",]
 ```
