@@ -384,6 +384,12 @@ font =
 #   fallbacks
 codeFont =
 
+# Sets the font size (in pixels or rem) for code blocks and code text.
+# This applies to `st.code`, `st.json`, and `st.help`.
+# It does not apply to inline code, which is set by default to 0.75em.
+# When unset, the code font size will be 0.875rem.
+codeFontSize =
+
 # The font family to use for headings.
 # This can be one of the following:
 # - "sans-serif"
@@ -506,6 +512,12 @@ font =
 # - A comma-separated list of these (as a single string) to specify
 #   fallbacks
 codeFont =
+
+# Sets the font size (in pixels or rem) for code blocks and code text.
+# This applies to `st.code`, `st.json`, and `st.help`.
+# It does not apply to inline code, which is set by default to 0.75em.
+# When unset, the code font size will be 0.875rem.
+codeFontSize =
 
 # The font family to use for headings.
 # This can be one of the following:
