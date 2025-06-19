@@ -23,7 +23,7 @@ pip install --upgrade streamlit
 
 ## **Version 1.46.0 (latest)**
 
-_Release date: June 17, 2025_
+_Release date: June 18, 2025_
 
 **Highlights**
 
