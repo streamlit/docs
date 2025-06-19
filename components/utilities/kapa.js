@@ -42,13 +42,15 @@ const Kapa = () => {
                 based on such answers should include reasonable practices including
                 human oversight to ensure they are safe, accurate, and suitable for
                 your intended purpose. Streamlit is not liable for any actions, losses,
-                or damages resulting from the use of the chatbot. 
+                or damages resulting from the use of the chatbot.
 
-                Do not enter any private, sensitive, personal, or regulated data.
-                By using this chatbot, you acknowledge and agree that input you provide
-                and answers you receive (collectively, “Content”) may be used by
-                Streamlit and kapa.ai to provide, maintain, develop, and improve
-                their respective offerings. For more information on how
+                You are hereby notified that this chat may be recorded, monitored,
+                and stored to improve our services. Do not enter any private,
+                sensitive, personal, or regulated data. By using this chatbot, you
+                consent to such monitoring and recording.  You further acknowledge
+                and agree that input you provide and answers you receive (collectively,
+                “Content”) may be used by Streamlit and kapa.ai to provide, maintain,
+                develop, and improve their respective offerings. For more information on how
                 kapa.ai may use your Content, see https://www.kapa.ai/content/terms-of-service."
           data-button-hide="true"
           data-modal-override-open-id="kapa-ai"
