@@ -38,7 +38,7 @@ pg.run()
 
 `st.Page` lets you define a page. The first and only required argument defines your page source, which can be a Python file or function. When using Python files, your pages may be in a subdirectory (or superdirectory). The path to your page file must always be relative to the entrypoint file. Once you create your page objects, pass them to `st.navigation` to register them as pages in your app.
 
-If you don't define your page title or URL pathname, Streamlit will infer them from the file or function name as described in the multipage apps [Overview](/develop/concepts/multipage-apps/overview#automatic-page-labels-and-urls). However, `st.Page` lets you configure them manually. Within `st.Page`, Streamlit uses `title` to set the page label and title. Additionaly, Streamlit uses `icon` to set the page icon and favicon. If you want to have a different page title and label, or different page icon and favicon, you can use `st.set_page_config` to change the page title and/or favicon. Just call `st.set_page_config` after `st.navigation`, either in your entrypoint file or in your page source.
+If you don't define your page title or URL pathname, Streamlit will infer them from the file or function name as described in the multipage apps [Overview](/develop/concepts/multipage-apps/overview#automatic-page-labels-and-urls). However, `st.Page` lets you configure them manually. Within `st.Page`, Streamlit uses `title` to set the page label and title. Additionaly, Streamlit uses `icon` to set the page icon and favicon. If you want to have a different page title and label, or different page icon and favicon, you can use `st.set_page_config` to change the page title and/or favicon. Just call `st.set_page_config` in your entrypoint file or in your page script. You can call `st.set_page_config` multiple times to additively configure your page. Use `st.set_page_config` in your entrypoint file to declare a default configuration, and call it within page scripts to override that default.
 
 The following example uses `st.set_page_config` to set a page title and favicon consistently across pages. Each page will have its own label and icon in the navigation menu, but the browser tab will show a consistent title and favicon on all pages.
 
@@ -70,13 +70,13 @@ pg.run()
 
 ## Customizing navigation
 
-If you want to group your pages into sections, `st.navigation` lets you insert headers within your navigation. Alternatively, you can disable the default navigation widget and build a custom navigation menu with `st.page_link`.
+You can display your navigation menu in the sidebar or along the top of your app using the `position` parameter in `st.navigation`. If you want to group your pages into sections, `st.navigation` lets you insert headers in the sidebar navigation or drop-down groups in the top navigation. Alternatively, you can disable the default navigation widget and build a custom navigation menu with `st.page_link`.
 
 Additionally, you can dynamically change which pages you pass to `st.navigation`. However, only the page returned by `st.navigation` accepts the `.run()` method. If a user enters a URL with a pathname, and that pathname is not associated to a page in `st.navigation` (on first run), Streamlit will throw a "Page not found" error and redirect them to the default page.
 
 ### Adding section headers
 
-As long as you don't want to hide a valid, accessible page in the navigation menu, the simplest way to customize your navigation menu is to organize the pages within `st.navigation`. You can sort or group pages, as well as remove any pages you don't want the user to access. This is a convenient way to handle user permissions.
+The simplest way to customize your navigation menu is to organize the pages within `st.navigation`. You can sort or group pages, as well as remove any pages you don't want the user to access. This is a convenient way to handle user permissions. However, you can't hide a page in navigation while keeping it accessible through a direct URL. If you need to hide a page while keeping it accessible, you'll need to hide the default navigation menu and build a navigation menu with commands like `st.page_link`.
 
 The following example creates two menu states. When a user starts a new session, they are not logged in. In this case, the only available page is the login page. If a user tries to access another page by URL, it will create a new session and Streamlit will not recognize the page. The user will be diverted to the login page. However, after a user logs in, they will see a navigation menu with three sections and be directed to the dashboard as the app's default page (i.e. homepage).
 
