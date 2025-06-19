@@ -55,14 +55,13 @@ Fonts are defined with the following attributes in their `[[theme.fontFaces]]` t
 
 - `family`: This is the name of the font and is used to identify the font for use by other configuration options.
 - `url`: This is the location of the font file. If you are self-hosting the font file with your app, the value will be similar to `"app/static/font_file.woff"`.
-- `weight` (optional): This declares the weight of the font within the font file (e.g., `400` or `"800"`). For more information, see the [`font-weight`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-weight) CSS `@font-face` descriptor. This must be an integer or numeric string. Weight ranges and keyword values are not supported.
+- `weight` (optional): This declares the weight of the font within the font file (e.g., `400`, `"200 800"`, or `"bold"`). For more information, see the [`font-weight`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-weight) CSS `@font-face` descriptor.
 - `style` (optional): This declares the style of the font within the font file (e.g., `"normal"`, `"italic"`, or `"oblique"`). For more information, see the [`font-style`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-style) CSS `@font-face` descriptor.
+- `unicodeRange` (optional): This declares the specific range of characters within the font file (e.g. `"U+0025-00FF, U+4??"`) For more information, see the [`unicode-range`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/unicode-range) CSS `@font-face descriptor.
 
 <Note>
 
 Font files can be static or variable. A static font file contains a single weight and style of font. If you use static font files, it is common to load multiple files to fully support the font across different weights (normal, bold) and styles (normal, italic). Variable font files parameterize one or more font attributes, which means a single font file can support multiple weights and styles.
-
-The font attributes in `[[theme.fontFaces]]` are passed to the CSS [`@font-face`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) rule. Streamlit passes `family`, `weight`, and `style` to `font-family`, `font-weight`, and `font-style`, respectively.
 
 </Note>
 
@@ -202,6 +201,19 @@ You can set the base font size for your app in pixels. You must specify the base
 [theme]
 baseFontSize=16
 ```
+
+Additionally, you can set the font size for code blocks. The font size can be declared in pixels or rem. The following configuration is equivalent to the default code font size of 0.875rem.
+
+```toml
+[theme]
+codeFontSize="0.875rem"
+```
+
+<Note>
+
+Inline code in Markdown is not impacted by `theme.codeFontSize`. Inline code is set at 0.75em.
+
+</Note>
 
 ## Font colors
 
