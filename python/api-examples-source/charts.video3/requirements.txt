@@ -1,2 +1,2 @@
-streamlit>=1.45.0
+streamlit>=1.46.0
 webvtt-py
