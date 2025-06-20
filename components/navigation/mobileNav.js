@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import bus from "../../lib/bus";
+import bus from "../../lib/node/bus";
 import router from "next/router";
 
 import styles from "./mobileNav.module.css";

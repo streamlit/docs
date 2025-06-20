@@ -1,40 +1,15 @@
-// import reverse from "lodash/reverse";
-
-const fs = require("fs");
-const path = require("path");
-
-const IS_DEV = process.env.NODE_ENV === "development";
-const PYTHON_DIRECTORY = path.join(process.cwd(), "python/");
-
-const jsonDocstrings = fs.readFileSync(
-  path.join(PYTHON_DIRECTORY, "streamlit.json"),
-  "utf8",
-);
-const jsonPlatformNotes = fs.readFileSync(
-  path.join(PYTHON_DIRECTORY, "snowflake.json"),
-  "utf8",
-);
-
-// Gather all versioning informationing to be available for import everywhere
-const DOCSTRINGS = jsonDocstrings ? JSON.parse(jsonDocstrings) : {};
-const VERSIONS_LIST = Object.keys(DOCSTRINGS).reverse();
-const LATEST_VERSION = VERSIONS_LIST[0];
-const DEFAULT_VERSION = "latest";
-const PLATFORM_NOTES = jsonPlatformNotes ? JSON.parse(jsonPlatformNotes) : {};
-let platformVersions = {};
-let latestPlatformVersion = {};
-for (const index in Object.keys(PLATFORM_NOTES)) {
-  const key = Object.keys(PLATFORM_NOTES)[index];
-  platformVersions[key] = Object.keys(PLATFORM_NOTES[key]);
-  latestPlatformVersion[key] = Object.keys(PLATFORM_NOTES[key]).at(-1);
-}
-const PLATFORM_VERSIONS = platformVersions;
-const PLATFORM_LATEST_VERSIONS = latestPlatformVersion;
-const PLATFORM_NAMES = {};
-PLATFORM_NAMES["oss"] = "All versions";
-PLATFORM_NAMES["sis"] = "Streamlit in Snowflake";
-PLATFORM_NAMES["na"] = "Snowflake Native Apps";
-const DEFAULT_PLATFORM = "oss";
+import {
+  IS_DEV,
+  DOCSTRINGS,
+  VERSIONS_LIST,
+  LATEST_VERSION,
+  DEFAULT_VERSION,
+  DEFAULT_PLATFORM,
+  PLATFORM_NOTES,
+  PLATFORM_VERSIONS,
+  PLATFORM_LATEST_VERSIONS,
+  PLATFORM_NAMES,
+} from "./lib/node/defaults.js";
 
 const PROD_OPTIMIZATIONS = IS_DEV
   ? {}
@@ -51,74 +26,74 @@ const PROD_OPTIMIZATIONS = IS_DEV
 const CSP_HEADER = [
   "upgrade-insecure-requests;",
   "frame-ancestors",
-    "'self'",
+  "'self'",
   ";",
   "frame-src",
-    "https:",
+  "https:",
   ";",
   "connect-src",
-    "'self'",
-    "https://*.streamlit.app/",
-    "wss://*.streamlit.app/",
-    "https://streamlit.ghost.io/ghost/api/", // Blog API
-    "https://api.segment.io/", // Analytics
-    "https://cdn.segment.com/", // Analytics
-    "https://*.auryc.com/", // Analytics (Heap)
-    "https://www.google-analytics.com/", // Analytics
-    "https://stats.g.doubleclick.net/", // Analytics
-    "https://px.ads.linkedin.com/", // LinkedIn ad pixel
-    "https://*.algolia.net/", // Search
-    "https://*.algolianet.com/", // Search
-    "https://widget.kapa.ai/kapa-widget.bundle.js", // Kapa.ai
-    "https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app/", // Kapa.ai
-    "https://www.google.com/recaptcha/api.js", // Recaptcha for Kapa.ai
-    "https://www.gstatic.com/recaptcha/releases/", // Recaptchas for Kapa.ai
-    "https://www.google.com/recaptcha/enterprise.js", // Recaptchas for Kapa.ai
+  "'self'",
+  "https://*.streamlit.app/",
+  "wss://*.streamlit.app/",
+  "https://streamlit.ghost.io/ghost/api/", // Blog API
+  "https://api.segment.io/", // Analytics
+  "https://cdn.segment.com/", // Analytics
+  "https://*.auryc.com/", // Analytics (Heap)
+  "https://www.google-analytics.com/", // Analytics
+  "https://stats.g.doubleclick.net/", // Analytics
+  "https://px.ads.linkedin.com/", // LinkedIn ad pixel
+  "https://*.algolia.net/", // Search
+  "https://*.algolianet.com/", // Search
+  "https://widget.kapa.ai/kapa-widget.bundle.js", // Kapa.ai
+  "https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app/", // Kapa.ai
+  "https://www.google.com/recaptcha/api.js", // Recaptcha for Kapa.ai
+  "https://www.gstatic.com/recaptcha/releases/", // Recaptchas for Kapa.ai
+  "https://www.google.com/recaptcha/enterprise.js", // Recaptchas for Kapa.ai
   ";",
   "default-src 'none';",
   "font-src 'self';",
   "form-action 'self';",
   "img-src",
-    "'self'",
-    "data:",
-    "https:",
+  "'self'",
+  "data:",
+  "https:",
   ";",
   "media-src",
-    "'self'",
-    "https://s3-us-west-2.amazonaws.com/assets.streamlit.io/", // Videos
+  "'self'",
+  "https://s3-us-west-2.amazonaws.com/assets.streamlit.io/", // Videos
   ";",
   "script-src",
-    "'self'",
-    "'unsafe-inline'", // NextJS payload
-    "'unsafe-eval'", // Required for MDXRemote in [...slug].js. Using App Router may fix this.
-    "https://cdn.heapanalytics.com/", // Analytics
-    "https://cdn.segment.com/", // Analytics
-    "https://www.google-analytics.com/", // Analytics
-    "https://www.googletagmanager.com/", // Analytics
-    "https://identity.netlify.com/", // Netlify dev tools
-    "https://netlify-cdp-loader.netlify.app/netlify.js", // Netlify dev tools
-    "https://www.youtube.com/iframe_api/", // YouTube Embed
-    "https://snap.licdn.com/", // LinkedIn ad pixel
-    "https://connect.facebook.net/", // Facebook ad pixel
-    "https://*.algolia.net/", // Search
-    "https://*.algolianet.com/", // Search
-    "https://widget.kapa.ai/kapa-widget.bundle.js", // Kapa.ai
-    "https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app/", // Kapa.ai
-    "https://www.google.com/recaptcha/api.js", // Recaptcha for Kapa.ai
-    "https://www.gstatic.com/recaptcha/releases/", // Recaptchas for Kapa.ai
-    "https://www.google.com/recaptcha/enterprise.js", // Recaptchas for Kapa.ai
+  "'self'",
+  "'unsafe-inline'", // NextJS payload
+  "'unsafe-eval'", // Required for MDXRemote in [...slug].js. Using App Router may fix this.
+  "https://cdn.heapanalytics.com/", // Analytics
+  "https://cdn.segment.com/", // Analytics
+  "https://www.google-analytics.com/", // Analytics
+  "https://www.googletagmanager.com/", // Analytics
+  "https://identity.netlify.com/", // Netlify dev tools
+  "https://netlify-cdp-loader.netlify.app/netlify.js", // Netlify dev tools
+  "https://www.youtube.com/iframe_api/", // YouTube Embed
+  "https://snap.licdn.com/", // LinkedIn ad pixel
+  "https://connect.facebook.net/", // Facebook ad pixel
+  "https://*.algolia.net/", // Search
+  "https://*.algolianet.com/", // Search
+  "https://widget.kapa.ai/kapa-widget.bundle.js", // Kapa.ai
+  "https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app/", // Kapa.ai
+  "https://www.google.com/recaptcha/api.js", // Recaptcha for Kapa.ai
+  "https://www.gstatic.com/recaptcha/releases/", // Recaptchas for Kapa.ai
+  "https://www.google.com/recaptcha/enterprise.js", // Recaptchas for Kapa.ai
   ";",
   "style-src",
-    "'self'",
-    "'unsafe-inline'", // Twitter CSS
+  "'self'",
+  "'unsafe-inline'", // Twitter CSS
   ";",
   "worker-src",
-    "'self'",
-    "blob:",
+  "'self'",
+  "blob:",
   ";",
 ];
 
-module.exports = {
+export default {
   serverRuntimeConfig: {
     DOCSTRINGS,
     VERSIONS_LIST,

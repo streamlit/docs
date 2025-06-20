@@ -17,7 +17,7 @@ import getConfig from "next/config";
 const { publicRuntimeConfig } = getConfig();
 
 import styles from "./autofunction.module.css";
-import { looksLikeVersionAndPlatformString } from "../../context/VersionContext";
+import { looksLikeVersionAndPlatformString } from "../../lib/next/utils";
 
 const LATEST_VERSION = publicRuntimeConfig.LATEST_VERSION;
 const DEFAULT_VERSION = publicRuntimeConfig.DEFAULT_VERSION;
