@@ -10,7 +10,24 @@ To build the docs, clone this repo, install the NPM dependencies, and start the 
 
 ### 1. Set up your base environment
 
-Make sure you have `npm` installed.
+Make sure you have [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and `make` installed.
+
+#### Install `make` on MacOS
+
+`make` is included with XCode Tools.
+
+- In your terminal, run the following command:
+  ```bash
+  $ xcode-select --install
+  ```
+
+#### Install `make` on Windows
+
+1. [Install Chocolately](https://chocolatey.org/install), a package manager for Windows.
+2. In your terminal, run the following command:
+   ```bash
+   choco install make
+   ```
 
 ### 2. Clone this repo:
 
