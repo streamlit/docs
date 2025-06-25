@@ -263,7 +263,6 @@ If you know the answer to a Streamlit user's pain point and want to add it to th
 1. Decide which of the above sections your article belongs to
 2. Navigate to the relevant section's folder in `kb/` and
 3. Create a `.md` file in the above specified format containing your article
-
    - Make sure the title in the front matter and the file header in Markdown are identical. E.g.
 
      ```markdown

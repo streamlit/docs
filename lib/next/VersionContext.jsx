@@ -6,6 +6,9 @@ import {
   useEffect,
 } from "react";
 import getConfig from "next/config";
+
+import { looksLikeVersionAndPlatformString } from "./utils";
+
 const { publicRuntimeConfig } = getConfig();
 
 const VersionContext = createContext();
@@ -52,30 +55,6 @@ export function VersionContextProvider(props) {
 
 export function useVersionContext() {
   return useContext(VersionContext);
-}
-
-export function looksLikeVersionAndPlatformString(urlPart) {
-  const platforms = [DEFAULT_PLATFORM].concat(Object.keys(PLATFORM_VERSIONS));
-
-  // docs.streamlit.io/1.23.0/path1/path2
-  const isPureVersion = /^[\d\.]+$/.test(urlPart);
-  if (isPureVersion) return true;
-
-  // docs.streamlit.io/latest/path1/path2
-  const isLatestVersion = urlPart == "latest";
-  if (isLatestVersion) return true;
-
-  // docs.streamlit.io/1.23.0-sis/path1/path2
-  const versionPlatformRegex = RegExp(`^[\\d\\.]+-(${platforms.join("|")})$`);
-  const isVersionWithPlatform = versionPlatformRegex.test(urlPart);
-  if (isVersionWithPlatform) return true;
-
-  // docs.streamlit.io/latest-sis/path1/path2
-  const latestPlatformRegex = RegExp(`^latest-(${platforms.join("|")})$`);
-  const isLatestPlatform = latestPlatformRegex.test(urlPart);
-  if (isLatestPlatform) return true;
-
-  return false;
 }
 
 export function getVersionAndPlatformFromPathPart(pathPart) {

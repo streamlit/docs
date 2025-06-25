@@ -26,6 +26,7 @@
     "next-mdx-remote": "^4.4.1",
     "next-remote-watch": "^2.0.0",
     "next-sitemap": "^4.2.3",
+    "node": "^20.19.3",
     "node-html-parser": "^6.1.11",
     "nprogress": "^0.2.0",
     "prismjs": "^1.30.0",
