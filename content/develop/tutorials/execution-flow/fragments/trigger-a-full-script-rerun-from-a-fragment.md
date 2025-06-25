@@ -157,7 +157,6 @@ with monthly:
    ```
 
    You'll be using these libraries as follows:
-
    - You'll work with sales data in a `pandas.DataFrame`.
    - You'll generate random sales numbers with `numpy`.
    - The data will have `datetime.date` index values.

@@ -17,18 +17,22 @@ import getConfig from "next/config";
 const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
 
 // Site Components
+import { looksLikeVersionAndPlatformString } from "../lib/next/utils";
 import CookieSettingsModal from "../components/utilities/cookieSettingsModal";
 import GDPRBanner, {
   setTelemetryPreference,
 } from "../components/utilities/gdpr";
-import { getArticleSlugs, getArticleSlugFromString, getMenu } from "../lib/api";
-import { getPreviousNextFromMenu } from "../lib/utils.js";
+import {
+  getArticleSlugs,
+  getArticleSlugFromString,
+  getMenu,
+} from "../lib/node/api";
+import { getPreviousNextFromMenu } from "../lib/next/utils";
 import {
   getVersionAndPlatformFromPathPart,
   getVersionAndPlatformString,
-  looksLikeVersionAndPlatformString,
   useVersionContext,
-} from "../context/VersionContext";
+} from "../lib/next/VersionContext";
 import Layout from "../components/layouts/globalTemplate";
 import Footer from "../components/navigation/footer";
 import BreadCrumbs from "../components/utilities/breadCrumbs";

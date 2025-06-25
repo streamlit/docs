@@ -42,7 +42,9 @@ The following configuration options can be set separately for the sidebar by usi
 - `theme.linkColor`
 - `theme.codeBackgroundColor`
 - `theme.baseRadius`
+- `theme.buttonRadius`
 - `theme.borderColor`
+- `theme.dataframeBorderColor`
 - `theme.showWidgetBorder`
 
 For brevity, on the rest of this page, theming configuration options will not include the `theme.` or `theme.sidebar.` prefix.
@@ -148,7 +150,7 @@ linkColor="darkOrchid"
 
 <Cloud name="doc-theming-color-textcolor" height="400px" />
 
-### `baseRadius`
+### `baseRadius` and `buttonRadius`
 
 `baseRadius` defines the radius of borders and backgrounds for the following elements:
 
@@ -161,6 +163,8 @@ linkColor="darkOrchid"
 - Tooltips, including tooltips within charts
 - Status and exception message blocks
 - Images, including `st.graphviz` and `st.pyplot`, which display as static images
+
+`buttonRadius` overrides `baseRadius` for buttons and `st.segmented_control`.
 
 A few elements are notably not fully affected by `baseRadius`. Interactive charts and videos, which have a more complex underlying HTML, will always have square corners. This includes `st.video`, `st.map`, and `st.pydeck_chart`. Conversely, `st.chat_input` and `st.audio_input` will always be fully rounded. Sub-elements like tooltips are still affected by `baseRadius`.
 
@@ -184,7 +188,7 @@ baseRadius="none"
 
 <Cloud name="doc-theming-color-baseradius" height="500px" />
 
-### `borderColor` and `showWidgetBorder`
+### `borderColor`, `dataframeBorderColor`, and `showWidgetBorder`
 
 Streamlit does not display borders for unfocused widgets by default (except for buttons). When a user focuses on a widget, Streamlit displays a border around the input area in your `primaryColor`. When the user removes focus, Streamlit hides the border.
 
@@ -198,6 +202,8 @@ The following elements have borders that you can modify:
 - `st.tabs` (bottom border)
 - Buttons, including `st.button`, `st.pills`, and `st.segmented_control`
 - Borders on input regions
+
+`dataframeBorderColor` overrides `borderColor` for dataframes and tables.
 
 #### Example 5: Border color and visibility
 

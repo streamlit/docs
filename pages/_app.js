@@ -10,7 +10,7 @@ import NProgress from "nprogress";
 
 import { useEffect } from "react";
 
-import { VersionContextProvider } from "../context/VersionContext";
+import { VersionContextProvider } from "../lib/next/VersionContext";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());

@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import { getMenu } from "../lib/api";
+import { getMenu } from "../lib/node/api";
 
 import Layout from "../components/layouts/globalTemplate";
 import Footer from "../components/navigation/footer";
@@ -190,65 +190,75 @@ export default function Home({ window, menu }) {
             <H2 className="no-b-m">What's new</H2>
 
             <TileContainer>
-              <RefCard size="third" href="/develop/api-reference/user/st.user">
-                <i className="material-icons-sharp">account_circle</i>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/navigation/st.navigation"
+              >
+                <i className="material-icons-sharp">signpost</i>
+                <h4>Top navigation</h4>
+                <p>
+                  Use <code>st.navigation</code> with{" "}
+                  <code>position="top"</code>
+                  to create a navigation menu across the top of your app.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/caching-and-state/st.context#contexttheme"
+              >
+                <i className="material-icons-sharp">light_mode</i>
+                <h4>Detect theme base</h4>
+                <p>
+                  You can detect if the viewer is in light mode or dark mode at
+                  runtime with <code>st.context.theme</code>.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/layout/st.columns"
+              >
+                <i className="material-icons-sharp">dashboard</i>
+                <h4>Container nesting</h4>
+                <p>
+                  Streamlit no longer restricts the nesting of columns,
+                  expanders, popovers, and chat message containers, but take
+                  care not to overuse nested layouts!
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/text/st.markdown"
+              >
+                <i className="material-icons-sharp">format_align_left</i>
+                <h4>Customize element widths</h4>
+                <p>
+                  You can set the width of most Streamlit elements with a{" "}
+                  <code>width</code> parameter, with more to come soon!
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/execution-flow/st.form"
+              >
+                <i className="material-icons-sharp">expand</i>
+                <h4>Form height</h4>
+                <p>
+                  You can set the height of form with the <code>height</code>
+                  parameter in <code>st.form</code>.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/configuration/config.toml#theme"
+              >
+                <i className="material-icons-sharp">settings</i>
                 <h4>
-                  <code>st.user</code>
+                  <code>Theme configuration</code>
                 </h4>
                 <p>
-                  <code>st.user</code> is generally available! Get user
-                  information from a dict-like interface.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/widgets/st.multiselect"
-              >
-                <i className="material-icons-sharp">add</i>
-                <h4>User-defined selections</h4>
-                <p>
-                  <code>st.multiselect</code> and <code>st.selectbox</code> can
-                  be configured to let users add new options.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/caching-and-state/st.context"
-              >
-                <i className="material-icons-sharp">http</i>
-                <h4>New user context attributes</h4>
-                <p>
-                  <code>st.context</code> has additional attributes. Get the URL
-                  used to access the app, the user's IP address, and whether the
-                  app is embedded.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/status/st.exception"
-              >
-                <i className="material-icons-sharp">swap_horiz</i>
-                <h4>Text alert width</h4>
-                <p>Text alerts and exceptions have a new width parameter.</p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/custom-components/st.components.v1.iframe"
-              >
-                <i className="material-icons-sharp">widgets</i>
-                <h4>Tab order</h4>
-                <p>
-                  You can specify the sequential navigation order of
-                  <code>st.components.v1.iframe</code> and
-                  <code>st.components.v1.html</code>.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/develop/api-reference/text/st.html">
-                <i className="material-icons-sharp">css</i>
-                <h4>Automatic style tags</h4>
-                <p>
-                  <code>st.html</code> now automatically adds style tags when
-                  used to include a CSS file.
+                  Try&nbsp;out&nbsp;<code>theme.dataframeBorderColor</code>,{" "}
+                  <code>theme.buttonRadius</code>, or{" "}
+                  <code>theme.codeFontSize</code>.
                 </p>
               </RefCard>
             </TileContainer>
