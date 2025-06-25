@@ -104,14 +104,14 @@ Clone the [component-template GitHub repo](https://github.com/streamlit/componen
    # React template
    template/my_component/frontend
    npm install    # Initialize the project and install npm dependencies
-   npm run start  # Start the Webpack dev server
+   npm run start  # Start the Vite dev server
 
    # or
 
    # TypeScript-only template
    template-reactless/my_component/frontend
    npm install    # Initialize the project and install npm dependencies
-   npm run start  # Start the Webpack dev server
+   npm run start  # Start the Vite dev server
    ```
 
 2. _From a separate terminal_, run the Streamlit app (Python) that declares and uses the component:
