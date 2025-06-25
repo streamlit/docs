@@ -3,107 +3,32 @@ title: Theming
 slug: /develop/concepts/configuration/theming
 ---
 
-# Theming
+# Theming overview
 
-In this guide, we provide examples of how Streamlit page elements are affected
-by the various theme config options. For a more high-level overview of
-Streamlit themes, see the Themes section of the
-[main concepts documentation](/get-started/fundamentals/additional-features#themes).
+In this guide, we provide an overview of theming and visual customization of Streamlit apps. Streamlit themes are defined using configuration options, which are most commonly defined in a `.streamlit/config.toml` file. For more information about setting configuration options, see [Working with configuration options](/develop/concepts/configuration/options). For a complete list of configuration options and definitions, see the API reference for [config.toml](/develop/api-reference/configuration/config.toml#theme).
 
-Streamlit themes are defined using regular config options: a theme can be set
-via command line flag when starting your app using `streamlit run` or by
-defining it in the `[theme]` section of a `.streamlit/config.toml` file. For
-more information on setting config options, please refer to the
-[Streamlit configuration documentation](/develop/concepts/configuration).
+The following options can be set once for your whole app:
 
-The following config options show the default Streamlit Light theme recreated
-in the `[theme]` section of a `.streamlit/config.toml` file.
+- **Base color scheme**: Set your custom theme to inherit from Streamlit's light or dark theme.
+- **Font size**: Set the base font size for your app.
 
-```toml
-[theme]
-primaryColor="#FF4B4B"
-backgroundColor="#FFFFFF"
-secondaryBackgroundColor="#F0F2F6"
-textColor="#31333F"
-font="sans serif"
-```
+The following options can be configured separately for the main body of your app and the sidebar:
 
-Let's go through each of these options, providing screenshots to demonstrate
-what parts of a Streamlit app they affect where needed.
+- **Font**: Set the font family for body text, headers, and code.
+- **Text color**: Set the color of body text and links.
+- **Primary color**: Set the color of interactive elements and highlights.
+- **Background color**: Set the color of app, widget, and code block backgrounds.
+- **Border radius**: Set the roundness of elements and widgets.
+- **Border color**: Set the color and visibility of element, widget, and sidebar borders.
 
-## primaryColor
+## Example themes
 
-`primaryColor` defines the accent color most often used throughout a Streamlit
-app. A few examples of Streamlit widgets that use `primaryColor` include
-`st.checkbox`, `st.slider`, and `st.text_input` (when focused).
+The following light theme is inspired by [Anthropic](https://docs.anthropic.com/en/home).
+<Cloud name="doc-theming-overview-anthropic-light-inspired" height="500px" />
 
-![Primary Color](/images/theme_config_options/primaryColor.png)
+The following dark theme is inspired by [Spotify](https://open.spotify.com/).
+<Cloud name="doc-theming-overview-spotify-inspired" height="500px" />
 
-<Tip>
+## Working with theme configuration during development
 
-Any CSS color can be used as the value for primaryColor and the other color
-options below. This means that theme colors can be specified in hex or with
-browser-supported color names like "green", "yellow", and
-"chartreuse". They can even be defined in the RGB and HSL formats!
-
-</Tip>
-
-## backgroundColor
-
-Defines the background color used in the main content area of your app.
-
-## secondaryBackgroundColor
-
-This color is used where a second background color is needed for added
-contrast. Most notably, it is the sidebar's background color. It is also used
-as the background color for most interactive widgets.
-
-![Secondary Background Color](/images/theme_config_options/secondaryBackgroundColor.png)
-
-## textColor
-
-This option controls the text color for most of your Streamlit app.
-
-## font
-
-Selects the font used in your Streamlit app. Valid values are `"sans serif"`,
-`"serif"`, and `"monospace"`. This option defaults to `"sans serif"` if unset
-or invalid.
-
-Note that code blocks are always rendered using the monospace font regardless of
-the font selected here.
-
-## base
-
-An easy way to define custom themes that make small changes to one of the
-preset Streamlit themes is to use the `base` option. Using `base`, the
-Streamlit Light theme can be recreated as a custom theme by writing the
-following:
-
-```toml
-[theme]
-base="light"
-```
-
-The `base` option allows you to specify a preset Streamlit theme that your
-custom theme inherits from. Any theme config options not defined in your theme
-settings have their values set to those of the base theme. Valid values for
-`base` are `"light"` and `"dark"`.
-
-For example, the following theme config defines a custom theme nearly identical
-to the Streamlit Dark theme, but with a new `primaryColor`.
-
-```toml
-[theme]
-base="dark"
-primaryColor="purple"
-```
-
-If `base` itself is omitted, it defaults to `"light"`, so you can define a
-custom theme that changes the font of the Streamlit Light theme to serif with
-the following config
-
-```toml
-[theme]
-font="serif"
-```
+Most theme configuration options can be updated while an app is running. This makes it easy to iterate on your custom theme. If you change your app's primary color, save your `config.toml` file, and rerun your app, you will immediately see the new color. However, some configuration options (like `[[theme.fontFace]]`) require you to restart the Streamlit server to reflect the updates. If in doubt, when updating your app's configuration, stop the Streamlit server in your terminal and restart your app with the `streamlit run` command.

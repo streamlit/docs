@@ -17,12 +17,12 @@ Developers can write JavaScript and HTML "components" that can be rendered in St
 
 Streamlit Components let you expand the functionality provided in the base Streamlit package. Use Streamlit Components to create the needed functionality for your use-case, then wrap it up in a Python package and share with the broader Streamlit community!
 
-**Types of Streamlit Components you could create include:**
+**With Streamlit Components you can add new features to your app in the following ways:**
 
-- Custom versions of existing Streamlit elements and widgets, such as `st.slider` or `st.file_uploader`.
-- Completely new Streamlit elements and widgets by wrapping existing React.js, Vue.js, or other JavaScript widget toolkits.
-- Rendering Python objects having methods that output HTML, such as IPython [`__repr_html__`](https://ipython.readthedocs.io/en/stable/config/integrating.html#rich-display).
-- Convenience functions for commonly-used web features like [GitHub gists and Pastebin](https://github.com/randyzwitch/streamlit-embedcode).
+- Create your own components to use in place of existing Streamlit elements and widgets.
+- Create completely new Streamlit elements and widgets by wrapping existing React.js, Vue.js, or other JavaScript widget toolkits.
+- Render Python objects by constructing HTML representations and styling them to fit your app's theme.
+- Create convenience functions to embed commonly-used web features like [GitHub gists and Pastebin](https://github.com/randyzwitch/streamlit-embedcode).
 
 Check out these Streamlit Components tutorial videos by Streamlit engineer Tim Conkling to get started:
 

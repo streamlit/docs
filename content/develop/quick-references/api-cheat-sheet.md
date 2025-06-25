@@ -5,7 +5,7 @@ slug: /develop/quick-reference/cheat-sheet
 
 # Streamlit API cheat sheet
 
-This is a summary of the docs for the latest version of Streamlit, [v1.45.0](https://pypi.org/project/streamlit/1.45.0/).
+This is a summary of the docs for the latest version of Streamlit, [v1.46.0](https://pypi.org/project/streamlit/1.46.0/).
 
 <Masonry>
 
@@ -524,6 +524,7 @@ st.context.headers
 st.context.ip_address
 st.context.is_embedded
 st.context.locale
+st.context.theme.type
 st.context.timezone
 st.context.timezone_offset
 st.context.url

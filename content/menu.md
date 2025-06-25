@@ -39,23 +39,23 @@ site_menu:
   - category: Develop / Concepts
     url: /develop/concepts
   - category: Develop / Concepts / CORE
-  - category: Develop / Concepts / Architecture & execution
+  - category: Develop / Concepts / Architecture and execution
     url: /develop/concepts/architecture
-  - category: Develop / Concepts / Architecture & execution / Running your app
+  - category: Develop / Concepts / Architecture and execution / Running your app
     url: /develop/concepts/architecture/run-your-app
-  - category: Develop / Concepts / Architecture & execution / Streamlit's architecture
+  - category: Develop / Concepts / Architecture and execution / Streamlit's architecture
     url: /develop/concepts/architecture/architecture
-  - category: Develop / Concepts / Architecture & execution / The app chrome
+  - category: Develop / Concepts / Architecture and execution / The app chrome
     url: /develop/concepts/architecture/app-chrome
-  - category: Develop / Concepts / Architecture & execution / Caching
+  - category: Develop / Concepts / Architecture and execution / Caching
     url: /develop/concepts/architecture/caching
-  - category: Develop / Concepts / Architecture & execution / Session State
+  - category: Develop / Concepts / Architecture and execution / Session State
     url: /develop/concepts/architecture/session-state
-  - category: Develop / Concepts / Architecture & execution / Forms
+  - category: Develop / Concepts / Architecture and execution / Forms
     url: /develop/concepts/architecture/forms
-  - category: Develop / Concepts / Architecture & execution / Fragments
+  - category: Develop / Concepts / Architecture and execution / Fragments
     url: /develop/concepts/architecture/fragments
-  - category: Develop / Concepts / Architecture & execution/ Widget behavior
+  - category: Develop / Concepts / Architecture and execution/ Widget behavior
     url: /develop/concepts/architecture/widget-behavior
   - category: Develop / Concepts / Multipage apps
     url: /develop/concepts/multipage-apps
@@ -69,7 +69,7 @@ site_menu:
     url: /develop/concepts/multipage-apps/widgets
   - category: Develop / Concepts / App design
     url: /develop/concepts/design
-  - category: Develop / Concepts / App design / Animate & update elements
+  - category: Develop / Concepts / App design / Animate and update elements
     url: /develop/concepts/design/animate
   - category: Develop / Concepts / App design / Button behavior and examples
     url: /develop/concepts/design/buttons
@@ -82,15 +82,15 @@ site_menu:
   - category: Develop / Concepts / App design / Working with timezones
     url: /develop/concepts/design/timezone-handling
   - category: Develop / Concepts / ADDITIONAL
-  - category: Develop / Concepts / Connections, secrets, & authentication
+  - category: Develop / Concepts / Connections, secrets, and authentication
     url: /develop/concepts/connections
-  - category: Develop / Concepts / Connections, secrets, & authentication / Connecting to data
+  - category: Develop / Concepts / Connections, secrets, and authentication / Connecting to data
     url: /develop/concepts/connections/connecting-to-data
-  - category: Develop / Concepts / Connections, secrets, & authentication / Secrets management
+  - category: Develop / Concepts / Connections, secrets, and authentication / Secrets management
     url: /develop/concepts/connections/secrets-management
-  - category: Develop / Concepts / Connections, secrets, & authentication / User authentication
+  - category: Develop / Concepts / Connections, secrets, and authentication / User authentication
     url: /develop/concepts/connections/authentication
-  - category: Develop / Concepts / Connections, secrets, & authentication / Security reminders
+  - category: Develop / Concepts / Connections, secrets, and authentication / Security reminders
     url: /develop/concepts/connections/security-reminders
   - category: Develop / Concepts / Custom components
     url: /develop/concepts/custom-components
@@ -104,16 +104,21 @@ site_menu:
     url: /develop/concepts/custom-components/limitations
   - category: Develop / Concepts / Custom components / Component gallery
     url: https://streamlit.io/components
-  - category: Develop / Concepts / Configuration & theming
+  - category: Develop / Concepts / Configuration and theming
     url: /develop/concepts/configuration
-  - category: Develop / Concepts / Configuration & theming / Configuration options
+  - category: Develop / Concepts / Configuration and theming / Configuration options
     url: /develop/concepts/configuration/options
-  - category: Develop / Concepts / Configuration & theming / HTTPS support
+  - category: Develop / Concepts / Configuration and theming / HTTPS support
     url: /develop/concepts/configuration/https-support
-  - category: Develop / Concepts / Configuration & theming / Serving static files
+  - category: Develop / Concepts / Configuration and theming / Serving static files
     url: /develop/concepts/configuration/serving-static-files
-  - category: Develop / Concepts / Configuration & theming / Customize your theme
+  - category: Develop / Concepts / Configuration and theming / THEMING
+  - category: Develop / Concepts / Configuration and theming / Customize your theme
     url: /develop/concepts/configuration/theming
+  - category: Develop / Concepts / Configuration and theming / Customize colors and borders
+    url: /develop/concepts/configuration/theming-customize-colors-and-borders
+  - category: Develop / Concepts / Configuration and theming / Customize fonts
+    url: /develop/concepts/configuration/theming-customize-fonts
   - category: Develop / Concepts / App testing
     url: /develop/concepts/app-testing
   - category: Develop / Concepts / App testing / Get started
@@ -130,19 +135,19 @@ site_menu:
   - category: Develop / API reference
     url: /develop/api-reference
   - category: Develop / API reference / PAGE ELEMENTS
-  - category: Develop / API reference / Write & magic
+  - category: Develop / API reference / Write and magic
     url: /develop/api-reference/write-magic
-  - category: Develop / API reference / Write & magic / st.write
+  - category: Develop / API reference / Write and magic / st.write
     url: /develop/api-reference/write-magic/st.write
     isVersioned: true
-  - category: Develop / API reference / Write & magic / st.write_stream
+  - category: Develop / API reference / Write and magic / st.write_stream
     url: /develop/api-reference/write-magic/st.write_stream
     isVersioned: true
-  - category: Develop / API reference / Write & magic / magic
+  - category: Develop / API reference / Write and magic / magic
     url: /develop/api-reference/write-magic/magic
   - category: Develop / API reference / Text elements
     url: /develop/api-reference/text
-  - category: Develop / API reference / Text elements / HEADINGS & BODY
+  - category: Develop / API reference / Text elements / HEADINGS AND BODY
   - category: Develop / API reference / Text elements / st.title
     url: /develop/api-reference/text/st.title
     isVersioned: true
@@ -352,7 +357,7 @@ site_menu:
   - category: Develop / API reference / Input widgets / st.slider
     url: /develop/api-reference/widgets/st.slider
     isVersioned: true
-  - category: Develop / API reference / Input widgets / DATE & TIME
+  - category: Develop / API reference / Input widgets / DATE AND TIME
   - category: Develop / API reference / Input widgets / st.date_input
     url: /develop/api-reference/widgets/st.date_input
     isVersioned: true
@@ -369,7 +374,7 @@ site_menu:
   - category: Develop / API reference / Input widgets / st.text_input
     url: /develop/api-reference/widgets/st.text_input
     isVersioned: true
-  - category: Develop / API reference / Input widgets / MEDIA & FILES
+  - category: Develop / API reference / Input widgets / MEDIA AND FILES
   - category: Develop / API reference / Input widgets / st.audio_input
     url: /develop/api-reference/widgets/st.audio_input
     isVersioned: true
@@ -396,33 +401,33 @@ site_menu:
   - category: Develop / API reference / Media elements / st.video
     url: /develop/api-reference/media/st.video
     isVersioned: true
-  - category: Develop / API reference / Layouts & containers
+  - category: Develop / API reference / Layouts and containers
     url: /develop/api-reference/layout
-  - category: Develop / API reference / Layouts & containers / st.columns
+  - category: Develop / API reference / Layouts and containers / st.columns
     url: /develop/api-reference/layout/st.columns
     isVersioned: true
-  - category: Develop / API reference / Layouts & containers / st.container
+  - category: Develop / API reference / Layouts and containers / st.container
     url: /develop/api-reference/layout/st.container
     isVersioned: true
-  - category: Develop / API reference / Layouts & containers / st.dialog
+  - category: Develop / API reference / Layouts and containers / st.dialog
     url: https://docs.streamlit.io/develop/api-reference/execution-flow/st.dialog
     isVersioned: true
-  - category: Develop / API reference / Layouts & containers / st.empty
+  - category: Develop / API reference / Layouts and containers / st.empty
     url: /develop/api-reference/layout/st.empty
     isVersioned: true
-  - category: Develop / API reference / Layouts & containers / st.expander
+  - category: Develop / API reference / Layouts and containers / st.expander
     url: /develop/api-reference/layout/st.expander
     isVersioned: true
-  - category: Develop / API reference / Layouts & containers / st.form
+  - category: Develop / API reference / Layouts and containers / st.form
     url: https://docs.streamlit.io/develop/api-reference/execution-flow/st.form
     isVersioned: true
-  - category: Develop / API reference / Layouts & containers / st.popover
+  - category: Develop / API reference / Layouts and containers / st.popover
     url: /develop/api-reference/layout/st.popover
     isVersioned: true
-  - category: Develop / API reference / Layouts & containers / st.sidebar
+  - category: Develop / API reference / Layouts and containers / st.sidebar
     url: /develop/api-reference/layout/st.sidebar
     isVersioned: true
-  - category: Develop / API reference / Layouts & containers / st.tabs
+  - category: Develop / API reference / Layouts and containers / st.tabs
     url: /develop/api-reference/layout/st.tabs
     isVersioned: true
   - category: Develop / API reference / Chat elements
@@ -479,29 +484,29 @@ site_menu:
   - category: Develop / API reference / Third-party components
     url: https://streamlit.io/components
   - category: Develop / API reference / APPLICATION LOGIC
-  - category: Develop / API reference / Authentication & user info
+  - category: Develop / API reference / Authentication and user info
     url: /develop/api-reference/user
-  - category: Develop / API reference / Authentication & user info / st.login
+  - category: Develop / API reference / Authentication and user info / st.login
     url: /develop/api-reference/user/st.login
     isVersioned: true
-  - category: Develop / API reference / Authentication & user info / st.logout
+  - category: Develop / API reference / Authentication and user info / st.logout
     url: /develop/api-reference/user/st.logout
     isVersioned: true
-  - category: Develop / API reference / Authentication & user info / st.user
+  - category: Develop / API reference / Authentication and user info / st.user
     url: /develop/api-reference/user/st.user
     isVersioned: true
-  - category: Develop / API reference / Navigation & pages
+  - category: Develop / API reference / Navigation and pages
     url: /develop/api-reference/navigation
-  - category: Develop / API reference / Navigation & pages / st.navigation
+  - category: Develop / API reference / Navigation and pages / st.navigation
     url: /develop/api-reference/navigation/st.navigation
     isVersioned: true
-  - category: Develop / API reference / Navigation & pages / st.Page
+  - category: Develop / API reference / Navigation and pages / st.Page
     url: /develop/api-reference/navigation/st.page
     isVersioned: true
-  - category: Develop / API reference / Navigation & pages / st.page_link
+  - category: Develop / API reference / Navigation and pages / st.page_link
     url: https://docs.streamlit.io/develop/api-reference/widgets/st.page_link
     isVersioned: true
-  - category: Develop / API reference / Navigation & pages / st.switch_page
+  - category: Develop / API reference / Navigation and pages / st.switch_page
     url: /develop/api-reference/navigation/st.switch_page
     isVersioned: true
   - category: Develop / API reference / Execution flow
@@ -529,72 +534,72 @@ site_menu:
     isVersioned: true
     isDeprecated: true
     visible: false
-  - category: Develop / API reference / Caching & state
+  - category: Develop / API reference / Caching and state
     url: /develop/api-reference/caching-and-state
-  - category: Develop / API reference / Caching & state / SERVER
-  - category: Develop / API reference / Caching & state / st.cache_data
+  - category: Develop / API reference / Caching and state / SERVER
+  - category: Develop / API reference / Caching and state / st.cache_data
     url: /develop/api-reference/caching-and-state/st.cache_data
     isVersioned: true
-  - category: Develop / API reference / Caching & state / st.cache_resource
+  - category: Develop / API reference / Caching and state / st.cache_resource
     url: /develop/api-reference/caching-and-state/st.cache_resource
     isVersioned: true
-  - category: Develop / API reference / Caching & state / st.experimental_memo
+  - category: Develop / API reference / Caching and state / st.experimental_memo
     url: /develop/api-reference/caching-and-state/st.experimental_memo
     isVersioned: true
     isDeprecated: true
     visible: false
-  - category: Develop / API reference / Caching & state / st.experimental_singleton
+  - category: Develop / API reference / Caching and state / st.experimental_singleton
     url: /develop/api-reference/caching-and-state/st.experimental_singleton
     isVersioned: true
     isDeprecated: true
     visible: false
-  - category: Develop / API reference / Caching & state / st.session_state
+  - category: Develop / API reference / Caching and state / st.session_state
     url: /develop/api-reference/caching-and-state/st.session_state
-  - category: Develop / API reference / Caching & state / BROWSER
-  - category: Develop / API reference / Caching & state / st.context
+  - category: Develop / API reference / Caching and state / BROWSER
+  - category: Develop / API reference / Caching and state / st.context
     url: /develop/api-reference/caching-and-state/st.context
     isVersioned: true
-  - category: Develop / API reference / Caching & state / st.query_params
+  - category: Develop / API reference / Caching and state / st.query_params
     url: /develop/api-reference/caching-and-state/st.query_params
     isVersioned: true
-  - category: Develop / API reference / Caching & state / st.experimental_get_query_params
+  - category: Develop / API reference / Caching and state / st.experimental_get_query_params
     url: /develop/api-reference/caching-and-state/st.experimental_get_query_params
     isVersioned: true
     isDeprecated: true
-  - category: Develop / API reference / Caching & state / st.experimental_set_query_params
+  - category: Develop / API reference / Caching and state / st.experimental_set_query_params
     url: /develop/api-reference/caching-and-state/st.experimental_set_query_params
     isVersioned: true
     isDeprecated: true
-  - category: Develop / API reference / Connections & secrets
+  - category: Develop / API reference / Connections and secrets
     url: /develop/api-reference/connections
-  - category: Develop / API reference / Connections & secrets / SECRETS
-  - category: Develop / API reference / Connections & secrets / st.secrets
+  - category: Develop / API reference / Connections and secrets / SECRETS
+  - category: Develop / API reference / Connections and secrets / st.secrets
     url: /develop/api-reference/connections/st.secrets
-  - category: Develop / API reference / Connections & secrets / secrets.toml
+  - category: Develop / API reference / Connections and secrets / secrets.toml
     url: /develop/api-reference/connections/secrets.toml
-  - category: Develop / API reference / Connections & secrets / CONNECTIONS
-  - category: Develop / API reference / Connections & secrets / st.connection
+  - category: Develop / API reference / Connections and secrets / CONNECTIONS
+  - category: Develop / API reference / Connections and secrets / st.connection
     url: /develop/api-reference/connections/st.connection
     isVersioned: true
-  - category: Develop / API reference / Connections & secrets / SnowflakeConnection
+  - category: Develop / API reference / Connections and secrets / SnowflakeConnection
     url: /develop/api-reference/connections/st.connections.snowflakeconnection
     isVersioned: true
-  - category: Develop / API reference / Connections & secrets / SQLConnection
+  - category: Develop / API reference / Connections and secrets / SQLConnection
     url: /develop/api-reference/connections/st.connections.sqlconnection
     isVersioned: true
-  - category: Develop / API reference / Connections & secrets / BaseConnection
+  - category: Develop / API reference / Connections and secrets / BaseConnection
     url: /develop/api-reference/connections/st.connections.baseconnection
     isVersioned: true
-  - category: Develop / API reference / Connections & secrets / st.experimental_connection
+  - category: Develop / API reference / Connections and secrets / st.experimental_connection
     url: /develop/api-reference/connections/st.experimental_connection
     isVersioned: true
     isDeprecated: true
     visible: false
-  - category: Develop / API reference / Connections & secrets / SnowparkConnection
+  - category: Develop / API reference / Connections and secrets / SnowparkConnection
     url: /develop/api-reference/connections/st.connections.snowparkconnection
     isVersioned: true
     isDeprecated: true
-  - category: Develop / API reference / Connections & secrets / ExperimentalBaseConnection
+  - category: Develop / API reference / Connections and secrets / ExperimentalBaseConnection
     url: /develop/api-reference/connections/st.connections.experimentalbaseconnection
     isVersioned: true
     isDeprecated: true
@@ -655,32 +660,28 @@ site_menu:
 
   - category: Develop / Tutorials
     url: /develop/tutorials
-  - category: Develop / Tutorials / Authentication & personalization
+  - category: Develop / Tutorials / Authentication and personalization
     url: /develop/tutorials/authentication
-  - category: Develop / Tutorials / Authentication & personalization / Google Auth Platform
+  - category: Develop / Tutorials / Authentication and personalization / Google Auth Platform
     url: /develop/tutorials/authentication/google
-  - category: Develop / Tutorials / Authentication & personalization / Microsoft Entra
+  - category: Develop / Tutorials / Authentication and personalization / Microsoft Entra
     url: /develop/tutorials/authentication/microsoft
-  - category: Develop / Tutorials / Elements
-    url: /develop/tutorials/elements
-  - category: Develop / Tutorials / Elements / CHARTS
-  - category: Develop / Tutorials / Elements / Annotate an Altair chart
-    url: /develop/tutorials/elements/annotate-an-altair-chart
-  - category: Develop / Tutorials / Elements / DATAFRAMES
-  - category: Develop / Tutorials / Elements / Get dataframe row-selections
-    url: /develop/tutorials/elements/dataframe-row-selections
-  - category: Develop / Tutorials / Elements / Get dataframe row-selections (streamlit<1.35.0)
-    url: /develop/tutorials/elements/dataframe-row-selections-old
-    visible: false
-  - category: Develop / Tutorials / Execution flow
-    url: /develop/tutorials/execution-flow
-  - category: Develop / Tutorials / Execution flow / FRAGMENTS
-  - category: Develop / Tutorials / Execution flow / Rerun your app from a fragment
-    url: /develop/tutorials/execution-flow/trigger-a-full-script-rerun-from-a-fragment
-  - category: Develop / Tutorials / Execution flow / Create a multiple-container fragment
-    url: /develop/tutorials/execution-flow/create-a-multiple-container-fragment
-  - category: Develop / Tutorials / Execution flow / Start and stop a streaming fragment
-    url: /develop/tutorials/execution-flow/start-and-stop-fragment-auto-reruns
+  - category: Develop / Tutorials / Chat and LLM apps
+    url: /develop/tutorials/chat-and-llm-apps
+  - category: Develop / Tutorials / Chat and LLM apps / Build a basic LLM chat app
+    url: /develop/tutorials/chat-and-llm-apps/build-conversational-apps
+  - category: Develop / Tutorials / Chat and LLM apps / Build an LLM app using LangChain
+    url: /develop/tutorials/chat-and-llm-apps/llm-quickstart
+  - category: Develop / Tutorials / Chat and LLM apps / Get chat response feedback
+    url: /develop/tutorials/chat-and-llm-apps/chat-response-feedback
+  - category: Develop / Tutorials / Chat and LLM apps / Validate and edit chat responses
+    url: /develop/tutorials/chat-and-llm-apps/validate-and-edit-chat-responses
+  - category: Develop / Tutorials / Configuration and theming
+    url: /develop/tutorials/configuration-and-theming
+  - category: Develop / Tutorials / Configuration and theming / Use static font files
+    url: /develop/tutorials/configuration-and-theming/static-fonts
+  - category: Develop / Tutorials / Configuration and theming / Use variable font files
+    url: /develop/tutorials/configuration-and-theming/variable-fonts
   - category: Develop / Tutorials / Connect to data sources
     url: /develop/tutorials/databases
   - category: Develop / Tutorials / Connect to data sources / AWS S3
@@ -715,6 +716,26 @@ site_menu:
     url: /develop/tutorials/databases/tidb
   - category: Develop / Tutorials / Connect to data sources / TigerGraph
     url: /develop/tutorials/databases/tigergraph
+  - category: Develop / Tutorials / Elements
+    url: /develop/tutorials/elements
+  - category: Develop / Tutorials / Elements / CHARTS
+  - category: Develop / Tutorials / Elements / Annotate an Altair chart
+    url: /develop/tutorials/elements/annotate-an-altair-chart
+  - category: Develop / Tutorials / Elements / DATAFRAMES
+  - category: Develop / Tutorials / Elements / Get dataframe row-selections
+    url: /develop/tutorials/elements/dataframe-row-selections
+  - category: Develop / Tutorials / Elements / Get dataframe row-selections (streamlit<1.35.0)
+    url: /develop/tutorials/elements/dataframe-row-selections-old
+    visible: false
+  - category: Develop / Tutorials / Execution flow
+    url: /develop/tutorials/execution-flow
+  - category: Develop / Tutorials / Execution flow / FRAGMENTS
+  - category: Develop / Tutorials / Execution flow / Rerun your app from a fragment
+    url: /develop/tutorials/execution-flow/trigger-a-full-script-rerun-from-a-fragment
+  - category: Develop / Tutorials / Execution flow / Create a multiple-container fragment
+    url: /develop/tutorials/execution-flow/create-a-multiple-container-fragment
+  - category: Develop / Tutorials / Execution flow / Start and stop a streaming fragment
+    url: /develop/tutorials/execution-flow/start-and-stop-fragment-auto-reruns
   - category: Develop / Tutorials / Multipage apps
     url: /develop/tutorials/multipage
   - category: Develop / Tutorials / Multipage apps / Dynamic navigation
@@ -722,16 +743,6 @@ site_menu:
   - category: Develop / Tutorials / Multipage apps / Build navigation with st.page_link
     url: /develop/tutorials/multipage/st.page_link-nav
     visible: false
-  - category: Develop / Tutorials / Chat & LLM apps
-    url: /develop/tutorials/chat-and-llm-apps
-  - category: Develop / Tutorials / Chat & LLM apps / Build a basic LLM chat app
-    url: /develop/tutorials/chat-and-llm-apps/build-conversational-apps
-  - category: Develop / Tutorials / Chat & LLM apps / Build an LLM app using LangChain
-    url: /develop/tutorials/chat-and-llm-apps/llm-quickstart
-  - category: Develop / Tutorials / Chat & LLM apps / Get chat response feedback
-    url: /develop/tutorials/chat-and-llm-apps/chat-response-feedback
-  - category: Develop / Tutorials / Chat & LLM apps / Validate and edit chat responses
-    url: /develop/tutorials/chat-and-llm-apps/validate-and-edit-chat-responses
   - category: Develop / Quick reference
     url: /develop/quick-reference
   - category: Develop / Quick reference / Cheat sheet
@@ -825,7 +836,7 @@ site_menu:
     url: /deploy/streamlit-community-cloud/share-your-app/share-previews
   - category: Deploy / Streamlit Community Cloud / Manage your account
     url: /deploy/streamlit-community-cloud/manage-your-account
-  - category: Deploy / Streamlit Community Cloud / Manage your account / Sign in & sign out
+  - category: Deploy / Streamlit Community Cloud / Manage your account / Sign in and sign out
     url: /deploy/streamlit-community-cloud/manage-your-account/sign-in-sign-out
   - category: Deploy / Streamlit Community Cloud / Manage your account / Workspace settings
     url: /deploy/streamlit-community-cloud/manage-your-account/workspace-settings
