@@ -192,6 +192,20 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/develop/api-reference/configuration/config.toml#theme"
+              >
+                <i className="material-icons-sharp">settings</i>
+                <h4>
+                  <code>Theme configuration</code>
+                </h4>
+                <p>
+                  Try out even more theme configuration options in{" "}
+                  <code>config.toml</code>, including new color, font, and style
+                  settings.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="/develop/api-reference/navigation/st.navigation"
               >
                 <i className="material-icons-sharp">signpost</i>
@@ -245,20 +259,6 @@ export default function Home({ window, menu }) {
                 <p>
                   You can set the height of form with the <code>height</code>
                   parameter in <code>st.form</code>.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/configuration/config.toml#theme"
-              >
-                <i className="material-icons-sharp">settings</i>
-                <h4>
-                  <code>Theme configuration</code>
-                </h4>
-                <p>
-                  Try&nbsp;out&nbsp;<code>theme.dataframeBorderColor</code>,{" "}
-                  <code>theme.buttonRadius</code>, or{" "}
-                  <code>theme.codeFontSize</code>.
                 </p>
               </RefCard>
             </TileContainer>
