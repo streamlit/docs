@@ -6,10 +6,6 @@ family = "SpaceGrotesk"
 url = "app/static/SpaceGrotesk-VariableFont_wght.ttf"
 
 [[theme.fontFaces]]
-family = "SpaceGroteskHeader"
-url = "app/static/SpaceGrotesk-SemiBold.ttf"
-
-[[theme.fontFaces]]
 family = "SpaceMono"
 url = "app/static/SpaceMono-Bold.ttf"
 style = "normal"
@@ -34,20 +30,26 @@ style = "normal"
 weight = 400
 
 [theme]
-primaryColor = "#bb5a38"
-backgroundColor = "#f4f3ed"
+primaryColor = "#cb785c"
+backgroundColor = "#fdfdf8"
 secondaryBackgroundColor = "#ecebe3"
 textColor = "#3d3a2a"
 linkColor = "#3d3a2a"
 borderColor = "#d3d2ca"
 showWidgetBorder = true
-baseRadius = "0.6rem"
+baseRadius = "0.75rem"
+buttonRadius = "full"
 font = "SpaceGrotesk"
-headingFont = "SpaceGroteskHeader"
+headingFontWeights = [600,500,500,500,500,500]
+headingFontSizes = ["3rem", "2rem"]
 codeFont = "SpaceMono"
+codeFontSize = ".75rem"
 codeBackgroundColor = "#ecebe4"
 showSidebarBorder = true
+chartCategoricalColors = ["#0ea5e9", "#059669", "#fbbf24"]
 
 [theme.sidebar]
-backgroundColor = "#e8e7dd"
+backgroundColor = "#f0f0ec"
 secondaryBackgroundColor = "#ecebe3"
+headingFontSizes = ["1.6rem", "1.4rem", "1.2rem"]
+dataframeHeaderBackgroundColor = "#e4e4e0"
