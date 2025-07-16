@@ -508,12 +508,12 @@ headingFont =
 # headings. Heading font sizes set in [theme] are not inherited by
 # [theme.sidebar]. The following sizes are used by default:
 # [
-# "2.75rem", # h1 (1.5rem for sidebar)
-# "2.25rem", # h2 (1.25rem for sidebar)
-# "1.75rem", # h3 (1.125rem for sidebar)
-# "1.5rem", # h4 (1rem for sidebar)
-# "1.25rem", # h5 (0.875rem for sidebar)
-# "1rem", # h6 (0.75rem for sidebar)
+#     "2.75rem", # h1 (1.5rem for sidebar)
+#     "2.25rem", # h2 (1.25rem for sidebar)
+#     "1.75rem", # h3 (1.125rem for sidebar)
+#     "1.5rem", # h4 (1rem for sidebar)
+#     "1.25rem", # h5 (0.875rem for sidebar)
+#     "1rem", # h6 (0.75rem for sidebar)
 # ]
 #
 # If you specify an array with fewer than six sizes, the unspecified
@@ -535,12 +535,12 @@ headingFontSizes =
 # headings. Heading font weights set in [theme] are not inherited by
 # [theme.sidebar]. The following weights are used by default:
 # [
-# 700, # h1 (bold)
-# 600, # h2 (semi-bold)
-# 600, # h3 (semi-bold)
-# 600, # h4 (semi-bold)
-# 600, # h5 (semi-bold)
-# 600, # h6 (semi-bold)
+#     700, # h1 (bold)
+#     600, # h2 (semi-bold)
+#     600, # h3 (semi-bold)
+#     600, # h4 (semi-bold)
+#     600, # h5 (semi-bold)
+#     600, # h6 (semi-bold)
 # ]
 #
 # If you specify an array with fewer than six weights, the unspecified
@@ -648,29 +648,29 @@ showSidebarBorder =
 #
 # For light themes, the following colors are the default:
 # [
-# "#0068c9", # blue80
-# "#83c9ff", # blue40
-# "#ff2b2b", # red80
-# "#ffabab", # red40
-# "#29b09d", # blueGreen80
-# "#7defa1", # green40
-# "#ff8700", # orange80
-# "#ffd16a", # orange50
-# "#6d3fc0", # purple80
-# "#d5dae5", # gray40
+#     "#0068c9", # blue80
+#     "#83c9ff", # blue40
+#     "#ff2b2b", # red80
+#     "#ffabab", # red40
+#     "#29b09d", # blueGreen80
+#     "#7defa1", # green40
+#     "#ff8700", # orange80
+#     "#ffd16a", # orange50
+#     "#6d3fc0", # purple80
+#     "#d5dae5", # gray40
 # ]
 # For dark themes, the following colors are the default:
 # [
-# "#83c9ff", # blue40
-# "#0068c9", # blue80
-# "#ffabab", # red40
-# "#ff2b2b", # red80
-# "#7defa1", # green40
-# "#29b09d", # blueGreen80
-# "#ffd16a", # orange50
-# "#ff8700", # orange80
-# "#6d3fc0", # purple80
-# "#d5dae5", # gray40
+#     "#83c9ff", # blue40
+#     "#0068c9", # blue80
+#     "#ffabab", # red40
+#     "#ff2b2b", # red80
+#     "#7defa1", # green40
+#     "#29b09d", # blueGreen80
+#     "#ffd16a", # orange50
+#     "#ff8700", # orange80
+#     "#6d3fc0", # purple80
+#     "#d5dae5", # gray40
 # ]
 chartCategoricalColors =
 
@@ -684,29 +684,29 @@ chartCategoricalColors =
 #
 # For light themes, the following colors are the default:
 # [
-# "#e4f5ff", #blue10
-# "#c7ebff", #blue20
-# "#a6dcff", #blue30
-# "#83c9ff", #blue40
-# "#60b4ff", #blue50
-# "#3d9df3", #blue60
-# "#1c83e1", #blue70
-# "#0068c9", #blue80
-# "#0054a3", #blue90
-# "#004280", #blue100
+#     "#e4f5ff", #blue10
+#     "#c7ebff", #blue20
+#     "#a6dcff", #blue30
+#     "#83c9ff", #blue40
+#     "#60b4ff", #blue50
+#     "#3d9df3", #blue60
+#     "#1c83e1", #blue70
+#     "#0068c9", #blue80
+#     "#0054a3", #blue90
+#     "#004280", #blue100
 # ]
 # For dark themes, the following colors are the default:
 # [
-# "#004280", #blue100
-# "#0054a3", #blue90
-# "#0068c9", #blue80
-# "#1c83e1", #blue70
-# "#3d9df3", #blue60
-# "#60b4ff", #blue50
-# "#83c9ff", #blue40
-# "#a6dcff", #blue30
-# "#c7ebff", #blue20
-# "#e4f5ff", #blue10
+#     "#004280", #blue100
+#     "#0054a3", #blue90
+#     "#0068c9", #blue80
+#     "#1c83e1", #blue70
+#     "#3d9df3", #blue60
+#     "#60b4ff", #blue50
+#     "#83c9ff", #blue40
+#     "#a6dcff", #blue30
+#     "#c7ebff", #blue20
+#     "#e4f5ff", #blue10
 # ]
 chartSequentialColors =
 ```
@@ -771,12 +771,12 @@ headingFont =
 # headings. Heading font sizes set in [theme] are not inherited by
 # [theme.sidebar]. The following sizes are used by default:
 # [
-# "2.75rem", # h1 (1.5rem for sidebar)
-# "2.25rem", # h2 (1.25rem for sidebar)
-# "1.75rem", # h3 (1.125rem for sidebar)
-# "1.5rem", # h4 (1rem for sidebar)
-# "1.25rem", # h5 (0.875rem for sidebar)
-# "1rem", # h6 (0.75rem for sidebar)
+#     "2.75rem", # h1 (1.5rem for sidebar)
+#     "2.25rem", # h2 (1.25rem for sidebar)
+#     "1.75rem", # h3 (1.125rem for sidebar)
+#     "1.5rem", # h4 (1rem for sidebar)
+#     "1.25rem", # h5 (0.875rem for sidebar)
+#     "1rem", # h6 (0.75rem for sidebar)
 # ]
 #
 # If you specify an array with fewer than six sizes, the unspecified
@@ -798,12 +798,12 @@ headingFontSizes =
 # headings. Heading font weights set in [theme] are not inherited by
 # [theme.sidebar]. The following weights are used by default:
 # [
-# 700, # h1 (bold)
-# 600, # h2 (semi-bold)
-# 600, # h3 (semi-bold)
-# 600, # h4 (semi-bold)
-# 600, # h5 (semi-bold)
-# 600, # h6 (semi-bold)
+#     700, # h1 (bold)
+#     600, # h2 (semi-bold)
+#     600, # h3 (semi-bold)
+#     600, # h4 (semi-bold)
+#     600, # h5 (semi-bold)
+#     600, # h6 (semi-bold)
 # ]
 #
 # If you specify an array with fewer than six weights, the unspecified
