@@ -32,6 +32,7 @@ The following two configuration options can only be applied to the whole app:
 
 - `theme.base` sets the default colors for your app's theme to match one of Streamlit's two default themes (`"light"` or `"dark"`). If any theme configuation option is used and `theme.base` is not set, then Streamlit will use `"light"`.
 - `theme.showSidebarBorder` sets the visibility of the border between the sidebar and the main body of your app.
+- `theme.chartCategoricalColors` and `theme.chartSequentialColors` set the series colors for Plotly, Altair, and Vega-Lite charts.
 
 The following configuration options can be set separately for the sidebar by using the `[theme.sidebar]` table instead of the `[theme]` table in `config.toml`:
 
@@ -40,11 +41,13 @@ The following configuration options can be set separately for the sidebar by usi
 - `theme.secondaryBackgroundColor`
 - `theme.textColor`
 - `theme.linkColor`
+- `theme.linkUnderline`
 - `theme.codeBackgroundColor`
 - `theme.baseRadius`
 - `theme.buttonRadius`
 - `theme.borderColor`
 - `theme.dataframeBorderColor`
+- `theme.dataframeHeaderBackgroundColor`
 - `theme.showWidgetBorder`
 
 For brevity, on the rest of this page, theming configuration options will not include the `theme.` or `theme.sidebar.` prefix.
@@ -81,17 +84,15 @@ primaryColor="darkGoldrod"
 
 <Cloud name="doc-theming-color-primarycolor" height="350px" />
 
-### `backgroundColor`, `secondaryBackgroundColor`, and `codeBackgroundColor`
+### `backgroundColor`, `secondaryBackgroundColor`, `codeBackgroundColor`, and `dataframeHeaderBackgroundColor`
 
-`backgroundColor` defines the background color of your app.
-
-`secondaryBackgroundColor` is used for contrast in the following places:
-
-- The background of input or selection regions for widgets
-- Headers within elements like `st.dataframe` and `st.help`
-- Code blocks and inline code (if `codeBackgroundColor` is not set)
-
-`codeBackgroundColor` sets the background for code blocks and line code. If `codeBackgroundColor` is not set, Streamlit uses `secondaryBackgroundColor` instead.
+- `backgroundColor` defines the background color of your app.
+- `secondaryBackgroundColor` is used for contrast in the following places:
+  - The background of input or selection regions for widgets
+  - Headers within elements like `st.help` and `st.dataframe` (if `dataframeHeaderBackgroundColor` isn't set)
+  - Code blocks and inline code (if `codeBackgroundColor` isn't set)
+- `codeBackgroundColor` sets the background for code blocks and line code. If `codeBackgroundColor` is not set, Streamlit uses `secondaryBackgroundColor` instead.
+- `dataframeHeaderBackgroundColor` sets the background for dataframe headers (including the cells used for row selection and addition, if present).
 
 <Note>
 
@@ -120,11 +121,11 @@ secondaryBackgroundColor="lavender"
 
 <Cloud name="doc-theming-color-backgroundcolor" height="450px" />
 
-### `textColor` and `linkColor`
+### `textColor`, `linkColor`, and `linkUnderline`
 
 You can configure the color of body text and links.
 
-`textColor` sets the default text color for all text in the app except language-highlighting in code blocks, inline code, and links. `linkColor` sets the default font color for all Markdown links in the app.
+`textColor` sets the default text color for all text in the app except language-highlighting in code blocks, inline code, and links. `linkColor` sets the default font color for all Markdown links in the app. If `linkUnderline` is set to true (default), the link underline color matches `linkColor`.
 
 The following elements are impacted by `textColor`:
 

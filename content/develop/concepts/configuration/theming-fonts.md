@@ -24,11 +24,20 @@ headingFont = "sans-serif"
 codeFont = "monospace"
 ```
 
+You can set the base font weight and size in the `[theme]` table in `config.toml`. These can't be configured separately in the sidebar.
+
+- `theme.baseFontSize` sets the root font size for your app.
+- `theme.baseFontWeight` sets the root font weight for your app.
+
 The following configuration options can be set separately for the sidebar by using the `[theme.sidebar]` table instead of the `[theme]` table in `config.toml`:
 
 - `theme.font` sets the default font for all text in the app (except inline code and code blocks). This is `"sans-serif"` (Source Sans) by default.
 - `theme.headingFont` sets the default font for all headings in the app. If this is not set, Streamlit uses `theme.font` instead.
+- `theme.headingFontSizes` sets the font sizes for `<h1>`-`<h6>` headings.
+- `theme.headingFontWeights` sets the font sizes for `<h1>`-`<h6>` headings.
 - `theme.codeFont` sets the default font for all inline code and code blocks. This is `"monospace"` (Source Code) by default.
+- `theme.codeFontSize` sets the size of code text in code blocks, `st.json`, and `st.help` (but not inline code).
+- `theme.codeFontWeight` sets the weight of code text in code blocks, `st.json`, and `st.help` (but not inline code).
 
 When fonts are not declared in `[theme.sidebar]`, Streamlit will inherit each option from `[theme]` before defaulting to less specific options. For example, if `theme.sidebar.headingFont` is not set, Streamlit uses (in order of precedence) `theme.headingFont`, `theme.sidebar.font`, or `theme.font` instead.
 
@@ -109,14 +118,14 @@ project_directory/
 
 ### Example 2: Define an alternative font with static font files
 
-In this configuration example, an alternative font is declared with multiple static font files. For each font, four static files are needed to define the following weight-style pairs:
+In this configuration example, an alternative font is declared with multiple static font files. For each font, four static files define the following weight-style pairs:
 
 - normal normal
 - normal bold
 - italic normal
 - italic bold
 
-If one of the files is missing and you try to use its associated weight and style in your app, the user's browser will use the closest font that is available. The following example uses [Tuffy](https://fonts.google.com/specimen/Tuffy) font. The font has four static font files that cover the four weight-style pairs.
+If your app uses a font without a matching weight-style definition, the user's browser will use the closest font that is available. The default weight for `<h2>`-`<h6>` headings is semibold (600). For completeness, include additional font files to cover the semibold weight and all the font weights in your app. The following example uses [Tuffy](https://fonts.google.com/specimen/Tuffy) font. The font has four static font files that cover the four weight-style pairs.
 
 A line-by-line explanation of this example is available in a [tutorial](/develop/tutorials/configuration-and-theming/static-fonts).
 
