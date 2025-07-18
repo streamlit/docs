@@ -682,6 +682,8 @@ site_menu:
     url: /develop/tutorials/configuration-and-theming/static-fonts
   - category: Develop / Tutorials / Configuration and theming / Use variable font files
     url: /develop/tutorials/configuration-and-theming/variable-fonts
+  - category: Develop / Tutorials / Configuration and theming / Use external font files
+    url: /develop/tutorials/configuration-and-theming/external-fonts
   - category: Develop / Tutorials / Connect to data sources
     url: /develop/tutorials/databases
   - category: Develop / Tutorials / Connect to data sources / AWS S3

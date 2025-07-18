@@ -84,8 +84,8 @@ font="tuffy"
 import streamlit as st
 
 st.write("Normal ABCabc123")
-st.write("_Italic ABCabc123_")
-st.write("*Bold ABCabc123*")
+st.write("*Italic ABCabc123*")
+st.write("**Bold ABCabc123**")
 st.write("***Bold-italic ABCabc123***")
 st.write("`Code ABCabc123`")
 ```
@@ -231,8 +231,8 @@ To verify that your font is loaded correctly, create a simple app.
    import streamlit as st
 
    st.write("Normal ABCabc123")
-   st.write("_Italic ABCabc123_")
-   st.write("*Bold ABCabc123*")
+   st.write("*Italic ABCabc123*")
+   st.write("**Bold ABCabc123**")
    st.write("***Bold-italic ABCabc123***")
    st.write("`Code ABCabc123`")
    ```
