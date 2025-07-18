@@ -145,11 +145,11 @@ st.write("***`Code bold-italic efg`***")
 1. To define your alternative fonts, in `.streamlit/config.toml`, paste each `@font-face` declaration, and change each one into a `[[theme.fontFaces]]` table.
 
    The following values in each `@font-face` declaration become the indicated value in a `[[theme.fontFaces]]` table:
-   - `font-family` -> `family`
-   - `src: url` -> `url` (Ignore `format`, and just keep the URL.)
-   - `font-style` -> `style`
-   - `font-weight` -> `weight`
-   - Optional: `unicode-range` -> `unicodeRange` (This is only useful if you are using more than basic latin sets.)
+   - `font-family` → `family`
+   - `src: url` → `url` (Ignore `format`, and just keep the URL.)
+   - `font-style` → `style`
+   - `font-weight` → `weight`
+   - Optional: `unicode-range` → `unicodeRange` (This is only useful if you are using more than basic latin sets.)
 
    Remember to remove the comment lines and CSS syntax characters, which aren't compatible with TOML files. Your configuration file should contain the following text:
 
