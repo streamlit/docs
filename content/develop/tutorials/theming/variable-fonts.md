@@ -70,10 +70,13 @@ codeFont="noto-mono"
 import streamlit as st
 
 st.write("Normal efg")
-st.write("_Italic efg_")
-st.write("*Bold efg*")
+st.write("*Italic efg*")
+st.write("**Bold efg**")
 st.write("***Bold-italic efg***")
-st.write("`Code efg`")
+st.write("`Code normal efg`")
+st.write("*`Code italic efg`*")
+st.write("**`Code bold efg`**")
+st.write("***`Code bold-italic efg`***")
 ```
 
 </Collapse>
@@ -183,7 +186,7 @@ To verify that your font is loaded correctly, create a simple app.
 1. In a terminal, change directories to your_repository, and start your app:
 
    ```bash
-   streamlit run app.py
+   streamlit run streamlit_app.py
    ```
 
    Your app will be blank because you still need to add code.
@@ -212,10 +215,13 @@ To verify that your font is loaded correctly, create a simple app.
    import streamlit as st
 
    st.write("Normal efg")
-   st.write("_Italic efg_")
-   st.write("*Bold efg*")
+   st.write("*Italic efg*")
+   st.write("**Bold efg**")
    st.write("***Bold-italic efg***")
-   st.write("`Code efg`")
+   st.write("`Code normal efg`")
+   st.write("*`Code italic efg`*")
+   st.write("**`Code bold efg`**")
+   st.write("***`Code bold-italic efg`***")
    ```
 
    The example includes "efg" in each line to better show the typographical differences when you run your app. The italic "f" descends below baseline, but the normal "f" doesn't. The italic "e" has a rounded front, but the normal "e" has a sharp corner.

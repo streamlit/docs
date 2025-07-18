@@ -118,7 +118,7 @@ project_directory/
 
 ### Example 2: Define an alternative font with static font files
 
-In this configuration example, an alternative font is declared with multiple static font files. For each font, four static files define the following weight-style pairs:
+In this configuration example, an alternative font is declared with multiple static font files. To cover basic Markdown formatting, each font should have at least four static files to define the following weight-style pairs:
 
 - normal normal
 - normal bold
@@ -184,21 +184,33 @@ If you configure your app to include any third-party integrations, including ext
 
 </Important>
 
-In your configuration file, wherever you declare a default font, you can use a comma-separated list of fonts instead. You can always include one of Streamlit's default fonts as a final fallback.
+In your configuration file, wherever you declare a default font, you can use a comma-separated list of fonts instead. The font (or comma-separated list of fonts) is passed to the CSS [`font-family`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family) property.
 
-- To specify a fallback font in Example 1, in `.streamlit/config.toml`, change the `[theme]` table to the following text:
+You can always include one of Streamlit's default fonts as a final fallback. The following example uses [Nunito](https://fonts.google.com/specimen/Nunito) font. The configuration file points to the Google-hosted font files and identifies Streamlit's built-in font as the backup.
 
-  ```toml
-  [theme]
-  font="noto-sans, sans-serif"
-  codeFont="noto-mono, monospace"
-  ```
+A line-by-line explanation of this example is available in a [tutorial](/develop/tutorials/configuration-and-theming/external-fonts).
 
-  This is the same configuration as in Example 1 except that Source Sans and Source Mono are declared as fallback fonts. You can define more than one fallback. When you declare a default font, the font (or comma-separated list of fonts) is passed to the CSS [`font-family`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family) property.
+`.streamlit/config.toml`:
+
+```toml
+[[theme.fontFaces]]
+family="Nunito"
+url="https://fonts.gstatic.com/s/nunito/v31/XRXX3I6Li01BKofIMNaDRs7nczIH.woff2"
+style="italic"
+weight="200 1000"
+[[theme.fontFaces]]
+family="Nunito"
+url="https://fonts.gstatic.com/s/nunito/v31/XRXV3I6Li01BKofINeaBTMnFcQ.woff2"
+style="normal"
+weight="200 1000"
+
+[theme]
+font="Nunito, sans-serif"
+```
 
 <Tip>
 
-If any of your font family names contain spaces and you are declaring a fallback sequence, use inner quotes around the names. For example, if you name the font `"Noto Sans"`, use `font="'Noto Sans', sans-serif"` instead.
+If any of your font family names contain spaces and you are declaring a fallback sequence, use inner quotes around the names. For example, if you name the font `"Nunito Sans"`, use `font="'Nunito Sans', sans-serif"` instead.
 
 </Tip>
 
