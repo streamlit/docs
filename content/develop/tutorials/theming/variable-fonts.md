@@ -186,7 +186,7 @@ To verify that your font is loaded correctly, create a simple app.
 1. In a terminal, change directories to your_repository, and start your app:
 
    ```bash
-   streamlit run app.py
+   streamlit run streamlit_app.py
    ```
 
    Your app will be blank because you still need to add code.
