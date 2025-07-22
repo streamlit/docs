@@ -678,6 +678,8 @@ site_menu:
     url: /develop/tutorials/chat-and-llm-apps/validate-and-edit-chat-responses
   - category: Develop / Tutorials / Configuration and theming
     url: /develop/tutorials/configuration-and-theming
+  - category: Develop / Tutorials / Configuration and theming / Use external font files
+    url: /develop/tutorials/configuration-and-theming/external-fonts
   - category: Develop / Tutorials / Configuration and theming / Use static font files
     url: /develop/tutorials/configuration-and-theming/static-fonts
   - category: Develop / Tutorials / Configuration and theming / Use variable font files
