@@ -1,5 +1,5 @@
-import streamlit as st
 import plotly.graph_objects as go
+import streamlit as st
 
 fig = go.Figure()
 fig.add_trace(
