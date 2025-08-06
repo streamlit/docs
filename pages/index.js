@@ -216,7 +216,7 @@ export default function Home({ window, menu }) {
                 size="third"
                 href="/develop/api-reference/configuration/config.toml#server"
               >
-                <i className="material-icons-sharp">dashboard</i>
+                <i className="material-icons-sharp">network_ping</i>
                 <h4>WebSocket ping interval</h4>
                 <p>
                   Streamlit now allows you to configure the WebSocket ping
