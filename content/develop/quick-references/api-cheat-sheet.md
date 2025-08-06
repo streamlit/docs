@@ -5,7 +5,7 @@ slug: /develop/quick-reference/cheat-sheet
 
 # Streamlit API cheat sheet
 
-This is a summary of the docs for the latest version of Streamlit, [v1.47.0](https://pypi.org/project/streamlit/1.47.0/).
+This is a summary of the docs for the latest version of Streamlit, [v1.48.0](https://pypi.org/project/streamlit/1.48.0/).
 
 <Masonry>
 
@@ -391,6 +391,11 @@ elements = st.container()
 elements.line_chart(...)
 st.write("Hello")
 elements.text_input(...)  # Appears above "Hello".
+
+# Horizontal flex
+flex = st.container(horizontal=True)
+flex.button("A")
+flex.button("B")
 
 st.help(pandas.DataFrame)
 st.get_option(key)
