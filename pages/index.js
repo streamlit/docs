@@ -192,6 +192,39 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/develop/api-reference/layout/st.container"
+              >
+                <i className="material-icons-sharp">dashboard</i>
+                <h4>Flex containers</h4>
+                <p>
+                  You can set the direction, alignment, and gap of elements in{" "}
+                  <code>st.container</code>.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/execution-flow/st.dialog"
+              >
+                <i className="material-icons-sharp">close</i>
+                <h4>Dialog dismissibility</h4>
+                <p>
+                  You can control the dismissibility of modal dialogs. You can
+                  also configure dismissal reruns and callbacks.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/configuration/config.toml#server"
+              >
+                <i className="material-icons-sharp">dashboard</i>
+                <h4>WebSocket ping interval</h4>
+                <p>
+                  Streamlit now allows you to configure the WebSocket ping
+                  interval with <code>server.websocketPingInterval</code>.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="/develop/api-reference/configuration/config.toml#theme"
               >
                 <i className="material-icons-sharp">settings</i>
@@ -225,40 +258,6 @@ export default function Home({ window, menu }) {
                 <p>
                   You can detect if the viewer is in light mode or dark mode at
                   runtime with <code>st.context.theme</code>.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/layout/st.columns"
-              >
-                <i className="material-icons-sharp">dashboard</i>
-                <h4>Container nesting</h4>
-                <p>
-                  Streamlit no longer restricts the nesting of columns,
-                  expanders, popovers, and chat message containers, but take
-                  care not to overuse nested layouts!
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/text/st.markdown"
-              >
-                <i className="material-icons-sharp">format_align_left</i>
-                <h4>Customize element widths</h4>
-                <p>
-                  You can set the width of most Streamlit elements with a{" "}
-                  <code>width</code> parameter, with more to come soon!
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/execution-flow/st.form"
-              >
-                <i className="material-icons-sharp">expand</i>
-                <h4>Form height</h4>
-                <p>
-                  You can set the height of form with the <code>height</code>
-                  parameter in <code>st.form</code>.
                 </p>
               </RefCard>
             </TileContainer>
