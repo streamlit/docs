@@ -31,8 +31,14 @@ While most Streamlit app developers don’t need to interact directly with WebSo
 
 Streamlit’s server is built on the Tornado web framework, which uses WebSockets to maintain a persistent, two-way communication channel between the client and server. This persistent connection allows the server to push real-time updates to the client and maintain session context for each user. Each browser tab or window creates its own WebSocket connection, resulting in a separate session within your app.
 
-When a client requests media (such as an image or audio file) via HTTP, there is no session context attached to that request. In deployments with multiple server replicas or load balancers, this can cause issues; the HTTP request for the media file might be routed to a different server than the one handling the user’s WebSocket session. If the media file isn’t available on all replicas, you may encounter errors like `MediaFileStorageError: Bad filename`. This can occur even if you pass media as bytes because Streamlit creates and serves a temporary file from the bytes. Any command that allows the user to upload files can also be impacted.
+When a client requests media (such as an image or audio file) via HTTP, there is no session context attached to that request. In deployments with multiple server replicas or load balancers, this can cause issues; the HTTP request for the media file might be routed to a different server than the one handling the user’s WebSocket session. If the media file isn’t available on all replicas, you may encounter errors like `MediaFileStorageError: Bad filename`. Any command that allows the user to upload files can also be impacted.
 
-### Load balancing and session affinity
+In large-scale or production deployments, load balancing and server replication are common. However, WebSockets require special consideration in these environments. In general, you can do one of the following to resolve this limitation:
 
-In large-scale or production deployments, load balancing and server replication are common. However, WebSockets require special consideration in these environments. To ensure that all requests from a user’s session are handled by the same server instance, you must enable session affinity (also known as stickiness) in your load balancer or deployment platform. This prevents errors related to missing session context or unavailable media files. For configuration details, consult your deployment platform’s documentation. For more information, see GitHub issue [#4173](https://github.com/streamlit/streamlit/issues/4173).
+- Enable session affinity (also known as stickiness).
+- Convert media to a Base64 encoded data URI before passing it to a Streamlit command.
+- Save dynamically generated files to a stable location outside of your server replicas, and pass references to that stable location.
+
+### Session affinity or stickiness
+
+To ensure that all requests from a user’s session are handled by the same server instance, you must enable session affinity (also known as stickiness) in your load balancer or deployment platform. This prevents errors related to missing session context or unavailable media files. For configuration details, consult your deployment platform’s documentation. For more information, see GitHub issue [#4173](https://github.com/streamlit/streamlit/issues/4173).
