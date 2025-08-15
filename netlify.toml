@@ -1,5 +1,5 @@
 [build]
-command = "npm export"
+command = "make export"
 publish = "out"
 
 [[plugins]]
