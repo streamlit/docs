@@ -114,3 +114,4 @@ out/
 public/pdf/pages/
 .idea/
 secrets.toml
+content_catalog.json
