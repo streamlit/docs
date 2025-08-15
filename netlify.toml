@@ -1,14 +1,18 @@
+[build]
+command = "npm export"
+publish = "out"
+
 [[plugins]]
-  # Setting the plugin manually, so we can pick the version (see package.json).
-  package = "@netlify/plugin-nextjs"
+# Setting the plugin manually, so we can pick the version (see package.json).
+package = "@netlify/plugin-nextjs"
 
 # IMPORTANT: Keep this in sync with next.config.js
 [[headers]]
-  for = "/*"
-  [headers.values]
-    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
-    X-Content-Type-Options = "nosniff"
-    Content-Security-Policy = """
+for = "/*"
+[headers.values]
+Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+X-Content-Type-Options = "nosniff"
+Content-Security-Policy = """
 upgrade-insecure-requests; \
 frame-ancestors 'self' ; \
 frame-src https: ; \
