@@ -20,3 +20,16 @@ body {
   @apply absolute top-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-none;
   clip: rect(0, 0, 0, 0);
 }
+
+/* Links on the homepage */
+.homepage p a,
+.homepage ol li a,
+.homepage ul li a {
+  @apply border-b border-b-gray-90 hover:border-red-60 hover:opacity-80;
+}
+
+:global(.dark) .homepage p a,
+:global(.dark) .homepage ol li a,
+:global(.dark) .homepage ul li a {
+  @apply border-b-white !important;
+}

@@ -24,6 +24,7 @@ import NewsContainer from "../components/layouts/newsContainer";
 import InlineCalloutContainer from "../components/layouts/inlineCalloutContainer";
 import TileContainer from "../components/layouts/tileContainer";
 import RefCard from "../components/blocks/refCard";
+import Tip from "../components/blocks/tip";
 
 import { H1, H2 } from "../components/blocks/headers";
 import NewsFeed from "../components/blocks/newsFeed";
@@ -114,7 +115,7 @@ export default function Home({ window, menu }) {
       <section className={styles.Container}>
         <SideBar menu={menu} slug={[]} />
         <section className={styles.InnerContainer}>
-          <article>
+          <article className={"homepage"}>
             <H1>Streamlit documentation</H1>
             <p>
               <a href="https://www.streamlit.io">Streamlit</a> is an open-source
@@ -127,14 +128,13 @@ export default function Home({ window, menu }) {
 
             <SummaryTiles />
 
-            {/* <H2 className='no-b-m'>What's new</H2>
-
-            <TileContainer>
-              <Tile size="half" background="unset" color="unset" dark={{ background: "unset", color: 'white', border_color: 'gray-90' }} border_color="gray-40" img="/logo.svg" title="Feature title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/tutorials/get-started" />
-              <Tile size="half" background="unset" color="unset" dark={{ background: "unset", color: 'white', border_color: 'gray-90' }} border_color="gray-40" icon="visibility" title="Feature title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/tutorials/get-started" />
-              <Tile size="half" background="unset" color="unset" dark={{ background: "unset", color: 'white', border_color: 'gray-90' }} border_color="gray-40" icon="edit" title="Feature title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/tutorials/get-started" />
-              <Tile size="half" background="unset" color="unset" dark={{ background: "unset", color: 'white', border_color: 'gray-90' }} border_color="gray-40" img="/logo.svg" title="Feature title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/tutorials/get-started" />
-            </TileContainer> */}
+            <Tip>
+              <p>
+                Point your coding assistant to{" "}
+                <a href="/llms-full.txt">llms-full.txt</a> to include the
+                Streamlit docs in your context!
+              </p>
+            </Tip>
 
             <H2>How to use our docs</H2>
             <InlineCalloutContainer>
