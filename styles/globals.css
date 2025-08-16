@@ -28,8 +28,8 @@ body {
   @apply border-b border-b-gray-90 hover:border-red-60 hover:opacity-80;
 }
 
-:global(.dark) .homepage p a,
-:global(.dark) .homepage ol li a,
-:global(.dark) .homepage ul li a {
+.dark .homepage p a,
+.dark .homepage ol li a,
+.dark .homepage ul li a {
   @apply border-b-white !important;
 }
