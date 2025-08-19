@@ -121,3 +121,16 @@ tt.docutils.literal {
 div.code-desc {
   @apply mb-4 text-gray-90 dark:text-gray-40;
 }
+
+/* Links on the homepage */
+.homepage p a,
+.homepage ol li a,
+.homepage ul li a {
+  @apply border-b border-b-gray-90 hover:border-red-60 hover:opacity-80;
+}
+
+.dark .homepage p a,
+.dark .homepage ol li a,
+.dark .homepage ul li a {
+  @apply border-b-white !important;
+}
