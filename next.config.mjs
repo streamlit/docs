@@ -26,70 +26,74 @@ const PROD_OPTIMIZATIONS = IS_DEV
 const CSP_HEADER = [
   "upgrade-insecure-requests;",
   "frame-ancestors",
-  "'self'",
+    "'self'",
   ";",
   "frame-src",
-  "https:",
+    "https:",
   ";",
   "connect-src",
-  "'self'",
-  "https://*.streamlit.app/",
-  "wss://*.streamlit.app/",
-  "https://streamlit.ghost.io/ghost/api/", // Blog API
-  "https://api.segment.io/", // Analytics
-  "https://cdn.segment.com/", // Analytics
-  "https://*.auryc.com/", // Analytics (Heap)
-  "https://www.google-analytics.com/", // Analytics
-  "https://stats.g.doubleclick.net/", // Analytics
-  "https://px.ads.linkedin.com/", // LinkedIn ad pixel
-  "https://*.algolia.net/", // Search
-  "https://*.algolianet.com/", // Search
-  "https://widget.kapa.ai/kapa-widget.bundle.js", // Kapa.ai
-  "https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app/", // Kapa.ai
-  "https://www.google.com/recaptcha/api.js", // Recaptcha for Kapa.ai
-  "https://www.gstatic.com/recaptcha/releases/", // Recaptchas for Kapa.ai
-  "https://www.google.com/recaptcha/enterprise.js", // Recaptchas for Kapa.ai
+    "'self'",
+    "https://*.streamlit.app/",
+    "wss://*.streamlit.app/",
+    "https://streamlit.ghost.io/ghost/api/", // Blog API
+    "https://api.segment.io/", // Analytics
+    "https://cdn.segment.com/", // Analytics
+    "https://*.auryc.com/", // Analytics (Heap)
+    "https://www.google-analytics.com/", // Analytics
+    "https://stats.g.doubleclick.net/", // Analytics
+    "https://px.ads.linkedin.com/", // LinkedIn ad pixel
+    "https://*.algolia.net/", // Search
+    "https://*.algolianet.com/", // Search
+    "https://widget.kapa.ai/kapa-widget.bundle.js", // Kapa.ai
+    "https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app/", // Kapa.ai
+    "https://www.google.com/recaptcha/api.js", // Recaptcha for Kapa.ai
+    "https://www.gstatic.com/recaptcha/releases/", // Recaptchas for Kapa.ai
+    "https://www.google.com/recaptcha/enterprise.js", // Recaptchas for Kapa.ai
+    "https://cdn.cookielaw.org/", // Onetrust cookie banner
+    "https://cookie-cdn.cookiepro.com/", // Onetrust cookie banner
   ";",
   "default-src 'none';",
   "font-src 'self';",
   "form-action 'self';",
   "img-src",
-  "'self'",
-  "data:",
-  "https:",
+    "'self'",
+    "data:",
+    "https:",
   ";",
   "media-src",
-  "'self'",
-  "https://s3-us-west-2.amazonaws.com/assets.streamlit.io/", // Videos
+    "'self'",
+    "https://s3-us-west-2.amazonaws.com/assets.streamlit.io/", // Videos
   ";",
   "script-src",
-  "'self'",
-  "'unsafe-inline'", // NextJS payload
-  "'unsafe-eval'", // Required for MDXRemote in [...slug].js. Using App Router may fix this.
-  "https://cdn.heapanalytics.com/", // Analytics
-  "https://cdn.segment.com/", // Analytics
-  "https://www.google-analytics.com/", // Analytics
-  "https://www.googletagmanager.com/", // Analytics
-  "https://identity.netlify.com/", // Netlify dev tools
-  "https://netlify-cdp-loader.netlify.app/netlify.js", // Netlify dev tools
-  "https://www.youtube.com/iframe_api/", // YouTube Embed
-  "https://snap.licdn.com/", // LinkedIn ad pixel
-  "https://connect.facebook.net/", // Facebook ad pixel
-  "https://*.algolia.net/", // Search
-  "https://*.algolianet.com/", // Search
-  "https://widget.kapa.ai/kapa-widget.bundle.js", // Kapa.ai
-  "https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app/", // Kapa.ai
-  "https://www.google.com/recaptcha/api.js", // Recaptcha for Kapa.ai
-  "https://www.gstatic.com/recaptcha/releases/", // Recaptchas for Kapa.ai
-  "https://www.google.com/recaptcha/enterprise.js", // Recaptchas for Kapa.ai
+    "'self'",
+    "'unsafe-inline'", // NextJS payload
+    "'unsafe-eval'", // Required for MDXRemote in [...slug].js. Using App Router may fix this.
+    "https://cdn.heapanalytics.com/", // Analytics
+    "https://cdn.segment.com/", // Analytics
+    "https://www.google-analytics.com/", // Analytics
+    "https://www.googletagmanager.com/", // Analytics
+    "https://identity.netlify.com/", // Netlify dev tools
+    "https://netlify-cdp-loader.netlify.app/netlify.js", // Netlify dev tools
+    "https://www.youtube.com/iframe_api/", // YouTube Embed
+    "https://snap.licdn.com/", // LinkedIn ad pixel
+    "https://connect.facebook.net/", // Facebook ad pixel
+    "https://*.algolia.net/", // Search
+    "https://*.algolianet.com/", // Search
+    "https://widget.kapa.ai/kapa-widget.bundle.js", // Kapa.ai
+    "https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app/", // Kapa.ai
+    "https://www.google.com/recaptcha/api.js", // Recaptcha for Kapa.ai
+    "https://www.gstatic.com/recaptcha/releases/", // Recaptchas for Kapa.ai
+    "https://www.google.com/recaptcha/enterprise.js", // Recaptchas for Kapa.ai
+    "https://cdn.cookielaw.org/", // Onetrust cookie banner
+    "https://cookie-cdn.cookiepro.com/", // Onetrust cookie banner
   ";",
   "style-src",
-  "'self'",
-  "'unsafe-inline'", // Twitter CSS
+    "'self'",
+    "'unsafe-inline'", // Twitter CSS
   ";",
   "worker-src",
-  "'self'",
-  "blob:",
+    "'self'",
+    "blob:",
   ";",
 ];
 

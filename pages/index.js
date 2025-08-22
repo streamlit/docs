@@ -11,10 +11,6 @@ import SideBar from "../components/navigation/sideBar";
 import ArrowLinkContainer from "../components/navigation/arrowLinkContainer";
 import ArrowLink from "../components/navigation/arrowLink";
 
-import GDPRBanner, {
-  setTelemetryPreference,
-} from "../components/utilities/gdpr";
-import CookieSettingsModal from "../components/utilities/cookieSettingsModal";
 import SocialCallouts from "../components/utilities/socialCallout";
 import Spacer from "../components/utilities/spacer";
 
@@ -38,29 +34,7 @@ import styles from "../components/layouts/container.module.css";
 export default function Home({ window, menu }) {
   let { description } = attributes;
 
-  const [isTelemetryModalVisible, setIsTelemetryModalVisible] = useState(false);
-  const [isTelemetryBannerVisible, setIsTelemetryBannerVisible] =
-    useState(false);
-  const [insertTelemetryCode, setInsertTelemetryCode] = useState(false);
-
   const router = useRouter();
-
-  const allowTelemetryAndCloseBanner = useCallback(() => {
-    setIsTelemetryBannerVisible(false);
-    setIsTelemetryModalVisible(false);
-    setInsertTelemetryCode(true);
-    setTelemetryPreference(true);
-  }, [isTelemetryBannerVisible, insertTelemetryCode]);
-
-  const declineTelemetryAndCloseBanner = useCallback(() => {
-    setIsTelemetryBannerVisible(false);
-    setIsTelemetryModalVisible(false);
-    setInsertTelemetryCode(false);
-    setTelemetryPreference(false);
-
-    // If previous state was true, and now it's false, reload the page to remove telemetry JS
-    if (insertTelemetryCode) router.reload();
-  }, [isTelemetryBannerVisible, insertTelemetryCode]);
 
   return (
     <Layout window={window}>
@@ -93,24 +67,16 @@ export default function Home({ window, menu }) {
           name="twitter:image"
           content={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-twitter.jpg`}
         />
+        <script
+          src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+          type="text/javascript"
+          charset="UTF-8"
+          data-domain-script="0fd0c538-dc31-450a-8493-0dd92bb8f0d7-test"
+        ></script>
+        <script type="text/javascript">
+          {"function OptanonWrapper() { }"}
+        </script>
       </Head>
-      {isTelemetryModalVisible && (
-        <CookieSettingsModal
-          setIsTelemetryModalVisible={setIsTelemetryModalVisible}
-          allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
-          declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
-        />
-      )}
-      <GDPRBanner
-        isTelemetryModalVisible={isTelemetryModalVisible}
-        setIsTelemetryModalVisible={setIsTelemetryModalVisible}
-        isTelemetryBannerVisible={isTelemetryBannerVisible}
-        setIsTelemetryBannerVisible={setIsTelemetryBannerVisible}
-        insertTelemetryCode={insertTelemetryCode}
-        setInsertTelemetryCode={setInsertTelemetryCode}
-        allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
-        declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
-      />
       <section className={styles.Container}>
         <SideBar menu={menu} slug={[]} />
         <section className={styles.InnerContainer}>
@@ -291,7 +257,7 @@ export default function Home({ window, menu }) {
             <ArrowLink link="/get-started" type="next" content="Get started" />
           </ArrowLinkContainer>
         </section>
-        <Footer setIsTelemetryModalVisible={setIsTelemetryModalVisible} />
+        <Footer />
       </section>
     </Layout>
   );
