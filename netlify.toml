@@ -30,6 +30,8 @@ connect-src \
   https://*.algolia.net/ \
   https://*.algolianet.com/ \
   https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app/ \
+  https://cdn.cookielaw.org/ \
+  https://cookie-cdn.cookiepro.com/ \
 ; \
 default-src 'none' ; \
 font-src 'self' ; \
@@ -62,6 +64,8 @@ script-src \
   https://www.google.com/recaptcha/api.js \
   https://www.gstatic.com/recaptcha/releases/ \
   https://www.google.com/recaptcha/enterprise.js \
+  https://cdn.cookielaw.org/ \
+  https://cookie-cdn.cookiepro.com/ \
 ; \
 style-src \
   'self' \
