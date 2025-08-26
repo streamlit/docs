@@ -37,6 +37,19 @@ st.logo("logo.jpg")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/media/st.pdf">
+
+<Image pure alt="screenshot" src="/images/api/pdf.jpg" />
+
+<h4>PDF</h4>
+
+Display a PDF file.
+
+```python
+st.pdf("my_document.pdf")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/media/st.audio">
 
 <Image pure alt="screenshot" src="/images/api/audio.jpg" />

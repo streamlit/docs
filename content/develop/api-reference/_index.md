@@ -286,7 +286,7 @@ st_tags(label='# Enter Keywords:', text='Press enter to add more', value=['Zero'
 Apply text mining on a dataframe. Created by [@JohnSnowLabs](https://github.com/JohnSnowLabs/).
 
 ```python
-nlu.load('sentiment').predict('I love NLU! <3')
+nlu.load("sentiment").predict("I love NLU! <3")
 ```
 
 </ComponentCard>
@@ -1321,6 +1321,19 @@ Display a logo in the upper-left corner of your app and its sidebar.
 
 ```python
 st.logo("logo.jpg")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/media/st.pdf">
+
+<Image pure alt="screenshot" src="/images/api/pdf.jpg" />
+
+<h4>PDF</h4>
+
+Display a PDF file.
+
+```python
+st.pdf("my_document.pdf")
 ```
 
 </RefCard>

@@ -398,6 +398,9 @@ site_menu:
   - category: Develop / API reference / Media elements / st.logo
     url: /develop/api-reference/media/st.logo
     isVersioned: true
+  - category: Develop / API reference / Media elements / st.pdf
+    url: /develop/api-reference/media/st.pdf
+    isVersioned: true
   - category: Develop / API reference / Media elements / st.video
     url: /develop/api-reference/media/st.video
     isVersioned: true
