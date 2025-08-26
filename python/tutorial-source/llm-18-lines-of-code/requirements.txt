@@ -1,2 +1,2 @@
-streamlit>=1.48.0
+streamlit-nightly
 langchain-openai
