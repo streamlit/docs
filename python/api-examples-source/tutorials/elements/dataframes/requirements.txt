@@ -1,2 +1,2 @@
 Faker
-streamlit-nightly
+streamlit>=1.49.0

@@ -1,3 +1,4 @@
 import streamlit as st
 
-st.toast("Your edited image was saved!", icon="😍")
+if st.button("Toast"):
+    st.toast("Your edited image was saved!", icon="😍")

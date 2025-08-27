@@ -192,72 +192,66 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/develop/api-reference/layout/st.container"
+                href="/develop/api-reference/media/st.pdf?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">dashboard</i>
-                <h4>Flex containers</h4>
+                <i className="material-icons-sharp">description</i>
+                <h4>PDF viewer</h4>
                 <p>
-                  You can set the direction, alignment, and gap of elements in{" "}
-                  <code>st.container</code>.
+                  You can display a PDF file with <code>st.pdf</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/execution-flow/st.dialog"
+                href="/develop/api-reference/data/st.dataframe?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">close</i>
-                <h4>Dialog dismissibility</h4>
+                <i className="material-icons-sharp">ads_click</i>
+                <h4>Dataframe cell selection</h4>
                 <p>
-                  You can control the dismissibility of modal dialogs. You can
-                  also configure dismissal reruns and callbacks.
+                  <code>st.dataframe</code> supports single and multiple cell
+                  selections.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/configuration/config.toml#server"
+                href="/develop/api-reference/data/st.metric?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">network_ping</i>
-                <h4>WebSocket ping interval</h4>
+                <i className="material-icons-sharp">show_chart</i>
+                <h4>Metric sparklines</h4>
                 <p>
-                  Streamlit now allows you to configure the WebSocket ping
-                  interval with <code>server.websocketPingInterval</code>.
+                  You can add sparklines to <code>st.metric</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/configuration/config.toml#theme"
+                href="/develop/api-reference/data/st.column_config/st.column_config.listcolumn?utm_source=streamlit"
               >
                 <i className="material-icons-sharp">settings</i>
                 <h4>
-                  <code>Theme configuration</code>
+                  Editable <code>ListColumn</code>
                 </h4>
                 <p>
-                  Try out even more theme configuration options in{" "}
-                  <code>config.toml</code>, including new color, font, and style
-                  settings.
+                  <code>ListColumn</code> supports editing.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/navigation/st.navigation"
+                href="/develop/api-reference/widgets/st.file_uploader?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">signpost</i>
-                <h4>Top navigation</h4>
+                <i className="material-icons-sharp">folder</i>
+                <h4>Directory upload</h4>
                 <p>
-                  Use <code>st.navigation</code> with{" "}
-                  <code>position="top"</code>
-                  to create a navigation menu across the top of your app.
+                  Users can upload all files in a directory with{" "}
+                  <code>st.file_uploader</code> and <code>st.chat_input</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/caching-and-state/st.context#contexttheme"
+                href="/develop/api-reference/status/st.toast?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">light_mode</i>
-                <h4>Detect theme base</h4>
+                <i className="material-icons-sharp">timer</i>
+                <h4>Toast duration</h4>
                 <p>
-                  You can detect if the viewer is in light mode or dark mode at
-                  runtime with <code>st.context.theme</code>.
+                  You can configure the duration of <code>st.toast</code>.
                 </p>
               </RefCard>
             </TileContainer>
