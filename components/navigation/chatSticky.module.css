@@ -1,5 +1,5 @@
 .Container {
-  @apply fixed bottom-[30px] w-full z-10;
+  @apply fixed bottom-[30px] right-0 w-auto z-10;
 }
 
 .Navigation {
