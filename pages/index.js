@@ -71,7 +71,7 @@ export default function Home({ window, menu }) {
           src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
           type="text/javascript"
           charset="UTF-8"
-          data-domain-script="0fd0c538-dc31-450a-8493-0dd92bb8f0d7-test"
+          data-domain-script="01990a3a-a865-7092-a22e-9094bfac985a"
         ></script>
         <script type="text/javascript">
           {"function OptanonWrapper() { }"}
