@@ -1,6 +1,8 @@
 ---
 title: Embed your app
 slug: /deploy/streamlit-community-cloud/share-your-app/embed-your-app
+description: Learn how to embed your Streamlit app in websites, blogs, and platforms using iframe and oEmbed methods with customizable options.
+keywords: embed, iframe, oembed, website, blog, platform, integration, customization, options, sharing
 ---
 
 # Embed your app

@@ -1,6 +1,8 @@
 ---
 title: Quickstart
 slug: /deploy/streamlit-community-cloud/get-started/quickstart
+description: Quick start guide to create your Community Cloud account, deploy a sample app, and start editing with GitHub Codespaces in minutes.
+keywords: quickstart, community cloud, account, deploy, sample app, github codespaces, template, editing
 ---
 
 # Quickstart
@@ -111,9 +113,9 @@ You will sign in to your GitHub account during this process. Community Cloud wil
 <Image alt="See your deployed Streamlit app" src="/images/streamlit-community-cloud/deploy-template-blank-codespace-edit-commit.png" />
 </div>
 
-1. To stage and commit all your changes, in the confirmation dialog, click "**Yes**."  Your changes are committed locally in your codespace.
+1. To stage and commit all your changes, in the confirmation dialog, click "**Yes**." Your changes are committed locally in your codespace.
 1. To push your commit to GitHub, in the source control sidebar on the left, click "**<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>cached</i> 1 <i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>arrow_upward</i>**."
-1. To push commits to "origin/main," in the confirmation dialog, click "**OK**." 
+1. To push commits to "origin/main," in the confirmation dialog, click "**OK**."
 
    Your changes are now saved to your GitHub repository. Community Cloud will immediately reflect the changes in your deployed app.
 

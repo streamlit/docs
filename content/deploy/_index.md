@@ -1,6 +1,8 @@
 ---
 title: Deploy
 slug: /deploy
+description: Deploy your Streamlit apps to various platforms including Community Cloud, Snowflake, and other cloud providers with comprehensive guides.
+keywords: deploy, deployment, community cloud, snowflake, cloud, hosting, share
 ---
 
 # Deploy

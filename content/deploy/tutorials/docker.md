@@ -1,6 +1,8 @@
 ---
 title: Deploy Streamlit using Docker
 slug: /deploy/tutorials/docker
+description: Learn how to containerize and deploy your Streamlit app using Docker with step-by-step instructions for corporate networks and cloud deployment.
+keywords: docker, containerization, deployment, corporate network, cloud, dockerfile, build, run, port mapping
 ---
 
 # Deploy Streamlit using Docker

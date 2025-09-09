@@ -1,6 +1,8 @@
 ---
 title: App dependencies for your Community Cloud app
 slug: /deploy/streamlit-community-cloud/deploy-your-app/app-dependencies
+description: Learn how to manage Python and external dependencies for your Community Cloud app using requirements.txt, packages.txt, and other package managers.
+keywords: dependencies, requirements.txt, packages.txt, pip, apt-get, python packages, external dependencies, package managers
 ---
 
 # App dependencies for your Community Cloud app

@@ -1,6 +1,8 @@
 ---
 title: File organization for your Community Cloud app
 slug: /deploy/streamlit-community-cloud/deploy-your-app/file-organization
+description: Learn how to organize your files, dependencies, and configuration for successful Community Cloud deployment including subdirectories and multiple apps.
+keywords: file organization, repository structure, entrypoint, dependencies, configuration, subdirectories, multiple apps, git lfs
 ---
 
 # File organization for your Community Cloud app
