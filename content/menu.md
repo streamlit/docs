@@ -4,19 +4,19 @@ site_menu:
     url: /get-started
     color: orange-70
     icon: rocket_launch
-  - category: Get started / Setup
+  - category: Get started / Installation
     url: /get-started/installation
-  - category: Get started / Setup / LOCAL DEVELOPMENT
-  - category: Get started / Setup / Use Streamlit Playground ✨
+  - category: Get started / Installation / LOCAL DEVELOPMENT
+  - category: Get started / Installation / Use Streamlit Playground ✨
     url: /get-started/installation/streamlit-playground
-  - category: Get started / Setup / Install via command line
+  - category: Get started / Installation / Install via command line
     url: /get-started/installation/command-line
-  - category: Get started / Setup / Install via Anaconda Distribution
+  - category: Get started / Installation / Install via Anaconda Distribution
     url: /get-started/installation/anaconda-distribution
-  - category: Get started / Setup / CLOUD DEVELOPMENT
-  - category: Get started / Setup / Use GitHub Codespaces
+  - category: Get started / Installation / CLOUD DEVELOPMENT
+  - category: Get started / Installation / Use GitHub Codespaces
     url: /get-started/installation/community-cloud
-  - category: Get started / Setup / Use Snowflake
+  - category: Get started / Installation / Use Snowflake
     url: /get-started/installation/streamlit-in-snowflake
   - category: Get started / Fundamentals
     url: /get-started/fundamentals

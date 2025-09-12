@@ -1,15 +1,15 @@
 ---
-title: Set up your Streamlit development environment
+title: Install Streamlit
 slug: /get-started/installation
 ---
 
-# Set up your Streamlit development environment
+# Install Streamlit
 
 There are multiple ways to set up your development environment and install Streamlit. Read below to
 understand these options. Developing locally with Python installed on your own computer is the most
 common scenario.
 
-## Quick setup for experienced Python developers
+## Summary for experts
 
 1. Set up your Python development environment.
 2. Run:
@@ -22,9 +22,13 @@ common scenario.
    ```
 4. Jump to our [Basic concepts](/get-started/fundamentals/main-concepts).
 
-## Setup options for everyone else
+## Installation steps for the rest of us
 
-There are many ways to get started coding with Streamlit. If you're brand new to Streamlit or just passing through on a random internet walk, we recommend using the Streamlit Playground for your first hands-on experience. It's quick and ready to go in your browser. After you experience the awesomeness of Streamlit, we're confident you'll want to come back and set up a full development environment, which you can do locally or in the cloud, as described in the options below.
+If you're brand new to Streamlit or just passing through on a random internet walk, we recommend
+using the Streamlit Playground for your first hands-on experience. It's quick and ready to go in
+your browser. After you experience the awesomeness of Streamlit, we're confident you'll want to come
+back and set up a full development environment, which you can do locally or in the cloud, as
+described in the options below.
 
 <InlineCalloutContainer>
     <InlineCallout
