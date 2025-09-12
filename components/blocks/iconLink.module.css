@@ -1,0 +1,25 @@
+.Link {
+  @apply overflow-hidden border-none
+    text-base md:text-lg
+    tracking-tight
+    font-sans font-normal leading-7
+    hover:opacity-70
+    flex items-center gap-2
+    transition-all;
+}
+
+.Truncate {
+  @apply truncate;
+}
+
+.Icon {
+  @apply relative;
+}
+
+.IconRight {
+  @apply order-last;
+}
+
+.Orange {
+  @apply text-orange-90 dark:text-orange-30;
+}
