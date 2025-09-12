@@ -1,6 +1,6 @@
 ---
 title: Install Streamlit
-slug: /get-started/installation
+slug: /get-started/installation0
 ---
 
 # Install Streamlit
@@ -25,6 +25,17 @@ common scenario.
 ## Installation steps for the rest of us
 
 <TileContainer layout="list">
+
+<RefCard href="/get-started/installation/playground" size="half">
+
+<h5>Option 0: Take me to the playground!</h5>
+
+Try a version of Streamlit that runs right in your browser. No install required.
+(Note that this is
+not how Streamlit is meant to be used, as it comes with many downsides. That's why it's a
+_playground_!)
+
+</RefCard>
 
 <RefCard href="/get-started/installation/command-line" size="half">
 

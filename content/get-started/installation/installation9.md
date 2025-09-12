@@ -1,6 +1,6 @@
 ---
 title: Install Streamlit
-slug: /get-started/installation
+slug: /get-started/installation9
 ---
 
 # Install Streamlit
@@ -8,6 +8,13 @@ slug: /get-started/installation
 There are multiple ways to set up your development environment and install Streamlit. Read below to
 understand these options. Developing locally with Python installed on your own computer is the most
 common scenario.
+
+<Tip>
+
+To get a quick taste of Streamlit without any installation,
+be sure to [try the Playground](/get-started/installation/playground)!
+
+</Tip>
 
 ## Summary for experts
 

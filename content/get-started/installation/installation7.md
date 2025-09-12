@@ -1,6 +1,6 @@
 ---
 title: Install Streamlit
-slug: /get-started/installation
+slug: /get-started/installation7
 ---
 
 # Install Streamlit
@@ -22,13 +22,30 @@ common scenario.
    ```
 4. Jump to our [Basic concepts](/get-started/fundamentals/main-concepts).
 
-## Installation steps for the rest of us
+## Get a taste without installing
 
 <TileContainer layout="list">
 
+<RefCard href="/get-started/installation/playground" size="half">
+
+<h5>Take me to the playground!</h5>
+
+Try a version of Streamlit that runs right in your browser. No install required.
+(Note that this is
+not how Streamlit is meant to be used, as it comes with many downsides. That's why it's a
+_playground_!)
+
+</RefCard>
+
+</TileContainer>
+
+## Install on your machine
+
+<TileContainer layout="grid">
+
 <RefCard href="/get-started/installation/command-line" size="half">
 
-<h5>Option 1: I'm comfortable with the command line</h5>
+<h5>Option 1: I like the command line</h5>
 
 Install Streamlit on your own machine using tools like `venv` and `pip`.
 
@@ -43,9 +60,15 @@ approach if you're on Windows or don't have Python set up.
 
 </RefCard>
 
+</TileContainer>
+
+## Create an app on the cloud
+
+<TileContainer layout="grid">
+
 <RefCard href="/get-started/installation/community-cloud" size="half">
 
-<h5>Option 3: I'd rather use a cloud-based environment</h5>
+<h5>Option 1: I'd rather use a cloud-based environment</h5>
 
 Use Streamlit Community Cloud with GitHub Codespaces so you don't have to go through the trouble
 of installing Python and setting up an environment.
@@ -54,7 +77,7 @@ of installing Python and setting up an environment.
 
 <RefCard href="/get-started/installation/streamlit-in-snowflake" size="half">
 
-<h5>Option 4: I need something secure, controlled, and in the cloud</h5>
+<h5>Option 2: I need something secure, controlled, and in the cloud</h5>
 
 Use Streamlit in Snowflake to code your apps in the cloud, right alongside your
 data with role-based access controls.

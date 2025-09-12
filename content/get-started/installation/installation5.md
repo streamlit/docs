@@ -1,6 +1,6 @@
 ---
 title: Install Streamlit
-slug: /get-started/installation
+slug: /get-started/installation5
 ---
 
 # Install Streamlit
@@ -22,7 +22,15 @@ common scenario.
    ```
 4. Jump to our [Basic concepts](/get-started/fundamentals/main-concepts).
 
-## Installation steps for the rest of us
+## Get a taste without installing
+
+Try a version of Streamlit that runs right in your browser. No install required. Note that this is
+not how Streamlit is meant to be used, as it comes with many downsides. That's why it's a
+_playground_! Just click the button below and start playing with code in seconds.
+
+[View instructions for the playground](/get-started/installation/streamlit-playground)
+
+## Install on your machine
 
 <TileContainer layout="list">
 
@@ -43,9 +51,11 @@ approach if you're on Windows or don't have Python set up.
 
 </RefCard>
 
+## Create an app on the cloud
+
 <RefCard href="/get-started/installation/community-cloud" size="half">
 
-<h5>Option 3: I'd rather use a cloud-based environment</h5>
+<h5>Cloud option 1: I'd rather use a cloud-based environment</h5>
 
 Use Streamlit Community Cloud with GitHub Codespaces so you don't have to go through the trouble
 of installing Python and setting up an environment.
@@ -54,7 +64,7 @@ of installing Python and setting up an environment.
 
 <RefCard href="/get-started/installation/streamlit-in-snowflake" size="half">
 
-<h5>Option 4: I need something secure, controlled, and in the cloud</h5>
+<h5>Cloud option 2: I need something secure, controlled, and in the cloud</h5>
 
 Use Streamlit in Snowflake to code your apps in the cloud, right alongside your
 data with role-based access controls.
