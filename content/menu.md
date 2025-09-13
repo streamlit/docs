@@ -6,8 +6,30 @@ site_menu:
     icon: rocket_launch
   - category: Get started / Installation
     url: /get-started/installation
+  # Temporary, just for use to try out different designs
+  - category: Get started / Installation0
+    url: /get-started/installation0
+  - category: Get started / Installation1
+    url: /get-started/installation1
+  - category: Get started / Installation2
+    url: /get-started/installation2
+  - category: Get started / Installation3
+    url: /get-started/installation3
+  - category: Get started / Installation4
+    url: /get-started/installation4
+  - category: Get started / Installation5
+    url: /get-started/installation5
+  - category: Get started / Installation6
+    url: /get-started/installation6
+  - category: Get started / Installation7
+    url: /get-started/installation7
+  - category: Get started / Installation8
+    url: /get-started/installation8
+  - category: Get started / Installation9
+    url: /get-started/installation9
+  # ...up to here.
   - category: Get started / Installation / LOCAL DEVELOPMENT
-  - category: Get started / Installation / Use Streamlit Playground ✨
+  - category: Get started / Installation / Use Streamlit Playground
     url: /get-started/installation/streamlit-playground
   - category: Get started / Installation / Install via command line
     url: /get-started/installation/command-line
