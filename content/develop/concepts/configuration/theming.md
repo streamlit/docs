@@ -1,6 +1,8 @@
 ---
 title: Theming
 slug: /develop/concepts/configuration/theming
+description: Customize Streamlit app appearance with theming options, color schemes, fonts, and visual styling using config.toml configuration settings.
+keywords: theming, app customization, visual styling, color schemes, app appearance, theme configuration, config.toml, styling options, UI customization
 ---
 
 # Theming overview

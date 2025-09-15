@@ -1,6 +1,8 @@
 ---
 title: Beyond the basics of app testing
 slug: /develop/concepts/app-testing/beyond-the-basics
+description: Advanced Streamlit app testing techniques covering AppTest mutable attributes including secrets, session state, query parameters, and advanced testing patterns.
+keywords: advanced testing, apptest attributes, secrets testing, session state testing, query params testing, mutable attributes, advanced apptest, testing patterns
 ---
 
 # Beyond the basics of app testing

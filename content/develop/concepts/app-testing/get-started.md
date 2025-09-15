@@ -1,6 +1,8 @@
 ---
 title: Get started with app testing
 slug: /develop/concepts/app-testing/get-started
+description: Learn the fundamentals of Streamlit app testing with practical examples covering test structure, AppTest initialization, element retrieval, widget manipulation, and result inspection.
+keywords: app testing, get started testing, AppTest, pytest, test structure, element retrieval, widget manipulation, test examples, testing fundamentals, streamlit tests
 ---
 
 # Get started with app testing

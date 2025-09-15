@@ -1,6 +1,8 @@
 ---
 title: Static file serving
 slug: /develop/concepts/configuration/serving-static-files
+description: Set up static file serving in Streamlit to host and serve media files, assets, and resources that support media embedding and custom content.
+keywords: static files, file serving, media hosting, asset serving, static assets, file hosting, media files, resource serving, static content
 ---
 
 # Static file serving

@@ -1,6 +1,8 @@
 ---
 title: Streamlit's native app testing framework
 slug: /develop/concepts/app-testing
+description: Comprehensive guide to Streamlit's native app testing framework using AppTest for automated testing, including setup, examples, and best practices for CI/CD integration.
+keywords: app testing, streamlit testing, AppTest, automated testing, test framework, pytest, unit testing, integration testing, ci testing, test automation, testing best practices
 ---
 
 # Streamlit's native app testing framework

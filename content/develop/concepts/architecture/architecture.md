@@ -1,6 +1,8 @@
 ---
 title: Understanding Streamlit's client-server architecture
 slug: /develop/concepts/architecture/architecture
+description: Understand Streamlit's client-server architecture, WebSocket connections, session management, and deployment considerations.
+keywords: architecture, client-server, websocket, session, deployment, server, client
 ---
 
 # Understanding Streamlit's client-server architecture

@@ -1,6 +1,8 @@
 ---
 title: Working with fragments
 slug: /develop/concepts/architecture/fragments
+description: Master Streamlit fragments to optimize app performance by rerunning portions of code instead of full scripts, improving efficiency for complex applications.
+keywords: streamlit fragments, st.fragment, partial reruns, performance optimization, execution control, fragment reruns, efficient reruns, app performance, execution flow
 ---
 
 # Working with fragments

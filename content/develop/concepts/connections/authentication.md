@@ -1,6 +1,8 @@
 ---
 title: User authentication and information
 slug: /develop/concepts/connections/authentication
+description: Implement user authentication and personalization in Streamlit apps with admin controls, user information, and personalized experiences across sessions.
+keywords: user authentication, personalization, admin controls, user information, session management, user identity, authentication systems, personalized apps
 ---
 
 # User authentication and information

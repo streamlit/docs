@@ -1,7 +1,8 @@
 ---
 title: Working with widgets in multipage apps
 slug: /develop/concepts/multipage-apps/widgets
-description: Understand how widgets interact with pages
+description: Understand how widgets behave across pages in multipage Streamlit apps, including widget state management, IDs, and cross-page interactions.
+keywords: multipage widgets, widget state, widget IDs, cross-page widgets, widget behavior, state management, multipage interactions, widget persistence
 ---
 
 # Working with widgets in multipage apps

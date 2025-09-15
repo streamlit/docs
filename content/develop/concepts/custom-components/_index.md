@@ -1,6 +1,8 @@
 ---
 title: Components
 slug: /develop/concepts/custom-components
+description: Build and use custom Streamlit components to extend app functionality with third-party Python modules and custom UI elements.
+keywords: custom components, third-party modules, component development, extend functionality, custom UI, component integration, Streamlit components
 ---
 
 # Custom Components
@@ -12,7 +14,6 @@ Components are third-party Python modules that extend what's possible with Strea
 Components are super easy to use:
 
 1. Start by finding the Component you'd like to use. Two great resources for this are:
-
    - The [Component gallery](https://streamlit.io/components)
    - [This thread](https://discuss.streamlit.io/t/streamlit-components-community-tracker/4634),
      by Fanilo A. from our forums.

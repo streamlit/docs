@@ -1,6 +1,8 @@
 ---
 title: Working with timezones
 slug: /develop/concepts/design/timezone-handling
+description: Essential guide to handling timezones in Streamlit applications, including best practices for displaying datetime information across different user timezones.
+keywords: timezones, timezone handling, datetime, timezone aware, naive datetime, timezone conversion, time display, international users, timezone best practices
 ---
 
 # Working with timezones

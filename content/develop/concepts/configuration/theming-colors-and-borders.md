@@ -1,6 +1,8 @@
 ---
 title: Colors and borders
 slug: /develop/concepts/configuration/theming-customize-colors-and-borders
+description: Customize colors, borders, backgrounds, and UI elements in Streamlit apps using theme configuration options and color values.
+keywords: colors, borders, theming, UI customization, color values, background colors, border styling, visual design, theme colors, app styling
 ---
 
 # Customize colors and borders in your Streamlit app
