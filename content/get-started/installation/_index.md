@@ -5,30 +5,52 @@ slug: /get-started/installation
 
 # Install Streamlit
 
-There are multiple ways to set up your development environment and install Streamlit. Read below to
-understand these options. Developing locally with Python installed on your own computer is the most
+There are multiple ways to set up your development environment and install Streamlit.
+Developing locally with Python installed on your own computer is the most
 common scenario.
 
-## Summary for experts
+<IconLink
+    link="/get-started/installation/command-line"
+    icon="arrow_forward"
+    label="Instructions for the command line"
+    cssModuleClassName="Orange"
+    cssModuleIconClassName="IconRight"
+/>
 
-1. Set up your Python development environment.
-2. Run:
+## Summary for experienced Python developers
+
+1. To set up your Python environment and test your installation, execute the following terminal commands:
+
    ```bash
    pip install streamlit
-   ```
-3. Validate the installation by running our Hello app:
-   ```bash
    streamlit hello
    ```
-4. Jump to our [Basic concepts](/get-started/fundamentals/main-concepts).
 
-## Installation steps for the rest of us
+1. Jump to our [Basic concepts](/get-started/fundamentals/main-concepts).
+
+## Get a sampling without installing
 
 <TileContainer layout="list">
 
+<RefCard href="/get-started/installation/playground" size="half">
+
+<h5>Take me to the playground!</h5>
+
+Try a version of Streamlit that runs right in your browser. No installation required.
+(This is not how Streamlit is meant to be used, because it comes with many downsides&mdash;that's why it's a
+_playground_!)
+
+</RefCard>
+
+</TileContainer>
+
+## Install on your machine
+
+<TileContainer layout="grid">
+
 <RefCard href="/get-started/installation/command-line" size="half">
 
-<h5>Option 1: I'm comfortable with the command line</h5>
+<h5>Option 1: I like the command line</h5>
 
 Install Streamlit on your own machine using tools like `venv` and `pip`.
 
@@ -43,9 +65,15 @@ approach if you're on Windows or don't have Python set up.
 
 </RefCard>
 
+</TileContainer>
+
+## Create an app on the cloud
+
+<TileContainer layout="grid">
+
 <RefCard href="/get-started/installation/community-cloud" size="half">
 
-<h5>Option 3: I'd rather use a cloud-based environment</h5>
+<h5>Option 1: I'd rather use a cloud-based environment</h5>
 
 Use Streamlit Community Cloud with GitHub Codespaces so you don't have to go through the trouble
 of installing Python and setting up an environment.
@@ -54,7 +82,7 @@ of installing Python and setting up an environment.
 
 <RefCard href="/get-started/installation/streamlit-in-snowflake" size="half">
 
-<h5>Option 4: I need something secure, controlled, and in the cloud</h5>
+<h5>Option 2: I need something secure, controlled, and in the cloud</h5>
 
 Use Streamlit in Snowflake to code your apps in the cloud, right alongside your
 data with role-based access controls.
