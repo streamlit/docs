@@ -24,7 +24,7 @@ common scenario.
 
 <TileContainer layout="list">
 
-<RefCard href="/get-started/installation/playground" size="half">
+<RefCard href="/get-started/installation/streamlit-playground" size="half">
 
 <h5>Take me to the playground!</h5>
 

@@ -14,8 +14,10 @@ Enjoy the following conveniences:
 - No command line.
 - No application installations in your OS.
 
-<Important>    
-    Although the Playground has everything you need to get started, it doesn't contain the full version of Streamlit. To access the full awesomeness of Streamlit, see [Install Streamlit using command line](/get-started/installation/command-line) or [Install Streamlit using Anaconda Distribution](/get-started/installation/anaconda-distribution).
+<Important>
+
+Although the Playground has everything you need to get started, it doesn't contain the full version of Streamlit. To access the full awesomeness of Streamlit, see [Install Streamlit using command line](/get-started/installation/command-line) or [Install Streamlit using Anaconda Distribution](/get-started/installation/anaconda-distribution).
+
 </Important>
 
 ## Prerequisites
@@ -26,11 +28,13 @@ Because the Playground runs Streamlit _locally_ in your browser, you should visi
 
 1. Go to [streamlit.io/playground](https://streamlit.io/playground).
 
-1. Wait for [`stlite`](https://github.com/whitphx/stlite) &mdash; a browser-based version of Streamlit &mdash; to load in your browser.
+1. Wait for the playground to load.
 
-   This can take as little as a few seconds. The setup time can vary depending on your machine and internet connection. When Streamlit is done loading, an example app is displayed in the right panel.
+   Behind the scenes, the site installs a browser-based version of Python and Streamlit. This can take as little as a few seconds. The setup time can vary depending on your machine and internet connection. When Streamlit is done loading, an example app is displayed in the right panel.
 
    ![Streamlit Playground is fully loaded and ready to accept code edits](/images/get-started/Playground-1-loaded.png)
+
+1. Optional: To view different examples, above the editor, select them from the examples list.
 
 ## Create a `Hello World` app
 
@@ -60,6 +64,8 @@ Because the Playground runs Streamlit _locally_ in your browser, you should visi
 
 ## What's next?
 
-Read about our [Basic concepts](/get-started/fundamentals/main-concepts) and try out more commands in your app.
+- Option 1: If you're already intrigued and ready to install Streamlit on your computer, see one of the options to [Install Streamlit on your machine](/get-started/installation#install-on-your-machine).
 
-When you use the Streamlit Playground to work through the basic concepts, you can skip over any instructions to save your file or to select "**Rerun on save**." Streamlit Playground automatically saves your code when you pause from editing, as described above. Also, it is already configured to rerun on save.
+- Option 2: Otherwise, you can keep using the playground while you read about our [Basic concepts](/get-started/fundamentals/main-concepts) and try out more commands in your app.
+
+  When you use the Streamlit Playground to work through the basic concepts, you can skip over any instructions to save your file or to select "**Rerun on save**." Streamlit Playground automatically saves your code when you pause from editing, as described above. Also, it is already configured to rerun on save.
