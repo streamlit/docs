@@ -1,6 +1,8 @@
 ---
 title: App model summary
 slug: /get-started/fundamentals/summary
+description: Comprehensive summary of Streamlit's app model including execution flow, data handling, state management, and how all components work together.
+keywords: app model, execution flow, data handling, state management, streamlit architecture, app summary, fundamentals recap
 ---
 
 # App model summary

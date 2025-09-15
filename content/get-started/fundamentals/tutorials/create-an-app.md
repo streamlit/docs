@@ -1,6 +1,8 @@
 ---
 title: Create an app
 slug: /get-started/tutorials/create-an-app
+description: Step-by-step tutorial for creating your first Streamlit app with data visualization, interactive widgets, and real-time development workflow.
+keywords: create app, first app, streamlit tutorial, data visualization, interactive widgets, app development, beginner tutorial, hands-on guide
 ---
 
 # Create an app
