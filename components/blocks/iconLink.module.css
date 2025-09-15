@@ -8,6 +8,10 @@
     transition-all;
 }
 
+:global(.dark) .Link {
+  @apply text-gray-40;
+}
+
 .Truncate {
   @apply truncate;
 }
@@ -21,5 +25,9 @@
 }
 
 .Orange {
-  @apply text-orange-90 dark:text-orange-30;
+  @apply text-orange-90;
+}
+
+:global(.dark) .Orange {
+  @apply text-orange-30;
 }
