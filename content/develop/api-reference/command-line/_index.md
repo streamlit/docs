@@ -9,60 +9,23 @@ When you install Streamlit, a command-line (CLI) tool gets installed
 as well. The purpose of this tool is to run Streamlit apps, change Streamlit configuration options,
 and help you diagnose and fix issues.
 
-To see all of the supported commands:
+## Available commands
+
+- [`streamlit cache clear`](/develop/api-reference/cli/cache): Clear the on-disk cache.
+- [`streamlit config show`](/develop/api-reference/cli/config): Show all configuration options.
+- [`streamlit docs`](/develop/api-reference/cli/docs): Open the Streamlit docs.
+- [`streamlit hello`](/develop/api-reference/cli/hello): Run an example Streamlit app.
+- [`streamlit help`](/develop/api-reference/cli/help): Show the available CLI commands.
+- [`streamlit init`](/develop/api-reference/cli/init): Create the files for a new Streamlit app.
+- [`streamlit run`](/develop/api-reference/cli/run): Run your Streamlit app.
+- [`streamlit version`](/develop/api-reference/cli/version): Show the version of Streamlit.
+
+### Run your app
+
+The most important command is `streamlit run`, which is summarized for convenience here:
 
 ```bash
-streamlit --help
+streamlit run your_script.py
 ```
 
-### Run Streamlit apps
-
-```bash
-streamlit run your_script.py [-- script args]
-```
-
-Runs your app. At any time you can stop the server with **Ctrl+c**.
-
-<Note>
-
-When passing your script some custom arguments, **they must be passed after
-two dashes**. Otherwise the arguments get interpreted as arguments to Streamlit
-itself.
-
-</Note>
-
-To see the Streamlit 'Hello, World!' example app, run `streamlit hello`.
-
-### View Streamlit version
-
-To see what version of Streamlit is installed, just type:
-
-```bash
-streamlit version
-```
-
-### View documentation
-
-```bash
-streamlit docs
-```
-
-Opens the Streamlit documentation (i.e. this website) in a web browser.
-
-### Clear cache
-
-```bash
-streamlit cache clear
-```
-
-Clears persisted files from the on-disk [Streamlit cache](/develop/api-reference/caching-and-state), if
-present.
-
-### View all configuration options
-
-As described in [Configuration](/develop/concepts/configuration), Streamlit has several
-configuration options. To view them all, including their current values, just type:
-
-```bash
-streamlit config show
-```
+At any time, in your terminal, you can stop the server with **Ctrl+C**.

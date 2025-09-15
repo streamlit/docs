@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import { getMenu } from "../lib/api";
+import { getMenu } from "../lib/node/api";
 
 import Layout from "../components/layouts/globalTemplate";
 import Footer from "../components/navigation/footer";
@@ -192,58 +192,66 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/develop/concepts/connections/authentication"
+                href="/develop/api-reference/media/st.pdf?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">account_circle</i>
-                <h4>User authentication</h4>
-                <p>Authenticate users with an OpenID Connect provider.</p>
-              </RefCard>
-              <RefCard size="third" href="/develop/api-reference/data/st.table">
-                <i className="material-icons-sharp">format_paint</i>
-                <h4>Markdown in tables</h4>
+                <i className="material-icons-sharp">description</i>
+                <h4>PDF viewer</h4>
                 <p>
-                  <code>st.table</code> supports Markdown text in all cells,
-                  headers, and indices.
+                  You can display a PDF file with <code>st.pdf</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/data/st.dataframe"
+                href="/develop/api-reference/data/st.dataframe?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">table</i>
-                <h4>Dataframe improvements</h4>
+                <i className="material-icons-sharp">ads_click</i>
+                <h4>Dataframe cell selection</h4>
                 <p>
-                  Users can sort and pin columns. Rows are highlighted on hover.
+                  <code>st.dataframe</code> supports single and multiple cell
+                  selections.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/status/st.spinner"
+                href="/develop/api-reference/data/st.metric?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">show_chart</i>
+                <h4>Metric sparklines</h4>
+                <p>
+                  You can add sparklines to <code>st.metric</code>.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/data/st.column_config/st.column_config.listcolumn?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">settings</i>
+                <h4>
+                  Editable <code>ListColumn</code>
+                </h4>
+                <p>
+                  <code>ListColumn</code> supports editing.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/widgets/st.file_uploader?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">folder</i>
+                <h4>Directory upload</h4>
+                <p>
+                  Users can upload all files in a directory with{" "}
+                  <code>st.file_uploader</code> and <code>st.chat_input</code>.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/status/st.toast?utm_source=streamlit"
               >
                 <i className="material-icons-sharp">timer</i>
-                <h4>Spinner elapsed time</h4>
+                <h4>Toast duration</h4>
                 <p>
-                  <code>st.spinner</code> can optionally show elapsed time with
-                  the new parameter <code>show_time</code>.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/media/st.image"
-              >
-                <i className="material-icons-sharp">palette</i>
-                <h4>Markdown image captions</h4>
-                <p>
-                  <code>st.image</code> supports Markdown text in
-                  <code>caption</code>.
-                </p>
-              </RefCard>
-              <RefCard size="third" href="/develop/api-reference/text/st.code">
-                <i className="material-icons-sharp">height</i>
-                <h4>Code height</h4>
-                <p>
-                  You can set the height of <code>st.code</code> with the new
-                  parameter <code>height</code>.
+                  You can configure the duration of <code>st.toast</code>.
                 </p>
               </RefCard>
             </TileContainer>

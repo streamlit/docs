@@ -5,6 +5,8 @@ slug: /develop/api-reference/cli/run
 
 ## `$ streamlit run`
 
+This command starts your Streamlit app.
+
 ### Syntax
 
 ```

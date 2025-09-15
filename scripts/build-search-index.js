@@ -1,11 +1,17 @@
 const dotenv = require("dotenv");
 const fs = require("fs");
 const path = require("path");
-const utils = require("../lib/utils.js");
-const contentDirectory = path.join(process.cwd(), ".next/server/pages");
 const parser = require("node-html-parser");
 const algoliasearch = require("algoliasearch");
 const { convert } = require("html-to-text");
+
+const { breadcrumbsForSlug } = require("../lib/purejs/breadcrumbHelpers");
+const {
+  looksLikeVersionAndPlatformStringGeneric,
+} = require("../lib/purejs/versionHelpers");
+const { DEFAULT_PLATFORM, PLATFORM_VERSIONS } = require("../lib/node/defaults");
+
+const contentDirectory = path.join(process.cwd(), ".next/server/pages");
 
 const SKIP_THESE = [
   "/menu",
@@ -74,7 +80,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
       meta = JSON.parse(fs.readFileSync(data[url], "utf8"));
       if ("menu" in meta.pageProps) {
         menu = meta.pageProps.menu;
-        breadCrumbs = utils.breadcrumbsForSlug(menu, url);
+        breadCrumbs = breadcrumbsForSlug(menu, url);
         if (breadCrumbs.length > 0) {
           category = breadCrumbs[0].name;
           icon = breadCrumbs[0].icon ? breadCrumbs[0].icon : "text_snippet";
@@ -120,9 +126,13 @@ function getAllFilesInDirectory(articleDirectory, files) {
       compileOptions,
     );
     const slug = url.split("/");
-    const isnum = /^[\d\.]+$/.test(slug[1]);
-    const isSiS = /^SiS[\d\.]*$/.test(slug[1]);
-    const version = isnum || isSiS ? slug[1] : "latest";
+    const version = looksLikeVersionAndPlatformStringGeneric(
+      slug[1],
+      DEFAULT_PLATFORM,
+      PLATFORM_VERSIONS,
+    )
+      ? slug[1]
+      : "latest";
 
     if (meta_keywords) {
       keywords = meta_keywords.getAttribute("content");

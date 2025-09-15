@@ -117,6 +117,19 @@ st.subheader("This is a subheader")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/text/st.badge">
+
+<Image pure alt="screenshot" src="/images/api/badge.jpg" />
+
+<h4>Badge</h4>
+
+Display a small, colored badge.
+
+```python
+st.badge("New")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/text/st.caption">
 
 <Image pure alt="screenshot" src="/images/api/caption.jpg" />
@@ -273,7 +286,7 @@ st_tags(label='# Enter Keywords:', text='Press enter to add more', value=['Zero'
 Apply text mining on a dataframe. Created by [@JohnSnowLabs](https://github.com/JohnSnowLabs/).
 
 ```python
-nlu.load('sentiment').predict('I love NLU! <3')
+nlu.load("sentiment").predict("I love NLU! <3")
 ```
 
 </ComponentCard>
@@ -1311,6 +1324,19 @@ st.logo("logo.jpg")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/media/st.pdf">
+
+<Image pure alt="screenshot" src="/images/api/pdf.jpg" />
+
+<h4>PDF</h4>
+
+Display a PDF file.
+
+```python
+st.pdf("my_document.pdf")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/media/st.audio">
 
 <Image pure alt="screenshot" src="/images/api/audio.jpg" />
@@ -1945,11 +1971,11 @@ st.logout()
 
 <h4>User info</h4>
 
-`st.experimental_user` returns information about a logged-in user.
+`st.user` returns information about a logged-in user.
 
 ```python
-if st.experimental_user.is_logged_in:
-  st.write(f"Welcome back, {st.experimental_user.name}!")
+if st.user.is_logged_in:
+  st.write(f"Welcome back, {st.user.name}!")
 ```
 
 </RefCard>
@@ -2217,11 +2243,11 @@ st.query_params.clear()
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/user/st.context">
+<RefCard href="/develop/api-reference/caching-and-state/st.context">
 
 <h4>Context</h4>
 
-`st.context` provides a read-only interface to access cookies and headers.
+`st.context` provides a read-only interface to access cookies, headers, locale, and other browser-session information.
 
 ```python
 st.context.cookies

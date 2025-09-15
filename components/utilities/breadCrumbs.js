@@ -1,6 +1,8 @@
 import React from "react";
-import { breadcrumbsForSlug } from "../../lib/utils.js";
 import Link from "next/link";
+
+import { breadcrumbsForSlug } from "../../lib/purejs/breadcrumbHelpers";
+import { looksLikeVersionAndPlatformString } from "../../lib/next/utils";
 
 import styles from "./breadCrumbs.module.css";
 
@@ -43,9 +45,8 @@ const BreadCrumbs = ({ slug, menu }) => {
     title: "Home",
   });
 
-  const isnum = /^[\d\.]+$/.test(slug[0]);
-  const isSiS = /^SiS[\d\.]*$/.test(slug[0]);
-  if (isnum || isSiS) {
+  // TODO: This may be unnecessary
+  if (looksLikeVersionAndPlatformString(slug[0])) {
     paths = slug.slice(1).join("/");
     breadcrumbs.push({
       link: "#",

@@ -112,6 +112,18 @@ TimeColumn("Appointment", min_value=time(8, 0, 0), format="hh:mm a")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/data/st.column_config/st.column_config.jsoncolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.jsoncolumn.jpg" />
+
+<h4>JSON column</h4>
+
+Configure a JSON column.
+
+```python
+JSONColumn("Properties", width="medium")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/data/st.column_config/st.column_config.listcolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.listcolumn.jpg" />
 

@@ -5,7 +5,7 @@ slug: /develop/quick-reference/cheat-sheet
 
 # Streamlit API cheat sheet
 
-This is a summary of the docs for the latest version of Streamlit, [v1.42.0](https://pypi.org/project/streamlit/1.42.0/).
+This is a summary of the docs for the latest version of Streamlit, [v1.49.0](https://pypi.org/project/streamlit/1.49.0/).
 
 <Masonry>
 
@@ -42,13 +42,14 @@ Learn more about [experimental features](advanced-features/prerelease#experiment
 #### Command line
 
 ```python
-streamlit --help
-streamlit run your_script.py
-streamlit hello
-streamlit config show
 streamlit cache clear
+streamlit config show
 streamlit docs
-streamlit --version
+streamlit hello
+streamlit help
+streamlit init
+streamlit run streamlit_app.py
+streamlit version
 ```
 
 </CodeTile>
@@ -89,6 +90,7 @@ st.title("My title")
 st.header("My header")
 st.subheader("My sub")
 st.code("for i in range(8): foo()")
+st.badge("New")
 st.html("<p>Hi!</p>")
 ```
 
@@ -114,10 +116,11 @@ st.metric("My metric", 42, 2)
 
 ```python
 st.image("./header.png")
+st.logo("logo.jpg")
+st.pdf("my_document.pdf")
 st.audio(data)
 st.video(data)
 st.video(data, subtitles="./subs.vtt")
-st.logo("logo.jpg")
 ```
 
 </CodeTile>
@@ -135,7 +138,6 @@ st.map(df)
 st.scatter_chart(df)
 
 st.altair_chart(chart)
-st.bokeh_chart(fig)
 st.graphviz_chart(fig)
 st.plotly_chart(fig)
 st.pydeck_chart(chart)
@@ -157,6 +159,8 @@ event = st.vega_lite_chart(
     on_select="rerun"
 )
 ```
+
+To use Bokeh, see our custom component [`streamlit-bokeh`](https://github.com/streamlit/streamlit-bokeh).
 
 </CodeTile>
 
@@ -332,7 +336,7 @@ with st.chat_message("user"):
     st.line_chart(np.random.randn(30, 3))
 
 # Display a chat input widget at the bottom of the app.
->>> st.chat_input("Say something")
+st.chat_input("Say something")
 
 # Display a chat input widget inline.
 with st.container():
@@ -387,6 +391,11 @@ elements = st.container()
 elements.line_chart(...)
 st.write("Hello")
 elements.text_input(...)  # Appears above "Hello".
+
+# Horizontal flex
+flex = st.container(horizontal=True)
+flex.button("A")
+flex.button("B")
 
 st.help(pandas.DataFrame)
 st.get_option(key)
@@ -509,14 +518,21 @@ st.exception(e)
 
 ```python
 # Authenticate users
-if not st.experimental_user.is_logged_in:
+if not st.user.is_logged_in:
     st.login("my_provider")
-f"Hi, {st.experimental_user.name}"
+f"Hi, {st.user.name}"
 st.logout()
 
-# Get dictionaries of cookies and headers
+# Get dictionaries of cookies, headers, locale, and browser data
 st.context.cookies
 st.context.headers
+st.context.ip_address
+st.context.is_embedded
+st.context.locale
+st.context.theme.type
+st.context.timezone
+st.context.timezone_offset
+st.context.url
 ```
 
 </CodeTile>
