@@ -1,6 +1,8 @@
 ---
 title: Connect Streamlit to MySQL
 slug: /develop/tutorials/databases/mysql
+description: Learn how to securely connect Streamlit apps to remote MySQL databases using st.connection and secrets management for SQL queries and data access.
+keywords: MySQL, database connection, st.connection, secrets management, SQL database, remote database, database tutorial, secure connections
 ---
 
 # Connect Streamlit to MySQL

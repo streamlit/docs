@@ -1,6 +1,8 @@
 ---
 title: Quick reference
 slug: /develop/quick-reference
+description: Access quick references including API cheat sheets, prerelease features, and comprehensive release notes for Streamlit development.
+keywords: quick reference, API cheat sheet, release notes, prerelease features, documentation reference, development reference, API reference
 ---
 
 # Quick reference

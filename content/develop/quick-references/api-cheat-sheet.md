@@ -1,6 +1,8 @@
 ---
 title: Streamlit API cheat sheet
 slug: /develop/quick-reference/cheat-sheet
+description: Comprehensive Streamlit API cheat sheet with all widgets, layout elements, data display, and utility functions for quick reference during development.
+keywords: API cheat sheet, Streamlit API, widgets, layout, data display, utility functions, development reference, quick guide, function reference
 ---
 
 # Streamlit API cheat sheet

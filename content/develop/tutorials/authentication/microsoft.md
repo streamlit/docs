@@ -1,7 +1,8 @@
 ---
 title: Use Microsoft Entra to authenticate users
 slug: /develop/tutorials/authentication/microsoft
-description: Learn how to authenticate users with Microsoft Entra
+description: Learn how to authenticate users with Microsoft Entra and Microsoft Identity Platform for work, school, and personal accounts in Streamlit apps.
+keywords: Microsoft authentication, Microsoft Entra, Microsoft Identity Platform, enterprise authentication, work accounts, school accounts, OIDC tutorial
 ---
 
 # Use Microsoft Entra to authenticate users

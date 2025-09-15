@@ -1,6 +1,8 @@
 ---
 title: Tutorials
 slug: /develop/tutorials
+description: Step-by-step tutorials for building Streamlit apps including authentication, database connections, data visualization, and advanced features.
+keywords: tutorials, step-by-step guides, app building, authentication, databases, data visualization, multipage apps, theming, execution flow, LLMs
 ---
 
 # Tutorials

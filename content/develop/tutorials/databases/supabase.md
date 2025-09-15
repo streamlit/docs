@@ -1,6 +1,8 @@
 ---
 title: Connect Streamlit to Supabase
 slug: /develop/tutorials/databases/supabase
+description: Learn how to securely connect Streamlit apps to Supabase (open source Firebase alternative) using st.connection, Supabase Connector, and PostgreSQL backend.
+keywords: Supabase, Firebase alternative, PostgreSQL, st.connection, Supabase Connector, open source backend, database connection, secrets management
 ---
 
 # Connect Streamlit to Supabase

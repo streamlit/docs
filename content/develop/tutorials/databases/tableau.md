@@ -1,6 +1,8 @@
 ---
 title: Connect Streamlit to Tableau
 slug: /develop/tutorials/databases/tableau
+description: Learn how to securely connect Streamlit apps to Tableau for accessing data and visualizations using tableauserverclient library and secrets management.
+keywords: Tableau, data visualization, tableauserverclient, business intelligence, dashboard integration, data access, secrets management, BI integration
 ---
 
 # Connect Streamlit to Tableau
