@@ -2,6 +2,7 @@
 title: st.echo
 slug: /develop/api-reference/text/st.echo
 description: st.echo displays some code on the app, then execute it. Useful for tutorials.
+keywords: st.echo, echo, display code, execute code, code display, tutorial code, show and run code, code execution, live code
 ---
 
 <Autofunction function="streamlit.echo" />

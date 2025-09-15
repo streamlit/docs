@@ -1,6 +1,8 @@
 ---
 title: Media elements
 slug: /develop/api-reference/media
+description: Embed images, videos, audio files, PDFs, and logos directly into your Streamlit apps with easy-to-use media display components.
+keywords: media elements, images, videos, audio, pdf, logo, multimedia, media display, file embedding, streamlit media, media components
 ---
 
 # Media elements

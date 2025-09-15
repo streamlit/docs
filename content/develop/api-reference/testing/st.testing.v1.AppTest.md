@@ -1,6 +1,8 @@
 ---
 title: st.testing.v1.AppTest
 slug: /develop/api-reference/app-testing/st.testing.v1.apptest
+description: The AppTest class simulates Streamlit apps in automated tests and provides methods to manipulate and inspect app contents programmatically.
+keywords: st.testing.v1.AppTest, AppTest, app testing, test simulation, automated testing, streamlit testing, test runner, app simulation, testing framework
 ---
 
 <h1 style={{display: "none"}}></h1>

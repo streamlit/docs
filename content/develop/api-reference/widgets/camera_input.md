@@ -2,6 +2,7 @@
 title: st.camera_input
 slug: /develop/api-reference/widgets/st.camera_input
 description: st.camera_input displays a widget to upload images from a camera
+keywords: st.camera_input, camera input, camera widget, image capture, photo capture, camera upload, take photo, webcam, image input
 ---
 
 <Autofunction function="streamlit.camera_input" />

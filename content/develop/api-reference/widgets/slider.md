@@ -2,6 +2,7 @@
 title: st.slider
 slug: /develop/api-reference/widgets/st.slider
 description: st.slider displays a slider widget.
+keywords: slider, widget, input, range, value, interactive
 ---
 
 <Autofunction function="streamlit.slider" />

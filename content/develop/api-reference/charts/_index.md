@@ -1,6 +1,8 @@
 ---
 title: Chart elements
 slug: /develop/api-reference/charts
+description: Learn about Streamlit's charting capabilities including simple charts, advanced visualization libraries, and community components for data visualization.
+keywords: charts, visualization, matplotlib, vega-lite, deck.gl, altair, plotly, bokeh, pydeck, graphviz, maps, line chart, bar chart, area chart, scatter chart
 ---
 
 # Chart elements

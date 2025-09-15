@@ -2,6 +2,7 @@
 title: st.divider
 slug: /develop/api-reference/text/st.divider
 description: st.divider displays a horizontal rule in your app.
+keywords: st.divider, divider, horizontal rule, separator, line separator, visual divider, section divider, hr
 ---
 
 <Autofunction function="streamlit.divider" />

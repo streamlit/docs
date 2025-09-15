@@ -1,6 +1,8 @@
 ---
 title: Input widgets
 slug: /develop/api-reference/widgets
+description: Add interactivity to Streamlit apps with input widgets including buttons, sliders, text inputs, selectboxes, file uploaders, and more interactive components.
+keywords: input widgets, interactive widgets, buttons, sliders, text input, selectbox, checkbox, radio, file upload, user input, form controls, interactive elements
 ---
 
 # Input widgets

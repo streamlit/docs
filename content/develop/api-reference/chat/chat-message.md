@@ -2,6 +2,7 @@
 title: st.chat_message
 slug: /develop/api-reference/chat/st.chat_message
 description: st.chat_message inserts a chat message container into the app.
+keywords: chat_message, chat, message, container, conversational, llm, chatbot, interactive, messaging, display
 ---
 
 <Tip>

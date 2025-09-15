@@ -1,7 +1,8 @@
 ---
 title: st.scatter_chart
 slug: /develop/api-reference/charts/st.scatter_chart
-description: st.scatter_chart displays an scatter chart.
+description: st.scatter_chart displays a scatter chart.
+keywords: scatter chart, chart, visualization, data, plot, graph, dataframe, correlation, points
 ---
 
 <Autofunction function="streamlit.scatter_chart" />

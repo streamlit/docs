@@ -2,6 +2,7 @@
 title: st.cache_resource
 slug: /develop/api-reference/caching-and-state/st.cache_resource
 description: st.cache_resource is used to cache functions that return shared global resources (e.g. database connections, ML models).
+keywords: cache_resource, caching, resources, global resources, database connections, ml models, singleton, performance
 ---
 
 <Tip>

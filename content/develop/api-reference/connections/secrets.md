@@ -1,6 +1,8 @@
 ---
 title: st.secrets
 slug: /develop/api-reference/connections/st.secrets
+description: st.secrets provides a dictionary-like interface to access secrets stored in a secrets.toml file for secure credential management.
+keywords: st.secrets, secrets, secrets.toml, credentials, api keys, passwords, secure, configuration, dictionary, access
 ---
 
 ## st.secrets

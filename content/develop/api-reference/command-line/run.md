@@ -1,6 +1,8 @@
 ---
 title: streamlit run
 slug: /develop/api-reference/cli/run
+description: streamlit run starts your Streamlit app with optional configuration and script arguments.
+keywords: streamlit run, cli, command line, start app, run app, entrypoint, configuration, script arguments, multipage
 ---
 
 ## `$ streamlit run`
