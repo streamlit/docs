@@ -9,14 +9,6 @@ There are multiple ways to set up your development environment and install Strea
 Developing locally with Python installed on your own computer is the most
 common scenario.
 
-<IconLink
-    link="/get-started/installation/command-line"
-    icon="arrow_forward"
-    label="Instructions for the command line"
-    cssModuleClassName="Orange"
-    cssModuleIconClassName="IconRight"
-/>
-
 ## Summary for experienced Python developers
 
 1. To set up your Python environment and test your installation, execute the following terminal commands:
