@@ -10,7 +10,7 @@
 # Usage:
 #   uv run generate_llms_txt.py
 
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, cast
 import frontmatter
 from pathlib import Path
 
@@ -24,35 +24,48 @@ scientists and AI/ML engineers to build interactive apps (i.e. data apps)
 with only a few lines of code."""
 
 
-def read_menu_file(menu_file_path: Path) -> Dict:
+def read_menu_file(menu_file_path: Path) -> Dict[str, Any]:
+    """Read and parse the menu file containing the documentation structure.
+
+    Args:
+        menu_file_path: Path to the menu.md file
+
+    Returns:
+        List of dictionaries containing menu items and their metadata
+    """
     # Read the menu.md file
     with open(menu_file_path, "r", encoding="utf-8") as f:
         content = f.read()
 
     # Parse the frontmatter
     post = frontmatter.loads(content)
-    return post.metadata.get("site_menu", {})
+    return cast(Dict[str, Any], post.metadata.get("site_menu", {}))
 
 
 def get_url_to_descriptions_dict(content_dir: Path) -> Dict[str, Optional[str]]:
-    url_to_descriptions_dict = {}
+    """Get a mapping of URLs to their descriptions from markdown files.
+
+    Args:
+        content_dir: Directory containing markdown files to process
+
+    Returns:
+        Dictionary mapping URLs to their descriptions (None if no description)
+    """
+    url_to_descriptions_dict: Dict[str, Optional[str]] = {}
 
     # Walk through all directories and files
     for file_path in content_dir.rglob("*.md"):
         try:
             # Read the content of the markdown file with frontmatter
-            post = frontmatter.load(file_path)
+            post = frontmatter.load(str(file_path))
 
-            # Get the URL from frontmatter slug if it exists, otherwise set to null
-            url = post.get("slug")
+            url = cast(Optional[str], post.get("slug"))
 
             if not url:
                 continue
 
-            url_to_descriptions_dict[url] = post.get("description")
+            url_to_descriptions_dict[url] = cast(Optional[str], post.get("description"))
 
-        except frontmatter.FrontmatterError as e:
-            print(f"Error parsing frontmatter in {file_path}: {str(e)}")
         except Exception as e:
             print(f"Error processing {file_path}: {str(e)}")
 
@@ -60,6 +73,7 @@ def get_url_to_descriptions_dict(content_dir: Path) -> Dict[str, Optional[str]]:
 
 
 def main() -> None:
+    """Generate the llms.txt file from the documentation structure."""
     # Get the content directory path (sibling to the python directory)
     content_dir = Path(__file__).parent.parent / "content"
     menu_file_path = content_dir / "menu.md"
@@ -76,6 +90,7 @@ def main() -> None:
     prev_output_is_paragraph = True
 
     for menu_item in menu_dict:
+        menu_item = cast(Dict, menu_item)
         try:
             if "visible_to_llms" in menu_item:
                 if not menu_item["visible_to_llms"]:
@@ -89,15 +104,15 @@ def main() -> None:
                 continue
 
             category_list = menu_item["category"].split(CATEGORY_SEP)
-            url = menu_item["url"]
+            url: str = menu_item["url"]
 
-            description = url_to_descriptions_dict.get(url, None)
+            description: Optional[str] = url_to_descriptions_dict.get(url, None)
 
             if not description:
                 description = menu_item.get("description", None)
 
             # This assumes menu.md is in order.
-            category_label = category_list[-1]
+            category_label: str = category_list[-1]
 
             indentation = ""
 
