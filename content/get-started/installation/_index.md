@@ -11,8 +11,8 @@ common scenario.
 
 ## Sample Streamlit without installing it
 
-Try a version of Streamlit that runs in your browser&mdash;no installation required.
-(This is not how Streamlit is meant to be used, because it has many downsides. That's why it's a
+Try a Streamlit Playground that runs in your browser&mdash;no installation required.
+(Note that this is not how Streamlit is meant to be used, because it has many downsides. That's why it's a
 _playground_!)
 
 <IconLink

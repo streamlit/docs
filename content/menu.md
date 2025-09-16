@@ -7,7 +7,7 @@ site_menu:
   - category: Get started / Installation
     url: /get-started/installation
   - category: Get started / Installation / LOCAL DEVELOPMENT
-  - category: Get started / Installation / Use Streamlit Playground ✨
+  - category: Get started / Installation / Use Streamlit Playground
     url: /get-started/installation/streamlit-playground
   - category: Get started / Installation / Install via command line
     url: /get-started/installation/command-line
