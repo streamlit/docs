@@ -9,6 +9,20 @@ There are multiple ways to set up your development environment and install Strea
 Developing locally with Python installed on your own computer is the most
 common scenario.
 
+## Sample Streamlit without installing it
+
+Try a version of Streamlit that runs in your browser&mdash;no installation required.
+(This is not how Streamlit is meant to be used, because it has many downsides. That's why it's a
+_playground_!)
+
+<IconLink
+    href="/get-started/installation/streamlit-playground"
+    icon="arrow_forward"
+    label="Instructions for the playground"
+    cssModuleClassName="Orange"
+    cssModuleIconClassName="IconRight"
+/>
+
 ## Summary for experienced Python developers
 
 1. To set up your Python environment and test your installation, execute the following terminal commands:
@@ -20,65 +34,57 @@ common scenario.
 
 1. Jump to our [Basic concepts](/get-started/fundamentals/main-concepts).
 
-## Get a sampling without installing
+## Install Streamlit on your machine
 
-<TileContainer layout="list">
-
-<RefCard href="/get-started/installation/streamlit-playground" size="half">
-
-<h5>Take me to the playground!</h5>
-
-Try a version of Streamlit that runs right in your browser. No installation required.
-(This is not how Streamlit is meant to be used, because it comes with many downsides&mdash;that's why it's a
-_playground_!)
-
-</RefCard>
-
-</TileContainer>
-
-## Install on your machine
-
-<TileContainer layout="grid">
-
-<RefCard href="/get-started/installation/command-line" size="half">
-
-<h5>Option 1: I like the command line</h5>
+### Option 1: I like the command line
 
 Install Streamlit on your own machine using tools like `venv` and `pip`.
 
-</RefCard>
+<IconLink
+    link="/get-started/installation/command-line"
+    icon="arrow_forward"
+    label="Instructions for the command line"
+    cssModuleClassName="Orange"
+    cssModuleIconClassName="IconRight"
+/>
 
-<RefCard href="/get-started/installation/anaconda-distribution" size="half">
-
-<h5>Option 2: I prefer a graphical interface</h5>
+### Option 2: I prefer a graphical interface
 
 Install Streamlit using the Anaconda Distribution graphical user interface. This is also the best
 approach if you're on Windows or don't have Python set up.
 
-</RefCard>
+<IconLink
+    link="/get-started/installation/anaconda-distribution"
+    icon="arrow_forward"
+    label="Instructions for Anaconda Distribution"
+    cssModuleClassName="Orange"
+    cssModuleIconClassName="IconRight"
+/>
 
-</TileContainer>
+## Create an app in the cloud
 
-## Create an app on the cloud
-
-<TileContainer layout="grid">
-
-<RefCard href="/get-started/installation/community-cloud" size="half">
-
-<h5>Option 1: I'd rather use a cloud-based environment</h5>
+### Option 1: I'd rather use a cloud-based environment
 
 Use Streamlit Community Cloud with GitHub Codespaces so you don't have to go through the trouble
 of installing Python and setting up an environment.
 
-</RefCard>
+<IconLink
+    link="/get-started/installation/community-cloud"
+    icon="arrow_forward"
+    label="Instructions for GitHub Codespaces"
+    cssModuleClassName="Orange"
+    cssModuleIconClassName="IconRight"
+/>
 
-<RefCard href="/get-started/installation/streamlit-in-snowflake" size="half">
-
-<h5>Option 2: I need something secure, controlled, and in the cloud</h5>
+### Option 2: I need something secure, controlled, and in the cloud
 
 Use Streamlit in Snowflake to code your apps in the cloud, right alongside your
 data with role-based access controls.
 
-</RefCard>
-
-</TileContainer>
+<IconLink
+    link="/get-started/installation/streamlit-in-snowflake"
+    icon="arrow_forward"
+    label="Instructions for Snowflake"
+    cssModuleClassName="Orange"
+    cssModuleIconClassName="IconRight"
+/>
