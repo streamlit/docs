@@ -1,6 +1,7 @@
 ---
 title: Using custom Python classes in your Streamlit app
 slug: /develop/concepts/design/custom-classes
+description: Design patterns for using custom classes in Streamlit. For example, if defining your own custom classes, do it in a separate module.
 ---
 
 # Using custom Python classes in your Streamlit app

@@ -1,6 +1,7 @@
 ---
 title: Working with configuration options
 slug: /develop/concepts/configuration/options
+description: Learn about every config option. Also available with the command `streamlit config show`.
 ---
 
 # Working with configuration options

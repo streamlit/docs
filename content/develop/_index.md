@@ -1,6 +1,7 @@
 ---
 title: Develop
 slug: /develop
+description: All the information you need to build beautiful, performant web apps with Streamlit.
 ---
 
 # Develop

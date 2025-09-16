@@ -1,6 +1,7 @@
 ---
 title: Working with fragments
 slug: /develop/concepts/architecture/fragments
+description: Use `st.fragment` to rerun only a subsection of your app when a user interacts, or on a timer.
 ---
 
 # Working with fragments

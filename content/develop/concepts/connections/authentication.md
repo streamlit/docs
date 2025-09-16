@@ -1,6 +1,7 @@
 ---
 title: User authentication and information
 slug: /develop/concepts/connections/authentication
+description: Simple authentication with OIDC / OAuth2 via `.streamlimt/secrets.toml`, `st.login`, `st.logout`, and `st.user`.
 ---
 
 # User authentication and information

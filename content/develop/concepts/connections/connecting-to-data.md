@@ -1,6 +1,7 @@
 ---
 title: Connecting to data
 slug: /develop/concepts/connections/connecting-to-data
+description: Connect to data source using plain Python, or use Streamlit's `st.connection` for some nice extras.
 ---
 
 # Connecting to data

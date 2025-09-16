@@ -1,6 +1,7 @@
 ---
 title: Add statefulness to apps
 slug: /develop/concepts/architecture/session-state
+description: Use session state to store data that persists across app reruns during a user's session. (A session is connected to a browser tab)
 ---
 
 # Add statefulness to apps

@@ -1,6 +1,7 @@
 ---
 title: Working with Streamlit's execution model
 slug: /develop/concepts/architecture
+description: Learn how to start your Streamlit app. Understand Streamlit's client-server architecture and related considerations.
 ---
 
 # Working with Streamlit's execution model

@@ -10,7 +10,7 @@
 # Usage:
 #   uv run generate_llms_txt.py
 
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 import frontmatter
 from pathlib import Path
 
@@ -34,10 +34,34 @@ def read_menu_file(menu_file_path: Path) -> Dict:
     return post.metadata.get("site_menu", {})
 
 
+def get_url_to_descriptions_dict(content_dir: Path) -> Dict[str, Optional[str]]:
+    url_to_descriptions_dict = {}
+
+    # Walk through all directories and files
+    for file_path in content_dir.rglob("*.md"):
+        try:
+            # Read the content of the markdown file with frontmatter
+            post = frontmatter.load(file_path)
+
+            # Get the URL from frontmatter slug if it exists, otherwise set to null
+            url = post.get("slug")
+
+            if not url:
+                continue
+
+            url_to_descriptions_dict[url] = post.get("description")
+
+        except frontmatter.FrontmatterError as e:
+            print(f"Error parsing frontmatter in {file_path}: {str(e)}")
+        except Exception as e:
+            print(f"Error processing {file_path}: {str(e)}")
+
+    return url_to_descriptions_dict
+
+
 def main() -> None:
     # Get the content directory path (sibling to the python directory)
     content_dir = Path(__file__).parent.parent / "content"
-
     menu_file_path = content_dir / "menu.md"
 
     try:
@@ -45,6 +69,8 @@ def main() -> None:
     except Exception as e:
         print("Error reading menu file\n")
         raise e
+
+    url_to_descriptions_dict = get_url_to_descriptions_dict(content_dir)
 
     output = [INITIAL_TEXT]
     prev_output_is_paragraph = True
@@ -65,7 +91,10 @@ def main() -> None:
             category_list = menu_item["category"].split(CATEGORY_SEP)
             url = menu_item["url"]
 
-            description = menu_item.get("description", "")
+            description = url_to_descriptions_dict.get(url, None)
+
+            if not description:
+                description = menu_item.get("description", None)
 
             # This assumes menu.md is in order.
             category_label = category_list[-1]

@@ -1,6 +1,7 @@
 ---
 title: Button behavior and examples
 slug: /develop/concepts/design/buttons
+description: Buttons created with `st.button` do not retain state. This comes with some complexity.
 ---
 
 # Button behavior and examples

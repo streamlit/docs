@@ -1,6 +1,7 @@
 ---
 title: Widget behavior
 slug: /develop/concepts/architecture/widget-behavior
+description: Learn about widgets (like `st.button`, `st.selectbox`, and `st.text_input`), which  are at the heart of Streamlit apps.
 ---
 
 # Understanding widget behavior

@@ -1,6 +1,7 @@
 ---
 title: Publish a Component
 slug: /develop/concepts/custom-components/publish
+description: Custom components are published in PyPI like any Python package.
 ---
 
 # Publish a Component

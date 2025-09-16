@@ -1,6 +1,7 @@
 ---
 title: Threading in Streamlit
 slug: /develop/concepts/design/multithreading
+description: How Streamlit uses multiple threads in its design.
 ---
 
 # Multithreading in Streamlit

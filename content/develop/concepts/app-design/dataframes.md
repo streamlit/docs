@@ -1,6 +1,7 @@
 ---
 title: Dataframes
 slug: /develop/concepts/design/dataframes
+description: Dataframes are a great way to display and edit data in a tabular format.
 ---
 
 # Dataframes

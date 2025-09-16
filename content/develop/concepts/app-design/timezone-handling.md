@@ -1,6 +1,7 @@
 ---
 title: Working with timezones
 slug: /develop/concepts/design/timezone-handling
+description: Understand how Streamlit handles time zones.
 ---
 
 # Working with timezones

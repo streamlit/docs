@@ -1,6 +1,7 @@
 ---
 title: Security reminders
 slug: /develop/concepts/connections/security-reminders
+description: Best practices to secure your Streamlit app.
 ---
 
 # Security reminders

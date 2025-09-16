@@ -1,6 +1,7 @@
 ---
 title: Using forms
 slug: /develop/concepts/architecture/forms
+description: Use `st.form` when you don't want to rerun your script with every input made by a user.
 ---
 
 # Using forms

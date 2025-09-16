@@ -1,6 +1,7 @@
 ---
 title: Secrets management
 slug: /develop/concepts/connections/secrets-management
+description: Place secrets at `.streamlit/secrets.toml` and access them with `st.secrets`.
 ---
 
 # Secrets management

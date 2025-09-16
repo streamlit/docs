@@ -1,6 +1,7 @@
 ---
 title: Components
 slug: /develop/concepts/custom-components
+description: Use custom components (or build your own!) to extend Streamlit.
 ---
 
 # Custom Components

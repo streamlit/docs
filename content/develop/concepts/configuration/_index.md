@@ -1,6 +1,7 @@
 ---
 title: Configure and customize your app
 slug: /develop/concepts/configuration
+description: Configure Streamlit and change its looks with `.streamlit/config.toml`.
 ---
 
 # Configure and customize your app

@@ -1,6 +1,7 @@
 ---
 title: Caching overview
 slug: /develop/concepts/architecture/caching
+description: Use `@st.cache_resource` and `@st.cache_data` to speed up your app.
 ---
 
 # Caching overview

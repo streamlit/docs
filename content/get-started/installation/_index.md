@@ -1,6 +1,7 @@
 ---
 title: Install Streamlit
 slug: /get-started/installation
+description: It's just `pip install streamlit`. But read for more details and alternatives.
 ---
 
 # Install Streamlit

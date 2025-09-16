@@ -1,6 +1,7 @@
 ---
 title: The app chrome
 slug: /develop/concepts/architecture/app-chrome
+description: Explains the widgets in the top right of your Streamlit app. These widgets help you in development, and also help your viewers as they use your app.
 ---
 
 # The app chrome
