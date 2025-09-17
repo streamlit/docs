@@ -9,9 +9,9 @@ There are multiple ways to set up your development environment and install Strea
 Developing locally with Python installed on your own computer is the most
 common scenario.
 
-## Sample Streamlit without installing it
+<Tip>
 
-Try a Streamlit Playground that runs in your browser&mdash;no installation required.
+Try a Streamlit Playground that runs in your browser &mdash; no installation required.
 (Note that this is not how Streamlit is meant to be used, because it has many downsides. That's why it's a
 _playground_!)
 
@@ -22,6 +22,8 @@ _playground_!)
     cssModuleClassName="Orange"
     cssModuleIconClassName="IconRight"
 />
+
+</Tip>
 
 ## Summary for experienced Python developers
 
@@ -63,7 +65,7 @@ approach if you're on Windows or don't have Python set up.
 
 ## Create an app in the cloud
 
-### Option 1: I'd rather use a cloud-based environment
+### Option 1: I want a free cloud environment
 
 Use Streamlit Community Cloud with GitHub Codespaces so you don't have to go through the trouble
 of installing Python and setting up an environment.
