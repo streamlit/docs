@@ -19,7 +19,7 @@ _playground_!)
     href="/get-started/installation/streamlit-playground"
     icon="arrow_forward"
     label="Instructions for the playground"
-    cssModuleClassName="Orange"
+    cssModuleClassName="Indigo"
     cssModuleIconClassName="IconRight"
 />
 

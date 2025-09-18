@@ -25,9 +25,18 @@
 }
 
 .Orange {
-  @apply text-orange-90;
+  @apply text-orange-80;
 }
 
 :global(.dark) .Orange {
-  @apply text-orange-30;
+  @apply text-orange-70;
+  /* @apply text-gray-80; */
+}
+
+.Indigo {
+  @apply text-indigo-70;
+}
+
+:global(.dark) .Indigo {
+  @apply text-indigo-40;
 }
