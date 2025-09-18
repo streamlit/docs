@@ -2,6 +2,7 @@
 title: st.text_input
 slug: /develop/api-reference/widgets/st.text_input
 description: st.text_input displays a single-line text input widget.
+keywords: st.text_input, text input, single-line text, text field, input field, string input, text widget, input widget
 ---
 
 <Autofunction function="streamlit.text_input" />

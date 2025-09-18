@@ -1,6 +1,8 @@
 ---
 title: Data elements
 slug: /develop/api-reference/data
+description: Display and interact with raw data in Streamlit using dataframes, tables, metrics, and data editors for quick, interactive data visualization and manipulation.
+keywords: data elements, dataframes, tables, data editor, metrics, data visualization, interactive data, pandas, data display, streamlit data
 ---
 
 # Data elements

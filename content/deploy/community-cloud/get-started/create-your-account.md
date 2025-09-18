@@ -1,6 +1,8 @@
 ---
 title: Create your account
 slug: /deploy/streamlit-community-cloud/get-started/create-your-account
+description: Learn how to create your Streamlit Community Cloud account using email, Google, or GitHub authentication methods.
+keywords: create account, sign up, authentication, email, google, github, oauth, community cloud
 ---
 
 # Create your account
@@ -26,19 +28,16 @@ Community Cloud allows you to sign in using one of the three following methods:
 1. Continue with one of the three options listed below.
 
    ### Option 1: Sign in using emailed codes
-
    1. In the "Email" field, enter your email address.
    1. Click "**Continue**." (If prompted, verify you are human.)
    1. Go to your email inbox, and copy your one-time, six-digit code. The code is valid for ten minutes.
    1. Return to the authentication page, and enter your code. (If prompted, verify you are human.)
 
    ### Option 2: Sign in using Google
-
    1. Click "**Continue with Google**."
    1. Enter your Google credentials, and follow Google's authentication prompts.
 
    ### Option 3: Sign in using GitHub
-
    1. Click "**Continue with GitHub**."
    1. Enter your GitHub credentials, and follow GitHub's authentication prompts.
 

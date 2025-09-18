@@ -2,6 +2,7 @@
 title: st.query_params
 slug: /develop/api-reference/caching-and-state/st.query_params
 description: st.query_params reads and manipulates query parameters in the browser's URL bar.
+keywords: query_params, query parameters, url, browser, get, set, clear, from_dict, to_dict, get_all, repeated keys
 ---
 
 ## st.query_params

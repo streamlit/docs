@@ -1,6 +1,8 @@
 ---
 title: App design concepts and considerations
 slug: /develop/concepts/design
+description: Explore comprehensive guides about app design including animating elements, button behavior, custom styling, dataframe design, multithreading, and timezone handling.
+keywords: app design, streamlit design, ui design, button behavior, custom styling, dataframes, multithreading, timezone handling, app layout, user experience
 ---
 
 # App design concepts and considerations

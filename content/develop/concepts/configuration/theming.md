@@ -1,6 +1,8 @@
 ---
 title: Theming
 slug: /develop/concepts/configuration/theming
+description: Learn about theming options in config.toml, including color schemes, fonts, and visual styling.
+keywords: theming, app customization, visual styling, color schemes, app appearance, theme configuration, config.toml, styling options, UI customization
 ---
 
 # Theming overview

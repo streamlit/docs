@@ -1,6 +1,8 @@
 ---
 title: Connect Streamlit to a public Google Sheet
 slug: /develop/tutorials/databases/public-gsheet
+description: Learn how to connect Streamlit apps to public Google Sheets for data access using st.connection, GSheetsConnection, and secrets management.
+keywords: Google Sheets, public sheets, st.connection, GSheetsConnection, spreadsheet data, secrets management, data source, sheet tutorial
 ---
 
 # Connect Streamlit to a public Google Sheet

@@ -1,7 +1,8 @@
 ---
 title: st.rerun
 slug: /develop/api-reference/execution-flow/st.rerun
-description: st.rerun will rerun the script immediately.
+description: st.rerun stops the current script run and immediately reruns the script.
+keywords: st.rerun, rerun, script, execution, control flow, experimental_rerun, refresh, restart
 ---
 
 <Autofunction function="streamlit.rerun" oldName="streamlit.experimental_rerun" />

@@ -1,6 +1,8 @@
 ---
 title: Threading in Streamlit
 slug: /develop/concepts/design/multithreading
+description: Learn about multithreading in Streamlit applications, including limitations, best practices, and techniques for implementing concurrent processes safely.
+keywords: multithreading, threading, concurrency, streamlit threading, concurrent processes, thread safety, async programming, background tasks, parallel processing
 ---
 
 # Multithreading in Streamlit

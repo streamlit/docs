@@ -1,6 +1,8 @@
 ---
 title: Additional Streamlit features
 slug: /get-started/fundamentals/additional-features
+description: Explore additional Streamlit features including theming, multipage apps, fragments, custom components, and advanced UI customization options.
+keywords: additional features, theming, multipage apps, fragments, custom components, UI customization, advanced features, streamlit extras
 ---
 
 # Additional Streamlit features

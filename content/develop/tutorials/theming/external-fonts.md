@@ -1,7 +1,8 @@
 ---
 title: Use externally hosted fonts and fallbacks to customize your font
 slug: /develop/tutorials/configuration-and-theming/external-fonts
-description: Learn how to load an alternative font and use it in your app.
+description: Learn how to use externally hosted fonts and font fallbacks to customize typography in Streamlit apps with variable font files and external resources.
+keywords: external fonts, font fallbacks, font customization, variable fonts, typography, externally hosted fonts, font loading, custom fonts
 ---
 
 # Use externally hosted fonts and fallbacks to customize your font

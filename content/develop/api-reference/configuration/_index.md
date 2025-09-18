@@ -1,6 +1,8 @@
 ---
 title: Configuration
 slug: /develop/api-reference/configuration
+description: Configure Streamlit apps with config.toml files, page settings, and runtime configuration management for customized app behavior and appearance.
+keywords: configuration, config, config.toml, set_page_config, get_option, set_option, settings, theme, page config
 ---
 
 # Configuration

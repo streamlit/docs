@@ -1,6 +1,8 @@
 ---
 title: Validate and edit chat responses
 slug: /develop/tutorials/chat-and-llm-apps/validate-and-edit-chat-responses
+description: Learn to build a Streamlit chat app that lets users validate, correct, and improve LLM chat responses with multi-stage response editing workflows.
+keywords: chat response validation, LLM response editing, chat response correction, response improvement, chat validation workflow, LLM feedback, response editing
 ---
 
 # Validate and edit chat responses
@@ -364,7 +366,6 @@ Your app will use Session State to track the stages of the validation and correc
        st.session_state.pending = None
        st.session_state.validation = {}
    ```
-
    - `st.session_state.stage` tracks where the user is in the multistage process. `"user"` means that the app is waiting for the user to enter a new prompt. The other values are `"validate"`, `"correct"`, and `"rewrite"`, which will be defined later.
    - `st.session_state.history` stores the conversation history as a list of messages. Each message is a dictionary of message attributes (`"role"` and `"content"`).
    - `st.session_state.pending` stores the next response before it is approved.

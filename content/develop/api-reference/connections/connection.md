@@ -1,6 +1,8 @@
 ---
 title: st.connection
 slug: /develop/api-reference/connections/st.connection
+description: st.connection creates a connection to a data source or API for accessing external data in your Streamlit app.
+keywords: st.connection, connection, data source, api, database, external data, connect, query, data access
 ---
 
 <Tip>

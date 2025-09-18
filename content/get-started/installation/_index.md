@@ -1,6 +1,8 @@
 ---
 title: Install Streamlit
 slug: /get-started/installation
+description: Learn how to install Streamlit with comprehensive guides to use pip, conda, Anaconda Distribution, cloud environments, and command line tools.
+keywords: install streamlit, installation, pip install, conda install, anaconda, command line, cloud installation, setup streamlit
 ---
 
 # Install Streamlit

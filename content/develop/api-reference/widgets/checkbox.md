@@ -2,6 +2,7 @@
 title: st.checkbox
 slug: /develop/api-reference/widgets/st.checkbox
 description: st.checkbox displays a checkbox widget.
+keywords: checkbox, widget, input, boolean, toggle, interactive
 ---
 
 <Autofunction function="streamlit.checkbox" />

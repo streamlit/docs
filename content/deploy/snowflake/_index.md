@@ -1,6 +1,8 @@
 ---
 title: Streamlit in Snowflake
 slug: /deploy/snowflake
+description: Deploy Streamlit apps in Snowflake for enterprise-grade security and data integration with native apps and container services.
+keywords: snowflake, enterprise, security, data, native apps, container services, deployment
 ---
 
 # Deploy Streamlit apps in Snowflake

@@ -1,6 +1,8 @@
 ---
 title: Use core features to work with Streamlit's execution model
 slug: /develop/tutorials/execution-flow
+description: Master Streamlit's execution model with tutorials on fragments, reruns, and execution control for optimal app performance and user experience.
+keywords: execution flow, fragments, reruns, execution model, st.fragment, performance optimization, execution control, rerun behavior
 ---
 
 # Use core features to work with Streamlit's execution model
