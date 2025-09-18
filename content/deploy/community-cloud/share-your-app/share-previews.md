@@ -1,7 +1,7 @@
 ---
 title: Share previews
 slug: /deploy/streamlit-community-cloud/share-your-app/share-previews
-description: Learn how to create compelling share previews for social media with custom titles, descriptions, and preview images for your Streamlit app.
+description: Learn how to create compelling share previews for social media with custom titles and descriptions for your Streamlit app.
 keywords: share previews, social media, title, description, preview image, twitter, facebook, linkedin, sharing, optimization
 ---
 
