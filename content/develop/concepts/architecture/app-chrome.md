@@ -1,7 +1,7 @@
 ---
 title: The app chrome
 slug: /develop/concepts/architecture/app-chrome
-description: Understanding Streamlit's app chrome including the status area, toolbar, and configurable app menu with developer options and deployment features.
+description: Learn about Streamlit's app chrome including the status area, toolbar, and configurable app menu with developer options and deployment features.
 keywords: app chrome, streamlit chrome, app menu, status area, toolbar, developer options, app interface, streamlit ui, app navigation, deployment menu
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Working with configuration options
 slug: /develop/concepts/configuration/options
-description: Comprehensive guide to Streamlit configuration options including config.toml files, environment variables, command-line flags, and runtime configuration management.
+description: Learn about configuration options including config.toml files, environment variables, command-line flags, and runtime configuration management.
 keywords: configuration options, config.toml, environment variables, command line flags, streamlit config, app configuration, runtime settings, configuration precedence
 ---
 

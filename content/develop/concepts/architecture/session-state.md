@@ -1,7 +1,7 @@
 ---
 title: Add statefulness to apps
 slug: /develop/concepts/architecture/session-state
-description: Comprehensive guide to Streamlit Session State for sharing variables between reruns, implementing callbacks, and building stateful applications across user sessions.
+description: Learn about Session State for sharing variables between reruns, implementing callbacks, and building stateful applications across user sessions.
 keywords: session state, statefulness, st.session_state, callbacks, state management, stateful apps, variable persistence, user sessions, state sharing, app state
 ---
 

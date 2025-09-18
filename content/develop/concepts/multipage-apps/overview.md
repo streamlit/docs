@@ -1,7 +1,7 @@
 ---
 title: Overview of multipage apps
 slug: /develop/concepts/multipage-apps/overview
-description: Understand Streamlit's features for creating multipage apps using st.navigation, st.Page, and the pages directory with automatic navigation.
+description: Learn about Streamlit's features for creating multipage apps using st.navigation, st.Page, and the pages directory with automatic navigation.
 keywords: multipage, navigation, pages, st.navigation, st.Page, routing, sidebar
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Configure and customize your app
 slug: /develop/concepts/configuration
-description: Complete guide to configuring and customizing Streamlit apps including configuration options, theming, HTTPS setup, static file serving, and custom styling.
+description: Explore comprehensive guides about configuring and customizing Streamlit apps including theming, HTTPS setup, static file serving, and custom styling.
 keywords: streamlit configuration, app customization, theming, configuration options, https setup, static files, custom styling, app appearance, configuration files
 ---
 

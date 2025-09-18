@@ -1,7 +1,7 @@
 ---
 title: Working with connections, secrets, and user authentication
 slug: /develop/concepts/connections
-description: Essential guide to connecting Streamlit apps to data sources, managing secrets securely, implementing user authentication, and following security best practices.
+description: Explore comprehensive guides to connecting Streamlit apps to data sources, managing secrets securely, implementing user authentication, and following security best practices.
 keywords: connections, data connections, secrets management, user authentication, security, api connections, database connections, secure data access, authentication flow
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Multipage apps
 slug: /develop/concepts/multipage-apps
-description: Complete guide to creating multipage Streamlit applications including navigation, page management, URL routing, and best practices for organizing complex apps.
+description: Explore comprehensive guides about creating multipage Streamlit apps with navigation, page management, URL routing, and best practices for organizing complex apps.
 keywords: multipage apps, page navigation, streamlit pages, app navigation, url routing, page management, multi-page applications, app organization, page structure
 ---
 

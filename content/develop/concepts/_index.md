@@ -1,7 +1,7 @@
 ---
 title: Development concepts
 slug: /develop/concepts
-description: Comprehensive guide to Streamlit development concepts including architecture, app design, testing, configuration, connections, custom components, and multipage applications.
+description: Explore comprehensive guides to Streamlit development concepts including architecture, app design, testing, configuration, connections, custom components, and multipage applications.
 keywords: streamlit concepts, development concepts, streamlit architecture, app design, streamlit testing, configuration, connections, custom components, multipage apps, streamlit fundamentals
 ---
 

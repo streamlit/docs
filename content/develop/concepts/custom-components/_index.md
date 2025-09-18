@@ -1,7 +1,7 @@
 ---
 title: Components
 slug: /develop/concepts/custom-components
-description: Build and use custom Streamlit components to extend app functionality with third-party Python modules and custom UI elements.
+description: Learn how to build and use custom Streamlit components to extend app functionality with third-party Python modules and custom UI elements.
 keywords: custom components, third-party modules, component development, extend functionality, custom UI, component integration, Streamlit components
 ---
 

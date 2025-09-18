@@ -1,7 +1,7 @@
 ---
 title: Working with Streamlit's execution model
 slug: /develop/concepts/architecture
-description: Deep dive into Streamlit's architecture and execution model, including app lifecycle, caching, session state, forms, fragments, and widget behavior.
+description: Explore comprehensive guides about Streamlit's architecture and execution model, including app lifecycle, caching, session state, forms, fragments, and widget behavior.
 keywords: streamlit architecture, execution model, app lifecycle, streamlit reruns, session state, caching, forms, fragments, widget behavior, client-server model
 ---
 

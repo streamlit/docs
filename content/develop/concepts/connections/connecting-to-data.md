@@ -1,7 +1,7 @@
 ---
 title: Connecting to data
 slug: /develop/concepts/connections/connecting-to-data
-description: Connect Streamlit apps to databases, APIs, and data sources with best practices for data retrieval, caching, and secure data connections.
+description: Learn how to connect Streamlit apps to databases, APIs, and data sources with best practices for data retrieval, caching, and secure data connections.
 keywords: data connections, databases, APIs, data sources, data retrieval, database connections, API integration, data access, remote data, data management
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Customize fonts
 slug: /develop/concepts/configuration/theming-customize-fonts
-description: Change fonts in Streamlit apps by loading custom font files from URLs or static file serving, with configuration options for different text elements.
+description: Learn how to configure fonts in Streamlit apps by loading custom font files from URLs or static file serving, with configuration options for different text elements.
 keywords: fonts, font customization, typography, custom fonts, font loading, static files, font configuration, text styling, font families, web fonts
 ---
 
