@@ -1,7 +1,7 @@
 ---
 title: Connect Streamlit to TigerGraph
 slug: /develop/tutorials/databases/tigergraph
-description: Learn how to securely connect Streamlit apps to TigerGraph graph databases using pyTigerGraph library and secrets management for graph analytics.
+description: Learn how to connect Streamlit apps to TigerGraph graph databases using pyTigerGraph library and secrets management for graph analytics.
 keywords: TigerGraph, graph database, pyTigerGraph, graph analytics, database connection, secrets management, graph queries, database tutorial
 ---
 

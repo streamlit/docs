@@ -1,7 +1,7 @@
 ---
 title: Connect Streamlit to Neon
 slug: /develop/tutorials/databases/neon
-description: Learn how to securely connect Streamlit apps to Neon serverless PostgreSQL databases with instant branching, automatic scaling, and managed hosting.
+description: Learn how to connect Streamlit apps to Neon serverless PostgreSQL databases with instant branching, automatic scaling, and managed hosting.
 keywords: Neon, serverless PostgreSQL, managed database, instant branching, automatic scaling, PostgreSQL hosting, database connection, serverless database
 ---
 

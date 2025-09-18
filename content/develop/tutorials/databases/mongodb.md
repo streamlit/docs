@@ -1,7 +1,7 @@
 ---
 title: Connect Streamlit to MongoDB
 slug: /develop/tutorials/databases/mongodb
-description: Learn how to securely connect Streamlit apps to remote MongoDB databases using PyMongo library and secrets management for NoSQL document databases.
+description: Learn how to connect Streamlit apps to remote MongoDB databases using PyMongo library and secrets management for NoSQL document databases.
 keywords: MongoDB, NoSQL, PyMongo, document database, remote database, secrets management, database connection, secure connections, database tutorial
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Create a dynamic navigation menu
 slug: /develop/tutorials/multipage/dynamic-navigation
-description: Streamlit makes it easy to build a custom navigation menu in your multipage app.
+description: Learn how to create a dynamic, conditional navigation menu in your multipage app.
 keywords: dynamic navigation, multipage, st.navigation, custom menu, role-based, tutorial
 ---
 

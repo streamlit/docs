@@ -1,7 +1,7 @@
 ---
 title: Connect Streamlit to TiDB
 slug: /develop/tutorials/databases/tidb
-description: Learn how to securely connect Streamlit apps to TiDB distributed SQL databases using st.connection and secrets management for cloud-native database access.
+description: Learn how to connect Streamlit apps to TiDB distributed SQL databases using st.connection and secrets management for cloud-native database access.
 keywords: TiDB, distributed SQL, st.connection, cloud-native database, MySQL compatibility, database connection, secrets management, distributed database
 ---
 

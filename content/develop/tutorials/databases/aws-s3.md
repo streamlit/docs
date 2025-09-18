@@ -1,7 +1,7 @@
 ---
 title: Connect Streamlit to AWS S3
 slug: /develop/tutorials/databases/aws-s3
-description: Learn how to securely access and manage files on AWS S3 from Streamlit apps using FilesConnection, s3fs library, and secrets management.
+description: Learn how to connect to AWS S3 from your Streamlit apps using FilesConnection, s3fs library, and secrets management.
 keywords: AWS S3, file storage, cloud storage, FilesConnection, s3fs, file access, secrets management, secure connections, storage tutorial
 ---
 
