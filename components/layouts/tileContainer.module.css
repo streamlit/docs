@@ -1,7 +1,7 @@
 .GridContainer {
-  @apply grid grid-cols-6 gap-4 mb-12;
+  @apply grid grid-cols-6 gap-4;
 }
 
 .ListContainer {
-  @apply flex flex-col gap-4 mb-12;
+  @apply flex flex-col gap-4;
 }

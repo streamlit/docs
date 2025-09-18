@@ -1,20 +1,3 @@
-/* Styles for headings inside markdown */
-h1,
-h2 {
-  @apply font-bold leading-tight tracking-tight mb-5;
-}
-
-h2,
-h4,
-h5,
-h6 {
-  @apply mt-12;
-}
-
-h3 {
-  @apply mt-8;
-}
-
 /* Size modifiers */
 
 h1 {
@@ -39,6 +22,24 @@ h5 {
 
 h6 {
   @apply text-base;
+}
+
+/* Styles for headings inside markdown */
+h1,
+h2 {
+  @apply font-bold leading-tight tracking-tight mb-5;
+}
+
+h2,
+h4,
+h5,
+h6 {
+  @apply mt-12;
+  @apply leading-normal;
+}
+
+h3 {
+  @apply mt-8;
 }
 
 /* Dark mode modifiers */
@@ -115,6 +116,7 @@ tt.docutils.literal {
   @apply text-green-80 bg-green-80/5;
   @apply dark:text-green-50 dark:bg-green-50/10;
   @apply text-base;
+  line-height: inherit;
 }
 
 /* One-line code descriptions in docstrings */
