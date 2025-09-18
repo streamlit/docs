@@ -1,7 +1,8 @@
 ---
 title: st.form
 slug: /develop/api-reference/execution-flow/st.form
-description: st.form creates a form that batches elements together with a “Submit" button.
+description: st.form creates a form that batches elements together with one or more submit buttons.
+keywords: st.form, form, batch, submit, widgets, input, group, execution flow, control flow
 ---
 
 <Tip>

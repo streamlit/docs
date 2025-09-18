@@ -1,6 +1,8 @@
 ---
 title: Upgrade your app's Streamlit version on Streamlit Community Cloud
 slug: /deploy/streamlit-community-cloud/manage-your-app/upgrade-streamlit
+description: Learn how to upgrade your Streamlit library version on Community Cloud using dependency files or rebooting your app.
+keywords: upgrade streamlit, streamlit version, dependencies, requirements.txt, reboot, pin version, latest version, dependency file
 ---
 
 # Upgrade your app's Streamlit version on Streamlit Community Cloud

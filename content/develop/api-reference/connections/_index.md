@@ -1,6 +1,8 @@
 ---
 title: Connections and databases
 slug: /develop/api-reference/connections
+description: Connect to data sources and databases in Streamlit using st.connection, built-in connections, and secure secrets management for seamless data integration.
+keywords: connections, databases, st.connection, snowflake, sql, secrets, data sources, api, baseconnection, experimental
 ---
 
 # Connections and databases

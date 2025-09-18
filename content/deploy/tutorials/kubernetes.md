@@ -1,6 +1,8 @@
 ---
 title: Deploy Streamlit using Kubernetes
 slug: /deploy/tutorials/kubernetes
+description: Learn how to deploy your Streamlit app using Kubernetes with Google Container Registry, OAuth authentication, and TLS support.
+keywords: kubernetes, k8s, deployment, gcr, google container registry, oauth, authentication, tls, load balancer, orchestration
 ---
 
 # Deploy Streamlit using Kubernetes

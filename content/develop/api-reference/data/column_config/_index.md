@@ -1,6 +1,8 @@
 ---
 title: st.column_config
 slug: /develop/api-reference/data/st.column_config
+description: Configure data display and interaction in Streamlit dataframes and data editors with st.column_config - supporting text, numbers, charts, images, URLs, and more.
+keywords: st.column_config, column configuration, dataframe columns, data editor columns, column types, data display, data interaction, streamlit columns
 ---
 
 # Column configuration

@@ -1,7 +1,8 @@
 ---
 title: Understanding Streamlit's client-server architecture
 slug: /develop/concepts/architecture/architecture
-description: Streamlit apps have a client-server structure. The Python backend of your app is the server. The frontend you view through a browser is the client.
+description: Learn about Streamlit's client-server architecture, WebSocket connections, session management, and deployment considerations.
+keywords: architecture, client-server, websocket, session, deployment, server, client
 ---
 
 # Understanding Streamlit's client-server architecture

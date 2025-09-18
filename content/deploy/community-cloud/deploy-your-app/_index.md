@@ -1,6 +1,8 @@
 ---
 title: Prep and deploy your app on Community Cloud
 slug: /deploy/streamlit-community-cloud/deploy-your-app
+description: Complete guide to preparing and deploying your Streamlit app on Community Cloud with file organization, dependencies, and secrets management.
+keywords: deploy, community cloud, preparation, file organization, dependencies, secrets, deployment guide
 ---
 
 # Prep and deploy your app on Community Cloud

@@ -6,10 +6,14 @@ site_menu:
     icon: rocket_launch
   - category: Get started / Installation
     url: /get-started/installation
-  - category: Get started / Installation / Use command line
+  - category: Get started / Installation / LOCAL DEVELOPMENT
+  - category: Get started / Installation / Use Streamlit Playground
+    url: /get-started/installation/streamlit-playground
+  - category: Get started / Installation / Install via command line
     url: /get-started/installation/command-line
-  - category: Get started / Installation / Use Anaconda Distribution
+  - category: Get started / Installation / Install via Anaconda Distribution
     url: /get-started/installation/anaconda-distribution
+  - category: Get started / Installation / CLOUD DEVELOPMENT
   - category: Get started / Installation / Use GitHub Codespaces
     url: /get-started/installation/community-cloud
   - category: Get started / Installation / Use Snowflake

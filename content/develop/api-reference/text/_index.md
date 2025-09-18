@@ -1,6 +1,8 @@
 ---
 title: Text elements
 slug: /develop/api-reference/text
+description: Display and format text in Streamlit apps with titles, headers, markdown, code blocks, captions, badges, and other text formatting components.
+keywords: text elements, title, header, subheader, markdown, text formatting, code blocks, caption, badge, divider, latex, html, text display
 ---
 
 # Text elements

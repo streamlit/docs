@@ -1,6 +1,8 @@
 ---
 title: Authenticate users and personalize your app
 slug: /develop/tutorials/authentication
+description: Learn to implement user authentication in Streamlit apps using OpenID Connect (OIDC) with providers like Google and Microsoft for personalized experiences.
+keywords: user authentication, OIDC, OpenID Connect, social login, enterprise users, Google authentication, Microsoft authentication, personalized apps
 ---
 
 # Authenticate users and personalize your app

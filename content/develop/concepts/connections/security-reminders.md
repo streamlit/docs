@@ -1,7 +1,8 @@
 ---
 title: Security reminders
 slug: /develop/concepts/connections/security-reminders
-description: Best practices to secure your Streamlit app.
+description: Learn about essential security practices for Streamlit apps including protecting secrets, secure coding practices, and preventing security vulnerabilities.
+keywords: security, security practices, protect secrets, secure coding, security vulnerabilities, app security, security best practices, data protection
 ---
 
 # Security reminders

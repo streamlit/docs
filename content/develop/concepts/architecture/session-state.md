@@ -1,7 +1,8 @@
 ---
 title: Add statefulness to apps
 slug: /develop/concepts/architecture/session-state
-description: Use session state to store data that persists across app reruns during a user's session. (A session is connected to a browser tab)
+description: Learn about Session State for sharing variables between reruns, implementing callbacks, and building stateful applications across user sessions.
+keywords: session state, statefulness, st.session_state, callbacks, state management, stateful apps, variable persistence, user sessions, state sharing, app state
 ---
 
 # Add statefulness to apps

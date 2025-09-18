@@ -1,6 +1,8 @@
 ---
 title: config.toml
 slug: /develop/api-reference/configuration/config.toml
+description: Complete reference guide for Streamlit's config.toml configuration file, including all available sections and options for customizing your Streamlit application settings.
+keywords: config.toml, streamlit configuration, toml configuration file, streamlit settings, theme configuration, server configuration, client configuration, logger configuration, browser configuration, mapbox configuration, secrets configuration, sidebar theme, configuration options, streamlit config show
 ---
 
 ## config.toml

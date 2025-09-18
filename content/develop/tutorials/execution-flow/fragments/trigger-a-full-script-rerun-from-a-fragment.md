@@ -1,6 +1,8 @@
 ---
 title: Trigger a full-script rerun from inside a fragment
 slug: /develop/tutorials/execution-flow/trigger-a-full-script-rerun-from-a-fragment
+description: Learn how to trigger a full script rerun from within a Streamlit fragment using st.rerun for advanced execution flow control and state management.
+keywords: fragments, st.rerun, full script rerun, fragment rerun, execution flow, st.fragment, rerun control, execution control, fragment tutorial
 ---
 
 # Trigger a full-script rerun from inside a fragment

@@ -1,6 +1,8 @@
 ---
 title: Pre-release features
 slug: /develop/quick-reference/prerelease
+description: Explore Streamlit's experimental and beta features before they become stable, including bleeding-edge functionality and upcoming enhancements.
+keywords: prerelease, experimental features, beta features, bleeding edge, early access, upcoming features, feature preview, development preview
 ---
 
 # Pre-release features

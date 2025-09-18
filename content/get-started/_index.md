@@ -1,6 +1,8 @@
 ---
 title: Get started with Streamlit
 slug: /get-started
+description: Get started with Streamlit, from installation to your first app.
+keywords: get started, installation, fundamentals, tutorial, first app, beginner, streamlit
 ---
 
 # Get started with Streamlit

@@ -1,7 +1,8 @@
 ---
 title: Using forms
 slug: /develop/concepts/architecture/forms
-description: Use `st.form` when you don't want to rerun your script with every input made by a user.
+description: Learn how to use Streamlit forms with st.form to batch user input, control app reruns, and create efficient interactive interfaces with submit buttons.
+keywords: streamlit forms, st.form, batch input, form submission, user input batching, form controls, submit button, form validation, interactive forms, form patterns
 ---
 
 # Using forms

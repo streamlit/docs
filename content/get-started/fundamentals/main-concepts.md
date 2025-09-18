@@ -1,6 +1,8 @@
 ---
 title: Basic concepts of Streamlit
 slug: /get-started/fundamentals/main-concepts
+description: Learn the fundamental concepts of Streamlit including data flow, widgets, layout, and the development workflow for building interactive apps.
+keywords: streamlit, concepts, fundamentals, data flow, widgets, layout, development
 ---
 
 # Basic concepts of Streamlit

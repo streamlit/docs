@@ -1,6 +1,8 @@
 ---
 title: Caching and state
 slug: /develop/api-reference/caching-and-state
+description: Optimize performance and manage state in Streamlit apps with st.cache_data, st.cache_resource, session state, and query parameters for efficient applications.
+keywords: caching, state, session state, cache_data, cache_resource, query_params, context, performance, optimization
 ---
 
 # Caching and state

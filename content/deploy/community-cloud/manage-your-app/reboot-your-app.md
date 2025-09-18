@@ -1,6 +1,8 @@
 ---
 title: Reboot your app
 slug: /deploy/streamlit-community-cloud/manage-your-app/reboot-your-app
+description: Learn how to reboot your Streamlit app on Community Cloud to clear memory, force fresh builds, and resolve issues.
+keywords: reboot, restart, memory, fresh build, redeploy, workspace, cloud logs, confirmation, troubleshooting
 ---
 
 # Reboot your app

@@ -1,7 +1,8 @@
 ---
 title: Secrets management
 slug: /develop/concepts/connections/secrets-management
-description: Place secrets at `.streamlit/secrets.toml` and access them with `st.secrets`.
+description: Learn how to manage API keys, credentials, and sensitive data in Streamlit apps using native secrets management and environment variables.
+keywords: secrets management, API keys, credentials, security, environment variables, sensitive data, secure storage, configuration secrets, app security
 ---
 
 # Secrets management

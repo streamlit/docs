@@ -1,6 +1,8 @@
 ---
 title: Advanced concepts of Streamlit
 slug: /get-started/fundamentals/advanced-concepts
+description: Learn advanced Streamlit concepts including caching with st.cache_data and st.cache_resource, session state management, and database connections.
+keywords: caching, session state, connections, advanced, performance, database, st.cache_data, st.cache_resource
 ---
 
 # Advanced concepts of Streamlit

@@ -1,6 +1,8 @@
 ---
 title: App testing example
 slug: /develop/concepts/app-testing/examples
+description: Complete example of testing a Streamlit login page including authentication logic, secrets management, security best practices, and comprehensive test coverage.
+keywords: testing example, login testing, authentication testing, secrets testing, security testing, test example, complete test, login page example, testing patterns
 ---
 
 # App testing example

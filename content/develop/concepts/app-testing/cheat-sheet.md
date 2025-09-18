@@ -1,6 +1,8 @@
 ---
 title: App testing cheat sheet
 slug: /develop/concepts/app-testing/cheat-sheet
+description: Quick reference guide for Streamlit app testing with AppTest, covering common testing patterns for text elements, widgets, charts, and interactive components.
+keywords: testing cheat sheet, apptest reference, testing patterns, quick reference, testing examples, streamlit testing guide, test methods, testing syntax
 ---
 
 # App testing cheat sheet
