@@ -1,7 +1,7 @@
 ---
 title: Use Streamlit in Snowflake
 slug: /get-started/installation/streamlit-in-snowflake
-description: Learn to use Streamlit in Snowflake for secure development with role-based access control and integrated data platform capabilities.
+description: Quick start guide to use Streamlit in Snowflake for secure development with role-based access control.
 keywords: streamlit in snowflake, snowflake streamlit, secure environment, role-based access, data cloud, snowflake trial, integrated platform
 ---
 

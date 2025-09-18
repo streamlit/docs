@@ -1,7 +1,7 @@
 ---
 title: First steps building Streamlit apps
 slug: /get-started/tutorials
-description: Get hands-on experience building your first Streamlit apps with step-by-step tutorials for creating single-page and multi-page applications.
+description: Build your first Streamlit apps with step-by-step tutorials for creating single-page and multi-page applications.
 keywords: first app tutorial, create app, multipage app, beginner tutorial, hands-on tutorial, streamlit tutorial, getting started tutorial
 ---
 

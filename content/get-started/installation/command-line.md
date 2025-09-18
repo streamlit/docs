@@ -1,7 +1,7 @@
 ---
 title: Install Streamlit using command line
 slug: /get-started/installation/command-line
-description: Step-by-step guide to install Streamlit using command line tools with venv, pip, and virtual environment management for local development.
+description: Step-by-step guide to install Streamlit using command line tools and build your first Hello World app.
 keywords: command line installation, pip install streamlit, venv, virtual environment, command line setup, pip installation, terminal install
 ---
 

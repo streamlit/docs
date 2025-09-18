@@ -1,7 +1,7 @@
 ---
 title: Install Streamlit using Anaconda Distribution
 slug: /get-started/installation/anaconda-distribution
-description: Step-by-step guide to install Streamlit using Anaconda Distribution with environment management and building your first Hello World app.
+description: Step-by-step guide to install Streamlit using Anaconda Distribution and build your first Hello World app.
 keywords: anaconda installation, anaconda distribution, conda install streamlit, anaconda streamlit, environment management, hello world app
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Create a multipage app
 slug: /get-started/tutorials/create-a-multipage-app
-description: Learn to build multipage Streamlit applications with navigation, page structure, and organization for complex apps with multiple views and sections.
+description: Build your first multipage app.
 keywords: multipage app, create multipage, app structure, page navigation, multipage tutorial, app organization, page management, complex apps
 ---
 
