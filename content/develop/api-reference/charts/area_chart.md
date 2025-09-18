@@ -1,7 +1,7 @@
 ---
 title: st.area_chart
 slug: /develop/api-reference/charts/st.area_chart
-description: st.area_chart displays an area chart.
+description: st.area_chart displays an interactive area chart.
 keywords: area chart, chart, visualization, data, plot, graph, dataframe, filled, cumulative
 ---
 

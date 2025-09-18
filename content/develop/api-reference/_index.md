@@ -1,7 +1,7 @@
 ---
 title: API Reference
 slug: /develop/api-reference
-description: Complete API reference for Streamlit with function definitions, examples, and interactive components for building data apps.
+description: Visually explore a gallery of Streamlit's API.
 keywords: api, reference, functions, documentation, streamlit, components, widgets, charts
 ---
 

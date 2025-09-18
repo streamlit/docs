@@ -1,7 +1,7 @@
 ---
 title: Execution flow
 slug: /develop/api-reference/execution-flow
-description: Learn about Streamlit's execution flow controls including forms, fragments, dialogs, rerun, and stop functions for managing app behavior.
+description: Control your app’s execution flow with forms, fragments, dialogs, and more.
 keywords: execution flow, control flow, forms, fragments, dialogs, rerun, stop, form_submit_button, experimental_rerun, modal
 ---
 

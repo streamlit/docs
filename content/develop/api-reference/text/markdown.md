@@ -1,7 +1,7 @@
 ---
 title: st.markdown
 slug: /develop/api-reference/text/st.markdown
-description: st.markdown displays string formatted as Markdown.
+description: st.markdown displays a string formatted as Markdown.
 keywords: markdown, text, formatting, html, display
 ---
 

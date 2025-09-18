@@ -1,7 +1,7 @@
 ---
 title: Custom components
 slug: /develop/api-reference/custom-components
-description: Learn about Streamlit's custom components system for creating and integrating custom UI elements including HTML, iframe, and component declaration.
+description: Use Streamlit's custom components to create and integrate custom UI elements in your app.
 keywords: custom components, declare_component, html, iframe, frontend, react, javascript, custom ui, components v1
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Authentication and user info
 slug: /develop/api-reference/user
-description: Streamlit native support for user authentication and personalized apps with login, logout, and user information access.
+description: Add user authentication and personalization in your apps with login, logout, and user information access.
 keywords: authentication, user info, login, logout, user authentication, identity provider, personalized apps, user session, st.user, st.login, st.logout
 ---
 

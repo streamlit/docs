@@ -1,7 +1,7 @@
 ---
 title: App testing
 slug: /develop/api-reference/app-testing
-description: Streamlit app testing framework for building and running headless tests that execute app code directly, simulate user input, and inspect rendered outputs.
+description: Run headless tests on your Streamlit app with a built-in testing framework to simulate user input.
 keywords: app testing, streamlit testing, automated testing, headless testing, unit testing, AppTest, test framework, pytest, CI testing, test automation
 ---
 

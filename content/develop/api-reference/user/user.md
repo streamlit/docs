@@ -1,7 +1,7 @@
 ---
 title: st.user
 slug: /develop/api-reference/user/st.user
-description: st.user returns information about the logged-in user of private apps on Streamlit Community Cloud.
+description: st.user returns information about the logged-in user.
 keywords: st.user, user info, user information, logged-in user, community cloud user, user data, user details, user profile, user session info
 ---
 

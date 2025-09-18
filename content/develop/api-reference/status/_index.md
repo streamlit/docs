@@ -1,7 +1,7 @@
 ---
 title: Display progress and status
 slug: /develop/api-reference/status
-description: Display progress bars, status messages, notifications, and celebratory animations in Streamlit apps with progress indicators and status alerts.
+description: Display progress bars, status messages, notifications, and celebratory animations in your Streamlit apps.
 keywords: progress, status, progress bar, status messages, notifications, spinner, toast, error messages, success messages, warning messages, balloons, snow, celebratory animations
 ---
 

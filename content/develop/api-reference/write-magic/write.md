@@ -1,7 +1,7 @@
 ---
 title: st.write
 slug: /develop/api-reference/write-magic/st.write
-description: st.write writes arguments to the app.
+description: st.write displays its argument in your app.
 keywords: st.write, write, display content, versatile display, swiss army knife, display data, display text, display charts, automatic rendering, streamlit write
 ---
 

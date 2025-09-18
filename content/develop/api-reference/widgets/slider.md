@@ -1,7 +1,7 @@
 ---
 title: st.slider
 slug: /develop/api-reference/widgets/st.slider
-description: st.slider displays a slider widget.
+description: st.slider displays a slider widget for numerical values.
 keywords: slider, widget, input, range, value, interactive
 ---
 

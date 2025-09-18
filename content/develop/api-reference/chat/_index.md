@@ -1,7 +1,7 @@
 ---
 title: Chat elements
 slug: /develop/api-reference/chat
-description: Learn about Streamlit's chat elements for building conversational apps including st.chat_input and st.chat_message for interactive chat interfaces.
+description: Build conversational apps and chat interfaces using Streamlit's chat elements including st.chat_input and st.chat_message for interactive messaging experiences.
 keywords: chat, conversational, chat_input, chat_message, llm, chatbot, interactive, messaging, conversation, user interface
 ---
 

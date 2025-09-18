@@ -1,7 +1,7 @@
 ---
 title: Magic
 slug: /develop/api-reference/write-magic/magic
-description: Magic commands in Streamlit allow you to display content without explicit commands - just put markdown, data, or charts on their own line.
+description: Magic commands in Streamlit allow you to display content without explicit commands - just put Markdown strings, data, or charts on their own line.
 keywords: magic commands, magic, automatic display, implicit rendering, streamlit magic, markdown display, data display, charts display, simple syntax
 ---
 

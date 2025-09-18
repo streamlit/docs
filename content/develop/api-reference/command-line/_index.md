@@ -1,7 +1,7 @@
 ---
 title: Command-line options
 slug: /develop/api-reference/cli
-description: Learn about Streamlit's command-line interface for running apps, managing configuration, and diagnosing issues.
+description: Run Streamlit apps and manage configuration using the command-line interface for app execution, cache management, and system diagnostics.
 keywords: cli, command line, streamlit run, cache, config, docs, hello, help, init, version, terminal, command
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: st.experimental_rerun
 slug: /develop/api-reference/execution-flow/st.experimental_rerun
-description: st.experimental_rerun will rerun the script immediately.
+description: st.experimental_rerun stops the current script run and immediately reruns the script.
 keywords: experimental_rerun, rerun, script, execution, control flow, deprecated, st.rerun, experimental, refresh
 ---
 
