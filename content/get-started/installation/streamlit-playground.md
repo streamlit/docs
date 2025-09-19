@@ -1,6 +1,7 @@
 ---
 title: Use Streamlit Playground in your browser
 slug: /get-started/installation/streamlit-playground
+description: Quick start guide to Streamlit using the Streamlit Playground - no installation required.
 ---
 
 # Use Streamlit Playground in your browser
