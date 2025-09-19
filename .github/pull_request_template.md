@@ -7,13 +7,13 @@
 <!-- What was specifically changed? Which files, algorithms, links, media? -->
 <!-- Please add them here as a bulleted list -->
 
-**Revised:**
-
-_Insert screenshot of your updated UI/code here_
-
 **Current:**
 
 _Insert screenshot of existing UI/code here_
+
+**Revised:**
+
+_Insert screenshot of your updated UI/code here_
 
 ## 💥 Impact
 
