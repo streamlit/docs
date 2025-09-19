@@ -183,7 +183,7 @@ When `runner.enforceSerializableSessionState` is set to `true`, Session State im
 
 ### Caveats and limitations
 
-- Streamlist Session State is tied to the socket connection so when you refresh the browser the socket is killed and renewed so state is reset. A user navigating links in Markdown also results in session reset for the same reason. 
+- Streamlit Session State is tied to a WebSocket connection. When a user reloads the browser tab or navigates using a Markdown link, the WebSocket connection and the associated Session State data are reset.
 - Only the `st.form_submit_button` has a callback in forms. Other widgets inside a form are not allowed to have callbacks.
 - `on_change` and `on_click` events are only supported on input type widgets.
 - Modifying the value of a widget via the Session state API, after instantiating it, is not allowed and will raise a `StreamlitAPIException`. For example:
