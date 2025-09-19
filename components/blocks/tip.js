@@ -13,7 +13,7 @@ const Tip = ({ children }) => {
         icon="star"
         rotate="0"
         title="Tip"
-        background="violet-70"
+        background="indigo-70"
         color="white"
       />
       {children}

@@ -2,17 +2,12 @@ import React, { useState } from "react";
 import Link from "next/link";
 import classNames from "classnames";
 
-import useVersion from "../../lib/useVersion.js";
-
 import styles from "./navChild.module.css";
+import { looksLikeVersionAndPlatformString } from "../../lib/next/utils";
 
 const NavChild = ({ slug, page, color, className }) => {
   const [manualState, setManualState] = useState(null);
-  const version = useVersion();
-
-  const isNum = /^[\d\.]+$/.test(slug[0]);
-
-  if (isNum) {
+  if (looksLikeVersionAndPlatformString(slug[0])) {
     slug.shift();
   }
 
@@ -54,7 +49,7 @@ const NavChild = ({ slug, page, color, className }) => {
         <i
           className={classNames(
             styles.AccordionIcon,
-            opened ? "close" : "open"
+            opened ? "close" : "open",
           )}
           onClick={toggleAccordion}
         >
@@ -64,38 +59,56 @@ const NavChild = ({ slug, page, color, className }) => {
     );
   }
 
-  let link;
+  let navElement;
   let icon;
   let target;
-  let url = page.url;
+  let url = page.url || ""; //Unset or empty url designates a divider
 
-  const isLocalPage = page.url.startsWith("/");
+  const isRelativePath = url.startsWith("/");
+  // Passing an absolute, docs.streamlit.io path indicates a duplicate or
+  // cross-link in the menu. The full https:// path is required to simplify
+  // string replacement later when it is converted to a relative path (for
+  // performance and versioning).
+  const isAbsolutePath = url.startsWith("https://docs.streamlit.io");
+  const isDivider = url === "";
+  const isExternal = !isRelativePath && !isAbsolutePath && !isDivider;
 
-  if (!isLocalPage) {
+  if (isExternal) {
     icon = <i className={styles.ExternalIcon}>open_in_new</i>;
     target = "_blank";
   }
 
-  if (page.isVersioned && version && isLocalPage) {
-    // We need to version this URL, check if the URL has a version for this version
-    const newSlug = page.url.split("/");
-    newSlug[0] = version;
-    url = `/${newSlug.join("/")}`;
+  if (isAbsolutePath) {
+    url = url.replace("https://docs.streamlit.io", "");
+    icon = <i className={styles.CrossLinkedIcon}>link</i>;
   }
 
-  link = (
-    <span className={styles.LinkContainer}>
-      <Link href={url}>
-        <a className={classNames("not-link", styles.Link)} target={target}>
+  if (isDivider && page.name == "---") {
+    navElement = (
+      <div className={styles.LinkContainer}>
+        <hr className={styles.DividerLine} />
+      </div>
+    );
+  } else if (isDivider) {
+    navElement = (
+      <div className={styles.LinkContainer}>
+        <span className={styles.DividerText}>{page.name}</span>
+        <hr className={styles.DividerLine} />
+      </div>
+    );
+  } else {
+    navElement = (
+      <div className={styles.LinkContainer}>
+        <Link
+          href={url}
+          className={classNames("not-link", styles.Link)}
+          target={target}
+        >
           <span
             className={classNames(
               styles.Circle,
               active ? styles.ActiveCircle : "",
-              color === "violet-70"
-                ? styles.LibraryCircle
-                : color === "l-blue-70"
-                ? styles.CloudCircle
-                : styles.KBCircle
+              CIRCLE_CLASS[color],
             )}
           />
           <span
@@ -110,18 +123,31 @@ const NavChild = ({ slug, page, color, className }) => {
           ) : (
             icon
           )}
-        </a>
-      </Link>
-      {accordion}
-    </span>
-  );
+        </Link>
+        {accordion}
+      </div>
+    );
+  }
 
   return (
     <li className={classNames(styles.Container, className)}>
-      {link}
+      {navElement}
       {subNav}
     </li>
   );
+};
+
+const CIRCLE_CLASS = {
+  "red-70": styles.RedCircle,
+  "orange-70": styles.OrangeCircle,
+  "yellow-70": styles.YellowCircle,
+  "green-70": styles.GreenCircle,
+  "acqua-70": styles.AcquaCircle,
+  "lightBlue-70": styles.LightBlueCircle,
+  "darkBlue-70": styles.DarkBlueCircle,
+  "indigo-70": styles.IndigoCircle,
+  "gray-70": styles.GrayCircle,
+  unset: styles.TransparentCircle,
 };
 
 export default NavChild;

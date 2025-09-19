@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
-import reverse from "lodash/reverse";
 import classNames from "classnames";
 import Table from "./table";
-import { H2 } from "./headers";
+import { H2, H3 } from "./headers";
 import Warning from "./warning";
 import Deprecation from "./deprecation";
 import { withRouter, useRouter } from "next/router";
@@ -14,31 +13,36 @@ import "prismjs/plugins/line-highlight/prism-line-highlight.css";
 import "prismjs/plugins/toolbar/prism-toolbar";
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
+import getConfig from "next/config";
+const { publicRuntimeConfig } = getConfig();
 
 import styles from "./autofunction.module.css";
-import { name } from "file-loader";
+import { looksLikeVersionAndPlatformString } from "../../lib/next/utils";
+
+const LATEST_VERSION = publicRuntimeConfig.LATEST_VERSION;
+const DEFAULT_VERSION = publicRuntimeConfig.DEFAULT_VERSION;
+const VERSIONS_LIST = publicRuntimeConfig.VERSIONS_LIST;
 
 const cleanHref = (name) => {
-  return String(name).replace(".", "").replace(" ", "-");
+  return String(name).replace(/\./g, "").replace(/\s+/g, "-");
 };
 
 const Autofunction = ({
   version,
-  versions,
   streamlitFunction,
-  streamlit,
+  docstrings,
   slug,
   hideHeader,
   deprecated,
   deprecatedText,
+  oldStreamlitFunction,
+  goToLatest,
 }) => {
   const blockRef = useRef();
   const router = useRouter();
-  const maxVersion = versions[versions.length - 1];
   const [isHighlighted, setIsHighlighted] = useState(false);
-  const [currentVersion, setCurrentVersion] = useState(
-    version ? version : versions[versions.length - 1]
-  );
+  const currentNumericVersion =
+    version == DEFAULT_VERSION ? LATEST_VERSION : version;
 
   useEffect(() => {
     highlightWithPrism();
@@ -48,7 +52,7 @@ const Autofunction = ({
   // Code to destroy and regenerate iframes on each new autofunction render.
   const regenerateIframes = () => {
     const iframes = Array.prototype.slice.call(
-      blockRef.current.getElementsByTagName("iframe")
+      blockRef.current.getElementsByTagName("iframe"),
     );
     if (!iframes) return;
 
@@ -73,7 +77,7 @@ const Autofunction = ({
     }
 
     const pres = Array.prototype.slice.call(
-      blockRef.current.getElementsByTagName("pre")
+      blockRef.current.getElementsByTagName("pre"),
     );
 
     pres.forEach((ele) => {
@@ -96,42 +100,74 @@ const Autofunction = ({
     setIsHighlighted(true);
   };
 
+  const VersionSelector = ({ currentNumericVersion, handleSelectVersion }) => {
+    const selectClass =
+      currentNumericVersion != LATEST_VERSION
+        ? "version-select old-version"
+        : "version-select";
+
+    return (
+      <form className={classNames(selectClass, styles.Form)}>
+        <label>
+          <span className="sr-only">Streamlit Version</span>
+          <select
+            value={currentNumericVersion}
+            onChange={handleSelectVersion}
+            className={styles.Select}
+          >
+            {VERSIONS_LIST.map((version, index) => (
+              <option value={version} key={version}>
+                {"Version " + version}
+              </option>
+            ))}
+          </select>
+        </label>
+      </form>
+    );
+  };
+
   const handleSelectVersion = (event) => {
-    const functionObject = streamlit[streamlitFunction];
-    const name = cleanHref(`st.${functionObject.name}`);
+    const functionObject =
+      docstrings[streamlitFunction] ?? docstrings[oldStreamlitFunction];
     const slicedSlug = slug.slice();
 
-    if (event.target.value !== currentVersion) {
-      setCurrentVersion(event.target.value);
-      if (event.target.value !== maxVersion) {
-        let isnum = /^[\d\.]+$/.test(slicedSlug[0]);
-        if (isnum) {
-          slicedSlug[0] = event.target.value;
-        } else {
-          slicedSlug.unshift(event.target.value);
-        }
-        slug.unshift(event.target.value);
+    if (event.target.value !== currentNumericVersion) {
+      if (looksLikeVersionAndPlatformString(slicedSlug[0])) {
+        slicedSlug.shift();
+      }
+      if (event.target.value !== LATEST_VERSION) {
+        slicedSlug.unshift(event.target.value);
+      } else {
+        goToLatest();
       }
     }
 
-    router.push(`/${slicedSlug.join("/")}#${name} `);
+    if (!functionObject) {
+      router.push(`/${slicedSlug.join("/")}`);
+    } else {
+      const name = cleanHref(`st.${functionObject.name}`);
+      router.push(`/${slicedSlug.join("/")}#${name} `);
+    }
   };
 
   const footers = [];
   const args = [];
   const returns = [];
-  const versionList = reverse(versions.slice());
   let functionObject;
   let functionDescription;
   let header;
+  let headerTitle;
   let body;
   let isClass;
+  let isAttributeDict;
   let methods = [];
   let properties = [];
 
-  if (streamlitFunction in streamlit) {
-    functionObject = streamlit[streamlitFunction];
+  if (streamlitFunction in docstrings || oldStreamlitFunction in docstrings) {
+    functionObject =
+      docstrings[streamlitFunction] ?? docstrings[oldStreamlitFunction];
     isClass = functionObject.is_class;
+    isAttributeDict = functionObject.is_attribute_dict ?? false;
     if (
       functionObject.description !== undefined &&
       functionObject.description
@@ -140,14 +176,35 @@ const Autofunction = ({
     }
   } else {
     return (
-      <div className={styles.Container} ref={blockRef} key={slug}>
-        <div className="code-header">
-          <H2>{streamlitFunction}</H2>
+      <div className={styles.HeaderContainer}>
+        <div className={styles.TitleContainer} ref={blockRef} key={slug}>
+          <H2
+            className={`
+              ${styles.Title}
+              relative
+            `}
+          >
+            <a
+              aria-hidden="true"
+              tabIndex="-1"
+              href={`#${cleanHref(
+                streamlitFunction.replace("streamlit", "st"),
+              )}`.toLowerCase()}
+              className="absolute"
+            >
+              <span className="icon icon-link"></span>
+            </a>
+            {streamlitFunction.replace("streamlit", "st")}
+          </H2>
+          <VersionSelector
+            currentNumericVersion={currentNumericVersion}
+            handleSelectVersion={handleSelectVersion}
+          />
         </div>
         <Warning>
           <p>
-            This method did not exist in version <code>{currentVersion}</code>{" "}
-            of Streamlit.
+            This method did not exist in version{" "}
+            <code>{currentNumericVersion}</code> of Streamlit.
           </p>
         </Warning>
       </div>
@@ -165,40 +222,47 @@ const Autofunction = ({
   if (hideHeader !== undefined && hideHeader) {
     header = "";
   } else {
-    const functionName = functionObject.signature
+    const name = functionObject.signature
       ? `${functionObject.signature}`.split("(")[0].replace("streamlit", "st")
       : "";
-    const name =
-      String(functionObject.name).startsWith("html") ||
-      String(functionObject.name).startsWith("iframe")
-        ? `st.components.v1.${functionObject.name}`
-        : functionName;
-    const selectClass =
-      currentVersion !== versionList[0]
-        ? "version-select old-version"
-        : "version-select";
+    headerTitle = isAttributeDict ? (
+      <H3 className={styles.Title}>
+        <a
+          aria-hidden="true"
+          tabIndex="-1"
+          href={`#${cleanHref(name)}`.toLowerCase()}
+          className="absolute"
+        >
+          <span className="icon icon-link"></span>
+        </a>
+        {name}
+      </H3>
+    ) : (
+      <H2 className={styles.Title}>
+        <a
+          aria-hidden="true"
+          tabIndex="-1"
+          href={`#${cleanHref(name)}`.toLowerCase()}
+          className="absolute"
+        >
+          <span className="icon icon-link"></span>
+        </a>
+        {name}
+      </H2>
+    );
     header = (
       <div className={styles.HeaderContainer}>
-        <div className={styles.TitleContainer}>
-          <H2 className={styles.Title}>{name}</H2>
-          <form className={classNames(selectClass, styles.Form)}>
-            <label>
-              <span className="sr-only">Streamlit Version</span>
-              <select
-                value={currentVersion}
-                onChange={handleSelectVersion}
-                className={styles.Select}
-              >
-                {versionList.map((version, index) => {
-                  return (
-                    <option value={version} key={version}>
-                      v{version}
-                    </option>
-                  );
-                })}
-              </select>
-            </label>
-          </form>
+        <div
+          className={`
+            ${styles.TitleContainer}
+            relative
+          `}
+        >
+          {headerTitle}
+          <VersionSelector
+            currentNumericVersion={currentNumericVersion}
+            handleSelectVersion={handleSelectVersion}
+          />
         </div>
         {deprecated === true ? (
           <Deprecation>
@@ -231,15 +295,21 @@ const Autofunction = ({
     footers.push({ title: "Warning", body: functionObject.warning });
   }
 
+  // propertiesRows is initialized early to allow Attributes (recorded as args)
+  // in any class docstring to be diverted to the properties section.
+  let propertiesRows = [];
+  let docstringProperties = []; // Used to avoid duplicates with @property
+
   for (const index in functionObject.args) {
     const row = {};
     const param = functionObject.args[index];
+    docstringProperties.push(param.name);
     const isDeprecated =
       param.deprecated && param.deprecated.deprecated === true;
     const deprecatedMarkup = isDeprecated
       ? `
       <div class="${styles.DeprecatedContent}">
-        <i class="material-icons-sharp">
+        <i class="material-icons-sharp ${styles.DeprecatedIcon}">
           delete
         </i>
         ${param.deprecated.deprecatedText}
@@ -251,27 +321,41 @@ const Autofunction = ({
 
     if (param.is_optional) {
       row["title"] = `
-          <p class="${isDeprecated ? "deprecated" : ""}">
-            ${param.name}
-            <span class='italic code'>(${param.type_name})</span>
-          </p> `;
+        <p class="
+          ${isDeprecated ? "deprecated" : ""}
+          ${param.is_kwarg_only ? styles.Keyword : ""}
+        ">
+          ${param.name}
+          <span class='italic code'>(${param.type_name})</span>
+        </p> 
+      `;
       row["body"] = `
         ${deprecatedMarkup}
         ${description}
       `;
     } else {
       row["title"] = `
-          <p class="${isDeprecated ? "deprecated" : ""}">
-            <span class='bold'>${param.name}</span>
-            <span class='italic code'>(${param.type_name})</span>
-          </p>`;
+        <p class="
+          ${isDeprecated ? "deprecated" : ""}
+          ${param.is_kwarg_only ? styles.Keyword : ""}
+        ">
+          <span class='bold'>${param.name}</span>
+          <span class='italic code'>(${param.type_name})</span>
+        </p>
+      `;
       row["body"] = `
         ${deprecatedMarkup}
         ${description}
       `;
     }
-
-    args.push(row);
+    // When "Parameters" are included in a class docstring, they are actually
+    // "Properties." Using "Properties" in the docstring does not result in
+    // individually parsed properties; using "Parameters" is a workaround.
+    if (isClass) {
+      propertiesRows.push(row);
+    } else {
+      args.push(row);
+    }
   }
 
   let methodRows = [];
@@ -285,42 +369,44 @@ const Autofunction = ({
       .replace("streamlit", "st")
       .replace(/[.,\/#!$%\^&\*;:{}=\-`~()]/g, "");
     const type_name = method.signature
-      ? method.signature.match(/\(([^)]*)\)/)[1]
+      ? method.signature.match(/\((.*)\)/)[1]
       : "";
     const isDeprecated =
       method.deprecated && method.deprecated.deprecated === true;
     const deprecatedMarkup = isDeprecated
       ? `
-    <div class="${styles.DeprecatedContent}">
-      <i class="material-icons-sharp">
-        delete
-      </i>
-      ${method.deprecated.deprecatedText}
-    </div>`
+      <div class="${styles.DeprecatedContent}">
+        <i class="material-icons-sharp">
+          delete
+        </i>
+        ${method.deprecated.deprecatedText}
+      </div>`
       : "";
     const description = method.description
       ? method.description
       : `<p>No description</p> `;
     // Add a link to the method by appending the method name to the current URL using slug.slice();
     row["title"] = `
-    <p class="${isDeprecated ? "deprecated" : ""}">
-      <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
-      method.name
-    }</span></a><span class='italic code'>(${type_name})</span>
-    </p>`;
+      <p class="${isDeprecated ? "deprecated" : ""}">
+        <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
+          method.name
+        }</span></a><span class='italic code'>(${type_name})</span>
+      </p>`;
     row["body"] = `
-    ${deprecatedMarkup}
-    ${description}
-  `;
+      ${deprecatedMarkup}
+      ${description}
+    `;
 
     methodRows.push(row);
   }
 
-  let propertiesRows = [];
-
   for (const index in properties) {
     const row = {};
     const property = properties[index];
+    // If attribute is in class docstring don't also show the same @property.
+    if (docstringProperties.includes(property.name)) {
+      continue;
+    }
     const slicedSlug = slug.slice().join("/");
     const hrefName = `${functionObject.name}.${property.name}`
       .toLowerCase()
@@ -342,15 +428,15 @@ const Autofunction = ({
       : `<p>No description</p> `;
     // Add a link to the method by appending the method name to the current URL using slug.slice();
     row["title"] = `
-    <p class="${isDeprecated ? "deprecated" : ""}">
-      <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
-      property.name
-    }</span>
-    </p>`;
+      <p class="${isDeprecated ? "deprecated" : ""}">
+        <a href="/${slicedSlug}#${hrefName}"><span class='bold'>${
+          property.name
+        }</span>
+      </p>`;
     row["body"] = `
-    ${deprecatedMarkup}
-    ${description}
-  `;
+      ${deprecatedMarkup}
+      ${description}
+    `;
     propertiesRows.push(row);
   }
 
@@ -361,64 +447,51 @@ const Autofunction = ({
       ? param.description
       : `<p>No description</p> `;
 
-    row[
-      "title"
-    ] = `<p><span class='italic code'>(${param.type_name})</span></p> `;
+    row["title"] =
+      `<p><span class='italic code'>(${param.type_name})</span></p> `;
     row["body"] = `${description} `;
 
     returns.push(row);
   }
 
-  const footTitles = [];
-  const footRowsContent = [];
-
-  if (methods.length) {
-    footTitles.push({ title: "Methods" });
-    footRowsContent.push(methodRows);
-  }
-
-  if (returns.length) {
-    footTitles.push({ title: "Returns" });
-    footRowsContent.push(returns);
-  }
-
-  if (properties.length) {
-    footTitles.push({ title: "Properties" });
-    footRowsContent.push(propertiesRows);
-  }
-
   body = (
     <Table
-      head={{
-        title: (
-          <>
-            {isClass ? "Class description" : "Function signature"}
-            <a
-              className={styles.Title.a}
-              href={functionObject.source}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={
-                "View st." + functionObject.name + " source code on GitHub"
-              }
-            >
-              [source]
-            </a>
-          </>
-        ),
-        content: `<p class='code'> ${functionObject.signature}</p> `,
-      }}
+      head={
+        isAttributeDict
+          ? ""
+          : {
+              title: (
+                <>
+                  {isClass ? "Class description" : "Function signature"}
+                  <a
+                    className={styles.Title.a}
+                    href={functionObject.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={
+                      "View st." +
+                      functionObject.name +
+                      " source code on GitHub"
+                    }
+                  >
+                    [source]
+                  </a>
+                </>
+              ),
+              content: `<p class='code'> ${functionObject.signature}</p> `,
+            }
+      }
       body={args.length ? { title: "Parameters" } : null}
       bodyRows={args.length ? args : null}
       foot={[
         methods.length ? { title: "Methods" } : null,
         returns.length ? { title: "Returns" } : null,
-        properties.length ? { title: "Attributes" } : null,
+        propertiesRows.length ? { title: "Attributes" } : null,
       ].filter((section) => section !== null)}
       footRows={[
         methods.length ? methodRows : null,
         returns.length ? returns : null,
-        properties.length ? propertiesRows : null,
+        propertiesRows.length ? propertiesRows : null,
       ].filter((rows) => rows !== null)}
       additionalClass="full-width"
       footers={footers}

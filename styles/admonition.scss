@@ -7,17 +7,30 @@ div.admonition {
     @apply text-lg font-bold;
   }
 
-  // Text
-  p {
-    @apply mb-0;
-  }
-
   // Note
   &.note {
     @apply bg-lightBlue-10 dark:bg-lightBlue-100/30;
 
     p.first.admonition-title {
       @apply text-lightBlue-80 dark:text-lightBlue-60;
+    }
+  }
+
+  // Tip
+  &.tip {
+    @apply bg-indigo-10 dark:bg-indigo-100;
+
+    p.first.admonition-title {
+      @apply text-indigo-70;
+    }
+  }
+
+  // Important
+  &.important {
+    @apply bg-orange-10 dark:bg-orange-100/30;
+
+    p.first.admonition-title {
+      @apply text-orange-70;
     }
   }
 

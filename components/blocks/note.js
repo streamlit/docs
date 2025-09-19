@@ -13,7 +13,7 @@ const Note = ({ children }) => {
         icon="push_pin"
         rotate="45"
         title="Note"
-        background="l-blue-70"
+        background="lightBlue-70"
         color="white"
       />
       {children}

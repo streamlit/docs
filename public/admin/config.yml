@@ -37,14 +37,14 @@ collections:
                   widget: select,
                   options:
                     [
-                      "violet-70",
+                      "indigo-70",
                       "orange-70",
-                      "blue-70",
+                      "darkBlue-70",
                       "red-70",
                       "yellow-70",
                       "green-70",
-                      "b-g-70",
-                      "l-blue-70",
+                      "acqua-70",
+                      "lightBlue-70",
                       "gray-70",
                     ],
                 }
@@ -138,14 +138,14 @@ collections:
                   widget: select,
                   options:
                     [
-                      "violet-70",
+                      "indigo-70",
                       "orange-70",
-                      "blue-70",
+                      "darkBlue-70",
                       "red-70",
                       "yellow-70",
                       "green-70",
-                      "b-g-70",
-                      "l-blue-70",
+                      "acqua-70",
+                      "lightBlue-70",
                       "gray-70",
                     ],
                   required: false,

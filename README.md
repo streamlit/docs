@@ -8,20 +8,41 @@ We use Next.js and Netlify to build our [documentation site](https://docs.stream
 
 To build the docs, clone this repo, install the NPM dependencies, and start the development server.
 
-1. Clone this repo:
+### 1. Set up your base environment
+
+Make sure you have [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and `make` installed.
+
+#### Install `make` on MacOS
+
+`make` is included with XCode Tools.
+
+- In your terminal, run the following command:
+  ```bash
+  $ xcode-select --install
+  ```
+
+#### Install `make` on Windows
+
+1. [Install Chocolately](https://chocolatey.org/install), a package manager for Windows.
+2. In your terminal, run the following command:
+   ```bash
+   choco install make
+   ```
+
+### 2. Clone this repo:
 
 ```bash
 git clone https://github.com/streamlit/docs.git
 cd docs/
 ```
 
-2. Install the NPM dependencies
+### 3. Install the NPM dependencies
 
 ```bash
 make
 ```
 
-3. Start the development server:
+### 4. Start the development server:
 
 ```bash
 make up
@@ -61,7 +82,7 @@ Do you want to add a new page to the docs?
 
 1. First, decide which section the page should live in (Streamlit Library, Streamlit Community Cloud, or Knowledge Base).
 
-2. Next, navigate to the relevant folder and subfolder within `content/` and create a `.md` file whose filename mirrors the title of the page. E.g. For a page titled "Create a component", navigate to `content/library/components/` and create a file named `create-component.md`.
+2. Next, navigate to the relevant folder and subfolder within `content/` and create a `.md` file whose filename mirrors the title of the page. E.g. For a page titled "Create a component", navigate to `content/develop/concepts/custom-components/` and create a file named `create-component.md`.
 
 ### Structure of the `.md` file
 
@@ -71,12 +92,12 @@ Now that you've decided where the file should live and have named the file, it's
 
 Every `.md` file has front matter at the very top that defines the page title which appears in the browser tab bar, and the URL slug which appears after the slash in `docs.streamlit.io/` and `localhost:3000/`.
 
-E.g. For a page titled "Create a component" that should exist at `docs.streamlit.io/library/components/create`, the front matter at the top of `create-component.md` is:
+E.g. For a page titled "Create a component" that should exist at `docs.streamlit.io/develop/concepts/custom-components/create`, the front matter at the top of `create-component.md` is:
 
 ```markdown
 ---
 title: Create a Component
-slug: /library/components/create
+slug: /develop/concepts/custom-components/create
 ---
 ```
 
@@ -121,7 +142,7 @@ We support syntax highlighting for Python, Bash, TOML, SQL, and JSX.
 Use standard Markdown to link to other pages in the docs. E.g. Add an inline link to the "Create an app" page by including the slug defined in the front matter of the "Create an app" `.md` file:
 
 ```markdown
-Learn how to [Create an app](/library/get-started/create-an-app).
+Learn how to [Create an app](/get-started/tutorials/create-an-app).
 ```
 
 **Add images:**
@@ -154,13 +175,13 @@ However, a user has to know the URL to visit the page. The page is therefore _re
 
 How do you make the page you created appear in the Menu? Edit the special markdown file `content/menu.md`. All it has is front matter in YAML.
 
-Suppose you have created an "Installation" page that is available at `docs.streamlit.io/library/get-started/installation`. You want to it to appear in the Menu within the "Streamlit Library" section, nested under the "Get Started" page.
+Suppose you have created an "Quickstart" page that is available at `docs.streamlit.io/get-started/installation/quickstart`. You want to it to appear in the Menu within the "Get started" section, nested under the "Installation" page.
 
 To do so, find the lines that define the `category`, `url` and `visible` properties for "Get Started" in `menu.md` and add three new lines below it, containing:
 
 ```YAML
-- category: Streamlit Library / Get Started / Installation
-  url: /library/get-started/installation
+- category: Get Started / Installation / Quickstart
+  url: /get-started/installation/quickstart
   visible: true
 ```
 
@@ -177,26 +198,26 @@ To preview your changes, refresh your browser tab and visit the edited page!
 
 ### Add a new docstring to the API Reference
 
-Any time a new version of Streamlit is released, the docstrings stored in `python/streamlit.json` have to be updated by running `make docstrings` . This will build the nesscary Docker image, and update the file with the documentation for the latest release on PyPi.
+Any time a new version of Streamlit is released, the docstrings stored in `python/streamlit.json` have to be updated by running `make docstrings` . This will build the necessary Docker image, and update the file with the documentation for the latest release on PyPi.
 
-If you need to regenerate all function signatrues, across all versions, delete the content in `python/streamlit.json`, leaving the file in place, and run `make docstrings`. This will systematically install each version of streamlit, and generate the necessary function signatures in `streamlit.json`.
+If you need to regenerate all function signatures, across all versions, delete the content in `python/streamlit.json`, leaving the file in place, and run `make docstrings`. This will systematically install each version of streamlit, and generate the necessary function signatures in `streamlit.json`.
 
 Suppose a new Streamlit release includes a `st.my_chart` function that you want to include in the "Chart elements" section of the API Reference:
 
 1. Run `make docstrings`
-2. Create Markdown file (`my_chart.md`) in `content/library/api/charts/`
+2. Create Markdown file (`my_chart.md`) in `content/develop/api/charts/`
 3. Add the following to `my_chart.md`:
 
    ```markdown
    ---
    title: st.my_chart
-   slug: /library/api-reference/charts/st.my_chart
+   slug: /develop/api-reference/charts/st.my_chart
    ---
 
    <Autofunction function="streamlit.my_chart" />
    ```
 
-4. Add the following under the "Chart elements" heading in `content/library/api/api-reference.md`:
+4. Add the following under the "Chart elements" heading in `content/develop/api/api-reference.md`:
    1. A RefCard MDX function containing the URL slug defined in `my_chart.md` . This is the card that will appear on the API Reference landing page.
    2. An Image MDX function containing alt text and the location of the image to be displayed on the card.
    3. A bold heading that will appear on the card (`#### Heading`). It appears below the card image.
@@ -204,7 +225,7 @@ Suppose a new Streamlit release includes a `st.my_chart` function that you want 
    5. A code block illustrating how to use `st.my_chart`. It appears below the card description and has a Copy icon that when clicked copies the code block to the users' clipboard.
 
 ````markdown
-    <RefCard href="/library/api-reference/charts/st.my_chart">
+    <RefCard href="/develop/api-reference/charts/st.my_chart">
     <Image pure alt="Tux, the Linux mascot" src="/img/data-table.png" />
 
     #### My charts
@@ -222,7 +243,7 @@ Suppose a new Streamlit release includes a `st.my_chart` function that you want 
 
    ```YAML
    - category: Streamlit Library / API Reference / Chart elements / st.my_chart
-     url: /library/api-reference/charts/st.my_chart
+     url: /develop/api-reference/charts/st.my_chart
    ```
 
 6. Save your changes and refresh the browser tab. If all went well, you should see a new entry in the Menu, a new card in the API Reference, and a new page for `st.my_chart`.
@@ -242,7 +263,6 @@ If you know the answer to a Streamlit user's pain point and want to add it to th
 1. Decide which of the above sections your article belongs to
 2. Navigate to the relevant section's folder in `kb/` and
 3. Create a `.md` file in the above specified format containing your article
-
    - Make sure the title in the front matter and the file header in Markdown are identical. E.g.
 
      ```markdown

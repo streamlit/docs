@@ -1,5 +1,5 @@
 .Container {
-  @apply flex items-center flex-wrap py-8 mt-16 border-t border-b border-t-gray-30 border-b-gray-30;
+  @apply flex items-center flex-wrap;
 }
 
 :global(.dark) .Container {
@@ -12,7 +12,7 @@
 }
 
 :global(.dark) .Icon {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 .Title {
@@ -23,7 +23,7 @@
 :global(.dark) .Title,
 :global(.dark) .Text,
 :global(.dark) .Link {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 .Text {

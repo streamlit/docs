@@ -1,6 +1,8 @@
 import React from "react";
-import { breadcrumbsForSlug } from "../../lib/utils.js";
 import Link from "next/link";
+
+import { breadcrumbsForSlug } from "../../lib/purejs/breadcrumbHelpers";
+import { looksLikeVersionAndPlatformString } from "../../lib/next/utils";
 
 import styles from "./breadCrumbs.module.css";
 
@@ -13,17 +15,18 @@ const BreadCrumbs = ({ slug, menu }) => {
     let formatedCrumb;
     if (index == slug.length) {
       formatedCrumb = (
-        <Link href={crumb.link}>
-          <a className={`not-link ${styles.ActiveLink} ${styles.Link}`}>
-            {crumb.title}
-          </a>
+        <Link
+          href={crumb.link}
+          className={`not-link ${styles.ActiveLink} ${styles.Link}`}
+        >
+          {crumb.title}
         </Link>
       );
     } else {
       formatedCrumb = (
         <>
-          <Link href={crumb.link}>
-            <a className={`not-link ${styles.Link}`}>{crumb.title}</a>
+          <Link href={crumb.link} className={`not-link ${styles.Link}`}>
+            {crumb.title}
           </Link>
           <span className={styles.Separator}>/</span>
         </>
@@ -42,8 +45,8 @@ const BreadCrumbs = ({ slug, menu }) => {
     title: "Home",
   });
 
-  const isnum = /^[\d\.]+$/.test(slug[0]);
-  if (isnum) {
+  // TODO: This may be unnecessary
+  if (looksLikeVersionAndPlatformString(slug[0])) {
     paths = slug.slice(1).join("/");
     breadcrumbs.push({
       link: "#",
@@ -65,7 +68,7 @@ const BreadCrumbs = ({ slug, menu }) => {
   }
 
   // Then, we add a couple pages that don't need breadcrumbs, such as /menu, /index, etc.
-  filesToExclude.push("index", "gdpr-banner", "menu");
+  filesToExclude.push("index", "gdpr-banner", "menu", "cookie-settings");
 
   // Now, we throw the error if any page that's not on the filesToExclude array is missing in menu.md
   if (path.length === 0 && !filesToExclude.includes(slug[0])) {
@@ -73,8 +76,8 @@ const BreadCrumbs = ({ slug, menu }) => {
       `This slug: ${slug
         .slice()
         .join(
-          "/"
-        )} doesn't have a corresponding entry in menu.md. Please add it, and if you don't want this entry to show up in the sidebar, add the "visible: false" property to the entry.`
+          "/",
+        )} doesn't have a corresponding entry in menu.md. Please add it, and if you don't want this entry to show up in the sidebar, add the "visible: false" property to the entry.`,
     );
   }
 

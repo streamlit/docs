@@ -12,30 +12,70 @@
 }
 
 /* Color modifiers */
-.VioletBackground {
-  @apply bg-indigo-70;
+.RedBackground {
+  @apply bg-red-70;
 }
 
 .OrangeBackground {
   @apply bg-orange-70;
 }
 
+.YellowBackground {
+  @apply bg-yellow-70;
+}
+
+.GreenBackground {
+  @apply bg-green-70;
+}
+
+.AcquaBackground {
+  @apply bg-acqua-70;
+}
+
 .LightBlueBackground {
   @apply bg-lightBlue-70;
 }
 
-.VioletText {
-  @apply text-indigo-70 !important;
+.DarkBlueBackground {
+  @apply bg-darkBlue-70;
 }
 
-.OrangeText {
+.IndigoBackground {
+  @apply bg-indigo-70;
+}
+
+.RedForeground {
+  @apply text-red-70 !important;
+}
+
+.OrangeForeground {
   @apply text-orange-70 !important;
 }
 
-.LightBlueText {
+.YellowForeground {
+  @apply text-yellow-70 !important;
+}
+
+.GreenForeground {
+  @apply text-green-70 !important;
+}
+
+.AcquaForeground {
+  @apply text-acqua-70 !important;
+}
+
+.LightBlueForeground {
   @apply text-lightBlue-70 !important;
 }
 
-:global(.dark) .VioletText {
-  @apply text-white !important;
+.DarkBlueForeground {
+  @apply text-darkBlue-70 !important;
+}
+
+.IndigoForeground {
+  @apply text-indigo-70 !important;
+}
+
+:global(.dark) .IndigoText {
+  @apply text-gray-40 !important;
 }

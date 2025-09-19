@@ -1,20 +1,3 @@
-/* Styles for headings inside markdown */
-h1,
-h2 {
-  @apply font-bold leading-tight tracking-tight mb-5;
-}
-
-h2,
-h4,
-h5,
-h6 {
-  @apply mt-12;
-}
-
-h3 {
-  @apply mt-8;
-}
-
 /* Size modifiers */
 
 h1 {
@@ -41,6 +24,24 @@ h6 {
   @apply text-base;
 }
 
+/* Styles for headings inside markdown */
+h1,
+h2 {
+  @apply font-bold leading-tight tracking-tight mb-5;
+}
+
+h2,
+h4,
+h5,
+h6 {
+  @apply mt-12;
+  @apply leading-normal;
+}
+
+h3 {
+  @apply mt-8;
+}
+
 /* Dark mode modifiers */
 h1,
 h2,
@@ -48,7 +49,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply dark:text-white;
+  @apply dark:text-gray-40;
 }
 
 /* Margin modifiers */
@@ -69,15 +70,15 @@ a {
 }
 
 p {
-  @apply mb-4 text-gray-90 break-words dark:text-white;
+  @apply mb-4 text-gray-90 break-words dark:text-gray-40;
 }
 
 summary {
-  @apply mb-4 text-gray-90 dark:text-white;
+  @apply mb-4 text-gray-90 dark:text-gray-40;
 }
 
 sup a {
-  @apply underline hover:no-underline dark:text-white;
+  @apply underline hover:no-underline dark:text-gray-40;
 }
 
 p:last-child,
@@ -89,8 +90,9 @@ li p:only-child {
   @apply font-mono font-normal break-words;
 }
 
-.bold {
-  @apply font-bold;
+.bold,
+strong {
+  @apply font-bold dark:font-extrabold;
 }
 
 ol + p,
@@ -98,7 +100,7 @@ ul + p {
   @apply mt-8;
 }
 
-/* Focuss styles */
+/* Focus styles */
 a:focus,
 a:focus-visible,
 button:focus,
@@ -107,21 +109,17 @@ button:focus-visible {
 }
 
 /* Inline code blocks */
-p > code,
-li > code {
-  @apply border border-gray-40 text-red-70 rounded-md px-1 mx-1 break-words;
-}
-
-p a code {
-  @apply border-none p-0;
+p code, li>code, li>a>code,
+/* Inline code blocks in docstrings */
+tt.docutils.literal {
+  @apply break-words px-1 rounded;
+  @apply text-green-80 bg-green-80/5;
+  @apply dark:text-green-50 dark:bg-green-50/10;
+  @apply text-base;
+  line-height: inherit;
 }
 
 /* One-line code descriptions in docstrings */
 div.code-desc {
-  @apply mb-4 text-gray-90 dark:text-white;
-}
-
-/* Inline code blocks in docstrings */
-tt.docutils.literal {
-  @apply border border-gray-40 text-red-70 rounded-md px-1 mx-1 break-words;
+  @apply mb-4 text-gray-90 dark:text-gray-40;
 }

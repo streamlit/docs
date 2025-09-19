@@ -1,23 +1,30 @@
 const dotenv = require("dotenv");
 const fs = require("fs");
 const path = require("path");
-const utils = require("../lib/utils.js");
-const contentDirectory = path.join(process.cwd(), ".next/server/pages");
 const parser = require("node-html-parser");
 const algoliasearch = require("algoliasearch");
 const { convert } = require("html-to-text");
+
+const { breadcrumbsForSlug } = require("../lib/purejs/breadcrumbHelpers");
+const {
+  looksLikeVersionAndPlatformStringGeneric,
+} = require("../lib/purejs/versionHelpers");
+const { DEFAULT_PLATFORM, PLATFORM_VERSIONS } = require("../lib/node/defaults");
+
+const contentDirectory = path.join(process.cwd(), ".next/server/pages");
 
 const SKIP_THESE = [
   "/menu",
   "/404",
   "/500",
-  "/library/api-reference/performance/st.cache",
-  "/library/api-reference/performance/st.experimental_memo",
-  "/library/api-reference/performance/st.experimental_singleton",
-  "/library/api-reference/performance/st.experimental_singleton.clear",
-  "/library/api-reference/utilities/st.experimental_show",
-  "/library/advanced-features/st.cache",
-  "/library/advanced-features/experimental-cache-primitives",
+  "/develop/api-reference/caching-and-state/st.experimental_get_query_params",
+  "/develop/api-reference/caching-and-state/st.experimental_set_query_params",
+  "/develop/api-reference/connections/st.connections.experimentalbaseconnection",
+  "/develop/api-reference/connections/st.experimental_connection",
+  "/develop/api-reference/caching-and-state/st.experimental_memo",
+  "/develop/api-reference/caching-and-state/st.experimental_singleton",
+  "/develop/api-reference/execution-flow/st.experimental_rerun",
+  "/develop/api-reference/data/st.experimental_data_editor",
 ];
 
 function getAllFilesInDirectory(articleDirectory, files) {
@@ -60,20 +67,24 @@ function getAllFilesInDirectory(articleDirectory, files) {
 
   for (const index in pages) {
     let icon;
+    let color;
     let category;
     let breadCrumbs;
     // Parse each HTML file and get the content we need
     const contents = fs.readFileSync(pages[index], "utf8");
-    const url = pages[index].split(contentDirectory)[1].split(".html")[0];
+    const url = pages[index]
+      .split(contentDirectory)[1]
+      .match(/^(.*?)\.html$/)[1];
 
     if (url in data) {
       meta = JSON.parse(fs.readFileSync(data[url], "utf8"));
       if ("menu" in meta.pageProps) {
         menu = meta.pageProps.menu;
-        breadCrumbs = utils.breadcrumbsForSlug(menu, url);
+        breadCrumbs = breadcrumbsForSlug(menu, url);
         if (breadCrumbs.length > 0) {
           category = breadCrumbs[0].name;
           icon = breadCrumbs[0].icon ? breadCrumbs[0].icon : "text_snippet";
+          color = breadCrumbs[0].color ? breadCrumbs[0].color : "orange-70";
         }
       }
     }
@@ -112,11 +123,16 @@ function getAllFilesInDirectory(articleDirectory, files) {
     const meta_keywords = root.querySelector("meta[name=keywords]");
     const content = convert(
       root.querySelector("article").innerHTML,
-      compileOptions
+      compileOptions,
     );
     const slug = url.split("/");
-    const isnum = /^[\d\.]+$/.test(slug[1]);
-    const version = isnum ? slug[1] : "latest";
+    const version = looksLikeVersionAndPlatformStringGeneric(
+      slug[1],
+      DEFAULT_PLATFORM,
+      PLATFORM_VERSIONS,
+    )
+      ? slug[1]
+      : "latest";
 
     if (meta_keywords) {
       keywords = meta_keywords.getAttribute("content");
@@ -129,7 +145,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
 
     if ((!title && !sub_title) || !doc_title) {
       console.warn(
-        `!!! Skipping ${url} because the document has no title or H1 tag.`
+        `!!! Skipping ${url} because the document has no title or H1 tag.`,
       );
       continue;
     }
@@ -140,7 +156,16 @@ function getAllFilesInDirectory(articleDirectory, files) {
 
     if (!content) {
       console.warn(
-        `!!! Skipping ${url} because the document has no ARTICLE tag.`
+        `!!! Skipping ${url} because the document has no ARTICLE tag.`,
+      );
+      continue;
+    }
+
+    if (content.length > 100000) {
+      console.warn(
+        `!!! Skipping ${url} the content is too long.`,
+        "See https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/how-to/reducing-object-size/",
+        "for solutions.",
       );
       continue;
     }
@@ -151,6 +176,7 @@ function getAllFilesInDirectory(articleDirectory, files) {
       url: url,
       category: category,
       icon: icon,
+      color: color,
       version: version,
       keywords: keywords,
     });
@@ -160,10 +186,8 @@ function getAllFilesInDirectory(articleDirectory, files) {
 
   console.log(`... uploading ${to_index.length} pages to Algolia.`);
 
-  const client = algoliasearch(
-    "XNXFGO6BQ1",
-    "ddc64745f583d66008a2777620d27517"
-  );
+  const client = algoliasearch("XNXFGO6BQ1", process.env.ALGOLIA_SECRET);
+
   const index = client.initIndex("documentation");
   const tmp_index = client.initIndex("documentation_tmp");
 
@@ -191,5 +215,6 @@ function getAllFilesInDirectory(articleDirectory, files) {
     })
     .catch((err) => {
       console.error(err);
+      process.exit(1);
     });
 })();

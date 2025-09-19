@@ -3,6 +3,7 @@ import classNames from "classnames";
 import Link from "next/link";
 
 import styles from "./tile.module.css";
+import { useRouter } from "next/router";
 
 const Tile = ({
   img,
@@ -23,12 +24,12 @@ const Tile = ({
     size === "full"
       ? styles.Full
       : size === "half"
-      ? styles.Half
-      : size === "third"
-      ? styles.Third
-      : size === "two-third"
-      ? styles.TwoThirds
-      : styles.Third;
+        ? styles.Half
+        : size === "third"
+          ? styles.Third
+          : size === "two-third"
+            ? styles.TwoThirds
+            : styles.Third;
 
   useEffect(() => {
     window.addEventListener("ChangeTheme", handleTheme);
@@ -53,37 +54,45 @@ const Tile = ({
     );
   }
 
-  const backgroundColor =
-    background === "orange-70"
-      ? styles.OrangeBackground
-      : background === "violet-70"
-      ? styles.VioletBackground
-      : background === "unset"
-      ? styles.TransparentBackground
-      : styles.BlueBackground;
+  const backgroundColor = BG_CLASS[background];
+  const router = useRouter();
 
   return (
     <div
       className={classNames(
         styles.Container,
         tileSize || "third",
-        backgroundColor
+        backgroundColor,
       )}
     >
-      <Link href={link || "/"}>
-        <a className={classNames("not-link", styles.Link)}>
-          {image}
-          <div>
-            <h4 className={styles.Title}>{title || "Install Streamlit"}</h4>
-            <p className={styles.Text}>
-              {text ||
-                "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia."}
-            </p>
-          </div>
-        </a>
+      <Link
+        href={{ pathname: link || "/", query: router.query }}
+        className={classNames("not-link", styles.Link)}
+      >
+        {image}
+        <div>
+          <h4 className={styles.Title}>{title || "Install Streamlit"}</h4>
+          <p className={styles.Text}>
+            {text ||
+              "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia."}
+          </p>
+        </div>
       </Link>
     </div>
   );
+};
+
+const BG_CLASS = {
+  "red-70": styles.RedBackground,
+  "orange-70": styles.OrangeBackground,
+  "yellow-70": styles.YellowBackground,
+  "green-70": styles.GreenBackground,
+  "acqua-70": styles.AcquaBackground,
+  "lightBlue-70": styles.LightBlueBackground,
+  "darkBlue-70": styles.DarkBlueBackground,
+  "indigo-70": styles.IndigoBackground,
+  "gray-70": styles.GrayBackground,
+  unset: styles.TransparentBackground,
 };
 
 export default Tile;

@@ -6,6 +6,12 @@
   @apply flex items-center p-2 mr-4 xl:mr-4 mb-0 rounded-md;
 }
 
+/* Design pass needed.
+Centering the text under the icons when condensed creates misalignment.
+Either complete the details for center alignment, or remove this to leave it left
+justified. The condensed menu requires hover to expand, which isn't mobile-friendly.*/
+
+/*
 .CondensedHeadingContainer {
   @apply lg:flex-wrap lg:justify-center lg:text-center lg:w-min;
 }
@@ -13,22 +19,43 @@
 .CondensedHeadingIconContainer {
   @apply lg:mr-0;
 }
+*/
 
 .Icon {
   @apply text-white !important;
 }
 
 /* Colors for heading icons */
-.LibraryIcon {
-  @apply bg-indigo-70;
+.RedBackground {
+  @apply bg-red-70;
 }
 
-.CloudIcon {
+.OrangeBackground {
+  @apply bg-orange-70;
+}
+
+.YellowBackground {
+  @apply bg-yellow-70;
+}
+
+.GreenBackground {
+  @apply bg-green-70;
+}
+
+.AcquaBackground {
+  @apply bg-acqua-70;
+}
+
+.LightBlueBackground {
   @apply bg-lightBlue-70;
 }
 
-.KBIcon {
-  @apply bg-orange-70;
+.DarkBlueBackground {
+  @apply bg-darkBlue-70;
+}
+
+.IndigoBackground {
+  @apply bg-indigo-70;
 }
 
 .CategoryName {
@@ -37,7 +64,7 @@
 }
 
 :global(.dark) .CategoryName {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 .CondensedCategoryName {
@@ -45,16 +72,36 @@
 }
 
 /* Colors for active categories */
-.LibraryCategory {
-  @apply text-indigo-70 !important;
+.RedForeground {
+  @apply text-red-70;
 }
 
-.CloudCategory {
-  @apply text-lightBlue-70 !important;
+.OrangeForeground {
+  @apply text-orange-70;
 }
 
-.KBCategory {
-  @apply text-orange-70 !important;
+.YellowForeground {
+  @apply text-yellow-70;
+}
+
+.GreenForeground {
+  @apply text-green-70;
+}
+
+.AcquaForeground {
+  @apply text-acqua-70;
+}
+
+.LightBlueForeground {
+  @apply text-lightBlue-70;
+}
+
+.DarkBlueForeground {
+  @apply text-darkBlue-70;
+}
+
+.IndigoForeground {
+  @apply text-indigo-70;
 }
 
 /* Subnav styles */

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
-import { getMenu, getGDPRBanner } from "../lib/api";
+import { getMenu } from "../lib/node/api";
 
 import Layout from "../components/layouts/globalTemplate";
 import Footer from "../components/navigation/footer";
@@ -10,7 +11,10 @@ import SideBar from "../components/navigation/sideBar";
 import ArrowLinkContainer from "../components/navigation/arrowLinkContainer";
 import ArrowLink from "../components/navigation/arrowLink";
 
-import GDPRBanner from "../components/utilities/gdpr";
+import GDPRBanner, {
+  setTelemetryPreference,
+} from "../components/utilities/gdpr";
+import CookieSettingsModal from "../components/utilities/cookieSettingsModal";
 import SocialCallouts from "../components/utilities/socialCallout";
 import Spacer from "../components/utilities/spacer";
 
@@ -31,8 +35,32 @@ import { attributes } from "../content/index.md";
 
 import styles from "../components/layouts/container.module.css";
 
-export default function Home({ window, menu, gdpr_data }) {
+export default function Home({ window, menu }) {
   let { description } = attributes;
+
+  const [isTelemetryModalVisible, setIsTelemetryModalVisible] = useState(false);
+  const [isTelemetryBannerVisible, setIsTelemetryBannerVisible] =
+    useState(false);
+  const [insertTelemetryCode, setInsertTelemetryCode] = useState(false);
+
+  const router = useRouter();
+
+  const allowTelemetryAndCloseBanner = useCallback(() => {
+    setIsTelemetryBannerVisible(false);
+    setIsTelemetryModalVisible(false);
+    setInsertTelemetryCode(true);
+    setTelemetryPreference(true);
+  }, [isTelemetryBannerVisible, insertTelemetryCode]);
+
+  const declineTelemetryAndCloseBanner = useCallback(() => {
+    setIsTelemetryBannerVisible(false);
+    setIsTelemetryModalVisible(false);
+    setInsertTelemetryCode(false);
+    setTelemetryPreference(false);
+
+    // If previous state was true, and now it's false, reload the page to remove telemetry JS
+    if (insertTelemetryCode) router.reload();
+  }, [isTelemetryBannerVisible, insertTelemetryCode]);
 
   return (
     <Layout window={window}>
@@ -66,7 +94,23 @@ export default function Home({ window, menu, gdpr_data }) {
           content={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-twitter.jpg`}
         />
       </Head>
-      <GDPRBanner {...gdpr_data} />
+      {isTelemetryModalVisible && (
+        <CookieSettingsModal
+          setIsTelemetryModalVisible={setIsTelemetryModalVisible}
+          allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
+          declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
+        />
+      )}
+      <GDPRBanner
+        isTelemetryModalVisible={isTelemetryModalVisible}
+        setIsTelemetryModalVisible={setIsTelemetryModalVisible}
+        isTelemetryBannerVisible={isTelemetryBannerVisible}
+        setIsTelemetryBannerVisible={setIsTelemetryBannerVisible}
+        insertTelemetryCode={insertTelemetryCode}
+        setInsertTelemetryCode={setInsertTelemetryCode}
+        allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
+        declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
+      />
       <section className={styles.Container}>
         <SideBar menu={menu} slug={[]} />
         <section className={styles.InnerContainer}>
@@ -74,10 +118,9 @@ export default function Home({ window, menu, gdpr_data }) {
             <H1>Streamlit documentation</H1>
             <p>
               <a href="https://www.streamlit.io">Streamlit</a> is an open-source
-              Python library that makes it easy to create and share beautiful,
-              custom web apps for machine learning and data science. In just a
-              few minutes you can build and deploy powerful data apps. So let's
-              get started!
+              Python framework for data scientists and AI/ML engineers to
+              deliver dynamic data apps with only a few lines of code. Build and
+              deploy powerful data apps in minutes. Let's get started!
             </p>
 
             <Spacer size="2rem" />
@@ -96,35 +139,45 @@ export default function Home({ window, menu, gdpr_data }) {
             <H2>How to use our docs</H2>
             <InlineCalloutContainer>
               <InlineCallout
-                color="violet-70"
-                icon="description"
-                bold="Streamlit library"
-                href="/library/get-started"
-              >
-                includes our Get started guide, API reference, and more advanced
-                features of the core library including caching, theming, and
-                Streamlit Components.
-              </InlineCallout>
-              <InlineCallout
-                color="l-blue-70"
-                icon="cloud"
-                bold="Streamlit Community Cloud"
-                href="/streamlit-community-cloud"
-              >
-                is an open and free platform for the community to deploy,
-                discover, and share Streamlit apps and code with each other.
-                Create a new app, share it with the community, get feedback,
-                iterate quickly with live code updates, and have an impact!
-              </InlineCallout>
-              <InlineCallout
                 color="orange-70"
+                icon="rocket_launch"
+                bold="Get started"
+                href="/get-started"
+              >
+                with Streamlit! Set up your development environment and learn
+                the fundamental concepts, and start coding!
+              </InlineCallout>
+              <InlineCallout
+                color="indigo-70"
+                icon="description"
+                bold="Develop"
+                href="/develop"
+              >
+                your Streamlit app! Our API reference explains each Streamlit
+                function with examples. Dive deep into all of our features with
+                conceptual guides. Try out our step-by-step tutorials.
+              </InlineCallout>
+              <InlineCallout
+                color="lightBlue-70"
+                icon="cloud"
+                bold="Deploy"
+                href="/deploy"
+              >
+                your Streamlit app! Streamlit Community Cloud our free platform
+                for deploying and sharing Streamlit apps. Streamlit in Snowflake
+                is an enterprise-class solution where you can house your data
+                and apps in one, unified, global system. Explore all your
+                options!
+              </InlineCallout>
+              <InlineCallout
+                color="darkBlue-70"
                 icon="school"
                 bold="Knowledge base"
                 href="/knowledge-base"
               >
-                is a self-serve library of tips, step-by-step tutorials, and
-                articles that answer your questions about creating and deploying
-                Streamlit apps.
+                is a self-serve library of tips, tricks, and articles that
+                answer your questions about creating and deploying Streamlit
+                apps.
               </InlineCallout>
               {/* <InlineCallout color="green-70" icon="code" bold="Cookbook" href="/cookbook">
                 provides short code snippets that you can copy in for specific use cases.
@@ -139,95 +192,68 @@ export default function Home({ window, menu, gdpr_data }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/knowledge-base/tutorials/build-conversational-apps"
+                href="/develop/api-reference/media/st.pdf?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">chat</i>
-                <h4>Chat elements</h4>
+                <i className="material-icons-sharp">description</i>
+                <h4>PDF viewer</h4>
                 <p>
-                  Introducing <code>st.chat_message</code> and{" "}
-                  <code>st.chat_input</code> — two new chat elements that let
-                  you build conversational apps. Learn how to use these features
-                  in your LLM-powered chat apps in our tutorial.
+                  You can display a PDF file with <code>st.pdf</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/advanced-features/caching#the-hash_funcs-parameter"
+                href="/develop/api-reference/data/st.dataframe?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">tag</i>
+                <i className="material-icons-sharp">ads_click</i>
+                <h4>Dataframe cell selection</h4>
+                <p>
+                  <code>st.dataframe</code> supports single and multiple cell
+                  selections.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/data/st.metric?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">show_chart</i>
+                <h4>Metric sparklines</h4>
+                <p>
+                  You can add sparklines to <code>st.metric</code>.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/data/st.column_config/st.column_config.listcolumn?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">settings</i>
                 <h4>
-                  <code>hash_funcs</code>
+                  Editable <code>ListColumn</code>
                 </h4>
                 <p>
-                  Streamlit's caching decorators now allow you to customize
-                  Streamlit's hashing of input parameters with the keyword-only
-                  argument
-                  <code>hash_funcs</code>. Click to read the docs.
+                  <code>ListColumn</code> supports editing.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="https://blog.streamlit.io/introducing-column-config/"
+                href="/develop/api-reference/widgets/st.file_uploader?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">settings_suggest</i>
-                <h4>Configure data editor columns!</h4>
+                <i className="material-icons-sharp">folder</i>
+                <h4>Directory upload</h4>
                 <p>
-                  Introducing the Column configuration API with a suite of
-                  methods to configure the display and editing behavior of{" "}
-                  <code>st.dataframe</code>
-                  and <code>st.data_editor</code> columns.
+                  Users can upload all files in a directory with{" "}
+                  <code>st.file_uploader</code> and <code>st.chat_input</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/library/advanced-features/connecting-to-data"
+                href="/develop/api-reference/status/st.toast?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">electrical_services</i>
-                <h4>st.experimental_connection</h4>
+                <i className="material-icons-sharp">timer</i>
+                <h4>Toast duration</h4>
                 <p>
-                  Introducing <code>st.experimental_connection</code> to let you
-                  easily connect your app to data sources and APIs.
+                  You can configure the duration of <code>st.toast</code>.
                 </p>
               </RefCard>
-              <RefCard
-                size="third"
-                href="/library/api-reference/utilities/st.help"
-              >
-                <i className="material-icons-sharp">help</i>
-                <h4>Supercharged st.help!</h4>
-                <p>
-                  <code>st.help</code> has been revamped to show more
-                  information about object methods, attributes, classes, and
-                  more, which is great for debugging!
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/library/advanced-features/dataframes"
-              >
-                <i className="material-icons-sharp">edit_note</i>
-                <h4>Editable dataframes!</h4>
-                <p>
-                  Announcing the general availability of{" "}
-                  <code>st.data_editor</code>, a widget that allows you to edit
-                  dataframes and many other data structures in a table-like UI.
-                </p>
-              </RefCard>
-              {/* <Tile
-                size="half"
-                background="unset"
-                color="unset"
-                dark={{
-                  background: "unset",
-                  color: "white",
-                  border_color: "gray-90",
-                }}
-                border_color="gray-40"
-                img="/logo.svg"
-                title="Clear memo + singleton caches procedurally"
-                text="Do you need more control over cache invalidation? Any function annotated with @st.cache_data or @st.cache_resource gets its own clear() function automatically."
-                link="/library/advanced-features/experimental-cache-primitives#clear-memo-and-singleton-caches-procedurally"
-              /> */}
             </TileContainer>
 
             <H2 className="no-b-m">Latest blog posts</H2>
@@ -256,14 +282,10 @@ export default function Home({ window, menu, gdpr_data }) {
           <SocialCallouts />
 
           <ArrowLinkContainer>
-            <ArrowLink
-              link="/library/get-started"
-              type="next"
-              content="Get started"
-            />
+            <ArrowLink link="/get-started" type="next" content="Get started" />
           </ArrowLinkContainer>
         </section>
-        <Footer />
+        <Footer setIsTelemetryModalVisible={setIsTelemetryModalVisible} />
       </section>
     </Layout>
   );
@@ -272,7 +294,6 @@ export default function Home({ window, menu, gdpr_data }) {
 export async function getStaticProps(context) {
   const props = {};
   props["menu"] = getMenu();
-  props["gdpr_data"] = await getGDPRBanner();
 
   return {
     props: props,

@@ -9,6 +9,11 @@
 
 .ContentContainer {
   @apply p-0 rounded-md w-96 overflow-x-hidden overflow-y-auto w-full h-full;
+  @apply bg-gray-10;
+}
+
+:global(.dark) .ContentContainer {
+  @apply bg-gray-90;
 }
 
 /* Search Bar */
@@ -21,7 +26,7 @@
 }
 
 :global(.dark) .SearchBar {
-  @apply text-white bg-gray-90 !important;
+  @apply text-gray-40 bg-gray-90 !important;
 }
 
 .SearchIcon {
@@ -42,7 +47,7 @@
 :global(.dark) .HotKey,
 :global(.dark) .SearchText,
 :global(.dark) .SearchIcon {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 /* Hits */
@@ -67,7 +72,43 @@
 }
 
 .IconContainer {
-  @apply relative overflow-hidden rounded-md bg-yellow-90 w-10 h-10;
+  @apply relative overflow-hidden rounded-md w-10 h-10;
+}
+
+.RedIcon {
+  @apply bg-red-70;
+}
+
+.OrangeIcon {
+  @apply bg-orange-70;
+}
+
+.YellowIcon {
+  @apply bg-yellow-70;
+}
+
+.GreenIcon {
+  @apply bg-green-70;
+}
+
+.AcquaIcon {
+  @apply bg-acqua-70;
+}
+
+.LightBlueIcon {
+  @apply bg-lightBlue-70;
+}
+
+.DarkBlueIcon {
+  @apply bg-darkBlue-70;
+}
+
+.IndigoIcon {
+  @apply bg-indigo-70;
+}
+
+.GrayIcon {
+  @apply bg-gray-70;
 }
 
 .ImageContainer {
@@ -83,6 +124,42 @@
   @apply pr-8 flex-1;
 }
 
+.RedHighlight em {
+  @apply border-b-red-70;
+}
+
+.OrangeHighlight em {
+  @apply border-b-orange-70;
+}
+
+.YellowHighlight em {
+  @apply border-b-yellow-70;
+}
+
+.GreenHighlight em {
+  @apply border-b-green-70;
+}
+
+.AcquaHighlight em {
+  @apply border-b-acqua-70;
+}
+
+.LightBlueHighlight em {
+  @apply border-b-lightBlue-70;
+}
+
+.DarkBlueHighlight em {
+  @apply border-b-darkBlue-70;
+}
+
+.IndigoHighlight em {
+  @apply border-b-indigo-70;
+}
+
+.GrayHighlight em {
+  @apply border-b-gray-70;
+}
+
 .HitCategory {
   @apply mb-0 text-xs tracking-tight leading-4 font-normal;
   @apply text-gray-70 !important;
@@ -94,5 +171,5 @@
 }
 
 :global(.dark) .HitTitle {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }

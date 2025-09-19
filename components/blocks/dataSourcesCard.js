@@ -8,16 +8,16 @@ const DataSourcesCard = ({ children, size, href }) => {
     size === "full"
       ? styles.Full
       : size === "half"
-      ? styles.Half
-      : size === "third"
-      ? styles.Third
-      : size === "two-third"
-      ? styles.TwoThirds
-      : styles.Fourth;
+        ? styles.Half
+        : size === "third"
+          ? styles.Third
+          : size === "two-third"
+            ? styles.TwoThirds
+            : styles.Fourth;
 
   return (
-    <Link href={href}>
-      <a className={classNames(styles.Container, tileSize)}>{children}</a>
+    <Link href={href} className={classNames(styles.Container, tileSize)}>
+      {children}
     </Link>
   );
 };

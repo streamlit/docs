@@ -1,0 +1,7 @@
+[theme]
+base="dark"
+borderColor="mediumSlateBlue"
+showWidgetBorder=false
+
+[theme.sidebar]
+showWidgetBorder=true

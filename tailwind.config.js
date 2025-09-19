@@ -1,5 +1,5 @@
 module.exports = {
-  purge: [
+  content: [
     "./components/*.js",
     "./components/**/*.js",
     "./pages/*.js",
@@ -16,6 +16,7 @@ module.exports = {
       lg: "1024px",
       xl: "1280px",
       "2xl": "1448px",
+      "3xl": "1600px",
     },
     fontFamily: {
       sans: [
@@ -41,6 +42,7 @@ module.exports = {
 
     fontSize: {
       // Defaults are: https://tailwindcss.com/docs/font-size
+      "2xs": ["0.667rem", { lineHeight: "1.25rem", letterSpacing: "0.1em" }],
       xs: ["0.75rem", { lineHeight: "1.5rem", letterSpacing: "0.1em" }],
       sm: ["0.875rem", { lineHeight: "1.75rem", letterSpacing: "0.05em" }],
       base: ["1rem", { lineHeight: "2rem" }],
@@ -166,10 +168,10 @@ module.exports = {
         100: "#0e1117",
       },
       white: "#ffffff",
+      transparent: "transparent",
       brand: {
         GitHub: "#24292F",
         Reddit: "#ff4500",
-        Discord: "#5865f2",
         YouTube: "#ff0000",
         Twitter: "#1da1f2",
         LinkedIn: "#0a66c2",

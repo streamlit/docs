@@ -1,5 +1,5 @@
 .Container {
-  @apply relative rounded-md border border-gray-30 text-base cursor-pointer transition-all duration-75 flex flex-col z-10;
+  @apply relative rounded-md border border-gray-30 text-base cursor-pointer transition-all duration-75 flex flex-col z-20;
 }
 
 .Container:hover {
@@ -52,7 +52,7 @@
 }
 
 :global(.dark) .Container i {
-  @apply text-white;
+  @apply text-gray-40;
 }
 
 :global(.dark) .Container h1,
@@ -63,11 +63,11 @@
 :global(.dark) .Container h6,
 :global(.dark) .Container p,
 :global(.dark) .Container a {
-  @apply text-white;
+  @apply text-gray-40;
 }
 
-:global(.dark) .Container section div pre {
-  @apply bg-gray-90 text-white;
+:global(.dark) .Container section div {
+  @apply bg-gray-90 text-gray-40;
 }
 
 :global(.dark) .Container img {
@@ -112,6 +112,10 @@
   @apply hidden;
 }
 
+.Container h4 code {
+  overflow-wrap: anywhere;
+}
+
 /* Deprecation notice */
 .Container i.DeprecatedIcon {
   @apply absolute -right-2 top-0 cursor-pointer;
@@ -147,45 +151,42 @@
 
 .Container section div {
   @apply flex flex-col flex-1;
-}
-
-.Container section div pre {
   @apply m-0 rounded-none p-4 h-full text-sm tracking-tight;
   @apply bg-gray-10;
   @apply text-gray-80;
 }
 
 /* Code block adjustments */
-.Container section div pre code :global(.operator) {
+.Container section div code :global(.operator) {
   @apply text-yellow-90;
 }
 
-.Container section div pre code :global(.decorator) {
+.Container section div code :global(.decorator) {
   @apply text-yellow-100;
 }
 
-.Container section div pre code :global(.keyword) {
+.Container section div code :global(.keyword) {
   @apply text-darkBlue-70;
 }
 
-.Container section div pre code :global(.builtin) {
+.Container section div code :global(.builtin) {
   @apply text-lightBlue-80;
 }
 
-.Container section div pre code :global(.string) {
+.Container section div code :global(.string) {
   @apply text-green-80;
 }
 
-.Container section div pre code :global(.number) {
+.Container section div code :global(.number) {
   @apply text-red-90;
 }
 
-.Container section div pre code :global(.function) {
+.Container section div code :global(.function) {
   @apply text-red-60;
 }
 
-.Container section div pre code :global(.comment),
-.Container section div pre code :global(.punctuation) {
+.Container section div code :global(.comment),
+.Container section div code :global(.punctuation) {
   @apply text-gray-60;
 }
 

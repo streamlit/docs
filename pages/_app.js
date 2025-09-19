@@ -1,7 +1,6 @@
-import { debounce } from "lodash";
-
 import "../styles/globals.css";
 import "../components/utilities/searchModal.css";
+import "../components/utilities/kapaModal.css";
 import "../styles/main.scss";
 import "../public/fonts/styles.css";
 
@@ -11,7 +10,7 @@ import NProgress from "nprogress";
 
 import { useEffect } from "react";
 
-import { AppContextProvider } from "../context/AppContext";
+import { VersionContextProvider } from "../lib/next/VersionContext";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -19,15 +18,19 @@ Router.events.on("routeChangeError", () => NProgress.done());
 
 function StreamlitDocs({ Component, pageProps }) {
   useEffect(() => {
-    if (navigator.platform.match("Mac") === null) {
+    if (navigator.platform.includes("Mac")) {
       document.body.classList.add("mac");
     }
   }, []);
 
   return (
-    <AppContextProvider>
+    <VersionContextProvider
+      versionFromSlug={pageProps.versionFromSlug}
+      platformFromSlug={pageProps.platformFromSlug}
+      currentItem={pageProps.currentItem}
+    >
       <Component {...pageProps} />
-    </AppContextProvider>
+    </VersionContextProvider>
   );
 }
 

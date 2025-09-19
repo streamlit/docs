@@ -10,13 +10,17 @@ up:
 start:
 	npm run start
 
-.PHONY: build
-build:
-	npm run build
-
 .PHONY: export
-export:
+export: llms llms-full
 	npm run export
+
+.PHONY: llms
+llms:
+	uv run python/generate_llms_txt.py
+
+.PHONY: llms-full
+llms-full:
+	uv run python/generate_llms_full_txt.py
 
 .PHONY: lint
 lint:

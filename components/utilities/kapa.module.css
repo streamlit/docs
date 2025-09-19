@@ -1,0 +1,66 @@
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(5deg) scale(1.25);
+  }
+  70% {
+    transform: rotate(-5deg) scale(1.25);
+  }
+  80% {
+    transform: rotate(5deg) scale(1.25);
+  }
+  90% {
+    transform: rotate(-5deg) scale(1.25);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.AskButtonContainer {
+  @apply flex justify-end;
+}
+
+.AskButton {
+  @apply flex items-center justify-center p-0 rounded-md h-8 px-4 cursor-pointer bg-gray-100 text-white hover:opacity-90 hover:shadow-sm;
+  animation: wiggle 2s 1;
+}
+
+.AskButton:hover {
+  transform: scale(1.025);
+}
+
+.AskButton:focus,
+.AskButton:focus-visible {
+  @apply outline-0;
+}
+
+:global(.dark) .AskButton {
+  @apply text-gray-100 bg-gray-40 !important;
+}
+
+.AskIcon {
+  @apply text-lg m-0 pr-2 group-hover:opacity-70;
+  @apply text-white !important;
+}
+
+:global(.dark) .AskIcon {
+  @apply text-gray-100 !important;
+}
+
+.Tooltip {
+  @apply hidden absolute top-20 right-[4.5rem] h-8 px-2 pt-0.5 rounded-md bg-gray-20;
+}
+
+.Tooltip p {
+  @apply text-gray-70;
+}
+
+:global(.dark) .Tooltip {
+  @apply bg-gray-90;
+}

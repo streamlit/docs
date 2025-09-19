@@ -1,5 +1,5 @@
 .Container {
-  @apply text-sm tracking-tight dark:text-white mb-4;
+  @apply text-sm tracking-tight dark:text-gray-40 mb-4;
 }
 
 .List {
@@ -16,15 +16,20 @@
 }
 
 .ExternalIcon {
-  @apply relative z-10 cursor-pointer text-sm ml-1;
-  @apply text-gray-80 !important;
+  @apply relative z-10 cursor-pointer text-sm ml-1 -my-2;
+  @apply text-gray-70 !important;
+}
+
+.CrossLinkedIcon {
+  @apply relative z-10 cursor-pointer text-xl ml-1 -my-2;
+  @apply text-gray-70 !important;
 }
 
 :global(.dark) .AccordionIcon,
 :global(.dark) .ExternalIcon,
 :global(.dark) .ActivePage,
 :global(.dark) .ActivePage ~ .Icon {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }
 
 .LinkContainer {
@@ -37,7 +42,24 @@
 }
 
 .Icon {
-  @apply text-base relative left-1 -top-[1px];
+  @apply text-base relative left-1 -top-[1px] -my-2;
+}
+
+.DividerText {
+  @apply grow-0;
+  @apply text-gray-70 uppercase tracking-widest leading-5;
+  @apply mr-1;
+
+  font-size: 0.625rem;
+}
+
+.DividerLine {
+  @apply grow;
+  @apply text-gray-30;
+}
+
+:global(.dark) .DividerLine {
+  @apply text-gray-90;
 }
 
 .Circle {
@@ -49,7 +71,7 @@
 }
 
 :global(.dark) .PageName:not(.ActivePage) {
-  @apply text-gray-40 !important;
+  @apply text-gray-50 !important;
 }
 
 .ActivePage {
@@ -62,14 +84,34 @@
 }
 
 /* Colors for circles */
-.LibraryCircle {
-  @apply bg-indigo-70;
+.RedCircle {
+  @apply bg-red-70;
 }
 
-.CloudCircle {
+.OrangeCircle {
+  @apply bg-orange-70;
+}
+
+.YellowCircle {
+  @apply bg-yellow-70;
+}
+
+.GreenCircle {
+  @apply bg-green-70;
+}
+
+.AcquaCircle {
+  @apply bg-acqua-70;
+}
+
+.LightBlueCircle {
   @apply bg-lightBlue-70;
 }
 
-.KBCircle {
-  @apply bg-orange-70;
+.DarkBlueCircle {
+  @apply bg-darkBlue-70;
+}
+
+.IndigoCircle {
+  @apply bg-indigo-70;
 }

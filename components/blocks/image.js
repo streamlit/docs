@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 
 import styles from "./image.module.css";
 
-const Image = ({ caption, pure, src, alt, clean }) => {
+const Image = ({ caption, pure, src, alt, clean, frame }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -13,6 +13,22 @@ const Image = ({ caption, pure, src, alt, clean }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
+
+  const borderStyle = frame ? styles.ImageBorder : "";
+
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.keyCode === 27) closeModal();
+    };
+
+    if (isOpen) {
+      window.addEventListener("keydown", handleEsc);
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [isOpen]);
 
   let block;
   let customCaption;
@@ -32,12 +48,12 @@ const Image = ({ caption, pure, src, alt, clean }) => {
             onClick={openModal}
             src={src}
             alt={alt}
-            className={classNames(captionClass, styles.Image)}
+            className={classNames(captionClass, styles.Image, borderStyle)}
           />
           {customCaption}
         </section>
         <section className={styles.LightBox} onClick={closeModal}>
-          <button className={styles.CloseButton} onClick={openModal}>
+          <button className={styles.CloseButton} onClick={closeModal}>
             close
           </button>
           <section className={styles.ImageContainer}>
@@ -64,7 +80,7 @@ const Image = ({ caption, pure, src, alt, clean }) => {
         <section className={styles.InnerContainer}>
           <img
             onClick={openModal}
-            className={classNames(captionClass, styles.Image)}
+            className={classNames(captionClass, styles.Image, borderStyle)}
             src={src}
             alt={alt}
           />

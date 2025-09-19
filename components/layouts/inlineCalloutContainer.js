@@ -1,7 +1,9 @@
 import styles from "./inlineCalloutContainer.module.css";
 
-const InlineCalloutContainer = ({ children }) => {
-  return <section className={styles.Container}>{children}</section>;
+const InlineCalloutContainer = ({ children, spacing }) => {
+  const spacingClass = spacing ? styles.SingletonContainer : styles.Container;
+
+  return <section className={spacingClass}>{children}</section>;
 };
 
 export default InlineCalloutContainer;

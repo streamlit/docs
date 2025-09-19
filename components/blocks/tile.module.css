@@ -42,16 +42,37 @@
 }
 
 /* Color modifiers */
+
+.RedBackground {
+  @apply bg-red-70;
+}
+
 .OrangeBackground {
   @apply bg-orange-70;
 }
 
-.VioletBackground {
-  @apply bg-indigo-70;
+.YellowBackground {
+  @apply bg-yellow-70;
 }
 
-.BlueBackground {
+.GreenBackground {
+  @apply bg-green-70;
+}
+
+.AcquaBackground {
+  @apply bg-acqua-70;
+}
+
+.LightBlueBackground {
   @apply bg-lightBlue-70;
+}
+
+.DarkBlueBackground {
+  @apply bg-darkBlue-70;
+}
+
+.IndigoBackground {
+  @apply bg-indigo-70;
 }
 
 .TransparentBackground a {
@@ -71,5 +92,5 @@
 :global(.dark) .TransparentBackground i,
 :global(.dark) .TransparentBackground h4,
 :global(.dark) .TransparentBackground p {
-  @apply text-white !important;
+  @apply text-gray-40 !important;
 }

@@ -1,0 +1,128 @@
+.mantine-Modal-overlay {
+  background-color: rgba(166, 168, 184, 0.6) !important;
+}
+
+.mantine-Paper-root {
+  @apply bg-white dark:bg-gray-90;
+}
+
+.mantine-Modal-header,
+.mantine-Modal-header h3 {
+  @apply bg-white dark:bg-gray-90 text-gray-90 dark:text-gray-40 border-b-0 font-normal tracking-wide;
+}
+
+.mantine-Modal-header > .mantine-Group-root:first-child .mantine-Image-root {
+  @apply hidden;
+}
+
+.mantine-Modal-body,
+.mantine-Modal-body a,
+.mantine-Modal-body .mantine-List-root,
+.mantine-Modal-body .mantine-List-item {
+  @apply bg-white dark:bg-gray-90;
+  @apply text-gray-90 dark:text-gray-40;
+}
+
+.mantine-Paper-root
+  > .mantine-Modal-body
+  > .mantine-Modal-body
+  > div:first-child
+  > div:first-child:has(.mantine-Text-root) {
+  @apply bg-gray-20 dark:bg-gray-80;
+}
+
+.mantine-Paper-root
+  > .mantine-Modal-body
+  > .mantine-Modal-body
+  > div:first-child
+  > div:first-child
+  .mantine-Text-root {
+  @apply text-gray-70 dark:text-gray-50;
+}
+
+.mantine-Group-root button {
+  @apply text-gray-70;
+}
+
+.mantine-Group-root button:hover {
+  @apply bg-gray-20 dark:bg-gray-80;
+}
+
+.mantine-Input-input {
+  @apply bg-white dark:bg-gray-90 border-gray-70 focus:border-orange-70 text-gray-90 dark:text-gray-40;
+}
+
+.mantine-Input-rightSection > .mantine-Group-root > .mantine-ActionIcon-root {
+  @apply bg-white dark:bg-gray-90 border-none text-orange-70 !important;
+}
+
+.mantine-Input-rightSection
+  > .mantine-Group-root
+  > .mantine-ActionIcon-root
+  svg {
+  @apply scale-150 hover:scale-[1.6];
+}
+
+.mantine-Code-root {
+  @apply bg-transparent border border-gray-40 dark:border-gray-80 rounded-md text-red-70 px-1 mx-1;
+}
+
+.mantine-Grid-root .mantine-Grid-col a {
+  @apply border-gray-20 dark:border-gray-80 bg-transparent;
+}
+
+.mantine-Grid-root .mantine-Grid-col a:hover {
+  @apply bg-gray-20 dark:bg-gray-80;
+}
+
+.mantine-Grid-root .mantine-Grid-col div {
+  @apply text-gray-90 dark:text-gray-40;
+}
+
+.mantine-Grid-root .mantine-Grid-col div.mantine-Tooltip-tooltip {
+  @apply bg-gray-80 dark:bg-gray-20 text-gray-50 dark:text-gray-70;
+}
+
+.mantine-Popover-dropdown,
+.mantine-Popover-arrow {
+  @apply bg-white dark:bg-gray-90 text-gray-90 dark:text-gray-40;
+}
+
+.mantine-Popover-dropdown .mantine-Button-root {
+  @apply text-white;
+}
+
+.mantine-Popover-dropdown h5 {
+  @apply text-gray-90 dark:text-gray-40;
+}
+
+.mantine-Checkbox-input {
+  @apply bg-gray-20 dark:bg-gray-80 border-gray-70;
+}
+
+.mantine-Checkbox-label {
+  @apply text-gray-90 dark:text-gray-40;
+}
+
+.mantine-Paper-root
+  > .mantine-Modal-body
+  > .mantine-Modal-body
+  > div:last-child {
+  @apply text-gray-70;
+}
+
+.mantine-Paper-root
+  > .mantine-Modal-body
+  > .mantine-Modal-body
+  > div:last-child
+  a {
+  @apply text-gray-70;
+}
+
+.mantine-Button-icon:has(.tabler-icon-player-stop) {
+  @apply hidden;
+}
+
+.mantine-Button-root:has(.tabler-icon-player-stop) {
+  @apply py-0 px-4;
+}

@@ -28,6 +28,7 @@ function NewsFeed() {
       <div id="result">
         {posts.map((post) => (
           <NewsEntry
+            key={post.id}
             date={post.published_at}
             title={post.title}
             text={post.excerpt}
