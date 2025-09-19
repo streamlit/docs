@@ -29,14 +29,14 @@ _playground_!)
 
 ## Summary for experienced Python developers
 
-1. To set up your Python environment and test your installation, execute the following terminal commands:
+To set up your Python environment and test your installation, execute the following terminal commands:
 
-   ```bash
-   pip install streamlit
-   streamlit hello
-   ```
+```bash
+pip install streamlit
+streamlit hello
+```
 
-1. Jump to our [Basic concepts](/get-started/fundamentals/main-concepts).
+Next, jump straight to [Basic concepts](/get-started/fundamentals/main-concepts).
 
 ## Install Streamlit on your machine
 
