@@ -175,7 +175,7 @@ However, a user has to know the URL to visit the page. The page is therefore _re
 
 How do you make the page you created appear in the Menu? Edit the special markdown file `content/menu.md`. All it has is front matter in YAML.
 
-Suppose you have created an "Quickstart" page that is available at `docs.streamlit.io/get-started/installation/quickstart`. You want to it to appear in the Menu within the "Get started" section, nested under the "Installation" page.
+Suppose you have created a "Quickstart" page that is available at `docs.streamlit.io/get-started/installation/quickstart`. You want it to appear in the Menu within the "Get started" section, nested under the "Installation" page.
 
 To do so, find the lines that define the `category`, `url` and `visible` properties for "Get Started" in `menu.md` and add three new lines below it, containing:
 
