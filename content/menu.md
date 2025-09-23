@@ -218,6 +218,9 @@ site_menu:
   - category: Develop / API reference / Data elements / st.column_config / Selectbox column
     url: /develop/api-reference/data/st.column_config/st.column_config.selectboxcolumn
     isVersioned: true
+  - category: Develop / API reference / Data elements / st.column_config / Multiselect column
+    url: /develop/api-reference/data/st.column_config/st.column_config.multiselectcolumn
+    isVersioned: true
   - category: Develop / API reference / Data elements / st.column_config / Datetime column
     url: /develop/api-reference/data/st.column_config/st.column_config.datetimecolumn
     isVersioned: true
