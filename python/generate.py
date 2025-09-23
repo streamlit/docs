@@ -10,7 +10,7 @@ import types
 import re
 
 import docstring_parser
-import stoutput
+import directives.stoutput as stoutput
 import streamlit
 import streamlit.components.v1 as components
 import streamlit.testing.v1.element_tree as element_tree
@@ -228,20 +228,43 @@ def parse_docstring(obj, docstring, description, is_class, is_class_method, is_p
                 except:
                     print(sig)
                     print(f"Can't find {param.arg_name} as an argument for {obj}")
-        arg_obj["description"] = (
-            parse_rst(param.description) if param.description else ""
-        )  # Store the argument description (parsed from RST to HTML)
-        arg_obj["default"] = param.default  # Store the default value
-
-        # Check if the argument is deprecated
-        if docstring_obj.deprecation:
-            match = re.search("``[^ `]*``", docstring_obj.deprecation.description)
-            if match is not None and match.group(0) == f"``{param.arg_name}``":
-                # Add the deprecated flag and the deprecation message to the argument object
+        # Check for inline deprecation directives within the parameter description
+        # and extract them before parsing the main description
+        param_description = param.description or ""
+        deprecation_text = None
+        
+        if param_description and ".. deprecated::" in param_description:
+            # Extract the deprecation message from the parameter description
+            deprecation_match = re.search(r'\.\.[ ]*deprecated::[ ]*\n(.*?)(?=\n\n|\n[^ ]|\Z)', param_description, re.DOTALL | re.IGNORECASE)
+            if deprecation_match:
+                deprecation_text = deprecation_match.group(1).strip()
+                # Remove leading whitespace from each line to clean up the text
+                deprecation_lines = [line.strip() for line in deprecation_text.split('\n')]
+                deprecation_text = '\n'.join(line for line in deprecation_lines if line)
+                
+                # Remove the entire deprecation directive from the parameter description
+                param_description = re.sub(r'\.\.[ ]*deprecated::.*?(?=\n\n|\n[^ ]|\Z)', '', param_description, flags=re.DOTALL | re.IGNORECASE).strip()
+                
                 arg_obj["deprecated"] = {
                     "deprecated": True,
-                    "deprecatedText": parse_rst(docstring_obj.deprecation.description),
+                    "deprecatedText": parse_rst(deprecation_text),
                 }
+
+        arg_obj["description"] = (
+            parse_rst(param_description) if param_description else ""
+        )  # Store the argument description (parsed from RST to HTML, with deprecation directive removed)
+        arg_obj["default"] = param.default  # Store the default value
+
+        # Check if the argument is deprecated (original global deprecation check - commented out)
+        # if docstring_obj.deprecation:
+        #     match = re.search("``[^ `]*``", docstring_obj.deprecation.description)
+        #     if match is not None and match.group(0) == f"``{param.arg_name}``":
+        #         # Add the deprecated flag and the deprecation message to the argument object
+        #         arg_obj["deprecated"] = {
+        #             "deprecated": True,
+        #             "deprecatedText": parse_rst(docstring_obj.deprecation.description),
+        #         }
+        
         # Append the argument object to the list of arguments
         description["args"].append(arg_obj)
 
