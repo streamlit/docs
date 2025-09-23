@@ -68,16 +68,16 @@ _Release date: September 23, 2025_
 - 🕸️ Bug fix: To fix a performance regression, dataframes use `.iat[]` instead of `.iloc[]` internally ([#12422](https://github.com/streamlit/streamlit/pull/12422), [#10952](https://github.com/streamlit/streamlit/issues/10952)).
 - 🦗 Bug fix: `st.data_editor` accepts Shift+Enter for multiline entry in a cell ([#12401](https://github.com/streamlit/streamlit/pull/12401), [#12386](https://github.com/streamlit/streamlit/issues/12386)).
 - 🦂 Bug fix: To make `st.pdf` more compatible on Windows, MIME types were updated ([#12399](https://github.com/streamlit/streamlit/pull/12399), [#12387](https://github.com/streamlit/streamlit/issues/12387)). Thanks, [geoextra](https://github.com/geoextra)!
-- 🦟 Bug fix: To prevent long-word overflow, words are forced to break if they exceed their container’s width ([#12370](https://github.com/streamlit/streamlit/pull/12370), [#12366](https://github.com/streamlit/streamlit/issues/12366)).
-- 🦠 Bug fix: Hiding all dataframe columns won’t raise a TypeError ([#12361](https://github.com/streamlit/streamlit/pull/12361), [#12227](https://github.com/streamlit/streamlit/issues/12227)).
-- 🪰 Bug fix: `st.logo` doesn’t dislocate the sidebar collapse button ([#12329](https://github.com/streamlit/streamlit/pull/12329), [#12326](https://github.com/streamlit/streamlit/issues/12326)).
+- 🦟 Bug fix: To prevent long-word overflow, words are forced to break if they exceed their container's width ([#12370](https://github.com/streamlit/streamlit/pull/12370), [#12366](https://github.com/streamlit/streamlit/issues/12366)).
+- 🦠 Bug fix: Hiding all dataframe columns won't raise a TypeError ([#12361](https://github.com/streamlit/streamlit/pull/12361), [#12227](https://github.com/streamlit/streamlit/issues/12227)).
+- 🪰 Bug fix: `st.logo` doesn't dislocate the sidebar collapse button ([#12329](https://github.com/streamlit/streamlit/pull/12329), [#12326](https://github.com/streamlit/streamlit/issues/12326)).
 - 🪳 Bug fix: When using `accept_new_options=True` with `st.multiselect`, mobile users can access their keyboards ([#12330](https://github.com/streamlit/streamlit/pull/12330)).
 - 🕷️ Bug fix: `st.components.v1.html` ignores fractional pixels in `width` ([#12354](https://github.com/streamlit/streamlit/pull/12354), [#12340](https://github.com/streamlit/streamlit/issues/12340)).
 - 🐞 Bug fix: `st.number_input` correctly accepts keyed entries ([#12351](https://github.com/streamlit/streamlit/pull/12351), [#12349](https://github.com/streamlit/streamlit/issues/12349)).
 - 🐝 Bug fix: Markdown images maintain their aspect ratio when constrained ([#12343](https://github.com/streamlit/streamlit/pull/12343)).
 - 🐜 Bug fix: `st.date_input` is inclusive of min and max values ([#12295](https://github.com/streamlit/streamlit/pull/12295), [#12293](https://github.com/streamlit/streamlit/issues/12293)).
 - 🪲 Bug fix: Maintain image proportions in fullscreen mode for all width settings ([#12235](https://github.com/streamlit/streamlit/pull/12235)).
-- 🐛 Bug fix: Markdown code blocks don’t overflow when used in labels ([#12175](https://github.com/streamlit/streamlit/pull/12175), [#12149](https://github.com/streamlit/streamlit/issues/12149)).
+- 🐛 Bug fix: Markdown code blocks don't overflow when used in labels ([#12175](https://github.com/streamlit/streamlit/pull/12175), [#12149](https://github.com/streamlit/streamlit/issues/12149)).
 
 ## Older versions of Streamlit
 
