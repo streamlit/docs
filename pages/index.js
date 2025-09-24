@@ -192,66 +192,63 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/develop/api-reference/media/st.pdf?utm_source=streamlit"
+                href="/develop/api-reference/data/st.column_config/st.column_config.multiselectcolumn?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">description</i>
-                <h4>PDF viewer</h4>
+                <i className="material-icons-sharp">view_column</i>
+                <h4>Multiselect columns</h4>
                 <p>
-                  You can display a PDF file with <code>st.pdf</code>.
+                  You can configure colorful multiselect columns with{" "}
+                  <code>st.column_config.MultiselectColumn</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/data/st.dataframe?utm_source=streamlit"
+                href="/develop/concepts/configuration/theming-customize-colors-and-borders?utm_source=streamlit#basic-color-palette"
               >
-                <i className="material-icons-sharp">ads_click</i>
-                <h4>Dataframe cell selection</h4>
+                <i className="material-icons-sharp">palette</i>
+                <h4>Color palette</h4>
                 <p>
-                  <code>st.dataframe</code> supports single and multiple cell
-                  selections.
+                  You can configure a color palette (red, orange, yellow, green,
+                  blue, violet, and gray/grey) that is shared across elements.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/data/st.metric?utm_source=streamlit"
+                href="/develop/api-reference/charts/st.bar_chart?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">show_chart</i>
-                <h4>Metric sparklines</h4>
+                <i className="material-icons-sharp">bar_chart</i>
+                <h4>Bar chart sorting</h4>
                 <p>
-                  You can add sparklines to <code>st.metric</code>.
+                  You can sort the bars in <code>st.bar_chart</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/data/st.column_config/st.column_config.listcolumn?utm_source=streamlit"
+                href="/develop/api-reference/layout/st.tabs?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">settings</i>
-                <h4>
-                  Editable <code>ListColumn</code>
-                </h4>
+                <i className="material-icons-sharp">tab</i>
+                <h4>Default tab</h4>
                 <p>
-                  <code>ListColumn</code> supports editing.
+                  You can specify the default tab in <code>st.tabs</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/widgets/st.file_uploader?utm_source=streamlit"
+                href="/develop/api-reference/data/st.column_config/st.column_config.areachartcolumn?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">folder</i>
-                <h4>Directory upload</h4>
-                <p>
-                  Users can upload all files in a directory with{" "}
-                  <code>st.file_uploader</code> and <code>st.chat_input</code>.
-                </p>
+                <i className="material-icons-sharp">format_paint</i>
+                <h4>Chart column colors</h4>
+                <p>You can set the color of chart columns.</p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/status/st.toast?utm_source=streamlit"
+                href="/develop/api-reference/widgets/st.audio_input?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">timer</i>
-                <h4>Toast duration</h4>
+                <i className="material-icons-sharp">mic</i>
+                <h4>Audio sample rate</h4>
                 <p>
-                  You can configure the duration of <code>st.toast</code>.
+                  You can configure the sample rate of audio in{" "}
+                  <code>st.audio_input</code>.
                 </p>
               </RefCard>
             </TileContainer>
