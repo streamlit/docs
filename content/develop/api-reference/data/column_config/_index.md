@@ -81,10 +81,10 @@ SelectboxColumn("App Category", options=["🤖 LLM", "📈 Data Viz"])
 
 <h4>Multiselect column</h4>
 
-Configure a selectbox column.
+Configure a multiselect column.
 
 ```python
-MultiselectColumn("App Category", options=["LLM", "Vizualization"])
+MultiselectColumn("App Category", options=["LLM", "Visualization"])
 ```
 
 </RefCard>
