@@ -9,12 +9,14 @@ keywords: external fonts, font fallbacks, font customization, variable fonts, ty
 
 Streamlit comes with Source Sans as the default font, but you can configure your app to use another font. This tutorial uses variable font files and is a walkthrough of Example 3 from [Customize fonts in your Streamlit app](/develop/concepts/configuration/theming-customize-fonts#example-1-define-an-alternative-font-with-variable-font-files). For an example that uses self-hosted variable font files, see [Use variable font files to customize your font](/develop/tutorials/configuration-and-theming/variable-fonts). For an example that uses self-hosted static font files, see [Use static font files to customize your font](/develop/tutorials/configuration-and-theming/static-fonts).
 
+This tutorial uses inline font definitions, which were introduced in Streamlit version 1.50.0. For an older workaround, see [Use externally hosted fonts and fallbacks to customize your font (`streamlit<1.50.0`)](/develop/tutorials/elements/dataframe-row-selections-old).
+
 ## Prerequisites
 
 - This tutorial requires the following version of Streamlit:
 
   ```text
-  streamlit>=1.46.0
+  streamlit>=1.50.0
   ```
 
 - You should have a clean working directory called `your-repository`.
@@ -22,7 +24,7 @@ Streamlit comes with Source Sans as the default font, but you can configure your
 
 ## Summary
 
-The following example uses a Google-hosted instances of [Nunito](https://fonts.google.com/specimen/Nunito) and [Space Mono](https://fonts.google.com/specimen/Space+Mono). Nunito is defined in variable font files. However, because font style is not parameterized, Nunito requires two files to define the normal and italic styles separately. Space Mono is defined in static font files.
+The following example uses a Google-hosted instances of [Nunito](https://fonts.google.com/specimen/Nunito) and [Space Mono](https://fonts.google.com/specimen/Space+Mono).
 
 Here's a look at what you'll build:
 
@@ -40,40 +42,9 @@ your_repository/
 `.streamlit/config.toml`:
 
 ```toml
-[[theme.fontFaces]]
-family="Nunito"
-url="https://fonts.gstatic.com/s/nunito/v31/XRXX3I6Li01BKofIMNaDRs7nczIH.woff2"
-style="italic"
-weight="200 1000"
-[[theme.fontFaces]]
-family="Nunito"
-url="https://fonts.gstatic.com/s/nunito/v31/XRXV3I6Li01BKofINeaBTMnFcQ.woff2"
-style="normal"
-weight="200 1000"
-[[theme.fontFaces]]
-family="Space Mono"
-url="https://fonts.gstatic.com/s/spacemono/v17/i7dNIFZifjKcF5UAWdDRYERMR3K_MQacbw.woff2"
-style="italic"
-weight="400"
-[[theme.fontFaces]]
-family="Space Mono"
-url="https://fonts.gstatic.com/s/spacemono/v17/i7dPIFZifjKcF5UAWdDRYEF8RXi4EwQ.woff2"
-style="normal"
-weight="400"
-[[theme.fontFaces]]
-family="Space Mono"
-url="https://fonts.gstatic.com/s/spacemono/v17/i7dSIFZifjKcF5UAWdDRYERE_FeqHCSRRXaPYw.woff2"
-style="italic"
-weight="700"
-[[theme.fontFaces]]
-family="Space Mono"
-url="https://fonts.gstatic.com/s/spacemono/v17/i7dMIFZifjKcF5UAWdDRaPpZUFWaHi6WZ3Q.woff2"
-style="normal"
-weight="700"
-
 [theme]
-font="Nunito, sans-serif"
-codeFont="'Space Mono', monospace"
+font="Nunito:https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000, sans-serif"
+codeFont="'Space Mono':https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap, monospace"
 ```
 
 `streamlit_app.py`:
@@ -93,45 +64,42 @@ st.write("***`Code bold-italic efg`***")
 
 </Collapse>
 
-## Collect your font file URLs
+## Collect your font CSS URLs
+
+1. To collect your URLs to use in later steps, open a text editor.
+
+   Remember to label the values as you paste them so you don't mix them up.
 
 1. Go to [Google fonts](https://fonts.google.com/).
 
 1. Search for or follow the link to [Nunito](https://fonts.google.com/specimen/Nunito), and select "**Get font**."
 
-1. Search for or follow the link to [Space Mono](https://fonts.google.com/specimen/Space+Mono), and select "**Get font**."
-
 1. To get a link to a style sheet for your font files, in the upper-right corner, select the shopping bag (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>shopping_bag</i>), and then select "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>code</i> **Get embed code**."
 
-1. On the right, in the first code block, copy the `href` URL from the third link, and paste it into a new tab.
+1. On the right, in the first code block, copy the `href` URL from the third link, and paste it into your text editor.
 
    By default, the "Embed Code" page loads with the "Web" tab and "&lt;link&gt;" radio option selected. The first code block is titled, "Embed code in the &lt;head&gt; of your html." The URL is a link to a style sheet and should look like the following text:
 
    ```none
-   https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap
+   https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000
    ```
 
-1. Go to your new tab and visit the URL.
+1. To remove Nunito from your list and get a clean URL for Space Mono, select the trash can (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>delete</i>). Then, repeat the previous three steps for [Space Mono](https://fonts.google.com/specimen/Space+Mono).
 
-   This page is a style sheet. It is filled with font-face declarations that look like the following text:
+   The URL should look like the following text:
 
-   ```css
-   /* cyrillic-ext */
-   @font-face {
-     font-family: "Nunito";
-     font-style: italic;
-     font-weight: 200 1000;
-     font-display: swap;
-     src: url(https://fonts.gstatic.com/s/nunito/v31/XRXX3I6Li01BKofIMNaORs7nczIHNHI.woff2)
-       format("woff2");
-     unicode-range:
-       U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-   }
+   ```none
+   https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap
    ```
 
-   Each font-face declaration starts with a comment to indication which character set is included in that declaration. For most English apps, only the `/* latin */` declarations are needed.
+1. In your text editor, modify each URL by prepending its font family and a colon separator:
 
-1. To store the portion of the style sheet you'll need in later steps, copy the font-face declarations that are prefixed with the `/* latin */` comment, and paste them into a text file.
+   ```none
+   Nunito:https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000
+   'Space Mono':https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap
+   ```
+
+   Because Space Mono has a space in its name, use single quotes around the font family. These will be inner quotes when the string is later copied into your configuration file.
 
 ## Create your app configuration
 
@@ -143,61 +111,15 @@ st.write("***`Code bold-italic efg`***")
        └── config.toml
    ```
 
-1. To define your alternative fonts, in `.streamlit/config.toml`, paste each `@font-face` declaration, and change each one into a `[[theme.fontFaces]]` table.
-
-   The following values in each `@font-face` declaration become the indicated value in a `[[theme.fontFaces]]` table:
-   - `font-family` → `family`
-   - `src: url` → `url` (Ignore `format`, and just keep the URL.)
-   - `font-style` → `style`
-   - `font-weight` → `weight`
-   - Optional: `unicode-range` → `unicodeRange` (This is only useful if you are using more than basic latin sets.)
-
-   Remember to remove the comment lines and CSS syntax characters, which aren't compatible with TOML files. Your configuration file should contain the following text:
-
-   ```toml
-    [[theme.fontFaces]]
-    family="Nunito"
-    url="https://fonts.gstatic.com/s/nunito/v31/XRXX3I6Li01BKofIMNaDRs7nczIH.woff2"
-    style="italic"
-    weight="200 1000"
-    [[theme.fontFaces]]
-    family="Nunito"
-    url="https://fonts.gstatic.com/s/nunito/v31/XRXV3I6Li01BKofINeaBTMnFcQ.woff2"
-    style="normal"
-    weight="200 1000"
-    [[theme.fontFaces]]
-    family="Space Mono"
-    url="https://fonts.gstatic.com/s/spacemono/v17/i7dNIFZifjKcF5UAWdDRYERMR3K_MQacbw.woff2"
-    style="italic"
-    weight="400"
-    [[theme.fontFaces]]
-    family="Space Mono"
-    url="https://fonts.gstatic.com/s/spacemono/v17/i7dPIFZifjKcF5UAWdDRYEF8RXi4EwQ.woff2"
-    style="normal"
-    weight="400"
-    [[theme.fontFaces]]
-    family="Space Mono"
-    url="https://fonts.gstatic.com/s/spacemono/v17/i7dSIFZifjKcF5UAWdDRYERE_FeqHCSRRXaPYw.woff2"
-    style="italic"
-    weight="700"
-    [[theme.fontFaces]]
-    family="Space Mono"
-    url="https://fonts.gstatic.com/s/spacemono/v17/i7dMIFZifjKcF5UAWdDRaPpZUFWaHi6WZ3Q.woff2"
-    style="normal"
-    weight="700"
-   ```
-
-   The `[[theme.fontFaces]]` table can be repeated to use multiple files to define a single font or to define multiple fonts. In this example, the definitions make `"Nunito"` and `"Space Mono"` available to other font configuration options.
-
 1. To set your alternative fonts as the default font for your app, in `.streamlit/config.toml`, add the following text:
 
    ```toml
     [theme]
-    font="Nunito, sans-serif"
-    codeFont="'Space Mono', monospace"
+    font="Nunito:https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000, sans-serif"
+    codeFont="'Space Mono':https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap, monospace"
    ```
 
-   This sets Nunito as the default for all text in your app except inline code and code blocks, which will be Space Mono instead. If Google's font service is unavailable, the app will fall back to the indicated built-in fonts. Because there is a space in "Space Mono", the configuration option needs an inner quote on that family. If you want to avoid inner quotes, you can use hyphens or underscores in your font family declarations.
+   This sets Nunito as the default for all text in your app except inline code and code blocks, which will be Space Mono instead. If Google's font service is unavailable, the app will fall back to the indicated built-in fonts.
 
 ## Build the example
 
