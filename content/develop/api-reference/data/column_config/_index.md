@@ -76,6 +76,19 @@ SelectboxColumn("App Category", options=["🤖 LLM", "📈 Data Viz"])
 
 </RefCard>
 
+<RefCard href="/develop/api-reference/data/st.column_config/st.column_config.multiselectcolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.multiselectcolumn.jpg" />
+
+<h4>Multiselect column</h4>
+
+Configure a multiselect column.
+
+```python
+MultiselectColumn("App Category", options=["LLM", "Visualization"])
+```
+
+</RefCard>
+
 <RefCard href="/develop/api-reference/data/st.column_config/st.column_config.datetimecolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.datetimecolumn.jpg" />
 

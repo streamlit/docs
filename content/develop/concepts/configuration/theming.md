@@ -25,6 +25,7 @@ The following options can be configured separately for the main body of your app
 - **Background color**: Set the color of app, widget, code block, and dataframe header backgrounds.
 - **Border radius**: Set the roundness of elements and widgets.
 - **Border color**: Set the color and visibility of element, widget, sidebar, and dataframe borders.
+- **Basic color palette**: Set the color palette (red, orange, yellow, green, blue, violet, and gray/grey) for things like colored Markdown text and sparklines.
 
 ## Example themes
 

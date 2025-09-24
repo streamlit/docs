@@ -218,6 +218,9 @@ site_menu:
   - category: Develop / API reference / Data elements / st.column_config / Selectbox column
     url: /develop/api-reference/data/st.column_config/st.column_config.selectboxcolumn
     isVersioned: true
+  - category: Develop / API reference / Data elements / st.column_config / Multiselect column
+    url: /develop/api-reference/data/st.column_config/st.column_config.multiselectcolumn
+    isVersioned: true
   - category: Develop / API reference / Data elements / st.column_config / Datetime column
     url: /develop/api-reference/data/st.column_config/st.column_config.datetimecolumn
     isVersioned: true
@@ -687,6 +690,9 @@ site_menu:
     url: /develop/tutorials/configuration-and-theming
   - category: Develop / Tutorials / Configuration and theming / Use external font files
     url: /develop/tutorials/configuration-and-theming/external-fonts
+  - category: Develop / Tutorials / Configuration and theming / Use external font files (streamlit<1.50.0)
+    url: /develop/tutorials/configuration-and-theming/external-fonts-old
+    visible: false
   - category: Develop / Tutorials / Configuration and theming / Use static font files
     url: /develop/tutorials/configuration-and-theming/static-fonts
   - category: Develop / Tutorials / Configuration and theming / Use variable font files
