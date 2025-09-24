@@ -70,7 +70,7 @@ If you configure your app to include any third-party integrations, including ext
 
 ## Hosting alternative fonts
 
-If you have font files you want to host with your app, you must declare the font in `config.toml` under `[[theme.fontFaces]]`. For multiple alternative fonts, declare multiple `[[theme.fontFaces]]` tables in your configuration file. You can self-host your font by using Streamlit static file serving, or you can point to a publicly hosted font file.
+If you have font files that you want to host with your app, you must declare the font in `config.toml` under `[[theme.fontFaces]]`. For multiple alternative fonts, declare multiple `[[theme.fontFaces]]` tables in your configuration file. You can self-host your font by using Streamlit static file serving, or you can point to a publicly hosted font file.
 
 <Important>
 
@@ -196,7 +196,7 @@ project_directory/
 
 If you use complicated font that might not be compatible with all browsers, or if you are using externally hosted fonts, it's best practice to include font fallbacks.
 
-# Example 3: Define an alternative font with fallbacks
+### Example 3: Define an alternative font with fallbacks
 
 In your configuration file, wherever you declare a default font, you can use a comma-separated list of fonts instead. The font (or comma-separated list of fonts) is passed to the CSS [`font-family`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family) property.
 

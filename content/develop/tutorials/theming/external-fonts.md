@@ -24,7 +24,7 @@ This tutorial uses inline font definitions, which were introduced in Streamlit v
 
 ## Summary
 
-The following example uses a Google-hosted instances of [Nunito](https://fonts.google.com/specimen/Nunito) and [Space Mono](https://fonts.google.com/specimen/Space+Mono).
+The following example uses Google-hosted instances of [Nunito](https://fonts.google.com/specimen/Nunito) and [Space Mono](https://fonts.google.com/specimen/Space+Mono).
 
 Here's a look at what you'll build:
 
