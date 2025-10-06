@@ -1,6 +1,8 @@
 ---
 title: Build an LLM app using LangChain
 slug: /develop/tutorials/chat-and-llm-apps/llm-quickstart
+description: Learn to build an LLM-powered Streamlit app using LangChain and OpenAI, with step-by-step instructions and a deployment guide.
+keywords: llm, langchain, openai, tutorial, quickstart, ai, machine learning, streamlit
 ---
 
 # Build an LLM app using LangChain

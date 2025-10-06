@@ -1,6 +1,8 @@
 ---
 title: Fork and edit a public app
 slug: /deploy/streamlit-community-cloud/get-started/fork-and-edit-a-public-app
+description: Learn how to fork and edit public Streamlit apps from Community Cloud with GitHub Codespaces for immediate development.
+keywords: fork, public app, edit, github codespaces, development, repository, subdomain, customization
 ---
 
 # Fork and edit a public app

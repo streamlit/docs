@@ -1,6 +1,8 @@
 ---
 title: st.connections.ExperimentalBaseConnection
 slug: /develop/api-reference/connections/st.connections.experimentalbaseconnection
+description: st.connections.ExperimentalBaseConnection is the experimental base class for custom connections (deprecated, use BaseConnection).
+keywords: ExperimentalBaseConnection, experimental, base class, custom connection, deprecated, BaseConnection, data source, api
 ---
 
 <Important>

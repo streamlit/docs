@@ -1,6 +1,8 @@
 ---
 title: Navigation and pages
 slug: /develop/api-reference/navigation
+description: Create multipage Streamlit applications with navigation components for page switching, page management, and programmatic navigation control.
+keywords: navigation, pages, multipage app, page switching, st.navigation, st.page, st.switch_page, app navigation, page management, multipage navigation
 ---
 
 # Navigation and pages

@@ -2,6 +2,7 @@
 title: st.radio
 slug: /develop/api-reference/widgets/st.radio
 description: st.radio displays a radio button widget.
+keywords: st.radio, radio button, radio, single selection, radio group, option selection, exclusive selection, radio widget
 ---
 
 <Autofunction function="streamlit.radio" />

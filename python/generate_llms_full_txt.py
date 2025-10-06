@@ -280,8 +280,7 @@ def replace_autofunction_tags(content: str, function_info: Dict[str, Any]) -> st
         else:
             if function_name:
                 print(
-                    f"Warning: Function '{function_name}' not found in "
-                    "streamlit.json"
+                    f"Warning: Function '{function_name}' not found in streamlit.json"
                 )
             # If function not found, remove the tag but leave a placeholder
             tag.replace_with(f"[Function '{function_name}' not found]")
@@ -303,7 +302,7 @@ def process_markdown_files(content_dir: Path) -> List[Dict[str, Optional[str]]]:
         content_dir: Path to the content directory containing markdown files.
 
     Returns:
-        List of dictionaries containing 'url' (from frontmatter slug) and 'content' 
+        List of dictionaries containing 'url' (from frontmatter slug) and 'content'
         for each markdown file.
     """
     content_catalog: List[Dict[str, Optional[str]]] = []
@@ -398,4 +397,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

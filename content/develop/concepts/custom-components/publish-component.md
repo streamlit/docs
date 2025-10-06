@@ -1,6 +1,8 @@
 ---
 title: Publish a Component
 slug: /develop/concepts/custom-components/publish
+description: Learn how to publish Streamlit custom components to PyPI, making them accessible to the Python community and Streamlit users worldwide.
+keywords: publish component, PyPI publishing, component distribution, package publishing, component sharing, public components, Python package distribution
 ---
 
 # Publish a Component
@@ -72,7 +74,6 @@ Once you've changed the default `my_component` references, compiled the HTML and
 With your wheel created, the final step is to upload to PyPI. The instructions here highlight how to upload to [Test PyPI](https://test.pypi.org/), so that you can learn the mechanics of the process without worrying about messing anything up. Uploading to PyPI follows the same basic procedure.
 
 1. Create an account on [Test PyPI](https://test.pypi.org/) if you don't already have one
-
    - Visit [https://test.pypi.org/account/register/](https://test.pypi.org/account/register/) and complete the steps
 
    - Visit [https://test.pypi.org/manage/account/#api-tokens](https://test.pypi.org/manage/account/#api-tokens) and create a new API token. Don’t limit the token scope to a particular project, since you are creating a new project. Copy your token before closing the page, as you won’t be able to retrieve it again.

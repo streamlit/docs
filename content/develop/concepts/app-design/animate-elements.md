@@ -1,7 +1,8 @@
 ---
 title: Animate and update elements
 slug: /develop/concepts/design/animate
-description: st.add_rows appends a dataframe to the bottom of the current one in certain elements, for optimized data updates.
+description: Learn how to create dynamic, animated content in Streamlit by updating elements in-place using st.empty, st.add_rows, and other updatable containers without full app reruns.
+keywords: animate elements, update elements, st.empty, st.add_rows, dynamic content, live updates, in-place updates, streaming data, real-time updates, element animation
 ---
 
 # Animate and update elements

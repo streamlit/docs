@@ -1,6 +1,8 @@
 ---
 title: st.experimental_connection
 slug: /develop/api-reference/connections/st.experimental_connection
+description: st.experimental_connection creates a connection to a data source or API (deprecated, use st.connection instead).
+keywords: experimental_connection, connection, data source, api, database, deprecated, experimental, st.connection
 ---
 
 <Important>

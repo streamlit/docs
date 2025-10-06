@@ -1,6 +1,8 @@
 ---
 title: st.column_config
 slug: /develop/api-reference/data/st.column_config
+description: Configure data display and interaction in Streamlit dataframes and data editors with st.column_config - supporting text, numbers, charts, images, URLs, and more.
+keywords: st.column_config, column configuration, dataframe columns, data editor columns, column types, data display, data interaction, streamlit columns
 ---
 
 # Column configuration
@@ -70,6 +72,19 @@ Configure a selectbox column.
 
 ```python
 SelectboxColumn("App Category", options=["🤖 LLM", "📈 Data Viz"])
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/data/st.column_config/st.column_config.multiselectcolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.multiselectcolumn.jpg" />
+
+<h4>Multiselect column</h4>
+
+Configure a multiselect column.
+
+```python
+MultiselectColumn("App Category", options=["LLM", "Visualization"])
 ```
 
 </RefCard>

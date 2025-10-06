@@ -1,6 +1,8 @@
 ---
 title: Media elements
 slug: /develop/api-reference/media
+description: Embed images, videos, audio files, PDFs, and logos directly into your Streamlit apps with easy-to-use media commands.
+keywords: media elements, images, videos, audio, pdf, logo, multimedia, media display, file embedding, streamlit media, media components
 ---
 
 # Media elements
@@ -34,6 +36,19 @@ Display a logo in the upper-left corner of your app and its sidebar.
 
 ```python
 st.logo("logo.jpg")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/media/st.pdf">
+
+<Image pure alt="screenshot" src="/images/api/pdf.jpg" />
+
+<h4>PDF</h4>
+
+Display a PDF file.
+
+```python
+st.pdf("my_document.pdf")
 ```
 
 </RefCard>

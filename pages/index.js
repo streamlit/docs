@@ -158,72 +158,63 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/develop/api-reference/layout/st.container"
+                href="/develop/api-reference/data/st.column_config/st.column_config.multiselectcolumn?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">dashboard</i>
-                <h4>Flex containers</h4>
+                <i className="material-icons-sharp">view_column</i>
+                <h4>Multiselect columns</h4>
                 <p>
-                  You can set the direction, alignment, and gap of elements in{" "}
-                  <code>st.container</code>.
+                  You can configure colorful multiselect columns with{" "}
+                  <code>st.column_config.MultiselectColumn</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/execution-flow/st.dialog"
+                href="/develop/concepts/configuration/theming-customize-colors-and-borders?utm_source=streamlit#basic-color-palette"
               >
-                <i className="material-icons-sharp">close</i>
-                <h4>Dialog dismissibility</h4>
+                <i className="material-icons-sharp">palette</i>
+                <h4>Color palette</h4>
                 <p>
-                  You can control the dismissibility of modal dialogs. You can
-                  also configure dismissal reruns and callbacks.
+                  You can configure a color palette (red, orange, yellow, green,
+                  blue, violet, and gray/grey) that is shared across elements.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/configuration/config.toml#server"
+                href="/develop/api-reference/charts/st.bar_chart?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">network_ping</i>
-                <h4>WebSocket ping interval</h4>
+                <i className="material-icons-sharp">bar_chart</i>
+                <h4>Bar chart sorting</h4>
                 <p>
-                  Streamlit now allows you to configure the WebSocket ping
-                  interval with <code>server.websocketPingInterval</code>.
+                  You can sort the bars in <code>st.bar_chart</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/configuration/config.toml#theme"
+                href="/develop/api-reference/layout/st.tabs?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">settings</i>
-                <h4>
-                  <code>Theme configuration</code>
-                </h4>
+                <i className="material-icons-sharp">tab</i>
+                <h4>Default tab</h4>
                 <p>
-                  Try out even more theme configuration options in{" "}
-                  <code>config.toml</code>, including new color, font, and style
-                  settings.
+                  You can specify the default tab in <code>st.tabs</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/navigation/st.navigation"
+                href="/develop/api-reference/data/st.column_config/st.column_config.areachartcolumn?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">signpost</i>
-                <h4>Top navigation</h4>
-                <p>
-                  Use <code>st.navigation</code> with{" "}
-                  <code>position="top"</code>
-                  to create a navigation menu across the top of your app.
-                </p>
+                <i className="material-icons-sharp">format_paint</i>
+                <h4>Chart column colors</h4>
+                <p>You can set the color of chart columns.</p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/caching-and-state/st.context#contexttheme"
+                href="/develop/api-reference/widgets/st.audio_input?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">light_mode</i>
-                <h4>Detect theme base</h4>
+                <i className="material-icons-sharp">mic</i>
+                <h4>Audio sample rate</h4>
                 <p>
-                  You can detect if the viewer is in light mode or dark mode at
-                  runtime with <code>st.context.theme</code>.
+                  You can configure the sample rate of audio in{" "}
+                  <code>st.audio_input</code>.
                 </p>
               </RefCard>
             </TileContainer>

@@ -1,6 +1,8 @@
 ---
 title: Deployment tutorials
 slug: /deploy/tutorials
+description: Step-by-step deployment guides for various cloud platforms including Community Cloud, Docker, and Kubernetes.
+keywords: deployment, tutorials, docker, kubernetes, cloud, platforms, guides, step-by-step
 ---
 
 # Deployment tutorials

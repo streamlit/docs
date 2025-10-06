@@ -1,6 +1,8 @@
 ---
 title: Create a multipage app
 slug: /get-started/tutorials/create-a-multipage-app
+description: Build your first multipage app.
+keywords: multipage app, create multipage, app structure, page navigation, multipage tutorial, app organization, page management, complex apps
 ---
 
 # Create a multipage app

@@ -1,6 +1,8 @@
 ---
 title: Automate your tests with CI
 slug: /develop/concepts/app-testing/automate-tests
+description: Learn how to integrate Streamlit app testing with Continuous Integration systems like GitHub Actions for automated testing workflows.
+keywords: automated testing, ci testing, continuous integration, github actions, jenkins, gitlab ci, automated workflows, test automation, ci cd, deployment testing
 ---
 
 # Automate your tests with CI

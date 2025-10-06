@@ -1,6 +1,8 @@
 ---
 title: Deployment concepts
 slug: /deploy/concepts
+description: Learn fundamental deployment concepts including dependencies, secrets management, and app startup for Streamlit applications.
+keywords: deployment, concepts, dependencies, secrets, environment, startup, fundamentals
 ---
 
 # Deployment concepts

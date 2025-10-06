@@ -1,6 +1,8 @@
 ---
 title: Managing secrets when deploying your app
 slug: /deploy/concepts/secrets
+description: Learn best practices for managing secrets, credentials, and API keys securely when deploying Streamlit apps to production environments.
+keywords: secrets, credentials, api keys, security, environment variables, st.secrets, deployment
 ---
 
 # Managing secrets when deploying your app

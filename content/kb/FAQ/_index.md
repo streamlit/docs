@@ -1,6 +1,7 @@
 ---
 title: FAQ
 slug: /knowledge-base/using-streamlit
+description: Explore answers to frequently asked questions about developing a Streamlit app.
 ---
 
 # FAQ

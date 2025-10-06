@@ -1,7 +1,8 @@
 ---
 title: st.context
 slug: /develop/api-reference/caching-and-state/st.context
-description: st.context displays a read-only dict of cookies and headers
+description: st.context displays a read-only dict of cookies and headers.
+keywords: context, cookies, headers, browser, session, locale, theme, timezone, ip address, embedded
 ---
 
 <Autofunction function="streamlit.context" />

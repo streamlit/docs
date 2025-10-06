@@ -1,64 +1,94 @@
 ---
 title: Install Streamlit
 slug: /get-started/installation
+description: Learn how to install Streamlit with comprehensive guides to use pip, conda, Anaconda Distribution, cloud environments, and command line tools.
+keywords: install streamlit, installation, pip install, conda install, anaconda, command line, cloud installation, setup streamlit
 ---
 
 # Install Streamlit
 
-There are multiple ways to set up your development environment and install Streamlit. Read below to
-understand these options. Developing locally with Python installed on your own computer is the most
+There are multiple ways to set up your development environment and install Streamlit.
+Developing locally with Python installed on your own computer is the most
 common scenario.
 
-## Summary for experts
+<Tip>
 
-1. Set up your Python development environment.
-2. Run:
+Try a Streamlit Playground that runs in your browser &mdash; no installation required.
+(Note that this is not how Streamlit is meant to be used, because it has many downsides. That's why it's a
+_playground_!)
+
+<IconLink
+    href="/get-started/installation/streamlit-playground"
+    icon="arrow_forward"
+    label="Instructions for the playground"
+    cssModuleClassName="Indigo"
+    cssModuleIconClassName="IconRight"
+/>
+
+</Tip>
+
+## Summary for experienced Python developers
+
+1. To set up your Python environment and test your installation, execute the following terminal commands:
+
    ```bash
    pip install streamlit
-   ```
-3. Validate the installation by running our Hello app:
-   ```bash
    streamlit hello
    ```
-4. Jump to our [Basic concepts](/get-started/fundamentals/main-concepts).
 
-## Installation steps for the rest of us
+1. Jump to our [Basic concepts](/get-started/fundamentals/main-concepts).
 
-<TileContainer layout="list">
+## Install Streamlit on your machine
 
-<RefCard href="/get-started/installation/command-line" size="half">
-
-<h5>Option 1: I'm comfortable with the command line</h5>
+### Option 1: I like the command line
 
 Install Streamlit on your own machine using tools like `venv` and `pip`.
 
-</RefCard>
+<IconLink
+    link="/get-started/installation/command-line"
+    icon="arrow_forward"
+    label="Instructions for the command line"
+    cssModuleClassName="Orange"
+    cssModuleIconClassName="IconRight"
+/>
 
-<RefCard href="/get-started/installation/anaconda-distribution" size="half">
-
-<h5>Option 2: I prefer a graphical interface</h5>
+### Option 2: I prefer a graphical interface
 
 Install Streamlit using the Anaconda Distribution graphical user interface. This is also the best
 approach if you're on Windows or don't have Python set up.
 
-</RefCard>
+<IconLink
+    link="/get-started/installation/anaconda-distribution"
+    icon="arrow_forward"
+    label="Instructions for Anaconda Distribution"
+    cssModuleClassName="Orange"
+    cssModuleIconClassName="IconRight"
+/>
 
-<RefCard href="/get-started/installation/community-cloud" size="half">
+## Create an app in the cloud
 
-<h5>Option 3: I'd rather use a cloud-based environment</h5>
+### Option 1: I want a free cloud environment
 
 Use Streamlit Community Cloud with GitHub Codespaces so you don't have to go through the trouble
 of installing Python and setting up an environment.
 
-</RefCard>
+<IconLink
+    link="/get-started/installation/community-cloud"
+    icon="arrow_forward"
+    label="Instructions for GitHub Codespaces"
+    cssModuleClassName="Orange"
+    cssModuleIconClassName="IconRight"
+/>
 
-<RefCard href="/get-started/installation/streamlit-in-snowflake" size="half">
-
-<h5>Option 4: I need something secure, controlled, and in the cloud</h5>
+### Option 2: I need something secure, controlled, and in the cloud
 
 Use Streamlit in Snowflake to code your apps in the cloud, right alongside your
 data with role-based access controls.
 
-</RefCard>
-
-</TileContainer>
+<IconLink
+    link="/get-started/installation/streamlit-in-snowflake"
+    icon="arrow_forward"
+    label="Instructions for Snowflake"
+    cssModuleClassName="Orange"
+    cssModuleIconClassName="IconRight"
+/>
