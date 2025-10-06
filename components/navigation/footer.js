@@ -1,6 +1,11 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
 import styles from "./footer.module.css";
+
+const CookiePolicyButton = dynamic(() => import("./cookiePolicyButton"), {
+  ssr: false,
+});
 
 const Footer = () => {
   return (
@@ -181,12 +186,9 @@ const Footer = () => {
         </section>
         <div className={styles.Copyright}>
           <span>&copy; {new Date().getFullYear()} Snowflake Inc.</span>
-          <button
-            className="ot-sdk-show-settings hover:opacity-80 ml-2"
-            onClick={() => {}}
-          >
+          <CookiePolicyButton className="hover:opacity-80 ml-2">
             Cookie policy
-          </button>
+          </CookiePolicyButton>
         </div>
       </section>
     </footer>
