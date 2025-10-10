@@ -76,6 +76,10 @@ export default function Home({ window, menu }) {
         <script type="text/javascript">
           {"function OptanonWrapper() { }"}
         </script>
+        {/* Add Segment's OneTrust Consent Wrapper */}
+        <script src="https://cdn.jsdelivr.net/npm/@segment/analytics-consent-wrapper-onetrust@latest/dist/umd/analytics-onetrust.umd.js"></script>
+        {/* Add Segment Analytics Snippet */}
+        <script src="/scripts/segment.js"></script>
       </Head>
       <section className={styles.Container}>
         <SideBar menu={menu} slug={[]} />

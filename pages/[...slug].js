@@ -286,6 +286,19 @@ export default function Article({
               name="twitter:image"
               content={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-twitter.jpg`}
             />
+            <script
+              src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+              type="text/javascript"
+              charset="UTF-8"
+              data-domain-script="01990a3a-a865-7092-a22e-9094bfac985a"
+            ></script>
+            <script type="text/javascript">
+              {"function OptanonWrapper() { }"}
+            </script>
+            {/* Add Segment's OneTrust Consent Wrapper */}
+            <script src="https://cdn.jsdelivr.net/npm/@segment/analytics-consent-wrapper-onetrust@latest/dist/umd/analytics-onetrust.umd.js"></script>
+            {/* Add Segment Analytics Snippet */}
+            <script src="/scripts/segment.js"></script>
           </Head>
           <section className={styles.InnerContainer} id="documentation">
             {versionWarning}
