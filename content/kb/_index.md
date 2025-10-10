@@ -1,6 +1,7 @@
 ---
 title: Knowledge Base
 slug: /knowledge-base
+description: Explore troubleshooting guides for common problems.
 ---
 
 # Knowledge base

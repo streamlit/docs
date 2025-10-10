@@ -1,6 +1,8 @@
 ---
 title: Widget behavior
 slug: /develop/concepts/architecture/widget-behavior
+description: Learn how Streamlit widgets behave across reruns, handle state persistence, manage user interactions, and control widget lifecycle in your applications.
+keywords: widget behavior, widget state, user interactions, widget persistence, rerun behavior, interaction handling, state management, widget lifecycle
 ---
 
 # Understanding widget behavior

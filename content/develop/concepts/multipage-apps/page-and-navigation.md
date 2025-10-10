@@ -1,7 +1,8 @@
 ---
 title: Define multipage apps with st.Page and st.navigation
 slug: /develop/concepts/multipage-apps/page-and-navigation
-description: Understand the most flexible and preferred method for defining multipage apps
+description: Learn how to use the most flexible and preferred method for defining multipage apps.
+keywords: multipage, st.Page, st.navigation, pages, routing, navigation, app structure
 ---
 
 # Define multipage apps with `st.Page` and `st.navigation`

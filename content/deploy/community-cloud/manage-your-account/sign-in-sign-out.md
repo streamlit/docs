@@ -1,6 +1,8 @@
 ---
 title: Sign in & sign out
 slug: /deploy/streamlit-community-cloud/manage-your-account/sign-in-sign-out
+description: Learn how to sign in to and sign out of Streamlit Community Cloud using Google, GitHub, or email authentication methods.
+keywords: sign in, sign out, authentication, google, github, email, login, logout, account access, credentials
 ---
 
 # Sign in & sign out

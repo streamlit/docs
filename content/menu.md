@@ -6,10 +6,14 @@ site_menu:
     icon: rocket_launch
   - category: Get started / Installation
     url: /get-started/installation
-  - category: Get started / Installation / Use command line
+  - category: Get started / Installation / LOCAL DEVELOPMENT
+  - category: Get started / Installation / Use Streamlit Playground
+    url: /get-started/installation/streamlit-playground
+  - category: Get started / Installation / Install via command line
     url: /get-started/installation/command-line
-  - category: Get started / Installation / Use Anaconda Distribution
+  - category: Get started / Installation / Install via Anaconda Distribution
     url: /get-started/installation/anaconda-distribution
+  - category: Get started / Installation / CLOUD DEVELOPMENT
   - category: Get started / Installation / Use GitHub Codespaces
     url: /get-started/installation/community-cloud
   - category: Get started / Installation / Use Snowflake
@@ -214,6 +218,9 @@ site_menu:
   - category: Develop / API reference / Data elements / st.column_config / Selectbox column
     url: /develop/api-reference/data/st.column_config/st.column_config.selectboxcolumn
     isVersioned: true
+  - category: Develop / API reference / Data elements / st.column_config / Multiselect column
+    url: /develop/api-reference/data/st.column_config/st.column_config.multiselectcolumn
+    isVersioned: true
   - category: Develop / API reference / Data elements / st.column_config / Datetime column
     url: /develop/api-reference/data/st.column_config/st.column_config.datetimecolumn
     isVersioned: true
@@ -397,6 +404,9 @@ site_menu:
     isVersioned: true
   - category: Develop / API reference / Media elements / st.logo
     url: /develop/api-reference/media/st.logo
+    isVersioned: true
+  - category: Develop / API reference / Media elements / st.pdf
+    url: /develop/api-reference/media/st.pdf
     isVersioned: true
   - category: Develop / API reference / Media elements / st.video
     url: /develop/api-reference/media/st.video
@@ -680,6 +690,9 @@ site_menu:
     url: /develop/tutorials/configuration-and-theming
   - category: Develop / Tutorials / Configuration and theming / Use external font files
     url: /develop/tutorials/configuration-and-theming/external-fonts
+  - category: Develop / Tutorials / Configuration and theming / Use external font files (streamlit<1.50.0)
+    url: /develop/tutorials/configuration-and-theming/external-fonts-old
+    visible: false
   - category: Develop / Tutorials / Configuration and theming / Use static font files
     url: /develop/tutorials/configuration-and-theming/static-fonts
   - category: Develop / Tutorials / Configuration and theming / Use variable font files

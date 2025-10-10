@@ -1,6 +1,8 @@
 ---
 title: Build LLM apps
 slug: /develop/tutorials/chat-and-llm-apps
+description: Learn to build LLM applications with Streamlit including conversational apps, chat interfaces, response feedback, and response revision features.
+keywords: LLM apps, conversational apps, chat applications, chat interfaces, response feedback, response revision, AI applications, LLM tutorials
 ---
 
 # Build LLM apps

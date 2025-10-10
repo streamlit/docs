@@ -1,6 +1,8 @@
 ---
 title: Connect Streamlit to Snowflake
 slug: /develop/tutorials/databases/snowflake
+description: Learn how to connect Streamlit apps to Snowflake databases using st.connection, Snowpark library, and secrets management for cloud data warehouse access.
+keywords: Snowflake, data warehouse, st.connection, Snowpark, secrets management, cloud database, secure connections, database tutorial
 ---
 
 # Connect Streamlit to Snowflake

@@ -1,6 +1,8 @@
 ---
 title: Caching overview
 slug: /develop/concepts/architecture/caching
+description: Learn about Streamlit's caching mechanisms including st.cache_data and st.cache_resource for improving app performance and managing expensive computations.
+keywords: streamlit caching, st.cache_data, st.cache_resource, performance optimization, cache management, expensive computations, app performance, cache invalidation, cached functions
 ---
 
 # Caching overview

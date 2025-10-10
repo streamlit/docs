@@ -1,6 +1,8 @@
 ---
 title: Collect user feedback about LLM responses
 slug: /develop/tutorials/chat-and-llm-apps/chat-response-feedback
+description: Learn to collect user feedback on LLM responses in Streamlit chat apps using st.feedback widget for sentiment collection and response improvement.
+keywords: user feedback, LLM responses, st.feedback, sentiment collection, chat apps, response feedback, user sentiment, chat interface, feedback collection
 ---
 
 # Collect user feedback about LLM responses

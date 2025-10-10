@@ -1,6 +1,8 @@
 ---
 title: Customize fonts
 slug: /develop/concepts/configuration/theming-customize-fonts
+description: Learn how to configure fonts in Streamlit apps by loading custom font files from URLs or static file serving, with configuration options for different text elements.
+keywords: fonts, font customization, typography, custom fonts, font loading, static files, font configuration, text styling, font families, web fonts
 ---
 
 # Customize fonts in your Streamlit app
@@ -50,9 +52,25 @@ font = "serif"
 font = "sans-serif"
 ```
 
-## Loading alternative fonts
+## Externally hosted fonts
 
-To use an alternative font in your app, you must declare the font in `config.toml` under `[[theme.fontFaces]]`. For multiple alternative fonts, declare multiple `[[theme.fontFaces]]` tables in your configuration file. You can self-host your font by using Streamlit static file serving, or you can point to a publicly hosted font file.
+If you use a font service like Google Fonts or Adobe Fonts, you can use those fonts directly by encoding their font family (name) and CSS URL into a single string of the form `{font_name}:{css_url}`. If your font family includes a space, use inner quotes on the font family. In the following `config.toml` example, Streamlit uses Nunito font for all text except code, which is Space Mono instead. Space Mono has inner quotes because it has a space.
+
+```toml
+[theme]
+font = "Nunito:https://fonts.googleapis.com/css2?family=Nunito&display=swap"
+codeFont = "'Space Mono':https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
+```
+
+<Important>
+
+If you configure your app to include any third-party integrations, including externally hosted fonts, your app may transmit user data (for example, IP addresses) to external servers. As the app developer, you are solely responsible for notifying your users about these third-party integrations, providing access to relevant privacy policies, and ensuring compliance with all applicable data protection laws and regulations.
+
+</Important>
+
+## Hosting alternative fonts
+
+If you have font files that you want to host with your app, you must declare the font in `config.toml` under `[[theme.fontFaces]]`. For multiple alternative fonts, declare multiple `[[theme.fontFaces]]` tables in your configuration file. You can self-host your font by using Streamlit static file serving, or you can point to a publicly hosted font file.
 
 <Important>
 
@@ -174,38 +192,24 @@ project_directory/
 └── streamlit_app.py
 ```
 
+## Font fallbacks
+
+If you use complicated font that might not be compatible with all browsers, or if you are using externally hosted fonts, it's best practice to include font fallbacks.
+
 ### Example 3: Define an alternative font with fallbacks
-
-If you don't want to download and host your font files with your app, you can point to externally hosted font files. If your files aren't hosted with your app, it's recommended to declare fallback fonts.
-
-<Important>
-
-If you configure your app to include any third-party integrations, including externally hosted fonts, your app may transmit user data (for example, IP addresses) to external servers. As the app developer, you are solely responsible for notifying your users about these third-party integrations, providing access to relevant privacy policies, and ensuring compliance with all applicable data protection laws and regulations.
-
-</Important>
 
 In your configuration file, wherever you declare a default font, you can use a comma-separated list of fonts instead. The font (or comma-separated list of fonts) is passed to the CSS [`font-family`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family) property.
 
-You can always include one of Streamlit's default fonts as a final fallback. The following example uses [Nunito](https://fonts.google.com/specimen/Nunito) font. The configuration file points to the Google-hosted font files and identifies Streamlit's built-in font as the backup.
+You can always include one of Streamlit's default fonts as a final fallback. The following example uses [Nunito](https://fonts.google.com/specimen/Nunito) and [Space Mono](https://fonts.google.com/specimen/Space+Mono) fonts. The configuration file points to the Google-hosted font files and identifies Streamlit's built-in font as the backup.
 
 A line-by-line explanation of this example is available in a [tutorial](/develop/tutorials/configuration-and-theming/external-fonts).
 
 `.streamlit/config.toml`:
 
 ```toml
-[[theme.fontFaces]]
-family="Nunito"
-url="https://fonts.gstatic.com/s/nunito/v31/XRXX3I6Li01BKofIMNaDRs7nczIH.woff2"
-style="italic"
-weight="200 1000"
-[[theme.fontFaces]]
-family="Nunito"
-url="https://fonts.gstatic.com/s/nunito/v31/XRXV3I6Li01BKofINeaBTMnFcQ.woff2"
-style="normal"
-weight="200 1000"
-
 [theme]
-font="Nunito, sans-serif"
+font="Nunito:https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000, sans-serif"
+codeFont="'Space Mono':https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap, monospace"
 ```
 
 <Tip>

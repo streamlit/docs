@@ -1,6 +1,8 @@
 ---
 title: streamlit config show
 slug: /develop/api-reference/cli/config
+description: streamlit config show displays all available configuration options with descriptions and values.
+keywords: streamlit config, cli, command line, config show, configuration options, settings, values, descriptions
 ---
 
 ## `$ streamlit config show`

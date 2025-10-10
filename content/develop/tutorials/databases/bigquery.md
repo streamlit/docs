@@ -1,6 +1,8 @@
 ---
 title: Connect Streamlit to Google BigQuery
 slug: /develop/tutorials/databases/bigquery
+description: Learn how to connect Streamlit apps to Google BigQuery for querying large datasets using service account authentication and st.connection.
+keywords: BigQuery, Google Cloud, st.connection, large datasets, service account, cloud database, data warehouse, secure connections, database tutorial
 ---
 
 # Connect Streamlit to Google BigQuery

@@ -1,6 +1,8 @@
 ---
 title: Deploy your app on Community Cloud
 slug: /deploy/streamlit-community-cloud/deploy-your-app/deploy
+description: Step-by-step guide to deploy your Streamlit app on Community Cloud including repository selection, configuration, and deployment process.
+keywords: deploy, community cloud, repository, entrypoint, python version, secrets, subdomain, deployment process
 ---
 
 # Deploy your app on Community Cloud

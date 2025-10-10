@@ -1,6 +1,8 @@
 ---
 title: Managing dependencies when deploying your app
 slug: /deploy/concepts/dependencies
+description: Learn how to manage Python dependencies, requirements.txt files, and package installation when deploying Streamlit apps to cloud platforms.
+keywords: dependencies, requirements.txt, pip, python packages, deployment, environment, installation
 ---
 
 # Managing dependencies when deploying your app

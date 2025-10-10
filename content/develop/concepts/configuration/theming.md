@@ -1,6 +1,8 @@
 ---
 title: Theming
 slug: /develop/concepts/configuration/theming
+description: Learn about theming options in config.toml, including color schemes, fonts, and visual styling.
+keywords: theming, app customization, visual styling, color schemes, app appearance, theme configuration, config.toml, styling options, UI customization
 ---
 
 # Theming overview
@@ -23,6 +25,7 @@ The following options can be configured separately for the main body of your app
 - **Background color**: Set the color of app, widget, code block, and dataframe header backgrounds.
 - **Border radius**: Set the roundness of elements and widgets.
 - **Border color**: Set the color and visibility of element, widget, sidebar, and dataframe borders.
+- **Basic color palette**: Set the color palette (red, orange, yellow, green, blue, violet, and gray/grey) for things like colored Markdown text and sparklines.
 
 ## Example themes
 

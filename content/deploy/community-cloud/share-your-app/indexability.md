@@ -1,6 +1,8 @@
 ---
 title: SEO and search indexability
 slug: /deploy/streamlit-community-cloud/share-your-app/indexability
+description: Learn how to optimize your Streamlit app for search engines with custom subdomains, descriptive titles, and meta descriptions.
+keywords: seo, search, indexability, google, bing, subdomain, title, meta description, optimization, discoverability
 ---
 
 # SEO and search indexability

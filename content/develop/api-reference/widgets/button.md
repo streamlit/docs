@@ -2,7 +2,7 @@
 title: st.button
 slug: /develop/api-reference/widgets/st.button
 description: st.button displays a button widget.
-keywords: button
+keywords: st.button, button, click button, interactive button, button widget, user interaction, button click, action button
 ---
 
 <Autofunction function="streamlit.button" />

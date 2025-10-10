@@ -1,11 +1,13 @@
 ---
 title: Streamlit API cheat sheet
 slug: /develop/quick-reference/cheat-sheet
+description: Comprehensive Streamlit API cheat sheet with all widgets, layout elements, data display, and utility functions for quick reference during development.
+keywords: API cheat sheet, Streamlit API, widgets, layout, data display, utility functions, development reference, quick guide, function reference
 ---
 
 # Streamlit API cheat sheet
 
-This is a summary of the docs for the latest version of Streamlit, [v1.48.0](https://pypi.org/project/streamlit/1.48.0/).
+This is a summary of the docs for the latest version of Streamlit, [v1.50.0](https://pypi.org/project/streamlit/1.50.0/).
 
 <Masonry>
 
@@ -116,10 +118,11 @@ st.metric("My metric", 42, 2)
 
 ```python
 st.image("./header.png")
+st.logo("logo.jpg")
+st.pdf("my_document.pdf")
 st.audio(data)
 st.video(data)
 st.video(data, subtitles="./subs.vtt")
-st.logo("logo.jpg")
 ```
 
 </CodeTile>
@@ -137,7 +140,6 @@ st.map(df)
 st.scatter_chart(df)
 
 st.altair_chart(chart)
-st.bokeh_chart(fig)
 st.graphviz_chart(fig)
 st.plotly_chart(fig)
 st.pydeck_chart(chart)
@@ -160,7 +162,7 @@ event = st.vega_lite_chart(
 )
 ```
 
-To use newer versions of Bokeh, see our custom component [`streamlit-bokeh`](https://github.com/streamlit/streamlit-bokeh).
+To use Bokeh, see our custom component [`streamlit-bokeh`](https://github.com/streamlit/streamlit-bokeh).
 
 </CodeTile>
 

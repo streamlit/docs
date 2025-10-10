@@ -1,6 +1,8 @@
 ---
 title: st.connections.BaseConnection
 slug: /develop/api-reference/connections/st.connections.baseconnection
+description: st.connections.BaseConnection is the base class for creating custom connections to data sources and APIs.
+keywords: BaseConnection, base class, custom connection, data source, api, connection, extend, inheritance, custom
 ---
 
 <Tip>

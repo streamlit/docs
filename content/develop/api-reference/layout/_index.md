@@ -1,6 +1,8 @@
 ---
 title: Layouts and Containers
 slug: /develop/api-reference/layout
+description: Control how elements are arranged on screen with Streamlit's layout and container components including columns, expanders, sidebars, tabs, and containers.
+keywords: layouts, containers, columns, expander, sidebar, tabs, popover, streamlit layout, ui layout, screen organization, element arrangement
 ---
 
 # Layouts and Containers

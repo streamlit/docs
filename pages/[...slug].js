@@ -52,6 +52,7 @@ import CodeTile from "../components/blocks/codeTile";
 import Collapse from "../components/blocks/collapse";
 import Download from "../components/utilities/download";
 import Flex from "../components/layouts/flex";
+import IconLink from "../components/blocks/iconLink.js";
 import Image from "../components/blocks/image";
 import Deprecation from "../components/blocks/deprecation";
 import Important from "../components/blocks/important";
@@ -141,6 +142,7 @@ export default function Article({
     Cloud,
     Masonry,
     CodeTile,
+    IconLink,
     InlineCalloutContainer,
     InlineCallout,
     TileContainer,

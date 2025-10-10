@@ -1,6 +1,8 @@
 ---
 title: Favorite your app
 slug: /deploy/streamlit-community-cloud/manage-your-app/favorite-your-app
+description: Learn how to favorite and unfavorite your Streamlit apps in Community Cloud to quickly access them from your workspace.
+keywords: favorite, unfavorite, star, workspace, quick access, organize, manage, apps, toolbar
 ---
 
 # Favorite your app

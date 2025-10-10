@@ -1,6 +1,8 @@
 ---
 title: Connect your GitHub account
 slug: /deploy/streamlit-community-cloud/get-started/connect-your-github-account
+description: Connect your GitHub account to Community Cloud to deploy apps from public and private repositories with proper permissions.
+keywords: github, connect, oauth, repositories, public, private, permissions, organization, access
 ---
 
 # Connect your GitHub account
