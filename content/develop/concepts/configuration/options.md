@@ -56,20 +56,6 @@ When using command line options to override `config.toml` and environment variab
 enableStaticServing = true
 ```
 
-## Telemetry
-
-As mentioned during the installation process, Streamlit collects usage statistics. You can find out
-more by reading our [Privacy Notice](https://streamlit.io/privacy-policy), but the high-level
-summary is that although we collect telemetry data we cannot see and do not store information
-contained in Streamlit apps.
-
-If you'd like to opt out of usage statistics, add the following to your config file:
-
-```toml
-[browser]
-gatherUsageStats = false
-```
-
 ## Theming
 
 You can change the base colors of your app using the `[theme]` section of the configuration system.
