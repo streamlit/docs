@@ -45,7 +45,7 @@ _playground_!)
 Install Streamlit on your own machine using tools like `venv` and `pip`.
 
 <IconLink
-    link="/get-started/installation/command-line"
+    href="/get-started/installation/command-line"
     icon="arrow_forward"
     label="Instructions for the command line"
     cssModuleClassName="Orange"
@@ -58,7 +58,7 @@ Install Streamlit using the Anaconda Distribution graphical user interface. This
 approach if you're on Windows or don't have Python set up.
 
 <IconLink
-    link="/get-started/installation/anaconda-distribution"
+    href="/get-started/installation/anaconda-distribution"
     icon="arrow_forward"
     label="Instructions for Anaconda Distribution"
     cssModuleClassName="Orange"
@@ -73,7 +73,7 @@ Use Streamlit Community Cloud with GitHub Codespaces so you don't have to go thr
 of installing Python and setting up an environment.
 
 <IconLink
-    link="/get-started/installation/community-cloud"
+    href="/get-started/installation/community-cloud"
     icon="arrow_forward"
     label="Instructions for GitHub Codespaces"
     cssModuleClassName="Orange"
@@ -86,7 +86,7 @@ Use Streamlit in Snowflake to code your apps in the cloud, right alongside your
 data with role-based access controls.
 
 <IconLink
-    link="/get-started/installation/streamlit-in-snowflake"
+    href="/get-started/installation/streamlit-in-snowflake"
     icon="arrow_forward"
     label="Instructions for Snowflake"
     cssModuleClassName="Orange"
