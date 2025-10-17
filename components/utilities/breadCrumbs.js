@@ -68,7 +68,7 @@ const BreadCrumbs = ({ slug, menu }) => {
   }
 
   // Then, we add a couple pages that don't need breadcrumbs, such as /menu, /index, etc.
-  filesToExclude.push("index", "menu");
+  filesToExclude.push("index", "gdpr-banner", "menu", "cookie-settings");
 
   // Now, we throw the error if any page that's not on the filesToExclude array is missing in menu.md
   if (path.length === 0 && !filesToExclude.includes(slug[0])) {

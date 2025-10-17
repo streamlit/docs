@@ -70,6 +70,7 @@ To add, edit, or delete content in our documentation, you have to modify Markdow
 - `kb/` Contains `.md` files that populate the Knowledge Base.
 - `library/` Contains `.md` files that populate the Streamlit Library section.
 - `streamlit-cloud/`Contains `.md` files that populate the Streamlit Community Cloud section.
+- `gdpr-banner.md` You'll never have to edit this file.
 - `index.md` Contains text that populates the index page.
 - `menu.md` This is a special file containing only front matter that defines the docs Menu. You will need to add an entry on this file for each new page you create within the docs' site.
 

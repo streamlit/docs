@@ -1,13 +1,8 @@
 import Link from "next/link";
-import dynamic from "next/dynamic";
 
 import styles from "./footer.module.css";
 
-const CookiePolicyButton = dynamic(() => import("./cookiePolicyButton"), {
-  ssr: false,
-});
-
-const Footer = () => {
+const Footer = ({ setIsTelemetryModalVisible }) => {
   return (
     <footer className={styles.Container}>
       <section className={styles.InnerContainer}>
@@ -186,9 +181,12 @@ const Footer = () => {
         </section>
         <div className={styles.Copyright}>
           <span>&copy; {new Date().getFullYear()} Snowflake Inc.</span>
-          <CookiePolicyButton className="hover:opacity-80 ml-2">
+          <button
+            className="hover:opacity-80 ml-2"
+            onClick={() => setIsTelemetryModalVisible(true)}
+          >
             Cookie policy
-          </CookiePolicyButton>
+          </button>
         </div>
       </section>
     </footer>
