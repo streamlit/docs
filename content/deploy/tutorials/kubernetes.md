@@ -167,9 +167,9 @@ Make sure your [Kubernetes client](https://kubernetes.io/docs/tasks/tools/#kubec
 
 ### Configure a Google OAuth Client and oauth2-proxy
 
-For configuring the Google OAuth Client, please see [Google Auth Provider](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oauth_provider#google-auth-provider). Configure oauth2-proxy to use the desired [OAuth Provider Configuration](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oauth_provider) and update the oath2-proxy config in the config map.
+For configuring the Google OAuth Client, please see [Google Auth Provider](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oauth_provider#google-auth-provider). Configure oauth2-proxy to use the desired [OAuth Provider Configuration](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oauth_provider) and update the oauth2-proxy config in the config map.
 
-The below configuration contains a ouath2-proxy sidecar container which handles the authentication with Google. You can learn more from the [oauth2-proxy repository](https://github.com/oauth2-proxy/oauth2-proxy).
+The below configuration contains a oauth2-proxy sidecar container which handles the authentication with Google. You can learn more from the [oauth2-proxy repository](https://github.com/oauth2-proxy/oauth2-proxy).
 
 ### Create a Kubernetes configuration file
 
