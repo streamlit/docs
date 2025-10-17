@@ -1,0 +1,42 @@
+.Container {
+  backdrop-filter: blur(10px);
+  background: #fffd;
+}
+
+.Markdown div {
+  @apply flex flex-col;
+}
+
+.Markdown h1 {
+  @apply text-gray-90 text-lg sm:text-xl font-bold mb-1;
+}
+
+.Markdown p {
+  @apply text-gray-90 text-base mb-0;
+}
+
+.Markdown p a {
+  @apply text-gray-90 underline hover:text-gray-70;
+}
+
+:global(.dark) .Container {
+  @apply bg-gray-100 border-gray-90;
+}
+
+:global(.dark) .Markdown p,
+:global(.dark) .Markdown p a {
+  @apply text-gray-40;
+}
+
+:global(.dark) .Link,
+:global(.dark) .Button {
+  @apply text-gray-40;
+}
+
+:global(.dark) .Button {
+  @apply border-gray-80;
+}
+
+:global(.dark) .Markdown h1 {
+  @apply text-gray-40;
+}
