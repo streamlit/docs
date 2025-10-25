@@ -1,19 +1,17 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import Script from "next/script";
 
 export default function StreamlitDocument() {
   return (
     <Html>
       <Head>
         {/* OneTrust Consent SDK */}
-        <Script
-          strategy="beforeInteractive"
+        <script
           src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
           type="text/javascript"
           charset="UTF-8"
           data-domain-script="01990a3a-a865-7092-a22e-9094bfac985a"
-        ></Script>
-        <Script strategy="beforeInteractive" type="text/javascript">
+        ></script>
+        <script type="text/javascript">
           {`
             function OptanonWrapper() { }
 
@@ -48,14 +46,11 @@ export default function StreamlitDocument() {
               }
             }
           `}
-        </Script>
+        </script>
         {/* Segment's OneTrust Consent Wrapper */}
-        <Script
-          strategy="beforeInteractive"
-          src="https://cdn.jsdelivr.net/npm/@segment/analytics-consent-wrapper-onetrust@latest/dist/umd/analytics-onetrust.umd.js"
-        ></Script>
+        <script src="https://cdn.jsdelivr.net/npm/@segment/analytics-consent-wrapper-onetrust@latest/dist/umd/analytics-onetrust.umd.js"></script>
         {/* Segment Analytics Snippet */}
-        <Script strategy="beforeInteractive" src="/scripts/segment.js"></Script>
+        <script src="/scripts/segment.js"></script>
       </Head>
       <body>
         <Main />
