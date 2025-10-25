@@ -13,7 +13,12 @@ import { useEffect } from "react";
 import { VersionContextProvider } from "../lib/next/VersionContext";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
-Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeComplete", () => {
+  NProgress.done();
+  if (window.reloadOTBanner) {
+    window.reloadOTBanner();
+  }
+});
 Router.events.on("routeChangeError", () => NProgress.done());
 
 function StreamlitDocs({ Component, pageProps }) {
