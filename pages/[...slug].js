@@ -18,10 +18,6 @@ const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
 
 // Site Components
 import { looksLikeVersionAndPlatformString } from "../lib/next/utils";
-import CookieSettingsModal from "../components/utilities/cookieSettingsModal";
-import GDPRBanner, {
-  setTelemetryPreference,
-} from "../components/utilities/gdpr";
 import {
   getArticleSlugs,
   getArticleSlugFromString,
@@ -114,28 +110,6 @@ export default function Article({
 
   let versionWarning;
   let currentLink;
-
-  const [isTelemetryModalVisible, setIsTelemetryModalVisible] = useState(false);
-  const [isTelemetryBannerVisible, setIsTelemetryBannerVisible] =
-    useState(false);
-  const [insertTelemetryCode, setInsertTelemetryCode] = useState(false);
-
-  const allowTelemetryAndCloseBanner = useCallback(() => {
-    setIsTelemetryBannerVisible(false);
-    setIsTelemetryModalVisible(false);
-    setInsertTelemetryCode(true);
-    setTelemetryPreference(true);
-  }, [isTelemetryBannerVisible, insertTelemetryCode]);
-
-  const declineTelemetryAndCloseBanner = useCallback(() => {
-    setIsTelemetryBannerVisible(false);
-    setIsTelemetryModalVisible(false);
-    setInsertTelemetryCode(false);
-    setTelemetryPreference(false);
-
-    // If previous state was true, and now it's false, reload the page to remove telemetry JS
-    if (insertTelemetryCode) router.reload();
-  }, [isTelemetryBannerVisible, insertTelemetryCode]);
 
   const { version, platform, goToLatest, goToOpenSource } = useVersionContext();
   const isVersionedPage = currMenuItem && currMenuItem.isVersioned;
@@ -263,23 +237,6 @@ export default function Article({
       }}
     >
       <Layout>
-        {isTelemetryModalVisible && (
-          <CookieSettingsModal
-            setIsTelemetryModalVisible={setIsTelemetryModalVisible}
-            allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
-            declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
-          />
-        )}
-        <GDPRBanner
-          isTelemetryModalVisible={isTelemetryModalVisible}
-          setIsTelemetryModalVisible={setIsTelemetryModalVisible}
-          isTelemetryBannerVisible={isTelemetryBannerVisible}
-          setIsTelemetryBannerVisible={setIsTelemetryBannerVisible}
-          insertTelemetryCode={insertTelemetryCode}
-          setInsertTelemetryCode={setInsertTelemetryCode}
-          allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
-          declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
-        />
         <section className={styles.Container}>
           <SideBar slug={slug} menu={menu} />
           <Head>
@@ -329,6 +286,19 @@ export default function Article({
               name="twitter:image"
               content={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-twitter.jpg`}
             />
+            <script
+              src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+              type="text/javascript"
+              charset="UTF-8"
+              data-domain-script="01990a3a-a865-7092-a22e-9094bfac985a"
+            ></script>
+            <script type="text/javascript">
+              {"function OptanonWrapper() { }"}
+            </script>
+            {/* Add Segment's OneTrust Consent Wrapper */}
+            <script src="https://cdn.jsdelivr.net/npm/@segment/analytics-consent-wrapper-onetrust@latest/dist/umd/analytics-onetrust.umd.js"></script>
+            {/* Add Segment Analytics Snippet */}
+            <script src="/scripts/segment.js"></script>
           </Head>
           <section className={styles.InnerContainer} id="documentation">
             {versionWarning}
@@ -345,7 +315,7 @@ export default function Article({
               </div>
             </article>
           </section>
-          <Footer setIsTelemetryModalVisible={setIsTelemetryModalVisible} />
+          <Footer />
         </section>
       </Layout>
     </MDXProvider>

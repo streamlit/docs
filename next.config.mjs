@@ -49,6 +49,9 @@ const CSP_HEADER = [
   "https://www.google.com/recaptcha/api.js", // Recaptcha for Kapa.ai
   "https://www.gstatic.com/recaptcha/releases/", // Recaptchas for Kapa.ai
   "https://www.google.com/recaptcha/enterprise.js", // Recaptchas for Kapa.ai
+  "https://cdn.cookielaw.org/", // Onetrust cookie banner
+  "https://cookie-cdn.cookiepro.com/", // Onetrust cookie banner
+  "https://cdn.jsdelivr.net/npm/@segment/", // Segment Onetrust Wrapper
   ";",
   "default-src 'none';",
   "font-src 'self';",
@@ -82,6 +85,9 @@ const CSP_HEADER = [
   "https://www.google.com/recaptcha/api.js", // Recaptcha for Kapa.ai
   "https://www.gstatic.com/recaptcha/releases/", // Recaptchas for Kapa.ai
   "https://www.google.com/recaptcha/enterprise.js", // Recaptchas for Kapa.ai
+  "https://cdn.cookielaw.org/", // Onetrust cookie banner
+  "https://cookie-cdn.cookiepro.com/", // Onetrust cookie banner
+  "https://cdn.jsdelivr.net/npm/@segment/", // Segment Onetrust Wrapper
   ";",
   "style-src",
   "'self'",
