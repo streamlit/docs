@@ -1,22 +1,25 @@
 import streamlit as st
 
+CSS = """
+a {
+    color: var(--st-link-color) !important;
+}
+"""
+
 JS = """
 export default function(component) {
     const { data, setTriggerValue, parentElement } = component;
-    parentElement.innerHTML = data;
-    const links = parentElement.querySelectorAll('a');
+    const newElement = document.createElement('div');
+    parentElement.appendChild(newElement);
+    newElement.innerHTML = data;
+
+    const links = newElement.querySelectorAll('a');
 
     links.forEach((link) => {
         link.onclick = (e) => {
             setTriggerValue('clicked', link.getAttribute('data-link'));
         };
     });
-}
-"""
-
-CSS = """
-a {
-    color: var(--st-link-color);
 }
 """
 
