@@ -32,12 +32,7 @@ Python, click on the <a href="#" data-link="link_1">first link</a> or
 <a href="#" data-link="link_2">second link</a>.</p>
 """
 
-
-def callback():
-    pass
-
-
-result = my_component(data=paragraph_html, on_clicked_change=callback)
+result = my_component(data=paragraph_html, on_clicked_change=lambda: None)
 if result.clicked == "link_1":
     st.write("You clicked the first link!")
 elif result.clicked == "link_2":

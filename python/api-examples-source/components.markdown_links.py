@@ -18,12 +18,7 @@ my_component = st.components.v2.component(
     js=JS,
 )
 
-
-def callback():
-    pass
-
-
-result = my_component(on_clicked_change=callback)
+result = my_component(on_clicked_change=lambda: None)
 
 st.markdown(
     "Components aren't [sandboxed](#), so you can write JS that [interacts](#) with the main [document](#)."

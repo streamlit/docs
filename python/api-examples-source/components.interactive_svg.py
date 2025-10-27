@@ -35,11 +35,6 @@ polygon:hover, rect:hover, circle:hover {
 }
 """
 
-
-def callback():
-    pass
-
-
 my_component = st.components.v2.component(
     "clickable_svg",
     html=HTML,
@@ -47,5 +42,5 @@ my_component = st.components.v2.component(
     js=JS,
 )
 
-result = my_component(on_clicked_change=callback)
+result = my_component(on_clicked_change=lambda: None)
 result

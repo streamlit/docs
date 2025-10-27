@@ -36,11 +36,9 @@ my_component = st.components.v2.component(
 )
 
 
-def callback():
-    pass
-
-
-def my_component_wrapper(label, *, default="", key=None, on_change=callback):
+def my_component_wrapper(
+    label, *, default="", key=None, on_change=lambda: None
+):
     component_state = st.session_state.get(key, {})
     value = component_state.get("value", default)
     data = {"label": label, "value": value}
