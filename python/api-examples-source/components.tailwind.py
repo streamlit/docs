@@ -1,11 +1,14 @@
 import streamlit as st
 
+with open("python/api-examples-source/tailwind_example.js", "r") as f:
+    TAILWIND_SCRIPT = f.read()
+
 HTML = """
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-3 rounded">
         Click me!
     </button>
 """
-JS = """
+JS = TAILWIND_SCRIPT + """
     export default function(component) {
         const { setTriggerValue, parentElement } = component;
         const button = parentElement.querySelector('button');
