@@ -192,63 +192,68 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/develop/api-reference/data/st.column_config/st.column_config.multiselectcolumn?utm_source=streamlit"
+                href="/develop/api-reference/custom-components/st.components.v2.component?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">view_column</i>
-                <h4>Multiselect columns</h4>
+                <i className="material-icons-sharp">extension</i>
+                <h4>Custom Components v2</h4>
                 <p>
-                  You can configure colorful multiselect columns with{" "}
-                  <code>st.column_config.MultiselectColumn</code>.
+                  Create frameless custom UI with bidirectional data flow using{" "}
+                  <code>st.components.v2.component</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/concepts/configuration/theming-customize-colors-and-borders?utm_source=streamlit#basic-color-palette"
+                href="/develop/concepts/configuration/theming?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">palette</i>
-                <h4>Color palette</h4>
+                <i className="material-icons-sharp">dark_mode</i>
+                <h4>Light & dark themes</h4>
                 <p>
-                  You can configure a color palette (red, orange, yellow, green,
-                  blue, violet, and gray/grey) that is shared across elements.
+                  Configure custom light and dark themes simultaneously in your
+                  app with new theming options.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/charts/st.bar_chart?utm_source=streamlit"
+                href="/develop/api-reference/layout/st.space?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">bar_chart</i>
-                <h4>Bar chart sorting</h4>
+                <i className="material-icons-sharp">space_bar</i>
+                <h4>Spacing control</h4>
                 <p>
-                  You can sort the bars in <code>st.bar_chart</code>.
+                  Add precise vertical and horizontal spacing with{" "}
+                  <code>st.space</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/layout/st.tabs?utm_source=streamlit"
+                href="/develop/api-reference/data/st.dataframe?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">tab</i>
-                <h4>Default tab</h4>
+                <i className="material-icons-sharp">aspect_ratio</i>
+                <h4>Flex container support</h4>
                 <p>
-                  You can specify the default tab in <code>st.tabs</code>.
+                  Charts and dataframes now have width and height parameters for
+                  flex containers.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/data/st.column_config/st.column_config.areachartcolumn?utm_source=streamlit"
+                href="/develop/api-reference/data/st.column_config/st.column_config.progresscolumn?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">format_paint</i>
-                <h4>Chart column colors</h4>
-                <p>You can set the color of chart columns.</p>
+                <i className="material-icons-sharp">format_color_fill</i>
+                <h4>Progress column colors</h4>
+                <p>
+                  Customize progress column colors with the new{" "}
+                  <code>color</code> parameter.
+                </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/widgets/st.audio_input?utm_source=streamlit"
+                href="/develop/quick-reference/release-notes?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">mic</i>
-                <h4>Audio sample rate</h4>
+                <i className="material-icons-sharp">key</i>
+                <h4>Key-based widget identity</h4>
                 <p>
-                  You can configure the sample rate of audio in{" "}
-                  <code>st.audio_input</code>.
+                  More widgets now use key-based identity to prevent resets when
+                  parameters change.
                 </p>
               </RefCard>
             </TileContainer>
