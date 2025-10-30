@@ -12,12 +12,18 @@ This command starts your Streamlit app.
 ### Syntax
 
 ```
-streamlit run <entrypoint file> [-- config options] [script args]
+streamlit run [<entrypoint file or directory>] [-- config options] [script args]
 ```
 
 ### Arguments
 
-`<entrypoint file>`: The path to your entrypoint file for your Streamlit app. In a multipage app with `st.navigation`, your entrypoint file acts as a router between your pages. Otherwise, your entrypoint file is your app's homepage.
+`<entrypoint file or directory>` (optional): The path to your entrypoint file or directory for your Streamlit app.
+
+- **If not provided**: Streamlit will try to run `streamlit_app.py` from the current working directory.
+- **If a directory path is provided**: Streamlit will try to run `streamlit_app.py` in the specified directory.
+- **If a file path is provided**: Streamlit will run the specified file.
+
+In a multipage app with `st.navigation`, your entrypoint file acts as a router between your pages. Otherwise, your entrypoint file is your app's homepage.
 
 ### Options
 
@@ -31,44 +37,62 @@ For a complete list of configuration options, see [`config.toml`](/develop/api-r
 
 ### Script arguments
 
-If you need to pass arguments directly to your script, you can pass them as positional arguments. If you use `sys.argv` to read your arguments, `sys.arfgv` returns a list of all arugments and does _not_ include any configuration options. Python interprets all arguments as strings.
+If you need to pass arguments directly to your script, you can pass them as positional arguments. If you use `sys.argv` to read your arguments, `sys.argv` returns a list of all arguments and does _not_ include any configuration options. Python interprets all arguments as strings.
 
-- `sys.argv[0]` returns the provided path to your entrypoint file (`<entrypoint file>`).
+- `sys.argv[0]` returns the the path to your entrypoint file, even if you did not explicitly provide it.
 - `sys.argv[1:]` returns a list of arguments in order and does not include any configuration options.
 
 ### Examples
 
-- If your app is in your working directory, run it as follows:
+- If your app is named `streamlit_app.py` in your working directory, you can run it with the following command:
+
+  ```
+  streamlit run
+  ```
+
+- If your app has a different name and is in your working directory, run it like the following command:
 
   ```
   streamlit run your_app.py
   ```
 
-- If your app is in a subdirectory, run it as follows:
+- If your app is named `streamlit_app.py` in a subdirectory, you can run it like the following command:
+
+  ```
+  streamlit run your_subdirectory
+  ```
+
+- If your app has a different name and is in a subdirectory, run it like the following command:
 
   ```
   streamlit run your_subdirectory/your_app.py
   ```
 
-- If your app is saved in a public GitHub repo or gist, run it as follows:
+- If your app is saved in a public GitHub repo or gist, run it like the following command:
 
   ```
   streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
   ```
 
-- If you need to set one or more configuration options, run it as follows:
+- If you need to set one or more configuration options, run it like the following command:
 
   ```
   streamlit run your_app.py --client.showErrorDetails=False --theme.primaryColor=blue
   ```
 
-- If you need to pass an argument to your script, run it as follows:
+  Or if using the default `streamlit_app.py`:
+
+  ```
+  streamlit run --client.showErrorDetails=False --theme.primaryColor=blue
+  ```
+
+- If you need to pass an argument to your script, run it like the following command:
 
   ```
   streamlit run your_app.py "my list" of arguments
   ```
 
-  Within your script, the following statement will be true:
+  Within your script, the following statements will be true:
 
   ```
   sys.argv[0] == "your_app.py"
