@@ -9,18 +9,23 @@ keywords: theming, app customization, visual styling, color schemes, app appeara
 
 In this guide, we provide an overview of theming and visual customization of Streamlit apps. Streamlit themes are defined using configuration options, which are most commonly defined in a `.streamlit/config.toml` file. For more information about setting configuration options, see [Working with configuration options](/develop/concepts/configuration/options). For a complete list of configuration options and definitions, see the API reference for [config.toml](/develop/api-reference/configuration/config.toml#theme).
 
-The following options can be set in the `[theme]` table of `config.toml` and can't be set separately in the `[theme.sidebar]` table:
+You can configure a light and dark theme for your app that the user can change through the settings menu. The sidebar is separately
+configurable from the main app for almost all theming options.
 
-- **Base color scheme**: Set your custom theme to inherit from Streamlit's light or dark theme.
+The following options can be set in the `[theme]` table of `config.toml` and can't be set separately in the sidebar, dark-theme, or
+light-theme tables:
+
+- **Base color scheme**: Set your custom theme to inherit from Streamlit's light or dark theme, or use an external theming TOML file.
 - **Base font**: Set the base font weight and size. (This can be configured separately for heading and code font.)
 - **Chart color**: Set series colors for Plotly, Altair, and Vega-Lite charts.
 - **Sidebar border**: Set the visibility of the sidebar border.
 
-The following options can be configured separately for the main body of your app and the sidebar:
+The following options can be configured separately for the main body of your app and the sidebar. They can also be specified separately for
+dark and light themes (`[theme.light]`, `[theme.light.sidebar]`, `[theme.dark]`, `[theme.dark.sidebar]`):
 
 - **Font family**: Set the font family for body text, headings, and code.
 - **Font style**: Set the weight and size of heading and code font, and set visibility of link underlines.
-- **Text color**: Set the color of body text and links.
+- **Text color**: Set the color of body, inline code, and link text.
 - **Primary color**: Set the color of interactive elements and highlights.
 - **Background color**: Set the color of app, widget, code block, and dataframe header backgrounds.
 - **Border radius**: Set the roundness of elements and widgets.
