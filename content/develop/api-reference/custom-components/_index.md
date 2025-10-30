@@ -2,10 +2,96 @@
 title: Custom components
 slug: /develop/api-reference/custom-components
 description: Use Streamlit's custom components to create and integrate custom UI elements in your app.
-keywords: custom components, declare_component, html, iframe, frontend, react, javascript, custom ui, components v1
+keywords: custom components, declare_component, html, iframe, frontend, react, javascript, custom ui, components v1, components v2
 ---
 
 # Custom components
+
+Streamlit custom components allow you to create and integrate custom UI elements that extend beyond Streamlit's built-in widgets. There are two versions available: V2 components offer a modern, streamlined approach with TypeScript support, while V1 components use iframe isolation for custom elements built with HTML and JavaScript.
+
+## V2 custom components
+
+### Backend (Python)
+
+<TileContainer>
+
+<RefCard href="/develop/api-reference/custom-components/st.components.v2.component">
+
+<h4>Register</h4>
+
+Register a custom component.
+
+```python
+my_component = st.components.v2.component(
+    html=HTML,
+    js=JS
+)
+my_component()
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/custom-components/st.components.v2.types.bidicomponentcallable">
+
+<h4>Mount</h4>
+
+Mount a custom component.
+
+```python
+my_component = st.components.v2.component(
+    html=HTML,
+    js=JS
+)
+my_component()
+```
+
+</RefCard>
+
+</TileContainer>
+
+### Frontend (TypeScript)
+
+<TileContainer>
+
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib-component">
+
+<h4>Component</h4>
+
+Type alias for the component function.
+
+```typescript
+import { Component } from "@streamlit/component-v2-lib";
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib-componentargs">
+
+<h4>ComponentArgs</h4>
+
+Type alias for the component arguments.
+
+```typescript
+import { ComponentArgs } from "@streamlit/component-v2-lib";
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib-componentstate">
+
+<h4>ComponentState</h4>
+
+Type alias for the component state.
+
+```typescript
+import { ComponentState } from "@streamlit/component-v2-lib";
+```
+
+</RefCard>
+
+</TileContainer>
+
+## V1 custom components
 
 <TileContainer>
 

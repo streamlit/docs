@@ -159,15 +159,19 @@ const Autofunction = ({
   let headerTitle;
   let body;
   let isClass;
+  let isInterface;
   let isAttributeDict;
+  let isTypeAlias;
   let methods = [];
   let properties = [];
 
   if (streamlitFunction in docstrings || oldStreamlitFunction in docstrings) {
     functionObject =
       docstrings[streamlitFunction] ?? docstrings[oldStreamlitFunction];
-    isClass = functionObject.is_class;
+    isClass = functionObject.is_class ?? false;
+    isInterface = functionObject.is_interface ?? false;
     isAttributeDict = functionObject.is_attribute_dict ?? false;
+    isTypeAlias = functionObject.type === "type_alias";
     if (
       functionObject.description !== undefined &&
       functionObject.description
@@ -222,9 +226,15 @@ const Autofunction = ({
   if (hideHeader !== undefined && hideHeader) {
     header = "";
   } else {
-    const name = functionObject.signature
-      ? `${functionObject.signature}`.split("(")[0].replace("streamlit", "st")
-      : "";
+    const name =
+      isInterface || isTypeAlias
+        ? functionObject.name
+        : functionObject.signature
+          ? `${functionObject.signature}`
+              .split("(")[0]
+              .replace("streamlit", "st")
+          : "";
+    console.log("NAME:", name);
     headerTitle = isAttributeDict ? (
       <H3 className={styles.Title}>
         <a
@@ -351,10 +361,10 @@ const Autofunction = ({
     // When "Parameters" are included in a class docstring, they are actually
     // "Properties." Using "Properties" in the docstring does not result in
     // individually parsed properties; using "Parameters" is a workaround.
-    if (isClass) {
-      propertiesRows.push(row);
-    } else {
+    if (!isClass || isInterface) {
       args.push(row);
+    } else {
+      propertiesRows.push(row);
     }
   }
 
@@ -364,7 +374,9 @@ const Autofunction = ({
     const row = {};
     const method = methods[index];
     const slicedSlug = slug.slice().join("/");
-    const hrefName = `${functionObject.name}.${method.name}`
+    const hrefName = (
+      isTypeAlias ? method.name : `${functionObject.name}.${method.name}`
+    )
       .toLowerCase()
       .replace("streamlit", "st")
       .replace(/[.,\/#!$%\^&\*;:{}=\-`~()]/g, "");
@@ -462,7 +474,11 @@ const Autofunction = ({
           : {
               title: (
                 <>
-                  {isClass ? "Class description" : "Function signature"}
+                  {isTypeAlias
+                    ? "(TypeScript) Type alias description"
+                    : isClass
+                      ? "Class description"
+                      : "Function signature"}
                   <a
                     className={styles.Title.a}
                     href={functionObject.source}
@@ -481,12 +497,27 @@ const Autofunction = ({
               content: `<p class='code'> ${functionObject.signature}</p> `,
             }
       }
-      body={args.length ? { title: "Parameters" } : null}
+      body={
+        args.length
+          ? {
+              title:
+                isTypeAlias && !isInterface
+                  ? "Properties"
+                  : isTypeAlias
+                    ? "Arguments"
+                    : "Parameters",
+            }
+          : null
+      }
       bodyRows={args.length ? args : null}
       foot={[
-        methods.length ? { title: "Methods" } : null,
+        methods.length
+          ? { title: isTypeAlias ? "Functions" : "Methods" }
+          : null,
         returns.length ? { title: "Returns" } : null,
-        propertiesRows.length ? { title: "Attributes" } : null,
+        propertiesRows.length
+          ? { title: isTypeAlias ? "Properties" : "Attributes" }
+          : null,
       ].filter((section) => section !== null)}
       footRows={[
         methods.length ? methodRows : null,

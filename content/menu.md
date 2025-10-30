@@ -616,14 +616,36 @@ site_menu:
     visible: false
   - category: Develop / API reference / Custom components
     url: /develop/api-reference/custom-components
-    isVersioned: false
-  - category: Develop / API reference / Custom components / st.components.v1​.declare_component
+  - category: Develop / API reference / Custom components / V2 BACKEND (PYTHON)
+  - category: Develop / API reference / Custom components / BidiComponentCallable
+    url: /develop/api-reference/custom-components/st.components.v2.types.bidicomponentcallable
+    isVersioned: true
+  - category: Develop / API reference / Custom components / component
+    url: /develop/api-reference/custom-components/st.components.v2.component
+    isVersioned: true
+  - category: Develop / API reference / Custom components / V2 FRONTEND (TYPESCRIPT)
+  - category: Develop / API reference / Custom components / component-v2-lib
+    url: /develop/api-reference/custom-components/component-v2-lib
+  - category: Develop / API reference / Custom components / Component
+    url: /develop/api-reference/custom-components/component-v2-lib-component
+    isVersioned: true
+  - category: Develop / API reference / Custom components / ComponentArgs
+    url: /develop/api-reference/custom-components/component-v2-lib-componentargs
+    isVersioned: true
+  - category: Develop / API reference / Custom components / ComponentState
+    url: /develop/api-reference/custom-components/component-v2-lib-componentstate
+    isVersioned: true
+  - category: Develop / API reference / Custom components / OptionalComponentCleanupFunction
+    url: /develop/api-reference/custom-components/component-v2-lib-optionalcomponentcleanupfunction
+    isVersioned: true
+  - category: Develop / API reference / Custom components / V1 COMPONENTS
+  - category: Develop / API reference / Custom components / declare_component
     url: /develop/api-reference/custom-components/st.components.v1.declare_component
     isVersioned: true
-  - category: Develop / API reference / Custom components / st.components.v1.html
+  - category: Develop / API reference / Custom components / html
     url: /develop/api-reference/custom-components/st.components.v1.html
     isVersioned: true
-  - category: Develop / API reference / Custom components / st.components.v1.iframe
+  - category: Develop / API reference / Custom components / iframe
     url: /develop/api-reference/custom-components/st.components.v1.iframe
     isVersioned: true
   - category: Develop / API reference / Configuration
@@ -643,10 +665,10 @@ site_menu:
   - category: Develop / API reference / TOOLS
   - category: Develop / API reference / App testing
     url: /develop/api-reference/app-testing
-  - category: Develop / API reference / App testing / st.testing.v1.AppTest
+  - category: Develop / API reference / App testing / AppTest
     url: /develop/api-reference/app-testing/st.testing.v1.apptest
     isVersioned: true
-  - category: Develop / API reference / App testing / Testing element classes
+  - category: Develop / API reference / App testing / element_tree
     url: /develop/api-reference/app-testing/testing-element-classes
     isVersioned: true
   - category: Develop / API reference / Command line
