@@ -57,11 +57,11 @@ _Release date: October 29, 2025_
 
 **Other Changes**
 
-- ⚡ If you don’t pass a file to `streamlit run`, it will try `streamlit_app.py` by default ([#12599](https://github.com/streamlit/streamlit/pull/12599)).
+- ⚡ If you don't pass a file to `streamlit run`, it will try `streamlit_app.py` by default ([#12599](https://github.com/streamlit/streamlit/pull/12599)).
 - 🥷 `st.dataframe` hides its index column by default when row selections are enabled ([#12448](https://github.com/streamlit/streamlit/pull/12448), [#12237](https://github.com/streamlit/streamlit/issues/12237)). Thanks, [plumol](https://github.com/plumol)!
 - 👩‍🎨 For compatibility with new theming options, the app settings menu no longer supports theme editing ([#12648](https://github.com/streamlit/streamlit/pull/12648)).
 - 👋 The Streamlit hello app preloads its Python packages on its home page for a faster user experience ([#12617](https://github.com/streamlit/streamlit/pull/12617)).
-- 👍 Slider thumbs don’t extend beyond the edge of their track ([#12549](https://github.com/streamlit/streamlit/pull/12549), [#4284](https://github.com/streamlit/streamlit/issues/4284)).
+- 👍 Slider thumbs don't extend beyond the edge of their track ([#12549](https://github.com/streamlit/streamlit/pull/12549), [#4284](https://github.com/streamlit/streamlit/issues/4284)).
 - ℹ️ Material icons and emojis were updated ([#12669](https://github.com/streamlit/streamlit/pull/12669)).
 - 🦠 Bug fix: Pyplot charts render correctly in fragments, containers, and expanders ([#12807](https://github.com/streamlit/streamlit/pull/12807), [#12678](https://github.com/streamlit/streamlit/issues/12678), [#12763](https://github.com/streamlit/streamlit/issues/12763)).
 - 🪰 Bug fix: Dataframes correctly resize and align when using `width="content"` ([#12682](https://github.com/streamlit/streamlit/pull/12682)).
@@ -71,7 +71,7 @@ _Release date: October 29, 2025_
 - 🐝 Bug fix: Path handling in the file watcher was improved to prevent a `ValueError` in Windows environments ([#12741](https://github.com/streamlit/streamlit/pull/12741), [#12731](https://github.com/streamlit/streamlit/issues/12731)).
 - 🐜 Bug fix: `st.pills` shows its value when disabled ([#12555](https://github.com/streamlit/streamlit/pull/12555), [#12388](https://github.com/streamlit/streamlit/issues/12388)). Thanks, [davidsjoberg1](https://github.com/davidsjoberg1)!
 - 🪲 Bug fix: Plotly charts hide overflow to prevent flickering behavior from scrollbars [(#12594](https://github.com/streamlit/streamlit/pull/12594)).
-- 🐛 Bug fix: Streamlit’s handling of Altair charts was improved for thread safety and prevention of an “Unrecognized data set” race condition ([#12673](https://github.com/streamlit/streamlit/pull/12673), [#11911](https://github.com/streamlit/streamlit/pull/11911), [#11342](https://github.com/streamlit/streamlit/issues/11342), [#11906](https://github.com/streamlit/streamlit/issues/11906)).
+- 🐛 Bug fix: Streamlit's handling of Altair charts was improved for thread safety and prevention of an "Unrecognized data set" race condition ([#12673](https://github.com/streamlit/streamlit/pull/12673), [#11911](https://github.com/streamlit/streamlit/pull/11911), [#11342](https://github.com/streamlit/streamlit/issues/11342), [#11906](https://github.com/streamlit/streamlit/issues/11906)).
 
 ## Older versions of Streamlit
 
