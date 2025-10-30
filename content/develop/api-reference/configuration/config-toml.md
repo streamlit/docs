@@ -336,7 +336,10 @@ enableStaticServing = false
 #
 # The server may choose to clean up session state, uploaded files, etc
 # for a given session with no active websocket connection at any point
-# after this time has passed.
+# after this time has passed. If you are using load balancing or
+# replication in your deployment, you must enable session stickiness
+# in your proxy to guarantee reconnection to the existing session. For
+# more information, see https://docs.streamlit.io/replication.
 #
 # Default: 120
 disconnectedSessionTTL = 120
@@ -345,8 +348,8 @@ disconnectedSessionTTL = 120
 # Must be set at the same time as "server.sslKeyFile".
 #
 # ['DO NOT USE THIS OPTION IN A PRODUCTION ENVIRONMENT. It has not gone through
-# security audits or performance tests. For the production environment, we
-# recommend performing SSL termination by the load balancer or the reverse
+# security audits or performance tests. For a production environment, we
+# recommend performing SSL termination through a load balancer or reverse
 # proxy.']
 sslCertFile =
 
@@ -354,8 +357,8 @@ sslCertFile =
 # Must be set at the same time as "server.sslCertFile".
 #
 # ['DO NOT USE THIS OPTION IN A PRODUCTION ENVIRONMENT. It has not gone through
-# security audits or performance tests. For the production environment, we
-# recommend performing SSL termination by the load balancer or the reverse
+# security audits or performance tests. For a production environment, we
+# recommend performing SSL termination through a load balancer or reverse
 # proxy.']
 sslKeyFile =
 ```
@@ -407,7 +410,7 @@ serverPort = 8501
 # THIS IS DEPRECATED.
 #
 # Instead of this, you should use either the MAPBOX_API_KEY environment
-variable or PyDeck's `api_keys` argument.
+# variable or PyDeck's `api_keys` argument.
 #
 # This option will be removed on or after 2026-05-01.
 #
@@ -417,12 +420,34 @@ token = ""
 
 #### Theme
 
+To define switchable light and dark themes, the configuration options in the
+`[theme]` table can be used in separate `[theme.dark]` and `[theme.light]`
+tables, except for the following options:
+
+- `base`
+- `fontFaces`
+- `baseFontSize`
+- `baseFontWeight`
+- `showSidebarBorder`
+- `chartCategoricalColors`
+- `chartSequentialColors`
+
 ```toml
 [theme]
 
-# The preset Streamlit theme that your custom theme inherits from.
+# The theme that your custom theme inherits from.
 #
-# This can be one of the following: "light" or "dark".
+# This can be one of the following:
+# - "light": Streamlit's default light theme.
+# - "dark" : Streamlit's default dark theme.
+# - A local file path to a TOML theme file: A local custom theme, like
+#   "themes/custom.toml".
+# - A URL to a TOML theme file: An externally hosted custom theme, like
+#   "https://example.com/theme.toml".
+#
+# A TOML theme file must contain a [theme] table with theme options.
+# Any theme options defined in the app's config.toml file will override
+# those defined in the TOML theme file.
 base =
 
 # Primary accent color.
@@ -633,10 +658,17 @@ violetTextColor =
 grayTextColor =
 
 # Color used for all links.
+#
+# This defaults to the resolved value of `blueTextColor`.
 linkColor =
 
 # Whether or not links should be displayed with an underline.
 linkUnderline =
+
+# Text color used for code blocks.
+#
+# This defaults to the resolved value of `greenTextColor`.
+codeTextColor =
 
 # Background color used for code blocks.
 codeBackgroundColor =
@@ -648,6 +680,8 @@ codeBackgroundColor =
 # - "serif"
 # - "monospace"
 # - The `family` value for a custom font table under [[theme.fontFaces]]
+# - A URL to a CSS file in the format of "<font name>:<url>" (like
+#   "Nunito:https://fonts.googleapis.com/css2?family=Nunito&display=swap")
 # - A comma-separated list of these (as a single string) to specify
 #   fallbacks
 #
@@ -705,8 +739,10 @@ baseFontWeight =
 # - "serif"
 # - "monospace"
 # - The `family` value for a custom font table under [[theme.fontFaces]]
+# - A URL to a CSS file in the format of "<font name>:<url>" (like
+#   "Nunito:https://fonts.googleapis.com/css2?family=Nunito&display=swap")
 # - A comma-separated list of these (as a single string) to specify
-# fallbacks
+#   fallbacks
 #
 # If this isn't set, Streamlit uses `theme.font` for headings.
 headingFont =
@@ -770,6 +806,8 @@ headingFontWeights =
 # - "serif"
 # - "monospace"
 # - The `family` value for a custom font table under [[theme.fontFaces]]
+# - A URL to a CSS file in the format of "<font name>:<url>" (like
+#   "'Space Mono':https://fonts.googleapis.com/css2?family=Space+Mono&display=swap")
 # - A comma-separated list of these (as a single string) to specify
 #   fallbacks
 codeFont =
@@ -786,7 +824,7 @@ codeFontSize =
 #
 # This applies to font in inline code, code blocks, `st.json`, and
 # `st.help`. This is an integer multiple of 100. Values can be between
-# 100 and 900, inclusive.
+# 100 and 600, inclusive.
 #
 # If this isn't set, the code font weight will be 400 (normal weight).
 codeFontWeight =
@@ -921,6 +959,10 @@ chartSequentialColors =
 ```
 
 #### Sidebar theme
+
+To define switchable light and dark themes, the configuration options in the
+`[theme.sidebar]` table can be used in separate `[theme.dark.sidebar]` and
+`[theme.light.sidebar]`.
 
 ```toml
 [theme.sidebar]
@@ -1133,10 +1175,17 @@ violetTextColor =
 grayTextColor =
 
 # Color used for all links.
+#
+# This defaults to the resolved value of `blueTextColor`.
 linkColor =
 
 # Whether or not links should be displayed with an underline.
 linkUnderline =
+
+# Text color used for code blocks.
+#
+# This defaults to the resolved value of `greenTextColor`.
+codeTextColor =
 
 # Background color used for code blocks.
 codeBackgroundColor =
@@ -1151,7 +1200,7 @@ codeBackgroundColor =
 # - A URL to a CSS file in the format of "<font name>:<url>" (like
 #   "Nunito:https://fonts.googleapis.com/css2?family=Nunito&display=swap")
 # - A comma-separated list of these (as a single string) to specify
-# fallbacks
+#   fallbacks
 #
 # For example, you can use the following:
 #
@@ -1168,7 +1217,7 @@ font =
 # - A URL to a CSS file in the format of "<font name>:<url>" (like
 #   "Nunito:https://fonts.googleapis.com/css2?family=Nunito&display=swap")
 # - A comma-separated list of these (as a single string) to specify
-# fallbacks
+#   fallbacks
 #
 # If this isn't set, Streamlit uses `theme.font` for headings.
 headingFont =
