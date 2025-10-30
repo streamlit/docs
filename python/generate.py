@@ -12,12 +12,16 @@ import re
 import docstring_parser
 import directives.stoutput as stoutput
 import streamlit
-import streamlit.components.v1 as components
+import streamlit.components.v1 as componentsv1
+import streamlit.components.v2 as componentsv2
 import streamlit.testing.v1.element_tree as element_tree
 import utils
 from docutils.core import publish_parts
 from docutils.parsers.rst import directives
+from html import escape
 from numpydoc.docscrape import NumpyDocString
+from streamlit.components.v2.bidi_component import BidiComponentResult
+from streamlit.components.v2.types import BidiComponentCallable
 from streamlit.elements.lib.mutable_status_container import StatusContainer
 from streamlit.testing.v1.app_test import AppTest
 from streamlit.runtime.caching.cache_utils import CachedFunc
@@ -27,6 +31,7 @@ from streamlit.elements.arrow import DataframeState, DataframeSelectionState
 from streamlit.elements.deck_gl_json_chart import PydeckState, PydeckSelectionState
 from streamlit.navigation import page
 from streamlit.navigation.page import StreamlitPage
+from typing import Protocol
 
 VERSION = streamlit.__version__
 DEBUG = False
@@ -140,6 +145,8 @@ def get_attribute_dict_dict(obj, objname, signature_prefix=None):
     docstring = getattr(obj, "__doc__", "")
     # Set the object's name
     description["name"] = objname
+    if DEBUG > 0:
+        print(f"DEBUG: get_attribute_dict_dict of {objname}")
     if signature_prefix is None:
         description["signature"] = f"{objname}"
     else:
@@ -206,7 +213,7 @@ def parse_docstring(obj, docstring, description, is_class, is_class_method, is_p
     # Iterate through the parameters from the parsed docstring
     for param in docstring_obj.params:
         arg_obj = {}  # Create an argument object dictionary
-        arg_obj["name"] = param.arg_name  ## Store the argument name
+        arg_obj["name"] = escape(param.arg_name)  # Store the argument name
         arg_obj["type_name"] = param.type_name  # Store the argument type
         arg_obj["is_optional"] = param.is_optional  # Store the optional flag
         if (not is_class) and callable(obj):
@@ -479,6 +486,8 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix, only_include=None)
 
     # Initialize empty dictionary to store function/method/property metadata
     obj_docstring_dict = {}
+    if DEBUG > 1:
+        print(f"Looping through {obj}")
 
     # Iterate over the names of the members of the object
     for membername in dir(obj):
@@ -504,6 +513,12 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix, only_include=None)
                 issubclass(member, element_tree.Widget)
                 or member == element_tree.Element
             ):
+                continue
+
+        if obj == componentsv2:
+            if membername in [
+                "StreamlitAPIException"
+            ]:
                 continue
 
         # Check if the member is a property
@@ -606,7 +621,8 @@ def get_streamlit_docstring_dict():
             "BaseConnection",
         ],
         streamlit.column_config: ["streamlit.column_config", "st.column_config"],
-        components: ["streamlit.components.v1", "st.components.v1"],
+        componentsv1: ["streamlit.components.v1", "st.components.v1"],
+        componentsv2: ["streamlit.components.v2", "st.components.v2"],
         streamlit.delta_generator.DeltaGenerator: ["DeltaGenerator", "element", ["add_rows"]], # Only store docstring for element.add_rows
         StatusContainer: ["StatusContainer", "StatusContainer", ["update"]], # Only store docstring for StatusContainer.update
         streamlit.testing.v1: ["streamlit.testing.v1", "st.testing.v1"],
@@ -623,7 +639,10 @@ def get_streamlit_docstring_dict():
     }
     proxy_obj_key = {
         streamlit.user_info.UserInfoProxy: ["streamlit.user", "st.user"],
-        streamlit.runtime.context.ContextProxy: ["streamlit.context", "st.context"]
+        streamlit.runtime.context.ContextProxy: ["streamlit.context", "st.context"],
+    }
+    interfaces = {
+        BidiComponentCallable: ["BidiComponentCallable", "BidiComponentCallable"],
     }
     attribute_dicts = {
         PlotlyState: ["PlotlyState", "PlotlyState"],
@@ -632,8 +651,8 @@ def get_streamlit_docstring_dict():
         DataframeState: ["DataframeState", "DataframeState"],
         DataframeSelectionState: ["DataframeSelectionState", "DataframeSelectionState"],
         PydeckState: ["PydeckState", "PydeckState"],
-        PydeckSelectionState: ["PydeckSelectionState", "PydeckSelectionState"]
-
+        PydeckSelectionState: ["PydeckSelectionState", "PydeckSelectionState"],
+        BidiComponentResult: ["BidiComponentResult", "BidiComponentResult"],
     }
 
     module_docstring_dict = {}
@@ -654,6 +673,21 @@ def get_streamlit_docstring_dict():
                 False, #is_property
             )
         module_docstring_dict.update({key[0]: member_docstring_dict})
+    # Interfaces
+    for obj, key in interfaces.items():
+        if DEBUG:
+            print(f"Fetching {obj}")
+        member_docstring_dict = get_docstring_dict(
+                obj, #member
+                key[0], #membername
+                "", #signature_prefix
+                True, #isClass
+                False, #is_class_method
+                False, #is_property
+            )
+        member_docstring_dict["is_interface"] = True
+        module_docstring_dict.update({key[0]: member_docstring_dict})
+    # Attribute dicts
     for obj, key in attribute_dicts.items():
         if DEBUG:
             print(f"Fetching {obj}")
