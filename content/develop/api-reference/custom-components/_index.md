@@ -53,6 +53,18 @@ my_component()
 
 <TileContainer>
 
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib">
+
+<h4>npm support code</h4>
+
+Support code published through npm.
+
+```bash
+npm i @streamlit/component-v2-lib
+```
+
+</RefCard>
+
 <RefCard href="/develop/api-reference/custom-components/component-v2-lib-component">
 
 <h4>Component</h4>
@@ -85,6 +97,18 @@ Type alias for the component state.
 
 ```typescript
 import { ComponentState } from "@streamlit/component-v2-lib";
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib-optionalcomponentcleanupfunction" size="two-third">
+
+<h4>OptionalComponentCleanupFunction</h4>
+
+Type alias for the component cleanup function.
+
+```typescript
+import { OptionalComponentCleanupFunction } from "@streamlit/component-v2-lib";
 ```
 
 </RefCard>
