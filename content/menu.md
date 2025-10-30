@@ -437,6 +437,9 @@ site_menu:
   - category: Develop / API reference / Layouts and containers / st.sidebar
     url: /develop/api-reference/layout/st.sidebar
     isVersioned: true
+  - category: Develop / API reference / Layouts and containers / st.space
+    url: /develop/api-reference/layout/st.space
+    isVersioned: true
   - category: Develop / API reference / Layouts and containers / st.tabs
     url: /develop/api-reference/layout/st.tabs
     isVersioned: true
