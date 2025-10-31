@@ -117,6 +117,19 @@ st.sidebar.button("Click me!")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/layout/st.space">
+
+<Image pure alt="screenshot" src="/images/api/space.jpg" />
+
+<h4>Space</h4>
+
+Add vertical or horizontal space.
+
+```python
+st.space("small")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/layout/st.tabs">
 
 <Image pure alt="screenshot" src="/images/api/tabs.jpg" />

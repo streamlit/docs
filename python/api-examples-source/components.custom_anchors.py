@@ -2,7 +2,7 @@ import streamlit as st
 
 CSS = """
 a {
-    color: var(--st-link-color) !important;
+    color: var(--st-link-color);
 }
 """
 

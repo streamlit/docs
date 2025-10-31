@@ -1583,6 +1583,19 @@ st.sidebar.button("Click me!")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/layout/st.space">
+
+<Image pure alt="screenshot" src="/images/api/space.jpg" />
+
+<h4>Space</h4>
+
+Add vertical or horizontal space.
+
+```python
+st.space("small")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/layout/st.tabs">
 
 <Image pure alt="screenshot" src="/images/api/tabs.jpg" />
@@ -2423,6 +2436,106 @@ st.write(user_info)
 ### Custom Components
 
 <br />
+
+#### V2 custom components
+
+<TileContainer>
+
+<RefCard href="/develop/api-reference/custom-components/st.components.v2.component">
+
+<h4>Register</h4>
+
+Register a custom component.
+
+```python
+my_component = st.components.v2.component(
+    html=HTML,
+    js=JS
+)
+my_component()
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/custom-components/st.components.v2.types.bidicomponentcallable">
+
+<h4>Mount</h4>
+
+Mount a custom component.
+
+```python
+my_component = st.components.v2.component(
+    html=HTML,
+    js=JS
+)
+my_component()
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib">
+
+<h4>npm support code</h4>
+
+Support code published through npm.
+
+```bash
+npm i @streamlit/component-v2-lib
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib-component">
+
+<h4>Component</h4>
+
+Type alias for the component function.
+
+```typescript
+import { Component } from "@streamlit/component-v2-lib";
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib-componentargs">
+
+<h4>ComponentArgs</h4>
+
+Type alias for the component arguments.
+
+```typescript
+import { ComponentArgs } from "@streamlit/component-v2-lib";
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib-componentstate">
+
+<h4>ComponentState</h4>
+
+Type alias for the component state.
+
+```typescript
+import { ComponentState } from "@streamlit/component-v2-lib";
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib-optionalcomponentcleanupfunction" size="two-third">
+
+<h4>OptionalComponentCleanupFunction</h4>
+
+Type alias for the component cleanup function.
+
+```typescript
+import { OptionalComponentCleanupFunction } from "@streamlit/component-v2-lib";
+```
+
+</RefCard>
+
+</TileContainer>
+
+#### V1 custom components
 
 <TileContainer>
 

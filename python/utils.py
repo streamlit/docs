@@ -3,6 +3,7 @@ import json
 import logging
 
 OUT_FILE_NAME = 'streamlit.json'
+CUSTOM_COMPONENT = 'custom_components.json'
 
 
 def get_existing_dict(filename=OUT_FILE_NAME):
@@ -16,12 +17,16 @@ def get_existing_dict(filename=OUT_FILE_NAME):
 
     return {}
 
+def get_custom_component_dict(filename=CUSTOM_COMPONENT):
+    return get_existing_dict(filename)
 
 def write_to_existing_dict(
         streamlit_version,
         docstring_dict,
         filename=OUT_FILE_NAME
     ):
+    custom_component_data = get_custom_component_dict()
+    docstring_dict.update(custom_component_data)
     logging.debug(f'Writing {filename}...')
 
     existing_dict = get_existing_dict(filename)
