@@ -7,7 +7,7 @@ keywords: custom components, declare_component, html, iframe, frontend, react, j
 
 # Custom components
 
-Streamlit custom components allow you to create and integrate custom UI elements that extend beyond Streamlit's built-in widgets. There are two versions available: V2 components offer a modern, streamlined approach with TypeScript support, while V1 components use iframe isolation for custom elements built with HTML and JavaScript.
+Streamlit custom components extend your app beyond built-in widgets with custom UI elements. V2 components offer better performance and multiple callbacks without iframes, while V1 components run in iframes with single callbacks.
 
 ## V2 custom components
 

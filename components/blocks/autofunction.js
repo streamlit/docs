@@ -226,15 +226,12 @@ const Autofunction = ({
   if (hideHeader !== undefined && hideHeader) {
     header = "";
   } else {
-    const name =
-      isInterface || isTypeAlias
-        ? functionObject.name
-        : functionObject.signature
-          ? `${functionObject.signature}`
-              .split("(")[0]
-              .replace("streamlit", "st")
-          : "";
-    console.log("NAME:", name);
+    let name = "";
+    if (isInterface || isTypeAlias) {
+      name = functionObject.name;
+    } else if (functionObject.signature) {
+      name = functionObject.signature.split("(")[0].replace("streamlit", "st");
+    }
     headerTitle = isAttributeDict ? (
       <H3 className={styles.Title}>
         <a
@@ -466,6 +463,16 @@ const Autofunction = ({
     returns.push(row);
   }
 
+  const getArgsTitle = () => {
+    if (isTypeAlias && !isInterface) {
+      return "Properties"; // For TypeScript type aliases that aren't function interfaces
+    }
+    if (isTypeAlias) {
+      return "Arguments"; // For TypeScript function interfaces
+    }
+    return "Parameters"; // For Python functions
+  };
+
   body = (
     <Table
       head={
@@ -500,12 +507,7 @@ const Autofunction = ({
       body={
         args.length
           ? {
-              title:
-                isTypeAlias && !isInterface
-                  ? "Properties"
-                  : isTypeAlias
-                    ? "Arguments"
-                    : "Parameters",
+              title: getArgsTitle(),
             }
           : null
       }
