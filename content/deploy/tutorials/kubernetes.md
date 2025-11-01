@@ -2,7 +2,7 @@
 title: Deploy Streamlit using Kubernetes
 slug: /deploy/tutorials/kubernetes
 description: Learn how to deploy your Streamlit app using Kubernetes with Google Container Registry, OAuth authentication, and TLS support.
-keywords: kubernetes, k8s, deployment, gcr, google container registry, oauth, authentication, tls, load balancer, orchestration
+keywords: kubernetes, k8s, deployment, gcr, google container registry, OAuth, authentication, tls, load balancer, orchestration
 ---
 
 # Deploy Streamlit using Kubernetes
@@ -131,12 +131,12 @@ If you are using Streamlit version 1.10.0 or higher, you must set the `WORKDIR` 
 Put the above files (`run.sh` and `Dockerfile`) in the same folder and build the docker image:
 
 ```docker
-docker build --platform linux/amd64 -t gcr.io/$GCP_PROJECT_ID/k8s-streamlit:test .
+docker build --platform linux/amd64 -t gcr.io/<GCP_PROJECT_ID>/k8s-streamlit:test .
 ```
 
 <Important>
 
-Replace `$GCP_PROJECT_ID` in the above command with the name of your Google Cloud project.
+Replace `<GCP_PROJECT_ID>` in the above command with the name of your Google Cloud project.
 
 </Important>
 
@@ -144,11 +144,11 @@ Replace `$GCP_PROJECT_ID` in the above command with the name of your Google Clou
 
 The next step is to upload the Docker image to a container registry. In this example, we will use the [Google Container Registry (GCR)](https://cloud.google.com/container-registry). Start by enabling the Container Registry API. Sign in to Google Cloud and navigate to your project’s **Container Registry** and click **Enable**.
 
-We can now build the Docker image from the previous step and push it to our project’s GCR. Be sure to replace `$GCP_PROJECT_ID` in the docker push command with the name of your project:
+We can now build the Docker image from the previous step and push it to our project’s GCR. Be sure to replace `<GCP_PROJECT_ID>` in the docker push command with the name of your project:
 
 ```bash
 gcloud auth configure-docker
-docker push gcr.io/$GCP_PROJECT_ID/k8s-streamlit:test
+docker push gcr.io/<GCP_PROJECT_ID>/k8s-streamlit:test
 ```
 
 ## Create a Kubernetes deployment
@@ -165,11 +165,11 @@ As the image was uploaded to the container registry in the previous step, we can
 
 Make sure your [Kubernetes client](https://kubernetes.io/docs/tasks/tools/#kubectl), `kubectl`, is installed and running on your machine.
 
-### Configure a Google OAuth Client and oauth2-proxy
+### Configure a Google OAuth Client and OAuth2-Proxy
 
-For configuring the Google OAuth Client, please see [Google Auth Provider](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oauth_provider#google-auth-provider). Configure oauth2-proxy to use the desired [OAuth Provider Configuration](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oauth_provider) and update the oauth2-proxy config in the config map.
+For configuring the Google OAuth Client, please see [Google Auth Provider](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oauth_provider#google-auth-provider). Configure OAuth2-Proxy to use the desired [OAuth Provider Configuration](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oauth_provider) and update the OAuth2-Proxy config in the config map.
 
-The below configuration contains a oauth2-proxy sidecar container which handles the authentication with Google. You can learn more from the [oauth2-proxy repository](https://github.com/oauth2-proxy/oauth2-proxy).
+The below configuration contains an OAuth2-Proxy sidecar container which handles the authentication with Google. You can learn more from the [`oauth2-proxy` repository](https://github.com/oauth2-proxy/oauth2-proxy).
 
 ### Create a Kubernetes configuration file
 
@@ -227,7 +227,7 @@ spec:
             - mountPath: "/etc/oauth2-proxy"
               name: oauth2-config
         - name: streamlit
-          image: gcr.io/GCP_PROJECT_ID/k8s-streamlit:test
+          image: gcr.io/<GCP_PROJECT_ID>/k8s-streamlit:test
           imagePullPolicy: Always
           ports:
             - containerPort: 8501
@@ -273,7 +273,7 @@ spec:
 
 <Important>
 
-While the above configurations can be copied verbatim, you will have to configure the `oauth2-proxy` yourself and use the correct `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_ID`, `GCP_PROJECT_ID`, and `REDIRECT_URL`.
+While the above configurations can be copied verbatim, you will have to update the following placeholders: `<GOOGLE_CLIENT_ID>`, `<GOOGLE_CLIENT_SECRET>`, `<REDIRECT_URL>`, and `<GCP_PROJECT_ID>`.
 
 </Important>
 
