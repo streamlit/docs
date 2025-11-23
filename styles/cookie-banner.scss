@@ -47,6 +47,8 @@
 }
 
 #onetrust-banner-sdk #onetrust-button-group {
+  display: flex !important;
+  flex-direction: column !important;
   margin-top: 0 !important;
   width: 100% !important;
 }
@@ -59,7 +61,8 @@
 }
 
 #onetrust-consent-sdk #onetrust-accept-btn-handler,
-#onetrust-banner-sdk #onetrust-reject-all-handler {
+#onetrust-banner-sdk #onetrust-reject-all-handler,
+#onetrust-consent-sdk #onetrust-pc-btn-handler {
   padding-top: 0.5rem !important;
   padding-bottom: 0.5rem !important;
   border: 1px solid rgb(38, 39, 48) !important;
@@ -68,7 +71,18 @@
   line-height: 1.5rem !important;
   font-weight: 400 !important;
   width: 100% !important;
+  margin: 0 0 0.5rem !important;
+}
+
+#onetrust-consent-sdk #onetrust-pc-btn-handler {
+  order: 1 !important;
   margin: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+#onetrust-consent-sdk #onetrust-pc-btn-handler:focus {
+  outline: none !important;
 }
 
 #onetrust-consent-sdk #onetrust-accept-btn-handler {
@@ -78,7 +92,6 @@
 
 #onetrust-banner-sdk #onetrust-reject-all-handler {
   background-color: transparent !important;
-  margin-bottom: 0.5rem !important;
 }
 @media (min-width: 640px) {
   #onetrust-banner-sdk {
@@ -103,15 +116,21 @@
 
   #onetrust-banner-sdk #onetrust-button-group {
     display: flex !important;
+    flex-direction: row !important;
     justify-content: flex-end !important;
     gap: 1rem !important;
   }
 
   #onetrust-consent-sdk #onetrust-accept-btn-handler,
-  #onetrust-banner-sdk #onetrust-reject-all-handler {
+  #onetrust-banner-sdk #onetrust-reject-all-handler,
+  #onetrust-consent-sdk #onetrust-pc-btn-handler {
     width: auto !important;
     min-width: 0 !important;
     margin: 0 !important;
+  }
+
+  #onetrust-consent-sdk #onetrust-pc-btn-handler {
+    order: 0 !important;
   }
 }
 
