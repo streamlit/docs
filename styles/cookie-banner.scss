@@ -143,6 +143,7 @@
 
   #onetrust-banner-sdk .ot-sdk-row {
     display: flex !important;
+    flex-direction: column !important;
     align-items: flex-end !important;
     gap: 1rem !important;
   }

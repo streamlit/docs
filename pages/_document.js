@@ -9,7 +9,7 @@ export default function StreamlitDocument() {
           src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
           type="text/javascript"
           charset="UTF-8"
-          data-domain-script="01990a3a-a865-7092-a22e-9094bfac985a-test"
+          data-domain-script="01990a3a-a865-7092-a22e-9094bfac985a"
         ></script>
         <script type="text/javascript">
           {`
