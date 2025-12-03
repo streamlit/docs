@@ -7,4 +7,4 @@ keywords: line chart, chart, visualization, data, plot, graph, dataframe, time s
 
 <Autofunction function="streamlit.line_chart" />
 
-<Autofunction function="DeltaGenerator.add_rows" />
+<Autofunction function="DeltaGenerator.add_rows" deprecated={true} deprecatedText="<code>.add_rows()</code> was deprecated in version 1.52.0 and will be removed in a later version." />

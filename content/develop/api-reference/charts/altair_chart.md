@@ -11,7 +11,7 @@ keywords: altair_chart, altair, chart, visualization, data, plot, graph, vega-li
 
 <Autofunction function="VegaLiteState" />
 
-<Autofunction function="DeltaGenerator.add_rows" />
+<Autofunction function="DeltaGenerator.add_rows" deprecated={true} deprecatedText="<code>.add_rows()</code> was deprecated in version 1.52.0 and will be removed in a later version." />
 
 ## Theming
 

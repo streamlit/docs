@@ -7,4 +7,4 @@ keywords: map, geographic, visualization, data, plot, graph, dataframe, coordina
 
 <Autofunction function="streamlit.map" />
 
-<Autofunction function="DeltaGenerator.add_rows" />
+<Autofunction function="DeltaGenerator.add_rows" deprecated={true} deprecatedText="<code>.add_rows()</code> was deprecated in version 1.52.0 and will be removed in a later version." />
