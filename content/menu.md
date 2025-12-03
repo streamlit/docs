@@ -368,6 +368,9 @@ site_menu:
   - category: Develop / API reference / Input widgets / st.date_input
     url: /develop/api-reference/widgets/st.date_input
     isVersioned: true
+  - category: Develop / API reference / Input widgets / st.datetime_input
+    url: /develop/api-reference/widgets/st.datetime_input
+    isVersioned: true
   - category: Develop / API reference / Input widgets / st.time_input
     url: /develop/api-reference/widgets/st.time_input
     isVersioned: true
