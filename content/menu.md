@@ -293,6 +293,7 @@ site_menu:
   - category: Develop / API reference / Chart elements / st.bokeh_chart
     url: /develop/api-reference/charts/st.bokeh_chart
     isVersioned: true
+    isDeprecated: true
   - category: Develop / API reference / Chart elements / st.graphviz_chart
     url: /develop/api-reference/charts/st.graphviz_chart
     isVersioned: true
