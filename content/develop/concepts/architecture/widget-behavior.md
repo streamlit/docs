@@ -35,7 +35,7 @@ From v1.46.0 through v1.52.0, significant changes to widget statefulness were in
 
 These changes affect how widgets maintain state across page navigation and parameter changes. To review which widgets have been converted to key-based identity, see the release notes for [v1.50.0](https://docs.streamlit.io/release-notes/v1.50.0), [v1.51.0](https://docs.streamlit.io/release-notes/v1.51.0), and [v1.52.0](https://docs.streamlit.io/release-notes/v1.52.0).
 
-As of v1.52.0, the following widgets **haven't** been converted to key-based identity: `st.form_submit_button`, `st.data_editor`, and selection modes for `st.dataframe` and charts.
+As of v1.52.0, the following widgets **haven't** been converted to key-based identity: `st.data_editor` and elements with selection modes, like `st.dataframe` and charts.
 
 </Important>
 
