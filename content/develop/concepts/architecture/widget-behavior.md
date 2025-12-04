@@ -26,7 +26,7 @@ The last three points (widget identity and widget deletion) are the most relevan
 
 <Important>
 
-**Recent Changes to Widget Behavior**
+**Recent changes to widget behavior**
 
 From v1.46.0 through v1.52.0, significant changes to widget statefulness were introduced:
 
