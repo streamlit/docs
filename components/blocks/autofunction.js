@@ -207,7 +207,7 @@ const Autofunction = ({
         </div>
         <Warning>
           <p>
-            This method did not exist in version{" "}
+            This method does not exist in version{" "}
             <code>{currentNumericVersion}</code> of Streamlit.
           </p>
         </Warning>
