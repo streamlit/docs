@@ -64,6 +64,8 @@ Widget keys serve three purposes:
 2. Maintaining statefulness of the widget while changing its parameters (v1.50.0+).
 3. Creating a means to access and manipulate the widget's value through `st.session_state`.
 
+Additionally, for developer convenience, keys are repeated in the DOM as HTML attributes with a Streamlit-specific prefix to prevent conflicts. The exact prefix and attribute name aren't guaranteed to be stable between versions.
+
 #### Widget identity: Key-based vs parameter-based
 
 Whenever possible, Streamlit updates widgets incrementally on the frontend instead of rebuilding them with each rerun. This means Streamlit assigns a widget identity to each widget from the arguments passed to the widget command.
