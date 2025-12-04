@@ -98,14 +98,30 @@ site_menu:
     url: /develop/concepts/connections/security-reminders
   - category: Develop / Concepts / Custom components
     url: /develop/concepts/custom-components
-  - category: Develop / Concepts / Custom components / Intro to custom components
-    url: /develop/concepts/custom-components/intro
-  - category: Develop / Concepts / Custom components / Create a Component
-    url: /develop/concepts/custom-components/create
-  - category: Develop / Concepts / Custom components / Publish a Component
+  - category: Develop / Concepts / Custom components / Overview
+    url: /develop/concepts/custom-components/overview
+  - category: Develop / Concepts / Custom components / Components v1
+    url: /develop/concepts/custom-components/components-v1
+  - category: Develop / Concepts / Custom components / Components v1 / Intro to v1 components
+    url: /develop/concepts/custom-components/components-v1/intro
+  - category: Develop / Concepts / Custom components / Components v1 / Create a component
+    url: /develop/concepts/custom-components/components-v1/create
+  - category: Develop / Concepts / Custom components / Components v1 / Limitations
+    url: /develop/concepts/custom-components/components-v1/limitations
+  - category: Develop / Concepts / Custom components / Components v2
+    url: /develop/concepts/custom-components/components-v2
+  - category: Develop / Concepts / Custom components / Components v2 / Quickstart examples
+    url: /develop/concepts/custom-components/components-v2/quickstart
+  - category: Develop / Concepts / Custom components / Components v2 / Create components
+    url: /develop/concepts/custom-components/components-v2/create
+  - category: Develop / Concepts / Custom components / Components v2 / State vs trigger values
+    url: /develop/concepts/custom-components/components-v2/state-and-triggers
+  - category: Develop / Concepts / Custom components / Components v2 / Theming and styling
+    url: /develop/concepts/custom-components/components-v2/theming
+  - category: Develop / Concepts / Custom components / Components v2 / Package-based components
+    url: /develop/concepts/custom-components/components-v2/package-based
+  - category: Develop / Concepts / Custom components / Publish a component
     url: /develop/concepts/custom-components/publish
-  - category: Develop / Concepts / Custom components / Limitations
-    url: /develop/concepts/custom-components/limitations
   - category: Develop / Concepts / Custom components / Component gallery
     url: https://streamlit.io/components
   - category: Develop / Concepts / Configuration and theming

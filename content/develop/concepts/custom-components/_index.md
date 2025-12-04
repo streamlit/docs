@@ -1,62 +1,52 @@
 ---
-title: Components
+title: Custom Components
 slug: /develop/concepts/custom-components
-description: Learn how to build and use custom Streamlit components to extend app functionality with third-party Python modules and custom UI elements.
-keywords: custom components, third-party modules, component development, extend functionality, custom UI, component integration, Streamlit components
+description: Learn about Streamlit custom components - powerful extensions that unlock capabilities beyond built-in widgets using web technologies.
+keywords: custom components, component development, extend streamlit, web components, custom widgets, component architecture
 ---
 
 # Custom Components
 
-Components are third-party Python modules that extend what's possible with Streamlit.
+Custom Components are powerful extensions for Streamlit that unlock capabilities beyond the built-in widgets. They let you integrate any web technology—from advanced data visualizations to specialized input controls to complete mini-applications—directly into your Streamlit apps.
 
-## How to use a Component
+## Getting started
 
-Components are super easy to use:
+<TileContainer>
 
-1. Start by finding the Component you'd like to use. Two great resources for this are:
-   - The [Component gallery](https://streamlit.io/components)
-   - [This thread](https://discuss.streamlit.io/t/streamlit-components-community-tracker/4634),
-     by Fanilo A. from our forums.
+<RefCard href="/develop/concepts/custom-components/overview">
 
-2. Install the Component using your favorite Python package manager. This step and all following
-   steps are described in your component's instructions.
+<h4>Overview of Custom Components</h4>
 
-   For example, to use the fantastic [AgGrid
-   Component](https://github.com/PablocFonseca/streamlit-aggrid), you first install it with:
+Learn what custom components are, when to use them, and understand the differences between v1 and v2 approaches.
 
-   ```python
-   pip install streamlit-aggrid
-   ```
+</RefCard>
 
-3. In your Python code, import the Component as described in its instructions. For AgGrid, this step
-   is:
+<RefCard href="/develop/concepts/custom-components/v1">
 
-   ```python
-   from st_aggrid import AgGrid
-   ```
+<h4>Components v1</h4>
 
-4. ...now you're ready to use it! For AgGrid, that's:
+The original custom components framework. Learn how to use and build v1 components.
 
-   ```python
-   AgGrid(my_dataframe)
-   ```
+</RefCard>
 
-## Making your own Component
+<RefCard href="/develop/concepts/custom-components/v2">
 
-If you're interested in making your own component, check out the following resources:
+<h4>Components v2</h4>
 
-- [Create a Component](/develop/concepts/custom-components/create)
-- [Publish a Component](/develop/concepts/custom-components/publish)
-- [Components API](/develop/concepts/custom-components/intro)
-- [Blog post for when we launched Components!](https://blog.streamlit.io/introducing-streamlit-components/)
+The next generation of custom components with enhanced capabilities, bidirectional communication, and simplified development.
 
-Alternatively, if you prefer to learn using videos, our engineer Tim Conkling has put together some
-amazing tutorials:
+</RefCard>
 
-##### Video tutorial, part 1
+<RefCard href="/develop/concepts/custom-components/publish">
 
-<YouTube videoId="BuD3gILJW-Q" />
+<h4>Publishing Components</h4>
 
-##### Video tutorial, part 2
+Learn how to package and distribute your custom components to the community.
 
-<YouTube videoId="QjccJl_7Jco" />
+</RefCard>
+
+</TileContainer>
+
+## Component gallery
+
+Explore the [Community Component Gallery](https://streamlit.io/components) to discover components built by the Streamlit community.

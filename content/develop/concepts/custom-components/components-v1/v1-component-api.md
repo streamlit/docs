@@ -1,6 +1,6 @@
 ---
 title: Intro to custom components
-slug: /develop/concepts/custom-components/intro
+slug: /develop/concepts/custom-components/components-v1/intro
 description: Learn to develop Streamlit custom components with static and bi-directional communication between Python and JavaScript for extended functionality.
 keywords: custom component development, static components, bi-directional components, Python JavaScript communication, component API, component development
 ---
