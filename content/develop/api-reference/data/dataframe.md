@@ -19,7 +19,7 @@ Learn more in our [Dataframes](/develop/concepts/design/dataframes) guide and ch
 
 <Autofunction function="DataframeSelectionState" />
 
-<Autofunction function="DeltaGenerator.add_rows" deprecated={true} deprecatedText="<code>.add_rows()</code> was deprecated in version 1.52.0 and will be removed in a later version." />
+<Autofunction function="DeltaGenerator.add_rows" deprecated={true} deprecatedText="We plan to deprecate <code>.add_rows()</code>. Please leave <a href='https://github.com/streamlit/streamlit/issues/13063'>feedback</a>." />
 
 ## Interactivity
 
