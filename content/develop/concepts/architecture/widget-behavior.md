@@ -230,11 +230,12 @@ When Streamlit gets to the end of a script run, it will delete the data for any 
 
 ### Retain statefulness when changing a widget's identity
 
-If you just need to manipulate identity-affecting parameters without carrying the widget state between pages, you can use a callback to directly maintin a widget's state. Here is a solution to our earlier example of changing a slider's min and max values.
+If you just need to manipulate identity-affecting parameters without carrying the widget state between pages, you can use a callback to directly maintin a widget's state. Here is a solution to our earlier example of changing a slider's min and max values. Note that the widget's initial value is set through Session State and not its `value` parameter. When you are programmatically changing a widget, you should just use Session State to maintain the widget's state to avoid unexpected behavior.
 
 ```python
 import streamlit as st
 
+# Set the default value for the widget
 st.session_state.setdefault("a", 5)
 
 cols = st.columns(2)
@@ -250,7 +251,7 @@ def update_value():
 
 # Validate the slider value before rendering
 update_value()
-st.slider("A", minimum, maximum, value=5, key="a")
+st.slider("A", minimum, maximum, key="a")
 ```
 
 <Cloud name="doc-guide-widgets-change-parameters-solution" height="250px"/>
