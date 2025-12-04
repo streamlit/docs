@@ -146,68 +146,68 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/develop/api-reference/custom-components/st.components.v2.component?utm_source=streamlit"
+                href="/develop/api-reference/widgets/st.datetime_input?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">extension</i>
-                <h4>Custom Components v2</h4>
+                <i className="material-icons-sharp">schedule</i>
+                <h4>Date & time input</h4>
                 <p>
-                  Create frameless custom UI with bidirectional data flow using{" "}
-                  <code>st.components.v2.component</code>.
+                  Set date and time in a single widget with the new{" "}
+                  <code>st.datetime_input</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/concepts/configuration/theming?utm_source=streamlit"
+                href="/develop/api-reference/widgets/st.download_button?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">dark_mode</i>
-                <h4>Light & dark themes</h4>
+                <i className="material-icons-sharp">download</i>
+                <h4>Deferred downloads</h4>
                 <p>
-                  Configure custom light and dark themes simultaneously in your
-                  app with new theming options.
+                  Pass a callable to <code>st.download_button</code> for
+                  on-click download generation without blocking your script.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/layout/st.space?utm_source=streamlit"
+                href="/develop/api-reference/chat/st.chat_input?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">space_bar</i>
-                <h4>Spacing control</h4>
+                <i className="material-icons-sharp">mic</i>
+                <h4>Audio chat input</h4>
                 <p>
-                  Add precise vertical and horizontal spacing with{" "}
-                  <code>st.space</code>.
+                  <code>st.chat_input</code> now supports audio input for
+                  voice-enabled chat interactions.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/data/st.dataframe?utm_source=streamlit"
+                href="/develop/api-reference/widgets/st.button?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">aspect_ratio</i>
-                <h4>Flex container support</h4>
+                <i className="material-icons-sharp">keyboard</i>
+                <h4>Keyboard shortcuts for buttons</h4>
                 <p>
-                  Charts and dataframes now have width and height parameters for
-                  flex containers.
+                  Configure keyboard shortcuts for buttons to improve user
+                  experience and accessibility.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/data/st.column_config/st.column_config.progresscolumn?utm_source=streamlit"
+                href="/develop/api-reference/navigation/st.switch_page?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">format_color_fill</i>
-                <h4>Progress column colors</h4>
+                <i className="material-icons-sharp">link</i>
+                <h4>Query parameters for navigation</h4>
                 <p>
-                  Customize progress column colors with the new{" "}
-                  <code>color</code> parameter.
+                  Pass query parameters to <code>st.switch_page</code> and{" "}
+                  <code>st.page_link</code> for enhanced navigation.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/quick-reference/release-notes?utm_source=streamlit"
+                href="/develop/api-reference/text/st.html?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">key</i>
-                <h4>Key-based widget identity</h4>
+                <i className="material-icons-sharp">code</i>
+                <h4>JavaScript execution</h4>
                 <p>
-                  More widgets now use key-based identity to prevent resets when
-                  parameters change.
+                  Execute JavaScript in <code>st.html</code> with the new{" "}
+                  <code>unsafe_allow_javascript</code> parameter.
                 </p>
               </RefCard>
             </TileContainer>

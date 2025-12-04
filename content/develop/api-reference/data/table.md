@@ -13,4 +13,4 @@ Static tables with `st.table` are the most basic way to display dataframes. For 
 
 <Autofunction function="streamlit.table" />
 
-<Autofunction function="DeltaGenerator.add_rows" />
+<Autofunction function="DeltaGenerator.add_rows" deprecated={true} deprecatedText="We plan to deprecate <code>.add_rows()</code>. Please leave <a href='https://github.com/streamlit/streamlit/issues/13063'>feedback</a>." />

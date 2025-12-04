@@ -25,6 +25,7 @@ const SKIP_THESE = [
   "/develop/api-reference/caching-and-state/st.experimental_singleton",
   "/develop/api-reference/execution-flow/st.experimental_rerun",
   "/develop/api-reference/data/st.experimental_data_editor",
+  "/develop/api-reference/charts/st.bokeh_chart",
 ];
 
 function getAllFilesInDirectory(articleDirectory, files) {

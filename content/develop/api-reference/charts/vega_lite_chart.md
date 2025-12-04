@@ -11,7 +11,7 @@ keywords: vega_lite_chart, vega-lite, chart, visualization, data, plot, graph, i
 
 <Autofunction function="VegaLiteState" />
 
-<Autofunction function="DeltaGenerator.add_rows" />
+<Autofunction function="DeltaGenerator.add_rows" deprecated={true} deprecatedText="We plan to deprecate <code>.add_rows()</code>. Please leave <a href='https://github.com/streamlit/streamlit/issues/13063'>feedback</a>." />
 
 ## Theming
 

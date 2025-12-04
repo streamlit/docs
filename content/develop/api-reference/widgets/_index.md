@@ -271,6 +271,19 @@ date = st.date_input("Your birthday")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/widgets/st.datetime_input">
+
+<Image pure alt="screenshot" src="/images/api/datetime_input.jpg" />
+
+<h4>Datetime input</h4>
+
+Display a datetime input widget.
+
+```python
+datetime = st.datetime_input("Schedule your event")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/widgets/st.time_input">
 
 <Image pure alt="screenshot" src="/images/api/time_input.jpg" />
