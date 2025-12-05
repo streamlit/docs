@@ -70,7 +70,7 @@ if result.action:
     st.write(f"Button clicked! Total clicks: {st.session_state.click_count}")
 ```
 
-You can pass HTML, CSS, and JavaScript code to your component through file references. The previous example is equivalent to the following:
+For inline component development, you must pass raw HTML, CSS, and JavaScript code to your component. Package-based components allow you to pass file references to your component. If you want to use files for an inline component, you'll need to read them into strings. The previous example is equivalent to the following:
 
 ```
 project_directory/
@@ -122,6 +122,13 @@ export default function (component) {
 ```python
 import streamlit as st
 
+with open("my_component/my_html.html", "r") as f:
+    HTML = f.read()
+with open("my_component/my_css.css", "r") as f:
+    CSS = f.read()
+with open("my_component/my_js.js", "r") as f:
+    JS = f.read()
+
 if "click_count" not in st.session_state:
     st.session_state.click_count = 0
 
@@ -130,9 +137,9 @@ def handle_button_click():
 
 my_component = st.components.v2.component(
     "interactive_button",
-    html="./my_component/my_html.html",
-    css="./my_component/my_css.css",
-    js="./my_component/my_js.js",
+    html=HTML,
+    css=CSS,
+    js=JS,
 )
 
 result = my_component(on_action_change=handle_button_click)
@@ -185,6 +192,11 @@ import pandas as pd
 import streamlit as st
 import base64
 
+with open("my_component/my_html.html", "r") as f:
+    HTML = f.read()
+with open("my_component/my_js.js", "r") as f:
+    JS = f.read()
+
 # Create sample data
 df = pd.DataFrame({
     "name": ["Alice", "Bob", "Charlie"],
@@ -198,8 +210,8 @@ img_base64 = base64.b64encode(img_bytes).decode('utf-8')
 # Serialization is automatically handled by Streamlit components
 chart_component = st.components.v2.component(
     "data_display",
-    html="./my_component/my_html.html",
-    js="./my_component/my_js.js",
+    html=HTML,
+    js=JS,
 )
 
 result = chart_component(
@@ -366,12 +378,19 @@ export default function ({
 ```python
 import streamlit as st
 
+with open("my_component/my_html.html", "r") as f:
+    HTML = f.read()
+with open("my_component/my_css.css", "r") as f:
+    CSS = f.read()
+with open("my_component/my_js.js", "r") as f:
+    JS = f.read()
+
 # Interactive counter with both state and triggers
 counter = st.components.v2.component(
     "interactive_counter",
-    html="my_component/my_html.html",
-    css="my_component/my_css.css",
-    js="my_component/my_js.js",
+    html=HTML,
+    css=CSS,
+    js=JS,
 )
 
 # Use with callbacks

@@ -7,7 +7,7 @@ keywords: custom components v2, theming, CSS custom properties, styling, theme i
 
 # Theming and styling
 
-Custom components v2 provides seamless integration with Streamlit's theming system, allowing your components to automatically adapt to different themes, including dark and light modes. This integration is achieved through CSS Custom Properties that expose Streamlit's theme values directly to your component styles.
+Custom components v2 provides seamless integration with Streamlit's theming system, allowing your components to automatically adapt to different themes, including dark and light modes. This integration is achieved through [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) that expose Streamlit's theme values directly to your component styles.
 
 ## Accessing theme values
 
@@ -413,10 +413,10 @@ Benefits of isolation:
 
 ### Non-isolated styles
 
-Set `isolate_styles=False` to allow style inheritance:
+If you want your component's style to affect the rest of the page, you can set `isolate_styles=False`. This is uncommon.
 
 ```python
-# Styles can inherit and affect the page
+# Styles can affect the page
 non_isolated_component = st.components.v2.component(
     name="non_isolated",
     html="<div class='inherits-styles'>Content with inheritance</div>",
@@ -424,12 +424,6 @@ non_isolated_component = st.components.v2.component(
     isolate_styles=False
 )
 ```
-
-Use cases for non-isolation:
-
-- When you want to inherit Streamlit's base styles instead of setting them explicitly through CSS custom properties.
-- For components that need to integrate closely with the page.
-- When building components that extend existing Streamlit elements.
 
 ## Responsive design
 
@@ -510,20 +504,9 @@ Instead of hardcoding colors, always use Streamlit's theme variables:
 }
 ```
 
-### Provide fallback values
+### Test in different themes
 
-Use fallback values for better compatibility:
-
-```css
-.my-component {
-  color: var(--st-text-color, #262730);
-  font-family: var(--st-font, "Helvetica Neue", sans-serif);
-}
-```
-
-### Test in both light and dark modes
-
-Always test your components in both theme modes to ensure proper contrast and readability.
+Always test your components in both light and dark base themes. Preferably, test your component with a custom theme as well.
 
 ### Use semantic color names
 

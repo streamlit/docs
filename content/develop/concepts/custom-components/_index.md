@@ -21,19 +21,19 @@ Learn what custom components are, when to use them, and understand the differenc
 
 </RefCard>
 
-<RefCard href="/develop/concepts/custom-components/v1">
-
-<h4>Components v1</h4>
-
-The original custom components framework. Learn how to use and build v1 components.
-
-</RefCard>
-
 <RefCard href="/develop/concepts/custom-components/v2">
 
 <h4>Components v2</h4>
 
 The next generation of custom components with enhanced capabilities, bidirectional communication, and simplified development.
+
+</RefCard>
+
+<RefCard href="/develop/concepts/custom-components/v1">
+
+<h4>Components v1</h4>
+
+The original custom components framework. Learn how to use and build v1 components.
 
 </RefCard>
 

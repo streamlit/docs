@@ -33,6 +33,7 @@ Trigger values have the following behavior:
 
 - Are transient and only available for one script rerun.
 - Reset to `None` after the rerun completes.
+- Accessible via direct property access on the result object and through Session State (when mounted with a key).
 - Updated using `setTriggerValue(key, value)` in JavaScript.
 
 ## Differences at a glance
