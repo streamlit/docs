@@ -5,7 +5,7 @@ description: Learn how to create Streamlit custom components v2 with inline deve
 keywords: custom components v2, create components, inline components, component registration, component mounting, bidirectional communication
 ---
 
-# Create custom v2 component
+# Create custom v2 components
 
 Components v2 provides a modern, flexible approach to extending Streamlit with custom functionality. This guide will walk you through creating your first component using the inline development approach. For package-based components, see the [Package-based Components](/develop/concepts/custom-components/components-v2/package-based) guide.
 
