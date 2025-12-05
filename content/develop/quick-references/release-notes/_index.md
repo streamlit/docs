@@ -29,10 +29,10 @@ _Release date: December 3, 2025_
 
 - 📅 Introducing [`st.datetime_input`](/develop/api-reference/widgets/st.datetime_input) to set date and time in a single widget.
 - 📩 To avoid blocking your script, you can pass a callable to [`st.download_button`](/develop/api-reference/widgets/st.download_button) for on-demand download generation ([#12942](https://github.com/streamlit/streamlit/pull/12942), [#5053](https://github.com/streamlit/streamlit/issues/5053)).
+- 🎤 [`st.chat_input`](/develop/api-reference/chat/st.chat_input) can optionally accept audio input ([#12836](https://github.com/streamlit/streamlit/pull/12836), [#13054](https://github.com/streamlit/streamlit/pull/13054)).
 
 **Notable Changes**
 
-- 🎤 [`st.chat_input`](/develop/api-reference/chat/st.chat_input) can optionally accept audio input ([#12836](https://github.com/streamlit/streamlit/pull/12836), [#13054](https://github.com/streamlit/streamlit/pull/13054)).
 - 🎹 You can configure keyboard shortcuts for [buttons](/develop/api-reference/widgets/st.button) ([#12975](https://github.com/streamlit/streamlit/pull/12975), [#1291](https://github.com/streamlit/streamlit/issues/1291)).
 - ❓ You can now pass query parameters to [`st.switch_page`](/develop/api-reference/navigation/st.switch_page) and [`st.page_link`](/develop/api-reference/widgets/st.page_link) ([#13027](https://github.com/streamlit/streamlit/pull/13027), [#8102](https://github.com/streamlit/streamlit/issues/8102), [#8112](https://github.com/streamlit/streamlit/issues/8112), [#13093](https://github.com/streamlit/streamlit/pull/13093)).
 - 〰️ [`st.html`](/develop/api-reference/text/st.html) has a new `unsafe_allow_javascript` parameter to execute JavaScript ([#12918](https://github.com/streamlit/streamlit/pull/12918)).
@@ -67,7 +67,7 @@ _Release date: December 3, 2025_
 - 🦎 Bug fix: Query parameters are preserved when using browser back and forward navigation ([#13129](https://github.com/streamlit/streamlit/pull/13129), [#9279](https://github.com/streamlit/streamlit/issues/9279)).
 - 🐌 Bug fix: For custom components v2, the frontend key is correctly computed to be stable if it has a key in Python and otherwise change when its parameters change ([#12950](https://github.com/streamlit/streamlit/pull/12950)).
 - 🕸️ Bug fix: Empty code blocks in Markdown don't display "undefined" ([#13074](https://github.com/streamlit/streamlit/pull/13074), [#12986](https://github.com/streamlit/streamlit/issues/12986)). Thanks, [ashm-dev](https://github.com/ashm-dev)!
-- 🦗 Bug fix: `st.feeback` is prevented from wrapping ([#12970](https://github.com/streamlit/streamlit/pull/12970), [#12068](https://github.com/streamlit/streamlit/issues/12068)).
+- 🦗 Bug fix: `st.feedback` is prevented from wrapping ([#12970](https://github.com/streamlit/streamlit/pull/12970), [#12068](https://github.com/streamlit/streamlit/issues/12068)).
 - 🦂 Bug fix: Custom components v2 don't raise a warning when placeholders are replaced as a result of the initial manifest scan ([#13043](https://github.com/streamlit/streamlit/pull/13043), [#13042](https://github.com/streamlit/streamlit/issues/13042)).
 - 🦟 Bug fix: `st.audio_input` has the correct padding for its waveform ([#13010](https://github.com/streamlit/streamlit/pull/13010)).
 - 🦠 Bug fix: The date and time icons in `st.data_editor` are visible in dark mode ([#12994](https://github.com/streamlit/streamlit/pull/12994), [#12852](https://github.com/streamlit/streamlit/issues/12852)). Thanks, [aritradhabal](https://github.com/aritradhabal)!
