@@ -15,8 +15,8 @@ Creating and using a custom component involves two distinct steps:
 
 1. Register your component to define its structure (HTML, CSS, JavaScript).
    - Register a component with [`st.components.v2.component()`](/develop/api-reference/custom-components/st.components.v2.component).
-   - Within your component's JavaScript function, communicate with Python by destructuring a [`ComponentArgs`](/develop/api-reference/custom-components/component-v2-lib-componentargs) object.
-   - Within your component's CSS, use Streamlit's [theme variables](/develop/concepts/custom-components/components-v2/theming#using-css-custom-properties) to style your component.
+   - Optional: To enable bidirectional communication, within your component's JavaScript function, communicate with Python by calling `setStateValue()` or `setTriggerValue()`. These are properties of the [`ComponentArgs`](/develop/api-reference/custom-components/component-v2-lib-componentargs) object passed to your function.
+   - Optional: To make your component theme-aware, within your component's CSS, style your component with Streamlit's [theme variables](/develop/concepts/custom-components/components-v2/theming#using-css-custom-properties).
 
 2. Mount your component to create a specific instance in your app.
    - Use your component command, which inherits from the [`BidiComponentCallable`](/develop/api-reference/custom-components/st.components.v2.types.bidicomponentcallable) class.
@@ -514,7 +514,226 @@ if result.reset:
 
 ## Form with validation
 
-This example shows a more complex component with form validation:
+This example shows a more complex component with form validation. It shows the following key concepts:
+
+- Form handling and validation.
+- Draft saving functionality.
+- Multiple event handlers and callbacks.
+- Using CSS custom properties to style the component.
+- Session state integration for more complex, bidirectional state management.
+- Cleanup functions for proper resource management.
+
+`my_component/my_html.html`:
+
+```markup
+<div class="form-container">
+    <h3>Contact Form</h3>
+    <form id="contact-form">
+        <input type="text" id="name" placeholder="Your name" required>
+        <input type="email" id="email" placeholder="Your email" required>
+        <textarea id="message" placeholder="Your message" required></textarea>
+        <div class="form-actions">
+            <button type="button" id="save-draft">Save Draft</button>
+            <button type="submit">Send Message</button>
+            <div id="status"></div>
+        </div>
+    </form>
+</div>
+```
+
+`my_component/my_css.css`:
+
+```css
+.form-container {
+  padding: 1rem;
+  border: 1px solid var(--st-border-color);
+  border-radius: var(--st-base-radius);
+  box-sizing: border-box;
+}
+h3 {
+  font-size: var(--st-heading-font-size-h3, inherit);
+  font-weight: var(--st-heading-font-weight-h3, inherit);
+  margin: 0;
+}
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  background: var(--st-secondary-background-color);
+  border: 1px solid transparent;
+  border-radius: var(--st-base-radius);
+  box-sizing: border-box;
+  font-size: inherit;
+  font-family: inherit;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--st-primary-color);
+}
+textarea {
+  height: 5rem;
+  resize: vertical;
+}
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+button {
+  padding: 0.5rem 1rem;
+  border-radius: var(--st-button-radius);
+  border: 1px solid transparent;
+  font-size: inherit;
+  font-family: inherit;
+}
+button[type="submit"] {
+  background: var(--st-primary-color);
+  color: white;
+}
+button[type="button"] {
+  border: 1px solid var(--st-border-color);
+  background: var(--st-primary-background-color);
+  color: var(--st-text-color);
+}
+button:hover {
+  opacity: 0.9;
+  border-color: var(--st-primary-color);
+}
+#status {
+  margin-top: 0.5rem;
+}
+```
+
+`my_component/my_js.js`:
+
+```javascript
+export default function ({
+  parentElement,
+  setStateValue,
+  setTriggerValue,
+  data,
+}) {
+  const form = parentElement.querySelector("#contact-form");
+  const h3 = parentElement.querySelector("h3");
+  const nameInput = parentElement.querySelector("#name");
+  const emailInput = parentElement.querySelector("#email");
+  const messageInput = parentElement.querySelector("#message");
+  const saveDraftBtn = parentElement.querySelector("#save-draft");
+  const status = parentElement.querySelector("#status");
+
+  // Register custom CSS variables with third values from --st-heading-font-sizes and --st-heading-font-weights
+  requestAnimationFrame(() => {
+    const container = parentElement.querySelector(".form-container");
+    const headingSizes = getComputedStyle(form)
+      .getPropertyValue("--st-heading-font-sizes")
+      .trim();
+    const headingWeights = getComputedStyle(form)
+      .getPropertyValue("--st-heading-font-weights")
+      .trim();
+    const sizes = headingSizes.split(",").map((s) => s.trim());
+    const weights = headingWeights.split(",").map((s) => s.trim());
+    if (sizes[2] && container) {
+      container.style.setProperty("--st-heading-font-size-h3", sizes[2]);
+    }
+    if (weights[2] && container) {
+      container.style.setProperty("--st-heading-font-weight-h3", weights[2]);
+    }
+  });
+
+  // Load draft if available
+  const draft = data?.draft || {};
+  nameInput.value = draft.name || "";
+  emailInput.value = draft.email || "";
+  messageInput.value = draft.message || "";
+
+  // Save draft
+  const saveDraft = () => {
+    setStateValue("draft", {
+      name: nameInput.value,
+      email: emailInput.value,
+      message: messageInput.value,
+    });
+    setTriggerValue("action", "save_draft");
+    status.textContent = "Draft saved!";
+    status.style.color = "var(--st-green-color)";
+    setTimeout(() => (status.textContent = ""), 2000);
+  };
+
+  // Submit form
+  const submitForm = (e) => {
+    e.preventDefault();
+
+    if (!nameInput.value || !emailInput.value || !messageInput.value) {
+      status.textContent = "Please fill all fields";
+      status.style.color = "var(--st-red-color)";
+      return;
+    }
+
+    status.textContent = "Message sent!";
+    status.style.color = "var(--st-blue-color)";
+    setTimeout(() => (status.textContent = ""), 2000);
+    setTriggerValue("submit", {
+      name: nameInput.value,
+      email: emailInput.value,
+      message: messageInput.value,
+    });
+  };
+
+  // Event listeners - only update on button clicks
+  saveDraftBtn.addEventListener("click", saveDraft);
+  form.addEventListener("submit", submitForm);
+
+  return () => {
+    saveDraftBtn.removeEventListener("click", saveDraft);
+    form.removeEventListener("submit", submitForm);
+  };
+}
+```
+
+`streamlit_app.py`:
+
+```python
+import streamlit as st
+
+with open("my_component/my_html.html", "r") as f:
+    HTML = f.read()
+with open("my_component/my_css.css", "r") as f:
+    CSS = f.read()
+with open("my_component/my_js.js", "r") as f:
+    JS = f.read()
+
+form_component = st.components.v2.component(
+    "contact_form",
+    html=HTML,
+    css=CSS,
+    js=JS,
+)
+
+# Handle form actions
+def handle_form_action():
+    # Clear the draft on submit
+    st.session_state.message_form.draft={}
+
+# Use the component
+form_state = st.session_state.get("message_form", {})
+result = form_component(
+    data={"draft": form_state.get("draft", {})},
+    on_draft_change=lambda: None,
+    on_submit_change=handle_form_action,
+    key="message_form"
+)
+
+if result.submit:
+    st.write("Message Submitted:")
+    result.submit
+else:
+    st.write("Current Draft:")
+    result.draft
+```
+
+<Collapse title="Complete code">
 
 ```python
 import streamlit as st
@@ -531,66 +750,95 @@ form_component = st.components.v2.component(
             <div class="form-actions">
                 <button type="button" id="save-draft">Save Draft</button>
                 <button type="submit">Send Message</button>
+                <div id="status"></div>
             </div>
         </form>
-        <div id="status"></div>
     </div>
     """,
     css="""
     .form-container {
-        padding: 20px;
+        padding: 1rem;;
         border: 1px solid var(--st-border-color);
         border-radius: var(--st-base-radius);
-        font-family: var(--st-font);
-        max-width: 500px;
+        box-sizing: border-box;
+    }
+    h3 {
+        font-size: var(--st-heading-font-size-h3, inherit);
+        font-weight: var(--st-heading-font-weight-h3, inherit);
+        margin: 0;
     }
     input, textarea {
         width: 100%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid var(--st-border-color);
-        border-radius: 4px;
-        font-family: var(--st-font);
+        padding: .5rem;
+        margin: .5rem 0;
+        background: var(--st-secondary-background-color);
+        border: 1px solid transparent;
+        border-radius: var(--st-base-radius);
         box-sizing: border-box;
+        font-size: inherit;
+        font-family: inherit;
     }
+    input:focus, textarea:focus {
+        outline: none;
+        border-color: var(--st-primary-color);
+    };
     textarea {
-        height: 100px;
+        height: 5rem;
         resize: vertical;
     }
     .form-actions {
         display: flex;
-        gap: 10px;
-        margin-top: 15px;
+        gap: 1rem;
+        margin-top: .75rem;
     }
     button {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-family: var(--st-font);
+        padding: .5rem 1rem;;
+        border-radius: var(--st-button-radius);
+        border: 1px solid transparent;
+        font-size: inherit;
+        font-family: inherit;
     }
     button[type="submit"] {
         background: var(--st-primary-color);
         color: white;
     }
     button[type="button"] {
-        background: var(--st-secondary-background-color);
-        color: var(--st-text-color);
         border: 1px solid var(--st-border-color);
+        background: var(--st-primary-background-color);
+        color: var(--st-text-color);
+    }
+    button:hover {
+        opacity: 0.9;
+        border-color: var(--st-primary-color);
     }
     #status {
-        margin-top: 10px;
-        font-size: 14px;
+        margin-top: .5rem;
     }
     """,
     js="""
     export default function({ parentElement, setStateValue, setTriggerValue, data }) {
         const form = parentElement.querySelector('#contact-form');
+        const h3 = parentElement.querySelector('h3');
         const nameInput = parentElement.querySelector('#name');
         const emailInput = parentElement.querySelector('#email');
         const messageInput = parentElement.querySelector('#message');
         const saveDraftBtn = parentElement.querySelector('#save-draft');
         const status = parentElement.querySelector('#status');
+
+        // Register custom CSS variables with third values from --st-heading-font-sizes and --st-heading-font-weights
+        requestAnimationFrame(() => {
+            const container = parentElement.querySelector('.form-container');
+            const headingSizes = getComputedStyle(form).getPropertyValue('--st-heading-font-sizes').trim();
+            const headingWeights = getComputedStyle(form).getPropertyValue('--st-heading-font-weights').trim();
+            const sizes = headingSizes.split(',').map(s => s.trim());
+            const weights = headingWeights.split(',').map(s => s.trim());
+            if (sizes[2] && container) {
+                container.style.setProperty('--st-heading-font-size-h3', sizes[2]);
+            }
+            if (weights[2] && container) {
+                container.style.setProperty('--st-heading-font-weight-h3', weights[2]);
+            }
+        });
 
         // Load draft if available
         const draft = data?.draft || {};
@@ -598,18 +846,13 @@ form_component = st.components.v2.component(
         emailInput.value = draft.email || '';
         messageInput.value = draft.message || '';
 
-        // Update draft state as user types
-        const updateDraft = () => {
+        // Save draft
+        const saveDraft = () => {
             setStateValue('draft', {
                 name: nameInput.value,
                 email: emailInput.value,
                 message: messageInput.value
             });
-        };
-
-        // Save draft
-        const saveDraft = () => {
-            updateDraft();
             setTriggerValue('action', 'save_draft');
             status.textContent = 'Draft saved!';
             status.style.color = 'var(--st-green-color)';
@@ -626,54 +869,51 @@ form_component = st.components.v2.component(
                 return;
             }
 
-            updateDraft();
-            setTriggerValue('action', 'submit');
-            status.textContent = 'Sending message...';
+            status.textContent = 'Message sent!';
             status.style.color = 'var(--st-blue-color)';
+            setTimeout(() => status.textContent = '', 2000);
+            setTriggerValue('submit', {
+                name: nameInput.value,
+                email: emailInput.value,
+                message: messageInput.value
+            });
         };
 
-        // Event listeners
-        nameInput.addEventListener('input', updateDraft);
-        emailInput.addEventListener('input', updateDraft);
-        messageInput.addEventListener('input', updateDraft);
+        // Event listeners - only update on button clicks
         saveDraftBtn.addEventListener('click', saveDraft);
         form.addEventListener('submit', submitForm);
 
-        // Initialize
-        updateDraft();
+        return () => {
+            saveDraftBtn.removeEventListener('click', saveDraft);
+            form.removeEventListener('submit', submitForm);
+        };
     }
     """
 )
 
 # Handle form actions
 def handle_form_action():
-    if result.action == 'save_draft':
-        st.info("Draft saved!")
-    elif result.action == 'submit':
-        st.success("Message sent successfully!")
-        # Clear form after successful submission
-        st.rerun()
+    # Clear the draft on submit
+    st.session_state.message_form.draft={}
 
 # Use the component
+form_state = st.session_state.get("message_form", {})
 result = form_component(
-    data={"draft": st.session_state.get("form_draft", {})},
-    on_draft_change=lambda: setattr(st.session_state, "form_draft", result.draft),
-    on_action_change=handle_form_action
+    data={"draft": form_state.get("draft", {})},
+    on_draft_change=lambda: None,
+    on_submit_change=handle_form_action,
+    key="message_form"
 )
 
-# Show draft status
-if result.draft and any(result.draft.values()):
-    st.write("**Current draft:**")
-    st.json(result.draft)
+if result.submit:
+    st.write("Message Submitted:")
+    result.submit
+else:
+    st.write("Current Draft:")
+    result.draft
 ```
 
-**Key concepts demonstrated:**
-
-- Form handling and validation
-- Real-time state updates as user types
-- Draft saving functionality
-- Multiple action types with single callback
-- Session state integration for persistence
+</Collapse>
 
 ## What's next?
 
