@@ -75,11 +75,43 @@ For inline component development, you must pass raw HTML, CSS, and JavaScript co
 ```
 project_directory/
 ├── my_component/
+│   ├── __init__.py
 │   ├── my_css.css
 │   ├── my_html.html
 │   └── my_js.js
 └── streamlit_app.py
 ```
+
+<Collapse title="__init__.py">
+
+```python
+import streamlit as st
+from pathlib import Path
+
+# Get the current file's directory
+_COMPONENT_DIR = Path(__file__).parent
+
+@st.cache_data
+def load_html():
+    with open(_COMPONENT_DIR / "my_html.html", "r") as f:
+        return f.read()
+
+@st.cache_data
+def load_css():
+    with open(_COMPONENT_DIR / "my_css.css", "r") as f:
+        return f.read()
+
+@st.cache_data
+def load_js():
+    with open(_COMPONENT_DIR / "my_js.js", "r") as f:
+        return f.read()
+
+HTML = load_html()
+CSS = load_css()
+JS = load_js()
+```
+
+</Collapse>
 
 <Collapse title="my_css.css">
 
@@ -121,13 +153,7 @@ export default function (component) {
 
 ```python
 import streamlit as st
-
-with open("my_component/my_html.html", "r") as f:
-    HTML = f.read()
-with open("my_component/my_css.css", "r") as f:
-    CSS = f.read()
-with open("my_component/my_js.js", "r") as f:
-    JS = f.read()
+from my_component import HTML, CSS, JS
 
 if "click_count" not in st.session_state:
     st.session_state.click_count = 0
@@ -191,21 +217,23 @@ export default function ({ data, parentElement }) {
 import pandas as pd
 import streamlit as st
 import base64
-
-with open("my_component/my_html.html", "r") as f:
-    HTML = f.read()
-with open("my_component/my_js.js", "r") as f:
-    JS = f.read()
+from my_component import HTML, JS
 
 # Create sample data
-df = pd.DataFrame({
-    "name": ["Alice", "Bob", "Charlie"],
-    "city": ["New York", "London", "Tokyo"]
+@st.cache_data
+def create_sample_df():
+    return pd.DataFrame({
+        "name": ["Alice", "Bob", "Charlie"],
+        "city": ["New York", "London", "Tokyo"]
 })
+df = create_sample_df()
 # Load an image and convert to bytes
-with open("favi.png", "rb") as img_file:
-    img_bytes = img_file.read()
-img_base64 = base64.b64encode(img_bytes).decode('utf-8')
+@st.cache_data
+def load_image_as_base64(image_path):
+    with open(image_path, "rb") as img_file:
+        img_bytes = img_file.read()
+    return base64.b64encode(img_bytes).decode('utf-8')
+img_base64 = load_image_as_base64("favi.png")
 
 # Serialization is automatically handled by Streamlit components
 chart_component = st.components.v2.component(
@@ -231,14 +259,20 @@ import streamlit as st
 import base64
 
 # Create sample data
-df = pd.DataFrame({
-    "name": ["Alice", "Bob", "Charlie"],
-    "city": ["New York", "London", "Tokyo"]
+@st.cache_data
+def create_sample_df():
+    return pd.DataFrame({
+        "name": ["Alice", "Bob", "Charlie"],
+        "city": ["New York", "London", "Tokyo"]
 })
+df = create_sample_df()
 # Load an image and convert to bytes
-with open("favi.png", "rb") as img_file:
-    img_bytes = img_file.read()
-img_base64 = base64.b64encode(img_bytes).decode('utf-8')
+@st.cache_data
+def load_image_as_base64(image_path):
+    with open(image_path, "rb") as img_file:
+        img_bytes = img_file.read()
+    return base64.b64encode(img_bytes).decode('utf-8')
+img_base64 = load_image_as_base64("favi.png")
 
 # Serialization is automatically handled by Streamlit components
 chart_component = st.components.v2.component(
@@ -377,13 +411,7 @@ export default function ({
 
 ```python
 import streamlit as st
-
-with open("my_component/my_html.html", "r") as f:
-    HTML = f.read()
-with open("my_component/my_css.css", "r") as f:
-    CSS = f.read()
-with open("my_component/my_js.js", "r") as f:
-    JS = f.read()
+from my_component import HTML, CSS, JS
 
 # Interactive counter with both state and triggers
 counter = st.components.v2.component(
@@ -696,13 +724,7 @@ export default function ({
 
 ```python
 import streamlit as st
-
-with open("my_component/my_html.html", "r") as f:
-    HTML = f.read()
-with open("my_component/my_css.css", "r") as f:
-    CSS = f.read()
-with open("my_component/my_js.js", "r") as f:
-    JS = f.read()
+from my_component import HTML, CSS, JS
 
 form_component = st.components.v2.component(
     "contact_form",
