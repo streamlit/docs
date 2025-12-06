@@ -43,9 +43,11 @@ my_component = st.components.v2.component(
 ### Registration parameters
 
 - The `name` (required) is a unique identifier for your component type. This is used internally by Streamlit for each instance to retrieve its HTML, CSS, and JavaScript code. Avoid registering multiple components with the same name.
-- The `html` (optional) is the HTML markup for your component. It defines the visual structure of your component. It can be inline HTML code or a path to an `.html` file.
-- The `css` (optional) is the CSS styling for your component. It can be inline CSS code or a path to a `.css` file.
-- The `js` (optional) is the JavaScript logic for your component. It can be inline JavaScript code or a path to a `.js` file.
+- The `html` (optional) is the HTML markup for your component. It defines the visual structure of your component.
+- The `css` (optional) is the CSS styling for your component.
+- The `js` (optional) is the JavaScript logic for your component.
+
+For inline component development, the HTML, CSS, and JavaScript code must be raw code as strings. File references are only supported for package-based components. When you create a package-based component, Streamlit serves the contents of the package's asset directory, making those resources available to your app's frontend. When you use a path in the `st.components.v2.component()` call, the paths are resolved on the frontend, relative to the served asset directory. For more information, see [Package-based components](/develop/concepts/custom-components/components-v2/package-based).
 
 <Important>
 
@@ -88,7 +90,7 @@ export default function (component) {
 
 <Warning>
 
-Don't directly modify the inner HTML of the `parentElement`. This will delete the HTML, CSS, and JavaScript code that was registered with the component. If you need to inject content from `data`, create a placeholder element within `html` and update its content with JavaScript.
+Don't directly overwrite or replace `parentElement.innerHTML`. If you do, you will overwrite the HTML, CSS, and JavaScript code that was registered with the component. If you need to inject content from `data`, either create a placeholder element within `html` to update or inject new elements into `parentElement`.
 
 </Warning>
 
@@ -106,26 +108,33 @@ hello_component = st.components.v2.component(
 )
 ```
 
-#### File-based component
+#### Using files for inline components
 
-For larger components, you can organize your code into separate files:
+For larger components, you can organize your code into separate files. However, for inline component development, you must pass raw HTML, CSS, and JavaScript code to your component. Similar to the examples shown in the [Quickstart](/develop/concepts/custom-components/components-v2/quickstart) guide, you can read the files into strings and pass them to your inline component. For package-based components, you can pass file references instead. For more information, see [Package-based components](/develop/concepts/custom-components/components-v2/package-based).
 
 ```
 my_app/
 ├── streamlit_app.py          # Entrypoint file
-├── styles/
-│   └── component.css         # Component styles
-└── scripts/
+└── frontend/
+    ├── component.css         # Component styles
+    ├── component.html        # Component HTML
     └── component.js          # Component JavaScript
 ```
 
 ```python
-# Load CSS and JS from external files
+# Load HTML, CSS, and JS from external files
+with open("frontend/component.css", "r") as f:
+    CSS = f.read()
+with open("frontend/component.html", "r") as f:
+    HTML = f.read()
+with open("frontend/component.js", "r") as f:
+    JS = f.read()
+
 file_component = st.components.v2.component(
     name="file_based",
-    html="<div id='my-component'>Loading...</div>",
-    css="./styles/component.css",      # Path to CSS file
-    js="./scripts/component.js"       # Path to JS file
+    html=HTML,
+    css=CSS,
+    js=JS,
 )
 ```
 
