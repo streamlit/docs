@@ -7,7 +7,7 @@ keywords: custom components v2, create components, inline components, component 
 
 # Create custom v2 components
 
-Components v2 provides a modern, flexible approach to extending Streamlit with custom functionality. This guide will walk you through creating your first component using the inline development approach. For package-based components, see the [Package-based Components](/develop/concepts/custom-components/components-v2/package-based) guide.
+Components v2 provides a modern, flexible approach to extending Streamlit with custom functionality. This guide will introduce the necessary concepts for creating custom components using the inline development approach. For package-based components, see the [Package-based Components](/develop/concepts/custom-components/components-v2/package-based) guide.
 
 ## Two-step component process
 
@@ -42,10 +42,10 @@ my_component = st.components.v2.component(
 
 ### Registration parameters
 
-- The `name` (required) is a unique identifier for your component type. This is used internally by Streamlit for each instance to retrieve its HTML, CSS, and JavaScript code. Avoid registering multiple components with the same name.
-- The `html` (optional) is the HTML markup for your component. It defines the visual structure of your component.
-- The `css` (optional) is the CSS styling for your component.
-- The `js` (optional) is the JavaScript logic for your component.
+- `name` (required) is a unique identifier for your component type. This is used internally by Streamlit for each instance to retrieve its HTML, CSS, and JavaScript code. Avoid registering multiple components with the same name.
+- `html` (optional) is the HTML markup for your component. It defines the visual structure of your component.
+- `css` (optional) is the CSS styling for your component.
+- `js` (optional) is the JavaScript logic for your component.
 
 For inline component development, the HTML, CSS, and JavaScript code must be raw code as strings. File references are only supported for package-based components. When you create a package-based component, Streamlit serves the contents of the package's asset directory, making those resources available to your app's frontend. When you use a path in the `st.components.v2.component()` call, the paths are resolved on the frontend, relative to the served asset directory. For more information, see [Package-based components](/develop/concepts/custom-components/components-v2/package-based).
 
@@ -90,7 +90,10 @@ export default function (component) {
 
 <Warning>
 
-Don't directly overwrite or replace `parentElement.innerHTML`. If you do, you will overwrite the HTML, CSS, and JavaScript code that was registered with the component. If you need to inject content from `data`, either create a placeholder element within `html` to update or inject new elements into `parentElement`.
+Don't directly overwrite or replace `parentElement.innerHTML`. If you do, you will overwrite the HTML, CSS, and JavaScript code that was registered with the component. If you need to inject content from `data`, do one of the following things:
+
+- Create a placeholder element within `html` to update.
+- Append children to `parentElement`.
 
 </Warning>
 
@@ -115,7 +118,7 @@ For larger components, you can organize your code into separate files. However, 
 ```
 my_app/
 ├── streamlit_app.py          # Entrypoint file
-└── frontend/
+└── component/
     ├── component.css         # Component styles
     ├── component.html        # Component HTML
     └── component.js          # Component JavaScript
@@ -123,12 +126,17 @@ my_app/
 
 ```python
 # Load HTML, CSS, and JS from external files
-with open("frontend/component.css", "r") as f:
-    CSS = f.read()
-with open("frontend/component.html", "r") as f:
-    HTML = f.read()
-with open("frontend/component.js", "r") as f:
-    JS = f.read()
+@st.cache_data
+def load_component_code():
+    with open("component/component.css", "r") as f:
+        CSS = f.read()
+    with open("component/component.html", "r") as f:
+        HTML = f.read()
+    with open("component/component.js", "r") as f:
+        JS = f.read()
+    return HTML, CSS, JS
+
+HTML, CSS, JS = load_component_code()
 
 file_component = st.components.v2.component(
     name="file_based",
