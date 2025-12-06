@@ -178,7 +178,7 @@ After registration, you mount your component in your Streamlit app. This creates
 result = my_component(
     key="unique_instance",
     data={"initial_value": 42},
-    on_clicked_change=lambda: st.write("Button was clicked!")
+    on_clicked_change=lambda: None)
 )
 ```
 
@@ -250,7 +250,7 @@ DataFrames are automatically serialized using Apache Arrow format, which provide
 
 #### Layout control (`width` and `height`)
 
-To make your component compatible with the Streamlit layout system, you can pass `width` and `height` parameters to your component mounting command. These parameters wrap your component in a `<div>` element that behaves like other Streamlit elements, but you are responsible for ensuring that the content within your component is responsive to the surrounding `<div>`.
+To make your component compatible with the Streamlit layout system, you can pass `width` and `height` parameters to your component mounting command. These parameters match the same width and height parameters used throughout other Streamlit commands. Streamlit wraps your component in a `<div>` element and updates its `width` and `height` properties so that it behaves like other Streamlit elements.
 
 ```python
 result = my_component(
@@ -258,6 +258,8 @@ result = my_component(
     height=400         # Fixed height
 )
 ```
+
+On the frontend, it's generally recommended to set your component's CSS to `width: 100%; height: 100%`, since Streamlit will size the `<div>` wrapper element correctly. If your component needs to know its exact measurements at runtime in JavaScript, you can use a `ResizeObserver` to get that information dynamically.
 
 #### Theming and styling (`isolate_styles`)
 
@@ -351,7 +353,6 @@ counter_component = st.components.v2.component(
         border: none;
         border-radius: var(--st-button-radius);
         padding: 4px 8px;
-        cursor: pointer;
         font-family: var(--st-font);
         font-size: var(--st-base-font-size);
     }
