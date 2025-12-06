@@ -85,8 +85,8 @@ export default function (component) {
 - `key` (string): Unique identifier for this component instance. Use this to assist with tracking unique instances of your component in the DOM.
 - `data` (any): All data passed from Python via the `data` parameter. Use this to customize a component instance.
 - `parentElement` (HTMLElement): The DOM element where your component is mounted. Use this to interact with the component's internal DOM elements.
-- `setStateValue` (function): JS function to communicate stateful values to your Python backend.
-- `setTriggerValue` (function): JS function to communicate event-based trigger values to your Python backend.
+- `setStateValue` (function): JS function to communicate stateful values to your Python backend. The first argument is the state key name, and the second argument is the value to set.
+- `setTriggerValue` (function): JS function to communicate event-based trigger values to your Python backend. The first argument is the trigger key name, and the second argument is the value to set.
 
 <Warning>
 
@@ -168,6 +168,17 @@ counter_component = st.components.v2.component(
     """
 )
 ```
+
+### Sending state and trigger values to Python
+
+You can send state and trigger values to Python by calling `setStateValue()` or `setTriggerValue()` in your JavaScript code. The first argument is the state or trigger key name, and the second argument is the value to set.
+
+```javascript
+setStateValue("count", count);
+setTriggerValue("clicked", true);
+```
+
+Both `setStateValue()` and `setTriggerValue()` will trigger a rerun of the script. For each call in JavaScript, the associated callback function in Python will be executed as a prefix to the script run. If you make multiple calls to `setStateValue()` or `setTriggerValue()` within the same event handler, their callbacks will be executed in the order they were called before the script run. However, for `setStateValue()`, the callback function will only be executed if the state value changed as a result of the call.
 
 ## Step 2: Component mounting
 
@@ -275,7 +286,7 @@ For more information about theming and styling, see the [Theming & styling](/dev
 
 #### Event callbacks (`on_<trigger>_change` or `on_<state>_change`)
 
-For each state and trigger value for your component, you must pass a callback function. This callback function ensures that all state and trigger values are consistently available in the component's result object. Use the name of the state or trigger value in a keyword argument named `on_<trigger or state name>_change`. These callback function can be empty (`lambda: None`) or contain your own response logic. Whenever your JavaScript code calls `setStateValue()` or `setTriggerValue()`, your app will immediately rerun, executing the associated callback as a prefix. Therefore, you can't call both `setStateValue()` and `setTriggerValue()` in response to the same event.
+For each state and trigger value for your component, you must pass a callback function. This callback function ensures that all state and trigger key-value pairs are consistently available in the component's result object. To create the callback function's keyword argument name, add an `on_` prefix and `_change` suffix to trigger or state key name (`on_<trigger or state key name>_change`). These callback functions can be empty (`lambda: None`) or contain your own response logic. Whenever your JavaScript code calls `setStateValue()` or `setTriggerValue()`, your app will immediately rerun, executing the associated callback as a prefix to the script run. If you make multiple calls to `setStateValue()` or `setTriggerValue()` within the same event handler, their callbacks will be executed before the script run, in the order they were called. However, for `setStateValue()`, the callback function will only be executed if the state value changed as a result of the call.
 
 Continuing the [Interactive component](#interactive-component) example from the previous section, we add a callback function for the `count` state value.
 
