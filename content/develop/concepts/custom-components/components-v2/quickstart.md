@@ -43,7 +43,7 @@ def handle_button_click():
 
 my_component = st.components.v2.component(
     "interactive_button",
-    html="<button id='btn'>Click me</button>",
+    html="""<button id="btn">Click me</button>""",
     css="""
     button {
         border: none;
@@ -57,8 +57,8 @@ my_component = st.components.v2.component(
     export default function(component) {
       const { setTriggerValue, parentElement } = component;
 
-        parentElement.querySelector('button').onclick = () => {
-            setTriggerValue('action', 'button_clicked');
+        parentElement.querySelector("button").onclick = () => {
+            setTriggerValue("action", "button_clicked");
         };
     }
     """,
@@ -130,7 +130,7 @@ button {
 <Collapse title="my_html.html">
 
 ```markup
-<button id='btn'>Click me</button>
+<button id="btn">Click me</button>
 ```
 
 </Collapse>
@@ -190,7 +190,7 @@ This example shows how to pass different data types to your component. It shows 
 `my_component/my_html.html`:
 
 ```markup
-<div id='data-container'>Loading data...</div>
+<div id="data-container">Loading data...</div>
 ```
 
 `my_component/my_js.js`:
@@ -232,7 +232,7 @@ df = create_sample_df()
 def load_image_as_base64(image_path):
     with open(image_path, "rb") as img_file:
         img_bytes = img_file.read()
-    return base64.b64encode(img_bytes).decode('utf-8')
+    return base64.b64encode(img_bytes).decode("utf-8")
 img_base64 = load_image_as_base64("favi.png")
 
 # Serialization is automatically handled by Streamlit components
@@ -271,16 +271,16 @@ df = create_sample_df()
 def load_image_as_base64(image_path):
     with open(image_path, "rb") as img_file:
         img_bytes = img_file.read()
-    return base64.b64encode(img_bytes).decode('utf-8')
+    return base64.b64encode(img_bytes).decode("utf-8")
 img_base64 = load_image_as_base64("favi.png")
 
 # Serialization is automatically handled by Streamlit components
 chart_component = st.components.v2.component(
     "data_display",
-    html="<div id='data-container'>Loading data...</div>",
+    html="""<div id="data-container">Loading data...</div>""",
     js="""
     export default function({ data, parentElement }) {
-        const container = parentElement.querySelector('#data-container');
+        const container = parentElement.querySelector("#data-container");
 
         const df = data.df;
         const userInfo = data.user_info;
@@ -484,14 +484,14 @@ counter = st.components.v2.component(
     js="""
     export default function({ parentElement, setStateValue, setTriggerValue, data }) {
         let count = data?.initialCount || 0;
-        const display = parentElement.querySelector('#display');
-        const incrementBtn = parentElement.querySelector('#increment');
-        const decrementBtn = parentElement.querySelector('#decrement');
-        const resetBtn = parentElement.querySelector('#reset');
+        const display = parentElement.querySelector("#display");
+        const incrementBtn = parentElement.querySelector("#increment");
+        const decrementBtn = parentElement.querySelector("#decrement");
+        const resetBtn = parentElement.querySelector("#reset");
 
         const updateDisplay = () => {
             display.textContent = count;
-            setStateValue('count', count);  // Persistent state
+            setStateValue("count", count);  // Persistent state
         };
 
         incrementBtn.onclick = () => {
@@ -507,7 +507,7 @@ counter = st.components.v2.component(
         resetBtn.onclick = () => {
             count = 0;
             updateDisplay();
-            setTriggerValue('reset', true);  // One-time trigger
+            setTriggerValue("reset", true);  // One-time trigger
         };
 
         // Initialize
@@ -515,9 +515,9 @@ counter = st.components.v2.component(
 
         // Cleanup function
         return () => {
-            incrementBtn.removeEventListener('click', incrementBtn.onclick);
-            decrementBtn.removeEventListener('click', decrementBtn.onclick);
-            resetBtn.removeEventListener('click', resetBtn.onclick);
+            incrementBtn.removeEventListener("click", incrementBtn.onclick);
+            decrementBtn.removeEventListener("click", decrementBtn.onclick);
+            resetBtn.removeEventListener("click", resetBtn.onclick);
         };
     }
     """
@@ -839,46 +839,46 @@ form_component = st.components.v2.component(
     """,
     js="""
     export default function({ parentElement, setStateValue, setTriggerValue, data }) {
-        const form = parentElement.querySelector('#contact-form');
-        const h3 = parentElement.querySelector('h3');
-        const nameInput = parentElement.querySelector('#name');
-        const emailInput = parentElement.querySelector('#email');
-        const messageInput = parentElement.querySelector('#message');
-        const saveDraftBtn = parentElement.querySelector('#save-draft');
-        const status = parentElement.querySelector('#status');
+        const form = parentElement.querySelector("#contact-form");
+        const h3 = parentElement.querySelector("h3");
+        const nameInput = parentElement.querySelector("#name");
+        const emailInput = parentElement.querySelector("#email");
+        const messageInput = parentElement.querySelector("#message");
+        const saveDraftBtn = parentElement.querySelector("#save-draft");
+        const status = parentElement.querySelector("#status");
 
         // Register custom CSS variables with third values from --st-heading-font-sizes and --st-heading-font-weights
         requestAnimationFrame(() => {
-            const container = parentElement.querySelector('.form-container');
-            const headingSizes = getComputedStyle(form).getPropertyValue('--st-heading-font-sizes').trim();
-            const headingWeights = getComputedStyle(form).getPropertyValue('--st-heading-font-weights').trim();
-            const sizes = headingSizes.split(',').map(s => s.trim());
-            const weights = headingWeights.split(',').map(s => s.trim());
+            const container = parentElement.querySelector(".form-container");
+            const headingSizes = getComputedStyle(form).getPropertyValue("--st-heading-font-sizes").trim();
+            const headingWeights = getComputedStyle(form).getPropertyValue("--st-heading-font-weights").trim();
+            const sizes = headingSizes.split(",").map(s => s.trim());
+            const weights = headingWeights.split(",").map(s => s.trim());
             if (sizes[2] && container) {
-                container.style.setProperty('--st-heading-font-size-h3', sizes[2]);
+                container.style.setProperty("--st-heading-font-size-h3", sizes[2]);
             }
             if (weights[2] && container) {
-                container.style.setProperty('--st-heading-font-weight-h3', weights[2]);
+                container.style.setProperty("--st-heading-font-weight-h3", weights[2]);
             }
         });
 
         // Load draft if available
         const draft = data?.draft || {};
-        nameInput.value = draft.name || '';
-        emailInput.value = draft.email || '';
-        messageInput.value = draft.message || '';
+        nameInput.value = draft.name || "";
+        emailInput.value = draft.email || "";
+        messageInput.value = draft.message || "";
 
         // Save draft
         const saveDraft = () => {
-            setStateValue('draft', {
+            setStateValue("draft", {
                 name: nameInput.value,
                 email: emailInput.value,
                 message: messageInput.value
             });
-            setTriggerValue('action', 'save_draft');
-            status.textContent = 'Draft saved!';
-            status.style.color = 'var(--st-green-color)';
-            setTimeout(() => status.textContent = '', 2000);
+            setTriggerValue("action", "save_draft");
+            status.textContent = "Draft saved!";
+            status.style.color = "var(--st-green-color)";
+            setTimeout(() => status.textContent = "", 2000);
         };
 
         // Submit form
@@ -886,15 +886,15 @@ form_component = st.components.v2.component(
             e.preventDefault();
 
             if (!nameInput.value || !emailInput.value || !messageInput.value) {
-                status.textContent = 'Please fill all fields';
-                status.style.color = 'var(--st-red-color)';
+                status.textContent = "Please fill all fields";
+                status.style.color = "var(--st-red-color)";
                 return;
             }
 
-            status.textContent = 'Message sent!';
-            status.style.color = 'var(--st-blue-color)';
-            setTimeout(() => status.textContent = '', 2000);
-            setTriggerValue('submit', {
+            status.textContent = "Message sent!";
+            status.style.color = "var(--st-blue-color)";
+            setTimeout(() => status.textContent = "", 2000);
+            setTriggerValue("submit", {
                 name: nameInput.value,
                 email: emailInput.value,
                 message: messageInput.value
@@ -902,12 +902,12 @@ form_component = st.components.v2.component(
         };
 
         // Event listeners - only update on button clicks
-        saveDraftBtn.addEventListener('click', saveDraft);
-        form.addEventListener('submit', submitForm);
+        saveDraftBtn.addEventListener("click", saveDraft);
+        form.addEventListener("submit", submitForm);
 
         return () => {
-            saveDraftBtn.removeEventListener('click', saveDraft);
-            form.removeEventListener('submit', submitForm);
+            saveDraftBtn.removeEventListener("click", saveDraft);
+            form.removeEventListener("submit", submitForm);
         };
     }
     """
