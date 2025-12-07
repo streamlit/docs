@@ -27,7 +27,7 @@ State values have the following behavior:
 
 **Purpose**: Signal one-time events or user interactions.
 
-**When to use**: For user actions like clicks, form submissions, or other discrete events
+**When to use**: For user actions like clicks, form submissions, or other discrete events.
 
 Trigger values have the following behavior:
 
@@ -38,13 +38,12 @@ Trigger values have the following behavior:
 
 ## Differences at a glance
 
-| Aspect                  | State values                | Trigger values                |
-| ----------------------- | --------------------------- | ----------------------------- |
-| **Persistence**         | Maintained across reruns    | Only available for one rerun  |
-| **Use case**            | Current component state     | One-time events/actions       |
-| **JavaScript function** | `setStateValue(key, value)` | `setTriggerValue(key, value)` |
-
-The callback pattern and value access are the same for both state and trigger values.
+| Aspect              | State values                                  | Trigger values                           |
+| :------------------ | :-------------------------------------------- | :--------------------------------------- |
+| Persistence         | Maintained across reruns                      | Only available for one rerun             |
+| Use case            | Current component state                       | One-time events/actions                  |
+| JavaScript function | `setStateValue(key, value)`                   | `setTriggerValue(key, value)`            |
+| Callback execution  | Only if `setStateValue()` _changed_ the value | Every time `setTriggerValue()` is called |
 
 ## State values in practice
 
