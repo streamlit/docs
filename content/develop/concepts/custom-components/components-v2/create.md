@@ -120,21 +120,21 @@ For larger components, you can organize your code into separate files. However, 
 ```
 my_app/
 ├── streamlit_app.py          # Entrypoint file
-└── component/
-    ├── component.css         # Component styles
-    ├── component.html        # Component HTML
-    └── component.js          # Component JavaScript
+└── my_component/
+    ├── my_css.css            # Component styles
+    ├── my_html.html          # Component HTML
+    └── my_js.js              # Component JavaScript
 ```
 
 ```python
 # Load HTML, CSS, and JS from external files
 @st.cache_data
 def load_component_code():
-    with open("component/component.css", "r") as f:
+    with open("my_component/my_css.css", "r") as f:
         CSS = f.read()
-    with open("component/component.html", "r") as f:
+    with open("my_component/my_html.html", "r") as f:
         HTML = f.read()
-    with open("component/component.js", "r") as f:
+    with open("my_component/my_js.js", "r") as f:
         JS = f.read()
     return HTML, CSS, JS
 
@@ -166,13 +166,13 @@ counter_component = st.components.v2.component(
     js="""
     export default function({ parentElement, setStateValue }) {
         let count = 0;
-        const display = parentElement.querySelector('#count');
-        const button = parentElement.querySelector('#increment');
+        const display = parentElement.querySelector("#count");
+        const button = parentElement.querySelector("#increment");
 
         button.onclick = () => {
             count++;
             display.textContent = count;
-            setStateValue('count', count);
+            setStateValue("count", count);
         };
     }
     """
@@ -261,9 +261,9 @@ DataFrames are automatically serialized using Apache Arrow format, which provide
 
 </Note>
 
-The `default` parameter sets the initial values for component state _in Python_. This is a dictionary where each key is a state key name. Each state key has an accompanying callback function passed as a keyword argument named `on_<key>_change`. Because `default` only sets the initial value in Python, you must appropriately pass data to the component's `data` parameter to ensure that the component is consistent with its initial state.
+The `default` parameter sets the initial values for component state _in Python_. This is a dictionary where each key is a state name. Each state name has an accompanying callback function passed as a keyword argument named `on_<state>_change`. Because `default` only sets the initial value in Python, you must appropriately pass data to the component's `data` parameter to ensure that the component is consistent with its intended initial state.
 
-In general, the `default` parameter is used to avoid a rerun of the script when the component is mounted. If your component immediately calls `setStateValue()` when it's mounted, this can increase the chance of visual flickering. Hense, use the `default` parameter to avoid an unnecessary rerun.
+In general, the `default` parameter is used to avoid a rerun of the script when the component is mounted. If your component immediately calls `setStateValue()` when it's mounted, this can increase the chance of visual flickering. Hence, use the `default` parameter to avoid an unnecessary rerun.
 
 The following example demonstrates how to use the `default` parameter to avoid a rerun of the script when the component is mounted. The simple checkbox is given an initial state of `True`.
 
@@ -299,16 +299,49 @@ result = simple_component(
 result
 ```
 
-In the previous example, if the default wasn't set, then the initial state of the `"enabled"` key would be `None`. Thus, the return value would not be consistent with the component's state until the first user interaction triggers the event listener.
+In the previous example, if the default wasn't set, then the initial state of the `"enabled"` key would be `None`. Thus, the return value would not be consistent with the component's state until the first user interaction triggers the event listener. It's possible to create the same component without using the `default` parameter, but this would make the app rerun unnecessarily when the component is mounted:
+
+```diff
+import streamlit as st
+
+simple_component = st.components.v2.component(
+    name="counter",
+    html="""<input type="checkbox" />""",
+    js="""
+    export default function({ parentElement, data, setStateValue, key }) {
+        const checkbox = parentElement.querySelector("input[type='checkbox']");
+        const enabled = data.enabled;
+
+        // Initialize checkbox state
+        checkbox.checked = enabled;
++       setStateValue("enabled", enabled);
+
+        // Update state when checkbox is toggled
+        checkbox.addEventListener("change", () => {
+            setStateValue("enabled", checkbox.checked);
+        });
+    }
+    """
+)
+
+initial_state = False
+
+result = simple_component(
+    data={"enabled": initial_state},
+-   default={"enabled": initial_state},
+    on_enabled_change=lambda: None
+)
+result
+```
 
 #### Layout control (`width` and `height`)
 
-To make your component compatible with the Streamlit layout system, you can pass `width` and `height` parameters to your component mounting command. These parameters match the same width and height parameters used throughout other Streamlit commands. Streamlit wraps your component in a `<div>` element and updates its `width` and `height` properties so that it behaves like other Streamlit elements.
+To make your component compatible with the Streamlit layout system, you can pass `width` and `height` parameters to your component mounting command. These parameters match the same width and height parameters used in other Streamlit commands. Streamlit wraps your component in a `<div>` element and updates its `width` and `height` properties so that it behaves like other Streamlit elements.
 
 ```python
 result = my_component(
     width="stretch",    # Full width
-    height=400         # Fixed height
+    height=400          # Fixed height
 )
 ```
 
@@ -328,18 +361,23 @@ For more information about theming and styling, see the [Theming & styling](/dev
 
 #### Event callbacks (`on_<trigger>_change` or `on_<state>_change`)
 
-For each state and trigger value for your component, you must pass a callback function. This callback function ensures that all state and trigger key-value pairs are consistently available in the component's result object. To create the callback function's keyword argument name, add an `on_` prefix and `_change` suffix to trigger or state key name (`on_<trigger or state key name>_change`). These callback functions can be empty (`lambda: None`) or contain your own response logic. Whenever your JavaScript code calls `setStateValue()` or `setTriggerValue()`, your app will immediately rerun, executing the associated callback as a prefix to the script run. If you make multiple calls to `setStateValue()` or `setTriggerValue()` within the same event handler, their callbacks will be executed before the script run, in the order they were called. However, for `setStateValue()`, the callback function will only be executed if the state value changed as a result of the call.
+For each state and trigger value for your component, you must pass a callback function to the component mounting command. This callback function ensures that its state or trigger value is consistently available in the component's result object.
 
-Continuing the [Interactive component](#interactive-component) example from the previous section, we add a callback function for the `count` state value.
+If you have a trigger named `"click"`, then you have to pass a callback function to the keyword argument `on_click_change`. In general, to create the callback function keyword argument name, prefix your state or trigger name with `on_` and then suffix it with `_change`. These callback functions can be empty (`lambda: None`) or contain your own response logic.
+
+Whenever your JavaScript code calls `setStateValue()` or `setTriggerValue()`, your app will immediately rerun, executing the associated callback as a prefix to the script run. If you make multiple calls to `setStateValue()` or `setTriggerValue()` within the same event handler, their callbacks will be executed before the script run, in the order they were called. However, for `setStateValue()`, the callback function will only be executed if the state value changed as a result of the call.
+
+Continuing the [Interactive component](#interactive-component) example from the previous section, we add a callback function for the `count` state.
 
 ```python
 # Define callback function for the count state value
 def handle_count_change():
-    # Called when the component calls setStateValue('count', value)
+    # Called when the component calls setStateValue("count", value)
     st.toast("Count was updated!")
 
 # Mount the counter component with callback
 result = counter_component(
+    width="content",
     on_count_change=handle_count_change,
     key="counter_1"
 )
@@ -351,7 +389,7 @@ You can access the state and trigger values of a component through the mounting 
 
 ### Component return value
 
-Components return a [`BidiComponentResult`](/develop/api-reference/custom-components/st.components.v2.types.bidicomponentresult) object that provides access to component state and trigger values. From the previous example, you can access the `count` state value as `result.count`.
+Components return a [`BidiComponentResult`](/develop/api-reference/custom-components/st.components.v2.types.bidicomponentresult) object that provides access to component state and trigger values. In the previous ("Interactive component") example, you can access the `count` state as `result.count`.
 
 ```python
 # Access the current count value
@@ -360,7 +398,7 @@ st.write(f"Current count: {result.count}")
 
 ### Component values in Session State
 
-If you mounted your component with a key, you can access the component values through Session State. In the previous example, you can equivalently access the `count` state value as `st.session_state.counter_1.count`.
+If you mounted your component with a key, you can access the component values through Session State. In the previous ("Interactive component") example, you can equivalently access the `count` state as `st.session_state.counter_1.count`.
 
 ```python
 # Access the current count value
@@ -369,15 +407,162 @@ st.write(f"Current count: {st.session_state.counter_1.count}")
 
 ### State vs trigger behavior
 
-State and trigger values have different behavior in relation to reruns. State values persist across reruns, while trigger values are transient and reset after each rerun. For more information about state and trigger values, see the [State vs Triggers](/develop/concepts/custom-components/components-v2/state-and-triggers) guide.
+State and trigger values have different behavior in relation to reruns. State values persist across reruns, while trigger values are transient and reset after each rerun. For more information about state and trigger values, see the [State vs trigger values](/develop/concepts/custom-components/components-v2/state-and-triggers) guide.
 
 ## Complete examples
 
 ### Simple HTML component complete example
 
+The `hello_component` introduced in a previous section can be completed by just mounting it.
+
+`streamlit_app.py`:
+
+```python
+import streamlit as st
+
+hello_component = st.components.v2.component(
+    name="hello_world",
+    html="<h2>Hello, World!</h2>",
+    css="h2 { color: var(--st-primary-color); }"
+)
+
+hello_component()
+```
+
+To fully make the component theme-compatible, you can add more CSS to use the theme's heading font and weight. Because the theme variables for headings are only available as arrays, this requires some JavaScript logic as well. For more information, see [Theming & styling](/develop/concepts/custom-components/components-v2/theming).
+
 ### Interactive counter complete example
 
-Here's the complete example from the previous sections that demonstrates both registration and mounting. We've added some minimal CSS to make the component look more Streamlit-like and theme-compatible. For more information about theming and styling, see the [Theming & styling](/develop/concepts/custom-components/components-v2/theming) guide.
+For better syntax highlighting, the example is broken down into separate files like the [Quickstart examples](/develop/concepts/custom-components/components-v2/quickstart). The raw code is imported from an `__init__.py` file. The complete code in a single file is provided at the end of each example for easier copying and pasting.
+
+```
+project_directory/
+├── my_component/
+│   ├── __init__.py
+│   ├── my_css.css
+│   ├── my_html.html
+│   └── my_js.js
+└── streamlit_app.py
+```
+
+<Collapse title="__init__.py">
+
+```python
+import streamlit as st
+from pathlib import Path
+
+# Get the current file's directory
+_COMPONENT_DIR = Path(__file__).parent
+
+@st.cache_data
+def load_html():
+    with open(_COMPONENT_DIR / "my_html.html", "r") as f:
+        return f.read()
+
+@st.cache_data
+def load_css():
+    with open(_COMPONENT_DIR / "my_css.css", "r") as f:
+        return f.read()
+
+@st.cache_data
+def load_js():
+    with open(_COMPONENT_DIR / "my_js.js", "r") as f:
+        return f.read()
+
+HTML = load_html()
+CSS = load_css()
+JS = load_js()
+```
+
+</Collapse>
+
+The following example includes some minimal CSS to make the component look more Streamlit-like and theme-compatible. For more information about theming and styling, see the [Theming & styling](/develop/concepts/custom-components/components-v2/theming) guide.
+
+`my_component/my_html.html`:
+
+```markup
+<div class="counter">
+    <span id="count">0</span>
+    <button id="increment">+</button>
+</div>
+```
+
+`my_component/my_css.css`:
+
+```css
+.counter {
+  padding: 0.5rem 0.5rem;
+  border: 1px solid var(--st-border-color);
+  border-radius: var(--st-base-radius);
+  font-family: var(--st-font);
+  font-size: var(--st-base-font-size);
+  color: var(--st-text-color);
+}
+#count {
+  padding: 0.75rem;
+}
+#increment {
+  background: var(--st-primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--st-button-radius);
+  padding: 0.25rem 0.5rem;
+  margin-left: 0.25rem;
+}
+#increment:hover {
+  opacity: 0.8;
+}
+```
+
+`my_component/my_js.js`:
+
+```javascript
+export default function ({ parentElement, setStateValue }) {
+  let count = 0;
+  const display = parentElement.querySelector("#count");
+  const button = parentElement.querySelector("#increment");
+
+  button.onclick = () => {
+    count++;
+    display.textContent = count;
+    setStateValue("count", count);
+  };
+}
+```
+
+`streamlit_app.py`:
+
+```python
+import streamlit as st
+from my_component import HTML, CSS, JS
+
+counter_component = st.components.v2.component(
+    name="counter",
+    html=HTML,
+    css=CSS,
+    js=JS
+)
+
+# Define callback function for the count state value
+def handle_count_change():
+    # Called when the component calls setStateValue("count", value)
+    st.toast("Count was updated!")
+
+# Mount the counter component with callback
+result = counter_component(
+    width="content",
+    on_count_change=handle_count_change,
+    key="counter_1"
+)
+
+# Access the current count value
+st.write(f"Current count: {result.count}")
+
+# Access the current count value in Session State
+st.write(f"Current count: {st.session_state.counter_1.count}")
+```
+
+<Collapse title="Complete code">
 
 ```python
 import streamlit as st
@@ -392,26 +577,23 @@ counter_component = st.components.v2.component(
     """,
     css="""
     .counter {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 8px 12px;
+        padding: .5rem .5rem;
         border: 1px solid var(--st-border-color);
         border-radius: var(--st-base-radius);
         font-family: var(--st-font);
-    }
-    #count {
         font-size: var(--st-base-font-size);
         color: var(--st-text-color);
+    }
+    #count {
+        padding: .75rem;
     }
     #increment {
         background: var(--st-primary-color);
         color: white;
         border: none;
         border-radius: var(--st-button-radius);
-        padding: 4px 8px;
-        font-family: var(--st-font);
-        font-size: var(--st-base-font-size);
+        padding: .25rem .5rem;
+        margin-left: .25rem;
     }
     #increment:hover {
         opacity: 0.8;
@@ -420,13 +602,13 @@ counter_component = st.components.v2.component(
     js="""
     export default function({ parentElement, setStateValue }) {
         let count = 0;
-        const display = parentElement.querySelector('#count');
-        const button = parentElement.querySelector('#increment');
+        const display = parentElement.querySelector("#count");
+        const button = parentElement.querySelector("#increment");
 
         button.onclick = () => {
             count++;
             display.textContent = count;
-            setStateValue('count', count);
+            setStateValue("count", count);
         };
     }
     """
@@ -434,11 +616,12 @@ counter_component = st.components.v2.component(
 
 # Define callback function for the count state value
 def handle_count_change():
-    # Called when the component calls setStateValue('count', value)
+    # Called when the component calls setStateValue("count", value)
     st.toast("Count was updated!")
 
 # Mount the counter component with callback
 result = counter_component(
+    width="content",
     on_count_change=handle_count_change,
     key="counter_1"
 )
@@ -449,6 +632,8 @@ st.write(f"Current count: {result.count}")
 # Access the current count value in Session State
 st.write(f"Current count: {st.session_state.counter_1.count}")
 ```
+
+</Collapse>
 
 ## What's next?
 
