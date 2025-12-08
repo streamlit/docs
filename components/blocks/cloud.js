@@ -34,6 +34,16 @@ import classNames from "classnames";
 //   -> https://foo.streamlit.app/bar/?embed=true&embed_options=show_padding&embed_options=show_colored_line
 //
 const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
+  // Get the current theme from localStorage (same as themeToggle)
+  const getCurrentTheme = () => {
+    if (typeof window !== "undefined" && window.localStorage.getItem("theme")) {
+      return window.localStorage.getItem("theme");
+    }
+    return "light"; // Default fallback
+  };
+
+  const currentTheme = getCurrentTheme();
+
   if (!domain) domain = `${name}.streamlit.app`;
   if (domain.endsWith("/")) domain = domain.slice(0, -1);
 
@@ -46,6 +56,9 @@ const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
 
   let normalQueryStr = "";
   let embedQueryStr = "";
+
+  // Add theme parameter to embed options
+  const themeParam = `embed_options=${currentTheme}_theme`;
 
   // Separate "normal" query params from "embed-related" query params.
   // This way we can include only the "normal" query params in the Fullscreen link.
@@ -67,6 +80,9 @@ const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
     embedQueryStr = "&" + embedQueryParams.join("&");
     normalQueryStr = "&" + normalQueryParams.join("&");
   }
+
+  // Add theme parameter to embed query string
+  embedQueryStr += `&${themeParam}`;
 
   if (!height) height = "10rem";
 
