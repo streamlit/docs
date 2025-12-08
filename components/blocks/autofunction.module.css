@@ -92,55 +92,7 @@
   @apply opacity-100;
 }
 
-/* Code block adjustments */
-.CodeBlockContainer pre code :global(.decorator.annotation.punctuation) {
-  @apply text-red-50;
-}
-
-.CodeBlockContainer pre code :global(.operator) {
-  @apply text-yellow-50;
-}
-
-.CodeBlockContainer pre code :global(.decorator) {
-  @apply text-yellow-80;
-}
-
-.CodeBlockContainer pre code :global(.keyword) {
-  @apply text-darkBlue-50;
-}
-
-.CodeBlockContainer pre code :global(.builtin) {
-  @apply text-lightBlue-40;
-}
-
-.CodeBlockContainer pre code :global(.string) {
-  @apply text-green-80;
-}
-
-.CodeBlockContainer pre code :global(.number),
-.CodeBlockContainer pre code :global(.boolean) {
-  @apply text-green-40;
-}
-
-.CodeBlockContainer pre code :global(.function) {
-  @apply text-red-50;
-}
-
-.CodeBlockContainer pre code :global(.punctuation) {
-  @apply text-gray-60;
-}
-
-.CodeBlockContainer pre code :global(.comment) {
-  @apply text-gray-60 italic font-normal;
-}
-
-.CodeBlockContainer pre code :global(.string) {
-  @apply text-darkBlue-30;
-}
-
-.CodeBlockContainer pre code :global(.table) {
-  @apply inline;
-}
+/* Syntax highlighting is now handled globally via styles/syntax-highlighting.scss */
 
 /* Styles for deprecation notice in param */
 .DeprecatedContent {
