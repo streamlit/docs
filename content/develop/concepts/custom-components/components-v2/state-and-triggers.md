@@ -983,182 +983,499 @@ if st.session_state.deleted_items:
 
 ## Combining state and triggers
 
-Many components benefit from using both patterns together. Here's a comprehensive example:
+Many components benefit from using both patterns together. The following example creates a stopwatch with laps. The component uses state values to track the time and whether the stopwatch is running. It also uses trigger values to track when the user starts a lap or resets the stopwatch. In summary, the component sets state and trigger values in the following events:
+
+- The user starts the stopwatch:
+  - `setStateValue("running", true)`
+
+- The user pauses the stopwatch:
+  - `setStateValue("running", false)`
+  - `setStateValue("elapsed", elapsedMs)`
+
+- The user records a lap:
+  - `setStateValue("laps", laps)`
+  - ``setTriggerValue("lap", { number: laps.length, time: elapsedMs, formatted: `${t.mins}:${t.secs}.${t.cents}` })``
+
+- The user resets the stopwatch:
+  - `setStateValue("laps", [])`
+  - `setStateValue("elapsed", 0)`
+  - `setStateValue("running", false)`
+  - `setTriggerValue("reset", true)`
 
 ```python
 import streamlit as st
 
-# Initialize session state
-if "form_submissions" not in st.session_state:
-    st.session_state.form_submissions = 0
+st.title("Stopwatch with Laps")
+st.caption("Combining state values (time, running) with trigger values (lap, reset)")
 
-# Create a form component that uses both state and triggers
-form_component = st.components.v2.component(
-    name="interactive_form",
+# Track laps in Python
+if "laps" not in st.session_state:
+    st.session_state.laps = []
+
+stopwatch = st.components.v2.component(
+    name="stopwatch",
     html="""
-    <div class="form-container">
-        <h3>Contact Form</h3>
-        <form id="contact-form">
-            <input type="text" id="name" placeholder="Your name" required>
-            <input type="email" id="email" placeholder="Your email" required>
-            <textarea id="message" placeholder="Your message" required></textarea>
-            <div class="form-actions">
-                <button type="button" id="save-draft">💾 Save Draft</button>
-                <button type="submit" id="submit">📤 Send Message</button>
+    <div class="stopwatch">
+        <div class="display-ring">
+            <svg class="ring-svg" viewBox="0 0 200 200">
+                <circle class="ring-track" cx="100" cy="100" r="90"/>
+                <circle id="ring-progress" class="ring-progress" cx="100" cy="100" r="90"/>
+            </svg>
+            <div class="display">
+                <span id="minutes" class="time-segment">00</span>
+                <span class="separator">:</span>
+                <span id="seconds" class="time-segment">00</span>
+                <span class="separator small">.</span>
+                <span id="centiseconds" class="time-segment small">00</span>
             </div>
-        </form>
-        <div id="status"></div>
+        </div>
+
+        <div class="controls">
+            <button id="lap-btn" class="ctrl-btn secondary" disabled>
+                <span class="btn-icon">🏁</span>
+                <span class="btn-label">Lap</span>
+            </button>
+            <button id="start-btn" class="ctrl-btn primary">
+                <span class="btn-icon">▶</span>
+                <span class="btn-label">Start</span>
+            </button>
+            <button id="reset-btn" class="ctrl-btn secondary" disabled>
+                <span class="btn-icon">⏱️</span>
+                <span class="btn-label">Reset</span>
+            </button>
+        </div>
+
+        <div id="lap-list" class="lap-list"></div>
     </div>
     """,
     css="""
-    .form-container {
-        padding: 20px;
-        border: 1px solid var(--st-border-color);
-        border-radius: 8px;
-        max-width: 500px;
-    }
-    input, textarea {
-        width: 100%;
-        padding: 10px;
-        margin: 5px 0;
-        border: 1px solid var(--st-border-color);
-        border-radius: 4px;
+    .stopwatch {
         font-family: var(--st-font);
-    }
-    textarea {
-        height: 100px;
-        resize: vertical;
-    }
-    .form-actions {
-        display: flex;
-        gap: 10px;
-        margin-top: 10px;
-    }
-    button {
-        padding: 10px 15px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    #save-draft {
-        background: var(--st-secondary-background-color);
         color: var(--st-text-color);
-        border: 1px solid var(--st-border-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        gap: 2rem;
     }
-    #submit {
+
+    /* Ring Display */
+    .display-ring {
+        position: relative;
+        width: 14rem;
+        height: 14rem;
+    }
+
+    .ring-svg {
+        position: absolute;
+        inset: -.75rem;
+        padding: .75rem;
+        transform: rotate(-90deg);
+        overflow: visible;
+    }
+
+    .ring-track, .ring-progress {
+        fill: none;
+        stroke-width: 6;
+    }
+
+    .ring-track {
+        stroke: var(--st-secondary-background-color);
+    }
+
+    .ring-progress {
+        stroke: var(--st-primary-color);
+        stroke-linecap: round;
+        stroke-dasharray: 565.5;
+        stroke-dashoffset: 565.5;
+        transition: stroke-dashoffset 0.1s linear;
+        filter: drop-shadow(0 0 8px var(--st-primary-color));
+    }
+
+    .ring-progress.running {
+        animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+        0%, 100% { opacity: 0.7; }
+        50% { opacity: 1; }
+    }
+
+    /* Time Display */
+    .display {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: baseline;
+        gap: 2px;
+        font-family: var(--st-code-font);
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+
+    .time-segment {
+        min-width: 2ch;
+        text-align: center;
+        letter-spacing: 0.05em;
+    }
+
+    .separator {
+        opacity: 0.5;
+    }
+
+    .time-segment.small, .separator.small {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+    .time-segment.small {
+        opacity: 0.7;
+    }
+
+    /* Controls */
+    .controls {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .ctrl-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.75rem 1.25rem;
+        border: none;
+        border-radius: var(--st-button-radius);
+        cursor: pointer;
+        transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        min-width: 5rem;
+    }
+
+    .ctrl-btn:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+
+    .ctrl-btn:hover:not(:disabled) {
+        transform: scale(1.05);
+    }
+
+    .ctrl-btn.primary {
         background: var(--st-primary-color);
         color: white;
     }
-    #status {
-        margin-top: 10px;
-        font-size: 14px;
+
+    .ctrl-btn.primary:hover:not(:disabled) {
+        filter: brightness(1.1);
+    }
+
+    .ctrl-btn.secondary {
+        background: var(--st-secondary-background-color);
+        border: 1px solid var(--st-border-color);
+    }
+
+    .ctrl-btn.secondary:hover:not(:disabled) {
+        border-color: var(--st-primary-color);
+    }
+
+    .btn-icon {
+        font-size: 1.25rem;
+        line-height: 1;
+    }
+
+    .btn-label {
+        font-size: 0.7rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    /* Lap List */
+    .lap-list {
+        width: 100%;
+        max-width: 280px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+
+    .lap-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        background: var(--st-secondary-background-color);
+        border-radius: var(--st-base-radius);
+        font-size: 0.85rem;
+        animation: slide-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes slide-in {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .lap-number {
+        color: var(--st-primary-color);
+        font-weight: 600;
+    }
+
+    .lap-time, .lap-delta {
+        font-family: var(--st-code-font);
+        font-size: 0.8rem;
+        opacity: 0.8;
+    }
+
+    .lap-delta.fastest {
+        color: var(--st-green-color);
+        opacity: 1;
+    }
+
+    .lap-delta.slowest {
+        color: var(--st-red-color);
+        opacity: 1;
     }
     """,
     js="""
-    export default function({ parentElement, setStateValue, setTriggerValue, data }) {
-        const form = parentElement.querySelector('#contact-form');
-        const nameInput = parentElement.querySelector('#name');
-        const emailInput = parentElement.querySelector('#email');
-        const messageInput = parentElement.querySelector('#message');
-        const saveDraftBtn = parentElement.querySelector('#save-draft');
-        const submitBtn = parentElement.querySelector('#submit');
-        const status = parentElement.querySelector('#status');
+    export default function({ parentElement, data, setStateValue, setTriggerValue }) {
+        const minutes = parentElement.querySelector("#minutes");
+        const seconds = parentElement.querySelector("#seconds");
+        const centiseconds = parentElement.querySelector("#centiseconds");
+        const ringProgress = parentElement.querySelector("#ring-progress");
+        const startBtn = parentElement.querySelector("#start-btn");
+        const lapBtn = parentElement.querySelector("#lap-btn");
+        const resetBtn = parentElement.querySelector("#reset-btn");
+        const lapList = parentElement.querySelector("#lap-list");
 
-        // Load draft data if available
-        const draft = data?.draft || {};
-        nameInput.value = draft.name || '';
-        emailInput.value = draft.email || '';
-        messageInput.value = draft.message || '';
+        const CIRCUMFERENCE = 2 * Math.PI * 90;
 
-        // Update state as user types (for draft saving)
-        const updateDraft = () => {
-            setStateValue('draft', {
-                name: nameInput.value,
-                email: emailInput.value,
-                message: messageInput.value
-            });
-        };
+        // Initialize from state or defaults
+        let elapsedMs = data?.elapsed || 0;
+        let isRunning = data?.running || false;
+        let laps = data?.laps || [];
+        let lastTimestamp = null;
+        let animationFrame = null;
 
-        // Save draft action (trigger)
-        const saveDraft = () => {
-            updateDraft();
-            setTriggerValue('action', 'save_draft');
-            status.textContent = '✅ Draft saved';
-            setTimeout(() => status.textContent = '', 2000);
-        };
+        let lastMinute = Math.floor(elapsedMs / 60000);
+        let isTransitioning = false;
 
-        // Submit form action (trigger)
-        const submitForm = (e) => {
-            e.preventDefault();
+        function formatTime(ms) {
+            const totalSeconds = Math.floor(ms / 1000);
+            const mins = Math.floor(totalSeconds / 60);
+            const secs = totalSeconds % 60;
+            const cents = Math.floor((ms % 1000) / 10);
+            return {
+                mins: String(mins).padStart(2, "0"),
+                secs: String(secs).padStart(2, "0"),
+                cents: String(cents).padStart(2, "0")
+            };
+        }
 
-            // Validate form
-            if (!nameInput.value || !emailInput.value || !messageInput.value) {
-                status.textContent = '❌ Please fill all fields';
-                return;
+        function updateDisplay() {
+            const time = formatTime(elapsedMs);
+            minutes.textContent = time.mins;
+            seconds.textContent = time.secs;
+            centiseconds.textContent = time.cents;
+
+            const currentMinute = Math.floor(elapsedMs / 60000);
+            const secondsInMinute = (elapsedMs % 60000) / 1000;
+
+            // Arc length: 0 at second 0, full circle at second 60
+            const arcLength = (secondsInMinute / 60) * CIRCUMFERENCE;
+
+            // Detect minute boundary - quick fade transition
+            if (currentMinute > lastMinute && !isTransitioning) {
+                lastMinute = currentMinute;
+                isTransitioning = true;
+
+                // Quick fade out
+                ringProgress.style.transition = "opacity 0.15s ease-out";
+                ringProgress.style.opacity = "0";
+
+                setTimeout(() => {
+                    // Reset to small arc while invisible
+                    ringProgress.style.transition = "none";
+                    ringProgress.style.strokeDasharray = `${arcLength} ${CIRCUMFERENCE}`;
+                    ringProgress.style.strokeDashoffset = 0;
+
+                    // Fade back in
+                    requestAnimationFrame(() => {
+                        ringProgress.style.transition = "opacity 0.15s ease-in";
+                        ringProgress.style.opacity = "1";
+
+                        setTimeout(() => {
+                            ringProgress.style.transition = "";
+                            isTransitioning = false;
+                        }, 150);
+                    });
+                }, 150);
             }
 
-            updateDraft();
-            setTriggerValue('action', 'submit');
-            status.textContent = '📤 Sending message...';
-        };
+            // Normal ring update
+            if (!isTransitioning) {
+                ringProgress.style.strokeDasharray = `${arcLength} ${CIRCUMFERENCE}`;
+                ringProgress.style.strokeDashoffset = 0;
+            }
+        }
 
-        // Attach event listeners
-        nameInput.addEventListener('input', updateDraft);
-        emailInput.addEventListener('input', updateDraft);
-        messageInput.addEventListener('input', updateDraft);
-        saveDraftBtn.addEventListener('click', saveDraft);
-        form.addEventListener('submit', submitForm);
+        function updateButtons() {
+            startBtn.querySelector(".btn-icon").textContent = isRunning ? "⏸" : "▶";
+            startBtn.querySelector(".btn-label").textContent = isRunning ? "Pause" : "Start";
+            startBtn.classList.toggle("running", isRunning);
+            ringProgress.classList.toggle("running", isRunning);
 
-        // Initialize state
-        updateDraft();
+            lapBtn.disabled = !isRunning;
+            resetBtn.disabled = isRunning || elapsedMs === 0;
+        }
 
-        // Cleanup
+        function renderLaps() {
+            lapList.innerHTML = "";
+
+            if (laps.length === 0) return;
+
+            // Calculate deltas and find fastest/slowest
+            const deltas = laps.map((lap, i) => {
+                return i === 0 ? lap : lap - laps[i - 1];
+            });
+
+            const minDelta = Math.min(...deltas);
+            const maxDelta = Math.max(...deltas);
+
+            // Render in reverse (newest first)
+            [...laps].reverse().forEach((lap, reverseIdx) => {
+                const idx = laps.length - 1 - reverseIdx;
+                const delta = deltas[idx];
+                const time = formatTime(lap);
+                const deltaTime = formatTime(delta);
+
+                let deltaClass = "";
+                if (laps.length > 1) {
+                    if (delta === minDelta) deltaClass = "fastest";
+                    else if (delta === maxDelta) deltaClass = "slowest";
+                }
+
+                const item = document.createElement("div");
+                item.className = "lap-item";
+                item.innerHTML = `
+                    <span class="lap-number">Lap ${idx + 1}</span>
+                    <span class="lap-delta ${deltaClass}">+${deltaTime.mins}:${deltaTime.secs}.${deltaTime.cents}</span>
+                    <span class="lap-time">${time.mins}:${time.secs}.${time.cents}</span>
+                `;
+                lapList.appendChild(item);
+            });
+        }
+
+        function tick(timestamp) {
+            if (!lastTimestamp) lastTimestamp = timestamp;
+
+            const delta = timestamp - lastTimestamp;
+            lastTimestamp = timestamp;
+
+            elapsedMs += delta;
+            updateDisplay();
+
+            if (isRunning) {
+                animationFrame = requestAnimationFrame(tick);
+            }
+        }
+
+        function start() {
+            isRunning = true;
+            lastTimestamp = null;
+            animationFrame = requestAnimationFrame(tick);
+            updateButtons();
+            setStateValue("running", true);
+        }
+
+        function pause() {
+            isRunning = false;
+            if (animationFrame) {
+                cancelAnimationFrame(animationFrame);
+                animationFrame = null;
+            }
+            updateButtons();
+            setStateValue("running", false);
+            setStateValue("elapsed", elapsedMs);
+        }
+
+        function recordLap() {
+            laps.push(elapsedMs);
+            renderLaps();
+            setStateValue("laps", laps);
+            const t = formatTime(elapsedMs);
+            setTriggerValue("lap", {
+                number: laps.length,
+                time: elapsedMs,
+                formatted: `${t.mins}:${t.secs}.${t.cents}`
+            });
+        }
+
+        function reset() {
+            elapsedMs = 0;
+            laps = [];
+            updateDisplay();
+            renderLaps();
+            updateButtons();
+            setStateValue("laps", []);
+            setStateValue("elapsed", 0);
+            setStateValue("running", false);
+            setTriggerValue("reset", true);
+        }
+
+        // Event listeners
+        startBtn.addEventListener("click", () => {
+            if (isRunning) pause();
+            else start();
+        });
+
+        lapBtn.addEventListener("click", recordLap);
+        resetBtn.addEventListener("click", reset);
+
+        // Initialize display
+        updateDisplay();
+        updateButtons();
+        renderLaps();
+
+        // Resume if was running
+        if (isRunning) {
+            lastTimestamp = null;
+            animationFrame = requestAnimationFrame(tick);
+        }
+
         return () => {
-            nameInput.removeEventListener('input', updateDraft);
-            emailInput.removeEventListener('input', updateDraft);
-            messageInput.removeEventListener('input', updateDraft);
-            saveDraftBtn.removeEventListener('click', saveDraft);
-            form.removeEventListener('submit', submitForm);
+            if (animationFrame) cancelAnimationFrame(animationFrame);
         };
     }
     """
 )
 
-# Define action handlers
-def handle_form_action():
-    action = result.action
-
-    if action == 'save_draft':
-        st.info("💾 Draft saved automatically")
-
-    elif action == 'submit':
-        st.session_state.form_submissions += 1
-        st.success(f"📤 Message sent successfully! (Submission #{st.session_state.form_submissions})")
-        # Clear the draft after successful submission
-        result.draft = {"name": "", "email": "", "message": ""}
-
-# Use the component
-result = form_component(
-    key="contact_form",
-    data={"draft": st.session_state.get("form_draft", {})},
-    default={"draft": {"name": "", "email": "", "message": ""}},
-    on_draft_change=lambda: None,  # Register draft as state
-    on_action_change=handle_form_action  # Handle form actions
+# Render the component
+result = stopwatch(
+    key="stopwatch",
+    on_lap_change=lambda: None,
+    on_reset_change=lambda: None,
+    on_running_change=lambda: None,
+    on_elapsed_change=lambda: None,
+    on_laps_change=lambda: None,
+    default={"elapsed": 0, "running": False, "laps": []},
 )
 
-# Store draft in session state (persistent across reruns)
-if result.draft:
-    st.session_state.form_draft = result.draft
-
-# Show current draft status
-if result.draft and any(result.draft.values()):
-    st.write("**Current Draft:**")
-    if result.draft.get('name'):
-        st.write(f"- Name: {result.draft['name']}")
-    if result.draft.get('email'):
-        st.write(f"- Email: {result.draft['email']}")
-    if result.draft.get('message'):
-        st.write(f"- Message: {len(result.draft['message'])} characters")
+# Display state info
+col1, col2 = st.columns(2)
+with col1:
+    st.metric("Status", "Running" if result.running else "Paused")
+    elapsed_sec = (result.elapsed or 0) / 1000
+    st.metric("Elapsed", f"{elapsed_sec:.1f}s")
+with col2:
+    st.subheader("Lap Records (Python)")
+    for i, lap_ms in enumerate(result.laps[-5:]):
+        mins, secs = divmod(lap_ms / 1000, 60)
+        st.write(f"**Lap {i+1}**: {int(mins):02d}:{secs:05.2f}")
 ```
 
 ## Best practices
@@ -1179,7 +1496,7 @@ if result.draft and any(result.draft.values()):
 
 ### Callback registration
 
-Both state and trigger values require callback registration using the `on_<key>_change` pattern. This example mounts a component with callbacks for the following keys:
+Both state and trigger values require callback registration using the `on_<key>_change` pattern. This ensures the component's result object consistently contains all of its state and trigger values, including on the first run. The following example mounts a component with callbacks for the following keys:
 
 - `"user_input"` state key
 - `"selected_items"` state key
