@@ -39,10 +39,35 @@ In general, for any theme configuration option, use the CSS custom property `--s
 
 For example, to reference the primary color (`theme.primaryColor`), use `--st-primary-color`. To reference the background color (`theme.backgroundColor`), use `--st-background-color`. For a desciption of all theme configuration options, see the [`config.toml` API reference](/develop/api-reference/configuration/config.toml#theme).
 
-<Collapse title="Complete CSS custom properties list">
+If a theme value is not configured, the CSS Custom Properties will have a valid value inherited from the current base theme.
+
+### Computed CSS Custom Properties
+
+There are a few computed CSS Custom Properties that don't come directly from a theme configuration option. The following CSS Custom Properties are computed:
+
+| CSS Custom Property        | Used for                                                 |
+| :------------------------- | :------------------------------------------------------- |
+| `--st-heading-color`       | Heading font color (placeholder); same as text color     |
+| `--st-border-color-light`  | Lighter border color for stale or deactivated elements   |
+| `--st-widget-border-color` | Widget borders (when `theme.showWidgetBorder` is `true`) |
+
+### CSS Custom Property arrays
+
+Some theme properties are arrays. These are exposed as comma-separated strings. You can parse these in JavaScript if needed for dynamic styling.
+
+| CSS Custom Property             | Used for                       |
+| :------------------------------ | :----------------------------- |
+| `--st-heading-font-sizes`       | `theme.headingFontSizes`       |
+| `--st-heading-font-weights`     | `theme.headingFontWeights`     |
+| `--st-chart-categorical-colors` | `theme.chartCategoricalColors` |
+| `--st-chart-sequential-colors`  | `theme.chartSequentialColors`  |
+
+### Directly mapped CSS custom properties
+
+The rest of the CSS Custom Properties are directly mapped to theme configuration options and are usable without parsing or modification:
 
 | CSS Custom Property                      | `config.toml` theme option             |
-| ---------------------------------------- | -------------------------------------- |
+| :--------------------------------------- | :------------------------------------- |
 | `--st-primary-color`                     | `theme.primaryColor`                   |
 | `--st-background-color`                  | `theme.backgroundColor`                |
 | `--st-secondary-background-color`        | `theme.secondaryBackgroundColor`       |
@@ -57,19 +82,12 @@ For example, to reference the primary color (`theme.primaryColor`), use `--st-pr
 | `--st-base-font-weight`                  | `theme.baseFontWeight`                 |
 | `--st-code-font-weight`                  | `theme.codeFontWeight`                 |
 | `--st-code-font-size`                    | `theme.codeFontSize`                   |
-| `--st-heading-font-sizes`                | `theme.headingFontSizes`               |
-| `--st-heading-font-weights`              | `theme.headingFontWeights`             |
+| `--st-code-text-color`                   | `theme.codeTextColor`                  |
 | `--st-border-color`                      | `theme.borderColor`                    |
 | `--st-dataframe-border-color`            | `theme.dataframeBorderColor`           |
 | `--st-dataframe-header-background-color` | `theme.dataframeHeaderBackgroundColor` |
 | `--st-code-background-color`             | `theme.codeBackgroundColor`            |
 | `--st-font`                              | `theme.font`                           |
-| `--st-chart-categorical-colors`          | `theme.chartCategoricalColors`         |
-| `--st-chart-sequential-colors`           | `theme.chartSequentialColors`          |
-| `--st-heading-color`                     | `theme.headingColor`                   |
-| `--st-border-color-light`                | `theme.borderColorLight`               |
-| `--st-code-text-color`                   | `theme.codeTextColor`                  |
-| `--st-widget-border-color`               | `theme.widgetBorderColor`              |
 | `--st-red-color`                         | `theme.redColor`                       |
 | `--st-orange-color`                      | `theme.orangeColor`                    |
 | `--st-yellow-color`                      | `theme.yellowColor`                    |
@@ -92,19 +110,11 @@ For example, to reference the primary color (`theme.primaryColor`), use `--st-pr
 | `--st-violet-text-color`                 | `theme.violetTextColor`                |
 | `--st-gray-text-color`                   | `theme.grayTextColor`                  |
 
-</Collapse>
-
-<Note>
-
-Array properties like `--st-heading-font-sizes`, `--st-chart-categorical-colors`, and `--st-chart-sequential-colors` are exposed as comma-separated strings. You can parse these in JavaScript if needed for dynamic styling.
-
-</Note>
-
 ## Practical theming examples
 
 ### Basic themed component
 
-Here's a simple component that uses Streamlit's theming:
+Here's a simple component that uses Streamlit's theming. Instead of using pixels for spacing, the component uses rem values. This ensures that the component will adjust to different font sizes. The font family and size are set on the parent container so they can be inherited by other elements. Execeptions like headers are styled in later lines. In genral, set colors, borders, border radii, and fonts from CSS Custom Properties.
 
 ```python
 import streamlit as st
@@ -125,17 +135,18 @@ themed_card = st.components.v2.component(
         background: var(--st-secondary-background-color);
         border: 1px solid var(--st-border-color);
         border-radius: var(--st-base-radius);
-        padding: 20px;
-        margin: 10px 0;
+        padding: 1.25rem;
+        margin: 0.625rem 0;
         font-family: var(--st-font);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        font-family: var(--st-font);
+        font-size: var(--st-base-font-size);
     }
 
     .card-title {
         color: var(--st-heading-color);
         font-family: var(--st-heading-font);
         font-size: 1.2em;
-        margin: 0 0 10px 0;
+        margin: 0 0 0.625rem 0;
         font-weight: 600;
     }
 
@@ -150,10 +161,8 @@ themed_card = st.components.v2.component(
         color: white;
         border: none;
         border-radius: var(--st-button-radius);
-        padding: 8px 16px;
+        padding: 0.5rem 1rem;
         cursor: pointer;
-        font-family: var(--st-font);
-        font-size: var(--st-base-font-size);
         transition: opacity 0.2s;
     }
 
@@ -178,7 +187,7 @@ if result.button_click:
 
 ### Status message component
 
-A component that uses Streamlit's status colors with a dynamically set status type and message:
+The following example demonstrates using Streamlit's basic color palette to set semantic colors. This is a component that creates color-coded alert banners:
 
 ```python
 import streamlit as st
@@ -195,10 +204,10 @@ status_component = st.components.v2.component(
     .status {
         display: flex;
         align-items: center;
-        padding: 12px 16px;
-        margin: 8px 0;
+        padding: 0.75rem 1rem;
+        margin: 0.5rem 0;
         border-radius: var(--st-base-radius);
-        border-left: 4px solid;
+        border-left: 0.25rem solid;
         font-family: var(--st-font);
     }
 
@@ -227,8 +236,8 @@ status_component = st.components.v2.component(
     }
 
     .icon {
-        margin-right: 10px;
-        font-size: 16px;
+        margin-right: 0.625rem;
+        font-size: 1rem;
     }
 
     .message {
@@ -283,7 +292,7 @@ status_component(
 
 ### Data table component
 
-A component that matches Streamlit's dataframe styling:
+You can use CSS Custom Properties to style a data table to match Streamlit's dataframe styling.
 
 ```python
 import streamlit as st
@@ -339,14 +348,14 @@ data_table = st.components.v2.component(
         background: var(--st-dataframe-header-background-color);
         color: var(--st-text-color);
         font-weight: 600;
-        padding: 12px 16px;
+        padding: 0.75rem 1rem;
         text-align: left;
         border-bottom: 1px solid var(--st-dataframe-border-color);
         font-size: var(--st-base-font-size);
     }
 
     .data-table td {
-        padding: 12px 16px;
+        padding: 0.75rem 1rem;
         border-bottom: 1px solid var(--st-dataframe-border-color);
         color: var(--st-text-color);
         font-size: var(--st-base-font-size);
@@ -361,9 +370,9 @@ data_table = st.components.v2.component(
     }
 
     .status-badge {
-        padding: 4px 8px;
+        padding: 0.25rem 0.5rem;
         border-radius: calc(var(--st-base-radius) / 2);
-        font-size: 0.85em;
+        font-size: 0.75rem;
         font-weight: 500;
     }
 
@@ -427,7 +436,7 @@ non_isolated_component = st.components.v2.component(
 
 ## Responsive design
 
-Create components that work well across different screen sizes. This makes your component more accessible and compatible with the Streamlit layout system. THe following example creates a responsive grid layout that adapts to the screen size:
+Create components that work well across different screen sizes. This makes your component more accessible and compatible with the Streamlit layout system. The following example uses `@media (max-width: 768px)` to create a responsive grid layout that adapts when the screen width is less than 768px.
 
 ```python
 import streamlit as st
@@ -446,8 +455,8 @@ responsive_component = st.components.v2.component(
     .responsive-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 16px;
-        padding: 16px;
+        gap: 1rem;
+        padding: 1rem;
         font-family: var(--st-font);
     }
 
@@ -455,7 +464,7 @@ responsive_component = st.components.v2.component(
         background: var(--st-secondary-background-color);
         border: 1px solid var(--st-border-color);
         border-radius: var(--st-base-radius);
-        padding: 20px;
+        padding: 1.25rem;
         text-align: center;
         color: var(--st-text-color);
         transition: transform 0.2s;
@@ -463,19 +472,19 @@ responsive_component = st.components.v2.component(
 
     .grid-item:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     }
 
     /* Mobile-specific styles */
     @media (max-width: 768px) {
         .responsive-grid {
             grid-template-columns: 1fr;
-            gap: 12px;
-            padding: 12px;
+            gap: 0.75rem;
+            padding: 0.75rem;
         }
 
         .grid-item {
-            padding: 16px;
+            padding: 1rem;
         }
     }
     """
@@ -506,16 +515,16 @@ Instead of hardcoding colors, always use Streamlit's theme variables:
 
 ### Test in different themes
 
-Always test your components in both light and dark base themes. Preferably, test your component with a custom theme as well.
+Always test your components in both light and dark base themes. Preferably, test your component with a custom theme as well, especially using different font sizes.
 
 ### Use semantic color names
 
-Choose colors based on their semantic meaning:
+Choose colors from the basic color palette based on their semantic meaning. Each color in the basic color palette has a text and background variation, in addition to its base color.
 
 ```css
 /* Good - semantic usage */
 .error-message {
-  color: var(--st-red-color);
+  color: var(--st-red-text-color);
   background: var(--st-red-background-color);
 }
 
