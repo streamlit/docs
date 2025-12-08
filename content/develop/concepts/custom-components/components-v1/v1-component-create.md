@@ -1,6 +1,6 @@
 ---
 title: Create a Component
-slug: /develop/concepts/custom-components/create
+slug: /develop/concepts/custom-components/components-v1/create
 description: Step-by-step guide to creating custom Streamlit components from scratch, including setup, development environment, and component structure.
 keywords: create component, component development, component setup, development environment, component structure, custom component creation, build components
 ---
