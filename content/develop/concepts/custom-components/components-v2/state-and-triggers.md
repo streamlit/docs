@@ -45,120 +45,300 @@ Trigger values have the following behavior:
 | JavaScript function | `setStateValue(key, value)`                   | `setTriggerValue(key, value)`            |
 | Callback execution  | Only if `setStateValue()` _changed_ the value | Every time `setTriggerValue()` is called |
 
-## State values in practice
+## State values in practice: Radial menu component
 
-State values are perfect for tracking the ongoing state of your component. Here's a practical example:
+State values are perfect for tracking the ongoing state of your component. Here's a practical example that demonstrates using a state value to track a selection. The following code creates a radial menu component that allows the user to select a food item from a list of options. When the user selects an item, the component updates the state value with `setStateValue("selection", currentSelection)`. You can expand or collapse the each code block as needed. For emphasis, the JavaScript and example app code are expanded by default.
+
+For simplicity, this compoenent assumes it will always have six options in its menu, but with a little more code, you can generalize it accept an arbitrary number of items. The complete code provided at the end of this section demonstrates a generalized version that accepts an arbitrary number of items.
+
+For this example, the component is registered in an imported module.
+
+```
+project_directory/
+├── radial_menu_component/
+│   ├── __init__.py
+│   ├── menu.css
+│   ├── menu.html
+│   └── menu.js
+└── streamlit_app.py
+```
+
+### Radial menu component registration
+
+<Collapse title="radial_menu_component/__init__.py">
+
+```python
+from pathlib import Path
+import streamlit as st
+
+component_dir = Path(__file__).parent
+
+
+@st.cache_data
+def load_component_code():
+    with open(component_dir / "menu.css", "r") as f:
+        CSS = f.read()
+    with open(component_dir / "menu.html", "r") as f:
+        HTML = f.read()
+    with open(component_dir / "menu.js", "r") as f:
+        JS = f.read()
+    return HTML, CSS, JS
+
+
+HTML, CSS, JS = load_component_code()
+
+radial_menu = st.components.v2.component(
+    name="radial_menu",
+    html=HTML,
+    css=CSS,
+    js=JS,
+)
+```
+
+</Collapse>
+
+### Radial menu HTML code
+
+<Collapse title="radial_menu_component/menu.html">
+
+```markup
+<div class="radial-menu">
+    <button class="menu-selector" id="selector">
+        <span class="selector-icon" id="selector-icon">?</span>
+    </button>
+
+    <div class="menu-overlay" id="overlay">
+        <div class="menu-ring" id="ring">
+            <!-- 6 items generated from data.options -->
+        </div>
+    </div>
+</div>
+```
+
+</Collapse>
+
+### Radial menu CSS code
+
+<Collapse title="radial_menu_component/menu.css">
+
+```css
+.radial-menu {
+  position: relative;
+  display: inline-block;
+  font-family: var(--st-font);
+}
+
+/* The circular selector button and menu items*/
+.menu-selector,
+.menu-item {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  border: 2px solid var(--st-border-color);
+  cursor: pointer;
+  background: var(--st-secondary-background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  font-size: 1.5rem;
+}
+
+.menu-selector:hover {
+  transform: scale(1.05);
+  border-color: var(--st-primary-color);
+}
+
+/* Overlay container */
+.menu-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* The ring of menu items */
+.menu-ring {
+  position: relative;
+  width: 13rem;
+  height: 13rem;
+  transform: scale(0);
+  opacity: 0;
+  transition:
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.2s ease;
+}
+
+.menu-ring.open {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Menu items arranged in a circle (6 items at 60 degree intervals)*/
+.menu-item {
+  --angle: calc(var(--i) * 60deg - 90deg);
+
+  background: var(--st-background-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -1.6125rem;
+  transform: rotate(var(--angle)) translateX(4rem)
+    rotate(calc(-1 * var(--angle)));
+}
+
+.menu-item:hover {
+  transform: rotate(var(--angle)) translateX(4rem)
+    rotate(calc(-1 * var(--angle))) scale(1.15);
+  border-color: var(--st-primary-color);
+  background: var(--st-secondary-background-color);
+}
+
+.menu-item.selected {
+  border-color: var(--st-primary-color);
+  background: var(--st-secondary-background-color);
+}
+
+/* Backdrop when menu is open */
+.menu-overlay::before {
+  content: "";
+  position: fixed;
+  inset: -100vh -100vw;
+  background: var(--st-background-color);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.menu-overlay.open::before {
+  opacity: 0.7;
+  pointer-events: auto;
+}
+
+/* Center decoration */
+.menu-ring::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2rem;
+  height: 2rem;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--st-secondary-background-color);
+  border: 2px dashed var(--st-border-color);
+  opacity: 0.6;
+  box-sizing: border-box;
+}
+```
+
+</Collapse>
+
+### Radial menu JavaScript code
+
+<Collapse title="radial_menu_component/menu.js" expanded={true} >
+
+```javascript
+export default function ({ parentElement, data, setStateValue }) {
+  const selector = parentElement.querySelector("#selector");
+  const selectorIcon = parentElement.querySelector("#selector-icon");
+  const overlay = parentElement.querySelector("#overlay");
+  const ring = parentElement.querySelector("#ring");
+
+  let isOpen = false;
+  const options = data?.options || {};
+  let currentSelection = data?.selection || Object.keys(options)[0];
+
+  // Create the 6 menu items from options
+  Object.entries(options).forEach(([value, icon], index) => {
+    const button = document.createElement("button");
+    button.className = "menu-item";
+    button.dataset.value = value;
+    button.style.setProperty("--i", index);
+    button.textContent = icon;
+
+    button.addEventListener("click", () => {
+      currentSelection = value;
+      updateDisplay();
+      toggleMenu();
+      setStateValue("selection", currentSelection);
+    });
+
+    ring.appendChild(button);
+  });
+
+  // Update the selector icon and highlight selected item
+  function updateDisplay() {
+    selectorIcon.textContent = options[currentSelection] || "?";
+
+    ring.querySelectorAll(".menu-item").forEach((item) => {
+      item.classList.toggle(
+        "selected",
+        item.dataset.value === currentSelection,
+      );
+    });
+  }
+
+  // Toggle menu open/closed
+  function toggleMenu() {
+    isOpen = !isOpen;
+    overlay.classList.toggle("open", isOpen);
+    ring.classList.toggle("open", isOpen);
+  }
+
+  // Initialize display
+  updateDisplay();
+
+  // Selector click toggles menu
+  selector.addEventListener("click", toggleMenu);
+
+  // Click outside closes menu
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) toggleMenu();
+  });
+}
+```
+
+</Collapse>
+
+### Radial menu example app
+
+<Collapse title="streamlit_app.py" expanded={true} >
 
 ```python
 import streamlit as st
+from radial_menu_component import radial_menu
 
-# Create a component that tracks user preferences
-preferences_component = st.components.v2.component(
-    name="user_preferences",
-    html="""
-    <div class="preferences">
-        <h3>User Preferences</h3>
-        <label>
-            <input type="checkbox" id="notifications"> Enable notifications
-        </label>
-        <br>
-        <label>
-            Theme:
-            <select id="theme">
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-            </select>
-        </label>
-        <br>
-        <label>
-            Font size: <span id="font-display">14</span>px
-            <input type="range" id="font-size" min="12" max="20" value="14">
-        </label>
-    </div>
-    """,
-    css="""
-    .preferences {
-        padding: 20px;
-        border: 1px solid var(--st-border-color);
-        border-radius: 8px;
-        font-family: var(--st-font);
-    }
-    label {
-        display: block;
-        margin: 10px 0;
-    }
-    """,
-    js="""
-    export default function({ parentElement, setStateValue, data }) {
-        const notifications = parentElement.querySelector('#notifications');
-        const theme = parentElement.querySelector('#theme');
-        const fontSize = parentElement.querySelector('#font-size');
-        const fontDisplay = parentElement.querySelector('#font-display');
+st.header("Radial Menu Component")
 
-        // Initialize with default values
-        const defaults = data?.defaults || {};
-        notifications.checked = defaults.notifications || false;
-        theme.value = defaults.theme || 'light';
-        fontSize.value = defaults.fontSize || 14;
-        fontDisplay.textContent = fontSize.value;
+st.write("Click the button to open the menu. Select your favorite food!")
 
-        // Update state when values change
-        const updateState = () => {
-            setStateValue('notifications', notifications.checked);
-            setStateValue('theme', theme.value);
-            setStateValue('fontSize', parseInt(fontSize.value));
-        };
+options = {
+    "pizza": "🍕",
+    "burger": "🍔",
+    "taco": "🌮",
+    "ramen": "🍜",
+    "sushi": "🍣",
+    "salad": "🥗",
+}
 
-        // Handle font size changes with display update
-        const handleFontSizeChange = () => {
-            fontDisplay.textContent = fontSize.value;
-            updateState();
-        };
-
-        // Attach event listeners
-        notifications.addEventListener('change', updateState);
-        theme.addEventListener('change', updateState);
-        fontSize.addEventListener('input', handleFontSizeChange);
-
-        // Initialize state
-        updateState();
-
-        // Cleanup
-        return () => {
-            notifications.removeEventListener('change', updateState);
-            theme.removeEventListener('change', updateState);
-            fontSize.removeEventListener('input', handleFontSizeChange);
-        };
-    }
-    """
+result = radial_menu(
+    data={"options": options, "selection": "burger"},
+    default={"selection": "burger"},
+    on_selection_change=lambda: None,
+    key="food_menu",
 )
 
-# Use the component with state tracking
-def handle_preferences_change():
-    # This callback runs whenever any preference changes
-    st.rerun()  # Optional: force immediate UI update
-
-result = preferences_component(
-    key="user_prefs",
-    data={"defaults": {"notifications": True, "theme": "dark", "fontSize": 16}},
-    default={"notifications": False, "theme": "light", "fontSize": 14},
-    on_notifications_change=handle_preferences_change,
-    on_theme_change=handle_preferences_change,
-    on_fontSize_change=handle_preferences_change
-)
-
-# Access persistent state values
-st.write("**Current Preferences:**")
-st.write(f"- Notifications: {result.notifications}")
-st.write(f"- Theme: {result.theme}")
-st.write(f"- Font Size: {result.fontSize}px")
-
-# Use the preferences to configure your app
-if result.theme == "dark":
-    st.markdown("🌙 Dark theme selected")
-else:
-    st.markdown("☀️ Light theme selected")
+if result.selection:
+    icon = options.get(result.selection, "")
+    st.write(f"You selected: **{icon} {result.selection.title()}**")
 ```
+
+</Collapse>
 
 ## Trigger values in practice
 
