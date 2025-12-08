@@ -11,7 +11,8 @@ export default function ({
   const saveDraftBtn = parentElement.querySelector("#save-draft");
   const status = parentElement.querySelector("#status");
 
-  // Register custom CSS variables with third values from --st-heading-font-sizes and --st-heading-font-weights
+  // Register custom CSS variables with third values from
+  // --st-heading-font-sizes and --st-heading-font-weights
   requestAnimationFrame(() => {
     const container = parentElement.querySelector(".form-container");
     const headingSizes = getComputedStyle(form)
