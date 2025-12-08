@@ -665,141 +665,320 @@ if result.selection:
 
 ## Trigger values in practice
 
-Trigger values are ideal for handling discrete user actions. Here's an example:
+Trigger values are ideal for handling discrete user actions. The following example creates a button that requires the user to hold for two seconds to confirm the action. Only when the user continuously holds the button for two seconds will the component update the trigger value with `setTriggerValue("deleted", true)`. The component also displays a progress ring to indicate the user's progress.
 
 ```python
 import streamlit as st
 
-# Initialize session state for tracking actions
-if "action_log" not in st.session_state:
-    st.session_state.action_log = []
-if "save_count" not in st.session_state:
-    st.session_state.save_count = 0
+st.title("Hold-to-Confirm Button")
+st.caption("A dangerous action that requires intentional confirmation")
 
-# Create a component with various action buttons
-action_component = st.components.v2.component(
-    name="action_buttons",
+# Track deletion events
+if "deleted_items" not in st.session_state:
+    st.session_state.deleted_items = []
+
+danger_button = st.components.v2.component(
+    name="hold_to_confirm",
     html="""
-    <div class="actions">
-        <h3>Document Actions</h3>
-        <button id="save" class="primary">💾 Save</button>
-        <button id="export" class="secondary">📤 Export</button>
-        <button id="share" class="secondary">🔗 Share</button>
-        <button id="delete" class="danger">🗑️ Delete</button>
+    <div class="danger-zone">
+        <div class="warning-banner">
+            <span class="warning-icon">⚠️</span>
+            <span class="warning-text">Danger Zone</span>
+        </div>
+
+        <button id="danger-btn" class="hold-button">
+            <svg class="progress-ring" viewBox="0 0 100 100">
+                <circle class="ring-bg" cx="50" cy="50" r="45"/>
+                <circle id="ring-progress" class="ring-progress" cx="50" cy="50" r="45"/>
+            </svg>
+            <div class="button-content">
+                <span id="icon" class="icon">🗑️</span>
+                <span id="label" class="label">Hold to Delete</span>
+            </div>
+        </button>
+
+        <p class="hint">Press and hold for 2 seconds to confirm</p>
     </div>
     """,
     css="""
-    .actions {
-        padding: 20px;
-        border: 1px solid var(--st-border-color);
-        border-radius: 8px;
+    .danger-zone {
+        font-family: var(--st-font);
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
     }
-    button {
-        margin: 5px;
-        padding: 10px 15px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 14px;
+
+    .warning-banner {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: var(--st-red-background-color);
+        border: 1px solid var(--st-red-color);
+        border-radius: var(--st-base-radius);
     }
-    .primary {
-        background: var(--st-primary-color);
-        color: white;
+
+    .warning-icon {
+        font-size: 1rem;
     }
-    .secondary {
+
+    .warning-text {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--st-red-color);
+    }
+
+    .hold-button {
+        position: relative;
+        width: 7.5rem;
+        height: 7.5rem;
+        padding: 0 2rem;
+        border-radius: 50%;
+        border: 1px solid var(--st-primary-color);
         background: var(--st-secondary-background-color);
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .hold-button:hover {
+        transform: scale(1.05);
+        border-color: var(--st-red-color);
+    }
+
+    .hold-button:active:not(:disabled) {
+        transform: scale(0.98);
+    }
+
+    .hold-button:disabled {
+        cursor: not-allowed;
+        opacity: 0.9;
+    }
+
+    .hold-button.holding {
+        animation: pulse 0.5s ease-in-out infinite;
+        border-color: var(--st-red-color);
+    }
+
+    .hold-button.triggered {
+        animation: success-burst 0.6s ease-out forwards;
+    }
+
+    @keyframes pulse {
+        0%, 100% { box-shadow: 0 0 0 0 var(--st-red-color); }
+        50% { box-shadow: 0 0 0 15px transparent; }
+    }
+
+    @keyframes success-burst {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.15); background: var(--st-red-background-color); }
+        100% { transform: scale(1); }
+    }
+
+    .progress-ring {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: rotate(-90deg);
+    }
+
+    .ring-bg {
+        fill: none;
+        stroke: var(--st-border-color);
+        stroke-width: 4;
+    }
+
+    .ring-progress {
+        fill: none;
+        stroke: var(--st-red-color);
+        stroke-width: 4;
+        stroke-linecap: round;
+        stroke-dasharray: 283;
+        stroke-dashoffset: 283;
+        transition: stroke-dashoffset 0.1s linear;
+        filter: drop-shadow(0 0 6px var(--st-red-color));
+    }
+
+    .button-content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .icon {
+        font-size: 2rem;
+        transition: transform 0.3s ease;
+    }
+
+    .hold-button:hover .icon {
+        transform: scale(1.1);
+    }
+
+    .hold-button.holding .icon {
+        animation: shake 0.15s ease-in-out infinite;
+    }
+
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-2px) rotate(-5deg); }
+        75% { transform: translateX(2px) rotate(5deg); }
+    }
+
+    .label {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
         color: var(--st-text-color);
-        border: 1px solid var(--st-border-color);
+        opacity: 0.6;
+        transition: all 0.3s ease;
     }
-    .danger {
-        background: var(--st-red-color);
-        color: white;
+
+    .hold-button.holding .label {
+        color: var(--st-red-color);
+        opacity: 1;
     }
-    button:hover {
-        opacity: 0.8;
+
+    .hold-button.triggered .icon,
+    .hold-button.triggered .label {
+        color: var(--st-primary-color);
+        opacity: 1;
+    }
+
+    .hint {
+        font-size: 0.7rem;
+        color: var(--st-text-color);
+        opacity: 0.5;
+        margin: 0;
     }
     """,
     js="""
     export default function({ parentElement, setTriggerValue }) {
-        const saveBtn = parentElement.querySelector('#save');
-        const exportBtn = parentElement.querySelector('#export');
-        const shareBtn = parentElement.querySelector('#share');
-        const deleteBtn = parentElement.querySelector('#delete');
+        const button = parentElement.querySelector("#danger-btn");
+        const progress = parentElement.querySelector("#ring-progress");
+        const icon = parentElement.querySelector("#icon");
+        const label = parentElement.querySelector("#label");
 
-        // Handle different actions with trigger values
-        const handleSave = () => {
-            setTriggerValue('action', 'save');
-        };
+        const HOLD_DURATION = 2000; // 2 seconds
+        const COOLDOWN_DURATION = 1500; // cooldown after trigger
+        const CIRCUMFERENCE = 2 * Math.PI * 45; // circle circumference
 
-        const handleExport = () => {
-            setTriggerValue('action', 'export');
-        };
+        let startTime = null;
+        let animationFrame = null;
+        let isDisabled = false; // Prevent interaction during cooldown
 
-        const handleShare = () => {
-            setTriggerValue('action', 'share');
-        };
+        function updateProgress() {
+            if (!startTime) return;
 
-        const handleDelete = () => {
-            // Confirm before triggering delete
-            if (confirm('Are you sure you want to delete this document?')) {
-                setTriggerValue('action', 'delete');
+            const elapsed = Date.now() - startTime;
+            const progressPercent = Math.min(elapsed / HOLD_DURATION, 1);
+            const offset = CIRCUMFERENCE * (1 - progressPercent);
+
+            progress.style.strokeDashoffset = offset;
+
+            if (progressPercent >= 1) {
+                // Triggered!
+                triggerAction();
+            } else {
+                animationFrame = requestAnimationFrame(updateProgress);
             }
-        };
+        }
 
-        // Attach event listeners
-        saveBtn.addEventListener('click', handleSave);
-        exportBtn.addEventListener('click', handleExport);
-        shareBtn.addEventListener('click', handleShare);
-        deleteBtn.addEventListener('click', handleDelete);
+        function startHold() {
+            if (isDisabled) return; // Ignore if in cooldown
 
-        // Cleanup
+            startTime = Date.now();
+            button.classList.add("holding");
+            label.textContent = "Keep holding...";
+            animationFrame = requestAnimationFrame(updateProgress);
+        }
+
+        function cancelHold() {
+            if (isDisabled) return; // Ignore if in cooldown
+
+            startTime = null;
+            button.classList.remove("holding");
+            label.textContent = "Hold to Delete";
+            progress.style.strokeDashoffset = CIRCUMFERENCE;
+
+            if (animationFrame) {
+                cancelAnimationFrame(animationFrame);
+                animationFrame = null;
+            }
+        }
+
+        function triggerAction() {
+            cancelAnimationFrame(animationFrame);
+            animationFrame = null;
+            startTime = null;
+            isDisabled = true; // Disable during cooldown
+
+            button.classList.remove("holding");
+            button.classList.add("triggered");
+            button.disabled = true;
+
+            icon.textContent = "✓";
+            label.textContent = "Deleted!";
+            progress.style.strokeDashoffset = 0;
+
+            // Send trigger to Python
+            setTriggerValue("confirmed", true);
+
+            // Reset after cooldown
+            setTimeout(() => {
+                button.classList.remove("triggered");
+                button.disabled = false;
+                isDisabled = false;
+                icon.textContent = "🗑️";
+                label.textContent = "Hold to Delete";
+                progress.style.strokeDashoffset = CIRCUMFERENCE;
+            }, COOLDOWN_DURATION);
+        }
+
+        // Mouse events
+        button.addEventListener("mousedown", startHold);
+        button.addEventListener("mouseup", cancelHold);
+        button.addEventListener("mouseleave", cancelHold);
+
+        // Touch events for mobile
+        button.addEventListener("touchstart", (e) => {
+            e.preventDefault();
+            startHold();
+        });
+        button.addEventListener("touchend", cancelHold);
+        button.addEventListener("touchcancel", cancelHold);
+
         return () => {
-            saveBtn.removeEventListener('click', handleSave);
-            exportBtn.removeEventListener('click', handleExport);
-            shareBtn.removeEventListener('click', handleShare);
-            deleteBtn.removeEventListener('click', handleDelete);
+            if (animationFrame) cancelAnimationFrame(animationFrame);
         };
     }
-    """
+    """,
 )
 
-# Define action handlers
-def handle_action():
-    action = result.action
-    timestamp = st.session_state.get('timestamp', 'Unknown time')
 
-    if action == 'save':
-        st.session_state.save_count += 1
-        st.session_state.action_log.append(f"Document saved (#{st.session_state.save_count})")
-        st.success("Document saved successfully!")
+# Callback when deletion is confirmed
+def on_delete_confirmed():
+    st.session_state.deleted_items.append(
+        f"Deleted item #{len(st.session_state.deleted_items) + 1}"
+    )
+    st.toast("🗑️ Item permanently deleted!", icon="⚠️")
 
-    elif action == 'export':
-        st.session_state.action_log.append("Document exported")
-        st.info("Document exported to downloads folder")
 
-    elif action == 'share':
-        st.session_state.action_log.append("Share link generated")
-        st.info("Share link copied to clipboard!")
+# Render the component
+result = danger_button(key="danger_btn", on_confirmed_change=on_delete_confirmed)
 
-    elif action == 'delete':
-        st.session_state.action_log.append("Document deleted")
-        st.error("Document deleted permanently")
-
-# Use the component
-result = action_component(
-    key="doc_actions",
-    on_action_change=handle_action
-)
-
-# Show action feedback only when triggered
-if result.action:
-    st.write(f"**Last action:** {result.action}")
-
-# Display action log
-if st.session_state.action_log:
-    st.write("**Action History:**")
-    for i, log_entry in enumerate(reversed(st.session_state.action_log[-5:]), 1):
-        st.write(f"{i}. {log_entry}")
+# Show deletion history
+if st.session_state.deleted_items:
+    st.divider()
+    st.subheader("Deletion Log")
+    for item in reversed(st.session_state.deleted_items[-3:]):
+        st.write(f"• {item}")
 ```
 
 ## Combining state and triggers
