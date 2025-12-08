@@ -15,7 +15,14 @@ import styles from "./code.module.css";
 // Initialize the cache for imported languages.
 const languageImports = new Map();
 
-const Code = ({ code, children, language, img, lines }) => {
+const Code = ({
+  code,
+  children,
+  language,
+  img,
+  lines,
+  hideCopyButton = false,
+}) => {
   // Create a ref for the code element.
   const codeRef = useRef(null);
 
@@ -49,9 +56,17 @@ const Code = ({ code, children, language, img, lines }) => {
             );
           }
         }
-        // Only highlight the current code block.
+        // Highlight the code block and conditionally enable toolbar plugins (including copy button)
         if (codeRef.current) {
+          // First highlight the element
           Prism.highlightElement(codeRef.current);
+          // Then activate toolbar plugins on the parent container if copy button is not hidden
+          if (!hideCopyButton) {
+            const container = codeRef.current.closest(`.${styles.Container}`);
+            if (container) {
+              Prism.highlightAllUnder(container);
+            }
+          }
         }
       }
     }
@@ -70,33 +85,45 @@ const Code = ({ code, children, language, img, lines }) => {
 
   if (img) {
     ConditionalRendering = (
-      <section className={styles.Container}>
+      <section
+        className={classNames(styles.Container, {
+          [styles.NoCopyButton]: hideCopyButton,
+        })}
+      >
         <Image src={img} clean={true} />
-        <div className={styles.Pre}>
+        <pre className={styles.Pre}>
           <code ref={codeRef} className={languageClass}>
             {customCode}
           </code>
-        </div>
+        </pre>
       </section>
     );
   } else if (lines) {
     ConditionalRendering = (
-      <section className={classNames(styles.Container, styles.LineHighlight)}>
-        <div data-line={lines}>
+      <section
+        className={classNames(styles.Container, styles.LineHighlight, {
+          [styles.NoCopyButton]: hideCopyButton,
+        })}
+      >
+        <pre data-line={lines}>
           <code ref={codeRef} className={languageClass}>
             {customCode}
           </code>
-        </div>
+        </pre>
       </section>
     );
   } else {
     ConditionalRendering = (
-      <section className={styles.Container}>
-        <div className={styles.Pre}>
+      <section
+        className={classNames(styles.Container, {
+          [styles.NoCopyButton]: hideCopyButton,
+        })}
+      >
+        <pre className={styles.Pre}>
           <code ref={codeRef} className={languageClass}>
             {customCode}
           </code>
-        </div>
+        </pre>
       </section>
     );
   }
