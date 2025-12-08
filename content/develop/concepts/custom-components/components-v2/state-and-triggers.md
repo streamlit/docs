@@ -340,6 +340,329 @@ if result.selection:
 
 </Collapse>
 
+<Collapse title="Complete code">
+
+```python
+import streamlit as st
+from my_component import radial_menu
+
+radial_menu = st.components.v2.component(
+    name="radial_menu",
+    html="""
+    <div class="radial-menu">
+        <button class="menu-selector" id="selector">
+            <span class="selector-icon" id="selector-icon">?</span>
+        </button>
+
+        <div class="menu-overlay" id="overlay">
+            <div class="menu-ring" id="ring">
+                <!-- Items generated dynamically from data.options -->
+            </div>
+        </div>
+    </div>
+    """,
+    css="""
+    .radial-menu {
+        position: relative;
+        display: inline-block;
+        font-family: var(--st-font);
+    }
+
+    /* The circular selector button */
+    .menu-selector, .menu-item {
+        width: 3.25rem;
+        height: 3.25rem;
+        border-radius: 50%;
+        border: 2px solid var(--st-border-color);
+        cursor: pointer;
+        background: var(--st-secondary-background-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        font-size: 1.5rem;
+    }
+
+    .menu-selector {
+        position: relative;
+        z-index: 10;
+    }
+
+    .menu-selector:hover {
+        transform: scale(1.05);
+        border-color: var(--st-primary-color);
+    }
+
+    /* Overlay container */
+    .menu-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+        pointer-events: none;
+    }
+
+    /* The ring of menu items */
+    .menu-ring {
+        position: relative;
+        width: 13rem;
+        height: 13rem;
+        transform: scale(0);
+        opacity: 0;
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                    opacity 0.2s ease;
+    }
+
+    .menu-ring.open {
+        transform: scale(1);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Individual menu items - dynamic angle based on --i and --total */
+    .menu-item {
+        --angle: calc(var(--i) * (360deg / var(--total, 6)) - 90deg);
+        --radius: 4rem;
+
+        background: var(--st-background-color);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -1.6125rem;
+        transform:
+            rotate(var(--angle))
+            translate(var(--radius))
+            rotate(calc(-1 * var(--angle)));
+    }
+
+    .menu-item:hover {
+        transform:
+            rotate(var(--angle))
+            translate(var(--radius))
+            rotate(calc(-1 * var(--angle)))
+            scale(1.15);
+        border-color: var(--st-primary-color);
+        background: var(--st-secondary-background-color);
+    }
+
+    .menu-item.selected {
+        border-color: var(--st-primary-color);
+        background: var(--st-secondary-background-color);
+    }
+
+    /* Backdrop when menu is open */
+    .menu-overlay::before {
+        content: '';
+        position: fixed;
+        inset: -100vh -100vw;
+        background: var(--st-background-color);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .menu-overlay.open::before {
+        opacity: 0.7;
+        pointer-events: auto;
+    }
+
+    /* Center decoration */
+    .menu-ring::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 2rem;
+        height: 2rem;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background: var(--st-secondary-background-color);
+        border: 2px dashed var(--st-border-color);
+        opacity: 0.6;
+        box-sizing: border-box;
+    }
+    """,
+    js="""
+    export default function ({ parentElement, data, setStateValue }) {
+        const selector = parentElement.querySelector("#selector");
+        const selectorIcon = parentElement.querySelector("#selector-icon");
+        const overlay = parentElement.querySelector("#overlay");
+        const ring = parentElement.querySelector("#ring");
+
+        let isOpen = false;
+
+        // Get options and selection from data
+        const options = data?.options || {};
+        let currentSelection = data?.selection || Object.keys(options)[0] || "";
+
+        // Calculate angle step based on number of options
+        const optionEntries = Object.entries(options);
+        const angleStep = 360 / optionEntries.length;
+
+        // Generate menu items dynamically
+        function createMenuItems() {
+            ring.innerHTML = "";
+
+            optionEntries.forEach(([value, icon], index) => {
+                const button = document.createElement("button");
+                button.className = "menu-item";
+                button.dataset.value = value;
+                button.dataset.icon = icon;
+                button.style.setProperty("--i", index);
+                button.style.setProperty("--total", optionEntries.length);
+                button.innerHTML = `<span class="item-icon">${icon}</span>`;
+
+                button.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    currentSelection = value;
+                    updateDisplay();
+                    closeMenu();
+                    setStateValue("selection", currentSelection);
+                });
+
+                ring.appendChild(button);
+            });
+        }
+
+        // Update display based on current selection
+        function updateDisplay() {
+            const icon = options[currentSelection] || "?";
+            selectorIcon.textContent = icon;
+
+            ring.querySelectorAll(".menu-item").forEach((item) => {
+                item.classList.remove("selected");
+                if (item.dataset.value === currentSelection) {
+                    item.classList.add("selected");
+                }
+            });
+        }
+
+        // Calculate position to keep menu in viewport
+        function calculatePosition() {
+            const selectorRect = selector.getBoundingClientRect();
+            const menuRadius = 125;
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+
+            // Extra padding at top for Streamlit header
+            const topPadding = 70;
+            const edgePadding = 10;
+
+            const centerX = selectorRect.left + selectorRect.width / 2;
+            const centerY = selectorRect.top + selectorRect.height / 2;
+
+            let offsetX = 0;
+            let offsetY = 0;
+
+            if (centerX - menuRadius < edgePadding) {
+                offsetX = menuRadius - centerX + edgePadding;
+            } else if (centerX + menuRadius > viewportWidth - edgePadding) {
+                offsetX = viewportWidth - edgePadding - menuRadius - centerX;
+            }
+
+            if (centerY - menuRadius < topPadding) {
+                offsetY = menuRadius - centerY + topPadding;
+            } else if (centerY + menuRadius > viewportHeight - edgePadding) {
+                offsetY = viewportHeight - edgePadding - menuRadius - centerY;
+            }
+
+            return { offsetX, offsetY };
+        }
+
+        // Open menu with spring animation
+        function openMenu() {
+            isOpen = true;
+            const { offsetX, offsetY } = calculatePosition();
+            overlay.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px))`;
+            overlay.classList.add("open");
+            ring.classList.remove("closing");
+            ring.classList.add("open");
+        }
+
+        // Close menu with reverse animation
+        function closeMenu() {
+            isOpen = false;
+            ring.classList.remove("open");
+            ring.classList.add("closing");
+            overlay.classList.remove("open");
+
+            setTimeout(() => {
+                ring.classList.remove("closing");
+                overlay.style.transform = "translate(-50%, -50%)";
+            }, 300);
+        }
+
+        // Toggle menu
+        function toggleMenu() {
+            if (isOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        }
+
+        // Initialize
+        createMenuItems();
+        updateDisplay();
+
+        // Selector click
+        selector.addEventListener("click", (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // Click on ring background to close
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay || e.target === ring) {
+                closeMenu();
+            }
+        });
+
+        // Click outside to close
+        const handleOutsideClick = (e) => {
+            if (isOpen && !parentElement.contains(e.target)) {
+                closeMenu();
+            }
+        };
+        document.addEventListener("click", handleOutsideClick);
+
+        // Cleanup
+        return () => {
+            document.removeEventListener("click", handleOutsideClick);
+        };
+    }
+    """,
+)
+
+st.header("Radial Menu Component")
+
+st.write("Click the button to open the menu. Select your favorite food!")
+
+options = {
+    "pizza": "🍕",
+    "burger": "🍔",
+    "taco": "🌮",
+    "ramen": "🍜",
+    "sushi": "🍣",
+    "salad": "🥗",
+}
+
+result = radial_menu(
+    data={"options": options, "selection": "burger"},
+    default={"selection": "burger"},
+    on_selection_change=lambda: None,
+    key="food_menu",
+)
+
+if result.selection:
+    icon = options.get(result.selection, "")
+    st.write(f"You selected: **{icon} {result.selection.title()}**")
+```
+
+</Collapse>
+
 ## Trigger values in practice
 
 Trigger values are ideal for handling discrete user actions. Here's an example:
