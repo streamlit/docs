@@ -82,6 +82,106 @@
   @apply text-green-70 bg-green-70 bg-opacity-20;
 }
 
+/* Additional token types for HTML/markup, CSS, and other languages */
+.Pre code :global(.tag) {
+  @apply text-red-60;
+}
+
+.Pre code :global(.attr-name) {
+  @apply text-lightBlue-40;
+}
+
+.Pre code :global(.attr-value) {
+  @apply text-darkBlue-30;
+}
+
+.Pre code :global(.entity) {
+  @apply text-green-40;
+}
+
+.Pre code :global(.property) {
+  @apply text-lightBlue-40;
+}
+
+.Pre code :global(.selector) {
+  @apply text-red-60;
+}
+
+.Pre code :global(.rule) {
+  @apply text-darkBlue-50;
+}
+
+.Pre code :global(.function) {
+  @apply text-red-60 font-semibold;
+}
+
+.Pre code :global(.variable) {
+  @apply text-yellow-50;
+}
+
+.Pre code :global(.class-name) {
+  @apply text-lightBlue-40;
+}
+
+.Pre code :global(.constant) {
+  @apply text-green-40;
+}
+
+.Pre code :global(.symbol) {
+  @apply text-yellow-50;
+}
+
+.Pre code :global(.important) {
+  @apply text-red-60 font-bold;
+}
+
+.Pre code :global(.atrule) {
+  @apply text-darkBlue-50;
+}
+
+.Pre code :global(.url) {
+  @apply text-darkBlue-30;
+}
+
+.Pre code :global(.regex) {
+  @apply text-green-40;
+}
+
+.Pre code :global(.prolog),
+.Pre code :global(.doctype),
+.Pre code :global(.cdata) {
+  @apply text-gray-60 italic;
+}
+
+/* Additional common token types */
+.Pre code :global(.namespace) {
+  @apply text-lightBlue-40;
+}
+
+.Pre code :global(.char) {
+  @apply text-darkBlue-30;
+}
+
+.Pre code :global(.interpolation) {
+  @apply text-yellow-50;
+}
+
+.Pre code :global(.annotation) {
+  @apply text-red-60;
+}
+
+.Pre code :global(.generic) {
+  @apply text-gray-60;
+}
+
+.Pre code :global(.script) {
+  @apply text-gray-60;
+}
+
+.Pre code :global(.plain-text) {
+  @apply text-white;
+}
+
 /* Dark mode adjustments */
 :global(.dark) .Pre code :global(.operator),
 :global(.dark) .Pre code :global(.decorator) {
@@ -111,4 +211,100 @@
 
 :global(.dark) .Pre code :global(.string) {
   @apply text-darkBlue-30;
+}
+
+/* Dark mode styles for additional token types */
+:global(.dark) .Pre code :global(.tag) {
+  @apply text-red-60;
+}
+
+:global(.dark) .Pre code :global(.attr-name) {
+  @apply text-lightBlue-60;
+}
+
+:global(.dark) .Pre code :global(.attr-value) {
+  @apply text-darkBlue-30;
+}
+
+:global(.dark) .Pre code :global(.entity) {
+  @apply text-green-40;
+}
+
+:global(.dark) .Pre code :global(.property) {
+  @apply text-lightBlue-60;
+}
+
+:global(.dark) .Pre code :global(.selector) {
+  @apply text-red-60;
+}
+
+:global(.dark) .Pre code :global(.rule) {
+  @apply text-darkBlue-50;
+}
+
+:global(.dark) .Pre code :global(.variable) {
+  @apply text-yellow-80;
+}
+
+:global(.dark) .Pre code :global(.class-name) {
+  @apply text-lightBlue-60;
+}
+
+:global(.dark) .Pre code :global(.constant) {
+  @apply text-green-40;
+}
+
+:global(.dark) .Pre code :global(.symbol) {
+  @apply text-yellow-80;
+}
+
+:global(.dark) .Pre code :global(.important) {
+  @apply text-red-60 font-bold;
+}
+
+:global(.dark) .Pre code :global(.atrule) {
+  @apply text-darkBlue-50;
+}
+
+:global(.dark) .Pre code :global(.url) {
+  @apply text-darkBlue-30;
+}
+
+:global(.dark) .Pre code :global(.regex) {
+  @apply text-green-40;
+}
+
+:global(.dark) .Pre code :global(.prolog),
+:global(.dark) .Pre code :global(.doctype),
+:global(.dark) .Pre code :global(.cdata) {
+  @apply text-gray-60 italic;
+}
+
+/* Dark mode for additional common token types */
+:global(.dark) .Pre code :global(.namespace) {
+  @apply text-lightBlue-60;
+}
+
+:global(.dark) .Pre code :global(.char) {
+  @apply text-darkBlue-30;
+}
+
+:global(.dark) .Pre code :global(.interpolation) {
+  @apply text-yellow-80;
+}
+
+:global(.dark) .Pre code :global(.annotation) {
+  @apply text-red-60;
+}
+
+:global(.dark) .Pre code :global(.generic) {
+  @apply text-gray-60;
+}
+
+:global(.dark) .Pre code :global(.script) {
+  @apply text-gray-60;
+}
+
+:global(.dark) .Pre code :global(.plain-text) {
+  @apply text-white;
 }
