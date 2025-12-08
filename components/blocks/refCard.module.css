@@ -47,6 +47,10 @@
   @apply p-4 pb-0 text-gray-90;
 }
 
+.Container pre {
+  @apply px-1 pt-2.5 leading-loose;
+}
+
 :global(.dark) .Container {
   @apply border-gray-90;
 }
@@ -150,10 +154,18 @@
 }
 
 .Container section div {
-  @apply flex flex-col flex-1;
-  @apply m-0 rounded-none p-4 h-full text-sm tracking-tight;
   @apply bg-gray-10;
   @apply text-gray-80;
+}
+
+.Container section div:not(:global(.toolbar)) {
+  @apply flex flex-col flex-1;
+  @apply m-0 rounded-none px-3 py-2 h-full text-sm tracking-tight;
+}
+
+.Container section div:global(.toolbar),
+.Container section div:global(.toolbar-item) {
+  @apply h-0 p-0;
 }
 
 /* Code block adjustments */
