@@ -9,7 +9,7 @@
 }
 
 .Pre {
-  @apply p-4 bg-gray-90 text-white font-medium rounded-md relative py-8 px-8 leading-relaxed;
+  @apply p-6 bg-gray-10 text-gray-80 font-medium rounded-md relative leading-relaxed;
 }
 
 .Container pre {
@@ -34,7 +34,7 @@
 }
 
 .Container button span {
-  @apply absolute right-10 text-white font-mono text-sm tracking-tight font-normal opacity-0;
+  @apply absolute right-10 text-gray-80 font-mono text-sm tracking-tight font-normal opacity-0;
 }
 
 .Container button:hover span {
@@ -119,4 +119,14 @@
 
 :global(.dark) .Pre code :global(.string) {
   @apply text-darkBlue-30;
+}
+
+/* Dark mode background and text for Pre */
+:global(.dark) .Pre {
+  @apply bg-gray-90 text-white;
+}
+
+/* Dark mode button text */
+:global(.dark) .Container button span {
+  @apply text-white;
 }

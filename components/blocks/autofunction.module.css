@@ -64,7 +64,7 @@
 }
 
 .CodeBlockContainer pre {
-  @apply p-4 bg-gray-90 text-white font-medium rounded-xl relative py-6 px-8 leading-relaxed;
+  @apply p-4 bg-gray-10 text-gray-80 font-medium rounded-xl relative leading-relaxed;
 }
 
 .CodeBlockContainer pre code {
@@ -85,7 +85,7 @@
 }
 
 .CodeBlockContainer button span {
-  @apply absolute right-10 text-white font-mono text-sm tracking-tight font-normal opacity-0;
+  @apply absolute right-10 text-gray-80 font-mono text-sm tracking-tight font-normal opacity-0;
 }
 
 .CodeBlockContainer button:hover span {
@@ -174,4 +174,14 @@
 
 :global(.dark) .Keyword::after {
   @apply bg-gray-80 text-gray-30;
+}
+
+/* Dark mode for code blocks */
+:global(.dark) .CodeBlockContainer pre {
+  @apply bg-gray-90 text-white;
+}
+
+/* Dark mode button text */
+:global(.dark) .CodeBlockContainer button span {
+  @apply text-white;
 }
