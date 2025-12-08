@@ -178,6 +178,12 @@ if result.action:
 
 The remaining examples on this page will use this file structure for easier viewing of the embedded code blocks. The complete code is provided at the end of each example for easier copying and pasting.
 
+<Note>
+
+To avoid repeat warnings about re-registering the component, you can register your component in another module and import it. The standalone examples on this page are simple enough that this issue isn't apparent, but with more complex apps and components, this can be a nuisance.
+
+</Note>
+
 ## Rich data exchange
 
 This example shows how to pass different data types to your component. It shows the following key concepts:
@@ -644,7 +650,6 @@ export default function ({
   data,
 }) {
   const form = parentElement.querySelector("#contact-form");
-  const h3 = parentElement.querySelector("h3");
   const nameInput = parentElement.querySelector("#name");
   const emailInput = parentElement.querySelector("#email");
   const messageInput = parentElement.querySelector("#message");
@@ -671,10 +676,13 @@ export default function ({
   });
 
   // Load draft if available
-  const draft = data?.draft || {};
-  nameInput.value = draft.name || "";
-  emailInput.value = draft.email || "";
-  messageInput.value = draft.message || "";
+  const loadDraft = (draft) => {
+    nameInput.value = draft.name || "";
+    emailInput.value = draft.email || "";
+    messageInput.value = draft.message || "";
+  };
+
+  loadDraft(data?.draft || {});
 
   // Save draft
   const saveDraft = () => {
@@ -707,6 +715,8 @@ export default function ({
       email: emailInput.value,
       message: messageInput.value,
     });
+    loadDraft({});
+    setStateValue("draft", {});
   };
 
   // Event listeners - only update on button clicks
@@ -735,13 +745,17 @@ form_component = st.components.v2.component(
 
 # Handle form actions
 def handle_form_action():
-    # Clear the draft on submit
-    st.session_state.message_form.draft={}
+    # Process submission
+    # if submission_failed:
+    #     submission = st.session_state.message_form.submit
+    #     st.session_state.message_form.draft=submission
+    pass
 
 # Use the component
 form_state = st.session_state.get("message_form", {})
 result = form_component(
     data={"draft": form_state.get("draft", {})},
+    default={"draft": form_state.get("draft", {})},
     on_draft_change=lambda: None,
     on_submit_change=handle_form_action,
     key="message_form"
@@ -779,7 +793,7 @@ form_component = st.components.v2.component(
     """,
     css="""
     .form-container {
-        padding: 1rem;;
+        padding: 1rem;
         border: 1px solid var(--st-border-color);
         border-radius: var(--st-base-radius);
         box-sizing: border-box;
@@ -789,10 +803,11 @@ form_component = st.components.v2.component(
         font-weight: var(--st-heading-font-weight-h3, inherit);
         margin: 0;
     }
-    input, textarea {
+    input,
+    textarea {
         width: 100%;
-        padding: .5rem;
-        margin: .5rem 0;
+        padding: 0.5rem;
+        margin: 0.5rem 0;
         background: var(--st-secondary-background-color);
         border: 1px solid transparent;
         border-radius: var(--st-base-radius);
@@ -800,10 +815,11 @@ form_component = st.components.v2.component(
         font-size: inherit;
         font-family: inherit;
     }
-    input:focus, textarea:focus {
+    input:focus,
+    textarea:focus {
         outline: none;
         border-color: var(--st-primary-color);
-    };
+    }
     textarea {
         height: 5rem;
         resize: vertical;
@@ -811,10 +827,10 @@ form_component = st.components.v2.component(
     .form-actions {
         display: flex;
         gap: 1rem;
-        margin-top: .75rem;
+        margin-top: 0.75rem;
     }
     button {
-        padding: .5rem 1rem;;
+        padding: 0.5rem 1rem;
         border-radius: var(--st-button-radius);
         border: 1px solid transparent;
         font-size: inherit;
@@ -834,13 +850,17 @@ form_component = st.components.v2.component(
         border-color: var(--st-primary-color);
     }
     #status {
-        margin-top: .5rem;
+        margin-top: 0.5rem;
     }
     """,
     js="""
-    export default function({ parentElement, setStateValue, setTriggerValue, data }) {
+    export default function ({
+        parentElement,
+        setStateValue,
+        setTriggerValue,
+        data,
+    }) {
         const form = parentElement.querySelector("#contact-form");
-        const h3 = parentElement.querySelector("h3");
         const nameInput = parentElement.querySelector("#name");
         const emailInput = parentElement.querySelector("#email");
         const messageInput = parentElement.querySelector("#message");
@@ -850,10 +870,14 @@ form_component = st.components.v2.component(
         // Register custom CSS variables with third values from --st-heading-font-sizes and --st-heading-font-weights
         requestAnimationFrame(() => {
             const container = parentElement.querySelector(".form-container");
-            const headingSizes = getComputedStyle(form).getPropertyValue("--st-heading-font-sizes").trim();
-            const headingWeights = getComputedStyle(form).getPropertyValue("--st-heading-font-weights").trim();
-            const sizes = headingSizes.split(",").map(s => s.trim());
-            const weights = headingWeights.split(",").map(s => s.trim());
+            const headingSizes = getComputedStyle(form)
+                .getPropertyValue("--st-heading-font-sizes")
+                .trim();
+            const headingWeights = getComputedStyle(form)
+                .getPropertyValue("--st-heading-font-weights")
+                .trim();
+            const sizes = headingSizes.split(",").map((s) => s.trim());
+            const weights = headingWeights.split(",").map((s) => s.trim());
             if (sizes[2] && container) {
                 container.style.setProperty("--st-heading-font-size-h3", sizes[2]);
             }
@@ -863,22 +887,25 @@ form_component = st.components.v2.component(
         });
 
         // Load draft if available
-        const draft = data?.draft || {};
-        nameInput.value = draft.name || "";
-        emailInput.value = draft.email || "";
-        messageInput.value = draft.message || "";
+        const loadDraft = (draft) => {
+            nameInput.value = draft.name || "";
+            emailInput.value = draft.email || "";
+            messageInput.value = draft.message || "";
+        };
+
+        loadDraft(data?.draft || {});
 
         // Save draft
         const saveDraft = () => {
             setStateValue("draft", {
                 name: nameInput.value,
                 email: emailInput.value,
-                message: messageInput.value
+                message: messageInput.value,
             });
             setTriggerValue("action", "save_draft");
             status.textContent = "Draft saved!";
             status.style.color = "var(--st-green-color)";
-            setTimeout(() => status.textContent = "", 2000);
+            setTimeout(() => (status.textContent = ""), 2000);
         };
 
         // Submit form
@@ -893,12 +920,14 @@ form_component = st.components.v2.component(
 
             status.textContent = "Message sent!";
             status.style.color = "var(--st-blue-color)";
-            setTimeout(() => status.textContent = "", 2000);
+            setTimeout(() => (status.textContent = ""), 2000);
             setTriggerValue("submit", {
                 name: nameInput.value,
                 email: emailInput.value,
-                message: messageInput.value
+                message: messageInput.value,
             });
+            loadDraft({});
+            setStateValue("draft", {});
         };
 
         // Event listeners - only update on button clicks
@@ -915,13 +944,17 @@ form_component = st.components.v2.component(
 
 # Handle form actions
 def handle_form_action():
-    # Clear the draft on submit
-    st.session_state.message_form.draft={}
+    # Process submission
+    # if submission_failed:
+    #     submission = st.session_state.message_form.submit
+    #     st.session_state.message_form.draft=submission
+    pass
 
 # Use the component
 form_state = st.session_state.get("message_form", {})
 result = form_component(
     data={"draft": form_state.get("draft", {})},
+    default={"draft": form_state.get("draft", {})},
     on_draft_change=lambda: None,
     on_submit_change=handle_form_action,
     key="message_form"
