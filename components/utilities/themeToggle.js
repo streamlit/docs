@@ -22,6 +22,33 @@ const ThemeToggle = () => {
     document.documentElement.classList.remove(inactiveTheme);
     setActiveTheme(theme);
     localStorage.setItem("theme", theme);
+
+    // Force reload all Cloud iframes on the current page
+    const iframes = document.querySelectorAll('iframe[src*="streamlit.app"]');
+    iframes.forEach((iframe) => {
+      const currentSrc = iframe.src;
+      const url = new URL(currentSrc);
+
+      // Get all existing embed_options
+      const existingEmbedOptions = url.searchParams.getAll("embed_options");
+
+      // Remove only theme-related embed_options (light_theme or dark_theme)
+      const nonThemeOptions = existingEmbedOptions.filter(
+        (option) => option !== "light_theme" && option !== "dark_theme",
+      );
+
+      // Clear all embed_options and re-add the non-theme ones
+      url.searchParams.delete("embed_options");
+      nonThemeOptions.forEach((option) =>
+        url.searchParams.append("embed_options", option),
+      );
+
+      // Add new theme parameter
+      url.searchParams.append("embed_options", `${theme}_theme`);
+
+      // Force reload iframe with new theme
+      iframe.src = url.toString();
+    });
   };
 
   const showTooltip = () => {
