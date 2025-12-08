@@ -34,12 +34,14 @@ import classNames from "classnames";
 //   -> https://foo.streamlit.app/bar/?embed=true&embed_options=show_padding&embed_options=show_colored_line
 //
 const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
-  // Get the current theme from localStorage (same as themeToggle)
+  // Get the current theme from DOM class (fastest and most accurate)
   const getCurrentTheme = () => {
-    if (typeof window !== "undefined" && window.localStorage.getItem("theme")) {
-      return window.localStorage.getItem("theme");
+    if (typeof document !== "undefined") {
+      return document.documentElement.classList.contains("dark")
+        ? "dark"
+        : "light";
     }
-    return "light"; // Default fallback
+    return "light"; // Default fallback for SSR
   };
 
   const currentTheme = getCurrentTheme();
