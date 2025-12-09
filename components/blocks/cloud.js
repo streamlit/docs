@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 
 // Arguments:
@@ -34,17 +34,18 @@ import classNames from "classnames";
 //   -> https://foo.streamlit.app/bar/?embed=true&embed_options=show_padding&embed_options=show_colored_line
 //
 const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
-  // Get the current theme embed option directly (with SSR safety)
-  const getThemeEmbedOption = () => {
-    if (typeof document !== "undefined") {
-      return document.documentElement.classList.contains("dark")
-        ? "embed_options=dark_theme"
-        : "embed_options=light_theme";
-    }
-    return "embed_options=light_theme"; // Default fallback for SSR
-  };
+  // State to track theme, starts with light theme for SSR
+  const [themeEmbedOption, setThemeEmbedOption] = useState(
+    "embed_options=light_theme",
+  );
 
-  const themeEmbedOption = getThemeEmbedOption();
+  // Update theme after component mounts (client-side only)
+  useEffect(() => {
+    const currentTheme = document.documentElement.classList.contains("dark")
+      ? "embed_options=dark_theme"
+      : "embed_options=light_theme";
+    setThemeEmbedOption(currentTheme);
+  }, []);
 
   if (!domain) domain = `${name}.streamlit.app`;
   if (domain.endsWith("/")) domain = domain.slice(0, -1);
@@ -56,18 +57,15 @@ const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
     path = "";
   }
 
-  let normalQueryStr = "";
-  let embedQueryStr = "";
-
   // Separate "normal" query params from "embed-related" query params.
   // This way we can include only the "normal" query params in the Fullscreen link.
   // Note that this only applies to iframes rendered via the <Cloud> component
   // in React. For iframes rendered via the ".. output::" directive we **always**
   // include any provided query param in the Fullscreen link.
-  if (query) {
-    const embedQueryParams = [];
-    const normalQueryParams = [];
+  const embedQueryParams = [themeEmbedOption];
+  const normalQueryParams = [];
 
+  if (query) {
     query.split("&").forEach((qStr) => {
       if (qStr.startsWith("embed=") || qStr.startsWith("embed_options=")) {
         embedQueryParams.push(qStr);
@@ -75,13 +73,10 @@ const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
         normalQueryParams.push(qStr);
       }
     });
-
-    embedQueryStr = "&" + embedQueryParams.join("&");
-    normalQueryStr = "&" + normalQueryParams.join("&");
   }
 
-  // Add theme parameter to embed query string
-  embedQueryStr += `&${themeEmbedOption}`;
+  const embedQueryStr = "&" + embedQueryParams.join("&");
+  const normalQueryStr = "&" + normalQueryParams.join("&");
 
   if (!height) height = "10rem";
 
