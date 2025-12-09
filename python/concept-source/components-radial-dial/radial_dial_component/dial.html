@@ -1,0 +1,40 @@
+<div class="dial-container">
+    <svg class="dial-svg" viewBox="0 0 200 140">
+        <!-- Background arc -->
+        <path id="track" class="dial-track" />
+
+        <!-- Colored segments -->
+        <path id="segment-low" class="dial-segment segment-low" />
+        <path id="segment-mid" class="dial-segment segment-mid" />
+        <path id="segment-high" class="dial-segment segment-high" />
+
+        <!-- Tick marks -->
+        <g id="ticks" class="ticks"></g>
+
+        <!-- Value arc (progress) -->
+        <path id="progress" class="dial-progress" />
+
+        <!-- Needle -->
+        <g id="needle-group" class="needle-group">
+            <polygon class="needle-shadow" points="100,95 96,100 104,100" />
+            <polygon class="needle" points="100,25 97,95 103,95" />
+            <circle class="needle-cap" cx="100" cy="95" r="8" />
+            <circle class="needle-cap-inner" cx="100" cy="95" r="4" />
+        </g>
+    </svg>
+
+    <!-- Value display -->
+    <div class="value-display">
+        <span id="value" class="value">0</span>
+        <span id="unit" class="unit"></span>
+    </div>
+
+    <!-- Min/Max labels -->
+    <div class="labels">
+        <span id="min-label" class="label min-label">0</span>
+        <span id="max-label" class="label max-label">100</span>
+    </div>
+
+    <!-- Title -->
+    <div id="title" class="title"></div>
+</div>

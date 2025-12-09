@@ -1,0 +1,38 @@
+<div class="stopwatch">
+    <div class="display-ring">
+        <svg class="ring-svg" viewBox="0 0 200 200">
+            <circle class="ring-track" cx="100" cy="100" r="90" />
+            <circle
+                id="ring-progress"
+                class="ring-progress"
+                cx="100"
+                cy="100"
+                r="90"
+            />
+        </svg>
+        <div class="display">
+            <span id="minutes" class="time-segment">00</span>
+            <span class="separator">:</span>
+            <span id="seconds" class="time-segment">00</span>
+            <span class="separator small">.</span>
+            <span id="centiseconds" class="time-segment small">00</span>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="lap-btn" class="ctrl-btn secondary" disabled>
+            <span class="btn-icon">🏁</span>
+            <span class="btn-label">Lap</span>
+        </button>
+        <button id="start-btn" class="ctrl-btn primary">
+            <span class="btn-icon">▶</span>
+            <span class="btn-label">Start</span>
+        </button>
+        <button id="reset-btn" class="ctrl-btn secondary" disabled>
+            <span class="btn-icon">⏱️</span>
+            <span class="btn-label">Reset</span>
+        </button>
+    </div>
+
+    <div id="lap-list" class="lap-list"></div>
+</div>
