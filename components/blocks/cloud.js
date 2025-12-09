@@ -34,17 +34,17 @@ import classNames from "classnames";
 //   -> https://foo.streamlit.app/bar/?embed=true&embed_options=show_padding&embed_options=show_colored_line
 //
 const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
-  // Get the current theme from DOM class (fastest and most accurate)
-  const getCurrentTheme = () => {
+  // Get the current theme embed option directly (with SSR safety)
+  const getThemeEmbedOption = () => {
     if (typeof document !== "undefined") {
       return document.documentElement.classList.contains("dark")
-        ? "dark"
-        : "light";
+        ? "embed_options=dark_theme"
+        : "embed_options=light_theme";
     }
-    return "light"; // Default fallback for SSR
+    return "embed_options=light_theme"; // Default fallback for SSR
   };
 
-  const currentTheme = getCurrentTheme();
+  const themeEmbedOption = getThemeEmbedOption();
 
   if (!domain) domain = `${name}.streamlit.app`;
   if (domain.endsWith("/")) domain = domain.slice(0, -1);
@@ -58,9 +58,6 @@ const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
 
   let normalQueryStr = "";
   let embedQueryStr = "";
-
-  // Add theme parameter to embed options
-  const themeParam = `embed_options=${currentTheme}_theme`;
 
   // Separate "normal" query params from "embed-related" query params.
   // This way we can include only the "normal" query params in the Fullscreen link.
@@ -84,7 +81,7 @@ const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
   }
 
   // Add theme parameter to embed query string
-  embedQueryStr += `&${themeParam}`;
+  embedQueryStr += `&${themeEmbedOption}`;
 
   if (!height) height = "10rem";
 
