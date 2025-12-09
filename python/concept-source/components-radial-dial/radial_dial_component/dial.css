@@ -1,0 +1,160 @@
+.dial-container {
+    font-family: var(--st-font);
+    color: var(--st-text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.dial-svg {
+    width: 18rem;
+    height: 12rem;
+}
+
+/* Track (background arc) */
+.dial-track {
+    fill: none;
+    stroke: var(--st-secondary-background-color);
+    stroke-width: 20;
+    stroke-linecap: round;
+}
+
+/* Colored segments */
+.dial-segment {
+    fill: none;
+    stroke-width: 20;
+    stroke-linecap: round;
+    opacity: 0.15;
+}
+
+.segment-low {
+    stroke: var(--st-green-color);
+}
+.segment-mid {
+    stroke: var(--st-yellow-color);
+}
+.segment-high {
+    stroke: var(--st-red-color);
+}
+
+/* Progress arc */
+.dial-progress {
+    fill: none;
+    stroke: var(--st-green-color);
+    stroke-width: 20;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 8px var(--st-green-color));
+    transition:
+        stroke-dashoffset 0.8s cubic-bezier(0.34, 1.2, 0.64, 1),
+        stroke 0.5s ease;
+}
+
+/* Tick marks */
+.ticks line {
+    stroke: var(--st-text-color);
+    stroke-width: 2;
+    opacity: 0.3;
+}
+
+.ticks line.major {
+    stroke-width: 3;
+    opacity: 0.5;
+}
+
+/* Needle */
+.needle-group {
+    transform-origin: 100px 95px;
+    transition: transform 0.8s cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+
+.needle {
+    fill: var(--st-text-color);
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.needle-shadow {
+    fill: rgba(0, 0, 0, 0.2);
+    transform: translate(2px, 2px);
+}
+
+.needle-cap {
+    fill: var(--st-secondary-background-color);
+    stroke: var(--st-border-color);
+    stroke-width: 2;
+}
+
+.needle-cap-inner {
+    fill: var(--st-text-color);
+    opacity: 0.8;
+}
+
+/* Value display */
+.value-display {
+    margin-top: -2rem;
+    text-align: center;
+}
+
+.value {
+    font-family: var(--st-code-font);
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    transition: color 0.5s ease;
+}
+
+.unit {
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.6;
+    margin-left: 0.25rem;
+}
+
+/* Labels */
+.labels {
+    display: flex;
+    justify-content: space-between;
+    width: 240px;
+    margin-top: 0.5rem;
+}
+
+.label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+/* Title */
+.title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    margin-top: 0.75rem;
+}
+
+/* Color themes based on value */
+.dial-progress.low {
+    stroke: var(--st-green-color);
+    filter: drop-shadow(0 0 8px var(--st-green-color));
+}
+.dial-progress.mid {
+    stroke: var(--st-yellow-color);
+    filter: drop-shadow(0 0 8px var(--st-yellow-color));
+}
+.dial-progress.high {
+    stroke: var(--st-red-color);
+    filter: drop-shadow(0 0 8px var(--st-red-color));
+}
+
+.value.low {
+    color: var(--st-green-color);
+}
+.value.mid {
+    color: var(--st-yellow-color);
+}
+.value.high {
+    color: var(--st-red-color);
+}
