@@ -18,6 +18,7 @@ const { publicRuntimeConfig } = getConfig();
 
 import styles from "./autofunction.module.css";
 import { looksLikeVersionAndPlatformString } from "../../lib/next/utils";
+import { getThemeFromDOM } from "../../lib/next/ThemeContext";
 
 const LATEST_VERSION = publicRuntimeConfig.LATEST_VERSION;
 const DEFAULT_VERSION = publicRuntimeConfig.DEFAULT_VERSION;
@@ -50,19 +51,43 @@ const Autofunction = ({
   }, [streamlitFunction]);
 
   // Code to destroy and regenerate iframes on each new autofunction render.
+  // Also updates the theme in iframe URLs to match the current site theme.
   const regenerateIframes = () => {
     const iframes = Array.prototype.slice.call(
       blockRef.current.getElementsByTagName("iframe"),
     );
     if (!iframes) return;
 
+    // Get current theme from DOM
+    const currentTheme = getThemeFromDOM();
+
     iframes.forEach((iframe) => {
       const parent = iframe.parentElement;
       const newFrame = iframe.cloneNode();
 
+      // Update the iframe src with the correct theme
+      const url = new URL(iframe.src);
+
+      // Get all existing embed_options
+      const existingEmbedOptions = url.searchParams.getAll("embed_options");
+
+      // Remove only theme-related embed_options (light_theme or dark_theme)
+      const nonThemeOptions = existingEmbedOptions.filter(
+        (option) => option !== "light_theme" && option !== "dark_theme",
+      );
+
+      // Clear all embed_options and re-add the non-theme ones
+      url.searchParams.delete("embed_options");
+      nonThemeOptions.forEach((option) =>
+        url.searchParams.append("embed_options", option),
+      );
+
+      // Add current theme parameter
+      url.searchParams.append("embed_options", `${currentTheme}_theme`);
+
       newFrame.src = "";
       newFrame.classList.add("new");
-      newFrame.src = iframe.src;
+      newFrame.src = url.toString();
 
       parent.replaceChild(newFrame, iframe);
     });

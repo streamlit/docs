@@ -1,5 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import classNames from "classnames";
+import {
+  useThemeContextSafe,
+  getThemeFromDOM,
+} from "../../lib/next/ThemeContext";
 
 // Arguments:
 //
@@ -34,17 +38,11 @@ import classNames from "classnames";
 //   -> https://foo.streamlit.app/bar/?embed=true&embed_options=show_padding&embed_options=show_colored_line
 //
 const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
-  // Get the current theme embed option directly (with SSR safety)
-  const getThemeEmbedOption = () => {
-    if (typeof document !== "undefined") {
-      return document.documentElement.classList.contains("dark")
-        ? "embed_options=dark_theme"
-        : "embed_options=light_theme";
-    }
-    return "embed_options=light_theme"; // Default fallback for SSR
-  };
-
-  const themeEmbedOption = getThemeEmbedOption();
+  // Try to get theme from context, fall back to DOM reading
+  // Context may not be available when rendered via ReactDOMServer.renderToString in table.js
+  const themeContext = useThemeContextSafe();
+  const theme = themeContext?.theme ?? getThemeFromDOM();
+  const themeEmbedOption = `embed_options=${theme}_theme`;
 
   if (!domain) domain = `${name}.streamlit.app`;
   if (domain.endsWith("/")) domain = domain.slice(0, -1);
