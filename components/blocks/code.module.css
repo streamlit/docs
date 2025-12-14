@@ -3,6 +3,22 @@
   @apply relative !important;
 }
 
+.Header {
+  @apply flex items-center px-4 py-2 bg-gray-20 text-gray-70 text-xs font-medium tracking-wide rounded-t-md border-b border-gray-30;
+}
+
+:global(.dark) .Header {
+  @apply bg-gray-90 text-gray-50 border-gray-80;
+}
+
+.Language {
+  @apply uppercase tracking-wider;
+}
+
+.HasHeader {
+  @apply rounded-t-none !important;
+}
+
 .Pre,
 .Container code {
   @apply overflow-auto max-w-full whitespace-pre;
@@ -29,16 +45,16 @@
   @apply bg-gray-80 opacity-30 z-0;
 }
 .Container button {
-  @apply absolute top-2 right-2 cursor-pointer h-8 w-8 mb-0 flex items-center;
+  @apply absolute top-2 right-1 cursor-pointer h-8 w-8 mb-0 flex items-center justify-center;
 }
 
 .Container button::before {
-  @apply absolute top-2 right-2 z-10 transition-all duration-75 hover:opacity-40;
+  @apply z-10 transition-all duration-75 hover:opacity-40;
   content: url("/clipboard.svg");
 }
 
 .Container button span {
-  @apply absolute right-10 text-gray-80 font-mono text-sm tracking-tight font-normal opacity-0;
+  @apply absolute -top-0.5 right-10 text-gray-80 font-mono text-sm tracking-tight font-normal opacity-0;
 }
 
 .Container button:hover span {
