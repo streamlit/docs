@@ -50,6 +50,7 @@ const languageDisplayNames = {
   r: "R",
   docker: "Docker",
   dockerfile: "Dockerfile",
+  none: "",
 };
 
 const Code = ({
