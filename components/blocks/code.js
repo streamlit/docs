@@ -60,6 +60,7 @@ const Code = ({
   img,
   lines,
   hideCopyButton = false,
+  filename,
 }) => {
   // Create a ref for the code element.
   const codeRef = useRef(null);
@@ -131,6 +132,7 @@ const Code = ({
       {showLanguage && (
         <span className={styles.Language}>{displayLanguage}</span>
       )}
+      {filename && <span className={styles.Filename}>{filename}</span>}
     </div>
   );
 

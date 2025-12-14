@@ -16,6 +16,14 @@
   @apply uppercase tracking-wider pr-4;
 }
 
+.Filename {
+  @apply ml-4 font-mono text-sm text-gray-60;
+}
+
+:global(.dark) .Filename {
+  @apply text-gray-50;
+}
+
 .HasHeader {
   @apply rounded-t-none !important;
 }
