@@ -124,10 +124,13 @@ const Code = ({
   // Extract language identifier for display
   const langId = languageClass?.substring(9) || language || "python";
   const displayLanguage = languageDisplayNames[langId] || langId;
+  const showLanguage = langId.toLowerCase() !== "none";
 
   const Header = (
     <div className={classNames(styles.Header, "code-block-header")}>
-      <span className={styles.Language}>{displayLanguage}</span>
+      {showLanguage && (
+        <span className={styles.Language}>{displayLanguage}</span>
+      )}
     </div>
   );
 
