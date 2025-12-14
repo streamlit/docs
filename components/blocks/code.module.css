@@ -13,7 +13,7 @@
 }
 
 .Language {
-  @apply uppercase tracking-wider;
+  @apply uppercase tracking-wider pr-4;
 }
 
 .HasHeader {
