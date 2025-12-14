@@ -61,6 +61,7 @@ const Code = ({
   lines,
   hideCopyButton = false,
   filename,
+  filenameOnly = true,
 }) => {
   // Create a ref for the code element.
   const codeRef = useRef(null);
@@ -125,7 +126,8 @@ const Code = ({
   // Extract language identifier for display
   const langId = languageClass?.substring(9) || language || "python";
   const displayLanguage = languageDisplayNames[langId] || langId;
-  const showLanguage = langId.toLowerCase() !== "none";
+  const showLanguage =
+    langId.toLowerCase() !== "none" && !(filenameOnly && filename);
 
   const Header = (
     <div className={classNames(styles.Header, "code-block-header")}>

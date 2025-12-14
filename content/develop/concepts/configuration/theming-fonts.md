@@ -131,7 +131,7 @@ codeFont="noto-mono"
 
 Directory structure:
 
-<Code language="none" filename="directory structure">
+<Code language="none" filename="Directory structure">
 
 project_directory/
 ├── .streamlit/
