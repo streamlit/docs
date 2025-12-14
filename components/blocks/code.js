@@ -67,7 +67,7 @@ const Code = ({
   useEffect(() => {
     // Get the language from the className, if it exists.
     // Classname usually is `language-python`, `language-javascript`, `language-bash`, etc.
-    let importLanguage = children.props.className?.substring(9);
+    let importLanguage = children?.props?.className?.substring(9);
 
     // If no language, default to Phython
     if (importLanguage === undefined || importLanguage === "undefined") {
