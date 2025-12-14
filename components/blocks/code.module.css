@@ -17,11 +17,7 @@
 }
 
 .Filename {
-  @apply ml-4 font-mono text-sm text-gray-60;
-}
-
-:global(.dark) .Filename {
-  @apply text-gray-50;
+  @apply font-mono text-sm leading-6 pr-4;
 }
 
 .HasHeader {
