@@ -61,7 +61,6 @@ const Code = ({
   lines,
   hideCopyButton = false,
   filename,
-  filenameOnly = true,
 }) => {
   // Create a ref for the code element.
   const codeRef = useRef(null);
