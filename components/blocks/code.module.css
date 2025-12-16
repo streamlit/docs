@@ -76,3 +76,22 @@
 }
 
 /* Syntax highlighting is now handled globally via styles/syntax-highlighting.scss */
+
+/* Try Me Button */
+.TryMeButton {
+  @apply flex items-center gap-1 px-2 py-1 rounded text-xs font-medium transition-all duration-150;
+  @apply text-red-70 hover:text-white hover:bg-red-70;
+  text-decoration: none !important;
+}
+
+:global(.dark) .TryMeButton {
+  @apply text-red-50 hover:text-white hover:bg-red-60;
+}
+
+.TryMeIcon {
+  @apply w-3 h-3;
+}
+
+.TryMeLabel {
+  @apply hidden sm:inline;
+}
