@@ -72,8 +72,8 @@ const TryMeButton = ({ code }) => {
   return (
     <a
       href={playgroundUrl}
-      target="_blank"
-      rel="noopener noreferrer"
+      target="streamlit-playground"
+      rel="noreferrer"
       className={styles.TryMeButton}
       title="Try this code in Streamlit Playground"
     >
