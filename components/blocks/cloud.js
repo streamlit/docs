@@ -54,6 +54,8 @@ const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
     path = "";
   }
 
+  // We'll process the query param using string processing rather than URLSearchParams because
+  // when the `query` is a placeholder $3 the "$" gets mangled by URLSearchParams.
   let normalQueryStr = "";
   let embedQueryStr = "";
 
