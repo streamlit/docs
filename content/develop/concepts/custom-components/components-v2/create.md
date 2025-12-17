@@ -206,7 +206,7 @@ my_component = st.components.v2.component(
 result = my_component(
     key="unique_instance",
     data={"initial_value": 42},
-    on_clicked_change=lambda: None)
+    on_clicked_change=lambda: None
 )
 ```
 
@@ -639,7 +639,7 @@ st.write(f"Current count: {st.session_state.counter_1.count}")
 
 Now that you understand the basics of component registration and mounting:
 
-- Learn about [State vs triggers](/develop/concepts/custom-components/v2/state-and-triggers) for advanced component communication.
-- Explore [Theming and styling](/develop/concepts/custom-components/v2/theming) to make your components look great.
-- Discover [Package-based components](/develop/concepts/custom-components/v2/package-based) for complex projects.
+- Learn about [State vs triggers](/develop/concepts/custom-components/components-v2/state-and-triggers) for advanced component communication.
+- Explore [Theming and styling](/develop/concepts/custom-components/components-v2/theming) to make your components look great.
+- Discover [Package-based components](/develop/concepts/custom-components/components-v2/package-based) for complex projects.
 - Check out the [JavaScript API reference](/develop/api-reference/custom-components/) for complete frontend documentation.
