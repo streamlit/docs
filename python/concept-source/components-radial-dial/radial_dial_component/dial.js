@@ -1,3 +1,26 @@
+// Arc parameters
+const CX = 100;
+const CY = 95;
+const RADIUS = 75;
+const START_ANGLE = -135; // degrees from vertical
+const END_ANGLE = 135;
+const ANGLE_RANGE = END_ANGLE - START_ANGLE; // 270 degrees
+
+function polarToCartesian(angle) {
+    const rad = ((angle - 90) * Math.PI) / 180;
+    return {
+        x: CX + RADIUS * Math.cos(rad),
+        y: CY + RADIUS * Math.sin(rad),
+    };
+}
+
+function describeArc(start, end) {
+    const startPoint = polarToCartesian(start);
+    const endPoint = polarToCartesian(end);
+    const largeArc = end - start > 180 ? 1 : 0;
+    return `M ${startPoint.x} ${startPoint.y} A ${RADIUS} ${RADIUS} 0 ${largeArc} 1 ${endPoint.x} ${endPoint.y}`;
+}
+
 export default function ({ parentElement, data }) {
     const track = parentElement.querySelector("#track");
     const progress = parentElement.querySelector("#progress");
@@ -12,58 +35,35 @@ export default function ({ parentElement, data }) {
     const maxLabel = parentElement.querySelector("#max-label");
     const titleEl = parentElement.querySelector("#title");
 
-    // Arc parameters
-    const cx = 100,
-        cy = 95;
-    const radius = 75;
-    const startAngle = -135; // degrees from vertical
-    const endAngle = 135;
-    const angleRange = endAngle - startAngle; // 270 degrees
-
-    function polarToCartesian(angle) {
-        const rad = ((angle - 90) * Math.PI) / 180;
-        return {
-            x: cx + radius * Math.cos(rad),
-            y: cy + radius * Math.sin(rad),
-        };
-    }
-
-    function describeArc(start, end) {
-        const startPoint = polarToCartesian(start);
-        const endPoint = polarToCartesian(end);
-        const largeArc = end - start > 180 ? 1 : 0;
-        return `M ${startPoint.x} ${startPoint.y} A ${radius} ${radius} 0 ${largeArc} 1 ${endPoint.x} ${endPoint.y}`;
-    }
-
     // Draw background track
-    track.setAttribute("d", describeArc(startAngle, endAngle));
+    track.setAttribute("d", describeArc(START_ANGLE, END_ANGLE));
 
     // Draw colored segments (thirds)
-    const third = angleRange / 3;
-    segmentLow.setAttribute("d", describeArc(startAngle, startAngle + third));
+    const third = ANGLE_RANGE / 3;
+    segmentLow.setAttribute("d", describeArc(START_ANGLE, START_ANGLE + third));
     segmentMid.setAttribute(
         "d",
-        describeArc(startAngle + third, startAngle + 2 * third),
+        describeArc(START_ANGLE + third, START_ANGLE + 2 * third),
     );
     segmentHigh.setAttribute(
         "d",
-        describeArc(startAngle + 2 * third, endAngle),
+        describeArc(START_ANGLE + 2 * third, END_ANGLE),
     );
 
     // Draw tick marks
     const numTicks = 10;
     ticksGroup.innerHTML = "";
     for (let i = 0; i <= numTicks; i++) {
-        const angle = startAngle + (angleRange * i) / numTicks;
+        const angle = START_ANGLE + (ANGLE_RANGE * i) / numTicks;
         const isMajor = i % 5 === 0;
-        const innerRadius = isMajor ? radius - 30 : radius - 25;
-        const outerRadius = radius - 20;
+        const innerRadius = isMajor ? RADIUS - 30 : RADIUS - 25;
+        const outerRadius = RADIUS - 20;
 
         const rad = ((angle - 90) * Math.PI) / 180;
-        const x1 = cx + innerRadius * Math.cos(rad);
-        const y1 = cy + innerRadius * Math.sin(rad);
-        const x2 = cx + outerRadius * Math.cos(rad);
-        const y2 = cy + outerRadius * Math.sin(rad);
+        const x1 = CX + innerRadius * Math.cos(rad);
+        const y1 = CY + innerRadius * Math.sin(rad);
+        const x2 = CX + outerRadius * Math.cos(rad);
+        const y2 = CY + outerRadius * Math.sin(rad);
 
         const line = document.createElementNS(
             "http://www.w3.org/2000/svg",
@@ -93,10 +93,10 @@ export default function ({ parentElement, data }) {
         const percent = Math.max(0, Math.min(1, (value - min) / (max - min)));
 
         // Calculate angle for this value
-        const valueAngle = startAngle + angleRange * percent;
+        const valueAngle = START_ANGLE + ANGLE_RANGE * percent;
 
         // Update progress arc
-        progress.setAttribute("d", describeArc(startAngle, valueAngle));
+        progress.setAttribute("d", describeArc(START_ANGLE, valueAngle));
 
         // Update needle rotation
         needleGroup.style.transform = `rotate(${valueAngle}deg)`;
