@@ -9,7 +9,7 @@
 }
 
 :global(.dark) .Header {
-  @apply bg-gray-90 text-gray-50 border-gray-80;
+  @apply bg-gray-90 text-gray-60 border-gray-80;
 }
 
 .Language {
