@@ -12,33 +12,12 @@ const ThemeContext = createContext();
  * Updates all Streamlit Cloud iframes on the page with the new theme.
  * This is extracted as a shared function so it can be called from multiple places.
  */
-export function updateIframesTheme(theme) {
+export function updateIframeThemes(theme) {
   if (typeof document === "undefined") return;
 
   const iframes = document.querySelectorAll('iframe[src*="streamlit.app"]');
   iframes.forEach((iframe) => {
-    const currentSrc = iframe.src;
-    const url = new URL(currentSrc);
-
-    // Get all existing embed_options
-    const existingEmbedOptions = url.searchParams.getAll("embed_options");
-
-    // Remove only theme-related embed_options (light_theme or dark_theme)
-    const nonThemeOptions = existingEmbedOptions.filter(
-      (option) => option !== "light_theme" && option !== "dark_theme",
-    );
-
-    // Clear all embed_options and re-add the non-theme ones
-    url.searchParams.delete("embed_options");
-    nonThemeOptions.forEach((option) =>
-      url.searchParams.append("embed_options", option),
-    );
-
-    // Add new theme parameter
-    url.searchParams.append("embed_options", `${theme}_theme`);
-
-    // Force reload iframe with new theme
-    iframe.src = url.toString();
+    iframe.src = getThemedUrl(iframe.src, theme);
   });
 }
 
@@ -78,7 +57,7 @@ export function ThemeContextProvider({ children }) {
     (newTheme) => {
       setThemeState(newTheme);
       applyTheme(newTheme);
-      updateIframesTheme(newTheme);
+      updateIframeThemes(newTheme);
     },
     [applyTheme],
   );
@@ -127,4 +106,29 @@ export function getThemeFromDOM() {
       : "light";
   }
   return "light";
+}
+
+/**
+ * Adds a "light" or "dark" theme to a given Streamlit Cloud URL.
+ */
+export function getThemedUrl(url, theme) {
+  const themedUrl = new URL(url);
+  addThemeToSearchParams(themedUrl.searchParams, theme);
+  return themedUrl.toString();
+}
+
+export function addThemeToSearchParams(searchParams, theme) {
+  const existingEmbedOptions = searchParams.getAll("embed_options");
+
+  const nonThemeOptions = existingEmbedOptions.filter(
+    (option) => option !== "light_theme" && option !== "dark_theme",
+  );
+
+  // Clear all embed_options and re-add the non-theme ones
+  searchParams.delete("embed_options");
+  nonThemeOptions.forEach((option) =>
+    searchParams.append("embed_options", option),
+  );
+
+  searchParams.append("embed_options", `${theme}_theme`);
 }
