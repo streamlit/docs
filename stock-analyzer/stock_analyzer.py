@@ -46,10 +46,10 @@ def get_stock_data(ticker_symbol: str, period: str):
         hist = tkr.history(period=period)
         financials = tkr.financials
         recommendations = tkr.recommendations_summary
-        return tkr, info, hist, financials, recommendations
+        # On ne retourne pas tkr car il n'est pas sérialisable
+        return info, hist, financials, recommendations
     except Exception as e:
-        st.error(f"Erreur lors de la récupération des données: {e}")
-        return None, None, None, None, None
+        return None, None, None, None
 
 
 def format_value(val, unit: str = '') -> str:
@@ -155,7 +155,7 @@ if analyze_button or company_name:
 
     # Récupération des données
     with st.spinner(f"Chargement des données pour {ticker_symbol}..."):
-        tkr, info, hist, financials, recommendations = get_stock_data(ticker_symbol, period)
+        info, hist, financials, recommendations = get_stock_data(ticker_symbol, period)
 
     if info is None:
         st.error("Impossible de récupérer les données. Veuillez réessayer.")
