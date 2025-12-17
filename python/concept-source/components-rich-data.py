@@ -21,7 +21,7 @@ def create_sample_df():
 df = create_sample_df()
 
 
-# Load an image and convert to bytes
+# Load an image and convert to b64 string
 @st.cache_data
 def load_image_as_base64(image_path):
     with open(image_path, "rb") as img_file:
@@ -52,7 +52,7 @@ chart_component = st.components.v2.component(
     """,
 )
 
-result = chart_component(
+chart_component(
     data={
         "df": df,  # Arrow-serializable dataframe
         "user_info": {"name": "Alice"},  # JSON-serializable data
