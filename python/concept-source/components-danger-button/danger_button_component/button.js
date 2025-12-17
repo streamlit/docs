@@ -1,12 +1,12 @@
+const HOLD_DURATION = 2000; // 2 seconds
+const COOLDOWN_DURATION = 1500; // cooldown after trigger
+const CIRCUMFERENCE = 2 * Math.PI * 45; // circle circumference
+
 export default function ({ parentElement, setTriggerValue }) {
     const button = parentElement.querySelector("#danger-btn");
     const progress = parentElement.querySelector("#ring-progress");
     const icon = parentElement.querySelector("#icon");
     const label = parentElement.querySelector("#label");
-
-    const HOLD_DURATION = 2000; // 2 seconds
-    const COOLDOWN_DURATION = 1500; // cooldown after trigger
-    const CIRCUMFERENCE = 2 * Math.PI * 45; // circle circumference
 
     let startTime = null;
     let animationFrame = null;
@@ -80,20 +80,32 @@ export default function ({ parentElement, setTriggerValue }) {
         }, COOLDOWN_DURATION);
     }
 
+    function handleTouchStart(e) {
+        e.preventDefault();
+        startHold();
+    }
+
     // Mouse events
     button.addEventListener("mousedown", startHold);
     button.addEventListener("mouseup", cancelHold);
     button.addEventListener("mouseleave", cancelHold);
 
     // Touch events for mobile
-    button.addEventListener("touchstart", (e) => {
-        e.preventDefault();
-        startHold();
-    });
+    button.addEventListener("touchstart", handleTouchStart);
     button.addEventListener("touchend", cancelHold);
     button.addEventListener("touchcancel", cancelHold);
 
     return () => {
         if (animationFrame) cancelAnimationFrame(animationFrame);
+
+        // Remove mouse event listeners
+        button.removeEventListener("mousedown", startHold);
+        button.removeEventListener("mouseup", cancelHold);
+        button.removeEventListener("mouseleave", cancelHold);
+
+        // Remove touch event listeners
+        button.removeEventListener("touchstart", handleTouchStart);
+        button.removeEventListener("touchend", cancelHold);
+        button.removeEventListener("touchcancel", cancelHold);
     };
 }
