@@ -162,16 +162,8 @@ function getAllFilesInDirectory(articleDirectory, files) {
       continue;
     }
 
-    if (content.length > 100000) {
-      console.warn(
-        `!!! Skipping ${url} the content is too long.`,
-        "See https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/how-to/reducing-object-size/",
-        "for solutions.",
-      );
-      continue;
-    }
-
-    to_index.push({
+    const MAX_RECORD_SIZE = 99000; // Algolia limit is 100KB, leave buffer
+    let record = {
       title: title.text,
       content: content,
       url: url,
@@ -180,7 +172,19 @@ function getAllFilesInDirectory(articleDirectory, files) {
       color: color,
       version: version,
       keywords: keywords,
-    });
+    };
+
+    let recordSize = Buffer.byteLength(JSON.stringify(record), "utf8");
+    if (recordSize > MAX_RECORD_SIZE) {
+      const overflow = recordSize - MAX_RECORD_SIZE;
+      record.content = content.slice(0, content.length - overflow);
+      console.warn(
+        `!!! Truncated ${url} content to fit within Algolia's 100KB limit (was ${recordSize} bytes).`,
+        "See https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/how-to/reducing-object-size/",
+      );
+    }
+
+    to_index.push(record);
 
     console.log(`... prepared ${title.text} at ${url}.`);
   }
