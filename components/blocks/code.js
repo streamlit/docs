@@ -73,22 +73,13 @@ const TryMeButton = ({ code }) => {
     <a
       href={playgroundUrl}
       target="streamlit-playground"
-      rel="noreferrer"
       className={styles.TryMeButton}
       title="Try this code in Streamlit Playground"
     >
       <span className={styles.TryMeLabel}>Try it!</span>
-      <svg
-        className={styles.TryMeIcon}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <polygon points="5 3 19 12 5 21 5 3" />
-      </svg>
+      <i className={`material-icons-sharp ${styles.TryMeIcon}`}>
+        arrow_outward
+      </i>
     </a>
   );
 };
@@ -142,7 +133,7 @@ const Code = ({
   lines,
   hideCopyButton = false,
   filename,
-  filenameOnly = true,
+  showAll = false,
   try: tryIt = false,
 }) => {
   // Create a ref for the code element.
@@ -209,7 +200,7 @@ const Code = ({
   const langId = languageClass?.substring(9) || language || "python";
   const displayLanguage = languageDisplayNames[langId] || langId;
   const showLanguage =
-    langId.toLowerCase() !== "none" && !(filenameOnly && filename);
+    langId.toLowerCase() !== "none" && (showAll || !filename);
 
   const Header = (
     <div className={classNames(styles.Header, "code-block-header")}>

@@ -4,7 +4,7 @@
 }
 
 .Header {
-  @apply flex items-center px-3 py-1 bg-gray-20 text-gray-70 text-xs font-medium tracking-wide rounded-t-md border-b border-gray-30;
+  @apply flex items-center px-3 py-1 bg-gray-10 text-gray-70 text-sm font-medium tracking-wide rounded-t-md border-b border-gray-30;
   min-height: 2.5rem;
 }
 
@@ -54,15 +54,25 @@
 }
 
 .Container button::before {
-  @apply z-10 transition-all duration-75 hover:opacity-40;
+  @apply z-10 transition-all duration-75 hover:opacity-60;
   content: url("/clipboard.svg");
 }
 
 .Container button span {
-  @apply absolute -top-0.5 right-10 text-gray-80 font-mono text-sm tracking-tight font-normal opacity-0;
+  @apply absolute -top-0.5 right-10 text-gray-70 font-mono text-sm tracking-tight font-normal opacity-0;
 }
 
-.Container button:hover span {
+:global(.dark) .Container button span {
+  @apply text-gray-70 !important;
+}
+
+/* Hide "Copy" text completely */
+.Container button[data-copy-state="copy"] span {
+  @apply hidden;
+}
+
+/* Show "Copied!" text */
+.Container button[data-copy-state="copy-success"] span {
   @apply opacity-100;
 }
 
@@ -72,24 +82,24 @@
 
 /* Dark mode button text */
 :global(.dark) .Container button span {
-  @apply text-white;
+  @apply text-gray-40;
 }
 
 /* Syntax highlighting is now handled globally via styles/syntax-highlighting.scss */
 
 /* Try Me Button */
 .TryMeButton {
-  @apply flex items-center gap-1 px-2 py-1 rounded text-xs font-medium transition-all duration-150;
-  @apply text-red-70 hover:text-white hover:bg-red-70;
+  @apply flex items-center text-gray-90 gap-1 pr-4 rounded text-sm font-medium transition-all duration-150;
+  @apply hover:opacity-60;
   text-decoration: none !important;
 }
 
 :global(.dark) .TryMeButton {
-  @apply text-red-50 hover:text-white hover:bg-red-60;
+  @apply text-white;
 }
 
 .TryMeIcon {
-  @apply w-3 h-3;
+  @apply text-lg leading-none;
 }
 
 .TryMeLabel {

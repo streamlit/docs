@@ -191,7 +191,7 @@ export default function Article({
       />
     ),
     pre: (props) => {
-      // Extract metadata from code fence (e.g., ```python try filename="app.py" filenameOnly)
+      // Extract metadata from code fence (e.g., ```python try filename="app.py" showAll)
       // The metadata is passed via data-meta attribute from our remark plugin
       const codeElement = props.children;
       const metaString = codeElement?.props?.["data-meta"] || "";
@@ -200,17 +200,17 @@ export default function Article({
       const codeProps = {};
 
       if (metaString) {
-        // Match boolean flags (standalone words) and key="value" pairs
-        const booleanFlags = ["try", "filenameOnly", "hideCopyButton"];
+        // Supported boolean flags (standalone words)
+        const booleanFlags = ["try", "showAll", "hideCopyButton"];
 
-        // Extract key="value" pairs first
+        // Extract key="value" pairs (e.g., filename="app.py")
         const keyValueRegex = /(\w+)=["']([^"']+)["']/g;
         let match;
         while ((match = keyValueRegex.exec(metaString)) !== null) {
           codeProps[match[1]] = match[2];
         }
 
-        // Check for boolean flags (words not part of key=value)
+        // Check for boolean flags (standalone words like `try` or `showAll`)
         const cleanedMeta = metaString.replace(keyValueRegex, "");
         booleanFlags.forEach((flag) => {
           if (new RegExp(`\\b${flag}\\b`).test(cleanedMeta)) {
