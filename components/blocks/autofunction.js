@@ -18,6 +18,7 @@ const { publicRuntimeConfig } = getConfig();
 
 import styles from "./autofunction.module.css";
 import { looksLikeVersionAndPlatformString } from "../../lib/next/utils";
+import { getThemedUrl, getThemeFromDOM } from "../../lib/next/ThemeContext";
 
 const LATEST_VERSION = publicRuntimeConfig.LATEST_VERSION;
 const DEFAULT_VERSION = publicRuntimeConfig.DEFAULT_VERSION;
@@ -50,11 +51,14 @@ const Autofunction = ({
   }, [streamlitFunction]);
 
   // Code to destroy and regenerate iframes on each new autofunction render.
+  // Also updates the theme in iframe URLs to match the current site theme.
   const regenerateIframes = () => {
     const iframes = Array.prototype.slice.call(
       blockRef.current.getElementsByTagName("iframe"),
     );
     if (!iframes) return;
+
+    const currentTheme = getThemeFromDOM();
 
     iframes.forEach((iframe) => {
       const parent = iframe.parentElement;
@@ -62,7 +66,7 @@ const Autofunction = ({
 
       newFrame.src = "";
       newFrame.classList.add("new");
-      newFrame.src = iframe.src;
+      newFrame.src = getThemedUrl(iframe.src, currentTheme);
 
       parent.replaceChild(newFrame, iframe);
     });

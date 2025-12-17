@@ -122,23 +122,27 @@ const Table = ({
   );
 };
 
-// Regex capturing React components:
+// Regex capturing React components in the RST docs.
 const CLOUD_RE = new RegExp(
   [
     "<Cloud ",
-    'name="([^<>]*)" ',
-    'path="([^<>]*)" ',
-    'query="([^<>]*)" ',
-    'stylePlaceholder="([^<>]*)" ',
+    'name="([^<>]*)" ', // $1
+    'path="([^<>]*)" ', // $2
+    'query="([^<>]*)" ', // $3
+    'stylePlaceholder="([^<>]*)" ', // $4
     "\\/>",
   ].join(""),
   "g",
 );
 
+// Render <Cloud> component using placeholders "$1", etc. to be filled in later.
 const CLOUD_HTML = ReactDOMServer.renderToString(
   <Cloud name="$1" path="$2" query="$3" stylePlaceholder="$4" />,
 );
 
+// Replace "<Cloud>" string with code for <Cloud> component,
+// except the "$x" placeholders should be filled in with values
+// captures by the RegEx.
 function insertCloud(htmlStr) {
   return htmlStr.replace(CLOUD_RE, CLOUD_HTML);
 }
