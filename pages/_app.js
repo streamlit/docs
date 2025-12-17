@@ -11,6 +11,7 @@ import NProgress from "nprogress";
 import { useEffect } from "react";
 
 import { VersionContextProvider } from "../lib/next/VersionContext";
+import { ThemeContextProvider } from "../lib/next/ThemeContext";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => {
@@ -29,13 +30,15 @@ function StreamlitDocs({ Component, pageProps }) {
   }, []);
 
   return (
-    <VersionContextProvider
-      versionFromSlug={pageProps.versionFromSlug}
-      platformFromSlug={pageProps.platformFromSlug}
-      currentItem={pageProps.currentItem}
-    >
-      <Component {...pageProps} />
-    </VersionContextProvider>
+    <ThemeContextProvider>
+      <VersionContextProvider
+        versionFromSlug={pageProps.versionFromSlug}
+        platformFromSlug={pageProps.platformFromSlug}
+        currentItem={pageProps.currentItem}
+      >
+        <Component {...pageProps} />
+      </VersionContextProvider>
+    </ThemeContextProvider>
   );
 }
 
