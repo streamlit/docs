@@ -43,7 +43,7 @@ hello_component = st.components.v2.component(
 hello_component()
 ```
 
-<Cloud name="doc-components-v2-hello-world" height="200px" />
+<Cloud name="doc-components-v2-hello-world-test" height="200px" />
 
 ## Simple button component
 
@@ -90,7 +90,7 @@ if result.action:
     st.write(f"Button clicked! Total clicks: {st.session_state.click_count}")
 ```
 
-<Cloud name="doc-components-v2-simple-button" height="200px" />
+<Cloud name="doc-components-v2-simple-button-test" height="200px" />
 
 For inline component development, you must pass raw HTML, CSS, and JavaScript code to your component. Package-based components allow you to pass file references to your component. If you want to use files for an inline component, you must read them into strings. The previous example is equivalent to the following:
 
@@ -334,7 +334,7 @@ chart_component(
 
 </Collapse>
 
-<Cloud name="doc-components-v2-rich-data" height="300px" />
+<Cloud name="doc-components-v2-rich-data-test" height="400px" />
 
 ## Interactive counter component
 
@@ -573,18 +573,15 @@ if result.reset:
 
 </Collapse>
 
-<Cloud name="doc-components-v2-interactive-counter" height="300px" />
+<Cloud name="doc-components-v2-interactive-counter-test" height="300px" />
 
 ## Danger button component
 
 You can include frontend validation processes in your component. This example shows a button that requires the user to hold for two seconds to confirm the action. Only when the user continuously holds the button for two seconds will the component update the trigger value with `setTriggerValue("confirmed", true)`. The component also displays a progress ring to indicate the user's progress.
 
 - Frontend validation logic to gatekeep event submission.
-
-- Draft saving functionality.
-- Multiple event handlers and callbacks.
-- Using CSS custom properties to style the component.
-- Session state integration for more complex, bidirectional state management.
+- CSS custom properties to match the app's theme.
+- Progress ring to indicate the user's progress.
 - Cleanup functions for proper resource management.
 
 `my_component/my_html.html`:
@@ -1306,7 +1303,7 @@ if st.session_state.deleted_items:
 
 </Collapse>
 
-<Cloud name="doc-components-v2-danger-button" height="400px" />
+<Cloud name="doc-components-v2-danger-button-test" height="500px" />
 
 ## What's next?
 
