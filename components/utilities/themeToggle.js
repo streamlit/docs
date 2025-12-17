@@ -1,27 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import classNames from "classnames";
 import styles from "./themeToggle.module.css";
+import { useThemeContext } from "../../lib/next/ThemeContext";
 
 const ThemeToggle = () => {
-  const [activeTheme, setActiveTheme] = useState("light");
-  let inactiveTheme;
-  inactiveTheme = activeTheme === "light" ? "dark" : "light";
+  const { theme, setTheme } = useThemeContext();
+  const inactiveTheme = theme === "light" ? "dark" : "light";
 
-  const getUserPreference = () => {
-    if (window.localStorage.getItem("theme")) {
-      return window.localStorage.getItem("theme");
-    }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  };
-
-  const changeTailwindTheme = (theme) => {
-    inactiveTheme = theme === "light" ? "dark" : "light";
-    document.documentElement.classList.add(theme);
-    document.documentElement.classList.remove(inactiveTheme);
-    setActiveTheme(theme);
-    localStorage.setItem("theme", theme);
+  const toggleTheme = () => {
+    setTheme(inactiveTheme);
   };
 
   const showTooltip = () => {
@@ -32,23 +19,11 @@ const ThemeToggle = () => {
     document.getElementsByClassName(styles.Tooltip)[0].style.display = "none";
   };
 
-  useEffect(() => {
-    if (getUserPreference() === "dark") {
-      changeTailwindTheme("dark");
-    } else {
-      changeTailwindTheme("light");
-    }
-  }, [activeTheme]);
-
   return (
     <React.Fragment>
       <button
         type="button"
-        onClick={
-          activeTheme === "light"
-            ? () => changeTailwindTheme("dark")
-            : () => changeTailwindTheme("light")
-        }
+        onClick={toggleTheme}
         onMouseOver={showTooltip}
         onMouseOut={hideTooltip}
         className={styles.Container}
