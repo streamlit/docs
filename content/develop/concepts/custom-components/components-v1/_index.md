@@ -45,9 +45,9 @@ Components are super easy to use:
 
 If you're interested in making your own component, check out the following resources:
 
-- [Create a Component](/develop/concepts/custom-components/create)
+- [Create a Component](/develop/concepts/custom-components/components-v1/create)
 - [Publish a Component](/develop/concepts/custom-components/publish)
-- [Components API](/develop/concepts/custom-components/intro)
+- [Components API](/develop/concepts/custom-components/components-v1/intro)
 - [Blog post for when we launched Components!](https://blog.streamlit.io/introducing-streamlit-components/)
 
 Alternatively, if you prefer to learn using videos, our engineer Tim Conkling has put together some

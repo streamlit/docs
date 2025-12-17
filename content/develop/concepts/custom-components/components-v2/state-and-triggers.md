@@ -49,7 +49,7 @@ Trigger values have the following behavior:
 
 State values are perfect for tracking the ongoing state of your component. Here's a practical example that demonstrates using a state value to track a selection. The following code creates a radial menu component that allows the user to select a food item from a list of options. When the user selects an item, the component updates the state value with `setStateValue("selection", currentSelection)`. You can expand or collapse the each code block as needed. For emphasis, the JavaScript and example app code are expanded by default.
 
-For simplicity, this compoenent assumes it will always have six options in its menu, but with a little more code, you can generalize it accept an arbitrary number of items. The complete code provided at the end of this section demonstrates a generalized version that accepts an arbitrary number of items.
+For simplicity, this component assumes it will always have six options in its menu, but with a little more code, you can generalize it accept an arbitrary number of items. The complete code provided at the end of this section demonstrates a generalized version that accepts an arbitrary number of items.
 
 For this example, the component is registered in an imported module.
 
@@ -1542,6 +1542,6 @@ result = my_component(
 
 Now that you understand state and trigger values:
 
-- Learn about [Theming and styling](/develop/concepts/custom-components/v2/theming) to make your components look great.
-- Explore [Package-based components](/develop/concepts/custom-components/v2/package-based) for complex projects with TypeScript.
+- Learn about [Theming and styling](/develop/concepts/custom-components/components-v2/theming) to make your components look great.
+- Explore [Package-based components](/develop/concepts/custom-components/components-v2/package-based) for complex projects with TypeScript.
 - Check out the [JavaScript API reference](/develop/api-reference/custom-components/component-v2-lib) for complete frontend documentation.

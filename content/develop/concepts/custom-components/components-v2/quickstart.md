@@ -320,7 +320,7 @@ This comprehensive example demonstrates both state and trigger values. It shows 
 - Using CSS custom properties to style the component.
 - Bidirectional communication between Python and JavaScript.
 - Multiple event handlers.
-- Cleanup functions for proper resource management
+- Cleanup functions for proper resource management.
 
 `my_component/my_html.html`:
 

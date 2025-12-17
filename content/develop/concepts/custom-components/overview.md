@@ -37,7 +37,7 @@ Components v1 is the original framework that has been stable and widely used sin
 V1 components have the following key differences from v2 components:
 
 - **Iframe isolation** - Components run in isolated iframes for security.
-- **Primarily unidirectional communication** - The API is less optimatized for bidirectional communication.
+- **Primarily unidirectional communication** - The API is less optimized for bidirectional communication.
 - **Mature ecosystem** - Many existing components and templates use the v1 architecture.
 
 ## Comparing components v1 and v2

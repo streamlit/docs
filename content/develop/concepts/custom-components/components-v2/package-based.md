@@ -739,6 +739,6 @@ Provide comprehensive documentation:
 
 Now that you understand package-based components:
 
-- Learn about [State vs triggers](/develop/concepts/custom-components/v2/state-and-triggers) for interactive functionality.
-- Explore [Theming and styling](/develop/concepts/custom-components/v2/theming) for beautiful components.
+- Learn about [State vs triggers](/develop/concepts/custom-components/components-v2/state-and-triggers) for interactive functionality.
+- Explore [Theming and styling](/develop/concepts/custom-components/components-v2/theming) for beautiful components.
 - Check out [Publishing components](/develop/concepts/custom-components/publish) for distribution strategies.
