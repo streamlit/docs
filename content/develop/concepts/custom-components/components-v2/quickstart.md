@@ -23,14 +23,35 @@ Creating and using a custom component involves two distinct steps:
 
 For more information, see [Create custom v2 components](/develop/concepts/custom-components/components-v2/create).
 
-## Simple interactive button
+## Hello world component
 
-This example shows the basics of creating an interactive component with bidirectional communication. It shows the following key concepts:
+You can use custom components v2 to create static HTML and CSS components. The following example display "Hello, World!" in an H2 heading, using the app's primary color for the heading text. This example shows the following key concepts:
+
+- Component registration with HTML and CSS.
+- Mounting a component with its command created from registration.
+- Styling the component with the app's theme.
+
+```python
+import streamlit as st
+
+hello_component = st.components.v2.component(
+    name="hello_world",
+    html="<h2>Hello, World!</h2>",
+    css="h2 { color: var(--st-primary-color); }",
+)
+
+hello_component()
+```
+
+<Cloud name="doc-components-v2-hello-world" height="200px" />
+
+## Simple button component
+
+Your v2 component can set user data to your app. This example shows a simple button that sends a trigger value to your app when clicked. Trigger values are one-time events that are not persisted across reruns. This example shows the following key concepts:
 
 - Component registration with HTML, CSS, and JavaScript.
 - Trigger values using `setTriggerValue()`.
 - Callback functions with the `on_<event>_change` naming pattern.
-- Mounting a component with its command created from registration.
 
 ```python
 import streamlit as st
@@ -56,7 +77,6 @@ my_component = st.components.v2.component(
     js="""
     export default function(component) {
       const { setTriggerValue, parentElement } = component;
-
         parentElement.querySelector("button").onclick = () => {
             setTriggerValue("action", "button_clicked");
         };
@@ -70,15 +90,17 @@ if result.action:
     st.write(f"Button clicked! Total clicks: {st.session_state.click_count}")
 ```
 
-For inline component development, you must pass raw HTML, CSS, and JavaScript code to your component. Package-based components allow you to pass file references to your component. If you want to use files for an inline component, you'll need to read them into strings. The previous example is equivalent to the following:
+<Cloud name="doc-components-v2-simple-button" height="200px" />
+
+For inline component development, you must pass raw HTML, CSS, and JavaScript code to your component. Package-based components allow you to pass file references to your component. If you want to use files for an inline component, you must read them into strings. The previous example is equivalent to the following:
 
 ```
 project_directory/
 ├── my_component/
 │   ├── __init__.py
-│   ├── my_css.css
-│   ├── my_html.html
-│   └── my_js.js
+│   ├── component.css
+│   ├── component.html
+│   └── component.js
 └── streamlit_app.py
 ```
 
@@ -93,17 +115,17 @@ _COMPONENT_DIR = Path(__file__).parent
 
 @st.cache_data
 def load_html():
-    with open(_COMPONENT_DIR / "my_html.html", "r") as f:
+    with open(_COMPONENT_DIR / "component.html", "r") as f:
         return f.read()
 
 @st.cache_data
 def load_css():
-    with open(_COMPONENT_DIR / "my_css.css", "r") as f:
+    with open(_COMPONENT_DIR / "component.css", "r") as f:
         return f.read()
 
 @st.cache_data
 def load_js():
-    with open(_COMPONENT_DIR / "my_js.js", "r") as f:
+    with open(_COMPONENT_DIR / "component.js", "r") as f:
         return f.read()
 
 HTML = load_html()
@@ -113,7 +135,15 @@ JS = load_js()
 
 </Collapse>
 
-<Collapse title="my_css.css">
+<Collapse title="my_component/component.html">
+
+```markup
+<button id="btn">Click me</button>
+```
+
+</Collapse>
+
+<Collapse title="my_component/component.css">
 
 ```css
 button {
@@ -127,20 +157,11 @@ button {
 
 </Collapse>
 
-<Collapse title="my_html.html">
-
-```markup
-<button id="btn">Click me</button>
-```
-
-</Collapse>
-
-<Collapse title="my_js.js">
+<Collapse title="my_component/component.js">
 
 ```javascript
 export default function (component) {
   const { setTriggerValue, parentElement } = component;
-
   parentElement.querySelector("button").onclick = () => {
     setTriggerValue("action", "button_clicked");
   };
@@ -184,31 +205,30 @@ To avoid repeat warnings about re-registering the component, you can register yo
 
 </Note>
 
-## Rich data exchange
+## Rich data component
 
-This example shows how to pass different data types to your component. It shows the following key concepts:
+Streamlit will automatically serialize various data types to JSON or Arrow format. This example shows how to pass different data types to your component and simply display it. It shows the following key concepts:
 
 - Automatic dataframe conversion to Arrow format.
 - Passing JSON data.
 - Passing an image as a base64 string.
 - Accessing data in JavaScript via the destructured `data` property.
+- Dynamically updating a placeholder element with the data.
 
-`my_component/my_html.html`:
+`my_component/component.html`:
 
 ```markup
 <div id="data-container">Loading data...</div>
 ```
 
-`my_component/my_js.js`:
+`my_component/component.js`:
 
 ```javascript
 export default function ({ data, parentElement }) {
   const container = parentElement.querySelector("#data-container");
-
   const df = data.df;
   const userInfo = data.user_info;
   const imgBase64 = data.image_base64;
-
   container.innerHTML = `
         <h4>Dataframe: ${df}</h4>
         <h4>User Info: ${userInfo.name}</h4>
@@ -233,7 +253,8 @@ def create_sample_df():
         "city": ["New York", "London", "Tokyo"]
 })
 df = create_sample_df()
-# Load an image and convert to bytes
+
+# Load an image and convert to b64 string
 @st.cache_data
 def load_image_as_base64(image_path):
     with open(image_path, "rb") as img_file:
@@ -248,11 +269,11 @@ chart_component = st.components.v2.component(
     js=JS,
 )
 
-result = chart_component(
+chart_component(
     data={
-        "df": df,                           # Arrow-serializable dataframe
-        "user_info": {"name": "Alice"},     # JSON-serializable data
-        "image_base64": img_base64          # Image as base64 string
+        "df": df,  # Arrow-serializable dataframe
+        "user_info": {"name": "Alice"},  # JSON-serializable data
+        "image_base64": img_base64,  # Image as base64 string
     }
 )
 ```
@@ -272,7 +293,8 @@ def create_sample_df():
         "city": ["New York", "London", "Tokyo"]
 })
 df = create_sample_df()
-# Load an image and convert to bytes
+
+# Load an image and convert to b64 string
 @st.cache_data
 def load_image_as_base64(image_path):
     with open(image_path, "rb") as img_file:
@@ -301,24 +323,25 @@ chart_component = st.components.v2.component(
     """,
 )
 
-result = chart_component(
+chart_component(
     data={
-        "df": df,                           # Arrow-serializable dataframe
-        "user_info": {"name": "Alice"},     # JSON-serializable data
-        "image_base64": img_base64          # Image as base64 string
+        "df": df,  # Arrow-serializable dataframe
+        "user_info": {"name": "Alice"},  # JSON-serializable data
+        "image_base64": img_base64,  # Image as base64 string
     }
 )
 ```
 
 </Collapse>
 
-## Complete interactive counter
+<Cloud name="doc-components-v2-rich-data" height="300px" />
 
-This comprehensive example demonstrates both state and trigger values. It shows the following key concepts:
+## Interactive counter component
 
-- Using state and trigger values together in one component.
-- Using CSS custom properties to style the component.
-- Bidirectional communication between Python and JavaScript.
+This example shows a counter component that can be incremented, decremented, and reset. It contains multiple event handlers that are cleaned up when the component is unmounted. It shows the following key concepts:
+
+- State and trigger values together in one component.
+- More comprehensive CSS custom properties to match the app's theme.
 - Multiple event handlers.
 - Cleanup functions for proper resource management.
 
@@ -345,9 +368,11 @@ This comprehensive example demonstrates both state and trigger values. It shows 
   font-family: var(--st-font);
   text-align: center;
 }
+
 .buttons {
   margin-top: 15px;
 }
+
 button {
   margin: 0 5px;
   padding: 8px 16px;
@@ -357,9 +382,11 @@ button {
   border-radius: var(--st-button-radius);
   cursor: pointer;
 }
+
 button:hover {
   opacity: 0.8;
 }
+
 #reset {
   background: var(--st-red-color);
 }
@@ -546,11 +573,14 @@ if result.reset:
 
 </Collapse>
 
-## Form with validation
+<Cloud name="doc-components-v2-interactive-counter" height="300px" />
 
-This example shows a more complex component with form validation. It shows the following key concepts:
+## Danger button component
 
-- Form handling and validation.
+You can include frontend validation processes in your component. This example shows a button that requires the user to hold for two seconds to confirm the action. Only when the user continuously holds the button for two seconds will the component update the trigger value with `setTriggerValue("confirmed", true)`. The component also displays a progress ring to indicate the user's progress.
+
+- Frontend validation logic to gatekeep event submission.
+
 - Draft saving functionality.
 - Multiple event handlers and callbacks.
 - Using CSS custom properties to style the component.
@@ -560,172 +590,325 @@ This example shows a more complex component with form validation. It shows the f
 `my_component/my_html.html`:
 
 ```markup
-<div class="form-container">
-    <h3>Contact Form</h3>
-    <form id="contact-form">
-        <input type="text" id="name" placeholder="Your name" required>
-        <input type="email" id="email" placeholder="Your email" required>
-        <textarea id="message" placeholder="Your message" required></textarea>
-        <div class="form-actions">
-            <button type="button" id="save-draft">Save Draft</button>
-            <button type="submit">Send Message</button>
-            <div id="status"></div>
+<div class="danger-zone">
+    <div class="warning-banner">
+        <span class="warning-icon">⚠️</span>
+        <span class="warning-text">Danger Zone</span>
+    </div>
+
+    <button id="danger-btn" class="hold-button">
+        <svg class="progress-ring" viewBox="0 0 100 100">
+            <circle class="ring-bg" cx="50" cy="50" r="45" />
+            <circle
+                id="ring-progress"
+                class="ring-progress"
+                cx="50"
+                cy="50"
+                r="45"
+            />
+        </svg>
+        <div class="button-content">
+            <span id="icon" class="icon">🗑️</span>
+            <span id="label" class="label">Hold to Delete</span>
         </div>
-    </form>
+    </button>
+
+    <p class="hint">Press and hold for 2 seconds to confirm</p>
 </div>
 ```
 
 `my_component/my_css.css`:
 
 ```css
-.form-container {
-  padding: 1rem;
-  border: 1px solid var(--st-border-color);
-  border-radius: var(--st-base-radius);
-  box-sizing: border-box;
-}
-h3 {
-  font-size: var(--st-heading-font-size-h3, inherit);
-  font-weight: var(--st-heading-font-weight-h3, inherit);
-  margin: 0;
-}
-input,
-textarea {
-  width: 100%;
-  padding: 0.5rem;
-  margin: 0.5rem 0;
-  background: var(--st-secondary-background-color);
-  border: 1px solid transparent;
-  border-radius: var(--st-base-radius);
-  box-sizing: border-box;
-  font-size: inherit;
-  font-family: inherit;
-}
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--st-primary-color);
-}
-textarea {
-  height: 5rem;
-  resize: vertical;
-}
-.form-actions {
+.danger-zone {
+  font-family: var(--st-font);
+  padding: 2rem;
   display: flex;
-  gap: 1rem;
-  margin-top: 0.75rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
-button {
+
+.warning-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.5rem 1rem;
-  border-radius: var(--st-button-radius);
-  border: 1px solid transparent;
-  font-size: inherit;
-  font-family: inherit;
+  background: var(--st-red-background-color);
+  border: 1px solid var(--st-red-color);
+  border-radius: var(--st-base-radius);
 }
-button[type="submit"] {
-  background: var(--st-primary-color);
-  color: white;
+
+.warning-icon {
+  font-size: 1rem;
 }
-button[type="button"] {
-  border: 1px solid var(--st-border-color);
-  background: var(--st-primary-background-color);
-  color: var(--st-text-color);
+
+.warning-text {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--st-red-color);
 }
-button:hover {
+
+.hold-button {
+  position: relative;
+  width: 7.5rem;
+  height: 7.5rem;
+  padding: 0 2rem;
+  border-radius: 50%;
+  border: 1px solid var(--st-primary-color);
+  background: var(--st-secondary-background-color);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hold-button:hover {
+  transform: scale(1.05);
+  border-color: var(--st-red-color);
+}
+
+.hold-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.hold-button:disabled {
+  cursor: not-allowed;
   opacity: 0.9;
-  border-color: var(--st-primary-color);
 }
-#status {
-  margin-top: 0.5rem;
+
+.hold-button.holding {
+  animation: pulse 0.5s ease-in-out infinite;
+  border-color: var(--st-red-color);
+}
+
+.hold-button.triggered {
+  animation: success-burst 0.6s ease-out forwards;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--st-red-color);
+  }
+  50% {
+    box-shadow: 0 0 0 15px transparent;
+  }
+}
+
+@keyframes success-burst {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+    background: var(--st-red-background-color);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring-bg {
+  fill: none;
+  stroke: var(--st-border-color);
+  stroke-width: 4;
+}
+
+.ring-progress {
+  fill: none;
+  stroke: var(--st-red-color);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  transition: stroke-dashoffset 0.1s linear;
+  filter: drop-shadow(0 0 6px var(--st-red-color));
+}
+
+.button-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.icon {
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.hold-button:hover .icon {
+  transform: scale(1.1);
+}
+
+.hold-button.holding .icon {
+  animation: shake 0.15s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px) rotate(-5deg);
+  }
+  75% {
+    transform: translateX(2px) rotate(5deg);
+  }
+}
+
+.label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--st-text-color);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.hold-button.holding .label {
+  color: var(--st-red-color);
+  opacity: 1;
+}
+
+.hold-button.triggered .icon,
+.hold-button.triggered .label {
+  color: var(--st-primary-color);
+  opacity: 1;
+}
+
+.hint {
+  font-size: 0.7rem;
+  color: var(--st-text-color);
+  opacity: 0.5;
+  margin: 0;
 }
 ```
 
 `my_component/my_js.js`:
 
 ```javascript
-export default function ({
-  parentElement,
-  setStateValue,
-  setTriggerValue,
-  data,
-}) {
-  const form = parentElement.querySelector("#contact-form");
-  const nameInput = parentElement.querySelector("#name");
-  const emailInput = parentElement.querySelector("#email");
-  const messageInput = parentElement.querySelector("#message");
-  const saveDraftBtn = parentElement.querySelector("#save-draft");
-  const status = parentElement.querySelector("#status");
+const HOLD_DURATION = 2000; // 2 seconds
+const COOLDOWN_DURATION = 1500; // cooldown after trigger
+const CIRCUMFERENCE = 2 * Math.PI * 45; // circle circumference
 
-  // Register custom CSS variables with third values from --st-heading-font-sizes and --st-heading-font-weights
-  requestAnimationFrame(() => {
-    const container = parentElement.querySelector(".form-container");
-    const headingSizes = getComputedStyle(form)
-      .getPropertyValue("--st-heading-font-sizes")
-      .trim();
-    const headingWeights = getComputedStyle(form)
-      .getPropertyValue("--st-heading-font-weights")
-      .trim();
-    const sizes = headingSizes.split(",").map((s) => s.trim());
-    const weights = headingWeights.split(",").map((s) => s.trim());
-    if (sizes[2] && container) {
-      container.style.setProperty("--st-heading-font-size-h3", sizes[2]);
+export default function ({ parentElement, setTriggerValue }) {
+  const button = parentElement.querySelector("#danger-btn");
+  const progress = parentElement.querySelector("#ring-progress");
+  const icon = parentElement.querySelector("#icon");
+  const label = parentElement.querySelector("#label");
+
+  let startTime = null;
+  let animationFrame = null;
+  let isDisabled = false; // Prevent interaction during cooldown
+
+  function updateProgress() {
+    if (!startTime) return;
+
+    const elapsed = Date.now() - startTime;
+    const progressPercent = Math.min(elapsed / HOLD_DURATION, 1);
+    const offset = CIRCUMFERENCE * (1 - progressPercent);
+
+    progress.style.strokeDashoffset = offset;
+
+    if (progressPercent >= 1) {
+      // Triggered!
+      triggerAction();
+    } else {
+      animationFrame = requestAnimationFrame(updateProgress);
     }
-    if (weights[2] && container) {
-      container.style.setProperty("--st-heading-font-weight-h3", weights[2]);
+  }
+
+  function startHold() {
+    if (isDisabled) return; // Ignore if in cooldown
+
+    startTime = Date.now();
+    button.classList.add("holding");
+    label.textContent = "Keep holding...";
+    animationFrame = requestAnimationFrame(updateProgress);
+  }
+
+  function cancelHold() {
+    if (isDisabled) return; // Ignore if in cooldown
+
+    startTime = null;
+    button.classList.remove("holding");
+    label.textContent = "Hold to Delete";
+    progress.style.strokeDashoffset = CIRCUMFERENCE;
+
+    if (animationFrame) {
+      cancelAnimationFrame(animationFrame);
+      animationFrame = null;
     }
-  });
+  }
 
-  // Load draft if available
-  const loadDraft = (draft) => {
-    nameInput.value = draft.name || "";
-    emailInput.value = draft.email || "";
-    messageInput.value = draft.message || "";
-  };
+  function triggerAction() {
+    cancelAnimationFrame(animationFrame);
+    animationFrame = null;
+    startTime = null;
+    isDisabled = true; // Disable during cooldown
 
-  loadDraft(data?.draft || {});
+    button.classList.remove("holding");
+    button.classList.add("triggered");
+    button.disabled = true;
 
-  // Save draft
-  const saveDraft = () => {
-    setStateValue("draft", {
-      name: nameInput.value,
-      email: emailInput.value,
-      message: messageInput.value,
-    });
-    setTriggerValue("action", "save_draft");
-    status.textContent = "Draft saved!";
-    status.style.color = "var(--st-green-color)";
-    setTimeout(() => (status.textContent = ""), 2000);
-  };
+    icon.textContent = "✓";
+    label.textContent = "Deleted!";
+    progress.style.strokeDashoffset = 0;
 
-  // Submit form
-  const submitForm = (e) => {
+    // Send trigger to Python
+    setTriggerValue("confirmed", true);
+
+    // Reset after cooldown
+    setTimeout(() => {
+      button.classList.remove("triggered");
+      button.disabled = false;
+      isDisabled = false;
+      icon.textContent = "🗑️";
+      label.textContent = "Hold to Delete";
+      progress.style.strokeDashoffset = CIRCUMFERENCE;
+    }, COOLDOWN_DURATION);
+  }
+
+  function handleTouchStart(e) {
     e.preventDefault();
+    startHold();
+  }
 
-    if (!nameInput.value || !emailInput.value || !messageInput.value) {
-      status.textContent = "Please fill all fields";
-      status.style.color = "var(--st-red-color)";
-      return;
-    }
+  // Mouse events
+  button.addEventListener("mousedown", startHold);
+  button.addEventListener("mouseup", cancelHold);
+  button.addEventListener("mouseleave", cancelHold);
 
-    status.textContent = "Message sent!";
-    status.style.color = "var(--st-blue-color)";
-    setTimeout(() => (status.textContent = ""), 2000);
-    setTriggerValue("submit", {
-      name: nameInput.value,
-      email: emailInput.value,
-      message: messageInput.value,
-    });
-    loadDraft({});
-    setStateValue("draft", {});
-  };
-
-  // Event listeners - only update on button clicks
-  saveDraftBtn.addEventListener("click", saveDraft);
-  form.addEventListener("submit", submitForm);
+  // Touch events for mobile
+  button.addEventListener("touchstart", handleTouchStart);
+  button.addEventListener("touchend", cancelHold);
+  button.addEventListener("touchcancel", cancelHold);
 
   return () => {
-    saveDraftBtn.removeEventListener("click", saveDraft);
-    form.removeEventListener("submit", submitForm);
+    if (animationFrame) cancelAnimationFrame(animationFrame);
+
+    // Remove mouse event listeners
+    button.removeEventListener("mousedown", startHold);
+    button.removeEventListener("mouseup", cancelHold);
+    button.removeEventListener("mouseleave", cancelHold);
+
+    // Remove touch event listeners
+    button.removeEventListener("touchstart", handleTouchStart);
+    button.removeEventListener("touchend", cancelHold);
+    button.removeEventListener("touchcancel", cancelHold);
   };
 }
 ```
@@ -736,37 +919,37 @@ export default function ({
 import streamlit as st
 from my_component import HTML, CSS, JS
 
-form_component = st.components.v2.component(
-    "contact_form",
+danger_button = st.components.v2.component(
+    name="hold_to_confirm",
     html=HTML,
     css=CSS,
     js=JS,
 )
 
-# Handle form actions
-def handle_form_action():
-    # Process submission
-    # if submission_failed:
-    #     submission = st.session_state.message_form.submit
-    #     st.session_state.message_form.draft=submission
-    pass
+st.title("Hold-to-Confirm Button")
+st.caption("A dangerous action that requires intentional confirmation")
 
-# Use the component
-form_state = st.session_state.get("message_form", {})
-result = form_component(
-    data={"draft": form_state.get("draft", {})},
-    default={"draft": form_state.get("draft", {})},
-    on_draft_change=lambda: None,
-    on_submit_change=handle_form_action,
-    key="message_form"
-)
+# Track deletion events
+if "deleted_items" not in st.session_state:
+    st.session_state.deleted_items = []
 
-if result.submit:
-    st.write("Message Submitted:")
-    result.submit
-else:
-    st.write("Current Draft:")
-    result.draft
+# Callback when deletion is confirmed
+def on_delete_confirmed():
+    st.session_state.deleted_items.append(
+        f"Deleted item #{len(st.session_state.deleted_items) + 1}"
+    )
+    st.toast("🗑️ Item permanently deleted!", icon="⚠️")
+
+
+# Render the component
+result = danger_button(key="danger_btn", on_confirmed_change=on_delete_confirmed)
+
+# Show deletion history
+if st.session_state.deleted_items:
+    st.divider()
+    st.subheader("Deletion Log")
+    for item in reversed(st.session_state.deleted_items[-3:]):
+        st.write(f"• {item}")
 ```
 
 <Collapse title="Complete code">
@@ -774,201 +957,356 @@ else:
 ```python
 import streamlit as st
 
-form_component = st.components.v2.component(
-    "contact_form",
+danger_button = st.components.v2.component(
+    name="hold_to_confirm",
     html="""
-    <div class="form-container">
-        <h3>Contact Form</h3>
-        <form id="contact-form">
-            <input type="text" id="name" placeholder="Your name" required>
-            <input type="email" id="email" placeholder="Your email" required>
-            <textarea id="message" placeholder="Your message" required></textarea>
-            <div class="form-actions">
-                <button type="button" id="save-draft">Save Draft</button>
-                <button type="submit">Send Message</button>
-                <div id="status"></div>
+    <div class="danger-zone">
+        <div class="warning-banner">
+            <span class="warning-icon">⚠️</span>
+            <span class="warning-text">Danger Zone</span>
+        </div>
+
+        <button id="danger-btn" class="hold-button">
+            <svg class="progress-ring" viewBox="0 0 100 100">
+                <circle class="ring-bg" cx="50" cy="50" r="45" />
+                <circle
+                    id="ring-progress"
+                    class="ring-progress"
+                    cx="50"
+                    cy="50"
+                    r="45"
+                />
+            </svg>
+            <div class="button-content">
+                <span id="icon" class="icon">🗑️</span>
+                <span id="label" class="label">Hold to Delete</span>
             </div>
-        </form>
+        </button>
+
+        <p class="hint">Press and hold for 2 seconds to confirm</p>
     </div>
     """,
     css="""
-    .form-container {
-        padding: 1rem;
-        border: 1px solid var(--st-border-color);
-        border-radius: var(--st-base-radius);
-        box-sizing: border-box;
-    }
-    h3 {
-        font-size: var(--st-heading-font-size-h3, inherit);
-        font-weight: var(--st-heading-font-weight-h3, inherit);
-        margin: 0;
-    }
-    input,
-    textarea {
-        width: 100%;
-        padding: 0.5rem;
-        margin: 0.5rem 0;
-        background: var(--st-secondary-background-color);
-        border: 1px solid transparent;
-        border-radius: var(--st-base-radius);
-        box-sizing: border-box;
-        font-size: inherit;
-        font-family: inherit;
-    }
-    input:focus,
-    textarea:focus {
-        outline: none;
-        border-color: var(--st-primary-color);
-    }
-    textarea {
-        height: 5rem;
-        resize: vertical;
-    }
-    .form-actions {
+    .danger-zone {
+        font-family: var(--st-font);
+        padding: 2rem;
         display: flex;
-        gap: 1rem;
-        margin-top: 0.75rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
     }
-    button {
+
+    .warning-banner {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
         padding: 0.5rem 1rem;
-        border-radius: var(--st-button-radius);
-        border: 1px solid transparent;
-        font-size: inherit;
-        font-family: inherit;
+        background: var(--st-red-background-color);
+        border: 1px solid var(--st-red-color);
+        border-radius: var(--st-base-radius);
     }
-    button[type="submit"] {
-        background: var(--st-primary-color);
-        color: white;
+
+    .warning-icon {
+        font-size: 1rem;
     }
-    button[type="button"] {
-        border: 1px solid var(--st-border-color);
-        background: var(--st-primary-background-color);
-        color: var(--st-text-color);
+
+    .warning-text {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--st-red-color);
     }
-    button:hover {
+
+    .hold-button {
+        position: relative;
+        width: 7.5rem;
+        height: 7.5rem;
+        padding: 0 2rem;
+        border-radius: 50%;
+        border: 1px solid var(--st-primary-color);
+        background: var(--st-secondary-background-color);
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .hold-button:hover {
+        transform: scale(1.05);
+        border-color: var(--st-red-color);
+    }
+
+    .hold-button:active:not(:disabled) {
+        transform: scale(0.98);
+    }
+
+    .hold-button:disabled {
+        cursor: not-allowed;
         opacity: 0.9;
-        border-color: var(--st-primary-color);
     }
-    #status {
-        margin-top: 0.5rem;
+
+    .hold-button.holding {
+        animation: pulse 0.5s ease-in-out infinite;
+        border-color: var(--st-red-color);
+    }
+
+    .hold-button.triggered {
+        animation: success-burst 0.6s ease-out forwards;
+    }
+
+    @keyframes pulse {
+        0%,
+        100% {
+            box-shadow: 0 0 0 0 var(--st-red-color);
+        }
+        50% {
+            box-shadow: 0 0 0 15px transparent;
+        }
+    }
+
+    @keyframes success-burst {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.15);
+            background: var(--st-red-background-color);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .progress-ring {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: rotate(-90deg);
+    }
+
+    .ring-bg {
+        fill: none;
+        stroke: var(--st-border-color);
+        stroke-width: 4;
+    }
+
+    .ring-progress {
+        fill: none;
+        stroke: var(--st-red-color);
+        stroke-width: 4;
+        stroke-linecap: round;
+        stroke-dasharray: 283;
+        stroke-dashoffset: 283;
+        transition: stroke-dashoffset 0.1s linear;
+        filter: drop-shadow(0 0 6px var(--st-red-color));
+    }
+
+    .button-content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .icon {
+        font-size: 2rem;
+        transition: transform 0.3s ease;
+    }
+
+    .hold-button:hover .icon {
+        transform: scale(1.1);
+    }
+
+    .hold-button.holding .icon {
+        animation: shake 0.15s ease-in-out infinite;
+    }
+
+    @keyframes shake {
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+        25% {
+            transform: translateX(-2px) rotate(-5deg);
+        }
+        75% {
+            transform: translateX(2px) rotate(5deg);
+        }
+    }
+
+    .label {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--st-text-color);
+        opacity: 0.6;
+        transition: all 0.3s ease;
+    }
+
+    .hold-button.holding .label {
+        color: var(--st-red-color);
+        opacity: 1;
+    }
+
+    .hold-button.triggered .icon,
+    .hold-button.triggered .label {
+        color: var(--st-primary-color);
+        opacity: 1;
+    }
+
+    .hint {
+        font-size: 0.7rem;
+        color: var(--st-text-color);
+        opacity: 0.5;
+        margin: 0;
     }
     """,
     js="""
-    export default function ({
-        parentElement,
-        setStateValue,
-        setTriggerValue,
-        data,
-    }) {
-        const form = parentElement.querySelector("#contact-form");
-        const nameInput = parentElement.querySelector("#name");
-        const emailInput = parentElement.querySelector("#email");
-        const messageInput = parentElement.querySelector("#message");
-        const saveDraftBtn = parentElement.querySelector("#save-draft");
-        const status = parentElement.querySelector("#status");
+    const HOLD_DURATION = 2000; // 2 seconds
+    const COOLDOWN_DURATION = 1500; // cooldown after trigger
+    const CIRCUMFERENCE = 2 * Math.PI * 45; // circle circumference
 
-        // Register custom CSS variables with third values from --st-heading-font-sizes and --st-heading-font-weights
-        requestAnimationFrame(() => {
-            const container = parentElement.querySelector(".form-container");
-            const headingSizes = getComputedStyle(form)
-                .getPropertyValue("--st-heading-font-sizes")
-                .trim();
-            const headingWeights = getComputedStyle(form)
-                .getPropertyValue("--st-heading-font-weights")
-                .trim();
-            const sizes = headingSizes.split(",").map((s) => s.trim());
-            const weights = headingWeights.split(",").map((s) => s.trim());
-            if (sizes[2] && container) {
-                container.style.setProperty("--st-heading-font-size-h3", sizes[2]);
+    export default function ({ parentElement, setTriggerValue }) {
+        const button = parentElement.querySelector("#danger-btn");
+        const progress = parentElement.querySelector("#ring-progress");
+        const icon = parentElement.querySelector("#icon");
+        const label = parentElement.querySelector("#label");
+
+        let startTime = null;
+        let animationFrame = null;
+        let isDisabled = false; // Prevent interaction during cooldown
+
+        function updateProgress() {
+            if (!startTime) return;
+
+            const elapsed = Date.now() - startTime;
+            const progressPercent = Math.min(elapsed / HOLD_DURATION, 1);
+            const offset = CIRCUMFERENCE * (1 - progressPercent);
+
+            progress.style.strokeDashoffset = offset;
+
+            if (progressPercent >= 1) {
+                // Triggered!
+                triggerAction();
+            } else {
+                animationFrame = requestAnimationFrame(updateProgress);
             }
-            if (weights[2] && container) {
-                container.style.setProperty("--st-heading-font-weight-h3", weights[2]);
+        }
+
+        function startHold() {
+            if (isDisabled) return; // Ignore if in cooldown
+
+            startTime = Date.now();
+            button.classList.add("holding");
+            label.textContent = "Keep holding...";
+            animationFrame = requestAnimationFrame(updateProgress);
+        }
+
+        function cancelHold() {
+            if (isDisabled) return; // Ignore if in cooldown
+
+            startTime = null;
+            button.classList.remove("holding");
+            label.textContent = "Hold to Delete";
+            progress.style.strokeDashoffset = CIRCUMFERENCE;
+
+            if (animationFrame) {
+                cancelAnimationFrame(animationFrame);
+                animationFrame = null;
             }
-        });
+        }
 
-        // Load draft if available
-        const loadDraft = (draft) => {
-            nameInput.value = draft.name || "";
-            emailInput.value = draft.email || "";
-            messageInput.value = draft.message || "";
-        };
+        function triggerAction() {
+            cancelAnimationFrame(animationFrame);
+            animationFrame = null;
+            startTime = null;
+            isDisabled = true; // Disable during cooldown
 
-        loadDraft(data?.draft || {});
+            button.classList.remove("holding");
+            button.classList.add("triggered");
+            button.disabled = true;
 
-        // Save draft
-        const saveDraft = () => {
-            setStateValue("draft", {
-                name: nameInput.value,
-                email: emailInput.value,
-                message: messageInput.value,
-            });
-            setTriggerValue("action", "save_draft");
-            status.textContent = "Draft saved!";
-            status.style.color = "var(--st-green-color)";
-            setTimeout(() => (status.textContent = ""), 2000);
-        };
+            icon.textContent = "✓";
+            label.textContent = "Deleted!";
+            progress.style.strokeDashoffset = 0;
 
-        // Submit form
-        const submitForm = (e) => {
+            // Send trigger to Python
+            setTriggerValue("confirmed", true);
+
+            // Reset after cooldown
+            setTimeout(() => {
+                button.classList.remove("triggered");
+                button.disabled = false;
+                isDisabled = false;
+                icon.textContent = "🗑️";
+                label.textContent = "Hold to Delete";
+                progress.style.strokeDashoffset = CIRCUMFERENCE;
+            }, COOLDOWN_DURATION);
+        }
+
+        function handleTouchStart(e) {
             e.preventDefault();
+            startHold();
+        }
 
-            if (!nameInput.value || !emailInput.value || !messageInput.value) {
-                status.textContent = "Please fill all fields";
-                status.style.color = "var(--st-red-color)";
-                return;
-            }
+        // Mouse events
+        button.addEventListener("mousedown", startHold);
+        button.addEventListener("mouseup", cancelHold);
+        button.addEventListener("mouseleave", cancelHold);
 
-            status.textContent = "Message sent!";
-            status.style.color = "var(--st-blue-color)";
-            setTimeout(() => (status.textContent = ""), 2000);
-            setTriggerValue("submit", {
-                name: nameInput.value,
-                email: emailInput.value,
-                message: messageInput.value,
-            });
-            loadDraft({});
-            setStateValue("draft", {});
-        };
-
-        // Event listeners - only update on button clicks
-        saveDraftBtn.addEventListener("click", saveDraft);
-        form.addEventListener("submit", submitForm);
+        // Touch events for mobile
+        button.addEventListener("touchstart", handleTouchStart);
+        button.addEventListener("touchend", cancelHold);
+        button.addEventListener("touchcancel", cancelHold);
 
         return () => {
-            saveDraftBtn.removeEventListener("click", saveDraft);
-            form.removeEventListener("submit", submitForm);
+            if (animationFrame) cancelAnimationFrame(animationFrame);
+
+            // Remove mouse event listeners
+            button.removeEventListener("mousedown", startHold);
+            button.removeEventListener("mouseup", cancelHold);
+            button.removeEventListener("mouseleave", cancelHold);
+
+            // Remove touch event listeners
+            button.removeEventListener("touchstart", handleTouchStart);
+            button.removeEventListener("touchend", cancelHold);
+            button.removeEventListener("touchcancel", cancelHold);
         };
     }
-    """
+    """,
 )
 
-# Handle form actions
-def handle_form_action():
-    # Process submission
-    # if submission_failed:
-    #     submission = st.session_state.message_form.submit
-    #     st.session_state.message_form.draft=submission
-    pass
+st.title("Hold-to-Confirm Button")
+st.caption("A dangerous action that requires intentional confirmation")
 
-# Use the component
-form_state = st.session_state.get("message_form", {})
-result = form_component(
-    data={"draft": form_state.get("draft", {})},
-    default={"draft": form_state.get("draft", {})},
-    on_draft_change=lambda: None,
-    on_submit_change=handle_form_action,
-    key="message_form"
-)
+# Track deletion events
+if "deleted_items" not in st.session_state:
+    st.session_state.deleted_items = []
 
-if result.submit:
-    st.write("Message Submitted:")
-    result.submit
-else:
-    st.write("Current Draft:")
-    result.draft
+# Callback when deletion is confirmed
+def on_delete_confirmed():
+    st.session_state.deleted_items.append(
+        f"Deleted item #{len(st.session_state.deleted_items) + 1}"
+    )
+    st.toast("🗑️ Item permanently deleted!", icon="⚠️")
+
+
+# Render the component
+result = danger_button(key="danger_btn", on_confirmed_change=on_delete_confirmed)
+
+# Show deletion history
+if st.session_state.deleted_items:
+    st.divider()
+    st.subheader("Deletion Log")
+    for item in reversed(st.session_state.deleted_items[-3:]):
+        st.write(f"• {item}")
 ```
 
 </Collapse>
+
+<Cloud name="doc-components-v2-danger-button" height="400px" />
 
 ## What's next?
 
