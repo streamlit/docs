@@ -2,6 +2,10 @@
   @apply mt-6;
 }
 
+.Container h4 {
+  @apply mb-4;
+}
+
 .HeaderContainer {
   @apply mb-6;
 }
@@ -58,13 +62,26 @@
   @apply mb-7 relative;
 }
 
+.Header {
+  @apply flex items-center px-3 py-1 bg-gray-20 text-gray-70 text-xs font-medium tracking-wide rounded-t-xl border-b border-gray-30;
+  min-height: 2.5rem;
+}
+
+:global(.dark) .Header {
+  @apply bg-gray-90 text-gray-50 border-gray-80;
+}
+
+.Language {
+  @apply uppercase tracking-wider pr-4;
+}
+
 .CodeBlockContainer pre,
 .CodeBlockContainer code {
   @apply overflow-auto max-w-full whitespace-pre;
 }
 
 .CodeBlockContainer pre {
-  @apply p-4 bg-gray-10 text-gray-80 font-medium rounded-xl relative leading-relaxed;
+  @apply p-6 bg-gray-10 text-gray-80 font-medium rounded-b-xl relative leading-relaxed;
 }
 
 .CodeBlockContainer pre code {
@@ -76,16 +93,16 @@
 }
 
 .CodeBlockContainer button {
-  @apply absolute top-2 right-2 cursor-pointer h-8 w-8 mb-0 flex items-center;
+  @apply absolute top-2 right-1 cursor-pointer h-8 w-8 mb-0 flex items-center justify-center;
 }
 
 .CodeBlockContainer button::before {
-  @apply absolute top-2 right-2 z-10 transition-all duration-75 hover:opacity-40;
+  @apply z-10 transition-all duration-75 hover:opacity-40;
   content: url("/clipboard.svg");
 }
 
 .CodeBlockContainer button span {
-  @apply absolute right-10 text-gray-80 font-mono text-sm tracking-tight font-normal opacity-0;
+  @apply absolute -top-0.5 right-10 text-gray-80 font-mono text-sm tracking-tight font-normal opacity-0;
 }
 
 .CodeBlockContainer button:hover span {
