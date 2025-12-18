@@ -4,7 +4,7 @@
 }
 
 .Header {
-  @apply flex items-center px-3 py-1 bg-gray-10 text-gray-70 text-sm font-mono text-sm font-medium tracking-wide rounded-t-md border-b border-gray-30;
+  @apply flex items-center px-3 py-1 bg-gray-10 text-gray-70 text-sm font-mono font-medium tracking-wide rounded-t-xl border-b border-gray-30;
   min-height: 2.5rem;
 }
 
@@ -30,7 +30,7 @@
 }
 
 .Pre {
-  @apply p-6 bg-gray-10 text-gray-80 font-medium rounded-md relative leading-relaxed;
+  @apply p-6 bg-gray-10 text-gray-80 font-medium rounded-xl relative leading-relaxed;
 }
 
 /* Dark mode background and text for Pre */
