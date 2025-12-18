@@ -4,7 +4,7 @@
 }
 
 .Header {
-  @apply flex items-center px-3 py-1 bg-gray-10 text-gray-70 text-sm font-medium tracking-wide rounded-t-md border-b border-gray-30;
+  @apply flex items-center px-3 py-1 bg-gray-10 text-gray-70 text-sm font-mono text-sm font-medium tracking-wide rounded-t-md border-b border-gray-30;
   min-height: 2.5rem;
 }
 
@@ -13,11 +13,11 @@
 }
 
 .Language {
-  @apply uppercase tracking-wider pr-4;
+  @apply uppercase pr-4 font-mono;
 }
 
 .Filename {
-  @apply font-mono text-sm leading-6 pr-4;
+  @apply leading-6 pr-4;
 }
 
 .HasHeader {
@@ -103,5 +103,5 @@
 }
 
 .TryMeLabel {
-  @apply hidden sm:inline;
+  @apply hidden sm:inline tracking-tight;
 }

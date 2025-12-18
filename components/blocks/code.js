@@ -76,7 +76,7 @@ const TryMeButton = ({ code }) => {
       className={styles.TryMeButton}
       title="Try this code in Streamlit Playground"
     >
-      <span className={styles.TryMeLabel}>Try it!</span>
+      <span className={styles.TryMeLabel}>Try it</span>
       <i className={`material-icons-sharp ${styles.TryMeIcon}`}>
         arrow_outward
       </i>
