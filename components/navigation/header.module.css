@@ -1,26 +1,30 @@
 .Container {
-  @apply relative w-full z-30 border-b;
+  @apply relative w-full z-30;
   @apply bg-white !important;
 }
 
 .stickyContainer {
-  @apply fixed h-12 border-b-gray-30 top-0;
+  @apply fixed h-12 top-0;
+}
+
+/* Fade effect using background color gradient */
+.stickyContainer::after {
+  content: "";
+  @apply absolute left-0 right-0 h-6 pointer-events-none;
+  top: 100%;
+  background: linear-gradient(to bottom, theme("colors.white"), transparent);
 }
 
 .standardContainer {
-  @apply border-b-white h-24;
+  @apply h-24;
 }
 
 :global(.dark) .Container {
   @apply bg-gray-100 !important;
 }
 
-:global(.dark) .stickyContainer {
-  @apply border-b-gray-80 !important;
-}
-
-:global(.dark) .standardContainer {
-  @apply border-b-gray-100 !important;
+:global(.dark) .stickyContainer::after {
+  background: linear-gradient(to bottom, theme("colors.gray.100"), transparent);
 }
 
 .Navigation {

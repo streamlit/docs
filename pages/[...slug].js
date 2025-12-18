@@ -44,6 +44,7 @@ import Helpful from "../components/utilities/helpful";
 import { H1, H2, H3 } from "../components/blocks/headers";
 import Psa from "../components/utilities/psa";
 import FloatingNav from "../components/utilities/floatingNav";
+import VersionSelector from "../components/utilities/versionSelector";
 
 // MDX Components
 import Autofunction from "../components/blocks/autofunction";
@@ -108,11 +109,11 @@ export default function Article({
 }) {
   const router = useRouter();
 
-  let versionWarning;
   let currentLink;
 
   const { version, platform, goToLatest, goToOpenSource } = useVersionContext();
-  const isVersionedPage = currMenuItem && currMenuItem.isVersioned;
+  // Determine if page is versioned based on having docstrings (Autofunction usage)
+  const isVersionedPage = docstrings && Object.keys(docstrings).length > 0;
   const isUnversionedURL = !versionFromSlug || !platformFromSlug;
   const contextIsDefault =
     version == DEFAULT_VERSION && platform == DEFAULT_PLATFORM;
@@ -164,7 +165,6 @@ export default function Article({
         version={version}
         slug={slug}
         oldStreamlitFunction={props.oldName ?? ""}
-        goToLatest={goToLatest}
       />
     ),
     pre: (props) => <Code {...props} />,
@@ -180,21 +180,8 @@ export default function Article({
   let arrowContainer;
   let keywordsTag;
 
-  if (version != DEFAULT_VERSION && currMenuItem.isVersioned) {
-    // Slugs don't have the version number, so we just have to join them.
-    currentLink = `/${slug.join("/")}`;
-    versionWarning = (
-      <Warning>
-        <p>
-          You are reading the documentation for Streamlit version {version}, but{" "}
-          <Link href={currentLink} onClick={goToLatest}>
-            {LATEST_VERSION}
-          </Link>{" "}
-          is the latest version available.
-        </p>
-      </Warning>
-    );
-  }
+  // Version props for versioned pages (used by both inline selector and mobile header)
+  const versionProps = isVersionedPage ? { version, slug, goToLatest } : null;
 
   if (prevMenuItem) {
     previousArrow = (
@@ -236,7 +223,7 @@ export default function Article({
         img: Image,
       }}
     >
-      <Layout>
+      <Layout versionProps={versionProps}>
         <section className={styles.Container}>
           <SideBar slug={slug} menu={menu} />
           <Head>
@@ -288,19 +275,21 @@ export default function Article({
             />
           </Head>
           <section className={styles.InnerContainer} id="documentation">
-            {versionWarning}
             <BreadCrumbs slug={slug} menu={menu} />
-            <article
-              id="content-container"
-              className={classNames("leaf-page", styles.ArticleContainer)}
-            >
-              <FloatingNav slug={slug} menu={menu} />
-              <div className={classNames("content", styles.ContentContainer)}>
-                <MDXRemote {...source} components={components} />
-                {arrowContainer}
-                <Psa />
-              </div>
-            </article>
+            <div className={styles.StickyContext}>
+              {versionProps && <VersionSelector {...versionProps} />}
+              <article
+                id="content-container"
+                className={classNames("leaf-page", styles.ArticleContainer)}
+              >
+                <FloatingNav slug={slug} menu={menu} />
+                <div className={classNames("content", styles.ContentContainer)}>
+                  <MDXRemote {...source} components={components} />
+                  {arrowContainer}
+                  <Psa />
+                </div>
+              </article>
+            </div>
           </section>
           <Footer />
         </section>
