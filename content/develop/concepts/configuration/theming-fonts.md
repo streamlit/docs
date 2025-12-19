@@ -15,8 +15,7 @@ Streamlit comes with [Source Sans](https://fonts.adobe.com/fonts/source-sans), [
 
 To use these default faults, you can set each of the following configuration options to `"sans-serif"` (Source Sans), `"serif"` (Source Serif), or `"monospace"` (Source Code) in `config.toml`:
 
-<Code language="toml" filename=".streamlit/config.toml">
-
+```toml
 [theme]
 font = "sans-serif"
 headingFont = "sans-serif"
@@ -25,8 +24,7 @@ codeFont = "monospace"
 font = "sans-serif"
 headingFont = "sans-serif"
 codeFont = "monospace"
-
-</Code>
+```
 
 You can set the base font weight and size in the `[theme]` table in `config.toml`. These can't be configured separately in the sidebar.
 
@@ -128,11 +126,11 @@ Directory structure:
 ```none
 project_directory/
 ├── .streamlit/
-│ └── config.toml
+│   └── config.toml
 ├── static/
-│ ├── NotoSans-Italic-VariableFont_wdth,wght.ttf
-│ ├── NotoSans-VariableFont_wdth,wght.ttf
-│ └── NotoSansMono-VariableFont_wdth,wght.ttf
+│   ├── NotoSans-Italic-VariableFont_wdth,wght.ttf
+│   ├── NotoSans-VariableFont_wdth,wght.ttf
+│   └── NotoSansMono-VariableFont_wdth,wght.ttf
 └── streamlit_app.py
 ```
 
