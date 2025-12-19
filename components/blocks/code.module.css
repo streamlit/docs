@@ -16,6 +16,10 @@
   @apply uppercase tracking-wider pr-4;
 }
 
+.Filename {
+  @apply font-mono text-sm leading-6 pr-4;
+}
+
 .HasHeader {
   @apply rounded-t-none !important;
 }
