@@ -153,6 +153,10 @@
   @apply hidden;
 }
 
+.Container section :global(.code-block-header) {
+  @apply hidden !important;
+}
+
 .Container section div {
   @apply bg-gray-10;
   @apply text-gray-80;

@@ -15,6 +15,44 @@ import styles from "./code.module.css";
 // Initialize the cache for imported languages.
 const languageImports = new Map();
 
+// Map language identifiers to display-friendly names
+const languageDisplayNames = {
+  python: "Python",
+  javascript: "JavaScript",
+  js: "JavaScript",
+  typescript: "TypeScript",
+  ts: "TypeScript",
+  bash: "Bash",
+  sh: "Bash",
+  shell: "Shell",
+  json: "JSON",
+  yaml: "YAML",
+  yml: "YAML",
+  html: "HTML",
+  css: "CSS",
+  sql: "SQL",
+  toml: "TOML",
+  markdown: "Markdown",
+  md: "Markdown",
+  jsx: "JSX",
+  tsx: "TSX",
+  go: "Go",
+  rust: "Rust",
+  ruby: "Ruby",
+  java: "Java",
+  c: "C",
+  cpp: "C++",
+  csharp: "C#",
+  php: "PHP",
+  swift: "Swift",
+  kotlin: "Kotlin",
+  scala: "Scala",
+  r: "R",
+  docker: "Docker",
+  dockerfile: "Dockerfile",
+  none: "",
+};
+
 const Code = ({
   code,
   children,
@@ -29,7 +67,7 @@ const Code = ({
   useEffect(() => {
     // Get the language from the className, if it exists.
     // Classname usually is `language-python`, `language-javascript`, `language-bash`, etc.
-    let importLanguage = children.props.className?.substring(9);
+    let importLanguage = children?.props?.className?.substring(9);
 
     // If no language, default to Phython
     if (importLanguage === undefined || importLanguage === "undefined") {
@@ -83,6 +121,19 @@ const Code = ({
     languageClass = children.props.className;
   }
 
+  // Extract language identifier for display
+  const langId = languageClass?.substring(9) || language || "python";
+  const displayLanguage = languageDisplayNames[langId] || langId;
+  const showLanguage = langId.toLowerCase() !== "none";
+
+  const Header = (
+    <div className={classNames(styles.Header, "code-block-header")}>
+      {showLanguage && (
+        <span className={styles.Language}>{displayLanguage}</span>
+      )}
+    </div>
+  );
+
   if (img) {
     ConditionalRendering = (
       <section
@@ -90,8 +141,9 @@ const Code = ({
           [styles.NoCopyButton]: hideCopyButton,
         })}
       >
+        {Header}
         <Image src={img} clean={true} />
-        <pre className={styles.Pre}>
+        <pre className={classNames(styles.Pre, styles.HasHeader)}>
           <code ref={codeRef} className={languageClass}>
             {customCode}
           </code>
@@ -105,7 +157,8 @@ const Code = ({
           [styles.NoCopyButton]: hideCopyButton,
         })}
       >
-        <pre data-line={lines}>
+        {Header}
+        <pre className={styles.HasHeader} data-line={lines}>
           <code ref={codeRef} className={languageClass}>
             {customCode}
           </code>
@@ -119,7 +172,8 @@ const Code = ({
           [styles.NoCopyButton]: hideCopyButton,
         })}
       >
-        <pre className={styles.Pre}>
+        {Header}
+        <pre className={classNames(styles.Pre, styles.HasHeader)}>
           <code ref={codeRef} className={languageClass}>
             {customCode}
           </code>
