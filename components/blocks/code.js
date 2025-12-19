@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import Prism from "prismjs";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
@@ -11,6 +11,78 @@ import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 import Image from "./image";
 
 import styles from "./code.module.css";
+
+// Compress code with gzip and encode as base64 for Streamlit Playground
+async function compressCodeForPlayground(code) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(code);
+
+  const cs = new CompressionStream("gzip");
+  const writer = cs.writable.getWriter();
+  writer.write(data);
+  writer.close();
+
+  const compressedChunks = [];
+  const reader = cs.readable.getReader();
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    compressedChunks.push(value);
+  }
+
+  // Combine all chunks into a single Uint8Array
+  const totalLength = compressedChunks.reduce(
+    (acc, chunk) => acc + chunk.length,
+    0,
+  );
+  const compressed = new Uint8Array(totalLength);
+  let offset = 0;
+  for (const chunk of compressedChunks) {
+    compressed.set(chunk, offset);
+    offset += chunk.length;
+  }
+
+  // Convert to URL-safe base64 (uses - and _ instead of + and /)
+  let binary = "";
+  for (let i = 0; i < compressed.length; i++) {
+    binary += String.fromCharCode(compressed[i]);
+  }
+  return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_");
+}
+
+// TryMeButton component
+const TryMeButton = ({ code }) => {
+  const [playgroundUrl, setPlaygroundUrl] = useState(null);
+
+  useEffect(() => {
+    async function generateUrl() {
+      if (code) {
+        const encoded = await compressCodeForPlayground(code.trim());
+        setPlaygroundUrl(
+          `https://streamlit.io/playground?example=blank&code=${encoded}`,
+        );
+      }
+    }
+    generateUrl();
+  }, [code]);
+
+  if (!playgroundUrl) return null;
+
+  return (
+    <a
+      href={playgroundUrl}
+      target="streamlit-playground"
+      className={styles.TryMeButton}
+      title="Try this code in Streamlit Playground"
+    >
+      <span className={styles.TryMeLabel}>Try it</span>
+      <i className={`material-icons-sharp ${styles.TryMeIcon}`}>
+        arrow_outward
+      </i>
+    </a>
+  );
+};
 
 // Initialize the cache for imported languages.
 const languageImports = new Map();
@@ -61,7 +133,8 @@ const Code = ({
   lines,
   hideCopyButton = false,
   filename,
-  filenameOnly = true,
+  showAll = false,
+  try: tryIt = false,
 }) => {
   // Create a ref for the code element.
   const codeRef = useRef(null);
@@ -127,7 +200,7 @@ const Code = ({
   const langId = languageClass?.substring(9) || language || "python";
   const displayLanguage = languageDisplayNames[langId] || langId;
   const showLanguage =
-    langId.toLowerCase() !== "none" && !(filenameOnly && filename);
+    langId.toLowerCase() !== "none" && (showAll || !filename);
 
   const Header = (
     <div className={classNames(styles.Header, "code-block-header")}>
@@ -135,6 +208,7 @@ const Code = ({
         <span className={styles.Language}>{displayLanguage}</span>
       )}
       {filename && <span className={styles.Filename}>{filename}</span>}
+      {tryIt && <TryMeButton code={customCode} />}
     </div>
   );
 

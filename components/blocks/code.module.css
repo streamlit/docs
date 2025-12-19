@@ -4,20 +4,20 @@
 }
 
 .Header {
-  @apply flex items-center px-3 py-1 bg-gray-20 text-gray-70 text-xs font-medium tracking-wide rounded-t-md border-b border-gray-30;
+  @apply flex items-center px-3 py-1 bg-gray-10 text-gray-70 text-sm font-mono font-medium tracking-wide rounded-t-xl border-b border-gray-30;
   min-height: 2.5rem;
 }
 
 :global(.dark) .Header {
-  @apply bg-gray-90 text-gray-50 border-gray-80;
+  @apply bg-gray-90 text-gray-60 border-gray-80;
 }
 
 .Language {
-  @apply uppercase tracking-wider pr-4;
+  @apply uppercase pr-4 font-mono;
 }
 
 .Filename {
-  @apply font-mono text-sm leading-6 pr-4;
+  @apply leading-6 pr-4;
 }
 
 .HasHeader {
@@ -30,7 +30,7 @@
 }
 
 .Pre {
-  @apply p-6 bg-gray-10 text-gray-80 font-medium rounded-md relative leading-relaxed;
+  @apply p-6 bg-gray-10 text-gray-80 font-medium rounded-xl relative leading-relaxed;
 }
 
 /* Dark mode background and text for Pre */
@@ -54,15 +54,25 @@
 }
 
 .Container button::before {
-  @apply z-10 transition-all duration-75 hover:opacity-40;
+  @apply z-10 transition-all duration-75 hover:opacity-60;
   content: url("/clipboard.svg");
 }
 
 .Container button span {
-  @apply absolute -top-0.5 right-10 text-gray-80 font-mono text-sm tracking-tight font-normal opacity-0;
+  @apply absolute -top-0.5 right-10 text-gray-70 font-mono text-sm tracking-tight font-normal opacity-0;
 }
 
-.Container button:hover span {
+:global(.dark) .Container button span {
+  @apply text-gray-70 !important;
+}
+
+/* Hide "Copy" text completely */
+.Container button[data-copy-state="copy"] span {
+  @apply hidden;
+}
+
+/* Show "Copied!" text */
+.Container button[data-copy-state="copy-success"] span {
   @apply opacity-100;
 }
 
@@ -72,7 +82,26 @@
 
 /* Dark mode button text */
 :global(.dark) .Container button span {
-  @apply text-white;
+  @apply text-gray-40;
 }
 
 /* Syntax highlighting is now handled globally via styles/syntax-highlighting.scss */
+
+/* Try Me Button */
+.TryMeButton {
+  @apply flex items-center text-gray-90 gap-1 pr-4 rounded text-sm font-medium transition-all duration-150;
+  @apply hover:opacity-60;
+  text-decoration: none !important;
+}
+
+:global(.dark) .TryMeButton {
+  @apply text-white;
+}
+
+.TryMeIcon {
+  @apply text-lg leading-none;
+}
+
+.TryMeLabel {
+  @apply hidden sm:inline tracking-tight;
+}

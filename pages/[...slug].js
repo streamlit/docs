@@ -14,6 +14,29 @@ import { useRouter } from "next/router";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import getConfig from "next/config";
+
+// Custom remark plugin to pass code fence metadata through to the HTML
+// e.g., ```python try filename="app.py"``` adds data-meta attribute
+function remarkCodeMeta() {
+  // Simple recursive tree walker (avoids ESM import issues with unist-util-visit)
+  function walkTree(node, callback) {
+    callback(node);
+    if (node.children) {
+      node.children.forEach((child) => walkTree(child, callback));
+    }
+  }
+
+  return (tree) => {
+    walkTree(tree, (node) => {
+      if (node.type === "code" && node.meta) {
+        // Store meta in data.hProperties which remark-rehype passes to the element
+        node.data = node.data || {};
+        node.data.hProperties = node.data.hProperties || {};
+        node.data.hProperties["data-meta"] = node.meta;
+      }
+    });
+  };
+}
 const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
 
 // Site Components
@@ -167,7 +190,37 @@ export default function Article({
         goToLatest={goToLatest}
       />
     ),
-    pre: (props) => <Code {...props} />,
+    pre: (props) => {
+      // Extract metadata from code fence (e.g., ```python try filename="app.py" showAll)
+      // The metadata is passed via data-meta attribute from our remark plugin
+      const codeElement = props.children;
+      const metaString = codeElement?.props?.["data-meta"] || "";
+
+      // Parse metadata into props
+      const codeProps = {};
+
+      if (metaString) {
+        // Supported boolean flags (standalone words)
+        const booleanFlags = ["try", "showAll", "hideCopyButton"];
+
+        // Extract key="value" pairs (e.g., filename="app.py")
+        const keyValueRegex = /(\w+)=["']([^"']+)["']/g;
+        let match;
+        while ((match = keyValueRegex.exec(metaString)) !== null) {
+          codeProps[match[1]] = match[2];
+        }
+
+        // Check for boolean flags (standalone words like `try` or `showAll`)
+        const cleanedMeta = metaString.replace(keyValueRegex, "");
+        booleanFlags.forEach((flag) => {
+          if (new RegExp(`\\b${flag}\\b`).test(cleanedMeta)) {
+            codeProps[flag] = true;
+          }
+        });
+      }
+
+      return <Code {...props} {...codeProps} />;
+    },
     h1: H1,
     h2: H2,
     h3: H3,
@@ -410,7 +463,7 @@ export async function getStaticProps(context) {
       scope: data,
       mdxOptions: {
         rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
-        remarkPlugins: [remarkUnwrapImages, remarkGfm],
+        remarkPlugins: [remarkUnwrapImages, remarkGfm, remarkCodeMeta],
       },
     });
 
