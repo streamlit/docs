@@ -1,8 +1,8 @@
 .Container {
-  @apply flex items-center gap-2 mt-2 mb-4;
+  @apply flex items-center gap-2 mb-4;
   /* Sticky positioning - stays in place as you scroll */
   position: sticky;
-  top: 0.75rem;
+  top: 0.5rem;
   z-index: 50; /* Above header (z-30) */
   width: fit-content;
   align-self: flex-start;
@@ -26,9 +26,7 @@
 
 /* The button that shows selected value */
 .DropdownButton {
-  @apply relative flex items-center gap-1.5 bg-gray-20 rounded px-2 cursor-pointer border-none text-left;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  @apply relative flex items-center gap-1.5 bg-gray-20 rounded-md cursor-pointer border-none text-left h-8 px-3;
 }
 
 :global(.dark) .DropdownButton {
@@ -41,6 +39,15 @@
 
 :global(.dark) .SelectedValue {
   @apply text-gray-40;
+}
+
+/* Version label - show full "Version" at xs (400px) and above, short "v" below */
+.VersionLabelFull {
+  @apply hidden xs:inline;
+}
+
+.VersionLabelShort {
+  @apply inline xs:hidden;
 }
 
 /* Arrow indicator - using material icon for consistency */
@@ -59,7 +66,7 @@
 
 /* Dropdown menu - solid background matching site */
 .DropdownMenu {
-  @apply absolute top-full left-0 mt-1 rounded list-none m-0 min-w-full z-50;
+  @apply absolute top-full left-0 mt-1 rounded-md list-none m-0 min-w-full z-50;
   @apply bg-white border-none;
   padding: 0.375rem 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -136,7 +143,7 @@
 
 /* Mobile version selector - shown in header */
 .MobileContainer {
-  @apply hidden items-center gap-2;
+  @apply hidden items-center gap-2 mr-4;
 }
 
 @media (max-width: 1023px) {
@@ -150,5 +157,5 @@
 }
 
 .MobileContainer .DropdownButton {
-  @apply py-0.5 px-1.5;
+  @apply px-2;
 }

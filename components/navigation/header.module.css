@@ -32,11 +32,11 @@
 }
 
 .LogoContainer {
-  @apply flex items-center m-0 text-base tracking-tight md:ml-0 lg:ml-2 xl:-ml-1 hover:opacity-70;
+  @apply flex items-center gap-4 m-0 text-base tracking-tight md:ml-0 lg:ml-2 xl:-ml-1 hover:opacity-70 mr-4;
 }
 
 .LogoText {
-  @apply hidden xl:block m-0 font-normal ml-4 relative top-px text-lg;
+  @apply hidden xl:block m-0 font-normal mr-4 relative top-px text-lg;
   @apply text-gray-90 !important;
 }
 

@@ -50,8 +50,8 @@ const Header = ({ isSticky, versionProps }) => {
           <img src="/logo.svg" alt="" />
           <h4 className={styles.LogoText}>Documentation</h4>
         </Link>
-        {versionProps && <VersionSelector {...versionProps} isMobile />}
         <section className={styles.NavigationContainer}>
+          {versionProps && <VersionSelector {...versionProps} isMobile />}
           <Search />
           <ThemeToggle />
           {mobileNav}

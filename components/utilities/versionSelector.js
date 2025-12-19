@@ -81,7 +81,9 @@ const VersionSelector = ({ version, slug, goToLatest, isMobile = false }) => {
               [styles.OldVersionText]: isOldVersion,
             })}
           >
-            Version {currentNumericVersion}
+            <span className={styles.VersionLabelFull}>Version </span>
+            <span className={styles.VersionLabelShort}>v</span>
+            {currentNumericVersion}
           </span>
           <i
             className={classNames("material-icons-sharp", styles.Arrow, {
