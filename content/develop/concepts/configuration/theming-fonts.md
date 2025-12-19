@@ -47,26 +47,22 @@ When fonts are not declared in `[theme.sidebar]`, Streamlit will inherit each op
 
 In the following `config.toml` example, Streamlit uses Source Serif in the main body of the app and Source Sans in the sidebar.
 
-<Code language="toml" filename=".streamlit/config.toml">
-
+```toml
 [theme]
 font = "serif"
 [theme.sidebar]
 font = "sans-serif"
-
-</Code>
+```
 
 ## Externally hosted fonts
 
 If you use a font service like Google Fonts or Adobe Fonts, you can use those fonts directly by encoding their font family (name) and CSS URL into a single string of the form `{font_name}:{css_url}`. If your font family includes a space, use inner quotes on the font family. In the following `config.toml` example, Streamlit uses Nunito font for all text except code, which is Space Mono instead. Space Mono has inner quotes because it has a space.
 
-<Code language="toml" filename=".streamlit/config.toml">
-
+```toml
 [theme]
 font = "Nunito:https://fonts.googleapis.com/css2?family=Nunito&display=swap"
 codeFont = "'Space Mono':https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
-
-</Code>
+```
 
 <Important>
 
@@ -106,8 +102,7 @@ A line-by-line explanation of this example is available in a [tutorial](/develop
 
 `.streamlit/config.toml`:
 
-<Code language="toml" filename=".streamlit/config.toml">
-
+```toml
 [server]
 enableStaticServing = true
 
@@ -126,13 +121,11 @@ url="app/static/NotoSansMono-VariableFont_wdth,wght.ttf"
 [theme]
 font="noto-sans"
 codeFont="noto-mono"
-
-</Code>
+```
 
 Directory structure:
 
-<Code language="none" filename="Directory structure">
-
+```none
 project_directory/
 ├── .streamlit/
 │ └── config.toml
@@ -141,8 +134,7 @@ project_directory/
 │ ├── NotoSans-VariableFont_wdth,wght.ttf
 │ └── NotoSansMono-VariableFont_wdth,wght.ttf
 └── streamlit_app.py
-
-</Code>
+```
 
 ### Example 2: Define an alternative font with static font files
 
@@ -159,8 +151,7 @@ A line-by-line explanation of this example is available in a [tutorial](/develop
 
 `.streamlit/config.toml`:
 
-<Code language="toml" filename=".streamlit/config.toml">
-
+```toml
 [server]
 enableStaticServing = true
 
@@ -187,24 +178,21 @@ weight=700
 
 [theme]
 font="tuffy"
-
-</Code>
+```
 
 Directory structure:
 
-<Code language="none" filename="Directory structure">
-
+```none
 project_directory/
 ├── .streamlit/
-│ └── config.toml
+│   └── config.toml
 ├── static/
-│ ├── Tuffy-Bold.ttf
-│ ├── Tuffy-BoldItalic.ttf
-│ ├── Tuffy-Italic.ttf
-│ └── Tuffy-Regular.ttf
+│   ├── Tuffy-Bold.ttf
+│   ├── Tuffy-BoldItalic.ttf
+│   ├── Tuffy-Italic.ttf
+│   └── Tuffy-Regular.ttf
 └── streamlit_app.py
-
-</Code>
+```
 
 ## Font fallbacks
 
@@ -220,13 +208,11 @@ A line-by-line explanation of this example is available in a [tutorial](/develop
 
 `.streamlit/config.toml`:
 
-<Code language="toml" filename=".streamlit/config.toml">
-
+```toml
 [theme]
 font="Nunito:https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000, sans-serif"
 codeFont="'Space Mono':https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap, monospace"
-
-</Code>
+```
 
 <Tip>
 
@@ -238,21 +224,17 @@ If any of your font family names contain spaces and you are declaring a fallback
 
 You can set the base font size for your app in pixels. You must specify the base font size as an integer. The following configuration is equivalent to the default base font size of 16 pixels:
 
-<Code language="toml" filename=".streamlit/config.toml">
-
+```toml
 [theme]
 baseFontSize=16
-
-</Code>
+```
 
 Additionally, you can set the font size for code blocks. The font size can be declared in pixels or rem. The following configuration is equivalent to the default code font size of 0.875rem.
 
-<Code language="toml" filename=".streamlit/config.toml">
-
+```toml
 [theme]
 codeFontSize="0.875rem"
-
-</Code>
+```
 
 <Note>
 
