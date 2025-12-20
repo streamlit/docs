@@ -186,7 +186,7 @@ const Code = ({
 
       {img && <Image src={img} clean={true} />}
 
-      <div
+      <pre
         className={classNames(styles.Pre)}
         {...(lines && { "data-line": lines })}
       >
@@ -197,7 +197,7 @@ const Code = ({
         >
           {customCode}
         </code>
-      </div>
+      </pre>
     </section>
   );
 };
