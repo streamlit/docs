@@ -186,6 +186,11 @@ const Code = ({
 
       {img && <Image src={img} clean={true} />}
 
+      {/*
+      The copy-to-clipboard feature requires <pre><code>, but this leads to
+      hydration errors because sometimes there's already a <pre> around this
+      entire component.
+      */}
       <pre
         className={classNames(styles.Pre)}
         {...(lines && { "data-line": lines })}
