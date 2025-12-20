@@ -6,7 +6,12 @@ import customStyles from "./componentCard.module.css";
 const ComponentCard = ({ children, href }) => {
   return (
     <a
-      className={classNames(genericStyles.Container, customStyles.Container)}
+      className={classNames(
+        genericStyles.Container,
+        customStyles.Container,
+        "refcard",
+        "code-light",
+      )}
       href={href}
       target="_blank"
       rel="noopener noreferrer"
