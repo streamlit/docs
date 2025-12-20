@@ -89,6 +89,7 @@ export default function ({ parentElement, setTriggerValue }) {
     button.addEventListener("mousedown", startHold);
     button.addEventListener("mouseup", cancelHold);
     button.addEventListener("mouseleave", cancelHold);
+    button.addEventListener("contextmenu", cancelHold); // Ctrl+Click on Mac
 
     // Touch events for mobile
     button.addEventListener("touchstart", handleTouchStart);
@@ -102,6 +103,7 @@ export default function ({ parentElement, setTriggerValue }) {
         button.removeEventListener("mousedown", startHold);
         button.removeEventListener("mouseup", cancelHold);
         button.removeEventListener("mouseleave", cancelHold);
+        button.removeEventListener("contextmenu", cancelHold);
 
         // Remove touch event listeners
         button.removeEventListener("touchstart", handleTouchStart);

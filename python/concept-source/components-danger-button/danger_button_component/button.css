@@ -119,6 +119,7 @@
     flex-direction: column;
     align-items: center;
     gap: 0.25rem;
+    font-family: var(--st-font);
 }
 
 .icon {
