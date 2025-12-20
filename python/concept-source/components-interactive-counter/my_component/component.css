@@ -1,5 +1,5 @@
 .counter {
-    padding: 20px;
+    padding: 2rem;
     border: 1px solid var(--st-border-color);
     border-radius: var(--st-base-radius);
     font-family: var(--st-font);
@@ -7,12 +7,12 @@
 }
 
 .buttons {
-    margin-top: 15px;
+    margin-top: 1rem;
 }
 
 button {
-    margin: 0 5px;
-    padding: 8px 16px;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
     background: var(--st-primary-color);
     color: white;
     border: none;

@@ -109,7 +109,7 @@
     stroke-dasharray: 283;
     stroke-dashoffset: 283;
     transition: stroke-dashoffset 0.1s linear;
-    filter: drop-shadow(0 0 6px var(--st-red-color));
+    filter: drop-shadow(0 0 0.5rem var(--st-red-color));
 }
 
 .button-content {
