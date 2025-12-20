@@ -9,7 +9,7 @@ def handle_button_click():
 
 
 my_component = st.components.v2.component(
-    "interactive_button",
+    "simple_button",
     html="""<button id="btn">Click me</button>""",
     css="""
     button {
