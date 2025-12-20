@@ -68,8 +68,10 @@ export default function ({ parentElement, data, setStateValue }) {
 
             overlay.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px))`;
         } else {
-            // Reset position when closing
-            overlay.style.transform = "";
+            // Reset position after close animation completes (400ms matches CSS transition)
+            setTimeout(() => {
+                if (!isOpen) overlay.style.transform = "";
+            }, 400);
         }
     }
 
