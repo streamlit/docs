@@ -2,64 +2,14 @@
  * Centralized color definitions for all code blocks
  */
 
-/* Light mode syntax highlighting tokens */
-:root {
-  /* Primary syntax tokens */
-  --syntax-operator: theme("colors.orange.80");
-  --syntax-decorator: theme("colors.orange.80");
-  --syntax-keyword: theme("colors.darkBlue.80");
-  --syntax-builtin: theme("colors.lightBlue.80");
-  --syntax-string: theme("colors.indigo.80");
-  --syntax-number: theme("colors.green.70");
-  --syntax-boolean: theme("colors.green.70");
-  --syntax-function: theme("colors.red.70");
-  --syntax-punctuation: theme("colors.gray.70");
-  --syntax-comment: theme("colors.gray.70");
-
-  /* HTML/Markup tokens */
-  --syntax-tag: theme("colors.red.70");
-  --syntax-attr-name: theme("colors.lightBlue.80");
-  --syntax-attr-value: theme("colors.green.80");
-  --syntax-entity: theme("colors.green.70");
-
-  /* CSS tokens */
-  --syntax-property: theme("colors.lightBlue.80");
-  --syntax-selector: theme("colors.red.70");
-  --syntax-rule: theme("colors.darkBlue.80");
-  --syntax-atrule: theme("colors.darkBlue.80");
-  --syntax-url: theme("colors.green.80");
-
-  /* Additional common tokens */
-  --syntax-variable: theme("colors.orange.80");
-  --syntax-class-name: theme("colors.lightBlue.80");
-  --syntax-constant: theme("colors.green.70");
-  --syntax-symbol: theme("colors.orange.80");
-  --syntax-important: theme("colors.red.70");
-  --syntax-regex: theme("colors.green.70");
-  --syntax-namespace: theme("colors.lightBlue.80");
-  --syntax-char: theme("colors.green.80");
-  --syntax-interpolation: theme("colors.orange.80");
-  --syntax-annotation: theme("colors.red.70");
-  --syntax-generic: theme("colors.gray.70");
-  --syntax-script: theme("colors.gray.70");
-  --syntax-plain-text: theme("colors.gray.90");
-
-  /* Special tokens */
-  --syntax-prolog: theme("colors.gray.70");
-  --syntax-doctype: theme("colors.gray.70");
-  --syntax-cdata: theme("colors.gray.70");
-  --syntax-deleted: theme("colors.red.70");
-  --syntax-inserted: theme("colors.green.70");
-}
-
 /* Dark mode syntax highlighting tokens */
-.dark {
+:root {
   /* Primary syntax tokens - keep existing dark mode colors */
   --syntax-operator: theme("colors.yellow.80");
   --syntax-decorator: theme("colors.yellow.80");
   --syntax-keyword: theme("colors.darkBlue.50");
   --syntax-builtin: theme("colors.lightBlue.60");
-  --syntax-string: theme("colors.indigo.30");
+  --syntax-string: theme("colors.darkBlue.30");
   --syntax-number: theme("colors.green.40");
   --syntax-boolean: theme("colors.green.40");
   --syntax-function: theme("colors.red.60");
@@ -98,6 +48,56 @@
   --syntax-prolog: theme("colors.gray.60");
   --syntax-doctype: theme("colors.gray.60");
   --syntax-cdata: theme("colors.gray.60");
+  --syntax-deleted: theme("colors.red.70");
+  --syntax-inserted: theme("colors.green.70");
+}
+
+/* Light mode syntax highlighting tokens */
+.code-light {
+  /* Primary syntax tokens */
+  --syntax-operator: theme("colors.yellow.90");
+  --syntax-decorator: theme("colors.yellow.100");
+  --syntax-keyword: theme("colors.darkBlue.70");
+  --syntax-builtin: theme("colors.lightBlue.80");
+  --syntax-string: theme("colors.green.80");
+  --syntax-number: theme("colors.red.90");
+  --syntax-boolean: theme("colors.green.60");
+  --syntax-function: theme("colors.red.60");
+  --syntax-punctuation: theme("colors.gray.60");
+  --syntax-comment: theme("colors.gray.60");
+
+  /* HTML/Markup tokens */
+  --syntax-tag: theme("colors.red.70");
+  --syntax-attr-name: theme("colors.lightBlue.80");
+  --syntax-attr-value: theme("colors.green.80");
+  --syntax-entity: theme("colors.green.70");
+
+  /* CSS tokens */
+  --syntax-property: theme("colors.lightBlue.80");
+  --syntax-selector: theme("colors.red.70");
+  --syntax-rule: theme("colors.darkBlue.80");
+  --syntax-atrule: theme("colors.darkBlue.80");
+  --syntax-url: theme("colors.green.80");
+
+  /* Additional common tokens */
+  --syntax-variable: theme("colors.orange.80");
+  --syntax-class-name: theme("colors.lightBlue.80");
+  --syntax-constant: theme("colors.green.70");
+  --syntax-symbol: theme("colors.orange.80");
+  --syntax-important: theme("colors.red.70");
+  --syntax-regex: theme("colors.green.70");
+  --syntax-namespace: theme("colors.lightBlue.80");
+  --syntax-char: theme("colors.green.80");
+  --syntax-interpolation: theme("colors.orange.80");
+  --syntax-annotation: theme("colors.red.70");
+  --syntax-generic: theme("colors.gray.70");
+  --syntax-script: theme("colors.gray.70");
+  --syntax-plain-text: theme("colors.gray.90");
+
+  /* Special tokens */
+  --syntax-prolog: theme("colors.gray.70");
+  --syntax-doctype: theme("colors.gray.70");
+  --syntax-cdata: theme("colors.gray.70");
   --syntax-deleted: theme("colors.red.70");
   --syntax-inserted: theme("colors.green.70");
 }

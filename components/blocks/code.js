@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import Prism from "prismjs";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
@@ -51,36 +51,20 @@ async function compressCodeForPlayground(code) {
   return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_");
 }
 
-// TryMeButton component
 const TryMeButton = ({ code }) => {
-  const [playgroundUrl, setPlaygroundUrl] = useState(null);
-
-  useEffect(() => {
-    async function generateUrl() {
-      if (code) {
-        const encoded = await compressCodeForPlayground(code.trim());
-        setPlaygroundUrl(
-          `https://streamlit.io/playground?example=blank&code=${encoded}`,
-        );
-      }
-    }
-    generateUrl();
+  const onClick = useCallback(async () => {
+    const encoded = await compressCodeForPlayground(code.trim());
+    const url = `https://streamlit.io/playground?example=blank&code=${encoded}`;
+    window.open(url, "_blank", "noopener,noreferrer");
   }, [code]);
 
-  if (!playgroundUrl) return null;
-
   return (
-    <a
-      href={playgroundUrl}
-      target="streamlit-playground"
-      className={styles.TryMeButton}
-      title="Try this code in Streamlit Playground"
-    >
+    <button onClick={onClick} className={styles.TryMeButton}>
       <span className={styles.TryMeLabel}>Try it</span>
       <i className={`material-icons-sharp ${styles.TryMeIcon}`}>
         arrow_outward
       </i>
-    </a>
+    </button>
   );
 };
 

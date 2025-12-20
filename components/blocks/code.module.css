@@ -1,107 +1,129 @@
 .Container {
-  @apply w-full my-7 mx-auto overflow-x-auto;
+  @apply w-full my-7 mx-auto overflow-x-auto bg-gray-90 rounded-xl;
+
   @apply relative !important;
 }
 
+/* Keep in sync with components/blocks/autofunction.module.css */
 .Header {
-  @apply flex items-center px-3 py-1 bg-gray-10 text-gray-70 text-sm font-mono font-medium tracking-wide rounded-t-xl border-b border-gray-30;
-  min-height: 2.5rem;
+  @apply flex items-center gap-2
+    min-h-10 px-3
+    border-b border-gray-80
+    text-gray-50 text-xs font-medium tracking-wide;
 }
 
-:global(.dark) .Header {
-  @apply bg-gray-90 text-gray-60 border-gray-80;
-}
-
+/* Keep in sync with components/blocks/autofunction.module.css */
 .Language {
-  @apply uppercase pr-4 font-mono;
+  @apply uppercase tracking-wider;
 }
 
 .Filename {
-  @apply leading-6 pr-4;
+  @apply font-mono tracking-wider;
 }
 
-.HasHeader {
-  @apply rounded-t-none !important;
+/* Keep in sync with components/blocks/autofunction.module.css */
+.Pre {
+  @apply p-6 text-white font-medium relative leading-relaxed;
 }
 
+/* Keep in sync with components/blocks/autofunction.module.css */
 .Pre,
 .Container code {
   @apply overflow-auto max-w-full whitespace-pre;
 }
 
-.Pre {
-  @apply p-6 bg-gray-10 text-gray-80 font-medium rounded-xl relative leading-relaxed;
-}
-
-/* Dark mode background and text for Pre */
-:global(.dark) .Pre {
-  @apply bg-gray-90 text-white;
-}
-
-.Container pre {
-  @apply overflow-auto max-w-full whitespace-pre;
-}
-
+/* Keep in sync with components/blocks/autofunction.module.css */
 .Pre code {
   @apply z-10 relative;
 }
 
+/* Keep in sync with components/blocks/autofunction.module.css */
 .LineHighlight {
   @apply bg-gray-80 opacity-30 z-0;
 }
+
+/* Keep in sync with components/blocks/autofunction.module.css */
+.Container :global(.toolbar) {
+  @apply absolute top-0 right-0
+    flex items-center justify-end
+    px-3 h-10
+    text-gray-80 text-xs font-medium tracking-wide;
+}
+
+/* Keep in sync with components/blocks/autofunction.module.css */
+.Container :global(.toolbar-item) {
+  @apply flex items-center justify-end;
+}
+
+/* Keep in sync with components/blocks/autofunction.module.css */
 .Container button {
-  @apply absolute top-2 right-1 cursor-pointer h-8 w-8 mb-0 flex items-center justify-center;
+  @apply flex flex-row gap-1
+    h-full
+    text-xs leading-none
+    text-gray-50 hover:text-white;
 }
 
-.Container button::before {
-  @apply z-10 transition-all duration-75 hover:opacity-60;
-  content: url("/clipboard.svg");
-}
-
+/* Keep in sync with components/blocks/autofunction.module.css */
 .Container button span {
-  @apply absolute -top-0.5 right-10 text-gray-70 font-mono text-sm tracking-tight font-normal opacity-0;
+  @apply flex items-center justify-start
+    tracking-wide font-medium;
 }
 
-:global(.dark) .Container button span {
-  @apply text-gray-70 !important;
+.Container button i {
+  @apply flex text-xs leading-none;
 }
 
-/* Hide "Copy" text completely */
-.Container button[data-copy-state="copy"] span {
+.TryMeButton {
+  @apply px-2 py-1 rounded-md
+    border border-gray-80 hover:border-white;
+}
+
+/* Keep in sync with components/blocks/autofunction.module.css */
+.Container :global(.copy-to-clipboard-button) {
+  &::after {
+    @apply block text-gray-50 hover:text-white h-3 w-3 cursor-pointer;
+    content: "";
+    background-color: currentColor;
+    -webkit-mask-image: url("/clipboard.svg");
+    mask-image: url("/clipboard.svg");
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+  }
+
+  & span {
+    @apply text-white
+      opacity-0 translate-x-2 transition-transform
+      pointer-events-none;
+  }
+
+  &:hover span {
+    @apply opacity-100 translate-x-0;
+  }
+}
+
+.NoCopyButton :global(.copy-to-clipboard-button) {
   @apply hidden;
 }
 
-/* Show "Copied!" text */
-.Container button[data-copy-state="copy-success"] span {
-  @apply opacity-100;
+.TryMeButton {
+  @apply h-3 flex flex-row gap-1;
 }
 
-.NoCopyButton button {
-  @apply hidden;
+:global(.refcard) .Container {
+  @apply rounded-none bg-transparent;
 }
 
-/* Dark mode button text */
-:global(.dark) .Container button span {
-  @apply text-gray-40;
+:global(.refcard) .Container .Pre {
+  @apply p-0 text-gray-80;
+}
+
+:global(.refcard) .Container code {
+  @apply h-full p-4;
+}
+
+:global(.refcard) .Container :global(.code-toolbar) {
+  @apply px-0 py-0;
 }
 
 /* Syntax highlighting is now handled globally via styles/syntax-highlighting.scss */
-
-/* Try Me Button */
-.TryMeButton {
-  @apply flex items-center text-gray-90 gap-1 pr-4 rounded text-sm font-medium transition-all duration-150;
-  @apply hover:opacity-60;
-  text-decoration: none !important;
-}
-
-:global(.dark) .TryMeButton {
-  @apply text-white;
-}
-
-.TryMeIcon {
-  @apply text-lg leading-none;
-}
-
-.TryMeLabel {
-  @apply hidden sm:inline tracking-tight;
-}
