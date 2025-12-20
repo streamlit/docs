@@ -130,14 +130,17 @@ const Code = ({
   children,
   language,
   img,
+  // Lines to highlight. For example: "1, 5-7, 9"
   lines,
   hideCopyButton = false,
+  hideHeader = false,
   filename,
   showAll = false,
   try: tryIt = false,
 }) => {
   // Create a ref for the code element.
   const codeRef = useRef(null);
+  hideCopyButton |= hideHeader;
 
   useEffect(() => {
     // Get the language from the className, if it exists.
@@ -155,39 +158,14 @@ const Code = ({
       importLanguage = "javascript";
     }
 
-    // After we have the values, let's import just the necessary languages
-    async function highlight() {
-      if (typeof window !== "undefined") {
-        // Only import the language if it hasn't been imported before.
-        if (!languageImports.has(importLanguage)) {
-          try {
-            await import(`prismjs/components/prism-${importLanguage}`);
-            languageImports.set(importLanguage, true);
-          } catch (error) {
-            console.error(
-              `Prism doesn't support this language: ${importLanguage}`,
-            );
-          }
-        }
-        // Highlight the code block and conditionally enable toolbar plugins (including copy button)
-        if (codeRef.current) {
-          // First highlight the element
-          Prism.highlightElement(codeRef.current);
-          // Then activate toolbar plugins on the parent container if copy button is not hidden
-          if (!hideCopyButton) {
-            const container = codeRef.current.closest(`.${styles.Container}`);
-            if (container) {
-              Prism.highlightAllUnder(container);
-            }
-          }
-        }
-      }
-    }
-
-    highlight();
+    highlightElement(
+      importLanguage,
+      languageImports,
+      codeRef.current,
+      hideCopyButton,
+    );
   }, [children]);
 
-  let ConditionalRendering;
   let customCode = code !== undefined ? code : children;
   let languageClass = `language-${language}`;
 
@@ -202,65 +180,73 @@ const Code = ({
   const showLanguage =
     langId.toLowerCase() !== "none" && (showAll || !filename);
 
-  const Header = (
-    <div className={classNames(styles.Header, "code-block-header")}>
-      {showLanguage && (
-        <span className={styles.Language}>{displayLanguage}</span>
+  // Important: keep this in sync with components/block/autofunction.js
+  return (
+    <section
+      className={classNames(styles.Container, {
+        [lines]: styles.LineHighlight,
+        [styles.NoCopyButton]: hideCopyButton,
+      })}
+    >
+      {!hideHeader && (
+        <div className={classNames(styles.Header, "code-block-header")}>
+          {showLanguage && (
+            <span className={styles.Language}>{displayLanguage}</span>
+          )}
+          {filename && <span className={styles.Filename}>{filename}</span>}
+          {tryIt && <TryMeButton code={customCode} />}
+        </div>
       )}
-      {filename && <span className={styles.Filename}>{filename}</span>}
-      {tryIt && <TryMeButton code={customCode} />}
-    </div>
+
+      {img && <Image src={img} clean={true} />}
+
+      <pre
+        className={classNames(styles.Pre)}
+        {...(lines && { "data-line": lines })}
+      >
+        <code
+          ref={codeRef}
+          className={languageClass}
+          data-prismjs-copy-timeout="1000"
+        >
+          {customCode}
+        </code>
+      </pre>
+    </section>
   );
-
-  if (img) {
-    ConditionalRendering = (
-      <section
-        className={classNames(styles.Container, {
-          [styles.NoCopyButton]: hideCopyButton,
-        })}
-      >
-        {Header}
-        <Image src={img} clean={true} />
-        <pre className={classNames(styles.Pre, styles.HasHeader)}>
-          <code ref={codeRef} className={languageClass}>
-            {customCode}
-          </code>
-        </pre>
-      </section>
-    );
-  } else if (lines) {
-    ConditionalRendering = (
-      <section
-        className={classNames(styles.Container, styles.LineHighlight, {
-          [styles.NoCopyButton]: hideCopyButton,
-        })}
-      >
-        {Header}
-        <pre className={styles.HasHeader} data-line={lines}>
-          <code ref={codeRef} className={languageClass}>
-            {customCode}
-          </code>
-        </pre>
-      </section>
-    );
-  } else {
-    ConditionalRendering = (
-      <section
-        className={classNames(styles.Container, {
-          [styles.NoCopyButton]: hideCopyButton,
-        })}
-      >
-        {Header}
-        <pre className={classNames(styles.Pre, styles.HasHeader)}>
-          <code ref={codeRef} className={languageClass}>
-            {customCode}
-          </code>
-        </pre>
-      </section>
-    );
-  }
-
-  return ConditionalRendering;
 };
+
+async function highlightElement(
+  importLanguage,
+  languageImports,
+  codeElement,
+  hideCopyButton,
+) {
+  if (typeof window !== "undefined") {
+    // Only import the language if it hasn't been imported before.
+    if (!languageImports.has(importLanguage)) {
+      try {
+        await import(`prismjs/components/prism-${importLanguage}`);
+        languageImports.set(importLanguage, true);
+      } catch (error) {
+        console.error(`Prism doesn't support this language: ${importLanguage}`);
+      }
+    }
+
+    // Highlight the code block and conditionally enable toolbar plugins (including copy button)
+    if (codeElement) {
+      // First highlight the element
+      Prism.highlightElement(codeElement);
+
+      // Then activate toolbar plugins on the parent container if copy button is not hidden
+      if (!hideCopyButton) {
+        const container = codeElement.closest(`.${styles.Container}`);
+        if (container) {
+          Prism.highlightAllUnder(container);
+        }
+      }
+    }
+  }
+}
 
 export default Code;

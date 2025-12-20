@@ -84,6 +84,7 @@ const Autofunction = ({
       blockRef.current.getElementsByTagName("pre"),
     );
 
+    // Important: keep this in sync with components/block/code.js
     pres.forEach((ele) => {
       // Detect language based on pre element class
       const isLiteralBlock = ele.classList.contains("literal-block");
@@ -552,7 +553,12 @@ const Autofunction = ({
   );
 
   return (
-    <section className={styles.Container} ref={blockRef} key={slug}>
+    <section
+      className={styles.Container}
+      ref={blockRef}
+      key={slug}
+      data-prismjs-copy-timeout="1000"
+    >
       {header}
       {body}
     </section>
