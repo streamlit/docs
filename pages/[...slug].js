@@ -201,7 +201,7 @@ export default function Article({
 
       if (metaString) {
         // Supported boolean flags (standalone words)
-        const booleanFlags = ["try", "showAll", "hideCopyButton"];
+        const booleanFlags = ["try", "showAll", "hideCopyButton", "hideHeader"];
 
         // Extract key="value" pairs (e.g., filename="app.py")
         const keyValueRegex = /(\w+)=["']([^"']+)["']/g;
