@@ -45,7 +45,7 @@
     stroke: var(--st-green-color);
     stroke-width: 20;
     stroke-linecap: round;
-    filter: drop-shadow(0 0 8px var(--st-green-color));
+    filter: drop-shadow(0 0 0.5rem var(--st-green-color));
     transition:
         stroke-dashoffset 0.8s cubic-bezier(0.34, 1.2, 0.64, 1),
         stroke 0.5s ease;
@@ -65,7 +65,7 @@
 
 /* Needle */
 .needle-group {
-    transform-origin: 100px 95px;
+    transform-origin: 50% 67.857%;
     transition: transform 0.8s cubic-bezier(0.34, 1.2, 0.64, 1);
 }
 
@@ -115,7 +115,7 @@
 .labels {
     display: flex;
     justify-content: space-between;
-    width: 240px;
+    width: 15rem;
     margin-top: 0.5rem;
 }
 
@@ -138,15 +138,15 @@
 /* Color themes based on value */
 .dial-progress.low {
     stroke: var(--st-green-color);
-    filter: drop-shadow(0 0 8px var(--st-green-color));
+    filter: drop-shadow(0 0 0.5rem var(--st-green-color));
 }
 .dial-progress.mid {
     stroke: var(--st-yellow-color);
-    filter: drop-shadow(0 0 8px var(--st-yellow-color));
+    filter: drop-shadow(0 0 0.5rem var(--st-yellow-color));
 }
 .dial-progress.high {
     stroke: var(--st-red-color);
-    filter: drop-shadow(0 0 8px var(--st-red-color));
+    filter: drop-shadow(0 0 0.5rem var(--st-red-color));
 }
 
 .value.low {

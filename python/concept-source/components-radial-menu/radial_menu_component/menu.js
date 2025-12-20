@@ -43,6 +43,34 @@ export default function ({ parentElement, data, setStateValue }) {
         isOpen = !isOpen;
         overlay.classList.toggle("open", isOpen);
         ring.classList.toggle("open", isOpen);
+
+        if (isOpen) {
+            // Calculate viewport-safe position
+            const selectorRect = selector.getBoundingClientRect();
+            const menuRadius = ring.offsetWidth / 2;
+            const toolbarHeight = 60; // Streamlit toolbar height
+
+            // Center of selector in viewport
+            const centerX = selectorRect.left + selectorRect.width / 2;
+            const centerY = selectorRect.top + selectorRect.height / 2;
+
+            // Calculate overflow on each side (account for toolbar at top)
+            const overflowLeft = menuRadius - centerX;
+            const overflowRight = centerX + menuRadius - window.innerWidth;
+            const overflowTop = menuRadius - (centerY - toolbarHeight);
+            const overflowBottom = centerY + menuRadius - window.innerHeight;
+
+            // Apply offset to keep menu in viewport
+            const offsetX =
+                Math.max(0, overflowLeft) - Math.max(0, overflowRight);
+            const offsetY =
+                Math.max(0, overflowTop) - Math.max(0, overflowBottom);
+
+            overlay.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px))`;
+        } else {
+            // Reset position when closing
+            overlay.style.transform = "";
+        }
     }
 
     // Initialize display

@@ -11,8 +11,8 @@
 /* Ring Display */
 .display-ring {
     position: relative;
-    width: 14rem;
-    height: 14rem;
+    width: 16rem;
+    height: 16rem;
 }
 
 .ring-svg {
@@ -143,6 +143,7 @@
 }
 
 .btn-label {
+    font-family: var(--st-font);
     font-size: 0.7rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -152,11 +153,11 @@
 /* Lap List */
 .lap-list {
     width: 100%;
-    max-width: 280px;
+    max-width: 17.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    max-height: 150px;
+    max-height: 10rem;
     overflow-y: auto;
 }
 
@@ -174,7 +175,7 @@
 @keyframes slide-in {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-0.625rem);
     }
     to {
         opacity: 1;
