@@ -100,7 +100,7 @@
 
 /* Styles for deprecation notice in param */
 .DeprecatedContent {
-  @apply bg-orange-20 text-gray-90 px-2 py-1 rounded-md text-sm mb-2 flex items-center relative;
+  @apply bg-orange-10 text-gray-90 px-2 py-1 rounded-xl text-sm mb-2 flex items-center relative;
 }
 
 .DeprecatedContent i {

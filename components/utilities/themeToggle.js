@@ -20,7 +20,7 @@ const ThemeToggle = () => {
   };
 
   return (
-    <React.Fragment>
+    <div className={styles.Wrapper}>
       <button
         type="button"
         onClick={toggleTheme}
@@ -34,7 +34,7 @@ const ThemeToggle = () => {
       <div className={styles.Tooltip}>
         <p>Change to {inactiveTheme} mode</p>
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 

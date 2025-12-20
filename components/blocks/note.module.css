@@ -3,5 +3,5 @@
 }
 
 :global(.dark) .Note {
-  background-color: #062633;
+  @apply bg-lightBlue-100/30;
 }
