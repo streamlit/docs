@@ -115,11 +115,15 @@
 }
 
 :global(.refcard) .Container .Pre {
-  @apply p-0 text-gray-80;
+  @apply p-0 text-gray-80 h-full;
+
+  html:global(.dark) & {
+    @apply text-white;
+  }
 }
 
 :global(.refcard) .Container code {
-  @apply h-full p-4;
+  @apply block p-4 h-full;
 }
 
 :global(.refcard) .Container :global(.code-toolbar) {

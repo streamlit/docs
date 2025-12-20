@@ -53,7 +53,7 @@
 }
 
 /* Light mode syntax highlighting tokens */
-.code-light {
+html.light .code-light {
   /* Primary syntax tokens */
   --syntax-operator: theme("colors.yellow.90");
   --syntax-decorator: theme("colors.yellow.100");
