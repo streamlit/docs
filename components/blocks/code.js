@@ -94,8 +94,10 @@ const languageDisplayNames = {
   js: "JavaScript",
   typescript: "TypeScript",
   ts: "TypeScript",
-  bash: "Bash",
-  sh: "Bash",
+  // Rename Bash to Terminal since Windows doesn't use Bash, and most of the commands we
+  // mark as Bash here would actually work in any terminal.
+  bash: "Terminal",
+  sh: "Sh",
   shell: "Shell",
   json: "JSON",
   yaml: "YAML",
