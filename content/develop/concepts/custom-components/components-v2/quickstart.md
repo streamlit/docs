@@ -31,7 +31,7 @@ You can use custom components v2 to create static HTML and CSS components. The f
 - Mounting a component with its command created from registration.
 - Styling the component with the app's theme.
 
-```python
+```python filename="streamlit_app.py"
 import streamlit as st
 
 hello_component = st.components.v2.component(
@@ -47,31 +47,33 @@ hello_component()
 
 ## Simple button component
 
-Your v2 component can set user data to your app. This example shows a simple button that sends a trigger value to your app when clicked. Trigger values are one-time events that are not persisted across reruns. This example shows the following key concepts:
+Your v2 component can send user data to your app. This example shows a simple button that sends a trigger value to your app when clicked. Trigger values are one-time events that are not persisted across reruns. This example shows the following key concepts:
 
 - Component registration with HTML, CSS, and JavaScript.
 - Trigger values using `setTriggerValue()`.
 - Callback functions with the `on_<event>_change` naming pattern.
 
-```python
+```python filename="streamlit_app.py"
 import streamlit as st
 
 if "click_count" not in st.session_state:
     st.session_state.click_count = 0
 
+
 def handle_button_click():
     st.session_state.click_count += 1
 
+
 my_component = st.components.v2.component(
-    "interactive_button",
+    "simple_button",
     html="""<button id="btn">Click me</button>""",
     css="""
     button {
-        border: none;
-        padding: .5rem;
-        border-radius: var(--st-button-radius);
-        background-color: var(--st-primary-color);
-        color: white;
+      border: none;
+      padding: .5rem;
+      border-radius: var(--st-button-radius);
+      background-color: var(--st-primary-color);
+      color: white;
     }
     """,
     js="""
@@ -94,7 +96,7 @@ if result.action:
 
 For inline component development, you must pass raw HTML, CSS, and JavaScript code to your component. Package-based components allow you to pass file references to your component. If you want to use files for an inline component, you must read them into strings. The previous example is equivalent to the following:
 
-```
+```none hideHeader
 project_directory/
 ├── my_component/
 │   ├── __init__.py
@@ -106,7 +108,7 @@ project_directory/
 
 <Collapse title="__init__.py">
 
-```python
+```python filename="my_component/__init__.py"
 import streamlit as st
 from pathlib import Path
 
@@ -137,7 +139,7 @@ JS = load_js()
 
 <Collapse title="my_component/component.html">
 
-```markup
+```markup filename="my_component/component.html"
 <button id="btn">Click me</button>
 ```
 
@@ -145,7 +147,7 @@ JS = load_js()
 
 <Collapse title="my_component/component.css">
 
-```css
+```css filename="my_component/component.css"
 button {
   border: none;
   padding: 0.5rem;
@@ -159,7 +161,7 @@ button {
 
 <Collapse title="my_component/component.js">
 
-```javascript
+```javascript filename="my_component/component.js"
 export default function (component) {
   const { setTriggerValue, parentElement } = component;
   parentElement.querySelector("button").onclick = () => {
@@ -172,7 +174,7 @@ export default function (component) {
 
 <Collapse title="streamlit_app.py">
 
-```python
+```python filename="streamlit_app.py"
 import streamlit as st
 from my_component import HTML, CSS, JS
 
@@ -199,11 +201,11 @@ if result.action:
 
 The remaining examples on this page will use this file structure for easier viewing of the embedded code blocks. The complete code is provided at the end of each example for easier copying and pasting.
 
-<Note>
+<Tip>
 
-To avoid repeat warnings about re-registering the component, you can register your component in another module and import it. The standalone examples on this page are simple enough that this issue isn't apparent, but with more complex apps and components, this can be a nuisance.
+If you are developing a component, temporarily remove `@st.cache_data` decorators to avoid manually clearing the cache when you make changes to the component.
 
-</Note>
+</Tip>
 
 ## Rich data component
 
@@ -215,31 +217,25 @@ Streamlit will automatically serialize various data types to JSON or Arrow forma
 - Accessing data in JavaScript via the destructured `data` property.
 - Dynamically updating a placeholder element with the data.
 
-`my_component/component.html`:
-
-```markup
+```markup filename="my_component/component.html"
 <div id="data-container">Loading data...</div>
 ```
 
-`my_component/component.js`:
-
-```javascript
+```javascript filename="my_component/component.js"
 export default function ({ data, parentElement }) {
   const container = parentElement.querySelector("#data-container");
   const df = data.df;
   const userInfo = data.user_info;
   const imgBase64 = data.image_base64;
   container.innerHTML = `
-        <h4>Dataframe: ${df}</h4>
-        <h4>User Info: ${userInfo.name}</h4>
-        <img src="data:image/png;base64,${imgBase64}" style="width: 25%;" />
-    `;
+    <h4>Dataframe: ${df}</h4>
+    <h4>User Info: ${userInfo.name}</h4>
+    <img src="data:image/png;base64,${imgBase64}" style="width: 25%;" />
+  `;
 }
 ```
 
-`streamlit_app.py`:
-
-```python
+```python filename="streamlit_app.py"
 import pandas as pd
 import streamlit as st
 import base64
@@ -248,10 +244,13 @@ from my_component import HTML, JS
 # Create sample data
 @st.cache_data
 def create_sample_df():
-    return pd.DataFrame({
-        "name": ["Alice", "Bob", "Charlie"],
-        "city": ["New York", "London", "Tokyo"]
-})
+    return pd.DataFrame(
+        {
+            "name": ["Alice", "Bob", "Charlie"],
+            "city": ["New York", "London", "Tokyo"],
+        }
+    )
+
 df = create_sample_df()
 
 # Load an image and convert to b64 string
@@ -260,6 +259,7 @@ def load_image_as_base64(image_path):
     with open(image_path, "rb") as img_file:
         img_bytes = img_file.read()
     return base64.b64encode(img_bytes).decode("utf-8")
+
 img_base64 = load_image_as_base64("favi.png")
 
 # Serialization is automatically handled by Streamlit components
@@ -280,7 +280,7 @@ chart_component(
 
 <Collapse title="Complete code">
 
-```python
+```python filename="streamlit_app.py"
 import pandas as pd
 import streamlit as st
 import base64
@@ -288,10 +288,13 @@ import base64
 # Create sample data
 @st.cache_data
 def create_sample_df():
-    return pd.DataFrame({
-        "name": ["Alice", "Bob", "Charlie"],
-        "city": ["New York", "London", "Tokyo"]
-})
+    return pd.DataFrame(
+        {
+            "name": ["Alice", "Bob", "Charlie"],
+            "city": ["New York", "London", "Tokyo"],
+        }
+    )
+
 df = create_sample_df()
 
 # Load an image and convert to b64 string
@@ -300,6 +303,7 @@ def load_image_as_base64(image_path):
     with open(image_path, "rb") as img_file:
         img_bytes = img_file.read()
     return base64.b64encode(img_bytes).decode("utf-8")
+
 img_base64 = load_image_as_base64("favi.png")
 
 # Serialization is automatically handled by Streamlit components
@@ -308,17 +312,15 @@ chart_component = st.components.v2.component(
     html="""<div id="data-container">Loading data...</div>""",
     js="""
     export default function({ data, parentElement }) {
-        const container = parentElement.querySelector("#data-container");
-
-        const df = data.df;
-        const userInfo = data.user_info;
-        const imgBase64 = data.image_base64;
-
-        container.innerHTML = `
-            <h4>Dataframe: ${df}</h4>
-            <h4>User Info: ${userInfo.name}</h4>
-            <img src="data:image/png;base64,${imgBase64}" style="width: 25%;" />
-        `;
+      const container = parentElement.querySelector("#data-container");
+      const df = data.df;
+      const userInfo = data.user_info;
+      const imgBase64 = data.image_base64;
+      container.innerHTML = `
+        <h4>Dataframe: ${df}</h4>
+        <h4>User Info: ${userInfo.name}</h4>
+        <img src="data:image/png;base64,${imgBase64}" style="width: 25%;" />
+      `;
     }
     """,
 )
@@ -338,31 +340,27 @@ chart_component(
 
 ## Interactive counter component
 
-This example shows a counter component that can be incremented, decremented, and reset. It contains multiple event handlers that are cleaned up when the component is unmounted. It shows the following key concepts:
+Your v2 component can maintain stateful values, either alone or in combination with trigger values. This example shows a counter component that can be incremented, decremented, and reset. Because it contains event handlers that aren't properties of the component object, they must be cleaned up when the component is unmounted. This example shows the following key concepts:
 
 - State and trigger values together in one component.
 - More comprehensive CSS custom properties to match the app's theme.
 - Multiple event handlers.
-- Cleanup functions for proper resource management.
+- Cleanup functions to remove event listeners when the component is unmounted.
 
-`my_component/my_html.html`:
-
-```markup
+```markup filename="my_component/component.html"
 <div class="counter">
-    <h3>Count: <span id="display">0</span></h3>
-    <div class="buttons">
-        <button id="increment">+1</button>
-        <button id="decrement">-1</button>
-        <button id="reset">Reset</button>
-    </div>
+  <h3>Count: <span id="display">0</span></h3>
+  <div class="buttons">
+    <button id="decrement">-1</button>
+    <button id="increment">+1</button>
+    <button id="reset">Reset</button>
+  </div>
 </div>
 ```
 
-`my_component/my_css.css`:
-
-```css
+```css filename="my_component/component.css"
 .counter {
-  padding: 20px;
+  padding: 2rem;
   border: 1px solid var(--st-border-color);
   border-radius: var(--st-base-radius);
   font-family: var(--st-font);
@@ -370,12 +368,12 @@ This example shows a counter component that can be incremented, decremented, and
 }
 
 .buttons {
-  margin-top: 15px;
+  margin-top: 1rem;
 }
 
 button {
-  margin: 0 5px;
-  padding: 8px 16px;
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
   background: var(--st-primary-color);
   color: white;
   border: none;
@@ -392,9 +390,7 @@ button:hover {
 }
 ```
 
-`my_component/my_js.js`:
-
-```javascript
+```javascript filename="my_component/component.js"
 export default function ({
   parentElement,
   setStateValue,
@@ -440,9 +436,7 @@ export default function ({
 }
 ```
 
-`streamlit_app.py`:
-
-```python
+```python filename="streamlit_app.py"
 import streamlit as st
 from my_component import HTML, CSS, JS
 
@@ -471,7 +465,7 @@ if result.reset:
 
 <Collapse title="Complete code">
 
-```python
+```python filename="streamlit_app.py"
 import streamlit as st
 
 # Interactive counter with both state and triggers
@@ -479,81 +473,90 @@ counter = st.components.v2.component(
     "interactive_counter",
     html="""
     <div class="counter">
-        <h3>Count: <span id="display">0</span></h3>
-        <div class="buttons">
-            <button id="increment">+1</button>
-            <button id="decrement">-1</button>
-            <button id="reset">Reset</button>
-        </div>
+      <h3>Count: <span id="display">0</span></h3>
+      <div class="buttons">
+        <button id="decrement">-1</button>
+        <button id="increment">+1</button>
+        <button id="reset">Reset</button>
+      </div>
     </div>
     """,
     css="""
     .counter {
-        padding: 20px;
-        border: 1px solid var(--st-border-color);
-        border-radius: var(--st-base-radius);
-        font-family: var(--st-font);
-        text-align: center;
+      padding: 2rem;
+      border: 1px solid var(--st-border-color);
+      border-radius: var(--st-base-radius);
+      font-family: var(--st-font);
+      text-align: center;
     }
+
     .buttons {
-        margin-top: 15px;
+      margin-top: 1rem;
     }
+
     button {
-        margin: 0 5px;
-        padding: 8px 16px;
-        background: var(--st-primary-color);
-        color: white;
-        border: none;
-        border-radius: var(--st-button-radius);
-        cursor: pointer;
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--st-primary-color);
+      color: white;
+      border: none;
+      border-radius: var(--st-button-radius);
+      cursor: pointer;
     }
+
     button:hover {
-        opacity: 0.8;
+      opacity: 0.8;
     }
+
     #reset {
-        background: var(--st-red-color);
+      background: var(--st-red-color);
     }
     """,
     js="""
-    export default function({ parentElement, setStateValue, setTriggerValue, data }) {
-        let count = data?.initialCount || 0;
-        const display = parentElement.querySelector("#display");
-        const incrementBtn = parentElement.querySelector("#increment");
-        const decrementBtn = parentElement.querySelector("#decrement");
-        const resetBtn = parentElement.querySelector("#reset");
+    export default function ({
+      parentElement,
+      setStateValue,
+      setTriggerValue,
+      data,
+    }) {
+      let count = data?.initialCount || 0;
+      const display = parentElement.querySelector("#display");
+      const incrementBtn = parentElement.querySelector("#increment");
+      const decrementBtn = parentElement.querySelector("#decrement");
+      const resetBtn = parentElement.querySelector("#reset");
 
-        const updateDisplay = () => {
-            display.textContent = count;
-            setStateValue("count", count);  // Persistent state
-        };
+      const updateDisplay = () => {
+        display.textContent = count;
+        setStateValue("count", count); // Persistent state
+      };
 
-        incrementBtn.onclick = () => {
-            count++;
-            updateDisplay();
-        };
-
-        decrementBtn.onclick = () => {
-            count--;
-            updateDisplay();
-        };
-
-        resetBtn.onclick = () => {
-            count = 0;
-            updateDisplay();
-            setTriggerValue("reset", true);  // One-time trigger
-        };
-
-        // Initialize
+      incrementBtn.onclick = () => {
+        count++;
         updateDisplay();
+      };
 
-        // Cleanup function
-        return () => {
-            incrementBtn.removeEventListener("click", incrementBtn.onclick);
-            decrementBtn.removeEventListener("click", decrementBtn.onclick);
-            resetBtn.removeEventListener("click", resetBtn.onclick);
-        };
+      decrementBtn.onclick = () => {
+        count--;
+        updateDisplay();
+      };
+
+      resetBtn.onclick = () => {
+        count = 0;
+        updateDisplay();
+        setTriggerValue("reset", true); // One-time trigger
+      };
+
+      // Initialize
+      updateDisplay();
+
+      // Cleanup function
+      return () => {
+        incrementBtn.removeEventListener("click", incrementBtn.onclick);
+        decrementBtn.removeEventListener("click", decrementBtn.onclick);
+        resetBtn.removeEventListener("click", resetBtn.onclick);
+      };
     }
-    """
+    """,
 )
 
 # Use with callbacks
@@ -577,12 +580,12 @@ if result.reset:
 
 ## Danger button component
 
-You can include frontend validation processes in your component. This example shows a button that requires the user to hold for two seconds to confirm the action. Only when the user continuously holds the button for two seconds will the component update the trigger value with `setTriggerValue("confirmed", true)`. The component also displays a progress ring to indicate the user's progress.
+You can include frontend validation processes in your component. This example shows a button that requires the user to hold for two seconds to confirm the action. Only when the user continuously holds the button for two seconds will the component send the trigger value with `setTriggerValue("confirmed", true)`. The component gives the user visual feedback via a progress ring. This example shows the following key concepts:
 
-- Frontend validation logic to gatekeep event submission.
-- CSS custom properties to match the app's theme.
-- Progress ring to indicate the user's progress.
-- Cleanup functions for proper resource management.
+- Frontend logic to validate user submissions before sending them to your app.
+- Timed disablement to rate-limit user submissions.
+- Visual feedback to the user.
+- Cleanup functions to remove event listeners when the component is unmounted.
 
 `my_component/my_html.html`:
 
