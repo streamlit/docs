@@ -87,7 +87,6 @@
     "tailwindcss": "^3.4.0"
   },
   "lint-staged": {
-    "python/{api-examples-source,concept-source,tutorial-source}/**/*.{py,js,css,html}": "prettier --ignore-unknown --write --tab-width=4",
-    "!(python/{api-examples-source,concept-source,tutorial-source}/**/*.{py,js,css,html})": "prettier --ignore-unknown --write"
+    "*": "prettier --ignore-unknown --write"
   }
 }
