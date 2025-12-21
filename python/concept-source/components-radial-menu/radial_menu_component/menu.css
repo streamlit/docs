@@ -53,9 +53,9 @@
     pointer-events: auto;
 }
 
-/* Menu items arranged in a circle (6 items at 60 degree intervals)*/
+/* Menu items arranged in a circle */
 .menu-item {
-    --angle: calc(var(--i) * 60deg - 90deg);
+    --angle: calc(var(--i) * (360deg / var(--total)) - 90deg);
 
     background: var(--st-background-color);
     position: absolute;
