@@ -8,6 +8,7 @@ st.caption("A dangerous action that requires intentional confirmation")
 if "deleted_items" not in st.session_state:
     st.session_state.deleted_items = []
 
+
 # Callback when deletion is confirmed
 def on_delete_confirmed():
     st.session_state.deleted_items.append(
@@ -17,7 +18,12 @@ def on_delete_confirmed():
 
 
 # Render the component
-result = danger_button(key="danger_btn", on_confirmed_change=on_delete_confirmed)
+with st.container(horizontal_alignment="center"):
+    result = danger_button(
+        key="danger_btn",
+        on_confirmed_change=on_delete_confirmed,
+        width="content"
+    )
 
 # Show deletion history
 if st.session_state.deleted_items:

@@ -2,7 +2,7 @@ const HOLD_DURATION = 2000; // 2 seconds
 const COOLDOWN_DURATION = 1500; // cooldown after trigger
 const CIRCUMFERENCE = 2 * Math.PI * 45; // circle circumference
 
-export default function ({ parentElement, setTriggerValue }) {
+export default function ({ parentElement, setTriggerValue, data }) {
     const button = parentElement.querySelector("#danger-btn");
     const progress = parentElement.querySelector("#ring-progress");
     const icon = parentElement.querySelector("#icon");
@@ -34,7 +34,7 @@ export default function ({ parentElement, setTriggerValue }) {
 
         startTime = Date.now();
         button.classList.add("holding");
-        label.textContent = "Keep holding...";
+        label.textContent = data?.continue ?? "Keep holding...";
         animationFrame = requestAnimationFrame(updateProgress);
     }
 
@@ -43,7 +43,7 @@ export default function ({ parentElement, setTriggerValue }) {
 
         startTime = null;
         button.classList.remove("holding");
-        label.textContent = "Hold to Delete";
+        label.textContent = data?.start ?? "Hold to Delete";
         progress.style.strokeDashoffset = CIRCUMFERENCE;
 
         if (animationFrame) {
@@ -63,7 +63,7 @@ export default function ({ parentElement, setTriggerValue }) {
         button.disabled = true;
 
         icon.textContent = "✓";
-        label.textContent = "Deleted!";
+        label.textContent = data?.completed ?? "Deleted!";
         progress.style.strokeDashoffset = 0;
 
         // Send trigger to Python
@@ -74,8 +74,8 @@ export default function ({ parentElement, setTriggerValue }) {
             button.classList.remove("triggered");
             button.disabled = false;
             isDisabled = false;
-            icon.textContent = "🗑️";
-            label.textContent = "Hold to Delete";
+            icon.textContent = data?.icon ?? "🗑️";
+            label.textContent = data?.start ?? "Hold to Delete";
             progress.style.strokeDashoffset = CIRCUMFERENCE;
         }, COOLDOWN_DURATION);
     }
