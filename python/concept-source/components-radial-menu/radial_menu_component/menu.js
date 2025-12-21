@@ -7,6 +7,10 @@ export default function ({ parentElement, data, setStateValue }) {
     let isOpen = false;
     const options = data?.options || {};
     let currentSelection = data?.selection || Object.keys(options)[0];
+    const optionCount = Object.keys(options).length;
+
+    // Set total item count for CSS angle calculation
+    ring.style.setProperty("--total", optionCount);
 
     // Create the menu items from options
     Object.entries(options).forEach(([value, icon], index) => {
