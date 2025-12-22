@@ -31,6 +31,8 @@ You can use custom components v2 to create static HTML and CSS components. The f
 - Mounting a component with its command created from registration.
 - Styling the component with the app's theme.
 
+<Cloud name="doc-components-v2-hello-world-test" height="200px" />
+
 ```python filename="streamlit_app.py"
 import streamlit as st
 
@@ -43,8 +45,6 @@ hello_component = st.components.v2.component(
 hello_component()
 ```
 
-<Cloud name="doc-components-v2-hello-world-test" height="200px" />
-
 ## Simple button component
 
 Your v2 component can send user data to your app. This example shows a simple button that sends a trigger value to your app when clicked. Trigger values are one-time events that are not persisted across reruns. This example shows the following key concepts:
@@ -52,6 +52,8 @@ Your v2 component can send user data to your app. This example shows a simple bu
 - Component registration with HTML, CSS, and JavaScript.
 - Trigger values using `setTriggerValue()`.
 - Callback functions with the `on_<event>_change` naming pattern.
+
+<Cloud name="doc-components-v2-simple-button-test" height="200px" />
 
 ```python filename="streamlit_app.py"
 import streamlit as st
@@ -91,8 +93,6 @@ result = my_component(on_action_change=handle_button_click)
 if result.action:
     st.write(f"Button clicked! Total clicks: {st.session_state.click_count}")
 ```
-
-<Cloud name="doc-components-v2-simple-button-test" height="200px" />
 
 For inline component development, you must pass raw HTML, CSS, and JavaScript code to your component. Package-based components allow you to pass file references to your component. If you want to use files for an inline component, you must read them into strings. The previous example is equivalent to the following:
 
@@ -217,6 +217,8 @@ Streamlit will automatically serialize various data types to JSON or Arrow forma
 - Accessing data in JavaScript via the destructured `data` property.
 - Dynamically updating a placeholder element with the data.
 
+<Cloud name="doc-components-v2-rich-data-test" height="400px" />
+
 ```markup filename="my_component/component.html"
 <div id="data-container">Loading data...</div>
 ```
@@ -336,8 +338,6 @@ chart_component(
 
 </Collapse>
 
-<Cloud name="doc-components-v2-rich-data-test" height="400px" />
-
 ## Interactive counter component
 
 Your v2 component can maintain stateful values, either alone or in combination with trigger values. This example shows a counter component that can be incremented, decremented, and reset. Because it contains event handlers that aren't properties of the component object, they must be cleaned up when the component is unmounted. This example shows the following key concepts:
@@ -346,6 +346,8 @@ Your v2 component can maintain stateful values, either alone or in combination w
 - More comprehensive CSS custom properties to match the app's theme.
 - Multiple event handlers.
 - Cleanup functions to remove event listeners when the component is unmounted.
+
+<Cloud name="doc-components-v2-interactive-counter-test" height="300px" />
 
 ```markup filename="my_component/component.html"
 <div class="counter">
@@ -576,8 +578,6 @@ if result.reset:
 
 </Collapse>
 
-<Cloud name="doc-components-v2-interactive-counter-test" height="300px" />
-
 ## Danger button component
 
 You can include frontend validation processes in your component. This example shows a button that requires the user to hold for two seconds to confirm the action. Only when the user continuously holds the button for two seconds will the component send the trigger value with `setTriggerValue("confirmed", true)`. The component gives the user visual feedback via a progress ring. This example shows the following key concepts:
@@ -585,7 +585,9 @@ You can include frontend validation processes in your component. This example sh
 - Frontend logic to validate user submissions before sending them to your app.
 - Timed disablement to rate-limit user submissions.
 - Visual feedback to the user.
-- Cleanup functions to remove event listeners when the component is unmounted.
+- Using `width` with Streamlit's layout system.
+
+<Cloud name="doc-components-v2-danger-button-test" height="500px" />
 
 ```markup filename="my_component/my_html.html"
 <button id="danger-btn" class="hold-button">
@@ -1204,8 +1206,6 @@ if st.session_state.deleted_items:
 ```
 
 </Collapse>
-
-<Cloud name="doc-components-v2-danger-button-test" height="500px" />
 
 ## What's next?
 
