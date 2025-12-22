@@ -587,69 +587,20 @@ You can include frontend validation processes in your component. This example sh
 - Visual feedback to the user.
 - Cleanup functions to remove event listeners when the component is unmounted.
 
-`my_component/my_html.html`:
-
-```markup
-<div class="danger-zone">
-    <div class="warning-banner">
-        <span class="warning-icon">⚠️</span>
-        <span class="warning-text">Danger Zone</span>
-    </div>
-
-    <button id="danger-btn" class="hold-button">
-        <svg class="progress-ring" viewBox="0 0 100 100">
-            <circle class="ring-bg" cx="50" cy="50" r="45" />
-            <circle
-                id="ring-progress"
-                class="ring-progress"
-                cx="50"
-                cy="50"
-                r="45"
-            />
-        </svg>
-        <div class="button-content">
-            <span id="icon" class="icon">🗑️</span>
-            <span id="label" class="label">Hold to Delete</span>
-        </div>
-    </button>
-
-    <p class="hint">Press and hold for 2 seconds to confirm</p>
-</div>
+```markup filename="my_component/my_html.html"
+<button id="danger-btn" class="hold-button">
+  <svg class="progress-ring" viewBox="0 0 100 100">
+    <circle class="ring-bg" cx="50" cy="50" r="45" />
+    <circle id="ring-progress" class="ring-progress" cx="50" cy="50" r="45" />
+  </svg>
+  <div class="button-content">
+    <span id="icon" class="icon">🗑️</span>
+    <span id="label" class="label">Hold to Delete</span>
+  </div>
+</button>
 ```
 
-`my_component/my_css.css`:
-
-```css
-.danger-zone {
-  font-family: var(--st-font);
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.warning-banner {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: var(--st-red-background-color);
-  border: 1px solid var(--st-red-color);
-  border-radius: var(--st-base-radius);
-}
-
-.warning-icon {
-  font-size: 1rem;
-}
-
-.warning-text {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--st-red-color);
-}
-
+```css filename="my_component/my_css.css"
 .hold-button {
   position: relative;
   width: 7.5rem;
@@ -731,7 +682,7 @@ You can include frontend validation processes in your component. This example sh
   stroke-dasharray: 283;
   stroke-dashoffset: 283;
   transition: stroke-dashoffset 0.1s linear;
-  filter: drop-shadow(0 0 6px var(--st-red-color));
+  filter: drop-shadow(0 0 0.5rem var(--st-red-color));
 }
 
 .button-content {
@@ -741,6 +692,7 @@ You can include frontend validation processes in your component. This example sh
   flex-direction: column;
   align-items: center;
   gap: 0.25rem;
+  font-family: var(--st-font);
 }
 
 .icon {
@@ -788,23 +740,14 @@ You can include frontend validation processes in your component. This example sh
   color: var(--st-primary-color);
   opacity: 1;
 }
-
-.hint {
-  font-size: 0.7rem;
-  color: var(--st-text-color);
-  opacity: 0.5;
-  margin: 0;
-}
 ```
 
-`my_component/my_js.js`:
-
-```javascript
+```javascript filename="my_component/my_js.js"
 const HOLD_DURATION = 2000; // 2 seconds
 const COOLDOWN_DURATION = 1500; // cooldown after trigger
 const CIRCUMFERENCE = 2 * Math.PI * 45; // circle circumference
 
-export default function ({ parentElement, setTriggerValue }) {
+export default function ({ parentElement, setTriggerValue, data }) {
   const button = parentElement.querySelector("#danger-btn");
   const progress = parentElement.querySelector("#ring-progress");
   const icon = parentElement.querySelector("#icon");
@@ -836,7 +779,7 @@ export default function ({ parentElement, setTriggerValue }) {
 
     startTime = Date.now();
     button.classList.add("holding");
-    label.textContent = "Keep holding...";
+    label.textContent = data?.continue ?? "Keep holding...";
     animationFrame = requestAnimationFrame(updateProgress);
   }
 
@@ -845,7 +788,7 @@ export default function ({ parentElement, setTriggerValue }) {
 
     startTime = null;
     button.classList.remove("holding");
-    label.textContent = "Hold to Delete";
+    label.textContent = data?.start ?? "Hold to Delete";
     progress.style.strokeDashoffset = CIRCUMFERENCE;
 
     if (animationFrame) {
@@ -865,7 +808,7 @@ export default function ({ parentElement, setTriggerValue }) {
     button.disabled = true;
 
     icon.textContent = "✓";
-    label.textContent = "Deleted!";
+    label.textContent = data?.completed ?? "Deleted!";
     progress.style.strokeDashoffset = 0;
 
     // Send trigger to Python
@@ -876,8 +819,8 @@ export default function ({ parentElement, setTriggerValue }) {
       button.classList.remove("triggered");
       button.disabled = false;
       isDisabled = false;
-      icon.textContent = "🗑️";
-      label.textContent = "Hold to Delete";
+      icon.textContent = data?.icon ?? "🗑️";
+      label.textContent = data?.start ?? "Hold to Delete";
       progress.style.strokeDashoffset = CIRCUMFERENCE;
     }, COOLDOWN_DURATION);
   }
@@ -891,6 +834,7 @@ export default function ({ parentElement, setTriggerValue }) {
   button.addEventListener("mousedown", startHold);
   button.addEventListener("mouseup", cancelHold);
   button.addEventListener("mouseleave", cancelHold);
+  button.addEventListener("contextmenu", cancelHold); // Ctrl+Click on Mac
 
   // Touch events for mobile
   button.addEventListener("touchstart", handleTouchStart);
@@ -904,6 +848,7 @@ export default function ({ parentElement, setTriggerValue }) {
     button.removeEventListener("mousedown", startHold);
     button.removeEventListener("mouseup", cancelHold);
     button.removeEventListener("mouseleave", cancelHold);
+    button.removeEventListener("contextmenu", cancelHold);
 
     // Remove touch event listeners
     button.removeEventListener("touchstart", handleTouchStart);
@@ -913,18 +858,9 @@ export default function ({ parentElement, setTriggerValue }) {
 }
 ```
 
-`streamlit_app.py`:
-
-```python
+```python filename="streamlit_app.py"
 import streamlit as st
-from my_component import HTML, CSS, JS
-
-danger_button = st.components.v2.component(
-    name="hold_to_confirm",
-    html=HTML,
-    css=CSS,
-    js=JS,
-)
+from danger_button_component import danger_button
 
 st.title("Hold-to-Confirm Button")
 st.caption("A dangerous action that requires intentional confirmation")
@@ -933,16 +869,22 @@ st.caption("A dangerous action that requires intentional confirmation")
 if "deleted_items" not in st.session_state:
     st.session_state.deleted_items = []
 
+
 # Callback when deletion is confirmed
 def on_delete_confirmed():
     st.session_state.deleted_items.append(
         f"Deleted item #{len(st.session_state.deleted_items) + 1}"
     )
-    st.toast("🗑️ Item permanently deleted!", icon="⚠️")
+    st.toast("Item permanently deleted!", icon="🗑️")
 
 
 # Render the component
-result = danger_button(key="danger_btn", on_confirmed_change=on_delete_confirmed)
+with st.container(horizontal_alignment="center"):
+    result = danger_button(
+        key="danger_btn",
+        on_confirmed_change=on_delete_confirmed,
+        width="content"
+    )
 
 # Show deletion history
 if st.session_state.deleted_items:
@@ -954,213 +896,162 @@ if st.session_state.deleted_items:
 
 <Collapse title="Complete code">
 
-```python
+```python filename="streamlit_app.py"
 import streamlit as st
 
 danger_button = st.components.v2.component(
     name="hold_to_confirm",
     html="""
-    <div class="danger-zone">
-        <div class="warning-banner">
-            <span class="warning-icon">⚠️</span>
-            <span class="warning-text">Danger Zone</span>
-        </div>
-
-        <button id="danger-btn" class="hold-button">
-            <svg class="progress-ring" viewBox="0 0 100 100">
-                <circle class="ring-bg" cx="50" cy="50" r="45" />
-                <circle
-                    id="ring-progress"
-                    class="ring-progress"
-                    cx="50"
-                    cy="50"
-                    r="45"
-                />
-            </svg>
-            <div class="button-content">
-                <span id="icon" class="icon">🗑️</span>
-                <span id="label" class="label">Hold to Delete</span>
-            </div>
-        </button>
-
-        <p class="hint">Press and hold for 2 seconds to confirm</p>
-    </div>
+    <button id="danger-btn" class="hold-button">
+      <svg class="progress-ring" viewBox="0 0 100 100">
+        <circle class="ring-bg" cx="50" cy="50" r="45" />
+        <circle id="ring-progress" class="ring-progress" cx="50" cy="50" r="45" />
+      </svg>
+      <div class="button-content">
+        <span id="icon" class="icon">🗑️</span>
+        <span id="label" class="label">Hold to Delete</span>
+      </div>
+    </button>
     """,
     css="""
-    .danger-zone {
-        font-family: var(--st-font);
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-    }
-
-    .warning-banner {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem 1rem;
-        background: var(--st-red-background-color);
-        border: 1px solid var(--st-red-color);
-        border-radius: var(--st-base-radius);
-    }
-
-    .warning-icon {
-        font-size: 1rem;
-    }
-
-    .warning-text {
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: var(--st-red-color);
-    }
-
     .hold-button {
-        position: relative;
-        width: 7.5rem;
-        height: 7.5rem;
-        padding: 0 2rem;
-        border-radius: 50%;
-        border: 1px solid var(--st-primary-color);
-        background: var(--st-secondary-background-color);
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      width: 7.5rem;
+      height: 7.5rem;
+      padding: 0 2rem;
+      border-radius: 50%;
+      border: 1px solid var(--st-primary-color);
+      background: var(--st-secondary-background-color);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     .hold-button:hover {
-        transform: scale(1.05);
-        border-color: var(--st-red-color);
+      transform: scale(1.05);
+      border-color: var(--st-red-color);
     }
 
     .hold-button:active:not(:disabled) {
-        transform: scale(0.98);
+      transform: scale(0.98);
     }
 
     .hold-button:disabled {
-        cursor: not-allowed;
-        opacity: 0.9;
+      cursor: not-allowed;
+      opacity: 0.9;
     }
 
     .hold-button.holding {
-        animation: pulse 0.5s ease-in-out infinite;
-        border-color: var(--st-red-color);
+      animation: pulse 0.5s ease-in-out infinite;
+      border-color: var(--st-red-color);
     }
 
     .hold-button.triggered {
-        animation: success-burst 0.6s ease-out forwards;
+      animation: success-burst 0.6s ease-out forwards;
     }
 
     @keyframes pulse {
-        0%,
-        100% {
-            box-shadow: 0 0 0 0 var(--st-red-color);
-        }
-        50% {
-            box-shadow: 0 0 0 15px transparent;
-        }
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 var(--st-red-color);
+      }
+      50% {
+        box-shadow: 0 0 0 15px transparent;
+      }
     }
 
     @keyframes success-burst {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.15);
-            background: var(--st-red-background-color);
-        }
-        100% {
-            transform: scale(1);
-        }
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.15);
+        background: var(--st-red-background-color);
+      }
+      100% {
+        transform: scale(1);
+      }
     }
 
     .progress-ring {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        transform: rotate(-90deg);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
     }
 
     .ring-bg {
-        fill: none;
-        stroke: var(--st-border-color);
-        stroke-width: 4;
+      fill: none;
+      stroke: var(--st-border-color);
+      stroke-width: 4;
     }
 
     .ring-progress {
-        fill: none;
-        stroke: var(--st-red-color);
-        stroke-width: 4;
-        stroke-linecap: round;
-        stroke-dasharray: 283;
-        stroke-dashoffset: 283;
-        transition: stroke-dashoffset 0.1s linear;
-        filter: drop-shadow(0 0 6px var(--st-red-color));
+      fill: none;
+      stroke: var(--st-red-color);
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-dasharray: 283;
+      stroke-dashoffset: 283;
+      transition: stroke-dashoffset 0.1s linear;
+      filter: drop-shadow(0 0 0.5rem var(--st-red-color));
     }
 
     .button-content {
-        position: relative;
-        z-index: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.25rem;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      font-family: var(--st-font);
     }
 
     .icon {
-        font-size: 2rem;
-        transition: transform 0.3s ease;
+      font-size: 2rem;
+      transition: transform 0.3s ease;
     }
 
     .hold-button:hover .icon {
-        transform: scale(1.1);
+      transform: scale(1.1);
     }
 
     .hold-button.holding .icon {
-        animation: shake 0.15s ease-in-out infinite;
+      animation: shake 0.15s ease-in-out infinite;
     }
 
     @keyframes shake {
-        0%,
-        100% {
-            transform: translateX(0);
-        }
-        25% {
-            transform: translateX(-2px) rotate(-5deg);
-        }
-        75% {
-            transform: translateX(2px) rotate(5deg);
-        }
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+      25% {
+        transform: translateX(-2px) rotate(-5deg);
+      }
+      75% {
+        transform: translateX(2px) rotate(5deg);
+      }
     }
 
     .label {
-        font-size: 0.65rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--st-text-color);
-        opacity: 0.6;
-        transition: all 0.3s ease;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--st-text-color);
+      opacity: 0.6;
+      transition: all 0.3s ease;
     }
 
     .hold-button.holding .label {
-        color: var(--st-red-color);
-        opacity: 1;
+      color: var(--st-red-color);
+      opacity: 1;
     }
 
     .hold-button.triggered .icon,
     .hold-button.triggered .label {
-        color: var(--st-primary-color);
-        opacity: 1;
-    }
-
-    .hint {
-        font-size: 0.7rem;
-        color: var(--st-text-color);
-        opacity: 0.5;
-        margin: 0;
+      color: var(--st-primary-color);
+      opacity: 1;
     }
     """,
     js="""
@@ -1168,112 +1059,114 @@ danger_button = st.components.v2.component(
     const COOLDOWN_DURATION = 1500; // cooldown after trigger
     const CIRCUMFERENCE = 2 * Math.PI * 45; // circle circumference
 
-    export default function ({ parentElement, setTriggerValue }) {
-        const button = parentElement.querySelector("#danger-btn");
-        const progress = parentElement.querySelector("#ring-progress");
-        const icon = parentElement.querySelector("#icon");
-        const label = parentElement.querySelector("#label");
+    export default function ({ parentElement, setTriggerValue, data }) {
+      const button = parentElement.querySelector("#danger-btn");
+      const progress = parentElement.querySelector("#ring-progress");
+      const icon = parentElement.querySelector("#icon");
+      const label = parentElement.querySelector("#label");
 
-        let startTime = null;
-        let animationFrame = null;
-        let isDisabled = false; // Prevent interaction during cooldown
+      let startTime = null;
+      let animationFrame = null;
+      let isDisabled = false; // Prevent interaction during cooldown
 
-        function updateProgress() {
-            if (!startTime) return;
+      function updateProgress() {
+        if (!startTime) return;
 
-            const elapsed = Date.now() - startTime;
-            const progressPercent = Math.min(elapsed / HOLD_DURATION, 1);
-            const offset = CIRCUMFERENCE * (1 - progressPercent);
+        const elapsed = Date.now() - startTime;
+        const progressPercent = Math.min(elapsed / HOLD_DURATION, 1);
+        const offset = CIRCUMFERENCE * (1 - progressPercent);
 
-            progress.style.strokeDashoffset = offset;
+        progress.style.strokeDashoffset = offset;
 
-            if (progressPercent >= 1) {
-                // Triggered!
-                triggerAction();
-            } else {
-                animationFrame = requestAnimationFrame(updateProgress);
-            }
+        if (progressPercent >= 1) {
+          // Triggered!
+          triggerAction();
+        } else {
+          animationFrame = requestAnimationFrame(updateProgress);
         }
+      }
 
-        function startHold() {
-            if (isDisabled) return; // Ignore if in cooldown
+      function startHold() {
+        if (isDisabled) return; // Ignore if in cooldown
 
-            startTime = Date.now();
-            button.classList.add("holding");
-            label.textContent = "Keep holding...";
-            animationFrame = requestAnimationFrame(updateProgress);
+        startTime = Date.now();
+        button.classList.add("holding");
+        label.textContent = data?.continue ?? "Keep holding...";
+        animationFrame = requestAnimationFrame(updateProgress);
+      }
+
+      function cancelHold() {
+        if (isDisabled) return; // Ignore if in cooldown
+
+        startTime = null;
+        button.classList.remove("holding");
+        label.textContent = data?.start ?? "Hold to Delete";
+        progress.style.strokeDashoffset = CIRCUMFERENCE;
+
+        if (animationFrame) {
+          cancelAnimationFrame(animationFrame);
+          animationFrame = null;
         }
+      }
 
-        function cancelHold() {
-            if (isDisabled) return; // Ignore if in cooldown
+      function triggerAction() {
+        cancelAnimationFrame(animationFrame);
+        animationFrame = null;
+        startTime = null;
+        isDisabled = true; // Disable during cooldown
 
-            startTime = null;
-            button.classList.remove("holding");
-            label.textContent = "Hold to Delete";
-            progress.style.strokeDashoffset = CIRCUMFERENCE;
+        button.classList.remove("holding");
+        button.classList.add("triggered");
+        button.disabled = true;
 
-            if (animationFrame) {
-                cancelAnimationFrame(animationFrame);
-                animationFrame = null;
-            }
-        }
+        icon.textContent = "✓";
+        label.textContent = data?.completed ?? "Deleted!";
+        progress.style.strokeDashoffset = 0;
 
-        function triggerAction() {
-            cancelAnimationFrame(animationFrame);
-            animationFrame = null;
-            startTime = null;
-            isDisabled = true; // Disable during cooldown
+        // Send trigger to Python
+        setTriggerValue("confirmed", true);
 
-            button.classList.remove("holding");
-            button.classList.add("triggered");
-            button.disabled = true;
+        // Reset after cooldown
+        setTimeout(() => {
+          button.classList.remove("triggered");
+          button.disabled = false;
+          isDisabled = false;
+          icon.textContent = data?.icon ?? "🗑️";
+          label.textContent = data?.start ?? "Hold to Delete";
+          progress.style.strokeDashoffset = CIRCUMFERENCE;
+        }, COOLDOWN_DURATION);
+      }
 
-            icon.textContent = "✓";
-            label.textContent = "Deleted!";
-            progress.style.strokeDashoffset = 0;
+      function handleTouchStart(e) {
+        e.preventDefault();
+        startHold();
+      }
 
-            // Send trigger to Python
-            setTriggerValue("confirmed", true);
+      // Mouse events
+      button.addEventListener("mousedown", startHold);
+      button.addEventListener("mouseup", cancelHold);
+      button.addEventListener("mouseleave", cancelHold);
+      button.addEventListener("contextmenu", cancelHold); // Ctrl+Click on Mac
 
-            // Reset after cooldown
-            setTimeout(() => {
-                button.classList.remove("triggered");
-                button.disabled = false;
-                isDisabled = false;
-                icon.textContent = "🗑️";
-                label.textContent = "Hold to Delete";
-                progress.style.strokeDashoffset = CIRCUMFERENCE;
-            }, COOLDOWN_DURATION);
-        }
+      // Touch events for mobile
+      button.addEventListener("touchstart", handleTouchStart);
+      button.addEventListener("touchend", cancelHold);
+      button.addEventListener("touchcancel", cancelHold);
 
-        function handleTouchStart(e) {
-            e.preventDefault();
-            startHold();
-        }
+      return () => {
+        if (animationFrame) cancelAnimationFrame(animationFrame);
 
-        // Mouse events
-        button.addEventListener("mousedown", startHold);
-        button.addEventListener("mouseup", cancelHold);
-        button.addEventListener("mouseleave", cancelHold);
+        // Remove mouse event listeners
+        button.removeEventListener("mousedown", startHold);
+        button.removeEventListener("mouseup", cancelHold);
+        button.removeEventListener("mouseleave", cancelHold);
+        button.removeEventListener("contextmenu", cancelHold);
 
-        // Touch events for mobile
-        button.addEventListener("touchstart", handleTouchStart);
-        button.addEventListener("touchend", cancelHold);
-        button.addEventListener("touchcancel", cancelHold);
-
-        return () => {
-            if (animationFrame) cancelAnimationFrame(animationFrame);
-
-            // Remove mouse event listeners
-            button.removeEventListener("mousedown", startHold);
-            button.removeEventListener("mouseup", cancelHold);
-            button.removeEventListener("mouseleave", cancelHold);
-
-            // Remove touch event listeners
-            button.removeEventListener("touchstart", handleTouchStart);
-            button.removeEventListener("touchend", cancelHold);
-            button.removeEventListener("touchcancel", cancelHold);
-        };
+        // Remove touch event listeners
+        button.removeEventListener("touchstart", handleTouchStart);
+        button.removeEventListener("touchend", cancelHold);
+        button.removeEventListener("touchcancel", cancelHold);
+      };
     }
     """,
 )
@@ -1285,16 +1178,22 @@ st.caption("A dangerous action that requires intentional confirmation")
 if "deleted_items" not in st.session_state:
     st.session_state.deleted_items = []
 
+
 # Callback when deletion is confirmed
 def on_delete_confirmed():
     st.session_state.deleted_items.append(
         f"Deleted item #{len(st.session_state.deleted_items) + 1}"
     )
-    st.toast("🗑️ Item permanently deleted!", icon="⚠️")
+    st.toast("Item permanently deleted!", icon="🗑️")
 
 
 # Render the component
-result = danger_button(key="danger_btn", on_confirmed_change=on_delete_confirmed)
+with st.container(horizontal_alignment="center"):
+    result = danger_button(
+        key="danger_btn",
+        on_confirmed_change=on_delete_confirmed,
+        width="content"
+    )
 
 # Show deletion history
 if st.session_state.deleted_items:
@@ -1313,6 +1212,6 @@ if st.session_state.deleted_items:
 Now that you've seen these examples:
 
 - Learn the fundamentals in [Create components](/develop/concepts/custom-components/components-v2/create).
-- Understand [State vs triggers](/develop/concepts/custom-components/components-v2/state-and-triggers) for advanced interactions.
-- Explore [Theming and styling](/develop/concepts/custom-components/components-v2/theming) to make beautiful components.
+- Understand [State versus trigger values](/develop/concepts/custom-components/components-v2/state-and-triggers) for advanced interactions.
+- Explore [Component theming and styling](/develop/concepts/custom-components/components-v2/theming) to make beautiful components.
 - Build complex projects with [Package-based components](/develop/concepts/custom-components/components-v2/package-based).

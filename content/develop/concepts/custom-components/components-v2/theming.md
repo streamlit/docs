@@ -1,11 +1,11 @@
 ---
-title: Theming and styling
+title: Component theming and styling
 slug: /develop/concepts/custom-components/components-v2/theming
 description: Learn how to style Custom Components v2 with Streamlit's theme integration, CSS custom properties, and responsive design patterns.
 keywords: custom components v2, theming, CSS custom properties, styling, theme integration, responsive design, dark mode, light mode, component styling
 ---
 
-# Theming and styling
+# Component theming and styling
 
 Custom components v2 provides seamless integration with Streamlit's theming system, allowing your components to automatically adapt to different themes, including dark and light modes. This integration is achieved through [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) that expose Streamlit's theme values directly to your component styles.
 
