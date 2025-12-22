@@ -1,139 +1,139 @@
 .hold-button {
-    position: relative;
-    width: 7.5rem;
-    height: 7.5rem;
-    padding: 0 2rem;
-    border-radius: 50%;
-    border: 1px solid var(--st-primary-color);
-    background: var(--st-secondary-background-color);
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  width: 7.5rem;
+  height: 7.5rem;
+  padding: 0 2rem;
+  border-radius: 50%;
+  border: 1px solid var(--st-primary-color);
+  background: var(--st-secondary-background-color);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .hold-button:hover {
-    transform: scale(1.05);
-    border-color: var(--st-red-color);
+  transform: scale(1.05);
+  border-color: var(--st-red-color);
 }
 
 .hold-button:active:not(:disabled) {
-    transform: scale(0.98);
+  transform: scale(0.98);
 }
 
 .hold-button:disabled {
-    cursor: not-allowed;
-    opacity: 0.9;
+  cursor: not-allowed;
+  opacity: 0.9;
 }
 
 .hold-button.holding {
-    animation: pulse 0.5s ease-in-out infinite;
-    border-color: var(--st-red-color);
+  animation: pulse 0.5s ease-in-out infinite;
+  border-color: var(--st-red-color);
 }
 
 .hold-button.triggered {
-    animation: success-burst 0.6s ease-out forwards;
+  animation: success-burst 0.6s ease-out forwards;
 }
 
 @keyframes pulse {
-    0%,
-    100% {
-        box-shadow: 0 0 0 0 var(--st-red-color);
-    }
-    50% {
-        box-shadow: 0 0 0 15px transparent;
-    }
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--st-red-color);
+  }
+  50% {
+    box-shadow: 0 0 0 15px transparent;
+  }
 }
 
 @keyframes success-burst {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.15);
-        background: var(--st-red-background-color);
-    }
-    100% {
-        transform: scale(1);
-    }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+    background: var(--st-red-background-color);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .progress-ring {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: rotate(-90deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
 }
 
 .ring-bg {
-    fill: none;
-    stroke: var(--st-border-color);
-    stroke-width: 4;
+  fill: none;
+  stroke: var(--st-border-color);
+  stroke-width: 4;
 }
 
 .ring-progress {
-    fill: none;
-    stroke: var(--st-red-color);
-    stroke-width: 4;
-    stroke-linecap: round;
-    stroke-dasharray: 283;
-    stroke-dashoffset: 283;
-    transition: stroke-dashoffset 0.1s linear;
-    filter: drop-shadow(0 0 0.5rem var(--st-red-color));
+  fill: none;
+  stroke: var(--st-red-color);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  transition: stroke-dashoffset 0.1s linear;
+  filter: drop-shadow(0 0 0.5rem var(--st-red-color));
 }
 
 .button-content {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
-    font-family: var(--st-font);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--st-font);
 }
 
 .icon {
-    font-size: 2rem;
-    transition: transform 0.3s ease;
+  font-size: 2rem;
+  transition: transform 0.3s ease;
 }
 
 .hold-button:hover .icon {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .hold-button.holding .icon {
-    animation: shake 0.15s ease-in-out infinite;
+  animation: shake 0.15s ease-in-out infinite;
 }
 
 @keyframes shake {
-    0%,
-    100% {
-        transform: translateX(0);
-    }
-    25% {
-        transform: translateX(-2px) rotate(-5deg);
-    }
-    75% {
-        transform: translateX(2px) rotate(5deg);
-    }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px) rotate(-5deg);
+  }
+  75% {
+    transform: translateX(2px) rotate(5deg);
+  }
 }
 
 .label {
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--st-text-color);
-    opacity: 0.6;
-    transition: all 0.3s ease;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--st-text-color);
+  opacity: 0.6;
+  transition: all 0.3s ease;
 }
 
 .hold-button.holding .label {
-    color: var(--st-red-color);
-    opacity: 1;
+  color: var(--st-red-color);
+  opacity: 1;
 }
 
 .hold-button.triggered .icon,
 .hold-button.triggered .label {
-    color: var(--st-primary-color);
-    opacity: 1;
+  color: var(--st-primary-color);
+  opacity: 1;
 }

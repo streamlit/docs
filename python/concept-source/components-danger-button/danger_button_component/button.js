@@ -3,111 +3,111 @@ const COOLDOWN_DURATION = 1500; // cooldown after trigger
 const CIRCUMFERENCE = 2 * Math.PI * 45; // circle circumference
 
 export default function ({ parentElement, setTriggerValue, data }) {
-    const button = parentElement.querySelector("#danger-btn");
-    const progress = parentElement.querySelector("#ring-progress");
-    const icon = parentElement.querySelector("#icon");
-    const label = parentElement.querySelector("#label");
+  const button = parentElement.querySelector("#danger-btn");
+  const progress = parentElement.querySelector("#ring-progress");
+  const icon = parentElement.querySelector("#icon");
+  const label = parentElement.querySelector("#label");
 
-    let startTime = null;
-    let animationFrame = null;
-    let isDisabled = false; // Prevent interaction during cooldown
+  let startTime = null;
+  let animationFrame = null;
+  let isDisabled = false; // Prevent interaction during cooldown
 
-    function updateProgress() {
-        if (!startTime) return;
+  function updateProgress() {
+    if (!startTime) return;
 
-        const elapsed = Date.now() - startTime;
-        const progressPercent = Math.min(elapsed / HOLD_DURATION, 1);
-        const offset = CIRCUMFERENCE * (1 - progressPercent);
+    const elapsed = Date.now() - startTime;
+    const progressPercent = Math.min(elapsed / HOLD_DURATION, 1);
+    const offset = CIRCUMFERENCE * (1 - progressPercent);
 
-        progress.style.strokeDashoffset = offset;
+    progress.style.strokeDashoffset = offset;
 
-        if (progressPercent >= 1) {
-            // Triggered!
-            triggerAction();
-        } else {
-            animationFrame = requestAnimationFrame(updateProgress);
-        }
+    if (progressPercent >= 1) {
+      // Triggered!
+      triggerAction();
+    } else {
+      animationFrame = requestAnimationFrame(updateProgress);
     }
+  }
 
-    function startHold() {
-        if (isDisabled) return; // Ignore if in cooldown
+  function startHold() {
+    if (isDisabled) return; // Ignore if in cooldown
 
-        startTime = Date.now();
-        button.classList.add("holding");
-        label.textContent = data?.continue ?? "Keep holding...";
-        animationFrame = requestAnimationFrame(updateProgress);
+    startTime = Date.now();
+    button.classList.add("holding");
+    label.textContent = data?.continue ?? "Keep holding...";
+    animationFrame = requestAnimationFrame(updateProgress);
+  }
+
+  function cancelHold() {
+    if (isDisabled) return; // Ignore if in cooldown
+
+    startTime = null;
+    button.classList.remove("holding");
+    label.textContent = data?.start ?? "Hold to Delete";
+    progress.style.strokeDashoffset = CIRCUMFERENCE;
+
+    if (animationFrame) {
+      cancelAnimationFrame(animationFrame);
+      animationFrame = null;
     }
+  }
 
-    function cancelHold() {
-        if (isDisabled) return; // Ignore if in cooldown
+  function triggerAction() {
+    cancelAnimationFrame(animationFrame);
+    animationFrame = null;
+    startTime = null;
+    isDisabled = true; // Disable during cooldown
 
-        startTime = null;
-        button.classList.remove("holding");
-        label.textContent = data?.start ?? "Hold to Delete";
-        progress.style.strokeDashoffset = CIRCUMFERENCE;
+    button.classList.remove("holding");
+    button.classList.add("triggered");
+    button.disabled = true;
 
-        if (animationFrame) {
-            cancelAnimationFrame(animationFrame);
-            animationFrame = null;
-        }
-    }
+    icon.textContent = "✓";
+    label.textContent = data?.completed ?? "Deleted!";
+    progress.style.strokeDashoffset = 0;
 
-    function triggerAction() {
-        cancelAnimationFrame(animationFrame);
-        animationFrame = null;
-        startTime = null;
-        isDisabled = true; // Disable during cooldown
+    // Send trigger to Python
+    setTriggerValue("confirmed", true);
 
-        button.classList.remove("holding");
-        button.classList.add("triggered");
-        button.disabled = true;
+    // Reset after cooldown
+    setTimeout(() => {
+      button.classList.remove("triggered");
+      button.disabled = false;
+      isDisabled = false;
+      icon.textContent = data?.icon ?? "🗑️";
+      label.textContent = data?.start ?? "Hold to Delete";
+      progress.style.strokeDashoffset = CIRCUMFERENCE;
+    }, COOLDOWN_DURATION);
+  }
 
-        icon.textContent = "✓";
-        label.textContent = data?.completed ?? "Deleted!";
-        progress.style.strokeDashoffset = 0;
+  function handleTouchStart(e) {
+    e.preventDefault();
+    startHold();
+  }
 
-        // Send trigger to Python
-        setTriggerValue("confirmed", true);
+  // Mouse events
+  button.addEventListener("mousedown", startHold);
+  button.addEventListener("mouseup", cancelHold);
+  button.addEventListener("mouseleave", cancelHold);
+  button.addEventListener("contextmenu", cancelHold); // Ctrl+Click on Mac
 
-        // Reset after cooldown
-        setTimeout(() => {
-            button.classList.remove("triggered");
-            button.disabled = false;
-            isDisabled = false;
-            icon.textContent = data?.icon ?? "🗑️";
-            label.textContent = data?.start ?? "Hold to Delete";
-            progress.style.strokeDashoffset = CIRCUMFERENCE;
-        }, COOLDOWN_DURATION);
-    }
+  // Touch events for mobile
+  button.addEventListener("touchstart", handleTouchStart);
+  button.addEventListener("touchend", cancelHold);
+  button.addEventListener("touchcancel", cancelHold);
 
-    function handleTouchStart(e) {
-        e.preventDefault();
-        startHold();
-    }
+  return () => {
+    if (animationFrame) cancelAnimationFrame(animationFrame);
 
-    // Mouse events
-    button.addEventListener("mousedown", startHold);
-    button.addEventListener("mouseup", cancelHold);
-    button.addEventListener("mouseleave", cancelHold);
-    button.addEventListener("contextmenu", cancelHold); // Ctrl+Click on Mac
+    // Remove mouse event listeners
+    button.removeEventListener("mousedown", startHold);
+    button.removeEventListener("mouseup", cancelHold);
+    button.removeEventListener("mouseleave", cancelHold);
+    button.removeEventListener("contextmenu", cancelHold);
 
-    // Touch events for mobile
-    button.addEventListener("touchstart", handleTouchStart);
-    button.addEventListener("touchend", cancelHold);
-    button.addEventListener("touchcancel", cancelHold);
-
-    return () => {
-        if (animationFrame) cancelAnimationFrame(animationFrame);
-
-        // Remove mouse event listeners
-        button.removeEventListener("mousedown", startHold);
-        button.removeEventListener("mouseup", cancelHold);
-        button.removeEventListener("mouseleave", cancelHold);
-        button.removeEventListener("contextmenu", cancelHold);
-
-        // Remove touch event listeners
-        button.removeEventListener("touchstart", handleTouchStart);
-        button.removeEventListener("touchend", cancelHold);
-        button.removeEventListener("touchcancel", cancelHold);
-    };
+    // Remove touch event listeners
+    button.removeEventListener("touchstart", handleTouchStart);
+    button.removeEventListener("touchend", cancelHold);
+    button.removeEventListener("touchcancel", cancelHold);
+  };
 }
