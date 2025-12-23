@@ -5,6 +5,7 @@ import {
   useEffect,
   useCallback,
 } from "react";
+import { applyThemeToDOM, getPreferredTheme, getThemeFromDOM } from "./theme";
 
 const ThemeContext = createContext();
 
@@ -21,36 +22,16 @@ export function updateIframeThemes(theme) {
   });
 }
 
-/**
- * Gets the user's theme preference from localStorage or system preference.
- * Returns "light" as default for SSR.
- */
-function getUserPreference() {
-  if (typeof window === "undefined") {
-    return "light";
-  }
-  if (window.localStorage.getItem("theme")) {
-    return window.localStorage.getItem("theme");
-  }
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-}
-
 export function ThemeContextProvider({ children }) {
-  // Initialize with "light" for SSR, will be updated on mount
-  const [theme, setThemeState] = useState("light");
+  // Initialize from DOM if available (so we match the pre-hydration bootstrap),
+  // otherwise default to "light" for SSR.
+  const [theme, setThemeState] = useState(() =>
+    typeof document === "undefined" ? "light" : getThemeFromDOM(),
+  );
   const [isInitialized, setIsInitialized] = useState(false);
 
   // Apply theme to DOM and localStorage
-  const applyTheme = useCallback((newTheme) => {
-    if (typeof document === "undefined") return;
-
-    const inactiveTheme = newTheme === "light" ? "dark" : "light";
-    document.documentElement.classList.add(newTheme);
-    document.documentElement.classList.remove(inactiveTheme);
-    localStorage.setItem("theme", newTheme);
-  }, []);
+  const applyTheme = useCallback((newTheme) => applyThemeToDOM(newTheme), []);
 
   // Set theme and update everything
   const setTheme = useCallback(
@@ -64,7 +45,20 @@ export function ThemeContextProvider({ children }) {
 
   // Initialize theme on mount (client-side only)
   useEffect(() => {
-    const preferredTheme = getUserPreference();
+    const preferredTheme = getPreferredTheme();
+
+    // If the pre-hydration bootstrap ever drifts from our runtime logic,
+    // fail loudly in dev so we don't reintroduce flashes.
+    if (process.env.NODE_ENV !== "production") {
+      const domTheme = getThemeFromDOM();
+      if (domTheme !== preferredTheme) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          `[theme] DOM theme (${domTheme}) differs from preferredTheme (${preferredTheme}). This indicates theme bootstrap drift.`,
+        );
+      }
+    }
+
     setThemeState(preferredTheme);
     applyTheme(preferredTheme);
     setIsInitialized(true);
@@ -99,14 +93,7 @@ export function useThemeContextSafe() {
  * Gets the current theme from DOM (for use in non-React contexts or SSR fallback).
  * Returns "light" as default if document is not available.
  */
-export function getThemeFromDOM() {
-  if (typeof document !== "undefined") {
-    return document.documentElement.classList.contains("dark")
-      ? "dark"
-      : "light";
-  }
-  return "light";
-}
+// Note: DOM theme helper lives in `lib/next/theme.js` now.
 
 /**
  * Adds a "light" or "dark" theme to a given Streamlit Cloud URL.
@@ -132,3 +119,5 @@ export function addThemeToSearchParams(searchParams, theme) {
 
   searchParams.append("embed_options", `${theme}_theme`);
 }
+
+export { getThemeFromDOM } from "./theme";

@@ -1,9 +1,16 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import { getThemeBootstrapScript } from "../lib/next/theme";
 
 export default function StreamlitDocument() {
   return (
     <Html>
       <Head>
+        {/* Prevent light->dark flash by applying theme before first paint */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: getThemeBootstrapScript(),
+          }}
+        />
         {/* OneTrust Consent SDK */}
         <script
           src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
