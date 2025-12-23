@@ -88,12 +88,6 @@ export function useThemeContextSafe() {
 }
 
 /**
- * Gets the current theme from DOM (for use in non-React contexts or SSR fallback).
- * Returns "light" as default if document is not available.
- */
-// Note: DOM theme helper lives in `lib/next/theme.js` now.
-
-/**
  * Adds a "light" or "dark" theme to a given Streamlit Cloud URL.
  */
 export function getThemedUrl(url, theme) {
