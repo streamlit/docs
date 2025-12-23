@@ -5,7 +5,11 @@ import {
   useEffect,
   useCallback,
 } from "react";
-import { applyThemeToDOM, getPreferredTheme, getThemeFromDOM } from "./theme";
+import {
+  applyThemeAndPersist,
+  getPreferredTheme,
+  getThemeFromDOM,
+} from "./theme";
 
 const ThemeContext = createContext();
 
@@ -30,18 +34,12 @@ export function ThemeContextProvider({ children }) {
   );
   const [isInitialized, setIsInitialized] = useState(false);
 
-  // Apply theme to DOM and localStorage
-  const applyTheme = useCallback((newTheme) => applyThemeToDOM(newTheme), []);
-
   // Set theme and update everything
-  const setTheme = useCallback(
-    (newTheme) => {
-      setThemeState(newTheme);
-      applyTheme(newTheme);
-      updateIframeThemes(newTheme);
-    },
-    [applyTheme],
-  );
+  const setTheme = useCallback((newTheme) => {
+    setThemeState(newTheme);
+    applyThemeAndPersist(newTheme);
+    updateIframeThemes(newTheme);
+  }, []);
 
   // Initialize theme on mount (client-side only)
   useEffect(() => {
@@ -60,9 +58,9 @@ export function ThemeContextProvider({ children }) {
     }
 
     setThemeState(preferredTheme);
-    applyTheme(preferredTheme);
+    applyThemeAndPersist(preferredTheme);
     setIsInitialized(true);
-  }, [applyTheme]);
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, isInitialized }}>
