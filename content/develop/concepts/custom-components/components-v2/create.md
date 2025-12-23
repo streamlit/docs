@@ -7,7 +7,9 @@ keywords: custom components v2, create components, inline components, component 
 
 # Create custom v2 components
 
-Components v2 provides a modern, flexible approach to extending Streamlit with custom functionality. This guide will introduce the necessary concepts for creating custom components using the inline development approach. For package-based components, see the [Package-based Components](/develop/concepts/custom-components/components-v2/package-based) guide.
+Components v2 provides a modern, flexible approach to extending Streamlit with custom functionality. This guide will introduce the necessary concepts for creating custom components using the inline development approach.
+
+Inline development is a great way to learn the basic concepts and start protyping, but if you want to distribute or reuse your components, pacakge-based components are recommended. After learning the basics in this guide, for more information about package-based components and development, see the [Package-based Components](/develop/concepts/custom-components/components-v2/package-based) guide.
 
 ## Two-step component process
 
@@ -21,7 +23,6 @@ Creating and using a custom component involves two distinct steps:
 Registration is where you define what your component looks like and how it behaves. Use [`st.components.v2.component()`](/develop/api-reference/custom-components/st.components.v2.component) to register a component:
 
 ```python
-# Register a component
 my_component = st.components.v2.component(
     name="my_button",
     html="<button id='btn'>Click me!</button>",
@@ -40,14 +41,11 @@ my_component = st.components.v2.component(
 
 ### Registration parameters
 
-- `name` (required) is a unique identifier for your component type. This is used internally by Streamlit for each instance to retrieve its HTML, CSS, and JavaScript code. Avoid registering multiple components with the same name.
-- `html` (optional) is the HTML markup for your component. It defines the visual structure of your component. In the previous example, this is a single HTML button element.
-- `css` (optional) is the CSS styling for your component. In the previous example, the CSS sets the button's background color to the primary color from the Streamlit theme and sets the text color to white.
-- `js` (optional) is the JavaScript logic for your component. In the previous example, the JavaScript listens for a click event on the button and sets the `clicked` trigger value to `true`.
+`name` is a unique identifier for your component. This is used internally by Streamlit for each instance to retrieve its HTML, CSS, and JavaScript code when an instance is mounted. To avoid collisions, Streamlit prefixes component names with the modules they are imported from. For inline components that aren't imported, you must use unique names.
 
-For inline component development, the HTML, CSS, and JavaScript code must be raw code as strings. File references are only supported for package-based components.
+`html`, `css`, and `js` are all optional parameters that define your component's markup, styling, and logic, respectively. In the previous example, `html` contains a single button element, `css` styles it with the Streamlit theme's primary color, and `js` listens for clicks and sets a trigger value.
 
-When you use a path in the `st.components.v2.component()` call, the paths are resolved on the frontend. For a package-based component, Streamlit serves the contents of the package's asset directory, which makes those resources available to your app's frontend and accessible through relative paths. Streamlit doesn't serve an asset directory for inline components. For more information, see [Package-based components](/develop/concepts/custom-components/components-v2/package-based).
+For inline component development, the HTML, CSS, and JavaScript code must be raw code as strings. For a package-based component, Streamlit serves the component's assets in a declared asset directory. This makes the component's resources available to your app's frontend and accessible through frontend paths relative to the asset directory. When you use a path in the `st.components.v2.component()` call, the paths are resolved on the frontend and therefore rely on the presence of the asset directory. Streamlit doesn't serve an asset directory for inline components. For more information, see [Package-based components](/develop/concepts/custom-components/components-v2/package-based).
 
 <Important>
 
@@ -70,7 +68,7 @@ export default function (component) {
 }
 ```
 
-The `component` parameter provides these essential properties as documented in the [`ComponentArgs`](/develop/api-reference/custom-components/component-v2-lib-componentargs) type. These properties are typically destructured into local variables for easier access.
+The `component` argument in your default export function provides essential properties as documented in the [`ComponentArgs`](/develop/api-reference/custom-components/component-v2-lib-componentargs) type. These properties are typically destructured into local variables for easier access:
 
 ```javascript
 export default function (component) {
@@ -83,7 +81,7 @@ export default function (component) {
 
 - `name` (string): Component name from your Python registration.
 - `key` (string): Unique identifier for this component instance. Use this to assist with tracking unique instances of your component in the DOM, especially if your component acts outside of its `parentElement`.
-- `data` (any): All data passed from Python via the `data` parameter. Use this to customize a component instance.
+- `data` (any): All data passed from Python via the `data` parameter. Use this to customize a component instance or to create a feedback loop with your Python code.
 - `parentElement` (HTMLElement): The DOM element where your component is mounted. Use this to interact with the component's internal DOM elements.
 - `setStateValue` (function): JS function to communicate stateful values to your Python backend. The first argument is the state key name, and the second argument is the value to set.
 - `setTriggerValue` (function): JS function to communicate event-based trigger values to your Python backend. The first argument is the trigger key name, and the second argument is the value to set.
@@ -101,7 +99,7 @@ Don't directly overwrite or replace `parentElement.innerHTML`. If you do, you wi
 
 #### Simple HTML component
 
-In the following examples, we'll register a simple component that displays "Hello, World!" in a heading. We use the primary color from the Streamlit theme for the heading color. For more information about making your components theme-aware, see the [Theming & styling](/develop/concepts/custom-components/components-v2/theming) guide. This example is completed at the end of this guide in the [Complete examples](#simple-html-component-complete-example) section.
+In the following examples, we'll register a simple component that displays "Hello, World!" in a heading. We use the primary color from the Streamlit theme for the heading color. For more information about making your components theme-aware, see the [Theming and styling](/develop/concepts/custom-components/components-v2/theming) guide. This example is completed at the end of this guide in the [Complete examples](#simple-html-component-complete-example) section.
 
 ```python
 import streamlit as st
@@ -119,11 +117,11 @@ For larger components, you can organize your code into separate files. However, 
 
 ```
 my_app/
-├── streamlit_app.py          # Entrypoint file
+├── streamlit_app.py
 └── my_component/
-    ├── my_css.css            # Component styles
-    ├── my_html.html          # Component HTML
-    └── my_js.js              # Component JavaScript
+    ├── component.css
+    ├── component.html
+    └── component.js
 ```
 
 ```python
@@ -147,6 +145,12 @@ file_component = st.components.v2.component(
     js=JS,
 )
 ```
+
+<Tip>
+
+Using `@st.cache_data` is a good practice to avoid reloading the component code on every rerun, but you might want to disable it temporarily during development. Streamlit will automatically invalidate the cacne if you make code changes within a cache-decorated function, but Streamlit can't infer the changes from files that are read. For more information, see [Caching](/develop/api-reference/caching).
+
+</Tip>
 
 #### Interactive component
 

@@ -13,13 +13,13 @@ Get started with custom components v2 through these practical examples that demo
 
 Creating and using a custom component involves two distinct steps:
 
-1. Register your component to define its structure (HTML, CSS, JavaScript).
-   - Register a component with [`st.components.v2.component()`](/develop/api-reference/custom-components/st.components.v2.component).
+1. **Registration**
+   - Define your component's HTML, CSS, and JavaScript with [`st.components.v2.component()`](/develop/api-reference/custom-components/st.components.v2.component).
    - Optional: To enable bidirectional communication, within your component's JavaScript function, communicate with Python by calling `setStateValue()` or `setTriggerValue()`. These are properties of the [`ComponentArgs`](/develop/api-reference/custom-components/component-v2-lib-componentargs) object passed to your function.
    - Optional: To make your component theme-aware, within your component's CSS, style your component with Streamlit's [theme variables](/develop/concepts/custom-components/components-v2/theming#using-css-custom-properties).
 
-2. Mount your component to create a specific instance in your app.
-   - Use your component command, which inherits from the [`BidiComponentCallable`](/develop/api-reference/custom-components/st.components.v2.types.bidicomponentcallable) class.
+2. **Mounting**
+   - To create a specific instance of your component in your app, use your component command, which inherits from the [`BidiComponentCallable`](/develop/api-reference/custom-components/st.components.v2.types.bidicomponentcallable) class.
 
 For more information, see [Create custom v2 components](/develop/concepts/custom-components/components-v2/create).
 
