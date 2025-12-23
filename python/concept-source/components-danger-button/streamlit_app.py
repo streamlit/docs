@@ -14,7 +14,7 @@ def on_delete_confirmed():
     st.session_state.deleted_items.append(
         f"Deleted item #{len(st.session_state.deleted_items) + 1}"
     )
-    st.toast("🗑️ Item permanently deleted!", icon="⚠️")
+    st.toast("Item permanently deleted!", icon="🗑️")
 
 
 # Render the component
