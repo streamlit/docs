@@ -4,7 +4,7 @@ import ChatSticky from "../navigation/chatSticky";
 
 import styles from "./globalTemplate.module.css";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, versionProps }) => {
   const [isSticky, setIsSticky] = useState(false);
 
   const handleScroll = () => {
@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
 
   return (
     <main id="root" className="dark:bg-gray-100">
-      <Header isSticky={isSticky} />
+      <Header isSticky={isSticky} versionProps={versionProps} />
       <div className={isSticky ? styles.stickyPageWrapper : undefined}>
         {children}
       </div>

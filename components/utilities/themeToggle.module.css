@@ -1,5 +1,9 @@
+.Wrapper {
+  @apply relative;
+}
+
 .Container {
-  @apply relative w-8 h-8 mb-0 rounded-md p-0 block cursor-pointer flex items-center justify-center hover:opacity-90 hover:shadow-sm;
+  @apply w-8 h-8 mb-0 rounded-md p-0 block cursor-pointer flex items-center justify-center hover:opacity-90 hover:shadow-sm;
   @apply bg-gray-20 !important;
 }
 
@@ -33,7 +37,7 @@
 }
 
 .Tooltip {
-  @apply hidden absolute top-20 right-4 h-8 px-2 pt-0.5 rounded-md bg-gray-20;
+  @apply hidden absolute top-10 right-0 px-3 py-1 rounded-md bg-gray-20 z-50 whitespace-nowrap;
 }
 
 .Tooltip p {

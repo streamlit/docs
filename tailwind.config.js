@@ -11,6 +11,7 @@ module.exports = {
     screens: {
       // Remove largest breakpoint, while keeping everything else at Tailwind defaults.
       // https://tailwindcss.com/docs/breakpoints
+      xs: "400px",
       sm: "640px",
       md: "768px",
       lg: "1024px",

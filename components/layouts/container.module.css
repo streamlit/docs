@@ -6,6 +6,11 @@
   @apply col-span-full lg:col-start-2 lg:col-end-5;
 }
 
+.StickyContext {
+  /* Container for sticky version selector - must have height */
+  @apply relative;
+}
+
 .ArticleContainer {
   @apply relative;
 }
