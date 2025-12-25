@@ -116,6 +116,7 @@ tt.docutils.literal {
   @apply text-green-80 bg-green-80/5;
   @apply dark:text-green-50 dark:bg-green-50/10;
   @apply text-base;
+  @apply font-mono;
   line-height: inherit;
 }
 

@@ -10,7 +10,7 @@ import styles from "./componentSlider.module.css";
 const Arrow = ({ onClick, type }) => {
   return (
     <button className={styles.Arrow} onClick={onClick}>
-      {type === "next" ? "->" : "<-"}
+      {type === "next" ? <i>arrow_forward</i> : <i>arrow_backward</i>}
     </button>
   );
 };

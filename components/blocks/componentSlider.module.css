@@ -1,5 +1,5 @@
 .SectionContainer {
-  @apply relative;
+  @apply relative mt-8;
 }
 
 /* Styles to align the slider with the API reference grid above and below */
@@ -79,15 +79,19 @@
 
 /* Slider arrow styles */
 .ArrowsContainer {
-  @apply flex list-none m-0;
+  @apply flex list-none m-0 gap-2;
 }
 
 .ArrowsContainer li {
-  @apply m-0 ml-2;
+  @apply flex p-0 m-0;
 }
 
 .ArrowsContainer li button {
-  @apply transition ease-in-out duration-100 hover:text-gray-50 text-gray-60;
+  @apply transition ease-in-out duration-100 hover:text-gray-50 text-gray-60 flex;
+}
+
+.ArrowsContainer li button i {
+  @apply w-4 text-base;
 }
 
 /* Hide the default arrows */

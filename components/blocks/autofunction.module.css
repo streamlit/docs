@@ -2,6 +2,10 @@
   @apply mt-6;
 }
 
+.Container h4 {
+  @apply mb-4;
+}
+
 .HeaderContainer {
   @apply mb-6;
 }
@@ -55,92 +59,99 @@
 }
 
 .CodeBlockContainer {
-  @apply mb-7 relative;
+  @apply mb-7 relative bg-gray-90 rounded-xl;
 }
 
+/* Keep in sync with components/blocks/code.module.css */
+.Header {
+  @apply flex items-center
+    min-h-10 px-3
+    border-b border-gray-80
+    text-gray-50 text-xs font-medium tracking-wide;
+}
+
+/* Keep in sync with components/blocks/code.module.css */
+.Language {
+  @apply uppercase tracking-wider leading-none;
+}
+
+/* Keep in sync with components/blocks/code.module.css */
+.CodeBlockContainer pre {
+  @apply p-6 text-white font-medium relative leading-relaxed;
+}
+
+/* Keep in sync with components/blocks/code.module.css */
 .CodeBlockContainer pre,
 .CodeBlockContainer code {
   @apply overflow-auto max-w-full whitespace-pre;
 }
 
-.CodeBlockContainer pre {
-  @apply p-4 bg-gray-90 text-white font-medium rounded-xl relative py-6 px-8 leading-relaxed;
-}
-
+/* Keep in sync with components/blocks/autofunction.module.css */
 .CodeBlockContainer pre code {
   @apply z-10 relative;
 }
 
+/* Keep in sync with components/blocks/code.module.css */
 .LineHighlight {
   @apply bg-gray-80 opacity-30 z-0;
 }
 
+/* Keep in sync with components/blocks/code.module.css */
+.Container :global(.toolbar) {
+  @apply absolute top-0 right-0
+    flex items-center justify-end
+    px-3 h-10
+    text-gray-80 text-xs font-medium tracking-wide;
+}
+
+/* Keep in sync with components/blocks/code.module.css */
+.Container :global(.toolbar-item) {
+  @apply flex items-center justify-end;
+}
+
+/* Keep in sync with components/blocks/code.module.css */
 .CodeBlockContainer button {
-  @apply absolute top-2 right-2 cursor-pointer h-8 w-8 mb-0 flex items-center;
+  @apply flex flex-row gap-1
+    h-full
+    text-xs leading-none
+    text-gray-50 hover:text-white;
 }
 
-.CodeBlockContainer button::before {
-  @apply absolute top-2 right-2 z-10 transition-all duration-75 hover:opacity-40;
-  content: url("/clipboard.svg");
-}
-
+/* Keep in sync with components/blocks/code.module.css */
 .CodeBlockContainer button span {
-  @apply absolute right-10 text-white font-mono text-sm tracking-tight font-normal opacity-0;
+  @apply flex items-center justify-start
+    tracking-wide font-medium;
 }
 
-.CodeBlockContainer button:hover span {
-  @apply opacity-100;
+/* Keep in sync with components/blocks/code.module.css */
+.CodeBlockContainer :global(.copy-to-clipboard-button) {
+  &::after {
+    @apply block text-gray-50 hover:text-white h-3 w-3 cursor-pointer;
+    content: "";
+    background-color: currentColor;
+    -webkit-mask-image: url("/clipboard.svg");
+    mask-image: url("/clipboard.svg");
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+  }
+
+  & span {
+    @apply text-white
+      opacity-0 translate-x-2 transition-transform
+      pointer-events-none;
+  }
+
+  &:hover span {
+    @apply opacity-100 translate-x-0;
+  }
 }
 
-/* Code block adjustments */
-.CodeBlockContainer pre code :global(.decorator.annotation.punctuation) {
-  @apply text-red-50;
+.NoCopyButton :global(.copy-to-clipboard-button) {
+  @apply hidden;
 }
 
-.CodeBlockContainer pre code :global(.operator) {
-  @apply text-yellow-50;
-}
-
-.CodeBlockContainer pre code :global(.decorator) {
-  @apply text-yellow-80;
-}
-
-.CodeBlockContainer pre code :global(.keyword) {
-  @apply text-darkBlue-50;
-}
-
-.CodeBlockContainer pre code :global(.builtin) {
-  @apply text-lightBlue-40;
-}
-
-.CodeBlockContainer pre code :global(.string) {
-  @apply text-green-80;
-}
-
-.CodeBlockContainer pre code :global(.number),
-.CodeBlockContainer pre code :global(.boolean) {
-  @apply text-green-40;
-}
-
-.CodeBlockContainer pre code :global(.function) {
-  @apply text-red-50;
-}
-
-.CodeBlockContainer pre code :global(.punctuation) {
-  @apply text-gray-60;
-}
-
-.CodeBlockContainer pre code :global(.comment) {
-  @apply text-gray-60 italic font-normal;
-}
-
-.CodeBlockContainer pre code :global(.string) {
-  @apply text-darkBlue-30;
-}
-
-.CodeBlockContainer pre code :global(.table) {
-  @apply inline;
-}
+/* Syntax highlighting is now handled globally via styles/syntax-highlighting.scss */
 
 /* Styles for deprecation notice in param */
 .DeprecatedContent {

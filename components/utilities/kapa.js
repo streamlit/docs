@@ -51,7 +51,7 @@ const Kapa = () => {
         data-button-hide="true"
         data-modal-override-open-id="kapa-ai"
         data-modal-lock-scroll="false"
-        data-modal-border-radius="6px"
+        data-modal-border-radius="12px"
         data-modal-image-height="18px"
         data-answer-feedback-button-active-border="1px solid #808495"
         data-user-analytics-cookie-enabled="false"
