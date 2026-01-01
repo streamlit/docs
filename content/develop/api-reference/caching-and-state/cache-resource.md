@@ -11,6 +11,15 @@ This page only contains information on the `st.cache_resource` API. For a deeper
 
 </Tip>
 
+<Note>
+
+Due to the current implementation of Streamlit’s caching mechanism, objects passed to
+`st.cache_resource` must be **pickle-able** (serializable) in addition to being
+**hashable**. Objects that contain non-pickleable elements (such as functions)
+may raise errors like `TypeError: cannot pickle 'function' object`.
+
+</Note>
+
 <Autofunction function="streamlit.cache_resource" oldName="streamlit.experimental_singleton" />
 
 <Autofunction function="streamlit.cache_resource.clear" oldName="streamlit.experimental_singleton.clear" />
