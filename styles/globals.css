@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * ==========================================================================
+ * Z-INDEX REFERENCE
+ * ==========================================================================
+ * Use this scale to maintain consistent stacking order across the site.
+ * When adding new z-index values, update this reference.
+ *
+ * z-50  - Version selector (sticky container & dropdown menu)
+ *       - Theme toggle tooltip
+ *
+ * z-30  - Header navigation (header.module.css)
+ *       - Image lightbox overlay (image.module.css)
+ *       - Chat sticky button (chatSticky.module.css)
+ *
+ * z-20  - Sidebar navigation (sideBar.module.css)
+ *       - Image lightbox close button (image.module.css)
+ *       - RefCard containers (refCard.module.css)
+ *
+ * z-10  - Code block elements (code.module.css, autofunction.module.css)
+ *       - Search modal & search box (search.module.css, searchModal.css)
+ *       - Floating nav & gradients (floatingNav.module.css, sideBar.module.css)
+ *       - Nav icons (navChild.module.css)
+ *       - Component slider elements (componentSlider.module.css)
+ *
+ * z-0   - Line highlights in code blocks (base layer)
+ * ==========================================================================
+ */
+
 html {
   @apply overflow-x-hidden overflow-y-auto scroll-pt-24;
 }

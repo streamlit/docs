@@ -22,6 +22,8 @@ const VersionSelector = ({ version, slug, goToLatest, isMobile = false }) => {
 
   // Close dropdown when clicking outside
   useEffect(() => {
+    if (!isOpen) return;
+
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
@@ -29,10 +31,8 @@ const VersionSelector = ({ version, slug, goToLatest, isMobile = false }) => {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
 
   const handleSelectVersion = (selectedVersion) => {
     setIsOpen(false);
@@ -47,9 +47,8 @@ const VersionSelector = ({ version, slug, goToLatest, isMobile = false }) => {
       } else {
         goToLatest();
       }
+      router.push(`/${slicedSlug.join("/")}`);
     }
-
-    router.push(`/${slicedSlug.join("/")}`);
   };
 
   const containerClass = isMobile ? styles.MobileContainer : styles.Container;
@@ -100,10 +99,18 @@ const VersionSelector = ({ version, slug, goToLatest, isMobile = false }) => {
                 key={ver}
                 role="option"
                 aria-selected={ver === currentNumericVersion}
+                tabIndex={0}
                 className={classNames(styles.DropdownItem, {
                   [styles.DropdownItemSelected]: ver === currentNumericVersion,
                 })}
                 onClick={() => handleSelectVersion(ver)}
+                onKeyDown={(e) => {
+                  // ← New: Handle enter and space to select an option
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    handleSelectVersion(ver);
+                  }
+                }}
               >
                 <span>Version {ver}</span>
                 {ver === currentNumericVersion && (
