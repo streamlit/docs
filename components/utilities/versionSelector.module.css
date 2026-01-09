@@ -86,8 +86,7 @@
 }
 
 .DropdownItem:focus {
-  @apply outline-none;
-  box-shadow: inset 0 0 0 2px theme("colors.orange.70");
+  @apply outline-2 outline-gray-40;
 }
 
 :global(.dark) .DropdownItem {
