@@ -6,27 +6,25 @@
  * ==========================================================================
  * Z-INDEX REFERENCE
  * ==========================================================================
- * Use this scale to maintain consistent stacking order across the site.
- * When adding new z-index values, update this reference.
+ * Semantic z-index classes are defined in tailwind.config.js under theme.extend.zIndex
+ * Use these class names instead of numeric values (z-10, z-20, etc.)
  *
- * z-50  - Version selector (sticky container & dropdown menu)
- *       - Theme toggle tooltip
+ * z-dropdown (50) - Version selector, tooltips, dropdown menus
+ *                   Files: versionSelector.module.css, themeToggle.module.css
  *
- * z-30  - Header navigation (header.module.css)
- *       - Image lightbox overlay (image.module.css)
- *       - Chat sticky button (chatSticky.module.css)
+ * z-header (30)   - Header navigation, overlays, sticky elements
+ *                   Files: header.module.css, image.module.css, chatSticky.module.css
  *
- * z-20  - Sidebar navigation (sideBar.module.css)
- *       - Image lightbox close button (image.module.css)
- *       - RefCard containers (refCard.module.css)
+ * z-sidebar (20)  - Sidebar, refcards, secondary overlays
+ *                   Files: sideBar.module.css, image.module.css, refCard.module.css
  *
- * z-10  - Code block elements (code.module.css, autofunction.module.css)
- *       - Search modal & search box (search.module.css, searchModal.css)
- *       - Floating nav & gradients (floatingNav.module.css, sideBar.module.css)
- *       - Nav icons (navChild.module.css)
- *       - Component slider elements (componentSlider.module.css)
+ * z-elevated (10) - Code blocks, search, floating nav, nav icons
+ *                   Files: code.module.css, autofunction.module.css, search.module.css,
+ *                          floatingNav.module.css, navChild.module.css, componentSlider.module.css
  *
- * z-0   - Line highlights in code blocks (base layer)
+ * z-base (0)      - Default layer, code line highlights
+ *
+ * z-modal (100)   - Reserved for modals and dialogs (future use)
  * ==========================================================================
  */
 
