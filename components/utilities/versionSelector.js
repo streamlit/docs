@@ -105,7 +105,6 @@ const VersionSelector = ({ version, slug, goToLatest, isMobile = false }) => {
                 })}
                 onClick={() => handleSelectVersion(ver)}
                 onKeyDown={(e) => {
-                  // ← New: Handle enter and space to select an option
                   if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
                     handleSelectVersion(ver);

@@ -13,11 +13,11 @@
 }
 
 .Pre code {
-  @apply z-10 relative;
+  @apply z-elevated relative;
 }
 
 .LineHighlight {
-  @apply bg-gray-80 opacity-30 z-0;
+  @apply bg-gray-80 opacity-30 z-base;
 }
 
 .Container button {
@@ -25,7 +25,7 @@
 }
 
 .Container button::before {
-  @apply absolute top-2 right-2 z-10 transition-all duration-75 hover:opacity-40;
+  @apply absolute top-2 right-2 z-elevated transition-all duration-75 hover:opacity-40;
   content: url("/clipboard.svg");
 }
 

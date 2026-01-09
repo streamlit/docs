@@ -37,7 +37,7 @@
 }
 
 .Tooltip {
-  @apply hidden absolute top-10 right-0 px-3 py-1 rounded-md bg-gray-20 z-50 whitespace-nowrap;
+  @apply hidden absolute top-10 right-0 px-3 py-1 rounded-md bg-gray-20 z-dropdown whitespace-nowrap;
 }
 
 .Tooltip p {
