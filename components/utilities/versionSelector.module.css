@@ -1,9 +1,8 @@
 .Container {
-  @apply flex items-center gap-2 mb-4;
+  @apply flex items-center gap-2 mb-4 z-dropdown;
   /* Sticky positioning - stays in place as you scroll */
   position: sticky;
   top: 0.5rem;
-  z-index: 50; /* See z-index reference in styles/globals.css */
   width: fit-content;
   align-self: flex-start;
 }
@@ -66,7 +65,7 @@
 
 /* Dropdown menu - solid background matching site */
 .DropdownMenu {
-  @apply absolute top-full left-0 mt-1 rounded-md list-none m-0 min-w-full z-50;
+  @apply absolute top-full left-0 mt-1 rounded-md list-none m-0 min-w-full z-dropdown;
   @apply bg-white border-none;
   padding: 0.375rem 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
