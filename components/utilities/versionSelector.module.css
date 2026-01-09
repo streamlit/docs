@@ -26,7 +26,7 @@
 
 /* The button that shows selected value */
 .DropdownButton {
-  @apply relative flex items-center gap-1.5 bg-gray-20 rounded-md cursor-pointer border-none text-left h-8 pl-3 pr-1.5;
+  @apply relative flex items-center gap-1.5 bg-gray-20 rounded-md cursor-pointer border-none text-left h-8 pl-3 pr-2;
 }
 
 :global(.dark) .DropdownButton {
