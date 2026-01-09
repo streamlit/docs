@@ -107,7 +107,7 @@ st.dataframe(df)
 
 Of course, you may be wondering where your username and password go. Streamlit has a convenient mechanism for [Secrets management](/develop/concepts/connections/secrets-management). For now, let's just see how `st.connection` works very nicely with secrets. In your local project directory, you can save a `.streamlit/secrets.toml` file. You save your secrets in the toml file and `st.connection` just uses them! For example, if you have an app file `streamlit_app.py` your project directory may look like this:
 
-```bash
+```none hideHeader
 your-LOCAL-repository/
 ├── .streamlit/
 │   └── secrets.toml # Make sure to gitignore this!

@@ -113,7 +113,7 @@ You can also write to your app without calling any Streamlit methods.
 Streamlit supports "[magic commands](/develop/api-reference/write-magic/magic)," which means you don't have to use
 [`st.write()`](/develop/api-reference/write-magic/st.write) at all! To see this in action try this snippet:
 
-```python
+```python try
 """
 # My first app
 Here's our first attempt at using data to create a table:

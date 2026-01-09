@@ -84,17 +84,34 @@ const Autofunction = ({
       blockRef.current.getElementsByTagName("pre"),
     );
 
+    // Important: keep this in sync with components/block/code.js
     pres.forEach((ele) => {
+      // Detect language based on pre element class
+      const isLiteralBlock = ele.classList.contains("literal-block");
+      const language = isLiteralBlock ? "bash" : "python";
+      const displayLanguage = isLiteralBlock ? "BASH" : "PYTHON";
+
       const codeText = ele.innerHTML;
       const preTag = ele.cloneNode(true);
       const codeWrap = document.createElement("div");
       codeWrap.setAttribute("class", styles.CodeBlockContainer);
+
+      // Create language header
+      const header = document.createElement("div");
+      header.setAttribute("class", `${styles.Header} code-block-header`);
+      const langSpan = document.createElement("span");
+      langSpan.setAttribute("class", styles.Language);
+      langSpan.textContent = displayLanguage;
+      header.appendChild(langSpan);
+
       const codeTag = document.createElement("code");
-      codeTag.setAttribute("class", "language-python");
+      codeTag.setAttribute("class", `language-${language}`);
       preTag.classList.add("line-numbers");
       codeTag.innerHTML = codeText;
       preTag.textContent = null;
       preTag.appendChild(codeTag);
+
+      codeWrap.appendChild(header);
       codeWrap.appendChild(preTag);
       ele.replaceWith(codeWrap);
     });
@@ -536,7 +553,12 @@ const Autofunction = ({
   );
 
   return (
-    <section className={styles.Container} ref={blockRef} key={slug}>
+    <section
+      className={styles.Container}
+      ref={blockRef}
+      key={slug}
+      data-prismjs-copy-timeout="1000"
+    >
       {header}
       {body}
     </section>

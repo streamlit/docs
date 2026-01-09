@@ -16,7 +16,10 @@ const RefCard = ({ children, size, href, deprecated }) => {
             : styles.Third;
 
   return (
-    <Link href={href} className={classNames(styles.Container, tileSize)}>
+    <Link
+      href={href}
+      className={classNames(styles.Container, tileSize, "refcard code-light")}
+    >
       {deprecated === true ? (
         <div className={classNames("group", styles.DeprecationNotice)}>
           <span
