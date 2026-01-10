@@ -129,14 +129,13 @@ export default function Article({
   versionFromSlug,
   platformFromSlug,
   filename,
+  isVersionedPage,
 }) {
   const router = useRouter();
 
   let currentLink;
 
   const { version, platform, goToLatest, goToOpenSource } = useVersionContext();
-  // Determine if page is versioned based on having docstrings (Autofunction usage)
-  const isVersionedPage = docstrings && Object.keys(docstrings).length > 0;
   const isUnversionedURL = !versionFromSlug || !platformFromSlug;
   const contextIsDefault =
     version == DEFAULT_VERSION && platform == DEFAULT_PLATFORM;
@@ -371,6 +370,7 @@ export async function getStaticProps(context) {
   props["notes"] = {};
   props["versionFromSlug"] = null;
   props["platformFromSlug"] = null;
+  props["isVersionedPage"] = false;
 
   if ("slug" in context.params) {
     let filename;
@@ -385,6 +385,7 @@ export async function getStaticProps(context) {
     const fileContents = fs.readFileSync(filename, "utf8");
     const { data, content } = matter(fileContents);
     const shouldVersion = /<Autofunction(.*?)\/>/gi.test(fileContents);
+    props["isVersionedPage"] = shouldVersion;
     if (shouldVersion) {
       const autofunctions = fileContents.matchAll(/<Autofunction(.*?)\/>/gi);
       // Build list of functions that are on the page
