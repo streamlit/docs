@@ -1,310 +1,133 @@
 .Container {
-  @apply w-full my-7 mx-auto overflow-x-auto;
+  @apply w-full my-7 mx-auto overflow-x-auto bg-gray-90 rounded-xl;
+
   @apply relative !important;
 }
 
+/* Keep in sync with components/blocks/autofunction.module.css */
+.Header {
+  @apply flex items-center gap-2
+    min-h-10 px-3
+    border-b border-gray-80
+    text-gray-50 text-xs font-medium tracking-wide;
+}
+
+/* Keep in sync with components/blocks/autofunction.module.css */
+.Language {
+  @apply uppercase tracking-wider;
+}
+
+.Filename {
+  @apply font-mono tracking-wider;
+}
+
+/* Keep in sync with components/blocks/autofunction.module.css */
+.Pre {
+  @apply p-6 text-white font-medium relative leading-relaxed;
+}
+
+/* Keep in sync with components/blocks/autofunction.module.css */
 .Pre,
 .Container code {
   @apply overflow-auto max-w-full whitespace-pre;
 }
 
-.Pre {
-  @apply p-4 bg-gray-90 text-white font-medium rounded-md relative py-6 px-8 leading-relaxed;
-}
-
+/* Keep in sync with components/blocks/autofunction.module.css */
 .Pre code {
   @apply z-elevated relative;
 }
 
+/* Keep in sync with components/blocks/autofunction.module.css */
 .LineHighlight {
   @apply bg-gray-80 opacity-30 z-base;
 }
 
+/* Keep in sync with components/blocks/autofunction.module.css */
+.Container :global(.toolbar) {
+  @apply absolute top-0 right-0
+    flex items-center justify-end
+    px-3 h-10
+    text-gray-80 text-xs font-medium tracking-wide;
+}
+
+/* Keep in sync with components/blocks/autofunction.module.css */
+.Container :global(.toolbar-item) {
+  @apply flex items-center justify-end;
+}
+
+/* Keep in sync with components/blocks/autofunction.module.css */
 .Container button {
-  @apply absolute top-2 right-2 cursor-pointer h-8 w-8 mb-0 flex items-center;
+  @apply flex flex-row gap-1
+    h-full
+    text-xs leading-none
+    text-gray-50 hover:text-white;
 }
 
-.Container button::before {
-  @apply absolute top-2 right-2 z-elevated transition-all duration-75 hover:opacity-40;
-  content: url("/clipboard.svg");
-}
-
+/* Keep in sync with components/blocks/autofunction.module.css */
 .Container button span {
-  @apply absolute right-10 text-white font-mono text-sm tracking-tight font-normal opacity-0;
+  @apply flex items-center justify-start
+    tracking-wide font-medium;
 }
 
-.Container button:hover span {
-  @apply opacity-100;
+.Container button i {
+  @apply flex text-xs leading-none;
 }
 
-/* Code block adjustments */
-.Pre code :global(.operator) {
-  @apply text-yellow-50;
+.TryMeButton {
+  @apply px-2 py-1 rounded-md
+    border border-gray-80 hover:border-white;
 }
 
-.Pre code :global(.decorator.annotation.punctuation) {
-  @apply text-red-60;
-}
-
-.Pre code :global(.string) {
-  @apply text-darkBlue-30;
-}
-
-.Pre code :global(.keyword) {
-  @apply text-darkBlue-50;
-}
-
-.Pre code :global(.builtin) {
-  @apply text-lightBlue-40;
-}
-
-.Pre code :global(.number),
-.Pre code :global(.boolean) {
-  @apply text-green-40;
-}
-
-.Pre code :global(.punctuation) {
-  @apply text-gray-60;
-}
-
-.Pre code :global(.comment) {
-  @apply text-gray-60 italic font-normal;
-}
-
-.Pre code :global(.table) {
-  @apply inline;
-}
-
-.Pre code :global(.deleted) {
-  @apply text-red-70 bg-red-70 bg-opacity-20;
-}
-.Pre code :global(.inserted) {
-  @apply text-green-70 bg-green-70 bg-opacity-20;
-}
-
-/* Additional token types for HTML/markup, CSS, and other languages */
-.Pre code :global(.tag) {
-  @apply text-red-60;
-}
-
-.Pre code :global(.attr-name) {
-  @apply text-lightBlue-40;
-}
-
-.Pre code :global(.attr-value) {
-  @apply text-darkBlue-30;
-}
-
-.Pre code :global(.entity) {
-  @apply text-green-40;
-}
-
-.Pre code :global(.property) {
-  @apply text-lightBlue-40;
-}
-
-.Pre code :global(.selector) {
-  @apply text-red-60;
-}
-
-.Pre code :global(.rule) {
-  @apply text-darkBlue-50;
-}
-
-.Pre code :global(.function) {
-  @apply text-red-60 font-semibold;
-}
-
-.Pre code :global(.variable) {
-  @apply text-yellow-50;
-}
-
-.Pre code :global(.class-name) {
-  @apply text-lightBlue-40;
-}
-
-.Pre code :global(.constant) {
-  @apply text-green-40;
-}
-
-.Pre code :global(.symbol) {
-  @apply text-yellow-50;
-}
-
-.Pre code :global(.important) {
-  @apply text-red-60 font-bold;
-}
-
-.Pre code :global(.atrule) {
-  @apply text-darkBlue-50;
-}
-
-.Pre code :global(.url) {
-  @apply text-darkBlue-30;
-}
-
-.Pre code :global(.regex) {
-  @apply text-green-40;
-}
-
-.Pre code :global(.prolog),
-.Pre code :global(.doctype),
-.Pre code :global(.cdata) {
-  @apply text-gray-60 italic;
-}
-
-/* Additional common token types */
-.Pre code :global(.namespace) {
-  @apply text-lightBlue-40;
-}
+/* Keep in sync with components/blocks/autofunction.module.css */
+.Container :global(.copy-to-clipboard-button) {
+  &::after {
+    @apply block text-gray-50 hover:text-white h-3 w-3 cursor-pointer;
+    content: "";
+    background-color: currentColor;
+    -webkit-mask-image: url("/clipboard.svg");
+    mask-image: url("/clipboard.svg");
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+  }
 
-.Pre code :global(.char) {
-  @apply text-darkBlue-30;
-}
-
-.Pre code :global(.interpolation) {
-  @apply text-yellow-50;
-}
-
-.Pre code :global(.annotation) {
-  @apply text-red-60;
-}
-
-.Pre code :global(.generic) {
-  @apply text-gray-60;
-}
-
-.Pre code :global(.script) {
-  @apply text-gray-60;
-}
-
-.Pre code :global(.plain-text) {
-  @apply text-white;
-}
-
-/* Dark mode adjustments */
-:global(.dark) .Pre code :global(.operator),
-:global(.dark) .Pre code :global(.decorator) {
-  @apply text-yellow-80;
-}
-
-:global(.dark) .Pre code :global(.keyword) {
-  @apply text-darkBlue-50;
-}
-
-:global(.dark) .Pre code :global(.builtin) {
-  @apply text-lightBlue-60;
-}
-
-:global(.dark) .Pre code :global(.number),
-:global(.dark) .Pre code :global(.boolean) {
-  @apply text-green-40;
-}
-
-:global(.dark) .Pre code :global(.function) {
-  @apply text-red-60 font-semibold;
-}
-
-:global(.dark) .Pre code :global(.comment) {
-  @apply text-gray-60;
-}
-
-:global(.dark) .Pre code :global(.string) {
-  @apply text-darkBlue-30;
-}
-
-/* Dark mode styles for additional token types */
-:global(.dark) .Pre code :global(.tag) {
-  @apply text-red-60;
-}
+  & span {
+    @apply text-white
+      opacity-0 translate-x-2 transition-transform
+      pointer-events-none;
+  }
 
-:global(.dark) .Pre code :global(.attr-name) {
-  @apply text-lightBlue-60;
+  &:hover span {
+    @apply opacity-100 translate-x-0;
+  }
 }
 
-:global(.dark) .Pre code :global(.attr-value) {
-  @apply text-darkBlue-30;
+.NoCopyButton :global(.copy-to-clipboard-button) {
+  @apply hidden;
 }
 
-:global(.dark) .Pre code :global(.entity) {
-  @apply text-green-40;
+.TryMeButton {
+  @apply h-3 flex flex-row gap-1;
 }
 
-:global(.dark) .Pre code :global(.property) {
-  @apply text-lightBlue-60;
+:global(.refcard) .Container {
+  @apply rounded-none bg-transparent;
 }
 
-:global(.dark) .Pre code :global(.selector) {
-  @apply text-red-60;
-}
-
-:global(.dark) .Pre code :global(.rule) {
-  @apply text-darkBlue-50;
-}
-
-:global(.dark) .Pre code :global(.variable) {
-  @apply text-yellow-80;
-}
-
-:global(.dark) .Pre code :global(.class-name) {
-  @apply text-lightBlue-60;
-}
-
-:global(.dark) .Pre code :global(.constant) {
-  @apply text-green-40;
-}
-
-:global(.dark) .Pre code :global(.symbol) {
-  @apply text-yellow-80;
-}
-
-:global(.dark) .Pre code :global(.important) {
-  @apply text-red-60 font-bold;
-}
-
-:global(.dark) .Pre code :global(.atrule) {
-  @apply text-darkBlue-50;
-}
-
-:global(.dark) .Pre code :global(.url) {
-  @apply text-darkBlue-30;
-}
-
-:global(.dark) .Pre code :global(.regex) {
-  @apply text-green-40;
-}
-
-:global(.dark) .Pre code :global(.prolog),
-:global(.dark) .Pre code :global(.doctype),
-:global(.dark) .Pre code :global(.cdata) {
-  @apply text-gray-60 italic;
-}
+:global(.refcard) .Container .Pre {
+  @apply p-0 text-gray-80 h-full;
 
-/* Dark mode for additional common token types */
-:global(.dark) .Pre code :global(.namespace) {
-  @apply text-lightBlue-60;
+  html:global(.dark) & {
+    @apply text-white;
+  }
 }
 
-:global(.dark) .Pre code :global(.char) {
-  @apply text-darkBlue-30;
+:global(.refcard) .Container code {
+  @apply block p-4 h-full;
 }
 
-:global(.dark) .Pre code :global(.interpolation) {
-  @apply text-yellow-80;
+:global(.refcard) .Container :global(.code-toolbar) {
+  @apply px-0 py-0;
 }
 
-:global(.dark) .Pre code :global(.annotation) {
-  @apply text-red-60;
-}
-
-:global(.dark) .Pre code :global(.generic) {
-  @apply text-gray-60;
-}
-
-:global(.dark) .Pre code :global(.script) {
-  @apply text-gray-60;
-}
-
-:global(.dark) .Pre code :global(.plain-text) {
-  @apply text-white;
-}
+/* Syntax highlighting is now handled globally via styles/syntax-highlighting.scss */

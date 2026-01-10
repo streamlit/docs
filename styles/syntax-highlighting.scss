@@ -1,0 +1,313 @@
+/* Syntax Highlighting Token Colors
+ * Centralized color definitions for all code blocks
+ */
+
+/* Dark mode syntax highlighting tokens */
+:root {
+  /* Primary syntax tokens - keep existing dark mode colors */
+  --syntax-operator: theme("colors.yellow.80");
+  --syntax-decorator: theme("colors.yellow.80");
+  --syntax-keyword: theme("colors.darkBlue.50");
+  --syntax-builtin: theme("colors.lightBlue.60");
+  --syntax-string: theme("colors.darkBlue.30");
+  --syntax-number: theme("colors.green.40");
+  --syntax-boolean: theme("colors.green.40");
+  --syntax-function: theme("colors.red.60");
+  --syntax-punctuation: theme("colors.gray.60");
+  --syntax-comment: theme("colors.gray.60");
+
+  /* HTML/Markup tokens */
+  --syntax-tag: theme("colors.red.60");
+  --syntax-attr-name: theme("colors.lightBlue.60");
+  --syntax-attr-value: theme("colors.darkBlue.30");
+  --syntax-entity: theme("colors.green.40");
+
+  /* CSS tokens */
+  --syntax-property: theme("colors.lightBlue.60");
+  --syntax-selector: theme("colors.red.60");
+  --syntax-rule: theme("colors.darkBlue.50");
+  --syntax-atrule: theme("colors.darkBlue.50");
+  --syntax-url: theme("colors.darkBlue.30");
+
+  /* Additional common tokens */
+  --syntax-variable: theme("colors.yellow.80");
+  --syntax-class-name: theme("colors.lightBlue.60");
+  --syntax-constant: theme("colors.green.40");
+  --syntax-symbol: theme("colors.yellow.80");
+  --syntax-important: theme("colors.red.60");
+  --syntax-regex: theme("colors.green.40");
+  --syntax-namespace: theme("colors.lightBlue.60");
+  --syntax-char: theme("colors.darkBlue.30");
+  --syntax-interpolation: theme("colors.yellow.80");
+  --syntax-annotation: theme("colors.red.60");
+  --syntax-generic: theme("colors.gray.60");
+  --syntax-script: theme("colors.gray.60");
+  --syntax-plain-text: theme("colors.white");
+
+  /* Special tokens */
+  --syntax-prolog: theme("colors.gray.60");
+  --syntax-doctype: theme("colors.gray.60");
+  --syntax-cdata: theme("colors.gray.60");
+  --syntax-deleted: theme("colors.red.70");
+  --syntax-inserted: theme("colors.green.70");
+}
+
+/* Light mode syntax highlighting tokens */
+html.light .code-light {
+  /* Primary syntax tokens */
+  --syntax-operator: theme("colors.yellow.90");
+  --syntax-decorator: theme("colors.yellow.100");
+  --syntax-keyword: theme("colors.darkBlue.70");
+  --syntax-builtin: theme("colors.lightBlue.80");
+  --syntax-string: theme("colors.green.80");
+  --syntax-number: theme("colors.red.90");
+  --syntax-boolean: theme("colors.green.60");
+  --syntax-function: theme("colors.red.60");
+  --syntax-punctuation: theme("colors.gray.60");
+  --syntax-comment: theme("colors.gray.60");
+
+  /* HTML/Markup tokens */
+  --syntax-tag: theme("colors.red.70");
+  --syntax-attr-name: theme("colors.lightBlue.80");
+  --syntax-attr-value: theme("colors.green.80");
+  --syntax-entity: theme("colors.green.70");
+
+  /* CSS tokens */
+  --syntax-property: theme("colors.lightBlue.80");
+  --syntax-selector: theme("colors.red.70");
+  --syntax-rule: theme("colors.darkBlue.80");
+  --syntax-atrule: theme("colors.darkBlue.80");
+  --syntax-url: theme("colors.green.80");
+
+  /* Additional common tokens */
+  --syntax-variable: theme("colors.orange.80");
+  --syntax-class-name: theme("colors.lightBlue.80");
+  --syntax-constant: theme("colors.green.70");
+  --syntax-symbol: theme("colors.orange.80");
+  --syntax-important: theme("colors.red.70");
+  --syntax-regex: theme("colors.green.70");
+  --syntax-namespace: theme("colors.lightBlue.80");
+  --syntax-char: theme("colors.green.80");
+  --syntax-interpolation: theme("colors.orange.80");
+  --syntax-annotation: theme("colors.red.70");
+  --syntax-generic: theme("colors.gray.70");
+  --syntax-script: theme("colors.gray.70");
+  --syntax-plain-text: theme("colors.gray.90");
+
+  /* Special tokens */
+  --syntax-prolog: theme("colors.gray.70");
+  --syntax-doctype: theme("colors.gray.70");
+  --syntax-cdata: theme("colors.gray.70");
+  --syntax-deleted: theme("colors.red.70");
+  --syntax-inserted: theme("colors.green.70");
+}
+
+/* Global syntax highlighting classes using CSS custom properties */
+/* Target code elements within our specific containers */
+pre code .operator,
+code .operator {
+  color: var(--syntax-operator) !important;
+}
+
+pre code .decorator,
+code .decorator {
+  color: var(--syntax-decorator) !important;
+}
+
+pre code .decorator.annotation.punctuation,
+code .decorator.annotation.punctuation {
+  color: var(--syntax-decorator) !important;
+}
+
+pre code .keyword,
+code .keyword {
+  color: var(--syntax-keyword) !important;
+}
+
+pre code .builtin,
+code .builtin {
+  color: var(--syntax-builtin) !important;
+}
+
+pre code .string,
+code .string {
+  color: var(--syntax-string) !important;
+}
+
+pre code .number,
+pre code .boolean,
+code .number,
+code .boolean {
+  color: var(--syntax-number) !important;
+}
+
+pre code .function,
+code .function {
+  color: var(--syntax-function) !important;
+  font-weight: 600 !important;
+}
+
+pre code .punctuation,
+code .punctuation {
+  color: var(--syntax-punctuation) !important;
+}
+
+pre code .comment,
+code .comment {
+  color: var(--syntax-comment) !important;
+  font-style: italic !important;
+  font-weight: normal !important;
+}
+
+/* HTML/Markup tokens */
+pre code .tag,
+code .tag {
+  color: var(--syntax-tag) !important;
+}
+
+pre code .attr-name,
+code .attr-name {
+  color: var(--syntax-attr-name) !important;
+}
+
+pre code .attr-value,
+code .attr-value {
+  color: var(--syntax-attr-value) !important;
+}
+
+pre code .entity,
+code .entity {
+  color: var(--syntax-entity) !important;
+}
+
+/* CSS tokens */
+pre code .property,
+code .property {
+  color: var(--syntax-property) !important;
+}
+
+pre code .selector,
+code .selector {
+  color: var(--syntax-selector) !important;
+}
+
+pre code .rule,
+code .rule {
+  color: var(--syntax-rule) !important;
+}
+
+pre code .atrule,
+code .atrule {
+  color: var(--syntax-atrule) !important;
+}
+
+pre code .url,
+code .url {
+  color: var(--syntax-url) !important;
+}
+
+/* Additional common tokens */
+pre code .variable,
+code .variable {
+  color: var(--syntax-variable) !important;
+}
+
+pre code .class-name,
+code .class-name {
+  color: var(--syntax-class-name) !important;
+}
+
+pre code .constant,
+code .constant {
+  color: var(--syntax-constant) !important;
+}
+
+pre code .symbol,
+code .symbol {
+  color: var(--syntax-symbol) !important;
+}
+
+pre code .important,
+code .important {
+  color: var(--syntax-important) !important;
+  font-weight: bold !important;
+}
+
+pre code .regex,
+code .regex {
+  color: var(--syntax-regex) !important;
+}
+
+pre code .namespace,
+code .namespace {
+  color: var(--syntax-namespace) !important;
+}
+
+pre code .char,
+code .char {
+  color: var(--syntax-char) !important;
+}
+
+pre code .interpolation,
+code .interpolation {
+  color: var(--syntax-interpolation) !important;
+}
+
+pre code .annotation,
+code .annotation {
+  color: var(--syntax-annotation) !important;
+}
+
+pre code .generic,
+code .generic {
+  color: var(--syntax-generic) !important;
+}
+
+pre code .script,
+code .script {
+  color: var(--syntax-script) !important;
+}
+
+pre code .plain-text,
+code .plain-text {
+  color: var(--syntax-plain-text) !important;
+}
+
+/* Special tokens */
+pre code .prolog,
+pre code .doctype,
+pre code .cdata,
+code .prolog,
+code .doctype,
+code .cdata {
+  color: var(--syntax-prolog) !important;
+  font-style: italic !important;
+}
+
+pre code .deleted,
+code .deleted {
+  color: var(--syntax-deleted) !important;
+  background-color: rgba(
+    255,
+    75,
+    75,
+    0.2
+  ) !important; /* red-70 with 20% opacity */
+}
+
+pre code .inserted,
+code .inserted {
+  color: var(--syntax-inserted) !important;
+  background-color: rgba(
+    33,
+    195,
+    84,
+    0.2
+  ) !important; /* green-70 with 20% opacity */
+}
+
+/* Table token for inline display */
+pre code .table,
+code .table {
+  display: inline !important;
+}
