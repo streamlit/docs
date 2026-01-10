@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 
 // import Navigation from
 import MobileNav from "./mobileNav";
+import VersionSelector from "../utilities/versionSelector";
 
 import styles from "./header.module.css";
 
@@ -14,7 +15,7 @@ const ThemeToggle = dynamic(() => import("../utilities/themeToggle"), {
 });
 import Search from "../utilities/search";
 
-const Header = ({ isSticky }) => {
+const Header = ({ isSticky, versionProps }) => {
   const [windowWidth, setWindowWidth] = useState();
 
   const handleResize = () => {
@@ -50,6 +51,7 @@ const Header = ({ isSticky }) => {
           <h4 className={styles.LogoText}>Documentation</h4>
         </Link>
         <section className={styles.NavigationContainer}>
+          {versionProps && <VersionSelector {...versionProps} isMobile />}
           <Search />
           <ThemeToggle />
           {mobileNav}

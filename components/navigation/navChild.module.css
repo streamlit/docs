@@ -11,17 +11,17 @@
 }
 
 .AccordionIcon {
-  @apply relative z-10 cursor-pointer text-sm;
+  @apply relative z-elevated cursor-pointer text-sm;
   @apply text-gray-80 !important;
 }
 
 .ExternalIcon {
-  @apply relative z-10 cursor-pointer text-sm ml-1 -my-2;
+  @apply relative z-elevated cursor-pointer text-sm ml-1 -my-2;
   @apply text-gray-70 !important;
 }
 
 .CrossLinkedIcon {
-  @apply relative z-10 cursor-pointer text-xl ml-1 -my-2;
+  @apply relative z-elevated cursor-pointer text-xl ml-1 -my-2;
   @apply text-gray-70 !important;
 }
 

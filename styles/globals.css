@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * ==========================================================================
+ * Z-INDEX REFERENCE
+ * ==========================================================================
+ * Semantic z-index classes are defined in tailwind.config.js under theme.extend.zIndex
+ * Use these class names instead of numeric values (z-10, z-20, etc.)
+ *
+ * z-dropdown (50) - Version selector, tooltips, dropdown menus
+ *                   Files: versionSelector.module.css, themeToggle.module.css
+ *
+ * z-header (30)   - Header navigation, overlays, sticky elements
+ *                   Files: header.module.css, image.module.css, chatSticky.module.css
+ *
+ * z-sidebar (20)  - Sidebar, refcards, secondary overlays
+ *                   Files: sideBar.module.css, image.module.css, refCard.module.css
+ *
+ * z-elevated (10) - Code blocks, search, floating nav, nav icons
+ *                   Files: code.module.css, autofunction.module.css, search.module.css,
+ *                          floatingNav.module.css, navChild.module.css, componentSlider.module.css
+ *
+ * z-base (0)      - Default layer, code line highlights
+ *
+ * z-modal (100)   - Reserved for modals and dialogs (future use)
+ * ==========================================================================
+ */
+
 html {
   @apply overflow-x-hidden overflow-y-auto scroll-pt-24;
 }

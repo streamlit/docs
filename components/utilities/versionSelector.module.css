@@ -1,0 +1,155 @@
+.Container {
+  @apply flex items-center gap-2 mb-4 z-dropdown;
+  /* Sticky positioning - stays in place as you scroll */
+  position: sticky;
+  top: 0.5rem;
+  width: fit-content;
+  align-self: flex-start;
+}
+
+/* On mobile, hide this - we'll show a separate one in header */
+@media (max-width: 1023px) {
+  .Container {
+    @apply hidden;
+  }
+}
+
+.Prefix {
+  @apply text-sm text-gray-70 tracking-tight;
+}
+
+/* Dropdown wrapper */
+.DropdownWrapper {
+  @apply relative;
+}
+
+/* The button that shows selected value */
+.DropdownButton {
+  @apply relative flex items-center gap-1.5 bg-gray-20 rounded-md cursor-pointer border-none text-left h-8 pl-3 pr-2;
+}
+
+:global(.dark) .DropdownButton {
+  @apply bg-gray-90;
+}
+
+.SelectedValue {
+  @apply text-sm font-medium text-gray-90 leading-none whitespace-nowrap;
+}
+
+:global(.dark) .SelectedValue {
+  @apply text-gray-40;
+}
+
+/* Version label - show full "Version" at xs (400px) and above, short "v" below */
+.VersionLabelFull {
+  @apply hidden xs:inline;
+}
+
+.VersionLabelShort {
+  @apply inline xs:hidden;
+}
+
+/* Arrow indicator - using material icon for consistency */
+.Arrow {
+  @apply ml-0.5 transition-transform duration-150 text-gray-70;
+  font-size: 1.125rem;
+}
+
+:global(.dark) .Arrow {
+  @apply text-gray-50;
+}
+
+.ArrowOpen {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu - solid background matching site */
+.DropdownMenu {
+  @apply absolute top-full left-0 mt-1 rounded-md list-none m-0 min-w-full z-dropdown;
+  @apply bg-white border-none;
+  padding: 0.375rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+:global(.dark) .DropdownMenu {
+  @apply bg-gray-100 border border-gray-80;
+  box-shadow: none;
+}
+
+.DropdownItem {
+  @apply pl-3 pr-2 text-sm cursor-pointer text-gray-90 flex items-center justify-between gap-2 whitespace-nowrap mb-1;
+  padding-top: 0.2rem;
+}
+
+.DropdownItem:hover {
+  @apply bg-gray-20;
+}
+
+.DropdownItem:focus {
+  @apply outline-2 outline-gray-40;
+}
+
+:global(.dark) .DropdownItem {
+  @apply text-gray-40;
+}
+
+:global(.dark) .DropdownItem:hover {
+  @apply bg-gray-90;
+}
+
+.DropdownItemSelected {
+  @apply font-medium;
+}
+
+.CheckIcon {
+  @apply text-base text-gray-70 leading-none;
+  font-size: 1rem;
+}
+
+:global(.dark) .CheckIcon {
+  @apply text-gray-50;
+}
+
+/* Old version styling - matches Warning block colors */
+.OldVersion .DropdownButton {
+  @apply bg-orange-10;
+}
+
+:global(.dark) .OldVersion .DropdownButton {
+  @apply bg-orange-100/30;
+}
+
+/* Text color matches Warning block header (orange-70) */
+.OldVersionText {
+  @apply text-orange-70;
+}
+
+:global(.dark) .OldVersionText {
+  @apply text-orange-70;
+}
+
+/* Warning arrow - matches orange-70 text */
+.OldVersion .Arrow {
+  @apply text-orange-70;
+}
+
+/* Warning icon - circular like the Warning block (bg-orange-70) */
+.WarningIcon {
+  @apply text-xs rounded-full bg-orange-70 flex-shrink-0 w-4 h-4 flex items-center justify-center leading-none pl-px;
+  color: white !important; /* Override header icon color rule */
+}
+
+/* Mobile version selector - shown in header */
+.MobileContainer {
+  @apply hidden items-center gap-2 mr-4;
+}
+
+@media (max-width: 1023px) {
+  .MobileContainer {
+    @apply flex;
+  }
+}
+
+.MobileContainer .Prefix {
+  @apply hidden;
+}

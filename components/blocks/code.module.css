@@ -34,12 +34,12 @@
 
 /* Keep in sync with components/blocks/autofunction.module.css */
 .Pre code {
-  @apply z-10 relative;
+  @apply z-elevated relative;
 }
 
 /* Keep in sync with components/blocks/autofunction.module.css */
 .LineHighlight {
-  @apply bg-gray-80 opacity-30 z-0;
+  @apply bg-gray-80 opacity-30 z-base;
 }
 
 /* Keep in sync with components/blocks/autofunction.module.css */

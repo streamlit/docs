@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
-import classNames from "classnames";
 import Table from "./table";
 import { H2, H3 } from "./headers";
 import Warning from "./warning";
 import Deprecation from "./deprecation";
-import { withRouter, useRouter } from "next/router";
 import Prism from "prismjs";
 import "prismjs/components/prism-python";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
@@ -17,12 +15,10 @@ import getConfig from "next/config";
 const { publicRuntimeConfig } = getConfig();
 
 import styles from "./autofunction.module.css";
-import { looksLikeVersionAndPlatformString } from "../../lib/next/utils";
 import { getThemedUrl, getThemeFromDOM } from "../../lib/next/ThemeContext";
 
 const LATEST_VERSION = publicRuntimeConfig.LATEST_VERSION;
 const DEFAULT_VERSION = publicRuntimeConfig.DEFAULT_VERSION;
-const VERSIONS_LIST = publicRuntimeConfig.VERSIONS_LIST;
 
 const cleanHref = (name) => {
   return String(name).replace(/\./g, "").replace(/\s+/g, "-");
@@ -37,10 +33,8 @@ const Autofunction = ({
   deprecated,
   deprecatedText,
   oldStreamlitFunction,
-  goToLatest,
 }) => {
   const blockRef = useRef();
-  const router = useRouter();
   const [isHighlighted, setIsHighlighted] = useState(false);
   const currentNumericVersion =
     version == DEFAULT_VERSION ? LATEST_VERSION : version;
@@ -121,56 +115,6 @@ const Autofunction = ({
     setIsHighlighted(true);
   };
 
-  const VersionSelector = ({ currentNumericVersion, handleSelectVersion }) => {
-    const selectClass =
-      currentNumericVersion != LATEST_VERSION
-        ? "version-select old-version"
-        : "version-select";
-
-    return (
-      <form className={classNames(selectClass, styles.Form)}>
-        <label>
-          <span className="sr-only">Streamlit Version</span>
-          <select
-            value={currentNumericVersion}
-            onChange={handleSelectVersion}
-            className={styles.Select}
-          >
-            {VERSIONS_LIST.map((version, index) => (
-              <option value={version} key={version}>
-                {"Version " + version}
-              </option>
-            ))}
-          </select>
-        </label>
-      </form>
-    );
-  };
-
-  const handleSelectVersion = (event) => {
-    const functionObject =
-      docstrings[streamlitFunction] ?? docstrings[oldStreamlitFunction];
-    const slicedSlug = slug.slice();
-
-    if (event.target.value !== currentNumericVersion) {
-      if (looksLikeVersionAndPlatformString(slicedSlug[0])) {
-        slicedSlug.shift();
-      }
-      if (event.target.value !== LATEST_VERSION) {
-        slicedSlug.unshift(event.target.value);
-      } else {
-        goToLatest();
-      }
-    }
-
-    if (!functionObject) {
-      router.push(`/${slicedSlug.join("/")}`);
-    } else {
-      const name = cleanHref(`st.${functionObject.name}`);
-      router.push(`/${slicedSlug.join("/")}#${name} `);
-    }
-  };
-
   const footers = [];
   const args = [];
   const returns = [];
@@ -201,31 +145,25 @@ const Autofunction = ({
     }
   } else {
     return (
-      <div className={styles.HeaderContainer}>
-        <div className={styles.TitleContainer} ref={blockRef} key={slug}>
-          <H2
-            className={`
-              ${styles.Title}
-              relative
-            `}
+      <div className={styles.HeaderContainer} ref={blockRef} key={slug}>
+        <H2
+          className={`
+            ${styles.Title}
+            relative
+          `}
+        >
+          <a
+            aria-hidden="true"
+            tabIndex="-1"
+            href={`#${cleanHref(
+              streamlitFunction.replace("streamlit", "st"),
+            )}`.toLowerCase()}
+            className="absolute"
           >
-            <a
-              aria-hidden="true"
-              tabIndex="-1"
-              href={`#${cleanHref(
-                streamlitFunction.replace("streamlit", "st"),
-              )}`.toLowerCase()}
-              className="absolute"
-            >
-              <span className="icon icon-link"></span>
-            </a>
-            {streamlitFunction.replace("streamlit", "st")}
-          </H2>
-          <VersionSelector
-            currentNumericVersion={currentNumericVersion}
-            handleSelectVersion={handleSelectVersion}
-          />
-        </div>
+            <span className="icon icon-link"></span>
+          </a>
+          {streamlitFunction.replace("streamlit", "st")}
+        </H2>
         <Warning>
           <p>
             This method does not exist in version{" "}
@@ -280,18 +218,7 @@ const Autofunction = ({
     );
     header = (
       <div className={styles.HeaderContainer}>
-        <div
-          className={`
-            ${styles.TitleContainer}
-            relative
-          `}
-        >
-          {headerTitle}
-          <VersionSelector
-            currentNumericVersion={currentNumericVersion}
-            handleSelectVersion={handleSelectVersion}
-          />
-        </div>
+        {headerTitle}
         {deprecated === true ? (
           <Deprecation>
             <p dangerouslySetInnerHTML={{ __html: deprecatedText }} />
@@ -565,4 +492,4 @@ const Autofunction = ({
   );
 };
 
-export default withRouter(Autofunction);
+export default Autofunction;
