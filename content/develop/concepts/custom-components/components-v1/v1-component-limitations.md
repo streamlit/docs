@@ -1,6 +1,6 @@
 ---
 title: Limitations of custom components
-slug: /develop/concepts/custom-components/limitations
+slug: /develop/concepts/custom-components/components-v1/limitations
 description: Understand the limitations and constraints of Streamlit custom components including iframe restrictions and differences from base Streamlit functionality.
 keywords: component limitations, iframe restrictions, component constraints, custom component issues, component differences, development limitations
 ---
