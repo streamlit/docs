@@ -173,6 +173,11 @@ const Autofunction = ({
       }
     }
 
+    // Guard against component unmounting during async imports
+    if (!blockRef.current) {
+      return;
+    }
+
     Prism.highlightAllUnder(blockRef.current);
 
     setIsHighlighted(true);
