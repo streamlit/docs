@@ -106,21 +106,51 @@ const Autofunction = ({
       const prismLanguage = getPrismLanguage(language);
       languagesNeeded.add(prismLanguage);
 
+      // Check for filename from CSS class (set by stcode.py directive)
+      // Filename is base64-encoded in a class like "stfilename-LnN0cmVhbWxpdC9zZWNyZXRzLnRvbWw"
+      let filename = null;
+      for (const cls of ele.classList) {
+        if (cls.startsWith("stfilename-")) {
+          const encoded = cls.substring(11); // Remove "stfilename-" prefix
+          // Add padding back for base64 decode
+          const padded = encoded + "=".repeat((4 - (encoded.length % 4)) % 4);
+          try {
+            // URL-safe base64 decode
+            filename = atob(padded.replace(/-/g, "+").replace(/_/g, "/"));
+          } catch (e) {
+            console.error("Failed to decode filename:", e);
+          }
+          break;
+        }
+      }
       const displayLanguage =
         languageDisplayNames[language] || language.toUpperCase();
+
+      // Show language only if no filename (matching code.js behavior)
+      const showLanguage = !filename;
 
       const codeText = ele.innerHTML;
       const preTag = ele.cloneNode(true);
       const codeWrap = document.createElement("div");
       codeWrap.setAttribute("class", styles.CodeBlockContainer);
 
-      // Create language header
+      // Create header with language and/or filename
       const header = document.createElement("div");
       header.setAttribute("class", `${styles.Header} code-block-header`);
-      const langSpan = document.createElement("span");
-      langSpan.setAttribute("class", styles.Language);
-      langSpan.textContent = displayLanguage;
-      header.appendChild(langSpan);
+
+      if (showLanguage) {
+        const langSpan = document.createElement("span");
+        langSpan.setAttribute("class", styles.Language);
+        langSpan.textContent = displayLanguage;
+        header.appendChild(langSpan);
+      }
+
+      if (filename) {
+        const filenameSpan = document.createElement("span");
+        filenameSpan.setAttribute("class", styles.Filename);
+        filenameSpan.textContent = filename;
+        header.appendChild(filenameSpan);
+      }
 
       const codeTag = document.createElement("code");
       codeTag.setAttribute("class", `language-${prismLanguage}`);
