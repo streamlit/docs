@@ -643,6 +643,8 @@ site_menu:
     url: /develop/quick-reference/cheat-sheet
   - category: Develop / Quick reference / Release notes
     url: /develop/quick-reference/release-notes
+  - category: Develop / Quick reference / Release notes / 2026
+    url: /develop/quick-reference/release-notes/2026
   - category: Develop / Quick reference / Release notes / 2025
     url: /develop/quick-reference/release-notes/2025
   - category: Develop / Quick reference / Release notes / 2024
