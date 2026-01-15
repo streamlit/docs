@@ -30,10 +30,10 @@ _Release date: January 14, 2025_
 - ❄️ You can create session-scoped [caller's rights connections](/develop/api-reference/connections/st.connections.snowflakeconnection) in Streamlit in Snowflake and other Snowpark Container Services environments.
 - ⭐ Announcing experimental support for running Streamlit with Starlette with the new [`server.useStarlette`](/develop/api-reference/configuration/config.toml#server) configuration option.
 - 🌐 Introducing [`st.App`](https://issues.streamlit.app/spec_renderer?pr=13449), an experimental ASGI-compatible entry point that enables custom HTTP routes, middleware, lifecycle hooks, and integration with Python web frameworks like FastAPI and Starlette ([#13537](https://github.com/streamlit/streamlit/pull/13537)).
+- 🔑 You can expose OIDC ID and access tokens in [`st.user.tokens`](/develop/api-reference/user/st.user) ([#12044](https://github.com/streamlit/streamlit/pull/12044)). Thanks, [velochy](https://github.com/velochy)!
 
 **Notable Changes**
 
-- 🔑 You can expose OIDC ID and access tokens in [`st.user.tokens`](/develop/api-reference/user/st.user) ([#12044](https://github.com/streamlit/streamlit/pull/12044)). Thanks, [velochy](https://github.com/velochy)!
 - 🚪 [`st.logout`](/develop/api-reference/user/st.logout) logs users out of your identity provider, if supported by your OIDC setup ([#12693](https://github.com/streamlit/streamlit/pull/12693)). Thanks, [velochy](https://github.com/velochy)!
 - 🌀 To prevent unwanted stale elements, especially in chat layouts, Streamlit treats spinners as transient elements and doesn't include them in the element refresh that happens with reruns ([#12826](https://github.com/streamlit/streamlit/pull/12826), [#9239](https://github.com/streamlit/streamlit/issues/9239), [#10199](https://github.com/streamlit/streamlit/issues/10199), [#13166](https://github.com/streamlit/streamlit/pull/13166)).
 - 🧩 For custom components v2, style isolation is set in [`st.components.v2.component`](/develop/api-reference/custom-components/st.components.v2.component) instead of when an instance is mounted ([#13518](https://github.com/streamlit/streamlit/pull/13518)).
