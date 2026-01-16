@@ -146,68 +146,69 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/develop/api-reference/widgets/st.datetime_input?utm_source=streamlit"
+                href="https://github.com/streamlit/streamlit/issues/13600"
               >
-                <i className="material-icons-sharp">schedule</i>
-                <h4>Date & time input</h4>
+                <i className="material-icons-sharp">integration_instructions</i>
+                <h4>ASGI entry point & Starlette support</h4>
                 <p>
-                  Set date and time in a single widget with the new{" "}
-                  <code>st.datetime_input</code>.
+                  Streamlit supports an experimental ASGI entry point with
+                  Starlette for custom HTTP routes, middleware, and FastAPI
+                  integration.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/widgets/st.download_button?utm_source=streamlit"
+                href="/develop/api-reference/caching-and-state/st.cache_data?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">download</i>
-                <h4>Deferred downloads</h4>
+                <i className="material-icons-sharp">cached</i>
+                <h4>Session-scoped caching</h4>
                 <p>
-                  Pass a callable to <code>st.download_button</code> for
-                  on-click download generation without blocking your script.
+                  <code>st.cache_data</code> and <code>st.cache_resource</code>{" "}
+                  can now be scoped to a session for per-user caching.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/chat/st.chat_input?utm_source=streamlit"
+                href="/develop/api-reference/configuration/st.set_page_config?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">mic</i>
-                <h4>Audio chat input</h4>
+                <i className="material-icons-sharp">view_sidebar</i>
+                <h4>Configurable sidebar width</h4>
                 <p>
-                  <code>st.chat_input</code> now supports audio input for
-                  voice-enabled chat interactions.
+                  Set the default width of the sidebar with{" "}
+                  <code>st.set_page_config</code>.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/widgets/st.button?utm_source=streamlit"
+                href="/develop/api-reference/user/st.user?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">keyboard</i>
-                <h4>Keyboard shortcuts for buttons</h4>
+                <i className="material-icons-sharp">security</i>
+                <h4>Access OIDC tokens</h4>
                 <p>
-                  Configure keyboard shortcuts for buttons to improve user
-                  experience and accessibility.
+                  Expose OIDC ID and access tokens in{" "}
+                  <code>st.user.tokens</code> for advanced auth workflows.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/navigation/st.switch_page?utm_source=streamlit"
+                href="/develop/api-reference/connections/st.connections.snowflakeconnection?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">link</i>
-                <h4>Query parameters for navigation</h4>
+                <i className="material-icons-sharp">ac_unit</i>
+                <h4>Caller's rights connections</h4>
                 <p>
-                  Pass query parameters to <code>st.switch_page</code> and{" "}
-                  <code>st.page_link</code> for enhanced navigation.
+                  Create session-scoped caller's rights connections in Streamlit
+                  in Snowflake and Snowpark Container Services.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/text/st.html?utm_source=streamlit"
+                href="/develop/api-reference/data/st.data_editor?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">code</i>
-                <h4>JavaScript execution</h4>
+                <i className="material-icons-sharp">edit</i>
+                <h4>Granular row editing</h4>
                 <p>
-                  Execute JavaScript in <code>st.html</code> with the new{" "}
-                  <code>unsafe_allow_javascript</code> parameter.
+                  Configure <code>st.data_editor</code> to allow only adding or
+                  only deleting rows.
                 </p>
               </RefCard>
             </TileContainer>
