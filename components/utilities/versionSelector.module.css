@@ -1,17 +1,9 @@
 .Container {
-  @apply flex items-center gap-2 mb-4 z-dropdown;
   /* Sticky positioning - stays in place as you scroll */
-  position: sticky;
-  top: 0.5rem;
-  width: fit-content;
-  align-self: flex-start;
-}
-
-/* On mobile, hide this - we'll show a separate one in header */
-@media (max-width: 1023px) {
-  .Container {
-    @apply hidden;
-  }
+  /* Hidden on mobile (< lg breakpoint) - we show a separate one in header */
+  @apply flex items-center gap-2 mb-4 z-dropdown;
+  @apply sticky top-2 w-fit self-start;
+  @apply hidden lg:flex;
 }
 
 .Prefix {
@@ -51,8 +43,7 @@
 
 /* Arrow indicator - using material icon for consistency */
 .Arrow {
-  @apply ml-0.5 transition-transform duration-150 text-gray-70;
-  font-size: 1.125rem;
+  @apply ml-0.5 transition-transform duration-150 text-gray-70 text-lg;
 }
 
 :global(.dark) .Arrow {
@@ -60,25 +51,23 @@
 }
 
 .ArrowOpen {
-  transform: rotate(180deg);
+  @apply rotate-180;
 }
 
 /* Dropdown menu - solid background matching site */
 .DropdownMenu {
   @apply absolute top-full left-0 mt-1 rounded-md list-none m-0 min-w-full z-dropdown;
-  @apply bg-white border-none;
-  padding: 0.375rem 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  @apply bg-white border-none max-h-[60vh] overflow-y-auto;
+  @apply py-1.5 shadow-[0_4px_12px_rgba(0,0,0,0.15)];
 }
 
 :global(.dark) .DropdownMenu {
-  @apply bg-gray-100 border border-gray-80;
-  box-shadow: none;
+  @apply bg-gray-100 border border-gray-80 shadow-none;
 }
 
 .DropdownItem {
-  @apply pl-3 pr-2 text-sm cursor-pointer text-gray-90 flex items-center justify-between gap-2 whitespace-nowrap mb-1;
-  padding-top: 0.2rem;
+  @apply pl-3 pr-2 pt-[0.2rem] text-sm cursor-pointer text-gray-90;
+  @apply flex items-center justify-between gap-2 whitespace-nowrap mb-1;
 }
 
 .DropdownItem:hover {
@@ -103,7 +92,6 @@
 
 .CheckIcon {
   @apply text-base text-gray-70 leading-none;
-  font-size: 1rem;
 }
 
 :global(.dark) .CheckIcon {
@@ -135,19 +123,14 @@
 
 /* Warning icon - circular like the Warning block (bg-orange-70) */
 .WarningIcon {
-  @apply text-xs rounded-full bg-orange-70 flex-shrink-0 w-4 h-4 flex items-center justify-center leading-none pl-px;
-  color: white !important; /* Override header icon color rule */
+  /* !text-white overrides header icon color rule */
+  @apply text-xs rounded-full bg-orange-70 flex-shrink-0 w-4 h-4;
+  @apply flex items-center justify-center leading-none pl-px !text-white;
 }
 
-/* Mobile version selector - shown in header */
+/* Mobile version selector - shown in header, hidden on lg+ */
 .MobileContainer {
-  @apply hidden items-center gap-2 mr-4;
-}
-
-@media (max-width: 1023px) {
-  .MobileContainer {
-    @apply flex;
-  }
+  @apply flex items-center gap-2 mr-4 lg:hidden;
 }
 
 .MobileContainer .Prefix {
