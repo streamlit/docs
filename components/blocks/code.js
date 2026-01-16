@@ -68,48 +68,12 @@ const TryMeButton = ({ code }) => {
   );
 };
 
+import languageDisplayNames, {
+  getPrismLanguage,
+} from "../../lib/languageDisplayNames";
+
 // Initialize the cache for imported languages.
 const languageImports = new Map();
-
-// Map language identifiers to display-friendly names
-const languageDisplayNames = {
-  python: "Python",
-  javascript: "JavaScript",
-  js: "JavaScript",
-  typescript: "TypeScript",
-  ts: "TypeScript",
-  // Rename Bash to Terminal since Windows doesn't use Bash, and most of the commands we
-  // mark as Bash here would actually work in any terminal.
-  bash: "Terminal",
-  sh: "Sh",
-  shell: "Shell",
-  json: "JSON",
-  yaml: "YAML",
-  yml: "YAML",
-  html: "HTML",
-  css: "CSS",
-  sql: "SQL",
-  toml: "TOML",
-  markdown: "Markdown",
-  md: "Markdown",
-  jsx: "JSX",
-  tsx: "TSX",
-  go: "Go",
-  rust: "Rust",
-  ruby: "Ruby",
-  java: "Java",
-  c: "C",
-  cpp: "C++",
-  csharp: "C#",
-  php: "PHP",
-  swift: "Swift",
-  kotlin: "Kotlin",
-  scala: "Scala",
-  r: "R",
-  docker: "Docker",
-  dockerfile: "Dockerfile",
-  none: "",
-};
 
 const Code = ({
   code,
@@ -133,16 +97,13 @@ const Code = ({
     // Classname usually is `language-python`, `language-javascript`, `language-bash`, etc.
     let importLanguage = children?.props?.className?.substring(9);
 
-    // If no language, default to Phython
+    // If no language, default to Python
     if (importLanguage === undefined || importLanguage === "undefined") {
       importLanguage = "python";
     }
-    // Default `sh` language to `bash` for Prism import, since we use `sh` throughout our codebase but it's not a proper Prism import
-    else if (importLanguage === "sh") {
-      importLanguage = "bash";
-    } else if (importLanguage === "js") {
-      importLanguage = "javascript";
-    }
+
+    // Map to Prism component name (some differ, e.g., sh -> bash)
+    importLanguage = getPrismLanguage(importLanguage);
 
     highlightElement(
       importLanguage,

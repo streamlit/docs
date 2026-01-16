@@ -16,6 +16,9 @@ const { publicRuntimeConfig } = getConfig();
 
 import styles from "./autofunction.module.css";
 import { getThemedUrl, getThemeFromDOM } from "../../lib/next/ThemeContext";
+import languageDisplayNames, {
+  getPrismLanguage,
+} from "../../lib/languageDisplayNames";
 
 const LATEST_VERSION = publicRuntimeConfig.LATEST_VERSION;
 const DEFAULT_VERSION = publicRuntimeConfig.DEFAULT_VERSION;
@@ -66,7 +69,7 @@ const Autofunction = ({
     });
   };
 
-  const highlightWithPrism = () => {
+  const highlightWithPrism = async () => {
     if (isHighlighted) {
       return;
     }
@@ -78,28 +81,79 @@ const Autofunction = ({
       blockRef.current.getElementsByTagName("pre"),
     );
 
-    // Important: keep this in sync with components/block/code.js
+    // Collect unique languages and transform pre elements
+    const languagesNeeded = new Set();
+    const ignoredClasses = new Set([
+      "code",
+      "literal-block",
+      "last",
+      "doctest-block",
+    ]);
+
+    // languageDisplayNames imported from ../../lib/languageDisplayNames
     pres.forEach((ele) => {
-      // Detect language based on pre element class
-      const isLiteralBlock = ele.classList.contains("literal-block");
-      const language = isLiteralBlock ? "bash" : "python";
-      const displayLanguage = isLiteralBlock ? "BASH" : "PYTHON";
+      // Extract language from class list (e.g., "code toml literal-block" -> "toml")
+      let language = "python"; // default
+
+      for (const cls of ele.classList) {
+        if (!ignoredClasses.has(cls) && cls in languageDisplayNames) {
+          language = cls;
+          break;
+        }
+      }
+
+      // Map to Prism component name
+      const prismLanguage = getPrismLanguage(language);
+      languagesNeeded.add(prismLanguage);
+
+      // Check for filename from CSS class (set by stcode.py directive)
+      // Filename is base64-encoded in a class like "stfilename-LnN0cmVhbWxpdC9zZWNyZXRzLnRvbWw"
+      let filename = null;
+      for (const cls of ele.classList) {
+        if (cls.startsWith("stfilename-")) {
+          const encoded = cls.substring(11); // Remove "stfilename-" prefix
+          // Add padding back for base64 decode
+          const padded = encoded + "=".repeat((4 - (encoded.length % 4)) % 4);
+          try {
+            // URL-safe base64 decode
+            filename = atob(padded.replace(/-/g, "+").replace(/_/g, "/"));
+          } catch (e) {
+            console.error("Failed to decode filename:", e);
+          }
+          break;
+        }
+      }
+      const displayLanguage =
+        languageDisplayNames[language] || language.toUpperCase();
+
+      // Show language only if no filename (matching code.js behavior)
+      const showLanguage = !filename;
 
       const codeText = ele.innerHTML;
       const preTag = ele.cloneNode(true);
       const codeWrap = document.createElement("div");
       codeWrap.setAttribute("class", styles.CodeBlockContainer);
 
-      // Create language header
+      // Create header with language and/or filename
       const header = document.createElement("div");
       header.setAttribute("class", `${styles.Header} code-block-header`);
-      const langSpan = document.createElement("span");
-      langSpan.setAttribute("class", styles.Language);
-      langSpan.textContent = displayLanguage;
-      header.appendChild(langSpan);
+
+      if (showLanguage) {
+        const langSpan = document.createElement("span");
+        langSpan.setAttribute("class", styles.Language);
+        langSpan.textContent = displayLanguage;
+        header.appendChild(langSpan);
+      }
+
+      if (filename) {
+        const filenameSpan = document.createElement("span");
+        filenameSpan.setAttribute("class", styles.Filename);
+        filenameSpan.textContent = filename;
+        header.appendChild(filenameSpan);
+      }
 
       const codeTag = document.createElement("code");
-      codeTag.setAttribute("class", `language-${language}`);
+      codeTag.setAttribute("class", `language-${prismLanguage}`);
       preTag.classList.add("line-numbers");
       codeTag.innerHTML = codeText;
       preTag.textContent = null;
@@ -109,6 +163,20 @@ const Autofunction = ({
       codeWrap.appendChild(preTag);
       ele.replaceWith(codeWrap);
     });
+
+    // Dynamically import all needed Prism language modules
+    for (const lang of languagesNeeded) {
+      try {
+        await import(`prismjs/components/prism-${lang}`);
+      } catch (error) {
+        console.error(`Prism doesn't support this language: ${lang}`);
+      }
+    }
+
+    // Guard against component unmounting during async imports
+    if (!blockRef.current) {
+      return;
+    }
 
     Prism.highlightAllUnder(blockRef.current);
 

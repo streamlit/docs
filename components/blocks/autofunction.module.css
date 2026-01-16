@@ -32,6 +32,11 @@
 }
 
 /* Keep in sync with components/blocks/code.module.css */
+.Filename {
+  @apply font-mono tracking-wider leading-none;
+}
+
+/* Keep in sync with components/blocks/code.module.css */
 .CodeBlockContainer pre {
   @apply p-6 text-white font-medium relative leading-relaxed;
 }

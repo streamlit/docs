@@ -488,21 +488,21 @@ site_menu:
   - category: Develop / API reference / Custom components
     url: /develop/api-reference/custom-components
   - category: Develop / API reference / Custom components / V2 BACKEND (PYTHON)
-  - category: Develop / API reference / Custom components / BidiComponentCallable
-    url: /develop/api-reference/custom-components/st.components.v2.types.bidicomponentcallable
   - category: Develop / API reference / Custom components / component
     url: /develop/api-reference/custom-components/st.components.v2.component
+  - category: Develop / API reference / Custom components / ComponentRenderer
+    url: /develop/api-reference/custom-components/st.components.v2.types.componentrenderer
   - category: Develop / API reference / Custom components / V2 FRONTEND (TYPESCRIPT)
   - category: Develop / API reference / Custom components / component-v2-lib
     url: /develop/api-reference/custom-components/component-v2-lib
-  - category: Develop / API reference / Custom components / Component
-    url: /develop/api-reference/custom-components/component-v2-lib-component
-  - category: Develop / API reference / Custom components / ComponentArgs
-    url: /develop/api-reference/custom-components/component-v2-lib-componentargs
-  - category: Develop / API reference / Custom components / ComponentState
-    url: /develop/api-reference/custom-components/component-v2-lib-componentstate
-  - category: Develop / API reference / Custom components / OptionalComponentCleanupFunction
-    url: /develop/api-reference/custom-components/component-v2-lib-optionalcomponentcleanupfunction
+  - category: Develop / API reference / Custom components / FrontendRenderer
+    url: /develop/api-reference/custom-components/component-v2-lib-frontendrenderer
+  - category: Develop / API reference / Custom components / FrontendRendererArgs
+    url: /develop/api-reference/custom-components/component-v2-lib-frontendrendererargs
+  - category: Develop / API reference / Custom components / FrontendState
+    url: /develop/api-reference/custom-components/component-v2-lib-frontendstate
+  - category: Develop / API reference / Custom components / CleanupFunction
+    url: /develop/api-reference/custom-components/component-v2-lib-cleanupfunction
   - category: Develop / API reference / Custom components / V1 COMPONENTS
   - category: Develop / API reference / Custom components / declare_component
     url: /develop/api-reference/custom-components/st.components.v1.declare_component
@@ -643,6 +643,8 @@ site_menu:
     url: /develop/quick-reference/cheat-sheet
   - category: Develop / Quick reference / Release notes
     url: /develop/quick-reference/release-notes
+  - category: Develop / Quick reference / Release notes / 2026
+    url: /develop/quick-reference/release-notes/2026
   - category: Develop / Quick reference / Release notes / 2025
     url: /develop/quick-reference/release-notes/2025
   - category: Develop / Quick reference / Release notes / 2024

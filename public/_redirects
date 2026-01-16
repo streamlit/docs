@@ -1154,6 +1154,11 @@
 /develop/tutorials/llms/build-conversational-apps /develop/tutorials/chat-and-llm-apps/build-conversational-apps
 /develop/tutorials/llms/llm-quickstart /develop/tutorials/chat-and-llm-apps/llm-quickstart
 /knowledge-base/deploy/authentication-without-sso /develop/concepts/connections/authentication
+/develop/api-reference/custom-components/component-v2-lib-componentargs /develop/api-reference/custom-components/component-v2-lib-frontendrendererargs
+/develop/api-reference/custom-components/component-v2-lib-optionalcomponentcleanupfunction /develop/api-reference/custom-components/component-v2-lib-cleanupfunction
+/develop/api-reference/custom-components/component-v2-lib-componentstate /develop/api-reference/custom-components/component-v2-lib-frontendstate
+/develop/api-reference/custom-components/component-v2-lib-component /develop/api-reference/custom-components/component-v2-lib-frontendrenderer
+/develop/api-reference/custom-components/st.components.v2.types.bidicomponentcallable /develop/api-reference/custom-components/st.components.v2.types.componentrenderer
 
 # Deep links included in streamlit/streamlit source code
 /st.connections.snowflakeconnection-configuration /develop/api-reference/connections/st.connections.snowflakeconnection

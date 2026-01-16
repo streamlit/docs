@@ -1,46 +1,46 @@
 {
-  "@streamlit/component-v2-lib/Component": {
+  "@streamlit/component-v2-lib/FrontendRenderer": {
     "type": "type_alias",
-    "name": "Component",
-    "signature": "Component&lt;TComponentState extends ComponentState = ComponentState, TDataShape = unknown&gt; = (componentArgs: ComponentArgs&lt;TComponentState, TDataShape&gt;) =&gt; OptionalComponentCleanupFunction",
-    "description": "<p>The Streamlit v2 Component signature.</p><pre class=\"code typescript literal-block\">\n<span class=\"keyword\">import</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\"> </span><span class=\"name other\">Component</span><span class=\"whitespace\"> </span><span class=\"punctuation\">}</span><span class=\"whitespace\"> </span><span class=\"keyword reserved\">from</span><span class=\"whitespace\"> </span><span class=\"literal string single\">'&#64;streamlit/component-v2-lib'</span><span class=\"punctuation\">;</span></pre><p>This type represents the function signature for the default export from your component's JavaScript or TypeScript code. This function gets called by Streamlit when your component is mounted in the frontend, and it receives all the necessary arguments to build and manage your component's UI and state.</p>",
-    "source": "https://github.com/streamlit/streamlit/blob/1.51.0/frontend/component-v2-lib/src/types.ts#L219",
+    "name": "FrontendRenderer",
+    "signature": "FrontendRenderer&lt;TState extends FrontendState = FrontendState, TData = unknown&gt; = (componentArgs: FrontendRendererArgs&lt;TState, TData&gt;) =&gt; CleanupFunction | void",
+    "description": "<p>The Streamlit v2 component signature.</p><pre class=\"code typescript literal-block\">\n<span class=\"keyword\">import</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\"> </span><span class=\"name other\">FrontendRenderer</span><span class=\"whitespace\"> </span><span class=\"punctuation\">}</span><span class=\"whitespace\"> </span><span class=\"keyword reserved\">from</span><span class=\"whitespace\"> </span><span class=\"literal string single\">'&#64;streamlit/component-v2-lib'</span><span class=\"punctuation\">;</span></pre><p>This type represents the function signature for the default export from your component's JavaScript or TypeScript code. This function gets called by Streamlit when your component is mounted in the frontend, and it receives all the necessary arguments to build and manage your component's UI and state.</p>",
+    "source": "https://github.com/streamlit/streamlit/blob/1.53.0/frontend/component-v2-lib/src/types.ts#L227",
     "is_class": true,
     "is_interface": true,
     "args": [
       {
-        "name": "componentArgs",
-        "type_name": "ComponentArgs&lt;TComponentState, TDataShape&gt;",
+        "name": "FrontendRendererArgs",
+        "type_name": "FrontendRendererArgs&lt;TState, TData&gt;",
         "description": "<p>The inputs and utilities provided by Streamlit to your component.</p>"
       }
     ],
     "returns": [
       {
-        "type_name": "OptionalComponentCleanupFunction",
+        "type_name": "CleanupFunction | void",
         "is_generator": false,
         "description": "<p>An optional cleanup function that Streamlit will call when the component is unmounted.</p>",
         "return_name": null
       }
     ]
   },
-  "@streamlit/component-v2-lib/ComponentState": {
+  "@streamlit/component-v2-lib/FrontendState": {
     "type": "type_alias",
-    "name": "ComponentState",
-    "signature": "ComponentState = Record&lt;string, unknown&gt;",
+    "name": "FrontendState",
+    "signature": "FrontendState = Record&lt;string, unknown&gt;",
     "is_class": true,
-    "description": "<p>The base interface for defining a Streamlit custom component's state shape.</p><pre class=\"code typescript literal-block\">\n<span class=\"keyword\">import</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\"> </span><span class=\"name other\">ComponentState</span><span class=\"whitespace\"> </span><span class=\"punctuation\">}</span><span class=\"whitespace\"> </span><span class=\"keyword reserved\">from</span><span class=\"whitespace\"> </span><span class=\"literal string single\">'&#64;streamlit/component-v2-lib'</span><span class=\"punctuation\">;</span></pre><p>Component state is a persistent key-value store of state and trigger values. You can extend this type or define your own interface to add type-safe state and trigger key-value pairs. Each key corresponds to an <tt class=\"docutils literal\">on_&lt;key&gt;_change</tt> callback parameter in Python.</p>",
-    "source": "https://github.com/streamlit/streamlit/blob/1.51.0/frontend/component-v2-lib/src/types.ts#L34"
+    "description": "<p>The base interface for defining a Streamlit custom component's state shape.</p><pre class=\"code typescript literal-block\">\n<span class=\"keyword\">import</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\"> </span><span class=\"name other\">FrontendState</span><span class=\"whitespace\"> </span><span class=\"punctuation\">}</span><span class=\"whitespace\"> </span><span class=\"keyword reserved\">from</span><span class=\"whitespace\"> </span><span class=\"literal string single\">'&#64;streamlit/component-v2-lib'</span><span class=\"punctuation\">;</span></pre><p>Frontend state is a persistent key-value store of state and trigger values. You can extend this type or define your own interface to add type-safe state and trigger key-value pairs. Each key corresponds to an <tt class=\"docutils literal\">on_&lt;key&gt;_change</tt> callback parameter in Python.</p>",
+    "source": "https://github.com/streamlit/streamlit/blob/1.53.0/frontend/component-v2-lib/src/types.ts#L40"
   },
-  "@streamlit/component-v2-lib/ComponentArgs": {
+  "@streamlit/component-v2-lib/FrontendRendererArgs": {
     "type": "type_alias",
-    "name": "ComponentArgs",
-    "signature": "ComponentArgs&lt;TComponentState = ComponentState, TDataShape = unknown,&gt;",
+    "name": "FrontendRendererArgs",
+    "signature": "FrontendRendererArgs&lt;TState extends FrontendState = FrontendState, TData = unknown,&gt;",
     "is_class": true,
     "args": [
       {
         "name": "data",
-        "type_name": "TDataShape",
-        "description": "<p>The data payload sent from Python through the component's mounting command. This is the primary input for your component, typed by the component author via the <tt class=\"docutils literal\">TDataShape</tt> generic.</p>"
+        "type_name": "TData",
+        "description": "<p>The data payload sent from Python through the component's mounting command. This is the primary input for your component, typed by the component author via the <tt class=\"docutils literal\">TData</tt> generic.</p>"
       },
       {
         "name": "key",
@@ -55,7 +55,7 @@
       {
         "name": "parentElement",
         "type_name": "HTMLElement or ShadowRoot",
-        "description": "<p>The host element for your component. Your HTML, JavaScript, and CSS are mounted inside this container. This is a <tt class=\"docutils literal\">ShadowRoot</tt> if <tt class=\"docutils literal\">isolate_styles</tt> is set to <tt class=\"docutils literal\">true</tt> in the component definition, otherwise it's an <tt class=\"docutils literal\">HTMLElement</tt>.</p>"
+        "description": "<p>The host element for your component. Your HTML, JavaScript, and CSS are mounted inside this container. This is a <tt class=\"docutils literal\">ShadowRoot</tt> if <tt class=\"docutils literal\">isolate_styles</tt> is set to <tt class=\"docutils literal\">true</tt> in the component definition, otherwise it's an <tt class=\"docutils literal\">HTMLElement</tt>.</p><p>Avoid directly setting the inner HTML of this element, as it may overwrite the HTML, CSS, and JavaScript from the component definition. Instead, update its children or append new elements to it."
       }
     ],
     "methods": [
@@ -69,7 +69,7 @@
             "type_name": "string",
             "is_optional": false,
             "is_kwarg_only": false,
-            "description": "<p>The state key to set. If you are using TypeScript, this should be a key from <tt class=\"docutils literal\">TComponentState</tt>.</p><p>To assign a value to a state key, in the component's mounting command in Python, an <tt class=\"docutils literal\">on_&lt;key&gt;_change</tt> callback isn't required. However, the presence of a callback will ensure that the state key is always present in the result.</p>",
+            "description": "<p>The state key to set. If you are using TypeScript, this should be a key from <tt class=\"docutils literal\">TState</tt>.</p><p>To assign a value to a state key, in the component's mounting command in Python, an <tt class=\"docutils literal\">on_&lt;key&gt;_change</tt> callback isn't required. However, the presence of a callback will ensure that the state key is always present in the result.</p>",
             "default": null
           },
           {
@@ -77,7 +77,7 @@
             "type_name": "Any",
             "is_optional": false,
             "is_kwarg_only": false,
-            "description": "<p>The value to associate with the key. Type must match the corresponding property type in your <tt class=\"docutils literal\">TComponentState</tt> interface.</p>",
+            "description": "<p>The value to associate with the key. Type must match the corresponding property type in your <tt class=\"docutils literal\">TState</tt> interface.</p>",
             "default": null
           }
         ],
@@ -100,7 +100,7 @@
             "type_name": "string",
             "is_optional": false,
             "is_kwarg_only": false,
-            "description": "<p>The trigger key to set. If you are using TypeScript, this should be a key from <tt class=\"docutils literal\">TComponentState</tt>.</p><p>To assign a value to a trigger key, in the component's mounting command in Python, an <tt class=\"docutils literal\">on_&lt;key&gt;_change</tt> callback isn't required. However, the presence of a callback will ensure that the trigger key is always present in the result.</p>",
+            "description": "<p>The trigger key to set. If you are using TypeScript, this should be a key from <tt class=\"docutils literal\">TState</tt>.</p><p>To assign a value to a trigger key, in the component's mounting command in Python, an <tt class=\"docutils literal\">on_&lt;key&gt;_change</tt> callback isn't required. However, the presence of a callback will ensure that the trigger key is always present in the result.</p>",
             "default": null
           },
           {
@@ -108,7 +108,7 @@
             "type_name": "Any",
             "is_optional": false,
             "is_kwarg_only": false,
-            "description": "<p>The value for this trigger. If you are using TypeScript, this should match the corresponding property type in your <tt class=\"docutils literal\">TComponentState</tt> interface.</p>",
+            "description": "<p>The value for this trigger. If you are using TypeScript, this should match the corresponding property type in your <tt class=\"docutils literal\">TState</tt> interface.</p>",
             "default": null
           }
         ],
@@ -122,22 +122,22 @@
         ]
       }
     ],
-    "description": "<p>The arguments passed to a Streamlit custom component's top-level <tt class=\"docutils literal\">export default</tt> function.</p><pre class=\"code typescript literal-block\">\n<span class=\"keyword\">import</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\"> </span><span class=\"name other\">ComponentArgs</span><span class=\"whitespace\"> </span><span class=\"punctuation\">}</span><span class=\"whitespace\"> </span><span class=\"keyword reserved\">from</span><span class=\"whitespace\"> </span><span class=\"literal string single\">'&#64;streamlit/component-v2-lib'</span><span class=\"punctuation\">;</span></pre><p>This type provides the interface between your TypeScript component and Streamlit's runtime, including the data payload from Python, utilities for managing component state, and the DOM container for mounting your UI.</p><p>Component authors typically destructure these arguments for easier access.</p>",
-    "source": "https://github.com/streamlit/streamlit/blob/1.51.0/frontend/component-v2-lib/src/types.ts#L102",
-    "example": "<p>Defining strict typing is not required. However, to follow typing best\npractices, you can declare your component's data and state shapes, then\nprovide them as generic parameters to <tt class=\"docutils literal\">ComponentArgs</tt>. The following\nTypeScript code must be compiled to JavaScript before being passed to the\ncomponent's <tt class=\"docutils literal\">js</tt> parameter in <tt class=\"docutils literal\">st.components.v2.component</tt>.</p>\n<pre class=\"code typescript literal-block\">\n<span class=\"keyword\">import</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\"> </span><span class=\"name other\">Component</span><span class=\"punctuation\">,</span><span class=\"whitespace\"> </span><span class=\"name other\">ComponentState</span><span class=\"whitespace\"> </span><span class=\"punctuation\">}</span><span class=\"whitespace\"> </span><span class=\"keyword reserved\">from</span><span class=\"whitespace\"> </span><span class=\"literal string single\">'&#64;streamlit/component-v2-lib'</span><span class=\"punctuation\">;</span><span class=\"whitespace\">\n\n</span><span class=\"keyword declaration\">interface</span><span class=\"whitespace\"> </span><span class=\"name other\">MyComponentState</span><span class=\"whitespace\"> </span><span class=\"keyword\">extends</span><span class=\"whitespace\"> </span><span class=\"name other\">ComponentState</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\">\n    </span><span class=\"name other\">selected_item</span><span class=\"operator\">:</span><span class=\"whitespace\"> </span><span class=\"keyword type\">string</span><span class=\"whitespace\"> </span><span class=\"operator\">|</span><span class=\"whitespace\"> </span><span class=\"keyword constant\">null</span><span class=\"whitespace\">\n    </span><span class=\"name other\">button_clicked</span><span class=\"operator\">:</span><span class=\"whitespace\"> </span><span class=\"keyword type\">boolean</span><span class=\"whitespace\">\n</span><span class=\"punctuation\">}</span><span class=\"whitespace\">\n\n</span><span class=\"keyword declaration\">interface</span><span class=\"whitespace\"> </span><span class=\"name other\">MyComponentData</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\">\n    </span><span class=\"name other\">label</span><span class=\"operator\">:</span><span class=\"whitespace\"> </span><span class=\"keyword type\">string</span><span class=\"whitespace\">\n    </span><span class=\"name other\">options</span><span class=\"operator\">:</span><span class=\"whitespace\"> </span><span class=\"keyword type\">string</span><span class=\"punctuation\">[]</span><span class=\"whitespace\">\n</span><span class=\"punctuation\">}</span><span class=\"whitespace\">\n\n</span><span class=\"keyword declaration\">const</span><span class=\"whitespace\"> </span><span class=\"name other\">MyComponent</span><span class=\"operator\">:</span><span class=\"whitespace\"> </span><span class=\"keyword type\">Component</span><span class=\"operator\">&lt;</span><span class=\"name other\">MyComponentState</span><span class=\"punctuation\">,</span><span class=\"whitespace\"> </span><span class=\"name other\">MyComponentData</span><span class=\"operator\">&gt;</span><span class=\"whitespace\"> </span><span class=\"operator\">=</span><span class=\"whitespace\"> </span><span class=\"punctuation\">(</span><span class=\"name other\">component</span><span class=\"punctuation\">)</span><span class=\"whitespace\"> </span><span class=\"punctuation\">=&gt;</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\">\n    </span><span class=\"comment single\">// Destructure the component args for easier access</span><span class=\"whitespace\">\n    </span><span class=\"keyword declaration\">const</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\"> </span><span class=\"name other\">data</span><span class=\"punctuation\">,</span><span class=\"whitespace\"> </span><span class=\"name other\">setStateValue</span><span class=\"punctuation\">,</span><span class=\"whitespace\"> </span><span class=\"name other\">setTriggerValue</span><span class=\"punctuation\">,</span><span class=\"whitespace\"> </span><span class=\"name other\">parentElement</span><span class=\"whitespace\"> </span><span class=\"punctuation\">}</span><span class=\"whitespace\"> </span><span class=\"operator\">=</span><span class=\"whitespace\"> </span><span class=\"name other\">component</span><span class=\"whitespace\">\n\n    </span><span class=\"comment single\">// Set up event handlers with type-safe state management</span><span class=\"whitespace\">\n    </span><span class=\"keyword declaration\">const</span><span class=\"whitespace\"> </span><span class=\"name other\">dropdown</span><span class=\"whitespace\"> </span><span class=\"operator\">=</span><span class=\"whitespace\"> </span><span class=\"name other\">parentElement</span><span class=\"punctuation\">.</span><span class=\"name other\">querySelector</span><span class=\"punctuation\">(</span><span class=\"literal string single\">'#dropdown'</span><span class=\"punctuation\">)</span><span class=\"whitespace\"> </span><span class=\"keyword reserved\">as</span><span class=\"whitespace\"> </span><span class=\"name other\">HTMLSelectElement</span><span class=\"whitespace\">\n    </span><span class=\"keyword declaration\">const</span><span class=\"whitespace\"> </span><span class=\"name other\">button</span><span class=\"whitespace\"> </span><span class=\"operator\">=</span><span class=\"whitespace\"> </span><span class=\"name other\">parentElement</span><span class=\"punctuation\">.</span><span class=\"name other\">querySelector</span><span class=\"punctuation\">(</span><span class=\"literal string single\">'#submit'</span><span class=\"punctuation\">)</span><span class=\"whitespace\"> </span><span class=\"keyword reserved\">as</span><span class=\"whitespace\"> </span><span class=\"name other\">HTMLButtonElement</span><span class=\"whitespace\">\n\n    </span><span class=\"name other\">dropdown</span><span class=\"punctuation\">.</span><span class=\"name other\">onchange</span><span class=\"whitespace\"> </span><span class=\"operator\">=</span><span class=\"whitespace\"> </span><span class=\"punctuation\">()</span><span class=\"whitespace\"> </span><span class=\"punctuation\">=&gt;</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\">\n        </span><span class=\"name other\">setStateValue</span><span class=\"punctuation\">(</span><span class=\"literal string single\">'selected_item'</span><span class=\"punctuation\">,</span><span class=\"whitespace\"> </span><span class=\"name other\">dropdown</span><span class=\"punctuation\">.</span><span class=\"name other\">value</span><span class=\"punctuation\">)</span><span class=\"whitespace\">\n    </span><span class=\"punctuation\">}</span><span class=\"whitespace\">\n\n    </span><span class=\"name other\">button</span><span class=\"punctuation\">.</span><span class=\"name other\">onclick</span><span class=\"whitespace\"> </span><span class=\"operator\">=</span><span class=\"whitespace\"> </span><span class=\"punctuation\">()</span><span class=\"whitespace\"> </span><span class=\"punctuation\">=&gt;</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\">\n        </span><span class=\"name other\">setTriggerValue</span><span class=\"punctuation\">(</span><span class=\"literal string single\">'button_clicked'</span><span class=\"punctuation\">,</span><span class=\"whitespace\"> </span><span class=\"keyword constant\">true</span><span class=\"punctuation\">)</span><span class=\"whitespace\">\n    </span><span class=\"punctuation\">}</span><span class=\"whitespace\">\n</span><span class=\"punctuation\">}</span><span class=\"whitespace\">\n\n</span><span class=\"keyword\">export</span><span class=\"whitespace\"> </span><span class=\"keyword\">default</span><span class=\"whitespace\"> </span><span class=\"name other\">MyComponent</span><span class=\"punctuation\">;</span>\n</pre>\n"
+    "description": "<p>The arguments passed to a Streamlit custom component's top-level <tt class=\"docutils literal\">export default</tt> function.</p><pre class=\"code typescript literal-block\">\n<span class=\"keyword\">import</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\"> </span><span class=\"name other\">FrontendRendererArgs</span><span class=\"whitespace\"> </span><span class=\"punctuation\">}</span><span class=\"whitespace\"> </span><span class=\"keyword reserved\">from</span><span class=\"whitespace\"> </span><span class=\"literal string single\">'&#64;streamlit/component-v2-lib'</span><span class=\"punctuation\">;</span></pre><p>This type provides the interface between your TypeScript component and Streamlit's runtime, including the data payload from Python, utilities for managing component state, and the DOM container for mounting your UI.</p><p>Component authors typically destructure these arguments for easier access.</p>",
+    "source": "https://github.com/streamlit/streamlit/blob/1.53.0/frontend/component-v2-lib/src/types.ts#L114",
+    "example": "<p>Defining strict typing is not required. However, to follow typing best\npractices, you can declare your component's data and state shapes, then\nprovide them as generic parameters to <tt class=\"docutils literal\">FrontendRendererArgs</tt>. The following\nTypeScript code must be compiled to JavaScript before being passed to the\ncomponent's <tt class=\"docutils literal\">js</tt> parameter in <tt class=\"docutils literal\">st.components.v2.component</tt>.</p>\n<pre class=\"code typescript literal-block\">\n<span class=\"keyword\">import</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\"> </span><span class=\"name other\">FrontendRenderer</span><span class=\"punctuation\">,</span><span class=\"whitespace\"> </span><span class=\"name other\">FrontendState</span><span class=\"whitespace\"> </span><span class=\"punctuation\">}</span><span class=\"whitespace\"> </span><span class=\"keyword reserved\">from</span><span class=\"whitespace\"> </span><span class=\"literal string single\">'&#64;streamlit/component-v2-lib'</span><span class=\"punctuation\">;</span><span class=\"whitespace\">\n\n</span><span class=\"keyword declaration\">interface</span><span class=\"whitespace\"> </span><span class=\"name other\">MyFrontendState</span><span class=\"whitespace\"> </span><span class=\"keyword\">extends</span><span class=\"whitespace\"> </span><span class=\"name other\">FrontendState</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\">\n    </span><span class=\"name other\">selected_item</span><span class=\"operator\">:</span><span class=\"whitespace\"> </span><span class=\"keyword type\">string</span><span class=\"whitespace\"> </span><span class=\"operator\">|</span><span class=\"whitespace\"> </span><span class=\"keyword constant\">null</span><span class=\"whitespace\">\n    </span><span class=\"name other\">button_clicked</span><span class=\"operator\">:</span><span class=\"whitespace\"> </span><span class=\"keyword type\">boolean</span><span class=\"whitespace\">\n</span><span class=\"punctuation\">}</span><span class=\"whitespace\">\n\n</span><span class=\"keyword declaration\">interface</span><span class=\"whitespace\"> </span><span class=\"name other\">MyFrontendData</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\">\n    </span><span class=\"name other\">label</span><span class=\"operator\">:</span><span class=\"whitespace\"> </span><span class=\"keyword type\">string</span><span class=\"whitespace\">\n    </span><span class=\"name other\">options</span><span class=\"operator\">:</span><span class=\"whitespace\"> </span><span class=\"keyword type\">string</span><span class=\"punctuation\">[]</span><span class=\"whitespace\">\n</span><span class=\"punctuation\">}</span><span class=\"whitespace\">\n\n</span><span class=\"keyword declaration\">const</span><span class=\"whitespace\"> </span><span class=\"name other\">MyFrontendRenderer</span><span class=\"operator\">:</span><span class=\"whitespace\"> </span><span class=\"keyword type\">FrontendRenderer</span><span class=\"operator\">&lt;</span><span class=\"name other\">MyFrontendState</span><span class=\"punctuation\">,</span><span class=\"whitespace\"> </span><span class=\"name other\">MyFrontendData</span><span class=\"operator\">&gt;</span><span class=\"whitespace\"> </span><span class=\"operator\">=</span><span class=\"whitespace\"> </span><span class=\"punctuation\">(</span><span class=\"name other\">component</span><span class=\"punctuation\">)</span><span class=\"whitespace\"> </span><span class=\"punctuation\">=&gt;</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\">\n    </span><span class=\"comment single\">// Destructure the component args for easier access</span><span class=\"whitespace\">\n    </span><span class=\"keyword declaration\">const</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\"> </span><span class=\"name other\">data</span><span class=\"punctuation\">,</span><span class=\"whitespace\"> </span><span class=\"name other\">setStateValue</span><span class=\"punctuation\">,</span><span class=\"whitespace\"> </span><span class=\"name other\">setTriggerValue</span><span class=\"punctuation\">,</span><span class=\"whitespace\"> </span><span class=\"name other\">parentElement</span><span class=\"whitespace\"> </span><span class=\"punctuation\">}</span><span class=\"whitespace\"> </span><span class=\"operator\">=</span><span class=\"whitespace\"> </span><span class=\"name other\">component</span><span class=\"whitespace\">\n\n    </span><span class=\"comment single\">// Set up event handlers with type-safe state management</span><span class=\"whitespace\">\n    </span><span class=\"keyword declaration\">const</span><span class=\"whitespace\"> </span><span class=\"name other\">dropdown</span><span class=\"whitespace\"> </span><span class=\"operator\">=</span><span class=\"whitespace\"> </span><span class=\"name other\">parentElement</span><span class=\"punctuation\">.</span><span class=\"name other\">querySelector</span><span class=\"punctuation\">(</span><span class=\"literal string single\">'#dropdown'</span><span class=\"punctuation\">)</span><span class=\"whitespace\"> </span><span class=\"keyword reserved\">as</span><span class=\"whitespace\"> </span><span class=\"name other\">HTMLSelectElement</span><span class=\"whitespace\">\n    </span><span class=\"keyword declaration\">const</span><span class=\"whitespace\"> </span><span class=\"name other\">button</span><span class=\"whitespace\"> </span><span class=\"operator\">=</span><span class=\"whitespace\"> </span><span class=\"name other\">parentElement</span><span class=\"punctuation\">.</span><span class=\"name other\">querySelector</span><span class=\"punctuation\">(</span><span class=\"literal string single\">'#submit'</span><span class=\"punctuation\">)</span><span class=\"whitespace\"> </span><span class=\"keyword reserved\">as</span><span class=\"whitespace\"> </span><span class=\"name other\">HTMLButtonElement</span><span class=\"whitespace\">\n\n    </span><span class=\"name other\">dropdown</span><span class=\"punctuation\">.</span><span class=\"name other\">onchange</span><span class=\"whitespace\"> </span><span class=\"operator\">=</span><span class=\"whitespace\"> </span><span class=\"punctuation\">()</span><span class=\"whitespace\"> </span><span class=\"punctuation\">=&gt;</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\">\n        </span><span class=\"name other\">setStateValue</span><span class=\"punctuation\">(</span><span class=\"literal string single\">'selected_item'</span><span class=\"punctuation\">,</span><span class=\"whitespace\"> </span><span class=\"name other\">dropdown</span><span class=\"punctuation\">.</span><span class=\"name other\">value</span><span class=\"punctuation\">)</span><span class=\"whitespace\">\n    </span><span class=\"punctuation\">}</span><span class=\"whitespace\">\n\n    </span><span class=\"name other\">button</span><span class=\"punctuation\">.</span><span class=\"name other\">onclick</span><span class=\"whitespace\"> </span><span class=\"operator\">=</span><span class=\"whitespace\"> </span><span class=\"punctuation\">()</span><span class=\"whitespace\"> </span><span class=\"punctuation\">=&gt;</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\">\n        </span><span class=\"name other\">setTriggerValue</span><span class=\"punctuation\">(</span><span class=\"literal string single\">'button_clicked'</span><span class=\"punctuation\">,</span><span class=\"whitespace\"> </span><span class=\"keyword constant\">true</span><span class=\"punctuation\">)</span><span class=\"whitespace\">\n    </span><span class=\"punctuation\">}</span><span class=\"whitespace\">\n</span><span class=\"punctuation\">}</span><span class=\"whitespace\">\n\n</span><span class=\"keyword\">export</span><span class=\"whitespace\"> </span><span class=\"keyword\">default</span><span class=\"whitespace\"> </span><span class=\"name other\">MyFrontendRenderer</span><span class=\"punctuation\">;</span>\n</pre>\n"
   },
-  "@streamlit/component-v2-lib/ComponentArgs.setStateValue": {
+  "@streamlit/component-v2-lib/FrontendRendererArgs.setStateValue": {
     "name": "setStateValue",
     "signature": "setStateValue(name, value)",
     "description": "<p>Set a state value by key. This state persists across app reruns. State values are accessible in Python through the component's result. Use this for values that should maintain their state when the user interacts with other parts of the Streamlit app.</p>",
-    "source": "https://github.com/streamlit/streamlit/blob/1.51.0/frontend/component-v2-lib/src/types.ts#L159",
+    "source": "https://github.com/streamlit/streamlit/blob/1.53.0/frontend/component-v2-lib/src/types.ts#L171",
     "args": [
       {
         "name": "name",
         "type_name": "string",
         "is_optional": false,
         "is_kwarg_only": false,
-        "description": "<p>The state key to set. If you are using TypeScript, this should be a key from <tt class=\"docutils literal\">TComponentState</tt>.</p><p>To assign a value to a state key, in the component's mounting command in Python, an <tt class=\"docutils literal\">on_&lt;key&gt;_change</tt> callback isn't required. However, the presence of a callback will ensure that the state key is always present in the result.</p>",
+        "description": "<p>The state key to set. If you are using TypeScript, this should be a key from <tt class=\"docutils literal\">TState</tt>.</p><p>To assign a value to a state key, in the component's mounting command in Python, an <tt class=\"docutils literal\">on_&lt;key&gt;_change</tt> callback isn't required. However, the presence of a callback will ensure that the state key is always present in the result.</p>",
         "default": null
       },
       {
@@ -145,7 +145,7 @@
         "type_name": "Any",
         "is_optional": false,
         "is_kwarg_only": false,
-        "description": "<p>The value to associate with the key. Type must match the corresponding property type in your <tt class=\"docutils literal\">TComponentState</tt> interface.</p>",
+        "description": "<p>The value to associate with the key. Type must match the corresponding property type in your <tt class=\"docutils literal\">TState</tt> interface.</p>",
         "default": null
       }
     ],
@@ -158,18 +158,18 @@
       }
     ]
   },
-  "@streamlit/component-v2-lib/ComponentArgs.setTriggerValue": {
+  "@streamlit/component-v2-lib/FrontendRendererArgs.setTriggerValue": {
     "name": "setTriggerValue",
     "signature": "setTriggerValue(name, value)",
     "description": "<p>Set a trigger value by key. This trigger persists for a only single app rerun.</p><p>Trigger values are one-time events that are consumed during the resulting rerun and reset to <tt class=\"docutils literal\">null</tt> afterward. They're accessible in Python through the component's result. Use this for actions like button clicks, form submissions, or other event-based interactions.</p>",
-    "source": "https://github.com/streamlit/streamlit/blob/1.51.0/frontend/component-v2-lib/src/types.ts#L184",
+    "source": "https://github.com/streamlit/streamlit/blob/1.53.0/frontend/component-v2-lib/src/types.ts#L193",
     "args": [
       {
         "name": "name",
         "type_name": "string",
         "is_optional": false,
         "is_kwarg_only": false,
-        "description": "<p>The trigger key to set. If you are using TypeScript, this should be a key from <tt class=\"docutils literal\">TComponentState</tt>.</p><p>To assign a value to a trigger key, in the component's mounting command in Python, an <tt class=\"docutils literal\">on_&lt;key&gt;_change</tt> callback isn't required. However, the presence of a callback will ensure that the trigger key is always present in the result.</p>",
+        "description": "<p>The trigger key to set. If you are using TypeScript, this should be a key from <tt class=\"docutils literal\">TState</tt>.</p><p>To assign a value to a trigger key, in the component's mounting command in Python, an <tt class=\"docutils literal\">on_&lt;key&gt;_change</tt> callback isn't required. However, the presence of a callback will ensure that the trigger key is always present in the result.</p>",
         "default": null
       },
       {
@@ -177,7 +177,7 @@
         "type_name": "Any",
         "is_optional": false,
         "is_kwarg_only": false,
-        "description": "<p>The value for this trigger. If you are using TypeScript, this should match the corresponding property type in your <tt class=\"docutils literal\">TComponentState</tt> interface.</p>",
+        "description": "<p>The value for this trigger. If you are using TypeScript, this should match the corresponding property type in your <tt class=\"docutils literal\">TState</tt> interface.</p>",
         "default": null
       }
     ],
@@ -195,24 +195,15 @@
     "name": "ArrowData",
     "signature": "ArrowData = Uint8Array&lt;ArrayBufferLike&gt; | null",
     "description": "<p>Type for Arrow-serialized data from Python.</p><pre class=\"code typescript literal-block\">\n<span class=\"keyword\">import</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\"> </span><span class=\"name other\">ArrowData</span><span class=\"whitespace\"> </span><span class=\"punctuation\">}</span><span class=\"whitespace\"> </span><span class=\"keyword reserved\">from</span><span class=\"whitespace\"> </span><span class=\"literal string single\">'&#64;streamlit/component-v2-lib'</span><span class=\"punctuation\">;</span></pre><p>Use this when defining interfaces for data that will be serialized using Apache Arrow.</p>",
-    "source": "https://github.com/streamlit/streamlit/blob/1.51.0/frontend/component-v2-lib/src/types.ts#L40",
+    "source": "https://github.com/streamlit/streamlit/blob/1.53.0/frontend/component-v2-lib/src/types.ts#L50",
     "is_class": true
   },
-  "@streamlit/component-v2-lib/ComponentCleanupFunction": {
+  "@streamlit/component-v2-lib/CleanupFunction": {
     "type": "type_alias",
-    "name": "ComponentCleanupFunction",
-    "signature": "ComponentCleanupFunction = () => void",
-    "description": "<p>The cleanup function returned by a Streamlit v2 Component.</p><p>This type alias isn't exported. Use <tt class=\"docutils literal\">OptionalComponentCleanupFunction</tt> instead.</p><p>This type represents the cleanup function that your component can return from its top-level <tt class=\"docutils literal\">export default</tt> function. If provided, Streamlit will call this function when your component is unmounted from the app, allowing you to perform any necessary cleanup tasks, such as removing event listeners or canceling network requests.</p>",
-    "source": "https://github.com/streamlit/streamlit/blob/1.51.0/frontend/component-v2-lib/src/types.ts#L209",
-    "is_class": true,
-    "is_interface": true
-  },
-  "@streamlit/component-v2-lib/OptionalComponentCleanupFunction": {
-    "type": "type_alias",
-    "name": "OptionalComponentCleanupFunction",
-    "signature": "OptionalComponentCleanupFunction = ComponentCleanupFunction | void",
-    "description": "<p>The component's return type, which can be a cleanup function or <tt class=\"docutils literal\">void</tt>.</p><pre class=\"code typescript literal-block\">\n<span class=\"keyword\">import</span><span class=\"whitespace\"> </span><span class=\"punctuation\">{</span><span class=\"whitespace\"> </span><span class=\"name other\">OptionalComponentCleanupFunctionData</span><span class=\"whitespace\"> </span><span class=\"punctuation\">}</span><span class=\"whitespace\"> </span><span class=\"keyword reserved\">from</span><span class=\"whitespace\"> </span><span class=\"literal string single\">'&#64;streamlit/component-v2-lib'</span><span class=\"punctuation\">;</span></pre>",
-    "source": "https://github.com/streamlit/streamlit/blob/1.51.0/frontend/component-v2-lib/src/types.ts#L214",
+    "name": "CleanupFunction",
+    "signature": "CleanupFunction = () => void",
+    "description": "<p>The cleanup function returned by a Streamlit v2 component.</p><p>This type represents the cleanup function that your component can return from its top-level <tt class=\"docutils literal\">export default</tt> function. If provided, Streamlit will call this function when your component is unmounted from the app, allowing you to perform any necessary cleanup tasks, such as removing event listeners or canceling network requests.</p>",
+    "source": "https://github.com/streamlit/streamlit/blob/1.53.0/frontend/component-v2-lib/src/types.ts#L205",
     "is_class": true,
     "is_interface": true
   }
