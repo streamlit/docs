@@ -11,6 +11,7 @@ import re
 
 import docstring_parser
 import directives.stoutput as stoutput
+import directives.stcode as stcode
 import streamlit
 import streamlit.components.v1 as componentsv1
 import streamlit.components.v2 as componentsv2
@@ -21,7 +22,7 @@ from docutils.parsers.rst import directives
 from html import escape
 from numpydoc.docscrape import NumpyDocString
 from streamlit.components.v2.bidi_component import BidiComponentResult
-from streamlit.components.v2.types import BidiComponentCallable
+from streamlit.components.v2.types import ComponentRenderer
 from streamlit.elements.lib.mutable_status_container import StatusContainer
 from streamlit.testing.v1.app_test import AppTest
 from streamlit.runtime.caching.cache_utils import CachedFunc
@@ -43,8 +44,9 @@ logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 def parse_rst(rst_string):
     """Parses RST string to HTML using docutils."""
     docutil_settings = {"embed_stylesheet": 0}
-    # Register the custom RST directive for output
+    # Register custom RST directives
     directives.register_directive("output", stoutput.StOutput)
+    directives.register_directive("code-block", stcode.StCode)
     # Convert RST string to HTML using docutils
     document = publish_parts(
         rst_string, writer_name="html", settings_overrides=docutil_settings
@@ -642,7 +644,7 @@ def get_streamlit_docstring_dict():
         streamlit.runtime.context.ContextProxy: ["streamlit.context", "st.context"],
     }
     interfaces = {
-        BidiComponentCallable: ["BidiComponentCallable", "BidiComponentCallable"],
+        ComponentRenderer: ["ComponentRenderer", "ComponentRenderer"],
     }
     attribute_dicts = {
         PlotlyState: ["PlotlyState", "PlotlyState"],
@@ -653,6 +655,7 @@ def get_streamlit_docstring_dict():
         PydeckState: ["PydeckState", "PydeckState"],
         PydeckSelectionState: ["PydeckSelectionState", "PydeckSelectionState"],
         BidiComponentResult: ["BidiComponentResult", "BidiComponentResult"],
+        streamlit.user_info.TokensProxy: ["TokensProxy", "TokensProxy"],
     }
 
     module_docstring_dict = {}
