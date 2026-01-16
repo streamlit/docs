@@ -2470,7 +2470,7 @@ my_component()
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/custom-components/st.components.v2.types.bidicomponentcallable">
+<RefCard href="/develop/api-reference/custom-components/st.components.v2.types.componentrenderer">
 
 <h4>Mount</h4>
 
@@ -2498,50 +2498,50 @@ npm i @streamlit/component-v2-lib
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/custom-components/component-v2-lib-component">
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib-frontendrenderer">
 
-<h4>Component</h4>
+<h4>FrontendRenderer</h4>
 
 Type alias for the component function.
 
 ```typescript
-import { Component } from "@streamlit/component-v2-lib";
+import { FrontendRenderer } from "@streamlit/component-v2-lib";
 ```
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/custom-components/component-v2-lib-componentargs">
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib-frontendrendererargs">
 
-<h4>ComponentArgs</h4>
+<h4>FrontendRendererArgs</h4>
 
 Type alias for the component arguments.
 
 ```typescript
-import { ComponentArgs } from "@streamlit/component-v2-lib";
+import { FrontendRendererArgs } from "@streamlit/component-v2-lib";
 ```
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/custom-components/component-v2-lib-componentstate">
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib-frontendstate">
 
-<h4>ComponentState</h4>
+<h4>FrontendState</h4>
 
 Type alias for the component state.
 
 ```typescript
-import { ComponentState } from "@streamlit/component-v2-lib";
+import { FrontendState } from "@streamlit/component-v2-lib";
 ```
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/custom-components/component-v2-lib-optionalcomponentcleanupfunction" size="two-third">
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib-cleanupfunction" size="two-third">
 
-<h4>OptionalComponentCleanupFunction</h4>
+<h4>CleanupFunction</h4>
 
 Type alias for the component cleanup function.
 
 ```typescript
-import { OptionalComponentCleanupFunction } from "@streamlit/component-v2-lib";
+import { CleanupFunction } from "@streamlit/component-v2-lib";
 ```
 
 </RefCard>
