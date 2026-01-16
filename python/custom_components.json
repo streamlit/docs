@@ -202,7 +202,7 @@
     "type": "type_alias",
     "name": "CleanupFunction",
     "signature": "CleanupFunction = () => void",
-    "description": "<p>The cleanup function returned by a Streamlit v2 component.</p><p>This type alias isn't exported. Use <tt class=\"docutils literal\">CleanupFunction | void</tt> instead.</p><p>This type represents the cleanup function that your component can return from its top-level <tt class=\"docutils literal\">export default</tt> function. If provided, Streamlit will call this function when your component is unmounted from the app, allowing you to perform any necessary cleanup tasks, such as removing event listeners or canceling network requests.</p>",
+    "description": "<p>The cleanup function returned by a Streamlit v2 component.</p><p>This type represents the cleanup function that your component can return from its top-level <tt class=\"docutils literal\">export default</tt> function. If provided, Streamlit will call this function when your component is unmounted from the app, allowing you to perform any necessary cleanup tasks, such as removing event listeners or canceling network requests.</p>",
     "source": "https://github.com/streamlit/streamlit/blob/1.53.0/frontend/component-v2-lib/src/types.ts#L205",
     "is_class": true,
     "is_interface": true
