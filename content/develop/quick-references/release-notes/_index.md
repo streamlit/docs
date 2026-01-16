@@ -32,6 +32,12 @@ _Release date: January 14, 2025_
 - 🌐 Introducing [`st.App`](https://issues.streamlit.app/spec_renderer?pr=13449), an experimental ASGI-compatible entry point that enables custom HTTP routes, middleware, lifecycle hooks, and integration with Python web frameworks like FastAPI and Starlette ([#13537](https://github.com/streamlit/streamlit/pull/13537)).
 - 🔑 You can expose OIDC ID and access tokens in [`st.user.tokens`](/develop/api-reference/user/st.user) ([#12044](https://github.com/streamlit/streamlit/pull/12044)). Thanks, [velochy](https://github.com/velochy)!
 
+<Note>
+
+To comment on the Starlette and ASGI support, see the [discussion on GitHub](https://github.com/streamlit/streamlit/issues/13600).
+
+</Note>
+
 **Notable Changes**
 
 - 🚪 [`st.logout`](/develop/api-reference/user/st.logout) logs users out of your identity provider, if supported by your OIDC setup ([#12693](https://github.com/streamlit/streamlit/pull/12693)). Thanks, [velochy](https://github.com/velochy)!

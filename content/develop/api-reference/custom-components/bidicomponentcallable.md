@@ -5,6 +5,6 @@ description: Python interface for mounting Streamlit v2 custom components, enabl
 keywords: bidicomponentcallable, bidirectional, custom components v2, interface, component mounting, streamlit api, component state, data exchange
 ---
 
-<Autofunction function="BidiComponentCallable" />
+<Autofunction function="ComponentRenderer" oldName="BidiComponentCallable" />
 
 <Autofunction function="BidiComponentResult" />

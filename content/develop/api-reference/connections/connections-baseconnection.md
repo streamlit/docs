@@ -14,3 +14,7 @@ This page only contains information on the `st.connections.BaseConnection` class
 <Autofunction function="streamlit.connections.BaseConnection" oldName="streamlit.connections.ExperimentalBaseConnection" />
 
 <Autofunction function="streamlit.connections.BaseConnection.reset" oldName="streamlit.connections.ExperimentalBaseConnection.reset" />
+
+<Autofunction function="streamlit.connections.BaseConnection.close" />
+
+<Autofunction function="streamlit.connections.BaseConnection.scope" />
