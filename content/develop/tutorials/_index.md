@@ -65,6 +65,14 @@ Create multipage apps, navigation, and flows.
 
 </RefCard>
 
+<RefCard href="/develop/tutorials/trading">
+
+<h5>Trading and Finance</h5>
+
+Build trading bots and financial analysis tools.
+
+</RefCard>
+
 </TileContainer>
 
 When you're done developing your app, see our [deployment tutorials](/deploy/tutorials), too!
