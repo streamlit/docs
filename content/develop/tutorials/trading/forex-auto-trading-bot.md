@@ -819,12 +819,165 @@ def check_button_debounce(button_name: str) -> bool:
     return True
 
 
-def format_score_display(score: int, details: Dict[str, int]) -> str:
-    """Format score details for display."""
-    lines = [f"**Total: {score}/{CONFIG.SIGNAL_THRESHOLD}**"]
-    for indicator, points in details.items():
-        lines.append(f"- {indicator}: +{points}")
-    return "\n".join(lines)
+def calculate_pip_value(symbol: str, lot_size: float) -> float:
+    """Calculate pip value in account currency."""
+    try:
+        symbol_info = mt5.symbol_info(symbol)
+        if symbol_info is None:
+            return 0.0
+        # Standard pip value calculation
+        pip_value = lot_size * symbol_info.trade_contract_size * symbol_info.point * 10
+        return pip_value
+    except:
+        return 0.0
+
+
+def calculate_money_from_pips(symbol: str, lot_size: float, pips: int) -> float:
+    """Convert pips to money value."""
+    pip_value = calculate_pip_value(symbol, lot_size)
+    return pips * pip_value
+
+
+def get_indicator_status(df: pd.DataFrame) -> Dict[str, Dict[str, Any]]:
+    """Get status of each indicator for display."""
+    indicators = {}
+    current = df.iloc[-1]
+    previous = df.iloc[-2] if len(df) > 1 else current
+
+    # RSI
+    rsi_val = current['RSI'] if pd.notna(current['RSI']) else 50
+    rsi_active = rsi_val < 30 or rsi_val > 70
+    indicators['RSI'] = {
+        'value': f"{rsi_val:.1f}",
+        'active': rsi_active,
+        'points': 2 if rsi_active else 0,
+        'condition': f"RSI = {rsi_val:.1f}" + (" < 30" if rsi_val < 30 else " > 70" if rsi_val > 70 else "")
+    }
+
+    # Stochastic
+    stoch_k = current['Stoch_K'] if pd.notna(current['Stoch_K']) else 50
+    stoch_cross = False
+    stoch_points = 0
+    if pd.notna(current['Stoch_K']) and pd.notna(previous['Stoch_K']):
+        # Buy crossover
+        if current['Stoch_K'] > current['Stoch_D'] and previous['Stoch_K'] <= previous['Stoch_D']:
+            if stoch_k <= 10:
+                stoch_cross = True
+                stoch_points = 3
+            elif stoch_k <= 20:
+                stoch_cross = True
+                stoch_points = 2
+        # Sell crossover
+        elif current['Stoch_K'] < current['Stoch_D'] and previous['Stoch_K'] >= previous['Stoch_D']:
+            if stoch_k >= 90:
+                stoch_cross = True
+                stoch_points = 3
+            elif stoch_k >= 80:
+                stoch_cross = True
+                stoch_points = 2
+
+    indicators['Stoch'] = {
+        'value': f"K={stoch_k:.1f}",
+        'active': stoch_cross,
+        'points': stoch_points,
+        'condition': f"Stoch: {'Crossover' if stoch_cross else 'Pas de cross'} (K={stoch_k:.1f})"
+    }
+
+    # Bollinger
+    bb_active = False
+    bb_points = 0
+    if pd.notna(current['BB_Lower']) and pd.notna(current['BB_Upper']):
+        bb_tolerance = (current['BB_Upper'] - current['BB_Lower']) * 0.05
+        if current['Close'] <= current['BB_Lower'] + bb_tolerance:
+            bb_active = True
+            bb_points = 1
+        elif current['Close'] >= current['BB_Upper'] - bb_tolerance:
+            bb_active = True
+            bb_points = 1
+
+    indicators['Bollinger'] = {
+        'value': 'BB',
+        'active': bb_active,
+        'points': bb_points,
+        'condition': f"Bollinger: Prix {'< BB-' if current['Close'] <= current['BB_Lower'] + bb_tolerance else '> BB+' if bb_active else '> BB-'}"
+    }
+
+    # Fibonacci
+    fib_active = False
+    fib_points = 0
+    if pd.notna(current['Fib_618']) and pd.notna(current['Fib_382']):
+        fib_tolerance = (current['Fib_100'] - current['Fib_0']) * 0.02
+        if abs(current['Close'] - current['Fib_618']) <= fib_tolerance:
+            fib_active = True
+            fib_points = 2
+        elif abs(current['Close'] - current['Fib_382']) <= fib_tolerance:
+            fib_active = True
+            fib_points = 1
+
+    indicators['Fibonacci'] = {
+        'value': 'Fib',
+        'active': fib_active,
+        'points': fib_points,
+        'condition': f"Fibonacci: {'Sur niveau cle' if fib_active else 'Pas sur niveau cle'}"
+    }
+
+    # Volume
+    vol_active = False
+    if pd.notna(current['Volume_MA20']):
+        vol_active = current['TickVolume'] > current['Volume_MA20']
+
+    indicators['Volume'] = {
+        'value': 'Vol',
+        'active': vol_active,
+        'points': 1 if vol_active else 0,
+        'condition': f"Volume: {'> MA20' if vol_active else '< MA20'}"
+    }
+
+    # Candle
+    candle_green = current['Green_Candle']
+    indicators['Bougie'] = {
+        'value': 'Candle',
+        'active': True,  # Always contributes
+        'points': 2,
+        'condition': f"Bougie: {'Verte (acheteur)' if candle_green else 'Rouge (vendeur)'}"
+    }
+
+    return indicators
+
+
+def calculate_trade_statistics() -> Dict[str, Any]:
+    """Calculate win/loss statistics from trade history."""
+    history = st.session_state.trade_history
+    completed_trades = [t for t in history if t.get('profit') is not None]
+
+    if not completed_trades:
+        return {
+            'total_trades': len(history),
+            'completed': 0,
+            'wins': 0,
+            'losses': 0,
+            'win_rate': 0.0,
+            'total_profit': 0.0,
+            'total_loss': 0.0,
+            'net_profit': 0.0
+        }
+
+    wins = [t for t in completed_trades if t['profit'] > 0]
+    losses = [t for t in completed_trades if t['profit'] <= 0]
+
+    total_profit = sum(t['profit'] for t in wins)
+    total_loss = sum(t['profit'] for t in losses)
+
+    return {
+        'total_trades': len(history),
+        'completed': len(completed_trades),
+        'wins': len(wins),
+        'losses': len(losses),
+        'win_rate': (len(wins) / len(completed_trades) * 100) if completed_trades else 0.0,
+        'total_profit': total_profit,
+        'total_loss': total_loss,
+        'net_profit': total_profit + total_loss
+    }
 
 
 # =============================================================================
@@ -915,8 +1068,22 @@ with st.sidebar:
     risk_percent = st.slider("Risk %", 0.5, CONFIG.MAX_RISK_PERCENT, CONFIG.DEFAULT_RISK_PERCENT, 0.5)
     lot_size = st.number_input("Lot Size", CONFIG.MIN_LOT_SIZE, CONFIG.MAX_LOT_SIZE,
                                 CONFIG.DEFAULT_LOT_SIZE, 0.01, format="%.2f")
+
+    # Calculate money values for SL/TP
     sl_pips = st.number_input("Stop Loss (pips)", 5, 50, 15, 5)
     tp_pips = st.number_input("Take Profit (pips)", 5, 100, 20, 5)
+
+    # Show conversion to EUR
+    if st.session_state.mt5_connected:
+        sl_eur = calculate_money_from_pips(selected_symbol, lot_size, sl_pips)
+        tp_eur = calculate_money_from_pips(selected_symbol, lot_size, tp_pips)
+        account = get_account_info()
+        if account:
+            sl_pct = (sl_eur / account['balance'] * 100) if account['balance'] > 0 else 0
+            tp_pct = (tp_eur / account['balance'] * 100) if account['balance'] > 0 else 0
+            st.caption(f"SL: {sl_pips} pips = {sl_eur:.2f} EUR ({sl_pct:.2f}%)")
+            st.caption(f"TP: {tp_pips} pips = {tp_eur:.2f} EUR ({tp_pct:.2f}%)")
+            st.caption(f"Lot {lot_size} = {lot_size * 100000:.0f} unites")
 
     st.subheader("Timer")
     trade_duration = st.slider("Auto-close (min)", CONFIG.MIN_TRADE_DURATION,
@@ -942,35 +1109,62 @@ if st.session_state.mt5_connected:
         price_change = current['Close'] - df.iloc[-2]['Close']
         price_change_pct = (price_change / df.iloc[-2]['Close']) * 100
 
+        # Get indicator status for display
+        indicator_status = get_indicator_status(df)
+
         # =================================================================
         # METRICS ROW
         # =================================================================
         col1, col2, col3, col4, col5 = st.columns(5)
 
-        col1.metric("Price", f"{current['Close']:.5f}", f"{price_change_pct:+.3f}%")
+        col1.metric("Prix", f"{current['Close']:.5f}", f"{price_change_pct:+.3f}%")
         col2.metric("RSI", f"{current['RSI']:.1f}" if pd.notna(current['RSI']) else "N/A")
         col3.metric("Stoch K", f"{current['Stoch_K']:.1f}" if pd.notna(current['Stoch_K']) else "N/A")
 
         signal_emoji = "🟢" if signal == SignalType.BUY else "🔴" if signal == SignalType.SELL else "⚪"
-        col4.metric("Signal", f"{signal_emoji} {signal.value}")
+        signal_text = "ACHAT" if signal == SignalType.BUY else "VENTE" if signal == SignalType.SELL else "ATTENTE"
+        col4.metric("Signal", f"{signal_emoji} {signal_text}")
         col5.metric("Score", f"{score}/{CONFIG.SIGNAL_THRESHOLD}")
 
-        # Score details
-        if details:
-            with st.expander("Score Details"):
-                for indicator, points in details.items():
-                    st.write(f"- {indicator}: **+{points}**")
+        st.divider()
+
+        # =================================================================
+        # INDICATORS STATUS PANEL
+        # =================================================================
+        st.subheader("Indicateurs")
+
+        # Create 3 columns for indicators
+        ind_col1, ind_col2 = st.columns(2)
+
+        with ind_col1:
+            for name in ['RSI', 'Bollinger', 'Volume']:
+                ind = indicator_status[name]
+                icon = "✅" if ind['active'] and ind['points'] > 0 else "❌"
+                color = "green" if ind['active'] and ind['points'] > 0 else "red"
+                st.markdown(
+                    f":{color}[{icon} **{name}:** {ind['condition']} → +{ind['points']}]"
+                )
+
+        with ind_col2:
+            for name in ['Stoch', 'Fibonacci', 'Bougie']:
+                ind = indicator_status[name]
+                icon = "✅" if ind['active'] and ind['points'] > 0 else "❌"
+                color = "green" if ind['active'] and ind['points'] > 0 else "red"
+                st.markdown(
+                    f":{color}[{icon} **{name}:** {ind['condition']} → +{ind['points']}]"
+                )
 
         st.divider()
 
         # =================================================================
         # TRADING CONTROLS
         # =================================================================
+        st.subheader("Actions")
 
         col_buy, col_sell, col_close = st.columns(3)
 
         with col_buy:
-            if st.button("BUY", use_container_width=True, type="primary",
+            if st.button("🟢 ACHETER", use_container_width=True, type="primary",
                         disabled=st.session_state.active_trade is not None):
                 if check_button_debounce("buy"):
                     success, result = execute_trade(selected_symbol, SignalType.BUY,
@@ -979,13 +1173,13 @@ if st.session_state.mt5_connected:
                         st.session_state.active_trade = result
                         st.session_state.trade_open_time = datetime.now()
                         st.session_state.trade_history.append(result)
-                        st.success(f"BUY @ {result['price_open']:.5f}")
+                        st.success(f"ACHAT @ {result['price_open']:.5f}")
                         st.rerun()
                     else:
                         st.error(result)
 
         with col_sell:
-            if st.button("SELL", use_container_width=True,
+            if st.button("🔴 VENDRE", use_container_width=True,
                         disabled=st.session_state.active_trade is not None):
                 if check_button_debounce("sell"):
                     success, result = execute_trade(selected_symbol, SignalType.SELL,
@@ -994,24 +1188,40 @@ if st.session_state.mt5_connected:
                         st.session_state.active_trade = result
                         st.session_state.trade_open_time = datetime.now()
                         st.session_state.trade_history.append(result)
-                        st.success(f"SELL @ {result['price_open']:.5f}")
+                        st.success(f"VENTE @ {result['price_open']:.5f}")
                         st.rerun()
                     else:
                         st.error(result)
 
         with col_close:
-            if st.button("CLOSE", use_container_width=True,
+            if st.button("⬜ FERMER TOUT", use_container_width=True,
                         disabled=st.session_state.active_trade is None):
                 if check_button_debounce("close"):
                     if st.session_state.active_trade:
+                        # Get position profit before closing
+                        positions = get_open_positions()
+                        trade_profit = 0
+                        for pos in positions:
+                            if pos['ticket'] == st.session_state.active_trade['ticket']:
+                                trade_profit = pos['profit']
+                                break
+
                         success, msg = close_position(st.session_state.active_trade['ticket'])
                         if success:
-                            # Update trade history
+                            # Update trade history with profit
                             st.session_state.active_trade['status'] = 'CLOSED'
                             st.session_state.active_trade['time_close'] = datetime.now()
+                            st.session_state.active_trade['profit'] = trade_profit
+
+                            # Update in history
+                            for i, t in enumerate(st.session_state.trade_history):
+                                if t.get('ticket') == st.session_state.active_trade['ticket']:
+                                    st.session_state.trade_history[i] = st.session_state.active_trade
+                                    break
+
                             st.session_state.active_trade = None
                             st.session_state.trade_open_time = None
-                            st.success(msg)
+                            st.success(f"Position fermee | Profit: {trade_profit:+.2f} EUR")
                             st.rerun()
                         else:
                             st.error(msg)
@@ -1025,7 +1235,7 @@ if st.session_state.mt5_connected:
         auto_col1, auto_col2 = st.columns([1, 2])
 
         with auto_col1:
-            auto_enabled = st.toggle("Auto Trading", value=st.session_state.bot_running)
+            auto_enabled = st.toggle("🤖 AUTO", value=st.session_state.bot_running)
             st.session_state.bot_running = auto_enabled
 
         with auto_col2:
@@ -1038,14 +1248,29 @@ if st.session_state.mt5_connected:
                     seconds = int(remaining % 60)
                     st.warning(f"Position open - Auto-close in: {minutes}m {seconds}s")
                 else:
-                    # Auto close on timer
+                    # Auto close on timer - get profit first
+                    positions = get_open_positions()
+                    trade_profit = 0
+                    for pos in positions:
+                        if pos['ticket'] == st.session_state.active_trade['ticket']:
+                            trade_profit = pos['profit']
+                            break
+
                     success, msg = close_position(st.session_state.active_trade['ticket'])
                     if success:
                         st.session_state.active_trade['status'] = 'CLOSED (Timer)'
                         st.session_state.active_trade['time_close'] = datetime.now()
+                        st.session_state.active_trade['profit'] = trade_profit
+
+                        # Update in history
+                        for i, t in enumerate(st.session_state.trade_history):
+                            if t.get('ticket') == st.session_state.active_trade['ticket']:
+                                st.session_state.trade_history[i] = st.session_state.active_trade
+                                break
+
                         st.session_state.active_trade = None
                         st.session_state.trade_open_time = None
-                        st.info("Position closed by timer")
+                        st.info(f"Position fermee par timer | Profit: {trade_profit:+.2f} EUR")
                         st.rerun()
             elif st.session_state.bot_running:
                 st.info(f"Waiting for signal (threshold: {CONFIG.SIGNAL_THRESHOLD})")
@@ -1117,33 +1342,74 @@ if st.session_state.mt5_connected:
         # POSITIONS & HISTORY
         # =================================================================
 
-        col_pos, col_hist = st.columns(2)
+        st.divider()
+        st.subheader("Positions & Historique")
+
+        col_pos, col_hist, col_stats = st.columns(3)
 
         with col_pos:
-            with st.expander("Open Positions", expanded=True):
-                positions = get_open_positions()
-                if positions:
-                    pos_df = pd.DataFrame(positions)
-                    st.dataframe(pos_df[['ticket', 'symbol', 'type', 'volume',
-                                        'price_open', 'profit']],
-                                use_container_width=True, hide_index=True)
+            st.markdown("**Positions Ouvertes**")
+            positions = get_open_positions()
+            if positions:
+                for pos in positions:
+                    profit_color = "green" if pos['profit'] >= 0 else "red"
+                    st.markdown(
+                        f"**{pos['type']}** {pos['symbol']} | "
+                        f"{pos['volume']} lots @ {pos['price_open']:.5f} | "
+                        f"P/L: :{profit_color}[{pos['profit']:.2f} EUR]"
+                    )
 
-                    total_profit = sum(p['profit'] for p in positions)
-                    color = "green" if total_profit >= 0 else "red"
-                    st.markdown(f"**Total P/L:** :{color}[{total_profit:.2f}]")
-                else:
-                    st.info("No open positions")
+                total_profit = sum(p['profit'] for p in positions)
+                color = "green" if total_profit >= 0 else "red"
+                st.markdown(f"---\n**Total P/L:** :{color}[**{total_profit:.2f} EUR**]")
+            else:
+                st.info("Aucune position ouverte")
 
         with col_hist:
-            with st.expander("Trade History", expanded=True):
-                if st.session_state.trade_history:
-                    hist_df = pd.DataFrame(st.session_state.trade_history)
-                    display_cols = ['time_open', 'symbol', 'type', 'price_open', 'status']
-                    available_cols = [c for c in display_cols if c in hist_df.columns]
-                    st.dataframe(hist_df[available_cols].tail(10),
-                                use_container_width=True, hide_index=True)
-                else:
-                    st.info("No trade history")
+            st.markdown("**Historique des Trades**")
+            if st.session_state.trade_history:
+                for trade in st.session_state.trade_history[-5:]:  # Last 5 trades
+                    time_str = trade.get('time_open', datetime.now())
+                    if isinstance(time_str, datetime):
+                        time_str = time_str.strftime('%H:%M:%S')
+                    profit = trade.get('profit', 0) or 0
+                    profit_color = "green" if profit >= 0 else "red"
+                    status = trade.get('status', 'OPEN')
+
+                    st.markdown(
+                        f"**{time_str}** | {trade['type']} {trade['symbol']} | "
+                        f"@ {trade['price_open']:.5f} | "
+                        f":{profit_color}[{profit:+.2f} EUR] | {status}"
+                    )
+            else:
+                st.info("Aucun historique")
+
+        with col_stats:
+            st.markdown("**Statistiques**")
+            stats = calculate_trade_statistics()
+
+            # Win/Loss stats
+            st.metric("Trades Total", stats['total_trades'])
+
+            if stats['completed'] > 0:
+                win_color = "green" if stats['win_rate'] >= 50 else "red"
+                st.markdown(f"**Taux de reussite:** :{win_color}[**{stats['win_rate']:.1f}%**]")
+                st.markdown(f"Gains: {stats['wins']} | Pertes: {stats['losses']}")
+
+                # Profit/Loss amounts
+                st.markdown(f":green[**Gains:** +{stats['total_profit']:.2f} EUR]")
+                st.markdown(f":red[**Pertes:** {stats['total_loss']:.2f} EUR]")
+
+                net_color = "green" if stats['net_profit'] >= 0 else "red"
+                st.markdown(f"**Net:** :{net_color}[**{stats['net_profit']:+.2f} EUR**]")
+
+                # Percentage of balance
+                account = get_account_info()
+                if account and account['balance'] > 0:
+                    net_pct = (stats['net_profit'] / account['balance']) * 100
+                    st.markdown(f"**Performance:** :{net_color}[**{net_pct:+.2f}%**]")
+            else:
+                st.info("Pas encore de trades termines")
 
         # =================================================================
         # AUTO REFRESH
