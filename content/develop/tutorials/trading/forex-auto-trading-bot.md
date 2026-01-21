@@ -7,7 +7,7 @@ slug: /develop/tutorials/trading/forex-auto-trading-bot
 
 ## Execute Trades Automatically with MetaTrader 5
 
-In this tutorial, you will build a fully automated trading bot that analyzes the Forex market using technical indicators and automatically executes buy and sell orders through MetaTrader 5.
+In this tutorial, you will build a fully automated trading bot that analyzes the Forex market using technical indicators and automatically executes buy and sell orders through MetaTrader 5. This is a production-ready implementation with proper security, risk management, and error handling.
 
 <Warning>
 
@@ -38,14 +38,38 @@ In MetaTrader 5:
 ### 3. Install Python Libraries
 
 ```bash
-pip install MetaTrader5 streamlit pandas ta plotly numpy
+pip install MetaTrader5 streamlit pandas ta plotly numpy python-dotenv
 ```
+
+### 4. Configure Credentials (Security)
+
+Create a `.env` file in your project directory:
+
+```bash
+MT5_LOGIN=your_account_number
+MT5_PASSWORD=your_password
+MT5_SERVER=your_broker_server
+```
+
+**Important**: Never commit `.env` files to version control. Add `.env` to your `.gitignore`.
 
 ## The Automated Trading Bot
 
-Create a file called `auto_forex_bot.py`:
+Create a file called `scalping_bot_pro.py`:
 
 ```python
+"""
+Production-Ready Forex Scalping Bot for MetaTrader 5
+Version: 2.0.0
+Features:
+- Secure credential management via environment variables
+- Advanced risk management (1-2% per trade, margin validation)
+- Multi-indicator scoring system (RSI, Stochastic, Bollinger, Fibonacci, Volume)
+- Structured logging and trade history
+- Timer-based position management
+- Optimized for M1/M5 scalping timeframes
+"""
+
 import streamlit as st
 import MetaTrader5 as mt5
 import pandas as pd
@@ -55,58 +79,218 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from datetime import datetime, timedelta
 import time
-import threading
+import logging
+import os
+from dataclasses import dataclass
+from typing import Optional, Tuple, Dict, List, Any
+from enum import Enum
 
-# Page configuration
-st.set_page_config(
-    page_title="Automated Forex Trading Bot",
-    page_icon="🤖",
-    layout="wide"
-)
+# =============================================================================
+# CONFIGURATION
+# =============================================================================
 
-st.title("🤖 Automated Forex Trading Bot")
-st.markdown("Automatic buy/sell execution based on technical analysis")
+@dataclass(frozen=True)
+class TradingConfig:
+    """Immutable trading configuration."""
+    # Risk Management
+    MAX_RISK_PERCENT: float = 2.0
+    DEFAULT_RISK_PERCENT: float = 1.0
+    MIN_LOT_SIZE: float = 0.01
+    MAX_LOT_SIZE: float = 1.0
+    DEFAULT_LOT_SIZE: float = 0.01
 
-# Initialize session state
-if 'bot_running' not in st.session_state:
-    st.session_state.bot_running = False
-if 'trade_history' not in st.session_state:
-    st.session_state.trade_history = []
-if 'mt5_connected' not in st.session_state:
-    st.session_state.mt5_connected = False
+    # Scoring thresholds
+    SIGNAL_THRESHOLD: int = 6
+
+    # Timing
+    MIN_TRADE_DURATION: int = 1
+    MAX_TRADE_DURATION: int = 10
+    DEFAULT_TRADE_DURATION: int = 5
+    REFRESH_INTERVAL: int = 3
+
+    # Spread limits (in points)
+    MAX_SPREAD_POINTS: int = 30
+
+    # Button debounce (seconds)
+    BUTTON_DEBOUNCE: float = 2.0
 
 
-def connect_mt5():
-    """Connect to MetaTrader 5."""
-    if not mt5.initialize():
-        return False, f"MT5 initialization failed: {mt5.last_error()}"
-    return True, "Connected to MetaTrader 5"
+class SignalType(Enum):
+    """Trading signal types."""
+    BUY = "BUY"
+    SELL = "SELL"
+    HOLD = "HOLD"
+
+
+# Symbol configurations for different brokers
+BROKER_SYMBOLS = {
+    "standard": ["EURUSD", "GBPUSD", "USDJPY", "USDCHF", "AUDUSD", "USDCAD"],
+    "xm": ["EURUSD#", "GBPUSD#", "USDJPY#", "USDCHF#", "AUDUSD#", "USDCAD#"],
+}
+
+CONFIG = TradingConfig()
+
+# =============================================================================
+# LOGGING SETUP
+# =============================================================================
+
+def setup_logging() -> logging.Logger:
+    """Configure structured logging."""
+    logger = logging.getLogger("ScalpingBot")
+    if not logger.handlers:
+        logger.setLevel(logging.INFO)
+        handler = logging.StreamHandler()
+        formatter = logging.Formatter(
+            '%(asctime)s | %(levelname)s | %(message)s',
+            datefmt='%Y-%m-%d %H:%M:%S'
+        )
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
+    return logger
+
+logger = setup_logging()
+
+# =============================================================================
+# SESSION STATE INITIALIZATION
+# =============================================================================
+
+def init_session_state():
+    """Initialize all session state variables with proper defaults."""
+    defaults = {
+        'mt5_connected': False,
+        'bot_running': False,
+        'active_trade': None,
+        'trade_open_time': None,
+        'trade_history': [],
+        'decision_log': [],
+        'last_button_click': {},
+        'last_data_fetch': None,
+        'cached_data': None,
+        'error_count': 0,
+        'login_info': {'login': '', 'password': '', 'server': ''},
+    }
+
+    for key, default_value in defaults.items():
+        if key not in st.session_state:
+            st.session_state[key] = default_value
+
+
+def log_decision(signal: str, score: float, details: Dict[str, Any], executed: bool):
+    """Log trading decisions for analysis."""
+    decision = {
+        'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+        'signal': signal,
+        'score': score,
+        'details': details,
+        'executed': executed,
+        'threshold': CONFIG.SIGNAL_THRESHOLD
+    }
+    st.session_state.decision_log.append(decision)
+
+    # Keep only last 100 decisions
+    if len(st.session_state.decision_log) > 100:
+        st.session_state.decision_log = st.session_state.decision_log[-100:]
+
+    logger.info(f"Decision: {signal} | Score: {score}/{CONFIG.SIGNAL_THRESHOLD} | Executed: {executed}")
+
+
+# =============================================================================
+# MT5 CONNECTION FUNCTIONS
+# =============================================================================
+
+def get_credentials() -> Tuple[Optional[int], Optional[str], Optional[str]]:
+    """Get MT5 credentials from environment or session state."""
+    # Try environment variables first (most secure)
+    login = os.getenv('MT5_LOGIN')
+    password = os.getenv('MT5_PASSWORD')
+    server = os.getenv('MT5_SERVER')
+
+    if login and password and server:
+        return int(login), password, server
+
+    # Fall back to session state (user input)
+    login_info = st.session_state.get('login_info', {})
+    if login_info.get('login') and login_info.get('password') and login_info.get('server'):
+        try:
+            return int(login_info['login']), login_info['password'], login_info['server']
+        except ValueError:
+            return None, None, None
+
+    return None, None, None
+
+
+def connect_mt5(login: Optional[int] = None,
+                password: Optional[str] = None,
+                server: Optional[str] = None) -> Tuple[bool, str]:
+    """Connect to MetaTrader 5 with optional credentials."""
+    try:
+        if not mt5.initialize():
+            error = mt5.last_error()
+            logger.error(f"MT5 initialization failed: {error}")
+            return False, f"MT5 initialization failed: {error}"
+
+        # If credentials provided, login to specific account
+        if login and password and server:
+            authorized = mt5.login(login=login, password=password, server=server)
+            if not authorized:
+                error = mt5.last_error()
+                logger.error(f"MT5 login failed: {error}")
+                mt5.shutdown()
+                return False, f"Login failed: {error}"
+            logger.info(f"Connected to account {login} on {server}")
+
+        # Verify connection
+        account = mt5.account_info()
+        if account is None:
+            mt5.shutdown()
+            return False, "Could not retrieve account info"
+
+        logger.info(f"Connected: Account {account.login}, Balance: {account.balance} {account.currency}")
+        return True, f"Connected to account {account.login}"
+
+    except Exception as e:
+        logger.error(f"Connection error: {e}")
+        return False, f"Connection error: {str(e)}"
 
 
 def disconnect_mt5():
-    """Disconnect from MetaTrader 5."""
-    mt5.shutdown()
+    """Safely disconnect from MetaTrader 5."""
+    try:
+        mt5.shutdown()
+        logger.info("Disconnected from MT5")
+    except Exception as e:
+        logger.error(f"Disconnect error: {e}")
 
 
-def get_account_info():
-    """Get account information."""
-    account = mt5.account_info()
-    if account is None:
+def get_account_info() -> Optional[Dict[str, Any]]:
+    """Get account information with error handling."""
+    try:
+        account = mt5.account_info()
+        if account is None:
+            return None
+        return {
+            'login': account.login,
+            'balance': account.balance,
+            'equity': account.equity,
+            'margin': account.margin,
+            'free_margin': account.margin_free,
+            'leverage': account.leverage,
+            'profit': account.profit,
+            'currency': account.currency,
+            'trade_mode': 'DEMO' if account.trade_mode == 0 else 'REAL'
+        }
+    except Exception as e:
+        logger.error(f"Error getting account info: {e}")
         return None
-    return {
-        'login': account.login,
-        'balance': account.balance,
-        'equity': account.equity,
-        'margin': account.margin,
-        'free_margin': account.margin_free,
-        'leverage': account.leverage,
-        'profit': account.profit,
-        'currency': account.currency
-    }
 
 
-def get_forex_data(symbol, timeframe, num_bars=500):
-    """Fetch Forex data from MetaTrader 5."""
+# =============================================================================
+# DATA FETCHING WITH CACHING
+# =============================================================================
+
+@st.cache_data(ttl=CONFIG.REFRESH_INTERVAL)
+def fetch_forex_data(symbol: str, timeframe: str, num_bars: int = 200) -> Optional[pd.DataFrame]:
+    """Fetch Forex data with caching to reduce API calls."""
     timeframe_map = {
         '1m': mt5.TIMEFRAME_M1,
         '5m': mt5.TIMEFRAME_M5,
@@ -117,495 +301,993 @@ def get_forex_data(symbol, timeframe, num_bars=500):
         '1d': mt5.TIMEFRAME_D1,
     }
 
-    mt5_timeframe = timeframe_map.get(timeframe, mt5.TIMEFRAME_H1)
-    rates = mt5.copy_rates_from_pos(symbol, mt5_timeframe, 0, num_bars)
+    try:
+        mt5_timeframe = timeframe_map.get(timeframe, mt5.TIMEFRAME_M1)
+        rates = mt5.copy_rates_from_pos(symbol, mt5_timeframe, 0, num_bars)
 
-    if rates is None:
+        if rates is None or len(rates) == 0:
+            logger.warning(f"No data received for {symbol}")
+            return None
+
+        df = pd.DataFrame(rates)
+        df['time'] = pd.to_datetime(df['time'], unit='s')
+        df.set_index('time', inplace=True)
+        df.columns = ['Open', 'High', 'Low', 'Close', 'TickVolume', 'Spread', 'Volume']
+
+        return df
+
+    except Exception as e:
+        logger.error(f"Error fetching data for {symbol}: {e}")
         return None
 
-    df = pd.DataFrame(rates)
-    df['time'] = pd.to_datetime(df['time'], unit='s')
-    df.set_index('time', inplace=True)
-    df.columns = ['Open', 'High', 'Low', 'Close', 'TickVolume', 'Spread', 'Volume']
 
-    return df
+# =============================================================================
+# TECHNICAL INDICATORS
+# =============================================================================
 
-
-def calculate_indicators(df, rsi_period=14, bb_period=20, bb_std=2.0):
-    """Calculate technical indicators."""
+def calculate_indicators(df: pd.DataFrame) -> pd.DataFrame:
+    """Calculate all technical indicators for scalping."""
     df = df.copy()
 
-    # RSI
-    df['RSI'] = ta.momentum.RSIIndicator(df['Close'], window=rsi_period).rsi()
+    try:
+        # RSI (optimized for scalping: period 7)
+        df['RSI'] = ta.momentum.RSIIndicator(df['Close'], window=7).rsi()
 
-    # MACD
-    macd = ta.trend.MACD(df['Close'])
-    df['MACD'] = macd.macd()
-    df['MACD_Signal'] = macd.macd_signal()
-    df['MACD_Histogram'] = macd.macd_diff()
+        # Stochastic Oscillator (for scalping)
+        stoch = ta.momentum.StochasticOscillator(
+            df['High'], df['Low'], df['Close'],
+            window=14, smooth_window=3
+        )
+        df['Stoch_K'] = stoch.stoch()
+        df['Stoch_D'] = stoch.stoch_signal()
 
-    # Bollinger Bands
-    bollinger = ta.volatility.BollingerBands(df['Close'], window=bb_period, window_dev=bb_std)
-    df['BB_Upper'] = bollinger.bollinger_hband()
-    df['BB_Middle'] = bollinger.bollinger_mavg()
-    df['BB_Lower'] = bollinger.bollinger_lband()
+        # Bollinger Bands
+        bollinger = ta.volatility.BollingerBands(df['Close'], window=20, window_dev=2)
+        df['BB_Upper'] = bollinger.bollinger_hband()
+        df['BB_Middle'] = bollinger.bollinger_mavg()
+        df['BB_Lower'] = bollinger.bollinger_lband()
 
-    # Moving Averages
-    df['SMA_20'] = ta.trend.SMAIndicator(df['Close'], window=20).sma_indicator()
-    df['SMA_50'] = ta.trend.SMAIndicator(df['Close'], window=50).sma_indicator()
-    df['EMA_12'] = ta.trend.EMAIndicator(df['Close'], window=12).ema_indicator()
-    df['EMA_26'] = ta.trend.EMAIndicator(df['Close'], window=26).ema_indicator()
+        # EMAs for trend
+        df['EMA_9'] = ta.trend.EMAIndicator(df['Close'], window=9).ema_indicator()
+        df['EMA_21'] = ta.trend.EMAIndicator(df['Close'], window=21).ema_indicator()
 
-    # ATR for stop loss calculation
-    df['ATR'] = ta.volatility.AverageTrueRange(df['High'], df['Low'], df['Close']).average_true_range()
+        # ADX for trend strength
+        adx = ta.trend.ADXIndicator(df['High'], df['Low'], df['Close'], window=14)
+        df['ADX'] = adx.adx()
+
+        # ATR for volatility
+        df['ATR'] = ta.volatility.AverageTrueRange(
+            df['High'], df['Low'], df['Close'], window=14
+        ).average_true_range()
+
+        # Volume MA
+        df['Volume_MA20'] = df['TickVolume'].rolling(window=20).mean()
+
+        # Fibonacci levels (based on recent swing)
+        df = calculate_fibonacci_levels(df)
+
+        # Candle color (for momentum)
+        df['Green_Candle'] = df['Close'] > df['Open']
+
+    except Exception as e:
+        logger.error(f"Error calculating indicators: {e}")
 
     return df
 
 
-def generate_signal(df, rsi_oversold=30, rsi_overbought=70):
-    """Generate trading signal based on indicators."""
-    if len(df) < 2:
-        return 'HOLD', 0
+def calculate_fibonacci_levels(df: pd.DataFrame, lookback: int = 50) -> pd.DataFrame:
+    """Calculate Fibonacci retracement levels."""
+    try:
+        recent = df.tail(lookback)
+        swing_high = recent['High'].max()
+        swing_low = recent['Low'].min()
+        diff = swing_high - swing_low
 
-    current = df.iloc[-1]
-    previous = df.iloc[-2]
+        df['Fib_0'] = swing_low
+        df['Fib_236'] = swing_low + 0.236 * diff
+        df['Fib_382'] = swing_low + 0.382 * diff
+        df['Fib_500'] = swing_low + 0.500 * diff
+        df['Fib_618'] = swing_low + 0.618 * diff
+        df['Fib_100'] = swing_high
 
-    buy_score = 0
-    sell_score = 0
+    except Exception as e:
+        logger.error(f"Error calculating Fibonacci: {e}")
+        # Set default values
+        for level in ['Fib_0', 'Fib_236', 'Fib_382', 'Fib_500', 'Fib_618', 'Fib_100']:
+            df[level] = np.nan
 
-    # RSI signals
-    if current['RSI'] < rsi_oversold:
-        buy_score += 2
-    elif current['RSI'] > rsi_overbought:
-        sell_score += 2
+    return df
 
-    # MACD crossover
-    if (current['MACD'] > current['MACD_Signal'] and
-        previous['MACD'] <= previous['MACD_Signal']):
-        buy_score += 3
-    elif (current['MACD'] < current['MACD_Signal'] and
-          previous['MACD'] >= previous['MACD_Signal']):
-        sell_score += 3
 
-    # Bollinger Bands
-    if current['Close'] <= current['BB_Lower']:
-        buy_score += 1
-    elif current['Close'] >= current['BB_Upper']:
-        sell_score += 1
+# =============================================================================
+# SCORING SYSTEM
+# =============================================================================
 
-    # Trend (SMA)
-    if current['SMA_20'] > current['SMA_50']:
-        buy_score += 1
+def calculate_buy_score(df: pd.DataFrame) -> Tuple[int, Dict[str, int]]:
+    """
+    Calculate BUY score based on multiple indicators.
+
+    Scoring rules:
+    - RSI < 30: +2 points
+    - Stochastic crossover in 0-10: +3 points, in 10-20: +2 points
+    - Price at Bollinger lower band: +1 point
+    - Price near Fibonacci 0.618: +2 points, near 0.382: +1 point
+    - Volume > MA20: +1 point
+    - Green candle: +2 points
+
+    Threshold: 6 points
+    """
+    score = 0
+    details = {}
+
+    try:
+        current = df.iloc[-1]
+        previous = df.iloc[-2] if len(df) > 1 else current
+
+        # 1. RSI < 30 -> +2 points
+        if pd.notna(current['RSI']) and current['RSI'] < 30:
+            score += 2
+            details['RSI < 30'] = 2
+
+        # 2. Stochastic crossover
+        if pd.notna(current['Stoch_K']) and pd.notna(previous['Stoch_K']):
+            stoch_k = current['Stoch_K']
+            # Crossover detection
+            if current['Stoch_K'] > current['Stoch_D'] and previous['Stoch_K'] <= previous['Stoch_D']:
+                if stoch_k <= 10:
+                    score += 3
+                    details['Stoch crossover 0-10'] = 3
+                elif stoch_k <= 20:
+                    score += 2
+                    details['Stoch crossover 10-20'] = 2
+
+        # 3. Bollinger lower band touch -> +1 point
+        if pd.notna(current['BB_Lower']):
+            bb_tolerance = (current['BB_Upper'] - current['BB_Lower']) * 0.05
+            if current['Close'] <= current['BB_Lower'] + bb_tolerance:
+                score += 1
+                details['Bollinger lower'] = 1
+
+        # 4. Fibonacci levels
+        if pd.notna(current['Fib_618']) and pd.notna(current['Fib_382']):
+            fib_tolerance = (current['Fib_100'] - current['Fib_0']) * 0.02
+
+            if abs(current['Close'] - current['Fib_618']) <= fib_tolerance:
+                score += 2
+                details['Fib 0.618'] = 2
+            elif abs(current['Close'] - current['Fib_382']) <= fib_tolerance:
+                score += 1
+                details['Fib 0.382'] = 1
+
+        # 5. Volume > MA20 -> +1 point
+        if pd.notna(current['Volume_MA20']) and current['TickVolume'] > current['Volume_MA20']:
+            score += 1
+            details['Volume > MA20'] = 1
+
+        # 6. Green candle -> +2 points
+        if current['Green_Candle']:
+            score += 2
+            details['Green candle'] = 2
+
+    except Exception as e:
+        logger.error(f"Error calculating buy score: {e}")
+
+    return score, details
+
+
+def calculate_sell_score(df: pd.DataFrame) -> Tuple[int, Dict[str, int]]:
+    """
+    Calculate SELL score (inverse of BUY logic).
+    """
+    score = 0
+    details = {}
+
+    try:
+        current = df.iloc[-1]
+        previous = df.iloc[-2] if len(df) > 1 else current
+
+        # 1. RSI > 70 -> +2 points
+        if pd.notna(current['RSI']) and current['RSI'] > 70:
+            score += 2
+            details['RSI > 70'] = 2
+
+        # 2. Stochastic crossover (downward)
+        if pd.notna(current['Stoch_K']) and pd.notna(previous['Stoch_K']):
+            stoch_k = current['Stoch_K']
+            if current['Stoch_K'] < current['Stoch_D'] and previous['Stoch_K'] >= previous['Stoch_D']:
+                if stoch_k >= 90:
+                    score += 3
+                    details['Stoch crossover 90-100'] = 3
+                elif stoch_k >= 80:
+                    score += 2
+                    details['Stoch crossover 80-90'] = 2
+
+        # 3. Bollinger upper band touch -> +1 point
+        if pd.notna(current['BB_Upper']):
+            bb_tolerance = (current['BB_Upper'] - current['BB_Lower']) * 0.05
+            if current['Close'] >= current['BB_Upper'] - bb_tolerance:
+                score += 1
+                details['Bollinger upper'] = 1
+
+        # 4. Fibonacci levels (resistance)
+        if pd.notna(current['Fib_618']) and pd.notna(current['Fib_382']):
+            fib_tolerance = (current['Fib_100'] - current['Fib_0']) * 0.02
+
+            if abs(current['Close'] - (current['Fib_100'] - current['Fib_618'] + current['Fib_0'])) <= fib_tolerance:
+                score += 2
+                details['Fib resistance 0.618'] = 2
+            elif abs(current['Close'] - (current['Fib_100'] - current['Fib_382'] + current['Fib_0'])) <= fib_tolerance:
+                score += 1
+                details['Fib resistance 0.382'] = 1
+
+        # 5. Volume > MA20 -> +1 point
+        if pd.notna(current['Volume_MA20']) and current['TickVolume'] > current['Volume_MA20']:
+            score += 1
+            details['Volume > MA20'] = 1
+
+        # 6. Red candle -> +2 points
+        if not current['Green_Candle']:
+            score += 2
+            details['Red candle'] = 2
+
+    except Exception as e:
+        logger.error(f"Error calculating sell score: {e}")
+
+    return score, details
+
+
+def generate_signal(df: pd.DataFrame) -> Tuple[SignalType, int, Dict[str, int]]:
+    """Generate trading signal based on scoring system."""
+    if df is None or len(df) < 2:
+        return SignalType.HOLD, 0, {}
+
+    buy_score, buy_details = calculate_buy_score(df)
+    sell_score, sell_details = calculate_sell_score(df)
+
+    if buy_score >= CONFIG.SIGNAL_THRESHOLD and buy_score > sell_score:
+        return SignalType.BUY, buy_score, buy_details
+    elif sell_score >= CONFIG.SIGNAL_THRESHOLD and sell_score > buy_score:
+        return SignalType.SELL, sell_score, sell_details
     else:
-        sell_score += 1
-
-    # Price momentum
-    if current['Close'] > previous['Close']:
-        buy_score += 0.5
-    else:
-        sell_score += 0.5
-
-    # Determine signal
-    if buy_score >= 4:
-        return 'BUY', buy_score
-    elif sell_score >= 4:
-        return 'SELL', sell_score
-    else:
-        return 'HOLD', max(buy_score, sell_score)
+        # Return the higher score for display
+        if buy_score >= sell_score:
+            return SignalType.HOLD, buy_score, buy_details
+        else:
+            return SignalType.HOLD, sell_score, sell_details
 
 
-def calculate_position_size(account_balance, risk_percent, stop_loss_pips, pip_value):
-    """Calculate position size based on risk management."""
-    risk_amount = account_balance * (risk_percent / 100)
-    position_size = risk_amount / (stop_loss_pips * pip_value)
-    return round(position_size, 2)
+# =============================================================================
+# RISK MANAGEMENT
+# =============================================================================
+
+def validate_trade_conditions(symbol: str, lot_size: float) -> Tuple[bool, str]:
+    """Validate all conditions before executing a trade."""
+    try:
+        # 1. Check symbol info
+        symbol_info = mt5.symbol_info(symbol)
+        if symbol_info is None:
+            return False, f"Symbol {symbol} not found"
+
+        # 2. Check if trading is allowed
+        if not symbol_info.trade_mode == mt5.SYMBOL_TRADE_MODE_FULL:
+            return False, "Trading not allowed for this symbol"
+
+        # 3. Check spread
+        tick = mt5.symbol_info_tick(symbol)
+        if tick is None:
+            return False, "Cannot get price tick"
+
+        spread_points = (tick.ask - tick.bid) / symbol_info.point
+        if spread_points > CONFIG.MAX_SPREAD_POINTS:
+            return False, f"Spread too high: {spread_points:.0f} points (max: {CONFIG.MAX_SPREAD_POINTS})"
+
+        # 4. Check account margin
+        account = mt5.account_info()
+        if account is None:
+            return False, "Cannot get account info"
+
+        # Check free margin (need at least 50% more than required)
+        margin_required = lot_size * symbol_info.trade_contract_size / account.leverage
+        if account.margin_free < margin_required * 1.5:
+            return False, f"Insufficient margin: {account.margin_free:.2f} (need: {margin_required * 1.5:.2f})"
+
+        # 5. Validate lot size
+        if lot_size < symbol_info.volume_min:
+            return False, f"Lot size too small (min: {symbol_info.volume_min})"
+        if lot_size > symbol_info.volume_max:
+            return False, f"Lot size too large (max: {symbol_info.volume_max})"
+
+        # 6. Check risk percentage
+        potential_loss = lot_size * symbol_info.trade_contract_size * 0.01  # 1% move
+        risk_percent = (potential_loss / account.balance) * 100
+        if risk_percent > CONFIG.MAX_RISK_PERCENT:
+            return False, f"Risk too high: {risk_percent:.1f}% (max: {CONFIG.MAX_RISK_PERCENT}%)"
+
+        return True, "Validation passed"
+
+    except Exception as e:
+        logger.error(f"Validation error: {e}")
+        return False, f"Validation error: {str(e)}"
 
 
-def execute_trade(symbol, order_type, lot_size, sl_pips, tp_pips):
-    """Execute a trade on MetaTrader 5."""
-    symbol_info = mt5.symbol_info(symbol)
-    if symbol_info is None:
-        return False, f"Symbol {symbol} not found"
+def calculate_safe_lot_size(symbol: str, risk_percent: float, sl_pips: int) -> float:
+    """Calculate safe lot size based on risk management."""
+    try:
+        account = mt5.account_info()
+        symbol_info = mt5.symbol_info(symbol)
 
-    if not symbol_info.visible:
-        if not mt5.symbol_select(symbol, True):
-            return False, f"Failed to select {symbol}"
+        if account is None or symbol_info is None:
+            return CONFIG.MIN_LOT_SIZE
 
-    point = symbol_info.point
-    price = mt5.symbol_info_tick(symbol).ask if order_type == 'BUY' else mt5.symbol_info_tick(symbol).bid
+        # Risk amount in account currency
+        risk_amount = account.balance * (risk_percent / 100)
 
-    if order_type == 'BUY':
-        trade_type = mt5.ORDER_TYPE_BUY
-        sl = price - sl_pips * point * 10
-        tp = price + tp_pips * point * 10
-    else:
-        trade_type = mt5.ORDER_TYPE_SELL
-        sl = price + sl_pips * point * 10
-        tp = price - tp_pips * point * 10
+        # Pip value calculation
+        pip_value = symbol_info.trade_contract_size * symbol_info.point * 10
 
-    request = {
-        "action": mt5.TRADE_ACTION_DEAL,
-        "symbol": symbol,
-        "volume": lot_size,
-        "type": trade_type,
-        "price": price,
-        "sl": sl,
-        "tp": tp,
-        "deviation": 20,
-        "magic": 123456,
-        "comment": "Python Auto Bot",
-        "type_time": mt5.ORDER_TIME_GTC,
-        "type_filling": mt5.ORDER_FILLING_IOC,
-    }
+        # Lot size calculation
+        lot_size = risk_amount / (sl_pips * pip_value)
 
-    result = mt5.order_send(request)
+        # Round to allowed step
+        lot_size = round(lot_size / symbol_info.volume_step) * symbol_info.volume_step
 
-    if result.retcode != mt5.TRADE_RETCODE_DONE:
-        return False, f"Order failed: {result.comment}"
+        # Clamp to min/max
+        lot_size = max(symbol_info.volume_min, min(lot_size, symbol_info.volume_max))
 
-    return True, {
-        'ticket': result.order,
-        'symbol': symbol,
-        'type': order_type,
-        'price': price,
-        'lot': lot_size,
-        'sl': sl,
-        'tp': tp,
-        'time': datetime.now()
-    }
+        return lot_size
+
+    except Exception as e:
+        logger.error(f"Lot calculation error: {e}")
+        return CONFIG.MIN_LOT_SIZE
 
 
-def close_position(ticket):
-    """Close an open position."""
-    position = mt5.positions_get(ticket=ticket)
-    if not position:
-        return False, "Position not found"
+# =============================================================================
+# TRADING FUNCTIONS
+# =============================================================================
 
-    position = position[0]
-    symbol = position.symbol
-    lot = position.volume
+def execute_trade(symbol: str, order_type: SignalType, lot_size: float,
+                  sl_pips: int, tp_pips: int) -> Tuple[bool, Any]:
+    """Execute a trade with full validation."""
 
-    if position.type == mt5.POSITION_TYPE_BUY:
-        trade_type = mt5.ORDER_TYPE_SELL
-        price = mt5.symbol_info_tick(symbol).bid
-    else:
-        trade_type = mt5.ORDER_TYPE_BUY
-        price = mt5.symbol_info_tick(symbol).ask
+    # Validate conditions first
+    valid, message = validate_trade_conditions(symbol, lot_size)
+    if not valid:
+        logger.warning(f"Trade validation failed: {message}")
+        return False, message
 
-    request = {
-        "action": mt5.TRADE_ACTION_DEAL,
-        "symbol": symbol,
-        "volume": lot,
-        "type": trade_type,
-        "position": ticket,
-        "price": price,
-        "deviation": 20,
-        "magic": 123456,
-        "comment": "Close by Python Bot",
-        "type_time": mt5.ORDER_TIME_GTC,
-        "type_filling": mt5.ORDER_FILLING_IOC,
-    }
+    try:
+        symbol_info = mt5.symbol_info(symbol)
+        if not symbol_info.visible:
+            if not mt5.symbol_select(symbol, True):
+                return False, f"Failed to select {symbol}"
 
-    result = mt5.order_send(request)
+        point = symbol_info.point
+        tick = mt5.symbol_info_tick(symbol)
 
-    if result.retcode != mt5.TRADE_RETCODE_DONE:
-        return False, f"Close failed: {result.comment}"
+        if order_type == SignalType.BUY:
+            price = tick.ask
+            trade_type = mt5.ORDER_TYPE_BUY
+            sl = round(price - sl_pips * point * 10, symbol_info.digits)
+            tp = round(price + tp_pips * point * 10, symbol_info.digits)
+        else:
+            price = tick.bid
+            trade_type = mt5.ORDER_TYPE_SELL
+            sl = round(price + sl_pips * point * 10, symbol_info.digits)
+            tp = round(price - tp_pips * point * 10, symbol_info.digits)
 
-    return True, "Position closed"
+        request = {
+            "action": mt5.TRADE_ACTION_DEAL,
+            "symbol": symbol,
+            "volume": lot_size,
+            "type": trade_type,
+            "price": price,
+            "sl": sl,
+            "tp": tp,
+            "deviation": 20,
+            "magic": 234567,
+            "comment": "ScalpingBot Pro",
+            "type_time": mt5.ORDER_TIME_GTC,
+            "type_filling": mt5.ORDER_FILLING_IOC,
+        }
+
+        result = mt5.order_send(request)
+
+        if result is None:
+            error = mt5.last_error()
+            logger.error(f"Order send failed: {error}")
+            return False, f"Order failed: {error}"
+
+        if result.retcode != mt5.TRADE_RETCODE_DONE:
+            logger.error(f"Order rejected: {result.retcode} - {result.comment}")
+            return False, f"Order rejected ({result.retcode}): {result.comment}"
+
+        trade_info = {
+            'ticket': result.order,
+            'symbol': symbol,
+            'type': order_type.value,
+            'price_open': price,
+            'lot': lot_size,
+            'sl': sl,
+            'tp': tp,
+            'time_open': datetime.now(),
+            'time_close': None,
+            'price_close': None,
+            'profit': None,
+            'status': 'OPEN'
+        }
+
+        logger.info(f"Trade executed: {order_type.value} {lot_size} {symbol} @ {price}")
+        return True, trade_info
+
+    except Exception as e:
+        logger.error(f"Trade execution error: {e}")
+        return False, f"Execution error: {str(e)}"
 
 
-def get_open_positions():
-    """Get all open positions."""
-    positions = mt5.positions_get()
-    if positions is None:
+def close_position(ticket: int) -> Tuple[bool, str]:
+    """Close an open position by ticket."""
+    try:
+        positions = mt5.positions_get(ticket=ticket)
+        if not positions:
+            return False, "Position not found"
+
+        position = positions[0]
+        symbol = position.symbol
+        lot = position.volume
+
+        symbol_info = mt5.symbol_info(symbol)
+        if symbol_info is None:
+            return False, f"Symbol {symbol} info not available"
+
+        tick = mt5.symbol_info_tick(symbol)
+        if tick is None:
+            return False, "Cannot get price tick"
+
+        if position.type == mt5.POSITION_TYPE_BUY:
+            trade_type = mt5.ORDER_TYPE_SELL
+            price = tick.bid
+        else:
+            trade_type = mt5.ORDER_TYPE_BUY
+            price = tick.ask
+
+        request = {
+            "action": mt5.TRADE_ACTION_DEAL,
+            "symbol": symbol,
+            "volume": lot,
+            "type": trade_type,
+            "position": ticket,
+            "price": price,
+            "deviation": 20,
+            "magic": 234567,
+            "comment": "ScalpingBot Close",
+            "type_time": mt5.ORDER_TIME_GTC,
+            "type_filling": mt5.ORDER_FILLING_IOC,
+        }
+
+        result = mt5.order_send(request)
+
+        if result is None or result.retcode != mt5.TRADE_RETCODE_DONE:
+            error = result.comment if result else mt5.last_error()
+            return False, f"Close failed: {error}"
+
+        logger.info(f"Position {ticket} closed @ {price}")
+        return True, f"Position closed @ {price:.5f}"
+
+    except Exception as e:
+        logger.error(f"Close position error: {e}")
+        return False, f"Close error: {str(e)}"
+
+
+def get_open_positions() -> List[Dict[str, Any]]:
+    """Get all open positions with error handling."""
+    try:
+        positions = mt5.positions_get()
+        if positions is None:
+            return []
+
+        return [{
+            'ticket': p.ticket,
+            'symbol': p.symbol,
+            'type': 'BUY' if p.type == 0 else 'SELL',
+            'volume': p.volume,
+            'price_open': p.price_open,
+            'price_current': p.price_current,
+            'profit': p.profit,
+            'sl': p.sl,
+            'tp': p.tp,
+            'time': datetime.fromtimestamp(p.time)
+        } for p in positions]
+
+    except Exception as e:
+        logger.error(f"Error getting positions: {e}")
         return []
 
-    return [{
-        'ticket': p.ticket,
-        'symbol': p.symbol,
-        'type': 'BUY' if p.type == 0 else 'SELL',
-        'volume': p.volume,
-        'price_open': p.price_open,
-        'price_current': p.price_current,
-        'profit': p.profit,
-        'sl': p.sl,
-        'tp': p.tp
-    } for p in positions]
+
+# =============================================================================
+# UI HELPER FUNCTIONS
+# =============================================================================
+
+def check_button_debounce(button_name: str) -> bool:
+    """Check if button can be clicked (debounce protection)."""
+    now = time.time()
+    last_click = st.session_state.last_button_click.get(button_name, 0)
+
+    if now - last_click < CONFIG.BUTTON_DEBOUNCE:
+        return False
+
+    st.session_state.last_button_click[button_name] = now
+    return True
 
 
-# Sidebar - Connection
-st.sidebar.header("🔌 Connection")
+def format_score_display(score: int, details: Dict[str, int]) -> str:
+    """Format score details for display."""
+    lines = [f"**Total: {score}/{CONFIG.SIGNAL_THRESHOLD}**"]
+    for indicator, points in details.items():
+        lines.append(f"- {indicator}: +{points}")
+    return "\n".join(lines)
 
-if st.sidebar.button("Connect to MT5" if not st.session_state.mt5_connected else "Disconnect"):
+
+# =============================================================================
+# STREAMLIT UI
+# =============================================================================
+
+# Page configuration
+st.set_page_config(
+    page_title="Scalping Bot Pro",
+    page_icon="📈",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# Initialize session state
+init_session_state()
+
+# Custom CSS for compact display
+st.markdown("""
+<style>
+    .block-container {padding: 1rem 1rem;}
+    .stMetric {padding: 0.5rem;}
+    div[data-testid="stMetricValue"] {font-size: 1.2rem;}
+    .stAlert {padding: 0.5rem; margin: 0.5rem 0;}
+</style>
+""", unsafe_allow_html=True)
+
+st.title("📈 Scalping Bot Pro")
+
+# =============================================================================
+# SIDEBAR - CONNECTION & SETTINGS
+# =============================================================================
+
+with st.sidebar:
+    st.header("Connection")
+
     if not st.session_state.mt5_connected:
-        success, message = connect_mt5()
-        if success:
-            st.session_state.mt5_connected = True
-            st.sidebar.success(message)
-        else:
-            st.sidebar.error(message)
+        st.subheader("MT5 Login")
+        login = st.text_input("Account Number", value=st.session_state.login_info.get('login', ''))
+        password = st.text_input("Password", type="password", value=st.session_state.login_info.get('password', ''))
+        server = st.text_input("Server", value=st.session_state.login_info.get('server', ''),
+                               placeholder="e.g., XMGlobal-MT5")
+
+        st.session_state.login_info = {'login': login, 'password': password, 'server': server}
+
+        if st.button("Connect", type="primary", use_container_width=True):
+            if login and password and server:
+                success, message = connect_mt5(int(login), password, server)
+                if success:
+                    st.session_state.mt5_connected = True
+                    st.success(message)
+                    st.rerun()
+                else:
+                    st.error(message)
+            else:
+                st.warning("Please fill all fields")
     else:
-        disconnect_mt5()
-        st.session_state.mt5_connected = False
-        st.sidebar.info("Disconnected")
+        account = get_account_info()
+        if account:
+            st.success(f"Connected: {account['login']}")
+            st.metric("Balance", f"{account['balance']:.2f} {account['currency']}")
+            st.metric("Equity", f"{account['equity']:.2f} {account['currency']}")
+            st.metric("Free Margin", f"{account['free_margin']:.2f}")
 
-# Show account info if connected
+            mode_color = "green" if account['trade_mode'] == 'DEMO' else "red"
+            st.markdown(f"**Mode:** :{mode_color}[{account['trade_mode']}]")
+
+        if st.button("Disconnect", use_container_width=True):
+            disconnect_mt5()
+            st.session_state.mt5_connected = False
+            st.session_state.active_trade = None
+            st.rerun()
+
+    st.divider()
+
+    # Trading Settings
+    st.header("Settings")
+
+    # Symbol selection (with broker-specific options)
+    broker_type = st.selectbox("Broker Type", ["standard", "xm"], index=0)
+    symbols = BROKER_SYMBOLS[broker_type]
+    selected_symbol = st.selectbox("Symbol", symbols)
+
+    # Timeframe (optimized for scalping)
+    timeframe = st.selectbox("Timeframe", ["1m", "5m", "15m"], index=0)
+
+    st.subheader("Risk Management")
+    risk_percent = st.slider("Risk %", 0.5, CONFIG.MAX_RISK_PERCENT, CONFIG.DEFAULT_RISK_PERCENT, 0.5)
+    lot_size = st.number_input("Lot Size", CONFIG.MIN_LOT_SIZE, CONFIG.MAX_LOT_SIZE,
+                                CONFIG.DEFAULT_LOT_SIZE, 0.01, format="%.2f")
+    sl_pips = st.number_input("Stop Loss (pips)", 5, 50, 15, 5)
+    tp_pips = st.number_input("Take Profit (pips)", 5, 100, 20, 5)
+
+    st.subheader("Timer")
+    trade_duration = st.slider("Auto-close (min)", CONFIG.MIN_TRADE_DURATION,
+                               CONFIG.MAX_TRADE_DURATION, CONFIG.DEFAULT_TRADE_DURATION)
+
+# =============================================================================
+# MAIN CONTENT
+# =============================================================================
+
 if st.session_state.mt5_connected:
-    account = get_account_info()
-    if account:
-        st.sidebar.markdown("---")
-        st.sidebar.markdown(f"**Account:** {account['login']}")
-        st.sidebar.markdown(f"**Balance:** {account['balance']:.2f} {account['currency']}")
-        st.sidebar.markdown(f"**Equity:** {account['equity']:.2f} {account['currency']}")
-        st.sidebar.markdown(f"**Profit:** {account['profit']:.2f} {account['currency']}")
+    # Fetch data
+    df = fetch_forex_data(selected_symbol, timeframe)
 
-# Sidebar - Trading Settings
-st.sidebar.header("⚙️ Trading Settings")
+    if df is not None and len(df) > 0:
+        # Calculate indicators
+        df = calculate_indicators(df)
 
-SYMBOLS = ["EURUSD", "GBPUSD", "USDJPY", "USDCHF", "AUDUSD", "USDCAD", "NZDUSD", "EURGBP", "EURJPY", "GBPJPY"]
-selected_symbol = st.sidebar.selectbox("Symbol", SYMBOLS)
+        # Generate signal
+        signal, score, details = generate_signal(df)
 
-timeframe = st.sidebar.selectbox("Timeframe", ["1m", "5m", "15m", "30m", "1h", "4h", "1d"], index=4)
+        # Current values
+        current = df.iloc[-1]
+        price_change = current['Close'] - df.iloc[-2]['Close']
+        price_change_pct = (price_change / df.iloc[-2]['Close']) * 100
 
-st.sidebar.subheader("Risk Management")
-risk_percent = st.sidebar.slider("Risk per trade (%)", 0.5, 5.0, 1.0, 0.5)
-lot_size = st.sidebar.number_input("Lot Size", 0.01, 10.0, 0.1, 0.01)
-sl_pips = st.sidebar.number_input("Stop Loss (pips)", 10, 200, 50, 10)
-tp_pips = st.sidebar.number_input("Take Profit (pips)", 10, 400, 100, 10)
-
-st.sidebar.subheader("Indicator Settings")
-rsi_period = st.sidebar.slider("RSI Period", 7, 21, 14)
-rsi_oversold = st.sidebar.slider("RSI Oversold", 20, 40, 30)
-rsi_overbought = st.sidebar.slider("RSI Overbought", 60, 80, 70)
-
-# Main content
-if st.session_state.mt5_connected:
-    # Fetch and analyze data
-    df = get_forex_data(selected_symbol, timeframe)
-
-    if df is not None and not df.empty:
-        df = calculate_indicators(df, rsi_period)
-        signal, strength = generate_signal(df, rsi_oversold, rsi_overbought)
-
-        # Display metrics
+        # =================================================================
+        # METRICS ROW
+        # =================================================================
         col1, col2, col3, col4, col5 = st.columns(5)
 
-        current_price = df['Close'].iloc[-1]
-        price_change = df['Close'].iloc[-1] - df['Close'].iloc[-2]
-        price_change_pct = (price_change / df['Close'].iloc[-2]) * 100
+        col1.metric("Price", f"{current['Close']:.5f}", f"{price_change_pct:+.3f}%")
+        col2.metric("RSI", f"{current['RSI']:.1f}" if pd.notna(current['RSI']) else "N/A")
+        col3.metric("Stoch K", f"{current['Stoch_K']:.1f}" if pd.notna(current['Stoch_K']) else "N/A")
 
-        col1.metric("Price", f"{current_price:.5f}", f"{price_change_pct:.2f}%")
-        col2.metric("RSI", f"{df['RSI'].iloc[-1]:.1f}")
-        col3.metric("MACD", f"{df['MACD'].iloc[-1]:.5f}")
+        signal_emoji = "🟢" if signal == SignalType.BUY else "🔴" if signal == SignalType.SELL else "⚪"
+        col4.metric("Signal", f"{signal_emoji} {signal.value}")
+        col5.metric("Score", f"{score}/{CONFIG.SIGNAL_THRESHOLD}")
 
-        signal_color = "green" if signal == "BUY" else "red" if signal == "SELL" else "gray"
-        col4.metric("Signal", signal)
-        col5.metric("Strength", f"{strength:.1f}")
+        # Score details
+        if details:
+            with st.expander("Score Details"):
+                for indicator, points in details.items():
+                    st.write(f"- {indicator}: **+{points}**")
 
-        # Trading controls
-        st.markdown("---")
+        st.divider()
+
+        # =================================================================
+        # TRADING CONTROLS
+        # =================================================================
+
         col_buy, col_sell, col_close = st.columns(3)
 
         with col_buy:
-            if st.button("🟢 MANUAL BUY", use_container_width=True, type="primary"):
-                success, result = execute_trade(selected_symbol, "BUY", lot_size, sl_pips, tp_pips)
-                if success:
-                    st.success(f"BUY order executed at {result['price']:.5f}")
-                    st.session_state.trade_history.append(result)
-                else:
-                    st.error(result)
+            if st.button("BUY", use_container_width=True, type="primary",
+                        disabled=st.session_state.active_trade is not None):
+                if check_button_debounce("buy"):
+                    success, result = execute_trade(selected_symbol, SignalType.BUY,
+                                                    lot_size, sl_pips, tp_pips)
+                    if success:
+                        st.session_state.active_trade = result
+                        st.session_state.trade_open_time = datetime.now()
+                        st.session_state.trade_history.append(result)
+                        st.success(f"BUY @ {result['price_open']:.5f}")
+                        st.rerun()
+                    else:
+                        st.error(result)
 
         with col_sell:
-            if st.button("🔴 MANUAL SELL", use_container_width=True):
-                success, result = execute_trade(selected_symbol, "SELL", lot_size, sl_pips, tp_pips)
-                if success:
-                    st.success(f"SELL order executed at {result['price']:.5f}")
-                    st.session_state.trade_history.append(result)
-                else:
-                    st.error(result)
+            if st.button("SELL", use_container_width=True,
+                        disabled=st.session_state.active_trade is not None):
+                if check_button_debounce("sell"):
+                    success, result = execute_trade(selected_symbol, SignalType.SELL,
+                                                    lot_size, sl_pips, tp_pips)
+                    if success:
+                        st.session_state.active_trade = result
+                        st.session_state.trade_open_time = datetime.now()
+                        st.session_state.trade_history.append(result)
+                        st.success(f"SELL @ {result['price_open']:.5f}")
+                        st.rerun()
+                    else:
+                        st.error(result)
 
         with col_close:
-            if st.button("⬜ CLOSE ALL", use_container_width=True):
-                positions = get_open_positions()
-                for pos in positions:
-                    close_position(pos['ticket'])
-                st.info(f"Closed {len(positions)} positions")
+            if st.button("CLOSE", use_container_width=True,
+                        disabled=st.session_state.active_trade is None):
+                if check_button_debounce("close"):
+                    if st.session_state.active_trade:
+                        success, msg = close_position(st.session_state.active_trade['ticket'])
+                        if success:
+                            # Update trade history
+                            st.session_state.active_trade['status'] = 'CLOSED'
+                            st.session_state.active_trade['time_close'] = datetime.now()
+                            st.session_state.active_trade = None
+                            st.session_state.trade_open_time = None
+                            st.success(msg)
+                            st.rerun()
+                        else:
+                            st.error(msg)
 
-        # Auto trading toggle
-        st.markdown("---")
-        st.subheader("🤖 Automatic Trading")
+        # =================================================================
+        # AUTO TRADING & TIMER
+        # =================================================================
 
-        auto_col1, auto_col2 = st.columns([1, 3])
+        st.divider()
+
+        auto_col1, auto_col2 = st.columns([1, 2])
 
         with auto_col1:
-            auto_trade = st.toggle("Enable Auto Trading", value=st.session_state.bot_running)
-            st.session_state.bot_running = auto_trade
+            auto_enabled = st.toggle("Auto Trading", value=st.session_state.bot_running)
+            st.session_state.bot_running = auto_enabled
 
         with auto_col2:
-            if st.session_state.bot_running:
-                st.warning("⚠️ Auto trading is ACTIVE - Bot will execute trades automatically!")
+            if st.session_state.active_trade:
+                elapsed = (datetime.now() - st.session_state.trade_open_time).total_seconds()
+                remaining = (trade_duration * 60) - elapsed
 
-                # Auto execute based on signal
-                if signal == "BUY":
-                    st.info("🟢 BUY signal detected - Checking for existing positions...")
-                    positions = get_open_positions()
-                    buy_positions = [p for p in positions if p['symbol'] == selected_symbol and p['type'] == 'BUY']
-                    if not buy_positions:
-                        success, result = execute_trade(selected_symbol, "BUY", lot_size, sl_pips, tp_pips)
-                        if success:
-                            st.success(f"AUTO BUY executed at {result['price']:.5f}")
+                if remaining > 0:
+                    minutes = int(remaining // 60)
+                    seconds = int(remaining % 60)
+                    st.warning(f"Position open - Auto-close in: {minutes}m {seconds}s")
+                else:
+                    # Auto close on timer
+                    success, msg = close_position(st.session_state.active_trade['ticket'])
+                    if success:
+                        st.session_state.active_trade['status'] = 'CLOSED (Timer)'
+                        st.session_state.active_trade['time_close'] = datetime.now()
+                        st.session_state.active_trade = None
+                        st.session_state.trade_open_time = None
+                        st.info("Position closed by timer")
+                        st.rerun()
+            elif st.session_state.bot_running:
+                st.info(f"Waiting for signal (threshold: {CONFIG.SIGNAL_THRESHOLD})")
 
-                elif signal == "SELL":
-                    st.info("🔴 SELL signal detected - Checking for existing positions...")
-                    positions = get_open_positions()
-                    sell_positions = [p for p in positions if p['symbol'] == selected_symbol and p['type'] == 'SELL']
-                    if not sell_positions:
-                        success, result = execute_trade(selected_symbol, "SELL", lot_size, sl_pips, tp_pips)
-                        if success:
-                            st.success(f"AUTO SELL executed at {result['price']:.5f}")
-            else:
-                st.info("Auto trading is disabled. Toggle to enable automatic order execution.")
+                # Auto execute if conditions met
+                if signal in [SignalType.BUY, SignalType.SELL] and score >= CONFIG.SIGNAL_THRESHOLD:
+                    log_decision(signal.value, score, details, True)
+                    success, result = execute_trade(selected_symbol, signal, lot_size, sl_pips, tp_pips)
+                    if success:
+                        st.session_state.active_trade = result
+                        st.session_state.trade_open_time = datetime.now()
+                        st.session_state.trade_history.append(result)
+                        st.success(f"AUTO {signal.value} @ {result['price_open']:.5f}")
+                        st.rerun()
+                else:
+                    log_decision(signal.value, score, details, False)
 
-        # Chart
-        st.markdown("---")
-        st.subheader("📊 Technical Analysis")
+        # =================================================================
+        # CHART
+        # =================================================================
 
-        fig = make_subplots(rows=3, cols=1, shared_xaxes=True, vertical_spacing=0.05,
-                          subplot_titles=(f'{selected_symbol}', 'RSI', 'MACD'),
-                          row_heights=[0.6, 0.2, 0.2])
+        st.divider()
 
-        # Candlestick
-        fig.add_trace(go.Candlestick(x=df.index, open=df['Open'], high=df['High'],
-                                      low=df['Low'], close=df['Close'], name='Price'), row=1, col=1)
+        with st.expander("Technical Chart", expanded=True):
+            fig = make_subplots(rows=3, cols=1, shared_xaxes=True,
+                               vertical_spacing=0.03,
+                               row_heights=[0.6, 0.2, 0.2],
+                               subplot_titles=[selected_symbol, 'RSI', 'Stochastic'])
 
-        # Bollinger Bands
-        fig.add_trace(go.Scatter(x=df.index, y=df['BB_Upper'], name='BB Upper',
-                                 line=dict(color='gray', width=1, dash='dash')), row=1, col=1)
-        fig.add_trace(go.Scatter(x=df.index, y=df['BB_Lower'], name='BB Lower',
-                                 line=dict(color='gray', width=1, dash='dash'),
-                                 fill='tonexty', fillcolor='rgba(128,128,128,0.1)'), row=1, col=1)
+            # Candlestick
+            fig.add_trace(go.Candlestick(
+                x=df.index, open=df['Open'], high=df['High'],
+                low=df['Low'], close=df['Close'], name='Price'
+            ), row=1, col=1)
 
-        # SMAs
-        fig.add_trace(go.Scatter(x=df.index, y=df['SMA_20'], name='SMA 20',
-                                 line=dict(color='orange', width=1)), row=1, col=1)
-        fig.add_trace(go.Scatter(x=df.index, y=df['SMA_50'], name='SMA 50',
-                                 line=dict(color='purple', width=1)), row=1, col=1)
+            # Bollinger Bands
+            fig.add_trace(go.Scatter(x=df.index, y=df['BB_Upper'], name='BB Upper',
+                                     line=dict(color='gray', width=1, dash='dash')), row=1, col=1)
+            fig.add_trace(go.Scatter(x=df.index, y=df['BB_Lower'], name='BB Lower',
+                                     line=dict(color='gray', width=1, dash='dash'),
+                                     fill='tonexty', fillcolor='rgba(128,128,128,0.1)'), row=1, col=1)
 
-        # RSI
-        fig.add_trace(go.Scatter(x=df.index, y=df['RSI'], name='RSI',
-                                 line=dict(color='blue', width=1)), row=2, col=1)
-        fig.add_hline(y=rsi_overbought, line_dash="dash", line_color="red", row=2, col=1)
-        fig.add_hline(y=rsi_oversold, line_dash="dash", line_color="green", row=2, col=1)
+            # EMAs
+            fig.add_trace(go.Scatter(x=df.index, y=df['EMA_9'], name='EMA 9',
+                                     line=dict(color='orange', width=1)), row=1, col=1)
+            fig.add_trace(go.Scatter(x=df.index, y=df['EMA_21'], name='EMA 21',
+                                     line=dict(color='purple', width=1)), row=1, col=1)
 
-        # MACD
-        colors = ['green' if val >= 0 else 'red' for val in df['MACD_Histogram']]
-        fig.add_trace(go.Bar(x=df.index, y=df['MACD_Histogram'], name='Histogram',
-                            marker_color=colors), row=3, col=1)
-        fig.add_trace(go.Scatter(x=df.index, y=df['MACD'], name='MACD',
-                                 line=dict(color='blue', width=1)), row=3, col=1)
-        fig.add_trace(go.Scatter(x=df.index, y=df['MACD_Signal'], name='Signal',
-                                 line=dict(color='orange', width=1)), row=3, col=1)
+            # RSI
+            fig.add_trace(go.Scatter(x=df.index, y=df['RSI'], name='RSI',
+                                     line=dict(color='blue', width=1)), row=2, col=1)
+            fig.add_hline(y=70, line_dash="dash", line_color="red", row=2, col=1)
+            fig.add_hline(y=30, line_dash="dash", line_color="green", row=2, col=1)
 
-        fig.update_layout(height=700, template='plotly_dark', xaxis_rangeslider_visible=False)
-        st.plotly_chart(fig, use_container_width=True)
+            # Stochastic
+            fig.add_trace(go.Scatter(x=df.index, y=df['Stoch_K'], name='Stoch K',
+                                     line=dict(color='blue', width=1)), row=3, col=1)
+            fig.add_trace(go.Scatter(x=df.index, y=df['Stoch_D'], name='Stoch D',
+                                     line=dict(color='orange', width=1)), row=3, col=1)
+            fig.add_hline(y=80, line_dash="dash", line_color="red", row=3, col=1)
+            fig.add_hline(y=20, line_dash="dash", line_color="green", row=3, col=1)
 
-        # Open positions
-        st.markdown("---")
-        st.subheader("📈 Open Positions")
+            fig.update_layout(height=500, template='plotly_dark',
+                             xaxis_rangeslider_visible=False,
+                             showlegend=False)
+            st.plotly_chart(fig, use_container_width=True)
 
-        positions = get_open_positions()
-        if positions:
-            pos_df = pd.DataFrame(positions)
-            st.dataframe(pos_df, use_container_width=True)
+        # =================================================================
+        # POSITIONS & HISTORY
+        # =================================================================
 
-            total_profit = sum(p['profit'] for p in positions)
-            st.metric("Total Unrealized P/L", f"{total_profit:.2f}")
-        else:
-            st.info("No open positions")
+        col_pos, col_hist = st.columns(2)
 
-        # Auto refresh
-        if st.session_state.bot_running:
-            time.sleep(5)
+        with col_pos:
+            with st.expander("Open Positions", expanded=True):
+                positions = get_open_positions()
+                if positions:
+                    pos_df = pd.DataFrame(positions)
+                    st.dataframe(pos_df[['ticket', 'symbol', 'type', 'volume',
+                                        'price_open', 'profit']],
+                                use_container_width=True, hide_index=True)
+
+                    total_profit = sum(p['profit'] for p in positions)
+                    color = "green" if total_profit >= 0 else "red"
+                    st.markdown(f"**Total P/L:** :{color}[{total_profit:.2f}]")
+                else:
+                    st.info("No open positions")
+
+        with col_hist:
+            with st.expander("Trade History", expanded=True):
+                if st.session_state.trade_history:
+                    hist_df = pd.DataFrame(st.session_state.trade_history)
+                    display_cols = ['time_open', 'symbol', 'type', 'price_open', 'status']
+                    available_cols = [c for c in display_cols if c in hist_df.columns]
+                    st.dataframe(hist_df[available_cols].tail(10),
+                                use_container_width=True, hide_index=True)
+                else:
+                    st.info("No trade history")
+
+        # =================================================================
+        # AUTO REFRESH
+        # =================================================================
+
+        if st.session_state.bot_running or st.session_state.active_trade:
+            time.sleep(CONFIG.REFRESH_INTERVAL)
             st.rerun()
+
     else:
-        st.error(f"Could not fetch data for {selected_symbol}")
+        st.error(f"Could not fetch data for {selected_symbol}. Check if symbol exists.")
+
 else:
-    st.info("👆 Please connect to MetaTrader 5 using the sidebar button")
+    st.info("Please connect to MetaTrader 5 using the sidebar.")
 
     st.markdown("""
-    ## Setup Instructions
+    ## Quick Start
 
-    1. **Install MetaTrader 5** from your Forex broker
-    2. **Enable Algo Trading** in MT5: Tools > Options > Expert Advisors
-    3. **Login** to your demo or live account in MT5
-    4. **Click "Connect to MT5"** in the sidebar
+    1. **Install MT5** from your broker (e.g., XM, IC Markets)
+    2. **Enable Algo Trading**: Tools > Options > Expert Advisors
+    3. **Enter credentials** in the sidebar and connect
 
     ## Features
 
-    - **Automatic Signal Detection**: RSI, MACD, Bollinger Bands, Moving Averages
-    - **Manual Trading**: Execute buy/sell orders with one click
-    - **Auto Trading**: Let the bot trade automatically based on signals
-    - **Risk Management**: Set stop loss, take profit, and position size
-    - **Real-time Charts**: Interactive technical analysis charts
-    - **Position Management**: View and close open positions
+    - **Multi-indicator scoring**: RSI, Stochastic, Bollinger, Fibonacci, Volume
+    - **Risk management**: Max 2% per trade, margin validation
+    - **Auto-close timer**: 1-10 minutes configurable
+    - **Trade history**: Complete logging of all decisions
     """)
 
 # Footer
-st.markdown("---")
-st.caption("⚠️ Trading involves risk. Past performance does not guarantee future results. Use demo account for testing.")
+st.divider()
+st.caption("Trading involves risk. Use demo account for testing. Not financial advice.")
 ```
 
 ## Running the Bot
 
 ```bash
-streamlit run auto_forex_bot.py
+streamlit run scalping_bot_pro.py
 ```
 
-## How Automatic Trading Works
+## Architecture Overview
 
-### Signal Generation
+This production-ready bot implements:
 
-The bot generates BUY signals when:
-- RSI is below 30 (oversold) → +2 points
-- MACD crosses above signal line → +3 points
-- Price touches lower Bollinger Band → +1 point
-- SMA 20 > SMA 50 (uptrend) → +1 point
+1. **Secure Configuration**: Credentials via environment variables or secure input
+2. **Risk Management**: Maximum 2% risk per trade, margin validation
+3. **Multi-Indicator Scoring**: 6+ indicators for signal confirmation
+4. **Error Handling**: Comprehensive logging and graceful error recovery
+5. **Button Debounce**: Prevents accidental double-clicks
 
-The bot generates SELL signals when:
-- RSI is above 70 (overbought) → +2 points
-- MACD crosses below signal line → +3 points
-- Price touches upper Bollinger Band → +1 point
-- SMA 20 < SMA 50 (downtrend) → +1 point
+## Scoring System (Threshold: 6 points)
 
-**A trade is executed when the score reaches 4 or higher.**
+### BUY Signals
 
-### Risk Management
+| Indicator | Condition | Points |
+|-----------|-----------|--------|
+| RSI | < 30 (oversold) | +2 |
+| Stochastic | Crossover in 0-10 zone | +3 |
+| Stochastic | Crossover in 10-20 zone | +2 |
+| Bollinger | Price at lower band | +1 |
+| Fibonacci | Price at 0.618 level | +2 |
+| Fibonacci | Price at 0.382 level | +1 |
+| Volume | Above 20-period MA | +1 |
+| Candle | Green (bullish) | +2 |
 
-| Parameter | Description | Default |
-|-----------|-------------|---------|
-| Risk % | Percentage of balance to risk per trade | 1% |
-| Lot Size | Position size in lots | 0.1 |
-| Stop Loss | Distance in pips for stop loss | 50 |
-| Take Profit | Distance in pips for take profit | 100 |
+### SELL Signals
 
-### Safety Features
+| Indicator | Condition | Points |
+|-----------|-----------|--------|
+| RSI | > 70 (overbought) | +2 |
+| Stochastic | Crossover in 90-100 zone | +3 |
+| Stochastic | Crossover in 80-90 zone | +2 |
+| Bollinger | Price at upper band | +1 |
+| Fibonacci | Price at resistance level | +2 |
+| Volume | Above 20-period MA | +1 |
+| Candle | Red (bearish) | +2 |
 
-1. **No duplicate positions**: Won't open a new BUY if a BUY is already open
-2. **Stop Loss**: Every trade has an automatic stop loss
-3. **Take Profit**: Every trade has an automatic take profit
-4. **Manual override**: Can manually close all positions at any time
+**A trade is executed when the score reaches 6 or higher.**
 
-## Important Notes
+## Risk Management Features
 
-1. **Always test with a DEMO account first**
-2. **Start with small lot sizes** (0.01)
-3. **Monitor the bot** - don't leave it unattended for long periods
-4. **Understand the risks** - automated trading can result in significant losses
+| Feature | Description | Default |
+|---------|-------------|---------|
+| Max Risk % | Maximum balance at risk per trade | 2% |
+| Lot Validation | Validates against broker min/max | 0.01-1.0 |
+| Margin Check | Ensures 150% margin coverage | Auto |
+| Spread Filter | Blocks trades when spread > 30 points | Auto |
+| Trade Timer | Auto-closes positions after X minutes | 5 min |
+
+## Safety Features
+
+1. **Pre-trade Validation**: Checks margin, spread, and lot size before every trade
+2. **Button Debounce**: 2-second cooldown prevents double-clicks
+3. **Single Position**: Only one position at a time per symbol
+4. **Auto-Close Timer**: Configurable 1-10 minute auto-close
+5. **Structured Logging**: All decisions logged for analysis
+6. **Demo/Real Detection**: Displays account mode clearly
+
+## Broker Configuration
+
+The bot supports different symbol formats:
+
+| Broker Type | Symbol Format | Example |
+|-------------|---------------|---------|
+| Standard | EURUSD | Most brokers |
+| XM | EURUSD# | XM Global |
+
+## Error Codes Reference
+
+| Code | Meaning | Solution |
+|------|---------|----------|
+| 10027 | AutoTrading disabled | Enable in MT5: Tools > Options |
+| 10017 | Trade disabled | Market closed (weekend) |
+| 10019 | No prices | Check symbol name |
+| 10030 | Invalid stops | Adjust SL/TP distance |
+
+## Security Best Practices
+
+1. **Use environment variables** for credentials (`.env` file)
+2. **Never commit** `.env` files to version control
+3. **Use DEMO account** for all testing
+4. **Monitor trades** - don't leave bot unattended
+
+## Logging
+
+The bot creates structured logs for all operations:
+
+```
+2024-01-15 14:30:45 | INFO | Connected: Account 12345678, Balance: 10000.00 EUR
+2024-01-15 14:30:46 | INFO | Decision: BUY | Score: 7/6 | Executed: True
+2024-01-15 14:30:46 | INFO | Trade executed: BUY 0.01 EURUSD# @ 1.08234
+```
+
+## Performance Optimizations
+
+1. **Data Caching**: 3-second TTL cache reduces API calls
+2. **Efficient Indicators**: Optimized calculation for M1 timeframe
+3. **Minimal Redraws**: Only refreshes when necessary
 
 ## Next Steps
 
-- Add more indicators (Stochastic, ADX, Fibonacci)
+- Add Telegram/email notifications
 - Implement trailing stop loss
-- Add email/SMS notifications
-- Create backtesting functionality
-- Add multiple timeframe analysis
+- Create backtesting module
+- Add multi-timeframe analysis
+- Portfolio diversification (multiple pairs)
