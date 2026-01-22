@@ -408,7 +408,7 @@ def calculate_buy_score(df: pd.DataFrame) -> Tuple[int, Dict[str, int]]:
     Calculate BUY score based on multiple indicators.
 
     Scoring rules:
-    - RSI < 30: +2 points
+    - RSI < 30: +3 points
     - Stochastic crossover in 0-10: +3 points, in 10-20: +2 points
     - Price at Bollinger lower band: +1 point
     - Price near Fibonacci 0.618: +2 points, near 0.382: +1 point
@@ -424,10 +424,10 @@ def calculate_buy_score(df: pd.DataFrame) -> Tuple[int, Dict[str, int]]:
         current = df.iloc[-1]
         previous = df.iloc[-2] if len(df) > 1 else current
 
-        # 1. RSI < 30 -> +2 points
+        # 1. RSI < 30 -> +3 points
         if pd.notna(current['RSI']) and current['RSI'] < 30:
-            score += 2
-            details['RSI < 30'] = 2
+            score += 3
+            details['RSI < 30'] = 3
 
         # 2. Stochastic crossover
         if pd.notna(current['Stoch_K']) and pd.notna(previous['Stoch_K']):
@@ -486,10 +486,10 @@ def calculate_sell_score(df: pd.DataFrame) -> Tuple[int, Dict[str, int]]:
         current = df.iloc[-1]
         previous = df.iloc[-2] if len(df) > 1 else current
 
-        # 1. RSI > 70 -> +2 points
+        # 1. RSI > 70 -> +3 points
         if pd.notna(current['RSI']) and current['RSI'] > 70:
-            score += 2
-            details['RSI > 70'] = 2
+            score += 3
+            details['RSI > 70'] = 3
 
         # 2. Stochastic crossover (downward)
         if pd.notna(current['Stoch_K']) and pd.notna(previous['Stoch_K']):
@@ -850,7 +850,7 @@ def get_indicator_status(df: pd.DataFrame) -> Dict[str, Dict[str, Any]]:
     indicators['RSI'] = {
         'value': f"{rsi_val:.1f}",
         'active': rsi_active,
-        'points': 2 if rsi_active else 0,
+        'points': 3 if rsi_active else 0,
         'condition': f"RSI = {rsi_val:.1f}" + (" < 30" if rsi_val < 30 else " > 70" if rsi_val > 70 else "")
     }
 
@@ -1273,19 +1273,39 @@ if st.session_state.mt5_connected:
                         st.info(f"Position fermee par timer | Profit: {trade_profit:+.2f} EUR")
                         st.rerun()
             elif st.session_state.bot_running:
-                st.info(f"Waiting for signal (threshold: {CONFIG.SIGNAL_THRESHOLD})")
+                # Auto execute if score >= threshold
+                if score >= CONFIG.SIGNAL_THRESHOLD:
+                    # Determine direction based on which score is higher
+                    buy_score, _ = calculate_buy_score(df)
+                    sell_score, _ = calculate_sell_score(df)
 
-                # Auto execute if conditions met
-                if signal in [SignalType.BUY, SignalType.SELL] and score >= CONFIG.SIGNAL_THRESHOLD:
-                    log_decision(signal.value, score, details, True)
-                    success, result = execute_trade(selected_symbol, signal, lot_size, sl_pips, tp_pips)
-                    if success:
-                        st.session_state.active_trade = result
-                        st.session_state.trade_open_time = datetime.now()
-                        st.session_state.trade_history.append(result)
-                        st.success(f"AUTO {signal.value} @ {result['price_open']:.5f}")
-                        st.rerun()
+                    if buy_score >= CONFIG.SIGNAL_THRESHOLD and buy_score >= sell_score:
+                        st.warning(f"Signal ACHAT detecte! Score: {buy_score}/{CONFIG.SIGNAL_THRESHOLD}")
+                        log_decision("BUY", buy_score, details, True)
+                        success, result = execute_trade(selected_symbol, SignalType.BUY, lot_size, sl_pips, tp_pips)
+                        if success:
+                            st.session_state.active_trade = result
+                            st.session_state.trade_open_time = datetime.now()
+                            st.session_state.trade_history.append(result)
+                            st.success(f"AUTO ACHAT @ {result['price_open']:.5f}")
+                            st.rerun()
+                        else:
+                            st.error(f"Erreur: {result}")
+
+                    elif sell_score >= CONFIG.SIGNAL_THRESHOLD and sell_score > buy_score:
+                        st.warning(f"Signal VENTE detecte! Score: {sell_score}/{CONFIG.SIGNAL_THRESHOLD}")
+                        log_decision("SELL", sell_score, details, True)
+                        success, result = execute_trade(selected_symbol, SignalType.SELL, lot_size, sl_pips, tp_pips)
+                        if success:
+                            st.session_state.active_trade = result
+                            st.session_state.trade_open_time = datetime.now()
+                            st.session_state.trade_history.append(result)
+                            st.success(f"AUTO VENTE @ {result['price_open']:.5f}")
+                            st.rerun()
+                        else:
+                            st.error(f"Erreur: {result}")
                 else:
+                    st.info(f"En attente de signal (score actuel: {score}/{CONFIG.SIGNAL_THRESHOLD})")
                     log_decision(signal.value, score, details, False)
 
         # =================================================================
@@ -1467,7 +1487,7 @@ This production-ready bot implements:
 
 | Indicator | Condition | Points |
 |-----------|-----------|--------|
-| RSI | < 30 (oversold) | +2 |
+| RSI | < 30 (oversold) | +3 |
 | Stochastic | Crossover in 0-10 zone | +3 |
 | Stochastic | Crossover in 10-20 zone | +2 |
 | Bollinger | Price at lower band | +1 |
@@ -1480,7 +1500,7 @@ This production-ready bot implements:
 
 | Indicator | Condition | Points |
 |-----------|-----------|--------|
-| RSI | > 70 (overbought) | +2 |
+| RSI | > 70 (overbought) | +3 |
 | Stochastic | Crossover in 90-100 zone | +3 |
 | Stochastic | Crossover in 80-90 zone | +2 |
 | Bollinger | Price at upper band | +1 |
