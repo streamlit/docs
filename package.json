@@ -20,7 +20,7 @@
     "frontmatter-markdown-loader": "^3.7.0",
     "gray-matter": "^4.0.3",
     "html-to-text": "^9.0.5",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "markdown-it": "^14.0.0",
     "next": "^14.2.35",
     "next-mdx-remote": "^4.4.1",
