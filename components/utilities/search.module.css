@@ -1,6 +1,6 @@
 /* Modal */
 .ModalContainer {
-  @apply fixed w-screen h-screen top-0 left-0 flex items-center justify-center z-elevated;
+  @apply fixed w-screen h-screen top-0 left-0 flex items-center justify-center z-overlay;
 }
 
 .Modal {

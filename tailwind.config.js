@@ -189,6 +189,7 @@ module.exports = {
         sidebar: "20", // Sidebar, refcards, lightbox close button
         header: "30", // Header, lightbox overlay, chat sticky
         dropdown: "50", // Version selector, tooltips, dropdown menus
+        overlay: "90", // Full-screen overlays (search modal backdrop)
         modal: "100", // Modals, dialogs (reserved for future use)
       },
 
