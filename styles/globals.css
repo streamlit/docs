@@ -19,12 +19,15 @@
  *                   Files: sideBar.module.css, image.module.css, refCard.module.css
  *
  * z-elevated (10) - Code blocks, search, floating nav, nav icons
- *                   Files: code.module.css, autofunction.module.css, search.module.css,
+ *                   Files: code.module.css, autofunction.module.css,
  *                          floatingNav.module.css, navChild.module.css, componentSlider.module.css
  *
  * z-base (0)      - Default layer, code line highlights
  *
- * z-modal (100)   - Reserved for modals and dialogs (future use)
+ * z-overlay (90)  - Full-screen overlays behind modals
+ *                   Files: search.module.css
+ *
+ * z-modal (100)   - Reserved for modals and dialogs
  * ==========================================================================
  */
 
