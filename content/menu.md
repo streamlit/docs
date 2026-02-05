@@ -455,9 +455,11 @@ site_menu:
   - category: Develop / API reference / Caching and state / st.experimental_get_query_params
     url: /develop/api-reference/caching-and-state/st.experimental_get_query_params
     isDeprecated: true
+    visible: false
   - category: Develop / API reference / Caching and state / st.experimental_set_query_params
     url: /develop/api-reference/caching-and-state/st.experimental_set_query_params
     isDeprecated: true
+    visible: false
   - category: Develop / API reference / Connections and secrets
     url: /develop/api-reference/connections
   - category: Develop / API reference / Connections and secrets / SECRETS
