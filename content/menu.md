@@ -249,6 +249,7 @@ site_menu:
   - category: Develop / API reference / Chart elements / st.bokeh_chart
     url: /develop/api-reference/charts/st.bokeh_chart
     isDeprecated: true
+    visible: false
   - category: Develop / API reference / Chart elements / st.graphviz_chart
     url: /develop/api-reference/charts/st.graphviz_chart
   - category: Develop / API reference / Chart elements / st.plotly_chart
@@ -455,9 +456,11 @@ site_menu:
   - category: Develop / API reference / Caching and state / st.experimental_get_query_params
     url: /develop/api-reference/caching-and-state/st.experimental_get_query_params
     isDeprecated: true
+    visible: false
   - category: Develop / API reference / Caching and state / st.experimental_set_query_params
     url: /develop/api-reference/caching-and-state/st.experimental_set_query_params
     isDeprecated: true
+    visible: false
   - category: Develop / API reference / Connections and secrets
     url: /develop/api-reference/connections
   - category: Develop / API reference / Connections and secrets / SECRETS

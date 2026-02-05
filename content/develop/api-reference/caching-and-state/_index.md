@@ -93,33 +93,3 @@ st.query_params.clear()
 </RefCard>
 
 </TileContainer>
-
-## Deprecated commands
-
-<TileContainer>
-
-<RefCard href="/develop/api-reference/caching-and-state/st.experimental_get_query_params" size="half" deprecated={true}>
-
-<h4>Get query parameters</h4>
-
-Get query parameters that are shown in the browser's URL bar.
-
-```python
-param_dict = st.experimental_get_query_params()
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/caching-and-state/st.experimental_set_query_params" size="half" deprecated={true}>
-
-<h4>Set query parameters</h4>
-
-Set query parameters that are shown in the browser's URL bar.
-
-```python
-st.experimental_set_query_params(
-  {"show_all"=True, "selected"=["asia", "america"]}
-)
-```
-
-</RefCard>
-</TileContainer>

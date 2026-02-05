@@ -707,4 +707,5 @@ if __name__ == "__main__":
     if len(sys.argv) > 2 and sys.argv[2].isnumeric():
         DEBUG = int(sys.argv[2])
     data = get_streamlit_docstring_dict()
+    data.pop("streamlit.bokeh_chart", None) # Docstring exists with no functionality, remove from docs
     utils.write_to_existing_dict(VERSION, data)

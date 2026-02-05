@@ -146,6 +146,61 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/develop/api-reference/charts/st.bar_chart?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">palette</i>
+                <h4>Chart colors with theming</h4>
+                <p>
+                  The <code>color</code> parameter of simple charts supports the
+                  basic color palette configured with theming.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/configuration/config.toml?utm_source=streamlit#theme"
+              >
+                <i className="material-icons-sharp">gradient</i>
+                <h4>Diverging chart colors</h4>
+                <p>
+                  Use <code>theme.chartDivergingColors</code> to set default
+                  diverging colors for Plotly, Altair, and Vega-Lite charts.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/media/st.logo?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">emoji_emotions</i>
+                <h4>Icons and emojis in st.logo</h4>
+                <p>
+                  <code>st.logo</code> now supports Material icons and emojis in
+                  addition to images.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/configuration/config.toml?utm_source=streamlit#client"
+              >
+                <i className="material-icons-sharp">link</i>
+                <h4>Configure error help links</h4>
+                <p>
+                  Control the display of error help links with the new{" "}
+                  <code>client.showErrorLinks</code> configuration option.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/quick-reference/release-notes?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">key</i>
+                <h4>Stable widget identity</h4>
+                <p>
+                  More widgets now use only their key for identity, preventing
+                  resets when changing other parameters.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="https://github.com/streamlit/streamlit/issues/13600"
               >
                 <i className="material-icons-sharp">integration_instructions</i>
@@ -154,61 +209,6 @@ export default function Home({ window, menu }) {
                   Streamlit supports an experimental ASGI entry point with
                   Starlette for custom HTTP routes, middleware, and FastAPI
                   integration.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/caching-and-state/st.cache_data?utm_source=streamlit"
-              >
-                <i className="material-icons-sharp">cached</i>
-                <h4>Session-scoped caching</h4>
-                <p>
-                  <code>st.cache_data</code> and <code>st.cache_resource</code>{" "}
-                  can now be scoped to a session for per-user caching.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/configuration/st.set_page_config?utm_source=streamlit"
-              >
-                <i className="material-icons-sharp">view_sidebar</i>
-                <h4>Configurable sidebar width</h4>
-                <p>
-                  Set the default width of the sidebar with{" "}
-                  <code>st.set_page_config</code>.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/user/st.user?utm_source=streamlit"
-              >
-                <i className="material-icons-sharp">security</i>
-                <h4>Access OIDC tokens</h4>
-                <p>
-                  Expose OIDC ID and access tokens in{" "}
-                  <code>st.user.tokens</code> for advanced auth workflows.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/connections/st.connections.snowflakeconnection?utm_source=streamlit"
-              >
-                <i className="material-icons-sharp">ac_unit</i>
-                <h4>Caller's rights connections</h4>
-                <p>
-                  Create session-scoped caller's rights connections in Streamlit
-                  in Snowflake and Snowpark Container Services.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/data/st.data_editor?utm_source=streamlit"
-              >
-                <i className="material-icons-sharp">edit</i>
-                <h4>Granular row editing</h4>
-                <p>
-                  Configure <code>st.data_editor</code> to allow only adding or
-                  only deleting rows.
                 </p>
               </RefCard>
             </TileContainer>

@@ -7,7 +7,7 @@ keywords: API cheat sheet, Streamlit API, widgets, layout, data display, utility
 
 # Streamlit API cheat sheet
 
-This is a summary of the docs for the latest version of Streamlit, [v1.53.0](https://pypi.org/project/streamlit/1.53.0/).
+This is a summary of the docs for the latest version of Streamlit, [v1.54.0](https://pypi.org/project/streamlit/1.54.0/).
 
 <Masonry>
 
