@@ -610,18 +610,6 @@ st.plotly_chart(my_plotly_chart)
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/charts/st.bokeh_chart">
-<Image pure alt="screenshot" src="/images/api/bokeh_chart.jpg" />
-
-<h4>Bokeh</h4>
-
-Display an interactive Bokeh chart.
-
-```python
-st.bokeh_chart(my_bokeh_chart)
-```
-
-</RefCard>
 <RefCard href="/develop/api-reference/charts/st.pydeck_chart">
 <Image pure alt="screenshot" src="/images/api/pydeck_chart.jpg" />
 
