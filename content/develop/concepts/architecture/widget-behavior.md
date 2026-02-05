@@ -31,13 +31,11 @@ The last three points (widget identity and widget deletion) are the most relevan
 From v1.46.0 through v1.54.0, significant changes to widget statefulness were introduced:
 
 - **v1.46.0**: When navigating between pages, widget keys in `st.session_state` are deleted at the beginning of the new page's script run instead of the end.
-- **v1.50.0-1.52.0**: When a key is provided, the widget identity is determined by the key and parameters that can invalidate the widget's state: `min`/`max`, `options`, `format`, `step`, `selection_mode`, `accept_new_options`. This is a transitional period during implementation until widgets are fully converted to key-only identity.
+- **v1.50.0-1.52.0**: When a key is provided, the widget identity is determined by the key and parameters that can invalidate the widget's state: `min`/`max`, `options`, `format`, `step`, `selection_mode`, `accept_new_options`. This is a transitional period during implementation until widgets are fully converted to key-only identity. Only `st.dataframe` and elements with selection modes, like charts, are not yet converted to key-based identity.
 - **v1.53.0**: `st.number_input` is fully converted to key-based identity. In addition to their keys, `st.selectbox` only depends on `accept_new_options` and `st.multiselect` only depends on `accept_new_options` and `max_selections`.
-- **v1.54.0**: `st.select_slider` and `st.radio` are fully converted to key-based identity. `st.date_input` and `st.datetime_input` aren't dependent on `min`/`max` but are still dependent on `format` and `step`.
+- **v1.54.0**: `st.select_slider` and `st.radio` are fully converted to key-based identity. `st.date_input` and `st.datetime_input` aren't dependent on `min`/`max` but are still dependent on `format` and `step`. `st.dataframe` and elements with selection modes, like charts, use key-based identity, but are still dependent on `selection_mode`.
 
 These changes affect how widgets maintain state across page navigation and parameter changes. To review which widgets have been converted to key-based identity, see the release notes for [v1.50.0](https://docs.streamlit.io/release-notes/v1.50.0), [v1.51.0](https://docs.streamlit.io/release-notes/v1.51.0), and [v1.52.0](https://docs.streamlit.io/release-notes/v1.52.0).
-
-As of v1.52.0, the following widgets **haven't** been converted to key-based identity: `st.data_editor` and elements with selection modes, like `st.dataframe` and charts.
 
 </Important>
 
