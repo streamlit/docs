@@ -34,7 +34,7 @@ The following two configuration options can only be applied to the whole app:
 
 - `theme.base` sets the default colors for your app's theme to match one of Streamlit's two default themes (`"light"` or `"dark"`). If any theme configuation option is used and `theme.base` is not set, then Streamlit will use `"light"`.
 - `theme.showSidebarBorder` sets the visibility of the border between the sidebar and the main body of your app.
-- `theme.chartCategoricalColors` and `theme.chartSequentialColors` set the series colors for Plotly, Altair, and Vega-Lite charts.
+- `theme.chartCategoricalColors`, `theme.chartSequentialColors`, and `theme.chartDivergingColors` set the series colors for Plotly, Altair, and Vega-Lite charts.
 
 The following configuration options can be set separately for the sidebar by using the `[theme.sidebar]` table instead of the `[theme]` table in `config.toml`:
 
