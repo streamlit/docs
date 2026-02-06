@@ -134,6 +134,15 @@ toolbarMode = "auto"
 #
 # Default: true
 showSidebarNavigation = true
+
+# Controls whether to show external help links (Google, ChatGPT) in
+# error displays. The following values are valid:
+# - "auto" (default) : Links are shown only on localhost.
+# - True             : Links are shown on all domains.
+# - False            : Links are never shown.
+#
+# Default: "auto"
+showErrorLinks = "auto"
 ```
 
 #### Runner
@@ -344,6 +353,12 @@ enableStaticServing = false
 # Default: 120
 disconnectedSessionTTL = 120
 
+# Enable the experimental Starlette-based server implementation instead of
+# Tornado. This is an experimental feature and may be removed in the future.
+#
+# Default: false
+useStarlette = false
+
 # Server certificate file for connecting via HTTPS.
 # Must be set at the same time as "server.sslKeyFile".
 #
@@ -431,6 +446,9 @@ tables, except for the following options:
 - `showSidebarBorder`
 - `chartCategoricalColors`
 - `chartSequentialColors`
+- `chartDivergingColors`
+
+Additionally, everything in `[theme.sidebar]` can be configured in separate `[theme.dark.sidebar]` and `[theme.light.sidebar]` tables.
 
 ```toml
 [theme]
@@ -956,6 +974,30 @@ chartCategoricalColors =
 #     "#e4f5ff", #blue10
 # ]
 chartSequentialColors =
+
+# An array of ten colors to use for diverging chart data.
+#
+# The ten colors create a diverging color scale, typically used for data
+# with a meaningful midpoint. These colors apply to Plotly, Altair, and
+# Vega-Lite charts.
+#
+# Invalid color strings are skipped. If there are not exactly ten
+# valid colors specified, Streamlit uses a default set of colors.
+#
+# The default colors are:
+# [
+#     "#7d353b", #red100
+#     "#bd4043", #red90
+#     "#ff4b4b", #red70
+#     "#ff8c8c", #red50
+#     "#ffc7c7", #red30
+#     "#a6dcff", #blue30
+#     "#60b4ff", #blue50
+#     "#1c83e1", #blue70
+#     "#0054a3", #blue90
+#     "#004280", #blue100
+# ]
+chartDivergingColors =
 ```
 
 #### Sidebar theme
