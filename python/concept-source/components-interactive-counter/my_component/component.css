@@ -1,0 +1,29 @@
+.counter {
+  padding: 2rem;
+  border: 1px solid var(--st-border-color);
+  border-radius: var(--st-base-radius);
+  font-family: var(--st-font);
+  text-align: center;
+}
+
+.buttons {
+  margin-top: 1rem;
+}
+
+button {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--st-primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--st-button-radius);
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#reset {
+  background: var(--st-red-color);
+}
