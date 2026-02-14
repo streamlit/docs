@@ -1,0 +1,25 @@
+.counter {
+  padding: 0.5rem 0.5rem;
+  border: 1px solid var(--st-border-color);
+  border-radius: var(--st-base-radius);
+  font-family: var(--st-font);
+  font-size: var(--st-base-font-size);
+  color: var(--st-text-color);
+}
+
+#count {
+  padding: 0.75rem;
+}
+
+#increment {
+  background: var(--st-primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--st-button-radius);
+  padding: 0.25rem 0.5rem;
+  margin-left: 0.25rem;
+}
+
+#increment:hover {
+  opacity: 0.8;
+}

@@ -1,0 +1,206 @@
+.stopwatch {
+  font-family: var(--st-font);
+  color: var(--st-text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+/* Ring Display */
+.display-ring {
+  position: relative;
+  width: 16rem;
+  height: 16rem;
+}
+
+.ring-svg {
+  position: absolute;
+  inset: -0.75rem;
+  padding: 0.75rem;
+  transform: rotate(-90deg);
+  overflow: visible;
+}
+
+.ring-track,
+.ring-progress {
+  fill: none;
+  stroke-width: 6;
+}
+
+.ring-track {
+  stroke: var(--st-secondary-background-color);
+}
+
+.ring-progress {
+  stroke: var(--st-primary-color);
+  stroke-linecap: round;
+  stroke-dasharray: 565.5;
+  stroke-dashoffset: 565.5;
+  transition: stroke-dashoffset 0.1s linear;
+  filter: drop-shadow(0 0 8px var(--st-primary-color));
+}
+
+.ring-progress.running {
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Time Display */
+.display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  font-family: var(--st-code-font);
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.time-segment {
+  min-width: 2ch;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.separator {
+  opacity: 0.5;
+}
+
+.time-segment.small,
+.separator.small {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.time-segment.small {
+  opacity: 0.7;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.ctrl-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: var(--st-button-radius);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  min-width: 5rem;
+}
+
+.ctrl-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.ctrl-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.ctrl-btn.primary {
+  background: var(--st-primary-color);
+  color: white;
+}
+
+.ctrl-btn.primary:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.ctrl-btn.secondary {
+  background: var(--st-secondary-background-color);
+  border: 1px solid var(--st-border-color);
+}
+
+.ctrl-btn.secondary:hover:not(:disabled) {
+  border-color: var(--st-primary-color);
+}
+
+.btn-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.btn-label {
+  font-family: var(--st-font);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Lap List */
+.lap-list {
+  width: 100%;
+  max-width: 17.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 10rem;
+  overflow-y: auto;
+}
+
+.lap-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: var(--st-secondary-background-color);
+  border-radius: var(--st-base-radius);
+  font-size: 0.85rem;
+  animation: slide-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.625rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lap-number {
+  color: var(--st-primary-color);
+  font-weight: 600;
+}
+
+.lap-time,
+.lap-delta {
+  font-family: var(--st-code-font);
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.lap-delta.fastest {
+  color: var(--st-green-color);
+  opacity: 1;
+}
+
+.lap-delta.slowest {
+  color: var(--st-red-color);
+  opacity: 1;
+}
