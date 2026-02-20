@@ -288,3 +288,7 @@ To publish your changes to the docs site:
 3. Once the checks have completed, checkout the Preview build.
 4. Snehan will review your changes and merge your changes into the `main` branch.
 5. Once merged, your changes will be live at [https://docs.streamlit.io/](https://docs.streamlit.io/).
+
+## Beginner Contribution Tips
+
+New contributors can help improve Streamlit documentation by fixing typos, improving clarity, and adding helpful examples. Documentation contributions are a great way to get started with open source.
