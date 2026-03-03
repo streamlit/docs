@@ -9,4 +9,4 @@ def on_expander_change():
 
 
 with st.expander("Open expander", on_change=on_expander_change, key="summary"):
-    st.write("This is the popover")
+    st.write("This is the expander")
