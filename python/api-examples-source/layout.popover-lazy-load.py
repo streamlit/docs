@@ -1,7 +1,8 @@
 import streamlit as st
 import time
 
-with (drawer := st.popover("Open popover", on_change="rerun")):
+drawer = st.popover("Open popover", on_change="rerun")
+with drawer:
     if drawer.open:
         with st.spinner("Loading popover..."):
             time.sleep(2)

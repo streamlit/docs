@@ -1,22 +1,22 @@
 import streamlit as st
 import time
 
-tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"], on_change="rerun")
+cat, dog, owl = st.tabs(["Cat", "Dog", "Owl"], on_change="rerun")
 
-if tab1.open:
-    with tab1:
+if cat.open:
+    with cat:
         with st.spinner("Loading cat..."):
             time.sleep(2)
-        tab1.write("This is the cat")
+        st.write("This is the cat")
 
-if tab2.open:
-    with tab2:
+if dog.open:
+    with dog:
         with st.spinner("Loading dog..."):
             time.sleep(2)
-        tab2.write("This is the dog")
+        st.write("This is the dog")
 
-if tab3.open:
-    with tab3:
+if owl.open:
+    with owl:
         with st.spinner("Loading owl..."):
             time.sleep(2)
-        tab3.write("This is the owl")
+        st.write("This is the owl")

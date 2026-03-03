@@ -7,4 +7,4 @@ if summary.open:
     with summary:
         with st.spinner("Loading summary..."):
             time.sleep(2)
-        summary.write("This is the summary")
+        st.write("This is the summary")

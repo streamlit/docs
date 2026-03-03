@@ -1,6 +1,7 @@
 import streamlit as st
 
-with (summary := st.expander("Summary", on_change="rerun")):
+summary = st.expander("Summary", on_change="rerun")
+with summary:
     st.write("This is the summary")
 
 st.write(
