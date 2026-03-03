@@ -6,3 +6,5 @@ keywords: st.popover, popover, popup container, overlay container, floating cont
 ---
 
 <Autofunction function="streamlit.popover" />
+
+<Autofunction function="PopoverContainer" />

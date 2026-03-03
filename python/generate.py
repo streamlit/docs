@@ -30,6 +30,9 @@ from streamlit.elements.plotly_chart import PlotlyState, PlotlySelectionState
 from streamlit.elements.vega_charts import VegaLiteState
 from streamlit.elements.arrow import DataframeState, DataframeSelectionState
 from streamlit.elements.deck_gl_json_chart import PydeckState, PydeckSelectionState
+from streamlit.elements.lib.mutable_expander_container import ExpanderContainer
+from streamlit.elements.lib.mutable_popover_container import PopoverContainer
+from streamlit.elements.lib.mutable_tab_container import TabContainer
 from streamlit.navigation import page
 from streamlit.navigation.page import StreamlitPage
 from typing import Protocol
@@ -656,6 +659,9 @@ def get_streamlit_docstring_dict():
         PydeckSelectionState: ["PydeckSelectionState", "PydeckSelectionState"],
         BidiComponentResult: ["BidiComponentResult", "BidiComponentResult"],
         streamlit.user_info.TokensProxy: ["TokensProxy", "TokensProxy"],
+        TabContainer: ["TabContainer", "TabContainer"],
+        ExpanderContainer: ["ExpanderContainer", "ExpanderContainer"],
+        PopoverContainer: ["PopoverContainer", "PopoverContainer"]
     }
 
     module_docstring_dict = {}
