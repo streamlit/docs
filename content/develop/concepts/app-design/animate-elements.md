@@ -52,7 +52,7 @@ with c:
 
 ### Widget commands
 
-Commands like `st.slider`, `st.selectbox`, `st.button`, and `st.text_input` are widgets. They return a **Python value** like `int`, `str`, or `bool` instead of a abstract Streamlit object. You interact with widget state through `st.session_state` and callbacks, not by calling methods on their returned values:
+Commands like `st.slider`, `st.selectbox`, `st.button`, and `st.text_input` are widgets. They return a **Python value** like `int`, `str`, or `bool` instead of an abstract Streamlit object. You interact with widget state through `st.session_state` and callbacks, not by calling methods on their returned values:
 
 ```python
 import streamlit as st

@@ -282,10 +282,6 @@ When a user selects "Green", the URL updates to include `?color=Green`. If someo
 - **Programmatic updates**: A bound query parameter can't be set or deleted through `st.query_params`. To programmatically change a bound widget's value, use `st.session_state`.
 - **Range values**: Widgets that return a range, like range sliders, use repeated query parameters. For example, a slider with a range of 10 to 90 will produce a URL ending with `?price=10&price=90`.
 
-### Supported widgets
-
-The `bind` parameter is available on the following widgets: `st.checkbox`, `st.color_picker`, `st.date_input`, `st.datetime_input`, `st.multiselect`, `st.number_input`, `st.pills`, `st.radio`, `st.segmented_control`, `st.select_slider`, `st.selectbox`, `st.slider`, `st.text_area`, `st.text_input`, `st.time_input`, and `st.toggle`.
-
 Trigger-like widgets (`st.button`, `st.download_button`, `st.chat_input`, `st.file_uploader`, `st.camera_input`, and `st.audio_input`) don't support binding because their values are transient.
 
 ### Example: Filterable dashboard with a shareable URL
