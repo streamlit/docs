@@ -146,69 +146,70 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/develop/api-reference/charts/st.bar_chart?utm_source=streamlit"
+                href="/develop/api-reference/layout/st.tabs?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">palette</i>
-                <h4>Chart colors with theming</h4>
+                <i className="material-icons-sharp">touch_app</i>
+                <h4>Dynamic containers</h4>
                 <p>
-                  The <code>color</code> parameter of simple charts supports the
-                  basic color palette configured with theming.
+                  <code>st.tabs</code>, <code>st.expander</code>, and{" "}
+                  <code>st.popover</code> can track open/closed state and
+                  trigger reruns with the new <code>on_change</code> parameter.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/configuration/config.toml?utm_source=streamlit#theme"
+                href="/develop/concepts/architecture/widget-behavior?utm_source=streamlit#binding-widgets-to-query-parameters"
               >
-                <i className="material-icons-sharp">gradient</i>
-                <h4>Diverging chart colors</h4>
+                <i className="material-icons-sharp">share</i>
+                <h4>Widget binding</h4>
                 <p>
-                  Use <code>theme.chartDivergingColors</code> to set default
-                  diverging colors for Plotly, Altair, and Vega-Lite charts.
+                  Most non-trigger widgets have a <code>bind</code> parameter to
+                  sync widget state with URL query parameters.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/media/st.logo?utm_source=streamlit"
+                href="/develop/api-reference/media/st.image?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">emoji_emotions</i>
-                <h4>Icons and emojis in st.logo</h4>
+                <i className="material-icons-sharp">open_in_new</i>
+                <h4>Clickable images</h4>
                 <p>
-                  <code>st.logo</code> now supports Material icons and emojis in
-                  addition to images.
+                  <code>st.image</code> has a <code>link</code> parameter to
+                  make images clickable with HTTP/HTTPS URLs.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/configuration/config.toml?utm_source=streamlit#client"
+                href="/develop/api-reference/navigation/st.page?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">link</i>
-                <h4>Configure error help links</h4>
+                <i className="material-icons-sharp">visibility_off</i>
+                <h4>Hidden pages</h4>
                 <p>
-                  Control the display of error help links with the new{" "}
-                  <code>client.showErrorLinks</code> configuration option.
+                  <code>st.Page</code> has a <code>visibility</code> parameter
+                  to hide pages in the navigation menu while keeping them
+                  routable.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/quick-reference/release-notes?utm_source=streamlit"
+                href="/develop/api-reference/text/st.markdown?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">key</i>
-                <h4>Stable widget identity</h4>
+                <i className="material-icons-sharp">format_color_text</i>
+                <h4>CSS colors in Markdown</h4>
                 <p>
-                  More widgets now use only their key for identity, preventing
-                  resets when changing other parameters.
+                  Markdown supports arbitrary CSS colors for text foreground and
+                  background styling.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="https://github.com/streamlit/streamlit/issues/13600"
+                href="/develop/api-reference/data/st.metric?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">integration_instructions</i>
-                <h4>ASGI entry point & Starlette support</h4>
+                <i className="material-icons-sharp">speed</i>
+                <h4>Metric delta descriptions</h4>
                 <p>
-                  Streamlit supports an experimental ASGI entry point with
-                  Starlette for custom HTTP routes, middleware, and FastAPI
-                  integration.
+                  <code>st.metric</code> has a <code>delta_description</code>{" "}
+                  parameter to display descriptive text next to delta values.
                 </p>
               </RefCard>
             </TileContainer>
