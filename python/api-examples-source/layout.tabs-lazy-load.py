@@ -8,13 +8,11 @@ if cat.open:
         with st.spinner("Loading cat..."):
             time.sleep(2)
         st.write("This is the cat")
-
 if dog.open:
     with dog:
         with st.spinner("Loading dog..."):
             time.sleep(2)
         st.write("This is the dog")
-
 if owl.open:
     with owl:
         with st.spinner("Loading owl..."):

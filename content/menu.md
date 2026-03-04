@@ -73,7 +73,9 @@ site_menu:
     url: /develop/concepts/multipage-apps/widgets
   - category: Develop / Concepts / App design
     url: /develop/concepts/design
-  - category: Develop / Concepts / App design / Animate and update elements
+  - category: Develop / Concepts / App design / Using layouts and containers
+    url: /develop/concepts/design/layouts-and-containers
+  - category: Develop / Concepts / App design / Update and replace elements
     url: /develop/concepts/design/animate
   - category: Develop / Concepts / App design / Button behavior and examples
     url: /develop/concepts/design/buttons

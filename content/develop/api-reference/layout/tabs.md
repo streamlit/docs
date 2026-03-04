@@ -6,3 +6,5 @@ keywords: st.tabs, tabs, tab container, tabbed interface, tab navigation, tabbed
 ---
 
 <Autofunction function="streamlit.tabs" />
+
+<Autofunction function="TabContainer" />

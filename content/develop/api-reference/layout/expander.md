@@ -6,3 +6,5 @@ keywords: st.expander, expander, collapsible container, expandable container, ac
 ---
 
 <Autofunction function="streamlit.expander" />
+
+<Autofunction function="ExpanderContainer" />

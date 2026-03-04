@@ -2,7 +2,7 @@
 title: Widget behavior
 slug: /develop/concepts/architecture/widget-behavior
 description: Learn how Streamlit widgets behave across reruns, handle state persistence, manage user interactions, and control widget lifecycle in your applications.
-keywords: widget behavior, widget state, user interactions, widget persistence, rerun behavior, interaction handling, state management, widget lifecycle
+keywords: widget behavior, widget state, user interactions, widget persistence, rerun behavior, interaction handling, state management, widget lifecycle, query parameters, bind
 ---
 
 # Understanding widget behavior
@@ -13,10 +13,10 @@ This guide covers advanced concepts about widgets. Generally, it begins with sim
 
 <Collapse title="🎈 TL;DR" expanded={false}>
 
-1. The actions of one user do not affect the widgets of any other user.
-2. A widget command returns the widget's current value, which is a simple Python type. For example, `st.button` returns a boolean value.
+1. The actions of one user don't affect the widgets of any other user.
+2. A widget command returns the widget's current value, which is a simple Python type. For example, `st.button` returns a Boolean value.
 3. Widgets return their default values on their first call before a user interacts with them.
-4. A widget's identity depends on the arguments passed to the widget command. **If a key is provided, only the key determines the widget's identity, with some limitations as this is still being implemented.** If no key is provided, changing a widget's label, min or max value, default value, placeholder text, or help text will cause it to reset.
+4. A widget's identity depends on the arguments passed to the widget command. If a key is provided, the key determines the widget's identity, with limited exceptions noted in each widget's `key` parameter description. If no key is provided, changing a widget's label, min value, max value, default value, placeholder text, or help text will cause it to reset.
 5. If you don't call a widget command in a script run, Streamlit will delete the widget's information&mdash;_including its key-value pair in Session State_. If you call the same widget command later, Streamlit treats it as a new widget.
 6. Widgets are not stateful between pages. If you have two widgets with the same key on different pages, they will be treated as two different widgets.
 
@@ -26,16 +26,16 @@ The last three points (widget identity and widget deletion) are the most relevan
 
 <Important>
 
-**Recent changes to widget behavior**
+**Key-based widget identity (v1.55.0)**
 
-From v1.46.0 through v1.54.0, significant changes to widget statefulness were introduced:
+As of v1.55.0, all widgets support key-based identity. When a `key` is provided, the key is the primary determinant of the widget's identity, and changing other parameters (like `label`, `options`, or `default`) won't reset the widget. Some parameters that constrain valid values still affect identity for specific widgets, even when a key is provided. For example, changing `min_value` or `max_value` for `st.slider` will reset the widget because the current value could be invalidated. These exceptions are noted in each widget's `key` parameter description.
+
+Key-based identity was progressively introduced from v1.50.0 through v1.55.0. If you're using an older version, check the [release notes](/develop/quick-reference/release-notes) to see which widgets support key-based identity in your version.
+
+**Other notable changes:**
 
 - **v1.46.0**: When navigating between pages, widget keys in `st.session_state` are deleted at the beginning of the new page's script run instead of the end.
-- **v1.50.0-1.52.0**: When a key is provided, the widget identity is determined by the key and parameters that can invalidate the widget's state: `min`/`max`, `options`, `format`, `step`, `selection_mode`, and `accept_new_options`. This is a transitional period during implementation until widgets are fully converted to key-only identity. Only `st.dataframe` and elements with selection modes, like charts, are not yet converted to key-based identity.
-- **v1.53.0**: `st.number_input` is fully converted to key-based identity. In addition to their keys, `st.selectbox` only depends on `accept_new_options`, and `st.multiselect` only depends on `accept_new_options` and `max_selections`.
-- **v1.54.0**: `st.select_slider` and `st.radio` are fully converted to key-based identity. `st.date_input` and `st.datetime_input` aren't dependent on `min`/`max` but are still dependent on `format` and `step`. `st.dataframe` and elements with selection modes, like charts, use key-based identity, but are still dependent on `selection_mode`.
-
-These changes affect how widgets maintain state across page navigation and parameter changes. To review which widgets have been converted to key-based identity, see the release notes for [v1.50.0](https://docs.streamlit.io/release-notes/v1.50.0), [v1.51.0](https://docs.streamlit.io/release-notes/v1.51.0), and [v1.52.0](https://docs.streamlit.io/release-notes/v1.52.0).
+- **v1.55.0**: Most widgets support a new `bind` parameter to sync widget values with URL query parameters. See [Binding widgets to query parameters](#binding-widgets-to-query-parameters).
 
 </Important>
 
@@ -56,25 +56,27 @@ Widget states are dependent on a particular session (browser connection). The ac
 
 The value of a widget as seen through `st.session_state` and returned by the widget function are of simple Python types. For example, `st.button` returns a boolean value and will have the same boolean value saved in `st.session_state` if using a key. The first time a widget function is called (before a user interacts with it), it will return its default value. For example, `st.selectbox` returns the first option by default. Default values are configurable for all widgets with a few special exceptions like `st.button` and `st.file_uploader`.
 
+### Callbacks let you react to widget changes
+
+Most widgets accept an `on_change` callback parameter (or `on_click` for buttons). A callback is a Python function that Streamlit calls when the user interacts with the widget. You can optionally pass arguments to the callback through the `args` and `kwargs` parameters. Callbacks are covered in detail in [Order of operations](#order-of-operations).
+
 ### Keys help distinguish widgets and access their values
 
 Widget keys serve three purposes:
 
 1. Distinguishing two otherwise identical widgets.
-2. Maintaining statefulness of the widget while changing its parameters (v1.50.0+).
+2. Maintaining statefulness of the widget while changing its parameters.
 3. Creating a means to access and manipulate the widget's value through `st.session_state`.
 
-Additionally, for developer convenience, keys are repeated in the DOM as HTML attributes with a Streamlit-specific prefix to prevent conflicts. The exact prefix and attribute name aren't guaranteed to be stable between versions.
+Additionally, for developer convenience, keys are repeated in the DOM as HTML attributes with a Streamlit-specific prefix, `st-key-`, to prevent conflicts. The exact prefix, attribute name, and placement within the widget's DOM subtree aren't guaranteed to be stable between versions.
 
 #### Widget identity: Key-based vs parameter-based
 
 Whenever possible, Streamlit updates widgets incrementally on the frontend instead of rebuilding them with each rerun. This means Streamlit assigns a widget identity to each widget from the arguments passed to the widget command.
 
-**Previous behavior (before v1.50.0):** Widget identity was determined by all parameters including label, options, min/max values, default value, placeholder text, help text, and key.
+Widget identity depends on whether a key is provided:
 
-**Current behavior (v1.50.0+):** Widget identity depends on whether a key is provided:
-
-- **With a key**: Only the key, min/max, and options parameters determine the widget identity. Other parameters can change without resetting the widget.
+- **With a key**: The key is the primary determinant of the widget's identity. Other parameters like `label`, `default`, `placeholder`, and `help` can change without resetting the widget. However, some widgets have specific parameters that also affect identity because changing them could invalidate the current value. For example, changing `min_value`/`max_value` on `st.slider` or `selection_mode` on `st.pills` will reset the widget even with a key. Check the `key` parameter description of each widget to see its exceptions, if any.
 - **Without a key**: A widget's parameters (label, options, min/max, default, placeholder, help text) determine the widget identity. Changing one of these parameters will reset the widget. Note that callback functions, callback args and kwargs, label visibility, and disabling a widget do not affect the widget identity.
 
 In all cases, widget identities and states aren't preserved between pages. More information is provided below in [Statefulness of widgets](#statefulness-of-widgets).
@@ -144,9 +146,9 @@ As long as the widget identity remains the same and that widget is continuously 
 
 ### Changing a widget's identity will reset it
 
-If any of the parameters that determine a widget's identity change, Streamlit will see it as a new widget and it will reset. With the new key-based identity system, providing a key protects the widget from resets when other parameters change. The use of default values is particularly important in this case. If you use a key and change a widget's default value, there will be no change to the widget's state. If you don't use a key, changing a widget's default value will reset the widget to that default value.
+If any of the parameters that determine a widget's identity change, Streamlit will see it as a new widget and it will reset. Providing a key protects the widget from resets when most parameters change. The use of default values is particularly important in this case. If you use a key and change a widget's default value, there will be no change to the widget's state. If you don't use a key, changing a widget's default value will reset the widget to that default value.
 
-In this example, we have a two sliders where you can change the min, max, and default values. Try interacting with each slider to change its value then change the min or max setting to see what happens. When you change the min or max, both slider identities will update and they will be reset to their current default value. However, if you change the default value, only the slider without a key will reset. The keyed slider will remain stateful.
+In this example, we have two sliders where you can change the min, max, and default values. Try interacting with each slider to change its value then change the min or max setting to see what happens. Because `min_value` and `max_value` constrain valid values, changing them resets `st.slider` even with a key. However, if you change the default value, only the slider without a key will reset. The keyed slider will remain stateful.
 
 ```python
 import streamlit as st
@@ -161,6 +163,33 @@ st.slider("With a key", minimum, maximum, value, key="a")
 ```
 
 <Cloud name="doc-guide-widgets-change-parameters" height="550px"/>
+
+### Retain statefulness when changing a widget's identity
+
+Here is a solution for the above example that preserves the slider's value when the min and max change. The widget's initial value is set through Session State rather than the `value` parameter. When you are programmatically changing a widget, use Session State to maintain the widget's state to avoid unexpected behavior.
+
+```python
+import streamlit as st
+
+st.session_state.setdefault("a", 5)
+
+cols = st.columns(2)
+minimum = cols[0].number_input("Min", 1, 5, key="min")
+maximum = cols[1].number_input("Max", 6, 10, 10, key="max")
+
+
+def update_value():
+    st.session_state.a = min(st.session_state.a, maximum)
+    st.session_state.a = max(st.session_state.a, minimum)
+
+
+update_value()
+st.slider("A", minimum, maximum, key="a")
+```
+
+<Cloud name="doc-guide-widgets-change-parameters-solution" height="250px"/>
+
+The `update_value()` function ensures consistency between the widget parameters and value. By writing to `st.session_state.a`, the key-value pair is available for use by the "new" widget. Without this write, Streamlit would overwrite the key-value pair with the default value. The reason for this is explained in [Widget life cycle](#widget-life-cycle).
 
 ### Widgets do not persist when not continually rendered
 
@@ -209,8 +238,8 @@ If your script rerun calls a widget command with a changed identity or calls a w
 1. Streamlit will build the frontend and backend parts of the widget, using its default value.
 2. If the widget has been assigned a key, Streamlit will check if that key already exists in Session State.
    a. If the key exists and **isn't** associated to a widget with a different identity, Streamlit will assign that key's value to the widget.
-   b. If the key exists and is associated to a widget with a different identity, Streamlit will overwrite the key-value pair with the default value.
-   b. If the key doesn't exist, Streamlit will create a new key-value pair with the default value.
+   b. If the key exists and is associated to a widget with a different identity, Streamlit will overwrite the key-value pair with the default value. This is why writing to Session State before the widget command is important when [retaining statefulness across identity changes](#retain-statefulness-when-changing-a-widgets-identity).
+   c. If the key doesn't exist, Streamlit will create a new key-value pair with the default value.
 3. If there are args or kwargs for a callback function, they are evaluated and saved in memory.
 4. The widget value is then returned by the function.
 
@@ -230,35 +259,53 @@ Streamlit cleans up widget data at the end of every script run and at the beginn
 
 When Streamlit gets to the end of a script run, it will delete the data for any widgets it has in memory that were not rendered on the screen. Most importantly, that means Streamlit will delete all key-value pairs in `st.session_state` associated with a widget not currently on screen. When you switch pages, Streamlit will delete all data associated with widgets from the previous page.
 
-### Retain statefulness when changing a widget's identity
+## Binding widgets to query parameters
 
-If you just need to manipulate identity-affecting parameters without carrying the widget state between pages, you can use a callback to directly maintin a widget's state. Here is a solution to our earlier example of changing a slider's min and max values. Note that the widget's initial value is set through Session State and not its `value` parameter. When you are programmatically changing a widget, you should just use Session State to maintain the widget's state to avoid unexpected behavior.
+As of v1.55.0, most widgets support a `bind` parameter that syncs the widget's value with a URL query parameter. This makes it easy to create shareable URLs that preserve widget state and allow users to bookmark specific app configurations.
+
+### How binding works
+
+To bind a widget to a query parameter, set `bind="query-params"` and provide a `key`. The key is used as the query parameter name in the URL.
 
 ```python
 import streamlit as st
 
-# Set the default value for the widget
-st.session_state.setdefault("a", 5)
-
-cols = st.columns(2)
-minimum = cols[0].number_input("Min", 1, 5, key="min")
-maximum = cols[1].number_input("Max", 6, 10, 10, key="max")
-
-
-def update_value():
-    # Helper function to ensure consistency between widget parameters and value
-    st.session_state.a = min(st.session_state.a, maximum)
-    st.session_state.a = max(st.session_state.a, minimum)
-
-
-# Validate the slider value before rendering
-update_value()
-st.slider("A", minimum, maximum, key="a")
+st.selectbox("Color", ["Red", "Green", "Blue"], key="color", bind="query-params")
 ```
 
-<Cloud name="doc-guide-widgets-change-parameters-solution" height="250px"/>
+When a user selects "Green", the URL updates to include `?color=Green`. If someone opens that URL, the selectbox initializes to "Green" instead of the default "Red".
 
-The `update_value()` helper function ensures consistency between the widget parameters and value. Also, by writing to `st.session_state.a`, we ensure that the key-value pair is availble for use by the "new" widget. If this script didn't write to `st.session_state.a`, Streamlit would interpret the key-value pair as being associated to a different widget and overwrite the key-value pair.
+### Behavior details
+
+- **Default values keep URLs clean**: When a widget's value matches its default, the query parameter is removed from the URL.
+- **Invalid values are ignored**: If the URL contains an invalid value for the widget, the value is ignored and removed from the URL.
+- **Programmatic updates**: A bound query parameter can't be set or deleted through `st.query_params`. To programmatically change a bound widget's value, use `st.session_state`.
+- **Range values**: Widgets that return a range, like range sliders, use repeated query parameters. For example, a slider with a range of 10 to 90 will produce a URL ending with `?price=10&price=90`.
+
+Trigger-like widgets (`st.button`, `st.download_button`, `st.chat_input`, `st.file_uploader`, `st.camera_input`, and `st.audio_input`) don't support binding because their values are transient.
+
+### Example: Filterable dashboard with a shareable URL
+
+```python
+import streamlit as st
+
+category = st.selectbox(
+    "Category",
+    ["All", "Electronics", "Clothing", "Books"],
+    key="category",
+    bind="query-params",
+)
+price = st.slider(
+    "Max price",
+    0, 1000, 500,
+    key="max_price",
+    bind="query-params",
+)
+
+st.write(f"Showing {category} items under ${price}")
+```
+
+With this setup, a URL like `https://myapp.streamlit.app/?category=Electronics&max_price=200` initializes the app with "Electronics" selected and the price slider set to 200. Sharing this URL gives others the exact same view.
 
 ## Best practices and recommendations
 

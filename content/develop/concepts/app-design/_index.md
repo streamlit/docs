@@ -1,19 +1,27 @@
 ---
 title: App design concepts and considerations
 slug: /develop/concepts/design
-description: Explore comprehensive guides about app design including animating elements, button behavior, custom styling, dataframe design, multithreading, and timezone handling.
-keywords: app design, streamlit design, ui design, button behavior, custom styling, dataframes, multithreading, timezone handling, app layout, user experience
+description: Explore comprehensive guides about app design including layouts and containers, updating elements, button behavior, custom styling, dataframe design, multithreading, and timezone handling.
+keywords: app design, streamlit design, ui design, layouts, containers, button behavior, custom styling, dataframes, multithreading, timezone handling, app layout, user experience
 ---
 
 # App design concepts and considerations
 
 <TileContainer layout="list">
 
+<RefCard href="/develop/concepts/design/layouts-and-containers">
+
+<h5>Using layouts and containers</h5>
+
+Arrange and organize elements with columns, tabs, expanders, flex layouts, and dynamic containers.
+
+</RefCard>
+
 <RefCard href="/develop/concepts/design/animate">
 
-<h5>Animate and update elements</h5>
+<h5>Update and replace elements</h5>
 
-Understand how to create dynamic, animated content or update elements without rerunning your app.
+Understand how Streamlit commands return objects you can use to update, replace, or clear elements in place.
 
 </RefCard>
 
