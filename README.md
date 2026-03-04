@@ -4,6 +4,12 @@
 
 We use Next.js and Netlify to build our [documentation site](https://docs.streamlit.io/).
 
+## Contributing
+
+New contributors can help improve Streamlit documentation by fixing typos, improving clarity, and adding helpful examples. Documentation contributions are a great way to get started with open source.
+
+To contribute to the Streamlit library itself, see the [Streamlit library contributing guide](https://github.com/streamlit/streamlit/blob/develop/CONTRIBUTING.md).
+
 ## Building
 
 To build the docs, clone this repo, install the NPM dependencies, and start the development server.
@@ -18,7 +24,7 @@ Make sure you have [`npm`](https://docs.npmjs.com/downloading-and-installing-nod
 
 - In your terminal, run the following command:
   ```bash
-  $ xcode-select --install
+  xcode-select --install
   ```
 
 #### Install `make` on Windows
@@ -63,13 +69,14 @@ This repo follows a typical Next.js project structure. To contribute, you'll onl
 - `scripts/` Contains JS files.
 - `styles/` Contains CSS files for styling and layout.
 
-## Contributing
+## Content guide
 
 To add, edit, or delete content in our documentation, you have to modify Markdown (`.md`) files within folders and sub-folders in `content/` :
 
+- `deploy/` Contains `.md` files that populate the Deploy section.
+- `develop/` Contains `.md` files that populate the Develop section, including the API Reference.
+- `get-started/` Contains `.md` files that populate the Get Started section.
 - `kb/` Contains `.md` files that populate the Knowledge Base.
-- `library/` Contains `.md` files that populate the Streamlit Library section.
-- `streamlit-cloud/`Contains `.md` files that populate the Streamlit Community Cloud section.
 - `index.md` Contains text that populates the index page.
 - `menu.md` This is a special file containing only front matter that defines the docs Menu. You will need to add an entry on this file for each new page you create within the docs' site.
 
@@ -288,7 +295,3 @@ To publish your changes to the docs site:
 3. Once the checks have completed, checkout the Preview build.
 4. Snehan will review your changes and merge your changes into the `main` branch.
 5. Once merged, your changes will be live at [https://docs.streamlit.io/](https://docs.streamlit.io/).
-
-## Beginner Contribution Tips
-
-New contributors can help improve Streamlit documentation by fixing typos, improving clarity, and adding helpful examples. Documentation contributions are a great way to get started with open source.
