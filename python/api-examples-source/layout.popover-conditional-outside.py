@@ -5,4 +5,6 @@ with drawer:
     st.write("This is the popover")
 
 st.space("large")
-st.write(f"The popover is {':green[open]' if drawer.open else ':red[closed]'}.")
+st.write(
+    f"The popover is {':green[open]' if drawer.open else ':red[closed]'}."
+)

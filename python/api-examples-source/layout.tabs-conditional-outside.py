@@ -3,13 +3,13 @@ import streamlit as st
 cat, dog, owl = st.tabs(["Cat", "Dog", "Owl"], on_change="rerun")
 
 with cat:
-        st.write("This is the cat")
+    st.write("This is the cat")
 
 with dog:
-        st.write("This is the dog")
+    st.write("This is the dog")
 
 with owl:
-        st.write("This is the owl")
+    st.write("This is the owl")
 
 if cat.open:
     options = ["orange", "tuxie", "tortie"]
