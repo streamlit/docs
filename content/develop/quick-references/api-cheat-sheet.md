@@ -15,7 +15,7 @@ This is a summary of the docs for the latest version of Streamlit, [v1.55.0](htt
 
 #### Install & Import
 
-```python
+```python hideHeader
 pip install streamlit
 
 streamlit run first_app.py
@@ -30,7 +30,7 @@ streamlit run first_app.py
 
 #### Pre-release features
 
-```python
+```python hideHeader
 pip uninstall streamlit
 pip install streamlit-nightly --upgrade
 ```
@@ -43,7 +43,7 @@ Learn more about [experimental features](advanced-features/prerelease#experiment
 
 #### Command line
 
-```python
+```python hideHeader
 streamlit cache clear
 streamlit config show
 streamlit docs
@@ -64,7 +64,7 @@ streamlit version
 
 #### Magic commands
 
-```python
+```python hideHeader
 # Magic commands implicitly
 # call st.write().
 "_This_ is some **Markdown**"
@@ -79,7 +79,7 @@ my_variable
 
 #### Display text
 
-```python
+```python hideHeader
 st.write("Most objects") # df, err, func, keras!
 st.write(["st", "is <", 3])
 st.write_stream(my_generator)
@@ -102,7 +102,7 @@ st.html("<p>Hi!</p>")
 
 #### Display data
 
-```python
+```python hideHeader
 st.dataframe(my_dataframe)
 st.table(data.iloc[0:10])
 st.json({"foo":"bar","fu":"ba"})
@@ -116,7 +116,7 @@ st.metric("My metric", 42, 2)
 
 #### Display media
 
-```python
+```python hideHeader
 st.image("./header.png")
 st.logo("logo.jpg")
 st.pdf("my_document.pdf")
@@ -131,7 +131,7 @@ st.video(data, subtitles="./subs.vtt")
 
 #### Display charts
 
-```python
+```python hideHeader
 st.area_chart(df)
 st.bar_chart(df)
 st.bar_chart(df, horizontal=True)
@@ -170,7 +170,7 @@ To use Bokeh, see our custom component [`streamlit-bokeh`](https://github.com/st
 
 #### Add elements to sidebar
 
-```python
+```python hideHeader
 # Just add it after st.sidebar:
 a = st.sidebar.radio("Select one:", [1, 2])
 
@@ -185,7 +185,7 @@ with st.sidebar:
 
 #### Columns
 
-```python
+```python hideHeader
 # Two equal columns:
 col1, col2 = st.columns(2)
 col1.write("This is column 1")
@@ -209,7 +209,7 @@ with col1:
 
 #### Tabs
 
-```python
+```python hideHeader
 # Insert containers separated into tabs:
 tab1, tab2 = st.tabs(["Tab 1", "Tab2"])
 tab1.write("this is tab 1")
@@ -226,7 +226,7 @@ with tab1:
 
 #### Expandable containers
 
-```python
+```python hideHeader
 expand = st.expander("My label", icon=":material/info:")
 expand.write("Inside the expander.")
 pop = st.popover("Button label")
@@ -243,7 +243,7 @@ with expand:
 
 #### Control flow
 
-```python
+```python hideHeader
 # Stop execution immediately:
 st.stop()
 # Rerun script immediately:
@@ -252,10 +252,10 @@ st.rerun()
 st.switch_page("pages/my_page.py")
 
 # Define a navigation widget in your entrypoint file
-pg = st.navigation(
+pg = st.navigation([
     st.Page("page1.py", title="Home", url_path="home", default=True),
     st.Page("page2.py", title="Preferences", url_path="settings"),
-)
+])
 pg.run()
 
 # Group multiple widgets:
@@ -287,7 +287,7 @@ fragment_function()
 
 #### Display interactive widgets
 
-```python
+```python hideHeader
 st.button("Click me")
 st.download_button("Download file", data)
 st.link_button("Go to gallery", url)
@@ -332,7 +332,7 @@ st.slider("Pick a number", 0, 100, disabled=True)
 
 #### Build chat-based apps
 
-```python
+```python hideHeader
 # Insert a chat message container.
 with st.chat_message("user"):
     st.write("Hello 👋")
@@ -354,7 +354,7 @@ Learn how to [Build a basic LLM chat app](/develop/tutorials/llms/build-conversa
 
 #### Mutate data
 
-```python
+```python hideHeader
 # Add rows to a dataframe after
 # showing it.
 element = st.dataframe(df1)
@@ -372,7 +372,7 @@ element.add_rows(df2)
 
 #### Display code
 
-```python
+```python hideHeader
 with st.echo():
     st.write("Code will be executed and printed")
 ```
@@ -383,7 +383,7 @@ with st.echo():
 
 #### Placeholders, help, and options
 
-```python
+```python hideHeader
 # Replace any single element.
 element = st.empty()
 element.line_chart(...)
@@ -420,7 +420,7 @@ st.html("<p>Hi!</p>")
 
 #### Connect to data sources
 
-```python
+```python hideHeader
 st.connection("pets_db", type="sql")
 conn = st.connection("sql")
 conn = st.connection("snowflake")
@@ -440,7 +440,7 @@ class MyConnection(BaseConnection[myconn.MyConnection]):
 
 ###### Cache data objects
 
-```python
+```python hideHeader
 # E.g. Dataframe computation, storing downloaded data, etc.
 @st.cache_data
 def foo(bar):
@@ -463,7 +463,7 @@ st.cache_data.clear()
 
 ###### Cache global resources
 
-```python
+```python hideHeader
 # E.g. TensorFlow session, database connection, etc.
 @st.cache_resource
 def foo(bar):
@@ -490,7 +490,7 @@ st.cache_resource.clear()
 
 #### Display progress and status
 
-```python
+```python hideHeader
 # Show a spinner during a process
 with st.spinner(text="In progress"):
     time.sleep(3)
@@ -522,7 +522,7 @@ st.exception(e)
 
 #### Personalize apps for users
 
-```python
+```python hideHeader
 # Authenticate users
 if not st.user.is_logged_in:
     st.login("my_provider")
