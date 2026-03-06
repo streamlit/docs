@@ -105,11 +105,31 @@ site_menu:
   - category: Develop / Concepts / Custom components / Components v2
     url: /develop/concepts/custom-components/components-v2
   - category: Develop / Concepts / Custom components / Components v2 / Quickstart examples
-    url: /develop/concepts/custom-components/components-v2/quickstart
-  - category: Develop / Concepts / Custom components / Components v2 / Create components
-    url: /develop/concepts/custom-components/components-v2/create
+    url: /develop/concepts/custom-components/components-v2/examples
+  - category: Develop / Concepts / Custom components / Components v2 / Quickstart examples / Hello world
+    url: /develop/concepts/custom-components/components-v2/examples/hello-world
+  - category: Develop / Concepts / Custom components / Components v2 / Quickstart examples / Rich data
+    url: /develop/concepts/custom-components/components-v2/examples/rich-data
+  - category: Develop / Concepts / Custom components / Components v2 / Quickstart examples / Simple button
+    url: /develop/concepts/custom-components/components-v2/examples/simple-button
+  - category: Develop / Concepts / Custom components / Components v2 / Quickstart examples / Simple checkbox
+    url: /develop/concepts/custom-components/components-v2/examples/simple-checkbox
+  - category: Develop / Concepts / Custom components / Components v2 / Quickstart examples / Interactive counter
+    url: /develop/concepts/custom-components/components-v2/examples/interactive-counter
+  - category: Develop / Concepts / Custom components / Components v2 / Quickstart examples / Text input
+    url: /develop/concepts/custom-components/components-v2/examples/text-input
+  - category: Develop / Concepts / Custom components / Components v2 / Quickstart examples / Danger button
+    url: /develop/concepts/custom-components/components-v2/examples/danger-button
+  - category: Develop / Concepts / Custom components / Components v2 / Quickstart examples / Radial menu
+    url: /develop/concepts/custom-components/components-v2/examples/radial-menu
+  - category: Develop / Concepts / Custom components / Components v2 / Registration
+    url: /develop/concepts/custom-components/components-v2/register
+  - category: Develop / Concepts / Custom components / Components v2 / Mounting
+    url: /develop/concepts/custom-components/components-v2/mount
   - category: Develop / Concepts / Custom components / Components v2 / State vs trigger values
     url: /develop/concepts/custom-components/components-v2/state-and-triggers
+  - category: Develop / Concepts / Custom components / Components v2 / Bidirectional communication
+    url: /develop/concepts/custom-components/components-v2/communicate
   - category: Develop / Concepts / Custom components / Components v2 / Theming and styling
     url: /develop/concepts/custom-components/components-v2/theming
   - category: Develop / Concepts / Custom components / Components v2 / Package-based components
