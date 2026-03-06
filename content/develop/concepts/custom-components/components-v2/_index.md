@@ -7,13 +7,13 @@ keywords: custom components v2, next generation components, bidirectional commun
 
 # Custom components v2
 
-Components v2 represents a reimagining of how custom components work in Streamlit. It's designed to unlock new capabilities and dramatically simplify the development experience. For command reference, see the [API Reference](/develop/api-reference/custom-components).
+Components v2 represents a reimagining of how custom components work in Streamlit. It's designed to unlock new capabilities and dramatically simplify the development experience. To view the command reference, see the [API Reference](/develop/api-reference/custom-components).
 
 ## Getting started
 
 <TileContainer>
 
-<RefCard href="/develop/concepts/custom-components/components-v2/quickstart">
+<RefCard href="/develop/concepts/custom-components/components-v2/examples">
 
 <h4>Quickstart examples</h4>
 
@@ -21,11 +21,27 @@ Get started quickly with practical examples showing interactive buttons, data ex
 
 </RefCard>
 
-<RefCard href="/develop/concepts/custom-components/components-v2/create">
+<RefCard href="/develop/concepts/custom-components/components-v2/register">
 
-<h4>Create components</h4>
+<h4>Component registration</h4>
 
-Learn the basics of registering and mounting v2 components with inline development.
+Define your component's structure with HTML, CSS, and JavaScript.
+
+</RefCard>
+
+<RefCard href="/develop/concepts/custom-components/components-v2/mount">
+
+<h4>Component mounting</h4>
+
+Create instances of your component in your app and handle their output.
+
+</RefCard>
+
+<RefCard href="/develop/concepts/custom-components/components-v2/communicate">
+
+<h4>Bidirectional communication</h4>
+
+Exchange data between your component and Python.
 
 </RefCard>
 
@@ -39,7 +55,7 @@ Understand the two communication mechanisms for building interactive components.
 
 <RefCard href="/develop/concepts/custom-components/components-v2/theming">
 
-<h4>Theming & styling</h4>
+<h4>Theming and styling</h4>
 
 Make your components look great with Streamlit's theme integration and CSS custom properties.
 
@@ -64,4 +80,4 @@ If you have existing v1 components, check out these migration examples:
 
 ## What's next?
 
-Ready to build your first v2 component? Start with the [Quickstart examples](/develop/concepts/custom-components/components-v2/quickstart) to see practical implementations, then dive into the [Create components](/develop/concepts/custom-components/components-v2/create) guide to learn the fundamentals.
+Ready to build your first v2 component? Start with the [Quickstart examples](/develop/concepts/custom-components/components-v2/examples) to see practical implementations, then learn about [Component registration](/develop/concepts/custom-components/components-v2/register) and [Component mounting](/develop/concepts/custom-components/components-v2/mount) to understand the fundamentals.

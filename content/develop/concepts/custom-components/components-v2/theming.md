@@ -543,4 +543,4 @@ Now that you understand theming and styling:
 
 - Explore [Package-based components](/develop/concepts/custom-components/components-v2/package-based) for advanced development workflows.
 - Learn about [State vs triggers](/develop/concepts/custom-components/components-v2/state-and-triggers) for interactive components.
-- Check out the [Create components](/develop/concepts/custom-components/components-v2/create) guide for more examples.
+- Check out the [Quickstart examples](/develop/concepts/custom-components/components-v2/examples) for more examples.
