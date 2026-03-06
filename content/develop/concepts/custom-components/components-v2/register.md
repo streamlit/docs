@@ -2,7 +2,7 @@
 title: Component registration
 slug: /develop/concepts/custom-components/components-v2/register
 description: Learn how to register custom v2 components with HTML, CSS, and JavaScript to define their structure and behavior.
-keywords: custom components v2, component registration, st.components.v2.component, HTML, CSS, JavaScript, ComponentArgs
+keywords: custom components v2, component registration, st.components.v2.component, HTML, CSS, JavaScript, FrontendRendererArgs
 ---
 
 # Component registration
@@ -10,7 +10,7 @@ keywords: custom components v2, component registration, st.components.v2.compone
 When you register your component, you define what it looks like and how it behaves:
 
 - To define your component's HTML, CSS, and JavaScript, use [`st.components.v2.component()`](/develop/api-reference/custom-components/st.components.v2.component).
-- In your component's JavaScript code, to send and receive communications with Python, use the properties of the [`ComponentArgs`](/develop/api-reference/custom-components/component-v2-lib-componentargs) type.
+- In your component's JavaScript code, to send and receive communications with Python, use the properties of the [`FrontendRendererArgs`](/develop/api-reference/custom-components/component-v2-lib-frontendrendererargs) type.
 - In your component's CSS, to make your component theme-aware, use [CSS custom properties](/develop/concepts/custom-components/components-v2/theming#css-custom-properties).
 
 For simplicity and to help you get started with less prerequisite knowledge, this guide uses inline component development. For components that are larger, reusable, or distributed, you should use package-based development. The practical difference is that package-based components let you self-host assets and reference those assets, including component code, by a relative path. Contrastingly, inline components require you to pass raw HTML, CSS, and JavaScript code to your component registration command.
@@ -87,7 +87,7 @@ export default function (component) {
 }
 ```
 
-The `component` argument in your exported default function provides essential properties described in the [`ComponentArgs`](/develop/api-reference/custom-components/component-v2-lib-componentargs) type. These properties are typically destructured into local variables for easier access:
+The `component` argument in your exported default function provides essential properties described in the [`FrontendRendererArgs`](/develop/api-reference/custom-components/component-v2-lib-frontendrendererargs) type. These properties are typically destructured into local variables for easier access:
 
 ```javascript
 export default function (component) {

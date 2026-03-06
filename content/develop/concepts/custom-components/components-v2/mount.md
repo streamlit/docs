@@ -2,7 +2,7 @@
 title: Component mounting
 slug: /develop/concepts/custom-components/components-v2/mount
 description: Learn how to mount custom v2 components in your Streamlit app, pass data, handle callbacks, and access component values.
-keywords: custom components v2, component mounting, BidiComponentCallable, key, data, default, callbacks, component values
+keywords: custom components v2, component mounting, ComponentRenderer, key, data, default, callbacks, component values
 ---
 
 # Component mounting
@@ -89,7 +89,7 @@ result = simple_component(
 
 ## Mounting parameters
 
-All mounting parameters are keyword-only and optional. The available parameters are documented in the [`BidiComponentCallable`](/develop/api-reference/custom-components/st.components.v2.types.bidicomponentcallable) class.
+All mounting parameters are keyword-only and optional. The available parameters are documented in the [`ComponentRenderer`](/develop/api-reference/custom-components/st.components.v2.types.componentrenderer) class.
 
 ### Component identity (`key`)
 
@@ -119,7 +119,7 @@ If you remove the key from the second instance, you would get a `StreamlitDuplic
 
 <Note>
 
-The `key` property available in JavaScript in the `ComponentArgs` type isn't the same as the Python `key` parameter. On the frontend, the JavaScript `key` is a dynamically generated identifier that is only usable for a specific instance of the component. For example, the JavaScript `key` will change if you mount a component, navigate away from the page, and then navigate back to remount it.
+The `key` property available in JavaScript in the `FrontendRendererArgs` type isn't the same as the Python `key` parameter. On the frontend, the JavaScript `key` is a dynamically generated identifier that is only usable for a specific instance of the component. For example, the JavaScript `key` will change if you mount a component, navigate away from the page, and then navigate back to remount it.
 
 </Note>
 
@@ -253,7 +253,7 @@ You can access the state and trigger values of a component through the mounting 
 
 ### Component return value
 
-Component mounting commands return a [`BidiComponentResult`](/develop/api-reference/custom-components/st.components.v2.types.bidicomponentresult) object that provides access to state and trigger values. You can access each state or trigger value as an attribute of the result object.
+Component mounting commands return a [`BidiComponentResult`](/develop/api-reference/custom-components/st.components.v2.types.componentrenderer) object that provides access to state and trigger values. You can access each state or trigger value as an attribute of the result object.
 
 ```python
 result = my_component(on_action_change=lambda: None)

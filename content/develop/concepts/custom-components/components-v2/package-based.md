@@ -221,10 +221,10 @@ Create a type-safe component using the official TypeScript library:
 
 ```typescript
 // src/index.ts
-import { Component, ComponentState } from "@streamlit/component-v2-lib";
+import { FrontendRenderer, FrontendState } from "@streamlit/component-v2-lib";
 
 /** The state/trigger values this component maintains */
-interface MyComponentState extends ComponentState {
+interface MyComponentState extends FrontendState {
   count: number;
   lastAction: string;
 }
@@ -236,7 +236,7 @@ interface MyComponentData {
   theme: "light" | "dark";
 }
 
-const MyComponent: Component<MyComponentState, MyComponentData> = (
+const MyComponent: FrontendRenderer<MyComponentState, MyComponentData> = (
   component,
 ) => {
   const { data, setStateValue, setTriggerValue, parentElement } = component;
@@ -306,13 +306,13 @@ Here's an example using Chart.js for data visualization:
 
 ```typescript
 // src/chart-component.ts
-import { Component, ComponentState } from "@streamlit/component-v2-lib";
+import { FrontendRenderer, FrontendState } from "@streamlit/component-v2-lib";
 import { Chart, ChartConfiguration, registerables } from "chart.js";
 
 // Register Chart.js components
 Chart.register(...registerables);
 
-interface ChartComponentState extends ComponentState {
+interface ChartComponentState extends FrontendState {
   selectedDataPoint: number | null;
 }
 
@@ -332,9 +332,10 @@ interface ChartComponentData {
   title?: string;
 }
 
-const ChartComponent: Component<ChartComponentState, ChartComponentData> = (
-  component,
-) => {
+const ChartComponent: FrontendRenderer<
+  ChartComponentState,
+  ChartComponentData
+> = (component) => {
   const { data, setStateValue, setTriggerValue, parentElement } = component;
 
   // Create canvas element
