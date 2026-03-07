@@ -331,7 +331,7 @@ code[class*="language-diff-"] .token.prefix {
 .diff-markers {
   display: flex;
   flex-direction: column;
-  z-index: theme("zIndex.header");
+  z-index: theme("zIndex.overlay_code");
 }
 
 .diff-markers span {

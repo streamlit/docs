@@ -6,6 +6,7 @@ import "prismjs/plugins/line-highlight/prism-line-highlight";
 import "prismjs/plugins/line-highlight/prism-line-highlight.css";
 import "prismjs/plugins/toolbar/prism-toolbar";
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
+
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 import "prismjs/plugins/diff-highlight/prism-diff-highlight";
 import "prismjs/plugins/diff-highlight/prism-diff-highlight.css";
@@ -177,9 +178,7 @@ function getCleanDiffText(textContent) {
   return textContent
     .split(/\r?\n/)
     .filter((line) => !line.startsWith("-"))
-    .map((line) =>
-      line.startsWith("+") || line.startsWith(" ") ? line.substring(1) : line,
-    )
+    .map((line) => line.substring(1))
     .join("\n");
 }
 
@@ -205,7 +204,7 @@ function addDiffMarkers(container, codeElement) {
     } else if (line.startsWith("-")) {
       span.textContent = "\u2212";
       span.className = "diff-marker-delete";
-    } else {
+    } else if (line.startsWith("=")) {
       span.textContent = "\u00A0";
     }
     markerEl.appendChild(span);
@@ -283,6 +282,23 @@ async function highlightElement(
             console.error(`Prism doesn't support this language: ${lang}`);
           }
         }
+      }
+      if (!Prism.languages.diff["unchanged-equal"]) {
+        Prism.languages.diff["unchanged-equal"] = {
+          pattern: /^(?:=.*(?:\r\n?|\n|(?![\s\S])))+/m,
+          alias: ["unchanged"],
+          inside: {
+            line: {
+              pattern: /(.)(?=[\s\S]).*(?:\r\n?|\n)?/,
+              lookbehind: true,
+            },
+            prefix: {
+              pattern: /[\s\S]/,
+              alias: "unchanged",
+            },
+          },
+        };
+        Prism.languages.diff.PREFIXES["unchanged-equal"] = "=";
       }
       languageImports.set(importLanguage, true);
     } else if (!languageImports.has(importLanguage)) {
