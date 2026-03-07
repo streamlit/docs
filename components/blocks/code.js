@@ -173,6 +173,52 @@ const Code = ({
   );
 };
 
+function getCleanDiffText(textContent) {
+  return textContent
+    .split(/\r?\n/)
+    .filter((line) => !line.startsWith("-"))
+    .map((line) =>
+      line.startsWith("+") || line.startsWith(" ") ? line.substring(1) : line,
+    )
+    .join("\n");
+}
+
+function overrideDiffCopyButton(container, codeElement) {
+  const copyButton = container.querySelector(".copy-to-clipboard-button");
+  if (!copyButton) return;
+
+  const timeout =
+    parseInt(codeElement.getAttribute("data-prismjs-copy-timeout")) || 5000;
+
+  const newButton = copyButton.cloneNode(true);
+  copyButton.parentNode.replaceChild(newButton, copyButton);
+
+  newButton.addEventListener("click", async () => {
+    const cleanText = getCleanDiffText(codeElement.textContent);
+    const span = newButton.querySelector("span");
+
+    try {
+      await navigator.clipboard.writeText(cleanText);
+      if (span) {
+        span.textContent = "Copied!";
+        newButton.setAttribute("data-copy-state", "copy-success");
+      }
+    } catch {
+      if (span) {
+        span.textContent = "Press Ctrl+C to copy";
+        newButton.setAttribute("data-copy-state", "copy-error");
+      }
+    }
+
+    if (span) {
+      setTimeout(() => {
+        span.textContent = "Copy";
+        newButton.setAttribute("data-copy-state", "copy");
+      }, timeout);
+    }
+  });
+}
+
 async function highlightElement(
   importLanguage,
   languageImports,
@@ -180,9 +226,10 @@ async function highlightElement(
   hideCopyButton,
 ) {
   if (typeof window !== "undefined") {
-    const diffMatch = importLanguage.match(/^diff-([\w-]+)$/);
-    if (diffMatch) {
-      for (const lang of ["diff", diffMatch[1]]) {
+    const isDiff = importLanguage.startsWith("diff-");
+    if (isDiff) {
+      const baseLang = importLanguage.substring(5);
+      for (const lang of ["diff", baseLang]) {
         if (!languageImports.has(lang)) {
           try {
             await import(`prismjs/components/prism-${lang}`);
@@ -202,16 +249,17 @@ async function highlightElement(
       }
     }
 
-    // Highlight the code block and conditionally enable toolbar plugins (including copy button)
     if (codeElement) {
-      // First highlight the element
       Prism.highlightElement(codeElement);
 
-      // Then activate toolbar plugins on the parent container if copy button is not hidden
       if (!hideCopyButton) {
         const container = codeElement.closest(`.${styles.Container}`);
         if (container) {
           Prism.highlightAllUnder(container);
+
+          if (isDiff) {
+            overrideDiffCopyButton(container, codeElement);
+          }
         }
       }
     }
