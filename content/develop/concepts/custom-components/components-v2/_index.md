@@ -65,7 +65,7 @@ Make your components look great with Streamlit's theme integration and CSS custo
 
 <h4>Package-based components</h4>
 
-Build complex components with modern frontend tooling, TypeScript, and external dependencies.
+Build distributable components with TypeScript, external dependencies, and the official component template.
 
 </RefCard>
 
