@@ -59,6 +59,14 @@ Build simple apps and walk through examples to learn about Streamlit's core feat
 
 </RefCard>
 
+<RefCard href="/develop/tutorials/custom-components">
+
+<h5>Build custom components</h5>
+
+Build package-based custom components with the official component template.
+
+</RefCard>
+
 <RefCard href="/develop/tutorials/multipage">
 
 <h5>Create multipage apps</h5>
