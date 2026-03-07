@@ -244,7 +244,7 @@ You need two terminals running in parallel for development. The following steps 
 
 1. View your running app.
 
-   You should two instances of the component running in your browser. Each instance has a "Hello, World!" heading and a "Click Me!" button. The second instance passes a different name to the component from an `st.text_input` widget above it.
+   You should see a "Hello, World!" heading with a "Click Me!" button. Clicking the button increments a counter that's sent back to Python. An `st.text_input` lets you specify a name which is passed to a second instance of the component.
 
 ## Understand the generated code
 
@@ -288,7 +288,7 @@ Now that the component is running, walk through each file to understand how it w
    This file does two things:
    - **Registers the component** with `st.components.v2.component()`. The first argument is a qualified name (`"<package-name>.<component-name>"`) where `<package-name>` matches the `name` field in the project-level `pyproject.toml` and `<component-name>` matches the `name` field in the component-level `pyproject.toml`. The other two arguments point to the frontend assets: `js` is a glob pattern that matches the JavaScript bundle produced by Vite. `html` provides the initial markup that's rendered before the JavaScript loads.
 
-   - **Defines a wrapper function** (`my_component`) that provides a clean API. The wrapper calls the raw component with `data`, `default`, and callback parameters. This pattern is optional but recommended. For more about these parameters, see [Component mounting](/develop/concepts/custom-components/components-v2/mount).
+   - **Defines a wrapper function** (`my_click_counter`) that provides a clean API. The wrapper calls the raw component with `data`, `default`, and callback parameters. This pattern is optional but recommended. For more about these parameters, see [Component mounting](/develop/concepts/custom-components/components-v2/mount).
 
 1. Open `my_click_counter/frontend/src/index.ts`:
 
@@ -543,7 +543,7 @@ When you're ready to share your component, create a production build.
 1. Navigate to the project root and build the Python wheel:
 
    ```bash
-   cd ../../..
+   cd ../..
    uv build
    ```
 

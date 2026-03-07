@@ -180,38 +180,23 @@ const MyComponent: FC<MyComponentProps> = ({
   );
 
   return (
-    <div style={{ fontFamily: "var(--st-font)", color: "var(--st-text-color)" }}>
+    <div>
       <h2>Hello, {name}!</h2>
-      <button
-        onClick={onClicked}
-        style={{
-          background: "var(--st-primary-color)",
-          color: "white",
-          border: "none",
-          borderRadius: "var(--st-button-radius)",
-          padding: "0.5rem 1rem",
-          cursor: "pointer",
-        }}
-      >
+      <button onClick={onClicked} style={{ cursor: "pointer" }}>
         Clicked {numClicks} times
       </button>
       {items && items.length > 0 && (
-        <ul style={{ listStyle: "none", padding: 0, marginTop: "1rem" }}>
+        <ul>
           {items.map((item) => (
             <li
               key={item}
               onClick={() => onItemSelected(item)}
               style={{
-                padding: "0.5rem 1rem",
-                margin: "0.25rem 0",
+                cursor: "pointer",
                 background:
                   selectedItem === item
                     ? "var(--st-primary-color)"
                     : "var(--st-secondary-background-color)",
-                color: selectedItem === item ? "white" : "inherit",
-                borderRadius: "var(--st-base-radius)",
-                cursor: "pointer",
-                border: `1px solid var(--st-border-color)`,
               }}
             >
               {item}
@@ -320,11 +305,44 @@ You need two terminals running in parallel for development. The following steps 
 
 1. View your running app.
 
-   You should see a "Hello, World!" heading with a "Click Me!" button. Clicking the button increments a counter that's sent back to Python.
+   You should see a "Hello, World!" heading with a "Click Me!" button. Clicking the button increments a counter that's sent back to Python. An `st.text_input` lets you specify a name which is passed to a second instance of the component.
 
 ## Understand the generated code
 
-The Python side (`__init__.py` and `pyproject.toml` files) is identical to the Pure TypeScript template. See [Package-based components](/develop/concepts/custom-components/components-v2/package-based#understanding-the-project-structure) for details on those files. This section focuses on the React-specific frontend code.
+Now that the component is running, walk through each file to understand how it works.
+
+1. Open `my_click_counter/__init__.py`:
+
+   ```python
+   import streamlit as st
+
+   out = st.components.v2.component(
+       "my-react-counter.my_react_counter",
+       js="index-*.js",
+       html='<div class="react-root"></div>',
+   )
+
+
+   def on_num_clicks_change():
+       pass
+
+
+   def my_react_counter(name, key=None):
+       component_value = out(
+           name=name,
+           key=key,
+           default={"num_clicks": 0},
+           data={"name": name},
+           on_num_clicks_change=on_num_clicks_change,
+       )
+
+       return component_value
+   ```
+
+   This file does two things:
+   - **Registers the component** with `st.components.v2.component()`. The first argument is a qualified name (`"<package-name>.<component-name>"`) where `<package-name>` matches the `name` field in the project-level `pyproject.toml` and `<component-name>` matches the `name` field in the component-level `pyproject.toml`. The other two arguments point to the frontend assets: `js` is a glob pattern that matches the JavaScript bundle produced by Vite. `html` provides the root `<div>` that React mounts into.
+
+   - **Defines a wrapper function** (`my_react_counter`) that provides a clean API. The wrapper calls the raw component with `data`, `default`, and callback parameters. This pattern is optional but recommended. For more about these parameters, see [Component mounting](/develop/concepts/custom-components/components-v2/mount).
 
 1. Open `my_react_counter/frontend/src/index.tsx`:
 
@@ -341,10 +359,8 @@ The Python side (`__init__.py` and `pyproject.toml` files) is identical to the P
      MyComponentStateShape,
    } from "./MyComponent";
 
-   const reactRoots: WeakMap<
-     FrontendRendererArgs["parentElement"],
-     Root
-   > = new WeakMap();
+   const reactRoots: WeakMap<FrontendRendererArgs["parentElement"], Root> =
+     new WeakMap();
 
    const MyComponentRoot: FrontendRenderer<
      MyComponentStateShape,
@@ -353,6 +369,7 @@ The Python side (`__init__.py` and `pyproject.toml` files) is identical to the P
      const { data, parentElement, setStateValue } = args;
 
      const rootElement = parentElement.querySelector(".react-root");
+
      if (!rootElement) {
        throw new Error("Unexpected: React root element not found");
      }
@@ -367,12 +384,13 @@ The Python side (`__init__.py` and `pyproject.toml` files) is identical to the P
 
      reactRoot.render(
        <StrictMode>
-         <MyComponent name={name} setStateValue={setStateValue} />
+         <MyComponent setStateValue={setStateValue} name={name} />
        </StrictMode>,
      );
 
      return () => {
        const reactRoot = reactRoots.get(parentElement);
+
        if (reactRoot) {
          reactRoot.unmount();
          reactRoots.delete(parentElement);
@@ -383,9 +401,9 @@ The Python side (`__init__.py` and `pyproject.toml` files) is identical to the P
    export default MyComponentRoot;
    ```
 
-   This file is the bridge between Streamlit's component lifecycle and React. The pattern is different from a typical React app:
-   - **React root management**: Streamlit calls your `FrontendRenderer` function on every re-render (whenever `data` changes). You can't create a new React root each time; instead, the `WeakMap` stores one root per component instance (keyed by `parentElement`). On the first call, it creates the root. On subsequent calls, it re-renders into the existing root.
-   - **Passing props**: The bridge extracts `data` and `setStateValue` from Streamlit's args and passes them as React props to `MyComponent`. This is where you decide which Streamlit args your React component needs.
+   This file bridges Streamlit's component lifecycle and React. Because Streamlit calls your `FrontendRenderer` function on every re-render (whenever `data` changes), the pattern is different from a typical React app:
+   - **React root management**: You can't create a new React root each time Streamlit calls your function. Instead, the `WeakMap` stores one root per component instance, keyed by `parentElement`. On the first call, it creates the root. On subsequent calls, it re-renders into the existing root.
+   - **Passing props**: `MyComponentRoot` extracts `data` and `setStateValue` from Streamlit's args and passes them as React props to `MyComponent`. This is where you decide which Streamlit args your React component needs.
    - **Cleanup**: The returned function unmounts the React root when Streamlit removes the component from the page.
 
 1. Open `my_react_counter/frontend/src/MyComponent.tsx`:
@@ -426,17 +444,29 @@ The Python side (`__init__.py` and `pyproject.toml` files) is identical to the P
        const colorToUse = isFocused
          ? "var(--st-primary-color)"
          : "var(--st-gray-color)";
+
+       const borderStyling = `1px solid ${colorToUse}`;
+
        return {
-         border: `1px solid ${colorToUse}`,
-         outline: `1px solid ${colorToUse}`,
+         border: borderStyling,
+         outline: borderStyling,
        };
      }, [isFocused]);
 
      const onClicked = useCallback((): void => {
        const newNumClicks = numClicks + 1;
        setNumClicks(newNumClicks);
+
        setStateValue("num_clicks", newNumClicks);
      }, [numClicks, setStateValue]);
+
+     const onFocus = useCallback((): void => {
+       setIsFocused(true);
+     }, []);
+
+     const onBlur = useCallback((): void => {
+       setIsFocused(false);
+     }, []);
 
      return (
        <span>
@@ -444,8 +474,9 @@ The Python side (`__init__.py` and `pyproject.toml` files) is identical to the P
          <button
            style={style}
            onClick={onClicked}
-           onFocus={() => setIsFocused(true)}
-           onBlur={() => setIsFocused(false)}
+           // disabled={disabled}
+           onFocus={onFocus}
+           onBlur={onBlur}
          >
            Click Me!
          </button>
@@ -456,7 +487,7 @@ The Python side (`__init__.py` and `pyproject.toml` files) is identical to the P
    export default MyComponent;
    ```
 
-   This is a standard React functional component. Note the following:
+   This is a standard React functional component:
    - **Type-safe props**: `MyComponentProps` is constructed from `FrontendRendererArgs` using TypeScript's `Pick` utility type. This ensures the `setStateValue` prop is correctly typed for the component's state shape.
    - **React state management**: Local UI state (like `isFocused`) is managed with React's `useState` hook. This state is purely for the frontend and doesn't need to go back to Python.
    - **Communicating with Python**: When the button is clicked, `setStateValue("num_clicks", newNumClicks)` sends the count back to Streamlit. This triggers a Python rerun, just like in non-React components.
@@ -466,98 +497,134 @@ The Python side (`__init__.py` and `pyproject.toml` files) is identical to the P
 
 Now extend the template to render a dynamic list of items from Python data. This showcases something React does well: declaratively rendering lists with state.
 
-1. In `my_react_counter/frontend/src/MyComponent.tsx`, replace the file contents with the following:
+1. In `my_react_counter/frontend/src/MyComponent.tsx`, edit the file to add a list of items:
 
-   ```typescript
-   import { FrontendRendererArgs } from "@streamlit/component-v2-lib";
-   import { FC, ReactElement, useCallback, useState } from "react";
+   <Tip>
 
-   export type MyComponentStateShape = {
-     num_clicks: number;
-     selected_item: string | null;
-     item_clicked: string | null;
-   };
+   The copy button on the diff code blocks only copy the lines in the final result, not the deleted lines.
 
-   export type MyComponentDataShape = {
-     name: string;
-     items: string[];
-   };
+   </Tip>
 
-   export type MyComponentProps = Pick<
-     FrontendRendererArgs<MyComponentStateShape, MyComponentDataShape>,
-     "setStateValue" | "setTriggerValue"
-   > &
-     MyComponentDataShape;
-
-   const MyComponent: FC<MyComponentProps> = ({
-     name,
-     items,
-     setStateValue,
-     setTriggerValue,
-   }): ReactElement => {
-     const [numClicks, setNumClicks] = useState(0);
-     const [selectedItem, setSelectedItem] = useState<string | null>(null);
-
-     const onClicked = useCallback((): void => {
-       const newNumClicks = numClicks + 1;
-       setNumClicks(newNumClicks);
-       setStateValue("num_clicks", newNumClicks);
-     }, [numClicks, setStateValue]);
-
-     const onItemSelected = useCallback(
-       (item: string): void => {
-         setSelectedItem(item);
-         setStateValue("selected_item", item);
-         setTriggerValue("item_clicked", item);
-       },
-       [setStateValue, setTriggerValue],
-     );
-
-     return (
-       <div style={{ fontFamily: "var(--st-font)", color: "var(--st-text-color)" }}>
-         <h2>Hello, {name}!</h2>
-         <button
-           onClick={onClicked}
-           style={{
-             background: "var(--st-primary-color)",
-             color: "white",
-             border: "none",
-             borderRadius: "var(--st-button-radius)",
-             padding: "0.5rem 1rem",
-             cursor: "pointer",
-           }}
-         >
-           Clicked {numClicks} times
-         </button>
-         {items && items.length > 0 && (
-           <ul style={{ listStyle: "none", padding: 0, marginTop: "1rem" }}>
-             {items.map((item) => (
-               <li
-                 key={item}
-                 onClick={() => onItemSelected(item)}
-                 style={{
-                   padding: "0.5rem 1rem",
-                   margin: "0.25rem 0",
-                   background:
-                     selectedItem === item
-                       ? "var(--st-primary-color)"
-                       : "var(--st-secondary-background-color)",
-                   color: selectedItem === item ? "white" : "inherit",
-                   borderRadius: "var(--st-base-radius)",
-                   cursor: "pointer",
-                   border: `1px solid var(--st-border-color)`,
-                 }}
-               >
-                 {item}
-               </li>
-             ))}
-           </ul>
-         )}
-       </div>
-     );
-   };
-
-   export default MyComponent;
+   ```diff-typescript
+   =import { FrontendRendererArgs } from "@streamlit/component-v2-lib";
+   -import {
+   -  CSSProperties,
+   -  FC,
+   -  ReactElement,
+   -  useCallback,
+   -  useMemo,
+   -  useState,
+   -} from "react";
+   +import { FC, ReactElement, useCallback, useState } from "react";
+   =
+   =export type MyComponentStateShape = {
+   =  num_clicks: number;
+   +  selected_item: string | null;
+   +  item_clicked: string | null;
+   =};
+   =
+   =export type MyComponentDataShape = {
+   =  name: string;
+   +  items: string[];
+   =};
+   =
+   =export type MyComponentProps = Pick<
+   =  FrontendRendererArgs<MyComponentStateShape, MyComponentDataShape>,
+   -  "setStateValue"
+   +  "setStateValue" | "setTriggerValue"
+   => &
+   =  MyComponentDataShape;
+   =
+   =const MyComponent: FC<MyComponentProps> = ({
+   =  name,
+   +  items,
+   =  setStateValue,
+   +  setTriggerValue,
+   =}): ReactElement => {
+   -  const [isFocused, setIsFocused] = useState(false);
+   =  const [numClicks, setNumClicks] = useState(0);
+   +  const [selectedItem, setSelectedItem] = useState<string | null>(null);
+   -
+   -  const style = useMemo<CSSProperties>(() => {
+   -    const colorToUse = isFocused
+   -      ? "var(--st-primary-color)"
+   -      : "var(--st-gray-color)";
+   -
+   -    const borderStyling = `1px solid ${colorToUse}`;
+   -
+   -    return {
+   -      border: borderStyling,
+   -      outline: borderStyling,
+   -    };
+   -  }, [isFocused]);
+   =
+   =  const onClicked = useCallback((): void => {
+   =    const newNumClicks = numClicks + 1;
+   =    setNumClicks(newNumClicks);
+   =    setStateValue("num_clicks", newNumClicks);
+   =  }, [numClicks, setStateValue]);
+   =
+   -  const onFocus = useCallback((): void => {
+   -    setIsFocused(true);
+   -  }, []);
+   -
+   -  const onBlur = useCallback((): void => {
+   -    setIsFocused(false);
+   -  }, []);
+   -
+   -  return (
+   -    <span>
+   -      <h1>Hello, {name}!</h1>
+   -      <button
+   -        style={style}
+   -        onClick={onClicked}
+   -        // disabled={disabled}
+   -        onFocus={onFocus}
+   -        onBlur={onBlur}
+   -      >
+   -        Click Me!
+   -      </button>
+   -    </span>
+   -  );
+   +  const onItemSelected = useCallback(
+   +    (item: string): void => {
+   +      setSelectedItem(item);
+   +      setStateValue("selected_item", item);
+   +      setTriggerValue("item_clicked", item);
+   +    },
+   +    [setStateValue, setTriggerValue],
+   +  );
+   +
+   +  return (
+   +    <div>
+   +      <h2>Hello, {name}!</h2>
+   +      <button onClick={onClicked} style={{ cursor: "pointer" }}>
+   +        Clicked {numClicks} times
+   +      </button>
+   +      {items && items.length > 0 && (
+   +        <ul>
+   +          {items.map((item) => (
+   +            <li
+   +              key={item}
+   +              onClick={() => onItemSelected(item)}
+   +              style={{
+   +                cursor: "pointer",
+   +                background:
+   +                  selectedItem === item
+   +                    ? "var(--st-primary-color)"
+   +                    : "var(--st-secondary-background-color)",
+   +              }}
+   +            >
+   +              {item}
+   +            </li>
+   +          ))}
+   +        </ul>
+   +      )}
+   +    </div>
+   +  );
+   =};
+   =
+   =export default MyComponent;
    ```
 
 1. In `my_react_counter/frontend/src/index.tsx`, make the following changes to pass the new props:
@@ -567,12 +634,6 @@ Now extend the template to render a dynamic list of items from Python data. This
    -  const { data, parentElement, setStateValue } = args;
    +  const { data, parentElement, setStateValue, setTriggerValue } = args;
    ```
-
-   <Tip>
-
-   The copy button on the diff code blocks only copy the lines in the final result, not the deleted lines.
-
-   </Tip>
 
    ```diff-typescript
    -  const { name } = data;
@@ -656,7 +717,7 @@ When you're ready to share your component, create a production build.
 1. Navigate to the project root and build the Python wheel:
 
    ```bash
-   cd ../../..
+   cd ../..
    uv build
    ```
 
