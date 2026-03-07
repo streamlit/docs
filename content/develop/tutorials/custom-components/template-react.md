@@ -11,18 +11,14 @@ In this tutorial, you'll use the official [component template](https://github.co
 
 ## Prerequisites
 
-- The following versions are required:
-
-  ```text
-  python>=3.10
-  node>=24
+- The following packages must be installed in your Python environment:
+  ```text hideHeader
   streamlit>=1.51.0
+  uv
   ```
-
-- [uv](https://docs.astral.sh/uv/) (recommended Python package manager)
-- npm (included with Node.js)
-- Familiarity with [React](https://react.dev/) basics (components, hooks, JSX)
-- Familiarity with [inline custom components](/develop/concepts/custom-components/components-v2/examples)
+- Node.js 24 or later must be installed. This includes npm, the package manager for JavaScript.
+- Familiarity with [React](https://react.dev/) basics (components, hooks, JSX) is recommended.
+- Familiarity with [inline custom components](/develop/concepts/custom-components/components-v2/examples) is recommended.
 
 ## Summary
 
@@ -145,6 +141,7 @@ import { FC, ReactElement, useCallback, useState } from "react";
 export type MyComponentStateShape = {
   num_clicks: number;
   selected_item: string | null;
+  item_clicked: string | null;
 };
 
 export type MyComponentDataShape = {
@@ -260,31 +257,33 @@ if result.item_clicked:
    uvx --from cookiecutter cookiecutter gh:streamlit/component-template --directory cookiecutter/v2
    ```
 
-1. Follow the interactive prompts. When asked for the framework, choose **React + Typescript**:
+1. Follow the interactive prompts. When asked for the framework, select **React + Typescript**:
 
-   ```
-   author_name [John Smith]: Your Name
-   author_email [john@example.com]: you@example.com
-   project_name [Streamlit Component X]: My React Counter
-   package_name [my-react-counter]:
-   import_name [my_react_counter]:
-   description [Streamlit component that allows you to do X]: A React-based counter component
-   Select open_source_license:
+   ```shell
+   [1/8] author_name (John Smith): Your Name
+   [2/8] author_email (john@example.com): you@example.com
+   [3/8] project_name (Streamlit Component X): My React Counter
+   [4/8] package_name (streamlit-component-x): my-react-counter
+   [5/8] import_name (streamlit_component_x): my_react_counter
+   [6/8] description (Streamlit component that allows you to do X): A React-based counter component
+   [7/8] Select open_source_license
      ...
-   Select framework:
-   1 - React + Typescript
-   2 - Pure Typescript
-   Choose from 1, 2 [1]: 1
+     Choose from [1/2/3/4/5/6](1): 1
+   [8/8] Select framework
+     1 - React + Typescript
+     2 - Pure Typescript
+     Choose from [1/2] (1): 1
    ```
 
    This creates a `my-react-counter/` directory with the following structure:
 
    ```
    my-react-counter/
-   ├── pyproject.toml
-   ├── LICENSE
-   ├── README.md
    ├── example.py
+   ├── LICENSE
+   ├── MANIFEST.in
+   ├── pyproject.toml
+   ├── README.md
    └── my_react_counter/
        ├── __init__.py
        ├── pyproject.toml
@@ -294,26 +293,20 @@ if result.item_clicked:
            ├── vite.config.ts
            └── src/
                ├── index.tsx
-               └── MyComponent.tsx
+               ├── MyComponent.tsx
+               └── vite-env.d.ts
    ```
 
    Notice the React template has two frontend source files instead of one: `index.tsx` handles integration with Streamlit's lifecycle, and `MyComponent.tsx` contains the React component.
 
 ## Run the template
 
-You need two terminals running in parallel for development.
+You need two terminals running in parallel for development. The following steps use `uv run` to run commands inside the project's virtual environment. If a `.venv` doesn't exist yet, `uv run` creates one automatically.
 
-1. In the first terminal, navigate into your new project directory and install the Python package in editable mode:
-
-   ```bash
-   cd my-react-counter
-   uv pip install -e .
-   ```
-
-1. In the same terminal, navigate to the frontend directory, install dependencies, and start the dev build watcher:
+1. In the first terminal, navigate to the frontend directory, install dependencies, and start the dev build watcher:
 
    ```bash
-   cd my_react_counter/frontend
+   cd my-react-counter/my_react_counter/frontend
    npm install
    npm run dev
    ```
@@ -322,7 +315,7 @@ You need two terminals running in parallel for development.
 
    ```bash
    cd my-react-counter
-   streamlit run example.py
+   uv run streamlit run example.py
    ```
 
 1. View your running app.
@@ -482,6 +475,7 @@ Now extend the template to render a dynamic list of items from Python data. This
    export type MyComponentStateShape = {
      num_clicks: number;
      selected_item: string | null;
+     item_clicked: string | null;
    };
 
    export type MyComponentDataShape = {
@@ -569,26 +563,32 @@ Now extend the template to render a dynamic list of items from Python data. This
 1. In `my_react_counter/frontend/src/index.tsx`, make the following changes to pass the new props:
 
    ```diff-typescript
-   > = (args) => {
-   -   const { data, parentElement, setStateValue } = args;
-   +   const { data, parentElement, setStateValue, setTriggerValue } = args;
+   => = (args) => {
+   -  const { data, parentElement, setStateValue } = args;
+   +  const { data, parentElement, setStateValue, setTriggerValue } = args;
    ```
 
-   ```diff-typescript
-   -   const { name } = data;
-   +   const { name, items } = data;
+   <Tip>
 
-       reactRoot.render(
-         <StrictMode>
-   -       <MyComponent name={name} setStateValue={setStateValue} />
-   +       <MyComponent
-   +         name={name}
-   +         items={items}
-   +         setStateValue={setStateValue}
-   +         setTriggerValue={setTriggerValue}
-   +       />
-         </StrictMode>,
-       );
+   The copy button on the diff code blocks only copy the lines in the final result, not the deleted lines.
+
+   </Tip>
+
+   ```diff-typescript
+   -  const { name } = data;
+   +  const { name, items } = data;
+   =
+   =  reactRoot.render(
+   =    <StrictMode>
+   -      <MyComponent name={name} setStateValue={setStateValue} />
+   +      <MyComponent
+   +        name={name}
+   +        items={items}
+   +        setStateValue={setStateValue}
+   +        setTriggerValue={setTriggerValue}
+   +      />
+   =    </StrictMode>,
+   =  );
    ```
 
 1. In `my_react_counter/__init__.py`, make the following changes to pass items and handle the new callbacks:
@@ -600,20 +600,22 @@ Now extend the template to render a dynamic list of items from Python data. This
    -
    -def my_component(name, key=None):
    +def my_component(name, items=None, key=None, on_item_clicked=lambda: None):
-       component_value = out(
-   -       name=name,
-           key=key,
-   -       default={"num_clicks": 0},
-   -       data={"name": name},
-   -       on_num_clicks_change=on_num_clicks_change,
-   +       default={"num_clicks": 0, "selected_item": None},
-   +       data={"name": name, "items": items or []},
-   +       on_num_clicks_change=lambda: None,
-   +       on_selected_item_change=lambda: None,
-   +       on_item_clicked_change=on_item_clicked,
-       )
-       return component_value
+   =    component_value = out(
+   -        name=name,
+   =        key=key,
+   -        default={"num_clicks": 0},
+   -        data={"name": name},
+   -        on_num_clicks_change=on_num_clicks_change,
+   +        default={"num_clicks": 0, "selected_item": None},
+   +        data={"name": name, "items": items or []},
+   +        on_num_clicks_change=lambda: None,
+   +        on_selected_item_change=lambda: None,
+   +        on_item_clicked_change=on_item_clicked,
+   =    )
+   =    return component_value
    ```
+
+   The wrapper now accepts `items` and an `on_item_clicked` callback (defaulting to `lambda: None`). Inside, `on_num_clicks_change` and `on_selected_item_change` use inline lambdas since nothing needs to happen for those events. `on_item_clicked_change` passes through the caller's callback so the app can react when an item is clicked.
 
 1. To exercise the new list feature, replace the contents of `example.py` with the following:
 
@@ -642,7 +644,9 @@ Now extend the template to render a dynamic list of items from Python data. This
 
 When you're ready to share your component, create a production build.
 
-1. In a terminal, navigate to the frontend directory and build the frontend:
+1. Stop the `npm run dev` watcher and the `streamlit run` process by pressing `Ctrl+C` in each terminal.
+
+1. In either terminal, navigate to the frontend directory and build the frontend:
 
    ```bash
    cd my-react-counter/my_react_counter/frontend
