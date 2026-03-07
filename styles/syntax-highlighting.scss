@@ -315,12 +315,11 @@ code[class*="language-diff-"] {
   min-width: 100%;
 }
 
-/* Diff blocks: make all line-level tokens block-level with positioning context */
+/* Diff blocks: make all line-level tokens block-level */
 code[class*="language-diff-"] > .token.deleted:not(.prefix),
 code[class*="language-diff-"] > .token.inserted:not(.prefix),
 code[class*="language-diff-"] > .token.unchanged:not(.prefix) {
   display: block;
-  position: relative;
 }
 
 /* Diff prefix: hidden; replaced by fixed markers added via JS */
