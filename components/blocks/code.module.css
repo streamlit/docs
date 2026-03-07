@@ -24,19 +24,46 @@
 /* Keep in sync with components/blocks/autofunction.module.css */
 .Pre {
   @apply p-6 text-white font-medium relative leading-relaxed;
-  -webkit-mask-image: linear-gradient(
+}
+
+/* Fade overlays on Container (outside scroll area so they don't scroll) */
+.Container::before,
+.Container::after {
+  content: "";
+  position: absolute;
+  bottom: 0.75rem;
+  width: 1.5rem;
+  @apply z-sidebar;
+  pointer-events: none;
+}
+
+.Container:has(.Header)::before,
+.Container:has(.Header)::after {
+  top: 2.5rem;
+}
+
+.Container:not(:has(.Header))::before,
+.Container:not(:has(.Header))::after {
+  top: 0;
+}
+
+.Container::before {
+  left: 0;
+  background: linear-gradient(
     to right,
-    transparent 0.375rem,
-    black 1.5rem,
-    black calc(100% - 1.5rem),
-    transparent calc(100% - 0.375rem)
+    theme("colors.gray.90"),
+    theme("colors.gray.90") 0.375rem,
+    transparent
   );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0.375rem,
-    black 1.5rem,
-    black calc(100% - 1.5rem),
-    transparent calc(100% - 0.375rem)
+}
+
+.Container::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    theme("colors.gray.90"),
+    theme("colors.gray.90") 0.375rem,
+    transparent
   );
 }
 
@@ -61,6 +88,7 @@
   @apply absolute top-0 right-0
     flex items-center justify-end
     px-3 h-10
+    z-header
     text-gray-80 text-xs font-medium tracking-wide;
 }
 
@@ -130,12 +158,15 @@
 
 :global(.refcard) .Container .Pre {
   @apply p-0 text-gray-80 h-full;
-  -webkit-mask-image: none;
-  mask-image: none;
 
   html:global(.dark) & {
     @apply text-white;
   }
+}
+
+:global(.refcard) .Container::before,
+:global(.refcard) .Container::after {
+  display: none;
 }
 
 :global(.refcard) .Container code {

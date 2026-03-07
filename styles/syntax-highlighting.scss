@@ -319,6 +319,25 @@ code[class*="language-diff-"] .token.prefix {
   display: none;
 }
 
+/* Fixed diff markers in the left margin */
+.diff-markers {
+  display: flex;
+  flex-direction: column;
+  z-index: theme("zIndex.header");
+}
+
+.diff-markers span {
+  display: block;
+}
+
+.diff-marker-insert {
+  color: var(--syntax-inserted);
+}
+
+.diff-marker-delete {
+  color: var(--syntax-deleted);
+}
+
 /* Table token for inline display */
 pre code .table,
 code .table {
