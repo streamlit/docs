@@ -187,6 +187,7 @@ module.exports = {
         base: "0", // Default layer, code line highlights
         elevated: "10", // Code blocks, search, floating nav, nav icons
         sidebar: "20", // Sidebar, refcards, lightbox close button
+        overlay_code: "25", // Diff markers, code block overlays above fades
         header: "30", // Header, lightbox overlay, chat sticky
         dropdown: "50", // Version selector, tooltips, dropdown menus
         overlay: "90", // Full-screen overlays (search modal backdrop)
