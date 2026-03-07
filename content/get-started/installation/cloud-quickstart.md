@@ -81,7 +81,7 @@ If you already created a Community Cloud account and connected GitHub, jump ahea
 
 1. Go to the app's entrypoint file (`streamlit_app.py`) in the left pane, and change line 3 by adding "Streamlit" inside `st.title`.
 
-   ```diff
+   ```diff-python
    -st.title("🎈 My new app")
    +st.title("🎈 My new Streamlit app")
    ```

@@ -762,17 +762,17 @@ To see another edge case, try this in the running example:
 
 When you click a button with an unsubmitted value in another widget, Streamlit will update that widget's value and the button's value in succession before triggering the rerun. Because there isn't a rerun between updating the text area and updating the button, the "**Update**" button doesn't get disabled as expected. To correct this, you can add an extra check for an empty text area within the `"rewrite"` stage:
 
-```diff
--       if st.button(
--           "Update", type="primary", disabled=new is None or new.strip(". ") == ""
--       ):
-+       is_empty = new is None or new.strip(". ") == ""
-+       if st.button("Update", type="primary", disabled=is_empty) and not is_empty:
-            st.session_state.history.append({"role": "assistant", "content": new})
-            st.session_state.pending = None
-            st.session_state.validation = {}
-            st.session_state.stage = "user"
-            st.rerun()
+```diff-python
+-        if st.button(
+-            "Update", type="primary", disabled=new is None or new.strip(". ") == ""
+-        ):
++        is_empty = new is None or new.strip(". ") == ""
++        if st.button("Update", type="primary", disabled=is_empty) and not is_empty:
+=            st.session_state.history.append({"role": "assistant", "content": new})
+=            st.session_state.pending = None
+=            st.session_state.validation = {}
+=            st.session_state.stage = "user"
+=            st.rerun()
 ```
 
 Now, if you repeat the listed steps, when the app reruns, the conditional block won't be executed even though the button triggered the rerun. The button will be disabled and the user can proceed as if they had just clicked or tabbed out of the text area.
