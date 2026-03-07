@@ -364,23 +364,20 @@ The `vite.config.ts` builds your TypeScript into an ES module with a hashed file
 
 Now extend the template to add a reset button and a trigger value that fires when the counter is reset.
 
-1. In `my_click_counter/__init__.py`, replace the `html` parameter with the following to add a reset button and a count display:
+1. In `my_click_counter/__init__.py`, make the following changes to the `html` parameter to add a reset button and a count display:
 
-   ```python
-   out = st.components.v2.component(
-       "my-click-counter.my_click_counter",
-       js="index-*.js",
+   ```diff-python
        html="""
        <div class="component-root">
            <h1>Hello, World!</h1>
-           <div class="buttons">
-               <button id="increment">Click me!</button>
-               <button id="reset">Reset</button>
-           </div>
-           <p id="count"></p>
+   -           <button>Click me!</button>
+   +           <div class="buttons">
+   +               <button id="increment">Click me!</button>
+   +               <button id="reset">Reset</button>
+   +           </div>
+   +           <p id="count"></p>
        </div>
        """,
-   )
    ```
 
 1. In `my_click_counter/frontend/src/index.ts`, replace the file contents with the following to handle both buttons:
@@ -466,16 +463,23 @@ Now extend the template to add a reset button and a trigger value that fires whe
    - Added a reset handler that sets the count back to zero and fires a `"was_reset"` trigger.
    - Added a count display that updates on each click.
 
-1. In `my_click_counter/__init__.py`, replace the wrapper function with the following to handle the new trigger:
+1. In `my_click_counter/__init__.py`, make the following changes to the wrapper function to handle the new trigger:
 
-   ```python
-   def my_component(name, key=None, on_reset=lambda: None):
+   ```diff-python
+   -def on_num_clicks_change():
+   -    pass
+   -
+   -
+   -def my_component(name, key=None):
+   +def my_component(name, key=None, on_reset=lambda: None):
        component_value = out(
+   -       name=name,
            key=key,
            default={"num_clicks": 0},
            data={"name": name},
-           on_num_clicks_change=lambda: None,
-           on_was_reset_change=on_reset,
+   -       on_num_clicks_change=on_num_clicks_change,
+   +       on_num_clicks_change=lambda: None,
+   +       on_was_reset_change=on_reset,
        )
        return component_value
    ```

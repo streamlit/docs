@@ -566,88 +566,51 @@ Now extend the template to render a dynamic list of items from Python data. This
    export default MyComponent;
    ```
 
-1. In `my_react_counter/frontend/src/index.tsx`, replace the file contents with the following to pass the new props:
+1. In `my_react_counter/frontend/src/index.tsx`, make the following changes to pass the new props:
 
-   ```typescript
-   import {
-     FrontendRenderer,
-     FrontendRendererArgs,
-   } from "@streamlit/component-v2-lib";
-   import { StrictMode } from "react";
-   import { createRoot, Root } from "react-dom/client";
-
-   import MyComponent, {
-     MyComponentDataShape,
-     MyComponentStateShape,
-   } from "./MyComponent";
-
-   const reactRoots: WeakMap<
-     FrontendRendererArgs["parentElement"],
-     Root
-   > = new WeakMap();
-
-   const MyComponentRoot: FrontendRenderer<
-     MyComponentStateShape,
-     MyComponentDataShape
+   ```diff-typescript
    > = (args) => {
-     const { data, parentElement, setStateValue, setTriggerValue } = args;
-
-     const rootElement = parentElement.querySelector(".react-root");
-     if (!rootElement) {
-       throw new Error("Unexpected: React root element not found");
-     }
-
-     let reactRoot = reactRoots.get(parentElement);
-     if (!reactRoot) {
-       reactRoot = createRoot(rootElement);
-       reactRoots.set(parentElement, reactRoot);
-     }
-
-     const { name, items } = data;
-
-     reactRoot.render(
-       <StrictMode>
-         <MyComponent
-           name={name}
-           items={items}
-           setStateValue={setStateValue}
-           setTriggerValue={setTriggerValue}
-         />
-       </StrictMode>,
-     );
-
-     return () => {
-       const reactRoot = reactRoots.get(parentElement);
-       if (reactRoot) {
-         reactRoot.unmount();
-         reactRoots.delete(parentElement);
-       }
-     };
-   };
-
-   export default MyComponentRoot;
+   -   const { data, parentElement, setStateValue } = args;
+   +   const { data, parentElement, setStateValue, setTriggerValue } = args;
    ```
 
-1. In `my_react_counter/__init__.py`, replace the file contents with the following to pass items and handle the new callbacks:
+   ```diff-typescript
+   -   const { name } = data;
+   +   const { name, items } = data;
 
-   ```python
-   import streamlit as st
+       reactRoot.render(
+         <StrictMode>
+   -       <MyComponent name={name} setStateValue={setStateValue} />
+   +       <MyComponent
+   +         name={name}
+   +         items={items}
+   +         setStateValue={setStateValue}
+   +         setTriggerValue={setTriggerValue}
+   +       />
+         </StrictMode>,
+       );
+   ```
 
-   out = st.components.v2.component(
-       "my-react-counter.my_react_counter",
-       js="index-*.js",
-       html='<div class="react-root"></div>',
-   )
+1. In `my_react_counter/__init__.py`, make the following changes to pass items and handle the new callbacks:
 
-
-   def my_component(name, items=None, key=None, on_item_clicked=lambda: None):
+   ```diff-python
+   -def on_num_clicks_change():
+   -    pass
+   -
+   -
+   -def my_component(name, key=None):
+   +def my_component(name, items=None, key=None, on_item_clicked=lambda: None):
        component_value = out(
+   -       name=name,
            key=key,
-           default={"num_clicks": 0, "selected_item": None},
-           data={"name": name, "items": items or []},
-           on_num_clicks_change=lambda: None,
-           on_selected_item_change=lambda: None,
-           on_item_clicked_change=on_item_clicked,
+   -       default={"num_clicks": 0},
+   -       data={"name": name},
+   -       on_num_clicks_change=on_num_clicks_change,
+   +       default={"num_clicks": 0, "selected_item": None},
+   +       data={"name": name, "items": items or []},
+   +       on_num_clicks_change=lambda: None,
+   +       on_selected_item_change=lambda: None,
+   +       on_item_clicked_change=on_item_clicked,
        )
        return component_value
    ```
