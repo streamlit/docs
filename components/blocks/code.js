@@ -7,6 +7,8 @@ import "prismjs/plugins/line-highlight/prism-line-highlight.css";
 import "prismjs/plugins/toolbar/prism-toolbar";
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
+import "prismjs/plugins/diff-highlight/prism-diff-highlight";
+import "prismjs/plugins/diff-highlight/prism-diff-highlight.css";
 
 import Image from "./image";
 
@@ -123,7 +125,10 @@ const Code = ({
 
   // Extract language identifier for display
   const langId = languageClass?.substring(9) || language || "python";
-  const displayLanguage = languageDisplayNames[langId] || langId;
+  const diffMatch = langId.match(/^diff-([\w-]+)$/);
+  const displayLanguage = diffMatch
+    ? languageDisplayNames[diffMatch[1]] || diffMatch[1]
+    : languageDisplayNames[langId] || langId;
   const showLanguage =
     langId.toLowerCase() !== "none" && (showAll || !filename);
 
@@ -175,8 +180,20 @@ async function highlightElement(
   hideCopyButton,
 ) {
   if (typeof window !== "undefined") {
-    // Only import the language if it hasn't been imported before.
-    if (!languageImports.has(importLanguage)) {
+    const diffMatch = importLanguage.match(/^diff-([\w-]+)$/);
+    if (diffMatch) {
+      for (const lang of ["diff", diffMatch[1]]) {
+        if (!languageImports.has(lang)) {
+          try {
+            await import(`prismjs/components/prism-${lang}`);
+            languageImports.set(lang, true);
+          } catch (error) {
+            console.error(`Prism doesn't support this language: ${lang}`);
+          }
+        }
+      }
+      languageImports.set(importLanguage, true);
+    } else if (!languageImports.has(importLanguage)) {
       try {
         await import(`prismjs/components/prism-${importLanguage}`);
         languageImports.set(importLanguage, true);
