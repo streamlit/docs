@@ -207,10 +207,10 @@ To create an app with user authentication, you'll need to configure your secrets
 
    <Note>
       If you don't want to use a callback, you can replace the last line with an equivalent `if` statement:
-      ```diff
-      -  st.button("Log in with Google", on_click=st.login)
-      +  if st.button("Log in with Google"):
-      +     st.login()
+      ```diff-python
+      -    st.button("Log in with Google", on_click=st.login)
+      +    if st.button("Log in with Google"):
+      +        st.login()
       ```
    </Note>
 
@@ -233,10 +233,10 @@ To create an app with user authentication, you'll need to configure your secrets
 
 1. Replace `st.user` with a personalized greeting:
 
-   ```diff
-   else:
-   -   st.user
-   +   st.header(f"Welcome, {st.user.name}!")
+   ```diff-python
+   =else:
+   -    st.user
+   +    st.header(f"Welcome, {st.user.name}!")
    ```
 
 1. Add a logout button:
