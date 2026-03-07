@@ -165,7 +165,7 @@ radial_menu = st.components.v2.component(
 .menu-overlay::before {
   content: "";
   position: fixed;
-  inset: -100vh -100vw;
+  inset: 0;
   background: var(--st-background-color);
   opacity: 0;
   transition: opacity 0.3s ease;
