@@ -183,6 +183,51 @@ function getCleanDiffText(textContent) {
     .join("\n");
 }
 
+function addDiffMarkers(container, codeElement) {
+  const pre = codeElement.closest("pre");
+  if (!pre) return;
+
+  const lines = codeElement.textContent.split(/\r?\n/);
+  // Drop trailing empty line from a final newline
+  if (lines.length > 0 && lines[lines.length - 1] === "") {
+    lines.pop();
+  }
+
+  const markerEl = document.createElement("div");
+  markerEl.className = "diff-markers";
+  markerEl.setAttribute("aria-hidden", "true");
+
+  for (const line of lines) {
+    const span = document.createElement("span");
+    if (line.startsWith("+")) {
+      span.textContent = "+";
+      span.className = "diff-marker-insert";
+    } else if (line.startsWith("-")) {
+      span.textContent = "\u2212";
+      span.className = "diff-marker-delete";
+    } else {
+      span.textContent = "\u00A0";
+    }
+    markerEl.appendChild(span);
+  }
+
+  const codeStyle = getComputedStyle(codeElement);
+  const topOffset =
+    pre.offsetTop + parseFloat(getComputedStyle(pre).paddingTop);
+
+  markerEl.style.position = "absolute";
+  markerEl.style.top = `${topOffset}px`;
+  markerEl.style.left = "0";
+  markerEl.style.width = "1.5rem";
+  markerEl.style.textAlign = "center";
+  markerEl.style.fontFamily = codeStyle.fontFamily;
+  markerEl.style.fontSize = codeStyle.fontSize;
+  markerEl.style.lineHeight = codeStyle.lineHeight;
+  markerEl.style.pointerEvents = "none";
+
+  container.appendChild(markerEl);
+}
+
 function overrideDiffCopyButton(container, codeElement) {
   const copyButton = container.querySelector(".copy-to-clipboard-button");
   if (!copyButton) return;
@@ -258,6 +303,7 @@ async function highlightElement(
           Prism.highlightAllUnder(container);
 
           if (isDiff) {
+            addDiffMarkers(container, codeElement);
             overrideDiffCopyButton(container, codeElement);
           }
         }
