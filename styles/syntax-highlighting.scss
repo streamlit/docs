@@ -306,6 +306,15 @@ code .inserted:not(.prefix) {
   ) !important; /* green-70 with 20% opacity */
 }
 
+/* Diff blocks: expand code element to content width so block children fill scrollable area */
+code[class*="language-diff-"] {
+  display: block;
+  overflow: visible !important;
+  max-width: none !important;
+  width: max-content;
+  min-width: 100%;
+}
+
 /* Diff blocks: make all line-level tokens block-level with positioning context */
 code[class*="language-diff-"] > .token.deleted:not(.prefix),
 code[class*="language-diff-"] > .token.inserted:not(.prefix),
