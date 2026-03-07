@@ -156,8 +156,9 @@ The `frontend/` directory contains all frontend source code and configuration:
 - `package.json` defines your frontend dependencies and build scripts.
 - `tsconfig.json` configures the TypeScript compiler.
 - `vite.config.ts` configures [Vite](https://vite.dev/) to build your component as an ES module library with hashed filenames.
+- `src/index.ts` is the main TypeScript entry point for your component.
 
-For clarity, the following subsections of `package.json` and `vite.config.ts` highlight the most important settings for Streamlit.
+For clarity, the following subsections highlight the most important settings and patterns for Streamlit.
 
 ```json filename="package.json"
 {
@@ -170,6 +171,10 @@ For clarity, the following subsections of `package.json` and `vite.config.ts` hi
     "typecheck": "tsc --noEmit"
   },
   ...
+  "dependencies": {
+    "@streamlit/component-v2-lib": "^0.2.0"
+  },
+  ...
 }
 ```
 
@@ -177,6 +182,32 @@ For clarity, the following subsections of `package.json` and `vite.config.ts` hi
 
 - `npm run dev` watches for changes and rebuilds during development.
 - `npm run build` creates an optimized production build with hashed filenames.
+
+The [`@streamlit/component-v2-lib`](/develop/api-reference/custom-components/component-v2-lib) package provides the TypeScript type definitions for the component API. Your `src/index.ts` entry point imports types like [`FrontendRenderer`](/develop/api-reference/custom-components/component-v2-lib-frontendrenderer) and [`FrontendRendererArgs`](/develop/api-reference/custom-components/component-v2-lib-frontendrendererargs) from this package:
+
+```typescript filename="src/index.ts"
+import {
+  FrontendRenderer,
+  FrontendRendererArgs,
+} from "@streamlit/component-v2-lib";
+
+export type FrontendState = {
+  num_clicks: number;
+};
+
+const MyComponent: FrontendRenderer<FrontendState> = (args) => {
+  const { parentElement, data, setStateValue } = args;
+  // ...
+};
+
+export default MyComponent;
+```
+
+<Tip>
+
+Use `FrontendRenderer` and `FrontendRendererArgs` directly, and extend them with your own generic type parameters for `FrontendState` and data shapes. This keeps your component's type signatures consistent with the Streamlit runtime and ensures you benefit from any upstream type improvements.
+
+</Tip>
 
 ```typescript filename="vite.config.ts"
 {
@@ -193,7 +224,7 @@ For clarity, the following subsections of `package.json` and `vite.config.ts` hi
 }
 ```
 
-The following settings are particularly significant for Streamlit:
+The following Vite settings are particularly significant for Streamlit:
 
 - `base: "./"` tells Vite to use relative paths so assets resolve correctly when served by Streamlit.
 - `outDir: "build"` outputs built files to `frontend/build/`. This must match the `asset_dir` in your component-level `pyproject.toml`.
