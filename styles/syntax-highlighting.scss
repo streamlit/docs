@@ -314,15 +314,9 @@ code[class*="language-diff-"] > .token.unchanged:not(.prefix) {
   position: relative;
 }
 
-/* Diff prefix gutter: remove prefix from text flow and shift into the left margin */
+/* Diff prefix: hidden; replaced by fixed markers added via JS */
 code[class*="language-diff-"] .token.prefix {
-  display: inline-block;
-  width: 0;
-  overflow: visible;
-  position: relative;
-  left: -1.75ch;
-  user-select: none;
-  background-color: transparent !important;
+  display: none;
 }
 
 /* Table token for inline display */
