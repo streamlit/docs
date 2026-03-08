@@ -27,9 +27,7 @@ Here's a look at what you'll build:
 
 <Collapse title="Complete modified files" expanded={false}>
 
-Directory structure:
-
-```none
+```none filename="Directory structure" hideCopyButton
 my-click-counter/
 ├── pyproject.toml
 ├── example.py
@@ -44,9 +42,7 @@ my-click-counter/
             └── index.ts
 ```
 
-`my_click_counter/__init__.py`:
-
-```python
+```python filename="my_click_counter/__init__.py"
 import streamlit as st
 
 out = st.components.v2.component(
@@ -79,9 +75,7 @@ def my_click_counter(name, key=None, on_reset=lambda: None):
     return component_value
 ```
 
-`my_click_counter/frontend/src/index.ts`:
-
-```typescript
+```typescript filename="my_click_counter/frontend/src/index.ts"
 import {
   FrontendRenderer,
   FrontendRendererArgs,
@@ -125,7 +119,6 @@ const MyComponent: FrontendRenderer<FrontendState, ComponentData> = (args) => {
 
   const currentCount = instances.get(parentElement)?.numClicks || 0;
   countDisplay.textContent = `Clicks: ${currentCount}`;
-
   const handleIncrement = () => {
     const numClicks = (instances.get(parentElement)?.numClicks || 0) + 1;
     instances.set(parentElement, { numClicks });
@@ -156,9 +149,7 @@ const MyComponent: FrontendRenderer<FrontendState, ComponentData> = (args) => {
 export default MyComponent;
 ```
 
-`example.py`:
-
-```python
+```python filename="example.py"
 import streamlit as st
 from my_click_counter import my_click_counter
 
@@ -204,7 +195,7 @@ if result.was_reset:
 
    This creates a `my-click-counter/` directory with the following structure:
 
-   ```
+   ```none hideHeader
    my-click-counter/
    ├── example.py
    ├── LICENSE
