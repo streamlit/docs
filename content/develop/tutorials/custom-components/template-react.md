@@ -28,9 +28,7 @@ Here's a look at what you'll build:
 
 <Collapse title="Complete modified files" expanded={false}>
 
-Directory structure:
-
-```none
+```none filename="Directory structure" hideCopyButton
 my-react-counter/
 ├── pyproject.toml
 ├── example.py
@@ -46,9 +44,7 @@ my-react-counter/
             └── MyComponent.tsx
 ```
 
-`my_react_counter/__init__.py`:
-
-```python
+```python filename="my_react_counter/__init__.py"
 import streamlit as st
 
 out = st.components.v2.component(
@@ -57,8 +53,7 @@ out = st.components.v2.component(
     html='<div class="react-root"></div>',
 )
 
-
-def my_component(name, items=None, key=None, on_item_clicked=lambda: None):
+def my_react_counter(name, items=None, key=None, on_item_clicked=lambda: None):
     component_value = out(
         key=key,
         default={"num_clicks": 0, "selected_item": None},
@@ -70,9 +65,7 @@ def my_component(name, items=None, key=None, on_item_clicked=lambda: None):
     return component_value
 ```
 
-`my_react_counter/frontend/src/index.tsx`:
-
-```typescript
+```typescript filename="my_react_counter/frontend/src/index.tsx"
 import {
   FrontendRenderer,
   FrontendRendererArgs,
@@ -85,10 +78,8 @@ import MyComponent, {
   MyComponentStateShape,
 } from "./MyComponent";
 
-const reactRoots: WeakMap<
-  FrontendRendererArgs["parentElement"],
-  Root
-> = new WeakMap();
+const reactRoots: WeakMap<FrontendRendererArgs["parentElement"], Root> =
+  new WeakMap();
 
 const MyComponentRoot: FrontendRenderer<
   MyComponentStateShape,
@@ -97,6 +88,7 @@ const MyComponentRoot: FrontendRenderer<
   const { data, parentElement, setStateValue, setTriggerValue } = args;
 
   const rootElement = parentElement.querySelector(".react-root");
+
   if (!rootElement) {
     throw new Error("Unexpected: React root element not found");
   }
@@ -122,6 +114,7 @@ const MyComponentRoot: FrontendRenderer<
 
   return () => {
     const reactRoot = reactRoots.get(parentElement);
+
     if (reactRoot) {
       reactRoot.unmount();
       reactRoots.delete(parentElement);
@@ -132,9 +125,7 @@ const MyComponentRoot: FrontendRenderer<
 export default MyComponentRoot;
 ```
 
-`my_react_counter/frontend/src/MyComponent.tsx`:
-
-```typescript
+```typescript filename="my_react_counter/frontend/src/MyComponent.tsx"
 import { FrontendRendererArgs } from "@streamlit/component-v2-lib";
 import { FC, ReactElement, useCallback, useState } from "react";
 
@@ -211,9 +202,7 @@ const MyComponent: FC<MyComponentProps> = ({
 export default MyComponent;
 ```
 
-`example.py`:
-
-```python
+```python filename="example.py"
 import streamlit as st
 from my_react_counter import my_component
 
@@ -262,7 +251,7 @@ if result.item_clicked:
 
    This creates a `my-react-counter/` directory with the following structure:
 
-   ```
+   ```none hideHeader
    my-react-counter/
    ├── example.py
    ├── LICENSE
@@ -311,7 +300,7 @@ You need two terminals running in parallel for development. The following steps 
 
 Now that the component is running, walk through each file to understand how it works.
 
-1. Open `my_click_counter/__init__.py`:
+1. Open `my_react_counter/__init__.py`:
 
    ```python
    import streamlit as st
@@ -497,7 +486,7 @@ Now that the component is running, walk through each file to understand how it w
 
 Now extend the template to render a dynamic list of items from Python data. This showcases something React does well: declaratively rendering lists with state.
 
-1. In `my_react_counter/frontend/src/MyComponent.tsx`, edit the file to add a list of items:
+1. In `my_react_counter/frontend/src/MyComponent.tsx`, make the following changes to add list rendering and item selection:
 
    <Tip>
 
@@ -659,8 +648,8 @@ Now extend the template to render a dynamic list of items from Python data. This
    -    pass
    -
    -
-   -def my_component(name, key=None):
-   +def my_component(name, items=None, key=None, on_item_clicked=lambda: None):
+   -def my_react_counter(name, key=None):
+   +def my_react_counter(name, items=None, key=None, on_item_clicked=lambda: None):
    =    component_value = out(
    -        name=name,
    =        key=key,
@@ -682,11 +671,11 @@ Now extend the template to render a dynamic list of items from Python data. This
 
    ```python
    import streamlit as st
-   from my_react_counter import my_component
+   from my_react_counter import my_react_counter
 
    st.title("My React Counter")
 
-   result = my_component(
+   result = my_react_counter(
        "Streamlit",
        items=["Python", "TypeScript", "React", "Vite"],
        key="counter",

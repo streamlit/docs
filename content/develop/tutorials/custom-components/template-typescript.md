@@ -378,7 +378,7 @@ You can extend the template to add a reset button and a trigger value that fires
 
    </Tip>
 
-1. In `my_click_counter/frontend/src/index.ts`, replace the file contents with the following to handle both buttons:
+1. In `my_click_counter/frontend/src/index.ts`, make the following changes to handle both buttons:
 
    ```diff-typescript
    =import {
