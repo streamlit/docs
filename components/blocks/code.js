@@ -181,6 +181,7 @@ function getCleanDiffText(textContent) {
     .join("\n");
 }
 
+// Add +/- markers into the left margin of the code block.
 function addDiffMarkers(container, codeElement) {
   const pre = codeElement.closest("pre");
   if (!pre) return;
@@ -195,7 +196,6 @@ function addDiffMarkers(container, codeElement) {
   markerEl.className = `diff-markers ${styles.DiffMarkers}`;
   markerEl.setAttribute("aria-hidden", "true");
 
-  // Add +/- markers into the left margin of the code block.
   for (const line of lines) {
     const span = document.createElement("span");
     if (line.startsWith("+")) {
