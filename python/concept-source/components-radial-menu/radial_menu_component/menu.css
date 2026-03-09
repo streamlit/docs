@@ -78,21 +78,21 @@
   background: var(--st-secondary-background-color);
 }
 
-/* Backdrop when menu is open */
-.menu-overlay::before {
-  content: "";
+/* Backdrop when menu is open (must be outside .menu-overlay to avoid
+   its transform creating a containing block for position: fixed) */
+.menu-backdrop {
+  display: none;
   position: fixed;
   inset: 0;
   background: var(--st-background-color);
   opacity: 0;
   transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: -1;
+  z-index: 99;
 }
 
-.menu-overlay.open::before {
+.menu-backdrop.open {
+  display: block;
   opacity: 0.7;
-  pointer-events: auto;
 }
 
 /* Center decoration */

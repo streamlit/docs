@@ -2,6 +2,7 @@ export default function ({ parentElement, data, setStateValue }) {
   const selector = parentElement.querySelector("#selector");
   const selectorIcon = parentElement.querySelector("#selector-icon");
   const overlay = parentElement.querySelector("#overlay");
+  const backdrop = parentElement.querySelector("#backdrop");
   const ring = parentElement.querySelector("#ring");
 
   let isOpen = false;
@@ -75,6 +76,7 @@ export default function ({ parentElement, data, setStateValue }) {
   // Toggle menu open/closed
   function toggleMenu() {
     isOpen = !isOpen;
+    backdrop.classList.toggle("open", isOpen);
     overlay.classList.toggle("open", isOpen);
     ring.classList.toggle("open", isOpen);
 
@@ -96,9 +98,7 @@ export default function ({ parentElement, data, setStateValue }) {
 
   // Attach click handlers
   selector.onclick = toggleMenu;
-  overlay.onclick = (e) => {
-    if (e.target === overlay) toggleMenu();
-  };
+  backdrop.onclick = () => toggleMenu();
 
   // Cleanup function
   return () => {
