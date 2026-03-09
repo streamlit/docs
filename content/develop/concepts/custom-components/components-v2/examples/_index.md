@@ -346,7 +346,7 @@ result = danger_button(
 This is a circular selection menu demonstrating state values for persistent selections. This component introduces the following concepts:
 
 - CSS custom properties for dynamic positioning (`--i`, `--total`)
-- Document-level event listeners
+- A fixed-position backdrop for click-outside behavior
 - Complex animations with CSS transitions
 
 <Cloud name="doc-components-v2-radial-menu-test" height="300px" />

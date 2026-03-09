@@ -54,12 +54,12 @@ State values are perfect for tracking the ongoing state of your component. The [
 The critical line in the component's JavaScript is the call to `setStateValue` inside the click handler. Because this is a state value, the selection persists across reruns. If the user interacts with another widget and triggers a rerun, `result.selection` still reflects their last choice:
 
 ```javascript
-button.addEventListener("click", () => {
+button.onclick = () => {
   currentSelection = value;
   updateDisplay();
   toggleMenu();
   setStateValue("selection", currentSelection);
-});
+};
 ```
 
 On the Python side, the component is mounted with a `default` value that matches the initial selection. The `on_selection_change` callback registers the `"selection"` key so it appears on the result object:

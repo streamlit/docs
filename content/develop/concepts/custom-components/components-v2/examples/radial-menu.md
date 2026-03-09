@@ -16,7 +16,7 @@ This is a circular menu component that allows users to select from a list of opt
 This component demonstrates the following concepts:
 
 - CSS custom properties for dynamic positioning (`--i`, `--total`)
-- Document-level event listeners
+- A fixed-position backdrop for click-outside behavior
 - Complex animations with CSS transitions
 
 ## File-based version
@@ -68,6 +68,8 @@ radial_menu = st.components.v2.component(
     <button class="menu-selector" id="selector">
         <span class="selector-icon" id="selector-icon">?</span>
     </button>
+
+    <div class="menu-backdrop" id="backdrop"></div>
 
     <div class="menu-overlay" id="overlay">
         <div class="menu-ring" id="ring">
@@ -161,21 +163,21 @@ radial_menu = st.components.v2.component(
   background: var(--st-secondary-background-color);
 }
 
-/* Backdrop when menu is open */
-.menu-overlay::before {
-  content: "";
+/* Backdrop when menu is open (must be outside .menu-overlay to avoid
+   its transform creating a containing block for position: fixed) */
+.menu-backdrop {
+  display: none;
   position: fixed;
   inset: 0;
   background: var(--st-background-color);
   opacity: 0;
   transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: -1;
+  z-index: 99;
 }
 
-.menu-overlay.open::before {
+.menu-backdrop.open {
+  display: block;
   opacity: 0.7;
-  pointer-events: auto;
 }
 
 /* Center decoration */
@@ -204,27 +206,31 @@ export default function ({ parentElement, data, setStateValue }) {
   const selector = parentElement.querySelector("#selector");
   const selectorIcon = parentElement.querySelector("#selector-icon");
   const overlay = parentElement.querySelector("#overlay");
+  const backdrop = parentElement.querySelector("#backdrop");
   const ring = parentElement.querySelector("#ring");
 
   let isOpen = false;
   const options = data?.options || {};
   let currentSelection = data?.selection || Object.keys(options)[0];
+  const optionCount = Object.keys(options).length;
 
-  // Create menu items from options
+  // Set total item count for CSS angle calculation
+  ring.style.setProperty("--total", optionCount);
+
+  // Create the menu items from options
   Object.entries(options).forEach(([value, icon], index) => {
     const button = document.createElement("button");
     button.className = "menu-item";
     button.dataset.value = value;
     button.style.setProperty("--i", index);
-    button.style.setProperty("--total", Object.keys(options).length);
     button.textContent = icon;
 
-    button.addEventListener("click", () => {
+    button.onclick = () => {
       currentSelection = value;
       updateDisplay();
       toggleMenu();
       setStateValue("selection", currentSelection);
-    });
+    };
 
     ring.appendChild(button);
   });
@@ -244,6 +250,7 @@ export default function ({ parentElement, data, setStateValue }) {
   // Toggle menu open/closed
   function toggleMenu() {
     isOpen = !isOpen;
+    backdrop.classList.toggle("open", isOpen);
     overlay.classList.toggle("open", isOpen);
     ring.classList.toggle("open", isOpen);
   }
@@ -251,26 +258,9 @@ export default function ({ parentElement, data, setStateValue }) {
   // Initialize display
   updateDisplay();
 
-  // Selector click toggles menu
-  selector.addEventListener("click", toggleMenu);
-
-  // Click outside closes menu
-  overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) toggleMenu();
-  });
-
-  // Document-level click to close
-  const handleOutsideClick = (e) => {
-    if (isOpen && !parentElement.contains(e.target)) {
-      toggleMenu();
-    }
-  };
-  document.addEventListener("click", handleOutsideClick);
-
-  // Cleanup
-  return () => {
-    document.removeEventListener("click", handleOutsideClick);
-  };
+  // Attach click handlers
+  selector.onclick = toggleMenu;
+  backdrop.onclick = () => toggleMenu();
 }
 ```
 
@@ -358,14 +348,12 @@ The CSS uses custom properties to calculate each item's angle:
 }
 ```
 
-### Cleanup for document listeners
+### Backdrop for click-outside behavior
 
-Since the component adds a document-level click handler, it must be removed in the cleanup function:
+The backdrop is a separate `<div>` positioned outside `.menu-overlay`. This is necessary because `.menu-overlay` uses a CSS `transform`, which would create a new containing block for any `position: fixed` descendants, preventing a backdrop pseudo-element from covering the full viewport. Clicking the backdrop closes the menu:
 
 ```javascript
-return () => {
-  document.removeEventListener("click", handleOutsideClick);
-};
+backdrop.onclick = () => toggleMenu();
 ```
 
 ## Related documentation
