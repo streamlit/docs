@@ -26,6 +26,16 @@
   @apply p-6 text-white font-medium relative leading-relaxed;
 }
 
+/* Must match .Pre code typography so markers align line-by-line */
+.DiffMarkers {
+  position: absolute;
+  left: 0;
+  width: 1.5rem;
+  text-align: center;
+  pointer-events: none;
+  @apply font-mono leading-relaxed;
+}
+
 /* Fade overlays on Container (outside scroll area so they don't scroll) */
 .Container::before,
 .Container::after {

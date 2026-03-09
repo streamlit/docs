@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import classNames from "classnames";
 import Prism from "prismjs";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
@@ -6,12 +6,14 @@ import "prismjs/plugins/line-highlight/prism-line-highlight";
 import "prismjs/plugins/line-highlight/prism-line-highlight.css";
 import "prismjs/plugins/toolbar/prism-toolbar";
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
-
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 import "prismjs/plugins/diff-highlight/prism-diff-highlight";
 import "prismjs/plugins/diff-highlight/prism-diff-highlight.css";
 
 import Image from "./image";
+import languageDisplayNames, {
+  getPrismLanguage,
+} from "../../lib/languageDisplayNames";
 
 import styles from "./code.module.css";
 
@@ -70,10 +72,6 @@ const TryMeButton = ({ code }) => {
     </button>
   );
 };
-
-import languageDisplayNames, {
-  getPrismLanguage,
-} from "../../lib/languageDisplayNames";
 
 // Initialize the cache for imported languages.
 const languageImports = new Map();
@@ -174,6 +172,7 @@ const Code = ({
   );
 };
 
+// Strip deleted lines and diff prefixes (+/=) to produce copy-friendly text.
 function getCleanDiffText(textContent) {
   return textContent
     .split(/\r?\n/)
@@ -193,36 +192,29 @@ function addDiffMarkers(container, codeElement) {
   }
 
   const markerEl = document.createElement("div");
-  markerEl.className = "diff-markers";
+  markerEl.className = `diff-markers ${styles.DiffMarkers}`;
   markerEl.setAttribute("aria-hidden", "true");
 
+  // Add +/- markers into the left margin of the code block.
   for (const line of lines) {
     const span = document.createElement("span");
     if (line.startsWith("+")) {
       span.textContent = "+";
       span.className = "diff-marker-insert";
     } else if (line.startsWith("-")) {
-      span.textContent = "\u2212";
+      span.textContent = "\u2212"; // minus sign instead of hyphen; visually balanced with +
       span.className = "diff-marker-delete";
-    } else if (line.startsWith("=")) {
+    } else {
+      // Non-breaking space keeps this span from collapsing so
+      // subsequent +/- markers stay vertically aligned with their code lines.
       span.textContent = "\u00A0";
     }
     markerEl.appendChild(span);
   }
 
-  const codeStyle = getComputedStyle(codeElement);
   const topOffset =
     pre.offsetTop + parseFloat(getComputedStyle(pre).paddingTop);
-
-  markerEl.style.position = "absolute";
   markerEl.style.top = `${topOffset}px`;
-  markerEl.style.left = "0";
-  markerEl.style.width = "1.5rem";
-  markerEl.style.textAlign = "center";
-  markerEl.style.fontFamily = codeStyle.fontFamily;
-  markerEl.style.fontSize = codeStyle.fontSize;
-  markerEl.style.lineHeight = codeStyle.lineHeight;
-  markerEl.style.pointerEvents = "none";
 
   container.appendChild(markerEl);
 }
@@ -283,6 +275,9 @@ async function highlightElement(
           }
         }
       }
+      // Prism's diff grammar only recognizes +/- prefixes. We use "=" for
+      // unchanged lines to keep code aligned (no visual shift) and to preserve
+      // leading whitespace that markdown processing would otherwise strip.
       if (!Prism.languages.diff["unchanged-equal"]) {
         Prism.languages.diff["unchanged-equal"] = {
           pattern: /^(?:=.*(?:\r\n?|\n|(?![\s\S])))+/m,
