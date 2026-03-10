@@ -58,20 +58,20 @@ JS = """
     }
 """
 
-text_component = st.components.v2.component(
-    "my_text_input",
+textbox_component = st.components.v2.component(
+    "simple_textbox",
     html=HTML,
     js=JS,
 )
 
 
-def text_component_wrapper(
+def textbox_component_wrapper(
     label, *, default="", key=None, on_change=lambda: None
 ):
     component_state = st.session_state.get(key, {})
     value = component_state.get("value", default)
     data = {"label": label, "value": value}
-    result = text_component(
+    result = textbox_component(
         data=data,
         default={"value": value},
         key=key,
@@ -81,13 +81,13 @@ def text_component_wrapper(
 
 
 if st.button("Hello World"):
-    st.session_state["my_text_input_instance"]["value"] = "Hello World"
+    st.session_state["my_textbox"]["value"] = "Hello World"
 if st.button("Clear text"):
-    st.session_state["my_text_input_instance"]["value"] = ""
-result = text_component_wrapper(
+    st.session_state["my_textbox"]["value"] = ""
+result = textbox_component_wrapper(
     "Enter something",
     default="I love Streamlit!",
-    key="my_text_input_instance",
+    key="my_textbox",
 )
 
 st.write("Result:", result)
@@ -152,19 +152,19 @@ def load_component_code():
 
 HTML, JS = load_component_code()
 
-text_component = st.components.v2.component(
-    name="my_text_input",
+textbox_component = st.components.v2.component(
+    name="simple_textbox",
     html=HTML,
     js=JS,
 )
 
-def text_component_wrapper(
+def textbox_component_wrapper(
     label, *, default="", key=None, on_change=lambda: None
 ):
     component_state = st.session_state.get(key, {})
     value = component_state.get("value", default)
     data = {"label": label, "value": value}
-    result = text_component(
+    result = textbox_component(
         data=data,
         default={"value": value},
         key=key,
@@ -174,16 +174,16 @@ def text_component_wrapper(
 ```
 
 ```python filename="streamlit_app.py"
-from my_component import text_component_wrapper
+from my_component import textbox_component_wrapper
 
 if st.button("Hello World"):
-    st.session_state["my_text_input_instance"]["value"] = "Hello World"
+    st.session_state["my_textbox"]["value"] = "Hello World"
 if st.button("Clear text"):
-    st.session_state["my_text_input_instance"]["value"] = ""
-result = text_component_wrapper(
+    st.session_state["my_textbox"]["value"] = ""
+result = textbox_component_wrapper(
     "Enter something",
     default="I love Streamlit!",
-    key="my_text_input_instance",
+    key="my_textbox",
 )
 
 st.write("Result:", result)
@@ -197,7 +197,7 @@ st.write("Session state:", st.session_state)
 The wrapper function creates a reusable interface for your component:
 
 ```python
-def my_component_wrapper(
+def textbox_component_wrapper(
     label, *, default="", key=None, on_change=lambda: None
 ):
     # Read current state from Session State
@@ -206,7 +206,7 @@ def my_component_wrapper(
 
     # Pass current value to component
     data = {"label": label, "value": value}
-    result = my_component(
+    result = textbox_component(
         data=data,
         default={"value": value},
         key=key,
@@ -239,7 +239,7 @@ Buttons can modify Session State directly:
 
 ```python
 if st.button("Hello World"):
-    st.session_state["my_text_input_instance"]["value"] = "Hello World"
+    st.session_state["my_textbox"]["value"] = "Hello World"
 ```
 
 On the next rerun, the wrapper reads this new value from Session State and passes it to the component via `data`. The JavaScript then updates the input field.

@@ -84,7 +84,7 @@ The conditional expression (`if (input.value !== data.value)`) updates the input
 In Python, you can create a wrapper function that reads from Session State and passes updated data:
 
 ```python
-def my_component_wrapper(
+def textbox_component_wrapper(
     label, *, default="", key=None, on_change=lambda: None
 ):
     # Read current state from Session State
@@ -96,7 +96,7 @@ def my_component_wrapper(
 
     # Pass current value back to component
     data = {"label": label, "value": value}
-    result = my_component(
+    result = textbox_component(
         data=data,
         default={"value": value},
         key=key,
@@ -118,12 +118,12 @@ With this pattern, you can update the component from Python by modifying Session
 
 ```python
 if st.button("Set greeting"):
-    st.session_state["my_text_input"]["value"] = "Hello World"
+    st.session_state["my_textbox"]["value"] = "Hello World"
 
 if st.button("Clear"):
-    st.session_state["my_text_input"]["value"] = ""
+    st.session_state["my_textbox"]["value"] = ""
 
-result = my_component_wrapper("Enter text", key="my_text_input")
+result = textbox_component_wrapper("Enter text", key="my_textbox")
 ```
 
 When you click a button, it modifies Session State. On the rerun, the wrapper reads the new value from Session State and passes it to the component via `data`. The JavaScript sees the updated `data.value` and updates the input field.

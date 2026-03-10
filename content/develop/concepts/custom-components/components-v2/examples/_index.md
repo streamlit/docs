@@ -263,7 +263,7 @@ This is a text input component that demonstrates full bidirectional communicatio
 <Cloud name="doc-components-v2-text-input-test" height="300px" />
 
 ```python
-def my_component_wrapper(
+def textbox_component_wrapper(
     label, *, default="", key=None, on_change=lambda: None
 ):
     # Read current state from Session State
@@ -272,7 +272,7 @@ def my_component_wrapper(
 
     # Pass current value to component
     data = {"label": label, "value": value}
-    result = my_component(
+    result = textbox_component(
         data=data,
         default={"value": value},
         key=key,

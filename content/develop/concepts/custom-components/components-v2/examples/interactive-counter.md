@@ -20,15 +20,14 @@ This component demonstrates the following concepts:
 
 ## Complete code
 
-For easy copying and pasting, exapand the complete code below. However, for easier reading, the code is split into multiple files in the next section.
+For easy copying and pasting, expand the complete code below. However, for easier reading, the code is split into multiple files in the next section.
 
 <Collapse title="Complete single-file code">
 
 ```python filename="streamlit_app.py"
 import streamlit as st
 
-# Interactive counter with both state and triggers
-counter = st.components.v2.component(
+counter_component = st.components.v2.component(
     "interactive_counter",
     html="""
     <div class="counter">
@@ -111,8 +110,7 @@ counter = st.components.v2.component(
     """,
 )
 
-# Use with callbacks
-result = counter(
+result = counter_component(
     default={"count": 0},
     data={"initialCount": 0},
     on_count_change=lambda: None,  # Track count state
@@ -243,7 +241,7 @@ def load_component_code():
 
 HTML, CSS, JS = load_component_code()
 
-interactive_counter = st.components.v2.component(
+counter_component = st.components.v2.component(
     name="interactive_counter",
     html=HTML,
     css=CSS,
@@ -252,9 +250,9 @@ interactive_counter = st.components.v2.component(
 ```
 
 ```python filename="streamlit_app.py"
-from my_component import interactive_counter
+from my_component import counter_component
 
-result = interactive_counter(
+result = counter_component(
     default={"count": 0},
     data={"initialCount": 0},
     on_count_change=lambda: None,
