@@ -338,7 +338,17 @@ if st.session_state.deleted_items:
 
 ## File-based version
 
-```markup filename="my_component/component.html"
+```none hideHeader
+project_directory/
+├── danger_button_component/
+│   ├── __init__.py
+│   ├── button.css
+│   ├── button.html
+│   └── button.js
+└── streamlit_app.py
+```
+
+```markup filename="danger_button_component/button.html"
 <button id="danger-btn" class="hold-button">
   <svg class="progress-ring" viewBox="0 0 100 100">
     <circle class="ring-bg" cx="50" cy="50" r="45" />
@@ -351,9 +361,9 @@ if st.session_state.deleted_items:
 </button>
 ```
 
-<Collapse title="component.css">
+<Collapse title="button.css">
 
-```css filename="my_component/component.css"
+```css filename="danger_button_component/button.css"
 .hold-button {
   position: relative;
   width: 7.5rem;
@@ -497,9 +507,9 @@ if st.session_state.deleted_items:
 
 </Collapse>
 
-<Collapse title="component.js">
+<Collapse title="button.js">
 
-```javascript filename="my_component/component.js"
+```javascript filename="danger_button_component/button.js"
 const HOLD_DURATION = 2000; // 2 seconds
 const COOLDOWN_DURATION = 1500; // cooldown after trigger
 const CIRCUMFERENCE = 2 * Math.PI * 45; // circle circumference
@@ -612,9 +622,25 @@ export default function ({ parentElement, setTriggerValue, data }) {
 
 </Collapse>
 
-```python filename="streamlit_app.py"
+```python filename="danger_button_component/__init__.py"
+from pathlib import Path
 import streamlit as st
-from my_component import HTML, CSS, JS
+
+component_dir = Path(__file__).parent
+
+
+@st.cache_data
+def load_component_code():
+    with open(component_dir / "button.css", "r") as f:
+        CSS = f.read()
+    with open(component_dir / "button.html", "r") as f:
+        HTML = f.read()
+    with open(component_dir / "button.js", "r") as f:
+        JS = f.read()
+    return HTML, CSS, JS
+
+
+HTML, CSS, JS = load_component_code()
 
 danger_button = st.components.v2.component(
     name="hold_to_confirm",
@@ -622,6 +648,11 @@ danger_button = st.components.v2.component(
     css=CSS,
     js=JS,
 )
+```
+
+```python filename="streamlit_app.py"
+import streamlit as st
+from danger_button_component import danger_button
 
 st.title("Hold-to-Confirm Button")
 st.caption("A dangerous action that requires intentional confirmation")

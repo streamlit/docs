@@ -329,7 +329,7 @@ function updateProgress() {
 
 ```python
 result = danger_button(
-    on_confirmed_change=handle_deletion,
+    on_confirmed_change=on_delete_confirmed,
     width="content"  # Layout control
 )
 ```
