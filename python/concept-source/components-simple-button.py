@@ -8,7 +8,7 @@ def handle_button_click():
     st.session_state.click_count += 1
 
 
-my_component = st.components.v2.component(
+button_component = st.components.v2.component(
     "simple_button",
     html="""<button id="btn">Click me</button>""",
     css="""
@@ -31,7 +31,7 @@ my_component = st.components.v2.component(
     """,
 )
 
-result = my_component(on_action_change=handle_button_click)
+result = button_component(on_action_change=handle_button_click)
 
 if result.action:
     st.write(f"Button clicked! Total clicks: {st.session_state.click_count}")

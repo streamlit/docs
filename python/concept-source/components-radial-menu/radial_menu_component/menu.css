@@ -56,18 +56,19 @@
 /* Menu items arranged in a circle */
 .menu-item {
   --angle: calc(var(--i) * (360deg / var(--total)) - 90deg);
+  --radius: 4rem;
 
   background: var(--st-background-color);
   position: absolute;
   top: 50%;
   left: 50%;
   margin: -1.6125rem;
-  transform: rotate(var(--angle)) translateX(4rem)
+  transform: rotate(var(--angle)) translate(var(--radius))
     rotate(calc(-1 * var(--angle)));
 }
 
 .menu-item:hover {
-  transform: rotate(var(--angle)) translateX(4rem)
+  transform: rotate(var(--angle)) translate(var(--radius))
     rotate(calc(-1 * var(--angle))) scale(1.15);
   border-color: var(--st-primary-color);
   background: var(--st-secondary-background-color);

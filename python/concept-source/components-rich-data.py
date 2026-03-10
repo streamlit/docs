@@ -32,7 +32,7 @@ def load_image_as_base64(image_path):
 img_base64 = load_image_as_base64(_APP_DIR / "favi.png")
 
 # Serialization is automatically handled by Streamlit components
-chart_component = st.components.v2.component(
+data_component = st.components.v2.component(
     "data_display",
     html="""<div id="data-container">Loading data...</div>""",
     js="""
@@ -52,7 +52,7 @@ chart_component = st.components.v2.component(
     """,
 )
 
-chart_component(
+data_component(
     data={
         "df": df,  # Arrow-serializable dataframe
         "user_info": {"name": "Alice"},  # JSON-serializable data
