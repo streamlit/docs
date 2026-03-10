@@ -139,7 +139,7 @@ radial_menu = st.components.v2.component(
 
 /* Menu items arranged in a circle */
 .menu-item {
-  --angle: calc(var(--i) * (360deg / var(--total, 6)) - 90deg);
+  --angle: calc(var(--i) * (360deg / var(--total)) - 90deg);
   --radius: 4rem;
 
   background: var(--st-background-color);
@@ -247,12 +247,54 @@ export default function ({ parentElement, data, setStateValue }) {
     });
   }
 
+  // Calculate and apply viewport-safe position for the menu
+  function updatePosition() {
+    const selectorRect = selector.getBoundingClientRect();
+    const menuRadius = ring.offsetWidth / 2;
+    const toolbarHeight = 60; // Streamlit toolbar height
+
+    // Center of selector in viewport
+    const centerX = selectorRect.left + selectorRect.width / 2;
+    const centerY = selectorRect.top + selectorRect.height / 2;
+
+    // Calculate overflow on each side (account for toolbar at top)
+    const overflowLeft = menuRadius - centerX;
+    const overflowRight = centerX + menuRadius - window.innerWidth;
+    const overflowTop = menuRadius - (centerY - toolbarHeight);
+    const overflowBottom = centerY + menuRadius - window.innerHeight;
+
+    // Apply offset to keep menu in viewport
+    const offsetX = Math.max(0, overflowLeft) - Math.max(0, overflowRight);
+    const offsetY = Math.max(0, overflowTop) - Math.max(0, overflowBottom);
+
+    overlay.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px))`;
+  }
+
+  // Debounced resize handler for performance
+  let resizeTimeout;
+  function handleResize() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(updatePosition, 16); // ~60fps
+  }
+
   // Toggle menu open/closed
   function toggleMenu() {
     isOpen = !isOpen;
     backdrop.classList.toggle("open", isOpen);
     overlay.classList.toggle("open", isOpen);
     ring.classList.toggle("open", isOpen);
+
+    if (isOpen) {
+      updatePosition();
+      window.addEventListener("resize", handleResize);
+    } else {
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(resizeTimeout);
+      // Reset position after close animation completes (400ms matches CSS transition)
+      setTimeout(() => {
+        if (!isOpen) overlay.style.transform = "";
+      }, 400);
+    }
   }
 
   // Initialize display
@@ -261,6 +303,12 @@ export default function ({ parentElement, data, setStateValue }) {
   // Attach click handlers
   selector.onclick = toggleMenu;
   backdrop.onclick = () => toggleMenu();
+
+  // Cleanup function
+  return () => {
+    clearTimeout(resizeTimeout);
+    window.removeEventListener("resize", handleResize);
+  };
 }
 ```
 
@@ -302,12 +350,12 @@ if result.selection:
 When the user selects an item, `setStateValue("selection", currentSelection)` updates the persistent state. Unlike trigger values, this persists across reruns:
 
 ```javascript
-button.addEventListener("click", () => {
+button.onclick = () => {
   currentSelection = value;
   updateDisplay();
   toggleMenu();
   setStateValue("selection", currentSelection);
-});
+};
 ```
 
 ### Default values
@@ -327,10 +375,11 @@ result = radial_menu(
 Menu items are created dynamically based on the options passed via `data`:
 
 ```javascript
+ring.style.setProperty("--total", optionCount);
+
 Object.entries(options).forEach(([value, icon], index) => {
   const button = document.createElement("button");
   button.style.setProperty("--i", index);
-  button.style.setProperty("--total", Object.keys(options).length);
   // ...
   ring.appendChild(button);
 });
@@ -342,7 +391,8 @@ The CSS uses custom properties to calculate each item's angle:
 
 ```css
 .menu-item {
-  --angle: calc(var(--i) * (360deg / var(--total, 6)) - 90deg);
+  --angle: calc(var(--i) * (360deg / var(--total)) - 90deg);
+  --radius: 4rem;
   transform: rotate(var(--angle)) translate(var(--radius))
     rotate(calc(-1 * var(--angle)));
 }
