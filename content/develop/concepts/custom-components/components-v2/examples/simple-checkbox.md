@@ -31,7 +31,7 @@ def handle_checkbox_change():
     st.toast(f"Checkbox is now: {st.session_state.my_checkbox.checked}")
 
 
-my_component = st.components.v2.component(
+checkbox_component = st.components.v2.component(
     "simple_checkbox",
     html="""
     <label class="checkbox-container">
@@ -70,9 +70,9 @@ my_component = st.components.v2.component(
     """,
 )
 
-initial_state = False
+initial_state = True
 
-result = my_component(
+result = checkbox_component(
     data={"checked": initial_state},
     default={"checked": initial_state},
     on_checked_change=handle_checkbox_change,
@@ -96,7 +96,7 @@ This example uses `setStateValue()` instead of `setTriggerValue()`. State and tr
 The `default` parameter sets the initial value in Python without triggering a rerun:
 
 ```python
-result = my_component(
+result = checkbox_component(
     data={"checked": initial_state},
     default={"checked": initial_state},  # Matches data
     on_checked_change=handle_checkbox_change,

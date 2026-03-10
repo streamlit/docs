@@ -59,32 +59,60 @@ This is the [simple checkbox](/develop/concepts/custom-components/components-v2/
 ```python
 import streamlit as st
 
-simple_component = st.components.v2.component(
-    name="simple_checkbox",
-    html="""<input type="checkbox" />""",
+
+def handle_checkbox_change():
+    st.toast(f"Checkbox is now: {st.session_state.my_checkbox.checked}")
+
+
+checkbox_component = st.components.v2.component(
+    "simple_checkbox",
+    html="""
+    <label class="checkbox-container">
+        <input type="checkbox" id="checkbox" />
+        <span class="label-text">Enable feature</span>
+    </label>
+    """,
+    css="""
+    .checkbox-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--st-font);
+        color: var(--st-text-color);
+        cursor: pointer;
+    }
+    input[type="checkbox"] {
+        width: 1.25rem;
+        height: 1.25rem;
+        accent-color: var(--st-primary-color);
+        cursor: pointer;
+    }
+    """,
     js="""
-    export default function({ parentElement, data, setStateValue, key }) {
-        const checkbox = parentElement.querySelector("input[type='checkbox']");
-        const enabled = data.enabled;
+    export default function({ parentElement, data, setStateValue }) {
+        const checkbox = parentElement.querySelector("#checkbox");
 
-        // Initialize checkbox state
-        checkbox.checked = enabled;
+        // Initialize from data
+        checkbox.checked = data?.checked ?? false;
 
-        // Update state when checkbox is toggled
+        // Send state on change
         checkbox.addEventListener("change", () => {
-            setStateValue("enabled", checkbox.checked);
+            setStateValue("checked", checkbox.checked);
         });
     }
-    """
+    """,
 )
 
 initial_state = True
 
-result = simple_component(
-    data={"enabled": initial_state},
-    default={"enabled": initial_state},
-    on_enabled_change=lambda: None
+result = checkbox_component(
+    data={"checked": initial_state},
+    default={"checked": initial_state},
+    on_checked_change=handle_checkbox_change,
+    key="my_checkbox",
 )
+
+st.write(f"Current state: {'Enabled' if result.checked else 'Disabled'}")
 ```
 
 ## Mounting parameters
@@ -141,7 +169,7 @@ Component callback functions work similarly to [widget callback functions](/deve
 By passing a callback function for each of your component's state and trigger values, you ensure that all of your component's state and trigger values are consistently available in the component's result object:
 
 - In the simple button example, the callback is set with `on_action_change=lambda: None`. Because the callback is defined, even trivially, the result returned by the component will always have an `action` attribute. This attribute has a value of `None` until the button is clicked.
-- In the simple checkbox example, the callback is set with `on_enabled_change=lambda: None`. Because the callback is defined, even trivially, the result returned by the component will always have an `enabled` attribute. The default value is configured with the `data` parameter and is `True`.
+- In the simple checkbox example, the callback is set with `on_checked_change=handle_checkbox_change`. Because the callback is defined, the result returned by the component will always have a `checked` attribute. The default value is configured with the `default` parameter and is `True`. Additionally, `handle_checkbox_change` executes custom logic each time the checkbox is toggled.
 
 <Note>
 
@@ -173,49 +201,48 @@ The `default` parameter sets the initial values for your component's state _in P
 
 In general, the `default` parameter is used to avoid a rerun of the script when the component is mounted. Otherwise, your component might need to immediately call `setStateValue()` when it's mounted to inform Python of its initial state. Unnecessary reruns are inefficient and might increase the chance of visual flickering.
 
-The simple checkbox example demonstrates how to use the `default` parameter to avoid a rerun of the script when the component is mounted. An initial value of `True` is set for the `"enabled"` state:
+The simple checkbox example demonstrates how to use the `default` parameter to avoid a rerun of the script when the component is mounted. An initial value of `True` is set for the `"checked"` state:
 
 ```python
 initial_state = True
 
-result = simple_component(
-    data={"enabled": initial_state},
-    default={"enabled": initial_state},
-    on_enabled_change=lambda: None
+result = checkbox_component(
+    data={"checked": initial_state},
+    default={"checked": initial_state},
+    on_checked_change=handle_checkbox_change,
+    key="my_checkbox",
 )
 ```
 
-In the component's JavaScript function, the initial DOM state is set from the `"enabled"` key in the `data` parameter:
+In the component's JavaScript function, the initial DOM state is set from the `"checked"` key in the `data` parameter:
 
 ```javascript
-export default function ({ parentElement, data, setStateValue, key }) {
-  const checkbox = parentElement.querySelector("input[type='checkbox']");
-  const enabled = data.enabled;
+export default function ({ parentElement, data, setStateValue }) {
+  const checkbox = parentElement.querySelector("#checkbox");
 
-  // Initialize checkbox state
-  checkbox.checked = enabled;
+  // Initialize from data
+  checkbox.checked = data?.checked ?? false;
 
-  // Update state when checkbox is toggled
+  // Send state on change
   checkbox.addEventListener("change", () => {
-    setStateValue("enabled", checkbox.checked);
+    setStateValue("checked", checkbox.checked);
   });
 }
 ```
 
-In the previous example, if your remove `default={"enabled": initial_state},` from the Python code, then the initial state of the `"enabled"` key would be `None`, which would be out of sync with the frontend until the first user interaction. In this case, you would have to add `setStateValue("enabled", enabled);` to the JavaScript code to ensure that the initial state is set correctly.
+In the previous example, if you remove `default={"checked": initial_state},` from the Python code, then the initial state of the `"checked"` key would be `None`, which would be out of sync with the frontend until the first user interaction. In this case, you would have to add `setStateValue("checked", data?.checked ?? false);` to the JavaScript code to ensure that the initial state is set correctly.
 
 ```diff
-export default function({ parentElement, data, setStateValue, key }) {
-    const checkbox = parentElement.querySelector("input[type='checkbox']");
-    const enabled = data.enabled;
+export default function({ parentElement, data, setStateValue }) {
+    const checkbox = parentElement.querySelector("#checkbox");
 
-    // Initialize checkbox state
-    checkbox.checked = enabled;
-+   setStateValue("enabled", enabled);
+    // Initialize from data
+    checkbox.checked = data?.checked ?? false;
++   setStateValue("checked", data?.checked ?? false);
 
-    // Update state when checkbox is toggled
+    // Send state on change
     checkbox.addEventListener("change", () => {
-        setStateValue("enabled", checkbox.checked);
+        setStateValue("checked", checkbox.checked);
     });
 }
 ```

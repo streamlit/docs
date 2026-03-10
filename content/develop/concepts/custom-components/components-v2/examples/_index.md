@@ -181,7 +181,7 @@ checkbox_component = st.components.v2.component(
     """,
 )
 
-initial_state = False
+initial_state = True
 
 result = checkbox_component(
     data={"checked": initial_state},
