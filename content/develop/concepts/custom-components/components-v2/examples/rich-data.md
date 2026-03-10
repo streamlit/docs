@@ -17,7 +17,7 @@ This component demonstrates the following concepts:
 
 - Passing data from Python via the `data` parameter and accessing it in JavaScript
 - Automatic dataframe and JSON serialization
-- Passing an image as a a Base64-encoded string
+- Passing an image as a Base64-encoded string
 - Using a placeholder in the component's HTML and dynamically updating it with received data
 
 ## Complete code

@@ -30,8 +30,8 @@ Here are some basic examples of component registration. The parameters are expla
 This is the [hello world](/develop/concepts/custom-components/components-v2/examples/hello-world) component shown in the quickstart guide. It's a static component that displays "Hello, World!" using the app's theme colors.
 
 ```python
-my_component = st.components.v2.component(
-    name="my_hello_world",
+hello_component = st.components.v2.component(
+    name="hello_world",
     html="<h2>Hello, World!</h2>",
     css="h2 { color: var(--st-primary-color); }",
 )
@@ -42,16 +42,16 @@ my_component = st.components.v2.component(
 This is the [simple button](/develop/concepts/custom-components/components-v2/examples/simple-button) component shown in the quickstart guide. It's an interactive button that sends a trigger value to Python when clicked.
 
 ```python
-my_component = st.components.v2.component(
-    name="my_button",
-    html="<button id='btn'>Click me!</button>",
+button_component = st.components.v2.component(
+    name="simple_button",
+    html="""<button id="btn">Click me</button>""",
     css="button { background: var(--st-primary-color); color: white; }",
     js="""
     export default function(component) {
         const { parentElement, setTriggerValue } = component;
 
         parentElement.querySelector("button").onclick = () => {
-            setTriggerValue("clicked", true);
+            setTriggerValue("action", "button_clicked");
         };
     }
     """

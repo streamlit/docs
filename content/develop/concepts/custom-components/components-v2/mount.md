@@ -19,7 +19,7 @@ This is the [hello world](/develop/concepts/custom-components/components-v2/exam
 import streamlit as st
 
 hello_component = st.components.v2.component(
-    name="my_hello_world",
+    name="hello_world",
     html="<h2>Hello, World!</h2>",
     css="h2 { color: var(--st-primary-color); }",
 )
@@ -35,9 +35,9 @@ This is the [simple button](/develop/concepts/custom-components/components-v2/ex
 ```python
 import streamlit as st
 
-my_component = st.components.v2.component(
-    name="my_button",
-    html="<button id='btn'>Click me!</button>",
+button_component = st.components.v2.component(
+    name="simple_button",
+    html="""<button id="btn">Click me</button>""",
     css="button { background: var(--st-primary-color); color: white; }",
     js="""
     export default function(component) {
@@ -49,7 +49,7 @@ my_component = st.components.v2.component(
     """
 )
 
-result = my_component(on_action_change=lambda: None)
+result = button_component(on_action_change=lambda: None)
 ```
 
 ### Simple checkbox

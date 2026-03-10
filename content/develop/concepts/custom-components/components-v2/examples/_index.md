@@ -60,7 +60,7 @@ This is a component that receives various data types from Python. This component
 
 ```python
 data_component = st.components.v2.component(
-    "rich_data",
+    "data_display",
     html="""<div id="data-container">Loading data...</div>""",
     js="""
     export default function({ data, parentElement }) {
