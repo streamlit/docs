@@ -123,42 +123,27 @@ For larger components, you can organize your code into separate files. However, 
 
 If you use multiple files for your inline component, use a context manager to read the files and pass their contents to your inline component.
 
+<Note>
+
+This pattern isn't recommended, especially for development, because you might need to restart your Streamlit server to see changes in your non-Python code.
+
+</Note>
+
 ```none filename="Directory structure"
 my_app/
 ├── streamlit_app.py
-└── my_component/
-    ├── component.css
-    ├── component.html
-    └── component.js
+└── component.html
 ```
 
 ```python
-# Load HTML, CSS, and JS from external files
-@st.cache_data
-def load_component_code():
-    with open("my_component/my_css.css", "r") as f:
-        CSS = f.read()
-    with open("my_component/my_html.html", "r") as f:
+with open("my_component/my_html.html", "r") as f:
         HTML = f.read()
-    with open("my_component/my_js.js", "r") as f:
-        JS = f.read()
-    return HTML, CSS, JS
-
-HTML, CSS, JS = load_component_code()
 
 file_component = st.components.v2.component(
-    name="file_based",
-    html=HTML,
-    css=CSS,
-    js=JS,
+    name="antipattern_file_based",
+    html=HTML
 )
 ```
-
-<Tip>
-
-Using `@st.cache_data` is a good practice to avoid reloading the component code on every rerun, but you might want to temporarily remove caching during development. Streamlit will automatically invalidate the cache if you make code changes within a cache-decorated function, but Streamlit can't infer the changes from files that are read. In this case, you must manually clear the cache when you make changes to files you've read within the cached function. For more information, see [Caching](/develop/api-reference/caching).
-
-</Tip>
 
 ## Sending values to Python
 
