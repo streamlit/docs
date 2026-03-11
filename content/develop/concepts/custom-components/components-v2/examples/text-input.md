@@ -22,7 +22,7 @@ This component demonstrates the following concepts:
 
 ## Complete code
 
-For easy copying and pasting, expand the complete code below. However, for easier reading, the code is split into multiple files in the next section.
+For easy copying, expand the complete code below. For easier reading, the HTML and JavaScript are shown separately.
 
 <Collapse title="Complete single-file code">
 
@@ -96,23 +96,12 @@ st.write("Session state:", st.session_state)
 
 </Collapse>
 
-## File-based version
-
-```none filename="Directory structure"
-my_app/
-├── streamlit_app.py
-└── my_component/
-    ├── __init__.py
-    ├── component.html
-    └── component.js
-```
-
-```markup filename="my_component/component.html"
+```markup
 <label style='padding-right: 1em;' for='txt'>Enter text</label>
 <input id='txt' type='text' />
 ```
 
-```javascript filename="my_component/component.js"
+```javascript
 export default function (component) {
   const { setStateValue, parentElement, data } = component;
 
@@ -136,27 +125,15 @@ export default function (component) {
 }
 ```
 
-```python filename="my_component/__init__.py"
-from pathlib import Path
+```python filename="streamlit_app.py"
 import streamlit as st
 
-component_dir = Path(__file__).parent
-
-@st.cache_data
-def load_component_code():
-    with open(component_dir / "component.html", "r") as f:
-        HTML = f.read()
-    with open(component_dir / "component.js", "r") as f:
-        JS = f.read()
-    return HTML, JS
-
-HTML, JS = load_component_code()
-
 textbox_component = st.components.v2.component(
-    name="simple_textbox",
-    html=HTML,
-    js=JS,
+    "simple_textbox",
+    html="...",
+    js="...",
 )
+
 
 def textbox_component_wrapper(
     label, *, default="", key=None, on_change=lambda: None
@@ -171,10 +148,7 @@ def textbox_component_wrapper(
         on_value_change=on_change,
     )
     return result
-```
 
-```python filename="streamlit_app.py"
-from my_component import textbox_component_wrapper
 
 if st.button("Hello World"):
     st.session_state["my_textbox"]["value"] = "Hello World"
@@ -243,9 +217,3 @@ if st.button("Hello World"):
 ```
 
 On the next rerun, the wrapper reads this new value from Session State and passes it to the component via `data`. The JavaScript then updates the input field.
-
-## Related documentation
-
-- [Bidirectional communication](/develop/concepts/custom-components/components-v2/communicate)
-- [Component mounting](/develop/concepts/custom-components/components-v2/mount)
-- [State vs trigger values](/develop/concepts/custom-components/components-v2/state-and-triggers)

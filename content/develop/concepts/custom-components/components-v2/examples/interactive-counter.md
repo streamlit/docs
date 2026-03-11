@@ -20,7 +20,7 @@ This component demonstrates the following concepts:
 
 ## Complete code
 
-For easy copying and pasting, expand the complete code below. However, for easier reading, the code is split into multiple files in the next section.
+For easy copying, expand the complete code below. For easier reading, the HTML, CSS, and JavaScript are shown separately.
 
 <Collapse title="Complete single-file code">
 
@@ -127,19 +127,7 @@ if result.reset:
 
 </Collapse>
 
-## File-based version
-
-```none filename="Directory structure"
-my_app/
-├── streamlit_app.py
-└── my_component/
-    ├── __init__.py
-    ├── component.html
-    ├── component.css
-    └── component.js
-```
-
-```markup filename="my_component/component.html"
+```markup
 <div class="counter">
   <h3>Count: <span id="display">0</span></h3>
   <div class="buttons">
@@ -150,7 +138,7 @@ my_app/
 </div>
 ```
 
-```css filename="my_component/component.css"
+```css
 .counter {
   padding: 2rem;
   border: 1px solid var(--st-border-color);
@@ -182,7 +170,7 @@ button:hover {
 }
 ```
 
-```javascript filename="my_component/component.js"
+```javascript
 export default function ({
   parentElement,
   setStateValue,
@@ -221,36 +209,15 @@ export default function ({
 }
 ```
 
-```python filename="my_component/__init__.py"
-from pathlib import Path
+```python filename="streamlit_app.py"
 import streamlit as st
 
-component_dir = Path(__file__).parent
-
-
-@st.cache_data
-def load_component_code():
-    with open(component_dir / "component.css", "r") as f:
-        CSS = f.read()
-    with open(component_dir / "component.html", "r") as f:
-        HTML = f.read()
-    with open(component_dir / "component.js", "r") as f:
-        JS = f.read()
-    return HTML, CSS, JS
-
-
-HTML, CSS, JS = load_component_code()
-
 counter_component = st.components.v2.component(
-    name="interactive_counter",
-    html=HTML,
-    css=CSS,
-    js=JS,
+    "interactive_counter",
+    html="...",
+    css="...",
+    js="...",
 )
-```
-
-```python filename="streamlit_app.py"
-from my_component import counter_component
 
 result = counter_component(
     default={"count": 0},
@@ -285,4 +252,4 @@ In this example, the callbacks are set to `lambda: None`, which is an empty call
 
 ### Multifile component structure
 
-When your component is complex enough to warrant multiple files, it's recommended to use package-based development, which requires defining `pyproject.toml` files and understanding the basics of packaging Python projects. For simplicity, this example uses inline development and passes the contents of the HTML, CSS, and JavaScript files to the component registration function as strings. This is because you can't use file references with inline components. After understanding the basics of creating a custom component with inline development, you can explore [package-based development](/develop/concepts/custom-components/components-v2/package-based).
+When your component is complex enough to warrant multiple files, it's recommended to use package-based development, which requires defining `pyproject.toml` files and understanding the basics of packaging Python projects. For simplicity, this example uses inline development and passes the HTML, CSS, and JavaScript as strings. This is because you can't use file references with inline components. After understanding the basics of creating a custom component with inline development, you can explore [package-based development](/develop/concepts/custom-components/components-v2/package-based).
