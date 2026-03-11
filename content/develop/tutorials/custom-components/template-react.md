@@ -271,7 +271,7 @@ if result.item_clicked:
                └── vite-env.d.ts
    ```
 
-   Notice the React template has two frontend source files instead of one: `index.tsx` handles integration with Streamlit's lifecycle, and `MyComponent.tsx` contains the React component.
+   Notice the React template has two frontend source files instead of one: `index.tsx` handles integration with Streamlit's lifecycle, and `MyComponent.tsx` contains the React component. This is a convention but not a requirement. You can have a single source file or arbitrarily many source files.
 
 ## Run the template
 
@@ -391,7 +391,8 @@ Now that the component is running, walk through each file to understand how it w
    ```
 
    This file bridges Streamlit's component lifecycle and React. Because Streamlit calls your `FrontendRenderer` function on every re-render (whenever `data` changes), the pattern is different from a typical React app:
-   - **React root management**: You can't create a new React root each time Streamlit calls your function. Instead, the `WeakMap` stores one root per component instance, keyed by `parentElement`. On the first call, it creates the root. On subsequent calls, it re-renders into the existing root.
+   - **React root management**: You can't create a new React root each time Streamlit calls your function because that would destroy React state on every update. Instead, the `WeakMap` stores one root per component instance, keyed by `parentElement`. On the first call, it creates the root. On subsequent calls, it re-renders into the existing root. This also means multiple instances of the same component in an app each get their own independent React root with their own state.
+   - **Module-level scope**: Code outside `MyComponentRoot`, like the `WeakMap` declaration, runs once when the module loads and is shared across all component instances. If you need one-time global setup. like initializing a third-party library, put it at the module level so it's done once rather than repeated per instance or per re-render.
    - **Passing props**: `MyComponentRoot` extracts `data` and `setStateValue` from Streamlit's args and passes them as React props to `MyComponent`. This is where you decide which Streamlit args your React component needs.
    - **Cleanup**: The returned function unmounts the React root when Streamlit removes the component from the page.
 
