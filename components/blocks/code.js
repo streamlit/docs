@@ -304,15 +304,16 @@ async function highlightElement(
         console.error(`Prism doesn't support this language: ${importLanguage}`);
       }
     }
-
+    // Highlight the code block and conditionally enable toolbar plugins (including copy button)
     if (codeElement) {
+      // First highlight the element
       Prism.highlightElement(codeElement);
-
+      // Then activate toolbar plugins on the parent container if copy button is not hidden
       if (!hideCopyButton) {
         const container = codeElement.closest(`.${styles.Container}`);
         if (container) {
           Prism.highlightAllUnder(container);
-
+          // If the code block is a diff, add diff markers and override the copy button
           if (isDiff) {
             addDiffMarkers(container, codeElement);
             overrideDiffCopyButton(container, codeElement);
