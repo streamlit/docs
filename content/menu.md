@@ -671,6 +671,12 @@ site_menu:
     url: /develop/tutorials/execution-flow/create-a-multiple-container-fragment
   - category: Develop / Tutorials / Execution flow / Start and stop a streaming fragment
     url: /develop/tutorials/execution-flow/start-and-stop-fragment-auto-reruns
+  - category: Develop / Tutorials / Build custom components
+    url: /develop/tutorials/custom-components
+  - category: Develop / Tutorials / Build custom components / Create a component with Pure TypeScript
+    url: /develop/tutorials/custom-components/template-typescript
+  - category: Develop / Tutorials / Build custom components / Create a component with React + TypeScript
+    url: /develop/tutorials/custom-components/template-react
   - category: Develop / Tutorials / Multipage apps
     url: /develop/tutorials/multipage
   - category: Develop / Tutorials / Multipage apps / Dynamic navigation

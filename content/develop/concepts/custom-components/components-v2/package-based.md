@@ -22,6 +22,15 @@ Choose package-based components when you need one of the following features:
 
 The fastest way to create a package-based component is with the official [component template](https://github.com/streamlit/component-template). It generates a complete project with all the configuration, build tooling, and boilerplate you need.
 
+<Tip>
+
+For step-by-step walkthroughs of using the template, see the tutorials:
+
+- [Create a component with Pure TypeScript](/develop/tutorials/custom-components/template-typescript)
+- [Create a component with React + TypeScript](/develop/tutorials/custom-components/template-react)
+
+</Tip>
+
 ### Prerequisites
 
 - Python >= 3.10
