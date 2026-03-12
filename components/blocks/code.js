@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import classNames from "classnames";
 import Prism from "prismjs";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
@@ -7,8 +7,13 @@ import "prismjs/plugins/line-highlight/prism-line-highlight.css";
 import "prismjs/plugins/toolbar/prism-toolbar";
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
+import "prismjs/plugins/diff-highlight/prism-diff-highlight";
+import "prismjs/plugins/diff-highlight/prism-diff-highlight.css";
 
 import Image from "./image";
+import languageDisplayNames, {
+  getPrismLanguage,
+} from "../../lib/languageDisplayNames";
 
 import styles from "./code.module.css";
 
@@ -68,10 +73,6 @@ const TryMeButton = ({ code }) => {
   );
 };
 
-import languageDisplayNames, {
-  getPrismLanguage,
-} from "../../lib/languageDisplayNames";
-
 // Initialize the cache for imported languages.
 const languageImports = new Map();
 
@@ -123,7 +124,10 @@ const Code = ({
 
   // Extract language identifier for display
   const langId = languageClass?.substring(9) || language || "python";
-  const displayLanguage = languageDisplayNames[langId] || langId;
+  const diffMatch = langId.match(/^diff-([\w-]+)$/);
+  const displayLanguage = diffMatch
+    ? languageDisplayNames[diffMatch[1]] || diffMatch[1]
+    : languageDisplayNames[langId] || langId;
   const showLanguage =
     langId.toLowerCase() !== "none" && (showAll || !filename);
 
@@ -168,6 +172,89 @@ const Code = ({
   );
 };
 
+// Strip deleted lines and diff prefixes (+/=) to produce copy-friendly text.
+function getCleanDiffText(textContent) {
+  return textContent
+    .split(/\r?\n/)
+    .filter((line) => !line.startsWith("-"))
+    .map((line) => line.substring(1))
+    .join("\n");
+}
+
+// Add +/- markers into the left margin of the code block.
+function addDiffMarkers(container, codeElement) {
+  const pre = codeElement.closest("pre");
+  if (!pre) return;
+
+  const lines = codeElement.textContent.split(/\r?\n/);
+  // Drop trailing empty line from a final newline
+  if (lines.length > 0 && lines[lines.length - 1] === "") {
+    lines.pop();
+  }
+
+  const markerEl = document.createElement("div");
+  markerEl.className = `diff-markers ${styles.DiffMarkers}`;
+  markerEl.setAttribute("aria-hidden", "true");
+
+  for (const line of lines) {
+    const span = document.createElement("span");
+    if (line.startsWith("+")) {
+      span.textContent = "+";
+      span.className = "diff-marker-insert";
+    } else if (line.startsWith("-")) {
+      span.textContent = "\u2212"; // minus sign instead of hyphen; visually balanced with +
+      span.className = "diff-marker-delete";
+    } else {
+      // Non-breaking space keeps this span from collapsing so
+      // subsequent +/- markers stay vertically aligned with their code lines.
+      span.textContent = "\u00A0";
+    }
+    markerEl.appendChild(span);
+  }
+
+  const topOffset =
+    pre.offsetTop + parseFloat(getComputedStyle(pre).paddingTop);
+  markerEl.style.top = `${topOffset}px`;
+
+  container.appendChild(markerEl);
+}
+
+function overrideDiffCopyButton(container, codeElement) {
+  const copyButton = container.querySelector(".copy-to-clipboard-button");
+  if (!copyButton) return;
+
+  const timeout =
+    parseInt(codeElement.getAttribute("data-prismjs-copy-timeout")) || 5000;
+
+  const newButton = copyButton.cloneNode(true);
+  copyButton.parentNode.replaceChild(newButton, copyButton);
+
+  newButton.addEventListener("click", async () => {
+    const cleanText = getCleanDiffText(codeElement.textContent);
+    const span = newButton.querySelector("span");
+
+    try {
+      await navigator.clipboard.writeText(cleanText);
+      if (span) {
+        span.textContent = "Copied!";
+        newButton.setAttribute("data-copy-state", "copy-success");
+      }
+    } catch {
+      if (span) {
+        span.textContent = "Press Ctrl+C to copy";
+        newButton.setAttribute("data-copy-state", "copy-error");
+      }
+    }
+
+    if (span) {
+      setTimeout(() => {
+        span.textContent = "Copy";
+        newButton.setAttribute("data-copy-state", "copy");
+      }, timeout);
+    }
+  });
+}
+
 async function highlightElement(
   importLanguage,
   languageImports,
@@ -175,8 +262,41 @@ async function highlightElement(
   hideCopyButton,
 ) {
   if (typeof window !== "undefined") {
-    // Only import the language if it hasn't been imported before.
-    if (!languageImports.has(importLanguage)) {
+    const isDiff = importLanguage.startsWith("diff-");
+    if (isDiff) {
+      const baseLang = importLanguage.substring(5);
+      for (const lang of ["diff", baseLang]) {
+        if (!languageImports.has(lang)) {
+          try {
+            await import(`prismjs/components/prism-${lang}`);
+            languageImports.set(lang, true);
+          } catch (error) {
+            console.error(`Prism doesn't support this language: ${lang}`);
+          }
+        }
+      }
+      // Prism's diff grammar only recognizes +/- prefixes. We use "=" for
+      // unchanged lines to keep code aligned (no visual shift) and to preserve
+      // leading whitespace that markdown processing would otherwise strip.
+      if (!Prism.languages.diff["unchanged-equal"]) {
+        Prism.languages.diff["unchanged-equal"] = {
+          pattern: /^(?:=.*(?:\r\n?|\n|(?![\s\S])))+/m,
+          alias: ["unchanged"],
+          inside: {
+            line: {
+              pattern: /(.)(?=[\s\S]).*(?:\r\n?|\n)?/,
+              lookbehind: true,
+            },
+            prefix: {
+              pattern: /[\s\S]/,
+              alias: "unchanged",
+            },
+          },
+        };
+        Prism.languages.diff.PREFIXES["unchanged-equal"] = "=";
+      }
+      languageImports.set(importLanguage, true);
+    } else if (!languageImports.has(importLanguage)) {
       try {
         await import(`prismjs/components/prism-${importLanguage}`);
         languageImports.set(importLanguage, true);
@@ -184,17 +304,20 @@ async function highlightElement(
         console.error(`Prism doesn't support this language: ${importLanguage}`);
       }
     }
-
     // Highlight the code block and conditionally enable toolbar plugins (including copy button)
     if (codeElement) {
       // First highlight the element
       Prism.highlightElement(codeElement);
-
       // Then activate toolbar plugins on the parent container if copy button is not hidden
       if (!hideCopyButton) {
         const container = codeElement.closest(`.${styles.Container}`);
         if (container) {
           Prism.highlightAllUnder(container);
+          // If the code block is a diff, add diff markers and override the copy button
+          if (isDiff) {
+            addDiffMarkers(container, codeElement);
+            overrideDiffCopyButton(container, codeElement);
+          }
         }
       }
     }

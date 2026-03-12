@@ -284,8 +284,8 @@ code .cdata {
   font-style: italic !important;
 }
 
-pre code .deleted,
-code .deleted {
+pre code .deleted:not(.prefix),
+code .deleted:not(.prefix) {
   color: var(--syntax-deleted) !important;
   background-color: rgba(
     255,
@@ -295,8 +295,8 @@ code .deleted {
   ) !important; /* red-70 with 20% opacity */
 }
 
-pre code .inserted,
-code .inserted {
+pre code .inserted:not(.prefix),
+code .inserted:not(.prefix) {
   color: var(--syntax-inserted) !important;
   background-color: rgba(
     33,
@@ -304,6 +304,46 @@ code .inserted {
     84,
     0.2
   ) !important; /* green-70 with 20% opacity */
+}
+
+/* Diff blocks: expand code element to content width so block children fill scrollable area */
+code[class*="language-diff-"] {
+  display: block;
+  overflow: visible !important;
+  max-width: none !important;
+  width: max-content;
+  min-width: 100%;
+}
+
+/* Diff blocks: make all line-level tokens block-level */
+code[class*="language-diff-"] > .token.deleted:not(.prefix),
+code[class*="language-diff-"] > .token.inserted:not(.prefix),
+code[class*="language-diff-"] > .token.unchanged:not(.prefix) {
+  display: block;
+}
+
+/* Diff prefix: hidden; replaced by fixed markers added via JS */
+code[class*="language-diff-"] .token.prefix {
+  display: none;
+}
+
+/* Fixed diff markers in the left margin */
+.diff-markers {
+  display: flex;
+  flex-direction: column;
+  z-index: theme("zIndex.overlay_code");
+}
+
+.diff-markers span {
+  display: block;
+}
+
+.diff-marker-insert {
+  color: var(--syntax-inserted);
+}
+
+.diff-marker-delete {
+  color: var(--syntax-deleted);
 }
 
 /* Table token for inline display */
