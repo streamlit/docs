@@ -9,7 +9,7 @@ keywords: custom components v2, example, button, trigger values, setTriggerValue
 
 This is an interactive button that sends events to Python. It demonstrates basic frontend-to-backend communication.
 
-<Cloud name="doc-components-v2-simple-button-test" height="200px" />
+<Cloud name="doc-components-v2-simple-button" height="200px" />
 
 ## Key concepts demonstrated
 

@@ -9,7 +9,7 @@ keywords: custom components v2, example, radial menu, state values, setStateValu
 
 This is a circular menu component that allows users to select from a list of options.
 
-<Cloud name="doc-components-v2-radial-menu-test" height="300px" />
+<Cloud name="doc-components-v2-radial-menu" height="300px" />
 
 ## Key concepts demonstrated
 

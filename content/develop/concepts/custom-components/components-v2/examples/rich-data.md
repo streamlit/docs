@@ -9,7 +9,7 @@ keywords: custom components v2, example, data exchange, Arrow, DataFrame, JSON, 
 
 This is a component that receives various data types from Python, including an Arrow-serializable dataframe, a JSON-serializable dictionary, and a Base64-encoded image.
 
-<Cloud name="doc-components-v2-rich-data-test" height="400px" />
+<Cloud name="doc-components-v2-rich-data" height="400px" />
 
 ## Key concepts demonstrated
 

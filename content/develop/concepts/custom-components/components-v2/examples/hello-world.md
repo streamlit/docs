@@ -9,7 +9,7 @@ keywords: custom components v2, example, hello world, static component, theming
 
 This is a minimal static component that displays "Hello, World!" using the app's primary theme color.
 
-<Cloud name="doc-components-v2-hello-world-test" height="200px" />
+<Cloud name="doc-components-v2-hello-world" height="200px" />
 
 ## Key concepts demonstrated
 

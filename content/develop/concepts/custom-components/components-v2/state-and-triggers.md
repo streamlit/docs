@@ -49,7 +49,7 @@ Trigger values have the following behavior:
 
 State values are perfect for tracking the ongoing state of your component. The [Radial menu](/develop/concepts/custom-components/components-v2/examples/radial-menu) quickstart example demonstrates this pattern with a circular selection menu. When the user selects an item, the component calls `setStateValue` to persist their choice across reruns.
 
-<Cloud name="doc-components-v2-radial-menu-test" height="300px" />
+<Cloud name="doc-components-v2-radial-menu" height="300px" />
 
 The critical line in the component's JavaScript is the call to `setStateValue` inside the click handler. Because this is a state value, the selection persists across reruns. If the user interacts with another widget and triggers a rerun, `result.selection` still reflects their last choice:
 
@@ -88,7 +88,7 @@ if result.selection:
 
 Trigger values are ideal for handling discrete user actions. The [Danger button](/develop/concepts/custom-components/components-v2/examples/danger-button) quickstart example demonstrates this pattern with a hold-to-confirm button. The component performs frontend validation by requiring the user to hold the button for a full two seconds and then calls `setTriggerValue` to fire a one-time trigger to Python.
 
-<Cloud name="doc-components-v2-danger-button-test" height="500px" />
+<Cloud name="doc-components-v2-danger-button" height="500px" />
 
 The key difference from a state value is that the trigger fires every time the action completes, and its value resets to `None` after the rerun. In this example, the `triggerAction` function only calls `setTriggerValue` after the full hold duration passes frontend validation:
 

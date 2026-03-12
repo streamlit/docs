@@ -9,7 +9,7 @@ keywords: custom components v2, example, text input, bidirectional communication
 
 This is a text input component that demonstrates full bidirectional communication, including programmatic updates from Python.
 
-<Cloud name="doc-components-v2-text-input-test" height="300px" />
+<Cloud name="doc-components-v2-text-input" height="300px" />
 
 ## Key concepts demonstrated
 

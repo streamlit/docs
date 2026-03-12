@@ -26,7 +26,7 @@ This is a minimal static component that displays "Hello, World!" using the app's
 - Theme integration using CSS custom properties
 - Mounting a component by calling the `ComponentRenderer`
 
-<Cloud name="doc-components-v2-hello-world-test" height="200px" />
+<Cloud name="doc-components-v2-hello-world" height="200px" />
 
 ```python filename="streamlit_app.py"
 import streamlit as st
@@ -56,7 +56,7 @@ This is a component that receives various data types from Python. This component
 - Passing an image as a Base64-encoded string
 - Using a placeholder in the component's HTML and dynamically updating it with received data
 
-<Cloud name="doc-components-v2-rich-data-test" height="400px" />
+<Cloud name="doc-components-v2-rich-data" height="400px" />
 
 ```python
 data_component = st.components.v2.component(
@@ -102,7 +102,7 @@ This is an interactive button that sends events to Python. This component introd
 - Callback functions using the `on_<trigger>_change` naming pattern
 - Accessing trigger values from the component's return object
 
-<Cloud name="doc-components-v2-simple-button-test" height="200px" />
+<Cloud name="doc-components-v2-simple-button" height="200px" />
 
 ```python filename="streamlit_app.py"
 import streamlit as st
@@ -149,7 +149,7 @@ This is a simple checkbox that reports a stateful value to Python. This componen
 - Using font from the app's theme
 - Accessing state values from the component's return object
 
-<Cloud name="doc-components-v2-simple-checkbox-test" height="200px" />
+<Cloud name="doc-components-v2-simple-checkbox" height="200px" />
 
 ```python filename="streamlit_app.py"
 import streamlit as st
@@ -206,7 +206,7 @@ This is a counter with increment, decrement, and reset functionality. This compo
 - Combining state and trigger values in one component
 - Multiple event handlers
 
-<Cloud name="doc-components-v2-interactive-counter-test" height="300px" />
+<Cloud name="doc-components-v2-interactive-counter" height="300px" />
 
 ```markup
 <div class="counter">
@@ -260,7 +260,7 @@ This is a text input component that demonstrates full bidirectional communicatio
 - Programmatic updates from Python via the `data` parameter
 - Syncing frontend state without interrupting user input
 
-<Cloud name="doc-components-v2-text-input-test" height="300px" />
+<Cloud name="doc-components-v2-text-input" height="300px" />
 
 ```python
 def textbox_component_wrapper(
@@ -308,7 +308,7 @@ This is a hold-to-confirm button with frontend validation and visual feedback. T
 - Layout control using the `width` parameter
 - Cleanup functions for event listeners
 
-<Cloud name="doc-components-v2-danger-button-test" height="500px" />
+<Cloud name="doc-components-v2-danger-button" height="500px" />
 
 ```javascript
 function startHold() {
@@ -349,7 +349,7 @@ This is a circular selection menu demonstrating state values for persistent sele
 - A fixed-position backdrop for click-outside behavior
 - Complex animations with CSS transitions
 
-<Cloud name="doc-components-v2-radial-menu-test" height="300px" />
+<Cloud name="doc-components-v2-radial-menu" height="300px" />
 
 ```python
 result = radial_menu(

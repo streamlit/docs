@@ -46,7 +46,7 @@ For native Streamlit widgets, you can assign a key and set a widget's state thro
 
 Here's a text input component that demonstrates this pattern. This is the [text input](/develop/concepts/custom-components/components-v2/examples/text-input) component shown in the quickstart guide.
 
-<Cloud name="doc-components-v2-text-input-test" height="300px" />
+<Cloud name="doc-components-v2-text-input" height="300px" />
 
 ### The JavaScript side
 

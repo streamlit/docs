@@ -9,7 +9,7 @@ keywords: custom components v2, example, danger button, hold to confirm, fronten
 
 This is a button that requires the user to hold for two seconds to confirm a dangerous action. It demonstrates frontend validation, visual feedback, and rate limiting.
 
-<Cloud name="doc-components-v2-danger-button-test" height="500px" />
+<Cloud name="doc-components-v2-danger-button" height="500px" />
 
 ## Key concepts demonstrated
 

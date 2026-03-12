@@ -9,7 +9,7 @@ keywords: custom components v2, example, checkbox, state values, setStateValue, 
 
 This is a simple checkbox that sends a state value to Python when toggled, demonstrating persistent state communication.
 
-<Cloud name="doc-components-v2-simple-checkbox-test" height="200px" />
+<Cloud name="doc-components-v2-simple-checkbox" height="200px" />
 
 ## Key concepts demonstrated
 
