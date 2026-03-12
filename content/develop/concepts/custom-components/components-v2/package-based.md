@@ -244,6 +244,9 @@ out = st.components.v2.component(
     html=' ',
 )
 
+def on_num_clicks_change():
+    pass
+
 def my_component(name, key=None):
     component_value = out(
         key=key,
@@ -290,7 +293,6 @@ component = st.components.v2.component(
     name="my_component",
     js="index-*.js",         # Matches index-<hash>.js
     css="styles-*.css",      # Matches styles-<hash>.css
-    data={"message": "Hello"}
 )
 ```
 

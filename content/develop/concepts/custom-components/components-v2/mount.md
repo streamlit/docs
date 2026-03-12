@@ -260,7 +260,7 @@ result = my_component(
 )
 ```
 
-On the frontend, because Streamlit will size the `<div>` wrapper element correctly, it's generally recommended to set your component's CSS to `width: 100%; height: 100%`. If your component needs to know its exact measurements at runtime in JavaScript, you can use a `ResizeObserver` to get that information dynamically.
+On the frontend, because Streamlit will size the `<div>` wrapper element correctly, it's generally recommended to set your component's CSS to `width: 100%; height: 100%`. If your component needs to know its exact measurements at runtime in JavaScript, you can use a [`ResizeObserver`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to get that information dynamically.
 
 ### Theming and styling (`isolate_styles`)
 

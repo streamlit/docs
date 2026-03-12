@@ -11,7 +11,7 @@ When you register your component, you define what it looks like and how it behav
 
 - To define your component's HTML, CSS, and JavaScript, use [`st.components.v2.component()`](/develop/api-reference/custom-components/st.components.v2.component).
 - In your component's JavaScript code, to send and receive communications with Python, use the properties of the [`FrontendRendererArgs`](/develop/api-reference/custom-components/component-v2-lib-frontendrendererargs) type.
-- In your component's CSS, to make your component theme-aware, use [CSS custom properties](/develop/concepts/custom-components/components-v2/theming#css-custom-properties).
+- In your component's CSS, to make your component theme-aware, use [CSS custom properties](/develop/concepts/custom-components/components-v2/theming#using-css-custom-properties).
 
 For simplicity and to help you get started with less prerequisite knowledge, this guide uses inline component development. For components that are larger, reusable, or distributed, you should use package-based development. The practical difference is that package-based components let you self-host assets and reference those assets, including component code, by a relative path. Contrastingly, inline components require you to pass raw HTML, CSS, and JavaScript code to your component registration command.
 
@@ -100,7 +100,7 @@ export default function (component) {
 - `name` (string): Component name from your Python registration.
 - `key` (string): Unique identifier for a component instance. Use this to assist with tracking unique instances of your component in the DOM, especially if your component acts outside of its `parentElement`.
 - `data` (any): All data passed from Python via the `data` parameter. Use this to customize a component instance or to receive feedback data from your Python backend.
-- `parentElement` (HTMLElement): The DOM element where your component is mounted. Use this to interact with the component's internal DOM elements.
+- `parentElement` (HTMLElement of ShadowRoot): The DOM element where your component is mounted. Use this to interact with the component's internal DOM elements.
 - `setStateValue` (function): JavaScript function to communicate stateful values to your Python backend. The first argument is the state key name, and the second argument is the value to set.
 - `setTriggerValue` (function): JavaScript function to communicate event-based trigger values to your Python backend. The first argument is the trigger key name, and the second argument is the value to set.
 

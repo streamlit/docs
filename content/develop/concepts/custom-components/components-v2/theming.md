@@ -11,7 +11,7 @@ Custom components v2 provides seamless integration with Streamlit's theming syst
 
 ## Accessing theme values
 
-Streamlit automatically injects CSS Custom Properties into a wrapper element around your component instance. These properties are derived from the current Streamlit theme and are prefixed with `--st-` for easy identification.
+Streamlit automatically injects CSS Custom Properties into a wrapper element around your component instance. These properties are derived from the current Streamlit theme and are prefixed with `--st-` for easy identification. These values respect the viewer's theme selection, so you don't need separate logic to handle light and dark modes.
 
 ## Using CSS custom properties
 
@@ -31,7 +31,7 @@ Reference Streamlit theme values in your component styles using the [`var()`](ht
 }
 ```
 
-If you component in mounted in the sidebar, these values will correctly inherit from `theme.sidebar`.
+If your component is mounted in the sidebar, these values will correctly inherit from `theme.sidebar`.
 
 ## Convert theme configuration option names to CSS custom property names
 
@@ -61,6 +61,24 @@ Some theme properties are arrays. These are exposed as comma-separated strings. 
 | `--st-heading-font-weights`     | `theme.headingFontWeights`     |
 | `--st-chart-categorical-colors` | `theme.chartCategoricalColors` |
 | `--st-chart-sequential-colors`  | `theme.chartSequentialColors`  |
+| `--st-chart-diverging-colors`   | `theme.chartDivergingColors`   |
+
+Heading font sizes and weights are also available as individual CSS Custom Properties for each heading level (1–6), so you don't need to parse the arrays when styling specific headings:
+
+| CSS Custom Property          | Used for                      |
+| :--------------------------- | :---------------------------- |
+| `--st-heading-font-size-1`   | `theme.headingFontSizes[0]`   |
+| `--st-heading-font-size-2`   | `theme.headingFontSizes[1]`   |
+| `--st-heading-font-size-3`   | `theme.headingFontSizes[2]`   |
+| `--st-heading-font-size-4`   | `theme.headingFontSizes[3]`   |
+| `--st-heading-font-size-5`   | `theme.headingFontSizes[4]`   |
+| `--st-heading-font-size-6`   | `theme.headingFontSizes[5]`   |
+| `--st-heading-font-weight-1` | `theme.headingFontWeights[0]` |
+| `--st-heading-font-weight-2` | `theme.headingFontWeights[1]` |
+| `--st-heading-font-weight-3` | `theme.headingFontWeights[2]` |
+| `--st-heading-font-weight-4` | `theme.headingFontWeights[3]` |
+| `--st-heading-font-weight-5` | `theme.headingFontWeights[4]` |
+| `--st-heading-font-weight-6` | `theme.headingFontWeights[5]` |
 
 ### Directly mapped CSS custom properties
 
@@ -109,6 +127,8 @@ The rest of the CSS Custom Properties are directly mapped to theme configuration
 | `--st-green-text-color`                  | `theme.greenTextColor`                 |
 | `--st-violet-text-color`                 | `theme.violetTextColor`                |
 | `--st-gray-text-color`                   | `theme.grayTextColor`                  |
+| `--st-metric-value-font-size`            | `theme.metricValueFontSize`            |
+| `--st-metric-value-font-weight`          | `theme.metricValueFontWeight`          |
 
 ## Practical theming examples
 
@@ -402,16 +422,17 @@ Custom components v2 provides style isolation options to control how your compon
 
 ### Isolated styles (default)
 
-By default, Streamlit sets `isolate_styles=True`, which wraps your component in a Shadow DOM:
+By default, Streamlit sets `isolate_styles=True` when mounting a component, which wraps the instance in a Shadow DOM:
 
 ```python
-# Styles are isolated (default behavior)
-isolated_component = st.components.v2.component(
-    name="isolated",
+my_component = st.components.v2.component(
+    name="my_component",
     html="<div class='my-style'>Isolated content</div>",
-    css=".my-style { color: red; }",  # Won't affect other elements
-    isolate_styles=True  # Default
+    css=".my-style { color: red; }",
 )
+
+# Styles are isolated (default behavior)
+my_component(isolate_styles=True)
 ```
 
 Benefits of isolation:
@@ -422,16 +443,11 @@ Benefits of isolation:
 
 ### Non-isolated styles
 
-If you want your component's style to affect the rest of the page, you can set `isolate_styles=False`. This is uncommon.
+If you want your component's style to affect the rest of the page, you can set `isolate_styles=False` when mounting. This is uncommon.
 
 ```python
 # Styles can affect the page
-non_isolated_component = st.components.v2.component(
-    name="non_isolated",
-    html="<div class='inherits-styles'>Content with inheritance</div>",
-    css=".inherits-styles { font-family: inherit; }",  # Inherits page fonts
-    isolate_styles=False
-)
+my_component(isolate_styles=False)
 ```
 
 ## Responsive design

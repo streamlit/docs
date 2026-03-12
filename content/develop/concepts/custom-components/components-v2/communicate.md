@@ -17,7 +17,7 @@ The basic concepts of component communication are introduced in the [Component m
 
 <Note>
 
-This guide explains how to recreate behavior similar to that of native Streamlit widgets: setting a component's state from Session State. You don't strictly need feed a component's state from Session State back into itself to create a stateful component. This is just one pattern to achieve an experience that is similar to native Streamlit widgets.
+This guide explains how to recreate behavior that's similar to native Streamlit widgets: setting a component's state from Session State. In general, you don't need to pass a component's state back into itself. This is just one pattern to manage a component's state through Session State.
 
 However, because components can have multiple states and triggers, you must work with `st.session_state.<key>.<state>` for custom components instead of simply `st.session_state.<key>` like you do with native Streamlit widgets.
 
