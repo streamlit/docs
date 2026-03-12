@@ -262,18 +262,6 @@ result = my_component(
 
 On the frontend, because Streamlit will size the `<div>` wrapper element correctly, it's generally recommended to set your component's CSS to `width: 100%; height: 100%`. If your component needs to know its exact measurements at runtime in JavaScript, you can use a [`ResizeObserver`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to get that information dynamically.
 
-### Theming and styling (`isolate_styles`)
-
-Custom Components v2 provides style isolation options to control whether or not to sandbox your component in a shadow root. This is useful to prevent your component's styles from leaking to the rest of the page and to prevent the page's styles from leaking into your component. By default, Streamlit uses a shadow root for your component.
-
-```python
-result = my_component(
-    isolate_styles=True  # Default behavior uses a shadow root
-)
-```
-
-For more information about theming and styling, see the [Theming and styling](/develop/concepts/custom-components/components-v2/theming) guide.
-
 ## Accessing component values
 
 You can access the state and trigger values of a component through the mounting command's return value. Alternatively, if you mounted your component with a key, you can access the component values through Session State.

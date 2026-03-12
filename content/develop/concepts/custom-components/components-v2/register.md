@@ -60,18 +60,31 @@ button_component = st.components.v2.component(
 
 ## Registration parameters
 
+### Internal component identifier (`name`)
+
 `name` is a unique identifier for your component. This is used internally by Streamlit to retrieve the HTML, CSS, and JavaScript code when a component instance is mounted. To avoid collisions, Streamlit prefixes component names with the modules they are imported from. For inline components that aren't imported, you must use unique names.
+
+### Component content (`html`, `css`, and `js`)
 
 `html`, `css`, and `js` are all optional parameters that define your component's markup, styling, and logic, respectively:
 
 - In the hello world example, `html` contains a single heading element and `css` styles it with the Streamlit theme's primary color. Because it's a static component, it doesn't need any JavaScript logic.
 - In the simple button example, `html` contains a single button element, `css` styles it with the Streamlit theme's primary color, and the default function in `js` listens for clicks and sets a trigger value.
 
-<Important>
+### Theming and styling (`isolate_styles`)
 
-A component must have either `html`, `js`, or both defined! You can't register a component with only CSS. If you only need to inject CSS, use `st.html()` instead.
+Custom Components v2 provides style isolation options to control whether or not to sandbox your component in a shadow root. This is useful to prevent your component's styles from leaking to the rest of the page and to prevent the page's styles from leaking into your component. By default, Streamlit uses a shadow root for your component.
 
-</Important>
+```python
+my_component = st.components.v2.component(
+    name="my_component",
+    html="<div class='my-style'>Isolated content</div>",
+    css=".my-style { color: red; }",
+    isolate_styles=True  # Default behavior uses a shadow root
+)
+```
+
+For more information about theming and styling, see the [Theming and styling](/develop/concepts/custom-components/components-v2/theming) guide.
 
 ## JavaScript function requirements
 

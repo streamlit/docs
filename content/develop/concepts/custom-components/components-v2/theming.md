@@ -37,7 +37,7 @@ If your component is mounted in the sidebar, these values will correctly inherit
 
 In general, for any theme configuration option, use the CSS custom property `--st-<option-name>` to reference the value. `<option-name>` is the name of the option in the theme configuration in dash-case, also known as kebab-case.
 
-For example, to reference the primary color (`theme.primaryColor`), use `--st-primary-color`. To reference the background color (`theme.backgroundColor`), use `--st-background-color`. For a desciption of all theme configuration options, see the [`config.toml` API reference](/develop/api-reference/configuration/config.toml#theme).
+For example, to reference the primary color (`theme.primaryColor`), use `--st-primary-color`. To reference the background color (`theme.backgroundColor`), use `--st-background-color`. For a description of all theme configuration options, see the [`config.toml` API reference](/develop/api-reference/configuration/config.toml#theme).
 
 If a theme value is not configured, the CSS Custom Properties will have a valid value inherited from the current base theme.
 
@@ -422,17 +422,15 @@ Custom components v2 provides style isolation options to control how your compon
 
 ### Isolated styles (default)
 
-By default, Streamlit sets `isolate_styles=True` when mounting a component, which wraps the instance in a Shadow DOM:
+By default, Streamlit sets `isolate_styles=True` when registering a component, which wraps the instance in a Shadow DOM:
 
 ```python
 my_component = st.components.v2.component(
-    name="my_component",
+    name="isolated_component",
     html="<div class='my-style'>Isolated content</div>",
     css=".my-style { color: red; }",
+    isolate_styles=True
 )
-
-# Styles are isolated (default behavior)
-my_component(isolate_styles=True)
 ```
 
 Benefits of isolation:
@@ -447,7 +445,12 @@ If you want your component's style to affect the rest of the page, you can set `
 
 ```python
 # Styles can affect the page
-my_component(isolate_styles=False)
+non_isolated_component = st.components.v2.component(
+    name="non_isolated_component",
+    html="<div class='inherits-styles'>Content with inheritance</div>",
+    css=".inherits-styles { font-family: inherit; }",  # Inherits page fonts
+    isolate_styles=False
+)
 ```
 
 ## Responsive design
