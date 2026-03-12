@@ -1159,9 +1159,9 @@
 /develop/api-reference/custom-components/component-v2-lib-componentstate /develop/api-reference/custom-components/component-v2-lib-frontendstate
 /develop/api-reference/custom-components/component-v2-lib-component /develop/api-reference/custom-components/component-v2-lib-frontendrenderer
 /develop/api-reference/custom-components/st.components.v2.types.bidicomponentcallable /develop/api-reference/custom-components/st.components.v2.types.componentrenderer
-/develop/concepts/custom-components/intro /develop/concepts/custom-components/v1/intro
-/develop/concepts/custom-components/create /develop/concepts/custom-components/v1/create
-/develop/concepts/custom-components/limitations /develop/concepts/custom-components/v1/limitations
+/develop/concepts/custom-components/intro /develop/concepts/custom-components/components-v1/intro
+/develop/concepts/custom-components/create /develop/concepts/custom-components/components-v1/create
+/develop/concepts/custom-components/limitations /develop/concepts/custom-components/components-v1/limitations
 
 
 # Deep links included in streamlit/streamlit source code
