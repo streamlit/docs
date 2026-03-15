@@ -11,6 +11,24 @@ This page only contains information on the `st.cache_resource` API. For a deeper
 
 </Tip>
 
+<Note>
+
+Due to the current implementation of Streamlit’s caching mechanism, objects passed to
+`st.cache_resource` must be **pickle-able** (serializable) in addition to being
+**hashable**.
+
+Streamlit’s rerun model relies on **content-based hashing** to determine when cached
+values can be reused across reruns. This hashing mechanism is implemented using
+Python’s pickling system (via the `__reduce__()` method). As a result, cached objects
+must be pickle-able.
+
+Objects that contain non-pickle-able elements (such as functions, lambdas, or open
+file handles) may raise errors such as:
+
+`TypeError: cannot pickle 'function' object`
+
+</Note>
+
 <Autofunction function="streamlit.cache_resource" oldName="streamlit.experimental_singleton" />
 
 <Autofunction function="streamlit.cache_resource.clear" oldName="streamlit.experimental_singleton.clear" />
