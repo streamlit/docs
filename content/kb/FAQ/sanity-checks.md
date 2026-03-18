@@ -15,7 +15,7 @@ guaranteeing compatibility with _at least_ the last three minor versions of Pyth
 As new versions of Python are released, we will try to be compatible with the new version as soon
 as possible, though frequently we are at the mercy of other Python packages to support these new versions as well.
 
-Streamlit currently supports versions 3.9, 3.10, 3.11, 3.12, and 3.13 of Python.
+Streamlit currently supports versions 3.10, 3.11, 3.12, 3.13, and 3.14 of Python.
 
 ## Check #1: Is Streamlit running?
 

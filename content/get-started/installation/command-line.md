@@ -16,7 +16,7 @@ computer is properly set up. More specifically, you’ll need:
 
 1. **Python**
 
-   We support [version 3.9 to 3.13](https://www.python.org/downloads/).
+   We support [version 3.10 to 3.14](https://www.python.org/downloads/).
 
 1. **A Python environment manager** (recommended)
 

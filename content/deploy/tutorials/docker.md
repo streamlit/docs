@@ -53,7 +53,7 @@ Here's an example `Dockerfile` that you can add to the root of your directory. i
 ```docker
 # app/Dockerfile
 
-FROM python:3.9-slim
+FROM python:3.12-slim
 
 WORKDIR /app
 
@@ -82,10 +82,10 @@ Let’s walk through each line of the Dockerfile :
 1. A `Dockerfile` must start with a [`FROM`](https://docs.docker.com/engine/reference/builder/#from) instruction. It sets the [Base Image](https://docs.docker.com/glossary/#base-image) (think OS) for the container:
 
    ```docker
-   FROM python:3.9-slim
+   FROM python:3.12-slim
    ```
 
-   Docker has a number of official Docker base images based on various Linux distributions. They also have base images that come with language-specific modules such as [Python](https://hub.docker.com/_/python). The `python` images come in many flavors, each designed for a specific use case. Here, we use the `python:3.9-slim` image which is a lightweight image that comes with the latest version of Python 3.9.
+   Docker has a number of official Docker base images based on various Linux distributions. They also have base images that come with language-specific modules such as [Python](https://hub.docker.com/_/python). The `python` images come in many flavors, each designed for a specific use case. Here, we use the `python:3.12-slim` image which is a lightweight image that comes with the latest version of Python 3.12.
 
    <Tip>
 
