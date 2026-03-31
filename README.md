@@ -14,11 +14,17 @@ To contribute to the Streamlit library itself, see the [Streamlit library contri
 
 To build the docs, clone this repo, install the NPM dependencies, and start the development server.
 
+###  Beginner Tips
+
+- If the `make` command does not work, ensure that it is properly installed and available in your system's PATH.
+- Verify that your Node.js and npm versions are compatible with the project requirements.
+- After installing dependencies, restart your terminal to ensure all environment variables are correctly loaded.
+
 ### 1. Set up your base environment
 
-Make sure you have [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and `make` installed.
+Ensure that both [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and `make` are installed before proceeding.
 
-#### Install `make` on MacOS
+#### Install `make` on macOS
 
 `make` is included with XCode Tools.
 
