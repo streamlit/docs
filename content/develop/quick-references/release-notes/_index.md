@@ -81,6 +81,7 @@ _Release date: March 3, 2026_
 
 ## Older versions of Streamlit
 
+- [2026 release notes](/develop/quick-reference/release-notes/2026)
 - [2025 release notes](/develop/quick-reference/release-notes/2025)
 - [2024 release notes](/develop/quick-reference/release-notes/2024)
 - [2023 release notes](/develop/quick-reference/release-notes/2023)
