@@ -21,66 +21,64 @@ pip install --upgrade streamlit
 
 </Tip>
 
-## **Version 1.55.0 (latest)**
+## **Version 1.56.0 (latest)**
 
-_Release date: March 3, 2026_
+_Release date: March 31, 2026_
 
 **Highlights**
 
-- 🍿 Introducing dynamic containers: [`st.tabs`](/develop/api-reference/layout/st.tabs), [`st.popover`](/develop/api-reference/layout/st.popover), and [`st.expander`](/develop/api-reference/layout/st.expander) can rerun the app when they are opened or closed by setting the `on_change` parameter. If a key is also provided, you can programmatically open and close them, too.
-- 🖇️ Announcing widget binding! Most non-trigger widgets have a `bind` parameter to simplify syncing widget state with query parameters.
+- 🍿 Introducing [`st.menu_button`](/develop/api-reference/widgets/st.menu_button) — a new widget that renders a dropdown button with a customizable popover container for building menus, toolbars, and action lists ([#13981](https://github.com/streamlit/streamlit/pull/13981), [#11409](https://github.com/streamlit/streamlit/issues/11409)).
+- 🎁 Introducing [`st.iframe`](/develop/api-reference/media/st.iframe) — embed external URLs or raw HTML content directly in your app using an iframe ([#14433](https://github.com/streamlit/streamlit/pull/14433), [#12977](https://github.com/streamlit/streamlit/issues/12977)).
+- 🔍 [`st.selectbox`](/develop/api-reference/widgets/st.selectbox) and [`st.multiselect`](/develop/api-reference/widgets/st.multiselect) now support a `filter_mode` parameter that lets users search and filter options by typing ([#14537](https://github.com/streamlit/streamlit/pull/14537), [#6160](https://github.com/streamlit/streamlit/issues/6160), [#7238](https://github.com/streamlit/streamlit/issues/7238)).
 
 **Notable Changes**
 
-- 🔗 [`st.image`](/develop/api-reference/media/st.image) has a `link` parameter to make images clickable with HTTP/HTTPS URLs ([#14139](https://github.com/streamlit/streamlit/pull/14139), [#9836](https://github.com/streamlit/streamlit/issues/9836)).
-- 🥷 [`st.Page`](/develop/api-reference/navigation/st.page) has a `visibility` parameter that lets you hide pages in the navigation menu while keeping them routable ([#13905](https://github.com/streamlit/streamlit/pull/13905), [#10738](https://github.com/streamlit/streamlit/issues/10738)).
-- 🎨 [Markdown](/develop/api-reference/text/st.markdown) supports arbitrary CSS colors for text foreground and background ([#14041](https://github.com/streamlit/streamlit/pull/14041), [#7808](https://github.com/streamlit/streamlit/issues/7808)).
-- 📐 [`st.metric`](/develop/api-reference/data/st.metric) has a `delta_description` parameter to display descriptive text next to delta values ([#13848](https://github.com/streamlit/streamlit/pull/13848), [#13690](https://github.com/streamlit/streamlit/issues/13690)).
-- 📏 You can configure the font weight and size for [`st.metric`](/develop/api-reference/data/st.metric) with the new `metricValueFontWeight` and `metricValueFontSize` configuration options ([#13550](https://github.com/streamlit/streamlit/pull/13550), [#12300](https://github.com/streamlit/streamlit/issues/12300)). Thanks, [kagawa0710](https://github.com/kagawa0710)!
-- 🏓 [`st.table`](/develop/api-reference/data/st.table) has `height` and `width` parameters ([#13850](https://github.com/streamlit/streamlit/pull/13850), [#10775](https://github.com/streamlit/streamlit/issues/10775), [#10820](https://github.com/streamlit/streamlit/issues/10820)).
-- 📈 [`st.altair_chart`](/develop/api-reference/charts/st.altair_chart) and [`st.vega_lite_chart`](/develop/api-reference/charts/st.vega_lite_chart) support selections on multi-view charts ([#13591](https://github.com/streamlit/streamlit/pull/13591), [#8643](https://github.com/streamlit/streamlit/issues/8643)).
-- 🔑 To prevent widgets from resetting when you change a parameter, widgets are transitioning to an identity based only on their keys (if provided). The following widgets use only their key for their identity:
-  - [`st.pills`](/develop/api-reference/widgets/st.pills)
-  - [`st.segmented_control`](/develop/api-reference/widgets/st.segmented_control)
-- 📂 [`st.markdown`](/develop/api-reference/text/st.markdown) accepts `width="auto"` to adapt its default behavior depending on the flex layout of its container ([#13841](https://github.com/streamlit/streamlit/pull/13841)).
-- 🌐 Added a new `client.allowedOrigins` config option to let you customize which origins can send cross-origin `postMessage` ([#13829](https://github.com/streamlit/streamlit/pull/13829), [#6389](https://github.com/streamlit/streamlit/issues/6389)).
+- 📊 [`st.dataframe`](/develop/api-reference/data/st.dataframe) supports programmatically setting selections via the `selection` parameter ([#13594](https://github.com/streamlit/streamlit/pull/13594), [#10128](https://github.com/streamlit/streamlit/issues/10128)).
+- 🎯 `st.dataframe` has a new `"single-row-required"` selection mode that always keeps exactly one row selected ([#14288](https://github.com/streamlit/streamlit/pull/14288), [#9253](https://github.com/streamlit/streamlit/issues/9253)).
+- 📐 [`st.dataframe`](/develop/api-reference/data/st.dataframe) column configuration now supports an `alignment` parameter for controlling text alignment in columns ([#14333](https://github.com/streamlit/streamlit/pull/14333), [#12106](https://github.com/streamlit/streamlit/issues/12106)).
+- 👀 The column visibility menu in `st.dataframe` is now always visible, making it easier to show and hide columns ([#14336](https://github.com/streamlit/streamlit/pull/14336), [#10649](https://github.com/streamlit/streamlit/issues/10649)).
+- 🎹 `AudioColumn` and `VideoColumn` are now available in [`st.column_config`](/develop/api-reference/data/st.column_config) for displaying audio and video players directly in dataframes ([#14032](https://github.com/streamlit/streamlit/pull/14032), [#8345](https://github.com/streamlit/streamlit/issues/8345)).
+- 🐍 Streamlit now supports pandas 3.x ([#13812](https://github.com/streamlit/streamlit/pull/13812), [#13211](https://github.com/streamlit/streamlit/issues/13211)).
+- 🧭 [`st.navigation`](/develop/api-reference/navigation/st.navigation) has a new `expanded` parameter to control how many sidebar items are visible before collapsing ([#14051](https://github.com/streamlit/streamlit/pull/14051), [#9646](https://github.com/streamlit/streamlit/issues/9646)).
+- 🔗 [`st.Page`](/develop/api-reference/navigation/st.page) now accepts external URLs, allowing you to add links to external sites in the navigation sidebar ([#13691](https://github.com/streamlit/streamlit/pull/13691), [#9025](https://github.com/streamlit/streamlit/issues/9025)). Thanks, [t0k0shi](https://github.com/t0k0shi)!
+- 🖼 [`st.table`](/develop/api-reference/data/st.table) has new `hide_index` and `hide_header` parameters for cleaner table presentation ([#14113](https://github.com/streamlit/streamlit/pull/14113), [#8235](https://github.com/streamlit/streamlit/issues/8235), [#9251](https://github.com/streamlit/streamlit/issues/9251)).
+- ⚡ [`st.link_button`](/develop/api-reference/widgets/st.link_button) now supports an `on_click` callback that triggers a rerun before navigating ([#14116](https://github.com/streamlit/streamlit/pull/14116), [#7453](https://github.com/streamlit/streamlit/issues/7453)).
+- 📁 [`st.file_uploader`](/develop/api-reference/widgets/st.file_uploader) and [`st.chat_input`](/develop/api-reference/chat/st.chat_input) now accept file type shortcuts like `"image"`, `"audio"`, `"video"`, and `"document"` ([#14140](https://github.com/streamlit/streamlit/pull/14140)).
+- 📏 `st.chat_input` has a new `height` parameter to control the initial height of the text area ([#14165](https://github.com/streamlit/streamlit/pull/14165), [#10724](https://github.com/streamlit/streamlit/issues/10724)).
+- ✨ Alert elements (`st.info`, `st.warning`, `st.error`, `st.success`) now automatically extract a leading Material icon from the message body and display it as the alert icon ([#14173](https://github.com/streamlit/streamlit/pull/14173), [#10892](https://github.com/streamlit/streamlit/issues/10892)).
+- 🪄 Streaming markdown now auto-completes incomplete syntax (e.g., unclosed bold, links, or code blocks) during streaming for a cleaner reading experience ([#13939](https://github.com/streamlit/streamlit/pull/13939)).
+- 🏷 [`st.pills`](/develop/api-reference/widgets/st.pills) and [`st.segmented_control`](/develop/api-reference/widgets/st.segmented_control) now have a `required` parameter to enforce that at least one option is always selected ([#14414](https://github.com/streamlit/streamlit/pull/14414), [#9870](https://github.com/streamlit/streamlit/issues/9870)).
+- 🔄 [`st.container`](/develop/api-reference/layout/st.container) has a new `autoscroll` parameter that automatically scrolls to the bottom as new content is added ([#14502](https://github.com/streamlit/streamlit/pull/14502), [#8836](https://github.com/streamlit/streamlit/issues/8836)).
+- 🧩 `st.tabs`, `st.expander`, and `st.popover` now preserve their open/closed state across reruns ([#14332](https://github.com/streamlit/streamlit/pull/14332), [#14356](https://github.com/streamlit/streamlit/pull/14356)).
+- 🛠 Static files served via `st.static/` now use native content types instead of a generic fallback ([#14090](https://github.com/streamlit/streamlit/pull/14090)).
+- 🎥 Media elements now support relative static file serving URLs (e.g., `/app/static/video.mp4`) ([#14317](https://github.com/streamlit/streamlit/pull/14317), [#12104](https://github.com/streamlit/streamlit/issues/12104)).
+- 🧪 `st.file_uploader` is now supported in AppTest for programmatic testing of file upload flows ([#14341](https://github.com/streamlit/streamlit/pull/14341), [#8093](https://github.com/streamlit/streamlit/issues/8093)).
+- 🔧 Widget state duplication warnings are now logged to the console instead of displayed in the app UI ([#14141](https://github.com/streamlit/streamlit/pull/14141)).
+- 📦 `BidiComponentResult` has been renamed to `ComponentResult` in the custom components v2 API ([#14253](https://github.com/streamlit/streamlit/pull/14253)).
+- ⚙ The `_stcore/metrics` endpoint is now fully OpenMetrics-compliant ([#14538](https://github.com/streamlit/streamlit/pull/14538)).
 
 **Other Changes**
 
-- 🖋️ Page titles in `st.Page` and section labels in `st.navigation` support Markdown ([#14053](https://github.com/streamlit/streamlit/pull/14053), [#14010](https://github.com/streamlit/streamlit/pull/14010), [#11771](https://github.com/streamlit/streamlit/issues/11771)).
-- 🧹 Common block elements in widget labels are auto-escaped for convenience ([#13887](https://github.com/streamlit/streamlit/pull/13887), [#7359](https://github.com/streamlit/streamlit/issues/7359)).
-- 🏄‍♂️ `st.multiselect` lets users select all options or all currently filtered options with a single click ([#13795](https://github.com/streamlit/streamlit/pull/13795), [#4714](https://github.com/streamlit/streamlit/issues/4714)).
-- 💅 Improved the design of `st.multiselect` and `st.selectbox` ([#13004](https://github.com/streamlit/streamlit/pull/13004)). Thanks, [rishi-kumar0612](https://github.com/rishi-kumar0612)!
-- ‼️ All widget drop-downs were restyled for consistency ([#13796](https://github.com/streamlit/streamlit/pull/13796), [#13797](https://github.com/streamlit/streamlit/pull/13797), [#13798](https://github.com/streamlit/streamlit/pull/13798)).
-- ↔️ For better accessibility, `st.tabs` displays navigation arrows when the tabs overflow their container horizontally ([#13987](https://github.com/streamlit/streamlit/pull/13987), [#5552](https://github.com/streamlit/streamlit/issues/5552)).
-- 📝 The app menu was redesigned ([#14101](https://github.com/streamlit/streamlit/pull/14101)):
-  - Improved accessibility ([#13878](https://github.com/streamlit/streamlit/pull/13878), [#14131](https://github.com/streamlit/streamlit/pull/14131)).
-  - Added a copy button for the Streamlit version ([#13791](https://github.com/streamlit/streamlit/pull/13791)).
-  - Removed the settings menu, surfacing the theme selector and rerun settings in the main menu ([#13937](https://github.com/streamlit/streamlit/pull/13937), [#13988](https://github.com/streamlit/streamlit/pull/13988), [#14048](https://github.com/streamlit/streamlit/pull/14048)).
-- 🔍 Improved `streamlit config show` output to better distinguish theme value sources ([#13761](https://github.com/streamlit/streamlit/pull/13761)).
-- ♥️ To improve behavior in hosted environments, the Streamlit server acknowledges client heartbeats ([#13810](https://github.com/streamlit/streamlit/pull/13810)).
-- 🔣 Extended `sprintf` to support `,` as a thousands separator in `NumberColumn`, `ProgressColumn`, `st.number_input`, `st.slider`, and `st.metric` ([#13284](https://github.com/streamlit/streamlit/pull/13284), [#1301](https://github.com/streamlit/streamlit/issues/1301)).
-- ⬆️ Added support for cachetools 7.x ([#13839](https://github.com/streamlit/streamlit/pull/13839), [#13801](https://github.com/streamlit/streamlit/issues/13801)).
-- ☠️ Added a deprecation notice to `SnowparkConnection` for better visibility ([#14125](https://github.com/streamlit/streamlit/pull/14125)).
-- 🦀 Bug fix: `st.spinner` avoids a race condition when used right before a cache miss ([#13849](https://github.com/streamlit/streamlit/pull/13849), [#13634](https://github.com/streamlit/streamlit/issues/13634)).
-- 🦎 Bug fix: `st.date_input` values are normalized in Session State to prevent a type error ([#14123](https://github.com/streamlit/streamlit/pull/14123), [#14109](https://github.com/streamlit/streamlit/issues/14109)).
-- 🐌 Bug fix: `st.metric` with sparklines display correctly in horizontal flex containers ([#14110](https://github.com/streamlit/streamlit/pull/14110), [#13785](https://github.com/streamlit/streamlit/issues/13785)).
-- 🕸️ Bug fix: `SQLConnection.query()` caches results at the instance level instead of the class level ([#14094](https://github.com/streamlit/streamlit/pull/14094), [#14077](https://github.com/streamlit/streamlit/issues/14077)).
-- 🦗 Bug fix: `st.segmented_control` has consistent border styling on hover ([#14067](https://github.com/streamlit/streamlit/pull/14067), [#12802](https://github.com/streamlit/streamlit/issues/12802)).
-- 🦂 Bug fix: `st.date_input` and `st.datetime_input` remove validation marks when they are cleared ([#14066](https://github.com/streamlit/streamlit/pull/14066), [#14052](https://github.com/streamlit/streamlit/issues/14052)).
-- 🦟 Bug fix: Fixed a rendering regression for `vconcat` charts in Altair with faceted children ([#14065](https://github.com/streamlit/streamlit/pull/14065), [#14050](https://github.com/streamlit/streamlit/issues/14050)).
-- 🦠 Bug fix: `st.Page` raised an exception if it's passed a URL path of only slashes ([#14005](https://github.com/streamlit/streamlit/pull/14005), [#13952](https://github.com/streamlit/streamlit/issues/13952)). Thanks, [nileshhadalgi016](https://github.com/nileshhadalgi016)!
-- 🪰 Bug fix: The code block copy button was moved into a toolbar to prevent text overlap ([#14024](https://github.com/streamlit/streamlit/pull/14024), [#12958](https://github.com/streamlit/streamlit/issues/12958)).
-- 🪳 Bug fix: `st.tabs` retain their state when rendered after a transitional element like `st.spinner` ([#14023](https://github.com/streamlit/streamlit/pull/14023), [#14018](https://github.com/streamlit/streamlit/issues/14018)).
-- 🕷️ Bug fix: Treemap and sunburst Plotly charts support selections ([#13935](https://github.com/streamlit/streamlit/pull/13935), [#9001](https://github.com/streamlit/streamlit/issues/9001)).
-- 🐞 Bug fix: Fixed a width regression for layered `vconcat` charts in Altair ([#13980](https://github.com/streamlit/streamlit/pull/13980), [#13974](https://github.com/streamlit/streamlit/issues/13974)).
-- 🐝 Bug fix: `st.multiselect` raises an exception when `max_selections` isn't positive ([#13966](https://github.com/streamlit/streamlit/pull/13966), [#13965](https://github.com/streamlit/streamlit/issues/13965)).
-- 🐜 Bug fix: When a user adds a row to `st.data_editor`, all columns, including hidden ones, are initialized ([#13916](https://github.com/streamlit/streamlit/pull/13916), [#13915](https://github.com/streamlit/streamlit/issues/13915)).
-- 🪲 Bug fix: `st.select_slider` doesn't apply its format function twice in `AppTest` ([#13837](https://github.com/streamlit/streamlit/pull/13837), [#13832](https://github.com/streamlit/streamlit/issues/13832)).
-- 🐛 Bug fix: Content in collapsed expanders is not included in page search ([#13818](https://github.com/streamlit/streamlit/pull/13818)).
+- 🐛 Bug fix: Streamlit can now run with Python optimization flags (`-O` / `-OO`) ([#14171](https://github.com/streamlit/streamlit/pull/14171), [#14155](https://github.com/streamlit/streamlit/issues/14155)).
+- 🦋 Bug fix: Reduced false-positive file change detections on Windows by adding a stability check to the file watcher ([#14174](https://github.com/streamlit/streamlit/pull/14174), [#13954](https://github.com/streamlit/streamlit/issues/13954)).
+- 🪲 Bug fix: `st.text_area` with `height="content"` now correctly auto-sizes to fit content ([#14228](https://github.com/streamlit/streamlit/pull/14228), [#14222](https://github.com/streamlit/streamlit/issues/14222)).
+- 🐜 Bug fix: Stale anchor links are no longer preserved when clearing transient nodes ([#14251](https://github.com/streamlit/streamlit/pull/14251), [#14249](https://github.com/streamlit/streamlit/issues/14249)).
+- 🐝 Bug fix: `BidiComponentManager` is now properly initialized in AppTest mock runtime ([#14301](https://github.com/streamlit/streamlit/pull/14301), [#14274](https://github.com/streamlit/streamlit/issues/14274)). Thanks, [tysoncung](https://github.com/tysoncung)!
+- 🐞 Bug fix: Streamlit is now compatible with Python 3.14's PEP 649 deferred annotation evaluation ([#14327](https://github.com/streamlit/streamlit/pull/14327), [#14324](https://github.com/streamlit/streamlit/issues/14324)).
+- 🕷️ Bug fix: Tooltips on selected `st.multiselect` options are now restored ([#14353](https://github.com/streamlit/streamlit/pull/14353), [#14351](https://github.com/streamlit/streamlit/issues/14351)).
+- 🪳 Bug fix: `server.port` is now correctly updated after binding to port 0 ([#14372](https://github.com/streamlit/streamlit/pull/14372), [#11308](https://github.com/streamlit/streamlit/issues/11308)). Thanks, [joanaarnauth](https://github.com/joanaarnauth)!
+- 🪰 Bug fix: Bound query params are now correctly restored in the URL when navigating in multi-page apps ([#14374](https://github.com/streamlit/streamlit/pull/14374), [#14350](https://github.com/streamlit/streamlit/issues/14350)).
+- 🦠 Bug fix: Restored the `reactJsonViewCompat` shim for the local dev server ([#14391](https://github.com/streamlit/streamlit/pull/14391)).
+- 🦟 Bug fix: `st.exception` links no longer overflow their container at small viewport widths ([#14417](https://github.com/streamlit/streamlit/pull/14417), [#12870](https://github.com/streamlit/streamlit/issues/12870)).
+- 🦂 Bug fix: Headings inside horizontal containers (`st.columns`) no longer have extra top padding ([#14419](https://github.com/streamlit/streamlit/pull/14419), [#12434](https://github.com/streamlit/streamlit/issues/12434)).
+- 🦗 Bug fix: Programmatic dataframe selections now return `AttributeDictionary` for consistent dot-notation access ([#14455](https://github.com/streamlit/streamlit/pull/14455), [#14454](https://github.com/streamlit/streamlit/issues/14454)).
+- 🕸️ Bug fix: Streaming markdown with color directives no longer shows rendering artifacts ([#14468](https://github.com/streamlit/streamlit/pull/14468), [#14460](https://github.com/streamlit/streamlit/issues/14460)).
+- 🐌 Bug fix: The `session_duration` metric is now OpenMetrics-compliant ([#14476](https://github.com/streamlit/streamlit/pull/14476), [#14432](https://github.com/streamlit/streamlit/issues/14432)).
+- 🦎 Bug fix: The main menu now has a visible border in dark mode ([#14529](https://github.com/streamlit/streamlit/pull/14529)).
 
 ## Older versions of Streamlit
 
+- [2026 release notes](/develop/quick-reference/release-notes/2026)
 - [2025 release notes](/develop/quick-reference/release-notes/2025)
 - [2024 release notes](/develop/quick-reference/release-notes/2024)
 - [2023 release notes](/develop/quick-reference/release-notes/2023)

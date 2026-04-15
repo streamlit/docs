@@ -21,7 +21,7 @@ Learn what custom components are, when to use them, and understand the differenc
 
 </RefCard>
 
-<RefCard href="/develop/concepts/custom-components/v2">
+<RefCard href="/develop/concepts/custom-components/components-v2">
 
 <h4>Components v2</h4>
 
