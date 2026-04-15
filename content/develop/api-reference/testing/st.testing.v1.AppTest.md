@@ -61,6 +61,8 @@ Note that you can also retrieve elements within a specific container in the same
 
 <Autofunction function="AppTest.expander" />
 
+<Autofunction function="AppTest.file_uploader" />
+
 <Autofunction function="AppTest.header" />
 
 <Autofunction function="AppTest.info" />

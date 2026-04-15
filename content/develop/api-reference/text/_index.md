@@ -176,7 +176,7 @@ st.divider()
 ## Utilities
 
 <TileContainer>
-<RefCard href="/develop/api-reference/text/st.help" size="half">
+<RefCard href="/develop/api-reference/text/st.help">
 
 <h4>Get help</h4>
 
@@ -188,7 +188,7 @@ st.help(pd.DataFrame)
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/text/st.html" size="half">
+<RefCard href="/develop/api-reference/text/st.html">
 
 <h4>Render HTML</h4>
 
@@ -196,6 +196,19 @@ Renders HTML strings to your app.
 
 ```python
 st.html("<p>Foo bar.</p>")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/text/st.iframe">
+
+<h4>Iframe</h4>
+
+Display content in an iframe
+
+```python
+st.iframe("https://docs.streamlit.io")
+st.iframe("<p>Streamlit is cool.</p>")
+st.iframe("my_content.html")
 ```
 
 </RefCard>

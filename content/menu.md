@@ -216,6 +216,8 @@ site_menu:
     url: /develop/api-reference/text/st.help
   - category: Develop / API reference / Text elements / st.html
     url: /develop/api-reference/text/st.html
+  - category: Develop / API reference / Text elements / st.iframe
+    url: /develop/api-reference/text/st.iframe
   - category: Develop / API reference / Data elements
     url: /develop/api-reference/data
   - category: Develop / API reference / Data elements / st.dataframe
@@ -250,6 +252,10 @@ site_menu:
     url: /develop/api-reference/data/st.column_config/st.column_config.linkcolumn
   - category: Develop / API reference / Data elements / st.column_config / Image column
     url: /develop/api-reference/data/st.column_config/st.column_config.imagecolumn
+  - category: Develop / API reference / Data elements / st.column_config / Audio column
+    url: /develop/api-reference/data/st.column_config/st.column_config.audiocolumn
+  - category: Develop / API reference / Data elements / st.column_config / Video column
+    url: /develop/api-reference/data/st.column_config/st.column_config.videocolumn
   - category: Develop / API reference / Data elements / st.column_config / Area chart column
     url: /develop/api-reference/data/st.column_config/st.column_config.areachartcolumn
   - category: Develop / API reference / Data elements / st.column_config / Line chart column
@@ -309,6 +315,8 @@ site_menu:
     url: https://docs.streamlit.io/develop/api-reference/execution-flow/st.form_submit_button
   - category: Develop / API reference / Input widgets / st.link_button
     url: /develop/api-reference/widgets/st.link_button
+  - category: Develop / API reference / Input widgets / st.menu_button
+    url: /develop/api-reference/widgets/st.menu_button
   - category: Develop / API reference / Input widgets / st.page_link
     url: /develop/api-reference/widgets/st.page_link
   - category: Develop / API reference / Input widgets / SELECTIONS
@@ -549,8 +557,10 @@ site_menu:
     url: /develop/api-reference/custom-components/st.components.v1.declare_component
   - category: Develop / API reference / Custom components / html
     url: /develop/api-reference/custom-components/st.components.v1.html
+    isDeprecated: true
   - category: Develop / API reference / Custom components / iframe
     url: /develop/api-reference/custom-components/st.components.v1.iframe
+    isDeprecated: true
   - category: Develop / API reference / Configuration
     url: /develop/api-reference/configuration
     isVersioned: false

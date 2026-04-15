@@ -68,6 +68,20 @@ st.link_button("Go to gallery", url)
 
 </RefCard>
 
+<RefCard href="/develop/api-reference/widgets/st.menu_button">
+
+<Image pure alt="screenshot" src="/images/api/menu_button.jpg" />
+
+<h4>Menu button</h4>
+
+Display a menu button.
+
+```python
+st.menu_button("Export", options=["CSV", "JSON", "PDF"])
+```
+
+</RefCard>
+
 <RefCard href="/develop/api-reference/widgets/st.page_link">
 
 <Image pure alt="screenshot" src="/images/api/page_link.jpg" />

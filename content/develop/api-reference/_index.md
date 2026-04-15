@@ -234,6 +234,19 @@ st.html("<p>Foo bar.</p>")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/text/st.iframe">
+
+<h4>Iframe</h4>
+
+Display content in an iframe
+
+```python
+st.iframe("https://docs.streamlit.io")
+st.iframe("<p>Streamlit is cool.</p>")
+st.iframe("my_content.html")
+```
+
+</RefCard>
 </TileContainer>
 
 <ComponentSlider>
@@ -829,6 +842,20 @@ Display a link button.
 
 ```python
 st.link_button("Go to gallery", url)
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/widgets/st.menu_button">
+
+<Image pure alt="screenshot" src="/images/api/menu_button.jpg" />
+
+<h4>Menu button</h4>
+
+Display a menu button.
+
+```python
+st.menu_button("Export", options=["CSV", "JSON", "PDF"])
 ```
 
 </RefCard>

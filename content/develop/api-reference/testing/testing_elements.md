@@ -25,6 +25,8 @@ The `Block` class has the same methods and attributes as `AppTest`. A `Block` in
 
 <Autofunction function="streamlit.testing.v1.element_tree.DateInput" />
 
+<Autofunction function="streamlit.testing.v1.element_tree.FileUploader" />
+
 <Autofunction function="streamlit.testing.v1.element_tree.Multiselect" />
 
 <Autofunction function="streamlit.testing.v1.element_tree.NumberInput" />

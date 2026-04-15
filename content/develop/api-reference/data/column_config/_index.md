@@ -178,6 +178,32 @@ ImageColumn("Preview Image", help="The preview screenshots")
 
 </RefCard>
 
+<RefCard href="/develop/api-reference/data/st.column_config/st.column_config.audiocolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.audiocolumn.jpg" />
+
+<h4>Audio column</h4>
+
+Configure an audio column.
+
+```python
+AudioColumn("Sound effect", help="Double click to play.")
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/data/st.column_config/st.column_config.videocolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.videocolumn.jpg" />
+
+<h4>Video column</h4>
+
+Configure a video column.
+
+```python
+VideoColumn("Highlight clip", help="Double click to play.")
+```
+
+</RefCard>
+
 <RefCard href="/develop/api-reference/data/st.column_config/st.column_config.areachartcolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.areachartcolumn.jpg" />
 

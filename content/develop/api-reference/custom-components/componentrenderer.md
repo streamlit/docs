@@ -7,4 +7,4 @@ keywords: bidicomponentcallable, bidirectional, custom components v2, interface,
 
 <Autofunction function="ComponentRenderer" oldName="BidiComponentCallable" />
 
-<Autofunction function="BidiComponentResult" />
+<Autofunction function="ComponentResult" oldName="BidiComponentResult" />
