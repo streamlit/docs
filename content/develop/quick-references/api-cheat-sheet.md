@@ -7,8 +7,6 @@ keywords: API cheat sheet, Streamlit API, widgets, layout, data display, utility
 
 # Streamlit API cheat sheet
 
-This is a summary of the docs for the latest version of Streamlit, [v1.55.0](https://pypi.org/project/streamlit/1.55.0/).
-
 <Masonry>
 
 <CodeTile featured>
@@ -94,6 +92,7 @@ st.subheader("My sub")
 st.code("for i in range(8): foo()")
 st.badge("New")
 st.html("<p>Hi!</p>")
+st.iframe("https://docs.streamlit.io", height=600)
 ```
 
 </CodeTile>
@@ -291,6 +290,7 @@ fragment_function()
 st.button("Click me")
 st.download_button("Download file", data)
 st.link_button("Go to gallery", url)
+st.menu_button("Export", options=["CSV", "JSON", "PDF"])
 st.page_link("app.py", label="Home")
 st.data_editor("Edit data", data)
 st.checkbox("I agree")

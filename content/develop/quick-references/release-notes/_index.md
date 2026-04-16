@@ -28,7 +28,7 @@ _Release date: March 31, 2026_
 **Highlights**
 
 - 🍿 Introducing [`st.menu_button`](/develop/api-reference/widgets/st.menu_button) — a new widget that renders a dropdown button with a customizable popover container for building menus, toolbars, and action lists ([#13981](https://github.com/streamlit/streamlit/pull/13981), [#11409](https://github.com/streamlit/streamlit/issues/11409)).
-- 🎁 Introducing [`st.iframe`](/develop/api-reference/media/st.iframe) — embed external URLs or raw HTML content directly in your app using an iframe ([#14433](https://github.com/streamlit/streamlit/pull/14433), [#12977](https://github.com/streamlit/streamlit/issues/12977)).
+- 🎁 Introducing [`st.iframe`](/develop/api-reference/text/st.iframe) — embed external URLs or raw HTML content directly in your app using an iframe ([#14433](https://github.com/streamlit/streamlit/pull/14433), [#12977](https://github.com/streamlit/streamlit/issues/12977)).
 - 🔍 [`st.selectbox`](/develop/api-reference/widgets/st.selectbox) and [`st.multiselect`](/develop/api-reference/widgets/st.multiselect) now support a `filter_mode` parameter that lets users search and filter options by typing ([#14537](https://github.com/streamlit/streamlit/pull/14537), [#6160](https://github.com/streamlit/streamlit/issues/6160), [#7238](https://github.com/streamlit/streamlit/issues/7238)).
 
 **Notable Changes**
