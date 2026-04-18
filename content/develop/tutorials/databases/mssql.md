@@ -143,10 +143,9 @@ Replace `x.x.x` ☝️ with the version of pyodbc you want installed on Cloud.
 
 <Note>
 
-At this time, Streamlit Community Cloud does not support Azure Active Directory authentication. We will update this tutorial when we add support for Azure Active Directory.
+At this time, Streamlit Community Cloud does not support the`ActiveDirectoryInteractive` authentication type (which uses MFA),as Community Cloud cannot serve an MFA pop-up. However, other Microsoft Entra (formerly Azure Active Directory) authentication types such as `ActiveDirectoryServicePrincipal` and `ActiveDirectoryPassword` are supported.
 
 </Note>
-
 ## Write your Streamlit app
 
 Copy the code below to your Streamlit app and run it. Make sure to adapt `query` to use the name of your table.
