@@ -51,7 +51,7 @@
     "slick-carousel": "^1.8.1",
     "slugify": "^1.6.6",
     "unified": "^11.0.4",
-    "uuid": "^9.0.1"
+    "uuid": "^14.0.0"
   },
   "dependencyComments": {
     "remark-gfm": "Keep pinned to 3.0.1 until https://github.com/hashicorp/next-mdx-remote/issues/403 is resolved. See https://github.com/streamlit/docs/pull/924"
