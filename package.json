@@ -80,7 +80,7 @@
     "is-pdf-valid": "^0.0.1",
     "lint-staged": "^15.2.9",
     "pdf-merger-js": "^4.3.0",
-    "postcss": "^8.4.32",
+    "postcss": "^8.5.10",
     "prettier": "^3.1.1",
     "puppeteer": "^22.15.0",
     "sass": "^1.69.5",
