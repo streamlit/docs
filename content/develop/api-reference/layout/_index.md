@@ -119,8 +119,6 @@ st.sidebar.button("Click me!")
 </RefCard>
 <RefCard href="/develop/api-reference/layout/st.bottom">
 
-<Image pure alt="screenshot" src="/images/api/bottom.jpg" />
-
 <h4>Bottom</h4>
 
 Display items at the bottom of the window.
