@@ -398,6 +398,8 @@ site_menu:
     url: /develop/api-reference/layout/st.popover
   - category: Develop / API reference / Layouts and containers / st.sidebar
     url: /develop/api-reference/layout/st.sidebar
+  - category: Develop / API reference / Layouts and containers / st.bottom
+    url: /develop/api-reference/layout/st.bottom
   - category: Develop / API reference / Layouts and containers / st.space
     url: /develop/api-reference/layout/st.space
   - category: Develop / API reference / Layouts and containers / st.tabs
