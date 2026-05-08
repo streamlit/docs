@@ -126,8 +126,7 @@ st.sidebar.button("Click me!")
 Display items at the bottom of the window.
 
 ```python
-with st.bottom:
-    st.chat_input("Say something")
+st.bottom.chat_input("Say something")
 ```
 
 </RefCard>

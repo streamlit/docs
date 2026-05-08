@@ -185,8 +185,7 @@ with st.sidebar:
 #### Add elements to bottom
 
 ```python hideHeader
-with st.bottom:
-    st.chat_input("Say something")
+st.bottom.chat_input("Say something")
 ```
 
 </CodeTile>
