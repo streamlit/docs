@@ -44,7 +44,7 @@ img-src \
 ; \
 media-src \
   'self'
-  https://s3-us-west-2.amazonaws.com/assets.streamlit.io/ \
+  https://static.streamlit.io/ \
 ; \
 script-src \
   'self' \

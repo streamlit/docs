@@ -30,7 +30,7 @@ def charts_card():
 
 def media_card():
     st.page_link("media.py", label="Media", icon=":material/image:")
-    st.video("https://s3-us-west-2.amazonaws.com/assets.streamlit.io/videos/hero-video.mp4", autoplay=True)
+    st.video("https://static.streamlit.io/videos/hero-video.mp4", autoplay=True)
 
 def layouts_card():
     st.page_link("layouts.py", label="Layouts", icon=":material/dashboard:")
