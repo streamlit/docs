@@ -117,6 +117,19 @@ st.sidebar.button("Click me!")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/layout/st.bottom">
+
+<Image pure alt="screenshot" src="/images/api/bottom.jpg" />
+
+<h4>Bottom</h4>
+
+Display items at the bottom of the window.
+
+```python
+st.bottom.chat_input("Say something")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/layout/st.space">
 
 <Image pure alt="screenshot" src="/images/api/space.jpg" />

@@ -182,6 +182,16 @@ with st.sidebar:
 
 <CodeTile>
 
+#### Add elements to bottom
+
+```python hideHeader
+st.bottom.chat_input("Say something")
+```
+
+</CodeTile>
+
+<CodeTile>
+
 #### Columns
 
 ```python hideHeader
