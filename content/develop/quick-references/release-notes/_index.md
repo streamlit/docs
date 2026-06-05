@@ -21,44 +21,44 @@ pip install --upgrade streamlit
 
 </Tip>
 
-## **Version 1.57.0 (latest)**
+## **Version 1.58.0 (latest)**
 
-_Release date: April 29, 2026_
+_Release date: May 28, 2026_
 
 **Highlights**
 
-- 🚀 Introducing Starlette as the default web server! Streamlit now uses Starlette/Uvicorn instead of Tornado, bringing improved ASGI compatibility, better performance, and access to the modern Python async ecosystem. The underlying server is also exposed via `st.App` for advanced configuration ([#14553](https://github.com/streamlit/streamlit/pull/14553), [#439](https://github.com/streamlit/streamlit/issues/439), [#861](https://github.com/streamlit/streamlit/issues/861)).
-- 🍿 Introducing [`st.bottom`](/develop/api-reference/layout/st.bottom) — a pinned container at the bottom of your app, perfect for chat inputs, toolbars, and persistent controls ([#14726](https://github.com/streamlit/streamlit/pull/14726), [#8564](https://github.com/streamlit/streamlit/issues/8564), [#8185](https://github.com/streamlit/streamlit/issues/8185)).
+- 🌟 Introducing `parallel=True` for [`@st.fragment`](/develop/api-reference/execution-flow/st.fragment), which lets fragments run concurrently for more responsive apps and background-style workflows ([#15214](https://github.com/streamlit/streamlit/pull/15214)).
+- 🍿 Introducing `st.pagination` to help you build paged interfaces, e.g. for dataframes ([#14975](https://github.com/streamlit/streamlit/pull/14975), [#10785](https://github.com/streamlit/streamlit/issues/10785)).
+- 🚀 Announcing `streamlit skills`, a new CLI command for installing AI agent skills ([#15116](https://github.com/streamlit/streamlit/pull/15116)).
 
 **Notable Changes**
 
-- ✨ Introducing the `:shimmer[]` markdown directive — add animated loading text to your apps with `st.markdown(":shimmer[Loading...]")` for a polished streaming experience ([#14055](https://github.com/streamlit/streamlit/pull/14055), [#13247](https://github.com/streamlit/streamlit/issues/13247)).
-- ⚡ Direct Polars-to-Arrow conversion now bypasses pandas entirely, improving performance and type fidelity for Polars DataFrames ([#14885](https://github.com/streamlit/streamlit/pull/14885), [#12913](https://github.com/streamlit/streamlit/issues/12913)).
-- 👻 Removed deprecated `spec`, `use_container_width`, and `sharing` keyword arguments from [`st.plotly_chart`](/develop/api-reference/charts/st.plotly_chart) and [`st.vega_lite_chart`](/develop/api-reference/charts/st.vega_lite_chart) ([#14800](https://github.com/streamlit/streamlit/pull/14800)).
-- 👻 Removed the deprecated `_get_websocket_headers` function. Use `st.context.headers` instead ([#14801](https://github.com/streamlit/streamlit/pull/14801)).
-- 🧪 [`st.testing.v1.AppTest`](/develop/api-reference/app-testing/st.testing.v1.apptest) now supports [`st.pills`](/develop/api-reference/widgets/st.pills), [`st.segmented_control`](/develop/api-reference/widgets/st.segmented_control), and `st.dataframe` key lookups ([#14518](https://github.com/streamlit/streamlit/pull/14518), [#11361](https://github.com/streamlit/streamlit/issues/11361), [#11338](https://github.com/streamlit/streamlit/issues/11338)).
-- 🔔 Alert elements (`st.info`, `st.warning`, `st.error`, `st.success`) have a new `title` parameter for adding a bold header to alert messages ([#14665](https://github.com/streamlit/streamlit/pull/14665), [#12417](https://github.com/streamlit/streamlit/issues/12417)).
-- 🎨 [`st.menu_button`](/develop/api-reference/widgets/st.menu_button) and [`st.popover`](/develop/api-reference/layout/st.popover) now hide the chevron when using menu-style icon-only labels ([#14697](https://github.com/streamlit/streamlit/pull/14697)).
-- 🎯 `st.App` is now available in the `st` namespace for programmatic app configuration ([#14722](https://github.com/streamlit/streamlit/pull/14722)).
-- 🔑 `st.App` has a new `secrets` parameter to programmatically pass secrets instead of relying on `secrets.toml` files ([#14861](https://github.com/streamlit/streamlit/pull/14861), [#10543](https://github.com/streamlit/streamlit/issues/10543)).
-- 🤖 Streamlit now bundles developing-with-streamlit AI agent skills in the pip package:
-  - Core development skills for AI coding assistants ([#14745](https://github.com/streamlit/streamlit/pull/14745)).
-  - App and theme templates for quick scaffolding ([#14746](https://github.com/streamlit/streamlit/pull/14746)).
-- 💅 `st.video` and `st.map` now have rounded corners matching other Streamlit elements ([#14781](https://github.com/streamlit/streamlit/pull/14781), [#12806](https://github.com/streamlit/streamlit/issues/12806)).
+- 🔔 `st.App` now supports custom script error handling, letting you attach a custom exception handler to your app ([#14972](https://github.com/streamlit/streamlit/pull/14972), [#3426](https://github.com/streamlit/streamlit/issues/3426), [#8713](https://github.com/streamlit/streamlit/issues/8713)).
+- 📐 [`st.expander`](/develop/api-reference/layout/st.expander) and [`st.status`](/develop/api-reference/status/st.status) have a new `type` parameter for a more compact visual style ([#14054](https://github.com/streamlit/streamlit/pull/14054), [#13246](https://github.com/streamlit/streamlit/issues/13246)).
+- 👻 The deprecated `element.add_rows` feature has been removed ([#15034](https://github.com/streamlit/streamlit/pull/15034), [#299](https://github.com/streamlit/streamlit/issues/299), [#13063](https://github.com/streamlit/streamlit/issues/13063), [#7994](https://github.com/streamlit/streamlit/issues/7994), [#5860](https://github.com/streamlit/streamlit/issues/5860)).
+- 👻 LangChain callback handler integration has been removed ([#15051](https://github.com/streamlit/streamlit/pull/15051)).
 
 **Other Changes**
 
-- 🐛 Bug fix: [`st.dataframe`](/develop/api-reference/data/st.dataframe) no longer crashes with pandas 3 `ArrowStringArray` columns ([#14611](https://github.com/streamlit/streamlit/pull/14611), [#14609](https://github.com/streamlit/streamlit/issues/14609)).
-- 🦋 Bug fix: Custom component v1 serialization now correctly downcasts large Arrow types instead of failing ([#14617](https://github.com/streamlit/streamlit/pull/14617), [#14608](https://github.com/streamlit/streamlit/issues/14608)).
-- 🪲 Bug fix: `@st.cache_data` and `@st.cache_resource` now chain the original exception in `UnserializableReturnValueError` for better debugging ([#14655](https://github.com/streamlit/streamlit/pull/14655), [#14654](https://github.com/streamlit/streamlit/issues/14654)). Thanks, [mango766](https://github.com/mango766)!
-- 🐜 Bug fix: CSS Color Level 4 color functions (`oklch`, `lab`, etc.) are now supported in color parameters ([#14674](https://github.com/streamlit/streamlit/pull/14674), [#14573](https://github.com/streamlit/streamlit/issues/14573)).
-- 🐝 Bug fix: Query parameter space encoding is now consistent across all operations ([#14691](https://github.com/streamlit/streamlit/pull/14691), [#14671](https://github.com/streamlit/streamlit/issues/14671)).
-- 🐞 Bug fix: [`st.data_editor`](/develop/api-reference/data/st.data_editor) correctly preserves `None` values with pandas 3.0+ ([#14694](https://github.com/streamlit/streamlit/pull/14694), [#14693](https://github.com/streamlit/streamlit/issues/14693)).
-- 🕷️ Bug fix: Namespace package children are now correctly evicted when watched source files reload ([#14708](https://github.com/streamlit/streamlit/pull/14708), [#14704](https://github.com/streamlit/streamlit/issues/14704)).
-- 🪳 Bug fix: [`st.radio`](/develop/api-reference/widgets/st.radio) now retains selections when using `format_func` with custom option objects ([#14815](https://github.com/streamlit/streamlit/pull/14815), [#14814](https://github.com/streamlit/streamlit/issues/14814)).
-- 🪰 Bug fix: [`st.bar_chart`](/develop/api-reference/charts/st.bar_chart) axis labels now correctly swap when `horizontal=True` ([#14866](https://github.com/streamlit/streamlit/pull/14866), [#14830](https://github.com/streamlit/streamlit/issues/14830)).
-- 🦠 Bug fix: [`st.text_area`](/develop/api-reference/widgets/st.text_area) with `height="content"` now sizes correctly on initial load ([#14884](https://github.com/streamlit/streamlit/pull/14884), [#14876](https://github.com/streamlit/streamlit/issues/14876)).
-- 🦟 Bug fix: [`st.file_uploader`](/develop/api-reference/widgets/st.file_uploader) no longer shows duplicate equivalent file extensions in the accepted types display ([#14552](https://github.com/streamlit/streamlit/pull/14552), [#11991](https://github.com/streamlit/streamlit/issues/11991)).
+- 🐛 Query-parameter-bound widgets now keep the URL in sync when their values change through Session State ([#14744](https://github.com/streamlit/streamlit/pull/14744)).
+- 🖌 Widget and icon sizing is more consistent across the app ([#15056](https://github.com/streamlit/streamlit/pull/15056), [#15098](https://github.com/streamlit/streamlit/pull/15098), [#13945](https://github.com/streamlit/streamlit/issues/13945)).
+- ⏱ Streamlit reduces the timeout for external IP lookups to avoid startup freezes when the lookup is slow or unavailable ([#14984](https://github.com/streamlit/streamlit/pull/14984)).
+- 🛡 [`st.markdown`](/develop/api-reference/text/st.markdown) now blocks `javascript:` and `vbscript:` URLs in Markdown links ([#15161](https://github.com/streamlit/streamlit/pull/15161)).
+- 🐛 Bug fix: Streamlit now supports symlinks in Starlette static file serving ([#15112](https://github.com/streamlit/streamlit/pull/15112), [#13600](https://github.com/streamlit/streamlit/issues/13600)).
+- 🦋 Bug fix: Fragment apps no longer crash because of stale auto-reruns ([#15130](https://github.com/streamlit/streamlit/pull/15130), [#15084](https://github.com/streamlit/streamlit/issues/15084)).
+- 🪲 Bug fix: `blake2b` hashing now uses `usedforsecurity=False` for FIPS-compatible environments ([#15149](https://github.com/streamlit/streamlit/pull/15149), [#15148](https://github.com/streamlit/streamlit/issues/15148)). Thanks, [andriykislitsyn](https://github.com/andriykislitsyn)!
+- 🐜 Bug fix: [`st.login`](/develop/api-reference/user/st.login) cookies now restore 30-day persistence with a `Max-Age` value ([#15194](https://github.com/streamlit/streamlit/pull/15194), [#15193](https://github.com/streamlit/streamlit/issues/15193)). Thanks, [GiovanniPaoloGibilisco](https://github.com/GiovanniPaoloGibilisco)!
+- 🐝 Bug fix: OAuth PKCE behavior has been restored in the Starlette-based auth flow ([#15282](https://github.com/streamlit/streamlit/pull/15282), [#15115](https://github.com/streamlit/streamlit/issues/15115)).
+- 🐞 Bug fix: OAuth no longer regresses with `MismatchingStateError` after upgrading to 1.57.0 ([#15048](https://github.com/streamlit/streamlit/pull/15048), [#14991](https://github.com/streamlit/streamlit/issues/14991)).
+- 🕷️ Bug fix: Provider tokens now use `joserfc`, improving auth compatibility and token handling ([#15178](https://github.com/streamlit/streamlit/pull/15178), [#15170](https://github.com/streamlit/streamlit/issues/15170)).
+- 🪳 Bug fix: [`st.vega_lite_chart`](/develop/api-reference/charts/st.vega_lite_chart) tooltips work again inside dialogs ([#15191](https://github.com/streamlit/streamlit/pull/15191), [#12390](https://github.com/streamlit/streamlit/issues/12390)). Thanks, [marawanokasha](https://github.com/marawanokasha)!
+- 🪰 Bug fix: [`st.button`](/develop/api-reference/widgets/st.button) warns when a keyboard shortcut is reserved by the browser ([#15217](https://github.com/streamlit/streamlit/pull/15217), [#15216](https://github.com/streamlit/streamlit/issues/15216)).
+- 🦠 Bug fix: [`st.markdown`](/develop/api-reference/text/st.markdown) shows its help icon again when `unsafe_allow_html=True` ([#15232](https://github.com/streamlit/streamlit/pull/15232), [#15211](https://github.com/streamlit/streamlit/issues/15211)).
+- 🦟 Bug fix: Browser Back/Forward navigation now works for pages with Unicode URL paths ([#15281](https://github.com/streamlit/streamlit/pull/15281), [#15267](https://github.com/streamlit/streamlit/issues/15267)).
+- 🦂 Bug fix: Programmatically closed popovers and expanders no longer reopen when you interact with another container ([#14945](https://github.com/streamlit/streamlit/pull/14945), [#14943](https://github.com/streamlit/streamlit/issues/14943)).
+- 🦗 Bug fix: [`st.selectbox`](/develop/api-reference/widgets/st.selectbox) no longer hides its first option when exactly seven options are selected ([#14997](https://github.com/streamlit/streamlit/pull/14997), [#14989](https://github.com/streamlit/streamlit/issues/14989)).
+- 🕸️ Bug fix: [`st.multiselect`](/develop/api-reference/widgets/st.multiselect) disables "Select all" for very large option lists to avoid performance problems ([#15301](https://github.com/streamlit/streamlit/pull/15301), [#14918](https://github.com/streamlit/streamlit/issues/14918), [#15299](https://github.com/streamlit/streamlit/issues/15299)).
+- 🐌 Bug fix: Tables, dataframes, and data editors no longer accidentally overscroll during interaction ([#15309](https://github.com/streamlit/streamlit/pull/15309)). Thanks, [kantuni](https://github.com/kantuni)!
 
 ## **Version 1.56.0**
 
