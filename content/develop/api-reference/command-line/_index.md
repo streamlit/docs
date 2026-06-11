@@ -20,6 +20,7 @@ and help you diagnose and fix issues.
 - [`streamlit help`](/develop/api-reference/cli/help): Show the available CLI commands.
 - [`streamlit init`](/develop/api-reference/cli/init): Create the files for a new Streamlit app.
 - [`streamlit run`](/develop/api-reference/cli/run): Run your Streamlit app.
+- [`streamlit skills`](/develop/api-reference/cli/skills): Install Streamlit AI-agent skills.
 - [`streamlit version`](/develop/api-reference/cli/version): Show the version of Streamlit.
 
 ### Run your app
