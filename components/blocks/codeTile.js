@@ -19,6 +19,7 @@ const CodeTile = ({ children, size, featured }) => {
     <section
       className={classNames(
         styles.Container,
+        "code-light",
         tileSize || "",
         featured && styles.Featured
       )}

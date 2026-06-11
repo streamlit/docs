@@ -16,6 +16,11 @@
   @apply text-gray-80;
 }
 
+.Container > section::before,
+.Container > section::after {
+  display: none;
+}
+
 :global(.dark) .Container {
   @apply border-t-gray-100;
 }
