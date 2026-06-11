@@ -552,4 +552,15 @@ st.context.url
 ```
 
 </CodeTile>
+
+<CodeTile>
+
+#### Configure the app server
+
+```python hideHeader
+# Expose the underlying Starlette app
+app = st.App()
+```
+
+</CodeTile>
 </Masonry>
