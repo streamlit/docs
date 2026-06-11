@@ -365,6 +365,19 @@ if prompt:
 ## Other input elements
 
 <TileContainer>
+<RefCard href="/develop/api-reference/widgets/st.pagination">
+
+<Image pure alt="screenshot" src="/images/api/pagination.jpg" />
+
+<h4>Pagination</h4>
+
+Display a pagination widget.
+
+```python
+page = st.pagination(10)
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/widgets/st.audio_input">
 
 <Image pure alt="screenshot" src="/images/api/audio_input.jpg" />
