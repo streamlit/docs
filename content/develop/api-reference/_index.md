@@ -1996,7 +1996,25 @@ rain(emoji="🎈", font_size=54,
 
 ## App logic and configuration
 
-### Authentication and user info
+### App server
+
+<br />
+
+<TileContainer>
+<RefCard href="/develop/api-reference/server/st.app">
+
+<h4>App</h4>
+
+Configure the underlying Starlette server for your app.
+
+```python
+app = st.App()
+```
+
+</RefCard>
+</TileContainer>
+
+### Authentication
 
 <br />
 
