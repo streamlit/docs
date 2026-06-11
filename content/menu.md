@@ -368,6 +368,8 @@ site_menu:
     url: https://docs.streamlit.io/develop/api-reference/data/st.data_editor
   - category: Develop / API reference / Input widgets / st.file_uploader
     url: /develop/api-reference/widgets/st.file_uploader
+  - category: Develop / API reference / Input widgets / st.pagination
+    url: /develop/api-reference/widgets/st.pagination
   - category: Develop / API reference / Media elements
     url: /develop/api-reference/media
   - category: Develop / API reference / Media elements / st.audio
