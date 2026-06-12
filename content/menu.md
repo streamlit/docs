@@ -603,6 +603,8 @@ site_menu:
     url: /develop/api-reference/cli/init
   - category: Develop / API reference / Command line / streamlit run
     url: /develop/api-reference/cli/run
+  - category: Develop / API reference / Command line / streamlit skills
+    url: /develop/api-reference/cli/skills
   - category: Develop / API reference / Command line / streamlit version
     url: /develop/api-reference/cli/version
 
