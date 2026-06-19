@@ -115,11 +115,9 @@ slow_table()
 
 When `parallel=True`, the behavior depends on the type of rerun:
 
-- **During a full-app rerun**, Streamlit dispatches the fragment to a thread pool. It runs concurrently with your other parallel fragments and with the rest of your main script, rather than blocking on each fragment in turn. If `slow_chart` and `slow_table` each take two seconds, running them in parallel lets your app finish in about two seconds instead of four.
+- During a full-app rerun, Streamlit dispatches the fragment to a thread pool. It runs concurrently with your other parallel fragments and with the rest of your main script, rather than blocking on each fragment in turn. If `slow_chart` and `slow_table` each take two seconds, running them in parallel lets your app finish in about two seconds instead of four.
 
-- **During a fragment rerun** (when a user interacts with a widget inside the fragment), execution stays sequential. The fragment runs by itself on the main thread, exactly like a non-parallel fragment. This keeps your state updates predictable when a user is actively interacting with a fragment.
-
-Parallel fragments are most helpful when each fragment does independent, time-consuming work. If your fragments are fast or depend on each other's results, running them in parallel adds complexity without a meaningful speedup.
+- During a fragment rerun (when a user interacts with a widget inside the fragment), execution stays sequential. The fragment runs by itself on the main thread, exactly like a non-parallel fragment. This keeps your state updates predictable when a user is actively interacting with a fragment.
 
 ### Restricted commands during parallel execution
 
@@ -129,7 +127,19 @@ Because parallel fragments run concurrently on separate threads during the initi
 - [`st.switch_page`](/develop/api-reference/navigation/st.switch_page)
 - Writing to containers created outside the fragment.
 
-These commands work normally during a fragment rerun (for example, after a user interacts with a widget inside the fragment), because fragment reruns are sequential. If you need one of these commands, call it from a non-parallel fragment or from the main body of your script.
+These commands work normally during a fragment rerun, even inside a parallel fragment, because fragment reruns are sequential. To use one of these commands inside a parallel fragment, gate it behind a widget interaction rather than calling it unconditionally:
+
+```python
+@st.fragment
+def my_fragment(parallel=True):
+    if st.button("Open dialog"):
+        # Safe: only called during a fragment rerun, after the user clicks
+        show_dialog()
+
+@st.dialog("My dialog")
+def show_dialog():
+    st.write("Hello!")
+```
 
 ### Thread safety and shared state
 
