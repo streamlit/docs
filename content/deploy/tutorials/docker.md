@@ -18,27 +18,24 @@ Wherever you decide to deploy your app, you will first need to containerize it. 
 
 ## Prerequisites
 
-1. [Install Docker Engine](#install-docker-engine)
+1. [Install Docker](#install-docker)
 2. [Check network port accessibility](#check-network-port-accessibility)
 
-### Install Docker Engine
+### Install Docker
 
-If you haven't already done so, install [Docker](https://docs.docker.com/engine/install/#server) on your server. Docker provides `.deb` and `.rpm` packages from many Linux distributions, including:
-
-- [Debian](https://docs.docker.com/engine/install/debian/)
-- [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-
-Verify that Docker Engine is installed correctly by running the `hello-world` Docker image:
-
-```bash
-sudo docker run hello-world
-```
+If you haven't already done so, [install Docker](https://docs.docker.com/get-started/get-docker/) on your desktop/server.
 
 <Tip>
 
 Follow Docker's official [post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/) to run Docker as a non-root user, so that you don't have to preface the `docker` command with `sudo`.
 
 </Tip>
+
+Verify that Docker Engine is installed correctly by running the `hello-world` Docker image:
+
+```bash
+docker run hello-world
+```
 
 ### Check network port accessibility
 
@@ -185,13 +182,13 @@ Let’s walk through each line of the Dockerfile :
 
    b. If your code is in a private repo, please read [Using SSH to access private data in builds](https://docs.docker.com/develop/develop-images/build_enhancements/#using-ssh-to-access-private-data-in-builds) and modify the Dockerfile accordingly -- to install an SSH client, download the public key for [github.com](https://github.com), and clone your private repo. If you use an alternative VCS such as GitLab or Bitbucket, please consult the documentation for that VCS on how to copy your code to the `WORKDIR` of the Dockerfile.
 
-   c. If your code lives in the same directory as the Dockerfile, copy all your app files from your server into the container, including `streamlit_app.py`, `requirements.txt`, etc, by replacing the `git clone` line with:
+   c. If your code lives in the same directory as the Dockerfile, copy all your app files into the container, including `streamlit_app.py`, `requirements.txt`, etc, by replacing the `git clone` line with:
 
    ```docker
    COPY . .
    ```
 
-   More generally, the idea is copy your app code from wherever it may live on your server into the container. If the code is not in the same directory as the Dockerfile, modify the above command to include the path to the code.
+   More generally, the idea is copy your app code from wherever it may live on your filesystem into the container. If the code is not in the same directory as the Dockerfile, modify the above command to include the path to the code.
 
 5. Install your app’s [Python dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies#add-python-dependencies) from the cloned `requirements.txt` in the container:
 
@@ -219,7 +216,7 @@ Let’s walk through each line of the Dockerfile :
 
 ## Build a Docker image
 
-The [`docker build`](https://docs.docker.com/engine/reference/commandline/build/) command builds an image from a `Dockerfile` . Run the following command from the `app/` directory on your server to build the image:
+The [`docker build`](https://docs.docker.com/engine/reference/commandline/build/) command builds an image from a `Dockerfile` . Run the following command from the `app/` directory to build the image:
 
 ```docker
 docker build -t streamlit .
@@ -246,7 +243,7 @@ Now that you have built the image, you can run the container by executing:
 docker run -p 8501:8501 streamlit
 ```
 
-The `-p` flag publishes the container’s port 8501 to your server’s 8501 port.
+The `-p` flag publishes the container’s port 8501 to your host machine’s 8501 port.
 
 If all went well, you should see an output similar to the following:
 
@@ -262,6 +259,6 @@ To view your app, users can browse to `http://0.0.0.0:8501` or `http://localhost
 
 <Note>
 
-Based on your server's network configuration, you could map to port 80/443 so that users can view your app using the server IP or hostname. For example: `http://your-server-ip:80` or `http://your-hostname:443`.
+**On a server:** Based on your network configuration, you could map to port 80/443 so that users can view your app using the server IP or hostname. For example: `http://your-server-ip:80` or `http://your-hostname:443`.
 
 </Note>
