@@ -1,0 +1,10 @@
+streamlit
+matplotlib
+pytest-playwright
+requests
+plotly
+bokeh==2.4.3
+numpy<2
+graphviz
+pyyaml
+cairosvg
