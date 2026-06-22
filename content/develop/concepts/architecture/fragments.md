@@ -18,6 +18,7 @@ Fragments are versatile and applicable to a wide variety of circumstances. Here 
 - Your app has multiple visualizations and each one takes time to load, but you have a filter input that only updates one of them.
 - You have a dynamic form that doesn't need to update the rest of your app (until the form is complete).
 - You want to automatically update a single component or group of components to stream data.
+- Your app has several slow, independent operations (like database queries or API calls) that you want to run at the same time instead of one after another.
 
 ## Defining and calling a fragment
 
@@ -77,6 +78,8 @@ If you run the code above, the full script will run top to bottom on your app's 
 
 ![Diagram of fragment execution flow](/images/concepts/fragment_diagram.png)
 
+By default, fragments run inline on the main thread, in the order you call them, just like the rest of your script. If you have slow, independent fragments, you can opt in to running them concurrently during full-app reruns with `parallel=True`. See [Run fragments in parallel](#run-fragments-in-parallel) below.
+
 ## Fragment return values and interacting with the rest of your app
 
 Streamlit ignores fragment return values during fragment reruns, so defining return values for your fragment functions is not recommended. Instead, if your fragment needs to share data with the rest of your app, use Session State. Fragments are just functions in your script, so they can access Session State, imported modules, and other Streamlit elements like containers. If your fragment writes to any container created outside of itself, note the following difference in behavior:
@@ -88,6 +91,63 @@ Streamlit ignores fragment return values during fragment reruns, so defining ret
 To prevent elements from accumulating in outside containers, use [`st.empty`](/develop/api-reference/layout/st.empty) containers. For a related tutorial, see [Create a fragment across multiple containers](/develop/tutorials/execution-flow/create-a-multiple-container-fragment).
 
 If you need to trigger a full-script rerun from inside a fragment, call [`st.rerun`](/develop/api-reference/execution-flow/st.rerun). For a related tutorial, see [Trigger a full-script rerun from inside a fragment](/develop/tutorials/execution-flow/trigger-a-full-script-rerun-from-a-fragment).
+
+## Run fragments in parallel
+
+By default, fragments run inline on the main thread, in the order you call them. For fragments that can be run independent of each other (such as database queries or external API calls), you can run these concurrently by setting `parallel=True` in the `st.fragment` decorator.
+
+```python
+import streamlit as st
+
+@st.fragment(parallel=True)
+def slow_chart():
+    data = expensive_query()
+    st.line_chart(data)
+
+@st.fragment(parallel=True)
+def slow_table():
+    data = another_expensive_query()
+    st.dataframe(data)
+
+slow_chart()
+slow_table()
+```
+
+When `parallel=True`, the behavior depends on the type of rerun:
+
+- During a full-app rerun, Streamlit dispatches the fragment to a thread pool. It runs concurrently with your other parallel fragments and with the rest of your main script, rather than blocking on each fragment in turn. If `slow_chart` and `slow_table` each take two seconds, running them in parallel lets your app finish in about two seconds instead of four.
+
+- During a fragment rerun (when a user interacts with a widget inside the fragment), execution stays sequential. The fragment runs by itself on the main thread, exactly like a non-parallel fragment. This keeps your state updates predictable when a user is actively interacting with a fragment.
+
+### Restricted commands during parallel execution
+
+Because parallel fragments run concurrently on separate threads during the initial (full-app) run, a few Streamlit commands aren't safe to call from inside them and will raise an error. These include:
+
+- [`st.dialog`](/develop/api-reference/execution-flow/st.dialog)
+- [`st.switch_page`](/develop/api-reference/navigation/st.switch_page)
+- Writing to containers created outside the fragment.
+
+These commands work normally during a fragment rerun, even inside a parallel fragment, because fragment reruns are sequential. To use one of these commands inside a parallel fragment, gate it behind a widget interaction rather than calling it unconditionally:
+
+```python
+@st.fragment
+def my_fragment(parallel=True):
+    if st.button("Open dialog"):
+        # Safe: only called during a fragment rerun, after the user clicks
+        show_dialog()
+
+@st.dialog("My dialog")
+def show_dialog():
+    st.write("Hello!")
+```
+
+### Thread safety and shared state
+
+Parallel fragments can run at the same time, so they can read and write shared resources concurrently. This includes Session State, global variables, files, and external connections. To avoid race conditions:
+
+- Prefer having each parallel fragment write to its **own** Session State keys, then read the combined results back in your main script after the fragments finish.
+- Avoid having two parallel fragments mutate the same Session State key, list, or dictionary at the same time.
+- If parallel fragments must share a mutable resource, coordinate access explicitly (for example, with a `threading.Lock`).
 
 ## Automate fragment reruns
 
@@ -101,6 +161,17 @@ def auto_function():
 		st.line_chart(df)
 
 auto_function()
+```
+
+You can combine `run_every` with `parallel=True`. The automatic reruns triggered by `run_every` are fragment reruns, so they execute sequentially (just like reruns triggered by a user). The `parallel=True` setting only changes how the fragment behaves during a full-app rerun. This combination is handy when you have several independent, auto-updating data feeds that you want to load concurrently on each full-app rerun:
+
+```python
+@st.fragment(parallel=True, run_every="5s")
+def live_metrics():
+    data = fetch_latest_metrics()
+    st.metric("Active Users", data["users"])
+
+live_metrics()
 ```
 
 For a related tutorial, see [Start and stop a streaming fragment](/develop/tutorials/execution-flow/start-and-stop-fragment-auto-reruns).
