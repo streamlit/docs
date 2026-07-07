@@ -189,7 +189,3 @@ Each data source is independent, so each one is a good candidate for its own par
 ## Next steps
 
 Replace the `slow_load` helper with your own slow operations, such as database queries or API calls. To learn more about parallel execution, including command restrictions and thread safety, see [Run fragments in parallel](/develop/concepts/architecture/fragments#run-fragments-in-parallel).
-
-```
-
-```
