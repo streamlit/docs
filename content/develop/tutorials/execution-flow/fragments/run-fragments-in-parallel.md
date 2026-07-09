@@ -67,8 +67,6 @@ def load_inventory():
     st.session_state.inventory = result
     st.metric("Inventory", result["value"])
 
-start = time.time()
-
 cols = st.columns(3)
 with cols[0]:
     load_sales()
@@ -169,8 +167,6 @@ Each data source is independent, so each one is a good candidate for its own par
 1. Call each fragment in its own column.
 
    ```python
-   start = time.time()
-
    cols = st.columns(3)
    with cols[0]:
        load_sales()
