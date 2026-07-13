@@ -230,6 +230,8 @@ site_menu:
     url: /develop/api-reference/data/st.column_config/st.column_config.column
   - category: Develop / API reference / Data elements / st.column_config / Text column
     url: /develop/api-reference/data/st.column_config/st.column_config.textcolumn
+  - category: Develop / API reference / Data elements / st.column_config / Markdown column
+    url: /develop/api-reference/data/st.column_config/st.column_config.markdowncolumn
   - category: Develop / API reference / Data elements / st.column_config / Number column
     url: /develop/api-reference/data/st.column_config/st.column_config.numbercolumn
   - category: Develop / API reference / Data elements / st.column_config / Checkbox column

@@ -37,6 +37,19 @@ TextColumn("Widgets", max_chars=50, validate="^st\.[a-z_]+$")
 
 </RefCard>
 
+<RefCard href="/develop/api-reference/data/st.column_config/st.column_config.markdowncolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.markdowncolumn.jpg" />
+
+<h4>Markdown column</h4>
+
+Configure a Markdown column.
+
+```python
+MarkdownColumn("Description", help="Supports **Markdown** text")
+```
+
+</RefCard>
+
 <RefCard href="/develop/api-reference/data/st.column_config/st.column_config.numbercolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.numbercolumn.jpg" />
 
