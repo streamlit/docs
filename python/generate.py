@@ -609,10 +609,6 @@ def get_streamlit_docstring_dict():
             "streamlit.connections.SQLConnection",
             "SQLConnection",
         ],
-        streamlit.connections.SnowparkConnection: [
-            "streamlit.connections.SnowparkConnection",
-            "SnowparkConnection",
-        ],
         streamlit.connections.SnowflakeConnection: [
             "streamlit.connections.SnowflakeConnection",
             "SnowflakeConnection",
