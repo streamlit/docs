@@ -57,6 +57,20 @@ with st.status('Running'):
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/status/st.skeleton">
+
+<Image pure alt="screenshot" src="/images/api/skeleton.jpg" />
+
+<h4>Skeleton</h4>
+
+Display a skeleton placeholder while loading.
+
+```python
+with st.skeleton(height=200):
+  do_something_slow()
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/status/st.toast">
 
 <Image pure alt="screenshot" src="/images/api/toast.jpg" />

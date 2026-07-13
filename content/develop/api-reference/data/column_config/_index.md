@@ -63,6 +63,19 @@ CheckboxColumn("Your favorite?", help="Select your **favorite** widgets")
 
 </RefCard>
 
+<RefCard href="/develop/api-reference/data/st.column_config/st.column_config.buttoncolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.buttoncolumn.jpg" />
+
+<h4>Button column</h4>
+
+Configure a column of clickable buttons.
+
+```python
+ButtonColumn("Actions")
+```
+
+</RefCard>
+
 <RefCard href="/develop/api-reference/data/st.column_config/st.column_config.selectboxcolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.selectboxcolumn.jpg" />
 

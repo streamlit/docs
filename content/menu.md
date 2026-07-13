@@ -234,6 +234,8 @@ site_menu:
     url: /develop/api-reference/data/st.column_config/st.column_config.numbercolumn
   - category: Develop / API reference / Data elements / st.column_config / Checkbox column
     url: /develop/api-reference/data/st.column_config/st.column_config.checkboxcolumn
+  - category: Develop / API reference / Data elements / st.column_config / Button column
+    url: /develop/api-reference/data/st.column_config/st.column_config.buttoncolumn
   - category: Develop / API reference / Data elements / st.column_config / Selectbox column
     url: /develop/api-reference/data/st.column_config/st.column_config.selectboxcolumn
   - category: Develop / API reference / Data elements / st.column_config / Multiselect column
@@ -436,6 +438,8 @@ site_menu:
     url: /develop/api-reference/status/st.spinner
   - category: Develop / API reference / Status elements / st.status
     url: /develop/api-reference/status/st.status
+  - category: Develop / API reference / Status elements / st.skeleton
+    url: /develop/api-reference/status/st.skeleton
   - category: Develop / API reference / Status elements / st.toast
     url: /develop/api-reference/status/st.toast
   - category: Develop / API reference / Status elements / st.balloons
