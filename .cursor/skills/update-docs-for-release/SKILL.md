@@ -1,5 +1,5 @@
 ---
-name: streamlit-release-docs
+name: update-docs-for-release
 description: Update the streamlit/docs repo for a new Streamlit release. Covers branch setup, release notes, API docstring generation, and API tiles/pages. Use when the user asks to update docs for a new Streamlit release, add release notes, generate docstrings, or add API tiles for new commands.
 disable-model-invocation: true
 ---
@@ -14,7 +14,7 @@ Pull the latest `main` and create a release branch:
 
 ```bash
 git checkout main && git pull origin main
-git checkout -b docs/streamlit-x.y-release-notes
+git checkout -b docs/streamlit-x.y-release
 ```
 
 ## 2. Release notes
