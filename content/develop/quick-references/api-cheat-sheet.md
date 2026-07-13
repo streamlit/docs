@@ -357,7 +357,7 @@ with st.container():
     st.chat_input("Say something")
 ```
 
-Learn how to [Build a basic LLM chat app](/develop/tutorials/llms/build-conversational-apps)
+Learn how to [Build a basic LLM chat app](/develop/tutorials/chat-and-llm-apps/build-conversational-apps)
 
 </CodeTile>
 

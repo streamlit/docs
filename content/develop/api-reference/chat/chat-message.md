@@ -7,7 +7,7 @@ keywords: chat_message, chat, message, container, conversational, llm, chatbot, 
 
 <Tip>
 
-Read the [Build a basic LLM chat app](/develop/tutorials/llms/build-conversational-apps) tutorial to learn how to use `st.chat_message` and `st.chat_input` to build chat-based apps.
+Read the [Build a basic LLM chat app](/develop/tutorials/chat-and-llm-apps/build-conversational-apps) tutorial to learn how to use `st.chat_message` and `st.chat_input` to build chat-based apps.
 
 </Tip>
 
