@@ -300,6 +300,8 @@ site_menu:
     visible: false
   - category: Develop / API reference / Chart elements / st.graphviz_chart
     url: /develop/api-reference/charts/st.graphviz_chart
+  - category: Develop / API reference / Chart elements / st.mermaid_chart
+    url: /develop/api-reference/charts/st.mermaid_chart
   - category: Develop / API reference / Chart elements / st.plotly_chart
     url: /develop/api-reference/charts/st.plotly_chart
   - category: Develop / API reference / Chart elements / st.pydeck_chart

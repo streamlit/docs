@@ -156,6 +156,19 @@ st.graphviz_chart(my_graphviz_spec)
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/charts/st.mermaid_chart">
+
+<Image pure alt="screenshot" src="/images/api/mermaid_chart.jpg" />
+
+<h4>Mermaid chart</h4>
+
+Display a Mermaid diagram.
+
+```python
+st.mermaid_chart("graph LR\n  A --> B")
+```
+
+</RefCard>
 </TileContainer>
 
 <ComponentSlider>
