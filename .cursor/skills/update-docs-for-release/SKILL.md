@@ -130,6 +130,24 @@ Tell them the required format:
 
 Place images at `public/images/api/<name>.jpg`.
 
-## 5. Commit and push
+## 5. Example apps
 
-Make focused commits per logical unit of work (release notes, docstrings, API tiles, images). Push to the branch and open a PR against `main`.
+For each new command, check `python/streamlit.json` under the `x.y.0` key for embedded `<Cloud name="...">` elements in the `examples` field. These are interactive apps that need to be deployed to Community Cloud.
+
+For each Cloud embed found:
+
+1. Extract the `name` attribute (e.g. `doc-mermaid-chart`) — this is the required subdomain.
+2. Extract the code from the adjacent `<pre>` block (strip HTML tags and unescape HTML entities).
+3. Save the code to `python/api-examples-source/<section>.<command_or_variant>.py` following the existing naming convention (e.g. `charts.mermaid_chart.py`, `status.skeleton_standalone.py`).
+
+After adding all files, present a table to the user:
+
+| App             | Deploy link                                                                                                                                                  | GitHub file                                                                                           | Subdomain      |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- | -------------- |
+| `<description>` | [Deploy](https://share.streamlit.io/deploy?repository=streamlit/docs&branch=main&mainModule=python/api-examples-source/<filename>.py&subdomain=<cloud-name>) | [<filename>.py](https://github.com/streamlit/docs/blob/main/python/api-examples-source/<filename>.py) | `<cloud-name>` |
+
+The user will handle deploying the apps to Community Cloud.
+
+## 6. Commit and push
+
+Make focused commits per logical unit of work (release notes, docstrings, API tiles, images, example apps). Push to the branch and open a PR against `main`.
