@@ -157,8 +157,7 @@ Display mathematical expressions formatted as LaTeX.
 st.latex("\int a x^2 \,dx")
 ```
 
-</RefCard>
-<RefCard href="/develop/api-reference/text/st.divider">
+</RefCard><RefCard href="/develop/api-reference/text/st.divider">
 
 <Image pure alt="screenshot" src="/images/api/divider.jpg" />
 
