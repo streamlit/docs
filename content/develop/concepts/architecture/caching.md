@@ -141,7 +141,7 @@ connection = database.connect()
 
 @st.cache_data
 def query():
-    return pd.read_sql_query("SELECT * from table", connection)
+    return pd.read_sql_query("SELECT * FROM table", connection)
 ```
 
 <Tip>
