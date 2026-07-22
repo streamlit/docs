@@ -35,4 +35,12 @@ Use a fragment to live-stream data. Use a button to start and stop the live-stre
 
 </RefCard>
 
+<RefCard href="/develop/tutorials/execution-flow/run-fragments-in-parallel">
+
+<h5>Speed up your app with parallel fragments</h5>
+
+Set up fragments with long load times to run concurrently.
+
+</RefCard>
+
 </TileContainer>
