@@ -40,7 +40,7 @@ _Release date: July 21, 2026_
 - 📐 The `gap` parameter in [`st.columns`](/develop/api-reference/layout/st.columns) now accepts integer pixel values in addition to the existing string presets ([#15850](https://github.com/streamlit/streamlit/pull/15850), [#13005](https://github.com/streamlit/streamlit/issues/13005)).
 - 🎨 [`st.data_editor`](/develop/api-reference/data/st.data_editor) now uses `key` as the primary row identity when `num_rows="fixed"`, improving stability when the underlying data changes ([#15884](https://github.com/streamlit/streamlit/pull/15884)).
 - 📈 Zero delta values in [`st.metric`](/develop/api-reference/data/st.metric) are now displayed in neutral grey instead of green or red, so a zero change no longer implies a positive or negative direction ([#15790](https://github.com/streamlit/streamlit/pull/15790), [#15005](https://github.com/streamlit/streamlit/issues/15005)).
-- 🖌 Vega-Lite chart action buttons (fullscreen, download, etc.) are now integrated into the native Streamlit toolbar instead of the Vega-Lite overlay ([#15806](https://github.com/streamlit/streamlit/pull/15806)).
+- 🖌 Vega-Lite chart action buttons (download, copy spec to clipboard) are now integrated into the native Streamlit toolbar; the Vega-Lite action menu overlay has been removed ([#15806](https://github.com/streamlit/streamlit/pull/15806)).
 
 **Other Changes**
 
@@ -51,7 +51,7 @@ _Release date: July 21, 2026_
 - 🐝 Bug fix: `st.selectbox` now virtualizes long dropdown option lists for better rendering performance ([#15870](https://github.com/streamlit/streamlit/pull/15870), [#15863](https://github.com/streamlit/streamlit/issues/15863)).
 - 🐞 Bug fix: Viewport gutter is now preserved around dialogs on narrow screens ([#15875](https://github.com/streamlit/streamlit/pull/15875)).
 - 🕷️ Bug fix: React Aria dialog overlays now stack correctly when multiple dialogs are open ([#15876](https://github.com/streamlit/streamlit/pull/15876), [#15859](https://github.com/streamlit/streamlit/issues/15859)).
-- 🪳 Bug fix: The spurious "Missing Submit Button" warning is no longer shown for forms that have a submit button in a conditionally rendered block ([#15889](https://github.com/streamlit/streamlit/pull/15889), [#14247](https://github.com/streamlit/streamlit/issues/14247)).
+- 🪳 Bug fix: The "Missing Submit Button" warning has been removed ([#15889](https://github.com/streamlit/streamlit/pull/15889), [#14247](https://github.com/streamlit/streamlit/issues/14247)).
 - 🪰 Bug fix: `st.tabs` panels no longer stack visually after a widget rerun ([#15894](https://github.com/streamlit/streamlit/pull/15894), [#15893](https://github.com/streamlit/streamlit/issues/15893)).
 - 🦠 Bug fix: `st.metric` area chart fill baseline is now drawn correctly ([#15907](https://github.com/streamlit/streamlit/pull/15907)).
 - 🦟 Bug fix: `run_every` auto-rerun timers are now deduplicated per fragment, preventing duplicate reruns ([#15912](https://github.com/streamlit/streamlit/pull/15912)).
