@@ -57,12 +57,14 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     curl \
-    software-properties-common \
     git \
-    && rm -rf /var/lib/apt/lists/*
+    gnupg2 \
+    dirmngr \
+    apt-transport-https \
+ && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/streamlit/streamlit-example.git .
 
