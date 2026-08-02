@@ -331,6 +331,20 @@ Next, let's add our OpenAI API key to [Streamlit secrets](/develop/concepts/conn
 OPENAI_API_KEY = "YOUR_API_KEY"
 ```
 
+The OpenAI Python client also accepts a custom `base_url`. Point it at any
+OpenAI-compatible endpoint — for example a local runtime, or a multi-model
+gateway such as [DaoXE](https://daoxe.com) (`https://api.daoxe.com/v1`). Use an
+API key **issued by that endpoint**, and set `openai_model` to a model id the
+endpoint actually serves (`GET /v1/models`).
+
+```python
+client = OpenAI(
+    api_key=st.secrets["OPENAI_API_KEY"],
+    # Optional: OpenAI-compatible multi-model gateway (example: DaoXE)
+    # base_url="https://api.daoxe.com/v1",
+)
+```
+
 ### Write the app
 
 Now let's write the app. We'll use the same code as before, but we'll replace the list of responses with a call to the OpenAI API. We'll also add a few more tweaks to make the app more ChatGPT-like.
