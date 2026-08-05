@@ -132,9 +132,33 @@ Place images at `public/images/api/<name>.jpg`.
 
 ## 5. Example apps
 
-For each new command, check `python/streamlit.json` under the `x.y.0` key for embedded `<Cloud name="...">` elements in the `examples` field. These are interactive apps that need to be deployed to Community Cloud.
+New demo apps can be added both for brand-new commands and for existing commands that gained a parameter (a new example is often added to demonstrate it). So check for newly added `<Cloud name="...">` embeds across all commands, not just new ones.
 
-For each Cloud embed found:
+The reliable way to find them is to diff the embedded Cloud names between the previous and new version keys in `python/streamlit.json`. For example:
+
+```bash
+cd python
+.venv-generate/bin/python -c "
+import json, re
+d = json.load(open('streamlit.json'))
+def cloud_names(ver):
+    out = {}
+    for k, v in d[ver].items():
+        for field in ('example', 'examples'):
+            for m in re.findall(r'<Cloud[^>]*name=\"([^\"]+)\"', v.get(field, '') or ''):
+                out.setdefault(k, set()).add(m)
+    return out
+prev, new = cloud_names('x.y-1.0'), cloud_names('x.y.0')
+for k, names in new.items():
+    added = names - prev.get(k, set())
+    if added:
+        print(k, sorted(added))
+"
+```
+
+Every embed printed is a new interactive app that needs to be deployed to Community Cloud.
+
+For each new Cloud embed found:
 
 1. Extract the `name` attribute (e.g. `doc-mermaid-chart`) — this is the required subdomain.
 2. Extract the code from the adjacent `<pre>` block (strip HTML tags and unescape HTML entities).
