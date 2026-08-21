@@ -60,7 +60,6 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
-    software-properties-common \
     git \
     && rm -rf /var/lib/apt/lists/*
 
@@ -112,7 +111,6 @@ Let’s walk through each line of the Dockerfile :
    RUN apt-get update && apt-get install -y \
        build-essential \
        curl \
-       software-properties-common \
        git \
        && rm -rf /var/lib/apt/lists/*
    ```

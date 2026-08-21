@@ -57,6 +57,14 @@ Use forms to isolate user input and prevent unnecessary app reruns.
 
 </RefCard>
 
+<RefCard href="/develop/concepts/architecture/fragments">
+
+<h5>Fragments</h5>
+
+Restrict the scope of reruns to defined blocks of code with fragments.
+
+</RefCard>
+
 <RefCard href="/develop/concepts/architecture/widget-behavior">
 
 <h5>Widget behavior</h5>
