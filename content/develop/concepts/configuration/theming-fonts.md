@@ -29,17 +29,19 @@ codeFont = "monospace"
 You can set the base font weight and size in the `[theme]` table in `config.toml`. These can't be configured separately in the sidebar.
 
 - `theme.baseFontSize` sets the root font size for your app.
-- `theme.baseFontWeight` sets the root font weight for your app.
+- `theme.baseFontWeight` sets the root font weight for your app. Weights are integer multiples of 50 between 100 and 600.
+- `theme.metricValueFontSize` sets the font size of `st.metric` values.
+- `theme.metricValueFontWeight` sets the font weight of `st.metric` values. Weights are integer multiples of 50 between 100 and 900.
 
 The following configuration options can be set separately for the sidebar by using the `[theme.sidebar]` table instead of the `[theme]` table in `config.toml`:
 
 - `theme.font` sets the default font for all text in the app (except inline code and code blocks). This is `"sans-serif"` (Source Sans) by default.
 - `theme.headingFont` sets the default font for all headings in the app. If this is not set, Streamlit uses `theme.font` instead.
 - `theme.headingFontSizes` sets the font sizes for `<h1>`-`<h6>` headings.
-- `theme.headingFontWeights` sets the font sizes for `<h1>`-`<h6>` headings.
+- `theme.headingFontWeights` sets the font weights for `<h1>`-`<h6>` headings. Weights are integer multiples of 50 between 100 and 900.
 - `theme.codeFont` sets the default font for all inline code and code blocks. This is `"monospace"` (Source Code) by default.
 - `theme.codeFontSize` sets the size of code text in code blocks, `st.json`, and `st.help` (but not inline code).
-- `theme.codeFontWeight` sets the weight of code text in code blocks, `st.json`, and `st.help` (but not inline code).
+- `theme.codeFontWeight` sets the weight of code text in code blocks, `st.json`, and `st.help` (but not inline code). Weights are integer multiples of 50 between 100 and 600.
 
 When fonts are not declared in `[theme.sidebar]`, Streamlit will inherit each option from `[theme]` before defaulting to less specific options. For example, if `theme.sidebar.headingFont` is not set, Streamlit uses (in order of precedence) `theme.headingFont`, `theme.sidebar.font`, or `theme.font` instead.
 
