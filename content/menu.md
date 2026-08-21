@@ -451,7 +451,7 @@ site_menu:
   - category: Develop / API reference / Status elements / st.snow
     url: /develop/api-reference/status/st.snow
   - category: Develop / API reference / Third-party components
-    url: /develop/api-reference#third-party-components
+    url: https://streamlit.io/components
   - category: Develop / API reference / APPLICATION LOGIC
   - category: Develop / API reference / App server
     url: /develop/api-reference/server

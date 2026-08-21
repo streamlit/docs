@@ -109,3 +109,58 @@ with st.form(key='my_form'):
 </RefCard>
 
 </TileContainer>
+
+<ComponentSlider>
+
+<ComponentCard href="https://github.com/kmcgrady/streamlit-autorefresh">
+
+<Image pure alt="screenshot" src="/images/api/components/autorefresh.jpg" />
+
+<h4>Autorefresh</h4>
+
+Force a refresh without tying up a script. Created by [@kmcgrady](https://github.com/kmcgrady).
+
+```python
+from streamlit_autorefresh import st_autorefresh
+
+st_autorefresh(interval=2000, limit=100,
+  key="fizzbuzzcounter")
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/lukasmasuch/streamlit-pydantic">
+
+<Image pure alt="screenshot" src="/images/api/components/pydantic.jpg" />
+
+<h4>Pydantic</h4>
+
+Auto-generate Streamlit UI from Pydantic Models and Dataclasses. Created by [@lukasmasuch](https://github.com/lukasmasuch).
+
+```python
+import streamlit_pydantic as sp
+
+sp.pydantic_form(key="my_form",
+  model=ExampleModel)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/blackary/st_pages">
+
+<Image pure alt="screenshot" src="/images/api/components/pages.jpg" />
+
+<h4>Streamlit Pages</h4>
+
+An experimental version of Streamlit Multi-Page Apps. Created by [@blackary](https://github.com/blackary).
+
+```python
+from st_pages import Page, show_pages, add_page_title
+
+show_pages([ Page("streamlit_app.py", "Home", "🏠"),
+  Page("other_pages/page2.py", "Page 2", ":books:"), ])
+```
+
+</ComponentCard>
+
+</ComponentSlider>
