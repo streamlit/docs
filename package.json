@@ -88,5 +88,8 @@
   },
   "lint-staged": {
     "*": "prettier --ignore-unknown --write"
+  },
+  "overrides": {
+    "fast-uri": "4.1.2"
   }
 }
