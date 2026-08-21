@@ -31,6 +31,7 @@ from streamlit.elements.vega_charts import VegaLiteState
 from streamlit.elements.arrow import DataframeState, DataframeSelectionState
 from streamlit.elements.deck_gl_json_chart import PydeckState, PydeckSelectionState
 from streamlit.elements.widgets.data_editor import DataEditorState
+from streamlit.elements.lib.column_config_utils import ButtonColumnClickState
 from streamlit.elements.lib.mutable_expander_container import ExpanderContainer
 from streamlit.elements.lib.mutable_popover_container import PopoverContainer
 from streamlit.elements.lib.mutable_tab_container import TabContainer
@@ -652,6 +653,7 @@ def get_streamlit_docstring_dict():
         DataframeState: ["DataframeState", "DataframeState"],
         DataframeSelectionState: ["DataframeSelectionState", "DataframeSelectionState"],
         DataEditorState: ["DataEditorState", "DataEditorState"],
+        ButtonColumnClickState: ["ButtonColumnClickState", "ButtonColumnClickState"],
         PydeckState: ["PydeckState", "PydeckState"],
         PydeckSelectionState: ["PydeckSelectionState", "PydeckSelectionState"],
         BidiComponentResult: ["BidiComponentResult", "BidiComponentResult"],
