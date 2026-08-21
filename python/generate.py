@@ -32,6 +32,8 @@ from streamlit.elements.arrow import DataframeState, DataframeSelectionState
 from streamlit.elements.deck_gl_json_chart import PydeckState, PydeckSelectionState
 from streamlit.elements.widgets.data_editor import DataEditorState
 from streamlit.elements.lib.column_config_utils import ButtonColumnClickState
+from streamlit.elements.widgets.chat import ChatInputValue
+from streamlit.runtime.uploaded_file_manager import UploadedFile
 from streamlit.elements.lib.mutable_expander_container import ExpanderContainer
 from streamlit.elements.lib.mutable_popover_container import PopoverContainer
 from streamlit.elements.lib.mutable_tab_container import TabContainer
@@ -654,6 +656,8 @@ def get_streamlit_docstring_dict():
         DataframeSelectionState: ["DataframeSelectionState", "DataframeSelectionState"],
         DataEditorState: ["DataEditorState", "DataEditorState"],
         ButtonColumnClickState: ["ButtonColumnClickState", "ButtonColumnClickState"],
+        ChatInputValue: ["ChatInputValue", "ChatInputValue"],
+        UploadedFile: ["UploadedFile", "UploadedFile"],
         PydeckState: ["PydeckState", "PydeckState"],
         PydeckSelectionState: ["PydeckSelectionState", "PydeckSelectionState"],
         BidiComponentResult: ["BidiComponentResult", "BidiComponentResult"],

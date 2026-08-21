@@ -13,6 +13,10 @@ Read the [Build a basic LLM chat app](/develop/tutorials/chat-and-llm-apps/build
 
 <Autofunction function="streamlit.chat_input" />
 
+## Chat input value
+
+<Autofunction function="ChatInputValue" />
+
 For an overview of the `st.chat_input` and `st.chat_message` API, check out this video tutorial by Chanin Nantasenamat ([@dataprofessor](https://www.youtube.com/dataprofessor)), a Senior Developer Advocate at Streamlit.
 
 <YouTube videoId="4sPnOqeUDmk" />
