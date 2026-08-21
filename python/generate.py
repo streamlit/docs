@@ -627,7 +627,6 @@ def get_streamlit_docstring_dict():
         streamlit.column_config: ["streamlit.column_config", "st.column_config"],
         componentsv1: ["streamlit.components.v1", "st.components.v1"],
         componentsv2: ["streamlit.components.v2", "st.components.v2"],
-        streamlit.delta_generator.DeltaGenerator: ["DeltaGenerator", "element", ["add_rows"]], # Only store docstring for element.add_rows
         StatusContainer: ["StatusContainer", "StatusContainer", ["update"]], # Only store docstring for StatusContainer.update
         streamlit.testing.v1: ["streamlit.testing.v1", "st.testing.v1"],
         AppTest: ["AppTest", "AppTest"],

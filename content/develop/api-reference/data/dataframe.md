@@ -19,8 +19,6 @@ Learn more in our [Dataframes](/develop/concepts/design/dataframes) guide and ch
 
 <Autofunction function="DataframeSelectionState" />
 
-<Autofunction function="DeltaGenerator.add_rows" deprecated={true} deprecatedText="We plan to deprecate <code>.add_rows()</code>. Please leave <a href='https://github.com/streamlit/streamlit/issues/13063'>feedback</a>." />
-
 ## Interactivity
 
 Dataframes displayed with `st.dataframe` are interactive. End users can sort, resize, search, and copy data to their clipboard. For on overview of features, read our [Dataframes](/develop/concepts/design/dataframes#additional-ui-features) guide.

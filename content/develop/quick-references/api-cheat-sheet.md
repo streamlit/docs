@@ -363,24 +363,6 @@ Learn how to [Build a basic LLM chat app](/develop/tutorials/chat-and-llm-apps/b
 
 <CodeTile>
 
-#### Mutate data
-
-```python hideHeader
-# Add rows to a dataframe after
-# showing it.
-element = st.dataframe(df1)
-element.add_rows(df2)
-
-# Add rows to a chart after
-# showing it.
-element = st.line_chart(df1)
-element.add_rows(df2)
-```
-
-</CodeTile>
-
-<CodeTile>
-
 #### Display code
 
 ```python hideHeader
