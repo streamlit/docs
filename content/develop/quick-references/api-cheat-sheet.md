@@ -49,6 +49,7 @@ streamlit hello
 streamlit help
 streamlit init
 streamlit run streamlit_app.py
+streamlit skills
 streamlit version
 ```
 
