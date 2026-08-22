@@ -1,6 +1,6 @@
 ---
 name: update-docs-for-release
-description: Update the streamlit/docs repo for a new Streamlit release. Covers branch setup, release notes, API docstring generation, and API tiles/pages. Use when the user asks to update docs for a new Streamlit release, add release notes, generate docstrings, or add API tiles for new commands.
+description: Update the streamlit/docs repo for a new Streamlit release. Covers branch setup, release notes, API docstring generation, config.toml, API tiles/pages, and removing or deprecating commands and parameters. Use when the user asks to update docs for a new Streamlit release, add release notes, generate docstrings, or add API tiles for new commands.
 disable-model-invocation: true
 ---
 
@@ -172,6 +172,79 @@ After adding all files, present a table to the user:
 
 The user will handle deploying the apps to Community Cloud.
 
-## 6. Commit and push
+## 6. Configuration options
 
-Make focused commits per logical unit of work (release notes, docstrings, API tiles, images, example apps). Push to the branch and open a PR against `main`.
+After generating docstrings, compare Streamlit's live config with the docs. The source of truth is `streamlit config show` from the same virtualenv used in step 3:
+
+```bash
+cd python
+.venv-generate/bin/python -c "import streamlit; print(streamlit.__version__)"
+.venv-generate/bin/python -m streamlit config show
+```
+
+**Primary file:** `content/develop/api-reference/configuration/config-toml.md`
+
+Diff the option keys and comments from `streamlit config show` against that page:
+
+- **Added options** — copy the CLI description into the matching `[section]` TOML block, using the same comment style as neighboring options.
+- **Changed descriptions or defaults** — update the existing comments (for example allowed values, inheritance rules, or default numbers).
+- **Removed options** — delete them from `config-toml.md`. If other pages still mention the option (FAQs, theming guides, tutorials), update or remove those references too.
+
+Do not paste every `theme.light.*` / `theme.dark.*` key as its own table. Document those as inheriting from `[theme]` (and `[theme.sidebar]` where applicable), and only list exceptions that cannot be set per light/dark/sidebar.
+
+**Related pages** — if theme or server options changed, check whether these still match the CLI:
+
+- `content/develop/concepts/configuration/theming.md`
+- `content/develop/concepts/configuration/theming-fonts.md`
+- `content/develop/concepts/configuration/theming-colors-and-borders.md`
+
+Release-note bullets about `client.*`, `server.*`, `runner.*`, or `theme.*` are a useful hint for what moved, but `streamlit config show` is authoritative.
+
+## 7. Removed and deprecated APIs
+
+If this version **removes** or **deprecates** commands or parameters, update the current docs to match. Start from the release notes (removal and deprecation bullets) and confirm against the new `python/streamlit.json` key:
+
+```bash
+cd python
+.venv-generate/bin/python -c "
+import json
+d = json.load(open('streamlit.json'))
+prev, new = d['x.y-1.0'], d['x.y.0']
+print('removed commands:', sorted(set(prev) - set(new)))
+for k in sorted(set(prev) & set(new)):
+    old_args = {a['name'] for a in (prev[k].get('args') or [])}
+    new_args = {a['name'] for a in (new[k].get('args') or [])}
+    gone = sorted(old_args - new_args)
+    if gone:
+        print(f'removed params on {k}:', gone)
+"
+```
+
+Do not edit historical yearly release-note pages. Search `content/` (skip `content/develop/quick-references/release-notes/` except the current version) plus `python/api-examples-source/`, `python/generate.py`, `content/menu.md`, and `content/develop/quick-references/api-cheat-sheet.md`.
+
+### Deprecated (still in Streamlit)
+
+Keep the API page. Mark it so readers see the replacement:
+
+- On the detail page Autofunction: `deprecated={true}` and a `deprecatedText` that names the version and the replacement, for example:
+
+```markdown
+<Autofunction function="streamlit.<command>" deprecated={true} deprecatedText="<code>st.<command></code> was deprecated in version x.y.0 and will be removed in a later version. Use <a href='/develop/api-reference/<section>/st.<replacement>'><code>st.<replacement></code></a> instead."/>
+```
+
+- Add `deprecated` to the page `keywords`.
+- On the section `_index.md` RefCard: `deprecated={true}`. If the section already groups deprecated APIs (for example **Deprecated classes**), put the tile there.
+- Parameter deprecations usually flow from docstrings (`.. deprecated::` is parsed into `streamlit.json`). Still rewrite tutorials, cheat-sheet snippets, and extra examples that recommend the old parameter as current.
+
+### Removed
+
+Clear the command or parameter from anything that presents it as current API:
+
+- **Parameters** — they drop from the new Autofunction after docstring generation. Remove them from extra examples, tutorials, concept pages, cheat-sheet snippets, and `python/api-examples-source/` files. Rewrite those examples to the replacement API.
+- **Commands with a dedicated page** — keep the slug so old links work. Strip the live Autofunction body down to a deprecation stub whose `deprecatedText` says the command was deprecated in version A and **removed** in this version, and points to the replacement (see `content/develop/api-reference/charts/bokeh_chart.md`). Keep the `content/menu.md` entry.
+- **Commands or methods without a dedicated page** (for example a DeltaGenerator method) — delete Autofunctions, tiles, and cheat-sheet lines, and rewrite tutorials or demo apps that still call them.
+- If `generate.py` errors because an object no longer exists, remove that entry from `obj_key` (or related dicts) and re-run, as in step 3.
+
+## 8. Commit and push
+
+Make focused commits per logical unit of work (release notes, docstrings, config, API tiles, deprecations/removals, images, example apps). Push to the branch and open a PR against `main`.
