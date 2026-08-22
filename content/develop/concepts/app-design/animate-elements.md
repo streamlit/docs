@@ -2,7 +2,7 @@
 title: Update and replace elements
 slug: /develop/concepts/design/animate
 description: Learn how Streamlit commands return objects you can use to update, replace, or clear elements in place. Understand the difference between element objects, container objects, widget values, and widget-mode elements.
-keywords: element objects, update elements, replace elements, st.empty, add_rows, dynamic content, live updates, in-place updates, containers, widgets, widget mode
+keywords: element objects, update elements, replace elements, st.empty, dynamic content, live updates, in-place updates, containers, widgets, widget mode
 ---
 
 # Update and replace elements
@@ -182,9 +182,9 @@ time.sleep(1)
 msg.toast("Done!", icon="✅")
 ```
 
-## Appending data with `.add_rows()`
+## Appending data to charts
 
-`st.dataframe`, `st.table`, and basic chart elements like `st.line_chart` support an `.add_rows()` method that appends data to the element without replacing it. This is useful for streaming data or building up a chart incrementally:
+To stream data into a chart, keep the data in a variable and redraw the chart in place with `st.empty`:
 
 ```python
 import streamlit as st
@@ -193,18 +193,14 @@ import numpy as np
 import time
 
 df = pd.DataFrame(np.random.randn(15, 3), columns=["A", "B", "C"])
-chart = st.line_chart(df)
+chart = st.empty()
+chart.line_chart(df)
 
 for tick in range(10):
     time.sleep(0.5)
     new_row = pd.DataFrame(np.random.randn(1, 3), columns=["A", "B", "C"])
-    chart.add_rows(new_row)
+    df = pd.concat([df, new_row], ignore_index=True)
+    chart.line_chart(df)
 
 st.button("Regenerate")
 ```
-
-<Note>
-
-The Streamlit team is evaluating the future of `.add_rows()`. If you use this method, please share your feedback in the [community discussion](https://github.com/streamlit/streamlit/issues/13063).
-
-</Note>

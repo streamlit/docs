@@ -9,6 +9,12 @@ keywords: custom components v2, tutorials, TypeScript, React, template, package-
 
 Build package-based Streamlit custom components using the official [component template](https://github.com/streamlit/component-template). These tutorials walk you through generating a project, understanding the generated code, and extending the template.
 
+<Tip>
+
+If you use an AI coding agent while building a component, install Streamlit's official agent skills with [`streamlit skills`](/develop/api-reference/cli/skills).
+
+</Tip>
+
 <TileContainer layout="list">
 
 <RefCard href="/develop/tutorials/custom-components/template-typescript">

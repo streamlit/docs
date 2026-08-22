@@ -6,3 +6,5 @@ keywords: st.column_config.ButtonColumn, button column, clickable buttons, dataf
 ---
 
 <Autofunction function="streamlit.column_config.ButtonColumn" />
+
+<Autofunction function="ButtonColumnClickState" />

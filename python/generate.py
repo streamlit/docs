@@ -30,6 +30,10 @@ from streamlit.elements.plotly_chart import PlotlyState, PlotlySelectionState
 from streamlit.elements.vega_charts import VegaLiteState
 from streamlit.elements.arrow import DataframeState, DataframeSelectionState
 from streamlit.elements.deck_gl_json_chart import PydeckState, PydeckSelectionState
+from streamlit.elements.widgets.data_editor import DataEditorState
+from streamlit.elements.lib.column_config_utils import ButtonColumnClickState
+from streamlit.elements.widgets.chat import ChatInputValue
+from streamlit.runtime.uploaded_file_manager import UploadedFile
 from streamlit.elements.lib.mutable_expander_container import ExpanderContainer
 from streamlit.elements.lib.mutable_popover_container import PopoverContainer
 from streamlit.elements.lib.mutable_tab_container import TabContainer
@@ -547,9 +551,8 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix, only_include=None)
 
             # memo and singleton are callable objects rather than functions
             # See: https://github.com/streamlit/streamlit/pull/4263
-            # Replace the member with its decorator object except st.cache
-            # which is deprecated
-            while (member in streamlit.runtime.caching.__dict__.values() and member != streamlit.cache):
+            # Replace the member with its decorator object
+            while member in streamlit.runtime.caching.__dict__.values():
                 member = member._decorator
 
             # Create the full name of the member using key_prefix and membername
@@ -624,7 +627,6 @@ def get_streamlit_docstring_dict():
         streamlit.column_config: ["streamlit.column_config", "st.column_config"],
         componentsv1: ["streamlit.components.v1", "st.components.v1"],
         componentsv2: ["streamlit.components.v2", "st.components.v2"],
-        streamlit.delta_generator.DeltaGenerator: ["DeltaGenerator", "element", ["add_rows"]], # Only store docstring for element.add_rows
         StatusContainer: ["StatusContainer", "StatusContainer", ["update"]], # Only store docstring for StatusContainer.update
         streamlit.testing.v1: ["streamlit.testing.v1", "st.testing.v1"],
         AppTest: ["AppTest", "AppTest"],
@@ -651,6 +653,10 @@ def get_streamlit_docstring_dict():
         VegaLiteState: ["VegaLiteState", "VegaLiteState"],
         DataframeState: ["DataframeState", "DataframeState"],
         DataframeSelectionState: ["DataframeSelectionState", "DataframeSelectionState"],
+        DataEditorState: ["DataEditorState", "DataEditorState"],
+        ButtonColumnClickState: ["ButtonColumnClickState", "ButtonColumnClickState"],
+        ChatInputValue: ["ChatInputValue", "ChatInputValue"],
+        UploadedFile: ["UploadedFile", "UploadedFile"],
         PydeckState: ["PydeckState", "PydeckState"],
         PydeckSelectionState: ["PydeckSelectionState", "PydeckSelectionState"],
         BidiComponentResult: ["BidiComponentResult", "BidiComponentResult"],

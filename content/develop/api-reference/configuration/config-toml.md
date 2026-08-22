@@ -2,7 +2,7 @@
 title: config.toml
 slug: /develop/api-reference/configuration/config.toml
 description: Complete reference guide for Streamlit's config.toml configuration file, including all available sections and options for customizing your Streamlit application settings.
-keywords: config.toml, streamlit configuration, toml configuration file, streamlit settings, theme configuration, server configuration, client configuration, logger configuration, browser configuration, mapbox configuration, secrets configuration, sidebar theme, configuration options, streamlit config show
+keywords: config.toml, streamlit configuration, toml configuration file, streamlit settings, theme configuration, server configuration, client configuration, logger configuration, browser configuration, secrets configuration, sidebar theme, configuration options, streamlit config show
 ---
 
 ## config.toml
@@ -143,6 +143,22 @@ showSidebarNavigation = true
 #
 # Default: "auto"
 showErrorLinks = "auto"
+
+# When true, hides the built-in controls for exporting data from
+# components that support it:
+#
+# - Hides the CSV download button for st.dataframe, st.data_editor,
+#   and chart table views.
+# - Disables clipboard copy for read-only tables (st.dataframe and
+#   chart table views), while keeping st.data_editor copy/paste enabled.
+#
+# This only hides the built-in export and copy controls. It does not
+# prevent users from otherwise accessing the underlying data (e.g. via
+# screenshots, browser developer tools, or network inspection), so it
+# should not be relied upon as a security or data-protection control.
+#
+# Default: false
+disableDataExport = false
 ```
 
 #### Runner
@@ -190,6 +206,39 @@ enforceSerializableSessionState = false
 #
 # Default: "nameOnly"
 enumCoercion = "nameOnly"
+
+# Maximum number of parallel fragment worker threads per script run.
+# Sizes the per-run thread pool. Defaults to Python's
+# ThreadPoolExecutor default (min(32, os.cpu_count() + 4)).
+parallelMaxWorkers =
+
+# Escape hatch for an app whose @st.cache_data / @st.cache_resource cache
+# returns the wrong value for a large pandas, polars, or numpy object.
+#
+# Large objects are hashed from a fixed random sample rather than in full,
+# which keeps cache lookups fast. Because the sample positions are derived
+# from this seed, two large objects that differ only outside the sampled
+# positions produce the same cache key, and the cached value of one is
+# returned for the other.
+#
+# Set an integer from 0 to 4294967295 (2**32 - 1) to move which positions
+# are sampled. This does not eliminate collisions — it selects a different
+# set of them — so it resolves a collision an app has actually hit rather
+# than guaranteeing uniqueness. A value that cannot be converted to an
+# integer, or that falls outside that range, is ignored with a warning and
+# the default is used instead. A float is truncated toward zero, so 1.5
+# becomes 1.
+#
+# Changing this value changes the cache key of every large object and so
+# invalidates existing cached entries. Keep it stable across restarts and
+# across replicas, or a shared/persisted cache will miss.
+#
+# If you need hashing to be exact rather than a different sample, pass your
+# own function for the type via the `hash_funcs` argument of
+# `@st.cache_data` / `@st.cache_resource`, which bypasses sampling entirely.
+#
+# Default: 0
+cacheHashSeed = 0
 ```
 
 #### Server
@@ -223,13 +272,27 @@ folderWatchBlacklist = []
 #
 # Allowed values:
 # - "auto"     : Streamlit will attempt to use the watchdog module, and
-#                falls back to polling if watchdog isn't available.
+#                falls back to polling if watchdog isn't available. In WSL
+#                environments, polling is always used for compatibility.
 # - "watchdog" : Force Streamlit to use the watchdog module.
 # - "poll"     : Force Streamlit to always use polling.
 # - "none"     : Streamlit will not watch files.
 #
 # Default: "auto"
 fileWatcherType = "auto"
+
+# If True, Streamlit will use a recursive object graph traversal to
+# calculate memory usage statistics for the /_stcore/metrics endpoint.
+#
+# This can be slow for large session state or cached resource objects. If
+# False (the default), Streamlit reports fast proxy values for those
+# objects: item counts (the number of cached entries or session-state
+# keys) rather than byte sizes. The cache_memory_bytes metric will
+# therefore reflect entry counts, not memory consumption, for those
+# objects.
+#
+# Default: false
+enableExpensiveMemoryStats = false
 
 # Symmetric key used to produce signed cookies. If deploying on multiple
 # replicas, this should be set to the same value across all replicas to ensure
@@ -279,8 +342,10 @@ baseUrlPath = ""
 # Enables support for Cross-Origin Resource Sharing (CORS) protection,
 # for added security.
 #
-# If XSRF protection is enabled and CORS protection is disabled at the
-# same time, Streamlit will enable them both instead.
+# If you set this option to `False`, Streamlit sends
+# `Access-Control-Allow-Origin: *` on most HTTP routes and accepts a
+# WebSocket connection from any origin. Streamlit does not enable this
+# option for you when `server.enableXsrfProtection` is `True`.
 #
 # Default: true
 enableCORS = true
@@ -298,14 +363,60 @@ enableCORS = true
 # Default: []
 corsAllowedOrigins = []
 
+# Allow-list of hostnames for incoming WebSocket connections.
+#
+# Use this option to protect against DNS rebinding attacks when the
+# hostnames used to access the app are known. Ports in the Host header are
+# ignored. Wildcard subdomains are supported with a leading `*.`. Use `*`
+# to accept any valid Host header.
+#
+# If this list is empty (the default), Streamlit accepts any Host header
+# to preserve compatibility with dynamically configured reverse proxies
+# and custom domains.
+#
+# Example: ['localhost', 'app.example.com', '*.example.com']
+#
+# Default: []
+allowedHosts = []
+
 # Enables support for Cross-Site Request Forgery (XSRF) protection, for
 # added security.
 #
-# If XSRF protection is enabled and CORS protection is disabled at the
-# same time, Streamlit will enable them both instead.
+# This option does not enable `server.enableCORS`. Streamlit does not
+# need a valid XSRF token to open a WebSocket connection, so this option
+# does not replace `server.enableCORS`.
 #
 # Default: true
 enableXsrfProtection = true
+
+# Controls the SameSite attribute of the cookie Streamlit uses for
+# Cross-Site Request Forgery (XSRF) protection. This only has an effect
+# when XSRF protection is enabled (via `server.enableXsrfProtection` or
+# an `[auth]` section in your secrets); otherwise no XSRF cookie is set.
+# It does not affect authentication cookies, which always use
+# SameSite=Lax.
+#
+# Allowed values:
+# - "lax" (default): The XSRF cookie is sent on same-site requests and
+#   top-level cross-site navigations. This is the recommended, secure
+#   default.
+# - "strict": The XSRF cookie is only sent on same-site requests.
+# - "none": The XSRF cookie is sent on all requests, including cross-site
+#   requests. This is required when embedding a Streamlit app in an
+#   iframe hosted on a different origin (for example, to make
+#   `st.file_uploader` work inside a cross-origin iframe). Browsers
+#   only accept `SameSite=None` cookies that also have the `Secure`
+#   attribute, so Streamlit sets `Secure` automatically in this case.
+#   This means your app must be served over HTTPS (either directly or via
+#   a TLS-terminating proxy), otherwise browsers will drop the cookie.
+#
+# Note: Setting this to "none" relaxes the browser's SameSite-based CSRF
+# mitigation, so protection then relies on Streamlit's XSRF token
+# validation together with the CORS origin allowlist. Only use "none" if
+# you understand this tradeoff.
+#
+# Default: "lax"
+xsrfCookieSameSite = "lax"
 
 # Max size, in megabytes, for files uploaded with the file_uploader.
 #
@@ -331,8 +442,7 @@ enableWebsocketCompression = false
 # "Connection error" messages), you may want to try adjusting this value.
 #
 # Note: When you set this option, Streamlit automatically sets the ping
-# timeout to match this interval. For Tornado >=6.5, a value less than 30
-# may cause connection issues.
+# timeout to match this interval.
 websocketPingInterval =
 
 # Enable serving files from a `static` directory in the running app's
@@ -352,12 +462,6 @@ enableStaticServing = false
 #
 # Default: 120
 disconnectedSessionTTL = 120
-
-# Enable the experimental Starlette-based server implementation instead of
-# Tornado. This is an experimental feature and may be removed in the future.
-#
-# Default: false
-useStarlette = false
 
 # Server certificate file for connecting via HTTPS.
 # Must be set at the same time as "server.sslKeyFile".
@@ -414,25 +518,6 @@ gatherUsageStats = true
 serverPort = 8501
 ```
 
-#### Mapbox
-
-```toml
-[mapbox]
-
-# If you'd like to show maps using Mapbox rather than Carto, use this
-# to pass the Mapbox API token.
-#
-# THIS IS DEPRECATED.
-#
-# Instead of this, you should use either the MAPBOX_API_KEY environment
-# variable or PyDeck's `api_keys` argument.
-#
-# This option will be removed on or after 2026-05-01.
-#
-# Default: ""
-token = ""
-```
-
 #### Theme
 
 To define switchable light and dark themes, the configuration options in the
@@ -443,10 +528,11 @@ tables, except for the following options:
 - `fontFaces`
 - `baseFontSize`
 - `baseFontWeight`
+- `metricValueFontSize`
+- `metricValueFontWeight`
 - `showSidebarBorder`
-- `chartCategoricalColors`
-- `chartSequentialColors`
-- `chartDivergingColors`
+
+Chart series colors (`chartCategoricalColors`, `chartSequentialColors`, and `chartDivergingColors`) can be set in `[theme]`, `[theme.light]`, `[theme.dark]`, and the corresponding sidebar sections. Unset sections inherit from `[theme]`.
 
 Additionally, everything in `[theme.sidebar]` can be configured in separate `[theme.dark.sidebar]` and `[theme.light.sidebar]` tables.
 
@@ -745,10 +831,30 @@ baseFontSize =
 # The root font weight for the app.
 #
 # This determines the overall weight of text and UI elements. This is an
-# integer multiple of 100. Values can be between 100 and 600, inclusive.
+# integer multiple of 50. Values can be between 100 and 600, inclusive.
+#
+# Streamlit derives heavier weights from this base (+100 / +200 / +300).
+# The maximum is 600 so the heaviest derived weight never exceeds 900.
 #
 # If this isn't set, the font weight will be set to 400 (normal weight).
 baseFontWeight =
+
+# The font size for st.metric value text.
+#
+# Font sizes can be specified in pixels or rem, like "48px" or "3rem".
+# If a numeric string is provided without a unit, it will be treated as
+# pixels. If you pass an integer or float directly, it will be ignored.
+#
+# If this isn't set, the font size will be 2.25rem.
+metricValueFontSize =
+
+# The font weight for st.metric value text.
+#
+# This is an integer multiple of 50. Values can be between 100 and 900,
+# inclusive.
+#
+# If this isn't set, the font weight will inherit from the parent element.
+metricValueFontWeight =
 
 # The font family to use for headings.
 #
@@ -794,6 +900,9 @@ headingFontSizes =
 
 # One or more font weights for h1-h6 headings.
 #
+# Each weight must be an integer multiple of 50, between 100 and 900
+# inclusive. Invalid values are ignored and the default weight is used.
+#
 # If no weights are set, Streamlit will use the default weights for h1-h6
 # headings. Heading font weights set in [theme] are not inherited by
 # [theme.sidebar]. The following weights are used by default:
@@ -814,7 +923,7 @@ headingFontSizes =
 #
 # Setting a single value (not in an array) will set the font weight for
 # all h1-h6 headings to that value:
-# headingFontWeights = 500
+# headingFontWeights = 550
 headingFontWeights =
 
 # The font family to use for code (monospace) in the sidebar.
@@ -841,8 +950,11 @@ codeFontSize =
 # The font weight for code blocks and code text.
 #
 # This applies to font in inline code, code blocks, `st.json`, and
-# `st.help`. This is an integer multiple of 100. Values can be between
+# `st.help`. This is an integer multiple of 50. Values can be between
 # 100 and 600, inclusive.
+#
+# Streamlit derives heavier code weights from this base (+200 / +300).
+# The maximum is 600 so the heaviest derived weight never exceeds 900.
 #
 # If this isn't set, the code font weight will be 400 (normal weight).
 codeFontWeight =
@@ -911,6 +1023,10 @@ showSidebarBorder =
 # more categories than colors. If no chart categorical colors are set,
 # Streamlit uses a default set of colors.
 #
+# This option can be set in `[theme]`, `[theme.light]`, `[theme.dark]`,
+# and the corresponding sidebar sections. Unset sections inherit from
+# `[theme]`.
+#
 # For light themes, the following colors are the default:
 # [
 #     "#0068c9", # blue80
@@ -946,6 +1062,10 @@ chartCategoricalColors =
 #
 # Invalid color strings are skipped. If there are not exactly ten
 # valid colors specified, Streamlit uses a default set of colors.
+#
+# This option can be set in `[theme]`, `[theme.light]`, `[theme.dark]`,
+# and the corresponding sidebar sections. Unset sections inherit from
+# `[theme]`.
 #
 # For light themes, the following colors are the default:
 # [
@@ -983,6 +1103,10 @@ chartSequentialColors =
 #
 # Invalid color strings are skipped. If there are not exactly ten
 # valid colors specified, Streamlit uses a default set of colors.
+#
+# This option can be set in `[theme]`, `[theme.light]`, `[theme.dark]`,
+# and the corresponding sidebar sections. Unset sections inherit from
+# `[theme]`.
 #
 # The default colors are:
 # [
@@ -1293,6 +1417,9 @@ headingFontSizes =
 
 # One or more font weights for h1-h6 headings.
 #
+# Each weight must be an integer multiple of 50, between 100 and 900
+# inclusive. Invalid values are ignored and the default weight is used.
+#
 # If no weights are set, Streamlit will use the default weights for h1-h6
 # headings. Heading font weights set in [theme] are not inherited by
 # [theme.sidebar]. The following weights are used by default:
@@ -1313,7 +1440,7 @@ headingFontSizes =
 #
 # Setting a single value (not in an array) will set the font weight for
 # all h1-h6 headings to that value:
-# headingFontWeights = 500
+# headingFontWeights = 550
 headingFontWeights =
 
 # The font family to use for code (monospace) in the sidebar.
@@ -1340,8 +1467,11 @@ codeFontSize =
 # The font weight for code blocks and code text.
 #
 # This applies to font in inline code, code blocks, `st.json`, and
-# `st.help`. This is an integer multiple of 100. Values can be between
+# `st.help`. This is an integer multiple of 50. Values can be between
 # 100 and 600, inclusive.
+#
+# Streamlit derives heavier code weights from this base (+200 / +300).
+# The maximum is 600 so the heaviest derived weight never exceeds 900.
 #
 # If this isn't set, the code font weight will be 400 (normal weight).
 codeFontWeight =
@@ -1395,6 +1525,30 @@ dataframeHeaderBackgroundColor =
 
 # Whether to show a border around input widgets.
 showWidgetBorder =
+
+# An array of colors to use for categorical chart data.
+#
+# See `theme.chartCategoricalColors` for the full description. This
+# option can be set in `[theme]`, `[theme.light]`, `[theme.dark]`, and
+# the corresponding sidebar sections. Unset sections inherit from
+# `[theme]`.
+chartCategoricalColors =
+
+# An array of ten colors to use for sequential or continuous chart data.
+#
+# See `theme.chartSequentialColors` for the full description. This
+# option can be set in `[theme]`, `[theme.light]`, `[theme.dark]`, and
+# the corresponding sidebar sections. Unset sections inherit from
+# `[theme]`.
+chartSequentialColors =
+
+# An array of ten colors to use for diverging chart data.
+#
+# See `theme.chartDivergingColors` for the full description. This
+# option can be set in `[theme]`, `[theme.light]`, `[theme.dark]`, and
+# the corresponding sidebar sections. Unset sections inherit from
+# `[theme]`.
+chartDivergingColors =
 ```
 
 #### Secrets

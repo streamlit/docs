@@ -38,6 +38,18 @@ _playground_!)
 
 1. Jump to our [Basic concepts](/get-started/fundamentals/main-concepts).
 
+<Tip>
+
+If you use an AI coding agent, install Streamlit's official agent skills so it follows current Streamlit APIs:
+
+```bash
+streamlit skills
+```
+
+For details, see [`streamlit skills`](/develop/api-reference/cli/skills).
+
+</Tip>
+
 ## Install Streamlit on your machine
 
 ### Option 1: I like the command line
