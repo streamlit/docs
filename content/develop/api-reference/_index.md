@@ -2382,7 +2382,7 @@ with elements("new_element"):
 
 <h4>Streamlit Agraph</h4>
 
-A Streamlit Graph Vis, based on [react-grah-vis](https://github.com/crubier/react-graph-vis). Created by [@ChrisDelClea](https://github.com/ChrisDelClea).
+A Streamlit Graph Vis, based on [react-graph-vis](https://github.com/crubier/react-graph-vis). Created by [@ChrisDelClea](https://github.com/ChrisDelClea).
 
 ```python
 from streamlit_agraph import agraph, Node, Edge, Config
@@ -2517,7 +2517,7 @@ Alternative for st.camera_input which returns the webcam images live. Created by
 from camera_input_live import camera_input_live
 
 image = camera_input_live()
-st.image(value)
+st.image(image)
 ```
 
 </ComponentCard>
@@ -2548,6 +2548,7 @@ option_menu("Main Menu", ["Home", 'Settings'],
 The simplest way to handle a progress bar in streamlit app. Created by [@Wirg](https://github.com/Wirg).
 
 ```python
+from time import sleep
 from stqdm import stqdm
 
 for _ in stqdm(range(50)):
