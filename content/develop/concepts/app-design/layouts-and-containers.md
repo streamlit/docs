@@ -2,7 +2,7 @@
 title: Using layouts and containers
 slug: /develop/concepts/design/layouts-and-containers
 description: Learn how to arrange and organize elements in your Streamlit app using containers, columns, tabs, expanders, flex layouts, and dynamic containers.
-keywords: layouts, containers, columns, tabs, expander, popover, sidebar, flex layout, horizontal layout, st.empty, dynamic containers, nesting
+keywords: layouts, containers, columns, tabs, expander, popover, sidebar, flex layout, horizontal layout, wrap, st.empty, dynamic containers, nesting
 ---
 
 # Using layouts and containers
@@ -16,7 +16,7 @@ By default, Streamlit renders elements top-to-bottom in the order they appear in
 3. Use `st.tabs`, `st.expander`, and `st.popover` to organize content behind collapsible or overlay containers.
 4. Use `st.container` to group elements and control display order independently from script order.
 5. Use `st.empty` to create a single-element placeholder that can be replaced or cleared.
-6. Horizontal containers, gap, alignment, and `st.space` give you fine-grained control over flex layouts.
+6. Horizontal containers, gap, alignment, `wrap`, and `st.space` give you fine-grained control over flex layouts.
 7. `st.tabs`, `st.expander`, and `st.popover` can track their open/closed state and trigger reruns when you set `on_change`.
 
 ## Writing into containers
@@ -113,9 +113,19 @@ left.write("This column is twice as wide.")
 right.write("This column is narrower.")
 ```
 
+By default (`wrap=True`), columns stack vertically when the viewport is at most 640px wide. Pass `wrap=False` to keep them in a single row that scrolls horizontally instead of stacking:
+
+```python try
+import streamlit as st
+
+cols = st.columns(6, wrap=False)
+for i, col in enumerate(cols, start=1):
+    col.button(f"{i}")
+```
+
 <Tip>
 
-Columns are great for quick grid-like layouts, but they are not as adaptive as horizontal containers. If the screen width is too narrow, the columns will stack instead of flex wrapping. For more control over how elements flow and wrap, see [Horizontal containers](#horizontal-containers) in the flex layouts section below.
+Columns are great for quick grid-like layouts, but they are not as adaptive as horizontal containers. For more control over how elements flow and wrap, see [Horizontal containers](#horizontal-containers) in the flex layouts section below.
 
 </Tip>
 
@@ -205,7 +215,7 @@ with placeholder:
 
 ### Horizontal containers
 
-Set `horizontal=True` on `st.container` to lay out its children in a horizontal row. Unlike columns, elements in a horizontal container size themselves based on their content and wrap to the next line when they overflow:
+Set `horizontal=True` on `st.container` to lay out its children in a horizontal row. Unlike columns, elements in a horizontal container size themselves based on their content. By default (`wrap=True`), they wrap to the next line when they overflow. Pass `wrap=False` to keep them on one horizontally scrollable row instead:
 
 ```python
 import streamlit as st
@@ -225,7 +235,7 @@ import streamlit as st
 
 with st.container(horizontal=True):
     st.text_input("Name")
-    st.text_input("Email")
+    st.text_input("Email", type="email")
     st.date_input("Birthday")
 ```
 

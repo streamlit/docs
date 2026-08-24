@@ -55,7 +55,7 @@ Insert a modal dialog that can rerun independently from the rest of the script.
 @st.dialog("Sign up")
 def email_form():
     name = st.text_input("Name")
-    email = st.text_input("Email")
+    email = st.text_input("Email", type="email")
 ```
 
 </RefCard>

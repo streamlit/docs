@@ -40,7 +40,7 @@ st.get_option("theme.primaryColor")
 Set a single configuration option. (This is very limited.)
 
 ```python
-st.set_option("deprecation.showPyplotGlobalUse", False)
+st.set_option("client.showErrorDetails", "none")
 ```
 
 </RefCard>
