@@ -1350,6 +1350,316 @@ st.exception(e)
 
 </TileContainer>
 
+<ComponentSlider>
+
+<ComponentCard href="https://extras.streamlit.app/">
+
+<Image pure alt="screenshot" src="/images/api/components/extras-three-viewer.jpg" />
+
+<h4>Streamlit Extras</h4>
+
+A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
+
+```python
+from streamlit_extras.three_viewer import three_viewer
+
+three_viewer("https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/Duck/glTF-Binary/Duck.glb", height=400)
+
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/PablocFonseca/streamlit-aggrid">
+
+<Image pure alt="screenshot" src="/images/api/components/aggrid.jpg" />
+
+<h4>Streamlit Aggrid</h4>
+
+Implementation of Ag-Grid component for Streamlit. Created by [@PablocFonseca](https://github.com/PablocFonseca).
+
+```python
+df = pd.DataFrame({'col1': [1, 2, 3], 'col2': [4, 5, 6]})
+grid_return = AgGrid(df, editable=True)
+
+new_df = grid_return['data']
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/randyzwitch/streamlit-folium">
+
+<Image pure alt="screenshot" src="/images/api/components/folium.jpg" />
+
+<h4>Streamlit Folium</h4>
+
+Streamlit Component for rendering Folium maps. Created by [@randyzwitch](https://github.com/randyzwitch).
+
+```python
+m = folium.Map(location=[39.949610, -75.150282], zoom_start=16)
+folium.Marker([39.949610, -75.150282], popup="Liberty Bell", tooltip="Liberty Bell").add_to(m)
+
+st_data = st_folium(m, width=725)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/andfanilo/streamlit-echarts">
+
+<Image pure alt="screenshot" src="/images/api/components/echarts.jpg" />
+
+<h4>ECharts</h4>
+
+High dimensional Interactive Plotting. Created by [@andfanilo](https://github.com/andfanilo).
+
+```python
+from streamlit_echarts import st_echarts
+
+st_echarts(options=options)
+
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/mkhorasani/Streamlit-Authenticator">
+
+<Image pure alt="screenshot" src="/images/api/components/authenticator.jpg" />
+
+<h4>Authenticator</h4>
+
+A secure authentication module to validate user credentials. Created by [@mkhorasani](https://github.com/mkhorasani).
+
+```python
+import streamlit_authenticator as stauth
+
+authenticator = stauth.Authenticate( config['credentials'], config['cookie']['name'],
+config['cookie']['key'], config['cookie']['expiry_days'], config['preauthorized'])
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/okld/streamlit-ace">
+
+<Image pure alt="screenshot" src="/images/api/components/ace.jpg" />
+
+<h4>Streamlit Ace</h4>
+
+Ace editor component for Streamlit. Created by [@okld](https://github.com/okld).
+
+```python
+from streamlit_ace import st_ace
+
+content = st_ace()
+content
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/whitphx/streamlit-webrtc">
+
+<Image pure alt="screenshot" src="/images/api/components/webrtc.jpg" />
+
+<h4>Streamlit Webrtc</h4>
+
+Handling and transmitting real-time video/audio streams with Streamlit. Created by [@whitphx](https://github.com/whitphx).
+
+```python
+from streamlit_webrtc import webrtc_streamer
+
+webrtc_streamer(key="sample")
+
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/okld/streamlit-elements">
+
+<Image pure alt="screenshot" src="/images/api/components/elements.jpg" />
+
+<h4>Streamlit Elements</h4>
+
+Create a draggable and resizable dashboard in Streamlit. Created by [@okls](https://github.com/okls).
+
+```python
+from streamlit_elements import elements, mui, html
+
+with elements("new_element"):
+  mui.Typography("Hello world")
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/ChrisDelClea/streamlit-agraph">
+
+<Image pure alt="screenshot" src="/images/api/components/agraph.jpg" />
+
+<h4>Streamlit Agraph</h4>
+
+A Streamlit Graph Vis, based on [react-graph-vis](https://github.com/crubier/react-graph-vis). Created by [@ChrisDelClea](https://github.com/ChrisDelClea).
+
+```python
+from streamlit_agraph import agraph, Node, Edge, Config
+
+agraph(nodes=nodes, edges=edges, config=config)
+
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/kmcgrady/streamlit-autorefresh">
+
+<Image pure alt="screenshot" src="/images/api/components/autorefresh.jpg" />
+
+<h4>Autorefresh</h4>
+
+Force a refresh without tying up a script. Created by [@kmcgrady](https://github.com/kmcgrady).
+
+```python
+from streamlit_autorefresh import st_autorefresh
+
+st_autorefresh(interval=2000, limit=100,
+  key="fizzbuzzcounter")
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/lukasmasuch/streamlit-pydantic">
+
+<Image pure alt="screenshot" src="/images/api/components/pydantic.jpg" />
+
+<h4>Streamlit Pydantic</h4>
+
+Auto-generate Streamlit UI from Pydantic Models and Dataclasses. Created by [@lukasmasuch](https://github.com/lukasmasuch).
+
+```python
+import streamlit_pydantic as sp
+
+sp.pydantic_form(key="my_form",
+  model=ExampleModel)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/andfanilo/streamlit-drawable-canvas">
+
+<Image pure alt="screenshot" src="/images/api/components/drawable-canvas.jpg" />
+
+<h4>Drawable Canvas</h4>
+
+Provides a sketching canvas using [Fabric.js](http://fabricjs.com/). Created by [@andfanilo](https://github.com/andfanilo).
+
+```python
+from streamlit_drawable_canvas import st_canvas
+
+st_canvas(fill_color="rgba(255, 165, 0, 0.3)", stroke_width=stroke_width,
+  stroke_color=stroke_color, height=150, key="canvas")
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/turner-anderson/streamlit-cropper">
+
+<Image pure alt="screenshot" src="/images/api/components/cropper.jpg" />
+
+<h4>Streamlit Cropper</h4>
+
+A simple image cropper for Streamlit. Created by [@turner-anderson](https://github.com/turner-anderson).
+
+```python
+from streamlit_cropper import st_cropper
+
+st_cropper(img, realtime_update=realtime_update, box_color=box_color, aspect_ratio=aspect_ratio)
+
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/blackary/streamlit-image-coordinates">
+
+<Image pure alt="screenshot" src="/images/api/components/image-coordinates.jpg" />
+
+<h4>Image Coordinates</h4>
+
+Get the coordinates of clicks on an image. Created by [@blackary](https://github.com/blackary/).
+
+```python
+from streamlit_image_coordinates import streamlit_image_coordinates
+value = streamlit_image_coordinates("https://placekitten.com/200/300")
+
+st.write(value)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/andfanilo/streamlit-lottie">
+
+<Image pure alt="screenshot" src="/images/api/components/lottie.jpg" />
+
+<h4>Streamlit Lottie</h4>
+
+Integrate [Lottie](https://lottiefiles.com/) animations inside your Streamlit app. Created by [@andfanilo](https://github.com/andfanilo).
+
+```python
+lottie_hello = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
+
+st_lottie(lottie_hello, key="hello")
+
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/fcakyon/streamlit-image-comparison">
+
+<Image pure alt="screenshot" src="/images/api/components/image-comparison.jpg" />
+
+<h4>Image Comparison</h4>
+
+Compare images with a slider using [JuxtaposeJS](https://juxtapose.knightlab.com/). Created by [@fcakyon](https://github.com/fcakyon).
+
+```python
+from streamlit_image_comparison import image_comparison
+
+image_comparison(img1="image1.jpg", img2="image2.jpg",)
+
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/blackary/streamlit-camera-input-live">
+
+<Image pure alt="screenshot" src="/images/api/components/camera-live.jpg" />
+
+<h4>Camera input live</h4>
+
+Alternative for st.camera_input which returns the webcam images live. Created by [@blackary](https://github.com/blackary).
+
+```python
+from camera_input_live import camera_input_live
+
+image = camera_input_live()
+st.image(image)
+```
+
+</ComponentCard>
+
+<ComponentCard href="https://github.com/Wirg/stqdm">
+
+<Image pure alt="screenshot" src="/images/api/components/stqdm.jpg" />
+
+<h4>Stqdm</h4>
+
+The simplest way to handle a progress bar in streamlit app. Created by [@Wirg](https://github.com/Wirg).
+
+```python
+from time import sleep
+from stqdm import stqdm
+for _ in stqdm(range(50)):
+    sleep(0.5)
+```
+
+</ComponentCard>
+
+</ComponentSlider>
+
 ## App logic and configuration
 
 ### App server
@@ -2243,318 +2553,3 @@ at.toggle[0].set_value("True").run()
 </RefCard>
 
 </TileContainer>
-
-<ComponentSlider>
-
-<ComponentCard href="https://extras.streamlit.app/">
-
-<Image pure alt="screenshot" src="/images/api/components/extras-mentions.jpg" />
-
-<h4>Streamlit Extras</h4>
-
-A library with useful Streamlit extras. Created by [@arnaudmiribel](https://github.com/arnaudmiribel/).
-
-```python
-mention(label="An awesome Streamlit App", icon="streamlit",  url="https://extras.streamlit.app",)
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/PablocFonseca/streamlit-aggrid">
-
-<Image pure alt="screenshot" src="/images/api/components/aggrid.jpg" />
-
-<h4>Streamlit Aggrid</h4>
-
-Implementation of Ag-Grid component for Streamlit. Created by [@PablocFonseca](https://github.com/PablocFonseca).
-
-```python
-df = pd.DataFrame({'col1': [1, 2, 3], 'col2': [4, 5, 6]})
-grid_return = AgGrid(df, editable=True)
-
-new_df = grid_return['data']
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/randyzwitch/streamlit-folium">
-
-<Image pure alt="screenshot" src="/images/api/components/folium.jpg" />
-
-<h4>Streamlit Folium</h4>
-
-Streamlit Component for rendering Folium maps. Created by [@randyzwitch](https://github.com/randyzwitch).
-
-```python
-m = folium.Map(location=[39.949610, -75.150282], zoom_start=16)
-folium.Marker([39.949610, -75.150282], popup="Liberty Bell", tooltip="Liberty Bell").add_to(m)
-
-st_data = st_folium(m, width=725)
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/andfanilo/streamlit-echarts">
-
-<Image pure alt="screenshot" src="/images/api/components/echarts.jpg" />
-
-<h4>ECharts</h4>
-
-High dimensional Interactive Plotting. Created by [@andfanilo](https://github.com/andfanilo).
-
-```python
-from streamlit_echarts import st_echarts
-st_echarts(options=options)
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/mkhorasani/Streamlit-Authenticator">
-
-<Image pure alt="screenshot" src="/images/api/components/authenticator.jpg" />
-
-<h4>Authenticator</h4>
-
-A secure authentication module to validate user credentials. Created by [@mkhorasani](https://github.com/mkhorasani).
-
-```python
-import streamlit_authenticator as stauth
-
-authenticator = stauth.Authenticate( config['credentials'], config['cookie']['name'],
-config['cookie']['key'], config['cookie']['expiry_days'], config['preauthorized'])
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/okld/streamlit-ace">
-
-<Image pure alt="screenshot" src="/images/api/components/ace.jpg" />
-
-<h4>Streamlit Ace</h4>
-
-Ace editor component for Streamlit. Created by [@okld](https://github.com/okld).
-
-```python
-from streamlit_ace import st_ace
-
-content = st_ace()
-content
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/whitphx/streamlit-webrtc">
-
-<Image pure alt="screenshot" src="/images/api/components/webrtc.jpg" />
-
-<h4>Streamlit Webrtc</h4>
-
-Handling and transmitting real-time video/audio streams with Streamlit. Created by [@whitphx](https://github.com/whitphx).
-
-```python
-from streamlit_webrtc import webrtc_streamer
-
-webrtc_streamer(key="sample")
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/okld/streamlit-elements">
-
-<Image pure alt="screenshot" src="/images/api/components/elements.jpg" />
-
-<h4>Streamlit Elements</h4>
-
-Create a draggable and resizable dashboard in Streamlit. Created by [@okls](https://github.com/okls).
-
-```python
-from streamlit_elements import elements, mui, html
-
-with elements("new_element"):
-  mui.Typography("Hello world")
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/ChrisDelClea/streamlit-agraph">
-
-<Image pure alt="screenshot" src="/images/api/components/agraph.jpg" />
-
-<h4>Streamlit Agraph</h4>
-
-A Streamlit Graph Vis, based on [react-graph-vis](https://github.com/crubier/react-graph-vis). Created by [@ChrisDelClea](https://github.com/ChrisDelClea).
-
-```python
-from streamlit_agraph import agraph, Node, Edge, Config
-agraph(nodes=nodes, edges=edges, config=config)
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/kmcgrady/streamlit-autorefresh">
-
-<Image pure alt="screenshot" src="/images/api/components/autorefresh.jpg" />
-
-<h4>Autorefresh</h4>
-
-Force a refresh without tying up a script. Created by [@kmcgrady](https://github.com/kmcgrady).
-
-```python
-from streamlit_autorefresh import st_autorefresh
-
-st_autorefresh(interval=2000, limit=100,
-  key="fizzbuzzcounter")
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/lukasmasuch/streamlit-pydantic">
-
-<Image pure alt="screenshot" src="/images/api/components/pydantic.jpg" />
-
-<h4>Pydantic</h4>
-
-Auto-generate Streamlit UI from Pydantic Models and Dataclasses. Created by [@lukasmasuch](https://github.com/lukasmasuch).
-
-```python
-import streamlit_pydantic as sp
-
-sp.pydantic_form(key="my_form",
-  model=ExampleModel)
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/andfanilo/streamlit-drawable-canvas">
-
-<Image pure alt="screenshot" src="/images/api/components/drawable-canvas.jpg" />
-
-<h4>Drawable Canvas</h4>
-
-Provides a sketching canvas using [Fabric.js](http://fabricjs.com/). Created by [@andfanilo](https://github.com/andfanilo).
-
-```python
-from streamlit_drawable_canvas import st_canvas
-
-st_canvas(fill_color="rgba(255, 165, 0, 0.3)", stroke_width=stroke_width, stroke_color=stroke_color, background_color=bg_color, background_image=Image.open(bg_image) if bg_image else None, update_streamlit=realtime_update, height=150, drawing_mode=drawing_mode, point_display_radius=point_display_radius if drawing_mode == 'point' else 0, key="canvas",)
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/turner-anderson/streamlit-cropper">
-
-<Image pure alt="screenshot" src="/images/api/components/cropper.jpg" />
-
-<h4>Streamlit Cropper</h4>
-
-A simple image cropper for Streamlit. Created by [@turner-anderson](https://github.com/turner-anderson).
-
-```python
-from streamlit_cropper import st_cropper
-
-st_cropper(img, realtime_update=realtime_update, box_color=box_color, aspect_ratio=aspect_ratio)
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/blackary/streamlit-image-coordinates">
-
-<Image pure alt="screenshot" src="/images/api/components/image-coordinates.jpg" />
-
-<h4>Image Coordinates</h4>
-
-Get the coordinates of clicks on an image. Created by [@blackary](https://github.com/blackary/).
-
-```python
-from streamlit_image_coordinates import streamlit_image_coordinates
-value = streamlit_image_coordinates("https://placekitten.com/200/300")
-
-st.write(value)
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/andfanilo/streamlit-lottie">
-
-<Image pure alt="screenshot" src="/images/api/components/lottie.jpg" />
-
-<h4>Streamlit Lottie</h4>
-
-Integrate [Lottie](https://lottiefiles.com/) animations inside your Streamlit app. Created by [@andfanilo](https://github.com/andfanilo).
-
-```python
-lottie_hello = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
-st_lottie(lottie_hello, key="hello")
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/fcakyon/streamlit-image-comparison">
-
-<Image pure alt="screenshot" src="/images/api/components/image-comparison.jpg" />
-
-<h4>Image Comparison</h4>
-
-Compare images with a slider using [JuxtaposeJS](https://juxtapose.knightlab.com/). Created by [@fcakyon](https://github.com/fcakyon).
-
-```python
-from streamlit_image_comparison import image_comparison
-
-image_comparison(img1="image1.jpg", img2="image2.jpg",)
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/blackary/streamlit-camera-input-live">
-
-<Image pure alt="screenshot" src="/images/api/components/camera-live.jpg" />
-
-<h4>Camera input live</h4>
-
-Alternative for st.camera_input which returns the webcam images live. Created by [@blackary](https://github.com/blackary).
-
-```python
-from camera_input_live import camera_input_live
-
-image = camera_input_live()
-st.image(image)
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/victoryhb/streamlit-option-menu">
-
-<Image pure alt="screenshot" src="/images/api/components/option-menu.jpg" />
-
-<h4>Streamlit Option Menu</h4>
-
-Select a single item from a list of options in a menu. Created by [@victoryhb](https://github.com/victoryhb).
-
-```python
-from streamlit_option_menu import option_menu
-
-option_menu("Main Menu", ["Home", 'Settings'],
-  icons=['house', 'gear'], menu_icon="cast", default_index=1)
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/Wirg/stqdm">
-
-<Image pure alt="screenshot" src="/images/api/components/stqdm.jpg" />
-
-<h4>Stqdm</h4>
-
-The simplest way to handle a progress bar in streamlit app. Created by [@Wirg](https://github.com/Wirg).
-
-```python
-from time import sleep
-from stqdm import stqdm
-
-for _ in stqdm(range(50)):
-    sleep(0.5)
-```
-
-</ComponentCard>
-
-</ComponentSlider>
