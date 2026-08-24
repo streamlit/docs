@@ -1,6 +1,8 @@
 ---
 title: Customize your theme and configure your app
 slug: /develop/tutorials/configuration-and-theming
+description: Learn to customize Streamlit app themes and configurations including external fonts, static fonts, variable fonts, and visual styling options.
+keywords: theming, app customization, external fonts, static fonts, variable fonts, theme configuration, visual styling, app configuration
 ---
 
 # Customize your theme and configure your app

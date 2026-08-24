@@ -1,6 +1,8 @@
 ---
 title: Use Streamlit in Snowflake
 slug: /get-started/installation/streamlit-in-snowflake
+description: Quick start guide to use Streamlit in Snowflake for secure development with role-based access control.
+keywords: streamlit in snowflake, snowflake streamlit, secure environment, role-based access, data cloud, snowflake trial, integrated platform
 ---
 
 # Use Streamlit in Snowflake to code in a secure environment
@@ -84,7 +86,6 @@ The databases in the above screenshot are as follows:
 1. In the upper-right corner, click the blue "<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>add</i> **Streamlit App**" button.
 
 1. Enter your app details as follows:
-
    - App title: "Hello World"
    - App location: "STREAMLIT_DB" and "PUBLIC"
    - App warehouse: "COMPUTE_WH" (default) or "STREAMLIT_WH" (if you created a new warehouse)

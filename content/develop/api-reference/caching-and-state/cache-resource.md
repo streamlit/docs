@@ -1,7 +1,8 @@
 ---
 title: st.cache_resource
 slug: /develop/api-reference/caching-and-state/st.cache_resource
-description: st.cache_resource is used to cache functions that return shared global resources (e.g. database connections, ML models).
+description: st.cache_resource is used to cache functions that return shared, global resources (e.g. database connections, ML models).
+keywords: cache_resource, caching, resources, global resources, database connections, ml models, singleton, performance
 ---
 
 <Tip>
@@ -70,29 +71,3 @@ def load_model():
     st.write("Here's the model:")
     return model
 ```
-
-### Input widgets
-
-You can also use [interactive input widgets](/develop/api-reference/widgets) like `st.slider` or `st.text_input` in cached functions. Widget replay is an experimental feature at the moment. To enable it, you need to set the `experimental_allow_widgets` parameter:
-
-```python
-@st.cache_resource(experimental_allow_widgets=True)  # 👈 Set the parameter
-def load_model():
-    pretrained = st.checkbox("Use pre-trained model:")  # 👈 Add a checkbox
-    model = torchvision.models.resnet50(weights=ResNet50_Weights.DEFAULT, pretrained=pretrained)
-    return model
-```
-
-Streamlit treats the checkbox like an additional input parameter to the cached function. If you uncheck it, Streamlit will see if it has already cached the function for this checkbox state. If yes, it will return the cached value. If not, it will rerun the function using the new slider value.
-
-Using widgets in cached functions is extremely powerful because it lets you cache entire parts of your app. But it can be dangerous! Since Streamlit treats the widget value as an additional input parameter, it can easily lead to excessive memory usage. Imagine your cached function has five sliders and returns a 100 MB DataFrame. Then we’ll add 100 MB to the cache for _every permutation_ of these five slider values – even if the sliders do not influence the returned data! These additions can make your cache explode very quickly. Please be aware of this limitation if you use widgets in cached functions. We recommend using this feature only for isolated parts of your UI where the widgets directly influence the cached return value.
-
-<Warning>
-
-Support for widgets in cached functions is currently experimental. We may change or remove it anytime without warning. Please use it with care!
-</Warning>
-
-<Note>
-
-Two widgets are currently not supported in cached functions: `st.file_uploader` and `st.camera_input`. We may support them in the future. Feel free to [open a GitHub issue](https://github.com/streamlit/streamlit/issues) if you need them!
-</Note>

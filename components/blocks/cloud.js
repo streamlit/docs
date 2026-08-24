@@ -1,5 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import classNames from "classnames";
+import {
+  useThemeContextSafe,
+  getThemeFromDOM,
+} from "../../lib/next/ThemeContext";
 
 // Arguments:
 //
@@ -34,6 +38,12 @@ import classNames from "classnames";
 //   -> https://foo.streamlit.app/bar/?embed=true&embed_options=show_padding&embed_options=show_colored_line
 //
 const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
+  // Try to get theme from context, fall back to DOM reading
+  // Context may not be available when rendered via ReactDOMServer.renderToString in table.js
+  const themeContext = useThemeContextSafe();
+  const theme = themeContext?.theme ?? getThemeFromDOM();
+  const themeEmbedOption = `embed_options=${theme}_theme`;
+
   if (!domain) domain = `${name}.streamlit.app`;
   if (domain.endsWith("/")) domain = domain.slice(0, -1);
 
@@ -44,6 +54,8 @@ const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
     path = "";
   }
 
+  // We'll process the query param using string processing rather than URLSearchParams because
+  // when the `query` is a placeholder $3 the "$" gets mangled by URLSearchParams.
   let normalQueryStr = "";
   let embedQueryStr = "";
 
@@ -67,6 +79,9 @@ const Cloud = ({ name, path, query, height, domain, stylePlaceholder }) => {
     embedQueryStr = "&" + embedQueryParams.join("&");
     normalQueryStr = "&" + normalQueryParams.join("&");
   }
+
+  // Add theme parameter to embed query string
+  embedQueryStr += `&${themeEmbedOption}`;
 
   if (!height) height = "10rem";
 

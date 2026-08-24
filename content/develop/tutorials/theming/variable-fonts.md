@@ -1,7 +1,8 @@
 ---
 title: Use variable font files to customize your font
 slug: /develop/tutorials/configuration-and-theming/variable-fonts
-description: Learn how to load an alternative font and use it in your app.
+description: Learn how to use variable font files to customize typography in Streamlit apps with self-hosted font files and advanced font configuration options.
+keywords: variable fonts, font customization, self-hosted fonts, typography, font files, custom fonts, font loading, variable font files, theming
 ---
 
 # Use variable font files to customize your font

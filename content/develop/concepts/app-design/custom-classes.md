@@ -1,6 +1,8 @@
 ---
 title: Using custom Python classes in your Streamlit app
 slug: /develop/concepts/design/custom-classes
+description: Learn best practices for using custom Python classes, dataclasses, and Enums in Streamlit apps, including handling class redefinition and comparison issues across reruns.
+keywords: custom classes, python classes, dataclass, enum, class redefinition, streamlit reruns, class comparison, instance comparison, custom interfaces, class patterns
 ---
 
 # Using custom Python classes in your Streamlit app

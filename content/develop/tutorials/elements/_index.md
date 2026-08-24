@@ -1,6 +1,8 @@
 ---
 title: Work with Streamlit elements
 slug: /develop/tutorials/elements
+description: Tutorials for working with Streamlit elements including charts, dataframes, selections, and interactive components for rich user interfaces.
+keywords: Streamlit elements, charts, dataframes, selections, interactive components, UI elements, data visualization, user interface tutorials
 ---
 
 # Work with Streamlit elements

@@ -1,6 +1,8 @@
 ---
 title: Fundamental concepts
 slug: /get-started/fundamentals
+description: Learn Streamlit fundamentals with guides on main concepts and features.
+keywords: fundamentals, main concepts, advanced concepts, streamlit basics, core concepts, streamlit tutorial, getting started, beginner guide
 ---
 
 # Fundamental concepts

@@ -1,6 +1,8 @@
 ---
 title: Deploy an app from a template
 slug: /deploy/streamlit-community-cloud/get-started/deploy-from-a-template
+description: Learn how to deploy a Streamlit app from a template using Community Cloud's template picker with GitHub Codespaces integration.
+keywords: template, deploy, fork, github codespaces, template picker, gdp dashboard, python version, subdomain
 ---
 
 # Deploy an app from a template

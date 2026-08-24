@@ -1,6 +1,8 @@
 ---
 title: API Reference
 slug: /develop/api-reference
+description: Visually explore a gallery of Streamlit's API.
+keywords: api, reference, functions, documentation, streamlit, components, widgets, charts
 ---
 
 # API reference
@@ -229,6 +231,19 @@ Renders HTML strings to your app.
 
 ```python
 st.html("<p>Foo bar.</p>")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/text/st.iframe">
+
+<h4>Iframe</h4>
+
+Display content in an iframe
+
+```python
+st.iframe("https://docs.streamlit.io")
+st.iframe("<p>Streamlit is cool.</p>")
+st.iframe("my_content.html")
 ```
 
 </RefCard>
@@ -608,18 +623,6 @@ st.plotly_chart(my_plotly_chart)
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/charts/st.bokeh_chart">
-<Image pure alt="screenshot" src="/images/api/bokeh_chart.jpg" />
-
-<h4>Bokeh</h4>
-
-Display an interactive Bokeh chart.
-
-```python
-st.bokeh_chart(my_bokeh_chart)
-```
-
-</RefCard>
 <RefCard href="/develop/api-reference/charts/st.pydeck_chart">
 <Image pure alt="screenshot" src="/images/api/pydeck_chart.jpg" />
 
@@ -641,6 +644,19 @@ Display a graph using the dagre-d3 library.
 
 ```python
 st.graphviz_chart(my_graphviz_spec)
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/charts/st.mermaid_chart">
+
+<Image pure alt="screenshot" src="/images/api/mermaid_chart.jpg" />
+
+<h4>Mermaid chart</h4>
+
+Display a Mermaid diagram.
+
+```python
+st.mermaid_chart("graph LR\n  A --> B")
 ```
 
 </RefCard>
@@ -842,6 +858,20 @@ st.link_button("Go to gallery", url)
 ```
 
 </RefCard>
+
+<RefCard href="/develop/api-reference/widgets/st.menu_button">
+
+<Image pure alt="screenshot" src="/images/api/menu_button.jpg" />
+
+<h4>Menu button</h4>
+
+Display a menu button.
+
+```python
+st.menu_button("Export", options=["CSV", "JSON", "PDF"])
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/widgets/st.page_link">
 
 <Image pure alt="screenshot" src="/images/api/page_link.jpg" />
@@ -1025,6 +1055,19 @@ date = st.date_input("Your birthday")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/widgets/st.datetime_input">
+
+<Image pure alt="screenshot" src="/images/api/datetime_input.jpg" />
+
+<h4>Datetime input</h4>
+
+Display a datetime input widget.
+
+```python
+datetime = st.datetime_input("Schedule your event")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/widgets/st.time_input">
 
 <Image pure alt="screenshot" src="/images/api/time_input.jpg" />
@@ -1076,6 +1119,19 @@ Display a single-line text input widget.
 
 ```python
 name = st.text_input("First name")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/widgets/st.pagination">
+
+<Image pure alt="screenshot" src="/images/api/pagination.jpg" />
+
+<h4>Pagination</h4>
+
+Display a pagination widget.
+
+```python
+page = st.pagination(10)
 ```
 
 </RefCard>
@@ -1519,7 +1575,7 @@ Insert a modal dialog that can rerun independently from the rest of the script.
 @st.dialog("Sign up")
 def email_form():
     name = st.text_input("Name")
-    email = st.text_input("Email")
+    email = st.text_input("Email", type="email")
 ```
 
 </RefCard>
@@ -1578,6 +1634,32 @@ Display items in a sidebar.
 ```python
 st.sidebar.write("This lives in the sidebar")
 st.sidebar.button("Click me!")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/layout/st.bottom">
+
+<Image pure alt="screenshot" src="/images/api/bottom.jpg" />
+
+<h4>Bottom</h4>
+
+Display items at the bottom of the window.
+
+```python
+st.bottom.chat_input("Say something")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/layout/st.space">
+
+<Image pure alt="screenshot" src="/images/api/space.jpg" />
+
+<h4>Space</h4>
+
+Add vertical or horizontal space.
+
+```python
+st.space("small")
 ```
 
 </RefCard>
@@ -1769,6 +1851,20 @@ with st.status('Running'):
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/status/st.skeleton">
+
+<Image pure alt="screenshot" src="/images/api/skeleton.jpg" />
+
+<h4>Skeleton</h4>
+
+Display a skeleton placeholder while loading.
+
+```python
+with st.skeleton(height=200):
+  do_something_slow()
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/status/st.toast">
 
 <Image pure alt="screenshot" src="/images/api/toast.jpg" />
@@ -1940,7 +2036,25 @@ rain(emoji="🎈", font_size=54,
 
 ## App logic and configuration
 
-### Authentication and user info
+### App server
+
+<br />
+
+<TileContainer>
+<RefCard href="/develop/api-reference/server/st.app">
+
+<h4>App</h4>
+
+Configure the underlying Starlette server for your app.
+
+```python
+app = st.App()
+```
+
+</RefCard>
+</TileContainer>
+
+### Authentication
 
 <br />
 
@@ -2069,7 +2183,7 @@ Insert a modal dialog that can rerun independently from the rest of the script.
 @st.dialog("Sign up")
 def email_form():
     name = st.text_input("Name")
-    email = st.text_input("Email")
+    email = st.text_input("Email", type="email")
 ```
 
 </RefCard>
@@ -2082,7 +2196,7 @@ Create a form that batches elements together with a “Submit" button.
 ```python
 with st.form(key='my_form'):
     name = st.text_input("Name")
-    email = st.text_input("Email")
+    email = st.text_input("Email", type="email")
     st.form_submit_button("Sign up")
 ```
 
@@ -2422,6 +2536,106 @@ st.write(user_info)
 
 <br />
 
+#### V2 custom components
+
+<TileContainer>
+
+<RefCard href="/develop/api-reference/custom-components/st.components.v2.component">
+
+<h4>Register</h4>
+
+Register a custom component.
+
+```python
+my_component = st.components.v2.component(
+    html=HTML,
+    js=JS
+)
+my_component()
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/custom-components/st.components.v2.types.componentrenderer">
+
+<h4>Mount</h4>
+
+Mount a custom component.
+
+```python
+my_component = st.components.v2.component(
+    html=HTML,
+    js=JS
+)
+my_component()
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib">
+
+<h4>npm support code</h4>
+
+Support code published through npm.
+
+```bash
+npm i @streamlit/component-v2-lib
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib-frontendrenderer">
+
+<h4>FrontendRenderer</h4>
+
+Type alias for the component function.
+
+```typescript
+import { FrontendRenderer } from "@streamlit/component-v2-lib";
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib-frontendrendererargs">
+
+<h4>FrontendRendererArgs</h4>
+
+Type alias for the component arguments.
+
+```typescript
+import { FrontendRendererArgs } from "@streamlit/component-v2-lib";
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib-frontendstate">
+
+<h4>FrontendState</h4>
+
+Type alias for the component state.
+
+```typescript
+import { FrontendState } from "@streamlit/component-v2-lib";
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/custom-components/component-v2-lib-cleanupfunction" size="two-third">
+
+<h4>CleanupFunction</h4>
+
+Type alias for the component cleanup function.
+
+```typescript
+import { CleanupFunction } from "@streamlit/component-v2-lib";
+```
+
+</RefCard>
+
+</TileContainer>
+
+#### V1 custom components
+
 <TileContainer>
 
 <RefCard href="/develop/api-reference/custom-components/st.components.v1.declare_component">
@@ -2509,7 +2723,7 @@ st.get_option("theme.primaryColor")
 Set a single configuration option. (This is very limited.)
 
 ```python
-st.set_option("deprecation.showPyplotGlobalUse", False)
+st.set_option("client.showErrorDetails", "none")
 ```
 
 </RefCard>

@@ -1,6 +1,8 @@
 ---
 title: Input widgets
 slug: /develop/api-reference/widgets
+description: Add interactivity to Streamlit apps with input widgets including buttons, sliders, text inputs, selectboxes, file uploaders, and more interactive components.
+keywords: input widgets, interactive widgets, buttons, sliders, text input, selectbox, checkbox, radio, file upload, user input, form controls, interactive elements
 ---
 
 # Input widgets
@@ -62,6 +64,20 @@ Display a link button.
 
 ```python
 st.link_button("Go to gallery", url)
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/widgets/st.menu_button">
+
+<Image pure alt="screenshot" src="/images/api/menu_button.jpg" />
+
+<h4>Menu button</h4>
+
+Display a menu button.
+
+```python
+st.menu_button("Export", options=["CSV", "JSON", "PDF"])
 ```
 
 </RefCard>
@@ -269,6 +285,19 @@ date = st.date_input("Your birthday")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/widgets/st.datetime_input">
+
+<Image pure alt="screenshot" src="/images/api/datetime_input.jpg" />
+
+<h4>Datetime input</h4>
+
+Display a datetime input widget.
+
+```python
+datetime = st.datetime_input("Schedule your event")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/widgets/st.time_input">
 
 <Image pure alt="screenshot" src="/images/api/time_input.jpg" />
@@ -336,6 +365,19 @@ if prompt:
 ## Other input elements
 
 <TileContainer>
+<RefCard href="/develop/api-reference/widgets/st.pagination">
+
+<Image pure alt="screenshot" src="/images/api/pagination.jpg" />
+
+<h4>Pagination</h4>
+
+Display a pagination widget.
+
+```python
+page = st.pagination(10)
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/widgets/st.audio_input">
 
 <Image pure alt="screenshot" src="/images/api/audio_input.jpg" />

@@ -1,6 +1,8 @@
 ---
 title: Text elements
 slug: /develop/api-reference/text
+description: Display and format text in Streamlit apps with titles, headers, markdown, code blocks, captions, badges, and other text formatting components.
+keywords: text elements, title, header, subheader, markdown, text formatting, code blocks, caption, badge, divider, latex, html, text display
 ---
 
 # Text elements
@@ -155,8 +157,7 @@ Display mathematical expressions formatted as LaTeX.
 st.latex("\int a x^2 \,dx")
 ```
 
-</RefCard>
-<RefCard href="/develop/api-reference/text/st.divider">
+</RefCard><RefCard href="/develop/api-reference/text/st.divider">
 
 <Image pure alt="screenshot" src="/images/api/divider.jpg" />
 
@@ -174,7 +175,7 @@ st.divider()
 ## Utilities
 
 <TileContainer>
-<RefCard href="/develop/api-reference/text/st.help" size="half">
+<RefCard href="/develop/api-reference/text/st.help">
 
 <h4>Get help</h4>
 
@@ -186,7 +187,7 @@ st.help(pd.DataFrame)
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/text/st.html" size="half">
+<RefCard href="/develop/api-reference/text/st.html">
 
 <h4>Render HTML</h4>
 
@@ -194,6 +195,19 @@ Renders HTML strings to your app.
 
 ```python
 st.html("<p>Foo bar.</p>")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/text/st.iframe">
+
+<h4>Iframe</h4>
+
+Display content in an iframe
+
+```python
+st.iframe("https://docs.streamlit.io")
+st.iframe("<p>Streamlit is cool.</p>")
+st.iframe("my_content.html")
 ```
 
 </RefCard>

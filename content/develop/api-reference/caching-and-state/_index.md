@@ -1,6 +1,8 @@
 ---
 title: Caching and state
 slug: /develop/api-reference/caching-and-state
+description: Optimize performance and manage state in Streamlit apps with st.cache_data, st.cache_resource, session state, and query parameters for efficient applications.
+keywords: caching, state, session state, cache_data, cache_resource, query_params, context, performance, optimization
 ---
 
 # Caching and state
@@ -90,34 +92,4 @@ st.query_params.clear()
 
 </RefCard>
 
-</TileContainer>
-
-## Deprecated commands
-
-<TileContainer>
-
-<RefCard href="/develop/api-reference/caching-and-state/st.experimental_get_query_params" size="half" deprecated={true}>
-
-<h4>Get query parameters</h4>
-
-Get query parameters that are shown in the browser's URL bar.
-
-```python
-param_dict = st.experimental_get_query_params()
-```
-
-</RefCard>
-<RefCard href="/develop/api-reference/caching-and-state/st.experimental_set_query_params" size="half" deprecated={true}>
-
-<h4>Set query parameters</h4>
-
-Set query parameters that are shown in the browser's URL bar.
-
-```python
-st.experimental_set_query_params(
-  {"show_all"=True, "selected"=["asia", "america"]}
-)
-```
-
-</RefCard>
 </TileContainer>

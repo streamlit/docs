@@ -1,6 +1,8 @@
 ---
 title: Use Community Cloud to develop with GitHub Codespaces
 slug: /get-started/installation/community-cloud
+description: Quick start guide to use Community Cloud and GitHub Codespaces for browser-based development without local installation.
+keywords: community cloud, github codespaces, cloud development, browser development, codespaces, streamlit cloud, no installation, cloud ide
 ---
 
 # Use Community Cloud to develop with GitHub Codespaces
@@ -79,7 +81,7 @@ If you already created a Community Cloud account and connected GitHub, jump ahea
 
 1. Go to the app's entrypoint file (`streamlit_app.py`) in the left pane, and change line 3 by adding "Streamlit" inside `st.title`.
 
-   ```diff
+   ```diff-python
    -st.title("🎈 My new app")
    +st.title("🎈 My new Streamlit app")
    ```

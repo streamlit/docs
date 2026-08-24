@@ -1,6 +1,8 @@
 ---
 title: st.write and magic commands
 slug: /develop/api-reference/write-magic
+description: Display information in Streamlit apps using st.write and magic commands - versatile tools for showing text, data, charts, and more with minimal code.
+keywords: st.write, magic commands, display data, streamlit write, magic, st.write_stream, typewriter effect, versatile display, automatic rendering
 ---
 
 # st.write and magic commands

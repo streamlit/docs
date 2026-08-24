@@ -1,6 +1,8 @@
 ---
 title: Command-line options
 slug: /develop/api-reference/cli
+description: Run Streamlit apps and manage configuration using the command-line interface for app execution, cache management, and system diagnostics.
+keywords: cli, command line, streamlit run, cache, config, docs, hello, help, init, version, terminal, command, streamlit skills
 ---
 
 # Command-line interface
@@ -8,6 +10,12 @@ slug: /develop/api-reference/cli
 When you install Streamlit, a command-line (CLI) tool gets installed
 as well. The purpose of this tool is to run Streamlit apps, change Streamlit configuration options,
 and help you diagnose and fix issues.
+
+<Tip>
+
+If you use an AI coding agent, run [`streamlit skills`](/develop/api-reference/cli/skills) to install Streamlit's official agent skills.
+
+</Tip>
 
 ## Available commands
 
@@ -18,6 +26,7 @@ and help you diagnose and fix issues.
 - [`streamlit help`](/develop/api-reference/cli/help): Show the available CLI commands.
 - [`streamlit init`](/develop/api-reference/cli/init): Create the files for a new Streamlit app.
 - [`streamlit run`](/develop/api-reference/cli/run): Run your Streamlit app.
+- [`streamlit skills`](/develop/api-reference/cli/skills): Install Streamlit AI-agent skills.
 - [`streamlit version`](/develop/api-reference/cli/version): Show the version of Streamlit.
 
 ### Run your app

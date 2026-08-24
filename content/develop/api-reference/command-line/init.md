@@ -1,6 +1,8 @@
 ---
 title: streamlit init
 slug: /develop/api-reference/cli/init
+description: streamlit init creates the files for a new Streamlit app project including requirements.txt and streamlit_app.py.
+keywords: streamlit init, cli, command line, create project, new app, requirements.txt, streamlit_app.py, project files
 ---
 
 ## `$ streamlit init`
@@ -28,6 +30,7 @@ streamlit init <directory>
    ```
 
    Streamlit creates the following files:
+
    ```
    CWD/
    ├── requirements.txt
@@ -49,6 +52,7 @@ streamlit init <directory>
    ```
 
    Streamlit creates the following files:
+
    ```
    CWD/
    └── project/

@@ -1,6 +1,8 @@
 ---
 title: Connect Streamlit to Snowflake
 slug: /develop/tutorials/databases/snowflake
+description: Learn how to connect Streamlit apps to Snowflake databases using st.connection, Snowpark library, and secrets management for cloud data warehouse access.
+keywords: Snowflake, data warehouse, st.connection, Snowpark, secrets management, cloud database, secure connections, database tutorial
 ---
 
 # Connect Streamlit to Snowflake
@@ -139,7 +141,7 @@ In addition to the three required parameters to authenticate your connection, it
 If you already have your connection configured using [Snowflake's connections file](https://docs.snowflake.com/en/developer-guide/python-connector/python-connector-connect#connecting-using-the-connections-toml-file), you can use it as-is. If you are using a default connection, no change is needed in later steps of this tutorial. If you are using a named connection, you will need to include the name in `st.connection`. This is noted in a later step. For information about using named connections, see the examples in the API reference for [`SnowflakeConnnection`](/develop/api-reference/connections/st.connections.snowflakeconnection).
 
 1. If you don't already have a `.snowflake/configuration.toml` file in your user directory, create an empty connections file.
-1. Add your connection parameters to `.snowflake/connection.toml`:
+1. Add your connection parameters to `.snowflake/connections.toml`:
 
    ```toml
    [default]

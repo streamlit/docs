@@ -1,6 +1,8 @@
 ---
 title: st.connections.SQLConnection
 slug: /develop/api-reference/connections/st.connections.sqlconnection
+description: st.connections.SQLConnection provides a connection to SQL databases using SQLAlchemy for querying relational data.
+keywords: SQLConnection, sql, database, sqlalchemy, query, relational, connection, data, sql connection
 ---
 
 <Tip>

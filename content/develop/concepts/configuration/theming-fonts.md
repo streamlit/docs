@@ -1,6 +1,8 @@
 ---
 title: Customize fonts
 slug: /develop/concepts/configuration/theming-customize-fonts
+description: Learn how to configure fonts in Streamlit apps by loading custom font files from URLs or static file serving, with configuration options for different text elements.
+keywords: fonts, font customization, typography, custom fonts, font loading, static files, font configuration, text styling, font families, web fonts
 ---
 
 # Customize fonts in your Streamlit app
@@ -13,7 +15,7 @@ Streamlit comes with [Source Sans](https://fonts.adobe.com/fonts/source-sans), [
 
 To use these default faults, you can set each of the following configuration options to `"sans-serif"` (Source Sans), `"serif"` (Source Serif), or `"monospace"` (Source Code) in `config.toml`:
 
-```toml
+```toml filename=".streamlit/config.toml"
 [theme]
 font = "sans-serif"
 headingFont = "sans-serif"
@@ -27,32 +29,50 @@ codeFont = "monospace"
 You can set the base font weight and size in the `[theme]` table in `config.toml`. These can't be configured separately in the sidebar.
 
 - `theme.baseFontSize` sets the root font size for your app.
-- `theme.baseFontWeight` sets the root font weight for your app.
+- `theme.baseFontWeight` sets the root font weight for your app. Weights are integer multiples of 50 between 100 and 600.
+- `theme.metricValueFontSize` sets the font size of `st.metric` values.
+- `theme.metricValueFontWeight` sets the font weight of `st.metric` values. Weights are integer multiples of 50 between 100 and 900.
 
 The following configuration options can be set separately for the sidebar by using the `[theme.sidebar]` table instead of the `[theme]` table in `config.toml`:
 
 - `theme.font` sets the default font for all text in the app (except inline code and code blocks). This is `"sans-serif"` (Source Sans) by default.
 - `theme.headingFont` sets the default font for all headings in the app. If this is not set, Streamlit uses `theme.font` instead.
 - `theme.headingFontSizes` sets the font sizes for `<h1>`-`<h6>` headings.
-- `theme.headingFontWeights` sets the font sizes for `<h1>`-`<h6>` headings.
+- `theme.headingFontWeights` sets the font weights for `<h1>`-`<h6>` headings. Weights are integer multiples of 50 between 100 and 900.
 - `theme.codeFont` sets the default font for all inline code and code blocks. This is `"monospace"` (Source Code) by default.
 - `theme.codeFontSize` sets the size of code text in code blocks, `st.json`, and `st.help` (but not inline code).
-- `theme.codeFontWeight` sets the weight of code text in code blocks, `st.json`, and `st.help` (but not inline code).
+- `theme.codeFontWeight` sets the weight of code text in code blocks, `st.json`, and `st.help` (but not inline code). Weights are integer multiples of 50 between 100 and 600.
 
 When fonts are not declared in `[theme.sidebar]`, Streamlit will inherit each option from `[theme]` before defaulting to less specific options. For example, if `theme.sidebar.headingFont` is not set, Streamlit uses (in order of precedence) `theme.headingFont`, `theme.sidebar.font`, or `theme.font` instead.
 
 In the following `config.toml` example, Streamlit uses Source Serif in the main body of the app and Source Sans in the sidebar.
 
-```toml
+```toml filename=".streamlit/config.toml"
 [theme]
 font = "serif"
 [theme.sidebar]
 font = "sans-serif"
 ```
 
-## Loading alternative fonts
+## Externally hosted fonts
 
-To use an alternative font in your app, you must declare the font in `config.toml` under `[[theme.fontFaces]]`. For multiple alternative fonts, declare multiple `[[theme.fontFaces]]` tables in your configuration file. You can self-host your font by using Streamlit static file serving, or you can point to a publicly hosted font file.
+If you use a font service like Google Fonts or Adobe Fonts, you can use those fonts directly by encoding their font family (name) and CSS URL into a single string of the form `{font_name}:{css_url}`. If your font family includes a space, use inner quotes on the font family. In the following `config.toml` example, Streamlit uses Nunito font for all text except code, which is Space Mono instead. Space Mono has inner quotes because it has a space.
+
+```toml filename=".streamlit/config.toml"
+[theme]
+font = "Nunito:https://fonts.googleapis.com/css2?family=Nunito&display=swap"
+codeFont = "'Space Mono':https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
+```
+
+<Important>
+
+If you configure your app to include any third-party integrations, including externally hosted fonts, your app may transmit user data (for example, IP addresses) to external servers. As the app developer, you are solely responsible for notifying your users about these third-party integrations, providing access to relevant privacy policies, and ensuring compliance with all applicable data protection laws and regulations.
+
+</Important>
+
+## Hosting alternative fonts
+
+If you have font files that you want to host with your app, you must declare the font in `config.toml` under `[[theme.fontFaces]]`. For multiple alternative fonts, declare multiple `[[theme.fontFaces]]` tables in your configuration file. You can self-host your font by using Streamlit static file serving, or you can point to a publicly hosted font file.
 
 <Important>
 
@@ -80,9 +100,7 @@ The following example uses static file serving to host Google's [Noto Sans](http
 
 A line-by-line explanation of this example is available in a [tutorial](/develop/tutorials/configuration-and-theming/variable-fonts).
 
-`.streamlit/config.toml`:
-
-```toml
+```toml filename=".streamlit/config.toml"
 [server]
 enableStaticServing = true
 
@@ -103,9 +121,7 @@ font="noto-sans"
 codeFont="noto-mono"
 ```
 
-Directory structure:
-
-```none
+```none filename="Directory structure"
 project_directory/
 ├── .streamlit/
 │   └── config.toml
@@ -129,9 +145,7 @@ If your app uses a font without a matching weight-style definition, the user's b
 
 A line-by-line explanation of this example is available in a [tutorial](/develop/tutorials/configuration-and-theming/static-fonts).
 
-`.streamlit/config.toml`:
-
-```toml
+```toml filename=".streamlit/config.toml"
 [server]
 enableStaticServing = true
 
@@ -160,9 +174,7 @@ weight=700
 font="tuffy"
 ```
 
-Directory structure:
-
-```none
+```none filename="Directory structure"
 project_directory/
 ├── .streamlit/
 │   └── config.toml
@@ -174,38 +186,22 @@ project_directory/
 └── streamlit_app.py
 ```
 
+## Font fallbacks
+
+If you use complicated font that might not be compatible with all browsers, or if you are using externally hosted fonts, it's best practice to include font fallbacks.
+
 ### Example 3: Define an alternative font with fallbacks
-
-If you don't want to download and host your font files with your app, you can point to externally hosted font files. If your files aren't hosted with your app, it's recommended to declare fallback fonts.
-
-<Important>
-
-If you configure your app to include any third-party integrations, including externally hosted fonts, your app may transmit user data (for example, IP addresses) to external servers. As the app developer, you are solely responsible for notifying your users about these third-party integrations, providing access to relevant privacy policies, and ensuring compliance with all applicable data protection laws and regulations.
-
-</Important>
 
 In your configuration file, wherever you declare a default font, you can use a comma-separated list of fonts instead. The font (or comma-separated list of fonts) is passed to the CSS [`font-family`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family) property.
 
-You can always include one of Streamlit's default fonts as a final fallback. The following example uses [Nunito](https://fonts.google.com/specimen/Nunito) font. The configuration file points to the Google-hosted font files and identifies Streamlit's built-in font as the backup.
+You can always include one of Streamlit's default fonts as a final fallback. The following example uses [Nunito](https://fonts.google.com/specimen/Nunito) and [Space Mono](https://fonts.google.com/specimen/Space+Mono) fonts. The configuration file points to the Google-hosted font files and identifies Streamlit's built-in font as the backup.
 
 A line-by-line explanation of this example is available in a [tutorial](/develop/tutorials/configuration-and-theming/external-fonts).
 
-`.streamlit/config.toml`:
-
-```toml
-[[theme.fontFaces]]
-family="Nunito"
-url="https://fonts.gstatic.com/s/nunito/v31/XRXX3I6Li01BKofIMNaDRs7nczIH.woff2"
-style="italic"
-weight="200 1000"
-[[theme.fontFaces]]
-family="Nunito"
-url="https://fonts.gstatic.com/s/nunito/v31/XRXV3I6Li01BKofINeaBTMnFcQ.woff2"
-style="normal"
-weight="200 1000"
-
+```toml filename=".streamlit/config.toml"
 [theme]
-font="Nunito, sans-serif"
+font="Nunito:https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000, sans-serif"
+codeFont="'Space Mono':https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap, monospace"
 ```
 
 <Tip>
@@ -218,14 +214,14 @@ If any of your font family names contain spaces and you are declaring a fallback
 
 You can set the base font size for your app in pixels. You must specify the base font size as an integer. The following configuration is equivalent to the default base font size of 16 pixels:
 
-```toml
+```toml filename=".streamlit/config.toml"
 [theme]
 baseFontSize=16
 ```
 
 Additionally, you can set the font size for code blocks. The font size can be declared in pixels or rem. The following configuration is equivalent to the default code font size of 0.875rem.
 
-```toml
+```toml filename=".streamlit/config.toml"
 [theme]
 codeFontSize="0.875rem"
 ```

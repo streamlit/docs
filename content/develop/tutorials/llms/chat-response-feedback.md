@@ -1,6 +1,8 @@
 ---
 title: Collect user feedback about LLM responses
 slug: /develop/tutorials/chat-and-llm-apps/chat-response-feedback
+description: Learn to collect user feedback on LLM responses in Streamlit chat apps using st.feedback widget for sentiment collection and response improvement.
+keywords: user feedback, LLM responses, st.feedback, sentiment collection, chat apps, response feedback, user sentiment, chat interface, feedback collection
 ---
 
 # Collect user feedback about LLM responses
@@ -214,14 +216,14 @@ To make your chat app stateful, you'll save the conversation history into Sessio
 
 1. Add the callback and index argument to your `st.feedback` widget:
 
-   ```diff
-               st.feedback(
-                   "thumbs",
-                   key=f"feedback_{i}",
-                   disabled=feedback is not None,
-   +               on_change=save_feedback,
-   +               args=[i],
-               )
+   ```diff-python
+   =            st.feedback(
+   =                "thumbs",
+   =                key=f"feedback_{i}",
+   =                disabled=feedback is not None,
+   +                on_change=save_feedback,
+   +                args=[i],
+   =            )
    ```
 
    When a user interacts with the feedback widget, the callback will update the chat history before the app reruns.
@@ -275,36 +277,36 @@ Your app currently allows users to rate any response once. They can submit their
 
 If you want users to rate only the _most recent_ response, you can remove the widgets from the chat history:
 
-```diff
-  for i, message in enumerate(st.session_state.history):
-      with st.chat_message(message["role"]):
-          st.write(message["content"])
--         if message["role"] == "assistant":
--             feedback = message.get("feedback", None)
--             st.session_state[f"feedback_{i}"] = feedback
--             st.feedback(
--                 "thumbs",
--                 key=f"feedback_{i}",
--                 disabled=feedback is not None,
--                 on_change=save_feedback,
--                 args=[i],
--             )
+```diff-python
+=  for i, message in enumerate(st.session_state.history):
+=      with st.chat_message(message["role"]):
+=          st.write(message["content"])
+-          if message["role"] == "assistant":
+-              feedback = message.get("feedback", None)
+-              st.session_state[f"feedback_{i}"] = feedback
+-              st.feedback(
+-                  "thumbs",
+-                  key=f"feedback_{i}",
+-                  disabled=feedback is not None,
+-                  on_change=save_feedback,
+-                  args=[i],
+-              )
 ```
 
 Or, if you want to allow users to change their responses, you can just remove the `disabled` parameter:
 
-```diff
-  for i, message in enumerate(st.session_state.history):
-      with st.chat_message(message["role"]):
-          st.write(message["content"])
-          if message["role"] == "assistant":
-              feedback = message.get("feedback", None)
-              st.session_state[f"feedback_{i}"] = feedback
-              st.feedback(
-                  "thumbs",
-                  key=f"feedback_{i}",
--                 disabled=feedback is not None,
-                  on_change=save_feedback,
-                  args=[i],
-              )
+```diff-python
+=  for i, message in enumerate(st.session_state.history):
+=      with st.chat_message(message["role"]):
+=          st.write(message["content"])
+=          if message["role"] == "assistant":
+=              feedback = message.get("feedback", None)
+=              st.session_state[f"feedback_{i}"] = feedback
+=              st.feedback(
+=                  "thumbs",
+=                  key=f"feedback_{i}",
+-                  disabled=feedback is not None,
+=                  on_change=save_feedback,
+=                  args=[i],
+=              )
 ```

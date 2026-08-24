@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
-import classNames from "classnames";
 import Table from "./table";
 import { H2, H3 } from "./headers";
 import Warning from "./warning";
 import Deprecation from "./deprecation";
-import { withRouter, useRouter } from "next/router";
 import Prism from "prismjs";
 import "prismjs/components/prism-python";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
@@ -17,11 +15,13 @@ import getConfig from "next/config";
 const { publicRuntimeConfig } = getConfig();
 
 import styles from "./autofunction.module.css";
-import { looksLikeVersionAndPlatformString } from "../../lib/next/utils";
+import { getThemedUrl, getThemeFromDOM } from "../../lib/next/ThemeContext";
+import languageDisplayNames, {
+  getPrismLanguage,
+} from "../../lib/languageDisplayNames";
 
 const LATEST_VERSION = publicRuntimeConfig.LATEST_VERSION;
 const DEFAULT_VERSION = publicRuntimeConfig.DEFAULT_VERSION;
-const VERSIONS_LIST = publicRuntimeConfig.VERSIONS_LIST;
 
 const cleanHref = (name) => {
   return String(name).replace(/\./g, "").replace(/\s+/g, "-");
@@ -36,10 +36,8 @@ const Autofunction = ({
   deprecated,
   deprecatedText,
   oldStreamlitFunction,
-  goToLatest,
 }) => {
   const blockRef = useRef();
-  const router = useRouter();
   const [isHighlighted, setIsHighlighted] = useState(false);
   const currentNumericVersion =
     version == DEFAULT_VERSION ? LATEST_VERSION : version;
@@ -50,11 +48,14 @@ const Autofunction = ({
   }, [streamlitFunction]);
 
   // Code to destroy and regenerate iframes on each new autofunction render.
+  // Also updates the theme in iframe URLs to match the current site theme.
   const regenerateIframes = () => {
     const iframes = Array.prototype.slice.call(
       blockRef.current.getElementsByTagName("iframe"),
     );
     if (!iframes) return;
+
+    const currentTheme = getThemeFromDOM();
 
     iframes.forEach((iframe) => {
       const parent = iframe.parentElement;
@@ -62,13 +63,13 @@ const Autofunction = ({
 
       newFrame.src = "";
       newFrame.classList.add("new");
-      newFrame.src = iframe.src;
+      newFrame.src = getThemedUrl(iframe.src, currentTheme);
 
       parent.replaceChild(newFrame, iframe);
     });
   };
 
-  const highlightWithPrism = () => {
+  const highlightWithPrism = async () => {
     if (isHighlighted) {
       return;
     }
@@ -80,74 +81,106 @@ const Autofunction = ({
       blockRef.current.getElementsByTagName("pre"),
     );
 
+    // Collect unique languages and transform pre elements
+    const languagesNeeded = new Set();
+    const ignoredClasses = new Set([
+      "code",
+      "literal-block",
+      "last",
+      "doctest-block",
+    ]);
+
+    // languageDisplayNames imported from ../../lib/languageDisplayNames
     pres.forEach((ele) => {
+      // Extract language from class list (e.g., "code toml literal-block" -> "toml")
+      let language = "python"; // default
+
+      for (const cls of ele.classList) {
+        if (!ignoredClasses.has(cls) && cls in languageDisplayNames) {
+          language = cls;
+          break;
+        }
+      }
+
+      // Map to Prism component name
+      const prismLanguage = getPrismLanguage(language);
+      languagesNeeded.add(prismLanguage);
+
+      // Check for filename from CSS class (set by stcode.py directive)
+      // Filename is base64-encoded in a class like "stfilename-LnN0cmVhbWxpdC9zZWNyZXRzLnRvbWw"
+      let filename = null;
+      for (const cls of ele.classList) {
+        if (cls.startsWith("stfilename-")) {
+          const encoded = cls.substring(11); // Remove "stfilename-" prefix
+          // Add padding back for base64 decode
+          const padded = encoded + "=".repeat((4 - (encoded.length % 4)) % 4);
+          try {
+            // URL-safe base64 decode
+            filename = atob(padded.replace(/-/g, "+").replace(/_/g, "/"));
+          } catch (e) {
+            console.error("Failed to decode filename:", e);
+          }
+          break;
+        }
+      }
+      const displayLanguage =
+        languageDisplayNames[language] || language.toUpperCase();
+
+      // Show language only if no filename (matching code.js behavior)
+      const showLanguage = !filename;
+
       const codeText = ele.innerHTML;
       const preTag = ele.cloneNode(true);
       const codeWrap = document.createElement("div");
       codeWrap.setAttribute("class", styles.CodeBlockContainer);
+
+      // Create header with language and/or filename
+      const header = document.createElement("div");
+      header.setAttribute("class", `${styles.Header} code-block-header`);
+
+      if (showLanguage) {
+        const langSpan = document.createElement("span");
+        langSpan.setAttribute("class", styles.Language);
+        langSpan.textContent = displayLanguage;
+        header.appendChild(langSpan);
+      }
+
+      if (filename) {
+        const filenameSpan = document.createElement("span");
+        filenameSpan.setAttribute("class", styles.Filename);
+        filenameSpan.textContent = filename;
+        header.appendChild(filenameSpan);
+      }
+
       const codeTag = document.createElement("code");
-      codeTag.setAttribute("class", "language-python");
+      codeTag.setAttribute("class", `language-${prismLanguage}`);
       preTag.classList.add("line-numbers");
       codeTag.innerHTML = codeText;
       preTag.textContent = null;
       preTag.appendChild(codeTag);
+
+      codeWrap.appendChild(header);
       codeWrap.appendChild(preTag);
       ele.replaceWith(codeWrap);
     });
 
+    // Dynamically import all needed Prism language modules
+    for (const lang of languagesNeeded) {
+      try {
+        await import(`prismjs/components/prism-${lang}`);
+      } catch (error) {
+        console.error(`Prism doesn't support this language: ${lang}`);
+      }
+    }
+
+    // Guard against component unmounting during async imports
+    if (!blockRef.current) {
+      return;
+    }
+
     Prism.highlightAllUnder(blockRef.current);
 
     setIsHighlighted(true);
-  };
-
-  const VersionSelector = ({ currentNumericVersion, handleSelectVersion }) => {
-    const selectClass =
-      currentNumericVersion != LATEST_VERSION
-        ? "version-select old-version"
-        : "version-select";
-
-    return (
-      <form className={classNames(selectClass, styles.Form)}>
-        <label>
-          <span className="sr-only">Streamlit Version</span>
-          <select
-            value={currentNumericVersion}
-            onChange={handleSelectVersion}
-            className={styles.Select}
-          >
-            {VERSIONS_LIST.map((version, index) => (
-              <option value={version} key={version}>
-                {"Version " + version}
-              </option>
-            ))}
-          </select>
-        </label>
-      </form>
-    );
-  };
-
-  const handleSelectVersion = (event) => {
-    const functionObject =
-      docstrings[streamlitFunction] ?? docstrings[oldStreamlitFunction];
-    const slicedSlug = slug.slice();
-
-    if (event.target.value !== currentNumericVersion) {
-      if (looksLikeVersionAndPlatformString(slicedSlug[0])) {
-        slicedSlug.shift();
-      }
-      if (event.target.value !== LATEST_VERSION) {
-        slicedSlug.unshift(event.target.value);
-      } else {
-        goToLatest();
-      }
-    }
-
-    if (!functionObject) {
-      router.push(`/${slicedSlug.join("/")}`);
-    } else {
-      const name = cleanHref(`st.${functionObject.name}`);
-      router.push(`/${slicedSlug.join("/")}#${name} `);
-    }
   };
 
   const footers = [];
@@ -159,15 +192,19 @@ const Autofunction = ({
   let headerTitle;
   let body;
   let isClass;
+  let isInterface;
   let isAttributeDict;
+  let isTypeAlias;
   let methods = [];
   let properties = [];
 
   if (streamlitFunction in docstrings || oldStreamlitFunction in docstrings) {
     functionObject =
       docstrings[streamlitFunction] ?? docstrings[oldStreamlitFunction];
-    isClass = functionObject.is_class;
+    isClass = functionObject.is_class ?? false;
+    isInterface = functionObject.is_interface ?? false;
     isAttributeDict = functionObject.is_attribute_dict ?? false;
+    isTypeAlias = functionObject.type === "type_alias";
     if (
       functionObject.description !== undefined &&
       functionObject.description
@@ -176,34 +213,28 @@ const Autofunction = ({
     }
   } else {
     return (
-      <div className={styles.HeaderContainer}>
-        <div className={styles.TitleContainer} ref={blockRef} key={slug}>
-          <H2
-            className={`
-              ${styles.Title}
-              relative
-            `}
+      <div className={styles.HeaderContainer} ref={blockRef} key={slug}>
+        <H2
+          className={`
+            ${styles.Title}
+            relative
+          `}
+        >
+          <a
+            aria-hidden="true"
+            tabIndex="-1"
+            href={`#${cleanHref(
+              streamlitFunction.replace("streamlit", "st"),
+            )}`.toLowerCase()}
+            className="absolute"
           >
-            <a
-              aria-hidden="true"
-              tabIndex="-1"
-              href={`#${cleanHref(
-                streamlitFunction.replace("streamlit", "st"),
-              )}`.toLowerCase()}
-              className="absolute"
-            >
-              <span className="icon icon-link"></span>
-            </a>
-            {streamlitFunction.replace("streamlit", "st")}
-          </H2>
-          <VersionSelector
-            currentNumericVersion={currentNumericVersion}
-            handleSelectVersion={handleSelectVersion}
-          />
-        </div>
+            <span className="icon icon-link"></span>
+          </a>
+          {streamlitFunction.replace("streamlit", "st")}
+        </H2>
         <Warning>
           <p>
-            This method did not exist in version{" "}
+            This method does not exist in version{" "}
             <code>{currentNumericVersion}</code> of Streamlit.
           </p>
         </Warning>
@@ -222,9 +253,12 @@ const Autofunction = ({
   if (hideHeader !== undefined && hideHeader) {
     header = "";
   } else {
-    const name = functionObject.signature
-      ? `${functionObject.signature}`.split("(")[0].replace("streamlit", "st")
-      : "";
+    let name = "";
+    if (isInterface || isTypeAlias) {
+      name = functionObject.name;
+    } else if (functionObject.signature) {
+      name = functionObject.signature.split("(")[0].replace("streamlit", "st");
+    }
     headerTitle = isAttributeDict ? (
       <H3 className={styles.Title}>
         <a
@@ -252,18 +286,7 @@ const Autofunction = ({
     );
     header = (
       <div className={styles.HeaderContainer}>
-        <div
-          className={`
-            ${styles.TitleContainer}
-            relative
-          `}
-        >
-          {headerTitle}
-          <VersionSelector
-            currentNumericVersion={currentNumericVersion}
-            handleSelectVersion={handleSelectVersion}
-          />
-        </div>
+        {headerTitle}
         {deprecated === true ? (
           <Deprecation>
             <p dangerouslySetInnerHTML={{ __html: deprecatedText }} />
@@ -351,10 +374,10 @@ const Autofunction = ({
     // When "Parameters" are included in a class docstring, they are actually
     // "Properties." Using "Properties" in the docstring does not result in
     // individually parsed properties; using "Parameters" is a workaround.
-    if (isClass) {
-      propertiesRows.push(row);
-    } else {
+    if (!isClass || isInterface) {
       args.push(row);
+    } else {
+      propertiesRows.push(row);
     }
   }
 
@@ -364,7 +387,9 @@ const Autofunction = ({
     const row = {};
     const method = methods[index];
     const slicedSlug = slug.slice().join("/");
-    const hrefName = `${functionObject.name}.${method.name}`
+    const hrefName = (
+      isTypeAlias ? method.name : `${functionObject.name}.${method.name}`
+    )
       .toLowerCase()
       .replace("streamlit", "st")
       .replace(/[.,\/#!$%\^&\*;:{}=\-`~()]/g, "");
@@ -454,6 +479,16 @@ const Autofunction = ({
     returns.push(row);
   }
 
+  const getArgsTitle = () => {
+    if (isTypeAlias && !isInterface) {
+      return "Properties"; // For TypeScript type aliases that aren't function interfaces
+    }
+    if (isTypeAlias) {
+      return "Arguments"; // For TypeScript function interfaces
+    }
+    return "Parameters"; // For Python functions
+  };
+
   body = (
     <Table
       head={
@@ -462,7 +497,11 @@ const Autofunction = ({
           : {
               title: (
                 <>
-                  {isClass ? "Class description" : "Function signature"}
+                  {isTypeAlias
+                    ? "(TypeScript) Type alias description"
+                    : isClass
+                      ? "Class description"
+                      : "Function signature"}
                   <a
                     className={styles.Title.a}
                     href={functionObject.source}
@@ -481,12 +520,22 @@ const Autofunction = ({
               content: `<p class='code'> ${functionObject.signature}</p> `,
             }
       }
-      body={args.length ? { title: "Parameters" } : null}
+      body={
+        args.length
+          ? {
+              title: getArgsTitle(),
+            }
+          : null
+      }
       bodyRows={args.length ? args : null}
       foot={[
-        methods.length ? { title: "Methods" } : null,
+        methods.length
+          ? { title: isTypeAlias ? "Functions" : "Methods" }
+          : null,
         returns.length ? { title: "Returns" } : null,
-        propertiesRows.length ? { title: "Attributes" } : null,
+        propertiesRows.length
+          ? { title: isTypeAlias ? "Properties" : "Attributes" }
+          : null,
       ].filter((section) => section !== null)}
       footRows={[
         methods.length ? methodRows : null,
@@ -499,11 +548,16 @@ const Autofunction = ({
   );
 
   return (
-    <section className={styles.Container} ref={blockRef} key={slug}>
+    <section
+      className={styles.Container}
+      ref={blockRef}
+      key={slug}
+      data-prismjs-copy-timeout="1000"
+    >
       {header}
       {body}
     </section>
   );
 };
 
-export default withRouter(Autofunction);
+export default Autofunction;

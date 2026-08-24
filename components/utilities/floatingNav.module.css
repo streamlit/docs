@@ -1,5 +1,5 @@
 .ListContainer {
-  @apply absolute right-0 top-0 h-full w-56 z-10 hidden 3xl:w-64;
+  @apply absolute right-0 top-0 h-full w-56 z-elevated hidden 3xl:w-64;
 }
 
 .List {
@@ -12,7 +12,7 @@
 }
 
 .TopGradient {
-  @apply absolute h-6 w-full bg-gradient-to-b from-white z-10;
+  @apply absolute h-6 w-full bg-gradient-to-b from-white z-elevated;
 }
 
 :global(.dark) .TopGradient {

@@ -1,6 +1,8 @@
 ---
 title: Workspace settings
 slug: /deploy/streamlit-community-cloud/manage-your-account/workspace-settings
+description: Learn how to access and manage your Streamlit Community Cloud workspace settings including linked accounts, limits, and support resources.
+keywords: workspace settings, linked accounts, limits, support, resources, account management, configuration
 ---
 
 # Workspace settings

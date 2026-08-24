@@ -2,6 +2,7 @@
 title: Session State
 slug: /develop/api-reference/caching-and-state/st.session_state
 description: st.session_state is a way to share variables between reruns, for each user session.
+keywords: session state, state management, variables, reruns, user session, persistence, callbacks, widgets, multipage
 ---
 
 # Session State
@@ -182,6 +183,7 @@ When `runner.enforceSerializableSessionState` is set to `true`, Session State im
 
 ### Caveats and limitations
 
+- Streamlit Session State is tied to a WebSocket connection. When a user reloads the browser tab or navigates using a Markdown link, the WebSocket connection and the associated Session State data are reset.
 - Only the `st.form_submit_button` has a callback in forms. Other widgets inside a form are not allowed to have callbacks.
 - `on_change` and `on_click` events are only supported on input type widgets.
 - Modifying the value of a widget via the Session state API, after instantiating it, is not allowed and will raise a `StreamlitAPIException`. For example:

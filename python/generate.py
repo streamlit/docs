@@ -10,14 +10,19 @@ import types
 import re
 
 import docstring_parser
-import stoutput
+import directives.stoutput as stoutput
+import directives.stcode as stcode
 import streamlit
-import streamlit.components.v1 as components
+import streamlit.components.v1 as componentsv1
+import streamlit.components.v2 as componentsv2
 import streamlit.testing.v1.element_tree as element_tree
 import utils
 from docutils.core import publish_parts
 from docutils.parsers.rst import directives
+from html import escape
 from numpydoc.docscrape import NumpyDocString
+from streamlit.components.v2.bidi_component import BidiComponentResult
+from streamlit.components.v2.types import ComponentRenderer
 from streamlit.elements.lib.mutable_status_container import StatusContainer
 from streamlit.testing.v1.app_test import AppTest
 from streamlit.runtime.caching.cache_utils import CachedFunc
@@ -25,8 +30,16 @@ from streamlit.elements.plotly_chart import PlotlyState, PlotlySelectionState
 from streamlit.elements.vega_charts import VegaLiteState
 from streamlit.elements.arrow import DataframeState, DataframeSelectionState
 from streamlit.elements.deck_gl_json_chart import PydeckState, PydeckSelectionState
+from streamlit.elements.widgets.data_editor import DataEditorState
+from streamlit.elements.lib.column_config_utils import ButtonColumnClickState
+from streamlit.elements.widgets.chat import ChatInputValue
+from streamlit.runtime.uploaded_file_manager import UploadedFile
+from streamlit.elements.lib.mutable_expander_container import ExpanderContainer
+from streamlit.elements.lib.mutable_popover_container import PopoverContainer
+from streamlit.elements.lib.mutable_tab_container import TabContainer
 from streamlit.navigation import page
 from streamlit.navigation.page import StreamlitPage
+from typing import Protocol
 
 VERSION = streamlit.__version__
 DEBUG = False
@@ -38,8 +51,9 @@ logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 def parse_rst(rst_string):
     """Parses RST string to HTML using docutils."""
     docutil_settings = {"embed_stylesheet": 0}
-    # Register the custom RST directive for output
+    # Register custom RST directives
     directives.register_directive("output", stoutput.StOutput)
+    directives.register_directive("code-block", stcode.StCode)
     # Convert RST string to HTML using docutils
     document = publish_parts(
         rst_string, writer_name="html", settings_overrides=docutil_settings
@@ -140,6 +154,8 @@ def get_attribute_dict_dict(obj, objname, signature_prefix=None):
     docstring = getattr(obj, "__doc__", "")
     # Set the object's name
     description["name"] = objname
+    if DEBUG > 0:
+        print(f"DEBUG: get_attribute_dict_dict of {objname}")
     if signature_prefix is None:
         description["signature"] = f"{objname}"
     else:
@@ -206,7 +222,7 @@ def parse_docstring(obj, docstring, description, is_class, is_class_method, is_p
     # Iterate through the parameters from the parsed docstring
     for param in docstring_obj.params:
         arg_obj = {}  # Create an argument object dictionary
-        arg_obj["name"] = param.arg_name  ## Store the argument name
+        arg_obj["name"] = escape(param.arg_name)  # Store the argument name
         arg_obj["type_name"] = param.type_name  # Store the argument type
         arg_obj["is_optional"] = param.is_optional  # Store the optional flag
         if (not is_class) and callable(obj):
@@ -228,20 +244,43 @@ def parse_docstring(obj, docstring, description, is_class, is_class_method, is_p
                 except:
                     print(sig)
                     print(f"Can't find {param.arg_name} as an argument for {obj}")
-        arg_obj["description"] = (
-            parse_rst(param.description) if param.description else ""
-        )  # Store the argument description (parsed from RST to HTML)
-        arg_obj["default"] = param.default  # Store the default value
-
-        # Check if the argument is deprecated
-        if docstring_obj.deprecation:
-            match = re.search("``[^ `]*``", docstring_obj.deprecation.description)
-            if match is not None and match.group(0) == f"``{param.arg_name}``":
-                # Add the deprecated flag and the deprecation message to the argument object
+        # Check for inline deprecation directives within the parameter description
+        # and extract them before parsing the main description
+        param_description = param.description or ""
+        deprecation_text = None
+        
+        if param_description and ".. deprecated::" in param_description:
+            # Extract the deprecation message from the parameter description
+            deprecation_match = re.search(r'\.\.[ ]*deprecated::[ ]*\n(.*?)(?=\n\n|\n[^ ]|\Z)', param_description, re.DOTALL | re.IGNORECASE)
+            if deprecation_match:
+                deprecation_text = deprecation_match.group(1).strip()
+                # Remove leading whitespace from each line to clean up the text
+                deprecation_lines = [line.strip() for line in deprecation_text.split('\n')]
+                deprecation_text = '\n'.join(line for line in deprecation_lines if line)
+                
+                # Remove the entire deprecation directive from the parameter description
+                param_description = re.sub(r'\.\.[ ]*deprecated::.*?(?=\n\n|\n[^ ]|\Z)', '', param_description, flags=re.DOTALL | re.IGNORECASE).strip()
+                
                 arg_obj["deprecated"] = {
                     "deprecated": True,
-                    "deprecatedText": parse_rst(docstring_obj.deprecation.description),
+                    "deprecatedText": parse_rst(deprecation_text),
                 }
+
+        arg_obj["description"] = (
+            parse_rst(param_description) if param_description else ""
+        )  # Store the argument description (parsed from RST to HTML, with deprecation directive removed)
+        arg_obj["default"] = param.default  # Store the default value
+
+        # Check if the argument is deprecated (original global deprecation check - commented out)
+        # if docstring_obj.deprecation:
+        #     match = re.search("``[^ `]*``", docstring_obj.deprecation.description)
+        #     if match is not None and match.group(0) == f"``{param.arg_name}``":
+        #         # Add the deprecated flag and the deprecation message to the argument object
+        #         arg_obj["deprecated"] = {
+        #             "deprecated": True,
+        #             "deprecatedText": parse_rst(docstring_obj.deprecation.description),
+        #         }
+        
         # Append the argument object to the list of arguments
         description["args"].append(arg_obj)
 
@@ -456,6 +495,8 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix, only_include=None)
 
     # Initialize empty dictionary to store function/method/property metadata
     obj_docstring_dict = {}
+    if DEBUG > 1:
+        print(f"Looping through {obj}")
 
     # Iterate over the names of the members of the object
     for membername in dir(obj):
@@ -483,6 +524,12 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix, only_include=None)
             ):
                 continue
 
+        if obj == componentsv2:
+            if membername in [
+                "StreamlitAPIException"
+            ]:
+                continue
+
         # Check if the member is a property
         is_property = isinstance(member, property)
         if is_property:
@@ -504,9 +551,8 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix, only_include=None)
 
             # memo and singleton are callable objects rather than functions
             # See: https://github.com/streamlit/streamlit/pull/4263
-            # Replace the member with its decorator object except st.cache
-            # which is deprecated
-            while (member in streamlit.runtime.caching.__dict__.values() and member != streamlit.cache):
+            # Replace the member with its decorator object
+            while member in streamlit.runtime.caching.__dict__.values():
                 member = member._decorator
 
             # Create the full name of the member using key_prefix and membername
@@ -566,10 +612,6 @@ def get_streamlit_docstring_dict():
             "streamlit.connections.SQLConnection",
             "SQLConnection",
         ],
-        streamlit.connections.SnowparkConnection: [
-            "streamlit.connections.SnowparkConnection",
-            "SnowparkConnection",
-        ],
         streamlit.connections.SnowflakeConnection: [
             "streamlit.connections.SnowflakeConnection",
             "SnowflakeConnection",
@@ -583,8 +625,8 @@ def get_streamlit_docstring_dict():
             "BaseConnection",
         ],
         streamlit.column_config: ["streamlit.column_config", "st.column_config"],
-        components: ["streamlit.components.v1", "st.components.v1"],
-        streamlit.delta_generator.DeltaGenerator: ["DeltaGenerator", "element", ["add_rows"]], # Only store docstring for element.add_rows
+        componentsv1: ["streamlit.components.v1", "st.components.v1"],
+        componentsv2: ["streamlit.components.v2", "st.components.v2"],
         StatusContainer: ["StatusContainer", "StatusContainer", ["update"]], # Only store docstring for StatusContainer.update
         streamlit.testing.v1: ["streamlit.testing.v1", "st.testing.v1"],
         AppTest: ["AppTest", "AppTest"],
@@ -600,7 +642,10 @@ def get_streamlit_docstring_dict():
     }
     proxy_obj_key = {
         streamlit.user_info.UserInfoProxy: ["streamlit.user", "st.user"],
-        streamlit.runtime.context.ContextProxy: ["streamlit.context", "st.context"]
+        streamlit.runtime.context.ContextProxy: ["streamlit.context", "st.context"],
+    }
+    interfaces = {
+        ComponentRenderer: ["ComponentRenderer", "ComponentRenderer"],
     }
     attribute_dicts = {
         PlotlyState: ["PlotlyState", "PlotlyState"],
@@ -608,9 +653,17 @@ def get_streamlit_docstring_dict():
         VegaLiteState: ["VegaLiteState", "VegaLiteState"],
         DataframeState: ["DataframeState", "DataframeState"],
         DataframeSelectionState: ["DataframeSelectionState", "DataframeSelectionState"],
+        DataEditorState: ["DataEditorState", "DataEditorState"],
+        ButtonColumnClickState: ["ButtonColumnClickState", "ButtonColumnClickState"],
+        ChatInputValue: ["ChatInputValue", "ChatInputValue"],
+        UploadedFile: ["UploadedFile", "UploadedFile"],
         PydeckState: ["PydeckState", "PydeckState"],
-        PydeckSelectionState: ["PydeckSelectionState", "PydeckSelectionState"]
-
+        PydeckSelectionState: ["PydeckSelectionState", "PydeckSelectionState"],
+        BidiComponentResult: ["BidiComponentResult", "BidiComponentResult"],
+        streamlit.user_info.TokensProxy: ["TokensProxy", "TokensProxy"],
+        TabContainer: ["TabContainer", "TabContainer"],
+        ExpanderContainer: ["ExpanderContainer", "ExpanderContainer"],
+        PopoverContainer: ["PopoverContainer", "PopoverContainer"]
     }
 
     module_docstring_dict = {}
@@ -631,6 +684,21 @@ def get_streamlit_docstring_dict():
                 False, #is_property
             )
         module_docstring_dict.update({key[0]: member_docstring_dict})
+    # Interfaces
+    for obj, key in interfaces.items():
+        if DEBUG:
+            print(f"Fetching {obj}")
+        member_docstring_dict = get_docstring_dict(
+                obj, #member
+                key[0], #membername
+                "", #signature_prefix
+                True, #isClass
+                False, #is_class_method
+                False, #is_property
+            )
+        member_docstring_dict["is_interface"] = True
+        module_docstring_dict.update({key[0]: member_docstring_dict})
+    # Attribute dicts
     for obj, key in attribute_dicts.items():
         if DEBUG:
             print(f"Fetching {obj}")
@@ -647,4 +715,5 @@ if __name__ == "__main__":
     if len(sys.argv) > 2 and sys.argv[2].isnumeric():
         DEBUG = int(sys.argv[2])
     data = get_streamlit_docstring_dict()
+    data.pop("streamlit.bokeh_chart", None) # Docstring exists with no functionality, remove from docs
     utils.write_to_existing_dict(VERSION, data)

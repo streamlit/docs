@@ -1,6 +1,8 @@
 ---
 title: Secrets management for your Community Cloud app
 slug: /deploy/streamlit-community-cloud/deploy-your-app/secrets-management
+description: Learn how to securely manage secrets, credentials, and API keys for your Community Cloud app using the secrets management interface.
+keywords: secrets, credentials, api keys, security, st.secrets, secrets.toml, environment variables, advanced settings
 ---
 
 # Secrets management for your Community Cloud app

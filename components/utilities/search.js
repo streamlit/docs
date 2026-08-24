@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import classNames from "classnames";
 import FocusTrap from "focus-trap-react";
 import { useRouter, withRouter } from "next/router";
@@ -27,14 +28,7 @@ const Search = () => {
     if (e && e.currentTarget !== e.target) {
       return;
     }
-
     setIsModalOpen(!isModalOpen);
-
-    if (document.body.style.overflow == "hidden") {
-      document.body.style.overflow = "unset";
-    } else {
-      document.body.style.overflow = "hidden";
-    }
   };
 
   const focus = () => {
@@ -46,7 +40,6 @@ const Search = () => {
 
   const searchClicked = () => {
     setIsModalOpen(true);
-    document.body.style.overflow = "hidden";
     focus();
   };
 
@@ -54,12 +47,10 @@ const Search = () => {
     if (e.key === "k" && (e.ctrlKey || e.metaKey)) {
       e.preventDefault(); // prevent "Save Page" from getting triggered.
       setIsModalOpen(true);
-      document.body.style.overflow = "hidden";
       focus();
     }
     if (e.key === "Escape") {
       setIsModalOpen(false);
-      document.body.style.overflow = "unset";
     }
     if (isModalOpen === true) {
       const resultCount = document.querySelectorAll(".ais-Hits-item").length;
@@ -264,7 +255,10 @@ const Search = () => {
         <p className={styles.SearchText}>Search</p>
         {windowWidth > 1024 && <p className={styles.HotKey}>{hotkey}</p>}
       </section>
-      {modal}
+      {/* Render modal via portal to escape header's stacking context */}
+      {typeof document !== "undefined" && modal
+        ? createPortal(modal, document.body)
+        : null}
       {/* <SearchBox /> */}
     </section>
   );

@@ -1,6 +1,8 @@
 ---
 title: Install Streamlit using command line
 slug: /get-started/installation/command-line
+description: Step-by-step guide to install Streamlit using command line tools and build your first Hello World app.
+keywords: command line installation, pip install streamlit, venv, virtual environment, command line setup, pip installation, terminal install
 ---
 
 # Install Streamlit using command line
@@ -14,7 +16,7 @@ computer is properly set up. More specifically, you’ll need:
 
 1. **Python**
 
-   We support [version 3.9 to 3.13](https://www.python.org/downloads/).
+   We support [version 3.10 to 3.14](https://www.python.org/downloads/).
 
 1. **A Python environment manager** (recommended)
 
@@ -99,6 +101,19 @@ computer is properly set up. More specifically, you’ll need:
 
 8. Streamlit's Hello app should appear in a new tab in your web browser!
    <Cloud name="doc-mpa-hello" height="700px" />
+
+<Tip>
+
+If you use an AI coding agent, install Streamlit's official agent skills so it follows current Streamlit APIs:
+
+```bash
+streamlit skills
+```
+
+For details, see [`streamlit skills`](/develop/api-reference/cli/skills).
+
+</Tip>
+
 9. Close your terminal when you are done.
 
 ## Create a "Hello World" app and run it

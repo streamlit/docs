@@ -1,6 +1,8 @@
 ---
 title: Streamlit Trust and Security
 slug: /deploy/streamlit-community-cloud/get-started/trust-and-security
+description: Learn about Streamlit Community Cloud's security model including authentication, data protection, encryption, and compliance measures.
+keywords: security, trust, authentication, data protection, encryption, compliance, vpc, https, tls, vulnerability management, penetration testing
 ---
 
 # Streamlit trust and security

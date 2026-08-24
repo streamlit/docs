@@ -31,7 +31,7 @@
 }
 
 .LightBox {
-  @apply fixed z-30 top-0 left-0 w-full h-full flex justify-center items-center overscroll-contain bg-gray-20;
+  @apply fixed z-header top-0 left-0 w-full h-full flex justify-center items-center overscroll-contain bg-gray-20;
 }
 
 :global(.dark) .LightBox {
@@ -48,7 +48,7 @@
 
 .CloseButton {
   font-family: "Material Icons";
-  @apply font-normal text-5xl absolute right-0 md:right-8 top-12 cursor-pointer bg-gray-20 z-20 text-gray-90 hover:shadow-none hover:opacity-60 mb-0 px-2 lg:p-4;
+  @apply font-normal text-5xl absolute right-0 md:right-8 top-12 cursor-pointer bg-gray-20 z-sidebar text-gray-90 hover:shadow-none hover:opacity-60 mb-0 px-2 lg:p-4;
 }
 
 :global(.dark) .CloseButton {

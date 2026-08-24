@@ -2,6 +2,7 @@
 title: st.table
 slug: /develop/api-reference/data/st.table
 description: st.table displays a static table.
+keywords: st.table, static table, table display, dataframe table, non-interactive table, simple table, basic table display, streamlit table
 ---
 
 <Tip>
@@ -11,5 +12,3 @@ Static tables with `st.table` are the most basic way to display dataframes. For 
 </Tip>
 
 <Autofunction function="streamlit.table" />
-
-<Autofunction function="DeltaGenerator.add_rows" />

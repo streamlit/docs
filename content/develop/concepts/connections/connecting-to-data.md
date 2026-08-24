@@ -1,6 +1,8 @@
 ---
 title: Connecting to data
 slug: /develop/concepts/connections/connecting-to-data
+description: Learn how to connect Streamlit apps to databases, APIs, and data sources with best practices for data retrieval, caching, and secure data connections.
+keywords: data connections, databases, APIs, data sources, data retrieval, database connections, API integration, data access, remote data, data management
 ---
 
 # Connecting to data
@@ -241,7 +243,6 @@ We recommend applying the following best practices to make your Connection consi
 2. **Intuitive, easy to use read methods.**
 
    Much of the power of st.connection is providing intuitive, easy-to-use read methods that enable app developers to get started quickly. Most connections should expose at least one read method that is:
-
    - Named with a simple verb, like `read()`, `query()`, or `get()`
    - Wrapped by `st.cache_data` by default, with at least `ttl=` argument supported
    - If the result is in a tabular format, it returns a pandas DataFrame
@@ -254,7 +255,6 @@ We recommend applying the following best practices to make your Connection consi
    Additionally, where relevant, Connections should support data source specific configuration through existing standard environment variables or config / credential files. In many cases, the underlying package provides constructors or factory functions that already handle this easily.
 
    When you can specify the same connection parameters in multiple places, we recommend using the following precedence order when possible (highest to lowest):
-
    - Keyword arguments specified in the code
    - Streamlit secrets
    - data source specific configuration (if relevant)
@@ -263,4 +263,4 @@ We recommend applying the following best practices to make your Connection consi
 
    Connections should provide thread-safe operations when practical (which should be most of the time) and clearly document any considerations around this. Most underlying drivers or SDKs should provide thread-safe objects or methods - use these when possible.
 
-   If the underlying driver or SDK has a risk of stateful connection objects becoming stale or invalid, consider building a low impact health check or reset/retry pattern into the access methods. The SQLConnection built into Streamlit has a good example of this pattern using [tenacity](https://tenacity.readthedocs.io/) and the built-in [Connection.reset()](/develop/api-reference/connections/st.connections.sqlconnection#sqlconnectionreset) method. An alternate approach is to encourage developers to set an appropriate TTL on the `st.connection()` call to ensure it periodically reinitializes the connection object.
+   If the underlying driver or SDK has a risk of stateful connection objects becoming stale or invalid, consider building a low impact health check or reset/retry pattern into the access methods. The SQLConnection built into Streamlit has a good example of this pattern using the built-in [Connection.reset()](/develop/api-reference/connections/st.connections.sqlconnection#sqlconnectionreset) method. An alternate approach is to encourage developers to set an appropriate TTL on the `st.connection()` call to ensure it periodically reinitializes the connection object.

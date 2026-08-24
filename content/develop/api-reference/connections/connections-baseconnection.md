@@ -1,6 +1,8 @@
 ---
 title: st.connections.BaseConnection
 slug: /develop/api-reference/connections/st.connections.baseconnection
+description: st.connections.BaseConnection is the base class for creating custom connections to data sources and APIs.
+keywords: BaseConnection, base class, custom connection, data source, api, connection, extend, inheritance, custom
 ---
 
 <Tip>
@@ -12,3 +14,7 @@ This page only contains information on the `st.connections.BaseConnection` class
 <Autofunction function="streamlit.connections.BaseConnection" oldName="streamlit.connections.ExperimentalBaseConnection" />
 
 <Autofunction function="streamlit.connections.BaseConnection.reset" oldName="streamlit.connections.ExperimentalBaseConnection.reset" />
+
+<Autofunction function="streamlit.connections.BaseConnection.close" />
+
+<Autofunction function="streamlit.connections.BaseConnection.scope" />

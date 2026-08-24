@@ -2,6 +2,7 @@
 title: st.select_slider
 slug: /develop/api-reference/widgets/st.select_slider
 description: st.select_slider displays a slider widget to select items from a list.
+keywords: st.select_slider, select slider, discrete slider, option slider, list slider, slider selection, categorical slider, range selector
 ---
 
 <Autofunction function="streamlit.select_slider" />

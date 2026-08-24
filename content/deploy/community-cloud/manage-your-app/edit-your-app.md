@@ -1,6 +1,8 @@
 ---
 title: Edit your app
 slug: /deploy/streamlit-community-cloud/manage-your-app/edit-your-app
+description: Learn how to edit your deployed Streamlit app using GitHub Codespaces or any development environment with automatic deployment updates.
+keywords: edit, codespaces, development, environment, github, automatic, deployment, updates, cloud, editing
 ---
 
 # Edit your app

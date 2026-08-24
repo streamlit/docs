@@ -1,6 +1,8 @@
 ---
 title: Status and limitations
 slug: /deploy/streamlit-community-cloud/status
+description: Learn about Community Cloud status, limitations, GitHub OAuth scope, Python environments, configuration overrides, and IP addresses.
+keywords: status, limitations, github oauth, python environments, configuration, ip addresses, debian, linux, security
 ---
 
 # Status and limitations of Community Cloud

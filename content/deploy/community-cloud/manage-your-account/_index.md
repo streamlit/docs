@@ -1,6 +1,8 @@
 ---
 title: Manage your account
 slug: /deploy/streamlit-community-cloud/manage-your-account
+description: Manage your Streamlit Community Cloud account including email updates, GitHub connections, and account deletion options.
+keywords: account, manage, email, github, connections, settings, delete, workspace, identity
 ---
 
 # Manage your account

@@ -1,6 +1,8 @@
 ---
 title: Get dataframe row-selections from users
 slug: /develop/tutorials/elements/dataframe-row-selections
+description: Learn how to get row selections from users in Streamlit dataframes using st.dataframe selection features for interactive data exploration.
+keywords: dataframe selections, row selections, st.dataframe, interactive dataframes, user selections, data exploration, dataframe tutorial
 ---
 
 # Get dataframe row-selections from users
@@ -154,7 +156,6 @@ Here's a look at what you'll build:
    ```
 
    You'll be using these libraries as follows:
-
    - You'll generate random member names with `faker`.
    - You'll generate random activity data with `numpy`.
    - You'll manipulate the data with `pandas`.

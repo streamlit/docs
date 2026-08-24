@@ -14,14 +14,33 @@ import { useRouter } from "next/router";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import getConfig from "next/config";
+
+// Custom remark plugin to pass code fence metadata through to the HTML
+// e.g., ```python try filename="app.py"``` adds data-meta attribute
+function remarkCodeMeta() {
+  // Simple recursive tree walker (avoids ESM import issues with unist-util-visit)
+  function walkTree(node, callback) {
+    callback(node);
+    if (node.children) {
+      node.children.forEach((child) => walkTree(child, callback));
+    }
+  }
+
+  return (tree) => {
+    walkTree(tree, (node) => {
+      if (node.type === "code" && node.meta) {
+        // Store meta in data.hProperties which remark-rehype passes to the element
+        node.data = node.data || {};
+        node.data.hProperties = node.data.hProperties || {};
+        node.data.hProperties["data-meta"] = node.meta;
+      }
+    });
+  };
+}
 const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
 
 // Site Components
 import { looksLikeVersionAndPlatformString } from "../lib/next/utils";
-import CookieSettingsModal from "../components/utilities/cookieSettingsModal";
-import GDPRBanner, {
-  setTelemetryPreference,
-} from "../components/utilities/gdpr";
 import {
   getArticleSlugs,
   getArticleSlugFromString,
@@ -48,6 +67,7 @@ import Helpful from "../components/utilities/helpful";
 import { H1, H2, H3 } from "../components/blocks/headers";
 import Psa from "../components/utilities/psa";
 import FloatingNav from "../components/utilities/floatingNav";
+import VersionSelector from "../components/utilities/versionSelector";
 
 // MDX Components
 import Autofunction from "../components/blocks/autofunction";
@@ -56,6 +76,7 @@ import CodeTile from "../components/blocks/codeTile";
 import Collapse from "../components/blocks/collapse";
 import Download from "../components/utilities/download";
 import Flex from "../components/layouts/flex";
+import IconLink from "../components/blocks/iconLink.js";
 import Image from "../components/blocks/image";
 import Deprecation from "../components/blocks/deprecation";
 import Important from "../components/blocks/important";
@@ -108,36 +129,13 @@ export default function Article({
   versionFromSlug,
   platformFromSlug,
   filename,
+  isVersionedPage,
 }) {
   const router = useRouter();
 
-  let versionWarning;
   let currentLink;
 
-  const [isTelemetryModalVisible, setIsTelemetryModalVisible] = useState(false);
-  const [isTelemetryBannerVisible, setIsTelemetryBannerVisible] =
-    useState(false);
-  const [insertTelemetryCode, setInsertTelemetryCode] = useState(false);
-
-  const allowTelemetryAndCloseBanner = useCallback(() => {
-    setIsTelemetryBannerVisible(false);
-    setIsTelemetryModalVisible(false);
-    setInsertTelemetryCode(true);
-    setTelemetryPreference(true);
-  }, [isTelemetryBannerVisible, insertTelemetryCode]);
-
-  const declineTelemetryAndCloseBanner = useCallback(() => {
-    setIsTelemetryBannerVisible(false);
-    setIsTelemetryModalVisible(false);
-    setInsertTelemetryCode(false);
-    setTelemetryPreference(false);
-
-    // If previous state was true, and now it's false, reload the page to remove telemetry JS
-    if (insertTelemetryCode) router.reload();
-  }, [isTelemetryBannerVisible, insertTelemetryCode]);
-
   const { version, platform, goToLatest, goToOpenSource } = useVersionContext();
-  const isVersionedPage = currMenuItem && currMenuItem.isVersioned;
   const isUnversionedURL = !versionFromSlug || !platformFromSlug;
   const contextIsDefault =
     version == DEFAULT_VERSION && platform == DEFAULT_PLATFORM;
@@ -167,6 +165,7 @@ export default function Article({
     Cloud,
     Masonry,
     CodeTile,
+    IconLink,
     InlineCalloutContainer,
     InlineCallout,
     TileContainer,
@@ -188,10 +187,39 @@ export default function Article({
         version={version}
         slug={slug}
         oldStreamlitFunction={props.oldName ?? ""}
-        goToLatest={goToLatest}
       />
     ),
-    pre: (props) => <Code {...props} />,
+    pre: (props) => {
+      // Extract metadata from code fence (e.g., ```python try filename="app.py" showAll)
+      // The metadata is passed via data-meta attribute from our remark plugin
+      const codeElement = props.children;
+      const metaString = codeElement?.props?.["data-meta"] || "";
+
+      // Parse metadata into props
+      const codeProps = {};
+
+      if (metaString) {
+        // Supported boolean flags (standalone words)
+        const booleanFlags = ["try", "showAll", "hideCopyButton", "hideHeader"];
+
+        // Extract key="value" pairs (e.g., filename="app.py")
+        const keyValueRegex = /(\w+)=["']([^"']+)["']/g;
+        let match;
+        while ((match = keyValueRegex.exec(metaString)) !== null) {
+          codeProps[match[1]] = match[2];
+        }
+
+        // Check for boolean flags (standalone words like `try` or `showAll`)
+        const cleanedMeta = metaString.replace(keyValueRegex, "");
+        booleanFlags.forEach((flag) => {
+          if (new RegExp(`\\b${flag}\\b`).test(cleanedMeta)) {
+            codeProps[flag] = true;
+          }
+        });
+      }
+
+      return <Code {...props} {...codeProps} />;
+    },
     h1: H1,
     h2: H2,
     h3: H3,
@@ -204,21 +232,8 @@ export default function Article({
   let arrowContainer;
   let keywordsTag;
 
-  if (version != DEFAULT_VERSION && currMenuItem.isVersioned) {
-    // Slugs don't have the version number, so we just have to join them.
-    currentLink = `/${slug.join("/")}`;
-    versionWarning = (
-      <Warning>
-        <p>
-          You are reading the documentation for Streamlit version {version}, but{" "}
-          <Link href={currentLink} onClick={goToLatest}>
-            {LATEST_VERSION}
-          </Link>{" "}
-          is the latest version available.
-        </p>
-      </Warning>
-    );
-  }
+  // Version props for versioned pages (used by both inline selector and mobile header)
+  const versionProps = isVersionedPage ? { version, slug, goToLatest } : null;
 
   if (prevMenuItem) {
     previousArrow = (
@@ -260,24 +275,7 @@ export default function Article({
         img: Image,
       }}
     >
-      <Layout>
-        {isTelemetryModalVisible && (
-          <CookieSettingsModal
-            setIsTelemetryModalVisible={setIsTelemetryModalVisible}
-            allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
-            declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
-          />
-        )}
-        <GDPRBanner
-          isTelemetryModalVisible={isTelemetryModalVisible}
-          setIsTelemetryModalVisible={setIsTelemetryModalVisible}
-          isTelemetryBannerVisible={isTelemetryBannerVisible}
-          setIsTelemetryBannerVisible={setIsTelemetryBannerVisible}
-          insertTelemetryCode={insertTelemetryCode}
-          setInsertTelemetryCode={setInsertTelemetryCode}
-          allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
-          declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
-        />
+      <Layout versionProps={versionProps}>
         <section className={styles.Container}>
           <SideBar slug={slug} menu={menu} />
           <Head>
@@ -329,21 +327,23 @@ export default function Article({
             />
           </Head>
           <section className={styles.InnerContainer} id="documentation">
-            {versionWarning}
             <BreadCrumbs slug={slug} menu={menu} />
-            <article
-              id="content-container"
-              className={classNames("leaf-page", styles.ArticleContainer)}
-            >
-              <FloatingNav slug={slug} menu={menu} />
-              <div className={classNames("content", styles.ContentContainer)}>
-                <MDXRemote {...source} components={components} />
-                {arrowContainer}
-                <Psa />
-              </div>
-            </article>
+            <div className={styles.StickyContext}>
+              {versionProps && <VersionSelector {...versionProps} />}
+              <article
+                id="content-container"
+                className={classNames("leaf-page", styles.ArticleContainer)}
+              >
+                <FloatingNav slug={slug} menu={menu} />
+                <div className={classNames("content", styles.ContentContainer)}>
+                  <MDXRemote {...source} components={components} />
+                  {arrowContainer}
+                  <Psa />
+                </div>
+              </article>
+            </div>
           </section>
-          <Footer setIsTelemetryModalVisible={setIsTelemetryModalVisible} />
+          <Footer />
         </section>
       </Layout>
     </MDXProvider>
@@ -370,6 +370,7 @@ export async function getStaticProps(context) {
   props["notes"] = {};
   props["versionFromSlug"] = null;
   props["platformFromSlug"] = null;
+  props["isVersionedPage"] = false;
 
   if ("slug" in context.params) {
     let filename;
@@ -384,6 +385,7 @@ export async function getStaticProps(context) {
     const fileContents = fs.readFileSync(filename, "utf8");
     const { data, content } = matter(fileContents);
     const shouldVersion = /<Autofunction(.*?)\/>/gi.test(fileContents);
+    props["isVersionedPage"] = shouldVersion;
     if (shouldVersion) {
       const autofunctions = fileContents.matchAll(/<Autofunction(.*?)\/>/gi);
       // Build list of functions that are on the page
@@ -451,7 +453,7 @@ export async function getStaticProps(context) {
       scope: data,
       mdxOptions: {
         rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
-        remarkPlugins: [remarkUnwrapImages, remarkGfm],
+        remarkPlugins: [remarkUnwrapImages, remarkGfm, remarkCodeMeta],
       },
     });
 

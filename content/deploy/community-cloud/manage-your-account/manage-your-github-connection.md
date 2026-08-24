@@ -1,6 +1,8 @@
 ---
 title: Manage your GitHub connection
 slug: /deploy/streamlit-community-cloud/manage-your-account/manage-your-github-connection
+description: Learn how to manage your GitHub connection to Community Cloud including adding organization access, revoking permissions, and handling account changes.
+keywords: github connection, manage, organization access, revoke, reauthorize, oauth, permissions, account rename, repository rename
 ---
 
 # Manage your GitHub connection
@@ -17,7 +19,7 @@ If your GitHub account is already connected, you can remove permissions in your 
 
 ### Revoke and reauthorize
 
-1. From your workspace, click on your workspace name in the upper-right corner. To sign out of Community Cloud, click "**Sign out**." 
+1. From your workspace, click on your workspace name in the upper-right corner. To sign out of Community Cloud, click "**Sign out**."
 
    ![Sign out of Streamlit Community Cloud](/images/streamlit-community-cloud/account-sign-out.png)
 

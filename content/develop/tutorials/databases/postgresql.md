@@ -1,6 +1,8 @@
 ---
 title: Connect Streamlit to PostgreSQL
 slug: /develop/tutorials/databases/postgresql
+description: Learn how to connect Streamlit apps to remote PostgreSQL databases using st.connection and secrets management for database queries.
+keywords: PostgreSQL, database connection, st.connection, secrets management, SQL database, remote database, database tutorial, secure connections
 ---
 
 # Connect Streamlit to PostgreSQL

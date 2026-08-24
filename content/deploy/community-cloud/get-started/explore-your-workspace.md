@@ -1,6 +1,8 @@
 ---
 title: Explore your workspace
 slug: /deploy/streamlit-community-cloud/get-started/explore-your-workspace
+description: Learn how to navigate your Community Cloud workspace, switch between workspaces, and manage your apps and profile.
+keywords: workspace, explore, switch, apps, profile, developers, permissions, github, collaboration
 ---
 
 # Explore your workspace

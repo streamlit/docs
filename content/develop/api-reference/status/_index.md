@@ -1,6 +1,8 @@
 ---
 title: Display progress and status
 slug: /develop/api-reference/status
+description: Display progress bars, status messages, notifications, and celebratory animations in your Streamlit apps.
+keywords: progress, status, progress bar, status messages, notifications, spinner, toast, error messages, success messages, warning messages, balloons, snow, celebratory animations
 ---
 
 # Display progress and status
@@ -51,6 +53,20 @@ Display output of long-running tasks in a container.
 
 ```python
 with st.status('Running'):
+  do_something_slow()
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/status/st.skeleton">
+
+<Image pure alt="screenshot" src="/images/api/skeleton.jpg" />
+
+<h4>Skeleton</h4>
+
+Display a skeleton placeholder while loading.
+
+```python
+with st.skeleton(height=200):
   do_something_slow()
 ```
 

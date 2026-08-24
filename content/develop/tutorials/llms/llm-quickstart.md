@@ -1,6 +1,8 @@
 ---
 title: Build an LLM app using LangChain
 slug: /develop/tutorials/chat-and-llm-apps/llm-quickstart
+description: Learn to build an LLM-powered Streamlit app using LangChain and OpenAI, with step-by-step instructions and a deployment guide.
+keywords: llm, langchain, openai, tutorial, quickstart, ai, machine learning, streamlit
 ---
 
 # Build an LLM app using LangChain
@@ -26,7 +28,7 @@ Bonus: Deploy the app on Streamlit Community Cloud!
 
 ## Prerequisites
 
-- Python 3.9+
+- Python 3.10+
 - Streamlit
 - LangChain
 - [OpenAI API key](https://platform.openai.com/account/api-keys?ref=blog.streamlit.io)

@@ -1,6 +1,8 @@
 ---
 title: st.column_config
 slug: /develop/api-reference/data/st.column_config
+description: Configure data display and interaction in Streamlit dataframes and data editors with st.column_config - supporting text, numbers, charts, images, URLs, and more.
+keywords: st.column_config, column configuration, dataframe columns, data editor columns, column types, data display, data interaction, streamlit columns
 ---
 
 # Column configuration
@@ -35,6 +37,19 @@ TextColumn("Widgets", max_chars=50, validate="^st\.[a-z_]+$")
 
 </RefCard>
 
+<RefCard href="/develop/api-reference/data/st.column_config/st.column_config.markdowncolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.markdowncolumn.jpg" />
+
+<h4>Markdown column</h4>
+
+Configure a Markdown column.
+
+```python
+MarkdownColumn("Description", help="Supports **Markdown** text")
+```
+
+</RefCard>
+
 <RefCard href="/develop/api-reference/data/st.column_config/st.column_config.numbercolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.numbercolumn.jpg" />
 
@@ -61,6 +76,19 @@ CheckboxColumn("Your favorite?", help="Select your **favorite** widgets")
 
 </RefCard>
 
+<RefCard href="/develop/api-reference/data/st.column_config/st.column_config.buttoncolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.buttoncolumn.jpg" />
+
+<h4>Button column</h4>
+
+Configure a column of clickable buttons.
+
+```python
+ButtonColumn("Actions")
+```
+
+</RefCard>
+
 <RefCard href="/develop/api-reference/data/st.column_config/st.column_config.selectboxcolumn">
 <Image pure alt="screenshot" src="/images/api/column_config.selectboxcolumn.jpg" />
 
@@ -70,6 +98,19 @@ Configure a selectbox column.
 
 ```python
 SelectboxColumn("App Category", options=["🤖 LLM", "📈 Data Viz"])
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/data/st.column_config/st.column_config.multiselectcolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.multiselectcolumn.jpg" />
+
+<h4>Multiselect column</h4>
+
+Configure a multiselect column.
+
+```python
+MultiselectColumn("App Category", options=["LLM", "Visualization"])
 ```
 
 </RefCard>
@@ -159,6 +200,32 @@ Configure an image column.
 
 ```python
 ImageColumn("Preview Image", help="The preview screenshots")
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/data/st.column_config/st.column_config.audiocolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.audiocolumn.jpg" />
+
+<h4>Audio column</h4>
+
+Configure an audio column.
+
+```python
+AudioColumn("Sound effect", help="Double click to play.")
+```
+
+</RefCard>
+
+<RefCard href="/develop/api-reference/data/st.column_config/st.column_config.videocolumn">
+<Image pure alt="screenshot" src="/images/api/column_config.videocolumn.jpg" />
+
+<h4>Video column</h4>
+
+Configure a video column.
+
+```python
+VideoColumn("Highlight clip", help="Double click to play.")
 ```
 
 </RefCard>

@@ -1,6 +1,8 @@
 ---
 title: Start and stop a streaming fragment
 slug: /develop/tutorials/execution-flow/start-and-stop-fragment-auto-reruns
+description: Learn how to create streaming fragments with time intervals, and programmatically start and stop auto-reruns for live data monitoring and streaming applications.
+keywords: streaming fragments, auto-reruns, run_every, fragment intervals, live data, data streaming, monitoring, st.fragment, programmatic control
 ---
 
 # Start and stop a streaming fragment
@@ -120,7 +122,6 @@ show_latest_data()
    ```
 
    You'll be using these libraries as follows:
-
    - You'll work with two data series in a `pandas.DataFrame`.
    - You'll generate random data with `numpy`.
    - The data will have `datetime.datetime` index values.

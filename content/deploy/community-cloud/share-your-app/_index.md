@@ -1,6 +1,8 @@
 ---
 title: Share your app
 slug: /deploy/streamlit-community-cloud/share-your-app
+description: Learn how to share your deployed Streamlit app publicly or privately, invite viewers, and add GitHub badges for better discoverability.
+keywords: share, app, public, private, viewers, invite, social media, github badge, collaboration
 ---
 
 # Share your app

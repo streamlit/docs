@@ -1,6 +1,8 @@
 ---
 title: Chart elements
 slug: /develop/api-reference/charts
+description: Create interactive data visualizations with Streamlit's charting capabilities including simple charts, advanced visualization libraries, and community components.
+keywords: charts, visualization, matplotlib, vega-lite, deck.gl, altair, plotly, bokeh, pydeck, graphviz, maps, line chart, bar chart, area chart, scatter chart
 ---
 
 # Chart elements
@@ -130,18 +132,6 @@ st.plotly_chart(my_plotly_chart)
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/charts/st.bokeh_chart">
-<Image pure alt="screenshot" src="/images/api/bokeh_chart.jpg" />
-
-<h4>Bokeh</h4>
-
-Display an interactive Bokeh chart.
-
-```python
-st.bokeh_chart(my_bokeh_chart)
-```
-
-</RefCard>
 <RefCard href="/develop/api-reference/charts/st.pydeck_chart">
 <Image pure alt="screenshot" src="/images/api/pydeck_chart.jpg" />
 
@@ -163,6 +153,19 @@ Display a graph using the dagre-d3 library.
 
 ```python
 st.graphviz_chart(my_graphviz_spec)
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/charts/st.mermaid_chart">
+
+<Image pure alt="screenshot" src="/images/api/mermaid_chart.jpg" />
+
+<h4>Mermaid chart</h4>
+
+Display a Mermaid diagram.
+
+```python
+st.mermaid_chart("graph LR\n  A --> B")
 ```
 
 </RefCard>

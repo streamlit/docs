@@ -1,6 +1,8 @@
 ---
 title: Streamlit Community Cloud
 slug: /deploy/streamlit-community-cloud
+description: Deploy and manage Streamlit apps for free with Community Cloud - connect to GitHub, deploy in minutes, and share with the world.
+keywords: community cloud, deploy, free, github, hosting, share, manage, streamlit
 ---
 
 # Welcome to Streamlit Community Cloud

@@ -1,6 +1,8 @@
 ---
 title: Manage your app
 slug: /deploy/streamlit-community-cloud/manage-your-app
+description: Learn how to manage your deployed Streamlit apps including editing, analytics, settings, and resource optimization on Community Cloud.
+keywords: manage, app, analytics, settings, edit, reboot, delete, resources, optimization, workspace
 ---
 
 # Manage your app

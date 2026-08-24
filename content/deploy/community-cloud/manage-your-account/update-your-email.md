@@ -1,6 +1,8 @@
 ---
 title: Update your email
 slug: /deploy/streamlit-community-cloud/manage-your-account/update-your-email
+description: Learn how to update your email address on Streamlit Community Cloud using account merging or GitHub account changes.
+keywords: update email, change email, account merge, github, authentication, identity, account management
 ---
 
 # Update your email

@@ -1,6 +1,8 @@
 ---
 title: Caching overview
 slug: /develop/concepts/architecture/caching
+description: Learn about Streamlit's caching mechanisms including st.cache_data and st.cache_resource for improving app performance and managing expensive computations.
+keywords: streamlit caching, st.cache_data, st.cache_resource, performance optimization, cache management, expensive computations, app performance, cache invalidation, cached functions
 ---
 
 # Caching overview
@@ -139,7 +141,7 @@ connection = database.connect()
 
 @st.cache_data
 def query():
-    return pd.read_sql_query("SELECT * from table", connection)
+    return pd.read_sql_query("SELECT * FROM table", connection)
 ```
 
 <Tip>
@@ -698,7 +700,7 @@ st.button("Re-run")
 
 Now if you run the app, and click the `Re-run` button, you'll notice that the `show_data` function is no longer re-run each time. It's important to note here that our choice of hash function was very naive and not necessarily the best choice. For example, if the NumPy array is large, converting it to a string representation may be expensive. In such cases, it is up to you as the developer to define what a good hash function is for your use case.
 
-#### Static elements
+### Static elements
 
 Since version 1.16.0, cached functions can contain Streamlit commands! For example, you can do this:
 
@@ -725,32 +727,6 @@ def show_data():
     st.write("And here is the raw data:")
     st.dataframe(data)
 ```
-
-#### Input widgets
-
-You can also use [interactive input widgets](/develop/api-reference/widgets) like `st.slider` or `st.text_input` in cached functions. Widget replay is an experimental feature at the moment. To enable it, you need to set the `experimental_allow_widgets` parameter:
-
-```python
-@st.cache_data(experimental_allow_widgets=True)  # 👈 Set the parameter
-def get_data():
-    num_rows = st.slider("Number of rows to get")  # 👈 Add a slider
-    data = api.get(..., num_rows)
-    return data
-```
-
-Streamlit treats the slider like an additional input parameter to the cached function. If you change the slider position, Streamlit will see if it has already cached the function for this slider value. If yes, it will return the cached value. If not, it will rerun the function using the new slider value.
-
-Using widgets in cached functions is extremely powerful because it lets you cache entire parts of your app. But it can be dangerous! Since Streamlit treats the widget value as an additional input parameter, it can easily lead to excessive memory usage. Imagine your cached function has five sliders and returns a 100 MB DataFrame. Then we'll add 100 MB to the cache for _every permutation_ of these five slider values – even if the sliders do not influence the returned data! These additions can make your cache explode very quickly. Please be aware of this limitation if you use widgets in cached functions. We recommend using this feature only for isolated parts of your UI where the widgets directly influence the cached return value.
-
-<Warning>
-
-Support for widgets in cached functions is experimental. We may change or remove it anytime without warning. Please use it with care!
-</Warning>
-
-<Note>
-
-Two widgets are currently not supported in cached functions: `st.file_uploader` and `st.camera_input`. We may support them in the future. Feel free to [open a GitHub issue](https://github.com/streamlit/streamlit/issues) if you need them!
-</Note>
 
 ### Dealing with large data
 
@@ -882,15 +858,13 @@ This toy example might seem benign. But data corruption can be extremely dangero
 
 ## Migrating from st.cache
 
-We introduced the caching commands described above in Streamlit 1.18.0. Before that, we had one catch-all command `st.cache`. Using it was often confusing, resulted in weird exceptions, and was slow. That's why we replaced `st.cache` with the new commands in 1.18.0 (read more in this [blog post](https://blog.streamlit.io/introducing-two-new-caching-commands-to-replace-st-cache/)). The new commands provide a more intuitive and efficient way to cache your data and resources and are intended to replace `st.cache` in all new development.
+We introduced `st.cache_data` and `st.cache_resource` in Streamlit 1.18.0 to replace the catch-all `st.cache` command (read more in this [blog post](https://blog.streamlit.io/introducing-two-new-caching-commands-to-replace-st-cache/)). In Streamlit 1.62.0, `st.cache` was removed.
 
-If your app is still using `st.cache`, don't despair! Here are a few notes on migrating:
+If your app still uses `@st.cache`, switch to `@st.cache_data` or `@st.cache_resource`. To decide which decorator to use, read [Deciding which caching decorator to use](#deciding-which-caching-decorator-to-use).
 
-- Streamlit will show a deprecation warning if your app uses `st.cache`.
-- We will not remove `st.cache` soon, so you don't need to worry about your 2-year-old app breaking. But we encourage you to try the new commands going forward – they will be way less annoying!
-- Switching code to the new commands should be easy in most cases. To decide whether to use `st.cache_data` or `st.cache_resource`, read [Deciding which caching decorator to use](#deciding-which-caching-decorator-to-use). Streamlit will also recognize common use cases and show hints right in the deprecation warnings.
-- Most parameters from `st.cache` are also present in the new commands, with a few exceptions:
-  - `allow_output_mutation` does not exist anymore. You can safely delete it. Just make sure you use the right caching command for your use case.
-  - `suppress_st_warning` does not exist anymore. You can safely delete it. Cached functions can now contain Streamlit commands and will replay them. If you want to use widgets inside cached functions, set `experimental_allow_widgets=True`. See [Input widgets](#input-widgets) for an example.
+Most parameters from `st.cache` are also present in the new commands, with a few exceptions:
+
+- `allow_output_mutation` does not exist anymore. You can safely delete it. Just make sure you use the right caching command for your use case.
+- `suppress_st_warning` does not exist anymore. You can safely delete it. Cached functions can now contain Streamlit commands and will replay them.
 
 If you have any questions or issues during the migration process, please contact us on the [forum](https://discuss.streamlit.io/), and we will be happy to assist you. 🎈

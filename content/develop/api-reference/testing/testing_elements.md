@@ -1,6 +1,8 @@
 ---
 title: Testing element classes
 slug: /develop/api-reference/app-testing/testing-element-classes
+description: Testing element classes include Block, Element, ChatMessage, Column, and Tab for accessing and inspecting Streamlit app components in tests.
+keywords: testing elements, Block class, Element class, testing element classes, ChatMessage, Column, Tab, container testing, element inspection, test components
 ---
 
 # Testing element classes
@@ -22,6 +24,8 @@ The `Block` class has the same methods and attributes as `AppTest`. A `Block` in
 <Autofunction function="streamlit.testing.v1.element_tree.ColorPicker" />
 
 <Autofunction function="streamlit.testing.v1.element_tree.DateInput" />
+
+<Autofunction function="streamlit.testing.v1.element_tree.FileUploader" />
 
 <Autofunction function="streamlit.testing.v1.element_tree.Multiselect" />
 

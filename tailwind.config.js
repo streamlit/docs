@@ -11,6 +11,7 @@ module.exports = {
     screens: {
       // Remove largest breakpoint, while keeping everything else at Tailwind defaults.
       // https://tailwindcss.com/docs/breakpoints
+      xs: "400px",
       sm: "640px",
       md: "768px",
       lg: "1024px",
@@ -156,7 +157,7 @@ module.exports = {
         100: "#3f3163",
       },
       gray: {
-        10: "#fafafa",
+        10: "#F5F7F9",
         20: "#f0f2f6",
         30: "#e6eaf1",
         40: "#d5dae5",
@@ -180,6 +181,19 @@ module.exports = {
     },
 
     extend: {
+      // Semantic z-index scale for consistent stacking order
+      // See styles/globals.css for usage documentation
+      zIndex: {
+        base: "0", // Default layer, code line highlights
+        elevated: "10", // Code blocks, search, floating nav, nav icons
+        sidebar: "20", // Sidebar, refcards, lightbox close button
+        overlay_code: "25", // Diff markers, code block overlays above fades
+        header: "30", // Header, lightbox overlay, chat sticky
+        dropdown: "50", // Version selector, tooltips, dropdown menus
+        overlay: "90", // Full-screen overlays (search modal backdrop)
+        modal: "100", // Modals, dialogs (reserved for future use)
+      },
+
       minWidth: {
         56: "14rem",
       },

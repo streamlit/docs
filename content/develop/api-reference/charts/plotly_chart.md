@@ -2,6 +2,7 @@
 title: st.plotly_chart
 slug: /develop/api-reference/charts/st.plotly_chart
 description: st.plotly_chart displays an interactive Plotly chart.
+keywords: plotly_chart, plotly, chart, visualization, data, plot, graph, interactive, dashboard, web-based
 ---
 
 <Autofunction function="streamlit.plotly_chart" />

@@ -1,6 +1,8 @@
 ---
 title: Build a basic LLM chat app
 slug: /develop/tutorials/chat-and-llm-apps/build-conversational-apps
+description: Learn to build conversational LLM applications with Streamlit using chat elements, session state, and Python to create ChatGPT-like experiences.
+keywords: LLM chat app, conversational apps, chat elements, session state, chatbot, conversational agents, ChatGPT-like, chat interface
 ---
 
 # Build a basic LLM chat app

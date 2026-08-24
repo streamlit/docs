@@ -1,6 +1,8 @@
 ---
 title: Connect Streamlit to Google Cloud Storage
 slug: /develop/tutorials/databases/gcs
+description: Learn how to access and manage files on Google Cloud Storage from Streamlit apps using FilesConnection, gcsfs library, and secrets management.
+keywords: Google Cloud Storage, GCS, file storage, cloud storage, FilesConnection, gcsfs, file access, secrets management, secure connections
 ---
 
 # Connect Streamlit to Google Cloud Storage

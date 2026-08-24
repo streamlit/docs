@@ -1,6 +1,8 @@
 ---
 title: Connect to data sources
 slug: /develop/tutorials/databases
+description: Step-by-step tutorials for connecting Streamlit apps to databases and APIs including SQL databases, cloud storage, and popular services.
+keywords: database connections, data sources, SQL databases, cloud storage, APIs, PostgreSQL, MySQL, MongoDB, BigQuery, AWS S3, data tutorials
 ---
 
 # Connect Streamlit to data sources

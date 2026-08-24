@@ -1,6 +1,8 @@
 ---
 title: Tutorials
 slug: /develop/tutorials
+description: Explore step-by-step tutorials for building Streamlit apps including authentication, database connections, data visualization, and advanced features.
+keywords: tutorials, step-by-step guides, app building, authentication, databases, data visualization, multipage apps, theming, execution flow, LLMs
 ---
 
 # Tutorials
@@ -54,6 +56,14 @@ Work with core elements like dataframes and charts.
 <h5>Use core features to work with Streamlit's execution model</h5>
 
 Build simple apps and walk through examples to learn about Streamlit's core features and execution model.
+
+</RefCard>
+
+<RefCard href="/develop/tutorials/custom-components">
+
+<h5>Build custom components</h5>
+
+Build package-based custom components with the official component template.
 
 </RefCard>
 

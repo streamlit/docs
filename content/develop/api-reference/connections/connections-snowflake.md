@@ -1,6 +1,8 @@
 ---
 title: st.connections.SnowflakeConnection
 slug: /develop/api-reference/connections/st.connections.snowflakeconnection
+description: st.connections.SnowflakeConnection provides a connection to Snowflake data warehouse for querying and data operations.
+keywords: SnowflakeConnection, snowflake, data warehouse, connection, query, snowpark, cursor, session, write_pandas
 ---
 
 <Tip>

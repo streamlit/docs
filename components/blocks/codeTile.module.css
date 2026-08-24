@@ -16,6 +16,11 @@
   @apply text-gray-80;
 }
 
+.Container > section::before,
+.Container > section::after {
+  display: none;
+}
+
 :global(.dark) .Container {
   @apply border-t-gray-100;
 }
@@ -56,34 +61,4 @@
   @apply col-span-full md:col-span-3 lg:col-span-2;
 }
 
-/* Code block adjustments */
-/* Code block adjustments */
-.Container pre code :global(.operator),
-.Container pre code :global(.decorator) {
-  @apply text-yellow-80;
-}
-
-.Container pre code :global(.keyword) {
-  @apply text-darkBlue-60;
-}
-
-.Container pre code :global(.builtin) {
-  @apply text-lightBlue-70;
-}
-
-.Container pre code :global(.string) {
-  @apply text-green-80;
-}
-
-.Container pre code :global(.number),
-.Container pre code :global(.boolean) {
-  @apply text-green-60;
-}
-
-.Container pre code :global(.function) {
-  @apply text-red-60;
-}
-
-.Container pre code :global(.punctuation) {
-  @apply text-gray-60;
-}
+/* Syntax highlighting is now handled globally via styles/syntax-highlighting.scss */

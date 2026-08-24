@@ -1,6 +1,8 @@
 ---
 title: config.toml
 slug: /develop/api-reference/configuration/config.toml
+description: Complete reference guide for Streamlit's config.toml configuration file, including all available sections and options for customizing your Streamlit application settings.
+keywords: config.toml, streamlit configuration, toml configuration file, streamlit settings, theme configuration, server configuration, client configuration, logger configuration, browser configuration, secrets configuration, sidebar theme, configuration options, streamlit config show
 ---
 
 ## config.toml
@@ -132,6 +134,31 @@ toolbarMode = "auto"
 #
 # Default: true
 showSidebarNavigation = true
+
+# Controls whether to show external help links (Google, ChatGPT) in
+# error displays. The following values are valid:
+# - "auto" (default) : Links are shown only on localhost.
+# - True             : Links are shown on all domains.
+# - False            : Links are never shown.
+#
+# Default: "auto"
+showErrorLinks = "auto"
+
+# When true, hides the built-in controls for exporting data from
+# components that support it:
+#
+# - Hides the CSV download button for st.dataframe, st.data_editor,
+#   and chart table views.
+# - Disables clipboard copy for read-only tables (st.dataframe and
+#   chart table views), while keeping st.data_editor copy/paste enabled.
+#
+# This only hides the built-in export and copy controls. It does not
+# prevent users from otherwise accessing the underlying data (e.g. via
+# screenshots, browser developer tools, or network inspection), so it
+# should not be relied upon as a security or data-protection control.
+#
+# Default: false
+disableDataExport = false
 ```
 
 #### Runner
@@ -179,6 +206,39 @@ enforceSerializableSessionState = false
 #
 # Default: "nameOnly"
 enumCoercion = "nameOnly"
+
+# Maximum number of parallel fragment worker threads per script run.
+# Sizes the per-run thread pool. Defaults to Python's
+# ThreadPoolExecutor default (min(32, os.cpu_count() + 4)).
+parallelMaxWorkers =
+
+# Escape hatch for an app whose @st.cache_data / @st.cache_resource cache
+# returns the wrong value for a large pandas, polars, or numpy object.
+#
+# Large objects are hashed from a fixed random sample rather than in full,
+# which keeps cache lookups fast. Because the sample positions are derived
+# from this seed, two large objects that differ only outside the sampled
+# positions produce the same cache key, and the cached value of one is
+# returned for the other.
+#
+# Set an integer from 0 to 4294967295 (2**32 - 1) to move which positions
+# are sampled. This does not eliminate collisions — it selects a different
+# set of them — so it resolves a collision an app has actually hit rather
+# than guaranteeing uniqueness. A value that cannot be converted to an
+# integer, or that falls outside that range, is ignored with a warning and
+# the default is used instead. A float is truncated toward zero, so 1.5
+# becomes 1.
+#
+# Changing this value changes the cache key of every large object and so
+# invalidates existing cached entries. Keep it stable across restarts and
+# across replicas, or a shared/persisted cache will miss.
+#
+# If you need hashing to be exact rather than a different sample, pass your
+# own function for the type via the `hash_funcs` argument of
+# `@st.cache_data` / `@st.cache_resource`, which bypasses sampling entirely.
+#
+# Default: 0
+cacheHashSeed = 0
 ```
 
 #### Server
@@ -212,13 +272,27 @@ folderWatchBlacklist = []
 #
 # Allowed values:
 # - "auto"     : Streamlit will attempt to use the watchdog module, and
-#                falls back to polling if watchdog isn't available.
+#                falls back to polling if watchdog isn't available. In WSL
+#                environments, polling is always used for compatibility.
 # - "watchdog" : Force Streamlit to use the watchdog module.
 # - "poll"     : Force Streamlit to always use polling.
 # - "none"     : Streamlit will not watch files.
 #
 # Default: "auto"
 fileWatcherType = "auto"
+
+# If True, Streamlit will use a recursive object graph traversal to
+# calculate memory usage statistics for the /_stcore/metrics endpoint.
+#
+# This can be slow for large session state or cached resource objects. If
+# False (the default), Streamlit reports fast proxy values for those
+# objects: item counts (the number of cached entries or session-state
+# keys) rather than byte sizes. The cache_memory_bytes metric will
+# therefore reflect entry counts, not memory consumption, for those
+# objects.
+#
+# Default: false
+enableExpensiveMemoryStats = false
 
 # Symmetric key used to produce signed cookies. If deploying on multiple
 # replicas, this should be set to the same value across all replicas to ensure
@@ -268,8 +342,10 @@ baseUrlPath = ""
 # Enables support for Cross-Origin Resource Sharing (CORS) protection,
 # for added security.
 #
-# If XSRF protection is enabled and CORS protection is disabled at the
-# same time, Streamlit will enable them both instead.
+# If you set this option to `False`, Streamlit sends
+# `Access-Control-Allow-Origin: *` on most HTTP routes and accepts a
+# WebSocket connection from any origin. Streamlit does not enable this
+# option for you when `server.enableXsrfProtection` is `True`.
 #
 # Default: true
 enableCORS = true
@@ -287,14 +363,60 @@ enableCORS = true
 # Default: []
 corsAllowedOrigins = []
 
+# Allow-list of hostnames for incoming WebSocket connections.
+#
+# Use this option to protect against DNS rebinding attacks when the
+# hostnames used to access the app are known. Ports in the Host header are
+# ignored. Wildcard subdomains are supported with a leading `*.`. Use `*`
+# to accept any valid Host header.
+#
+# If this list is empty (the default), Streamlit accepts any Host header
+# to preserve compatibility with dynamically configured reverse proxies
+# and custom domains.
+#
+# Example: ['localhost', 'app.example.com', '*.example.com']
+#
+# Default: []
+allowedHosts = []
+
 # Enables support for Cross-Site Request Forgery (XSRF) protection, for
 # added security.
 #
-# If XSRF protection is enabled and CORS protection is disabled at the
-# same time, Streamlit will enable them both instead.
+# This option does not enable `server.enableCORS`. Streamlit does not
+# need a valid XSRF token to open a WebSocket connection, so this option
+# does not replace `server.enableCORS`.
 #
 # Default: true
 enableXsrfProtection = true
+
+# Controls the SameSite attribute of the cookie Streamlit uses for
+# Cross-Site Request Forgery (XSRF) protection. This only has an effect
+# when XSRF protection is enabled (via `server.enableXsrfProtection` or
+# an `[auth]` section in your secrets); otherwise no XSRF cookie is set.
+# It does not affect authentication cookies, which always use
+# SameSite=Lax.
+#
+# Allowed values:
+# - "lax" (default): The XSRF cookie is sent on same-site requests and
+#   top-level cross-site navigations. This is the recommended, secure
+#   default.
+# - "strict": The XSRF cookie is only sent on same-site requests.
+# - "none": The XSRF cookie is sent on all requests, including cross-site
+#   requests. This is required when embedding a Streamlit app in an
+#   iframe hosted on a different origin (for example, to make
+#   `st.file_uploader` work inside a cross-origin iframe). Browsers
+#   only accept `SameSite=None` cookies that also have the `Secure`
+#   attribute, so Streamlit sets `Secure` automatically in this case.
+#   This means your app must be served over HTTPS (either directly or via
+#   a TLS-terminating proxy), otherwise browsers will drop the cookie.
+#
+# Note: Setting this to "none" relaxes the browser's SameSite-based CSRF
+# mitigation, so protection then relies on Streamlit's XSRF token
+# validation together with the CORS origin allowlist. Only use "none" if
+# you understand this tradeoff.
+#
+# Default: "lax"
+xsrfCookieSameSite = "lax"
 
 # Max size, in megabytes, for files uploaded with the file_uploader.
 #
@@ -312,6 +434,17 @@ maxMessageSize = 200
 # Default: false
 enableWebsocketCompression = false
 
+# The interval (in seconds) at which the server pings the client to keep
+# the websocket connection alive.
+#
+# The default value should work for most deployments. However, if you're
+# experiencing frequent disconnections in certain proxy setups (e.g.,
+# "Connection error" messages), you may want to try adjusting this value.
+#
+# Note: When you set this option, Streamlit automatically sets the ping
+# timeout to match this interval.
+websocketPingInterval =
+
 # Enable serving files from a `static` directory in the running app's
 # directory.
 #
@@ -322,7 +455,10 @@ enableStaticServing = false
 #
 # The server may choose to clean up session state, uploaded files, etc
 # for a given session with no active websocket connection at any point
-# after this time has passed.
+# after this time has passed. If you are using load balancing or
+# replication in your deployment, you must enable session stickiness
+# in your proxy to guarantee reconnection to the existing session. For
+# more information, see https://docs.streamlit.io/replication.
 #
 # Default: 120
 disconnectedSessionTTL = 120
@@ -331,8 +467,8 @@ disconnectedSessionTTL = 120
 # Must be set at the same time as "server.sslKeyFile".
 #
 # ['DO NOT USE THIS OPTION IN A PRODUCTION ENVIRONMENT. It has not gone through
-# security audits or performance tests. For the production environment, we
-# recommend performing SSL termination by the load balancer or the reverse
+# security audits or performance tests. For a production environment, we
+# recommend performing SSL termination through a load balancer or reverse
 # proxy.']
 sslCertFile =
 
@@ -340,8 +476,8 @@ sslCertFile =
 # Must be set at the same time as "server.sslCertFile".
 #
 # ['DO NOT USE THIS OPTION IN A PRODUCTION ENVIRONMENT. It has not gone through
-# security audits or performance tests. For the production environment, we
-# recommend performing SSL termination by the load balancer or the reverse
+# security audits or performance tests. For a production environment, we
+# recommend performing SSL termination through a load balancer or reverse
 # proxy.']
 sslKeyFile =
 ```
@@ -382,33 +518,40 @@ gatherUsageStats = true
 serverPort = 8501
 ```
 
-#### Mapbox
-
-```toml
-[mapbox]
-
-# If you'd like to show maps using Mapbox rather than Carto, use this
-# to pass the Mapbox API token.
-#
-# THIS IS DEPRECATED.
-#
-# Instead of this, you should use either the MAPBOX_API_KEY environment
-variable or PyDeck's `api_keys` argument.
-#
-# This option will be removed on or after 2026-05-01.
-#
-# Default: ""
-token = ""
-```
-
 #### Theme
+
+To define switchable light and dark themes, the configuration options in the
+`[theme]` table can be used in separate `[theme.dark]` and `[theme.light]`
+tables, except for the following options:
+
+- `base`
+- `fontFaces`
+- `baseFontSize`
+- `baseFontWeight`
+- `metricValueFontSize`
+- `metricValueFontWeight`
+- `showSidebarBorder`
+
+Chart series colors (`chartCategoricalColors`, `chartSequentialColors`, and `chartDivergingColors`) can be set in `[theme]`, `[theme.light]`, `[theme.dark]`, and the corresponding sidebar sections. Unset sections inherit from `[theme]`.
+
+Additionally, everything in `[theme.sidebar]` can be configured in separate `[theme.dark.sidebar]` and `[theme.light.sidebar]` tables.
 
 ```toml
 [theme]
 
-# The preset Streamlit theme that your custom theme inherits from.
+# The theme that your custom theme inherits from.
 #
-# This can be one of the following: "light" or "dark".
+# This can be one of the following:
+# - "light": Streamlit's default light theme.
+# - "dark" : Streamlit's default dark theme.
+# - A local file path to a TOML theme file: A local custom theme, like
+#   "themes/custom.toml".
+# - A URL to a TOML theme file: An externally hosted custom theme, like
+#   "https://example.com/theme.toml".
+#
+# A TOML theme file must contain a [theme] table with theme options.
+# Any theme options defined in the app's config.toml file will override
+# those defined in the TOML theme file.
 base =
 
 # Primary accent color.
@@ -423,11 +566,213 @@ secondaryBackgroundColor =
 # Color used for almost all text.
 textColor =
 
+# Red color used in the basic color palette.
+#
+# By default, this is #ff4b4b for the light theme and #ff2b2b for the
+# dark theme.
+#
+# If `redColor` is provided, and `redBackgroundColor` isn't, then
+# `redBackgroundColor` will be derived from `redColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+redColor =
+
+# Orange color used in the basic color palette.
+#
+# By default, this is #ffa421 for the light theme and #ff8700 for the
+# dark theme.
+#
+# If `orangeColor` is provided, and `orangeBackgroundColor` isn't, then
+# `orangeBackgroundColor` will be derived from `orangeColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+orangeColor =
+
+# Yellow color used in the basic color palette.
+#
+# By default, this is #faca2b for the light theme and #ffe312 for the
+# dark theme.
+#
+# If `yellowColor` is provided, and `yellowBackgroundColor` isn't, then
+# `yellowBackgroundColor` will be derived from `yellowColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+yellowColor =
+
+# Blue color used in the basic color palette.
+#
+# By default, this is #1c83e1 for the light theme and #0068c9 for the
+# dark theme.
+#
+# If a `blueColor` is provided, and `blueBackgroundColor` isn't, then
+# `blueBackgroundColor` will be derived from `blueColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+blueColor =
+
+# Green color used in the basic color palette.
+#
+# By default, this is #21c354 for the light theme and #09ab3b for the
+# dark theme.
+#
+# If `greenColor` is provided, and `greenBackgroundColor` isn't, then
+# `greenBackgroundColor` will be derived from `greenColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+greenColor =
+
+# Violet color used in the basic color palette.
+#
+# By default, this is #803df5 for both the light and dark themes.
+#
+# If a `violetColor` is provided, and `violetBackgroundColor` isn't, then
+# `violetBackgroundColor` will be derived from `violetColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+violetColor =
+
+# Gray color used in the basic color palette.
+#
+# By default, this is #a3a8b8 for the light theme and #555867 for the
+# dark theme.
+#
+# If `grayColor` is provided, and `grayBackgroundColor` isn't, then
+# `grayBackgroundColor` will be derived from `grayColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+grayColor =
+
+# Red background color used in the basic color palette.
+#
+# If `redColor` is provided, this defaults to `redColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+#
+# Otherwise, this is #ff2b2b with 10% opacity for light theme and
+# #ff6c6c with 20% opacity for dark theme.
+redBackgroundColor =
+
+# Orange background color used for the basic color palette.
+#
+# If `orangeColor` is provided, this defaults to `orangeColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+#
+# Otherwise, this is #ffa421 with 10% opacity for the light theme and
+# #ff8700 with 20% opacity for the dark theme.
+orangeBackgroundColor =
+
+# Yellow background color used for the basic color palette.
+#
+# If `yellowColor` is provided, this defaults to `yellowColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+#
+# Otherwise, this is #ffff12 with 10% opacity for the light theme and
+# #ffff12 with 20% opacity for the dark theme.
+yellowBackgroundColor =
+
+# Blue background color used for the basic color palette.
+#
+# If `blueColor` is provided, this defaults to `blueColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+#
+# Otherwise, this is #1c83ff with 10% opacity for the light theme and
+# #3d9df3 with 20% opacity for the dark theme.
+blueBackgroundColor =
+
+# Green background color used for the basic color palette.
+#
+# If `greenColor` is provided, this defaults to `greenColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+#
+# Otherwise, this is #21c354 with 10% opacity for the light theme and
+# #3dd56d with 20% opacity for the dark theme.
+greenBackgroundColor =
+
+# Violet background color used for the basic color palette.
+#
+# If `violetColor` is provided, this defaults to `violetColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+#
+# Otherwise, this is #9a5dff with 10% opacity for light theme and
+# #9a5dff with 20% opacity for dark theme.
+violetBackgroundColor =
+
+# Gray background color used for the basic color palette.
+#
+# If `grayColor` is provided, this defaults to `grayColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+#
+# Otherwise, this is #31333f with 10% opacity for the light theme and
+# #808495 with 20% opacity for the dark theme.
+grayBackgroundColor =
+
+# Red text color used for the basic color palette.
+#
+# If `redColor` is provided, this defaults to `redColor`, darkened by 15%
+# for the light theme and lightened by 15% for the dark theme.
+#
+# Otherwise, this is #bd4043 for the light theme and #ff6c6c for the dark
+# theme.
+redTextColor =
+
+# Orange text color used for the basic color palette.
+#
+# If `orangeColor` is provided, this defaults to `orangeColor`, darkened
+# by 15% for the light theme and lightened by 15% for the dark theme.
+#
+# Otherwise, this is #e2660c for the light theme and #ffbd45 for the dark
+# theme.
+orangeTextColor =
+
+# Yellow text color used for the basic color palette.
+#
+# If `yellowColor` is provided, this defaults to `yellowColor`, darkened
+# by 15% for the light theme and lightened by 15% for the dark theme.
+#
+# Otherwise, this is #926c05 for the light theme and #ffffc2 for the dark
+# theme.
+yellowTextColor =
+
+# Blue text color used for the basic color palette.
+#
+# If `blueColor` is provided, this defaults to `blueColor`, darkened by
+# 15% for the light theme and lightened by 15% for the dark theme.
+#
+# Otherwise, this is #0054a3 for the light theme and #3d9df3 for the dark
+# theme.
+blueTextColor =
+
+# Green text color used for the basic color palette.
+#
+# If `greenColor` is provided, this defaults to `greenColor`, darkened by
+# 15% for the light theme and lightened by 15% for the dark theme.
+#
+# Otherwise, this is #158237 for the light theme and #5ce488 for the dark
+# theme.
+greenTextColor =
+
+# Violet text color used for the basic color palette.
+#
+# If `violetColor` is provided, this defaults to `violetColor`, darkened
+# by 15% for the light theme and lightened by 15% for the dark theme.
+#
+# Otherwise, this is #583f84 for the light theme and #b27eff for the dark
+# theme.
+violetTextColor =
+
+# Gray text color used for the basic color palette.
+#
+# If `grayColor` is provided, this defaults to `grayColor`, darkened by
+# 15% for the light theme and lightened by 15% for the dark theme.
+#
+# Otherwise, this is #31333f with 60% opacity for the light theme and
+# #fafafa with 60% opacity for the dark theme.
+grayTextColor =
+
 # Color used for all links.
+#
+# This defaults to the resolved value of `blueTextColor`.
 linkColor =
 
 # Whether or not links should be displayed with an underline.
 linkUnderline =
+
+# Text color used for code blocks.
+#
+# This defaults to the resolved value of `greenTextColor`.
+codeTextColor =
 
 # Background color used for code blocks.
 codeBackgroundColor =
@@ -439,6 +784,8 @@ codeBackgroundColor =
 # - "serif"
 # - "monospace"
 # - The `family` value for a custom font table under [[theme.fontFaces]]
+# - A URL to a CSS file in the format of "<font name>:<url>" (like
+#   "Nunito:https://fonts.googleapis.com/css2?family=Nunito&display=swap")
 # - A comma-separated list of these (as a single string) to specify
 #   fallbacks
 #
@@ -484,10 +831,30 @@ baseFontSize =
 # The root font weight for the app.
 #
 # This determines the overall weight of text and UI elements. This is an
-# integer multiple of 100. Values can be between 100 and 600, inclusive.
+# integer multiple of 50. Values can be between 100 and 600, inclusive.
+#
+# Streamlit derives heavier weights from this base (+100 / +200 / +300).
+# The maximum is 600 so the heaviest derived weight never exceeds 900.
 #
 # If this isn't set, the font weight will be set to 400 (normal weight).
 baseFontWeight =
+
+# The font size for st.metric value text.
+#
+# Font sizes can be specified in pixels or rem, like "48px" or "3rem".
+# If a numeric string is provided without a unit, it will be treated as
+# pixels. If you pass an integer or float directly, it will be ignored.
+#
+# If this isn't set, the font size will be 2.25rem.
+metricValueFontSize =
+
+# The font weight for st.metric value text.
+#
+# This is an integer multiple of 50. Values can be between 100 and 900,
+# inclusive.
+#
+# If this isn't set, the font weight will inherit from the parent element.
+metricValueFontWeight =
 
 # The font family to use for headings.
 #
@@ -496,8 +863,10 @@ baseFontWeight =
 # - "serif"
 # - "monospace"
 # - The `family` value for a custom font table under [[theme.fontFaces]]
+# - A URL to a CSS file in the format of "<font name>:<url>" (like
+#   "Nunito:https://fonts.googleapis.com/css2?family=Nunito&display=swap")
 # - A comma-separated list of these (as a single string) to specify
-# fallbacks
+#   fallbacks
 #
 # If this isn't set, Streamlit uses `theme.font` for headings.
 headingFont =
@@ -531,6 +900,9 @@ headingFontSizes =
 
 # One or more font weights for h1-h6 headings.
 #
+# Each weight must be an integer multiple of 50, between 100 and 900
+# inclusive. Invalid values are ignored and the default weight is used.
+#
 # If no weights are set, Streamlit will use the default weights for h1-h6
 # headings. Heading font weights set in [theme] are not inherited by
 # [theme.sidebar]. The following weights are used by default:
@@ -551,7 +923,7 @@ headingFontSizes =
 #
 # Setting a single value (not in an array) will set the font weight for
 # all h1-h6 headings to that value:
-# headingFontWeights = 500
+# headingFontWeights = 550
 headingFontWeights =
 
 # The font family to use for code (monospace) in the sidebar.
@@ -561,6 +933,8 @@ headingFontWeights =
 # - "serif"
 # - "monospace"
 # - The `family` value for a custom font table under [[theme.fontFaces]]
+# - A URL to a CSS file in the format of "<font name>:<url>" (like
+#   "'Space Mono':https://fonts.googleapis.com/css2?family=Space+Mono&display=swap")
 # - A comma-separated list of these (as a single string) to specify
 #   fallbacks
 codeFont =
@@ -576,8 +950,11 @@ codeFontSize =
 # The font weight for code blocks and code text.
 #
 # This applies to font in inline code, code blocks, `st.json`, and
-# `st.help`. This is an integer multiple of 100. Values can be between
-# 100 and 900, inclusive.
+# `st.help`. This is an integer multiple of 50. Values can be between
+# 100 and 600, inclusive.
+#
+# Streamlit derives heavier code weights from this base (+200 / +300).
+# The maximum is 600 so the heaviest derived weight never exceeds 900.
 #
 # If this isn't set, the code font weight will be 400 (normal weight).
 codeFontWeight =
@@ -646,6 +1023,10 @@ showSidebarBorder =
 # more categories than colors. If no chart categorical colors are set,
 # Streamlit uses a default set of colors.
 #
+# This option can be set in `[theme]`, `[theme.light]`, `[theme.dark]`,
+# and the corresponding sidebar sections. Unset sections inherit from
+# `[theme]`.
+#
 # For light themes, the following colors are the default:
 # [
 #     "#0068c9", # blue80
@@ -682,6 +1063,10 @@ chartCategoricalColors =
 # Invalid color strings are skipped. If there are not exactly ten
 # valid colors specified, Streamlit uses a default set of colors.
 #
+# This option can be set in `[theme]`, `[theme.light]`, `[theme.dark]`,
+# and the corresponding sidebar sections. Unset sections inherit from
+# `[theme]`.
+#
 # For light themes, the following colors are the default:
 # [
 #     "#e4f5ff", #blue10
@@ -709,9 +1094,41 @@ chartCategoricalColors =
 #     "#e4f5ff", #blue10
 # ]
 chartSequentialColors =
+
+# An array of ten colors to use for diverging chart data.
+#
+# The ten colors create a diverging color scale, typically used for data
+# with a meaningful midpoint. These colors apply to Plotly, Altair, and
+# Vega-Lite charts.
+#
+# Invalid color strings are skipped. If there are not exactly ten
+# valid colors specified, Streamlit uses a default set of colors.
+#
+# This option can be set in `[theme]`, `[theme.light]`, `[theme.dark]`,
+# and the corresponding sidebar sections. Unset sections inherit from
+# `[theme]`.
+#
+# The default colors are:
+# [
+#     "#7d353b", #red100
+#     "#bd4043", #red90
+#     "#ff4b4b", #red70
+#     "#ff8c8c", #red50
+#     "#ffc7c7", #red30
+#     "#a6dcff", #blue30
+#     "#60b4ff", #blue50
+#     "#1c83e1", #blue70
+#     "#0054a3", #blue90
+#     "#004280", #blue100
+# ]
+chartDivergingColors =
 ```
 
 #### Sidebar theme
+
+To define switchable light and dark themes, the configuration options in the
+`[theme.sidebar]` table can be used in separate `[theme.dark.sidebar]` and
+`[theme.light.sidebar]`.
 
 ```toml
 [theme.sidebar]
@@ -728,11 +1145,213 @@ secondaryBackgroundColor =
 # Color used for almost all text.
 textColor =
 
+# Red color used in the basic color palette.
+#
+# By default, this is #ff4b4b for the light theme and #ff2b2b for the
+# dark theme.
+#
+# If `redColor` is provided, and `redBackgroundColor` isn't, then
+# `redBackgroundColor` will be derived from `redColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+redColor =
+
+# Orange color used in the basic color palette.
+#
+# By default, this is #ffa421 for the light theme and #ff8700 for the
+# dark theme.
+#
+# If `orangeColor` is provided, and `orangeBackgroundColor` isn't, then
+# `orangeBackgroundColor` will be derived from `orangeColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+orangeColor =
+
+# Yellow color used in the basic color palette.
+#
+# By default, this is #faca2b for the light theme and #ffe312 for the
+# dark theme.
+#
+# If `yellowColor` is provided, and `yellowBackgroundColor` isn't, then
+# `yellowBackgroundColor` will be derived from `yellowColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+yellowColor =
+
+# Blue color used in the basic color palette.
+#
+# By default, this is #1c83e1 for the light theme and #0068c9 for the
+# dark theme.
+#
+# If a `blueColor` is provided, and `blueBackgroundColor` isn't, then
+# `blueBackgroundColor` will be derived from `blueColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+blueColor =
+
+# Green color used in the basic color palette.
+#
+# By default, this is #21c354 for the light theme and #09ab3b for the
+# dark theme.
+#
+# If `greenColor` is provided, and `greenBackgroundColor` isn't, then
+# `greenBackgroundColor` will be derived from `greenColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+greenColor =
+
+# Violet color used in the basic color palette.
+#
+# By default, this is #803df5 for both the light and dark themes.
+#
+# If a `violetColor` is provided, and `violetBackgroundColor` isn't, then
+# `violetBackgroundColor` will be derived from `violetColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+violetColor =
+
+# Gray color used in the basic color palette.
+#
+# By default, this is #a3a8b8 for the light theme and #555867 for the
+# dark theme.
+#
+# If `grayColor` is provided, and `grayBackgroundColor` isn't, then
+# `grayBackgroundColor` will be derived from `grayColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+grayColor =
+
+# Red background color used in the basic color palette.
+#
+# If `redColor` is provided, this defaults to `redColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+#
+# Otherwise, this is #ff2b2b with 10% opacity for light theme and
+# #ff6c6c with 20% opacity for dark theme.
+redBackgroundColor =
+
+# Orange background color used for the basic color palette.
+#
+# If `orangeColor` is provided, this defaults to `orangeColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+#
+# Otherwise, this is #ffa421 with 10% opacity for the light theme and
+# #ff8700 with 20% opacity for the dark theme.
+orangeBackgroundColor =
+
+# Yellow background color used for the basic color palette.
+#
+# If `yellowColor` is provided, this defaults to `yellowColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+#
+# Otherwise, this is #ffff12 with 10% opacity for the light theme and
+# #ffff12 with 20% opacity for the dark theme.
+yellowBackgroundColor =
+
+# Blue background color used for the basic color palette.
+#
+# If `blueColor` is provided, this defaults to `blueColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+#
+# Otherwise, this is #1c83ff with 10% opacity for the light theme and
+# #3d9df3 with 20% opacity for the dark theme.
+blueBackgroundColor =
+
+# Green background color used for the basic color palette.
+#
+# If `greenColor` is provided, this defaults to `greenColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+#
+# Otherwise, this is #21c354 with 10% opacity for the light theme and
+# #3dd56d with 20% opacity for the dark theme.
+greenBackgroundColor =
+
+# Violet background color used for the basic color palette.
+#
+# If `violetColor` is provided, this defaults to `violetColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+#
+# Otherwise, this is #9a5dff with 10% opacity for light theme and
+# #9a5dff with 20% opacity for dark theme.
+violetBackgroundColor =
+
+# Gray background color used for the basic color palette.
+#
+# If `grayColor` is provided, this defaults to `grayColor` using 10%
+# opacity for the light theme and 20% opacity for the dark theme.
+#
+# Otherwise, this is #31333f with 10% opacity for the light theme and
+# #808495 with 20% opacity for the dark theme.
+grayBackgroundColor =
+
+# Red text color used for the basic color palette.
+#
+# If `redColor` is provided, this defaults to `redColor`, darkened by 15%
+# for the light theme and lightened by 15% for the dark theme.
+#
+# Otherwise, this is #bd4043 for the light theme and #ff6c6c for the dark
+# theme.
+redTextColor =
+
+# Orange text color used for the basic color palette.
+#
+# If `orangeColor` is provided, this defaults to `orangeColor`, darkened
+# by 15% for the light theme and lightened by 15% for the dark theme.
+#
+# Otherwise, this is #e2660c for the light theme and #ffbd45 for the dark
+# theme.
+orangeTextColor =
+
+# Yellow text color used for the basic color palette.
+#
+# If `yellowColor` is provided, this defaults to `yellowColor`, darkened
+# by 15% for the light theme and lightened by 15% for the dark theme.
+#
+# Otherwise, this is #926c05 for the light theme and #ffffc2 for the dark
+# theme.
+yellowTextColor =
+
+# Blue text color used for the basic color palette.
+#
+# If `blueColor` is provided, this defaults to `blueColor`, darkened by
+# 15% for the light theme and lightened by 15% for the dark theme.
+#
+# Otherwise, this is #0054a3 for the light theme and #3d9df3 for the dark
+# theme.
+blueTextColor =
+
+# Green text color used for the basic color palette.
+#
+# If `greenColor` is provided, this defaults to `greenColor`, darkened by
+# 15% for the light theme and lightened by 15% for the dark theme.
+#
+# Otherwise, this is #158237 for the light theme and #5ce488 for the dark
+# theme.
+greenTextColor =
+
+# Violet text color used for the basic color palette.
+#
+# If `violetColor` is provided, this defaults to `violetColor`, darkened
+# by 15% for the light theme and lightened by 15% for the dark theme.
+#
+# Otherwise, this is #583f84 for the light theme and #b27eff for the dark
+# theme.
+violetTextColor =
+
+# Gray text color used for the basic color palette.
+#
+# If `grayColor` is provided, this defaults to `grayColor`, darkened by
+# 15% for the light theme and lightened by 15% for the dark theme.
+#
+# Otherwise, this is #31333f with 60% opacity for the light theme and
+# #fafafa with 60% opacity for the dark theme.
+grayTextColor =
+
 # Color used for all links.
+#
+# This defaults to the resolved value of `blueTextColor`.
 linkColor =
 
 # Whether or not links should be displayed with an underline.
 linkUnderline =
+
+# Text color used for code blocks.
+#
+# This defaults to the resolved value of `greenTextColor`.
+codeTextColor =
 
 # Background color used for code blocks.
 codeBackgroundColor =
@@ -744,8 +1363,10 @@ codeBackgroundColor =
 # - "serif"
 # - "monospace"
 # - The `family` value for a custom font table under [[theme.fontFaces]]
+# - A URL to a CSS file in the format of "<font name>:<url>" (like
+#   "Nunito:https://fonts.googleapis.com/css2?family=Nunito&display=swap")
 # - A comma-separated list of these (as a single string) to specify
-# fallbacks
+#   fallbacks
 #
 # For example, you can use the following:
 #
@@ -759,8 +1380,10 @@ font =
 # - "serif"
 # - "monospace"
 # - The `family` value for a custom font table under [[theme.fontFaces]]
+# - A URL to a CSS file in the format of "<font name>:<url>" (like
+#   "Nunito:https://fonts.googleapis.com/css2?family=Nunito&display=swap")
 # - A comma-separated list of these (as a single string) to specify
-# fallbacks
+#   fallbacks
 #
 # If this isn't set, Streamlit uses `theme.font` for headings.
 headingFont =
@@ -794,6 +1417,9 @@ headingFontSizes =
 
 # One or more font weights for h1-h6 headings.
 #
+# Each weight must be an integer multiple of 50, between 100 and 900
+# inclusive. Invalid values are ignored and the default weight is used.
+#
 # If no weights are set, Streamlit will use the default weights for h1-h6
 # headings. Heading font weights set in [theme] are not inherited by
 # [theme.sidebar]. The following weights are used by default:
@@ -814,7 +1440,7 @@ headingFontSizes =
 #
 # Setting a single value (not in an array) will set the font weight for
 # all h1-h6 headings to that value:
-# headingFontWeights = 500
+# headingFontWeights = 550
 headingFontWeights =
 
 # The font family to use for code (monospace) in the sidebar.
@@ -824,6 +1450,8 @@ headingFontWeights =
 # - "serif"
 # - "monospace"
 # - The `family` value for a custom font table under [[theme.fontFaces]]
+# - A URL to a CSS file in the format of "<font name>:<url>" (like
+#   "'Space Mono':https://fonts.googleapis.com/css2?family=Space+Mono&display=swap")
 # - A comma-separated list of these (as a single string) to specify
 # fallbacks
 codeFont =
@@ -835,6 +1463,18 @@ codeFont =
 #
 # If this isn't set, the code font size will be 0.875rem.
 codeFontSize =
+
+# The font weight for code blocks and code text.
+#
+# This applies to font in inline code, code blocks, `st.json`, and
+# `st.help`. This is an integer multiple of 50. Values can be between
+# 100 and 600, inclusive.
+#
+# Streamlit derives heavier code weights from this base (+200 / +300).
+# The maximum is 600 so the heaviest derived weight never exceeds 900.
+#
+# If this isn't set, the code font weight will be 400 (normal weight).
+codeFontWeight =
 
 # The radius used as basis for the corners of most UI elements.
 #
@@ -885,6 +1525,30 @@ dataframeHeaderBackgroundColor =
 
 # Whether to show a border around input widgets.
 showWidgetBorder =
+
+# An array of colors to use for categorical chart data.
+#
+# See `theme.chartCategoricalColors` for the full description. This
+# option can be set in `[theme]`, `[theme.light]`, `[theme.dark]`, and
+# the corresponding sidebar sections. Unset sections inherit from
+# `[theme]`.
+chartCategoricalColors =
+
+# An array of ten colors to use for sequential or continuous chart data.
+#
+# See `theme.chartSequentialColors` for the full description. This
+# option can be set in `[theme]`, `[theme.light]`, `[theme.dark]`, and
+# the corresponding sidebar sections. Unset sections inherit from
+# `[theme]`.
+chartSequentialColors =
+
+# An array of ten colors to use for diverging chart data.
+#
+# See `theme.chartDivergingColors` for the full description. This
+# option can be set in `[theme]`, `[theme.light]`, `[theme.dark]`, and
+# the corresponding sidebar sections. Unset sections inherit from
+# `[theme]`.
+chartDivergingColors =
 ```
 
 #### Secrets

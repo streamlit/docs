@@ -1,6 +1,8 @@
 ---
 title: Layouts and Containers
 slug: /develop/api-reference/layout
+description: Control how elements are arranged on screen with Streamlit's layout and container components including columns, expanders, sidebars, tabs, and containers.
+keywords: layouts, containers, columns, expander, sidebar, tabs, popover, streamlit layout, ui layout, screen organization, element arrangement
 ---
 
 # Layouts and Containers
@@ -53,7 +55,7 @@ Insert a modal dialog that can rerun independently from the rest of the script.
 @st.dialog("Sign up")
 def email_form():
     name = st.text_input("Name")
-    email = st.text_input("Email")
+    email = st.text_input("Email", type="email")
 ```
 
 </RefCard>
@@ -112,6 +114,32 @@ Display items in a sidebar.
 ```python
 st.sidebar.write("This lives in the sidebar")
 st.sidebar.button("Click me!")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/layout/st.bottom">
+
+<Image pure alt="screenshot" src="/images/api/bottom.jpg" />
+
+<h4>Bottom</h4>
+
+Display items at the bottom of the window.
+
+```python
+st.bottom.chat_input("Say something")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/layout/st.space">
+
+<Image pure alt="screenshot" src="/images/api/space.jpg" />
+
+<h4>Space</h4>
+
+Add vertical or horizontal space.
+
+```python
+st.space("small")
 ```
 
 </RefCard>

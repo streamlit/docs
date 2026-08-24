@@ -1,7 +1,7 @@
 .Container {
   @apply fixed lg:sticky;
   @apply top-auto lg:top-12 left-0 xl:left-auto;
-  @apply px-0 pb-64 h-screen z-20;
+  @apply px-0 pb-64 h-screen z-sidebar;
   @apply w-10/12 md:w-9/12 xl:w-screen max-w-xs md:max-w-none;
   @apply overflow-y-auto;
   @apply shadow-lg lg:shadow-none;
@@ -40,7 +40,7 @@
 
 /* Top gradient styles when scrolling */
 .TopGradient {
-  @apply hidden lg:block fixed top-0 w-full bg-gradient-to-b from-white z-10 max-w-[280px] lg:max-w-[240px] xl:max-w-[280px];
+  @apply hidden lg:block fixed top-0 w-full bg-gradient-to-b from-white z-elevated max-w-[280px] lg:max-w-[240px] xl:max-w-[280px];
 }
 
 :global(.dark) .TopGradient {

@@ -1,6 +1,8 @@
 ---
 title: App analytics
 slug: /deploy/streamlit-community-cloud/manage-your-app/app-analytics
+description: Learn how to view and analyze your Streamlit app's viewership data including total viewers, unique visitors, and privacy considerations.
+keywords: analytics, viewers, viewership, data, privacy, public, private, anonymous, tracking, metrics
 ---
 
 # App analytics

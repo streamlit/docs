@@ -1,6 +1,8 @@
 ---
 title: Connect Streamlit to Microsoft SQL Server
 slug: /develop/tutorials/databases/mssql
+description: Learn how to connect Streamlit apps to remote Microsoft SQL Server databases using pyodbc library and secrets management for enterprise SQL access.
+keywords: Microsoft SQL Server, MSSQL, pyodbc, enterprise database, SQL Server, database connection, secrets management, remote database, database tutorial
 ---
 
 # Connect Streamlit to Microsoft SQL Server

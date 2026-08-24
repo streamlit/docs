@@ -1,6 +1,8 @@
 ---
 title: Dataframes
 slug: /develop/concepts/design/dataframes
+description: Learn how to display and edit tabular data in Streamlit using st.dataframe and st.data_editor, including styling, configuration, and interactive features.
+keywords: dataframes, st.dataframe, st.data_editor, pandas dataframes, tabular data, data display, data editing, column configuration, dataframe styling, interactive tables
 ---
 
 # Dataframes

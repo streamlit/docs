@@ -1,6 +1,8 @@
 ---
 title: st.connections.SnowparkConnection
 slug: /develop/api-reference/connections/st.connections.snowparkconnection
+description: st.connections.SnowparkConnection provides a connection to Snowflake using Snowpark (deprecated, use SnowflakeConnection).
+keywords: SnowparkConnection, snowpark, snowflake, connection, deprecated, SnowflakeConnection, query, session, safe_session
 ---
 
 <Tip>

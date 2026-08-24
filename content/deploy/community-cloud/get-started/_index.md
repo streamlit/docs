@@ -1,6 +1,8 @@
 ---
 title: Get started with Streamlit Community Cloud
 slug: /deploy/streamlit-community-cloud/get-started
+description: Get started with Streamlit Community Cloud - create your account, connect GitHub, and deploy your first app with step-by-step guides.
+keywords: get started, community cloud, account, github, deploy, quickstart, workspace, templates
 ---
 
 # Get started with Streamlit Community Cloud

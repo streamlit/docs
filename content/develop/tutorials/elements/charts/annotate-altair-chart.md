@@ -1,6 +1,8 @@
 ---
 title: Annotate an Altair chart
 slug: /develop/tutorials/elements/annotate-an-altair-chart
+description: Learn how to annotate Altair charts in Streamlit with text, images, and emojis using layered charts for enhanced data visualization.
+keywords: Altair charts, chart annotation, layered charts, data visualization, chart text, chart images, chart emojis, visualization tutorial
 ---
 
 # Annotate an Altair chart
@@ -135,7 +137,6 @@ st.altair_chart(combined_chart, use_container_width=True)
    ```
 
    You'll be using these libraries as follows:
-
    - You'll download a dataset using [`vega_datasets`](https://pypi.org/project/vega-datasets/).
    - You'll maniputate the data using `pandas`.
    - You'll define a chart using `altair`.

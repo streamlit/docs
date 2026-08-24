@@ -1,6 +1,8 @@
 ---
 title: Button behavior and examples
 slug: /develop/concepts/design/buttons
+description: Learn about Streamlit button behavior, state management, and practical examples using st.button with st.session_state for interactive applications.
+keywords: button behavior, st.button, streamlit buttons, session state, button state, button examples, interactive buttons, button patterns, button anti-patterns, state management
 ---
 
 # Button behavior and examples

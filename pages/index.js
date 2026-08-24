@@ -1,6 +1,5 @@
-import React, { useState, useCallback } from "react";
+import React from "react";
 import Head from "next/head";
-import { useRouter } from "next/router";
 
 import { getMenu } from "../lib/node/api";
 
@@ -11,10 +10,6 @@ import SideBar from "../components/navigation/sideBar";
 import ArrowLinkContainer from "../components/navigation/arrowLinkContainer";
 import ArrowLink from "../components/navigation/arrowLink";
 
-import GDPRBanner, {
-  setTelemetryPreference,
-} from "../components/utilities/gdpr";
-import CookieSettingsModal from "../components/utilities/cookieSettingsModal";
 import SocialCallouts from "../components/utilities/socialCallout";
 import Spacer from "../components/utilities/spacer";
 
@@ -37,30 +32,6 @@ import styles from "../components/layouts/container.module.css";
 
 export default function Home({ window, menu }) {
   let { description } = attributes;
-
-  const [isTelemetryModalVisible, setIsTelemetryModalVisible] = useState(false);
-  const [isTelemetryBannerVisible, setIsTelemetryBannerVisible] =
-    useState(false);
-  const [insertTelemetryCode, setInsertTelemetryCode] = useState(false);
-
-  const router = useRouter();
-
-  const allowTelemetryAndCloseBanner = useCallback(() => {
-    setIsTelemetryBannerVisible(false);
-    setIsTelemetryModalVisible(false);
-    setInsertTelemetryCode(true);
-    setTelemetryPreference(true);
-  }, [isTelemetryBannerVisible, insertTelemetryCode]);
-
-  const declineTelemetryAndCloseBanner = useCallback(() => {
-    setIsTelemetryBannerVisible(false);
-    setIsTelemetryModalVisible(false);
-    setInsertTelemetryCode(false);
-    setTelemetryPreference(false);
-
-    // If previous state was true, and now it's false, reload the page to remove telemetry JS
-    if (insertTelemetryCode) router.reload();
-  }, [isTelemetryBannerVisible, insertTelemetryCode]);
 
   return (
     <Layout window={window}>
@@ -94,23 +65,6 @@ export default function Home({ window, menu }) {
           content={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/sharing-image-twitter.jpg`}
         />
       </Head>
-      {isTelemetryModalVisible && (
-        <CookieSettingsModal
-          setIsTelemetryModalVisible={setIsTelemetryModalVisible}
-          allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
-          declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
-        />
-      )}
-      <GDPRBanner
-        isTelemetryModalVisible={isTelemetryModalVisible}
-        setIsTelemetryModalVisible={setIsTelemetryModalVisible}
-        isTelemetryBannerVisible={isTelemetryBannerVisible}
-        setIsTelemetryBannerVisible={setIsTelemetryBannerVisible}
-        insertTelemetryCode={insertTelemetryCode}
-        setInsertTelemetryCode={setInsertTelemetryCode}
-        allowTelemetryAndCloseBanner={allowTelemetryAndCloseBanner}
-        declineTelemetryAndCloseBanner={declineTelemetryAndCloseBanner}
-      />
       <section className={styles.Container}>
         <SideBar menu={menu} slug={[]} />
         <section className={styles.InnerContainer}>
@@ -192,66 +146,70 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="/develop/api-reference/media/st.pdf?utm_source=streamlit"
+                href="/develop/api-reference/layout/st.tabs?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">description</i>
-                <h4>PDF viewer</h4>
+                <i className="material-icons-sharp">touch_app</i>
+                <h4>Dynamic containers</h4>
                 <p>
-                  You can display a PDF file with <code>st.pdf</code>.
+                  <code>st.tabs</code>, <code>st.expander</code>, and{" "}
+                  <code>st.popover</code> can track open/closed state and
+                  trigger reruns with the new <code>on_change</code> parameter.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
-                href="/develop/api-reference/data/st.dataframe?utm_source=streamlit"
+                href="/develop/concepts/architecture/widget-behavior?utm_source=streamlit#binding-widgets-to-query-parameters"
               >
-                <i className="material-icons-sharp">ads_click</i>
-                <h4>Dataframe cell selection</h4>
+                <i className="material-icons-sharp">share</i>
+                <h4>Widget binding</h4>
                 <p>
-                  <code>st.dataframe</code> supports single and multiple cell
-                  selections.
+                  Most non-trigger widgets have a <code>bind</code> parameter to
+                  sync widget state with URL query parameters.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/media/st.image?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">open_in_new</i>
+                <h4>Clickable images</h4>
+                <p>
+                  <code>st.image</code> has a <code>link</code> parameter to
+                  make images clickable with HTTP/HTTPS URLs.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/navigation/st.page?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">visibility_off</i>
+                <h4>Hidden pages</h4>
+                <p>
+                  <code>st.Page</code> has a <code>visibility</code> parameter
+                  to hide pages in the navigation menu while keeping them
+                  routable.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/text/st.markdown?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">format_color_text</i>
+                <h4>CSS colors in Markdown</h4>
+                <p>
+                  Markdown supports arbitrary CSS colors for text foreground and
+                  background styling.
                 </p>
               </RefCard>
               <RefCard
                 size="third"
                 href="/develop/api-reference/data/st.metric?utm_source=streamlit"
               >
-                <i className="material-icons-sharp">show_chart</i>
-                <h4>Metric sparklines</h4>
+                <i className="material-icons-sharp">speed</i>
+                <h4>Metric delta descriptions</h4>
                 <p>
-                  You can add sparklines to <code>st.metric</code>.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/data/st.column_config/st.column_config.listcolumn?utm_source=streamlit"
-              >
-                <i className="material-icons-sharp">settings</i>
-                <h4>
-                  Editable <code>ListColumn</code>
-                </h4>
-                <p>
-                  <code>ListColumn</code> supports editing.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/widgets/st.file_uploader?utm_source=streamlit"
-              >
-                <i className="material-icons-sharp">folder</i>
-                <h4>Directory upload</h4>
-                <p>
-                  Users can upload all files in a directory with{" "}
-                  <code>st.file_uploader</code> and <code>st.chat_input</code>.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/status/st.toast?utm_source=streamlit"
-              >
-                <i className="material-icons-sharp">timer</i>
-                <h4>Toast duration</h4>
-                <p>
-                  You can configure the duration of <code>st.toast</code>.
+                  <code>st.metric</code> has a <code>delta_description</code>{" "}
+                  parameter to display descriptive text next to delta values.
                 </p>
               </RefCard>
             </TileContainer>
@@ -285,7 +243,7 @@ export default function Home({ window, menu }) {
             <ArrowLink link="/get-started" type="next" content="Get started" />
           </ArrowLinkContainer>
         </section>
-        <Footer setIsTelemetryModalVisible={setIsTelemetryModalVisible} />
+        <Footer />
       </section>
     </Layout>
   );

@@ -1,6 +1,8 @@
 ---
 title: Run your Streamlit app
 slug: /develop/concepts/architecture/run-your-app
+description: Learn how to run Streamlit apps locally, set parameters, configure environment variables, and understand the execution model for development and production.
+keywords: streamlit run, app execution, local development, environment variables, command line parameters, app startup, development server, production deployment
 ---
 
 # Run your Streamlit app

@@ -1,6 +1,8 @@
 ---
 title: Create a multipage app
 slug: /get-started/tutorials/create-a-multipage-app
+description: Build your first multipage app.
+keywords: multipage app, create multipage, app structure, page navigation, multipage tutorial, app organization, page management, complex apps
 ---
 
 # Create a multipage app
@@ -164,15 +166,16 @@ Streamlit. We're generating a bunch of random numbers in a loop for around
 
     progress_bar = st.sidebar.progress(0)
     status_text = st.sidebar.empty()
-    last_rows = np.random.randn(1, 1)
-    chart = st.line_chart(last_rows)
+    data = np.random.randn(1, 1)
+    chart = st.empty()
+    chart.line_chart(data)
 
     for i in range(1, 101):
-        new_rows = last_rows[-1, :] + np.random.randn(5, 1).cumsum(axis=0)
+        new_rows = data[-1, :] + np.random.randn(5, 1).cumsum(axis=0)
+        data = np.concatenate([data, new_rows])
         status_text.text("%i%% Complete" % i)
-        chart.add_rows(new_rows)
+        chart.line_chart(data)
         progress_bar.progress(i)
-        last_rows = new_rows
         time.sleep(0.05)
 
     progress_bar.empty()
@@ -352,15 +355,16 @@ Streamlit. We're generating a bunch of random numbers in a loop for around
 
 progress_bar = st.sidebar.progress(0)
 status_text = st.sidebar.empty()
-last_rows = np.random.randn(1, 1)
-chart = st.line_chart(last_rows)
+data = np.random.randn(1, 1)
+chart = st.empty()
+chart.line_chart(data)
 
 for i in range(1, 101):
-    new_rows = last_rows[-1, :] + np.random.randn(5, 1).cumsum(axis=0)
+    new_rows = data[-1, :] + np.random.randn(5, 1).cumsum(axis=0)
+    data = np.concatenate([data, new_rows])
     status_text.text("%i%% Complete" % i)
-    chart.add_rows(new_rows)
+    chart.line_chart(data)
     progress_bar.progress(i)
-    last_rows = new_rows
     time.sleep(0.05)
 
 progress_bar.empty()

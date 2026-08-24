@@ -1,6 +1,8 @@
 ---
 title: App settings
 slug: /deploy/streamlit-community-cloud/manage-your-app/app-settings
+description: Learn how to configure your Streamlit app settings including URL customization, sharing permissions, and secrets management.
+keywords: settings, url, subdomain, sharing, permissions, secrets, configuration, customize, manage
 ---
 
 # App settings

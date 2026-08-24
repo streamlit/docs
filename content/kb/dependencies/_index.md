@@ -1,6 +1,7 @@
 ---
 title: Installing dependencies
 slug: /knowledge-base/dependencies
+description: Explore common dependency and environment problems, and see possible solutions.
 ---
 
 # Installing dependencies

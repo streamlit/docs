@@ -1,6 +1,8 @@
 ---
 title: Colors and borders
 slug: /develop/concepts/configuration/theming-customize-colors-and-borders
+description: Learn how to customize colors, borders, backgrounds, and UI elements in Streamlit apps using theme configuration options and color values.
+keywords: colors, borders, theming, UI customization, color values, background colors, border styling, visual design, theme colors, app styling
 ---
 
 # Customize colors and borders in your Streamlit app
@@ -16,13 +18,13 @@ For all configuration options that accept a color, you can specify the value wit
 
 <Tip>
 
-Although you can specify an alpha value for your colors, this isn't recommended. Streamlit adjusts the alpha value of colors to ensure contextually appropriate shading between background and foreground.
+Although you can specify an alpha value for your colors, this isn't necessary for most options. Streamlit adjusts the alpha value of colors to ensure contextually appropriate shading between background and foreground.
 
 </Tip>
 
 ## Default Streamlit colors
 
-Streamlit comes with two preconfigured themes: light and dark. If you don't specify any theme configuration options, Streamlit will attempt to use the preconfigured theme that best matches each user's browser settings.
+Streamlit comes with two preconfigured themes: light and dark. If you don't specify any theme configuration options, Streamlit will attempt to use the preconfigured theme that best matches each user's browser settings. These themes feature a red primary color in addition to a basic color palette (red, orange, yellow, green, blue, violet, and gray/grey) for elements like colored Markdown text.
 
 ## Color and border configuration options
 
@@ -32,9 +34,8 @@ The following two configuration options can only be applied to the whole app:
 
 - `theme.base` sets the default colors for your app's theme to match one of Streamlit's two default themes (`"light"` or `"dark"`). If any theme configuation option is used and `theme.base` is not set, then Streamlit will use `"light"`.
 - `theme.showSidebarBorder` sets the visibility of the border between the sidebar and the main body of your app.
-- `theme.chartCategoricalColors` and `theme.chartSequentialColors` set the series colors for Plotly, Altair, and Vega-Lite charts.
 
-The following configuration options can be set separately for the sidebar by using the `[theme.sidebar]` table instead of the `[theme]` table in `config.toml`:
+The following configuration options can be set separately for the sidebar by using the `[theme.sidebar]` table instead of the `[theme]` table in `config.toml`. Chart series colors can also be set separately in `[theme.light]`, `[theme.dark]`, and the corresponding sidebar sections; unset sections inherit from `[theme]`.
 
 - `theme.primaryColor`
 - `theme.backgroundColor`
@@ -42,6 +43,7 @@ The following configuration options can be set separately for the sidebar by usi
 - `theme.textColor`
 - `theme.linkColor`
 - `theme.linkUnderline`
+- `theme.codeTextColor`
 - `theme.codeBackgroundColor`
 - `theme.baseRadius`
 - `theme.buttonRadius`
@@ -49,8 +51,30 @@ The following configuration options can be set separately for the sidebar by usi
 - `theme.dataframeBorderColor`
 - `theme.dataframeHeaderBackgroundColor`
 - `theme.showWidgetBorder`
+- `theme.chartCategoricalColors`, `theme.chartSequentialColors`, and `theme.chartDivergingColors`
+- All color palette options
 
 For brevity, on the rest of this page, theming configuration options will not include the `theme.` or `theme.sidebar.` prefix.
+
+### Basic color palette
+
+Various elements in Streamlit use or let you choose from a predefined palette of colors: red, orange, yellow, green, blue, violet, and gray/grey. These are some of the elements that use this basic color palette:
+
+- Markdown text and background color (including `st.badge`).
+- `st.metric` sparklines and deltas.
+- Dataframe chart columns.
+- Chat message avatars.
+- Alert elements like `st.success` and `st.warning`.
+
+For each color in the palette, you can define a base color, background color, and text color. If you only define a base color, Streamlit adjusts lightness/darkness and opacity to automatically provide a corresponding background and text color. However, you can manually define each of them, too. These are the color palette options:
+
+- `redColor`, `redBackgroundColor`, `redTextColor`
+- `orangeColor`, `orangeBackgroundColor`, `orangeTextColor`
+- `yellowColor`, `yellowBackgroundColor`, `yellowTextColor`
+- `greenColor`, `greenBackgroundColor`, `greenTextColor`
+- `blueColor`, `blueBackgroundColor`, `blueTextColor`
+- `violetColor`, `violetBackgroundColor`, `violetTextColor`
+- `grayColor`, `grayBackgroundColor`, `grayTextColor`
 
 ### `primaryColor`
 
@@ -121,11 +145,13 @@ secondaryBackgroundColor="lavender"
 
 <Cloud name="doc-theming-color-backgroundcolor" height="450px" />
 
-### `textColor`, `linkColor`, and `linkUnderline`
+### `textColor`, `codeTextColor`, `linkColor`, and `linkUnderline`
 
-You can configure the color of body text and links.
+You can configure the color of body, code, and link text.
 
-`textColor` sets the default text color for all text in the app except language-highlighting in code blocks, inline code, and links. `linkColor` sets the default font color for all Markdown links in the app. If `linkUnderline` is set to true (default), the link underline color matches `linkColor`.
+`textColor` sets the default text color for all text in the app except language-highlighting in code blocks, inline code, and links.
+`codeTextColor` sets the default text color for inline code, but doesn't affect code blocks.
+`linkColor` sets the default font color for all Markdown links in the app. If `linkUnderline` is set to true (default), the link underline color matches `linkColor`.
 
 The following elements are impacted by `textColor`:
 

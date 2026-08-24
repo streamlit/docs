@@ -1,6 +1,8 @@
 ---
 title: Working with Streamlit's execution model
 slug: /develop/concepts/architecture
+description: Explore comprehensive guides about Streamlit's architecture and execution model, including app lifecycle, caching, session state, forms, fragments, and widget behavior.
+keywords: streamlit architecture, execution model, app lifecycle, streamlit reruns, session state, caching, forms, fragments, widget behavior, client-server model
 ---
 
 # Working with Streamlit's execution model
@@ -52,6 +54,14 @@ Manage your app's statefulness with Session State.
 <h5>Forms</h5>
 
 Use forms to isolate user input and prevent unnecessary app reruns.
+
+</RefCard>
+
+<RefCard href="/develop/concepts/architecture/fragments">
+
+<h5>Fragments</h5>
+
+Restrict the scope of reruns to defined blocks of code with fragments.
 
 </RefCard>
 

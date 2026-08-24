@@ -1,7 +1,8 @@
 ---
 title: st.selectbox
 slug: /develop/api-reference/widgets/st.selectbox
-description: st.selectbox displays a select widget.
+description: st.selectbox displays a drop-down select widget.
+keywords: selectbox, widget, dropdown, selection, input, interactive
 ---
 
 <Autofunction function="streamlit.selectbox" />

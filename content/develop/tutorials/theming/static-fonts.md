@@ -1,7 +1,8 @@
 ---
 title: Use static font files to customize your font
 slug: /develop/tutorials/configuration-and-theming/static-fonts
-description: Learn how to load an alternative font and use it in your app.
+description: Learn how to use static font files to customize typography in Streamlit apps with self-hosted font files and multiple font weight configurations.
+keywords: static fonts, font customization, self-hosted fonts, typography, font files, custom fonts, font loading, static font files, theming, font weights
 ---
 
 # Use static font files to customize your font

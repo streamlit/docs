@@ -1,6 +1,8 @@
 ---
 title: Execution flow
 slug: /develop/api-reference/execution-flow
+description: Control your app’s execution flow with forms, fragments, dialogs, and more.
+keywords: execution flow, control flow, forms, fragments, dialogs, rerun, stop, form_submit_button, experimental_rerun, modal
 ---
 
 # Execution flow
@@ -23,7 +25,7 @@ Insert a modal dialog that can rerun independently from the rest of the script.
 @st.dialog("Sign up")
 def email_form():
     name = st.text_input("Name")
-    email = st.text_input("Email")
+    email = st.text_input("Email", type="email")
 ```
 
 </RefCard>
@@ -85,7 +87,7 @@ Create a form that batches elements together with a “Submit" button.
 ```python
 with st.form(key='my_form'):
     name = st.text_input("Name")
-    email = st.text_input("Email")
+    email = st.text_input("Email", type="email")
     st.form_submit_button("Sign up")
 ```
 
@@ -100,7 +102,7 @@ Display a form submit button.
 ```python
 with st.form(key='my_form'):
     name = st.text_input("Name")
-    email = st.text_input("Email")
+    email = st.text_input("Email", type="email")
     st.form_submit_button("Sign up")
 ```
 

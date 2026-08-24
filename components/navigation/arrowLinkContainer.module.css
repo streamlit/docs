@@ -1,0 +1,6 @@
+.Container {
+  @apply flex flex-wrap flex-col
+    md:flex-row md:flex-nowrap
+    items-center justify-between
+    mt-16 mb-8 gap-4;
+}

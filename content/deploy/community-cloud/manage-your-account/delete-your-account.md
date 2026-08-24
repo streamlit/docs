@@ -1,6 +1,8 @@
 ---
 title: Delete your account
 slug: /deploy/streamlit-community-cloud/manage-your-account/delete-your-account
+description: Learn how to permanently delete your Streamlit Community Cloud account and all associated apps and data.
+keywords: delete account, remove account, permanent deletion, data deletion, account management, apps, workspace
 ---
 
 # Delete your account

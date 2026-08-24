@@ -1,6 +1,8 @@
 ---
 title: Delete your app
 slug: /deploy/streamlit-community-cloud/manage-your-app/delete-your-app
+description: Learn how to delete your Streamlit app from Community Cloud and understand when deletion might be necessary.
+keywords: delete, remove, app, community cloud, confirmation, subdomain, reuse, data deletion
 ---
 
 # Delete your app

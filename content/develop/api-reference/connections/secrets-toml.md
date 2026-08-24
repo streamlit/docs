@@ -1,6 +1,8 @@
 ---
 title: secrets.toml
 slug: /develop/api-reference/connections/secrets.toml
+description: secrets.toml is a TOML file for storing secrets, API keys, and credentials for your Streamlit app.
+keywords: secrets.toml, secrets, toml, credentials, api keys, passwords, secure, configuration, file, storage
 ---
 
 ## secrets.toml

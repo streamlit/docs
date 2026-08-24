@@ -2,6 +2,7 @@
 title: st.sidebar
 slug: /develop/api-reference/layout/st.sidebar
 description: st.sidebar displays items in a sidebar.
+keywords: sidebar, layout, navigation, widgets, organization, ui
 ---
 
 ## st.sidebar

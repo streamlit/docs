@@ -1,7 +1,8 @@
 ---
 title: Creating multipage apps using the `pages/` directory
 slug: /develop/concepts/multipage-apps/pages-directory
-description: Streamlit provides a simple way to create multipage apps.
+description: Learn how to create multipage Streamlit apps using the simple pages/ directory approach with automatic page recognition and sidebar navigation.
+keywords: pages directory, multipage apps, automatic navigation, sidebar navigation, page organization, simple multipage, directory structure
 ---
 
 # Creating multipage apps using the `pages/` directory

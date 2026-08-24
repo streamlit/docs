@@ -1,6 +1,8 @@
 ---
 title: Get dataframe row-selections from users (streamlit<1.35.0)
 slug: /develop/tutorials/elements/dataframe-row-selections-old
+description: Learn how to get dataframe row selections in older Streamlit versions (<1.35.0) using st.data_editor with checkbox columns as a workaround method.
+keywords: dataframe selections, row selections, legacy workaround, st.data_editor, checkbox columns, older Streamlit versions, dataframe tutorial, backward compatibility
 ---
 
 # Get dataframe row-selections from users (`streamlit<1.35.0`)

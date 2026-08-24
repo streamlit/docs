@@ -1,5 +1,5 @@
 .ais-InstantSearch .ais-SearchBox {
-  @apply sticky top-0 z-10;
+  @apply sticky top-0 z-elevated;
 }
 
 .ais-InstantSearch .ais-SearchBox-form {

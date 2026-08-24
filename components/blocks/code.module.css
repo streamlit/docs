@@ -1,114 +1,190 @@
 .Container {
-  @apply w-full my-7 mx-auto overflow-x-auto;
+  @apply w-full my-7 mx-auto overflow-x-auto bg-gray-90 rounded-xl;
+
   @apply relative !important;
 }
 
+/* Keep in sync with components/blocks/autofunction.module.css */
+.Header {
+  @apply flex items-center gap-2
+    min-h-10 px-3
+    border-b border-gray-80
+    text-gray-50 text-xs font-medium tracking-wide;
+}
+
+/* Keep in sync with components/blocks/autofunction.module.css */
+.Language {
+  @apply uppercase tracking-wider;
+}
+
+.Filename {
+  @apply font-mono tracking-wider;
+}
+
+/* Keep in sync with components/blocks/autofunction.module.css */
+.Pre {
+  @apply p-6 text-white font-medium relative leading-relaxed;
+}
+
+/* Must match .Pre code typography so markers align line-by-line */
+.DiffMarkers {
+  position: absolute;
+  left: 0;
+  width: 1.5rem;
+  text-align: center;
+  pointer-events: none;
+  @apply font-mono leading-relaxed;
+}
+
+/* Fade overlays on Container (outside scroll area so they don't scroll) */
+.Container::before,
+.Container::after {
+  content: "";
+  position: absolute;
+  bottom: 0.75rem;
+  width: 1.5rem;
+  @apply z-sidebar;
+  pointer-events: none;
+}
+
+.Container:has(.Header)::before,
+.Container:has(.Header)::after {
+  top: 2.5rem;
+}
+
+.Container:not(:has(.Header))::before,
+.Container:not(:has(.Header))::after {
+  top: 0;
+}
+
+.Container::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    theme("colors.gray.90"),
+    theme("colors.gray.90") 0.375rem,
+    transparent
+  );
+}
+
+.Container::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    theme("colors.gray.90"),
+    theme("colors.gray.90") 0.375rem,
+    transparent
+  );
+}
+
+/* Keep in sync with components/blocks/autofunction.module.css */
 .Pre,
 .Container code {
   @apply overflow-auto max-w-full whitespace-pre;
 }
 
-.Pre {
-  @apply p-4 bg-gray-90 text-white font-medium rounded-md relative py-6 px-8 leading-relaxed;
-}
-
+/* Keep in sync with components/blocks/autofunction.module.css */
 .Pre code {
-  @apply z-10 relative;
+  @apply z-elevated relative;
 }
 
+/* Keep in sync with components/blocks/autofunction.module.css */
 .LineHighlight {
-  @apply bg-gray-80 opacity-30 z-0;
+  @apply bg-gray-80 opacity-30 z-base;
 }
 
+/* Keep in sync with components/blocks/autofunction.module.css */
+.Container :global(.toolbar) {
+  @apply absolute top-0 right-0
+    flex items-center justify-end
+    px-3 h-10
+    z-header
+    text-gray-80 text-xs font-medium tracking-wide;
+}
+
+/* Keep in sync with components/blocks/autofunction.module.css */
+.Container :global(.toolbar-item) {
+  @apply flex items-center justify-end;
+}
+
+/* Keep in sync with components/blocks/autofunction.module.css */
 .Container button {
-  @apply absolute top-2 right-2 cursor-pointer h-8 w-8 mb-0 flex items-center;
+  @apply flex flex-row gap-1
+    h-full
+    text-xs leading-none
+    text-gray-50 hover:text-white;
 }
 
-.Container button::before {
-  @apply absolute top-2 right-2 z-10 transition-all duration-75 hover:opacity-40;
-  content: url("/clipboard.svg");
-}
-
+/* Keep in sync with components/blocks/autofunction.module.css */
 .Container button span {
-  @apply absolute right-10 text-white font-mono text-sm tracking-tight font-normal opacity-0;
+  @apply flex items-center justify-start
+    tracking-wide font-medium;
 }
 
-.Container button:hover span {
-  @apply opacity-100;
+.Container button i {
+  @apply flex text-xs leading-none;
 }
 
-/* Code block adjustments */
-.Pre code :global(.operator) {
-  @apply text-yellow-50;
+.TryMeButton {
+  @apply px-2 py-1 rounded-md
+    border border-gray-80 hover:border-white;
 }
 
-.Pre code :global(.decorator.annotation.punctuation) {
-  @apply text-red-60;
+/* Keep in sync with components/blocks/autofunction.module.css */
+.Container :global(.copy-to-clipboard-button) {
+  &::after {
+    @apply block text-gray-50 hover:text-white h-3 w-3 cursor-pointer;
+    content: "";
+    background-color: currentColor;
+    -webkit-mask-image: url("/clipboard.svg");
+    mask-image: url("/clipboard.svg");
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+  }
+
+  & span {
+    @apply text-white
+      opacity-0 translate-x-2 transition-transform
+      pointer-events-none;
+  }
+
+  &:hover span {
+    @apply opacity-100 translate-x-0;
+  }
 }
 
-.Pre code :global(.string) {
-  @apply text-darkBlue-30;
+.NoCopyButton :global(.copy-to-clipboard-button) {
+  @apply hidden;
 }
 
-.Pre code :global(.keyword) {
-  @apply text-darkBlue-50;
+.TryMeButton {
+  @apply h-3 flex flex-row gap-1;
 }
 
-.Pre code :global(.builtin) {
-  @apply text-lightBlue-40;
+:global(.refcard) .Container {
+  @apply rounded-none bg-transparent;
 }
 
-.Pre code :global(.number),
-.Pre code :global(.boolean) {
-  @apply text-green-40;
+:global(.refcard) .Container .Pre {
+  @apply p-0 text-gray-80 h-full;
+
+  html:global(.dark) & {
+    @apply text-white;
+  }
 }
 
-.Pre code :global(.punctuation) {
-  @apply text-gray-60;
+:global(.refcard) .Container::before,
+:global(.refcard) .Container::after {
+  display: none;
 }
 
-.Pre code :global(.comment) {
-  @apply text-gray-60 italic font-normal;
+:global(.refcard) .Container code {
+  @apply block p-4 h-full;
 }
 
-.Pre code :global(.table) {
-  @apply inline;
+:global(.refcard) .Container :global(.code-toolbar) {
+  @apply px-0 py-0;
 }
 
-.Pre code :global(.deleted) {
-  @apply text-red-70 bg-red-70 bg-opacity-20;
-}
-.Pre code :global(.inserted) {
-  @apply text-green-70 bg-green-70 bg-opacity-20;
-}
-
-/* Dark mode adjustments */
-:global(.dark) .Pre code :global(.operator),
-:global(.dark) .Pre code :global(.decorator) {
-  @apply text-yellow-80;
-}
-
-:global(.dark) .Pre code :global(.keyword) {
-  @apply text-darkBlue-50;
-}
-
-:global(.dark) .Pre code :global(.builtin) {
-  @apply text-lightBlue-60;
-}
-
-:global(.dark) .Pre code :global(.number),
-:global(.dark) .Pre code :global(.boolean) {
-  @apply text-green-40;
-}
-
-:global(.dark) .Pre code :global(.function) {
-  @apply text-red-60 font-semibold;
-}
-
-:global(.dark) .Pre code :global(.comment) {
-  @apply text-gray-60;
-}
-
-:global(.dark) .Pre code :global(.string) {
-  @apply text-darkBlue-30;
-}
+/* Syntax highlighting is now handled globally via styles/syntax-highlighting.scss */

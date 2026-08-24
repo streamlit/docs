@@ -1,6 +1,7 @@
 ---
 title: Deployment Issues
 slug: /knowledge-base/deploy
+description: Explore common deployment problems and solutions.
 ---
 
 # Deployment-related questions and errors

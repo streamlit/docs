@@ -1,0 +1,42 @@
+.Link {
+  @apply overflow-hidden border-none
+    text-base md:text-lg
+    tracking-tight
+    font-sans font-normal leading-7
+    hover:opacity-70
+    flex items-center gap-2
+    transition-all;
+}
+
+:global(.dark) .Link {
+  @apply text-gray-40;
+}
+
+.Truncate {
+  @apply truncate;
+}
+
+.Icon {
+  @apply relative;
+}
+
+.IconRight {
+  @apply order-last;
+}
+
+.Orange {
+  @apply text-orange-80;
+}
+
+:global(.dark) .Orange {
+  @apply text-orange-70;
+  /* @apply text-gray-80; */
+}
+
+.Indigo {
+  @apply text-indigo-70;
+}
+
+:global(.dark) .Indigo {
+  @apply text-indigo-40;
+}

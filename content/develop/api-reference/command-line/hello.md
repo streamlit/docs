@@ -1,6 +1,8 @@
 ---
 title: streamlit hello
 slug: /develop/api-reference/cli/hello
+description: streamlit hello runs an example Streamlit app to verify installation and demonstrate features.
+keywords: streamlit hello, cli, command line, example app, demo, verify installation, hello app
 ---
 
 ## `$ streamlit hello`
