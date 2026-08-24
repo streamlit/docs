@@ -17,7 +17,7 @@ light-theme tables:
 
 - **Base color scheme**: Set your custom theme to inherit from Streamlit's light or dark theme, or use an external theming TOML file.
 - **Base font**: Set the base font weight and size. (This can be configured separately for heading and code font.)
-- **Chart color**: Set series colors for Plotly, Altair, and Vega-Lite charts.
+- **Metric value font**: Set the font size and weight of `st.metric` values.
 - **Sidebar border**: Set the visibility of the sidebar border.
 
 The following options can be configured separately for the main body of your app and the sidebar. They can also be specified separately for
@@ -31,6 +31,7 @@ dark and light themes (`[theme.light]`, `[theme.light.sidebar]`, `[theme.dark]`,
 - **Border radius**: Set the roundness of elements and widgets.
 - **Border color**: Set the color and visibility of element, widget, sidebar, and dataframe borders.
 - **Basic color palette**: Set the color palette (red, orange, yellow, green, blue, violet, and gray/grey) for things like colored Markdown text and sparklines.
+- **Chart color**: Set series colors for Plotly, Altair, and Vega-Lite charts. Unset light, dark, and sidebar sections inherit from `[theme]`.
 
 ## Example themes
 

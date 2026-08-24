@@ -6,3 +6,5 @@ keywords: st.file_uploader, file uploader, file upload, upload widget, file inpu
 ---
 
 <Autofunction function="streamlit.file_uploader" />
+
+<Autofunction function="UploadedFile" />

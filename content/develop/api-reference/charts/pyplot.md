@@ -7,6 +7,12 @@ keywords: pyplot, matplotlib, chart, visualization, data, plot, graph, figure, s
 
 <Autofunction function="streamlit.pyplot" />
 
+<Note>
+
+Always pass a Matplotlib `Figure` to `st.pyplot`. Calling `st.pyplot()` with no arguments is no longer supported. Passing Matplotlib `savefig` keyword arguments is deprecated; save the figure yourself and display it with [`st.image`](/develop/api-reference/media/st.image).
+
+</Note>
+
 <Warning>
     Matplotlib [doesn't work well with threads](https://matplotlib.org/3.3.2/faq/howto_faq.html#working-with-threads). So if you're using Matplotlib you should wrap your code with locks. This Matplotlib bug is more prominent when you deploy and share your apps because you're more likely to get concurrent users then. The following example uses [`Rlock`](https://docs.python.org/3/library/threading.html#rlock-objects) from the `threading` module.
 

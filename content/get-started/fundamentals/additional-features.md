@@ -1,8 +1,8 @@
 ---
 title: Additional Streamlit features
 slug: /get-started/fundamentals/additional-features
-description: Explore additional Streamlit features including theming, multipage apps, fragments, custom components, and advanced UI customization options.
-keywords: additional features, theming, multipage apps, fragments, custom components, UI customization, advanced features, streamlit extras
+description: Explore additional Streamlit features including theming, multipage apps, fragments, custom components, AI coding skills, and advanced UI customization options.
+keywords: additional features, theming, multipage apps, fragments, custom components, UI customization, advanced features, streamlit extras, ai skills
 ---
 
 # Additional Streamlit features
@@ -123,6 +123,16 @@ Now run `streamlit run streamlit_app.py` and view your shiny new multipage app! 
 <Image src="/images/mpa-v2-main-concepts.gif" />
 
 Our documentation on [Multipage apps](/develop/concepts/multipage-apps) teaches you how to add pages to your app, including how to define pages, structure and run multipage apps, and navigate between pages. Once you understand the basics, [create your first multipage app](/get-started/tutorials/create-a-multipage-app)!
+
+## AI coding skills
+
+Streamlit bundles official skills for AI coding agents. Install them in your project so your agent follows current Streamlit APIs:
+
+```bash
+streamlit skills
+```
+
+Use `streamlit skills --global` to install them once for every project on your machine. For details, see [`streamlit skills`](/develop/api-reference/cli/skills).
 
 ## Custom components
 
