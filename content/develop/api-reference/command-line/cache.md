@@ -14,5 +14,3 @@ Clear persisted files from the on-disk [Streamlit cache](/develop/api-reference/
 ```
 streamlit cache clear
 ```
-
-<GitHubIssuesHint label="feature:cli" name="streamlit cache" />

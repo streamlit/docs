@@ -14,5 +14,3 @@ Print the available commands for the Streamlit CLI tool. This command is equival
 ```
 streamlit help
 ```
-
-<GitHubIssuesHint label="feature:cli" name="streamlit help" />

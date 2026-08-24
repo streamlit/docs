@@ -6,5 +6,3 @@ keywords: html, iframe, custom component, html string, display, frontend, web co
 ---
 
 <Autofunction function="streamlit.components.v1.html" deprecated={true} deprecatedText="<code>st.components.v1.html</code> was deprecated in version 1.56.0 and will be removed in a later version. Use <a href='/develop/api-reference/text/st.html'><code>st.html</code></a> instead."/>
-
-<GitHubIssuesHint label="feature:custom-components" name="st.components.v1.html" />

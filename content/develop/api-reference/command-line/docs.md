@@ -14,5 +14,3 @@ Open the Streamlit docs in your default browser.
 ```
 streamlit docs
 ```
-
-<GitHubIssuesHint label="feature:cli" name="streamlit docs" />
