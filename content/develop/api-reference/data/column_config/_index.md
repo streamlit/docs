@@ -283,3 +283,5 @@ ProgressColumn("Sales volume", min_value=0, max_value=1000, format="$%f")
 </RefCard>
 
 </TileContainer>
+
+<GitHubIssuesHint label="feature:st.column_config" name="st.column_config" />

@@ -6,3 +6,5 @@ keywords: st.column_config.NumberColumn, number column, numerical data, number f
 ---
 
 <Autofunction function="streamlit.column_config.NumberColumn" />
+
+<GitHubIssuesHint label="feature:st.column_config" name="st.column_config.NumberColumn" />

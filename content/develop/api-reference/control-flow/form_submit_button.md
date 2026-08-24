@@ -6,3 +6,5 @@ keywords: form_submit_button, form, submit, button, execution flow, control flow
 ---
 
 <Autofunction function="streamlit.form_submit_button" />
+
+<GitHubIssuesHint label="feature:st.form_submit_button" name="st.form_submit_button" />

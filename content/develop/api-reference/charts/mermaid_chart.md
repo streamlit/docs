@@ -6,3 +6,5 @@ keywords: st.mermaid_chart, mermaid, diagram, flowchart, sequence diagram, graph
 ---
 
 <Autofunction function="streamlit.mermaid_chart" />
+
+<GitHubIssuesHint label="feature:charts" name="st.mermaid_chart" />

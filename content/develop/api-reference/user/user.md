@@ -14,3 +14,5 @@ keywords: st.user, user info, user information, logged-in user, community cloud 
 Starting from Streamlit version 1.42.0, you can't use `st.user` to retrieve a user's Community Cloud account email. To access user information, you must set up an identity provider and configure authentication (`[auth]`) in your app's secrets. Remember to update your identity provider's configuration and your app's secrets to allow your new domain. A list of [IP addresses](/deploy/streamlit-community-cloud/status#ip-addresses) used by Community Cloud is available if needed. An authentication-configured app counts as your single allowed private app.
 
 <Autofunction function="streamlit.user.to_dict" oldName="streamlit.experimental_user.to_dict" />
+
+<GitHubIssuesHint label="feature:st.user" name="st.user" />

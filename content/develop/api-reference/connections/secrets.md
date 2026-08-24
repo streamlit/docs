@@ -36,3 +36,5 @@ st.secrets["OpenAI_key"] == "your OpenAI key"
 st.secrets["database"]["user"] == "your username"
 st.secrets.database.password == "your password"
 ```
+
+<GitHubIssuesHint label="feature:st.secrets" name="st.secrets" />

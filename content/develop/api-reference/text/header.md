@@ -6,3 +6,5 @@ keywords: st.header, header, heading, title, header text, large text, h2, header
 ---
 
 <Autofunction function="streamlit.header" />
+
+<GitHubIssuesHint label="feature:st.header" name="st.header" />

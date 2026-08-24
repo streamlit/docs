@@ -34,3 +34,5 @@ Always pass a Matplotlib `Figure` to `st.pyplot`. Calling `st.pyplot()` with no 
     ```
 
 </Warning>
+
+<GitHubIssuesHint label="feature:st.pyplot" name="st.pyplot" />

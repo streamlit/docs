@@ -6,3 +6,5 @@ keywords: scatter chart, chart, visualization, data, plot, graph, dataframe, cor
 ---
 
 <Autofunction function="streamlit.scatter_chart" />
+
+<GitHubIssuesHint label="feature:builtin-charts" name="st.scatter_chart" />

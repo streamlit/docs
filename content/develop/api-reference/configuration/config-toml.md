@@ -1566,3 +1566,5 @@ chartDivergingColors =
 # Default: [ <path to local environment's secrets.toml file>, <path to project's secrets.toml file>,]
 files = [ "~/.streamlit/secrets.toml", "~/project directory/.streamlit/secrets.toml",]
 ```
+
+<GitHubIssuesHint label="feature:config" name="config.toml" />

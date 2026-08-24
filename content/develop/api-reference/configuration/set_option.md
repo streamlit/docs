@@ -6,3 +6,5 @@ keywords: set_option, configuration, option, update, set setting, config value, 
 ---
 
 <Autofunction function="streamlit.set_option" />
+
+<GitHubIssuesHint label="feature:config" name="st.set_option" />

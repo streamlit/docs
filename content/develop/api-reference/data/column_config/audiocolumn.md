@@ -6,3 +6,5 @@ keywords: st.column_config.AudioColumn, audio column, play audio, audio urls, au
 ---
 
 <Autofunction function="streamlit.column_config.AudioColumn" />
+
+<GitHubIssuesHint label="feature:st.column_config" name="st.column_config.AudioColumn" />

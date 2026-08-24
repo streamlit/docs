@@ -8,3 +8,5 @@ keywords: st.popover, popover, popup container, overlay container, floating cont
 <Autofunction function="streamlit.popover" />
 
 <Autofunction function="PopoverContainer" />
+
+<GitHubIssuesHint label="feature:st.popover" name="st.popover" />

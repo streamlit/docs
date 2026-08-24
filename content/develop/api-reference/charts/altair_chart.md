@@ -121,3 +121,5 @@ Notice how the custom colors are still reflected in the chart, even when the Str
 <Cloud name="doc-altair-custom-colors" height="675px" />
 
 For many more examples of Altair charts with and without the Streamlit theme, check out the [altair.streamlit.app](https://altair.streamlit.app).
+
+<GitHubIssuesHint label="feature:st.altair_chart" name="st.altair_chart" />

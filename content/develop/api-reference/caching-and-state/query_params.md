@@ -57,3 +57,5 @@ When a key is repeated in your app's URL (`?a=1&a=2&a=3`), dict-like methods wil
 <Autofunction function="streamlit.query_params.get_all" />
 
 <Autofunction function="streamlit.query_params.to_dict" />
+
+<GitHubIssuesHint label="feature:query-params" name="st.query_params" />

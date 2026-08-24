@@ -24,3 +24,5 @@ This page only contains the `st.connections.SnowflakeConnection` class. For a de
 <Autofunction function="streamlit.connections.SnowflakeConnection.session" />
 
 <Autofunction function="streamlit.connections.SnowflakeConnection.write_pandas" />
+
+<GitHubIssuesHint label="feature:connections" name="st.connections.SnowflakeConnection" />

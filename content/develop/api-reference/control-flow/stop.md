@@ -6,3 +6,5 @@ keywords: st.stop, stop, execution, halt, control flow, terminate, end
 ---
 
 <Autofunction function="streamlit.stop" />
+
+<GitHubIssuesHint label="feature:st.stop" name="st.stop" />

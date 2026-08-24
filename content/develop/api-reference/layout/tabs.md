@@ -8,3 +8,5 @@ keywords: st.tabs, tabs, tab container, tabbed interface, tab navigation, tabbed
 <Autofunction function="streamlit.tabs" />
 
 <Autofunction function="TabContainer" />
+
+<GitHubIssuesHint label="feature:st.tabs" name="st.tabs" />

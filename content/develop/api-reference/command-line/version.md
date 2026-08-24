@@ -14,3 +14,5 @@ Print Streamlit's version number. This command is equivalent to executing `strea
 ```
 streamlit version
 ```
+
+<GitHubIssuesHint label="feature:cli" name="streamlit version" />

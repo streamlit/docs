@@ -65,3 +65,5 @@ streamlit init <directory>
    This is equivalent to executing `streamlit run project/streamlit_app.py` from your current working directory.
 
 3. Begin editing your `streamlit_app.py` file and save your changes.
+
+<GitHubIssuesHint label="feature:cli" name="streamlit init" />

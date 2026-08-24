@@ -18,3 +18,5 @@ Read the [Build a basic LLM chat app](/develop/tutorials/chat-and-llm-apps/build
 For an overview of the `st.chat_input` and `st.chat_message` API, check out this video tutorial by Chanin Nantasenamat ([@dataprofessor](https://www.youtube.com/dataprofessor)), a Senior Developer Advocate at Streamlit.
 
 <YouTube videoId="4sPnOqeUDmk" />
+
+<GitHubIssuesHint label="feature:st.chat_input" name="st.chat_input" />

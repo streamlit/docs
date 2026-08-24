@@ -6,3 +6,5 @@ keywords: st.balloons, celebratory balloons, celebration, success animation, bal
 ---
 
 <Autofunction function="streamlit.balloons" />
+
+<GitHubIssuesHint label="feature:st.balloons" name="st.balloons" />

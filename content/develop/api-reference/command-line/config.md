@@ -14,3 +14,5 @@ Print all the available configuration options, including their descriptions, def
 ```
 streamlit config show
 ```
+
+<GitHubIssuesHint label="feature:cli" name="streamlit config show" />

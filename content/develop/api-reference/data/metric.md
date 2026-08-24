@@ -6,3 +6,5 @@ keywords: st.metric, metric display, kpi display, dashboard metrics, metric indi
 ---
 
 <Autofunction function="streamlit.metric" />
+
+<GitHubIssuesHint label="feature:st.metric" name="st.metric" />

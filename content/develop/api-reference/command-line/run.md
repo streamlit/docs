@@ -100,3 +100,5 @@ If you need to pass arguments directly to your script, you can pass them as posi
   sys.argv[2] == "of"
   sys.argv[3] == "arguments"
   ```
+
+<GitHubIssuesHint label="feature:cli" name="streamlit run" />

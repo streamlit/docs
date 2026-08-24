@@ -53,3 +53,5 @@ With `--global`, it installs a meta skill to the user directory that is availabl
   ```bash
   streamlit skills -g -y
   ```
+
+<GitHubIssuesHint label="feature:cli" name="streamlit skills" />

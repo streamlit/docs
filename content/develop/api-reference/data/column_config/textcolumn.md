@@ -6,3 +6,5 @@ keywords: st.column_config.TextColumn, text column, text input, string column, t
 ---
 
 <Autofunction function="streamlit.column_config.TextColumn" />
+
+<GitHubIssuesHint label="feature:st.column_config" name="st.column_config.TextColumn" />

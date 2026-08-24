@@ -6,3 +6,5 @@ keywords: menu, multi-action button, drop-down button, multiple trigger button
 ---
 
 <Autofunction function="streamlit.menu_button" />
+
+<GitHubIssuesHint label="feature:st.menu_button" name="st.menu_button" />

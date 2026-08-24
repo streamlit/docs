@@ -80,3 +80,5 @@ You can have multiple `st.echo()` blocks in the same file.
 Use it as often as you wish!
 
 </Note>
+
+<GitHubIssuesHint label="feature:st.echo" name="st.echo" />

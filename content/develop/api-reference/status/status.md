@@ -8,3 +8,5 @@ keywords: st.status, status container, mutable expander, status expander, status
 <Autofunction function="streamlit.status" />
 
 <Autofunction function="StatusContainer.update" />
+
+<GitHubIssuesHint label="feature:st.status" name="st.status" />

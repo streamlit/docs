@@ -6,3 +6,5 @@ keywords: st.download_button, download button, file download, download widget, e
 ---
 
 <Autofunction function="streamlit.download_button" />
+
+<GitHubIssuesHint label="feature:st.download_button" name="st.download_button" />

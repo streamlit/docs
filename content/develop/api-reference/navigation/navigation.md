@@ -6,3 +6,5 @@ keywords: st.navigation, navigation menu, page selection, multipage app, page me
 ---
 
 <Autofunction function="streamlit.navigation" />
+
+<GitHubIssuesHint label="feature:st.navigation" name="st.navigation" />

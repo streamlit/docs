@@ -6,3 +6,5 @@ keywords: st.column_config.MarkdownColumn, markdown column, rendered markdown, d
 ---
 
 <Autofunction function="streamlit.column_config.MarkdownColumn" />
+
+<GitHubIssuesHint label="feature:st.column_config" name="st.column_config.MarkdownColumn" />

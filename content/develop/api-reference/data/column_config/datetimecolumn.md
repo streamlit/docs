@@ -6,3 +6,5 @@ keywords: st.column_config.DatetimeColumn, datetime column, datetime picker, dat
 ---
 
 <Autofunction function="streamlit.column_config.DatetimeColumn" />
+
+<GitHubIssuesHint label="feature:st.column_config" name="st.column_config.DatetimeColumn" />

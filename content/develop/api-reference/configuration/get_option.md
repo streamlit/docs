@@ -6,3 +6,5 @@ keywords: get_option, configuration, option, retrieve, get setting, config value
 ---
 
 <Autofunction function="streamlit.get_option" />
+
+<GitHubIssuesHint label="feature:config" name="st.get_option" />

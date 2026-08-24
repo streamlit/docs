@@ -8,3 +8,5 @@ keywords: st.column_config.ButtonColumn, button column, clickable buttons, dataf
 <Autofunction function="streamlit.column_config.ButtonColumn" />
 
 <Autofunction function="ButtonColumnClickState" />
+
+<GitHubIssuesHint label="feature:st.column_config" name="st.column_config.ButtonColumn" />

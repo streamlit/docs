@@ -6,3 +6,5 @@ keywords: st.column_config.MultiselectColumn, multiselect column, dropdown colum
 ---
 
 <Autofunction function="streamlit.column_config.MultiselectColumn" />
+
+<GitHubIssuesHint label="feature:st.column_config" name="st.column_config.MultiselectColumn" />

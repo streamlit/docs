@@ -10,3 +10,5 @@ keywords: st.Page, StreamlitPage, page object, multipage app, page initializatio
 <Autofunction function="StreamlitPage" />
 
 <Autofunction function="StreamlitPage.run" />
+
+<GitHubIssuesHint label="feature:multipage-apps" name="st.Page" />

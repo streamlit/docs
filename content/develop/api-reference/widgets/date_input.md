@@ -6,3 +6,5 @@ keywords: st.date_input, date input, calendar, date picker, date selection, date
 ---
 
 <Autofunction function="streamlit.date_input" />
+
+<GitHubIssuesHint label="feature:st.date_input" name="st.date_input" />
