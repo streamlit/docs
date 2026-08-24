@@ -12,8 +12,8 @@ const GitHubIssuesHint = ({ label, name }) => {
       <p>
         Want a new <code>{displayName}</code> feature or found a bug? Browse{" "}
         <a href={url}>open issues</a> and react with a 👍 on the initial post of
-        the ones that matter to you. Your votes help Streamlit prioritize what to
-        work on next.
+        the ones that matter to you. Your votes help us prioritize what to work
+        on next.
       </p>
     </Tip>
   );
