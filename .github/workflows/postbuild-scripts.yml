@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Checkout the repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
 
       - name: Setup node, build the site and search index afterwards
         uses: actions/setup-node@v7
@@ -36,7 +36,7 @@ jobs:
 
     steps:
       - name: Checkout the repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
 
       - name: Setup node, build the site, and generate the sitemap
         id: sitemap
