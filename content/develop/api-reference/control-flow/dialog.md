@@ -6,3 +6,5 @@ keywords: st.dialog, dialog, modal, overlay, popup, execution flow, control flow
 ---
 
 <Autofunction function="streamlit.dialog" oldName="streamlit.experimental_dialog" />
+
+<GitHubIssuesHint label="feature:st.dialog" name="st.dialog" />

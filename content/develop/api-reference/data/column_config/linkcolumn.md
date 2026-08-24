@@ -6,3 +6,5 @@ keywords: st.column_config.LinkColumn, link column, clickable links, urls, hyper
 ---
 
 <Autofunction function="streamlit.column_config.LinkColumn" />
+
+<GitHubIssuesHint label="feature:st.column_config" name="st.column_config.LinkColumn" />

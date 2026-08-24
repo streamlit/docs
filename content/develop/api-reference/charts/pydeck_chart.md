@@ -12,3 +12,5 @@ keywords: pydeck_chart, pydeck, chart, visualization, data, plot, graph, deck.gl
 <Autofunction function="PydeckState" />
 
 <Autofunction function="PydeckSelectionState" />
+
+<GitHubIssuesHint label="feature:st.pydeck_chart" name="st.pydeck_chart" />

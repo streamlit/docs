@@ -20,3 +20,5 @@ You can configure the display and editing behavior of columns in `st.dataframe` 
 <Cloud name="doc-column-config-overview" query="embed_options=disable_scrolling" height="480px" />
 
 <Autofunction function="DataEditorState" />
+
+<GitHubIssuesHint label="feature:st.data_editor" name="st.data_editor" />

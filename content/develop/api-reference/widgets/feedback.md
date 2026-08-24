@@ -6,3 +6,5 @@ keywords: st.feedback, feedback, user feedback, ratings, feedback widget, thumbs
 ---
 
 <Autofunction function="streamlit.feedback" />
+
+<GitHubIssuesHint label="feature:st.feedback" name="st.feedback" />

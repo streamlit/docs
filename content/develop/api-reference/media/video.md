@@ -6,3 +6,5 @@ keywords: st.video, video player, video display, movie player, video streaming, 
 ---
 
 <Autofunction function="streamlit.video" />
+
+<GitHubIssuesHint label="feature:st.video" name="st.video" />

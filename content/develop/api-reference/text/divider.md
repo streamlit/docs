@@ -24,3 +24,5 @@ st.divider()  # 👈 Another horizontal rule
 ```
 
 <Image src="/images/api/st.divider.png" clean />
+
+<GitHubIssuesHint label="feature:st.divider" name="st.divider" />

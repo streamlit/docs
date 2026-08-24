@@ -6,3 +6,5 @@ keywords: st.datetime_input, datetime input, datetime picker, datetime selection
 ---
 
 <Autofunction function="streamlit.datetime_input" />
+
+<GitHubIssuesHint label="feature:st.datetime_input" name="st.datetime_input" />

@@ -6,3 +6,5 @@ keywords: st.toast, toast notification, toast message, popup notification, tempo
 ---
 
 <Autofunction function="streamlit.toast" />
+
+<GitHubIssuesHint label="feature:st.toast" name="st.toast" />

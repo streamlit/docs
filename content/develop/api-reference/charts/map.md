@@ -6,3 +6,5 @@ keywords: map, geographic, visualization, data, plot, graph, dataframe, coordina
 ---
 
 <Autofunction function="streamlit.map" />
+
+<GitHubIssuesHint label="feature:st.map" name="st.map" />

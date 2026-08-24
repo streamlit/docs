@@ -6,3 +6,5 @@ keywords: st.column_config.Column, column configuration, base column, column set
 ---
 
 <Autofunction function="streamlit.column_config.Column" />
+
+<GitHubIssuesHint label="feature:st.column_config" name="st.column_config.Column" />

@@ -14,3 +14,5 @@ Check out our video on how to use one of Streamlit's core functions, the slider!
 
 In the video below, we'll take it a step further and make a double-ended slider.
 <YouTube videoId="sCvdt79asrE" />
+
+<GitHubIssuesHint label="feature:st.slider" name="st.slider" />

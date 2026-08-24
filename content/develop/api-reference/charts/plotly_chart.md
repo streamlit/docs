@@ -82,3 +82,5 @@ Notice how the custom color scale is still reflected in the chart, even when the
 <Cloud name="doc-plotly-custom-colors" height="650px" />
 
 For many more examples of Plotly charts with and without the Streamlit theme, check out the [plotly.streamlit.app](https://plotly.streamlit.app).
+
+<GitHubIssuesHint label="feature:st.plotly_chart" name="st.plotly_chart" />

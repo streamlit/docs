@@ -224,3 +224,5 @@ When `runner.enforceSerializableSessionState` is set to `true`, Session State im
   ```
 
   ![state-button-exception](/images/state_button_exception.png)
+
+<GitHubIssuesHint label="feature:st.session_state" name="st.session_state" />

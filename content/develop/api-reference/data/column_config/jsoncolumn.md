@@ -6,3 +6,5 @@ keywords: st.column_config.JsonColumn, json column, json data, structured data, 
 ---
 
 <Autofunction function="streamlit.column_config.JsonColumn" />
+
+<GitHubIssuesHint label="feature:st.column_config" name="st.column_config.JsonColumn" />

@@ -6,3 +6,5 @@ keywords: st.column_config.VideoColumn, video column, display videos, video urls
 ---
 
 <Autofunction function="streamlit.column_config.VideoColumn" />
+
+<GitHubIssuesHint label="feature:st.column_config" name="st.column_config.VideoColumn" />

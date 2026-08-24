@@ -6,3 +6,5 @@ keywords: area chart, chart, visualization, data, plot, graph, dataframe, filled
 ---
 
 <Autofunction function="streamlit.area_chart" />
+
+<GitHubIssuesHint label="feature:builtin-charts" name="st.area_chart" />

@@ -6,3 +6,5 @@ keywords: pagination, paged interface, pages, navigation, widget
 ---
 
 <Autofunction function="streamlit.pagination" />
+
+<GitHubIssuesHint label="feature:st.pagination" name="st.pagination" />

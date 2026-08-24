@@ -6,3 +6,5 @@ keywords: st.snow, celebratory snow, snow animation, winter celebration, snowfla
 ---
 
 <Autofunction function="streamlit.snow" />
+
+<GitHubIssuesHint label="feature:st.snow" name="st.snow" />

@@ -6,3 +6,5 @@ keywords: st.empty, empty container, single element container, placeholder conta
 ---
 
 <Autofunction function="streamlit.empty" />
+
+<GitHubIssuesHint label="feature:st.empty" name="st.empty" />

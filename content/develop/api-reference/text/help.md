@@ -6,3 +6,5 @@ keywords: st.help, help, documentation, docstring, help text, function help, obj
 ---
 
 <Autofunction function="streamlit.help" />
+
+<GitHubIssuesHint label="feature:st.help" name="st.help" />

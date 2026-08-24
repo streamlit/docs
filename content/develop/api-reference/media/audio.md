@@ -6,3 +6,5 @@ keywords: st.audio, audio player, audio file, sound player, music player, audio 
 ---
 
 <Autofunction function="streamlit.audio" />
+
+<GitHubIssuesHint label="feature:st.audio" name="st.audio" />

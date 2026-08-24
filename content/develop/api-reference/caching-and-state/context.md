@@ -24,3 +24,5 @@ keywords: context, cookies, headers, browser, session, locale, theme, timezone, 
 <Autofunction function="context.timezone_offset" />
 
 <Autofunction function="context.url" />
+
+<GitHubIssuesHint label="feature:st.context" name="st.context" />

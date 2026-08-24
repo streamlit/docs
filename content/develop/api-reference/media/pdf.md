@@ -6,3 +6,5 @@ keywords: st.pdf, pdf viewer, pdf display, document viewer, pdf reader, document
 ---
 
 <Autofunction function="streamlit.pdf" />
+
+<GitHubIssuesHint label="feature:st.pdf" name="st.pdf" />

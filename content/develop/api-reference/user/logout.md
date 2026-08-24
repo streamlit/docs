@@ -12,3 +12,5 @@ Learn more in [User authentication and information](/develop/concepts/connection
 </Tip>
 
 <Autofunction function="streamlit.logout" />
+
+<GitHubIssuesHint label="feature:authentication" name="st.logout" />

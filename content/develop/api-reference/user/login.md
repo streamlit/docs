@@ -12,3 +12,5 @@ Learn more in [User authentication and information](/develop/concepts/connection
 </Tip>
 
 <Autofunction function="streamlit.login" />
+
+<GitHubIssuesHint label="feature:st.login" name="st.login" />

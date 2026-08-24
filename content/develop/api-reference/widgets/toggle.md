@@ -6,3 +6,5 @@ keywords: st.toggle, toggle, switch, toggle switch, on off, boolean toggle, togg
 ---
 
 <Autofunction function="streamlit.toggle" />
+
+<GitHubIssuesHint label="feature:st.toggle" name="st.toggle" />

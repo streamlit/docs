@@ -6,3 +6,5 @@ keywords: st.columns, columns, side by side layout, column layout, grid layout, 
 ---
 
 <Autofunction function="streamlit.columns" />
+
+<GitHubIssuesHint label="feature:st.columns" name="st.columns" />

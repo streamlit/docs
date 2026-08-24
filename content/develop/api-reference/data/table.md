@@ -12,3 +12,5 @@ Static tables with `st.table` are the most basic way to display dataframes. For 
 </Tip>
 
 <Autofunction function="streamlit.table" />
+
+<GitHubIssuesHint label="feature:st.table" name="st.table" />

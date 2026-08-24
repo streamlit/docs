@@ -6,3 +6,5 @@ keywords: line chart, chart, visualization, data, plot, graph, dataframe, time s
 ---
 
 <Autofunction function="streamlit.line_chart" />
+
+<GitHubIssuesHint label="feature:builtin-charts" name="st.line_chart" />

@@ -6,3 +6,5 @@ keywords: st.progress, progress bar, loading bar, progress indicator, task progr
 ---
 
 <Autofunction function="streamlit.progress" />
+
+<GitHubIssuesHint label="feature:st.progress" name="st.progress" />

@@ -8,3 +8,5 @@ keywords: st.latex, latex, math, mathematical expressions, equations, latex math
 <Autofunction function="streamlit.latex" />
 
 <Image src="/images/api/st.latex.png" clean />
+
+<GitHubIssuesHint label="feature:st.latex" name="st.latex" />

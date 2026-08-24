@@ -6,3 +6,5 @@ keywords: st.title, title, main title, app title, large title, h1, title formatt
 ---
 
 <Autofunction function="streamlit.title" />
+
+<GitHubIssuesHint label="feature:st.title" name="st.title" />

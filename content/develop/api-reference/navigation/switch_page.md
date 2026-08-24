@@ -6,3 +6,5 @@ keywords: st.switch_page, switch page, programmatic navigation, page redirect, n
 ---
 
 <Autofunction function="streamlit.switch_page" />
+
+<GitHubIssuesHint label="feature:st.switch_page" name="st.switch_page" />
