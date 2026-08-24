@@ -4,7 +4,7 @@ import Tip from "./tip";
 
 const GitHubIssuesHint = ({ label, name }) => {
   const displayName = name || String(label).replace(/^feature:/, "");
-  const query = `is:issue state:open label:${label} sort:reactions-+1-desc`;
+  const query = `is:issue state:open label:"${label}" sort:reactions-+1-desc`;
   const url = `https://github.com/streamlit/streamlit/issues?q=${encodeURIComponent(query)}`;
 
   return (
