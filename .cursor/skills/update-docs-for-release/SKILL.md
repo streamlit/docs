@@ -1,6 +1,6 @@
 ---
 name: update-docs-for-release
-description: Update the streamlit/docs repo for a new Streamlit release. Covers branch setup, release notes, API docstring generation, config.toml, API tiles/pages, and removing or deprecating commands and parameters. Use when the user asks to update docs for a new Streamlit release, add release notes, generate docstrings, or add API tiles for new commands.
+description: Update the streamlit/docs repo for a new Streamlit release. Covers branch setup, release notes, API docstring generation, config.toml, API tiles/pages, deprecations, and a changelog sweep of concepts, tutorials, and knowledge articles. Use when the user asks to update docs for a new Streamlit release, add release notes, generate docstrings, or add API tiles for new commands.
 disable-model-invocation: true
 ---
 
@@ -245,6 +245,40 @@ Clear the command or parameter from anything that presents it as current API:
 - **Commands or methods without a dedicated page** (for example a DeltaGenerator method) — delete Autofunctions, tiles, and cheat-sheet lines, and rewrite tutorials or demo apps that still call them.
 - If `generate.py` errors because an object no longer exists, remove that entry from `obj_key` (or related dicts) and re-run, as in step 3.
 
-## 8. Commit and push
+## 8. Changelog sweep of existing docs
 
-Make focused commits per logical unit of work (release notes, docstrings, config, API tiles, deprecations/removals, images, example apps). Push to the branch and open a PR against `main`.
+After the API, config, and deprecation steps, walk the new release notes (step 2) against the rest of the docs. New command pages, `config.toml`, and removal/deprecation stubs are already covered in steps 4, 6, and 7. This step is everything else that can go stale.
+
+Treat **Highlights** and **Notable Changes** as a checklist. For **Other Changes**, only follow up when a bullet changes documented behavior, defaults, limitations, or recommended usage — skip routine bug fixes.
+
+For each relevant bullet, search for the command, parameter, config key, old workaround, or limitation it touches in:
+
+- `content/develop/concepts/`
+- `content/develop/tutorials/`
+- `content/get-started/`
+- `content/deploy/`
+- `content/kb/` (knowledge base / FAQs)
+- Extra prose and examples on existing API pages (anything around `<Autofunction>`, not the generated docstring itself)
+- `content/develop/quick-references/api-cheat-sheet.md`
+- `content/develop/concepts/app-testing/cheat-sheet.md` when the change affects `AppTest` or widget testing
+
+Do not edit historical yearly release-note pages.
+
+The generated Autofunction and `python/streamlit.json` already document new parameters. **Do not add new examples, extra API-page demos, or cheat-sheet lines just to showcase a new parameter.** Leave Highlights that are fully covered by the Autofunction, a new API page (step 4), or config docs (step 6) alone unless existing prose contradicts them.
+
+It is useful to **update an existing example** when a new parameter is a natural fit, instead of inventing a new snippet. For example, change `st.text_input("Email")` to `st.text_input("Email", type="email")` on a form that already collects an email. Do not add a separate "email input" example only because `type` shipped.
+
+Update a narrative page only when the changelog makes that page **wrong or misleading**, or when a highlighted capability belongs on a page that already teaches that topic:
+
+- The page recommends a parameter, command, or workaround this version replaced or removed
+- The page documents a limitation, default, or return type that no longer holds
+- The page already explains the behavior that changed (for example a layouts guide that describes wrapping/stacking) and would be incomplete without the new option
+- An overview page such as `content/get-started/fundamentals/additional-features.md` needs a short mention of a genuinely new capability (not a new kwarg on an existing command)
+
+Rewrite in place to match current Streamlit. Do not add a new knowledge-base article unless the user asks, or an existing FAQ is now wrong and cannot be fixed with an edit.
+
+When the sweep is done, list the pages you changed (and any changelog bullets you checked but left alone) so the user can review.
+
+## 9. Commit and push
+
+Make focused commits per logical unit of work (release notes, docstrings, config, API tiles, deprecations/removals, changelog sweep, images, example apps). Push to the branch and open a PR against `main`.
