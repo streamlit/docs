@@ -279,6 +279,18 @@ Rewrite in place to match current Streamlit. Do not add a new knowledge-base art
 
 When the sweep is done, list the pages you changed (and any changelog bullets you checked but left alone) so the user can review.
 
-## 9. Commit and push
+## 9. What's New overview
+
+Update the homepage's **What's new** section in `pages/index.js` with one or two broadly useful, user-facing features from the new release's **Highlights**. Replace the same number of older feature cards so the section stays at six cards.
+
+For each new card:
+
+- Link directly to the feature's current concept or API page and append `?utm_source=streamlit` (place any anchor after the query string).
+- Use a concise title, one-sentence description, and an appropriate Material icon in the existing `RefCard` pattern.
+- Prefer highlights with stable documentation and broad appeal. Do not feature bug fixes, deprecations, removals, or internal changes.
+
+Keep the newest cards first and remove the oldest or least relevant cards.
+
+## 10. Commit and push
 
 Make focused commits per logical unit of work (release notes, docstrings, config, API tiles, deprecations/removals, changelog sweep, images, example apps). Push to the branch and open a PR against `main`.
