@@ -6,3 +6,5 @@ keywords: st.text, text, plain text, raw text, unformatted text
 ---
 
 <Autofunction function="streamlit.text" />
+
+<GitHubIssuesHint label="feature:st.text" name="st.text" />

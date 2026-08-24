@@ -6,3 +6,5 @@ keywords: st.column_config.CheckboxColumn, checkbox column, boolean column, true
 ---
 
 <Autofunction function="streamlit.column_config.CheckboxColumn" />
+
+<GitHubIssuesHint label="feature:st.column_config" name="st.column_config.CheckboxColumn" />

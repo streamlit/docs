@@ -6,3 +6,5 @@ keywords: st.pills, pills, pill buttons, button selection, pill selector, toggle
 ---
 
 <Autofunction function="streamlit.pills" />
+
+<GitHubIssuesHint label="feature:st.pills" name="st.pills" />

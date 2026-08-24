@@ -173,3 +173,5 @@ if img_file_buffer is not None:
     # Should output shape: torch.Size([channels, height, width])
     st.write(torch_img.shape)
 ```
+
+<GitHubIssuesHint label="feature:st.camera_input" name="st.camera_input" />

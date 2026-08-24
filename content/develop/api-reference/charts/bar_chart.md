@@ -6,3 +6,5 @@ keywords: bar chart, chart, visualization, data, plot, graph, dataframe, categor
 ---
 
 <Autofunction function="streamlit.bar_chart" />
+
+<GitHubIssuesHint label="feature:builtin-charts" name="st.bar_chart" />

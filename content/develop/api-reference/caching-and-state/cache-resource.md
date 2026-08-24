@@ -71,3 +71,5 @@ def load_model():
     st.write("Here's the model:")
     return model
 ```
+
+<GitHubIssuesHint label="feature:cache" name="st.cache_resource" />

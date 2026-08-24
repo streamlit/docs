@@ -6,3 +6,5 @@ keywords: st.segmented_control, segmented control, segmented button, button segm
 ---
 
 <Autofunction function="streamlit.segmented_control" />
+
+<GitHubIssuesHint label="feature:st.segmented_control" name="st.segmented_control" />

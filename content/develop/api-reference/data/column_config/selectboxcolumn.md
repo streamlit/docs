@@ -6,3 +6,5 @@ keywords: st.column_config.SelectboxColumn, selectbox column, dropdown column, s
 ---
 
 <Autofunction function="streamlit.column_config.SelectboxColumn" />
+
+<GitHubIssuesHint label="feature:st.column_config" name="st.column_config.SelectboxColumn" />

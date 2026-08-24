@@ -6,3 +6,5 @@ keywords: st.json, json display, pretty print json, json formatting, json viewer
 ---
 
 <Autofunction function="streamlit.json" />
+
+<GitHubIssuesHint label="feature:st.json" name="st.json" />

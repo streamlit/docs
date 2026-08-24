@@ -6,3 +6,5 @@ keywords: st.exception, exception display, exception handling, error traceback, 
 ---
 
 <Autofunction function="streamlit.exception" />
+
+<GitHubIssuesHint label="feature:st.exception" name="st.exception" />

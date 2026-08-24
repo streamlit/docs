@@ -58,3 +58,5 @@ if st.button("Baz"):
 
 container.header(st.session_state.value)
 ```
+
+<GitHubIssuesHint label="feature:st.rerun" name="st.rerun" />

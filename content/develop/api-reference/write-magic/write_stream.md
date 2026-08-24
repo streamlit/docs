@@ -19,3 +19,5 @@ for chunk in unsupported_stream:
 For an example, see how we use [Replicate](https://replicate.com/docs/get-started/python) with [Snowflake Arctic](https://www.snowflake.com/en/data-cloud/arctic/) in [this code](https://github.com/streamlit/snowflake-arctic-st-demo/blob/0f0d8b49f328f72ae58ced2e9000790fb5e56e6f/simple_app.py#L58).
 
 </Tip>
+
+<GitHubIssuesHint label="feature:st.write_stream" name="st.write_stream" />

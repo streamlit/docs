@@ -6,3 +6,5 @@ keywords: st.audio_input, audio input, microphone, audio recording, voice input,
 ---
 
 <Autofunction function="streamlit.audio_input" oldName="streamlit.experimental_audio_input" />
+
+<GitHubIssuesHint label="feature:st.audio_input" name="st.audio_input" />

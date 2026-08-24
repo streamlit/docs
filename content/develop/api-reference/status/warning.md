@@ -6,3 +6,5 @@ keywords: st.warning, warning message, warning notification, warning alert, yell
 ---
 
 <Autofunction function="streamlit.warning" />
+
+<GitHubIssuesHint label="feature:st.warning" name="st.warning" />

@@ -6,3 +6,5 @@ keywords: subheader, text, formatting, heading, display
 ---
 
 <Autofunction function="streamlit.subheader" />
+
+<GitHubIssuesHint label="feature:st.header" name="st.subheader" />

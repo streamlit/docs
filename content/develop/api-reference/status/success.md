@@ -6,3 +6,5 @@ keywords: st.success, success message, success notification, success alert, gree
 ---
 
 <Autofunction function="streamlit.success" />
+
+<GitHubIssuesHint label="feature:st.success" name="st.success" />

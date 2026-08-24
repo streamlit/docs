@@ -8,3 +8,5 @@ keywords: st.caption, caption, small text, small font, subtitle, description tex
 <Autofunction function="streamlit.caption" />
 
 <Image src="/images/api/st.caption.png" clean />
+
+<GitHubIssuesHint label="feature:st.caption" name="st.caption" />

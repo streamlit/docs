@@ -23,3 +23,5 @@ st.markdown(md)
 ```
 
 <Cloud name="doc-markdown1" height="500px" />
+
+<GitHubIssuesHint label="feature:markdown" name="st.markdown" />

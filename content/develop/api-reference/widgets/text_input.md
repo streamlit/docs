@@ -47,3 +47,5 @@ with col2:
 ```
 
 <Cloud name="doc-text-input1" height="400px" />
+
+<GitHubIssuesHint label="feature:st.text_input" name="st.text_input" />

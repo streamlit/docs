@@ -71,3 +71,5 @@ with st.sidebar:
         time.sleep(5)
     st.success("Done!")
 ```
+
+<GitHubIssuesHint label="feature:st.sidebar" name="st.sidebar" />

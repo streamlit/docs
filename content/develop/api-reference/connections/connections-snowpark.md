@@ -20,3 +20,5 @@ This page only contains the `st.connections.SnowparkConnection` class. For a dee
 <Autofunction function="streamlit.connections.SnowparkConnection.safe_session" />
 
 <Autofunction function="streamlit.connections.SnowparkConnection.session" />
+
+<GitHubIssuesHint label="feature:connections" name="st.connections.SnowparkConnection" />

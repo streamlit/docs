@@ -6,3 +6,5 @@ keywords: st.spinner, loading spinner, loading message, loading indicator, spinn
 ---
 
 <Autofunction function="streamlit.spinner" />
+
+<GitHubIssuesHint label="feature:st.spinner" name="st.spinner" />

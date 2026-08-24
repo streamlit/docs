@@ -6,3 +6,5 @@ keywords: st.column_config.AreaChartColumn, area chart column, inline charts, ti
 ---
 
 <Autofunction function="streamlit.column_config.AreaChartColumn" />
+
+<GitHubIssuesHint label="feature:st.column_config" name="st.column_config.AreaChartColumn" />

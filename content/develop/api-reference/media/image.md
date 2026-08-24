@@ -6,3 +6,5 @@ keywords: st.image, display image, image gallery, picture display, photo display
 ---
 
 <Autofunction function="streamlit.image" />
+
+<GitHubIssuesHint label="feature:st.image" name="st.image" />

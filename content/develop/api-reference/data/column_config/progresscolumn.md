@@ -6,3 +6,5 @@ keywords: st.column_config.ProgressColumn, progress column, progress bar, progre
 ---
 
 <Autofunction function="streamlit.column_config.ProgressColumn" />
+
+<GitHubIssuesHint label="feature:st.column_config" name="st.column_config.ProgressColumn" />

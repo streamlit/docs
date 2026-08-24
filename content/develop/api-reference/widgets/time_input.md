@@ -6,3 +6,5 @@ keywords: st.time_input, time input, time picker, time selection, time widget, c
 ---
 
 <Autofunction function="streamlit.time_input" />
+
+<GitHubIssuesHint label="feature:st.time_input" name="st.time_input" />

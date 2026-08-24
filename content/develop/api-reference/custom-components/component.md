@@ -6,3 +6,5 @@ keywords: st.components.v2.component, custom components v2, register component, 
 ---
 
 <Autofunction function="streamlit.components.v2.component" />
+
+<GitHubIssuesHint label="feature:custom-components" name="st.components.v2.component" />

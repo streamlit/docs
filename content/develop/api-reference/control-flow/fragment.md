@@ -6,3 +6,5 @@ keywords: st.fragment, fragment, decorator, rerun, independent, execution flow, 
 ---
 
 <Autofunction function="streamlit.fragment" oldName="streamlit.experimental_fragment" />
+
+<GitHubIssuesHint label="feature:st.fragment" name="st.fragment" />

@@ -6,3 +6,5 @@ keywords: st.html, html, html rendering, html display, custom html, html strings
 ---
 
 <Autofunction function="streamlit.html" />
+
+<GitHubIssuesHint label="feature:st.html" name="st.html" />
