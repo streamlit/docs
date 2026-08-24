@@ -6,3 +6,5 @@ keywords: st.number_input, number input, numeric input, integer input, float inp
 ---
 
 <Autofunction function="streamlit.number_input" />
+
+<GitHubIssuesHint label="feature:st.number_input" name="st.number_input" />

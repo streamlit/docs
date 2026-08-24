@@ -6,3 +6,5 @@ keywords: st.badge, badge, tag, colored badge, status badge, label, indicator, c
 ---
 
 <Autofunction function="streamlit.badge" />
+
+<GitHubIssuesHint label="feature:st.badge" name="st.badge" />

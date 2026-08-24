@@ -12,3 +12,5 @@ Check out our [tutorial](/develop/tutorials/multipage/st.page_link-nav) to learn
 </Tip>
 
 <Autofunction function="streamlit.page_link" />
+
+<GitHubIssuesHint label="feature:st.page_link" name="st.page_link" />

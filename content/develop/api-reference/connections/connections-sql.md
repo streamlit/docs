@@ -24,3 +24,5 @@ This page only contains the `st.connections.SQLConnection` class. For a deeper d
 <Autofunction function="streamlit.connections.SQLConnection.engine" />
 
 <Autofunction function="streamlit.connections.SQLConnection.session" />
+
+<GitHubIssuesHint label="feature:connections" name="st.connections.SQLConnection" />

@@ -116,3 +116,5 @@ Note that you can also retrieve elements within a specific container in the same
 <Autofunction function="AppTest.toggle" />
 
 <Autofunction function="AppTest.warning" />
+
+<GitHubIssuesHint label="feature:app-testing" name="st.testing.v1.AppTest" />

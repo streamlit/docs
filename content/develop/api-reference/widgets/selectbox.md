@@ -39,3 +39,5 @@ with col2:
 ```
 
 <Cloud name="doc-selectbox1" height="300px" />
+
+<GitHubIssuesHint label="feature:st.selectbox" name="st.selectbox" />

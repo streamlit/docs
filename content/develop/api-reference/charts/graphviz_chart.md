@@ -6,3 +6,5 @@ keywords: graphviz_chart, graphviz, chart, visualization, graph, dagre-d3, netwo
 ---
 
 <Autofunction function="streamlit.graphviz_chart" />
+
+<GitHubIssuesHint label="feature:st.graphviz_chart" name="st.graphviz_chart" />

@@ -6,3 +6,5 @@ keywords: st.App, ASGI, Starlette, server, middleware, routes, lifecycle, config
 ---
 
 <Autofunction function="streamlit.App" />
+
+<GitHubIssuesHint label="feature:st.App" name="st.App" />

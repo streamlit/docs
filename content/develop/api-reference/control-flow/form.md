@@ -12,3 +12,5 @@ This page only contains information on the `st.forms` API. For a deeper dive int
 </Tip>
 
 <Autofunction function="streamlit.form" />
+
+<GitHubIssuesHint label="feature:st.form" name="st.form" />

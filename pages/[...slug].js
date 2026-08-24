@@ -89,6 +89,7 @@ import DataSourcesCard from "../components/blocks/dataSourcesCard";
 import Tile from "../components/blocks/tile";
 import InlineCallout from "../components/blocks/inlineCallout";
 import Tip from "../components/blocks/tip";
+import GitHubIssuesHint from "../components/blocks/githubIssuesHint";
 import Warning from "../components/blocks/warning";
 import YouTube from "../components/blocks/youTube";
 import Cloud from "../components/blocks/cloud";
@@ -156,6 +157,7 @@ export default function Article({
     Note,
     NoteSplit,
     Tip,
+    GitHubIssuesHint,
     Deprecation,
     Important,
     Code,

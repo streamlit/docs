@@ -73,3 +73,5 @@ def show_data():
     st.write("And here is the raw data:")
     st.dataframe(data)
 ```
+
+<GitHubIssuesHint label="feature:cache" name="st.cache_data" />

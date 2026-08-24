@@ -6,3 +6,5 @@ keywords: st.column_config.BarChartColumn, bar chart column, inline charts, hori
 ---
 
 <Autofunction function="streamlit.column_config.BarChartColumn" />
+
+<GitHubIssuesHint label="feature:st.column_config" name="st.column_config.BarChartColumn" />

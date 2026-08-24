@@ -6,3 +6,5 @@ keywords: st.error, error message, error display, error notification, error aler
 ---
 
 <Autofunction function="streamlit.error" />
+
+<GitHubIssuesHint label="feature:st.error" name="st.error" />

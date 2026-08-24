@@ -6,3 +6,5 @@ keywords: st.logo, app logo, brand logo, header logo, sidebar logo, branding, co
 ---
 
 <Autofunction function="streamlit.logo" />
+
+<GitHubIssuesHint label="feature:st.logo" name="st.logo" />

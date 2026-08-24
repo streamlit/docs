@@ -6,3 +6,5 @@ keywords: st.container, container, multi element container, layout container, el
 ---
 
 <Autofunction function="streamlit.container" />
+
+<GitHubIssuesHint label="feature:st.container" name="st.container" />

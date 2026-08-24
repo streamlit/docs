@@ -6,3 +6,5 @@ keywords: st.color_picker, color picker, color selection, color widget, hex colo
 ---
 
 <Autofunction function="streamlit.color_picker" />
+
+<GitHubIssuesHint label="feature:st.color_picker" name="st.color_picker" />

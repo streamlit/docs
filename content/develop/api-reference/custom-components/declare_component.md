@@ -6,3 +6,5 @@ keywords: declare_component, custom component, register, frontend, react, javasc
 ---
 
 <Autofunction function="streamlit.components.v1.declare_component" />
+
+<GitHubIssuesHint label="feature:custom-components" name="st.components.v1.declare_component" />

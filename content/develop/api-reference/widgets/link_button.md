@@ -6,3 +6,5 @@ keywords: st.link_button, link button, external link, url button, navigation but
 ---
 
 <Autofunction function="streamlit.link_button" />
+
+<GitHubIssuesHint label="feature:st.link_button" name="st.link_button" />

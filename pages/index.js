@@ -146,6 +146,61 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/develop/api-reference/execution-flow/st.fragment?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">call_split</i>
+                <h4>Parallel fragments</h4>
+                <p>
+                  Set <code>parallel=True</code> on <code>st.fragment</code> to
+                  run independent fragments concurrently during full-app reruns.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/caching-and-state/st.cache_data?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">cached</i>
+                <h4>Background cache refresh</h4>
+                <p>
+                  Refresh expired cached values in the background while your app
+                  continues serving the previous value.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/data/st.column_config/st.column_config.buttoncolumn?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">smart_button</i>
+                <h4>ButtonColumn</h4>
+                <p>
+                  Add clickable buttons to <code>st.dataframe</code> and{" "}
+                  <code>st.data_editor</code> to trigger actions from a row.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/server/st.app?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">settings</i>
+                <h4>Advanced app configuration</h4>
+                <p>
+                  Use <code>st.App</code> to configure custom HTTP routes,
+                  middleware, lifecycle hooks, and ASGI integrations.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/data/st.dataframe?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">table_rows</i>
+                <h4>Lazy-loading dataframes</h4>
+                <p>
+                  Large dataframes load rows on demand, keeping the browser
+                  responsive as users scroll or sort.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="/develop/api-reference/layout/st.tabs?utm_source=streamlit"
               >
                 <i className="material-icons-sharp">touch_app</i>
@@ -153,63 +208,7 @@ export default function Home({ window, menu }) {
                 <p>
                   <code>st.tabs</code>, <code>st.expander</code>, and{" "}
                   <code>st.popover</code> can track open/closed state and
-                  trigger reruns with the new <code>on_change</code> parameter.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/concepts/architecture/widget-behavior?utm_source=streamlit#binding-widgets-to-query-parameters"
-              >
-                <i className="material-icons-sharp">share</i>
-                <h4>Widget binding</h4>
-                <p>
-                  Most non-trigger widgets have a <code>bind</code> parameter to
-                  sync widget state with URL query parameters.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/media/st.image?utm_source=streamlit"
-              >
-                <i className="material-icons-sharp">open_in_new</i>
-                <h4>Clickable images</h4>
-                <p>
-                  <code>st.image</code> has a <code>link</code> parameter to
-                  make images clickable with HTTP/HTTPS URLs.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/navigation/st.page?utm_source=streamlit"
-              >
-                <i className="material-icons-sharp">visibility_off</i>
-                <h4>Hidden pages</h4>
-                <p>
-                  <code>st.Page</code> has a <code>visibility</code> parameter
-                  to hide pages in the navigation menu while keeping them
-                  routable.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/text/st.markdown?utm_source=streamlit"
-              >
-                <i className="material-icons-sharp">format_color_text</i>
-                <h4>CSS colors in Markdown</h4>
-                <p>
-                  Markdown supports arbitrary CSS colors for text foreground and
-                  background styling.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/data/st.metric?utm_source=streamlit"
-              >
-                <i className="material-icons-sharp">speed</i>
-                <h4>Metric delta descriptions</h4>
-                <p>
-                  <code>st.metric</code> has a <code>delta_description</code>{" "}
-                  parameter to display descriptive text next to delta values.
+                  trigger reruns with the <code>on_change</code> parameter.
                 </p>
               </RefCard>
             </TileContainer>

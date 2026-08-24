@@ -8,3 +8,5 @@ keywords: st.expander, expander, collapsible container, expandable container, ac
 <Autofunction function="streamlit.expander" />
 
 <Autofunction function="ExpanderContainer" />
+
+<GitHubIssuesHint label="feature:st.expander" name="st.expander" />

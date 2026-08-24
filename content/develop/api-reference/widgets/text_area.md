@@ -6,3 +6,5 @@ keywords: st.text_area, text area, multi-line text, textarea, text input, long t
 ---
 
 <Autofunction function="streamlit.text_area" />
+
+<GitHubIssuesHint label="feature:st.text_area" name="st.text_area" />

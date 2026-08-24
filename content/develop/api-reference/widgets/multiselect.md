@@ -6,3 +6,5 @@ keywords: st.multiselect, multiselect, multiple selection, multi choice, select 
 ---
 
 <Autofunction function="streamlit.multiselect" />
+
+<GitHubIssuesHint label="feature:st.multiselect" name="st.multiselect" />

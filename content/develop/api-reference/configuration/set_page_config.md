@@ -6,3 +6,5 @@ keywords: set_page_config, page config, title, favicon, layout, initial sidebar 
 ---
 
 <Autofunction function="streamlit.set_page_config" />
+
+<GitHubIssuesHint label="feature:st.set_page_config" name="st.set_page_config" />

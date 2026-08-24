@@ -6,3 +6,5 @@ keywords: st.info, info message, information display, info notification, info al
 ---
 
 <Autofunction function="streamlit.info" />
+
+<GitHubIssuesHint label="feature:st.info" name="st.info" />

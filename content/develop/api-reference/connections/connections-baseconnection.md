@@ -18,3 +18,5 @@ This page only contains information on the `st.connections.BaseConnection` class
 <Autofunction function="streamlit.connections.BaseConnection.close" />
 
 <Autofunction function="streamlit.connections.BaseConnection.scope" />
+
+<GitHubIssuesHint label="feature:connections" name="st.connections.BaseConnection" />
