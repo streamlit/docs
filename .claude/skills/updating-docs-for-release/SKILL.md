@@ -1,7 +1,6 @@
 ---
-name: update-docs-for-release
+name: updating-docs-for-release
 description: Update the streamlit/docs repo for a new Streamlit release. Covers branch setup, release notes, API docstring generation, config.toml, API tiles/pages, deprecations, and a changelog sweep of concepts, tutorials, and knowledge articles. Use when the user asks to update docs for a new Streamlit release, add release notes, generate docstrings, or add API tiles for new commands.
-disable-model-invocation: true
 ---
 
 # Streamlit release docs update

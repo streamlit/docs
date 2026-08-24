@@ -1,0 +1,11 @@
+# Ignore everything by default
+*
+
+# Allow specific files
+!.gitignore
+
+# Allow specific skills
+!skills/
+skills/*
+!skills/updating-docs-for-release/
+!skills/updating-docs-for-release/**
