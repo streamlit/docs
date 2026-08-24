@@ -44,3 +44,5 @@ To run the Hello app with a blue accent color, from any directory, execute the f
 ```
 streamlit hello --theme.primaryColor=blue
 ```
+
+<GitHubIssuesHint label="feature:cli" name="streamlit hello" />
