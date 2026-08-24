@@ -1,12 +1,19 @@
 ---
-name: update-docs-for-release
+name: updating-docs-for-release
 description: Update the streamlit/docs repo for a new Streamlit release. Covers branch setup, release notes, API docstring generation, config.toml, API tiles/pages, deprecations, and a changelog sweep of concepts, tutorials, and knowledge articles. Use when the user asks to update docs for a new Streamlit release, add release notes, generate docstrings, or add API tiles for new commands.
-disable-model-invocation: true
 ---
 
 # Streamlit release docs update
 
 Follow these steps in order for each new Streamlit release (`x.y.0`).
+
+## Inputs
+
+Require the target release version in `major.minor.0` format (for example, `1.63.0`). If the user did not provide it, ask before starting.
+
+Derive the previous version from `python/streamlit.json` as the highest semantic version below the target version. Do not calculate it by subtracting one from the minor version. If the user explicitly provides a previous version, use it as an override after confirming that its key exists in `python/streamlit.json`.
+
+State the target and previous versions before making changes.
 
 ## 1. Branch setup
 
