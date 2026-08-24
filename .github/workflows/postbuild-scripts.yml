@@ -48,7 +48,7 @@ jobs:
       - run: npm run sitemap
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v8
         with:
           title: "Automated sitemap update"
           body: >
