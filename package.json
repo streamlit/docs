@@ -12,7 +12,7 @@
   "dependencies": {
     "@mapbox/rehype-prism": "^0.9.0",
     "@svgr/webpack": "^8.1.0",
-    "@tryghost/content-api": "1.11.20",
+    "@tryghost/content-api": "1.12.10",
     "algoliasearch": "^3.35.1",
     "file-loader": "^6.2.0",
     "focus-trap-react": "^10.2.3",
@@ -36,7 +36,7 @@
     "react-intersection-observer": "^9.5.3",
     "react-markdown": "^9.0.1",
     "react-responsive": "^9.0.2",
-    "react-slick": "^0.29.0",
+    "react-slick": "^0.31.0",
     "react-transition-group": "^4.4.5",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-raw": "^7.0.0",
@@ -49,9 +49,9 @@
     "remark-rehype": "^11.0.0",
     "remark-unwrap-images": "^4.0.0",
     "slick-carousel": "^1.8.1",
-    "slugify": "^1.6.6",
+    "slugify": "^1.6.9",
     "unified": "^11.0.4",
-    "uuid": "^14.0.0"
+    "uuid": "^14.0.2"
   },
   "dependencyComments": {
     "remark-gfm": "Keep pinned to 3.0.1 until https://github.com/hashicorp/next-mdx-remote/issues/403 is resolved. See https://github.com/streamlit/docs/pull/924"
@@ -66,7 +66,7 @@
     "@netlify/plugin-nextjs": "^4.41.3",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
-    "autoprefixer": "^10.4.16",
+    "autoprefixer": "^10.5.4",
     "dotenv": "^17.4.2",
     "eslint": "^8.56.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -80,10 +80,10 @@
     "is-pdf-valid": "^0.0.1",
     "lint-staged": "^15.2.9",
     "pdf-merger-js": "^4.3.0",
-    "postcss": "^8.4.32",
-    "prettier": "^3.1.1",
+    "postcss": "^8.5.26",
+    "prettier": "^3.9.6",
     "puppeteer": "^22.15.0",
-    "sass": "^1.69.5",
+    "sass": "^1.103.0",
     "tailwindcss": "^3.4.0"
   },
   "lint-staged": {
