@@ -25,6 +25,9 @@ updates:
         # Keep this on 3.0.1 until next-mdx-remote supports remark-gfm 4.
         # See https://github.com/hashicorp/next-mdx-remote/issues/403.
         versions: [">=4.0.0"]
+      - dependency-name: "remark-unwrap-images"
+        # Version 5 is a deprecated placeholder with no implementation.
+        versions: [">=5.0.0"]
       - dependency-name: "react"
         # React 19 should be adopted together with the corresponding Next.js
         # and react-dom upgrades.
