@@ -31,6 +31,15 @@ updates:
         versions: [">=19.0.0"]
       - dependency-name: "react-dom"
         versions: [">=19.0.0"]
+      - dependency-name: "eslint"
+        # eslint-config-airbnb 19 only supports ESLint 7 and 8.
+        versions: [">=9.0.0"]
+      - dependency-name: "eslint-config-next"
+        # Keep the ESLint config on the same major version as Next.js.
+        versions: [">=15.0.0"]
+      - dependency-name: "eslint-plugin-react-hooks"
+        # eslint-config-airbnb 19 requires react-hooks 4.x.
+        versions: [">=5.0.0"]
 
     groups:
       markdown-processing:
