@@ -161,4 +161,4 @@ The above is just provided as an example. Streamlit App Action is a quick way to
 
 ## Working example
 
-As a final working example example, take a look at our [`streamlit/llm-examples` Actions](https://github.com/streamlit/llm-examples/actions), defined in [this workflow file](https://github.com/streamlit/llm-examples/blob/main/.github/workflows/app-testing.yml).
+As a final working example, take a look at our [`streamlit/llm-examples` Actions](https://github.com/streamlit/llm-examples/actions), defined in [this workflow file](https://github.com/streamlit/llm-examples/blob/main/.github/workflows/app-testing.yml).

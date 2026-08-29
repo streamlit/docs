@@ -39,7 +39,7 @@ For a complete list of configuration options, see [`config.toml`](/develop/api-r
 
 If you need to pass arguments directly to your script, you can pass them as positional arguments. If you use `sys.argv` to read your arguments, `sys.argv` returns a list of all arguments and does _not_ include any configuration options. Python interprets all arguments as strings.
 
-- `sys.argv[0]` returns the the path to your entrypoint file, even if you did not explicitly provide it.
+- `sys.argv[0]` returns the path to your entrypoint file, even if you did not explicitly provide it.
 - `sys.argv[1:]` returns a list of arguments in order and does not include any configuration options.
 
 ### Examples

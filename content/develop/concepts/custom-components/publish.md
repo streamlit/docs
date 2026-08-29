@@ -31,7 +31,7 @@ The [component-template](https://github.com/streamlit/component-template) GitHub
 
 1. Give your Component a name, if you haven't already
    - Rename the `template/my_component/` folder to `template/<component name>/`
-   - Pass your component's name as the the first argument to `declare_component()`
+   - Pass your component's name as the first argument to `declare_component()`
 2. Edit `MANIFEST.in`, change the path for recursive-include from `package/frontend/build *` to `<component name>/frontend/build *`
 3. Edit `setup.py`, adding your component's name and other relevant info
 4. Create a release build of your frontend code. This will add a new directory, `frontend/build/`, with your compiled frontend in it:
