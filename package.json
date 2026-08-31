@@ -79,7 +79,7 @@
     "husky": "^8.0.3",
     "is-pdf-valid": "^0.0.1",
     "lint-staged": "^15.2.9",
-    "pdf-merger-js": "^4.3.0",
+    "pdf-merger-js": "^5.1.2",
     "postcss": "^8.5.26",
     "prettier": "^3.9.6",
     "puppeteer": "^22.15.0",
