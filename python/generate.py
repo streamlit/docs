@@ -530,6 +530,14 @@ def get_obj_docstring_dict(obj, key_prefix, signature_prefix, only_include=None)
             ]:
                 continue
 
+        # AppTestError is an exception class, which has no introspectable
+        # signature. Skip it like StreamlitAPIException above.
+        if obj == streamlit.testing.v1:
+            if membername in [
+                "AppTestError"
+            ]:
+                continue
+
         # Check if the member is a property
         is_property = isinstance(member, property)
         if is_property:
