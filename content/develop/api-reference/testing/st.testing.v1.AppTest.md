@@ -33,6 +33,8 @@ Note that you can also retrieve elements within a specific container in the same
 
 <Autofunction function="AppTest.get" />
 
+<Autofunction function="AppTest.get_by_key" />
+
 <Autofunction function="AppTest.button" is_property />
 
 <Autofunction function="AppTest.caption" />
@@ -48,6 +50,8 @@ Note that you can also retrieve elements within a specific container in the same
 <Autofunction function="AppTest.color_picker" />
 
 <Autofunction function="AppTest.columns" />
+
+<Autofunction function="AppTest.container" />
 
 <Autofunction function="AppTest.dataframe" />
 
