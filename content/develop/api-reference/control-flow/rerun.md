@@ -2,7 +2,7 @@
 title: st.rerun
 slug: /develop/api-reference/execution-flow/st.rerun
 description: st.rerun stops the current script run and immediately reruns the script, the current fragment, or named fragments.
-keywords: st.rerun, rerun, script, execution, control flow, experimental_rerun, refresh, restart, scope, fragment key, keyed rerun, event-scoped rerun, fragment rerun
+keywords: st.rerun, rerun, script, execution, control flow, experimental_rerun, refresh, restart, fragment key, keyed rerun, event-scoped rerun, fragment rerun
 ---
 
 <Autofunction function="streamlit.rerun" oldName="streamlit.experimental_rerun" />
