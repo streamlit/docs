@@ -66,7 +66,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [ -z "$(git status --porcelain)" ]; then
+          # Scope to the generated sitemap only. `npm install` above can modify
+          # the tracked package-lock.json, which would otherwise both trigger a
+          # PR when the sitemap is unchanged and sweep an unrelated lockfile
+          # change into it. Quote the pathspec so git, not the shell, expands it,
+          # so a removed sitemap file is detected too.
+          if [ -z "$(git status --porcelain -- 'public/sitemap*.xml')" ]; then
             echo "Sitemap unchanged; nothing to open."
             exit 0
           fi
@@ -76,7 +81,7 @@ jobs:
 
           branch="automated-sitemap-update"
           git checkout -B "$branch"
-          git add -A
+          git add -A -- 'public/sitemap*.xml'
           git commit -m "Automated sitemap update"
 
           # Reuse one long-lived branch so repeated runs update a single PR
