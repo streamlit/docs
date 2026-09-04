@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - "main"
+  # Lets a maintainer run this by hand, e.g. to confirm a workflow fix without
+  # waiting for the next push to main.
+  workflow_dispatch:
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
