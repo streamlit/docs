@@ -2,7 +2,7 @@
 title: Working with fragments
 slug: /develop/concepts/architecture/fragments
 description: Learn how to use Streamlit fragments to optimize app performance by rerunning portions of code instead of full scripts, improving efficiency for complex applications.
-keywords: streamlit fragments, st.fragment, partial reruns, performance optimization, execution control, fragment reruns, efficient reruns, app performance, execution flow
+keywords: streamlit fragments, st.fragment, partial reruns, performance optimization, execution control, fragment reruns, efficient reruns, app performance, execution flow, keyed fragments, event-scoped reruns, st.rerun scope, fragment key
 ---
 
 # Working with fragments
@@ -91,6 +91,42 @@ Streamlit ignores fragment return values during fragment reruns, so defining ret
 To prevent elements from accumulating in outside containers, use [`st.empty`](/develop/api-reference/layout/st.empty) containers. For a related tutorial, see [Create a fragment across multiple containers](/develop/tutorials/execution-flow/create-a-multiple-container-fragment).
 
 If you need to trigger a full-script rerun from inside a fragment, call [`st.rerun`](/develop/api-reference/execution-flow/st.rerun). For a related tutorial, see [Trigger a full-script rerun from inside a fragment](/develop/tutorials/execution-flow/trigger-a-full-script-rerun-from-a-fragment).
+
+## Target a fragment from outside with a key
+
+By default, a fragment reruns when a user interacts with one of its own widgets. But sometimes a widget _outside_ a fragment should refresh only that fragment — not the full app. You can do this by naming the fragment with the `key` parameter and calling [`st.rerun`](/develop/api-reference/execution-flow/st.rerun) with that key from a widget callback.
+
+```python
+import streamlit as st
+
+@st.fragment(key="charts")
+def charts():
+    st.line_chart({"data": [1, 2, 3, 4]})
+
+charts()
+
+st.selectbox(
+    "Region",
+    ["North", "South", "East", "West"],
+    key="region",
+    on_change=lambda: st.rerun("charts"),
+)
+```
+
+When the user changes the selectbox, the `on_change` callback calls `st.rerun("charts")`, which reruns _only_ the `charts` fragment. The rest of the app stays unchanged.
+
+To rerun multiple named fragments at once, pass a list of keys:
+
+```python
+st.button("Refresh all", on_click=lambda: st.rerun(["charts", "table"]))
+```
+
+### Rules and constraints for keyed reruns
+
+- **Callback-only.** `st.rerun("<key>")` is only valid inside a widget callback (`on_change`, `on_click`). Calling it from the main script body or a fragment body raises an error.
+- **Unique keys.** Fragment keys must be unique among the fragments that render in a single run, just like widget keys. The names `"app"` and `"fragment"` are reserved and cannot be used as fragment keys.
+- **Escalation.** If another callback in the same interaction returns normally or calls `st.rerun()` without a key, the result escalates to a full-app rerun.
+- **Partial rendering.** Only the targeted fragment(s) redraw. Other widgets changed in the same interaction (for example, form fields submitted alongside the callback) still write their values to Session State, but they won't render until the next full-app rerun.
 
 ## Run fragments in parallel
 

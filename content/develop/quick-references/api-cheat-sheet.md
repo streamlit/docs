@@ -289,6 +289,14 @@ def fragment_function():
     st.button("Update")
 
 fragment_function()
+
+# Name a fragment and target it from a callback
+@st.fragment(key="charts")
+def charts():
+    st.line_chart(get_data())
+
+charts()
+st.button("Refresh", on_click=lambda: st.rerun("charts"))
 ```
 
 </CodeTile>
