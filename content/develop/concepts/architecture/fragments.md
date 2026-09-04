@@ -121,12 +121,7 @@ To rerun multiple named fragments at once, pass a list of keys:
 st.button("Refresh all", on_click=lambda: st.rerun(["charts", "table"]))
 ```
 
-### Rules and constraints for keyed reruns
-
-- **Callback-only.** `st.rerun("<key>")` is only valid inside a widget callback (`on_change`, `on_click`). Calling it from the main script body or a fragment body raises an error.
-- **Unique keys.** Fragment keys must be unique among the fragments that render in a single run, just like widget keys. The names `"app"` and `"fragment"` are reserved and cannot be used as fragment keys.
-- **Escalation.** If another callback in the same interaction returns normally or calls `st.rerun()` without a key, the result escalates to a full-app rerun.
-- **Partial rendering.** Only the targeted fragment(s) redraw. Other widgets changed in the same interaction (for example, form fields submitted alongside the callback) still write their values to Session State, but they won't render until the next full-app rerun.
+`st.rerun("<key>")` is only valid inside a widget callback (`on_change`, `on_click`). Calling it from the main script body or a fragment body raises an error.
 
 ## Run fragments in parallel
 
