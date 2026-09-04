@@ -699,6 +699,8 @@ site_menu:
     url: /develop/tutorials/execution-flow/create-a-multiple-container-fragment
   - category: Develop / Tutorials / Execution flow / Start and stop a streaming fragment
     url: /develop/tutorials/execution-flow/start-and-stop-fragment-auto-reruns
+  - category: Develop / Tutorials / Execution flow / Speed up your app with parallel fragments
+    url: /develop/tutorials/execution-flow/run-fragments-in-parallel
   - category: Develop / Tutorials / Build custom components
     url: /develop/tutorials/custom-components
   - category: Develop / Tutorials / Build custom components / Create a component with Pure TypeScript
