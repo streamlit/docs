@@ -1,8 +1,8 @@
 ---
 title: st.rerun
 slug: /develop/api-reference/execution-flow/st.rerun
-description: st.rerun stops the current script run and immediately reruns the script.
-keywords: st.rerun, rerun, script, execution, control flow, experimental_rerun, refresh, restart
+description: st.rerun stops the current script run and immediately reruns the script, the current fragment, or named fragments.
+keywords: st.rerun, rerun, script, execution, control flow, experimental_rerun, refresh, restart, fragment key, keyed rerun, event-scoped rerun, fragment rerun
 ---
 
 <Autofunction function="streamlit.rerun" oldName="streamlit.experimental_rerun" />
@@ -16,6 +16,10 @@ keywords: st.rerun, rerun, script, execution, control flow, experimental_rerun, 
 - If misused, infinite looping may crash your app.
 
 In many cases where `st.rerun` works, [callbacks](/develop/api-reference/caching-and-state/st.session_state#use-callbacks-to-update-session-state) may be a cleaner alternative. [Containers](/develop/api-reference/layout) may also be helpful.
+
+### Keyed fragment reruns from callbacks
+
+Inside a widget callback (`on_change`, `on_click`), you can call `st.rerun("<key>")` with a [fragment key](/develop/concepts/architecture/fragments#target-a-fragment-from-outside-with-a-key) to rerun only the named fragment instead of the full app. See [Working with fragments](/develop/concepts/architecture/fragments#target-a-fragment-from-outside-with-a-key) for details and examples.
 
 ### A simple example in three variations
 
