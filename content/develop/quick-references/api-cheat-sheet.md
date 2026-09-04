@@ -290,13 +290,18 @@ def fragment_function():
 
 fragment_function()
 
-# Name a fragment and target it from a callback
+# Name fragments and target them from a callback
 @st.fragment(key="charts")
 def charts():
     st.line_chart(get_data())
 
+@st.fragment(key="table")
+def table():
+    st.dataframe(get_data())
+
 charts()
-st.button("Refresh", on_click=lambda: st.rerun("charts"))
+table()
+st.button("Refresh all", on_click=lambda: st.rerun(["charts", "table"]))
 ```
 
 </CodeTile>
