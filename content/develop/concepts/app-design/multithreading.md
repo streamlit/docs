@@ -17,7 +17,13 @@ Multithreading is a type of concurrency, which improves the efficiency of comput
 
 Multithreading is just one type of concurrency. Multiprocessing and coroutines are other forms of concurrency. You need to understand how your code is bottlenecked to choose the correct kind of concurrency.
 
-Multiprocessing is inherently parallel, meaning that resources are split and multiple tasks are performed simultaneously. Therefore, multiprocessing is helpful with compute-bound operations. In contrast, multithreading and coroutines are not inherently parallel and instead allow resource switching. This makes them good choices when your code is stuck _waiting_ for something, like an IO operation. AsyncIO uses coroutines and may be preferable with very slow IO operations. Threading may be preferable with faster IO operations. For a helpful guide to using AsyncIO with Streamlit, see this [Medium article by Sehmi-Conscious Thoughts](https://sehmi-conscious.medium.com/got-that-asyncio-feeling-f1a7c37cab8b).
+**Multithreading** is about more _threads_ in the current process.
+
+**Multiprocessing** uses more _processes_ and is inherently parallel, meaning that resources are split and multiple tasks are performed simultaneously. Therefore, multiprocessing is most helpful with compute-bound operations that would otherwise be stuck at Python's [GIL](https://en.wikipedia.org/wiki/Global_interpreter_lock).
+
+**AsyncIO** is a relatively new option to run _coroutines_ concurrently in single thread.
+
+As multithreading and coroutines are still in current process, they are not inherently parallel and instead allow resource switching. This makes them good choices when your code is stuck _waiting_ for something, like an IO operation. AsyncIO uses coroutines and may be preferable with plenty or very slow IO operations. Threading may be preferable with faster IO operations.
 
 Don't forget that Streamlit has [fragments](/develop/concepts/architecture/fragments) and [caching](/develop/concepts/architecture/caching), too! Use caching to avoid unnecessarily repeating computations or IO operations. Use fragments to isolate a bit of code you want to update separately from the rest of the app. You can set fragments to rerun at a specified interval, so they can be used to stream updates to a chart or table.
 
