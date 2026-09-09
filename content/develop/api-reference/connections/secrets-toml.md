@@ -7,7 +7,7 @@ keywords: secrets.toml, secrets, toml, credentials, api keys, passwords, secure,
 
 ## secrets.toml
 
-`secrets.toml` is an optional file you can define for your working directory or global development environment. When `secrets.toml` is defined both globally and in your working directory, Streamlit combines the secrets and gives precendence to the working-directory secrets. For more information, see [Secrets management](/develop/concepts/connections/secrets-management).
+`secrets.toml` is an optional file you can define for your working directory or global development environment. When `secrets.toml` is defined both globally and in your working directory, Streamlit combines the secrets and gives precedence to the working-directory secrets. For more information, see [Secrets management](/develop/concepts/connections/secrets-management).
 
 ### File location
 
