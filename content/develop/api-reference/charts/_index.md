@@ -169,4 +169,17 @@ st.mermaid_chart("graph LR\n  A --> B")
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/charts/st.echarts_chart">
+
+<Image pure alt="screenshot" src="/images/api/echarts_chart.jpg" />
+
+<h4>ECharts</h4>
+
+Display a chart using the Apache ECharts library.
+
+```python
+st.echarts_chart(my_echarts_option)
+```
+
+</RefCard>
 </TileContainer>

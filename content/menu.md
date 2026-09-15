@@ -298,6 +298,8 @@ site_menu:
     url: /develop/api-reference/charts/st.bokeh_chart
     isDeprecated: true
     visible: false
+  - category: Develop / API reference / Chart elements / st.echarts_chart
+    url: /develop/api-reference/charts/st.echarts_chart
   - category: Develop / API reference / Chart elements / st.graphviz_chart
     url: /develop/api-reference/charts/st.graphviz_chart
   - category: Develop / API reference / Chart elements / st.mermaid_chart
