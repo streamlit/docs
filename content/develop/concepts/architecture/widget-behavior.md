@@ -259,6 +259,8 @@ Streamlit cleans up widget data at the end of every script run and at the beginn
 
 When Streamlit gets to the end of a script run, it will delete the data for any widgets it has in memory that were not rendered on the screen. Most importantly, that means Streamlit will delete all key-value pairs in `st.session_state` associated with a widget not currently on screen. When you switch pages, Streamlit will delete all data associated with widgets from the previous page.
 
+As of v1.64.0, Streamlit skips this clean-up when `st.rerun` stops the script run. `st.rerun` can interrupt a run before the widget commands after it execute, so those widgets are not stale. The next script run that completes does the clean-up instead.
+
 ## Binding widgets to query parameters
 
 As of v1.55.0, most widgets support a `bind` parameter that syncs the widget's value with a URL query parameter. This makes it easy to create shareable URLs that preserve widget state and allow users to bookmark specific app configurations.
