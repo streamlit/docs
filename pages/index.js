@@ -163,9 +163,9 @@ export default function Home({ window, menu }) {
                 <i className="material-icons-sharp">sync</i>
                 <h4>Async app code</h4>
                 <p>
-                  Each session gets an event loop on its script thread, and the
-                  caching decorators cache the awaited result of an{" "}
-                  <code>async def</code> function.
+                  Use <code>async</code>/<code>await</code> and popular async
+                  libraries directly in your Streamlit apps. The caching
+                  decorators work with <code>async def</code> functions too.
                 </p>
               </RefCard>
               <RefCard

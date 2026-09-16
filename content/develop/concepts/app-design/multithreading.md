@@ -19,8 +19,6 @@ Multithreading is just one type of concurrency. Multiprocessing and coroutines a
 
 Multiprocessing is inherently parallel, meaning that resources are split and multiple tasks are performed simultaneously. Therefore, multiprocessing is helpful with compute-bound operations. In contrast, multithreading and coroutines are not inherently parallel and instead allow resource switching. This makes them good choices when your code is stuck _waiting_ for something, like an IO operation. AsyncIO uses coroutines and may be preferable with very slow IO operations. Threading may be preferable with faster IO operations.
 
-Unlike multithreading, Streamlit supports coroutines in app code. Starting in version 1.64.0, Streamlit installs a persistent event loop on each session's script thread. Therefore, your app code and your libraries can call `asyncio.get_event_loop()`, and `asyncio.run()` runs your coroutines as usual. [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) and [`st.cache_resource`](/develop/api-reference/caching-and-state/st.cache_resource) also accept a function you define with `async def`, and they cache the awaited result.
-
 Don't forget that Streamlit has [fragments](/develop/concepts/architecture/fragments) and [caching](/develop/concepts/architecture/caching), too! Use caching to avoid unnecessarily repeating computations or IO operations. Use fragments to isolate a bit of code you want to update separately from the rest of the app. You can set fragments to rerun at a specified interval, so they can be used to stream updates to a chart or table.
 
 ## Threads created by Streamlit
