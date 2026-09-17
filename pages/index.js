@@ -146,6 +146,30 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/develop/api-reference/charts/st.echarts_chart?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">insert_chart</i>
+                <h4>ECharts charts</h4>
+                <p>
+                  <code>st.echarts_chart</code> renders Apache ECharts options
+                  with Streamlit theming. Pass a dict, a JSON string, or a{" "}
+                  <code>pyecharts</code> chart.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/concepts/design/multithreading?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">sync</i>
+                <h4>Async app code</h4>
+                <p>
+                  Use <code>async</code>/<code>await</code> and popular async
+                  libraries directly in your Streamlit apps. The caching
+                  decorators work with <code>async def</code> functions too.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="/develop/api-reference/execution-flow/st.fragment?utm_source=streamlit"
               >
                 <i className="material-icons-sharp">call_split</i>
@@ -186,29 +210,6 @@ export default function Home({ window, menu }) {
                 <p>
                   Use <code>st.App</code> to configure custom HTTP routes,
                   middleware, lifecycle hooks, and ASGI integrations.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/data/st.dataframe?utm_source=streamlit"
-              >
-                <i className="material-icons-sharp">table_rows</i>
-                <h4>Lazy-loading dataframes</h4>
-                <p>
-                  Large dataframes load rows on demand, keeping the browser
-                  responsive as users scroll or sort.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/layout/st.tabs?utm_source=streamlit"
-              >
-                <i className="material-icons-sharp">touch_app</i>
-                <h4>Dynamic containers</h4>
-                <p>
-                  <code>st.tabs</code>, <code>st.expander</code>, and{" "}
-                  <code>st.popover</code> can track open/closed state and
-                  trigger reruns with the <code>on_change</code> parameter.
                 </p>
               </RefCard>
             </TileContainer>

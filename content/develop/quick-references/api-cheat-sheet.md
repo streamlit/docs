@@ -140,6 +140,7 @@ st.map(df)
 st.scatter_chart(df)
 
 st.altair_chart(chart)
+st.echarts_chart(option)
 st.graphviz_chart(fig)
 st.plotly_chart(fig)
 st.pydeck_chart(chart)
