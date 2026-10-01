@@ -12,7 +12,7 @@
   "dependencies": {
     "@mapbox/rehype-prism": "^0.9.0",
     "@svgr/webpack": "^8.1.0",
-    "@tryghost/content-api": "1.12.10",
+    "@tryghost/content-api": "1.12.12",
     "algoliasearch": "^3.35.1",
     "file-loader": "^6.2.0",
     "focus-trap-react": "^10.2.3",
