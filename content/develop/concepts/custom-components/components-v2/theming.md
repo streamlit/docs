@@ -104,6 +104,7 @@ The rest of the CSS Custom Properties are directly mapped to theme configuration
 | `--st-border-color`                      | `theme.borderColor`                    |
 | `--st-dataframe-border-color`            | `theme.dataframeBorderColor`           |
 | `--st-dataframe-header-background-color` | `theme.dataframeHeaderBackgroundColor` |
+| `--st-dataframe-header-text-color`       | `theme.dataframeHeaderTextColor`       |
 | `--st-code-background-color`             | `theme.codeBackgroundColor`            |
 | `--st-font`                              | `theme.font`                           |
 | `--st-red-color`                         | `theme.redColor`                       |
