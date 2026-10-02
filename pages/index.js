@@ -146,6 +146,30 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/develop/api-reference/execution-flow/st.dialog?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">view_sidebar</i>
+                <h4>Side drawer dialogs</h4>
+                <p>
+                  Set <code>position="left"</code> or{" "}
+                  <code>position="right"</code> on <code>st.dialog</code> to
+                  open it as a full-height side drawer.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/api-reference/media/st.image?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">accessibility_new</i>
+                <h4>Alt text for elements</h4>
+                <p>
+                  Use the <code>alt</code> parameter to give images, media,
+                  charts, maps, and dataframes an accessible name for screen
+                  readers.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="/develop/api-reference/charts/st.echarts_chart?utm_source=streamlit"
               >
                 <i className="material-icons-sharp">insert_chart</i>
@@ -188,28 +212,6 @@ export default function Home({ window, menu }) {
                 <p>
                   Refresh expired cached values in the background while your app
                   continues serving the previous value.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/data/st.column_config/st.column_config.buttoncolumn?utm_source=streamlit"
-              >
-                <i className="material-icons-sharp">smart_button</i>
-                <h4>ButtonColumn</h4>
-                <p>
-                  Add clickable buttons to <code>st.dataframe</code> and{" "}
-                  <code>st.data_editor</code> to trigger actions from a row.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/server/st.app?utm_source=streamlit"
-              >
-                <i className="material-icons-sharp">settings</i>
-                <h4>Advanced app configuration</h4>
-                <p>
-                  Use <code>st.App</code> to configure custom HTTP routes,
-                  middleware, lifecycle hooks, and ASGI integrations.
                 </p>
               </RefCard>
             </TileContainer>
