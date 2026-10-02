@@ -1027,6 +1027,17 @@ dataframeBorderColor =
 # `theme.secondaryBackgroundColor`.
 dataframeHeaderBackgroundColor =
 
+# The text color of the dataframe's header.
+#
+# This color applies to column headers, grouped column headers, and
+# header icons such as sort and edit. It doesn't apply to the text in
+# body cells. If this is set, Streamlit uses it as-is. If it isn't
+# set, Streamlit uses a faded version of `theme.textColor` (the
+# configured `textColor`, or the theme default if `textColor` is also
+# unset). When a column is selected, its header text and icons stay
+# white, matching existing selection behavior.
+dataframeHeaderTextColor =
+
 # Whether to show a border around input widgets.
 showWidgetBorder =
 
@@ -1543,6 +1554,17 @@ dataframeBorderColor =
 # isn't set, Streamlit uses a mix of `theme.backgroundColor` and
 # `theme.secondaryBackgroundColor`.
 dataframeHeaderBackgroundColor =
+
+# The text color of the dataframe's header.
+#
+# This color applies to column headers, grouped column headers, and
+# header icons such as sort and edit. It doesn't apply to the text in
+# body cells. If this is set, Streamlit uses it as-is. If it isn't
+# set, Streamlit uses a faded version of `theme.textColor` (the
+# configured `textColor`, or the theme default if `textColor` is also
+# unset). When a column is selected, its header text and icons stay
+# white, matching existing selection behavior.
+dataframeHeaderTextColor =
 
 # Whether to show a border around input widgets.
 showWidgetBorder =
