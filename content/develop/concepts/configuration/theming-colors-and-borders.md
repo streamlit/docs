@@ -146,9 +146,9 @@ secondaryBackgroundColor="lavender"
 
 <Cloud name="doc-theming-color-backgroundcolor" height="450px" />
 
-### `textColor`, `codeTextColor`, `linkColor`, and `linkUnderline`
+### `textColor`, `codeTextColor`, `dataframeHeaderTextColor`, `linkColor`, and `linkUnderline`
 
-You can configure the color of body, code, and link text.
+You can configure the color of body, code, dataframe header, and link text.
 
 `textColor` sets the default text color for all text in the app except language-highlighting in code blocks, inline code, and links.
 `codeTextColor` sets the default text color for inline code, but doesn't affect code blocks.

@@ -39,7 +39,7 @@ _Release date: October 2, 2026_
 
 **Notable Changes**
 
-- 🎛 The `on_change="ignore"` mode reaches seven more widgets, so a new value updates the widget and any bound query parameter without a rerun:
+- 🎛 The `on_change="ignore"` mode reaches eight more widgets, so a new value updates the widget and any bound query parameter without a rerun:
     - [`st.checkbox`](/develop/api-reference/widgets/st.checkbox) and [`st.toggle`](/develop/api-reference/widgets/st.toggle) ([#16960](https://github.com/streamlit/streamlit/pull/16960)).
     - [`st.radio`](/develop/api-reference/widgets/st.radio) ([#16951](https://github.com/streamlit/streamlit/pull/16951)).
     - [`st.multiselect`](/develop/api-reference/widgets/st.multiselect) ([#16908](https://github.com/streamlit/streamlit/pull/16908)).
