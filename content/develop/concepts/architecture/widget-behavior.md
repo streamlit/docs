@@ -281,8 +281,11 @@ When a user selects "Green", the URL updates to include `?color=Green`. If someo
 - **Invalid values are ignored**: If the URL contains an invalid value for the widget, the value is ignored and removed from the URL.
 - **Programmatic updates**: A bound query parameter can't be set or deleted through `st.query_params`. To programmatically change a bound widget's value, use `st.session_state`.
 - **Range values**: Widgets that return a range, like range sliders, use repeated query parameters. For example, a slider with a range of 10 to 90 will produce a URL ending with `?price=10&price=90`.
+- **Browser history**: When a user navigates with the browser's back or forward buttons, bound widgets restore their values from the URL. If a bound parameter is missing from the URL, the widget returns to its default value.
 
 Trigger-like widgets (`st.button`, `st.download_button`, `st.chat_input`, `st.file_uploader`, `st.camera_input`, and `st.audio_input`) don't support binding because their values are transient.
+
+As of v1.65.0, [`st.expander`](/develop/api-reference/layout/st.expander) and [`st.tabs`](/develop/api-reference/layout/st.tabs) also accept `bind="query-params"` with a `key`, so a shared URL can keep an expander open or a specific tab selected.
 
 ### Example: Filterable dashboard with a shareable URL
 

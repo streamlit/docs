@@ -50,6 +50,7 @@ The following configuration options can be set separately for the sidebar by usi
 - `theme.borderColor`
 - `theme.dataframeBorderColor`
 - `theme.dataframeHeaderBackgroundColor`
+- `theme.dataframeHeaderTextColor`
 - `theme.showWidgetBorder`
 - `theme.chartCategoricalColors`, `theme.chartSequentialColors`, and `theme.chartDivergingColors`
 - All color palette options
@@ -145,12 +146,13 @@ secondaryBackgroundColor="lavender"
 
 <Cloud name="doc-theming-color-backgroundcolor" height="450px" />
 
-### `textColor`, `codeTextColor`, `linkColor`, and `linkUnderline`
+### `textColor`, `codeTextColor`, `dataframeHeaderTextColor`, `linkColor`, and `linkUnderline`
 
-You can configure the color of body, code, and link text.
+You can configure the color of body, code, dataframe header, and link text.
 
 `textColor` sets the default text color for all text in the app except language-highlighting in code blocks, inline code, and links.
 `codeTextColor` sets the default text color for inline code, but doesn't affect code blocks.
+`dataframeHeaderTextColor` sets the text and icon color for dataframe headers. If `dataframeHeaderTextColor` isn't set, Streamlit uses a faded version of `textColor`.
 `linkColor` sets the default font color for all Markdown links in the app. If `linkUnderline` is set to true (default), the link underline color matches `linkColor`.
 
 The following elements are impacted by `textColor`:
@@ -159,7 +161,7 @@ The following elements are impacted by `textColor`:
 - Text in code blocks that's not colored otherwise from language highlighting
 - App-chrome and sidebar menu icons
 - Widget labels, icons, option text, and placeholder text
-- Dataframe and table text
+- Dataframe and table text, except dataframe headers if `dataframeHeaderTextColor` is set
 - Non-Markdown links, like `st.page_link`, `st.link_button`, and the navigation menu
 
 As noted previously, Streamlit changes the text color to white when text is displayed against your primary color.

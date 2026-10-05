@@ -95,6 +95,8 @@ Note that you can also retrieve elements within a specific container in the same
 
 <Autofunction function="AppTest.slider" />
 
+<Autofunction function="AppTest.space" />
+
 <Autofunction function="AppTest.subheader" />
 
 <Autofunction function="AppTest.success" />
