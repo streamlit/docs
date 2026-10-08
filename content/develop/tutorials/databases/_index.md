@@ -28,6 +28,22 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 </DataSourcesCard>
 
+<DataSourcesCard href="/develop/tutorials/databases/clickhouse">
+
+<Image pure alt="Finished Streamlit app" src="/images/databases/streamlit-app.png" />
+
+<h5>ClickHouse</h5>
+
+</DataSourcesCard>
+
+<DataSourcesCard href="/develop/tutorials/databases/clickhouse-managed-postgres">
+
+<Image pure alt="Finished Streamlit app" src="/images/databases/streamlit-app.png" />
+
+<h5>ClickHouse Managed Postgres</h5>
+
+</DataSourcesCard>
+
 <DataSourcesCard href="https://blog.streamlit.io/streamlit-firestore/">
 
 <Image pure alt="screenshot" src="/images/databases/firestore.png" />
