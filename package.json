@@ -84,7 +84,7 @@
     "prettier": "^3.9.6",
     "puppeteer": "^22.15.0",
     "sass": "^1.103.1",
-    "tailwindcss": "^3.4.0"
+    "tailwindcss": "^4.3.3"
   },
   "lint-staged": {
     "*": "prettier --ignore-unknown --write"
