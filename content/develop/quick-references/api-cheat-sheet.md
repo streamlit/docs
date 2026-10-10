@@ -33,7 +33,7 @@ pip uninstall streamlit
 pip install streamlit-nightly --upgrade
 ```
 
-Learn more about [experimental features](advanced-features/prerelease#experimental-features)
+Learn more about [experimental features](/develop/quick-reference/prerelease#experimental-features)
 
 </CodeTile>
 
