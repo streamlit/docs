@@ -15,7 +15,11 @@ The `Block` class has the same methods and attributes as `AppTest`. A `Block` in
 
 <Autofunction function="streamlit.testing.v1.element_tree.Element" />
 
+<Autofunction function="streamlit.testing.v1.element_tree.AudioInput" />
+
 <Autofunction function="streamlit.testing.v1.element_tree.Button" />
+
+<Autofunction function="streamlit.testing.v1.element_tree.CameraInput" />
 
 <Autofunction function="streamlit.testing.v1.element_tree.ChatInput" />
 
@@ -30,6 +34,8 @@ The `Block` class has the same methods and attributes as `AppTest`. A `Block` in
 <Autofunction function="streamlit.testing.v1.element_tree.Multiselect" />
 
 <Autofunction function="streamlit.testing.v1.element_tree.NumberInput" />
+
+<Autofunction function="streamlit.testing.v1.element_tree.Pagination" />
 
 <Autofunction function="streamlit.testing.v1.element_tree.Radio" />
 
