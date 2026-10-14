@@ -25,7 +25,7 @@ Don't forget that Streamlit has [fragments](/develop/concepts/architecture/fragm
 
 Streamlit creates two types of threads in Python:
 
-- The **server thread** runs the Tornado web (HTTP + WebSocket) server.
+- The **server thread** runs the Starlette web (HTTP + WebSocket) server on Uvicorn.
 - A **script thread** runs page code &mdash; one thread for each script run in a session.
 
 When a user connects to your app, this creates a new session and runs a script thread to initialize the app for that user. As the script thread runs, it renders elements in the user's browser tab and reports state back to the server. When the user interacts with the app, another script thread runs, re-rendering the elements in the browser tab and updating state on the server.
