@@ -91,7 +91,7 @@ assert at.text_area[0].value == "Hello, world!"
 at.text_area[0].set_value("Hello, yourself!").run()
 
 # text_input
-assert at.text_input[0].value == "Hello, world!")
+assert at.text_input[0].value == "Hello, world!"
 at.text_input[0].set_value("Hello, yourself!").run()
 
 # time_input
