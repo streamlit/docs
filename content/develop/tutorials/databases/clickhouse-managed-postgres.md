@@ -2,6 +2,7 @@
 title: Connect Streamlit to ClickHouse Managed Postgres
 slug: /develop/tutorials/databases/clickhouse-managed-postgres
 description: Connect a Streamlit app to ClickHouse Managed Postgres using st.connection, app secrets, and verified TLS.
+keywords: ClickHouse Managed Postgres, PostgreSQL, st.connection, psycopg2, verified TLS, secrets management, database connection, database tutorial
 ---
 
 # Connect Streamlit to ClickHouse Managed Postgres
@@ -9,6 +10,8 @@ description: Connect a Streamlit app to ClickHouse Managed Postgres using st.con
 ## Introduction
 
 This guide connects a Streamlit app to [ClickHouse Managed Postgres](https://clickhouse.com/cloud/postgres) using [`st.connection`](/develop/api-reference/connections/st.connection), [Secrets management](/develop/concepts/connections/secrets-management), and the PostgreSQL driver. You will create a small table of people and their pets, then display the results in your app.
+
+To connect to a [ClickHouse](/develop/tutorials/databases/clickhouse) service, follow that guide. It uses ClickHouse Connect.
 
 ### Prerequisites
 
@@ -33,7 +36,7 @@ python -m pip install -r requirements.txt
 
 If you already have a ClickHouse Managed Postgres instance, use it for the following steps.
 
-1. Sign in to the [ClickHouse Cloud console](https://console.clickhouse.cloud/) and [create a Postgres instance](https://clickhouse.com/docs/products/managed-postgres/quickstart).
+1. Sign in to the [ClickHouse Cloud console](https://console.clickhouse.cloud/) and create a Postgres instance. To create the instance from the command line, follow the [Managed Postgres quickstart](https://clickhouse.com/docs/products/managed-postgres/quickstart).
 1. Open your instance's **SQL Console** and select the `postgres` database.
 1. Run these statements to create a table and add three rows:
 
@@ -51,7 +54,7 @@ If you already have a ClickHouse Managed Postgres instance, use it for the follo
 ## Add connection details to your local app secrets
 
 1. Open your Postgres instance's **Connect** menu and select **Directly**. Copy the hostname, port, username, and password.
-1. Download the instance's CA certificate bundle from **Settings** and save it as `ca-certificate.pem` in your app's directory.
+1. Download the instance's CA certificate bundle from **Settings**. The download is often named like `my-instance-ca-certificate.pem`. Rename it to `ca-certificate.pem` and save it in your app's directory.
 1. In the same directory, create `.streamlit/secrets.toml`:
 
    ```toml
@@ -73,7 +76,9 @@ If you already have a ClickHouse Managed Postgres instance, use it for the follo
 
 1. Replace the example host and credentials with your instance's direct connection details. Enter just the hostname in `host`, without a URL scheme or port.
 
-`sslmode = "verify-full"` checks the server certificate and hostname. The CA certificate is specific to your Postgres instance. See [Connecting to ClickHouse Managed Postgres](https://clickhouse.com/docs/products/managed-postgres/connection) for more details.
+`sslmode = "verify-full"` checks the server certificate and hostname. `sslrootcert` is resolved from the working directory, so run Streamlit from the directory that contains `ca-certificate.pem`. The CA certificate is specific to your Postgres instance. See [Connecting to ClickHouse Managed Postgres](https://clickhouse.com/docs/products/managed-postgres/connection) for more details.
+
+ClickHouse Managed Postgres allows connections from anywhere until you add an IP filter. If your instance allows only specific addresses, add the public IP address of the computer running the app under **Settings → IP Filters**. See [Managed Postgres security](https://clickhouse.com/docs/products/managed-postgres/security).
 
 <Important>
 
@@ -120,3 +125,4 @@ To deploy the same app on Community Cloud:
 - Include `streamlit_app.py` and `requirements.txt` in your GitHub repository.
 - [Add your secrets](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management) to your Community Cloud app by copying the contents of `.streamlit/secrets.toml` into its secrets settings.
 - Include `ca-certificate.pem` in the root of your app's repository so the `sslrootcert` path works on Community Cloud. The CA certificate contains no private key or database password and can be committed; keep your credentials in app secrets.
+- If the instance allows only specific addresses, add [Community Cloud's outbound IP addresses](/deploy/streamlit-community-cloud/status#ip-addresses) to its IP filters.

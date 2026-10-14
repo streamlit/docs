@@ -2,13 +2,16 @@
 title: Connect Streamlit to ClickHouse
 slug: /develop/tutorials/databases/clickhouse
 description: Connect a Streamlit app to ClickHouse using st.connection, app secrets, and ClickHouse Connect.
+keywords: ClickHouse, ClickHouse Cloud, st.connection, ClickHouse Connect, SQLAlchemy, secrets management, database connection, database tutorial
 ---
 
 # Connect Streamlit to ClickHouse
 
 ## Introduction
 
-This guide connects a Streamlit app to [ClickHouse](https://clickhouse.com/) using [`st.connection`](/develop/api-reference/connections/st.connection), [Secrets management](/develop/concepts/connections/secrets-management), and the [ClickHouse Connect SQLAlchemy dialect](https://clickhouse.com/docs/integrations/language-clients/python/sqlalchemy). You will create a small table of people and their pets, then display the results in your app.
+This guide connects a Streamlit app to [ClickHouse Cloud](https://clickhouse.com/cloud) using [`st.connection`](/develop/api-reference/connections/st.connection), [Secrets management](/develop/concepts/connections/secrets-management), and the [ClickHouse Connect SQLAlchemy dialect](https://clickhouse.com/docs/integrations/language-clients/python/sqlalchemy). You will create a small table of people and their pets, then display the results in your app.
+
+The connection below uses ClickHouse Cloud over HTTPS on port 8443. For a self-managed ClickHouse server, use that server's HTTP port and set `secure` to match whether the server uses TLS. To connect to [ClickHouse Managed Postgres](/develop/tutorials/databases/clickhouse-managed-postgres), follow that guide.
 
 ### Prerequisites
 
@@ -33,7 +36,7 @@ python -m pip install -r requirements.txt
 
 If you already have a ClickHouse Cloud service, use it for the following steps.
 
-1. Sign in to the [ClickHouse Cloud console](https://console.clickhouse.cloud/) and [create a ClickHouse service](https://clickhouse.com/docs/get-started/setup/cloud).
+1. Sign in to the [ClickHouse Cloud console](https://console.clickhouse.cloud/) and create a ClickHouse service. To create the service from the command line, follow the [ClickHouse Cloud quick start](https://clickhouse.com/docs/get-started/setup/cloud).
 1. Open your service's **SQL Console** and select the `default` database.
 1. Run these statements to create a table and add three rows:
 
@@ -71,7 +74,8 @@ If you already have a ClickHouse Cloud service, use it for the following steps.
    ```
 
 1. Replace the example host and credentials with your service's connection details. Enter just the hostname in `host`, without `https://` or a port. ClickHouse Connect uses HTTPS when `secure = true` and verifies the server certificate by default.
-1. Add your app's public outbound IP address to your service's [IP access list](https://clickhouse.com/docs/products/cloud/guides/security/connectivity/setting-ip-filters).
+
+ClickHouse Cloud allows connections from anywhere until you restrict the service's [IP access list](https://clickhouse.com/docs/products/cloud/guides/security/connectivity/setting-ip-filters). If your service allows only specific addresses, add the public IP address of the computer running the app.
 
 <Important>
 
@@ -92,7 +96,7 @@ import streamlit as st
 conn = st.connection("clickhouse", type="sql")
 
 # Perform query.
-df = conn.query("SELECT name, pet FROM mytable ORDER BY id;", ttl="10m")
+df = conn.query("SELECT name, pet FROM mytable ORDER BY id", ttl="10m")
 
 # Print results.
 for row in df.itertuples():
@@ -117,4 +121,4 @@ To deploy the same app on Community Cloud:
 
 - Include `streamlit_app.py` and `requirements.txt` in your GitHub repository.
 - [Add your secrets](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management) to your Community Cloud app by copying the contents of `.streamlit/secrets.toml` into its secrets settings.
-- Allow connections from [Community Cloud's outbound IP addresses](/deploy/streamlit-community-cloud/status#ip-addresses) in your ClickHouse service's IP access list.
+- If the service allows only specific addresses, add [Community Cloud's outbound IP addresses](/deploy/streamlit-community-cloud/status#ip-addresses) to its IP access list.
