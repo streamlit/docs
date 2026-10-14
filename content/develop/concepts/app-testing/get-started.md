@@ -192,7 +192,7 @@ at.run()
 
 ### How to retrieve elements
 
-The attributes of the `AppTest` class return sequences of elements. The elements are sorted according to display order in the rendered app. Specific elements can be retrieved by index. Additionally, widgets with keys can be retrieved by key.
+The attributes of the `AppTest` class return sequences of elements. The elements are sorted according to display order in the rendered app. Specific elements can be retrieved by index. Additionally, widgets and containers with keys can be retrieved by key.
 
 #### Retrieve elements by index
 
@@ -238,6 +238,8 @@ assert at.button("cancel").label == "Back"
 #### Retrieve containers
 
 You can also narrow down your sequences of elements by retrieving specific containers. Each retrieved container has the same attributes as `AppTest`. For example, `at.sidebar.checkbox` returns a sequence of all checkboxes in the sidebar. `at.main.selectbox` returns the sequence of all selectboxes in the main body of the app (not in the sidebar).
+
+Keyed containers, like forms and expanders, can be retrieved by key in the same way as widgets. For example, `at.form(key="signup").text_input` returns the sequence of all text inputs in the form with the key `"signup"`.
 
 For `AppTest.columns` and `AppTest.tabs`, a sequence of containers is returned. So `at.columns[0].button` would be the sequence of all buttons in the first column appearing in the app.
 

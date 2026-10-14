@@ -60,6 +60,8 @@ The value of a widget as seen through `st.session_state` and returned by the wid
 
 Most widgets accept an `on_change` callback parameter (or `on_click` for buttons). A callback is a Python function that Streamlit calls when the user interacts with the widget. You can optionally pass arguments to the callback through the `args` and `kwargs` parameters. Callbacks are covered in detail in [Order of operations](#order-of-operations).
 
+If you don't want a widget to rerun your app, set `on_change="ignore"` instead of passing a callback. The widget still updates in the browser, and your app receives the new value on the next rerun triggered by something else, such as another widget interaction. If the widget is [bound to a query parameter](#binding-widgets-to-query-parameters), the URL updates right away. Every widget with an `on_change` parameter supports `"ignore"`.
+
 ### Keys help distinguish widgets and access their values
 
 Widget keys serve three purposes:
