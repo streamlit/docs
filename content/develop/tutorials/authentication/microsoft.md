@@ -152,6 +152,12 @@ To create an app with user authentication, you'll need to configure your secrets
 
    Replace the values of `client_id`, `client_secret`, and `server_metadata_url` with the values you copied into your text editor earlier. Replace the value of `cookie_secret` with the random secret you generated in the previous step.
 
+   <Note>
+
+   The example `server_metadata_url` uses `consumers`, which accepts only personal Microsoft accounts. If your application accepts work or school accounts, use the OpenID Connect metadata URL for your application's supported account types instead. For details about `consumers`, `organizations`, `common`, and tenant-specific URLs, see [Microsoft's OpenID Connect metadata documentation](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc#fetch-the-openid-configuration-document).
+
+   </Note>
+
 1. Save your `secrets.toml` file.
 
 ### Initialize your app
