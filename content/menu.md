@@ -653,6 +653,10 @@ site_menu:
     url: /develop/tutorials/databases/aws-s3
   - category: Develop / Tutorials / Connect to data sources / BigQuery
     url: /develop/tutorials/databases/bigquery
+  - category: Develop / Tutorials / Connect to data sources / ClickHouse
+    url: /develop/tutorials/databases/clickhouse
+  - category: Develop / Tutorials / Connect to data sources / ClickHouse Managed Postgres
+    url: /develop/tutorials/databases/clickhouse-managed-postgres
   - category: Develop / Tutorials / Connect to data sources / Firestore
     url: https://blog.streamlit.io/streamlit-firestore/
   - category: Develop / Tutorials / Connect to data sources / Google Cloud Storage
