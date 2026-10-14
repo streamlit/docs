@@ -32,6 +32,7 @@ dark and light themes (`[theme.light]`, `[theme.light.sidebar]`, `[theme.dark]`,
 - **Border color**: Set the color and visibility of element, widget, sidebar, and dataframe borders.
 - **Basic color palette**: Set the color palette (red, orange, yellow, green, blue, violet, and gray/grey) for things like colored Markdown text and sparklines.
 - **Chart color**: Set series colors for Plotly, Altair, and Vega-Lite charts. Unset light, dark, and sidebar sections inherit from `[theme]`.
+- **Padding**: Set the space between the header and the first element, and the space after the last element.
 
 ## Example themes
 
