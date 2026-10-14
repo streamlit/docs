@@ -29,7 +29,7 @@ The next generation of custom components with enhanced capabilities, bidirection
 
 </RefCard>
 
-<RefCard href="/develop/concepts/custom-components/v1">
+<RefCard href="/develop/concepts/custom-components/components-v1">
 
 <h4>Components v1</h4>
 

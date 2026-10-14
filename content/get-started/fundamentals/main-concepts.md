@@ -95,9 +95,9 @@ Whenever a callback is passed to a widget via the `on_change` (or `on_click`) pa
 
 And to make all of this fast and seamless, Streamlit does some heavy lifting
 for you behind the scenes. A big player in this story is the
-[`@st.cache_data`](#caching) decorator, which allows developers to skip certain
-costly computations when their apps rerun. We'll cover caching later in this
-page.
+[`@st.cache_data`](/get-started/fundamentals/advanced-concepts#caching) decorator, which allows developers to skip certain
+costly computations when their apps rerun. Caching is covered in more detail in
+Advanced concepts.
 
 ## Display and style data
 

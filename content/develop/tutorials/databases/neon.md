@@ -117,4 +117,4 @@ If you already have a Neon project that you want to use, you can [skip to the ne
 This tutorial assumes a local Streamlit app, but you can also connect to a Neon database from apps hosted on Community Cloud. The additional steps are:
 
 - Add a [`requirements.txt`](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies) file to your repo. Include all the packages listed in [Prequisites](#prerequisites) and any other dependencies.
-- [Add your secrets](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management#deploy-an-app-and-set-up-secrets) to your app in Community Cloud.
+- [Add your secrets](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management#how-to-use-secrets-management) to your app in Community Cloud.
