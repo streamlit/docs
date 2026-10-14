@@ -19,6 +19,7 @@ But don't worry! Streamlit lets you tackle both issues with its built-in caching
 1. [Minimal example](#minimal-example)
 2. [Basic usage](#basic-usage)
 3. [Advanced usage](#advanced-usage)
+   1. [Caching async functions](#caching-async-functions)
 4. [Migrating from st.cache](#migrating-from-stcache)
 
 </Collapse>
@@ -855,6 +856,28 @@ l[0] is: 2
 This toy example might seem benign. But data corruption can be extremely dangerous! Imagine we had worked with the financial records of a large bank here. You surely don't want to wake up with less money on your account just because someone used the wrong caching decorator 😉
 
 </Note>
+
+### Caching async functions
+
+Both `st.cache_data` and `st.cache_resource` work with `async def` functions. Calling a cached async function returns an awaitable, which you must await directly or run with `asyncio.run`. Streamlit caches the resolved return value.
+
+```python
+import asyncio
+
+import httpx
+import streamlit as st
+
+@st.cache_data(ttl=600)
+async def fetch_data(url):
+    async with httpx.AsyncClient() as client:
+        response = await client.get(url)
+        return response.json()
+
+data = asyncio.run(
+    fetch_data("https://jsonplaceholder.typicode.com/posts/1")
+)
+st.json(data)
+```
 
 ## Migrating from st.cache
 
