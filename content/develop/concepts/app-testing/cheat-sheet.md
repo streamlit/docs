@@ -53,10 +53,10 @@ at.color_picker[0].pick("#000000").run()
 assert at.date_input[0].value == datetime.date(2019, 7, 6)
 at.date_input[0].set_value(datetime.date(2022, 12, 21)).run()
 
-# form_submit_button - shows up just like a button
-assert at.button[0].value == False
-at.button[0].click().run()
-assert at.button[0].value == True
+# form_submit_button - also included in at.button
+assert at.form_submit_button[0].value == False
+at.form_submit_button[0].click().run()
+assert at.form_submit_button[0].value == True
 
 # multiselect
 assert at.multiselect[0].value == ["foo", "bar"]
@@ -184,14 +184,8 @@ assert at.toast[0].value == "That was lit!" and at.toast[0].icon == "🔥"
 
 ## Limitations
 
-As of Streamlit 1.28, the following Streamlit features are not natively supported by `AppTest`. However, workarounds are possible for many of them by inspecting the underlying proto directly using `AppTest.get()`. We plan to regularly add support for missing elements until all features are supported.
+As of Streamlit 1.66, the following Streamlit features are not natively supported by `AppTest`. However, workarounds are possible for many of them by inspecting the underlying proto directly using `AppTest.get()`. We plan to regularly add support for missing elements until all features are supported.
 
 - Chart elements (`st.bar_chart`, `st.line_chart`, etc)
-- Media elements (`st.image`, `st.video`, `st.audio`)
-- `st.file_uploader`
+- Media elements (`st.video`, `st.audio`)
 - `st.data_editor`
-- `st.expander`
-- `st.status`
-- `st.camera_input`
-- `st.download_button`
-- `st.link_button`

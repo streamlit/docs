@@ -35,7 +35,13 @@ Note that you can also retrieve elements within a specific container in the same
 
 <Autofunction function="AppTest.get_by_key" />
 
+<Autofunction function="AppTest.audio_input" />
+
 <Autofunction function="AppTest.button" is_property />
+
+<Autofunction function="AppTest.button_group" />
+
+<Autofunction function="AppTest.camera_input" />
 
 <Autofunction function="AppTest.caption" />
 
@@ -57,7 +63,11 @@ Note that you can also retrieve elements within a specific container in the same
 
 <Autofunction function="AppTest.date_input" />
 
+<Autofunction function="AppTest.datetime_input" />
+
 <Autofunction function="AppTest.divider" />
+
+<Autofunction function="AppTest.download_button" />
 
 <Autofunction function="AppTest.error" />
 
@@ -65,9 +75,21 @@ Note that you can also retrieve elements within a specific container in the same
 
 <Autofunction function="AppTest.expander" />
 
+<Autofunction function="AppTest.feedback" />
+
 <Autofunction function="AppTest.file_uploader" />
 
+<Autofunction function="AppTest.form" />
+
+<Autofunction function="AppTest.form_submit_button" />
+
 <Autofunction function="AppTest.header" />
+
+<Autofunction function="AppTest.help" />
+
+<Autofunction function="AppTest.html" />
+
+<Autofunction function="AppTest.image" />
 
 <Autofunction function="AppTest.info" />
 
@@ -75,9 +97,13 @@ Note that you can also retrieve elements within a specific container in the same
 
 <Autofunction function="AppTest.latex" />
 
+<Autofunction function="AppTest.link_button" />
+
 <Autofunction function="AppTest.main" />
 
 <Autofunction function="AppTest.markdown" />
+
+<Autofunction function="AppTest.menu_button" />
 
 <Autofunction function="AppTest.metric" />
 
@@ -85,7 +111,17 @@ Note that you can also retrieve elements within a specific container in the same
 
 <Autofunction function="AppTest.number_input" />
 
+<Autofunction function="AppTest.page_link" />
+
+<Autofunction function="AppTest.pagination" />
+
+<Autofunction function="AppTest.pills" />
+
+<Autofunction function="AppTest.progress" />
+
 <Autofunction function="AppTest.radio" />
+
+<Autofunction function="AppTest.segmented_control" />
 
 <Autofunction function="AppTest.select_slider" />
 
