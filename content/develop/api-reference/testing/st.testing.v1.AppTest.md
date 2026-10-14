@@ -39,6 +39,8 @@ Note that you can also retrieve elements within a specific container in the same
 
 <Autofunction function="AppTest.button" is_property />
 
+<Autofunction function="AppTest.button_group" />
+
 <Autofunction function="AppTest.camera_input" />
 
 <Autofunction function="AppTest.caption" />
@@ -61,13 +63,19 @@ Note that you can also retrieve elements within a specific container in the same
 
 <Autofunction function="AppTest.date_input" />
 
+<Autofunction function="AppTest.datetime_input" />
+
 <Autofunction function="AppTest.divider" />
+
+<Autofunction function="AppTest.download_button" />
 
 <Autofunction function="AppTest.error" />
 
 <Autofunction function="AppTest.exception" />
 
 <Autofunction function="AppTest.expander" />
+
+<Autofunction function="AppTest.feedback" />
 
 <Autofunction function="AppTest.file_uploader" />
 
@@ -81,6 +89,8 @@ Note that you can also retrieve elements within a specific container in the same
 
 <Autofunction function="AppTest.html" />
 
+<Autofunction function="AppTest.image" />
+
 <Autofunction function="AppTest.info" />
 
 <Autofunction function="AppTest.json" />
@@ -93,6 +103,8 @@ Note that you can also retrieve elements within a specific container in the same
 
 <Autofunction function="AppTest.markdown" />
 
+<Autofunction function="AppTest.menu_button" />
+
 <Autofunction function="AppTest.metric" />
 
 <Autofunction function="AppTest.multiselect" />
@@ -103,9 +115,13 @@ Note that you can also retrieve elements within a specific container in the same
 
 <Autofunction function="AppTest.pagination" />
 
+<Autofunction function="AppTest.pills" />
+
 <Autofunction function="AppTest.progress" />
 
 <Autofunction function="AppTest.radio" />
+
+<Autofunction function="AppTest.segmented_control" />
 
 <Autofunction function="AppTest.select_slider" />
 
