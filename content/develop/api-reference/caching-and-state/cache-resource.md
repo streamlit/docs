@@ -24,9 +24,9 @@ import streamlit as st
 from transformers import BertModel
 
 @st.cache_resource
- def get_database_session(url):
-     # Create a database session object that points to the URL.
-     return session
+def get_database_session(url):
+    # Create a database session object that points to the URL.
+    return session
 
 @st.cache_resource
 def get_model(model_type):
