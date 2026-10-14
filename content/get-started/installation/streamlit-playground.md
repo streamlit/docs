@@ -65,7 +65,7 @@ Because the Playground runs Streamlit _locally_ in your browser, you should visi
 
 ## What's next?
 
-- Option 1: If you're already intrigued and ready to install Streamlit on your computer, see one of the options to [Install Streamlit on your machine](/get-started/installation#install-on-your-machine).
+- Option 1: If you're already intrigued and ready to install Streamlit on your computer, see one of the options to [Install Streamlit on your machine](/get-started/installation#install-streamlit-on-your-machine).
 
 - Option 2: Otherwise, you can keep using the playground while you read about our [Basic concepts](/get-started/fundamentals/main-concepts) and try out more commands in your app.
 

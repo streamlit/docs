@@ -2,7 +2,7 @@
 title: Connect to data sources
 slug: /develop/tutorials/databases
 description: Step-by-step tutorials for connecting Streamlit apps to databases and APIs including SQL databases, cloud storage, and popular services.
-keywords: database connections, data sources, SQL databases, cloud storage, APIs, PostgreSQL, MySQL, MongoDB, BigQuery, AWS S3, data tutorials
+keywords: database connections, data sources, SQL databases, cloud storage, APIs, PostgreSQL, MySQL, MongoDB, BigQuery, AWS S3, ClickHouse, data tutorials
 ---
 
 # Connect Streamlit to data sources
@@ -25,6 +25,22 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 <Image pure alt="screenshot" src="/images/databases/bigquery.png" />
 
 <h5>BigQuery</h5>
+
+</DataSourcesCard>
+
+<DataSourcesCard href="/develop/tutorials/databases/clickhouse">
+
+<Image pure alt="screenshot" src="/images/databases/clickhouse.png" />
+
+<h5>ClickHouse</h5>
+
+</DataSourcesCard>
+
+<DataSourcesCard href="/develop/tutorials/databases/clickhouse-managed-postgres">
+
+<Image pure alt="screenshot" src="/images/databases/clickhouse.png" />
+
+<h5>ClickHouse Managed Postgres</h5>
 
 </DataSourcesCard>
 
