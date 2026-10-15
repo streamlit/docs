@@ -47,6 +47,7 @@
 <url><loc>https://docs.streamlit.io/develop/api-reference</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/caching-and-state</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/caching-and-state/st.cache_data</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/caching-and-state/st.cache_data</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/caching-and-state/st.cache_data</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/caching-and-state/st.cache_data</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/caching-and-state/st.cache_data</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -91,6 +92,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/caching-and-state/st.cache_data</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/caching-and-state/st.cache_data</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/caching-and-state/st.cache_resource</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/caching-and-state/st.cache_resource</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/caching-and-state/st.cache_resource</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/caching-and-state/st.cache_resource</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/caching-and-state/st.cache_resource</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -135,6 +137,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/caching-and-state/st.cache_resource</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/caching-and-state/st.cache_resource</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/caching-and-state/st.context</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/caching-and-state/st.context</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/caching-and-state/st.context</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/caching-and-state/st.context</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/caching-and-state/st.context</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -179,6 +182,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/caching-and-state/st.context</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/caching-and-state/st.context</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/caching-and-state/st.experimental_get_query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/caching-and-state/st.experimental_get_query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/caching-and-state/st.experimental_get_query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/caching-and-state/st.experimental_get_query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/caching-and-state/st.experimental_get_query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -223,6 +227,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/caching-and-state/st.experimental_get_query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/caching-and-state/st.experimental_get_query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/caching-and-state/st.experimental_set_query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/caching-and-state/st.experimental_set_query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/caching-and-state/st.experimental_set_query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/caching-and-state/st.experimental_set_query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/caching-and-state/st.experimental_set_query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -267,6 +272,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/caching-and-state/st.experimental_set_query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/caching-and-state/st.experimental_set_query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/caching-and-state/st.query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/caching-and-state/st.query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/caching-and-state/st.query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/caching-and-state/st.query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/caching-and-state/st.query_params</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -313,6 +319,7 @@
 <url><loc>https://docs.streamlit.io/develop/api-reference/caching-and-state/st.session_state</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/charts</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/charts/st.altair_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/charts/st.altair_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/charts/st.altair_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/charts/st.altair_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/charts/st.altair_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -357,6 +364,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/charts/st.altair_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/charts/st.altair_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/charts/st.area_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/charts/st.area_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/charts/st.area_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/charts/st.area_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/charts/st.area_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -401,6 +409,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/charts/st.area_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/charts/st.area_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/charts/st.bar_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/charts/st.bar_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/charts/st.bar_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/charts/st.bar_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/charts/st.bar_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -445,6 +454,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/charts/st.bar_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/charts/st.bar_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/charts/st.bokeh_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/charts/st.bokeh_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/charts/st.bokeh_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/charts/st.bokeh_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/charts/st.bokeh_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -489,6 +499,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/charts/st.bokeh_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/charts/st.bokeh_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/charts/st.echarts_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/charts/st.echarts_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/charts/st.echarts_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/charts/st.echarts_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/charts/st.echarts_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -533,6 +544,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/charts/st.echarts_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/charts/st.echarts_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/charts/st.graphviz_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/charts/st.graphviz_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/charts/st.graphviz_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/charts/st.graphviz_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/charts/st.graphviz_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -577,6 +589,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/charts/st.graphviz_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/charts/st.graphviz_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/charts/st.line_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/charts/st.line_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/charts/st.line_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/charts/st.line_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/charts/st.line_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -621,6 +634,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/charts/st.line_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/charts/st.line_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/charts/st.map</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/charts/st.map</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/charts/st.map</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/charts/st.map</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/charts/st.map</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -665,6 +679,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/charts/st.map</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/charts/st.map</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/charts/st.mermaid_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/charts/st.mermaid_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/charts/st.mermaid_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/charts/st.mermaid_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/charts/st.mermaid_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -709,6 +724,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/charts/st.mermaid_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/charts/st.mermaid_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/charts/st.plotly_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/charts/st.plotly_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/charts/st.plotly_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/charts/st.plotly_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/charts/st.plotly_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -753,6 +769,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/charts/st.plotly_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/charts/st.plotly_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/charts/st.pydeck_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/charts/st.pydeck_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/charts/st.pydeck_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/charts/st.pydeck_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/charts/st.pydeck_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -797,6 +814,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/charts/st.pydeck_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/charts/st.pydeck_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/charts/st.pyplot</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/charts/st.pyplot</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/charts/st.pyplot</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/charts/st.pyplot</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/charts/st.pyplot</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -841,6 +859,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/charts/st.pyplot</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/charts/st.pyplot</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/charts/st.scatter_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/charts/st.scatter_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/charts/st.scatter_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/charts/st.scatter_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/charts/st.scatter_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -885,6 +904,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/charts/st.scatter_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/charts/st.scatter_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/charts/st.vega_lite_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/charts/st.vega_lite_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/charts/st.vega_lite_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/charts/st.vega_lite_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/charts/st.vega_lite_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -930,6 +950,7 @@
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/charts/st.vega_lite_chart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/chat</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/chat/st.chat_input</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/chat/st.chat_input</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/chat/st.chat_input</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/chat/st.chat_input</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/chat/st.chat_input</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -974,6 +995,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/chat/st.chat_input</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/chat/st.chat_input</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/chat/st.chat_message</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/chat/st.chat_message</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/chat/st.chat_message</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/chat/st.chat_message</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/chat/st.chat_message</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1030,6 +1052,7 @@
 <url><loc>https://docs.streamlit.io/develop/api-reference/configuration</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/configuration/config.toml</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/configuration/st.get_option</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/configuration/st.get_option</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/configuration/st.get_option</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/configuration/st.get_option</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/configuration/st.get_option</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1074,6 +1097,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/configuration/st.get_option</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/configuration/st.get_option</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/configuration/st.set_option</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/configuration/st.set_option</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/configuration/st.set_option</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/configuration/st.set_option</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/configuration/st.set_option</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1118,6 +1142,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/configuration/st.set_option</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/configuration/st.set_option</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/configuration/st.set_page_config</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/configuration/st.set_page_config</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/configuration/st.set_page_config</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/configuration/st.set_page_config</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1163,6 +1188,7 @@
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/configuration/st.set_page_config</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/connections</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/connections/st.connection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/connections/st.connection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/connections/st.connection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/connections/st.connection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/connections/st.connection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1207,6 +1233,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/connections/st.connection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/connections/st.connection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/connections/st.connections.baseconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/connections/st.connections.baseconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/connections/st.connections.baseconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/connections/st.connections.baseconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/connections/st.connections.baseconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1251,6 +1278,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/connections/st.connections.baseconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/connections/st.connections.baseconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/connections/st.connections.experimentalbaseconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/connections/st.connections.experimentalbaseconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/connections/st.connections.experimentalbaseconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/connections/st.connections.experimentalbaseconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/connections/st.connections.experimentalbaseconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1295,6 +1323,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/connections/st.connections.experimentalbaseconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/connections/st.connections.experimentalbaseconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/connections/st.connections.snowflakeconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/connections/st.connections.snowflakeconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/connections/st.connections.snowflakeconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/connections/st.connections.snowflakeconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/connections/st.connections.snowflakeconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1339,6 +1368,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/connections/st.connections.snowflakeconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/connections/st.connections.snowflakeconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/connections/st.connections.snowparkconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/connections/st.connections.snowparkconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/connections/st.connections.snowparkconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/connections/st.connections.snowparkconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/connections/st.connections.snowparkconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1383,6 +1413,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/connections/st.connections.snowparkconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/connections/st.connections.snowparkconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/connections/st.connections.sqlconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/connections/st.connections.sqlconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/connections/st.connections.sqlconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/connections/st.connections.sqlconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/connections/st.connections.sqlconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1427,6 +1458,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/connections/st.connections.sqlconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/connections/st.connections.sqlconnection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/connections/st.experimental_connection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/connections/st.experimental_connection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/connections/st.experimental_connection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/connections/st.experimental_connection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/connections/st.experimental_connection</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1474,6 +1506,7 @@
 <url><loc>https://docs.streamlit.io/develop/api-reference/connections/st.secrets</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/execution-flow</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/execution-flow/st.dialog</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/execution-flow/st.dialog</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/execution-flow/st.dialog</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/execution-flow/st.dialog</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/execution-flow/st.dialog</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1518,6 +1551,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/execution-flow/st.dialog</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/execution-flow/st.dialog</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/execution-flow/st.experimental_rerun</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/execution-flow/st.experimental_rerun</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/execution-flow/st.experimental_rerun</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/execution-flow/st.experimental_rerun</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/execution-flow/st.experimental_rerun</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1562,6 +1596,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/execution-flow/st.experimental_rerun</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/execution-flow/st.experimental_rerun</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/execution-flow/st.form</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/execution-flow/st.form</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/execution-flow/st.form</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/execution-flow/st.form</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/execution-flow/st.form</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1606,6 +1641,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/execution-flow/st.form</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/execution-flow/st.form</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/execution-flow/st.form_submit_button</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/execution-flow/st.form_submit_button</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/execution-flow/st.form_submit_button</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/execution-flow/st.form_submit_button</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/execution-flow/st.form_submit_button</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1650,6 +1686,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/execution-flow/st.form_submit_button</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/execution-flow/st.form_submit_button</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/execution-flow/st.fragment</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/execution-flow/st.fragment</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/execution-flow/st.fragment</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/execution-flow/st.fragment</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1694,6 +1731,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/execution-flow/st.fragment</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/execution-flow/st.fragment</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/execution-flow/st.rerun</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/execution-flow/st.rerun</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/execution-flow/st.rerun</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/execution-flow/st.rerun</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/execution-flow/st.rerun</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1738,6 +1776,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/execution-flow/st.rerun</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/execution-flow/st.rerun</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/execution-flow/st.stop</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/execution-flow/st.stop</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/execution-flow/st.stop</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/execution-flow/st.stop</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/execution-flow/st.stop</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1783,6 +1822,7 @@
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/execution-flow/st.stop</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/custom-components</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/custom-components/st.components.v2.component</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/custom-components/st.components.v2.component</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/custom-components/st.components.v2.component</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/custom-components/st.components.v2.component</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/custom-components/st.components.v2.component</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1827,6 +1867,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/custom-components/st.components.v2.component</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/custom-components/st.components.v2.component</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/custom-components/st.components.v2.types.componentrenderer</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/custom-components/st.components.v2.types.componentrenderer</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/custom-components/st.components.v2.types.componentrenderer</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/custom-components/st.components.v2.types.componentrenderer</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/custom-components/st.components.v2.types.componentrenderer</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1871,6 +1912,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/custom-components/st.components.v2.types.componentrenderer</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/custom-components/st.components.v2.types.componentrenderer</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/custom-components/st.components.v1.declare_component</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/custom-components/st.components.v1.declare_component</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/custom-components/st.components.v1.declare_component</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/custom-components/st.components.v1.declare_component</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/custom-components/st.components.v1.declare_component</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1915,6 +1957,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/custom-components/st.components.v1.declare_component</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/custom-components/st.components.v1.declare_component</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/custom-components/st.components.v1.html</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/custom-components/st.components.v1.html</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/custom-components/st.components.v1.html</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/custom-components/st.components.v1.html</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/custom-components/st.components.v1.html</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -1959,6 +2002,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/custom-components/st.components.v1.html</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/custom-components/st.components.v1.html</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/custom-components/st.components.v1.iframe</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/custom-components/st.components.v1.iframe</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/custom-components/st.components.v1.iframe</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/custom-components/st.components.v1.iframe</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/custom-components/st.components.v1.iframe</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2003,6 +2047,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/custom-components/st.components.v1.iframe</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/custom-components/st.components.v1.iframe</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/custom-components/component-v2-lib-cleanupfunction</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/custom-components/component-v2-lib-cleanupfunction</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/custom-components/component-v2-lib-cleanupfunction</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/custom-components/component-v2-lib-cleanupfunction</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/custom-components/component-v2-lib-cleanupfunction</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2048,6 +2093,7 @@
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/custom-components/component-v2-lib-cleanupfunction</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/custom-components/component-v2-lib</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/custom-components/component-v2-lib-frontendstate</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/custom-components/component-v2-lib-frontendstate</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/custom-components/component-v2-lib-frontendstate</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/custom-components/component-v2-lib-frontendstate</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/custom-components/component-v2-lib-frontendstate</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2092,6 +2138,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/custom-components/component-v2-lib-frontendstate</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/custom-components/component-v2-lib-frontendstate</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/custom-components/component-v2-lib-frontendrenderer</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/custom-components/component-v2-lib-frontendrenderer</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/custom-components/component-v2-lib-frontendrenderer</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/custom-components/component-v2-lib-frontendrenderer</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/custom-components/component-v2-lib-frontendrenderer</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2136,6 +2183,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/custom-components/component-v2-lib-frontendrenderer</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/custom-components/component-v2-lib-frontendrenderer</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/custom-components/component-v2-lib-frontendrendererargs</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/custom-components/component-v2-lib-frontendrendererargs</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/custom-components/component-v2-lib-frontendrendererargs</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/custom-components/component-v2-lib-frontendrendererargs</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/custom-components/component-v2-lib-frontendrendererargs</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2182,6 +2230,7 @@
 <url><loc>https://docs.streamlit.io/develop/api-reference/data</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.areachartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.areachartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.areachartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.areachartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.areachartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2226,6 +2275,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.areachartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.areachartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.audiocolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.audiocolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.audiocolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.audiocolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.audiocolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2270,6 +2320,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.audiocolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.audiocolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.barchartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.barchartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.barchartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.barchartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.barchartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2314,6 +2365,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.barchartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.barchartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.buttoncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.buttoncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.buttoncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.buttoncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.buttoncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2358,6 +2410,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.buttoncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.buttoncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.checkboxcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.checkboxcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.checkboxcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.checkboxcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.checkboxcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2402,6 +2455,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.checkboxcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.checkboxcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.column</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.column</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.column</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.column</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.column</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2446,6 +2500,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.column</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.column</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.datecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.datecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.datecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.datecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.datecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2490,6 +2545,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.datecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.datecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.datetimecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.datetimecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.datetimecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.datetimecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.datetimecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2534,6 +2590,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.datetimecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.datetimecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.imagecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.imagecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.imagecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.imagecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.imagecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2578,6 +2635,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.imagecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.imagecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.jsoncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.jsoncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.jsoncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.jsoncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.jsoncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2622,6 +2680,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.jsoncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.jsoncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.linechartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.linechartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.linechartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.linechartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.linechartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2666,6 +2725,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.linechartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.linechartcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.linkcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.linkcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.linkcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.linkcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.linkcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2710,6 +2770,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.linkcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.linkcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.listcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.listcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.listcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.listcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.listcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2754,6 +2815,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.listcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.listcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.markdowncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.markdowncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.markdowncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.markdowncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.markdowncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2798,6 +2860,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.markdowncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.markdowncolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.multiselectcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.multiselectcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.multiselectcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.multiselectcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.multiselectcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2842,6 +2905,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.multiselectcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.multiselectcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.numbercolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.numbercolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.numbercolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.numbercolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.numbercolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2886,6 +2950,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.numbercolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.numbercolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.progresscolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.progresscolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.progresscolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.progresscolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.progresscolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2930,6 +2995,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.progresscolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.progresscolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.selectboxcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.selectboxcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.selectboxcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.selectboxcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.selectboxcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2974,6 +3040,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.selectboxcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.selectboxcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.textcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.textcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.textcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.textcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.textcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3018,6 +3085,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.textcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.textcolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.timecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.timecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.timecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.timecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.timecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3062,6 +3130,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.timecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.timecolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.column_config/st.column_config.videocolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.column_config/st.column_config.videocolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.column_config/st.column_config.videocolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.column_config/st.column_config.videocolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.column_config/st.column_config.videocolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3106,6 +3175,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.column_config/st.column_config.videocolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.column_config/st.column_config.videocolumn</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.data_editor</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.data_editor</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.data_editor</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.data_editor</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.data_editor</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3150,6 +3220,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.data_editor</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.data_editor</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.dataframe</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.dataframe</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.dataframe</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.dataframe</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.dataframe</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3194,6 +3265,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.dataframe</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.dataframe</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.experimental_data_editor</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.experimental_data_editor</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.experimental_data_editor</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.experimental_data_editor</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.experimental_data_editor</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3238,6 +3310,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.experimental_data_editor</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.experimental_data_editor</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.json</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.json</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.json</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.json</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.json</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3282,6 +3355,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.json</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.json</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.metric</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.metric</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.metric</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.metric</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.metric</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3326,6 +3400,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/data/st.metric</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/data/st.metric</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/data/st.table</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/data/st.table</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/data/st.table</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/data/st.table</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/data/st.table</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3372,6 +3447,7 @@
 <url><loc>https://docs.streamlit.io/develop/api-reference/layout</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/layout/st.bottom</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/layout/st.columns</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/layout/st.columns</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/layout/st.columns</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/layout/st.columns</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/layout/st.columns</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3416,6 +3492,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/layout/st.columns</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/layout/st.columns</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/layout/st.container</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/layout/st.container</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/layout/st.container</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/layout/st.container</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/layout/st.container</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3460,6 +3537,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/layout/st.container</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/layout/st.container</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/layout/st.empty</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/layout/st.empty</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/layout/st.empty</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/layout/st.empty</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/layout/st.empty</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3504,6 +3582,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/layout/st.empty</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/layout/st.empty</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/layout/st.expander</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/layout/st.expander</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/layout/st.expander</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/layout/st.expander</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/layout/st.expander</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3548,6 +3627,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/layout/st.expander</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/layout/st.expander</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/layout/st.popover</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/layout/st.popover</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/layout/st.popover</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/layout/st.popover</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/layout/st.popover</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3593,6 +3673,7 @@
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/layout/st.popover</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/layout/st.sidebar</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/layout/st.space</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/layout/st.space</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/layout/st.space</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/layout/st.space</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/layout/st.space</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3637,6 +3718,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/layout/st.space</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/layout/st.space</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/layout/st.tabs</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/layout/st.tabs</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/layout/st.tabs</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/layout/st.tabs</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/layout/st.tabs</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3682,6 +3764,7 @@
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/layout/st.tabs</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/media</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/media/st.audio</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/media/st.audio</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/media/st.audio</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/media/st.audio</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/media/st.audio</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3726,6 +3809,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/media/st.audio</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/media/st.audio</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/media/st.image</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/media/st.image</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/media/st.image</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/media/st.image</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/media/st.image</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3770,6 +3854,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/media/st.image</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/media/st.image</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/media/st.logo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/media/st.logo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/media/st.logo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/media/st.logo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/media/st.logo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3814,6 +3899,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/media/st.logo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/media/st.logo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/media/st.pdf</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/media/st.pdf</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/media/st.pdf</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/media/st.pdf</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/media/st.pdf</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3858,6 +3944,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/media/st.pdf</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/media/st.pdf</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/media/st.video</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/media/st.video</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/media/st.video</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/media/st.video</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/media/st.video</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3903,6 +3990,7 @@
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/media/st.video</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/navigation</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/navigation/st.navigation</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/navigation/st.navigation</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/navigation/st.navigation</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/navigation/st.navigation</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/navigation/st.navigation</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3947,6 +4035,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/navigation/st.navigation</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/navigation/st.navigation</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/navigation/st.page</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/navigation/st.page</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/navigation/st.page</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/navigation/st.page</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/navigation/st.page</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -3991,6 +4080,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/navigation/st.page</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/navigation/st.page</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/navigation/st.switch_page</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/navigation/st.switch_page</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/navigation/st.switch_page</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/navigation/st.switch_page</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/navigation/st.switch_page</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4036,6 +4126,7 @@
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/navigation/st.switch_page</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/server</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/server/st.app</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/server/st.app</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/server/st.app</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/server/st.app</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/server/st.app</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4081,6 +4172,7 @@
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/server/st.app</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/status</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/status/st.balloons</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/status/st.balloons</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/status/st.balloons</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/status/st.balloons</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/status/st.balloons</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4125,6 +4217,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/status/st.balloons</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/status/st.balloons</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/status/st.error</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/status/st.error</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/status/st.error</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/status/st.error</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/status/st.error</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4169,6 +4262,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/status/st.error</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/status/st.error</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/status/st.exception</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/status/st.exception</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/status/st.exception</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/status/st.exception</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/status/st.exception</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4213,6 +4307,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/status/st.exception</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/status/st.exception</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/status/st.info</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/status/st.info</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/status/st.info</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/status/st.info</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/status/st.info</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4257,6 +4352,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/status/st.info</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/status/st.info</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/status/st.progress</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/status/st.progress</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/status/st.progress</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/status/st.progress</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/status/st.progress</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4301,6 +4397,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/status/st.progress</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/status/st.progress</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/status/st.skeleton</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/status/st.skeleton</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/status/st.skeleton</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/status/st.skeleton</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/status/st.skeleton</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4345,6 +4442,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/status/st.skeleton</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/status/st.skeleton</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/status/st.snow</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/status/st.snow</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/status/st.snow</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/status/st.snow</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/status/st.snow</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4389,6 +4487,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/status/st.snow</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/status/st.snow</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/status/st.spinner</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/status/st.spinner</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/status/st.spinner</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/status/st.spinner</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/status/st.spinner</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4433,6 +4532,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/status/st.spinner</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/status/st.spinner</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/status/st.status</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/status/st.status</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/status/st.status</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/status/st.status</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/status/st.status</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4477,6 +4577,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/status/st.status</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/status/st.status</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/status/st.success</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/status/st.success</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/status/st.success</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/status/st.success</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/status/st.success</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4521,6 +4622,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/status/st.success</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/status/st.success</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/status/st.toast</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/status/st.toast</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/status/st.toast</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/status/st.toast</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/status/st.toast</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4565,6 +4667,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/status/st.toast</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/status/st.toast</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/status/st.warning</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/status/st.warning</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/status/st.warning</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/status/st.warning</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/status/st.warning</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4610,6 +4713,7 @@
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/status/st.warning</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/app-testing</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/app-testing/st.testing.v1.apptest</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/app-testing/st.testing.v1.apptest</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/app-testing/st.testing.v1.apptest</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/app-testing/st.testing.v1.apptest</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/app-testing/st.testing.v1.apptest</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4654,6 +4758,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/app-testing/st.testing.v1.apptest</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/app-testing/st.testing.v1.apptest</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/app-testing/testing-element-classes</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/app-testing/testing-element-classes</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/app-testing/testing-element-classes</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/app-testing/testing-element-classes</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/app-testing/testing-element-classes</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4699,6 +4804,7 @@
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/app-testing/testing-element-classes</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/text</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/text/st.badge</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/text/st.badge</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/text/st.badge</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/text/st.badge</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/text/st.badge</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4743,6 +4849,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/text/st.badge</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/text/st.badge</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/text/st.caption</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/text/st.caption</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/text/st.caption</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/text/st.caption</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/text/st.caption</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4787,6 +4894,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/text/st.caption</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/text/st.caption</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/text/st.code</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/text/st.code</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/text/st.code</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/text/st.code</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/text/st.code</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4831,6 +4939,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/text/st.code</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/text/st.code</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/text/st.divider</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/text/st.divider</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/text/st.divider</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/text/st.divider</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/text/st.divider</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4875,6 +4984,7 @@
 <url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/text/st.divider</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/text/st.divider</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/1.65.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -4890,114 +5000,4 @@
 <url><loc>https://docs.streamlit.io/1.52.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.51.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/1.50.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.49.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.48.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.47.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.46.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.45.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.44.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.43.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.42.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.41.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.40.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.39.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.38.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.37.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.36.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.35.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.34.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.33.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.32.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.31.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.30.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.29.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.28.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.27.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.26.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.25.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.24.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/text/st.echo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.61.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.60.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.59.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.58.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.57.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.56.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.55.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.54.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.53.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.52.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.51.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.50.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.49.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.48.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.47.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.46.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.45.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.44.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.43.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.42.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.41.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.40.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.39.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.38.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.37.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.36.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.35.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.34.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.33.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.32.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.31.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.30.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.29.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.28.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.27.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.26.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.25.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.24.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.23.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.22.0/develop/api-reference/text/st.header</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.64.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.63.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.62.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.61.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.60.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.59.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.58.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.57.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.56.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.55.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.54.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.53.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.52.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.51.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.50.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.49.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.48.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.47.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.46.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.45.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.44.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.43.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.42.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.41.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.40.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.39.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.38.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.37.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.36.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.35.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.34.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.33.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.32.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.31.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.30.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.29.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/1.28.0/develop/api-reference/text/st.help</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
