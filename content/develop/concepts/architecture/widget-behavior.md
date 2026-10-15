@@ -2,7 +2,7 @@
 title: Widget behavior
 slug: /develop/concepts/architecture/widget-behavior
 description: Learn how Streamlit widgets behave across reruns, handle state persistence, manage user interactions, and control widget lifecycle in your applications.
-keywords: widget behavior, widget state, user interactions, widget persistence, rerun behavior, interaction handling, state management, widget lifecycle, query parameters, bind
+keywords: widget behavior, widget state, user interactions, widget persistence, persist_state, rerun behavior, interaction handling, state management, widget lifecycle, query parameters, bind
 ---
 
 # Understanding widget behavior
@@ -17,8 +17,8 @@ This guide covers advanced concepts about widgets. Generally, it begins with sim
 2. A widget command returns the widget's current value, which is a simple Python type. For example, `st.button` returns a Boolean value.
 3. Widgets return their default values on their first call before a user interacts with them.
 4. A widget's identity depends on the arguments passed to the widget command. If a key is provided, the key determines the widget's identity, with limited exceptions noted in each widget's `key` parameter description. If no key is provided, changing a widget's label, min value, max value, default value, placeholder text, or help text will cause it to reset.
-5. If you don't call a widget command in a script run, Streamlit will delete the widget's information&mdash;_including its key-value pair in Session State_. If you call the same widget command later, Streamlit treats it as a new widget.
-6. Widgets are not stateful between pages. If you have two widgets with the same key on different pages, they will be treated as two different widgets.
+5. By default, if you don't call a widget command in a script run, Streamlit will delete the widget's information&mdash;_including its key-value pair in Session State_. If you call the same widget command later, Streamlit treats it as a new widget. Set `persist_state="page"` or `persist_state="session"` with a `key` to keep the value when the widget isn't rendered.
+6. By default, widgets are not stateful between pages. If you have two widgets with the same key on different pages, they will be treated as two different widgets. Use `persist_state="session"` to keep a widget's value when the user navigates away and back.
 
 The last three points (widget identity and widget deletion) are the most relevant when dynamically changing widgets or working with multi-page applications. This is covered in detail later in this guide: [Statefulness of widgets](#statefulness-of-widgets) and [Widget life cycle](#widget-life-cycle).
 
@@ -36,6 +36,7 @@ Key-based identity was progressively introduced from v1.50.0 through v1.55.0. If
 
 - **v1.46.0**: When navigating between pages, widget keys in `st.session_state` are deleted at the beginning of the new page's script run instead of the end.
 - **v1.55.0**: Most widgets support a new `bind` parameter to sync widget values with URL query parameters. See [Binding widgets to query parameters](#binding-widgets-to-query-parameters).
+- **v1.59.0**: Most widgets support a new `persist_state` parameter to keep a widget's value when it isn't rendered. See [Keep a widget's value with persist_state](#keep-a-widgets-value-with-persist_state).
 
 </Important>
 
@@ -81,7 +82,7 @@ Widget identity depends on whether a key is provided:
 - **With a key**: The key is the primary determinant of the widget's identity. Other parameters like `label`, `default`, `placeholder`, and `help` can change without resetting the widget. However, some widgets have specific parameters that also affect identity because changing them could invalidate the current value. For example, changing `min_value`/`max_value` on `st.slider` or `selection_mode` on `st.pills` will reset the widget even with a key. Check the `key` parameter description of each widget to see its exceptions, if any.
 - **Without a key**: A widget's parameters (label, options, min/max, default, placeholder, help text) determine the widget identity. Changing one of these parameters will reset the widget. Note that callback functions, callback args and kwargs, label visibility, and disabling a widget do not affect the widget identity.
 
-In all cases, widget identities and states aren't preserved between pages. More information is provided below in [Statefulness of widgets](#statefulness-of-widgets).
+In all cases, widget identities aren't preserved between pages. By default, widget values aren't preserved between pages either. Use `persist_state="session"` to keep a value across page switches. More information is provided below in [Statefulness of widgets](#statefulness-of-widgets).
 
 #### Streamlit can't understand two identical widgets on the same page
 
@@ -144,7 +145,7 @@ with st.form(key="my_form"):
 
 ## Statefulness of widgets
 
-As long as the widget identity remains the same and that widget is continuously rendered on the frontend, then it will be stateful and remember user input.
+As long as the widget identity remains the same and that widget is continuously rendered on the frontend, then it will be stateful and remember user input. To keep a value when the widget isn't rendered, use `persist_state` as described below.
 
 ### Changing a widget's identity will reset it
 
@@ -195,37 +196,38 @@ The `update_value()` function ensures consistency between the widget parameters 
 
 ### Widgets do not persist when not continually rendered
 
-If a widget command for a specific widget instance isn't called during a script run, then none of its parts are retained, including its value in `st.session_state`. If a widget has a key and you navigate away from that widget, its key and associated value in `st.session_state` are deleted. Even temporarily hiding a widget causes it to reset when it reappears; Streamlit will treat it like a new widget. To preserve widget state across pages or when widgets are temporarily hidden, save the value to a separate placeholder key as shown below.
+By default, if a widget command for a specific widget instance isn't called during a script run, then none of its parts are retained, including its value in `st.session_state`. If a widget has a key and you navigate away from that widget, its key and associated value in `st.session_state` are deleted. Even temporarily hiding a widget causes it to reset when it reappears; Streamlit will treat it like a new widget.
 
-#### Save widget values in Session State to preserve them between pages
+To keep a widget's value when it isn't rendered, set `persist_state` and provide a `key`.
 
-If you want to navigate away from a widget and return to it while keeping its value, use a separate key in `st.session_state` to save the information independently from the widget. This technique is also recommended to carry a widget's state to a new instance on another page. In this example, an underscore-prefixed, temporary key is used with a widget. Hence, `"_my_key"` is used as the widget key, but the data is copied to `"my_key"` to preserve it between pages.
+#### Keep a widget's value with persist_state
 
-```python
-import streamlit as st
+`persist_state` can be one of the following:
 
-def store_value():
-    # Copy the value to the permanent key
-    st.session_state["my_key"] = st.session_state["_my_key"]
+- `None` (default): The value is dropped when the widget isn't rendered.
+- `"page"`: The value is preserved while the user stays on the page where the widget is defined, for example while the widget is conditionally hidden. The value is discarded on a page switch.
+- `"session"`: The value is preserved for the entire session, including across page switches, so it returns when the user navigates back.
 
-# Copy the saved value to the temporary key
-st.session_state["_my_key"] = st.session_state["my_key"]
-st.number_input("Number of filters", key="_my_key", on_change=store_value)
-```
+`persist_state` requires a `key`. It is available on most widgets that support `bind="query-params"`. It is not available on `st.tabs`, trigger-like widgets (`st.button`, `st.download_button`, `st.form_submit_button`), file and media inputs (`st.file_uploader`, `st.camera_input`, `st.audio_input`), `st.chat_input`, `st.data_editor`, or selections from `st.dataframe` and charts.
 
-If this is functionalized to work with multiple widgets, it could look something like this:
+Use `"page"` when a widget is hidden on the same page:
 
 ```python
 import streamlit as st
 
-def store_value(key):
-    st.session_state[key] = st.session_state["_"+key]
-def load_value(key):
-    st.session_state["_"+key] = st.session_state[key]
-
-load_value("my_key")
-st.number_input("Number of filters", key="_my_key", on_change=store_value, args=["my_key"])
+if st.toggle("Edit name"):
+    st.text_input("Name", key="name", persist_state="page")
 ```
+
+Use `"session"` when the value should survive a page switch:
+
+```python
+import streamlit as st
+
+st.text_input("Name", key="name", persist_state="session")
+```
+
+If `bind="query-params"` is also set, `bind` takes precedence: the value is stored in the URL, so it persists across page switches regardless of the `persist_state` scope.
 
 ## Widget life cycle
 
@@ -245,7 +247,7 @@ If your script rerun calls a widget command with a changed identity or calls a w
 3. If there are args or kwargs for a callback function, they are evaluated and saved in memory.
 4. The widget value is then returned by the function.
 
-For step 2, prior to v1.46.0, Streamlit would ignore the value in Session State if it came from an instance of the widget on another page. This is because a widget on another page necessarily has a different identity. As of v1.46.0, Streamlit deletes such values at the beginning of a script run on a new page.
+For step 2, prior to v1.46.0, Streamlit would ignore the value in Session State if it came from an instance of the widget on another page. This is because a widget on another page necessarily has a different identity. As of v1.46.0, Streamlit deletes such values at the beginning of a script run on a new page, unless `persist_state="session"` keeps them.
 
 ### Calling a widget command when the widget already exists
 
@@ -259,7 +261,7 @@ When rerunning a script without changing a widget's identity:
 
 Streamlit cleans up widget data at the end of every script run and at the beginning of a script run on a new page.
 
-When Streamlit gets to the end of a script run, it will delete the data for any widgets it has in memory that were not rendered on the screen. Most importantly, that means Streamlit will delete all key-value pairs in `st.session_state` associated with a widget not currently on screen. When you switch pages, Streamlit will delete all data associated with widgets from the previous page.
+When Streamlit gets to the end of a script run, it will delete the data for any widgets it has in memory that were not rendered on the screen, unless `persist_state` is set. Most importantly, that means Streamlit will delete all key-value pairs in `st.session_state` associated with a widget not currently on screen. When you switch pages, Streamlit will delete all data associated with widgets from the previous page, except values kept with `persist_state="session"`. Values kept with `persist_state="page"` are discarded on a page switch.
 
 ## Binding widgets to query parameters
 
@@ -284,6 +286,7 @@ When a user selects "Green", the URL updates to include `?color=Green`. If someo
 - **Programmatic updates**: A bound query parameter can't be set or deleted through `st.query_params`. To programmatically change a bound widget's value, use `st.session_state`.
 - **Range values**: Widgets that return a range, like range sliders, use repeated query parameters. For example, a slider with a range of 10 to 90 will produce a URL ending with `?price=10&price=90`.
 - **Browser history**: When a user navigates with the browser's back or forward buttons, bound widgets restore their values from the URL. If a bound parameter is missing from the URL, the widget returns to its default value.
+- **`persist_state`**: If `bind="query-params"` and `persist_state` are both set, `bind` takes precedence. The value is stored in the URL, so it persists across page switches regardless of the `persist_state` scope.
 
 Trigger-like widgets (`st.button`, `st.download_button`, `st.chat_input`, `st.file_uploader`, `st.camera_input`, and `st.audio_input`) don't support binding because their values are transient.
 
@@ -334,11 +337,10 @@ page = st.navigation([
 page.run()
 ```
 
-**Secondary recommendation:** For widgets that must be on individual pages, use the placeholder key pattern. See [Save widget values in Session State to preserve them between pages](#save-widget-values-in-session-state-to-preserve-them-between-pages) for more information.
+**Secondary recommendation:** For widgets that must be on individual pages, set `persist_state="session"` and provide a `key`. See [Keep a widget's value with persist_state](#keep-a-widgets-value-with-persist_state) for more information.
 
 ### For parameter changes
 
 - Use keys when you need widgets to maintain state despite parameter changes.
-- If you need to change a parameter that affects a widget's identity, use placeholder keys like you would for multipage apps,
-  or use a callback to directly maintain a widget's state. For more information, see [Retain statefulness when changing a widget's identity](#retain-statefulness-when-changing-a-widgets-identity).
+- If you need to change a parameter that affects a widget's identity, use Session State to maintain the widget's value, or use a callback to directly maintain a widget's state. For more information, see [Retain statefulness when changing a widget's identity](#retain-statefulness-when-changing-a-widgets-identity). `persist_state` does not prevent a reset when a widget's identity changes.
 - To force a widget to reset, update its key, or update a parameter without using a key.
