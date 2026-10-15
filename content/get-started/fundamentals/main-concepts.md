@@ -91,9 +91,11 @@ By default, a full-script rerun happens in two situations:
 - Whenever a user interacts with widgets in the app. For example, when dragging
   a slider, entering text in an input box, or clicking a button.
 
-You can use [forms](/develop/concepts/architecture/forms) to batch widget input
-until submission or [fragments](/develop/concepts/architecture/fragments) to
-rerun only part of your app.
+Some widgets accept `on_change="ignore"` to update without triggering a rerun;
+Python receives the new value on the next rerun. You can also use
+[forms](/develop/concepts/architecture/forms) to batch widget input until
+submission or [fragments](/develop/concepts/architecture/fragments) to rerun
+only part of your app.
 
 Whenever a callback is passed to a widget via the `on_change` (or `on_click`) parameter, the callback will always run before the rest of your script. For details on the Callbacks API, please refer to our [Session State API Reference Guide](/develop/api-reference/caching-and-state/st.session_state#use-callbacks-to-update-session-state).
 
