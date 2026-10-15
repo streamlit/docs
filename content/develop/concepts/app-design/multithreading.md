@@ -26,9 +26,9 @@ Don't forget that Streamlit has [fragments](/develop/concepts/architecture/fragm
 Streamlit creates two types of threads in Python:
 
 - The **server thread** runs the Starlette web (HTTP + WebSocket) server on Uvicorn.
-- A **script thread** runs page code &mdash; one thread for each script run in a session.
+- **Script threads** run page code for user sessions. A script thread may execute multiple reruns for its session, and Streamlit may start a new script thread if the current one stops.
 
-When a user connects to your app, this creates a new session and runs a script thread to initialize the app for that user. As the script thread runs, it renders elements in the user's browser tab and reports state back to the server. When the user interacts with the app, another script thread runs, re-rendering the elements in the browser tab and updating state on the server.
+When a user connects to your app, this creates a new session and runs the page code in a script thread to initialize the app for that user. As the page code runs, it renders elements in the user's browser tab and reports state back to the server. When the user interacts with the app, Streamlit reruns the page code, re-rendering the elements in the browser tab and updating state on the server. A rerun may use the current script thread or a newly created one, so don't rely on thread identity across reruns.
 
 This is a simplifed illustration to show how Streamlit works:
 
@@ -139,7 +139,7 @@ If you want to call Streamlit commands from within your custom threads, you must
 
 - This is not officially supported and may change in a future version of Streamlit.
 - This may not work with all Streamlit commands.
-- Ensure custom threads do not outlive the script thread owning the `ScriptRunContext`. Leaking of `ScriptRunContext` may cause security vulnerabilities, fatal errors, or unexpected behavior.
+- Ensure custom threads do not outlive the script run during which the `ScriptRunContext` was attached. Leaking of `ScriptRunContext` may cause security vulnerabilities, fatal errors, or unexpected behavior.
 
 </Warning>
 
