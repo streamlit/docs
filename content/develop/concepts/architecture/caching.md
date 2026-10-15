@@ -120,7 +120,7 @@ In the example above, we already showed how to cache loading a DataFrame. It can
 def transform(df):
     df = df.filter(items=['one', 'three'])
     df = df.apply(np.sum, axis=0)
-	return df
+    return df
 ```
 
 **Array computations**
