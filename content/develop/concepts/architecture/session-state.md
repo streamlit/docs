@@ -9,9 +9,9 @@ keywords: session state, statefulness, st.session_state, callbacks, state manage
 
 ## What is State?
 
-We define access to a Streamlit app in a browser tab as a **session**. For each browser tab that connects to the Streamlit server, a new session is created. Streamlit reruns your script from top to bottom every time you interact with your app. Each reruns takes place in a blank slate: no variables are shared between runs.
+We define access to a Streamlit app in a browser tab as a **session**. For each browser tab that connects to the Streamlit server, a new session is created. By default, Streamlit reruns your script from top to bottom every time you interact with your app. Some widgets accept `on_change="ignore"` to update without triggering a rerun; Python receives the new value on the next rerun. You can also use [forms](/develop/concepts/architecture/forms) to batch interactions until submission or [fragments](/develop/concepts/architecture/fragments) to rerun only part of your script. Each full-script rerun starts with a blank slate for regular Python variables, but values stored in Session State persist across full-script and fragment reruns.
 
-Session State is a way to share variables between reruns, for each user session. In addition to the ability to store and persist state, Streamlit also exposes the ability to manipulate state using Callbacks. Session state also persists across pages inside a [multipage app](/develop/concepts/multipage-apps).
+Session State is scoped to each user session. Streamlit also exposes the ability to manipulate state using Callbacks. Session State persists across pages inside a [multipage app](/develop/concepts/multipage-apps).
 
 In this guide, we will illustrate the usage of **Session State** and **Callbacks** as we build a stateful Counter app.
 
