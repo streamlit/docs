@@ -80,16 +80,22 @@ If you are using Streamlit version 1.10.0 or higher, your main script should liv
 ## Data flow
 
 Streamlit's architecture allows you to write apps the same way you write plain
-Python scripts. To unlock this, Streamlit apps have a unique data flow: any
-time something must be updated on the screen, Streamlit reruns your entire
-Python script from top to bottom.
+Python scripts. To unlock this, Streamlit apps have a unique data flow: by
+default, when something must be updated on the screen, Streamlit reruns your
+entire Python script from top to bottom.
 
-This can happen in two situations:
+By default, a full-script rerun happens in two situations:
 
 - Whenever you modify your app's source code.
 
 - Whenever a user interacts with widgets in the app. For example, when dragging
   a slider, entering text in an input box, or clicking a button.
+
+Some widgets accept `on_change="ignore"` to update without triggering a rerun;
+Python receives the new value on the next rerun. You can also use
+[forms](/develop/concepts/architecture/forms) to batch widget input until
+submission or [fragments](/develop/concepts/architecture/fragments) to rerun
+only part of your app.
 
 Whenever a callback is passed to a widget via the `on_change` (or `on_click`) parameter, the callback will always run before the rest of your script. For details on the Callbacks API, please refer to our [Session State API Reference Guide](/develop/api-reference/caching-and-state/st.session_state#use-callbacks-to-update-session-state).
 
@@ -277,9 +283,9 @@ st.write(x, 'squared is', x * x)
 ```
 
 On first run, the app above should output the text "0 squared is 0". Then
-every time a user interacts with a widget, Streamlit simply reruns your script
-from top to bottom, assigning the current state of the widget to your variable
-in the process.
+with the default widget behavior, every time a user interacts with a widget,
+Streamlit simply reruns your script from top to bottom, assigning the current
+state of the widget to your variable in the process.
 
 For example, if the user moves the slider to position `10`, Streamlit will
 rerun the code above and set `x` to `10` accordingly. So now you should see the
