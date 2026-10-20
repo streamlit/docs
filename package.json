@@ -82,7 +82,7 @@
     "pdf-merger-js": "^5.1.2",
     "postcss": "^8.5.29",
     "prettier": "^3.9.9",
-    "puppeteer": "^22.15.0",
+    "puppeteer": "^25.13.0",
     "sass": "^1.105.1",
     "tailwindcss": "^3.4.0"
   },
