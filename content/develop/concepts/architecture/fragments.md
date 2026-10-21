@@ -200,8 +200,8 @@ Because parallel fragments run concurrently on separate threads during the initi
 `st.dialog` and `st.switch_page` work normally during a fragment rerun, even inside a parallel fragment, because fragment reruns are sequential. To use one of these commands inside a parallel fragment, gate it behind a widget interaction rather than calling it unconditionally:
 
 ```python
-@st.fragment
-def my_fragment(parallel=True):
+@st.fragment(parallel=True)
+def my_fragment():
     if st.button("Open dialog"):
         # Safe: only called during a fragment rerun, after the user clicks
         show_dialog()
