@@ -131,6 +131,8 @@ Calling `results.empty()` from your main script instead doesn't reserve a positi
 
 A parallel fragment can't write to outside containers during a full-script run, so it can't reserve a position in them. For more information, see [Restricted commands during parallel execution](#restricted-commands-during-parallel-execution).
 
+For a related tutorial, see [Create a fragment across multiple containers](/develop/tutorials/execution-flow/create-a-multiple-container-fragment).
+
 ## Target a fragment from outside with a key
 
 By default, a fragment reruns when a user interacts with one of its own widgets. But sometimes a widget _outside_ a fragment should refresh only that fragment — not the full app. You can do this by naming the fragment with the `key` parameter and calling [`st.rerun`](/develop/api-reference/execution-flow/st.rerun) with that key from a widget callback.
