@@ -240,7 +240,7 @@ Uber's busiest hours are in New York City.
 
 To draw this diagram we used Streamlit's native `bar_chart()` method, but it's
 important to know that Streamlit supports more complex charting libraries like
-Altair, Plotly, Matplotlib and more. For a full list, see
+Altair, Plotly, Matplotlib, ECharts and more. For a full list, see
 [supported charting libraries](/develop/api-reference/charts). For Bokeh
 charts, use the [`streamlit-bokeh`](https://github.com/streamlit/streamlit-bokeh)
 component.
