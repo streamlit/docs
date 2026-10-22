@@ -19,7 +19,7 @@ This guide explains how to securely access a Snowflake database from Streamlit. 
   streamlit[snowflake]>=1.66.0
   ```
 
-  The `snowflake` extra installs `snowflake-snowpark-python` and `snowflake-connector-python`.
+  The `snowflake` extra installs `snowflake-snowpark-python[modin]` and `snowflake-connector-python`. Its Modin dependency currently limits pandas to versions below 2.4.
 
     <Note>
         Use a version of Python supported by both Streamlit and `snowflake-snowpark-python`. For example, Streamlit 1.66.0 requires Python \>=3.11, and `snowflake-snowpark-python==1.55.2` requires Python \<3.15.

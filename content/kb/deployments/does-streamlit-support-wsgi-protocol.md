@@ -20,8 +20,10 @@ import streamlit as st
 app = st.App("streamlit_app.py")
 ```
 
+Run Uvicorn from your app's directory. When you start your app with Uvicorn, Streamlit resolves a relative path passed to `st.App` against the current working directory. By default, Uvicorn only listens on `127.0.0.1:8000`, so set the host and port explicitly:
+
 ```bash
-uvicorn app:app
+uvicorn app:app --host 0.0.0.0 --port 8501
 ```
 
 For more information, see [App server](/develop/api-reference/server).

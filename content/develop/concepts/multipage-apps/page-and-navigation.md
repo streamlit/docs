@@ -77,7 +77,7 @@ Additionally, you can dynamically change which pages you pass to `st.navigation`
 
 ### Adding section headers
 
-The simplest way to customize your navigation menu is to organize the pages within `st.navigation`. You can sort or group pages, as well as remove any pages you don't want the user to access. This is a convenient way to handle user permissions. If you want to hide a page in navigation while keeping it accessible, use `visibility="hidden"` in `st.Page`. A hidden page is still accessible through a direct URL, `st.page_link`, and `st.switch_page`.
+The simplest way to customize your navigation menu is to organize the pages within `st.navigation`. You can sort or group pages, as well as remove any pages you don't want the user to access. This is a convenient way to handle user permissions. If you want to hide a page in navigation while keeping it accessible, use `visibility="hidden"` in `st.Page`. A hidden internal page is still accessible through a direct URL, `st.page_link`, and `st.switch_page`. A hidden external URL page is only accessible through `st.page_link`.
 
 The following example creates two menu states. When a user starts a new session, they are not logged in. In this case, the only available page is the login page. If a user tries to access another page by URL, it will create a new session and Streamlit will not recognize the page. The user will be diverted to the login page. However, after a user logs in, they will see a navigation menu with three sections and be directed to the dashboard as the app's default page (i.e. homepage).
 

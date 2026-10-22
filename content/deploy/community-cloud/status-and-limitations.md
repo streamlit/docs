@@ -25,7 +25,7 @@ Because of the OAuth limitations noted above, a developer must have administrati
 
 You can deploy multiple apps from your repository, and your entrypoint file(s) may be anywhere in your directory structure. However, Community Cloud initializes all apps from the root of your repository, even if the entrypoint file is in a subdirectory. This has the following consequences:
 
-- Community Cloud only recognizes one `.streamlit/config.toml` file at the root (of each branch) of your repository.
+- Streamlit reads the `.streamlit/config.toml` file at the root (of each branch) of your repository. If your entrypoint file is in a subdirectory, Streamlit also reads the `.streamlit/config.toml` file in that subdirectory, and its values take precedence. For more information, see [Working with configuration options](/develop/concepts/configuration/options).
 - You must declare image, video, and audio file paths for Streamlit commands relative to the root of your repository. For example, `st.image`, `st.logo`, and the `page_icon` parameter in `st.set_page_config` expect file locations relative to your working directory (i.e. where you execute `streamlit run`).
 
 ## Linux environments

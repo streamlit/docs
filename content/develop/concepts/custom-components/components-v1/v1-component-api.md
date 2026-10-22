@@ -17,7 +17,7 @@ If you are unsure whether you need bi-directional communication, **start here fi
 
 <Note>
 
-`components.html()` and `components.iframe()` are deprecated. Replace both with [`st.iframe`](/develop/api-reference/text/st.iframe), which accepts an HTML string or a URL.
+`components.html()` and `components.iframe()` are deprecated. Replace both with [`st.iframe`](/develop/api-reference/text/st.iframe), which accepts an HTML string or a URL. When you switch, pass `width` and `height` as keyword arguments and remove `scrolling`. `st.iframe` always shows a scrollbar when its content is larger than the iframe.
 
 </Note>
 

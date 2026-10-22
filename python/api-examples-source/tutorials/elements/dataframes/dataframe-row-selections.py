@@ -1,5 +1,3 @@
-import random
-
 import numpy as np
 import pandas as pd
 import streamlit as st
@@ -12,7 +10,7 @@ def get_profile_dataset(number_of_items: int = 20, seed: int = 0) -> pd.DataFram
     new_data = []
 
     fake = Faker()
-    random.seed(seed)
+    np.random.seed(seed)
     Faker.seed(seed)
 
     for i in range(number_of_items):

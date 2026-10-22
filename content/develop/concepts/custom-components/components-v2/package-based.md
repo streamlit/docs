@@ -115,7 +115,7 @@ build-backend = "setuptools.build_meta"
 name = "streamlit-custom-component"
 version = "0.0.1"
 description = "Streamlit component that allows you to do X"
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 dependencies = ["streamlit >= 1.51"]
 
 [tool.setuptools.packages.find]
@@ -130,7 +130,7 @@ my_component = ["frontend/build/**/*", "pyproject.toml"]
 
 The key sections are:
 
-- `[project]`: Package metadata. The `name` field is what users pass to `pip install`.
+- `[project]`: Package metadata. The `name` field is what users pass to `pip install`. You can raise `requires-python` to `">=3.11"` to match Streamlit's minimum Python version.
 - `[tool.setuptools.packages.find]`: Tells setuptools to automatically find your component package by matching the `my_component*` pattern.
 - `[tool.setuptools.package-data]`: Ensures the built frontend assets (`frontend/build/**/*`) and the inner `pyproject.toml` are included when the package is built into a wheel.
 

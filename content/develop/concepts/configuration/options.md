@@ -11,7 +11,7 @@ Streamlit provides five different ways to set configuration options. This list i
 
 <Note>
 
-If you change a `.streamlit/config.toml` file _while_ the app is running, Streamlit reloads the configuration and treats the change like a source file change. The app reruns automatically if `server.runOnSave` is enabled. Otherwise, users are prompted to rerun the app. Theme settings and most client settings take effect on the next rerun. Server settings that Streamlit only reads at startup, like `server.port`, require a server restart.
+If you change a `.streamlit/config.toml` file _while_ the app is running, Streamlit reloads the configuration and treats the change like a source file change. The app reruns automatically if `server.runOnSave` is enabled or if the viewer turned on "**Auto rerun**" in the app menu or clicked "**Always rerun**". Otherwise, users are prompted to rerun the app. Theme settings and most client settings take effect on the next rerun. Server settings that Streamlit only reads at startup, like `server.port`, require a server restart.
 
 </Note>
 
@@ -47,7 +47,7 @@ If you change a `.streamlit/config.toml` file _while_ the app is running, Stream
 
 All available configuration options are documented in [`config.toml`](/develop/api-reference/configuration/config.toml). These options may be declared in a TOML file, as environment variables, or as command line options.
 
-When using environment variables to override `config.toml`, convert the variable (including its section header) to upper snake case and add a `STREAMLIT_` prefix. For example, `STREAMLIT_CLIENT_SHOW_ERROR_DETAILS` is equivalent to the following in TOML:
+When using environment variables to override `config.toml`, convert the variable (including its section header) to upper snake case and add a `STREAMLIT_` prefix. For example, `STREAMLIT_CLIENT_SHOW_ERROR_DETAILS="none"` is equivalent to the following in TOML:
 
 ```toml
 [client]

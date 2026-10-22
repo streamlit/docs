@@ -100,7 +100,7 @@ export default function ({ data, parentElement }) {
 
 <Note>
 
-When a dataframe is a value in a dictionary passed to `data`, like `data.df` in this example, it arrives on the frontend as a parsed Apache Arrow `Table`. In this simple example, the table is converted to a string for display. For more sophisticated handling, you can use the `Table` API from Apache Arrow JS to access rows and columns. If you pass a dataframe directly to `data`, it arrives as raw Arrow bytes (`Uint8Array`), which you can parse with Apache Arrow JS.
+When a dataframe is a top-level value in a dictionary passed to `data`, like `data.df` in this example, it arrives on the frontend as a parsed Apache Arrow `Table`. In this simple example, the table is converted to a string for display. For more sophisticated handling, you can use the `Table` API from Apache Arrow JS to access rows and columns. If you pass a dataframe directly to `data`, it arrives as raw Arrow bytes (`Uint8Array`), which you can parse with Apache Arrow JS.
 
 </Note>
 

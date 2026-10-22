@@ -117,7 +117,7 @@ pytest tests/
 
 ### Handling file paths and imports with `pytest`
 
-A relative path passed to `AppTest.from_file()` is resolved against the location of the test script that calls it, not the directory where `pytest` is called. That is why the test function uses the path `../app.py`: the app file is one directory up from the test script. You'll usually call `pytest` from the directory containing your main app file. This is typically the root of your project directory.
+A relative path passed to `AppTest.from_file()` is resolved against the Python file that calls it, not the directory where `pytest` is called. That is why the test function uses the path `../app.py`: the app file is one directory up from the test script. If you call `AppTest.from_file()` in a fixture in `conftest.py`, the path is relative to `conftest.py` instead. Imports within your app are resolved relative to your app's folder, just like with `streamlit run`. You'll usually call `pytest` from the directory containing your main app file. This is typically the root of your project directory.
 
 Additionally, if `.streamlit/` is present in the directory where you call `pytest`, any `config.toml` and `secrets.toml` within it will be accessible to your simulated app. For example, your simulated app will have access to the `config.toml` and `secrets.toml` files in this common setup:
 
@@ -155,7 +155,7 @@ On the next page, we'll go [Beyond the basics](/develop/concepts/app-testing/bey
 
 ### How to initialize and run a simulated app
 
-To test a Streamlit app, you must first initialize an instance of [`AppTest`](/develop/api-reference/app-testing/st.testing.v1.apptest) with the code for one page of your app. There are three methods for initializing a simulated app. These are provided as class methods to `AppTest`. We will focus on `AppTest.from_file()` which allows you to provide a path to a page of your app. This is the most common scenario for building automated tests during app development. `AppTest.from_string()` and `AppTest.from_function()` may be helpful for some simple or experimental scenarios.
+To test a Streamlit app, you must first initialize an instance of [`AppTest`](/develop/api-reference/app-testing/st.testing.v1.apptest) with your app's code. There are three methods for initializing a simulated app. These are provided as class methods to `AppTest`. We will focus on `AppTest.from_file()` which allows you to provide a path to your app's entrypoint file (the file you pass to `streamlit run`). This is the most common scenario for building automated tests during app development. `AppTest.from_string()` and `AppTest.from_function()` may be helpful for some simple or experimental scenarios.
 
 Let's continue with the [example from above](#example-project-with-app-testing).
 

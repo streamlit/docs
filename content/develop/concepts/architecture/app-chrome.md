@@ -89,7 +89,7 @@ By default, developer options only show when viewing an app locally or when view
 
 ### Rerun
 
-You can manually trigger a rerun of your app by clicking "**Rerun**" from the app menu. This rerun will not reset your session. Your widget states and values stored in [`st.session_state`](/develop/concepts/architecture/session-state) will be preserved. As a shortcut, without opening the app menu, you can rerun your app by pressing "**R**" on your keyboard (if you aren't currently focused on an input element).
+You can manually trigger a rerun of your app by clicking "**Rerun**" from the app menu. This rerun will not reset your session. Your widget states and values stored in [`st.session_state`](/develop/concepts/architecture/session-state) will be preserved. As a shortcut, without opening the app menu, you can rerun your app by pressing "**R**" on your keyboard (if you aren't currently focused on an input element). Unlike the menu option, this shortcut works for all viewers, even when developer options are hidden.
 
 ### Auto rerun
 
@@ -129,5 +129,5 @@ Using `client.toolbarMode` in your app's [configuration](/develop/concepts/confi
 
 - `"developer"` &mdash; Show the developer options to all viewers.
 - `"viewer"` &mdash; Hide the developer options from all viewers.
-- `"minimal"` &mdash; Show only the theme selector and those options set externally. These options can be declared through [`st.set_page_config`](/develop/api-reference/configuration/st.set_page_config) or populated through Streamlit Community Cloud.
+- `"minimal"` &mdash; Show only the theme selector, the Streamlit version, and those options set externally. These options can be declared through [`st.set_page_config`](/develop/api-reference/configuration/st.set_page_config) or populated through Streamlit Community Cloud. If there's no theme selector and no options are set externally, the app menu is hidden.
 - `"auto"` &mdash; This is the default and will show the developer options when accessed through localhost or through Streamlit Community Cloud when logged into an administrative account for the app. Otherwise, the developer options will not show.

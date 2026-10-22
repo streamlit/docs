@@ -91,9 +91,10 @@ By default, a full-script rerun happens in two situations:
 - Whenever a user interacts with widgets in the app. For example, when dragging
   a slider, entering text in an input box, or clicking a button.
 
-Every widget with an `on_change` parameter accepts `on_change="ignore"` to
-update without triggering a rerun; Python receives the new value on the next
-rerun. You can also use [forms](/develop/concepts/architecture/forms) to batch
+Most input widgets accept `on_change="ignore"` to update without triggering a
+rerun; Python receives the new value on the next rerun. For `st.tabs`,
+`st.expander`, and `st.popover`, `"ignore"` is the default and turns off state
+tracking. You can also use [forms](/develop/concepts/architecture/forms) to batch
 widget input until submission or
 [fragments](/develop/concepts/architecture/fragments) to rerun only part of
 your app.

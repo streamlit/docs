@@ -25,7 +25,7 @@ assert "Hello, world!" in at.markdown[0].value
 assert "import streamlit as st" in at.code[0].value
 assert "A cool diagram" in at.caption[0].value
 assert "Hello again, world!" in at.text[0].value
-assert "\int a x^2 \,dx" in at.latex[0].value
+assert r"\int a x^2 \,dx" in at.latex[0].value
 ```
 
 ## Input widgets
@@ -112,7 +112,7 @@ from streamlit.testing.v1 import AppTest
 
 at = AppTest.from_file("cheatsheet_app.py")
 
-# dataframe - also includes st.data_editor
+# dataframe
 expected_df = pd.DataFrame([1, 2, 3])
 assert at.dataframe[0].value.equals(expected_df)
 
@@ -190,3 +190,4 @@ As of Streamlit 1.66, the following Streamlit features are not natively supporte
 - Media elements (`st.video`, `st.audio`)
 - `st.iframe` and custom components
 - `st.balloons` and `st.snow`
+- Editing cells in `st.data_editor`. You can read the table through `at.dataframe`, and apply edits by assigning the editor's key in `at.session_state` before `run()`.

@@ -120,10 +120,6 @@ OpenAI_key = "<YOUR_SECRET_KEY>"
 
 A connection to Snowflake.
 
-```python
-conn = st.connection("snowpark")
-```
-
 </RefCard>
 
 </TileContainer>

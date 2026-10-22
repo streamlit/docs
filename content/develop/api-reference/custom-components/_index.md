@@ -139,7 +139,7 @@ declare_component(
 
 <RefCard href="/develop/api-reference/custom-components/st.components.v1.html" deprecated={true}>
 
-> This command was deprecated in version 1.56.0. Use `st.iframe` or `st.html` instead.
+> This command was deprecated in version 1.56.0. Use `st.iframe` instead, or `st.html` to insert HTML without an iframe.
 
 <h4>HTML</h4>
 

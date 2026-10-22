@@ -267,9 +267,11 @@ In addition to these factors, a slow network connection can also significantly s
 To keep large tables responsive, `st.dataframe` can load rows lazily. With lazy loading, Streamlit keeps the data on the server and only sends the rows the user is viewing to the browser. As the user scrolls or sorts, Streamlit fetches more rows from the server. By default, `st.dataframe` uses lazy loading for the following data:
 
 - In-memory pandas and Polars dataframes and `pyarrow.Table` objects with more than 150,000 rows.
-- Unevaluated data objects that support lazy loading, such as a Polars `LazyFrame`, with more than 10,000 rows.
+- Polars `LazyFrame` objects with more than 10,000 rows.
 
-Streamlit doesn't automatically use lazy loading for `pandas.Styler` objects, dataframes with multi-level column headers, or dataframes with selections enabled through `on_select`. When rows are loaded lazily, Streamlit sorts the data on the server, and search and CSV download are disabled. To always send the complete dataset to the browser, set `lazy=False`. To use lazy loading for smaller dataframes, set `lazy=True`. For more information, see the `lazy` parameter of [`st.dataframe`](/develop/api-reference/data/st.dataframe). `st.data_editor` doesn't support lazy loading.
+Streamlit doesn't automatically use lazy loading for `pandas.Styler` objects, dataframes with multi-level column headers, or dataframes with selections enabled through `on_select`. Unevaluated data objects other than a Polars `LazyFrame`, such as Snowpark, PySpark, and Dask dataframes, don't support lazy loading, so Streamlit shows only their first 10,000 rows. When rows are loaded lazily, Streamlit sorts the data on the server, and search and CSV download are disabled.
+
+To send in-memory data to the browser all at once, set `lazy=False`. For unevaluated data objects, including a Polars `LazyFrame`, `lazy=False` shows only the first 10,000 rows. To use lazy loading for smaller datasets, set `lazy=True`. Data with 1,000 rows or fewer is still sent all at once. For more information, see the `lazy` parameter of [`st.dataframe`](/develop/api-reference/data/st.dataframe). `st.data_editor` doesn't support lazy loading.
 
 When Streamlit sends more than 150,000 rows to the browser, such as with `st.data_editor` or `lazy=False`, it applies additional optimizations and disables column sorting and CSV download. This can help to reduce the amount of data that needs to be processed at once and improve the app's performance.
 

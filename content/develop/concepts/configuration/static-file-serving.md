@@ -18,8 +18,8 @@ Media stored in the folder `./static/` relative to the running app file is serve
 
 ## Details on usage
 
-- Streamlit sets the `Content-Type` header of each file based on its file extension, such as `image/png` for `.png` files or `font/woff2` for `.woff2` files.
-  Files with an unrecognized extension are sent with header `Content-Type:application/octet-stream`, which causes browsers to download them instead of rendering them.
+- Streamlit sets the `Content-Type` header of each file based on its file extension using Python's `mimetypes` module, such as `image/png` for `.png` files.
+  Which extensions are recognized can depend on your Python version and operating system. Files with an unrecognized extension are sent with header `Content-Type:application/octet-stream`, which causes browsers to download them instead of rendering them.
   Because files like HTML, JavaScript, and SVG are served with their real content types, browsers can render or execute them. Only put files you trust in the static directory.
 - Streamlit also sets `X-Content-Type-Options:nosniff` for all files rendered from the static directory.
 - For apps running on Streamlit Community Cloud:

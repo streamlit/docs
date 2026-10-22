@@ -137,6 +137,7 @@ Widgets which support the `on_change` event:
 Widgets which support the `on_click` event:
 
 - `st.button`
+- `st.column_config.ButtonColumn`
 - `st.download_button`
 - `st.form_submit_button`
 - `st.link_button`

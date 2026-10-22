@@ -19,6 +19,7 @@ Let's look at an example of charts with the Streamlit theme and the native Altai
 
 ```python
 import altair as alt
+import streamlit as st
 from vega_datasets import data
 
 source = data.cars()
