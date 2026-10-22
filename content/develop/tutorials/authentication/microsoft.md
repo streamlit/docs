@@ -14,8 +14,7 @@ keywords: Microsoft authentication, Microsoft Entra, Microsoft Identity Platform
 - This tutorial requires the following Python libraries:
 
   ```text
-  streamlit>=1.42.0
-  Authlib>=1.3.2
+  streamlit[auth]>=1.66.0
   ```
 
 - You should have a clean working directory called `your-repository`.
@@ -239,7 +238,7 @@ To create an app with user authentication, you'll need to configure your secrets
 
 1. Save your `app.py` file and test your running app.
 
-   In your live preview, if you log out of your app, it will return to the login prompt.
+   In your live preview, if you log out of your app, Streamlit first redirects you to Microsoft to sign out of your Microsoft account because Microsoft's server metadata includes an `end_session_endpoint`. Microsoft then redirects you back to your app, which returns to the login prompt.
 
 ## Deploy your app on Community Cloud
 
@@ -248,8 +247,7 @@ When you are ready to deploy your app, you must update your application in Micro
 1. Add a `requirements.txt` file to your repository with the following lines:
 
    ```txt
-   streamlit>=1.42.0
-   Authlib>=1.3.2
+   streamlit[auth]>=1.66.0
    ```
 
    This ensures that the correct Python dependencies are installed for your deployed app.

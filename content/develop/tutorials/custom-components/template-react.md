@@ -204,11 +204,11 @@ export default MyComponent;
 
 ```python filename="example.py"
 import streamlit as st
-from my_react_counter import my_component
+from my_react_counter import my_react_counter
 
 st.title("My React Counter")
 
-result = my_component(
+result = my_react_counter(
     "Streamlit",
     items=["Python", "TypeScript", "React", "Vite"],
     key="counter",

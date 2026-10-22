@@ -61,7 +61,7 @@ with select:
     event = st.dataframe(
         df,
         column_config=column_configuration,
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
         on_select="rerun",
         selection_mode="multi-row",
@@ -73,7 +73,7 @@ with select:
     st.dataframe(
         filtered_df,
         column_config=column_configuration,
-        use_container_width=True,
+        width="stretch",
     )
 
 with compare:

@@ -252,7 +252,7 @@ with st.chat_message("assistant"):
 st.session_state.messages.append({"role": "assistant", "content": response})
 ```
 
-Above, we've added a placeholder to display the chatbot's response. We've also added a for loop to iterate through the response and display it one word at a time. We've added a delay of 0.05 seconds between each word to simulate the chatbot "thinking" before responding. Finally, we append the chatbot's response to the chat history. As you've probably guessed, this is a naive implementation of streaming. We'll see how to implement streaming with OpenAI in the [next section](#build-a-chatgpt-like-app).
+Above, `response_generator()` yields the response one word at a time, with a delay of 0.05 seconds between each word to simulate the chatbot "thinking" before responding. `st.write_stream` iterates through the generator, displays each word in the chat message container as it arrives, and returns the full response as a string. Finally, we append the chatbot's response to the chat history. As you've probably guessed, this is a naive implementation of streaming. We'll see how to implement streaming with OpenAI in the [next section](#build-a-chatgpt-like-app).
 
 Putting it all together, here's the full code for our simple chatbot GUI and the result:
 
