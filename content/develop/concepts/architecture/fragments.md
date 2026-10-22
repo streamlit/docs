@@ -82,15 +82,56 @@ By default, fragments run inline on the main thread, in the order you call them,
 
 ## Fragment return values and interacting with the rest of your app
 
-Streamlit ignores fragment return values during fragment reruns, so defining return values for your fragment functions is not recommended. Instead, if your fragment needs to share data with the rest of your app, use Session State. Fragments are just functions in your script, so they can access Session State, imported modules, and other Streamlit elements like containers. If your fragment writes to any container created outside of itself, note the following difference in behavior:
-
-- Elements drawn in the main body of your fragment are cleared and redrawn in place during a fragment rerun. Repeated fragment reruns will not cause additional elements to appear.
-- Elements drawn to containers outside the main body of fragment will not be cleared with each fragment rerun. Instead, Streamlit will draw them additively and these elements will accumulate until the next full-script rerun.
-- A fragment can't draw widgets in containers outside of the main body of the fragment. Widgets can only go in the main body of a fragment.
-
-To prevent elements from accumulating in outside containers, use [`st.empty`](/develop/api-reference/layout/st.empty) containers. For a related tutorial, see [Create a fragment across multiple containers](/develop/tutorials/execution-flow/create-a-multiple-container-fragment).
+Streamlit ignores fragment return values during fragment reruns, so defining return values for your fragment functions is not recommended. Instead, if your fragment needs to share data with the rest of your app, use Session State. Fragments are just functions in your script, so they can access Session State, imported modules, and other Streamlit elements like containers. Changes that your fragment makes to Session State or imported modules, and any other side effects, are additive across fragment reruns, so you're responsible for handling them.
 
 If you need to trigger a full-script rerun from inside a fragment, call [`st.rerun`](/develop/api-reference/execution-flow/st.rerun). For a related tutorial, see [Trigger a full-script rerun from inside a fragment](/develop/tutorials/execution-flow/trigger-a-full-script-rerun-from-a-fragment).
+
+### Write to containers outside a fragment
+
+A fragment can write elements and widgets into a container created outside of it, including directly to `st.sidebar` or `st.bottom`. Streamlit handles these writes like the main body of your fragment:
+
+- Elements and widgets that your fragment draws in an outside container are cleared and redrawn in place during a fragment rerun. Repeated fragment reruns will not cause additional elements to appear.
+- Anything written to the same container by code outside of your fragment keeps its position and isn't affected by a fragment rerun.
+- When a user interacts with a widget that your fragment drew in an outside container, Streamlit reruns your fragment instead of the full script.
+
+In the following example, the fragment draws a button in the sidebar and writes a timestamp into a container created by the main script. When you click "**Refresh**," only the fragment reruns, and it replaces the timestamp below the "Status" caption.
+
+```python
+import streamlit as st
+from datetime import datetime
+
+status = st.container(border=True)
+status.caption("Status")
+
+@st.fragment
+def refresh_status():
+    st.sidebar.button("Refresh")
+    status.write(f"Last refreshed: {datetime.now():%H:%M:%S}")
+
+refresh_status()
+```
+
+For your fragment to write to an outside container during a fragment rerun, it must also write to that container during each full-script run. This reserves the fragment's position in the container. If your fragment only writes to an outside container conditionally, such as after a button click, Streamlit raises an error when the fragment tries to write there during a fragment rerun. To reserve a position without displaying anything, call `.empty()` on the outside container from inside your fragment:
+
+```python
+import streamlit as st
+
+results = st.container(border=True)
+
+@st.fragment
+def run_job():
+    results.empty()  # Reserve this fragment's position in results
+    if st.button("Run job"):
+        results.success("Job finished!")
+
+run_job()
+```
+
+Calling `results.empty()` from your main script instead doesn't reserve a position for the fragment.
+
+A parallel fragment can't write to outside containers during a full-script run, so it can't reserve a position in them. For more information, see [Restricted commands during parallel execution](#restricted-commands-during-parallel-execution).
+
+For a related tutorial, see [Create a fragment across multiple containers](/develop/tutorials/execution-flow/create-a-multiple-container-fragment).
 
 ## Target a fragment from outside with a key
 
@@ -158,11 +199,11 @@ Because parallel fragments run concurrently on separate threads during the initi
 - [`st.switch_page`](/develop/api-reference/navigation/st.switch_page)
 - Writing to containers created outside the fragment.
 
-These commands work normally during a fragment rerun, even inside a parallel fragment, because fragment reruns are sequential. To use one of these commands inside a parallel fragment, gate it behind a widget interaction rather than calling it unconditionally:
+`st.dialog` and `st.switch_page` work normally during a fragment rerun, even inside a parallel fragment, because fragment reruns are sequential. To use one of these commands inside a parallel fragment, gate it behind a widget interaction rather than calling it unconditionally:
 
 ```python
-@st.fragment
-def my_fragment(parallel=True):
+@st.fragment(parallel=True)
+def my_fragment():
     if st.button("Open dialog"):
         # Safe: only called during a fragment rerun, after the user clicks
         show_dialog()
@@ -171,6 +212,8 @@ def my_fragment(parallel=True):
 def show_dialog():
     st.write("Hello!")
 ```
+
+Gating doesn't work for writes to outside containers. During a fragment rerun, a fragment can only write to an outside container if it reserved a position there during the full-script run, which a parallel fragment can't do. If your fragment needs to write to containers created outside of it, don't set `parallel=True`. For more information, see [Write to containers outside a fragment](#write-to-containers-outside-a-fragment).
 
 ### Thread safety and shared state
 
@@ -225,7 +268,7 @@ Here is a comparison between fragments and callbacks:
 - **Callbacks** allow you to execute a function at the beginning of a script rerun. A callback is a _single prefix_ to your script rerun.
 - **Fragments** allow you to rerun a portion of your script. A fragment is a _repeatable postfix_ to your script, running each time a user interacts with a fragment widget, or automatically in sequence when `run_every` is set.
 
-When callbacks render elements to your page, they are rendered before the rest of your page elements. When fragments render elements to your page, they are updated with each fragment rerun (unless they are written to containers outside of the fragment, in which case they accumulate there).
+When callbacks render elements to your page, they are rendered before the rest of your page elements. When fragments render elements to your page, they are updated with each fragment rerun, including elements written to containers outside of the fragment.
 
 ### Fragments vs custom components
 
@@ -249,4 +292,4 @@ Caching saves you from unnecessarily running a piece of your app while the rest 
 
 - Fragments can't detect a change in input values. It is best to use Session State for dynamic input and output for fragment functions.
 - Using caching and fragments on the same function is unsupported.
-- Fragments can't render widgets in externally-created containers; widgets can only be in the main body of a fragment.
+- A fragment can only write to an externally-created container during a fragment rerun if it also writes to that container during each full-script run. Parallel fragments can't write to externally-created containers.

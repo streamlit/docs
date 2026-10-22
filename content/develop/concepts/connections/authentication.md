@@ -30,7 +30,7 @@ There are three commands involved with user authentication:
 
 - [`st.login()`](/develop/api-reference/user/st.login) redirects the user to your identity provider. After they log in, Streamlit stores an identity cookie and then redirects them to the homepage of your app in a new session.
 - [`st.user`](/develop/api-reference/user/st.user) is a dict-like object for accessing user information. It has a persistent attribute, `.is_logged_in`, which you can check for the user's login status. When they are logged in, other attributes are available per your identity provider's configuration.
-- [`st.logout()`](/develop/api-reference/user/st.logout) removes the identity cookie from the user's browser and redirects them to the homepage of your app in a new session.
+- [`st.logout()`](/develop/api-reference/user/st.logout) clears `st.user` and removes the identity cookie from the user's browser. If your identity provider supports it, Streamlit then redirects the user to your identity provider to log out there, too. Finally, Streamlit redirects the user to the homepage of your app in a new session.
 
 ## User cookies and logging out
 
@@ -38,7 +38,9 @@ Streamlit checks for the identity cookie at the beginning of each new session. I
 
 If a user closes your app without logging out, the identity cookie will expire after 30 days. This expiration time is not configurable and is not tied to any expiration time that may be returned in your user's identity token. If you need to prevent persistent authentication in your app, check the expiration information returned by the identity provider in `st.user` and manually call `st.logout()` when needed.
 
-Streamlit does not modify or delete any cookies saved directly by your identity provider. For example, if you use Google as your identity provider and a user logs in to your app with Google, they will remain logged in to their Google account after they log out of your app with `st.logout()`.
+When a user logs out, Streamlit also tries to log them out of your identity provider with [OpenID Connect RP-Initiated Logout](https://openid.net/specs/openid-connect-rpinitiated-1_0.html). If your identity provider's server metadata includes an `end_session_endpoint`, Streamlit redirects the user to that endpoint to end their session with the identity provider. The identity provider then redirects the user back to your app's `redirect_uri`, and Streamlit sends them to the homepage of your app. If your identity provider requires you to register allowed post-logout redirect URLs, register the same URL you use for `redirect_uri`. If the server metadata doesn't include an `end_session_endpoint`, or Streamlit can't load the server metadata, Streamlit only logs the user out of your app.
+
+For example, Google's server metadata doesn't include an `end_session_endpoint`. If you use Google as your identity provider and a user logs in to your app with Google, they will remain logged in to their Google account after they log out of your app with `st.logout()`.
 
 ## Setting up an identity provider
 

@@ -98,7 +98,7 @@ my_db.connect(**st.secrets.db_credentials)
 
 Here are some common errors you might encounter when using secrets management.
 
-- If a `.streamlit/secrets.toml` is created _while_ the app is running, the server needs to be restarted for changes to be reflected in the app.
+- If you create a secrets file after Streamlit has already loaded another secrets file (for example, a global `~/.streamlit/secrets.toml`), restart the server for the new file to be picked up. Streamlit only watches the secrets files that existed when it first loaded your secrets.
 - If you try accessing a secret, but no `secrets.toml` file exists, Streamlit will raise a `FileNotFoundError` exception:
   <Image alt="Secrets management FileNotFoundError" src="/images/secrets-filenotfounderror.png" clean />
 - If you try accessing a secret that doesn't exist, Streamlit will raise a `KeyError` exception:
