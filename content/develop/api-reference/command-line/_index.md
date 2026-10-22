@@ -19,7 +19,6 @@ If you use an AI coding agent, run [`streamlit skills`](/develop/api-reference/c
 
 ## Available commands
 
-- `streamlit activate`: Enter the email address that Streamlit asks for the first time you run an app. If you've already answered that prompt, the command stops with "Already activated." To change or remove your email, run `streamlit activate reset` first.
 - [`streamlit cache clear`](/develop/api-reference/cli/cache): Clear the on-disk cache.
 - [`streamlit config show`](/develop/api-reference/cli/config): Show all configuration options.
 - [`streamlit docs`](/develop/api-reference/cli/docs): Look up a Streamlit command, or open the Streamlit docs.
