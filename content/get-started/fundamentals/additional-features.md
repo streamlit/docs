@@ -16,37 +16,28 @@ check if the user viewing an app has a Light or Dark mode preference set by
 their operating system and browser. If so, then that preference will be used.
 Otherwise, the Light theme is applied by default.
 
-You can also change the active theme from "⋮" → "Settings".
+You can also change the active theme from the app menu (⋮) in the upper-right
+corner of your app. Choose "System", "Light", or "Dark".
 
-![Changing Themes](/images/change_theme.gif)
-
-Want to add your own theme to an app? The "Settings" menu has a theme editor
-accessible by clicking on "Edit active theme". You can use this editor to try
-out different colors and see your app update live.
-
-![Editing Themes](/images/edit_theme.gif)
-
-When you're happy with your work, themes can be saved by
+Want to add your own theme to an app? Define it by
 [setting config options](/develop/concepts/configuration)
 in the `[theme]` config section. After you've defined a theme for your app, it
-will appear as "Custom Theme" in the theme selector and will be applied by
-default instead of the included Light and Dark themes.
+will be applied by default instead of the included Light and Dark themes. To let
+viewers switch between light and dark versions of your custom theme, define them
+in the `[theme.light]` and `[theme.dark]` config sections.
 
 More information about the options available when defining a theme can be found
-in the [theme option documentation](/develop/concepts/configuration/theming).
-
-<Note>
-
-The theme editor menu is available only in local development. If you've deployed your app using
-Streamlit Community Cloud, the "Edit active theme" button will no longer be displayed in the "Settings"
-menu.
-
-</Note>
+in the [theme option documentation](/develop/concepts/configuration/theming). To
+learn more about specific options, see
+[Customize colors and borders](/develop/concepts/configuration/theming-customize-colors-and-borders)
+and [Customize fonts](/develop/concepts/configuration/theming-customize-fonts).
 
 <Tip>
 
-Another way to experiment with different theme colors is to turn on the "Run on save" option, edit
-your config.toml file, and watch as your app reruns with the new theme colors applied.
+To experiment with different theme colors, edit your `config.toml` file while
+your app is running. Turn on "Auto rerun" in the app menu, or click "Always
+rerun" when Streamlit detects the change, and watch as your app reruns with the
+new theme colors applied.
 
 </Tip>
 

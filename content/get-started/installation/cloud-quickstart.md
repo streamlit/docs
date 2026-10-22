@@ -94,8 +94,6 @@ If you already created a Community Cloud account and connected GitHub, jump ahea
    <Image alt="Edit the title of your sample Streamlit app" src="/images/streamlit-community-cloud/deploy-template-blank-codespace-edit.png" />
    </div>
 
-   If the rerun prompt disappears before you click it, you can hover over the overflow menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) to bring it back.
-
 1. Optional: Continue to make edits and observe the changes within seconds.
 
 ## Publish your changes
