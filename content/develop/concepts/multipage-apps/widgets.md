@@ -51,7 +51,7 @@ import streamlit as st
 st.number_input("Number of filters", key="my_key", persist_state="session")
 ```
 
-`persist_state` is available on most input widgets, but not on buttons, `st.feedback`, file and media inputs, `st.chat_input`, or `st.data_editor`. For more information, see [Keep a widget's value with persist_state](/develop/concepts/architecture/widget-behavior#keep-a-widgets-value-with-persist_state).
+`persist_state` is available on most input widgets, but not on buttons, file and media inputs, `st.chat_input`, or `st.data_editor`. For more information, see [Keep a widget's value with persist_state](/develop/concepts/architecture/widget-behavior#keep-a-widgets-value-with-persist_state).
 
 ## Option 3: Save your widget values into a dummy key in Session State
 

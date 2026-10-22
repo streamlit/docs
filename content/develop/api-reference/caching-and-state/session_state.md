@@ -79,8 +79,6 @@ for key in st.session_state.keys():
 
 Session State can also be cleared by selecting "**Clear cache**" from the app menu, followed by rerunning the app. "**Clear cache**" is a [developer option](/develop/concepts/architecture/app-chrome#developer-options).
 
-![state-clear-cache](/images/clear_cache.png)
-
 ### Session State and Widget State association
 
 Every widget with a key is automatically added to Session State:

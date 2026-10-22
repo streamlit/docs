@@ -208,7 +208,7 @@ To keep a widget's value when it isn't rendered, set `persist_state` and provide
 - `"page"`: The value is preserved while the user stays on the page where the widget is defined, for example while the widget is conditionally hidden. The value is discarded on a page switch.
 - `"session"`: The value is preserved for the entire session, including across page switches, so it returns when the user navigates back.
 
-`persist_state` requires a `key`. It is available on most widgets that support `bind="query-params"`. It is not available on `st.tabs`, `st.expander`, `st.popover`, trigger-like widgets (`st.button`, `st.download_button`, `st.form_submit_button`, `st.link_button`, `st.menu_button`), `st.feedback`, file and media inputs (`st.file_uploader`, `st.camera_input`, `st.audio_input`), `st.chat_input`, `st.data_editor`, or selections from `st.dataframe` and charts.
+`persist_state` requires a `key`. It is available on most widgets that support `bind="query-params"`. It is not available on `st.tabs`, `st.expander`, `st.popover`, trigger-like widgets (`st.button`, `st.download_button`, `st.form_submit_button`, `st.link_button`, `st.menu_button`), file and media inputs (`st.file_uploader`, `st.camera_input`, `st.audio_input`), `st.chat_input`, `st.data_editor`, or selections from `st.dataframe` and charts.
 
 Use `"page"` when a widget is hidden on the same page:
 

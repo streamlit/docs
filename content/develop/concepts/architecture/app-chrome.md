@@ -11,8 +11,6 @@ Your Streamlit app has a few widgets in the top right to help you as you develop
 
 Your app menu is configurable. By default, you can access developer options from the app menu when viewing an app locally or on Streamlit Community Cloud while logged into an account with administrative access. While viewing an app, click the icon in the upper-right corner to access the menu.
 
-![App menu](/images/app-menu/app-menu-developer.png)
-
 ## Menu options
 
 The menu is split into sections. The theme selector, print, and screen recording options are available to all viewers. The [developer options](#developer-options) are only available to developers. Read more about [customizing this menu](#customize-the-menu) at the end of this page.
@@ -62,18 +60,7 @@ You can easily make screen recordings right from your app! Screen recording is s
 </div>
 
 8. When you are done recording, press "**Esc**" on your keyboard or click "**Stop recording**" from your app's menu.
-
-<div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/app-menu/app-menu-record-6.png" alt="Record" />
-</div>
-
 9. Follow your browser's instructions to save your recording. Your saved recording will be available where your browser saves downloads.
-
-The whole process looks like this:
-
-<div style={{ maxWidth: '90%', margin: '0 2em 0 2em' }}>
-    <Image src="/images/app-menu/app-menu-record.gif" alt="Record" />
-</div>
 
 ### About
 
