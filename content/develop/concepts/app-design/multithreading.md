@@ -23,10 +23,14 @@ Don't forget that Streamlit has [fragments](/develop/concepts/architecture/fragm
 
 ## Threads created by Streamlit
 
-Streamlit creates two types of threads in Python:
+Streamlit creates the following types of threads in Python:
 
 - The **server thread** runs the Starlette web (HTTP + WebSocket) server on Uvicorn.
 - **Script threads** run page code for user sessions. A script thread may execute multiple reruns for its session, and Streamlit may start a new script thread if the current one stops.
+- **Parallel fragment worker threads** run [fragments](/develop/concepts/architecture/fragments#run-fragments-in-parallel) that use `parallel=True` during full-app reruns. Each script run uses its own thread pool, which you can size with the `runner.parallelMaxWorkers` [config option](/develop/api-reference/configuration/config.toml#runner). Streamlit attaches the session's `ScriptRunContext` to these workers, but some commands are restricted while fragments run in parallel.
+- **Cache refresh threads** recompute expired values for functions decorated with [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) or [`st.cache_resource`](/develop/api-reference/caching-and-state/st.cache_resource) that use `refresh_mode="background"`. All sessions share these threads, and they run without a `ScriptRunContext`. Therefore, functions that refresh in the background can't use session-specific features like `st.session_state` and shouldn't display elements.
+
+Streamlit also uses other worker threads internally. For example, a worker thread runs the callable you pass to the `data` parameter of [`st.download_button`](/develop/api-reference/widgets/st.download_button). Like cache refresh threads, these threads don't have a `ScriptRunContext`.
 
 When a user connects to your app, this creates a new session and runs the page code in a script thread to initialize the app for that user. As the page code runs, it renders elements in the user's browser tab and reports state back to the server. When the user interacts with the app, Streamlit reruns the page code, re-rendering the elements in the browser tab and updating state on the server. A rerun may use the current script thread or a newly created one, so don't rely on thread identity across reruns.
 
@@ -36,7 +40,7 @@ This is a simplifed illustration to show how Streamlit works:
 
 ## `streamlit.errors.NoSessionContext`
 
-Many Streamlit commands, including `st.session_state`, expect to be called from a script thread. When Streamlit is running as expected, such commands use the `ScriptRunContext` attached to the script thread to ensure they work within the intended session and update the correct user's view. When those Streamlit commands can't find any `ScriptRunContext`, they raise a `streamlit.errors.NoSessionContext` exception. Depending on your logger settings, you may also see a console message identifying a thread by name and warning, "missing ScriptRunContext!"
+Many Streamlit commands, including `st.session_state`, expect to be called from a script thread. When Streamlit is running as expected, such commands use the `ScriptRunContext` attached to the script thread to ensure they work within the intended session and update the correct user's view. When those Streamlit commands can't find any `ScriptRunContext`, they either raise a `streamlit.errors.NoSessionContext` exception or have no effect on the user's session. For example, writing to a container from a custom thread raises `NoSessionContext`, but `st.write` doesn't display anything and `st.session_state` doesn't access the user's Session State. Depending on your logger settings, you may also see a console message identifying a thread by name and warning, "missing ScriptRunContext!"
 
 ## Creating custom threads
 

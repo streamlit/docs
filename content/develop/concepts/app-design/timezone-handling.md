@@ -42,10 +42,4 @@ st.write(datetime(2020, 1, 10, 10, 30, tzinfo=pytz.timezone("EST")))
 
 Users of the above app always see the output as `2020-01-10 10:30:00-05:00`.
 
-In both cases, neither the date nor time information automatically adjusts to the users' timezone on the frontend. What users see is identical to the corresponding `datetime` instance in the backend. It is currently not possible to automatically adjust the date or time information to the timezone of the users viewing the app.
-
-<Note>
-
-The legacy version of the `st.dataframe` has issues with timezones. We do not plan to roll out additional fixes or enhancements for the legacy dataframe. If you need stable timezone support, please consider switching to the arrow serialization by changing the [config setting](/develop/concepts/configuration), _config.dataFrameSerialization = "arrow"_.
-
-</Note>
+In both cases, neither the date nor time information automatically adjusts to the users' timezone on the frontend. What users see is identical to the corresponding `datetime` instance in the backend. To show date or time information in the timezone of the user viewing the app, use [`st.context.timezone`](/develop/api-reference/caching-and-state/st.context#contexttimezone) or [`st.context.timezone_offset`](/develop/api-reference/caching-and-state/st.context#contexttimezone_offset) to get the timezone of the user's browser. Then, convert your `datetime` instances to that timezone before displaying them.

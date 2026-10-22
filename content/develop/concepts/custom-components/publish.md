@@ -21,6 +21,8 @@ For [static Streamlit Components](/develop/concepts/custom-components/intro#crea
 
 [Bi-directional Streamlit Components](/develop/concepts/custom-components/intro#create-a-bi-directional-component) at minimum include both Python and JavaScript code, and as such, need a bit more preparation before they can be published on PyPI. The remainder of this page focuses on the bi-directional Component preparation process.
 
+The preparation and build steps on this page are for components v1. If you built a [package-based v2 component](/develop/concepts/custom-components/components-v2/package-based), follow the build steps in [Publishing your package](/develop/concepts/custom-components/components-v2/package-based#publishing-your-package), and then continue with [Upload your wheel to PyPI](#upload-your-wheel-to-pypi).
+
 </Note>
 
 ### Prepare your Component

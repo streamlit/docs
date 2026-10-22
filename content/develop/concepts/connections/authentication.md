@@ -15,7 +15,7 @@ Before reading this guide, you should have a basic understanding of [secrets man
 
 ## OpenID Connect
 
-Streamlit supports user authentication with OpenID Connect (OIDC), which is an authentication protocol built on top of OAuth 2.0. OIDC supports authentication, but not authorization: that is, OIDC connections tell you _who_ a user is (authentication), but don't give you the authority to _impersonate_ them (authorization). If you need to connect with a generic OAuth 2.0 provider or have your app to act on behalf of a user, consider using or creating a custom component.
+Streamlit supports user authentication with OpenID Connect (OIDC), which is an authentication protocol built on top of OAuth 2.0. OIDC supports authentication, but not authorization: that is, OIDC connections tell you _who_ a user is (authentication), but don't give you the authority to _impersonate_ them (authorization). If your app needs the identity provider's tokens, for example to call an API on behalf of a user, add `expose_tokens` to your `[auth]` configuration and read the tokens from [`st.user.tokens`](/develop/api-reference/user/st.user). Streamlit can expose the ID token (`"id"`) and the access token (`"access"`). If you need to connect with a generic OAuth 2.0 provider, consider using or creating a custom component.
 
 Some popular OIDC providers are:
 

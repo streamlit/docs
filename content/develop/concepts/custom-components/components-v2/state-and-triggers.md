@@ -35,6 +35,7 @@ Trigger values have the following behavior:
 - Reset to `None` after the rerun completes.
 - Accessible via direct property access on the result object and through Session State (when mounted with a key).
 - Updated using `setTriggerValue(key, value)` in JavaScript.
+- Not supported inside [`st.form`](/develop/api-reference/execution-flow/st.form). If your component is mounted in a form, `setTriggerValue()` is ignored, so use `setStateValue()` and the form's submit button instead.
 
 ## Differences at a glance
 
@@ -656,7 +657,7 @@ with col2:
 
 ### Callback registration
 
-Both state and trigger values require callback registration using the `on_<key>_change` pattern. This ensures the component's result object consistently contains all of its state and trigger values, including on the first run. The following example mounts a component with callbacks for the following keys:
+Register a callback for each state and trigger value using the `on_<key>_change` pattern. Callbacks aren't required to send values to Python, but they ensure the component's result object consistently contains all of its state and trigger values, including on the first run. A callback is also required for each state key that you set with the `default` parameter. The following example mounts a component with callbacks for the following keys:
 
 - `"user_input"` state key
 - `"selected_items"` state key

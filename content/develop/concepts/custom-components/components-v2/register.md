@@ -62,7 +62,7 @@ button_component = st.components.v2.component(
 
 ### Internal component identifier (`name`)
 
-`name` is a unique identifier for your component. This is used internally by Streamlit to retrieve the HTML, CSS, and JavaScript code when a component instance is mounted. To avoid collisions, Streamlit prefixes component names with the modules they are imported from. For inline components that aren't imported, you must use unique names.
+`name` is a unique identifier for your component. This is used internally by Streamlit to retrieve the HTML, CSS, and JavaScript code when a component instance is mounted. Streamlit uses the name exactly as you provide it and doesn't add a prefix, so you must use names that are unique across your app. If you register different components with the same name, Streamlit logs a warning and uses the last-registered component. For package-based components, use the qualified name `"<package-name>.<component-name>"` from your component-level `pyproject.toml` file so Streamlit can find your component's asset directory. For more information, see [Package-based components](/develop/concepts/custom-components/components-v2/package-based#the-python-api).
 
 ### Component content (`html`, `css`, and `js`)
 
@@ -73,7 +73,7 @@ button_component = st.components.v2.component(
 
 ### Theming and styling (`isolate_styles`)
 
-Custom Components v2 provides style isolation options to control whether or not to sandbox your component in a shadow root. This is useful to prevent your component's styles from leaking to the rest of the page and to prevent the page's styles from leaking into your component. By default, Streamlit uses a shadow root for your component.
+Custom Components v2 provides style isolation options to control whether or not to mount your component in a shadow root. This is useful to prevent your component's styles from leaking to the rest of the page and to prevent the page's styles from leaking into your component. By default, Streamlit uses a shadow root for your component. This is style isolation only. A shadow root isn't a security boundary and doesn't sandbox your component's JavaScript.
 
 ```python
 my_component = st.components.v2.component(
@@ -113,7 +113,7 @@ export default function (component) {
 - `name` (string): Component name from your Python registration.
 - `key` (string): Unique identifier for a component instance. Use this to assist with tracking unique instances of your component in the DOM, especially if your component acts outside of its `parentElement`.
 - `data` (any): All data passed from Python via the `data` parameter. Use this to customize a component instance or to receive feedback data from your Python backend.
-- `parentElement` (HTMLElement of ShadowRoot): The DOM element where your component is mounted. Use this to interact with the component's internal DOM elements.
+- `parentElement` (HTMLElement or ShadowRoot): The DOM element where your component is mounted. Use this to interact with the component's internal DOM elements.
 - `setStateValue` (function): JavaScript function to communicate stateful values to your Python backend. The first argument is the state key name, and the second argument is the value to set.
 - `setTriggerValue` (function): JavaScript function to communicate event-based trigger values to your Python backend. The first argument is the trigger key name, and the second argument is the value to set.
 

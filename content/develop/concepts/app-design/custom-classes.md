@@ -183,7 +183,7 @@ class MyResource:
     def get_resource_manager(api_url: str):
         return MyResource(api_url)
 
-# This is cached until Session State is cleared or 5 minutes has elapsed.
+# This is cached for all sessions until the cache is cleared or 5 minutes has elapsed.
 resource_manager = MyResource.get_resource_manager("http://example.com/api/")
 ```
 
@@ -240,7 +240,7 @@ number = st.selectbox("Pick a number, any number", options=[1, 2, 3])
 
 When you call a function like `st.selectbox` and pass an `Iterable` to `options`, the `Iterable` and current selection are saved into a hidden portion of [Session State](/develop/concepts/architecture/session-state) called the Widget Metadata.
 
-When the user of your application interacts with the `st.selectbox` widget, the broswer sends the index of their selection to your Streamlit server. This index is used to determine which values from the original `options` list, _saved in the Widget Metadata from the previous page execution_, are returned to your application.
+When the user of your application interacts with the `st.selectbox` widget, the browser sends their selection to your Streamlit server as a string. This string is the selected option's label, as formatted by the widget's `format_func`. Streamlit matches this label against the original `options` list, _saved in the Widget Metadata from the previous page execution_, to determine which value is returned to your application.
 
 The key detail is that the value returned by `st.selectbox` (or similar widget function) is from an `Iterable` saved in Session State during a _previous_ execution of the page, NOT the values passed to `options` on the _current_ execution. There are a number of architectural reasons why Streamlit is designed this way, which we won't go into here. However, **this** is how we end up comparing instances of different classes when we think we are comparing instances of the same class.
 

@@ -33,7 +33,7 @@ For step-by-step walkthroughs of using the template, see the tutorials:
 
 ### Prerequisites
 
-- Python >= 3.10
+- Python >= 3.11
 - [Node.js](https://nodejs.org/) >= 24 (LTS)
 - [uv](https://docs.astral.sh/uv/) (recommended Python package manager)
 
@@ -115,7 +115,7 @@ build-backend = "setuptools.build_meta"
 name = "streamlit-custom-component"
 version = "0.0.1"
 description = "Streamlit component that allows you to do X"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = ["streamlit >= 1.51"]
 
 [tool.setuptools.packages.find]
@@ -352,9 +352,7 @@ This creates a wheel in the `dist/` directory that includes your compiled fronte
 
 ## Publishing your package
 
-For detailed instructions on publishing your component to PyPI, see [Publish a Component](/develop/concepts/custom-components/publish).
-
-The basic steps are:
+A package-based component is published like any other Python package. The basic steps are:
 
 1. Build the frontend: `npm run build` (from the `frontend/` directory)
 2. Build the wheel: `uv build` (from the project root)
@@ -365,6 +363,8 @@ After publishing, users can install your component with:
 ```bash
 pip install streamlit-custom-component
 ```
+
+To practice uploading with Test PyPI and to share your component with the community, see [Publish a Component](/develop/concepts/custom-components/publish#upload-your-wheel-to-pypi).
 
 ## Best practices
 

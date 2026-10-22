@@ -112,7 +112,7 @@ from streamlit.testing.v1 import AppTest
 
 at = AppTest.from_file("cheatsheet_app.py")
 
-# dataframe
+# dataframe - also includes st.data_editor
 expected_df = pd.DataFrame([1, 2, 3])
 assert at.dataframe[0].value.equals(expected_df)
 
@@ -170,7 +170,7 @@ at = AppTest.from_file("cheatsheet_app.py")
 
 # exception
 assert len(at.exception) == 1
-assert "TypeError" in at.exception[0].value
+assert at.exception[0].proto.type == "TypeError"
 
 # Other in-line alerts: success, info, warning, error
 assert at.success[0].value == "Great job!"
@@ -186,6 +186,7 @@ assert at.toast[0].value == "That was lit!" and at.toast[0].icon == "🔥"
 
 As of Streamlit 1.66, the following Streamlit features are not natively supported by `AppTest`. However, workarounds are possible for many of them by inspecting the underlying proto directly using `AppTest.get()`. We plan to regularly add support for missing elements until all features are supported.
 
-- Chart elements (`st.bar_chart`, `st.line_chart`, etc)
+- Chart elements (`st.bar_chart`, `st.line_chart`, `st.altair_chart`, `st.plotly_chart`, `st.pydeck_chart`, `st.map`, `st.graphviz_chart`, `st.echarts_chart`, etc)
 - Media elements (`st.video`, `st.audio`)
-- `st.data_editor`
+- `st.iframe` and custom components
+- `st.balloons` and `st.snow`
