@@ -29,7 +29,7 @@ col1, col2 = st.columns(2)
 with col1:
     edited_df = st.data_editor(
         df,
-        use_container_width=True,
+        width="stretch",
         column_config={
             "text": st.column_config.TextColumn(
                 "Subtitle text",

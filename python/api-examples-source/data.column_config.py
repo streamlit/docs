@@ -98,7 +98,7 @@ column_configuration = {
 st.data_editor(
     get_profile_dataset(),
     column_config=column_configuration,
-    use_container_width=True,
+    width="stretch",
     hide_index=True,
     num_rows="fixed",
 )

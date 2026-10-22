@@ -4,7 +4,7 @@ from vega_datasets import data
 
 
 @st.cache_data
-def get_chart(use_container_width: bool):
+def get_chart():
     import altair as alt
     from vega_datasets import data
 
@@ -20,7 +20,7 @@ def get_chart(use_container_width: bool):
     # - a brush that is active on the top panel
     # - a multi-click that is active on the bottom panel
     brush = alt.selection_interval(encodings=["x"])
-    click = alt.selection_multi(encodings=["color"])
+    click = alt.selection_point(encodings=["color"])
 
     # Top panel is scatter plot of temperature vs time
     points = (
@@ -37,7 +37,7 @@ def get_chart(use_container_width: bool):
             size=alt.Size("precipitation:Q", scale=alt.Scale(range=[5, 200])),
         )
         .properties(width=550, height=300)
-        .add_selection(brush)
+        .add_params(brush)
         .transform_filter(click)
     )
 
@@ -54,7 +54,7 @@ def get_chart(use_container_width: bool):
         .properties(
             width=550,
         )
-        .add_selection(click)
+        .add_params(click)
     )
 
     chart = alt.vconcat(points, bars, data=source, title="Seattle Weather: 2012-2015")
@@ -63,13 +63,13 @@ def get_chart(use_container_width: bool):
 
     with tab1:
         st.altair_chart(
-            chart, use_container_width=use_container_width, theme="streamlit"
+            chart, width="stretch", theme="streamlit"
         )
     with tab2:
-        st.altair_chart(chart, use_container_width=use_container_width, theme=None)
+        st.altair_chart(chart, width="stretch", theme=None)
 
 
 try:
-    get_chart(use_container_width=True)
+    get_chart()
 except Exception as e:
     st.exception(e)

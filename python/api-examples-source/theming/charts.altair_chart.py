@@ -4,7 +4,7 @@ from vega_datasets import data
 
 
 @st.cache_data
-def get_chart(use_container_width: bool):
+def get_chart():
     import altair as alt
     from vega_datasets import data
 
@@ -25,13 +25,13 @@ def get_chart(use_container_width: bool):
 
     with tab1:
         st.altair_chart(
-            chart, use_container_width=use_container_width, theme="streamlit"
+            chart, width="stretch", theme="streamlit"
         )
     with tab2:
-        st.altair_chart(chart, use_container_width=use_container_width, theme=None)
+        st.altair_chart(chart, width="stretch", theme=None)
 
 
 try:
-    get_chart(use_container_width=True)
+    get_chart()
 except Exception as e:
     st.exception(e)
