@@ -1,6 +1,6 @@
-pandas==1.5.3
-numpy==1.23.5
-altair==4.2.0
-pydeck==0.8.0
-opencv-python-headless==4.8.1.78
+pandas
+numpy
+altair>=5.0.0
+pydeck
+opencv-python-headless
 streamlit>=1.56.0
