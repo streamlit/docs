@@ -280,7 +280,7 @@ While the above configurations can be copied verbatim, you will have to update t
 Now create the configuration from the file in Kubernetes with the [`kubectl create`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create) command:
 
 ```bash
-kubctl create -f k8s-streamlit.yaml
+kubectl create -f k8s-streamlit.yaml
 ```
 
 ### Set up TLS support

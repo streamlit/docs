@@ -30,7 +30,7 @@ Which of the four options should you choose for an app deployed to [Streamlit Co
 
 ## Solution
 
-When deploying your app to Streamlit Community Cloud, you should **use option 1**. Namely, set the `maxUploadSize` config option in a global config file (`.streamlit/config.toml`) uploaded to your app's GitHub repo. 🎈
+When deploying your app to Streamlit Community Cloud, you should **use option 2**. Namely, set the `maxUploadSize` config option in a per-project config file (`.streamlit/config.toml`) uploaded to your app's GitHub repo. 🎈
 
 For example, to increase the upload limit to 400MB, upload a `.streamlit/config.toml` file containing the following lines to your app's GitHub repo:
 

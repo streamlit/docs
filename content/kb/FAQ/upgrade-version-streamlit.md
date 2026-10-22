@@ -11,7 +11,7 @@ If you've previously installed Streamlit and want to upgrade to the latest versi
 
 ## Pipenv
 
-Streamlit's officially-supported environment manager for macOS and Linux is [Pipenv](https://pypi.org/project/pipenv/).
+If you manage your environment with [Pipenv](https://pypi.org/project/pipenv/), follow these steps:
 
 1. Navigate to the project folder containing your Pipenv environment:
 

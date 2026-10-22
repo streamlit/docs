@@ -62,17 +62,13 @@ with a "Please wait..." message. Starting from version 1.29.0, a loading app
 shows skeleton elements. If this loading screen does not go away, the
 underlying cause is likely one of the following:
 
-- Using port 3000 which is reserved for internal development.
 - Misconfigured [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
   protection.
-- Server is stripping headers from the Websocket connection, thereby breaking
-  compression.
+- If you enabled websocket compression, the server is stripping headers from the
+  Websocket connection, thereby breaking compression.
 
-To diagnose the issue, first make sure you are not using port 3000. If in doubt,
-try port 80 as described above.
-
-Next, try temporarily disabling CORS protection by running Streamlit with the
-`--server.enableCORS` flag set to `false`:
+To diagnose the issue, first try temporarily disabling CORS protection by running
+Streamlit with the `--server.enableCORS` flag set to `false`:
 
 ```bash
 streamlit run my_app.py --server.enableCORS=false
@@ -81,8 +77,9 @@ streamlit run my_app.py --server.enableCORS=false
 If this fixes your issue, **you should re-enable CORS protection** and then set
 `browser.serverAddress` to the URL of your Streamlit app.
 
-If the issue persists, try disabling websocket compression by running Streamlit with the
-`--server.enableWebsocketCompression` flag set to `false`
+If the issue persists and you enabled websocket compression, try disabling it by running
+Streamlit with the `--server.enableWebsocketCompression` flag set to `false`. Websocket
+compression is disabled by default.
 
 ```bash
 streamlit run my_app.py --server.enableWebsocketCompression=false
@@ -91,8 +88,7 @@ streamlit run my_app.py --server.enableWebsocketCompression=false
 If this fixes your issue, your server setup is likely stripping the
 `Sec-WebSocket-Extensions` HTTP header that is used to negotiate Websocket compression.
 
-Compression is not required for Streamlit to work, but it's strongly recommended as it
-improves performance. If you'd like to turn it back on, you'll need to find which part
+Compression is not required for Streamlit to work. If you'd like to turn it back on, you'll need to find which part
 of your infrastructure is stripping the `Sec-WebSocket-Extensions` HTTP header and
 change that behavior.
 
