@@ -9,7 +9,7 @@ keywords: query_params, query parameters, url, browser, get, set, clear, from_di
 
 `st.query_params` provides a dictionary-like interface to access query parameters in your app's URL and is available as of Streamlit 1.30.0. It behaves similarly to `st.session_state` with the notable exception that keys may be repeated in an app's URL. Handling of repeated keys requires special consideration as explained below.
 
-`st.query_params` can be used with both key and attribute notation. For example, `st.query_params.my_key` and `st.query_params["my_key"]`. All keys and values will be set and returned as strings. When you write to `st.query_params`, key-value pair prefixed with `?` is added to the end of your app's URL. Each additional pair is prefixed with `&` instead of `?`. Query parameters are cleared when navigating between pages in a multipage app.
+`st.query_params` can be used with both key and attribute notation. For example, `st.query_params.my_key` and `st.query_params["my_key"]`. All keys and values will be set and returned as strings. When you write to `st.query_params`, key-value pair prefixed with `?` is added to the end of your app's URL. Each additional pair is prefixed with `&` instead of `?`. When users navigate between pages in a multipage app, query parameters are cleared, except for embed parameters and parameters bound to widgets on the new page or in the entrypoint file (`bind="query-params"`). To pass query parameters to the new page, use the `query_params` parameter of [`st.switch_page`](/develop/api-reference/navigation/st.switch_page) or [`st.page_link`](/develop/api-reference/widgets/st.page_link).
 
 For example, consider the following URL:
 

@@ -1,7 +1,7 @@
 ---
 title: st.connections.SnowparkConnection
 slug: /develop/api-reference/connections/st.connections.snowparkconnection
-description: st.connections.SnowparkConnection provides a connection to Snowflake using Snowpark (deprecated, use SnowflakeConnection).
+description: st.connections.SnowparkConnection provided a connection to Snowflake using Snowpark (deprecated and removed, use SnowflakeConnection).
 keywords: SnowparkConnection, snowpark, snowflake, connection, deprecated, SnowflakeConnection, query, session, safe_session
 ---
 
@@ -11,14 +11,6 @@ This page only contains the `st.connections.SnowparkConnection` class. For a dee
 
 </Tip>
 
-<Autofunction function="streamlit.connections.SnowparkConnection" deprecated={true} deprecatedText="<code>st.connections.SnowParkConnection</code> was deprecated in version 1.28.0. Use <a href='/develop/api-reference/connections/st.connections.snowflakeconnection'><code>st.connections.SnowflakeConnection</code></a> instead." />
-
-<Autofunction function="streamlit.connections.SnowparkConnection.query" />
-
-<Autofunction function="streamlit.connections.SnowparkConnection.reset" />
-
-<Autofunction function="streamlit.connections.SnowparkConnection.safe_session" />
-
-<Autofunction function="streamlit.connections.SnowparkConnection.session" />
+<Autofunction function="streamlit.connections.SnowparkConnection" deprecated={true} deprecatedText="<code>st.connections.SnowparkConnection</code> was deprecated in version 1.28.0 and removed in version 1.59.0. Use <a href='/develop/api-reference/connections/st.connections.snowflakeconnection'><code>st.connections.SnowflakeConnection</code></a> instead." />
 
 <GitHubIssuesHint label="feature:connections" name="st.connections.SnowparkConnection" />

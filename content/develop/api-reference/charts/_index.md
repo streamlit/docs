@@ -60,7 +60,7 @@ st.line_chart(my_data_frame)
 
 <h4>Simple scatter charts</h4>
 
-Display a line chart.
+Display a scatter chart.
 
 ```python
 st.scatter_chart(my_data_frame)

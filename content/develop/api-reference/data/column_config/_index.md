@@ -32,7 +32,7 @@ Column("Streamlit Widgets", width="medium", help="Streamlit **widget** commands 
 Configure a text column.
 
 ```python
-TextColumn("Widgets", max_chars=50, validate="^st\.[a-z_]+$")
+TextColumn("Widgets", max_chars=50, validate=r"^st\.[a-z_]+$")
 ```
 
 </RefCard>
@@ -161,7 +161,7 @@ TimeColumn("Appointment", min_value=time(8, 0, 0), format="hh:mm a")
 Configure a JSON column.
 
 ```python
-JSONColumn("Properties", width="medium")
+JsonColumn("Properties", width="medium")
 ```
 
 </RefCard>
@@ -238,7 +238,7 @@ VideoColumn("Highlight clip", help="Double click to play.")
 Configure an area chart column.
 
 ```python
-AreaChartColumn("Sales (last 6 months)" y_min=0, y_max=100)
+AreaChartColumn("Sales (last 6 months)", y_min=0, y_max=100)
 ```
 
 </RefCard>
@@ -251,7 +251,7 @@ AreaChartColumn("Sales (last 6 months)" y_min=0, y_max=100)
 Configure a line chart column.
 
 ```python
-LineChartColumn("Sales (last 6 months)" y_min=0, y_max=100)
+LineChartColumn("Sales (last 6 months)", y_min=0, y_max=100)
 ```
 
 </RefCard>
@@ -264,7 +264,7 @@ LineChartColumn("Sales (last 6 months)" y_min=0, y_max=100)
 Configure a bar chart column.
 
 ```python
-BarChartColumn("Marketing spend" y_min=0, y_max=100)
+BarChartColumn("Marketing spend", y_min=0, y_max=100)
 ```
 
 </RefCard>

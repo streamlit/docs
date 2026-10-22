@@ -5,4 +5,4 @@ description: st.experimental_data_editor display a data editor widget that allow
 keywords: st.experimental_data_editor, experimental data editor, deprecated data editor, edit dataframes, editable table, data structures, table ui, streamlit experimental
 ---
 
-<Autofunction function="streamlit.experimental_data_editor" deprecated={true} deprecatedText="<code>st.experimental_data_editor</code> was deprecated in version 1.23.0. Use <a href='/develop/api-reference/data/st.data_editor'><code>st.data_editor</code></a> instead."/>
+<Autofunction function="streamlit.experimental_data_editor" deprecated={true} deprecatedText="<code>st.experimental_data_editor</code> was deprecated in version 1.23.0 and removed in version 1.37.0. Use <a href='/develop/api-reference/data/st.data_editor'><code>st.data_editor</code></a> instead."/>
