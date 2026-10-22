@@ -181,7 +181,7 @@ with st.echo():
 Display mathematical expressions formatted as LaTeX.
 
 ```python
-st.latex("\int a x^2 \,dx")
+st.latex(r"\int a x^2 \,dx")
 ```
 
 </RefCard>
@@ -241,9 +241,10 @@ st.html("<p>Foo bar.</p>")
 Display content in an iframe
 
 ```python
+from pathlib import Path
 st.iframe("https://docs.streamlit.io")
 st.iframe("<p>Streamlit is cool.</p>")
-st.iframe("my_content.html")
+st.iframe(Path("my_content.html"))
 ```
 
 </RefCard>
@@ -378,7 +379,7 @@ st.line_chart(my_data_frame)
 
 <h4>Simple scatter charts</h4>
 
-Display a line chart.
+Display a scatter chart.
 
 ```python
 st.scatter_chart(my_data_frame)
@@ -1255,7 +1256,7 @@ with st.skeleton(height=200):
 
 <h4>Toast</h4>
 
-Briefly displays a toast message in the bottom-right corner.
+Briefly displays a toast message in the top-right corner.
 
 ```python
 st.toast('Butter!', icon='🧈')
@@ -1687,7 +1688,7 @@ for _ in stqdm(range(50)):
 Configure the underlying Starlette server for your app.
 
 ```python
-app = st.App()
+app = st.App("streamlit_app.py")
 ```
 
 </RefCard>
@@ -2077,6 +2078,7 @@ Register a custom component.
 
 ```python
 my_component = st.components.v2.component(
+    "my_component",
     html=HTML,
     js=JS
 )
@@ -2093,6 +2095,7 @@ Mount a custom component.
 
 ```python
 my_component = st.components.v2.component(
+    "my_component",
     html=HTML,
     js=JS
 )
@@ -2174,7 +2177,7 @@ import { CleanupFunction } from "@streamlit/component-v2-lib";
 Create and register a custom component.
 
 ```python
-from st.components.v1 import declare_component
+from streamlit.components.v1 import declare_component
 declare_component(
     "custom_slider",
     "/frontend",
@@ -2183,14 +2186,16 @@ declare_component(
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/custom-components/st.components.v1.html">
+<RefCard href="/develop/api-reference/custom-components/st.components.v1.html" deprecated={true}>
+
+> This command was deprecated in version 1.56.0. Use `st.iframe` instead, or `st.html` to insert HTML without an iframe.
 
 <h4>HTML</h4>
 
 Display an HTML string in an iframe.
 
 ```python
-from st.components.v1 import html
+from streamlit.components.v1 import html
 html(
     "<p>Foo bar.</p>"
 )
@@ -2198,16 +2203,18 @@ html(
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/custom-components/st.components.v1.iframe">
+<RefCard href="/develop/api-reference/custom-components/st.components.v1.iframe" deprecated={true}>
+
+> This command was deprecated in version 1.56.0. Use `st.iframe` instead.
 
 <h4>iframe</h4>
 
 Load a remote URL in an iframe.
 
 ```python
-from st.components.v1 import iframe
+from streamlit.components.v1 import iframe
 iframe(
-    "docs.streamlit.io"
+    "https://docs.streamlit.io"
 )
 ```
 
@@ -2560,7 +2567,7 @@ at.time_input[0].increment().run()
 A representation of `st.toggle`.
 
 ```python
-at.toggle[0].set_value("True").run()
+at.toggle[0].set_value(True).run()
 ```
 
 </RefCard>

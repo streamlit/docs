@@ -7,9 +7,9 @@ keywords: multipage widgets, widget state, widget IDs, cross-page widgets, widge
 
 # Working with widgets in multipage apps
 
-When you create a widget in a Streamlit app, Streamlit generates a widget ID and uses it to make your widget stateful. As your app reruns with user interaction, Streamlit keeps track of the widget's value by associating its value to its ID. In particular, a widget's ID depends on the page where it's created. If you define an identical widget on two different pages, then the widget will reset to its default value when you switch pages.
+When you create a widget in a Streamlit app, Streamlit generates a widget ID and uses it to make your widget stateful. As your app reruns with user interaction, Streamlit keeps track of the widget's value by associating its value to its ID. In particular, a widget's ID depends on the page where it's created. By default, if you define an identical widget on two different pages, then the widget will reset to its default value when you switch pages.
 
-This guide explains three strategies to deal with the behavior if you'd like to have a widget remain stateful across all pages. If don't want a widget to appear on all pages, but you do want it to remain stateful when you navigate away from its page (and then back), Options 2 and 3 can be used. For detailed information about these strategies, see [Understanding widget behavior](/develop/concepts/architecture/widget-behavior).
+This guide explains four strategies to deal with the behavior if you'd like to have a widget remain stateful across all pages. If you don't want a widget to appear on all pages, but you do want it to remain stateful when you navigate away from its page (and then back), use Option 2. Options 3 and 4 are manual alternatives that use Session State directly. For detailed information about these strategies, see [Understanding widget behavior](/develop/concepts/architecture/widget-behavior).
 
 ## Option 1 (preferred): Execute your widget command in your entrypoint file
 
@@ -41,7 +41,19 @@ st.sidebar.slider("Size", 1, 5, key="size")
 pg.run()
 ```
 
-## Option 2: Save your widget values into a dummy key in Session State
+## Option 2: Set `persist_state="session"` on your widget
+
+If a widget is on an individual page, set `persist_state="session"` and provide a `key`. Streamlit keeps the widget's value for the rest of the session, even when the user switches to another page. When the user navigates back, the widget shows the saved value. This also works if you define an identical widget, with the same key, on multiple pages.
+
+```python
+import streamlit as st
+
+st.number_input("Number of filters", key="my_key", persist_state="session")
+```
+
+`persist_state` is available on most input widgets, but not on buttons, file and media inputs, `st.chat_input`, or `st.data_editor`. For more information, see [Keep a widget's value with persist_state](/develop/concepts/architecture/widget-behavior#keep-a-widgets-value-with-persist_state).
+
+## Option 3: Save your widget values into a dummy key in Session State
 
 If you want to navigate away from a widget and return to it while keeping its value, or if you want to use the same widget on multiple pages, use a separate key in `st.session_state` to save the value independently from the widget. In this example, a temporary key is used with a widget. The temporary key uses an underscore prefix. Hence, `"_my_key"` is used as the widget key, but the data is copied to `"my_key"` to preserve it between pages.
 
@@ -71,7 +83,7 @@ load_value("my_key")
 st.number_input("Number of filters", key="_my_key", on_change=store_value, args=["my_key"])
 ```
 
-## Option 3: Interrupt the widget clean-up process
+## Option 4: Interrupt the widget clean-up process
 
 When Streamlit gets to the end of an app run, it will delete the data for any widgets that were not rendered. This includes data for any widget not associated to the current page. However, if you re-save a key-value pair in an app run, Streamlit will not associate the key-value pair to any widget until you execute a widget command again with that key.
 

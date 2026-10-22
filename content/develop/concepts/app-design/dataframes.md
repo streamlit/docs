@@ -25,7 +25,7 @@ df = pd.DataFrame(
     ]
 )
 
-st.dataframe(df, use_container_width=True)
+st.dataframe(df, width="stretch")
 ```
 
 <Cloud name="doc-dataframe-basic" height="300px"/>
@@ -147,12 +147,6 @@ Use all we've learned so far and apply them to the above embedded app. Try editi
 
 Notice how edits to the table are reflected in Session State. When you make any edits, a rerun is triggered which sends the edits to the backend. The widget's state is a JSON object containing three properties: **edited_rows**, **added_rows**, and **deleted rows:**.
 
-<Warning>
-
-When going from `st.experimental_data_editor` to `st.data_editor` in 1.23.0, the data editor's representation in `st.session_state` was changed. The `edited_cells` dictionary is now called `edited_rows` and uses a different format (`{0: {"column name": "edited value"}}` instead of `{"0:1": "edited value"}`). You may need to adjust your code if your app uses `st.experimental_data_editor` in combination with `st.session_state`."
-
-</Warning>
-
 - `edited_rows` is a dictionary containing all edits. Keys are zero-based row indices and values are dictionaries that map column names to edits (e.g. `{0: {"col1": ..., "col2": ...}}`).
 - `added_rows` is a list of newly added rows. Each value is a dictionary with the same format as above (e.g. `[{"col1": ..., "col2": ...}]`).
 - `deleted_rows` is a list of row numbers that have been deleted from the table (e.g. `[0, 2]`).
@@ -212,7 +206,7 @@ The data editor includes automatic input validation to help prevent errors when 
 
 You can configure the display and editing behavior of columns in `st.dataframe` and `st.data_editor` via the [Column configuration API](/develop/api-reference/data/st.column_config). We have developed the API to let you add images, charts, and clickable URLs in dataframe and data editor columns. Additionally, you can make individual columns editable, set columns as categorical and specify which options they can take, hide the index of the dataframe, and much more.
 
-Column configuration includes the following column types: Text, Number, Checkbox, Selectbox, Date, Time, Datetime, List, Link, Image, Line chart, Bar chart, and Progress. There is also a generic Column option. See the embedded app below to view these different column types. Each column type is individually previewed in the [Column configuration API](/develop/api-reference/data/st.column_config) documentation.
+Column configuration includes the following column types: Text, Number, Checkbox, Selectbox, Multiselect, Date, Time, Datetime, List, Link, Image, Audio, Video, JSON, Markdown, Area chart, Line chart, Bar chart, Progress, and Button. There is also a generic Column option. See the embedded app below to view these different column types. Each column type is individually previewed in the [Column configuration API](/develop/api-reference/data/st.column_config) documentation.
 
 <Cloud name="doc-column-config-overview" query="embed_options=disable_scrolling" height="480px"/>
 
@@ -266,19 +260,28 @@ In addition to column configuration, `st.dataframe` and `st.data_editor` have a 
 
 1. The maximum size of WebSocket messages: Streamlit's WebSocket messages are configurable via the `server.maxMessageSize` [config option](https://docs.streamlit.io/develop/concepts/configuration/options#view-all-configuration-options), which limits the amount of data that can be transferred via the WebSocket connection at once.
 2. The server memory: The amount of data that your app can handle will also depend on the amount of memory available on your server. If the server's memory is exceeded, the app may become slow or unresponsive.
-3. The user's browser memory: Since all the data needs to be transferred to the user's browser for rendering, the amount of memory available on the user's device can also affect the app's performance. If the browser's memory is exceeded, it may crash or become unresponsive.
+3. The user's browser memory: Unless rows are loaded lazily (see below), all the data needs to be transferred to the user's browser for rendering, so the amount of memory available on the user's device can also affect the app's performance. If the browser's memory is exceeded, it may crash or become unresponsive.
 
 In addition to these factors, a slow network connection can also significantly slow down apps that handle large datasets.
 
-When handling large datasets with more than 150,000 rows, Streamlit applies additional optimizations and disables column sorting. This can help to reduce the amount of data that needs to be processed at once and improve the app's performance.
+To keep large tables responsive, `st.dataframe` can load rows lazily. With lazy loading, Streamlit keeps the data on the server and only sends the rows the user is viewing to the browser. As the user scrolls or sorts, Streamlit fetches more rows from the server. By default, `st.dataframe` uses lazy loading for the following data:
+
+- In-memory pandas and Polars dataframes and `pyarrow.Table` objects with more than 150,000 rows.
+- Polars `LazyFrame` objects with more than 10,000 rows.
+
+Streamlit doesn't automatically use lazy loading for `pandas.Styler` objects, dataframes with multi-level column headers, or dataframes with selections enabled through `on_select`. Unevaluated data objects other than a Polars `LazyFrame`, such as Snowpark, PySpark, and Dask dataframes, don't support lazy loading, so Streamlit shows only their first 10,000 rows. When rows are loaded lazily, Streamlit sorts the data on the server, and search and CSV download are disabled.
+
+To send in-memory data to the browser all at once, set `lazy=False`. For unevaluated data objects, including a Polars `LazyFrame`, `lazy=False` shows only the first 10,000 rows. To use lazy loading for smaller datasets, set `lazy=True`. Data with 1,000 rows or fewer is still sent all at once. For more information, see the `lazy` parameter of [`st.dataframe`](/develop/api-reference/data/st.dataframe). `st.data_editor` doesn't support lazy loading.
+
+When Streamlit sends more than 150,000 rows to the browser, such as with `st.data_editor` or `lazy=False`, it applies additional optimizations and disables column sorting and CSV download. This can help to reduce the amount of data that needs to be processed at once and improve the app's performance.
 
 ## Limitations
 
 - Streamlit casts all column names to strings internally, so `st.data_editor` will return a DataFrame where all column names are strings.
-- The dataframe toolbar is not currently configurable.
-- While Streamlit's data editing capabilities offer a lot of functionality, editing is enabled for a limited set of column types ([TextColumn](/develop/api-reference/data/st.column_config/st.column_config.textcolumn), [NumberColumn](/develop/api-reference/data/st.column_config/st.column_config.numbercolumn), [LinkColumn](/develop/api-reference/data/st.column_config/st.column_config.linkcolumn), [CheckboxColumn](/develop/api-reference/data/st.column_config/st.column_config.checkboxcolumn), [SelectboxColumn](/develop/api-reference/data/st.column_config/st.column_config.selectboxcolumn), [DateColumn](/develop/api-reference/data/st.column_config/st.column_config.datecolumn), [TimeColumn](/develop/api-reference/data/st.column_config/st.column_config.timecolumn), and [DatetimeColumn](/develop/api-reference/data/st.column_config/st.column_config.datetimecolumn)). We are actively working on supporting editing for other column types as well, such as images, lists, and charts.
-- Almost all editable datatypes are supported for index editing. However, `pandas.CategoricalIndex` and `pandas.MultiIndex` are not supported for editing.
-- Sorting is not supported for `st.data_editor` when `num_rows="dynamic"`.
-- Sorting is deactivated to optimize performance on large datasets with more than 150,000 rows.
+- The dataframe toolbar's individual buttons aren't configurable. However, you can hide the CSV download button and disable copying from read-only tables app-wide with the `client.disableDataExport` [config option](/develop/api-reference/configuration/config.toml#client).
+- While Streamlit's data editing capabilities offer a lot of functionality, editing is enabled for a limited set of column types ([TextColumn](/develop/api-reference/data/st.column_config/st.column_config.textcolumn), [NumberColumn](/develop/api-reference/data/st.column_config/st.column_config.numbercolumn), [LinkColumn](/develop/api-reference/data/st.column_config/st.column_config.linkcolumn), [CheckboxColumn](/develop/api-reference/data/st.column_config/st.column_config.checkboxcolumn), [SelectboxColumn](/develop/api-reference/data/st.column_config/st.column_config.selectboxcolumn), [MultiselectColumn](/develop/api-reference/data/st.column_config/st.column_config.multiselectcolumn), [ListColumn](/develop/api-reference/data/st.column_config/st.column_config.listcolumn), [MarkdownColumn](/develop/api-reference/data/st.column_config/st.column_config.markdowncolumn), [DateColumn](/develop/api-reference/data/st.column_config/st.column_config.datecolumn), [TimeColumn](/develop/api-reference/data/st.column_config/st.column_config.timecolumn), and [DatetimeColumn](/develop/api-reference/data/st.column_config/st.column_config.datetimecolumn)). Other column types, such as images, JSON, progress bars, and charts, are read-only. List columns can only be edited when all their values are strings.
+- Almost all editable datatypes are supported for index editing. However, `st.data_editor` doesn't support `pandas.MultiIndex`, `pandas.IntervalIndex`, `pandas.PeriodIndex`, or `pandas.TimedeltaIndex` indices.
+- Sorting is not supported for `st.data_editor` when `num_rows="dynamic"` or `num_rows="add"`.
+- Sorting is deactivated to optimize performance when more than 150,000 rows are sent to the browser. Lazy-loaded dataframes are sorted on the server instead.
 
 We are continually working to improve Streamlit's handling of DataFrame and add functionality to data editing, so keep an eye out for updates.

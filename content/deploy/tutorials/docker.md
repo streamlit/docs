@@ -253,10 +253,12 @@ docker run -p 8501:8501 streamlit
 
   You can now view your Streamlit app in your browser.
 
-  URL: http://0.0.0.0:8501
+  Local URL: http://localhost:8501
+  Network URL: http://172.17.0.2:8501
+  External URL: http://203.0.113.10:8501
 ```
 
-To view your app, users can browse to `http://0.0.0.0:8501` or `http://localhost:8501`
+The Network URL is the container's internal IP address, which usually isn't reachable from outside your server. To view your app, users can browse to `http://localhost:8501` on your server, or to your server's IP address or hostname, like `http://your-server-ip:8501`.
 
 <Note>
 

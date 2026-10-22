@@ -9,7 +9,7 @@ keywords: session state, statefulness, st.session_state, callbacks, state manage
 
 ## What is State?
 
-We define access to a Streamlit app in a browser tab as a **session**. For each browser tab that connects to the Streamlit server, a new session is created. By default, Streamlit reruns your script from top to bottom every time you interact with your app. Some widgets accept `on_change="ignore"` to update without triggering a rerun; Python receives the new value on the next rerun. You can also use [forms](/develop/concepts/architecture/forms) to batch interactions until submission or [fragments](/develop/concepts/architecture/fragments) to rerun only part of your script. Each full-script rerun starts with a blank slate for regular Python variables, but values stored in Session State persist across full-script and fragment reruns.
+We define access to a Streamlit app in a browser tab as a **session**. For each browser tab that connects to the Streamlit server, a new session is created. By default, Streamlit reruns your script from top to bottom every time you interact with your app. Most input widgets accept `on_change="ignore"` to update without triggering a rerun; Python receives the new value on the next rerun. For `st.tabs`, `st.expander`, and `st.popover`, `"ignore"` is the default and [turns off state tracking](/develop/concepts/architecture/widget-behavior#callbacks-let-you-react-to-widget-changes). You can also use [forms](/develop/concepts/architecture/forms) to batch interactions until submission or [fragments](/develop/concepts/architecture/fragments) to rerun only part of your script. Each full-script rerun starts with a blank slate for regular Python variables, but values stored in Session State persist across full-script and fragment reruns.
 
 Session State is scoped to each user session. Streamlit also exposes the ability to manipulate state using Callbacks. Session State persists across pages inside a [multipage app](/develop/concepts/multipage-apps).
 
@@ -254,7 +254,13 @@ There is a limitation to setting widget values using the Session State API.
 
 <Important>
 
-Streamlit **does not allow** setting widget values via the Session State API for `st.button` and `st.file_uploader`.
+Streamlit **does not allow** setting widget values via the Session State API for the following commands:
+
+- Buttons: `st.button`, `st.download_button`, `st.form_submit_button`, `st.link_button`, `st.menu_button`, and `st.column_config.ButtonColumn`.
+- File and media inputs: `st.file_uploader`, `st.camera_input`, and `st.audio_input`.
+- `st.data_editor`.
+- The `key` of `st.form`.
+- Chart selections in `st.altair_chart`, `st.vega_lite_chart`, `st.plotly_chart`, and `st.pydeck_chart`.
 
 </Important>
 
@@ -310,6 +316,6 @@ When `runner.enforceSerializableSessionState` is set to `true`, Session State im
 
 Here are some limitations to keep in mind when using Session State:
 
-- Session State exists for as long as the tab is open and connected to the Streamlit server. As soon as you close the tab, everything stored in Session State is lost.
+- Session State exists for as long as the tab is open and connected to the Streamlit server. If the connection drops briefly, the tab reconnects to its existing session, which the server keeps for up to `server.disconnectedSessionTTL` seconds (120 by default). As soon as you close or reload the tab, everything stored in Session State is lost.
 - Session State is not persisted. If the Streamlit server crashes, then everything stored in Session State gets wiped
 - For caveats and limitations with the Session State API, please see the [API limitations](/develop/api-reference/caching-and-state/st.session_state#caveats-and-limitations).

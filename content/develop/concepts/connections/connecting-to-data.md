@@ -42,10 +42,10 @@ To see the example below running live, check out the interactive demo below:
 
 #### Step 1: Install prerequisite library - SQLAlchemy
 
-All SQLConnections in Streamlit use SQLAlchemy. For most other SQL dialects, you also need to install the driver. But the [SQLite driver ships with python3](https://docs.python.org/3/develop/sqlite3.html), so it isn't necessary.
+All SQLConnections in Streamlit use SQLAlchemy. You can install a compatible version of SQLAlchemy (version 2.0 or later) with the `sql` extra. For most other SQL dialects, you also need to install the driver. But the [SQLite driver ships with python3](https://docs.python.org/3/develop/sqlite3.html), so it isn't necessary.
 
 ```bash
-pip install SQLAlchemy==1.4.0
+pip install "streamlit[sql]"
 ```
 
 #### Step 2: Set a database URL in your Streamlit secrets.toml file
@@ -67,18 +67,19 @@ The following app creates a connection to the database, uses it to create a tabl
 # streamlit_app.py
 
 import streamlit as st
+from sqlalchemy import text
 
 # Create the SQL connection to pets_db as specified in your secrets file.
 conn = st.connection('pets_db', type='sql')
 
 # Insert some data with conn.session.
 with conn.session as s:
-    s.execute('CREATE TABLE IF NOT EXISTS pet_owners (person TEXT, pet TEXT);')
-    s.execute('DELETE FROM pet_owners;')
+    s.execute(text('CREATE TABLE IF NOT EXISTS pet_owners (person TEXT, pet TEXT);'))
+    s.execute(text('DELETE FROM pet_owners;'))
     pet_owners = {'jerry': 'fish', 'barbara': 'cat', 'alex': 'puppy'}
     for k in pet_owners:
         s.execute(
-            'INSERT INTO pet_owners (person, pet) VALUES (:owner, :pet);',
+            text('INSERT INTO pet_owners (person, pet) VALUES (:owner, :pet);'),
             params=dict(owner=k, pet=pet_owners[k])
         )
     s.commit()
@@ -208,13 +209,13 @@ Check out the [Build your own Connection page](https://experimental-connection.s
 
 The typical steps are:
 
-1. Declare the Connection class, extending [`ExperimentalBaseConnection`](/develop/api-reference/connections/st.connections.experimentalbaseconnection) with the type parameter bound to the underlying connection object:
+1. Declare the Connection class, extending [`BaseConnection`](/develop/api-reference/connections/st.connections.baseconnection) with the type parameter bound to the underlying connection object:
 
    ```python
-   from streamlit.connections import ExperimentalBaseConnection
+   from streamlit.connections import BaseConnection
    import duckdb
 
-   class DuckDBConnection(ExperimentalBaseConnection[duckdb.DuckDBPyConnection])
+   class DuckDBConnection(BaseConnection[duckdb.DuckDBPyConnection])
    ```
 
 2. Implement the `_connect` method that reads any kwargs, external config/credential locations, and Streamlit secrets to initialize the underlying connection:

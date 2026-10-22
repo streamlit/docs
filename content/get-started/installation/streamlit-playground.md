@@ -69,4 +69,4 @@ Because the Playground runs Streamlit _locally_ in your browser, you should visi
 
 - Option 2: Otherwise, you can keep using the playground while you read about our [Basic concepts](/get-started/fundamentals/main-concepts) and try out more commands in your app.
 
-  When you use the Streamlit Playground to work through the basic concepts, you can skip over any instructions to save your file or to select "**Rerun on save**." Streamlit Playground automatically saves your code when you pause from editing, as described above. Also, it is already configured to rerun on save.
+  When you use the Streamlit Playground to work through the basic concepts, you can skip over any instructions to save your file or to select "**Always rerun**." Streamlit Playground automatically saves your code when you pause from editing, as described above. Also, it is already configured to rerun on save.

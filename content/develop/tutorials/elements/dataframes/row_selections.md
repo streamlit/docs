@@ -20,7 +20,7 @@ This tutorial uses row selections, which were introduced in Streamlit version 1.
 - This tutorial requires the following version of Streamlit:
 
   ```text
-  streamlit>=1.35.0
+  streamlit>=1.49.0
   ```
 
 - You should have a clean working directory called `your-repository`.
@@ -93,7 +93,7 @@ Here's a look at what you'll build:
         event = st.dataframe(
             df,
             column_config=column_configuration,
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
             on_select="rerun",
             selection_mode="multi-row",
@@ -105,7 +105,7 @@ Here's a look at what you'll build:
         st.dataframe(
             filtered_df,
             column_config=column_configuration,
-            use_container_width=True,
+            width="stretch",
         )
 
     with compare:
@@ -219,7 +219,7 @@ To begin with, you'll define a function to randomly generate some member data. I
 
    ```python
        fake = Faker()
-       random.seed(seed)
+       np.random.seed(seed)
        Faker.seed(seed)
    ```
 
@@ -300,14 +300,14 @@ To begin with, you'll define a function to randomly generate some member data. I
    event = st.dataframe(
        df,
        column_config=column_configuration,
-       use_container_width=True,
+       width="stretch",
        hide_index=True,
        on_select="rerun",
        selection_mode="multi-row",
    )
    ```
 
-   By setting `on_selection="rerun"`, you've activated selections for the dataframe. `selection_mode="multi_row"` specifies the type of selections allowed (multiple rows, no columns). `event` stores the selection data from the user. Selections can be accessed from the `event.selection` attribute.
+   By setting `on_select="rerun"`, you've activated selections for the dataframe. `selection_mode="multi-row"` specifies the type of selections allowed (multiple rows, no columns). `event` stores the selection data from the user. Selections can be accessed from the `event.selection` attribute.
 
 ### Display the selected data
 
@@ -332,7 +332,7 @@ To begin with, you'll define a function to randomly generate some member data. I
        st.dataframe(
            filtered_df,
            column_config=column_configuration,
-           use_container_width=True,
+           width="stretch",
        )
    ```
 
@@ -436,7 +436,7 @@ You should have a functioning app at this point. Now you can beautify it. In thi
        event = st.dataframe(
            df,
            column_config=column_configuration,
-           use_container_width=True,
+           width="stretch",
            hide_index=True,
            on_select="rerun",
            selection_mode="multi-row",
@@ -448,7 +448,7 @@ You should have a functioning app at this point. Now you can beautify it. In thi
        st.dataframe(
            filtered_df,
            column_config=column_configuration,
-           use_container_width=True,
+           width="stretch",
        )
 
    with compare: # Add compare tab ###########################################

@@ -25,6 +25,12 @@ streamlit run [<entrypoint file or directory>] [-- config options] [script args]
 
 In a multipage app with `st.navigation`, your entrypoint file acts as a router between your pages. Otherwise, your entrypoint file is your app's homepage.
 
+<Tip>
+
+You can also start your app without `streamlit run`. In a launcher script, create an [`st.App`](/develop/api-reference/server/st.app) and call its `.run()` method. Then, run the launcher script directly with `python app.py` or `uv run app.py`.
+
+</Tip>
+
 ### Options
 
 Configuration options are passed in the form of `--<section>.<option>=<value>`. For example, if you want to set the primary color of your app to blue, you could use one of the three equivalent options:

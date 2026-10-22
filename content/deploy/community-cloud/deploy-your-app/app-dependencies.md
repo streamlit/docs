@@ -25,7 +25,7 @@ directory as your app's entrypoint file.
 
 With each `import` statement in your script, you are bringing in a Python dependency. You need to tell Community Cloud how to install those dependencies through a Python package manager. We recommend using a `requirements.txt` file, which is based on `pip`.
 
-You should _not_ include <a href="https://docs.python.org/3/py-modindex.html" target="_blank">built-in Python libraries</a> like `math`, `random`, or `distutils` in your `requirements.txt` file. These are a part of Python and aren't installed separately. Also, Community Cloud has `streamlit` installed by default. You don't strictly need to include `streamlit` unless you want to pin or restrict the version. If you deploy an app without a `requirements.txt` file, your app will run in an environment with just `streamlit` (and its dependencies) installed.
+You should _not_ include <a href="https://docs.python.org/3/py-modindex.html" target="_blank">built-in Python libraries</a> like `math`, `random`, or `json` in your `requirements.txt` file. These are a part of Python and aren't installed separately. Also, Community Cloud has `streamlit` installed by default. You don't strictly need to include `streamlit` unless you want to pin or restrict the version. If you deploy an app without a `requirements.txt` file, your app will run in an environment with just `streamlit` (and its dependencies) installed.
 
 <Important>
 
@@ -56,12 +56,12 @@ numpy
 Alternatively, if you needed to specify certain versions, another valid example would be:
 
 ```none
-streamlit==1.24.1
+streamlit==1.66.0
 pandas>2.0
-numpy<=1.25.1
+numpy>=2.0,<3
 ```
 
-In the above example, `streamlit` is pinned to version `1.24.1`, `pandas` must be strictly greater than version 2.0, and `numpy` must be at-or-below version 1.25.1. Each line in your `requirements.txt` file is effectively what you would like to `pip install` into your cloud environment.
+In the above example, `streamlit` is pinned to version `1.66.0`, `pandas` must be strictly greater than version 2.0, and `numpy` must be at least version 2.0 and less than version 3. Each line in your `requirements.txt` file is effectively what you would like to `pip install` into your cloud environment.
 
 <Tip>
     To learn about limitations of Community Cloud's Python environments, see [Community Cloud status and limitations](/deploy/streamlit-community-cloud/status#python-environments).

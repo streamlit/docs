@@ -21,7 +21,7 @@ If you use an AI coding agent, run [`streamlit skills`](/develop/api-reference/c
 
 - [`streamlit cache clear`](/develop/api-reference/cli/cache): Clear the on-disk cache.
 - [`streamlit config show`](/develop/api-reference/cli/config): Show all configuration options.
-- [`streamlit docs`](/develop/api-reference/cli/docs): Open the Streamlit docs.
+- [`streamlit docs`](/develop/api-reference/cli/docs): Look up a Streamlit command, or open the Streamlit docs.
 - [`streamlit hello`](/develop/api-reference/cli/hello): Run an example Streamlit app.
 - [`streamlit help`](/develop/api-reference/cli/help): Show the available CLI commands.
 - [`streamlit init`](/develop/api-reference/cli/init): Create the files for a new Streamlit app.

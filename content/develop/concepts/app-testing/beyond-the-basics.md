@@ -56,11 +56,11 @@ Testing file with equivalent secrets:
 
 ```python
 # Initialize an AppTest instance.
-at = AppTest.from_file("app.py")
+at = AppTest.from_file("../app.py")
 # Declare the secrets.
 at.secrets["db_username"] = "Jane"
 at.secrets["db_password"] = "mypassword"
-at.secrets["my_other_secrets.things_i_like"] = ["Streamlit", "Python"]
+at.secrets["my_other_secrets"] = {"things_i_like": ["Streamlit", "Python"]}
 # Run the app.
 at.run()
 ```
@@ -73,11 +73,13 @@ at.secrets["my_key"] = <value provided through API>
 
 ## Working with Session State in app testing
 
-The `.session_state` attribute for `AppTest` lets you read and update Session State values using key notation (`at.session_state["my_key"]`) and attribute notation (`at.session_state.my_key`). By manually declaring values in Session State, you can directly jump to a specific state instead of simulating many steps to get there. Additionally, the testing framework does not provide native support for multipage apps. An instance of `AppTest` can only test one page. You must manually declare Session State values to simulate a user carrying data from another page.
+The `.session_state` attribute for `AppTest` lets you read and update Session State values using key notation (`at.session_state["my_key"]`) and attribute notation (`at.session_state.my_key`). By manually declaring values in Session State, you can directly jump to a specific state instead of simulating many steps to get there. This is also useful for multipage apps, where you can declare Session State values to simulate a user carrying data from another page.
+
+An instance of `AppTest` renders one page at a time. To test a multipage app, initialize `AppTest` with your app's entrypoint file, which is the file you pass to `streamlit run`. This applies to apps that use `st.navigation` or a `pages/` directory. After the first run, use [`AppTest.switch_page()`](/develop/api-reference/app-testing/st.testing.v1.apptest#apptestswitch_page) to switch to another file-based page. Pass the page's path relative to the entrypoint file. As with widget interactions, you must call `.run()` after switching pages. Session State persists when you switch pages.
 
 ### Example: testing a multipage app
 
-Consider a simple multipage app where the first page can modify a value in Session State. To test the second page, set Session State manually and run the simulated app within the test:
+Consider a simple multipage app where the first page can modify a value in Session State. To test the second page, set Session State manually, switch to the second page, and run the simulated app within the test:
 
 Project structure:
 
@@ -123,9 +125,9 @@ Testing file:
 from streamlit.testing.v1 import AppTest
 
 def test_balloons():
-    at = AppTest.from_file("pages/second.py")
+    at = AppTest.from_file("../first.py").run()
     at.session_state["magic_word"] = "Balloons"
-    at.run()
+    at.switch_page("pages/second.py").run()
     assert at.markdown[0].value == ":balloon:"
 ```
 

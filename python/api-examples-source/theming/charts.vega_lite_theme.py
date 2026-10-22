@@ -3,7 +3,7 @@ from vega_datasets import data
 
 
 @st.cache_data
-def get_chart(use_container_width: bool):
+def get_chart():
     source = data.cars()
 
     chart = {
@@ -26,15 +26,15 @@ def get_chart(use_container_width: bool):
 
     with tab1:
         st.vega_lite_chart(
-            source, chart, use_container_width=use_container_width, theme="streamlit"
+            source, chart, width="stretch", theme="streamlit"
         )
     with tab2:
         st.vega_lite_chart(
-            source, chart, use_container_width=use_container_width, theme=None
+            source, chart, width="stretch", theme=None
         )
 
 
 try:
-    get_chart(use_container_width=True)
+    get_chart()
 except Exception as e:
     st.exception(e)

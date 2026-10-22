@@ -9,9 +9,9 @@ cols = st.columns(3)
 event = None
 if display_type == "Dataframe":
     st.info("Select rows to compute metrics for a subset of the data.")
-    event = st.dataframe(chart_data, use_container_width=True, on_select="rerun", selection_mode="multi-row")
+    event = st.dataframe(chart_data, width="stretch", on_select="rerun", selection_mode="multi-row")
 elif display_type == "Data editor":
-    st.data_editor(chart_data, num_rows="dynamic", use_container_width=True)
+    st.data_editor(chart_data, num_rows="dynamic", width="stretch")
 elif display_type == "Table":
     st.table(chart_data)
 elif display_type == "JSON":

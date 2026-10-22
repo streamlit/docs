@@ -114,13 +114,11 @@ OpenAI_key = "<YOUR_SECRET_KEY>"
 <TileContainer>
 <RefCard href="/develop/api-reference/connections/st.connections.snowparkconnection" size="half" deprecated={true}>
 
+> This class was deprecated in version 1.28.0 and removed in version 1.59.0. Use `SnowflakeConnection` instead.
+
 <h4>SnowparkConnection</h4>
 
 A connection to Snowflake.
-
-```python
-conn = st.connection("snowpark")
-```
 
 </RefCard>
 

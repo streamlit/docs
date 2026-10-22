@@ -9,8 +9,6 @@ keywords: settings, url, subdomain, sharing, permissions, secrets, configuration
 
 This page is about your app settings on Streamlit Community Cloud. From your app settings you can [view or change your app's URL](/deploy/streamlit-community-cloud/manage-your-app/app-settings#view-or-change-your-apps-url), manage [public or private access to your app](/deploy/streamlit-community-cloud/share-your-app), and update your saved [secrets for your apps](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
 
-If you access "**Settings**" from your [app chrome](/develop/concepts/architecture/app-chrome) in the upper-right corner of your running app, you can access features to control the appearance of your app while it's running.
-
 ## Access your app settings
 
 You can get to your app's settings:

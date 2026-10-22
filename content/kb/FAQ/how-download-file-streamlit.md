@@ -22,11 +22,11 @@ Foo, Bar
 
 # Different ways to use the API
 
-st.download_button('Download CSV', text_contents, 'text/csv')
+st.download_button('Download CSV', text_contents, mime='text/csv')
 st.download_button('Download CSV', text_contents)  # Defaults to 'text/plain'
 
 with open('myfile.csv') as f:
-   st.download_button('Download CSV', f)  # Defaults to 'text/plain'
+   st.download_button('Download CSV file', f)  # Infers the MIME type from the file name (e.g. 'text/csv')
 
 # ---
 # Binary files
@@ -38,7 +38,7 @@ binary_contents = b'whatever'
 st.download_button('Download file', binary_contents)  # Defaults to 'application/octet-stream'
 
 with open('myfile.zip', 'rb') as f:
-   st.download_button('Download Zip', f, file_name='archive.zip')  # Defaults to 'application/octet-stream'
+   st.download_button('Download Zip', f, file_name='archive.zip')  # Infers the MIME type from the file name (e.g. 'application/zip')
 
 # You can also grab the return value of the button,
 # just like with any other button.

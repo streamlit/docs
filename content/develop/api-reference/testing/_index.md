@@ -74,7 +74,7 @@ word_of_the_day = st.text_input("What's the word of the day?", key="word")
 if word_of_the_day == st.secrets["WORD"]:
     st.success("That's right!")
 elif word_of_the_day and word_of_the_day != st.secrets["WORD"]:
-    st.warn("Try again.")
+    st.warning("Try again.")
 """
 
 at = AppTest.from_string(app_script)
@@ -101,7 +101,7 @@ def app_script ():
     if word_of_the_day == st.secrets["WORD"]:
         st.success("That's right!")
     elif word_of_the_day and word_of_the_day != st.secrets["WORD"]:
-        st.warn("Try again.")
+        st.warning("Try again.")
 
 at = AppTest.from_function(app_script)
 at.secrets["WORD"] = "Foobar"
@@ -332,7 +332,7 @@ at.time_input[0].increment().run()
 A representation of `st.toggle`.
 
 ```python
-at.toggle[0].set_value("True").run()
+at.toggle[0].set_value(True).run()
 ```
 
 </RefCard>

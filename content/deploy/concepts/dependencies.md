@@ -24,7 +24,7 @@ If you are using Streamlit Community Cloud, you'll have the latest version of St
 
 ### `pip` and `requirements.txt`
 
-Since `pip` comes by default with Python, the most common way to configure your Python environment is with a `requirements.txt` file. Each line of a `requirements.txt` file is a package to `pip install`. You should _not_ include <a href="https://docs.python.org/3/py-modindex.html" target="_blank">built-in Python libraries</a> like `math`, `random`, or `distutils` in your `requirements.txt` file. These are a part of Python and aren't installed separately.
+Since `pip` comes by default with Python, the most common way to configure your Python environment is with a `requirements.txt` file. Each line of a `requirements.txt` file is a package to `pip install`. You should _not_ include <a href="https://docs.python.org/3/py-modindex.html" target="_blank">built-in Python libraries</a> like `math`, `random`, or `json` in your `requirements.txt` file. These are a part of Python and aren't installed separately.
 
 <Tip>
 
@@ -55,9 +55,9 @@ numpy
 If you needed to specify certain versions, another valid example would be:
 
 ```none
-streamlit==1.24.1
+streamlit==1.66.0
 pandas>2.0
-numpy<=1.25.1
+numpy>=2.0,<3
 ```
 
 A `requirements.txt` file is commonly saved in the root of your repository or file directory. If you are using Streamlit Community Cloud, see [Add Python dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies#add-python-dependencies) for more information. Otherwise, check your platform's documentation.

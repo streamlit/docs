@@ -161,17 +161,16 @@ to the caller -- like magic.
 "But, wait a second," you’re saying to yourself, "this sounds too good to be
 true. What are the limitations of all this awesomesauce?"
 
-Well, there are a few:
+Well, there are a couple:
 
-1. Streamlit will only check for changes within the current working directory.
-   If you upgrade a Python library, Streamlit's cache will only notice this if
-   that library is installed inside your working directory.
+1. Streamlit only checks the code inside the cached function itself, not the
+   code of other functions or libraries that it calls. If you change a helper
+   function that your cached function uses, Streamlit's cache won't notice the
+   change.
 2. If your function is not deterministic (that is, its output depends on random
    numbers), or if it pulls data from an external time-varying source (for
    example, a live stock market ticker service) the cached value will be
    none-the-wiser.
-3. Lastly, you should avoid mutating the output of a function cached with `st.cache_data` since cached
-   values are stored by reference.
 
 While these limitations are important to keep in mind, they tend not to be an
 issue a surprising amount of the time. Those times, this cache is really
@@ -241,8 +240,10 @@ Uber's busiest hours are in New York City.
 
 To draw this diagram we used Streamlit's native `bar_chart()` method, but it's
 important to know that Streamlit supports more complex charting libraries like
-Altair, Bokeh, Plotly, Matplotlib and more. For a full list, see
-[supported charting libraries](/develop/api-reference/charts).
+Altair, Plotly, Matplotlib, ECharts and more. For a full list, see
+[supported charting libraries](/develop/api-reference/charts). For Bokeh
+charts, use the [`streamlit-bokeh`](https://github.com/streamlit/streamlit-bokeh)
+component.
 
 ## Plot data on a map
 

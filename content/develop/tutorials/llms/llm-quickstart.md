@@ -45,8 +45,7 @@ Create a `requirements.txt` file located in the root of your working directory a
 
 ```python
 streamlit
-openai
-langchain
+langchain-openai
 ```
 
 ## Building the app
@@ -64,7 +63,7 @@ openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
 
 def generate_response(input_text):
     model = ChatOpenAI(temperature=0.7, api_key=openai_api_key)
-    st.info(model.invoke(input_text))
+    st.info(model.invoke(input_text).content)
 
 
 with st.form("my_form"):
@@ -106,7 +105,7 @@ To start, create a new Python file and save it as `streamlit_app.py` in the roo
    ```python
    def generate_response(input_text):
        model = ChatOpenAI(temperature=0.7, api_key=openai_api_key)
-       st.info(model.invoke(input_text))
+       st.info(model.invoke(input_text).content)
    ```
 
 5. Finally, use `st.form()` to create a text box (`st.text_area()`) for user input. When the user clicks `Submit`, the `generate-response()` function is called with the user's input as an argument.

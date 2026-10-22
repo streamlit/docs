@@ -100,7 +100,7 @@ export default function ({ data, parentElement }) {
 
 <Note>
 
-DataFrames arrive as Arrow-formatted data on the frontend. In this simple example, they're converted to a string for display. For more sophisticated handling, you can use libraries like Apache Arrow JS to parse and manipulate the data.
+When a dataframe is a top-level value in a dictionary passed to `data`, like `data.df` in this example, it arrives on the frontend as a parsed Apache Arrow `Table`. In this simple example, the table is converted to a string for display. For more sophisticated handling, you can use the `Table` API from Apache Arrow JS to access rows and columns. If you pass a dataframe directly to `data`, it arrives as raw Arrow bytes (`Uint8Array`), which you can parse with Apache Arrow JS.
 
 </Note>
 

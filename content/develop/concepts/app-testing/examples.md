@@ -88,7 +88,7 @@ These tests closely follow the app's specifications above. In each test, a dummy
 from streamlit.testing.v1 import AppTest
 
 def test_no_interaction():
-    at = AppTest.from_file("app.py")
+    at = AppTest.from_file("../app.py")
     at.secrets["password"] = "streamlit"
     at.run()
     assert at.session_state["status"] == "unverified"
@@ -99,7 +99,7 @@ def test_no_interaction():
     assert at.text_input[0].value == ""
 
 def test_incorrect_password():
-    at = AppTest.from_file("app.py")
+    at = AppTest.from_file("../app.py")
     at.secrets["password"] = "streamlit"
     at.run()
     at.text_input[0].input("balloon").run()
@@ -112,7 +112,7 @@ def test_incorrect_password():
     assert "Incorrect password" in at.warning[0].value
 
 def test_correct_password():
-    at = AppTest.from_file("app.py")
+    at = AppTest.from_file("../app.py")
     at.secrets["password"] = "streamlit"
     at.run()
     at.text_input[0].input("streamlit").run()
@@ -125,7 +125,7 @@ def test_correct_password():
     assert at.button[0].label == "Log out"
 
 def test_log_out():
-    at = AppTest.from_file("app.py")
+    at = AppTest.from_file("../app.py")
     at.secrets["password"] = "streamlit"
     at.session_state["status"] = "verified"
     at.run()

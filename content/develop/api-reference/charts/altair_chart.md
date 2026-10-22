@@ -19,6 +19,7 @@ Let's look at an example of charts with the Streamlit theme and the native Altai
 
 ```python
 import altair as alt
+import streamlit as st
 from vega_datasets import data
 
 source = data.cars()
@@ -34,10 +35,10 @@ tab1, tab2 = st.tabs(["Streamlit theme (default)", "Altair native theme"])
 with tab1:
     # Use the Streamlit theme.
     # This is the default. So you can also omit the theme argument.
-    st.altair_chart(chart, theme="streamlit", use_container_width=True)
+    st.altair_chart(chart, theme="streamlit", width="stretch")
 with tab2:
     # Use the native Altair theme.
-    st.altair_chart(chart, theme=None, use_container_width=True)
+    st.altair_chart(chart, theme=None, width="stretch")
 ```
 
 Click the tabs in the interactive app below to see the charts with the Streamlit theme enabled and disabled.
@@ -67,7 +68,7 @@ color = alt.Color("weather:N", scale=scale)
 # - a brush that is active on the top panel
 # - a multi-click that is active on the bottom panel
 brush = alt.selection_interval(encodings=["x"])
-click = alt.selection_multi(encodings=["color"])
+click = alt.selection_point(encodings=["color"])
 
 # Top panel is scatter plot of temperature vs time
 points = (
@@ -84,7 +85,7 @@ points = (
         size=alt.Size("precipitation:Q", scale=alt.Scale(range=[5, 200])),
     )
     .properties(width=550, height=300)
-    .add_selection(brush)
+    .add_params(brush)
     .transform_filter(click)
 )
 
@@ -101,7 +102,7 @@ bars = (
     .properties(
         width=550,
     )
-    .add_selection(click)
+    .add_params(click)
 )
 
 chart = alt.vconcat(points, bars, data=source, title="Seattle Weather: 2012-2015")
@@ -109,9 +110,9 @@ chart = alt.vconcat(points, bars, data=source, title="Seattle Weather: 2012-2015
 tab1, tab2 = st.tabs(["Streamlit theme (default)", "Altair native theme"])
 
 with tab1:
-    st.altair_chart(chart, theme="streamlit", use_container_width=True)
+    st.altair_chart(chart, theme="streamlit", width="stretch")
 with tab2:
-    st.altair_chart(chart, theme=None, use_container_width=True)
+    st.altair_chart(chart, theme=None, width="stretch")
 ```
 
 </Collapse>

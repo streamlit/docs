@@ -77,7 +77,7 @@ with st.skeleton(height=200):
 
 <h4>Toast</h4>
 
-Briefly displays a toast message in the bottom-right corner.
+Briefly displays a toast message in the top-right corner.
 
 ```python
 st.toast('Butter!', icon='🧈')

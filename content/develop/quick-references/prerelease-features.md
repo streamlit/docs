@@ -16,6 +16,12 @@ At Streamlit, we like to move quick while keeping things stable. In our latest e
 
 Less stable Streamlit features have one naming convention: `st.experimental_`. This distinction is a prefix we attach to our command names to make sure their status is clear to everyone.
 
+<Note>
+
+Streamlit currently doesn't have any commands with the `experimental_` prefix. Earlier experimental commands have either been promoted to Streamlit core or removed.
+
+</Note>
+
 Here's a quick rundown of what you get from each naming convention:
 
 - **st**: this is where our core features like `st.write` and `st.dataframe` live. If we ever make backward-incompatible changes to these, they will take place gradually and with months of announcements and warnings.

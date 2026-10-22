@@ -128,7 +128,7 @@ to display geospatial data.
         if selected_layers:
             st.pydeck_chart(
                 pdk.Deck(
-                    map_style="mapbox://styles/mapbox/light-v9",
+                    map_style=None,
                     initial_view_state={
                         "latitude": 37.76,
                         "longitude": -122.4,
@@ -233,7 +233,7 @@ def data_frame_demo():
                     color="Region:N",
                 )
             )
-            st.altair_chart(chart, use_container_width=True)
+            st.altair_chart(chart, width="stretch")
     except URLError as e:
         st.error(
             """
@@ -459,7 +459,7 @@ try:
     if selected_layers:
         st.pydeck_chart(
             pdk.Deck(
-                map_style="mapbox://styles/mapbox/light-v9",
+                map_style=None,
                 initial_view_state={
                     "latitude": 37.76,
                     "longitude": -122.4,
@@ -536,7 +536,7 @@ try:
                 color="Region:N",
             )
         )
-        st.altair_chart(chart, use_container_width=True)
+        st.altair_chart(chart, width="stretch")
 except URLError as e:
     st.error(
         """

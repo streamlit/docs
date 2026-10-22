@@ -16,13 +16,13 @@ This guide explains how to securely access a Snowflake database from Streamlit. 
 - The following packages must be installed in your Python environment:
 
   ```txt
-  streamlit>=1.28
-  snowflake-snowpark-python>=0.9.0
-  snowflake-connector-python>=2.8.0
+  streamlit[snowflake]>=1.66.0
   ```
 
+  The `snowflake` extra installs `snowflake-snowpark-python[modin]` and `snowflake-connector-python`. Its Modin dependency currently limits pandas to versions below 2.4.
+
     <Note>
-        Use the correct version of Python required by `snowflake-snowpark-python`. For example, if you use `snowflake-snowpark-python==1.23.0`, you must use Python version \>=3.8, \<3.12.
+        Use a version of Python supported by both Streamlit and `snowflake-snowpark-python`. For example, Streamlit 1.66.0 requires Python \>=3.11, and `snowflake-snowpark-python==1.55.2` requires Python \<3.15.
     </Note>
 
 - You must have a Snowflake account. To create a trial account, see the [tutorial](/get-started/installation/streamlit-in-snowflake) in _Get started_.
@@ -91,7 +91,7 @@ If you already have a database that you want to use, you can [skip to the next s
 
 ## Add connection parameters to your local app secrets
 
-There are three places Streamlit looks for your connection parameters: keyword arguments in `st.connection`, `.streamlit/secrets.toml`, and `.snowflake/configuration.toml`. For more information, especially if you want to manage multiple connections, see the examples in the API reference for [`SnowflakeConnnection`](/develop/api-reference/connections/st.connections.snowflakeconnection).
+There are three places Streamlit looks for your connection parameters: keyword arguments in `st.connection`, `.streamlit/secrets.toml`, and `.snowflake/connections.toml`. For more information, especially if you want to manage multiple connections, see the examples in the API reference for [`SnowflakeConnnection`](/develop/api-reference/connections/st.connections.snowflakeconnection).
 
 To configure your connection, you must specify the following:
 
@@ -140,7 +140,7 @@ In addition to the three required parameters to authenticate your connection, it
 
 If you already have your connection configured using [Snowflake's connections file](https://docs.snowflake.com/en/developer-guide/python-connector/python-connector-connect#connecting-using-the-connections-toml-file), you can use it as-is. If you are using a default connection, no change is needed in later steps of this tutorial. If you are using a named connection, you will need to include the name in `st.connection`. This is noted in a later step. For information about using named connections, see the examples in the API reference for [`SnowflakeConnnection`](/develop/api-reference/connections/st.connections.snowflakeconnection).
 
-1. If you don't already have a `.snowflake/configuration.toml` file in your user directory, create an empty connections file.
+1. If you don't already have a `.snowflake/connections.toml` file in your user directory, create an empty connections file.
 1. Add your connection parameters to `.snowflake/connections.toml`:
 
    ```toml
@@ -224,5 +224,5 @@ If everything worked out (and you used the example table from the first section)
 
 This tutorial assumes a local Streamlit app, however you can also connect to Snowflake from apps hosted in Community Cloud. The main additional steps are:
 
-- [Include information about dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies) using a `requirements.txt` file with `snowflake-snowpark-python` and any other dependencies.
+- [Include information about dependencies](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies) using a `requirements.txt` file with `streamlit[snowflake]` and any other dependencies.
 - [Add your secrets](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management) to your Community Cloud app. You must use the `.streamlit/secrets.toml` format described in [Option 1](/develop/tutorials/databases/snowflake#option-1-use-streamlitsecretstoml) above.
