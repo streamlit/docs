@@ -12,7 +12,7 @@ Streamlit runs your script from top to bottom at every user interaction or code 
 1. Long-running functions run again and again, which slows down your app.
 2. Objects get recreated again and again, which makes it hard to persist them across reruns or sessions.
 
-But don't worry! Streamlit lets you tackle both issues with its built-in caching mechanism. Caching stores the results of slow function calls, so they only need to run once. This makes your app much faster and helps with persisting objects across reruns. Cached values are available to all users of your app. If you need to save results that should only be accessible within a session, use [Session State](/develop/concepts/architecture/session-state) instead.
+But don't worry! Streamlit lets you tackle both issues with its built-in caching mechanism. Caching stores the results of slow function calls, so they only need to run once. This makes your app much faster and helps with persisting objects across reruns. By default, cached values are available to all users of your app. If you need to save results that should only be accessible within a session, pass `scope="session"` to the caching decorator, or use [Session State](/develop/concepts/architecture/session-state) instead. Session-scoped cached values are removed when the session disconnects.
 
 <Collapse title="Table of contents" expanded={true}>
 
@@ -174,7 +174,7 @@ def run_model(inputs):
 
 ### st.cache_resource
 
-`st.cache_resource` is the right command to cache “resources" that should be available globally across all users, sessions, and reruns. It has more limited use cases than `st.cache_data`, especially for caching database connections and ML models. Within each user session, an `@st.cache_resource`-decorated function returns the cached instance of the return value (if the value is already cached). Therefore, objects cached by `st.cache_resource` act like singletons and can mutate.
+`st.cache_resource` is the right command to cache “resources" that should be available globally across all users, sessions, and reruns. It has more limited use cases than `st.cache_data`, especially for caching database connections and ML models. Within each user session, an `@st.cache_resource`-decorated function returns the cached instance of the return value (if the value is already cached). Therefore, objects cached by `st.cache_resource` act like singletons and can mutate. If you need a separate resource for each session, use `@st.cache_resource(scope="session")`. Session-scoped resources are removed when the session disconnects, and you can use the `on_release` parameter to clean them up.
 
 #### Usage
 
@@ -379,7 +379,7 @@ Let's discuss each of these cases in turn with examples.
 
 #### Example 1: Hashing a custom class
 
-Streamlit does not know how to hash custom classes. If you pass a custom class to a cached function, Streamlit will raise a `UnhashableParamError`. For example, let's define a custom class `MyCustomClass` that accepts an initial integer score. Let's also define a cached function `multiply_score` that multiplies the score by a multiplier:
+Streamlit natively hashes some class instances, like dataclasses and Pydantic models, but it does not know how to hash other custom classes. If you pass a custom class to a cached function, Streamlit will raise a `UnhashableParamError`. For example, let's define a custom class `MyCustomClass` that accepts an initial integer score. Let's also define a cached function `multiply_score` that multiplies the score by a multiplier:
 
 ```python
 import streamlit as st
@@ -501,47 +501,7 @@ If you run the app, you'll notice that Streamlit recomputes `multiply_score` eac
 
 This is why we discourage using it as hash func, and instead encourage functions that return deterministic, true hash values. That said, if you know what you're doing, you can use `id()` as a hash function. Just be aware of the consequences. For example, `id` is often the _correct_ hash func when you're passing the result of an `@st.cache_resource` function as the input param to another cached function. There's a whole class of object types that aren’t otherwise hashable.
 
-#### Example 2: Hashing a Pydantic model
-
-Let's consider another example where we want to hash a Pydantic model:
-
-```python
-import streamlit as st
-from pydantic import BaseModel
-
-class Person(BaseModel):
-    name: str
-
-@st.cache_data
-def identity(person: Person):
-    return person
-
-person = identity(Person(name="Lee"))
-st.write(f"The person is {person.name}")
-```
-
-Above, we define a custom class `Person` using Pydantic's `BaseModel` with a single attribute name. We also define an `identity` function which accepts an instance of `Person` as an arg and returns it without modification. This function is intended to cache the result, therefore, if called multiple times with the same `Person` instance, it won't recompute but return the cached instance.
-
-If you run the app, however, you'll run into a `UnhashableParamError: Cannot hash argument 'person' (of type __main__.Person) in 'identity'.` error. This is because Streamlit does not know how to hash the `Person` class. To fix this, we can use the `hash_funcs` kwarg to tell Streamlit how to hash `Person`.
-
-In the version below, we define a custom hash function `hash_func` that takes the `Person` instance as input and returns the name attribute. We want the name to be the unique identifier of the object, so we can use it to deterministically hash the object:
-
-```python
-import streamlit as st
-from pydantic import BaseModel
-
-class Person(BaseModel):
-    name: str
-
-@st.cache_data(hash_funcs={Person: lambda p: p.name})
-def identity(person: Person):
-    return person
-
-person = identity(Person(name="Lee"))
-st.write(f"The person is {person.name}")
-```
-
-#### Example 3: Hashing a ML model
+#### Example 2: Hashing a ML model
 
 There may be cases where you want to pass your favorite machine learning model to a cached function. For example, let's say you want to pass a TensorFlow model to a cached function, based on what model the user selects in the app. You might try something like this:
 
@@ -602,16 +562,13 @@ st.write(layers)
 
 In the above case, we could also have used `hash_funcs={Functional: id}` as the hash function. This is because `id` is often the _correct_ hash func when you're passing the result of an `@st.cache_resource` function as the input param to another cached function.
 
-#### Example 4: Overriding Streamlit's default hashing mechanism
+#### Example 3: Overriding Streamlit's default hashing mechanism
 
-Let's consider another example where we want to override Streamlit's default hashing mechanism for a pytz-localized datetime object:
+Let's consider another example where we want to override Streamlit's default hashing mechanism for a datetime object:
 
 ```python
 from datetime import datetime
-import pytz
 import streamlit as st
-
-tz = pytz.timezone("Europe/Berlin")
 
 @st.cache_data
 def load_data(dt):
@@ -619,20 +576,13 @@ def load_data(dt):
 
 now = datetime.now()
 st.text(load_data(dt=now))
-
-now_tz = tz.localize(datetime.now())
-st.text(load_data(dt=now_tz))
 ```
 
-It may be surprising to see that although `now` and `now_tz` are of the same `<class 'datetime.datetime'>` type, Streamlit does not how to hash `now_tz` and raises a `UnhashableParamError`. In this case, we can override Streamlit's default hashing mechanism for `datetime` objects by passing a custom hash function to the `hash_funcs` kwarg:
+Streamlit hashes `datetime` objects by their full ISO format, including microseconds and any time zone offset. Because `datetime.now()` returns a different value on every rerun, `load_data` never returns a cached value. If you only need a new result once per minute, you can override Streamlit's default hashing mechanism for `datetime` objects by passing a custom hash function to the `hash_funcs` kwarg:
 
 ```python
 from datetime import datetime
-
-import pytz
 import streamlit as st
-
-tz = pytz.timezone("Europe/Berlin")
 
 @st.cache_data(hash_funcs={datetime: lambda x: x.strftime("%a %d %b %Y, %I:%M%p")})
 def load_data(dt):
@@ -640,9 +590,6 @@ def load_data(dt):
 
 now = datetime.now()
 st.text(load_data(dt=now))
-
-now_tz = tz.localize(datetime.now())
-st.text(load_data(dt=now_tz))
 ```
 
 Let's now consider a case where we want to override Streamlit's default hashing mechanism for NumPy arrays. While Streamlit natively hashes Pandas and NumPy objects, there may be cases where you want to override Streamlit's default hashing mechanism for these objects.

@@ -21,7 +21,7 @@ This tutorial uses Streamlit's chat commands to build a simple chat app that let
 - This tutorial requires the following version of Streamlit:
 
   ```text
-  streamlit>=1.24.0
+  streamlit>=1.41.0
   ```
 
 - You should have a clean working directory called `your-repository`.

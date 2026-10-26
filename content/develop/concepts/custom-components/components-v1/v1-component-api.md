@@ -11,22 +11,34 @@ The first step in developing a Streamlit Component is deciding whether to create
 
 ## Create a static component
 
-If your goal in creating a Streamlit Component is solely to display HTML code or render a chart from a Python visualization library, Streamlit provides two methods that greatly simplify the process: `components.html()` and `components.iframe()`.
+If your goal in creating a Streamlit Component is solely to display HTML code or render a chart from a Python visualization library, Streamlit provides two commands that greatly simplify the process: [`st.html`](/develop/api-reference/text/st.html) and [`st.iframe`](/develop/api-reference/text/st.iframe).
 
 If you are unsure whether you need bi-directional communication, **start here first**!
 
+<Note>
+
+`components.html()` and `components.iframe()` are deprecated. Replace both with [`st.iframe`](/develop/api-reference/text/st.iframe), which accepts an HTML string or a URL. When you switch, pass `width` and `height` as keyword arguments and remove `scrolling`. `st.iframe` always shows a scrollbar when its content is larger than the iframe.
+
+</Note>
+
 ### Render an HTML string
 
-While [`st.text`](/develop/api-reference/text/st.text), [`st.markdown`](/develop/api-reference/text/st.markdown) and [`st.write`](/develop/api-reference/write-magic/st.write) make it easy to write text to a Streamlit app, sometimes you'd rather implement a custom piece of HTML. Similarly, while Streamlit natively supports [many charting libraries](/develop/api-reference/charts#chart-elements), you may want to implement a specific HTML/JavaScript template for a new charting library. [`components.html`](/develop/api-reference/custom-components/st.components.v1.html) works by giving you the ability to embed an iframe inside of a Streamlit app that contains your desired output.
+While [`st.text`](/develop/api-reference/text/st.text), [`st.markdown`](/develop/api-reference/text/st.markdown) and [`st.write`](/develop/api-reference/write-magic/st.write) make it easy to write text to a Streamlit app, sometimes you'd rather implement a custom piece of HTML. Similarly, while Streamlit natively supports [many charting libraries](/develop/api-reference/charts#chart-elements), you may want to implement a specific HTML/JavaScript template for a new charting library. Streamlit offers two ways to display HTML:
+
+- [`st.html`](/develop/api-reference/text/st.html) inserts HTML directly into your app without an iframe. Streamlit sanitizes the HTML and ignores JavaScript unless you set `unsafe_allow_javascript=True`.
+- [`st.iframe`](/develop/api-reference/text/st.iframe) embeds your HTML in an iframe inside your Streamlit app. Use this when your HTML includes JavaScript or loads stylesheets that shouldn't affect the rest of your app.
+
+Only pass trusted HTML to either command.
 
 **Example**
 
+The following example uses `st.iframe` because the HTML loads Bootstrap's CSS and JavaScript:
+
 ```python
 import streamlit as st
-import streamlit.components.v1 as components
 
 # bootstrap 4 collapse example
-components.html(
+st.iframe(
     """
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -68,16 +80,15 @@ components.html(
 
 ### Render an iframe URL
 
-[`components.iframe`](/develop/api-reference/custom-components/st.components.v1.iframe) is similar in features to `components.html`, with the difference being that `components.iframe` takes a URL as its input. This is used for situations where you want to include an entire page within a Streamlit app.
+[`st.iframe`](/develop/api-reference/text/st.iframe) also accepts a URL as its input. This is used for situations where you want to include an entire page within a Streamlit app.
 
 **Example**
 
 ```python
 import streamlit as st
-import streamlit.components.v1 as components
 
-# embed streamlit docs in a streamlit app
-components.iframe("https://example.com", height=500)
+# embed a website in a streamlit app
+st.iframe("https://example.com", height=500)
 ```
 
 ## Create a bi-directional component

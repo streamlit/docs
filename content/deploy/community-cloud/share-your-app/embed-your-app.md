@@ -37,7 +37,6 @@ In addition to allowing you to embed apps via iframes, the `?embed=true` query
 - Removes the toolbar with the app menu icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>).
 - Removes the padding at the top and bottom of the app.
 - Removes the footer.
-- Removes the colored line from the top of the app.
 
 For granular control over the embedding behavior, Streamlit allows you to specify one or more instances of the `?embed_options` query parameter (e.g. to show the toolbar, open the app in dark theme, etc). [Click here for a full list of Embed options.](#embed-options)
 
@@ -109,31 +108,25 @@ The supported values for `?embed_options` are listed below:
    /?embed=true&embed_options=show_footer
    ```
 
-4. Show the colored line at the top of the app.
-
-   ```javascript
-   /?embed=true&embed_options=show_colored_line
-   ```
-
-5. Hide the "skeleton" that appears while an app is loading.
+4. Hide the "skeleton" that appears while an app is loading.
 
    ```javascript
    /?embed=true&embed_options=hide_loading_screen
    ```
 
-6. Disable scrolling for the main body of the app. (The sidebar will still be scrollable.)
+5. Disable scrolling for the main body of the app. (The sidebar will still be scrollable.)
 
    ```javascript
    /?embed=true&embed_options=disable_scrolling
    ```
 
-7. Open the app with light theme.
+6. Open the app with light theme.
 
    ```javascript
    /?embed=true&embed_options=light_theme
    ```
 
-8. Open the app with dark theme.
+7. Open the app with dark theme.
 
    ```javascript
    /?embed=true&embed_options=dark_theme
@@ -142,7 +135,7 @@ The supported values for `?embed_options` are listed below:
 You can also combine the params:
 
 ```javascript
-/?embed=true&embed_options=show_toolbar&embed_options=show_padding&embed_options=show_footer&embed_options=show_colored_line&embed_options=disable_scrolling
+/?embed=true&embed_options=show_toolbar&embed_options=show_padding&embed_options=show_footer&embed_options=disable_scrolling
 ```
 
 ### Build an embed link

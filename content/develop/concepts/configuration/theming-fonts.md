@@ -43,7 +43,7 @@ The following configuration options can be set separately for the sidebar by usi
 - `theme.codeFontSize` sets the size of code text in code blocks, `st.json`, and `st.help` (but not inline code).
 - `theme.codeFontWeight` sets the weight of code text in code blocks, `st.json`, and `st.help` (but not inline code). Weights are integer multiples of 50 between 100 and 600.
 
-When fonts are not declared in `[theme.sidebar]`, Streamlit will inherit each option from `[theme]` before defaulting to less specific options. For example, if `theme.sidebar.headingFont` is not set, Streamlit uses (in order of precedence) `theme.headingFont`, `theme.sidebar.font`, or `theme.font` instead.
+When fonts are not declared in `[theme.sidebar]`, Streamlit will inherit each option from `[theme]` before defaulting to less specific options. For example, if `theme.sidebar.headingFont` is not set, Streamlit uses (in order of precedence) `theme.headingFont`, `theme.sidebar.font`, or `theme.font` instead. The exception is `theme.headingFontSizes`, which the sidebar doesn't inherit. If `theme.sidebar.headingFontSizes` is not set, the sidebar uses its own default heading sizes, which are smaller than in the main body.
 
 In the following `config.toml` example, Streamlit uses Source Serif in the main body of the app and Source Sans in the sidebar.
 
@@ -76,7 +76,7 @@ If you have font files that you want to host with your app, you must declare the
 
 <Important>
 
-Streamlit supports self-hosting for OTF, TTF, WOFF, and WOFF2 font file formats. Other font file formats must be hosted externally.
+Streamlit supports OTF, TTF, WOFF, and WOFF2 font file formats, whether you self-host them or point to a publicly hosted font file.
 
 </Important>
 

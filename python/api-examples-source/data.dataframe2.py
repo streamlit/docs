@@ -20,4 +20,4 @@ df = load_data()
 
 # Display the dataframe and allow the user to stretch the dataframe
 # across the full width of the container
-st.dataframe(df, use_container_width=st.session_state.use_container_width)
+st.dataframe(df, width="stretch" if st.session_state.use_container_width else "content")

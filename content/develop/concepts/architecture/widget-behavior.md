@@ -61,7 +61,7 @@ The value of a widget as seen through `st.session_state` and returned by the wid
 
 Most widgets accept an `on_change` callback parameter (or `on_click` for buttons). A callback is a Python function that Streamlit calls when the user interacts with the widget. You can optionally pass arguments to the callback through the `args` and `kwargs` parameters. Callbacks are covered in detail in [Order of operations](#order-of-operations).
 
-If you don't want a widget to rerun your app, set `on_change="ignore"` instead of passing a callback. The widget still updates in the browser, and your app receives the new value on the next rerun triggered by something else, such as another widget interaction. If the widget is [bound to a query parameter](#binding-widgets-to-query-parameters), the URL updates right away. Every widget with an `on_change` parameter supports `"ignore"`.
+If you don't want a widget to rerun your app, set `on_change="ignore"` instead of passing a callback. The widget still updates in the browser, and your app receives the new value on the next rerun triggered by something else, such as another widget interaction. If the widget is [bound to a query parameter](#binding-widgets-to-query-parameters), the URL updates right away. Most input widgets support `"ignore"`. For `st.tabs`, `st.expander`, and `st.popover`, `"ignore"` is the default and turns off state tracking: `.open` returns `None`, and no Session State key is created. Binding `st.tabs` or `st.expander` to a query parameter turns state tracking back on.
 
 ### Keys help distinguish widgets and access their values
 
@@ -208,7 +208,7 @@ To keep a widget's value when it isn't rendered, set `persist_state` and provide
 - `"page"`: The value is preserved while the user stays on the page where the widget is defined, for example while the widget is conditionally hidden. The value is discarded on a page switch.
 - `"session"`: The value is preserved for the entire session, including across page switches, so it returns when the user navigates back.
 
-`persist_state` requires a `key`. It is available on most widgets that support `bind="query-params"`. It is not available on `st.tabs`, trigger-like widgets (`st.button`, `st.download_button`, `st.form_submit_button`), file and media inputs (`st.file_uploader`, `st.camera_input`, `st.audio_input`), `st.chat_input`, `st.data_editor`, or selections from `st.dataframe` and charts.
+`persist_state` requires a `key`. It is available on most widgets that support `bind="query-params"`. It is not available on `st.tabs`, `st.expander`, `st.popover`, trigger-like widgets (`st.button`, `st.download_button`, `st.form_submit_button`, `st.link_button`, `st.menu_button`), file and media inputs (`st.file_uploader`, `st.camera_input`, `st.audio_input`), `st.chat_input`, `st.data_editor`, or selections from `st.dataframe` and charts.
 
 Use `"page"` when a widget is hidden on the same page:
 

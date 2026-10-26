@@ -25,7 +25,7 @@ Because of the OAuth limitations noted above, a developer must have administrati
 
 You can deploy multiple apps from your repository, and your entrypoint file(s) may be anywhere in your directory structure. However, Community Cloud initializes all apps from the root of your repository, even if the entrypoint file is in a subdirectory. This has the following consequences:
 
-- Community Cloud only recognizes one `.streamlit/configuration.toml` file at the root (of each branch) of your repository.
+- Streamlit reads the `.streamlit/config.toml` file at the root (of each branch) of your repository. If your entrypoint file is in a subdirectory, Streamlit also reads the `.streamlit/config.toml` file in that subdirectory, and its values take precedence. For more information, see [Working with configuration options](/develop/concepts/configuration/options).
 - You must declare image, video, and audio file paths for Streamlit commands relative to the root of your repository. For example, `st.image`, `st.logo`, and the `page_icon` parameter in `st.set_page_config` expect file locations relative to your working directory (i.e. where you execute `streamlit run`).
 
 ## Linux environments
@@ -38,7 +38,7 @@ Community Cloud is built on Debian Linux.
 ## Python environments
 
 - You cannot mix and match Python package managers for a single app. Community Cloud configures your app's Python environment based on the first environment configuration file it finds. For more information, see [Other Python package managers](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies#other-python-package-managers).
-- We recommend that you use the latest version of Streamlit to ensure full Community Cloud functionality. Be sure to take note of Streamlit's [current requirements](https://github.com/streamlit/streamlit/blob/develop/lib/setup.py) for package compatibility when planning your environment, especially `protobuf>=3.20,<6`.
+- We recommend that you use the latest version of Streamlit to ensure full Community Cloud functionality. Be sure to take note of Streamlit's [current requirements](https://github.com/streamlit/streamlit/blob/develop/lib/pyproject.toml) for package compatibility when planning your environment, especially `protobuf>=5.26.1,<8`.
 - If you pin `streamlit< 1.20.0`, you must also pin `altair<5`. Earlier versions of Streamlit did not correctly restrict Altair's version. A workaround script running on Community Cloud will forcibly install `altair<5` if a newer version is detected. This could unintentionally upgrade Altair's dependencies in violation of your environment configuration. Newer versions of Streamlit support Altair version 5.
 - Community Cloud only supports released versions of Python that are still receiving security updates. You may not use end-of-life, prerelease, or feature versions of Python. For more information, see [Status of Python versions](https://devguide.python.org/versions/).
 

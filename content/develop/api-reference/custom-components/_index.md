@@ -23,6 +23,7 @@ Register a custom component.
 
 ```python
 my_component = st.components.v2.component(
+    "my_component",
     html=HTML,
     js=JS
 )
@@ -39,6 +40,7 @@ Mount a custom component.
 
 ```python
 my_component = st.components.v2.component(
+    "my_component",
     html=HTML,
     js=JS
 )
@@ -126,7 +128,7 @@ import { CleanupFunction } from "@streamlit/component-v2-lib";
 Create and register a custom component.
 
 ```python
-from st.components.v1 import declare_component
+from streamlit.components.v1 import declare_component
 declare_component(
     "custom_slider",
     "/frontend",
@@ -135,14 +137,16 @@ declare_component(
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/custom-components/st.components.v1.html">
+<RefCard href="/develop/api-reference/custom-components/st.components.v1.html" deprecated={true}>
+
+> This command was deprecated in version 1.56.0. Use `st.iframe` instead, or `st.html` to insert HTML without an iframe.
 
 <h4>HTML</h4>
 
 Display an HTML string in an iframe.
 
 ```python
-from st.components.v1 import html
+from streamlit.components.v1 import html
 html(
     "<p>Foo bar.</p>"
 )
@@ -150,16 +154,18 @@ html(
 
 </RefCard>
 
-<RefCard href="/develop/api-reference/custom-components/st.components.v1.iframe">
+<RefCard href="/develop/api-reference/custom-components/st.components.v1.iframe" deprecated={true}>
+
+> This command was deprecated in version 1.56.0. Use `st.iframe` instead.
 
 <h4>iframe</h4>
 
 Load a remote URL in an iframe.
 
 ```python
-from st.components.v1 import iframe
+from streamlit.components.v1 import iframe
 iframe(
-    "docs.streamlit.io"
+    "https://docs.streamlit.io"
 )
 ```
 

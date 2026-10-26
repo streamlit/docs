@@ -41,7 +41,7 @@ Spin up a cloud-based development environment for your deployed app in minutes. 
 
    ![Select "Always rerun" to automatically see edits in your running app](/images/streamlit-community-cloud/deploy-template-blank-codespace-edit.png)
 
-   Alternatively, you can click "**Rerun**" to avoid unnecessary reruns while writing code. Because your code is continually saved, automatically rerunning the app will raises errors when you pause partway through a line of code. Regardless of which you choose, you can change the setting through the app chrome. Just click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) in the upper-right corner of your preview app, click "**Settings**," and then toggle "**Run on save**."
+   Alternatively, you can click "**Rerun**" to avoid unnecessary reruns while writing code. Because your code is continually saved, automatically rerunning the app will raise errors when you pause partway through a line of code. To change this later from the app menu, click the overflow icon (<i style={{ verticalAlign: "-.25em" }} className={{ class: "material-icons-sharp" }}>more_vert</i>) in the upper-right corner of your preview app, and toggle "**Auto rerun**." It's a [developer option](/develop/concepts/architecture/app-chrome#developer-options), which Streamlit hides by default because your preview app isn't served from `localhost`. Set [`client.toolbarMode`](/develop/concepts/architecture/app-chrome#customize-the-menu) to `"developer"` to show it.
 
 1. Continue to edit your app. Your codespace will continue to automatically save your files as you work with them, and the preview will continue to update as the app reruns.
 

@@ -43,7 +43,7 @@ streamlit config show
 ```toml
 [global]
 
-# By default, Streamlit displays a warning when a user sets both a widget
+# By default, Streamlit logs a warning when a user sets both a widget
 # default value in the function defining the widget and a widget value via
 # the widget's key in `st.session_state`.
 #
@@ -112,15 +112,18 @@ messageFormat = "%(asctime)s %(message)s"
 # Default: "full"
 showErrorDetails = "full"
 
-# Change the visibility of items in the toolbar, options menu,
-# and settings dialog (top right of the app).
+# Change the visibility of items in the toolbar and options menu
+# (top right of the app). The menu and toolbar contain viewer options
+# (e.g. print, record screen, theme toggle) and developer options
+# (e.g. deploy, rerun, clear cache).
 #
 # Allowed values:
 # - "auto"      : Show the developer options if the app is accessed through
 #                 localhost or through Streamlit Community Cloud as a developer.
 #                 Hide them otherwise.
 # - "developer" : Show the developer options.
-# - "viewer"    : Hide the developer options.
+# - "viewer"    : Hide the developer options, including the rerun, clear
+#                 cache, and deploy button from the toolbar and menu.
 # - "minimal"   : Show only options set externally (e.g. through
 #                 Streamlit Community Cloud) or through st.set_page_config.
 #                 If there are no options left, hide the menu.

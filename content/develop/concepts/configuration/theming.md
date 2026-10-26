@@ -9,7 +9,7 @@ keywords: theming, app customization, visual styling, color schemes, app appeara
 
 In this guide, we provide an overview of theming and visual customization of Streamlit apps. Streamlit themes are defined using configuration options, which are most commonly defined in a `.streamlit/config.toml` file. For more information about setting configuration options, see [Working with configuration options](/develop/concepts/configuration/options). For a complete list of configuration options and definitions, see the API reference for [config.toml](/develop/api-reference/configuration/config.toml#theme).
 
-You can configure a light and dark theme for your app that the user can change through the settings menu. The sidebar is separately
+You can configure a light and dark theme for your app that the user can change through the [app menu](/develop/concepts/architecture/app-chrome#theme). The sidebar is separately
 configurable from the main app for almost all theming options.
 
 The following options can be set in the `[theme]` table of `config.toml` and can't be set separately in the sidebar, dark-theme, or
@@ -44,4 +44,4 @@ The following dark theme is inspired by [Spotify](https://open.spotify.com/).
 
 ## Working with theme configuration during development
 
-Most theme configuration options can be updated while an app is running. This makes it easy to iterate on your custom theme. If you change your app's primary color, save your `config.toml` file, and rerun your app, you will immediately see the new color. However, some configuration options (like `[[theme.fontFace]]`) require you to restart the Streamlit server to reflect the updates. If in doubt, when updating your app's configuration, stop the Streamlit server in your terminal and restart your app with the `streamlit run` command.
+Most theme configuration options can be updated while an app is running. This makes it easy to iterate on your custom theme. If you change your app's primary color, save your `config.toml` file, and rerun your app, you will immediately see the new color. However, some configuration options (like those in the `[server]` table) require you to restart the Streamlit server to reflect the updates. If in doubt, when updating your app's configuration, stop the Streamlit server in your terminal and restart your app with the `streamlit run` command.

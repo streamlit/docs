@@ -7,7 +7,7 @@ keywords: experimental_connection, connection, data source, api, database, depre
 
 <Important>
 
-This is an experimental feature. Experimental features and their APIs may change or be removed at any time. To learn more, click [here](/develop/quick-reference/prerelease#experimental-features).
+This was an experimental feature. It was deprecated in version 1.28.0 and removed in version 1.37.0. Use [`st.connection`](/develop/api-reference/connections/st.connection) instead. To learn more about experimental features, click [here](/develop/quick-reference/prerelease#experimental-features).
 
 </Important>
 
@@ -17,7 +17,7 @@ This page only contains the `st.experimental_connection` API. For a deeper dive 
 
 </Tip>
 
-<Autofunction function="streamlit.experimental_connection" deprecated={true} deprecatedText="<code>st.experimental_connection</code> was deprecated in version 1.28.0. Use <a href='/develop/api-reference/connections/st.connection'><code>st.connection</code></a> instead."/>
+<Autofunction function="streamlit.experimental_connection" deprecated={true} deprecatedText="<code>st.experimental_connection</code> was deprecated in version 1.28.0 and removed in version 1.37.0. Use <a href='/develop/api-reference/connections/st.connection'><code>st.connection</code></a> instead."/>
 
 For a comprehensive overview of this feature, check out this video tutorial by Joshua Carroll, Streamlit's Product Manager for Developer Experience. You'll learn about the feature's utility in creating and managing data connections within your apps by using real-world examples.
 

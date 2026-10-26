@@ -18,7 +18,7 @@ def play_scale(rate):
 st.header("Media elements")
 
 cols = st.columns(3)
-cols[0].image("https://docs.streamlit.io/logo.svg", use_container_width=True, caption="Streamlit logo")
+cols[0].image("https://docs.streamlit.io/logo.svg", width="stretch", caption="Streamlit logo")
 st.write("Play a scale")
 st.audio(play_scale(44100), sample_rate=44100)
 st.container(border=True).video("https://static.streamlit.io/videos/hero-video.mp4", autoplay=True)

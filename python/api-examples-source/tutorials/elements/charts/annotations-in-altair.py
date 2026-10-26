@@ -13,11 +13,11 @@ def get_data():
 
 stock_data = get_data()
 
-hover = alt.selection_single(
+hover = alt.selection_point(
     fields=["date"],
     nearest=True,
     on="mouseover",
-    empty="none",
+    empty=False,
 )
 
 lines = (
@@ -44,7 +44,7 @@ tooltips = (
             alt.Tooltip("price", title="Price (USD)"),
         ],
     )
-    .add_selection(hover)
+    .add_params(hover)
 )
 
 data_layer = lines + points + tooltips
@@ -71,4 +71,4 @@ annotation_layer = (
 )
 
 combined_chart = data_layer + annotation_layer
-st.altair_chart(combined_chart, use_container_width=True)
+st.altair_chart(combined_chart, width="stretch")

@@ -69,7 +69,7 @@ When the button is clicked, `setTriggerValue("action", "button_clicked")` sends 
 
 ### Callback registration
 
-The `on_action_change` parameter registers a callback that runs when the trigger fires. The callback name follows the pattern `on_<trigger_name>_change`. Always register a callback for trigger values, even an empty one like `lambda: None`. This ensures the result object always has an attribute for the trigger. In this example, if a callback isn't defined, `"action"` won't exist as a result attribute until the trigger fires. This can cause an `AttributeError` if you try to access it before the trigger fires.
+The `on_action_change` parameter registers a callback that runs when the trigger fires. The callback name follows the pattern `on_<trigger_name>_change`. Always register a callback for trigger values, even an empty one like `lambda: None`. This ensures the result object always has an attribute for the trigger. In this example, if a callback isn't defined, `"action"` only exists as a result attribute during the rerun caused by the trigger. This can cause an `AttributeError` if you try to access it during any other script run.
 
 In this example, the callback is used to increment the value of `st.session_state.click_count`. This is a simple way to track the number of times the button has been clicked. Alternatively, you could use a state value in your component to track the number of clicks. For an example of a component that uses a state value to track the number of clicks, see the [interactive counter](/develop/concepts/custom-components/components-v2/examples/interactive-counter) example.
 

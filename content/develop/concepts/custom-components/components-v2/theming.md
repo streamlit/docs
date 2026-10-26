@@ -438,11 +438,12 @@ Benefits of isolation:
 
 - Component styles won't leak to the rest of the page.
 - Page styles won't interfere with your component.
-- Safer for third-party components.
+
+Style isolation isn't a security boundary. Your component's JavaScript isn't sandboxed and can still access the rest of the page.
 
 ### Non-isolated styles
 
-If you want your component's style to affect the rest of the page, you can set `isolate_styles=False` when mounting. This is uncommon.
+If you want your component's style to affect the rest of the page, you can set `isolate_styles=False` when registering your component. This is uncommon.
 
 ```python
 # Styles can affect the page

@@ -79,8 +79,6 @@ Other options accessible from Cloud logs are:
 
 From your app at `<your-custom-subdomain>.streamlit.app`, you can always access the [app chrome](/develop/concepts/architecture/app-chrome) just like you can when developing locally. The option to deploy your app is removed, but you can still clear your cache from here.
 
-![App menus in Streamlit Community Cloud](/images/streamlit-community-cloud/app-menu.png)
-
 ## Manage your app in GitHub
 
 ### Update your app

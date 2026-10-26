@@ -77,9 +77,7 @@ for key in st.session_state.keys():
     del st.session_state[key]
 ```
 
-Session State can also be cleared by going to Settings → Clear Cache, followed by Rerunning the app.
-
-![state-clear-cache](/images/clear_cache.png)
+Session State can also be cleared by selecting "**Clear cache**" from the app menu, followed by rerunning the app. "**Clear cache**" is a [developer option](/develop/concepts/architecture/app-chrome#developer-options).
 
 ### Session State and Widget State association
 
@@ -108,17 +106,27 @@ Callbacks can be used with widgets using the parameters `on_change` (or `on_clic
 
 Widgets which support the `on_change` event:
 
+- `st.audio_input`
+- `st.camera_input`
 - `st.checkbox`
 - `st.color_picker`
 - `st.date_input`
 - `st.data_editor`
+- `st.datetime_input`
+- `st.expander`
+- `st.feedback`
 - `st.file_uploader`
 - `st.multiselect`
 - `st.number_input`
+- `st.pagination`
+- `st.pills`
+- `st.popover`
 - `st.radio`
+- `st.segmented_control`
 - `st.select_slider`
 - `st.selectbox`
 - `st.slider`
+- `st.tabs`
 - `st.text_area`
 - `st.text_input`
 - `st.time_input`
@@ -127,8 +135,11 @@ Widgets which support the `on_change` event:
 Widgets which support the `on_click` event:
 
 - `st.button`
+- `st.column_config.ButtonColumn`
 - `st.download_button`
 - `st.form_submit_button`
+- `st.link_button`
+- `st.menu_button`
 
 To add a callback, define a callback function **above** the widget declaration and pass it to the widget via the `on_change` (or `on_click` ) parameter.
 
@@ -185,7 +196,7 @@ When `runner.enforceSerializableSessionState` is set to `true`, Session State im
 
 - Streamlit Session State is tied to a WebSocket connection. When a user reloads the browser tab or navigates using a Markdown link, the WebSocket connection and the associated Session State data are reset.
 - Only the `st.form_submit_button` has a callback in forms. Other widgets inside a form are not allowed to have callbacks.
-- `on_change` and `on_click` events are only supported on input type widgets.
+- `on_change` and `on_click` events are only supported on the widgets listed in [Use Callbacks to update Session State](#use-callbacks-to-update-session-state).
 - Modifying the value of a widget via the Session state API, after instantiating it, is not allowed and will raise a `StreamlitAPIException`. For example:
 
   ```python
@@ -200,7 +211,7 @@ When `runner.enforceSerializableSessionState` is set to `true`, Session State im
 
   ![state-modified-instantiated-exception](/images/state_modified_instantiated_exception.png)
 
-- Setting the widget state via the Session State API and using the `value` parameter in the widget declaration is not recommended, and will throw a warning on the first run. For example:
+- Setting the widget state via the Session State API and using the `value` parameter in the widget declaration is not recommended. The first time this happens, Streamlit logs a warning in the terminal where you ran your app. For example:
 
   ```python
   st.session_state.my_slider = 7
@@ -209,8 +220,6 @@ When `runner.enforceSerializableSessionState` is set to `true`, Session State im
       label='Choose a Value', min_value=1,
       max_value=10, value=5, key='my_slider')
   ```
-
-  ![state-value-api-exception](/images/state_value_api_exception.png)
 
 - Setting the state of button-like widgets: `st.button`, `st.download_button`, and `st.file_uploader` via the Session State API is not allowed. Such type of widgets are by default _False_ and have ephemeral _True_ states which are only valid for a single run. For example:
 

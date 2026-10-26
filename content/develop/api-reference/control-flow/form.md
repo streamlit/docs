@@ -7,7 +7,7 @@ keywords: st.form, form, batch, submit, widgets, input, group, execution flow, c
 
 <Tip>
 
-This page only contains information on the `st.forms` API. For a deeper dive into creating and using forms within Streamlit apps, read our guide on [Using forms](/develop/concepts/architecture/forms).
+This page only contains information on the `st.form` API. For a deeper dive into creating and using forms within Streamlit apps, read our guide on [Using forms](/develop/concepts/architecture/forms).
 
 </Tip>
 

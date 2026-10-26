@@ -9,7 +9,7 @@ slug: /knowledge-base/deploy/increase-file-uploader-limit-streamlit-cloud
 
 By default, files uploaded using [`st.file_uploader()`](/develop/api-reference/widgets/st.file_uploader) are limited to 200MB. You can configure this using the `server.maxUploadSize` config option.
 
-Streamlit provides [four different ways to set configuration options](/develop/concepts/configuration):
+Streamlit provides [five different ways to set configuration options](/develop/concepts/configuration/options):
 
 1. In a **global config file** at `~/.streamlit/config.toml` for macOS/Linux or `%userprofile%/.streamlit/config.toml` for Windows:
    ```toml
@@ -17,20 +17,21 @@ Streamlit provides [four different ways to set configuration options](/develop/c
    maxUploadSize = 200
    ```
 2. In a **per-project config file** at `$CWD/.streamlit/config.toml`, where `$CWD` is the folder you're running Streamlit from.
-3. Through `STREAMLIT_*` **environment variables**, such as:
+3. In a **script-level config file** at `.streamlit/config.toml` in the folder that contains your entrypoint file. This is only different from the per-project config file when you run Streamlit from a different folder than your entrypoint file.
+4. Through `STREAMLIT_*` **environment variables**, such as:
    ```bash
    export STREAMLIT_SERVER_MAX_UPLOAD_SIZE=200
    ```
-4. As **flags on the command line** when running `streamlit run`:
+5. As **flags on the command line** when running `streamlit run`:
    ```bash
    streamlit run your_script.py --server.maxUploadSize 200
    ```
 
-Which of the four options should you choose for an app deployed to [Streamlit Community Cloud](/deploy/streamlit-community-cloud)? 🤔
+Which of the five options should you choose for an app deployed to [Streamlit Community Cloud](/deploy/streamlit-community-cloud)? 🤔
 
 ## Solution
 
-When deploying your app to Streamlit Community Cloud, you should **use option 1**. Namely, set the `maxUploadSize` config option in a global config file (`.streamlit/config.toml`) uploaded to your app's GitHub repo. 🎈
+When deploying your app to Streamlit Community Cloud, you should **use option 2**. Namely, set the `maxUploadSize` config option in a per-project config file (`.streamlit/config.toml`) at the root of your app's GitHub repo. If your entrypoint file is in a subdirectory, you can also use option 3 and put the config file in that subdirectory. 🎈
 
 For example, to increase the upload limit to 400MB, upload a `.streamlit/config.toml` file containing the following lines to your app's GitHub repo:
 

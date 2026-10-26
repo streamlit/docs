@@ -19,7 +19,7 @@ Altair allows you to annotate your charts with text, images, and emojis. You can
 
   ```txt
   streamlit
-  altair>=4.0.0
+  altair>=5.0.0
   vega_datasets
   ```
 
@@ -53,11 +53,11 @@ def get_data():
 
 stock_data = get_data()
 
-hover = alt.selection_single(
+hover = alt.selection_point(
     fields=["date"],
     nearest=True,
     on="mouseover",
-    empty="none",
+    empty=False,
 )
 
 lines = (
@@ -84,7 +84,7 @@ tooltips = (
             alt.Tooltip("price", title="Price (USD)"),
         ],
     )
-    .add_selection(hover)
+    .add_params(hover)
 )
 
 data_layer = lines + points + tooltips
@@ -107,7 +107,7 @@ annotation_layer = (
 )
 
 combined_chart = data_layer + annotation_layer
-st.altair_chart(combined_chart, use_container_width=True)
+st.altair_chart(combined_chart, width="stretch")
 ```
 
 </Collapse>
@@ -169,11 +169,11 @@ You'll build an interactive time-series chart of the stock prices with a multi-l
 1. Define a mouseover selection event in Altair.
 
    ```python
-   hover = alt.selection_single(
+   hover = alt.selection_point(
        fields=["date"],
        nearest=True,
        on="mouseover",
-       empty="none",
+       empty=False,
    )
    ```
 
@@ -216,7 +216,7 @@ You'll build an interactive time-series chart of the stock prices with a multi-l
                alt.Tooltip("price", title="Price (USD)"),
            ],
        )
-       .add_selection(hover)
+       .add_params(hover)
    )
    ```
 
@@ -231,7 +231,7 @@ You'll build an interactive time-series chart of the stock prices with a multi-l
 1. Optional: Test out your code by rendering your data layer.
 
    ```python
-   st.altair_chart(data_layer, use_container_width=True)
+   st.altair_chart(data_layer, width="stretch")
    ```
 
    Save your file and examine the chart in your app. Use your mouse to hover over points. Observe the circle marks, vertical line, and tooltip as you hover over a point. Delete the line or keep it at the end of your app to be updated as you continue.
@@ -280,7 +280,7 @@ Now that you have the first chart that shows the data, you can annotate it with 
 1. Display the chart in Streamlit.
 
    ```python
-   st.altair_chart(combined_chart, use_container_width=True)
+   st.altair_chart(combined_chart, width="stretch")
    ```
 
 ## Next steps

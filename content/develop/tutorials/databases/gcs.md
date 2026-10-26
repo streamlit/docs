@@ -119,7 +119,7 @@ st-files-connection
 
 ## Write your Streamlit app
 
-Copy the code below to your Streamlit app and run it. Make sure to adapt the name of your bucket and file. Note that Streamlit automatically turns the access keys from your secrets file into environment variables.
+Copy the code below to your Streamlit app and run it. Make sure to adapt the name of your bucket and file. Note that `st.connection` automatically reads the access key from the `[connections.gcs]` section of your secrets file, and `FilesConnection` passes it to `gcsfs` as credentials.
 
 ```python
 # streamlit_app.py

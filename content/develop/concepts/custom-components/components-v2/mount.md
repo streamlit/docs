@@ -143,7 +143,7 @@ hello_component() # Mount the component
 hello_component(key="second_instance") # Mount another instance of the component
 ```
 
-If you remove the key from the second instance, you would get a `StreamlitDuplicateElementID` error. This is the component's equivalent to a `DuplicateWidgetID` error.
+If you remove the key from the second instance, you would get a `StreamlitDuplicateElementId` error. This is the same error that Streamlit raises for identical widgets without keys.
 
 <Note>
 
@@ -153,7 +153,7 @@ The `key` property available in JavaScript in the `FrontendRendererArgs` type is
 
 ### State and trigger callbacks (`on_<trigger>_change` or `on_<state>_change`)
 
-For each state and trigger value for your component, you must pass a callback function to the component mounting command. For example, if you have a trigger named `"click"`, then you must pass a callback function to the keyword argument `on_click_change`.
+For each state and trigger value for your component, you should pass a callback function to the component mounting command. For example, if you have a trigger named `"action"`, then pass a callback function to the keyword argument `on_action_change`. Callbacks aren't required to send values to Python, but they ensure that each value is always present in the component's result, as described later in this section. If you set an initial value for a state with the `default` parameter, you must pass a callback for that state.
 
 ```python
 result = my_component(on_action_change=lambda: None)
@@ -268,7 +268,7 @@ You can access the state and trigger values of a component through the mounting 
 
 ### Component return value
 
-Component mounting commands return a [`BidiComponentResult`](/develop/api-reference/custom-components/st.components.v2.types.componentrenderer) object that provides access to state and trigger values. You can access each state or trigger value as an attribute of the result object.
+Component mounting commands return a [`ComponentResult`](/develop/api-reference/custom-components/st.components.v2.types.componentrenderer) object that provides access to state and trigger values. You can access each state or trigger value as an attribute of the result object.
 
 ```python
 result = my_component(on_action_change=lambda: None)

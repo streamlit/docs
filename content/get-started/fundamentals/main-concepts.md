@@ -91,11 +91,13 @@ By default, a full-script rerun happens in two situations:
 - Whenever a user interacts with widgets in the app. For example, when dragging
   a slider, entering text in an input box, or clicking a button.
 
-Some widgets accept `on_change="ignore"` to update without triggering a rerun;
-Python receives the new value on the next rerun. You can also use
-[forms](/develop/concepts/architecture/forms) to batch widget input until
-submission or [fragments](/develop/concepts/architecture/fragments) to rerun
-only part of your app.
+Most input widgets accept `on_change="ignore"` to update without triggering a
+rerun; Python receives the new value on the next rerun. For `st.tabs`,
+`st.expander`, and `st.popover`, `"ignore"` is the default and turns off state
+tracking. You can also use [forms](/develop/concepts/architecture/forms) to batch
+widget input until submission or
+[fragments](/develop/concepts/architecture/fragments) to rerun only part of
+your app.
 
 Whenever a callback is passed to a widget via the `on_change` (or `on_click`) parameter, the callback will always run before the rest of your script. For details on the Callbacks API, please refer to our [Session State API Reference Guide](/develop/api-reference/caching-and-state/st.session_state#use-callbacks-to-update-session-state).
 
@@ -173,7 +175,7 @@ a few reasons:
    drawing a dataframe as an interactive table, you may want to draw it as a
    static table by using `st.table(df)`.
 2. The second reason is that other methods return an object that can be used
-   and modified, either by adding data to it or replacing it.
+   and modified, for example by replacing it.
 3. Finally, if you use a more specific Streamlit method you can pass additional
    arguments to customize its behavior.
 
@@ -396,8 +398,9 @@ with right_column:
 
 <Note>
 
-`st.echo` and `st.spinner` are not currently supported inside the sidebar
-or layout options. Rest assured, though, we're currently working on adding support for those too!
+`st.echo` doesn't support object notation, so you can't call `st.sidebar.echo`
+or `left_column.echo`. To use `st.echo` in the sidebar or a layout container,
+call it inside a `with` block instead.
 
 </Note>
 

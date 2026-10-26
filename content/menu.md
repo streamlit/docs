@@ -548,6 +548,7 @@ site_menu:
   - category: Develop / API reference / Connections and secrets / SnowparkConnection
     url: /develop/api-reference/connections/st.connections.snowparkconnection
     isDeprecated: true
+    visible: false
   - category: Develop / API reference / Connections and secrets / ExperimentalBaseConnection
     url: /develop/api-reference/connections/st.connections.experimentalbaseconnection
     isDeprecated: true

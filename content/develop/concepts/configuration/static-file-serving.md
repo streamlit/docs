@@ -18,12 +18,9 @@ Media stored in the folder `./static/` relative to the running app file is serve
 
 ## Details on usage
 
-- Files with the following extensions will be served normally:
-  - Common image types: `.jpg`, `.jpeg`, `.png`, `.gif`
-  - Common font types: `.otf`, `.ttf`, `.woff`, `.woff2`
-  - Other types: `.pdf`, `.xml`, `.json`
-    Any other file will be sent with header `Content-Type:text/plain` which will cause browsers to render in plain text.
-    This is included for security - other file types that need to render should be hosted outside the app.
+- Streamlit sets the `Content-Type` header of each file based on its file extension using Python's `mimetypes` module, such as `image/png` for `.png` files.
+  Which extensions are recognized can depend on your Python version and operating system. Files with an unrecognized extension are sent with header `Content-Type:application/octet-stream`, which causes browsers to download them instead of rendering them.
+  Because files like HTML, JavaScript, and SVG are served with their real content types, browsers can render or execute them. Only put files you trust in the static directory.
 - Streamlit also sets `X-Content-Type-Options:nosniff` for all files rendered from the static directory.
 - For apps running on Streamlit Community Cloud:
   - Files available in the Github repo will always be served. Any files generated while the app is running,

@@ -21,7 +21,7 @@ Existing secrets management tools, such as [dotenv files](https://pypi.org/proje
 
 ### Develop locally and set up secrets
 
-Streamlit provides two ways to set up secrets locally using [TOML](https://toml.io/en/latest) format:
+Streamlit provides three ways to set up secrets locally using [TOML](https://toml.io/en/latest) format:
 
 1. In a **global secrets file** at `~/.streamlit/secrets.toml` for macOS/Linux or `%userprofile%/.streamlit/secrets.toml` for Windows:
 
@@ -41,6 +41,10 @@ Streamlit provides two ways to set up secrets locally using [TOML](https://toml
    If you use the global secrets file, you don't have to duplicate secrets across several project-level files if multiple Streamlit apps share the same secrets.
 
 2. In a **per-project secrets file** at `$CWD/.streamlit/secrets.toml`, where `$CWD` is the folder you're running Streamlit from. If both a global secrets file and a per-project secrets file exist, _secrets in the per-project file overwrite those defined in the global file_.
+
+3. In a **script-level secrets file** at `.streamlit/secrets.toml` in the folder that contains your entrypoint file (the file you pass to `streamlit run`). This is only different from the per-project secrets file when you run Streamlit from a different folder than your entrypoint file. Secrets in the script-level file overwrite those defined in the global and per-project files.
+
+When several secrets files exist, Streamlit merges them by top-level key. If two files define the same top-level key or table, the value from the higher-precedence file replaces the whole value from the other file. For example, if your global file defines `[connections.local]` and your per-project file defines `[connections.staging]`, only `connections.staging` is available because both tables belong to the top-level `connections` key.
 
 <Important>
 

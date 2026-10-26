@@ -15,7 +15,7 @@ keywords: server, st.App, ASGI, Starlette, middleware, routes, lifecycle, config
 Configure the underlying Starlette server for your app.
 
 ```python
-app = st.App()
+app = st.App("streamlit_app.py")
 ```
 
 </RefCard>

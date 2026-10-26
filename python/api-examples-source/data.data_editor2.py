@@ -14,4 +14,4 @@ def load_data():
 
 
 df = load_data()
-st.dataframe(df, use_container_width=True)
+st.dataframe(df, width="stretch")

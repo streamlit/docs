@@ -83,6 +83,9 @@ Copy the code below to your Streamlit app and run it. Note that this code just s
 ```python
 # streamlit_app.py
 
+from io import StringIO
+
+import pandas as pd
 import streamlit as st
 import tableauserverclient as TSC
 
@@ -90,7 +93,7 @@ import tableauserverclient as TSC
 # Set up connection.
 tableau_auth = TSC.PersonalAccessTokenAuth(
     st.secrets["tableau"]["token_name"],
-    st.secrets["tableau"]["personal_access_token"],
+    st.secrets["tableau"]["token_secret"],
     st.secrets["tableau"]["site_id"],
 )
 server = TSC.Server(st.secrets["tableau"]["server_url"], use_server_version=True)

@@ -154,7 +154,7 @@ st.text("Hello world")
 Display mathematical expressions formatted as LaTeX.
 
 ```python
-st.latex("\int a x^2 \,dx")
+st.latex(r"\int a x^2 \,dx")
 ```
 
 </RefCard><RefCard href="/develop/api-reference/text/st.divider">
@@ -205,9 +205,10 @@ st.html("<p>Foo bar.</p>")
 Display content in an iframe
 
 ```python
+from pathlib import Path
 st.iframe("https://docs.streamlit.io")
 st.iframe("<p>Streamlit is cool.</p>")
-st.iframe("my_content.html")
+st.iframe(Path("my_content.html"))
 ```
 
 </RefCard>

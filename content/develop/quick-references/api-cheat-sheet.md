@@ -149,7 +149,7 @@ st.vega_lite_chart(df, spec)
 
 # Work with user selections
 event = st.plotly_chart(
-    df,
+    fig,
     on_select="rerun"
 )
 event = st.altair_chart(
@@ -317,7 +317,7 @@ st.download_button("Download file", data)
 st.link_button("Go to gallery", url)
 st.menu_button("Export", options=["CSV", "JSON", "PDF"])
 st.page_link("app.py", label="Home")
-st.data_editor("Edit data", data)
+st.data_editor(data)
 st.checkbox("I agree")
 st.feedback("thumbs")
 st.pills("Tags", ["Sports", "Politics"])
@@ -346,7 +346,7 @@ for i in range(int(st.number_input("Num:"))):
 if st.sidebar.selectbox("I:",["f"]) == "f":
     b()
 my_slider_val = st.slider("Quinn Mallory", 1, 88)
-st.write(slider_val)
+st.write(my_slider_val)
 
 # Disable widgets to remove interactivity:
 st.slider("Pick a number", 0, 100, disabled=True)
@@ -557,7 +557,7 @@ st.context.url
 
 ```python hideHeader
 # Expose the underlying Starlette app
-app = st.App()
+app = st.App("streamlit_app.py")
 ```
 
 </CodeTile>

@@ -33,7 +33,7 @@ For step-by-step walkthroughs of using the template, see the tutorials:
 
 ### Prerequisites
 
-- Python >= 3.10
+- Python >= 3.11
 - [Node.js](https://nodejs.org/) >= 24 (LTS)
 - [uv](https://docs.astral.sh/uv/) (recommended Python package manager)
 
@@ -130,7 +130,7 @@ my_component = ["frontend/build/**/*", "pyproject.toml"]
 
 The key sections are:
 
-- `[project]`: Package metadata. The `name` field is what users pass to `pip install`.
+- `[project]`: Package metadata. The `name` field is what users pass to `pip install`. You can raise `requires-python` to `">=3.11"` to match Streamlit's minimum Python version.
 - `[tool.setuptools.packages.find]`: Tells setuptools to automatically find your component package by matching the `my_component*` pattern.
 - `[tool.setuptools.package-data]`: Ensures the built frontend assets (`frontend/build/**/*`) and the inner `pyproject.toml` are included when the package is built into a wheel.
 
@@ -352,9 +352,7 @@ This creates a wheel in the `dist/` directory that includes your compiled fronte
 
 ## Publishing your package
 
-For detailed instructions on publishing your component to PyPI, see [Publish a Component](/develop/concepts/custom-components/publish).
-
-The basic steps are:
+A package-based component is published like any other Python package. The basic steps are:
 
 1. Build the frontend: `npm run build` (from the `frontend/` directory)
 2. Build the wheel: `uv build` (from the project root)
@@ -365,6 +363,8 @@ After publishing, users can install your component with:
 ```bash
 pip install streamlit-custom-component
 ```
+
+To practice uploading with Test PyPI and to share your component with the community, see [Publish a Component](/develop/concepts/custom-components/publish#upload-your-wheel-to-pypi).
 
 ## Best practices
 
