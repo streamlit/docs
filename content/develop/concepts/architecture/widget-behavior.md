@@ -116,6 +116,17 @@ If the callback function displays anything on the screen, that content will appe
 
 If a callback function is passed any args or kwargs, those arguments will be established when the widget command is called, not later when the user interacts with the widget. In particular, if you want to use a widget's value in its own callback function, you can't pass that value to the callback function via the `args` parameter; you must assign a key to the widget and look up its value using `st.session_state` _within the callback function_.
 
+The same principle applies when passing one widget's value to another widget's callback. For example, to use the current value of `st.text_area` in an `st.button` callback, assign a key to the text area and read it from `st.session_state`:
+
+```python
+def process_text():
+    st.write(st.session_state.text)
+
+
+st.text_area("Enter text", key="text")
+st.button("Process", on_click=process_text)
+```
+
 </Note>
 
 ### Using callback functions with forms

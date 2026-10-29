@@ -104,6 +104,8 @@ Callbacks can be used with widgets using the parameters `on_change` (or `on_clic
 - **args** (_tuple_) - List of arguments to be passed to the callback function
 - **kwargs** (_dict_) - Named arguments to be passed to the callback function
 
+Values passed through `args` and `kwargs` are captured during the script run when the widget command is executed; they are not reevaluated later when the user interacts with the widget and the callback runs. To use another widget's current value in a callback, assign that widget a key and read its value from `st.session_state`; see [Order of operations](/develop/concepts/architecture/widget-behavior#order-of-operations).
+
 Widgets which support the `on_change` event:
 
 - `st.audio_input`
