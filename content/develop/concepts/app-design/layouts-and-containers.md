@@ -136,9 +136,9 @@ Use `st.grid` for repeated tiles, like metric cards, image galleries, and dashbo
 ```python
 import streamlit as st
 
-grid = st.grid(min_column_width=200, border=True)
+grid = st.grid(min_column_width=200)
 for i in range(6):
-    grid.metric(f"Metric {i + 1}", f"{i * 10}%")
+    grid.metric(f"Metric {i + 1}", f"{i * 10}%", border=True)
 ```
 
 To put several elements in one cell, or to make a cell span multiple columns or rows, use `grid.cell()`:

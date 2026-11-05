@@ -222,9 +222,9 @@ with col1:
 
 ```python hideHeader
 # Cards that reflow with the available width:
-grid = st.grid(3, border=True)
-grid.metric("Revenue", "$1.2M", "+8%")
-grid.metric("Pipeline", "$4.8M", "+12%")
+grid = st.grid(3)
+grid.metric("Revenue", "$1.2M", "+8%", border=True)
+grid.metric("Pipeline", "$4.8M", "+12%", border=True)
 
 # Group elements in one cell or span columns:
 with grid.cell(column_span="all"):
