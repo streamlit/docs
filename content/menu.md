@@ -404,6 +404,8 @@ site_menu:
     url: /develop/api-reference/layout/st.expander
   - category: Develop / API reference / Layouts and containers / st.form
     url: https://docs.streamlit.io/develop/api-reference/execution-flow/st.form
+  - category: Develop / API reference / Layouts and containers / st.grid
+    url: /develop/api-reference/layout/st.grid
   - category: Develop / API reference / Layouts and containers / st.popover
     url: /develop/api-reference/layout/st.popover
   - category: Develop / API reference / Layouts and containers / st.sidebar
