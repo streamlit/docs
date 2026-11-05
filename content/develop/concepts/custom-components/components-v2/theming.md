@@ -45,11 +45,11 @@ If a theme value is not configured, the CSS Custom Properties will have a valid 
 
 There are a few computed CSS Custom Properties that don't come directly from a theme configuration option. The following CSS Custom Properties are computed:
 
-| CSS Custom Property        | Used for                                                 |
-| :------------------------- | :------------------------------------------------------- |
-| `--st-heading-color`       | Heading font color (placeholder); same as text color     |
-| `--st-border-color-light`  | Lighter border color for stale or deactivated elements   |
-| `--st-widget-border-color` | Widget borders (when `theme.showWidgetBorder` is `true`) |
+| CSS Custom Property        | Used for                                                    |
+| :------------------------- | :---------------------------------------------------------- |
+| `--st-heading-color`       | Heading font color (placeholder); same as text color        |
+| `--st-border-color-light`  | Lighter border color for stale or deactivated elements      |
+| `--st-widget-border-color` | Widget borders (unless `theme.showWidgetBorder` is `false`) |
 
 ### CSS Custom Property arrays
 
