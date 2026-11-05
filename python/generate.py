@@ -307,6 +307,11 @@ def get_docstring_dict(
     description = {}
     # Get the object's docstring or an empty string if it doesn't have one
     docstring = getattr(obj, "__doc__", "")
+    # A method that overrides a documented parent method without its own
+    # docstring (for example, to add a check before calling super()) uses the
+    # parent's docstring, as it would if the method were inherited.
+    if not docstring and is_class_method:
+        docstring = inspect.getdoc(obj) or ""
     # Set the object's name
     description["name"] = objname
     # If the object is a class, store its methods and their signatures
