@@ -24,6 +24,7 @@ from numpydoc.docscrape import NumpyDocString
 from streamlit.components.v2.bidi_component import BidiComponentResult
 from streamlit.components.v2.types import ComponentRenderer
 from streamlit.elements.lib.mutable_status_container import StatusContainer
+from streamlit.elements.lib.grid_container import GridContainer
 from streamlit.testing.v1.app_test import AppTest
 from streamlit.runtime.caching.cache_utils import CachedFunc
 from streamlit.elements.plotly_chart import PlotlyState, PlotlySelectionState
@@ -641,6 +642,7 @@ def get_streamlit_docstring_dict():
         componentsv1: ["streamlit.components.v1", "st.components.v1"],
         componentsv2: ["streamlit.components.v2", "st.components.v2"],
         StatusContainer: ["StatusContainer", "StatusContainer", ["update"]], # Only store docstring for StatusContainer.update
+        GridContainer: ["GridContainer", "GridContainer", ["cell"]], # Only store docstring for GridContainer.cell
         streamlit.testing.v1: ["streamlit.testing.v1", "st.testing.v1"],
         AppTest: ["AppTest", "AppTest"],
         element_tree: [
