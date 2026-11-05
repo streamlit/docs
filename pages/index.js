@@ -146,6 +146,28 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
+                href="/develop/api-reference/layout/st.grid?utm_source=streamlit"
+              >
+                <i className="material-icons-sharp">grid_view</i>
+                <h4>Responsive grids</h4>
+                <p>
+                  Use <code>st.grid</code> to lay out metric cards, galleries,
+                  and dashboard panels that reflow with the available width.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="/develop/concepts/configuration/theming-customize-colors-and-borders?utm_source=streamlit#default-streamlit-colors"
+              >
+                <i className="material-icons-sharp">palette</i>
+                <h4>Refreshed default theme</h4>
+                <p>
+                  The built-in light and dark themes have a warmer palette and
+                  show widget and sidebar borders by default.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
                 href="/develop/api-reference/execution-flow/st.dialog?utm_source=streamlit"
               >
                 <i className="material-icons-sharp">view_sidebar</i>
@@ -190,28 +212,6 @@ export default function Home({ window, menu }) {
                   Use <code>async</code>/<code>await</code> and popular async
                   libraries directly in your Streamlit apps. The caching
                   decorators work with <code>async def</code> functions too.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/execution-flow/st.fragment?utm_source=streamlit"
-              >
-                <i className="material-icons-sharp">call_split</i>
-                <h4>Parallel fragments</h4>
-                <p>
-                  Set <code>parallel=True</code> on <code>st.fragment</code> to
-                  run independent fragments concurrently during full-app reruns.
-                </p>
-              </RefCard>
-              <RefCard
-                size="third"
-                href="/develop/api-reference/caching-and-state/st.cache_data?utm_source=streamlit"
-              >
-                <i className="material-icons-sharp">cached</i>
-                <h4>Background cache refresh</h4>
-                <p>
-                  Refresh expired cached values in the background while your app
-                  continues serving the previous value.
                 </p>
               </RefCard>
             </TileContainer>
