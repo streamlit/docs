@@ -184,10 +184,10 @@ assert at.toast[0].value == "That was lit!" and at.toast[0].icon == "🔥"
 
 ## Limitations
 
-As of Streamlit 1.66, the following Streamlit features are not natively supported by `AppTest`. However, workarounds are possible for many of them by inspecting the underlying proto directly using `AppTest.get()`. We plan to regularly add support for missing elements until all features are supported.
+As of Streamlit 1.67, the following Streamlit features are not natively supported by `AppTest`. However, workarounds are possible for many of them by inspecting the underlying proto directly using `AppTest.get()`. We plan to regularly add support for missing elements until all features are supported.
 
 - Chart elements (`st.bar_chart`, `st.line_chart`, `st.altair_chart`, `st.plotly_chart`, `st.pydeck_chart`, `st.map`, `st.graphviz_chart`, `st.echarts_chart`, etc)
 - Media elements (`st.video`, `st.audio`)
 - `st.iframe` and custom components
 - `st.balloons` and `st.snow`
-- Editing cells in `st.data_editor`. You can read the table through `at.dataframe`, and apply edits by assigning the editor's key in `at.session_state` before `run()`.
+- Editing cells in `st.data_editor`. You can read the table through `at.data_editor`, and apply edits by assigning the editor's key in `at.session_state` before `run()`.
