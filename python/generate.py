@@ -29,6 +29,7 @@ from streamlit.testing.v1.app_test import AppTest
 from streamlit.runtime.caching.cache_utils import CachedFunc
 from streamlit.elements.plotly_chart import PlotlyState, PlotlySelectionState
 from streamlit.elements.vega_charts import VegaLiteState
+from streamlit.elements.echarts_chart import EChartsState, EChartsSelectionState
 from streamlit.elements.arrow import DataframeState, DataframeSelectionState
 from streamlit.elements.deck_gl_json_chart import PydeckState, PydeckSelectionState
 from streamlit.elements.widgets.data_editor import DataEditorState
@@ -666,6 +667,8 @@ def get_streamlit_docstring_dict():
         PlotlyState: ["PlotlyState", "PlotlyState"],
         PlotlySelectionState: ["PlotlySelectionState", "PlotlySelectionState"],
         VegaLiteState: ["VegaLiteState", "VegaLiteState"],
+        EChartsState: ["EChartsState", "EChartsState"],
+        EChartsSelectionState: ["EChartsSelectionState", "EChartsSelectionState"],
         DataframeState: ["DataframeState", "DataframeState"],
         DataframeSelectionState: ["DataframeSelectionState", "DataframeSelectionState"],
         DataEditorState: ["DataEditorState", "DataEditorState"],
