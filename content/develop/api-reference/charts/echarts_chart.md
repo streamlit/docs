@@ -7,4 +7,10 @@ keywords: st.echarts_chart, echarts, apache echarts, pyecharts, chart, visualiza
 
 <Autofunction function="streamlit.echarts_chart" />
 
+## Chart selections
+
+<Autofunction function="EChartsState" />
+
+<Autofunction function="EChartsSelectionState" />
+
 <GitHubIssuesHint label="feature:st.echarts_chart" name="st.echarts_chart" />
