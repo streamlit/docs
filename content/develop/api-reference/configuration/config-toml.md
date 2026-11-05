@@ -125,8 +125,11 @@ showErrorDetails = "full"
 # - "viewer"    : Hide the developer options, including the rerun, clear
 #                 cache, and deploy button from the toolbar and menu.
 # - "minimal"   : Show only options set externally (e.g. through
-#                 Streamlit Community Cloud) or through st.set_page_config.
-#                 If there are no options left, hide the menu.
+#                 Streamlit Community Cloud) or through
+#                 st.set_page_config. If there are no such options,
+#                 hide the menu. When the menu is shown and there is
+#                 more than one theme to choose from, it also includes
+#                 the theme selector.
 #
 # Default: "auto"
 toolbarMode = "auto"
@@ -236,6 +239,19 @@ parallelMaxWorkers =
 # Default: 2.0
 cacheBackgroundRefreshTTLMultiplier = 2.0
 
+# Default time to live, in seconds, for ``st.connection`` when its
+# ``ttl`` argument is omitted entirely.
+#
+# ``None`` (default) leaves such connections cached until they are
+# cleared. Passing ``ttl`` explicitly to ``st.connection`` -- including
+# ``ttl=None`` -- always uses that value and ignores this default.
+#
+# This default applies to every connection type, including caller's-rights
+# connections and the Snowflake connection in Streamlit in Snowflake.
+# Expiry closes the connection, and the next ``st.connection`` call opens
+# a new one. Pass an explicit ``ttl`` to override it for one connection.
+connectionDefaultTTL =
+
 # Escape hatch for an app whose @st.cache_data / @st.cache_resource cache
 # returns the wrong value for a large pandas, polars, or numpy object.
 #
@@ -317,6 +333,19 @@ fileWatcherType = "auto"
 #
 # Default: false
 enableExpensiveMemoryStats = false
+
+# Maximum combined serialized size of all in-memory @st.cache_data entries
+# across functions and sessions. This limit counts serialized bytes, not
+# process RSS, and does not apply to st.cache_resource.
+# Use a binary-unit string such as "2gb" or "500mb" (units are powers of
+# 1024). Leave unset (the default), or set to bare TOML 0 or the string
+# "0", to disable the limit.
+# When the total exceeds the limit, Streamlit evicts the least-recently-used
+# in-memory entries; persisted disk entries are not deleted. A single value
+# larger than the limit is still cached. Budget enforcement runs when entries
+# are inserted and can reduce throughput when many sessions populate caches
+# concurrently. Streamlit reads this value when the server starts.
+maxCacheDataSize =
 
 # Symmetric key used to produce signed cookies. If deploying on multiple
 # replicas, this should be set to the same value across all replicas to ensure
@@ -487,6 +516,84 @@ enableStaticServing = false
 # Default: 120
 disconnectedSessionTTL = 120
 
+# Enable the agent API, which lets a non-browser client drive the app
+# over HTTP at `/_stcore/agent/interact`, or as a remote MCP server at
+# `/_stcore/agent/mcp`. `/_stcore/agent/openapi.json` describes the
+# protocol, and reports whether the API is on.
+#
+# The API is off by default. Once on, it is served wherever the app is,
+# with the same Host allow-list as the app's WebSocket, and a caller gets
+# no more access than the app gives a browser. Requests from web pages
+# are refused unless their origin is in `server.corsAllowedOrigins`.
+# Identity comes from `server.trustedUserHeaders`; without it, agent
+# sessions are anonymous. A proxy that strips client-supplied identity
+# headers must also strip them from requests to `/_stcore/agent/`, not
+# only from the WebSocket.
+#
+# Note: This is an experimental feature. The API and its options are
+# subject to change.
+#
+# Default: false
+enableAgentApi = false
+
+# Maximum number of seconds an agent API request waits for the app to
+# finish running, including any reruns it triggers, before returning
+# `wait_timed_out`.
+#
+# This bounds the wait, not the run: the app keeps running. To keep
+# waiting, send only the `session_id` from the `wait_timed_out`
+# response; that request waits for the same run instead of starting
+# another. Resending a request without a `session_id` starts a new
+# session and runs the app again. Keep this below the request timeout
+# of the clients you expect.
+#
+# Note: This is part of the experimental agent API. See
+# `server.enableAgentApi`.
+#
+# Default: 30
+agentWaitTimeout = 30
+
+# TTL in seconds for idle agent API sessions.
+#
+# Streamlit closes an agent session after it has been idle this long, so
+# clients do not have to close sessions. A later request with that
+# session's ID gets `unknown_session`.
+#
+# Note: This is part of the experimental agent API. See
+# `server.enableAgentApi`.
+#
+# Default: 900
+agentSessionTTL = 900
+
+# Maximum number of agent API sessions the server holds at once.
+#
+# Each session stays in memory after the request that created it, so
+# this limit caps the memory a client can use by creating sessions
+# repeatedly. At the limit, Streamlit first closes sessions idle longer
+# than `server.agentSessionTTL`, then refuses new ones with
+# `too_many_sessions`.
+#
+# Note: This is part of the experimental agent API. See
+# `server.enableAgentApi`.
+#
+# Default: 100
+agentMaxSessions = 100
+
+# Maximum number of rows an agent API response includes inline in the
+# `data.preview` of a table or chart: `st.dataframe`, `st.data_editor`,
+# `st.table`, and Vega-Lite charts (`st.altair_chart`,
+# `st.vega_lite_chart`, and built-in charts such as `st.line_chart`).
+#
+# For an element with more rows, the response reports
+# `data.complete: false` and serves the full data at `data.url`, unless
+# `data.unavailable` says why it cannot.
+#
+# Note: This is part of the experimental agent API. See
+# `server.enableAgentApi`.
+#
+# Default: 100
+agentPreviewRows = 100
+
 # Server certificate file for connecting via HTTPS.
 # Must be set at the same time as "server.sslKeyFile".
 #
@@ -579,210 +686,262 @@ Additionally, everything in `[theme.sidebar]` can be configured in separate `[th
 base =
 
 # Primary accent color.
+#
+# Defaults to #c53948 for the light theme and #cf4250 for the dark theme.
 primaryColor =
 
 # Background color of the app.
+#
+# Defaults to #ffffff for the light theme and #171614 for the dark theme.
+# When a sidebar section doesn't set this, the sidebar uses #f8f8f7
+# (light) or #21201d (dark) if backgroundColor and
+# secondaryBackgroundColor both still match their defaults. Otherwise,
+# the sidebar uses the app's secondaryBackgroundColor.
 backgroundColor =
 
 # Background color used for most interactive widgets.
+#
+# Defaults to #f8f8f7 for the light theme and #2d2b27 for the dark theme.
+# When a sidebar section doesn't set this, the sidebar uses #f1f0ee
+# (light) or #2d2b27 (dark) if backgroundColor and
+# secondaryBackgroundColor both still match their defaults. Otherwise,
+# the sidebar uses the app's backgroundColor.
 secondaryBackgroundColor =
 
 # Color used for almost all text.
+#
+# Defaults to #2f2d2b for the light theme and #edebe8 for the dark theme.
 textColor =
 
 # Red color used in the basic color palette.
 #
-# By default, this is #ff4b4b for the light theme and #ff2b2b for the
+# By default, this is #d94a57 for the light theme and #f2919a for the
 # dark theme.
 #
-# If `redColor` is provided, and `redBackgroundColor` isn't, then
-# `redBackgroundColor` will be derived from `redColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# Setting `redColor` without `redBackgroundColor` replaces the opaque
+# `redBackgroundColor` default with a translucent color Streamlit derives
+# from `redColor` (10% opacity in light themes, 20% in dark), even when
+# `redColor` equals its documented default.
 redColor =
 
 # Orange color used in the basic color palette.
 #
-# By default, this is #ffa421 for the light theme and #ff8700 for the
+# By default, this is #e0682b for the light theme and #f2a56d for the
 # dark theme.
 #
-# If `orangeColor` is provided, and `orangeBackgroundColor` isn't, then
-# `orangeBackgroundColor` will be derived from `orangeColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# Setting `orangeColor` without `orangeBackgroundColor` replaces the opaque
+# `orangeBackgroundColor` default with a translucent color Streamlit derives
+# from `orangeColor` (10% opacity in light themes, 20% in dark), even when
+# `orangeColor` equals its documented default.
 orangeColor =
 
 # Yellow color used in the basic color palette.
 #
-# By default, this is #faca2b for the light theme and #ffe312 for the
+# By default, this is #bb8300 for the light theme and #fbd54f for the
 # dark theme.
 #
-# If `yellowColor` is provided, and `yellowBackgroundColor` isn't, then
-# `yellowBackgroundColor` will be derived from `yellowColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# Setting `yellowColor` without `yellowBackgroundColor` replaces the opaque
+# `yellowBackgroundColor` default with a translucent color Streamlit derives
+# from `yellowColor` (10% opacity in light themes, 20% in dark), even when
+# `yellowColor` equals its documented default.
 yellowColor =
 
 # Blue color used in the basic color palette.
 #
-# By default, this is #1c83e1 for the light theme and #0068c9 for the
+# By default, this is #3b82f6 for the light theme and #85b8f8 for the
 # dark theme.
 #
-# If a `blueColor` is provided, and `blueBackgroundColor` isn't, then
-# `blueBackgroundColor` will be derived from `blueColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# Setting `blueColor` without `blueBackgroundColor` replaces the opaque
+# `blueBackgroundColor` default with a translucent color Streamlit derives
+# from `blueColor` (10% opacity in light themes, 20% in dark), even when
+# `blueColor` equals its documented default.
 blueColor =
 
 # Green color used in the basic color palette.
 #
-# By default, this is #21c354 for the light theme and #09ab3b for the
+# By default, this is #079464 for the light theme and #7ed5b0 for the
 # dark theme.
 #
-# If `greenColor` is provided, and `greenBackgroundColor` isn't, then
-# `greenBackgroundColor` will be derived from `greenColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# Setting `greenColor` without `greenBackgroundColor` replaces the opaque
+# `greenBackgroundColor` default with a translucent color Streamlit derives
+# from `greenColor` (10% opacity in light themes, 20% in dark), even when
+# `greenColor` equals its documented default.
 greenColor =
 
 # Violet color used in the basic color palette.
 #
-# By default, this is #803df5 for both the light and dark themes.
+# By default, this is #9b5de5 for the light theme and #bf8ef7 for the
+# dark theme.
 #
-# If a `violetColor` is provided, and `violetBackgroundColor` isn't, then
-# `violetBackgroundColor` will be derived from `violetColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# Setting `violetColor` without `violetBackgroundColor` replaces the opaque
+# `violetBackgroundColor` default with a translucent color Streamlit derives
+# from `violetColor` (10% opacity in light themes, 20% in dark), even when
+# `violetColor` equals its documented default.
 violetColor =
 
 # Gray color used in the basic color palette.
 #
-# By default, this is #a3a8b8 for the light theme and #555867 for the
+# By default, this is #6b7280 for the light theme and #a9a5a0 for the
 # dark theme.
 #
-# If `grayColor` is provided, and `grayBackgroundColor` isn't, then
-# `grayBackgroundColor` will be derived from `grayColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# Setting `grayColor` without `grayBackgroundColor` replaces the opaque
+# `grayBackgroundColor` default with a translucent color Streamlit derives
+# from `grayColor` (10% opacity in light themes, 20% in dark), even when
+# `grayColor` equals its documented default.
 grayColor =
 
 # Red background color used in the basic color palette.
 #
-# If `redColor` is provided, this defaults to `redColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# When unset, this is #fff1f2 for the light theme and #412023 for the dark
+# theme (opaque defaults).
 #
-# Otherwise, this is #ff2b2b with 10% opacity for light theme and
-# #ff6c6c with 20% opacity for dark theme.
+# If `redColor` is set and this option is unset, Streamlit derives a
+# translucent background from `redColor` (10% opacity in light
+# themes, 20% in dark) instead — even when `redColor` equals its
+# documented default.
 redBackgroundColor =
 
 # Orange background color used for the basic color palette.
 #
-# If `orangeColor` is provided, this defaults to `orangeColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# When unset, this is #fff6ed for the light theme and #342414 for the dark
+# theme (opaque defaults).
 #
-# Otherwise, this is #ffa421 with 10% opacity for the light theme and
-# #ff8700 with 20% opacity for the dark theme.
+# If `orangeColor` is set and this option is unset, Streamlit derives a
+# translucent background from `orangeColor` (10% opacity in light
+# themes, 20% in dark) instead — even when `orangeColor` equals its
+# documented default.
 orangeBackgroundColor =
 
 # Yellow background color used for the basic color palette.
 #
-# If `yellowColor` is provided, this defaults to `yellowColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# When unset, this is #fffae5 for the light theme and #302917 for the dark
+# theme (opaque defaults).
 #
-# Otherwise, this is #ffff12 with 10% opacity for the light theme and
-# #ffff12 with 20% opacity for the dark theme.
+# If `yellowColor` is set and this option is unset, Streamlit derives a
+# translucent background from `yellowColor` (10% opacity in light
+# themes, 20% in dark) instead — even when `yellowColor` equals its
+# documented default.
 yellowBackgroundColor =
 
 # Blue background color used for the basic color palette.
 #
-# If `blueColor` is provided, this defaults to `blueColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# When unset, this is #edf5ff for the light theme and #1e2a3d for the dark
+# theme (opaque defaults).
 #
-# Otherwise, this is #1c83ff with 10% opacity for the light theme and
-# #3d9df3 with 20% opacity for the dark theme.
+# If `blueColor` is set and this option is unset, Streamlit derives a
+# translucent background from `blueColor` (10% opacity in light
+# themes, 20% in dark) instead — even when `blueColor` equals its
+# documented default.
 blueBackgroundColor =
 
 # Green background color used for the basic color palette.
 #
-# If `greenColor` is provided, this defaults to `greenColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# When unset, this is #f1fbf6 for the light theme and #0e2f24 for the dark
+# theme (opaque defaults).
 #
-# Otherwise, this is #21c354 with 10% opacity for the light theme and
-# #3dd56d with 20% opacity for the dark theme.
+# If `greenColor` is set and this option is unset, Streamlit derives a
+# translucent background from `greenColor` (10% opacity in light
+# themes, 20% in dark) instead — even when `greenColor` equals its
+# documented default.
 greenBackgroundColor =
 
 # Violet background color used for the basic color palette.
 #
-# If `violetColor` is provided, this defaults to `violetColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# When unset, this is #f8f2ff for the light theme and #332244 for the dark
+# theme (opaque defaults).
 #
-# Otherwise, this is #9a5dff with 10% opacity for light theme and
-# #9a5dff with 20% opacity for dark theme.
+# If `violetColor` is set and this option is unset, Streamlit derives a
+# translucent background from `violetColor` (10% opacity in light
+# themes, 20% in dark) instead — even when `violetColor` equals its
+# documented default.
 violetBackgroundColor =
 
 # Gray background color used for the basic color palette.
 #
-# If `grayColor` is provided, this defaults to `grayColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# When unset, this is #f5f4f2 for the light theme and #2c2925 for the dark
+# theme (opaque defaults).
 #
-# Otherwise, this is #31333f with 10% opacity for the light theme and
-# #808495 with 20% opacity for the dark theme.
+# If `grayColor` is set and this option is unset, Streamlit derives a
+# translucent background from `grayColor` (10% opacity in light
+# themes, 20% in dark) instead — even when `grayColor` equals its
+# documented default.
 grayBackgroundColor =
 
 # Red text color used for the basic color palette.
 #
-# If `redColor` is provided, this defaults to `redColor`, darkened by 15%
-# for the light theme and lightened by 15% for the dark theme.
-#
-# Otherwise, this is #bd4043 for the light theme and #ff6c6c for the dark
+# Defaults to #9e303b for the light theme and #f2919a for the dark
 # theme.
+#
+# If `redColor` is set and this option is unset, Streamlit derives the
+# text color from `redColor` (darkened by 15% in light themes,
+# lightened by 15% in dark) instead — even when `redColor` equals
+# its documented default.
 redTextColor =
 
 # Orange text color used for the basic color palette.
 #
-# If `orangeColor` is provided, this defaults to `orangeColor`, darkened
-# by 15% for the light theme and lightened by 15% for the dark theme.
-#
-# Otherwise, this is #e2660c for the light theme and #ffbd45 for the dark
+# Defaults to #9b4519 for the light theme and #f2a56d for the dark
 # theme.
+#
+# If `orangeColor` is set and this option is unset, Streamlit derives the
+# text color from `orangeColor` (darkened by 15% in light themes,
+# lightened by 15% in dark) instead — even when `orangeColor` equals
+# its documented default.
 orangeTextColor =
 
 # Yellow text color used for the basic color palette.
 #
-# If `yellowColor` is provided, this defaults to `yellowColor`, darkened
-# by 15% for the light theme and lightened by 15% for the dark theme.
-#
-# Otherwise, this is #926c05 for the light theme and #ffffc2 for the dark
+# Defaults to #956b0f for the light theme and #fbd54f for the dark
 # theme.
+#
+# If `yellowColor` is set and this option is unset, Streamlit derives the
+# text color from `yellowColor` (darkened by 15% in light themes,
+# lightened by 15% in dark) instead — even when `yellowColor` equals
+# its documented default.
 yellowTextColor =
 
 # Blue text color used for the basic color palette.
 #
-# If `blueColor` is provided, this defaults to `blueColor`, darkened by
-# 15% for the light theme and lightened by 15% for the dark theme.
-#
-# Otherwise, this is #0054a3 for the light theme and #3d9df3 for the dark
+# Defaults to #244fb4 for the light theme and #85b8f8 for the dark
 # theme.
+#
+# If `blueColor` is set and this option is unset, Streamlit derives the
+# text color from `blueColor` (darkened by 15% in light themes,
+# lightened by 15% in dark) instead — even when `blueColor` equals
+# its documented default.
 blueTextColor =
 
 # Green text color used for the basic color palette.
 #
-# If `greenColor` is provided, this defaults to `greenColor`, darkened by
-# 15% for the light theme and lightened by 15% for the dark theme.
-#
-# Otherwise, this is #158237 for the light theme and #5ce488 for the dark
+# Defaults to #0c5a44 for the light theme and #7ed5b0 for the dark
 # theme.
+#
+# If `greenColor` is set and this option is unset, Streamlit derives the
+# text color from `greenColor` (darkened by 15% in light themes,
+# lightened by 15% in dark) instead — even when `greenColor` equals
+# its documented default.
 greenTextColor =
 
 # Violet text color used for the basic color palette.
 #
-# If `violetColor` is provided, this defaults to `violetColor`, darkened
-# by 15% for the light theme and lightened by 15% for the dark theme.
-#
-# Otherwise, this is #583f84 for the light theme and #b27eff for the dark
+# Defaults to #6f33b8 for the light theme and #bf8ef7 for the dark
 # theme.
+#
+# If `violetColor` is set and this option is unset, Streamlit derives the
+# text color from `violetColor` (darkened by 15% in light themes,
+# lightened by 15% in dark) instead — even when `violetColor` equals
+# its documented default.
 violetTextColor =
 
 # Gray text color used for the basic color palette.
 #
-# If `grayColor` is provided, this defaults to `grayColor`, darkened by
-# 15% for the light theme and lightened by 15% for the dark theme.
+# Defaults to #686255 for the light theme and #b8b3a8 for the dark
+# theme.
 #
-# Otherwise, this is #31333f with 60% opacity for the light theme and
-# #fafafa with 60% opacity for the dark theme.
+# If `grayColor` is set and this option is unset, Streamlit derives the
+# text color from `grayColor` (darkened by 15% in light themes,
+# lightened by 15% in dark) instead — even when `grayColor` equals
+# its documented default.
 grayTextColor =
 
 # Color used for all links.
@@ -795,10 +954,18 @@ linkUnderline =
 
 # Text color used for code blocks.
 #
-# This defaults to the resolved value of `greenTextColor`.
+# If this isn't set, Streamlit uses the resolved body text color. If
+# `backgroundColor`, `secondaryBackgroundColor`, or `primaryColor`
+# differs from the base theme, Streamlit uses the resolved
+# `greenTextColor` instead.
 codeTextColor =
 
 # Background color used for code blocks.
+#
+# If this isn't set, Streamlit uses the theme's default code
+# background. If `backgroundColor`, `secondaryBackgroundColor`, or
+# `primaryColor` differs from the base theme, Streamlit derives the
+# fill from those colors.
 codeBackgroundColor =
 
 # The font family for all text, except code blocks.
@@ -1067,7 +1234,12 @@ borderColor =
 
 # The color of the border around dataframes and tables.
 #
-# If this isn't set, Streamlit uses `theme.borderColor` instead.
+# If this isn't set and `theme.borderColor` is set, Streamlit uses a
+# lighter version of `theme.borderColor`. If neither is set, Streamlit
+# uses the theme's default dataframe border color. If
+# `backgroundColor`, `secondaryBackgroundColor`, or `primaryColor`
+# differs from the base theme and neither border is set, Streamlit
+# derives a light border from text color.
 dataframeBorderColor =
 
 # The background color of the dataframe's header.
@@ -1075,8 +1247,10 @@ dataframeBorderColor =
 # This color applies to all non-interior cells of the dataframe. This
 # includes the header row, the row-selection column (if present), and
 # the bottom row of data editors with a dynamic number of rows. If this
-# isn't set, Streamlit uses a mix of `theme.backgroundColor` and
-# `theme.secondaryBackgroundColor`.
+# isn't set, Streamlit uses the theme's default dataframe header
+# background. If `backgroundColor`, `secondaryBackgroundColor`, or
+# `primaryColor` differs from the base theme, Streamlit derives the
+# fill from those colors.
 dataframeHeaderBackgroundColor =
 
 # The text color of the dataframe's header.
@@ -1091,10 +1265,16 @@ dataframeHeaderBackgroundColor =
 dataframeHeaderTextColor =
 
 # Whether to show a border around input widgets.
+#
+# If this is unset or `true`, Streamlit draws widget borders using
+# `borderColor`. Set it to `false` to hide them.
 showWidgetBorder =
 
 # Whether to show a vertical separator between the sidebar and the main
 # content area.
+#
+# If this is unset or `true`, Streamlit shows the separator. Set it to
+# `false` to hide it.
 showSidebarBorder =
 
 # An array of colors to use for categorical chart data.
@@ -1218,210 +1398,262 @@ To define switchable light and dark themes, the configuration options in the
 [theme.sidebar]
 
 # Primary accent color.
+#
+# Defaults to #c53948 for the light theme and #cf4250 for the dark theme.
 primaryColor =
 
 # Background color of the app.
+#
+# Defaults to #ffffff for the light theme and #171614 for the dark theme.
+# When a sidebar section doesn't set this, the sidebar uses #f8f8f7
+# (light) or #21201d (dark) if backgroundColor and
+# secondaryBackgroundColor both still match their defaults. Otherwise,
+# the sidebar uses the app's secondaryBackgroundColor.
 backgroundColor =
 
 # Background color used for most interactive widgets.
+#
+# Defaults to #f8f8f7 for the light theme and #2d2b27 for the dark theme.
+# When a sidebar section doesn't set this, the sidebar uses #f1f0ee
+# (light) or #2d2b27 (dark) if backgroundColor and
+# secondaryBackgroundColor both still match their defaults. Otherwise,
+# the sidebar uses the app's backgroundColor.
 secondaryBackgroundColor =
 
 # Color used for almost all text.
+#
+# Defaults to #2f2d2b for the light theme and #edebe8 for the dark theme.
 textColor =
 
 # Red color used in the basic color palette.
 #
-# By default, this is #ff4b4b for the light theme and #ff2b2b for the
+# By default, this is #d94a57 for the light theme and #f2919a for the
 # dark theme.
 #
-# If `redColor` is provided, and `redBackgroundColor` isn't, then
-# `redBackgroundColor` will be derived from `redColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# Setting `redColor` without `redBackgroundColor` replaces the opaque
+# `redBackgroundColor` default with a translucent color Streamlit derives
+# from `redColor` (10% opacity in light themes, 20% in dark), even when
+# `redColor` equals its documented default.
 redColor =
 
 # Orange color used in the basic color palette.
 #
-# By default, this is #ffa421 for the light theme and #ff8700 for the
+# By default, this is #e0682b for the light theme and #f2a56d for the
 # dark theme.
 #
-# If `orangeColor` is provided, and `orangeBackgroundColor` isn't, then
-# `orangeBackgroundColor` will be derived from `orangeColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# Setting `orangeColor` without `orangeBackgroundColor` replaces the opaque
+# `orangeBackgroundColor` default with a translucent color Streamlit derives
+# from `orangeColor` (10% opacity in light themes, 20% in dark), even when
+# `orangeColor` equals its documented default.
 orangeColor =
 
 # Yellow color used in the basic color palette.
 #
-# By default, this is #faca2b for the light theme and #ffe312 for the
+# By default, this is #bb8300 for the light theme and #fbd54f for the
 # dark theme.
 #
-# If `yellowColor` is provided, and `yellowBackgroundColor` isn't, then
-# `yellowBackgroundColor` will be derived from `yellowColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# Setting `yellowColor` without `yellowBackgroundColor` replaces the opaque
+# `yellowBackgroundColor` default with a translucent color Streamlit derives
+# from `yellowColor` (10% opacity in light themes, 20% in dark), even when
+# `yellowColor` equals its documented default.
 yellowColor =
 
 # Blue color used in the basic color palette.
 #
-# By default, this is #1c83e1 for the light theme and #0068c9 for the
+# By default, this is #3b82f6 for the light theme and #85b8f8 for the
 # dark theme.
 #
-# If a `blueColor` is provided, and `blueBackgroundColor` isn't, then
-# `blueBackgroundColor` will be derived from `blueColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# Setting `blueColor` without `blueBackgroundColor` replaces the opaque
+# `blueBackgroundColor` default with a translucent color Streamlit derives
+# from `blueColor` (10% opacity in light themes, 20% in dark), even when
+# `blueColor` equals its documented default.
 blueColor =
 
 # Green color used in the basic color palette.
 #
-# By default, this is #21c354 for the light theme and #09ab3b for the
+# By default, this is #079464 for the light theme and #7ed5b0 for the
 # dark theme.
 #
-# If `greenColor` is provided, and `greenBackgroundColor` isn't, then
-# `greenBackgroundColor` will be derived from `greenColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# Setting `greenColor` without `greenBackgroundColor` replaces the opaque
+# `greenBackgroundColor` default with a translucent color Streamlit derives
+# from `greenColor` (10% opacity in light themes, 20% in dark), even when
+# `greenColor` equals its documented default.
 greenColor =
 
 # Violet color used in the basic color palette.
 #
-# By default, this is #803df5 for both the light and dark themes.
+# By default, this is #9b5de5 for the light theme and #bf8ef7 for the
+# dark theme.
 #
-# If a `violetColor` is provided, and `violetBackgroundColor` isn't, then
-# `violetBackgroundColor` will be derived from `violetColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# Setting `violetColor` without `violetBackgroundColor` replaces the opaque
+# `violetBackgroundColor` default with a translucent color Streamlit derives
+# from `violetColor` (10% opacity in light themes, 20% in dark), even when
+# `violetColor` equals its documented default.
 violetColor =
 
 # Gray color used in the basic color palette.
 #
-# By default, this is #a3a8b8 for the light theme and #555867 for the
+# By default, this is #6b7280 for the light theme and #a9a5a0 for the
 # dark theme.
 #
-# If `grayColor` is provided, and `grayBackgroundColor` isn't, then
-# `grayBackgroundColor` will be derived from `grayColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# Setting `grayColor` without `grayBackgroundColor` replaces the opaque
+# `grayBackgroundColor` default with a translucent color Streamlit derives
+# from `grayColor` (10% opacity in light themes, 20% in dark), even when
+# `grayColor` equals its documented default.
 grayColor =
 
 # Red background color used in the basic color palette.
 #
-# If `redColor` is provided, this defaults to `redColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# When unset, this is #fff1f2 for the light theme and #412023 for the dark
+# theme (opaque defaults).
 #
-# Otherwise, this is #ff2b2b with 10% opacity for light theme and
-# #ff6c6c with 20% opacity for dark theme.
+# If `redColor` is set and this option is unset, Streamlit derives a
+# translucent background from `redColor` (10% opacity in light
+# themes, 20% in dark) instead — even when `redColor` equals its
+# documented default.
 redBackgroundColor =
 
 # Orange background color used for the basic color palette.
 #
-# If `orangeColor` is provided, this defaults to `orangeColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# When unset, this is #fff6ed for the light theme and #342414 for the dark
+# theme (opaque defaults).
 #
-# Otherwise, this is #ffa421 with 10% opacity for the light theme and
-# #ff8700 with 20% opacity for the dark theme.
+# If `orangeColor` is set and this option is unset, Streamlit derives a
+# translucent background from `orangeColor` (10% opacity in light
+# themes, 20% in dark) instead — even when `orangeColor` equals its
+# documented default.
 orangeBackgroundColor =
 
 # Yellow background color used for the basic color palette.
 #
-# If `yellowColor` is provided, this defaults to `yellowColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# When unset, this is #fffae5 for the light theme and #302917 for the dark
+# theme (opaque defaults).
 #
-# Otherwise, this is #ffff12 with 10% opacity for the light theme and
-# #ffff12 with 20% opacity for the dark theme.
+# If `yellowColor` is set and this option is unset, Streamlit derives a
+# translucent background from `yellowColor` (10% opacity in light
+# themes, 20% in dark) instead — even when `yellowColor` equals its
+# documented default.
 yellowBackgroundColor =
 
 # Blue background color used for the basic color palette.
 #
-# If `blueColor` is provided, this defaults to `blueColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# When unset, this is #edf5ff for the light theme and #1e2a3d for the dark
+# theme (opaque defaults).
 #
-# Otherwise, this is #1c83ff with 10% opacity for the light theme and
-# #3d9df3 with 20% opacity for the dark theme.
+# If `blueColor` is set and this option is unset, Streamlit derives a
+# translucent background from `blueColor` (10% opacity in light
+# themes, 20% in dark) instead — even when `blueColor` equals its
+# documented default.
 blueBackgroundColor =
 
 # Green background color used for the basic color palette.
 #
-# If `greenColor` is provided, this defaults to `greenColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# When unset, this is #f1fbf6 for the light theme and #0e2f24 for the dark
+# theme (opaque defaults).
 #
-# Otherwise, this is #21c354 with 10% opacity for the light theme and
-# #3dd56d with 20% opacity for the dark theme.
+# If `greenColor` is set and this option is unset, Streamlit derives a
+# translucent background from `greenColor` (10% opacity in light
+# themes, 20% in dark) instead — even when `greenColor` equals its
+# documented default.
 greenBackgroundColor =
 
 # Violet background color used for the basic color palette.
 #
-# If `violetColor` is provided, this defaults to `violetColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# When unset, this is #f8f2ff for the light theme and #332244 for the dark
+# theme (opaque defaults).
 #
-# Otherwise, this is #9a5dff with 10% opacity for light theme and
-# #9a5dff with 20% opacity for dark theme.
+# If `violetColor` is set and this option is unset, Streamlit derives a
+# translucent background from `violetColor` (10% opacity in light
+# themes, 20% in dark) instead — even when `violetColor` equals its
+# documented default.
 violetBackgroundColor =
 
 # Gray background color used for the basic color palette.
 #
-# If `grayColor` is provided, this defaults to `grayColor` using 10%
-# opacity for the light theme and 20% opacity for the dark theme.
+# When unset, this is #f5f4f2 for the light theme and #2c2925 for the dark
+# theme (opaque defaults).
 #
-# Otherwise, this is #31333f with 10% opacity for the light theme and
-# #808495 with 20% opacity for the dark theme.
+# If `grayColor` is set and this option is unset, Streamlit derives a
+# translucent background from `grayColor` (10% opacity in light
+# themes, 20% in dark) instead — even when `grayColor` equals its
+# documented default.
 grayBackgroundColor =
 
 # Red text color used for the basic color palette.
 #
-# If `redColor` is provided, this defaults to `redColor`, darkened by 15%
-# for the light theme and lightened by 15% for the dark theme.
-#
-# Otherwise, this is #bd4043 for the light theme and #ff6c6c for the dark
+# Defaults to #9e303b for the light theme and #f2919a for the dark
 # theme.
+#
+# If `redColor` is set and this option is unset, Streamlit derives the
+# text color from `redColor` (darkened by 15% in light themes,
+# lightened by 15% in dark) instead — even when `redColor` equals
+# its documented default.
 redTextColor =
 
 # Orange text color used for the basic color palette.
 #
-# If `orangeColor` is provided, this defaults to `orangeColor`, darkened
-# by 15% for the light theme and lightened by 15% for the dark theme.
-#
-# Otherwise, this is #e2660c for the light theme and #ffbd45 for the dark
+# Defaults to #9b4519 for the light theme and #f2a56d for the dark
 # theme.
+#
+# If `orangeColor` is set and this option is unset, Streamlit derives the
+# text color from `orangeColor` (darkened by 15% in light themes,
+# lightened by 15% in dark) instead — even when `orangeColor` equals
+# its documented default.
 orangeTextColor =
 
 # Yellow text color used for the basic color palette.
 #
-# If `yellowColor` is provided, this defaults to `yellowColor`, darkened
-# by 15% for the light theme and lightened by 15% for the dark theme.
-#
-# Otherwise, this is #926c05 for the light theme and #ffffc2 for the dark
+# Defaults to #956b0f for the light theme and #fbd54f for the dark
 # theme.
+#
+# If `yellowColor` is set and this option is unset, Streamlit derives the
+# text color from `yellowColor` (darkened by 15% in light themes,
+# lightened by 15% in dark) instead — even when `yellowColor` equals
+# its documented default.
 yellowTextColor =
 
 # Blue text color used for the basic color palette.
 #
-# If `blueColor` is provided, this defaults to `blueColor`, darkened by
-# 15% for the light theme and lightened by 15% for the dark theme.
-#
-# Otherwise, this is #0054a3 for the light theme and #3d9df3 for the dark
+# Defaults to #244fb4 for the light theme and #85b8f8 for the dark
 # theme.
+#
+# If `blueColor` is set and this option is unset, Streamlit derives the
+# text color from `blueColor` (darkened by 15% in light themes,
+# lightened by 15% in dark) instead — even when `blueColor` equals
+# its documented default.
 blueTextColor =
 
 # Green text color used for the basic color palette.
 #
-# If `greenColor` is provided, this defaults to `greenColor`, darkened by
-# 15% for the light theme and lightened by 15% for the dark theme.
-#
-# Otherwise, this is #158237 for the light theme and #5ce488 for the dark
+# Defaults to #0c5a44 for the light theme and #7ed5b0 for the dark
 # theme.
+#
+# If `greenColor` is set and this option is unset, Streamlit derives the
+# text color from `greenColor` (darkened by 15% in light themes,
+# lightened by 15% in dark) instead — even when `greenColor` equals
+# its documented default.
 greenTextColor =
 
 # Violet text color used for the basic color palette.
 #
-# If `violetColor` is provided, this defaults to `violetColor`, darkened
-# by 15% for the light theme and lightened by 15% for the dark theme.
-#
-# Otherwise, this is #583f84 for the light theme and #b27eff for the dark
+# Defaults to #6f33b8 for the light theme and #bf8ef7 for the dark
 # theme.
+#
+# If `violetColor` is set and this option is unset, Streamlit derives the
+# text color from `violetColor` (darkened by 15% in light themes,
+# lightened by 15% in dark) instead — even when `violetColor` equals
+# its documented default.
 violetTextColor =
 
 # Gray text color used for the basic color palette.
 #
-# If `grayColor` is provided, this defaults to `grayColor`, darkened by
-# 15% for the light theme and lightened by 15% for the dark theme.
+# Defaults to #686255 for the light theme and #b8b3a8 for the dark
+# theme.
 #
-# Otherwise, this is #31333f with 60% opacity for the light theme and
-# #fafafa with 60% opacity for the dark theme.
+# If `grayColor` is set and this option is unset, Streamlit derives the
+# text color from `grayColor` (darkened by 15% in light themes,
+# lightened by 15% in dark) instead — even when `grayColor` equals
+# its documented default.
 grayTextColor =
 
 # Color used for all links.
@@ -1434,10 +1666,18 @@ linkUnderline =
 
 # Text color used for code blocks.
 #
-# This defaults to the resolved value of `greenTextColor`.
+# If this isn't set, Streamlit uses the resolved body text color. If
+# `backgroundColor`, `secondaryBackgroundColor`, or `primaryColor`
+# differs from the base theme, Streamlit uses the resolved
+# `greenTextColor` instead.
 codeTextColor =
 
 # Background color used for code blocks.
+#
+# If this isn't set, Streamlit uses the theme's default code
+# background. If `backgroundColor`, `secondaryBackgroundColor`, or
+# `primaryColor` differs from the base theme, Streamlit derives the
+# fill from those colors.
 codeBackgroundColor =
 
 # The font family for all text, except code blocks.
@@ -1644,7 +1884,12 @@ borderColor =
 
 # The color of the border around dataframes and tables.
 #
-# If this isn't set, Streamlit uses `theme.borderColor` instead.
+# If this isn't set and `theme.borderColor` is set, Streamlit uses a
+# lighter version of `theme.borderColor`. If neither is set, Streamlit
+# uses the theme's default dataframe border color. If
+# `backgroundColor`, `secondaryBackgroundColor`, or `primaryColor`
+# differs from the base theme and neither border is set, Streamlit
+# derives a light border from text color.
 dataframeBorderColor =
 
 # The background color of the dataframe's header.
@@ -1652,8 +1897,10 @@ dataframeBorderColor =
 # This color applies to all non-interior cells of the dataframe. This
 # includes the header row, the row-selection column (if present), and
 # the bottom row of data editors with a dynamic number of rows. If this
-# isn't set, Streamlit uses a mix of `theme.backgroundColor` and
-# `theme.secondaryBackgroundColor`.
+# isn't set, Streamlit uses the theme's default dataframe header
+# background. If `backgroundColor`, `secondaryBackgroundColor`, or
+# `primaryColor` differs from the base theme, Streamlit derives the
+# fill from those colors.
 dataframeHeaderBackgroundColor =
 
 # The text color of the dataframe's header.
@@ -1668,6 +1915,9 @@ dataframeHeaderBackgroundColor =
 dataframeHeaderTextColor =
 
 # Whether to show a border around input widgets.
+#
+# If this is unset or `true`, Streamlit draws widget borders using
+# `borderColor`. Set it to `false` to hide them.
 showWidgetBorder =
 
 # An array of colors to use for categorical chart data.
