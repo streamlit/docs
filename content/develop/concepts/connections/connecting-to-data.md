@@ -189,7 +189,7 @@ You can also provide both kwargs and secrets.toml values, and they will be merge
 
 ### Connection considerations in frequently used or long-running apps
 
-By default, connection objects are cached without expiration using [`st.cache_resource`](/develop/api-reference/caching-and-state/st.cache_resource). In most cases this is desired. You can do `st.connection('myconn', type=MyConnection, ttl=<N>)` if you want the connection object to expire after some time.
+By default, connection objects are cached without expiration using [`st.cache_resource`](/develop/api-reference/caching-and-state/st.cache_resource). In most cases this is desired. You can do `st.connection('myconn', type=MyConnection, ttl=<N>)` if you want the connection object to expire after some time. To set a default expiration for every connection in your app, use the [`runner.connectionDefaultTTL`](/develop/api-reference/configuration/config.toml#runner) configuration option. A `ttl` argument passed to `st.connection`, including `ttl=None`, overrides that default.
 
 Many connection types are expected to be long-running or completely stateless, so expiration is unnecessary. Suppose a connection becomes stale (such as a cached token expiring or a server-side connection being closed). In that case, every connection has a `reset()` method, which will invalidate the cached version and cause Streamlit to recreate the connection the next time it is retrieved
 

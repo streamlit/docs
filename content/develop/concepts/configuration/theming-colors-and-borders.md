@@ -126,6 +126,8 @@ If you do not define background colors for the sidebar, Streamlit will swap `bac
 - If `theme.sidebar.backgroundColor` is not defined, Streamlit uses `theme.secondaryBackgroundColor`.
 - If `theme.sidebar.secondaryBackgroundColor` is not defined, Streamlit uses `theme.backgroundColor`.
 
+If `backgroundColor` and `secondaryBackgroundColor` both match the defaults of your base theme, the sidebar uses its own default background colors instead.
+
 </Note>
 
 #### Example 2: Background colors
@@ -219,9 +221,11 @@ baseRadius="none"
 
 ### `borderColor`, `dataframeBorderColor`, and `showWidgetBorder`
 
-Streamlit does not display borders for unfocused widgets by default (except for buttons). When a user focuses on a widget, Streamlit displays a border around the input area in your `primaryColor`. When the user removes focus, Streamlit hides the border.
+By default, Streamlit displays a border around the input area of widgets, even when they aren't in focus. The border color is set by `borderColor`. When a user focuses on a widget, Streamlit displays the border in your `primaryColor`.
 
-If you set `showWidgetBorder=true`, Streamlit will display widget borders when the widget is not in focus. For those widgets, the border color is set by `borderColor`. If `borderColor` is not set, Streamlit infers a color by adding transparency to your `textColor`.
+If you set `showWidgetBorder=false`, Streamlit hides the border around widgets that aren't in focus (except for buttons).
+
+If `borderColor` is not set, Streamlit uses the default border color of your base theme. However, if you set `backgroundColor`, `secondaryBackgroundColor`, or `primaryColor` to a value that differs from your base theme, Streamlit infers a border color by adding transparency to your `textColor`.
 
 The following elements have borders that you can modify:
 

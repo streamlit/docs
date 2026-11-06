@@ -59,6 +59,8 @@ Note that you can also retrieve elements within a specific container in the same
 
 <Autofunction function="AppTest.container" />
 
+<Autofunction function="AppTest.data_editor" />
+
 <Autofunction function="AppTest.dataframe" />
 
 <Autofunction function="AppTest.date_input" />
@@ -82,6 +84,8 @@ Note that you can also retrieve elements within a specific container in the same
 <Autofunction function="AppTest.form" />
 
 <Autofunction function="AppTest.form_submit_button" />
+
+<Autofunction function="AppTest.grid" />
 
 <Autofunction function="AppTest.header" />
 

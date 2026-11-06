@@ -2,7 +2,7 @@
 title: Using layouts and containers
 slug: /develop/concepts/design/layouts-and-containers
 description: Learn how to arrange and organize elements in your Streamlit app using containers, columns, tabs, expanders, flex layouts, and dynamic containers.
-keywords: layouts, containers, columns, tabs, expander, popover, sidebar, flex layout, horizontal layout, wrap, st.empty, dynamic containers, nesting
+keywords: layouts, containers, columns, grid, st.grid, tabs, expander, popover, sidebar, flex layout, horizontal layout, wrap, st.empty, dynamic containers, nesting
 ---
 
 # Using layouts and containers
@@ -12,7 +12,7 @@ By default, Streamlit renders elements top-to-bottom in the order they appear in
 ## Summary
 
 1. Use `st.sidebar` for persistent controls that stay visible across your app.
-2. Use `st.columns` to place elements side by side.
+2. Use `st.columns` to place elements side by side, and `st.grid` to lay out repeated tiles that reflow with the available width.
 3. Use `st.tabs`, `st.expander`, and `st.popover` to organize content behind collapsible or overlay containers.
 4. Use `st.container` to group elements and control display order independently from script order.
 5. Use `st.empty` to create a single-element placeholder that can be replaced or cleared.
@@ -128,6 +128,34 @@ for i, col in enumerate(cols, start=1):
 Columns are great for quick grid-like layouts, but they are not as adaptive as horizontal containers. For more control over how elements flow and wrap, see [Horizontal containers](#horizontal-containers) in the flex layouts section below.
 
 </Tip>
+
+### `st.grid`
+
+Use `st.grid` for repeated tiles, like metric cards, image galleries, and dashboard panels. Each element you add to a grid becomes a cell. By default (`columns="auto"`), the grid fits as many columns as the available width allows and reflows into fewer columns when the app gets narrower:
+
+```python
+import streamlit as st
+
+grid = st.grid(min_column_width=200)
+for i in range(6):
+    grid.metric(f"Metric {i + 1}", f"{i * 10}%", border=True)
+```
+
+To put several elements in one cell, or to make a cell span multiple columns or rows, use `grid.cell()`:
+
+```python
+import streamlit as st
+
+grid = st.grid(3)
+with grid.cell(column_span="all"):
+    st.markdown("**Featured**")
+    st.caption("Trailing 30 days")
+grid.metric("Revenue", "$1.2M", "+8%")
+grid.metric("Pipeline", "$4.8M", "+12%")
+grid.metric("Retention", "96%", "-0.4%")
+```
+
+Use `st.columns` when you know exactly which sections go side by side, and `st.grid` when you have a list of similar items to lay out.
 
 ## Collapsible and overlay containers
 

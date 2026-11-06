@@ -332,6 +332,18 @@ def get_large_array(seed):
     return arr
 ```
 
+**The `max_size` parameter**
+
+`max_size` sets the maximum serialized size of a function's in-memory cache and is available for `st.cache_data`. You can pass a number of bytes or a string with a unit, like `"500MB"`. When adding a value would exceed the limit, Streamlit removes the least-recently-used entries until the new value fits. To limit the combined size of all `st.cache_data` functions in your app, set the [`server.maxCacheDataSize`](/develop/api-reference/configuration/config.toml#server) configuration option.
+
+```python
+@st.cache_data(max_size="500MB")  # 👈 Maximum 500 MB of cached values
+def get_large_array(seed):
+    np.random.seed(seed)
+    arr = np.random.rand(100000)
+    return arr
+```
+
 ### Customizing the spinner
 
 By default, Streamlit shows a small loading spinner in the app when a cached function is running. You can modify it easily with the `show_spinner` parameter, which is available for both caching decorators:

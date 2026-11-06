@@ -1049,6 +1049,22 @@ with st.expander("Open to see more"):
 ```
 
 </RefCard>
+<RefCard href="/develop/api-reference/layout/st.grid">
+
+<Image pure alt="screenshot" src="/images/api/grid.jpg" />
+
+<h4>Grid</h4>
+
+Insert a responsive grid of cells that reflow with the available width.
+
+```python
+grid = st.grid(3)
+grid.metric("Revenue", "$1.2M", "+8%")
+grid.metric("Pipeline", "$4.8M", "+12%")
+grid.metric("Retention", "96%", "-0.4%")
+```
+
+</RefCard>
 <RefCard href="/develop/api-reference/layout/st.popover">
 
 <Image pure alt="screenshot" src="/images/api/popover.svg" />

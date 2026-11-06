@@ -2,7 +2,7 @@
 title: Layouts and Containers
 slug: /develop/api-reference/layout
 description: Control how elements are arranged on screen with Streamlit's layout and container components including columns, expanders, sidebars, tabs, and containers.
-keywords: layouts, containers, columns, expander, sidebar, tabs, popover, streamlit layout, ui layout, screen organization, element arrangement
+keywords: layouts, containers, columns, grid, expander, sidebar, tabs, popover, streamlit layout, ui layout, screen organization, element arrangement
 ---
 
 # Layouts and Containers
@@ -86,6 +86,22 @@ Insert a multi-element container that can be expanded/collapsed.
 ```python
 with st.expander("Open to see more"):
   st.write("This is more content")
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/layout/st.grid">
+
+<Image pure alt="screenshot" src="/images/api/grid.jpg" />
+
+<h4>Grid</h4>
+
+Insert a responsive grid of cells that reflow with the available width.
+
+```python
+grid = st.grid(3)
+grid.metric("Revenue", "$1.2M", "+8%")
+grid.metric("Pipeline", "$4.8M", "+12%")
+grid.metric("Retention", "96%", "-0.4%")
 ```
 
 </RefCard>
