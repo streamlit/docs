@@ -55,7 +55,7 @@ fastReruns = true
 
 [server]
 runOnSave = true
-enableXsrfProtection = true
+enableXsrfProtection = false
 
 [browser]
 gatherUsageStats = true
