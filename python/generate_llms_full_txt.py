@@ -1,15 +1,18 @@
 # /// script
 # dependencies = [
 #   "python-frontmatter>=1.0.0",
-#   "markdown-it-py>=3.0.0",
 #   "semver>=3.0.0",
 #   "pyyaml>=6.0.0",
 # ]
 # ///
 #
-# This file is used to generate llms-full.txt, which contains
-# the markdown contents for every page of Streamlit's documentation in
-# a single file.
+# This file generates the machine-readable copies of the docs:
+#
+# - public/llms-full.txt: the markdown contents of every page in one file.
+# - public/<slug>.md: one markdown file per page, so agents can fetch any
+#   page as markdown by appending ".md" to its URL.
+#
+# MDX components are rewritten as plain markdown (see mdx_to_markdown.py).
 #
 # llms-full.txt is used in the RAG pipeline for st-assistant.streamlit.app.
 #
@@ -21,9 +24,15 @@ import re
 from typing import List, Dict, Optional, Tuple, Any
 import frontmatter
 from pathlib import Path
-from markdown_it import MarkdownIt
 import semver
 import yaml
+
+from mdx_to_markdown import (
+    BASE_URL,
+    leftover_components,
+    markdown_path,
+    mdx_to_markdown,
+)
 
 
 def parse_menu_ordering(menu_file_path: Path) -> List[str]:
@@ -98,36 +107,12 @@ def sort_content_by_menu_order(
         if url:
             # Remove the base URL part to match with menu URLs
             # e.g., "https://docs.streamlit.io/develop" -> "develop"
-            url_path = url.replace("https://docs.streamlit.io/", "")
+            url_path = url.replace(f"{BASE_URL}/", "")
             order_pos = url_ordering.get(url_path, len(url_ordering))
             return (order_pos, url_path)
         return (len(url_ordering), "")
 
     return sorted(content_catalog, key=get_sort_key)
-
-
-def has_markdown_title(content: str) -> Tuple[bool, Optional[str]]:
-    """
-    Check if markdown content has a title (# heading) at the beginning.
-
-    Args:
-        content: Markdown content to check
-
-    Returns:
-        Tuple[bool, Optional[str]]: (has_title, title_text if found)
-    """
-    # Parse the markdown content
-    md = MarkdownIt()
-    tokens = md.parse(content.strip())
-
-    # Check if the first token is a heading level 1
-    if tokens and tokens[0].type == "heading_open" and tokens[0].tag == "h1":
-        # Get the title text from the inline content token
-        if len(tokens) > 1 and tokens[1].type == "inline":
-            return True, tokens[1].content
-        return True, None
-
-    return False, None
 
 
 def get_latest_streamlit_functions() -> Dict[str, Any]:
@@ -195,7 +180,9 @@ def format_function_info(func_info: Dict[str, Any]) -> str:
 
     # Function signature
     if signature:
-        markdown_parts.append(f"* Function signature:\n\n   {signature}\n")
+        markdown_parts.append(
+            f"* Function signature:\n\n   ```python\n   {html.unescape(signature)}\n   ```\n"
+        )
 
     # Parameters table
     if args:
@@ -244,42 +231,6 @@ def format_function_info(func_info: Dict[str, Any]) -> str:
     return "\n".join(markdown_parts)
 
 
-# An <Autofunction ... /> tag. Attribute values are quoted strings that may
-# themselves contain ">" (e.g. deprecatedText="<code>st.foo</code> ...").
-AUTOFUNCTION_TAG_RE = re.compile(r'<Autofunction\b(?:[^>"]|"[^"]*")*?/>')
-FUNCTION_ATTR_RE = re.compile(r'\bfunction="([^"]*)"')
-
-
-def replace_autofunction_tags(content: str, function_info: Dict[str, Any]) -> str:
-    """
-    Replace <Autofunction /> tags with actual function information.
-
-    Only the tags are replaced; the rest of the page is left as written.
-    (Parsing the page as XML instead drops everything after the first JSX
-    attribute, such as style={{...}}.)
-
-    Args:
-        content: The markdown content
-        function_info: Dictionary mapping function names to their information
-
-    Returns:
-        Modified content with Autofunction tags replaced
-    """
-
-    def replace(match: re.Match) -> str:
-        name_match = FUNCTION_ATTR_RE.search(match.group(0))
-        function_name = name_match.group(1) if name_match else None
-        if function_name and function_name in function_info:
-            formatted_info = format_function_info(function_info[function_name])
-            return f"\n{formatted_info}\n"
-        if function_name:
-            print(f"Warning: Function '{function_name}' not found in streamlit.json")
-        # If function not found, remove the tag but leave a placeholder
-        return f"[Function '{function_name}' not found]"
-
-    return AUTOFUNCTION_TAG_RE.sub(replace, content)
-
-
 def process_markdown_files(content_dir: Path) -> List[Dict[str, Optional[str]]]:
     """
     Process all markdown files in the content directory and its subdirectories.
@@ -305,10 +256,17 @@ def process_markdown_files(content_dir: Path) -> List[Dict[str, Optional[str]]]:
             if not url:
                 continue
 
-            url = f"https://docs.streamlit.io{url}"
+            url = f"{BASE_URL}{url}"
 
             # Add to catalog
-            content_catalog.append({"url": url, "content": post.content})
+            content_catalog.append(
+                {
+                    "url": url,
+                    "slug": post.get("slug"),
+                    "title": post.get("title"),
+                    "content": post.content,
+                }
+            )
         except frontmatter.FrontmatterError as e:
             print(f"Error parsing frontmatter in {file_path}: {str(e)}")
         except Exception as e:
@@ -340,45 +298,67 @@ def main() -> None:
     # Sort content by menu order
     sorted_content_catalog = sort_content_by_menu_order(content_catalog, url_ordering)
 
-    # Write all content to a single markdown file
-    output_file = Path(__file__).parent.parent / "public" / "llms-full.txt"
-    try:
-        # Combine all content into a single string
-        full_content = ""
-        for entry in sorted_content_catalog:
-            content = entry["content"].strip()
-            url = entry["url"]
+    public_dir = Path(__file__).parent.parent / "public"
+    pages = [
+        (entry, render_page(entry, streamlit_functions))
+        for entry in sorted_content_catalog
+    ]
 
-            # Replace Autofunction tags with actual function information
-            content = replace_autofunction_tags(content, streamlit_functions)
-
-            # Check if content has a markdown title
-            has_title, _ = has_markdown_title(content)
-
-            if has_title:
-                # Content has a title, find the first line end to insert source after it
-                lines = content.split("\n", 1)
-                if len(lines) > 1:
-                    title_line, rest = lines
-                    content = f"{title_line}\n\nSource: {url}\n\n{rest}"
-                else:
-                    # Title is the only content
-                    content = f"{content}\n\nSource: {url}"
-            else:
-                # No title, add source at the beginning
-                content = f"Source: {url}\n\n{content}"
-
-            # Add to full content with separator
-            full_content += f"{content}\n\n---\n\n"
-
-        # Write to file
-        output_file.write_text(full_content, encoding="utf-8")
-        print(
-            f"Successfully generated {output_file} with content from "
-            f"{len(sorted_content_catalog)} pages"
+    leftovers = sorted(
+        {name for _, page in pages for name in leftover_components(page)}
+    )
+    if leftovers:
+        # Fail the build: a new component needs a rule in mdx_to_markdown.py,
+        # or its raw JSX ships to every agent reading the docs.
+        raise SystemExit(
+            f"MDX components left unconverted: {', '.join(leftovers)}. "
+            "Handle them in python/mdx_to_markdown.py."
         )
-    except Exception as e:
-        print(f"Error writing {output_file}: {str(e)}")
+
+    write_page_files(pages, public_dir)
+
+    output_file = public_dir / "llms-full.txt"
+    full_content = "".join(f"{page.strip()}\n\n---\n\n" for _, page in pages)
+    output_file.write_text(full_content, encoding="utf-8")
+    print(f"Successfully generated {output_file} with content from {len(pages)} pages")
+
+
+def render_page(entry: Dict[str, Optional[str]], functions: Dict[str, Any]) -> str:
+    """Return one page as standalone markdown: title, source URL, body."""
+
+    def render_function(name: str) -> Optional[str]:
+        info = functions.get(name)
+        return None if info is None else format_function_info(info)
+
+    content = mdx_to_markdown(entry["content"].strip(), render_function)
+    url = entry["url"]
+
+    if not content.startswith("# ") and entry.get("title"):
+        content = f"# {entry['title']}\n\n{content}"
+
+    if content.startswith("# "):
+        title_line, _, rest = content.partition("\n")
+        return f"{title_line}\n\nSource: {url}\n\n{rest.strip()}\n"
+    return f"Source: {url}\n\n{content}"
+
+
+def page_file_path(slug: str, public_dir: Path) -> Path:
+    """Map a page slug to the .md file that serves it, e.g. /develop -> develop.md."""
+    path = (public_dir / markdown_path(slug)).resolve()
+    if public_dir.resolve() not in path.parents:
+        raise ValueError(f"Slug {slug!r} resolves outside {public_dir}")
+    return path
+
+
+def write_page_files(
+    pages: List[Tuple[Dict[str, Optional[str]], str]], public_dir: Path
+) -> None:
+    """Write each page to public/<slug>.md so <url>.md serves its markdown."""
+    for entry, page in pages:
+        path = page_file_path(entry["slug"], public_dir)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(page, encoding="utf-8")
+    print(f"Successfully generated {len(pages)} per-page .md files in {public_dir}")
 
 
 if __name__ == "__main__":
