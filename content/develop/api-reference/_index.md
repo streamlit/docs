@@ -398,18 +398,6 @@ st.map(my_data_frame)
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/charts/st.pyplot">
-<Image pure alt="screenshot" src="/images/api/pyplot.jpg" />
-
-<h4>Matplotlib</h4>
-
-Display a matplotlib.pyplot figure.
-
-```python
-st.pyplot(my_mpl_figure)
-```
-
-</RefCard>
 <RefCard href="/develop/api-reference/charts/st.altair_chart">
 <Image pure alt="screenshot" src="/images/api/vega_lite_chart.jpg" />
 
@@ -419,6 +407,19 @@ Display a chart using the Altair library.
 
 ```python
 st.altair_chart(my_altair_chart)
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/charts/st.echarts_chart">
+
+<Image pure alt="screenshot" src="/images/api/echarts_chart.jpg" />
+
+<h4>ECharts</h4>
+
+Display an interactive Apache ECharts chart, including sankey, gauge, network, and other chart types.
+
+```python
+st.echarts_chart(my_echarts_option)
 ```
 
 </RefCard>
@@ -458,18 +459,6 @@ st.pydeck_chart(my_pydeck_chart)
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/charts/st.graphviz_chart">
-<Image pure alt="screenshot" src="/images/api/graphviz_chart.jpg" />
-
-<h4>GraphViz</h4>
-
-Display a graph using the dagre-d3 library.
-
-```python
-st.graphviz_chart(my_graphviz_spec)
-```
-
-</RefCard>
 <RefCard href="/develop/api-reference/charts/st.mermaid_chart">
 
 <Image pure alt="screenshot" src="/images/api/mermaid_chart.jpg" />
@@ -483,16 +472,27 @@ st.mermaid_chart("graph LR\n  A --> B")
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/charts/st.echarts_chart">
+<RefCard href="/develop/api-reference/charts/st.graphviz_chart">
+<Image pure alt="screenshot" src="/images/api/graphviz_chart.jpg" />
 
-<Image pure alt="screenshot" src="/images/api/echarts_chart.jpg" />
+<h4>GraphViz</h4>
 
-<h4>ECharts</h4>
-
-Display a chart using the Apache ECharts library.
+Display a graph using the dagre-d3 library.
 
 ```python
-st.echarts_chart(my_echarts_option)
+st.graphviz_chart(my_graphviz_spec)
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/charts/st.pyplot">
+<Image pure alt="screenshot" src="/images/api/pyplot.jpg" />
+
+<h4>Matplotlib</h4>
+
+Display a matplotlib.pyplot figure.
+
+```python
+st.pyplot(my_mpl_figure)
 ```
 
 </RefCard>
@@ -1429,23 +1429,6 @@ m = folium.Map(location=[39.949610, -75.150282], zoom_start=16)
 folium.Marker([39.949610, -75.150282], popup="Liberty Bell", tooltip="Liberty Bell").add_to(m)
 
 st_data = st_folium(m, width=725)
-```
-
-</ComponentCard>
-
-<ComponentCard href="https://github.com/andfanilo/streamlit-echarts">
-
-<Image pure alt="screenshot" src="/images/api/components/echarts.jpg" />
-
-<h4>ECharts</h4>
-
-High dimensional Interactive Plotting. Created by [@andfanilo](https://github.com/andfanilo).
-
-```python
-from streamlit_echarts import st_echarts
-
-st_echarts(options=options)
-
 ```
 
 </ComponentCard>

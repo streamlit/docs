@@ -344,6 +344,18 @@ def get_large_array(seed):
     return arr
 ```
 
+**The `refresh_mode` parameter**
+
+By default, when a cached value's `ttl` expires, the next call to the function waits while Streamlit recomputes the value. If your app can show slightly outdated data for a short time, set `refresh_mode="background"`. Streamlit then returns the expired value immediately and recomputes it in the background, so users don't wait for the refresh.
+
+```python
+@st.cache_data(ttl="5m", refresh_mode="background")  # 👈 Refresh expired values in the background
+def get_metrics():
+    return api.fetch_metrics()
+```
+
+`refresh_mode="background"` requires a `ttl` and can't be combined with `persist` or async functions. Because the function might run in the background, it can't use session-specific features like `st.session_state`. Pass any values it needs as arguments instead. By default, Streamlit keeps returning an expired value for one extra `ttl`. To change this, set the [`runner.cacheBackgroundRefreshTTLMultiplier`](/develop/api-reference/configuration/config.toml#runner) configuration option.
+
 ### Customizing the spinner
 
 By default, Streamlit shows a small loading spinner in the app when a cached function is running. You can modify it easily with the `show_spinner` parameter, which is available for both caching decorators:
