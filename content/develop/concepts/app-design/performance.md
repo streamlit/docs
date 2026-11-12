@@ -106,7 +106,7 @@ if submitted:
     results = search(query, category)
 ```
 
-Forms don't work when some inputs need to update others, like a country selection that changes the available cities. In that case, set `on_change="ignore"` on the inputs that don't affect anything else. These widgets update in the browser without a rerun, and Python receives their values on the next rerun.
+Forms don't work when some inputs need to update others, like a country selection that changes the available cities. In that case, set `on_change="ignore"` on the inputs that don't affect anything else. These widgets update in the browser without a rerun, and Python receives their values on the next rerun. Values that the browser holds this way are lost if the user refreshes the page, unless the widget also uses `key` and `bind="query-params"`.
 
 ```python
 country = st.selectbox("Country", countries)  # Reruns to update the city options
@@ -173,7 +173,7 @@ To keep the layout stable:
 - Put the slow element inside the `with` block, and draw it first. Any visible element inside the block replaces the skeleton.
 - Give stateful elements, like dataframes and charts, a `key`. On reruns, the previous element stays in place and updates when the new data arrives, so it keeps its scroll position and selections. The skeleton only covers it if the block takes longer than a short delay.
 
-Avoid filling an `st.empty()` placeholder after slow work. An empty placeholder clears its content at the start of each rerun, so the old element disappears and loses its state.
+Avoid filling an `st.empty()` placeholder after slow work. An empty placeholder clears its content as soon as the script reaches the `st.empty()` call, so the old element disappears during the slow work and loses its state.
 
 ### Load dashboard cards concurrently
 

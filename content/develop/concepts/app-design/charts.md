@@ -20,7 +20,7 @@ Streamlit has native commands for several charting libraries. They differ in whi
 
 ## Choose a chart command
 
-The Vega-based charts (`st.line_chart`, `st.bar_chart`, `st.area_chart`, `st.scatter_chart`, `st.altair_chart`, and `st.vega_lite_chart`) and `st.echarts_chart` follow your app's theme, including light and dark mode. They're interactive and send dataframes to the browser efficiently as Arrow. Prefer these commands for most charts.
+The Vega-based charts (`st.line_chart`, `st.bar_chart`, `st.area_chart`, `st.scatter_chart`, `st.altair_chart`, and `st.vega_lite_chart`) and `st.echarts_chart` follow your app's theme, including light and dark mode. They're interactive and send dataframes to the browser efficiently as Arrow. For `st.echarts_chart`, this applies when you pass the dataframe in `dataset.source`. Prefer these commands for most charts.
 
 | Need                                                                                                                   | Use                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -212,7 +212,7 @@ Every row in a chart is sent to and processed in the browser. From about 10,000 
 - Cache data loading with [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data), and put charts that refresh on a timer in a [fragment](/develop/concepts/architecture/fragments) with `run_every`.
 - If the data loads slowly, wrap the loading code and the chart in [`st.skeleton`](/develop/api-reference/status/st.skeleton) so the chart's space is reserved while it loads. For more information, see [Optimizing app performance](/develop/concepts/design/performance).
 
-Streamlit automatically sets some rendering options for large charts. Vega-based charts with more than 2,000 marks render to a canvas instead of SVG. `st.echarts_chart` turns on ECharts' `large` mode for big scatter and bar series and hides symbols on long line series.
+Streamlit automatically sets some rendering options for large charts. Vega-based charts with more than 2,000 per-row marks, like points and bars, render to a canvas instead of SVG. This includes the hover points of `st.line_chart`, but not the lines and areas of an Altair chart. For charts without selections, `st.echarts_chart` turns on ECharts' `large` mode for big scatter and bar series and hides symbols on long line series.
 
 ## Plotly and Matplotlib
 

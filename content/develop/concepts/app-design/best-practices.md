@@ -62,7 +62,7 @@ baseRadius = "0.5rem"
 showWidgetBorder = true
 ```
 
-If you need CSS for a single widget or container, give it a `key` and target its `st-key-<key>` class instead of internal class names or `data-testid` attributes. This is more robust, but the exact HTML structure still isn't guaranteed to stay the same between versions.
+If you need CSS for a single widget, give it a `key` and target its `st-key-<key>` class instead of internal class names or `data-testid` attributes. For an element without a `key` parameter, like `st.markdown` or `st.metric`, wrap it in `st.container(key=...)` and target the container. This is more robust, but the exact HTML structure still isn't guaranteed to stay the same between versions.
 
 ## Write clear labels and text
 
@@ -99,7 +99,7 @@ Small details in your copy make your app feel polished and accessible.
   st.download_button("Download CSV", csv, "orders.csv", width="stretch")
   ```
 
-- **Prefer horizontal containers for rows of elements.** `st.container(horizontal=True)` sizes elements to their content and wraps them on narrow screens. Use `st.columns` when you need fixed proportions, and use `st.grid` for tiles that should line up in columns across rows.
+- **Prefer horizontal containers for rows of elements.** `st.container(horizontal=True)` keeps each element at its own width (buttons fit their content) and wraps elements on narrow screens. Use `st.columns` when you need fixed proportions, and use `st.grid` for tiles that should line up in columns across rows.
 
   ```python
   with st.container(horizontal=True, horizontal_alignment="right"):
@@ -116,7 +116,7 @@ Small details in your copy make your app feel polished and accessible.
       st.button("Search")
   ```
 
-- **Use borders for grouping.** `st.container`, `st.columns`, `st.grid`, `st.form`, and `st.metric` accept `border=True` to draw a card around their content.
+- **Use borders for grouping.** Use `border=True` on `st.container` or `st.metric` to draw a card. On `st.columns` and `st.grid`, `border=True` draws a border around each cell. Forms have a border by default.
 - **Use a wide layout for dashboards.** Call `st.set_page_config(layout="wide")` when your app shows a lot of data side by side.
 
 For more information, see [Using layouts and containers](/develop/concepts/design/layouts-and-containers).
@@ -210,7 +210,7 @@ For more information, see [Security reminders](/develop/concepts/connections/sec
 Streamlit's public API has type annotations. Run a type checker like [ty](https://docs.astral.sh/ty/) or [mypy](https://mypy-lang.org/) on your app to catch mistakes, like misspelled parameters, before you run it.
 
 ```python
-st.slider("Count", min_value=0, maximum=10)  # A type checker reports the unknown parameter
+st.slider("Count", min_value=0, maximum=10)  # A type checker flags this call
 ```
 
 To annotate values that Streamlit returns, like chart selection events or data editor state, import types from `streamlit.typing`.

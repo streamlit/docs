@@ -251,7 +251,7 @@ You can send `page` and `query_params` when you create a session, but `widget_st
 | `tree`          | The page's elements, grouped into the `main`, `sidebar`, `event` (dialogs and toasts), and `bottom` containers, with each container's children in order.                                                                                            |
 | `actions`       | The widgets the client can use now. `kind` is `"value"` for widgets that you set in `widget_state` and `"trigger"` for elements that you fire in `trigger`. Disabled widgets aren't listed.                                                         |
 
-Tables and Vega-based charts include a `data` field with their columns, row count, and a preview of the first rows. When an element has more rows than `server.agentPreviewRows`, `data.complete` is `false` and the client can fetch the full data from `data.url`.
+Tables and Vega-based charts include a `data` field with their columns, row count, and a preview of the first rows. When an element has more rows than `server.agentPreviewRows`, `data.complete` is `false` and the client can fetch the full data from `data.url`. If the full data isn't available, `data.unavailable` explains why and there's no `data.url`.
 
 Some elements report a `support` field when a client can't fully use them:
 
@@ -277,9 +277,13 @@ These are the most common error codes:
 | --------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `invalid_request`     | 400    | The request is malformed, like an unknown field or a `widget_state` without a `session_id`.                                                                                                                       |
 | `invalid_value`       | 400    | The value doesn't fit the widget, like an option that doesn't exist. The message lists the legal options.                                                                                                         |
+| `not_a_value`         | 400    | The element is a button or other trigger. Fire it with `trigger` instead of `widget_state`.                                                                                                                       |
+| `not_a_trigger`       | 400    | The element holds a value. Set it with `widget_state` instead of `trigger`.                                                                                                                                       |
+| `unsupported_element` | 400    | The agent API can't set or fire this element, like a file uploader. Its `support` field explains why.                                                                                                             |
 | `missing_form_submit` | 400    | The request sets fields in a form without triggering its submit button.                                                                                                                                           |
 | `unknown_key`         | 404    | No element has this key. Use keys from the latest snapshot.                                                                                                                                                       |
 | `unknown_session`     | 404    | The session expired or the server restarted. Send `{}` to create a new session.                                                                                                                                   |
+| `unknown_page`        | 404    | No page has this `url_path`. The error lists the available pages.                                                                                                                                                 |
 | `not_on_page`         | 409    | The element exists but can't be used now. For example, it's on another page or in a closed dialog.                                                                                                                |
 | `disabled_widget`     | 409    | The widget is disabled.                                                                                                                                                                                           |
 | `session_busy`        | 409    | Another request for this session is still running.                                                                                                                                                                |
@@ -296,7 +300,7 @@ For every error code, see the OpenAPI document at `/_stcore/agent/openapi.json`.
 The MCP endpoint at `/_stcore/agent/mcp` serves the agent API through MCP's Streamable HTTP transport. Add its URL to your AI application as a remote MCP server. It provides two tools:
 
 - `interact`: The same operation as the HTTP API. It takes the same fields and returns the same snapshot as JSON text.
-- `get_data`: Reads a file that a snapshot points to, like the full rows of a table from its `data.url`, or an image or audio file. By default, it returns tables in pages of up to 500 rows. It's read-only and doesn't run your app.
+- `get_data`: Reads a file that a snapshot points to, like the full rows of a table from its `data.url`, or an image or audio file. It returns tables in pages of up to 500 rows by default, or fewer for wide tables, and the client can set a different `limit`. It's read-only and doesn't run your app.
 
 The server also sends instructions that explain the protocol to the model, so you don't need to explain it in your prompt.
 
@@ -355,16 +359,16 @@ When the agent API is on, anyone who can reach your app can use it through the a
 
 - **Every request runs your app.** Creating a session runs your script, and any widget change or trigger can run callbacks, write to databases, send emails, or call paid APIs. The agent API doesn't label any action as safe.
 - **Agent sessions share caches with browser sessions.** Values in `st.cache_data` and `st.cache_resource` are shared, just like they are between browser users.
-- **Agent sessions are anonymous by default.** The agent API doesn't read cookies or `Authorization` headers, so `st.login` doesn't identify the caller. To identify callers, use a proxy or hosting platform that authenticates requests and sets identity headers, and map those headers into `st.user` with the experimental `server.trustedUserHeaders` option. Each key is a header name, and each value is the `st.user` attribute to store it under. The agent API and browser sessions use the same mapping. Your proxy must strip these headers from client requests to `/_stcore/agent/`, not only from WebSocket connections, or callers can impersonate other users.
+- **Agent sessions are anonymous by default.** The agent API doesn't read cookies or `Authorization` headers, so `st.login` doesn't identify the caller. To identify callers, use a proxy or hosting platform that authenticates requests and sets identity headers, and map those headers into `st.user` with the experimental `server.trustedUserHeaders` option. This option isn't listed in the `config.toml` reference. Each key is a header name, and each value is the `st.user` attribute to store it under. On the command line or in an environment variable, pass the mapping as a JSON object. The agent API and browser sessions use the same mapping. Your proxy must strip these headers from client requests to `/_stcore/agent/`, not only from WebSocket connections, or callers can impersonate other users.
 
   ```toml
   [server]
   trustedUserHeaders = { "X-Forwarded-Email" = "email", "X-Forwarded-User" = "name" }
   ```
 
-  A session only accepts requests that carry the same identity as the request that created it.
+  A session only accepts requests that carry the same identity as the request that created it. A request with a different identity gets `unknown_session`.
 
-- **Requests from web pages are refused.** Streamlit refuses requests with an `Origin` header unless the origin is in `server.corsAllowedOrigins`. Programs like `curl` and MCP clients don't send this header.
+- **Requests from web pages are refused.** Streamlit refuses requests with an `Origin` header unless the origin is in `server.corsAllowedOrigins`. Programs like `curl` and most MCP clients don't send this header. MCP clients that run in a web browser do, so they can't connect.
 - **Host checks apply.** If you set `server.allowedHosts`, the agent API only answers requests for those hosts, just like the app's WebSocket.
 - **A session ID grants access to that session.** Unless you use `server.trustedUserHeaders`, anyone with a session ID can continue that session. Treat session IDs like credentials, and don't share them.
 - **App content is untrusted input for agents.** Labels, captions, and data in a snapshot come from your app and its data. An AI agent should treat them as data, not as instructions.
