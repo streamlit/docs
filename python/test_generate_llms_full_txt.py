@@ -9,7 +9,7 @@ FUNCTIONS = {"streamlit.cache_data": {"signature": "st.cache_data(func=None)"}}
 
 def test_content_after_jsx_attributes_is_kept():
     # Regression: an XML round-trip dropped everything after the first JSX
-    # attribute, truncating ~50 pages of llms-full.txt.
+    # attribute: 47 pages of llms-full.txt shipped less than half their text.
     page = (
         "Intro.\n\n"
         '<Collapse title="Table of contents" expanded={true}>\n\n'
