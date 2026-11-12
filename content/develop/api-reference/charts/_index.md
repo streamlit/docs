@@ -7,14 +7,19 @@ keywords: charts, visualization, matplotlib, vega-lite, deck.gl, altair, plotly,
 
 # Chart elements
 
-Streamlit supports several different charting libraries, and our goal is to
-continually add support for more. Right now, the most basic library in our
-arsenal is [Matplotlib](https://matplotlib.org/). Then there are also
-interactive charting libraries like [Vega
-Lite](https://vega.github.io/vega-lite/) (2D charts) and
-[deck.gl](https://github.com/uber/deck.gl) (maps and 3D charts). And
-finally we also provide a few chart types that are "native" to Streamlit,
-like `st.line_chart` and `st.area_chart`.
+Streamlit supports several charting libraries. The simple chart commands, like
+`st.line_chart` and `st.bar_chart`, give you a chart from a dataframe in one line.
+For more control, use [Vega-Lite](https://vega.github.io/vega-lite/) through
+Altair, or [Apache ECharts](https://echarts.apache.org/) for chart types like
+sankey diagrams, gauges, and network graphs. Streamlit also supports Plotly,
+Matplotlib, [deck.gl](https://github.com/uber/deck.gl) maps, and Mermaid and
+Graphviz diagrams.
+
+<Tip>
+
+Not sure which command to use? See [Choosing and using charts](/develop/concepts/design/charts).
+
+</Tip>
 
 ## Simple chart elements
 
@@ -84,18 +89,6 @@ st.map(my_data_frame)
 ## Advanced chart elements
 
 <TileContainer>
-<RefCard href="/develop/api-reference/charts/st.pyplot">
-<Image pure alt="screenshot" src="/images/api/pyplot.jpg" />
-
-<h4>Matplotlib</h4>
-
-Display a matplotlib.pyplot figure.
-
-```python
-st.pyplot(my_mpl_figure)
-```
-
-</RefCard>
 <RefCard href="/develop/api-reference/charts/st.altair_chart">
 <Image pure alt="screenshot" src="/images/api/vega_lite_chart.jpg" />
 
@@ -105,6 +98,19 @@ Display a chart using the Altair library.
 
 ```python
 st.altair_chart(my_altair_chart)
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/charts/st.echarts_chart">
+
+<Image pure alt="screenshot" src="/images/api/echarts_chart.jpg" />
+
+<h4>ECharts</h4>
+
+Display an interactive Apache ECharts chart, including sankey, gauge, network, and other chart types.
+
+```python
+st.echarts_chart(my_echarts_option)
 ```
 
 </RefCard>
@@ -144,18 +150,6 @@ st.pydeck_chart(my_pydeck_chart)
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/charts/st.graphviz_chart">
-<Image pure alt="screenshot" src="/images/api/graphviz_chart.jpg" />
-
-<h4>GraphViz</h4>
-
-Display a graph using the dagre-d3 library.
-
-```python
-st.graphviz_chart(my_graphviz_spec)
-```
-
-</RefCard>
 <RefCard href="/develop/api-reference/charts/st.mermaid_chart">
 
 <Image pure alt="screenshot" src="/images/api/mermaid_chart.jpg" />
@@ -169,16 +163,27 @@ st.mermaid_chart("graph LR\n  A --> B")
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/charts/st.echarts_chart">
+<RefCard href="/develop/api-reference/charts/st.graphviz_chart">
+<Image pure alt="screenshot" src="/images/api/graphviz_chart.jpg" />
 
-<Image pure alt="screenshot" src="/images/api/echarts_chart.jpg" />
+<h4>GraphViz</h4>
 
-<h4>ECharts</h4>
-
-Display a chart using the Apache ECharts library.
+Display a graph using the dagre-d3 library.
 
 ```python
-st.echarts_chart(my_echarts_option)
+st.graphviz_chart(my_graphviz_spec)
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/charts/st.pyplot">
+<Image pure alt="screenshot" src="/images/api/pyplot.jpg" />
+
+<h4>Matplotlib</h4>
+
+Display a matplotlib.pyplot figure.
+
+```python
+st.pyplot(my_mpl_figure)
 ```
 
 </RefCard>
