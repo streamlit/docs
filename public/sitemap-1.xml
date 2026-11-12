@@ -2031,11 +2031,14 @@
 <url><loc>https://docs.streamlit.io/develop/concepts</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/concepts/design</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/concepts/design/animate</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/develop/concepts/design/best-practices</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/concepts/design/buttons</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/develop/concepts/design/charts</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/concepts/design/custom-classes</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/concepts/design/dataframes</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/concepts/design/layouts-and-containers</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/concepts/design/multithreading</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/develop/concepts/design/performance</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/concepts/design/timezone-handling</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/concepts/app-testing</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/concepts/app-testing/automate-tests</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2053,6 +2056,7 @@
 <url><loc>https://docs.streamlit.io/develop/concepts/architecture/session-state</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/concepts/architecture/widget-behavior</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/concepts/configuration</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/develop/concepts/configuration/agent-api-mcp</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/concepts/configuration/https-support</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/concepts/configuration/options</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/concepts/configuration/serving-static-files</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -2143,7 +2147,6 @@
 <url><loc>https://docs.streamlit.io/develop/tutorials/chat-and-llm-apps/build-conversational-apps</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/tutorials/chat-and-llm-apps/llm-quickstart</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/tutorials/multipage</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.streamlit.io/develop/tutorials/multipage/st.page_link-nav</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/tutorials/multipage/dynamic-navigation</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/tutorials/configuration-and-theming</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/tutorials/configuration-and-theming/external-fonts-old</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
