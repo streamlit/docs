@@ -16,7 +16,7 @@ Streamlit gives you many ways to build the same app. This guide collects recomme
 3. Use sentence casing, Material Symbols icons, and descriptive labels and `alt` text.
 4. Use `width` instead of the deprecated `use_container_width`, and prefer horizontal containers for rows of elements.
 5. Pick selection widgets by the number of options.
-6. Use `st.navigation` and `st.Page` for multipage apps, and keep page files as plain scripts.
+6. Use `st.navigation` and `st.Page` for multipage apps, and move shared logic into modules.
 7. Initialize Session State in one place, and give widgets stable keys.
 8. Cache expensive work, and don't loop your script for live updates.
 9. Keep secrets in `st.secrets`, and use parameterized queries.
@@ -62,7 +62,7 @@ baseRadius = "0.5rem"
 showWidgetBorder = true
 ```
 
-If you need CSS for a single element, give the element a `key` and target its `st-key-<key>` class instead of internal class names or `data-testid` attributes.
+If you need CSS for a single widget or container, give it a `key` and target its `st-key-<key>` class instead of internal class names or `data-testid` attributes. This is more robust, but the exact HTML structure still isn't guaranteed to stay the same between versions.
 
 ## Write clear labels and text
 
@@ -139,7 +139,7 @@ For selection widgets, consider how many options there are and whether users sho
 ## Structure your app
 
 - Name your entrypoint file `streamlit_app.py`.
-- For multipage apps, use [`st.navigation` and `st.Page`](/develop/concepts/multipage-apps/page-and-navigation) with your pages in a folder like `app_pages/`, instead of the legacy `pages/` directory. Give each page a Material Symbols icon.
+- For multipage apps, prefer [`st.navigation` and `st.Page`](/develop/concepts/multipage-apps/page-and-navigation) over the `pages/` directory because they give you more control over your navigation. Put your page files in a folder like `app_pages/`, and give each page a Material Symbols icon.
 
   ```python
   page = st.navigation(
@@ -151,7 +151,6 @@ For selection widgets, consider how many options there are and whether users sho
   page.run()
   ```
 
-- Keep page files as plain scripts. Don't wrap a page's body in a function that you call at the end of the file.
 - Move shared logic, like data loading and helpers, into modules that your pages import.
 
 ## Manage state and keys
@@ -208,7 +207,7 @@ For more information, see [Security reminders](/develop/concepts/connections/sec
 
 ## Type-check your app
 
-Streamlit's public API is fully typed. Run a type checker like [ty](https://docs.astral.sh/ty/) or [mypy](https://mypy-lang.org/) on your app to catch mistakes, like misspelled parameters, before you run it.
+Streamlit's public API has type annotations. Run a type checker like [ty](https://docs.astral.sh/ty/) or [mypy](https://mypy-lang.org/) on your app to catch mistakes, like misspelled parameters, before you run it.
 
 ```python
 st.slider("Count", min_value=0, maximum=10)  # A type checker reports the unknown parameter

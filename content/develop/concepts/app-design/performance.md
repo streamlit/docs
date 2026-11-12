@@ -22,10 +22,10 @@ Streamlit reruns your script from top to bottom whenever a user interacts with a
 
 Use [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) for functions that return data, like dataframes and API responses. Use [`st.cache_resource`](/develop/api-reference/caching-and-state/st.cache_resource) for shared resources, like database clients and machine learning models. Don't wrap [`st.connection`](/develop/api-reference/connections/st.connection) in a cache decorator because it's already cached.
 
-Cache the expensive source data, and apply interactive filters outside the cached function. If you cache the filtered result instead, Streamlit stores a separate copy of the data for every filter value.
+Cache the expensive source data, and apply interactive filters outside the cached function. If you cache the filtered result instead, Streamlit fetches the data again for every new filter value and stores a separate result for each one.
 
 ```python
-# Avoid: one cache entry per region, each holding a copy of the data
+# Avoid: fetches the data again for every new region
 @st.cache_data
 def load_filtered_orders(region):
     orders = fetch_orders()

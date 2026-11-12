@@ -7,7 +7,7 @@ keywords: charts, choose a chart, chart selection, st.line_chart, st.bar_chart, 
 
 # Choosing and using charts
 
-Streamlit has native commands for several charting libraries. They all display interactive charts, but they differ in which chart types they support, how well they match your app's theme, and how they handle large data. This guide helps you pick a chart command and use it well.
+Streamlit has native commands for several charting libraries. They differ in which chart types they support, how interactive they are, how well they match your app's theme, and how they handle large data. This guide helps you pick a chart command and use it well.
 
 ## Summary
 
@@ -81,10 +81,12 @@ from vega_datasets import data
 df = data.seattle_weather()
 
 st.line_chart(df, x="date", y=["temp_max", "temp_min"], alt="Daily temperatures in Seattle")
-st.bar_chart(df, x="weather", y="precipitation", alt="Precipitation by weather type")
+
+precipitation = df.groupby("weather", as_index=False)["precipitation"].sum()
+st.bar_chart(precipitation, x="weather", y="precipitation", alt="Total precipitation by weather type")
 ```
 
-If your column names are cryptic, use `x_label` and `y_label` to give the axes readable names:
+If your column names are cryptic, use `x_label` and `y_label` to give the axes readable names. For example, for a dataframe with `dt` and `rev` columns:
 
 ```python
 st.line_chart(df, x="dt", y="rev", x_label="Date", y_label="Revenue", alt="Revenue over time")
@@ -155,7 +157,7 @@ Keep these points in mind:
 - Options must be JSON-compatible. JavaScript callbacks, like `formatter` functions, aren't supported. To format tooltip values without JavaScript, set `tooltip.valueFormatter` to a number format like `"dollar"`, `"compact"`, or `"%,d visits"`, as you would in `st.metric`. String templates like `"{b}: {c}"` also work in labels and tooltips.
 - On a category axis, ECharts reads numbers as 0-based category positions. Pass category labels as strings, and cast numeric category columns, like years, with `.astype(str)`.
 - Text in the option is plain text. Put formatted copy in `st.markdown` next to the chart.
-- When a rerun changes the data, the chart animates from the old values to the new values. Set `key` on the chart to keep it mounted between reruns.
+- When a rerun changes the data, the chart animates from the old values to the new values. Set `key` to give the chart a stable identity. Without a key, moving the chart, or changing the spec of a chart with selections, resets it and replays its entry animation.
 
 ## Chart selections
 
@@ -221,6 +223,6 @@ The Vega-based charts and `st.echarts_chart` cover ordinary 2D charts and match 
 
 ## Maps and diagrams
 
-- `st.map` draws points on a basemap that follows your app's theme. Use `st.pydeck_chart` for polygons, arcs, hexagons, heatmaps, 3D, tooltips, multiple layers, or selections.
+- `st.map` draws points on a basemap without an API token, and its markers use your theme's primary color by default. Use `st.pydeck_chart` for polygons, arcs, hexagons, heatmaps, 3D, tooltips, multiple layers, or selections.
 - `st.mermaid_chart` draws flowcharts, sequence diagrams, entity-relationship diagrams, and other Mermaid diagrams, styled for light and dark mode.
 - `st.graphviz_chart` is for diagrams that need Graphviz layout engines or clusters. It doesn't adapt to your theme, so set node, edge, and font colors explicitly if your app uses a dark theme. Otherwise, prefer `st.mermaid_chart`.

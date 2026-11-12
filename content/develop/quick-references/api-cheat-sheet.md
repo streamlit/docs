@@ -153,7 +153,7 @@ event = st.altair_chart(
     on_select="rerun"
 )
 event = st.echarts_chart(
-    option,
+    option,  # With selectedMode or brush
     on_select="rerun"
 )
 event = st.plotly_chart(

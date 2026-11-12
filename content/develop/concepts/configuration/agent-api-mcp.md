@@ -251,7 +251,7 @@ You can send `page` and `query_params` when you create a session, but `widget_st
 | `tree`          | The page's elements, grouped into the `main`, `sidebar`, `event` (dialogs and toasts), and `bottom` containers, with each container's children in order.                                                                                            |
 | `actions`       | The widgets the client can use now. `kind` is `"value"` for widgets that you set in `widget_state` and `"trigger"` for elements that you fire in `trigger`. Disabled widgets aren't listed.                                                         |
 
-Tables and charts include a `data` field with their columns, row count, and a preview of the first rows. When an element has more rows than `server.agentPreviewRows`, `data.complete` is `false` and the client can fetch the full data from `data.url`.
+Tables and Vega-based charts include a `data` field with their columns, row count, and a preview of the first rows. When an element has more rows than `server.agentPreviewRows`, `data.complete` is `false` and the client can fetch the full data from `data.url`.
 
 Some elements report a `support` field when a client can't fully use them:
 
@@ -260,7 +260,7 @@ Some elements report a `support` field when a client can't fully use them:
 
 ### Errors
 
-When Streamlit refuses a request, nothing runs, and the response has an HTTP error status and a body like this:
+When Streamlit refuses a request, it usually doesn't run your app. The response has an HTTP error status and a body like this:
 
 ```json
 {
@@ -296,13 +296,13 @@ For every error code, see the OpenAPI document at `/_stcore/agent/openapi.json`.
 The MCP endpoint at `/_stcore/agent/mcp` serves the agent API through MCP's Streamable HTTP transport. Add its URL to your AI application as a remote MCP server. It provides two tools:
 
 - `interact`: The same operation as the HTTP API. It takes the same fields and returns the same snapshot as JSON text.
-- `get_data`: Reads a file that a snapshot points to, like the full rows of a table from its `data.url`, or an image or audio file. It returns tables in pages of up to 500 rows. It's read-only and doesn't run your app.
+- `get_data`: Reads a file that a snapshot points to, like the full rows of a table from its `data.url`, or an image or audio file. By default, it returns tables in pages of up to 500 rows. It's read-only and doesn't run your app.
 
 The server also sends instructions that explain the protocol to the model, so you don't need to explain it in your prompt.
 
 ### Connect an AI application
 
-For an app running locally on port 8501, the MCP server URL is `http://localhost:8501/_stcore/agent/mcp`. For example:
+For an app running locally on port 8501, the MCP server URL is `http://localhost:8501/_stcore/agent/mcp`. Here's how to add it to some common AI applications:
 
 **Claude Code:**
 
@@ -335,7 +335,7 @@ claude mcp add --transport http my-streamlit-app http://localhost:8501/_stcore/a
 }
 ```
 
-AI applications that run in the cloud, like Claude and ChatGPT on the web, can't reach `localhost`. To connect them, deploy your app with the agent API turned on and add the deployed app's URL with `/_stcore/agent/mcp` appended, like `https://my-app.example.com/_stcore/agent/mcp`, as a custom connector.
+AI applications that run in the cloud, like Claude and ChatGPT on the web, can't reach `localhost`. To connect them, deploy your app with the agent API turned on and add the deployed app's URL with `/_stcore/agent/mcp` appended, like `https://my-app.example.com/_stcore/agent/mcp`, as a custom connector. If your hosting platform serves your app under a URL prefix, include the prefix in the URL.
 
 ## Configuration options
 
