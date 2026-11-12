@@ -15,7 +15,7 @@ This guide explains four strategies to deal with the behavior if you'd like to h
 
 When you define your multipage app with `st.Page` and `st.navigation`, your entrypoint file becomes a frame of common elements around your pages. When you execute a widget command in your entrypoint file, Streamlit associates the widget to your entrypoint file instead of a particular page. Since your entrypoint file is executed in every app rerun, any widget in your entrypoint file will remain stateful as your users switch between pages.
 
-This method does not work if you define your app with the `pages/` directory.
+This method does not work if you define your app with the legacy `pages/` directory.
 
 The following example includes a selectbox and slider in the sidebar that are rendered and stateful on all pages. The widgets each have an assigned key so you can access their values through Session State within a page.
 

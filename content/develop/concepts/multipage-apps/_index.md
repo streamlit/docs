@@ -21,15 +21,15 @@ Streamlit provides multiple ways to define multipage apps. Understand the termin
 
 <h5>Define multipage apps with <code>st.Page</code> and <code>st.navigation</code></h5>
 
-Learn about the preferred method for defining multipage apps. `st.Page` and `st.navigation` give you flexibility to organize your project directory and label your pages as you please.
+Learn about the recommended method for defining multipage apps. `st.Page` and `st.navigation` give you flexibility to organize your project directory and label your pages as you please.
 
 </RefCard>
 
 <RefCard href="/develop/concepts/multipage-apps/pages-directory">
 
-<h5>Creating multipage apps using the <code>pages/</code> directory</h5>
+<h5>Creating multipage apps using the <code>pages/</code> directory (legacy)</h5>
 
-Define your multipage apps through directory structure. Place additional Python files in a `pages/` directory alongside your entrypoint file and pages are automatically shown in a navigation widget inside your app's sidebar.
+Understand the legacy method of defining multipage apps through directory structure. For new apps, use `st.Page` and `st.navigation` instead.
 
 </RefCard>
 

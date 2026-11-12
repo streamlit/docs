@@ -7,6 +7,12 @@ keywords: custom navigation, st.page_link, multipage navigation, navigation menu
 
 # Build a custom navigation menu with `st.page_link`
 
+<Important>
+
+This tutorial uses the legacy `pages/` directory. For new apps, use `st.Page` and `st.navigation` instead. To build a navigation menu that changes with the user's role, see [Create a dynamic navigation menu](/develop/tutorials/multipage/dynamic-navigation).
+
+</Important>
+
 Streamlit lets you build custom navigation menus and elements with `st.page_link`. Introduced in Streamlit version 1.31.0, `st.page_link` can link to other pages in your multipage app or to external sites. When linked to another page in your app, `st.page_link` will show a highlight effect to indicate the current page. When combined with the [`client.showSidebarNavigation`](/develop/api-reference/configuration/config.toml#client) configuration option, you can build sleek, dynamic navigation in your app.
 
 ## Prerequisites
