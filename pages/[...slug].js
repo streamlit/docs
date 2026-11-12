@@ -284,6 +284,16 @@ export default function Article({
             <title>{data.title + " - Streamlit Docs"}</title>
             <link rel="icon" href="/favicon.svg" />
             <link rel="alternate icon" href="/favicon32.ico" />
+            {/* Only pages with a slug get a .md copy (see generate_llms_full_txt.py). */}
+            {data.slug && contextIsDefault && (
+              <link
+                rel="alternate"
+                type="text/markdown"
+                href={`https://${process.env.NEXT_PUBLIC_HOSTNAME}/${slug.join(
+                  "/",
+                )}.md`}
+              />
+            )}
             <meta name="theme-color" content="#ffffff" />
             {keywordsTag}
             {version != DEFAULT_VERSION || platform != DEFAULT_PLATFORM ? (
