@@ -57,11 +57,7 @@ def parse_menu_ordering(menu_file_path: Path) -> List[str]:
 
         return urls
 
-    except (
-        FileNotFoundError,
-        yaml.YAMLError,
-        frontmatter.FrontmatterError,
-    ) as e:
+    except (FileNotFoundError, yaml.YAMLError, frontmatter.FrontmatterError) as e:
         print(f"Error parsing menu.md: {str(e)}")
         return []
 
@@ -80,8 +76,7 @@ def create_url_ordering_map(menu_urls: List[str]) -> Dict[str, int]:
 
 
 def sort_content_by_menu_order(
-    content_catalog: List[Dict[str, Optional[str]]],
-    url_ordering: Dict[str, int],
+    content_catalog: List[Dict[str, Optional[str]]], url_ordering: Dict[str, int]
 ) -> List[Dict[str, Optional[str]]]:
     """
     Sort content catalog based on menu ordering.
@@ -255,15 +250,13 @@ AUTOFUNCTION_TAG_RE = re.compile(r'<Autofunction\b(?:[^>"]|"[^"]*")*?/>')
 FUNCTION_ATTR_RE = re.compile(r'\bfunction="([^"]*)"')
 
 
-def replace_autofunction_tags(
-    content: str, function_info: Dict[str, Any]
-) -> str:
+def replace_autofunction_tags(content: str, function_info: Dict[str, Any]) -> str:
     """
     Replace <Autofunction /> tags with actual function information.
 
-    Only the tags themselves are replaced; the rest of the page is left
-    byte-for-byte as written. (Parsing the page as XML instead drops
-    everything after the first JSX attribute, such as style={{...}}.)
+    Only the tags are replaced; the rest of the page is left as written.
+    (Parsing the page as XML instead drops everything after the first JSX
+    attribute, such as style={{...}}.)
 
     Args:
         content: The markdown content
@@ -280,18 +273,14 @@ def replace_autofunction_tags(
             formatted_info = format_function_info(function_info[function_name])
             return f"\n{formatted_info}\n"
         if function_name:
-            print(
-                f"Warning: Function '{function_name}' not found in streamlit.json"
-            )
+            print(f"Warning: Function '{function_name}' not found in streamlit.json")
         # If function not found, remove the tag but leave a placeholder
         return f"[Function '{function_name}' not found]"
 
     return AUTOFUNCTION_TAG_RE.sub(replace, content)
 
 
-def process_markdown_files(
-    content_dir: Path,
-) -> List[Dict[str, Optional[str]]]:
+def process_markdown_files(content_dir: Path) -> List[Dict[str, Optional[str]]]:
     """
     Process all markdown files in the content directory and its subdirectories.
 
@@ -349,9 +338,7 @@ def main() -> None:
     url_ordering = create_url_ordering_map(menu_urls)
 
     # Sort content by menu order
-    sorted_content_catalog = sort_content_by_menu_order(
-        content_catalog, url_ordering
-    )
+    sorted_content_catalog = sort_content_by_menu_order(content_catalog, url_ordering)
 
     # Write all content to a single markdown file
     output_file = Path(__file__).parent.parent / "public" / "llms-full.txt"
