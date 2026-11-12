@@ -23,7 +23,7 @@ The `pages/` directory is a legacy way to create multipage apps. For new apps, u
 
 </Important>
 
-When you place a `pages/` directory next to your entrypoint file, Streamlit creates an additional page for every Python file in your `pages/` directory, Streamlit will create an additional page for your app. Streamlit determines the page labels and URLs from the file name and automatically populates a navigation menu at the top of your app's sidebar.
+When you place a `pages/` directory next to your entrypoint file, Streamlit creates an additional page for every Python file in your `pages/` directory. Streamlit determines the page labels and URLs from the file name and automatically populates a navigation menu at the top of your app's sidebar.
 
 ```
 your_working_directory/
