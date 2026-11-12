@@ -139,7 +139,7 @@ For selection widgets, consider how many options there are and whether users sho
 ## Structure your app
 
 - Name your entrypoint file `streamlit_app.py`.
-- For multipage apps, prefer [`st.navigation` and `st.Page`](/develop/concepts/multipage-apps/page-and-navigation) over the `pages/` directory because they give you more control over your navigation. Put your page files in a folder like `app_pages/`, and give each page a Material Symbols icon.
+- For multipage apps, use [`st.navigation` and `st.Page`](/develop/concepts/multipage-apps/page-and-navigation) instead of the legacy `pages/` directory. They give you more control over your navigation. Put your page files in a folder like `app_pages/`, and give each page a Material Symbols icon.
 
   ```python
   page = st.navigation(
