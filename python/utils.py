@@ -1,9 +1,23 @@
 import pathlib
 import json
 import logging
+import re
 
 OUT_FILE_NAME = 'streamlit.json'
 CUSTOM_COMPONENT = 'custom_components.json'
+
+# Matches a module repr, like "<module 'streamlit' from '/path/__init__.py'>"
+# or "<module 'sys' (built-in)>", and captures the module name.
+MODULE_REPR = re.compile(r"<module '([\w.]+)'[^>]*>")
+
+
+def normalize_module_reprs(text):
+    """Replace each module repr in text with the bare module name.
+
+    A module's repr includes the path it was imported from, which is
+    specific to the machine that ran generate.py.
+    """
+    return MODULE_REPR.sub(r'\1', text)
 
 
 def get_existing_dict(filename=OUT_FILE_NAME):
