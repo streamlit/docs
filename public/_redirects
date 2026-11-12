@@ -1049,7 +1049,7 @@
 /library/advanced-features/dataframes /develop/concepts/design/dataframes
 /library/advanced-features/forms /develop/concepts/architecture/forms
 /library/advanced-features/multipage-apps /develop/concepts/multipage-apps/pages-directory
-/library/advanced-features/multipage-apps/custom-navigation /develop/tutorials/multipage/st.page_link-nav
+/library/advanced-features/multipage-apps/custom-navigation /develop/tutorials/multipage/dynamic-navigation
 /library/advanced-features/session-state /develop/concepts/architecture/session-state
 /library/advanced-features/widget-behavior /develop/concepts/architecture/widget-behavior
 /library/advanced-features/custom-classes /develop/concepts/design/custom-classes
@@ -1170,3 +1170,4 @@
 /st.page.automatic-page-urls /develop/concepts/multipage-apps/overview#how-streamlit-converts-filenames-into-url-pathnames
 /end-users/enable-peripherals /knowledge-base/using-streamlit/enable-camera
 /replication /develop/concepts/architecture/architecture#websockets-and-session-management
+/develop/tutorials/multipage/st.page_link-nav /develop/tutorials/multipage/dynamic-navigation

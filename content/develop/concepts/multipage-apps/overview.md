@@ -102,7 +102,7 @@ For each filename in the list above, the URL pathname would be "Awesome_page" re
 
 ## Navigating between pages
 
-The primary way users navigate between pages is through the navigation widget. Both methods for defining multipage apps include a default navigation menu that appears in the sidebar. When a user clicks this navigation widget, the app reruns and loads the selected page. Optionally, you can hide the default navigation UI and build your own with [`st.page_link`](/develop/api-reference/widgets/st.page_link). For more information, see [Build a custom navigation menu with `st.page_link`](/develop/tutorials/multipage/st.page_link-nav).
+The primary way users navigate between pages is through the navigation widget. Both methods for defining multipage apps include a default navigation menu that appears in the sidebar. When a user clicks this navigation widget, the app reruns and loads the selected page. Optionally, you can hide the default navigation UI with `st.navigation(..., position="hidden")` and build your own with [`st.page_link`](/develop/api-reference/widgets/st.page_link). For an example of navigation that changes with the user, see [Create a dynamic navigation menu](/develop/tutorials/multipage/dynamic-navigation).
 
 If you need to programmatically switch pages, use [`st.switch_page`](/develop/api-reference/navigation/st.switch_page).
 
