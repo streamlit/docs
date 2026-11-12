@@ -3,8 +3,6 @@
 #   "python-frontmatter>=1.0.0",
 #   "markdown-it-py>=3.0.0",
 #   "semver>=3.0.0",
-#   "beautifulsoup4>=4.12.0",
-#   "lxml>=4.9.0",
 #   "pyyaml>=6.0.0",
 # ]
 # ///
@@ -25,7 +23,6 @@ import frontmatter
 from pathlib import Path
 from markdown_it import MarkdownIt
 import semver
-from bs4 import BeautifulSoup, Tag
 import yaml
 
 
@@ -60,7 +57,11 @@ def parse_menu_ordering(menu_file_path: Path) -> List[str]:
 
         return urls
 
-    except (FileNotFoundError, yaml.YAMLError, frontmatter.FrontmatterError) as e:
+    except (
+        FileNotFoundError,
+        yaml.YAMLError,
+        frontmatter.FrontmatterError,
+    ) as e:
         print(f"Error parsing menu.md: {str(e)}")
         return []
 
@@ -79,7 +80,8 @@ def create_url_ordering_map(menu_urls: List[str]) -> Dict[str, int]:
 
 
 def sort_content_by_menu_order(
-    content_catalog: List[Dict[str, Optional[str]]], url_ordering: Dict[str, int]
+    content_catalog: List[Dict[str, Optional[str]]],
+    url_ordering: Dict[str, int],
 ) -> List[Dict[str, Optional[str]]]:
     """
     Sort content catalog based on menu ordering.
@@ -247,9 +249,21 @@ def format_function_info(func_info: Dict[str, Any]) -> str:
     return "\n".join(markdown_parts)
 
 
-def replace_autofunction_tags(content: str, function_info: Dict[str, Any]) -> str:
+# An <Autofunction ... /> tag. Attribute values are quoted strings that may
+# themselves contain ">" (e.g. deprecatedText="<code>st.foo</code> ...").
+AUTOFUNCTION_TAG_RE = re.compile(r'<Autofunction\b(?:[^>"]|"[^"]*")*?/>')
+FUNCTION_ATTR_RE = re.compile(r'\bfunction="([^"]*)"')
+
+
+def replace_autofunction_tags(
+    content: str, function_info: Dict[str, Any]
+) -> str:
     """
     Replace <Autofunction /> tags with actual function information.
+
+    Only the tags themselves are replaced; the rest of the page is left
+    byte-for-byte as written. (Parsing the page as XML instead drops
+    everything after the first JSX attribute, such as style={{...}}.)
 
     Args:
         content: The markdown content
@@ -258,43 +272,26 @@ def replace_autofunction_tags(content: str, function_info: Dict[str, Any]) -> st
     Returns:
         Modified content with Autofunction tags replaced
     """
-    # The function_info is the version data directly, functions are stored at the
-    # top level
-    streamlit_functions = function_info
 
-    # Find all Autofunction tags in the content
-    # We need to create valid HTML to parse, so we'll wrap the content in a
-    # container
-    soup = BeautifulSoup(f"<container>{content}</container>", "xml")
+    def replace(match: re.Match) -> str:
+        name_match = FUNCTION_ATTR_RE.search(match.group(0))
+        function_name = name_match.group(1) if name_match else None
+        if function_name and function_name in function_info:
+            formatted_info = format_function_info(function_info[function_name])
+            return f"\n{formatted_info}\n"
+        if function_name:
+            print(
+                f"Warning: Function '{function_name}' not found in streamlit.json"
+            )
+        # If function not found, remove the tag but leave a placeholder
+        return f"[Function '{function_name}' not found]"
 
-    # Find all Autofunction tags (case-sensitive)
-    autofunction_tags = soup.find_all("Autofunction")
-
-    # Replace each tag with the function information
-    for tag in autofunction_tags:
-        function_name = tag.get("function")
-        if function_name and function_name in streamlit_functions:
-            # Format the function info as structured markdown
-            formatted_info = format_function_info(streamlit_functions[function_name])
-            tag.replace_with(f"\n{formatted_info}\n")
-        else:
-            if function_name:
-                print(
-                    f"Warning: Function '{function_name}' not found in streamlit.json"
-                )
-            # If function not found, remove the tag but leave a placeholder
-            tag.replace_with(f"[Function '{function_name}' not found]")
-
-    # Extract the content back, but skip the container tags
-    result = str(soup.container)
-    # Remove the container tags
-    if result.startswith("<container>") and result.endswith("</container>"):
-        result = result[11:-12]  # Remove <container> and </container>
-
-    return result
+    return AUTOFUNCTION_TAG_RE.sub(replace, content)
 
 
-def process_markdown_files(content_dir: Path) -> List[Dict[str, Optional[str]]]:
+def process_markdown_files(
+    content_dir: Path,
+) -> List[Dict[str, Optional[str]]]:
     """
     Process all markdown files in the content directory and its subdirectories.
 
@@ -352,7 +349,9 @@ def main() -> None:
     url_ordering = create_url_ordering_map(menu_urls)
 
     # Sort content by menu order
-    sorted_content_catalog = sort_content_by_menu_order(content_catalog, url_ordering)
+    sorted_content_catalog = sort_content_by_menu_order(
+        content_catalog, url_ordering
+    )
 
     # Write all content to a single markdown file
     output_file = Path(__file__).parent.parent / "public" / "llms-full.txt"
