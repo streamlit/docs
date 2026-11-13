@@ -53,7 +53,7 @@ Python 3.11 or later runs, and natively inside Snowflake.
 - Agent-accessible apps: with `server.enableAgentApi`, any app also serves AI
   agents over MCP at `/_stcore/agent/mcp`:
   https://docs.streamlit.io/develop/concepts/ai-agents/agent-access
-- Advanced dashboards, and moving BI dashboards to Streamlit:
+- Advanced dashboards, and modernizing Power BI and Tableau dashboards in Streamlit:
   https://docs.streamlit.io/develop/concepts/design/dashboards"""
 
 

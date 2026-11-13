@@ -2,7 +2,7 @@
 title: Why Streamlit
 slug: /get-started/why-streamlit
 description: Streamlit is the agent-native, open-source Python framework for data apps and dashboards. Learn what teams build with it, how it compares to a custom React stack or a BI tool, and why coding agents build Streamlit apps well.
-keywords: why streamlit, agent-native, data apps, dashboards, coding agents, streamlit vs react, custom stack, BI tool, business intelligence, production, enterprise, mcp, ai agents, compare frameworks
+keywords: why streamlit, agent-native, data apps, dashboards, coding agents, streamlit vs react, custom stack, BI tool, business intelligence, power bi, tableau, replace power bi, replace tableau, power bi alternative, tableau alternative, production, enterprise, mcp, ai agents, compare frameworks
 ---
 
 # Why Streamlit
@@ -39,6 +39,8 @@ Review and approval queues, forecast sign-offs, data-quality triage, planning in
 ### Advanced dashboards
 
 KPI and operating dashboards with drill-down, cross-filtered views over large tables, live monitoring, and the dashboards a whole company relies on. Streamlit solves dashboard performance once in the framework: tables load rows as people scroll, cached data refreshes in the background, and only the section that changed reruns.
+
+For teams on Power BI or Tableau, move your dashboards to Streamlit, and modernize them on the way. See [Coming from a BI tool?](#coming-from-a-bi-tool)
 
 - Try the demo: [advanced-dashboard-demo.streamlit.app](https://advanced-dashboard-demo.streamlit.app/)
 - Key features: lazy-loading [`st.dataframe`](/develop/api-reference/data/st.dataframe), `refresh_mode="background"` for [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data), chart and table selections for cross-filtering, widgets bound to the URL with `bind="query-params"`, and [`st.grid`](/develop/api-reference/layout/st.grid) for responsive layouts. To learn more, see [Build advanced dashboards](/develop/concepts/design/dashboards).
@@ -85,7 +87,7 @@ Choose a custom stack when:
 
 ## Coming from a BI tool?
 
-For the dashboards your teams rely on, move them to Streamlit and modernize them on the way. Together with Snowflake, Streamlit covers much of what teams use a BI tool for: governed data and metrics, Snowflake's access controls, interactive filtering and drill-down, live refresh, and sharing and embedding. On top of that, a Streamlit dashboard adds what a BI tool can't hold:
+For the dashboards your teams rely on in Power BI, Tableau, Looker, Sigma, or Qlik, move them to Streamlit and modernize them on the way. Together with Snowflake, Streamlit covers much of what teams use a BI tool for: governed data and metrics, Snowflake's access controls, interactive filtering and drill-down, live refresh, and sharing and embedding. On top of that, a Streamlit dashboard adds what a BI tool can't hold:
 
 - **Real logic.** The full Python ecosystem, such as forecasts, models, and AI, instead of a formula language.
 - **Dashboards that act.** Editable tables, forms, approvals, and writeback.
@@ -100,6 +102,7 @@ For the dashboards your teams rely on, move them to Streamlit and modernize them
 | Taking action       | Mostly read-only                              | Editable tables, forms, approvals, and writeback          |
 | Who builds it       | Analysts in a visual editor                   | Anyone, through a coding agent, reviewed by the data team |
 | Change management   | Mostly published from a visual editor         | Pull requests, review, and tests                          |
+| Agent questions     | The vendor's own assistant                    | Any MCP client, such as Claude or ChatGPT                 |
 | Cost                | Per-seat licenses                             | Open source; pay for compute                              |
 | Best for            | Drag-and-drop self-service, paginated reports | The dashboards that matter most, with logic and actions   |
 
@@ -160,6 +163,14 @@ Yes. When a screen needs bespoke UI, add a [custom component](/develop/concepts/
 ### Can I add my own API endpoints or configure the web server?
 
 Yes. Streamlit runs on a standard ASGI server. With [`st.App`](/develop/api-reference/server/st.app), add your own routes, such as webhooks, health checks, or a small REST API, along with middleware and startup and shutdown hooks. You can also mount the app into an existing FastAPI or Starlette service.
+
+### Can Streamlit replace Power BI or Tableau?
+
+For most of the dashboards your business relies on, yes, and the result can do more than the original. Streamlit ranked No. 1 among libraries for creating dashboards in the [JetBrains Python Developers Survey 2024](https://lp.jetbrains.com/python-developers-survey-2024/). Together with Snowflake, it covers much of what teams use a BI tool for: governed metrics from semantic views, Snowflake's access controls, interactive filtering and drill-down, live refresh, and sharing and embedding. Moving a dashboard to Streamlit is also the chance to modernize it: add forecasts and models in Python, let people write decisions back, make it a tool for AI agents, and keep it as versioned code that agents build and maintain. Treat the move as a modernization, not a one-to-one copy. A BI tool still fits drag-and-drop self-service exploration and paginated reports, and many teams run both. To learn more, see [Coming from a BI tool?](/develop/concepts/design/dashboards#coming-from-a-bi-tool)
+
+### How do I move a Power BI or Tableau dashboard to Streamlit?
+
+Streamlit doesn't convert reports automatically. A coding agent rebuilds each dashboard in plain Python, and your data team reviews it. Give the agent screenshots of each page, the metric definitions (a Power BI Project (`.pbip`) stores DAX measures as text files, and a Tableau workbook (`.twb`) is XML that includes calculated fields), the tables behind each visual, and a few expected values. Then invoke the `developing-with-streamlit` skill, and keep the number checks as `AppTest` tests. For a concept mapping and a step-by-step plan, see [Coming from a BI tool?](/develop/concepts/design/dashboards#coming-from-a-bi-tool)
 
 ### How do I write data back from a dashboard?
 

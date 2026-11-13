@@ -15,7 +15,7 @@ Streamlit is the agent-native, open-source Python framework for data apps and da
         icon="verified"
         bold="Why Streamlit"
         href="/get-started/why-streamlit"
-    >explains what teams build with Streamlit, how it compares to a custom React stack or a BI tool, and why coding agents build Streamlit apps well.</InlineCallout>
+    >explains what teams build with Streamlit, how it compares to a custom React stack or a BI tool such as Power BI or Tableau, and why coding agents build Streamlit apps well.</InlineCallout>
     <InlineCallout
         color="orange-70"
         icon="downloading"

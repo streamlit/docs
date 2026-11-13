@@ -13,7 +13,7 @@ keywords: app design, dashboards, advanced dashboards, writeback, editable table
 
 <h5>Build advanced dashboards</h5>
 
-Build fast, interactive dashboards over large data with lazy-loading tables, background cache refresh, partial reruns, cross-filtering, and shareable views. Learn how to move BI dashboards to Streamlit and modernize them on the way.
+Build fast, interactive dashboards over large data with lazy-loading tables, background cache refresh, partial reruns, cross-filtering, and shareable views. Learn how to move Power BI and Tableau dashboards to Streamlit and modernize them on the way.
 
 </RefCard>
 

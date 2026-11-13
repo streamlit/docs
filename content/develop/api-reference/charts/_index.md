@@ -2,19 +2,20 @@
 title: Chart elements
 slug: /develop/api-reference/charts
 description: Create interactive data visualizations with Streamlit's charting capabilities including simple charts, advanced visualization libraries, and community components.
-keywords: charts, visualization, matplotlib, vega-lite, deck.gl, altair, plotly, bokeh, pydeck, graphviz, maps, line chart, bar chart, area chart, scatter chart
+keywords: charts, visualization, echarts, matplotlib, vega-lite, dashboards, cross-filtering, deck.gl, altair, plotly, bokeh, pydeck, graphviz, maps, line chart, bar chart, area chart, scatter chart
 ---
 
 # Chart elements
 
-Streamlit supports several different charting libraries, and our goal is to
-continually add support for more. Right now, the most basic library in our
-arsenal is [Matplotlib](https://matplotlib.org/). Then there are also
-interactive charting libraries like [Vega
-Lite](https://vega.github.io/vega-lite/) (2D charts) and
-[deck.gl](https://github.com/uber/deck.gl) (maps and 3D charts). And
-finally we also provide a few chart types that are "native" to Streamlit,
-like `st.line_chart` and `st.area_chart`.
+Streamlit renders interactive charts natively, styled by your theme: [Vega-Lite](https://vega.github.io/vega-lite/) charts, including simple chart commands such as `st.line_chart` and `st.bar_chart`, [Apache ECharts](https://echarts.apache.org/) with `st.echarts_chart`, Plotly with `st.plotly_chart`, and [deck.gl](https://github.com/uber/deck.gl) maps with `st.pydeck_chart`. You can also show static [Matplotlib](https://matplotlib.org/) figures with `st.pyplot`. Altair, Vega-Lite, ECharts, Plotly, and pydeck charts support selections with `on_select`, so people can click a chart to cross-filter the rest of the page.
+
+For new charts, start with the simple chart commands or `st.altair_chart`, and use `st.echarts_chart` for large datasets or data that changes often.
+
+<Tip>
+
+Rebuilding visuals from a Power BI or Tableau dashboard? See [Coming from a BI tool?](/develop/concepts/design/dashboards#coming-from-a-bi-tool) for a mapping of BI visuals, filters, and drill-downs to Streamlit.
+
+</Tip>
 
 ## Simple chart elements
 

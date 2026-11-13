@@ -1,8 +1,8 @@
 ---
 title: Build advanced dashboards
 slug: /develop/concepts/design/dashboards
-description: Build fast, interactive dashboards in Python with Streamlit. Lazy-loading tables, background cache refresh, partial and parallel reruns, cross-filtering, drill-down, shareable URLs, and responsive grids are built in. Includes a guide to moving BI dashboards to Streamlit.
-keywords: dashboards, advanced dashboards, kpi dashboard, business intelligence, BI, BI migration, modernize dashboards, cross-filtering, drill-down, large data, performance, lazy loading, caching, fragments, query parameters, st.grid, st.metric, semantic views, python dashboard
+description: Build fast, interactive dashboards in Python with Streamlit. Lazy-loading tables, background cache refresh, partial and parallel reruns, cross-filtering, drill-down, shareable URLs, and responsive grids are built in. Includes a guide to moving and modernizing Power BI and Tableau dashboards in Streamlit.
+keywords: dashboards, advanced dashboards, kpi dashboard, business intelligence, BI, BI migration, modernize dashboards, power bi, power bi to python, power bi to streamlit, tableau, tableau to python, tableau to streamlit, looker, sigma, qlik, dax, migrate dashboards, cross-filtering, drill-down, large data, performance, lazy loading, caching, fragments, query parameters, st.grid, st.metric, semantic views, python dashboard
 ---
 
 # Build advanced dashboards
@@ -124,32 +124,61 @@ Turn on the [agent API](/develop/concepts/ai-agents/agent-access), and an AI ass
 
 ## Coming from a BI tool?
 
-For the dashboards your teams rely on, move them to Streamlit and modernize them on the way. Together with Snowflake, Streamlit covers much of what teams use a BI tool for: governed data and metrics, Snowflake's access controls, interactive filtering and drill-down, live refresh, and sharing and embedding. A move is a modernization, not a one-to-one copy.
+For the dashboards your teams rely on in Power BI, Tableau, Looker, Sigma, or Qlik, move them to Streamlit and modernize them on the way. UI is cheap. Correct numbers aren't. Together with Snowflake, Streamlit covers much of what teams use a BI tool for: governed data and metrics, Snowflake's access controls, interactive filtering and drill-down, live refresh, and sharing and embedding. A move is a modernization, not a one-to-one copy.
 
-### Map BI concepts to Streamlit
+On top of that, a Streamlit dashboard can hold what a BI tool can't: forecasts and models in Python, editable tables and [writeback](/develop/concepts/design/writeback), AI features, and [access for AI agents](/develop/concepts/ai-agents/agent-access). It's Python code in your repository, so changes go through pull requests, review, and tests, and coding agents can make them from a request in plain words.
 
-| In a BI tool                   | In Streamlit                                                                                                                                                                                                               |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Filters and slicers            | Widgets such as [`st.selectbox`](/develop/api-reference/widgets/st.selectbox), [`st.multiselect`](/develop/api-reference/widgets/st.multiselect), and [`st.date_input`](/develop/api-reference/widgets/st.date_input)      |
-| Calculated fields and measures | Python or SQL functions, cached with [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data)                                                                                                             |
-| Governed metrics               | Snowflake semantic views and tables, queried with SQL through [`st.connection`](/develop/api-reference/connections/st.connection)                                                                                          |
-| Scheduled refresh              | A cache `ttl`, with `refresh_mode="background"`                                                                                                                                                                            |
-| Live tiles                     | `@st.fragment(run_every=...)`                                                                                                                                                                                              |
-| Cross-filtering                | Chart and table selections with `on_select="rerun"`                                                                                                                                                                        |
-| Drill-down and drill-through   | Button columns that open a [dialog](/develop/api-reference/execution-flow/st.dialog) or side drawer, or link to another [page](/develop/concepts/multipage-apps) with query parameters                                     |
-| Bookmarks and shared views     | Widgets with `bind="query-params"`                                                                                                                                                                                         |
-| KPI tiles and report layout    | [`st.metric`](/develop/api-reference/data/st.metric), [`st.grid`](/develop/api-reference/layout/st.grid), [`st.columns`](/develop/api-reference/layout/st.columns), and [`st.tabs`](/develop/api-reference/layout/st.tabs) |
-| Row-level security             | Snowflake's access controls with [caller's rights](/develop/api-reference/connections/st.connections.snowflakeconnection), or logic based on [`st.user`](/develop/api-reference/user/st.user)                              |
-| Export                         | The built-in CSV export of `st.dataframe` for tables that are sent to the browser in full, or [`st.download_button`](/develop/api-reference/widgets/st.download_button) for large or lazy-loaded tables                    |
-| Sharing and embedding          | [Deployment](/deploy) on Snowflake, your own cloud, or Community Cloud, with [`st.login`](/develop/api-reference/user/st.login) for sign-in                                                                                |
+### Map Power BI and Tableau concepts to Streamlit
 
-On top of that, a Streamlit dashboard can hold what a BI tool can't: forecasts and models in Python, editable tables and [writeback](/develop/concepts/design/writeback), AI features, and access for AI agents.
+| Power BI                               | Tableau                                       | Streamlit                                                                                                                                                                                                                                        |
+| -------------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Slicers and filters                    | Filters and parameters                        | Widgets such as [`st.selectbox`](/develop/api-reference/widgets/st.selectbox), [`st.multiselect`](/develop/api-reference/widgets/st.multiselect), [`st.date_input`](/develop/api-reference/widgets/st.date_input), and `st.slider`               |
+| DAX measures and calculated columns    | Calculated fields and LOD expressions         | Python or SQL functions, cached with [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data)                                                                                                                                   |
+| Power Query transformations            | Data source transformations                   | Python or SQL in cached loader functions                                                                                                                                                                                                         |
+| Semantic model                         | Published data sources                        | Snowflake semantic views, queried with SQL through [`st.connection("snowflake")`](/develop/api-reference/connections/st.connections.snowflakeconnection), or a shared Python module with your metric definitions                                 |
+| Report pages                           | Dashboards, sheets, and stories               | Pages with [`st.navigation`](/develop/api-reference/navigation/st.navigation), and [`st.tabs`](/develop/api-reference/layout/st.tabs)                                                                                                            |
+| Cards and KPI visuals                  | KPI tiles                                     | [`st.metric`](/develop/api-reference/data/st.metric) with optional sparklines, laid out with [`st.grid`](/develop/api-reference/layout/st.grid)                                                                                                  |
+| Visuals                                | Worksheets                                    | Native charts and maps, such as [`st.altair_chart`](/develop/api-reference/charts/st.altair_chart), [`st.echarts_chart`](/develop/api-reference/charts/st.echarts_chart), and [`st.plotly_chart`](/develop/api-reference/charts/st.plotly_chart) |
+| Table and matrix visuals               | Text tables                                   | [`st.dataframe`](/develop/api-reference/data/st.dataframe) with [column configuration](/develop/api-reference/data/st.column_config)                                                                                                             |
+| Cross-filtering and cross-highlighting | Filter and highlight actions                  | Chart and table selections with `on_select="rerun"`                                                                                                                                                                                              |
+| Drillthrough                           | Go to sheet and URL actions                   | Button columns that open a [dialog](/develop/api-reference/execution-flow/st.dialog) or side drawer, or links to another [page](/develop/concepts/multipage-apps) with query parameters                                                          |
+| Bookmarks                              | Custom views                                  | Widgets with `bind="query-params"`, so every view has a shareable URL                                                                                                                                                                            |
+| Scheduled refresh                      | Extract refresh schedules                     | A cache `ttl`, with `refresh_mode="background"`                                                                                                                                                                                                  |
+| Automatic page refresh                 | Live connections                              | `@st.fragment(run_every=...)`                                                                                                                                                                                                                    |
+| Row-level security                     | User filters and row-level security           | Snowflake's access controls with [caller's rights](/develop/api-reference/connections/st.connections.snowflakeconnection), or logic based on [`st.user`](/develop/api-reference/user/st.user)                                                    |
+| Report themes                          | Workbook formatting                           | A shared [theme](/develop/concepts/configuration/theming) in `.streamlit/config.toml`                                                                                                                                                            |
+| Export data                            | Download data                                 | The built-in CSV export of `st.dataframe` for tables that are sent to the browser in full, or [`st.download_button`](/develop/api-reference/widgets/st.download_button)                                                                          |
+| Publishing to workspaces               | Publishing to Tableau Server or Tableau Cloud | [Deployment](/deploy) on Snowflake, your own cloud, or Community Cloud, with [`st.login`](/develop/api-reference/user/st.login) for sign-in                                                                                                      |
+| Mostly read-only                       | Mostly read-only                              | [`st.data_editor`](/develop/api-reference/data/st.data_editor) and [`st.form`](/develop/api-reference/execution-flow/st.form), with [writeback](/develop/concepts/design/writeback) to your database                                             |
+| Natural-language questions             | Natural-language questions                    | Any MCP client, such as Claude or ChatGPT, through the [agent API](/develop/concepts/ai-agents/agent-access)                                                                                                                                     |
+
+Looker, Sigma, and Qlik use similar concepts: filters become widgets, measures and calculations become cached Python or SQL functions, and governed models map to Snowflake semantic views or shared Python modules.
 
 ### Modernize, step by step
 
-1. **Rebuild the dashboards that matter.** Start with the dashboards people open every week. Build them on the same governed data and metrics. A coding agent with the bundled skills can do most of the work from a description or a screenshot of the original.
-2. **Check the numbers.** Compare each figure against the original dashboard before you switch people over. Keep those checks as [`AppTest`](/develop/concepts/app-testing) tests.
-3. **Add what the BI tool couldn't hold.** Add Python logic, writeback, AI, and access for agents where they help people decide and act.
-4. **Retire what nobody uses.** Retire the reports nobody opens, and leave one-off questions to chat.
+1. **Triage.** List the dashboards people depend on every week, and the reports nobody opens. Move the ones that matter, and leave one-off questions to chat.
+2. **Rebuild on governed metrics.** Build each dashboard on the same governed data and metric definitions as the original, such as Snowflake semantic views, so the numbers match the rest of the business.
+3. **Check the numbers.** Compare every figure against the original before you switch people over, and keep those checks as [`AppTest`](/develop/concepts/app-testing) tests.
+4. **Add what the BI tool couldn't hold.** Add forecasts, models, writeback, AI, and access for agents where they help people decide and act.
+5. **Retire the old report.** Turn off the original once its viewers have signed off on the new dashboard.
 
-A BI tool still fits drag-and-drop self-service exploration by people who don't want code, and pixel-precise paginated reports.
+### Rebuild a dashboard with a coding agent
+
+Streamlit doesn't convert BI reports automatically. A coding agent rebuilds each dashboard as plain Python, and your data team reviews it. Give the agent what defines the original:
+
+- **Screenshots** of each page, so the agent can match the layout and visuals.
+- **Metric definitions.** In Power BI, save the report as a Power BI Project (`.pbip`), which stores the report and semantic model, including DAX measures, as text files. In Tableau, use the workbook (`.twb`), which is an XML file that includes calculated fields and filters. A packaged workbook (`.twbx`) is a zip archive that contains the `.twb`.
+- **The data.** The tables, views, or SQL behind each visual, and connection details in [`secrets.toml`](/develop/concepts/connections/secrets-management).
+- **Expected values.** A few figures from the original, such as last quarter's totals per region, to check the rebuild against.
+
+Then run [`streamlit skills`](/develop/api-reference/cli/skills) in your project and invoke the skill. For example, in Claude Code:
+
+```text
+/developing-with-streamlit Rebuild the "Sales overview" Power BI report as a Streamlit dashboard. The screenshots and the .pbip project are in ./powerbi. Translate the DAX measures to SQL on the same Snowflake tables, keep the slicers as sidebar filters bound to the URL, and add AppTest tests that compare each KPI with the values in ./powerbi/expected.csv.
+```
+
+Review the result like any other code: the query, the calculation, and the number on screen sit side by side, so your data team can check every metric.
+
+### When to keep a BI tool
+
+A BI tool still fits drag-and-drop self-service exploration by people who don't want code, and pixel-precise paginated reports. Many teams run both: Streamlit for the dashboards that compute and act, and a BI tool for ad hoc exploration.

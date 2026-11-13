@@ -9,7 +9,7 @@ keywords: snowflake, enterprise, security, data, native apps, container services
 
 Host your apps alongside your data in a single, global platform. Snowflake provides industry-leading features that ensure the highest levels of security for your account, users, data, and apps. If you're looking for an enterprise hosting solution, try Snowflake!
 
-Streamlit is Snowflake's native framework for data apps. Your data stays on the platform under Snowflake's access controls, and an app runs with its owner's rights, or with [caller's rights](/develop/api-reference/connections/st.connections.snowflakeconnection) on the container runtime so each viewer sees only the data they may see. Apps can query governed metrics, call Cortex AI, and replace or modernize the dashboards your teams rely on. For more, see [Why Streamlit](/get-started/why-streamlit#best-on-snowflake) and [Build advanced dashboards](/develop/concepts/design/dashboards).
+Streamlit is Snowflake's native framework for data apps. Your data stays on the platform under Snowflake's access controls, and an app runs with its owner's rights, or with [caller's rights](/develop/api-reference/connections/st.connections.snowflakeconnection) on the container runtime so each viewer sees only the data they may see. Apps can query governed metrics, call Cortex AI, and modernize the dashboards your teams rely on in Power BI or Tableau. For more, see [Why Streamlit](/get-started/why-streamlit#best-on-snowflake) and [Build advanced dashboards](/develop/concepts/design/dashboards).
 
 <TileContainer>
     <Tile
