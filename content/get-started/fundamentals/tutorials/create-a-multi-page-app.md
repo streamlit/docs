@@ -259,35 +259,43 @@ page_names_to_funcs[demo_name]()
 
 <Cloud name="doc-hello" height="700px" />
 
-Notice how large the file is! Each app “page" is written as a function, and the selectbox is used to pick which page to display. As our app grows, maintaining the code requires a lot of additional overhead. Moreover, we’re limited by the `st.selectbox` UI to choose which “page" to run, we cannot customize individual page titles with `st.set_page_config`, and we’re unable to navigate between pages using URLs.
+Notice how large the file is! Each app “page" is written as a function, and the selectbox is used to pick which page to display. As our app grows, maintaining the code requires a lot of additional overhead. Moreover, we’re limited by the `st.selectbox` UI to choose which “page" to run, we can't give each page its own title in the browser tab, and we’re unable to navigate between pages using URLs.
 
 ## Convert an existing app into a multipage app
 
 Now that we've identified the limitations of a single-page app, what can we do about it? Armed with our knowledge from the previous section, we can convert the existing app to be a multipage app, of course! At a high level, we need to perform the following steps:
 
-1. Create a new `pages` folder in the same folder where the “entrypoint file" (`hello.py`) lives
-2. Rename our entrypoint file to `Hello.py` , so that the title in the sidebar is capitalized
-3. Create three new files inside of `pages`:
-   - `pages/1_📈_Plotting_Demo.py`
-   - `pages/2_🌍_Mapping_Demo.py`
-   - `pages/3_📊_DataFrame_Demo.py`
-4. Move the contents of the `plotting_demo`, `mapping_demo`, and `data_frame_demo` functions into their corresponding new files from Step 3
-5. Run `streamlit run Hello.py` to view your newly converted multipage app!
+1. Create a new `app_pages` folder next to `hello.py`.
+2. Move `hello.py` into `app_pages`, and keep only the code for the intro page in it.
+3. Create three new files inside of `app_pages`:
+   - `app_pages/plotting_demo.py`
+   - `app_pages/mapping_demo.py`
+   - `app_pages/dataframe_demo.py`
+4. Move the contents of the `plotting_demo`, `mapping_demo`, and `data_frame_demo` functions into their corresponding new files from Step 3.
+5. Create a new entrypoint file, `streamlit_app.py`, that defines the pages with `st.Page` and connects them with `st.navigation`.
+6. Run `streamlit run streamlit_app.py` to view your newly converted multipage app!
+
+The result has this file structure:
+
+```
+your_repository/
+├── app_pages/
+│   ├── dataframe_demo.py
+│   ├── hello.py
+│   ├── mapping_demo.py
+│   └── plotting_demo.py
+└── streamlit_app.py
+```
 
 Now, let’s walk through each step of the process and view the corresponding changes in code.
 
-## Create the entrypoint file
+## Create the intro page
 
 <details open>
-<summary><code>Hello.py</code></summary>
+<summary><code>app_pages/hello.py</code></summary>
 
 ```python
 import streamlit as st
-
-st.set_page_config(
-    page_title="Hello",
-    page_icon="👋",
-)
 
 st.write("# Welcome to Streamlit! 👋")
 
@@ -315,35 +323,24 @@ st.markdown(
 </details>
 <br />
 
-We rename our entrypoint file to `Hello.py` , so that the title in the sidebar is capitalized and only the code for the intro page is included. Additionally, we’re able to customize the page title and favicon — as it appears in the browser tab with `st.set_page_config`. We can do so for each of our pages too!
-
-<Image src="/images/mpa-hello.png" />
-
-Notice how the sidebar does not contain page labels as we haven’t created any pages yet.
+The intro page only contains the code for the intro. We'll set its title and icon in the entrypoint file later.
 
 ## Create multiple pages
 
-A few things to remember here:
+For each demo, we create a new file inside the `app_pages` folder and add the demo code into it. Each page file is a regular Streamlit script.
 
-1. We can change the ordering of pages in our MPA by adding numbers to the beginning of each Python file. If we add a 1 to the front of our file name, Streamlit will put that file first in the list.
-2. The name of each Streamlit app is determined by the file name, so to change the app name you need to change the file name!
-3. We can add some fun to our app by adding emojis to our file names that will render in our Streamlit app.
-4. Each page will have its own URL, defined by the name of the file.
-
-Check out how we do all this below! For each new page, we create a new file inside the pages folder, and add the appropriate demo code into it.
+Check out the code for each page below!
 
 <br />
 
 <details>
 
-<summary><code>pages/1_📈_Plotting_Demo.py</code></summary>
+<summary><code>app_pages/plotting_demo.py</code></summary>
 
 ```python
 import streamlit as st
 import time
 import numpy as np
-
-st.set_page_config(page_title="Plotting Demo", page_icon="📈")
 
 st.markdown("# Plotting Demo")
 st.sidebar.header("Plotting Demo")
@@ -380,15 +377,13 @@ st.button("Re-run")
 <Image src="/images/mpa-plotting-demo.png" />
 
 <details>
-<summary><code>pages/2_🌍_Mapping_Demo.py</code></summary>
+<summary><code>app_pages/mapping_demo.py</code></summary>
 
 ```python
 import streamlit as st
 import pandas as pd
 import pydeck as pdk
 from urllib.error import URLError
-
-st.set_page_config(page_title="Mapping Demo", page_icon="🌍")
 
 st.markdown("# Mapping Demo")
 st.sidebar.header("Mapping Demo")
@@ -486,15 +481,13 @@ except URLError as e:
 <Image src="/images/mpa-mapping-demo.png" />
 
 <details>
-<summary><code>pages/3_📊_DataFrame_Demo.py</code></summary>
+<summary><code>app_pages/dataframe_demo.py</code></summary>
 
 ```python
 import streamlit as st
 import pandas as pd
 import altair as alt
 from urllib.error import URLError
-
-st.set_page_config(page_title="DataFrame Demo", page_icon="📊")
 
 st.markdown("# DataFrame Demo")
 st.sidebar.header("DataFrame Demo")
@@ -551,17 +544,43 @@ except URLError as e:
 
 <Image src="/images/mpa-dataframe-demo.png" />
 
-With our additional pages created, we can now put it all together in the final step below.
+With our pages created, we can now put it all together.
+
+## Create the entrypoint file
+
+The entrypoint file is the file you pass to `streamlit run`. It defines each page with `st.Page`, connects them with `st.navigation`, and runs the page the user selected. `st.Page` sets the label and icon that appear in the navigation menu and the browser tab. Each page also gets its own URL.
+
+<details open>
+<summary><code>streamlit_app.py</code></summary>
+
+```python
+import streamlit as st
+
+page = st.navigation(
+    [
+        st.Page("app_pages/hello.py", title="Hello", icon="👋"),
+        st.Page("app_pages/plotting_demo.py", title="Plotting demo", icon="📈"),
+        st.Page("app_pages/mapping_demo.py", title="Mapping demo", icon="🌍"),
+        st.Page("app_pages/dataframe_demo.py", title="DataFrame demo", icon="📊"),
+    ]
+)
+page.run()
+```
+
+</details>
+<br />
+
+The first page in the list is the default page that opens when a user visits your app. The order of the list sets the order in the navigation menu, so you can rearrange pages without renaming any files.
 
 ## Run the multipage app
 
 To run your newly converted multipage app, run:
 
 ```bash
-streamlit run Hello.py
+streamlit run streamlit_app.py
 ```
 
-That’s it! The `Hello.py` script now corresponds to the main page of your app, and other scripts that Streamlit finds in the pages folder will also be present in the new page selector that appears in the sidebar.
+That’s it! Streamlit shows a navigation menu in the sidebar with all four pages, and runs the selected page.
 
 <Cloud name="doc-mpa-hello" height="700px" />
 

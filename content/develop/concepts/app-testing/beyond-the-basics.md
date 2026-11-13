@@ -75,7 +75,7 @@ at.secrets["my_key"] = <value provided through API>
 
 The `.session_state` attribute for `AppTest` lets you read and update Session State values using key notation (`at.session_state["my_key"]`) and attribute notation (`at.session_state.my_key`). By manually declaring values in Session State, you can directly jump to a specific state instead of simulating many steps to get there. This is also useful for multipage apps, where you can declare Session State values to simulate a user carrying data from another page.
 
-An instance of `AppTest` renders one page at a time. To test a multipage app, initialize `AppTest` with your app's entrypoint file, which is the file you pass to `streamlit run`. This applies to apps that use `st.navigation` or a `pages/` directory. After the first run, use [`AppTest.switch_page()`](/develop/api-reference/app-testing/st.testing.v1.apptest#apptestswitch_page) to switch to another file-based page. Pass the page's path relative to the entrypoint file. As with widget interactions, you must call `.run()` after switching pages. Session State persists when you switch pages.
+An instance of `AppTest` renders one page at a time. To test a multipage app, initialize `AppTest` with your app's entrypoint file, which is the file you pass to `streamlit run`. This applies to apps that use `st.navigation` or the legacy `pages/` directory. After the first run, use [`AppTest.switch_page()`](/develop/api-reference/app-testing/st.testing.v1.apptest#apptestswitch_page) to switch to another file-based page. Pass the page's path relative to the entrypoint file. As with widget interactions, you must call `.run()` after switching pages. Session State persists when you switch pages.
 
 ### Example: testing a multipage app
 

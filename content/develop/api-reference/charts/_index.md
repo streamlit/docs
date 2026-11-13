@@ -7,11 +7,19 @@ keywords: charts, visualization, echarts, matplotlib, vega-lite, dashboards, cro
 
 # Chart elements
 
-Streamlit's native charts cover nearly every visual a data app or dashboard needs, with no separate charting library to install. Streamlit renders them interactively, styled by your theme: [Vega-Lite](https://vega.github.io/vega-lite/) charts, including simple chart commands such as `st.line_chart` and `st.bar_chart`, [Apache ECharts](https://echarts.apache.org/) with `st.echarts_chart`, Plotly with `st.plotly_chart`, and [deck.gl](https://github.com/uber/deck.gl) maps with `st.pydeck_chart`. You can also show static [Matplotlib](https://matplotlib.org/) figures with `st.pyplot`. Altair, Vega-Lite, ECharts, Plotly, and pydeck charts support selections with `on_select`, so people can click a chart to cross-filter the rest of the page.
+Streamlit's native charts cover nearly every visual a data app or dashboard
+needs. The simple chart commands, like `st.line_chart` and `st.bar_chart`, give
+you a chart from a dataframe in one line. For more control, use
+[Vega-Lite](https://vega.github.io/vega-lite/) through Altair, or
+[Apache ECharts](https://echarts.apache.org/) for chart types like sankey
+diagrams, gauges, and network graphs. Streamlit also supports Plotly,
+Matplotlib, [deck.gl](https://github.com/uber/deck.gl) maps, and Mermaid and
+Graphviz diagrams. Plotly and Matplotlib are optional packages; install them
+with `pip install "streamlit[charts]"`.
 
 <Tip>
 
-Rebuilding visuals from a Power BI or Tableau dashboard? See [Coming from a BI tool?](/develop/concepts/design/dashboards#coming-from-a-bi-tool) for a mapping of BI visuals, filters, and drill-downs to Streamlit.
+Not sure which command to use? See [Choosing and using charts](/develop/concepts/design/charts). Rebuilding visuals from a Power BI or Tableau dashboard? See [Coming from a BI tool?](/develop/concepts/design/dashboards#coming-from-a-bi-tool) for a mapping of BI visuals, filters, and drill-downs to Streamlit.
 
 </Tip>
 
@@ -83,18 +91,6 @@ st.map(my_data_frame)
 ## Advanced chart elements
 
 <TileContainer>
-<RefCard href="/develop/api-reference/charts/st.pyplot">
-<Image pure alt="screenshot" src="/images/api/pyplot.jpg" />
-
-<h4>Matplotlib</h4>
-
-Display a matplotlib.pyplot figure.
-
-```python
-st.pyplot(my_mpl_figure)
-```
-
-</RefCard>
 <RefCard href="/develop/api-reference/charts/st.altair_chart">
 <Image pure alt="screenshot" src="/images/api/vega_lite_chart.jpg" />
 
@@ -104,6 +100,19 @@ Display a chart using the Altair library.
 
 ```python
 st.altair_chart(my_altair_chart)
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/charts/st.echarts_chart">
+
+<Image pure alt="screenshot" src="/images/api/echarts_chart.jpg" />
+
+<h4>ECharts</h4>
+
+Display an interactive Apache ECharts chart, including sankey, gauge, network, and other chart types.
+
+```python
+st.echarts_chart(my_echarts_option)
 ```
 
 </RefCard>
@@ -143,18 +152,6 @@ st.pydeck_chart(my_pydeck_chart)
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/charts/st.graphviz_chart">
-<Image pure alt="screenshot" src="/images/api/graphviz_chart.jpg" />
-
-<h4>GraphViz</h4>
-
-Display a graph using the dagre-d3 library.
-
-```python
-st.graphviz_chart(my_graphviz_spec)
-```
-
-</RefCard>
 <RefCard href="/develop/api-reference/charts/st.mermaid_chart">
 
 <Image pure alt="screenshot" src="/images/api/mermaid_chart.jpg" />
@@ -168,16 +165,27 @@ st.mermaid_chart("graph LR\n  A --> B")
 ```
 
 </RefCard>
-<RefCard href="/develop/api-reference/charts/st.echarts_chart">
+<RefCard href="/develop/api-reference/charts/st.graphviz_chart">
+<Image pure alt="screenshot" src="/images/api/graphviz_chart.jpg" />
 
-<Image pure alt="screenshot" src="/images/api/echarts_chart.jpg" />
+<h4>GraphViz</h4>
 
-<h4>ECharts</h4>
-
-Display a chart using the Apache ECharts library.
+Display a graph using the dagre-d3 library.
 
 ```python
-st.echarts_chart(my_echarts_option)
+st.graphviz_chart(my_graphviz_spec)
+```
+
+</RefCard>
+<RefCard href="/develop/api-reference/charts/st.pyplot">
+<Image pure alt="screenshot" src="/images/api/pyplot.jpg" />
+
+<h4>Matplotlib</h4>
+
+Display a matplotlib.pyplot figure.
+
+```python
+st.pyplot(my_mpl_figure)
 ```
 
 </RefCard>

@@ -7,7 +7,7 @@ keywords: st.page_link, page link, navigation link, multipage navigation, intern
 
 <Tip>
 
-Check out our [tutorial](/develop/tutorials/multipage/st.page_link-nav) to learn about building custom, dynamic menus with `st.page_link`.
+Check out our [tutorial](/develop/tutorials/multipage/dynamic-navigation) to learn about building dynamic navigation menus with `st.navigation` and `st.page_link`.
 
 </Tip>
 

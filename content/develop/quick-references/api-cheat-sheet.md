@@ -148,12 +148,16 @@ st.pyplot(fig)
 st.vega_lite_chart(df, spec)
 
 # Work with user selections
-event = st.plotly_chart(
-    fig,
-    on_select="rerun"
-)
 event = st.altair_chart(
     chart,
+    on_select="rerun"
+)
+event = st.echarts_chart(
+    option,  # With selectedMode or brush
+    on_select="rerun"
+)
+event = st.plotly_chart(
+    fig,
     on_select="rerun"
 )
 event = st.vega_lite_chart(

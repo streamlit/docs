@@ -1,8 +1,8 @@
 ---
 title: Configure and customize your app
 slug: /develop/concepts/configuration
-description: Explore comprehensive guides about configuring and customizing Streamlit apps including theming, HTTPS setup, static file serving, and custom styling.
-keywords: streamlit configuration, app customization, theming, configuration options, https setup, static files, custom styling, app appearance, configuration files
+description: Explore comprehensive guides about configuring and customizing Streamlit apps including theming, HTTPS setup, static file serving, the agent API, and custom styling.
+keywords: streamlit configuration, agent api, mcp, app customization, theming, configuration options, https setup, static files, custom styling, app appearance, configuration files
 ---
 
 # Configure and customize your app
@@ -30,6 +30,14 @@ Understand how to configure SSL and TLS for your Streamlit app.
 <h5>Static file serving</h5>
 
 Understand how to host files alongside your app to make them accessible by URL. Use this if you want to point to files with raw HTML.
+
+</RefCard>
+
+<RefCard href="/develop/concepts/configuration/agent-api-mcp">
+
+<h5>Agent API and MCP server</h5>
+
+Let AI agents and other programs use your app without a browser, over HTTP or as a remote MCP server.
 
 </RefCard>
 
