@@ -20,6 +20,12 @@ For a comprehensive overview of this feature, check out this video tutorial by J
 
 <YouTube videoId="xQwDfW7UHMo" />
 
+<Tip>
+
+To save the results of a user action, such as approvals or edits in a table, see [Edit and write back data](/develop/concepts/design/writeback).
+
+</Tip>
+
 ## Basic usage
 
 For basic startup and usage examples, read up on the relevant [data source tutorial](/develop/tutorials/databases). Streamlit has built-in connections to SQL dialects and Snowflake. We also maintain installable connections for [Cloud File Storage](https://github.com/streamlit/files-connection) and [Google Sheets](https://github.com/streamlit/gsheets-connection).

@@ -71,10 +71,13 @@ export default function Home({ window, menu }) {
           <article>
             <H1>Streamlit documentation</H1>
             <p>
-              <a href="https://www.streamlit.io">Streamlit</a> is an open-source
-              Python framework for data scientists and AI/ML engineers to
-              deliver dynamic data apps with only a few lines of code. Build and
-              deploy powerful data apps in minutes. Let's get started!
+              <a href="https://www.streamlit.io">Streamlit</a> is the
+              agent-native, open-source Python framework for data apps and
+              dashboards. Build apps in Python yourself, or with your coding
+              agent. Apps are plain, readable Python, with no frontend or API
+              layer, and Streamlit handles the interface, state, caching,
+              sign-in, theming, and upgrades. Agents build it. Agents use it.
+              Your team owns it.
             </p>
 
             <Spacer size="2rem" />
@@ -100,6 +103,17 @@ export default function Home({ window, menu }) {
               >
                 with Streamlit! Set up your development environment and learn
                 the fundamental concepts, and start coding!
+              </InlineCallout>
+              <InlineCallout
+                color="indigo-70"
+                icon="smart_toy"
+                bold="Build with AI agents"
+                href="/develop/concepts/ai-agents"
+              >
+                using Streamlit's bundled agent skills. Run{" "}
+                <code>streamlit skills</code> once, ask your coding agent for a
+                Streamlit app, and let other agents use your app as a tool over
+                MCP.
               </InlineCallout>
               <InlineCallout
                 color="indigo-70"

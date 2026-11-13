@@ -7,7 +7,7 @@ keywords: cache_data, caching, data, dataframe, database, ml inference, performa
 
 <Tip>
 
-This page only contains information on the `st.cache_data` API. For a deeper dive into caching and how to use it, check out [Caching](/develop/concepts/architecture/caching).
+This page only contains information on the `st.cache_data` API. For a deeper dive into caching and how to use it, check out [Caching](/develop/concepts/architecture/caching). To keep dashboards fast with `refresh_mode="background"`, see [Build advanced dashboards](/develop/concepts/design/dashboards).
 
 </Tip>
 

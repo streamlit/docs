@@ -19,6 +19,8 @@ To upgrade to the latest version of Streamlit, run:
 pip install --upgrade streamlit
 ```
 
+Breaking changes are extremely rare, so existing apps keep running and gain each release's new features, performance improvements, and security fixes. If you use Streamlit's [agent skills](/develop/api-reference/cli/skills), they update with Streamlit, so your coding agent writes for the version you run.
+
 </Tip>
 
 ## **Version 1.67.0 (latest)**

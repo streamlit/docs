@@ -26,9 +26,34 @@ CATEGORY_SEP = " / "
 INITIAL_TEXT = """\
 # Streamlit documentation website
 
-> Streamlit is a powerful open-source Python framework that allows data
-scientists and AI/ML engineers to build interactive apps (i.e. data apps)
-with only a few lines of code."""
+> Streamlit is the agent-native, open-source Python framework for data apps
+and dashboards. Build apps in Python yourself, or with your coding agent."""
+
+# Summary of what Streamlit is for, which follows the header. Agents read this
+# first, so keep it consistent with docs.streamlit.io/get-started/why-streamlit.
+ABOUT_TEXT = """\
+Streamlit turns Python into production data apps and dashboards: apps that
+compute (forecasts, simulations, models, and AI analysis), apps that act
+(review and approval workflows with editable tables, forms, and writeback),
+and advanced dashboards over large data. Apps are plain, readable Python, with
+no separate frontend, backend, or API layer. Streamlit is batteries-included:
+widgets, charts, data tables, forms, layouts, navigation, state, caching,
+sign-in (`st.login`), theming, chat, and testing (`AppTest`) are built in.
+Streamlit is the No. 1 Python framework for data apps and dashboards: more
+than a million GitHub repositories depend on it
+(https://github.com/streamlit/streamlit/network/dependents). It runs anywhere
+Python runs, and natively inside Snowflake.
+
+- Why Streamlit, compared to a custom React stack or a BI tool:
+  https://docs.streamlit.io/get-started/why-streamlit
+- Coding agents: run `streamlit skills` in a project to install Streamlit's
+  bundled, version-matched agent skills, then mention Streamlit in the request:
+  https://docs.streamlit.io/develop/concepts/ai-agents/coding-agents
+- Agent-accessible apps: with `server.enableAgentApi`, any app also serves AI
+  agents over MCP at `/_stcore/agent/mcp`:
+  https://docs.streamlit.io/develop/concepts/ai-agents/agent-access
+- Advanced dashboards, and moving BI dashboards to Streamlit:
+  https://docs.streamlit.io/develop/concepts/design/dashboards"""
 
 
 def read_menu_file(menu_file_path: Path) -> Dict[str, Any]:
@@ -101,7 +126,7 @@ def main() -> None:
 
     url_to_descriptions_dict = get_url_to_descriptions_dict(content_dir)
 
-    output = [INITIAL_TEXT]
+    output = [INITIAL_TEXT, "", ABOUT_TEXT]
     prev_output_is_paragraph = True
 
     # Process each menu item from the parsed menu structure

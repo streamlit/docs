@@ -320,6 +320,18 @@ You can also set `ttl` values using `timedelta`, e.g., `ttl=datetime.timedelta(h
 
 </Tip>
 
+**The `refresh_mode` parameter**
+
+By default, the first call after the `ttl` expires waits while the function runs again. For dashboards and other apps where people shouldn't wait on a slow query, set `refresh_mode="background"`. Streamlit returns the expired value right away and refreshes it in the background, so the next rerun gets fresh data. This mode requires a `ttl` and can't be used with `persist`.
+
+```python
+@st.cache_data(ttl="15m", refresh_mode="background")  # 👈 Never wait on a stale query
+def get_sales():
+    return run_slow_query(...)
+```
+
+For more patterns that keep large dashboards fast, see [Build advanced dashboards](/develop/concepts/design/dashboards).
+
 **The `max_entries` parameter**
 
 `max_entries` sets the maximum number of entries in the cache. An upper bound on the number of cache entries is useful for limiting memory (problem 1), especially when caching large objects. The oldest entry will be removed when a new entry is added to a full cache. Here's an example:

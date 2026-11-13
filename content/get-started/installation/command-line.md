@@ -104,13 +104,13 @@ computer is properly set up. More specifically, you’ll need:
 
 <Tip>
 
-If you use an AI coding agent, install Streamlit's official agent skills so it follows current Streamlit APIs:
+If you use an AI coding agent, such as Claude Code, Cursor, or Codex, install Streamlit's official agent skills. They match your installed version, so your agent follows current Streamlit APIs and best practices:
 
 ```bash
 streamlit skills
 ```
 
-For details, see [`streamlit skills`](/develop/api-reference/cli/skills).
+Then mention Streamlit in your request, such as "Build a Streamlit dashboard of weekly revenue by region." For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
 
 </Tip>
 
