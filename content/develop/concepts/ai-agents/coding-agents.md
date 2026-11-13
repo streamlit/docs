@@ -19,7 +19,9 @@ Run this command once in your project:
 streamlit skills
 ```
 
-It links the skills into your project's `.agents/skills/` folder, which Cursor, Codex, and other agents read. If Claude Code is installed on your machine, it also links them into `.claude/skills/`. The links point into your Streamlit installation, so the skills always match the version you have installed. When you upgrade Streamlit, your agent gets the updated skills too. Because the links point into your local installation, don't commit them to git. Snowflake CoCo includes the `developing-with-streamlit` skill among its [bundled skills](https://docs.snowflake.com/en/user-guide/cortex-code/bundled-skills), so you can use it in CoCo without running `streamlit skills`.
+It links the skills into your project's `.agents/skills/` folder, which Cursor, Codex, and other agents read. If Claude Code is installed on your machine, it also links them into `.claude/skills/`. The links point into your Streamlit installation, so the skills always match the version you have installed. When you upgrade Streamlit, your agent gets the updated skills too. Because the links point into your local installation, don't commit them to git.
+
+If you use Snowflake CoCo, you don't need to run the command: CoCo includes the `developing-with-streamlit` skill among its [bundled skills](https://docs.snowflake.com/en/user-guide/cortex-code/bundled-skills).
 
 - **When your agent runs the command.** An agent's shell isn't an interactive terminal, so it needs `streamlit skills --yes` to skip the confirmation prompt.
 - **On Windows.** Creating links in your project requires Developer Mode. Without it, the command installs the skills globally instead.
@@ -76,7 +78,7 @@ from streamlit.testing.v1 import AppTest
 
 def test_region_filter():
     at = AppTest.from_file("app.py").run()
-    at.selectbox(key="region").select("Europe").run()
+    at.selectbox(key="region").select("EMEA").run()
     assert not at.exception
     assert at.metric[0].value == "€1.2M"
 ```

@@ -125,7 +125,7 @@ streamlit skills
 
 Use `streamlit skills --global` to install them once for every project on your machine. For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
 
-Your apps can also serve AI agents. When you turn on the experimental agent API, agents can use your app as a tool over MCP, through the same logic as the browser, with no more access than the browser. For details, see [Agent-accessible apps](/develop/concepts/ai-agents/agent-access).
+Your apps can also serve AI agents. When you turn on the experimental agent API, agents can use your app as a tool over MCP, through the same logic as the browser and with no more access. For details, see [Agent-accessible apps](/develop/concepts/ai-agents/agent-access).
 
 ## Custom components
 

@@ -82,4 +82,4 @@ When the [agent API](/develop/concepts/ai-agents/agent-access) is on, an AI agen
 
 ## Test the flow
 
-Writes are worth testing. With [`AppTest`](/develop/concepts/app-testing), you can edit an `st.data_editor`, click the save button, and check what your app wrote, without a browser. Point the app at a test database or mock the connection in your tests.
+Writes are worth testing. With [`AppTest`](/develop/concepts/app-testing), you can set an `st.data_editor`'s edits through `at.session_state`, click the save button, and check what your app wrote, without a browser. Point the app at a test database or mock the connection in your tests.

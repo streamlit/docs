@@ -23,7 +23,7 @@ In short: agents build it, agents use it, and your team owns it.
         icon="hub"
         bold="Agent-accessible apps"
         href="/develop/concepts/ai-agents/agent-access"
-    >explains how AI agents use your Streamlit app as a tool over MCP or HTTP, through the same logic as the browser, with no more access than the browser. Connect your app to Claude, ChatGPT, Cursor, VS Code, Snowflake CoCo, or any MCP client.</InlineCallout>
+    >explains how AI agents use your Streamlit app as a tool over MCP or HTTP, through the same logic as the browser and with no more access. Connect your app to Claude, ChatGPT, Cursor, VS Code, Snowflake CoCo, or any MCP client.</InlineCallout>
 </InlineCalloutContainer>
 
 ## Why agents build Streamlit apps well

@@ -9,7 +9,7 @@ keywords: mcp, model context protocol, mcp server, agent api, ai agents, agent a
 
 Write your business logic once. People get an app, and agents get a tool.
 
-When you turn on the agent API, AI agents and other programs can use your Streamlit app without a browser, over HTTP or as a remote [MCP](https://modelcontextprotocol.io/) server. Agents read the app's tables, charts, and metrics as data, set its widgets, follow multi-step flows, and submit its forms. Everything goes through the same script and the same calculations as a person in the browser, and an agent gets no more access than the browser does. For example, you can ask your forecast app what happens at a 5% price increase from Claude, or let an agent fill in an approval form for your review.
+When you turn on the agent API, AI agents and other programs can use your Streamlit app without a browser, over HTTP or as a remote [MCP](https://modelcontextprotocol.io/) server. Agents read the app's tables, charts, and metrics as data, set its widgets, follow multi-step flows, and submit its forms. Everything goes through the same script and the same calculations as a person in the browser, and an agent gets no more access than the browser does. For example, you can ask Claude what your forecast app predicts at a 5% price increase, or let an agent fill in an approval form for your review.
 
 There's no second API to build, secure, and maintain, and existing apps need no code changes.
 
@@ -103,7 +103,7 @@ Agents run through the app's own caches, connections, and partial reruns. Data t
 
 An agent gets no more access than the app gives a browser:
 
-- The API serves only when `server.enableAgentApi` is on.
+- The API runs the app only when `server.enableAgentApi` is on.
 - It uses the same Host allow-list ([`server.allowedHosts`](/develop/api-reference/configuration/config.toml#server)) as the app's WebSocket.
 - Requests from web pages are refused unless their origin is in [`server.corsAllowedOrigins`](/develop/api-reference/configuration/config.toml#server). MCP clients outside a browser send no origin and aren't affected.
 - An agent can do only what the app's widgets allow. The snapshot's actions list the legal moves.
@@ -131,7 +131,8 @@ On the command line or in an environment variable, pass the same mapping as a JS
 - Custom components, `st.components.v1.html`, and `st.html` with JavaScript aren't rendered for agents.
 - Fragments with `run_every` don't refresh on their own for agents.
 - Each agent session handles one request at a time. A second request to the same session while one is running gets a `409` error.
-- Hosted clients, such as custom connectors in the Claude and ChatGPT apps, can't send credentials for an app behind an authenticating proxy. They expect MCP's OAuth flow, which the agent API doesn't support yet. For the same reason, you can't add a Streamlit app as a custom MCP server in Snowflake's AI Gateway yet; add it to the CoCo CLI directly with `cortex mcp add` instead. Snowflake CoWork and Cortex Agents connect to MCP servers through MCP connectors, which also require OAuth, so they can't use a Streamlit app yet either.
+- Hosted clients, such as custom connectors in the Claude and ChatGPT apps, can't send credentials for an app behind an authenticating proxy. They expect MCP's OAuth flow, which the agent API doesn't support yet.
+- Snowflake's AI Gateway, Snowflake CoWork, and Cortex Agents require OAuth for MCP servers, so they can't use a Streamlit app yet. Add the app to the CoCo CLI directly with `cortex mcp add` instead.
 - Very large snapshots, such as a page with many large charts or a selectbox with thousands of options, can exceed what a chat client accepts in one tool result.
 
 ## Configuration
