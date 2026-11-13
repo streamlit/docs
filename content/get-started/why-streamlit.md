@@ -26,12 +26,16 @@ Streamlit is great for AI and chat apps over your data, ML and model tools, and 
 
 Forecasts with what-if levers, pricing and demand simulators, churn and risk models, and AI analysis over your data. The value is the computation, and it runs in Python next to the data. A custom stack would need a Python backend for it anyway. In Streamlit, the computation and the interface are the same code.
 
+<Cloud name="apps-that-compute-demo" height="640px" />
+
 - Try the demo: [apps-that-compute-demo.streamlit.app](https://apps-that-compute-demo.streamlit.app/)
 - Key features: [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) and [`st.cache_resource`](/develop/api-reference/caching-and-state/st.cache_resource) for expensive computations and models, [`@st.fragment`](/develop/api-reference/execution-flow/st.fragment) to rerun only the part of the page that changed, and [chat elements](/develop/api-reference/chat) for AI assistants inside your app.
 
 ### Apps that act
 
 Review and approval queues, forecast sign-offs, data-quality triage, planning input, and approving what an AI agent proposes. These apps need editable tables, forms, validation, and writeback, so the decision happens in the same app as the data.
+
+<Cloud name="apps-that-act-demo" height="640px" />
 
 - Try the demo: [apps-that-act-demo.streamlit.app](https://apps-that-act-demo.streamlit.app/)
 - Key features: [`st.data_editor`](/develop/api-reference/data/st.data_editor) for editable tables, [`st.form`](/develop/api-reference/execution-flow/st.form) to batch input, [`st.dialog`](/develop/api-reference/execution-flow/st.dialog) for confirmations and side drawers, and [`st.connection`](/develop/api-reference/connections/st.connection) to write decisions back. To learn more, see [Edit and write back data](/develop/concepts/design/writeback).
@@ -42,7 +46,9 @@ KPI and operating dashboards with drill-down, cross-filtered views over large ta
 
 For teams on Power BI or Tableau, move your dashboards to Streamlit, and modernize them on the way. See [Coming from a BI tool?](#coming-from-a-bi-tool)
 
-- Try the demo: [advanced-dashboard-demo.streamlit.app](https://advanced-dashboard-demo.streamlit.app/)
+<Cloud name="bi-dashboard-example" height="640px" />
+
+- Try the demo: [bi-dashboard-example.streamlit.app](https://bi-dashboard-example.streamlit.app/)
 - Key features: lazy-loading [`st.dataframe`](/develop/api-reference/data/st.dataframe), `refresh_mode="background"` for [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data), chart and table selections for cross-filtering, widgets bound to the URL with `bind="query-params"`, and [`st.grid`](/develop/api-reference/layout/st.grid) for responsive layouts. To learn more, see [Build advanced dashboards](/develop/concepts/design/dashboards).
 
 ## Built for coding agents

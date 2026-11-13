@@ -92,6 +92,44 @@ export default function Home({ window, menu }) {
               <Tile size="half" background="unset" color="unset" dark={{ background: "unset", color: 'white', border_color: 'gray-90' }} border_color="gray-40" img="/logo.svg" title="Feature title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/tutorials/get-started" />
             </TileContainer> */}
 
+            <H2 className="no-b-m">See what teams build</H2>
+
+            <TileContainer>
+              <RefCard
+                size="third"
+                href="https://apps-that-compute-demo.streamlit.app/"
+              >
+                <i className="material-icons-sharp">calculate</i>
+                <h4>Apps that compute</h4>
+                <p>
+                  Forecasts, simulations, and models with what-if levers, in
+                  Python next to the data.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="https://apps-that-act-demo.streamlit.app/"
+              >
+                <i className="material-icons-sharp">task_alt</i>
+                <h4>Apps that act</h4>
+                <p>
+                  Review and approval queues with editable tables, forms, and
+                  writeback.
+                </p>
+              </RefCard>
+              <RefCard
+                size="third"
+                href="https://bi-dashboard-example.streamlit.app/"
+              >
+                <i className="material-icons-sharp">dashboard</i>
+                <h4>Advanced dashboards</h4>
+                <p>
+                  Fast, interactive dashboards over large data, with
+                  cross-filtering and drill-down.
+                </p>
+              </RefCard>
+            </TileContainer>
+
             <H2>How to use our docs</H2>
             <InlineCalloutContainer>
               <InlineCallout

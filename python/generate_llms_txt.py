@@ -59,6 +59,9 @@ Snowflake (https://www.snowflake.com/en/product/features/streamlit-in-snowflake/
 - Agent-accessible apps: with `server.enableAgentApi`, any app also serves AI
   agents over MCP at `/_stcore/agent/mcp`:
   https://docs.streamlit.io/develop/concepts/ai-agents/agent-access
+- Live demos: apps that compute (https://apps-that-compute-demo.streamlit.app/),
+  apps that act (https://apps-that-act-demo.streamlit.app/), and an advanced
+  BI dashboard (https://bi-dashboard-example.streamlit.app/).
 - Advanced dashboards, and modernizing Power BI and Tableau dashboards in Streamlit:
   https://docs.streamlit.io/develop/concepts/design/dashboards"""
 

@@ -9,7 +9,9 @@ keywords: writeback, write back, apps that act, editable table, data editor, st.
 
 Most dashboards are read-only. Apps that act let people make the decision in the same app as the data: review and approval queues, forecast sign-offs, data-quality triage, planning input, and approving what an AI agent proposes. In Streamlit, the table people edit, the validation rules, and the write to your database are the same Python script, so your data team can review the whole flow.
 
-To see a complete example, try the [apps that act demo](https://apps-that-act-demo.streamlit.app/).
+To see a complete example, try the [apps that act demo](https://apps-that-act-demo.streamlit.app/):
+
+<Cloud name="apps-that-act-demo" height="640px" />
 
 ## The building blocks
 
