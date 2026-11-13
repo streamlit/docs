@@ -23,10 +23,11 @@ If you build with a coding agent, run [`streamlit skills`](/develop/api-referenc
 
 ## Large data, fast
 
-- **Tables that load as people scroll.** [`st.dataframe`](/develop/api-reference/data/st.dataframe) sends only the rows people are viewing and fetches more as they scroll or sort. Large dataframes load lazily automatically, and the `lazy` parameter lets you choose.
+- **Tables that load as people scroll.** [`st.dataframe`](/develop/api-reference/data/st.dataframe) sends only the rows people are viewing and fetches more as they scroll or sort. Large dataframes load lazily automatically, and the `lazy` parameter lets you choose. Row selections need the full table in the browser, so tables with `on_select` don't load lazily. For very large tables, cross-filter from widgets or charts.
 - **Efficient data transfer.** Tables and charts reach the browser in the columnar Apache Arrow format.
 - **Caching with background refresh.** With `refresh_mode="background"`, [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) returns the cached value right away when its `ttl` expires and refreshes it in the background, so people don't wait for the slow query on every expiry. An expired value is served for at most one extra `ttl` by default. Background refresh doesn't support async functions, but foreground caching does.
 - **Sections that load in parallel.** With `@st.fragment(parallel=True)`, independent sections of a page run concurrently, so the page finishes in about the time of its slowest query. [`st.skeleton`](/develop/api-reference/status/st.skeleton) shows the layout right away while each section loads.
+- **More performance patterns.** For caching, fragments, forms, and other ways to keep an app fast, see [Performance](/develop/concepts/design/performance).
 
 ```python
 import streamlit as st
@@ -63,7 +64,7 @@ with right:
 ## Fast to use
 
 - **Partial reruns.** When people interact with a widget inside a [fragment](/develop/concepts/architecture/fragments), only that fragment reruns. A widget callback can also rerun one named fragment.
-- **Inputs that wait for people to finish.** With `on_change="ignore"`, a widget updates in the browser without rerunning the app, and your script receives the value on the next rerun, such as when people click "Apply". Use [`st.form`](/develop/api-reference/execution-flow/st.form) to batch several inputs into one rerun. Either way, heavy queries run once.
+- **Apply several filters at once.** With `on_change="ignore"`, a widget updates in the browser without rerunning the app, so people can adjust several filters and apply them with one button. Your script receives the values on that rerun. Use [`st.form`](/develop/api-reference/execution-flow/st.form) to batch several inputs into one rerun. Either way, heavy queries run once.
 - **Live data.** Use `@st.fragment(run_every="30s")` to refresh one section of a page on a schedule, without rerunning the rest.
 
 ## Rich interactions
@@ -107,7 +108,7 @@ A button click is only set for the rerun it triggers, so the drawer opens once p
 - **Responsive grids.** [`st.grid`](/develop/api-reference/layout/st.grid) lays out metric cards and dashboard panels that reflow with the available width.
 - **KPI cards.** [`st.metric`](/develop/api-reference/data/st.metric) shows a value, a delta, and an optional sparkline, with a border for a card look.
 - **Navigation and actions.** Use [tabs](/develop/api-reference/layout/st.tabs), [pagination](/develop/api-reference/widgets/st.pagination), and [multipage navigation](/develop/concepts/multipage-apps) for larger dashboards, and [`st.menu_button`](/develop/api-reference/widgets/st.menu_button) for a short list of actions.
-- **Native charts for nearly every visual.** Line, bar, area, and scatter charts, treemaps, sankey and funnel charts, gauges, heatmaps, candlestick charts, network graphs, maps, and diagrams render natively with Vega-Lite, ECharts, Plotly, and deck.gl, styled by your theme. Tables can show in-cell sparklines, bar charts, and progress bars. For the full list, see [chart elements](/develop/api-reference/charts).
+- **Native charts for nearly every visual.** Line, bar, area, and scatter charts, treemaps, sankey and funnel charts, gauges, heatmaps, candlestick charts, network graphs, maps, and diagrams render natively with Vega-Lite, ECharts, Plotly, and deck.gl, styled by your theme. To choose a command, see [Choosing and using charts](/develop/concepts/design/charts). Tables can show in-cell sparklines, bar charts, and progress bars. For the full list, see [chart elements](/develop/api-reference/charts).
 - **Your brand everywhere.** [Theme](/develop/concepts/configuration/theming) Streamlit with your colors, fonts, chart palettes, and spacing, and share that theme across all your dashboards.
 
 ```python

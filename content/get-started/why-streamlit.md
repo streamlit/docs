@@ -59,7 +59,7 @@ Agents take part in every stage of an app's life, and Streamlit supports each on
 - **Check.** Agents drive the running app without a browser or screenshots. They set widget values and read the tables, charts, and metrics back as data. They can also leave behind [`AppTest`](/develop/concepts/app-testing) tests that run in CI.
 - **Own.** Upgrades improve every app at once, security fixes included. Breaking changes are extremely rare, so apps keep running on new releases for years. To bring an older app up to date, ask your coding agent: `/developing-with-streamlit Modernize my app`.
 - **Run.** One Python process, with no build step. Run it on Snowflake, in your own cloud, or on Community Cloud, with built-in sign-in through [`st.login`](/develop/api-reference/user/st.login).
-- **Use.** With the experimental agent API, any app can also serve AI agents over MCP or HTTP, limited to exactly what the app shows its users. Connect it to Claude, ChatGPT, Cursor, VS Code, Snowflake CoCo, or any MCP client, with no second API to build, secure, and maintain.
+- **Use.** With the experimental agent API, any app can also serve AI agents over MCP or HTTP, with no more access than the browser. Connect it to Claude Code, Cursor, VS Code, Snowflake CoCo, or any MCP client, or, for publicly reachable apps, to Claude and ChatGPT as a custom connector. There's no second API to build, secure, and maintain.
 
 To learn more, see [Build with AI agents](/develop/concepts/ai-agents).
 
@@ -152,7 +152,7 @@ Run [`streamlit skills`](/develop/api-reference/cli/skills) once in your project
 
 ### Can AI agents use my Streamlit apps?
 
-Yes. Turn on the experimental [`server.enableAgentApi`](/develop/api-reference/configuration/config.toml#server) option, and agents can use your app over HTTP or as a remote MCP server. They read its tables and charts as data, set its filters, and submit its forms, through the same logic as a person in the browser, and with no more access than the browser. Add the app's URL to Claude, ChatGPT, Cursor, VS Code, Snowflake CoCo, or any MCP client. Existing apps need no code changes. To learn more, see [Agent-accessible apps](/develop/concepts/ai-agents/agent-access).
+Yes. Turn on the experimental [`server.enableAgentApi`](/develop/api-reference/configuration/config.toml#server) option, and agents can use your app over HTTP or as a remote MCP server. They read its tables and charts as data, set its filters, and submit its forms, through the same logic as a person in the browser, and with no more access than the browser. Add the app's URL to Claude Code, Cursor, VS Code, Snowflake CoCo, or any MCP client. Claude and ChatGPT custom connectors need a publicly reachable app without sign-in. Existing apps need no code changes. To learn more, see [Agent-accessible apps](/develop/concepts/ai-agents/agent-access).
 
 ### Can Streamlit build advanced, interactive dashboards?
 
@@ -172,11 +172,11 @@ Use [`st.data_editor`](/develop/api-reference/data/st.data_editor) and [`st.form
 
 ### Is Streamlit fast enough for large datasets?
 
-Yes. [`st.dataframe`](/develop/api-reference/data/st.dataframe) loads rows lazily as people scroll, and data reaches the browser in an efficient columnar format. Cached data can refresh in the background, page sections can load in parallel with `@st.fragment(parallel=True)`, and inputs with `on_change="ignore"` wait until the viewer has finished choosing. The bundled agent skills teach coding agents these patterns.
+Yes. [`st.dataframe`](/develop/api-reference/data/st.dataframe) loads rows lazily as people scroll, and data reaches the browser in an efficient columnar format. Cached data can refresh in the background, page sections can load in parallel with `@st.fragment(parallel=True)`, and inputs with `on_change="ignore"` update without rerunning the app, so people can adjust several filters and apply them with one button. Row selections need the full table in the browser, so for very large tables, cross-filter from widgets or charts. The bundled agent skills teach coding agents these patterns.
 
 ### Do I need a separate charting library?
 
-No. Streamlit's native charts cover nearly every visual a data app or dashboard needs, and they all follow your theme:
+Usually not. Streamlit's native charts cover nearly every visual a data app or dashboard needs, and they all follow your theme. Vega-Lite, ECharts, and deck.gl charts work out of the box. Plotly charts need the `plotly` package, which `pip install "streamlit[charts]"` installs:
 
 - **Charts:** line, bar, area, scatter, and pie charts, heatmaps, treemaps, sankey and funnel charts, gauges, candlestick charts, and network graphs, with [`st.altair_chart`](/develop/api-reference/charts/st.altair_chart) for Vega-Lite, [`st.echarts_chart`](/develop/api-reference/charts/st.echarts_chart) for ECharts, [`st.plotly_chart`](/develop/api-reference/charts/st.plotly_chart) for Plotly, and simple chart commands such as [`st.line_chart`](/develop/api-reference/charts/st.line_chart) and [`st.bar_chart`](/develop/api-reference/charts/st.bar_chart) for a quick look at a dataframe.
 - **Maps:** point maps with [`st.map`](/develop/api-reference/charts/st.map), and layered and 3D maps with [`st.pydeck_chart`](/develop/api-reference/charts/st.pydeck_chart).
