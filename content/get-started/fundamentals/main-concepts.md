@@ -20,7 +20,7 @@ is your canvas, where you'll draw charts, text, widgets, tables, and more.
 
 <Tip>
 
-Building with a coding agent, such as Claude Code, Cursor, or Codex? Run `streamlit skills` in your project, and your agent learns these concepts and Streamlit's current best practices for the version you installed. For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
+Building with a coding agent, such as Claude Code, Cursor, Codex, or Snowflake CoCo? Run `streamlit skills` in your project, and your agent learns these concepts and Streamlit's current best practices for the version you installed. For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
 
 </Tip>
 

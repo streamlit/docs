@@ -17,13 +17,13 @@ In short: agents build it, agents use it, and your team owns it.
         icon="smart_toy"
         bold="Build with coding agents"
         href="/develop/concepts/ai-agents/coding-agents"
-    >explains how to set up Claude Code, Cursor, Codex, and other coding agents with Streamlit's bundled expert skills, how to prompt them, and how they check their work without a browser.</InlineCallout>
+    >explains how to set up Claude Code, Cursor, Codex, Snowflake CoCo, and other coding agents with Streamlit's bundled expert skills, how to prompt them, and how they check their work without a browser.</InlineCallout>
     <InlineCallout
         color="indigo-70"
         icon="hub"
         bold="Agent-accessible apps"
         href="/develop/concepts/ai-agents/agent-access"
-    >explains how AI agents use your Streamlit app as a tool over MCP or HTTP, through the same logic as the browser, with no more access than the browser. Connect your app to Claude, ChatGPT, Cursor, VS Code, or any MCP client.</InlineCallout>
+    >explains how AI agents use your Streamlit app as a tool over MCP or HTTP, through the same logic as the browser, with no more access than the browser. Connect your app to Claude, ChatGPT, Cursor, VS Code, Snowflake CoCo, or any MCP client.</InlineCallout>
 </InlineCalloutContainer>
 
 ## Why agents build Streamlit apps well

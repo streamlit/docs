@@ -1,7 +1,7 @@
 ---
 title: Agent-accessible apps
 slug: /develop/concepts/ai-agents/agent-access
-description: Let AI agents use your Streamlit app as a tool over MCP or HTTP. Connect an app to Claude, ChatGPT, Cursor, VS Code, or Claude Code, and agents read its tables and charts as data, set its filters, and submit its forms through the app's own logic, with no more access than the browser.
+description: Let AI agents use your Streamlit app as a tool over MCP or HTTP. Connect an app to Claude, ChatGPT, Claude Code, Cursor, VS Code, or Snowflake CoCo, and agents read its tables and charts as data, set its filters, and submit its forms through the app's own logic, with no more access than the browser.
 keywords: mcp, model context protocol, mcp server, agent api, ai agents, agent access, claude, chatgpt, custom connector, cursor, vs code, claude code, ai tools, llm tools, enableAgentApi, agent-accessible apps
 ---
 
@@ -39,11 +39,11 @@ enableAgentApi = true
 
 The agent API uses these routes next to the app itself:
 
-| Route                         | Purpose                                                                                      |
-| ----------------------------- | -------------------------------------------------------------------------------------------- |
-| `/_stcore/agent/mcp`          | A remote MCP server for Claude, ChatGPT, Cursor, VS Code, Claude Code, and other MCP clients |
-| `/_stcore/agent/interact`     | The same operation over plain HTTP `POST`, for scripts and coding agents with a shell        |
-| `/_stcore/agent/openapi.json` | A description of the protocol for the running Streamlit version, and whether the API is on   |
+| Route                         | Purpose                                                                                                      |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `/_stcore/agent/mcp`          | A remote MCP server for Claude, ChatGPT, Claude Code, Cursor, VS Code, Snowflake CoCo, and other MCP clients |
+| `/_stcore/agent/interact`     | The same operation over plain HTTP `POST`, for scripts and coding agents with a shell                        |
+| `/_stcore/agent/openapi.json` | A description of the protocol for the running Streamlit version, and whether the API is on                   |
 
 The routes respect `server.baseUrlPath`. They answer even while the API is off, so a client can check whether it's on, but they only run the app while it's on.
 
@@ -67,13 +67,19 @@ In Cursor's `mcp.json`:
 }
 ```
 
+In the Snowflake CoCo CLI:
+
+```bash
+cortex mcp add revenue http://localhost:8501/_stcore/agent/mcp --type http
+```
+
 In the Claude and ChatGPT apps, add the URL as a custom connector.
 
 Which clients can reach your app depends on where it runs:
 
 | App                            | Reachable from                                                                                                                                                                  |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Running locally                | Clients that run on your machine, such as Claude Code, Cursor, and VS Code. This is the usual setup while an agent builds and checks an app.                                    |
+| Running locally                | Clients that run on your machine, such as Claude Code, Cursor, VS Code, and the Snowflake CoCo CLI. This is the usual setup while an agent builds and checks an app.            |
 | Deployed and public            | Any client, including custom connectors in the Claude and ChatGPT apps, which connect from their provider's servers. These need a publicly reachable URL, typically over HTTPS. |
 | Behind an authenticating proxy | Clients that can send the proxy's credentials as headers, which most desktop clients let you configure.                                                                         |
 
@@ -125,7 +131,7 @@ On the command line or in an environment variable, pass the same mapping as a JS
 - Custom components, `st.components.v1.html`, and `st.html` with JavaScript aren't rendered for agents.
 - Fragments with `run_every` don't refresh on their own for agents.
 - Each agent session handles one request at a time. A second request to the same session while one is running gets a `409` error.
-- Hosted clients, such as custom connectors in the Claude and ChatGPT apps, can't send credentials for an app behind an authenticating proxy. They expect MCP's OAuth flow, which the agent API doesn't support yet.
+- Hosted clients, such as custom connectors in the Claude and ChatGPT apps, can't send credentials for an app behind an authenticating proxy. They expect MCP's OAuth flow, which the agent API doesn't support yet. For the same reason, you can't add a Streamlit app as a custom MCP server in Snowflake's AI Gateway yet; add it to the CoCo CLI directly with `cortex mcp add` instead.
 - Very large snapshots, such as a page with many large charts or a selectbox with thousands of options, can exceed what a chat client accepts in one tool result.
 
 ## Configuration

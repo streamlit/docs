@@ -40,7 +40,7 @@ _playground_!)
 
 <Tip>
 
-If you use an AI coding agent, such as Claude Code, Cursor, or Codex, install Streamlit's official agent skills. They match your installed version, so your agent follows current Streamlit APIs and best practices:
+If you use an AI coding agent, such as Claude Code, Cursor, Codex, or Snowflake CoCo, install Streamlit's official agent skills. They match your installed version, so your agent follows current Streamlit APIs and best practices:
 
 ```bash
 streamlit skills

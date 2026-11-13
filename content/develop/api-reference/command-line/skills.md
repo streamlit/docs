@@ -1,7 +1,7 @@
 ---
 title: streamlit skills
 slug: /develop/api-reference/cli/skills
-description: streamlit skills installs Streamlit's bundled, version-matched expert skills for AI coding agents such as Claude Code, Cursor, and Codex, so they build Streamlit apps with current APIs and best practices.
+description: streamlit skills installs Streamlit's bundled, version-matched expert skills for AI coding agents such as Claude Code, Cursor, Codex, and Snowflake CoCo, so they build Streamlit apps with current APIs and best practices.
 keywords: streamlit skills, cli, command line, ai agent, coding agent, skills, install skills, agent skills, claude code, cursor, codex, .agents, .claude
 ---
 

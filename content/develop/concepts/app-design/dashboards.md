@@ -164,7 +164,12 @@ Looker, Sigma, and Qlik use similar concepts: filters become widgets, measures a
 
 ### Rebuild a dashboard with a coding agent
 
-Streamlit doesn't convert BI reports automatically. A coding agent rebuilds each dashboard as plain Python, and your data team reviews it. Give the agent what defines the original:
+Streamlit itself doesn't convert BI reports. A coding agent rebuilds each dashboard as plain Python, and your data team reviews it. On Snowflake, CoCo has [bundled skills](https://docs.snowflake.com/en/user-guide/cortex-code/bundled-skills) for this:
+
+- `tableau-to-streamlit-in-snowflake` converts a Tableau workbook or data source file (`.twb`, `.twbx`, `.tds`, or `.tdsx`) into a Streamlit in Snowflake app. It translates the workbook's calculations into Snowflake SQL, and maps its filters, parameters, and actions to widgets and chart selections.
+- `agent-studio` creates Snowflake semantic views from Tableau or Power BI files, so the rebuilt dashboard can use governed metrics.
+
+With any coding agent, including Claude Code, Cursor, Codex, and CoCo, give the agent what defines the original:
 
 - **Screenshots** of each page, so the agent can match the layout and visuals.
 - **Metric definitions.** In Power BI, save the report as a Power BI Project (`.pbip`), which stores the report and semantic model, including DAX measures, as text files. In Tableau, use the workbook (`.twb`), which is an XML file that includes calculated fields and filters. A packaged workbook (`.twbx`) is a zip archive that contains the `.twb`.

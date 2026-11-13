@@ -1,7 +1,7 @@
 ---
 title: Build with coding agents
 slug: /develop/concepts/ai-agents/coding-agents
-description: Set up Claude Code, Cursor, Codex, and other coding agents to build Streamlit apps. Install Streamlit's bundled, version-matched agent skills with one command, write prompts that load them, and let agents check the running app and leave tests behind.
+description: Set up Claude Code, Cursor, Codex, Snowflake CoCo, and other coding agents to build Streamlit apps. Install Streamlit's bundled, version-matched agent skills with one command, write prompts that load them, and let agents check the running app and leave tests behind.
 keywords: coding agents, ai coding, claude code, cursor, codex, copilot, agent skills, streamlit skills, AGENTS.md, prompts, vibe coding, ai generated apps, app testing, agent api, verify app
 ---
 
@@ -19,7 +19,7 @@ Run this command once in your project:
 streamlit skills
 ```
 
-It links the skills into your project's `.agents/skills/` folder, which Cursor, Codex, and other agents read. If Claude Code is installed on your machine, it also links them into `.claude/skills/`. The links point into your Streamlit installation, so the skills always match the version you have installed. When you upgrade Streamlit, your agent gets the updated skills too. Because the links point into your local installation, don't commit them to git.
+It links the skills into your project's `.agents/skills/` folder, which Cursor, Codex, and other agents read. If Claude Code is installed on your machine, it also links them into `.claude/skills/`. The links point into your Streamlit installation, so the skills always match the version you have installed. When you upgrade Streamlit, your agent gets the updated skills too. Because the links point into your local installation, don't commit them to git. Snowflake CoCo includes the `developing-with-streamlit` skill among its [bundled skills](https://docs.snowflake.com/en/user-guide/cortex-code/bundled-skills), so you can use it in CoCo without running `streamlit skills`.
 
 - **When your agent runs the command.** An agent's shell isn't an interactive terminal, so it needs `streamlit skills --yes` to skip the confirmation prompt.
 - **On Windows.** Creating links in your project requires Developer Mode. Without it, the command installs the skills globally instead.
