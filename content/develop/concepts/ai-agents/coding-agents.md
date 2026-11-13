@@ -7,7 +7,7 @@ keywords: coding agents, ai coding, claude code, cursor, codex, copilot, agent s
 
 # Build with coding agents
 
-Coding agents now write most data apps. Streamlit gives them a compact API they already know, expert skills that ship with every release, and a way to check the running app without a browser. This guide shows how to set up your agent and get the most out of it.
+Coding agents write a growing share of data apps. Streamlit gives them a compact API they already know, expert skills that ship with every release, and a way to check the running app without a browser. This guide shows how to set up your agent and get the most out of it.
 
 ## Install the agent skills
 
@@ -19,7 +19,7 @@ Run this command once in your project:
 streamlit skills
 ```
 
-It links the skills into your project's `.agents/skills/` folder, which Cursor, Codex, and other agents read. If Claude Code is installed on your machine, it also links them into `.claude/skills/`. The links point into your Streamlit installation, so the skills always match the version you have installed. When you upgrade Streamlit, your agent gets the updated skills too. Because the links point into your local installation, don't commit them to git.
+It links the skills into your project's `.agents/skills/` folder, which Cursor, Codex, and other agents read. If Claude Code is installed on your machine, it also links them into `.claude/skills/`. The links point into your Streamlit installation, so the skills always match the version you have installed. When you upgrade Streamlit, your agent gets the updated skills too. Because the links point into your local installation, don't commit them to git. The command prints a `.gitignore` snippet for them.
 
 If you use Snowflake CoCo, you don't need to run the command: CoCo includes the `developing-with-streamlit` skill among its [bundled skills](https://docs.snowflake.com/en/user-guide/cortex-code/bundled-skills).
 
@@ -90,6 +90,6 @@ A typical loop is to edit the app, check it with the agent API, and then keep th
 Generating an app is cheap. Owning it isn't. Streamlit keeps the cost of owning many agent-built apps low:
 
 - **The reviewer is the new primary user.** Agents write the code, and you answer for it. A Streamlit app keeps the query, the logic, and the number on screen side by side in plain Python, so the people accountable for it can actually read it.
-- **Upgrades, not migrations.** Breaking changes are extremely rare, and APIs are removed only in exceptional cases, after deprecation warnings and with a clear migration path. Bump one version, and every app gets new features, performance improvements, and security fixes, without per-app framework migrations.
+- **Upgrades, not migrations.** Breaking changes are extremely rare. Bump one version, and every app gets new features, performance improvements, and security fixes, without per-app framework migrations.
 - **One experience everywhere.** Share one [theme](/develop/concepts/configuration/theming) across all your apps, and filtering, sorting, editing, and navigating work the same way in every app.
 - **Always-current guidance.** The skills improve with every release, so every app that agents build or change afterward improves too.

@@ -26,7 +26,7 @@ Streamlit is the agent-native data app framework. Agents build each app in plain
 
 ## Why agents build Streamlit apps well
 
-- **A compact API that models already know.** More than a million public repositories depend on Streamlit, so models have learned from more Streamlit apps than from any other Python data app framework.
+- **A compact API that models already know.** More than a million public repositories depend on Streamlit, so models have seen many Streamlit apps and know its API well.
 - **Expert skills in every release.** The bundled agent skills are written by the team that builds Streamlit and match the version you installed, so agents write for the version you actually run.
 - **One layer instead of three.** An app is plain Python, with no frontend, backend, or API contract between them. That's a fraction of the code a custom stack needs, so it takes fewer tokens to write and has fewer places to break.
 - **Batteries included.** Widgets, charts, data tables, forms, layouts, navigation, state, caching, sign-in, theming, chat, and testing are built in and work together. Agents don't pick a different combination of libraries on every run.

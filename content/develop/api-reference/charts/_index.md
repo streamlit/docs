@@ -9,8 +9,6 @@ keywords: charts, visualization, echarts, matplotlib, vega-lite, dashboards, cro
 
 Streamlit's native charts cover nearly every visual a data app or dashboard needs, with no separate charting library to install. Streamlit renders them interactively, styled by your theme: [Vega-Lite](https://vega.github.io/vega-lite/) charts, including simple chart commands such as `st.line_chart` and `st.bar_chart`, [Apache ECharts](https://echarts.apache.org/) with `st.echarts_chart`, Plotly with `st.plotly_chart`, and [deck.gl](https://github.com/uber/deck.gl) maps with `st.pydeck_chart`. You can also show static [Matplotlib](https://matplotlib.org/) figures with `st.pyplot`. Altair, Vega-Lite, ECharts, Plotly, and pydeck charts support selections with `on_select`, so people can click a chart to cross-filter the rest of the page.
 
-For new charts, start with the simple chart commands or `st.altair_chart`, and use `st.echarts_chart` for large datasets or data that changes often.
-
 <Tip>
 
 Rebuilding visuals from a Power BI or Tableau dashboard? See [Coming from a BI tool?](/develop/concepts/design/dashboards#coming-from-a-bi-tool) for a mapping of BI visuals, filters, and drill-downs to Streamlit.
