@@ -124,7 +124,7 @@ Streamlit gives developers freedom and the enterprise guardrails. Developers wri
 
 ## Best on Snowflake
 
-Streamlit is Snowflake's native framework for data apps. Snowflake CoCo, Snowflake's coding agent, builds Streamlit apps from a request in plain words, with the `developing-with-streamlit` skill bundled. In [Streamlit in Snowflake](/deploy/snowflake), apps run inside Snowflake, so your data stays on the platform under Snowflake's access controls. An app runs with its owner's rights, or with [caller's rights](/develop/api-reference/connections/st.connections.snowflakeconnection) on the container runtime, so each viewer sees only the data they may see. Apps can query governed metrics and call Cortex AI. Everything also works with any database and any cloud: Snowflake is the best place to run Streamlit, not the only one.
+Streamlit is Snowflake's native framework for data apps. Snowflake CoCo, Snowflake's coding agent, builds Streamlit apps from a request in plain words, with the `developing-with-streamlit` skill bundled. In [Streamlit in Snowflake](/deploy/snowflake), apps run inside Snowflake, so your data stays on the platform under Snowflake's access controls. An app runs with its owner's rights, or with [caller's rights](/develop/api-reference/connections/st.connections.snowflakeconnection) on the container runtime, so each viewer sees only the data they may see. Apps can query governed metrics and call Cortex AI. To learn more, see the [Streamlit in Snowflake product page](https://www.snowflake.com/en/product/features/streamlit-in-snowflake/). Everything also works with any database and any cloud: Snowflake is the best place to run Streamlit, not the only one.
 
 ## Frequently asked questions
 
@@ -155,6 +155,18 @@ Yes. You get tables that stay responsive over large data, cross-filtering and dr
 ### Is Streamlit fast enough for large datasets?
 
 Yes. [`st.dataframe`](/develop/api-reference/data/st.dataframe) loads rows lazily as people scroll, and data reaches the browser in an efficient columnar format. Cached data can refresh in the background, page sections can load in parallel with `@st.fragment(parallel=True)`, and inputs with `on_change="ignore"` wait until the viewer has finished choosing. The bundled agent skills teach coding agents these patterns.
+
+### Do I need a separate charting library?
+
+No. Streamlit's native charts cover nearly every visual a data app or dashboard needs, and they all follow your theme:
+
+- **Everyday charts:** line, bar, area, and scatter charts with [`st.line_chart`](/develop/api-reference/charts/st.line_chart), [`st.bar_chart`](/develop/api-reference/charts/st.bar_chart), and the other simple chart commands, or any Vega-Lite chart with [`st.altair_chart`](/develop/api-reference/charts/st.altair_chart).
+- **Advanced charts:** treemaps, sankey and funnel charts, gauges, heatmaps, candlestick charts, and network graphs with [`st.echarts_chart`](/develop/api-reference/charts/st.echarts_chart), plus [`st.plotly_chart`](/develop/api-reference/charts/st.plotly_chart) for Plotly figures.
+- **Maps:** point maps with [`st.map`](/develop/api-reference/charts/st.map), and layered and 3D maps with [`st.pydeck_chart`](/develop/api-reference/charts/st.pydeck_chart).
+- **Diagrams:** [`st.graphviz_chart`](/develop/api-reference/charts/st.graphviz_chart) and [`st.mermaid_chart`](/develop/api-reference/charts/st.mermaid_chart).
+- **KPIs and tables:** [`st.metric`](/develop/api-reference/data/st.metric) with sparklines, and [`st.dataframe`](/develop/api-reference/data/st.dataframe) with in-cell charts, progress bars, and images through [column configuration](/develop/api-reference/data/st.column_config).
+
+Most interactive charts support selections for cross-filtering, and every chart accepts `alt` text for screen readers. To see them all, browse the [chart elements](/develop/api-reference/charts).
 
 ### Can I use React in a Streamlit app?
 

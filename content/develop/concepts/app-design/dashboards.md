@@ -105,7 +105,7 @@ A button click is only set for the rerun it triggers, so the drawer opens once p
 - **Responsive grids.** [`st.grid`](/develop/api-reference/layout/st.grid) lays out metric cards and dashboard panels that reflow with the available width.
 - **KPI cards.** [`st.metric`](/develop/api-reference/data/st.metric) shows a value, a delta, and an optional sparkline, with a border for a card look.
 - **Navigation and actions.** Use [tabs](/develop/api-reference/layout/st.tabs), [pagination](/develop/api-reference/widgets/st.pagination), and [multipage navigation](/develop/concepts/multipage-apps) for larger dashboards, and [`st.menu_button`](/develop/api-reference/widgets/st.menu_button) for a short list of actions.
-- **Native charts.** Streamlit renders Vega-Lite, Plotly, and ECharts charts natively, styled by your theme.
+- **Native charts for nearly every visual.** Line, bar, area, and scatter charts, treemaps, sankey and funnel charts, gauges, heatmaps, candlestick charts, network graphs, maps, and diagrams render natively with Vega-Lite, ECharts, Plotly, and deck.gl, styled by your theme. Tables can show in-cell sparklines, bar charts, and progress bars. For the full list, see [chart elements](/develop/api-reference/charts).
 - **Your brand everywhere.** [Theme](/develop/concepts/configuration/theming) Streamlit with your colors, fonts, chart palettes, and spacing, and share that theme across all your dashboards.
 
 ```python
@@ -166,7 +166,7 @@ Looker, Sigma, and Qlik use similar concepts: filters become widgets, measures a
 
 Streamlit itself doesn't convert BI reports. A coding agent rebuilds each dashboard as plain Python, and your data team reviews it. On Snowflake, CoCo has [bundled skills](https://docs.snowflake.com/en/user-guide/cortex-code/bundled-skills) for this:
 
-- `tableau-to-streamlit-in-snowflake` converts a Tableau workbook or data source file (`.twb`, `.twbx`, `.tds`, or `.tdsx`) into a Streamlit in Snowflake app. It translates the workbook's calculations into Snowflake SQL, and maps its filters, parameters, and actions to widgets and chart selections.
+- `tableau-to-streamlit-in-snowflake` converts a Tableau workbook or data source file (`.twb`, `.twbx`, `.tds`, or `.tdsx`) into a [Streamlit in Snowflake](https://www.snowflake.com/en/product/features/streamlit-in-snowflake/) app. It translates the workbook's calculations into Snowflake SQL, and maps its filters, parameters, and actions to widgets and chart selections.
 - `agent-studio` creates Snowflake semantic views from Tableau or Power BI files, so the rebuilt dashboard can use governed metrics.
 
 With any coding agent, including Claude Code, Cursor, Codex, and CoCo, give the agent what defines the original:

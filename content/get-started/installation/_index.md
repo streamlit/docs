@@ -94,7 +94,7 @@ of installing Python and setting up an environment.
 
 ### Option 2: I need something secure, controlled, and in the cloud
 
-Use Streamlit in Snowflake to code your apps in the cloud, right alongside your
+Use [Streamlit in Snowflake](https://www.snowflake.com/en/product/features/streamlit-in-snowflake/) to code your apps in the cloud, right alongside your
 data with role-based access controls.
 
 <IconLink

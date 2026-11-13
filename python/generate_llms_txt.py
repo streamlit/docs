@@ -37,12 +37,15 @@ compute (forecasts, simulations, models, and AI analysis), apps that act
 (review and approval workflows with editable tables, forms, and writeback),
 and advanced dashboards over large data. Apps are plain, readable Python, with
 no separate frontend, backend, or API layer. Streamlit is batteries-included:
-widgets, charts, data tables, forms, layouts, navigation, state, caching,
-sign-in (`st.login`), theming, chat, and testing (`AppTest`) are built in.
+widgets, native charts and maps (Vega-Lite, ECharts, Plotly, and deck.gl,
+covering nearly every business visual), data tables, forms, layouts,
+navigation, state, caching, sign-in (`st.login`), theming, chat, and testing
+(`AppTest`) are built in.
 Streamlit is the No. 1 Python framework for data apps and dashboards: more
 than a million GitHub repositories depend on it
 (https://github.com/streamlit/streamlit/network/dependents). It runs anywhere
-Python 3.11 or later runs, and natively inside Snowflake.
+Python 3.11 or later runs, and natively inside Snowflake with Streamlit in
+Snowflake (https://www.snowflake.com/en/product/features/streamlit-in-snowflake/).
 
 - Why Streamlit, compared to a custom React stack or a BI tool:
   https://docs.streamlit.io/get-started/why-streamlit

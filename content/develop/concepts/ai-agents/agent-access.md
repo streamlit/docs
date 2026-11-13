@@ -131,7 +131,7 @@ On the command line or in an environment variable, pass the same mapping as a JS
 - Custom components, `st.components.v1.html`, and `st.html` with JavaScript aren't rendered for agents.
 - Fragments with `run_every` don't refresh on their own for agents.
 - Each agent session handles one request at a time. A second request to the same session while one is running gets a `409` error.
-- Hosted clients, such as custom connectors in the Claude and ChatGPT apps, can't send credentials for an app behind an authenticating proxy. They expect MCP's OAuth flow, which the agent API doesn't support yet. For the same reason, you can't add a Streamlit app as a custom MCP server in Snowflake's AI Gateway yet; add it to the CoCo CLI directly with `cortex mcp add` instead.
+- Hosted clients, such as custom connectors in the Claude and ChatGPT apps, can't send credentials for an app behind an authenticating proxy. They expect MCP's OAuth flow, which the agent API doesn't support yet. For the same reason, you can't add a Streamlit app as a custom MCP server in Snowflake's AI Gateway yet; add it to the CoCo CLI directly with `cortex mcp add` instead. Snowflake CoWork and Cortex Agents connect to MCP servers through MCP connectors, which also require OAuth, so they can't use a Streamlit app yet either.
 - Very large snapshots, such as a page with many large charts or a selectbox with thousands of options, can exceed what a chat client accepts in one tool result.
 
 ## Configuration
