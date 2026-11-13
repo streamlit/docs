@@ -42,7 +42,7 @@ sign-in (`st.login`), theming, chat, and testing (`AppTest`) are built in.
 Streamlit is the No. 1 Python framework for data apps and dashboards: more
 than a million GitHub repositories depend on it
 (https://github.com/streamlit/streamlit/network/dependents). It runs anywhere
-Python runs, and natively inside Snowflake.
+Python 3.11 or later runs, and natively inside Snowflake.
 
 - Why Streamlit, compared to a custom React stack or a BI tool:
   https://docs.streamlit.io/get-started/why-streamlit

@@ -15,7 +15,7 @@ To see these features together, try the [advanced dashboard demo](https://advanc
 
 <Tip>
 
-If you build with a coding agent, run [`streamlit skills`](/develop/api-reference/cli/skills) in your project and mention Streamlit in your request. The bundled skills include dashboard templates and apply the patterns on this page automatically.
+If you build with a coding agent, run [`streamlit skills`](/develop/api-reference/cli/skills) in your project and mention Streamlit in your request. The bundled skills include dashboard templates and teach your agent the patterns on this page.
 
 </Tip>
 
@@ -23,7 +23,7 @@ If you build with a coding agent, run [`streamlit skills`](/develop/api-referenc
 
 - **Tables that load as people scroll.** [`st.dataframe`](/develop/api-reference/data/st.dataframe) sends only the rows people are viewing and fetches more as they scroll or sort. Large dataframes load lazily automatically, and the `lazy` parameter lets you choose.
 - **Efficient data transfer.** Tables and charts reach the browser in the columnar Apache Arrow format.
-- **Caching with background refresh.** With `refresh_mode="background"`, [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) returns the cached value right away when its `ttl` expires and refreshes it in the background, so nobody waits on a stale query. Caching works with async functions too.
+- **Caching with background refresh.** With `refresh_mode="background"`, [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) returns the cached value right away when its `ttl` expires and refreshes it in the background, so people don't wait for the slow query on every expiry. By default, an expired value is served for at most one extra `ttl`; after that, the next call waits for fresh data. Caching also works with async functions, with the default foreground refresh.
 - **Sections that load in parallel.** With `@st.fragment(parallel=True)`, independent sections of a page run concurrently, so the page finishes in about the time of its slowest query. [`st.skeleton`](/develop/api-reference/status/st.skeleton) shows the layout right away while each section loads.
 
 ```python
@@ -73,12 +73,23 @@ with right:
 ```python
 import streamlit as st
 
-@st.dialog("Order details", position="right")
+@st.cache_data(ttl="15m")
+def load_orders(region):
+    ...  # Query the orders for a region
+
+def clear_selection():
+    st.session_state.orders = {"selection": {"rows": []}}
+
+@st.dialog("Order details", position="right", on_dismiss=clear_selection)
 def show_order(order):
     st.write(order)
 
 region = st.sidebar.selectbox(
-    "Region", ["All", "Americas", "EMEA", "APAC"], key="region", bind="query-params"
+    "Region",
+    ["All", "Americas", "EMEA", "APAC"],
+    key="region",
+    bind="query-params",
+    on_change=clear_selection,  # Row numbers change when the filter does
 )
 orders = load_orders(region)
 
@@ -89,16 +100,20 @@ if event.selection.rows:
     show_order(orders.iloc[event.selection.rows[0]])
 ```
 
+Clearing the selection when the drawer closes keeps it from reopening on the next rerun, and clearing it when the filter changes keeps a stale row number from pointing at the wrong order.
+
 ## Layout and polish
 
 - **Responsive grids.** [`st.grid`](/develop/api-reference/layout/st.grid) lays out metric cards and dashboard panels that reflow with the available width.
 - **KPI cards.** [`st.metric`](/develop/api-reference/data/st.metric) shows a value, a delta, and an optional sparkline, with a border for a card look.
-- **Navigation.** Use [tabs](/develop/api-reference/layout/st.tabs), [pagination](/develop/api-reference/widgets/st.pagination), [menus](/develop/api-reference/widgets/st.menu_button), and [multipage navigation](/develop/concepts/multipage-apps) for larger dashboards.
+- **Navigation and actions.** Use [tabs](/develop/api-reference/layout/st.tabs), [pagination](/develop/api-reference/widgets/st.pagination), and [multipage navigation](/develop/concepts/multipage-apps) for larger dashboards, and [`st.menu_button`](/develop/api-reference/widgets/st.menu_button) for a short list of actions.
 - **Native charts.** Streamlit renders Vega-Lite, Plotly, and ECharts charts natively, styled by your theme.
 - **Your brand everywhere.** [Theme](/develop/concepts/configuration/theming) Streamlit with your colors, fonts, chart palettes, and spacing, and share that theme across all your dashboards.
 
 ```python
-grid = st.grid(4)
+import streamlit as st
+
+grid = st.grid(2)
 grid.metric("Revenue", "$1.2M", "+8%", border=True)
 grid.metric("Pipeline", "$4.8M", "+12%", border=True)
 grid.metric("Conversion", "12.4%", "+1.1%", border=True)
@@ -107,7 +122,7 @@ grid.metric("Retention", "96%", "-0.4%", border=True)
 
 ## Dashboards that agents can use
 
-Turn on the [agent API](/develop/concepts/ai-agents/agent-access), and an AI assistant can set your dashboard's filters and read its numbers through the dashboard's own logic, instead of guessing at the warehouse schema. Agents use the same caches and partial reruns as people, so they get the same numbers people see.
+Turn on the [agent API](/develop/concepts/ai-agents/agent-access), and an AI assistant can set your dashboard's filters and read its metrics, tables, and charts through the dashboard's own logic, instead of guessing at the warehouse schema. Agents use the same caches and partial reruns as people, so they get the same numbers people see. Agents set widgets such as select boxes, date inputs, and sliders; they can't make chart or table selections yet, so keep every filter an agent needs available as a widget.
 
 ## Coming from a BI tool?
 
@@ -127,7 +142,7 @@ For the dashboards your teams rely on, move them to Streamlit and modernize them
 | Bookmarks and shared views     | Widgets with `bind="query-params"`                                                                                                                                                                                         |
 | KPI tiles and report layout    | [`st.metric`](/develop/api-reference/data/st.metric), [`st.grid`](/develop/api-reference/layout/st.grid), [`st.columns`](/develop/api-reference/layout/st.columns), and [`st.tabs`](/develop/api-reference/layout/st.tabs) |
 | Row-level security             | Snowflake's access controls with [caller's rights](/develop/api-reference/connections/st.connections.snowflakeconnection), or logic based on [`st.user`](/develop/api-reference/user/st.user)                              |
-| Export                         | The built-in CSV export of `st.dataframe`, or [`st.download_button`](/develop/api-reference/widgets/st.download_button)                                                                                                    |
+| Export                         | The built-in CSV export of `st.dataframe` for tables that are sent to the browser in full, or [`st.download_button`](/develop/api-reference/widgets/st.download_button) for large or lazy-loaded tables                    |
 | Sharing and embedding          | [Deployment](/deploy) on Snowflake, your own cloud, or Community Cloud, with [`st.login`](/develop/api-reference/user/st.login) for sign-in                                                                                |
 
 On top of that, a Streamlit dashboard can hold what a BI tool can't: forecasts and models in Python, editable tables and [writeback](/develop/concepts/design/writeback), AI features, and access for AI agents.

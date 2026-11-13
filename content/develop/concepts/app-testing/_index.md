@@ -13,7 +13,7 @@ The provided class, AppTest, simulates a running app and provides methods to set
 
 <Tip>
 
-Coding agents with Streamlit's [agent skills](/develop/api-reference/cli/skills) write `AppTest` tests for you. While they work, they can also check the running app without a browser through the agent API. For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
+Coding agents with Streamlit's [agent skills](/develop/api-reference/cli/skills) can write `AppTest` tests when you ask them to. While they work, they can also check the running app without a browser through the agent API. For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
 
 </Tip>
 

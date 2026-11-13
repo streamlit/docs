@@ -11,7 +11,7 @@ Welcome to Streamlit Community Cloud, where you can share your Streamlit apps wi
 
 <Tip>
 
-Building your app with a coding agent? Run [`streamlit skills`](/develop/api-reference/cli/skills) in your project. The bundled skills help your agent build, test, and prepare your app for deployment. For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
+Building your app with a coding agent? Run [`streamlit skills`](/develop/api-reference/cli/skills) in your project. The bundled skills help your agent build and test your app before you deploy it. For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
 
 </Tip>
 

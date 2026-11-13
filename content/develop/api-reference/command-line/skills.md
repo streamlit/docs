@@ -7,7 +7,7 @@ keywords: streamlit skills, cli, command line, ai agent, coding agent, skills, i
 
 ## `$ streamlit skills`
 
-This command installs Streamlit's expert skills for AI coding agents. The skills are written by the team that builds Streamlit and ship with every release. They cover building, styling, speeding up, testing, and deploying apps, including layouts and theming, dashboards, caching, editable tables, chat interfaces, custom components, and Snowflake, and they include app templates.
+This command installs Streamlit's expert skills for AI coding agents. The skills are written by the team that builds Streamlit and ship with every release. They cover building, styling, speeding up, and testing apps, including layouts and theming, dashboards, caching, editable tables, chat interfaces, custom components, and Snowflake connections, and they include app templates and themes.
 
 After you install the skills, mention Streamlit in your request, or invoke the `developing-with-streamlit` skill directly, so your agent loads them. For a full guide, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
 

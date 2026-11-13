@@ -234,7 +234,7 @@ For simplicity, we have _unified_ this information in one place. i.e. the Sessio
 Widget keys do more than connect widgets to Session State:
 
 - With `bind="query-params"`, a keyed widget keeps its value in the page URL, so people can bookmark and share a filtered view. For dashboard patterns, see [Build advanced dashboards](/develop/concepts/design/dashboards).
-- AI agents address widgets by their key when they use your app through the [agent API](/develop/concepts/ai-agents/agent-access). Give `key=` to every widget you want agents to drive.
+- When AI agents use your app through the [agent API](/develop/concepts/ai-agents/agent-access), give `key=` to every widget so agents can address it reliably. Without a key, agents use a generated ID that changes when the code or the widget's parameters change.
 
 </Tip>
 

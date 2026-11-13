@@ -30,7 +30,7 @@ Streamlit's execution model makes it easy to turn your scripts into beautiful, i
 Streamlit is the agent-native data app framework. Coding agents build your apps, and other agents use them as tools.
 
 - Set up your coding agent with Streamlit's bundled agent skills.
-- Let AI agents use your app over MCP, with the same logic and access rules as the browser.
+- Let AI agents use your app over MCP, with the same logic as the browser and no more access.
 
 </RefCard>
 

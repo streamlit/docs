@@ -322,10 +322,10 @@ You can also set `ttl` values using `timedelta`, e.g., `ttl=datetime.timedelta(h
 
 **The `refresh_mode` parameter**
 
-By default, the first call after the `ttl` expires waits while the function runs again. For dashboards and other apps where people shouldn't wait on a slow query, set `refresh_mode="background"`. Streamlit returns the expired value right away and refreshes it in the background, so the next rerun gets fresh data. This mode requires a `ttl` and can't be used with `persist`.
+By default, the first call after the `ttl` expires waits while the function runs again. For dashboards and other apps where people shouldn't wait on a slow query, set `refresh_mode="background"`. Streamlit returns the expired value right away and refreshes it in the background, so the next rerun gets fresh data. By default, an expired value is served for at most one extra `ttl`; after that, the next call waits for fresh data. To change that window, use the `runner.cacheBackgroundRefreshTTLMultiplier` configuration option. This mode requires a `ttl`, can't be used with `persist`, and isn't supported for async functions.
 
 ```python
-@st.cache_data(ttl="15m", refresh_mode="background")  # 👈 Never wait on a stale query
+@st.cache_data(ttl="15m", refresh_mode="background")  # 👈 Refresh expired data in the background
 def get_sales():
     return run_slow_query(...)
 ```

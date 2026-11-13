@@ -7,7 +7,7 @@ keywords: deployment, tutorials, docker, kubernetes, cloud, platforms, guides, s
 
 # Deployment tutorials
 
-This sections contains step-by-step guides on how to deploy Streamlit apps to various cloud platforms and services. Streamlit runs anywhere Python runs: as one Python process, with no build step. To run apps natively inside Snowflake, next to your data and under Snowflake's access controls, see [Streamlit in Snowflake](/deploy/snowflake). To let AI assistants such as Claude and ChatGPT use a deployed app as a tool, see [Agent-accessible apps](/develop/concepts/ai-agents/agent-access).
+This sections contains step-by-step guides on how to deploy Streamlit apps to various cloud platforms and services. Streamlit runs anywhere you can run Python 3.11 or later, as one Python process with no build step. To run apps natively inside Snowflake, next to your data and under Snowflake's access controls, see [Streamlit in Snowflake](/deploy/snowflake). To let AI assistants such as Claude and ChatGPT use a deployed app as a tool, see [Agent-accessible apps](/develop/concepts/ai-agents/agent-access).
 
 We have deployment guides for:
 

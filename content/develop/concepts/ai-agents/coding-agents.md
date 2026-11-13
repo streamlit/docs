@@ -11,7 +11,7 @@ Coding agents now write most data apps. Streamlit gives them a compact API they 
 
 ## Install the agent skills
 
-Streamlit ships expert skills for coding agents, written by the team that builds Streamlit. They cover building, styling, speeding up, testing, and deploying apps: layouts and theming, dashboards, caching and performance, editable tables, chat interfaces, custom components, and Snowflake. They also include ready-made app templates and themes.
+Streamlit ships expert skills for coding agents, written by the team that builds Streamlit. They cover building, styling, speeding up, and testing apps: layouts and theming, dashboards, caching and performance, editable tables, chat interfaces, custom components, and Snowflake connections. They also include ready-made app templates and themes.
 
 Run this command once in your project:
 
@@ -19,13 +19,17 @@ Run this command once in your project:
 streamlit skills
 ```
 
-It links the skills into your project's `.agents/skills/` and `.claude/skills/` folders, so Claude Code and agents that read the shared `.agents` skills folder find them. The links point into your Streamlit installation, so the skills always match the version you have installed. When you upgrade Streamlit, your agent gets the updated skills too.
+It links the skills into your project's `.agents/skills/` folder, which Cursor, Codex, and other agents read. If Claude Code is installed on your machine, it also links them into `.claude/skills/`. The links point into your Streamlit installation, so the skills always match the version you have installed. When you upgrade Streamlit, your agent gets the updated skills too. Because the links point into your local installation, don't commit them to git.
 
-To install the skills once for every project on your machine, use `streamlit skills --global`. For all options, see [`streamlit skills`](/develop/api-reference/cli/skills).
+- **When your agent runs the command.** An agent's shell isn't an interactive terminal, so it needs `streamlit skills --yes` to skip the confirmation prompt.
+- **On Windows.** Creating links in your project requires Developer Mode. Without it, the command installs the skills globally instead.
+- **For every project.** To install the skills once for every project on your machine, use `streamlit skills --global`.
+
+For all options, see [`streamlit skills`](/develop/api-reference/cli/skills).
 
 <Tip>
 
-When an app hits an error, Streamlit itself offers to install the skills for you.
+When you run an app locally and a coding agent is installed on your machine, Streamlit can suggest installing the skills.
 
 </Tip>
 
@@ -38,7 +42,7 @@ Agents load the skills reliably when your request mentions Streamlit, or when yo
 - "Add a Streamlit page where reviewers can edit flagged rows and approve them."
 - "Use the developing-with-streamlit skill to make this app faster."
 
-With the skills, agents apply Streamlit's best practices by default: the modern theme, Material icons, native elements instead of custom HTML, compact layouts, caching for slow queries, and fragments for parts of the page that update on their own.
+The skills teach agents Streamlit's best practices, such as native elements instead of custom HTML, Material icons instead of emoji, caching for slow queries, fragments for parts of the page that update on their own, and checking each change in the running app.
 
 ## Let agents check their own work
 
@@ -58,7 +62,7 @@ The bundled skills teach agents the rest of the workflow. To connect an IDE agen
 
 ### Leave tests behind
 
-For checks that should outlive the session, agents write tests with [`AppTest`](/develop/concepts/app-testing), Streamlit's headless testing framework. `AppTest` runs your app script in process, sets widget values, and inspects the output, so the tests run quickly with `pytest` and in CI:
+For checks that should outlive the session, ask your agent to write tests with [`AppTest`](/develop/concepts/app-testing), Streamlit's headless testing framework. `AppTest` runs your app script in process, sets widget values, and inspects the output, so the tests run quickly with `pytest` and in CI:
 
 ```python
 from streamlit.testing.v1 import AppTest
@@ -77,6 +81,6 @@ A typical loop is to edit the app, check it with the agent API, and then keep th
 Generating an app is cheap. Owning it isn't. Streamlit keeps the cost of owning many agent-built apps low:
 
 - **The reviewer is the new primary user.** Agents write the code, and you answer for it. A Streamlit app keeps the query, the logic, and the number on screen side by side in plain Python, so the people accountable for it can actually read it.
-- **Upgrades, not migrations.** Breaking changes are extremely rare. Bump one version, and every app gets new features, performance improvements, and security fixes, without per-app framework migrations.
-- **One experience everywhere.** Agents style every app with the same [theme](/develop/concepts/configuration/theming), and filtering, sorting, editing, and navigating work the same way in every app.
+- **Upgrades, not migrations.** Breaking changes are extremely rare, and APIs are removed only in exceptional cases, after deprecation warnings and with a clear migration path. Bump one version, and every app gets new features, performance improvements, and security fixes, without per-app framework migrations.
+- **One experience everywhere.** Share one [theme](/develop/concepts/configuration/theming) across all your apps, and filtering, sorting, editing, and navigating work the same way in every app.
 - **Always-current guidance.** The skills improve with every release, so every app that agents build or change afterward improves too.
