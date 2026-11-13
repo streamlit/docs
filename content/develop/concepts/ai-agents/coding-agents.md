@@ -61,7 +61,15 @@ Apps written for older Streamlit versions keep running, and a coding agent can a
 /developing-with-streamlit Modernize my app
 ```
 
-With the skill, the agent replaces deprecated APIs and custom HTML that native commands now cover, speeds up the app with caching, fragments, and loading skeletons, adopts newer features such as `st.navigation`, side-drawer dialogs, and `st.grid`, and adds a theme that fits your app. Newer versions of the skill also show you a plan first, and keep your features, widget keys, query parameters, page URLs, and data logic intact. Review the changes like any other code, and check every page in the running app.
+The agent first analyzes the whole app and shows you a short plan that names the riskiest changes, such as moving to `st.navigation`. After you confirm, it:
+
+- **Applies current best practices.** It replaces deprecated APIs, and custom HTML and third-party components that native commands now cover, and fixes copy and accessibility, such as sentence casing, Material icons, and missing labels.
+- **Speeds up the app.** It adds caching with background refresh, loading skeletons, parallel fragments, and forms where they help.
+- **Adopts newer features where they fit.** For example, `st.navigation`, `st.segmented_control` and `st.pills`, `st.menu_button`, side-drawer dialogs, `ButtonColumn`, and `bind="query-params"` for shareable views.
+- **Refreshes the layout and look.** It uses bordered containers, `st.grid`, and aligned rows, and keeps your brand theme or adds one that fits the app.
+- **Organizes the code.** It splits a large single-file app into modules where that helps.
+
+The agent keeps your features, widget keys, query parameters, page URLs, and data logic intact, and checks every page in the running app with the agent API. Review the changes like any other code.
 
 ## Let agents check their own work
 
