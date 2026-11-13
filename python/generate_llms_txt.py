@@ -53,6 +53,9 @@ Snowflake (https://www.snowflake.com/en/product/features/streamlit-in-snowflake/
   bundled, version-matched agent skills, then invoke the
   `developing-with-streamlit` skill (for example, `/developing-with-streamlit`):
   https://docs.streamlit.io/develop/concepts/ai-agents/coding-agents
+- Modernize an older app (faster, newer features, a modern theme): ask a coding
+  agent `/developing-with-streamlit Modernize my app`:
+  https://docs.streamlit.io/develop/concepts/ai-agents/coding-agents#modernize-an-existing-app
 - Agent-accessible apps: with `server.enableAgentApi`, any app also serves AI
   agents over MCP at `/_stcore/agent/mcp`:
   https://docs.streamlit.io/develop/concepts/ai-agents/agent-access

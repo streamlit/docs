@@ -51,7 +51,7 @@ Agents take part in every stage of an app's life, and Streamlit supports each on
 
 - **Build.** Models already know Streamlit's compact API. Run [`streamlit skills`](/develop/api-reference/cli/skills) once in your project, and your agent follows current best practices for the version you installed. An app is a fraction of the code of a custom stack, so it takes fewer tokens to write and has fewer places to break.
 - **Check.** Agents drive the running app without a browser or screenshots. They set widget values and read the tables, charts, and metrics back as data. They can also leave behind [`AppTest`](/develop/concepts/app-testing) tests that run in CI.
-- **Own.** Upgrades improve every app at once, security fixes included. Breaking changes are extremely rare, so apps keep running on new releases for years.
+- **Own.** Upgrades improve every app at once, security fixes included. Breaking changes are extremely rare, so apps keep running on new releases for years. To bring an older app up to date, ask your coding agent: `/developing-with-streamlit Modernize my app`.
 - **Run.** One Python process, with no build step. Run it on Snowflake, in your own cloud, or on Community Cloud, with built-in sign-in through [`st.login`](/develop/api-reference/user/st.login).
 - **Use.** With the experimental agent API, any app can also serve AI agents over MCP or HTTP, limited to exactly what the app shows its users. Connect it to Claude, ChatGPT, Cursor, VS Code, Snowflake CoCo, or any MCP client, with no second API to build, secure, and maintain.
 
@@ -138,7 +138,7 @@ Yes. Streamlit apps run in production at companies of every size: inside Snowfla
 
 ### Will my app break when I upgrade Streamlit?
 
-Very rarely. Breaking changes are extremely rare, and the vast majority of apps keep running on new releases for years. APIs are removed only in exceptional cases, after deprecation warnings well in advance and with a clear migration path. The bundled agent skills match the installed version, so coding agents also stay on current APIs. To upgrade, see [How do I upgrade to the latest version of Streamlit?](/knowledge-base/using-streamlit/how-upgrade-latest-version-streamlit)
+Very rarely. Breaking changes are extremely rare, and the vast majority of apps keep running on new releases for years. APIs are removed only in exceptional cases, after deprecation warnings well in advance and with a clear migration path. The bundled agent skills match the installed version, so coding agents also stay on current APIs. To bring an older app up to date with newer features, ask your coding agent: `/developing-with-streamlit Modernize my app`. For details, see [Modernize an existing app](/develop/concepts/ai-agents/coding-agents#modernize-an-existing-app). To upgrade, see [How do I upgrade to the latest version of Streamlit?](/knowledge-base/using-streamlit/how-upgrade-latest-version-streamlit)
 
 ### How do coding agents build Streamlit apps well?
 

@@ -53,6 +53,16 @@ Agents also load the skills when your request mentions Streamlit, but less relia
 
 The skills teach agents Streamlit's best practices, such as native elements instead of custom HTML, Material icons instead of emoji, caching for slow queries, fragments for parts of the page that update on their own, and checking each change in the running app.
 
+## Modernize an existing app
+
+Apps written for older Streamlit versions keep running, and a coding agent can also bring them up to date, so they load faster and look more modern. Upgrade Streamlit, run `streamlit skills`, and ask your agent:
+
+```text
+/developing-with-streamlit Modernize my app
+```
+
+With the skill, the agent replaces deprecated APIs and custom HTML that native commands now cover, speeds up the app with caching, fragments, and loading skeletons, adopts newer features such as `st.navigation`, side-drawer dialogs, and `st.grid`, and adds a theme that fits your app. Newer versions of the skill also show you a plan first, and keep your features, widget keys, query parameters, page URLs, and data logic intact. Review the changes like any other code, and check every page in the running app.
+
 ## Let agents check their own work
 
 An agent should confirm that a change works before it reports the change as done. Streamlit gives agents two ways to check an app without a browser or screenshots.
