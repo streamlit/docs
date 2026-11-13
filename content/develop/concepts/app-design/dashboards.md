@@ -67,7 +67,7 @@ with right:
 ## Rich interactions
 
 - **Cross-filtering and drill-down.** Select rows in [`st.dataframe`](/develop/api-reference/data/st.dataframe), or points in [`st.altair_chart`](/develop/api-reference/charts/st.altair_chart), [`st.plotly_chart`](/develop/api-reference/charts/st.plotly_chart), [`st.echarts_chart`](/develop/api-reference/charts/st.echarts_chart), and other charts, with `on_select="rerun"`. Your script receives the selection and filters the rest of the page.
-- **Details on demand.** Open details in a [dialog](/develop/api-reference/execution-flow/st.dialog), or in a full-height side drawer with `position="right"`.
+- **Details on demand.** Add a [`ButtonColumn`](/develop/api-reference/data/st.column_config/st.column_config.buttoncolumn) to a table, and open a row's details in a [dialog](/develop/api-reference/execution-flow/st.dialog), or in a full-height side drawer with `position="right"`.
 - **Views that can be shared.** With `bind="query-params"`, a widget's value lives in the page URL, so every filtered view can be bookmarked and shared.
 
 ```python
@@ -77,30 +77,28 @@ import streamlit as st
 def load_orders(region):
     ...  # Query the orders for a region
 
-def clear_selection():
-    st.session_state.orders = {"selection": {"rows": []}}
-
-@st.dialog("Order details", position="right", on_dismiss=clear_selection)
+@st.dialog("Order details", position="right")
 def show_order(order):
     st.write(order)
 
 region = st.sidebar.selectbox(
-    "Region",
-    ["All", "Americas", "EMEA", "APAC"],
-    key="region",
-    bind="query-params",
-    on_change=clear_selection,  # Row numbers change when the filter does
+    "Region", ["All", "Americas", "EMEA", "APAC"], key="region", bind="query-params"
 )
 orders = load_orders(region)
 
-event = st.dataframe(
-    orders, on_select="rerun", selection_mode="single-row", key="orders"
+st.dataframe(
+    orders.assign(details=":material/open_in_new: Details"),
+    column_config={
+        "details": st.column_config.ButtonColumn("", type="tertiary", key="details_click"),
+    },
+    hide_index=True,
 )
-if event.selection.rows:
-    show_order(orders.iloc[event.selection.rows[0]])
+
+if click := st.session_state.details_click:
+    show_order(orders.iloc[click.row])
 ```
 
-Clearing the selection when the drawer closes keeps it from reopening on the next rerun, and clearing it when the filter changes keeps a stale row number from pointing at the wrong order.
+A button click is only set for the rerun it triggers, so the drawer opens once per click and doesn't reopen on later reruns. Use selections for state that should persist, such as cross-filtering, and button columns for one-off actions, such as opening details.
 
 ## Layout and polish
 
@@ -122,7 +120,7 @@ grid.metric("Retention", "96%", "-0.4%", border=True)
 
 ## Dashboards that agents can use
 
-Turn on the [agent API](/develop/concepts/ai-agents/agent-access), and an AI assistant can set your dashboard's filters and read its metrics, tables, and charts through the dashboard's own logic, instead of guessing at the warehouse schema. Agents use the same caches and partial reruns as people, so they get the same numbers people see. Agents set widgets such as select boxes, date inputs, and sliders; they can't make chart or table selections yet, so keep every filter an agent needs available as a widget.
+Turn on the [agent API](/develop/concepts/ai-agents/agent-access), and an AI assistant can set your dashboard's filters and read its metrics, tables, and charts through the dashboard's own logic, instead of guessing at the warehouse schema. Agents use the same caches and partial reruns as people, so they get the same numbers people see. Agents set widgets such as select boxes, date inputs, and sliders; they can't make chart or table selections or click buttons in table cells yet, so keep every filter an agent needs available as a widget.
 
 ## Coming from a BI tool?
 
@@ -138,7 +136,7 @@ For the dashboards your teams rely on, move them to Streamlit and modernize them
 | Scheduled refresh              | A cache `ttl`, with `refresh_mode="background"`                                                                                                                                                                            |
 | Live tiles                     | `@st.fragment(run_every=...)`                                                                                                                                                                                              |
 | Cross-filtering                | Chart and table selections with `on_select="rerun"`                                                                                                                                                                        |
-| Drill-down and drill-through   | Selections that open a [dialog](/develop/api-reference/execution-flow/st.dialog) or side drawer, or link to another [page](/develop/concepts/multipage-apps) with query parameters                                         |
+| Drill-down and drill-through   | Button columns that open a [dialog](/develop/api-reference/execution-flow/st.dialog) or side drawer, or link to another [page](/develop/concepts/multipage-apps) with query parameters                                     |
 | Bookmarks and shared views     | Widgets with `bind="query-params"`                                                                                                                                                                                         |
 | KPI tiles and report layout    | [`st.metric`](/develop/api-reference/data/st.metric), [`st.grid`](/develop/api-reference/layout/st.grid), [`st.columns`](/develop/api-reference/layout/st.columns), and [`st.tabs`](/develop/api-reference/layout/st.tabs) |
 | Row-level security             | Snowflake's access controls with [caller's rights](/develop/api-reference/connections/st.connections.snowflakeconnection), or logic based on [`st.user`](/develop/api-reference/user/st.user)                              |
