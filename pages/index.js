@@ -76,8 +76,7 @@ export default function Home({ window, menu }) {
               dashboards. Build apps in Python yourself, or with your coding
               agent. Apps are plain, readable Python, with no frontend or API
               layer, and Streamlit handles the interface, state, caching,
-              sign-in, theming, and upgrades. Agents build it. Agents use it.
-              Your team owns it.
+              sign-in, theming, and upgrades.
             </p>
 
             <Spacer size="2rem" />

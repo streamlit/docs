@@ -9,8 +9,6 @@ keywords: ai agents, coding agents, agent-native, agent skills, streamlit skills
 
 Streamlit is the agent-native data app framework. Agents build each app in plain, readable Python, and the people accountable for the numbers can review every line. Agents also take part in the rest of the app's life: they check their own work, keep the app running as requirements change, and use the finished app as a tool.
 
-In short: agents build it, agents use it, and your team owns it.
-
 <InlineCalloutContainer>
     <InlineCallout
         color="indigo-70"
