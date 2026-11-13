@@ -1036,6 +1036,9 @@
 /library/api-reference/app-testing /develop/api-reference/app-testing
 /library/api-reference/app-testing/st.testing.v1.apptest /develop/api-reference/app-testing/st.testing.v1.apptest
 /library/api-reference/app-testing/testing-element-classes /develop/api-reference/app-testing/testing-element-classes
+/develop/api-reference/testing /develop/api-reference/app-testing
+/develop/api-reference/testing/testing_elements /develop/api-reference/app-testing/testing-element-classes
+/develop/api-reference/testing/* /develop/api-reference/app-testing/:splat
 /library/advanced-features /develop/concepts
 /library/advanced-features/app-menu /develop/concepts/architecture/app-chrome
 /library/advanced-features/button-behavior-and-examples /develop/concepts/design/buttons
