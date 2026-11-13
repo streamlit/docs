@@ -15,7 +15,7 @@ To see these features together, try the [advanced dashboard demo](https://advanc
 
 <Tip>
 
-If you build with a coding agent, run [`streamlit skills`](/develop/api-reference/cli/skills) in your project and mention Streamlit in your request. The bundled skills include dashboard templates and teach your agent the patterns on this page.
+If you build with a coding agent, run [`streamlit skills`](/develop/api-reference/cli/skills) in your project and invoke the `developing-with-streamlit` skill in your request. The bundled skills include dashboard templates and teach your agent the patterns on this page.
 
 </Tip>
 

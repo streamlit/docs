@@ -26,7 +26,7 @@ is available below](#lets-put-it-all-together).
 
 <Tip>
 
-To build this app with a coding agent instead, run `streamlit skills` in your project, then ask for a Streamlit app, such as "Build a Streamlit app that maps Uber pickups in New York City, with an hour slider." For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
+To build this app with a coding agent instead, run `streamlit skills` in your project, then invoke the `developing-with-streamlit` skill, such as `/developing-with-streamlit Build an app that maps Uber pickups in New York City, with an hour slider` in Claude Code. For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
 
 </Tip>
 

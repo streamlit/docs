@@ -33,14 +33,21 @@ When you run an app locally and a coding agent is installed on your machine, Str
 
 </Tip>
 
-## Ask for Streamlit
+## Invoke the skill
 
-Agents load the skills reliably when your request mentions Streamlit, or when you invoke the skill directly. For example:
+To make sure your agent uses the skills, invoke the `developing-with-streamlit` skill explicitly. In Claude Code, start your request with `/developing-with-streamlit`:
+
+```text
+/developing-with-streamlit Build a dashboard that shows weekly revenue by region, with a date filter and a drill-down table.
+```
+
+Other agents have their own syntax for invoking a skill, or you can name it in your request, such as "Use the developing-with-streamlit skill to make this app faster."
+
+Agents also load the skills when your request mentions Streamlit, but less reliably. For example:
 
 - "Build a Streamlit dashboard that shows weekly revenue by region, with a date filter and a drill-down table."
 - "Turn this notebook into a Streamlit app with what-if sliders for price and demand."
 - "Add a Streamlit page where reviewers can edit flagged rows and approve them."
-- "Use the developing-with-streamlit skill to make this app faster."
 
 The skills teach agents Streamlit's best practices, such as native elements instead of custom HTML, Material icons instead of emoji, caching for slow queries, fragments for parts of the page that update on their own, and checking each change in the running app.
 

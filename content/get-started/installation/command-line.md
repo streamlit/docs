@@ -110,7 +110,7 @@ If you use an AI coding agent, such as Claude Code, Cursor, or Codex, install St
 streamlit skills
 ```
 
-Then mention Streamlit in your request, such as "Build a Streamlit dashboard of weekly revenue by region." For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
+Then invoke the `developing-with-streamlit` skill in your request, such as `/developing-with-streamlit Build a dashboard of weekly revenue by region` in Claude Code. For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
 
 </Tip>
 

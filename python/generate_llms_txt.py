@@ -47,7 +47,8 @@ Python 3.11 or later runs, and natively inside Snowflake.
 - Why Streamlit, compared to a custom React stack or a BI tool:
   https://docs.streamlit.io/get-started/why-streamlit
 - Coding agents: run `streamlit skills` in a project to install Streamlit's
-  bundled, version-matched agent skills, then mention Streamlit in the request:
+  bundled, version-matched agent skills, then invoke the
+  `developing-with-streamlit` skill (for example, `/developing-with-streamlit`):
   https://docs.streamlit.io/develop/concepts/ai-agents/coding-agents
 - Agent-accessible apps: with `server.enableAgentApi`, any app also serves AI
   agents over MCP at `/_stcore/agent/mcp`:

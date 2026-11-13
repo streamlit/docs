@@ -139,7 +139,7 @@ Very rarely. Breaking changes are extremely rare, and the vast majority of apps 
 
 ### How do coding agents build Streamlit apps well?
 
-Run [`streamlit skills`](/develop/api-reference/cli/skills) once in your project. It installs Streamlit's expert skills, written by the team that builds Streamlit and matched to the version you installed, into the shared `.agents/skills` folder that Cursor, Codex, and other agents read, and into `.claude/skills` when Claude Code is installed. Then mention Streamlit in your request, such as "Build a Streamlit dashboard of weekly revenue by region." Your agent follows current best practices for layout, theming, dashboards, performance, and testing, and checks the running app without a browser. To learn more, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
+Run [`streamlit skills`](/develop/api-reference/cli/skills) once in your project. It installs Streamlit's expert skills, written by the team that builds Streamlit and matched to the version you installed, into the shared `.agents/skills` folder that Cursor, Codex, and other agents read, and into `.claude/skills` when Claude Code is installed. Then invoke the `developing-with-streamlit` skill, such as with `/developing-with-streamlit` in Claude Code, or mention Streamlit in your request. Your agent follows current best practices for layout, theming, dashboards, performance, and testing, and checks the running app without a browser. To learn more, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
 
 ### Can AI agents use my Streamlit apps?
 
