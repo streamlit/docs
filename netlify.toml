@@ -6,6 +6,14 @@ publish = "out"
 # Setting the plugin manually, so we can pick the version (see package.json).
 package = "@netlify/plugin-nextjs"
 
+# Per-page markdown copies for LLMs and agents (see python/generate_llms_full_txt.py).
+# noindex keeps search engines on the canonical HTML pages; agents fetch these directly.
+[[headers]]
+for = "/*.md"
+[headers.values]
+Content-Type = "text/markdown; charset=utf-8"
+X-Robots-Tag = "noindex"
+
 # IMPORTANT: Keep this in sync with next.config.js
 [[headers]]
 for = "/*"

@@ -14,9 +14,11 @@
 # Usage:
 #   uv run generate_llms_txt.py
 
-from typing import Dict, Any, Optional, cast
+from typing import Dict, Any, Optional, Set, cast
 import frontmatter
 from pathlib import Path
+
+from mdx_to_markdown import BASE_URL, absolute_url, markdown_path
 
 # Separator used in menu categories to create hierarchical navigation
 # e.g., "Get started / Installation" becomes ["Get started", "Installation"]
@@ -67,6 +69,21 @@ Snowflake (https://www.snowflake.com/en/product/features/streamlit-in-snowflake/
   BI dashboard (https://advanced-dashboard-demo.streamlit.app/).
 - Advanced dashboards, and modernizing Power BI and Tableau dashboards in Streamlit:
   https://docs.streamlit.io/develop/concepts/design/dashboards"""
+
+# How to read the docs as Markdown (see generate_llms_full_txt.py).
+MARKDOWN_TEXT = f"""\
+Links to docs pages below point to their Markdown versions. To read any
+docs page as Markdown, append `.md` to its URL (without a trailing slash).
+The full text of every page is in {BASE_URL}/llms-full.txt."""
+
+
+def markdown_url(url: str, page_slugs: Set[str]) -> str:
+    """Link to the page's .md copy when it has one (see generate_llms_full_txt.py)."""
+    if url.startswith(BASE_URL + "/"):
+        url = url[len(BASE_URL) :]
+    if url not in page_slugs:
+        return absolute_url(url)
+    return f"{BASE_URL}/{markdown_path(url)}"
 
 
 def read_menu_file(menu_file_path: Path) -> Dict[str, Any]:
@@ -138,8 +155,9 @@ def main() -> None:
         raise e
 
     url_to_descriptions_dict = get_url_to_descriptions_dict(content_dir)
+    page_slugs = set(url_to_descriptions_dict)
 
-    output = [INITIAL_TEXT, "", ABOUT_TEXT]
+    output = [INITIAL_TEXT, "", ABOUT_TEXT, "", MARKDOWN_TEXT]
     prev_output_is_paragraph = True
 
     # Process each menu item from the parsed menu structure
@@ -166,6 +184,7 @@ def main() -> None:
             # e.g., "Get started / Installation / Command line" -> ["Get started", "Installation", "Command line"]
             category_list = menu_item["category"].split(CATEGORY_SEP)
             url: str = menu_item["url"]
+            link = markdown_url(url, page_slugs)
 
             # Try to get description from the markdown files first (more detailed)
             # Fall back to description in menu if not found
@@ -184,7 +203,7 @@ def main() -> None:
             # e.g., "Get started", "Develop", "Deploy"
             if len(category_list) == 1:
                 output.append("")  # Add blank line for separation
-                output.append(f"## [{category_label}]({url})")
+                output.append(f"## [{category_label}]({link})")
                 if description:
                     output.append("")
                     output.append(description)
@@ -194,7 +213,7 @@ def main() -> None:
             # e.g., "Installation", "Fundamentals", "First steps"
             elif len(category_list) == 2:
                 output.append("")  # Add blank line for separation
-                output.append(f"### [{category_label}]({url})")
+                output.append(f"### [{category_label}]({link})")
                 if description:
                     output.append("")
                     output.append(description)
@@ -211,7 +230,7 @@ def main() -> None:
                 indentation = num_indents * "  "
                 
                 # Format as markdown list item with link
-                output.append(f"{indentation}- [{category_label}]({url})")
+                output.append(f"{indentation}- [{category_label}]({link})")
                 if description:
                     output.append(f"{indentation}  {description}")
                 prev_output_is_paragraph = False
