@@ -24,6 +24,12 @@ is available below](#lets-put-it-all-together).
 
 </Tip>
 
+<Tip>
+
+To build this app with a coding agent instead, run `streamlit skills` in your project, then invoke the `developing-with-streamlit` skill, such as `/developing-with-streamlit Build an app that maps Uber pickups in New York City, with an hour slider` in Claude Code. For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
+
+</Tip>
+
 ## Create your first app
 
 Streamlit is more than just a way to make data apps, it’s also a community of creators that share their apps and ideas and help each other make their work better. Please come join us on the community forum. We love to hear your questions, ideas, and help you work through your bugs — stop by today!

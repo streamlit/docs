@@ -20,6 +20,12 @@ Fragments are versatile and applicable to a wide variety of circumstances. Here 
 - You want to automatically update a single component or group of components to stream data.
 - Your app has several slow, independent operations (like database queries or API calls) that you want to run at the same time instead of one after another.
 
+<Tip>
+
+Fragments are a core building block for fast dashboards. They also help AI agents: when an agent uses your app through the [agent API](/develop/concepts/ai-agents/agent-access), changing a widget inside a fragment reruns only that fragment. For patterns that combine fragments with caching, selections, and loading skeletons, see [Build advanced dashboards](/develop/concepts/design/dashboards).
+
+</Tip>
+
 ## Defining and calling a fragment
 
 Streamlit provides a decorator ([`st.fragment`](/develop/api-reference/execution-flow/st.fragment)) to turn any function into a fragment function. When you call a fragment function that contains a widget function, a user triggers a _fragment rerun_ instead of a full rerun when they interact with that fragment's widget. During a fragment rerun, only your fragment function is re-executed. Anything within the main body of your fragment is updated on the frontend, while the rest of your app remains the same. We'll describe fragments written across multiple containers later on.

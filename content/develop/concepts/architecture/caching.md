@@ -354,7 +354,7 @@ def get_metrics():
     return api.fetch_metrics()
 ```
 
-`refresh_mode="background"` requires a `ttl` and can't be combined with `persist` or async functions. Because the function might run in the background, it can't use session-specific features like `st.session_state`. Pass any values it needs as arguments instead. By default, Streamlit keeps returning an expired value for one extra `ttl`. To change this, set the [`runner.cacheBackgroundRefreshTTLMultiplier`](/develop/api-reference/configuration/config.toml#runner) configuration option.
+`refresh_mode="background"` requires a `ttl` and can't be combined with `persist` or async functions. Because the function might run in the background, it can't use session-specific features like `st.session_state`. Pass any values it needs as arguments instead. By default, Streamlit keeps returning an expired value for one extra `ttl`. To change this, set the [`runner.cacheBackgroundRefreshTTLMultiplier`](/develop/api-reference/configuration/config.toml#runner) configuration option. For more patterns that keep large dashboards fast, see [Build advanced dashboards](/develop/concepts/design/dashboards).
 
 ### Customizing the spinner
 

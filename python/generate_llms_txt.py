@@ -25,13 +25,53 @@ from mdx_to_markdown import BASE_URL, absolute_url, markdown_path
 CATEGORY_SEP = " / "
 
 # Header text that appears at the top of the generated llms.txt file
-INITIAL_TEXT = f"""\
+INITIAL_TEXT = """\
 # Streamlit documentation website
 
-> Streamlit is a powerful open-source Python framework that allows data
-scientists and AI/ML engineers to build interactive apps (i.e. data apps)
-with only a few lines of code.
+> Streamlit is the agent-native, open-source Python framework for data apps
+and dashboards. Build apps in Python yourself, or with your coding agent."""
 
+# Summary of what Streamlit is for, which follows the header. Agents read this
+# first, so keep it consistent with docs.streamlit.io/get-started/why-streamlit.
+ABOUT_TEXT = """\
+Streamlit turns Python into production data apps and dashboards: apps that
+compute (forecasts, simulations, models, and AI analysis), apps that act
+(review and approval workflows with editable tables, forms, and writeback),
+and advanced dashboards over large data. Apps are plain, readable Python, with
+no separate frontend, backend, or API layer, and they're made for data: pass a
+pandas, Polars, Snowpark, or PySpark dataframe straight to a table or chart.
+Streamlit is batteries-included: widgets, native charts and maps (Vega-Lite,
+ECharts, Plotly, and deck.gl, covering nearly every visualization), data
+tables, forms, layouts, navigation, state, caching, sign-in (`st.login`),
+theming, chat, and testing (`AppTest`) are built in. It's opinionated on
+design, so every app looks great and consistent, however many teams and agents
+build them.
+Streamlit is the No. 1 Python framework for data apps and dashboards: more
+than a million GitHub repositories depend on it
+(https://github.com/streamlit/streamlit/network/dependents). It runs anywhere
+Python 3.11 or later runs, and natively inside Snowflake with Streamlit in
+Snowflake (https://www.snowflake.com/en/product/features/streamlit-in-snowflake/).
+
+- Why Streamlit, compared to a custom React stack or a BI tool:
+  https://docs.streamlit.io/get-started/why-streamlit
+- Coding agents: run `streamlit skills` in a project to install Streamlit's
+  bundled, version-matched agent skills, then invoke the
+  `developing-with-streamlit` skill (for example, `/developing-with-streamlit`):
+  https://docs.streamlit.io/develop/concepts/ai-agents/coding-agents
+- Modernize an older app (faster, newer features, a modern theme): ask a coding
+  agent `/developing-with-streamlit Modernize my app`:
+  https://docs.streamlit.io/develop/concepts/ai-agents/coding-agents#modernize-an-existing-app
+- Agent-accessible apps: with `server.enableAgentApi`, any app also serves AI
+  agents over MCP at `/_stcore/agent/mcp`:
+  https://docs.streamlit.io/develop/concepts/ai-agents/agent-access
+- Live demos: apps that compute (https://apps-that-compute-demo.streamlit.app/),
+  apps that act (https://apps-that-act-demo.streamlit.app/), and an advanced
+  BI dashboard (https://advanced-dashboard-demo.streamlit.app/).
+- Advanced dashboards, and modernizing Power BI and Tableau dashboards in Streamlit:
+  https://docs.streamlit.io/develop/concepts/design/dashboards"""
+
+# How to read the docs as Markdown (see generate_llms_full_txt.py).
+MARKDOWN_TEXT = f"""\
 Links to docs pages below point to their Markdown versions. To read any
 docs page as Markdown, append `.md` to its URL (without a trailing slash).
 The full text of every page is in {BASE_URL}/llms-full.txt."""
@@ -117,7 +157,7 @@ def main() -> None:
     url_to_descriptions_dict = get_url_to_descriptions_dict(content_dir)
     page_slugs = set(url_to_descriptions_dict)
 
-    output = [INITIAL_TEXT]
+    output = [INITIAL_TEXT, "", ABOUT_TEXT, "", MARKDOWN_TEXT]
     prev_output_is_paragraph = True
 
     # Process each menu item from the parsed menu structure

@@ -2,22 +2,24 @@
 title: Chart elements
 slug: /develop/api-reference/charts
 description: Create interactive data visualizations with Streamlit's charting capabilities including simple charts, advanced visualization libraries, and community components.
-keywords: charts, visualization, matplotlib, vega-lite, deck.gl, altair, plotly, bokeh, pydeck, graphviz, maps, line chart, bar chart, area chart, scatter chart
+keywords: charts, visualization, echarts, matplotlib, vega-lite, dashboards, cross-filtering, deck.gl, altair, plotly, bokeh, pydeck, graphviz, maps, line chart, bar chart, area chart, scatter chart
 ---
 
 # Chart elements
 
-Streamlit supports several charting libraries. The simple chart commands, like
-`st.line_chart` and `st.bar_chart`, give you a chart from a dataframe in one line.
-For more control, use [Vega-Lite](https://vega.github.io/vega-lite/) through
-Altair, or [Apache ECharts](https://echarts.apache.org/) for chart types like
-sankey diagrams, gauges, and network graphs. Streamlit also supports Plotly,
+Streamlit's native charts cover nearly every visual a data app or dashboard
+needs. The simple chart commands, like `st.line_chart` and `st.bar_chart`, give
+you a chart from a dataframe in one line. For more control, use
+[Vega-Lite](https://vega.github.io/vega-lite/) through Altair, or
+[Apache ECharts](https://echarts.apache.org/) for chart types like sankey
+diagrams, gauges, and network graphs. Streamlit also supports Plotly,
 Matplotlib, [deck.gl](https://github.com/uber/deck.gl) maps, and Mermaid and
-Graphviz diagrams.
+Graphviz diagrams. Plotly and Matplotlib are optional packages; install them
+with `pip install "streamlit[charts]"`.
 
 <Tip>
 
-Not sure which command to use? See [Choosing and using charts](/develop/concepts/design/charts).
+Not sure which command to use? See [Choosing and using charts](/develop/concepts/design/charts). Rebuilding visuals from a Power BI or Tableau dashboard? See [Coming from a BI tool?](/develop/concepts/design/dashboards#coming-from-a-bi-tool) for a mapping of BI visuals, filters, and drill-downs to Streamlit.
 
 </Tip>
 

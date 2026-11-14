@@ -7,7 +7,7 @@ keywords: agent api, mcp, model context protocol, mcp server, ai agents, enableA
 
 # Agent API and MCP server
 
-The agent API lets AI agents and other programs use your Streamlit app without a browser. A client sends widget values as JSON, Streamlit runs your app as it would for a browser user, and the client gets back the finished page as a JSON snapshot. The same API is also available as a remote [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server, so you can connect your app to AI applications like Claude, ChatGPT, Cursor, and VS Code.
+The agent API lets AI agents and other programs use your Streamlit app without a browser. A client sends widget values as JSON, Streamlit runs your app as it would for a browser user, and the client gets back the finished page as a JSON snapshot. The same API is also available as a remote [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server, so you can connect your app to AI applications like Claude, ChatGPT, Cursor, VS Code, and Snowflake CoCo. For an overview of what agent access gives you and which clients can reach which apps, see [Agent-accessible apps](/develop/concepts/ai-agents/agent-access).
 
 Existing apps work with the agent API without code changes once you turn it on.
 
@@ -337,6 +337,12 @@ claude mcp add --transport http my-streamlit-app http://localhost:8501/_stcore/a
     }
   }
 }
+```
+
+**Snowflake CoCo CLI:**
+
+```bash
+cortex mcp add my-streamlit-app http://localhost:8501/_stcore/agent/mcp --type http
 ```
 
 AI applications that run in the cloud, like Claude and ChatGPT on the web, can't reach `localhost`. To connect them, deploy your app with the agent API turned on and add the deployed app's URL with `/_stcore/agent/mcp` appended, like `https://my-app.example.com/_stcore/agent/mcp`, as a custom connector. If your hosting platform serves your app under a URL prefix, include the prefix in the URL.

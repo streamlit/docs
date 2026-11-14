@@ -17,17 +17,17 @@ export default function Home({ window, menu }) {
         <link rel="alternate icon" href="/favicon32.ico" />
         <meta name="theme-color" content="#ffffff" />
         <meta
-          content="Streamlit is an open-source app framework for Machine Learning and Data Science teams. Create beautiful data apps in hours, not weeks. All in pure Python. All for free."
+          content="Streamlit is the agent-native, open-source Python framework for data apps and dashboards. Build apps in Python yourself, or with your coding agent."
           name="description"
         />
         <meta content="Streamlit Docs" property="og:title" />
         <meta
-          content="Streamlit is an open-source app framework for Machine Learning and Data Science teams. Create beautiful data apps in hours, not weeks. All in pure Python. All for free."
+          content="Streamlit is the agent-native, open-source Python framework for data apps and dashboards. Build apps in Python yourself, or with your coding agent."
           property="og:description"
         />
         <meta content="Streamlit Docs" name="twitter:title" />
         <meta
-          content="Streamlit is an open-source app framework for Machine Learning and Data Science teams. Create beautiful data apps in hours, not weeks. All in pure Python. All for free."
+          content="Streamlit is the agent-native, open-source Python framework for data apps and dashboards. Build apps in Python yourself, or with your coding agent."
           name="twitter:description"
         />
         <meta property="og:type" content="website" />

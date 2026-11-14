@@ -48,3 +48,13 @@ python -m streamlit run your_script.py
 # is equivalent to:
 streamlit run your_script.py
 ```
+
+## Run your app for AI agents
+
+AI agents can use a running app without a browser through the experimental agent API. This lets a coding agent check its own changes, and lets assistants like Claude and ChatGPT use your app as a tool over MCP. To turn it on for one run, pass the configuration option on the command line:
+
+```bash
+streamlit run your_script.py --server.enableAgentApi=true
+```
+
+For details, see [Agent-accessible apps](/develop/concepts/ai-agents/agent-access).

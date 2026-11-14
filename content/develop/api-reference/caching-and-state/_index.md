@@ -11,7 +11,7 @@ Optimize performance and add statefulness to your app!
 
 ## Caching
 
-Streamlit provides powerful [cache primitives](/develop/concepts/architecture/caching) for data and global resources. They allow your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations.
+Streamlit provides powerful [cache primitives](/develop/concepts/architecture/caching) for data and global resources. They allow your app to stay performant even when loading data from the web, manipulating large datasets, or performing expensive computations. With `refresh_mode="background"`, expired cache entries refresh in the background, so people don't wait for a slow query every time the cache expires. For more dashboard performance patterns, see [Build advanced dashboards](/develop/concepts/design/dashboards).
 
 <TileContainer>
 

@@ -40,13 +40,13 @@ _playground_!)
 
 <Tip>
 
-If you use an AI coding agent, install Streamlit's official agent skills so it follows current Streamlit APIs:
+If you use an AI coding agent, such as Claude Code, Cursor, Codex, or Snowflake CoCo, install Streamlit's official agent skills. They match your installed version, so your agent follows current Streamlit APIs and best practices:
 
 ```bash
 streamlit skills
 ```
 
-For details, see [`streamlit skills`](/develop/api-reference/cli/skills).
+Then invoke the `developing-with-streamlit` skill in your request, such as `/developing-with-streamlit Build a dashboard of weekly revenue by region` in Claude Code. For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
 
 </Tip>
 
@@ -94,7 +94,7 @@ of installing Python and setting up an environment.
 
 ### Option 2: I need something secure, controlled, and in the cloud
 
-Use Streamlit in Snowflake to code your apps in the cloud, right alongside your
+Use [Streamlit in Snowflake](https://www.snowflake.com/en/product/features/streamlit-in-snowflake/) to code your apps in the cloud, right alongside your
 data with role-based access controls.
 
 <IconLink

@@ -1,13 +1,13 @@
 ---
 title: st.dataframe
 slug: /develop/api-reference/data/st.dataframe
-description: st.dataframe displays a dataframe as an interactive table.
-keywords: dataframe, table, data, pandas, interactive, display, sort, search
+description: st.dataframe displays a dataframe as an interactive table, with sorting, search, column statistics, row selections for cross-filtering, and lazy loading for large data.
+keywords: dataframe, table, data, pandas, polars, interactive, display, sort, search, large data, lazy loading, selections, cross-filtering, dashboard
 ---
 
 <Tip>
 
-Learn more in our [Dataframes](/develop/concepts/design/dataframes) guide and check out our tutorial, [Get dataframe row-selections from users](/develop/tutorials/elements/dataframe-row-selections).
+Learn more in our [Dataframes](/develop/concepts/design/dataframes) guide and check out our tutorial, [Get dataframe row-selections from users](/develop/tutorials/elements/dataframe-row-selections). For lazy loading, cross-filtering, and drill-down in dashboards, see [Build advanced dashboards](/develop/concepts/design/dashboards).
 
 </Tip>
 

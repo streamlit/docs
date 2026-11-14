@@ -229,6 +229,15 @@ Session State provides the functionality to store variables across reruns. Widge
 
 For simplicity, we have _unified_ this information in one place. i.e. the Session State. This convenience feature makes it super easy to read or write to the widget's state anywhere in the app's code. Session State variables mirror the widget value using the `key` argument.
 
+<Tip>
+
+Widget keys do more than connect widgets to Session State:
+
+- With `bind="query-params"`, a keyed widget keeps its value in the page URL, so people can bookmark and share a filtered view. For dashboard patterns, see [Build advanced dashboards](/develop/concepts/design/dashboards).
+- When AI agents use your app through the [agent API](/develop/concepts/ai-agents/agent-access), give `key=` to every widget so agents can address it reliably. Without a key, agents use a generated ID that changes when the code or the widget's parameters change.
+
+</Tip>
+
 We illustrate this with the following example. Let's say we have an app with a slider to represent temperature in Celsius. We can **set** and **get** the value of the temperature widget by using the Session State API, as follows:
 
 ```python

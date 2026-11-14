@@ -2,12 +2,21 @@
 title: Streamlit in Snowflake
 slug: /deploy/snowflake
 description: Deploy Streamlit apps in Snowflake for enterprise-grade security and data integration with native apps and container services.
-keywords: snowflake, enterprise, security, data, native apps, container services, deployment
+keywords: snowflake, enterprise, security, data, native apps, container services, deployment, governed data, caller's rights, cortex ai, dashboards
 ---
 
 # Deploy Streamlit apps in Snowflake
 
 Host your apps alongside your data in a single, global platform. Snowflake provides industry-leading features that ensure the highest levels of security for your account, users, data, and apps. If you're looking for an enterprise hosting solution, try Snowflake!
+
+Streamlit is Snowflake's native framework for data apps. For an overview, see the [Streamlit in Snowflake product page](https://www.snowflake.com/en/product/features/streamlit-in-snowflake/).
+
+- **Your data stays in Snowflake.** Apps run under Snowflake's access controls, with their owner's rights, or with [caller's rights](/develop/api-reference/connections/st.connections.snowflakeconnection) through `st.connection("snowflake-callers-rights")` on the container runtime or serverless compute, so each viewer sees only the data they may see.
+- **CoCo builds the app.** Snowflake's coding agent, CoCo, builds Streamlit apps from a request in plain words with its bundled `developing-with-streamlit` skill, and converts Tableau workbooks into Streamlit in Snowflake apps with its `tableau-to-streamlit-in-snowflake` skill.
+- **Governed metrics and AI.** Apps can query semantic views and call Cortex AI.
+- **Modernize your BI dashboards.** Move the Power BI and Tableau dashboards your teams rely on to Streamlit. See [Coming from a BI tool?](/develop/concepts/design/dashboards#coming-from-a-bi-tool)
+
+For more, see [Why Streamlit](/get-started/why-streamlit#best-on-snowflake).
 
 <TileContainer>
     <Tile
