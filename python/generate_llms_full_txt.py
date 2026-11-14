@@ -3,8 +3,6 @@
 #   "python-frontmatter>=1.0.0",
 #   "markdown-it-py>=3.0.0",
 #   "semver>=3.0.0",
-#   "beautifulsoup4>=4.12.0",
-#   "lxml>=4.9.0",
 #   "pyyaml>=6.0.0",
 # ]
 # ///
@@ -25,7 +23,6 @@ import frontmatter
 from pathlib import Path
 from markdown_it import MarkdownIt
 import semver
-from bs4 import BeautifulSoup, Tag
 import yaml
 
 
@@ -247,9 +244,19 @@ def format_function_info(func_info: Dict[str, Any]) -> str:
     return "\n".join(markdown_parts)
 
 
+# An <Autofunction ... /> tag. Attribute values are quoted strings that may
+# themselves contain ">" (e.g. deprecatedText="<code>st.foo</code> ...").
+AUTOFUNCTION_TAG_RE = re.compile(r'<Autofunction\b(?:[^>"]|"[^"]*")*?/>')
+FUNCTION_ATTR_RE = re.compile(r'\bfunction="([^"]*)"')
+
+
 def replace_autofunction_tags(content: str, function_info: Dict[str, Any]) -> str:
     """
     Replace <Autofunction /> tags with actual function information.
+
+    Only the tags are replaced; the rest of the page is left as written.
+    (Parsing the page as XML instead drops everything after the first JSX
+    attribute, such as style={{...}}.)
 
     Args:
         content: The markdown content
@@ -258,40 +265,19 @@ def replace_autofunction_tags(content: str, function_info: Dict[str, Any]) -> st
     Returns:
         Modified content with Autofunction tags replaced
     """
-    # The function_info is the version data directly, functions are stored at the
-    # top level
-    streamlit_functions = function_info
 
-    # Find all Autofunction tags in the content
-    # We need to create valid HTML to parse, so we'll wrap the content in a
-    # container
-    soup = BeautifulSoup(f"<container>{content}</container>", "xml")
+    def replace(match: re.Match) -> str:
+        name_match = FUNCTION_ATTR_RE.search(match.group(0))
+        function_name = name_match.group(1) if name_match else None
+        if function_name and function_name in function_info:
+            formatted_info = format_function_info(function_info[function_name])
+            return f"\n{formatted_info}\n"
+        if function_name:
+            print(f"Warning: Function '{function_name}' not found in streamlit.json")
+        # If function not found, remove the tag but leave a placeholder
+        return f"[Function '{function_name}' not found]"
 
-    # Find all Autofunction tags (case-sensitive)
-    autofunction_tags = soup.find_all("Autofunction")
-
-    # Replace each tag with the function information
-    for tag in autofunction_tags:
-        function_name = tag.get("function")
-        if function_name and function_name in streamlit_functions:
-            # Format the function info as structured markdown
-            formatted_info = format_function_info(streamlit_functions[function_name])
-            tag.replace_with(f"\n{formatted_info}\n")
-        else:
-            if function_name:
-                print(
-                    f"Warning: Function '{function_name}' not found in streamlit.json"
-                )
-            # If function not found, remove the tag but leave a placeholder
-            tag.replace_with(f"[Function '{function_name}' not found]")
-
-    # Extract the content back, but skip the container tags
-    result = str(soup.container)
-    # Remove the container tags
-    if result.startswith("<container>") and result.endswith("</container>"):
-        result = result[11:-12]  # Remove <container> and </container>
-
-    return result
+    return AUTOFUNCTION_TAG_RE.sub(replace, content)
 
 
 def process_markdown_files(content_dir: Path) -> List[Dict[str, Optional[str]]]:
