@@ -18,6 +18,12 @@ As soon as you run the script as shown above, a local Streamlit server will
 spin up and your app will open in a new tab in your default web browser. The app
 is your canvas, where you'll draw charts, text, widgets, tables, and more.
 
+<Tip>
+
+Building with a coding agent, such as Claude Code, Cursor, Codex, or Snowflake CoCo? Run `streamlit skills` in your project, and your agent learns these concepts and Streamlit's current best practices for the version you installed. For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
+
+</Tip>
+
 What gets drawn in the app is up to you. For example
 [`st.text`](/develop/api-reference/text/st.text) writes raw text to your app, and
 [`st.line_chart`](/develop/api-reference/charts/st.line_chart) draws — you guessed it — a

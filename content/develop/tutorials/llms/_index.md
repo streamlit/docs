@@ -7,6 +7,8 @@ keywords: LLM apps, conversational apps, chat applications, chat interfaces, res
 
 # Build LLM apps
 
+Build AI assistants right into your data apps, with chat, streaming responses, and step-by-step progress. Connect them to any model, or to Cortex AI in Snowflake. Your apps can also serve other AI agents as tools over MCP. For details, see [Agent-accessible apps](/develop/concepts/ai-agents/agent-access).
+
 <TileContainer layout="list">
 
 <RefCard href="/develop/tutorials/llms/build-conversational-apps">

@@ -1,8 +1,8 @@
 ---
 title: Development concepts
 slug: /develop/concepts
-description: Explore comprehensive guides to Streamlit development concepts including architecture, app design, testing, configuration, connections, custom components, and multipage applications.
-keywords: streamlit concepts, development concepts, streamlit architecture, app design, streamlit testing, configuration, connections, custom components, multipage apps, streamlit fundamentals
+description: Explore comprehensive guides to Streamlit development concepts including architecture, building with AI agents, dashboards, app design, testing, configuration, connections, custom components, and multipage applications.
+keywords: streamlit concepts, ai agents, coding agents, mcp, dashboards, development concepts, streamlit architecture, app design, streamlit testing, configuration, connections, custom components, multipage apps, streamlit fundamentals
 ---
 
 # Development concepts
@@ -20,6 +20,17 @@ Streamlit's execution model makes it easy to turn your scripts into beautiful, i
 - Understand how to run your app.
 - Understand Streamlit's execution and client-server model.
 - Understand the primary tools to work with Streamlit reruns.
+
+</RefCard>
+
+<RefCard href="/develop/concepts/ai-agents" size="half">
+
+<h5>Build with AI agents</h5>
+
+Streamlit is the agent-native data app framework. Coding agents build your apps, and other agents use them as tools.
+
+- Set up your coding agent with Streamlit's bundled agent skills.
+- Let AI agents use your app over MCP, with the same logic as the browser and no more access.
 
 </RefCard>
 
@@ -42,6 +53,7 @@ interactic content for your users.
 
 - Learn how to make your apps performant and easy-to-manage.
 - Learn how to structure and design your project.
+- Learn how to build advanced dashboards and apps that write data back.
 
 </RefCard>
 

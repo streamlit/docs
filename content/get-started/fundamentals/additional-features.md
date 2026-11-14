@@ -2,7 +2,7 @@
 title: Additional Streamlit features
 slug: /get-started/fundamentals/additional-features
 description: Explore additional Streamlit features including theming, multipage apps, fragments, custom components, AI coding skills, and advanced UI customization options.
-keywords: additional features, theming, multipage apps, fragments, custom components, UI customization, advanced features, streamlit extras, ai skills
+keywords: additional features, theming, multipage apps, fragments, custom components, UI customization, advanced features, streamlit extras, ai skills, ai agents, coding agents, agent skills, mcp
 ---
 
 # Additional Streamlit features
@@ -115,15 +115,17 @@ Now run `streamlit run streamlit_app.py` and view your shiny new multipage app! 
 
 Our documentation on [Multipage apps](/develop/concepts/multipage-apps) teaches you how to add pages to your app, including how to define pages, structure and run multipage apps, and navigate between pages. Once you understand the basics, [create your first multipage app](/get-started/tutorials/create-a-multipage-app)!
 
-## AI coding skills
+## AI agents
 
-Streamlit bundles official skills for AI coding agents. Install them in your project so your agent follows current Streamlit APIs:
+Streamlit is built for coding agents. It bundles official skills for AI coding agents, written by the team that builds Streamlit and matched to your installed version. Install them in your project so your agent follows current Streamlit APIs and best practices:
 
 ```bash
 streamlit skills
 ```
 
-Use `streamlit skills --global` to install them once for every project on your machine. For details, see [`streamlit skills`](/develop/api-reference/cli/skills).
+Use `streamlit skills --global` to install them once for every project on your machine. For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
+
+Your apps can also serve AI agents. When you turn on the experimental agent API, agents can use your app as a tool over MCP, through the same logic as the browser and with no more access. For details, see [Agent-accessible apps](/develop/concepts/ai-agents/agent-access).
 
 ## Custom components
 

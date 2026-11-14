@@ -4,6 +4,8 @@ site_menu:
     url: /get-started
     color: orange-70
     icon: rocket_launch
+  - category: Get started / Why Streamlit
+    url: /get-started/why-streamlit
   - category: Get started / Installation
     url: /get-started/installation
   - category: Get started / Installation / LOCAL DEVELOPMENT
@@ -61,6 +63,12 @@ site_menu:
     url: /develop/concepts/architecture/fragments
   - category: Develop / Concepts / Architecture and execution/ Widget behavior
     url: /develop/concepts/architecture/widget-behavior
+  - category: Develop / Concepts / Build with AI agents
+    url: /develop/concepts/ai-agents
+  - category: Develop / Concepts / Build with AI agents / Build with coding agents
+    url: /develop/concepts/ai-agents/coding-agents
+  - category: Develop / Concepts / Build with AI agents / Agent-accessible apps
+    url: /develop/concepts/ai-agents/agent-access
   - category: Develop / Concepts / Multipage apps
     url: /develop/concepts/multipage-apps
   - category: Develop / Concepts / Multipage apps / Overview
@@ -77,6 +85,10 @@ site_menu:
     url: /develop/concepts/design/best-practices
   - category: Develop / Concepts / App design / Using layouts and containers
     url: /develop/concepts/design/layouts-and-containers
+  - category: Develop / Concepts / App design / Build advanced dashboards
+    url: /develop/concepts/design/dashboards
+  - category: Develop / Concepts / App design / Edit and write back data
+    url: /develop/concepts/design/writeback
   - category: Develop / Concepts / App design / Update and replace elements
     url: /develop/concepts/design/animate
   - category: Develop / Concepts / App design / Button behavior and examples

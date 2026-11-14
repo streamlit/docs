@@ -1,8 +1,8 @@
 ---
 title: App design concepts and considerations
 slug: /develop/concepts/design
-description: Explore comprehensive guides about app design including best practices, charts, performance, layouts and containers, updating elements, button behavior, custom styling, dataframe design, multithreading, and timezone handling.
-keywords: app design, best practices, charts, performance, streamlit design, ui design, layouts, containers, button behavior, custom styling, dataframes, multithreading, timezone handling, app layout, user experience
+description: Explore comprehensive guides about app design including best practices, charts, performance, advanced dashboards, editing and writing back data, layouts and containers, updating elements, button behavior, custom styling, dataframe design, multithreading, and timezone handling.
+keywords: app design, best practices, charts, performance, dashboards, advanced dashboards, writeback, editable tables, BI dashboards, streamlit design, ui design, layouts, containers, button behavior, custom styling, dataframes, multithreading, timezone handling, app layout, user experience
 ---
 
 # App design concepts and considerations
@@ -14,6 +14,22 @@ keywords: app design, best practices, charts, performance, streamlit design, ui 
 <h5>Best practices for building Streamlit apps</h5>
 
 Follow recommended patterns for styling, layout, widgets, navigation, state, security, and type checking.
+
+</RefCard>
+
+<RefCard href="/develop/concepts/design/dashboards">
+
+<h5>Build advanced dashboards</h5>
+
+Build fast, interactive dashboards over large data with lazy-loading tables, background cache refresh, partial reruns, cross-filtering, and shareable views. Learn how to move Power BI and Tableau dashboards to Streamlit and modernize them on the way.
+
+</RefCard>
+
+<RefCard href="/develop/concepts/design/writeback">
+
+<h5>Edit and write back data</h5>
+
+Build apps that act: review and approval queues, sign-offs, and planning input with editable tables, forms, validation, and writeback.
 
 </RefCard>
 

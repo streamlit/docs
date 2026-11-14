@@ -1,16 +1,21 @@
 ---
 title: Get started with Streamlit
 slug: /get-started
-description: Get started with Streamlit, from installation to your first app.
+description: Get started with Streamlit, the agent-native Python framework for data apps and dashboards. Learn why teams choose Streamlit, install it, set up your coding agent, and build your first app.
 keywords: get started, installation, fundamentals, tutorial, first app, beginner, streamlit
 ---
 
 # Get started with Streamlit
 
-This Get Started guide explains how Streamlit works, how to install Streamlit on your preferred
-operating system, and how to create your first Streamlit app!
+Streamlit is the agent-native, open-source Python framework for data apps and dashboards. Build apps in Python yourself, or with your coding agent. This Get Started guide explains why teams choose Streamlit, how it works, how to install it on your preferred operating system, and how to create your first Streamlit app!
 
 <InlineCalloutContainer>
+    <InlineCallout
+        color="orange-70"
+        icon="verified"
+        bold="Why Streamlit"
+        href="/get-started/why-streamlit"
+    >explains what teams build with Streamlit, how it compares to a custom React stack or a BI tool such as Power BI or Tableau, and why coding agents build Streamlit apps well.</InlineCallout>
     <InlineCallout
         color="orange-70"
         icon="downloading"

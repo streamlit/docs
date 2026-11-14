@@ -11,6 +11,12 @@ Streamlit app testing framework enables developers to build and run headless tes
 
 The provided class, AppTest, simulates a running app and provides methods to set up, manipulate, and inspect the app contents via API instead of a browser UI. It can be used to write automated tests of an app in various scenarios. These can then be run using a tool like pytest. A typical pattern is to build a suite of tests for an app that ensure consistent functionality as the app evolves, and run the tests locally and/or in a CI environment like Github Actions.
 
+<Tip>
+
+Coding agents with Streamlit's [agent skills](/develop/api-reference/cli/skills) can write `AppTest` tests when you ask them to. While they work, they can also check the running app without a browser through the [agent API](/develop/concepts/ai-agents/coding-agents#let-agents-check-their-own-work), then keep the checks that matter as tests.
+
+</Tip>
+
 ## The AppTest class
 
 <TileContainer>

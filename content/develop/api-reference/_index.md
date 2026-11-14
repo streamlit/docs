@@ -1,16 +1,23 @@
 ---
 title: API Reference
 slug: /develop/api-reference
-description: Visually explore a gallery of Streamlit's API.
+description: Visually explore a gallery of Streamlit's API, with built-in widgets, charts, data tables, layouts, chat, caching, state, sign-in, theming, and testing for data apps and dashboards.
 keywords: api, reference, functions, documentation, streamlit, components, widgets, charts
 ---
 
 # API reference
 
-Streamlit makes it easy for you to visualize, mutate, and share data. The API
-reference is organized by activity type, like displaying data or optimizing
-performance. Each section includes methods associated with the activity type,
-including examples.
+Streamlit is batteries-included: widgets, charts, data tables, forms, layouts,
+navigation, state, caching, sign-in, theming, chat, and testing are built in and
+work together, with no separate frontend or API layer. The API reference is
+organized by activity type, like displaying data or optimizing performance. Each
+section includes methods associated with the activity type, including examples.
+
+<Tip>
+
+Building with a coding agent? Run [`streamlit skills`](/develop/api-reference/cli/skills) in your project so your agent uses the current API for your installed version. For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
+
+</Tip>
 
 Browse our API below and click to learn more about any of our available commands! 🎈
 

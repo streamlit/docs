@@ -153,6 +153,12 @@ Notice how edits to the table are reflected in Session State. When you make any 
 
 `st.data_editor` does not support reordering rows, so added rows will always be appended to the end of the dataframe with any edits and deletions applicable to the original rows.
 
+<Tip>
+
+To save edits to a database, such as in a review or approval queue, see [Edit and write back data](/develop/concepts/design/writeback).
+
+</Tip>
+
 ### Bulk edits
 
 The data editor includes a feature that allows for bulk editing of cells. Similar to Excel, you can drag a handle across a selection of cells to edit their values in bulk. You can even apply commonly used [keyboard shortcuts](https://github.com/glideapps/glide-data-grid/blob/main/packages/core/API.md#keybindings) in spreadsheet software. This is useful when you need to make the same change across multiple cells, rather than editing each cell individually.
@@ -274,6 +280,8 @@ Streamlit doesn't automatically use lazy loading for `pandas.Styler` objects, da
 To send in-memory data to the browser all at once, set `lazy=False`. For unevaluated data objects, including a Polars `LazyFrame`, `lazy=False` shows only the first 10,000 rows. To use lazy loading for smaller datasets, set `lazy=True`. Data with 1,000 rows or fewer is still sent all at once. For more information, see the `lazy` parameter of [`st.dataframe`](/develop/api-reference/data/st.dataframe). `st.data_editor` doesn't support lazy loading.
 
 When Streamlit sends more than 150,000 rows to the browser, such as with `st.data_editor` or `lazy=False`, it applies additional optimizations and disables column sorting and CSV download. This can help to reduce the amount of data that needs to be processed at once and improve the app's performance.
+
+For more ways to keep dashboards over large data fast, such as background cache refresh and parallel fragments, see [Build advanced dashboards](/develop/concepts/design/dashboards).
 
 ## Limitations
 

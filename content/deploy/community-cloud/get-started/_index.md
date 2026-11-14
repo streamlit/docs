@@ -9,6 +9,12 @@ keywords: get started, community cloud, account, github, deploy, quickstart, wor
 
 Welcome to Streamlit Community Cloud, where you can share your Streamlit apps with the world! Whether you've already created your first Streamlit app or you're just getting started, you're in the right place.
 
+<Tip>
+
+Building your app with a coding agent? Run [`streamlit skills`](/develop/api-reference/cli/skills) in your project. The bundled skills help your agent build and test your app before you deploy it. For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
+
+</Tip>
+
 First things first, you need to create your Streamlit Community Cloud account to start deploying apps.
 
 <TileContainer>

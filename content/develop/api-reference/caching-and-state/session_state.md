@@ -90,6 +90,15 @@ st.text_input("Your name", key="name")
 st.session_state.name
 ```
 
+<Tip>
+
+Widget keys do more than connect widgets to Session State:
+
+- With `bind="query-params"`, a keyed widget keeps its value in the page URL, so people can bookmark and share a filtered view. For dashboard patterns, see [Build advanced dashboards](/develop/concepts/design/dashboards).
+- When AI agents use your app through the [agent API](/develop/concepts/ai-agents/agent-access), give `key=` to every widget so agents can address it reliably. Without a key, agents use a generated ID that changes when the code or the widget's parameters change.
+
+</Tip>
+
 ### Use Callbacks to update Session State
 
 A callback is a python function which gets called when an input widget changes.

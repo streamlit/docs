@@ -11,6 +11,12 @@ Streamlit app testing enables developers to build and run automated tests. Bring
 
 The provided class, AppTest, simulates a running app and provides methods to set up, manipulate, and inspect the app contents via API instead of a browser UI. AppTest provides similar functionality to browser automation tools like Selenium or Playwright, but with less overhead to write and execute tests. Use our testing framework with a tool like [pytest](https://docs.pytest.org/) to execute or automate your tests. A typical pattern is to build a suite of tests for an app to ensure consistent functionality as the app evolves. The tests run locally and/or in a CI environment like GitHub Actions.
 
+<Tip>
+
+Coding agents with Streamlit's [agent skills](/develop/api-reference/cli/skills) can write `AppTest` tests when you ask them to. While they work, they can also check the running app without a browser through the agent API. For details, see [Build with coding agents](/develop/concepts/ai-agents/coding-agents).
+
+</Tip>
+
 <InlineCalloutContainer>
     <InlineCallout
         color="indigo-70"

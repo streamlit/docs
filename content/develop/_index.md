@@ -1,13 +1,13 @@
 ---
 title: Develop
 slug: /develop
-description: Complete development resources for building beautiful, performant web apps with Streamlit including concepts, API reference, tutorials, and quick references.
-keywords: develop, development, api, concepts, tutorials, reference, streamlit, web apps
+description: Complete development resources for building production data apps and dashboards with Streamlit, yourself or with your coding agent, including concepts, API reference, tutorials, and quick references.
+keywords: develop, development, data apps, dashboards, ai agents, api, concepts, tutorials, reference, streamlit, web apps
 ---
 
 # Develop
 
-Get all the information you need to build beautiful, performant web apps with Streamlit!
+Get all the information you need to build production data apps and dashboards with Streamlit, yourself or with your coding agent!
 
 <InlineCalloutContainer>
     <InlineCallout
