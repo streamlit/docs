@@ -156,3 +156,16 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 </DataSourcesCard>
 </DataSourcesContainer>
+
+## Redis SQL through ADBC
+
+A Streamlit Python app can use the external
+[Redis ADBC driver](https://github.com/redis/redis-adbc-driver) to fetch SQL
+results as Arrow tables and display them with `st.dataframe`.
+
+The [Redis ADBC Streamlit guide](https://github.com/redis/redis-adbc-driver/blob/a48432273a0f9978e893bca27057b9f128e7603e/docs/integrations/streamlit.md)
+covers installation, connection setup, a complete app with a bound-filter
+input, and connection/table cleanup. Redis must run separately with Search
+enabled. This is a custom Python integration rather than a built-in
+`st.connection` backend. The linked validation covers AppTest execution and an
+input rerun; hosted deployments and browser interaction remain unverified.
