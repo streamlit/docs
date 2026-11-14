@@ -48,7 +48,7 @@ To see the example below running live, check out the interactive demo below:
 
 #### Step 1: Install prerequisite library - SQLAlchemy
 
-All SQLConnections in Streamlit use SQLAlchemy. You can install a compatible version of SQLAlchemy (version 2.0 or later) with the `sql` extra. For most other SQL dialects, you also need to install the driver. But the [SQLite driver ships with python3](https://docs.python.org/3/develop/sqlite3.html), so it isn't necessary.
+All SQLConnections in Streamlit use SQLAlchemy. You can install a compatible version of SQLAlchemy (version 2.0 or later) with the `sql` extra. For most other SQL dialects, you also need to install the driver. But the [SQLite driver ships with python3](https://docs.python.org/3/library/sqlite3.html), so it isn't necessary.
 
 ```bash
 pip install "streamlit[sql]"
