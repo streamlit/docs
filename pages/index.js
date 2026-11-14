@@ -119,7 +119,7 @@ export default function Home({ window, menu }) {
               </RefCard>
               <RefCard
                 size="third"
-                href="https://bi-dashboard-example.streamlit.app/"
+                href="https://advanced-dashboard-demo.streamlit.app/"
               >
                 <i className="material-icons-sharp">dashboard</i>
                 <h4>Advanced dashboards</h4>

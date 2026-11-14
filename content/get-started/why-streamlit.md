@@ -48,9 +48,9 @@ KPI and operating dashboards with drill-down, cross-filtered views over large ta
 
 For teams on Power BI or Tableau, move your dashboards to Streamlit, and modernize them on the way. See [Coming from a BI tool?](#coming-from-a-bi-tool)
 
-<Cloud name="bi-dashboard-example" height="640px" />
+<Cloud name="advanced-dashboard-demo" height="640px" />
 
-- Try the demo: [bi-dashboard-example.streamlit.app](https://bi-dashboard-example.streamlit.app/)
+- Try the demo: [advanced-dashboard-demo.streamlit.app](https://advanced-dashboard-demo.streamlit.app/)
 - Key features: lazy-loading [`st.dataframe`](/develop/api-reference/data/st.dataframe), `refresh_mode="background"` for [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data), chart and table selections for cross-filtering, widgets bound to the URL with `bind="query-params"`, and [`st.grid`](/develop/api-reference/layout/st.grid) for responsive layouts. To learn more, see [Build advanced dashboards](/develop/concepts/design/dashboards).
 
 ## Built for coding agents

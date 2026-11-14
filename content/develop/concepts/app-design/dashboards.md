@@ -11,9 +11,9 @@ Streamlit is built and tuned for demanding dashboards: KPI and operating dashboa
 
 Because a dashboard is plain Python, it can also do what a report can't: run forecasts and models, call AI, and let people write decisions back. The query, the logic, and the number on screen sit side by side, so your data team can review every number.
 
-To see these features together, try the [BI dashboard demo](https://bi-dashboard-example.streamlit.app/):
+To see these features together, try the [advanced dashboard demo](https://advanced-dashboard-demo.streamlit.app/):
 
-<Cloud name="bi-dashboard-example" height="640px" />
+<Cloud name="advanced-dashboard-demo" height="640px" />
 
 <Tip>
 
