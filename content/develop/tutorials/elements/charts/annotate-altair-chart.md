@@ -267,7 +267,7 @@ Now that you have the first chart that shows the data, you can annotate it with 
    )
    ```
 
-   The `dx=-10, dy=0` inside of `.mark_text()` offsets the icons so they are centered at the coordinate in your annotations dataframe. The four columns are passed to the chart through the `.encode()` method. If you want to use the same marker for all points, you can remove `text="marker"` from the `.encode()` method and add the marker to `.mark_text()`. For example, `.mark_text(text="🥳")` would make all the icons be "🥳". For more information about `.mark_text()`, see Altair's [documentation](https://altair-viz.github.io/user_guide/marks.html).
+   The `dx=-10, dy=0` inside of `.mark_text()` offsets the icons so they are centered at the coordinate in your annotations dataframe. The four columns are passed to the chart through the `.encode()` method. If you want to use the same marker for all points, you can remove `text="marker"` from the `.encode()` method and add the marker to `.mark_text()`. For example, `.mark_text(text="🥳")` would make all the icons be "🥳". For more information about `.mark_text()`, see Altair's [documentation](https://altair-viz.github.io/user_guide/marks/index.html).
 
 ### Combine the chart layers
 
