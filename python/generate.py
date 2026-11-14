@@ -470,7 +470,9 @@ def get_sig_string_without_annots(func):
             elif type(param.default) is type or callable(param.default):
                 def_value = f"special_internal_function"
             else:
-                def_value = param.default
+                # A module default, like st.help's obj=streamlit, would
+                # otherwise print its repr with a local file path.
+                def_value = utils.normalize_module_reprs(f"{param.default}")
 
             args.append(f"{name}={def_value}")
 
