@@ -1,13 +1,19 @@
 ---
-title: Creating multipage apps using the `pages/` directory
+title: Creating multipage apps using the `pages/` directory (legacy)
 slug: /develop/concepts/multipage-apps/pages-directory
-description: Learn how to create multipage Streamlit apps using the simple pages/ directory approach with automatic page recognition and sidebar navigation.
-keywords: pages directory, multipage apps, automatic navigation, sidebar navigation, page organization, simple multipage, directory structure
+description: Learn how the legacy pages/ directory creates multipage Streamlit apps with automatic page recognition and sidebar navigation, and why to use st.navigation instead.
+keywords: pages directory, legacy, multipage apps, automatic navigation, sidebar navigation, page organization, simple multipage, directory structure
 ---
 
-# Creating multipage apps using the `pages/` directory
+# Creating multipage apps using the `pages/` directory (legacy)
 
-The most customizable method for declaring multipage apps is using [Page and navigation](/develop/concepts/multipage-apps/page-and-navigation). However, Streamlit also provides a frictionless way to create multipage apps where pages are automatically recognized and shown in a navigation widget inside your app's sidebar. This method uses the `pages/` directory.
+<Important>
+
+The `pages/` directory is a legacy way to create multipage apps. For new apps, use [`st.Page` and `st.navigation`](/develop/concepts/multipage-apps/page-and-navigation), which give you full control over your page labels, icons, URLs, order, and navigation menu.
+
+</Important>
+
+With the legacy `pages/` directory, Streamlit automatically recognizes pages from your files and shows them in a navigation widget inside your app's sidebar. This page describes how the `pages/` directory works, for maintaining existing apps.
 
 This page assumes you understand the [Page terminology](/develop/concepts/multipage-apps/overview#page-terminology) presented in the overview.
 

@@ -259,7 +259,7 @@ Streamlit **does not allow** setting widget values via the Session State API for
 - File and media inputs: `st.file_uploader`, `st.camera_input`, and `st.audio_input`.
 - `st.data_editor`.
 - The `key` of `st.form`.
-- Chart selections in `st.altair_chart`, `st.vega_lite_chart`, `st.plotly_chart`, and `st.pydeck_chart`.
+- Chart selections in `st.altair_chart`, `st.vega_lite_chart`, `st.echarts_chart`, `st.plotly_chart`, and `st.pydeck_chart`.
 
 </Important>
 

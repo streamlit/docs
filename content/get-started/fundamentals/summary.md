@@ -17,6 +17,6 @@ the loop and review how it works together:
    - The output value of that widget matches the new value during that rerun.
 1. Scripts use the Streamlit cache to avoid recomputing expensive functions, so updates happen very fast.
 1. Session State lets you save information that persists between reruns when you need more than a simple widget.
-1. Streamlit apps can contain multiple pages, which are defined in separate `.py` files in a `pages` folder.
+1. Streamlit apps can contain multiple pages. Define each page with `st.Page`, and connect them with `st.navigation` in your entrypoint file.
 
 ![The Streamlit app model](/images/app_model.png)

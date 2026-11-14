@@ -67,12 +67,14 @@ site_menu:
     url: /develop/concepts/multipage-apps/overview
   - category: Develop / Concepts / Multipage apps / Page and navigation
     url: /develop/concepts/multipage-apps/page-and-navigation
-  - category: Develop / Concepts / Multipage apps / Pages directory
+  - category: Develop / Concepts / Multipage apps / Pages directory (legacy)
     url: /develop/concepts/multipage-apps/pages-directory
   - category: Develop / Concepts / Multipage apps / Working with widgets
     url: /develop/concepts/multipage-apps/widgets
   - category: Develop / Concepts / App design
     url: /develop/concepts/design
+  - category: Develop / Concepts / App design / Best practices
+    url: /develop/concepts/design/best-practices
   - category: Develop / Concepts / App design / Using layouts and containers
     url: /develop/concepts/design/layouts-and-containers
   - category: Develop / Concepts / App design / Update and replace elements
@@ -81,6 +83,10 @@ site_menu:
     url: /develop/concepts/design/buttons
   - category: Develop / Concepts / App design / Dataframes
     url: /develop/concepts/design/dataframes
+  - category: Develop / Concepts / App design / Choosing and using charts
+    url: /develop/concepts/design/charts
+  - category: Develop / Concepts / App design / Optimizing app performance
+    url: /develop/concepts/design/performance
   - category: Develop / Concepts / App design / Multithreading
     url: /develop/concepts/design/multithreading
   - category: Develop / Concepts / App design / Using custom classes
@@ -154,6 +160,8 @@ site_menu:
     url: /develop/concepts/configuration/https-support
   - category: Develop / Concepts / Configuration and theming / Serving static files
     url: /develop/concepts/configuration/serving-static-files
+  - category: Develop / Concepts / Configuration and theming / Agent API and MCP server
+    url: /develop/concepts/configuration/agent-api-mcp
   - category: Develop / Concepts / Configuration and theming / THEMING
   - category: Develop / Concepts / Configuration and theming / Customize your theme
     url: /develop/concepts/configuration/theming
@@ -718,9 +726,6 @@ site_menu:
     url: /develop/tutorials/multipage
   - category: Develop / Tutorials / Multipage apps / Dynamic navigation
     url: /develop/tutorials/multipage/dynamic-navigation
-  - category: Develop / Tutorials / Multipage apps / Build navigation with st.page_link
-    url: /develop/tutorials/multipage/st.page_link-nav
-    visible: false
   - category: Develop / Quick reference
     url: /develop/quick-reference
   - category: Develop / Quick reference / Cheat sheet

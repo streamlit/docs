@@ -333,4 +333,4 @@ def show_latest_data():
 
 Try adjusting the frequency of data generation or how much data is kept in Session State. Within `get_recent_data` try setting `sample_time` with a widget.
 
-Try using [st.plotly_chart](/develop/api-reference/charts/st.plotly_chart) or [st.altair_chart](/develop/api-reference/charts/st.altair_chart) to add labels to your chart.
+Try using [st.altair_chart](/develop/api-reference/charts/st.altair_chart) or [st.echarts_chart](/develop/api-reference/charts/st.echarts_chart) to add labels to your chart.

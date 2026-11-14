@@ -1,13 +1,21 @@
 ---
 title: App design concepts and considerations
 slug: /develop/concepts/design
-description: Explore comprehensive guides about app design including layouts and containers, updating elements, button behavior, custom styling, dataframe design, multithreading, and timezone handling.
-keywords: app design, streamlit design, ui design, layouts, containers, button behavior, custom styling, dataframes, multithreading, timezone handling, app layout, user experience
+description: Explore comprehensive guides about app design including best practices, charts, performance, layouts and containers, updating elements, button behavior, custom styling, dataframe design, multithreading, and timezone handling.
+keywords: app design, best practices, charts, performance, streamlit design, ui design, layouts, containers, button behavior, custom styling, dataframes, multithreading, timezone handling, app layout, user experience
 ---
 
 # App design concepts and considerations
 
 <TileContainer layout="list">
+
+<RefCard href="/develop/concepts/design/best-practices">
+
+<h5>Best practices for building Streamlit apps</h5>
+
+Follow recommended patterns for styling, layout, widgets, navigation, state, security, and type checking.
+
+</RefCard>
 
 <RefCard href="/develop/concepts/design/layouts-and-containers">
 
@@ -38,6 +46,22 @@ Understand how buttons work with explanations and examples to avoid common mista
 <h5>Dataframes</h5>
 
 Dataframes are a great way to display and edit data in a tabular format. Understand the UI and options available in Streamlit.
+
+</RefCard>
+
+<RefCard href="/develop/concepts/design/charts">
+
+<h5>Choosing and using charts</h5>
+
+Pick the right chart command, keep charts consistent, use chart selections, and chart large datasets.
+
+</RefCard>
+
+<RefCard href="/develop/concepts/design/performance">
+
+<h5>Optimizing app performance</h5>
+
+Make your app fast and responsive with caching, fragments, forms, render order, and loading states.
 
 </RefCard>
 

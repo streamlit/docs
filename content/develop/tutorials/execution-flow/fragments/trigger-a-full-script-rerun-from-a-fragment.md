@@ -535,4 +535,4 @@ Now, you have a functioning app that uses a fragment to prevent unnecessarily re
 
 ## Next steps
 
-Continue beautifying the example. Try using [`st.plotly_chart`](/develop/api-reference/charts/st.plotly_chart) or [`st.altair_chart`](/develop/api-reference/charts/st.altair_chart) to add labels to your charts and adjust their height.
+Continue beautifying the example. Try using [`st.altair_chart`](/develop/api-reference/charts/st.altair_chart) or [`st.echarts_chart`](/develop/api-reference/charts/st.echarts_chart) to add labels to your charts and adjust their height.

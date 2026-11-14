@@ -1,23 +1,29 @@
 ---
 title: Overview of multipage apps
 slug: /develop/concepts/multipage-apps/overview
-description: Learn about Streamlit's features for creating multipage apps using st.navigation, st.Page, and the pages directory with automatic navigation.
+description: Learn about Streamlit's features for creating multipage apps using st.navigation and st.Page, and the legacy pages directory.
 keywords: multipage, navigation, pages, st.navigation, st.Page, routing, sidebar
 ---
 
 # Overview of multipage apps
 
-Streamlit provides two built-in mechanisms for creating multipage apps. The simplest method is to use a `pages/` directory. However, the preferred and more customizable method is to use `st.navigation`.
+Streamlit provides two built-in mechanisms for creating multipage apps. Use `st.Page` and `st.navigation` to define your pages and navigation. The `pages/` directory is a legacy mechanism that Streamlit still supports for existing apps.
 
 ## `st.Page` and `st.navigation`
 
-If you want maximum flexibility in defining your multipage app, we recommend using `st.Page` and `st.navigation`. With `st.Page` you can declare any Python file or `Callable` as a page in your app, or add an external URL to your navigation menu. Furthermore, you can define common elements for your pages in your entrypoint file (the file you pass to `streamlit run`). With these methods, your entrypoint file becomes like a picture frame shared by all your pages.
+We recommend using `st.Page` and `st.navigation` for all multipage apps. With `st.Page` you can declare any Python file or `Callable` as a page in your app, or add an external URL to your navigation menu. Furthermore, you can define common elements for your pages in your entrypoint file (the file you pass to `streamlit run`). With these methods, your entrypoint file becomes like a picture frame shared by all your pages.
 
 You must include `st.navigation` in your entrypoint file to configure your app's navigation menu. This is also how your entrypoint file serves as the router between your pages.
 
-## `pages/` directory
+## `pages/` directory (legacy)
 
-If you're looking for a quick and simple solution, just place a `pages/` directory next to your entrypoint file. For every Python file in your `pages/` directory, Streamlit will create an additional page for your app. Streamlit determines the page labels and URLs from the file name and automatically populates a navigation menu at the top of your app's sidebar.
+<Important>
+
+The `pages/` directory is a legacy way to create multipage apps. For new apps, use [`st.Page` and `st.navigation`](/develop/concepts/multipage-apps/page-and-navigation), which give you full control over your page labels, icons, URLs, order, and navigation menu.
+
+</Important>
+
+When you place a `pages/` directory next to your entrypoint file, Streamlit creates an additional page for every Python file in your `pages/` directory. Streamlit determines the page labels and URLs from the file name and automatically populates a navigation menu at the top of your app's sidebar.
 
 ```
 your_working_directory/
@@ -51,7 +57,7 @@ Typically, the page icon and favicon are the same, but it's possible make them d
 
 ## Automatic page labels and URLs
 
-If you use `st.Page` without declaring the page title or URL pathname, Streamlit falls back on automatically determining the page label, title, and URL pathname in the same manner as when you use a `pages/` directory with the default navigation menu. This section describes this naming convention which is shared between the two approaches to multipage apps.
+If you use `st.Page` without declaring the page title or URL pathname, Streamlit falls back on automatically determining the page label, title, and URL pathname in the same manner as the legacy `pages/` directory. This section describes this naming convention which is shared between the two approaches to multipage apps.
 
 ### Parts of filenames and callables
 
@@ -96,7 +102,7 @@ For each filename in the list above, the URL pathname would be "Awesome_page" re
 
 ## Navigating between pages
 
-The primary way users navigate between pages is through the navigation widget. Both methods for defining multipage apps include a default navigation menu that appears in the sidebar. When a user clicks this navigation widget, the app reruns and loads the selected page. Optionally, you can hide the default navigation UI and build your own with [`st.page_link`](/develop/api-reference/widgets/st.page_link). For more information, see [Build a custom navigation menu with `st.page_link`](/develop/tutorials/multipage/st.page_link-nav).
+The primary way users navigate between pages is through the navigation widget. Both methods for defining multipage apps include a default navigation menu that appears in the sidebar. When a user clicks this navigation widget, the app reruns and loads the selected page. Optionally, you can hide the default navigation UI with `st.navigation(..., position="hidden")` and build your own with [`st.page_link`](/develop/api-reference/widgets/st.page_link). For an example of navigation that changes with the user, see [Create a dynamic navigation menu](/develop/tutorials/multipage/dynamic-navigation).
 
 If you need to programmatically switch pages, use [`st.switch_page`](/develop/api-reference/navigation/st.switch_page).
 
