@@ -167,7 +167,7 @@ Make sure your [Kubernetes client](https://kubernetes.io/docs/tasks/tools/#kubec
 
 ### Configure a Google OAuth Client and OAuth2-Proxy
 
-For configuring the Google OAuth Client, please see [Google Auth Provider](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oauth_provider#google-auth-provider). Configure OAuth2-Proxy to use the desired [OAuth Provider Configuration](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oauth_provider) and update the OAuth2-Proxy config in the config map.
+For configuring the Google OAuth Client, please see [Google Auth Provider](https://oauth2-proxy.github.io/oauth2-proxy/configuration/providers/google/). Configure OAuth2-Proxy to use the desired [OAuth Provider Configuration](https://oauth2-proxy.github.io/oauth2-proxy/configuration/providers/) and update the OAuth2-Proxy config in the config map.
 
 The below configuration contains an OAuth2-Proxy sidecar container which handles the authentication with Google. You can learn more from the [`oauth2-proxy` repository](https://github.com/oauth2-proxy/oauth2-proxy).
 
@@ -285,7 +285,7 @@ kubectl create -f k8s-streamlit.yaml
 
 ### Set up TLS support
 
-Since you are using the Google authentication, you will need to set up TLS support. Find out how in [TLS Configuration](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/tls).
+Since you are using the Google authentication, you will need to set up TLS support. Find out how in [TLS Configuration](https://oauth2-proxy.github.io/oauth2-proxy/configuration/tls/).
 
 ### Verify the deployment
 
