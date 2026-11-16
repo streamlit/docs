@@ -694,6 +694,8 @@ site_menu:
     url: /develop/tutorials/databases/neon
   - category: Develop / Tutorials / Connect to data sources / PostgreSQL
     url: /develop/tutorials/databases/postgresql
+  - category: Develop / Tutorials / Connect to data sources / Prisma Postgres
+    url: /develop/tutorials/databases/prisma-postgres
   - category: Develop / Tutorials / Connect to data sources / Private Google Sheet
     url: /develop/tutorials/databases/private-gsheet
   - category: Develop / Tutorials / Connect to data sources / Public Google Sheet
